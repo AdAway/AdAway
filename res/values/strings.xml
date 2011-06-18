@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AdAway</string>
+    <string name="no_root">Your currently running Android operating system is not rooted. Find more information about how to root your device on www.cyanogenmod.com or other Android websites. Either the BusyBox or su binary could not be found.</string>
+    <string name="cyanogenmod_button">Visit www.cyanogenmod.com</string>
+    <string name="exit_button">Exit</string>
+    <string name="no_root_title">Rooted Android required</string>
+    <string name="apply_button">Check and apply</string>
+    <string name="download_button">Download hostname files</string>
+    <string name="no_connection">Either the connection to the internet is not enabled or the file your want to download is not available. Please check the used hostname files in your preferences.</string>
+    <string name="no_connection_title">No Connection</string>
+    <string name="close_button">Close</string>
+    <string name="download_dialog">Download:\n</string>
+    <string name="menu_hostname_files">Hostname files</string>
+    <string name="menu_help">Help</string>
+</resources>
