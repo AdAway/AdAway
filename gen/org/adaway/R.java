@@ -15,15 +15,17 @@ public final class R {
     }
     public static final class id {
         public static final int apply_button=0x7f060006;
-        public static final int cyanogenmod_button=0x7f060008;
+        public static final int cyanogenmod_button=0x7f060009;
         public static final int download_button=0x7f060005;
-        public static final int exit_button=0x7f060009;
+        public static final int exit_button=0x7f06000a;
         public static final int listView1=0x7f060000;
         public static final int logo_image=0x7f060003;
         public static final int logo_text=0x7f060004;
-        public static final int menu_help=0x7f06000b;
-        public static final int menu_hostname_files=0x7f06000a;
-        public static final int no_root_text=0x7f060007;
+        public static final int menu_help=0x7f06000d;
+        public static final int menu_hostname_files=0x7f06000b;
+        public static final int menu_preferences=0x7f06000c;
+        public static final int no_root_text=0x7f060008;
+        public static final int revert_button=0x7f060007;
         public static final int tableLayout1=0x7f060001;
         public static final int tableRow1=0x7f060002;
     }
@@ -38,6 +40,10 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f040000;
         public static final int apply_button=0x7f040005;
+        public static final int apply_dialog=0x7f04000d;
+        public static final int apply_dialog_apply=0x7f040010;
+        public static final int apply_dialog_hostnames=0x7f04000e;
+        public static final int apply_dialog_hosts=0x7f04000f;
         public static final int close_button=0x7f040009;
         public static final int cyanogenmod_button=0x7f040002;
         public static final int download_button=0x7f040006;
@@ -45,9 +51,11 @@ public final class R {
         public static final int exit_button=0x7f040003;
         public static final int menu_help=0x7f04000c;
         public static final int menu_hostname_files=0x7f04000b;
+        public static final int menu_preferences=0x7f040012;
         public static final int no_connection=0x7f040007;
         public static final int no_connection_title=0x7f040008;
         public static final int no_root=0x7f040001;
         public static final int no_root_title=0x7f040004;
+        public static final int revert_button=0x7f040011;
     }
 }

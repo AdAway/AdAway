@@ -10,7 +10,13 @@
     <string name="no_connection">Either the connection to the internet is not enabled or the file your want to download is not available. Please check the used hostname files in your preferences.</string>
     <string name="no_connection_title">No Connection</string>
     <string name="close_button">Close</string>
-    <string name="download_dialog">Download:\n</string>
+    <string name="download_dialog">Download:</string>
     <string name="menu_hostname_files">Hostname files</string>
     <string name="menu_help">Help</string>
+    <string name="apply_dialog">Apply</string>
+    <string name="apply_dialog_hostnames">Parsing and merging hostnames</string>
+    <string name="apply_dialog_hosts">Build hosts file</string>
+    <string name="apply_dialog_apply">Apply hosts file</string>
+    <string name="revert_button">Revert</string>
+    <string name="menu_preferences">Preferences</string>
 </resources>
