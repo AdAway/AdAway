@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_download">
+        <CheckBoxPreference
+            android:summary="This is not working at the moment"
+            android:title="@string/pref_https" android:key="@string/pref_key_https" android:defaultValue="@string/pref_def_https"></CheckBoxPreference>
+        <CheckBoxPreference
+            android:title="@string/pref_check_syntax" android:key="@string/pref_key_check_syntax" android:defaultValue="@string/pref_def_check_syntax" android:summary="@string/pref_summary_check_syntax"></CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_hosts">
+        <EditTextPreference
+            android:title="@string/pref_redirection_ip" android:key="@string/pref_key_redirection_ip" android:defaultValue="@string/pref_def_redirection_ip"></EditTextPreference>
+    </PreferenceCategory>
+</PreferenceScreen>

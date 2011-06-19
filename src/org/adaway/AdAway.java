@@ -35,12 +35,11 @@ import android.content.DialogInterface;
 
 import com.stericson.RootTools.*;
 
-public class Main extends Activity {
+public class AdAway extends Activity {
     private Context mContext;
     static final String TAG = "AdAway";
     static final String HOSTNAMES_FILENAME = "hostnames.txt";
     static final String HOSTS_FILENAME = "hosts";
-    static final String HOST = "127.0.0.1";
     static final String LINE_SEPERATOR = "\n";
 
     private ProgressDialog mDownloadProgressDialog;
@@ -61,11 +60,26 @@ public class Main extends Activity {
         // Handle item selection
         switch (item.getItemId()) {
         case R.id.menu_hostname_files:
-            // TODO
-            Log.i(TAG, "menu hostname");
+            startActivity(new Intent(this, HostnameFiles.class));
             return true;
-        case R.id.menu_help:
+
+        case R.id.menu_preferences:
+            startActivity(new Intent(this, Preferences.class));
             return true;
+
+        case R.id.menu_help: // TODO: formatting, urls etc, bugs to bla
+            AlertDialog alertDialog;
+            alertDialog = new AlertDialog.Builder(mContext).create();
+            alertDialog.setTitle(R.string.help_title);
+            alertDialog.setMessage(getString(org.adaway.R.string.help_text));
+            alertDialog.setButton(getString(R.string.close_button), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dlg, int sum) {
+                    // do nothing, close
+                }
+            });
+            alertDialog.show();
+            return true;
+
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -87,8 +101,23 @@ public class Main extends Activity {
             showRootDialog();
         }
 
-        // check if private hostfile exists:
-        // -> enable apply button
+        // check if private hostfile exists and enable apply button
+        try {
+            Log.i(TAG, "try");
+            FileInputStream fis = openFileInput(HOSTNAMES_FILENAME);
+            fis.close();
+
+            Button applyButton = (Button) findViewById(R.id.apply_button);
+            applyButton.setEnabled(true);
+
+        } catch (FileNotFoundException e) {
+            Button applyButton = (Button) findViewById(R.id.apply_button);
+            applyButton.setEnabled(false);
+            e.printStackTrace();
+        } catch (IOException e) {
+            Log.e(TAG, "IO Exception");
+            e.printStackTrace();
+        }
 
     }
 
@@ -101,9 +130,21 @@ public class Main extends Activity {
     public void applyOnClick(View view) {
         new Apply().execute();
     }
-    
+
     public void revertOnClick(View view) {
-        // revert
+        // revert to standard hosts file
+        try {
+            FileOutputStream fos = openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE);
+
+            // default localhost
+            String localhost = "127.0.0.1 localhost";
+            fos.write(localhost.getBytes());
+            fos.close();
+        } catch (IOException e) {
+            Log.e(TAG, "IO Exception");
+            e.printStackTrace();
+        }
+
     }
 
     private void showRootDialog() {
@@ -138,7 +179,7 @@ public class Main extends Activity {
         protected Boolean doInBackground(Void... unused) {
             // parse hostname files
             // make one big set of all hostnames so no hostname is more than once in it
-            // build hosts file based on pref, default 127.0.0.1 ip
+            // build hosts file based on redirection ip from prefs, default is 127.0.0.1
             // apply hosts file using roottools
 
             // /system/etc/hosts
@@ -147,7 +188,7 @@ public class Main extends Activity {
 
             try {
                 publishProgress(getString(R.string.apply_dialog_hostnames));
-                
+
                 FileInputStream fis = openFileInput(HOSTNAMES_FILENAME);
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
@@ -166,28 +207,38 @@ public class Main extends Activity {
                 String commentRegex = "^#";
                 Pattern commentPattern = Pattern.compile(commentRegex);
 
+                // get preference on checking syntax
+                boolean checkSyntax = SharedPrefs.getCheckSyntax(getApplicationContext());
+
                 Matcher hostnameMatcher = null;
                 Matcher commentMatcher = null;
                 while ((nextLine = reader.readLine()) != null) {
-                    nextLine = nextLine.replaceAll(" ", ""); // remove whitespaces from line
-                    hostnameMatcher = hostnamePattern.matcher(nextLine);
-                    if (hostnameMatcher.find()) {
-                        // Log.d(TAG, nextLine + " matched, adding to hostnames");
-                        hostnames.add(nextLine);
-                    } else {
-                        commentMatcher = commentPattern.matcher(nextLine);
-                        if (commentMatcher.find()) {
-                            Log.d(TAG, nextLine + " is a comment line");
-                            comments.add(nextLine);
+                    commentMatcher = commentPattern.matcher(nextLine);
+                    if (commentMatcher.find()) { // comment line
+                        Log.d(TAG, nextLine + " is a comment line");
+                        comments.add(nextLine);
+                    } else { // other line
+                        // remove whitespaces from line
+                        nextLine = nextLine.replaceAll(" ", "");
+
+                        // check preferences: should we check syntax?
+                        if (checkSyntax) {
+                            hostnameMatcher = hostnamePattern.matcher(nextLine);
+                            if (hostnameMatcher.find()) {
+                                // Log.d(TAG, nextLine + " matched, adding to hostnames");
+                                hostnames.add(nextLine);
+                            } else {
+                                Log.d(TAG, nextLine + " NOT matched");
+                            }
                         } else {
-                            Log.d(TAG, nextLine + " NOT matched");
+                            // add without checking
+                            hostnames.add(nextLine);
                         }
                     }
                 }
                 fis.close();
-                
-                publishProgress(getString(R.string.apply_dialog_hosts));
 
+                publishProgress(getString(R.string.apply_dialog_hosts));
 
                 // build hosts file out of it
 
@@ -208,8 +259,10 @@ public class Main extends Activity {
 
                 fos.write(LINE_SEPERATOR.getBytes());
 
+                String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
+
                 // add localhost entry
-                String localhost = LINE_SEPERATOR + "127.0.0.1 localhost";
+                String localhost = LINE_SEPERATOR + redirectionIP + " localhost";
                 fos.write(localhost.getBytes());
 
                 // write hostnames
@@ -221,14 +274,13 @@ public class Main extends Activity {
                     hostname = itHostname.next();
                     // Log.d(TAG, hostname);
 
-                    line = LINE_SEPERATOR + HOST + " " + hostname;
+                    line = LINE_SEPERATOR + redirectionIP + " " + hostname;
                     fos.write(line.getBytes());
                 }
 
                 fos.close();
-                
-                publishProgress(getString(R.string.apply_dialog_apply));
 
+                publishProgress(getString(R.string.apply_dialog_apply));
 
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
@@ -266,7 +318,7 @@ public class Main extends Activity {
 
             if (result) {
                 removeDialog(DIALOG_APPLY_PROGRESS);
-                
+
             } else {
                 removeDialog(DIALOG_APPLY_PROGRESS);
                 Log.d(TAG, "problem");
@@ -396,7 +448,10 @@ public class Main extends Activity {
 
             if (result) {
                 removeDialog(DIALOG_DOWNLOAD_PROGRESS);
-                
+
+                // enable apply button
+                Button applyButton = (Button) findViewById(R.id.apply_button);
+                applyButton.setEnabled(true);
             } else {
                 removeDialog(DIALOG_DOWNLOAD_PROGRESS);
                 Log.d(TAG, "problem");

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="@string/menu_hostname_files" android:id="@+id/menu_hostname_files" android:icon="@android:drawable/ic_menu_agenda"></item>
-    <item android:id="@+id/menu_preferences" android:title="@string/menu_preferences" android:icon="@android:drawable/ic_menu_preferences"></item><item android:id="@+id/menu_help" android:title="@string/menu_help" android:icon="@android:drawable/ic_menu_help"></item>
-    
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/menu_hostname_files"
+        android:id="@+id/menu_hostname_files"
+        android:icon="@android:drawable/ic_menu_agenda"></item>
+    <item
+        android:id="@+id/menu_preferences"
+        android:title="@string/menu_preferences"
+        android:icon="@android:drawable/ic_menu_preferences"></item>
+    <item
+        android:id="@+id/menu_help"
+        android:title="@string/menu_help"
+        android:icon="@android:drawable/ic_menu_help"></item>
 </menu>

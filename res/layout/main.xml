@@ -1,28 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent">
-	<TableLayout android:id="@+id/tableLayout1"
-		android:layout_width="fill_parent" android:layout_height="fill_parent"
-		android:gravity="top">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="top">
 
-		<TableRow android:id="@+id/tableRow1" android:paddingBottom="20dip"
-			android:layout_height="wrap_content" android:gravity="center"
-			android:layout_gravity="center" android:layout_width="fill_parent">
-			<ImageView android:src="@drawable/icon" android:id="@+id/logo_image"
-				android:layout_height="wrap_content" android:layout_width="fill_parent"></ImageView>
-			<TextView android:id="@+id/logo_text" android:text="@string/app_name"
-				android:textStyle="bold" android:textSize="20sp"
-				android:layout_height="wrap_content" android:layout_width="fill_parent"></TextView>
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:paddingBottom="20dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="fill_parent">
+            <ImageView
+                android:src="@drawable/icon"
+                android:id="@+id/logo_image"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"></ImageView>
+            <TextView
+                android:id="@+id/logo_text"
+                android:text="@string/app_name"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"></TextView>
 
-		</TableRow>
-		<Button android:layout_height="wrap_content"
-			android:layout_width="wrap_content" android:id="@+id/download_button"
-			android:onClick="downloadOnClick" android:text="@string/download_button"></Button>
-		<Button android:layout_height="wrap_content"
-			android:layout_width="wrap_content" android:id="@+id/apply_button"
-			android:text="@string/apply_button" android:onClick="applyOnClick"></Button>
-		<Button android:id="@+id/revert_button"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:text="@string/revert_button" android:onClick="revertOnClick"></Button>
-	</TableLayout>
+        </TableRow>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/download_button"
+            android:onClick="downloadOnClick"
+            android:text="@string/download_button"></Button>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/apply_button"
+            android:text="@string/apply_button"
+            android:onClick="applyOnClick" android:enabled="false"></Button>
+        <Button
+            android:id="@+id/revert_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/revert_button"
+            android:onClick="revertOnClick"></Button>
+    </TableLayout>
 </LinearLayout>

@@ -19,4 +19,18 @@
     <string name="apply_dialog_apply">Apply hosts file</string>
     <string name="revert_button">Revert</string>
     <string name="menu_preferences">Preferences</string>
+    <string name="help_title">Help</string>
+    <string name="help_text">Blabla</string>
+    <string name="pref_download">Download</string>
+    <string name="pref_https">Allow https only</string>
+    <string name="pref_check_syntax">Check syntax</string>
+    <string name="pref_hosts">Hosts file</string>
+    <string name="pref_redirection_ip">Redirection IP</string>
+    <string name="pref_key_https">https</string>
+    <string name="pref_key_check_syntax">checkSyntax</string>
+    <string name="pref_key_redirection_ip">redirectionIP</string>
+    <item name="pref_def_https" format="boolean" type="string">false</item>
+    <item name="pref_def_check_syntax" format="boolean" type="string">true</item>
+    <item name="pref_def_redirection_ip" format="string" type="string">127.0.0.1</item>
+    <string name="pref_summary_check_syntax">Check syntax of hostnames</string>
 </resources>

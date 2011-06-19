@@ -9,13 +9,15 @@
 
 
     <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
-        <activity android:name="Main"
+        <activity android:name="AdAway"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="HostnameFiles" android:label="@string/menu_hostname_files"></activity>
+        <activity android:name="Preferences" android:label="@string/menu_preferences"></activity>
 
     </application>
 </manifest>

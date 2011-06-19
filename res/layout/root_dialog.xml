@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:paddingLeft="10dp"
-	android:paddingRight="10dp">
-	<TableLayout android:id="@+id/tableLayout1"
-		android:layout_width="wrap_content" android:layout_height="wrap_content">
-		<TextView android:layout_height="wrap_content"
-			android:layout_width="wrap_content" android:text="@string/no_root"
-			android:id="@+id/no_root_text" android:paddingBottom="20dip"></TextView>
-		android:layout_height="wrap_content">
-		<Button android:layout_width="wrap_content"
-			android:layout_height="50dip" android:id="@+id/cyanogenmod_button"
-			android:text="@string/cyanogenmod_button"></Button>
-		<Button android:layout_width="wrap_content"
-			android:layout_height="50dip" android:id="@+id/exit_button"
-			android:text="@string/exit_button"></Button>
-	</TableLayout>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/no_root"
+            android:id="@+id/no_root_text"
+            android:paddingBottom="20dip"></TextView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/cyanogenmod_button"
+            android:text="@string/cyanogenmod_button"></Button>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/exit_button"
+            android:text="@string/exit_button"></Button>
+    </TableLayout>
 </LinearLayout>
