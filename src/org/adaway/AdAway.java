@@ -38,9 +38,10 @@ import com.stericson.RootTools.*;
 public class AdAway extends Activity {
     private Context mContext;
     static final String TAG = "AdAway";
+    static final String LOCALHOST_IPv4 = "127.0.0.1";
     static final String HOSTNAMES_FILENAME = "hostnames.txt";
     static final String HOSTS_FILENAME = "hosts";
-    static final String LINE_SEPERATOR = "\n";
+    static final String LINE_SEPERATOR = System.getProperty("line.separator");
 
     private ProgressDialog mDownloadProgressDialog;
     public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
@@ -60,7 +61,7 @@ public class AdAway extends Activity {
         // Handle item selection
         switch (item.getItemId()) {
         case R.id.menu_hostname_files:
-            startActivity(new Intent(this, HostnameFiles.class));
+            startActivity(new Intent(this, HostsFiles.class));
             return true;
 
         case R.id.menu_preferences:
@@ -124,7 +125,7 @@ public class AdAway extends Activity {
     public void downloadOnClick(View view) {
         // download
         // http://ad-away.googlecode.com/files/hostnames-2011-03-08.txt or http://ad-away.googlecode.com/files/small%20hostnames%20file.txt
-        new DownloadHostnameFiles().execute("http://ad-away.googlecode.com/files/hostnames-2011-03-08.txt", "http://ad-away.googlecode.com/files/hostnames-2011-03-08.txt");
+        new DownloadHostnameFiles().execute("http://winhelp2002.mvps.org/hosts.txt", "http://winhelp2002.mvps.org/hosts.txt");
     }
 
     public void applyOnClick(View view) {
@@ -193,49 +194,11 @@ public class AdAway extends Activity {
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-                String nextLine = null;
-                HashSet<String> hostnames = new HashSet<String>();
-                LinkedList<String> comments = new LinkedList<String>();
+                // parse file using HostsParser
+                HostsParser parser = new HostsParser(reader, getApplicationContext());
+                HashSet<String> hostnames = parser.getHostnames();
+                LinkedList<String> comments = parser.getComments();
 
-                // I could not find any android class that provides checking of an hostname, thus i am using regex
-                // http://stackoverflow.com/questions/106179/regular-expression-to-match-hostname-or-ip-address/3824105#3824105
-                // added underscore to match more hosts
-                String hostnameRegex = "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_]{0,61}[a-zA-Z0-9])\\.)+([a-zA-Z0-9]{2,5})$";
-                Pattern hostnamePattern = Pattern.compile(hostnameRegex);
-
-                // check for comment line
-                String commentRegex = "^#";
-                Pattern commentPattern = Pattern.compile(commentRegex);
-
-                // get preference on checking syntax
-                boolean checkSyntax = SharedPrefs.getCheckSyntax(getApplicationContext());
-
-                Matcher hostnameMatcher = null;
-                Matcher commentMatcher = null;
-                while ((nextLine = reader.readLine()) != null) {
-                    commentMatcher = commentPattern.matcher(nextLine);
-                    if (commentMatcher.find()) { // comment line
-                        Log.d(TAG, nextLine + " is a comment line");
-                        comments.add(nextLine);
-                    } else { // other line
-                        // remove whitespaces from line
-                        nextLine = nextLine.replaceAll(" ", "");
-
-                        // check preferences: should we check syntax?
-                        if (checkSyntax) {
-                            hostnameMatcher = hostnamePattern.matcher(nextLine);
-                            if (hostnameMatcher.find()) {
-                                // Log.d(TAG, nextLine + " matched, adding to hostnames");
-                                hostnames.add(nextLine);
-                            } else {
-                                Log.d(TAG, nextLine + " NOT matched");
-                            }
-                        } else {
-                            // add without checking
-                            hostnames.add(nextLine);
-                        }
-                    }
-                }
                 fis.close();
 
                 publishProgress(getString(R.string.apply_dialog_hosts));
@@ -261,8 +224,8 @@ public class AdAway extends Activity {
 
                 String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
 
-                // add localhost entry
-                String localhost = LINE_SEPERATOR + redirectionIP + " localhost";
+                // add "127.0.0.1 localhost" entry
+                String localhost = LINE_SEPERATOR + LOCALHOST_IPv4 + " localhost";
                 fos.write(localhost.getBytes());
 
                 // write hostnames

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-public class SharedHostnameFiles {
+public class SharedHostsFiles {
     public final static String PREFS_NAME = "hostnames";
 
     public static String[] getHostnames(Context context) {

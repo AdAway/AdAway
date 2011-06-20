@@ -16,7 +16,7 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
-public class HostnameFiles extends ListActivity {
+public class HostsFiles extends ListActivity {
     String[] listItems = { "exploring", "android", "list", "activities" };
 
     /** Called when the activity is first created. */
@@ -28,6 +28,6 @@ public class HostnameFiles extends ListActivity {
         ArrayList<String> test = new ArrayList<String>();
         test.add("test");
         
-        setListAdapter(new HostnameArrayAdapter(this, R.layout.hostname_files, test));
+        setListAdapter(new HostsArrayAdapter(this, R.layout.hostname_files, test));
     }
 }

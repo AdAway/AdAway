@@ -20,7 +20,7 @@
     <string name="revert_button">Revert</string>
     <string name="menu_preferences">Preferences</string>
     <string name="help_title">Help</string>
-    <string name="help_text">Blabla</string>
+    <string name="help_text">AdAway Logo is based on an Icon from the RRZE Icon Set (http://rrze-icon-set.berlios.de/gallery.html)</string>
     <string name="pref_download">Download</string>
     <string name="pref_https">Allow https only</string>
     <string name="pref_check_syntax">Check syntax</string>

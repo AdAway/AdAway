@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 
-public class HostnameArrayAdapter extends ArrayAdapter<String> {
+public class HostsArrayAdapter extends ArrayAdapter<String> {
     private Context mContext;
     private ArrayList<String> mCheckList = new ArrayList<String>();
 
-    public HostnameArrayAdapter(Context context, int textViewResourceId, ArrayList<String> checkList) {
+    public HostsArrayAdapter(Context context, int textViewResourceId, ArrayList<String> checkList) {
         super(context, textViewResourceId, checkList);
         this.mContext = context;
         this.mCheckList = checkList;
