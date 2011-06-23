@@ -1,5 +1,8 @@
 package org.adaway;
 
+
+//TODO: database und constant best practices lesen
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,11 +12,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -37,6 +40,8 @@ import com.stericson.RootTools.*;
 
 public class AdAway extends Activity {
     private Context mContext;
+    private HostsDatabase mHostsDatabase;
+    
     static final String TAG = "AdAway";
     static final String LOCALHOST_IPv4 = "127.0.0.1";
     static final String HOSTNAMES_FILENAME = "hostnames.txt";
@@ -60,7 +65,7 @@ public class AdAway extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-        case R.id.menu_hostname_files:
+        case R.id.menu_hosts_files:
             startActivity(new Intent(this, HostsFiles.class));
             return true;
 
@@ -69,11 +74,10 @@ public class AdAway extends Activity {
             return true;
 
         case R.id.menu_help: // TODO: formatting, urls etc, bugs to bla
-            AlertDialog alertDialog;
-            alertDialog = new AlertDialog.Builder(mContext).create();
+            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
             alertDialog.setTitle(R.string.help_title);
             alertDialog.setMessage(getString(org.adaway.R.string.help_text));
-            alertDialog.setButton(getString(R.string.close_button), new DialogInterface.OnClickListener() {
+            alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dlg, int sum) {
                     // do nothing, close
                 }
@@ -119,12 +123,24 @@ public class AdAway extends Activity {
             Log.e(TAG, "IO Exception");
             e.printStackTrace();
         }
+        
+        
+        
+        // TEST --------------
+        mHostsDatabase = new HostsDatabase(mContext);
+//        mHostsDatabase.insertHostsFile("http://bla.de");
+        
+        mHostsDatabase.modifyEnabled(2, 1);
+        
+        ArrayList<String> list = mHostsDatabase.getAllEnabledHosts();
+        
+        Log.d(TAG, list.toString());
+        
+        Log.d(TAG, "after err");
 
     }
 
     public void downloadOnClick(View view) {
-        // download
-        // http://ad-away.googlecode.com/files/hostnames-2011-03-08.txt or http://ad-away.googlecode.com/files/small%20hostnames%20file.txt
         new DownloadHostnameFiles().execute("http://winhelp2002.mvps.org/hosts.txt", "http://winhelp2002.mvps.org/hosts.txt");
     }
 
@@ -133,19 +149,46 @@ public class AdAway extends Activity {
     }
 
     public void revertOnClick(View view) {
-        // revert to standard hosts file
-        try {
-            FileOutputStream fos = openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE);
+        Log.d(TAG, "revert");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.revert_question));
+        builder.setCancelable(false);
+        builder.setPositiveButton(getString(R.string.button_yes), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // build standard hosts file
+                try {
+                    FileOutputStream fos = openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE);
 
-            // default localhost
-            String localhost = "127.0.0.1 localhost";
-            fos.write(localhost.getBytes());
-            fos.close();
-        } catch (IOException e) {
-            Log.e(TAG, "IO Exception");
-            e.printStackTrace();
-        }
+                    // default localhost
+                    String localhost = LOCALHOST_IPv4 + " localhost";
+                    fos.write(localhost.getBytes());
+                    fos.close();
+                } catch (IOException e) {
+                    Log.e(TAG, "IO Exception");
+                    e.printStackTrace();
+                }
 
+                // TODO: really revert here
+
+                AlertDialog alertDialog;
+                alertDialog = new AlertDialog.Builder(mContext).create();
+                alertDialog.setTitle(R.string.button_revert);
+                alertDialog.setMessage(getString(org.adaway.R.string.revert_successfull));
+                alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dlg, int sum) {
+                        // do nothing, close
+                    }
+                });
+                alertDialog.show();
+            }
+        });
+        builder.setNegativeButton(getString(R.string.button_no), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog question = builder.create();
+        question.show();
     }
 
     private void showRootDialog() {
@@ -181,11 +224,11 @@ public class AdAway extends Activity {
             // parse hostname files
             // make one big set of all hostnames so no hostname is more than once in it
             // build hosts file based on redirection ip from prefs, default is 127.0.0.1
-            // apply hosts file using roottools
+            // TODO: apply hosts file using roottools
+            // TODO: check for enough space on internal mem
 
             // /system/etc/hosts
             // infos http://forum.xda-developers.com/showthread.php?t=509997
-            // http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml
 
             try {
                 publishProgress(getString(R.string.apply_dialog_hostnames));
@@ -281,6 +324,16 @@ public class AdAway extends Activity {
 
             if (result) {
                 removeDialog(DIALOG_APPLY_PROGRESS);
+                AlertDialog alertDialog;
+                alertDialog = new AlertDialog.Builder(mContext).create();
+                alertDialog.setTitle(R.string.apply_dialog);
+                alertDialog.setMessage(getString(R.string.apply_success));
+                alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dlg, int sum) {
+                        // do nothing, close
+                    }
+                });
+                alertDialog.show();
 
             } else {
                 removeDialog(DIALOG_APPLY_PROGRESS);
@@ -422,7 +475,7 @@ public class AdAway extends Activity {
                 alertDialog = new AlertDialog.Builder(mContext).create();
                 alertDialog.setTitle(R.string.no_connection_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
-                alertDialog.setButton(getString(R.string.close_button), new DialogInterface.OnClickListener() {
+                alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dlg, int sum) {
                         // do nothing, close
                     }

@@ -20,11 +20,11 @@ public class HostsParser {
         mContext = context;
         parse(input);
     }
-    
+
     public HashSet<String> getHostnames() {
         return hostnames;
     }
-    
+
     public LinkedList<String> getComments() {
         return comments;
     }
@@ -74,7 +74,7 @@ public class HostsParser {
                     nextLine = nextLine.substring(index);
                 }
 
-                Log.d(TAG, "remaining line: " + nextLine);
+                // Log.d(TAG, "remaining line: " + nextLine);
 
                 // strip whitespaces from begin and end
                 nextLine = nextLine.trim();
@@ -94,7 +94,7 @@ public class HostsParser {
                 }
             }
         }
-        
+
         // strip localhost entry
         hostnames.remove("localhost");
     }

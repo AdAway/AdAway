@@ -35,18 +35,18 @@
             android:layout_width="wrap_content"
             android:id="@+id/download_button"
             android:onClick="downloadOnClick"
-            android:text="@string/download_button"></Button>
+            android:text="@string/button_download"></Button>
         <Button
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/apply_button"
-            android:text="@string/apply_button"
+            android:text="@string/button_apply"
             android:onClick="applyOnClick" android:enabled="false"></Button>
         <Button
             android:id="@+id/revert_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/revert_button"
+            android:text="@string/button_revert"
             android:onClick="revertOnClick"></Button>
     </TableLayout>
 </LinearLayout>

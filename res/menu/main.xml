@@ -2,8 +2,8 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="@string/menu_hostname_files"
-        android:id="@+id/menu_hostname_files"
+        android:title="@string/menu_hosts_files"
+        android:id="@+id/menu_hosts_files"
         android:icon="@android:drawable/ic_menu_agenda"></item>
     <item
         android:id="@+id/menu_preferences"

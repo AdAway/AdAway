@@ -19,11 +19,11 @@
             android:layout_width="wrap_content"
             android:layout_height="50dip"
             android:id="@+id/cyanogenmod_button"
-            android:text="@string/cyanogenmod_button"></Button>
+            android:text="@string/button_cyanogenmod"></Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="50dip"
             android:id="@+id/exit_button"
-            android:text="@string/exit_button"></Button>
+            android:text="@string/button_exit"></Button>
     </TableLayout>
 </LinearLayout>

@@ -15,14 +15,14 @@ public final class R {
     }
     public static final class id {
         public static final int apply_button=0x7f070006;
-        public static final int bcheck=0x7f070000;
         public static final int cyanogenmod_button=0x7f070009;
         public static final int download_button=0x7f070005;
         public static final int exit_button=0x7f07000a;
+        public static final int hosts_entry_enabled=0x7f070000;
         public static final int logo_image=0x7f070003;
         public static final int logo_text=0x7f070004;
         public static final int menu_help=0x7f07000d;
-        public static final int menu_hostname_files=0x7f07000b;
+        public static final int menu_hosts_files=0x7f07000b;
         public static final int menu_preferences=0x7f07000c;
         public static final int no_root_text=0x7f070008;
         public static final int revert_button=0x7f070007;
@@ -30,8 +30,8 @@ public final class R {
         public static final int tableRow1=0x7f070002;
     }
     public static final class layout {
-        public static final int check_list=0x7f030000;
-        public static final int hostname_files=0x7f030001;
+        public static final int hosts_files=0x7f030000;
+        public static final int hosts_files_entry=0x7f030001;
         public static final int main=0x7f030002;
         public static final int root_dialog=0x7f030003;
     }
@@ -40,38 +40,43 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f050000;
-        public static final int apply_button=0x7f050005;
         public static final int apply_dialog=0x7f05000d;
         public static final int apply_dialog_apply=0x7f050010;
         public static final int apply_dialog_hostnames=0x7f05000e;
         public static final int apply_dialog_hosts=0x7f05000f;
-        public static final int close_button=0x7f050009;
-        public static final int cyanogenmod_button=0x7f050002;
-        public static final int download_button=0x7f050006;
+        public static final int apply_success=0x7f050025;
+        public static final int button_apply=0x7f050005;
+        public static final int button_close=0x7f050009;
+        public static final int button_cyanogenmod=0x7f050002;
+        public static final int button_download=0x7f050006;
+        public static final int button_exit=0x7f050003;
+        public static final int button_no=0x7f050021;
+        public static final int button_revert=0x7f050024;
+        public static final int button_yes=0x7f050020;
         public static final int download_dialog=0x7f05000a;
-        public static final int exit_button=0x7f050003;
-        public static final int help_text=0x7f050014;
-        public static final int help_title=0x7f050013;
+        public static final int help_text=0x7f050013;
+        public static final int help_title=0x7f050012;
         public static final int menu_help=0x7f05000c;
-        public static final int menu_hostname_files=0x7f05000b;
-        public static final int menu_preferences=0x7f050012;
+        public static final int menu_hosts_files=0x7f05000b;
+        public static final int menu_preferences=0x7f050011;
         public static final int no_connection=0x7f050007;
         public static final int no_connection_title=0x7f050008;
         public static final int no_root=0x7f050001;
         public static final int no_root_title=0x7f050004;
-        public static final int pref_check_syntax=0x7f050017;
-        public static final int pref_def_check_syntax=0x7f05001e;
-        public static final int pref_def_https=0x7f05001d;
-        public static final int pref_def_redirection_ip=0x7f05001f;
-        public static final int pref_download=0x7f050015;
-        public static final int pref_hosts=0x7f050018;
-        public static final int pref_https=0x7f050016;
-        public static final int pref_key_check_syntax=0x7f05001b;
-        public static final int pref_key_https=0x7f05001a;
-        public static final int pref_key_redirection_ip=0x7f05001c;
-        public static final int pref_redirection_ip=0x7f050019;
-        public static final int pref_summary_check_syntax=0x7f050020;
-        public static final int revert_button=0x7f050011;
+        public static final int pref_check_syntax=0x7f050016;
+        public static final int pref_def_check_syntax=0x7f05001d;
+        public static final int pref_def_https=0x7f05001c;
+        public static final int pref_def_redirection_ip=0x7f05001e;
+        public static final int pref_download=0x7f050014;
+        public static final int pref_hosts=0x7f050017;
+        public static final int pref_https=0x7f050015;
+        public static final int pref_key_check_syntax=0x7f05001a;
+        public static final int pref_key_https=0x7f050019;
+        public static final int pref_key_redirection_ip=0x7f05001b;
+        public static final int pref_redirection_ip=0x7f050018;
+        public static final int pref_summary_check_syntax=0x7f05001f;
+        public static final int revert_question=0x7f050022;
+        public static final int revert_successfull=0x7f050023;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;

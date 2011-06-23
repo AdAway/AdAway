@@ -2,22 +2,21 @@
 <resources>
     <string name="app_name">AdAway</string>
     <string name="no_root">Your currently running Android operating system is not rooted. Find more information about how to root your device on www.cyanogenmod.com or other Android websites. Either the BusyBox or su binary could not be found.</string>
-    <string name="cyanogenmod_button">Visit www.cyanogenmod.com</string>
-    <string name="exit_button">Exit</string>
+    <string name="button_cyanogenmod">Visit www.cyanogenmod.com</string>
+    <string name="button_exit">Exit</string>
     <string name="no_root_title">Rooted Android required</string>
-    <string name="apply_button">Check and apply</string>
-    <string name="download_button">Download hostname files</string>
+    <string name="button_apply">Check and apply</string>
+    <string name="button_download">Download hostname files</string>
     <string name="no_connection">Either the connection to the internet is not enabled or the file your want to download is not available. Please check the used hostname files in your preferences.</string>
     <string name="no_connection_title">No Connection</string>
-    <string name="close_button">Close</string>
+    <string name="button_close">Close</string>
     <string name="download_dialog">Download:</string>
-    <string name="menu_hostname_files">Hostname files</string>
+    <string name="menu_hosts_files">Hosts files</string>
     <string name="menu_help">Help</string>
     <string name="apply_dialog">Apply</string>
     <string name="apply_dialog_hostnames">Parsing and merging hostnames</string>
     <string name="apply_dialog_hosts">Build hosts file</string>
     <string name="apply_dialog_apply">Apply hosts file</string>
-    <string name="revert_button">Revert</string>
     <string name="menu_preferences">Preferences</string>
     <string name="help_title">Help</string>
     <string name="help_text">AdAway Logo is based on an Icon from the RRZE Icon Set (http://rrze-icon-set.berlios.de/gallery.html)</string>
@@ -33,4 +32,10 @@
     <item name="pref_def_check_syntax" format="boolean" type="string">true</item>
     <item name="pref_def_redirection_ip" format="string" type="string">127.0.0.1</item>
     <string name="pref_summary_check_syntax">Check syntax of hostnames</string>
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
+    <string name="revert_question">Do you really want to revert?</string>
+    <string name="revert_successfull">You reverted to the default /etc/system/hosts file. A restart may be needed.</string>
+    <string name="button_revert">Revert</string>
+    <string name="apply_success">Applying was successfull. A Restart of Android may be needed.</string>
 </resources>
