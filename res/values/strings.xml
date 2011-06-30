@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AdAway</string>
-    <string name="no_root_description">Your currently running Android operating system is not rooted. Find more information about how to root your device on www.cyanogenmod.com or other Android websites. Either the BusyBox or su binary could not be found.</string>
+    <string name="no_root_description">Either the su binary or busybox could not be found or you did not allow root permission for AdAway.\n\nWhen the currently running Android operating system is not rooted, you can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
     <string name="button_cyanogenmod">Visit www.cyanogenmod.com</string>
     <string name="button_exit">Exit</string>
     <string name="no_root_title">Rooted Android required</string>
-    <string name="button_apply">Check and apply</string>
-    <string name="button_download">Download hostname files</string>
+    <string name="button_apply">Download and apply</string>
     <string name="no_connection">Either the connection to the internet is not enabled or the file your want to download is not available. Please check the used hostname files in your preferences.</string>
     <string name="no_connection_title">No Connection</string>
     <string name="button_close">Close</string>
@@ -33,10 +32,10 @@
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
     <string name="revert_question">Do you really want to revert?</string>
-    <string name="revert_successfull">You reverted to the default /etc/system/hosts file. A restart may be needed.</string>
+    <string name="revert_successfull">You reverted to the default /etc/system/hosts file. A restart may be necessary.</string>
     <string name="button_revert">Revert</string>
-    <string name="apply_success">Applying was successfull. A Restart of Android may be needed.</string>
-    <string name="about_description">AdAway is an open source ad blocker for Android.\n\nAdAway Logo is based on an Icon from the RRZE Icon Set.</string>
+    <string name="apply_success">Applying was successfull. A restart of Android may be necessary.</string>
+    <string name="about_description">AdAway is an open source ad blocker for Android.\n\nAdAway logo is based on an icon from the RRZE Icon Set.</string>
     <string name="about_license">License: GPL v3</string>
     <string name="about_url">http://code.google.com/p/ad-away/</string>
     <string name="about_version">Version:</string>

@@ -55,7 +55,7 @@ public class HostsParser {
             // check for comment only line
             commentMatcher = commentPattern.matcher(nextLine);
             if (commentMatcher.find()) {
-                Log.d(TAG, nextLine + " is a comment only line");
+                // Log.d(TAG, nextLine + " is a comment only line");
                 comments.add(nextLine);
             } else { // other line
                 // check if there is any comment in that line
