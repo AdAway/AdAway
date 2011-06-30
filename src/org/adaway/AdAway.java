@@ -251,6 +251,52 @@ public class AdAway extends Activity {
         dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, android.R.drawable.ic_dialog_alert);
     }
 
+    private boolean copyHostsFile() {
+        String appDir = getFilesDir().getAbsolutePath();
+        Log.d(TAG_APPLY, "dir: " + appDir);
+
+        String file = appDir + File.separator + HOSTS_FILENAME;
+
+        Log.d(TAG_APPLY, "file: " + file);
+
+        String command = CP_COMMAND + " " + file + " " + ANDROID_HOSTS_PATH;
+
+        Log.d(TAG_APPLY, "command: " + command);
+
+        // do it with RootTools
+        try {
+            // remount for write access
+            RootTools.remount(ANDROID_HOSTS_PATH, "RW");
+
+            // TODO: check for space
+            // RootTools.getSpace(ANDROID_HOSTS_PATH);
+
+            // do command
+            List<String> output = RootTools.sendShell(command);
+
+            Log.d(TAG_APPLY, "output of command: " + output.toString());
+        } catch (IOException e) {
+            Log.e(TAG_APPLY, "IOException");
+
+            return false;
+        } catch (InterruptedException e) {
+            Log.e(TAG_APPLY, "InterruptedException");
+            e.printStackTrace();
+
+            return false;
+        } catch (RootToolsException e) {
+            Log.e(TAG_APPLY, "RootToolsException");
+            e.printStackTrace();
+
+            return false;
+        } finally {
+            // after all remount back as read only
+            RootTools.remount(ANDROID_HOSTS_PATH, "RO");
+        }
+
+        return true;
+    }
+
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
@@ -403,48 +449,6 @@ public class AdAway extends Activity {
                 alertDialog.show();
             }
         }
-    }
-
-    private boolean copyHostsFile() {
-        String appDir = getFilesDir().getAbsolutePath();
-        Log.d(TAG_APPLY, "dir: " + appDir);
-
-        String file = appDir + File.separator + HOSTS_FILENAME;
-
-        Log.d(TAG_APPLY, "file: " + file);
-
-        String command = CP_COMMAND + " " + file + " " + ANDROID_HOSTS_PATH;
-
-        Log.d(TAG_APPLY, "command: " + command);
-
-        // do it with RootTools
-        try {
-            // remount for write access
-            RootTools.remount(ANDROID_HOSTS_PATH, "RW");
-
-            // check for space
-            // RootTools.getSpace(ANDROID_HOSTS_PATH);
-
-            List<String> output = RootTools.sendShell(command);
-
-            Log.d(TAG_APPLY, "output of command: " + output.toString());
-        } catch (IOException e) {
-            Log.e(TAG_APPLY, "IOException");
-
-            return false;
-        } catch (InterruptedException e) {
-            Log.e(TAG_APPLY, "InterruptedException");
-            e.printStackTrace();
-
-            return false;
-        } catch (RootToolsException e) {
-            Log.e(TAG_APPLY, "RootToolsException");
-            e.printStackTrace();
-
-            return false;
-        }
-
-        return true;
     }
 
     private class Apply extends AsyncTask<Void, String, Boolean> {

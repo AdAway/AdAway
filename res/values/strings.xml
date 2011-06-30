@@ -6,7 +6,7 @@
     <string name="button_exit">Exit</string>
     <string name="no_root_title">Rooted Android required</string>
     <string name="button_apply">Download and apply</string>
-    <string name="no_connection">Either the connection to the internet is not enabled or the file your want to download is not available. Please check the used hostname files in your preferences.</string>
+    <string name="no_connection">Either the connection to the internet is not working or the file your want to download is not available. Please check the URLs of your hosts files.</string>
     <string name="no_connection_title">No Connection</string>
     <string name="button_close">Close</string>
     <string name="download_dialog">Download:</string>
@@ -32,9 +32,9 @@
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
     <string name="revert_question">Do you really want to revert?</string>
-    <string name="revert_successfull">You reverted to the default /etc/system/hosts file. A restart may be necessary.</string>
+    <string name="revert_successfull">You reverted to the default /etc/system/hosts file.\nIt may be necessary to restart Android for the changes to take effect.</string>
     <string name="button_revert">Revert</string>
-    <string name="apply_success">Applying was successfull. A restart of Android may be necessary.</string>
+    <string name="apply_success">Applying was successfull.\nIt may be necessary to restart Android for the changes to take effect.</string>
     <string name="about_description">AdAway is an open source ad blocker for Android.\n\nThe AdAway logo is based on an icon from the RRZE Icon Set.</string>
     <string name="about_license">License: GPL v3</string>
     <string name="about_url">http://code.google.com/p/ad-away/</string>
