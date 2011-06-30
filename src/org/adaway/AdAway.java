@@ -156,7 +156,9 @@ public class AdAway extends Activity {
     public void revertOnClick(View view) {
         Log.d(TAG, "revert");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.button_revert);
         builder.setMessage(getString(R.string.revert_question));
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
         builder.setCancelable(false);
         builder.setPositiveButton(getString(R.string.button_yes), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -179,8 +181,8 @@ public class AdAway extends Activity {
                 // delete generated hosts file after applying it
                 deleteFile(HOSTS_FILENAME);
 
-                AlertDialog alertDialog;
-                alertDialog = new AlertDialog.Builder(mContext).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                alertDialog.setIcon(android.R.drawable.ic_dialog_info);
                 alertDialog.setTitle(R.string.button_revert);
                 alertDialog.setMessage(getString(org.adaway.R.string.revert_successfull));
                 alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
@@ -406,8 +408,8 @@ public class AdAway extends Activity {
             } else {
                 removeDialog(DIALOG_DOWNLOAD_PROGRESS);
                 Log.d(TAG_DOWNLOAD, "problem");
-                AlertDialog alertDialog;
-                alertDialog = new AlertDialog.Builder(mContext).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_connection_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
                 alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
@@ -575,8 +577,8 @@ public class AdAway extends Activity {
 
             if (result) {
                 removeDialog(DIALOG_APPLY_PROGRESS);
-                AlertDialog alertDialog;
-                alertDialog = new AlertDialog.Builder(mContext).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                alertDialog.setIcon(android.R.drawable.ic_dialog_info);
                 alertDialog.setTitle(R.string.apply_dialog);
                 alertDialog.setMessage(getString(R.string.apply_success));
                 alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
