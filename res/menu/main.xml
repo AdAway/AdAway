@@ -10,7 +10,6 @@
         android:title="@string/menu_preferences"
         android:icon="@android:drawable/ic_menu_preferences"></item>
     <item
-        android:id="@+id/menu_help"
-        android:title="@string/menu_help"
-        android:icon="@android:drawable/ic_menu_help"></item>
+        android:id="@+id/menu_about"
+        android:title="@string/menu_about" android:icon="@android:drawable/ic_menu_info_details"></item>
 </menu>

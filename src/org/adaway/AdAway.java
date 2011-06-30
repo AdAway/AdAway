@@ -1,6 +1,5 @@
 package org.adaway;
 
-
 //TODO: database und constant best practices lesen
 
 import java.io.BufferedReader;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -24,7 +22,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,16 +29,21 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 
 import com.stericson.RootTools.*;
 
 public class AdAway extends Activity {
     private Context mContext;
     private HostsDatabase mHostsDatabase;
-    
+
     static final String TAG = "AdAway";
     static final String LOCALHOST_IPv4 = "127.0.0.1";
     static final String HOSTNAMES_FILENAME = "hostnames.txt";
@@ -73,16 +75,8 @@ public class AdAway extends Activity {
             startActivity(new Intent(this, Preferences.class));
             return true;
 
-        case R.id.menu_help: // TODO: formatting, urls etc, bugs to bla
-            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-            alertDialog.setTitle(R.string.help_title);
-            alertDialog.setMessage(getString(org.adaway.R.string.help_text));
-            alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dlg, int sum) {
-                    // do nothing, close
-                }
-            });
-            alertDialog.show();
+        case R.id.menu_about:
+            showAboutDialog();
             return true;
 
         default:
@@ -103,7 +97,7 @@ public class AdAway extends Activity {
         // check for root on device
         if (!RootTools.isRootAvailable()) { // wants root: || !RootTools.isBusyboxAvailable()) {
             // su binary does not exist, raise root dialog
-            showRootDialog();
+            showNoRootDialog();
         }
 
         // check if private hostfile exists and enable apply button
@@ -123,19 +117,17 @@ public class AdAway extends Activity {
             Log.e(TAG, "IO Exception");
             e.printStackTrace();
         }
-        
-        
-        
+
         // TEST --------------
         mHostsDatabase = new HostsDatabase(mContext);
-//        mHostsDatabase.insertHostsFile("http://bla.de");
-        
+        // mHostsDatabase.insertHostsFile("http://bla.de");
+
         mHostsDatabase.modifyEnabled(2, 1);
-        
+
         ArrayList<String> list = mHostsDatabase.getAllEnabledHosts();
-        
+
         Log.d(TAG, list.toString());
-        
+
         Log.d(TAG, "after err");
 
     }
@@ -191,30 +183,71 @@ public class AdAway extends Activity {
         question.show();
     }
 
-    private void showRootDialog() {
-        Dialog rootDialog = new Dialog(mContext);
-        rootDialog.setContentView(R.layout.root_dialog);
-        rootDialog.setTitle(R.string.no_root_title);
+    private void showAboutDialog() {
+        final Dialog dialog = new Dialog(mContext);
+        dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+        dialog.setContentView(R.layout.about_dialog);
+        dialog.setTitle(R.string.about_title);
 
-        // Cyanogenmod Button goes to website
-        Button cyanogenmodButton = (Button) rootDialog.findViewById(R.id.cyanogenmod_button);
-        cyanogenmodButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Uri uri = Uri.parse("http://www.cyanogenmod.com");
-                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+        TextView versionText = (TextView) dialog.findViewById(R.id.about_version);
+        versionText.setText(getString(R.string.about_version) + " " + getVersion());
+
+        Button closeBtn = (Button) dialog.findViewById(R.id.about_close);
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                dialog.cancel();
             }
         });
 
+        dialog.show();
+        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, android.R.drawable.ic_dialog_info);
+    }
+
+    /**
+     * Get the current package version.
+     * 
+     * @return The current version.
+     */
+    private String getVersion() {
+        String result = "";
+        try {
+            PackageManager manager = this.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
+
+            result = String.format("%s (%s)", info.versionName, info.versionCode);
+        } catch (NameNotFoundException e) {
+            Log.w(TAG, "Unable to get application version: " + e.getMessage());
+            result = "Unable to get application version.";
+        }
+
+        return result;
+    }
+
+    private void showNoRootDialog() {
+        Dialog dialog = new Dialog(mContext);
+        dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+        dialog.setContentView(R.layout.no_root_dialog);
+        dialog.setTitle(R.string.no_root_title);
+
         // Exit Button closes application
-        Button exitButton = (Button) rootDialog.findViewById(R.id.exit_button);
+        Button exitButton = (Button) dialog.findViewById(R.id.no_root_exit);
         exitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // finish this activity
+                // exit the app
                 finish();
             }
         });
 
-        rootDialog.show();
+        // when dialog is closed by pressing back exit app
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                finish();
+            }
+        });
+
+        dialog.show();
+        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, android.R.drawable.ic_dialog_alert);
     }
 
     private class Apply extends AsyncTask<Void, String, Boolean> {

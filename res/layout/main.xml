@@ -10,7 +10,7 @@
         android:gravity="top">
 
         <TableRow
-            android:id="@+id/tableRow1"
+            android:id="@+id/main_table"
             android:paddingBottom="20dip"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -18,11 +18,11 @@
             android:layout_width="fill_parent">
             <ImageView
                 android:src="@drawable/icon"
-                android:id="@+id/logo_image"
+                android:id="@+id/main_logo"
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent"></ImageView>
             <TextView
-                android:id="@+id/logo_text"
+                android:id="@+id/main_logo_text"
                 android:text="@string/app_name"
                 android:textStyle="bold"
                 android:textSize="20sp"
