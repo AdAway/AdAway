@@ -51,6 +51,7 @@ public class AdAway extends Activity {
     static final String TAG_DOWNLOAD = TAG + " Download Async";
 
     static final String LOCALHOST_IPv4 = "127.0.0.1";
+    static final String LOCALHOST_HOSTNAME = "hostname";
     static final String DOWNLOADED_HOSTS_FILENAME = "hosts_downloaded";
     static final String HOSTS_FILENAME = "hosts";
     static final String LINE_SEPERATOR = System.getProperty("line.separator");
@@ -116,24 +117,6 @@ public class AdAway extends Activity {
             }
         }
 
-        // check if private hostfile exists and enable apply button
-        // try {
-        // Log.i(TAG, "try");
-        // FileInputStream fis = openFileInput(HOSTNAMES_FILENAME);
-        // fis.close();
-        //
-        // Button applyButton = (Button) findViewById(R.id.apply_button);
-        // applyButton.setEnabled(true);
-        //
-        // } catch (FileNotFoundException e) {
-        // Button applyButton = (Button) findViewById(R.id.apply_button);
-        // applyButton.setEnabled(false);
-        // e.printStackTrace();
-        // } catch (IOException e) {
-        // Log.e(TAG, "IO Exception");
-        // e.printStackTrace();
-        // }
-
         // TEST --------------
         mHostsDatabase = new HostsDatabase(mContext);
         // mHostsDatabase.insertHostsFile("http://bla.de");
@@ -167,7 +150,7 @@ public class AdAway extends Activity {
                     FileOutputStream fos = openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE);
 
                     // default localhost
-                    String localhost = LOCALHOST_IPv4 + " localhost";
+                    String localhost = LOCALHOST_IPv4 + " " + LOCALHOST_HOSTNAME;
                     fos.write(localhost.getBytes());
                     fos.close();
                 } catch (IOException e) {
@@ -510,7 +493,7 @@ public class AdAway extends Activity {
                 String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
 
                 // add "127.0.0.1 localhost" entry
-                String localhost = LINE_SEPERATOR + LOCALHOST_IPv4 + " localhost";
+                String localhost = LINE_SEPERATOR + LOCALHOST_IPv4 + " " + LOCALHOST_HOSTNAME;
                 fos.write(localhost.getBytes());
 
                 fos.write(LINE_SEPERATOR.getBytes());

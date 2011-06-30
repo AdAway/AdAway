@@ -35,7 +35,7 @@
     <string name="revert_successfull">You reverted to the default /etc/system/hosts file. A restart may be necessary.</string>
     <string name="button_revert">Revert</string>
     <string name="apply_success">Applying was successfull. A restart of Android may be necessary.</string>
-    <string name="about_description">AdAway is an open source ad blocker for Android.\n\nAdAway logo is based on an icon from the RRZE Icon Set.</string>
+    <string name="about_description">AdAway is an open source ad blocker for Android.\n\nThe AdAway logo is based on an icon from the RRZE Icon Set.</string>
     <string name="about_license">License: GPL v3</string>
     <string name="about_url">http://code.google.com/p/ad-away/</string>
     <string name="about_version">Version:</string>
