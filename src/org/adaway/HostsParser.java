@@ -34,7 +34,8 @@ public class HostsParser {
         hostnames = new HashSet<String>();
         comments = new LinkedList<String>();
 
-        // I could not find any android class that provides checking of an hostname, thus i am using regex
+        // I could not find any android class that provides checking of an hostname, thus i am using
+        // regex
         // http://stackoverflow.com/questions/106179/regular-expression-to-match-hostname-or-ip-address/3824105#3824105
         // added underscore to match more hosts
         String hostnameRegex = "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_]{0,61}[a-zA-Z0-9])\\.)+([a-zA-Z0-9]{2,5})$";

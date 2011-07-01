@@ -8,7 +8,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="top">
-
         <TableRow
             android:id="@+id/main_table"
             android:paddingBottom="20dip"
@@ -35,7 +34,8 @@
             android:layout_width="wrap_content"
             android:id="@+id/apply_button"
             android:text="@string/button_apply"
-            android:onClick="applyOnClick" android:enabled="true"></Button>
+            android:onClick="applyOnClick"
+            android:enabled="true"></Button>
         <Button
             android:id="@+id/revert_button"
             android:layout_width="wrap_content"

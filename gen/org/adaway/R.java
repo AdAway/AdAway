@@ -49,6 +49,8 @@ public final class R {
         public static final int apply_dialog_apply=0x7f05000f;
         public static final int apply_dialog_hostnames=0x7f05000d;
         public static final int apply_dialog_hosts=0x7f05000e;
+        public static final int apply_problem=0x7f050029;
+        public static final int apply_problem_title=0x7f05002a;
         public static final int apply_success=0x7f050022;
         public static final int button_apply=0x7f050005;
         public static final int button_close=0x7f050008;
@@ -78,6 +80,7 @@ public final class R {
         public static final int pref_key_redirection_ip=0x7f050018;
         public static final int pref_redirection_ip=0x7f050015;
         public static final int pref_summary_check_syntax=0x7f05001c;
+        public static final int revert_problem=0x7f05002b;
         public static final int revert_question=0x7f05001f;
         public static final int revert_successfull=0x7f050020;
     }

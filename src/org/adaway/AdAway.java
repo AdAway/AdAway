@@ -1,13 +1,12 @@
 package org.adaway;
 
 //TODO: read database and constant best practices
+//TODO: test the checking for space in copyhostsfile
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -26,6 +25,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StatFs;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -49,6 +49,7 @@ public class AdAway extends Activity {
     static final String TAG = "AdAway";
     static final String TAG_APPLY = TAG + " Apply Async";
     static final String TAG_DOWNLOAD = TAG + " Download Async";
+    static final String TAG_COPY = TAG + " Copy Root";
 
     static final String LOCALHOST_IPv4 = "127.0.0.1";
     static final String LOCALHOST_HOSTNAME = "hostname";
@@ -56,7 +57,7 @@ public class AdAway extends Activity {
     static final String HOSTS_FILENAME = "hosts";
     static final String LINE_SEPERATOR = System.getProperty("line.separator");
     static final String CP_COMMAND = "cp -f";
-    static final String ANDROID_HOSTS_PATH = "/system/etc/hosts";
+    static final String ANDROID_HOSTS_PATH = "/system/etc";
 
     private ProgressDialog mDownloadProgressDialog;
     public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
@@ -132,55 +133,77 @@ public class AdAway extends Activity {
     }
 
     public void applyOnClick(View view) {
-        new DownloadHostsFiles().execute("http://winhelp2002.mvps.org/hosts.txt", "http://winhelp2002.mvps.org/hosts.txt");
-        // apply is executed in onPostExecute in DownloadHos
+        new DownloadHostsFiles().execute("http://winhelp2002.mvps.org/hosts.txt",
+                "http://winhelp2002.mvps.org/hosts.txt");
+        // apply is executed in onPostExecute in DownloadHostsFiles Thread
     }
 
     public void revertOnClick(View view) {
-        Log.d(TAG, "revert");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.button_revert);
         builder.setMessage(getString(R.string.revert_question));
         builder.setIcon(android.R.drawable.ic_dialog_alert);
         builder.setCancelable(false);
-        builder.setPositiveButton(getString(R.string.button_yes), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // build standard hosts file
-                try {
-                    FileOutputStream fos = openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE);
+        builder.setPositiveButton(getString(R.string.button_yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // build standard hosts file
+                        try {
+                            FileOutputStream fos = openFileOutput(HOSTS_FILENAME,
+                                    Context.MODE_PRIVATE);
 
-                    // default localhost
-                    String localhost = LOCALHOST_IPv4 + " " + LOCALHOST_HOSTNAME;
-                    fos.write(localhost.getBytes());
-                    fos.close();
-                } catch (IOException e) {
-                    Log.e(TAG, "IO Exception");
-                    e.printStackTrace();
-                }
+                            // default localhost
+                            String localhost = LOCALHOST_IPv4 + " " + LOCALHOST_HOSTNAME;
+                            fos.write(localhost.getBytes());
+                            fos.close();
 
-                // copy hosts file with RootTools
-                copyHostsFile();
+                            // copy hosts file with RootTools
+                            if (!copyHostsFile()) {
+                                Log.e(TAG, "revert: problem with copying hosts file");
+                                throw new Exception();
+                            }
 
-                // delete generated hosts file after applying it
-                deleteFile(HOSTS_FILENAME);
+                            // delete generated hosts file after applying it
+                            deleteFile(HOSTS_FILENAME);
 
-                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-                alertDialog.setTitle(R.string.button_revert);
-                alertDialog.setMessage(getString(org.adaway.R.string.revert_successfull));
-                alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dlg, int sum) {
-                        // do nothing, close
+                            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                            alertDialog.setIcon(android.R.drawable.ic_dialog_info);
+                            alertDialog.setTitle(R.string.button_revert);
+                            alertDialog
+                                    .setMessage(getString(org.adaway.R.string.revert_successfull));
+                            alertDialog.setButton(getString(R.string.button_close),
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dlg, int sum) {
+                                            // do nothing, close
+                                        }
+                                    });
+                            alertDialog.show();
+
+                        } catch (Exception e) {
+                            Log.e(TAG_COPY, "Exception: " + e);
+                            e.printStackTrace();
+
+                            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                            alertDialog.setTitle(R.string.button_revert);
+                            alertDialog.setMessage(getString(org.adaway.R.string.revert_problem));
+                            alertDialog.setButton(getString(R.string.button_close),
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dlg, int sum) {
+                                            // do nothing, close
+                                        }
+                                    });
+                            alertDialog.show();
+                        }
+
                     }
                 });
-                alertDialog.show();
-            }
-        });
-        builder.setNegativeButton(getString(R.string.button_no), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
+        builder.setNegativeButton(getString(R.string.button_no),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
         AlertDialog question = builder.create();
         question.show();
     }
@@ -202,7 +225,8 @@ public class AdAway extends Activity {
         });
 
         dialog.show();
-        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, android.R.drawable.ic_dialog_info);
+        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,
+                android.R.drawable.ic_dialog_info);
     }
 
     /**
@@ -248,44 +272,64 @@ public class AdAway extends Activity {
         });
 
         dialog.show();
-        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, android.R.drawable.ic_dialog_alert);
+        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,
+                android.R.drawable.ic_dialog_alert);
+    }
+
+    /**
+     * Check if there is enough space on internal partition
+     * 
+     * @param size
+     *            size of file to put on partition
+     * @param path
+     *            path where to put the file
+     * 
+     * @return <code>true</code> if it will fit on partition of <code>path</code>,
+     *         <code>false</code> if it will not fit.
+     */
+    public static boolean hasEnoughSpaceOnPartition(String path, long size) {
+        StatFs stat = new StatFs(path);
+        long blockSize = stat.getBlockSize();
+        long availableBlocks = stat.getAvailableBlocks();
+
+        if (size < availableBlocks * blockSize) {
+            return true;
+        } else {
+            Log.e(TAG, "Not enough space on partition!");
+            return false;
+        }
     }
 
     private boolean copyHostsFile() {
-        String appDir = getFilesDir().getAbsolutePath();
-        Log.d(TAG_APPLY, "dir: " + appDir);
+        String privateDir = getFilesDir().getAbsolutePath();
+        Log.d(TAG_COPY, "private dir: " + privateDir);
 
-        String file = appDir + File.separator + HOSTS_FILENAME;
+        String privateFile = privateDir + File.separator + HOSTS_FILENAME;
+        Log.d(TAG_COPY, "private file: " + privateFile);
 
-        Log.d(TAG_APPLY, "file: " + file);
-
-        String command = CP_COMMAND + " " + file + " " + ANDROID_HOSTS_PATH;
-
-        Log.d(TAG_APPLY, "command: " + command);
+        String command = CP_COMMAND + " " + privateFile + " " + ANDROID_HOSTS_PATH + File.separator
+                + HOSTS_FILENAME;
+        Log.d(TAG_COPY, "command: " + command);
 
         // do it with RootTools
         try {
+            long size = new File(privateFile).length();
+            Log.d(TAG_COPY, "size: " + size);
+
+            // check for space on partition
+            if (!hasEnoughSpaceOnPartition(ANDROID_HOSTS_PATH, size)) {
+                throw new Exception();
+            }
+
             // remount for write access
             RootTools.remount(ANDROID_HOSTS_PATH, "RW");
-
-            // TODO: check for space
-            // RootTools.getSpace(ANDROID_HOSTS_PATH);
 
             // do command
             List<String> output = RootTools.sendShell(command);
 
-            Log.d(TAG_APPLY, "output of command: " + output.toString());
-        } catch (IOException e) {
-            Log.e(TAG_APPLY, "IOException");
-
-            return false;
-        } catch (InterruptedException e) {
-            Log.e(TAG_APPLY, "InterruptedException");
-            e.printStackTrace();
-
-            return false;
-        } catch (RootToolsException e) {
-            Log.e(TAG_APPLY, "RootToolsException");
+            Log.d(TAG_COPY, "output of command: " + output.toString());
+        } catch (Exception e) {
+            Log.e(TAG_COPY, "Exception: " + e);
             e.printStackTrace();
 
             return false;
@@ -333,7 +377,8 @@ public class AdAway extends Activity {
 
         private boolean isAndroidOnline() {
             try {
-                ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager cm = (ConnectivityManager) mContext
+                        .getSystemService(Context.CONNECTIVITY_SERVICE);
                 return cm.getActiveNetworkInfo().isConnectedOrConnecting();
             } catch (Exception e) {
                 return false;
@@ -345,13 +390,15 @@ public class AdAway extends Activity {
             try {
                 if (isAndroidOnline()) {
                     // output to write into
-                    FileOutputStream out = openFileOutput(DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE);
+                    FileOutputStream out = openFileOutput(DOWNLOADED_HOSTS_FILENAME,
+                            Context.MODE_PRIVATE);
 
                     for (String url : urls) {
                         Log.v(TAG, "Starting downloading hostname file: " + urls[0]);
 
                         URL mURL = new URL(url);
-                        // if (mURL.getProtocol() == "http") { // TODO: implement SSL httpsURLConnection
+                        // if (mURL.getProtocol() == "http") { // TODO: implement SSL
+                        // httpsURLConnection
                         HttpURLConnection connection = (HttpURLConnection) mURL.openConnection();
                         // } else if (mURL.getProtocol() == "https") {
                         //
@@ -377,7 +424,8 @@ public class AdAway extends Activity {
                         count = 0;
 
                         currentURL = url; // for displaying in progress dialog
-                        messageChanged = true; // with this, onProgressUpdate knows that the message has been set
+                        messageChanged = true; // with this, onProgressUpdate knows that the message
+                                               // has been set
 
                         while ((count = in.read(data)) != -1) {
                             total += count;
@@ -385,7 +433,8 @@ public class AdAway extends Activity {
                             out.write(data, 0, count);
                         }
 
-                        out.write(LINE_SEPERATOR.getBytes()); // add line seperator to add hostname files together in one file
+                        out.write(LINE_SEPERATOR.getBytes()); // add line seperator to add hosts
+                                                              // files together in one file
                         out.flush();
                         in.close();
                         connection.disconnect();
@@ -395,10 +444,12 @@ public class AdAway extends Activity {
 
                     return true;
                 } else {
-                    return false;
+                    throw new Exception();
                 }
             } catch (Exception e) {
                 Log.e(TAG_DOWNLOAD, "Exception: " + e);
+                e.printStackTrace();
+
                 return false;
             }
         }
@@ -416,7 +467,8 @@ public class AdAway extends Activity {
             // update dialog with filename and progress
             if (messageChanged) {
                 Log.d(TAG_DOWNLOAD, "messageChanged");
-                mDownloadProgressDialog.setMessage(getString(R.string.download_dialog) + LINE_SEPERATOR + currentURL);
+                mDownloadProgressDialog.setMessage(getString(R.string.download_dialog)
+                        + LINE_SEPERATOR + currentURL);
                 messageChanged = false;
             }
             mDownloadProgressDialog.setProgress(progress[0]);
@@ -436,16 +488,18 @@ public class AdAway extends Activity {
                 new Apply().execute();
             } else {
                 removeDialog(DIALOG_DOWNLOAD_PROGRESS);
+
                 Log.d(TAG_DOWNLOAD, "problem");
                 AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_connection_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
-                alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dlg, int sum) {
-                        // do nothing, close
-                    }
-                });
+                alertDialog.setButton(getString(R.string.button_close),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int sum) {
+                                // do nothing, close
+                            }
+                        });
                 alertDialog.show();
             }
         }
@@ -480,7 +534,11 @@ public class AdAway extends Activity {
                 FileOutputStream fos = openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE);
 
                 // add adaway header
-                String header = "# This hosts file is generated by AdAway." + LINE_SEPERATOR + "# Please do not modify it directly, it will be overwritten when AdAway is applied again." + LINE_SEPERATOR + "# " + LINE_SEPERATOR + "# The following lines are comments from the downloaded hosts files:";
+                String header = "# This hosts file is generated by AdAway."
+                        + LINE_SEPERATOR
+                        + "# Please do not modify it directly, it will be overwritten when AdAway is applied again."
+                        + LINE_SEPERATOR + "# " + LINE_SEPERATOR
+                        + "# The following lines are comments from the downloaded hosts files:";
                 fos.write(header.getBytes());
 
                 // write comments from other files to header
@@ -523,20 +581,18 @@ public class AdAway extends Activity {
                 publishProgress(getString(R.string.apply_dialog_apply));
 
                 // copy build hosts file with RootTools
-                copyHostsFile();
+                if (!copyHostsFile()) {
+                    throw new Exception();
+                }
 
                 // delete generated hosts file after applying it
                 deleteFile(HOSTS_FILENAME);
 
-            } catch (FileNotFoundException e) {
-                Log.e(TAG_APPLY, "FileNotFoundException");
+            } catch (Exception e) {
+                Log.e(TAG_APPLY, "Exception: " + e);
                 e.printStackTrace();
-            } catch (IllegalStateException e) {
-                Log.e(TAG_APPLY, "IllegalStateException");
-                e.printStackTrace();
-            } catch (IOException e) {
-                Log.e(TAG_APPLY, "IOException");
-                e.printStackTrace();
+
+                return false;
             }
 
             return true;
@@ -564,30 +620,34 @@ public class AdAway extends Activity {
 
             if (result) {
                 removeDialog(DIALOG_APPLY_PROGRESS);
+
                 AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_info);
                 alertDialog.setTitle(R.string.apply_dialog);
                 alertDialog.setMessage(getString(R.string.apply_success));
-                alertDialog.setButton(getString(R.string.button_close), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dlg, int sum) {
-                        // do nothing, close
-                    }
-                });
+                alertDialog.setButton(getString(R.string.button_close),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int sum) {
+                                // do nothing, close
+                            }
+                        });
                 alertDialog.show();
 
             } else {
                 removeDialog(DIALOG_APPLY_PROGRESS);
                 Log.d(TAG_APPLY, "problem");
-                // AlertDialog alertDialog;
-                // alertDialog = new AlertDialog.Builder(mContext).create();
-                // alertDialog.setTitle(R.string.no_connection_title);
-                // alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
-                // alertDialog.setButton(getString(R.string.close_button), new DialogInterface.OnClickListener() {
-                // public void onClick(DialogInterface dlg, int sum) {
-                // // do nothing, close
-                // }
-                // });
-                // alertDialog.show();
+
+                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                alertDialog.setTitle(R.string.apply_problem_title);
+                alertDialog.setMessage(getString(org.adaway.R.string.apply_problem));
+                alertDialog.setButton(getString(R.string.button_close),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int sum) {
+                                // do nothing, close
+                            }
+                        });
+                alertDialog.show();
             }
         }
     }

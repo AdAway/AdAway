@@ -13,7 +13,7 @@
     <string name="menu_hosts_files">Hosts files</string>
     <string name="menu_about">About</string>
     <string name="apply_dialog">Apply</string>
-    <string name="apply_dialog_hostnames">Parsing and merging hostnames</string>
+    <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
     <string name="apply_dialog_hosts">Build hosts file</string>
     <string name="apply_dialog_apply">Apply hosts file</string>
     <string name="menu_preferences">Preferences</string>
@@ -41,4 +41,7 @@
     <string name="about_version">Version:</string>
     <string name="no_root_url">http://www.cyanogenmod.com</string>
     <string name="about_title">About</string>
+    <string name="apply_problem">There were problems applying the hosts file to your system.\nOne problem might be that there is not enough space on one of your internal system partitions.</string>
+    <string name="apply_problem_title">Applying failed</string>
+    <string name="revert_problem">Reverting failed.</string>
 </resources>

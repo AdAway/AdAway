@@ -20,7 +20,8 @@ public class HostsDatabase {
     private SQLiteDatabase db;
 
     private SQLiteStatement insertStmt;
-    private static final String INSERT = "insert into " + TABLE_NAME + "(url, enabled) values (?, ?)";
+    private static final String INSERT = "insert into " + TABLE_NAME
+            + "(url, enabled) values (?, ?)";
 
     public HostsDatabase(Context context) {
         this.context = context;
@@ -34,7 +35,7 @@ public class HostsDatabase {
         this.insertStmt.bindString(2, "1"); // default is enabled
         return this.insertStmt.executeInsert();
     }
-    
+
     public void modifyEnabled(long rowId, Integer status) {
         ContentValues args = new ContentValues();
         args.put("enabled", status);
@@ -46,14 +47,16 @@ public class HostsDatabase {
     }
 
     public Cursor getHostsCursor() {
-        Cursor cursor = this.db.query(TABLE_NAME, new String[] {"_id", "url", "enabled" }, null, null, null, null, "url desc");
-        
+        Cursor cursor = this.db.query(TABLE_NAME, new String[] { "_id", "url", "enabled" }, null,
+                null, null, null, "url desc");
+
         return cursor;
     }
-    
+
     public ArrayList<String> getAllEnabledHosts() {
         ArrayList<String> list = new ArrayList<String>();
-        Cursor cursor = this.db.query(TABLE_NAME, new String[] {"_id", "url", "enabled" }, "enabled is 1", null, null, null, "url desc");
+        Cursor cursor = this.db.query(TABLE_NAME, new String[] { "_id", "url", "enabled" },
+                "enabled is 1", null, null, null, "url desc");
         if (cursor.moveToFirst()) {
             do {
                 list.add(cursor.getString(0));
@@ -73,7 +76,8 @@ public class HostsDatabase {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE " + TABLE_NAME + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)");
+            db.execSQL("CREATE TABLE " + TABLE_NAME
+                    + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)");
         }
 
         @Override

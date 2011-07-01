@@ -18,7 +18,8 @@ public class HostsFiles extends ListActivity {
 
         String[] displayFields = new String[] { "url" };
         int[] displayViews = new int[] { R.id.hosts_entry_enabled };
-        setListAdapter(new HostsCursorAdapter(this, R.layout.hosts_files_entry, cur, displayFields, displayViews));
+        setListAdapter(new HostsCursorAdapter(this, R.layout.hosts_files_entry, cur, displayFields,
+                displayViews));
     }
 
 }
