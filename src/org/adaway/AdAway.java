@@ -1,7 +1,6 @@
 package org.adaway;
 
 //TODO: read database and constant best practices
-//TODO: test the checking for space in copyhostsfile
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -72,6 +71,9 @@ public class AdAway extends Activity {
         return true;
     }
 
+    /**
+     * Menu Options
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -93,7 +95,9 @@ public class AdAway extends Activity {
         }
     }
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +105,7 @@ public class AdAway extends Activity {
 
         mContext = this;
 
-        RootTools.debugMode = true;
+        RootTools.debugMode = false;
 
         // check for root on device
         if (!RootTools.isRootAvailable()) {
@@ -132,12 +136,21 @@ public class AdAway extends Activity {
 
     }
 
+    /**
+     * Button Action to download and apply hosts files
+     * 
+     * @param view
+     */
     public void applyOnClick(View view) {
         new DownloadHostsFiles().execute("http://winhelp2002.mvps.org/hosts.txt",
                 "http://winhelp2002.mvps.org/hosts.txt");
-        // apply is executed in onPostExecute in DownloadHostsFiles Thread
     }
 
+    /**
+     * Button Action to Revert to default hosts file
+     * 
+     * @param view
+     */
     public void revertOnClick(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.button_revert);
@@ -208,6 +221,9 @@ public class AdAway extends Activity {
         question.show();
     }
 
+    /**
+     * About Dialog of AdAway
+     */
     private void showAboutDialog() {
         final Dialog dialog = new Dialog(mContext);
         dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
@@ -249,6 +265,9 @@ public class AdAway extends Activity {
         return result;
     }
 
+    /**
+     * Dialog raised when Android is not rooted, showing some information.
+     */
     private void showNoRootDialog() {
         final Dialog dialog = new Dialog(mContext);
         dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
@@ -300,12 +319,15 @@ public class AdAway extends Activity {
         }
     }
 
+    /**
+     * Copy hosts file from private storage of AdAway to internal partition using RootTools library
+     * 
+     * @return <code>true</code> if copying was successful, <code>false</code> if there were some
+     *         problems like not enough space.
+     */
     private boolean copyHostsFile() {
         String privateDir = getFilesDir().getAbsolutePath();
-        Log.d(TAG_COPY, "private dir: " + privateDir);
-
         String privateFile = privateDir + File.separator + HOSTS_FILENAME;
-        Log.d(TAG_COPY, "private file: " + privateFile);
 
         String command = CP_COMMAND + " " + privateFile + " " + ANDROID_HOSTS_PATH + File.separator
                 + HOSTS_FILENAME;
@@ -313,10 +335,9 @@ public class AdAway extends Activity {
 
         // do it with RootTools
         try {
+            // check for space on partition
             long size = new File(privateFile).length();
             Log.d(TAG_COPY, "size: " + size);
-
-            // check for space on partition
             if (!hasEnoughSpaceOnPartition(ANDROID_HOSTS_PATH, size)) {
                 throw new Exception();
             }
@@ -324,7 +345,7 @@ public class AdAway extends Activity {
             // remount for write access
             RootTools.remount(ANDROID_HOSTS_PATH, "RW");
 
-            // do command
+            // do copy command
             List<String> output = RootTools.sendShell(command);
 
             Log.d(TAG_COPY, "output of command: " + output.toString());
@@ -341,6 +362,9 @@ public class AdAway extends Activity {
         return true;
     }
 
+    /**
+     * Override onCreateDialog to define dialogs used in the Async Threads
+     */
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
@@ -363,6 +387,11 @@ public class AdAway extends Activity {
         }
     }
 
+    /**
+     * Async Thread to download hosts files, can be executed with many urls as params. In
+     * onPostExecute an Apply Async Thread will be started
+     * 
+     */
     private class DownloadHostsFiles extends AsyncTask<String, Integer, Boolean> {
         private String currentURL;
         private int fileSize;
@@ -462,8 +491,6 @@ public class AdAway extends Activity {
 
         @Override
         protected void onProgressUpdate(Integer... progress) {
-            // Log.d(TAG_DOWNLOAD, progress[0].toString());
-
             // update dialog with filename and progress
             if (messageChanged) {
                 Log.d(TAG_DOWNLOAD, "messageChanged");
@@ -478,9 +505,6 @@ public class AdAway extends Activity {
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
 
-            Log.d(TAG_DOWNLOAD, "on post exec");
-            Log.d(TAG_DOWNLOAD, result.toString());
-
             if (result) {
                 removeDialog(DIALOG_DOWNLOAD_PROGRESS);
 
@@ -489,7 +513,7 @@ public class AdAway extends Activity {
             } else {
                 removeDialog(DIALOG_DOWNLOAD_PROGRESS);
 
-                Log.d(TAG_DOWNLOAD, "problem");
+                Log.d(TAG_DOWNLOAD, "Problem!");
                 AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_connection_title);
@@ -505,31 +529,31 @@ public class AdAway extends Activity {
         }
     }
 
+    /**
+     * Async Thread to parse downloaded hosts files, build one new merged hosts file out of them
+     * using the redirection ip from the preferences and apply them using RootTools.
+     * 
+     * 
+     */
     private class Apply extends AsyncTask<Void, String, Boolean> {
 
         @Override
         protected Boolean doInBackground(Void... unused) {
-            // parse hostname files
-            // make one big set of all hostnames so no hostname is more than once in it
-            // build hosts file based on redirection ip from prefs, default is 127.0.0.1
-
             try {
+                // PARSE: parse hosts files to sets of hostnames and comments
                 publishProgress(getString(R.string.apply_dialog_hostnames));
 
                 FileInputStream fis = openFileInput(DOWNLOADED_HOSTS_FILENAME);
-
                 BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-                // parse file using HostsParser
                 HostsParser parser = new HostsParser(reader, getApplicationContext());
                 HashSet<String> hostnames = parser.getHostnames();
                 LinkedList<String> comments = parser.getComments();
 
                 fis.close();
 
+                // BUILD: build one hosts file out of sets and preferences
                 publishProgress(getString(R.string.apply_dialog_hosts));
-
-                // build hosts file out of it
 
                 FileOutputStream fos = openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE);
 
@@ -567,7 +591,6 @@ public class AdAway extends Activity {
                 while (itHostname.hasNext()) {
                     // Get element
                     hostname = itHostname.next();
-                    // Log.d(TAG_APPLY, hostname);
 
                     line = LINE_SEPERATOR + redirectionIP + " " + hostname;
                     fos.write(line.getBytes());
@@ -575,9 +598,10 @@ public class AdAway extends Activity {
 
                 fos.close();
 
-                // delete downloaded hosts file
+                // delete downloaded hosts file from private storage
                 deleteFile(DOWNLOADED_HOSTS_FILENAME);
 
+                // APPLY: apply hosts file using RootTools in copyHostsFile()
                 publishProgress(getString(R.string.apply_dialog_apply));
 
                 // copy build hosts file with RootTools
@@ -585,9 +609,8 @@ public class AdAway extends Activity {
                     throw new Exception();
                 }
 
-                // delete generated hosts file after applying it
+                // delete generated hosts file from private storage
                 deleteFile(HOSTS_FILENAME);
-
             } catch (Exception e) {
                 Log.e(TAG_APPLY, "Exception: " + e);
                 e.printStackTrace();
@@ -606,17 +629,12 @@ public class AdAway extends Activity {
 
         @Override
         protected void onProgressUpdate(String... status) {
-            Log.d(TAG_APPLY, status[0].toString());
-
             mApplyProgressDialog.setMessage(status[0]);
         }
 
         @Override
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
-
-            Log.d(TAG_APPLY, "on post exec");
-            Log.d(TAG_APPLY, result.toString());
 
             if (result) {
                 removeDialog(DIALOG_APPLY_PROGRESS);
@@ -635,7 +653,7 @@ public class AdAway extends Activity {
 
             } else {
                 removeDialog(DIALOG_APPLY_PROGRESS);
-                Log.d(TAG_APPLY, "problem");
+                Log.d(TAG_APPLY, "Problem!");
 
                 AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
