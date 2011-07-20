@@ -35,12 +35,11 @@
         </LinearLayout>
         <Button
             android:text="@string/button_exit"
-            android:id="@+id/no_root_exit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="30dip"
             android:layout_marginRight="30dip"
-            android:layout_marginTop="30dip"></Button>
+            android:layout_marginTop="30dip" android:id="@+id/no_root_exit"></Button>
     </LinearLayout>
 </ScrollView>

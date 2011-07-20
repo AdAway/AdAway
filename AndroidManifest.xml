@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="HostsFiles" android:label="@string/menu_hosts_files"></activity>
+        <activity android:name="HostsSources" android:label="@string/menu_hosts_sources"></activity>
         <activity android:name="Preferences" android:label="@string/menu_preferences"></activity>
 
     </application>
