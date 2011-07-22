@@ -57,4 +57,5 @@
     <string name="hosts_sources_delete">Delete</string>
     <string name="hosts_sources_footer">Long press one entry to show a context menu with more options.</string>
     <string name="hosts_sources_context_title">Edit Entry</string>
+    <string name="app_subtitle">Open source ad blocker</string>
 </resources>

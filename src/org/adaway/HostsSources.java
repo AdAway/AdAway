@@ -38,6 +38,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -93,6 +94,9 @@ public class HostsSources extends ListActivity {
         // String selection = l.getItemAtPosition(position).toString();
         // TODO: implement database update here?
         Log.d("adaway", "clicked on id " + id);
+        
+//        CheckBox cBox = (CheckBox) v.get
+
     }
 
     /**

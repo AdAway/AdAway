@@ -1,46 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <TableLayout
-        android:id="@+id/tableLayout1"
+    android:padding="20dip"
+    android:orientation="vertical">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="top">
-        <TableRow
-            android:id="@+id/main_table"
-            android:paddingBottom="20dip"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:padding="6dip">
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="6dip"
+            android:src="@drawable/icon" />
+        <TextView
+            android:id="@+id/secondLine"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_toRightOf="@id/icon"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:text="@string/app_subtitle" />
+        <TextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_width="fill_parent">
-            <ImageView
-                android:src="@drawable/icon"
-                android:id="@+id/main_logo"
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"></ImageView>
-            <TextView
-                android:id="@+id/main_logo_text"
-                android:text="@string/app_name"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"></TextView>
+            android:layout_toRightOf="@id/icon"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/secondLine"
+            android:layout_alignWithParentIfMissing="true"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:text="@string/app_name" />
+    </RelativeLayout>
 
-        </TableRow>
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/apply_button"
-            android:text="@string/button_apply"
-            android:onClick="applyOnClick"
-            android:enabled="true"></Button>
-        <Button
-            android:id="@+id/revert_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_revert"
-            android:onClick="revertOnClick"></Button>
-    </TableLayout>
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:paddingTop="20dip">
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_width="fill_parent">
+            <Button
+                android:layout_height="wrap_content"
+                android:id="@+id/apply_button"
+                android:text="@string/button_apply"
+                android:onClick="applyOnClick"
+                android:enabled="true"
+                android:layout_width="fill_parent"></Button>
+            <Button
+                android:id="@+id/revert_button"
+                android:layout_height="wrap_content"
+                android:text="@string/button_revert"
+                android:onClick="revertOnClick"
+                android:layout_width="fill_parent"></Button>
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
