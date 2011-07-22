@@ -30,58 +30,78 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class HostsDatabase {
+public class DatabaseHelper {
 
     static final String TAG = "AdAway";
 
     private static final String DATABASE_NAME = "adaway.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "hosts_files";
+    private static final String TABLE_HOSTS_SOURCES = "hosts_sources";
 
     private Context context;
     private SQLiteDatabase db;
 
     private SQLiteStatement insertStmt;
-    private static final String INSERT = "insert into " + TABLE_NAME
+    private static final String INSERT = "insert into " + TABLE_HOSTS_SOURCES
             + "(url, enabled) values (?, ?)";
 
-    public HostsDatabase(Context context) {
+    public DatabaseHelper(Context context) {
         this.context = context;
         OpenHelper openHelper = new OpenHelper(this.context);
         this.db = openHelper.getWritableDatabase();
         this.insertStmt = this.db.compileStatement(INSERT);
     }
 
-    public long insertHostsFile(String url) {
-        this.insertStmt.bindString(1, url);
-        this.insertStmt.bindString(2, "1"); // default is enabled
-        return this.insertStmt.executeInsert();
+    /**
+     * Close the database helper.
+     * 
+     * TODO: needed?
+     */
+    public void close() {
+        db.close();
     }
 
+    public long insertHostsSource(String url) {
+        insertStmt.bindString(1, url);
+        insertStmt.bindString(2, "1"); // default is enabled
+        return insertStmt.executeInsert();
+    }
+
+    public void deleteHostsSource(long rowId) {
+        db.delete(TABLE_HOSTS_SOURCES, "_id=" + rowId, null);
+    }
+
+    /**
+     * delete later!
+     * 
+     * just test
+     * @param rowId
+     * @param status
+     */
     public void modifyEnabled(long rowId, Integer status) {
         ContentValues args = new ContentValues();
         args.put("enabled", status);
-        db.update(TABLE_NAME, args, "_id=" + rowId, null);
+        db.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
     }
 
-    public void deleteAll() {
-        this.db.delete(TABLE_NAME, null, null);
+    public void deleteAllHostsSources() {
+        db.delete(TABLE_HOSTS_SOURCES, null, null);
     }
 
-    public Cursor getHostsCursor() {
-        Cursor cursor = this.db.query(TABLE_NAME, new String[] { "_id", "url", "enabled" }, null,
+    public Cursor getHostsSourcesCursor() {
+        Cursor cursor = this.db.query(TABLE_HOSTS_SOURCES, new String[] { "_id", "url", "enabled" }, null,
                 null, null, null, "url desc");
 
         return cursor;
     }
 
-    public ArrayList<String> getAllEnabledHosts() {
+    public ArrayList<String> getAllEnabledHostsSources() {
         ArrayList<String> list = new ArrayList<String>();
-        Cursor cursor = this.db.query(TABLE_NAME, new String[] { "_id", "url", "enabled" },
+        Cursor cursor = this.db.query(TABLE_HOSTS_SOURCES, new String[] { "_id", "url", "enabled" },
                 "enabled is 1", null, null, null, "url desc");
         if (cursor.moveToFirst()) {
             do {
-                list.add(cursor.getString(0));
+                list.add(cursor.getString(1));
             } while (cursor.moveToNext());
         }
         if (cursor != null && !cursor.isClosed()) {
@@ -91,21 +111,37 @@ public class HostsDatabase {
     }
 
     private static class OpenHelper extends SQLiteOpenHelper {
-
         OpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
 
+        public long insertHostsFile(SQLiteStatement insertStmt, String url) {
+            insertStmt.bindString(1, url);
+            insertStmt.bindString(2, "1"); // default is enabled
+            return insertStmt.executeInsert();
+        }
+
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE " + TABLE_NAME
+            db.execSQL("CREATE TABLE " + TABLE_HOSTS_SOURCES
                     + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)");
+
+            // fill default hosts sources
+            // TODO: This seems to be also done on upgrading! Problem?
+            SQLiteStatement insertStmt;
+            String INSERT = "insert into " + TABLE_HOSTS_SOURCES + "(url, enabled) values (?, ?)";
+            insertStmt = db.compileStatement(INSERT);
+
+            insertHostsFile(insertStmt, "http://www.mvps.org/winhelp2002/hosts.txt");
+            // not working, because no file GET:
+            // insertHostsFile(insertStmt,
+            // "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext");
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             Log.w(TAG, "Upgrading database, this will drop tables and recreate.");
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTS_SOURCES);
             onCreate(db);
         }
     }

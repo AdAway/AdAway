@@ -7,5 +7,9 @@
     <CheckBox
         android:id="@+id/hosts_entry_enabled"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:layout_width="fill_parent"
+        android:focusable="false"
+        android:clickable="false" />
+    <!-- focusable and clickable MUST be false to handle click and longClick 
+        in ListView Activity -->
 </LinearLayout>

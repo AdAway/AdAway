@@ -52,5 +52,9 @@
     <string name="hosts_add_dialog">Input URL to hosts file:</string>
     <string name="hosts_add_dialog_title">Add</string>
     <string name="button_cancel">Cancel</string>
-    <string name="hosts_add_dialog_input">https://</string>
+    <string name="hosts_add_dialog_input">http://</string>
+    <string name="hosts_sources_empty">No entries</string>
+    <string name="hosts_sources_delete">Delete</string>
+    <string name="hosts_sources_footer">Long press one entry to show a context menu with more options.</string>
+    <string name="hosts_sources_context_title">Edit Entry</string>
 </resources>

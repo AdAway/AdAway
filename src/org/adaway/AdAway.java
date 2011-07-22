@@ -42,6 +42,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StatFs;
@@ -63,7 +64,7 @@ import com.stericson.RootTools.*;
 
 public class AdAway extends Activity {
     private Context mContext;
-    private HostsDatabase mHostsDatabase;
+    private DatabaseHelper mHostsDatabase;
 
     static final String TAG = "AdAway";
     static final String TAG_APPLY = TAG + " Apply Async";
@@ -141,19 +142,6 @@ public class AdAway extends Activity {
                 }
             }
         }
-
-        // TEST --------------
-        mHostsDatabase = new HostsDatabase(mContext);
-        // mHostsDatabase.insertHostsFile("http://bla.de");
-
-        mHostsDatabase.modifyEnabled(2, 1);
-
-        ArrayList<String> list = mHostsDatabase.getAllEnabledHosts();
-
-        Log.d(TAG, list.toString());
-
-        Log.d(TAG, "after err");
-
     }
 
     /**
@@ -162,8 +150,18 @@ public class AdAway extends Activity {
      * @param view
      */
     public void applyOnClick(View view) {
-        new DownloadHostsFiles().execute("http://winhelp2002.mvps.org/hosts.txt",
-                "http://winhelp2002.mvps.org/hosts.txt");
+        mHostsDatabase = new DatabaseHelper(mContext);
+
+        // get enabled hosts from databse
+        ArrayList<String> enabledHosts = mHostsDatabase.getAllEnabledHostsSources();
+        Log.d(TAG, "Enabled hosts: " + enabledHosts.toString());
+
+        // build array out of list
+        String[] enabledHostsArray = new String[enabledHosts.size()];
+        enabledHosts.toArray(enabledHostsArray);
+
+        // execute downloading of files
+        new DownloadHostsFiles().execute(enabledHostsArray);
     }
 
     /**
@@ -425,13 +423,12 @@ public class AdAway extends Activity {
         }
 
         private boolean isAndroidOnline() {
-            try {
-                ConnectivityManager cm = (ConnectivityManager) mContext
-                        .getSystemService(Context.CONNECTIVITY_SERVICE);
-                return cm.getActiveNetworkInfo().isConnectedOrConnecting();
-            } catch (Exception e) {
-                return false;
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo netInfo = cm.getActiveNetworkInfo();
+            if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+                return true;
             }
+            return false;
         }
 
         @Override

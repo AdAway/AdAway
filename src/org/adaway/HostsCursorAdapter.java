@@ -22,6 +22,7 @@ package org.adaway;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,20 +70,33 @@ public class HostsCursorAdapter extends SimpleCursorAdapter {
 
             int urlCol = c.getColumnIndex("url");
             String url = c.getString(urlCol);
+            
+//            TextView text = (TextView) v.findViewById(R.id.hosts_entry_text);
+
 
             cBox.setText(url);
-
-            cBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton button, boolean check) {
-                    if (check) {
-                        // add to unchecked?
-
-                    } else {
-
-                    }
-                }
-            });
+            
+//            cBox.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View v) {
+////                    cBox.setAnimation(animation)
+//                    Log.e("test", "test");
+//                    return true;
+//                }
+//            });
+//            
+//
+//            cBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//                @Override
+//                public void onCheckedChanged(CompoundButton button, boolean check) {
+//                    if (check) {
+//                        // add to unchecked?
+//
+//                    } else {
+//
+//                    }
+//                }
+//            });
         }
 
     }

@@ -11,24 +11,28 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int icon=0x7f020000;
+        public static final int btn_check_off=0x7f020000;
+        public static final int btn_check_on=0x7f020001;
+        public static final int icon=0x7f020002;
     }
     public static final class id {
         public static final int about_close=0x7f070001;
         public static final int about_version=0x7f070000;
-        public static final int apply_button=0x7f070007;
-        public static final int hosts_entry_enabled=0x7f070002;
-        public static final int main_logo=0x7f070005;
-        public static final int main_logo_text=0x7f070006;
-        public static final int main_table=0x7f070004;
-        public static final int menu_about=0x7f07000e;
-        public static final int menu_add=0x7f07000a;
-        public static final int menu_add_qrcode=0x7f07000b;
-        public static final int menu_hosts_sources=0x7f07000c;
-        public static final int menu_preferences=0x7f07000d;
-        public static final int no_root_exit=0x7f070009;
-        public static final int revert_button=0x7f070008;
-        public static final int tableLayout1=0x7f070003;
+        public static final int apply_button=0x7f070008;
+        public static final int hosts_entry_enabled=0x7f070003;
+        public static final int hosts_sources_context_delete=0x7f07000d;
+        public static final int hosts_sources_footer=0x7f070002;
+        public static final int main_logo=0x7f070006;
+        public static final int main_logo_text=0x7f070007;
+        public static final int main_table=0x7f070005;
+        public static final int menu_about=0x7f070010;
+        public static final int menu_add=0x7f07000b;
+        public static final int menu_add_qrcode=0x7f07000c;
+        public static final int menu_hosts_sources=0x7f07000e;
+        public static final int menu_preferences=0x7f07000f;
+        public static final int no_root_exit=0x7f07000a;
+        public static final int revert_button=0x7f070009;
+        public static final int tableLayout1=0x7f070004;
     }
     public static final class layout {
         public static final int about_dialog=0x7f030000;
@@ -39,7 +43,8 @@ public final class R {
     }
     public static final class menu {
         public static final int hosts_sources=0x7f060000;
-        public static final int main=0x7f060001;
+        public static final int hosts_sources_context=0x7f060001;
+        public static final int main=0x7f060002;
     }
     public static final class string {
         public static final int about_description=0x7f050023;
@@ -68,6 +73,10 @@ public final class R {
         public static final int hosts_add_dialog=0x7f050031;
         public static final int hosts_add_dialog_input=0x7f050034;
         public static final int hosts_add_dialog_title=0x7f050032;
+        public static final int hosts_sources_context_title=0x7f050038;
+        public static final int hosts_sources_delete=0x7f050036;
+        public static final int hosts_sources_empty=0x7f050035;
+        public static final int hosts_sources_footer=0x7f050037;
         public static final int menu_about=0x7f05000b;
         public static final int menu_add=0x7f05002c;
         public static final int menu_add_qrcode=0x7f05002d;
