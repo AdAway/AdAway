@@ -46,7 +46,7 @@
         android:id="@+id/scrollView1"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:paddingTop="20dip">
+        android:paddingTop="30dip">
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_height="fill_parent"
@@ -57,14 +57,30 @@
                 android:id="@+id/apply_button"
                 android:text="@string/button_apply"
                 android:onClick="applyOnClick"
-                android:enabled="true"
                 android:layout_width="fill_parent"></Button>
+            <TextView
+                android:text="@string/button_apply_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/button_apply_text"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:paddingBottom="20dip"
+                android:textSize="12sp"></TextView>
             <Button
                 android:id="@+id/revert_button"
                 android:layout_height="wrap_content"
                 android:text="@string/button_revert"
                 android:onClick="revertOnClick"
                 android:layout_width="fill_parent"></Button>
+            <TextView
+                android:text="@string/button_revert_text"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:layout_width="wrap_content"
+                android:id="@+id/button_revert_text"
+                android:textSize="12sp"></TextView>
 
         </LinearLayout>
     </ScrollView>
