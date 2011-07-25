@@ -5,19 +5,17 @@
         android:title="@string/pref_download">
         <!-- <CheckBoxPreference -->
         <!-- android:summary="This is not working at the moment" -->
-        <!-- android:title="@string/pref_https" android:key="@string/pref_key_https" 
-            android:defaultValue="@string/pref_def_https"></CheckBoxPreference> -->
+        <!-- android:title="@string/https_pref" android:key="@string/pref_https_key" 
+            android:defaultValue="@string/pref_https_def"></CheckBoxPreference> -->
         <CheckBoxPreference
             android:title="@string/pref_check_syntax"
-            android:key="@string/pref_key_check_syntax"
-            android:defaultValue="@string/pref_def_check_syntax"
-            android:summary="@string/pref_summary_check_syntax"></CheckBoxPreference>
+            android:defaultValue="@string/pref_check_syntax_def" android:summary="@string/pref_check_syntax_summary" android:key="@string/pref_check_syntax_key"></CheckBoxPreference>
+        <CheckBoxPreference android:summary="@string/pref_strip_comments_summary" android:title="@string/pref_strip_comments" android:key="@string/pref_strip_comments_key" android:defaultValue="@string/pref_strip_comments_def"></CheckBoxPreference>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_hosts">
         <EditTextPreference
             android:title="@string/pref_redirection_ip"
-            android:key="@string/pref_key_redirection_ip"
-            android:defaultValue="@string/pref_def_redirection_ip"></EditTextPreference>
+            android:defaultValue="@string/pref_redirection_ip_def" android:key="@string/pref_redirection_ip_key"></EditTextPreference>
     </PreferenceCategory>
 </PreferenceScreen>

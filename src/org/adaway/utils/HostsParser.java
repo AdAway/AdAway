@@ -1,22 +1,22 @@
 /*
-* Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
-*
-* This file is part of AdAway.
-* 
-* AdAway is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* AdAway is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
+ * Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
+ *
+ * This file is part of AdAway.
+ * 
+ * AdAway is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * AdAway is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
 package org.adaway.utils;
 
@@ -26,7 +26,6 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 
 import android.content.Context;
 import android.util.Log;
@@ -71,7 +70,10 @@ public class HostsParser {
 
         Matcher hostnameMatcher = null;
         Matcher commentMatcher = null;
-        int index = -1;
+        int indexComment = -1;
+        int indexWhitespace = -1;
+        int indexTab = -1;
+
         while ((nextLine = reader.readLine()) != null) {
 
             // check for comment only line
@@ -81,19 +83,22 @@ public class HostsParser {
                 comments.add(nextLine);
             } else { // other line
                 // check if there is any comment in that line
-                index = nextLine.indexOf('#');
-                if (index != -1) {
+                indexComment = nextLine.indexOf('#');
+                if (indexComment != -1) {
                     // strip comment from line and go on
-                    nextLine = nextLine.substring(0, index);
+                    nextLine = nextLine.substring(0, indexComment);
                 }
 
                 // strip whitespaces from begin and end
                 nextLine = nextLine.trim();
 
                 // strip ip from line
-                index = nextLine.indexOf(' ');
-                if (index != -1) {
-                    nextLine = nextLine.substring(index);
+                indexWhitespace = nextLine.indexOf(' ');
+                indexTab = nextLine.indexOf('\t');
+                if (indexWhitespace != -1) {
+                    nextLine = nextLine.substring(indexWhitespace);
+                } else if (indexTab != -1) {
+                    nextLine = nextLine.substring(indexTab);
                 }
 
                 // Log.d(TAG, "remaining line: " + nextLine);

@@ -22,13 +22,13 @@
     <string name="pref_check_syntax">Check syntax</string>
     <string name="pref_hosts">Hosts file</string>
     <string name="pref_redirection_ip">Redirection IP</string>
-    <string name="pref_key_https">https</string>
-    <string name="pref_key_check_syntax">checkSyntax</string>
-    <string name="pref_key_redirection_ip">redirectionIP</string>
-    <item name="pref_def_https" format="boolean" type="string">false</item>
-    <item name="pref_def_check_syntax" format="boolean" type="string">true</item>
-    <item name="pref_def_redirection_ip" format="string" type="string">127.0.0.1</item>
-    <string name="pref_summary_check_syntax">Check syntax of hostnames</string>
+    <string name="pref_https_key">https</string>
+    <string name="pref_check_syntax_key">checkSyntax</string>
+    <string name="pref_redirection_ip_key">redirectionIP</string>
+    <item format="boolean" type="string" name="pref_https_def">false</item>
+    <item format="boolean" type="string" name="pref_check_syntax_def">true</item>
+    <item format="string" type="string" name="pref_redirection_ip_def">127.0.0.1</item>
+    <string name="pref_check_syntax_summary">Check syntax of hostnames</string>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
     <string name="revert_question">Do you really want to revert?</string>
@@ -67,4 +67,8 @@
     <string name="no_barcode_scanner">This application requires Barcode Scanner. Would you like to install it?</string>
     <string name="checkbox_list_context_title">Edit Entry</string>
     <string name="checkbox_list_context_edit">Edit</string>
+    <string name="pref_strip_comments_key">stripComments</string>
+    <string name="pref_strip_comments">Strip comments</string>
+    <string name="pref_strip_comments_summary">Strip comments from hosts sources</string>
+    <item name="pref_strip_comments_def" type="string" format="boolean">true</item>
 </resources>
