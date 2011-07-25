@@ -18,7 +18,9 @@
  *
  */
 
-package org.adaway;
+package org.adaway.utils;
+
+import org.adaway.R;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -28,11 +30,11 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.SimpleCursorAdapter;
 
-public class HostsCursorAdapter extends SimpleCursorAdapter {
+public class CheckboxCursorAdapter extends SimpleCursorAdapter {
     // private Context context;
     private int layout;
 
-    public HostsCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to) {
+    public CheckboxCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to) {
         super(context, layout, c, from, to);
         // this.context = context;
         this.layout = layout;
@@ -48,7 +50,7 @@ public class HostsCursorAdapter extends SimpleCursorAdapter {
 
     @Override
     public void bindView(View v, Context context, Cursor c) {
-        CheckBox cBox = (CheckBox) v.findViewById(R.id.hosts_entry_enabled);
+        CheckBox cBox = (CheckBox) v.findViewById(R.id.checkbox_list_enabled);
         if (cBox != null) {
             // bind cursor position to tag of list item
             int cursorPosition = c.getPosition();

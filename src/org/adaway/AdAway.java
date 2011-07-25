@@ -36,6 +36,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.adaway.utils.DatabaseHelper;
+import org.adaway.utils.HostsParser;
+import org.adaway.utils.SharedPrefs;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;

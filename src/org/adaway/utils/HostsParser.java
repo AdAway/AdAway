@@ -18,7 +18,7 @@
 *
 */
 
-package org.adaway;
+package org.adaway.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 import android.content.Context;
 import android.util.Log;

@@ -20,6 +20,9 @@
 
 package org.adaway;
 
+import org.adaway.utils.CheckboxCursorAdapter;
+import org.adaway.utils.DatabaseHelper;
+
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
@@ -51,7 +54,7 @@ public class HostsSources extends ListActivity {
 
     private DatabaseHelper mHostsDatabase;
     private Cursor mCursor;
-    private HostsCursorAdapter mAdapter;
+    private CheckboxCursorAdapter mAdapter;
     private Context mContext;
 
     private long mCurrentRowId;
@@ -67,8 +70,8 @@ public class HostsSources extends ListActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater inflater = getMenuInflater();
-        menu.setHeaderTitle(R.string.hosts_sources_context_title);
-        inflater.inflate(R.menu.hosts_sources_context, menu);
+        menu.setHeaderTitle(R.string.checkbox_list_context_title);
+        inflater.inflate(R.menu.checkbox_list_context, menu);
     }
 
     @Override
@@ -76,10 +79,10 @@ public class HostsSources extends ListActivity {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-        case R.id.hosts_sources_context_delete:
+        case R.id.checkbox_list_context_delete:
             menuDeleteEntry(info);
             return true;
-        case R.id.hosts_sources_context_edit:
+        case R.id.checkbox_list_context_edit:
             menuEditEntry(info);
             return true;
         default:
@@ -104,7 +107,7 @@ public class HostsSources extends ListActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         // builder.setIcon(android.R.drawable.ic_input_add);
-        builder.setTitle(getString(R.string.hosts_edit_dialog_title));
+        builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
 
         // Set an EditText view to get user input
         final EditText inputEditText = new EditText(this);
@@ -192,7 +195,7 @@ public class HostsSources extends ListActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setIcon(android.R.drawable.ic_input_add);
-        builder.setTitle(getString(R.string.hosts_add_dialog_title));
+        builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
 
         // Set an EditText view to get user input
         final EditText inputEditText = new EditText(this);
@@ -273,15 +276,15 @@ public class HostsSources extends ListActivity {
 
         mContext = this; // open db
         mHostsDatabase = new DatabaseHelper(mContext); // set view
-        setContentView(R.layout.hosts_list); // register long press context menu
+        setContentView(R.layout.checkbox_list); // register long press context menu
         registerForContextMenu(getListView()); // build content of list
 
         mCursor = mHostsDatabase.getHostsSourcesCursor();
         startManagingCursor(mCursor);
 
         String[] displayFields = new String[] { "url" };
-        int[] displayViews = new int[] { R.id.hosts_entry_enabled };
-        mAdapter = new HostsCursorAdapter(mContext, R.layout.hosts_list_entry, mCursor,
+        int[] displayViews = new int[] { R.id.checkbox_list_enabled };
+        mAdapter = new CheckboxCursorAdapter(mContext, R.layout.checkbox_list_entry, mCursor,
                 displayFields, displayViews);
         setListAdapter(mAdapter);
     }

@@ -11,15 +11,15 @@
         android:layout_weight="1" />
     <TextView
         android:id="@android:id/empty"
-        android:text="@string/hosts_sources_empty"
+        android:text="@string/checkbox_list_empty"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
     <!-- floating at the bottom of the list: -->
     <TextView
-        android:id="@+id/hosts_sources_footer"
+        android:id="@+id/checkbox_list_footer"
         android:layout_width="fill_parent"
         android:layout_height="60dip"
-        android:text="@string/hosts_sources_footer"
+        android:text="@string/checkbox_list_footer"
         android:padding="4dip"
         android:background="#FF666666" />
 </LinearLayout>

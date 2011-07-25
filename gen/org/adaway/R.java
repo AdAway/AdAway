@@ -19,15 +19,15 @@ public final class R {
         public static final int apply_button=0x7f070008;
         public static final int button_apply_text=0x7f070009;
         public static final int button_revert_text=0x7f07000b;
-        public static final int hosts_entry_enabled=0x7f070003;
-        public static final int hosts_sources_context_delete=0x7f07000f;
-        public static final int hosts_sources_context_edit=0x7f070010;
-        public static final int hosts_sources_footer=0x7f070002;
+        public static final int checkbox_list_context_delete=0x7f07000d;
+        public static final int checkbox_list_context_edit=0x7f07000e;
+        public static final int checkbox_list_enabled=0x7f070003;
+        public static final int checkbox_list_footer=0x7f070002;
         public static final int icon=0x7f070004;
         public static final int linearLayout1=0x7f070007;
         public static final int menu_about=0x7f070013;
-        public static final int menu_add=0x7f07000d;
-        public static final int menu_add_qrcode=0x7f07000e;
+        public static final int menu_add=0x7f07000f;
+        public static final int menu_add_qrcode=0x7f070010;
         public static final int menu_hosts_sources=0x7f070011;
         public static final int menu_preferences=0x7f070012;
         public static final int no_root_exit=0x7f07000c;
@@ -37,14 +37,14 @@ public final class R {
     }
     public static final class layout {
         public static final int about_dialog=0x7f030000;
-        public static final int hosts_list=0x7f030001;
-        public static final int hosts_list_entry=0x7f030002;
+        public static final int checkbox_list=0x7f030001;
+        public static final int checkbox_list_entry=0x7f030002;
         public static final int main=0x7f030003;
         public static final int no_root_dialog=0x7f030004;
     }
     public static final class menu {
-        public static final int hosts_sources=0x7f060000;
-        public static final int hosts_sources_context=0x7f060001;
+        public static final int checkbox_list_context=0x7f060000;
+        public static final int hosts_sources=0x7f060001;
         public static final int main=0x7f060002;
     }
     public static final class string {
@@ -54,7 +54,7 @@ public final class R {
         public static final int about_url=0x7f050025;
         public static final int about_version=0x7f050026;
         public static final int app_name=0x7f050000;
-        public static final int app_subtitle=0x7f050039;
+        public static final int app_subtitle=0x7f050038;
         public static final int apply_dialog=0x7f05000c;
         public static final int apply_dialog_apply=0x7f05000f;
         public static final int apply_dialog_hostnames=0x7f05000d;
@@ -64,40 +64,40 @@ public final class R {
         public static final int apply_success=0x7f050022;
         public static final int button_add=0x7f050030;
         public static final int button_apply=0x7f050005;
-        public static final int button_apply_text=0x7f05003a;
+        public static final int button_apply_text=0x7f050039;
         public static final int button_cancel=0x7f050033;
         public static final int button_close=0x7f050008;
         public static final int button_cyanogenmod=0x7f050002;
         public static final int button_exit=0x7f050003;
         public static final int button_no=0x7f05001e;
         public static final int button_revert=0x7f050021;
-        public static final int button_revert_text=0x7f05003b;
-        public static final int button_save=0x7f050040;
+        public static final int button_revert_text=0x7f05003a;
+        public static final int button_save=0x7f05003e;
         public static final int button_yes=0x7f05001d;
+        public static final int checkbox_list_add_dialog_title=0x7f050032;
+        public static final int checkbox_list_context_delete=0x7f050036;
+        public static final int checkbox_list_context_edit=0x7f050042;
+        public static final int checkbox_list_context_title=0x7f050041;
+        public static final int checkbox_list_edit_dialog_title=0x7f05003d;
+        public static final int checkbox_list_empty=0x7f050035;
+        public static final int checkbox_list_footer=0x7f050037;
         public static final int download_dialog=0x7f050009;
         public static final int hosts_add_dialog=0x7f050031;
         public static final int hosts_add_dialog_input=0x7f050034;
-        public static final int hosts_add_dialog_title=0x7f050032;
-        public static final int hosts_edit_dialog_title=0x7f05003f;
-        public static final int hosts_sources_context_edit=0x7f05003e;
-        public static final int hosts_sources_context_title=0x7f050038;
-        public static final int hosts_sources_delete=0x7f050036;
-        public static final int hosts_sources_empty=0x7f050035;
-        public static final int hosts_sources_footer=0x7f050037;
         public static final int menu_about=0x7f05000b;
         public static final int menu_add=0x7f05002c;
         public static final int menu_add_qrcode=0x7f05002d;
         public static final int menu_hosts_sources=0x7f05000a;
         public static final int menu_preferences=0x7f050010;
-        public static final int no_barcode_scanner=0x7f050042;
-        public static final int no_barcode_scanner_title=0x7f050041;
+        public static final int no_barcode_scanner=0x7f050040;
+        public static final int no_barcode_scanner_title=0x7f05003f;
         public static final int no_connection=0x7f050006;
         public static final int no_connection_title=0x7f050007;
         public static final int no_root_description=0x7f050001;
         public static final int no_root_title=0x7f050004;
         public static final int no_root_url=0x7f050027;
-        public static final int no_sources=0x7f05003d;
-        public static final int no_sources_title=0x7f05003c;
+        public static final int no_sources=0x7f05003c;
+        public static final int no_sources_title=0x7f05003b;
         public static final int no_url=0x7f05002e;
         public static final int no_url_title=0x7f05002f;
         public static final int pref_check_syntax=0x7f050013;

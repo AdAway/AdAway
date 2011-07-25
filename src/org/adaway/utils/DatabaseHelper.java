@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway;
+package org.adaway.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
