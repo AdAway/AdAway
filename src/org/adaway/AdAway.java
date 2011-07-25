@@ -39,6 +39,7 @@ import java.util.List;
 import org.adaway.utils.DatabaseHelper;
 import org.adaway.utils.HostsParser;
 import org.adaway.utils.SharedPrefs;
+import org.adaway.utils.Constants;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -70,18 +71,9 @@ public class AdAway extends Activity {
     private Context mContext;
     private DatabaseHelper mHostsDatabase;
 
-    static final String TAG = "AdAway";
-    static final String TAG_APPLY = TAG + " Apply Async";
-    static final String TAG_DOWNLOAD = TAG + " Download Async";
-    static final String TAG_COPY = TAG + " Copy Root";
-
-    static final String LOCALHOST_IPv4 = "127.0.0.1";
-    static final String LOCALHOST_HOSTNAME = "hostname";
-    static final String DOWNLOADED_HOSTS_FILENAME = "hosts_downloaded";
-    static final String HOSTS_FILENAME = "hosts";
-    static final String LINE_SEPERATOR = System.getProperty("line.separator");
-    static final String CP_COMMAND = "cp -f";
-    static final String ANDROID_HOSTS_PATH = "/system/etc";
+    static final String TAG_APPLY = Constants.TAG + " Apply Async";
+    static final String TAG_DOWNLOAD = Constants.TAG + " Download Async";
+    static final String TAG_COPY = Constants.TAG + " Copy Root";
 
     private ProgressDialog mDownloadProgressDialog;
     public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
@@ -158,7 +150,7 @@ public class AdAway extends Activity {
 
         // get enabled hosts from databse
         ArrayList<String> enabledHosts = mHostsDatabase.getAllEnabledHostsSources();
-        Log.d(TAG, "Enabled hosts: " + enabledHosts.toString());
+        Log.d(Constants.TAG, "Enabled hosts: " + enabledHosts.toString());
 
         // build array out of list
         String[] enabledHostsArray = new String[enabledHosts.size()];
@@ -198,22 +190,22 @@ public class AdAway extends Activity {
                     public void onClick(DialogInterface dialog, int id) {
                         // build standard hosts file
                         try {
-                            FileOutputStream fos = openFileOutput(HOSTS_FILENAME,
+                            FileOutputStream fos = openFileOutput(Constants.HOSTS_FILENAME,
                                     Context.MODE_PRIVATE);
 
                             // default localhost
-                            String localhost = LOCALHOST_IPv4 + " " + LOCALHOST_HOSTNAME;
+                            String localhost = Constants.LOCALHOST_IPv4 + " " + Constants.LOCALHOST_HOSTNAME;
                             fos.write(localhost.getBytes());
                             fos.close();
 
                             // copy hosts file with RootTools
                             if (!copyHostsFile()) {
-                                Log.e(TAG, "revert: problem with copying hosts file");
+                                Log.e(Constants.TAG, "revert: problem with copying hosts file");
                                 throw new Exception();
                             }
 
                             // delete generated hosts file after applying it
-                            deleteFile(HOSTS_FILENAME);
+                            deleteFile(Constants.HOSTS_FILENAME);
 
                             AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_info);
@@ -294,7 +286,7 @@ public class AdAway extends Activity {
 
             result = String.format("%s (%s)", info.versionName, info.versionCode);
         } catch (NameNotFoundException e) {
-            Log.w(TAG, "Unable to get application version: " + e.getMessage());
+            Log.w(Constants.TAG, "Unable to get application version: " + e.getMessage());
             result = "Unable to get application version.";
         }
 
@@ -350,7 +342,7 @@ public class AdAway extends Activity {
         if (size < availableBlocks * blockSize) {
             return true;
         } else {
-            Log.e(TAG, "Not enough space on partition!");
+            Log.e(Constants.TAG, "Not enough space on partition!");
             return false;
         }
     }
@@ -363,10 +355,10 @@ public class AdAway extends Activity {
      */
     private boolean copyHostsFile() {
         String privateDir = getFilesDir().getAbsolutePath();
-        String privateFile = privateDir + File.separator + HOSTS_FILENAME;
+        String privateFile = privateDir + File.separator + Constants.HOSTS_FILENAME;
 
-        String command = CP_COMMAND + " " + privateFile + " " + ANDROID_HOSTS_PATH + File.separator
-                + HOSTS_FILENAME;
+        String command = Constants.CP_COMMAND + " " + privateFile + " " + Constants.ANDROID_HOSTS_PATH + File.separator
+                + Constants.HOSTS_FILENAME;
         Log.d(TAG_COPY, "command: " + command);
 
         // do it with RootTools
@@ -374,12 +366,12 @@ public class AdAway extends Activity {
             // check for space on partition
             long size = new File(privateFile).length();
             Log.d(TAG_COPY, "size: " + size);
-            if (!hasEnoughSpaceOnPartition(ANDROID_HOSTS_PATH, size)) {
+            if (!hasEnoughSpaceOnPartition(Constants.ANDROID_HOSTS_PATH, size)) {
                 throw new Exception();
             }
 
             // remount for write access
-            RootTools.remount(ANDROID_HOSTS_PATH, "RW");
+            RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RW");
 
             // do copy command
             List<String> output = RootTools.sendShell(command);
@@ -392,7 +384,7 @@ public class AdAway extends Activity {
             return false;
         } finally {
             // after all remount back as read only
-            RootTools.remount(ANDROID_HOSTS_PATH, "RO");
+            RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RO");
         }
 
         return true;
@@ -454,11 +446,11 @@ public class AdAway extends Activity {
             try {
                 if (isAndroidOnline()) {
                     // output to write into
-                    FileOutputStream out = openFileOutput(DOWNLOADED_HOSTS_FILENAME,
+                    FileOutputStream out = openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
                             Context.MODE_PRIVATE);
 
                     for (String url : urls) {
-                        Log.v(TAG, "Starting downloading hostname file: " + urls[0]);
+                        Log.v(Constants.TAG, "Starting downloading hostname file: " + urls[0]);
 
                         URL mURL = new URL(url);
                         // if (mURL.getProtocol() == "http") { // TODO: implement SSL
@@ -497,7 +489,7 @@ public class AdAway extends Activity {
                             out.write(data, 0, count);
                         }
 
-                        out.write(LINE_SEPERATOR.getBytes()); // add line seperator to add hosts
+                        out.write(Constants.LINE_SEPERATOR.getBytes()); // add line seperator to add hosts
                                                               // files together in one file
                         out.flush();
                         in.close();
@@ -530,7 +522,7 @@ public class AdAway extends Activity {
             if (messageChanged) {
                 Log.d(TAG_DOWNLOAD, "messageChanged");
                 mDownloadProgressDialog.setMessage(getString(R.string.download_dialog)
-                        + LINE_SEPERATOR + currentURL);
+                        + Constants.LINE_SEPERATOR + currentURL);
                 messageChanged = false;
             }
             mDownloadProgressDialog.setProgress(progress[0]);
@@ -578,7 +570,7 @@ public class AdAway extends Activity {
                 // PARSE: parse hosts files to sets of hostnames and comments
                 publishProgress(getString(R.string.apply_dialog_hostnames));
 
-                FileInputStream fis = openFileInput(DOWNLOADED_HOSTS_FILENAME);
+                FileInputStream fis = openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
                 HostsParser parser = new HostsParser(reader, getApplicationContext());
@@ -590,13 +582,13 @@ public class AdAway extends Activity {
                 // BUILD: build one hosts file out of sets and preferences
                 publishProgress(getString(R.string.apply_dialog_hosts));
 
-                FileOutputStream fos = openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE);
+                FileOutputStream fos = openFileOutput(Constants.HOSTS_FILENAME, Context.MODE_PRIVATE);
 
                 // add adaway header
                 String header = "# This hosts file is generated by AdAway."
-                        + LINE_SEPERATOR
+                        + Constants.LINE_SEPERATOR
                         + "# Please do not modify it directly, it will be overwritten when AdAway is applied again."
-                        + LINE_SEPERATOR + "# " + LINE_SEPERATOR
+                        + Constants.LINE_SEPERATOR + "# " + Constants.LINE_SEPERATOR
                         + "# The following lines are comments from the downloaded hosts files:";
                 fos.write(header.getBytes());
 
@@ -605,19 +597,19 @@ public class AdAway extends Activity {
                 String comment;
                 while (itComments.hasNext()) {
                     comment = itComments.next();
-                    comment = LINE_SEPERATOR + comment;
+                    comment = Constants.LINE_SEPERATOR + comment;
                     fos.write(comment.getBytes());
                 }
 
-                fos.write(LINE_SEPERATOR.getBytes());
+                fos.write(Constants.LINE_SEPERATOR.getBytes());
 
                 String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
 
                 // add "127.0.0.1 localhost" entry
-                String localhost = LINE_SEPERATOR + LOCALHOST_IPv4 + " " + LOCALHOST_HOSTNAME;
+                String localhost = Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv4 + " " + Constants.LOCALHOST_HOSTNAME;
                 fos.write(localhost.getBytes());
 
-                fos.write(LINE_SEPERATOR.getBytes());
+                fos.write(Constants.LINE_SEPERATOR.getBytes());
 
                 // write hostnames
                 Iterator<String> itHostname = hostnames.iterator();
@@ -627,14 +619,14 @@ public class AdAway extends Activity {
                     // Get element
                     hostname = itHostname.next();
 
-                    line = LINE_SEPERATOR + redirectionIP + " " + hostname;
+                    line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
                     fos.write(line.getBytes());
                 }
 
                 fos.close();
 
                 // delete downloaded hosts file from private storage
-                deleteFile(DOWNLOADED_HOSTS_FILENAME);
+                deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
 
                 // APPLY: apply hosts file using RootTools in copyHostsFile()
                 publishProgress(getString(R.string.apply_dialog_apply));
@@ -645,7 +637,7 @@ public class AdAway extends Activity {
                 }
 
                 // delete generated hosts file from private storage
-                deleteFile(HOSTS_FILENAME);
+                deleteFile(Constants.HOSTS_FILENAME);
             } catch (Exception e) {
                 Log.e(TAG_APPLY, "Exception: " + e);
                 e.printStackTrace();

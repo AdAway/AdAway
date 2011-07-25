@@ -21,6 +21,7 @@
 package org.adaway;
 
 import org.adaway.utils.CheckboxCursorAdapter;
+import org.adaway.utils.Constants;
 import org.adaway.utils.DatabaseHelper;
 
 import android.app.AlertDialog;
@@ -49,8 +50,6 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class HostsSources extends ListActivity {
-
-    static final String TAG = "AdAway";
 
     private DatabaseHelper mHostsDatabase;
     private Cursor mCursor;
@@ -165,7 +164,7 @@ public class HostsSources extends ListActivity {
                 mHostsDatabase.changeStatus(mCurrentRowId, 1);
             }
         } else {
-            Log.e(TAG, "Checkbox could not be found!");
+            Log.e(Constants.TAG, "Checkbox could not be found!");
         }
     }
 

@@ -31,9 +31,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class DatabaseHelper {
-
-    static final String TAG = "AdAway";
-
+    
     private static final String DATABASE_NAME = "adaway.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_HOSTS_SOURCES = "hosts_sources";
@@ -133,12 +131,17 @@ public class DatabaseHelper {
                     + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)");
 
             // fill default hosts sources
-            // TODO: This seems to be also done on upgrading! Problem?
             SQLiteStatement insertStmt;
             String INSERT = "insert into " + TABLE_HOSTS_SOURCES + "(url, enabled) values (?, ?)";
             insertStmt = db.compileStatement(INSERT);
 
+            // http://winhelp2002.mvps.org/hosts.htm
             insertHostsFile(insertStmt, "http://www.mvps.org/winhelp2002/hosts.txt");
+
+            // http://hosts-file.net - This file contains ad/tracking servers in the hpHosts
+            // database.
+            insertHostsFile(insertStmt, "http://hosts-file.net/ad_servers.asp");
+
             // not working, because no file GET:
             // insertHostsFile(insertStmt,
             // "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext");
@@ -146,7 +149,7 @@ public class DatabaseHelper {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.w(TAG, "Upgrading database, this will drop tables and recreate.");
+            Log.w(Constants.TAG, "Upgrading database, this will drop tables and recreate.");
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTS_SOURCES);
             onCreate(db);
         }
