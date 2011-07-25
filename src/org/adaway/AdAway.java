@@ -20,8 +20,6 @@
 
 package org.adaway;
 
-//TODO: read database and constant best practices
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
