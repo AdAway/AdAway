@@ -71,14 +71,19 @@ public class DatabaseHelper {
         db.delete(TABLE_HOSTS_SOURCES, "_id=" + rowId, null);
     }
 
+    public void updateHostsSource(long rowId, String url) {
+        ContentValues args = new ContentValues();
+        args.put("url", url);
+        db.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
+    }
+
     /**
-     * delete later!
+     * Change status
      * 
-     * just test
      * @param rowId
      * @param status
      */
-    public void modifyEnabled(long rowId, Integer status) {
+    public void changeStatus(long rowId, Integer status) {
         ContentValues args = new ContentValues();
         args.put("enabled", status);
         db.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
@@ -89,16 +94,17 @@ public class DatabaseHelper {
     }
 
     public Cursor getHostsSourcesCursor() {
-        Cursor cursor = this.db.query(TABLE_HOSTS_SOURCES, new String[] { "_id", "url", "enabled" }, null,
-                null, null, null, "url desc");
+        Cursor cursor = this.db.query(TABLE_HOSTS_SOURCES,
+                new String[] { "_id", "url", "enabled" }, null, null, null, null, "url asc");
 
         return cursor;
     }
 
     public ArrayList<String> getAllEnabledHostsSources() {
         ArrayList<String> list = new ArrayList<String>();
-        Cursor cursor = this.db.query(TABLE_HOSTS_SOURCES, new String[] { "_id", "url", "enabled" },
-                "enabled is 1", null, null, null, "url desc");
+        Cursor cursor = this.db.query(TABLE_HOSTS_SOURCES,
+                new String[] { "_id", "url", "enabled" }, "enabled is 1", null, null, null,
+                "url desc");
         if (cursor.moveToFirst()) {
             do {
                 list.add(cursor.getString(1));

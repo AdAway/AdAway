@@ -160,8 +160,22 @@ public class AdAway extends Activity {
         String[] enabledHostsArray = new String[enabledHosts.size()];
         enabledHosts.toArray(enabledHostsArray);
 
-        // execute downloading of files
-        new DownloadHostsFiles().execute(enabledHostsArray);
+        if (enabledHosts.size() < 1) {
+            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+            alertDialog.setTitle(R.string.no_sources_title);
+            alertDialog.setMessage(getString(org.adaway.R.string.no_sources));
+            alertDialog.setButton(getString(R.string.button_close),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dlg, int sum) {
+                            dlg.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        } else {
+            // execute downloading of files
+            new DownloadHostsFiles().execute(enabledHostsArray);
+        }
     }
 
     /**
@@ -221,7 +235,7 @@ public class AdAway extends Activity {
                             alertDialog.setButton(getString(R.string.button_close),
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dlg, int sum) {
-                                            // do nothing, close
+                                            dlg.dismiss();
                                         }
                                     });
                             alertDialog.show();
@@ -538,7 +552,7 @@ public class AdAway extends Activity {
                 alertDialog.setButton(getString(R.string.button_close),
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sum) {
-                                // do nothing, close
+                                dlg.dismiss();
                             }
                         });
                 alertDialog.show();
@@ -663,7 +677,7 @@ public class AdAway extends Activity {
                 alertDialog.setButton(getString(R.string.button_close),
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sum) {
-                                // do nothing, close
+                                dlg.dismiss();
                             }
                         });
                 alertDialog.show();
@@ -679,7 +693,7 @@ public class AdAway extends Activity {
                 alertDialog.setButton(getString(R.string.button_close),
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sum) {
-                                // do nothing, close
+                                dlg.dismiss();
                             }
                         });
                 alertDialog.show();
