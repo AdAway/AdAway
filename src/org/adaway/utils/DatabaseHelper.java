@@ -75,12 +75,6 @@ public class DatabaseHelper {
         db.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
     }
 
-    /**
-     * Change status
-     * 
-     * @param rowId
-     * @param status
-     */
     public void changeStatus(long rowId, Integer status) {
         ContentValues args = new ContentValues();
         args.put("enabled", status);

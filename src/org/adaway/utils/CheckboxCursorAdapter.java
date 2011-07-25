@@ -48,6 +48,9 @@ public class CheckboxCursorAdapter extends SimpleCursorAdapter {
         return v;
     }
 
+    /**
+     * Bind cursor to view using the checkboxes
+     */
     @Override
     public void bindView(View v, Context context, Cursor c) {
         CheckBox cBox = (CheckBox) v.findViewById(R.id.checkbox_list_enabled);

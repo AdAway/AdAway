@@ -58,6 +58,9 @@ public class HostsSources extends ListActivity {
 
     private long mCurrentRowId;
 
+    /**
+     * Options Menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -65,6 +68,9 @@ public class HostsSources extends ListActivity {
         return true;
     }
 
+    /**
+     * Context Menu on Long Click
+     */
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -73,6 +79,9 @@ public class HostsSources extends ListActivity {
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }
 
+    /**
+     * Context Menu Items
+     */
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
@@ -89,6 +98,11 @@ public class HostsSources extends ListActivity {
         }
     }
 
+    /**
+     * Delete entry based on selection in context menu
+     * 
+     * @param info
+     */
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // row id from cursor
 
@@ -96,6 +110,11 @@ public class HostsSources extends ListActivity {
         updateView();
     }
 
+    /**
+     * Edit entry based on selection in context menu
+     * 
+     * @param info
+     */
     private void menuEditEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // set global RowId to row id from cursor to use inside save button
         int position = info.position;
@@ -190,6 +209,9 @@ public class HostsSources extends ListActivity {
         }
     }
 
+    /**
+     * Add Entry Menu Action
+     */
     public void menuAddEntry() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -288,6 +310,9 @@ public class HostsSources extends ListActivity {
         setListAdapter(mAdapter);
     }
 
+    /**
+     * Refresh List by requerying the Cursor and updating the adapter of the view
+     */
     private void updateView() {
         mCursor.requery(); // TODO: deprecated function...
         mAdapter.notifyDataSetChanged();

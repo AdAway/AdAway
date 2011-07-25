@@ -49,6 +49,12 @@ public class HostsParser {
         return comments;
     }
 
+    /**
+     * Parse hosts file from BufferedReader
+     * 
+     * @param reader
+     * @throws IOException
+     */
     private void parse(BufferedReader reader) throws IOException {
         String nextLine = null;
         hostnames = new HashSet<String>();
