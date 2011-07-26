@@ -32,7 +32,7 @@
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
     <string name="revert_question">Do you really want to revert?</string>
-    <string name="revert_successfull">You reverted to the default /etc/system/hosts file.\nIt may be necessary to restart Android for the changes to take effect.</string>
+    <string name="revert_successfull">You reverted to the default /system/etc/hosts file.\nIt may be necessary to restart Android for the changes to take effect.</string>
     <string name="button_revert">Disable Ad blocking</string>
     <string name="apply_success">Applying was successfull.\nIt may be necessary to restart Android for the changes to take effect.</string>
     <string name="about_description">AdAway is an open source ad blocker for Android.</string>

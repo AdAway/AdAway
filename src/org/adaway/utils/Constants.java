@@ -29,7 +29,9 @@ public class Constants {
     public static final String DOWNLOADED_HOSTS_FILENAME = "hosts_downloaded";
     public static final String HOSTS_FILENAME = "hosts";
     public static final String LINE_SEPERATOR = System.getProperty("line.separator");
-    public static final String CP_COMMAND = "cp -f";
+    public static final String COMMAND_COPY = "cp -f";
+    public static final String COMMAND_CHOWN = "chown 0:0";
+    public static final String COMMAND_CHMOD = "chmod 644";
     public static final String ANDROID_HOSTS_PATH = "/system/etc";
 
 }

@@ -355,10 +355,14 @@ public class AdAway extends Activity {
     private boolean copyHostsFile() {
         String privateDir = getFilesDir().getAbsolutePath();
         String privateFile = privateDir + File.separator + Constants.HOSTS_FILENAME;
+        String hostsFile = Constants.ANDROID_HOSTS_PATH + File.separator + Constants.HOSTS_FILENAME;
 
-        String command = Constants.CP_COMMAND + " " + privateFile + " "
-                + Constants.ANDROID_HOSTS_PATH + File.separator + Constants.HOSTS_FILENAME;
-        Log.d(TAG_COPY, "command: " + command);
+        String commandCopy = Constants.COMMAND_COPY + " " + privateFile + " " + hostsFile;
+        String commandChown = Constants.COMMAND_CHOWN + " " + hostsFile;
+        String commandChmod = Constants.COMMAND_CHMOD + " " + hostsFile;
+        Log.d(TAG_COPY, "commandCopy: " + commandCopy);
+        Log.d(TAG_COPY, "commandChown: " + commandChown);
+        Log.d(TAG_COPY, "commandChmod: " + commandChmod);
 
         // do it with RootTools
         try {
@@ -372,10 +376,19 @@ public class AdAway extends Activity {
             // remount for write access
             RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RW");
 
-            // do copy command
-            List<String> output = RootTools.sendShell(command);
-
+            List<String> output;
+            // copy
+            output = RootTools.sendShell(commandCopy);
             Log.d(TAG_COPY, "output of command: " + output.toString());
+
+            // chown
+            output = RootTools.sendShell(commandChown);
+            Log.d(TAG_COPY, "output of command: " + output.toString());
+
+            // chmod
+            output = RootTools.sendShell(commandChmod);
+            Log.d(TAG_COPY, "output of command: " + output.toString());
+
         } catch (Exception e) {
             Log.e(TAG_COPY, "Exception: " + e);
             e.printStackTrace();
@@ -605,9 +618,9 @@ public class AdAway extends Activity {
                         comment = Constants.LINE_SEPERATOR + comment;
                         fos.write(comment.getBytes());
                     }
-                }
 
-                fos.write(Constants.LINE_SEPERATOR.getBytes());
+                    fos.write(Constants.LINE_SEPERATOR.getBytes());
+                }
 
                 String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
 
