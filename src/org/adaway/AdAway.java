@@ -97,6 +97,14 @@ public class AdAway extends Activity {
             startActivity(new Intent(this, HostsSources.class));
             return true;
 
+        case R.id.menu_blacklist:
+            startActivity(new Intent(this, Blacklist.class));
+            return true;
+
+        case R.id.menu_whitelist:
+            startActivity(new Intent(this, Whitelist.class));
+            return true;
+
         case R.id.menu_preferences:
             startActivity(new Intent(this, Preferences.class));
             return true;
@@ -149,7 +157,7 @@ public class AdAway extends Activity {
         // get enabled hosts from databse
         ArrayList<String> enabledHosts = mDatabaseHelper.getAllEnabledHostsSources();
         Log.d(Constants.TAG, "Enabled hosts: " + enabledHosts.toString());
-        
+
         mDatabaseHelper.close();
 
         // build array out of list
@@ -578,11 +586,10 @@ public class AdAway extends Activity {
      * 
      */
     private class Apply extends AsyncTask<Void, String, Boolean> {
-
         @Override
         protected Boolean doInBackground(Void... unused) {
             try {
-                // PARSE: parse hosts files to sets of hostnames and comments
+                /* PARSE: parse hosts files to sets of hostnames and comments */
                 publishProgress(getString(R.string.apply_dialog_hostnames));
 
                 FileInputStream fis = openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
@@ -594,7 +601,28 @@ public class AdAway extends Activity {
 
                 fis.close();
 
-                // BUILD: build one hosts file out of sets and preferences
+                /* BLACKLIST AND WHITELIST */
+                publishProgress(getString(R.string.apply_dialog_lists));
+
+                mDatabaseHelper = new DatabaseHelper(mContext);
+
+                // get whitelist
+                HashSet<String> whitelist = mDatabaseHelper.getAllEnabledWhitelistItems();
+                Log.d(Constants.TAG, "Enabled whitelist: " + whitelist.toString());
+
+                // get blacklist
+                HashSet<String> blacklist = mDatabaseHelper.getAllEnabledBlacklistItems();
+                Log.d(Constants.TAG, "Enabled blacklist: " + blacklist.toString());
+
+                mDatabaseHelper.close();
+
+                // remove whitelist items
+                hostnames.removeAll(whitelist);
+
+                // add blacklist items
+                hostnames.addAll(blacklist);
+
+                /* BUILD: build one hosts file out of sets and preferences */
                 publishProgress(getString(R.string.apply_dialog_hosts));
 
                 FileOutputStream fos = openFileOutput(Constants.HOSTS_FILENAME,
@@ -650,7 +678,7 @@ public class AdAway extends Activity {
                 // delete downloaded hosts file from private storage
                 deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
 
-                // APPLY: apply hosts file using RootTools in copyHostsFile()
+                /* APPLY: apply hosts file using RootTools in copyHostsFile() */
                 publishProgress(getString(R.string.apply_dialog_apply));
 
                 // copy build hosts file with RootTools

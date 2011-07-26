@@ -3,11 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:icon="@android:drawable/ic_menu_agenda" android:id="@+id/menu_hosts_sources" android:title="@string/menu_hosts_sources"></item>
-    <item
+    <item android:id="@+id/menu_blacklist" android:title="@string/menu_blacklist" android:icon="@android:drawable/ic_menu_agenda"></item><item android:icon="@android:drawable/ic_menu_agenda" android:id="@+id/menu_whitelist" android:title="@string/menu_whitelist"></item><item
         android:id="@+id/menu_preferences"
         android:title="@string/menu_preferences"
         android:icon="@android:drawable/ic_menu_preferences"></item>
     <item
         android:id="@+id/menu_about"
         android:title="@string/menu_about" android:icon="@android:drawable/ic_menu_info_details"></item>
+    
+    
 </menu>

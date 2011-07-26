@@ -23,6 +23,7 @@ package org.adaway;
 import org.adaway.utils.CheckboxCursorAdapter;
 import org.adaway.utils.Constants;
 import org.adaway.utils.DatabaseHelper;
+import org.adaway.utils.Helper;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -32,7 +33,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -40,7 +40,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.URLUtil;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -49,7 +48,7 @@ import android.widget.ListView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-public class HostsSources extends ListActivity {
+public class Blacklist extends ListActivity {
 
     private Context mContext;
     private DatabaseHelper mDatabaseHelper;
@@ -106,7 +105,7 @@ public class HostsSources extends ListActivity {
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // row id from cursor
 
-        mDatabaseHelper.deleteHostsSource(mCurrentRowId);
+        mDatabaseHelper.deleteBlacklistItem(mCurrentRowId);
         updateView();
     }
 
@@ -130,7 +129,7 @@ public class HostsSources extends ListActivity {
         // Set an EditText view to get user input
         final EditText inputEditText = new EditText(mContext);
         inputEditText.setText(cBox.getText());
-        inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
+
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
@@ -145,14 +144,14 @@ public class HostsSources extends ListActivity {
 
                         String input = inputEditText.getText().toString();
 
-                        if (URLUtil.isValidUrl(input)) {
-                            mDatabaseHelper.updateHostsSourceURL(mCurrentRowId, input);
+                        if (Helper.isValidHostname(input)) {
+                            mDatabaseHelper.updateBlacklistItemURL(mCurrentRowId, input);
                             updateView();
                         } else {
                             AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                            alertDialog.setTitle(R.string.no_url_title);
-                            alertDialog.setMessage(getString(org.adaway.R.string.no_url));
+                            alertDialog.setTitle(R.string.no_hostname_title);
+                            alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
                             alertDialog.setButton(getString(R.string.button_close),
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dlg, int sum) {
@@ -191,10 +190,10 @@ public class HostsSources extends ListActivity {
             if (cBox.isChecked()) {
                 cBox.setChecked(false);
                 // change status based on row id from cursor
-                mDatabaseHelper.updateHostsSourceStatus(mCurrentRowId, 0);
+                mDatabaseHelper.updateBlacklistItemStatus(mCurrentRowId, 0);
             } else {
                 cBox.setChecked(true);
-                mDatabaseHelper.updateHostsSourceStatus(mCurrentRowId, 1);
+                mDatabaseHelper.updateBlacklistItemStatus(mCurrentRowId, 1);
             }
         } else {
             Log.e(Constants.TAG, "Checkbox could not be found!");
@@ -233,9 +232,8 @@ public class HostsSources extends ListActivity {
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
 
         // Set an EditText view to get user input
-        final EditText inputEditText = new EditText(this);
-        inputEditText.setText(getString(R.string.hosts_add_dialog_input));
-        inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
+        final EditText inputEditText = new EditText(mContext);
+
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
@@ -270,14 +268,14 @@ public class HostsSources extends ListActivity {
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (URLUtil.isValidUrl(input)) {
-                mDatabaseHelper.insertHostsSource(input);
+            if (Helper.isValidHostname(input)) {
+                mDatabaseHelper.insertBlacklistItem(input);
                 updateView();
             } else {
                 AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                alertDialog.setTitle(R.string.no_url_title);
-                alertDialog.setMessage(getString(org.adaway.R.string.no_url));
+                alertDialog.setTitle(R.string.no_hostname_title);
+                alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
                 alertDialog.setButton(getString(R.string.button_close),
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sum) {
@@ -316,7 +314,7 @@ public class HostsSources extends ListActivity {
         registerForContextMenu(getListView()); // register long press context menu
 
         // build content of list
-        mCursor = mDatabaseHelper.getHostsSourcesCursor();
+        mCursor = mDatabaseHelper.getBlacklistCursor();
         startManagingCursor(mCursor); // closing of cursor is done this way
 
         String[] displayFields = new String[] { "url" };

@@ -71,4 +71,9 @@
     <string name="pref_strip_comments">Strip comments</string>
     <string name="pref_strip_comments_summary">Strip comments from hosts sources</string>
     <item name="pref_strip_comments_def" type="string" format="boolean">true</item>
+    <string name="no_hostname">This is not a valid hostname!</string>
+    <string name="no_hostname_title">Malformed hostname</string>
+    <string name="menu_whitelist">Whitelist</string>
+    <string name="menu_blacklist">Blacklist</string>
+    <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
 </resources>

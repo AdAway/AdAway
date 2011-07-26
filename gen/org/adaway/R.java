@@ -19,17 +19,19 @@ public final class R {
         public static final int apply_button=0x7f070008;
         public static final int button_apply_text=0x7f070009;
         public static final int button_revert_text=0x7f07000b;
-        public static final int checkbox_list_context_delete=0x7f07000d;
-        public static final int checkbox_list_context_edit=0x7f07000e;
+        public static final int checkbox_list_context_delete=0x7f07000f;
+        public static final int checkbox_list_context_edit=0x7f070010;
         public static final int checkbox_list_enabled=0x7f070003;
         public static final int checkbox_list_footer=0x7f070002;
         public static final int icon=0x7f070004;
         public static final int linearLayout1=0x7f070007;
-        public static final int menu_about=0x7f070013;
-        public static final int menu_add=0x7f07000f;
-        public static final int menu_add_qrcode=0x7f070010;
+        public static final int menu_about=0x7f070015;
+        public static final int menu_add=0x7f07000d;
+        public static final int menu_add_qrcode=0x7f07000e;
+        public static final int menu_blacklist=0x7f070012;
         public static final int menu_hosts_sources=0x7f070011;
-        public static final int menu_preferences=0x7f070012;
+        public static final int menu_preferences=0x7f070014;
+        public static final int menu_whitelist=0x7f070013;
         public static final int no_root_exit=0x7f07000c;
         public static final int revert_button=0x7f07000a;
         public static final int scrollView1=0x7f070006;
@@ -43,8 +45,8 @@ public final class R {
         public static final int no_root_dialog=0x7f030004;
     }
     public static final class menu {
-        public static final int checkbox_list_context=0x7f060000;
-        public static final int hosts_sources=0x7f060001;
+        public static final int checkbox_list=0x7f060000;
+        public static final int checkbox_list_context=0x7f060001;
         public static final int main=0x7f060002;
     }
     public static final class string {
@@ -59,6 +61,7 @@ public final class R {
         public static final int apply_dialog_apply=0x7f05000f;
         public static final int apply_dialog_hostnames=0x7f05000d;
         public static final int apply_dialog_hosts=0x7f05000e;
+        public static final int apply_dialog_lists=0x7f05004b;
         public static final int apply_problem=0x7f050029;
         public static final int apply_problem_title=0x7f05002a;
         public static final int apply_success=0x7f050022;
@@ -87,12 +90,16 @@ public final class R {
         public static final int menu_about=0x7f05000b;
         public static final int menu_add=0x7f05002c;
         public static final int menu_add_qrcode=0x7f05002d;
+        public static final int menu_blacklist=0x7f05004a;
         public static final int menu_hosts_sources=0x7f05000a;
         public static final int menu_preferences=0x7f050010;
+        public static final int menu_whitelist=0x7f050049;
         public static final int no_barcode_scanner=0x7f050040;
         public static final int no_barcode_scanner_title=0x7f05003f;
         public static final int no_connection=0x7f050006;
         public static final int no_connection_title=0x7f050007;
+        public static final int no_hostname=0x7f050047;
+        public static final int no_hostname_title=0x7f050048;
         public static final int no_root_description=0x7f050001;
         public static final int no_root_title=0x7f050004;
         public static final int no_root_url=0x7f050027;
