@@ -25,7 +25,7 @@ public class Constants {
     public static final String TAG = "AdAway";
 
     public static final String LOCALHOST_IPv4 = "127.0.0.1";
-    public static final String LOCALHOST_HOSTNAME = "hostname";
+    public static final String LOCALHOST_HOSTNAME = "localhost";
     public static final String DOWNLOADED_HOSTS_FILENAME = "hosts_downloaded";
     public static final String HOSTS_FILENAME = "hosts";
     public static final String LINE_SEPERATOR = System.getProperty("line.separator");
