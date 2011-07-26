@@ -26,7 +26,6 @@ import org.adaway.utils.DatabaseHelper;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -51,10 +50,9 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class HostsSources extends ListActivity {
 
-    private DatabaseHelper mHostsDatabase;
+    private DatabaseHelper mDatabaseHelper;
     private Cursor mCursor;
     private CheckboxCursorAdapter mAdapter;
-    private Context mContext;
 
     private long mCurrentRowId;
 
@@ -106,7 +104,7 @@ public class HostsSources extends ListActivity {
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // row id from cursor
 
-        mHostsDatabase.deleteHostsSource(mCurrentRowId);
+        mDatabaseHelper.deleteHostsSource(mCurrentRowId);
         updateView();
     }
 
@@ -145,7 +143,7 @@ public class HostsSources extends ListActivity {
 
                         String input = inputEditText.getText().toString();
 
-                        mHostsDatabase.updateHostsSource(mCurrentRowId, input);
+                        mDatabaseHelper.updateHostsSource(mCurrentRowId, input);
                         updateView();
                     }
                 });
@@ -177,10 +175,10 @@ public class HostsSources extends ListActivity {
             if (cBox.isChecked()) {
                 cBox.setChecked(false);
                 // change status based on row id from cursor
-                mHostsDatabase.changeStatus(mCurrentRowId, 0);
+                mDatabaseHelper.changeStatus(mCurrentRowId, 0);
             } else {
                 cBox.setChecked(true);
-                mHostsDatabase.changeStatus(mCurrentRowId, 1);
+                mDatabaseHelper.changeStatus(mCurrentRowId, 1);
             }
         } else {
             Log.e(Constants.TAG, "Checkbox could not be found!");
@@ -257,10 +255,10 @@ public class HostsSources extends ListActivity {
     private void addEntry(String input) {
         if (input != null) {
             if (URLUtil.isValidUrl(input)) {
-                mHostsDatabase.insertHostsSource(input);
+                mDatabaseHelper.insertHostsSource(input);
                 updateView();
             } else {
-                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_url_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_url));
@@ -295,17 +293,17 @@ public class HostsSources extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mContext = this; // open db
-        mHostsDatabase = new DatabaseHelper(mContext); // set view
-        setContentView(R.layout.checkbox_list); // register long press context menu
-        registerForContextMenu(getListView()); // build content of list
+        mDatabaseHelper = new DatabaseHelper(this); // open db
+        setContentView(R.layout.checkbox_list); // set view
+        registerForContextMenu(getListView()); // register long press context menu
 
-        mCursor = mHostsDatabase.getHostsSourcesCursor();
-        startManagingCursor(mCursor);
+        // build content of list
+        mCursor = mDatabaseHelper.getHostsSourcesCursor();
+        startManagingCursor(mCursor); // closing of cursor is done this way
 
         String[] displayFields = new String[] { "url" };
         int[] displayViews = new int[] { R.id.checkbox_list_enabled };
-        mAdapter = new CheckboxCursorAdapter(mContext, R.layout.checkbox_list_entry, mCursor,
+        mAdapter = new CheckboxCursorAdapter(this, R.layout.checkbox_list_entry, mCursor,
                 displayFields, displayViews);
         setListAdapter(mAdapter);
     }
@@ -314,16 +312,16 @@ public class HostsSources extends ListActivity {
      * Refresh List by requerying the Cursor and updating the adapter of the view
      */
     private void updateView() {
-        mCursor.requery(); // TODO: deprecated function...
+        mCursor.requery(); // TODO: requery is deprecated
         mAdapter.notifyDataSetChanged();
     }
 
-    // TODO: on destroy close cursor and databse like in zirco browser?
-
+    /**
+     * Close DB onDestroy
+     */
     @Override
     protected void onDestroy() {
-        // mCursor.close();
-        mHostsDatabase.close();
+        mDatabaseHelper.close();
         super.onDestroy();
     }
 

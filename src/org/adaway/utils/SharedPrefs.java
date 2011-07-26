@@ -26,28 +26,26 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPrefs {
-    public final static String PREFS_NAME = "preferences";
-
     public static boolean getHttps(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getBoolean(context.getString(R.string.pref_https_key),
                 Boolean.parseBoolean(context.getString(R.string.pref_https_def)));
     }
 
     public static boolean getCheckSyntax(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getBoolean(context.getString(R.string.pref_check_syntax_key),
                 Boolean.parseBoolean(context.getString(R.string.pref_check_syntax_def)));
     }
 
     public static boolean getStripComments(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getBoolean(context.getString(R.string.pref_strip_comments_key),
                 Boolean.parseBoolean(context.getString(R.string.pref_strip_comments_def)));
     }
 
     public static String getRedirectionIP(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getString(context.getString(R.string.pref_redirection_ip_key),
                 context.getString(R.string.pref_redirection_ip_def));
     }

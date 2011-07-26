@@ -36,27 +36,25 @@ public class DatabaseHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_HOSTS_SOURCES = "hosts_sources";
 
-    private Context context;
-    private SQLiteDatabase db;
+    private Context mContext;
+    private SQLiteDatabase mDB;
 
     private SQLiteStatement insertStmt;
     private static final String INSERT = "insert into " + TABLE_HOSTS_SOURCES
             + "(url, enabled) values (?, ?)";
 
     public DatabaseHelper(Context context) {
-        this.context = context;
-        OpenHelper openHelper = new OpenHelper(this.context);
-        this.db = openHelper.getWritableDatabase();
-        this.insertStmt = this.db.compileStatement(INSERT);
+        this.mContext = context;
+        OpenHelper openHelper = new OpenHelper(this.mContext);
+        this.mDB = openHelper.getWritableDatabase();
+        this.insertStmt = this.mDB.compileStatement(INSERT);
     }
 
     /**
      * Close the database helper.
-     * 
-     * TODO: needed?
      */
     public void close() {
-        db.close();
+        mDB.close();
     }
 
     public long insertHostsSource(String url) {
@@ -66,27 +64,27 @@ public class DatabaseHelper {
     }
 
     public void deleteHostsSource(long rowId) {
-        db.delete(TABLE_HOSTS_SOURCES, "_id=" + rowId, null);
+        mDB.delete(TABLE_HOSTS_SOURCES, "_id=" + rowId, null);
     }
 
     public void updateHostsSource(long rowId, String url) {
         ContentValues args = new ContentValues();
         args.put("url", url);
-        db.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
+        mDB.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
     }
 
     public void changeStatus(long rowId, Integer status) {
         ContentValues args = new ContentValues();
         args.put("enabled", status);
-        db.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
+        mDB.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
     }
 
     public void deleteAllHostsSources() {
-        db.delete(TABLE_HOSTS_SOURCES, null, null);
+        mDB.delete(TABLE_HOSTS_SOURCES, null, null);
     }
 
     public Cursor getHostsSourcesCursor() {
-        Cursor cursor = this.db.query(TABLE_HOSTS_SOURCES,
+        Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES,
                 new String[] { "_id", "url", "enabled" }, null, null, null, null, "url asc");
 
         return cursor;
@@ -94,7 +92,7 @@ public class DatabaseHelper {
 
     public ArrayList<String> getAllEnabledHostsSources() {
         ArrayList<String> list = new ArrayList<String>();
-        Cursor cursor = this.db.query(TABLE_HOSTS_SOURCES,
+        Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES,
                 new String[] { "_id", "url", "enabled" }, "enabled is 1", null, null, null,
                 "url desc");
         if (cursor.moveToFirst()) {

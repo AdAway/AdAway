@@ -67,7 +67,7 @@ import com.stericson.RootTools.*;
 
 public class AdAway extends Activity {
     private Context mContext;
-    private DatabaseHelper mHostsDatabase;
+    private DatabaseHelper mDatabaseHelper;
 
     static final String TAG_APPLY = Constants.TAG + " Apply Async";
     static final String TAG_DOWNLOAD = Constants.TAG + " Download Async";
@@ -144,11 +144,13 @@ public class AdAway extends Activity {
      * @param view
      */
     public void applyOnClick(View view) {
-        mHostsDatabase = new DatabaseHelper(mContext);
+        mDatabaseHelper = new DatabaseHelper(mContext);
 
         // get enabled hosts from databse
-        ArrayList<String> enabledHosts = mHostsDatabase.getAllEnabledHostsSources();
+        ArrayList<String> enabledHosts = mDatabaseHelper.getAllEnabledHostsSources();
         Log.d(Constants.TAG, "Enabled hosts: " + enabledHosts.toString());
+        
+        mDatabaseHelper.close();
 
         // build array out of list
         String[] enabledHostsArray = new String[enabledHosts.size()];

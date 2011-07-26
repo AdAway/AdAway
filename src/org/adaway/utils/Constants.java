@@ -24,6 +24,8 @@ public class Constants {
 
     public static final String TAG = "AdAway";
 
+    public final static String PREFS_NAME = "preferences";
+
     public static final String LOCALHOST_IPv4 = "127.0.0.1";
     public static final String LOCALHOST_HOSTNAME = "localhost";
     public static final String DOWNLOADED_HOSTS_FILENAME = "hosts_downloaded";

@@ -20,19 +20,21 @@
 
 package org.adaway;
 
-import org.adaway.utils.SharedPrefs;
+import org.adaway.utils.Constants;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
 public class Preferences extends PreferenceActivity {
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getPreferenceManager().setSharedPreferencesName(SharedPrefs.PREFS_NAME);
+        getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences);
     }
 
