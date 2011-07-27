@@ -76,4 +76,5 @@
     <string name="menu_whitelist">Whitelist</string>
     <string name="menu_blacklist">Blacklist</string>
     <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
+    <string name="menu_redirection_list">Redirection List</string>
 </resources>

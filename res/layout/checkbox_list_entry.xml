@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <CheckBox
-        android:id="@+id/checkbox_list_enabled"
+        android:id="@+id/checkbox_list_checkbox"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:focusable="false"

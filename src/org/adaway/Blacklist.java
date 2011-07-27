@@ -318,7 +318,7 @@ public class Blacklist extends ListActivity {
         startManagingCursor(mCursor); // closing of cursor is done this way
 
         String[] displayFields = new String[] { "url" };
-        int[] displayViews = new int[] { R.id.checkbox_list_enabled };
+        int[] displayViews = new int[] { R.id.checkbox_list_checkbox };
         mAdapter = new CheckboxCursorAdapter(mContext, R.layout.checkbox_list_entry, mCursor,
                 displayFields, displayViews);
         setListAdapter(mAdapter);

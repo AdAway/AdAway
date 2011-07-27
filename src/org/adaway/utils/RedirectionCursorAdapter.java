@@ -29,12 +29,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
-public class CheckboxCursorAdapter extends SimpleCursorAdapter {
+public class RedirectionCursorAdapter extends SimpleCursorAdapter {
     // private Context context;
     private int layout;
 
-    public CheckboxCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to) {
+    public RedirectionCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to) {
         super(context, layout, c, from, to);
         // this.context = context;
         this.layout = layout;
@@ -53,11 +54,16 @@ public class CheckboxCursorAdapter extends SimpleCursorAdapter {
      */
     @Override
     public void bindView(View v, Context context, Cursor c) {
-        CheckBox cBox = (CheckBox) v.findViewById(R.id.checkbox_list_checkbox);
+        CheckBox cBox = (CheckBox) v.findViewById(R.id.redirection_list_checkbox);
+        TextView hostnameTextView = (TextView) v.findViewById(R.id.redirection_list_hostname);
+        TextView ipTextView = (TextView) v.findViewById(R.id.redirection_list_ip);
+        
         if (cBox != null) {
             // bind cursor position to tag of list item
             int cursorPosition = c.getPosition();
             cBox.setTag(cursorPosition);
+            hostnameTextView.setTag(cursorPosition);
+            ipTextView.setTag(cursorPosition);
 
             int enabledCol = c.getColumnIndex("enabled");
             String enabled = c.getString(enabledCol);
@@ -68,10 +74,15 @@ public class CheckboxCursorAdapter extends SimpleCursorAdapter {
                 cBox.setChecked(false);
             }
 
+            // set hostname
             int urlCol = c.getColumnIndex("url");
             String url = c.getString(urlCol);
-
-            cBox.setText(url);
+            hostnameTextView.setText(url);
+            
+            // set ip
+            int ipCol = c.getColumnIndex("ip");
+            String ip = c.getString(ipCol);
+            ipTextView.setText(ip);
         }
     }
 

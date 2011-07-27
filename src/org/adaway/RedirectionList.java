@@ -48,7 +48,7 @@ import android.widget.ListView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-public class Whitelist extends ListActivity {
+public class RedirectionList extends ListActivity {
 
     private Context mContext;
     private DatabaseHelper mDatabaseHelper;
@@ -57,13 +57,15 @@ public class Whitelist extends ListActivity {
 
     private long mCurrentRowId;
 
+    // TODO: CHANGE EVERYTHING
+
     /**
      * Options Menu
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.checkbox_list, menu);
+        inflater.inflate(R.menu.redirection_list, menu);
         return true;
     }
 

@@ -104,6 +104,10 @@ public class AdAway extends Activity {
         case R.id.menu_whitelist:
             startActivity(new Intent(this, Whitelist.class));
             return true;
+            
+        case R.id.menu_redirection_list:
+            startActivity(new Intent(this, RedirectionList.class));
+            return true;
 
         case R.id.menu_preferences:
             startActivity(new Intent(this, Preferences.class));

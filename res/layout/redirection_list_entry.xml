@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight">
+        <CheckBox
+            android:id="@+id/redirection_list_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="6dip"
+            android:focusable="false"
+            android:clickable="false" />
+        <!-- focusable and clickable MUST be false to handle click and longClick 
+            in ListView Activity -->
+        <TextView
+            android:id="@+id/redirection_list_ip"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_toRightOf="@id/redirection_list_checkbox"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:singleLine="true"
+            android:ellipsize="marquee" />
+        <TextView
+            android:id="@+id/redirection_list_hostname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/redirection_list_checkbox"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/redirection_list_ip"
+            android:layout_alignWithParentIfMissing="true"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center_vertical" />
+    </RelativeLayout>
+</LinearLayout>

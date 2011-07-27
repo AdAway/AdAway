@@ -15,6 +15,7 @@
         <activity android:name="Preferences" android:label="@string/menu_preferences"></activity>
         <activity android:name="Whitelist" android:label="@string/menu_whitelist"></activity>
         <activity android:label="@string/menu_blacklist" android:name="Blacklist"></activity>
+        <activity android:name="RedirectionList" android:label="@string/menu_redirection_list"></activity>
 
     </application>
 </manifest>
