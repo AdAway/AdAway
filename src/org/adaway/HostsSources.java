@@ -36,6 +36,7 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -127,15 +128,18 @@ public class HostsSources extends ListActivity {
         // builder.setIcon(android.R.drawable.ic_input_add);
         builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
 
-        // Set an EditText view to get user input
-        final EditText inputEditText = new EditText(mContext);
+        // build view from layout
+        LayoutInflater factory = LayoutInflater.from(mContext);
+        final View dialogView = factory.inflate(R.layout.list_dialog_url, null);
+        final EditText inputEditText = (EditText) dialogView.findViewById(R.id.list_dialog_url);
+        // set text from list
         inputEditText.setText(cBox.getText());
         inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
 
-        builder.setView(inputEditText);
+        builder.setView(dialogView);
 
         builder.setPositiveButton(getResources().getString(R.string.button_save),
                 new DialogInterface.OnClickListener() {
@@ -232,15 +236,18 @@ public class HostsSources extends ListActivity {
         builder.setIcon(android.R.drawable.ic_input_add);
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
 
-        // Set an EditText view to get user input
-        final EditText inputEditText = new EditText(this);
+        // build view from layout
+        LayoutInflater factory = LayoutInflater.from(mContext);
+        final View dialogView = factory.inflate(R.layout.list_dialog_url, null);
+        final EditText inputEditText = (EditText) dialogView.findViewById(R.id.list_dialog_url);
+        // set EditText
         inputEditText.setText(getString(R.string.hosts_add_dialog_input));
         inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
 
-        builder.setView(inputEditText);
+        builder.setView(dialogView);
 
         builder.setPositiveButton(getResources().getString(R.string.button_add),
                 new DialogInterface.OnClickListener() {

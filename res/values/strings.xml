@@ -77,4 +77,7 @@
     <string name="menu_blacklist">Blacklist</string>
     <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
     <string name="menu_redirection_list">Redirection List</string>
+    <string name="list_dialog_url">URL:</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_ip">IP:</string>
 </resources>

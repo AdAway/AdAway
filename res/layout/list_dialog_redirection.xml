@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="5dip">
+    <TextView
+        android:id="@+id/list_dialog_info1"
+        android:layout_height="wrap_content"
+        android:text="@string/list_dialog_hostname"
+        android:layout_width="wrap_content"></TextView>
+    <EditText
+        android:id="@+id/list_dialog_hostname"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"></EditText>
+    <TextView
+        android:id="@+id/list_dialog_info2"
+        android:layout_height="wrap_content"
+        android:text="@string/list_dialog_ip"
+        android:layout_width="wrap_content"></TextView>
+    <EditText
+        android:id="@+id/list_dialog_ip"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"></EditText>
+</LinearLayout>

@@ -57,13 +57,13 @@ public class RedirectionCursorAdapter extends SimpleCursorAdapter {
         CheckBox cBox = (CheckBox) v.findViewById(R.id.redirection_list_checkbox);
         TextView hostnameTextView = (TextView) v.findViewById(R.id.redirection_list_hostname);
         TextView ipTextView = (TextView) v.findViewById(R.id.redirection_list_ip);
-        
+
         if (cBox != null) {
             // bind cursor position to tag of list item
             int cursorPosition = c.getPosition();
-            cBox.setTag(cursorPosition);
-            hostnameTextView.setTag(cursorPosition);
-            ipTextView.setTag(cursorPosition);
+            cBox.setTag("checkbox_" + cursorPosition);
+            hostnameTextView.setTag("hostname_" + cursorPosition);
+            ipTextView.setTag("ip_" + cursorPosition);
 
             int enabledCol = c.getColumnIndex("enabled");
             String enabled = c.getString(enabledCol);
@@ -78,7 +78,7 @@ public class RedirectionCursorAdapter extends SimpleCursorAdapter {
             int urlCol = c.getColumnIndex("url");
             String url = c.getString(urlCol);
             hostnameTextView.setText(url);
-            
+
             // set ip
             int ipCol = c.getColumnIndex("ip");
             String ip = c.getString(ipCol);
