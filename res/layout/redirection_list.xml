@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/redirection_list_footer"
         android:layout_width="fill_parent"
-        android:layout_height="60dip"
+        android:layout_height="50dip"
         android:text="@string/checkbox_list_footer"
         android:padding="4dip"
         android:background="#FF666666" />

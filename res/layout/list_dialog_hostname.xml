@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:padding="5dip">
     <TextView
-        android:id="@+id/list_dialog_info"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="@string/list_dialog_hostname"></TextView>
