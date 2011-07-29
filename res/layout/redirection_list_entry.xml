@@ -27,6 +27,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:singleLine="true"
+            android:text="emty"
             android:ellipsize="marquee" />
         <TextView
             android:id="@+id/redirection_list_hostname"
@@ -39,6 +40,7 @@
             android:layout_alignWithParentIfMissing="true"
             android:textStyle="bold"
             android:textSize="20sp"
+            android:text="emty"
             android:gravity="center_vertical" />
     </RelativeLayout>
 </LinearLayout>

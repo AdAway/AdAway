@@ -23,6 +23,7 @@ package org.adaway;
 import org.adaway.utils.CheckboxCursorAdapter;
 import org.adaway.utils.Constants;
 import org.adaway.utils.DatabaseHelper;
+import org.adaway.utils.Helper;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -41,7 +42,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.URLUtil;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -149,7 +149,7 @@ public class HostsSources extends ListActivity {
 
                         String input = inputEditText.getText().toString();
 
-                        if (URLUtil.isValidUrl(input)) {
+                        if (Helper.isValidUrl(input)) {
                             mDatabaseHelper.updateHostsSourceURL(mCurrentRowId, input);
                             updateView();
                         } else {
@@ -277,7 +277,7 @@ public class HostsSources extends ListActivity {
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (URLUtil.isValidUrl(input)) {
+            if (Helper.isValidUrl(input)) {
                 mDatabaseHelper.insertHostsSource(input);
                 updateView();
             } else {

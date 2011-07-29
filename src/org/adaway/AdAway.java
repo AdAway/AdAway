@@ -29,8 +29,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -104,7 +104,7 @@ public class AdAway extends Activity {
         case R.id.menu_whitelist:
             startActivity(new Intent(this, Whitelist.class));
             return true;
-            
+
         case R.id.menu_redirection_list:
             startActivity(new Intent(this, RedirectionList.class));
             return true;
@@ -476,7 +476,7 @@ public class AdAway extends Activity {
                             Context.MODE_PRIVATE);
 
                     for (String url : urls) {
-                        Log.v(Constants.TAG, "Starting downloading hostname file: " + urls[0]);
+                        Log.v(Constants.TAG, "Starting downloading hostname file: " + url);
 
                         URL mURL = new URL(url);
                         // if (mURL.getProtocol() == "http") { // TODO: implement SSL
@@ -605,9 +605,9 @@ public class AdAway extends Activity {
 
                 fis.close();
 
-                /* BLACKLIST AND WHITELIST */
                 publishProgress(getString(R.string.apply_dialog_lists));
 
+                /* READ DATABSE CONTENT */
                 mDatabaseHelper = new DatabaseHelper(mContext);
 
                 // get whitelist
@@ -618,13 +618,25 @@ public class AdAway extends Activity {
                 HashSet<String> blacklist = mDatabaseHelper.getAllEnabledBlacklistItems();
                 Log.d(Constants.TAG, "Enabled blacklist: " + blacklist.toString());
 
+                // get redirection list
+                HashMap<String, String> redirection = mDatabaseHelper
+                        .getAllEnabledRedirectionItems();
+                Log.d(Constants.TAG, "Enabled redirection list: " + redirection.toString());
+
                 mDatabaseHelper.close();
 
+                /* BLACKLIST AND WHITELIST */
                 // remove whitelist items
                 hostnames.removeAll(whitelist);
 
                 // add blacklist items
                 hostnames.addAll(blacklist);
+
+                /* REDIRECTION LIST: remove hostnames that are in redirection list */
+                HashSet<String> redirectionRemove = new HashSet<String>(redirection.keySet());
+
+                // remove all redirection hostnames
+                hostnames.removeAll(redirectionRemove);
 
                 /* BUILD: build one hosts file out of sets and preferences */
                 publishProgress(getString(R.string.apply_dialog_hosts));
@@ -645,12 +657,10 @@ public class AdAway extends Activity {
                             + "# The following lines are comments from the downloaded hosts files:";
                     fos.write(headerComment.getBytes());
 
-                    Iterator<String> itComments = comments.iterator();
-                    String comment;
-                    while (itComments.hasNext()) {
-                        comment = itComments.next();
-                        comment = Constants.LINE_SEPERATOR + comment;
-                        fos.write(comment.getBytes());
+                    String line;
+                    for (String comment : comments) {
+                        line = Constants.LINE_SEPERATOR + comment;
+                        fos.write(line.getBytes());
                     }
 
                     fos.write(Constants.LINE_SEPERATOR.getBytes());
@@ -666,14 +676,21 @@ public class AdAway extends Activity {
                 fos.write(Constants.LINE_SEPERATOR.getBytes());
 
                 // write hostnames
-                Iterator<String> itHostname = hostnames.iterator();
                 String line;
-                String hostname;
-                while (itHostname.hasNext()) {
-                    // Get element
-                    hostname = itHostname.next();
-
+                for (String hostname : hostnames) {
                     line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
+                    fos.write(line.getBytes());
+                }
+
+                /* REDIRECTION LIST: write redirection items */
+                String redirectionItemHostname;
+                String redirectionItemIP;
+                for (HashMap.Entry<String, String> item : redirection.entrySet()) {
+                    redirectionItemHostname = item.getKey();
+                    redirectionItemIP = item.getValue();
+
+                    line = Constants.LINE_SEPERATOR + redirectionItemIP + " "
+                            + redirectionItemHostname;
                     fos.write(line.getBytes());
                 }
 

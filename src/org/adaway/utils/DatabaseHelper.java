@@ -29,6 +29,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class DatabaseHelper {
@@ -253,6 +254,21 @@ public class DatabaseHelper {
                 "enabled" }, null, null, null, null, "url asc");
 
         return cursor;
+    }
+
+    public HashMap<String, String> getAllEnabledRedirectionItems() {
+        HashMap<String, String> list = new HashMap<String, String>();
+        Cursor cursor = this.mDB.query(TABLE_REDIRECTION_LIST, new String[] { "_id", "url", "ip",
+                "enabled" }, "enabled is 1", null, null, null, "url asc");
+        if (cursor.moveToFirst()) {
+            do {
+                list.put(cursor.getString(1), cursor.getString(2));
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+        return list;
     }
 
     /* HELPER */
