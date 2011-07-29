@@ -152,18 +152,19 @@ public class RedirectionList extends ListActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+
                         String hostname = hostnameEditText.getText().toString();
                         String ip = ipEditText.getText().toString();
 
                         if (Helper.isValidHostname(hostname)) {
-                            if (Helper.isValidIP(hostname)) {
-                                dialog.dismiss();
-
+                            if (Helper.isValidIP(ip)) {
                                 mDatabaseHelper.updateRedirectionItemURL(mCurrentRowId, hostname,
                                         ip);
                                 updateView();
                             } else {
-                                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                                AlertDialog alertDialog = new AlertDialog.Builder(mContext)
+                                        .create();
                                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                                 alertDialog.setTitle(R.string.no_ip_title);
                                 alertDialog.setMessage(getString(org.adaway.R.string.no_ip));
@@ -307,8 +308,22 @@ public class RedirectionList extends ListActivity {
     private void addEntry(String hostname, String ip) {
         if (hostname != null) {
             if (Helper.isValidHostname(hostname)) {
-                mDatabaseHelper.insertRedirectionItem(hostname, ip);
-                updateView();
+                if (Helper.isValidIP(ip)) {
+                    mDatabaseHelper.insertRedirectionItem(hostname, ip);
+                    updateView();
+                } else {
+                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                    alertDialog.setTitle(R.string.no_ip_title);
+                    alertDialog.setMessage(getString(org.adaway.R.string.no_ip));
+                    alertDialog.setButton(getString(R.string.button_close),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dlg, int sum) {
+                                    dlg.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                }
             } else {
                 AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);

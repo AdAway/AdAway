@@ -13,5 +13,7 @@
     <EditText
         android:id="@+id/list_dialog_url"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"></EditText>
+        android:layout_width="fill_parent"
+        android:inputType="textUri"
+        android:scrollHorizontally="true"></EditText>
 </LinearLayout>

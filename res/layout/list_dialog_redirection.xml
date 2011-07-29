@@ -13,7 +13,9 @@
     <EditText
         android:id="@+id/list_dialog_hostname"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"></EditText>
+        android:layout_width="fill_parent"
+        android:inputType="none"
+        android:scrollHorizontally="true"></EditText>
     <TextView
         android:id="@+id/list_dialog_info2"
         android:layout_height="wrap_content"
@@ -22,5 +24,7 @@
     <EditText
         android:id="@+id/list_dialog_ip"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"></EditText>
+        android:layout_width="fill_parent"
+        android:inputType="none"
+        android:scrollHorizontally="true"></EditText>
 </LinearLayout>

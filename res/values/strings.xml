@@ -79,7 +79,7 @@
     <string name="menu_redirection_list">Redirection List</string>
     <string name="list_dialog_url">URL:</string>
     <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_ip">IP:</string>
+    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="no_ip">This is not a valid IP!</string>
     <string name="no_ip_title">Malformed IP</string>
 </resources>
