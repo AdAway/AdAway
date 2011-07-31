@@ -6,8 +6,8 @@
     <string name="button_exit">Exit</string>
     <string name="no_root_title">Rooted Android required</string>
     <string name="button_apply">Download blacklists and block Ads</string>
-    <string name="no_connection">Either the connection to the internet is not working or the file your want to download is not available. Please check the URLs of your hosts sources.</string>
-    <string name="no_connection_title">No Connection / wrong URL</string>
+    <string name="no_connection">The connection to the internet is not working.</string>
+    <string name="no_connection_title">No Connection</string>
     <string name="button_close">Close</string>
     <string name="download_dialog">Download:</string>
     <string name="menu_hosts_sources">Hosts sources</string>
@@ -79,4 +79,8 @@
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="no_ip">This is not a valid IP!</string>
     <string name="no_ip_title">Malformed IP</string>
+    <string name="download_fail">One of the hosts sources your want to download is not available. Please check the following URL and change it in your hosts sources:</string>
+    <string name="download_fail_title">Download failed</string>
+    <string name="no_private_file">Private file can not be created.</string>
+    <string name="no_private_file_title">Private file creation failed</string>
 </resources>

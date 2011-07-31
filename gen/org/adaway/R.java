@@ -95,6 +95,8 @@ public final class R {
         public static final int checkbox_list_empty=0x7f050032;
         public static final int checkbox_list_footer=0x7f050034;
         public static final int download_dialog=0x7f050009;
+        public static final int download_fail=0x7f05004f;
+        public static final int download_fail_title=0x7f050050;
         public static final int hosts_add_dialog=0x7f05002e;
         public static final int hosts_add_dialog_input=0x7f050031;
         public static final int list_dialog_hostname=0x7f05004b;
@@ -116,6 +118,8 @@ public final class R {
         public static final int no_hostname_title=0x7f050045;
         public static final int no_ip=0x7f05004d;
         public static final int no_ip_title=0x7f05004e;
+        public static final int no_private_file=0x7f050051;
+        public static final int no_private_file_title=0x7f050052;
         public static final int no_root_description=0x7f050001;
         public static final int no_root_title=0x7f050004;
         public static final int no_root_url=0x7f050024;

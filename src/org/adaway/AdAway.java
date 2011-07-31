@@ -24,7 +24,9 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -71,15 +73,7 @@ public class AdAway extends Activity {
     private Context mContext;
     private DatabaseHelper mDatabaseHelper;
 
-    static final String TAG_APPLY = Constants.TAG + " Apply Async";
-    static final String TAG_DOWNLOAD = Constants.TAG + " Download Async";
-    static final String TAG_COPY = Constants.TAG + " Copy Root";
-
-    private ProgressDialog mDownloadProgressDialog;
-    public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
-
     private ProgressDialog mApplyProgressDialog;
-    public static final int DIALOG_APPLY_PROGRESS = DIALOG_DOWNLOAD_PROGRESS + 1;
 
     /**
      * Don't recreate activity on orientation change, it will break AsyncTask. Using possibility 4
@@ -247,7 +241,7 @@ public class AdAway extends Activity {
                             alertDialog.show();
 
                         } catch (Exception e) {
-                            Log.e(TAG_COPY, "Exception: " + e);
+                            Log.e(Constants.TAG, "Exception: " + e);
                             e.printStackTrace();
 
                             AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
@@ -387,15 +381,15 @@ public class AdAway extends Activity {
         String commandCopy = Constants.COMMAND_COPY + " " + privateFile + " " + hostsFile;
         String commandChown = Constants.COMMAND_CHOWN + " " + hostsFile;
         String commandChmod = Constants.COMMAND_CHMOD + " " + hostsFile;
-        Log.d(TAG_COPY, "commandCopy: " + commandCopy);
-        Log.d(TAG_COPY, "commandChown: " + commandChown);
-        Log.d(TAG_COPY, "commandChmod: " + commandChmod);
+        Log.d(Constants.TAG, "commandCopy: " + commandCopy);
+        Log.d(Constants.TAG, "commandChown: " + commandChown);
+        Log.d(Constants.TAG, "commandChmod: " + commandChmod);
 
         // do it with RootTools
         try {
             // check for space on partition
             long size = new File(privateFile).length();
-            Log.d(TAG_COPY, "size: " + size);
+            Log.d(Constants.TAG, "size: " + size);
             if (!hasEnoughSpaceOnPartition(Constants.ANDROID_HOSTS_PATH, size)) {
                 throw new Exception();
             }
@@ -406,18 +400,18 @@ public class AdAway extends Activity {
             List<String> output;
             // copy
             output = RootTools.sendShell(commandCopy);
-            Log.d(TAG_COPY, "output of command: " + output.toString());
+            Log.d(Constants.TAG, "output of command: " + output.toString());
 
             // chown
             output = RootTools.sendShell(commandChown);
-            Log.d(TAG_COPY, "output of command: " + output.toString());
+            Log.d(Constants.TAG, "output of command: " + output.toString());
 
             // chmod
             output = RootTools.sendShell(commandChmod);
-            Log.d(TAG_COPY, "output of command: " + output.toString());
+            Log.d(Constants.TAG, "output of command: " + output.toString());
 
         } catch (Exception e) {
-            Log.e(TAG_COPY, "Exception: " + e);
+            Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
             return false;
@@ -429,47 +423,17 @@ public class AdAway extends Activity {
         return true;
     }
 
-    // /**
-    // * Override onCreateDialog to define dialogs used in the Async Threads
-    // */
-    // @Override
-    // protected Dialog onCreateDialog(int id) {
-    // switch (id) {
-    // case DIALOG_DOWNLOAD_PROGRESS:
-    // mDownloadProgressDialog = new ProgressDialog(this);
-    // mDownloadProgressDialog.setMessage(getString(R.string.download_dialog));
-    // mDownloadProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-    // mDownloadProgressDialog.setCancelable(true);
-    // mDownloadProgressDialog.setOnCancelListener(new OnCancelListener() {
-    // @Override
-    // public void onCancel(DialogInterface dialog) {
-    // // actually could set running = false; right here, but I'll
-    // // stick to contract.
-    // cancel(true); //TODO: PUT THAT ALL IN ASYNCTASK
-    // }
-    // });
-    //
-    // mDownloadProgressDialog.show();
-    // return mDownloadProgressDialog;
-    // case DIALOG_APPLY_PROGRESS:
-    // mApplyProgressDialog = new ProgressDialog(this);
-    // mApplyProgressDialog.setMessage(getString(R.string.apply_dialog));
-    // mApplyProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-    // mApplyProgressDialog.setCancelable(false);
-    // mApplyProgressDialog.show();
-    // return mApplyProgressDialog;
-    // default:
-    // return null;
-    // }
-    // }
-
     /**
      * Async Thread to download hosts files, can be executed with many urls as params. In
      * onPostExecute an Apply Async Thread will be started
      * 
      */
     private void download(String... urls) {
-        AsyncTask<String, Integer, Boolean> downloadHostsSources = new AsyncTask<String, Integer, Boolean>() {
+        AsyncTask<String, Integer, Integer> downloadHostsSources = new AsyncTask<String, Integer, Integer>() {
+
+            private volatile boolean running = true;
+            private ProgressDialog mDownloadProgressDialog;
+
             private String currentURL;
             private int fileSize;
             private byte data[];
@@ -477,10 +441,20 @@ public class AdAway extends Activity {
             private int count;
             private boolean urlChanged;
 
+            private int RETURN_SUCCESS = 1;
+            private int RETURN_NO_CONNECTION = 2;
+            private int RETURN_DOWNLOAD_FAIL = 3;
+            private int RETURN_PRIVATE_FILE = 4;
+
+            @Override
+            protected void onCancelled() {
+                Log.d(Constants.TAG, "AsyncTask canceled!");
+                running = false;
+            }
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                // showDialog(DIALOG_DOWNLOAD_PROGRESS);
                 mDownloadProgressDialog = new ProgressDialog(mContext);
                 mDownloadProgressDialog.setMessage(getString(R.string.download_dialog));
                 mDownloadProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -490,7 +464,7 @@ public class AdAway extends Activity {
                     public void onCancel(DialogInterface dialog) {
                         // actually could set running = false; right here, but I'll
                         // stick to contract.
-                        cancel(true); // TODO: PUT THAT ALL IN ASYNCTASK
+                        cancel(true);
                     }
                 });
 
@@ -509,121 +483,182 @@ public class AdAway extends Activity {
             }
 
             @Override
-            protected Boolean doInBackground(String... urls) {
-                try {
-                    if (isAndroidOnline()) {
-                        // output to write into
-                        FileOutputStream out = openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
+            protected Integer doInBackground(String... urls) {
+                int returnCode = RETURN_SUCCESS; // default return code
+
+                if (isAndroidOnline()) {
+                    // output to write into
+                    FileOutputStream out = null;
+
+                    try {
+                        out = openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
                                 Context.MODE_PRIVATE);
 
                         for (String url : urls) {
-                            Log.v(Constants.TAG, "Downloading hosts file: " + url);
 
-                            // for displaying in progress dialog
-                            currentURL = url;
-                            // with this, onProgressUpdate knows that the message has been set
-                            urlChanged = true;
-
-                            publishProgress(0); // update UI with url
-
-                            URL mURL = new URL(url);
-                            // if (mURL.getProtocol() == "http") { // TODO: implement SSL
-                            // httpsURLConnection
-                            URLConnection connection = mURL.openConnection();
-                            // } else if (mURL.getProtocol() == "https") {
-                            //
-                            // } else {
-                            // Log.e(TAG, "wrong protocol");
-                            // }
-                            fileSize = connection.getContentLength();
-                            Log.d(TAG_DOWNLOAD, "fileSize: " + fileSize);
-
-                            // TODO:
-                            // long getLastModified()
-                            // Returns the value of the last-modified header field.
-
-                            connection.connect();
-
-                            InputStream is = connection.getInputStream();
-                            BufferedInputStream bis = new BufferedInputStream(is);
-
-                            if (is == null) {
-                                Log.e(TAG_DOWNLOAD, "Stream is null");
+                            // stop if thread canceled
+                            if (!running) {
+                                break;
                             }
 
-                            data = new byte[1024];
+                            InputStream is = null;
+                            BufferedInputStream bis = null;
+                            try {
+                                Log.v(Constants.TAG, "Downloading hosts file: " + url);
 
-                            total = 0;
-                            count = 0;
+                                /* change URL in download dialog */
+                                currentURL = url;
+                                urlChanged = true;
+                                publishProgress(0);
 
-                            while ((count = bis.read(data)) != -1) {
-                                out.write(data, 0, count);
+                                /* build connection */
+                                URL mURL = new URL(url);
+                                // if (mURL.getProtocol() == "http") { // TODO: implement SSL
+                                // httpsURLConnection
+                                URLConnection connection = mURL.openConnection();
+                                // } else if (mURL.getProtocol() == "https") {
+                                //
+                                // } else {
+                                // Log.e(TAG, "wrong protocol");
+                                // }
+                                fileSize = connection.getContentLength();
+                                Log.d(Constants.TAG, "fileSize: " + fileSize);
 
-                                total += count;
-                                Log.d(TAG_DOWNLOAD, "total: " + total);
+                                // TODO:
+                                // long getLastModified()
+                                // Returns the value of the last-modified header field.
 
-                                if (fileSize != -1) {
-                                    publishProgress((int) ((total * 100) / fileSize));
-                                } else {
-                                    publishProgress(50); // no ContentLength was returned
+                                connection.connect();
+
+                                is = connection.getInputStream();
+                                bis = new BufferedInputStream(is);
+
+                                if (is == null) {
+                                    Log.e(Constants.TAG, "Stream is null");
+                                }
+
+                                /* download with progress */
+                                data = new byte[1024];
+                                total = 0;
+                                count = 0;
+                                // running is added to cancel AsyncTask properly
+                                while ((count = bis.read(data)) != -1 && running) {
+                                    out.write(data, 0, count);
+
+                                    total += count;
+
+                                    if (fileSize != -1) {
+                                        publishProgress((int) ((total * 100) / fileSize));
+                                    } else {
+                                        publishProgress(50); // no ContentLength was returned
+                                    }
+                                }
+
+                                // add line seperator to add files together in one file
+                                out.write(Constants.LINE_SEPERATOR.getBytes());
+                            } catch (Exception e) {
+                                Log.e(Constants.TAG, "Exception: " + e);
+                                returnCode = RETURN_DOWNLOAD_FAIL;
+                                break; // stop for-loop
+                            } finally {
+                                // flush and close streams
+                                try {
+                                    if (out != null) {
+                                        out.flush();
+                                    }
+                                    if (bis != null) {
+                                        bis.close();
+                                    }
+                                    if (is != null) {
+                                        is.close();
+                                    }
+                                } catch (Exception e) {
+                                    Log.e(Constants.TAG, "Exception on flush and closing streams: "
+                                            + e);
+                                    e.printStackTrace();
                                 }
                             }
-
-                            // add line seperator to add files together in one file
-                            out.write(Constants.LINE_SEPERATOR.getBytes());
-
-                            // flush and close streams
-                            out.flush();
-                            bis.close();
-                            is.close();
                         }
-
-                        out.close(); // TODO put in finally
-
-                        return true;
-                    } else {
-                        throw new Exception();
+                    } catch (Exception e) {
+                        Log.e(Constants.TAG, "Private File can not be created, Exception: " + e);
+                        returnCode = RETURN_PRIVATE_FILE;
+                    } finally {
+                        try {
+                            if (out != null) {
+                                out.close();
+                            }
+                        } catch (Exception e) {
+                            Log.e(Constants.TAG, "Exception on close of out: " + e);
+                            e.printStackTrace();
+                        }
                     }
-                } catch (Exception e) {
-                    Log.e(TAG_DOWNLOAD, "Exception: " + e);
-                    e.printStackTrace();
-
-                    return false;
+                } else {
+                    returnCode = RETURN_NO_CONNECTION;
                 }
+
+                return returnCode;
             }
 
             @Override
             protected void onProgressUpdate(Integer... progress) {
                 // update dialog with filename and progress
                 if (urlChanged) {
-                    Log.d(TAG_DOWNLOAD, "urlChanged");
+                    Log.d(Constants.TAG, "urlChanged");
                     mDownloadProgressDialog.setMessage(getString(R.string.download_dialog)
                             + Constants.LINE_SEPERATOR + currentURL);
                     urlChanged = false;
                 }
-                // Log.d(TAG_DOWNLOAD, "progress: " + progress[0]);
+                // Log.d(Constants.TAG, "progress: " + progress[0]);
                 mDownloadProgressDialog.setProgress(progress[0]);
             }
 
             @Override
-            protected void onPostExecute(Boolean result) {
+            protected void onPostExecute(Integer result) {
                 super.onPostExecute(result);
 
-                if (result) {
-                    // removeDialog(DIALOG_DOWNLOAD_PROGRESS);
+                Log.d(Constants.TAG, "onPostExecute result: " + result);
+
+                if (result == RETURN_SUCCESS) {
                     mDownloadProgressDialog.dismiss();
 
                     // Apply files by Apply thread
                     apply();
-                } else {
-                    // removeDialog(DIALOG_DOWNLOAD_PROGRESS);
+                } else if (result == RETURN_NO_CONNECTION) {
                     mDownloadProgressDialog.dismiss();
 
-                    Log.d(TAG_DOWNLOAD, "Problem!");
                     AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                     alertDialog.setTitle(R.string.no_connection_title);
                     alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
+                    alertDialog.setButton(getString(R.string.button_close),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dlg, int sum) {
+                                    dlg.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                } else if (result == RETURN_PRIVATE_FILE) {
+                    mDownloadProgressDialog.dismiss();
+
+                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                    alertDialog.setTitle(R.string.no_private_file_title);
+                    alertDialog.setMessage(getString(org.adaway.R.string.no_private_file));
+                    alertDialog.setButton(getString(R.string.button_close),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dlg, int sum) {
+                                    dlg.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                } else { // RETURN_DOWNLOAD_FAIL
+                    mDownloadProgressDialog.dismiss();
+
+                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                    alertDialog.setTitle(R.string.download_fail_title);
+                    alertDialog.setMessage(getString(org.adaway.R.string.download_fail) + "\n"
+                            + currentURL);
                     alertDialog.setButton(getString(R.string.button_close),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dlg, int sum) {
@@ -765,7 +800,7 @@ public class AdAway extends Activity {
                     // delete generated hosts file from private storage
                     deleteFile(Constants.HOSTS_FILENAME);
                 } catch (Exception e) {
-                    Log.e(TAG_APPLY, "Exception: " + e);
+                    Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
                     return false;
@@ -813,7 +848,7 @@ public class AdAway extends Activity {
                 } else {
                     // removeDialog(DIALOG_APPLY_PROGRESS);
                     mApplyProgressDialog.dismiss();
-                    Log.d(TAG_APPLY, "Problem!");
+                    Log.d(Constants.TAG, "Problem!");
 
                     AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);

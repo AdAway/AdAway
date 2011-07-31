@@ -1,0 +1,28 @@
+1.05
+- Fixed bug when changing orientation of device while downloading
+- better error handling when downloading
+
+1.04
+- Implemented Redirection List
+- Fixed Layout bugs
+1.03
+- Implemented Blacklist and Whitelist
+1.02
+- Fixed localhost entry
+1.01
+- Fixed permissions on /system/etc/hosts
+
+
+Deutsch
+1.05
+- Bug behoben, der beim Wechsel der Ausrichtung während des Downloads auftrat
+- Besseres Error-Handling beim Download
+1.04
+- Redirection List implementiert
+- Layout-Fehler behoben
+1.03
+- Blacklist und Whitelist implementiert
+1.02
+- localhost-Eintrag behoben
+1.01
+- Rechte der Datei /system/etc/hosts angepasst 
