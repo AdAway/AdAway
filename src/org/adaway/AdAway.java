@@ -20,14 +20,15 @@
 
 package org.adaway;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -38,11 +39,11 @@ import org.adaway.utils.DatabaseHelper;
 import org.adaway.utils.HostsParser;
 import org.adaway.utils.SharedPrefs;
 import org.adaway.utils.Constants;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -62,6 +63,7 @@ import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
 
 import com.stericson.RootTools.*;
 
@@ -78,6 +80,17 @@ public class AdAway extends Activity {
 
     private ProgressDialog mApplyProgressDialog;
     public static final int DIALOG_APPLY_PROGRESS = DIALOG_DOWNLOAD_PROGRESS + 1;
+
+    /**
+     * Don't recreate activity on orientation change, it will break AsyncTask. Using possibility 4
+     * from http://blog.doityourselfandroid
+     * .com/2010/11/14/handling-progress-dialogs-and-screen-orientation-changes/
+     */
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setContentView(R.layout.main);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -182,7 +195,7 @@ public class AdAway extends Activity {
             alertDialog.show();
         } else {
             // execute downloading of files
-            new DownloadHostsFiles().execute(enabledHostsArray);
+            download(enabledHostsArray);
         }
     }
 
@@ -388,7 +401,7 @@ public class AdAway extends Activity {
             }
 
             // remount for write access
-            RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RW");
+            boolean mountSuccess = RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RW");
 
             List<String> output;
             // copy
@@ -416,356 +429,408 @@ public class AdAway extends Activity {
         return true;
     }
 
-    /**
-     * Override onCreateDialog to define dialogs used in the Async Threads
-     */
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-        case DIALOG_DOWNLOAD_PROGRESS:
-            mDownloadProgressDialog = new ProgressDialog(this);
-            mDownloadProgressDialog.setMessage(getString(R.string.download_dialog));
-            mDownloadProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            mDownloadProgressDialog.setCancelable(false);
-            mDownloadProgressDialog.show();
-            return mDownloadProgressDialog;
-        case DIALOG_APPLY_PROGRESS:
-            mApplyProgressDialog = new ProgressDialog(this);
-            mApplyProgressDialog.setMessage(getString(R.string.apply_dialog));
-            mApplyProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            mApplyProgressDialog.setCancelable(false);
-            mApplyProgressDialog.show();
-            return mApplyProgressDialog;
-        default:
-            return null;
-        }
-    }
+    // /**
+    // * Override onCreateDialog to define dialogs used in the Async Threads
+    // */
+    // @Override
+    // protected Dialog onCreateDialog(int id) {
+    // switch (id) {
+    // case DIALOG_DOWNLOAD_PROGRESS:
+    // mDownloadProgressDialog = new ProgressDialog(this);
+    // mDownloadProgressDialog.setMessage(getString(R.string.download_dialog));
+    // mDownloadProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+    // mDownloadProgressDialog.setCancelable(true);
+    // mDownloadProgressDialog.setOnCancelListener(new OnCancelListener() {
+    // @Override
+    // public void onCancel(DialogInterface dialog) {
+    // // actually could set running = false; right here, but I'll
+    // // stick to contract.
+    // cancel(true); //TODO: PUT THAT ALL IN ASYNCTASK
+    // }
+    // });
+    //
+    // mDownloadProgressDialog.show();
+    // return mDownloadProgressDialog;
+    // case DIALOG_APPLY_PROGRESS:
+    // mApplyProgressDialog = new ProgressDialog(this);
+    // mApplyProgressDialog.setMessage(getString(R.string.apply_dialog));
+    // mApplyProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+    // mApplyProgressDialog.setCancelable(false);
+    // mApplyProgressDialog.show();
+    // return mApplyProgressDialog;
+    // default:
+    // return null;
+    // }
+    // }
 
     /**
      * Async Thread to download hosts files, can be executed with many urls as params. In
      * onPostExecute an Apply Async Thread will be started
      * 
      */
-    private class DownloadHostsFiles extends AsyncTask<String, Integer, Boolean> {
-        private String currentURL;
-        private int fileSize;
-        private byte data[];
-        private long total;
-        private int count;
-        private boolean messageChanged;
+    private void download(String... urls) {
+        AsyncTask<String, Integer, Boolean> downloadHostsSources = new AsyncTask<String, Integer, Boolean>() {
+            private String currentURL;
+            private int fileSize;
+            private byte data[];
+            private long total;
+            private int count;
+            private boolean urlChanged;
 
-        public DownloadHostsFiles() {
-            messageChanged = false;
-        }
-
-        private boolean isAndroidOnline() {
-            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo netInfo = cm.getActiveNetworkInfo();
-            if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-                return true;
-            }
-            return false;
-        }
-
-        @Override
-        protected Boolean doInBackground(String... urls) {
-            try {
-                if (isAndroidOnline()) {
-                    // output to write into
-                    FileOutputStream out = openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
-                            Context.MODE_PRIVATE);
-
-                    for (String url : urls) {
-                        Log.v(Constants.TAG, "Starting downloading hostname file: " + url);
-
-                        URL mURL = new URL(url);
-                        // if (mURL.getProtocol() == "http") { // TODO: implement SSL
-                        // httpsURLConnection
-                        HttpURLConnection connection = (HttpURLConnection) mURL.openConnection();
-                        // } else if (mURL.getProtocol() == "https") {
-                        //
-                        // } else {
-                        // Log.e(TAG, "wrong protocol");
-                        // }
-                        fileSize = connection.getContentLength();
-
-                        // TODO:
-                        // long getLastModified()
-                        // Returns the value of the last-modified header field.
-
-                        connection.connect();
-
-                        InputStream in = connection.getInputStream();
-                        if (in == null) {
-                            Log.e(TAG_DOWNLOAD, "Stream is null");
-                        }
-
-                        data = new byte[1024];
-
-                        total = 0;
-                        count = 0;
-
-                        currentURL = url; // for displaying in progress dialog
-                        messageChanged = true; // with this, onProgressUpdate knows that the message
-                                               // has been set
-
-                        while ((count = in.read(data)) != -1) {
-                            total += count;
-                            publishProgress((int) ((total * 100) / fileSize));
-                            out.write(data, 0, count);
-                        }
-
-                        out.write(Constants.LINE_SEPERATOR.getBytes()); // add line seperator to add
-                                                                        // hosts
-                        // files together in one file
-                        out.flush();
-                        in.close();
-                        connection.disconnect();
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                // showDialog(DIALOG_DOWNLOAD_PROGRESS);
+                mDownloadProgressDialog = new ProgressDialog(mContext);
+                mDownloadProgressDialog.setMessage(getString(R.string.download_dialog));
+                mDownloadProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                mDownloadProgressDialog.setCancelable(true);
+                mDownloadProgressDialog.setOnCancelListener(new OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        // actually could set running = false; right here, but I'll
+                        // stick to contract.
+                        cancel(true); // TODO: PUT THAT ALL IN ASYNCTASK
                     }
+                });
 
-                    out.close();
+                mDownloadProgressDialog.show();
 
+                urlChanged = false;
+            }
+
+            private boolean isAndroidOnline() {
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo netInfo = cm.getActiveNetworkInfo();
+                if (netInfo != null && netInfo.isConnectedOrConnecting()) {
                     return true;
-                } else {
-                    throw new Exception();
                 }
-            } catch (Exception e) {
-                Log.e(TAG_DOWNLOAD, "Exception: " + e);
-                e.printStackTrace();
-
                 return false;
             }
-        }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            showDialog(DIALOG_DOWNLOAD_PROGRESS);
-        }
+            @Override
+            protected Boolean doInBackground(String... urls) {
+                try {
+                    if (isAndroidOnline()) {
+                        // output to write into
+                        FileOutputStream out = openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
+                                Context.MODE_PRIVATE);
 
-        @Override
-        protected void onProgressUpdate(Integer... progress) {
-            // update dialog with filename and progress
-            if (messageChanged) {
-                Log.d(TAG_DOWNLOAD, "messageChanged");
-                mDownloadProgressDialog.setMessage(getString(R.string.download_dialog)
-                        + Constants.LINE_SEPERATOR + currentURL);
-                messageChanged = false;
-            }
-            mDownloadProgressDialog.setProgress(progress[0]);
-        }
+                        for (String url : urls) {
+                            Log.v(Constants.TAG, "Downloading hosts file: " + url);
 
-        @Override
-        protected void onPostExecute(Boolean result) {
-            super.onPostExecute(result);
+                            // for displaying in progress dialog
+                            currentURL = url;
+                            // with this, onProgressUpdate knows that the message has been set
+                            urlChanged = true;
 
-            if (result) {
-                removeDialog(DIALOG_DOWNLOAD_PROGRESS);
+                            publishProgress(0); // update UI with url
 
-                // Apply files by Apply thread
-                new Apply().execute();
-            } else {
-                removeDialog(DIALOG_DOWNLOAD_PROGRESS);
+                            URL mURL = new URL(url);
+                            // if (mURL.getProtocol() == "http") { // TODO: implement SSL
+                            // httpsURLConnection
+                            URLConnection connection = mURL.openConnection();
+                            // } else if (mURL.getProtocol() == "https") {
+                            //
+                            // } else {
+                            // Log.e(TAG, "wrong protocol");
+                            // }
+                            fileSize = connection.getContentLength();
+                            Log.d(TAG_DOWNLOAD, "fileSize: " + fileSize);
 
-                Log.d(TAG_DOWNLOAD, "Problem!");
-                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                alertDialog.setTitle(R.string.no_connection_title);
-                alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
-                alertDialog.setButton(getString(R.string.button_close),
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dlg, int sum) {
-                                dlg.dismiss();
+                            // TODO:
+                            // long getLastModified()
+                            // Returns the value of the last-modified header field.
+
+                            connection.connect();
+
+                            InputStream is = connection.getInputStream();
+                            BufferedInputStream bis = new BufferedInputStream(is);
+
+                            if (is == null) {
+                                Log.e(TAG_DOWNLOAD, "Stream is null");
                             }
-                        });
-                alertDialog.show();
+
+                            data = new byte[1024];
+
+                            total = 0;
+                            count = 0;
+
+                            while ((count = bis.read(data)) != -1) {
+                                out.write(data, 0, count);
+
+                                total += count;
+                                Log.d(TAG_DOWNLOAD, "total: " + total);
+
+                                if (fileSize != -1) {
+                                    publishProgress((int) ((total * 100) / fileSize));
+                                } else {
+                                    publishProgress(50); // no ContentLength was returned
+                                }
+                            }
+
+                            // add line seperator to add files together in one file
+                            out.write(Constants.LINE_SEPERATOR.getBytes());
+
+                            // flush and close streams
+                            out.flush();
+                            bis.close();
+                            is.close();
+                        }
+
+                        out.close(); // TODO put in finally
+
+                        return true;
+                    } else {
+                        throw new Exception();
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG_DOWNLOAD, "Exception: " + e);
+                    e.printStackTrace();
+
+                    return false;
+                }
             }
-        }
+
+            @Override
+            protected void onProgressUpdate(Integer... progress) {
+                // update dialog with filename and progress
+                if (urlChanged) {
+                    Log.d(TAG_DOWNLOAD, "urlChanged");
+                    mDownloadProgressDialog.setMessage(getString(R.string.download_dialog)
+                            + Constants.LINE_SEPERATOR + currentURL);
+                    urlChanged = false;
+                }
+                // Log.d(TAG_DOWNLOAD, "progress: " + progress[0]);
+                mDownloadProgressDialog.setProgress(progress[0]);
+            }
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                super.onPostExecute(result);
+
+                if (result) {
+                    // removeDialog(DIALOG_DOWNLOAD_PROGRESS);
+                    mDownloadProgressDialog.dismiss();
+
+                    // Apply files by Apply thread
+                    apply();
+                } else {
+                    // removeDialog(DIALOG_DOWNLOAD_PROGRESS);
+                    mDownloadProgressDialog.dismiss();
+
+                    Log.d(TAG_DOWNLOAD, "Problem!");
+                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                    alertDialog.setTitle(R.string.no_connection_title);
+                    alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
+                    alertDialog.setButton(getString(R.string.button_close),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dlg, int sum) {
+                                    dlg.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                }
+            }
+        };
+
+        downloadHostsSources.execute(urls);
     }
 
     /**
      * Async Thread to parse downloaded hosts files, build one new merged hosts file out of them
      * using the redirection ip from the preferences and apply them using RootTools.
-     * 
-     * 
      */
-    private class Apply extends AsyncTask<Void, String, Boolean> {
-        @Override
-        protected Boolean doInBackground(Void... unused) {
-            try {
-                /* PARSE: parse hosts files to sets of hostnames and comments */
-                publishProgress(getString(R.string.apply_dialog_hostnames));
+    private void apply() {
+        AsyncTask<Void, String, Boolean> apply = new AsyncTask<Void, String, Boolean>() {
+            @Override
+            protected Boolean doInBackground(Void... unused) {
+                try {
+                    /* PARSE: parse hosts files to sets of hostnames and comments */
+                    publishProgress(getString(R.string.apply_dialog_hostnames));
 
-                FileInputStream fis = openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+                    FileInputStream fis = openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-                HostsParser parser = new HostsParser(reader, getApplicationContext());
-                HashSet<String> hostnames = parser.getHostnames();
-                LinkedList<String> comments = parser.getComments();
+                    HostsParser parser = new HostsParser(reader, getApplicationContext());
+                    HashSet<String> hostnames = parser.getHostnames();
+                    LinkedList<String> comments = parser.getComments();
 
-                fis.close();
+                    fis.close();
 
-                publishProgress(getString(R.string.apply_dialog_lists));
+                    publishProgress(getString(R.string.apply_dialog_lists));
 
-                /* READ DATABSE CONTENT */
-                mDatabaseHelper = new DatabaseHelper(mContext);
+                    /* READ DATABSE CONTENT */
+                    mDatabaseHelper = new DatabaseHelper(mContext);
 
-                // get whitelist
-                HashSet<String> whitelist = mDatabaseHelper.getAllEnabledWhitelistItems();
-                Log.d(Constants.TAG, "Enabled whitelist: " + whitelist.toString());
+                    // get whitelist
+                    HashSet<String> whitelist = mDatabaseHelper.getAllEnabledWhitelistItems();
+                    Log.d(Constants.TAG, "Enabled whitelist: " + whitelist.toString());
 
-                // get blacklist
-                HashSet<String> blacklist = mDatabaseHelper.getAllEnabledBlacklistItems();
-                Log.d(Constants.TAG, "Enabled blacklist: " + blacklist.toString());
+                    // get blacklist
+                    HashSet<String> blacklist = mDatabaseHelper.getAllEnabledBlacklistItems();
+                    Log.d(Constants.TAG, "Enabled blacklist: " + blacklist.toString());
 
-                // get redirection list
-                HashMap<String, String> redirection = mDatabaseHelper
-                        .getAllEnabledRedirectionItems();
-                Log.d(Constants.TAG, "Enabled redirection list: " + redirection.toString());
+                    // get redirection list
+                    HashMap<String, String> redirection = mDatabaseHelper
+                            .getAllEnabledRedirectionItems();
+                    Log.d(Constants.TAG, "Enabled redirection list: " + redirection.toString());
 
-                mDatabaseHelper.close();
+                    mDatabaseHelper.close();
 
-                /* BLACKLIST AND WHITELIST */
-                // remove whitelist items
-                hostnames.removeAll(whitelist);
+                    /* BLACKLIST AND WHITELIST */
+                    // remove whitelist items
+                    hostnames.removeAll(whitelist);
 
-                // add blacklist items
-                hostnames.addAll(blacklist);
+                    // add blacklist items
+                    hostnames.addAll(blacklist);
 
-                /* REDIRECTION LIST: remove hostnames that are in redirection list */
-                HashSet<String> redirectionRemove = new HashSet<String>(redirection.keySet());
+                    /* REDIRECTION LIST: remove hostnames that are in redirection list */
+                    HashSet<String> redirectionRemove = new HashSet<String>(redirection.keySet());
 
-                // remove all redirection hostnames
-                hostnames.removeAll(redirectionRemove);
+                    // remove all redirection hostnames
+                    hostnames.removeAll(redirectionRemove);
 
-                /* BUILD: build one hosts file out of sets and preferences */
-                publishProgress(getString(R.string.apply_dialog_hosts));
+                    /* BUILD: build one hosts file out of sets and preferences */
+                    publishProgress(getString(R.string.apply_dialog_hosts));
 
-                FileOutputStream fos = openFileOutput(Constants.HOSTS_FILENAME,
-                        Context.MODE_PRIVATE);
+                    FileOutputStream fos = openFileOutput(Constants.HOSTS_FILENAME,
+                            Context.MODE_PRIVATE);
 
-                // add adaway header
-                String header = "# This hosts file is generated by AdAway."
-                        + Constants.LINE_SEPERATOR
-                        + "# Please do not modify it directly, it will be overwritten when AdAway is applied again."
-                        + Constants.LINE_SEPERATOR;
-                fos.write(header.getBytes());
+                    // add adaway header
+                    String header = "# This hosts file is generated by AdAway."
+                            + Constants.LINE_SEPERATOR
+                            + "# Please do not modify it directly, it will be overwritten when AdAway is applied again."
+                            + Constants.LINE_SEPERATOR;
+                    fos.write(header.getBytes());
 
-                // write comments from other files to header
-                if (!SharedPrefs.getStripComments(getApplicationContext())) {
-                    String headerComment = "# " + Constants.LINE_SEPERATOR
-                            + "# The following lines are comments from the downloaded hosts files:";
-                    fos.write(headerComment.getBytes());
+                    // write comments from other files to header
+                    if (!SharedPrefs.getStripComments(getApplicationContext())) {
+                        String headerComment = "# "
+                                + Constants.LINE_SEPERATOR
+                                + "# The following lines are comments from the downloaded hosts files:";
+                        fos.write(headerComment.getBytes());
 
+                        String line;
+                        for (String comment : comments) {
+                            line = Constants.LINE_SEPERATOR + comment;
+                            fos.write(line.getBytes());
+                        }
+
+                        fos.write(Constants.LINE_SEPERATOR.getBytes());
+                    }
+
+                    String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
+
+                    // add "127.0.0.1 localhost" entry
+                    String localhost = Constants.LINE_SEPERATOR + redirectionIP + " "
+                            + Constants.LOCALHOST_HOSTNAME;
+                    fos.write(localhost.getBytes());
+
+                    fos.write(Constants.LINE_SEPERATOR.getBytes());
+
+                    // write hostnames
                     String line;
-                    for (String comment : comments) {
-                        line = Constants.LINE_SEPERATOR + comment;
+                    for (String hostname : hostnames) {
+                        line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
                         fos.write(line.getBytes());
                     }
 
-                    fos.write(Constants.LINE_SEPERATOR.getBytes());
+                    /* REDIRECTION LIST: write redirection items */
+                    String redirectionItemHostname;
+                    String redirectionItemIP;
+                    for (HashMap.Entry<String, String> item : redirection.entrySet()) {
+                        redirectionItemHostname = item.getKey();
+                        redirectionItemIP = item.getValue();
+
+                        line = Constants.LINE_SEPERATOR + redirectionItemIP + " "
+                                + redirectionItemHostname;
+                        fos.write(line.getBytes());
+                    }
+
+                    fos.close();
+
+                    // delete downloaded hosts file from private storage
+                    deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
+
+                    /* APPLY: apply hosts file using RootTools in copyHostsFile() */
+                    publishProgress(getString(R.string.apply_dialog_apply));
+
+                    // copy build hosts file with RootTools
+                    if (!copyHostsFile()) {
+                        throw new Exception();
+                    }
+
+                    // delete generated hosts file from private storage
+                    deleteFile(Constants.HOSTS_FILENAME);
+                } catch (Exception e) {
+                    Log.e(TAG_APPLY, "Exception: " + e);
+                    e.printStackTrace();
+
+                    return false;
                 }
 
-                String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
-
-                // add "127.0.0.1 localhost" entry
-                String localhost = Constants.LINE_SEPERATOR + redirectionIP + " "
-                        + Constants.LOCALHOST_HOSTNAME;
-                fos.write(localhost.getBytes());
-
-                fos.write(Constants.LINE_SEPERATOR.getBytes());
-
-                // write hostnames
-                String line;
-                for (String hostname : hostnames) {
-                    line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
-                    fos.write(line.getBytes());
-                }
-
-                /* REDIRECTION LIST: write redirection items */
-                String redirectionItemHostname;
-                String redirectionItemIP;
-                for (HashMap.Entry<String, String> item : redirection.entrySet()) {
-                    redirectionItemHostname = item.getKey();
-                    redirectionItemIP = item.getValue();
-
-                    line = Constants.LINE_SEPERATOR + redirectionItemIP + " "
-                            + redirectionItemHostname;
-                    fos.write(line.getBytes());
-                }
-
-                fos.close();
-
-                // delete downloaded hosts file from private storage
-                deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
-
-                /* APPLY: apply hosts file using RootTools in copyHostsFile() */
-                publishProgress(getString(R.string.apply_dialog_apply));
-
-                // copy build hosts file with RootTools
-                if (!copyHostsFile()) {
-                    throw new Exception();
-                }
-
-                // delete generated hosts file from private storage
-                deleteFile(Constants.HOSTS_FILENAME);
-            } catch (Exception e) {
-                Log.e(TAG_APPLY, "Exception: " + e);
-                e.printStackTrace();
-
-                return false;
+                return true;
             }
 
-            return true;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            showDialog(DIALOG_APPLY_PROGRESS);
-        }
-
-        @Override
-        protected void onProgressUpdate(String... status) {
-            mApplyProgressDialog.setMessage(status[0]);
-        }
-
-        @Override
-        protected void onPostExecute(Boolean result) {
-            super.onPostExecute(result);
-
-            if (result) {
-                removeDialog(DIALOG_APPLY_PROGRESS);
-
-                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-                alertDialog.setTitle(R.string.apply_dialog);
-                alertDialog.setMessage(getString(R.string.apply_success));
-                alertDialog.setButton(getString(R.string.button_close),
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dlg, int sum) {
-                                dlg.dismiss();
-                            }
-                        });
-                alertDialog.show();
-
-            } else {
-                removeDialog(DIALOG_APPLY_PROGRESS);
-                Log.d(TAG_APPLY, "Problem!");
-
-                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                alertDialog.setTitle(R.string.apply_problem_title);
-                alertDialog.setMessage(getString(org.adaway.R.string.apply_problem));
-                alertDialog.setButton(getString(R.string.button_close),
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dlg, int sum) {
-                                dlg.dismiss();
-                            }
-                        });
-                alertDialog.show();
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                // showDialog(DIALOG_APPLY_PROGRESS);
+                mApplyProgressDialog = new ProgressDialog(mContext);
+                mApplyProgressDialog.setMessage(getString(R.string.apply_dialog));
+                mApplyProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                mApplyProgressDialog.setCancelable(false);
+                mApplyProgressDialog.show();
             }
-        }
+
+            @Override
+            protected void onProgressUpdate(String... status) {
+                mApplyProgressDialog.setMessage(status[0]);
+            }
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                super.onPostExecute(result);
+
+                if (result) {
+                    // removeDialog(DIALOG_APPLY_PROGRESS);
+                    mApplyProgressDialog.dismiss();
+
+                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog.setIcon(android.R.drawable.ic_dialog_info);
+                    alertDialog.setTitle(R.string.apply_dialog);
+                    alertDialog.setMessage(getString(R.string.apply_success));
+                    alertDialog.setButton(getString(R.string.button_close),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dlg, int sum) {
+                                    dlg.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+
+                } else {
+                    // removeDialog(DIALOG_APPLY_PROGRESS);
+                    mApplyProgressDialog.dismiss();
+                    Log.d(TAG_APPLY, "Problem!");
+
+                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                    alertDialog.setTitle(R.string.apply_problem_title);
+                    alertDialog.setMessage(getString(org.adaway.R.string.apply_problem));
+                    alertDialog.setButton(getString(R.string.button_close),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dlg, int sum) {
+                                    dlg.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                }
+            }
+        };
+
+        apply.execute();
     }
 
 }

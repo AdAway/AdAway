@@ -26,12 +26,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPrefs {
-    public static boolean getHttps(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
-        return prefs.getBoolean(context.getString(R.string.pref_https_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_https_def)));
-    }
-
     public static boolean getCheckSyntax(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getBoolean(context.getString(R.string.pref_check_syntax_key),
