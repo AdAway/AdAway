@@ -38,12 +38,13 @@ public class DatabaseHelper {
     private SQLiteDatabase mDB;
 
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     private static final String TABLE_HOSTS_SOURCES = "hosts_sources";
     private static final String TABLE_WHITELIST = "whitelist";
     private static final String TABLE_BLACKLIST = "blacklist";
     private static final String TABLE_REDIRECTION_LIST = "redirection_list";
+    private static final String TABLE_LAST_MODIFIED = "last_modified";
 
     private static final String CREATE_HOSTS_SOURCES = "CREATE TABLE " + TABLE_HOSTS_SOURCES
             + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
@@ -53,6 +54,8 @@ public class DatabaseHelper {
             + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
     private static final String CREATE_REDIRECTION_LIST = "CREATE TABLE " + TABLE_REDIRECTION_LIST
             + "(_id INTEGER PRIMARY KEY, url TEXT, ip TEXT, enabled INTEGER)";
+    private static final String CREATE_LAST_MODIFIED = "CREATE TABLE " + TABLE_LAST_MODIFIED
+            + "(_id INTEGER PRIMARY KEY, last_modified INTEGER)";
 
     private SQLiteStatement insertStmtHostsSources;
     private static final String INSERT_HOSTS_SOURCES = "insert into " + TABLE_HOSTS_SOURCES
@@ -82,6 +85,22 @@ public class DatabaseHelper {
      */
     public void close() {
         mDB.close();
+    }
+
+    /* LAST MODIFIED */
+
+    public long getLastModified() {
+        Cursor cursor = mDB.query(TABLE_LAST_MODIFIED, new String[] { "_id", "last_modified" },
+                "_id is 0", null, null, null, null);
+        long lastModified = cursor.getLong(0);
+
+        return lastModified;
+    }
+
+    public void updateLastModified(long lastModified) {
+        ContentValues args = new ContentValues();
+        args.put("last_modified", lastModified);
+        mDB.update(TABLE_LAST_MODIFIED, args, "_id=0", null);
     }
 
     /* HOSTS SOURCES */
@@ -284,13 +303,7 @@ public class DatabaseHelper {
             return insertStmt.executeInsert();
         }
 
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL(CREATE_HOSTS_SOURCES);
-            db.execSQL(CREATE_WHITELIST);
-            db.execSQL(CREATE_BLACKLIST);
-            db.execSQL(CREATE_REDIRECTION_LIST);
-
+        private void insertDefaultHostsSources(SQLiteDatabase db) {
             // fill default hosts sources
             SQLiteStatement insertStmt;
             String insertHostsSources = "insert into " + TABLE_HOSTS_SOURCES
@@ -309,6 +322,30 @@ public class DatabaseHelper {
             // "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext");
         }
 
+        private void insertDefaultLastModified(SQLiteDatabase db) {
+            SQLiteStatement insertStmtLastModified;
+            String insertLastModified = "insert into " + TABLE_LAST_MODIFIED
+                    + "(last_modified) values (?)";
+            insertStmtLastModified = db.compileStatement(insertLastModified);
+            insertStmtLastModified.bindString(1, "0");
+            insertStmtLastModified.executeInsert();
+        }
+
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            Log.w(Constants.TAG, "Creating database...");
+
+            db.execSQL(CREATE_HOSTS_SOURCES);
+            db.execSQL(CREATE_WHITELIST);
+            db.execSQL(CREATE_BLACKLIST);
+            db.execSQL(CREATE_REDIRECTION_LIST);
+            db.execSQL(CREATE_LAST_MODIFIED);
+
+            insertDefaultLastModified(db);
+
+            insertDefaultHostsSources(db);
+        }
+
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             Log.w(Constants.TAG, "Upgrading database...");
@@ -320,15 +357,13 @@ public class DatabaseHelper {
                 db.execSQL(CREATE_BLACKLIST);
                 db.execSQL(CREATE_REDIRECTION_LIST);
             case 2:
+                db.execSQL(CREATE_LAST_MODIFIED);
+                insertDefaultLastModified(db);
             case 3:
             case 4:
             default:
                 break;
             }
-
-            // drop-recreate upgrade:
-            // db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTS_SOURCES);
-            // onCreate(db);
         }
     }
 }

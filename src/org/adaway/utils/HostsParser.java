@@ -32,7 +32,7 @@ import android.util.Log;
 
 public class HostsParser {
     private Context mContext;
-    private static final String TAG_PARSER = Constants.TAG + " HostsParser";
+
     private HashSet<String> hostnames;
     private LinkedList<String> comments;
 
@@ -110,7 +110,7 @@ public class HostsParser {
                         // Log.d(TAG, nextLine + " matched, adding to hostnames");
                         hostnames.add(nextLine);
                     } else {
-                        Log.d(TAG_PARSER, nextLine + " NOT matched");
+                        Log.d(Constants.TAG, nextLine + " NOT matched");
                     }
                 } else {
                     // add without checking

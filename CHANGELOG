@@ -1,6 +1,7 @@
 1.05
 - Fixed bug when changing orientation of device while downloading
 - better error handling when downloading
+- Fixed localhost entry again
 
 1.04
 - Implemented Redirection List
@@ -17,6 +18,8 @@ Deutsch
 1.05
 - Bug behoben, der beim Wechsel der Ausrichtung während des Downloads auftrat
 - Besseres Error-Handling beim Download
+- localhost-Eintrag abermals behoben
+
 1.04
 - Redirection List implementiert
 - Layout-Fehler behoben

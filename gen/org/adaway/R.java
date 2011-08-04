@@ -12,34 +12,43 @@ public final class R {
     }
     public static final class drawable {
         public static final int icon=0x7f020000;
+        public static final int status_disabled=0x7f020001;
+        public static final int status_enabled=0x7f020002;
+        public static final int status_no_connection=0x7f020003;
+        public static final int status_update=0x7f020004;
     }
     public static final class id {
         public static final int about_close=0x7f070001;
         public static final int about_version=0x7f070000;
-        public static final int apply_button=0x7f070009;
+        public static final int apply_button=0x7f07000e;
         public static final int checkbox_list_checkbox=0x7f070003;
-        public static final int checkbox_list_context_delete=0x7f070012;
-        public static final int checkbox_list_context_edit=0x7f070013;
+        public static final int checkbox_list_context_delete=0x7f070017;
+        public static final int checkbox_list_context_edit=0x7f070018;
         public static final int checkbox_list_footer=0x7f070002;
         public static final int icon=0x7f070007;
+        public static final int iconSecondLine=0x7f070008;
         public static final int list_dialog_hostname=0x7f070004;
         public static final int list_dialog_ip=0x7f070005;
         public static final int list_dialog_url=0x7f070006;
-        public static final int menu_about=0x7f070019;
-        public static final int menu_add=0x7f070010;
-        public static final int menu_add_qrcode=0x7f070011;
-        public static final int menu_blacklist=0x7f070015;
-        public static final int menu_hosts_sources=0x7f070014;
-        public static final int menu_preferences=0x7f070018;
-        public static final int menu_redirection_list=0x7f070017;
-        public static final int menu_whitelist=0x7f070016;
-        public static final int no_root_exit=0x7f07000b;
-        public static final int redirection_list_checkbox=0x7f07000d;
-        public static final int redirection_list_footer=0x7f07000c;
-        public static final int redirection_list_hostname=0x7f07000f;
-        public static final int redirection_list_ip=0x7f07000e;
-        public static final int revert_button=0x7f07000a;
-        public static final int secondLine=0x7f070008;
+        public static final int menu_about=0x7f07001e;
+        public static final int menu_add=0x7f070015;
+        public static final int menu_add_qrcode=0x7f070016;
+        public static final int menu_blacklist=0x7f07001a;
+        public static final int menu_hosts_sources=0x7f070019;
+        public static final int menu_preferences=0x7f07001d;
+        public static final int menu_redirection_list=0x7f07001c;
+        public static final int menu_whitelist=0x7f07001b;
+        public static final int no_root_exit=0x7f070010;
+        public static final int redirection_list_checkbox=0x7f070012;
+        public static final int redirection_list_footer=0x7f070011;
+        public static final int redirection_list_hostname=0x7f070014;
+        public static final int redirection_list_ip=0x7f070013;
+        public static final int revert_button=0x7f07000f;
+        public static final int status_icon=0x7f07000b;
+        public static final int status_layout=0x7f070009;
+        public static final int status_progress=0x7f07000a;
+        public static final int status_subtitle=0x7f07000c;
+        public static final int status_text=0x7f07000d;
     }
     public static final class layout {
         public static final int about_dialog=0x7f030000;
@@ -143,6 +152,20 @@ public final class R {
         public static final int revert_problem=0x7f050028;
         public static final int revert_question=0x7f05001c;
         public static final int revert_successfull=0x7f05001d;
+        public static final int status_checking=0x7f050053;
+        public static final int status_checking_subtitle=0x7f050054;
+        public static final int status_disabled=0x7f05005f;
+        public static final int status_disabled_subtitle=0x7f050060;
+        public static final int status_download_fail=0x7f05005b;
+        public static final int status_download_fail_subtitle=0x7f05005c;
+        public static final int status_enabled=0x7f05005d;
+        public static final int status_enabled_subtitle=0x7f05005e;
+        public static final int status_no_connection=0x7f050059;
+        public static final int status_no_connection_subtitle=0x7f05005a;
+        public static final int status_no_update=0x7f050057;
+        public static final int status_no_update_subtitle=0x7f050058;
+        public static final int status_update_available=0x7f050055;
+        public static final int status_update_available_subtitle=0x7f050056;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;

@@ -24,9 +24,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -37,21 +35,28 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.adaway.utils.Constants;
 import org.adaway.utils.DatabaseHelper;
+import org.adaway.utils.Helper;
 import org.adaway.utils.HostsParser;
 import org.adaway.utils.SharedPrefs;
-import org.adaway.utils.Constants;
+
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StatFs;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -59,21 +64,38 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Configuration;
 
-import com.stericson.RootTools.*;
+import com.stericson.RootTools.RootTools;
 
 public class AdAway extends Activity {
     private Context mContext;
     private DatabaseHelper mDatabaseHelper;
 
-    private ProgressDialog mApplyProgressDialog;
+    private TextView mStatusText;
+    private TextView mStatusSubtitle;
+    private ProgressBar mStatusProgress;
+    private ImageView mStatusIcon;
+    AsyncTask<String, Integer, Integer> mStatusTask;
+
+    protected static final int RETURN_SUCCESS = 0;
+    protected static final int RETURN_PRIVATE_FILE_FAIL = 1;
+    protected static final int RETURN_UPDATE_AVAILABLE = 2;
+    protected static final int RETURN_ENABLED = 3;
+    protected static final int RETURN_DISABLED = 4;
+    protected static final int RETURN_DOWNLOAD_FAIL = 5;
+    protected static final int RETURN_NO_CONNECTION = 6;
+    protected static final int RETURN_APPLY_FAILED = 7;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // cancel status task
+        mStatusTask.cancel(true);
+    }
 
     /**
      * Don't recreate activity on orientation change, it will break AsyncTask. Using possibility 4
@@ -139,6 +161,11 @@ public class AdAway extends Activity {
 
         mContext = this;
 
+        mStatusText = (TextView) findViewById(R.id.status_text);
+        mStatusSubtitle = (TextView) findViewById(R.id.status_subtitle);
+        mStatusProgress = (ProgressBar) findViewById(R.id.status_progress);
+        mStatusIcon = (ImageView) findViewById(R.id.status_icon);
+
         RootTools.debugMode = false;
 
         // check for root on device
@@ -152,8 +179,37 @@ public class AdAway extends Activity {
             } else {
                 if (!RootTools.isBusyboxAvailable()) { // checking for busybox needs root
                     showNoRootDialog();
+                } else {
+
+                    // do other operations on create
+                    checkOnCreate();
                 }
             }
+        }
+
+    }
+
+    /**
+     * check for updates on create
+     */
+    private void checkOnCreate() {
+        mDatabaseHelper = new DatabaseHelper(mContext);
+
+        // get enabled hosts from database
+        ArrayList<String> enabledHosts = mDatabaseHelper.getAllEnabledHostsSources();
+        Log.d(Constants.TAG, "Enabled hosts: " + enabledHosts.toString());
+
+        mDatabaseHelper.close();
+
+        // build array out of list
+        String[] enabledHostsArray = new String[enabledHosts.size()];
+        enabledHosts.toArray(enabledHostsArray);
+
+        if (enabledHosts.size() < 1) {
+            Log.d(Constants.TAG, "no hosts sources");
+        } else {
+            // execute downloading of files
+            check(enabledHostsArray);
         }
     }
 
@@ -284,7 +340,7 @@ public class AdAway extends Activity {
         Button closeBtn = (Button) dialog.findViewById(R.id.about_close);
         closeBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                dialog.cancel();
+                dialog.dismiss();
             }
         });
 
@@ -344,30 +400,6 @@ public class AdAway extends Activity {
     }
 
     /**
-     * Check if there is enough space on internal partition
-     * 
-     * @param size
-     *            size of file to put on partition
-     * @param path
-     *            path where to put the file
-     * 
-     * @return <code>true</code> if it will fit on partition of <code>path</code>,
-     *         <code>false</code> if it will not fit.
-     */
-    public static boolean hasEnoughSpaceOnPartition(String path, long size) {
-        StatFs stat = new StatFs(path);
-        long blockSize = stat.getBlockSize();
-        long availableBlocks = stat.getAvailableBlocks();
-
-        if (size < availableBlocks * blockSize) {
-            return true;
-        } else {
-            Log.e(Constants.TAG, "Not enough space on partition!");
-            return false;
-        }
-    }
-
-    /**
      * Copy hosts file from private storage of AdAway to internal partition using RootTools library
      * 
      * @return <code>true</code> if copying was successful, <code>false</code> if there were some
@@ -390,7 +422,7 @@ public class AdAway extends Activity {
             // check for space on partition
             long size = new File(privateFile).length();
             Log.d(Constants.TAG, "size: " + size);
-            if (!hasEnoughSpaceOnPartition(Constants.ANDROID_HOSTS_PATH, size)) {
+            if (!Helper.hasEnoughSpaceOnPartition(Constants.ANDROID_HOSTS_PATH, size)) {
                 throw new Exception();
             }
 
@@ -424,33 +456,168 @@ public class AdAway extends Activity {
     }
 
     /**
+     * Async Thread to check for updates, can be executed with many urls as params.
+     */
+    private void check(String... urls) {
+        mStatusTask = new AsyncTask<String, Integer, Integer>() {
+            private String currentURL;
+            private int fileSize;
+            private long lastModified = 0;
+            private long lastModifiedCurrent;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                mStatusProgress.setVisibility(View.VISIBLE);
+                mStatusText.setText(R.string.status_checking);
+                mStatusSubtitle.setText(R.string.status_checking_subtitle);
+            }
+
+            private boolean isAndroidOnline() {
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo netInfo = cm.getActiveNetworkInfo();
+                if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            protected Integer doInBackground(String... urls) {
+                int returnCode = RETURN_ENABLED; // default return code
+
+                if (isAndroidOnline()) {
+                    for (String url : urls) {
+
+                        // stop if thread canceled
+                        if (isCancelled()) {
+                            break;
+                        }
+
+                        try {
+                            Log.v(Constants.TAG, "Checking hosts file: " + url);
+
+                            /* change URL */
+                            currentURL = url;
+
+                            /* build connection */
+                            URL mURL = new URL(url);
+                            URLConnection connection = mURL.openConnection();
+
+                            fileSize = connection.getContentLength();
+                            Log.d(Constants.TAG, "fileSize: " + fileSize);
+
+                            lastModifiedCurrent = connection.getLastModified();
+
+                            Log.d(Constants.TAG, "lastModifiedCurrent: " + lastModifiedCurrent
+                                    + " (" + Helper.longToDate(lastModifiedCurrent) + ")");
+
+                            Log.d(Constants.TAG,
+                                    "lastModified: " + lastModified + " ("
+                                            + Helper.longToDate(lastModified) + ")");
+
+                            // set lastModified to the maximum of all lastModifieds
+                            if (lastModifiedCurrent > lastModified) {
+                                lastModified = lastModifiedCurrent;
+                            }
+
+                            connection.connect();
+                        } catch (Exception e) {
+                            Log.e(Constants.TAG, "Exception: " + e);
+                            returnCode = RETURN_DOWNLOAD_FAIL;
+                            break; // stop for-loop
+                        }
+                    }
+                } else {
+                    returnCode = RETURN_NO_CONNECTION;
+                }
+
+                /* CHECK if update is necessary */
+                // check if maximal lastModified is bigger than the ones in database
+                DatabaseHelper taskDatabaseHelper = new DatabaseHelper(mContext);
+
+                // update db with lastModified
+                long lastModifiedDatabase = taskDatabaseHelper.getLastModified();
+
+                taskDatabaseHelper.close();
+
+                if (lastModified > lastModifiedDatabase) {
+                    returnCode = RETURN_UPDATE_AVAILABLE;
+                }
+
+                return returnCode;
+            }
+
+            @Override
+            protected void onPostExecute(Integer result) {
+                super.onPostExecute(result);
+
+                mStatusProgress.setVisibility(View.GONE);
+
+                Log.d(Constants.TAG, "onPostExecute result: " + result);
+
+                switch (result) {
+                case RETURN_UPDATE_AVAILABLE:
+                    mStatusIcon.setImageResource(R.drawable.status_update);
+                    mStatusIcon.setVisibility(View.VISIBLE);
+
+                    mStatusText.setText(R.string.status_update_available);
+                    mStatusSubtitle.setText(R.string.status_update_available_subtitle);
+                    break;
+                case RETURN_DISABLED:
+                    mStatusIcon.setImageResource(R.drawable.status_disabled);
+                    mStatusIcon.setVisibility(View.VISIBLE);
+
+                    mStatusText.setText(R.string.status_no_update);
+                    mStatusSubtitle.setText(R.string.status_no_update_subtitle);
+                    break;
+                case RETURN_DOWNLOAD_FAIL:
+                    mStatusIcon.setImageResource(R.drawable.status_no_connection); // TODO: other
+                                                                                   // image
+                    mStatusIcon.setVisibility(View.VISIBLE);
+
+                    mStatusText.setText(R.string.status_download_fail);
+                    mStatusSubtitle.setText(R.string.status_download_fail_subtitle + currentURL);
+                    break;
+                case RETURN_NO_CONNECTION:
+                    mStatusIcon.setImageResource(R.drawable.status_no_connection);
+                    mStatusIcon.setVisibility(View.VISIBLE);
+
+                    mStatusText.setText(R.string.status_no_connection);
+                    mStatusSubtitle.setText(R.string.status_no_update_subtitle);
+                    break;
+
+                default:
+                    mStatusIcon.setImageResource(R.drawable.status_enabled);
+                    mStatusIcon.setVisibility(View.VISIBLE);
+
+                    mStatusText.setText(R.string.status_enabled);
+                    mStatusSubtitle.setText(R.string.status_enabled_subtitle);
+                    break;
+                }
+
+            }
+        };
+
+        mStatusTask.execute(urls);
+    }
+
+    /**
      * Async Thread to download hosts files, can be executed with many urls as params. In
      * onPostExecute an Apply Async Thread will be started
      * 
      */
     private void download(String... urls) {
-        AsyncTask<String, Integer, Integer> downloadHostsSources = new AsyncTask<String, Integer, Integer>() {
-
-            private volatile boolean running = true;
+        AsyncTask<String, Integer, Integer> download = new AsyncTask<String, Integer, Integer>() {
             private ProgressDialog mDownloadProgressDialog;
 
             private String currentURL;
             private int fileSize;
+            private long lastModified;
             private byte data[];
             private long total;
             private int count;
             private boolean urlChanged;
-
-            private int RETURN_SUCCESS = 1;
-            private int RETURN_NO_CONNECTION = 2;
-            private int RETURN_DOWNLOAD_FAIL = 3;
-            private int RETURN_PRIVATE_FILE = 4;
-
-            @Override
-            protected void onCancelled() {
-                Log.d(Constants.TAG, "AsyncTask canceled!");
-                running = false;
-            }
 
             @Override
             protected void onPreExecute() {
@@ -462,9 +629,7 @@ public class AdAway extends Activity {
                 mDownloadProgressDialog.setOnCancelListener(new OnCancelListener() {
                     @Override
                     public void onCancel(DialogInterface dialog) {
-                        // actually could set running = false; right here, but I'll
-                        // stick to contract.
-                        cancel(true);
+                        cancel(true); // cancel thread, now isCancelled() returns true
                     }
                 });
 
@@ -497,7 +662,7 @@ public class AdAway extends Activity {
                         for (String url : urls) {
 
                             // stop if thread canceled
-                            if (!running) {
+                            if (isCancelled()) {
                                 break;
                             }
 
@@ -524,9 +689,9 @@ public class AdAway extends Activity {
                                 fileSize = connection.getContentLength();
                                 Log.d(Constants.TAG, "fileSize: " + fileSize);
 
-                                // TODO:
-                                // long getLastModified()
-                                // Returns the value of the last-modified header field.
+                                lastModified = connection.getLastModified();
+                                Log.d(Constants.TAG, "lastModified: " + lastModified + " ("
+                                        + Helper.longToDate(lastModified) + ")");
 
                                 connection.connect();
 
@@ -541,8 +706,9 @@ public class AdAway extends Activity {
                                 data = new byte[1024];
                                 total = 0;
                                 count = 0;
-                                // running is added to cancel AsyncTask properly
-                                while ((count = bis.read(data)) != -1 && running) {
+
+                                // run while only when thread is not cancelled
+                                while ((count = bis.read(data)) != -1 && !isCancelled()) {
                                     out.write(data, 0, count);
 
                                     total += count;
@@ -581,7 +747,7 @@ public class AdAway extends Activity {
                         }
                     } catch (Exception e) {
                         Log.e(Constants.TAG, "Private File can not be created, Exception: " + e);
-                        returnCode = RETURN_PRIVATE_FILE;
+                        returnCode = RETURN_PRIVATE_FILE_FAIL;
                     } finally {
                         try {
                             if (out != null) {
@@ -618,15 +784,19 @@ public class AdAway extends Activity {
 
                 Log.d(Constants.TAG, "onPostExecute result: " + result);
 
-                if (result == RETURN_SUCCESS) {
+                AlertDialog alertDialog;
+                switch (result) {
+                case RETURN_SUCCESS:
                     mDownloadProgressDialog.dismiss();
 
                     // Apply files by Apply thread
                     apply();
-                } else if (result == RETURN_NO_CONNECTION) {
+                    break;
+
+                case RETURN_NO_CONNECTION:
                     mDownloadProgressDialog.dismiss();
 
-                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                     alertDialog.setTitle(R.string.no_connection_title);
                     alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
@@ -637,10 +807,11 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
-                } else if (result == RETURN_PRIVATE_FILE) {
+                    break;
+                case RETURN_PRIVATE_FILE_FAIL:
                     mDownloadProgressDialog.dismiss();
 
-                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                     alertDialog.setTitle(R.string.no_private_file_title);
                     alertDialog.setMessage(getString(org.adaway.R.string.no_private_file));
@@ -651,10 +822,11 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
-                } else { // RETURN_DOWNLOAD_FAIL
+                    break;
+                case RETURN_DOWNLOAD_FAIL:
                     mDownloadProgressDialog.dismiss();
 
-                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                     alertDialog.setTitle(R.string.download_fail_title);
                     alertDialog.setMessage(getString(org.adaway.R.string.download_fail) + "\n"
@@ -666,11 +838,16 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
+                    break;
+
+                default:
+                    break;
                 }
+
             }
         };
 
-        downloadHostsSources.execute(urls);
+        download.execute(urls);
     }
 
     /**
@@ -678,9 +855,13 @@ public class AdAway extends Activity {
      * using the redirection ip from the preferences and apply them using RootTools.
      */
     private void apply() {
-        AsyncTask<Void, String, Boolean> apply = new AsyncTask<Void, String, Boolean>() {
+        AsyncTask<Void, String, Integer> apply = new AsyncTask<Void, String, Integer>() {
+            private ProgressDialog mApplyProgressDialog;
+
             @Override
-            protected Boolean doInBackground(Void... unused) {
+            protected Integer doInBackground(Void... unused) {
+                int returnCode = RETURN_SUCCESS; // default return code
+
                 try {
                     /* PARSE: parse hosts files to sets of hostnames and comments */
                     publishProgress(getString(R.string.apply_dialog_hostnames));
@@ -759,7 +940,7 @@ public class AdAway extends Activity {
                     String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
 
                     // add "127.0.0.1 localhost" entry
-                    String localhost = Constants.LINE_SEPERATOR + redirectionIP + " "
+                    String localhost = Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv4 + " "
                             + Constants.LOCALHOST_HOSTNAME;
                     fos.write(localhost.getBytes());
 
@@ -799,20 +980,29 @@ public class AdAway extends Activity {
 
                     // delete generated hosts file from private storage
                     deleteFile(Constants.HOSTS_FILENAME);
+
+                    /* Set all hosts file to current lastModified date, for checking */
+                    mDatabaseHelper = new DatabaseHelper(mContext);
+
+                    long lastModified = Helper.getCurrentLongDate();
+                    mDatabaseHelper.updateLastModified(lastModified);
+                    Log.d(Constants.TAG, "Updated all hosts sources with lastModified: "
+                            + lastModified + " (" + Helper.longToDate(lastModified) + ")");
+
+                    mDatabaseHelper.close();
                 } catch (Exception e) {
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
-                    return false;
+                    returnCode = RETURN_APPLY_FAILED;
                 }
 
-                return true;
+                return returnCode;
             }
 
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                // showDialog(DIALOG_APPLY_PROGRESS);
                 mApplyProgressDialog = new ProgressDialog(mContext);
                 mApplyProgressDialog.setMessage(getString(R.string.apply_dialog));
                 mApplyProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -826,14 +1016,19 @@ public class AdAway extends Activity {
             }
 
             @Override
-            protected void onPostExecute(Boolean result) {
+            protected void onPostExecute(Integer result) {
                 super.onPostExecute(result);
 
-                if (result) {
-                    // removeDialog(DIALOG_APPLY_PROGRESS);
+                AlertDialog alertDialog;
+                switch (result) {
+                case RETURN_SUCCESS:
                     mApplyProgressDialog.dismiss();
 
-                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    mStatusIcon.setImageResource(R.drawable.status_enabled);
+                    mStatusText.setText(R.string.status_enabled);
+                    mStatusSubtitle.setText(R.string.status_enabled_subtitle);
+
+                    alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_info);
                     alertDialog.setTitle(R.string.apply_dialog);
                     alertDialog.setMessage(getString(R.string.apply_success));
@@ -844,13 +1039,18 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
+                    break;
 
-                } else {
-                    // removeDialog(DIALOG_APPLY_PROGRESS);
-                    mApplyProgressDialog.dismiss();
+                case RETURN_APPLY_FAILED:
                     Log.d(Constants.TAG, "Problem!");
 
-                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                    mApplyProgressDialog.dismiss();
+
+                    mStatusIcon.setImageResource(R.drawable.status_disabled);
+                    mStatusText.setText(R.string.status_disabled);
+                    mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+
+                    alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                     alertDialog.setTitle(R.string.apply_problem_title);
                     alertDialog.setMessage(getString(org.adaway.R.string.apply_problem));
@@ -861,6 +1061,10 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
+                    break;
+
+                default:
+                    break;
                 }
             }
         };

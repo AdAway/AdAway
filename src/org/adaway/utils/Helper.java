@@ -20,9 +20,12 @@
 
 package org.adaway.utils;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.os.StatFs;
 import android.util.Log;
 import android.webkit.URLUtil;
 
@@ -106,5 +109,42 @@ public class Helper {
         Log.d(Constants.TAG, "isvalidipv6: " + isValidIPv6(input));
 
         return (isValidIPv4(input) || isValidIPv6(input));
+    }
+
+    /**
+     * Check if there is enough space on internal partition
+     * 
+     * @param size
+     *            size of file to put on partition
+     * @param path
+     *            path where to put the file
+     * 
+     * @return <code>true</code> if it will fit on partition of <code>path</code>,
+     *         <code>false</code> if it will not fit.
+     */
+    public static boolean hasEnoughSpaceOnPartition(String path, long size) {
+        StatFs stat = new StatFs(path);
+        long blockSize = stat.getBlockSize();
+        long availableBlocks = stat.getAvailableBlocks();
+
+        if (size < availableBlocks * blockSize) {
+            return true;
+        } else {
+            Log.e(Constants.TAG, "Not enough space on partition!");
+            return false;
+        }
+    }
+
+    public static String longToDate(long input) {
+        Date date = new Date(input);
+        DateFormat dataformat = DateFormat.getDateInstance(DateFormat.LONG);
+
+        return dataformat.format(date);
+    }
+
+    public static long getCurrentLongDate() {
+        Date date = new Date();
+
+        return date.getTime();
     }
 }

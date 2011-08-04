@@ -83,4 +83,18 @@
     <string name="download_fail_title">Download failed</string>
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>
+    <string name="status_checking">Checking for update...</string>
+    <string name="status_checking_subtitle">Checking if update is available</string>
+    <string name="status_update_available">Update available</string>
+    <string name="status_update_available_subtitle">Download again to apply new hosts files.</string>
+    <string name="status_no_update">Newest hosts files</string>
+    <string name="status_no_update_subtitle">No update available</string>
+    <string name="status_no_connection">No internet connection</string>
+    <string name="status_no_connection_subtitle">No internet connection available</string>
+    <string name="status_download_fail">Check for update failed</string>
+    <string name="status_download_fail_subtitle">URL: </string>
+    <string name="status_enabled">Enabled</string>
+    <string name="status_enabled_subtitle">Newest sources enabled</string>
+    <string name="status_disabled">Disabled</string>
+    <string name="status_disabled_subtitle">Disabled</string>
 </resources>
