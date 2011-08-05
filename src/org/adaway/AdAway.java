@@ -58,6 +58,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -94,7 +95,9 @@ public class AdAway extends Activity {
         super.onDestroy();
 
         // cancel status task
-        mStatusTask.cancel(true);
+        if (mStatusTask != null) {
+            mStatusTask.cancel(true);
+        }
     }
 
     /**
@@ -106,6 +109,14 @@ public class AdAway extends Activity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setContentView(R.layout.main);
+
+        mStatusText = (TextView) findViewById(R.id.status_text);
+        mStatusSubtitle = (TextView) findViewById(R.id.status_subtitle);
+        mStatusProgress = (ProgressBar) findViewById(R.id.status_progress);
+        mStatusIcon = (ImageView) findViewById(R.id.status_icon);
+
+        // check again for update
+        checkOnCreate();
     }
 
     @Override
@@ -282,19 +293,39 @@ public class AdAway extends Activity {
 
                             // delete generated hosts file after applying it
                             deleteFile(Constants.HOSTS_FILENAME);
-
-                            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                            alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-                            alertDialog.setTitle(R.string.button_revert);
-                            alertDialog
-                                    .setMessage(getString(org.adaway.R.string.revert_successfull));
-                            alertDialog.setButton(getString(R.string.button_close),
+                            
+                            // set status to disabled
+                            mStatusIcon.setImageResource(R.drawable.status_disabled);
+                            mStatusText.setText(R.string.status_disabled);
+                            mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+                            
+                            AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                            builder.setTitle(R.string.button_revert);
+                            builder.setMessage(getString(R.string.revert_successfull));
+                            builder.setIcon(android.R.drawable.ic_dialog_info);
+                            builder.setPositiveButton(getString(R.string.button_yes),
                                     new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dlg, int sum) {
-                                            // do nothing, close
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            String commandReboot = "reboot";
+                                            List<String> output = null;
+                                            try {
+                                                output = RootTools.sendShell(commandReboot);
+                                            } catch (Exception e) {
+                                                Log.e(Constants.TAG, "Exception: " + e);
+                                                e.printStackTrace();
+                                            }
+                                            Log.d(Constants.TAG,
+                                                    "output of command: " + output.toString());
                                         }
                                     });
-                            alertDialog.show();
+                            builder.setNegativeButton(getString(R.string.button_no),
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            AlertDialog question = builder.create();
+                            question.show();
 
                         } catch (Exception e) {
                             Log.e(Constants.TAG, "Exception: " + e);
@@ -373,30 +404,26 @@ public class AdAway extends Activity {
      * Dialog raised when Android is not rooted, showing some information.
      */
     private void showNoRootDialog() {
-        final Dialog dialog = new Dialog(mContext);
-        dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
-        dialog.setContentView(R.layout.no_root_dialog);
-        dialog.setTitle(R.string.no_root_title);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setCancelable(false);
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setTitle(getString(R.string.no_root_title));
 
-        // Exit Button closes application
-        Button exitButton = (Button) dialog.findViewById(R.id.no_root_exit);
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                finish(); // finish current activity, means exiting app
-            }
-        });
+        // build view from layout
+        LayoutInflater factory = LayoutInflater.from(mContext);
+        final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
+        builder.setView(dialogView);
 
-        // when dialog is closed by pressing back exit app
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-                finish();
-            }
-        });
+        builder.setNeutralButton(getResources().getString(R.string.button_exit),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish(); // finish current activity, means exiting app
+                    }
+                });
 
-        dialog.show();
-        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,
-                android.R.drawable.ic_dialog_alert);
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     /**
@@ -427,7 +454,7 @@ public class AdAway extends Activity {
             }
 
             // remount for write access
-            boolean mountSuccess = RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RW");
+            RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RW");
 
             List<String> output;
             // copy
@@ -484,7 +511,12 @@ public class AdAway extends Activity {
 
             @Override
             protected Integer doInBackground(String... urls) {
-                int returnCode = RETURN_ENABLED; // default return code
+                int returnCode = RETURN_DISABLED; // default return code
+
+                // check if hosts file is applied
+                if (Helper.isHostsFileApplied()) {
+                    returnCode = RETURN_ENABLED;
+                }
 
                 if (isAndroidOnline()) {
                     for (String url : urls) {
@@ -494,6 +526,8 @@ public class AdAway extends Activity {
                             break;
                         }
 
+                        @SuppressWarnings("unused")
+                        InputStream is = null;
                         try {
                             Log.v(Constants.TAG, "Checking hosts file: " + url);
 
@@ -521,7 +555,10 @@ public class AdAway extends Activity {
                                 lastModified = lastModifiedCurrent;
                             }
 
+                            // check if file is available
                             connection.connect();
+                            is = connection.getInputStream();
+
                         } catch (Exception e) {
                             Log.e(Constants.TAG, "Exception: " + e);
                             returnCode = RETURN_DOWNLOAD_FAIL;
@@ -536,10 +573,17 @@ public class AdAway extends Activity {
                 // check if maximal lastModified is bigger than the ones in database
                 DatabaseHelper taskDatabaseHelper = new DatabaseHelper(mContext);
 
-                // update db with lastModified
+                // get last modified from db
                 long lastModifiedDatabase = taskDatabaseHelper.getLastModified();
 
                 taskDatabaseHelper.close();
+
+                Log.d(Constants.TAG,
+                        "lastModified: " + lastModified + " (" + Helper.longToDate(lastModified)
+                                + ")");
+
+                Log.d(Constants.TAG, "lastModifiedDatabase: " + lastModifiedDatabase + " ("
+                        + Helper.longToDate(lastModifiedDatabase) + ")");
 
                 if (lastModified > lastModifiedDatabase) {
                     returnCode = RETURN_UPDATE_AVAILABLE;
@@ -568,23 +612,23 @@ public class AdAway extends Activity {
                     mStatusIcon.setImageResource(R.drawable.status_disabled);
                     mStatusIcon.setVisibility(View.VISIBLE);
 
-                    mStatusText.setText(R.string.status_no_update);
-                    mStatusSubtitle.setText(R.string.status_no_update_subtitle);
+                    mStatusText.setText(R.string.status_disabled);
+                    mStatusSubtitle.setText(R.string.status_disabled_subtitle);
                     break;
                 case RETURN_DOWNLOAD_FAIL:
-                    mStatusIcon.setImageResource(R.drawable.status_no_connection); // TODO: other
-                                                                                   // image
+                    mStatusIcon.setImageResource(R.drawable.status_fail);
                     mStatusIcon.setVisibility(View.VISIBLE);
 
                     mStatusText.setText(R.string.status_download_fail);
-                    mStatusSubtitle.setText(R.string.status_download_fail_subtitle + currentURL);
+                    mStatusSubtitle.setText(getString(R.string.status_download_fail_subtitle) + " "
+                            + currentURL);
                     break;
                 case RETURN_NO_CONNECTION:
-                    mStatusIcon.setImageResource(R.drawable.status_no_connection);
+                    mStatusIcon.setImageResource(R.drawable.status_fail);
                     mStatusIcon.setVisibility(View.VISIBLE);
 
                     mStatusText.setText(R.string.status_no_connection);
-                    mStatusSubtitle.setText(R.string.status_no_update_subtitle);
+                    mStatusSubtitle.setText(R.string.status_no_connection_subtitle);
                     break;
 
                 default:
@@ -595,7 +639,6 @@ public class AdAway extends Activity {
                     mStatusSubtitle.setText(R.string.status_enabled_subtitle);
                     break;
                 }
-
             }
         };
 
@@ -613,7 +656,6 @@ public class AdAway extends Activity {
 
             private String currentURL;
             private int fileSize;
-            private long lastModified;
             private byte data[];
             private long total;
             private int count;
@@ -688,10 +730,6 @@ public class AdAway extends Activity {
                                 // }
                                 fileSize = connection.getContentLength();
                                 Log.d(Constants.TAG, "fileSize: " + fileSize);
-
-                                lastModified = connection.getLastModified();
-                                Log.d(Constants.TAG, "lastModified: " + lastModified + " ("
-                                        + Helper.longToDate(lastModified) + ")");
 
                                 connection.connect();
 
@@ -915,17 +953,14 @@ public class AdAway extends Activity {
                             Context.MODE_PRIVATE);
 
                     // add adaway header
-                    String header = "# This hosts file is generated by AdAway."
-                            + Constants.LINE_SEPERATOR
-                            + "# Please do not modify it directly, it will be overwritten when AdAway is applied again."
-                            + Constants.LINE_SEPERATOR;
+                    String header = Constants.HEADER1 + Constants.LINE_SEPERATOR
+                            + Constants.HEADER2 + Constants.LINE_SEPERATOR;
                     fos.write(header.getBytes());
 
                     // write comments from other files to header
                     if (!SharedPrefs.getStripComments(getApplicationContext())) {
-                        String headerComment = "# "
-                                + Constants.LINE_SEPERATOR
-                                + "# The following lines are comments from the downloaded hosts files:";
+                        String headerComment = "# " + Constants.LINE_SEPERATOR
+                                + Constants.HEADER_COMMENT;
                         fos.write(headerComment.getBytes());
 
                         String line;
@@ -981,7 +1016,7 @@ public class AdAway extends Activity {
                     // delete generated hosts file from private storage
                     deleteFile(Constants.HOSTS_FILENAME);
 
-                    /* Set all hosts file to current lastModified date, for checking */
+                    /* Set lastModified date in database to current date */
                     mDatabaseHelper = new DatabaseHelper(mContext);
 
                     long lastModified = Helper.getCurrentLongDate();
@@ -994,6 +1029,11 @@ public class AdAway extends Activity {
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
+                    returnCode = RETURN_APPLY_FAILED;
+                }
+
+                // check if hosts file is applied
+                if (!Helper.isHostsFileApplied()) {
                     returnCode = RETURN_APPLY_FAILED;
                 }
 
@@ -1028,17 +1068,32 @@ public class AdAway extends Activity {
                     mStatusText.setText(R.string.status_enabled);
                     mStatusSubtitle.setText(R.string.status_enabled_subtitle);
 
-                    alertDialog = new AlertDialog.Builder(mContext).create();
-                    alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-                    alertDialog.setTitle(R.string.apply_dialog);
-                    alertDialog.setMessage(getString(R.string.apply_success));
-                    alertDialog.setButton(getString(R.string.button_close),
+                    AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                    builder.setTitle(R.string.apply_dialog);
+                    builder.setMessage(getString(R.string.apply_success));
+                    builder.setIcon(android.R.drawable.ic_dialog_info);
+                    builder.setPositiveButton(getString(R.string.button_yes),
                             new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dlg, int sum) {
-                                    dlg.dismiss();
+                                public void onClick(DialogInterface dialog, int id) {
+                                    String commandReboot = "reboot";
+                                    List<String> output = null;
+                                    try {
+                                        output = RootTools.sendShell(commandReboot);
+                                    } catch (Exception e) {
+                                        Log.e(Constants.TAG, "Exception: " + e);
+                                        e.printStackTrace();
+                                    }
+                                    Log.d(Constants.TAG, "output of command: " + output.toString());
                                 }
                             });
-                    alertDialog.show();
+                    builder.setNegativeButton(getString(R.string.button_no),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    AlertDialog question = builder.create();
+                    question.show();
                     break;
 
                 case RETURN_APPLY_FAILED:
@@ -1071,5 +1126,4 @@ public class AdAway extends Activity {
 
         apply.execute();
     }
-
 }

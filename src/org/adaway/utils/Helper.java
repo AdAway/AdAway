@@ -20,6 +20,12 @@
 
 package org.adaway.utils;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -146,5 +152,48 @@ public class Helper {
         Date date = new Date();
 
         return date.getTime();
+    }
+
+    /**
+     * Checks by reading hosts file if AdAway hosts file is applied or not
+     * 
+     * @return true if it is applied
+     */
+    public static boolean isHostsFileApplied() {
+        boolean status = false;
+        String hostsFile = Constants.ANDROID_HOSTS_PATH + File.separator + Constants.HOSTS_FILENAME;
+
+        File file = new File(hostsFile);
+        InputStream stream = null;
+        InputStreamReader in = null;
+        BufferedReader br = null;
+        try {
+            stream = new FileInputStream(file);
+            in = new InputStreamReader(stream);
+            br = new BufferedReader(in);
+
+            String firstLine = br.readLine();
+            
+            Log.d(Constants.TAG, "firstLine: "+firstLine);
+
+            if (firstLine.equals(Constants.HEADER1)) {
+                status = true;
+            }
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+            status = false;
+        } finally {
+            if (stream != null) {
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    Log.e(Constants.TAG, "Exception: " + e);
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return status;
     }
 }

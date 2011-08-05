@@ -53,8 +53,14 @@
                     android:text="@string/about_license"
                     android:textSize="11.0sp"
                     android:layout_width="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"></TextView>
+                <TextView
+                    android:textSize="11.0sp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:text="@string/about_icons" />
                 <TextView
                     android:text="@string/about_url"
                     android:textSize="11.0sp"

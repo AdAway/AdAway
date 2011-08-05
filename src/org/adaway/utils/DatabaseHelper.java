@@ -91,8 +91,14 @@ public class DatabaseHelper {
 
     public long getLastModified() {
         Cursor cursor = mDB.query(TABLE_LAST_MODIFIED, new String[] { "_id", "last_modified" },
-                "_id is 0", null, null, null, null);
-        long lastModified = cursor.getLong(0);
+                null, null, null, null, null);
+
+        cursor.moveToFirst();
+        long lastModified = cursor.getLong(1);
+
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
 
         return lastModified;
     }
@@ -100,7 +106,7 @@ public class DatabaseHelper {
     public void updateLastModified(long lastModified) {
         ContentValues args = new ContentValues();
         args.put("last_modified", lastModified);
-        mDB.update(TABLE_LAST_MODIFIED, args, "_id=0", null);
+        mDB.update(TABLE_LAST_MODIFIED, args, "_id is 1", null);
     }
 
     /* HOSTS SOURCES */
