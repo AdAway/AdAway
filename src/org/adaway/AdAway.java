@@ -90,11 +90,14 @@ public class AdAway extends Activity {
     protected static final int RETURN_NO_CONNECTION = 6;
     protected static final int RETURN_APPLY_FAILED = 7;
 
+    /**
+     * Override onDestroy to cancel AsyncTask that checks for updates
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        // cancel status task
+        // cancel task
         if (mStatusTask != null) {
             mStatusTask.cancel(true);
         }
@@ -119,6 +122,9 @@ public class AdAway extends Activity {
         checkOnCreate();
     }
 
+    /**
+     * Inflate Menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -192,16 +198,15 @@ public class AdAway extends Activity {
                     showNoRootDialog();
                 } else {
 
-                    // do other operations on create
+                    // check for updates
                     checkOnCreate();
                 }
             }
         }
-
     }
 
     /**
-     * check for updates on create
+     * Run status AsyncTask on create
      */
     private void checkOnCreate() {
         mDatabaseHelper = new DatabaseHelper(mContext);
@@ -220,7 +225,7 @@ public class AdAway extends Activity {
             Log.d(Constants.TAG, "no hosts sources");
         } else {
             // execute downloading of files
-            check(enabledHostsArray);
+            runStatusTask(enabledHostsArray);
         }
     }
 
@@ -256,7 +261,7 @@ public class AdAway extends Activity {
             alertDialog.show();
         } else {
             // execute downloading of files
-            download(enabledHostsArray);
+            runDownloadTask(enabledHostsArray);
         }
     }
 
@@ -293,12 +298,12 @@ public class AdAway extends Activity {
 
                             // delete generated hosts file after applying it
                             deleteFile(Constants.HOSTS_FILENAME);
-                            
+
                             // set status to disabled
                             mStatusIcon.setImageResource(R.drawable.status_disabled);
                             mStatusText.setText(R.string.status_disabled);
                             mStatusSubtitle.setText(R.string.status_disabled_subtitle);
-                            
+
                             AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
                             builder.setTitle(R.string.button_revert);
                             builder.setMessage(getString(R.string.revert_successfull));
@@ -427,7 +432,7 @@ public class AdAway extends Activity {
     }
 
     /**
-     * Copy hosts file from private storage of AdAway to internal partition using RootTools library
+     * Copy hosts file from private storage of AdAway to internal partition using RootTools
      * 
      * @return <code>true</code> if copying was successful, <code>false</code> if there were some
      *         problems like not enough space.
@@ -483,9 +488,10 @@ public class AdAway extends Activity {
     }
 
     /**
-     * Async Thread to check for updates, can be executed with many urls as params.
+     * AsyncTask to check for updates and determine the status of AdAway, can be executed with many
+     * urls as params.
      */
-    private void check(String... urls) {
+    private void runStatusTask(String... urls) {
         mStatusTask = new AsyncTask<String, Integer, Integer>() {
             private String currentURL;
             private int fileSize;
@@ -646,12 +652,11 @@ public class AdAway extends Activity {
     }
 
     /**
-     * Async Thread to download hosts files, can be executed with many urls as params. In
-     * onPostExecute an Apply Async Thread will be started
-     * 
+     * AsyncTask to download hosts files, can be executed with many urls as params. In onPostExecute
+     * an Apply AsyncTask will be started
      */
-    private void download(String... urls) {
-        AsyncTask<String, Integer, Integer> download = new AsyncTask<String, Integer, Integer>() {
+    private void runDownloadTask(String... urls) {
+        AsyncTask<String, Integer, Integer> downloadTask = new AsyncTask<String, Integer, Integer>() {
             private ProgressDialog mDownloadProgressDialog;
 
             private String currentURL;
@@ -828,7 +833,7 @@ public class AdAway extends Activity {
                     mDownloadProgressDialog.dismiss();
 
                     // Apply files by Apply thread
-                    apply();
+                    runApplyTask();
                     break;
 
                 case RETURN_NO_CONNECTION:
@@ -885,15 +890,15 @@ public class AdAway extends Activity {
             }
         };
 
-        download.execute(urls);
+        downloadTask.execute(urls);
     }
 
     /**
-     * Async Thread to parse downloaded hosts files, build one new merged hosts file out of them
-     * using the redirection ip from the preferences and apply them using RootTools.
+     * AsyncTask to parse downloaded hosts files, build one new merged hosts file out of them using
+     * the redirection ip from the preferences and apply them using RootTools.
      */
-    private void apply() {
-        AsyncTask<Void, String, Integer> apply = new AsyncTask<Void, String, Integer>() {
+    private void runApplyTask() {
+        AsyncTask<Void, String, Integer> applyTask = new AsyncTask<Void, String, Integer>() {
             private ProgressDialog mApplyProgressDialog;
 
             @Override
@@ -1124,6 +1129,6 @@ public class AdAway extends Activity {
             }
         };
 
-        apply.execute();
+        applyTask.execute();
     }
 }
