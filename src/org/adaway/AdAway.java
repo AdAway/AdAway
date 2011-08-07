@@ -58,7 +58,6 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -185,23 +184,10 @@ public class AdAway extends Activity {
 
         RootTools.debugMode = false;
 
-        // check for root on device
-        if (!RootTools.isRootAvailable()) {
-            // su binary does not exist, raise no root dialog
-            showNoRootDialog();
-        } else {
-            // su binary exists, request permission
-            if (!RootTools.isAccessGiven()) {
-                showNoRootDialog();
-            } else {
-                if (!RootTools.isBusyboxAvailable()) { // checking for busybox needs root
-                    showNoRootDialog();
-                } else {
-
-                    // check for updates
-                    checkOnCreate();
-                }
-            }
+        // check for root
+        if (Helper.isAndroidRooted(this)) {
+            // do background update check
+            checkOnCreate();
         }
     }
 
@@ -406,32 +392,6 @@ public class AdAway extends Activity {
     }
 
     /**
-     * Dialog raised when Android is not rooted, showing some information.
-     */
-    private void showNoRootDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setCancelable(false);
-        builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setTitle(getString(R.string.no_root_title));
-
-        // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mContext);
-        final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
-        builder.setView(dialogView);
-
-        builder.setNeutralButton(getResources().getString(R.string.button_exit),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish(); // finish current activity, means exiting app
-                    }
-                });
-
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
-    /**
      * Copy hosts file from private storage of AdAway to internal partition using RootTools
      * 
      * @return <code>true</code> if copying was successful, <code>false</code> if there were some
@@ -517,12 +477,7 @@ public class AdAway extends Activity {
 
             @Override
             protected Integer doInBackground(String... urls) {
-                int returnCode = RETURN_DISABLED; // default return code
-
-                // check if hosts file is applied
-                if (Helper.isHostsFileApplied()) {
-                    returnCode = RETURN_ENABLED;
-                }
+                int returnCode = RETURN_ENABLED; // default return code
 
                 if (isAndroidOnline()) {
                     for (String url : urls) {
@@ -550,11 +505,11 @@ public class AdAway extends Activity {
                             lastModifiedCurrent = connection.getLastModified();
 
                             Log.d(Constants.TAG, "lastModifiedCurrent: " + lastModifiedCurrent
-                                    + " (" + Helper.longToDate(lastModifiedCurrent) + ")");
+                                    + " (" + Helper.longToDateString(lastModifiedCurrent) + ")");
 
                             Log.d(Constants.TAG,
                                     "lastModified: " + lastModified + " ("
-                                            + Helper.longToDate(lastModified) + ")");
+                                            + Helper.longToDateString(lastModified) + ")");
 
                             // set lastModified to the maximum of all lastModifieds
                             if (lastModifiedCurrent > lastModified) {
@@ -576,7 +531,6 @@ public class AdAway extends Activity {
                 }
 
                 /* CHECK if update is necessary */
-                // check if maximal lastModified is bigger than the ones in database
                 DatabaseHelper taskDatabaseHelper = new DatabaseHelper(mContext);
 
                 // get last modified from db
@@ -585,14 +539,20 @@ public class AdAway extends Activity {
                 taskDatabaseHelper.close();
 
                 Log.d(Constants.TAG,
-                        "lastModified: " + lastModified + " (" + Helper.longToDate(lastModified)
-                                + ")");
+                        "lastModified: " + lastModified + " ("
+                                + Helper.longToDateString(lastModified) + ")");
 
                 Log.d(Constants.TAG, "lastModifiedDatabase: " + lastModifiedDatabase + " ("
-                        + Helper.longToDate(lastModifiedDatabase) + ")");
+                        + Helper.longToDateString(lastModifiedDatabase) + ")");
 
+                // check if maximal lastModified is bigger than the ones in database
                 if (lastModified > lastModifiedDatabase) {
                     returnCode = RETURN_UPDATE_AVAILABLE;
+                }
+
+                // check if hosts file is applied
+                if (!Helper.isHostsFileApplied(mContext)) {
+                    returnCode = RETURN_DISABLED;
                 }
 
                 return returnCode;
@@ -1027,7 +987,7 @@ public class AdAway extends Activity {
                     long lastModified = Helper.getCurrentLongDate();
                     mDatabaseHelper.updateLastModified(lastModified);
                     Log.d(Constants.TAG, "Updated all hosts sources with lastModified: "
-                            + lastModified + " (" + Helper.longToDate(lastModified) + ")");
+                            + lastModified + " (" + Helper.longToDateString(lastModified) + ")");
 
                     mDatabaseHelper.close();
                 } catch (Exception e) {
@@ -1038,7 +998,7 @@ public class AdAway extends Activity {
                 }
 
                 // check if hosts file is applied
-                if (!Helper.isHostsFileApplied()) {
+                if (!Helper.isHostsFileApplied(mContext)) {
                     returnCode = RETURN_APPLY_FAILED;
                 }
 

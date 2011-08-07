@@ -31,8 +31,18 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.adaway.R;
+
+import com.stericson.RootTools.RootTools;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.StatFs;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.webkit.URLUtil;
 
 public class Helper {
@@ -141,13 +151,24 @@ public class Helper {
         }
     }
 
-    public static String longToDate(long input) {
+    /**
+     * Builds date string out of long value containing unix date
+     * 
+     * @param input
+     * @return formatted date string
+     */
+    public static String longToDateString(long input) {
         Date date = new Date(input);
         DateFormat dataformat = DateFormat.getDateInstance(DateFormat.LONG);
 
         return dataformat.format(date);
     }
 
+    /**
+     * Returns current unix date as long value
+     * 
+     * @return current date as long
+     */
     public static long getCurrentLongDate() {
         Date date = new Date();
 
@@ -159,8 +180,23 @@ public class Helper {
      * 
      * @return true if it is applied
      */
-    public static boolean isHostsFileApplied() {
+    public static boolean isHostsFileApplied(Context context) {
         boolean status = false;
+
+        /* Check if lastModified in database is 0 */
+
+        // get last modified from db
+        DatabaseHelper taskDatabaseHelper = new DatabaseHelper(context);
+        long lastModifiedDatabase = taskDatabaseHelper.getLastModified();
+        taskDatabaseHelper.close();
+
+        if (lastModifiedDatabase == 0) {
+            status = false;
+        } else {
+            status = true;
+        }
+
+        /* Check if first line in /system/etc/hosts is AdAway comment */
         String hostsFile = Constants.ANDROID_HOSTS_PATH + File.separator + Constants.HOSTS_FILENAME;
 
         File file = new File(hostsFile);
@@ -173,11 +209,13 @@ public class Helper {
             br = new BufferedReader(in);
 
             String firstLine = br.readLine();
-            
-            Log.d(Constants.TAG, "firstLine: "+firstLine);
+
+            Log.d(Constants.TAG, "firstLine: " + firstLine);
 
             if (firstLine.equals(Constants.HEADER1)) {
                 status = true;
+            } else {
+                status = false;
             }
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception: " + e);
@@ -195,5 +233,76 @@ public class Helper {
         }
 
         return status;
+    }
+
+    /**
+     * Check if Android is rooted, check for su binary and busybox and display possible solutions if
+     * they are not available
+     * 
+     * @param activity
+     * @return true if phone is rooted
+     */
+    public static boolean isAndroidRooted(final Activity activity) {
+        boolean rootAvailable = false;
+
+        // check for root on device and call su binary
+        if (!RootTools.isAccessGiven()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+            builder.setCancelable(false);
+            builder.setIcon(android.R.drawable.ic_dialog_alert);
+            builder.setTitle(activity.getString(R.string.no_root_title));
+
+            // build view from layout
+            LayoutInflater factory = LayoutInflater.from(activity);
+            final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
+            builder.setView(dialogView);
+
+            builder.setNeutralButton(activity.getResources().getString(R.string.button_exit),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            activity.finish(); // finish current activity, means exiting app
+                        }
+                    });
+
+            AlertDialog alert = builder.create();
+            alert.show();
+        } else {
+            // checking for busybox and offer if not available
+            if (!RootTools.isBusyboxAvailable()) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setTitle(R.string.no_busybox_title);
+                builder.setMessage(activity.getString(R.string.no_busybox));
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                builder.setPositiveButton(activity.getString(R.string.button_busybox),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                activity.finish();
+
+                                // offer busybox from Android Market
+                                try {
+                                    RootTools.offerBusyBox(activity);
+                                } catch (Exception e) {
+                                    Log.e(Constants.TAG,
+                                            "Problem when offering busybox through Android Market. Excpetion: "
+                                                    + e);
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                builder.setNegativeButton(activity.getString(R.string.button_exit),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                activity.finish();
+                            }
+                        });
+                AlertDialog busyboxDialog = builder.create();
+                busyboxDialog.show();
+            } else {
+                rootAvailable = true;
+            }
+        }
+
+        return rootAvailable;
     }
 }

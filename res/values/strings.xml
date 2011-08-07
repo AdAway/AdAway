@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AdAway</string>
-    <string name="no_root_description">Either the su binary or busybox could not be found or you did not allow root permission for AdAway.\n\nWhen the currently running Android operating system is not rooted, you can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
-    <string name="button_cyanogenmod">Visit www.cyanogenmod.com</string>
+    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nWhen the currently running Android operating system is not rooted, you can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
     <string name="button_exit">Exit</string>
     <string name="no_root_title">Rooted Android required</string>
     <string name="button_apply">Download files and apply ad blocking</string>
@@ -96,4 +95,7 @@
     <string name="status_disabled">Disabled</string>
     <string name="status_disabled_subtitle">Disabled</string>
     <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\', licensed under Creative Commons Attribution 3.0 Unported License</string>
+    <string name="no_busybox">The Busybox binary could not be found. To install it from the Android Market click the Button below.</string>
+    <string name="no_busybox_title">No Busybox binary</string>
+    <string name="button_busybox">Install Busybox</string>
 </resources>

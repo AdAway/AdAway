@@ -1,3 +1,5 @@
+1.06
+- Fixed SQLite bug occuring on Android 2.1
 1.05
 * Update Check implemented
 - Fixed bug when changing orientation of device while downloading
@@ -15,6 +17,8 @@
 
 
 Deutsch
+1.06
+- SQLite-Bug behoben, der unter Android 2.1 auftritt
 1.05
 * Update Check implementiert
 - Bug behoben, der beim Wechsel der Ausrichtung während des Downloads auftrat

@@ -106,7 +106,7 @@ public class DatabaseHelper {
     public void updateLastModified(long lastModified) {
         ContentValues args = new ContentValues();
         args.put("last_modified", lastModified);
-        mDB.update(TABLE_LAST_MODIFIED, args, "_id is 1", null);
+        mDB.update(TABLE_LAST_MODIFIED, args, "_id=1", null);
     }
 
     /* HOSTS SOURCES */
@@ -143,7 +143,7 @@ public class DatabaseHelper {
     public ArrayList<String> getAllEnabledHostsSources() {
         ArrayList<String> list = new ArrayList<String>();
         Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES,
-                new String[] { "_id", "url", "enabled" }, "enabled is 1", null, null, null,
+                new String[] { "_id", "url", "enabled" }, "enabled=1", null, null, null,
                 "url asc");
         if (cursor.moveToFirst()) {
             do {
@@ -190,7 +190,7 @@ public class DatabaseHelper {
     public HashSet<String> getAllEnabledWhitelistItems() {
         HashSet<String> list = new HashSet<String>();
         Cursor cursor = this.mDB.query(TABLE_WHITELIST, new String[] { "_id", "url", "enabled" },
-                "enabled is 1", null, null, null, "url asc");
+                "enabled=1", null, null, null, "url asc");
         if (cursor.moveToFirst()) {
             do {
                 list.add(cursor.getString(1));
@@ -236,7 +236,7 @@ public class DatabaseHelper {
     public HashSet<String> getAllEnabledBlacklistItems() {
         HashSet<String> list = new HashSet<String>();
         Cursor cursor = this.mDB.query(TABLE_BLACKLIST, new String[] { "_id", "url", "enabled" },
-                "enabled is 1", null, null, null, "url asc");
+                "enabled=1", null, null, null, "url asc");
         if (cursor.moveToFirst()) {
             do {
                 list.add(cursor.getString(1));
@@ -284,7 +284,7 @@ public class DatabaseHelper {
     public HashMap<String, String> getAllEnabledRedirectionItems() {
         HashMap<String, String> list = new HashMap<String, String>();
         Cursor cursor = this.mDB.query(TABLE_REDIRECTION_LIST, new String[] { "_id", "url", "ip",
-                "enabled" }, "enabled is 1", null, null, null, "url asc");
+                "enabled" }, "enabled=1", null, null, null, "url asc");
         if (cursor.moveToFirst()) {
             do {
                 list.put(cursor.getString(1), cursor.getString(2));
