@@ -78,16 +78,12 @@ public class AdAway extends Activity {
     private TextView mStatusSubtitle;
     private ProgressBar mStatusProgress;
     private ImageView mStatusIcon;
-    AsyncTask<String, Integer, Integer> mStatusTask;
+    AsyncTask<String, Integer, Enum<ReturnCode>> mStatusTask;
 
-    protected static final int RETURN_SUCCESS = 0;
-    protected static final int RETURN_PRIVATE_FILE_FAIL = 1;
-    protected static final int RETURN_UPDATE_AVAILABLE = 2;
-    protected static final int RETURN_ENABLED = 3;
-    protected static final int RETURN_DISABLED = 4;
-    protected static final int RETURN_DOWNLOAD_FAIL = 5;
-    protected static final int RETURN_NO_CONNECTION = 6;
-    protected static final int RETURN_APPLY_FAILED = 7;
+    // return codes of AsycTasks
+    public enum ReturnCode {
+        SUCCESS, PRIVATE_FILE_FAIL, UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, NO_CONNECTION, APPLY_FAILED
+    }
 
     /**
      * Override onDestroy to cancel AsyncTask that checks for updates
@@ -466,7 +462,7 @@ public class AdAway extends Activity {
      * urls as params.
      */
     private void runStatusTask(String... urls) {
-        mStatusTask = new AsyncTask<String, Integer, Integer>() {
+        mStatusTask = new AsyncTask<String, Integer, Enum<ReturnCode>>() {
             private String currentURL;
             private int fileSize;
             private long lastModified = 0;
@@ -490,8 +486,8 @@ public class AdAway extends Activity {
             }
 
             @Override
-            protected Integer doInBackground(String... urls) {
-                int returnCode = RETURN_ENABLED; // default return code
+            protected Enum<ReturnCode> doInBackground(String... urls) {
+                ReturnCode returnCode = ReturnCode.ENABLED; // default return code
 
                 // do only if not disabled in preferences
                 if (SharedPrefs.getUpdateCheck(mContext)) {
@@ -537,12 +533,12 @@ public class AdAway extends Activity {
 
                             } catch (Exception e) {
                                 Log.e(Constants.TAG, "Exception: " + e);
-                                returnCode = RETURN_DOWNLOAD_FAIL;
+                                returnCode = ReturnCode.DOWNLOAD_FAIL;
                                 break; // stop for-loop
                             }
                         }
                     } else {
-                        returnCode = RETURN_NO_CONNECTION;
+                        returnCode = ReturnCode.NO_CONNECTION;
                     }
                 }
 
@@ -563,63 +559,56 @@ public class AdAway extends Activity {
 
                 // check if maximal lastModified is bigger than the ones in database
                 if (lastModified > lastModifiedDatabase) {
-                    returnCode = RETURN_UPDATE_AVAILABLE;
+                    returnCode = ReturnCode.UPDATE_AVAILABLE;
                 }
 
                 // check if hosts file is applied
                 if (!Helper.isHostsFileApplied(mContext)) {
-                    returnCode = RETURN_DISABLED;
+                    returnCode = ReturnCode.DISABLED;
                 }
 
                 return returnCode;
             }
 
             @Override
-            protected void onPostExecute(Integer result) {
+            protected void onPostExecute(Enum<ReturnCode> result) {
                 super.onPostExecute(result);
 
                 mStatusProgress.setVisibility(View.GONE);
 
                 Log.d(Constants.TAG, "onPostExecute result: " + result);
 
-                switch (result) {
-                case RETURN_UPDATE_AVAILABLE:
+                if (result == ReturnCode.UPDATE_AVAILABLE) {
                     mStatusIcon.setImageResource(R.drawable.status_update);
                     mStatusIcon.setVisibility(View.VISIBLE);
 
                     mStatusText.setText(R.string.status_update_available);
                     mStatusSubtitle.setText(R.string.status_update_available_subtitle);
-                    break;
-                case RETURN_DISABLED:
+                } else if (result == ReturnCode.DISABLED) {
                     mStatusIcon.setImageResource(R.drawable.status_disabled);
                     mStatusIcon.setVisibility(View.VISIBLE);
 
                     mStatusText.setText(R.string.status_disabled);
                     mStatusSubtitle.setText(R.string.status_disabled_subtitle);
-                    break;
-                case RETURN_DOWNLOAD_FAIL:
+                } else if (result == ReturnCode.DOWNLOAD_FAIL) {
                     mStatusIcon.setImageResource(R.drawable.status_fail);
                     mStatusIcon.setVisibility(View.VISIBLE);
 
                     mStatusText.setText(R.string.status_download_fail);
                     mStatusSubtitle.setText(getString(R.string.status_download_fail_subtitle) + " "
                             + currentURL);
-                    break;
-                case RETURN_NO_CONNECTION:
+                } else if (result == ReturnCode.NO_CONNECTION) {
                     mStatusIcon.setImageResource(R.drawable.status_fail);
                     mStatusIcon.setVisibility(View.VISIBLE);
 
                     mStatusText.setText(R.string.status_no_connection);
                     mStatusSubtitle.setText(R.string.status_no_connection_subtitle);
-                    break;
-
-                default:
+                } else if (result == ReturnCode.ENABLED) {
                     mStatusIcon.setImageResource(R.drawable.status_enabled);
                     mStatusIcon.setVisibility(View.VISIBLE);
 
                     mStatusText.setText(R.string.status_enabled);
                     mStatusSubtitle.setText(R.string.status_enabled_subtitle);
-                    break;
                 }
             }
         };
@@ -632,7 +621,7 @@ public class AdAway extends Activity {
      * an Apply AsyncTask will be started
      */
     private void runDownloadTask(String... urls) {
-        AsyncTask<String, Integer, Integer> downloadTask = new AsyncTask<String, Integer, Integer>() {
+        AsyncTask<String, Integer, Enum<ReturnCode>> downloadTask = new AsyncTask<String, Integer, Enum<ReturnCode>>() {
             private ProgressDialog mDownloadProgressDialog;
 
             private String currentURL;
@@ -671,8 +660,8 @@ public class AdAway extends Activity {
             }
 
             @Override
-            protected Integer doInBackground(String... urls) {
-                int returnCode = RETURN_SUCCESS; // default return code
+            protected Enum<ReturnCode> doInBackground(String... urls) {
+                ReturnCode returnCode = ReturnCode.SUCCESS; // default return code
 
                 if (isAndroidOnline()) {
                     // output to write into
@@ -743,7 +732,7 @@ public class AdAway extends Activity {
                                 out.write(Constants.LINE_SEPERATOR.getBytes());
                             } catch (Exception e) {
                                 Log.e(Constants.TAG, "Exception: " + e);
-                                returnCode = RETURN_DOWNLOAD_FAIL;
+                                returnCode = ReturnCode.DOWNLOAD_FAIL;
                                 break; // stop for-loop
                             } finally {
                                 // flush and close streams
@@ -766,7 +755,7 @@ public class AdAway extends Activity {
                         }
                     } catch (Exception e) {
                         Log.e(Constants.TAG, "Private File can not be created, Exception: " + e);
-                        returnCode = RETURN_PRIVATE_FILE_FAIL;
+                        returnCode = ReturnCode.PRIVATE_FILE_FAIL;
                     } finally {
                         try {
                             if (out != null) {
@@ -778,7 +767,7 @@ public class AdAway extends Activity {
                         }
                     }
                 } else {
-                    returnCode = RETURN_NO_CONNECTION;
+                    returnCode = ReturnCode.NO_CONNECTION;
                 }
 
                 return returnCode;
@@ -798,21 +787,18 @@ public class AdAway extends Activity {
             }
 
             @Override
-            protected void onPostExecute(Integer result) {
+            protected void onPostExecute(Enum<ReturnCode> result) {
                 super.onPostExecute(result);
 
                 Log.d(Constants.TAG, "onPostExecute result: " + result);
 
                 AlertDialog alertDialog;
-                switch (result) {
-                case RETURN_SUCCESS:
+                if (result == ReturnCode.SUCCESS) {
                     mDownloadProgressDialog.dismiss();
 
                     // Apply files by Apply thread
                     runApplyTask();
-                    break;
-
-                case RETURN_NO_CONNECTION:
+                } else if (result == ReturnCode.NO_CONNECTION) {
                     mDownloadProgressDialog.dismiss();
 
                     alertDialog = new AlertDialog.Builder(mContext).create();
@@ -826,8 +812,7 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
-                    break;
-                case RETURN_PRIVATE_FILE_FAIL:
+                } else if (result == ReturnCode.PRIVATE_FILE_FAIL) {
                     mDownloadProgressDialog.dismiss();
 
                     alertDialog = new AlertDialog.Builder(mContext).create();
@@ -841,8 +826,7 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
-                    break;
-                case RETURN_DOWNLOAD_FAIL:
+                } else if (result == ReturnCode.DOWNLOAD_FAIL) {
                     mDownloadProgressDialog.dismiss();
 
                     alertDialog = new AlertDialog.Builder(mContext).create();
@@ -857,10 +841,6 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
-                    break;
-
-                default:
-                    break;
                 }
 
             }
@@ -874,12 +854,12 @@ public class AdAway extends Activity {
      * the redirection ip from the preferences and apply them using RootTools.
      */
     private void runApplyTask() {
-        AsyncTask<Void, String, Integer> applyTask = new AsyncTask<Void, String, Integer>() {
+        AsyncTask<Void, String, Enum<ReturnCode>> applyTask = new AsyncTask<Void, String, Enum<ReturnCode>>() {
             private ProgressDialog mApplyProgressDialog;
 
             @Override
-            protected Integer doInBackground(Void... unused) {
-                int returnCode = RETURN_SUCCESS; // default return code
+            protected Enum<ReturnCode> doInBackground(Void... unused) {
+                ReturnCode returnCode = ReturnCode.SUCCESS; // default return code
 
                 try {
                     /* PARSE: parse hosts files to sets of hostnames and comments */
@@ -1010,12 +990,12 @@ public class AdAway extends Activity {
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
-                    returnCode = RETURN_APPLY_FAILED;
+                    returnCode = ReturnCode.APPLY_FAILED;
                 }
 
                 // check if hosts file is applied
                 if (!Helper.isHostsFileApplied(mContext)) {
-                    returnCode = RETURN_APPLY_FAILED;
+                    returnCode = ReturnCode.APPLY_FAILED;
                 }
 
                 return returnCode;
@@ -1037,12 +1017,11 @@ public class AdAway extends Activity {
             }
 
             @Override
-            protected void onPostExecute(Integer result) {
+            protected void onPostExecute(Enum<ReturnCode> result) {
                 super.onPostExecute(result);
 
                 AlertDialog alertDialog;
-                switch (result) {
-                case RETURN_SUCCESS:
+                if (result == ReturnCode.SUCCESS) {
                     mApplyProgressDialog.dismiss();
 
                     mStatusIcon.setImageResource(R.drawable.status_enabled);
@@ -1075,9 +1054,7 @@ public class AdAway extends Activity {
                             });
                     AlertDialog question = builder.create();
                     question.show();
-                    break;
-
-                case RETURN_APPLY_FAILED:
+                } else if (result == ReturnCode.APPLY_FAILED) {
                     Log.d(Constants.TAG, "Problem!");
 
                     mApplyProgressDialog.dismiss();
@@ -1097,10 +1074,6 @@ public class AdAway extends Activity {
                                 }
                             });
                     alertDialog.show();
-                    break;
-
-                default:
-                    break;
                 }
             }
         };
