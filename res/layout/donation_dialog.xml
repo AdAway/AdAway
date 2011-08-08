@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flattr_sdk="http://schemas.flattr4android.com/sdk"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="15dip">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:isScrollContainer="true"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+                <org.adaway.utils.FlattrView
+                    xmlns:flattr="http://schemas.android.com/apk/res/org.adaway"
+                    android:layout_gravity="center"
+                    android:layout_height="120dip"
+                    android:layout_width="220dip" />
+                <TextView
+                    android:text="@string/donations_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:paddingTop="5dip" android:paddingBottom="5dip"></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/donations_url"
+                    android:autoLink="web"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:text="@string/button_close"
+            android:id="@+id/about_close"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:layout_marginTop="30dip"></Button>
+    </LinearLayout>
+</ScrollView>

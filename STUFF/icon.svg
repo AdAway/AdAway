@@ -204,17 +204,17 @@
      borderopacity="1.0"
      id="base"
      inkscape:current-layer="layer1"
-     inkscape:cx="32.370901"
+     inkscape:cx="-5.8491274"
      inkscape:cy="31.447789"
      inkscape:document-units="px"
      inkscape:guide-bbox="true"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:window-height="781"
-     inkscape:window-width="1280"
+     inkscape:window-height="779"
+     inkscape:window-width="1278"
      inkscape:window-x="0"
      inkscape:window-y="19"
-     inkscape:zoom="2.8284271"
+     inkscape:zoom="6.8942911"
      pagecolor="#ffffff"
      showgrid="false"
      showguides="true"
@@ -229,32 +229,29 @@
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
-        <dc:title>not available</dc:title>
-        <dc:date>Sept 2009</dc:date>
+        <dc:title></dc:title>
+        <dc:date></dc:date>
         <dc:creator>
           <cc:Agent>
-            <dc:title>Franziska Sponsel</dc:title>
+            <dc:title>Dominik Schürmann</dc:title>
           </cc:Agent>
         </dc:creator>
         <dc:rights>
           <cc:Agent>
-            <dc:title>Franziska Sponsel</dc:title>
+            <dc:title></dc:title>
           </cc:Agent>
         </dc:rights>
         <dc:publisher>
           <cc:Agent>
-            <dc:title>RRZE</dc:title>
+            <dc:title></dc:title>
           </cc:Agent>
         </dc:publisher>
         <dc:subject>
-          <rdf:Bag>
-            <rdf:li>not available</rdf:li>
-            <rdf:li>not for use</rdf:li>
-          </rdf:Bag>
+          <rdf:Bag />
         </dc:subject>
         <dc:contributor>
           <cc:Agent>
-            <dc:title>Beate Kaspar, Hendrik Eggers</dc:title>
+            <dc:title></dc:title>
           </cc:Agent>
         </dc:contributor>
       </cc:Work>
@@ -312,7 +309,7 @@
        sodipodi:cy="515.97119"
        sodipodi:cx="384.86813"
        id="path3165"
-       d="m 705.08649,515.97119 a 320.21835,320.21835 0 1 1 -640.43671,0 320.21835,320.21835 0 1 1 640.43671,0 z" />
+       d="m 705.08649,515.97119 c 0,176.85171 -143.36664,320.21835 -320.21836,320.21835 -176.85171,0 -320.21835,-143.36664 -320.21835,-320.21835 0,-176.85171 143.36664,-320.21835 320.21835,-320.21835 176.85172,0 320.21836,143.36664 320.21836,320.21835 z" />
     <path
        inkscape:connector-curvature="0"
        style="opacity:0.34680134000000001;fill:url(#linearGradient3037);fill-opacity:1;fill-rule:evenodd;stroke:none"

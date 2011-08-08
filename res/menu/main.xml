@@ -10,6 +10,7 @@
     <item
         android:id="@+id/menu_about"
         android:title="@string/menu_about" android:icon="@android:drawable/ic_menu_info_details"></item>
+    <item android:id="@+id/menu_donations" android:icon="@android:drawable/ic_menu_info_details" android:title="@string/menu_donations"></item>
     
     
     

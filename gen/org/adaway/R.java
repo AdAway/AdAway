@@ -38,6 +38,7 @@ public final class R {
         public static final int menu_add=0x7f080014;
         public static final int menu_add_qrcode=0x7f080015;
         public static final int menu_blacklist=0x7f080019;
+        public static final int menu_donations=0x7f08001e;
         public static final int menu_hosts_sources=0x7f080018;
         public static final int menu_preferences=0x7f08001c;
         public static final int menu_redirection_list=0x7f08001b;
@@ -57,13 +58,14 @@ public final class R {
         public static final int about_dialog=0x7f030000;
         public static final int checkbox_list=0x7f030001;
         public static final int checkbox_list_entry=0x7f030002;
-        public static final int list_dialog_hostname=0x7f030003;
-        public static final int list_dialog_redirection=0x7f030004;
-        public static final int list_dialog_url=0x7f030005;
-        public static final int main=0x7f030006;
-        public static final int no_root_dialog=0x7f030007;
-        public static final int redirection_list=0x7f030008;
-        public static final int redirection_list_entry=0x7f030009;
+        public static final int donation_dialog=0x7f030003;
+        public static final int list_dialog_hostname=0x7f030004;
+        public static final int list_dialog_redirection=0x7f030005;
+        public static final int list_dialog_url=0x7f030006;
+        public static final int main=0x7f030007;
+        public static final int no_root_dialog=0x7f030008;
+        public static final int redirection_list=0x7f030009;
+        public static final int redirection_list_entry=0x7f03000a;
     }
     public static final class menu {
         public static final int checkbox_list=0x7f070000;
@@ -107,6 +109,10 @@ public final class R {
         public static final int checkbox_list_edit_dialog_title=0x7f050039;
         public static final int checkbox_list_empty=0x7f050031;
         public static final int checkbox_list_footer=0x7f050033;
+        public static final int donations_description=0x7f05006b;
+        public static final int donations_text=0x7f05006e;
+        public static final int donations_title=0x7f05006c;
+        public static final int donations_url=0x7f05006f;
         public static final int download_dialog=0x7f050008;
         public static final int download_fail=0x7f05004e;
         public static final int download_fail_title=0x7f05004f;
@@ -119,6 +125,7 @@ public final class R {
         public static final int menu_add=0x7f050028;
         public static final int menu_add_qrcode=0x7f050029;
         public static final int menu_blacklist=0x7f050046;
+        public static final int menu_donations=0x7f05006d;
         public static final int menu_hosts_sources=0x7f050009;
         public static final int menu_preferences=0x7f05000f;
         public static final int menu_redirection_list=0x7f050048;
@@ -155,6 +162,7 @@ public final class R {
         public static final int pref_redirection_ip=0x7f050013;
         public static final int pref_redirection_ip_def=0x7f050017;
         public static final int pref_redirection_ip_key=0x7f050015;
+        public static final int pref_redirection_ip_summary=0x7f05006a;
         public static final int pref_strip_comments=0x7f050040;
         public static final int pref_strip_comments_def=0x7f050042;
         public static final int pref_strip_comments_key=0x7f05003f;

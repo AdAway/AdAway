@@ -1,4 +1,6 @@
 1.06
+* hosts file target can be choosen
+* Donation button
 - Fixed SQLite bug occuring on Android 2.1
 1.05
 * Update Check implemented
@@ -18,6 +20,8 @@
 
 Deutsch
 1.06
+* hosts-Datei-Ziel kann ausgewählt werden
+* Spenden-Button
 - SQLite-Bug behoben, der unter Android 2.1 auftritt
 1.05
 * Update Check implementiert

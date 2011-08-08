@@ -24,7 +24,7 @@
         <EditTextPreference
             android:title="@string/pref_redirection_ip"
             android:defaultValue="@string/pref_redirection_ip_def"
-            android:key="@string/pref_redirection_ip_key"></EditTextPreference>
+            android:key="@string/pref_redirection_ip_key" android:summary="@string/pref_redirection_ip_summary"></EditTextPreference>
         <ListPreference
             android:key="@string/pref_apply_method_key"
             android:summary="@string/pref_apply_method_summary"

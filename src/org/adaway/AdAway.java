@@ -40,7 +40,6 @@ import org.adaway.utils.DatabaseHelper;
 import org.adaway.utils.Helper;
 import org.adaway.utils.HostsParser;
 import org.adaway.utils.SharedPrefs;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -96,6 +95,7 @@ public class AdAway extends Activity {
         if (mStatusTask != null) {
             mStatusTask.cancel(true);
         }
+
     }
 
     /**
@@ -152,6 +152,10 @@ public class AdAway extends Activity {
 
         case R.id.menu_preferences:
             startActivity(new Intent(this, Preferences.class));
+            return true;
+            
+        case R.id.menu_donations:
+            showDonationsDialog();
             return true;
 
         case R.id.menu_about:
@@ -342,6 +346,27 @@ public class AdAway extends Activity {
         AlertDialog question = builder.create();
         question.show();
     }
+    
+    /**
+     * Donations Dialog of AdAway
+     */
+    private void showDonationsDialog() {
+        final Dialog dialog = new Dialog(mContext);
+        dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
+        dialog.setContentView(R.layout.donation_dialog);
+        dialog.setTitle(R.string.donations_title);
+
+        Button closeBtn = (Button) dialog.findViewById(R.id.about_close);
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,
+                android.R.drawable.ic_dialog_info);
+    }
 
     /**
      * About Dialog of AdAway
@@ -446,12 +471,10 @@ public class AdAway extends Activity {
 
             return false;
         } finally {
-            // after all remount back as read only
-            if (targetPath == Constants.ANDROID_HOSTS_PATH) {
+            // after all remount system back as read only
+            if (targetPath.equals(Constants.ANDROID_HOSTS_PATH)) {
                 RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RO");
             }
-            // TODO: Do we need to mount to RO? see cat /proc/mounts system is mounted as rw as
-            // default on my phone
         }
 
         return true;
@@ -636,6 +659,7 @@ public class AdAway extends Activity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
+
                 mDownloadProgressDialog = new ProgressDialog(mContext);
                 mDownloadProgressDialog.setMessage(getString(R.string.download_dialog));
                 mDownloadProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
