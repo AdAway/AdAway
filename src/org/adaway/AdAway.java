@@ -399,9 +399,9 @@ public class AdAway extends Activity {
 
         // get apply method for target path
         String targetPath = null;
-        if (SharedPrefs.getApplyMethod(mContext) == "writeToSystem") {
+        if (SharedPrefs.getApplyMethod(mContext).equals("writeToSystem")) {
             targetPath = Constants.ANDROID_HOSTS_PATH;
-        } else if (SharedPrefs.getApplyMethod(mContext) == "writeToDataData") {
+        } else if (SharedPrefs.getApplyMethod(mContext).equals("writeToDataData")) {
             targetPath = Constants.ANDROID_DATA_DATA_PATH;
         } // TODO: or other methods?
 
@@ -624,12 +624,14 @@ public class AdAway extends Activity {
         AsyncTask<String, Integer, Enum<ReturnCode>> downloadTask = new AsyncTask<String, Integer, Enum<ReturnCode>>() {
             private ProgressDialog mDownloadProgressDialog;
 
-            private String currentURL;
             private int fileSize;
             private byte data[];
             private long total;
             private int count;
+            private String currentURL;
             private boolean urlChanged;
+            private boolean indeterminate;
+            private boolean indeterminateChanged;
 
             @Override
             protected void onPreExecute() {
@@ -686,7 +688,7 @@ public class AdAway extends Activity {
                                 /* change URL in download dialog */
                                 currentURL = url;
                                 urlChanged = true;
-                                publishProgress(0);
+                                publishProgress(0); // update UI
 
                                 /* build connection */
                                 URL mURL = new URL(url);
@@ -700,6 +702,16 @@ public class AdAway extends Activity {
                                 // }
                                 fileSize = connection.getContentLength();
                                 Log.d(Constants.TAG, "fileSize: " + fileSize);
+
+                                // set progressBar to indeterminate when fileSize can not be
+                                // determinate
+                                if (fileSize != -1) {
+                                    indeterminate = false;
+                                } else {
+                                    indeterminate = true;
+                                }
+                                indeterminateChanged = true;
+                                publishProgress(0); // update UI
 
                                 connection.connect();
 
@@ -781,6 +793,16 @@ public class AdAway extends Activity {
                     mDownloadProgressDialog.setMessage(getString(R.string.download_dialog)
                             + Constants.LINE_SEPERATOR + currentURL);
                     urlChanged = false;
+                }
+                // update progressBar of dialog
+                if (indeterminateChanged) {
+                    Log.d(Constants.TAG, "indeterminateChanged");
+                    if (indeterminate) {
+                        mDownloadProgressDialog.setIndeterminate(true);
+                    } else {
+                        mDownloadProgressDialog.setIndeterminate(false);
+                    }
+                    indeterminateChanged = false;
                 }
                 // Log.d(Constants.TAG, "progress: " + progress[0]);
                 mDownloadProgressDialog.setProgress(progress[0]);
