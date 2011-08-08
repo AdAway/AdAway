@@ -16,7 +16,7 @@
     <string name="apply_dialog_hosts">Build hosts file</string>
     <string name="apply_dialog_apply">Apply hosts file</string>
     <string name="menu_preferences">Preferences</string>
-    <string name="pref_download">Download</string>
+    <string name="pref_download">Hosts sources</string>
     <string name="pref_check_syntax">Check syntax</string>
     <string name="pref_hosts">Hosts file</string>
     <string name="pref_redirection_ip">Redirection IP</string>
@@ -98,4 +98,20 @@
     <string name="no_busybox">The Busybox binary could not be found. To install it from the Android Market click the Button below.</string>
     <string name="no_busybox_title">No Busybox binary</string>
     <string name="button_busybox">Install Busybox</string>
+    <string name="pref_update_check">Check for updates</string>
+    <string name="pref_update_check_key">updateCheck</string>
+    <string name="pref_update_check_summary">Check for updates on startup</string>
+    <item type="string" name="pref_update_check_def" format="boolean">true</item>
+    <string name="pref_apply_method">Apply method</string>
+    <string name="pref_apply_method_summary">Select method for applying the hosts file</string>
+    <string name="pref_apply_method_key">applyMethod</string>
+    <string-array name="pref_apply_method_entries">
+        <item>write to /system/etc/hosts</item>
+        <item>write to /data/data/hosts</item>
+    </string-array>
+    <string-array name="pref_apply_method_entries_values">
+        <item>writeToSystem</item>
+        <item>writeToDataData</item>
+    </string-array>
+    <string name="pref_apply_method_def">writeToSystem</string>
 </resources>

@@ -400,7 +400,16 @@ public class AdAway extends Activity {
     private boolean copyHostsFile() {
         String privateDir = getFilesDir().getAbsolutePath();
         String privateFile = privateDir + File.separator + Constants.HOSTS_FILENAME;
-        String hostsFile = Constants.ANDROID_HOSTS_PATH + File.separator + Constants.HOSTS_FILENAME;
+
+        // get apply method for target path
+        String targetPath = null;
+        if (SharedPrefs.getApplyMethod(mContext) == "writeToSystem") {
+            targetPath = Constants.ANDROID_HOSTS_PATH;
+        } else if (SharedPrefs.getApplyMethod(mContext) == "writeToDataData") {
+            targetPath = Constants.ANDROID_DATA_DATA_PATH;
+        } // TODO: or other methods?
+
+        String hostsFile = targetPath + File.separator + Constants.HOSTS_FILENAME;
 
         String commandCopy = Constants.COMMAND_COPY + " " + privateFile + " " + hostsFile;
         String commandChown = Constants.COMMAND_CHOWN + " " + hostsFile;
@@ -414,18 +423,19 @@ public class AdAway extends Activity {
             // check for space on partition
             long size = new File(privateFile).length();
             Log.d(Constants.TAG, "size: " + size);
-            if (!Helper.hasEnoughSpaceOnPartition(Constants.ANDROID_HOSTS_PATH, size)) {
+            if (!Helper.hasEnoughSpaceOnPartition(targetPath, size)) {
                 throw new Exception();
             }
 
             // remount for write access
-            RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RW");
+            RootTools.remount(targetPath, "RW");
 
             List<String> output;
             // copy
             output = RootTools.sendShell(commandCopy);
             Log.d(Constants.TAG, "output of command: " + output.toString());
 
+            // TODO: chown and chmod when using /data/data ???
             // chown
             output = RootTools.sendShell(commandChown);
             Log.d(Constants.TAG, "output of command: " + output.toString());
@@ -441,7 +451,11 @@ public class AdAway extends Activity {
             return false;
         } finally {
             // after all remount back as read only
-            RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RO");
+            if (targetPath == Constants.ANDROID_HOSTS_PATH) {
+                RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RO");
+            }
+            // TODO: Do we need to mount to RO? see cat /proc/mounts system is mounted as rw as
+            // default on my phone
         }
 
         return true;
@@ -479,55 +493,57 @@ public class AdAway extends Activity {
             protected Integer doInBackground(String... urls) {
                 int returnCode = RETURN_ENABLED; // default return code
 
-                if (isAndroidOnline()) {
-                    for (String url : urls) {
+                // do only if not disabled in preferences
+                if (SharedPrefs.getUpdateCheck(mContext)) {
+                    if (isAndroidOnline()) {
+                        for (String url : urls) {
 
-                        // stop if thread canceled
-                        if (isCancelled()) {
-                            break;
-                        }
-
-                        @SuppressWarnings("unused")
-                        InputStream is = null;
-                        try {
-                            Log.v(Constants.TAG, "Checking hosts file: " + url);
-
-                            /* change URL */
-                            currentURL = url;
-
-                            /* build connection */
-                            URL mURL = new URL(url);
-                            URLConnection connection = mURL.openConnection();
-
-                            fileSize = connection.getContentLength();
-                            Log.d(Constants.TAG, "fileSize: " + fileSize);
-
-                            lastModifiedCurrent = connection.getLastModified();
-
-                            Log.d(Constants.TAG, "lastModifiedCurrent: " + lastModifiedCurrent
-                                    + " (" + Helper.longToDateString(lastModifiedCurrent) + ")");
-
-                            Log.d(Constants.TAG,
-                                    "lastModified: " + lastModified + " ("
-                                            + Helper.longToDateString(lastModified) + ")");
-
-                            // set lastModified to the maximum of all lastModifieds
-                            if (lastModifiedCurrent > lastModified) {
-                                lastModified = lastModifiedCurrent;
+                            // stop if thread canceled
+                            if (isCancelled()) {
+                                break;
                             }
 
-                            // check if file is available
-                            connection.connect();
-                            is = connection.getInputStream();
+                            @SuppressWarnings("unused")
+                            InputStream is = null;
+                            try {
+                                Log.v(Constants.TAG, "Checking hosts file: " + url);
 
-                        } catch (Exception e) {
-                            Log.e(Constants.TAG, "Exception: " + e);
-                            returnCode = RETURN_DOWNLOAD_FAIL;
-                            break; // stop for-loop
+                                /* change URL */
+                                currentURL = url;
+
+                                /* build connection */
+                                URL mURL = new URL(url);
+                                URLConnection connection = mURL.openConnection();
+
+                                fileSize = connection.getContentLength();
+                                Log.d(Constants.TAG, "fileSize: " + fileSize);
+
+                                lastModifiedCurrent = connection.getLastModified();
+
+                                Log.d(Constants.TAG, "lastModifiedCurrent: " + lastModifiedCurrent
+                                        + " (" + Helper.longToDateString(lastModifiedCurrent) + ")");
+
+                                Log.d(Constants.TAG, "lastModified: " + lastModified + " ("
+                                        + Helper.longToDateString(lastModified) + ")");
+
+                                // set lastModified to the maximum of all lastModifieds
+                                if (lastModifiedCurrent > lastModified) {
+                                    lastModified = lastModifiedCurrent;
+                                }
+
+                                // check if file is available
+                                connection.connect();
+                                is = connection.getInputStream();
+
+                            } catch (Exception e) {
+                                Log.e(Constants.TAG, "Exception: " + e);
+                                returnCode = RETURN_DOWNLOAD_FAIL;
+                                break; // stop for-loop
+                            }
                         }
+                    } else {
+                        returnCode = RETURN_NO_CONNECTION;
                     }
-                } else {
-                    returnCode = RETURN_NO_CONNECTION;
                 }
 
                 /* CHECK if update is necessary */

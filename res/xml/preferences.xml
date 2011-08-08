@@ -13,6 +13,11 @@
             android:title="@string/pref_strip_comments"
             android:key="@string/pref_strip_comments_key"
             android:defaultValue="@string/pref_strip_comments_def"></CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="@string/pref_update_check_key"
+            android:title="@string/pref_update_check"
+            android:summary="@string/pref_update_check_summary"
+            android:defaultValue="@string/pref_update_check_def"></CheckBoxPreference>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_hosts">
@@ -20,5 +25,12 @@
             android:title="@string/pref_redirection_ip"
             android:defaultValue="@string/pref_redirection_ip_def"
             android:key="@string/pref_redirection_ip_key"></EditTextPreference>
+        <ListPreference
+            android:key="@string/pref_apply_method_key"
+            android:summary="@string/pref_apply_method_summary"
+            android:title="@string/pref_apply_method"
+            android:entries="@array/pref_apply_method_entries"
+            android:entryValues="@array/pref_apply_method_entries_values"
+            android:defaultValue="@string/pref_apply_method_def"></ListPreference>
     </PreferenceCategory>
 </PreferenceScreen>

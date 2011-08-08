@@ -8,6 +8,10 @@
 package org.adaway;
 
 public final class R {
+    public static final class array {
+        public static final int pref_apply_method_entries=0x7f060000;
+        public static final int pref_apply_method_entries_values=0x7f060001;
+    }
     public static final class attr {
     }
     public static final class drawable {
@@ -18,36 +22,36 @@ public final class R {
         public static final int status_update=0x7f020004;
     }
     public static final class id {
-        public static final int about_close=0x7f070001;
-        public static final int about_version=0x7f070000;
-        public static final int apply_button=0x7f07000e;
-        public static final int checkbox_list_checkbox=0x7f070003;
-        public static final int checkbox_list_context_delete=0x7f070016;
-        public static final int checkbox_list_context_edit=0x7f070017;
-        public static final int checkbox_list_footer=0x7f070002;
-        public static final int icon=0x7f070007;
-        public static final int iconSecondLine=0x7f070008;
-        public static final int list_dialog_hostname=0x7f070004;
-        public static final int list_dialog_ip=0x7f070005;
-        public static final int list_dialog_url=0x7f070006;
-        public static final int menu_about=0x7f07001d;
-        public static final int menu_add=0x7f070014;
-        public static final int menu_add_qrcode=0x7f070015;
-        public static final int menu_blacklist=0x7f070019;
-        public static final int menu_hosts_sources=0x7f070018;
-        public static final int menu_preferences=0x7f07001c;
-        public static final int menu_redirection_list=0x7f07001b;
-        public static final int menu_whitelist=0x7f07001a;
-        public static final int redirection_list_checkbox=0x7f070011;
-        public static final int redirection_list_footer=0x7f070010;
-        public static final int redirection_list_hostname=0x7f070013;
-        public static final int redirection_list_ip=0x7f070012;
-        public static final int revert_button=0x7f07000f;
-        public static final int status_icon=0x7f07000b;
-        public static final int status_layout=0x7f070009;
-        public static final int status_progress=0x7f07000a;
-        public static final int status_subtitle=0x7f07000c;
-        public static final int status_text=0x7f07000d;
+        public static final int about_close=0x7f080001;
+        public static final int about_version=0x7f080000;
+        public static final int apply_button=0x7f08000e;
+        public static final int checkbox_list_checkbox=0x7f080003;
+        public static final int checkbox_list_context_delete=0x7f080016;
+        public static final int checkbox_list_context_edit=0x7f080017;
+        public static final int checkbox_list_footer=0x7f080002;
+        public static final int icon=0x7f080007;
+        public static final int iconSecondLine=0x7f080008;
+        public static final int list_dialog_hostname=0x7f080004;
+        public static final int list_dialog_ip=0x7f080005;
+        public static final int list_dialog_url=0x7f080006;
+        public static final int menu_about=0x7f08001d;
+        public static final int menu_add=0x7f080014;
+        public static final int menu_add_qrcode=0x7f080015;
+        public static final int menu_blacklist=0x7f080019;
+        public static final int menu_hosts_sources=0x7f080018;
+        public static final int menu_preferences=0x7f08001c;
+        public static final int menu_redirection_list=0x7f08001b;
+        public static final int menu_whitelist=0x7f08001a;
+        public static final int redirection_list_checkbox=0x7f080011;
+        public static final int redirection_list_footer=0x7f080010;
+        public static final int redirection_list_hostname=0x7f080013;
+        public static final int redirection_list_ip=0x7f080012;
+        public static final int revert_button=0x7f08000f;
+        public static final int status_icon=0x7f08000b;
+        public static final int status_layout=0x7f080009;
+        public static final int status_progress=0x7f08000a;
+        public static final int status_subtitle=0x7f08000c;
+        public static final int status_text=0x7f08000d;
     }
     public static final class layout {
         public static final int about_dialog=0x7f030000;
@@ -62,10 +66,10 @@ public final class R {
         public static final int redirection_list_entry=0x7f030009;
     }
     public static final class menu {
-        public static final int checkbox_list=0x7f060000;
-        public static final int checkbox_list_context=0x7f060001;
-        public static final int main=0x7f060002;
-        public static final int redirection_list=0x7f060003;
+        public static final int checkbox_list=0x7f070000;
+        public static final int checkbox_list_context=0x7f070001;
+        public static final int main=0x7f070002;
+        public static final int redirection_list=0x7f070003;
     }
     public static final class string {
         public static final int about_description=0x7f05001f;
@@ -138,6 +142,10 @@ public final class R {
         public static final int no_sources_title=0x7f050037;
         public static final int no_url=0x7f05002a;
         public static final int no_url_title=0x7f05002b;
+        public static final int pref_apply_method=0x7f050066;
+        public static final int pref_apply_method_def=0x7f050069;
+        public static final int pref_apply_method_key=0x7f050068;
+        public static final int pref_apply_method_summary=0x7f050067;
         public static final int pref_check_syntax=0x7f050011;
         public static final int pref_check_syntax_def=0x7f050016;
         public static final int pref_check_syntax_key=0x7f050014;
@@ -151,6 +159,10 @@ public final class R {
         public static final int pref_strip_comments_def=0x7f050042;
         public static final int pref_strip_comments_key=0x7f05003f;
         public static final int pref_strip_comments_summary=0x7f050041;
+        public static final int pref_update_check=0x7f050062;
+        public static final int pref_update_check_def=0x7f050065;
+        public static final int pref_update_check_key=0x7f050063;
+        public static final int pref_update_check_summary=0x7f050064;
         public static final int revert_problem=0x7f050027;
         public static final int revert_question=0x7f05001b;
         public static final int revert_successfull=0x7f05001c;
