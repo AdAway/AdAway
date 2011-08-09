@@ -37,7 +37,7 @@
     <string name="about_version">Version:</string>
     <string name="no_root_url">http://www.cyanogenmod.com</string>
     <string name="about_title">About</string>
-    <string name="apply_fail">Applying the hosts file to your system failed!</string>
+    <string name="apply_fail">Applying the hosts file to your system failed!\nYou can try to set another target hosts file in preferences.</string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed.</string>
     <string name="menu_add">Add</string>
@@ -120,7 +120,7 @@
     <string name="menu_donations">Donations</string>
     <string name="donations_text">Alternatively you can visit the following URL directly:</string>
     <string name="donations_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
-    <string name="apply_symlink_missing">Symlink from /data/data/hosts to /system/etc/hosts is not existing! AdAway will not work if it is not existing.\nDo you want to try creating a symlink?</string>
+    <string name="apply_symlink_missing">Symlink from /data/data/hosts to /system/etc/hosts is not existing! AdAway will not work if it is not existing.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on yout target partition</string>
     <string name="apply_not_enough_space_title">Not enough space</string>
@@ -134,6 +134,6 @@
     <string name="revert_successful_title">Reverting successful</string>
     <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?</string>
     <string name="apply_symlink_successful_title">Symlink creation successful</string>
-    <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your Phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n If this does not work google for solutions.</string>
+    <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
 </resources>

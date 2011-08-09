@@ -35,6 +35,7 @@ public class Constants {
     public static final String COMMAND_CHMOD_644 = "chmod 644";
     public static final String COMMAND_CHMOD_666 = "chmod 666";
     public static final String COMMAND_LN = "ln -s";
+    public static final String COMMAND_RM = "rm -f";
     public static final String ANDROID_SYSTEM_ETC_PATH = "/system/etc";
     public static final String ANDROID_DATA_DATA_PATH = "/data/data";
 

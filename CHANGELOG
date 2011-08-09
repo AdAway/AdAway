@@ -1,3 +1,6 @@
+1.07
+* AdAway can now create a symlink
+- better error handling
 1.06
 * hosts file target can be choosen
 * Donation button
@@ -19,6 +22,9 @@
 
 
 Deutsch
+1.07
+* AdAway kann nun bei Bedarf einen Symlink erstellen
+- bessere Fehlerbehandlung
 1.06
 * hosts-Datei-Ziel kann ausgewählt werden
 * Spenden-Button
@@ -26,7 +32,7 @@ Deutsch
 1.05
 * Update Check implementiert
 - Bug behoben, der beim Wechsel der Ausrichtung während des Downloads auftrat
-- Besseres Error-Handling beim Download
+- Bessere Fehlerbehandlung beim Download
 - localhost-Eintrag abermals behoben
 1.04
 * Redirection List implementiert

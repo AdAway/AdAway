@@ -215,7 +215,10 @@ public class ApplyHelper {
         String DataDataHosts = Constants.ANDROID_DATA_DATA_PATH + File.separator
                 + Constants.HOSTS_FILENAME;
 
+        String commandRm = Constants.COMMAND_RM + " " + SystemEtcHosts;
         String commandSymlink = Constants.COMMAND_LN + " " + DataDataHosts + " " + SystemEtcHosts;
+        String commandChownDataDataHosts = Constants.COMMAND_CHOWN + " " + DataDataHosts;
+        String commandChmodDataDataHosts644 = Constants.COMMAND_CHMOD_644 + " " + DataDataHosts;
 
         String targetPath = Constants.ANDROID_SYSTEM_ETC_PATH;
 
@@ -228,7 +231,7 @@ public class ApplyHelper {
         List<String> output = null;
         try {
             // create symlink
-            output = RootTools.sendShell(new String[] { commandSymlink }, 1);
+            output = RootTools.sendShell(new String[] { commandRm, commandSymlink, commandChownDataDataHosts, commandChmodDataDataHosts644 }, 1);
 
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
         } catch (IOException e) {

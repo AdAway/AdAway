@@ -78,6 +78,7 @@ public class AdAway extends Activity {
     private Context mContext;
     private DatabaseHelper mDatabaseHelper;
 
+    private ReturnCode mStatus;
     private TextView mStatusText;
     private TextView mStatusSubtitle;
     private ProgressBar mStatusProgress;
@@ -86,7 +87,61 @@ public class AdAway extends Activity {
 
     // return codes of AsycTasks
     public enum ReturnCode {
-        SUCCESS, PRIVATE_FILE_FAIL, UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, NO_CONNECTION, APPLY_FAIL, SYMLINK_MISSING, NOT_ENOUGH_SPACE, REMOUNT_FAIL, COPY_FAIL
+        CHECKING, SUCCESS, PRIVATE_FILE_FAIL, UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, NO_CONNECTION, APPLY_FAIL, SYMLINK_MISSING, NOT_ENOUGH_SPACE, REMOUNT_FAIL, COPY_FAIL
+    }
+
+    private void setStatusUpdateAvailable() {
+        mStatus = ReturnCode.UPDATE_AVAILABLE;
+
+        mStatusIcon.setVisibility(View.VISIBLE);
+        mStatusIcon.setImageResource(R.drawable.status_update);
+        mStatusText.setText(R.string.status_update_available);
+        mStatusSubtitle.setText(R.string.status_update_available_subtitle);
+    }
+
+    private void setStatusEnabled() {
+        mStatus = ReturnCode.ENABLED;
+
+        mStatusIcon.setVisibility(View.VISIBLE);
+        mStatusIcon.setImageResource(R.drawable.status_enabled);
+        mStatusText.setText(R.string.status_enabled);
+        mStatusSubtitle.setText(R.string.status_enabled_subtitle);
+    }
+
+    private void setStatusDisabled() {
+        mStatus = ReturnCode.DISABLED;
+
+        mStatusIcon.setVisibility(View.VISIBLE);
+        mStatusIcon.setImageResource(R.drawable.status_disabled);
+        mStatusText.setText(R.string.status_disabled);
+        mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+    }
+
+    private void setStatusDownloadFail(String currentURL) {
+        mStatus = ReturnCode.DOWNLOAD_FAIL;
+
+        mStatusIcon.setImageResource(R.drawable.status_fail);
+        mStatusIcon.setVisibility(View.VISIBLE);
+        mStatusText.setText(R.string.status_download_fail);
+        mStatusSubtitle.setText(getString(R.string.status_download_fail_subtitle) + " "
+                + currentURL);
+    }
+
+    private void setStatusNoConnection() {
+        mStatus = ReturnCode.NO_CONNECTION;
+
+        mStatusIcon.setImageResource(R.drawable.status_fail);
+        mStatusIcon.setVisibility(View.VISIBLE);
+        mStatusText.setText(R.string.status_no_connection);
+        mStatusSubtitle.setText(R.string.status_no_connection_subtitle);
+    }
+
+    private void setStatusChecking() {
+        mStatus = ReturnCode.CHECKING;
+
+        mStatusProgress.setVisibility(View.VISIBLE);
+        mStatusText.setText(R.string.status_checking);
+        mStatusSubtitle.setText(R.string.status_checking_subtitle);
     }
 
     /**
@@ -100,7 +155,6 @@ public class AdAway extends Activity {
         if (mStatusTask != null) {
             mStatusTask.cancel(true);
         }
-
     }
 
     /**
@@ -118,8 +172,29 @@ public class AdAway extends Activity {
         mStatusProgress = (ProgressBar) findViewById(R.id.status_progress);
         mStatusIcon = (ImageView) findViewById(R.id.status_icon);
 
-        // check again for update
-        checkOnCreate();
+        // build old status
+        switch (mStatus) {
+        case UPDATE_AVAILABLE:
+            setStatusUpdateAvailable();
+            break;
+        case ENABLED:
+            setStatusEnabled();
+            break;
+        case DISABLED:
+            setStatusDisabled();
+            break;
+        case DOWNLOAD_FAIL:
+            setStatusDownloadFail("");
+            break;
+        case NO_CONNECTION:
+            setStatusNoConnection();
+            break;
+        case CHECKING:
+            setStatusChecking();
+            break;
+        default:
+            break;
+        }
     }
 
     /**
@@ -305,9 +380,7 @@ public class AdAway extends Activity {
                             deleteFile(Constants.HOSTS_FILENAME);
 
                             // set status to disabled
-                            mStatusIcon.setImageResource(R.drawable.status_disabled);
-                            mStatusText.setText(R.string.status_disabled);
-                            mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+                            setStatusDisabled();
 
                             rebootQuestion(R.string.revert_successful_title,
                                     R.string.revert_successful);
@@ -419,9 +492,7 @@ public class AdAway extends Activity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                mStatusProgress.setVisibility(View.VISIBLE);
-                mStatusText.setText(R.string.status_checking);
-                mStatusSubtitle.setText(R.string.status_checking_subtitle);
+                setStatusChecking();
             }
 
             private boolean isAndroidOnline() {
@@ -527,36 +598,15 @@ public class AdAway extends Activity {
                 Log.d(Constants.TAG, "onPostExecute result: " + result);
 
                 if (result == ReturnCode.UPDATE_AVAILABLE) {
-                    mStatusIcon.setImageResource(R.drawable.status_update);
-                    mStatusIcon.setVisibility(View.VISIBLE);
-
-                    mStatusText.setText(R.string.status_update_available);
-                    mStatusSubtitle.setText(R.string.status_update_available_subtitle);
+                    setStatusUpdateAvailable();
                 } else if (result == ReturnCode.DISABLED) {
-                    mStatusIcon.setImageResource(R.drawable.status_disabled);
-                    mStatusIcon.setVisibility(View.VISIBLE);
-
-                    mStatusText.setText(R.string.status_disabled);
-                    mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+                    setStatusDisabled();
                 } else if (result == ReturnCode.DOWNLOAD_FAIL) {
-                    mStatusIcon.setImageResource(R.drawable.status_fail);
-                    mStatusIcon.setVisibility(View.VISIBLE);
-
-                    mStatusText.setText(R.string.status_download_fail);
-                    mStatusSubtitle.setText(getString(R.string.status_download_fail_subtitle) + " "
-                            + currentURL);
+                    setStatusDownloadFail(currentURL);
                 } else if (result == ReturnCode.NO_CONNECTION) {
-                    mStatusIcon.setImageResource(R.drawable.status_fail);
-                    mStatusIcon.setVisibility(View.VISIBLE);
-
-                    mStatusText.setText(R.string.status_no_connection);
-                    mStatusSubtitle.setText(R.string.status_no_connection_subtitle);
+                    setStatusNoConnection();
                 } else if (result == ReturnCode.ENABLED) {
-                    mStatusIcon.setImageResource(R.drawable.status_enabled);
-                    mStatusIcon.setVisibility(View.VISIBLE);
-
-                    mStatusText.setText(R.string.status_enabled);
-                    mStatusSubtitle.setText(R.string.status_enabled_subtitle);
+                    setStatusEnabled();
                 }
             }
         };
@@ -1013,9 +1063,7 @@ public class AdAway extends Activity {
                 if (result == ReturnCode.SUCCESS) {
                     mApplyProgressDialog.dismiss();
 
-                    mStatusIcon.setImageResource(R.drawable.status_enabled);
-                    mStatusText.setText(R.string.status_enabled);
-                    mStatusSubtitle.setText(R.string.status_enabled_subtitle);
+                    setStatusEnabled();
 
                     rebootQuestion(R.string.apply_success_title, R.string.apply_success);
                 } else if (result == ReturnCode.SYMLINK_MISSING) {
@@ -1036,9 +1084,7 @@ public class AdAway extends Activity {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.dismiss();
 
-                                    mStatusIcon.setImageResource(R.drawable.status_disabled);
-                                    mStatusText.setText(R.string.status_disabled);
-                                    mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+                                    setStatusDisabled();
                                 }
                             });
                     AlertDialog question = builder.create();
@@ -1046,9 +1092,7 @@ public class AdAway extends Activity {
                 } else {
                     mApplyProgressDialog.dismiss();
 
-                    mStatusIcon.setImageResource(R.drawable.status_disabled);
-                    mStatusText.setText(R.string.status_disabled);
-                    mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+                    setStatusDisabled();
 
                     alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -1116,15 +1160,12 @@ public class AdAway extends Activity {
         }
 
         if (success) {
-            mStatusIcon.setImageResource(R.drawable.status_enabled);
-            mStatusText.setText(R.string.status_enabled);
-            mStatusSubtitle.setText(R.string.status_enabled_subtitle);
+            setStatusEnabled();
 
-            rebootQuestion(R.string.apply_symlink_successful_title, R.string.apply_symlink_successful);
+            rebootQuestion(R.string.apply_symlink_successful_title,
+                    R.string.apply_symlink_successful);
         } else {
-            mStatusIcon.setImageResource(R.drawable.status_disabled);
-            mStatusText.setText(R.string.status_disabled);
-            mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+            setStatusDisabled();
 
             AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
