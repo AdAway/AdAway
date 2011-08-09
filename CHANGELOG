@@ -1,6 +1,7 @@
 1.07
 * AdAway can now create a symlink
 - better error handling
+- No update check on orientation change
 1.06
 * hosts file target can be choosen
 * Donation button
@@ -25,6 +26,7 @@ Deutsch
 1.07
 * AdAway kann nun bei Bedarf einen Symlink erstellen
 - bessere Fehlerbehandlung
+- keine Update-Suche beim Wechsel der Ausrichtung
 1.06
 * hosts-Datei-Ziel kann ausgewählt werden
 * Spenden-Button
