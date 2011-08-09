@@ -18,14 +18,15 @@
  *
  */
 
-package org.adaway.utils;
+package org.adaway.helper;
 
 import org.adaway.R;
+import org.adaway.utils.Constants;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SharedPrefs {
+public class PreferencesHelper {
     public static boolean getCheckSyntax(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getBoolean(context.getString(R.string.pref_check_syntax_key),

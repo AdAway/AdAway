@@ -20,9 +20,9 @@
 
 package org.adaway;
 
+import org.adaway.helper.DatabaseHelper;
+import org.adaway.helper.ValidationHelper;
 import org.adaway.utils.Constants;
-import org.adaway.utils.DatabaseHelper;
-import org.adaway.utils.Helper;
 import org.adaway.utils.RedirectionCursorAdapter;
 
 import android.app.AlertDialog;
@@ -157,8 +157,8 @@ public class RedirectionList extends ListActivity {
                         String hostname = hostnameEditText.getText().toString();
                         String ip = ipEditText.getText().toString();
 
-                        if (Helper.isValidHostname(hostname)) {
-                            if (Helper.isValidIP(ip)) {
+                        if (ValidationHelper.isValidHostname(hostname)) {
+                            if (ValidationHelper.isValidIP(ip)) {
                                 mDatabaseHelper.updateRedirectionItemURL(mCurrentRowId, hostname,
                                         ip);
                                 updateView();
@@ -307,8 +307,8 @@ public class RedirectionList extends ListActivity {
      */
     private void addEntry(String hostname, String ip) {
         if (hostname != null) {
-            if (Helper.isValidHostname(hostname)) {
-                if (Helper.isValidIP(ip)) {
+            if (ValidationHelper.isValidHostname(hostname)) {
+                if (ValidationHelper.isValidIP(ip)) {
                     mDatabaseHelper.insertRedirectionItem(hostname, ip);
                     updateView();
                 } else {

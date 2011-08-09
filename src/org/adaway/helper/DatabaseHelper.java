@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.utils;
+package org.adaway.helper;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -31,6 +31,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+
+import org.adaway.utils.Constants;
 
 public class DatabaseHelper {
 
@@ -46,16 +48,17 @@ public class DatabaseHelper {
     private static final String TABLE_REDIRECTION_LIST = "redirection_list";
     private static final String TABLE_LAST_MODIFIED = "last_modified";
 
-    private static final String CREATE_HOSTS_SOURCES = "CREATE TABLE " + TABLE_HOSTS_SOURCES
+    private static final String CREATE_HOSTS_SOURCES = "CREATE TABLE IF NOT EXISTS "
+            + TABLE_HOSTS_SOURCES + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
+    private static final String CREATE_WHITELIST = "CREATE TABLE IF NOT EXISTS " + TABLE_WHITELIST
             + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
-    private static final String CREATE_WHITELIST = "CREATE TABLE " + TABLE_WHITELIST
+    private static final String CREATE_BLACKLIST = "CREATE TABLE IF NOT EXISTS " + TABLE_BLACKLIST
             + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
-    private static final String CREATE_BLACKLIST = "CREATE TABLE " + TABLE_BLACKLIST
-            + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
-    private static final String CREATE_REDIRECTION_LIST = "CREATE TABLE " + TABLE_REDIRECTION_LIST
+    private static final String CREATE_REDIRECTION_LIST = "CREATE TABLE IF NOT EXISTS "
+            + TABLE_REDIRECTION_LIST
             + "(_id INTEGER PRIMARY KEY, url TEXT, ip TEXT, enabled INTEGER)";
-    private static final String CREATE_LAST_MODIFIED = "CREATE TABLE " + TABLE_LAST_MODIFIED
-            + "(_id INTEGER PRIMARY KEY, last_modified INTEGER)";
+    private static final String CREATE_LAST_MODIFIED = "CREATE TABLE IF NOT EXISTS "
+            + TABLE_LAST_MODIFIED + "(_id INTEGER PRIMARY KEY, last_modified INTEGER)";
 
     private SQLiteStatement insertStmtHostsSources;
     private static final String INSERT_HOSTS_SOURCES = "insert into " + TABLE_HOSTS_SOURCES
@@ -143,8 +146,7 @@ public class DatabaseHelper {
     public ArrayList<String> getAllEnabledHostsSources() {
         ArrayList<String> list = new ArrayList<String>();
         Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES,
-                new String[] { "_id", "url", "enabled" }, "enabled=1", null, null, null,
-                "url asc");
+                new String[] { "_id", "url", "enabled" }, "enabled=1", null, null, null, "url asc");
         if (cursor.moveToFirst()) {
             do {
                 list.add(cursor.getString(1));
@@ -317,15 +319,11 @@ public class DatabaseHelper {
             insertStmt = db.compileStatement(insertHostsSources);
 
             // http://winhelp2002.mvps.org/hosts.htm
-            insertHostsSource(insertStmt, "http://www.mvps.org/winhelp2002/hosts.txt");
+            insertHostsSource(insertStmt, "http://winhelp2002.mvps.org/hosts.txt");
 
             // http://hosts-file.net - This file contains ad/tracking servers in the hpHosts
             // database.
             insertHostsSource(insertStmt, "http://hosts-file.net/ad_servers.asp");
-
-            // not working, because no file GET:
-            // insertHostsFile(insertStmt,
-            // "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext");
         }
 
         private void insertDefaultLastModified(SQLiteDatabase db) {
@@ -354,21 +352,24 @@ public class DatabaseHelper {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.w(Constants.TAG, "Upgrading database...");
+            Log.w(Constants.TAG, "Upgrading database from version " + oldVersion + " to "
+                    + newVersion);
 
-            // just stack the update SQLs, because of no return in the cases they are all executed
-            switch (oldVersion) {
-            case 1:
+            if (oldVersion <= 1) {
                 db.execSQL(CREATE_WHITELIST);
                 db.execSQL(CREATE_BLACKLIST);
                 db.execSQL(CREATE_REDIRECTION_LIST);
-            case 2:
+            }
+            if (oldVersion <= 2) {
                 db.execSQL(CREATE_LAST_MODIFIED);
                 insertDefaultLastModified(db);
-            case 3:
-            case 4:
-            default:
-                break;
+            } else {
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTS_SOURCES);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_WHITELIST);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_BLACKLIST);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_REDIRECTION_LIST);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_LAST_MODIFIED);
+                onCreate(db);
             }
         }
     }

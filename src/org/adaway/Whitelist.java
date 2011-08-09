@@ -20,10 +20,10 @@
 
 package org.adaway;
 
+import org.adaway.helper.DatabaseHelper;
+import org.adaway.helper.ValidationHelper;
 import org.adaway.utils.CheckboxCursorAdapter;
 import org.adaway.utils.Constants;
-import org.adaway.utils.DatabaseHelper;
-import org.adaway.utils.Helper;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -148,7 +148,7 @@ public class Whitelist extends ListActivity {
 
                         String input = inputEditText.getText().toString();
 
-                        if (Helper.isValidHostname(input)) {
+                        if (ValidationHelper.isValidHostname(input)) {
                             mDatabaseHelper.updateWhitelistItemURL(mCurrentRowId, input);
                             updateView();
                         } else {
@@ -275,7 +275,7 @@ public class Whitelist extends ListActivity {
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (Helper.isValidHostname(input)) {
+            if (ValidationHelper.isValidHostname(input)) {
                 mDatabaseHelper.insertWhitelistItem(input);
                 updateView();
             } else {

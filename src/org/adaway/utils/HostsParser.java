@@ -27,6 +27,9 @@ import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.ValidationHelper;
+
 import android.content.Context;
 import android.util.Log;
 
@@ -65,7 +68,7 @@ public class HostsParser {
         Pattern commentPattern = Pattern.compile(commentRegex);
 
         // get preference on checking syntax
-        boolean checkSyntax = SharedPrefs.getCheckSyntax(mContext);
+        boolean checkSyntax = PreferencesHelper.getCheckSyntax(mContext);
 
         Matcher commentMatcher = null;
         int indexComment = -1;
@@ -106,7 +109,7 @@ public class HostsParser {
 
                 // check preferences: should we check syntax?
                 if (checkSyntax) {
-                    if (Helper.isValidHostname(nextLine)) {
+                    if (ValidationHelper.isValidHostname(nextLine)) {
                         // Log.d(TAG, nextLine + " matched, adding to hostnames");
                         hostnames.add(nextLine);
                     } else {

@@ -22,9 +22,10 @@ package org.adaway;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -33,13 +34,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
 
+import org.adaway.helper.ApplyHelper;
+import org.adaway.helper.DatabaseHelper;
+import org.adaway.helper.Helper;
+import org.adaway.helper.PreferencesHelper;
 import org.adaway.utils.Constants;
-import org.adaway.utils.DatabaseHelper;
-import org.adaway.utils.Helper;
+import org.adaway.utils.CommandException;
 import org.adaway.utils.HostsParser;
-import org.adaway.utils.SharedPrefs;
+import org.adaway.utils.NotEnoughSpaceException;
+import org.adaway.utils.RemountException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -81,7 +86,7 @@ public class AdAway extends Activity {
 
     // return codes of AsycTasks
     public enum ReturnCode {
-        SUCCESS, PRIVATE_FILE_FAIL, UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, NO_CONNECTION, APPLY_FAILED
+        SUCCESS, PRIVATE_FILE_FAIL, UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, NO_CONNECTION, APPLY_FAIL, SYMLINK_MISSING, NOT_ENOUGH_SPACE, REMOUNT_FAIL, COPY_FAIL
     }
 
     /**
@@ -153,7 +158,7 @@ public class AdAway extends Activity {
         case R.id.menu_preferences:
             startActivity(new Intent(this, Preferences.class));
             return true;
-            
+
         case R.id.menu_donations:
             showDonationsDialog();
             return true;
@@ -276,10 +281,24 @@ public class AdAway extends Activity {
                             fos.write(localhost.getBytes());
                             fos.close();
 
-                            // copy hosts file with RootTools
-                            if (!copyHostsFile()) {
-                                Log.e(Constants.TAG, "revert: problem with copying hosts file");
-                                throw new Exception();
+                            // copy build hosts file with RootTools
+                            try {
+                                ApplyHelper.copyHostsFile(mContext, false);
+                            } catch (NotEnoughSpaceException e) {
+                                Log.e(Constants.TAG, "Exception: " + e);
+                                e.printStackTrace();
+
+                                throw new Exception(); // TODO: make it better
+                            } catch (RemountException e) {
+                                Log.e(Constants.TAG, "Exception: " + e);
+                                e.printStackTrace();
+
+                                throw new Exception(); // TODO: make it better
+                            } catch (CommandException e) {
+                                Log.e(Constants.TAG, "Exception: " + e);
+                                e.printStackTrace();
+
+                                throw new Exception(); // TODO: make it better
                             }
 
                             // delete generated hosts file after applying it
@@ -290,34 +309,8 @@ public class AdAway extends Activity {
                             mStatusText.setText(R.string.status_disabled);
                             mStatusSubtitle.setText(R.string.status_disabled_subtitle);
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                            builder.setTitle(R.string.button_revert);
-                            builder.setMessage(getString(R.string.revert_successfull));
-                            builder.setIcon(android.R.drawable.ic_dialog_info);
-                            builder.setPositiveButton(getString(R.string.button_yes),
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            String commandReboot = "reboot";
-                                            List<String> output = null;
-                                            try {
-                                                output = RootTools.sendShell(commandReboot);
-                                            } catch (Exception e) {
-                                                Log.e(Constants.TAG, "Exception: " + e);
-                                                e.printStackTrace();
-                                            }
-                                            Log.d(Constants.TAG,
-                                                    "output of command: " + output.toString());
-                                        }
-                                    });
-                            builder.setNegativeButton(getString(R.string.button_no),
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            dialog.dismiss();
-                                        }
-                                    });
-                            AlertDialog question = builder.create();
-                            question.show();
-
+                            rebootQuestion(R.string.revert_successful_title,
+                                    R.string.revert_successful);
                         } catch (Exception e) {
                             Log.e(Constants.TAG, "Exception: " + e);
                             e.printStackTrace();
@@ -346,7 +339,7 @@ public class AdAway extends Activity {
         AlertDialog question = builder.create();
         question.show();
     }
-    
+
     /**
      * Donations Dialog of AdAway
      */
@@ -413,74 +406,6 @@ public class AdAway extends Activity {
     }
 
     /**
-     * Copy hosts file from private storage of AdAway to internal partition using RootTools
-     * 
-     * @return <code>true</code> if copying was successful, <code>false</code> if there were some
-     *         problems like not enough space.
-     */
-    private boolean copyHostsFile() {
-        String privateDir = getFilesDir().getAbsolutePath();
-        String privateFile = privateDir + File.separator + Constants.HOSTS_FILENAME;
-
-        // get apply method for target path
-        String targetPath = null;
-        if (SharedPrefs.getApplyMethod(mContext).equals("writeToSystem")) {
-            targetPath = Constants.ANDROID_HOSTS_PATH;
-        } else if (SharedPrefs.getApplyMethod(mContext).equals("writeToDataData")) {
-            targetPath = Constants.ANDROID_DATA_DATA_PATH;
-        } // TODO: or other methods?
-
-        String hostsFile = targetPath + File.separator + Constants.HOSTS_FILENAME;
-
-        String commandCopy = Constants.COMMAND_COPY + " " + privateFile + " " + hostsFile;
-        String commandChown = Constants.COMMAND_CHOWN + " " + hostsFile;
-        String commandChmod = Constants.COMMAND_CHMOD + " " + hostsFile;
-        Log.d(Constants.TAG, "commandCopy: " + commandCopy);
-        Log.d(Constants.TAG, "commandChown: " + commandChown);
-        Log.d(Constants.TAG, "commandChmod: " + commandChmod);
-
-        // do it with RootTools
-        try {
-            // check for space on partition
-            long size = new File(privateFile).length();
-            Log.d(Constants.TAG, "size: " + size);
-            if (!Helper.hasEnoughSpaceOnPartition(targetPath, size)) {
-                throw new Exception();
-            }
-
-            // remount for write access
-            RootTools.remount(targetPath, "RW");
-
-            List<String> output;
-            // copy
-            output = RootTools.sendShell(commandCopy);
-            Log.d(Constants.TAG, "output of command: " + output.toString());
-
-            // TODO: chown and chmod when using /data/data ???
-            // chown
-            output = RootTools.sendShell(commandChown);
-            Log.d(Constants.TAG, "output of command: " + output.toString());
-
-            // chmod
-            output = RootTools.sendShell(commandChmod);
-            Log.d(Constants.TAG, "output of command: " + output.toString());
-
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            return false;
-        } finally {
-            // after all remount system back as read only
-            if (targetPath.equals(Constants.ANDROID_HOSTS_PATH)) {
-                RootTools.remount(Constants.ANDROID_HOSTS_PATH, "RO");
-            }
-        }
-
-        return true;
-    }
-
-    /**
      * AsyncTask to check for updates and determine the status of AdAway, can be executed with many
      * urls as params.
      */
@@ -513,7 +438,7 @@ public class AdAway extends Activity {
                 ReturnCode returnCode = ReturnCode.ENABLED; // default return code
 
                 // do only if not disabled in preferences
-                if (SharedPrefs.getUpdateCheck(mContext)) {
+                if (PreferencesHelper.getUpdateCheck(mContext)) {
                     if (isAndroidOnline()) {
                         for (String url : urls) {
 
@@ -586,7 +511,7 @@ public class AdAway extends Activity {
                 }
 
                 // check if hosts file is applied
-                if (!Helper.isHostsFileApplied(mContext)) {
+                if (!ApplyHelper.isHostsFileApplied(mContext, Constants.ANDROID_SYSTEM_ETC_PATH)) {
                     returnCode = ReturnCode.DISABLED;
                 }
 
@@ -716,19 +641,12 @@ public class AdAway extends Activity {
 
                                 /* build connection */
                                 URL mURL = new URL(url);
-                                // if (mURL.getProtocol() == "http") { // TODO: implement SSL
-                                // httpsURLConnection
                                 URLConnection connection = mURL.openConnection();
-                                // } else if (mURL.getProtocol() == "https") {
-                                //
-                                // } else {
-                                // Log.e(TAG, "wrong protocol");
-                                // }
+
                                 fileSize = connection.getContentLength();
                                 Log.d(Constants.TAG, "fileSize: " + fileSize);
 
-                                // set progressBar to indeterminate when fileSize can not be
-                                // determinate
+                                /* set progressBar to indeterminate when fileSize is -1 */
                                 if (fileSize != -1) {
                                     indeterminate = false;
                                 } else {
@@ -737,11 +655,10 @@ public class AdAway extends Activity {
                                 indeterminateChanged = true;
                                 publishProgress(0); // update UI
 
+                                /* connect */
                                 connection.connect();
-
                                 is = connection.getInputStream();
                                 bis = new BufferedInputStream(is);
-
                                 if (is == null) {
                                     Log.e(Constants.TAG, "Stream is null");
                                 }
@@ -844,51 +761,32 @@ public class AdAway extends Activity {
 
                     // Apply files by Apply thread
                     runApplyTask();
-                } else if (result == ReturnCode.NO_CONNECTION) {
+                } else {
                     mDownloadProgressDialog.dismiss();
 
                     alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                    alertDialog.setTitle(R.string.no_connection_title);
-                    alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
                     alertDialog.setButton(getString(R.string.button_close),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dlg, int sum) {
                                     dlg.dismiss();
                                 }
                             });
-                    alertDialog.show();
-                } else if (result == ReturnCode.PRIVATE_FILE_FAIL) {
-                    mDownloadProgressDialog.dismiss();
 
-                    alertDialog = new AlertDialog.Builder(mContext).create();
-                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                    alertDialog.setTitle(R.string.no_private_file_title);
-                    alertDialog.setMessage(getString(org.adaway.R.string.no_private_file));
-                    alertDialog.setButton(getString(R.string.button_close),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dlg, int sum) {
-                                    dlg.dismiss();
-                                }
-                            });
-                    alertDialog.show();
-                } else if (result == ReturnCode.DOWNLOAD_FAIL) {
-                    mDownloadProgressDialog.dismiss();
+                    if (result == ReturnCode.NO_CONNECTION) {
+                        alertDialog.setTitle(R.string.no_connection_title);
+                        alertDialog.setMessage(getString(org.adaway.R.string.no_connection));
+                    } else if (result == ReturnCode.PRIVATE_FILE_FAIL) {
+                        alertDialog.setTitle(R.string.no_private_file_title);
+                        alertDialog.setMessage(getString(org.adaway.R.string.no_private_file));
+                    } else if (result == ReturnCode.DOWNLOAD_FAIL) {
+                        alertDialog.setTitle(R.string.download_fail_title);
+                        alertDialog.setMessage(getString(org.adaway.R.string.download_fail) + "\n"
+                                + currentURL);
+                    }
 
-                    alertDialog = new AlertDialog.Builder(mContext).create();
-                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                    alertDialog.setTitle(R.string.download_fail_title);
-                    alertDialog.setMessage(getString(org.adaway.R.string.download_fail) + "\n"
-                            + currentURL);
-                    alertDialog.setButton(getString(R.string.button_close),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dlg, int sum) {
-                                    dlg.dismiss();
-                                }
-                            });
                     alertDialog.show();
                 }
-
             }
         };
 
@@ -912,6 +810,7 @@ public class AdAway extends Activity {
                     publishProgress(getString(R.string.apply_dialog_hostnames));
 
                     FileInputStream fis = openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
+
                     BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
                     HostsParser parser = new HostsParser(reader, getApplicationContext());
@@ -965,7 +864,7 @@ public class AdAway extends Activity {
                     fos.write(header.getBytes());
 
                     // write comments from other files to header
-                    if (!SharedPrefs.getStripComments(getApplicationContext())) {
+                    if (!PreferencesHelper.getStripComments(getApplicationContext())) {
                         String headerComment = "# " + Constants.LINE_SEPERATOR
                                 + Constants.HEADER_COMMENT;
                         fos.write(headerComment.getBytes());
@@ -979,7 +878,8 @@ public class AdAway extends Activity {
                         fos.write(Constants.LINE_SEPERATOR.getBytes());
                     }
 
-                    String redirectionIP = SharedPrefs.getRedirectionIP(getApplicationContext());
+                    String redirectionIP = PreferencesHelper
+                            .getRedirectionIP(getApplicationContext());
 
                     // add "127.0.0.1 localhost" entry
                     String localhost = Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv4 + " "
@@ -1009,39 +909,82 @@ public class AdAway extends Activity {
 
                     fos.close();
 
-                    // delete downloaded hosts file from private storage
-                    deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
-
-                    /* APPLY: apply hosts file using RootTools in copyHostsFile() */
-                    publishProgress(getString(R.string.apply_dialog_apply));
-
-                    // copy build hosts file with RootTools
-                    if (!copyHostsFile()) {
-                        throw new Exception();
-                    }
-
-                    // delete generated hosts file from private storage
-                    deleteFile(Constants.HOSTS_FILENAME);
-
-                    /* Set lastModified date in database to current date */
-                    mDatabaseHelper = new DatabaseHelper(mContext);
-
-                    long lastModified = Helper.getCurrentLongDate();
-                    mDatabaseHelper.updateLastModified(lastModified);
-                    Log.d(Constants.TAG, "Updated all hosts sources with lastModified: "
-                            + lastModified + " (" + Helper.longToDateString(lastModified) + ")");
-
-                    mDatabaseHelper.close();
-                } catch (Exception e) {
+                } catch (FileNotFoundException e) {
+                    Log.e(Constants.TAG, "file to read or file to write could not be found");
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
-                    returnCode = ReturnCode.APPLY_FAILED;
+                    returnCode = ReturnCode.PRIVATE_FILE_FAIL;
+                } catch (IOException e) {
+                    Log.e(Constants.TAG, "files can not be written or read");
+                    Log.e(Constants.TAG, "Exception: " + e);
+                    e.printStackTrace();
+
+                    returnCode = ReturnCode.PRIVATE_FILE_FAIL;
                 }
 
-                // check if hosts file is applied
-                if (!Helper.isHostsFileApplied(mContext)) {
-                    returnCode = ReturnCode.APPLY_FAILED;
+                // delete downloaded hosts file from private storage
+                deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
+
+                /* APPLY: apply hosts file using RootTools in copyHostsFile() */
+                publishProgress(getString(R.string.apply_dialog_apply));
+
+                // copy build hosts file with RootTools
+                try {
+                    if (PreferencesHelper.getApplyMethod(mContext).equals("writeToSystem")) {
+                        ApplyHelper.copyHostsFile(mContext, false);
+                    } else if (PreferencesHelper.getApplyMethod(mContext).equals("writeToDataData")) {
+                        ApplyHelper.copyHostsFile(mContext, true);
+                    }
+                } catch (NotEnoughSpaceException e) {
+                    Log.e(Constants.TAG, "Exception: " + e);
+                    e.printStackTrace();
+
+                    returnCode = ReturnCode.NOT_ENOUGH_SPACE;
+                } catch (RemountException e) {
+                    Log.e(Constants.TAG, "Exception: " + e);
+                    e.printStackTrace();
+
+                    returnCode = ReturnCode.REMOUNT_FAIL;
+                } catch (CommandException e) {
+                    Log.e(Constants.TAG, "Exception: " + e);
+                    e.printStackTrace();
+
+                    returnCode = ReturnCode.COPY_FAIL;
+                }
+
+                // delete generated hosts file from private storage
+                deleteFile(Constants.HOSTS_FILENAME);
+
+                /* Set lastModified date in database to current date */
+                mDatabaseHelper = new DatabaseHelper(mContext);
+
+                long lastModified = Helper.getCurrentLongDate();
+                mDatabaseHelper.updateLastModified(lastModified);
+                Log.d(Constants.TAG, "Updated all hosts sources with lastModified: " + lastModified
+                        + " (" + Helper.longToDateString(lastModified) + ")");
+
+                mDatabaseHelper.close();
+
+                /* check if hosts file is applied with chosen method */
+                // check only if everything before was successful
+                if (returnCode == ReturnCode.SUCCESS) {
+                    if (PreferencesHelper.getApplyMethod(mContext).equals("writeToSystem")) {
+                        if (!ApplyHelper.isHostsFileApplied(mContext,
+                                Constants.ANDROID_SYSTEM_ETC_PATH)) {
+                            returnCode = ReturnCode.APPLY_FAIL;
+                        }
+                    } else if (PreferencesHelper.getApplyMethod(mContext).equals("writeToDataData")) {
+                        if (!ApplyHelper.isHostsFileApplied(mContext,
+                                Constants.ANDROID_DATA_DATA_PATH)) {
+                            returnCode = ReturnCode.APPLY_FAIL;
+                        } else {
+                            if (!ApplyHelper.isHostsFileApplied(mContext,
+                                    Constants.ANDROID_SYSTEM_ETC_PATH)) {
+                                returnCode = ReturnCode.SYMLINK_MISSING;
+                            }
+                        }
+                    }
                 }
 
                 return returnCode;
@@ -1074,35 +1017,33 @@ public class AdAway extends Activity {
                     mStatusText.setText(R.string.status_enabled);
                     mStatusSubtitle.setText(R.string.status_enabled_subtitle);
 
+                    rebootQuestion(R.string.apply_success_title, R.string.apply_success);
+                } else if (result == ReturnCode.SYMLINK_MISSING) {
+                    mApplyProgressDialog.dismiss();
+
                     AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                    builder.setTitle(R.string.apply_dialog);
-                    builder.setMessage(getString(R.string.apply_success));
+                    builder.setTitle(R.string.apply_symlink_missing_title);
+                    builder.setMessage(getString(R.string.apply_symlink_missing));
                     builder.setIcon(android.R.drawable.ic_dialog_info);
                     builder.setPositiveButton(getString(R.string.button_yes),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    String commandReboot = "reboot";
-                                    List<String> output = null;
-                                    try {
-                                        output = RootTools.sendShell(commandReboot);
-                                    } catch (Exception e) {
-                                        Log.e(Constants.TAG, "Exception: " + e);
-                                        e.printStackTrace();
-                                    }
-                                    Log.d(Constants.TAG, "output of command: " + output.toString());
+                                    tryToCreateSymlink();
                                 }
                             });
                     builder.setNegativeButton(getString(R.string.button_no),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.dismiss();
+
+                                    mStatusIcon.setImageResource(R.drawable.status_disabled);
+                                    mStatusText.setText(R.string.status_disabled);
+                                    mStatusSubtitle.setText(R.string.status_disabled_subtitle);
                                 }
                             });
                     AlertDialog question = builder.create();
                     question.show();
-                } else if (result == ReturnCode.APPLY_FAILED) {
-                    Log.d(Constants.TAG, "Problem!");
-
+                } else {
                     mApplyProgressDialog.dismiss();
 
                     mStatusIcon.setImageResource(R.drawable.status_disabled);
@@ -1111,19 +1052,125 @@ public class AdAway extends Activity {
 
                     alertDialog = new AlertDialog.Builder(mContext).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                    alertDialog.setTitle(R.string.apply_problem_title);
-                    alertDialog.setMessage(getString(org.adaway.R.string.apply_problem));
                     alertDialog.setButton(getString(R.string.button_close),
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dlg, int sum) {
                                     dlg.dismiss();
                                 }
                             });
+
+                    if (result == ReturnCode.APPLY_FAIL) {
+                        alertDialog.setTitle(R.string.apply_fail_title);
+                        alertDialog.setMessage(getString(org.adaway.R.string.apply_fail));
+
+                    } else if (result == ReturnCode.PRIVATE_FILE_FAIL) {
+                        alertDialog.setTitle(R.string.apply_private_file_fail_title);
+                        alertDialog
+                                .setMessage(getString(org.adaway.R.string.apply_private_file_fail));
+                    } else if (result == ReturnCode.NOT_ENOUGH_SPACE) {
+                        alertDialog.setTitle(R.string.apply_not_enough_space_title);
+                        alertDialog
+                                .setMessage(getString(org.adaway.R.string.apply_not_enough_space));
+                    } else if (result == ReturnCode.REMOUNT_FAIL) {
+                        alertDialog.setTitle(R.string.apply_remount_fail_title);
+                        alertDialog.setMessage(getString(org.adaway.R.string.apply_remount_fail));
+                    } else if (result == ReturnCode.COPY_FAIL) {
+                        alertDialog.setTitle(R.string.apply_copy_fail_title);
+                        alertDialog.setMessage(getString(org.adaway.R.string.apply_copy_fail));
+                    }
+
                     alertDialog.show();
                 }
             }
         };
 
         applyTask.execute();
+    }
+
+    /**
+     * Trying to create symlink and displays dialogs on fail
+     */
+    private void tryToCreateSymlink() {
+        boolean success = true;
+
+        try {
+            ApplyHelper.createSymlink();
+        } catch (CommandException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+
+            success = false;
+        } catch (RemountException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+
+            success = false;
+        }
+
+        if (success) {
+            if (ApplyHelper.isHostsFileApplied(mContext, Constants.ANDROID_SYSTEM_ETC_PATH)) {
+                success = true;
+            } else {
+                success = false;
+            }
+        }
+
+        if (success) {
+            mStatusIcon.setImageResource(R.drawable.status_enabled);
+            mStatusText.setText(R.string.status_enabled);
+            mStatusSubtitle.setText(R.string.status_enabled_subtitle);
+
+            rebootQuestion(R.string.apply_symlink_successful_title, R.string.apply_symlink_successful);
+        } else {
+            mStatusIcon.setImageResource(R.drawable.status_disabled);
+            mStatusText.setText(R.string.status_disabled);
+            mStatusSubtitle.setText(R.string.status_disabled_subtitle);
+
+            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+            alertDialog.setTitle(R.string.apply_symlink_fail_title);
+            alertDialog.setMessage(getString(org.adaway.R.string.apply_symlink_fail));
+            alertDialog.setButton(getString(R.string.button_close),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dlg, int sum) {
+                            dlg.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+    }
+
+    /**
+     * Show reboot question
+     * 
+     * @param titleR
+     *            resource id of title string
+     * @param messageR
+     *            resource id of message string
+     */
+    private void rebootQuestion(int titleR, int messageR) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setTitle(titleR);
+        builder.setMessage(getString(messageR));
+        builder.setIcon(android.R.drawable.ic_dialog_info);
+        builder.setPositiveButton(getString(R.string.button_yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        try {
+                            ApplyHelper.reboot();
+                        } catch (CommandException e) {
+                            Log.e(Constants.TAG, "Exception: " + e);
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        builder.setNegativeButton(getString(R.string.button_no),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog question = builder.create();
+        question.show();
     }
 }

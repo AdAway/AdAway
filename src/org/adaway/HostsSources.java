@@ -20,10 +20,10 @@
 
 package org.adaway;
 
+import org.adaway.helper.DatabaseHelper;
+import org.adaway.helper.ValidationHelper;
 import org.adaway.utils.CheckboxCursorAdapter;
 import org.adaway.utils.Constants;
-import org.adaway.utils.DatabaseHelper;
-import org.adaway.utils.Helper;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -149,7 +149,7 @@ public class HostsSources extends ListActivity {
 
                         String input = inputEditText.getText().toString();
 
-                        if (Helper.isValidUrl(input)) {
+                        if (ValidationHelper.isValidUrl(input)) {
                             mDatabaseHelper.updateHostsSourceURL(mCurrentRowId, input);
                             updateView();
                         } else {
@@ -277,7 +277,7 @@ public class HostsSources extends ListActivity {
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (Helper.isValidUrl(input)) {
+            if (ValidationHelper.isValidUrl(input)) {
                 mDatabaseHelper.insertHostsSource(input);
                 updateView();
             } else {
