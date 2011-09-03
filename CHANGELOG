@@ -2,22 +2,28 @@
 * AdAway can now create a symlink
 - better error handling
 - No update check on orientation change
+
 1.06
 * hosts file target can be choosen
 * Donation button
 - Fixed SQLite bug occuring on Android 2.1
+
 1.05
 * Update Check implemented
 - Fixed bug when changing orientation of device while downloading
 - better error handling when downloading
 - Fixed localhost entry again
+
 1.04
 * Implemented Redirection List
 - Fixed Layout bugs
+
 1.03
 * Implemented Blacklist and Whitelist
+
 1.02
 - Fixed localhost entry
+
 1.01
 - Fixed permissions on /system/etc/hosts
 
@@ -27,21 +33,27 @@ Deutsch
 * AdAway kann nun bei Bedarf einen Symlink erstellen
 - bessere Fehlerbehandlung
 - keine Update-Suche beim Wechsel der Ausrichtung
+
 1.06
 * hosts-Datei-Ziel kann ausgewählt werden
 * Spenden-Button
 - SQLite-Bug behoben, der unter Android 2.1 auftritt
+
 1.05
 * Update Check implementiert
 - Bug behoben, der beim Wechsel der Ausrichtung während des Downloads auftrat
 - Bessere Fehlerbehandlung beim Download
 - localhost-Eintrag abermals behoben
+
 1.04
 * Redirection List implementiert
 - Layout-Fehler behoben
+
 1.03
 * Blacklist und Whitelist implementiert
+
 1.02
 - localhost-Eintrag behoben
+
 1.01
 - Rechte der Datei /system/etc/hosts angepasst 

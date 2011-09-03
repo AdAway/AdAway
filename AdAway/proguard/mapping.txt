@@ -1,0 +1,668 @@
+com.cyrilmottier.android.greendroid.R -> a.a.a.a.a:
+com.cyrilmottier.android.greendroid.R$styleable -> a.a.a.a.b:
+    int[] ActionBar -> a
+    int[] AsyncImageView -> b
+    int[] DescriptionItem -> d
+    int[] DrawableItem -> e
+    int[] Item -> f
+    int[] LongTextItem -> g
+    int[] PageIndicator -> c
+    int[] ProgressItem -> h
+    int[] SegmentedBar -> i
+    int[] SegmentedHost -> j
+    int[] SeparatorItem -> k
+    int[] SubtextItem -> l
+    int[] SubtitleItem -> m
+    int[] TextItem -> n
+    int[] ThumbnailItem -> o
+com.google.zxing.integration.android.IntentIntegrator -> a.b.a.a.a.b:
+    java.lang.String TAG -> a
+    java.lang.String ALL_CODE_TYPES -> b
+    java.lang.reflect.Method PACKAGE_SETTER -> c
+    android.app.AlertDialog initiateScan$43e1df22(android.app.Activity) -> a
+    android.app.AlertDialog initiateScan(android.app.Activity,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence) -> a
+    com.google.zxing.integration.android.IntentResult parseActivityResult(int,int,android.content.Intent) -> a
+com.google.zxing.integration.android.IntentIntegrator$1 -> a.b.a.a.a.d:
+    android.app.Activity val$activity -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.google.zxing.integration.android.IntentIntegrator$2 -> a.b.a.a.a.c:
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.google.zxing.integration.android.IntentResult -> a.b.a.a.a.a:
+    java.lang.String contents -> a
+    java.lang.String formatName -> b
+    java.lang.String getContents() -> a
+com.stericson.RootTools.InternalMethods -> a.c.a.a:
+    com.stericson.RootTools.InternalMethods instance_ -> a
+    com.stericson.RootTools.InternalMethods instance() -> a
+    void doExec(java.lang.String[]) -> a
+    boolean returnPath() -> b
+com.stericson.RootTools.InternalVariables -> a.c.a.b:
+    java.lang.String TAG -> a
+    boolean accessGiven -> b
+    java.lang.String[] space -> c
+    java.lang.String getSpaceFor -> d
+    java.util.Set path -> e
+com.stericson.RootTools.RootTools -> a.c.a.c:
+    boolean debugMode -> a
+    void offerBusyBox(android.app.Activity) -> a
+    boolean isBusyboxAvailable() -> a
+    boolean isAccessGiven() -> b
+    void log(java.lang.String) -> a
+greendroid.app.GDActivity -> greendroid.app.GDActivity:
+    java.lang.String LOG_TAG -> a
+    boolean mDefaultConstructorUsed -> b
+    greendroid.widget.ActionBar$Type mActionBarType -> c
+    greendroid.widget.ActionBarHost mActionBarHost -> d
+    greendroid.widget.ActionBar$OnActionBarListener mActionBarListener -> e
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type -> f
+    void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
+    void onCreate(android.os.Bundle) -> onCreate
+    void onPostCreate(android.os.Bundle) -> onPostCreate
+    greendroid.widget.ActionBar$Type getActionBarType() -> e
+    int createLayout() -> a
+    void ensureLayout() -> f
+    boolean verifyLayout() -> d
+    greendroid.app.GDApplication getGDApplication() -> g
+    void onContentChanged() -> onContentChanged
+    void onPreContentChanged() -> b
+    void onPostContentChanged() -> c
+    void setTitle(java.lang.CharSequence) -> setTitle
+    void setTitle(int) -> setTitle
+    greendroid.widget.ActionBar getActionBar() -> h
+    greendroid.widget.ActionBar$Type access$0(greendroid.app.GDActivity) -> a
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type() -> i
+greendroid.app.GDActivity$1 -> greendroid.app.c:
+    greendroid.app.GDActivity this$0 -> a
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type -> b
+    void onActionBarItemClicked(int) -> a
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type() -> a
+greendroid.app.GDApplication -> greendroid.app.GDApplication:
+    java.util.concurrent.ThreadFactory sThreadFactory -> a
+    java.util.concurrent.ExecutorService mExecutorService -> b
+    greendroid.image.ImageCache mImageCache -> c
+    java.util.ArrayList mLowMemoryListeners -> d
+    java.util.concurrent.ExecutorService getExecutor() -> a
+    greendroid.image.ImageCache getImageCache() -> b
+    void registerOnLowMemoryListener(greendroid.app.GDApplication$OnLowMemoryListener) -> a
+    void onLowMemory() -> onLowMemory
+greendroid.app.GDApplication$1 -> greendroid.app.f:
+    java.util.concurrent.atomic.AtomicInteger mCount -> a
+    java.lang.Thread newThread(java.lang.Runnable) -> newThread
+greendroid.app.GDApplication$OnLowMemoryListener -> greendroid.app.e:
+    void onLowMemoryReceived() -> a
+greendroid.app.GDExpandableListActivity -> greendroid.app.GDExpandableListActivity:
+    android.widget.ExpandableListAdapter mAdapter -> a
+    android.widget.ExpandableListView mList -> b
+    android.view.View mEmptyView -> c
+    boolean mFinishedStart -> d
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type -> e
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onChildClick(android.widget.ExpandableListView,android.view.View,int,int,long) -> onChildClick
+    void onGroupCollapse(int) -> onGroupCollapse
+    void onGroupExpand(int) -> onGroupExpand
+    int createLayout() -> a
+    void onPreContentChanged() -> b
+    void onPostContentChanged() -> c
+    boolean verifyLayout() -> d
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type() -> i
+greendroid.app.GDListActivity -> greendroid.app.GDListActivity:
+    java.lang.String LOG_TAG -> a
+    android.widget.ListAdapter mAdapter -> b
+    android.widget.ListView mListView -> c
+    android.view.View mEmptyView -> d
+    android.os.Handler mHandler -> e
+    boolean mFinishedStart -> f
+    java.lang.Runnable mRequestFocus -> g
+    android.widget.AdapterView$OnItemClickListener mOnItemClickListener -> h
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type -> i
+    int createLayout() -> a
+    boolean verifyLayout() -> d
+    void onPreContentChanged() -> b
+    void onPostContentChanged() -> c
+    android.widget.ListView access$0(greendroid.app.GDListActivity) -> a
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type() -> i
+greendroid.app.GDListActivity$1 -> greendroid.app.b:
+    greendroid.app.GDListActivity this$0 -> a
+    void run() -> run
+greendroid.app.GDListActivity$2 -> greendroid.app.a:
+    greendroid.app.GDListActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+greendroid.app.GDTabActivity -> greendroid.app.GDTabActivity:
+    java.lang.String LOG_TAG -> a
+    greendroid.widget.ActionBarHost mActionBarHost -> b
+    greendroid.widget.ActionBar$OnActionBarListener mActionBarListener -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    greendroid.app.GDApplication getGDApplication() -> a
+    void onContentChanged() -> onContentChanged
+    void setTitle(java.lang.CharSequence) -> setTitle
+    void setTitle(int) -> setTitle
+    greendroid.widget.ActionBar getActionBar() -> b
+greendroid.app.GDTabActivity$1 -> greendroid.app.d:
+    greendroid.app.GDTabActivity this$0 -> a
+    void onActionBarItemClicked(int) -> a
+greendroid.graphics.drawable.ActionBarDrawable -> greendroid.a.a.b:
+    android.util.TypedValue sTypedValue -> a
+    android.graphics.ColorFilter mNormalCf -> b
+    android.graphics.ColorFilter mAltCf -> c
+    int getColorFromTheme(android.content.Context,int,int) -> a
+    boolean isStateful() -> isStateful
+    boolean onStateChange(int[]) -> onStateChange
+greendroid.graphics.drawable.DrawableStateSet -> greendroid.a.a.a:
+    int[] EMPTY_STATE_SET -> c
+    int[] ENABLED_PRESSED_STATE_SET -> a
+    int[] ENABLED_FOCUSED_STATE_SET -> b
+greendroid.image.ImageCache -> greendroid.b.d:
+    java.util.HashMap mSoftCache -> a
+    android.graphics.Bitmap get(java.lang.String) -> a
+    void put(java.lang.String,android.graphics.Bitmap) -> a
+    void onLowMemoryReceived() -> a
+greendroid.image.ImageLoader -> greendroid.b.e:
+    java.lang.String LOG_TAG -> a
+    greendroid.image.ImageCache sImageCache -> b
+    java.util.concurrent.ExecutorService sExecutor -> c
+    android.graphics.BitmapFactory$Options sDefaultOptions -> d
+    java.util.concurrent.Future loadImage(java.lang.String,greendroid.image.ImageLoader$ImageLoaderCallback,greendroid.image.ImageProcessor,android.graphics.BitmapFactory$Options) -> a
+    android.graphics.BitmapFactory$Options access$0() -> a
+    greendroid.image.ImageCache access$1() -> b
+greendroid.image.ImageLoader$ImageFetcher -> greendroid.b.a:
+    java.lang.String mUrl -> a
+    greendroid.image.ImageLoader$ImageHandler mHandler -> b
+    greendroid.image.ImageProcessor mBitmapProcessor -> c
+    android.graphics.BitmapFactory$Options mOptions -> d
+    greendroid.image.ImageLoader this$0 -> e
+    void run() -> run
+greendroid.image.ImageLoader$ImageHandler -> greendroid.b.i:
+    java.lang.String mUrl -> a
+    greendroid.image.ImageLoader$ImageLoaderCallback mCallback -> b
+    greendroid.image.ImageLoader this$0 -> c
+    void handleMessage(android.os.Message) -> handleMessage
+greendroid.image.ImageLoader$ImageLoaderCallback -> greendroid.b.g:
+    void onImageLoadingEnded$79088132(android.graphics.Bitmap) -> a
+    void onImageLoadingFailed$3f37576b$786b7c60() -> a
+greendroid.image.ImageProcessor -> greendroid.b.c:
+    android.graphics.Bitmap processImage$34dbf037() -> a
+greendroid.image.ImageRequest -> greendroid.b.f:
+    greendroid.image.ImageLoader sImageLoader -> a
+    java.util.concurrent.Future mFuture -> b
+    java.lang.String mUrl -> c
+    greendroid.image.ImageRequest$ImageRequestCallback mCallback -> d
+    greendroid.image.ImageProcessor mBitmapProcessor -> e
+    android.graphics.BitmapFactory$Options mOptions -> f
+    void load(android.content.Context) -> a
+    void cancel() -> a
+    boolean isCancelled() -> b
+    greendroid.image.ImageRequest$ImageRequestCallback access$0(greendroid.image.ImageRequest) -> a
+    void access$1$1398d878(greendroid.image.ImageRequest) -> b
+greendroid.image.ImageRequest$ImageRequestCallback -> greendroid.b.h:
+    void onImageRequestFailed$4abedb07$786b7c60() -> a
+    void onImageRequestEnded$1334d7c0(android.graphics.Bitmap) -> a
+    void onImageRequestCancelled$269291ae() -> b
+greendroid.image.ImageRequest$InnerCallback -> greendroid.b.b:
+    greendroid.image.ImageRequest this$0 -> a
+    void onImageLoadingEnded$79088132(android.graphics.Bitmap) -> a
+    void onImageLoadingFailed$3f37576b$786b7c60() -> a
+greendroid.widget.ActionBar -> greendroid.widget.ActionBar:
+    android.widget.TextView mTitleView -> a
+    android.widget.ImageButton mHomeButton -> b
+    boolean mMerging -> c
+    java.lang.CharSequence mTitle -> d
+    greendroid.widget.ActionBar$Type mType -> e
+    greendroid.widget.ActionBar$OnActionBarListener mOnActionBarListener -> f
+    java.util.LinkedList mItems -> g
+    android.graphics.drawable.Drawable mDividerDrawable -> h
+    android.graphics.drawable.Drawable mHomeDrawable -> i
+    int mDividerWidth -> j
+    android.view.View$OnClickListener mClickHandler -> k
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type -> l
+    void onFinishInflate() -> onFinishInflate
+    void setOnActionBarListener(greendroid.widget.ActionBar$OnActionBarListener) -> a
+    void setTitle(java.lang.CharSequence) -> a
+    greendroid.widget.ActionBarItem getItem(int) -> a
+    greendroid.widget.ActionBar$OnActionBarListener access$0(greendroid.widget.ActionBar) -> a
+    android.widget.ImageButton access$1(greendroid.widget.ActionBar) -> b
+    java.util.LinkedList access$2(greendroid.widget.ActionBar) -> c
+    int[] $SWITCH_TABLE$greendroid$widget$ActionBar$Type() -> a
+greendroid.widget.ActionBar$1 -> greendroid.widget.g:
+    greendroid.widget.ActionBar this$0 -> a
+    void onClick(android.view.View) -> onClick
+greendroid.widget.ActionBar$OnActionBarListener -> greendroid.widget.b:
+    void onActionBarItemClicked(int) -> a
+greendroid.widget.ActionBar$Type -> greendroid.widget.h:
+    greendroid.widget.ActionBar$Type Normal -> a
+    greendroid.widget.ActionBar$Type Dashboard -> b
+    greendroid.widget.ActionBar$Type Empty -> c
+    greendroid.widget.ActionBar$Type[] ENUM$VALUES -> d
+    greendroid.widget.ActionBar$Type[] values() -> values
+    greendroid.widget.ActionBar$Type valueOf(java.lang.String) -> valueOf
+greendroid.widget.ActionBarHost -> greendroid.widget.ActionBarHost:
+    greendroid.widget.ActionBar mActionBar -> a
+    android.widget.FrameLayout mContentView -> b
+    void onFinishInflate() -> onFinishInflate
+    greendroid.widget.ActionBar getActionBar() -> a
+greendroid.widget.ActionBarItem -> greendroid.widget.c:
+    android.view.View mItemView -> a
+    android.view.View getItemView() -> a
+    android.view.View createItemView() -> b
+greendroid.widget.AsyncImageView -> greendroid.widget.AsyncImageView:
+    java.lang.String LOG_TAG -> a
+    int mImageSource -> b
+    android.graphics.Bitmap mDefaultBitmap -> c
+    android.graphics.drawable.Drawable mDefaultDrawable -> d
+    int mDefaultResId -> e
+    java.lang.String mUrl -> f
+    greendroid.image.ImageRequest mRequest -> g
+    boolean mPaused -> h
+    android.graphics.Bitmap mBitmap -> i
+    greendroid.image.ImageProcessor mImageProcessor -> j
+    android.graphics.BitmapFactory$Options mOptions -> k
+    void setUrl(java.lang.String) -> a
+    void setDefaultImage() -> c
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    void onImageRequestFailed$4abedb07$786b7c60() -> a
+    void onImageRequestEnded$1334d7c0(android.graphics.Bitmap) -> a
+    void onImageRequestCancelled$269291ae() -> b
+greendroid.widget.AsyncImageView$SavedState -> greendroid.widget.AsyncImageView$SavedState:
+    java.lang.String url -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+greendroid.widget.AsyncImageView$SavedState$1 -> greendroid.widget.e:
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+greendroid.widget.PageIndicator -> greendroid.widget.PageIndicator:
+    android.graphics.Rect sInRect -> a
+    android.graphics.Rect sOutRect -> b
+    int mGravity -> c
+    int mDotSpacing -> d
+    android.graphics.drawable.Drawable mDotDrawable -> e
+    int mDotCount -> f
+    int mDotType -> g
+    int mActiveDot -> h
+    int[] mExtraState -> i
+    boolean mInitializing -> j
+    void requestLayout() -> requestLayout
+    void invalidate() -> invalidate
+    boolean verifyDrawable(android.graphics.drawable.Drawable) -> verifyDrawable
+    void drawableStateChanged() -> drawableStateChanged
+    void onMeasure(int,int) -> onMeasure
+    void onDraw(android.graphics.Canvas) -> onDraw
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+greendroid.widget.PageIndicator$SavedState -> greendroid.widget.PageIndicator$SavedState:
+    int activeDot -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+greendroid.widget.PageIndicator$SavedState$1 -> greendroid.widget.d:
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+greendroid.widget.PagedAdapter -> greendroid.widget.f:
+    android.database.DataSetObservable mDataSetObservable -> a
+    int getCount() -> getCount
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    void registerDataSetObserver(android.database.DataSetObserver) -> registerDataSetObserver
+    void unregisterDataSetObserver(android.database.DataSetObserver) -> unregisterDataSetObserver
+greendroid.widget.PagedView -> greendroid.widget.PagedView:
+    java.lang.String LOG_TAG -> a
+    android.os.Handler mHandler -> b
+    int mPageCount -> c
+    int mCurrentPage -> d
+    int mTargetPage -> e
+    int mPagingTouchSlop -> f
+    int mMinimumVelocity -> g
+    int mMaximumVelocity -> h
+    int mPageSlop -> i
+    boolean mIsBeingDragged -> j
+    int mOffsetX -> k
+    int mStartMotionX -> l
+    int mStartOffsetX -> m
+    android.widget.Scroller mScroller -> n
+    android.view.VelocityTracker mVelocityTracker -> o
+    greendroid.widget.PagedAdapter mAdapter -> p
+    android.util.SparseArray mActiveViews -> q
+    java.util.Queue mRecycler -> r
+    android.database.DataSetObserver mDataSetObserver -> s
+    java.lang.Runnable mScrollerRunnable -> t
+    void onMeasure(int,int) -> onMeasure
+    void onSizeChanged(int,int,int,int) -> onSizeChanged
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void setAdapter(greendroid.widget.PagedAdapter) -> a
+    void setOffsetX(int) -> a
+    void recycleViews(int,int) -> a
+    android.view.View obtainView(int) -> b
+    void setupView(android.view.View,int) -> a
+    void performStartTracking(int) -> c
+    void performPageChange(int) -> d
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    int access$0(greendroid.widget.PagedView) -> a
+    greendroid.widget.PagedAdapter access$1(greendroid.widget.PagedView) -> b
+    void access$2(greendroid.widget.PagedView,int) -> a
+    int access$3(greendroid.widget.PagedView,int) -> b
+    void access$4(greendroid.widget.PagedView,int) -> c
+    android.widget.Scroller access$5(greendroid.widget.PagedView) -> c
+    android.os.Handler access$6(greendroid.widget.PagedView) -> d
+    int access$7(greendroid.widget.PagedView) -> e
+    void access$8(greendroid.widget.PagedView,int) -> d
+greendroid.widget.PagedView$1 -> greendroid.widget.i:
+    greendroid.widget.PagedView this$0 -> a
+    void onInvalidated() -> onInvalidated
+    void onChanged() -> onChanged
+greendroid.widget.PagedView$2 -> greendroid.widget.j:
+    greendroid.widget.PagedView this$0 -> a
+    void run() -> run
+greendroid.widget.PagedView$SavedState -> greendroid.widget.PagedView$SavedState:
+    int currentPage -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+greendroid.widget.PagedView$SavedState$1 -> greendroid.widget.a:
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+org.adaway.AdAway -> org.adaway.AdAway:
+    android.content.Context mContext -> a
+    org.adaway.helper.DatabaseHelper mDatabaseHelper -> b
+    org.adaway.AdAway$ReturnCode mStatus -> c
+    android.widget.TextView mStatusText -> d
+    android.widget.TextView mStatusSubtitle -> e
+    android.widget.ProgressBar mStatusProgress -> f
+    android.widget.ImageView mStatusIcon -> g
+    android.os.AsyncTask mStatusTask -> h
+    int[] $SWITCH_TABLE$org$adaway$AdAway$ReturnCode -> i
+    void setStatusUpdateAvailable() -> a
+    void setStatusEnabled() -> b
+    void setStatusDisabled() -> c
+    void setStatusDownloadFail(java.lang.String) -> a
+    void setStatusNoConnection() -> d
+    void setStatusChecking() -> e
+    void onDestroy() -> onDestroy
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onCreate(android.os.Bundle) -> onCreate
+    java.lang.String getVersion() -> f
+    int[] $SWITCH_TABLE$org$adaway$AdAway$ReturnCode() -> g
+    android.content.Context access$1(org.adaway.AdAway) -> a
+    void access$2(org.adaway.AdAway) -> b
+    void access$4(org.adaway.AdAway) -> c
+    android.widget.ProgressBar access$5(org.adaway.AdAway) -> d
+    void access$6(org.adaway.AdAway) -> e
+    void access$7(org.adaway.AdAway,java.lang.String) -> a
+    void access$8(org.adaway.AdAway) -> f
+    void access$9(org.adaway.AdAway) -> g
+org.adaway.AdAway$4 -> org.adaway.ac:
+    org.adaway.AdAway this$0 -> a
+    android.app.Dialog val$dialog -> b
+    void onClick(android.view.View) -> onClick
+org.adaway.AdAway$5 -> org.adaway.ab:
+    org.adaway.AdAway this$0 -> a
+    android.app.Dialog val$dialog -> b
+    void onClick(android.view.View) -> onClick
+org.adaway.AdAway$6 -> org.adaway.ad:
+    java.lang.String currentURL -> a
+    int fileSize -> b
+    long lastModified -> c
+    long lastModifiedCurrent -> d
+    org.adaway.AdAway this$0 -> e
+    void onPreExecute() -> onPreExecute
+    java.lang.Enum doInBackground(java.lang.String[]) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+org.adaway.AdAway$ReturnCode -> org.adaway.k:
+    org.adaway.AdAway$ReturnCode CHECKING -> a
+    org.adaway.AdAway$ReturnCode SUCCESS -> b
+    org.adaway.AdAway$ReturnCode PRIVATE_FILE_FAIL -> c
+    org.adaway.AdAway$ReturnCode UPDATE_AVAILABLE -> d
+    org.adaway.AdAway$ReturnCode ENABLED -> e
+    org.adaway.AdAway$ReturnCode DISABLED -> f
+    org.adaway.AdAway$ReturnCode DOWNLOAD_FAIL -> g
+    org.adaway.AdAway$ReturnCode NO_CONNECTION -> h
+    org.adaway.AdAway$ReturnCode APPLY_FAIL -> i
+    org.adaway.AdAway$ReturnCode SYMLINK_MISSING -> j
+    org.adaway.AdAway$ReturnCode NOT_ENOUGH_SPACE -> k
+    org.adaway.AdAway$ReturnCode REMOUNT_FAIL -> l
+    org.adaway.AdAway$ReturnCode COPY_FAIL -> m
+    org.adaway.AdAway$ReturnCode[] ENUM$VALUES -> n
+    org.adaway.AdAway$ReturnCode[] values() -> values
+    org.adaway.AdAway$ReturnCode valueOf(java.lang.String) -> valueOf
+org.adaway.Blacklist -> org.adaway.Blacklist:
+    android.content.Context mContext -> a
+    org.adaway.helper.DatabaseHelper mDatabaseHelper -> b
+    android.database.Cursor mCursor -> c
+    org.adaway.utils.CheckboxCursorAdapter mAdapter -> d
+    long mCurrentRowId -> e
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void addEntry(java.lang.String) -> a
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onCreate(android.os.Bundle) -> onCreate
+    void updateView() -> a
+    void onDestroy() -> onDestroy
+    org.adaway.helper.DatabaseHelper access$0(org.adaway.Blacklist) -> a
+    long access$1(org.adaway.Blacklist) -> b
+    void access$2(org.adaway.Blacklist) -> c
+    android.content.Context access$3(org.adaway.Blacklist) -> d
+    void access$4(org.adaway.Blacklist,java.lang.String) -> a
+org.adaway.Blacklist$1 -> org.adaway.q:
+    org.adaway.Blacklist this$0 -> a
+    android.widget.EditText val$inputEditText -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Blacklist$1$1 -> org.adaway.p:
+    org.adaway.Blacklist$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Blacklist$2 -> org.adaway.s:
+    org.adaway.Blacklist this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Blacklist$3 -> org.adaway.r:
+    org.adaway.Blacklist this$0 -> a
+    android.widget.EditText val$inputEditText -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Blacklist$4 -> org.adaway.u:
+    org.adaway.Blacklist this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Blacklist$5 -> org.adaway.t:
+    org.adaway.Blacklist this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.HostsSources -> org.adaway.HostsSources:
+    android.content.Context mContext -> a
+    org.adaway.helper.DatabaseHelper mDatabaseHelper -> b
+    android.database.Cursor mCursor -> c
+    org.adaway.utils.CheckboxCursorAdapter mAdapter -> d
+    long mCurrentRowId -> e
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void addEntry(java.lang.String) -> a
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onCreate(android.os.Bundle) -> onCreate
+    void updateView() -> a
+    void onDestroy() -> onDestroy
+    org.adaway.helper.DatabaseHelper access$0(org.adaway.HostsSources) -> a
+    long access$1(org.adaway.HostsSources) -> b
+    void access$2(org.adaway.HostsSources) -> c
+    android.content.Context access$3(org.adaway.HostsSources) -> d
+    void access$4(org.adaway.HostsSources,java.lang.String) -> a
+org.adaway.HostsSources$1 -> org.adaway.c:
+    org.adaway.HostsSources this$0 -> a
+    android.widget.EditText val$inputEditText -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.HostsSources$1$1 -> org.adaway.aa:
+    org.adaway.HostsSources$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.HostsSources$2 -> org.adaway.e:
+    org.adaway.HostsSources this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.HostsSources$3 -> org.adaway.d:
+    org.adaway.HostsSources this$0 -> a
+    android.widget.EditText val$inputEditText -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.HostsSources$4 -> org.adaway.f:
+    org.adaway.HostsSources this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.HostsSources$5 -> org.adaway.g:
+    org.adaway.HostsSources this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Preferences -> org.adaway.Preferences:
+    void onCreate(android.os.Bundle) -> onCreate
+org.adaway.RedirectionList -> org.adaway.RedirectionList:
+    android.content.Context mContext -> a
+    org.adaway.helper.DatabaseHelper mDatabaseHelper -> b
+    android.database.Cursor mCursor -> c
+    org.adaway.utils.RedirectionCursorAdapter mAdapter -> d
+    long mCurrentRowId -> e
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onCreate(android.os.Bundle) -> onCreate
+    void updateView() -> a
+    void onDestroy() -> onDestroy
+    org.adaway.helper.DatabaseHelper access$0(org.adaway.RedirectionList) -> a
+    long access$1(org.adaway.RedirectionList) -> b
+    void access$2(org.adaway.RedirectionList) -> c
+    android.content.Context access$3(org.adaway.RedirectionList) -> d
+    void access$4(org.adaway.RedirectionList,java.lang.String,java.lang.String) -> a
+org.adaway.RedirectionList$1 -> org.adaway.m:
+    org.adaway.RedirectionList this$0 -> a
+    android.widget.EditText val$hostnameEditText -> b
+    android.widget.EditText val$ipEditText -> c
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.RedirectionList$1$1 -> org.adaway.b:
+    org.adaway.RedirectionList$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.RedirectionList$1$2 -> org.adaway.a:
+    org.adaway.RedirectionList$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.RedirectionList$2 -> org.adaway.n:
+    org.adaway.RedirectionList this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.RedirectionList$3 -> org.adaway.j:
+    org.adaway.RedirectionList this$0 -> a
+    android.widget.EditText val$hostnameEditText -> b
+    android.widget.EditText val$ipEditText -> c
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.RedirectionList$4 -> org.adaway.l:
+    org.adaway.RedirectionList this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.RedirectionList$5 -> org.adaway.h:
+    org.adaway.RedirectionList this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.RedirectionList$6 -> org.adaway.i:
+    org.adaway.RedirectionList this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Whitelist -> org.adaway.Whitelist:
+    android.content.Context mContext -> a
+    org.adaway.helper.DatabaseHelper mDatabaseHelper -> b
+    android.database.Cursor mCursor -> c
+    org.adaway.utils.CheckboxCursorAdapter mAdapter -> d
+    long mCurrentRowId -> e
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void addEntry(java.lang.String) -> a
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onCreate(android.os.Bundle) -> onCreate
+    void updateView() -> a
+    void onDestroy() -> onDestroy
+    org.adaway.helper.DatabaseHelper access$0(org.adaway.Whitelist) -> a
+    long access$1(org.adaway.Whitelist) -> b
+    void access$2(org.adaway.Whitelist) -> c
+    android.content.Context access$3(org.adaway.Whitelist) -> d
+    void access$4(org.adaway.Whitelist,java.lang.String) -> a
+org.adaway.Whitelist$1 -> org.adaway.x:
+    org.adaway.Whitelist this$0 -> a
+    android.widget.EditText val$inputEditText -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Whitelist$1$1 -> org.adaway.o:
+    org.adaway.Whitelist$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Whitelist$2 -> org.adaway.z:
+    org.adaway.Whitelist this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Whitelist$3 -> org.adaway.y:
+    org.adaway.Whitelist this$0 -> a
+    android.widget.EditText val$inputEditText -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Whitelist$4 -> org.adaway.w:
+    org.adaway.Whitelist this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.Whitelist$5 -> org.adaway.v:
+    org.adaway.Whitelist this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.helper.ApplyHelper -> org.adaway.a.e:
+    boolean isHostsFileApplied(android.content.Context,java.lang.String) -> a
+org.adaway.helper.DatabaseHelper -> org.adaway.a.c:
+    android.content.Context mContext -> a
+    android.database.sqlite.SQLiteDatabase mDB -> b
+    android.database.sqlite.SQLiteStatement insertStmtHostsSources -> c
+    android.database.sqlite.SQLiteStatement insertStmtWhitelist -> d
+    android.database.sqlite.SQLiteStatement insertStmtBlacklist -> e
+    android.database.sqlite.SQLiteStatement insertStmtRedirectionList -> f
+    void close() -> a
+    long getLastModified() -> b
+    long insertHostsSource(java.lang.String) -> a
+    void deleteHostsSource(long) -> a
+    void updateHostsSourceURL(long,java.lang.String) -> a
+    void updateHostsSourceStatus(long,java.lang.Integer) -> a
+    android.database.Cursor getHostsSourcesCursor() -> c
+    java.util.ArrayList getAllEnabledHostsSources() -> d
+    long insertWhitelistItem(java.lang.String) -> b
+    void deleteWhitelistItem(long) -> b
+    void updateWhitelistItemURL(long,java.lang.String) -> b
+    void updateWhitelistItemStatus(long,java.lang.Integer) -> b
+    android.database.Cursor getWhitelistCursor() -> e
+    long insertBlacklistItem(java.lang.String) -> c
+    void deleteBlacklistItem(long) -> c
+    void updateBlacklistItemURL(long,java.lang.String) -> c
+    void updateBlacklistItemStatus(long,java.lang.Integer) -> c
+    android.database.Cursor getBlacklistCursor() -> f
+    long insertRedirectionItem(java.lang.String,java.lang.String) -> a
+    void deleteRedirectionItem(long) -> d
+    void updateRedirectionItemURL(long,java.lang.String,java.lang.String) -> a
+    void updateRedirectionItemStatus(long,java.lang.Integer) -> d
+    android.database.Cursor getRedirectionCursor() -> g
+org.adaway.helper.DatabaseHelper$OpenHelper -> org.adaway.a.b:
+    long insertHostsSource(android.database.sqlite.SQLiteStatement,java.lang.String) -> a
+    void insertDefaultLastModified(android.database.sqlite.SQLiteDatabase) -> a
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+org.adaway.helper.Helper -> org.adaway.a.a:
+    java.lang.String longToDateString(long) -> a
+    boolean isAndroidRooted(android.app.Activity) -> a
+org.adaway.helper.Helper$1 -> org.adaway.a.f:
+    android.app.Activity val$activity -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.helper.Helper$2 -> org.adaway.a.h:
+    android.app.Activity val$activity -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.helper.Helper$3 -> org.adaway.a.g:
+    android.app.Activity val$activity -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.adaway.helper.ValidationHelper -> org.adaway.a.d:
+    java.util.regex.Pattern mHostnamePattern -> a
+    java.util.regex.Matcher mHostnameMatcher -> b
+    java.util.regex.Pattern mIPv4Pattern -> c
+    java.util.regex.Matcher mIPv4Matcher -> d
+    java.util.regex.Pattern mIPv6Pattern -> e
+    java.util.regex.Matcher mIPv6Matcher -> f
+    boolean isValidUrl(java.lang.String) -> a
+    boolean isValidHostname(java.lang.String) -> b
+    boolean isValidIPv4(java.lang.String) -> d
+    boolean isValidIPv6(java.lang.String) -> e
+    boolean isValidIP(java.lang.String) -> c
+org.adaway.utils.CheckboxCursorAdapter -> org.adaway.b.a:
+    int layout -> a
+    android.view.View newView(android.content.Context,android.database.Cursor,android.view.ViewGroup) -> newView
+    void bindView(android.view.View,android.content.Context,android.database.Cursor) -> bindView
+org.adaway.utils.RedirectionCursorAdapter -> org.adaway.b.b:
+    int layout -> a
+    android.view.View newView(android.content.Context,android.database.Cursor,android.view.ViewGroup) -> newView
+    void bindView(android.view.View,android.content.Context,android.database.Cursor) -> bindView

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="SherlockTheme">
+        <attr name="actionDropDownStyle" format="reference" />
+        <attr name="actionButtonStyle" format="reference" />
+        <attr name="actionBarTabStyle" format="reference" />
+        <attr name="actionBarTabBarStyle" format="reference" />
+        <attr name="actionBarTabTextStyle" format="reference" />
+        <attr name="actionOverflowButtonStyle" format="reference" />
+        <attr name="actionHomeButtonStyle" format="reference" />
+        <!--attr name="actionBarStyle" format="reference" /-->
+        <attr name="actionBarSize" format="dimension" >
+            <enum name="wrap_content" value="0" />
+        </attr>
+        <attr name="actionMenuTextAppearance" format="reference" />
+        <attr name="actionMenuTextColor" format="color|reference" />        
+        <attr name="actionModeCloseButtonStyle" format="reference" />
+        <attr name="actionModeBackground" format="reference" />
+        <attr name="actionModeCloseDrawable" format="reference" />
+        <attr name="homeAsUpIndicator" format="reference" />
+        <attr name="selectableItemBackground" format="reference" />
+        <attr name="dropDownListViewStyle" format="reference" />
+        <attr name="popupMenuStyle" format="reference" />
+        <attr name="dropdownListPreferredItemHeight" format="dimension" />
+        <attr name="actionSpinnerItemStyle" format="reference" />
+        <attr name="windowActionBar" format="boolean"/>
+        <attr name="windowActionModeOverlay" format="boolean"/>
+        
+        
+        <attr name="abNavigationMode">
+            <enum name="normal" value="0" />
+            <enum name="listMode" value="1" />
+            <enum name="tabMode" value="2" />
+        </attr>
+        <attr name="abDisplayOptions">
+            <flag name="useLogo" value="0x1" />
+            <flag name="showHome" value="0x2" />
+            <flag name="homeAsUp" value="0x4" />
+            <flag name="showTitle" value="0x8" />
+            <flag name="showCustom" value="0x10" />
+        </attr>
+        <attr name="abTitle" format="string" />
+        <attr name="abSubtitle" format="string" />
+        <attr name="abTitleTextStyle" format="reference" />
+        <attr name="abSubtitleTextStyle" format="reference" />
+        <attr name="abIcon" format="reference" />
+        <attr name="abLogo" format="reference" />
+        <attr name="abDivider" format="reference|color" />
+        <attr name="abBackground" format="reference|color" />
+        <attr name="abCustomNavigationLayout" format="reference" />
+        <attr name="abHeight" format="reference|dimension" />
+        <attr name="abHomeAsUpIndicator" format="reference" />
+        <attr name="abHomeLayout" format="reference" />
+        <attr name="abProgressBarStyle" format="reference" />
+        <attr name="abIndeterminateProgressStyle" format="reference" />
+        <attr name="abProgressBarPadding" format="dimension" />
+        <attr name="abItemPadding" format="dimension" />
+	</declare-styleable>
+</resources>
