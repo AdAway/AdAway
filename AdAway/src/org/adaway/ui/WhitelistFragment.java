@@ -23,14 +23,17 @@ package org.adaway.ui;
 import org.adaway.R;
 import org.adaway.helper.DatabaseHelper;
 import org.adaway.helper.ValidationHelper;
+import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
-import org.adaway.util.RedirectionCursorAdapter;
 
+import android.support.v4.app.ListFragment;
+import android.support.v4.view.Menu;
+import android.support.v4.view.MenuItem;
+
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
-import android.content.Context;
 import android.content.DialogInterface;
-//import android.content.Intent;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
@@ -38,25 +41,23 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
-//import com.google.zxing.integration.android.IntentIntegrator;
-//import com.google.zxing.integration.android.IntentResult;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
-public class RedirectionListActivity extends ListActivity {
+public class WhitelistFragment extends ListFragment {
 
-    private Context mContext;
+    private Activity mActivity;
     private DatabaseHelper mDatabaseHelper;
     private Cursor mCursor;
-    private RedirectionCursorAdapter mAdapter;
+    private CheckboxCursorAdapter mAdapter;
 
     private long mCurrentRowId;
 
@@ -64,10 +65,9 @@ public class RedirectionListActivity extends ListActivity {
      * Options Menu
      */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.redirection_list, menu);
-        return true;
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.checkbox_list, menu);
     }
 
     /**
@@ -76,7 +76,7 @@ public class RedirectionListActivity extends ListActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
+        MenuInflater inflater = (MenuInflater) mActivity.getMenuInflater(); // TODO: works?
         menu.setHeaderTitle(R.string.checkbox_list_context_title);
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }
@@ -85,7 +85,7 @@ public class RedirectionListActivity extends ListActivity {
      * Context Menu Items
      */
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
+    public boolean onContextItemSelected(android.view.MenuItem item) {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
@@ -108,7 +108,7 @@ public class RedirectionListActivity extends ListActivity {
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // row id from cursor
 
-        mDatabaseHelper.deleteRedirectionItem(mCurrentRowId);
+        mDatabaseHelper.deleteWhitelistItem(mCurrentRowId);
         updateView();
     }
 
@@ -122,29 +122,22 @@ public class RedirectionListActivity extends ListActivity {
         int position = info.position;
         View v = info.targetView;
 
-        TextView hostnameTextView = (TextView) v.findViewWithTag("hostname_" + position);
-        TextView ipTextView = (TextView) v.findViewWithTag("ip_" + position);
+        CheckBox cBox = (CheckBox) v.findViewWithTag(position);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mContext);
-        final View dialogView = factory.inflate(R.layout.list_dialog_redirection, null);
-        final EditText hostnameEditText = (EditText) dialogView
+        LayoutInflater factory = LayoutInflater.from(mActivity);
+        final View dialogView = factory.inflate(R.layout.list_dialog_hostname, null);
+        final EditText inputEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
-        final EditText ipEditText = (EditText) dialogView.findViewById(R.id.list_dialog_ip);
-
-        // set text from list
-        hostnameEditText.setText(hostnameTextView.getText());
-        ipEditText.setText(ipTextView.getText());
+        inputEditText.setText(cBox.getText());
 
         // move cursor to end of EditText
-        Editable hostnameEditContent = hostnameEditText.getText();
-        hostnameEditText.setSelection(hostnameEditContent.length());
-        Editable ipEditContent = ipEditText.getText();
-        ipEditText.setSelection(ipEditContent.length());
+        Editable inputEditContent = inputEditText.getText();
+        inputEditText.setSelection(inputEditContent.length());
 
         builder.setView(dialogView);
 
@@ -154,30 +147,13 @@ public class RedirectionListActivity extends ListActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
 
-                        String hostname = hostnameEditText.getText().toString();
-                        String ip = ipEditText.getText().toString();
+                        String input = inputEditText.getText().toString();
 
-                        if (ValidationHelper.isValidHostname(hostname)) {
-                            if (ValidationHelper.isValidIP(ip)) {
-                                mDatabaseHelper.updateRedirectionItemURL(mCurrentRowId, hostname,
-                                        ip);
-                                updateView();
-                            } else {
-                                AlertDialog alertDialog = new AlertDialog.Builder(mContext)
-                                        .create();
-                                alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                                alertDialog.setTitle(R.string.no_ip_title);
-                                alertDialog.setMessage(getString(org.adaway.R.string.no_ip));
-                                alertDialog.setButton(getString(R.string.button_close),
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dlg, int sum) {
-                                                dlg.dismiss();
-                                            }
-                                        });
-                                alertDialog.show();
-                            }
+                        if (ValidationHelper.isValidHostname(input)) {
+                            mDatabaseHelper.updateWhitelistItemURL(mCurrentRowId, input);
+                            updateView();
                         } else {
-                            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                            AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                             alertDialog.setTitle(R.string.no_hostname_title);
                             alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
@@ -207,22 +183,22 @@ public class RedirectionListActivity extends ListActivity {
      * focusable and clickable on checkboxes in layout xml.
      */
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         mCurrentRowId = id;
 
         // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
         // checkboxes by position of cursor
-        CheckBox cBox = (CheckBox) v.findViewWithTag("checkbox_" + position);
+        CheckBox cBox = (CheckBox) v.findViewWithTag(position);
 
         if (cBox != null) {
             if (cBox.isChecked()) {
                 cBox.setChecked(false);
                 // change status based on row id from cursor
-                mDatabaseHelper.updateRedirectionItemStatus(mCurrentRowId, 0);
+                mDatabaseHelper.updateWhitelistItemStatus(mCurrentRowId, 0);
             } else {
                 cBox.setChecked(true);
-                mDatabaseHelper.updateRedirectionItemStatus(mCurrentRowId, 1);
+                mDatabaseHelper.updateWhitelistItemStatus(mCurrentRowId, 1);
             }
         } else {
             Log.e(Constants.TAG, "Checkbox could not be found!");
@@ -240,11 +216,11 @@ public class RedirectionListActivity extends ListActivity {
             menuAddEntry();
             return true;
 
-            // case R.id.menu_add_qrcode:
-            // // Use Barcode Scanner
-            // IntentIntegrator.initiateScan(this, R.string.no_barcode_scanner_title,
-            // R.string.no_barcode_scanner, R.string.button_yes, R.string.button_no);
-            // return true;
+        case R.id.menu_add_qrcode:
+            // Use Barcode Scanner
+            IntentIntegrator.initiateScan(mActivity, R.string.no_barcode_scanner_title,
+                    R.string.no_barcode_scanner, R.string.button_yes, R.string.button_no);
+            return true;
 
         default:
             return super.onOptionsItemSelected(item);
@@ -255,24 +231,19 @@ public class RedirectionListActivity extends ListActivity {
      * Add Entry Menu Action
      */
     public void menuAddEntry() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mContext);
-        final View dialogView = factory.inflate(R.layout.list_dialog_redirection, null);
-        final EditText hostnameEditText = (EditText) dialogView
+        LayoutInflater factory = LayoutInflater.from(mActivity);
+        final View dialogView = factory.inflate(R.layout.list_dialog_hostname, null);
+        final EditText inputEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
-        final EditText ipEditText = (EditText) dialogView.findViewById(R.id.list_dialog_ip);
 
         // move cursor to end of EditText
-        Editable hostnameEditContent = hostnameEditText.getText();
-        hostnameEditText.setSelection(hostnameEditContent.length());
-
-        // move cursor to end of EditText
-        Editable ipEditContent = ipEditText.getText();
-        ipEditText.setSelection(ipEditContent.length());
+        Editable inputEditContent = inputEditText.getText();
+        inputEditText.setSelection(inputEditContent.length());
 
         builder.setView(dialogView);
 
@@ -282,10 +253,8 @@ public class RedirectionListActivity extends ListActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
 
-                        String hostname = hostnameEditText.getText().toString();
-                        String ip = ipEditText.getText().toString();
-
-                        addEntry(hostname, ip);
+                        String input = inputEditText.getText().toString();
+                        addEntry(input);
                     }
                 });
         builder.setNegativeButton(getResources().getString(R.string.button_cancel),
@@ -304,27 +273,13 @@ public class RedirectionListActivity extends ListActivity {
      * 
      * @param input
      */
-    private void addEntry(String hostname, String ip) {
-        if (hostname != null) {
-            if (ValidationHelper.isValidHostname(hostname)) {
-                if (ValidationHelper.isValidIP(ip)) {
-                    mDatabaseHelper.insertRedirectionItem(hostname, ip);
-                    updateView();
-                } else {
-                    AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                    alertDialog.setTitle(R.string.no_ip_title);
-                    alertDialog.setMessage(getString(org.adaway.R.string.no_ip));
-                    alertDialog.setButton(getString(R.string.button_close),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dlg, int sum) {
-                                    dlg.dismiss();
-                                }
-                            });
-                    alertDialog.show();
-                }
+    private void addEntry(String input) {
+        if (input != null) {
+            if (ValidationHelper.isValidHostname(input)) {
+                mDatabaseHelper.insertWhitelistItem(input);
+                updateView();
             } else {
-                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_hostname_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
@@ -339,41 +294,54 @@ public class RedirectionListActivity extends ListActivity {
         }
     }
 
-    // /**
-    // * Barcode Scanner Result Parsing
-    // */
-    // @Override
-    // public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-    // IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode,
-    // intent);
-    //
-    // if (scanResult != null) {
-    // addEntry(scanResult.getContents());
-    // }
-    // }
+    /**
+     * Barcode Scanner Result Parsing
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode,
+                intent);
+
+        if (scanResult != null) {
+            addEntry(scanResult.getContents());
+        }
+    }
 
     /**
      * Called when the activity is first created.
      */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        mContext = this;
+        mActivity = getActivity();
 
-        mDatabaseHelper = new DatabaseHelper(mContext); // open db
-        setContentView(R.layout.redirection_list); // set view
+        mDatabaseHelper = new DatabaseHelper(mActivity); // open db
         registerForContextMenu(getListView()); // register long press context menu
 
         // build content of list
-        mCursor = mDatabaseHelper.getRedirectionCursor();
-        startManagingCursor(mCursor); // closing of cursor is done this way
+        mCursor = mDatabaseHelper.getWhitelistCursor();
+        mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
 
-        String[] displayFields = new String[] { "url", "ip" };
-        int[] displayViews = new int[] { R.id.redirection_list_hostname, R.id.redirection_list_ip };
-        mAdapter = new RedirectionCursorAdapter(mContext, R.layout.redirection_list_entry, mCursor,
+        String[] displayFields = new String[] { "url" };
+        int[] displayViews = new int[] { R.id.checkbox_list_checkbox };
+        mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, mCursor,
                 displayFields, displayViews);
         setListAdapter(mAdapter);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true); // enable options menu for this fragment
+    }
+
+    /**
+     * Inflate the layout for this fragment
+     */
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.checkbox_list, container, false);
     }
 
     /**
@@ -388,7 +356,7 @@ public class RedirectionListActivity extends ListActivity {
      * Close DB onDestroy
      */
     @Override
-    protected void onDestroy() {
+    public void onDestroyView() {
         mDatabaseHelper.close();
         super.onDestroy();
     }

@@ -26,8 +26,8 @@ import org.adaway.helper.ValidationHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -54,7 +54,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class HostsSourcesFragment extends ListFragment {
 
-    private Context mContext;
+    private Activity mActivity;
     private DatabaseHelper mDatabaseHelper;
     private Cursor mCursor;
     private CheckboxCursorAdapter mAdapter;
@@ -76,7 +76,7 @@ public class HostsSourcesFragment extends ListFragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = (MenuInflater) getActivity().getMenuInflater(); // TODO: works?
+        MenuInflater inflater = (MenuInflater) mActivity.getMenuInflater(); // TODO: works?
         menu.setHeaderTitle(R.string.checkbox_list_context_title);
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }
@@ -124,12 +124,12 @@ public class HostsSourcesFragment extends ListFragment {
 
         CheckBox cBox = (CheckBox) v.findViewWithTag(position);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mContext);
+        LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.list_dialog_url, null);
         final EditText inputEditText = (EditText) dialogView.findViewById(R.id.list_dialog_url);
         // set text from list
@@ -153,7 +153,7 @@ public class HostsSourcesFragment extends ListFragment {
                             mDatabaseHelper.updateHostsSourceURL(mCurrentRowId, input);
                             updateView();
                         } else {
-                            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                            AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                             alertDialog.setTitle(R.string.no_url_title);
                             alertDialog.setMessage(getString(org.adaway.R.string.no_url));
@@ -218,7 +218,7 @@ public class HostsSourcesFragment extends ListFragment {
 
         case R.id.menu_add_qrcode:
             // Use Barcode Scanner
-            IntentIntegrator.initiateScan(getActivity(), R.string.no_barcode_scanner_title,
+            IntentIntegrator.initiateScan(mActivity, R.string.no_barcode_scanner_title,
                     R.string.no_barcode_scanner, R.string.button_yes, R.string.button_no);
             return true;
 
@@ -231,12 +231,12 @@ public class HostsSourcesFragment extends ListFragment {
      * Add Entry Menu Action
      */
     public void menuAddEntry() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mContext);
+        LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.list_dialog_url, null);
         final EditText inputEditText = (EditText) dialogView.findViewById(R.id.list_dialog_url);
         // set EditText
@@ -280,7 +280,7 @@ public class HostsSourcesFragment extends ListFragment {
                 mDatabaseHelper.insertHostsSource(input);
                 updateView();
             } else {
-                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_url_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_url));
@@ -315,19 +315,18 @@ public class HostsSourcesFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mContext = this.getActivity();
+        mActivity = this.getActivity();
 
-        mDatabaseHelper = new DatabaseHelper(mContext); // open db
-        // setContentView(R.layout.checkbox_list); // set view
+        mDatabaseHelper = new DatabaseHelper(mActivity); // open db
         registerForContextMenu(getListView()); // register long press context menu
 
         // build content of list
         mCursor = mDatabaseHelper.getHostsSourcesCursor();
-        getActivity().startManagingCursor(mCursor); // closing of cursor is done this way
+        mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
 
         String[] displayFields = new String[] { "url" };
         int[] displayViews = new int[] { R.id.checkbox_list_checkbox };
-        mAdapter = new CheckboxCursorAdapter(mContext, R.layout.checkbox_list_entry, mCursor,
+        mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, mCursor,
                 displayFields, displayViews);
         setListAdapter(mAdapter);
     }

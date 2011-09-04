@@ -291,17 +291,20 @@ containing a value of this type.
         public static final int abs__tab_unselected_holo=0x7f020023;
         public static final int abs__tab_unselected_pressed_focused_holo=0x7f020024;
         public static final int abs__tab_unselected_pressed_holo=0x7f020025;
-        public static final int gd_action_bar_add=0x7f020026;
-        public static final int gd_action_bar_help=0x7f020027;
-        public static final int gd_action_bar_info=0x7f020028;
-        public static final int gd_action_bar_refresh=0x7f020029;
-        public static final int gd_action_bar_settings=0x7f02002a;
-        public static final int gd_action_bar_take_photo=0x7f02002b;
-        public static final int icon=0x7f02002c;
-        public static final int status_disabled=0x7f02002d;
-        public static final int status_enabled=0x7f02002e;
-        public static final int status_fail=0x7f02002f;
-        public static final int status_update=0x7f020030;
+        public static final int ic_menu_add=0x7f020026;
+        public static final int ic_menu_barcode=0x7f020027;
+        public static final int ic_menu_database=0x7f020028;
+        public static final int ic_menu_filter=0x7f020029;
+        public static final int ic_menu_help=0x7f02002a;
+        public static final int ic_menu_info_details=0x7f02002b;
+        public static final int ic_menu_love=0x7f02002c;
+        public static final int ic_menu_preferences=0x7f02002d;
+        public static final int ic_menu_refresh=0x7f02002e;
+        public static final int icon=0x7f02002f;
+        public static final int status_disabled=0x7f020030;
+        public static final int status_enabled=0x7f020031;
+        public static final int status_fail=0x7f020032;
+        public static final int status_update=0x7f020033;
     }
     public static final class id {
         public static final int about_version=0x7f050009;
@@ -327,8 +330,8 @@ containing a value of this type.
         public static final int apply_button=0x7f050022;
         public static final int base_fragment=0x7f050024;
         public static final int checkbox_list_checkbox=0x7f050026;
-        public static final int checkbox_list_context_delete=0x7f05003b;
-        public static final int checkbox_list_context_edit=0x7f05003c;
+        public static final int checkbox_list_context_delete=0x7f05003c;
+        public static final int checkbox_list_context_edit=0x7f05003d;
         public static final int checkbox_list_footer=0x7f050025;
         public static final int flattr_webview=0x7f050027;
         public static final int homeAsUp=0x7f050006;
@@ -338,21 +341,22 @@ containing a value of this type.
         public static final int list_dialog_hostname=0x7f05002b;
         public static final int list_dialog_ip=0x7f05002c;
         public static final int list_dialog_url=0x7f05002d;
+        public static final int lists_activity_pager=0x7f05002e;
         public static final int loading_frame=0x7f050028;
-        public static final int menu_about=0x7f050037;
-        public static final int menu_add=0x7f050039;
-        public static final int menu_add_qrcode=0x7f05003a;
-        public static final int menu_blacklist=0x7f050033;
-        public static final int menu_donations=0x7f050038;
-        public static final int menu_hosts_sources=0x7f050032;
-        public static final int menu_preferences=0x7f050036;
-        public static final int menu_redirection_list=0x7f050035;
-        public static final int menu_whitelist=0x7f050034;
+        public static final int menu_about=0x7f050036;
+        public static final int menu_add=0x7f05003a;
+        public static final int menu_add_qrcode=0x7f05003b;
+        public static final int menu_donations=0x7f050037;
+        public static final int menu_help=0x7f050039;
+        public static final int menu_hosts_sources=0x7f050033;
+        public static final int menu_lists=0x7f050034;
+        public static final int menu_preferences=0x7f050035;
+        public static final int menu_refresh=0x7f050038;
         public static final int normal=0x7f050001;
-        public static final int redirection_list_checkbox=0x7f05002f;
-        public static final int redirection_list_footer=0x7f05002e;
-        public static final int redirection_list_hostname=0x7f050031;
-        public static final int redirection_list_ip=0x7f050030;
+        public static final int redirection_list_checkbox=0x7f050030;
+        public static final int redirection_list_footer=0x7f05002f;
+        public static final int redirection_list_hostname=0x7f050032;
+        public static final int redirection_list_ip=0x7f050031;
         public static final int revert_button=0x7f050023;
         public static final int showCustom=0x7f050008;
         public static final int showHome=0x7f050005;
@@ -386,9 +390,10 @@ containing a value of this type.
         public static final int list_dialog_hostname=0x7f030010;
         public static final int list_dialog_redirection=0x7f030011;
         public static final int list_dialog_url=0x7f030012;
-        public static final int no_root_dialog=0x7f030013;
-        public static final int redirection_list=0x7f030014;
-        public static final int redirection_list_entry=0x7f030015;
+        public static final int lists_activity=0x7f030013;
+        public static final int no_root_dialog=0x7f030014;
+        public static final int redirection_list=0x7f030015;
+        public static final int redirection_list_entry=0x7f030016;
     }
     public static final class menu {
         public static final int base=0x7f0a0000;
@@ -462,12 +467,12 @@ containing a value of this type.
         public static final int menu_about=0x7f08000a;
         public static final int menu_add=0x7f080024;
         public static final int menu_add_qrcode=0x7f080025;
-        public static final int menu_blacklist=0x7f08003e;
         public static final int menu_donations=0x7f080065;
+        public static final int menu_help=0x7f08007a;
         public static final int menu_hosts_sources=0x7f080009;
+        public static final int menu_lists=0x7f08007b;
         public static final int menu_preferences=0x7f08000f;
-        public static final int menu_redirection_list=0x7f080040;
-        public static final int menu_whitelist=0x7f08003d;
+        public static final int menu_refresh=0x7f08007f;
         public static final int no_barcode_scanner=0x7f080038;
         public static final int no_barcode_scanner_title=0x7f080037;
         public static final int no_busybox=0x7f080057;
@@ -519,6 +524,12 @@ containing a value of this type.
         public static final int status_no_connection_subtitle=0x7f08004f;
         public static final int status_update_available=0x7f08004c;
         public static final int status_update_available_subtitle=0x7f08004d;
+        public static final int tab_blacklist=0x7f08003e;
+        public static final int tab_blacklist_short=0x7f08007c;
+        public static final int tab_redirection_list=0x7f080040;
+        public static final int tab_redirection_list_short=0x7f08007e;
+        public static final int tab_whitelist=0x7f08003d;
+        public static final int tab_whitelist_short=0x7f08007d;
     }
     public static final class style {
         public static final int Internal_Widget_Sherlock_ActionBar=0x7f07001c;

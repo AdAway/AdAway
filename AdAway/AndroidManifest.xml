@@ -9,6 +9,7 @@
         android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission
         android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name"
@@ -27,14 +28,9 @@
             android:label="@string/menu_hosts_sources" android:name=".ui.HostsSourcesActivity"></activity>
         <activity
             android:label="@string/menu_preferences" android:name=".ui.PrefsActivity"></activity>
-        <activity
-            android:label="@string/menu_whitelist" android:name=".ui.WhitelistActivity"></activity>
-        <activity
-            android:label="@string/menu_blacklist" android:name=".ui.BlacklistActivity"></activity>
-        <activity
-            android:name=".ui.RedirectionListActivity"
-            android:label="@string/menu_redirection_list"></activity>
         <activity android:name=".ui.PrefsActivityHC" android:label="@string/menu_preferences"></activity>
+        <activity android:name=".ui.HelpActivity" android:label="@string/menu_help"></activity>
+        <activity android:label="@string/menu_lists" android:name=".ui.ListsActivity"></activity>
 
     </application>
 </manifest>

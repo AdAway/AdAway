@@ -35,12 +35,12 @@ public class Constants {
     public static final String HOSTS_FILENAME = "hosts";
     public static final String LINE_SEPERATOR = System.getProperty("line.separator", "\n");
     public static final String FILE_SEPERATOR = System.getProperty("file.separator", "/");
-    public static final String COMMAND_COPY = "cp -f";
-    public static final String COMMAND_CHOWN = "chown 0:0";
+    public static final String COMMAND_COPY = "busybox cp -f";
+    public static final String COMMAND_CHOWN = "busybox chown 0:0";
     public static final String COMMAND_CHMOD_644 = "chmod 644";
     public static final String COMMAND_CHMOD_666 = "chmod 666";
-    public static final String COMMAND_LN = "ln -s";
-    public static final String COMMAND_RM = "rm -f";
+    public static final String COMMAND_LN = "busybox ln -s";
+    public static final String COMMAND_RM = "busybox rm -f";
     public static final String ANDROID_SYSTEM = System.getProperty("java.home", "/system");
     public static final String ANDROID_SYSTEM_ETC_PATH = ANDROID_SYSTEM + FILE_SEPERATOR + "etc";
     public static final String ANDROID_DATA_DATA_PATH = FILE_SEPERATOR + "data" + FILE_SEPERATOR

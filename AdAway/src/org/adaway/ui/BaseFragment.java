@@ -226,16 +226,8 @@ public class BaseFragment extends Fragment {
             startActivity(new Intent(mActivity, HostsSourcesActivity.class));
             return true;
 
-        case R.id.menu_blacklist:
-            startActivity(new Intent(mActivity, BlacklistActivity.class));
-            return true;
-
-        case R.id.menu_whitelist:
-            startActivity(new Intent(mActivity, WhitelistActivity.class));
-            return true;
-
-        case R.id.menu_redirection_list:
-            startActivity(new Intent(mActivity, RedirectionListActivity.class));
+        case R.id.menu_lists:
+            startActivity(new Intent(mActivity, ListsActivity.class));
             return true;
 
         case R.id.menu_preferences:
@@ -253,6 +245,10 @@ public class BaseFragment extends Fragment {
 
         case R.id.menu_about:
             showAboutDialog();
+            return true;
+
+        case R.id.menu_help:
+            startActivity(new Intent(mActivity, HelpActivity.class));
             return true;
 
         default:
@@ -290,7 +286,7 @@ public class BaseFragment extends Fragment {
             checkOnCreate();
         }
     }
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

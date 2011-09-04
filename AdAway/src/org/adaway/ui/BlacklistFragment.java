@@ -26,9 +26,12 @@ import org.adaway.helper.ValidationHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
 
+import android.support.v4.app.ListFragment;
+import android.support.v4.view.Menu;
+import android.support.v4.view.MenuItem;
+
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -38,10 +41,9 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -50,9 +52,9 @@ import android.widget.ListView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-public class WhitelistActivity extends ListActivity {
+public class BlacklistFragment extends ListFragment {
 
-    private Context mContext;
+    private Activity mActivity;
     private DatabaseHelper mDatabaseHelper;
     private Cursor mCursor;
     private CheckboxCursorAdapter mAdapter;
@@ -63,10 +65,9 @@ public class WhitelistActivity extends ListActivity {
      * Options Menu
      */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.checkbox_list, menu);
-        return true;
     }
 
     /**
@@ -75,7 +76,7 @@ public class WhitelistActivity extends ListActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
+        MenuInflater inflater = (MenuInflater) mActivity.getMenuInflater(); // TODO: works?
         menu.setHeaderTitle(R.string.checkbox_list_context_title);
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }
@@ -84,7 +85,7 @@ public class WhitelistActivity extends ListActivity {
      * Context Menu Items
      */
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
+    public boolean onContextItemSelected(android.view.MenuItem item) {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
@@ -107,7 +108,7 @@ public class WhitelistActivity extends ListActivity {
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // row id from cursor
 
-        mDatabaseHelper.deleteWhitelistItem(mCurrentRowId);
+        mDatabaseHelper.deleteBlacklistItem(mCurrentRowId);
         updateView();
     }
 
@@ -123,12 +124,12 @@ public class WhitelistActivity extends ListActivity {
 
         CheckBox cBox = (CheckBox) v.findViewWithTag(position);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mContext);
+        LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.list_dialog_hostname, null);
         final EditText inputEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
@@ -149,10 +150,10 @@ public class WhitelistActivity extends ListActivity {
                         String input = inputEditText.getText().toString();
 
                         if (ValidationHelper.isValidHostname(input)) {
-                            mDatabaseHelper.updateWhitelistItemURL(mCurrentRowId, input);
+                            mDatabaseHelper.updateBlacklistItemURL(mCurrentRowId, input);
                             updateView();
                         } else {
-                            AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                            AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                             alertDialog.setTitle(R.string.no_hostname_title);
                             alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
@@ -182,7 +183,7 @@ public class WhitelistActivity extends ListActivity {
      * focusable and clickable on checkboxes in layout xml.
      */
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         mCurrentRowId = id;
 
@@ -194,10 +195,10 @@ public class WhitelistActivity extends ListActivity {
             if (cBox.isChecked()) {
                 cBox.setChecked(false);
                 // change status based on row id from cursor
-                mDatabaseHelper.updateWhitelistItemStatus(mCurrentRowId, 0);
+                mDatabaseHelper.updateBlacklistItemStatus(mCurrentRowId, 0);
             } else {
                 cBox.setChecked(true);
-                mDatabaseHelper.updateWhitelistItemStatus(mCurrentRowId, 1);
+                mDatabaseHelper.updateBlacklistItemStatus(mCurrentRowId, 1);
             }
         } else {
             Log.e(Constants.TAG, "Checkbox could not be found!");
@@ -217,7 +218,7 @@ public class WhitelistActivity extends ListActivity {
 
         case R.id.menu_add_qrcode:
             // Use Barcode Scanner
-            IntentIntegrator.initiateScan(this, R.string.no_barcode_scanner_title,
+            IntentIntegrator.initiateScan(mActivity, R.string.no_barcode_scanner_title,
                     R.string.no_barcode_scanner, R.string.button_yes, R.string.button_no);
             return true;
 
@@ -230,12 +231,12 @@ public class WhitelistActivity extends ListActivity {
      * Add Entry Menu Action
      */
     public void menuAddEntry() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mContext);
+        LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.list_dialog_hostname, null);
         final EditText inputEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
@@ -275,10 +276,10 @@ public class WhitelistActivity extends ListActivity {
     private void addEntry(String input) {
         if (input != null) {
             if (ValidationHelper.isValidHostname(input)) {
-                mDatabaseHelper.insertWhitelistItem(input);
+                mDatabaseHelper.insertBlacklistItem(input);
                 updateView();
             } else {
-                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_hostname_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
@@ -310,24 +311,37 @@ public class WhitelistActivity extends ListActivity {
      * Called when the activity is first created.
      */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        mContext = this;
+        mActivity = getActivity();
 
-        mDatabaseHelper = new DatabaseHelper(mContext); // open db
-        setContentView(R.layout.checkbox_list); // set view
+        mDatabaseHelper = new DatabaseHelper(mActivity); // open db
         registerForContextMenu(getListView()); // register long press context menu
 
         // build content of list
-        mCursor = mDatabaseHelper.getWhitelistCursor();
-        startManagingCursor(mCursor); // closing of cursor is done this way
+        mCursor = mDatabaseHelper.getBlacklistCursor();
+        mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
 
         String[] displayFields = new String[] { "url" };
         int[] displayViews = new int[] { R.id.checkbox_list_checkbox };
-        mAdapter = new CheckboxCursorAdapter(mContext, R.layout.checkbox_list_entry, mCursor,
+        mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, mCursor,
                 displayFields, displayViews);
         setListAdapter(mAdapter);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true); // enable options menu for this fragment
+    }
+
+    /**
+     * Inflate the layout for this fragment
+     */
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.checkbox_list, container, false);
     }
 
     /**
@@ -342,7 +356,7 @@ public class WhitelistActivity extends ListActivity {
      * Close DB onDestroy
      */
     @Override
-    protected void onDestroy() {
+    public void onDestroyView() {
         mDatabaseHelper.close();
         super.onDestroy();
     }

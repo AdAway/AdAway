@@ -48,7 +48,7 @@
     <string name="checkbox_list_empty">No entries</string>
     <string name="checkbox_list_context_delete">Delete</string>
     <string name="checkbox_list_footer">Long press one entry to show a context menu with more options.</string>
-    <string name="app_subtitle">Open source ad blocker</string>
+    <string name="app_subtitle">Ad blocker</string>
     <string name="button_apply_text">All hosts files from the defined sources are downloaded, merged and installed as one hosts file on your system.</string>
     <string name="button_revert_text">Restores the default hosts file on your system.</string>
     <string name="no_sources_title">No Sources defined</string>
@@ -61,10 +61,10 @@
     <string name="checkbox_list_context_edit">Edit</string>
     <string name="no_hostname">This is not a valid hostname!</string>
     <string name="no_hostname_title">Malformed hostname</string>
-    <string name="menu_whitelist">Whitelist</string>
-    <string name="menu_blacklist">Blacklist</string>
+    <string name="tab_whitelist">Whitelist</string>
+    <string name="tab_blacklist">Blacklist</string>
     <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
-    <string name="menu_redirection_list">Redirection List</string>
+    <string name="tab_redirection_list">Redirection List</string>
     <string name="list_dialog_url">URL:</string>
     <string name="list_dialog_hostname">Hostname:</string>
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
@@ -130,4 +130,10 @@
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
     <string name="pref_header_preferences">Preferences</string>
     <string name="pref_header_preferences_summary">General preferences for AdAway</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_lists">Lists</string>
+    <string name="tab_blacklist_short">Black</string>
+    <string name="tab_whitelist_short">White</string>
+    <string name="tab_redirection_list_short">Redirection</string>
+    <string name="menu_refresh">Refresh</string>
 </resources>
