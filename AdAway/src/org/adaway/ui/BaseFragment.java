@@ -58,6 +58,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -75,7 +76,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.graphics.Bitmap;
 
 import com.stericson.RootTools.RootTools;
 
@@ -449,44 +449,46 @@ public class BaseFragment extends Fragment {
         mFlattrWebview = (WebView) dialogView.findViewById(R.id.flattr_webview);
         mLoadingFrame = (FrameLayout) dialogView.findViewById(R.id.loading_frame);
 
-        // http://stackoverflow.com/questions/3283819/how-do-i-make-my-progress-dialog-dismiss-after-webview-is-loaded/3993002
-
+        // define own webview client to override loading behaviour
         mFlattrWebview.setWebViewClient(new WebViewClient() {
-            private boolean loadingFinished = true;
-            private boolean redirect = false;
-
+            /**
+             * Open all links in browser, not in webview
+             */
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String urlNewString) {
-                if (!loadingFinished) {
-                    redirect = true;
-                }
+                view.getContext().startActivity(
+                        new Intent(Intent.ACTION_VIEW, Uri.parse(urlNewString)));
 
-                loadingFinished = false;
-                mFlattrWebview.loadUrl(urlNewString);
-                return true;
+                return false;
             }
 
+            /**
+             * Links in the flattr iframe should load in the browser not in the iframe itself,
+             * http:/
+             * /stackoverflow.com/questions/5641626/how-to-get-webview-iframe-link-to-launch-the
+             * -browser
+             */
             @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                loadingFinished = false;
+            public void onLoadResource(WebView view, String url) {
+                if (url.contains("flattr")) {
+                    if (view.getHitTestResult().getType() > 0) {
+                        view.getContext().startActivity(
+                                new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                        view.stopLoading();
+                    }
+                }
             }
 
+            /**
+             * When loading is done remove frame with progress circle
+             */
             @Override
             public void onPageFinished(WebView view, String url) {
-                if (!redirect) {
-                    loadingFinished = true;
+                // remove loading frame, show webview
+                if (mLoadingFrame.getVisibility() == View.VISIBLE) {
+                    mLoadingFrame.setVisibility(View.GONE);
+                    mFlattrWebview.setVisibility(View.VISIBLE);
                 }
-
-                if (loadingFinished && !redirect) {
-                    // remove loading frame, show webview
-                    if (mLoadingFrame.getVisibility() == View.VISIBLE) {
-                        mLoadingFrame.setVisibility(View.GONE);
-                        mFlattrWebview.setVisibility(View.VISIBLE);
-                    }
-                } else {
-                    redirect = false;
-                }
-
             }
         });
 
@@ -497,16 +499,30 @@ public class BaseFragment extends Fragment {
          * ://www.dafer45.com/android/for_developers/including_a_flattr_button_in_an_application.
          * html
          */
-        String flattrURL = "http://code.google.com/p/ad-away";
-        String donations_description = mActivity.getString(R.string.donations_description);
+        String projectUrl = getString(R.string.about_url);
+        String flattrUrl = getString(R.string.donations_url);
+        String donations_description = getString(R.string.donations_description);
 
         // make text white and background black
         String htmlStart = "<html> <head><style type=\"text/css\">*{color: #FFFFFF; background-color: #000000}</style>";
-        String flattrJavascript = "<script type=\"text/javascript\"> /* <![CDATA[ */    (function() {        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];        s.type = 'text/javascript';        s.async = true;        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';        t.parentNode.insertBefore(s, t);    })();/* ]]> */</script>";
+
+        // see flattr api https://flattr.com/support/integrate/js
+        String flattrParameter = "mode=auto&https=1";
+        String flattrJavascript = "<script type=\"text/javascript\">"
+                + "/* <![CDATA[ */"
+                + "(function() {"
+                + "var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];"
+                + "s.type = 'text/javascript';" + "s.async = true;"
+                + "s.src = 'http://api.flattr.com/js/0.6/load.js?" 
+                + flattrParameter 
+                + "';"
+                + "t.parentNode.insertBefore(s, t);" + "})();" + "/* ]]> */" + "</script>";
         String htmlMiddle = "</head> <body> <table> <tr> <td>";
         String flattrHtml = "<a class=\"FlattrButton\" style=\"display:none;\" href=\""
-                + flattrURL
-                + "\" target=\"_blank\"></a> <noscript><a href=\"http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android\" target=\"_blank\"> <img src=\"http://api.flattr.com/button/flattr-badge-large.png\" alt=\"Flattr this\" title=\"Flattr this\" border=\"0\" /></a></noscript>";
+                + projectUrl
+                + "\" target=\"_blank\"></a> <noscript><a href=\""
+                + flattrUrl
+                + "\" target=\"_blank\"> <img src=\"http://api.flattr.com/button/flattr-badge-large.png\" alt=\"Flattr this\" title=\"Flattr this\" border=\"0\" /></a></noscript>";
 
         String htmlEnd = "</td> <td>" + donations_description
                 + "</td> </tr> </table> </body> </html>";
@@ -522,7 +538,7 @@ public class BaseFragment extends Fragment {
 
         builder.setView(dialogView);
 
-        builder.setIcon(android.R.drawable.ic_dialog_info);
+        builder.setIcon(R.drawable.ic_dialog_love);
         builder.setNeutralButton(getString(R.string.button_close),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
