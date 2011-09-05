@@ -1,3 +1,4 @@
 *.class
 *.apk
-AdAway/bin
+org_adaway/bin
+org_adaway/gen
