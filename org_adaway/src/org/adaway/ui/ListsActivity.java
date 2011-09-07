@@ -46,14 +46,14 @@ public class ListsActivity extends FragmentActivity {
         // longer names for landscape mode or tablets
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE
                 || getResources().getConfiguration().screenLayout == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
-            tab1.setText(getString(R.string.tab_blacklist));
-            tab2.setText(getString(R.string.tab_whitelist));
-            tab3.setText(getString(R.string.tab_redirection_list));
-            
+            tab1.setText(getString(R.string.lists_tab_blacklist));
+            tab2.setText(getString(R.string.lists_tab_whitelist));
+            tab3.setText(getString(R.string.lists_tab_redirection_list));
+
         } else {
-            tab1.setText(getString(R.string.tab_blacklist_short));
-            tab2.setText(getString(R.string.tab_whitelist_short));
-            tab3.setText(getString(R.string.tab_redirection_list_short));
+            tab1.setText(getString(R.string.lists_tab_blacklist_short));
+            tab2.setText(getString(R.string.lists_tab_whitelist_short));
+            tab3.setText(getString(R.string.lists_tab_redirection_list_short));
         }
 
         mViewPager = (ViewPager) findViewById(R.id.lists_activity_pager);
