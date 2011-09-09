@@ -41,8 +41,8 @@ public class Constants {
     public static final String COMMAND_CHMOD_666 = "chmod 666";
     public static final String COMMAND_LN = "busybox ln -s";
     public static final String COMMAND_RM = "busybox rm -f";
-    public static final String ANDROID_SYSTEM = System.getProperty("java.home", "/system");
-    public static final String ANDROID_SYSTEM_ETC_PATH = ANDROID_SYSTEM + FILE_SEPERATOR + "etc";
+    public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
+    public static final String ANDROID_SYSTEM_ETC_PATH = ANDROID_SYSTEM_PATH + FILE_SEPERATOR + "etc";
     public static final String ANDROID_DATA_DATA_PATH = FILE_SEPERATOR + "data" + FILE_SEPERATOR
             + "data";
 

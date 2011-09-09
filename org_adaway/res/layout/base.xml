@@ -98,6 +98,20 @@
                     android:layout_width="wrap_content"
                     android:textSize="12sp"
                     android:layout_weight="1"></TextView>
+                    <Button
+                    android:id="@+id/s1_button"
+                    android:layout_height="wrap_content"
+                    android:text="start"
+                    android:onClick="startWebserver"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"></Button>
+                    <Button
+                    android:id="@+id/s2_button"
+                    android:layout_height="wrap_content"
+                    android:text="stop"
+                    android:onClick="stopWebserver"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"></Button>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -1,6 +1,8 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.helper.WebserverHelper;
+import org.adaway.util.CommandException;
 
 import android.os.Bundle;
 import android.support.v4.app.ActionBar;
@@ -46,5 +48,23 @@ public class BaseActivity extends FragmentActivity {
      */
     public void revertOnClick(View view) {
         mBaseFragment.revertOnClick(view);
+    }
+    
+    /**
+     * hand over onClick events, defined in layout from Activity to Fragment
+     */
+    public void startWebserver(View view) {
+        try {
+            WebserverHelper.startWebserver(this);
+        } catch (CommandException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * hand over onClick events, defined in layout from Activity to Fragment
+     */
+    public void stopWebserver(View view) {
     }
 }

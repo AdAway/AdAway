@@ -1,30 +1,43 @@
-package org.adaway.ui;
+/*
+ * Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
+ *
+ * This file is part of AdAway.
+ * 
+ * AdAway is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * AdAway is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
-import java.util.ArrayList;
+package org.adaway.ui;
 
 import org.adaway.R;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ActionBar.Tab;
 import android.support.v4.view.MenuItem;
-import android.support.v4.view.ViewPager;
 
-/**
- * Demonstrates combining the action bar with a ViewPager to implement a tab UI that switches
- * between tabs and also allows the user to perform horizontal flicks to move between the tabs.
- */
-public class ListsActivity extends FragmentActivity {
-    ViewPager mViewPager;
-    TabsAdapter mTabsAdapter;
+public class ListsActivity extends FragmentActivity implements ActionBar.TabListener {
 
+    /**
+     * Set ActionBar to include sign to Home
+     */
     @Override
     protected void onStart() {
         super.onStart();
@@ -32,51 +45,8 @@ public class ListsActivity extends FragmentActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.lists_activity);
-        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
-        ActionBar.Tab tab1 = getSupportActionBar().newTab();
-        ActionBar.Tab tab2 = getSupportActionBar().newTab();
-        ActionBar.Tab tab3 = getSupportActionBar().newTab();
-
-        // longer names for landscape mode or tablets
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE
-                || getResources().getConfiguration().screenLayout == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
-            tab1.setText(getString(R.string.lists_tab_blacklist));
-            tab2.setText(getString(R.string.lists_tab_whitelist));
-            tab3.setText(getString(R.string.lists_tab_redirection_list));
-
-        } else {
-            tab1.setText(getString(R.string.lists_tab_blacklist_short));
-            tab2.setText(getString(R.string.lists_tab_whitelist_short));
-            tab3.setText(getString(R.string.lists_tab_redirection_list_short));
-        }
-
-        mViewPager = (ViewPager) findViewById(R.id.lists_activity_pager);
-        mTabsAdapter = new TabsAdapter(this, getSupportActionBar(), mViewPager);
-
-        // add tabs for blacklist, whitelist and redirection list
-        mTabsAdapter.addTab(tab1, BlacklistFragment.class);
-        mTabsAdapter.addTab(tab2, WhitelistFragment.class);
-        mTabsAdapter.addTab(tab3, RedirectionListFragment.class);
-
-        if (savedInstanceState != null) {
-            getSupportActionBar().setSelectedNavigationItem(savedInstanceState.getInt("index"));
-        }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("index", getSupportActionBar().getSelectedNavigationIndex());
-    }
-
     /**
-     * Menu Items
+     * Menu item to go back home in ActionBar, other menu items are defined in Fragments
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -93,70 +63,78 @@ public class ListsActivity extends FragmentActivity {
     }
 
     /**
-     * This is a helper class that implements the management of tabs and all details of connecting a
-     * ViewPager with associated TabHost. It relies on a trick. Normally a tab host has a simple API
-     * for supplying a View or Intent that each tab will show. This is not sufficient for switching
-     * between pages. So instead we make the content part of the tab host 0dp high (it is not shown)
-     * and the TabsAdapter supplies its own dummy view to show as the tab content. It listens to
-     * changes in tabs, and takes care of switch to the correct paged in the ViewPager whenever the
-     * selected tab changes.
+     * Set up Tabs on create
      */
-    public static class TabsAdapter extends FragmentPagerAdapter implements
-            ViewPager.OnPageChangeListener, ActionBar.TabListener {
-        private final Context mContext;
-        private final ActionBar mActionBar;
-        private final ViewPager mViewPager;
-        private final ArrayList<String> mTabs = new ArrayList<String>();
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        public TabsAdapter(FragmentActivity activity, ActionBar actionBar, ViewPager pager) {
-            super(activity.getSupportFragmentManager());
-            mContext = activity;
-            mActionBar = actionBar;
-            mViewPager = pager;
-            mViewPager.setAdapter(this);
-            mViewPager.setOnPageChangeListener(this);
+        // start with blacklist
+        BlacklistFragment blacklistFragment = new BlacklistFragment();
+        getSupportFragmentManager().beginTransaction().add(android.R.id.content, blacklistFragment)
+                .commit();
+
+        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        ActionBar.Tab tab1 = getSupportActionBar().newTab();
+        ActionBar.Tab tab2 = getSupportActionBar().newTab();
+        ActionBar.Tab tab3 = getSupportActionBar().newTab();
+
+        tab1.setTabListener(this);
+        tab2.setTabListener(this);
+        tab3.setTabListener(this);
+
+        // longer names for landscape mode or tablets
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE
+                || getResources().getConfiguration().screenLayout == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
+            tab1.setText(getString(R.string.lists_tab_blacklist));
+            tab2.setText(getString(R.string.lists_tab_whitelist));
+            tab3.setText(getString(R.string.lists_tab_redirection_list));
+
+        } else {
+            tab1.setText(getString(R.string.lists_tab_blacklist_short));
+            tab2.setText(getString(R.string.lists_tab_whitelist_short));
+            tab3.setText(getString(R.string.lists_tab_redirection_list_short));
         }
 
-        public void addTab(ActionBar.Tab tab, Class<?> clss) {
-            mTabs.add(clss.getName());
-            mActionBar.addTab(tab.setTabListener(this));
-            notifyDataSetChanged();
+        getSupportActionBar().addTab(tab1);
+        getSupportActionBar().addTab(tab2);
+        getSupportActionBar().addTab(tab3);
+    }
+
+    @Override
+    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    }
+
+    /**
+     * Open Fragment based on selected Tab
+     */
+    @Override
+    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        // choose current fragment based on tab position
+        Fragment fragment = null;
+        switch (tab.getPosition()) {
+        case 0:
+            fragment = new BlacklistFragment();
+            break;
+        case 1:
+            fragment = new WhitelistFragment();
+            break;
+        case 2:
+            fragment = new RedirectionListFragment();
+            break;
+        default:
+            fragment = new BlacklistFragment();
+            break;
         }
 
-        @Override
-        public int getCount() {
-            return mTabs.size();
-        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(android.R.id.content, fragment);
+        fragmentTransaction.commit();
+    }
 
-        @Override
-        public Fragment getItem(int position) {
-            return Fragment.instantiate(mContext, mTabs.get(position), null);
-        }
-
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            mActionBar.setSelectedNavigationItem(position);
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-        }
-
-        @Override
-        public void onTabSelected(Tab tab, FragmentTransaction ft) {
-            mViewPager.setCurrentItem(tab.getPosition());
-        }
-
-        @Override
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {
-        }
-
-        @Override
-        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-        }
+    @Override
+    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
     }
 }

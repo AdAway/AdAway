@@ -53,7 +53,6 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class BlacklistFragment extends ListFragment {
-
     private Activity mActivity;
     private DatabaseHelper mDatabaseHelper;
     private Cursor mCursor;

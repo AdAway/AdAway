@@ -49,9 +49,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
 public class RedirectionListFragment extends ListFragment {
-
     private Activity mActivity;
     private DatabaseHelper mDatabaseHelper;
     private Cursor mCursor;
@@ -355,11 +353,11 @@ public class RedirectionListFragment extends ListFragment {
 
         String[] displayFields = new String[] { "url", "ip" };
         int[] displayViews = new int[] { R.id.redirection_list_hostname, R.id.redirection_list_ip };
-        mAdapter = new RedirectionCursorAdapter(mActivity, R.layout.redirection_list_entry, mCursor,
-                displayFields, displayViews);
+        mAdapter = new RedirectionCursorAdapter(mActivity, R.layout.redirection_list_entry,
+                mCursor, displayFields, displayViews);
         setListAdapter(mAdapter);
     }
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

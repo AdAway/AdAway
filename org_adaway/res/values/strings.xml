@@ -35,12 +35,14 @@
 	<string name="revert_question">Do you really want to revert?</string>
 	<string name="revert_successful">You reverted to the default hosts file.\nIt may be
 		necessary to reboot Android for the changes to take effect.\n\nDo you
-		want to reboot?
+		want to reboot? (To prevent data loss make sure no app uses the sdcard
+		at the moment!)
 	</string>
 	<string name="button_revert">Disable ad blocking</string>
 	<string name="apply_success">Applying was successfull.\nIt may be necessary to
 		reboot Android for the changes to take effect.\n\nDo you want to
-		reboot?
+		reboot? (To prevent data loss make sure no app uses the sdcard at the
+		moment!)
 	</string>
 	<string name="about_description">AdAway is an open source ad blocker for Android.
 	</string>
@@ -63,7 +65,8 @@
 	<string name="checkbox_list_add_dialog_title">Add</string>
 	<string name="button_cancel">Cancel</string>
 	<string name="hosts_add_dialog_input">http://</string>
-	<string name="checkbox_list_empty">No entries</string>
+	<string name="checkbox_list_empty">Empty list</string>
+	<string name="checkbox_list_empty_text">You can add entries from the menu.</string>
 	<string name="checkbox_list_context_delete">Delete</string>
 	<string name="checkbox_list_footer">Long press one entry to show a context menu with
 		more options.
@@ -174,7 +177,8 @@
 	<string name="revert_successful_title">Reverting successful</string>
 	<string name="apply_symlink_successful">Symlink was created successful.\nIt may be
 		necessary to reboot Android for the changes to take effect.\n\nDo you
-		want to reboot?
+		want to reboot? (To prevent data loss make sure no app uses the sdcard
+		at the moment!)
 	</string>
 	<string name="apply_symlink_successful_title">Symlink creation successful</string>
 	<string name="apply_symlink_fail">Symlink could not be created by Android.\nThis
@@ -187,7 +191,7 @@
 	<string name="pref_header_preferences">Preferences</string>
 	<string name="pref_header_preferences_summary">General preferences for AdAway</string>
 	<string name="menu_help">Help</string>
-	<string name="menu_lists">Lists</string>
+	<string name="menu_lists">Your Lists</string>
 	<string name="lists_tab_blacklist_short">Black</string>
 	<string name="lists_tab_whitelist_short">White</string>
 	<string name="lists_tab_redirection_list_short">Redirection</string>
@@ -200,12 +204,23 @@
 		hostnames to IP addresses. It is a traditional way to define hostname
 		to IP address pairs without relying on the Domain Name System (DNS).
 		All unwanted hostnames are redirected to &lt;tt>127.0.0.1&lt;/tt>
-		which means they will point to your own device.&lt;h2>Why do I have to
+		which means they will point to your own device.
+		&lt;h2>Why do I have to
 		restart my phone for changes to take effect?&lt;/h2>Java on Android
 		maintains its own internal DNS cache. The operating system will
 		reflect the new hosts file immediately (verify that with ping on the
 		command line) but you\'ll need to restart Android to rebuild the DNS
 		cache of Java.
+		&lt;h2>How can I block/unblock specific
+		hostnames?&lt;/h2>
+		You can set up your own server providing a hosts
+		file with hostnames that you want to block and add it to the
+		&lt;i>Hosts Sources&lt;/i> or add the hostnames you want to block to
+		the Blacklist (=Black) under &lt;i>Your Lists&lt;/i>. Additionally,
+		hostnames you want to exclude from blocking can be added to the
+		&lt;i>Whitelist&lt;/i> (=White) and hostnames you want to redirect to
+		a specific IP address belongs to the &lt;i>Redirection List&lt;/i>
+		(=Redirection).
 	</string>
 	<string name="help_problems">&lt;h2>HTC Devices&lt;/h2>AdAway does not work when
 		you are using a device with so called S-ON. These \'feature\' exists

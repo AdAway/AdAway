@@ -39,6 +39,7 @@ import org.adaway.helper.ApplyHelper;
 import org.adaway.helper.DatabaseHelper;
 import org.adaway.helper.Helper;
 import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.WebserverHelper;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
@@ -284,6 +285,7 @@ public class BaseFragment extends Fragment {
         if (Helper.isAndroidRooted(mActivity)) {
             // do background update check
             checkOnCreate();
+            WebserverHelper.installWebserver(mActivity);
         }
     }
 
