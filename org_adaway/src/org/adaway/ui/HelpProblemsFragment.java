@@ -1,3 +1,23 @@
+/*
+ * Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
+ *
+ * This file is part of AdAway.
+ * 
+ * AdAway is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * AdAway is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package org.adaway.ui;
 
 import org.adaway.R;
@@ -6,7 +26,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
-import android.text.method.ScrollingMovementMethod;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +49,8 @@ public class HelpProblemsFragment extends Fragment {
 
         // set text from resources with html markup
         mHelpText.setText(Html.fromHtml(helpText));
-        // set scrollable
-        mHelpText.setMovementMethod(ScrollingMovementMethod.getInstance());
+        // make links work
+        mHelpText.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }

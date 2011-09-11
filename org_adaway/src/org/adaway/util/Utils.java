@@ -18,13 +18,12 @@
  *
  */
 
-package org.adaway.helper;
+package org.adaway.util;
 
 import java.text.DateFormat;
 import java.util.Date;
 
 import org.adaway.R;
-import org.adaway.util.Constants;
 
 import com.stericson.RootTools.RootTools;
 
@@ -35,7 +34,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
-public class Helper {
+public class Utils {
     /**
      * Builds date string out of long value containing unix date
      * 

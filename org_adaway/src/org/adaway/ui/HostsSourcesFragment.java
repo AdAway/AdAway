@@ -22,9 +22,9 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.helper.DatabaseHelper;
-import org.adaway.helper.ValidationHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
+import org.adaway.util.ValidationUtils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -149,7 +149,7 @@ public class HostsSourcesFragment extends ListFragment {
 
                         String input = inputEditText.getText().toString();
 
-                        if (ValidationHelper.isValidUrl(input)) {
+                        if (ValidationUtils.isValidUrl(input)) {
                             mDatabaseHelper.updateHostsSourceURL(mCurrentRowId, input);
                             updateView();
                         } else {
@@ -276,7 +276,7 @@ public class HostsSourcesFragment extends ListFragment {
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (ValidationHelper.isValidUrl(input)) {
+            if (ValidationUtils.isValidUrl(input)) {
                 mDatabaseHelper.insertHostsSource(input);
                 updateView();
             } else {

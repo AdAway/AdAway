@@ -1,245 +1,485 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">AdAway</string>
-	<string name="no_root_description">Either the su binary could not be found or you did
-		not allow root permission for AdAway.\n\nWhen the currently running
-		Android operating system is not rooted, you can find information about
-		how to root your device on www.cyanogenmod.com or other Android
-		websites.
-	</string>
-	<string name="button_exit">Exit</string>
-	<string name="no_root_title">Rooted Android required</string>
-	<string name="button_apply">Download files and apply ad blocking</string>
-	<string name="no_connection">The connection to the internet is not working.
-	</string>
-	<string name="no_connection_title">No Connection</string>
-	<string name="button_close">Close</string>
-	<string name="download_dialog">Download:</string>
-	<string name="menu_hosts_sources">Hosts sources</string>
-	<string name="menu_about">About</string>
-	<string name="apply_dialog">Apply</string>
-	<string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
-	<string name="apply_dialog_hosts">Build hosts file</string>
-	<string name="apply_dialog_apply">Apply hosts file</string>
-	<string name="menu_preferences">Preferences</string>
-	<string name="pref_download">Hosts sources</string>
-	<string name="pref_hosts">Hosts file</string>
-	<string name="pref_redirection_ip">Redirection IP</string>
-	<string name="pref_redirection_ip_key">redirectionIP</string>
-	<item
-		format="string"
-		type="string"
-		name="pref_redirection_ip_def">127.0.0.1</item>
-	<string name="button_yes">Yes</string>
-	<string name="button_no">No</string>
-	<string name="revert_question">Do you really want to revert?</string>
-	<string name="revert_successful">You reverted to the default hosts file.\nIt may be
-		necessary to reboot Android for the changes to take effect.\n\nDo you
-		want to reboot? (To prevent data loss make sure no app uses the sdcard
-		at the moment!)
-	</string>
-	<string name="button_revert">Disable ad blocking</string>
-	<string name="apply_success">Applying was successfull.\nIt may be necessary to
-		reboot Android for the changes to take effect.\n\nDo you want to
-		reboot? (To prevent data loss make sure no app uses the sdcard at the
-		moment!)
-	</string>
-	<string name="about_description">AdAway is an open source ad blocker for Android.
-	</string>
-	<string name="about_license">License: GPL v3</string>
-	<string name="about_url">http://code.google.com/p/ad-away/</string>
-	<string name="about_version">Version:</string>
-	<string name="no_root_url">http://www.cyanogenmod.com</string>
-	<string name="about_title">About</string>
-	<string name="apply_fail">Applying the hosts file to your system failed!\nYou
-		can try to set another target hosts file in preferences.
-	</string>
-	<string name="apply_fail_title">Applying failed</string>
-	<string name="revert_problem">Reverting failed.</string>
-	<string name="menu_add">Add</string>
-	<string name="menu_add_qrcode">Add by scanning QR code</string>
-	<string name="no_url">This is not a valid URL!</string>
-	<string name="no_url_title">Malformed URL</string>
-	<string name="button_add">Add</string>
-	<string name="hosts_add_dialog">Input URL to hosts file:</string>
-	<string name="checkbox_list_add_dialog_title">Add</string>
-	<string name="button_cancel">Cancel</string>
-	<string name="hosts_add_dialog_input">http://</string>
-	<string name="checkbox_list_empty">Empty list</string>
-	<string name="checkbox_list_empty_text">You can add entries from the menu.</string>
-	<string name="checkbox_list_context_delete">Delete</string>
-	<string name="checkbox_list_footer">Long press one entry to show a context menu with
-		more options.
-	</string>
-	<string name="app_subtitle">Ad blocker</string>
-	<string name="button_apply_text">All hosts files from the defined sources are
-		downloaded, merged and installed as one hosts file on your system.
-	</string>
-	<string name="button_revert_text">Restores the default hosts file on your system.
-	</string>
-	<string name="no_sources_title">No Sources defined</string>
-	<string name="no_sources">Please add hosts sources to your list.</string>
-	<string name="checkbox_list_edit_dialog_title">Edit</string>
-	<string name="button_save">Save</string>
-	<string name="no_barcode_scanner_title">Install Barcode Scanner?</string>
-	<string name="no_barcode_scanner">This application requires Barcode Scanner. Would
-		you like to install it?
-	</string>
-	<string name="checkbox_list_context_title">Edit Entry</string>
-	<string name="checkbox_list_context_edit">Edit</string>
-	<string name="no_hostname">This is not a valid hostname!</string>
-	<string name="no_hostname_title">Malformed hostname</string>
-	<string name="lists_tab_whitelist">Whitelist</string>
-	<string name="lists_tab_blacklist">Blacklist</string>
-	<string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
-	<string name="lists_tab_redirection_list">Redirection List</string>
-	<string name="list_dialog_url">URL:</string>
-	<string name="list_dialog_hostname">Hostname:</string>
-	<string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
-	<string name="no_ip">This is not a valid IP!</string>
-	<string name="no_ip_title">Malformed IP</string>
-	<string name="download_fail">One of the hosts sources you want to download is
-		not available. Please check the following URL and change it in your
-		hosts sources:
-	</string>
-	<string name="download_fail_title">Download failed</string>
-	<string name="no_private_file">Private file can not be created.</string>
-	<string name="no_private_file_title">Private file creation failed</string>
-	<string name="status_checking">Checking for update...</string>
-	<string name="status_checking_subtitle">Checking if update is available</string>
-	<string name="status_update_available">Update available</string>
-	<string name="status_update_available_subtitle">Newer hosts files available</string>
-	<string name="status_no_connection">No internet connection</string>
-	<string name="status_no_connection_subtitle">No internet connection available</string>
-	<string name="status_download_fail">Unavailable source</string>
-	<string name="status_download_fail_subtitle">URL: </string>
-	<string name="status_enabled">Enabled</string>
-	<string name="status_enabled_subtitle">Newest hosts files enabled</string>
-	<string name="status_disabled">Disabled</string>
-	<string name="status_disabled_subtitle">Disabled</string>
-	<string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango
-		by Charles A.\', licensed under Creative Commons Attribution 3.0
-		Unported License
-	</string>
-	<string name="no_busybox">The Busybox binary could not be found. To install
-		it from the Android Market click the Button below.
-	</string>
-	<string name="no_busybox_title">No Busybox binary</string>
-	<string name="button_busybox">Install Busybox</string>
-	<string name="pref_update_check">Check for updates</string>
-	<string name="pref_update_check_key">updateCheck</string>
-	<string name="pref_update_check_summary">Check for updates on startup</string>
-	<item
-		type="string"
-		name="pref_update_check_def"
-		format="boolean">true</item>
-	<string name="pref_apply_method">Target hosts file</string>
-	<string name="pref_apply_method_summary">DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU\'RE
-		DOING
-	</string>
-	<string name="pref_apply_method_key">applyMethod</string>
-	<string-array name="pref_apply_method_entries">
-		<item>/system/etc/hosts</item>
-		<item>/data/data/hosts</item>
-	</string-array>
-	<string-array name="pref_apply_method_entries_values">
-		<item>writeToSystem</item>
-		<item>writeToDataData</item>
-	</string-array>
-	<string name="pref_apply_method_def">writeToSystem</string>
-	<string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP
-		address.
-	</string>
-	<string name="donations_description">Do you find this application useful? Support it\'s
-		development by flattring it!
-	</string>
-	<string name="donations_title">Donations</string>
-	<string name="menu_donations">Donations</string>
-	<string name="donations_text">Alternatively you can visit the following URL
-		directly:
-	</string>
-	<string name="donations_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android
-	</string>
-	<string name="apply_symlink_missing">Symlink from /data/data/hosts to /system/etc/hosts
-		is not existing! AdAway will not work if it is not existing.\n\nDo you
-		want to try creating a symlink?
-	</string>
-	<string name="apply_symlink_missing_title">Symlink missing</string>
-	<string name="apply_not_enough_space">Not enough space on the partition!</string>
-	<string name="apply_not_enough_space_title">Not enough space</string>
-	<string name="apply_private_file_fail">Downloaded file could not be read.</string>
-	<string name="apply_private_file_fail_title">Private file fail</string>
-	<string name="apply_remount_fail">Mountin of partition as read/write failed!</string>
-	<string name="apply_remount_fail_title">Remount failed</string>
-	<string name="apply_copy_fail">Copying of hosts file failed!</string>
-	<string name="apply_copy_fail_title">Copy failed</string>
-	<string name="apply_success_title">Applying successful</string>
-	<string name="revert_successful_title">Reverting successful</string>
-	<string name="apply_symlink_successful">Symlink was created successful.\nIt may be
-		necessary to reboot Android for the changes to take effect.\n\nDo you
-		want to reboot? (To prevent data loss make sure no app uses the sdcard
-		at the moment!)
-	</string>
-	<string name="apply_symlink_successful_title">Symlink creation successful</string>
-	<string name="apply_symlink_fail">Symlink could not be created by Android.\nThis
-		fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA
-		solution is to boot your phone into recovery mode and create the
-		symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf
-		this does not work search the internet for S-OFF and your phone.
-	</string>
-	<string name="apply_symlink_fail_title">Symlink creation failed</string>
-	<string name="pref_header_preferences">Preferences</string>
-	<string name="pref_header_preferences_summary">General preferences for AdAway</string>
-	<string name="menu_help">Help</string>
-	<string name="menu_lists">Your Lists</string>
-	<string name="lists_tab_blacklist_short">Black</string>
-	<string name="lists_tab_whitelist_short">White</string>
-	<string name="lists_tab_redirection_list_short">Redirection</string>
-	<string name="menu_refresh">Refresh</string>
-	<string name="help_tab_faq">FAQ</string>
-	<string name="help_tab_problems">Problems</string>
-	<string name="help_faq">&lt;h2>How does AdAway work?&lt;/h2>AdAway uses the
-		hosts file to block hostnames, that serve advertisements. The hosts
-		file is a file found in &lt;tt>/system/etc/hosts&lt;/tt> that maps
-		hostnames to IP addresses. It is a traditional way to define hostname
-		to IP address pairs without relying on the Domain Name System (DNS).
-		All unwanted hostnames are redirected to &lt;tt>127.0.0.1&lt;/tt>
-		which means they will point to your own device.
-		&lt;h2>Why do I have to
-		restart my phone for changes to take effect?&lt;/h2>Java on Android
-		maintains its own internal DNS cache. The operating system will
-		reflect the new hosts file immediately (verify that with ping on the
-		command line) but you\'ll need to restart Android to rebuild the DNS
-		cache of Java.
-		&lt;h2>How can I block/unblock specific
-		hostnames?&lt;/h2>
-		You can set up your own server providing a hosts
-		file with hostnames that you want to block and add it to the
-		&lt;i>Hosts Sources&lt;/i> or add the hostnames you want to block to
-		the Blacklist (=Black) under &lt;i>Your Lists&lt;/i>. Additionally,
-		hostnames you want to exclude from blocking can be added to the
-		&lt;i>Whitelist&lt;/i> (=White) and hostnames you want to redirect to
-		a specific IP address belongs to the &lt;i>Redirection List&lt;/i>
-		(=Redirection).
-	</string>
-	<string name="help_problems">&lt;h2>HTC Devices&lt;/h2>AdAway does not work when
-		you are using a device with so called S-ON. These \'feature\' exists
-		on many HTC devices and prevents AdAway from writing the hosts-file.
-		&lt;h2>S-ON/S-OFF?&lt;/h2>
-		S-OFF means that the NAND portion of the
-		device isunlocked and can be written to. The default setting for
-		HTC\'s devices is S-ON, which means that neither can you access
-		certain
-		areas of the system nor can you guarantee a permanent root.
-		Furthermore, signature check for firmware
-		images is also ensured by the
-		S-ON flag.
-		&lt;h2>Do I have S-ON or S-OFF?&lt;/h2>
-		Boot into the Boot
-		Menu on your device by holding down \'volume down\' button while
-		pressing power and the text on top
-		will show the flag status as either
-		S-OFF or S-ON. A full root
-		generally means S-OFF.
-	</string>
+    <string name="app_name">AdAway</string>
+    <string name="no_root_description">Either the su binary could not be found or you
+        did not allow root permission
+        for AdAway.\n\nWhen the currently
+        running Android operating system is not rooted, you can
+        find information about how to root your device on www.cyanogenmod.com
+        or other Android
+        websites.
+    </string>
+    <string name="button_exit">Exit</string>
+    <string name="no_root_title">Rooted Android required</string>
+    <string name="button_apply">Download files and apply ad blocking</string>
+    <string name="no_connection">The connection to the internet is not working.
+    </string>
+    <string name="no_connection_title">No Connection</string>
+    <string name="button_close">Close</string>
+    <string name="download_dialog">Download:</string>
+    <string name="menu_hosts_sources">Hosts sources</string>
+    <string name="menu_about">About</string>
+    <string name="apply_dialog">Apply</string>
+    <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
+    <string name="apply_dialog_hosts">Build hosts file</string>
+    <string name="apply_dialog_apply">Apply hosts file</string>
+    <string name="menu_preferences">Preferences</string>
+    <string name="pref_download">Hosts sources</string>
+    <string name="pref_hosts">Hosts file</string>
+    <string name="pref_redirection_ip">Redirection IP</string>
+    <string name="pref_redirection_ip_key">redirectionIP</string>
+    <item
+        format="string"
+        type="string"
+        name="pref_redirection_ip_def">127.0.0.1</item>
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
+    <string name="revert_question">Do you really want to revert?</string>
+    <string name="revert_successful">You reverted to the default hosts file.\nIt may
+        be necessary to reboot
+        Android for the changes to take
+        effect.\n\nDo you
+        want to reboot?\n(To prevent data loss make
+        sure no app uses the
+        sdcard at the moment!)
+    </string>
+    <string name="button_revert">Disable ad blocking</string>
+    <string name="apply_success">Applying was successfull.\nIt may be necessary
+        to reboot Android for the
+        changes to take effect.\n\nDo you want
+        to reboot?\n(To prevent data loss make sure no app
+        uses the
+        sdcard at the moment!)
+    </string>
+    <string name="about_description">AdAway is an open source ad blocker for Android.
+    </string>
+    <string name="about_license">License: GPL v3</string>
+    <string name="about_url">http://code.google.com/p/ad-away/</string>
+    <string name="about_version">Version:</string>
+    <string name="no_root_url">http://www.cyanogenmod.com</string>
+    <string name="about_title">About</string>
+    <string name="apply_fail">Applying the hosts file to your system
+        failed!\nYou
+        can try to set another
+        target hosts file in
+        preferences.
+    </string>
+    <string name="apply_fail_title">Applying failed</string>
+    <string name="revert_problem">Reverting failed.</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_add_qrcode">Add by scanning QR code</string>
+    <string name="no_url">This is not a valid URL!</string>
+    <string name="no_url_title">Malformed URL</string>
+    <string name="button_add">Add</string>
+    <string name="hosts_add_dialog">Input URL to hosts file:</string>
+    <string name="checkbox_list_add_dialog_title">Add</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="hosts_add_dialog_input">http://</string>
+    <string name="checkbox_list_empty">Empty list</string>
+    <string name="checkbox_list_empty_text">You can add entries from the menu.</string>
+    <string name="checkbox_list_context_delete">Delete</string>
+    <string name="checkbox_list_footer">Long press one entry to show a context menu with
+        more options.
+    </string>
+    <string name="app_subtitle">Ad blocker</string>
+    <string name="button_apply_text">All hosts files from the defined sources are
+        downloaded, merged and installed
+        as one hosts file on your
+        system.
+    </string>
+    <string name="button_revert_text">Restores the default hosts file on your system.
+    </string>
+    <string name="no_sources_title">No Sources defined</string>
+    <string name="no_sources">Please add hosts sources to your list.</string>
+    <string name="checkbox_list_edit_dialog_title">Edit</string>
+    <string name="button_save">Save</string>
+    <string name="no_barcode_scanner_title">Install Barcode Scanner?</string>
+    <string name="no_barcode_scanner">This application requires Barcode Scanner. Would
+        you like to install it?
+    </string>
+    <string name="checkbox_list_context_title">Edit Entry</string>
+    <string name="checkbox_list_context_edit">Edit</string>
+    <string name="no_hostname">This is not a valid hostname!</string>
+    <string name="no_hostname_title">Malformed hostname</string>
+    <string name="lists_tab_whitelist">Whitelist</string>
+    <string name="lists_tab_blacklist">Blacklist</string>
+    <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
+    <string name="lists_tab_redirection_list">Redirection List</string>
+    <string name="list_dialog_url">URL:</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+    <string name="no_ip">This is not a valid IP!</string>
+    <string name="no_ip_title">Malformed IP</string>
+    <string name="download_fail">One of the hosts sources you want to download is
+        not available. Please check
+        the following URL and change it in
+        your hosts sources:
+    </string>
+    <string name="download_fail_title">Download failed</string>
+    <string name="no_private_file">Private file can not be created.</string>
+    <string name="no_private_file_title">Private file creation failed</string>
+    <string name="status_checking">Checking for update...</string>
+    <string name="status_checking_subtitle">Checking if update is available</string>
+    <string name="status_update_available">Update available</string>
+    <string name="status_update_available_subtitle">Newer hosts files available</string>
+    <string name="status_no_connection">No internet connection</string>
+    <string name="status_no_connection_subtitle">No internet connection available</string>
+    <string name="status_download_fail">Unavailable source</string>
+    <string name="status_download_fail_subtitle">URL: </string>
+    <string name="status_enabled">Enabled</string>
+    <string name="status_enabled_subtitle">Newest hosts files enabled</string>
+    <string name="status_disabled">Disabled</string>
+    <string name="status_disabled_subtitle">Disabled</string>
+    <string name="about_icons">Some icons are taken from \'Dropbox Emblems
+        Tango
+        by Charles A.\' and
+        \'www.androidicons.com\', both licensed
+        under Creative Commons
+        Attribution 3.0
+        Unported
+        License.
+    </string>
+    <string name="no_busybox">The Busybox binary could not be found. To
+        install
+        it from the Android Market
+        click the Button below.
+    </string>
+    <string name="no_busybox_title">No Busybox binary</string>
+    <string name="button_busybox">Install Busybox</string>
+    <string name="pref_update_check">Check for updates</string>
+    <string name="pref_update_check_key">updateCheck</string>
+    <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
+    <item
+        type="string"
+        name="pref_update_check_def"
+        format="boolean">true</item>
+    <string name="pref_apply_method">Target hosts file</string>
+    <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.
+    </string>
+    <string name="pref_apply_method_key">applyMethod</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/data/hosts</item>
+    </string-array>
+    <string-array name="pref_apply_method_entries_values">
+        <item>writeToSystem</item>
+        <item>writeToDataData</item>
+    </string-array>
+    <string name="pref_apply_method_def">writeToSystem</string>
+    <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP
+        address.
+    </string>
+    <string name="donations_description">Do you find this application useful? Support
+        it\'s
+        development by flattring
+        it!
+    </string>
+    <string name="donations_title">Donations</string>
+    <string name="menu_donations">Donations</string>
+    <string name="donations_text">Alternatively you can visit the following URL
+        directly:
+    </string>
+    <string name="donations_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android
+    </string>
+    <string name="apply_symlink_missing">Symlink from /data/data/hosts to
+        /system/etc/hosts
+        is not existing! AdAway
+        will not work if it is
+        not existing.\n\nDo you
+        want to try creating a symlink?
+    </string>
+    <string name="apply_symlink_missing_title">Symlink missing</string>
+    <string name="apply_not_enough_space">Not enough space on the partition!</string>
+    <string name="apply_not_enough_space_title">Not enough space</string>
+    <string name="apply_private_file_fail">Downloaded file could not be read.</string>
+    <string name="apply_private_file_fail_title">Private file fail</string>
+    <string name="apply_remount_fail">Remouting the partition as read/write failed!
+    </string>
+    <string name="apply_remount_fail_title">Remount failed</string>
+    <string name="apply_copy_fail">Copying of hosts file failed!</string>
+    <string name="apply_copy_fail_title">Copy failed</string>
+    <string name="apply_success_title">Applying successful</string>
+    <string name="revert_successful_title">Reverting successful</string>
+    <string name="apply_symlink_successful">Symlink was created successful.\nIt may be
+        necessary to reboot Android for
+        the changes to take
+        effect.\n\nDo you
+        want to reboot?\n(To prevent data loss make
+        sure no app
+        uses the
+        sdcard
+        at the moment!)
+    </string>
+    <string name="apply_symlink_successful_title">Symlink creation successful</string>
+    <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis
+        fails mostly due to a
+        \'feature\' called S-ON on HTC
+        phones!\n\nA
+        solution is to boot your phone into recovery mode
+        and create the
+        symlink there with \'ln -s /data/data/hosts
+        /system/etc/hosts\'.\n\nIf
+        this does
+        not work search the internet
+        for S-OFF and your phone.
+    </string>
+    <string name="apply_symlink_fail_title">Symlink creation failed</string>
+    <string name="pref_header_preferences">Preferences</string>
+    <string name="pref_header_preferences_summary">General preferences for AdAway</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_lists">Your Lists</string>
+    <string name="lists_tab_blacklist_short">Black</string>
+    <string name="lists_tab_whitelist_short">White</string>
+    <string name="lists_tab_redirection_list_short">Redirection</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="help_tab_faq">FAQ</string>
+    <string name="help_tab_problems">Problems</string>
+    <string name="help_faq">&lt;h2>Income by advertisements&lt;/h2>
+        There is an oft-stated misconception
+        that if a user never clicks on ads, then blocking them won\'t hurt
+        a site or application
+        financially. This is wrong, developers also earn money by just displaying ads. It is up to
+        you weather you block ads or not. Personally I would not use applications that display ads
+        because
+        I find them very annoying, so without an ad blocker I would not install these
+        applications.
+        &lt;h2>How does AdAway work?&lt;/h2>AdAway uses
+        the
+        hosts
+        file to block
+        hostnames,
+        that serve
+        advertisements.
+        The
+        hosts
+        file is a file found in
+        &lt;tt>/system/etc/hosts&lt;/tt>
+        that maps
+        hostnames to IP
+        addresses. It is a traditional way
+        to
+        define
+        hostname
+        to IP address
+        pairs without
+        relying on the
+        Domain
+        Name System (DNS).
+        All
+        unwanted hostnames are redirected to
+        &lt;tt>127.0.0.1&lt;/tt>
+        which means they will point to
+        your own
+        device.
+        &lt;h2>Why do I have to
+        restart Android for
+        changes to
+        take
+        effect?&lt;/h2>Java
+        on Android
+        maintains its own internal
+        DNS
+        cache. The
+        operating system will
+        reflect the new
+        hosts
+        file
+        immediately (verify that with ping on
+        the
+        command line) but
+        you\'ll
+        need to restart
+        Android
+        to rebuild the DNS
+        cache of Java.
+        &lt;h2>It
+        does not block ads in application XYZ!&lt;/h2>
+        Some
+        hostnames may be missing in the provided
+        hosts
+        files from the &lt;i>Hosts
+        Sources&lt;/i> or
+        the application has bundled the images to
+        provide ads
+        without accessing the
+        internet. To find out
+        which hostnames are missing install
+        Wireshark on
+        your PC and route all
+        traffic from Android
+        through your PC as a proxy (As an
+        alternative on
+        Android you can use
+        &lt;a
+        href=\"market://search?q=pname:lv.n3o.shark\">\'Shark
+        for
+        Root\'&lt;/a> with &lt;a
+        href=\"market://search?q=pname:lv.n3o.sharkreader\">\'Shark
+        Reader\'&lt;/a>) and sniff the
+        requests that this application is doing. Then
+        add the hostnames
+        to your
+        own Blacklist as detailed
+        below and report these hostnames when
+        you have verified them
+        in the
+        Forum &lt;a
+        href=\"http://forum.hosts-file.net/viewforum.php?f=9\">Hosts Inbox&lt;/a>
+        of
+        &lt;a
+        href=\"http://hosts-file.net\">hosts-file.net&lt;/a>.
+        &lt;h2>Application XYZ is not
+        working
+        anymore!&lt;/h2>
+        Some applications need to communicate with a hostname that is blocked
+        by AdAway or
+        refuses to work when the hostnames which should serve ads are not reachable. In
+        this case do
+        as described above to find out which hostnames are needed and add them to your
+        &lt;i>Whitelist&lt;/i> under &lt;i>Your
+        Lists&lt;/i>.
+        &lt;h2>How can I
+        block/unblock
+        specific
+        hostnames?&lt;/h2>
+        You can
+        set up your own
+        server
+        providing a hosts
+        file
+        with hostnames
+        that
+        you
+        want to block and add it to the
+        &lt;i>Hosts
+        Sources&lt;/i> or
+        add the
+        hostnames you
+        want to
+        block
+        to
+        the Blacklist (=Black)
+        under &lt;i>Your
+        Lists&lt;/i>.
+        Additionally,
+        hostnames
+        you want
+        to
+        exclude from blocking can be
+        added to the
+        &lt;i>Whitelist&lt;/i> (=White) and
+        hostnames you
+        want to
+        redirect to
+        a specific IP
+        address
+        belong to the &lt;i>Redirection
+        List&lt;/i>
+        (=Redirection).
+        &lt;h2>I found a bug in AdAway!&lt;/h2>
+        Please report it in the &lt;a
+        href=\"http://code.google.com/p/ad-away/issues/list\">bug tracker of AdAway&lt;/a>.
+    </string>
+    <string name="help_problems">&lt;h2>HTC Devices&lt;/h2>AdAway does not work
+        when
+        you are using a device
+        with so called S-ON. This \'feature\'
+        exists
+        on
+        many HTC devices and prevents AdAway from
+        writing the
+        hosts file.
+        &lt;h2>S-ON/S-OFF?&lt;/h2>
+        S-OFF means that the NAND
+        portion of the
+        device is unlocked and can be written to. The
+        default setting for
+        HTC
+        devices is S-ON, which
+        means that neither
+        can you access
+        certain
+        areas
+        of the system nor can you guarantee a
+        permanent
+        root.
+        Furthermore,
+        signature check for firmware
+        images is
+        also ensured by the
+        S-ON flag.
+        &lt;h2>Do I have S-ON or
+        S-OFF?&lt;/h2>
+        Boot into the Boot
+        Menu on your
+        device by holding
+        down
+        &lt;i>volume down&lt;/i> button while
+        pressing
+        power and the
+        text on top
+        will show the flag
+        status as either
+        S-OFF or
+        S-ON. A
+        full root
+        generally means S-OFF.&lt;br />&lt;br />
+        More
+        information can be found on
+        &lt;a
+        href=\"http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/\">www.addictivetips.com&lt;/a>.
+        &lt;h2>Workaround&lt;/h2>
+        Prerequisite: You
+        have to install a working Android SDK with ADB
+        shell on your PC.&lt;br
+        />&lt;br />
+        1. Boot into the Boot Menu on
+        your device by holding down
+        &lt;i>volume
+        down&lt;/i>
+        button while
+        pressing power.&lt;br />
+        2. Use
+        &lt;i>volume
+        down&lt;/i> to
+        select recovery.&lt;br
+        />
+        3. In
+        clockwork recovery
+        volume down to
+        "partitions menu" and hit the
+        track
+        pad to
+        select&lt;br />
+        4.
+        Select &lt;i>mount /system&lt;/i>, &lt;i>mount
+        /sdcard&lt;/i> and
+        &lt;i>mount
+        /data&lt;/i>.&lt;br />
+        5. Plug in your usb cord and open a
+        command line on your
+        pc.&lt;br />
+        6.
+        Enter adb shell and type&lt;br />
+        &lt;tt>ln -s
+        /data/data/hosts
+        /system/etc/hosts&lt;/tt>&lt;br /> (This creates a
+        symbolic link, which
+        allows
+        AdAway to edit
+        the hosts file stored
+        in &lt;tt>/data&lt;/tt> while allowing the OS to
+        use the file as
+        if it
+        were
+        stored in &lt;tt>/system&lt;/tt>.)&lt;br />
+        7. Reboot your device and set
+        &lt;i>Target
+        hosts
+        file&lt;/i> to
+        &lt;i>/data/data/hosts&lt;/i>
+        in AdAway\'s preferences.&lt;br />
+        8. AdAway
+        should work now.
+    </string>
 </resources>

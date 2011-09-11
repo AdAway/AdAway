@@ -14,7 +14,8 @@
             android:id="@+id/flattr_webview"
             android:layout_gravity="center"
             android:layout_height="120dip"
-            android:layout_width="220dip" android:visibility="gone"/>
+            android:layout_width="220dip"
+            android:visibility="gone" />
         <FrameLayout
             android:id="@+id/loading_frame"
             android:layout_gravity="center"

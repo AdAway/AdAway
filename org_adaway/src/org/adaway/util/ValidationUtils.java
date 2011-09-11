@@ -18,17 +18,16 @@
  *
  */
 
-package org.adaway.helper;
+package org.adaway.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.adaway.util.Constants;
 
 import android.util.Log;
 import android.webkit.URLUtil;
 
-public class ValidationHelper {
+public class ValidationUtils {
     /*
      * http://stackoverflow.com/questions/106179/regular-expression-to-match-hostname-or-ip-address/
      * 3824105#3824105 with added underscore to match more hosts

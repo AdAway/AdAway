@@ -40,7 +40,7 @@ public class DatabaseHelper {
     private SQLiteDatabase mDB;
 
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     private static final String TABLE_HOSTS_SOURCES = "hosts_sources";
     private static final String TABLE_WHITELIST = "whitelist";
@@ -314,8 +314,8 @@ public class DatabaseHelper {
         private void insertDefaultHostsSources(SQLiteDatabase db) {
             // fill default hosts sources
             SQLiteStatement insertStmt;
-            String insertHostsSources = "insert into " + TABLE_HOSTS_SOURCES
-                    + "(url, enabled) values (?, ?)";
+            String insertHostsSources = "INSERT INTO " + TABLE_HOSTS_SOURCES
+                    + "(url, enabled) VALUES (?, ?)";
             insertStmt = db.compileStatement(insertHostsSources);
 
             // http://winhelp2002.mvps.org/hosts.htm
@@ -324,12 +324,15 @@ public class DatabaseHelper {
             // http://hosts-file.net - This file contains ad/tracking servers in the hpHosts
             // database.
             insertHostsSource(insertStmt, "http://hosts-file.net/ad_servers.asp");
+
+            // http://sysctl.org/cameleon (weekly updated)
+            insertHostsSource(insertStmt, "http://sysctl.org/cameleon/hosts");
         }
 
         private void insertDefaultLastModified(SQLiteDatabase db) {
             SQLiteStatement insertStmtLastModified;
-            String insertLastModified = "insert into " + TABLE_LAST_MODIFIED
-                    + "(last_modified) values (?)";
+            String insertLastModified = "INSERT INTO " + TABLE_LAST_MODIFIED
+                    + "(last_modified) VALUES (?)";
             insertStmtLastModified = db.compileStatement(insertLastModified);
             insertStmtLastModified.bindString(1, "0");
             insertStmtLastModified.executeInsert();
@@ -356,13 +359,26 @@ public class DatabaseHelper {
                     + newVersion);
 
             if (oldVersion <= 1) {
+                // introduced whitelist, blacklist and redirection list
                 db.execSQL(CREATE_WHITELIST);
                 db.execSQL(CREATE_BLACKLIST);
                 db.execSQL(CREATE_REDIRECTION_LIST);
             }
             if (oldVersion <= 2) {
+                // introduced last modified table
                 db.execSQL(CREATE_LAST_MODIFIED);
                 insertDefaultLastModified(db);
+            }
+            if (oldVersion <= 3) {
+                // change mvps url
+                // old url: http://www.mvps.org/winhelp2002/hosts.txt
+                // new url: http://winhelp2002.mvps.org/hosts.txt
+                db.execSQL("UPDATE "
+                        + TABLE_HOSTS_SOURCES
+                        + " SET url=\"http://winhelp2002.mvps.org/hosts.txt\" WHERE url=\"http://www.mvps.org/winhelp2002/hosts.txt\"");
+                // new hosts source
+                db.execSQL("INSERT INTO " + TABLE_HOSTS_SOURCES
+                        + " (url, enabled) VALUES (\"http://sysctl.org/cameleon/hosts\", 1)");
             } else {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTS_SOURCES);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_WHITELIST);

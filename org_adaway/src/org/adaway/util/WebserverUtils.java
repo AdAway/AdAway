@@ -18,14 +18,12 @@
  *
  */
 
-package org.adaway.helper;
+package org.adaway.util;
 
 import java.io.IOException;
 import java.util.List;
 
 import org.adaway.R;
-import org.adaway.util.CommandException;
-import org.adaway.util.Constants;
 
 import android.content.Context;
 import android.util.Log;
@@ -33,7 +31,7 @@ import android.util.Log;
 import com.stericson.RootTools.RootTools;
 import com.stericson.RootTools.RootToolsException;
 
-public class WebserverHelper {
+public class WebserverUtils {
 
     /**
      * Install Webserver in /data/data/org.adaway/files

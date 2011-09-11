@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.helper;
+package org.adaway.util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,10 +28,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import org.adaway.util.CommandException;
-import org.adaway.util.Constants;
-import org.adaway.util.NotEnoughSpaceException;
-import org.adaway.util.RemountException;
+import org.adaway.helper.DatabaseHelper;
 
 import com.stericson.RootTools.RootTools;
 import com.stericson.RootTools.RootToolsException;
@@ -40,7 +37,7 @@ import android.content.Context;
 import android.os.StatFs;
 import android.util.Log;
 
-public class ApplyHelper {
+public class ApplyUtils {
     /**
      * Check if there is enough space on internal partition
      * 

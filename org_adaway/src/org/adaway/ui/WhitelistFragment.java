@@ -22,9 +22,9 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.helper.DatabaseHelper;
-import org.adaway.helper.ValidationHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
+import org.adaway.util.ValidationUtils;
 
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.Menu;
@@ -148,7 +148,7 @@ public class WhitelistFragment extends ListFragment {
 
                         String input = inputEditText.getText().toString();
 
-                        if (ValidationHelper.isValidHostname(input)) {
+                        if (ValidationUtils.isValidHostname(input)) {
                             mDatabaseHelper.updateWhitelistItemURL(mCurrentRowId, input);
                             updateView();
                         } else {
@@ -274,7 +274,7 @@ public class WhitelistFragment extends ListFragment {
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (ValidationHelper.isValidHostname(input)) {
+            if (ValidationUtils.isValidHostname(input)) {
                 mDatabaseHelper.insertWhitelistItem(input);
                 updateView();
             } else {

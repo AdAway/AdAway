@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical">
-	<ListView
-		android:id="@android:id/list"
-		android:layout_width="fill_parent"
-		android:layout_height="0px"
-		android:layout_weight="1" />
-	<LinearLayout
-		android:id="@android:id/empty"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:orientation="vertical">
-		<TextView
-			android:text="@string/checkbox_list_empty"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:padding="10dip"
-			android:layout_gravity="center_horizontal"
-			android:textStyle="bold" />
-		<TextView
-			android:text="@string/checkbox_list_empty_text"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:padding="10dip"
-			android:layout_gravity="center_horizontal" />
-	</LinearLayout>
-	<!-- floating at the bottom of the list: -->
-	<TextView
-		android:id="@+id/redirection_list_footer"
-		android:layout_width="fill_parent"
-		android:layout_height="50dip"
-		android:text="@string/checkbox_list_footer"
-		android:padding="4dip"
-		android:background="#FF666666" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" />
+    <LinearLayout
+        android:id="@android:id/empty"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <TextView
+            android:text="@string/checkbox_list_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dip"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold" />
+        <TextView
+            android:text="@string/checkbox_list_empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dip"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+    <!-- floating at the bottom of the list: -->
+    <TextView
+        android:id="@+id/redirection_list_footer"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:text="@string/checkbox_list_footer"
+        android:padding="4dip"
+        android:background="#FF666666" />
 </LinearLayout>
 
