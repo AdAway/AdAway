@@ -42,7 +42,8 @@ import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
 import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
-import org.adaway.util.Utils;
+import org.adaway.util.StatusUtils;
+import org.adaway.util.UiUtils;
 import org.adaway.util.ReturnCodes.ReturnCode;
 
 import android.app.Activity;
@@ -508,10 +509,10 @@ public class ApplyExecutor {
                 /* Set lastModified date in database to current date */
                 mDatabaseHelper = new DatabaseHelper(mActivity);
 
-                long lastModified = Utils.getCurrentLongDate();
+                long lastModified = StatusUtils.getCurrentLongDate();
                 mDatabaseHelper.updateLastModified(lastModified);
                 Log.d(Constants.TAG, "Updated all hosts sources with lastModified: " + lastModified
-                        + " (" + Utils.longToDateString(lastModified) + ")");
+                        + " (" + StatusUtils.longToDateString(lastModified) + ")");
 
                 mDatabaseHelper.close();
 
@@ -565,7 +566,7 @@ public class ApplyExecutor {
 
                     mBaseFragment.setStatusEnabled();
 
-                    UiHelper.rebootQuestion(mActivity, R.string.apply_success_title,
+                    UiUtils.rebootQuestion(mActivity, R.string.apply_success_title,
                             R.string.apply_success);
                 } else if (result == ReturnCode.SYMLINK_MISSING) {
                     mApplyProgressDialog.dismiss();
@@ -665,7 +666,7 @@ public class ApplyExecutor {
         if (success) {
             mBaseFragment.setStatusEnabled();
 
-            UiHelper.rebootQuestion(mActivity, R.string.apply_symlink_successful_title,
+            UiUtils.rebootQuestion(mActivity, R.string.apply_symlink_successful_title,
                     R.string.apply_symlink_successful);
         } else {
             mBaseFragment.setStatusDisabled();

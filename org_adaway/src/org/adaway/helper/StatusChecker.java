@@ -29,7 +29,7 @@ import org.adaway.ui.BaseFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes.ReturnCode;
-import org.adaway.util.Utils;
+import org.adaway.util.StatusUtils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -154,11 +154,11 @@ public class StatusChecker {
                             lastModifiedCurrent = connection.getLastModified();
 
                             Log.d(Constants.TAG, "lastModifiedCurrent: " + lastModifiedCurrent
-                                    + " (" + Utils.longToDateString(lastModifiedCurrent) + ")");
+                                    + " (" + StatusUtils.longToDateString(lastModifiedCurrent) + ")");
 
                             Log.d(Constants.TAG,
                                     "lastModified: " + lastModified + " ("
-                                            + Utils.longToDateString(lastModified) + ")");
+                                            + StatusUtils.longToDateString(lastModified) + ")");
 
                             // set lastModified to the maximum of all lastModifieds
                             if (lastModifiedCurrent > lastModified) {
@@ -189,11 +189,11 @@ public class StatusChecker {
 
                 Log.d(Constants.TAG,
                         "lastModified: " + lastModified + " ("
-                                + Utils.longToDateString(lastModified) + ")");
+                                + StatusUtils.longToDateString(lastModified) + ")");
 
                 Log.d(Constants.TAG,
                         "lastModifiedDatabase: " + lastModifiedDatabase + " ("
-                                + Utils.longToDateString(lastModifiedDatabase) + ")");
+                                + StatusUtils.longToDateString(lastModifiedDatabase) + ")");
 
                 // check if maximal lastModified is bigger than the ones in database
                 if (lastModified > lastModifiedDatabase) {

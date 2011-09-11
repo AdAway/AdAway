@@ -21,8 +21,6 @@
 package org.adaway.helper;
 
 import org.adaway.R;
-import org.adaway.util.ApplyUtils;
-import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
 
 import android.app.Activity;
@@ -205,38 +203,4 @@ public class UiHelper {
         return result;
     }
 
-
-    /**
-     * Show reboot question
-     * 
-     * @param titleR
-     *            resource id of title string
-     * @param messageR
-     *            resource id of message string
-     */
-    public static void rebootQuestion(Activity activity, int titleR, int messageR) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setTitle(titleR);
-        builder.setMessage(activity.getString(messageR));
-        builder.setIcon(android.R.drawable.ic_dialog_info);
-        builder.setPositiveButton(activity.getString(R.string.button_yes),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        try {
-                            ApplyUtils.reboot();
-                        } catch (CommandException e) {
-                            Log.e(Constants.TAG, "Exception: " + e);
-                            e.printStackTrace();
-                        }
-                    }
-                });
-        builder.setNegativeButton(activity.getString(R.string.button_no),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
-        AlertDialog question = builder.create();
-        question.show();
-    }
 }

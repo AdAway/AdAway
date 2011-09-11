@@ -20,9 +20,6 @@
 
 package org.adaway.util;
 
-import java.text.DateFormat;
-import java.util.Date;
-
 import org.adaway.R;
 
 import com.stericson.RootTools.RootTools;
@@ -34,31 +31,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
-public class Utils {
-    /**
-     * Builds date string out of long value containing unix date
-     * 
-     * @param input
-     * @return formatted date string
-     */
-    public static String longToDateString(long input) {
-        Date date = new Date(input);
-        DateFormat dataformat = DateFormat.getDateInstance(DateFormat.LONG);
-
-        return dataformat.format(date);
-    }
-
-    /**
-     * Returns current unix date as long value
-     * 
-     * @return current date as long
-     */
-    public static long getCurrentLongDate() {
-        Date date = new Date();
-
-        return date.getTime();
-    }
-
+public class UiUtils {
     /**
      * Check if Android is rooted, check for su binary and busybox and display possible solutions if
      * they are not available
@@ -133,5 +106,39 @@ public class Utils {
         }
 
         return rootAvailable;
+    }
+
+    /**
+     * Show reboot question
+     * 
+     * @param titleR
+     *            resource id of title string
+     * @param messageR
+     *            resource id of message string
+     */
+    public static void rebootQuestion(Activity activity, int titleR, int messageR) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle(titleR);
+        builder.setMessage(activity.getString(messageR));
+        builder.setIcon(android.R.drawable.ic_dialog_info);
+        builder.setPositiveButton(activity.getString(R.string.button_yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        try {
+                            ApplyUtils.reboot();
+                        } catch (CommandException e) {
+                            Log.e(Constants.TAG, "Exception: " + e);
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        builder.setNegativeButton(activity.getString(R.string.button_no),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog question = builder.create();
+        question.show();
     }
 }

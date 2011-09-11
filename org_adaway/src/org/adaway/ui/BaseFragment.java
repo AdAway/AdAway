@@ -27,7 +27,7 @@ import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes.ReturnCode;
-import org.adaway.util.Utils;
+import org.adaway.util.UiUtils;
 import org.adaway.util.WebserverUtils;
 
 import android.app.Activity;
@@ -243,7 +243,7 @@ public class BaseFragment extends Fragment {
 
         mActivity = getActivity();
 
-        // initilize logic
+        // Initialize logic
         mStatusChecker = new StatusChecker(this);
         mApplyExecutor = new ApplyExecutor(this);
         mRevertExecutor = new RevertExecutor(this);
@@ -256,7 +256,7 @@ public class BaseFragment extends Fragment {
         RootTools.debugMode = Constants.debugMode;
 
         // check for root
-        if (Utils.isAndroidRooted(mActivity)) {
+        if (UiUtils.isAndroidRooted(mActivity)) {
             // do background update check
             mStatusChecker.checkForUpdatesOnCreate();
             WebserverUtils.installWebserver(mActivity);
