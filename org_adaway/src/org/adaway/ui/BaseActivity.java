@@ -21,8 +21,6 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.util.CommandException;
-import org.adaway.util.WebserverUtils;
 
 import android.os.Bundle;
 import android.support.v4.app.ActionBar;
@@ -41,7 +39,7 @@ public class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.base_activity);
-        
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         mBaseFragment = (BaseFragment) fragmentManager.findFragmentById(R.id.base_fragment);
     }
@@ -62,7 +60,7 @@ public class BaseActivity extends FragmentActivity {
     public void applyOnClick(View view) {
         mBaseFragment.applyOnClick(view);
     }
-    
+
     /**
      * hand over onClick events, defined in layout from Activity to Fragment
      */
@@ -70,21 +68,11 @@ public class BaseActivity extends FragmentActivity {
         mBaseFragment.revertOnClick(view);
     }
     
+
     /**
      * hand over onClick events, defined in layout from Activity to Fragment
      */
-    public void startWebserver(View view) {
-        try {
-            WebserverUtils.startWebserver(this);
-        } catch (CommandException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-    
-    /**
-     * hand over onClick events, defined in layout from Activity to Fragment
-     */
-    public void stopWebserver(View view) {
+    public void webserverOnClick(View view) {
+        mBaseFragment.webserverOnClick(view);
     }
 }

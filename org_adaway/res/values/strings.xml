@@ -482,4 +482,7 @@
         8. AdAway
         should work now.
     </string>
+    <string name="button_webserver_toggle_checked">Webserver is running</string>
+    <string name="button_webserver_toggle_unchecked">Webserver is not running</string>
+    <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
 </resources>

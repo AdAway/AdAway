@@ -8,6 +8,10 @@ The following open source projects are used in AdAway:
     http://code.google.com/p/roottools/
     GNU GPL v2
 
+  * Mongoose Webserver
+    http://code.google.com/p/mongoose/
+    MIT License
+
 Images:
 
   * status_enabled.svg, status_disabled.svg, status_update.svg

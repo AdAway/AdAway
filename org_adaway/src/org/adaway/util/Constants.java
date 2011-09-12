@@ -31,18 +31,27 @@ public class Constants {
     public static final String LOCALHOST_IPv4 = "127.0.0.1";
     public static final String BOGUS_IPv4 = "0.0.0.0";
     public static final String LOCALHOST_HOSTNAME = "localhost";
+
     public static final String DOWNLOADED_HOSTS_FILENAME = "hosts_downloaded";
     public static final String HOSTS_FILENAME = "hosts";
     public static final String LINE_SEPERATOR = System.getProperty("line.separator", "\n");
     public static final String FILE_SEPERATOR = System.getProperty("file.separator", "/");
+
     public static final String COMMAND_COPY = "busybox cp -f";
     public static final String COMMAND_CHOWN = "busybox chown 0:0";
-    public static final String COMMAND_CHMOD_644 = "chmod 644";
-    public static final String COMMAND_CHMOD_666 = "chmod 666";
+    public static final String COMMAND_CHMOD_644 = "busybox chmod 644";
+    public static final String COMMAND_CHMOD_666 = "busybox chmod 666";
     public static final String COMMAND_LN = "busybox ln -s";
     public static final String COMMAND_RM = "busybox rm -f";
+    public static final String COMMAND_PIDOF = "busybox pidof";
+    public static final String COMMAND_KILL = "busybox kill -9";
+
+    public static final String WEBSERVER_EXECUTEABLE = "mongoose";
+    public static final String WEBSERVER_LOG_FILENAME = "mongoose_error_log.txt";
+
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
-    public static final String ANDROID_SYSTEM_ETC_PATH = ANDROID_SYSTEM_PATH + FILE_SEPERATOR + "etc";
+    public static final String ANDROID_SYSTEM_ETC_PATH = ANDROID_SYSTEM_PATH + FILE_SEPERATOR
+            + "etc";
     public static final String ANDROID_DATA_DATA_PATH = FILE_SEPERATOR + "data" + FILE_SEPERATOR
             + "data";
 

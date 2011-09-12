@@ -95,23 +95,26 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dip"
                     android:paddingRight="5dip"
+                    android:paddingBottom="20dip"
                     android:layout_width="wrap_content"
                     android:textSize="12sp"
                     android:layout_weight="1"></TextView>
-                <Button
-                    android:id="@+id/s1_button"
-                    android:layout_height="wrap_content"
-                    android:text="start"
-                    android:onClick="startWebserver"
+                <ToggleButton
+                    android:text="CheckBox"
+                    android:id="@+id/base_fragment_webserver_toggle"
+                    android:onClick="webserverOnClick"
                     android:layout_width="fill_parent"
-                    android:layout_weight="1"></Button>
-                <Button
-                    android:id="@+id/s2_button"
                     android:layout_height="wrap_content"
-                    android:text="stop"
-                    android:onClick="stopWebserver"
-                    android:layout_width="fill_parent"
-                    android:layout_weight="1"></Button>
+                    android:textOff="@string/button_webserver_toggle_unchecked"
+                    android:textOn="@string/button_webserver_toggle_checked"></ToggleButton>
+                <TextView
+                    android:text="@string/button_webserver_toggle_text"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_weight="1"></TextView>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

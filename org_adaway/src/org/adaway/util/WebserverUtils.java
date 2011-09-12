@@ -26,7 +26,9 @@ import java.util.List;
 import org.adaway.R;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ToggleButton;
 
 import com.stericson.RootTools.RootTools;
 import com.stericson.RootTools.RootToolsException;
@@ -34,64 +36,189 @@ import com.stericson.RootTools.RootToolsException;
 public class WebserverUtils {
 
     /**
-     * Install Webserver in /data/data/org.adaway/files
+     * Install Webserver in /data/data/org.adaway/files if not already there
      * 
      * @param context
+     * @throws RemountException
      */
     public static void installWebserver(Context context) {
-        if (RootTools.installBinary(context, R.raw.mongoose, "", "777")) {
-            Log.i(Constants.TAG, "Installed webserver");
+        if (RootTools
+                .installBinary(context, R.raw.mongoose, Constants.WEBSERVER_EXECUTEABLE, "777")) {
+            Log.i(Constants.TAG, "Installed webserver if not already existing.");
         } else {
-            Log.e(Constants.TAG, "Webserver could not be installed");
+            Log.e(Constants.TAG, "Webserver could not be installed.");
         }
     }
 
     /**
-     * Start Webserver
+     * Start Webserver in AsyncTask, because it is blocking with ouput
      * 
      * @param context
      * @throws CommandException
      */
-    public static void startWebserver(Context context) throws CommandException {
-        String privateFilesPath = null;
+    public static void startWebserver(final Context context) {
+        AsyncTask<Void, String, Void> mWebserverTask = new AsyncTask<Void, String, Void>() {
+            private String mCommandStartWebserver;
+
+            @Override
+            protected Void doInBackground(Void... unused) {
+                List<String> output = null;
+                try {
+                    output = RootTools.sendShell(new String[] { mCommandStartWebserver }, 1);
+
+                    Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
+                } catch (IOException e) {
+                    Log.e(Constants.TAG, "Exception: " + e);
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    Log.e(Constants.TAG, "Exception: " + e);
+                    e.printStackTrace();
+                } catch (RootToolsException e) {
+                    Log.e(Constants.TAG, "Exception: " + e);
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+                String privateFilesPath = null;
+                String privateCachePath = null;
+                try {
+                    // /data/data/org.adaway/files
+                    privateFilesPath = context.getFilesDir().getCanonicalPath();
+                    // /data/data/org.adaway/cache
+                    privateCachePath = context.getCacheDir().getCanonicalPath();
+                } catch (IOException e) {
+                    Log.e(Constants.TAG,
+                            "Problem occured while trying to locate private files and cache directories!");
+                    e.printStackTrace();
+                }
+
+                mCommandStartWebserver = privateFilesPath + Constants.FILE_SEPERATOR
+                        + Constants.WEBSERVER_EXECUTEABLE + " -e " + privateCachePath
+                        + Constants.FILE_SEPERATOR + Constants.WEBSERVER_LOG_FILENAME
+                        + " -p 127.0.0.1:80,443"; // bind on loopback with ports 80 and 443
+            }
+
+            @Override
+            protected void onPostExecute(Void unused) {
+                super.onPostExecute(unused);
+
+            }
+        };
+
+        mWebserverTask.execute();
+    }
+
+    /**
+     * Stop Webserver
+     * 
+     * @param context
+     * @throws CommandException
+     */
+    public static void stopWebserver(Context context) {
         String privateCachePath = null;
         try {
-            // /data/data/org.adaway/files
-            privateFilesPath = context.getFilesDir().getCanonicalPath();
             // /data/data/org.adaway/cache
             privateCachePath = context.getCacheDir().getCanonicalPath();
         } catch (IOException e) {
-            Log.e(Constants.TAG,
-                    "Problem occured while trying to locate private files and cache directories!");
+            Log.e(Constants.TAG, "Problem occured while trying to locate cache directories!");
             e.printStackTrace();
         }
 
-        String commandStartWebserver = privateFilesPath + Constants.FILE_SEPERATOR + "mongoose -e "
-                + privateCachePath + Constants.FILE_SEPERATOR + "error_log.txt";
+        String commandPidOf = Constants.COMMAND_PIDOF + " " + Constants.WEBSERVER_EXECUTEABLE;
 
-        Log.d(Constants.TAG, "shell command: " + commandStartWebserver);
+        String pid = null;
 
         List<String> output = null;
         try {
-            // execute commands: copy, chown, chmod
-            output = RootTools.sendShell(new String[] { commandStartWebserver }, 1);
+            output = RootTools.sendShell(new String[] { commandPidOf }, 1);
 
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
+
+            if (output.size() > 0) {
+                pid = output.get(0);
+            }
         } catch (IOException e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
-
-            throw new CommandException();
         } catch (InterruptedException e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
-
-            throw new CommandException();
         } catch (RootToolsException e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
+        }
 
-            throw new CommandException();
+        if (pid != null) {
+            String commandKill = Constants.COMMAND_KILL + " " + pid;
+
+            String commandRmLog = Constants.COMMAND_RM + " " + privateCachePath
+                    + Constants.FILE_SEPERATOR + Constants.WEBSERVER_LOG_FILENAME;
+
+            try {
+                output = RootTools.sendShell(new String[] { commandKill, commandRmLog }, 1);
+
+            } catch (IOException e) {
+                Log.e(Constants.TAG, "Exception: " + e);
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                Log.e(Constants.TAG, "Exception: " + e);
+                e.printStackTrace();
+            } catch (RootToolsException e) {
+                Log.e(Constants.TAG, "Exception: " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Checks if webserver is running by checking if process mongoose has pid
+     * 
+     * @return true if webserver is running
+     */
+    public static boolean isWebserverRunning() {
+        boolean isRunning = false;
+
+        String commandPidOf = Constants.COMMAND_PIDOF + " " + Constants.WEBSERVER_EXECUTEABLE;
+
+        List<String> output = null;
+        try {
+            output = RootTools.sendShell(new String[] { commandPidOf }, 1);
+
+            Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
+
+            if (output.size() > 0) {
+                isRunning = true;
+            }
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+        } catch (RootToolsException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+        }
+
+        return isRunning;
+    }
+
+    /**
+     * Set ToggleButton checked if webserver is running
+     * 
+     * @param webserverToggle
+     */
+    public static void setWebserverToggle(ToggleButton webserverToggle) {
+        if (isWebserverRunning()) {
+            webserverToggle.setChecked(true);
+        } else {
+            webserverToggle.setChecked(false);
         }
     }
 }
