@@ -352,8 +352,8 @@ public class RedirectionListFragment extends ListFragment {
         mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
 
         String[] displayFields = new String[] { "url", "ip" };
-        int[] displayViews = new int[] { R.id.redirection_list_hostname, R.id.redirection_list_ip };
-        mAdapter = new RedirectionCursorAdapter(mActivity, R.layout.redirection_list_entry,
+        int[] displayViews = new int[] { R.id.checkbox_list_two_text, R.id.checkbox_list_two_subtext };
+        mAdapter = new RedirectionCursorAdapter(mActivity, R.layout.checkbox_list_two_entry,
                 mCursor, displayFields, displayViews);
         setListAdapter(mAdapter);
     }
@@ -369,7 +369,7 @@ public class RedirectionListFragment extends ListFragment {
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.redirection_list, container, false);
+        return inflater.inflate(R.layout.checkbox_list_two, container, false);
     }
 
     /**

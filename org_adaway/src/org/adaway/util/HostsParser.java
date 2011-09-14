@@ -24,14 +24,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashSet;
 
-
-import android.content.Context;
 import android.util.Log;
 
 public class HostsParser {
     private HashSet<String> mHostnames;
 
-    public HostsParser(BufferedReader input, Context context) throws IOException {
+    public HostsParser(BufferedReader input) throws IOException {
         parse(input);
     }
 
@@ -89,10 +87,10 @@ public class HostsParser {
                     currentIp = currentIp.trim();
 
                     // check if ip is 127.0.0.1 or 0.0.0.0
-                    if (currentIp.equals(Constants.LOCALHOST_IPv4) || currentIp.equals(Constants.BOGUS_IPv4)) {
+                    if (currentIp.equals(Constants.LOCALHOST_IPv4)
+                            || currentIp.equals(Constants.BOGUS_IPv4)) {
                         // check syntax of hostname
                         if (ValidationUtils.isValidHostname(currentHostname)) {
-                            // Log.d(TAG, nextLine + " matched, adding to hostnames");
                             mHostnames.add(currentHostname);
                         } else {
                             Log.d(Constants.TAG, currentHostname + " NOT matched");

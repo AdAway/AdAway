@@ -1,4 +1,12 @@
 1.07
+* AdAway got a redesign
+* AdAway ships with a webserver, that listens on localhost
+* Help page with information about AdAway
+* Added new hosts source sysctl.org
+- Should now work on roms which doesn't symlink busybox commands
+
+
+1.07
 * AdAway can now create a symlink
 - better error handling
 - No update check on orientation change

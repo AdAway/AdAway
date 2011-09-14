@@ -110,10 +110,13 @@
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="no_ip">This is not a valid IP!</string>
     <string name="no_ip_title">Malformed IP</string>
-    <string name="download_fail">One of the hosts sources you want to download is
+    <string name="download_fail">Either you are not properly connected to the Internet or one of the hosts
+        sources you
+        want to download is
         not available. Please check
         the following URL and change it in
-        your hosts sources:
+        your hosts
+        sources:
     </string>
     <string name="download_fail_title">Download failed</string>
     <string name="no_private_file">Private file can not be created.</string>
@@ -245,10 +248,12 @@
         applications.
         &lt;h2>How does AdAway work?&lt;/h2>AdAway uses
         the
-        hosts
-        file to block
+        &lt;a
+        href=\"http://en.wikipedia.org/wiki/Hosts_file\">hosts
+        file&lt;/a> to block
         hostnames,
-        that serve
+        that
+        serve
         advertisements.
         The
         hosts
@@ -302,11 +307,16 @@
         the application has bundled the images to
         provide ads
         without accessing the
-        internet. To find out
-        which hostnames are missing install
+        internet. There are two methods to find hostnames which
+        should be blocked:&lt;br />&lt;br />
+        1. Open
+        &lt;tt>/data/data/org.example/databases/webviewCache.db&lt;/tt> where
+        &lt;tt>org.example&lt;/tt> is the package name of the app that displays ads and look for
+        hostnames in this database file.&lt;br />2. Install
         Wireshark on
         your PC and route all
-        traffic from Android
+        traffic
+        from Android
         through your PC as a proxy (As an
         alternative on
         Android you can use
@@ -316,14 +326,16 @@
         Root\'&lt;/a> with &lt;a
         href=\"market://search?q=pname:lv.n3o.sharkreader\">\'Shark
         Reader\'&lt;/a>) and sniff the
-        requests that this application is doing. Then
-        add the hostnames
+        requests that this application is doing.&lt;br />&lt;br />
+        Add the hostnames
         to your
-        own Blacklist as detailed
+        own
+        Blacklist as detailed
         below and report these hostnames when
         you have verified them
         in the
-        Forum &lt;a
+        Forum
+        &lt;a
         href=\"http://forum.hosts-file.net/viewforum.php?f=9\">Hosts Inbox&lt;/a>
         of
         &lt;a
@@ -332,12 +344,20 @@
         working
         anymore!&lt;/h2>
         Some applications need to communicate with a hostname that is blocked
-        by AdAway or
-        refuses to work when the hostnames which should serve ads are not reachable. In
-        this case do
-        as described above to find out which hostnames are needed and add them to your
-        &lt;i>Whitelist&lt;/i> under &lt;i>Your
-        Lists&lt;/i>.
+        by
+        AdAway or
+        refuses to work when the hostnames which should serve ads are not reachable. See
+        &lt;a
+        href=\"http://code.google.com/p/ad-away/wiki/ProblemApps\">http://code.google.com/p/ad-away/wiki/ProblemApps&lt;/a>
+        to get a list of known applications that
+        have problems. Otherwise do
+        as described before to
+        find out which hostnames are needed and
+        add them to your
+        &lt;i>Whitelist&lt;/i> under
+        &lt;i>Your
+        Lists&lt;/i> and report them to the &lt;a
+        href=\"http://code.google.com/p/ad-away/issues/list\">bug tracker of AdAway&lt;/a>.
         &lt;h2>How can I
         block/unblock
         specific
@@ -367,18 +387,22 @@
         to
         exclude from blocking can be
         added to the
-        &lt;i>Whitelist&lt;/i> (=White) and
+        &lt;i>Whitelist&lt;/i> (=White)
+        and
         hostnames you
         want to
         redirect to
         a specific IP
         address
-        belong to the &lt;i>Redirection
+        belong
+        to the &lt;i>Redirection
         List&lt;/i>
         (=Redirection).
         &lt;h2>I found a bug in AdAway!&lt;/h2>
-        Please report it in the &lt;a
-        href=\"http://code.google.com/p/ad-away/issues/list\">bug tracker of AdAway&lt;/a>.
+        Please report it in the
+        &lt;a
+        href=\"http://code.google.com/p/ad-away/issues/list\">bug
+        tracker of AdAway&lt;/a>.
     </string>
     <string name="help_problems">&lt;h2>HTC Devices&lt;/h2>AdAway does not work
         when
@@ -484,5 +508,7 @@
     </string>
     <string name="button_webserver_toggle_checked">Webserver is running</string>
     <string name="button_webserver_toggle_unchecked">Webserver is not running</string>
-    <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
+    <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked
+        hostnames.
+    </string>
 </resources>

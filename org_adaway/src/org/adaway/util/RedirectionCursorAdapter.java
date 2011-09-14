@@ -54,9 +54,9 @@ public class RedirectionCursorAdapter extends SimpleCursorAdapter {
      */
     @Override
     public void bindView(View v, Context context, Cursor c) {
-        CheckBox cBox = (CheckBox) v.findViewById(R.id.redirection_list_checkbox);
-        TextView hostnameTextView = (TextView) v.findViewById(R.id.redirection_list_hostname);
-        TextView ipTextView = (TextView) v.findViewById(R.id.redirection_list_ip);
+        CheckBox cBox = (CheckBox) v.findViewById(R.id.checkbox_list_two_checkbox);
+        TextView hostnameTextView = (TextView) v.findViewById(R.id.checkbox_list_two_text);
+        TextView ipTextView = (TextView) v.findViewById(R.id.checkbox_list_two_subtext);
 
         if (cBox != null) {
             // bind cursor position to tag of list item

@@ -363,7 +363,7 @@ public class ApplyExecutor {
 
                     BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-                    HostsParser parser = new HostsParser(reader, mActivity);
+                    HostsParser parser = new HostsParser(reader);
                     HashSet<String> hostnames = parser.getHostnames();
 
                     fis.close();

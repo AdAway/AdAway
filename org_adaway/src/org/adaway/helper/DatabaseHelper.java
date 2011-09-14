@@ -47,31 +47,33 @@ public class DatabaseHelper {
     private static final String TABLE_BLACKLIST = "blacklist";
     private static final String TABLE_REDIRECTION_LIST = "redirection_list";
     private static final String TABLE_LAST_MODIFIED = "last_modified";
+    private static final String TABLE_HOSTNAMES_CACHE = "hostnames_cache";
 
     private static final String CREATE_HOSTS_SOURCES = "CREATE TABLE IF NOT EXISTS "
-            + TABLE_HOSTS_SOURCES + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
+            + TABLE_HOSTS_SOURCES + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, enabled INTEGER)";
     private static final String CREATE_WHITELIST = "CREATE TABLE IF NOT EXISTS " + TABLE_WHITELIST
-            + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
+            + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, enabled INTEGER)";
     private static final String CREATE_BLACKLIST = "CREATE TABLE IF NOT EXISTS " + TABLE_BLACKLIST
-            + "(_id INTEGER PRIMARY KEY, url TEXT, enabled INTEGER)";
+            + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, enabled INTEGER)";
     private static final String CREATE_REDIRECTION_LIST = "CREATE TABLE IF NOT EXISTS "
             + TABLE_REDIRECTION_LIST
-            + "(_id INTEGER PRIMARY KEY, url TEXT, ip TEXT, enabled INTEGER)";
+            + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, ip TEXT, enabled INTEGER)";
     private static final String CREATE_LAST_MODIFIED = "CREATE TABLE IF NOT EXISTS "
             + TABLE_LAST_MODIFIED + "(_id INTEGER PRIMARY KEY, last_modified INTEGER)";
 
     private SQLiteStatement insertStmtHostsSources;
-    private static final String INSERT_HOSTS_SOURCES = "insert into " + TABLE_HOSTS_SOURCES
-            + "(url, enabled) values (?, ?)";
+    private static final String INSERT_HOSTS_SOURCES = "INSERT OR IGNORE INTO "
+            + TABLE_HOSTS_SOURCES + "(url, enabled) VALUES (?, ?)";
     private SQLiteStatement insertStmtWhitelist;
-    private static final String INSERT_WHITELIST = "insert into " + TABLE_WHITELIST
-            + "(url, enabled) values (?, ?)";
+    private static final String INSERT_WHITELIST = "INSERT OR IGNORE INTO " + TABLE_WHITELIST
+            + "(url, enabled) VALUES (?, ?)";
     private SQLiteStatement insertStmtBlacklist;
-    private static final String INSERT_BLACKLIST = "insert into " + TABLE_BLACKLIST
-            + "(url, enabled) values (?, ?)";
+    private static final String INSERT_BLACKLIST = "INSERT OR IGNORE INTO " + TABLE_BLACKLIST
+            + "(url, enabled) VALUES (?, ?)";
     private SQLiteStatement insertStmtRedirectionList;
-    private static final String INSERT_REDIRECTION_LIST = "insert into " + TABLE_REDIRECTION_LIST
-            + "(url, ip, enabled) values (?, ?, ?)";
+    private static final String INSERT_REDIRECTION_LIST = "INSERT OR IGNORE INTO "
+            + TABLE_REDIRECTION_LIST + "(url, ip, enabled) VALUES (?, ?, ?)";
+    private SQLiteStatement insertStmtHostnamesCache;
 
     public DatabaseHelper(Context context) {
         this.mContext = context;
