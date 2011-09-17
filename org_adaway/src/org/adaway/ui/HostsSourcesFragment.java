@@ -22,8 +22,8 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.helper.DatabaseHelper;
-import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
+import org.adaway.util.HostsSourcesCursorAdapter;
 import org.adaway.util.ValidationUtils;
 
 import android.app.Activity;
@@ -48,16 +48,16 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class HostsSourcesFragment extends ListFragment {
-
     private Activity mActivity;
     private DatabaseHelper mDatabaseHelper;
     private Cursor mCursor;
-    private CheckboxCursorAdapter mAdapter;
+    private HostsSourcesCursorAdapter mAdapter;
 
     private long mCurrentRowId;
 
@@ -122,7 +122,7 @@ public class HostsSourcesFragment extends ListFragment {
         int position = info.position;
         View v = info.targetView;
 
-        CheckBox cBox = (CheckBox) v.findViewWithTag(position);
+        TextView urlTextView = (TextView) v.findViewWithTag("url_" + position);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
@@ -130,10 +130,10 @@ public class HostsSourcesFragment extends ListFragment {
 
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.list_dialog_url, null);
+        final View dialogView = factory.inflate(R.layout.lists_url_dialog, null);
         final EditText inputEditText = (EditText) dialogView.findViewById(R.id.list_dialog_url);
         // set text from list
-        inputEditText.setText(cBox.getText());
+        inputEditText.setText(urlTextView.getText());
         inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
@@ -189,7 +189,7 @@ public class HostsSourcesFragment extends ListFragment {
 
         // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
         // checkboxes by position of cursor
-        CheckBox cBox = (CheckBox) v.findViewWithTag(position);
+        CheckBox cBox = (CheckBox) v.findViewWithTag("checkbox_" + position);
 
         if (cBox != null) {
             if (cBox.isChecked()) {
@@ -237,7 +237,7 @@ public class HostsSourcesFragment extends ListFragment {
 
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.list_dialog_url, null);
+        final View dialogView = factory.inflate(R.layout.lists_url_dialog, null);
         final EditText inputEditText = (EditText) dialogView.findViewById(R.id.list_dialog_url);
         // set EditText
         inputEditText.setText(getString(R.string.hosts_add_dialog_input));
@@ -324,10 +324,11 @@ public class HostsSourcesFragment extends ListFragment {
         mCursor = mDatabaseHelper.getHostsSourcesCursor();
         mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
 
-        String[] displayFields = new String[] { "url" };
-        int[] displayViews = new int[] { R.id.checkbox_list_checkbox };
-        mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, mCursor,
-                displayFields, displayViews);
+        // dislayFields and displayViews are handled in custom adapter!
+        String[] displayFields = new String[] { }; 
+        int[] displayViews = new int[] { };
+        mAdapter = new HostsSourcesCursorAdapter(mActivity, R.layout.checkbox_list_two_entry,
+                mCursor, displayFields, displayViews);
         setListAdapter(mAdapter);
     }
 
@@ -342,7 +343,7 @@ public class HostsSourcesFragment extends ListFragment {
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.checkbox_list, container, false);
+        return inflater.inflate(R.layout.checkbox_list_two, container, false);
     }
 
     /**

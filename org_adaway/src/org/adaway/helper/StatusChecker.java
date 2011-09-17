@@ -23,16 +23,16 @@ package org.adaway.helper;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
 
 import org.adaway.ui.BaseFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
-import org.adaway.util.ReturnCodes.ReturnCode;
+import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -43,7 +43,7 @@ public class StatusChecker {
     private Activity mActivity;
     private DatabaseHelper mDatabaseHelper;
 
-    private AsyncTask<String, Integer, Enum<ReturnCode>> mStatusTask;
+    private AsyncTask<Void, Integer, Integer> mStatusTask;
 
     /**
      * Constructor based on fragment
@@ -77,36 +77,21 @@ public class StatusChecker {
      * Run status AsyncTask to check for updates
      */
     public void checkForUpdates() {
-        mDatabaseHelper = new DatabaseHelper(mActivity);
-
-        // get enabled hosts from database
-        ArrayList<String> enabledHosts = mDatabaseHelper.getAllEnabledHostsSources();
-        Log.d(Constants.TAG, "Enabled hosts: " + enabledHosts.toString());
-
-        mDatabaseHelper.close();
-
-        // build array out of list
-        String[] enabledHostsArray = new String[enabledHosts.size()];
-        enabledHosts.toArray(enabledHostsArray);
-
-        if (enabledHosts.size() < 1) {
-            Log.d(Constants.TAG, "no hosts sources");
-        } else {
-            // execute downloading of files
-            runStatusTask(enabledHostsArray);
-        }
+        runStatusTask();
     }
 
     /**
      * AsyncTask to check for updates and determine the status of AdAway, can be executed with many
      * urls as params.
      */
-    private void runStatusTask(String... urls) {
-        mStatusTask = new AsyncTask<String, Integer, Enum<ReturnCode>>() {
-            private String currentUrl;
-            private int fileSize;
-            private long lastModified = 0;
-            private long lastModifiedCurrent;
+    private void runStatusTask() {
+        mStatusTask = new AsyncTask<Void, Integer, Integer>() {
+            Cursor mEnabledHostsSourcesCursor;
+
+            private String mCurrentUrl;
+            private long mCurrentLastModifiedLocal;
+            private long mCurrentLastModifiedOnline;
+            private boolean mUpdateAvailable = false;
 
             @Override
             protected void onPreExecute() {
@@ -125,110 +110,133 @@ public class StatusChecker {
             }
 
             @Override
-            protected Enum<ReturnCode> doInBackground(String... urls) {
-                ReturnCode returnCode = ReturnCode.ENABLED; // default return code
+            protected Integer doInBackground(Void... unused) {
+                int returnCode = ReturnCodes.ENABLED; // default return code
 
                 if (isAndroidOnline()) {
-                    for (String url : urls) {
 
-                        // stop if thread canceled
-                        if (isCancelled()) {
-                            break;
-                        }
+                    // get cursor over all enabled hosts source
+                    mDatabaseHelper = new DatabaseHelper(mActivity);
+                    mEnabledHostsSourcesCursor = mDatabaseHelper.getEnabledHostsSourcesCursor();
 
-                        @SuppressWarnings("unused")
-                        InputStream is = null;
-                        try {
-                            Log.v(Constants.TAG, "Checking hosts file: " + url);
+                    // iterate over all hosts sources in db with cursor
+                    if (mEnabledHostsSourcesCursor.moveToFirst()) {
+                        do {
+                            // get url and lastModified from db
+                            mCurrentUrl = mEnabledHostsSourcesCursor
+                                    .getString(mEnabledHostsSourcesCursor.getColumnIndex("url"));
+                            mCurrentLastModifiedLocal = mEnabledHostsSourcesCursor
+                                    .getLong(mEnabledHostsSourcesCursor
+                                            .getColumnIndex("last_modified_local"));
 
-                            /* change URL */
-                            currentUrl = url;
-
-                            /* build connection */
-                            URL mURL = new URL(url);
-                            URLConnection connection = mURL.openConnection();
-
-                            fileSize = connection.getContentLength();
-                            Log.d(Constants.TAG, "fileSize: " + fileSize);
-
-                            lastModifiedCurrent = connection.getLastModified();
-
-                            Log.d(Constants.TAG, "lastModifiedCurrent: " + lastModifiedCurrent
-                                    + " (" + StatusUtils.longToDateString(lastModifiedCurrent) + ")");
-
-                            Log.d(Constants.TAG,
-                                    "lastModified: " + lastModified + " ("
-                                            + StatusUtils.longToDateString(lastModified) + ")");
-
-                            // set lastModified to the maximum of all lastModifieds
-                            if (lastModifiedCurrent > lastModified) {
-                                lastModified = lastModifiedCurrent;
+                            // stop if thread canceled
+                            if (isCancelled()) {
+                                break;
                             }
 
-                            // check if file is available
-                            connection.connect();
-                            is = connection.getInputStream();
+                            @SuppressWarnings("unused")
+                            InputStream is = null;
+                            try {
+                                Log.v(Constants.TAG, "Checking hosts file: " + mCurrentUrl);
 
-                        } catch (Exception e) {
-                            Log.e(Constants.TAG, "Exception: " + e);
-                            returnCode = ReturnCode.DOWNLOAD_FAIL;
-                            break; // stop for-loop
-                        }
+                                /* build connection */
+                                URL mURL = new URL(mCurrentUrl);
+                                URLConnection connection = mURL.openConnection();
+
+                                mCurrentLastModifiedOnline = connection.getLastModified();
+
+                                Log.d(Constants.TAG,
+                                        "mConnectionLastModified: "
+                                                + mCurrentLastModifiedOnline
+                                                + " ("
+                                                + StatusUtils
+                                                        .longToDateString(mCurrentLastModifiedOnline)
+                                                + ")");
+
+                                Log.d(Constants.TAG,
+                                        "mCurrentLastModified: "
+                                                + mCurrentLastModifiedLocal
+                                                + " ("
+                                                + StatusUtils
+                                                        .longToDateString(mCurrentLastModifiedLocal)
+                                                + ")");
+
+                                // check if file is available
+                                connection.connect();
+                                is = connection.getInputStream();
+
+                                // check if update available for this hosts file
+                                if (mCurrentLastModifiedOnline > mCurrentLastModifiedLocal) {
+                                    mUpdateAvailable = true;
+                                }
+
+                                // save last modified online for later viewing in list
+                                mDatabaseHelper.updateHostsSourceLastModifiedOnline(
+                                        mEnabledHostsSourcesCursor
+                                                .getInt(mEnabledHostsSourcesCursor
+                                                        .getColumnIndex("_id")),
+                                        mCurrentLastModifiedOnline);
+
+                            } catch (Exception e) {
+                                Log.e(Constants.TAG, "Exception: " + e);
+                                returnCode = ReturnCodes.DOWNLOAD_FAIL;
+                                break; // stop for-loop
+                            }
+
+                        } while (mEnabledHostsSourcesCursor.moveToNext());
                     }
+
+                    // close cursor and db helper in the end
+                    if (mEnabledHostsSourcesCursor != null
+                            && !mEnabledHostsSourcesCursor.isClosed()) {
+                        mEnabledHostsSourcesCursor.close();
+                    }
+                    mDatabaseHelper.close();
+
                 } else {
-                    returnCode = ReturnCode.NO_CONNECTION;
+                    returnCode = ReturnCodes.NO_CONNECTION;
                 }
 
-                /* CHECK if update is necessary */
-                DatabaseHelper taskDatabaseHelper = new DatabaseHelper(mActivity);
-
-                // get last modified from db
-                long lastModifiedDatabase = taskDatabaseHelper.getLastModified();
-
-                taskDatabaseHelper.close();
-
-                Log.d(Constants.TAG,
-                        "lastModified: " + lastModified + " ("
-                                + StatusUtils.longToDateString(lastModified) + ")");
-
-                Log.d(Constants.TAG,
-                        "lastModifiedDatabase: " + lastModifiedDatabase + " ("
-                                + StatusUtils.longToDateString(lastModifiedDatabase) + ")");
-
-                // check if maximal lastModified is bigger than the ones in database
-                if (lastModified > lastModifiedDatabase) {
-                    returnCode = ReturnCode.UPDATE_AVAILABLE;
+                // set return code if update is available
+                if (mUpdateAvailable) {
+                    returnCode = ReturnCodes.UPDATE_AVAILABLE;
                 }
 
                 // check if hosts file is applied
                 if (!ApplyUtils.isHostsFileApplied(mActivity, Constants.ANDROID_SYSTEM_ETC_PATH)) {
-                    returnCode = ReturnCode.DISABLED;
+                    returnCode = ReturnCodes.DISABLED;
                 }
 
                 return returnCode;
             }
 
             @Override
-            protected void onPostExecute(Enum<ReturnCode> result) {
+            protected void onPostExecute(Integer result) {
                 super.onPostExecute(result);
 
                 Log.d(Constants.TAG, "onPostExecute result: " + result);
 
-                if (result == ReturnCode.UPDATE_AVAILABLE) {
+                switch (result) {
+                case ReturnCodes.UPDATE_AVAILABLE:
                     mBaseFragment.setStatusUpdateAvailable();
-                } else if (result == ReturnCode.DISABLED) {
+                    break;
+                case ReturnCodes.DISABLED:
                     mBaseFragment.setStatusDisabled();
-                } else if (result == ReturnCode.DOWNLOAD_FAIL) {
-                    mBaseFragment.setStatusDownloadFail(currentUrl);
-                } else if (result == ReturnCode.NO_CONNECTION) {
+                    break;
+                case ReturnCodes.DOWNLOAD_FAIL:
+                    mBaseFragment.setStatusDownloadFail(mCurrentUrl);
+                    break;
+                case ReturnCodes.NO_CONNECTION:
                     mBaseFragment.setStatusNoConnection();
-                } else if (result == ReturnCode.ENABLED) {
+                    break;
+                case ReturnCodes.ENABLED:
                     mBaseFragment.setStatusEnabled();
+                    break;
                 }
             }
         };
 
-        mStatusTask.execute(urls);
+        mStatusTask.execute();
     }
 
     /**

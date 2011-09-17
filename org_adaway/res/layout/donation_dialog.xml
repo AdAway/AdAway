@@ -44,12 +44,12 @@
             android:layout_height="wrap_content"
             android:paddingTop="5dip"
             android:paddingBottom="5dip"
-            android:textSize="12sp"></TextView>
+            android:textAppearance="@android:style/TextAppearance.Small"></TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/donations_url"
-            android:autoLink="web"
-            android:textSize="12sp"></TextView>
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:autoLink="web"></TextView>
     </LinearLayout>
 </ScrollView>

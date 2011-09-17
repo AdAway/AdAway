@@ -46,11 +46,10 @@ public class DatabaseHelper {
     private static final String TABLE_WHITELIST = "whitelist";
     private static final String TABLE_BLACKLIST = "blacklist";
     private static final String TABLE_REDIRECTION_LIST = "redirection_list";
-    private static final String TABLE_LAST_MODIFIED = "last_modified";
-    private static final String TABLE_HOSTNAMES_CACHE = "hostnames_cache";
 
     private static final String CREATE_HOSTS_SOURCES = "CREATE TABLE IF NOT EXISTS "
-            + TABLE_HOSTS_SOURCES + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, enabled INTEGER)";
+            + TABLE_HOSTS_SOURCES
+            + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, last_modified_local INTEGER, last_modified_online INTEGER, enabled INTEGER)";
     private static final String CREATE_WHITELIST = "CREATE TABLE IF NOT EXISTS " + TABLE_WHITELIST
             + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, enabled INTEGER)";
     private static final String CREATE_BLACKLIST = "CREATE TABLE IF NOT EXISTS " + TABLE_BLACKLIST
@@ -58,12 +57,11 @@ public class DatabaseHelper {
     private static final String CREATE_REDIRECTION_LIST = "CREATE TABLE IF NOT EXISTS "
             + TABLE_REDIRECTION_LIST
             + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, ip TEXT, enabled INTEGER)";
-    private static final String CREATE_LAST_MODIFIED = "CREATE TABLE IF NOT EXISTS "
-            + TABLE_LAST_MODIFIED + "(_id INTEGER PRIMARY KEY, last_modified INTEGER)";
 
     private SQLiteStatement insertStmtHostsSources;
     private static final String INSERT_HOSTS_SOURCES = "INSERT OR IGNORE INTO "
-            + TABLE_HOSTS_SOURCES + "(url, enabled) VALUES (?, ?)";
+            + TABLE_HOSTS_SOURCES
+            + "(url, last_modified_local, last_modified_online, enabled) VALUES (?, ?, ?, ?)";
     private SQLiteStatement insertStmtWhitelist;
     private static final String INSERT_WHITELIST = "INSERT OR IGNORE INTO " + TABLE_WHITELIST
             + "(url, enabled) VALUES (?, ?)";
@@ -73,7 +71,6 @@ public class DatabaseHelper {
     private SQLiteStatement insertStmtRedirectionList;
     private static final String INSERT_REDIRECTION_LIST = "INSERT OR IGNORE INTO "
             + TABLE_REDIRECTION_LIST + "(url, ip, enabled) VALUES (?, ?, ?)";
-    private SQLiteStatement insertStmtHostnamesCache;
 
     public DatabaseHelper(Context context) {
         this.mContext = context;
@@ -92,33 +89,13 @@ public class DatabaseHelper {
         mDB.close();
     }
 
-    /* LAST MODIFIED */
-
-    public long getLastModified() {
-        Cursor cursor = mDB.query(TABLE_LAST_MODIFIED, new String[] { "_id", "last_modified" },
-                null, null, null, null, null);
-
-        cursor.moveToFirst();
-        long lastModified = cursor.getLong(1);
-
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
-        }
-
-        return lastModified;
-    }
-
-    public void updateLastModified(long lastModified) {
-        ContentValues args = new ContentValues();
-        args.put("last_modified", lastModified);
-        mDB.update(TABLE_LAST_MODIFIED, args, "_id=1", null);
-    }
-
     /* HOSTS SOURCES */
 
     public long insertHostsSource(String url) {
         insertStmtHostsSources.bindString(1, url);
-        insertStmtHostsSources.bindString(2, "1"); // default is enabled
+        insertStmtHostsSources.bindLong(2, 0); // last_modified_local starts at 0
+        insertStmtHostsSources.bindLong(3, 0); // last_modified_online starts at 0
+        insertStmtHostsSources.bindString(4, "1"); // default is enabled
         return insertStmtHostsSources.executeInsert();
     }
 
@@ -132,6 +109,18 @@ public class DatabaseHelper {
         mDB.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
     }
 
+    public void updateHostsSourceLastModifiedLocal(long rowId, long lastModifiedLocal) {
+        ContentValues args = new ContentValues();
+        args.put("last_modified_local", lastModifiedLocal);
+        mDB.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
+    }
+
+    public void updateHostsSourceLastModifiedOnline(long rowId, long lastModifiedOnline) {
+        ContentValues args = new ContentValues();
+        args.put("last_modified_online", lastModifiedOnline);
+        mDB.update(TABLE_HOSTS_SOURCES, args, "_id=" + rowId, null);
+    }
+
     public void updateHostsSourceStatus(long rowId, Integer status) {
         ContentValues args = new ContentValues();
         args.put("enabled", status);
@@ -139,16 +128,26 @@ public class DatabaseHelper {
     }
 
     public Cursor getHostsSourcesCursor() {
-        Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES,
-                new String[] { "_id", "url", "enabled" }, null, null, null, null, "url asc");
+        Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES, new String[] { "_id", "url",
+                "last_modified_local", "last_modified_online", "enabled" }, null, null, null, null,
+                "url asc");
+
+        return cursor;
+    }
+
+    public Cursor getEnabledHostsSourcesCursor() {
+        Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES, new String[] { "_id", "url",
+                "last_modified_local", "last_modified_online", "enabled" }, "enabled=1", null,
+                null, null, "url asc");
 
         return cursor;
     }
 
     public ArrayList<String> getAllEnabledHostsSources() {
         ArrayList<String> list = new ArrayList<String>();
-        Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES,
-                new String[] { "_id", "url", "enabled" }, "enabled=1", null, null, null, "url asc");
+        Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES, new String[] { "_id", "url",
+                "last_modified_local", "last_modified_online", "enabled" }, "enabled=1", null,
+                null, null, "url asc");
         if (cursor.moveToFirst()) {
             do {
                 list.add(cursor.getString(1));
@@ -158,6 +157,34 @@ public class DatabaseHelper {
             cursor.close();
         }
         return list;
+    }
+
+    /**
+     * Go through all enabled hosts sources and set local last modified to online last modified
+     */
+    public void updateAllEnabledHostsSourcesLastModifiedLocalFromOnline() {
+        Cursor cursor = this.mDB.query(TABLE_HOSTS_SOURCES, new String[] { "_id", "url",
+                "last_modified_local", "last_modified_online", "enabled" }, "enabled=1", null,
+                null, null, "url asc");
+        int idCol = cursor.getColumnIndex("_id");
+        int lastModifiedOnlineCol = cursor.getColumnIndex("last_modified_online");
+
+        long lastModifiedOnline;
+        long id;
+
+        if (cursor.moveToFirst()) {
+            do {
+                lastModifiedOnline = cursor.getLong(lastModifiedOnlineCol);
+                id = cursor.getLong(idCol);
+
+                // set last_modified_local to last modified_online
+                this.updateHostsSourceLastModifiedLocal(id, lastModifiedOnline);
+
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
     }
 
     /* WHITELIST */
@@ -331,15 +358,6 @@ public class DatabaseHelper {
             insertHostsSource(insertStmt, "http://sysctl.org/cameleon/hosts");
         }
 
-        private void insertDefaultLastModified(SQLiteDatabase db) {
-            SQLiteStatement insertStmtLastModified;
-            String insertLastModified = "INSERT INTO " + TABLE_LAST_MODIFIED
-                    + "(last_modified) VALUES (?)";
-            insertStmtLastModified = db.compileStatement(insertLastModified);
-            insertStmtLastModified.bindString(1, "0");
-            insertStmtLastModified.executeInsert();
-        }
-
         @Override
         public void onCreate(SQLiteDatabase db) {
             Log.w(Constants.TAG, "Creating database...");
@@ -348,9 +366,6 @@ public class DatabaseHelper {
             db.execSQL(CREATE_WHITELIST);
             db.execSQL(CREATE_BLACKLIST);
             db.execSQL(CREATE_REDIRECTION_LIST);
-            db.execSQL(CREATE_LAST_MODIFIED);
-
-            insertDefaultLastModified(db);
 
             insertDefaultHostsSources(db);
         }
@@ -368,8 +383,8 @@ public class DatabaseHelper {
             }
             if (oldVersion <= 2) {
                 // introduced last modified table
-                db.execSQL(CREATE_LAST_MODIFIED);
-                insertDefaultLastModified(db);
+                // db.execSQL(CREATE_LAST_MODIFIED);
+                // insertDefaultLastModified(db);
             }
             if (oldVersion <= 3) {
                 // change mvps url
@@ -381,12 +396,17 @@ public class DatabaseHelper {
                 // new hosts source
                 db.execSQL("INSERT INTO " + TABLE_HOSTS_SOURCES
                         + " (url, enabled) VALUES (\"http://sysctl.org/cameleon/hosts\", 1)");
+                // removed last modified table, is now a column in hosts_sources
+                db.execSQL("DROP TABLE IF EXISTS last_modified");
+                // add column last_modified to hosts sources
+                db.execSQL("ALTER TABLE " + TABLE_HOSTS_SOURCES + " ADD COLUMN last_modified_local");
+                db.execSQL("ALTER TABLE " + TABLE_HOSTS_SOURCES
+                        + " ADD COLUMN last_modified_online");
             } else {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTS_SOURCES);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_WHITELIST);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_BLACKLIST);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_REDIRECTION_LIST);
-                db.execSQL("DROP TABLE IF EXISTS " + TABLE_LAST_MODIFIED);
                 onCreate(db);
             }
         }

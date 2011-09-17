@@ -1,10 +1,11 @@
-1.07
+1.08
 * AdAway got a redesign
 * AdAway ships with a webserver, that listens on localhost
+* Dates of all hosts sources are saved and can be seen in Hosts sources
+* Preference to hide reboot question dialog
 * Help page with information about AdAway
 * Added new hosts source sysctl.org
 - Should now work on roms which doesn't symlink busybox commands
-
 
 1.07
 * AdAway can now create a symlink

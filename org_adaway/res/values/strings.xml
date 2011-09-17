@@ -3,11 +3,10 @@
     <string name="app_name">AdAway</string>
     <string name="no_root_description">Either the su binary could not be found or you
         did not allow root permission
-        for AdAway.\n\nWhen the currently
-        running Android operating system is not rooted, you can
-        find information about how to root your device on www.cyanogenmod.com
-        or other Android
-        websites.
+        for AdAway.\n\nThis can happen when your device is not rooted.\nYou can
+        find information
+        about how to root your device on www.cyanogenmod.com
+        or other Android websites.
     </string>
     <string name="button_exit">Exit</string>
     <string name="no_root_title">Rooted Android required</string>
@@ -24,7 +23,7 @@
     <string name="apply_dialog_hosts">Build hosts file</string>
     <string name="apply_dialog_apply">Apply hosts file</string>
     <string name="menu_preferences">Preferences</string>
-    <string name="pref_download">Hosts sources</string>
+    <string name="pref_download">General Preferences</string>
     <string name="pref_hosts">Hosts file</string>
     <string name="pref_redirection_ip">Redirection IP</string>
     <string name="pref_redirection_ip_key">redirectionIP</string>
@@ -511,4 +510,11 @@
     <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked
         hostnames.
     </string>
+    <string name="hosts_last_modified_local">Local:</string>
+    <string name="hosts_last_modified_online">Online:</string>
+    <string name="reboot_never_reboot">"Never reboot and don\'t show this question next time!"</string>
+    <string name="pref_never_reboot">Never reboot</string>
+    <item name="pref_never_reboot_def" type="string" format="boolean">false</item>
+    <string name="pref_never_reboot_key">neverReboot</string>
+    <string name="pref_never_reboot_summary">Hides the question dialog that asks to reboot your device</string>
 </resources>

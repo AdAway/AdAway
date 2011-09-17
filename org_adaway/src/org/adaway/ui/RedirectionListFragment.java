@@ -127,7 +127,7 @@ public class RedirectionListFragment extends ListFragment {
 
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.list_dialog_redirection, null);
+        final View dialogView = factory.inflate(R.layout.lists_redirection_dialog, null);
         final EditText hostnameEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
         final EditText ipEditText = (EditText) dialogView.findViewById(R.id.list_dialog_ip);
@@ -257,7 +257,7 @@ public class RedirectionListFragment extends ListFragment {
 
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.list_dialog_redirection, null);
+        final View dialogView = factory.inflate(R.layout.lists_redirection_dialog, null);
         final EditText hostnameEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
         final EditText ipEditText = (EditText) dialogView.findViewById(R.id.list_dialog_ip);
@@ -351,8 +351,9 @@ public class RedirectionListFragment extends ListFragment {
         mCursor = mDatabaseHelper.getRedirectionCursor();
         mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
 
-        String[] displayFields = new String[] { "url", "ip" };
-        int[] displayViews = new int[] { R.id.checkbox_list_two_text, R.id.checkbox_list_two_subtext };
+        // dislayFields and displayViews are handled in custom adapter!
+        String[] displayFields = new String[] {};
+        int[] displayViews = new int[] {};
         mAdapter = new RedirectionCursorAdapter(mActivity, R.layout.checkbox_list_two_entry,
                 mCursor, displayFields, displayViews);
         setListAdapter(mAdapter);

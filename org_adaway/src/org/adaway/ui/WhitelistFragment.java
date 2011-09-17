@@ -129,7 +129,7 @@ public class WhitelistFragment extends ListFragment {
 
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.list_dialog_hostname, null);
+        final View dialogView = factory.inflate(R.layout.lists_hostname_dialog, null);
         final EditText inputEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
         inputEditText.setText(cBox.getText());
@@ -236,7 +236,7 @@ public class WhitelistFragment extends ListFragment {
 
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.list_dialog_hostname, null);
+        final View dialogView = factory.inflate(R.layout.lists_hostname_dialog, null);
         final EditText inputEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
 

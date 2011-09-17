@@ -33,12 +33,25 @@ public class PreferencesHelper {
                 Boolean.parseBoolean(context.getString(R.string.pref_update_check_def)));
     }
 
+    public static boolean getNeverReboot(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        return prefs.getBoolean(context.getString(R.string.pref_never_reboot_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_never_reboot_def)));
+    }
+
+    public static void setNeverReboot(Context context, boolean value) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(context.getString(R.string.pref_never_reboot_key), value);
+        editor.commit();
+    }
+
     public static String getRedirectionIP(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getString(context.getString(R.string.pref_redirection_ip_key),
                 context.getString(R.string.pref_redirection_ip_def));
     }
-    
+
     public static String getApplyMethod(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getString(context.getString(R.string.pref_apply_method_key),

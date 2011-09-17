@@ -8,6 +8,7 @@
             android:title="@string/pref_update_check"
             android:summary="@string/pref_update_check_summary"
             android:defaultValue="@string/pref_update_check_def"></CheckBoxPreference>
+        <CheckBoxPreference android:key="@string/pref_never_reboot_key" android:summary="@string/pref_never_reboot_summary" android:title="@string/pref_never_reboot" android:defaultValue="@string/pref_never_reboot_def"></CheckBoxPreference>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_hosts">

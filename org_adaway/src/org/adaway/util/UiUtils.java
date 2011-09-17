@@ -21,6 +21,7 @@
 package org.adaway.util;
 
 import org.adaway.R;
+import org.adaway.helper.PreferencesHelper;
 
 import com.stericson.RootTools.RootTools;
 
@@ -30,6 +31,8 @@ import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 public class UiUtils {
     /**
@@ -116,29 +119,62 @@ public class UiUtils {
      * @param messageR
      *            resource id of message string
      */
-    public static void rebootQuestion(Activity activity, int titleR, int messageR) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setTitle(titleR);
-        builder.setMessage(activity.getString(messageR));
-        builder.setIcon(android.R.drawable.ic_dialog_info);
-        builder.setPositiveButton(activity.getString(R.string.button_yes),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        try {
-                            ApplyUtils.reboot();
-                        } catch (CommandException e) {
-                            Log.e(Constants.TAG, "Exception: " + e);
-                            e.printStackTrace();
+    public static void rebootQuestion(final Activity activity, int titleR, int messageR) {
+        // only show if reboot dialog is not disabled in preferences
+        if (!PreferencesHelper.getNeverReboot(activity)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+            builder.setTitle(titleR);
+            // builder.setMessage(activity.getString(messageR));
+            builder.setIcon(android.R.drawable.ic_dialog_info);
+
+            // build view from layout
+            LayoutInflater factory = LayoutInflater.from(activity);
+            final View dialogView = factory.inflate(R.layout.reboot_dialog, null);
+
+            // set text in view based on given resource id
+            TextView text = (TextView) dialogView.findViewById(R.id.reboot_dialog_text);
+            text.setText(activity.getString(messageR));
+
+            builder.setView(dialogView);
+
+            builder.setPositiveButton(activity.getString(R.string.button_yes),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            // set preference to never show reboot dialog again if checkbox is
+                            // checked
+                            CheckBox checkBox = (CheckBox) dialogView
+                                    .findViewById(R.id.reboot_dialog_checkbox);
+                            if (checkBox.isChecked()) {
+                                PreferencesHelper.setNeverReboot(activity, true);
+                            }
+
+                            try {
+                                ApplyUtils.reboot();
+                            } catch (CommandException e) {
+                                Log.e(Constants.TAG, "Exception: " + e);
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                });
-        builder.setNegativeButton(activity.getString(R.string.button_no),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
-        AlertDialog question = builder.create();
-        question.show();
+                    });
+            builder.setNegativeButton(activity.getString(R.string.button_no),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            // set preference to never show reboot dialog again if checkbox is
+                            // checked
+                            CheckBox checkBox = (CheckBox) dialogView
+                                    .findViewById(R.id.reboot_dialog_checkbox);
+                            if (checkBox.isChecked()) {
+                                PreferencesHelper.setNeverReboot(activity, true);
+                            }
+
+                            dialog.dismiss();
+                        }
+                    });
+            AlertDialog question = builder.create();
+
+            question.show();
+        }
     }
 }

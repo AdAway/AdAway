@@ -26,7 +26,7 @@ import org.adaway.helper.RevertExecutor;
 import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
 import org.adaway.util.Constants;
-import org.adaway.util.ReturnCodes.ReturnCode;
+import org.adaway.util.ReturnCodes;
 import org.adaway.util.UiUtils;
 import org.adaway.util.WebserverUtils;
 
@@ -53,7 +53,7 @@ import com.stericson.RootTools.RootTools;
 public class BaseFragment extends Fragment {
     private Activity mActivity;
 
-    private ReturnCode mStatus;
+    private int mStatus;
     private TextView mStatusText;
     private TextView mStatusSubtitle;
     private ProgressBar mStatusProgress;
@@ -65,7 +65,7 @@ public class BaseFragment extends Fragment {
     private RevertExecutor mRevertExecutor;
 
     public void setStatusUpdateAvailable() {
-        mStatus = ReturnCode.UPDATE_AVAILABLE;
+        mStatus = ReturnCodes.UPDATE_AVAILABLE;
 
         mStatusProgress.setVisibility(View.GONE);
         mStatusIcon.setVisibility(View.VISIBLE);
@@ -75,7 +75,7 @@ public class BaseFragment extends Fragment {
     }
 
     public void setStatusEnabled() {
-        mStatus = ReturnCode.ENABLED;
+        mStatus = ReturnCodes.ENABLED;
 
         mStatusProgress.setVisibility(View.GONE);
         mStatusIcon.setVisibility(View.VISIBLE);
@@ -85,7 +85,7 @@ public class BaseFragment extends Fragment {
     }
 
     public void setStatusDisabled() {
-        mStatus = ReturnCode.DISABLED;
+        mStatus = ReturnCodes.DISABLED;
 
         mStatusProgress.setVisibility(View.GONE);
         mStatusIcon.setVisibility(View.VISIBLE);
@@ -95,7 +95,7 @@ public class BaseFragment extends Fragment {
     }
 
     public void setStatusDownloadFail(String currentURL) {
-        mStatus = ReturnCode.DOWNLOAD_FAIL;
+        mStatus = ReturnCodes.DOWNLOAD_FAIL;
 
         mStatusProgress.setVisibility(View.GONE);
         mStatusIcon.setImageResource(R.drawable.status_fail);
@@ -106,7 +106,7 @@ public class BaseFragment extends Fragment {
     }
 
     public void setStatusNoConnection() {
-        mStatus = ReturnCode.NO_CONNECTION;
+        mStatus = ReturnCodes.NO_CONNECTION;
 
         mStatusProgress.setVisibility(View.GONE);
         mStatusIcon.setImageResource(R.drawable.status_fail);
@@ -116,7 +116,7 @@ public class BaseFragment extends Fragment {
     }
 
     public void setStatusChecking() {
-        mStatus = ReturnCode.CHECKING;
+        mStatus = ReturnCodes.CHECKING;
 
         mStatusProgress.setVisibility(View.VISIBLE);
         mStatusIcon.setVisibility(View.GONE);
@@ -143,7 +143,7 @@ public class BaseFragment extends Fragment {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        mActivity.setContentView(R.layout.base);
+        mActivity.setContentView(R.layout.base_fragment);
 
         mStatusText = (TextView) mActivity.findViewById(R.id.status_text);
         mStatusSubtitle = (TextView) mActivity.findViewById(R.id.status_subtitle);
@@ -154,22 +154,22 @@ public class BaseFragment extends Fragment {
 
         // build old status
         switch (mStatus) {
-        case UPDATE_AVAILABLE:
+        case ReturnCodes.UPDATE_AVAILABLE:
             setStatusUpdateAvailable();
             break;
-        case ENABLED:
+        case ReturnCodes.ENABLED:
             setStatusEnabled();
             break;
-        case DISABLED:
+        case ReturnCodes.DISABLED:
             setStatusDisabled();
             break;
-        case DOWNLOAD_FAIL:
+        case ReturnCodes.DOWNLOAD_FAIL:
             setStatusDownloadFail("");
             break;
-        case NO_CONNECTION:
+        case ReturnCodes.NO_CONNECTION:
             setStatusNoConnection();
             break;
-        case CHECKING:
+        case ReturnCodes.CHECKING:
             setStatusChecking();
             break;
         default:
@@ -242,7 +242,7 @@ public class BaseFragment extends Fragment {
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.base, container, false);
+        return inflater.inflate(R.layout.base_fragment, container, false);
     }
 
     /**

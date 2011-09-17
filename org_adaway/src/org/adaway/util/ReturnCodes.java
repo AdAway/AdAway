@@ -25,7 +25,18 @@ package org.adaway.util;
  * 
  */
 public class ReturnCodes {
-    public enum ReturnCode {
-        CHECKING, SUCCESS, PRIVATE_FILE_FAIL, UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, NO_CONNECTION, APPLY_FAIL, SYMLINK_MISSING, NOT_ENOUGH_SPACE, REMOUNT_FAIL, COPY_FAIL
-    }
+    public static final int CHECKING = 0;
+    public static final int SUCCESS = 1;
+    public static final int PRIVATE_FILE_FAIL = 2;
+    public static final int UPDATE_AVAILABLE = 3;
+    public static final int ENABLED = 4;
+    public static final int DISABLED = 5;
+    public static final int DOWNLOAD_FAIL = 6;
+    public static final int NO_CONNECTION = 7;
+    public static final int APPLY_FAIL = 8;
+    public static final int SYMLINK_MISSING = 9;
+    public static final int NOT_ENOUGH_SPACE = 10;
+    public static final int REMOUNT_FAIL = 11;
+    public static final int COPY_FAIL = 12;
+    public static final int EMPTY_HOSTS_SOURCES = 13;
 }

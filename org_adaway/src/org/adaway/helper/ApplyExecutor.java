@@ -42,9 +42,8 @@ import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
 import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
-import org.adaway.util.StatusUtils;
+import org.adaway.util.ReturnCodes;
 import org.adaway.util.UiUtils;
-import org.adaway.util.ReturnCodes.ReturnCode;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -52,6 +51,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -62,8 +62,8 @@ public class ApplyExecutor {
     private Activity mActivity;
     private DatabaseHelper mDatabaseHelper;
 
-    private AsyncTask<String, Integer, Enum<ReturnCode>> mDownloadTask;
-    private AsyncTask<Void, String, Enum<ReturnCode>> mApplyTask;
+    private AsyncTask<Void, Integer, Integer> mDownloadTask;
+    private AsyncTask<Void, String, Integer> mApplyTask;
 
     /**
      * Constructor based on fragment
@@ -76,53 +76,32 @@ public class ApplyExecutor {
         this.mActivity = baseFragment.getActivity();
     }
 
+    /**
+     * Execute Apply process
+     */
     public void apply() {
-        mDatabaseHelper = new DatabaseHelper(mActivity);
-
-        // get enabled hosts from databse
-        ArrayList<String> enabledHosts = mDatabaseHelper.getAllEnabledHostsSources();
-        Log.d(Constants.TAG, "Enabled hosts: " + enabledHosts.toString());
-
-        mDatabaseHelper.close();
-
-        // build array out of list
-        String[] enabledHostsArray = new String[enabledHosts.size()];
-        enabledHosts.toArray(enabledHostsArray);
-
-        if (enabledHosts.size() < 1) {
-            AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
-            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-            alertDialog.setTitle(R.string.no_sources_title);
-            alertDialog.setMessage(mBaseFragment.getString(org.adaway.R.string.no_sources));
-            alertDialog.setButton(mBaseFragment.getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dlg, int sum) {
-                            dlg.dismiss();
-                        }
-                    });
-            alertDialog.show();
-        } else {
-            // execute downloading of files
-            runDownloadTask(enabledHostsArray);
-        }
+        runDownloadTask();
     }
 
     /**
-     * AsyncTask to download hosts files, can be executed with many urls as params. In onPostExecute
-     * an Apply AsyncTask will be started
+     * AsyncTask to download hosts files defined in db. In onPostExecute an Apply AsyncTask will be
+     * started
      */
     private void runDownloadTask(String... urls) {
-        mDownloadTask = new AsyncTask<String, Integer, Enum<ReturnCode>>() {
+        mDownloadTask = new AsyncTask<Void, Integer, Integer>() {
+            Cursor mEnabledHostsSourcesCursor;
+
             private ProgressDialog mDownloadProgressDialog;
 
             private int fileSize;
             private byte data[];
             private long total;
             private int count;
-            private String currentUrl;
-            private boolean urlChanged;
-            private boolean indeterminate;
-            private boolean indeterminateChanged;
+            private String mCurrentUrl;
+            private boolean mUrlChanged;
+            private boolean mIndeterminate;
+            private boolean mIndeterminateChanged;
+            private long mCurrentLastModifiedOnline;
 
             @Override
             protected void onPreExecute() {
@@ -142,7 +121,7 @@ public class ApplyExecutor {
 
                 mDownloadProgressDialog.show();
 
-                urlChanged = false;
+                mUrlChanged = false;
             }
 
             private boolean isAndroidOnline() {
@@ -156,8 +135,8 @@ public class ApplyExecutor {
             }
 
             @Override
-            protected Enum<ReturnCode> doInBackground(String... urls) {
-                ReturnCode returnCode = ReturnCode.SUCCESS; // default return code
+            protected Integer doInBackground(Void... unused) {
+                int returnCode = ReturnCodes.SUCCESS; // default return code
 
                 if (isAndroidOnline()) {
                     // output to write into
@@ -167,93 +146,124 @@ public class ApplyExecutor {
                         out = mActivity.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
                                 Context.MODE_PRIVATE);
 
-                        for (String url : urls) {
+                        // get cursor over all enabled hosts source
+                        mDatabaseHelper = new DatabaseHelper(mActivity);
+                        mEnabledHostsSourcesCursor = mDatabaseHelper.getEnabledHostsSourcesCursor();
 
-                            // stop if thread canceled
-                            if (isCancelled()) {
-                                break;
-                            }
+                        // iterate over all hosts sources in db with cursor
+                        if (mEnabledHostsSourcesCursor.moveToFirst()) {
+                            do {
 
-                            InputStream is = null;
-                            BufferedInputStream bis = null;
-                            try {
-                                Log.v(Constants.TAG, "Downloading hosts file: " + url);
-
-                                /* change URL in download dialog */
-                                currentUrl = url;
-                                urlChanged = true;
-                                publishProgress(0); // update UI
-
-                                /* build connection */
-                                URL mURL = new URL(url);
-                                URLConnection connection = mURL.openConnection();
-
-                                fileSize = connection.getContentLength();
-                                Log.d(Constants.TAG, "fileSize: " + fileSize);
-
-                                /* set progressBar to indeterminate when fileSize is -1 */
-                                if (fileSize != -1) {
-                                    indeterminate = false;
-                                } else {
-                                    indeterminate = true;
-                                }
-                                indeterminateChanged = true;
-                                publishProgress(0); // update UI
-
-                                /* connect */
-                                connection.connect();
-                                is = connection.getInputStream();
-                                bis = new BufferedInputStream(is);
-                                if (is == null) {
-                                    Log.e(Constants.TAG, "Stream is null");
+                                // stop if thread canceled
+                                if (isCancelled()) {
+                                    break;
                                 }
 
-                                /* download with progress */
-                                data = new byte[1024];
-                                total = 0;
-                                count = 0;
-
-                                // run while only when thread is not cancelled
-                                while ((count = bis.read(data)) != -1 && !isCancelled()) {
-                                    out.write(data, 0, count);
-
-                                    total += count;
-
-                                    if (fileSize != -1) {
-                                        publishProgress((int) ((total * 100) / fileSize));
-                                    } else {
-                                        publishProgress(50); // no ContentLength was returned
-                                    }
-                                }
-
-                                // add line seperator to add files together in one file
-                                out.write(Constants.LINE_SEPERATOR.getBytes());
-                            } catch (Exception e) {
-                                Log.e(Constants.TAG, "Exception: " + e);
-                                returnCode = ReturnCode.DOWNLOAD_FAIL;
-                                break; // stop for-loop
-                            } finally {
-                                // flush and close streams
+                                InputStream is = null;
+                                BufferedInputStream bis = null;
                                 try {
-                                    if (out != null) {
-                                        out.flush();
+                                    mCurrentUrl = mEnabledHostsSourcesCursor
+                                            .getString(mEnabledHostsSourcesCursor
+                                                    .getColumnIndex("url"));
+
+                                    Log.v(Constants.TAG, "Downloading hosts file: " + mCurrentUrl);
+
+                                    /* change URL in download dialog */
+                                    mUrlChanged = true;
+                                    publishProgress(0); // update UI
+
+                                    /* build connection */
+                                    URL mURL = new URL(mCurrentUrl);
+                                    URLConnection connection = mURL.openConnection();
+
+                                    fileSize = connection.getContentLength();
+                                    Log.d(Constants.TAG, "fileSize: " + fileSize);
+
+                                    /* set progressBar to indeterminate when fileSize is -1 */
+                                    if (fileSize != -1) {
+                                        mIndeterminate = false;
+                                    } else {
+                                        mIndeterminate = true;
                                     }
-                                    if (bis != null) {
-                                        bis.close();
+                                    mIndeterminateChanged = true;
+                                    publishProgress(0); // update UI
+
+                                    /* connect */
+                                    connection.connect();
+                                    is = connection.getInputStream();
+
+                                    bis = new BufferedInputStream(is);
+                                    if (is == null) {
+                                        Log.e(Constants.TAG, "Stream is null");
                                     }
-                                    if (is != null) {
-                                        is.close();
+
+                                    /* download with progress */
+                                    data = new byte[1024];
+                                    total = 0;
+                                    count = 0;
+
+                                    // run while only when thread is not cancelled
+                                    while ((count = bis.read(data)) != -1 && !isCancelled()) {
+                                        out.write(data, 0, count);
+
+                                        total += count;
+
+                                        if (fileSize != -1) {
+                                            publishProgress((int) ((total * 100) / fileSize));
+                                        } else {
+                                            publishProgress(50); // no ContentLength was returned
+                                        }
                                     }
+
+                                    // add line seperator to add files together in one file
+                                    out.write(Constants.LINE_SEPERATOR.getBytes());
+
+                                    // save last modified online for later use
+                                    mCurrentLastModifiedOnline = connection.getLastModified();
+                                    mDatabaseHelper.updateHostsSourceLastModifiedOnline(
+                                            mEnabledHostsSourcesCursor
+                                                    .getInt(mEnabledHostsSourcesCursor
+                                                            .getColumnIndex("_id")),
+                                            mCurrentLastModifiedOnline);
+
                                 } catch (Exception e) {
-                                    Log.e(Constants.TAG, "Exception on flush and closing streams: "
-                                            + e);
-                                    e.printStackTrace();
+                                    Log.e(Constants.TAG, "Exception: " + e);
+                                    returnCode = ReturnCodes.DOWNLOAD_FAIL;
+                                    break; // stop for-loop
+                                } finally {
+                                    // flush and close streams
+                                    try {
+                                        if (out != null) {
+                                            out.flush();
+                                        }
+                                        if (bis != null) {
+                                            bis.close();
+                                        }
+                                        if (is != null) {
+                                            is.close();
+                                        }
+                                    } catch (Exception e) {
+                                        Log.e(Constants.TAG,
+                                                "Exception on flush and closing streams: " + e);
+                                        e.printStackTrace();
+                                    }
                                 }
-                            }
+
+                            } while (mEnabledHostsSourcesCursor.moveToNext());
+                        } else {
+                            // cursor empty
+                            returnCode = ReturnCodes.EMPTY_HOSTS_SOURCES;
                         }
+
+                        // close cursor and db helper in the end
+                        if (mEnabledHostsSourcesCursor != null
+                                && !mEnabledHostsSourcesCursor.isClosed()) {
+                            mEnabledHostsSourcesCursor.close();
+                        }
+                        mDatabaseHelper.close();
                     } catch (Exception e) {
                         Log.e(Constants.TAG, "Private File can not be created, Exception: " + e);
-                        returnCode = ReturnCode.PRIVATE_FILE_FAIL;
+                        returnCode = ReturnCodes.PRIVATE_FILE_FAIL;
                     } finally {
                         try {
                             if (out != null) {
@@ -265,7 +275,7 @@ public class ApplyExecutor {
                         }
                     }
                 } else {
-                    returnCode = ReturnCode.NO_CONNECTION;
+                    returnCode = ReturnCodes.NO_CONNECTION;
                 }
 
                 return returnCode;
@@ -274,36 +284,37 @@ public class ApplyExecutor {
             @Override
             protected void onProgressUpdate(Integer... progress) {
                 // update dialog with filename and progress
-                if (urlChanged) {
+                if (mUrlChanged) {
                     Log.d(Constants.TAG, "urlChanged");
                     mDownloadProgressDialog.setMessage(mActivity
                             .getString(R.string.download_dialog)
                             + Constants.LINE_SEPERATOR
-                            + currentUrl);
-                    urlChanged = false;
+                            + mCurrentUrl);
+                    mUrlChanged = false;
                 }
                 // update progressBar of dialog
-                if (indeterminateChanged) {
+                if (mIndeterminateChanged) {
                     Log.d(Constants.TAG, "indeterminateChanged");
-                    if (indeterminate) {
+                    if (mIndeterminate) {
                         mDownloadProgressDialog.setIndeterminate(true);
                     } else {
                         mDownloadProgressDialog.setIndeterminate(false);
                     }
-                    indeterminateChanged = false;
+                    mIndeterminateChanged = false;
                 }
                 // Log.d(Constants.TAG, "progress: " + progress[0]);
                 mDownloadProgressDialog.setProgress(progress[0]);
             }
 
             @Override
-            protected void onPostExecute(Enum<ReturnCode> result) {
+            protected void onPostExecute(Integer result) {
                 super.onPostExecute(result);
 
                 Log.d(Constants.TAG, "onPostExecute result: " + result);
 
                 AlertDialog alertDialog;
-                if (result == ReturnCode.SUCCESS) {
+
+                if (result == ReturnCodes.SUCCESS) {
                     mDownloadProgressDialog.dismiss();
 
                     // Apply files by Apply thread
@@ -320,18 +331,27 @@ public class ApplyExecutor {
                                 }
                             });
 
-                    if (result == ReturnCode.NO_CONNECTION) {
+                    switch (result) {
+                    case ReturnCodes.NO_CONNECTION:
                         alertDialog.setTitle(R.string.no_connection_title);
                         alertDialog.setMessage(mActivity
                                 .getString(org.adaway.R.string.no_connection));
-                    } else if (result == ReturnCode.PRIVATE_FILE_FAIL) {
+                        break;
+
+                    case ReturnCodes.PRIVATE_FILE_FAIL:
                         alertDialog.setTitle(R.string.no_private_file_title);
                         alertDialog.setMessage(mActivity
                                 .getString(org.adaway.R.string.no_private_file));
-                    } else if (result == ReturnCode.DOWNLOAD_FAIL) {
+                        break;
+                    case ReturnCodes.DOWNLOAD_FAIL:
                         alertDialog.setTitle(R.string.download_fail_title);
                         alertDialog.setMessage(mActivity
-                                .getString(org.adaway.R.string.download_fail) + "\n" + currentUrl);
+                                .getString(org.adaway.R.string.download_fail) + "\n" + mCurrentUrl);
+                        break;
+                    case ReturnCodes.EMPTY_HOSTS_SOURCES:
+                        alertDialog.setTitle(R.string.no_sources_title);
+                        alertDialog.setMessage(mActivity.getString(org.adaway.R.string.no_sources));
+                        break;
                     }
 
                     alertDialog.show();
@@ -339,7 +359,7 @@ public class ApplyExecutor {
             }
         };
 
-        mDownloadTask.execute(urls);
+        mDownloadTask.execute();
     }
 
     /**
@@ -347,12 +367,12 @@ public class ApplyExecutor {
      * the redirection ip from the preferences and apply them using RootTools.
      */
     private void runApplyTask() {
-        mApplyTask = new AsyncTask<Void, String, Enum<ReturnCode>>() {
+        mApplyTask = new AsyncTask<Void, String, Integer>() {
             private ProgressDialog mApplyProgressDialog;
 
             @Override
-            protected Enum<ReturnCode> doInBackground(Void... unused) {
-                ReturnCode returnCode = ReturnCode.SUCCESS; // default return code
+            protected Integer doInBackground(Void... unused) {
+                int returnCode = ReturnCodes.SUCCESS; // default return code
 
                 try {
                     /* PARSE: parse hosts files to sets of hostnames and comments */
@@ -463,13 +483,13 @@ public class ApplyExecutor {
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
-                    returnCode = ReturnCode.PRIVATE_FILE_FAIL;
+                    returnCode = ReturnCodes.PRIVATE_FILE_FAIL;
                 } catch (IOException e) {
                     Log.e(Constants.TAG, "files can not be written or read");
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
-                    returnCode = ReturnCode.PRIVATE_FILE_FAIL;
+                    returnCode = ReturnCodes.PRIVATE_FILE_FAIL;
                 }
 
                 // delete downloaded hosts file from private storage
@@ -490,49 +510,47 @@ public class ApplyExecutor {
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
-                    returnCode = ReturnCode.NOT_ENOUGH_SPACE;
+                    returnCode = ReturnCodes.NOT_ENOUGH_SPACE;
                 } catch (RemountException e) {
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
-                    returnCode = ReturnCode.REMOUNT_FAIL;
+                    returnCode = ReturnCodes.REMOUNT_FAIL;
                 } catch (CommandException e) {
                     Log.e(Constants.TAG, "Exception: " + e);
                     e.printStackTrace();
 
-                    returnCode = ReturnCode.COPY_FAIL;
+                    returnCode = ReturnCodes.COPY_FAIL;
                 }
 
                 // delete generated hosts file from private storage
                 mActivity.deleteFile(Constants.HOSTS_FILENAME);
 
-                /* Set lastModified date in database to current date */
+                /*
+                 * Set last_modified_local dates in database to last_modified_online, got in
+                 * download task
+                 */
                 mDatabaseHelper = new DatabaseHelper(mActivity);
-
-                long lastModified = StatusUtils.getCurrentLongDate();
-                mDatabaseHelper.updateLastModified(lastModified);
-                Log.d(Constants.TAG, "Updated all hosts sources with lastModified: " + lastModified
-                        + " (" + StatusUtils.longToDateString(lastModified) + ")");
-
+                mDatabaseHelper.updateAllEnabledHostsSourcesLastModifiedLocalFromOnline();
                 mDatabaseHelper.close();
 
                 /* check if hosts file is applied with chosen method */
                 // check only if everything before was successful
-                if (returnCode == ReturnCode.SUCCESS) {
+                if (returnCode == ReturnCodes.SUCCESS) {
                     if (PreferencesHelper.getApplyMethod(mActivity).equals("writeToSystem")) {
                         if (!ApplyUtils.isHostsFileApplied(mActivity,
                                 Constants.ANDROID_SYSTEM_ETC_PATH)) {
-                            returnCode = ReturnCode.APPLY_FAIL;
+                            returnCode = ReturnCodes.APPLY_FAIL;
                         }
                     } else if (PreferencesHelper.getApplyMethod(mActivity)
                             .equals("writeToDataData")) {
                         if (!ApplyUtils.isHostsFileApplied(mActivity,
                                 Constants.ANDROID_DATA_DATA_PATH)) {
-                            returnCode = ReturnCode.APPLY_FAIL;
+                            returnCode = ReturnCodes.APPLY_FAIL;
                         } else {
                             if (!ApplyUtils.isHostsFileApplied(mActivity,
                                     Constants.ANDROID_SYSTEM_ETC_PATH)) {
-                                returnCode = ReturnCode.SYMLINK_MISSING;
+                                returnCode = ReturnCodes.SYMLINK_MISSING;
                             }
                         }
                     }
@@ -557,18 +575,18 @@ public class ApplyExecutor {
             }
 
             @Override
-            protected void onPostExecute(Enum<ReturnCode> result) {
+            protected void onPostExecute(Integer result) {
                 super.onPostExecute(result);
 
                 AlertDialog alertDialog;
-                if (result == ReturnCode.SUCCESS) {
+                if (result == ReturnCodes.SUCCESS) {
                     mApplyProgressDialog.dismiss();
 
                     mBaseFragment.setStatusEnabled();
 
                     UiUtils.rebootQuestion(mActivity, R.string.apply_success_title,
                             R.string.apply_success);
-                } else if (result == ReturnCode.SYMLINK_MISSING) {
+                } else if (result == ReturnCodes.SYMLINK_MISSING) {
                     mApplyProgressDialog.dismiss();
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
@@ -605,26 +623,32 @@ public class ApplyExecutor {
                                 }
                             });
 
-                    if (result == ReturnCode.APPLY_FAIL) {
+                    switch (result) {
+                    case ReturnCodes.APPLY_FAIL:
                         alertDialog.setTitle(R.string.apply_fail_title);
                         alertDialog.setMessage(mActivity.getString(org.adaway.R.string.apply_fail));
 
-                    } else if (result == ReturnCode.PRIVATE_FILE_FAIL) {
+                        break;
+                    case ReturnCodes.PRIVATE_FILE_FAIL:
                         alertDialog.setTitle(R.string.apply_private_file_fail_title);
                         alertDialog.setMessage(mActivity
                                 .getString(org.adaway.R.string.apply_private_file_fail));
-                    } else if (result == ReturnCode.NOT_ENOUGH_SPACE) {
+                        break;
+                    case ReturnCodes.NOT_ENOUGH_SPACE:
                         alertDialog.setTitle(R.string.apply_not_enough_space_title);
                         alertDialog.setMessage(mActivity
                                 .getString(org.adaway.R.string.apply_not_enough_space));
-                    } else if (result == ReturnCode.REMOUNT_FAIL) {
+                        break;
+                    case ReturnCodes.REMOUNT_FAIL:
                         alertDialog.setTitle(R.string.apply_remount_fail_title);
                         alertDialog.setMessage(mActivity
                                 .getString(org.adaway.R.string.apply_remount_fail));
-                    } else if (result == ReturnCode.COPY_FAIL) {
+                        break;
+                    case ReturnCodes.COPY_FAIL:
                         alertDialog.setTitle(R.string.apply_copy_fail_title);
                         alertDialog.setMessage(mActivity
                                 .getString(org.adaway.R.string.apply_copy_fail));
+                        break;
                     }
 
                     alertDialog.show();

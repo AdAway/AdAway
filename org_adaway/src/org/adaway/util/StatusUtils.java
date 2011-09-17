@@ -31,10 +31,14 @@ public class StatusUtils {
      * @return formatted date string
      */
     public static String longToDateString(long input) {
-        Date date = new Date(input);
-        DateFormat dataformat = DateFormat.getDateInstance(DateFormat.LONG);
+        if (input != 0) {
+            Date date = new Date(input);
+            DateFormat dataformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
-        return dataformat.format(date);
+            return dataformat.format(date);
+        } else {
+            return "not available";
+        }
     }
 
     /**

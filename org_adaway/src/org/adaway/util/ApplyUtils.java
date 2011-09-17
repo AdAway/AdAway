@@ -28,8 +28,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import org.adaway.helper.DatabaseHelper;
-
 import com.stericson.RootTools.RootTools;
 import com.stericson.RootTools.RootToolsException;
 
@@ -69,19 +67,6 @@ public class ApplyUtils {
      */
     public static boolean isHostsFileApplied(Context context, String targetPath) {
         boolean status = false;
-
-        /* Check if lastModified in database is 0 */
-
-        // get last modified from db
-        DatabaseHelper taskDatabaseHelper = new DatabaseHelper(context);
-        long lastModifiedDatabase = taskDatabaseHelper.getLastModified();
-        taskDatabaseHelper.close();
-
-        if (lastModifiedDatabase == 0) {
-            status = false;
-        } else {
-            status = true;
-        }
 
         /* Check if first line in $targetPath/hosts is AdAway comment */
         String hostsFile = targetPath + File.separator + Constants.HOSTS_FILENAME;
