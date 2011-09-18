@@ -39,6 +39,16 @@
 
 
 Deutsch
+1.08
+* AdAway bekam ein neues Design
+* AdAway enthält nun ein Webserver, der auf localhost horcht
+* Die Daten der Hosts sources werden gespeichert und angezeigt
+* Einstellung um den Neustart-Dialog zu verstecken
+* Hilfe-Seite mit Informationen zu AdAway
+* Neue Hosts source wurde hinzugefügt: sysctl.org
+* Täglicher Update Check kann in den Einstellungen aktiviert werden
+- Sollte jetzt mit Roms funktionieren, die keine Busybox-Symlinks anlegen
+
 1.07
 * AdAway kann nun bei Bedarf einen Symlink erstellen
 - bessere Fehlerbehandlung

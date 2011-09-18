@@ -21,8 +21,8 @@
 package org.adaway.util;
 
 public class Constants {
-    public static final boolean debugMode = true;
-    public static final boolean disableRootCheck = true;
+    public static final boolean DEBUG_MODE = true;
+    public static final boolean DISABLE_ROOT_CHECK = true;
 
     public static final String TAG = "AdAway";
 

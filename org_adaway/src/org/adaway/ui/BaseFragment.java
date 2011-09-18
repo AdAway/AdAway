@@ -267,7 +267,7 @@ public class BaseFragment extends Fragment {
         mWebserverToggle = (ToggleButton) mActivity
                 .findViewById(R.id.base_fragment_webserver_toggle);
 
-        RootTools.debugMode = Constants.debugMode;
+        RootTools.debugMode = Constants.DEBUG_MODE;
 
         // check for root
         if (Utils.isAndroidRooted(mActivity)) {

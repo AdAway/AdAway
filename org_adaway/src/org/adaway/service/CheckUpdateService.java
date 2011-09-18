@@ -103,9 +103,10 @@ public class CheckUpdateService extends Service {
             final Intent intent = new Intent(context, CheckUpdateService.class);
             final PendingIntent pending = PendingIntent.getService(context, 0, intent, 0);
 
+            // every day at 10 am
             Calendar c = new GregorianCalendar();
             c.add(Calendar.DAY_OF_YEAR, 1);
-            c.set(Calendar.HOUR_OF_DAY, 0);
+            c.set(Calendar.HOUR_OF_DAY, 10);
             c.set(Calendar.MINUTE, 0);
             c.set(Calendar.SECOND, 0);
             c.set(Calendar.MILLISECOND, 0);
@@ -113,7 +114,7 @@ public class CheckUpdateService extends Service {
             final AlarmManager alarm = (AlarmManager) context
                     .getSystemService(Context.ALARM_SERVICE);
             alarm.cancel(pending);
-            if (Constants.debugMode) {
+            if (Constants.DEBUG_MODE) {
                 alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
                         30 * 1000, pending);
             } else {
@@ -326,7 +327,6 @@ public class CheckUpdateService extends Service {
         notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 
         mNotificationManager.notify(UPDATE_NOTIFICATION_ID, notification);
-
     }
 
     /**
