@@ -33,6 +33,12 @@ public class PreferencesHelper {
                 Boolean.parseBoolean(context.getString(R.string.pref_update_check_def)));
     }
 
+    public static boolean getUpdateCheckDaily(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        return prefs.getBoolean(context.getString(R.string.pref_update_check_daily_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_update_check_daily_def)));
+    }
+
     public static boolean getNeverReboot(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getBoolean(context.getString(R.string.pref_never_reboot_key),

@@ -25,9 +25,10 @@ import org.adaway.helper.ApplyExecutor;
 import org.adaway.helper.RevertExecutor;
 import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
+import org.adaway.service.CheckUpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
-import org.adaway.util.UiUtils;
+import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
 
 import android.app.Activity;
@@ -177,7 +178,7 @@ public class BaseFragment extends Fragment {
         }
 
         // check for root
-        if (UiUtils.isAndroidRooted(mActivity)) {
+        if (Utils.isAndroidRooted(mActivity)) {
             // set togglebutton checked if webserver is running
             WebserverUtils.setWebserverToggle(mWebserverToggle);
         }
@@ -269,13 +270,16 @@ public class BaseFragment extends Fragment {
         RootTools.debugMode = Constants.debugMode;
 
         // check for root
-        if (UiUtils.isAndroidRooted(mActivity)) {
+        if (Utils.isAndroidRooted(mActivity)) {
             // do background update check
             mStatusChecker.checkForUpdatesOnCreate();
             // install webserver if not already there
             WebserverUtils.installWebserver(mActivity);
             // set togglebutton checked if webserver is running
             WebserverUtils.setWebserverToggle(mWebserverToggle);
+
+            // schedule CheckUpdateService
+            CheckUpdateService.schedule(mActivity);
         }
     }
 

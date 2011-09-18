@@ -29,7 +29,7 @@ import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
 import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
-import org.adaway.util.UiUtils;
+import org.adaway.util.Utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -98,7 +98,7 @@ public class RevertExecutor {
                             // set status to disabled
                             mBaseFragment.setStatusDisabled();
 
-                            UiUtils.rebootQuestion(mActivity, R.string.revert_successful_title,
+                            Utils.rebootQuestion(mActivity, R.string.revert_successful_title,
                                     R.string.revert_successful);
                         } catch (Exception e) {
                             Log.e(Constants.TAG, "Exception: " + e);

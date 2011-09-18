@@ -29,12 +29,10 @@ import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
+import org.adaway.util.Utils;
 
 import android.app.Activity;
-import android.content.Context;
 import android.database.Cursor;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -99,21 +97,11 @@ public class StatusChecker {
                 mBaseFragment.setStatusChecking();
             }
 
-            private boolean isAndroidOnline() {
-                ConnectivityManager cm = (ConnectivityManager) mActivity
-                        .getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo netInfo = cm.getActiveNetworkInfo();
-                if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-                    return true;
-                }
-                return false;
-            }
-
             @Override
             protected Integer doInBackground(Void... unused) {
                 int returnCode = ReturnCodes.ENABLED; // default return code
 
-                if (isAndroidOnline()) {
+                if (Utils.isAndroidOnline(mActivity)) {
 
                     // get cursor over all enabled hosts source
                     mDatabaseHelper = new DatabaseHelper(mActivity);

@@ -21,9 +21,14 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.service.CheckUpdateService;
 import org.adaway.util.Constants;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 
 /**
@@ -34,6 +39,9 @@ import android.preference.PreferenceActivity;
  */
 public class PrefsActivity extends PreferenceActivity {
 
+    private CheckBoxPreference mUpdateCheckDaily;
+    private Context mContext;
+
     /**
      * Called when the activity is first created.
      */
@@ -41,8 +49,27 @@ public class PrefsActivity extends PreferenceActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mContext = this;
+
         getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences);
-    }
 
+        // find checkbox for update check daily
+        mUpdateCheckDaily = (CheckBoxPreference) getPreferenceScreen().findPreference(
+                getString(R.string.pref_update_check_daily_key));
+
+        // set preference click to enable update service
+        mUpdateCheckDaily.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference arg0) {
+                if (mUpdateCheckDaily.isChecked()) {
+                    CheckUpdateService.schedule(mContext);
+                } else {
+                    CheckUpdateService.unschedule(mContext);
+                }
+                return false;
+            }
+        });
+
+    }
 }

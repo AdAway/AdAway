@@ -517,4 +517,8 @@
     <item name="pref_never_reboot_def" type="string" format="boolean">false</item>
     <string name="pref_never_reboot_key">neverReboot</string>
     <string name="pref_never_reboot_summary">Hides the question dialog that asks to reboot your device</string>
+    <string name="pref_update_check_daily">Check for updates daily</string>
+    <item name="pref_update_check_daily_def" format="boolean" type="string">false</item>
+    <string name="pref_update_check_daily_key">updateCheckDaily</string>
+    <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
 </resources>

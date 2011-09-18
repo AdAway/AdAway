@@ -27,14 +27,17 @@ import com.stericson.RootTools.RootTools;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class UiUtils {
+public class Utils {
     /**
      * Check if Android is rooted, check for su binary and busybox and display possible solutions if
      * they are not available
@@ -176,5 +179,21 @@ public class UiUtils {
 
             question.show();
         }
+    }
+
+    /**
+     * Checks if Android is online
+     * 
+     * @param context
+     * @return returns true if online
+     */
+    public static boolean isAndroidOnline(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        }
+        return false;
     }
 }

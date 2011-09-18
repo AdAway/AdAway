@@ -43,7 +43,7 @@ import org.adaway.util.HostsParser;
 import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
 import org.adaway.util.ReturnCodes;
-import org.adaway.util.UiUtils;
+import org.adaway.util.Utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -52,8 +52,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.database.Cursor;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -124,21 +122,11 @@ public class ApplyExecutor {
                 mUrlChanged = false;
             }
 
-            private boolean isAndroidOnline() {
-                ConnectivityManager cm = (ConnectivityManager) mActivity
-                        .getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo netInfo = cm.getActiveNetworkInfo();
-                if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-                    return true;
-                }
-                return false;
-            }
-
             @Override
             protected Integer doInBackground(Void... unused) {
                 int returnCode = ReturnCodes.SUCCESS; // default return code
 
-                if (isAndroidOnline()) {
+                if (Utils.isAndroidOnline(mActivity)) {
                     // output to write into
                     FileOutputStream out = null;
 
@@ -584,7 +572,7 @@ public class ApplyExecutor {
 
                     mBaseFragment.setStatusEnabled();
 
-                    UiUtils.rebootQuestion(mActivity, R.string.apply_success_title,
+                    Utils.rebootQuestion(mActivity, R.string.apply_success_title,
                             R.string.apply_success);
                 } else if (result == ReturnCodes.SYMLINK_MISSING) {
                     mApplyProgressDialog.dismiss();
@@ -690,7 +678,7 @@ public class ApplyExecutor {
         if (success) {
             mBaseFragment.setStatusEnabled();
 
-            UiUtils.rebootQuestion(mActivity, R.string.apply_symlink_successful_title,
+            Utils.rebootQuestion(mActivity, R.string.apply_symlink_successful_title,
                     R.string.apply_symlink_successful);
         } else {
             mBaseFragment.setStatusDisabled();

@@ -5,6 +5,7 @@
 * Preference to hide reboot question dialog
 * Help page with information about AdAway
 * Added new hosts source sysctl.org
+* Daily update check can be enabled in preferences
 - Should now work on roms which doesn't symlink busybox commands
 
 1.07
