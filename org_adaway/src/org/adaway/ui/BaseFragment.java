@@ -255,6 +255,8 @@ public class BaseFragment extends Fragment {
 
         mActivity = getActivity();
 
+        mStatus = ReturnCodes.DISABLED; // initial status
+
         // Initialize logic
         mStatusChecker = new StatusChecker(this);
         mApplyExecutor = new ApplyExecutor(this);
@@ -267,7 +269,7 @@ public class BaseFragment extends Fragment {
         mWebserverToggle = (ToggleButton) mActivity
                 .findViewById(R.id.base_fragment_webserver_toggle);
 
-        RootTools.debugMode = Constants.DEBUG_MODE;
+        RootTools.debugMode = Constants.DEBUG;
 
         // check for root
         if (Utils.isAndroidRooted(mActivity)) {

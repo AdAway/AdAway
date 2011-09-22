@@ -37,7 +37,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import org.adaway.R;
 import org.adaway.helper.DatabaseHelper;
@@ -55,9 +54,6 @@ public class CheckUpdateService extends Service {
     private Context mContext;
     private DatabaseHelper mDatabaseHelper;
     private CheckForUpdatesTask mCheckForUpdatesTask;
-
-    // Check interval: every 24 hours
-    private static long UPDATES_CHECK_INTERVAL = 24 * 60 * 60 * 1000;
 
     // Notification id
     private static final int UPDATE_NOTIFICATION_ID = 1;
@@ -101,25 +97,25 @@ public class CheckUpdateService extends Service {
         // schedule when enabled in preferences
         if (PreferencesHelper.getUpdateCheckDaily(context)) {
             final Intent intent = new Intent(context, CheckUpdateService.class);
-            final PendingIntent pending = PendingIntent.getService(context, 0, intent, 0);
+            final PendingIntent pending = PendingIntent.getService(context, 0, intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
 
-            // every day at 10 am
-            Calendar c = new GregorianCalendar();
-            c.add(Calendar.DAY_OF_YEAR, 1);
-            c.set(Calendar.HOUR_OF_DAY, 10);
-            c.set(Calendar.MINUTE, 0);
-            c.set(Calendar.SECOND, 0);
-            c.set(Calendar.MILLISECOND, 0);
+            // every day at 9 am
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.HOUR_OF_DAY, 9);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
 
             final AlarmManager alarm = (AlarmManager) context
                     .getSystemService(Context.ALARM_SERVICE);
             alarm.cancel(pending);
-            if (Constants.DEBUG_MODE) {
+            if (Constants.DEBUG_CHECK_UPDATE_SERVICE) {
+                // in debug mode repeat service often
                 alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
                         30 * 1000, pending);
             } else {
-                alarm.setRepeating(AlarmManager.RTC, c.getTimeInMillis(), UPDATES_CHECK_INTERVAL,
-                        pending);
+                alarm.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
+                        AlarmManager.INTERVAL_DAY, pending);
             }
         }
     }
@@ -260,14 +256,16 @@ public class CheckUpdateService extends Service {
 
             switch (result) {
             case ReturnCodes.UPDATE_AVAILABLE:
-                showPostNotification(getString(R.string.status_update_available),
+                showPostNotification(getString(R.string.app_name) + ": "
+                        + getString(R.string.status_update_available),
                         getString(R.string.status_update_available_subtitle));
                 break;
             // case ReturnCodes.DISABLED:
             // cancelNotification();
             // break;
             case ReturnCodes.DOWNLOAD_FAIL:
-                showPostNotification(getString(R.string.status_download_fail),
+                showPostNotification(getString(R.string.app_name) + ": "
+                        + getString(R.string.status_download_fail),
                         getString(R.string.status_download_fail_subtitle) + " " + mCurrentUrl);
                 break;
             case ReturnCodes.NO_CONNECTION:
@@ -287,14 +285,16 @@ public class CheckUpdateService extends Service {
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         int icon = R.drawable.status_bar_icon;
-        CharSequence tickerText = getString(R.string.status_checking);
+        CharSequence tickerText = getString(R.string.app_name) + ": "
+                + getString(R.string.status_checking);
         long when = System.currentTimeMillis();
 
         Notification notification = new Notification(icon, tickerText, when);
         notification.flags |= Notification.FLAG_ONGOING_EVENT;
 
         Context context = getApplicationContext();
-        CharSequence contentTitle = getString(R.string.status_checking);
+        CharSequence contentTitle = getString(R.string.app_name) + ": "
+                + getString(R.string.status_checking);
         CharSequence contentText = getString(R.string.status_checking_subtitle);
         Intent notificationIntent = new Intent(this, BaseActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);

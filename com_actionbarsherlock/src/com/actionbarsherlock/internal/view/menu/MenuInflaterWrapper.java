@@ -12,6 +12,10 @@ public final class MenuInflaterWrapper extends android.view.MenuInflater {
 
     @Override
     public void inflate(int menuRes, android.view.Menu menu) {
-        mMenuInflater.inflate(menuRes, ((MenuWrapper)menu).unwrap());
+        if (menu instanceof MenuWrapper) {
+            mMenuInflater.inflate(menuRes, ((MenuWrapper)menu).unwrap());
+        } else {
+            mMenuInflater.inflate(menuRes, menu);
+        }
     }
 }

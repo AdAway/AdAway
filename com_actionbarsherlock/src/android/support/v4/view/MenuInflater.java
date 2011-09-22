@@ -26,7 +26,6 @@ import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
 import android.util.Xml;
-import android.view.ContextMenu;
 import android.view.InflateException;
 import android.view.MenuItem;
 import android.view.View;
@@ -90,7 +89,7 @@ public final class MenuInflater extends android.view.MenuInflater {
      */
     @Override
     public void inflate(int menuRes, android.view.Menu menu) {
-        if (menu instanceof ContextMenu) {
+        if (!(menu instanceof MenuBuilder)) {
             mNativeMenuInflater.inflate(menuRes, menu);
             return;
         }

@@ -47,10 +47,14 @@ public final class ActionBarView extends RelativeLayout {
     private final ProgressBar mIndeterminateProgress;
 
     /** List view. */
-    private final Spinner mListView;
+    private final Spinner mSpinner;
+    private SpinnerAdapter mSpinnerAdapter;
+    private final AdapterView.OnItemSelectedListener mNavItemSelectedListener;
+    private ActionBar.OnNavigationListener mCallback;
 
     /** Custom view parent. */
     private final FrameLayout mCustomView;
+    private View mCustomNavView;
 
     private ImageView mIconView;
     private Drawable mLogo;
@@ -73,7 +77,7 @@ public final class ActionBarView extends RelativeLayout {
      * @see #setDisplayOption(int, boolean)
      * @see #reloadDisplay()
      */
-    private int mFlags;
+    private int mDisplayOptions;
 
     /**
      * Current navigation mode
@@ -100,9 +104,23 @@ public final class ActionBarView extends RelativeLayout {
         mIsConstructing = true;
         LayoutInflater.from(context).inflate(R.layout.abs__action_bar, this, true);
 
+        mNavItemSelectedListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                if (mCallback != null) {
+                    mCallback.onNavigationItemSelected(arg2, arg3);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                //No op
+            }
+        };
+
         setBackgroundResource(0);
 
-        final TypedArray attrsActionBar = context.obtainStyledAttributes(attrs, R.styleable.SherlockTheme, defStyle, 0);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SherlockTheme, defStyle, 0);
         final ApplicationInfo appInfo = context.getApplicationInfo();
         final PackageManager pm = context.getPackageManager();
 
@@ -112,13 +130,13 @@ public final class ActionBarView extends RelativeLayout {
         mTitleLayout = (TextView)findViewById(R.id.abs__action_bar_title);
 
         //Try to load title style from the theme
-        final int titleTextStyle = attrsActionBar.getResourceId(R.styleable.SherlockTheme_abTitleTextStyle, 0);
+        final int titleTextStyle = a.getResourceId(R.styleable.SherlockTheme_abTitleTextStyle, 0);
         if (titleTextStyle != 0) {
             mTitleLayout.setTextAppearance(context, titleTextStyle);
         }
 
         //Try to load title from the theme
-        mTitle = attrsActionBar.getString(R.styleable.SherlockTheme_abTitle);
+        mTitle = a.getString(R.styleable.SherlockTheme_abTitle);
         if (mTitle != null) {
             setTitle(mTitle);
         }
@@ -129,13 +147,13 @@ public final class ActionBarView extends RelativeLayout {
         mSubtitleLayout = (TextView)findViewById(R.id.abs__action_bar_subtitle);
 
         //Try to load subtitle style from the theme
-        final int subtitleTextStyle = attrsActionBar.getResourceId(R.styleable.SherlockTheme_abSubtitleTextStyle, 0);
+        final int subtitleTextStyle = a.getResourceId(R.styleable.SherlockTheme_abSubtitleTextStyle, 0);
         if (subtitleTextStyle != 0) {
             mSubtitleLayout.setTextAppearance(context, subtitleTextStyle);
         }
 
         //Try to load subtitle from theme
-        mSubtitle = attrsActionBar.getString(R.styleable.SherlockTheme_abSubtitle);
+        mSubtitle = a.getString(R.styleable.SherlockTheme_abSubtitle);
         if (mSubtitle != null) {
             setSubtitle(mSubtitle);
         }
@@ -147,7 +165,7 @@ public final class ActionBarView extends RelativeLayout {
         mHomeLayout = findViewById(R.id.abs__home_wrapper);
 
         //Try to load the logo from the theme
-        mLogo = attrsActionBar.getDrawable(R.styleable.SherlockTheme_abLogo);
+        mLogo = a.getDrawable(R.styleable.SherlockTheme_abLogo);
         /*
         if ((mLogo == null) && (context instanceof Activity)) {
             //LOGO LOADING DOES NOT WORK
@@ -157,7 +175,7 @@ public final class ActionBarView extends RelativeLayout {
         */
 
         //Try to load the icon from the theme
-        mIcon = attrsActionBar.getDrawable(R.styleable.SherlockTheme_abIcon);
+        mIcon = a.getDrawable(R.styleable.SherlockTheme_abIcon);
         if ((mIcon == null) && (context instanceof Activity)) {
             mIcon = appInfo.loadIcon(pm);
         }
@@ -168,7 +186,9 @@ public final class ActionBarView extends RelativeLayout {
 
         //// NAVIGATION ////
 
-        mListView = (Spinner)findViewById(R.id.abs__nav_list);
+        mSpinner = (Spinner)findViewById(R.id.abs__nav_list);
+        mSpinner.setOnItemSelectedListener(mNavItemSelectedListener);
+
         mTabsView = (LinearLayout)findViewById(R.id.abs__nav_tabs);
 
 
@@ -178,30 +198,32 @@ public final class ActionBarView extends RelativeLayout {
 
         //Try to load a custom view from the theme. This will NOT automatically
         //trigger the visibility of the custom layout, however.
-        final int customViewResourceId = attrsActionBar.getResourceId(R.styleable.SherlockTheme_abCustomNavigationLayout, 0);
+        final int customViewResourceId = a.getResourceId(R.styleable.SherlockTheme_abCustomNavigationLayout, 0);
         if (customViewResourceId != 0) {
-            setCustomView(customViewResourceId);
+            mCustomNavView = LayoutInflater.from(context).inflate(customViewResourceId, mCustomView, true);
+            mNavigationMode = ActionBar.NAVIGATION_MODE_STANDARD;
+            setDisplayOptions(mDisplayOptions | ActionBar.DISPLAY_SHOW_CUSTOM);
         }
 
 
 
 
         mActionsView = (LinearLayout)findViewById(R.id.abs__actions);
-        mDivider = attrsActionBar.getDrawable(R.styleable.SherlockTheme_abDivider);
+        mDivider = a.getDrawable(R.styleable.SherlockTheme_abDivider);
 
         mIndeterminateProgress = (ProgressBar)findViewById(R.id.abs__iprogress);
 
         //Try to get the display options defined in the theme, or fall back to
         //displaying the title and home icon
-        setDisplayOptions(attrsActionBar.getInteger(R.styleable.SherlockTheme_abDisplayOptions, DEFAULT_DISPLAY_OPTIONS));
+        setDisplayOptions(a.getInteger(R.styleable.SherlockTheme_abDisplayOptions, DEFAULT_DISPLAY_OPTIONS));
 
         //Try to get the navigation defined in the theme, or, fall back to
         //use standard navigation by default
-        setNavigationMode(attrsActionBar.getInteger(R.styleable.SherlockTheme_abNavigationMode, DEFAULT_NAVIGATION_MODE));
+        setNavigationMode(a.getInteger(R.styleable.SherlockTheme_abNavigationMode, DEFAULT_NAVIGATION_MODE));
 
 
         //Reduce, Reuse, Recycle!
-        attrsActionBar.recycle();
+        a.recycle();
         mIsConstructing = false;
 
         mLogoNavItem = new ActionMenuItem(context, 0, android.R.id.home, 0, 0, mTitle);
@@ -232,7 +254,7 @@ public final class ActionBarView extends RelativeLayout {
      * @return Value.
      */
     private boolean getDisplayOptionValue(int flag) {
-        return (mFlags & flag) == flag;
+        return (mDisplayOptions & flag) == flag;
     }
 
     /**
@@ -260,7 +282,7 @@ public final class ActionBarView extends RelativeLayout {
         }
 
         //Only show list if we are in list navigation and there are list items
-        mListView.setVisibility(isList ? View.VISIBLE : View.GONE);
+        mSpinner.setVisibility(isList ? View.VISIBLE : View.GONE);
 
         // Show tabs if in tabs navigation mode.
         mTabsView.setVisibility(isTab ? View.VISIBLE : View.GONE);
@@ -301,45 +323,26 @@ public final class ActionBarView extends RelativeLayout {
     }
 
     public View getCustomView() {
-        return mCustomView.getChildAt(0);
+        return mCustomNavView;
     }
 
     public int getDisplayOptions() {
-        return mFlags;
+        return mDisplayOptions;
     }
 
-    //public int getHeight();
+    public SpinnerAdapter getDropdownAdapter() {
+        return this.mSpinnerAdapter;
+    }
 
-    public int getNavigationItemCount() {
-        if (mNavigationMode == ActionBar.NAVIGATION_MODE_LIST) {
-            return mListView.getCount();
-        }
-        if (mNavigationMode == ActionBar.NAVIGATION_MODE_TABS) {
-            return mTabsView.getChildCount();
-        }
-        return 0;
+    public int getDropdownSelectedPosition() {
+        return this.mSpinner.getSelectedItemPosition();
     }
 
     public int getNavigationMode() {
         return mNavigationMode;
     }
 
-    public int getSelectedNavigationIndex() {
-        if (mNavigationMode == ActionBar.NAVIGATION_MODE_LIST) {
-            return mListView.getSelectedItemPosition();
-        }
-        if (mNavigationMode == ActionBar.NAVIGATION_MODE_TABS) {
-            final int count = mTabsView.getChildCount();
-            for (int i = 0; i < count; i++) {
-                if (((TabImpl)mTabsView.getChildAt(i).getTag()).mView.isSelected()) {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
-
-    public TabImpl getSelectedTab() {
+    public ActionBar.Tab getSelectedTab() {
         final int count = mTabsView.getChildCount();
         for (int i = 0; i < count; i++) {
             TabImpl tab = (TabImpl)mTabsView.getChildAt(i).getTag();
@@ -358,7 +361,7 @@ public final class ActionBarView extends RelativeLayout {
         }
     }
 
-    public TabImpl getTabAt(int index) {
+    public ActionBar.Tab getTabAt(int index) {
         View view = mTabsView.getChildAt(index);
         return (view != null) ? (TabImpl)view.getTag() : null;
     }
@@ -375,16 +378,12 @@ public final class ActionBarView extends RelativeLayout {
         }
     }
 
-    public boolean isShowing() {
-        return getVisibility() == View.VISIBLE;
-    }
-
     public TabImpl newTab() {
         return new TabImpl(this);
     }
 
     public void removeAllTabs() {
-        TabImpl selected = getSelectedTab();
+        TabImpl selected = (TabImpl)getSelectedTab();
         if (selected != null) {
             selected.unselect();
         }
@@ -418,72 +417,34 @@ public final class ActionBarView extends RelativeLayout {
         }
     }
 
-    //public void setBackgroundDrawable(Drawable d);
-
-    public void setCustomView(int resId) {
-        mCustomView.removeAllViews();
-        LayoutInflater.from(getContext()).inflate(resId, mCustomView, true);
+    public void setCallback(ActionBar.OnNavigationListener callback) {
+        mCallback = callback;
     }
 
-    public void setCustomView(View view) {
+    public void setCustomNavigationView(View view) {
+        mCustomNavView = view;
         mCustomView.removeAllViews();
         mCustomView.addView(view);
     }
 
-    public void setCustomView(View view, ActionBar.LayoutParams layoutParams) {
-        view.setLayoutParams(layoutParams);
-        setCustomView(view);
-    }
-
-    public void setDisplayHomeAsUpEnabled(boolean showHomeAsUp) {
-        setDisplayOptions(showHomeAsUp ? ActionBar.DISPLAY_HOME_AS_UP : 0, ActionBar.DISPLAY_HOME_AS_UP);
-    }
-
-    public void setDisplayOptions(int options, int mask) {
-        mFlags = (mFlags & ~mask) | options;
-        reloadDisplay();
-    }
-
     public void setDisplayOptions(int options) {
-        mFlags = options;
+        mDisplayOptions = options;
         reloadDisplay();
     }
 
-    public void setDisplayShowCustomEnabled(boolean showCustom) {
-        setDisplayOptions(showCustom ? ActionBar.DISPLAY_SHOW_CUSTOM : 0, ActionBar.DISPLAY_SHOW_CUSTOM);
+    public void setDropdownAdapter(SpinnerAdapter spinnerAdapter) {
+        mSpinnerAdapter = spinnerAdapter;
+        if (mSpinner != null) {
+            mSpinner.setAdapter(mSpinnerAdapter);
+        }
     }
 
-    public void setDisplayShowHomeEnabled(boolean showHome) {
-        setDisplayOptions(showHome ? ActionBar.DISPLAY_SHOW_HOME : 0, ActionBar.DISPLAY_SHOW_HOME);
-    }
-
-    public void setDisplayShowTitleEnabled(boolean showTitle) {
-        setDisplayOptions(showTitle ? ActionBar.DISPLAY_SHOW_TITLE : 0, ActionBar.DISPLAY_SHOW_TITLE);
-    }
-
-    public void setDisplayUseLogoEnabled(boolean useLogo) {
-        setDisplayOptions(useLogo ? ActionBar.DISPLAY_USE_LOGO : 0, ActionBar.DISPLAY_USE_LOGO);
+    public void setDropdownSelectedPosition(int position) {
+        mSpinner.setSelection(position);
     }
 
     public void setProgressBarIndeterminateVisibility(boolean visible) {
         mIndeterminateProgress.setVisibility(visible ? View.VISIBLE : View.GONE);
-    }
-
-    public void setListNavigationCallbacks(SpinnerAdapter adapter, final ActionBar.OnNavigationListener callback) {
-        mListView.setAdapter(adapter);
-        mListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemId) {
-                if (callback != null) {
-                    callback.onNavigationItemSelected(position, itemId);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {}
-        });
-
-        reloadDisplay();
     }
 
     public void setNavigationMode(int mode) {
@@ -495,17 +456,6 @@ public final class ActionBarView extends RelativeLayout {
         if (mode != mNavigationMode) {
             mNavigationMode = mode;
             reloadDisplay();
-        }
-    }
-
-    public void setSelectedNavigationItem(int position) {
-        if (mNavigationMode == ActionBar.NAVIGATION_MODE_TABS) {
-            ActionBar.Tab tab = getTabAt(position);
-            if (tab != null) {
-                tab.select();
-            }
-        } else if (mNavigationMode == ActionBar.NAVIGATION_MODE_LIST) {
-            mListView.setSelection(position);
         }
     }
 
@@ -573,7 +523,7 @@ public final class ActionBarView extends RelativeLayout {
     // HELPER INTERFACES AND HELPER CLASSES
     // ------------------------------------------------------------------------
 
-    private static class TabImpl implements ActionBar.Tab {
+    private static class TabImpl extends ActionBar.Tab {
         private static final View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -711,7 +661,7 @@ public final class ActionBarView extends RelativeLayout {
                 return;
             }
 
-            TabImpl current = mActionBar.getSelectedTab();
+            TabImpl current = (TabImpl)mActionBar.getSelectedTab();
             if (current != null) {
                 current.unselect();
             }

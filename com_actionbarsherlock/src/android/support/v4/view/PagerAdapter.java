@@ -77,6 +77,18 @@ public abstract class PagerAdapter {
     public abstract void destroyItem(View container, int position, Object object);
 
     /**
+     * Notification for when an item has been selected in the associated pager.
+     * This can be used to update the state of the item or activity based on which
+     * item is currently selected.
+     *
+     * @param position The selected page position.
+     * @param object The object of the selected page.
+     */
+    public void onItemSelected(int position, Object object) {
+        //For rent. Call 1-800-VIEW-PGR.
+    }
+
+    /**
      * Called when the a change in the shown pages has been completed.  At this
      * point you must ensure that all of the pages have actually been added or
      * removed from the container as appropriate.

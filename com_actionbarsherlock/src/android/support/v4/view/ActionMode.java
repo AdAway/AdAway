@@ -16,8 +16,6 @@
 
 package android.support.v4.view;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 /**

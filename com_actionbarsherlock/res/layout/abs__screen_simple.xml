@@ -31,8 +31,8 @@ enabled.
     <ViewStub android:id="@+id/abs__action_mode_bar_stub"
               android:inflatedId="@+id/abs__action_mode_bar"
               android:layout="@layout/abs__action_mode_bar"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content" />
+              android:layout_width="fill_parent"
+              android:layout_height="?attr/abHeight"/>
     -->
     <FrameLayout
          android:id="@+id/abs__content"

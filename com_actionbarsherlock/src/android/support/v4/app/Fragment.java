@@ -16,6 +16,7 @@
 
 package android.support.v4.app;
 
+import android.app.Activity;
 import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.Intent;
@@ -81,7 +82,7 @@ final class FragmentState implements Parcelable {
         mSavedFragmentState = in.readBundle();
     }
 
-    public Fragment instantiate(FragmentActivity activity) {
+    public Fragment instantiate(SupportActivity activity) {
         if (mInstance != null) {
             return mInstance;
         }
@@ -90,7 +91,7 @@ final class FragmentState implements Parcelable {
             mArguments.setClassLoader(activity.getClassLoader());
         }
 
-        mInstance = Fragment.instantiate(activity, mClassName, mArguments);
+        mInstance = Fragment.instantiate(activity.asActivity(), mClassName, mArguments);
 
         if (mSavedFragmentState != null) {
             mSavedFragmentState.setClassLoader(activity.getClassLoader());
@@ -104,7 +105,7 @@ final class FragmentState implements Parcelable {
         mInstance.mTag = mTag;
         mInstance.mRetainInstance = mRetainInstance;
         mInstance.mDetached = mDetached;
-        mInstance.mFragmentManager = activity.mFragments;
+        mInstance.mFragmentManager = activity.getInternalCallbacks().getFragments();
 
         return mInstance;
     }
@@ -217,10 +218,10 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
 
     // Set as soon as a fragment is added to a transaction (or removed),
     // to be able to do validation.
-    FragmentActivity mImmediateActivity;
+    SupportActivity mImmediateActivity;
 
     // Activity this fragment is attached to.
-    FragmentActivity mActivity;
+    SupportActivity mActivity;
 
     // The optional identifier for this fragment -- either the container ID if it
     // was dynamically added to the view hierarchy, or the ID supplied in
@@ -251,6 +252,10 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
 
     // If set this fragment has menu items to contribute.
     boolean mHasMenu;
+
+    // Used to control whether or not this fragments menus (both options and
+    // context) are exposed regardless of whether or not they actually exist.
+    boolean mExposesMenu = true;
 
     // Used to verify that subclasses call through to super class.
     boolean mCalled;
@@ -531,8 +536,20 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
 
     /**
      * Return the Activity this fragment is currently associated with.
+     *
+     * @see #getSupportActivity()
      */
-    final public FragmentActivity getActivity() {
+    final public Activity getActivity() {
+        return (mActivity != null) ? mActivity.asActivity() : null;
+    }
+
+    /**
+     * Return the SupportActivity interface for the activity in which this
+     * fragment is currently associated.
+     *
+     * @see #getActivity()
+     */
+    final public SupportActivity getSupportActivity() {
         return mActivity;
     }
 
@@ -722,7 +739,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
         }
         mCheckedForLoaderManager = true;
-        mLoaderManager = mActivity.getLoaderManager(mIndex, mLoadersStarted, true);
+        mLoaderManager = mActivity.getInternalCallbacks().getLoaderManager(mIndex, mLoadersStarted, true);
         return mLoaderManager;
     }
 
@@ -816,7 +833,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
      * @param savedInstanceState If the fragment is being re-created from
      * a previous saved state, this is the state.
      */
-    public void onInflate(FragmentActivity activity, AttributeSet attrs, Bundle savedInstanceState) {
+    public void onInflate(SupportActivity activity, AttributeSet attrs, Bundle savedInstanceState) {
         mCalled = true;
     }
 
@@ -824,7 +841,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
      * Called when a fragment is first attached to its activity.
      * {@link #onCreate(Bundle)} will be called after this.
      */
-    public void onAttach(FragmentActivity activity) {
+    public void onAttach(SupportActivity activity) {
         mCalled = true;
     }
 
@@ -929,7 +946,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
             mLoadersStarted = true;
             if (!mCheckedForLoaderManager) {
                 mCheckedForLoaderManager = true;
-                mLoaderManager = mActivity.getLoaderManager(mIndex, mLoadersStarted, false);
+                mLoaderManager = mActivity.getInternalCallbacks().getLoaderManager(mIndex, mLoadersStarted, false);
             }
             if (mLoaderManager != null) {
                 mLoaderManager.doStart();
@@ -1018,7 +1035,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
         //        + " mLoaderManager=" + mLoaderManager);
         if (!mCheckedForLoaderManager) {
             mCheckedForLoaderManager = true;
-            mLoaderManager = mActivity.getLoaderManager(mIndex, mLoadersStarted, false);
+            mLoaderManager = mActivity.getInternalCallbacks().getLoaderManager(mIndex, mLoadersStarted, false);
         }
         if (mLoaderManager != null) {
             mLoaderManager.doDestroy();
@@ -1042,7 +1059,8 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
         mRestored = false;
         mBackStackNesting = 0;
         mFragmentManager = null;
-        mActivity = mImmediateActivity = null;
+        mActivity = null;
+        mImmediateActivity = null;
         mFragmentId = 0;
         mContainerId = 0;
         mTag = null;
@@ -1300,7 +1318,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
             mLoadersStarted = false;
             if (!mCheckedForLoaderManager) {
                 mCheckedForLoaderManager = true;
-                mLoaderManager = mActivity.getLoaderManager(mIndex, mLoadersStarted, false);
+                mLoaderManager = mActivity.getInternalCallbacks().getLoaderManager(mIndex, mLoadersStarted, false);
             }
             if (mLoaderManager != null) {
                 if (!retaining) {

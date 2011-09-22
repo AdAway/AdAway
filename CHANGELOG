@@ -1,3 +1,7 @@
+1.09
+* New design for tablet sizes
+- fixed crash on Android 3 Honeycomb
+
 1.08
 * AdAway got a redesign
 * AdAway ships with a webserver, that listens on localhost
@@ -41,7 +45,7 @@
 Deutsch
 1.08
 * AdAway bekam ein neues Design
-* AdAway enthält nun ein Webserver, der auf localhost horcht
+* AdAway enthält nun einen Webserver, der auf localhost horcht
 * Die Daten der Hosts sources werden gespeichert und angezeigt
 * Einstellung um den Neustart-Dialog zu verstecken
 * Hilfe-Seite mit Informationen zu AdAway

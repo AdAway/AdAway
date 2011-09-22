@@ -59,7 +59,7 @@
     <string name="about_title">About</string>
     <string name="apply_fail">Applying the hosts file to your system
         failed!\nYou
-        can try to set another
+        can try choosing another
         target hosts file in
         preferences.
     </string>
@@ -512,13 +512,21 @@
     </string>
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">Online:</string>
-    <string name="reboot_never_reboot">"Never reboot and don\'t show this question next time!"</string>
+    <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
     <string name="pref_never_reboot">Never reboot</string>
-    <item name="pref_never_reboot_def" type="string" format="boolean">false</item>
+    <item
+        name="pref_never_reboot_def"
+        type="string"
+        format="boolean">false</item>
     <string name="pref_never_reboot_key">neverReboot</string>
     <string name="pref_never_reboot_summary">Hides the question dialog that asks to reboot your device</string>
     <string name="pref_update_check_daily">Check for updates daily</string>
-    <item name="pref_update_check_daily_def" format="boolean" type="string">false</item>
+    <item
+        name="pref_update_check_daily_def"
+        format="boolean"
+        type="string">false</item>
     <string name="pref_update_check_daily_key">updateCheckDaily</string>
     <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
+    <string name="button_help">Help</string>
+    <string name="apply_help">Please read Help for more information.</string>
 </resources>

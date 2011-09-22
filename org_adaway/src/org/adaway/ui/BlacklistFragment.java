@@ -66,6 +66,8 @@ public class BlacklistFragment extends ListFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        // if not cleared before we have double menu entries on rotate of device
+        menu.clear();
         inflater.inflate(R.menu.checkbox_list, menu);
     }
 
@@ -75,7 +77,7 @@ public class BlacklistFragment extends ListFragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = (MenuInflater) mActivity.getMenuInflater(); // TODO: works?
+        MenuInflater inflater = (MenuInflater) mActivity.getMenuInflater();
         menu.setHeaderTitle(R.string.checkbox_list_context_title);
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }

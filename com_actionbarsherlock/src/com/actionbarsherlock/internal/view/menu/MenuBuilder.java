@@ -41,8 +41,8 @@ public class MenuBuilder implements Menu {
     private static final int DEFAULT_ORDER = 0;
 
     public static final int NUM_TYPES = 2;
-    public static final int TYPE_WATSON = 0;
-    public static final int TYPE_ACTION_BAR = 1;
+    public static final int TYPE_ACTION_BAR = 0;
+    public static final int TYPE_NATIVE = 1;
 
     /**
      * This is the part of an order integer that the user can provide.

@@ -73,9 +73,18 @@ import android.widget.FrameLayout;
  * state, this may be a snapshot slightly before what the user last saw.</p>
  * </ul>
  */
-public class FragmentActivity extends Activity {
+public class FragmentActivity extends Activity implements SupportActivity {
     private static final String TAG = "FragmentActivity";
     private static final boolean DEBUG = false;
+
+    //The following are used so FragmentMapActivity gets the same resources WITHOUT inlining the values in its jar.
+    static int   R$layout$screen_action_bar_overlay = R.layout.abs__screen_action_bar_overlay;
+    static int   R$layout$screen_action_bar = R.layout.abs__screen_action_bar;
+    static int   R$layout$screen_simple = R.layout.abs__screen_simple;
+    static int   R$id$content = R.id.abs__content;
+    static int[] R$styleable$SherlockTheme = R.styleable.SherlockTheme;
+    static int   R$styleable$SherlockTheme_windowActionBar = R.styleable.SherlockTheme_windowActionBar;
+    static int   R$styleable$SherlockTheme_windowActionModeOverlay = R.styleable.SherlockTheme_windowActionModeOverlay;
 
     private static final String FRAGMENTS_TAG = "android:support:fragments";
 
@@ -89,6 +98,33 @@ public class FragmentActivity extends Activity {
     private static final int WINDOW_FLAG_ACTION_BAR_OVERLAY = 1 << Window.FEATURE_ACTION_BAR_OVERLAY;
     private static final int WINDOW_FLAG_ACTION_MODE_OVERLAY = 1 << Window.FEATURE_ACTION_MODE_OVERLAY;
     private static final int WINDOW_FLAG_INDETERMINANTE_PROGRESS = 1 << Window.FEATURE_INDETERMINATE_PROGRESS;
+
+    final SupportActivity.InternalCallbacks mInternalCallbacks = new SupportActivity.InternalCallbacks() {
+        @Override
+        void invalidateSupportFragmentIndex(int index) {
+            FragmentActivity.this.invalidateSupportFragmentIndex(index);
+        }
+
+        @Override
+        LoaderManagerImpl getLoaderManager(int index, boolean started, boolean create) {
+            return FragmentActivity.this.getLoaderManager(index, started, create);
+        }
+
+        @Override
+        Handler getHandler() {
+            return mHandler;
+        }
+
+        @Override
+        FragmentManagerImpl getFragments() {
+            return mFragments;
+        }
+
+        @Override
+        void ensureSupportActionBarAttached() {
+            FragmentActivity.this.ensureSupportActionBarAttached();
+        }
+    };
 
     final Handler mHandler = new Handler() {
         @Override
@@ -166,13 +202,23 @@ public class FragmentActivity extends Activity {
         }
     }
 
+    @Override
+    public SupportActivity.InternalCallbacks getInternalCallbacks() {
+        return mInternalCallbacks;
+    }
+
+    @Override
+    public Activity asActivity() {
+        return this;
+    }
+
     protected void ensureSupportActionBarAttached() {
         if (IS_HONEYCOMB) {
             return;
         }
         if (!mIsActionBarImplAttached) {
-            //Do not allow an action bar if we have a parent activity
-            if (getParent() != null) {
+            if (isChild()) {
+                //Do not allow an action bar if we have a parent activity
                 mWindowFlags &= ~WINDOW_FLAG_ACTION_BAR;
             }
             if ((mWindowFlags & WINDOW_FLAG_ACTION_BAR) == WINDOW_FLAG_ACTION_BAR) {
@@ -184,8 +230,8 @@ public class FragmentActivity extends Activity {
 
                 ((ActionBarImpl)mActionBar).init();
 
-                final boolean actionBarEnabled = ((mWindowFlags & WINDOW_FLAG_ACTION_BAR_ITEM_TEXT) == WINDOW_FLAG_ACTION_BAR_ITEM_TEXT);
-                mSupportMenu.setShowsActionItemText(actionBarEnabled);
+                final boolean textEnabled = ((mWindowFlags & WINDOW_FLAG_ACTION_BAR_ITEM_TEXT) == WINDOW_FLAG_ACTION_BAR_ITEM_TEXT);
+                mSupportMenu.setShowsActionItemText(textEnabled);
 
                 if ((mWindowFlags & WINDOW_FLAG_INDETERMINANTE_PROGRESS) == WINDOW_FLAG_INDETERMINANTE_PROGRESS) {
                     ((ActionBarImpl)mActionBar).setProgressBarIndeterminateVisibility(true);
@@ -216,6 +262,7 @@ public class FragmentActivity extends Activity {
      * @return Returns {@code true} if the requested feature is supported and
      * now enabled.
      */
+    @Override
     public boolean requestWindowFeature(long featureId) {
         if (!IS_HONEYCOMB) {
             switch ((int)featureId) {
@@ -343,6 +390,7 @@ public class FragmentActivity extends Activity {
      * Take care of popping the fragment back stack or finishing the activity
      * as appropriate.
      */
+    @Override
     public void onBackPressed() {
         if (!mFragments.popBackStackImmediate()) {
             finish();
@@ -405,6 +453,7 @@ public class FragmentActivity extends Activity {
      * @return You must return true for the menu to be displayed; if you return
      * false it will not be shown.
      */
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (DEBUG) Log.d(TAG, "onCreateOptionsMenu(Menu): Returning " + menu.hasVisibleItems());
         return menu.hasVisibleItems();
@@ -513,6 +562,7 @@ public class FragmentActivity extends Activity {
         return fragment.mView;
     }
 
+    @Override
     public void invalidateOptionsMenu() {
         if (DEBUG) Log.d(TAG, "supportInvalidateOptionsMenu(): Invalidating menu.");
 
@@ -604,6 +654,7 @@ public class FragmentActivity extends Activity {
         }
     }
 
+    @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         if (onOptionsItemSelected(item)) {
             return true;
@@ -621,6 +672,7 @@ public class FragmentActivity extends Activity {
         }
     }
 
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
@@ -684,6 +736,7 @@ public class FragmentActivity extends Activity {
         mFragments.execPendingActions();
     }
 
+    @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         boolean result = menu.hasVisibleItems();
         if (DEBUG) Log.d(TAG, "onPrepareOptionsMenu(Menu): Returning " + result);
@@ -753,6 +806,7 @@ public class FragmentActivity extends Activity {
      * configuration change -- the current instance will go through its
      * lifecycle to onDestroy() and a new instance then created after it.
      */
+    @Override
     public void recreate() {
         //This SUCKS! Figure out a way to call the super method and support Android 1.6
         /*
@@ -900,6 +954,7 @@ public class FragmentActivity extends Activity {
      *
      * @param visible Whether to show the progress bars in the title.
      */
+    @Override
     public void setProgressBarIndeterminateVisibility(Boolean visible) {
         if (IS_HONEYCOMB) {
             super.setProgressBarIndeterminateVisibility(visible);
@@ -922,6 +977,7 @@ public class FragmentActivity extends Activity {
      * closed for you after you return.
      * @param args additional arguments to the dump request.
      */
+    @Override
     public void dump(String prefix, FileDescriptor fd, PrintWriter writer, String[] args) {
         if (IS_HONEYCOMB) {
             //This can only work if we can call the super-class impl. :/
@@ -986,6 +1042,7 @@ public class FragmentActivity extends Activity {
      *
      * @return The handler for the appropriate action bar, or null.
      */
+    @Override
     public ActionBar getSupportActionBar() {
         return mActionBar.getPublicInstance();
     }
@@ -997,6 +1054,7 @@ public class FragmentActivity extends Activity {
      *
      * @param mode The action mode that just finished.
      */
+    @Override
     public void onActionModeFinished(ActionMode mode) {
     }
 
@@ -1007,6 +1065,7 @@ public class FragmentActivity extends Activity {
      *
      * @param mode The new action mode.
      */
+    @Override
     public void onActionModeStarted(ActionMode mode) {
     }
 
@@ -1023,6 +1082,7 @@ public class FragmentActivity extends Activity {
      * provide special handling for this action mode. (It will be handled by the
      * system.)
      */
+    @Override
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
         return null;
     }
@@ -1035,6 +1095,7 @@ public class FragmentActivity extends Activity {
      * @return The ContextMode that was started, or null if it was cancelled
      * @see android.support.v4.view.ActionMode
      */
+    @Override
     public final ActionMode startActionMode(final ActionMode.Callback callback) {
         //Give the activity override a chance to handle the action mode
         ActionMode actionMode = onWindowStartingActionMode(callback);
@@ -1060,6 +1121,7 @@ public class FragmentActivity extends Activity {
     /**
      * Called when a fragment is attached to the activity.
      */
+    @Override
     public void onAttachFragment(Fragment fragment) {
     }
 
@@ -1067,6 +1129,7 @@ public class FragmentActivity extends Activity {
      * Return the FragmentManager for interacting with fragments associated
      * with this activity.
      */
+    @Override
     public FragmentManager getSupportFragmentManager() {
         return mFragments;
     }
@@ -1086,6 +1149,7 @@ public class FragmentActivity extends Activity {
     /**
      * Called by Fragment.startActivityForResult() to implement its behavior.
      */
+    @Override
     public void startActivityFromFragment(Fragment fragment, Intent intent,
             int requestCode) {
         if (requestCode == -1) {
@@ -1116,6 +1180,7 @@ public class FragmentActivity extends Activity {
     /**
      * Return the LoaderManager for this fragment, creating it if needed.
      */
+    @Override
     public LoaderManager getSupportLoaderManager() {
         if (mLoaderManager != null) {
             return mLoaderManager;

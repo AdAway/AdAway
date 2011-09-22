@@ -4,15 +4,19 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:padding="5dip">
+    android:paddingLeft="20dip"
+    android:paddingRight="20dip"
+    android:paddingBottom="5dip">
     <TextView
         android:textAppearance="@android:style/TextAppearance.Medium"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:text="@string/no_root_description"/>
+        android:layout_height="wrap_content"
+        android:text="@string/no_root_description" />
     <TextView
         android:text="@string/no_root_url"
         android:textAppearance="@android:style/TextAppearance.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autoLink="web" android:paddingTop="5dip"/>
+        android:autoLink="web"
+        android:paddingTop="5dip" />
 </LinearLayout>

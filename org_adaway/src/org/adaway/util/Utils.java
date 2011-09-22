@@ -49,7 +49,7 @@ public class Utils {
         boolean rootAvailable = false;
 
         // root check can be disabled for debugging in emulator
-        if (Constants.DISABLE_ROOT_CHECK) {
+        if (Constants.DEBUG_DISABLE_ROOT_CHECK) {
             rootAvailable = true;
         } else {
             // check for root on device and call su binary

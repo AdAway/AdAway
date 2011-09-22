@@ -36,6 +36,7 @@ import java.util.HashSet;
 
 import org.adaway.R;
 import org.adaway.ui.BaseFragment;
+import org.adaway.ui.HelpActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
@@ -50,6 +51,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -566,7 +568,6 @@ public class ApplyExecutor {
             protected void onPostExecute(Integer result) {
                 super.onPostExecute(result);
 
-                AlertDialog alertDialog;
                 if (result == ReturnCodes.SUCCESS) {
                     mApplyProgressDialog.dismiss();
 
@@ -602,43 +603,61 @@ public class ApplyExecutor {
 
                     mBaseFragment.setStatusDisabled();
 
-                    alertDialog = new AlertDialog.Builder(mActivity).create();
-                    alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                    alertDialog.setButton(mActivity.getString(R.string.button_close),
+                    AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+                    builder.setIcon(android.R.drawable.ic_dialog_alert);
+                    builder.setPositiveButton(mActivity.getString(R.string.button_close),
                             new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dlg, int sum) {
-                                    dlg.dismiss();
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    builder.setNegativeButton(mActivity.getString(R.string.button_help),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+
+                                    // go to help
+                                    mActivity.startActivity(new Intent(mActivity,
+                                            HelpActivity.class));
                                 }
                             });
 
                     switch (result) {
                     case ReturnCodes.APPLY_FAIL:
-                        alertDialog.setTitle(R.string.apply_fail_title);
-                        alertDialog.setMessage(mActivity.getString(org.adaway.R.string.apply_fail));
+                        builder.setTitle(R.string.apply_fail_title);
+                        builder.setMessage(mActivity.getString(org.adaway.R.string.apply_fail)
+                                + "\n\n" + mActivity.getString(org.adaway.R.string.apply_help));
 
                         break;
                     case ReturnCodes.PRIVATE_FILE_FAIL:
-                        alertDialog.setTitle(R.string.apply_private_file_fail_title);
-                        alertDialog.setMessage(mActivity
-                                .getString(org.adaway.R.string.apply_private_file_fail));
+                        builder.setTitle(R.string.apply_private_file_fail_title);
+                        builder.setMessage(mActivity
+                                .getString(org.adaway.R.string.apply_private_file_fail)
+                                + "\n\n"
+                                + mActivity.getString(org.adaway.R.string.apply_help));
                         break;
                     case ReturnCodes.NOT_ENOUGH_SPACE:
-                        alertDialog.setTitle(R.string.apply_not_enough_space_title);
-                        alertDialog.setMessage(mActivity
-                                .getString(org.adaway.R.string.apply_not_enough_space));
+                        builder.setTitle(R.string.apply_not_enough_space_title);
+                        builder.setMessage(mActivity
+                                .getString(org.adaway.R.string.apply_not_enough_space)
+                                + "\n\n"
+                                + mActivity.getString(org.adaway.R.string.apply_help));
                         break;
                     case ReturnCodes.REMOUNT_FAIL:
-                        alertDialog.setTitle(R.string.apply_remount_fail_title);
-                        alertDialog.setMessage(mActivity
-                                .getString(org.adaway.R.string.apply_remount_fail));
+                        builder.setTitle(R.string.apply_remount_fail_title);
+                        builder.setMessage(mActivity
+                                .getString(org.adaway.R.string.apply_remount_fail)
+                                + "\n\n"
+                                + mActivity.getString(org.adaway.R.string.apply_help));
                         break;
                     case ReturnCodes.COPY_FAIL:
-                        alertDialog.setTitle(R.string.apply_copy_fail_title);
-                        alertDialog.setMessage(mActivity
-                                .getString(org.adaway.R.string.apply_copy_fail));
+                        builder.setTitle(R.string.apply_copy_fail_title);
+                        builder.setMessage(mActivity.getString(org.adaway.R.string.apply_copy_fail)
+                                + "\n\n" + mActivity.getString(org.adaway.R.string.apply_help));
                         break;
                     }
 
+                    AlertDialog alertDialog = builder.create();
                     alertDialog.show();
                 }
             }
@@ -683,16 +702,27 @@ public class ApplyExecutor {
         } else {
             mBaseFragment.setStatusDisabled();
 
-            AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
-            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-            alertDialog.setTitle(R.string.apply_symlink_fail_title);
-            alertDialog.setMessage(mActivity.getString(org.adaway.R.string.apply_symlink_fail));
-            alertDialog.setButton(mActivity.getString(R.string.button_close),
+            AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+            builder.setTitle(R.string.apply_symlink_fail_title);
+            builder.setMessage(mActivity.getString(org.adaway.R.string.apply_symlink_fail) + "\n\n"
+                    + mActivity.getString(org.adaway.R.string.apply_help));
+            builder.setIcon(android.R.drawable.ic_dialog_alert);
+            builder.setPositiveButton(mActivity.getString(R.string.button_close),
                     new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dlg, int sum) {
-                            dlg.dismiss();
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
                         }
                     });
+            builder.setNegativeButton(mActivity.getString(R.string.button_help),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+
+                            // go to help
+                            mActivity.startActivity(new Intent(mActivity, HelpActivity.class));
+                        }
+                    });
+            AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }
     }
