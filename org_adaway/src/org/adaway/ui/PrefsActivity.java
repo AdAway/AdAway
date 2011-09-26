@@ -21,7 +21,7 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.service.CheckUpdateService;
+import org.adaway.service.UpdateCheckService;
 import org.adaway.util.Constants;
 
 import android.content.Context;
@@ -63,9 +63,9 @@ public class PrefsActivity extends PreferenceActivity {
             @Override
             public boolean onPreferenceClick(Preference arg0) {
                 if (mUpdateCheckDaily.isChecked()) {
-                    CheckUpdateService.schedule(mContext);
+                    UpdateCheckService.schedule(mContext);
                 } else {
-                    CheckUpdateService.unschedule(mContext);
+                    UpdateCheckService.unschedule(mContext);
                 }
                 return false;
             }

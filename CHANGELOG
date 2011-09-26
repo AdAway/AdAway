@@ -1,6 +1,9 @@
 1.09
 * New design for tablet sizes
+* New hosts source: http://pgl.yoyo.org/adservers
 - fixed crash on Android 3 Honeycomb
+- Fix for daily update check
+- Removed hosts source sysctl.org because of false positives
 
 1.08
 * AdAway got a redesign

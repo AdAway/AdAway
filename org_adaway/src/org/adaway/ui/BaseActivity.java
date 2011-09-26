@@ -67,7 +67,6 @@ public class BaseActivity extends FragmentActivity {
     public void revertOnClick(View view) {
         mBaseFragment.revertOnClick(view);
     }
-    
 
     /**
      * hand over onClick events, defined in layout from Activity to Fragment

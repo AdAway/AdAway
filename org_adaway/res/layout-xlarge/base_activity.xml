@@ -4,14 +4,20 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <fragment
-        android:name="org.adaway.ui.BaseFragment"
-        android:id="@+id/base_fragment"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:paddingTop="20dip"
         android:paddingLeft="10dip"
-        android:paddingRight="10dip" />
+        android:paddingRight="10dip">
+        <fragment
+            android:name="org.adaway.ui.BaseFragment"
+            android:id="@+id/base_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
     <!-- Divider -->
     <LinearLayout
         android:id="@+id/horizontalLine"
@@ -19,11 +25,11 @@
         android:layout_height="fill_parent"
         android:background="#373737" />
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:paddingTop="20dip"
         android:paddingLeft="10dip"
         android:paddingRight="10dip">
         <TextView
@@ -33,8 +39,8 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:gravity="center_vertical"
-            android:paddingTop="30dip"
-            android:paddingBottom="30dip" />
+            android:paddingTop="20dip"
+            android:paddingBottom="40dip" />
         <fragment
             android:name="org.adaway.ui.HostsSourcesFragment"
             android:id="@+id/hosts_sources_list_fragment"

@@ -25,7 +25,7 @@ import org.adaway.helper.ApplyExecutor;
 import org.adaway.helper.RevertExecutor;
 import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
-import org.adaway.service.CheckUpdateService;
+import org.adaway.service.UpdateCheckService;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
@@ -281,7 +281,7 @@ public class BaseFragment extends Fragment {
             WebserverUtils.setWebserverToggle(mWebserverToggle);
 
             // schedule CheckUpdateService
-            CheckUpdateService.schedule(mActivity);
+            UpdateCheckService.schedule(mActivity);
         }
     }
 

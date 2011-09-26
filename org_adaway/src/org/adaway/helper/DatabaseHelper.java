@@ -40,7 +40,7 @@ public class DatabaseHelper {
     private SQLiteDatabase mDB;
 
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private static final String TABLE_HOSTS_SOURCES = "hosts_sources";
     private static final String TABLE_WHITELIST = "whitelist";
@@ -336,15 +336,18 @@ public class DatabaseHelper {
 
         public long insertHostsSource(SQLiteStatement insertStmt, String url) {
             insertStmt.bindString(1, url);
-            insertStmt.bindString(2, "1"); // default is enabled
+            insertStmt.bindLong(2, 0); // last_modified_local starts at 0
+            insertStmt.bindLong(3, 0); // last_modified_online starts at 0
+            insertStmt.bindString(4, "1"); // default is enabled
             return insertStmt.executeInsert();
         }
 
         private void insertDefaultHostsSources(SQLiteDatabase db) {
             // fill default hosts sources
             SQLiteStatement insertStmt;
-            String insertHostsSources = "INSERT INTO " + TABLE_HOSTS_SOURCES
-                    + "(url, enabled) VALUES (?, ?)";
+            String insertHostsSources = "INSERT OR IGNORE INTO "
+                    + TABLE_HOSTS_SOURCES
+                    + "(url, last_modified_local, last_modified_online, enabled) VALUES (?, ?, ?, ?)";
             insertStmt = db.compileStatement(insertHostsSources);
 
             // http://winhelp2002.mvps.org/hosts.htm
@@ -354,8 +357,9 @@ public class DatabaseHelper {
             // database.
             insertHostsSource(insertStmt, "http://hosts-file.net/ad_servers.asp");
 
-            // http://sysctl.org/cameleon (weekly updated)
-            insertHostsSource(insertStmt, "http://sysctl.org/cameleon/hosts");
+            // http://pgl.yoyo.org/adservers/
+            insertHostsSource(insertStmt,
+                    "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
         }
 
         @Override
@@ -402,6 +406,15 @@ public class DatabaseHelper {
                 db.execSQL("ALTER TABLE " + TABLE_HOSTS_SOURCES + " ADD COLUMN last_modified_local");
                 db.execSQL("ALTER TABLE " + TABLE_HOSTS_SOURCES
                         + " ADD COLUMN last_modified_online");
+            }
+            if (oldVersion <= 4) {
+                // removed sysctl hosts source
+                db.execSQL("DELETE FROM " + TABLE_HOSTS_SOURCES
+                        + " WHERE url=\"http://sysctl.org/cameleon/hosts\"");
+                // new hosts source
+                db.execSQL("INSERT INTO "
+                        + TABLE_HOSTS_SOURCES
+                        + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\", 0, 0, 1)");
             } else {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTS_SOURCES);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_WHITELIST);

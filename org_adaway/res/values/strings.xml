@@ -26,11 +26,6 @@
     <string name="pref_download">General Preferences</string>
     <string name="pref_hosts">Hosts file</string>
     <string name="pref_redirection_ip">Redirection IP</string>
-    <string name="pref_redirection_ip_key">redirectionIP</string>
-    <item
-        format="string"
-        type="string"
-        name="pref_redirection_ip_def">127.0.0.1</item>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
     <string name="revert_question">Do you really want to revert?</string>
@@ -75,16 +70,15 @@
     <string name="button_cancel">Cancel</string>
     <string name="hosts_add_dialog_input">http://</string>
     <string name="checkbox_list_empty">Empty list</string>
-    <string name="checkbox_list_empty_text">You can add entries from the menu.</string>
+    <string name="checkbox_list_empty_text">You can add items from the menu.</string>
     <string name="checkbox_list_context_delete">Delete</string>
-    <string name="checkbox_list_footer">Long press one entry to show a context menu with
-        more options.
+    <string name="checkbox_list_footer">After adding new items to this list you have to apply AdAway again!
     </string>
     <string name="app_subtitle">Ad blocker</string>
     <string name="button_apply_text">All hosts files from the defined sources are
-        downloaded, merged and installed
-        as one hosts file on your
-        system.
+        downloaded, merged with your own
+        lists and installed
+        as one hosts file on your system.
     </string>
     <string name="button_revert_text">Restores the default hosts file on your system.
     </string>
@@ -92,10 +86,6 @@
     <string name="no_sources">Please add hosts sources to your list.</string>
     <string name="checkbox_list_edit_dialog_title">Edit</string>
     <string name="button_save">Save</string>
-    <string name="no_barcode_scanner_title">Install Barcode Scanner?</string>
-    <string name="no_barcode_scanner">This application requires Barcode Scanner. Would
-        you like to install it?
-    </string>
     <string name="checkbox_list_context_title">Edit Entry</string>
     <string name="checkbox_list_context_edit">Edit</string>
     <string name="no_hostname">This is not a valid hostname!</string>
@@ -149,25 +139,9 @@
     <string name="no_busybox_title">No Busybox binary</string>
     <string name="button_busybox">Install Busybox</string>
     <string name="pref_update_check">Check for updates</string>
-    <string name="pref_update_check_key">updateCheck</string>
-    <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
-    <item
-        type="string"
-        name="pref_update_check_def"
-        format="boolean">true</item>
     <string name="pref_apply_method">Target hosts file</string>
     <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.
     </string>
-    <string name="pref_apply_method_key">applyMethod</string>
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/data/hosts</item>
-    </string-array>
-    <string-array name="pref_apply_method_entries_values">
-        <item>writeToSystem</item>
-        <item>writeToDataData</item>
-    </string-array>
-    <string name="pref_apply_method_def">writeToSystem</string>
     <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP
         address.
     </string>
@@ -178,9 +152,6 @@
     </string>
     <string name="donations_title">Donations</string>
     <string name="menu_donations">Donations</string>
-    <string name="donations_text">Alternatively you can visit the following URL
-        directly:
-    </string>
     <string name="donations_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android
     </string>
     <string name="apply_symlink_missing">Symlink from /data/data/hosts to
@@ -513,20 +484,13 @@
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">Online:</string>
     <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
-    <string name="pref_never_reboot">Never reboot</string>
-    <item
-        name="pref_never_reboot_def"
-        type="string"
-        format="boolean">false</item>
-    <string name="pref_never_reboot_key">neverReboot</string>
-    <string name="pref_never_reboot_summary">Hides the question dialog that asks to reboot your device</string>
+    <string name="pref_never_reboot">Hide reboot dialog</string>
+    <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successfull applying
+    </string>
     <string name="pref_update_check_daily">Check for updates daily</string>
-    <item
-        name="pref_update_check_daily_def"
-        format="boolean"
-        type="string">false</item>
-    <string name="pref_update_check_daily_key">updateCheckDaily</string>
     <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
     <string name="button_help">Help</string>
     <string name="apply_help">Please read Help for more information.</string>
+    <string name="pref_webserver_on_boot">Start webserver on boot</string>
+    <string name="pref_webserver_on_boot_summary">Restarts webserver on boot of Android listening on localhost</string>
 </resources>

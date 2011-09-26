@@ -110,13 +110,12 @@ public class UiHelper {
          */
         String projectUrl = activity.getString(R.string.about_url);
         String flattrUrl = activity.getString(R.string.donations_url);
-        String donations_description = activity.getString(R.string.donations_description);
 
         // make text white and background black
-        String htmlStart = "<html> <head><style type=\"text/css\">*{color: #FFFFFF; background-color: #000000}</style>";
+        String htmlStart = "<html> <head><style type=\"text/css\">*{color: #FFFFFF; background-color: transparent;}</style>";
 
         // see flattr api https://flattr.com/support/integrate/js
-        String flattrParameter = "mode=auto&https=1";
+        String flattrParameter = "mode=auto"; // &https=1 not working in android 2.1 and 2.2
         String flattrJavascript = "<script type=\"text/javascript\">"
                 + "/* <![CDATA[ */"
                 + "(function() {"
@@ -124,24 +123,23 @@ public class UiHelper {
                 + "s.type = 'text/javascript';" + "s.async = true;"
                 + "s.src = 'http://api.flattr.com/js/0.6/load.js?" + flattrParameter + "';"
                 + "t.parentNode.insertBefore(s, t);" + "})();" + "/* ]]> */" + "</script>";
-        String htmlMiddle = "</head> <body> <table> <tr> <td>";
+        String htmlMiddle = "</head> <body> <div align=\"center\">";
         String flattrHtml = "<a class=\"FlattrButton\" style=\"display:none;\" href=\""
                 + projectUrl
                 + "\" target=\"_blank\"></a> <noscript><a href=\""
                 + flattrUrl
                 + "\" target=\"_blank\"> <img src=\"http://api.flattr.com/button/flattr-badge-large.png\" alt=\"Flattr this\" title=\"Flattr this\" border=\"0\" /></a></noscript>";
-
-        String htmlEnd = "</td> <td>" + donations_description
-                + "</td> </tr> </table> </body> </html>";
+        String htmlEnd = "</div> </body> </html>";
 
         String flattrCode = htmlStart + flattrJavascript + htmlMiddle + flattrHtml + htmlEnd;
+
         mFlattrWebview.getSettings().setJavaScriptEnabled(true);
 
-        // make background of webview black
-        mFlattrWebview.setBackgroundColor(0);
-        mFlattrWebview.setBackgroundResource(android.R.color.background_dark);
-
         mFlattrWebview.loadData(flattrCode, "text/html", "utf-8");
+
+        // make background of webview transparent
+        // has to be called AFTER loadData
+        mFlattrWebview.setBackgroundColor(0x00000000);
 
         builder.setView(dialogView);
 
@@ -168,7 +166,8 @@ public class UiHelper {
         final View dialogView = factory.inflate(R.layout.about_dialog, null);
 
         TextView versionText = (TextView) dialogView.findViewById(R.id.about_version);
-        versionText.setText(activity.getString(R.string.about_version) + " " + getVersion(activity));
+        versionText
+                .setText(activity.getString(R.string.about_version) + " " + getVersion(activity));
 
         builder.setView(dialogView);
 

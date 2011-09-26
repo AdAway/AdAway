@@ -33,7 +33,6 @@ import android.support.v4.view.MenuItem;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
@@ -48,9 +47,6 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
-
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 
 public class WhitelistFragment extends ListFragment {
     private Activity mActivity;
@@ -217,12 +213,6 @@ public class WhitelistFragment extends ListFragment {
             menuAddEntry();
             return true;
 
-        case R.id.menu_add_qrcode:
-            // Use Barcode Scanner
-            IntentIntegrator.initiateScan(mActivity, R.string.no_barcode_scanner_title,
-                    R.string.no_barcode_scanner, R.string.button_yes, R.string.button_no);
-            return true;
-
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -292,19 +282,6 @@ public class WhitelistFragment extends ListFragment {
                         });
                 alertDialog.show();
             }
-        }
-    }
-
-    /**
-     * Barcode Scanner Result Parsing
-     */
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode,
-                intent);
-
-        if (scanResult != null) {
-            addEntry(scanResult.getContents());
         }
     }
 

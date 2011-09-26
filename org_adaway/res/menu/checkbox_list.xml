@@ -4,7 +4,4 @@
     <item
         android:id="@+id/menu_add" android:title="@string/menu_add" android:icon="@drawable/ic_menu_add">
     </item>
-    <item
-        android:id="@+id/menu_add_qrcode" android:title="@string/menu_add_qrcode" android:icon="@drawable/ic_menu_barcode">
-    </item>
 </menu>

@@ -39,6 +39,12 @@ public class PreferencesHelper {
                 Boolean.parseBoolean(context.getString(R.string.pref_update_check_daily_def)));
     }
 
+    public static boolean getWebserverOnBoot(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        return prefs.getBoolean(context.getString(R.string.pref_webserver_on_boot_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_webserver_on_boot_def)));
+    }
+
     public static boolean getNeverReboot(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return prefs.getBoolean(context.getString(R.string.pref_never_reboot_key),

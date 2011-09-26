@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-        android:title="@string/pref_download">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_download">
         <CheckBoxPreference
             android:key="@string/pref_update_check_key"
             android:title="@string/pref_update_check"
             android:summary="@string/pref_update_check_summary"
             android:defaultValue="@string/pref_update_check_def"></CheckBoxPreference>
-        <CheckBoxPreference android:summary="@string/pref_update_check_daily_summary" android:defaultValue="@string/pref_update_check_daily_def" android:title="@string/pref_update_check_daily" android:key="@string/pref_update_check_daily_key"></CheckBoxPreference><CheckBoxPreference android:key="@string/pref_never_reboot_key" android:summary="@string/pref_never_reboot_summary" android:title="@string/pref_never_reboot" android:defaultValue="@string/pref_never_reboot_def"></CheckBoxPreference>
+        <CheckBoxPreference
+            android:summary="@string/pref_update_check_daily_summary"
+            android:defaultValue="@string/pref_update_check_daily_def"
+            android:title="@string/pref_update_check_daily"
+            android:key="@string/pref_update_check_daily_key"></CheckBoxPreference>
+        <CheckBoxPreference android:defaultValue="@string/pref_webserver_on_boot_def" android:summary="@string/pref_webserver_on_boot_summary" android:title="@string/pref_webserver_on_boot" android:key="@string/pref_webserver_on_boot_key"></CheckBoxPreference><CheckBoxPreference
+            android:key="@string/pref_never_reboot_key"
+            android:summary="@string/pref_never_reboot_summary"
+            android:title="@string/pref_never_reboot"
+            android:defaultValue="@string/pref_never_reboot_def"></CheckBoxPreference>
         
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/pref_hosts">
+    <PreferenceCategory android:title="@string/pref_hosts">
         <EditTextPreference
             android:title="@string/pref_redirection_ip"
             android:defaultValue="@string/pref_redirection_ip_def"
-            android:key="@string/pref_redirection_ip_key" android:summary="@string/pref_redirection_ip_summary"></EditTextPreference>
+            android:key="@string/pref_redirection_ip_key"
+            android:summary="@string/pref_redirection_ip_summary"></EditTextPreference>
         <ListPreference
             android:key="@string/pref_apply_method_key"
             android:summary="@string/pref_apply_method_summary"

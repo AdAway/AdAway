@@ -29,7 +29,6 @@ import org.adaway.util.ValidationUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -49,9 +48,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 
 public class HostsSourcesFragment extends ListFragment {
     private Activity mActivity;
@@ -216,12 +212,6 @@ public class HostsSourcesFragment extends ListFragment {
             menuAddEntry();
             return true;
 
-        case R.id.menu_add_qrcode:
-            // Use Barcode Scanner
-            IntentIntegrator.initiateScan(mActivity, R.string.no_barcode_scanner_title,
-                    R.string.no_barcode_scanner, R.string.button_yes, R.string.button_no);
-            return true;
-
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -296,19 +286,6 @@ public class HostsSourcesFragment extends ListFragment {
     }
 
     /**
-     * Barcode Scanner Result Parsing
-     */
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode,
-                intent);
-
-        if (scanResult != null) {
-            addEntry(scanResult.getContents());
-        }
-    }
-
-    /**
      * Called when the activity is first created.
      */
     @Override
@@ -325,8 +302,8 @@ public class HostsSourcesFragment extends ListFragment {
         mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
 
         // dislayFields and displayViews are handled in custom adapter!
-        String[] displayFields = new String[] { }; 
-        int[] displayViews = new int[] { };
+        String[] displayFields = new String[] {};
+        int[] displayViews = new int[] {};
         mAdapter = new HostsSourcesCursorAdapter(mActivity, R.layout.checkbox_list_two_entry,
                 mCursor, displayFields, displayViews);
         setListAdapter(mAdapter);
