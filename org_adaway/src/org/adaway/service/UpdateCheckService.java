@@ -35,7 +35,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import org.adaway.R;
 import org.adaway.helper.DatabaseHelper;
@@ -81,7 +80,8 @@ public class UpdateCheckService extends IntentService {
                     PendingIntent.FLAG_CANCEL_CURRENT);
 
             // every day at 9 am
-            Calendar calendar = new GregorianCalendar();
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DAY_OF_YEAR, 1); // first run is next day (add, not set)
             calendar.set(Calendar.HOUR_OF_DAY, 9);
             calendar.set(Calendar.MINUTE, 0);
             calendar.set(Calendar.SECOND, 0);

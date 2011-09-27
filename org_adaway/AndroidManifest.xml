@@ -14,7 +14,7 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Sherlock" android:debuggable="true">
+        android:theme="@style/Theme.Sherlock" android:debuggable="false">
         <activity
             android:label="@string/app_name"
             android:configChanges="keyboardHidden|orientation"

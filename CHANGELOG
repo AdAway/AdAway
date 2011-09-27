@@ -1,3 +1,6 @@
+1.10
+- Fixed daily update again. Should schedule now correctly
+
 1.09
 * New design for tablet sizes
 * New hosts source: http://pgl.yoyo.org/adservers
@@ -46,6 +49,14 @@
 
 
 Deutsch
+
+1.09
+* Neues Design für Tablets
+* Neue hosts source: http://pgl.yoyo.org/adservers
+- Absturz auf Android 3 Honeycomb gefixt
+- Fix für täglichen Updatecheck
+- Hosts source sysctl.org entfernt aufgrund von false positives
+
 1.08
 * AdAway bekam ein neues Design
 * AdAway enthält nun einen Webserver, der auf localhost horcht

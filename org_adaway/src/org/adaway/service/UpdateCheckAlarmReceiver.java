@@ -31,7 +31,7 @@ public class UpdateCheckAlarmReceiver extends BroadcastReceiver {
     // onReceive must be very quick and not block, so it just fires up a Service
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i(Constants.TAG, "CheckUpdateService invoked, starting CheckUpdateService in background");
+        Log.i(Constants.TAG, "UpdateCheckAlarmReceiver invoked, starting CheckUpdateService in background");
         context.startService(new Intent(context, UpdateCheckService.class));
     }
 }
