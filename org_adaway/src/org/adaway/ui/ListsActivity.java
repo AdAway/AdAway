@@ -74,6 +74,10 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
         getSupportFragmentManager().beginTransaction().add(android.R.id.content, blacklistFragment)
                 .commit();
 
+        // execute transactions before using ActionBar. ActionBar will be null because without this
+        // fragment transactions are asynchronous and ActionBar is not ready at once
+        getSupportFragmentManager().executePendingTransactions();
+
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         ActionBar.Tab tab1 = getSupportActionBar().newTab();

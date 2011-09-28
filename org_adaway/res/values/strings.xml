@@ -53,10 +53,10 @@
     <string name="no_root_url">http://www.cyanogenmod.com</string>
     <string name="about_title">About</string>
     <string name="apply_fail">Applying the hosts file to your system
-        failed!\nYou
-        can try choosing another
-        target hosts file in
-        preferences.
+        failed!\nTry changing the
+        target hosts
+        file in
+        preferences to /data/data/hosts.
     </string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed.</string>
@@ -162,7 +162,10 @@
         want to try creating a symlink?
     </string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
-    <string name="apply_not_enough_space">Not enough space on the partition!</string>
+    <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the
+        target hosts file in
+        preferences to /data/data/hosts.
+    </string>
     <string name="apply_not_enough_space_title">Not enough space</string>
     <string name="apply_private_file_fail">Downloaded file could not be read.</string>
     <string name="apply_private_file_fail_title">Private file fail</string>
@@ -374,45 +377,59 @@
         href=\"http://code.google.com/p/ad-away/issues/list\">bug
         tracker of AdAway&lt;/a>.
     </string>
-    <string name="help_problems">&lt;h2>HTC Devices&lt;/h2>AdAway does not work
+    <string name="help_problems">&lt;h2>Not enough space on partition&lt;/h2>Try changing the target hosts
+        file in preferences to &lt;tt>/data/data/hosts&lt;/tt> and apply AdAway again.&lt;h2>HTC
+        Devices&lt;/h2>AdAway does
+        not work
         when
         you are using a device
-        with so called S-ON. This \'feature\'
+        with so called S-ON. This
+        \'feature\'
         exists
         on
-        many HTC devices and prevents AdAway from
+        many HTC
+        devices and prevents AdAway from
         writing the
         hosts file.
         &lt;h2>S-ON/S-OFF?&lt;/h2>
-        S-OFF means that the NAND
+        S-OFF means
+        that the NAND
         portion of the
-        device is unlocked and can be written to. The
+        device is unlocked and can
+        be written to. The
         default setting for
         HTC
         devices is S-ON, which
         means that neither
-        can you access
+        can you
+        access
         certain
         areas
-        of the system nor can you guarantee a
+        of the system nor can
+        you guarantee a
         permanent
         root.
         Furthermore,
-        signature check for firmware
+        signature
+        check for firmware
         images is
-        also ensured by the
+        also ensured
+        by the
         S-ON flag.
         &lt;h2>Do I have S-ON or
         S-OFF?&lt;/h2>
         Boot into the Boot
         Menu on your
-        device by holding
+        device
+        by holding
         down
-        &lt;i>volume down&lt;/i> button while
+        &lt;i>volume down&lt;/i>
+        button while
         pressing
         power and the
         text on top
-        will show the flag
+        will show
+        the flag
         status as either
         S-OFF or
         S-ON. A

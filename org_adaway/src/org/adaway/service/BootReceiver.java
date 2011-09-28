@@ -21,11 +21,13 @@
 package org.adaway.service;
 
 import org.adaway.helper.PreferencesHelper;
+import org.adaway.util.Constants;
 import org.adaway.util.WebserverUtils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 /**
  * This broadcast receiver is awoken after boot
@@ -33,6 +35,8 @@ import android.content.Intent;
 public class BootReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+            Log.d(Constants.TAG, "BootReceiver invoked!");
+            
             // schedule UpdateCheckService
             UpdateCheckService.schedule(context);
             
