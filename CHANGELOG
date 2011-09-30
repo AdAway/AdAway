@@ -1,11 +1,9 @@
-1.11
-* Webserver is now a preference, disabled by default
-- fixed crash on Android 3.0 and 3.1 in Your Lists
-- fixed preferences on Android 3.x
-- fixed rotation on Android 3.x
-
 1.10
+* Webserver is now a preference, disabled by default
 - Fixed daily update again. Should schedule now correctly
+- Fixed crash on Android 3.0 and 3.1 in Your Lists
+- Fixed preferences on Android 3.x
+- Fixed rotation bug on Android 3.x
 
 1.09
 * New design for tablet sizes
@@ -55,6 +53,13 @@
 
 
 Deutsch
+
+1.10
+* Webserver ist jetzt eine optionale Einstellung
+- Fixed tägliches Update abermals. Sollte jetzt richtig laufen
+- Fixed Crash unter Android 3.0 und 3.1 in Your Lists
+- Fixed Einstellungen unter Android 3.x
+- Fixed Drehung des Gerätes unter Android 3.x
 
 1.09
 * Neues Design für Tablets
