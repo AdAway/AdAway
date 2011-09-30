@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <fragment
-        android:name="org.adaway.ui.BaseFragment"
-        android:id="@+id/base_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent">
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:padding="10dip">
+        <fragment
+            android:name="org.adaway.ui.BaseFragment"
+            android:id="@+id/base_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:id="@+id/base_activity_webserver_container"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_width="match_parent">
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

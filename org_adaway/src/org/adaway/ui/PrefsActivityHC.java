@@ -21,6 +21,7 @@
 package org.adaway.ui;
 
 import android.preference.PreferenceActivity;
+
 import java.util.List;
 
 import org.adaway.R;
@@ -32,8 +33,10 @@ import org.adaway.R;
  * 
  */
 public class PrefsActivityHC extends PreferenceActivity {
+
     @Override
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.preference_headers, target);
     }
+
 }

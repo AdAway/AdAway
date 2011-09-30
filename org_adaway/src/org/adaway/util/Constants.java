@@ -48,7 +48,6 @@ public class Constants {
     public static final String COMMAND_KILL = "busybox kill -9";
 
     public static final String WEBSERVER_EXECUTEABLE = "mongoose";
-    public static final String WEBSERVER_LOG_FILENAME = "mongoose_error_log.txt";
 
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
     public static final String ANDROID_SYSTEM_ETC_PATH = ANDROID_SYSTEM_PATH + FILE_SEPERATOR

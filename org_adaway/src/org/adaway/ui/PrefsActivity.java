@@ -23,6 +23,7 @@ package org.adaway.ui;
 import org.adaway.R;
 import org.adaway.service.UpdateCheckService;
 import org.adaway.util.Constants;
+import org.adaway.util.WebserverUtils;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -38,8 +39,8 @@ import android.preference.PreferenceActivity;
  * 
  */
 public class PrefsActivity extends PreferenceActivity {
-
     private CheckBoxPreference mUpdateCheckDaily;
+    private CheckBoxPreference mWebserverEnabled;
     private Context mContext;
 
     /**
@@ -66,6 +67,27 @@ public class PrefsActivity extends PreferenceActivity {
                     UpdateCheckService.schedule(mContext);
                 } else {
                     UpdateCheckService.unschedule(mContext);
+                }
+                return false;
+            }
+        });
+
+        // find checkbox for webserver enabled
+        mWebserverEnabled = (CheckBoxPreference) getPreferenceScreen().findPreference(
+                getString(R.string.pref_webserver_enabled_key));
+
+        // set preference click to install webserver and start it
+        mWebserverEnabled.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference arg0) {
+                if (mWebserverEnabled.isChecked()) {
+                    // install webserver if not already there
+                    WebserverUtils.installWebserver(mContext);
+                    // start webserver
+                    WebserverUtils.startWebserver(mContext);
+                } else {
+                    // start webserver
+                    WebserverUtils.stopWebserver(mContext);
                 }
                 return false;
             }

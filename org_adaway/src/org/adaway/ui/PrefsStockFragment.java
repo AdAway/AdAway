@@ -15,17 +15,30 @@ limitations under the License.
 
 package org.adaway.ui;
 
+import org.adaway.R;
+import org.adaway.service.UpdateCheckService;
+import org.adaway.util.Constants;
+import org.adaway.util.WebserverUtils;
+
+import android.content.Context;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.Preference.OnPreferenceClickListener;
 
 /**
- * Fragment used in preference_headers.xml to enable the use of old preference xmls.
- * see https://github.com/commonsguy/cw-android/blob/master/Prefs/FragmentsBC
+ * Fragment used in preference_headers.xml to enable the use of old preference xmls. see
+ * https://github.com/commonsguy/cw-android/blob/master/Prefs/FragmentsBC
  * 
  * @author Dominik Schürmann
  * 
  */
 public class PrefsStockFragment extends PreferenceFragment {
+    private CheckBoxPreference mUpdateCheckDaily;
+    private CheckBoxPreference mWebserverEnabled;
+    private Context mContext;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +46,48 @@ public class PrefsStockFragment extends PreferenceFragment {
         int res = getActivity().getResources().getIdentifier(getArguments().getString("resource"),
                 "xml", getActivity().getPackageName());
 
+        getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         addPreferencesFromResource(res);
+
+        mContext = getActivity();
+
+        // find checkbox for update check daily
+        mUpdateCheckDaily = (CheckBoxPreference) getPreferenceScreen().findPreference(
+                getString(R.string.pref_update_check_daily_key));
+
+        // set preference click to enable update service
+        mUpdateCheckDaily.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference arg0) {
+                if (mUpdateCheckDaily.isChecked()) {
+                    UpdateCheckService.schedule(mContext);
+                } else {
+                    UpdateCheckService.unschedule(mContext);
+                }
+                return false;
+            }
+        });
+
+        // find checkbox for webserver enabled
+        mWebserverEnabled = (CheckBoxPreference) getPreferenceScreen().findPreference(
+                getString(R.string.pref_webserver_enabled_key));
+
+        // set preference click to install webserver and start it
+        mWebserverEnabled.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference arg0) {
+                if (mWebserverEnabled.isChecked()) {
+                    // install webserver if not already there
+                    WebserverUtils.installWebserver(mContext);
+                    // start webserver
+                    WebserverUtils.startWebserver(mContext);
+                } else {
+                    // start webserver
+                    WebserverUtils.stopWebserver(mContext);
+                }
+                return false;
+            }
+        });
+
     }
 }

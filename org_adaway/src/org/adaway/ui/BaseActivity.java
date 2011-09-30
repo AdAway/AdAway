@@ -21,15 +21,19 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.helper.PreferencesHelper;
 
 import android.os.Bundle;
 import android.support.v4.app.ActionBar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 public class BaseActivity extends FragmentActivity {
     BaseFragment mBaseFragment;
+    WebserverFragment mWebserverFragment;
+    FragmentManager mFragmentManager;
 
     /**
      * Instantiate View and initialize fragments for this Activity
@@ -40,8 +44,31 @@ public class BaseActivity extends FragmentActivity {
 
         setContentView(R.layout.base_activity);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        mBaseFragment = (BaseFragment) fragmentManager.findFragmentById(R.id.base_fragment);
+        mFragmentManager = getSupportFragmentManager();
+        mBaseFragment = (BaseFragment) mFragmentManager.findFragmentById(R.id.base_fragment);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // add WebserverFragment when enabled in preferences
+        if (PreferencesHelper.getWebserverEnabled(this)) {
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+
+            mWebserverFragment = new WebserverFragment();
+            fragmentTransaction.replace(R.id.base_activity_webserver_container, mWebserverFragment);
+            fragmentTransaction.commit();
+        } else {
+            if (mWebserverFragment != null) {
+                FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+
+                fragmentTransaction.remove(mWebserverFragment);
+                fragmentTransaction.commit();
+
+                mWebserverFragment = null;
+            }
+        }
     }
 
     /**
@@ -72,6 +99,6 @@ public class BaseActivity extends FragmentActivity {
      * hand over onClick events, defined in layout from Activity to Fragment
      */
     public void webserverOnClick(View view) {
-        mBaseFragment.webserverOnClick(view);
+        mWebserverFragment.webserverOnClick(view);
     }
 }

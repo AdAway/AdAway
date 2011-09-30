@@ -29,7 +29,6 @@ import org.adaway.service.UpdateCheckService;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
-import org.adaway.util.WebserverUtils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -46,8 +45,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.stericson.RootTools.RootTools;
 
@@ -59,7 +56,6 @@ public class BaseFragment extends Fragment {
     private TextView mStatusSubtitle;
     private ProgressBar mStatusProgress;
     private ImageView mStatusIcon;
-    private ToggleButton mWebserverToggle;
 
     private StatusChecker mStatusChecker;
     private ApplyExecutor mApplyExecutor;
@@ -144,14 +140,11 @@ public class BaseFragment extends Fragment {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        mActivity.setContentView(R.layout.base_fragment);
 
         mStatusText = (TextView) mActivity.findViewById(R.id.status_text);
         mStatusSubtitle = (TextView) mActivity.findViewById(R.id.status_subtitle);
         mStatusProgress = (ProgressBar) mActivity.findViewById(R.id.status_progress);
         mStatusIcon = (ImageView) mActivity.findViewById(R.id.status_icon);
-        mWebserverToggle = (ToggleButton) mActivity
-                .findViewById(R.id.base_fragment_webserver_toggle);
 
         // build old status
         switch (mStatus) {
@@ -175,12 +168,6 @@ public class BaseFragment extends Fragment {
             break;
         default:
             break;
-        }
-
-        // check for root
-        if (Utils.isAndroidRooted(mActivity)) {
-            // set togglebutton checked if webserver is running
-            WebserverUtils.setWebserverToggle(mWebserverToggle);
         }
     }
 
@@ -266,8 +253,6 @@ public class BaseFragment extends Fragment {
         mStatusSubtitle = (TextView) mActivity.findViewById(R.id.status_subtitle);
         mStatusProgress = (ProgressBar) mActivity.findViewById(R.id.status_progress);
         mStatusIcon = (ImageView) mActivity.findViewById(R.id.status_icon);
-        mWebserverToggle = (ToggleButton) mActivity
-                .findViewById(R.id.base_fragment_webserver_toggle);
 
         RootTools.debugMode = Constants.DEBUG;
 
@@ -275,10 +260,6 @@ public class BaseFragment extends Fragment {
         if (Utils.isAndroidRooted(mActivity)) {
             // do background update check
             mStatusChecker.checkForUpdatesOnCreate();
-            // install webserver if not already there
-            WebserverUtils.installWebserver(mActivity);
-            // set togglebutton checked if webserver is running
-            WebserverUtils.setWebserverToggle(mWebserverToggle);
 
             // schedule CheckUpdateService
             UpdateCheckService.schedule(mActivity);
@@ -309,21 +290,4 @@ public class BaseFragment extends Fragment {
         mRevertExecutor.revert();
     }
 
-    /**
-     * Button Action to start or stop webserver
-     * 
-     * @param view
-     */
-    public void webserverOnClick(View view) {
-        if (mWebserverToggle.isChecked() == true) {
-            WebserverUtils.startWebserver(mActivity);
-            Toast.makeText(mActivity, getString(R.string.button_webserver_toggle_checked), 3)
-                    .show();
-        }
-        if (mWebserverToggle.isChecked() == false) {
-            WebserverUtils.stopWebserver(mActivity);
-            Toast.makeText(mActivity, getString(R.string.button_webserver_toggle_unchecked), 3)
-                    .show();
-        }
-    }
 }

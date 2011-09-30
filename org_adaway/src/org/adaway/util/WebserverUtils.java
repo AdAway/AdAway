@@ -28,6 +28,7 @@ import org.adaway.R;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.stericson.RootTools.RootTools;
@@ -98,10 +99,11 @@ public class WebserverUtils {
                     e.printStackTrace();
                 }
 
+                // bind on loopback with ports 80 and 443, without log and webserver root to
+                // /data/data/org.adaway/cache
                 mCommandStartWebserver = privateFilesPath + Constants.FILE_SEPERATOR
-                        + Constants.WEBSERVER_EXECUTEABLE + " -e " + privateCachePath
-                        + Constants.FILE_SEPERATOR + Constants.WEBSERVER_LOG_FILENAME
-                        + " -p 127.0.0.1:80,443"; // bind on loopback with ports 80 and 443
+                        + Constants.WEBSERVER_EXECUTEABLE + " -r " + privateCachePath
+                        + Constants.FILE_SEPERATOR + " -p 127.0.0.1:80,443";
             }
 
             @Override
@@ -112,6 +114,9 @@ public class WebserverUtils {
         };
 
         mWebserverTask.execute();
+
+        Toast.makeText(context, context.getString(R.string.button_webserver_toggle_checked), 3)
+                .show();
     }
 
     /**
@@ -121,14 +126,6 @@ public class WebserverUtils {
      * @throws CommandException
      */
     public static void stopWebserver(Context context) {
-        String privateCachePath = null;
-        try {
-            // /data/data/org.adaway/cache
-            privateCachePath = context.getCacheDir().getCanonicalPath();
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Problem occured while trying to locate cache directories!");
-            e.printStackTrace();
-        }
 
         String commandPidOf = Constants.COMMAND_PIDOF + " " + Constants.WEBSERVER_EXECUTEABLE;
 
@@ -157,11 +154,8 @@ public class WebserverUtils {
         if (pid != null) {
             String commandKill = Constants.COMMAND_KILL + " " + pid;
 
-            String commandRmLog = Constants.COMMAND_RM + " " + privateCachePath
-                    + Constants.FILE_SEPERATOR + Constants.WEBSERVER_LOG_FILENAME;
-
             try {
-                output = RootTools.sendShell(new String[] { commandKill, commandRmLog }, 1);
+                output = RootTools.sendShell(new String[] { commandKill }, 1);
 
             } catch (IOException e) {
                 Log.e(Constants.TAG, "Exception: " + e);
@@ -174,6 +168,9 @@ public class WebserverUtils {
                 e.printStackTrace();
             }
         }
+
+        Toast.makeText(context, context.getString(R.string.button_webserver_toggle_unchecked), 3)
+                .show();
     }
 
     /**

@@ -1,3 +1,9 @@
+1.11
+* Webserver is now a preference, disabled by default
+- fixed crash on Android 3.0 and 3.1 in Your Lists
+- fixed preferences on Android 3.x
+- fixed rotation on Android 3.x
+
 1.10
 - Fixed daily update again. Should schedule now correctly
 

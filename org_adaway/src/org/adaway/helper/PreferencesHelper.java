@@ -28,45 +28,59 @@ import android.content.SharedPreferences;
 
 public class PreferencesHelper {
     public static boolean getUpdateCheck(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
         return prefs.getBoolean(context.getString(R.string.pref_update_check_key),
                 Boolean.parseBoolean(context.getString(R.string.pref_update_check_def)));
     }
 
     public static boolean getUpdateCheckDaily(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
         return prefs.getBoolean(context.getString(R.string.pref_update_check_daily_key),
                 Boolean.parseBoolean(context.getString(R.string.pref_update_check_daily_def)));
     }
 
-    public static boolean getWebserverOnBoot(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
-        return prefs.getBoolean(context.getString(R.string.pref_webserver_on_boot_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_webserver_on_boot_def)));
-    }
-
     public static boolean getNeverReboot(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
         return prefs.getBoolean(context.getString(R.string.pref_never_reboot_key),
                 Boolean.parseBoolean(context.getString(R.string.pref_never_reboot_def)));
     }
 
     public static void setNeverReboot(Context context, boolean value) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(context.getString(R.string.pref_never_reboot_key), value);
         editor.commit();
     }
 
     public static String getRedirectionIP(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
         return prefs.getString(context.getString(R.string.pref_redirection_ip_key),
                 context.getString(R.string.pref_redirection_ip_def));
     }
 
     public static String getApplyMethod(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
         return prefs.getString(context.getString(R.string.pref_apply_method_key),
                 context.getString(R.string.pref_apply_method_def));
+    }
+
+    public static boolean getWebserverEnabled(Context context) {
+        SharedPreferences prefs = context.getApplicationContext().getSharedPreferences(
+                Constants.PREFS_NAME, Context.MODE_PRIVATE);
+        return prefs.getBoolean(context.getString(R.string.pref_webserver_enabled_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_webserver_enabled_def)));
+    }
+
+    public static boolean getWebserverOnBoot(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean(context.getString(R.string.pref_webserver_on_boot_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_webserver_on_boot_def)));
     }
 }

@@ -24,7 +24,7 @@
     <string name="apply_dialog_apply">Apply hosts file</string>
     <string name="menu_preferences">Preferences</string>
     <string name="pref_download">General Preferences</string>
-    <string name="pref_hosts">Hosts file</string>
+    <string name="pref_hosts">Hosts File</string>
     <string name="pref_redirection_ip">Redirection IP</string>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
@@ -510,4 +510,8 @@
     <string name="apply_help">Please read Help for more information.</string>
     <string name="pref_webserver_on_boot">Start webserver on boot</string>
     <string name="pref_webserver_on_boot_summary">Restarts webserver on boot of Android listening on localhost</string>
+    <string name="pref_webserver_enabled">Enable webserver</string>
+    <string name="pref_webserver_enabled_summary">Enables webserver listening on localhost to answer requests to blocked
+        hostnames</string>
+    <string name="pref_webserver">Local Webserver</string>
 </resources>

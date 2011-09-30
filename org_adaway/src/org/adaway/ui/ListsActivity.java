@@ -32,6 +32,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ActionBar.Tab;
 import android.support.v4.view.MenuItem;
+import android.widget.FrameLayout;
 
 public class ListsActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -76,7 +77,11 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
 
         // execute transactions before using ActionBar. ActionBar will be null because without this
         // fragment transactions are asynchronous and ActionBar is not ready at once
-        getSupportFragmentManager().executePendingTransactions();
+        // getSupportFragmentManager().executePendingTransactions();
+
+        // https://github.com/JakeWharton/ActionBarSherlock/issues/68
+        // FORCE the attachment of the action bar on all platforms as inexpensively as possible.
+        setContentView(new FrameLayout(this));
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
