@@ -64,9 +64,9 @@ public class PrefsActivity extends PreferenceActivity {
             @Override
             public boolean onPreferenceClick(Preference arg0) {
                 if (mUpdateCheckDaily.isChecked()) {
-                    UpdateCheckService.schedule(mContext);
+                    UpdateCheckService.registerAlarm(mContext);
                 } else {
-                    UpdateCheckService.unschedule(mContext);
+                    UpdateCheckService.unregisterAlarm(mContext);
                 }
                 return false;
             }

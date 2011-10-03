@@ -1,3 +1,6 @@
+1.11
+- Fixed bugs in layout
+
 1.10
 * Webserver is now a preference, disabled by default
 - Fixed daily update again. Should schedule now correctly
@@ -53,6 +56,9 @@
 
 
 Deutsch
+
+1.11
+- Fehler im Layout gefixt
 
 1.10
 * Webserver ist jetzt eine optionale Einstellung

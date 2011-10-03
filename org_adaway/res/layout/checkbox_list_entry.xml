@@ -10,6 +10,5 @@
         android:layout_width="fill_parent"
         android:focusable="false"
         android:clickable="false" />
-    <!-- focusable and clickable MUST be false to handle click and longClick 
-        in ListView Activity -->
+    <!-- focusable and clickable MUST be false to handle click and longClick in ListView Activity -->
 </LinearLayout>

@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:isScrollContainer="true"
         android:scrollbars="vertical"
-        android:padding="15dip">
+        android:padding="15dp">
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"

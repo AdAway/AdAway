@@ -9,9 +9,9 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        android:paddingTop="20dip"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip">
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
         <fragment
             android:name="org.adaway.ui.BaseFragment"
             android:id="@+id/base_fragment"
@@ -27,7 +27,7 @@
     <!-- Divider -->
     <LinearLayout
         android:id="@+id/horizontalLine"
-        android:layout_width="2dip"
+        android:layout_width="2dp"
         android:layout_height="fill_parent"
         android:background="#373737" />
     <LinearLayout
@@ -35,9 +35,9 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        android:paddingTop="20dip"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip">
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
         <TextView
             android:text="@string/menu_hosts_sources"
             android:layout_width="fill_parent"
@@ -45,8 +45,8 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:gravity="center_vertical"
-            android:paddingTop="20dip"
-            android:paddingBottom="40dip" />
+            android:paddingTop="20dp"
+            android:paddingBottom="40dp" />
         <fragment
             android:name="org.adaway.ui.HostsSourcesFragment"
             android:id="@+id/hosts_sources_list_fragment"

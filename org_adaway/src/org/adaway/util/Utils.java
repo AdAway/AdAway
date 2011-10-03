@@ -153,7 +153,7 @@ public class Utils {
                             }
 
                             try {
-                                ApplyUtils.reboot();
+                                ApplyUtils.quickReboot();
                             } catch (CommandException e) {
                                 Log.e(Constants.TAG, "Exception: " + e);
                                 e.printStackTrace();

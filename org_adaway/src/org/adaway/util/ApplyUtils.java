@@ -213,7 +213,8 @@ public class ApplyUtils {
         List<String> output = null;
         try {
             // create symlink
-            output = RootTools.sendShell(new String[] { commandRm, commandSymlink, commandChownDataDataHosts, commandChmodDataDataHosts644 }, 1);
+            output = RootTools.sendShell(new String[] { commandRm, commandSymlink,
+                    commandChownDataDataHosts, commandChmodDataDataHosts644 }, 1);
 
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
         } catch (IOException e) {
@@ -238,18 +239,17 @@ public class ApplyUtils {
     }
 
     /**
-     * Reboots Android
+     * Reboots Android quickly via killing zygote process. Zygote is the main init process that
+     * starts any other dalvik process
      * 
      * @throws CommandException
      */
-    public static void reboot() throws CommandException {
-        String commandReboot = "reboot";
-
+    public static void quickReboot() throws CommandException {
         /* Execute commands */
         List<String> output = null;
         try {
             // create symlink
-            output = RootTools.sendShell(commandReboot);
+            output = RootTools.sendShell(Constants.COMMAND_QUICK_REBOOT);
 
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
         } catch (IOException e) {

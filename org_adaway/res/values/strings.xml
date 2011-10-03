@@ -270,27 +270,64 @@
         Android
         to rebuild the DNS
         cache of Java.
+        &lt;h2>How
+        to use the webserver in AdAway?&lt;/h2>&lt;b>AdAway will also work without using the webserver!&lt;/b>&lt;br
+        />&lt;br/>
+        You can enable a local webserver in preferences of
+        AdAway to answer requests to &lt;tt>127.0.0.1&lt;/tt>. This means requests from applications
+        to ad servers which are redirected to &lt;tt>127.0.0.1&lt;/tt> are answered by AdAway\'s
+        webserver.&lt;br
+        />Some applications refuse to work, when ad servers are not reachable. With
+        this
+        method they will be reachable again, replying with a blank page and no ad images.
+        &lt;h2>Ads
+        in AngryBirds are still
+        shown!&lt;/h2>
+        Delete
+        &lt;tt>burstlyImageCache&lt;/tt>
+        directory on
+        your sd
+        card. It is used
+        as an ad cache for Angry
+        Birds.
         &lt;h2>It
-        does not block ads in application XYZ!&lt;/h2>
+        does not block
+        ads in
+        application
+        XYZ!&lt;/h2>
         Some
-        hostnames may be missing in the provided
+        hostnames may be missing in
+        the provided
         hosts
-        files from the &lt;i>Hosts
+        files from
+        the
+        &lt;i>Hosts
         Sources&lt;/i> or
-        the application has bundled the images to
+        the
+        application has bundled the
+        images to
         provide ads
-        without accessing the
-        internet. There are two methods to find hostnames which
-        should be blocked:&lt;br />&lt;br />
-        1. Open
-        &lt;tt>/data/data/org.example/databases/webviewCache.db&lt;/tt> where
-        &lt;tt>org.example&lt;/tt> is the package name of the app that displays ads and look for
-        hostnames in this database file.&lt;br />2. Install
+        without
+        accessing the
+        internet. There are two
+        methods to find hostnames
+        which
+        should be blocked:&lt;br
+        />&lt;br />
+        • Open
+        &lt;tt>/data/data/org.example/databases/webviewCache.db&lt;/tt>, where
+        &lt;tt>org.example&lt;/tt> is the package name of the app that displays ads, and look for
+        hostnames that seem to serve ads and are not used otherwise in the application.&lt;br
+        />&lt;br />• Install
         Wireshark on
-        your PC and route all
+        your computer and route all
         traffic
         from Android
-        through your PC as a proxy (As an
+        through your
+        computer, that is used as a
+        proxy, and sniff the
+        requests that this application is doing. As
+        an
         alternative on
         Android you can use
         &lt;a
@@ -298,14 +335,14 @@
         for
         Root\'&lt;/a> with &lt;a
         href=\"market://search?q=pname:lv.n3o.sharkreader\">\'Shark
-        Reader\'&lt;/a>) and sniff the
-        requests that this application is doing.&lt;br />&lt;br />
+        Reader\'&lt;/a>&lt;br />&lt;br />
         Add the hostnames
         to your
         own
         Blacklist as detailed
         below and report these hostnames when
-        you have verified them
+        you
+        have verified them
         in the
         Forum
         &lt;a
@@ -509,9 +546,10 @@
     <string name="button_help">Help</string>
     <string name="apply_help">Please read Help for more information.</string>
     <string name="pref_webserver_on_boot">Start webserver on boot</string>
-    <string name="pref_webserver_on_boot_summary">Restarts webserver on boot of Android listening on localhost</string>
+    <string name="pref_webserver_on_boot_summary">Restarts webserver on boot of Android listening on 127.0.0.1</string>
     <string name="pref_webserver_enabled">Enable webserver</string>
-    <string name="pref_webserver_enabled_summary">Enables webserver listening on localhost to answer requests to blocked
-        hostnames</string>
+    <string name="pref_webserver_enabled_summary">Enables webserver listening on 127.0.0.1 to answer requests to blocked
+        hostnames
+    </string>
     <string name="pref_webserver">Local Webserver</string>
 </resources>

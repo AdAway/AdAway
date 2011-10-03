@@ -38,7 +38,7 @@ public class BootReceiver extends BroadcastReceiver {
             Log.d(Constants.TAG, "BootReceiver invoked!");
             
             // schedule UpdateCheckService
-            UpdateCheckService.schedule(context);
+            UpdateCheckService.registerAlarm(context);
             
             // start webserver if enabled in preferences
             if (PreferencesHelper.getWebserverOnBoot(context)) {

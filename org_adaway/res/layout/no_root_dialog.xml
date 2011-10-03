@@ -4,9 +4,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:paddingLeft="20dip"
-    android:paddingRight="20dip"
-    android:paddingBottom="5dip">
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
     <TextView
         android:textAppearance="@android:style/TextAppearance.Medium"
         android:layout_width="wrap_content"
@@ -18,5 +18,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autoLink="web"
-        android:paddingTop="5dip" />
+        android:paddingTop="5dp" />
 </LinearLayout>

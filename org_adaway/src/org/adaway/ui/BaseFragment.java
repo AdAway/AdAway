@@ -262,7 +262,7 @@ public class BaseFragment extends Fragment {
             mStatusChecker.checkForUpdatesOnCreate();
 
             // schedule CheckUpdateService
-            UpdateCheckService.schedule(mActivity);
+            UpdateCheckService.registerAlarm(mActivity);
         }
     }
 

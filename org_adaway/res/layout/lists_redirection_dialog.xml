@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:padding="5dip">
+    android:padding="5dp">
     <TextView
         android:layout_height="wrap_content"
         android:text="@string/list_dialog_hostname"

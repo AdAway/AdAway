@@ -46,7 +46,7 @@ import org.adaway.util.StatusUtils;
 import org.adaway.util.Utils;
 
 /**
- * CheckUpdateService checks every 24 hours about 9 am for updates of hosts sources
+ * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources
  */
 public class UpdateCheckService extends IntentService {
 
@@ -68,12 +68,12 @@ public class UpdateCheckService extends IntentService {
     }
 
     /**
-     * Schedule service for daily execution with AlarmManager
+     * Sets repeating alarm to execute service daily using AlarmManager
      * 
      * @param context
      */
-    public static void schedule(Context context) {
-        // schedule when enabled in preferences
+    public static void registerAlarm(Context context) {
+        // register when enabled in preferences
         if (PreferencesHelper.getUpdateCheckDaily(context)) {
             Intent intent = new Intent(context, UpdateCheckAlarmReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
@@ -81,7 +81,10 @@ public class UpdateCheckService extends IntentService {
 
             // every day at 9 am
             Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.DAY_OF_YEAR, 1); // first run is next day (add, not set)
+            // if it's after 9 am schedule for next day
+            if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) > 9) {
+                calendar.add(Calendar.DAY_OF_YEAR, 1); // add, not set!
+            }
             calendar.set(Calendar.HOUR_OF_DAY, 9);
             calendar.set(Calendar.MINUTE, 0);
             calendar.set(Calendar.SECOND, 0);
@@ -89,10 +92,8 @@ public class UpdateCheckService extends IntentService {
             final AlarmManager alarm = (AlarmManager) context
                     .getSystemService(Context.ALARM_SERVICE);
 
-            // alarm.cancel(pendingIntent);
-
             if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
-                // in debug mode repeat service often
+                // for debugging execute service every 30 seconds
                 alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
                         30 * 1000, pendingIntent);
             } else {
@@ -105,11 +106,11 @@ public class UpdateCheckService extends IntentService {
     }
 
     /**
-     * Cancel scheduled service via alarm manager
+     * Cancel alarm for service using AlarmManager
      * 
      * @param context
      */
-    public static void unschedule(Context context) {
+    public static void unregisterAlarm(Context context) {
         Intent intent = new Intent(context, UpdateCheckAlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
@@ -118,7 +119,7 @@ public class UpdateCheckService extends IntentService {
     }
 
     /**
-     * Executed on Start of Service
+     * Asynchronous background operations of service
      */
     @Override
     public void onHandleIntent(Intent intent) {

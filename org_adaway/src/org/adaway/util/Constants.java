@@ -46,6 +46,7 @@ public class Constants {
     public static final String COMMAND_RM = "busybox rm -f";
     public static final String COMMAND_PIDOF = "busybox pidof";
     public static final String COMMAND_KILL = "busybox kill -9";
+    public static final String COMMAND_QUICK_REBOOT = "busybox killall -9 zygote";
 
     public static final String WEBSERVER_EXECUTEABLE = "mongoose";
 

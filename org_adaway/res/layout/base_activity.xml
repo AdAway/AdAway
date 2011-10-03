@@ -7,7 +7,7 @@
         android:layout_height="fill_parent"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:padding="10dip">
+        android:padding="10dp">
         <fragment
             android:name="org.adaway.ui.BaseFragment"
             android:id="@+id/base_fragment"

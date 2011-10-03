@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:isScrollContainer="true"
         android:scrollbars="vertical"
-        android:padding="15dip">
+        android:padding="15dp">
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -17,15 +17,15 @@
             <WebView
                 android:id="@+id/flattr_webview"
                 android:layout_gravity="center"
-                android:layout_height="85dip"
-                android:layout_width="80dip"
+                android:layout_height="85dp"
+                android:layout_width="80dp"
                 android:scrollbars="none"
                 android:visibility="gone" />
             <FrameLayout
                 android:id="@+id/loading_frame"
                 android:layout_gravity="center"
-                android:layout_height="85dip"
-                android:layout_width="80dip">
+                android:layout_height="85dp"
+                android:layout_width="80dp">
                 <LinearLayout
                     android:id="@+id/linearLayout1"
                     android:layout_width="wrap_content"
@@ -41,16 +41,16 @@
                 android:text="@string/donations_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dip"
-                android:paddingTop="5dip"
-                android:paddingBottom="5dip"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 android:layout_gravity="center_vertical"></TextView>
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dip"
+            android:paddingTop="10dp"
             android:text="@string/donations_url"
             android:textAppearance="@android:style/TextAppearance.Small"
             android:autoLink="web"></TextView>

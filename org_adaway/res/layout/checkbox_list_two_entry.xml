@@ -16,8 +16,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="2dip"
-        android:paddingBottom="2dip">
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp">
         <TextView
             android:id="@+id/checkbox_list_two_text"
             android:layout_width="fill_parent"

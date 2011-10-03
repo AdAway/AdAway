@@ -3,18 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
-    android:paddingTop="10dip"
+    android:paddingTop="10dp"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
-        android:padding="6dip"
+        android:padding="5dp"
         android:onClick="applyOnClick">
         <FrameLayout
             android:id="@+id/status_layout"
-            android:layout_marginRight="6dip"
-            android:layout_width="48dip"
-            android:layout_height="48dip"
+            android:layout_marginRight="6dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal">
@@ -36,7 +36,7 @@
         <TextView
             android:id="@+id/status_subtitle"
             android:layout_width="fill_parent"
-            android:layout_height="26dip"
+            android:layout_height="26dp"
             android:layout_toRightOf="@id/status_layout"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
@@ -61,31 +61,25 @@
         android:id="@+id/apply_button"
         android:text="@string/button_apply"
         android:onClick="applyOnClick"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"></Button>
+        android:layout_marginTop="15dp"
+        android:layout_width="fill_parent"></Button>
     <TextView
         android:text="@string/button_apply_text"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:paddingLeft="5dip"
-        android:paddingRight="5dip"
-        android:paddingBottom="20dip"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        android:layout_weight="1"></TextView>
+        android:padding="5dp"
+        android:textAppearance="@android:style/TextAppearance.Small"></TextView>
     <Button
         android:id="@+id/revert_button"
         android:layout_height="wrap_content"
         android:text="@string/button_revert"
         android:onClick="revertOnClick"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"></Button>
+        android:layout_marginTop="15dp"
+        android:layout_width="fill_parent"></Button>
     <TextView
         android:text="@string/button_revert_text"
         android:layout_height="wrap_content"
-        android:paddingLeft="5dip"
-        android:paddingRight="5dip"
-        android:paddingBottom="20dip"
+        android:padding="5dp"
         android:layout_width="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        android:layout_weight="1"></TextView>
+        android:textAppearance="@android:style/TextAppearance.Small"></TextView>
 </LinearLayout>

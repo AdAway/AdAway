@@ -8,5 +8,5 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:textColor="@android:color/secondary_text_dark_nodisable"
-        android:padding="10dip"></TextView>
+        android:padding="10dp"></TextView>
 </ScrollView>

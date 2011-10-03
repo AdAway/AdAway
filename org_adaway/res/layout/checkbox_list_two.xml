@@ -18,23 +18,23 @@
             android:text="@string/checkbox_list_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dip"
+            android:padding="10dp"
             android:layout_gravity="center_horizontal"
             android:textStyle="bold" />
         <TextView
             android:text="@string/checkbox_list_empty_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dip"
+            android:padding="10dp"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
     <!-- floating at the bottom of the list: -->
     <TextView
         android:id="@+id/redirection_list_footer"
         android:layout_width="fill_parent"
-        android:layout_height="50dip"
+        android:layout_height="50dp"
         android:text="@string/checkbox_list_footer"
-        android:padding="4dip"
+        android:padding="4dp"
         android:background="#FF666666" />
 </LinearLayout>
 
