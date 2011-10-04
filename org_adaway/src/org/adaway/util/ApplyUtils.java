@@ -249,7 +249,7 @@ public class ApplyUtils {
         List<String> output = null;
         try {
             // create symlink
-            output = RootTools.sendShell(Constants.COMMAND_QUICK_REBOOT);
+            output = RootTools.sendShell(Constants.COMMAND_KILLALL_ZYGOTE);
 
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
         } catch (IOException e) {

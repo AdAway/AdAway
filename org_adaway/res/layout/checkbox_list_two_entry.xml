@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <CheckBox
@@ -13,21 +13,21 @@
         android:layout_gravity="center_vertical" />
     <!-- focusable and clickable MUST be false to handle click and longClick in ListView Activity -->
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="2dp"
         android:paddingBottom="2dp">
         <TextView
             android:id="@+id/checkbox_list_two_text"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="@android:color/primary_text_dark"
             android:text="emty" />
         <TextView
             android:id="@+id/checkbox_list_two_subtext"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="emty"

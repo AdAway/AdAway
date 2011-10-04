@@ -2,13 +2,18 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.adaway"
-    android:installLocation="auto" android:versionName="1.11" android:versionCode="12">
+    android:installLocation="auto"
+    android:versionName="1.11"
+    android:versionCode="12">
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="13"></uses-sdk>
     <uses-feature
-        android:required="false"
-        android:name="android.hardware.touchscreen"></uses-feature>
+        android:name="android.hardware.touchscreen"
+        android:required="false"></uses-feature>
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false"></uses-feature>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
@@ -18,8 +23,7 @@
         android:normalScreens="true"
         android:largeScreens="true"
         android:smallScreens="true"
-        android:xlargeScreens="true"
-        android:requiresSmallestWidthDp="320"></supports-screens>
+        android:xlargeScreens="true"></supports-screens>
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name"

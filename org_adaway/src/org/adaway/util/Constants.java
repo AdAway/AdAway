@@ -23,7 +23,7 @@ package org.adaway.util;
 public class Constants {
     public static final boolean DEBUG = false;
     public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
-    public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
+    public static final boolean DEBUG_DISABLE_ROOT_CHECK = true;
 
     public static final String TAG = "AdAway";
 
@@ -46,7 +46,7 @@ public class Constants {
     public static final String COMMAND_RM = "busybox rm -f";
     public static final String COMMAND_PIDOF = "busybox pidof";
     public static final String COMMAND_KILL = "busybox kill -9";
-    public static final String COMMAND_QUICK_REBOOT = "busybox killall -9 zygote";
+    public static final String COMMAND_KILLALL_ZYGOTE = "busybox killall -9 zygote";
 
     public static final String WEBSERVER_EXECUTEABLE = "mongoose";
 

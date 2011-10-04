@@ -2,13 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:orientation="vertical">
     <ToggleButton
         android:text="Webserver ToggleButton"
         android:id="@+id/webserver_fragment_toggle_button"
         android:onClick="webserverOnClick"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textOff="@string/button_webserver_toggle_unchecked"
         android:textOn="@string/button_webserver_toggle_checked"></ToggleButton>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
     android:paddingTop="10dp"
     android:orientation="vertical">
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:padding="5dp"
         android:onClick="applyOnClick">
@@ -28,14 +28,14 @@
                 android:visibility="gone"></ProgressBar>
             <ImageView
                 android:src="@drawable/status_update"
-                android:layout_height="fill_parent"
-                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
                 android:id="@+id/status_icon"
                 android:visibility="gone"></ImageView>
         </FrameLayout>
         <TextView
             android:id="@+id/status_subtitle"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="26dp"
             android:layout_toRightOf="@id/status_layout"
             android:layout_alignParentBottom="true"
@@ -44,7 +44,7 @@
             android:ellipsize="marquee" />
         <TextView
             android:id="@+id/status_text"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/status_layout"
             android:layout_alignParentRight="true"
@@ -62,7 +62,7 @@
         android:text="@string/button_apply"
         android:onClick="applyOnClick"
         android:layout_marginTop="15dp"
-        android:layout_width="fill_parent"></Button>
+        android:layout_width="match_parent"></Button>
     <TextView
         android:text="@string/button_apply_text"
         android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
         android:text="@string/button_revert"
         android:onClick="revertOnClick"
         android:layout_marginTop="15dp"
-        android:layout_width="fill_parent"></Button>
+        android:layout_width="match_parent"></Button>
     <TextView
         android:text="@string/button_revert_text"
         android:layout_height="wrap_content"
