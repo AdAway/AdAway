@@ -97,9 +97,7 @@ public class UpdateCheckService extends IntentService {
                 alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
                         30 * 1000, pendingIntent);
             } else {
-                // use inexact repeating which is easier on battery (system can phase events and not
-                // wake at exact times)
-                alarm.setInexactRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
+                alarm.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
                         AlarmManager.INTERVAL_DAY, pendingIntent);
             }
         }
