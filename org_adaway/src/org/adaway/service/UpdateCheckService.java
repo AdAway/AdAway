@@ -29,7 +29,6 @@ import android.os.SystemClock;
 import android.content.Intent;
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -44,12 +43,12 @@ import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
 import org.adaway.util.Utils;
+import org.adaway.util.Log;
 
 /**
  * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources
  */
 public class UpdateCheckService extends IntentService {
-
     private Context mApplicationContext;
     private DatabaseHelper mDatabaseHelper;
 
@@ -81,8 +80,8 @@ public class UpdateCheckService extends IntentService {
 
             // every day at 9 am
             Calendar calendar = Calendar.getInstance();
-            // if it's after 9 am schedule for next day
-            if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) > 9) {
+            // if it's after or equal 9 am schedule for next day
+            if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 9) {
                 calendar.add(Calendar.DAY_OF_YEAR, 1); // add, not set!
             }
             calendar.set(Calendar.HOUR_OF_DAY, 9);

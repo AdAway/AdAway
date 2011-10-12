@@ -271,11 +271,14 @@
         to rebuild the DNS
         cache of Java.
         &lt;h2>How
-        to use the webserver in AdAway?&lt;/h2>&lt;b>AdAway will also work without using the webserver!&lt;/b>&lt;br
+        to use the webserver in AdAway?&lt;/h2>&lt;b>AdAway will also work without using the
+        webserver!&lt;/b>&lt;br
         />&lt;br/>
         You can enable a local webserver in preferences of
-        AdAway to answer requests to &lt;tt>127.0.0.1&lt;/tt>. This means requests from applications
-        to ad servers which are redirected to &lt;tt>127.0.0.1&lt;/tt> are answered by AdAway\'s
+        AdAway to
+        answer requests to &lt;tt>127.0.0.1&lt;/tt>. This means requests from applications
+        to ad
+        servers which are redirected to &lt;tt>127.0.0.1&lt;/tt> are answered by AdAway\'s
         webserver.&lt;br
         />Some applications refuse to work, when ad servers are not reachable. With
         this
@@ -292,7 +295,8 @@
         Birds.
         &lt;h2>It
         does not block
-        ads in
+        ads
+        in
         application
         XYZ!&lt;/h2>
         Some
@@ -546,7 +550,8 @@
     <string name="button_help">Help</string>
     <string name="apply_help">Please read Help for more information.</string>
     <string name="pref_webserver_on_boot">Start webserver on boot</string>
-    <string name="pref_webserver_on_boot_summary">Restarts webserver on boot of Android listening on 127.0.0.1</string>
+    <string name="pref_webserver_on_boot_summary">Start webserver on boot delayed with 5 seconds listening on 127.0.0.1
+    </string>
     <string name="pref_webserver_enabled">Enable webserver</string>
     <string name="pref_webserver_enabled_summary">Enables webserver listening on 127.0.0.1 to answer requests to blocked
         hostnames

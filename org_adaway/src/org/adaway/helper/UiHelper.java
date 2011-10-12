@@ -22,6 +22,7 @@ package org.adaway.helper;
 
 import org.adaway.R;
 import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -31,7 +32,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;

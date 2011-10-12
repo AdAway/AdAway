@@ -25,6 +25,7 @@ import org.adaway.helper.DatabaseHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.HostsSourcesCursorAdapter;
 import org.adaway.util.ValidationUtils;
+import org.adaway.util.Log;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -37,7 +38,6 @@ import android.support.v4.view.MenuItem;
 import android.view.MenuInflater;
 import android.text.Editable;
 import android.text.InputType;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;

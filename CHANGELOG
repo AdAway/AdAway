@@ -1,3 +1,7 @@
+1.12
+- Delayed starting of webserver on boot
+- Disabled debug logging
+
 1.11
 - Fixed bugs in layout
 
@@ -56,6 +60,10 @@
 
 
 Deutsch
+
+1.12
+- Webserver wird verzögert beim Booten gestartet
+- Debug Logs wurden deaktiviert
 
 1.11
 - Fehler im Layout gefixt

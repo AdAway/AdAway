@@ -25,6 +25,7 @@ import org.adaway.helper.DatabaseHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
 import org.adaway.util.ValidationUtils;
+import org.adaway.util.Log;
 
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.Menu;
@@ -36,7 +37,6 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;

@@ -41,6 +41,7 @@ import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
+import org.adaway.util.Log;
 import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
 import org.adaway.util.ReturnCodes;
@@ -55,7 +56,6 @@ import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.util.Log;
 
 public class ApplyExecutor {
     private BaseFragment mBaseFragment;
@@ -442,7 +442,8 @@ public class ApplyExecutor {
 
                     // add "127.0.0.1 localhost" entry
                     String localhost = Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv4 + " "
-                            + Constants.LOCALHOST_HOSTNAME;
+                            + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPERATOR
+                            + Constants.LOCALHOST_IPv6 + " " + Constants.LOCALHOST_HOSTNAME;
                     fos.write(localhost.getBytes());
 
                     fos.write(Constants.LINE_SEPERATOR.getBytes());

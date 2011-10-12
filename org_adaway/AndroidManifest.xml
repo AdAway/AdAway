@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.adaway"
     android:installLocation="auto"
-    android:versionName="1.11"
-    android:versionCode="12">
+    android:versionName="1.12"
+    android:versionCode="13">
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="13"></uses-sdk>
@@ -28,8 +28,7 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock"
-        android:debuggable="false"
-        android:hardwareAccelerated="true">
+        android:debuggable="false">
         <activity
             android:label="@string/app_name"
             android:configChanges="keyboardHidden|orientation"

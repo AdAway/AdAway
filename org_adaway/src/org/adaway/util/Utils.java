@@ -22,6 +22,7 @@ package org.adaway.util;
 
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
+import org.adaway.util.Log;
 
 import com.stericson.RootTools.RootTools;
 
@@ -31,7 +32,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;

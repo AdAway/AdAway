@@ -21,17 +21,18 @@
 package org.adaway.service;
 
 import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 public class UpdateCheckAlarmReceiver extends BroadcastReceiver {
     // onReceive must be very quick and not block, so it just fires up a Service
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i(Constants.TAG, "UpdateCheckAlarmReceiver invoked, starting CheckUpdateService in background");
+        Log.i(Constants.TAG,
+                "UpdateCheckAlarmReceiver invoked, starting CheckUpdateService in background");
         context.startService(new Intent(context, UpdateCheckService.class));
     }
 }

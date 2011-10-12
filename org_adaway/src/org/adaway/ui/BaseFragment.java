@@ -38,7 +38,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
@@ -264,13 +263,6 @@ public class BaseFragment extends Fragment {
 
             // schedule CheckUpdateService
             UpdateCheckService.registerAlarm(mActivity);
-            
-            
-            if (RootTools.killProcess("mongoose")) {
-                Log.d("WORKES", "WORKED");
-            } else {
-                Log.d("WORKES", "NO");
-            }
         }
     }
 

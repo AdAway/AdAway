@@ -23,8 +23,6 @@ package org.adaway.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-import android.util.Log;
 import android.webkit.URLUtil;
 
 public class ValidationUtils {

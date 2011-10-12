@@ -21,7 +21,8 @@
 package org.adaway.util;
 
 public class Constants {
-    public static final boolean DEBUG = true;
+    /* DEBUG enables Log.d outputs wrapped in org.adaway.util.Log and RootTools Debug Mode */
+    public static final boolean DEBUG = false;
     public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
     public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
 
@@ -30,6 +31,7 @@ public class Constants {
     public static final String PREFS_NAME = "preferences";
 
     public static final String LOCALHOST_IPv4 = "127.0.0.1";
+    public static final String LOCALHOST_IPv6 = "::1";
     public static final String BOGUS_IPv4 = "0.0.0.0";
     public static final String LOCALHOST_HOSTNAME = "localhost";
 

@@ -27,6 +27,7 @@ import org.adaway.ui.BaseFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
 import org.adaway.util.Utils;
@@ -35,7 +36,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 
 public class RevertExecutor {
     private BaseFragment mBaseFragment;
@@ -68,7 +68,8 @@ public class RevertExecutor {
 
                             // default localhost
                             String localhost = Constants.LOCALHOST_IPv4 + " "
-                                    + Constants.LOCALHOST_HOSTNAME;
+                                    + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPERATOR
+                                    + Constants.LOCALHOST_IPv6 + " " + Constants.LOCALHOST_HOSTNAME;
                             fos.write(localhost.getBytes());
                             fos.close();
 

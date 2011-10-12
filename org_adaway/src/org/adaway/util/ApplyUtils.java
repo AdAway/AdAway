@@ -20,6 +20,8 @@
 
 package org.adaway.util;
 
+import org.adaway.util.Log;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,7 +35,6 @@ import com.stericson.RootTools.RootToolsException;
 
 import android.content.Context;
 import android.os.StatFs;
-import android.util.Log;
 
 public class ApplyUtils {
     /**
