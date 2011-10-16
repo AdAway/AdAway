@@ -238,36 +238,4 @@ public class ApplyUtils {
             RootTools.remount(Constants.ANDROID_SYSTEM_ETC_PATH, "RO");
         }
     }
-
-    /**
-     * Reboots Android quickly via killing zygote process. Zygote is the main init process that
-     * starts any other dalvik process
-     * 
-     * @throws CommandException
-     */
-    public static void quickReboot() throws CommandException {
-        /* Execute commands */
-        List<String> output = null;
-        try {
-            // create symlink
-            output = RootTools.sendShell(Constants.COMMAND_KILLALL_ZYGOTE);
-
-            Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        } catch (InterruptedException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        } catch (RootToolsException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        }
-    }
 }

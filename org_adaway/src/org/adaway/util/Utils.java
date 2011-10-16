@@ -20,6 +20,10 @@
 
 package org.adaway.util;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
 import org.adaway.util.Log;
@@ -152,12 +156,8 @@ public class Utils {
                                 PreferencesHelper.setNeverReboot(activity, true);
                             }
 
-                            try {
-                                ApplyUtils.quickReboot();
-                            } catch (CommandException e) {
-                                Log.e(Constants.TAG, "Exception: " + e);
-                                e.printStackTrace();
-                            }
+                            // restart android quickly using RootTools
+                            RootTools.restartAndroid();
                         }
                     });
             builder.setNegativeButton(activity.getString(R.string.button_no),
@@ -195,5 +195,32 @@ public class Utils {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Reads html files from /res/raw/example.html to output them as string. See
+     * http://www.monocube.com/2011/02/08/android-tutorial-html-file-in-webview/
+     * 
+     * @param context
+     *            current context
+     * @param resourceID
+     *            of html file to read
+     * @return content of html file with formatting
+     */
+    public static String readContentFromResource(Context context, int resourceID) {
+        InputStream raw = context.getResources().openRawResource(resourceID);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        int i;
+        try {
+            i = raw.read();
+            while (i != -1) {
+                stream.write(i);
+                i = raw.read();
+            }
+            raw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stream.toString();
     }
 }

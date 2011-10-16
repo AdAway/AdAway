@@ -21,6 +21,7 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.util.Utils;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -41,11 +42,14 @@ public class HelpFAQFragment extends Fragment {
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mActivity = getActivity();
+
         final View view = inflater.inflate(R.layout.help_fragment, container, false);
 
         mHelpText = (TextView) view.findViewById(R.id.help_fragment_text);
 
-        String helpText = getString(R.string.help_faq);
+        // load html from html file from /res/raw
+        String helpText = Utils.readContentFromResource(mActivity, R.raw.help_faq);
 
         // set text from resources with html markup
         mHelpText.setText(Html.fromHtml(helpText));
@@ -53,15 +57,5 @@ public class HelpFAQFragment extends Fragment {
         mHelpText.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
-    }
-
-    /**
-     * Called when the activity is first created.
-     */
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        mActivity = getActivity();
     }
 }
