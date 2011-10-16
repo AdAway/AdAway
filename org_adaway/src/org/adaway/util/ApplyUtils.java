@@ -52,8 +52,11 @@ public class ApplyUtils {
         StatFs stat = new StatFs(path);
         long blockSize = stat.getBlockSize();
         long availableBlocks = stat.getAvailableBlocks();
+        long availableSpace = availableBlocks * blockSize;
 
-        if (size < availableBlocks * blockSize) {
+        Log.d(Constants.TAG, "size: " + size + ", availableSpace: " + availableSpace);
+
+        if (size < availableSpace) {
             return true;
         } else {
             Log.e(Constants.TAG, "Not enough space on partition!");
@@ -66,11 +69,11 @@ public class ApplyUtils {
      * 
      * @return true if it is applied
      */
-    public static boolean isHostsFileApplied(Context context, String targetPath) {
+    public static boolean isHostsFileApplied(Context context, String target) {
         boolean status = false;
 
-        /* Check if first line in $targetPath/hosts is AdAway comment */
-        String hostsFile = targetPath + File.separator + Constants.HOSTS_FILENAME;
+        /* Check if first line in hosts file is AdAway comment */
+        String hostsFile = target;
 
         File file = new File(hostsFile);
         InputStream stream = null;
@@ -83,7 +86,7 @@ public class ApplyUtils {
 
             String firstLine = br.readLine();
 
-            Log.d(Constants.TAG, "firstLine: " + firstLine);
+            Log.d(Constants.TAG, "First line of " + target + ": " + firstLine);
 
             if (firstLine.equals(Constants.HEADER1)) {
                 status = true;
@@ -114,53 +117,69 @@ public class ApplyUtils {
      * @throws NotEnoughSpaceException
      *             RemountException CopyException
      */
-    public static void copyHostsFile(Context context, boolean targetDataData)
+    public static void copyHostsFile(Context context, String customTarget)
             throws NotEnoughSpaceException, RemountException, CommandException {
         String privateDir = context.getFilesDir().getAbsolutePath();
         String privateFile = privateDir + File.separator + Constants.HOSTS_FILENAME;
-        String SystemEtcHosts = Constants.ANDROID_SYSTEM_ETC_PATH + File.separator
-                + Constants.HOSTS_FILENAME;
-        String DataDataHosts = Constants.ANDROID_DATA_DATA_PATH + File.separator
-                + Constants.HOSTS_FILENAME;
 
+        // commands when using /system/etc/hosts
         String commandCopySystemEtc = Constants.COMMAND_COPY + " " + privateFile + " "
-                + SystemEtcHosts;
-        String commandCopyDataData = Constants.COMMAND_COPY + " " + privateFile + " "
-                + DataDataHosts;
-        String commandChownSystemEtcHosts = Constants.COMMAND_CHOWN + " " + SystemEtcHosts;
-        String commandChmodSystemEtcHosts644 = Constants.COMMAND_CHMOD_644 + " " + SystemEtcHosts;
-        String commandChmodDataDataHosts666 = Constants.COMMAND_CHMOD_666 + " " + DataDataHosts;
+                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
+        String commandChownSystemEtcHosts = Constants.COMMAND_CHOWN + " "
+                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
+        String commandChmodSystemEtcHosts644 = Constants.COMMAND_CHMOD_644 + " "
+                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
 
-        String targetPath = null;
-        if (!targetDataData) {
-            targetPath = Constants.ANDROID_SYSTEM_ETC_PATH;
+        String target = null;
+        if (customTarget == "") {
+            target = Constants.ANDROID_SYSTEM_ETC_HOSTS;
         } else {
-            targetPath = Constants.ANDROID_DATA_DATA_PATH;
+            target = customTarget;
+        }
+
+        // commands when using customTarget
+        String AlternativePathHosts = target + File.separator + Constants.HOSTS_FILENAME;
+        String commandCopyAlternativePath = Constants.COMMAND_COPY + " " + privateFile + " "
+                + AlternativePathHosts;
+        String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " "
+                + AlternativePathHosts;
+
+        /* if custom target create file before using it */
+        File targetFile = new File(target);
+        if (!targetFile.exists()) {
+            try {
+                targetFile.createNewFile();
+            } catch (IOException e) {
+                Log.e(Constants.TAG, "File could not be created!");
+                e.printStackTrace();
+                // if file could not be created, directory is not existing, throw execption!
+                throw new CommandException();
+            }
         }
 
         /* check for space on partition */
         long size = new File(privateFile).length();
         Log.d(Constants.TAG, "size: " + size);
-        if (!hasEnoughSpaceOnPartition(targetPath, size)) {
+        if (!hasEnoughSpaceOnPartition(target, size)) {
             throw new NotEnoughSpaceException();
         }
 
         /* remount for write access */
-        if (!RootTools.remount(targetPath, "RW")) {
+        if (!RootTools.remount(target, "RW")) {
             throw new RemountException();
         }
 
         /* Execute commands */
         List<String> output = null;
         try {
-            if (!targetDataData) {
+            if (customTarget == "") {
                 // execute commands: copy, chown, chmod
                 output = RootTools.sendShell(new String[] { commandCopySystemEtc,
                         commandChownSystemEtcHosts, commandChmodSystemEtcHosts644 }, 1);
             } else {
                 // execute copy
-                output = RootTools.sendShell(new String[] { commandCopyDataData,
-                        commandChmodDataDataHosts666 }, 1);
+                output = RootTools.sendShell(new String[] { commandCopyAlternativePath,
+                        commandChmodAlternativePath666 }, 1);
             }
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
         } catch (IOException e) {
@@ -180,8 +199,8 @@ public class ApplyUtils {
             throw new CommandException();
         } finally {
             // after all remount system back as read only
-            if (!targetDataData) {
-                RootTools.remount(Constants.ANDROID_SYSTEM_ETC_PATH, "RO");
+            if (customTarget == "") {
+                RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
             }
         }
     }
@@ -192,21 +211,15 @@ public class ApplyUtils {
      * @throws RemountException
      *             CommandException
      */
-    public static void createSymlink() throws RemountException, CommandException {
-        String SystemEtcHosts = Constants.ANDROID_SYSTEM_ETC_PATH + File.separator
-                + Constants.HOSTS_FILENAME;
-        String DataDataHosts = Constants.ANDROID_DATA_DATA_PATH + File.separator
-                + Constants.HOSTS_FILENAME;
+    public static void createSymlink(String target) throws RemountException, CommandException {
+        String commandRm = Constants.COMMAND_RM + " " + Constants.ANDROID_SYSTEM_ETC_HOSTS;
+        String commandSymlink = Constants.COMMAND_LN + " " + target + " "
+                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
+        String commandChownTarget = Constants.COMMAND_CHOWN + " " + target;
+        String commandChmodTarget644 = Constants.COMMAND_CHMOD_644 + " " + target;
 
-        String commandRm = Constants.COMMAND_RM + " " + SystemEtcHosts;
-        String commandSymlink = Constants.COMMAND_LN + " " + DataDataHosts + " " + SystemEtcHosts;
-        String commandChownDataDataHosts = Constants.COMMAND_CHOWN + " " + DataDataHosts;
-        String commandChmodDataDataHosts644 = Constants.COMMAND_CHMOD_644 + " " + DataDataHosts;
-
-        String targetPath = Constants.ANDROID_SYSTEM_ETC_PATH;
-
-        /* remount for write access */
-        if (!RootTools.remount(targetPath, "RW")) {
+        /* remount /system/etc for write access */
+        if (!RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
             throw new RemountException();
         }
 
@@ -215,7 +228,7 @@ public class ApplyUtils {
         try {
             // create symlink
             output = RootTools.sendShell(new String[] { commandRm, commandSymlink,
-                    commandChownDataDataHosts, commandChmodDataDataHosts644 }, 1);
+                    commandChownTarget, commandChmodTarget644 }, 1);
 
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
         } catch (IOException e) {
@@ -235,7 +248,7 @@ public class ApplyUtils {
             throw new CommandException();
         } finally {
             // after all remount system back as read only
-            RootTools.remount(Constants.ANDROID_SYSTEM_ETC_PATH, "RO");
+            RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
         }
     }
 }

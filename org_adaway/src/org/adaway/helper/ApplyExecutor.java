@@ -489,13 +489,19 @@ public class ApplyExecutor {
                 /* APPLY: apply hosts file using RootTools in copyHostsFile() */
                 publishProgress(mActivity.getString(R.string.apply_dialog_apply));
 
-                // copy build hosts file with RootTools
+                // copy build hosts file with RootTools, based on target from preferences
                 try {
                     if (PreferencesHelper.getApplyMethod(mActivity).equals("writeToSystem")) {
-                        ApplyUtils.copyHostsFile(mActivity, false);
+
+                        ApplyUtils.copyHostsFile(mActivity, "");
                     } else if (PreferencesHelper.getApplyMethod(mActivity)
                             .equals("writeToDataData")) {
-                        ApplyUtils.copyHostsFile(mActivity, true);
+
+                        ApplyUtils.copyHostsFile(mActivity, Constants.ANDROID_DATA_DATA_HOSTS);
+                    } else if (PreferencesHelper.getApplyMethod(mActivity).equals("customTarget")) {
+
+                        ApplyUtils.copyHostsFile(mActivity,
+                                PreferencesHelper.getCustomTarget(mActivity));
                     }
                 } catch (NotEnoughSpaceException e) {
                     Log.e(Constants.TAG, "Exception: " + e);
@@ -530,17 +536,27 @@ public class ApplyExecutor {
                 if (returnCode == ReturnCodes.SUCCESS) {
                     if (PreferencesHelper.getApplyMethod(mActivity).equals("writeToSystem")) {
                         if (!ApplyUtils.isHostsFileApplied(mActivity,
-                                Constants.ANDROID_SYSTEM_ETC_PATH)) {
+                                Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                             returnCode = ReturnCodes.APPLY_FAIL;
                         }
                     } else if (PreferencesHelper.getApplyMethod(mActivity)
                             .equals("writeToDataData")) {
                         if (!ApplyUtils.isHostsFileApplied(mActivity,
-                                Constants.ANDROID_DATA_DATA_PATH)) {
+                                Constants.ANDROID_DATA_DATA_HOSTS)) {
                             returnCode = ReturnCodes.APPLY_FAIL;
                         } else {
                             if (!ApplyUtils.isHostsFileApplied(mActivity,
-                                    Constants.ANDROID_SYSTEM_ETC_PATH)) {
+                                    Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                                returnCode = ReturnCodes.SYMLINK_MISSING;
+                            }
+                        }
+                    } else if (PreferencesHelper.getApplyMethod(mActivity).equals("customTarget")) {
+                        if (!ApplyUtils.isHostsFileApplied(mActivity,
+                                PreferencesHelper.getCustomTarget(mActivity))) {
+                            returnCode = ReturnCodes.APPLY_FAIL;
+                        } else {
+                            if (!ApplyUtils.isHostsFileApplied(mActivity,
+                                    Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                                 returnCode = ReturnCodes.SYMLINK_MISSING;
                             }
                         }
@@ -674,7 +690,12 @@ public class ApplyExecutor {
         boolean success = true;
 
         try {
-            ApplyUtils.createSymlink();
+            // symlink to /system/etc/hosts, based on target
+            if (PreferencesHelper.getApplyMethod(mActivity).equals("writeToDataData")) {
+                ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
+            } else if (PreferencesHelper.getApplyMethod(mActivity).equals("customTarget")) {
+                ApplyUtils.createSymlink(PreferencesHelper.getCustomTarget(mActivity));
+            }
         } catch (CommandException e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
@@ -688,7 +709,7 @@ public class ApplyExecutor {
         }
 
         if (success) {
-            if (ApplyUtils.isHostsFileApplied(mActivity, Constants.ANDROID_SYSTEM_ETC_PATH)) {
+            if (ApplyUtils.isHostsFileApplied(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 success = true;
             } else {
                 success = false;

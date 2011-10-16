@@ -70,6 +70,13 @@ public class PreferencesHelper {
                 context.getString(R.string.pref_apply_method_def));
     }
 
+    public static String getCustomTarget(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getString(context.getString(R.string.pref_custom_target_key),
+                context.getString(R.string.pref_custom_target_def));
+    }
+
     public static boolean getWebserverEnabled(Context context) {
         SharedPreferences prefs = context.getApplicationContext().getSharedPreferences(
                 Constants.PREFS_NAME, Context.MODE_PRIVATE);

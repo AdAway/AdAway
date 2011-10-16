@@ -64,7 +64,7 @@ public class WebserverUtils {
             e.printStackTrace();
         }
         RootTools.runBinary(context, Constants.WEBSERVER_EXECUTEABLE, "-r " + privateCachePath
-                + Constants.FILE_SEPERATOR + " -p 127.0.0.1:80,443");
+                + Constants.FILE_SEPERATOR + " -p 0.0.0.0:80,443");
 
         Toast.makeText(context, context.getString(R.string.button_webserver_toggle_checked), 3)
                 .show();

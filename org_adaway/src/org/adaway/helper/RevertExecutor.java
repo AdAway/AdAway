@@ -75,7 +75,7 @@ public class RevertExecutor {
 
                             // copy build hosts file with RootTools
                             try {
-                                ApplyUtils.copyHostsFile(mActivity, false);
+                                ApplyUtils.copyHostsFile(mActivity, "");
                             } catch (NotEnoughSpaceException e) {
                                 Log.e(Constants.TAG, "Exception: " + e);
                                 e.printStackTrace();

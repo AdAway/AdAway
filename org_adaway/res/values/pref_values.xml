@@ -17,12 +17,20 @@
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/data/hosts</item>
+        <item>Custom target</item>
     </string-array>
     <string-array name="pref_apply_method_entries_values">
         <item>writeToSystem</item>
         <item>writeToDataData</item>
+        <item>customTarget</item>
     </string-array>
     <string name="pref_apply_method_def">writeToSystem</string>
+    
+    <string name="pref_custom_target_key">customTarget</string>
+    <item
+        format="string"
+        type="string"
+        name="pref_custom_target_def">/data/etc/hosts</item>
 
     <string name="pref_update_check_daily_key">updateCheckDaily</string>
     <item

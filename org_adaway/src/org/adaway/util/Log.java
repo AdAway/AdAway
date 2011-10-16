@@ -26,56 +26,52 @@ package org.adaway.util;
  */
 public final class Log {
 
-    public static int v(String tag, String msg) {
-        return android.util.Log.v(tag, msg);
+    public static void v(String tag, String msg) {
+        android.util.Log.v(tag, msg);
     }
 
     public static int v(String tag, String msg, Throwable tr) {
         return android.util.Log.v(tag, msg, tr);
     }
 
-    public static int d(String tag, String msg) {
+    public static void d(String tag, String msg) {
         if (Constants.DEBUG) {
-            return android.util.Log.d(tag, msg);
-        } else {
-            return 0;
+            android.util.Log.d(tag, msg);
         }
     }
 
-    public static int d(String tag, String msg, Throwable tr) {
+    public static void d(String tag, String msg, Throwable tr) {
         if (Constants.DEBUG) {
-            return android.util.Log.d(tag, msg, tr);
-        } else {
-            return 0;
+            android.util.Log.d(tag, msg, tr);
         }
     }
 
-    public static int i(String tag, String msg) {
-        return android.util.Log.i(tag, msg);
+    public static void i(String tag, String msg) {
+        android.util.Log.i(tag, msg);
     }
 
-    public static int i(String tag, String msg, Throwable tr) {
-        return android.util.Log.i(tag, msg, tr);
+    public static void i(String tag, String msg, Throwable tr) {
+        android.util.Log.i(tag, msg, tr);
     }
 
-    public static int w(String tag, String msg) {
-        return android.util.Log.w(tag, msg);
+    public static void w(String tag, String msg) {
+        android.util.Log.w(tag, msg);
     }
 
-    public static int w(String tag, String msg, Throwable tr) {
-        return android.util.Log.w(tag, msg, tr);
+    public static void w(String tag, String msg, Throwable tr) {
+        android.util.Log.w(tag, msg, tr);
     }
 
-    public static int w(String tag, Throwable tr) {
-        return android.util.Log.w(tag, tr);
+    public static void w(String tag, Throwable tr) {
+        android.util.Log.w(tag, tr);
     }
 
-    public static int e(String tag, String msg) {
-        return android.util.Log.e(tag, msg);
+    public static void e(String tag, String msg) {
+        android.util.Log.e(tag, msg);
     }
 
-    public static int e(String tag, String msg, Throwable tr) {
-        return android.util.Log.e(tag, msg, tr);
+    public static void e(String tag, String msg, Throwable tr) {
+        android.util.Log.e(tag, msg, tr);
     }
 
 }

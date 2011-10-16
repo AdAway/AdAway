@@ -16,16 +16,17 @@ limitations under the License.
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.helper.PreferencesHelper;
 import org.adaway.service.UpdateCheckService;
 import org.adaway.util.Constants;
 import org.adaway.util.WebserverUtils;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.Preference.OnPreferenceChangeListener;
 
 /**
  * Fragment used in preference_headers.xml to enable the use of old preference xmls. see
@@ -35,8 +36,7 @@ import android.preference.Preference.OnPreferenceClickListener;
  * 
  */
 public class PrefsStockFragment extends PreferenceFragment {
-    private CheckBoxPreference mUpdateCheckDaily;
-    private CheckBoxPreference mWebserverEnabled;
+    private EditTextPreference mCustomTarget;
     private Context mContext;
 
     @Override
@@ -51,41 +51,60 @@ public class PrefsStockFragment extends PreferenceFragment {
 
         mContext = getActivity();
 
-        // find checkbox for update check daily
-        mUpdateCheckDaily = (CheckBoxPreference) getPreferenceScreen().findPreference(
-                getString(R.string.pref_update_check_daily_key));
-
-        // set preference click to enable update service
-        mUpdateCheckDaily.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+        /* Listen on change of update daily pref, register UpdateCheckService if enabled */
+        Preference UpdateDailyPref = findPreference(getString(R.string.pref_update_check_daily_key));
+        UpdateDailyPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
-            public boolean onPreferenceClick(Preference arg0) {
-                if (mUpdateCheckDaily.isChecked()) {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (newValue.equals(true)) {
                     UpdateCheckService.registerAlarm(mContext);
                 } else {
                     UpdateCheckService.unregisterAlarm(mContext);
                 }
-                return false;
+                return true;
             }
         });
 
-        // find checkbox for webserver enabled
-        mWebserverEnabled = (CheckBoxPreference) getPreferenceScreen().findPreference(
-                getString(R.string.pref_webserver_enabled_key));
-
-        // set preference click to install webserver and start it
-        mWebserverEnabled.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+        /* Start webserver if pref is enabled */
+        Preference WebserverEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
+        WebserverEnabledPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
-            public boolean onPreferenceClick(Preference arg0) {
-                if (mWebserverEnabled.isChecked()) {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (newValue.equals(true)) {
                     // install webserver if not already there
                     WebserverUtils.installWebserver(mContext);
                     // start webserver
                     WebserverUtils.startWebserver(mContext);
                 } else {
-                    // start webserver
+                    // stop webserver
                     WebserverUtils.stopWebserver(mContext);
                 }
-                return false;
+                return true;
+            }
+        });
+
+        // find custom target edit
+        mCustomTarget = (EditTextPreference) getPreferenceScreen().findPreference(
+                getString(R.string.pref_custom_target_key));
+
+        // enable custom target pref on create if enabled in apply method
+        if (PreferencesHelper.getApplyMethod(mContext).equals("customTarget")) {
+            mCustomTarget.setEnabled(true);
+        } else {
+            mCustomTarget.setEnabled(false);
+        }
+
+        /* enable custom target pref if enabled in apply method */
+        Preference customTargetPref = findPreference(getString(R.string.pref_apply_method_key));
+        customTargetPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (newValue.equals("customTarget")) {
+                    mCustomTarget.setEnabled(true);
+                } else {
+                    mCustomTarget.setEnabled(false);
+                }
+                return true;
             }
         });
 

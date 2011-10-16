@@ -30,6 +30,13 @@
             android:entries="@array/pref_apply_method_entries"
             android:entryValues="@array/pref_apply_method_entries_values"
             android:defaultValue="@string/pref_apply_method_def"></ListPreference>
+        <EditTextPreference
+            android:title="@string/pref_custom_target"
+            android:defaultValue="@string/pref_custom_target_def"
+            android:key="@string/pref_custom_target_key"
+            android:summary="@string/pref_custom_target_summary"
+            android:enabled="false"
+            android:shouldDisableView="true"></EditTextPreference>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_webserver">
         <CheckBoxPreference
