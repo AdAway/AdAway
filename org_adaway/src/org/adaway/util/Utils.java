@@ -34,8 +34,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -222,5 +224,24 @@ public class Utils {
             e.printStackTrace();
         }
         return stream.toString();
+    }
+
+    /**
+     * Open hosts file with default text app
+     * 
+     * @param context
+     * @throws RemountException
+     */
+    public static void openHostsFile(Context context) throws RemountException {
+        /* remount for write access */
+        if (!RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
+            throw new RemountException();
+        }
+
+        /* start default app for opening plain text files */
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Uri uri = Uri.parse("file://" + Constants.ANDROID_SYSTEM_ETC_HOSTS);
+        intent.setDataAndType(uri, "text/plain");
+        context.startActivity(intent);
     }
 }

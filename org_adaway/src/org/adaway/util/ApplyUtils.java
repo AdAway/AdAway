@@ -138,11 +138,10 @@ public class ApplyUtils {
         }
 
         // commands when using customTarget
-        String AlternativePathHosts = target + File.separator + Constants.HOSTS_FILENAME;
         String commandCopyAlternativePath = Constants.COMMAND_COPY + " " + privateFile + " "
-                + AlternativePathHosts;
+                + target;
         String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " "
-                + AlternativePathHosts;
+                + target;
 
         /* if custom target create file before using it */
         File targetFile = new File(target);

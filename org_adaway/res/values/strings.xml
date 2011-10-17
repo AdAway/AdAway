@@ -115,6 +115,7 @@
     <string name="pref_header_preferences_summary">General preferences for AdAway</string>
     <string name="menu_help">Help</string>
     <string name="menu_lists">Your Lists</string>
+    <string name="menu_show_hosts_file">Open hosts file</string>
     <string name="lists_tab_blacklist_short">Black</string>
     <string name="lists_tab_whitelist_short">White</string>
     <string name="lists_tab_redirection_list_short">Redirection</string>

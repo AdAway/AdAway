@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.adaway"
     android:installLocation="auto"
-    android:versionName="1.12"
-    android:versionCode="13">
+    android:versionName="1.13"
+    android:versionCode="14">
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="13"></uses-sdk>
