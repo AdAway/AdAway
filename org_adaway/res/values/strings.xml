@@ -141,4 +141,7 @@
     <string name="pref_webserver">Local Webserver</string>
     <string name="pref_custom_target">Custom target</string>
     <string name="pref_custom_target_summary">Only used if target hosts file is set to custom target</string>
+    <string name="no_text_editor_title">No text editor installed</string>
+    <string name="no_text_editor">No text editor could be found to open the hosts file. You can install Jota or other text editors to handle this.\n\nDo you want to install Jota?</string>
+
 </resources>

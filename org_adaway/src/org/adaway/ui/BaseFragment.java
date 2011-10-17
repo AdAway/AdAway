@@ -27,8 +27,6 @@ import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
 import org.adaway.service.UpdateCheckService;
 import org.adaway.util.Constants;
-import org.adaway.util.Log;
-import org.adaway.util.RemountException;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
 
@@ -198,12 +196,7 @@ public class BaseFragment extends Fragment {
             return true;
 
         case R.id.menu_show_hosts_file:
-            try {
-                Utils.openHostsFile(mActivity);
-            } catch (RemountException e) {
-                Log.e(Constants.TAG, "Remounting failed!");
-                e.printStackTrace();
-            }
+            UiHelper.openHostsFile(mActivity);
             return true;
 
         case R.id.menu_preferences:

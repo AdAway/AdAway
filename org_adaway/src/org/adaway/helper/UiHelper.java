@@ -24,8 +24,11 @@ import org.adaway.R;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
+import com.stericson.RootTools.RootTools;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -202,4 +205,54 @@ public class UiHelper {
         return result;
     }
 
+    /**
+     * Open hosts file with default text app
+     * 
+     * @param activity
+     */
+    public static void openHostsFile(final Activity activity) {
+        /* remount for write access */
+        if (!RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
+            Log.e(Constants.TAG, "System partition could not be remounted as rw!");
+        } else {
+
+            /* start default app for opening plain text files */
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            Uri uri = Uri.parse("file://" + Constants.ANDROID_SYSTEM_ETC_HOSTS);
+            intent.setDataAndType(uri, "text/plain");
+
+            try {
+                activity.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                builder.setPositiveButton(activity.getString(R.string.button_yes),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(Uri
+                                        .parse("market://details?id=jp.sblo.pandora.jota"));
+
+                                try {
+                                    activity.startActivity(intent);
+                                } catch (ActivityNotFoundException e) {
+                                    Log.e(Constants.TAG, "No Google Android Market installed!");
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                builder.setNegativeButton(activity.getString(R.string.button_no),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                builder.setTitle(R.string.no_text_editor_title);
+                builder.setMessage(activity.getString(org.adaway.R.string.no_text_editor));
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        }
+    }
 }
