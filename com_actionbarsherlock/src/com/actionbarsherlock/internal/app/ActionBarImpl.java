@@ -20,9 +20,6 @@ package com.actionbarsherlock.internal.app;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActionBar;
 import android.support.v4.app.SupportActivity;
@@ -61,7 +58,7 @@ public final class ActionBarImpl extends ActionBar {
 
     @Override
     protected ActionBar getPublicInstance() {
-        return (mActionView != null) ? this : null;
+        return this;
     }
 
     public void init() {
@@ -72,21 +69,8 @@ public final class ActionBarImpl extends ActionBar {
             throw new IllegalStateException(getClass().getSimpleName() + " can only be used with a screen_*.xml layout");
         }
 
-        final PackageManager pm = mActivity.getPackageManager();
-        ActivityInfo actInfo = null;
-        try {
-            actInfo = pm.getActivityInfo(mActivity.getComponentName(), PackageManager.GET_ACTIVITIES);
-        } catch (NameNotFoundException e) {}
-
-
         if (mActionView.getTitle() == null) {
-            if ((actInfo != null) && (actInfo.labelRes != 0)) {
-                //Load label string resource from the activity entry
-                mActionView.setTitle(actInfo.labelRes);
-            } else {
-                //No activity label string resource and none in theme
-                mActionView.setTitle(actInfo.loadLabel(pm));
-            }
+            mActionView.setTitle(mActivity.getTitle());
         }
     }
 
@@ -236,6 +220,9 @@ public final class ActionBarImpl extends ActionBar {
                 return (dropdownAdapter != null) ? dropdownAdapter.getCount() : 0;
 
             case ActionBar.NAVIGATION_MODE_TABS:
+                if (mActionView.getSelectedTab() == null) {
+                    return -1;
+                }
                 return mActionView.getTabCount();
         }
     }

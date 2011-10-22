@@ -209,11 +209,11 @@ public class BaseFragment extends Fragment {
             return true;
 
         case R.id.menu_donations:
-            UiHelper.showDonationsDialog(mActivity);
+            startActivity(new Intent(mActivity, DonationsActivity.class));
             return true;
 
         case R.id.menu_about:
-            UiHelper.showAboutDialog(mActivity);
+            startActivity(new Intent(mActivity, AboutActivity.class));
             return true;
 
         case R.id.menu_refresh:

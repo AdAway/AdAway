@@ -50,14 +50,20 @@ public class ActionMenuItemView extends RelativeLayout implements MenuView.ItemV
 
     public void setDivider(ImageView divider) {
         mDivider = new WeakReference<ImageView>(divider);
+        //Ensure we are not displaying the divider when we are not visible
+        setDividerVisibility(getVisibility());
     }
 
     public void setVisible(boolean visible) {
         final int visibility = visible ? View.VISIBLE : View.GONE;
+        setDividerVisibility(visibility);
+        setVisibility(visibility);
+    }
+
+    private void setDividerVisibility(int visibility) {
         if ((mDivider != null) && (mDivider.get() != null)) {
             mDivider.get().setVisibility(visibility);
         }
-        setVisibility(visibility);
     }
 
     public void reloadDisplay() {

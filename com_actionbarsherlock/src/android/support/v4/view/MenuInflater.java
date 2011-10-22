@@ -27,7 +27,6 @@ import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
 import android.util.Xml;
 import android.view.InflateException;
-import android.view.MenuItem;
 import android.view.View;
 import com.actionbarsherlock.internal.view.menu.MenuBuilder;
 import com.actionbarsherlock.internal.view.menu.MenuItemImpl;
@@ -44,7 +43,7 @@ import com.actionbarsherlock.internal.view.menu.SubMenuBuilder;
  */
 public final class MenuInflater extends android.view.MenuInflater {
     private static final Class<?>[] ACTION_VIEW_CONSTRUCTOR_SIGNATURE = new Class[] { Context.class };
-    private static final Class<?>[] PARAM_TYPES = new Class[] { android.view.MenuItem.class };
+    private static final Class<?>[] PARAM_TYPES = new Class[] { android.support.v4.view.MenuItem.class };
 
     /** Android XML namespace. */
     private static final String XML_NS = "http://schemas.android.com/apk/res/android";
@@ -431,11 +430,11 @@ public final class MenuInflater extends android.view.MenuInflater {
         }
     }
 
-    class InflatedOnMenuItemClickListener implements android.view.MenuItem.OnMenuItemClickListener {
+    class InflatedOnMenuItemClickListener extends android.support.v4.view.MenuItem.OnMenuItemClickListener {
         private Method mMethod;
 
         public InflatedOnMenuItemClickListener(String methodName) {
-            final Class<?> localClass = MenuInflater.this.getClass();
+            final Class<?> localClass = mContext.getClass();
             try {
                 mMethod = localClass.getMethod(methodName, PARAM_TYPES);
             } catch (Exception e) {
@@ -453,7 +452,7 @@ public final class MenuInflater extends android.view.MenuInflater {
             final Object[] params = new Object[] { item };
             try {
                 if (mMethod.getReturnType() == Boolean.TYPE) {
-                    return (Boolean)mMethod.invoke(MenuInflater.this, params);
+                    return (Boolean)mMethod.invoke(mContext, params);
                 }
                 return false;
             } catch (Exception e) {

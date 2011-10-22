@@ -158,8 +158,8 @@
     
     <style name="Widget.Sherlock.Light.ActionBar.TabView" parent="android:Widget">
         <item name="android:background">@drawable/abs__tab_indicator_holo</item>
-        <item name="android:paddingLeft">5dp</item>
-        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
     </style>
     
     <style name="Widget.Sherlock.Light.ActionBar.TabText" parent="android:Widget">

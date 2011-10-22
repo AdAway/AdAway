@@ -20,7 +20,7 @@
     android:addStatesFromChildren="true"
     android:background="?selectableItemBackground"
     android:gravity="center"
-    android:minWidth="40dip"
+    android:minWidth="45dip"
     android:focusable="true"
     android:clickable="true"
     >

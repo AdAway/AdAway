@@ -394,7 +394,10 @@ public final class ActionBarWrapper {
 
         @Override
         public Tab getSelectedTab() {
-            return (ActionBar.Tab)getActionBar().getSelectedTab().getTag();
+            if (getActionBar().getSelectedTab() != null) {
+                return (ActionBar.Tab)getActionBar().getSelectedTab().getTag();
+            }
+            return null;
         }
 
         @Override
@@ -404,7 +407,10 @@ public final class ActionBarWrapper {
 
         @Override
         public ActionBar.Tab getTabAt(int index) {
-            return (Tab)getActionBar().getTabAt(index).getTag();
+            if (getActionBar().getTabAt(index) != null) {
+                return (Tab)getActionBar().getTabAt(index).getTag();
+            }
+            return null;
         }
 
         @Override

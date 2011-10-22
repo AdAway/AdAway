@@ -1,8 +1,6 @@
 package com.actionbarsherlock.internal.widget;
 
-import com.actionbarsherlock.R;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
@@ -14,12 +12,9 @@ public class ActionBarContainer extends FrameLayout {
     public ActionBarContainer(Context context) {
         this(context, null);
     }
+
     public ActionBarContainer(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SherlockTheme);
-        setBackgroundDrawable(a.getDrawable(R.styleable.SherlockTheme_abBackground));
-        a.recycle();
     }
 
     @Override

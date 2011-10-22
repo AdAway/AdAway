@@ -48,6 +48,9 @@ public class BaseActivity extends FragmentActivity {
         mBaseFragment = (BaseFragment) mFragmentManager.findFragmentById(R.id.base_fragment);
     }
 
+    /**
+     * On resume of application. Show webserver controls when enabled in preferences
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -57,9 +60,11 @@ public class BaseActivity extends FragmentActivity {
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
 
             mWebserverFragment = new WebserverFragment();
+            // replace container in view with fragment
             fragmentTransaction.replace(R.id.base_activity_webserver_container, mWebserverFragment);
             fragmentTransaction.commit();
         } else {
+            // when disabled in preferences remove fragment if existing
             if (mWebserverFragment != null) {
                 FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
 

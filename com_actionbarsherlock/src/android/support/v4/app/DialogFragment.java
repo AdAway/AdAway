@@ -71,7 +71,7 @@ public class DialogFragment extends Fragment
     int mStyle = STYLE_NORMAL;
     int mTheme = 0;
     boolean mCancelable = true;
-    boolean mShowsDialog = true;
+    boolean mShowsDialog = false;
     int mBackStackId = -1;
 
     Dialog mDialog;
@@ -117,6 +117,7 @@ public class DialogFragment extends Fragment
      * {@link FragmentTransaction#add(Fragment, String) FragmentTransaction.add}.
      */
     public void show(FragmentManager manager, String tag) {
+        setShowsDialog(true);
         FragmentTransaction ft = manager.beginTransaction();
         ft.add(this, tag);
         ft.commit();
@@ -132,6 +133,7 @@ public class DialogFragment extends Fragment
      * {@link FragmentTransaction#commit() FragmentTransaction.commit()}.
      */
     public int show(FragmentTransaction transaction, String tag) {
+        setShowsDialog(true);
         transaction.add(this, tag);
         mRemoved = false;
         mBackStackId = transaction.commit();
@@ -230,7 +232,8 @@ public class DialogFragment extends Fragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mShowsDialog = mContainerId == 0;
+        //SEE: http://stackoverflow.com/questions/5637894/dialogfragments-with-devices-api-level-11/7560686#7560686
+        //mShowsDialog = mContainerId == 0;
 
         if (savedInstanceState != null) {
             mStyle = savedInstanceState.getInt(SAVED_STYLE, STYLE_NORMAL);
@@ -358,7 +361,7 @@ public class DialogFragment extends Fragment
         if (!mCancelable) {
             outState.putBoolean(SAVED_CANCELABLE, mCancelable);
         }
-        if (!mShowsDialog) {
+        if (mShowsDialog) {
             outState.putBoolean(SAVED_SHOWS_DIALOG, mShowsDialog);
         }
         if (mBackStackId != -1) {

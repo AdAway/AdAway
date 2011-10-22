@@ -1,3 +1,7 @@
+1.14
+- Force close on open hosts file fixed
+- Donations with Google Android Market added
+
 1.13
 - Webserver now hears on all local IP address (0.0.0.0)
 - Custom target can be set in preferences, for example to /data/etc/hosts

@@ -268,6 +268,7 @@ public final class ActionBarView extends RelativeLayout {
         final boolean isStandard = mNavigationMode == ActionBar.NAVIGATION_MODE_STANDARD;
         final boolean isList = mNavigationMode == ActionBar.NAVIGATION_MODE_LIST;
         final boolean isTab = mNavigationMode == ActionBar.NAVIGATION_MODE_TABS;
+        final boolean isTabUnderAb = isTab && getContext().getString(R.string.abs__tab_under_ab_tag).equals(mTabsView.getTag());
         final boolean hasSubtitle = (mSubtitleLayout.getText() != null) && !mSubtitleLayout.getText().equals("");
         final boolean displayHome = getDisplayOptionValue(ActionBar.DISPLAY_SHOW_HOME);
         final boolean displayHomeAsUp = getDisplayOptionValue(ActionBar.DISPLAY_HOME_AS_UP);
@@ -289,10 +290,10 @@ public final class ActionBarView extends RelativeLayout {
 
         //Show title view if we are not in list navigation, not showing custom
         //view, and the show title flag is true
-        mTitleLayout.setVisibility(isStandard && !displayCustom && displayTitle ? View.VISIBLE : View.GONE);
+        mTitleLayout.setVisibility((isStandard || isTabUnderAb) && !displayCustom && displayTitle ? View.VISIBLE : View.GONE);
         //Show subtitle view if we are not in list navigation, not showing
         //custom view, show title flag is true, and a subtitle is set
-        mSubtitleLayout.setVisibility(isStandard && !displayCustom && displayTitle && hasSubtitle ? View.VISIBLE : View.GONE);
+        mSubtitleLayout.setVisibility((isStandard || isTabUnderAb) && !displayCustom && displayTitle && hasSubtitle ? View.VISIBLE : View.GONE);
         //Show custom view if we are not in list navigation and showing custom
         //flag is set
         mCustomView.setVisibility(isStandard && displayCustom ? View.VISIBLE : View.GONE);

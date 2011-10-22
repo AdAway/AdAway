@@ -654,7 +654,7 @@ final class BackStackRecord extends FragmentTransaction implements
                     if (op.removed != null) {
                         for (int i=0; i<op.removed.size(); i++) {
                             Fragment old = op.removed.get(i);
-                            f.mImmediateActivity = mManager.mActivity;
+                            old.mImmediateActivity = mManager.mActivity;
                             mManager.addFragment(old, false);
                         }
                     }

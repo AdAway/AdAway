@@ -28,7 +28,7 @@ This is an optimized layout for a screen with the Action Bar enabled.
     <com.actionbarsherlock.internal.widget.ActionBarContainer
         android:id="@+id/abs__action_bar_container"
         android:layout_width="fill_parent"
-        android:layout_height="?attr/abHeight"
+        android:layout_height="wrap_content"
         >
         <com.actionbarsherlock.internal.widget.ActionBarView
             android:id="@+id/abs__action_bar"
