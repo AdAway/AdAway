@@ -34,6 +34,7 @@ import com.stericson.RootTools.RootTools;
 import com.stericson.RootTools.RootToolsException;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.StatFs;
 
 public class ApplyUtils {
@@ -42,19 +43,31 @@ public class ApplyUtils {
      * 
      * @param size
      *            size of file to put on partition
-     * @param path
+     * @param target
      *            path where to put the file
      * 
      * @return <code>true</code> if it will fit on partition of <code>path</code>,
      *         <code>false</code> if it will not fit.
      */
-    public static boolean hasEnoughSpaceOnPartition(String path, long size) {
-        StatFs stat = new StatFs(path);
-        long blockSize = stat.getBlockSize();
-        long availableBlocks = stat.getAvailableBlocks();
-        long availableSpace = availableBlocks * blockSize;
+    public static boolean hasEnoughSpaceOnPartition(String target, long size) {
+        long availableSpace;
 
-        Log.d(Constants.TAG, "size: " + size + ", availableSpace: " + availableSpace);
+        // use method based on android version, getFreeSpace() is available at api level 9
+        // (gingerbread)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
+            // get path without file of target
+            String path = new File(target).getParent().toString();
+
+            StatFs stat = new StatFs(path);
+            long blockSize = stat.getBlockSize();
+            long availableBlocks = stat.getAvailableBlocks();
+            availableSpace = availableBlocks * blockSize;
+        } else {
+            availableSpace = new File(target).getFreeSpace();
+        }
+
+        Log.d(Constants.TAG, "Checking for enough space: Target: " + target + ", size: " + size
+                + ", availableSpace: " + availableSpace);
 
         if (size < availableSpace) {
             return true;
@@ -140,8 +153,7 @@ public class ApplyUtils {
         // commands when using customTarget
         String commandCopyAlternativePath = Constants.COMMAND_COPY + " " + privateFile + " "
                 + target;
-        String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " "
-                + target;
+        String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " " + target;
 
         /* if custom target create file before using it */
         File targetFile = new File(target);

@@ -91,7 +91,7 @@
     <string name="pref_apply_method">Target hosts file</string>
     <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
     <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP address.</string>
-    <string name="donations_description">Do you find this application useful? Support it\'s development by flattring it or sending a donations with Google Android Market!</string>
+    <string name="donations_description">Do you find this application useful? Support it\'s development by flattring it or sending donations using Google Android Market!</string>
     <string name="menu_donations">Donations</string>
     <string name="donations_flattr_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
     <string name="apply_symlink_missing">Symlink from /data/data/hosts to /system/etc/hosts is not existing! AdAway will not work if it is not existing.\n\nDo you want to try creating a symlink?</string>
