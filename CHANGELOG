@@ -1,3 +1,6 @@
+1.16
+- Fixed bug caused by checking if enough space is available
+
 1.15
 - Added permission for Google Android Market donations
 
