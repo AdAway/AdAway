@@ -1,3 +1,6 @@
+1.15
+- Added permission for Google Android Market donations
+
 1.14
 - Force close on open hosts file fixed
 - Donations with Google Android Market added
@@ -69,6 +72,13 @@
 
 
 Deutsch
+
+1.15
+- Berechtigung für Google Android Market Spenden hinzugefügt
+
+1.14
+- Behebt force close beim Öffnen der hosts-Datei
+- Spendemöglichkeit durch den Google Android Market hinzugefügt
 
 1.13
 - Webserver hört nun auf allen lokalen IP Adressen (0.0.0.0)

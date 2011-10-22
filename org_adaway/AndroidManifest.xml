@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:installLocation="auto"
     package="org.adaway"
-    android:versionCode="14"
-    android:versionName="1.13" >
+    android:versionCode="16"
+    android:versionName="1.15" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -20,6 +20,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Required permission to use Google Android Market donations -->
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <supports-screens
         android:anyDensity="true"
@@ -78,7 +80,7 @@
 
         <service android:name=".service.UpdateCheckService" />
 
-        <!-- - Google Android Market Donations -->
+        <!-- - Google Android Market donations -->
         <service android:name=".google.donations.BillingService" />
 
         <receiver android:name=".google.donations.BillingReceiver" >
