@@ -1,5 +1,3 @@
 *.class
 *.apk
-org_adaway/bin
-org_adaway/gen
 .metadata
