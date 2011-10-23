@@ -91,9 +91,10 @@
     <string name="pref_apply_method">Target hosts file</string>
     <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
     <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP address.</string>
-    <string name="donations_description">Do you find this application useful? Support it\'s development by flattring it or sending donations using Google Android Market!</string>
+    <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
     <string name="menu_donations">Donations</string>
     <string name="donations_flattr_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
+    <string name="donations_flattr_description">• Flattr takes 10% as a monthly fee!</string>
     <string name="apply_symlink_missing">Symlink from /data/data/hosts to /system/etc/hosts is not existing! AdAway will not work if it is not existing.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
@@ -144,11 +145,11 @@
     <string name="no_text_editor">No text editor could be found to open the hosts file. You can install Jota or other text editors to handle this.\n\nDo you want to install Jota?</string>
     <string name="donations_flattr">Flattr</string>
     <string name="donations_google_android_market">Google Android Market</string>
-    <string name="donations_google_android_market_description">• Google takes 30% off every donation!\n• Transaction may take a minute or two.\n• There is no premium version for donators.</string>
+    <string name="donations_google_android_market_description">• Google takes 30% off every donation!\n• There is no premium version for donators.</string>
     <string name="donations_google_android_market_donate_button">Donate!</string>
     <string name="donations_google_android_market_text">How much?</string>
     <string name="donations_google_android_market_spinning_message">Please wait while payment is received!\nThis can take a minute or two...</string>
-        
+
     <string-array name="donations_google_android_market_promt_array">
         <item>1 Euro</item>
         <item>2 Euros</item>
@@ -160,5 +161,5 @@
 
     <string name="donations_thanks_dialog_title">Thanks!</string>
     <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
-        
+
 </resources>
