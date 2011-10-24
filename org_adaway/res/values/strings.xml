@@ -14,8 +14,8 @@
     <string name="menu_about">About</string>
     <string name="apply_dialog">Apply</string>
     <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
-    <string name="apply_dialog_hosts">Build hosts file</string>
-    <string name="apply_dialog_apply">Apply hosts file</string>
+    <string name="apply_dialog_hosts">Building hosts file</string>
+    <string name="apply_dialog_apply">Applying hosts file</string>
     <string name="menu_preferences">Preferences</string>
     <string name="pref_download">General Preferences</string>
     <string name="pref_hosts">Hosts File</string>
