@@ -94,14 +94,14 @@
   <string name="donations_description">Koetko tämän sovelluksen hyödylliseksi? Tue sen kehittämistä Flattr-palvelun kautta!</string>
   <string name="menu_donations">Lahjoitukset</string>
   <string name="donations_flattr_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
-  <string name="donations_flattr_description"></string>
+  <string name="donations_flattr_description">Flattr ottaa 10% kuukausipalkkiosta!</string>
   <string name="apply_symlink_missing">Symbolinen linkki /data/data/hosts:sta /system/etc/hosts:lle ei ole olemassa! AdAway ei toimi, jos sitä ei ole olemassa.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
   <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
   <string name="apply_not_enough_space">Ei ole tarpeeksi tilaa osiossa!\nYritä muuttaa isäntätiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
   <string name="apply_not_enough_space_title">Ei ole tarpeeksi tilaa</string>
   <string name="apply_private_file_fail">Ladattua tiedostoa ei voida lukea.</string>
   <string name="apply_private_file_fail_title">Yksityinen tiedosto hylätty</string>
-  <string name="apply_remount_fail"></string>
+  <string name="apply_remount_fail">Osion kokoaminen luku/kirjoitus-tilaksi epäonnistui!</string>
   <string name="apply_remount_fail_title">Uudelleenkokoaminen epäonnistui</string>
   <string name="apply_copy_fail">Isäntätiedoston kopiointi epäonnistui!</string>
   <string name="apply_copy_fail_title">Kopiointi epäonnistui</string>
@@ -135,7 +135,7 @@
   <string name="button_help">Ohjeet</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
   <string name="pref_webserver_on_boot">Käynnistä web-palvelin käynnistyksessä</string>
-  <string name="pref_webserver_on_boot_summary"></string>
+  <string name="pref_webserver_on_boot_summary">Käynnistä web-palvelin 5 sekunnin viivellä, jolloin tarkastalleen paikallisia IP-osoitteita</string>
   <string name="pref_webserver_enabled">Ota web-palvelin käyttön</string>
   <string name="pref_webserver_enabled_summary">Enables webserver listening on local IP addresses to answer requests to blocked hostnames</string>
   <string name="pref_webserver">Paikallinen web-palvelin</string>
