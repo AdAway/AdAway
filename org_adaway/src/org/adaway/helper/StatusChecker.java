@@ -63,7 +63,7 @@ public class StatusChecker {
             checkForUpdates();
         } else {
             // check if hosts file is applied
-            if (ApplyUtils.isHostsFileApplied(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 mBaseFragment.setStatusEnabled();
             } else {
                 mBaseFragment.setStatusDisabled();
@@ -191,7 +191,7 @@ public class StatusChecker {
                 }
 
                 // check if hosts file is applied
-                if (!ApplyUtils.isHostsFileApplied(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                if (!ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                     returnCode = ReturnCodes.DISABLED;
                 }
 

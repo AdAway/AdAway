@@ -535,28 +535,36 @@ public class ApplyExecutor {
                 // check only if everything before was successful
                 if (returnCode == ReturnCodes.SUCCESS) {
                     if (PreferencesHelper.getApplyMethod(mActivity).equals("writeToSystem")) {
-                        if (!ApplyUtils.isHostsFileApplied(mActivity,
+
+                        /* /system/etc/hosts */
+
+                        if (!ApplyUtils.isHostsFileCorrect(mActivity,
                                 Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                             returnCode = ReturnCodes.APPLY_FAIL;
                         }
                     } else if (PreferencesHelper.getApplyMethod(mActivity)
                             .equals("writeToDataData")) {
-                        if (!ApplyUtils.isHostsFileApplied(mActivity,
+
+                        /* /data/data/hosts */
+
+                        if (!ApplyUtils.isHostsFileCorrect(mActivity,
                                 Constants.ANDROID_DATA_DATA_HOSTS)) {
                             returnCode = ReturnCodes.APPLY_FAIL;
                         } else {
-                            if (!ApplyUtils.isHostsFileApplied(mActivity,
-                                    Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                            if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS)) {
                                 returnCode = ReturnCodes.SYMLINK_MISSING;
                             }
                         }
                     } else if (PreferencesHelper.getApplyMethod(mActivity).equals("customTarget")) {
-                        if (!ApplyUtils.isHostsFileApplied(mActivity,
-                                PreferencesHelper.getCustomTarget(mActivity))) {
+
+                        /* custom target */
+
+                        String customTarget = PreferencesHelper.getCustomTarget(mActivity);
+
+                        if (!ApplyUtils.isHostsFileCorrect(mActivity, customTarget)) {
                             returnCode = ReturnCodes.APPLY_FAIL;
                         } else {
-                            if (!ApplyUtils.isHostsFileApplied(mActivity,
-                                    Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                            if (!ApplyUtils.isSymlinkCorrect(customTarget)) {
                                 returnCode = ReturnCodes.SYMLINK_MISSING;
                             }
                         }
@@ -709,7 +717,7 @@ public class ApplyExecutor {
         }
 
         if (success) {
-            if (ApplyUtils.isHostsFileApplied(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 success = true;
             } else {
                 success = false;

@@ -95,7 +95,7 @@
     <string name="menu_donations">Donations</string>
     <string name="donations_flattr_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
     <string name="donations_flattr_description">• Flattr takes 10% as a monthly fee!</string>
-    <string name="apply_symlink_missing">Symlink from /data/data/hosts to /system/etc/hosts is not existing! AdAway will not work if it is not existing.\n\nDo you want to try creating a symlink?</string>
+    <string name="apply_symlink_missing">Symlink from /system/etc/hosts to your target is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_not_enough_space_title">Not enough space</string>

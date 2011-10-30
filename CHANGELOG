@@ -1,5 +1,7 @@
 1.16
+* Better check for symlink
 - Fixed bug caused by checking if enough space is available
+- Problem with applying fixed
 
 1.15
 - Added permission for Google Android Market donations

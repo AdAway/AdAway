@@ -22,7 +22,7 @@ package org.adaway.util;
 
 public class Constants {
     /* DEBUG enables Log.d outputs wrapped in org.adaway.util.Log and RootTools Debug Mode */
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
     public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
     public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
 
@@ -46,6 +46,9 @@ public class Constants {
     public static final String COMMAND_CHMOD_666 = "busybox chmod 666";
     public static final String COMMAND_LN = "busybox ln -s";
     public static final String COMMAND_RM = "busybox rm -f";
+    public static final String COMMAND_MKDIR = "busybox mkdir -p";
+    public static final String COMMAND_READLINK = "busybox readlink -f";
+
 
     public static final String WEBSERVER_EXECUTEABLE = "mongoose";
 

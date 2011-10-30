@@ -34,12 +34,11 @@ import com.stericson.RootTools.RootTools;
 import com.stericson.RootTools.RootToolsException;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.StatFs;
 
 public class ApplyUtils {
     /**
-     * Check if there is enough space on internal partition
+     * Check if there is enough space on partition where target is located
      * 
      * @param size
      *            size of file to put on partition
@@ -52,22 +51,18 @@ public class ApplyUtils {
     public static boolean hasEnoughSpaceOnPartition(String target, long size) {
         long availableSpace;
 
-        // use method based on android version, getFreeSpace() is available at api level 9
-        // (gingerbread)
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
-            // get path without file of target
-            String path = new File(target).getParent().toString();
+        // new File(target).getFreeSpace() (API 9) is not working on data partition
 
-            StatFs stat = new StatFs(path);
-            long blockSize = stat.getBlockSize();
-            long availableBlocks = stat.getAvailableBlocks();
-            availableSpace = availableBlocks * blockSize;
-        } else {
-            availableSpace = new File(target).getFreeSpace();
-        }
+        // get directory without file
+        String directory = new File(target).getParent().toString();
 
-        Log.d(Constants.TAG, "Checking for enough space: Target: " + target + ", size: " + size
-                + ", availableSpace: " + availableSpace);
+        StatFs stat = new StatFs(directory);
+        long blockSize = stat.getBlockSize();
+        long availableBlocks = stat.getAvailableBlocks();
+        availableSpace = availableBlocks * blockSize;
+
+        Log.i(Constants.TAG, "Checking for enough space: Target: " + target + ", directory: "
+                + directory + " size: " + size + ", availableSpace: " + availableSpace);
 
         if (size < availableSpace) {
             return true;
@@ -82,7 +77,7 @@ public class ApplyUtils {
      * 
      * @return true if it is applied
      */
-    public static boolean isHostsFileApplied(Context context, String target) {
+    public static boolean isHostsFileCorrect(Context context, String target) {
         boolean status = false;
 
         /* Check if first line in hosts file is AdAway comment */
@@ -132,8 +127,16 @@ public class ApplyUtils {
      */
     public static void copyHostsFile(Context context, String customTarget)
             throws NotEnoughSpaceException, RemountException, CommandException {
+        Log.i(Constants.TAG, "Copy hosts file with target: " + customTarget);
         String privateDir = context.getFilesDir().getAbsolutePath();
         String privateFile = privateDir + File.separator + Constants.HOSTS_FILENAME;
+
+        // if the customTarget has a trailing slash, it is not a valid target!
+        if (customTarget.endsWith("/")) {
+            Log.e(Constants.TAG,
+                    "Custom target ends with trailing slash, it is not a valid target!");
+            throw new CommandException();
+        }
 
         // commands when using /system/etc/hosts
         String commandCopySystemEtc = Constants.COMMAND_COPY + " " + privateFile + " "
@@ -155,17 +158,17 @@ public class ApplyUtils {
                 + target;
         String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " " + target;
 
-        /* if custom target create file before using it */
-        File targetFile = new File(target);
-        if (!targetFile.exists()) {
-            try {
-                targetFile.createNewFile();
-            } catch (IOException e) {
-                Log.e(Constants.TAG, "File could not be created!");
-                e.printStackTrace();
-                // if file could not be created, directory is not existing, throw execption!
-                throw new CommandException();
-            }
+        /* remount for write access */
+        if (!RootTools.remount(target, "RW")) {
+            throw new RemountException();
+        }
+
+        /*
+         * If custom target like /data/etc/hosts is set, create missing directories for writing this
+         * file
+         */
+        if (customTarget != "") {
+            createDirectories(target);
         }
 
         /* check for space on partition */
@@ -173,11 +176,6 @@ public class ApplyUtils {
         Log.d(Constants.TAG, "size: " + size);
         if (!hasEnoughSpaceOnPartition(target, size)) {
             throw new NotEnoughSpaceException();
-        }
-
-        /* remount for write access */
-        if (!RootTools.remount(target, "RW")) {
-            throw new RemountException();
         }
 
         /* Execute commands */
@@ -234,6 +232,9 @@ public class ApplyUtils {
             throw new RemountException();
         }
 
+        Log.i(Constants.TAG, "Create symlink with " + commandRm + "; " + commandSymlink + "; "
+                + commandChownTarget + "; " + commandChmodTarget644);
+
         /* Execute commands */
         List<String> output = null;
         try {
@@ -262,4 +263,85 @@ public class ApplyUtils {
             RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
         }
     }
+
+    /**
+     * Checks whether /system/etc/hosts is a symlink and pointing to the target or not
+     * 
+     * @param target
+     * @return
+     * @throws CommandException
+     */
+    public static boolean isSymlinkCorrect(String target) {
+        String commandReadlink = Constants.COMMAND_READLINK + " "
+                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
+
+        Log.i(Constants.TAG,
+                "Checking whether /system/etc/hosts is a symlink and pointing to the target or not.");
+
+        /* Execute commands */
+        List<String> output = null;
+        try {
+            // create directories
+            output = RootTools.sendShell(new String[] { commandReadlink }, 1);
+
+            Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+        } catch (RootToolsException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+        }
+
+        Log.d(Constants.TAG, "Output of " + commandReadlink + ": " + output.get(0));
+
+        if (output.get(0).equals(target)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Create directories if missing, if /data/etc/hosts is set as target, this creates /data/etc/
+     * directories. Needs RW on partition!
+     * 
+     * @throws CommandException
+     */
+    public static void createDirectories(String target) throws CommandException {
+        // get directory without file
+        String directory = new File(target).getParent().toString();
+
+        String commandMkdir = Constants.COMMAND_MKDIR + " " + directory;
+
+        Log.i(Constants.TAG, "Create directories using " + commandMkdir);
+
+        /* Execute commands */
+        List<String> output = null;
+        try {
+            // create directories
+            output = RootTools.sendShell(new String[] { commandMkdir }, 1);
+
+            Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+
+            throw new CommandException();
+        } catch (InterruptedException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+
+            throw new CommandException();
+        } catch (RootToolsException e) {
+            Log.e(Constants.TAG, "Exception: " + e);
+            e.printStackTrace();
+
+            throw new CommandException();
+        }
+    }
+
 }
