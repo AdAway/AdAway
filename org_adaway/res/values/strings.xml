@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AdAway</string>
     <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
     <string name="button_exit">Exit</string>
     <string name="no_root_title">Rooted Android required</string>
@@ -28,9 +27,7 @@
     <string name="apply_success">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="about_description">AdAway is an open source ad blocker for Android.</string>
     <string name="about_license">License: GPL v3</string>
-    <string name="about_url">http://code.google.com/p/ad-away/</string>
     <string name="about_version">Version:</string>
-    <string name="no_root_url">http://www.cyanogenmod.com</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed.</string>
@@ -42,7 +39,6 @@
     <string name="hosts_add_dialog">Input URL to hosts file:</string>
     <string name="checkbox_list_add_dialog_title">Add</string>
     <string name="button_cancel">Cancel</string>
-    <string name="hosts_add_dialog_input">http://</string>
     <string name="checkbox_list_empty">Empty list</string>
     <string name="checkbox_list_empty_text">You can add items from the menu.</string>
     <string name="checkbox_list_context_delete">Delete</string>
@@ -93,7 +89,6 @@
     <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP address.</string>
     <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
     <string name="menu_donations">Donations</string>
-    <string name="donations_flattr_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
     <string name="donations_flattr_description">• Flattr takes 10% as a monthly fee!</string>
     <string name="apply_symlink_missing">Symlink from /system/etc/hosts to your target is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
