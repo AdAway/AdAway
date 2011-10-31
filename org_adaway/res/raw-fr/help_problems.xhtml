@@ -1,0 +1,22 @@
+<html><head>b487647e95160d93a687fab84143732d_tr</head><body><h2>Pas assez d'espace sur la partition</h2>
+Essayez de changer le fichier hôtes dans les préférences par <tt>/data/data/hosts</tt> et appliquer AdAway à nouveau.
+<h2>Appareils HTC</h2>
+AdAway ne fonctionne pas lorsque vous utilisez un périphérique avec ce qu'on appelle S-ON. Cette «particularité» existe sur de nombreux appareils HTC et empêche AdAway d'écrire le fichier hosts.
+
+<h2>S-ON/S-OFF?</h2>
+S-OFF signifie que la partie NAND de l'appareil est débloquée et peut être écrite. Le réglage par défaut pour les appareils HTC est S-ON, ce qui signifie que vous ne pouvez accéder à certaines zones du système et un root permanent. Par ailleurs, la vérification de signature pour les images du firmware est également assurée par S-ON.
+
+<h2>Dois-je S-ON ou S-OFF?</h2>
+Booter dans le menu de démarrage de votre appareil en maintenant la touche <i>volume vers le bas</i> tout en appuyant sur ​​le bouton d'alimentation et le texte sur le dessus vous indiquera l'état, soit S-OFF ou S-ON. Un root complet signifie généralement S-OFF.
+<br/><br/> Plus d'informations ici : <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.
+<h2>Solution</h2>
+Préalable : Vous devez installer le SDK Android avec le shell ADB sur votre PC.
+<br/><br/> 1. Booter dans le menu de démarrage sur votre appareil en maintenant la touche <i>volume vers le bas</i> tout en appuyant sur ​​le bouton d'alimentation.
+<br/> 2. Utiliser <i>volume bas</i> pour sélectionner le mode recovery.
+<br/> 3. Dans le clockwork recovery, descendre jusqu'au «menu partitions" et cliquez sur le trackpad pour sélectionner
+<br/> 4. Sélectionnez <i>monter/système</i>, <i>monter/sdcard</i> et <i>monter/données.</i>
+<br/> 5. Branchez votre câble USB et ouvrir un terminal de commande sur votre PC.
+<br/> 6. Entrez adb shell et tapez <br/> <tt>ln-s /data/data/hosts/system/etc/hosts</tt><br/> (Cela crée un lien symbolique, ce qui permet à AdAway d'éditer le fichier hosts stocké dans<tt>/data</tt> tout en permettant à l'OS d'utiliser le fichier comme si il était stocké dans <tt>/system</tt>.)
+<br/> 7. Redémarrez votre appareil et définissez le <i>fichier hosts cible</i> en <i>/data/data/hosts</i> dans les préférences de AdAway.
+<br/> 8. AdAway devrait fonctionner maintenant.
+</body></html>
