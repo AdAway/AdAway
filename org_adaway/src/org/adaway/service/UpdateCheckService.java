@@ -36,7 +36,7 @@ import java.net.URLConnection;
 import java.util.Calendar;
 
 import org.adaway.R;
-import org.adaway.helper.DatabaseHelper;
+import org.adaway.database.DatabaseHelper;
 import org.adaway.helper.PreferencesHelper;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.Constants;
@@ -44,6 +44,7 @@ import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.Log;
+
 
 /**
  * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources

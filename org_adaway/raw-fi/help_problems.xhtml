@@ -1,9 +1,0 @@
-<html><head>b487647e95160d93a687fab84143732d_tr</head><body><h2>Ei tarpeeksi tilaa osiossa</h2>Kokeile vaihtaa isäntätiedoston kohde asetuksista <tt>/data/data/hosts</tt>-vaihtoehdoksi<h2>HTC-laitteet</h2>AdAway ei toimi, kun käytät laitetta ns. S-ON:na. Tämä 'ominaisuus' on olemassa monissa HTC-laitteissa ja se estää AdAwayn kirjoittamasta isäntätiedostoa.<h2>S-ON/S-OFF?</h2>S-OFF tarkoittaa, että NAND-osio laitteesta on lukitsematon ja siihen voidaan kirjoittaa. Oletuksena HTC-laitteet ovat S-ON, mikä tarkoittaa, ettei sinulla ole pääsy tiettyihin järjestelmän alueisiin, eikä voida taada pysyvää päähakemistoa.<h2>Onko minulla S-ON tai S-OFF?</h2>Käynnistä käynnisvalikko pitämällä <i>VOL-</i>- ja <i>virta</i>-painiketta painettuna ja teksti näyttää onko sinulla S-OFF- tai S-ON-laute. <br/><br/> Lisätietoa löytyy <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.<h2>Kiertotapa</h2>Edellytys: Sinun täytyy asentaa toimiva Android SDK ADB shell:llä tietokoneellesi.
-<br/><br/> 1. Käynnistä käynnistyvalikko pitämällä <i>VOL-</i>- ja <i>virta</i>-painiketta painettuna.
-<br/> 2. Valitse “recovery”.
-<br/> 3. Clockwork-palautustilassa valitse “partitions menu”
-<br/> 4. Valitse <i>mount /system</i>, <i>mount /sdcard</i> ja <i>mount /data</i>.
-<br/> 5. Liitä USB-kaapeli ja avaa komentorivi tietokoneellasi.
-<br/> 6. Kirjoita  adb shell ja <br/> <tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Tämä luo symbolisen linkin, joka sallii AdAwayn muokata isäntätiedostoa, joka on tallennettu <tt>/data</tt> samalla kun käyttöjärjestelmä käyttää tiedostoa ikään kuin se olisi tallennettu <tt>/system</tt>.)
-<br/> 7. Käynnistä laite uudelleen ja määritä <i>Isäntätiedoston kohde</i> <i>/data/data/hosts</i>-vaihtoehdoksi asetuksista.
-<br/> 8. AdAwayn pitäisi toimia nyt.</body></html>

@@ -35,6 +35,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.adaway.R;
+import org.adaway.database.DatabaseHelper;
 import org.adaway.ui.BaseFragment;
 import org.adaway.ui.HelpActivity;
 import org.adaway.util.ApplyUtils;
@@ -46,6 +47,7 @@ import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
+
 
 import android.app.Activity;
 import android.app.AlertDialog;

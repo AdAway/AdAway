@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.adaway.database.DatabaseHelper;
 import org.adaway.ui.BaseFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -31,6 +32,7 @@ import org.adaway.util.Log;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
 import org.adaway.util.Utils;
+
 
 import android.app.Activity;
 import android.database.Cursor;

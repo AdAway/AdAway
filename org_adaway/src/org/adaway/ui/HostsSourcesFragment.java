@@ -21,11 +21,12 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.DatabaseHelper;
+import org.adaway.database.DatabaseHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.HostsSourcesCursorAdapter;
 import org.adaway.util.ValidationUtils;
 import org.adaway.util.Log;
+
 
 import android.app.Activity;
 import android.app.AlertDialog;

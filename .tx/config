@@ -2,16 +2,16 @@
 host = https://www.transifex.net
 
 [adaway.stringsxml]
-file_filter = org_adaway/values-<lang>/strings.xml
-source_file = org_adaway/values/strings.xml
+file_filter = org_adaway/res/values-<lang>/strings.xml
+source_file = org_adaway/res/values/strings.xml
 source_lang = en
 
 [adaway.help_faqxhtml]
-file_filter = org_adaway/raw-<lang>/help_faq.xhtml
-source_file = org_adaway/raw/help_faq.xhtml
+file_filter = org_adaway/res/raw-<lang>/help_faq.xhtml
+source_file = org_adaway/res/raw/help_faq.xhtml
 source_lang = en
 
 [adaway.help_problemsxhtml]
-file_filter = org_adaway/raw-<lang>/help_problems.xhtml
-source_file = org_adaway/raw/help_problems.xhtml
+file_filter = org_adaway/res/raw-<lang>/help_problems.xhtml
+source_file = org_adaway/res/raw/help_problems.xhtml
 source_lang = en

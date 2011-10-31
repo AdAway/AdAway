@@ -21,11 +21,12 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.DatabaseHelper;
+import org.adaway.database.DatabaseHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
 import org.adaway.util.ValidationUtils;
 import org.adaway.util.Log;
+
 
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.Menu;
