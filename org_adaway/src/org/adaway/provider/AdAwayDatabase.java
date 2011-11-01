@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.database;
+package org.adaway.provider;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -34,7 +34,7 @@ import java.util.HashSet;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
-public class DatabaseHelper {
+public class AdAwayDatabase {
 
     private Context mContext;
     private SQLiteDatabase mDB;
@@ -49,14 +49,14 @@ public class DatabaseHelper {
 
     private static final String CREATE_HOSTS_SOURCES = "CREATE TABLE IF NOT EXISTS "
             + TABLE_HOSTS_SOURCES
-            + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, last_modified_local INTEGER, last_modified_online INTEGER, enabled INTEGER)";
+            + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT UNIQUE, last_modified_local INTEGER, last_modified_online INTEGER, enabled INTEGER)";
     private static final String CREATE_WHITELIST = "CREATE TABLE IF NOT EXISTS " + TABLE_WHITELIST
-            + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, enabled INTEGER)";
+            + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT UNIQUE, enabled INTEGER)";
     private static final String CREATE_BLACKLIST = "CREATE TABLE IF NOT EXISTS " + TABLE_BLACKLIST
-            + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, enabled INTEGER)";
+            + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT UNIQUE, enabled INTEGER)";
     private static final String CREATE_REDIRECTION_LIST = "CREATE TABLE IF NOT EXISTS "
             + TABLE_REDIRECTION_LIST
-            + "(_id INTEGER PRIMARY KEY, url TEXT UNIQUE, ip TEXT, enabled INTEGER)";
+            + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT UNIQUE, ip TEXT, enabled INTEGER)";
 
     private SQLiteStatement insertStmtHostsSources;
     private static final String INSERT_HOSTS_SOURCES = "INSERT OR IGNORE INTO "
@@ -72,7 +72,7 @@ public class DatabaseHelper {
     private static final String INSERT_REDIRECTION_LIST = "INSERT OR IGNORE INTO "
             + TABLE_REDIRECTION_LIST + "(url, ip, enabled) VALUES (?, ?, ?)";
 
-    public DatabaseHelper(Context context) {
+    public AdAwayDatabase(Context context) {
         this.mContext = context;
         OpenHelper openHelper = new OpenHelper(this.mContext);
         this.mDB = openHelper.getWritableDatabase();

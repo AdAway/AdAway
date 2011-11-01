@@ -7,18 +7,13 @@
         name="pref_redirection_ip_def">127.0.0.1</item>
 
     <string name="pref_update_check_key">updateCheck</string>
-    <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
     <item
         type="string"
         name="pref_update_check_def"
         format="boolean">true</item>
 
     <string name="pref_apply_method_key">applyMethod</string>
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Custom target</item>
-    </string-array>
+    
     <string-array name="pref_apply_method_entries_values">
         <item>writeToSystem</item>
         <item>writeToDataData</item>

@@ -21,7 +21,7 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.database.DatabaseHelper;
+import org.adaway.provider.AdAwayDatabase;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
 import org.adaway.util.ValidationUtils;
@@ -51,7 +51,7 @@ import android.widget.ListView;
 
 public class BlacklistFragment extends ListFragment {
     private Activity mActivity;
-    private DatabaseHelper mDatabaseHelper;
+    private AdAwayDatabase mDatabaseHelper;
     private Cursor mCursor;
     private CheckboxCursorAdapter mAdapter;
 
@@ -295,7 +295,7 @@ public class BlacklistFragment extends ListFragment {
 
         mActivity = getActivity();
 
-        mDatabaseHelper = new DatabaseHelper(mActivity); // open db
+        mDatabaseHelper = new AdAwayDatabase(mActivity); // open db
         registerForContextMenu(getListView()); // register long press context menu
 
         // build content of list

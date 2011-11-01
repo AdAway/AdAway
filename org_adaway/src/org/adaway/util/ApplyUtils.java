@@ -81,9 +81,7 @@ public class ApplyUtils {
         boolean status = false;
 
         /* Check if first line in hosts file is AdAway comment */
-        String hostsFile = target;
-
-        File file = new File(hostsFile);
+        File file = new File(target);
         InputStream stream = null;
         InputStreamReader in = null;
         BufferedReader br = null;

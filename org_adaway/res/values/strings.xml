@@ -16,9 +16,6 @@
     <string name="apply_dialog_hosts">Building hosts file</string>
     <string name="apply_dialog_apply">Applying hosts file</string>
     <string name="menu_preferences">Preferences</string>
-    <string name="pref_download">General Preferences</string>
-    <string name="pref_hosts">Hosts File</string>
-    <string name="pref_redirection_ip">Redirection IP</string>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
     <string name="revert_question">Do you really want to revert?</string>
@@ -32,7 +29,6 @@
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed.</string>
     <string name="menu_add">Add</string>
-    <string name="menu_add_qrcode">Add by scanning QR code</string>
     <string name="no_url">This is not a valid URL!</string>
     <string name="no_url_title">Malformed URL</string>
     <string name="button_add">Add</string>
@@ -83,14 +79,10 @@
     <string name="no_busybox">The Busybox binary could not be found. To install it from the Android Market click the Button below.</string>
     <string name="no_busybox_title">No Busybox binary</string>
     <string name="button_busybox">Install Busybox</string>
-    <string name="pref_update_check">Check for updates</string>
-    <string name="pref_apply_method">Target hosts file</string>
-    <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
-    <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP address.</string>
     <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
     <string name="menu_donations">Donations</string>
     <string name="donations_flattr_description">• Flattr takes 10% as a monthly fee!</string>
-    <string name="apply_symlink_missing">Symlink from /system/etc/hosts to your target is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
+    <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_not_enough_space_title">Not enough space</string>
@@ -106,8 +98,6 @@
     <string name="apply_symlink_successful_title">Symlink creation successful</string>
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
-    <string name="pref_header_preferences">Preferences</string>
-    <string name="pref_header_preferences_summary">General preferences for AdAway</string>
     <string name="menu_help">Help</string>
     <string name="menu_lists">Your Lists</string>
     <string name="menu_show_hosts_file">Open hosts file</string>
@@ -123,19 +113,8 @@
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">Online:</string>
     <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
-    <string name="pref_never_reboot">Hide reboot dialog</string>
-    <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
-    <string name="pref_update_check_daily">Check for updates daily</string>
-    <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
     <string name="button_help">Help</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="pref_webserver_on_boot">Start webserver on boot</string>
-    <string name="pref_webserver_on_boot_summary">Start webserver on boot delayed with 5 seconds listening on local IP addresses</string>
-    <string name="pref_webserver_enabled">Enable webserver</string>
-    <string name="pref_webserver_enabled_summary">Enables webserver listening on local IP addresses to answer requests to blocked hostnames</string>
-    <string name="pref_webserver">Local Webserver</string>
-    <string name="pref_custom_target">Custom target</string>
-    <string name="pref_custom_target_summary">Only used if target hosts file is set to custom target</string>
     <string name="no_text_editor_title">No text editor installed</string>
     <string name="no_text_editor">No text editor could be found to open the hosts file. You can install Jota or other text editors to handle this.\n\nDo you want to install Jota?</string>
     <string name="donations_flattr">Flattr</string>
@@ -156,5 +135,33 @@
 
     <string name="donations_thanks_dialog_title">Thanks!</string>
     <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
+    <string name="pref_download">General Preferences</string>
+    <string name="pref_hosts">Hosts File</string>
+    <string name="pref_redirection_ip">Redirection IP</string>
+    <string name="pref_update_check">Check for updates</string>
+    <string name="pref_apply_method">Target hosts file</string>
+    <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
+    <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP address.</string>
+    <string name="pref_header_preferences">Preferences</string>
+    <string name="pref_header_preferences_summary">General preferences for AdAway</string>
+    <string name="pref_never_reboot">Hide reboot dialog</string>
+    <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
+    <string name="pref_update_check_daily">Check for updates daily</string>
+    <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
+    <string name="pref_webserver_on_boot">Start webserver on boot</string>
+    <string name="pref_webserver_on_boot_summary">Start webserver on boot delayed with 5 seconds listening on local IP addresses</string>
+    <string name="pref_webserver_enabled">Enable webserver</string>
+    <string name="pref_webserver_enabled_summary">Enables webserver listening on local IP addresses to answer requests to blocked hostnames</string>
+    <string name="pref_webserver">Local Webserver</string>
+    <string name="pref_custom_target">Custom target</string>
+    <string name="pref_custom_target_summary">Only used if target hosts file is set to custom target</string>
+
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+
+    <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
 
 </resources>

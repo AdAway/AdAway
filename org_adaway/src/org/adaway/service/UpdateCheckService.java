@@ -36,8 +36,8 @@ import java.net.URLConnection;
 import java.util.Calendar;
 
 import org.adaway.R;
-import org.adaway.database.DatabaseHelper;
 import org.adaway.helper.PreferencesHelper;
+import org.adaway.provider.AdAwayDatabase;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
@@ -51,7 +51,7 @@ import org.adaway.util.Log;
  */
 public class UpdateCheckService extends IntentService {
     private Context mApplicationContext;
-    private DatabaseHelper mDatabaseHelper;
+    private AdAwayDatabase mDatabaseHelper;
 
     Cursor mEnabledHostsSourcesCursor;
 
@@ -163,7 +163,7 @@ public class UpdateCheckService extends IntentService {
         if (Utils.isAndroidOnline(mApplicationContext)) {
 
             // get cursor over all enabled hosts source
-            mDatabaseHelper = new DatabaseHelper(mApplicationContext);
+            mDatabaseHelper = new AdAwayDatabase(mApplicationContext);
             mEnabledHostsSourcesCursor = mDatabaseHelper.getEnabledHostsSourcesCursor();
 
             // iterate over all hosts sources in db with cursor

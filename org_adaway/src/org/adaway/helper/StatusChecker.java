@@ -24,7 +24,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import org.adaway.database.DatabaseHelper;
+import org.adaway.provider.AdAwayDatabase;
 import org.adaway.ui.BaseFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -41,7 +41,7 @@ import android.os.AsyncTask;
 public class StatusChecker {
     private BaseFragment mBaseFragment;
     private Activity mActivity;
-    private DatabaseHelper mDatabaseHelper;
+    private AdAwayDatabase mDatabaseHelper;
 
     private AsyncTask<Void, Integer, Integer> mStatusTask;
 
@@ -106,7 +106,7 @@ public class StatusChecker {
                 if (Utils.isAndroidOnline(mActivity)) {
 
                     // get cursor over all enabled hosts source
-                    mDatabaseHelper = new DatabaseHelper(mActivity);
+                    mDatabaseHelper = new AdAwayDatabase(mActivity);
                     mEnabledHostsSourcesCursor = mDatabaseHelper.getEnabledHostsSourcesCursor();
 
                     // iterate over all hosts sources in db with cursor

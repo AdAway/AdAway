@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.adaway.R;
-import org.adaway.database.DatabaseHelper;
+import org.adaway.provider.AdAwayDatabase;
 import org.adaway.ui.BaseFragment;
 import org.adaway.ui.HelpActivity;
 import org.adaway.util.ApplyUtils;
@@ -62,7 +62,7 @@ import android.os.AsyncTask;
 public class ApplyExecutor {
     private BaseFragment mBaseFragment;
     private Activity mActivity;
-    private DatabaseHelper mDatabaseHelper;
+    private AdAwayDatabase mDatabaseHelper;
 
     private AsyncTask<Void, Integer, Integer> mDownloadTask;
     private AsyncTask<Void, String, Integer> mApplyTask;
@@ -139,7 +139,7 @@ public class ApplyExecutor {
                                 Context.MODE_PRIVATE);
 
                         // get cursor over all enabled hosts source
-                        mDatabaseHelper = new DatabaseHelper(mActivity);
+                        mDatabaseHelper = new AdAwayDatabase(mActivity);
                         mEnabledHostsSourcesCursor = mDatabaseHelper.getEnabledHostsSourcesCursor();
 
                         // iterate over all hosts sources in db with cursor
@@ -383,7 +383,7 @@ public class ApplyExecutor {
                     publishProgress(mActivity.getString(R.string.apply_dialog_lists));
 
                     /* READ DATABSE CONTENT */
-                    mDatabaseHelper = new DatabaseHelper(mActivity);
+                    mDatabaseHelper = new AdAwayDatabase(mActivity);
 
                     // get whitelist
                     HashSet<String> whitelist = mDatabaseHelper.getAllEnabledWhitelistItems();
@@ -529,7 +529,7 @@ public class ApplyExecutor {
                  * Set last_modified_local dates in database to last_modified_online, got in
                  * download task
                  */
-                mDatabaseHelper = new DatabaseHelper(mActivity);
+                mDatabaseHelper = new AdAwayDatabase(mActivity);
                 mDatabaseHelper.updateAllEnabledHostsSourcesLastModifiedLocalFromOnline();
                 mDatabaseHelper.close();
 
