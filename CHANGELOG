@@ -1,5 +1,8 @@
 1.16
+* Translations: German, French, Spanish, Hebrew, Turkish, Chinese
+  Thanks to all contributors!
 * Better check for symlink
+* Newer version of web server mongoose
 - Fixed bug caused by checking if enough space is available
 - Problem with applying fixed
 

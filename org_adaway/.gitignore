@@ -2,6 +2,7 @@
 bin
 gen
 obj
+libs/armeabi
 
 #Eclipse
 .project
