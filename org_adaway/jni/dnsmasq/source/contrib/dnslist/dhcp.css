@@ -1,0 +1,57 @@
+body
+{
+	font-family: sans-serif;
+	color: #000;
+}
+
+h1
+{
+	font-size: medium;
+	font-weight: bold;
+}
+
+h1 .updated
+{
+	color: #999;
+}
+
+table
+{
+	border-collapse: collapse;
+	border-bottom: 2px solid #000;
+}
+
+th
+{
+	background: #DDD;
+	border-top: 2px solid #000;
+	text-align: left;
+	font-weight: bold;
+}
+
+/* Any row */
+
+tr
+{
+	border-top: 2px solid #000;
+}
+
+/* Any row but the first or second (overrides above rule) */
+
+tr + tr + tr
+{
+	border-top: 2px solid #999;
+}
+
+tr.offline td.hostname
+{
+	color: #999;
+}
+
+.hostname   { width: 10em; }
+.ip_addr    { width: 10em; background: #DDD; }
+.ether_addr { width: 15em; }
+.client_id  { width: 15em; background: #DDD; }
+.status     { width: 5em;  }
+.since      { width: 10em; background: #DDD; }
+.lease      { width: 10em; }

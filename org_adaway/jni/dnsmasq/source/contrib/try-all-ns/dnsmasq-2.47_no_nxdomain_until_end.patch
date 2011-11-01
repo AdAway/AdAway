@@ -1,0 +1,17 @@
+diff -ur dnsmasq-2.47/src/forward.c dnsmasq-2.47-patched/src/forward.c
+--- dnsmasq-2.47/src/forward.c	2009-02-01 17:59:48.000000000 +0200
++++ dnsmasq-2.47-patched/src/forward.c	2009-03-18 19:10:22.000000000 +0200
+@@ -488,9 +488,12 @@
+     return;
+    
+   server = forward->sentto;
++
++  if ( (header->rcode == NXDOMAIN) && ((daemon->options & OPT_ORDER) != 0) && (server->next != NULL) )
++    header->rcode = SERVFAIL;
+   
+   if ((header->rcode == SERVFAIL || header->rcode == REFUSED) &&
+-      !(daemon->options & OPT_ORDER) &&
++      ((daemon->options & OPT_ORDER) != 0) &&
+       forward->forwardall == 0)
+     /* for broken servers, attempt to send to another one. */
+     {

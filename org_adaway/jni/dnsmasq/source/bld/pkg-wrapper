@@ -1,0 +1,11 @@
+#!/bin/sh
+
+search=$1
+shift
+
+if grep "^\#.*define.*$search" config.h 2>&1 >/dev/null || \
+   grep $search 2>&1 >/dev/null ; then
+  exec $*
+fi
+
+

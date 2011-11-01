@@ -1,0 +1,20 @@
+Hello,
+
+For some specific application I needed to deny access to a MAC address
+to a lease. For this reason I modified the dhcp-script behavior and is
+called with an extra parameter "access" once a dhcp request or discover
+is received. In that case if the exit code of the script is zero,
+dnsmasq continues normally, and if non-zero the packet is ignored.
+
+This was not added as a security feature but as a mean to handle
+differently some addresses. It is also quite intrusive since it requires
+changes in several other subsystems.
+
+It attach the patch in case someone is interested.
+
+regards,
+Nikos
+
+nmav@gennetsa.com
+
+

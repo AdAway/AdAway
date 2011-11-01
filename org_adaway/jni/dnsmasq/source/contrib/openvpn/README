@@ -1,0 +1,44 @@
+The patch I have attached lets me get the behavior I wish out of
+dnsmasq.  I also include my version of dhclient-enter-hooks as
+required for the switchover from pre-dnsmasq and dhclient.
+
+On 8/16/05, Joseph Tate <dragonstrider@gmail.com> wrote:
+> I'm trying to use dnsmasq on a laptop in order to facilitate openvpn
+> connections.  As such, the only configuration option I'm concerned
+> about is a single server=3D/example.com/192.168.0.1 line.
+>
+> The way I currently have it set up is I modified dhclient to write its
+> resolv.conf data to /etc/resolv.conf.dhclient and configured
+> /etc/dnsmasq.conf to look there for its upstream dns servers.
+> /etc/resolv.conf is set to nameserver 127.0.0.1
+>
+> All of this works great.  When I start the openvpn service, it the
+> routes, and queries to the domain in the server=3D line work just fine.
+>
+> The only problem is that the hostname for my system doesn't get set
+> correctly.  With the resolv.conf data written to something other than
+> /etc/resolv.conf, the ifup scripts don't have a valid dns server to do
+> the ipcalc call to set the laptop's hostname.  If I start dnsmasq
+> before the network comes up, something gets fubar'd.  I'm not sure how
+> to describe it exactly, but network services are slow to load, and
+> restarting networking and dnsmasq doesn't solve the problem.  Perhaps
+> dnsmasq is answering the dhcp request when the network starts?
+> Certainly not desired behavior.
+>
+> Anyway, my question: is there a way to have the best of both worlds?
+> DHCP requests to another server, and DNS lookups that work at all
+> times?
+>
+> My current best idea on how to solve this problem is modifying the
+> dnsmasq initscript to tweak /etc/dhclient-enter-hooks to change where
+> dhclient writes resolv.conf data, and fixing up /etc/resolv.conf on
+> the fly to set 127.0.0.1 to the nameserver (and somehow keep the
+> search domains intact), but I'm hoping that I'm just missing some key
+> piece of the puzzle and that this problem has been solved before.  Any
+> insights?
+>
+> --
+> Joseph Tate
+> Personal e-mail: jtate AT dragonstrider DOT com
+> Web: http://www.dragonstrider.com
+>

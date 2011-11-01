@@ -1,0 +1,68 @@
+#!/bin/bash
+# 
+# /usr/sbin/dnsmasq-portforward
+#
+# A script which gets run when the dnsmasq DHCP lease database changes.
+# It logs to $LOGFILE, if it exists, and maintains port-forwards using
+# IP-tables so that they always point to the correct host. See
+# $PORTSFILE for details on configuring this. dnsmasq must be version 2.34 
+# or later.
+#
+# To enable this script, add 
+#    dhcp-script=/usr/sbin/dnsmasq-portforward
+# to /etc/dnsmasq.conf
+#
+# To enable logging, touch $LOGFILE
+#
+
+PORTSFILE=/etc/portforward
+LOGFILE=/var/log/dhcp.log
+IPTABLES=/sbin/iptables
+
+action=${1:-0}
+hostname=${4}
+
+# log what's going on.
+if [ -f ${LOGFILE} ] ; then
+    date +"%D %T $*" >>${LOGFILE}
+fi
+
+# If a lease gets stripped of a name, we see that as an "old" action
+# with DNSMASQ_OLD_HOSTNAME set, convert it into a "del" 
+if [ ${DNSMASQ_OLD_HOSTNAME} ] && [ ${action} = old ] ; then
+    action=del
+    hostname=${DNSMASQ_OLD_HOSTNAME}
+fi
+
+# action init is not relevant, and will only be seen when leasefile-ro is set.
+if [ ${action} = init ] ; then
+    exit 0
+fi
+
+if [ ${hostname} ]; then
+    ports=$(sed -n -e "/^${hostname}\ .*/ s/^.* //p" ${PORTSFILE})
+
+    for port in $ports; do
+	verb=removed
+	protocol=tcp
+	if [ ${port:0:1} = u ] ; then
+	    protocol=udp 
+	    port=${port/u/}
+	fi
+	src=${port/:*/}
+	dst=${port/*:/}
+# delete first, to avoid multiple copies of rules.
+	${IPTABLES} -t nat -D PREROUTING -p $protocol --destination-port $src -j DNAT --to-destination ${3}:$dst
+        if [ ${action} != del ] ; then
+	    ${IPTABLES} -t nat -A PREROUTING -p $protocol --destination-port $src -j DNAT --to-destination ${3}:$dst
+	    verb=added
+	fi
+	if [ -f ${LOGFILE} ] ; then
+	    echo "     DNAT $protocol $src to ${3}:$dst ${verb}." >>${LOGFILE}
+	fi
+    done
+fi
+    
+exit 0
+
+

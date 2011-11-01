@@ -1,0 +1,23 @@
+--- man/dnsmasq.8	2004-08-08 20:57:56.000000000 +0200
++++ man/dnsmasq.8	2004-08-12 00:40:01.000000000 +0200
+@@ -69,7 +69,7 @@
+ .TP
+ .B \-g, --group=<groupname> 
+ Specify the group which dnsmasq will run
+-as. The defaults to "dip", if available, to facilitate access to
++as. The defaults to "dialout", if available, to facilitate access to
+ /etc/ppp/resolv.conf which is not normally world readable.
+ .TP
+ .B \-v, --version
+--- src/config.h	2004-08-11 11:39:18.000000000 +0200
++++ src/config.h	2004-08-12 00:40:01.000000000 +0200
+@@ -44,7 +44,7 @@
+ #endif
+ #define DEFLEASE 3600 /* default lease time, 1 hour */
+ #define CHUSER "nobody"
+-#define CHGRP "dip"
++#define CHGRP "dialout"
+ #define DHCP_SERVER_PORT 67
+ #define DHCP_CLIENT_PORT 68
+ 
+

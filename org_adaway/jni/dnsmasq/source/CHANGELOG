@@ -1,0 +1,438 @@
+version 2.51
+            Add support for internationalised DNS. Non-ASCII characters
+            in domain names found in /etc/hosts, /etc/ethers and 
+	    /etc/dnsmasq.conf will be correctly handled by translation to
+            punycode, as specified in RFC3490. This function is only
+            available if dnsmasq is compiled with internationalisation
+            support, and adds a dependency on GNU libidn. Without i18n
+            support, dnsmasq continues to be compilable with just
+            standard tools. Thanks to Yves Dorfsman for the
+            suggestion. 
+
+            Add two more environment variables for lease-change scripts:
+	    First, DNSMASQ_SUPPLIED_HOSTNAME; this is set to the hostname
+	    supplied by a client, even if the actual hostname used is
+	    over-ridden by dhcp-host or dhcp-ignore-names directives.
+	    Also DNSMASQ_RELAY_ADDRESS which gives the address of 
+            a DHCP relay, if used.
+	    Suggestions from Michael Rack.
+
+	    Fix regression which broke echo of relay-agent
+	    options. Thanks to Michael Rack for spotting this.
+          
+            Don't treat option 67 as being interchangeable with
+            dhcp-boot parameters if it's specified as
+            dhcp-option-force.
+
+	    Make the code to call scripts on lease-change compile-time
+	    optional. It can be switched off by editing src/config.h
+	    or building with "make COPTS=-DNO_SCRIPT".
+ 
+	    Make the TFTP server cope with filenames from Windows/DOS
+	    which use '\' as pathname separator. Thanks to Ralf for
+	    the patch.
+
+	    Updated Polish translation. Thanks to Jan Psota.
+ 
+	    Warn if an IP address is duplicated in /etc/ethers. Thanks
+	    to Felix Schwarz for pointing this out.
+
+	    Teach --conf-dir to take an option list of file suffices
+	    which will be ignored when scanning the directory. Useful
+	    for backup files etc. Thanks to Helmut Hullen for the
+	    suggestion. 
+
+	    Add new DHCP option named tftpserver-address, which
+	    corresponds to the third argument of dhcp-boot. This
+	    allows the complete functionality of dhcp-boot to be
+	    replicated with dhcp-option. Useful when using 
+	    dhcp-optsfile.
+
+	    Test which upstream nameserver to use every 10 seconds
+            or 50 queries and not just when a query times out and 
+            is retried. This should improve performance when there
+            is a slow nameserver in the list. Thanks to Joe for the
+            suggestion. 
+
+	    Don't do any PXE processing, even for clients with the 
+	    correct vendorclass, unless at least one pxe-prompt or 
+            pxe-service option is given. This stops dnsmasq 
+            interfering with proxy PXE subsystems when it is just 
+            the DHCP server. Thanks to Spencer Clark for spotting this.
+
+	    Limit the blocksize used for TFTP transfers to a value
+	    which avoids packet fragmentation, based on the MTU of the
+	    local interface. Many netboot ROMs can't cope with
+	    fragmented packets.
+
+	    Honour dhcp-ignore configuration for PXE and proxy-PXE 
+	    requests. Thanks to Niels Basjes for the bug report.
+
+            Updated French translation. Thanks to Gildas Le Nadan.
+
+
+version 2.50
+	    Fix security problem which allowed any host permitted to 
+            do TFTP to possibly compromise dnsmasq by remote buffer 
+            overflow when TFTP enabled. Thanks to Core Security 
+	    Technologies and Iván Arce, Pablo Hernán Jorge, Alejandro 
+	    Pablo Rodriguez, Martín Coco, Alberto Soliño Testa and
+	    Pablo Annetta. This problem has Bugtraq id: 36121 
+            and CVE: 2009-2957
+
+            Fix a problem which allowed a malicious TFTP client to 
+            crash dnsmasq. Thanks to Steve Grubb at Red Hat for 
+            spotting this. This problem has Bugtraq id: 36120 and 
+            CVE: 2009-2958
+
+
+version 2.49
+            Fix regression in 2.48 which disables the lease-change
+            script. Thanks to Jose Luis Duran for spotting this.
+
+	    Log TFTP "file not found" errors. These were not logged,
+	    since a normal PXELinux boot generates many of them, but
+	    the lack of the messages seems to be more confusing than
+	    routinely seeing them when there is no real error.
+
+	    Update Spanish translation. Thanks to Chris Chatham.
+ 
+
+version 2.48
+            Archived the extensive, backwards, changelog to
+            CHANGELOG.archive. The current changelog now runs from
+            version 2.43 and runs conventionally.
+
+	    Fixed bug which broke binding of servers to physical
+	    interfaces when interface names were longer than four
+	    characters. Thanks to MURASE Katsunori for the patch.
+
+	    Fixed netlink code to check that messages come from the
+	    correct source, and not another userspace process. Thanks
+	    to Steve Grubb for the patch.
+
+	    Maintainability drive: removed bug and missing feature
+	    workarounds for some old platforms. Solaris 9, OpenBSD
+	    older than 4.1, Glibc older than 2.2, Linux 2.2.x and 
+            DBus older than 1.1.x are no longer supported. 
+
+	    Don't read included configuration files more than once:
+	    allows complex configuration structures without problems.
+
+	    Mark log messages from the various subsystems in dnsmasq:
+	    messages from the DHCP subsystem now have the ident string
+	    "dnsmasq-dhcp" and messages from TFTP have ident
+	    "dnsmasq-tftp". Thanks to Olaf Westrik for the patch.
+
+	    Fix possible infinite DHCP protocol loop when an IP
+	    address nailed to a hostname (not a MAC address)  and a 
+	    host sometimes provides the name, sometimes not.
+
+	    Allow --addn-hosts to take a directory: all the files 
+	    in the directory are read. Thanks to Phil Cornelius for 
+	    the suggestion. 
+
+	    Support --bridge-interface on all platforms, not just BSD.
+ 
+            Added support for advanced PXE functions. It's now
+            possible to define a prompt and menu options which will
+            be displayed when a client PXE boots. It's also possible to
+            hand-off booting to other boot servers. Proxy-DHCP, where
+            dnsmasq just supplies the PXE information and another DHCP
+            server does address allocation, is also allowed. See the
+            --pxe-prompt and --pxe-service keywords. Thanks to 
+	    Alkis Georgopoulos for the suggestion and Guilherme Moro
+            and Michael Brown for assistance.
+
+	    Improvements to DHCP logging. Thanks to Tom Metro for
+	    useful suggestions.
+	    
+	    Add ability to build dnsmasq without DHCP support. To do
+	    this, edit src/config.h or build with
+	    "make COPTS=-DNO_DHCP". Thanks to Mahavir Jain for the patch. 
+	    
+	    Added --test command-line switch - syntax check
+	    configuration files only.
+ 
+            Updated French translation. Thanks to Gildas Le Nadan.
+
+
+version 2.47
+	    Updated French translation. Thanks to Gildas Le Nadan.
+
+	    Fixed interface enumeration code to work on NetBSD
+	    5.0. Thanks to Roy Marples for the patch. 
+
+	    Updated config.h to use the same location for the lease
+	    file on NetBSD as the other *BSD variants. Also allow
+	    LEASEFILE and CONFFILE symbols to be overriden in CFLAGS.  
+
+            Handle duplicate address detection on IPv6 more
+            intelligently. In IPv6, an interface can have an address
+            which is not usable, because it is still undergoing DAD
+            (such addresses are marked "tentative"). Attempting to
+            bind to an address in this state returns an error,
+            EADDRNOTAVAIL. Previously, on getting such an error,
+            dnsmasq would silently abandon the address, and never
+            listen on it. Now, it retries once per second for 20
+            seconds before generating a fatal error. 20 seconds should
+            be long enough for any DAD process to complete, but can be
+            adjusted in src/config.h if necessary. Thanks to Martin
+            Krafft for the bug report.
+
+	    Add DBus introspection. Patch from Jeremy Laine.
+
+	    Update Dbus configuration file. Patch from Colin Walters.
+	    Fix for this bug:
+            http://bugs.freedesktop.org/show_bug.cgi?id=18961
+
+	    Support arbitrarily encapsulated DHCP options, suggestion
+	    and initial patch from Samium Gromoff. This is useful for
+	    (eg) gPXE, which expect all its private options to be
+	    encapsulated inside a single option 175. So, eg, 
+
+            dhcp-option = encap:175, 190, "iscsi-client0"
+            dhcp-option = encap:175, 191, "iscsi-client0-secret"
+	    
+	    will provide iSCSI parameters to gPXE.
+
+	    Enhance --dhcp-match to allow testing of the contents of a
+	    client-sent option, as well as its presence. This
+	    application in mind for this is RFC 4578
+	    client-architecture specifiers, but it's generally useful.
+	    Joey Korkames suggested the enhancement. 
+
+	    Move from using the IP_XMIT_IF ioctl to IP_BOUND_IF on
+	    OpenSolaris. Thanks to Bastian Machek for the heads-up.
+
+	    No longer complain about blank lines in
+	    /etc/ethers. Thanks to Jon Nelson for the patch.
+
+	    Fix binding of servers to physical devices, eg
+	    --server=/domain/1.2.3.4@eth0 which was broken from 2.43
+	    onwards unless --query-port=0 set. Thanks to Peter Naulls
+	    for the bug report.
+
+	    Reply to DHCPINFORM requests even when the supplied ciaddr
+	    doesn't fall in any dhcp-range. In this case it's not
+	    possible to supply a complete configuration, but
+	    individually-configured options (eg PAC) may be useful.
+
+	    Allow the source address of an alias to be a range:
+	    --alias=192.168.0.0,10.0.0.0,255.255.255.0 maps the whole
+	    subnet 192.168.0.0->192.168.0.255 to 10.0.0.0->10.0.0.255,
+	    as before.
+	    --alias=192.168.0.10-192.168.0.40,10.0.0.0,255.255.255.0
+	    maps only the 192.168.0.10->192.168.0.40 region. Thanks to
+	    Ib Uhrskov for the suggestion.
+
+	    Don't dynamically allocate DHCP addresses which may break
+	    Windows.  Addresses which end in .255 or .0 are broken in
+	    Windows even when using supernetting.
+	    --dhcp-range=192.168.0.1,192.168.1.254,255,255,254.0 means 
+	    192.168.0.255 is a valid IP address, but not for Windows. 
+	    See Microsoft KB281579. We therefore no longer allocate 
+	    these addresses to avoid hard-to-diagnose problems. 
+
+	    Update Polish translation. Thanks to Jan Psota.
+
+	    Delete the PID-file when dnsmasq shuts down. Note that by
+	    this time, dnsmasq is normally not running as root, so
+	    this will fail if the PID-file is stored in a root-owned
+	    directory; such failure is silently ignored. To take
+	    advantage of this feature, the PID-file must be stored in a
+	    directory owned and write-able by the user running
+	    dnsmasq.
+
+
+version 2.46
+	    Allow --bootp-dynamic to take a netid tag, so that it may
+	    be selectively enabled. Thanks to Olaf Westrik for the
+	    suggestion. 
+
+	    Remove ISC-leasefile reading code. This has been
+	    deprecated for a long time, and last time I removed it, it
+	    ended up going back by request of one user. This time,
+	    it's gone for good; otherwise it would need to be
+	    re-worked to support multiple domains (see below).
+
+	    Support DHCP clients in multiple DNS domains. This is a
+	    long-standing request. Clients are assigned to a domain
+	    based in their IP address.  
+
+            Add --dhcp-fqdn flag, which changes behaviour if DNS names
+            assigned to DHCP clients. When this is set, there must be
+            a domain associated with each client, and only
+            fully-qualified domain names are added to the DNS. The
+            advantage is that the only the FQDN needs to be unique,
+            so that two or more DHCP clients can share a hostname, as
+            long as they are in different domains.
+
+	    Set environment variable DNSMASQ_DOMAIN when invoking
+	    lease-change script. This may be useful information to
+	    have now that it's variable.
+
+	    Tighten up data-checking code for DNS packet
+	    handling. Thanks to Steve Dodd who found certain illegal
+	    packets which could crash dnsmasq. No memory overwrite was
+	    possible, so this is not a security issue beyond the DoS
+	    potential.  
+
+	    Update example config dhcp option 47, the previous
+	    suggestion generated an illegal, zero-length,
+	    option. Thanks to Matthias Andree for finding this.
+
+	    Rewrite hosts-file reading code to remove the limit of
+	    1024 characters per line. John C Meuser found this.
+
+	    Create a net-id tag with the name of the interface on
+	    which the DHCP request was received.
+
+	    Fixed minor memory leak in DBus code, thanks to Jeremy
+	    Laine for the patch.
+
+	    Emit DBus signals as the DHCP lease database
+	    changes. Thanks to Jeremy Laine for the patch.
+
+	    Allow for more that one MAC address in a dhcp-host
+	    line. This configuration tells dnsmasq that it's OK to
+	    abandon a DHCP lease of the fixed address to one MAC
+	    address, if another MAC address in the dhcp-host statement 
+	    asks for an address. This is useful to give a fixed
+	    address to a host which has two network interfaces
+	    (say, a laptop with wired and wireless interfaces.) 
+            It's very important to ensure that only one interface 
+	    at a time is up, since dnsmasq abandons the first lease 
+	    and re-uses the address before the leased time has
+	    elapsed. John Gray suggested this.
+
+	    Tweak the response to a DHCP request packet with a wrong
+	    server-id when --dhcp-authoritative is set; dnsmasq now
+	    returns a DHCPNAK, rather than silently ignoring the
+	    packet. Thanks to Chris Marget for spotting this
+	    improvement.
+
+	    Add --cname option. This provides a limited alias
+	    function, usable for DHCP names. Thanks to AJ Weber for
+	    suggestions on this.
+
+	    Updated contrib/webmin with latest version from Neil
+	    Fisher.
+
+	    Updated Polish translation. Thanks to Jan Psota.
+	    
+	    Correct the text names for DHCP options 64 and 65 to be
+	    "nis+-domain" and "nis+-servers".
+
+	    Updated Spanish translation. Thanks to Chris Chatham.
+
+	    Force re-reading of /etc/resolv.conf when an "interface
+	    up" event occurs.
+
+
+version 2.45
+            Fix total DNS failure in release 2.44 unless --min-port 
+            specified. Thanks to Steven Barth and Grant Coady for
+            bugreport. Also reject out-of-range port spec, which could
+            break things too: suggestion from Gilles Espinasse.
+	    
+
+version 2.44
+            Fix  crash when unknown client attempts to renew a DHCP
+            lease, problem introduced in version 2.43. Thanks to
+            Carlos Carvalho for help chasing this down.
+
+	    Fix potential crash when a host which doesn't have a lease
+	    does DHCPINFORM. Again introduced in 2.43. This bug has
+	    never been reported in the wild.
+
+            Fix crash in netlink code introduced in 2.43. Thanks to
+            Jean Wolter for finding this.
+
+	    Change implementation of min_port to work even if min-port
+	    is large.
+
+	    Patch to enable compilation of latest Mac OS X. Thanks to
+	    David Gilman.
+
+	    Update Spanish translation. Thanks to Christopher Chatham.
+
+
+version 2.43
+	    Updated Polish translation. Thanks to Jan Psota.
+
+	    Flag errors when configuration options are repeated
+	    illegally.
+
+	    Further tweaks for GNU/kFreeBSD
+
+	    Add --no-wrap to msgmerge call - provides nicer .po file
+	    format.
+
+	    Honour lease-time spec in dhcp-host lines even for
+	    BOOTP. The user is assumed to known what they are doing in
+	    this case. (Hosts without the time spec still get infinite
+	    leases for BOOTP, over-riding the default in the
+	    dhcp-range.) Thanks to Peter Katzmann for uncovering this.
+
+	    Fix problem matching relay-agent ids. Thanks to Michael
+	    Rack for the bug report.
+
+	    Add --naptr-record option. Suggestion from Johan
+	    Bergquist.
+
+	    Implement RFC 5107 server-id-override DHCP relay agent
+	    option.
+
+	    Apply patches from Stefan Kruger for compilation on
+	    Solaris 10 under Sun studio.
+
+	    Yet more tweaking of Linux capability code, to suppress
+	    pointless wingeing from kernel 2.6.25 and above.
+
+	    Improve error checking during startup. Previously, some
+	    errors which occurred during startup would be worked
+	    around, with dnsmasq still starting up. Some were logged,
+            some silent. Now, they all cause a fatal error and dnsmasq 
+            terminates with a non-zero exit code. The errors are those
+            associated with changing uid and gid, setting process 
+            capabilities and writing the pidfile. Thanks to Uwe
+	    Gansert and the Suse security team for pointing out 
+	    this improvement, and Bill Reimers for good implementation
+	    suggestions.
+
+	    Provide NO_LARGEFILE compile option to switch off largefile
+	    support when compiling against versions of uclibc which
+	    don't support it. Thanks to Stephane Billiart for the patch.
+  
+            Implement random source ports for interactions with
+            upstream nameservers. New spoofing attacks have been found
+            against nameservers which do not do this, though it is not
+            clear if dnsmasq is vulnerable, since to doesn't implement
+            recursion. By default dnsmasq will now use a different
+            source port (and socket) for each query it sends
+            upstream. This behaviour can suppressed using the
+            --query-port option, and the old default behaviour
+            restored using --query-port=0. Explicit source-port
+            specifications in --server configs are still honoured.
+
+	    Replace the random number generator, for better
+	    security. On most BSD systems, dnsmasq uses the
+	    arc4random() RNG, which is secure, but on other platforms,
+	    it relied on the C-library RNG, which may be
+	    guessable and therefore allow spoofing. This release
+	    replaces the libc RNG with the SURF RNG, from Daniel
+	    J. Berstein's DJBDNS package.  
+
+	    Don't attempt to change user or group or set capabilities
+	    if dnsmasq is run as a non-root user. Without this, the
+	    change from soft to hard errors when these fail causes
+	    problems for non-root daemons listening on high
+	    ports. Thanks to Patrick McLean for spotting this.
+
+	    Updated French translation. Thanks to Gildas Le Nadan.
+
+
+version 2.42
+            The changelog for version 2.42 and earlier is 
+            available in CHANGELOG.archive.

@@ -1,0 +1,56 @@
+#!/bin/sh
+CWD=`pwd`
+PKG=/tmp/package-dnsmasq
+
+VERSION=2.24
+ARCH=${ARCH:-i486}
+BUILD=${BUILD:-1}
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
+rm -rf $PKG
+mkdir -p $PKG
+cd /tmp
+rm -rf dnsmasq-$VERSION
+tar xzvf $CWD/dnsmasq-$VERSION.tar.gz
+cd dnsmasq-$VERSION
+zcat $CWD/dnsmasq.leasedir.diff.gz | patch -p1 --verbose --backup --suffix=.orig || exit
+chown -R root.root .
+make install-i18n PREFIX=/usr DESTDIR=$PKG MANDIR=/usr/man
+chmod 755 $PKG/usr/sbin/dnsmasq
+chown -R root.bin $PKG/usr/sbin
+gzip -9 $PKG/usr/man/man8/dnsmasq.8
+for f in $PKG/usr/share/man/*; do 
+   if [ -f $$f/man8/dnsmasq.8 ]; then 
+        gzip -9 $$f/man8/dnsmasq.8 ; 
+   fi 
+done
+gzip -9 $PKG/usr/man/*/man8/dnsmasq.8
+mkdir -p $PKG/var/state/dnsmasq
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+mkdir $PKG/etc
+cat dnsmasq.conf.example > $PKG/etc/dnsmasq.conf.new
+mkdir $PKG/etc/rc.d
+zcat $CWD/rc.dnsmasq.gz > $PKG/etc/rc.d/rc.dnsmasq.new
+mkdir -p $PKG/usr/doc/dnsmasq-$VERSION
+cp -a \
+  CHANGELOG COPYING FAQ UPGRADING_to_2.0 doc.html setup.html \
+  $PKG/usr/doc/dnsmasq-$VERSION
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
+
+cd $PKG
+makepkg -l y -c n ../dnsmasq-$VERSION-$ARCH-$BUILD.tgz
+

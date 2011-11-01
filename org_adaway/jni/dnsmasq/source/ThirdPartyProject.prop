@@ -1,0 +1,9 @@
+# Copyright 2010 Google Inc. All Rights Reserved.
+#Fri Jul 16 10:03:08 PDT 2010
+currentVersion=2.52
+version=2.51
+isNative=true
+name=dnsmasq
+keywords=dnsmasq
+onDevice=true
+homepage=http\://www.thekelleys.org.uk/dnsmasq/doc.html

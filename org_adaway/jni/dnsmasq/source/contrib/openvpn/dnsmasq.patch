@@ -1,0 +1,61 @@
+--- dnsmasq-2.22/rpm/dnsmasq.rh	2005-03-24 09:51:18.000000000 -0500
++++ dnsmasq-2.22/rpm/dnsmasq.rh.new	2005-08-25 10:52:04.310568784 -0400
+@@ -2,7 +2,7 @@
+ #
+ # Startup script for the DNS caching server
+ #
+-# chkconfig: 2345 99 01
++# chkconfig: 2345 07 89
+ # description: This script starts your DNS caching server
+ # processname: dnsmasq
+ # pidfile: /var/run/dnsmasq.pid
+@@ -10,6 +10,25 @@
+ # Source function library.
+ . /etc/rc.d/init.d/functions
+ 
++function setup_dhclient_enter_hooks() {
++    if [ -f /etc/dhclient-enter-hooks ]; then
++        . /etc/dhclient-enter-hooks
++        cp /etc/resolv.conf /etc/resolv.conf.dnsmasq
++        cp /etc/dhclient-enter-hooks /etc/dhclient-enter-hooks.dnsmasq
++        sed -e 's/resolv\.conf$/resolv.conf.dnsmasq/' /etc/dhclient-enter-hooks.dnsmasq > /etc/dhclient-enter-hooks
++        sed -e 's/\(nameserver[ tab]\+\)[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+$/\1127.0.0.1/' /etc/resolv.conf.dnsmasq > /etc/resolv.conf
++    fi
++}
++
++function teardown_dhclient_enter_hooks() {
++    if [ -f /etc/dhclient-enter-hooks -a -f /etc/dhclient-enter-hooks.dnsmasq ]; then
++        if [ -f /etc/resolv.conf.dnsmasq ]; then
++            mv /etc/resolv.conf.dnsmasq /etc/resolv.conf
++        fi
++        mv /etc/dhclient-enter-hooks.dnsmasq /etc/dhclient-enter-hooks
++    fi
++}
++
+ # Source networking configuration.
+ . /etc/sysconfig/network
+ 
+@@ -24,7 +43,7 @@
+ MAILHOSTNAME=""
+ # change this line if you want dns to get its upstream servers from
+ # somewhere other that /etc/resolv.conf 
+-RESOLV_CONF=""
++RESOLV_CONF="/etc/resolv.conf.dnsmasq"
+ # change this if you want dnsmasq to cache any "hostname" or "client-hostname" from
+ # a dhcpd's lease file
+@@ -54,6 +73,7 @@
+ case "$1" in
+   start)
+         echo -n "Starting dnsmasq: "
++        setup_dhclient_enter_hooks
+         daemon $dnsmasq $OPTIONS
+ 	RETVAL=$?
+         echo
+@@ -62,6 +82,7 @@
+   stop)
+         if test "x`pidof dnsmasq`" != x; then
+             echo -n "Shutting down dnsmasq: "
++            teardown_dhclient_enter_hooks
+             killproc dnsmasq
+         fi
+ 	RETVAL=$?

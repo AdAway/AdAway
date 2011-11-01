@@ -1,0 +1,19 @@
+Date: Thu, 07 Dec 2006 00:41:43 -0500
+From: Bob Carroll <bob.carroll@rit.edu>
+Subject: dnsmasq suggestion
+To: simon@thekelleys.org.uk
+
+
+Hello,
+
+I recently needed a feature in dnsmasq for a very bizarre situation. I 
+placed a list of name servers in a special resolve file and told dnsmasq 
+to use that. But I wanted it to try requests in order and treat NXDOMAIN 
+requests as a failed tcp connection. I wrote the feature into dnsmasq 
+and it seems to work. I prepared a patch in the event that others might 
+find it useful as well.
+
+Thanks and keep up the good work.
+
+--Bob
+

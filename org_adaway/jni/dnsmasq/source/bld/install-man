@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for f in *; do
+  if [ -d $f ]; then
+     $2 -m 755 -d $1/$f/man8 
+     $2 -m 644 $f/dnsmasq.8 $1/$f/man8
+     echo installing $1/$f/man8/dnsmasq.8
+  fi
+done

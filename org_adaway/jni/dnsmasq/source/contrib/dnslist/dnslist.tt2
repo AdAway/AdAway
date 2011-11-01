@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>DHCP Clients</title>
+		<link rel="stylesheet" href="dhcp.css"/>
+		<meta http-equiv="Refresh" content="2"/>
+	</head>
+	<body>
+		<h1>DHCP Clients <span class="updated">(updated [% updated %])</span></h1>
+		<table cols="7">
+		<tr>
+			<th class="hostname">Hostname</th>
+			<th class="ip_addr">IP Address</th>
+			<th class="ether_addr">Ethernet Address</th>
+			<th class="client_id">DHCP Client ID</th>
+			<th class="status">Status</th>
+			<th class="since">Since</th>
+			<th class="lease">Lease Expires</th>
+		</tr>
+		[% FOREACH host IN hosts %]
+			<tr class="[% IF host.online %]online[% ELSE %]offline[% END %]">
+				<td class="hostname">[% host.hostname %]</td>
+				<td class="ip_addr">[% host.ip_addr %]</td>
+				<td class="ether_addr">[% host.ether_addr %]</td>
+				<td class="client_id">[% host.text_client_id %] ([% host.raw_client_id %])</td>
+				<td class="status">[% IF host.online %]Online[% ELSE %]Offline[% END %]</td>
+				<td class="since">[% host.since %]</td>
+				<td class="lease">[% host.text_lease %]</td>
+			</tr>
+		[% END %]
+		</table>
+	</body>
+</html>

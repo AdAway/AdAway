@@ -1,0 +1,54 @@
+
+This is the README for the DNSmasq webmin module.
+
+Problems:
+
+1) There's only basic error checking - if you enter some bad
+addresses or names, they will go straight into the config file
+although we do check for things like IP addresses being of
+the correct form (no letters, 4 groups of up to 3 digits
+separated by dots etc). One thing that ISN'T CHECKED FOR is
+that IP dotted quads are all numbers < 256. Another is that
+netmasks are logical (you could enter a netmask of 255.0.255.0 
+for example). Essentially, if it'll pass the config file
+regex scanner (and the above examples will), it won't be 
+flagged as "bad" even if it is a big no-no for dnsmasq itself. 
+
+2) Code is ugly and a kludge - I ain't a programmer! There are probably 
+a lot of things that could be done to tidy up the code - eg, 
+it probably wouldn't hurt to move some common stuff into the lib file.
+
+3) I've used the %text hash and written an english lang file, but
+I am mono-lingual so no other language support as yet.
+
+4) for reasons unknown to me, the icon does not appear properly
+on the servers page of webmin (at least it doesn't for me!)
+
+5) icons have been shamelessly stolen from the ipfilter module,
+specifically the up and down arrows.
+
+6) if you delete an item, the config file will contain
+an otherwise empty, but commented line. This means that if
+you add some new stuff, then delete it, the config file
+will have a number of lines at the end that are just comments.
+Therefore, the config file could possibly grow quite large.
+
+7) NO INCLUDE FILES!
+if you use an include file, it'll be flagged as an error. 
+OK if the include file line is commented out though.
+
+8) deprecated lines not supported (eg user and group) - they
+may produce an error! (user and group don't, but you can't change
+them)
+
+IOW, it works, it's just not very elegant and not very robust.
+
+Hope you find it useful though - I do, as I prevents me having to ever
+wade through the config file and man pages again.
+
+If you modify it, or add a language file, and you have a spare moment,
+please e-mail me - I won't be upset at all if you fix my poor coding!
+(rather the opposite - I'd be pleased someone found it usefull)
+
+Cheers,
+	Neil Fisher <neil@magnecor.com.au>

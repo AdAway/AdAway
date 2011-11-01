@@ -1,0 +1,12 @@
+Hi Simon
+
+Here is a patch against dnsmasq 2.39 which provides support for LOC  
+entries in order to assign location information to dns records  
+(rfc1876). I tested it on OSX and on OpenWRT.
+
+Cheers
+Lorenz
+
+More info:
+http://www.ckdhr.com/dns-loc/
+http://www.faqs.org/rfcs/rfc1876.html

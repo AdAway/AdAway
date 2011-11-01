@@ -1,0 +1,3 @@
+In source/src/Android.mk add following line:
+
+LOCAL_LDLIBS := -llog
