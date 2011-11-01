@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
   <string name="no_root_description"></string>
   <string name="button_exit">Çıkış</string>
   <string name="no_root_title">Root izni gereklidir.</string>
@@ -27,9 +26,7 @@
   <string name="apply_success"></string>
   <string name="about_description">AdAway Android için geliştirilmiş açık kaynaklı bir yazılımdır.</string>
   <string name="about_license">Lisans: GPL v3</string>
-  <string name="about_url">http://code.google.com/p/ad-away/</string>
   <string name="about_version">Sürüm:</string>
-  <string name="no_root_url">http://www.cyanogenmod.com</string>
   <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\n
 Try changing the target hosts file in preferences to /data/data/hosts.</string>
   <string name="apply_fail_title">Uygulama başarısız</string>
@@ -42,7 +39,6 @@ Try changing the target hosts file in preferences to /data/data/hosts.</string>
   <string name="hosts_add_dialog">Host dosyasına URL gir:</string>
   <string name="checkbox_list_add_dialog_title">Ekle</string>
   <string name="button_cancel">İptal</string>
-  <string name="hosts_add_dialog_input">http://</string>
   <string name="checkbox_list_empty">Boş liste</string>
   <string name="checkbox_list_empty_text">Menüden öğeler ekleyebilirsiniz.</string>
   <string name="checkbox_list_context_delete">Sil</string>
@@ -93,7 +89,6 @@ Try changing the target hosts file in preferences to /data/data/hosts.</string>
   <string name="pref_redirection_ip_summary">Tüm engellenmiş host adı bu IP adresine yönlendirilir.</string>
   <string name="donations_description">Bu uygulama faydalı buluyor musunuz? Flattring veya Google Android Market kullanarak bağış yap!</string>
   <string name="menu_donations">Bağışlar</string>
-  <string name="donations_flattr_url"></string>
   <string name="donations_flattr_description"></string>
   <string name="apply_symlink_missing"></string>
   <string name="apply_symlink_missing_title">Symlink kayıp</string>

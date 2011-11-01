@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
   <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
   <string name="button_exit">יציאה</string>
   <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
@@ -27,9 +26,7 @@
   <string name="apply_success">השינויים הוחלו בהצלחה.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
   <string name="about_description">AdAway היא תוכנת קוד פתוח עבור חסימת פרסומות לאנדרואיד.</string>
   <string name="about_license">רשיון: GPL v3</string>
-  <string name="about_url">http://code.google.com/p/ad-away/</string>
   <string name="about_version">גירסה:</string>
-  <string name="no_root_url">http://www.cyanogenmod.com</string>
   <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_fail_title">החלת הגדרות נכשלה</string>
   <string name="revert_problem">חזרה נכשלה.</string>
@@ -41,7 +38,6 @@
   <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
   <string name="checkbox_list_add_dialog_title">הוסף</string>
   <string name="button_cancel">ביטול</string>
-  <string name="hosts_add_dialog_input">http://</string>
   <string name="checkbox_list_empty">רשימה ריקה</string>
   <string name="checkbox_list_empty_text">אתה יכול להוסיף פריטים מהתפריט.</string>
   <string name="checkbox_list_context_delete">מחק</string>
@@ -92,7 +88,6 @@
   <string name="pref_redirection_ip_summary">כל הכתובות החסומות יופנו לכתובת ה IP הזו</string>
   <string name="donations_description">תוכנה זו שימושית עבורך? תמוך במפתחים על ידי מתן תרומה על ידי אנדרואיד מרקט!</string>
   <string name="menu_donations">תרומה</string>
-  <string name="donations_flattr_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
   <string name="donations_flattr_description"></string>
   <string name="apply_symlink_missing">קישור סימבולי מ /data/data/hosts אל /system/etc/hosts לא קיים! AdAway אינה יכולה לעבוד במצב זה.\n\nאתה רוצה לנסות ליצור כעת קישור סימבולי?</string>
   <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>

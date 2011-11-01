@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name"></string>
   <string name="no_root_description"></string>
   <string name="button_exit">離開</string>
   <string name="no_root_title">需要取得root權限</string>
@@ -27,9 +26,7 @@
   <string name="apply_success">更新成功。\n你可能要重新啟動系統才能使改變生效\n\n你要重新啟動嗎?\n(請確定現在没有程式在使用SD Card以防資料遺失)</string>
   <string name="about_description">AdAway 是一個Android上開源的廣告攔截程式</string>
   <string name="about_license">版權: GPL v3</string>
-  <string name="about_url"></string>
   <string name="about_version">版本:</string>
-  <string name="no_root_url"></string>
   <string name="apply_fail">無法更新主機檔\n請嘗試在設定中修改目標主機檔至 /data/data/hosts</string>
   <string name="apply_fail_title">更新失敗</string>
   <string name="revert_problem">復原失敗</string>
@@ -41,7 +38,6 @@
   <string name="hosts_add_dialog">輸入URL至主機檔:</string>
   <string name="checkbox_list_add_dialog_title">新增</string>
   <string name="button_cancel">取消</string>
-  <string name="hosts_add_dialog_input"></string>
   <string name="checkbox_list_empty">空白名單</string>
   <string name="checkbox_list_empty_text">您可以從選單中增加項目。</string>
   <string name="checkbox_list_context_delete">删除</string>
@@ -92,7 +88,6 @@
   <string name="pref_redirection_ip_summary"></string>
   <string name="donations_description"></string>
   <string name="menu_donations"></string>
-  <string name="donations_flattr_url"></string>
   <string name="donations_flattr_description"></string>
   <string name="apply_symlink_missing"></string>
   <string name="apply_symlink_missing_title"></string>

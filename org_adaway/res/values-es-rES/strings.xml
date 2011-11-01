@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
   <string name="no_root_description">O bien el binario su no pudo ser encontrado o no se permitieron permisos de root para AdAway.\n\nEste puede suceder cuando el dispositivo no tiene root. \nPuede encontrar información sobre la forma de hacer root en su dispositivo en www.cyanogenmod.com u otros sitios web de Android.</string>
   <string name="button_exit">Salir</string>
   <string name="no_root_title">Se requiere Android con root</string>
@@ -27,9 +26,7 @@
   <string name="apply_success">Cambios realizados correctamente.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n ¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegurese de que no hay aplicaciones utilizando la sdcard en este momento!)</string>
   <string name="about_description">AdAway es un bloqueador de anuncios de código libre para Android.</string>
   <string name="about_license">Licencia: GPL v3</string>
-  <string name="about_url">http://code.google.com/p/ad-away/</string>
   <string name="about_version">Versión:</string>
-  <string name="no_root_url">http://www.cyanogenmod.com</string>
   <string name="apply_fail">¡No se pudo modificar el archivo hosts en tu sistema!\nIntente cambiar el archivo hosts de destino en las preferencias a /data/data/hosts.</string>
   <string name="apply_fail_title">No se puedo realizar el cambio</string>
   <string name="revert_problem">No se pudo deshacer el cambio</string>
@@ -41,7 +38,6 @@
   <string name="hosts_add_dialog">Entrada de URL al archivo hosts:</string>
   <string name="checkbox_list_add_dialog_title">Añadir</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="hosts_add_dialog_input">http://</string>
   <string name="checkbox_list_empty">Lista vacía</string>
   <string name="checkbox_list_empty_text">Puede añadir elementos desde el menú.</string>
   <string name="checkbox_list_context_delete">Borrar</string>
@@ -92,7 +88,6 @@
   <string name="pref_redirection_ip_summary">Todos los nombres de host bloqueados son redirigidos a esta dirección IP.</string>
   <string name="donations_description">¿Encuentra útil esta aplicación?\n¡Ayude en su desarrollo con Flattr o envíe donaciones usando el Google Android Market!</string>
   <string name="menu_donations">Donaciones</string>
-  <string name="donations_flattr_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
   <string name="donations_flattr_description">• ¡Flattr toma un 10% como cuota mensual!</string>
   <string name="apply_symlink_missing">¡Enlace simbólico desde /data/data/hosts no existe! AdAway no funcionará si no existe.\n\n¿Desea intentar crear un enlace simbólico?</string>
   <string name="apply_symlink_missing_title">Falta enlace simbólico</string>

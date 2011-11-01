@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
   <string name="no_root_description">Joko Pääkäyttäjän binääripakettia ei löytynyt tai sinulla ei ole pääkäyttäjän oikeuksia AdAwaylle.\n\nNäin voi käydä, kun laitteellasi ei ole pääkäyttäjän oikeuksia.\nVoit löytää lisätietoja kuinka hankit pääkäyttäjän oikeudet osoitteessa  www.cyanogenmod.com tai muista Android-sivustoista.</string>
   <string name="button_exit">Sulje</string>
   <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
@@ -28,9 +27,7 @@
   <string name="apply_success">Soveltaminen onnistui.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
   <string name="about_description">AdAway on avoimeen lähdekoodin perustuva mainosten esto -sovellus Androidille.</string>
   <string name="about_license">Lisenssi: GPL v3</string>
-  <string name="about_url">http://code.google.com/p/ad-away/</string>
   <string name="about_version">Versio:</string>
-  <string name="no_root_url">http://www.cyanogenmod.com</string>
   <string name="apply_fail">Isäntätiedoston soveltaminen epäonnistui!\nYritä muuttaa isäntätiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
   <string name="apply_fail_title">Soveltaminen epäonnistui</string>
   <string name="revert_problem">Palauttaminen epäonnistui.</string>
@@ -42,7 +39,6 @@
   <string name="hosts_add_dialog">Kirjoita isäntätiedoston URL-osoite:</string>
   <string name="checkbox_list_add_dialog_title">Lisää</string>
   <string name="button_cancel">Peruuta</string>
-  <string name="hosts_add_dialog_input">http://</string>
   <string name="checkbox_list_empty">Tyhjä lista</string>
   <string name="checkbox_list_empty_text">Voit lisätä kohteita valikosta.</string>
   <string name="checkbox_list_context_delete">Poista</string>
@@ -93,7 +89,6 @@
   <string name="pref_redirection_ip_summary">Kaikki estetyt palvelinnimet ohjataan tähän IP-osoitteeseen.</string>
   <string name="donations_description">Koetko tämän sovelluksen hyödylliseksi? Tue sen kehittämistä Flattr-palvelun kautta!</string>
   <string name="menu_donations">Lahjoitukset</string>
-  <string name="donations_flattr_url">http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</string>
   <string name="donations_flattr_description">Flattr ottaa 10% kuukausipalkkiosta!</string>
   <string name="apply_symlink_missing">Symbolinen linkki /data/data/hosts:sta /system/etc/hosts:lle ei ole olemassa! AdAway ei toimi, jos sitä ei ole olemassa.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
   <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
