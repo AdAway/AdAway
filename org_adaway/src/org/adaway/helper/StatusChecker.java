@@ -24,7 +24,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import org.adaway.provider.AdAwayDatabase;
+import org.adaway.provider.AdAwayContract.HostsSources;
+import org.adaway.provider.ProviderHelper;
 import org.adaway.ui.BaseFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -33,7 +34,6 @@ import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
 import org.adaway.util.Utils;
 
-
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -41,7 +41,6 @@ import android.os.AsyncTask;
 public class StatusChecker {
     private BaseFragment mBaseFragment;
     private Activity mActivity;
-    private AdAwayDatabase mDatabaseHelper;
 
     private AsyncTask<Void, Integer, Integer> mStatusTask;
 
@@ -106,8 +105,8 @@ public class StatusChecker {
                 if (Utils.isAndroidOnline(mActivity)) {
 
                     // get cursor over all enabled hosts source
-                    mDatabaseHelper = new AdAwayDatabase(mActivity);
-                    mEnabledHostsSourcesCursor = mDatabaseHelper.getEnabledHostsSourcesCursor();
+                    mEnabledHostsSourcesCursor = ProviderHelper
+                            .getEnabledHostsSourcesCursor(mActivity);
 
                     // iterate over all hosts sources in db with cursor
                     if (mEnabledHostsSourcesCursor.moveToFirst()) {
@@ -161,10 +160,10 @@ public class StatusChecker {
                                 }
 
                                 // save last modified online for later viewing in list
-                                mDatabaseHelper.updateHostsSourceLastModifiedOnline(
+                                ProviderHelper.updateHostsSourceLastModifiedOnline(mActivity,
                                         mEnabledHostsSourcesCursor
                                                 .getInt(mEnabledHostsSourcesCursor
-                                                        .getColumnIndex("_id")),
+                                                        .getColumnIndex(HostsSources._ID)),
                                         mCurrentLastModifiedOnline);
 
                             } catch (Exception e) {
@@ -176,12 +175,11 @@ public class StatusChecker {
                         } while (mEnabledHostsSourcesCursor.moveToNext());
                     }
 
-                    // close cursor and db helper in the end
+                    // close cursor in the end
                     if (mEnabledHostsSourcesCursor != null
                             && !mEnabledHostsSourcesCursor.isClosed()) {
                         mEnabledHostsSourcesCursor.close();
                     }
-                    mDatabaseHelper.close();
 
                 } else {
                     returnCode = ReturnCodes.NO_CONNECTION;

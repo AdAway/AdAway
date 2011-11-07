@@ -35,7 +35,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.adaway.R;
-import org.adaway.provider.AdAwayDatabase;
+import org.adaway.provider.AdAwayContract.HostsSources;
+import org.adaway.provider.ProviderHelper;
 import org.adaway.ui.BaseFragment;
 import org.adaway.ui.HelpActivity;
 import org.adaway.util.ApplyUtils;
@@ -47,7 +48,6 @@ import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
-
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -62,7 +62,6 @@ import android.os.AsyncTask;
 public class ApplyExecutor {
     private BaseFragment mBaseFragment;
     private Activity mActivity;
-    private AdAwayDatabase mDatabaseHelper;
 
     private AsyncTask<Void, Integer, Integer> mDownloadTask;
     private AsyncTask<Void, String, Integer> mApplyTask;
@@ -139,8 +138,8 @@ public class ApplyExecutor {
                                 Context.MODE_PRIVATE);
 
                         // get cursor over all enabled hosts source
-                        mDatabaseHelper = new AdAwayDatabase(mActivity);
-                        mEnabledHostsSourcesCursor = mDatabaseHelper.getEnabledHostsSourcesCursor();
+                        mEnabledHostsSourcesCursor = ProviderHelper
+                                .getEnabledHostsSourcesCursor(mActivity);
 
                         // iterate over all hosts sources in db with cursor
                         if (mEnabledHostsSourcesCursor.moveToFirst()) {
@@ -212,10 +211,11 @@ public class ApplyExecutor {
 
                                     // save last modified online for later use
                                     mCurrentLastModifiedOnline = connection.getLastModified();
-                                    mDatabaseHelper.updateHostsSourceLastModifiedOnline(
+
+                                    ProviderHelper.updateHostsSourceLastModifiedOnline(mActivity,
                                             mEnabledHostsSourcesCursor
                                                     .getInt(mEnabledHostsSourcesCursor
-                                                            .getColumnIndex("_id")),
+                                                            .getColumnIndex(HostsSources._ID)),
                                             mCurrentLastModifiedOnline);
 
                                 } catch (Exception e) {
@@ -247,12 +247,11 @@ public class ApplyExecutor {
                             returnCode = ReturnCodes.EMPTY_HOSTS_SOURCES;
                         }
 
-                        // close cursor and db helper in the end
+                        // close cursor in the end
                         if (mEnabledHostsSourcesCursor != null
                                 && !mEnabledHostsSourcesCursor.isClosed()) {
                             mEnabledHostsSourcesCursor.close();
                         }
-                        mDatabaseHelper.close();
                     } catch (Exception e) {
                         Log.e(Constants.TAG, "Private File can not be created, Exception: " + e);
                         returnCode = ReturnCodes.PRIVATE_FILE_FAIL;
@@ -383,28 +382,27 @@ public class ApplyExecutor {
                     publishProgress(mActivity.getString(R.string.apply_dialog_lists));
 
                     /* READ DATABSE CONTENT */
-                    mDatabaseHelper = new AdAwayDatabase(mActivity);
 
                     // get whitelist
-                    HashSet<String> whitelist = mDatabaseHelper.getAllEnabledWhitelistItems();
+                    HashSet<String> whitelist = ProviderHelper
+                            .getEnabledWhitelistArrayList(mActivity);
                     Log.d(Constants.TAG, "Enabled whitelist: " + whitelist.toString());
 
                     // get blacklist
-                    HashSet<String> blacklist = mDatabaseHelper.getAllEnabledBlacklistItems();
+                    HashSet<String> blacklist = ProviderHelper
+                            .getEnabledBlacklistArrayList(mActivity);
                     Log.d(Constants.TAG, "Enabled blacklist: " + blacklist.toString());
 
                     // get redirection list
-                    HashMap<String, String> redirection = mDatabaseHelper
-                            .getAllEnabledRedirectionItems();
+                    HashMap<String, String> redirection = ProviderHelper
+                            .getEnabledRedirectionListHashMap(mActivity);
                     Log.d(Constants.TAG, "Enabled redirection list: " + redirection.toString());
 
                     // get sources list
-                    ArrayList<String> enabledHostsSources = mDatabaseHelper
-                            .getAllEnabledHostsSources();
+                    ArrayList<String> enabledHostsSources = ProviderHelper
+                            .getEnabledHostsSourcesArrayList(mActivity);
                     Log.d(Constants.TAG,
                             "Enabled hosts sources list: " + enabledHostsSources.toString());
-
-                    mDatabaseHelper.close();
 
                     /* BLACKLIST AND WHITELIST */
                     // remove whitelist items
@@ -529,9 +527,7 @@ public class ApplyExecutor {
                  * Set last_modified_local dates in database to last_modified_online, got in
                  * download task
                  */
-                mDatabaseHelper = new AdAwayDatabase(mActivity);
-                mDatabaseHelper.updateAllEnabledHostsSourcesLastModifiedLocalFromOnline();
-                mDatabaseHelper.close();
+                ProviderHelper.updateAllEnabledHostsSourcesLastModifiedLocalFromOnline(mActivity);
 
                 /* check if hosts file is applied with chosen method */
                 // check only if everything before was successful

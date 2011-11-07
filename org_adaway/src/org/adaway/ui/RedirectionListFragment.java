@@ -367,7 +367,7 @@ public class RedirectionListFragment extends ListFragment implements
 
     // These are the rows that we will retrieve.
     static final String[] REDIRECTION_LIST_SUMMARY_PROJECTION = new String[] { RedirectionList._ID,
-            RedirectionList.URL, RedirectionList.IP, RedirectionList.ENABLED };
+            RedirectionList.HOSTNAME, RedirectionList.IP, RedirectionList.ENABLED };
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {

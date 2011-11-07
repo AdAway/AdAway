@@ -26,7 +26,6 @@ import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.AdAwayContract.RedirectionList;
 import org.adaway.provider.AdAwayContract.Whitelist;
-import org.adaway.provider.AdAwayDatabase.OpenHelper;
 import org.adaway.provider.AdAwayDatabase.Tables;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -84,14 +83,13 @@ public class AdAwayProvider extends ContentProvider {
         return matcher;
     }
 
-    private OpenHelper mAdAwayDatabase;
+    private AdAwayDatabase mAdAwayDatabase;
 
     /** {@inheritDoc} */
     @Override
     public boolean onCreate() {
         final Context context = getContext();
-        AdAwayDatabase adawaydb = new AdAwayDatabase(context); // TODO: remove
-        mAdAwayDatabase = adawaydb.new OpenHelper(context);
+        mAdAwayDatabase = new AdAwayDatabase(context);
         return true;
     }
 

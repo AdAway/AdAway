@@ -37,7 +37,8 @@ import java.util.Calendar;
 
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
-import org.adaway.provider.AdAwayDatabase;
+import org.adaway.provider.AdAwayContract.HostsSources;
+import org.adaway.provider.ProviderHelper;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
@@ -45,13 +46,11 @@ import org.adaway.util.StatusUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.Log;
 
-
 /**
  * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources
  */
 public class UpdateCheckService extends IntentService {
     private Context mApplicationContext;
-    private AdAwayDatabase mDatabaseHelper;
 
     Cursor mEnabledHostsSourcesCursor;
 
@@ -163,8 +162,8 @@ public class UpdateCheckService extends IntentService {
         if (Utils.isAndroidOnline(mApplicationContext)) {
 
             // get cursor over all enabled hosts source
-            mDatabaseHelper = new AdAwayDatabase(mApplicationContext);
-            mEnabledHostsSourcesCursor = mDatabaseHelper.getEnabledHostsSourcesCursor();
+            mEnabledHostsSourcesCursor = ProviderHelper
+                    .getEnabledHostsSourcesCursor(mApplicationContext);
 
             // iterate over all hosts sources in db with cursor
             if (mEnabledHostsSourcesCursor.moveToFirst()) {
@@ -206,9 +205,10 @@ public class UpdateCheckService extends IntentService {
                         }
 
                         // save last modified online for later viewing in list
-                        mDatabaseHelper.updateHostsSourceLastModifiedOnline(
+                        ProviderHelper.updateHostsSourceLastModifiedOnline(mApplicationContext,
                                 mEnabledHostsSourcesCursor.getInt(mEnabledHostsSourcesCursor
-                                        .getColumnIndex("_id")), mCurrentLastModifiedOnline);
+                                        .getColumnIndex(HostsSources._ID)),
+                                mCurrentLastModifiedOnline);
 
                     } catch (Exception e) {
                         Log.e(Constants.TAG, "Exception: " + e);
@@ -219,12 +219,10 @@ public class UpdateCheckService extends IntentService {
                 } while (mEnabledHostsSourcesCursor.moveToNext());
             }
 
-            // close cursor and db helper in the end
+            // close cursor in the end
             if (mEnabledHostsSourcesCursor != null && !mEnabledHostsSourcesCursor.isClosed()) {
                 mEnabledHostsSourcesCursor.close();
             }
-            mDatabaseHelper.close();
-
         } else {
             returnCode = ReturnCodes.NO_CONNECTION;
         }

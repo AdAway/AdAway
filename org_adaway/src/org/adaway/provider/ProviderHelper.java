@@ -20,6 +20,10 @@
 
 package org.adaway.provider;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
 import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.AdAwayContract.RedirectionList;
@@ -27,6 +31,7 @@ import org.adaway.provider.AdAwayContract.Whitelist;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 
 public class ProviderHelper {
 
@@ -60,11 +65,87 @@ public class ProviderHelper {
                 null, null);
     }
 
+    public static void updateHostsSourceLastModifiedLocal(Context context, long rowId,
+            long last_modified_local) {
+        ContentValues values = new ContentValues();
+        values.put(HostsSources.LAST_MODIFIED_LOCAL, last_modified_local);
+        context.getContentResolver().update(HostsSources.buildUri(Long.toString(rowId)), values,
+                null, null);
+    }
+
+    public static void updateHostsSourceLastModifiedOnline(Context context, long rowId,
+            long last_modified_online) {
+        ContentValues values = new ContentValues();
+        values.put(HostsSources.LAST_MODIFIED_ONLINE, last_modified_online);
+        context.getContentResolver().update(HostsSources.buildUri(Long.toString(rowId)), values,
+                null, null);
+    }
+
+    public static Cursor getEnabledHostsSourcesCursor(Context context) {
+        return context.getContentResolver().query(
+                HostsSources.CONTENT_URI,
+                new String[] { HostsSources._ID, HostsSources.URL,
+                        HostsSources.LAST_MODIFIED_LOCAL, HostsSources.LAST_MODIFIED_ONLINE,
+                        HostsSources.ENABLED }, HostsSources.ENABLED + "=1", null,
+                HostsSources.DEFAULT_SORT);
+    }
+
+    /**
+     * Returns all hosts sources, that are enabled as ArrayList
+     * 
+     * @param context
+     * @return
+     */
+    public static ArrayList<String> getEnabledHostsSourcesArrayList(Context context) {
+        ArrayList<String> list = new ArrayList<String>();
+        Cursor cursor = getEnabledHostsSourcesCursor(context);
+
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(cursor.getColumnIndexOrThrow(HostsSources.URL)));
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+
+        return list;
+    }
+
+    /**
+     * Go through all enabled hosts sources and set local last modified to online last modified
+     * 
+     * @param context
+     * @return
+     */
+    public static void updateAllEnabledHostsSourcesLastModifiedLocalFromOnline(Context context) {
+        Cursor cursor = getEnabledHostsSourcesCursor(context);
+        int idCol = cursor.getColumnIndex(HostsSources._ID);
+        int lastModifiedOnlineCol = cursor.getColumnIndex(HostsSources.LAST_MODIFIED_ONLINE);
+
+        long lastModifiedOnline;
+        long id;
+
+        if (cursor.moveToFirst()) {
+            do {
+                lastModifiedOnline = cursor.getLong(lastModifiedOnlineCol);
+                id = cursor.getLong(idCol);
+
+                // set last_modified_local to last modified_online
+                updateHostsSourceLastModifiedLocal(context, id, lastModifiedOnline);
+
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+    }
+
     /* WHITELIST */
 
     public static void insertWhitelistItem(Context context, String hostname) {
         ContentValues values = new ContentValues();
-        values.put(Whitelist.URL, hostname);
+        values.put(Whitelist.HOSTNAME, hostname);
         values.put(Whitelist.ENABLED, true); // default is enabled
         context.getContentResolver().insert(Whitelist.CONTENT_URI, values);
     }
@@ -75,7 +156,7 @@ public class ProviderHelper {
 
     public static void updateWhitelistItemHostname(Context context, long rowId, String hostname) {
         ContentValues values = new ContentValues();
-        values.put(Whitelist.URL, hostname);
+        values.put(Whitelist.HOSTNAME, hostname);
         context.getContentResolver().update(Whitelist.buildUri(Long.toString(rowId)), values, null,
                 null);
     }
@@ -87,11 +168,39 @@ public class ProviderHelper {
                 null);
     }
 
+    public static Cursor getEnabledWhitelistCursor(Context context) {
+        return context.getContentResolver().query(Whitelist.CONTENT_URI,
+                new String[] { Whitelist._ID, Whitelist.HOSTNAME, Whitelist.ENABLED },
+                Whitelist.ENABLED + "=1", null, Whitelist.DEFAULT_SORT);
+    }
+
+    /**
+     * Returns all whitelist items, that are enabled as HashSet
+     * 
+     * @param context
+     * @return
+     */
+    public static HashSet<String> getEnabledWhitelistArrayList(Context context) {
+        HashSet<String> list = new HashSet<String>();
+        Cursor cursor = getEnabledWhitelistCursor(context);
+
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(cursor.getColumnIndexOrThrow(Whitelist.HOSTNAME)));
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+
+        return list;
+    }
+
     /* BLACKLIST */
 
     public static void insertBlacklistItem(Context context, String hostname) {
         ContentValues values = new ContentValues();
-        values.put(Blacklist.URL, hostname);
+        values.put(Blacklist.HOSTNAME, hostname);
         values.put(Blacklist.ENABLED, true); // default is enabled
         context.getContentResolver().insert(Blacklist.CONTENT_URI, values);
     }
@@ -102,7 +211,7 @@ public class ProviderHelper {
 
     public static void updateBlacklistItemHostname(Context context, long rowId, String hostname) {
         ContentValues values = new ContentValues();
-        values.put(Blacklist.URL, hostname);
+        values.put(Blacklist.HOSTNAME, hostname);
         context.getContentResolver().update(Blacklist.buildUri(Long.toString(rowId)), values, null,
                 null);
     }
@@ -114,11 +223,39 @@ public class ProviderHelper {
                 null);
     }
 
+    public static Cursor getEnabledBlacklistCursor(Context context) {
+        return context.getContentResolver().query(Blacklist.CONTENT_URI,
+                new String[] { Blacklist._ID, Blacklist.HOSTNAME, Blacklist.ENABLED },
+                Blacklist.ENABLED + "=1", null, Blacklist.DEFAULT_SORT);
+    }
+
+    /**
+     * Returns all blacklist items, that are enabled as HashSet
+     * 
+     * @param context
+     * @return
+     */
+    public static HashSet<String> getEnabledBlacklistArrayList(Context context) {
+        HashSet<String> list = new HashSet<String>();
+        Cursor cursor = getEnabledBlacklistCursor(context);
+
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(cursor.getColumnIndexOrThrow(Blacklist.HOSTNAME)));
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+
+        return list;
+    }
+
     /* REDIRECTION LIST */
 
     public static void insertRedirectionListItem(Context context, String hostname, String ip) {
         ContentValues values = new ContentValues();
-        values.put(RedirectionList.URL, hostname);
+        values.put(RedirectionList.HOSTNAME, hostname);
         values.put(RedirectionList.IP, ip);
         values.put(RedirectionList.ENABLED, true); // default is enabled
         context.getContentResolver().insert(RedirectionList.CONTENT_URI, values);
@@ -132,7 +269,7 @@ public class ProviderHelper {
     public static void updateRedirectionListItemHostnameAndIp(Context context, long rowId,
             String hostname, String ip) {
         ContentValues values = new ContentValues();
-        values.put(RedirectionList.URL, hostname);
+        values.put(RedirectionList.HOSTNAME, hostname);
         values.put(RedirectionList.IP, ip);
         context.getContentResolver().update(RedirectionList.buildUri(Long.toString(rowId)), values,
                 null, null);
@@ -143,6 +280,31 @@ public class ProviderHelper {
         values.put(RedirectionList.ENABLED, enabled);
         context.getContentResolver().update(RedirectionList.buildUri(Long.toString(rowId)), values,
                 null, null);
+    }
+
+    public static Cursor getEnabledRedirectionListCursor(Context context) {
+        return context.getContentResolver().query(
+                RedirectionList.CONTENT_URI,
+                new String[] { RedirectionList._ID, RedirectionList.HOSTNAME, RedirectionList.IP,
+                        RedirectionList.ENABLED }, RedirectionList.ENABLED + "=1", null,
+                RedirectionList.DEFAULT_SORT);
+    }
+
+    public static HashMap<String, String> getEnabledRedirectionListHashMap(Context context) {
+        HashMap<String, String> list = new HashMap<String, String>();
+        Cursor cursor = getEnabledRedirectionListCursor(context);
+
+        if (cursor.moveToFirst()) {
+            do {
+                list.put(cursor.getString(cursor.getColumnIndexOrThrow(RedirectionList.HOSTNAME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(RedirectionList.IP)));
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+
+        return list;
     }
 
 }

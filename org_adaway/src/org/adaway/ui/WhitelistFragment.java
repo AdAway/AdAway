@@ -323,7 +323,7 @@ public class WhitelistFragment extends ListFragment implements
 
     // These are the rows that we will retrieve.
     static final String[] WHITELIST_SUMMARY_PROJECTION = new String[] { Whitelist._ID,
-            Whitelist.URL, Whitelist.ENABLED };
+            Whitelist.HOSTNAME, Whitelist.ENABLED };
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {

@@ -33,17 +33,17 @@ public class AdAwayContract {
     }
 
     interface WhitelistColumns {
-        String URL = "url"; // TODO: rename to hostname
+        String HOSTNAME = "url"; // is url because of legacy reasons
         String ENABLED = "enabled";
     }
 
     interface BlacklistColumns {
-        String URL = "url";// TODO: rename to hostname
+        String HOSTNAME = "url"; // is url because of legacy reasons
         String ENABLED = "enabled";
     }
 
     interface RedirectionListColumns {
-        String URL = "url";// TODO: rename to hostname
+        String HOSTNAME = "url"; // is url because of legacy reasons
         String IP = "ip";
         String ENABLED = "enabled";
     }
@@ -93,7 +93,7 @@ public class AdAwayContract {
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.whitelist";
 
         /** Default "ORDER BY" clause. */
-        public static final String DEFAULT_SORT = WhitelistColumns.URL + " ASC";
+        public static final String DEFAULT_SORT = WhitelistColumns.HOSTNAME + " ASC";
 
         public static Uri buildUri(String id) {
             return CONTENT_URI.buildUpon().appendPath(id).build();
@@ -115,7 +115,7 @@ public class AdAwayContract {
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.blacklist";
 
         /** Default "ORDER BY" clause. */
-        public static final String DEFAULT_SORT = BlacklistColumns.URL + " ASC";
+        public static final String DEFAULT_SORT = BlacklistColumns.HOSTNAME + " ASC";
 
         public static Uri buildUri(String id) {
             return CONTENT_URI.buildUpon().appendPath(id).build();
@@ -137,7 +137,7 @@ public class AdAwayContract {
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.redirectionlist";
 
         /** Default "ORDER BY" clause. */
-        public static final String DEFAULT_SORT = RedirectionListColumns.URL + " ASC";
+        public static final String DEFAULT_SORT = RedirectionListColumns.HOSTNAME + " ASC";
 
         public static Uri buildUri(String id) {
             return CONTENT_URI.buildUpon().appendPath(id).build();

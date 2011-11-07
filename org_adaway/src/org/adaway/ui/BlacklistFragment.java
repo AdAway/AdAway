@@ -323,7 +323,7 @@ public class BlacklistFragment extends ListFragment implements
 
     // These are the rows that we will retrieve.
     static final String[] BLACKLIST_SUMMARY_PROJECTION = new String[] { Blacklist._ID,
-            Blacklist.URL, Blacklist.ENABLED };
+            Blacklist.HOSTNAME, Blacklist.ENABLED };
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {

@@ -59,10 +59,10 @@ public class CheckboxCursorAdapter extends SimpleCursorAdapter {
             }
 
             // can also be used for Blacklist
-            int urlCol = cursor.getColumnIndexOrThrow(Blacklist.URL);
-            String url = cursor.getString(urlCol);
+            int hostnameCol = cursor.getColumnIndexOrThrow(Blacklist.HOSTNAME);
+            String hostname = cursor.getString(hostnameCol);
 
-            cBox.setText(url);
+            cBox.setText(hostname);
         }
     }
 

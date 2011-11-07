@@ -63,9 +63,9 @@ public class RedirectionCursorAdapter extends SimpleCursorAdapter {
             }
 
             // set hostname
-            int urlCol = cursor.getColumnIndexOrThrow(RedirectionList.URL);
-            String url = cursor.getString(urlCol);
-            hostnameTextView.setText(url);
+            int hostnameCol = cursor.getColumnIndexOrThrow(RedirectionList.HOSTNAME);
+            String hostname = cursor.getString(hostnameCol);
+            hostnameTextView.setText(hostname);
 
             // set ip
             int ipCol = cursor.getColumnIndexOrThrow(RedirectionList.IP);
