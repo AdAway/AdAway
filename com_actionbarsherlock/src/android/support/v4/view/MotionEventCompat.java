@@ -38,19 +38,33 @@ public class MotionEventCompat {
     static class BaseMotionEventVersionImpl implements MotionEventVersionImpl {
         @Override
         public int findPointerIndex(MotionEvent event, int pointerId) {
+            if (pointerId == 0) {
+                // id 0 == index 0 and vice versa.
+                return 0;
+            }
             return -1;
         }
         @Override
         public int getPointerId(MotionEvent event, int pointerIndex) {
-            return -1;
+            if (pointerIndex == 0) {
+                // index 0 == id 0 and vice versa.
+                return 0;
+            }
+            throw new IndexOutOfBoundsException("Pre-Eclair does not support multiple pointers");
         }
         @Override
         public float getX(MotionEvent event, int pointerIndex) {
-            return event.getX();
+            if (pointerIndex == 0) {
+                return event.getX();
+            }
+            throw new IndexOutOfBoundsException("Pre-Eclair does not support multiple pointers");
         }
         @Override
         public float getY(MotionEvent event, int pointerIndex) {
-            return event.getY();
+            if (pointerIndex == 0) {
+                return event.getY();
+            }
+            throw new IndexOutOfBoundsException("Pre-Eclair does not support multiple pointers");
         }
     }
 

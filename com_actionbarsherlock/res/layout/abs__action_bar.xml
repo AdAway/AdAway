@@ -22,32 +22,13 @@
 			android:id="@+id/abs__home_wrapper"
 			android:background="?selectableItemBackground"
 			android:layout_width="wrap_content"
-			android:layout_height="fill_parent">
-			<ImageView
-				android:layout_gravity="left|center"
-				android:id="@+id/abs__up"
-				android:visibility="gone"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginRight="-12dip"
-				android:layout_marginLeft="-4dip"
-				android:src="?homeAsUpIndicator" />
-			<ImageView
-				android:layout_gravity="center"
-				android:id="@+id/abs__home"
-				android:paddingLeft="6dip"
-				android:paddingRight="6dip"
-				android:layout_width="wrap_content"
-				android:layout_height="fill_parent"
-				android:scaleType="center" />
-		</LinearLayout>
+			android:layout_height="fill_parent"/>
 
 		<LinearLayout
 			android:id="@+id/abs__actions"
 			android:layout_width="wrap_content"
 			android:layout_height="fill_parent"
 			android:layout_alignParentRight="true" />
-
 		<RelativeLayout
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
@@ -95,7 +76,6 @@
 				android:visibility="gone" />
 		</RelativeLayout>
 	</RelativeLayout>
-
 	<LinearLayout
 		android:id="@+id/abs__nav_tabs"
 		android:layout_width="fill_parent"

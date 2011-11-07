@@ -216,10 +216,6 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
     // from all transactions.
     FragmentManager mFragmentManager;
 
-    // Set as soon as a fragment is added to a transaction (or removed),
-    // to be able to do validation.
-    SupportActivity mImmediateActivity;
-
     // Activity this fragment is attached to.
     SupportActivity mActivity;
 
@@ -253,9 +249,8 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
     // If set this fragment has menu items to contribute.
     boolean mHasMenu;
 
-    // Used to control whether or not this fragments menus (both options and
-    // context) are exposed regardless of whether or not they actually exist.
-    boolean mExposesMenu = true;
+    // Set to true to allow the fragment's menu to be shown.
+    boolean mMenuVisible = true;
 
     // Used to verify that subclasses call through to super class.
     boolean mCalled;
@@ -729,6 +724,24 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
     }
 
     /**
+     * Set a hint for whether this fragment's menu should be visible.  This
+     * is useful if you know that a fragment has been placed in your view
+     * hierarchy so that the user can not currently seen it, so any menu items
+     * it has should also not be shown.
+     *
+     * @param menuVisible The default is true, meaning the fragment's menu will
+     * be shown as usual.  If false, the user will not see the menu.
+     */
+    public void setMenuVisibility(boolean menuVisible) {
+        if (mMenuVisible != menuVisible) {
+            mMenuVisible = menuVisible;
+            if (mHasMenu && isAdded() && !isHidden()) {
+                mActivity.invalidateOptionsMenu();
+            }
+        }
+    }
+
+    /**
      * Return the LoaderManager for this fragment, creating it if needed.
      */
     public LoaderManager getLoaderManager() {
@@ -1060,7 +1073,6 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
         mBackStackNesting = 0;
         mFragmentManager = null;
         mActivity = null;
-        mImmediateActivity = null;
         mFragmentId = 0;
         mContainerId = 0;
         mTag = null;
@@ -1152,7 +1164,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
      * @param menu The options menu as last shown or first initialized by
      *             onCreateOptionsMenu().
      */
-    public void onOptionsMenuClosed(android.view.Menu menu) {
+    public void onOptionsMenuClosed(Menu menu) {
     }
 
     /**
@@ -1218,7 +1230,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
      * @return boolean Return false to allow normal context menu processing to
      *         proceed, true to consume it here.
      */
-    public boolean onContextItemSelected(android.view.MenuItem item) {
+    public boolean onContextItemSelected(MenuItem item) {
         return false;
     }
 
@@ -1248,16 +1260,13 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
                 writer.print(" mInLayout="); writer.println(mInLayout);
         writer.print(prefix); writer.print("mHidden="); writer.print(mHidden);
                 writer.print(" mDetached="); writer.print(mDetached);
-                writer.print(" mRetainInstance="); writer.print(mRetainInstance);
-                writer.print(" mRetaining="); writer.print(mRetaining);
+                writer.print(" mMenuVisible="); writer.print(mMenuVisible);
                 writer.print(" mHasMenu="); writer.println(mHasMenu);
+        writer.print(prefix); writer.print("mRetainInstance="); writer.print(mRetainInstance);
+                writer.print(" mRetaining="); writer.println(mRetaining);
         if (mFragmentManager != null) {
             writer.print(prefix); writer.print("mFragmentManager=");
                     writer.println(mFragmentManager);
-        }
-        if (mImmediateActivity != null) {
-            writer.print(prefix); writer.print("mImmediateActivity=");
-                    writer.println(mImmediateActivity);
         }
         if (mActivity != null) {
             writer.print(prefix); writer.print("mActivity=");
@@ -1313,7 +1322,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
         onStop();
     }
 
-    void performReallyStop(boolean retaining) {
+    void performReallyStop() {
         if (mLoadersStarted) {
             mLoadersStarted = false;
             if (!mCheckedForLoaderManager) {
@@ -1321,7 +1330,7 @@ public class Fragment implements ComponentCallbacks, OnCreateContextMenuListener
                 mLoaderManager = mActivity.getInternalCallbacks().getLoaderManager(mIndex, mLoadersStarted, false);
             }
             if (mLoaderManager != null) {
-                if (!retaining) {
+                if (!mActivity.getInternalCallbacks().getRetaining()) {
                     mLoaderManager.doStop();
                 } else {
                     mLoaderManager.doRetain();

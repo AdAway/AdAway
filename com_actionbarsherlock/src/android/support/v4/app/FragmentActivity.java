@@ -77,15 +77,6 @@ public class FragmentActivity extends Activity implements SupportActivity {
     private static final String TAG = "FragmentActivity";
     private static final boolean DEBUG = false;
 
-    //The following are used so FragmentMapActivity gets the same resources WITHOUT inlining the values in its jar.
-    static int   R$layout$screen_action_bar_overlay = R.layout.abs__screen_action_bar_overlay;
-    static int   R$layout$screen_action_bar = R.layout.abs__screen_action_bar;
-    static int   R$layout$screen_simple = R.layout.abs__screen_simple;
-    static int   R$id$content = R.id.abs__content;
-    static int[] R$styleable$SherlockTheme = R.styleable.SherlockTheme;
-    static int   R$styleable$SherlockTheme_windowActionBar = R.styleable.SherlockTheme_windowActionBar;
-    static int   R$styleable$SherlockTheme_windowActionModeOverlay = R.styleable.SherlockTheme_windowActionModeOverlay;
-
     private static final String FRAGMENTS_TAG = "android:support:fragments";
 
     static final boolean IS_HONEYCOMB = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
@@ -123,6 +114,11 @@ public class FragmentActivity extends Activity implements SupportActivity {
         @Override
         void ensureSupportActionBarAttached() {
             FragmentActivity.this.ensureSupportActionBarAttached();
+        }
+
+        @Override
+        boolean getRetaining() {
+            return mRetaining;
         }
     };
 
@@ -162,6 +158,7 @@ public class FragmentActivity extends Activity implements SupportActivity {
     boolean mResumed;
     boolean mStopped;
     boolean mReallyStopped;
+    boolean mRetaining;
 
     boolean mOptionsMenuInvalidated;
     boolean mOptionsMenuCreateResult;
@@ -173,6 +170,7 @@ public class FragmentActivity extends Activity implements SupportActivity {
 
     static final class NonConfigurationInstances {
         Object activity;
+        Object custom;
         HashMap<String, Object> children;
         ArrayList<Fragment> fragments;
         HCSparseArray<LoaderManagerImpl> loaders;
@@ -524,7 +522,6 @@ public class FragmentActivity extends Activity implements SupportActivity {
             fragment.mContainerId = containerId;
             fragment.mTag = tag;
             fragment.mInLayout = true;
-            fragment.mImmediateActivity = this;
             fragment.mFragmentManager = mFragments;
             fragment.onInflate(this, attrs, fragment.mSavedFragmentState);
             mFragments.addFragment(fragment, true);
@@ -540,7 +537,6 @@ public class FragmentActivity extends Activity implements SupportActivity {
             // This fragment was retained from a previous instance; get it
             // going now.
             fragment.mInLayout = true;
-            fragment.mImmediateActivity = this;
             // If this fragment is newly instantiated (either right now, or
             // from last saved state), then give it the attributes to
             // initialize itself.
@@ -576,10 +572,12 @@ public class FragmentActivity extends Activity implements SupportActivity {
             mOptionsMenuCreateResult |= mFragments.dispatchCreateOptionsMenu(mSupportMenu, getMenuInflater());
 
             if (getSupportActionBar() != null) {
+                if (onPrepareOptionsMenu(mSupportMenu)) {
+                    mFragments.dispatchPrepareOptionsMenu(mSupportMenu);
+                }
+
                 //Since we now know we are using a custom action bar, perform the
                 //inflation callback to allow it to display any items it wants.
-                //Any items that were displayed will have a boolean toggled so that we
-                //do not display them on the options menu.
                 ((ActionBarImpl)mActionBar).onMenuInflated(mSupportMenu);
             }
 
@@ -692,7 +690,7 @@ public class FragmentActivity extends Activity implements SupportActivity {
     public void onPanelClosed(int featureId, android.view.Menu menu) {
         switch (featureId) {
             case Window.FEATURE_OPTIONS_PANEL:
-                mFragments.dispatchOptionsMenuClosed(menu);
+                mFragments.dispatchOptionsMenuClosed(new MenuWrapper(menu));
 
                 if (!IS_HONEYCOMB && (getSupportActionBar() != null)) {
                     if (DEBUG) Log.d(TAG, "onPanelClosed(int, android.view.Menu): Dispatch menu visibility false to custom action bar.");
@@ -844,13 +842,16 @@ public class FragmentActivity extends Activity implements SupportActivity {
 
     /**
      * Retain all appropriate fragment and loader state.  You can NOT
-     * override this yourself!
+     * override this yourself!  Use {@link #onRetainCustomNonConfigurationInstance()}
+     * if you want to retain your own state.
      */
     @Override
     public final Object onRetainNonConfigurationInstance() {
         if (mStopped) {
             doReallyStop(true);
         }
+
+        Object custom = onRetainCustomNonConfigurationInstance();
 
         ArrayList<Fragment> fragments = mFragments.retainNonConfig();
         boolean retainLoaders = false;
@@ -867,12 +868,13 @@ public class FragmentActivity extends Activity implements SupportActivity {
                 }
             }
         }
-        if (fragments == null && !retainLoaders) {
+        if (fragments == null && !retainLoaders && custom == null) {
             return null;
         }
 
         NonConfigurationInstances nci = new NonConfigurationInstances();
         nci.activity = null;
+        nci.custom = custom;
         nci.children = null;
         nci.fragments = fragments;
         nci.loaders = mAllLoaderManagers;
@@ -900,6 +902,7 @@ public class FragmentActivity extends Activity implements SupportActivity {
         super.onStart();
 
         mStopped = false;
+        mReallyStopped = false;
         mHandler.removeMessages(MSG_REALLY_STOPPED);
 
         if (!mCreated) {
@@ -973,6 +976,32 @@ public class FragmentActivity extends Activity implements SupportActivity {
     // ------------------------------------------------------------------------
 
     /**
+     * Use this instead of {@link #onRetainNonConfigurationInstance()}.
+     * Retrieve later with {@link #getLastCustomNonConfigurationInstance()}.
+     */
+    public Object onRetainCustomNonConfigurationInstance() {
+        return null;
+    }
+
+    /**
+     * Return the value previously returned from
+     * {@link #onRetainCustomNonConfigurationInstance()}.
+     */
+    public Object getLastCustomNonConfigurationInstance() {
+        NonConfigurationInstances nc = (NonConfigurationInstances)
+                getLastNonConfigurationInstance();
+        return nc != null ? nc.custom : null;
+    }
+
+    /**
+     * @deprecated Use {@link invalidateOptionsMenu}.
+     */
+    @Deprecated
+    void supportInvalidateOptionsMenu() {
+        invalidateOptionsMenu();
+    }
+
+    /**
      * Print the Activity's state into the given stream.  This gets invoked if
      * you run "adb shell dumpsys activity <activity_component_name>".
      *
@@ -1011,8 +1040,9 @@ public class FragmentActivity extends Activity implements SupportActivity {
     void doReallyStop(boolean retaining) {
         if (!mReallyStopped) {
             mReallyStopped = true;
+            mRetaining = retaining;
             mHandler.removeMessages(MSG_REALLY_STOPPED);
-            onReallyStop(retaining);
+            onReallyStop();
         }
     }
 
@@ -1023,11 +1053,11 @@ public class FragmentActivity extends Activity implements SupportActivity {
      * we need to know this, to know whether to retain fragments.  This will
      * tell us what we need to know.
      */
-    void onReallyStop(boolean retaining) {
+    void onReallyStop() {
         if (mLoadersStarted) {
             mLoadersStarted = false;
             if (mLoaderManager != null) {
-                if (!retaining) {
+                if (!mRetaining) {
                     mLoaderManager.doStop();
                 } else {
                     mLoaderManager.doRetain();
@@ -1035,7 +1065,7 @@ public class FragmentActivity extends Activity implements SupportActivity {
             }
         }
 
-        mFragments.dispatchReallyStop(retaining);
+        mFragments.dispatchReallyStop();
     }
 
     // ------------------------------------------------------------------------
@@ -1171,10 +1201,10 @@ public class FragmentActivity extends Activity implements SupportActivity {
         //Log.v(TAG, "invalidateFragmentIndex: index=" + index);
         if (mAllLoaderManagers != null) {
             LoaderManagerImpl lm = mAllLoaderManagers.get(index);
-            if (lm != null) {
+            if (lm != null && !lm.mRetaining) {
                 lm.doDestroy();
+                mAllLoaderManagers.remove(index);
             }
-            mAllLoaderManagers.remove(index);
         }
     }
 

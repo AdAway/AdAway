@@ -66,6 +66,7 @@ public interface SupportActivity {
         abstract FragmentManagerImpl getFragments();
         abstract LoaderManagerImpl getLoaderManager(int index, boolean started, boolean create);
         abstract void invalidateSupportFragmentIndex(int index);
+        abstract boolean getRetaining();
     }
 
     InternalCallbacks getInternalCallbacks();

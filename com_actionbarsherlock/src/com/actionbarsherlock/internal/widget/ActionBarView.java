@@ -11,6 +11,7 @@ import android.support.v4.view.Window;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -34,7 +35,7 @@ public final class ActionBarView extends RelativeLayout {
 
 
     private final View mHomeAsUpView;
-    private final View mHomeLayout;
+    private final ViewGroup mHomeLayout;
     private final ActionMenuItem mLogoNavItem;
 
     private final CharSequence mTitle;
@@ -161,8 +162,9 @@ public final class ActionBarView extends RelativeLayout {
 
         /// HOME ////
 
-        //TODO load optional home layout from theme
-        mHomeLayout = findViewById(R.id.abs__home_wrapper);
+        mHomeLayout = (ViewGroup) findViewById(R.id.abs__home_wrapper);
+        final int homeLayoutResource = a.getResourceId(R.styleable.SherlockTheme_abHomeLayout, R.layout.abs__action_bar_home);
+        LayoutInflater.from(context).inflate(homeLayoutResource, mHomeLayout, true);
 
         //Try to load the logo from the theme
         mLogo = a.getDrawable(R.styleable.SherlockTheme_abLogo);

@@ -21,7 +21,6 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.os.Handler;
-import android.util.Config;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -444,9 +443,10 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable,
      *
      * @see ContentObserver#onChange(boolean)
      */
+    @SuppressWarnings("unused")
     protected void onContentChanged() {
         if (mAutoRequery && mCursor != null && !mCursor.isClosed()) {
-            if (Config.LOGV) Log.v("Cursor", "Auto requerying " + mCursor + " due to update");
+            if (false) Log.v("Cursor", "Auto requerying " + mCursor + " due to update");
             mDataValid = mCursor.requery();
         }
     }

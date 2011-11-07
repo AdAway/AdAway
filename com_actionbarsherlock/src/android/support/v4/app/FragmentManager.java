@@ -78,6 +78,13 @@ public abstract class FragmentManager {
         public int getId();
 
         /**
+         * Get the name that was supplied to
+         * {@link FragmentTransaction#addToBackStack(String)
+         * FragmentTransaction.addToBackStack(String)} when creating this entry.
+         */
+        public String getName();
+
+        /**
          * Return the full bread crumb title resource identifier for the entry,
          * or 0 if it does not have one.
          */
@@ -887,6 +894,8 @@ final class FragmentManagerImpl extends FragmentManager {
                             throw new SuperNotCalledException("Fragment " + f
                                     + " did not call through to super.onResume()");
                         }
+                        f.mSavedFragmentState = null;
+                        f.mSavedViewState = null;
                     }
             }
         } else if (f.mState > newState) {
@@ -913,6 +922,10 @@ final class FragmentManagerImpl extends FragmentManager {
                         }
                     }
                 case Fragment.STOPPED:
+                    if (newState < Fragment.STOPPED) {
+                        if (DEBUG) Log.v(TAG, "movefrom STOPPED: " + f);
+                        f.performReallyStop();
+                    }
                 case Fragment.ACTIVITY_CREATED:
                     if (newState < Fragment.ACTIVITY_CREATED) {
                         if (DEBUG) Log.v(TAG, "movefrom ACTIVITY_CREATED: " + f);
@@ -1005,7 +1018,6 @@ final class FragmentManagerImpl extends FragmentManager {
                             if (!f.mRetaining) {
                                 makeInactive(f);
                             } else {
-                                f.mImmediateActivity = null;
                                 f.mActivity = null;
                                 f.mFragmentManager = null;
                             }
@@ -1043,7 +1055,7 @@ final class FragmentManagerImpl extends FragmentManager {
                 }
             }
 
-            if (mNeedMenuInvalidate && mActivity != null) {
+            if (mNeedMenuInvalidate && mActivity != null && mCurState == Fragment.RESUMED) {
                 mActivity.invalidateOptionsMenu();
                 mNeedMenuInvalidate = false;
             }
@@ -1093,7 +1105,7 @@ final class FragmentManagerImpl extends FragmentManager {
             mAdded.add(fragment);
             fragment.mAdded = true;
             fragment.mRemoving = false;
-            if (fragment.mHasMenu && fragment.mExposesMenu) {
+            if (fragment.mHasMenu && fragment.mMenuVisible) {
                 mNeedMenuInvalidate = true;
             }
             if (moveToStateNow) {
@@ -1107,7 +1119,7 @@ final class FragmentManagerImpl extends FragmentManager {
         final boolean inactive = !fragment.isInBackStack();
         if (!fragment.mDetached || inactive) {
             mAdded.remove(fragment);
-            if (fragment.mHasMenu && fragment.mExposesMenu) {
+            if (fragment.mHasMenu && fragment.mMenuVisible) {
                 mNeedMenuInvalidate = true;
             }
             fragment.mAdded = false;
@@ -1129,7 +1141,7 @@ final class FragmentManagerImpl extends FragmentManager {
                 }
                 fragment.mView.setVisibility(View.GONE);
             }
-            if (fragment.mAdded && fragment.mHasMenu && fragment.mExposesMenu) {
+            if (fragment.mAdded && fragment.mHasMenu && fragment.mMenuVisible) {
                 mNeedMenuInvalidate = true;
             }
             fragment.onHiddenChanged(true);
@@ -1148,7 +1160,7 @@ final class FragmentManagerImpl extends FragmentManager {
                 }
                 fragment.mView.setVisibility(View.VISIBLE);
             }
-            if (fragment.mAdded && fragment.mHasMenu && fragment.mExposesMenu) {
+            if (fragment.mAdded && fragment.mHasMenu && fragment.mMenuVisible) {
                 mNeedMenuInvalidate = true;
             }
             fragment.onHiddenChanged(false);
@@ -1162,7 +1174,7 @@ final class FragmentManagerImpl extends FragmentManager {
             if (fragment.mAdded) {
                 // We are not already in back stack, so need to remove the fragment.
                 mAdded.remove(fragment);
-                if (fragment.mHasMenu && fragment.mExposesMenu) {
+                if (fragment.mHasMenu && fragment.mMenuVisible) {
                     mNeedMenuInvalidate = true;
                 }
                 fragment.mAdded = false;
@@ -1178,7 +1190,7 @@ final class FragmentManagerImpl extends FragmentManager {
             if (!fragment.mAdded) {
                 mAdded.add(fragment);
                 fragment.mAdded = true;
-                if (fragment.mHasMenu && fragment.mExposesMenu) {
+                if (fragment.mHasMenu && fragment.mMenuVisible) {
                     mNeedMenuInvalidate = true;
                 }
                 moveToState(fragment, mCurState, transition, transitionStyle);
@@ -1365,6 +1377,7 @@ final class FragmentManagerImpl extends FragmentManager {
             mExecutingActions = true;
             for (int i=0; i<numActions; i++) {
                 mTmpActions[i].run();
+                mTmpActions[i] = null;
             }
             mExecutingActions = false;
             didSomething = true;
@@ -1698,7 +1711,6 @@ final class FragmentManagerImpl extends FragmentManager {
                             "No instantiated fragment for index #" + fms.mAdded[i]);
                 }
                 f.mAdded = true;
-                f.mImmediateActivity = mActivity;
                 if (DEBUG) Log.v(TAG, "restoreAllState: making added #" + i + ": " + f);
                 mAdded.add(f);
             }
@@ -1765,19 +1777,13 @@ final class FragmentManagerImpl extends FragmentManager {
         moveToState(Fragment.STOPPED, false);
     }
 
-    public void dispatchReallyStop(boolean retaining) {
-        if (mActive != null) {
-            for (int i=0; i<mAdded.size(); i++) {
-                Fragment f = mAdded.get(i);
-                if (f != null) {
-                    f.performReallyStop(retaining);
-                }
-            }
-        }
+    public void dispatchReallyStop() {
+        moveToState(Fragment.ACTIVITY_CREATED, false);
     }
 
     public void dispatchDestroy() {
         mDestroyed = true;
+        execPendingActions();
         moveToState(Fragment.INITIALIZING, false);
         mActivity = null;
     }
@@ -1810,7 +1816,7 @@ final class FragmentManagerImpl extends FragmentManager {
         if (mActive != null) {
             for (int i=0; i<mAdded.size(); i++) {
                 Fragment f = mAdded.get(i);
-                if (f != null && !f.mHidden && f.mHasMenu && f.mExposesMenu) {
+                if (f != null && !f.mHidden && f.mHasMenu && f.mMenuVisible) {
                     show = true;
                     f.onCreateOptionsMenu(menu, inflater);
                     if (newMenus == null) {
@@ -1840,7 +1846,7 @@ final class FragmentManagerImpl extends FragmentManager {
         if (mActive != null) {
             for (int i=0; i<mAdded.size(); i++) {
                 Fragment f = mAdded.get(i);
-                if (f != null && !f.mHidden && f.mHasMenu && f.mExposesMenu) {
+                if (f != null && !f.mHidden && f.mHasMenu && f.mMenuVisible) {
                     show = true;
                     f.onPrepareOptionsMenu(menu);
                 }
@@ -1853,7 +1859,7 @@ final class FragmentManagerImpl extends FragmentManager {
         if (mActive != null) {
             for (int i=0; i<mAdded.size(); i++) {
                 Fragment f = mAdded.get(i);
-                if (f != null && !f.mHidden && f.mHasMenu && f.mExposesMenu) {
+                if (f != null && !f.mHidden && f.mHasMenu && f.mMenuVisible) {
                     if (f.onOptionsItemSelected(item)) {
                         return true;
                     }
@@ -1867,7 +1873,7 @@ final class FragmentManagerImpl extends FragmentManager {
         if (mActive != null) {
             for (int i=0; i<mAdded.size(); i++) {
                 Fragment f = mAdded.get(i);
-                if (f != null && !f.mHidden && f.mExposesMenu) {
+                if (f != null && !f.mHidden && f.mMenuVisible) {
                     if (f.onContextItemSelected(item)) {
                         return true;
                     }
@@ -1877,11 +1883,11 @@ final class FragmentManagerImpl extends FragmentManager {
         return false;
     }
 
-    public void dispatchOptionsMenuClosed(android.view.Menu menu) {
+    public void dispatchOptionsMenuClosed(Menu menu) {
         if (mActive != null) {
             for (int i=0; i<mAdded.size(); i++) {
                 Fragment f = mAdded.get(i);
-                if (f != null && !f.mHidden && f.mHasMenu && f.mExposesMenu) {
+                if (f != null && !f.mHidden && f.mHasMenu && f.mMenuVisible) {
                     f.onOptionsMenuClosed(menu);
                 }
             }

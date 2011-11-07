@@ -17,7 +17,6 @@
 package android.support.v4.content;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.util.TimeUtils;
@@ -38,7 +37,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     static final String TAG = "AsyncTaskLoader";
     static final boolean DEBUG = false;
 
-    final class LoadTask extends AsyncTask<Void, Void, D> implements Runnable {
+    final class LoadTask extends ModernAsyncTask<Void, Void, D> implements Runnable {
 
         D result;
         boolean waiting;
@@ -193,9 +192,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
                 }
             }
             if (DEBUG) Log.v(TAG, "Executing: " + mTask);
-            mTask.execute((Void[]) null);
-            // XXX TO DO: use reflection to call this version.
-            //mTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
+            mTask.executeOnExecutor(ModernAsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
         }
     }
 

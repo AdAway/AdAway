@@ -77,15 +77,15 @@ public abstract class PagerAdapter {
     public abstract void destroyItem(View container, int position, Object object);
 
     /**
-     * Notification for when an item has been selected in the associated pager.
-     * This can be used to update the state of the item or activity based on which
-     * item is currently selected.
+     * Called to inform the adapter of which item is currently considered to
+     * be the "primary", that is the one show to the user as the current page.
      *
-     * @param position The selected page position.
-     * @param object The object of the selected page.
+     * @param container The containing View from which the page will be removed.
+     * @param position The page position that is now the primary.
+     * @param object The same object that was returned by
+     * {@link #instantiateItem(View, int)}.
      */
-    public void onItemSelected(int position, Object object) {
-        //For rent. Call 1-800-VIEW-PGR.
+    public void setPrimaryItem(View container, int position, Object object) {
     }
 
     /**

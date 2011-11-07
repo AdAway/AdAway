@@ -33,6 +33,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
 
     private ArrayList<Fragment.SavedState> mSavedState = new ArrayList<Fragment.SavedState>();
     private ArrayList<Fragment> mFragments = new ArrayList<Fragment>();
+    private Fragment mCurrentPrimaryItem = null;
 
     public FragmentStatePagerAdapter(FragmentManager fm) {
         mFragmentManager = fm;
@@ -75,6 +76,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
         while (mFragments.size() <= position) {
             mFragments.add(null);
         }
+        fragment.setMenuVisibility(false);
         mFragments.set(position, fragment);
         mCurTransaction.add(container.getId(), fragment);
 
@@ -100,9 +102,23 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     }
 
     @Override
+    public void setPrimaryItem(View container, int position, Object object) {
+        Fragment fragment = (Fragment)object;
+        if (fragment != mCurrentPrimaryItem) {
+            if (mCurrentPrimaryItem != null) {
+                mCurrentPrimaryItem.setMenuVisibility(false);
+            }
+            if (fragment != null) {
+                fragment.setMenuVisibility(true);
+            }
+            mCurrentPrimaryItem = fragment;
+        }
+    }
+
+    @Override
     public void finishUpdate(View container) {
         if (mCurTransaction != null) {
-            mCurTransaction.commit();
+            mCurTransaction.commitAllowingStateLoss();
             mCurTransaction = null;
             mFragmentManager.executePendingTransactions();
         }
@@ -157,6 +173,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
                         while (mFragments.size() <= index) {
                             mFragments.add(null);
                         }
+                        f.setMenuVisibility(false);
                         mFragments.set(index, f);
                     } else {
                         Log.w(TAG, "Bad fragment at key " + key);
