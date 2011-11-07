@@ -151,6 +151,4 @@
   <string name="pref_webserver">Servidor Web local</string>
   <string name="pref_custom_target">Destino personalizado</string>
   <string name="pref_custom_target_summary">Sólo se utiliza si el destino del archivo hosts se configura como destino personalizado</string>
-  <string-array name="pref_apply_method_entries"></string-array>
-  <string name="pref_update_check_summary"></string>
 </resources>

@@ -151,6 +151,4 @@
   <string name="pref_webserver">Lokaler Webserver</string>
   <string name="pref_custom_target">Benutzerdefinierte hosts-Datei</string>
   <string name="pref_custom_target_summary">Wird nur benutzt, wenn die hosts-Datei auf benutzerdefiniert gesetzt wurde</string>
-  <string-array name="pref_apply_method_entries"></string-array>
-  <string name="pref_update_check_summary"></string>
 </resources>

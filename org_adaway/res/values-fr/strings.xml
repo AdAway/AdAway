@@ -150,6 +150,4 @@
   <string name="pref_webserver">Serveur web local</string>
   <string name="pref_custom_target">Cible personnalisée</string>
   <string name="pref_custom_target_summary">Utilisé uniquement si la cible du fichier hosts est réglée sur cible personnalisée</string>
-  <string-array name="pref_apply_method_entries"></string-array>
-  <string name="pref_update_check_summary"></string>
 </resources>
