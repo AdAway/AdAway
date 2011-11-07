@@ -5,7 +5,7 @@
 * Newer version of web server mongoose
 * Better handling of AdAway database
 - Fixed "Not enough space available" bug
-- Problem with applying fixed
+- Fixed problem with applying
 
 1.15
 - Added permission for Google Android Market donations
@@ -81,6 +81,15 @@
 
 
 Deutsch
+
+1.16
+* Übersetzungen: German, French, Spanish, Hebrew, Turkish, Chinese
+  Thanks to all contributors!
+* Besserer Check für Symlink
+* Neue Version des Webservers mongoose
+* Besseres Handling der AdAway-Datenbank
+- Fixed "Not enough space available" bug
+- Fixed problem with applying
 
 1.15
 - Berechtigung für Google Android Market Spenden hinzugefügt
