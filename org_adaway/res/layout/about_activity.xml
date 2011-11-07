@@ -68,6 +68,13 @@
             android:layout_marginTop="8dp"
             android:text="@string/about_license"
             android:textAppearance="@android:style/TextAppearance.Small" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/about_developer"
+            android:textAppearance="@android:style/TextAppearance.Small" />
 
         <TextView
             android:layout_width="wrap_content"

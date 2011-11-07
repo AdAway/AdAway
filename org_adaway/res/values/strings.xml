@@ -25,6 +25,7 @@
     <string name="about_description">AdAway is an open source ad blocker for Android.</string>
     <string name="about_license">License: GPL v3</string>
     <string name="about_version">Version:</string>
+    <string name="about_developer">Developer: Dominik Schürmann</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed.</string>
