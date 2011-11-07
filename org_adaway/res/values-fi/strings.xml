@@ -16,9 +16,6 @@
   <string name="apply_dialog_hosts">Luo isäntätiedosto</string>
   <string name="apply_dialog_apply">Hyväksy isäntätiedosto</string>
   <string name="menu_preferences">Asetukset</string>
-  <string name="pref_download">Yleiset asetukset</string>
-  <string name="pref_hosts">Isäntätiedosto</string>
-  <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>
   <string name="button_yes">Kyllä</string>
   <string name="button_no">Ei</string>
   <string name="revert_question">Haluatko todella palauttaa?</string>
@@ -32,7 +29,6 @@
   <string name="apply_fail_title">Soveltaminen epäonnistui</string>
   <string name="revert_problem">Palauttaminen epäonnistui.</string>
   <string name="menu_add">Lisää</string>
-  <string name="menu_add_qrcode">Lisää skannaamalla QR-koodi</string>
   <string name="no_url">Tämä ei ei ole kevollinen URL-osoite!</string>
   <string name="no_url_title">Virheellinen URL-osoite</string>
   <string name="button_add">Lisää</string>
@@ -83,10 +79,6 @@
   <string name="no_busybox">Busybox-binääriä ei löytynyt. Asenna se Android Marketista napsauttamalla alapuolella olevaa painiketta</string>
   <string name="no_busybox_title">Ei ole Busybox-binääriä</string>
   <string name="button_busybox">Asenna Busybox</string>
-  <string name="pref_update_check">Tarkista päivitykset</string>
-  <string name="pref_apply_method">Isäntätiedoston kohde</string>
-  <string name="pref_apply_method_summary">Ennen tämän asetuksen muuttamista, lue ohjeet tästä toimminnosta.</string>
-  <string name="pref_redirection_ip_summary">Kaikki estetyt palvelinnimet ohjataan tähän IP-osoitteeseen.</string>
   <string name="donations_description">Koetko tämän sovelluksen hyödylliseksi? Tue sen kehittämistä Flattr-palvelun kautta!</string>
   <string name="menu_donations">Lahjoitukset</string>
   <string name="donations_flattr_description">Flattr ottaa 10% kuukausipalkkiosta!</string>
@@ -106,8 +98,6 @@
   <string name="apply_symlink_successful_title">Symbolisen linkin luominen onnistui</string>
   <string name="apply_symlink_fail">Android ei voinut luoda symbolista linkkiä.\nTämä \"ominaisuus\" on lähinnä HTC-puhelimien S-ON-laitteissa!\n\nRatkaisu on käynnistää palautustilaan ja luoda sinne symbolinen linkki \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJos tämä ei toimi, etsi internetistä tietoa S-OFF:sta ja puhelimestasi.</string>
   <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
-  <string name="pref_header_preferences">Asetukset</string>
-  <string name="pref_header_preferences_summary">AdAwayn yleiset asetukset</string>
   <string name="menu_help">Ohjeet</string>
   <string name="menu_lists">Luettelosi</string>
   <string name="menu_show_hosts_file">Avaa isäntätiedosto</string>
@@ -123,19 +113,8 @@
   <string name="hosts_last_modified_local">Paikallinen:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="reboot_never_reboot">Älä koskaan käynnistä uudellen ja näytä tätä kysymystä ensi kerralla!</string>
-  <string name="pref_never_reboot">Piilota uudelleenkäynnistyksen valintaikkuna</string>
-  <string name="pref_never_reboot_summary">Piilottaa valintaikkunan, joka kysyy uudelleenkäynnistyksestä onnistuneen soveltamisen jälkeen</string>
-  <string name="pref_update_check_daily">Tarkista päivitykset päivittäin</string>
-  <string name="pref_update_check_daily_summary">Tarkista päivitykset taustalla ilmoituksilla</string>
   <string name="button_help">Ohjeet</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
-  <string name="pref_webserver_on_boot">Käynnistä web-palvelin käynnistyksessä</string>
-  <string name="pref_webserver_on_boot_summary">Käynnistä web-palvelin 5 sekunnin viivellä, jolloin tarkastalleen paikallisia IP-osoitteita</string>
-  <string name="pref_webserver_enabled">Ota web-palvelin käyttön</string>
-  <string name="pref_webserver_enabled_summary"></string>
-  <string name="pref_webserver">Paikallinen web-palvelin</string>
-  <string name="pref_custom_target">Mukautettu kohde</string>
-  <string name="pref_custom_target_summary">Käytetään vain, jos isäntätiedosto on määritetty mukautetuksi kohteeksi</string>
   <string name="no_text_editor_title">Ei ole tekstieditoria asennettu</string>
   <string name="no_text_editor">Tekstieditoria ei löytynyt avataksesi isäntätiedostoa. Voit asentaa Jota tai toisen tekstieditorin, jotta voit käsitellä tätä.\n\nHaluatko asentaa Jota-sovelluksen?</string>
   <string name="donations_flattr">Flattr</string>
@@ -153,4 +132,29 @@
 </string-array>
   <string name="donations_thanks_dialog_title">Kiitos!</string>
   <string name="donations_thanks_dialog">Kiitos lahjoituksestasi!\nArvostan sitä suuresti!</string>
+  <string name="pref_download">Yleiset asetukset</string>
+  <string name="pref_hosts">Isäntätiedosto</string>
+  <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>
+  <string name="pref_update_check">Tarkista päivitykset</string>
+  <string name="pref_apply_method">Isäntätiedoston kohde</string>
+  <string name="pref_apply_method_summary">Ennen tämän asetuksen muuttamista, lue ohjeet tästä toimminnosta.</string>
+  <string name="pref_redirection_ip_summary">Kaikki estetyt palvelinnimet ohjataan tähän IP-osoitteeseen.</string>
+  <string name="pref_header_preferences">Asetukset</string>
+  <string name="pref_header_preferences_summary">AdAwayn yleiset asetukset</string>
+  <string name="pref_never_reboot">Piilota uudelleenkäynnistyksen valintaikkuna</string>
+  <string name="pref_never_reboot_summary">Piilottaa valintaikkunan, joka kysyy uudelleenkäynnistyksestä onnistuneen soveltamisen jälkeen</string>
+  <string name="pref_update_check_daily">Tarkista päivitykset päivittäin</string>
+  <string name="pref_update_check_daily_summary">Tarkista päivitykset taustalla ilmoituksilla</string>
+  <string name="pref_webserver_on_boot">Käynnistä web-palvelin käynnistyksessä</string>
+  <string name="pref_webserver_on_boot_summary">Käynnistä web-palvelin 5 sekunnin viivellä, jolloin tarkastalleen paikallisia IP-osoitteita</string>
+  <string name="pref_webserver_enabled">Ota web-palvelin käyttön</string>
+  <string name="pref_webserver_enabled_summary"></string>
+  <string name="pref_webserver">Paikallinen web-palvelin</string>
+  <string name="pref_custom_target">Mukautettu kohde</string>
+  <string name="pref_custom_target_summary">Käytetään vain, jos isäntätiedosto on määritetty mukautetuksi kohteeksi</string>
+  <string-array name="pref_apply_method_entries"><item>/system/etc/hosts</item>
+<item>/data/data/hosts</item>
+<item>Custom target</item>
+</string-array>
+  <string name="pref_update_check_summary">Tarkista päivitykset AdAwayn käynnistykessä</string>
 </resources>

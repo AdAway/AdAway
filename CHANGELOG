@@ -3,6 +3,7 @@
   Thanks to all contributors!
 * Better check for symlink
 * Newer version of web server mongoose
+* Better handling of AdAway database
 - Fixed "Not enough space available" bug
 - Problem with applying fixed
 

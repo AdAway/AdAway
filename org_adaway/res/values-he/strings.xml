@@ -15,9 +15,6 @@
   <string name="apply_dialog_hosts">בנה קובץ hosts</string>
   <string name="apply_dialog_apply">החל קובץ hosts</string>
   <string name="menu_preferences">העדפות</string>
-  <string name="pref_download">העדפות כלליות</string>
-  <string name="pref_hosts">קובץ hosts</string>
-  <string name="pref_redirection_ip">הפניית IP</string>
   <string name="button_yes">כן</string>
   <string name="button_no">לא</string>
   <string name="revert_question">אתה בטוח שאתה רוצה לחזור?</string>
@@ -31,7 +28,6 @@
   <string name="apply_fail_title">החלת הגדרות נכשלה</string>
   <string name="revert_problem">חזרה נכשלה.</string>
   <string name="menu_add">הוסף</string>
-  <string name="menu_add_qrcode">הוסף על ידי סריקת ברקוד</string>
   <string name="no_url">זו אינה כתובת חוקית</string>
   <string name="no_url_title">כתובת שגויה</string>
   <string name="button_add">הוסף</string>
@@ -82,10 +78,6 @@
   <string name="no_busybox">לא נמצא Busybox. על מנת להתקין אותו מהמרקט לחץ על הלחצן שמתחת.</string>
   <string name="no_busybox_title">לא נמצא Busybox </string>
   <string name="button_busybox">התקן Busybox</string>
-  <string name="pref_update_check">בדוק עידכונים</string>
-  <string name="pref_apply_method">יעד קובץ hosts</string>
-  <string name="pref_apply_method_summary">לפני שינוי ההגדרה קרא בבקשה את העזרה אודות פונקציה זו.</string>
-  <string name="pref_redirection_ip_summary">כל הכתובות החסומות יופנו לכתובת ה IP הזו</string>
   <string name="donations_description">תוכנה זו שימושית עבורך? תמוך במפתחים על ידי מתן תרומה על ידי אנדרואיד מרקט!</string>
   <string name="menu_donations">תרומה</string>
   <string name="donations_flattr_description"></string>
@@ -105,8 +97,6 @@
   <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
   <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
   <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
-  <string name="pref_header_preferences">העדפות</string>
-  <string name="pref_header_preferences_summary">העדפות כלליות עבור AdAway</string>
   <string name="menu_help">עזרה</string>
   <string name="menu_lists">הרשימות שלך</string>
   <string name="menu_show_hosts_file">פתח קובץ hosts</string>
@@ -122,19 +112,8 @@
   <string name="hosts_last_modified_local">מקומי:</string>
   <string name="hosts_last_modified_online">אונליין:</string>
   <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב</string>
-  <string name="pref_never_reboot">הסתר דו שיח של הפעלה מחדש</string>
-  <string name="pref_never_reboot_summary">הסתר את חלון הדו שיח לאיתחול המערכת לאחר החלת שינויים</string>
-  <string name="pref_update_check_daily">בדוק עידכונים באופן יומי</string>
-  <string name="pref_update_check_daily_summary">בדוק עידכונים כל יום ברקע והצג התראות.</string>
   <string name="button_help">עזרה</string>
   <string name="apply_help">קרא את העזרה למידע נוסף.</string>
-  <string name="pref_webserver_on_boot">הפעל שרת בהפעלת המכשיר</string>
-  <string name="pref_webserver_on_boot_summary">הפעל את השרת בעת הפעלת המכשיר כולל המתנה של 5 שניות להאזנה לכתובת IP מקומית</string>
-  <string name="pref_webserver_enabled">הפעל שרת</string>
-  <string name="pref_webserver_enabled_summary">הפעלת שרת מאפשרת להאזין לכתובת IP מקומית עבור מענה לכתובות חסומות שהתבקשו</string>
-  <string name="pref_webserver">שרת מקומי</string>
-  <string name="pref_custom_target">יעד מותאם אישית</string>
-  <string name="pref_custom_target_summary">בשימוש רק אם יעד קובץ hosts מוגדר כיעד מותאם אישית</string>
   <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
   <string name="no_text_editor">לא נמצא עורך טקסט כל שהוא מותקן עבור פתיחת קובץ hosts. אתה יכול להתקין את העורך Jota או כל עורך טקסט אחר כדי לפתוח את הקובץ.\n\nאתה רוצה להתקין את Jota כעת?</string>
   <string name="donations_flattr">Flattr</string>
@@ -152,4 +131,26 @@
 </string-array>
   <string name="donations_thanks_dialog_title">תודות!</string>
   <string name="donations_thanks_dialog">תודה לך על תרומתך!\nאני מעריך זאת מאוד!</string>
+  <string name="pref_download">העדפות כלליות</string>
+  <string name="pref_hosts">קובץ hosts</string>
+  <string name="pref_redirection_ip">הפניית IP</string>
+  <string name="pref_update_check">בדוק עידכונים</string>
+  <string name="pref_apply_method">יעד קובץ hosts</string>
+  <string name="pref_apply_method_summary">לפני שינוי ההגדרה קרא בבקשה את העזרה אודות פונקציה זו.</string>
+  <string name="pref_redirection_ip_summary">כל הכתובות החסומות יופנו לכתובת ה IP הזו</string>
+  <string name="pref_header_preferences">העדפות</string>
+  <string name="pref_header_preferences_summary">העדפות כלליות עבור AdAway</string>
+  <string name="pref_never_reboot">הסתר דו שיח של הפעלה מחדש</string>
+  <string name="pref_never_reboot_summary">הסתר את חלון הדו שיח לאיתחול המערכת לאחר החלת שינויים</string>
+  <string name="pref_update_check_daily">בדוק עידכונים באופן יומי</string>
+  <string name="pref_update_check_daily_summary">בדוק עידכונים כל יום ברקע והצג התראות.</string>
+  <string name="pref_webserver_on_boot">הפעל שרת בהפעלת המכשיר</string>
+  <string name="pref_webserver_on_boot_summary">הפעל את השרת בעת הפעלת המכשיר כולל המתנה של 5 שניות להאזנה לכתובת IP מקומית</string>
+  <string name="pref_webserver_enabled">הפעל שרת</string>
+  <string name="pref_webserver_enabled_summary">הפעלת שרת מאפשרת להאזין לכתובת IP מקומית עבור מענה לכתובות חסומות שהתבקשו</string>
+  <string name="pref_webserver">שרת מקומי</string>
+  <string name="pref_custom_target">יעד מותאם אישית</string>
+  <string name="pref_custom_target_summary">בשימוש רק אם יעד קובץ hosts מוגדר כיעד מותאם אישית</string>
+  <string-array name="pref_apply_method_entries"></string-array>
+  <string name="pref_update_check_summary"></string>
 </resources>

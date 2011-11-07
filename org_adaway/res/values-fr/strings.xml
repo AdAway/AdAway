@@ -15,9 +15,6 @@
   <string name="apply_dialog_hosts">Création du fichier hosts</string>
   <string name="apply_dialog_apply">Application du fichier hosts</string>
   <string name="menu_preferences">Préférences</string>
-  <string name="pref_download">Préférences générales</string>
-  <string name="pref_hosts">Fichier hosts</string>
-  <string name="pref_redirection_ip">IP de redirection</string>
   <string name="button_yes">Oui</string>
   <string name="button_no">Non</string>
   <string name="revert_question">Voulez vous vraiment annuler les modifications ?</string>
@@ -31,7 +28,6 @@
   <string name="apply_fail_title">L\'application a échoué</string>
   <string name="revert_problem">Retour en arrière échoué.</string>
   <string name="menu_add">Ajouter</string>
-  <string name="menu_add_qrcode">Ajouter en scannant un QRcode</string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
   <string name="no_url_title">URL incorrecte</string>
   <string name="button_add">Ajouter</string>
@@ -82,10 +78,6 @@
   <string name="no_busybox">Le binaire BusyBox n\'a pu être trouvé. Pour l\'installer depuis l\'Android Market cliquez sur le bouton ci-dessous.</string>
   <string name="no_busybox_title">Aucun binaire Busybox</string>
   <string name="button_busybox">Installer Busybox</string>
-  <string name="pref_update_check">Vérifiez les mises à jour</string>
-  <string name="pref_apply_method">Fichier hosts cible</string>
-  <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lisez l\'aide sur cette fonctionnalité.</string>
-  <string name="pref_redirection_ip_summary">Tous les noms d\'hôtes bloqués sont redirigés vers cette adresse IP.</string>
   <string name="donations_description">Trouvez-vous cette application utile? \nSupporter son développement avec Flattr ou en envoyant des dons en utilisant l\'Android Market !</string>
   <string name="menu_donations">Dons</string>
   <string name="donations_flattr_description">• Flattr prend 10% comme frais mensuels !</string>
@@ -105,8 +97,6 @@
   <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
   <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCela arrive la plupart du temps à cause d\'une «particularité» appelée S-ON sur les téléphones HTC !\n\nLa solution est de démarrer votre téléphone en mode recovery et de créer le lien symbolique là avec \"ln-s /data/data/hosts/system/etc/hosts\"\n\nSi cela ne fonctionne pas cherchez sur Internet pour le S-OFF et votre téléphone.</string>
   <string name="apply_symlink_fail_title">Echec de la création du lien symbolique</string>
-  <string name="pref_header_preferences">Préférences</string>
-  <string name="pref_header_preferences_summary">Préférences générales de AdAway</string>
   <string name="menu_help">Aide</string>
   <string name="menu_lists">Vos Listes</string>
   <string name="menu_show_hosts_file">Ouvrir le fichier hosts</string>
@@ -122,19 +112,8 @@
   <string name="hosts_last_modified_local">Locale :</string>
   <string name="hosts_last_modified_online">En ligne :</string>
   <string name="reboot_never_reboot">Ne jamais redémarrer et ne pas afficher cette question la prochaine fois !</string>
-  <string name="pref_never_reboot">Masquer le dialogue sur le reboot</string>
-  <string name="pref_never_reboot_summary">Masquer la boîte de dialogue qui demande de redémarrer Android, après l\'application du fichier hosts</string>
-  <string name="pref_update_check_daily">Vérifiez les mises à jour quotidiennement</string>
-  <string name="pref_update_check_daily_summary">Vérifiez les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="button_help">Aide</string>
   <string name="apply_help">Lire \"Aide\" pour plus d\'informations.</string>
-  <string name="pref_webserver_on_boot">Démarrer le serveur web au démarrage</string>
-  <string name="pref_webserver_on_boot_summary">Démarrer le serveur web au démarrage retardé de 5 secondes, écoutant sur les adresses IP locales</string>
-  <string name="pref_webserver_enabled">Activer le serveur web</string>
-  <string name="pref_webserver_enabled_summary">Permet l\'écoute sur le serveur d\'adresses IP locales pour répondre à des demandes de noms d\'hôtes bloqués</string>
-  <string name="pref_webserver">Serveur web local</string>
-  <string name="pref_custom_target">Cible personnalisée</string>
-  <string name="pref_custom_target_summary">Utilisé uniquement si la cible du fichier hosts est réglée sur cible personnalisée</string>
   <string name="no_text_editor_title">Aucun éditeur de texte installé</string>
   <string name="no_text_editor">Aucun éditeur de texte n\'a pu être trouvé pour ouvrir le fichier hosts. Vous pouvez installer Jota ou d\'autres éditeurs de texte pour gérer cela. \n\nVoulez-vous installer Jota ?</string>
   <string name="donations_flattr">Flattr</string>
@@ -151,4 +130,26 @@
 <item> 13 Euros </item></string-array>
   <string name="donations_thanks_dialog_title">Merci !</string>
   <string name="donations_thanks_dialog">Merci pour le don ! \nJ\'apprécie beaucoup !</string>
+  <string name="pref_download">Préférences générales</string>
+  <string name="pref_hosts">Fichier hosts</string>
+  <string name="pref_redirection_ip">IP de redirection</string>
+  <string name="pref_update_check">Vérifiez les mises à jour</string>
+  <string name="pref_apply_method">Fichier hosts cible</string>
+  <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lisez l\'aide sur cette fonctionnalité.</string>
+  <string name="pref_redirection_ip_summary">Tous les noms d\'hôtes bloqués sont redirigés vers cette adresse IP.</string>
+  <string name="pref_header_preferences">Préférences</string>
+  <string name="pref_header_preferences_summary">Préférences générales de AdAway</string>
+  <string name="pref_never_reboot">Masquer le dialogue sur le reboot</string>
+  <string name="pref_never_reboot_summary">Masquer la boîte de dialogue qui demande de redémarrer Android, après l\'application du fichier hosts</string>
+  <string name="pref_update_check_daily">Vérifiez les mises à jour quotidiennement</string>
+  <string name="pref_update_check_daily_summary">Vérifiez les mises à jour quotidiennement en arrière-plan avec des notifications</string>
+  <string name="pref_webserver_on_boot">Démarrer le serveur web au démarrage</string>
+  <string name="pref_webserver_on_boot_summary">Démarrer le serveur web au démarrage retardé de 5 secondes, écoutant sur les adresses IP locales</string>
+  <string name="pref_webserver_enabled">Activer le serveur web</string>
+  <string name="pref_webserver_enabled_summary">Permet l\'écoute sur le serveur d\'adresses IP locales pour répondre à des demandes de noms d\'hôtes bloqués</string>
+  <string name="pref_webserver">Serveur web local</string>
+  <string name="pref_custom_target">Cible personnalisée</string>
+  <string name="pref_custom_target_summary">Utilisé uniquement si la cible du fichier hosts est réglée sur cible personnalisée</string>
+  <string-array name="pref_apply_method_entries"></string-array>
+  <string name="pref_update_check_summary"></string>
 </resources>
