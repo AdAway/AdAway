@@ -90,6 +90,11 @@
                 <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:authorities="org.adaway"
+            android:exported="false"
+            android:name="org.adaway.provider.AdAwayProvider" />
     </application>
 
 </manifest>

@@ -21,46 +21,36 @@
 package org.adaway.util;
 
 import org.adaway.R;
+import org.adaway.provider.AdAwayContract.Blacklist;
+import org.adaway.provider.AdAwayContract.Whitelist;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.view.LayoutInflater;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.SimpleCursorAdapter;
 
 public class CheckboxCursorAdapter extends SimpleCursorAdapter {
-    // private Context context;
-    private int layout;
 
-    public CheckboxCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to) {
-        super(context, layout, c, from, to);
-        // this.context = context;
-        this.layout = layout;
-    }
-
-    @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        final LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(layout, parent, false);
-
-        return v;
+    public CheckboxCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to,
+            int flags) {
+        super(context, layout, c, from, to, flags);
     }
 
     /**
      * Bind cursor to view using the checkboxes
      */
     @Override
-    public void bindView(View v, Context context, Cursor c) {
+    public void bindView(View v, Context context, Cursor cursor) {
         CheckBox cBox = (CheckBox) v.findViewById(R.id.checkbox_list_checkbox);
         if (cBox != null) {
             // bind cursor position to tag of list item
-            int cursorPosition = c.getPosition();
+            int cursorPosition = cursor.getPosition();
             cBox.setTag(cursorPosition);
 
-            int enabledCol = c.getColumnIndex("enabled");
-            String enabled = c.getString(enabledCol);
+            // can also be used for Blacklist
+            int enabledCol = cursor.getColumnIndexOrThrow(Whitelist.ENABLED);
+            String enabled = cursor.getString(enabledCol);
 
             if (Integer.parseInt(enabled) == 1) {
                 cBox.setChecked(true);
@@ -68,8 +58,9 @@ public class CheckboxCursorAdapter extends SimpleCursorAdapter {
                 cBox.setChecked(false);
             }
 
-            int urlCol = c.getColumnIndex("url");
-            String url = c.getString(urlCol);
+            // can also be used for Blacklist
+            int urlCol = cursor.getColumnIndexOrThrow(Blacklist.URL);
+            String url = cursor.getString(urlCol);
 
             cBox.setText(url);
         }

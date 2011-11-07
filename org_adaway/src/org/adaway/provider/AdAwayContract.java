@@ -1,3 +1,23 @@
+/*
+ * Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
+ *
+ * This file is part of AdAway.
+ * 
+ * AdAway is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * AdAway is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package org.adaway.provider;
 
 import android.net.Uri;
@@ -45,21 +65,21 @@ public class AdAwayContract {
                 .appendPath(PATH_HOSTS_SORCES).build();
 
         /** Use if multiple items get returned */
-        public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.adaway.hostssource";
+        public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.adaway.hostssources";
 
         /** Use if a single item is returned */
-        public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.hostssource";
+        public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.hostssources";
 
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = HostsSourcesColumns.URL + " ASC";
 
-        // public static Uri buildShowUri(String showId) {
-        // return CONTENT_URI.buildUpon().appendPath(showId).build();
-        // }
-        //
-        // public static String getShowId(Uri uri) {
-        // return uri.getLastPathSegment();
-        // }
+        public static Uri buildUri(String id) {
+            return CONTENT_URI.buildUpon().appendPath(id).build();
+        }
+
+        public static String getId(Uri uri) {
+            return uri.getLastPathSegment();
+        }
     }
 
     public static class Whitelist implements WhitelistColumns, BaseColumns {
@@ -75,13 +95,13 @@ public class AdAwayContract {
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = WhitelistColumns.URL + " ASC";
 
-        // public static Uri buildShowUri(String showId) {
-        // return CONTENT_URI.buildUpon().appendPath(showId).build();
-        // }
-        //
-        // public static String getShowId(Uri uri) {
-        // return uri.getLastPathSegment();
-        // }
+        public static Uri buildUri(String id) {
+            return CONTENT_URI.buildUpon().appendPath(id).build();
+        }
+
+        public static String getId(Uri uri) {
+            return uri.getLastPathSegment();
+        }
     }
 
     public static class Blacklist implements BlacklistColumns, BaseColumns {
@@ -97,16 +117,16 @@ public class AdAwayContract {
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = BlacklistColumns.URL + " ASC";
 
-        // public static Uri buildShowUri(String showId) {
-        // return CONTENT_URI.buildUpon().appendPath(showId).build();
-        // }
-        //
-        // public static String getShowId(Uri uri) {
-        // return uri.getLastPathSegment();
-        // }
+        public static Uri buildUri(String id) {
+            return CONTENT_URI.buildUpon().appendPath(id).build();
+        }
+
+        public static String getId(Uri uri) {
+            return uri.getLastPathSegment();
+        }
     }
 
-    public static class RedirectionList implements HostsSourcesColumns, BaseColumns {
+    public static class RedirectionList implements RedirectionListColumns, BaseColumns {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(PATH_REDIRECTION_LIST).build();
 
@@ -119,13 +139,13 @@ public class AdAwayContract {
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = RedirectionListColumns.URL + " ASC";
 
-        // public static Uri buildShowUri(String showId) {
-        // return CONTENT_URI.buildUpon().appendPath(showId).build();
-        // }
-        //
-        // public static String getShowId(Uri uri) {
-        // return uri.getLastPathSegment();
-        // }
+        public static Uri buildUri(String id) {
+            return CONTENT_URI.buildUpon().appendPath(id).build();
+        }
+
+        public static String getId(Uri uri) {
+            return uri.getLastPathSegment();
+        }
     }
 
     private AdAwayContract() {

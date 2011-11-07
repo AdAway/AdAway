@@ -21,14 +21,17 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.provider.AdAwayDatabase;
+import org.adaway.provider.AdAwayContract.Whitelist;
+import org.adaway.provider.ProviderHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
 import org.adaway.util.ValidationUtils;
 import org.adaway.util.Log;
 
-
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
 
@@ -36,6 +39,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.ContextMenu;
@@ -43,16 +47,14 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
-public class WhitelistFragment extends ListFragment {
+public class WhitelistFragment extends ListFragment implements
+        LoaderManager.LoaderCallbacks<Cursor> {
     private Activity mActivity;
-    private AdAwayDatabase mDatabaseHelper;
-    private Cursor mCursor;
     private CheckboxCursorAdapter mAdapter;
 
     private long mCurrentRowId;
@@ -106,8 +108,7 @@ public class WhitelistFragment extends ListFragment {
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // row id from cursor
 
-        mDatabaseHelper.deleteWhitelistItem(mCurrentRowId);
-        updateView();
+        ProviderHelper.deleteWhitelistItem(mActivity, mCurrentRowId);
     }
 
     /**
@@ -148,8 +149,8 @@ public class WhitelistFragment extends ListFragment {
                         String input = inputEditText.getText().toString();
 
                         if (ValidationUtils.isValidHostname(input)) {
-                            mDatabaseHelper.updateWhitelistItemURL(mCurrentRowId, input);
-                            updateView();
+                            ProviderHelper.updateWhitelistItemHostname(mActivity, mCurrentRowId,
+                                    input);
                         } else {
                             AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -193,10 +194,10 @@ public class WhitelistFragment extends ListFragment {
             if (cBox.isChecked()) {
                 cBox.setChecked(false);
                 // change status based on row id from cursor
-                mDatabaseHelper.updateWhitelistItemStatus(mCurrentRowId, 0);
+                ProviderHelper.updateWhitelistItemEnabled(mActivity, mCurrentRowId, false);
             } else {
                 cBox.setChecked(true);
-                mDatabaseHelper.updateWhitelistItemStatus(mCurrentRowId, 1);
+                ProviderHelper.updateWhitelistItemEnabled(mActivity, mCurrentRowId, true);
             }
         } else {
             Log.e(Constants.TAG, "Checkbox could not be found!");
@@ -268,8 +269,7 @@ public class WhitelistFragment extends ListFragment {
     private void addEntry(String input) {
         if (input != null) {
             if (ValidationUtils.isValidHostname(input)) {
-                mDatabaseHelper.insertWhitelistItem(input);
-                updateView();
+                ProviderHelper.insertWhitelistItem(mActivity, input);
             } else {
                 AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -287,26 +287,76 @@ public class WhitelistFragment extends ListFragment {
     }
 
     /**
-     * Called when the activity is first created.
+     * Define Adapter and Loader on create of Activity
      */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mActivity = getActivity();
+        mActivity = this.getActivity();
 
-        mDatabaseHelper = new AdAwayDatabase(mActivity); // open db
-        registerForContextMenu(getListView()); // register long press context menu
+        // register long press context menu
+        registerForContextMenu(getListView());
 
-        // build content of list
-        mCursor = mDatabaseHelper.getWhitelistCursor();
-        mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
+        // Give some text to display if there is no data. In a real
+        // application this would come from a resource.
+        setEmptyText(getString(R.string.checkbox_list_empty) + "\n\n"
+                + getString(R.string.checkbox_list_empty_text));
 
-        String[] displayFields = new String[] { "url" };
-        int[] displayViews = new int[] { R.id.checkbox_list_checkbox };
-        mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, mCursor,
-                displayFields, displayViews);
+        // We have a menu item to show in action bar.
+        setHasOptionsMenu(true);
+
+        // dislayFields and displayViews are handled in custom adapter!
+        String[] displayFields = new String[] {};
+        int[] displayViews = new int[] {};
+        mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, null,
+                displayFields, displayViews, 0);
         setListAdapter(mAdapter);
+
+        // Start out with a progress indicator.
+        setListShown(false);
+
+        // Prepare the loader. Either re-connect with an existing one,
+        // or start a new one.
+        getLoaderManager().initLoader(0, null, this);
+    }
+
+    // These are the rows that we will retrieve.
+    static final String[] WHITELIST_SUMMARY_PROJECTION = new String[] { Whitelist._ID,
+            Whitelist.URL, Whitelist.ENABLED };
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        // This is called when a new Loader needs to be created. This
+        // sample only has one Loader, so we don't care about the ID.
+        Uri baseUri = Whitelist.CONTENT_URI;
+
+        // Now create and return a CursorLoader that will take care of
+        // creating a Cursor for the data being displayed.
+        return new CursorLoader(getActivity(), baseUri, WHITELIST_SUMMARY_PROJECTION, null, null,
+                Whitelist.DEFAULT_SORT);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        // Swap the new cursor in. (The framework will take care of closing the
+        // old cursor once we return.)
+        mAdapter.swapCursor(data);
+
+        // The list should now be shown.
+        if (isResumed()) {
+            setListShown(true);
+        } else {
+            setListShownNoAnimation(true);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        // This is called when the last Cursor provided to onLoadFinished()
+        // above is about to be closed. We need to make sure we are no
+        // longer using it.
+        mAdapter.swapCursor(null);
     }
 
     @Override
@@ -314,30 +364,4 @@ public class WhitelistFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true); // enable options menu for this fragment
     }
-
-    /**
-     * Inflate the layout for this fragment
-     */
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.checkbox_list, container, false);
-    }
-
-    /**
-     * Refresh List by requerying the Cursor and updating the adapter of the view
-     */
-    private void updateView() {
-        mCursor.requery(); // TODO: requery is deprecated
-        mAdapter.notifyDataSetChanged();
-    }
-
-    /**
-     * Close DB onDestroy
-     */
-    @Override
-    public void onDestroyView() {
-        mDatabaseHelper.close();
-        super.onDestroy();
-    }
-
 }

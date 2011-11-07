@@ -157,7 +157,7 @@ public class Security {
                 int response = jElement.getInt("purchaseState");
                 PurchaseState purchaseState = PurchaseState.valueOf(response);
                 String productId = jElement.getString("productId");
-                String packageName = jElement.getString("packageName");
+                // String packageName = jElement.getString("packageName");
                 long purchaseTime = jElement.getLong("purchaseTime");
                 String orderId = jElement.optString("orderId", "");
                 String notifyId = null;

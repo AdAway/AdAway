@@ -3,7 +3,7 @@
   Thanks to all contributors!
 * Better check for symlink
 * Newer version of web server mongoose
-- Fixed bug caused by checking if enough space is available
+- Fixed "Not enough space available" bug
 - Problem with applying fixed
 
 1.15

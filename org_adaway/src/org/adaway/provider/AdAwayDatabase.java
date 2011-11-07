@@ -27,7 +27,6 @@
  * 
  */
 
-
 package org.adaway.provider;
 
 import android.content.ContentValues;
@@ -65,25 +64,24 @@ public class AdAwayDatabase {
     }
 
     private static final String CREATE_HOSTS_SOURCES = "CREATE TABLE IF NOT EXISTS "
-            + Tables.HOSTS_SOURCES
-            + "("
-            + BaseColumns._ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + HostsSourcesColumns.URL
-            + " TEXT UNIQUE, last_modified_local INTEGER, last_modified_online INTEGER, enabled INTEGER)";
+            + Tables.HOSTS_SOURCES + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + HostsSourcesColumns.URL + " TEXT UNIQUE, " + HostsSourcesColumns.LAST_MODIFIED_LOCAL
+            + " INTEGER, " + HostsSourcesColumns.LAST_MODIFIED_ONLINE + " INTEGER, "
+            + HostsSourcesColumns.ENABLED + " INTEGER)";
 
     private static final String CREATE_WHITELIST = "CREATE TABLE IF NOT EXISTS " + Tables.WHITELIST
-            + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + WhitelistColumns.URL
-            + " TEXT UNIQUE," + WhitelistColumns.ENABLED + " INTEGER)";
+            + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + WhitelistColumns.URL
+            + " TEXT UNIQUE, " + WhitelistColumns.ENABLED + " INTEGER)";
 
     private static final String CREATE_BLACKLIST = "CREATE TABLE IF NOT EXISTS " + Tables.BLACKLIST
-            + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + BlacklistColumns.URL
-            + " TEXT UNIQUE," + BlacklistColumns.ENABLED + " INTEGER)";
+            + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + BlacklistColumns.URL
+            + " TEXT UNIQUE, " + BlacklistColumns.ENABLED + " INTEGER)";
 
     private static final String CREATE_REDIRECTION_LIST = "CREATE TABLE IF NOT EXISTS "
             + Tables.REDIRECTION_LIST + "(" + BaseColumns._ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT," + RedirectionListColumns.URL + " TEXT UNIQUE,"
-            + RedirectionListColumns.IP + " TEXT," + RedirectionListColumns.ENABLED + " INTEGER)";
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RedirectionListColumns.URL
+            + " TEXT UNIQUE, " + RedirectionListColumns.IP + " TEXT, "
+            + RedirectionListColumns.ENABLED + " INTEGER)";
 
     private SQLiteStatement insertStmtHostsSources;
     private static final String INSERT_HOSTS_SOURCES = "INSERT OR IGNORE INTO "

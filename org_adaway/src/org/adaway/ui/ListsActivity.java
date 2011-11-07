@@ -32,7 +32,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ActionBar.Tab;
 import android.support.v4.view.MenuItem;
-import android.widget.FrameLayout;
 
 public class ListsActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -70,18 +69,17 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.lists_activity);
+
         // start with blacklist
         BlacklistFragment blacklistFragment = new BlacklistFragment();
-        getSupportFragmentManager().beginTransaction().add(android.R.id.content, blacklistFragment)
-                .commit();
-
-        // execute transactions before using ActionBar. ActionBar will be null because without this
-        // fragment transactions are asynchronous and ActionBar is not ready at once
-        // getSupportFragmentManager().executePendingTransactions();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.lists_tabs_container, blacklistFragment).commit();
 
         // https://github.com/JakeWharton/ActionBarSherlock/issues/68
-        // FORCE the attachment of the action bar on all platforms as inexpensively as possible.
-        setContentView(new FrameLayout(this));
+        // execute transactions before using ActionBar. ActionBar will be null because without this
+        // fragment transactions are asynchronous and ActionBar is not ready at once
+        getSupportFragmentManager().executePendingTransactions();
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
@@ -139,7 +137,7 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(android.R.id.content, fragment);
+        fragmentTransaction.replace(R.id.lists_tabs_container, fragment);
         fragmentTransaction.commit();
     }
 

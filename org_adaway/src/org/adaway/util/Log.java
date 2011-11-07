@@ -27,11 +27,15 @@ package org.adaway.util;
 public final class Log {
 
     public static void v(String tag, String msg) {
-        android.util.Log.v(tag, msg);
+        if (Constants.DEBUG) {
+            android.util.Log.v(tag, msg);
+        }
     }
 
-    public static int v(String tag, String msg, Throwable tr) {
-        return android.util.Log.v(tag, msg, tr);
+    public static void v(String tag, String msg, Throwable tr) {
+        if (Constants.DEBUG) {
+            android.util.Log.v(tag, msg, tr);
+        }
     }
 
     public static void d(String tag, String msg) {

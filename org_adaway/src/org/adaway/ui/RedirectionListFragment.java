@@ -21,14 +21,17 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.provider.AdAwayDatabase;
+import org.adaway.provider.AdAwayContract.RedirectionList;
+import org.adaway.provider.ProviderHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.RedirectionCursorAdapter;
 import org.adaway.util.ValidationUtils;
 import org.adaway.util.Log;
 
-
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
 
@@ -36,6 +39,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.ContextMenu;
@@ -43,17 +47,15 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class RedirectionListFragment extends ListFragment {
+public class RedirectionListFragment extends ListFragment implements
+        LoaderManager.LoaderCallbacks<Cursor> {
     private Activity mActivity;
-    private AdAwayDatabase mDatabaseHelper;
-    private Cursor mCursor;
     private RedirectionCursorAdapter mAdapter;
 
     private long mCurrentRowId;
@@ -106,9 +108,7 @@ public class RedirectionListFragment extends ListFragment {
      */
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // row id from cursor
-
-        mDatabaseHelper.deleteRedirectionItem(mCurrentRowId);
-        updateView();
+        ProviderHelper.deleteRedirectionListItem(mActivity, mCurrentRowId);
     }
 
     /**
@@ -158,9 +158,8 @@ public class RedirectionListFragment extends ListFragment {
 
                         if (ValidationUtils.isValidHostname(hostname)) {
                             if (ValidationUtils.isValidIP(ip)) {
-                                mDatabaseHelper.updateRedirectionItemURL(mCurrentRowId, hostname,
-                                        ip);
-                                updateView();
+                                ProviderHelper.updateRedirectionListItemHostnameAndIp(mActivity,
+                                        mCurrentRowId, hostname, ip);
                             } else {
                                 AlertDialog alertDialog = new AlertDialog.Builder(mActivity)
                                         .create();
@@ -218,10 +217,10 @@ public class RedirectionListFragment extends ListFragment {
             if (cBox.isChecked()) {
                 cBox.setChecked(false);
                 // change status based on row id from cursor
-                mDatabaseHelper.updateRedirectionItemStatus(mCurrentRowId, 0);
+                ProviderHelper.updateRedirectionListItemEnabled(mActivity, mCurrentRowId, false);
             } else {
                 cBox.setChecked(true);
-                mDatabaseHelper.updateRedirectionItemStatus(mCurrentRowId, 1);
+                ProviderHelper.updateRedirectionListItemEnabled(mActivity, mCurrentRowId, true);
             }
         } else {
             Log.e(Constants.TAG, "Checkbox could not be found!");
@@ -238,12 +237,6 @@ public class RedirectionListFragment extends ListFragment {
         case R.id.menu_add:
             menuAddEntry();
             return true;
-
-            // case R.id.menu_add_qrcode:
-            // // Use Barcode Scanner
-            // IntentIntegrator.initiateScan(this, R.string.no_barcode_scanner_title,
-            // R.string.no_barcode_scanner, R.string.button_yes, R.string.button_no);
-            // return true;
 
         default:
             return super.onOptionsItemSelected(item);
@@ -307,8 +300,7 @@ public class RedirectionListFragment extends ListFragment {
         if (hostname != null) {
             if (ValidationUtils.isValidHostname(hostname)) {
                 if (ValidationUtils.isValidIP(ip)) {
-                    mDatabaseHelper.insertRedirectionItem(hostname, ip);
-                    updateView();
+                    ProviderHelper.insertRedirectionListItem(mActivity, hostname, ip);
                 } else {
                     AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -339,7 +331,7 @@ public class RedirectionListFragment extends ListFragment {
     }
 
     /**
-     * Called when the activity is first created.
+     * Define Adapter and Loader on create of Activity
      */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -347,19 +339,68 @@ public class RedirectionListFragment extends ListFragment {
 
         mActivity = this.getActivity();
 
-        mDatabaseHelper = new AdAwayDatabase(mActivity); // open db
-        registerForContextMenu(getListView()); // register long press context menu
+        // register long press context menu
+        registerForContextMenu(getListView());
 
-        // build content of list
-        mCursor = mDatabaseHelper.getRedirectionCursor();
-        mActivity.startManagingCursor(mCursor); // closing of cursor is done this way
+        // Give some text to display if there is no data. In a real
+        // application this would come from a resource.
+        setEmptyText(getString(R.string.checkbox_list_empty) + "\n\n"
+                + getString(R.string.checkbox_list_empty_text));
+
+        // We have a menu item to show in action bar.
+        setHasOptionsMenu(true);
 
         // dislayFields and displayViews are handled in custom adapter!
         String[] displayFields = new String[] {};
         int[] displayViews = new int[] {};
-        mAdapter = new RedirectionCursorAdapter(mActivity, R.layout.checkbox_list_two_entry,
-                mCursor, displayFields, displayViews);
+        mAdapter = new RedirectionCursorAdapter(mActivity, R.layout.checkbox_list_two_entry, null,
+                displayFields, displayViews, 0);
         setListAdapter(mAdapter);
+
+        // Start out with a progress indicator.
+        setListShown(false);
+
+        // Prepare the loader. Either re-connect with an existing one,
+        // or start a new one.
+        getLoaderManager().initLoader(0, null, this);
+    }
+
+    // These are the rows that we will retrieve.
+    static final String[] REDIRECTION_LIST_SUMMARY_PROJECTION = new String[] { RedirectionList._ID,
+            RedirectionList.URL, RedirectionList.IP, RedirectionList.ENABLED };
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        // This is called when a new Loader needs to be created. This
+        // sample only has one Loader, so we don't care about the ID.
+        Uri baseUri = RedirectionList.CONTENT_URI;
+
+        // Now create and return a CursorLoader that will take care of
+        // creating a Cursor for the data being displayed.
+        return new CursorLoader(getActivity(), baseUri, REDIRECTION_LIST_SUMMARY_PROJECTION, null,
+                null, RedirectionList.DEFAULT_SORT);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        // Swap the new cursor in. (The framework will take care of closing the
+        // old cursor once we return.)
+        mAdapter.swapCursor(data);
+
+        // The list should now be shown.
+        if (isResumed()) {
+            setListShown(true);
+        } else {
+            setListShownNoAnimation(true);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        // This is called when the last Cursor provided to onLoadFinished()
+        // above is about to be closed. We need to make sure we are no
+        // longer using it.
+        mAdapter.swapCursor(null);
     }
 
     @Override
@@ -367,30 +408,4 @@ public class RedirectionListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true); // enable options menu for this fragment
     }
-
-    /**
-     * Inflate the layout for this fragment
-     */
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.checkbox_list_two, container, false);
-    }
-
-    /**
-     * Refresh List by requerying the Cursor and updating the adapter of the view
-     */
-    private void updateView() {
-        mCursor.requery(); // TODO: requery is deprecated
-        mAdapter.notifyDataSetChanged();
-    }
-
-    /**
-     * Close DB onDestroy
-     */
-    @Override
-    public void onDestroyView() {
-        mDatabaseHelper.close();
-        super.onDestroy();
-    }
-
 }
