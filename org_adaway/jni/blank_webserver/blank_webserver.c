@@ -16,8 +16,9 @@ static void *callback(enum mg_event event,
   }
 }
 
+// don't use 0.0.0.0 as ip address, it will be accessible in the network
 static const char *options[] = {
-  "listening_ports", "0.0.0.0:80,443",
+  "listening_ports", "127.0.0.1:80,443",
   NULL
 };
 
