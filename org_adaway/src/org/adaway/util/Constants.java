@@ -50,7 +50,7 @@ public class Constants {
     public static final String COMMAND_READLINK = "busybox readlink -f";
 
 
-    public static final String WEBSERVER_EXECUTEABLE = "mongoose";
+    public static final String WEBSERVER_EXECUTEABLE = "blank_webserver";
 
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
     public static final String ANDROID_SYSTEM_ETC_HOSTS = ANDROID_SYSTEM_PATH + FILE_SEPERATOR

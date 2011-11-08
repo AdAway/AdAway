@@ -781,8 +781,9 @@ static int match_extension(const char *path, const char *ext_list) {
 static int should_keep_alive(const struct mg_connection *conn) {
   const char *http_version = conn->request_info.http_version;
   const char *header = mg_get_header(conn, "Connection");
-  return (header == NULL && http_version && !strcmp(http_version, "1.1")) ||
-      (header != NULL && !mg_strcasecmp(header, "keep-alive"));
+  return (!mg_strcasecmp(conn->ctx->config[ENABLE_KEEP_ALIVE], "yes") &&
+          (header == NULL && http_version && !strcmp(http_version, "1.1"))) ||
+          (header != NULL && !mg_strcasecmp(header, "keep-alive"));
 }
 
 static const char *suggest_connection_header(const struct mg_connection *conn) {
@@ -2973,8 +2974,13 @@ static void handle_cgi_request(struct mg_connection *conn, const char *prog) {
   parse_http_headers(&pbuf, &ri);
 
   // Make up and send the status line
-  status = get_header(&ri, "Status");
-  conn->request_info.status_code = status == NULL ? 200 : atoi(status);
+  if ((status = get_header(&ri, "Status")) != NULL) {
+    conn->request_info.status_code = atoi(status);
+  } else if (get_header(&ri, "Location") != NULL) {
+    conn->request_info.status_code = 302;
+  } else {
+    conn->request_info.status_code = 200;
+  }
   (void) mg_printf(conn, "HTTP/1.1 %d OK\r\n", conn->request_info.status_code);
 
   // Send headers

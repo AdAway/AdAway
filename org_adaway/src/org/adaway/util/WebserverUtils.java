@@ -20,8 +20,6 @@
 
 package org.adaway.util;
 
-import java.io.IOException;
-
 import org.adaway.R;
 
 import android.content.Context;
@@ -39,8 +37,8 @@ public class WebserverUtils {
      * @throws RemountException
      */
     public static void installWebserver(Context context) {
-        if (RootTools
-                .installBinary(context, R.raw.mongoose, Constants.WEBSERVER_EXECUTEABLE, "777")) {
+        if (RootTools.installBinary(context, R.raw.blank_webserver,
+                Constants.WEBSERVER_EXECUTEABLE, "777")) {
             Log.i(Constants.TAG, "Installed webserver if not already existing.");
         } else {
             Log.e(Constants.TAG, "Webserver could not be installed.");
@@ -54,17 +52,7 @@ public class WebserverUtils {
      * @throws CommandException
      */
     public static void startWebserver(final Context context) {
-        String privateCachePath = null;
-        try {
-            // /data/data/org.adaway/cache
-            privateCachePath = context.getCacheDir().getCanonicalPath();
-        } catch (IOException e) {
-            Log.e(Constants.TAG,
-                    "Problem occured while trying to locate private files and cache directories!");
-            e.printStackTrace();
-        }
-        RootTools.runBinary(context, Constants.WEBSERVER_EXECUTEABLE, "-r " + privateCachePath
-                + Constants.FILE_SEPERATOR + " -p 0.0.0.0:80,443");
+        RootTools.runBinary(context, Constants.WEBSERVER_EXECUTEABLE, "");
 
         Toast.makeText(context, context.getString(R.string.button_webserver_toggle_checked), 3)
                 .show();

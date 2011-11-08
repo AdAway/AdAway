@@ -94,7 +94,7 @@
         <provider
             android:authorities="org.adaway"
             android:exported="false"
-            android:name="org.adaway.provider.AdAwayProvider" />
+            android:name=".provider.AdAwayProvider" />
     </application>
 
 </manifest>
