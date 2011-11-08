@@ -294,13 +294,15 @@ public class ApplyUtils {
             e.printStackTrace();
         }
 
-        Log.d(Constants.TAG, "Output of " + commandReadlink + ": " + output.get(0));
+        if (output != null) {
+            Log.d(Constants.TAG, "Output of " + commandReadlink + ": " + output.get(0));
 
-        if (output.get(0).equals(target)) {
-            return true;
-        } else {
-            return false;
+            if (output.get(0).equals(target)) {
+                return true;
+            }
         }
+
+        return false;
     }
 
     /**
