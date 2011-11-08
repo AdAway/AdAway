@@ -1,3 +1,6 @@
+1.18
+* Local webserver now answers with blank page instead of 404 error page
+
 1.17
 - Fix for translation problems
 
