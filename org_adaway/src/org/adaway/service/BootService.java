@@ -11,7 +11,7 @@ public class BootService extends IntentService {
     private Context mApplicationContext;
 
     public BootService() {
-        super("AdAwayWebserverOnBootService");
+        super("AdAwayOnBootService");
     }
 
     @Override

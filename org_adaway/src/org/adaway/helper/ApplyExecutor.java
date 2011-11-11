@@ -467,6 +467,10 @@ public class ApplyExecutor {
                         fos.write(line.getBytes());
                     }
 
+                    // hosts file has to end with new line, when not done last entry won't be
+                    // recognized
+                    fos.write(Constants.LINE_SEPERATOR.getBytes());
+
                     fos.close();
 
                 } catch (FileNotFoundException e) {

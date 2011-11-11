@@ -1,5 +1,7 @@
 1.18
 * Local webserver now answers with blank page instead of 404 error page
+- Bug fix for symlink check
+- Last entry in hosts file is now working (missed new line at end of hosts file)
 
 1.17
 - Fix for translation problems
@@ -84,90 +86,3 @@
 
 1.01
 - Fixed permissions on /system/etc/hosts
-
-
-Deutsch
-
-1.17
-- Fix für Übersetzungsprobleme
-
-1.16
-* Übersetzungen: German, French, Spanish
-  Thanks to all contributors!
-* Besserer Check für Symlink
-* Neue Version des Webservers mongoose
-* Besseres Handling der AdAway-Datenbank
-- Fixed "Not enough space available" bug
-- Fixed problem with applying
-
-1.15
-- Berechtigung für Google Android Market Spenden hinzugefügt
-
-1.14
-- Behebt force close beim Öffnen der hosts-Datei
-- Spendemöglichkeit durch den Google Android Market hinzugefügt
-
-1.13
-- Webserver hört nun auf allen lokalen IP Adressen (0.0.0.0)
-- Benutzerdefiniertes Ziel kann in den Einstellungen gesetzt werden, beispielsweise /data/etc/hosts
-- Hosts-Datei kann aus dem Menu geöffnet werden
-
-1.12
-- Webserver wird verzögert beim Booten gestartet
-- Debug Logs wurden deaktiviert
-
-1.11
-- Fehler im Layout gefixt
-
-1.10
-* Webserver ist jetzt eine optionale Einstellung
-- Fixed tägliches Update abermals. Sollte jetzt richtig laufen
-- Fixed Crash unter Android 3.0 und 3.1 in Your Lists
-- Fixed Einstellungen unter Android 3.x
-- Fixed Drehung des Gerätes unter Android 3.x
-
-1.09
-* Neues Design für Tablets
-* Neue hosts source: http://pgl.yoyo.org/adservers
-- Absturz auf Android 3 Honeycomb gefixt
-- Fix für täglichen Updatecheck
-- Hosts source sysctl.org entfernt aufgrund von false positives
-
-1.08
-* AdAway bekam ein neues Design
-* AdAway enthält nun einen Webserver, der auf localhost horcht
-* Die Daten der Hosts sources werden gespeichert und angezeigt
-* Einstellung um den Neustart-Dialog zu verstecken
-* Hilfe-Seite mit Informationen zu AdAway
-* Neue Hosts source wurde hinzugefügt: sysctl.org
-* Täglicher Update Check kann in den Einstellungen aktiviert werden
-- Sollte jetzt mit Roms funktionieren, die keine Busybox-Symlinks anlegen
-
-1.07
-* AdAway kann nun bei Bedarf einen Symlink erstellen
-- bessere Fehlerbehandlung
-- keine Update-Suche beim Wechsel der Ausrichtung
-
-1.06
-* hosts-Datei-Ziel kann ausgewählt werden
-* Spenden-Button
-- SQLite-Bug behoben, der unter Android 2.1 auftritt
-
-1.05
-* Update Check implementiert
-- Bug behoben, der beim Wechsel der Ausrichtung während des Downloads auftrat
-- Bessere Fehlerbehandlung beim Download
-- localhost-Eintrag abermals behoben
-
-1.04
-* Redirection List implementiert
-- Layout-Fehler behoben
-
-1.03
-* Blacklist und Whitelist implementiert
-
-1.02
-- localhost-Eintrag behoben
-
-1.01
-- Rechte der Datei /system/etc/hosts angepasst 
