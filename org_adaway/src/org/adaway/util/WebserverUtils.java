@@ -21,9 +21,9 @@
 package org.adaway.util;
 
 import org.adaway.R;
+import org.adaway.helper.PreferencesHelper;
 
 import android.content.Context;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.stericson.RootTools.RootTools;
@@ -49,13 +49,28 @@ public class WebserverUtils {
      * Start Webserver in new Thread with RootTools
      * 
      * @param context
-     * @throws CommandException
      */
     public static void startWebserver(final Context context) {
+        Log.d(Constants.TAG, "Starting webserver...");
         RootTools.runBinary(context, Constants.WEBSERVER_EXECUTEABLE, "");
+    }
 
-        Toast.makeText(context, context.getString(R.string.button_webserver_toggle_checked), 3)
-                .show();
+    /**
+     * Start Webserver in new Thread with RootTools on Boot if enabled in preferences
+     * 
+     * @param context
+     */
+    public static void startWebserverOnBoot(final Context context) {
+        // start webserver on boot if enabled in preferences
+        if (PreferencesHelper.getWebserverOnBoot(context)) {
+            // Wait a little bit before starting webserver
+            // try {
+            // Thread.sleep(10 * 1000);
+            // } catch (InterruptedException e) {
+            // e.printStackTrace();
+            // }
+            startWebserver(context);
+        }
     }
 
     /**
@@ -66,9 +81,6 @@ public class WebserverUtils {
      */
     public static void stopWebserver(Context context) {
         RootTools.killProcess(Constants.WEBSERVER_EXECUTEABLE);
-
-        Toast.makeText(context, context.getString(R.string.button_webserver_toggle_unchecked), 3)
-                .show();
     }
 
     /**

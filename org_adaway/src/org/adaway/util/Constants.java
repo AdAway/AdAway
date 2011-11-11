@@ -20,11 +20,18 @@
 
 package org.adaway.util;
 
+import com.stericson.RootTools.RootTools;
+
 public class Constants {
     /* DEBUG enables Log.d outputs wrapped in org.adaway.util.Log and RootTools Debug Mode */
-    public static final boolean DEBUG = false;
-    public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
+    public static final boolean DEBUG = true;
+    public static final boolean DEBUG_UPDATE_CHECK_SERVICE = true;
     public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
+
+    // set RootTools to debug mode based on AdAway
+    static {
+        RootTools.debugMode = DEBUG;
+    }
 
     public static final String TAG = "AdAway";
 
@@ -48,7 +55,6 @@ public class Constants {
     public static final String COMMAND_RM = "busybox rm -f";
     public static final String COMMAND_MKDIR = "busybox mkdir -p";
     public static final String COMMAND_READLINK = "busybox readlink -f";
-
 
     public static final String WEBSERVER_EXECUTEABLE = "blank_webserver";
 

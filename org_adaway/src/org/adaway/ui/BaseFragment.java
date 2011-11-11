@@ -26,7 +26,6 @@ import org.adaway.helper.RevertExecutor;
 import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
 import org.adaway.service.UpdateCheckService;
-import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
 
@@ -45,8 +44,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.stericson.RootTools.RootTools;
 
 public class BaseFragment extends Fragment {
     private Activity mActivity;
@@ -258,15 +255,13 @@ public class BaseFragment extends Fragment {
         mStatusProgress = (ProgressBar) mActivity.findViewById(R.id.status_progress);
         mStatusIcon = (ImageView) mActivity.findViewById(R.id.status_icon);
 
-        RootTools.debugMode = Constants.DEBUG;
-
         // check for root
         if (Utils.isAndroidRooted(mActivity)) {
             // do background update check
             mStatusChecker.checkForUpdatesOnCreate();
 
             // schedule CheckUpdateService
-            UpdateCheckService.registerAlarm(mActivity);
+            UpdateCheckService.registerAlarmWhenEnabled(mActivity);
         }
     }
 

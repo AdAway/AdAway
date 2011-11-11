@@ -72,33 +72,42 @@ public class UpdateCheckService extends IntentService {
      * @param context
      */
     public static void registerAlarm(Context context) {
+        Log.d(Constants.TAG, "Registering alarm!");
+        Intent intent = new Intent(context, UpdateCheckAlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+
+        // every day at 9 am
+        Calendar calendar = Calendar.getInstance();
+        // if it's after or equal 9 am schedule for next day
+        if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 9) {
+            calendar.add(Calendar.DAY_OF_YEAR, 1); // add, not set!
+        }
+        calendar.set(Calendar.HOUR_OF_DAY, 9);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+
+        final AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+        if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
+            // for debugging execute service every 30 seconds
+            alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
+                    30 * 1000, pendingIntent);
+        } else {
+            alarm.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
+                    AlarmManager.INTERVAL_DAY, pendingIntent);
+        }
+    }
+
+    /**
+     * Registers alarm only if enabled in preferences
+     * 
+     * @param context
+     */
+    public static void registerAlarmWhenEnabled(Context context) {
         // register when enabled in preferences
         if (PreferencesHelper.getUpdateCheckDaily(context)) {
-            Intent intent = new Intent(context, UpdateCheckAlarmReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
-                    PendingIntent.FLAG_CANCEL_CURRENT);
-
-            // every day at 9 am
-            Calendar calendar = Calendar.getInstance();
-            // if it's after or equal 9 am schedule for next day
-            if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 9) {
-                calendar.add(Calendar.DAY_OF_YEAR, 1); // add, not set!
-            }
-            calendar.set(Calendar.HOUR_OF_DAY, 9);
-            calendar.set(Calendar.MINUTE, 0);
-            calendar.set(Calendar.SECOND, 0);
-
-            final AlarmManager alarm = (AlarmManager) context
-                    .getSystemService(Context.ALARM_SERVICE);
-
-            if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
-                // for debugging execute service every 30 seconds
-                alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
-                        30 * 1000, pendingIntent);
-            } else {
-                alarm.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
-                        AlarmManager.INTERVAL_DAY, pendingIntent);
-            }
+            registerAlarm(context);
         }
     }
 
@@ -108,6 +117,8 @@ public class UpdateCheckService extends IntentService {
      * @param context
      */
     public static void unregisterAlarm(Context context) {
+        Log.d(Constants.TAG, "Unregistering alarm!");
+
         Intent intent = new Intent(context, UpdateCheckAlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
