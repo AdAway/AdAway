@@ -23,7 +23,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActionBar;
-import android.support.v4.app.SupportActivity;
 import android.support.v4.view.ActionMode;
 import android.support.v4.view.Menu;
 import android.support.v4.view.MenuInflater;
@@ -40,20 +39,25 @@ public final class ActionBarWrapper {
      * @param activity Parent activity.
      * @return {@code ActionBar} instance.
      */
-    public static <T extends Activity & SupportActivity> ActionBar createFor(T activity) {
+    public static ActionBar createFor(Activity activity) {
+        if (!(activity instanceof SherlockActivity)) {
+            throw new RuntimeException("Activity must implement the SherlockActivity interface");
+        }
+
         return new ActionBarWrapper.Impl(activity);
     }
 
     /**
-     * <p>Handler for Android's native {@link android.app.ActionBar}.</p>
+     * Handler for Android's native {@link android.app.ActionBar}.
      */
     public static final class Impl extends ActionBar implements android.app.ActionBar.TabListener {
         /** Mapping between support listeners and native listeners. */
         private final HashMap<OnMenuVisibilityListener, android.app.ActionBar.OnMenuVisibilityListener> mMenuListenerMap = new HashMap<OnMenuVisibilityListener, android.app.ActionBar.OnMenuVisibilityListener>();
 
+        private final Activity mActivity;
 
-        private <T extends Activity & SupportActivity> Impl(T activity) {
-            super(activity);
+        private Impl(Activity activity) {
+            mActivity = activity;
         }
 
 
@@ -63,7 +67,7 @@ public final class ActionBarWrapper {
          * @return The action bar.
          */
         private android.app.ActionBar getActionBar() {
-            return mActivity.asActivity().getActionBar();
+            return mActivity.getActionBar();
         }
 
         @Override
@@ -120,31 +124,31 @@ public final class ActionBarWrapper {
             //We have to re-wrap the instances in every callback since the
             //wrapped instance is needed before we could have a change to
             //properly store it.
-            return new ActionModeWrapper(mContext,
-                mActivity.asActivity().startActionMode(new android.view.ActionMode.Callback() {
+            return new ActionModeWrapper(mActivity,
+                mActivity.startActionMode(new android.view.ActionMode.Callback() {
                     @Override
                     public boolean onPrepareActionMode(android.view.ActionMode mode, android.view.Menu menu) {
-                        return callback.onPrepareActionMode(new ActionModeWrapper(mContext, mode), new MenuWrapper(menu));
+                        return callback.onPrepareActionMode(new ActionModeWrapper(mActivity, mode), new MenuWrapper(menu));
                     }
 
                     @Override
                     public void onDestroyActionMode(android.view.ActionMode mode) {
-                        final ActionMode actionMode = new ActionModeWrapper(mContext, mode);
+                        final ActionMode actionMode = new ActionModeWrapper(mActivity, mode);
                         callback.onDestroyActionMode(actionMode);
 
                         //Send the activity callback once the action mode callback has run.
                         //This type-check has already occurred in the action bar constructor.
-                        ((SupportActivity)mActivity).onActionModeFinished(actionMode);
+                        ((SherlockActivity)mActivity).onActionModeFinished(actionMode);
                     }
 
                     @Override
                     public boolean onCreateActionMode(android.view.ActionMode mode, android.view.Menu menu) {
-                        return callback.onCreateActionMode(new ActionModeWrapper(mContext, mode), new MenuWrapper(menu));
+                        return callback.onCreateActionMode(new ActionModeWrapper(mActivity, mode), new MenuWrapper(menu));
                     }
 
                     @Override
                     public boolean onActionItemClicked(android.view.ActionMode mode, android.view.MenuItem item) {
-                        return callback.onActionItemClicked(new ActionModeWrapper(mContext, mode), new MenuItemWrapper(item));
+                        return callback.onActionItemClicked(new ActionModeWrapper(mActivity, mode), new MenuItemWrapper(item));
                     }
                 })
             );

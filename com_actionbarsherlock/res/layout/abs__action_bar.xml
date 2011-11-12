@@ -85,6 +85,7 @@
 		android:orientation="horizontal"
 		android:gravity="center_vertical"
 		android:tag="@string/abs__tab_under_ab_tag"
+		android:background="?abBackgroundStacked"
 		style="?actionBarTabBarStyle" />
 
 </LinearLayout>

@@ -28,11 +28,11 @@
         <!-- reference them as sibling attributes to their native counterparts. See: -->
         <!-- http://stackoverflow.com/questions/6486594/access-sibling-style-attributes-in-a-non-theme-style -->
         <item name="abBackground">@android:color/transparent</item>
+        <item name="abBackgroundStacked">@drawable/abs__ab_stacked_transparent_dark_holo</item>
         <item name="abCustomNavigationLayout">@null</item>
         <item name="abDisplayOptions">useLogo|showHome|showTitle</item>
         <item name="abDivider">@drawable/abs__action_item_divider</item>
         <item name="abHeight">?actionBarSize</item>
-        <item name="abHomeAsUpIndicator">@drawable/abs__ic_ab_back_holo_dark</item>
         <item name="abHomeLayout">@null</item>
         <item name="abIcon">@null</item>
         <item name="abIndeterminateProgressStyle">@android:style/Widget.ProgressBar.Small</item>
@@ -134,11 +134,11 @@
         <!-- reference them as sibling attributes to their native counterparts. See: -->
         <!-- http://stackoverflow.com/questions/6486594/access-sibling-style-attributes-in-a-non-theme-style -->
         <item name="abBackground">@android:color/transparent</item>
+        <item name="abBackgroundStacked">@drawable/abs__ab_stacked_transparent_light_holo</item>
         <item name="abCustomNavigationLayout">@null</item>
         <item name="abDisplayOptions">useLogo|showHome|showTitle</item>
         <item name="abDivider">@drawable/abs__action_item_divider</item>
         <item name="abHeight">?actionBarSize</item>
-        <item name="abHomeAsUpIndicator">@drawable/abs__ic_ab_back_holo_light</item>
         <item name="abHomeLayout">@null</item>
         <item name="abIcon">@null</item>
         <item name="abIndeterminateProgressStyle">@android:style/Widget.ProgressBar.Small</item>

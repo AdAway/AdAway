@@ -32,7 +32,6 @@ import org.adaway.util.Utils;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.Menu;
@@ -197,12 +196,7 @@ public class BaseFragment extends Fragment {
             return true;
 
         case R.id.menu_preferences:
-            // choose preference screen for android 2.x or 3.x (honeycomb)
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-                startActivity(new Intent(mActivity, PrefsActivity.class));
-            } else {
-                startActivity(new Intent(mActivity, PrefsActivityHC.class));
-            }
+            startActivity(new Intent(mActivity, PrefsActivity.class));
             return true;
 
         case R.id.menu_donations:

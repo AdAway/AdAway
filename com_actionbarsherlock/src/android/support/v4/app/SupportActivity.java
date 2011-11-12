@@ -8,6 +8,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+
+import com.actionbarsherlock.internal.app.SherlockActivity;
+
 import android.app.Activity;
 import android.app.Application;
 import android.app.PendingIntent;
@@ -59,7 +62,7 @@ import android.view.accessibility.AccessibilityEvent;
  * any instances of this interface can be cast to an {@link Activity}. It is
  * preferred, however, that you call {@link #asActivity()} instead.</p>
  */
-public interface SupportActivity {
+public interface SupportActivity extends SherlockActivity {
     public static abstract class InternalCallbacks {
         abstract void ensureSupportActionBarAttached();
         abstract Handler getHandler();

@@ -16,7 +16,6 @@
 
 package android.support.v4.app;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ActionMode;
@@ -33,17 +32,6 @@ import android.widget.SpinnerAdapter;
  * application.
  */
 public abstract class ActionBar {
-    /** Parent activity. */
-    protected final SupportActivity mActivity;
-    /** Parent context. */
-    protected final Context mContext;
-
-
-    protected <T extends Activity & SupportActivity> ActionBar(T activity) {
-        mActivity = activity;
-        mContext = activity;
-    }
-
     /**
      * Return the actual public action bar instance. This will either return
      * itself or null depending on the state of the underlying action bar.

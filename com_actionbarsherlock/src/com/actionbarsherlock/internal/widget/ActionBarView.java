@@ -162,7 +162,7 @@ public final class ActionBarView extends RelativeLayout {
 
         /// HOME ////
 
-        mHomeLayout = (ViewGroup) findViewById(R.id.abs__home_wrapper);
+        mHomeLayout = (ViewGroup)findViewById(R.id.abs__home_wrapper);
         final int homeLayoutResource = a.getResourceId(R.styleable.SherlockTheme_abHomeLayout, R.layout.abs__action_bar_home);
         LayoutInflater.from(context).inflate(homeLayoutResource, mHomeLayout, true);
 
@@ -280,8 +280,12 @@ public final class ActionBarView extends RelativeLayout {
 
         mHomeLayout.setVisibility(displayHome ? View.VISIBLE : View.GONE);
         if (displayHome) {
-            mHomeAsUpView.setVisibility(displayHomeAsUp ? View.VISIBLE : View.GONE);
-            mIconView.setImageDrawable(displayLogo ? mLogo : mIcon);
+            if (mHomeAsUpView != null) {
+                mHomeAsUpView.setVisibility(displayHomeAsUp ? View.VISIBLE : View.GONE);
+            }
+            if (mIconView != null) {
+                mIconView.setImageDrawable(displayLogo ? mLogo : mIcon);
+            }
         }
 
         //Only show list if we are in list navigation and there are list items

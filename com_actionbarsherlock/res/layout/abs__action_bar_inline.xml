@@ -16,16 +16,17 @@
      limitations under the License.
 -->
 
-<!--
-	Version of the ActionBar with the Tab bar shown in the Action Bar
--->
+<!-- 	Version of the ActionBar with the Tab bar shown in the Action Bar -->
 
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/abs__home_wrapper"
         android:background="?selectableItemBackground"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent" >
+
         <ImageView
             android:layout_gravity="left|center"
             android:id="@+id/abs__up"
@@ -35,6 +36,7 @@
             android:layout_marginRight="-12dip"
             android:layout_marginLeft="-4dip"
             android:src="?homeAsUpIndicator" />
+
         <ImageView
             android:layout_gravity="center"
             android:id="@+id/abs__home"
@@ -49,17 +51,16 @@
         android:id="@+id/abs__actions"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_alignParentRight="true"
-        />
+        android:layout_alignParentRight="true" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_toRightOf="@id/abs__home_wrapper"
         android:layout_toLeftOf="@id/abs__actions"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_centerVertical="true"
-        >
+        android:layout_centerVertical="true" >
+
         <ProgressBar
             android:id="@+id/abs__iprogress"
             android:layout_width="wrap_content"
@@ -69,8 +70,8 @@
             android:paddingRight="5dip"
             android:indeterminateOnly="true"
             android:visibility="gone"
-            style="?abIndeterminateProgressStyle"
-            />
+            style="?abIndeterminateProgressStyle" />
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,10 +80,11 @@
             android:layout_toLeftOf="@id/abs__iprogress"
             android:layout_alignWithParentIfMissing="true"
             android:paddingLeft="5dip"
-            android:gravity="center_vertical"
-            >
+            android:layout_centerVertical="true" >
+
             <include layout="@layout/abs__action_bar_title_item" />
         </FrameLayout>
+
         <Spinner
             android:id="@+id/abs__nav_list"
             android:layout_width="wrap_content"
@@ -90,21 +92,28 @@
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@id/abs__iprogress"
             android:layout_alignWithParentIfMissing="true"
-            style="?actionDropDownStyle"
-            />
-        <LinearLayout
-            android:id="@+id/abs__nav_tabs"
+            style="?actionDropDownStyle" />
+
+        <HorizontalScrollView
+            android:id="@+id/abs__nav_tabs_layout"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@id/abs__iprogress"
             android:layout_alignWithParentIfMissing="true"
-            android:focusable="true"
-            android:visibility="visible"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            style="?actionBarTabBarStyle"
-            />
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/abs__nav_tabs"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:focusable="true"
+                android:visibility="visible"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                style="?actionBarTabBarStyle" />
+        </HorizontalScrollView>
+
         <FrameLayout
             android:id="@+id/abs__custom"
             android:layout_width="wrap_content"
@@ -112,7 +121,7 @@
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@id/abs__iprogress"
             android:layout_alignWithParentIfMissing="true"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
     </RelativeLayout>
+
 </merge>

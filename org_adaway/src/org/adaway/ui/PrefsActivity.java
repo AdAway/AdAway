@@ -28,12 +28,15 @@ import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceActivity;
+import android.support.v4.app.ActionBar;
+import android.support.v4.app.SherlockPreferenceActivity;
+import android.support.v4.view.MenuItem;
 
 /**
  * Preference Activity used on Android 2.x devices
@@ -41,12 +44,42 @@ import android.preference.PreferenceActivity;
  * @author Dominik Schürmann
  * 
  */
-public class PrefsActivity extends PreferenceActivity {
+
+public class PrefsActivity extends SherlockPreferenceActivity {
+
+    // public class PrefsActivity extends PreferenceActivity {
     private EditTextPreference mCustomTarget;
     private CheckBoxPreference mUpdateCheckDaily;
     private CheckBoxPreference mWebserverOnBoot;
 
     private Context mContext;
+
+    /**
+     * Enabled Home Link in ActionBar
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    /**
+     * Menu Items
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in Action Bar clicked; go home
+            Intent intent = new Intent(this, BaseActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
 
     /**
      * Called when the activity is first created.

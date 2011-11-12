@@ -48,9 +48,9 @@
         <attr name="abLogo" format="reference" />
         <attr name="abDivider" format="reference|color" />
         <attr name="abBackground" format="reference|color" />
+        <attr name="abBackgroundStacked" format="reference|color" />
         <attr name="abCustomNavigationLayout" format="reference" />
         <attr name="abHeight" format="reference|dimension" />
-        <attr name="abHomeAsUpIndicator" format="reference" />
         <attr name="abHomeLayout" format="reference" />
         <attr name="abProgressBarStyle" format="reference" />
         <attr name="abIndeterminateProgressStyle" format="reference" />
