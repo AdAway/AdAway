@@ -34,8 +34,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build.VERSION;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -223,4 +228,40 @@ public class Utils {
         }
         return stream.toString();
     }
+
+    /**
+     * Checks if the application is installed on the SD card. See
+     * http://stackoverflow.com/questions/
+     * 5814474/how-can-i-find-out-if-my-app-is-installed-on-sd-card
+     * 
+     * @return <code>true</code> if the application is installed on the sd card
+     */
+    public static boolean isInstalledOnSdCard(Context context) {
+        // check for API level 8 and higher
+        if (VERSION.SDK_INT > android.os.Build.VERSION_CODES.ECLAIR_MR1) {
+            PackageManager pm = context.getPackageManager();
+            try {
+                PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+                ApplicationInfo ai = pi.applicationInfo;
+                return (ai.flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) == ApplicationInfo.FLAG_EXTERNAL_STORAGE;
+            } catch (NameNotFoundException e) {
+                // ignore
+            }
+        }
+
+        // check for API level 7 - check files dir
+        try {
+            String filesDir = context.getFilesDir().getAbsolutePath();
+            if (filesDir.startsWith("/data/")) {
+                return false;
+            } else if (filesDir.contains("/mnt/") || filesDir.contains("/sdcard/")) {
+                return true;
+            }
+        } catch (Throwable e) {
+            // ignore
+        }
+
+        return false;
+    }
+
 }

@@ -24,10 +24,12 @@ import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
 import org.adaway.service.UpdateCheckService;
 import org.adaway.util.Constants;
+import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -41,6 +43,9 @@ import android.preference.PreferenceActivity;
  */
 public class PrefsActivity extends PreferenceActivity {
     private EditTextPreference mCustomTarget;
+    private CheckBoxPreference mUpdateCheckDaily;
+    private CheckBoxPreference mWebserverOnBoot;
+
     private Context mContext;
 
     /**
@@ -111,6 +116,27 @@ public class PrefsActivity extends PreferenceActivity {
                 return true;
             }
         });
+
+        /*
+         * Disable check for update check daily and webserver on boot when installed on sd card. See
+         * http://developer.android.com/guide/appendix/install-location.html why
+         */
+        mUpdateCheckDaily = (CheckBoxPreference) getPreferenceScreen().findPreference(
+                getString(R.string.pref_update_check_daily_key));
+        mWebserverOnBoot = (CheckBoxPreference) getPreferenceScreen().findPreference(
+                getString(R.string.pref_webserver_on_boot_key));
+
+        if (Utils.isInstalledOnSdCard(this)) {
+            mUpdateCheckDaily.setEnabled(false);
+            mWebserverOnBoot.setEnabled(false);
+            mUpdateCheckDaily.setSummary(R.string.pref_sdcard_problem);
+            mWebserverOnBoot.setSummary(R.string.pref_sdcard_problem);
+        } else {
+            mUpdateCheckDaily.setEnabled(true);
+            mWebserverOnBoot.setEnabled(true);
+            mUpdateCheckDaily.setSummary(R.string.pref_update_check_daily_summary);
+            mWebserverOnBoot.setSummary(R.string.pref_webserver_on_boot_summary);
+        }
 
     }
 }

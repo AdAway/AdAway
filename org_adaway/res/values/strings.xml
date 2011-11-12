@@ -164,5 +164,6 @@
     </string-array>
 
     <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
+    <string name="pref_sdcard_problem">This feature will not work correctly when AdAway is installed on sdcard!</string>
 
 </resources>
