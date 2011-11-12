@@ -20,7 +20,6 @@
 
 package org.adaway.service;
 
-import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -45,11 +44,12 @@ import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.Log;
+import org.adaway.util.WakefulIntentService;
 
 /**
  * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources
  */
-public class UpdateCheckService extends IntentService {
+public class UpdateCheckService extends WakefulIntentService {
     private Context mApplicationContext;
 
     Cursor mEnabledHostsSourcesCursor;
@@ -89,6 +89,9 @@ public class UpdateCheckService extends IntentService {
 
         final AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
+        // cancel old alarms
+        alarm.cancel(pendingIntent);
+
         if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
             // for debugging execute service every 30 seconds
             alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
@@ -127,10 +130,10 @@ public class UpdateCheckService extends IntentService {
     }
 
     /**
-     * Asynchronous background operations of service
+     * Asynchronous background operations of service, with wakelock
      */
     @Override
-    public void onHandleIntent(Intent intent) {
+    public void doWakefulWork(Intent intent) {
         mApplicationContext = getApplicationContext();
 
         showPreNotification();

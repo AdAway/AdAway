@@ -23,26 +23,34 @@ package org.adaway.service;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.WakefulIntentService;
+import org.adaway.util.WebserverUtils;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
 /**
- * UpdateCheckAlarmReceiver is fired by AlarmManager every day at 9 am. This alarm is registered in
- * UpdateCheckService.registerAlarm()
+ * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources
  */
-public class UpdateCheckAlarmReceiver extends BroadcastReceiver {
-    // onReceive must be very quick and not block, so it just fires up a Service
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        Log.i(Constants.TAG,
-                "UpdateCheckAlarmReceiver invoked, starting CheckUpdateService in background");
+public class BootService extends WakefulIntentService {
+    private Context mApplicationContext;
 
-        // acquire lock to execute operation in new thread in WakefulIntentService without going
-        // back to sleep
-        WakefulIntentService.acquireStaticLock(context);
-
-        context.startService(new Intent(context, UpdateCheckService.class));
+    public BootService() {
+        super("AdAwayBootService");
     }
+
+    /**
+     * Asynchronous background operations of service
+     */
+    @Override
+    public void doWakefulWork(Intent intent) {
+        mApplicationContext = getApplicationContext();
+        
+        UpdateCheckService.registerAlarmWhenEnabled(mApplicationContext);
+        Log.d(Constants.TAG, "between reg alarm and webserver");
+
+        WebserverUtils.startWebserverOnBoot(mApplicationContext);
+        
+        Log.d(Constants.TAG, "after reg alarm and webserver");
+    }
+
 }
