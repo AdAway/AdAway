@@ -27,10 +27,12 @@ import android.webkit.URLUtil;
 
 public class ValidationUtils {
     /*
-     * http://stackoverflow.com/questions/106179/regular-expression-to-match-hostname-or-ip-address/
-     * 3824105#3824105 with added underscore to match more hosts
+     * Allow hostnames like:
+     * localserver
+     * example.com
+     * example.host.org
      */
-    static final private String HOSTNAME_REGEX = "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_]{0,61}[a-zA-Z0-9])\\.)+([a-zA-Z0-9]{2,5})$";
+    static final private String HOSTNAME_REGEX = "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_\\.]{0,61}[a-zA-Z0-9]))$";
     private static Pattern mHostnamePattern;
     private static Matcher mHostnameMatcher;
 

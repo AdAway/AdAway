@@ -66,8 +66,8 @@ public class WhitelistFragment extends ListFragment implements
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         // if not cleared before we have double menu entries on rotate of device
-        menu.clear();
-        inflater.inflate(R.menu.checkbox_list, menu);
+        // menu.clear();
+        inflater.inflate(R.menu.lists_fragment, menu);
     }
 
     /**

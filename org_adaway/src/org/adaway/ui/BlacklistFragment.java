@@ -21,6 +21,7 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.helper.ImportExportHelper;
 import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.CheckboxCursorAdapter;
@@ -66,8 +67,8 @@ public class BlacklistFragment extends ListFragment implements
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         // if not cleared before we have double menu entries on rotate of device
-        menu.clear();
-        inflater.inflate(R.menu.checkbox_list, menu);
+        // menu.clear();
+        inflater.inflate(R.menu.lists_fragment, menu);
     }
 
     /**
@@ -213,6 +214,14 @@ public class BlacklistFragment extends ListFragment implements
         switch (item.getItemId()) {
         case R.id.menu_add:
             menuAddEntry();
+            return true;
+
+        case R.id.menu_import:
+            ImportExportHelper.openFile(mActivity);
+            return true;
+
+        case R.id.menu_export:
+            ImportExportHelper.openFile(mActivity);
             return true;
 
         default:

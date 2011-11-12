@@ -21,6 +21,9 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.helper.ImportExportHelper;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -31,7 +34,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ActionBar.Tab;
+import android.support.v4.view.Menu;
 import android.support.v4.view.MenuItem;
+import android.view.MenuInflater;
 
 public class ListsActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -43,6 +48,27 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
         super.onStart();
         ActionBar actionBar = this.getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.lists_activity, menu);
+        return true;
+    }
+
+    /**
+     * Used to get file contents trough intents for import and export
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(Constants.TAG, "Handling onActivityResult...");
+
+        // handle import and export of files in helper
+        ImportExportHelper.onActivityResult(this, requestCode, resultCode, data);
+
+        Log.d(Constants.TAG, "on activity result");
     }
 
     /**

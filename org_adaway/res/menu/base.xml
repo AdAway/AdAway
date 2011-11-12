@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <item
         android:id="@+id/menu_hosts_sources"
-        android:title="@string/menu_hosts_sources"
-        android:icon="@drawable/ic_menu_database"></item>
+        android:icon="@drawable/ic_menu_database"
+        android:title="@string/menu_hosts_sources"></item>
+
     <item
         android:id="@+id/menu_lists"
-        android:title="@string/menu_lists"
-        android:icon="@drawable/ic_menu_filter">
-    </item>
+        android:icon="@drawable/ic_menu_filter"
+        android:title="@string/menu_lists"></item>
+
     <item
         android:id="@+id/menu_show_hosts_file"
-        android:title="@string/menu_show_hosts_file"
-        android:icon="@drawable/ic_menu_compose">
-    </item>
+        android:icon="@drawable/ic_menu_compose"
+        android:title="@string/menu_show_hosts_file"></item>
+
     <item
         android:id="@+id/menu_preferences"
-        android:title="@string/menu_preferences"
-        android:icon="@drawable/ic_menu_preferences"></item>
+        android:icon="@drawable/ic_menu_preferences"
+        android:title="@string/menu_preferences"></item>
+
     <item
         android:id="@+id/menu_about"
-        android:title="@string/menu_about"
-        android:icon="@drawable/ic_menu_info_details"></item>
+        android:icon="@drawable/ic_menu_info_details"
+        android:title="@string/menu_about"></item>
+
     <item
         android:id="@+id/menu_donations"
-        android:title="@string/menu_donations"
-        android:icon="@drawable/ic_menu_love"></item>
+        android:icon="@drawable/ic_menu_love"
+        android:title="@string/menu_donations"></item>
+
     <item
         android:id="@+id/menu_refresh"
-        android:title="@string/menu_refresh"
+        android:icon="@drawable/ic_menu_refresh"
         android:showAsAction="always"
-        android:icon="@drawable/ic_menu_refresh"></item>
+        android:title="@string/menu_refresh"></item>
+
     <item
         android:id="@+id/menu_help"
-        android:title="@string/menu_help"
+        android:icon="@drawable/ic_menu_help"
         android:showAsAction="ifRoom|withText"
-        android:icon="@drawable/ic_menu_help"></item>
+        android:title="@string/menu_help"></item>
 
 </menu>

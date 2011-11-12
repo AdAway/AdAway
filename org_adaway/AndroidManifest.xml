@@ -63,14 +63,13 @@
             android:label="@string/menu_preferences"
             android:name=".ui.PrefsActivity" />
         <activity
-            android:label="@string/menu_preferences"
-            android:name=".ui.PrefsActivityHC" />
-        <activity
             android:label="@string/menu_help"
             android:name=".ui.HelpActivity" />
+        <!-- Only portrait mode enabled for lists: on rotate of device problems in lists like menu overlapping -->
         <activity
             android:label="@string/menu_lists"
-            android:name=".ui.ListsActivity" />
+            android:name=".ui.ListsActivity"
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".service.BootReceiver" >
             <intent-filter >

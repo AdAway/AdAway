@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    
-    <item android:title="@string/checkbox_list_context_delete" android:id="@+id/checkbox_list_context_delete"></item>
-    <item android:title="@string/checkbox_list_context_edit" android:id="@+id/checkbox_list_context_edit"></item>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/checkbox_list_context_delete"
+        android:title="@string/checkbox_list_context_delete"></item>
+
+    <item
+        android:id="@+id/checkbox_list_context_edit"
+        android:title="@string/checkbox_list_context_edit"></item>
+
 </menu>

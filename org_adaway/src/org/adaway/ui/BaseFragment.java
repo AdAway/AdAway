@@ -196,7 +196,7 @@ public class BaseFragment extends Fragment {
             return true;
 
         case R.id.menu_preferences:
-            startActivity(new Intent(mActivity, PrefsActivity.class));
+                startActivity(new Intent(mActivity, PrefsActivity.class));
             return true;
 
         case R.id.menu_donations:

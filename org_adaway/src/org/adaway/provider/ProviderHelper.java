@@ -23,15 +23,19 @@ package org.adaway.provider;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
+import org.adaway.R;
 import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.AdAwayContract.RedirectionList;
 import org.adaway.provider.AdAwayContract.Whitelist;
 
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.os.AsyncTask;
 
 public class ProviderHelper {
 
@@ -227,6 +231,53 @@ public class ProviderHelper {
         return context.getContentResolver().query(Blacklist.CONTENT_URI,
                 new String[] { Blacklist._ID, Blacklist.HOSTNAME, Blacklist.ENABLED },
                 Blacklist.ENABLED + "=1", null, Blacklist.DEFAULT_SORT);
+    }
+
+    public static void importLists(final Context context, final HashSet<String> hostnames) {
+        AsyncTask<Void, Void, Void> importListsTask = new AsyncTask<Void, Void, Void>() {
+            private ProgressDialog mApplyProgressDialog;
+
+            @Override
+            protected Void doInBackground(Void... unused) {
+                ContentValues[] values = new ContentValues[hostnames.size()];
+
+                // build values array based on HashSet
+                Iterator<String> itr = hostnames.iterator();
+                int i = 0;
+                while (itr.hasNext()) {
+                    values[i] = new ContentValues();
+                    values[i].put(Blacklist.HOSTNAME, itr.next());
+                    values[i].put(Blacklist.ENABLED, true); // default is enabled
+
+                    i++;
+                }
+
+                // insert as bulk operation
+                context.getContentResolver().bulkInsert(Blacklist.CONTENT_URI, values);
+
+                // return nothing as type is Void
+                return null;
+            }
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                mApplyProgressDialog = new ProgressDialog(context);
+                mApplyProgressDialog.setMessage(context.getString(R.string.import_dialog));
+                mApplyProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                mApplyProgressDialog.setCancelable(false);
+                mApplyProgressDialog.show();
+            }
+
+            @Override
+            protected void onPostExecute(Void unused) {
+                super.onPostExecute(unused);
+
+                mApplyProgressDialog.dismiss();
+            }
+        };
+
+        importListsTask.execute();
     }
 
     /**

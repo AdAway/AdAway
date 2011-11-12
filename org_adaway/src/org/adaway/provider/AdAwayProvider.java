@@ -35,6 +35,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
@@ -126,28 +127,31 @@ public class AdAwayProvider extends ContentProvider {
 
         final SQLiteDatabase db = mAdAwayDatabase.getWritableDatabase();
 
-        Uri rowUri;
-
-        final int match = sUriMatcher.match(uri);
-        switch (match) {
-        case HOSTS_SOURCES:
-            db.insertOrThrow(Tables.HOSTS_SOURCES, null, values);
-            rowUri = HostsSources.buildUri(values.getAsString(HostsSources._ID));
-            break;
-        case WHITELIST:
-            db.insertOrThrow(Tables.WHITELIST, null, values);
-            rowUri = Whitelist.buildUri(values.getAsString(Whitelist._ID));
-            break;
-        case BLACKLIST:
-            db.insertOrThrow(Tables.BLACKLIST, null, values);
-            rowUri = Blacklist.buildUri(values.getAsString(Blacklist._ID));
-            break;
-        case REDIRECTION_LIST:
-            db.insertOrThrow(Tables.REDIRECTION_LIST, null, values);
-            rowUri = RedirectionList.buildUri(values.getAsString(RedirectionList._ID));
-            break;
-        default:
-            throw new UnsupportedOperationException("Unknown uri: " + uri);
+        Uri rowUri = null;
+        try {
+            final int match = sUriMatcher.match(uri);
+            switch (match) {
+            case HOSTS_SOURCES:
+                db.insertOrThrow(Tables.HOSTS_SOURCES, null, values);
+                rowUri = HostsSources.buildUri(values.getAsString(HostsSources._ID));
+                break;
+            case WHITELIST:
+                db.insertOrThrow(Tables.WHITELIST, null, values);
+                rowUri = Whitelist.buildUri(values.getAsString(Whitelist._ID));
+                break;
+            case BLACKLIST:
+                db.insertOrThrow(Tables.BLACKLIST, null, values);
+                rowUri = Blacklist.buildUri(values.getAsString(Blacklist._ID));
+                break;
+            case REDIRECTION_LIST:
+                db.insertOrThrow(Tables.REDIRECTION_LIST, null, values);
+                rowUri = RedirectionList.buildUri(values.getAsString(RedirectionList._ID));
+                break;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+            }
+        } catch (SQLiteConstraintException e) {
+            Log.e(Constants.TAG, "Constraint exception on insert! Entry already existing?");
         }
 
         // notify of changes in db
@@ -196,27 +200,31 @@ public class AdAwayProvider extends ContentProvider {
 
         final SQLiteDatabase db = mAdAwayDatabase.getWritableDatabase();
 
-        int count;
-        final int match = sUriMatcher.match(uri);
-        switch (match) {
-        case HOSTS_SOURCES_ID:
-            count = db.update(Tables.HOSTS_SOURCES, values, buildDefaultSelection(uri, selection),
-                    selectionArgs);
-            break;
-        case WHITELIST_ID:
-            count = db.update(Tables.WHITELIST, values, buildDefaultSelection(uri, selection),
-                    selectionArgs);
-            break;
-        case BLACKLIST_ID:
-            count = db.update(Tables.BLACKLIST, values, buildDefaultSelection(uri, selection),
-                    selectionArgs);
-            break;
-        case REDIRECTION_LIST_ID:
-            count = db.update(Tables.REDIRECTION_LIST, values,
-                    buildDefaultSelection(uri, selection), selectionArgs);
-            break;
-        default:
-            throw new UnsupportedOperationException("Unknown uri: " + uri);
+        int count = 0;
+        try {
+            final int match = sUriMatcher.match(uri);
+            switch (match) {
+            case HOSTS_SOURCES_ID:
+                count = db.update(Tables.HOSTS_SOURCES, values,
+                        buildDefaultSelection(uri, selection), selectionArgs);
+                break;
+            case WHITELIST_ID:
+                count = db.update(Tables.WHITELIST, values, buildDefaultSelection(uri, selection),
+                        selectionArgs);
+                break;
+            case BLACKLIST_ID:
+                count = db.update(Tables.BLACKLIST, values, buildDefaultSelection(uri, selection),
+                        selectionArgs);
+                break;
+            case REDIRECTION_LIST_ID:
+                count = db.update(Tables.REDIRECTION_LIST, values,
+                        buildDefaultSelection(uri, selection), selectionArgs);
+                break;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+            }
+        } catch (SQLiteConstraintException e) {
+            Log.e(Constants.TAG, "Constraint exception on update! Entry already existing?");
         }
 
         // notify of changes in db

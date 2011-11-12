@@ -67,7 +67,7 @@ public class HostsSourcesFragment extends ListFragment implements
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.checkbox_list, menu);
+        inflater.inflate(R.menu.hosts_sources_fragment, menu);
     }
 
     /**

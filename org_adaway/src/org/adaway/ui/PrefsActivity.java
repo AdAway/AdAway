@@ -151,7 +151,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         });
 
         /*
-         * Disable check for update check daily and webserver on boot when installed on sd card. See
+         * Disable update check daily and webserver on boot when installed on sd card. See
          * http://developer.android.com/guide/appendix/install-location.html why
          */
         mUpdateCheckDaily = (CheckBoxPreference) getPreferenceScreen().findPreference(
