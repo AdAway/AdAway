@@ -375,7 +375,7 @@ public class ApplyExecutor {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
                     HostsParser parser = new HostsParser(reader);
-                    HashSet<String> hostnames = parser.getHostnames();
+                    HashSet<String> hostnames = parser.getBlacklist();
 
                     fis.close();
 

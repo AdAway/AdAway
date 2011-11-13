@@ -116,9 +116,11 @@
     <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
     <string name="button_help">Help</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="menu_import">Import</string>
-    <string name="menu_export">Export</string>
+    <string name="menu_import">Import All</string>
+    <string name="menu_export">Export All</string>
     <string name="import_dialog">Importing...</string>
+    <string name="export_dialog">Exporting...</string>
+    <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
     <string name="no_text_editor_title">No text editor installed</string>
     <string name="no_text_editor">No text editor could be found to open the hosts file. You can install Jota or other text editors to handle this.\n\nDo you want to install Jota?</string>
     <string name="no_file_manager_title">No file manager installed</string>

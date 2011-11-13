@@ -25,17 +25,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import org.adaway.R;
 import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.AdAwayContract.RedirectionList;
 import org.adaway.provider.AdAwayContract.Whitelist;
 
-import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.os.AsyncTask;
 
 public class ProviderHelper {
 
@@ -178,6 +175,24 @@ public class ProviderHelper {
                 Whitelist.ENABLED + "=1", null, Whitelist.DEFAULT_SORT);
     }
 
+    public static void importWhitelist(final Context context, final HashSet<String> whitelist) {
+        ContentValues[] values = new ContentValues[whitelist.size()];
+
+        // build values array based on HashSet
+        Iterator<String> itr = whitelist.iterator();
+        int i = 0;
+        while (itr.hasNext()) {
+            values[i] = new ContentValues();
+            values[i].put(Whitelist.HOSTNAME, itr.next());
+            values[i].put(Whitelist.ENABLED, true); // default is enabled
+
+            i++;
+        }
+
+        // insert as bulk operation
+        context.getContentResolver().bulkInsert(Whitelist.CONTENT_URI, values);
+    }
+
     /**
      * Returns all whitelist items, that are enabled as HashSet
      * 
@@ -233,51 +248,22 @@ public class ProviderHelper {
                 Blacklist.ENABLED + "=1", null, Blacklist.DEFAULT_SORT);
     }
 
-    public static void importLists(final Context context, final HashSet<String> hostnames) {
-        AsyncTask<Void, Void, Void> importListsTask = new AsyncTask<Void, Void, Void>() {
-            private ProgressDialog mApplyProgressDialog;
+    public static void importBlacklist(final Context context, final HashSet<String> blacklist) {
+        ContentValues[] values = new ContentValues[blacklist.size()];
 
-            @Override
-            protected Void doInBackground(Void... unused) {
-                ContentValues[] values = new ContentValues[hostnames.size()];
+        // build values array based on HashSet
+        Iterator<String> itr = blacklist.iterator();
+        int i = 0;
+        while (itr.hasNext()) {
+            values[i] = new ContentValues();
+            values[i].put(Blacklist.HOSTNAME, itr.next());
+            values[i].put(Blacklist.ENABLED, true); // default is enabled
 
-                // build values array based on HashSet
-                Iterator<String> itr = hostnames.iterator();
-                int i = 0;
-                while (itr.hasNext()) {
-                    values[i] = new ContentValues();
-                    values[i].put(Blacklist.HOSTNAME, itr.next());
-                    values[i].put(Blacklist.ENABLED, true); // default is enabled
+            i++;
+        }
 
-                    i++;
-                }
-
-                // insert as bulk operation
-                context.getContentResolver().bulkInsert(Blacklist.CONTENT_URI, values);
-
-                // return nothing as type is Void
-                return null;
-            }
-
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                mApplyProgressDialog = new ProgressDialog(context);
-                mApplyProgressDialog.setMessage(context.getString(R.string.import_dialog));
-                mApplyProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                mApplyProgressDialog.setCancelable(false);
-                mApplyProgressDialog.show();
-            }
-
-            @Override
-            protected void onPostExecute(Void unused) {
-                super.onPostExecute(unused);
-
-                mApplyProgressDialog.dismiss();
-            }
-        };
-
-        importListsTask.execute();
+        // insert as bulk operation
+        context.getContentResolver().bulkInsert(Blacklist.CONTENT_URI, values);
     }
 
     /**
@@ -339,6 +325,24 @@ public class ProviderHelper {
                 new String[] { RedirectionList._ID, RedirectionList.HOSTNAME, RedirectionList.IP,
                         RedirectionList.ENABLED }, RedirectionList.ENABLED + "=1", null,
                 RedirectionList.DEFAULT_SORT);
+    }
+
+    public static void importRedirectionList(final Context context,
+            final HashMap<String, String> redirectionList) {
+        ContentValues[] values = new ContentValues[redirectionList.size()];
+
+        int i = 0;
+        for (HashMap.Entry<String, String> item : redirectionList.entrySet()) {
+            values[i] = new ContentValues();
+            values[i].put(RedirectionList.HOSTNAME, item.getKey());
+            values[i].put(RedirectionList.IP, item.getValue());
+            values[i].put(RedirectionList.ENABLED, true); // default is enabled
+
+            i++;
+        }
+
+        // insert as bulk operation
+        context.getContentResolver().bulkInsert(RedirectionList.CONTENT_URI, values);
     }
 
     public static HashMap<String, String> getEnabledRedirectionListHashMap(Context context) {

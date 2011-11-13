@@ -22,19 +22,30 @@ package org.adaway.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.adaway.util.Log;
 
 public class HostsParser {
-    private HashSet<String> mHostnames;
+    private HashSet<String> mBlacklist;
+    private HashSet<String> mWhitelist;
+    private HashMap<String, String> mRedirectionList;
 
     public HostsParser(BufferedReader input) throws IOException {
         parse(input);
     }
 
-    public HashSet<String> getHostnames() {
-        return mHostnames;
+    public HashSet<String> getBlacklist() {
+        return mBlacklist;
+    }
+
+    public HashSet<String> getWhitelist() {
+        return mWhitelist;
+    }
+
+    public HashMap<String, String> getRedirectionList() {
+        return mRedirectionList;
     }
 
     /**
@@ -47,7 +58,9 @@ public class HostsParser {
         String nextLine = null;
         String currentIp = null;
         String currentHostname = null;
-        mHostnames = new HashSet<String>();
+        mBlacklist = new HashSet<String>();
+        mWhitelist = new HashSet<String>();
+        mRedirectionList = new HashMap<String, String>();
 
         int indexComment = -1;
         int indexWhitespace = -1;
@@ -91,9 +104,20 @@ public class HostsParser {
                             || currentIp.equals(Constants.BOGUS_IPv4)) {
                         // check syntax of hostname
                         if (ValidationUtils.isValidHostname(currentHostname)) {
-                            mHostnames.add(currentHostname);
+                            mBlacklist.add(currentHostname);
                         } else {
                             Log.d(Constants.TAG, currentHostname + " NOT matched");
+                        }
+                    } else if (currentIp.equals(Constants.WHITELIST_ENTRY)) {
+                        // is whitelist entry
+                        if (ValidationUtils.isValidHostname(currentHostname)) {
+                            mWhitelist.add(currentHostname);
+                        }
+                    } else {
+                        // is redirection entry
+                        if (ValidationUtils.isValidIP(currentIp)
+                                && ValidationUtils.isValidHostname(currentHostname)) {
+                            mRedirectionList.put(currentHostname, currentIp);
                         }
                     }
                 }
@@ -101,6 +125,6 @@ public class HostsParser {
         }
 
         // strip localhost entry
-        mHostnames.remove(Constants.LOCALHOST_HOSTNAME);
+        mBlacklist.remove(Constants.LOCALHOST_HOSTNAME);
     }
 }

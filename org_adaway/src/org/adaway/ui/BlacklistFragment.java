@@ -21,7 +21,6 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.ImportExportHelper;
 import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.CheckboxCursorAdapter;
@@ -214,14 +213,6 @@ public class BlacklistFragment extends ListFragment implements
         switch (item.getItemId()) {
         case R.id.menu_add:
             menuAddEntry();
-            return true;
-
-        case R.id.menu_import:
-            ImportExportHelper.openFile(mActivity);
-            return true;
-
-        case R.id.menu_export:
-            ImportExportHelper.openFile(mActivity);
             return true;
 
         default:

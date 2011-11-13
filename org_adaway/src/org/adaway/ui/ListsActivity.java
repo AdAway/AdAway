@@ -25,6 +25,7 @@ import org.adaway.helper.ImportExportHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -39,6 +40,7 @@ import android.support.v4.view.MenuItem;
 import android.view.MenuInflater;
 
 public class ListsActivity extends FragmentActivity implements ActionBar.TabListener {
+    Activity mActivity;
 
     /**
      * Set ActionBar to include sign to Home
@@ -66,9 +68,7 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
         Log.d(Constants.TAG, "Handling onActivityResult...");
 
         // handle import and export of files in helper
-        ImportExportHelper.onActivityResult(this, requestCode, resultCode, data);
-
-        Log.d(Constants.TAG, "on activity result");
+        ImportExportHelper.onActivityResult(mActivity, requestCode, resultCode, data);
     }
 
     /**
@@ -79,10 +79,19 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
         switch (item.getItemId()) {
         case android.R.id.home:
             // app icon in Action Bar clicked; go home
-            Intent intent = new Intent(this, BaseActivity.class);
+            Intent intent = new Intent(mActivity, BaseActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             return true;
+
+        case R.id.menu_import:
+            ImportExportHelper.openFile(mActivity);
+            return true;
+
+        case R.id.menu_export:
+            ImportExportHelper.exportLists(mActivity);
+            return true;
+
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -94,6 +103,8 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mActivity = this;
 
         setContentView(R.layout.lists_activity);
 
