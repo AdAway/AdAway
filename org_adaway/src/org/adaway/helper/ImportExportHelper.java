@@ -45,10 +45,7 @@ public class ImportExportHelper {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
 
         try {
-            activity.startActivityForResult(
-                    Intent.createChooser(intent,
-                            activity.getString(R.string.import_select_filemanager)),
-                    REQEST_CODE_FILE_OPEN);
+            activity.startActivityForResult(intent, REQEST_CODE_FILE_OPEN);
         } catch (ActivityNotFoundException e) {
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             builder.setIcon(android.R.drawable.ic_dialog_alert);
