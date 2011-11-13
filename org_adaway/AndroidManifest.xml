@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:installLocation="auto"
     package="org.adaway"
-    android:versionCode="18"
-    android:versionName="1.17" >
+    android:versionCode="19"
+    android:versionName="1.18" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -20,6 +20,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Required permission to do update check daily -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Required permission to use Google Android Market donations -->
     <uses-permission android:name="com.android.vending.BILLING" />
