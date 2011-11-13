@@ -42,11 +42,12 @@ public class ImportExportHelper {
         final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("text/plain");
         // Do this if you need to be able to open the returned URI as a stream
-        // (for example here to read the image data).
         intent.addCategory(Intent.CATEGORY_OPENABLE);
 
         try {
-            activity.startActivityForResult(Intent.createChooser(intent, "Select file"),
+            activity.startActivityForResult(
+                    Intent.createChooser(intent,
+                            activity.getString(R.string.import_select_filemanager)),
                     REQEST_CODE_FILE_OPEN);
         } catch (ActivityNotFoundException e) {
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);

@@ -119,6 +119,7 @@
     <string name="menu_import">Import All</string>
     <string name="menu_export">Export All</string>
     <string name="import_dialog">Importing...</string>
+    <string name="import_select_filemanager">Select file manager to select file</string>
     <string name="export_dialog">Exporting...</string>
     <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
     <string name="no_text_editor_title">No text editor installed</string>

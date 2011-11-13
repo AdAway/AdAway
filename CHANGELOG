@@ -2,7 +2,7 @@
 * Local webserver now answers with blank page instead of 404 error page
 * Import and Export of Your Lists
 - Bug fix for symlink check
-- Last entry in hosts file is now working (missed new line at end of hosts file)i
+- Last entry in hosts file is now working (missed new line at end of hosts file)
 - Fixes for daily update check
 - Allow hostnames without TLD ending
 
