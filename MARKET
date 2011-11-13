@@ -1,0 +1,76 @@
+Attention: DEVICE MUST BE ROOTED FOR THIS APPLICATION
+
+Description:
+AdAway is an open source ad blocker for Android using the hosts file. 
+It is the open source alternative to AdFree and other Ad blockers.
+
+Requirements:
+• ROOT
+• Read/Write access on system-Partition
+
+Problems:
+• On some HTC devices with a 'feature' called S-ON system-Partition is not writable.
+• More Information can be found in in-app Help screen.
+
+Website and Bug-Tracker:
+http://code.google.com/p/ad-away/
+
+Help translating AdAway:
+https://www.transifex.net/projects/p/adaway/
+
+Donate:
+You can donate money to support the development in-app with Flattr or Google Android Market
+
+License:
+GPLv3
+
+Permissions:
+This application needs root access on your device, meaning it can do EVERYTHING.
+So theoretically it makes no sense to describe the used permissions, but people requested it so here we go:
+• Root access: Write hosts file to system partition
+• Internet access: To download hosts files
+• Modify/delete SD card contents: To export lists to sd card
+• Wakelock: Daily update check in background when phone is in sleep
+
+
+
+
+
+
+
+GERMAN:
+
+
+Achtung: ANWENDUNG BRAUCHT ROOT-ZUGRIFF AUF DEM GERÄT
+
+Beschreibung:
+AdAway ist ein Open-Source Ad-Blocker unter Verwendung der hosts-Datei.
+Es ist die Open-Source Alternative zu AdFree und anderen Ad blockern.
+
+Anforderungen:
+• ROOT
+• Lese- und Schreibzugriff auf der system-Partition
+
+Probleme:
+• Auf manchen HTC Geräten mit dem 'Feature' S-ON kann die system-Partition nicht beschrieben werden.
+• Weitere Informationen finden sich in der Hilfe innerhalb des Programms.
+
+Webseite und Issue-Tracker:
+http://code.google.com/p/ad-away/
+
+Hilf mit AdAway zu übersetzen:
+https://www.transifex.net/projects/p/adaway/
+
+Spenden:
+Du kannst die Entwicklung unterstützen indem du in der Anwendung über Flattr oder den Google Android Market spendest.
+
+Lizenz:
+GPLv3
+
+Berechtigungen:
+Diese Anwendung benötigt Root-Zugriff, dass heißt sie hat VOLLEN ZUGRIFF.
+Deshalb macht es theoretisch keinen Sinn die benötigten Berechtigungen zu beschreiben, aber viele haben danach gefragt deshalb hier die Liste:
+• Root-Zugriff: Hosts-Dati auf System-Partition schreiben
+• Internet-Zugriff: Um hosts-Dateien herunterzuladen
+• SD-Karte ändern/löschen: Um die Listen zu exportieren
+• Standby-Modus deaktivieren: Täglicher update check im Hintergrund während sich das Gerät im Standby befindet
