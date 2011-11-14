@@ -142,79 +142,6 @@ public class ProviderHelper {
         }
     }
 
-    /* WHITELIST */
-
-    public static void insertWhitelistItem(Context context, String hostname) {
-        ContentValues values = new ContentValues();
-        values.put(Whitelist.HOSTNAME, hostname);
-        values.put(Whitelist.ENABLED, true); // default is enabled
-        context.getContentResolver().insert(Whitelist.CONTENT_URI, values);
-    }
-
-    public static void deleteWhitelistItem(Context context, long rowId) {
-        context.getContentResolver().delete(Whitelist.buildUri(Long.toString(rowId)), null, null);
-    }
-
-    public static void updateWhitelistItemHostname(Context context, long rowId, String hostname) {
-        ContentValues values = new ContentValues();
-        values.put(Whitelist.HOSTNAME, hostname);
-        context.getContentResolver().update(Whitelist.buildUri(Long.toString(rowId)), values, null,
-                null);
-    }
-
-    public static void updateWhitelistItemEnabled(Context context, long rowId, boolean enabled) {
-        ContentValues values = new ContentValues();
-        values.put(Whitelist.ENABLED, enabled);
-        context.getContentResolver().update(Whitelist.buildUri(Long.toString(rowId)), values, null,
-                null);
-    }
-
-    public static Cursor getEnabledWhitelistCursor(Context context) {
-        return context.getContentResolver().query(Whitelist.CONTENT_URI,
-                new String[] { Whitelist._ID, Whitelist.HOSTNAME, Whitelist.ENABLED },
-                Whitelist.ENABLED + "=1", null, Whitelist.DEFAULT_SORT);
-    }
-
-    public static void importWhitelist(final Context context, final HashSet<String> whitelist) {
-        ContentValues[] values = new ContentValues[whitelist.size()];
-
-        // build values array based on HashSet
-        Iterator<String> itr = whitelist.iterator();
-        int i = 0;
-        while (itr.hasNext()) {
-            values[i] = new ContentValues();
-            values[i].put(Whitelist.HOSTNAME, itr.next());
-            values[i].put(Whitelist.ENABLED, true); // default is enabled
-
-            i++;
-        }
-
-        // insert as bulk operation
-        context.getContentResolver().bulkInsert(Whitelist.CONTENT_URI, values);
-    }
-
-    /**
-     * Returns all whitelist items, that are enabled as HashSet
-     * 
-     * @param context
-     * @return
-     */
-    public static HashSet<String> getEnabledWhitelistArrayList(Context context) {
-        HashSet<String> list = new HashSet<String>();
-        Cursor cursor = getEnabledWhitelistCursor(context);
-
-        if (cursor.moveToFirst()) {
-            do {
-                list.add(cursor.getString(cursor.getColumnIndexOrThrow(Whitelist.HOSTNAME)));
-            } while (cursor.moveToNext());
-        }
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
-        }
-
-        return list;
-    }
-
     /* BLACKLIST */
 
     public static void insertBlacklistItem(Context context, String hostname) {
@@ -248,24 +175,6 @@ public class ProviderHelper {
                 Blacklist.ENABLED + "=1", null, Blacklist.DEFAULT_SORT);
     }
 
-    public static void importBlacklist(final Context context, final HashSet<String> blacklist) {
-        ContentValues[] values = new ContentValues[blacklist.size()];
-
-        // build values array based on HashSet
-        Iterator<String> itr = blacklist.iterator();
-        int i = 0;
-        while (itr.hasNext()) {
-            values[i] = new ContentValues();
-            values[i].put(Blacklist.HOSTNAME, itr.next());
-            values[i].put(Blacklist.ENABLED, true); // default is enabled
-
-            i++;
-        }
-
-        // insert as bulk operation
-        context.getContentResolver().bulkInsert(Blacklist.CONTENT_URI, values);
-    }
-
     /**
      * Returns all blacklist items, that are enabled as HashSet
      * 
@@ -286,6 +195,109 @@ public class ProviderHelper {
         }
 
         return list;
+    }
+
+    /**
+     * Imports blacklist from HashSet<String> into database of AdAway
+     * 
+     * @param context
+     * @param whitelist
+     */
+    public static void importBlacklist(Context context, HashSet<String> blacklist) {
+        ContentValues[] values = new ContentValues[blacklist.size()];
+
+        // build values array based on HashSet
+        Iterator<String> itr = blacklist.iterator();
+        int i = 0;
+        while (itr.hasNext()) {
+            values[i] = new ContentValues();
+            values[i].put(Blacklist.HOSTNAME, itr.next());
+            values[i].put(Blacklist.ENABLED, true); // default is enabled
+
+            i++;
+        }
+
+        // insert as bulk operation
+        context.getContentResolver().bulkInsert(Blacklist.CONTENT_URI, values);
+    }
+
+    /* WHITELIST */
+
+    public static void insertWhitelistItem(Context context, String hostname) {
+        ContentValues values = new ContentValues();
+        values.put(Whitelist.HOSTNAME, hostname);
+        values.put(Whitelist.ENABLED, true); // default is enabled
+        context.getContentResolver().insert(Whitelist.CONTENT_URI, values);
+    }
+
+    public static void deleteWhitelistItem(Context context, long rowId) {
+        context.getContentResolver().delete(Whitelist.buildUri(Long.toString(rowId)), null, null);
+    }
+
+    public static void updateWhitelistItemHostname(Context context, long rowId, String hostname) {
+        ContentValues values = new ContentValues();
+        values.put(Whitelist.HOSTNAME, hostname);
+        context.getContentResolver().update(Whitelist.buildUri(Long.toString(rowId)), values, null,
+                null);
+    }
+
+    public static void updateWhitelistItemEnabled(Context context, long rowId, boolean enabled) {
+        ContentValues values = new ContentValues();
+        values.put(Whitelist.ENABLED, enabled);
+        context.getContentResolver().update(Whitelist.buildUri(Long.toString(rowId)), values, null,
+                null);
+    }
+
+    public static Cursor getEnabledWhitelistCursor(Context context) {
+        return context.getContentResolver().query(Whitelist.CONTENT_URI,
+                new String[] { Whitelist._ID, Whitelist.HOSTNAME, Whitelist.ENABLED },
+                Whitelist.ENABLED + "=1", null, Whitelist.DEFAULT_SORT);
+    }
+
+    /**
+     * Returns all whitelist items, that are enabled as HashSet
+     * 
+     * @param context
+     * @return
+     */
+    public static HashSet<String> getEnabledWhitelistArrayList(Context context) {
+        HashSet<String> list = new HashSet<String>();
+        Cursor cursor = getEnabledWhitelistCursor(context);
+
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(cursor.getColumnIndexOrThrow(Whitelist.HOSTNAME)));
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+
+        return list;
+    }
+
+    /**
+     * Imports whitelist from HashSet<String> into database of AdAway
+     * 
+     * @param context
+     * @param whitelist
+     */
+    public static void importWhitelist(Context context, HashSet<String> whitelist) {
+        ContentValues[] values = new ContentValues[whitelist.size()];
+
+        // build values array based on HashSet
+        Iterator<String> itr = whitelist.iterator();
+        int i = 0;
+        while (itr.hasNext()) {
+            values[i] = new ContentValues();
+            values[i].put(Whitelist.HOSTNAME, itr.next());
+            values[i].put(Whitelist.ENABLED, true); // default is enabled
+
+            i++;
+        }
+
+        // insert as bulk operation
+        context.getContentResolver().bulkInsert(Whitelist.CONTENT_URI, values);
     }
 
     /* REDIRECTION LIST */
@@ -327,24 +339,6 @@ public class ProviderHelper {
                 RedirectionList.DEFAULT_SORT);
     }
 
-    public static void importRedirectionList(final Context context,
-            final HashMap<String, String> redirectionList) {
-        ContentValues[] values = new ContentValues[redirectionList.size()];
-
-        int i = 0;
-        for (HashMap.Entry<String, String> item : redirectionList.entrySet()) {
-            values[i] = new ContentValues();
-            values[i].put(RedirectionList.HOSTNAME, item.getKey());
-            values[i].put(RedirectionList.IP, item.getValue());
-            values[i].put(RedirectionList.ENABLED, true); // default is enabled
-
-            i++;
-        }
-
-        // insert as bulk operation
-        context.getContentResolver().bulkInsert(RedirectionList.CONTENT_URI, values);
-    }
-
     public static HashMap<String, String> getEnabledRedirectionListHashMap(Context context) {
         HashMap<String, String> list = new HashMap<String, String>();
         Cursor cursor = getEnabledRedirectionListCursor(context);
@@ -360,6 +354,31 @@ public class ProviderHelper {
         }
 
         return list;
+    }
+
+    /**
+     * Imports redirection list from HashMap<String, String> into database of AdAway, where keys are
+     * hostnames and values are ip addresses.
+     * 
+     * @param context
+     * @param whitelist
+     */
+    public static void importRedirectionList(Context context,
+            HashMap<String, String> redirectionList) {
+        ContentValues[] values = new ContentValues[redirectionList.size()];
+
+        int i = 0;
+        for (HashMap.Entry<String, String> item : redirectionList.entrySet()) {
+            values[i] = new ContentValues();
+            values[i].put(RedirectionList.HOSTNAME, item.getKey());
+            values[i].put(RedirectionList.IP, item.getValue());
+            values[i].put(RedirectionList.ENABLED, true); // default is enabled
+
+            i++;
+        }
+
+        // insert as bulk operation
+        context.getContentResolver().bulkInsert(RedirectionList.CONTENT_URI, values);
     }
 
 }

@@ -68,7 +68,7 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
         Log.d(Constants.TAG, "Handling onActivityResult...");
 
         // handle import and export of files in helper
-        ImportExportHelper.onActivityResult(mActivity, requestCode, resultCode, data);
+        ImportExportHelper.onActivityResultHandleImport(mActivity, requestCode, resultCode, data);
     }
 
     /**
