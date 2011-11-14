@@ -116,8 +116,8 @@
     <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
     <string name="button_help">Help</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="menu_import">Import All</string>
-    <string name="menu_export">Export All</string>
+    <string name="menu_import">Import All Lists</string>
+    <string name="menu_export">Export All Lists</string>
     <string name="import_dialog">Importing...</string>
     <string name="export_dialog">Exporting...</string>
     <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>

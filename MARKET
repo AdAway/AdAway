@@ -11,8 +11,9 @@ Requirements:
 Problems:
 • On some HTC devices with a 'feature' called S-ON system-Partition is not writable.
 • More Information can be found in in-app Help screen.
+• If you have other problems please report them in the issue tracker on http://code.google.com/p/ad-away/issues/list
 
-Website and Bug-Tracker:
+Website and issue tracker:
 http://code.google.com/p/ad-away/
 
 Help translating AdAway:
@@ -54,6 +55,7 @@ Anforderungen:
 Probleme:
 • Auf manchen HTC Geräten mit dem 'Feature' S-ON kann die system-Partition nicht beschrieben werden.
 • Weitere Informationen finden sich in der Hilfe innerhalb des Programms.
+• Wenn du andere Probleme hast melde sie im Issue-Tracker unter http://code.google.com/p/ad-away/issues/list
 
 Webseite und Issue-Tracker:
 http://code.google.com/p/ad-away/
