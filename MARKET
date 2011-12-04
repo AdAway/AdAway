@@ -28,7 +28,7 @@ GPLv3
 Permissions:
 This application needs root access on your device, meaning it can do EVERYTHING.
 So theoretically it makes no sense to describe the used permissions, but people requested it so here we go:
-• Root access: Write hosts file to system partition
+• Root access: To write hosts file to system partition
 • Internet access: To download hosts files
 • Modify/delete SD card contents: To export lists to sd card
 • Wakelock: Daily update check in background when phone is in sleep
@@ -72,7 +72,7 @@ GPLv3
 Berechtigungen:
 Diese Anwendung benötigt Root-Zugriff, dass heißt sie hat VOLLEN ZUGRIFF.
 Deshalb macht es theoretisch keinen Sinn die benötigten Berechtigungen zu beschreiben, aber viele haben danach gefragt deshalb hier die Liste:
-• Root-Zugriff: Hosts-Dati auf System-Partition schreiben
-• Internet-Zugriff: Um hosts-Dateien herunterzuladen
+• Root-Zugriff: Um die Hosts-Datei auf der System-Partition zu ändern
+• Internet-Zugriff: Um Hosts-Dateien herunterzuladen
 • SD-Karte ändern/löschen: Um die Listen zu exportieren
-• Standby-Modus deaktivieren: Täglicher update check im Hintergrund während sich das Gerät im Standby befindet
+• Standby-Modus deaktivieren: Für den täglichen Update-Check im Hintergrund während sich das Gerät im Standby befindet
