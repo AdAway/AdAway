@@ -26,11 +26,12 @@ name="symlink_amend"
 createZip
 
 rm -rf $folder/*
-cp -f script_edify $folder/update-binary
+cp -f update-binary $folder/update-binary
+cp -f script_edify $folder/updater-script
 name="symlink_edify"
 createZip
 
 echo "done"
 
-#rm -R "META-INF"
+rm -R "META-INF"
 exit 0
