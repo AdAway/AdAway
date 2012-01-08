@@ -127,10 +127,11 @@
     <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
     <string name="donations_flattr">Flattr</string>
     <string name="donations_google_android_market">Google Android Market</string>
+    <string name="donations_google_android_market_not_supported_title">In-App Donations are not supported</string>
+    <string name="donations_google_android_market_not_supported">In-App Donations are not supported. Is Google Android Market installed correctly?</string>
     <string name="donations_google_android_market_description">• Google takes 30% off every donation!\n• There is no premium version for donators.</string>
     <string name="donations_google_android_market_donate_button">Donate!</string>
     <string name="donations_google_android_market_text">How much?</string>
-    <string name="donations_google_android_market_spinning_message">Please wait while payment is received!\nThis can take a minute or two...</string>
 
     <string-array name="donations_google_android_market_promt_array">
         <item>1 Euro</item>

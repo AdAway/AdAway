@@ -56,10 +56,8 @@ public class DonationsActivity extends Activity {
 
     private BillingService mBillingService;
 
-    private static final int DIALOG_CANNOT_CONNECT_ID = 1;
-    private static final int DIALOG_BILLING_NOT_SUPPORTED_ID = 2;
-    // private ProgressDialog mProgressDialog;
-
+    private static final int DIALOG_BILLING_NOT_SUPPORTED_ID = 1;
+    
     /** An array of product list entries for the products that can be purchased. */
     private static final String[] CATALOG = new String[] { "adaway.donation.1",
             "adaway.donation.2", "adaway.donation.3", "adaway.donation.5", "adaway.donation.8",
@@ -82,9 +80,7 @@ public class DonationsActivity extends Activity {
             if (Consts.DEBUG) {
                 Log.i(Constants.TAG, "supported: " + supported);
             }
-            if (supported) {
-                // mBuyButton.setEnabled(true);
-            } else {
+            if (!supported) {
                 showDialog(DIALOG_BILLING_NOT_SUPPORTED_ID);
             }
         }
@@ -96,30 +92,6 @@ public class DonationsActivity extends Activity {
                 Log.i(Constants.TAG, "onPurchaseStateChange() itemId: " + itemId + " "
                         + purchaseState);
             }
-
-            /* other method with callback: */
-            //
-            // try {
-            // mProgressDialog.dismiss();
-            // } catch (Exception e) {
-            // }
-            // mProgressDialog = null;
-            //
-            // if (purchaseState == PurchaseState.PURCHASED) {
-            // AlertDialog.Builder dialog = new AlertDialog.Builder(DonationsActivity.this);
-            // dialog.setIcon(android.R.drawable.ic_dialog_info);
-            // dialog.setTitle(R.string.donations_thanks_dialog_title);
-            // dialog.setMessage(R.string.donations_thanks_dialog);
-            // dialog.setCancelable(true);
-            // dialog.setNeutralButton(R.string.button_close,
-            // new DialogInterface.OnClickListener() {
-            // @Override
-            // public void onClick(DialogInterface dialog, int which) {
-            // dialog.dismiss();
-            // }
-            // });
-            // dialog.show
-            // }
         }
 
         @Override
@@ -144,15 +116,6 @@ public class DonationsActivity extends Activity {
                             }
                         });
                 dialog.show();
-
-                /* other method with callback: */
-                // mProgressDialog = new ProgressDialog(DonationsActivity.this);
-                // mProgressDialog
-                // .setMessage(getString(R.string.donations_google_android_market_spinning_message));
-                // mProgressDialog.setIndeterminate(true);
-                // mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                // mProgressDialog.setCancelable(true);
-                // mProgressDialog.show();
             } else if (responseCode == ResponseCode.RESULT_USER_CANCELED) {
                 if (Consts.DEBUG) {
                     Log.i(Constants.TAG, "user canceled purchase");
@@ -201,11 +164,6 @@ public class DonationsActivity extends Activity {
         mDonatePurchaseObserver = new DonatePurchaseObserver(mHandler);
         mBillingService = new BillingService();
         mBillingService.setContext(this);
-
-        // Check if billing is supported.
-        if (!mBillingService.checkBillingSupported()) {
-            showDialog(DIALOG_CANNOT_CONNECT_ID);
-        }
     }
 
     /**
@@ -257,10 +215,8 @@ public class DonationsActivity extends Activity {
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
-        case DIALOG_CANNOT_CONNECT_ID:
-            return createDialog("cannot connect title", "cannot connect");
         case DIALOG_BILLING_NOT_SUPPORTED_ID:
-            return createDialog("billing not supported title", "billing not supported");
+            return createDialog(getString(R.string.donations_google_android_market_not_supported_title), getString(R.string.donations_google_android_market_not_supported));
         default:
             return null;
         }
@@ -276,7 +232,7 @@ public class DonationsActivity extends Activity {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        dialog.dismiss();
                     }
                 });
         return builder.create();
