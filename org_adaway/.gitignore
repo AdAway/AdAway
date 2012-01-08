@@ -3,6 +3,7 @@ bin
 gen
 obj
 libs/armeabi
+lint.xml
 
 #Eclipse
 .project
