@@ -5,7 +5,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:isScrollContainer="true"
         android:orientation="vertical"
         android:paddingBottom="15dp"
@@ -29,11 +29,6 @@
                     android:layout_gravity="top"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/icon" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" />
             </LinearLayout>
 
             <LinearLayout
@@ -68,7 +63,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/about_license"
             android:textAppearance="@android:style/TextAppearance.Small" />
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
