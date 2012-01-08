@@ -1,0 +1,11 @@
+Execute create_update_zip.sh to create a update.zip file to workaround S-ON.
+
+This works by creating a symlink from /system/etc/hosts to /data/data/hosts
+
+Info:
+Clockwordmod Recovery < 5 uses Amend Scripting language
+> 5 uses Edify
+
+Resources:
+http://tjworld.net/wiki/Android/UpdaterScriptEdifyFunctions
+http://www.freeyourandroid.com/guide/introdution_to_edify
