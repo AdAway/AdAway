@@ -17,9 +17,13 @@
 package android.support.v4.util;
 
 /**
- * Useful debugging utilities that are not available on all versions of Android.
+ * Helper for accessing features in {@link android.util.DebugUtils}
+ * introduced after API level 4 in a backwards compatible fashion.
+ *
+ * @hide
  */
 public class DebugUtils {
+
     public static void buildShortClassTag(Object cls, StringBuilder out) {
         if (cls == null) {
             out.append("null");

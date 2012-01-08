@@ -32,14 +32,6 @@ import android.widget.SpinnerAdapter;
  * application.
  */
 public abstract class ActionBar {
-    /**
-     * Return the actual public action bar instance. This will either return
-     * itself or null depending on the state of the underlying action bar.
-     *
-     * @return Action bar instance.
-     */
-    protected abstract ActionBar getPublicInstance();
-
     // ------------------------------------------------------------------------
     // ACTION MODE SUPPORT
     // ------------------------------------------------------------------------

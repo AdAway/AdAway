@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Static library version of {@code android.util.LruCache}. Used to write apps
+ * Static library version of {@link android.util.LruCache}. Used to write apps
  * that run on API levels prior to 12. When running on API level 12 or above,
  * this implementation is still used; it does not try to switch to the
  * framework's implementation. See the framework SDK documentation for a class

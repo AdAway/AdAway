@@ -23,7 +23,44 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
+/**
+ * Implementation of {@link android.support.v4.view.PagerAdapter} that
+ * uses a {@link Fragment} to manage each page. This class also handles
+ * saving and restoring of fragment's state.
+ *
+ * <p>This version of the pager is more useful when there are a large number
+ * of pages, working more like a list view.  When pages are not visible to
+ * the user, their entire fragment may be destroyed, only keeping the saved
+ * state of that fragment.  This allows the pager to hold on to much less
+ * memory associated with each visited page as compared to
+ * {@link FragmentPagerAdapter} at the cost of potentially more overhead when
+ * switching between pages.
+ *
+ * <p>When using FragmentPagerAdapter the host ViewPager must have a
+ * valid ID set.</p>
+ *
+ * <p>Subclasses only need to implement {@link #getItem(int)}
+ * and {@link #getCount()} to have a working adapter.
+ *
+ * <p>Here is an example implementation of a pager containing fragments of
+ * lists:
+ *
+ * {@sample development/samples/Support13Demos/src/com/example/android/supportv13/app/FragmentStatePagerSupport.java
+ *      complete}
+ *
+ * <p>The <code>R.layout.fragment_pager</code> resource of the top-level fragment is:
+ *
+ * {@sample development/samples/Support13Demos/res/layout/fragment_pager.xml
+ *      complete}
+ *
+ * <p>The <code>R.layout.fragment_pager_list</code> resource containing each
+ * individual fragment's layout is:
+ *
+ * {@sample development/samples/Support13Demos/res/layout/fragment_pager_list.xml
+ *      complete}
+ */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     private static final String TAG = "FragmentStatePagerAdapter";
     private static final boolean DEBUG = false;
@@ -45,11 +82,11 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     public abstract Fragment getItem(int position);
 
     @Override
-    public void startUpdate(View container) {
+    public void startUpdate(ViewGroup container) {
     }
 
     @Override
-    public Object instantiateItem(View container, int position) {
+    public Object instantiateItem(ViewGroup container, int position) {
         // If we already have this item instantiated, there is nothing
         // to do.  This can happen when we are restoring the entire pager
         // from its saved state, where the fragment manager has already
@@ -84,7 +121,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public void destroyItem(View container, int position, Object object) {
+    public void destroyItem(ViewGroup container, int position, Object object) {
         Fragment fragment = (Fragment)object;
 
         if (mCurTransaction == null) {
@@ -102,7 +139,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public void setPrimaryItem(View container, int position, Object object) {
+    public void setPrimaryItem(ViewGroup container, int position, Object object) {
         Fragment fragment = (Fragment)object;
         if (fragment != mCurrentPrimaryItem) {
             if (mCurrentPrimaryItem != null) {
@@ -116,7 +153,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public void finishUpdate(View container) {
+    public void finishUpdate(ViewGroup container) {
         if (mCurTransaction != null) {
             mCurTransaction.commitAllowingStateLoss();
             mCurTransaction = null;

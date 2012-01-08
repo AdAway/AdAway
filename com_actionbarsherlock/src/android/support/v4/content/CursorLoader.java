@@ -98,7 +98,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
 
     /**
      * Creates a fully-specified CursorLoader.  See
-     * {@link ContentResolver#query(Uri, String[], String, String[], String)
+     * {@link android.content.ContentResolver#query(Uri, String[], String, String[], String)
      * ContentResolver.query()} for documentation on the meaning of the
      * parameters.  These will be passed as-is to that call.
      */

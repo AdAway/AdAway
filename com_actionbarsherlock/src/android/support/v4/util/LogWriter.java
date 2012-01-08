@@ -21,7 +21,10 @@ import android.util.Log;
 import java.io.Writer;
 
 /**
- * Useful logging utility that is not available on all versions of Android.
+ * Helper for accessing features in {@link android.util.LogWriter}
+ * introduced after API level 4 in a backwards compatible fashion.
+ *
+ * @hide
  */
 public class LogWriter extends Writer {
     private final String mTag;
@@ -31,12 +34,6 @@ public class LogWriter extends Writer {
      * Create a new Writer that sends to the log with the given priority
      * and tag.
      *
-     * @param priority The desired log priority:
-     * {@link android.util.Log#VERBOSE Log.VERBOSE},
-     * {@link android.util.Log#DEBUG Log.DEBUG},
-     * {@link android.util.Log#INFO Log.INFO},
-     * {@link android.util.Log#WARN Log.WARN}, or
-     * {@link android.util.Log#ERROR Log.ERROR}.
      * @param tag A string tag to associate with each printed log statement.
      */
     public LogWriter(String tag) {

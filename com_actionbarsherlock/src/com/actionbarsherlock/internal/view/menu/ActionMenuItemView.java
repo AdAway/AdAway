@@ -1,149 +1,245 @@
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.actionbarsherlock.internal.view.menu;
 
-import java.lang.ref.WeakReference;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.actionbarsherlock.R;
+import java.util.HashSet;
+import java.util.Set;
 
-public class ActionMenuItemView extends RelativeLayout implements MenuView.ItemView, View.OnClickListener {
-    private ImageView mImageButton;
-    private TextView mTextButton;
-    private FrameLayout mCustomView;
-    private MenuItemImpl mMenuItem;
-    private WeakReference<ImageView> mDivider;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.actionbarsherlock.R;
+import com.actionbarsherlock.internal.view.View_HasStateListenerSupport;
+import com.actionbarsherlock.internal.view.View_OnAttachStateChangeListener;
+
+/**
+ * @hide
+ */
+public class ActionMenuItemView extends LinearLayout
+        implements MenuView.ItemView, View.OnClickListener, View.OnLongClickListener,
+        ActionMenuView.ActionMenuChildView, View_HasStateListenerSupport {
+    //UNUSED private static final String TAG = "ActionMenuItemView";
+
+    private MenuItemImpl mItemData;
+    private CharSequence mTitle;
+    private MenuBuilder.ItemInvoker mItemInvoker;
+
+    private ImageButton mImageButton;
+    private Button mTextButton;
+    private boolean mAllowTextWithIcon;
+    //UNUSED private boolean mShowTextAllCaps;
+    private boolean mExpandedFormat;
+
+    private final Set<View_OnAttachStateChangeListener> mListeners = new HashSet<View_OnAttachStateChangeListener>();
 
     public ActionMenuItemView(Context context) {
         this(context, null);
     }
+
     public ActionMenuItemView(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.actionButtonStyle);
+        this(context, attrs, 0);
     }
+
     public ActionMenuItemView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        setOnClickListener(this);
+        //TODO super(context, attrs, defStyle);
+        super(context, attrs);
+        final Resources res = context.getResources();
+        mAllowTextWithIcon = res.getBoolean(
+                R.bool.abs__config_allowActionMenuItemTextWithIcon);
+        //UNUSED mShowTextAllCaps = res.getBoolean(R.bool.abs__config_actionMenuItemAllCaps);
     }
 
     @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-
-        mImageButton = (ImageView) findViewById(R.id.abs__item_icon);
-        mImageButton.setOnClickListener(this);
-        mTextButton = (TextView) findViewById(R.id.abs__item_text);
-        mTextButton.setOnClickListener(this);
-        mCustomView = (FrameLayout) findViewById(R.id.abs__item_custom);
-        mCustomView.setOnClickListener(this);
+    public void addOnAttachStateChangeListener(View_OnAttachStateChangeListener listener) {
+        mListeners.add(listener);
     }
 
+    @Override
+    public void removeOnAttachStateChangeListener(View_OnAttachStateChangeListener listener) {
+        mListeners.remove(listener);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        for (View_OnAttachStateChangeListener listener : mListeners) {
+            listener.onViewAttachedToWindow(this);
+        }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        for (View_OnAttachStateChangeListener listener : mListeners) {
+            listener.onViewDetachedFromWindow(this);
+        }
+    }
+
+    @Override
+    public void onFinishInflate() {
+
+        mImageButton = (ImageButton) findViewById(R.id.abs__imageButton);
+        mTextButton = (Button) findViewById(R.id.abs__textButton);
+        mImageButton.setOnClickListener(this);
+        mTextButton.setOnClickListener(this);
+        mImageButton.setOnLongClickListener(this);
+        setOnClickListener(this);
+        setOnLongClickListener(this);
+    }
+
+    public MenuItemImpl getItemData() {
+        return mItemData;
+    }
+
+    public void initialize(MenuItemImpl itemData, int menuType) {
+        mItemData = itemData;
+
+        setIcon(itemData.getIcon());
+        setTitle(itemData.getTitleForItemView(this)); // Title only takes effect if there is no icon
+        setId(itemData.getItemId());
+
+        setVisibility(itemData.isVisible() ? View.VISIBLE : View.GONE);
+        setEnabled(itemData.isEnabled());
+    }
+
+    @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         mImageButton.setEnabled(enabled);
         mTextButton.setEnabled(enabled);
-        mCustomView.setEnabled(enabled);
     }
 
-    public void setDivider(ImageView divider) {
-        mDivider = new WeakReference<ImageView>(divider);
-        //Ensure we are not displaying the divider when we are not visible
-        setDividerVisibility(getVisibility());
-    }
-
-    public void setVisible(boolean visible) {
-        final int visibility = visible ? View.VISIBLE : View.GONE;
-        setDividerVisibility(visibility);
-        setVisibility(visibility);
-    }
-
-    private void setDividerVisibility(int visibility) {
-        if ((mDivider != null) && (mDivider.get() != null)) {
-            mDivider.get().setVisibility(visibility);
+    public void onClick(View v) {
+        if (mItemInvoker != null) {
+            mItemInvoker.invokeItem(mItemData);
         }
     }
 
-    public void reloadDisplay() {
-        final boolean hasCustomView = mCustomView.getChildCount() > 0;
-        final boolean hasText = mMenuItem.showsActionItemText() && !"".equals(mTextButton.getText());
-
-        if (hasCustomView) {
-            mCustomView.setVisibility(View.VISIBLE);
-            mImageButton.setVisibility(View.GONE);
-            mTextButton.setVisibility(View.GONE);
-        } else {
-            mCustomView.setVisibility(View.GONE);
-            mImageButton.setVisibility(View.VISIBLE);
-            mTextButton.setVisibility(hasText ? View.VISIBLE : View.GONE);
-        }
+    public void setItemInvoker(MenuBuilder.ItemInvoker invoker) {
+        mItemInvoker = invoker;
     }
 
-    public void setIcon(Drawable icon) {
-        mImageButton.setImageDrawable(icon);
-    }
-
-    public void setTitle(CharSequence title) {
-        mTextButton.setText(title);
-        reloadDisplay();
-    }
-
-    @Override
-    public void initialize(MenuItemImpl itemData, int menuType) {
-        mMenuItem = itemData;
-        setId(itemData.getItemId());
-        setIcon(itemData.getIcon());
-        setTitle(itemData.getTitle());
-        setEnabled(itemData.isEnabled());
-        setActionView(itemData.getActionView());
-        setVisible(itemData.isVisible());
-    }
-
-    @Override
-    public MenuItemImpl getItemData() {
-        return mMenuItem;
-    }
-
-    @Override
-    public void setCheckable(boolean checkable) {
-        // No-op
-    }
-
-    @Override
-    public void setChecked(boolean checked) {
-        // No-op
-    }
-
-    @Override
-    public void setShortcut(boolean showShortcut, char shortcutKey) {
-        // No-op
-    }
-
-    @Override
-    public void setActionView(View actionView) {
-        mCustomView.removeAllViews();
-        if (actionView != null) {
-            mCustomView.addView(actionView);
-        }
-        reloadDisplay();
-    }
-
-    @Override
     public boolean prefersCondensedTitle() {
         return true;
     }
 
-    @Override
+    public void setCheckable(boolean checkable) {
+        // TODO Support checkable action items
+    }
+
+    public void setChecked(boolean checked) {
+        // TODO Support checkable action items
+    }
+
+    public void setExpandedFormat(boolean expandedFormat) {
+        if (mExpandedFormat != expandedFormat) {
+            mExpandedFormat = expandedFormat;
+            if (mItemData != null) {
+                mItemData.actionFormatChanged();
+            }
+        }
+    }
+
+    private void updateTextButtonVisibility() {
+        boolean visible = !TextUtils.isEmpty(mTextButton.getText());
+        visible &= mImageButton.getDrawable() == null ||
+                (mItemData.showsTextAsAction() && (mAllowTextWithIcon || mExpandedFormat));
+
+        mTextButton.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    public void setIcon(Drawable icon) {
+        mImageButton.setImageDrawable(icon);
+        if (icon != null) {
+            mImageButton.setVisibility(VISIBLE);
+        } else {
+            mImageButton.setVisibility(GONE);
+        }
+
+        updateTextButtonVisibility();
+    }
+
+    public boolean hasText() {
+        return mTextButton.getVisibility() != GONE;
+    }
+
+    public void setShortcut(boolean showShortcut, char shortcutKey) {
+        // Action buttons don't show text for shortcut keys.
+    }
+
+    public void setTitle(CharSequence title) {
+        mTitle = title;
+
+        mTextButton.setText(mTitle);
+
+        setContentDescription(mTitle);
+        updateTextButtonVisibility();
+    }
+
     public boolean showsIcon() {
         return true;
     }
 
+    public boolean needsDividerBefore() {
+        return hasText() && mItemData.getIcon() == null;
+    }
+
+    public boolean needsDividerAfter() {
+        return hasText();
+    }
+
     @Override
-    public void onClick(View v) {
-        if (mMenuItem != null) {
-            mMenuItem.invoke();
+    public boolean onLongClick(View v) {
+        if (hasText()) {
+            // Don't show the cheat sheet for items that already show text.
+            return false;
         }
+
+        final int[] screenPos = new int[2];
+        final Rect displayFrame = new Rect();
+        getLocationOnScreen(screenPos);
+        getWindowVisibleDisplayFrame(displayFrame);
+
+        final Context context = getContext();
+        final int width = getWidth();
+        final int height = getHeight();
+        final int midy = screenPos[1] + height / 2;
+        final int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
+
+        Toast cheatSheet = Toast.makeText(context, mItemData.getTitle(), Toast.LENGTH_SHORT);
+        if (midy < displayFrame.height()) {
+            // Show along the top; follow action buttons
+            cheatSheet.setGravity(Gravity.TOP | Gravity.RIGHT,
+                    screenWidth - screenPos[0] - width / 2, height);
+        } else {
+            // Show along the bottom center
+            cheatSheet.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, height);
+        }
+        cheatSheet.show();
+        return true;
     }
 }

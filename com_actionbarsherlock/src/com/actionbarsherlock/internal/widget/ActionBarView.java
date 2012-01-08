@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActionBar;
+import android.support.v4.view.Menu;
 import android.support.v4.view.Window;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -23,7 +24,10 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import com.actionbarsherlock.R;
 import com.actionbarsherlock.internal.view.menu.ActionMenuItem;
-import com.actionbarsherlock.internal.view.menu.ActionMenuItemView;
+import com.actionbarsherlock.internal.view.menu.ActionMenuPresenter;
+import com.actionbarsherlock.internal.view.menu.ActionMenuView;
+import com.actionbarsherlock.internal.view.menu.MenuBuilder;
+import com.actionbarsherlock.internal.view.menu.MenuPresenter;
 
 public final class ActionBarView extends RelativeLayout {
     /** Default display options if none are defined in the theme. */
@@ -33,6 +37,8 @@ public final class ActionBarView extends RelativeLayout {
     private static final int DEFAULT_NAVIGATION_MODE = ActionBar.NAVIGATION_MODE_STANDARD;
 
 
+
+    private final Context mContext;
 
     private final View mHomeAsUpView;
     private final ViewGroup mHomeLayout;
@@ -46,6 +52,7 @@ public final class ActionBarView extends RelativeLayout {
 
     /** Indeterminate progress bar. */
     private final ProgressBar mIndeterminateProgress;
+    private boolean mAllowsIndeterminateProgress = false;
 
     /** List view. */
     private final Spinner mSpinner;
@@ -60,13 +67,16 @@ public final class ActionBarView extends RelativeLayout {
     private ImageView mIconView;
     private Drawable mLogo;
     private Drawable mIcon;
-    private final Drawable mDivider;
 
-    /** Container for all action items. */
-    private final LinearLayout mActionsView;
+    /** Container for action item view. */
+    private final FrameLayout mActionsView;
+    private MenuBuilder mOptionsMenu;
+    private ActionMenuView mMenuView;
+    private ActionMenuPresenter mActionMenuPresenter;
 
     /** Container for all tab items. */
     private final LinearLayout mTabsView;
+    private final ViewGroup mTabViewContainer;
 
     /**
      * Display state flags.
@@ -102,6 +112,7 @@ public final class ActionBarView extends RelativeLayout {
 
     public ActionBarView(final Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        mContext = context;
         mIsConstructing = true;
         LayoutInflater.from(context).inflate(R.layout.abs__action_bar, this, true);
 
@@ -192,6 +203,7 @@ public final class ActionBarView extends RelativeLayout {
         mSpinner.setOnItemSelectedListener(mNavItemSelectedListener);
 
         mTabsView = (LinearLayout)findViewById(R.id.abs__nav_tabs);
+        mTabViewContainer = (ViewGroup)findViewById(R.id.abs__nav_tabs_layout);
 
 
         //// CUSTOM VIEW ////
@@ -210,8 +222,7 @@ public final class ActionBarView extends RelativeLayout {
 
 
 
-        mActionsView = (LinearLayout)findViewById(R.id.abs__actions);
-        mDivider = a.getDrawable(R.styleable.SherlockTheme_abDivider);
+        mActionsView = (FrameLayout)findViewById(R.id.abs__actions);
 
         mIndeterminateProgress = (ProgressBar)findViewById(R.id.abs__iprogress);
 
@@ -293,6 +304,9 @@ public final class ActionBarView extends RelativeLayout {
 
         // Show tabs if in tabs navigation mode.
         mTabsView.setVisibility(isTab ? View.VISIBLE : View.GONE);
+        if (mTabViewContainer != null) {
+            mTabViewContainer.setVisibility(isTab ? View.VISIBLE : View.GONE);
+        }
 
         //Show title view if we are not in list navigation, not showing custom
         //view, and the show title flag is true
@@ -303,6 +317,53 @@ public final class ActionBarView extends RelativeLayout {
         //Show custom view if we are not in list navigation and showing custom
         //flag is set
         mCustomView.setVisibility(isStandard && displayCustom ? View.VISIBLE : View.GONE);
+    }
+
+    public void initIndeterminateProgress() {
+        mAllowsIndeterminateProgress = true;
+    }
+
+    public void setMenu(Menu menu, MenuPresenter.Callback cb) {
+        if (menu == mOptionsMenu) return;
+
+        if (mOptionsMenu != null) {
+            mOptionsMenu.removeMenuPresenter(mActionMenuPresenter);
+        }
+
+        MenuBuilder builder = (MenuBuilder) menu;
+        mOptionsMenu = builder;
+        if (mMenuView != null) {
+            final ViewGroup oldParent = (ViewGroup) mMenuView.getParent();
+            if (oldParent != null) {
+                oldParent.removeView(mMenuView);
+            }
+        }
+        if (mActionMenuPresenter == null) {
+            mActionMenuPresenter = new ActionMenuPresenter(mContext);
+            mActionMenuPresenter.setCallback(cb);
+            mActionMenuPresenter.setId(R.id.abs__action_menu_presenter);
+        }
+
+        ActionMenuView menuView;
+        final LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
+                LayoutParams.FILL_PARENT);
+        configPresenters(builder);
+        menuView = (ActionMenuView) mActionMenuPresenter.getMenuView(this);
+        final ViewGroup oldParent = (ViewGroup) menuView.getParent();
+        if (oldParent != null && oldParent != this) {
+            oldParent.removeView(menuView);
+        }
+        mActionsView.addView(menuView, layoutParams);
+        mMenuView = menuView;
+    }
+
+    private void configPresenters(MenuBuilder builder) {
+        if (builder != null) {
+            builder.addMenuPresenter(mActionMenuPresenter);
+        } else {
+            mActionMenuPresenter.initForMenu(mContext, null);
+            mActionMenuPresenter.updateMenuView(true);
+        }
     }
 
     // ------------------------------------------------------------------------
@@ -451,7 +512,9 @@ public final class ActionBarView extends RelativeLayout {
     }
 
     public void setProgressBarIndeterminateVisibility(boolean visible) {
-        mIndeterminateProgress.setVisibility(visible ? View.VISIBLE : View.GONE);
+        if (mAllowsIndeterminateProgress) {
+            mIndeterminateProgress.setVisibility(visible ? View.VISIBLE : View.GONE);
+        }
     }
 
     public void setNavigationMode(int mode) {
@@ -493,37 +556,6 @@ public final class ActionBarView extends RelativeLayout {
 
     public void setTitle(int resId) {
         mTitleLayout.setText(resId);
-    }
-
-    // ------------------------------------------------------------------------
-    // ACTION ITEMS SUPPORT
-    // ------------------------------------------------------------------------
-
-    public ActionMenuItemView newItem() {
-        ActionMenuItemView item = (ActionMenuItemView)LayoutInflater.from(getContext()).inflate(R.layout.abs__action_bar_item_layout, mActionsView, false);
-        return item;
-    }
-
-    public void addItem(ActionMenuItemView item) {
-        if (mDivider != null) {
-            ImageView divider = new ImageView(getContext());
-            divider.setImageDrawable(mDivider);
-            divider.setScaleType(ImageView.ScaleType.FIT_XY);
-
-            LinearLayout.LayoutParams dividerParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.FILL_PARENT
-            );
-
-            mActionsView.addView(divider, dividerParams);
-            item.setDivider(divider);
-        }
-
-        mActionsView.addView(item);
-    }
-
-    public void removeAllItems() {
-        mActionsView.removeAllViews();
     }
 
     // ------------------------------------------------------------------------

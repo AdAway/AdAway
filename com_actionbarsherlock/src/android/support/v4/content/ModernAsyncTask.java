@@ -35,12 +35,16 @@ import android.os.Message;
 import android.os.Process;
 
 /**
- * Copy of the required parts of AsyncTask from Android 3.0 that is needed
- * to support AsyncTaskLoader.  We use this rather than the one from the platform
+ * Copy of the required parts of {@link android.os.AsyncTask} from Android 3.0 that is
+ * needed to support AsyncTaskLoader.  We use this rather than the one from the platform
  * because we rely on some subtle behavior of AsyncTask that is not reliable on
  * older platforms.
+ *
+ * <p>Note that for now this is not publicly available because it is not a
+ * complete implementation, only sufficient for the needs of
+ * {@link AsyncTaskLoader}.
  */
-public abstract class ModernAsyncTask<Params, Progress, Result> {
+abstract class ModernAsyncTask<Params, Progress, Result> {
     private static final String LOG_TAG = "AsyncTask";
 
     private static final int CORE_POOL_SIZE = 5;
@@ -92,7 +96,7 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
          */
         RUNNING,
         /**
-         * Indicates that {@link AsyncTask#onPostExecute} has finished.
+         * Indicates that {@link android.os.AsyncTask#onPostExecute(Object)} has finished.
          */
         FINISHED,
     }
@@ -358,7 +362,8 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
      * @return This instance of AsyncTask.
      *
      * @throws IllegalStateException If {@link #getStatus()} returns either
-     *         {@link AsyncTask.Status#RUNNING} or {@link AsyncTask.Status#FINISHED}.
+     *         {@link android.os.AsyncTask.Status#RUNNING} or
+     *          {@link android.os.AsyncTask.Status#FINISHED}.
      */
     public final ModernAsyncTask<Params, Progress, Result> execute(Params... params) {
         return executeOnExecutor(sDefaultExecutor, params);
@@ -380,9 +385,7 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
      * there are no guarantees on the order of the modifications.
      * Without careful work it is possible in rare cases for the newer version
      * of the data to be over-written by an older one, leading to obscure data
-     * loss and stability issues.  Such changes are best
-     * executed in serial; to guarantee such work is serialized regardless of
-     * platform version you can use this function with {@link #SERIAL_EXECUTOR}.
+     * loss and stability issues.
      *
      * <p>This method must be invoked on the UI thread.
      *
@@ -393,7 +396,8 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
      * @return This instance of AsyncTask.
      *
      * @throws IllegalStateException If {@link #getStatus()} returns either
-     *         {@link AsyncTask.Status#RUNNING} or {@link AsyncTask.Status#FINISHED}.
+     *         {@link android.os.AsyncTask.Status#RUNNING}
+     *          or {@link android.os.AsyncTask.Status#FINISHED}.
      */
     public final ModernAsyncTask<Params, Progress, Result> executeOnExecutor(Executor exec,
             Params... params) {

@@ -116,7 +116,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     }
 
     /**
-     * Attempt to cancel the current load task. See {@link AsyncTask#cancel(boolean)}
+     * Attempt to cancel the current load task. See {@link android.os.AsyncTask#cancel(boolean)}
      * for more info.  Must be called on the main thread of the process.
      *
      * <p>Cancelling is not an immediate operation, since the load is performed

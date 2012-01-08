@@ -174,6 +174,12 @@ public abstract class LoaderManager {
     public static void enableDebugLogging(boolean enabled) {
         LoaderManagerImpl.DEBUG = enabled;
     }
+
+    /**
+     * Returns true if any loaders managed are currently running and have not
+     * returned data to the application yet.
+     */
+    public boolean hasRunningLoaders() { return false; }
 }
 
 class LoaderManagerImpl extends LoaderManager {
@@ -397,6 +403,10 @@ class LoaderManagerImpl extends LoaderManager {
                 info.mDeliveredData = false;
                 info.destroy();
                 mInactiveLoaders.remove(mId);
+            }
+
+            if (mActivity != null && !hasRunningLoaders()) {
+                mActivity.getInternalCallbacks().getFragments().startPendingDeferredFragments();
             }
         }
 
@@ -657,6 +667,9 @@ class LoaderManagerImpl extends LoaderManager {
             mInactiveLoaders.removeAt(idx);
             info.destroy();
         }
+        if (mActivity != null && !hasRunningLoaders()) {
+            mActivity.getInternalCallbacks().getFragments().startPendingDeferredFragments();
+        }
     }
 
     /**
@@ -799,5 +812,16 @@ class LoaderManagerImpl extends LoaderManager {
                 li.dump(innerPrefix, fd, writer, args);
             }
         }
+    }
+
+    @Override
+    public boolean hasRunningLoaders() {
+        boolean loadersRunning = false;
+        final int count = mLoaders.size();
+        for (int i = 0; i < count; i++) {
+            final LoaderInfo li = mLoaders.valueAt(i);
+            loadersRunning |= li.mStarted && !li.mDeliveredData;
+        }
+        return loadersRunning;
     }
 }

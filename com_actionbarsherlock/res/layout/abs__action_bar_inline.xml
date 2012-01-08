@@ -47,7 +47,7 @@
             android:scaleType="center" />
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/abs__actions"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"

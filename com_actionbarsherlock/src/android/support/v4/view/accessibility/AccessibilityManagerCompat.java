@@ -18,13 +18,15 @@ package android.support.v4.view.accessibility;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
 //import android.os.Build;
-import android.view.accessibility.AccessibilityManager;
 //import android.support.v4.view.accessibility.AccessibilityManagerCompatIcs.AccessibilityStateChangeListenerBridge;
+import android.view.accessibility.AccessibilityManager;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
- * Helper for accessing newer features in AccessibilityManager.
+ * Helper for accessing features in {@link AccessibilityManager}
+ * introduced after API level 4 in a backwards compatible fashion.
  */
 public class AccessibilityManagerCompat {
 
@@ -60,12 +62,12 @@ public class AccessibilityManagerCompat {
 
         public List<AccessibilityServiceInfo> getEnabledAccessibilityServiceList(
                 AccessibilityManager manager, int feedbackTypeFlags) {
-            return null;
+            return Collections.emptyList();
         }
 
         public List<AccessibilityServiceInfo> getInstalledAccessibilityServiceList(
                 AccessibilityManager manager) {
-            return null;
+            return Collections.emptyList();
         }
 
         public boolean isTouchExplorationEnabled(AccessibilityManager manager) {

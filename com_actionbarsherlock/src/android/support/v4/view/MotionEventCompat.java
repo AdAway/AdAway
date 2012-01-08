@@ -19,7 +19,8 @@ package android.support.v4.view;
 import android.view.MotionEvent;
 
 /**
- * Helper for accessing newer features in MotionEvent.
+ * Helper for accessing features in {@link MotionEvent} introduced
+ * after API level 4 in a backwards compatible fashion.
  */
 public class MotionEventCompat {
     /**

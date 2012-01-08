@@ -184,22 +184,34 @@ public class AccessibilityServiceInfoCompat {
      * @return The string representation.
      */
     public static String feedbackTypeToString(int feedbackType) {
-        switch (feedbackType) {
-            case AccessibilityServiceInfo.FEEDBACK_AUDIBLE:
-                return "FEEDBACK_AUDIBLE";
-            case AccessibilityServiceInfo.FEEDBACK_HAPTIC:
-                return "FEEDBACK_HAPTIC";
-            case AccessibilityServiceInfo.FEEDBACK_GENERIC:
-                return "FEEDBACK_GENERIC";
-            case AccessibilityServiceInfo.FEEDBACK_SPOKEN:
-                return "FEEDBACK_SPOKEN";
-            case AccessibilityServiceInfo.FEEDBACK_VISUAL:
-                return "FEEDBACK_VISUAL";
-            case AccessibilityServiceInfoCompat.FEEDBACK_ALL_MASK:
-                return "FEEDBACK_ALL";
-            default:
-                return null;
+        StringBuilder builder = new StringBuilder();
+        builder.append("[");
+        while (feedbackType > 0) {
+            final int feedbackTypeFlag = 1 << Integer.numberOfTrailingZeros(feedbackType);
+            feedbackType &= ~feedbackTypeFlag;
+            if (builder.length() > 1) {
+                builder.append(", ");
+            }
+            switch (feedbackTypeFlag) {
+                case AccessibilityServiceInfo.FEEDBACK_AUDIBLE:
+                    builder.append("FEEDBACK_AUDIBLE");
+                    break;
+                case AccessibilityServiceInfo.FEEDBACK_HAPTIC:
+                    builder.append("FEEDBACK_HAPTIC");
+                    break;
+                case AccessibilityServiceInfo.FEEDBACK_GENERIC:
+                    builder.append("FEEDBACK_GENERIC");
+                    break;
+                case AccessibilityServiceInfo.FEEDBACK_SPOKEN:
+                    builder.append("FEEDBACK_SPOKEN");
+                    break;
+                case AccessibilityServiceInfo.FEEDBACK_VISUAL:
+                    builder.append("FEEDBACK_VISUAL");
+                    break;
+            }
         }
+        builder.append("]");
+        return builder.toString();
     }
 
     /**

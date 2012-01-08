@@ -21,25 +21,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActionBar;
 import android.support.v4.view.ActionMode;
-import android.support.v4.view.MenuItem;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.SpinnerAdapter;
 
 import com.actionbarsherlock.R;
-import com.actionbarsherlock.internal.view.menu.ActionMenuItemView;
 import com.actionbarsherlock.internal.view.menu.MenuBuilder;
-import com.actionbarsherlock.internal.view.menu.MenuItemImpl;
+import com.actionbarsherlock.internal.view.menu.MenuPresenter;
 import com.actionbarsherlock.internal.widget.ActionBarContainer;
 import com.actionbarsherlock.internal.widget.ActionBarView;
 
 public final class ActionBarImpl extends ActionBar {
-    private final Activity mActivity;
+    private Context mContext;
 
     /** Action bar container. */
     private ActionBarContainer mContainerView;
@@ -56,7 +56,9 @@ public final class ActionBarImpl extends ActionBar {
 
 
     public ActionBarImpl(Activity activity) {
-        mActivity = activity;
+        Window window = activity.getWindow();
+        View decor = window.getDecorView();
+        init(decor);
     }
 
 
@@ -64,103 +66,27 @@ public final class ActionBarImpl extends ActionBar {
     // ACTION BAR SHERLOCK SUPPORT
     // ------------------------------------------------------------------------
 
-    @Override
-    protected ActionBar getPublicInstance() {
-        return this;
-    }
+    private void init(View decor) {
+        mContext = decor.getContext();
+        mActionView = (ActionBarView)decor.findViewById(R.id.abs__action_bar);
+        mContainerView = (ActionBarContainer)decor.findViewById(R.id.abs__action_bar_container);
 
-    public void init() {
-        mActionView = (ActionBarView)mActivity.findViewById(R.id.abs__action_bar);
-        mContainerView = (ActionBarContainer)mActivity.findViewById(R.id.abs__action_bar_container);
-
-        if (mActionView == null) {
+        if (mActionView == null || mContainerView == null) {
             throw new IllegalStateException(getClass().getSimpleName() + " can only be used with a screen_*.xml layout");
         }
 
-        mFadeInAnimation = AnimationUtils.loadAnimation(mActivity, android.R.anim.fade_in);
-        mFadeOutAnimation = AnimationUtils.loadAnimation(mActivity, android.R.anim.fade_out);
-
-        if (mActionView.getTitle() == null) {
-            mActionView.setTitle(mActivity.getTitle());
-        }
+        mFadeInAnimation = AnimationUtils.loadAnimation(mContext, android.R.anim.fade_in);
+        mFadeOutAnimation = AnimationUtils.loadAnimation(mContext, android.R.anim.fade_out);
     }
 
-    public void onMenuInflated(MenuBuilder menu) {
-        if (mActionView == null) {
-            return;
-        }
-
-        final int maxItems = mActivity.getResources().getInteger(R.integer.abs__max_action_buttons);
-
-        //Iterate and grab as many actions as we can up to maxItems honoring
-        //their showAsAction values
-        int ifItems = 0;
-        final int count = menu.size();
-        boolean showsActionItemText = menu.getShowsActionItemText();
-        List<MenuItemImpl> keep = new ArrayList<MenuItemImpl>();
-        for (int i = 0; i < count; i++) {
-            MenuItemImpl item = (MenuItemImpl)menu.getItem(i);
-
-            //Items without an icon or custom view are forced into the overflow menu
-            if (!showsActionItemText && (item.getIcon() == null) && (item.getActionView() == null)) {
-                continue;
-            }
-            if (showsActionItemText && ((item.getTitle() == null) || "".equals(item.getTitle()))) {
-                continue;
-            }
-
-            if ((item.getShowAsAction() & MenuItem.SHOW_AS_ACTION_ALWAYS) != 0) {
-                //Show always therefore add to keep list
-                keep.add(item);
-
-                if ((keep.size() > maxItems) && (ifItems > 0)) {
-                    //If we have exceeded the max and there are "ifRoom" items
-                    //then iterate backwards to remove one and add it to the
-                    //head of the classic items list.
-                    for (int j = keep.size() - 1; j >= 0; j--) {
-                        if ((keep.get(j).getShowAsAction() & MenuItem.SHOW_AS_ACTION_IF_ROOM) != 0) {
-                            keep.remove(j);
-                            ifItems -= 1;
-                            break;
-                        }
-                    }
-                }
-            } else if (((item.getShowAsAction() & MenuItem.SHOW_AS_ACTION_IF_ROOM) != 0)
-                    && (keep.size() < maxItems)) {
-                //"ifRoom" items are added if we have not exceeded the max.
-                keep.add(item);
-                ifItems += 1;
-            }
-        }
-
-        //Mark items that will be shown on the action bar as such so they do
-        //not show up on the activity options menu
-        mActionView.removeAllItems();
-        for (MenuItemImpl item : keep) {
-            item.setIsShownOnActionBar(true);
-
-            //Get a new item for this menu item
-            ActionMenuItemView actionItem = mActionView.newItem();
-            actionItem.initialize(item, MenuBuilder.TYPE_ACTION_BAR);
-
-            //Associate the itemview with the item so changes will be reflected
-            item.setItemView(MenuBuilder.TYPE_ACTION_BAR, actionItem);
-
-            //Add to the action bar for display
-            mActionView.addItem(actionItem);
-        }
+    public void setMenu(MenuBuilder menu, MenuPresenter.Callback cb) {
+        mActionView.setMenu(menu, cb);
     }
 
     public void onMenuVisibilityChanged(boolean isVisible) {
         //Marshal to all listeners
         for (OnMenuVisibilityListener listener : mMenuListeners) {
             listener.onMenuVisibilityChanged(isVisible);
-        }
-    }
-
-    public void setProgressBarIndeterminateVisibility(boolean visible) {
-        if (mActionView != null) {
-            mActionView.setProgressBarIndeterminateVisibility(visible);
         }
     }
 
@@ -328,7 +254,7 @@ public final class ActionBarImpl extends ActionBar {
 
     @Override
     public void setCustomView(int resId) {
-        View view = LayoutInflater.from(mActivity).inflate(resId, mActionView, false);
+        View view = LayoutInflater.from(mContext).inflate(resId, mActionView, false);
         setCustomView(view);
     }
 

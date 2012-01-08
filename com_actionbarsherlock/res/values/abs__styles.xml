@@ -2,7 +2,7 @@
 
 <resources>
     <style name="Theme.Sherlock" parent="android:Theme.NoTitleBar">
-        <item name="actionBarSize">45dip</item>
+        <item name="actionBarSize">@dimen/abs__action_bar_default_height</item>
         <item name="actionBarTabStyle">@style/Widget.Sherlock.ActionBar.TabView</item>
         <item name="actionBarTabBarStyle">@style/Widget.Sherlock.ActionBar.TabBar</item>
         <item name="actionBarTabTextStyle">@style/Widget.Sherlock.ActionBar.TabText</item>
@@ -10,7 +10,7 @@
         <item name="actionDropDownStyle">@style/Widget.Sherlock.Spinner</item>
         <item name="actionHomeButtonStyle">@style/Widget.Sherlock.ActionButton.Home</item>
         <item name="actionMenuTextAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="actionMenuTextColor">?android:attr/textColorPrimary</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryNoDisable</item>
         <item name="actionModeBackground">@drawable/abs__cab_background_holo_dark</item>
         <item name="actionModeCloseDrawable">@drawable/abs__cab_ic_close_holo</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
@@ -22,7 +22,9 @@
         <item name="popupMenuStyle">@style/Widget.Sherlock.PopupMenu</item>
         <item name="selectableItemBackground">@color/abs__item_bg</item>
         <item name="windowActionBar">true</item>
+        <item name="windowActionBarOverlay">false</item>
         <item name="windowActionModeOverlay">false</item>
+        <item name="windowNoTitle">false</item>
         
         <!-- These should be in `Widget.Sherlock.ActionBar` but there is no way to then -->
         <!-- reference them as sibling attributes to their native counterparts. See: -->
@@ -63,10 +65,12 @@
     </style>
     
     <style name="Widget.Sherlock.ActionButton" parent="android:Widget">
-        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:minWidth">48dip</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingLeft">6dip</item>
-        <item name="android:paddingRight">6dip</item>
+        <item name="android:paddingLeft">12dip</item>
+        <item name="android:paddingRight">12dip</item>
         <item name="android:scaleType">center</item>
     </style>
     
@@ -108,7 +112,7 @@
     
     
     <style name="Theme.Sherlock.Light" parent="android:Theme.Light.NoTitleBar">
-        <item name="actionBarSize">45dip</item>
+        <item name="actionBarSize">@dimen/abs__action_bar_default_height</item>
         <item name="actionBarTabStyle">@style/Widget.Sherlock.Light.ActionBar.TabView</item>
         <item name="actionBarTabBarStyle">@style/Widget.Sherlock.Light.ActionBar.TabBar</item>
         <item name="actionBarTabTextStyle">@style/Widget.Sherlock.Light.ActionBar.TabText</item>
@@ -116,7 +120,7 @@
         <item name="actionDropDownStyle">@style/Widget.Sherlock.Light.Spinner</item>
         <item name="actionHomeButtonStyle">@style/Widget.Sherlock.Light.ActionButton.Home</item>
         <item name="actionMenuTextAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="actionMenuTextColor">?android:attr/textColorPrimary</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryNoDisable</item>
         <item name="actionModeBackground">@drawable/abs__cab_background_holo_light</item>
         <item name="actionModeCloseDrawable">@drawable/abs__cab_ic_close_holo</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.Light.ActionButton.CloseMode</item>
@@ -128,7 +132,9 @@
         <item name="popupMenuStyle">@style/Widget.Sherlock.Light.PopupMenu</item>
         <item name="selectableItemBackground">@color/abs__item_bg</item>
         <item name="windowActionBar">true</item>
+        <item name="windowActionBarOverlay">false</item>
         <item name="windowActionModeOverlay">false</item>
+        <item name="windowNoTitle">false</item>
         
         <!-- These should be in `Widget.Sherlock.ActionBar` but there is no way to then -->
         <!-- reference them as sibling attributes to their native counterparts. See: -->
@@ -169,10 +175,12 @@
     </style>
     
     <style name="Widget.Sherlock.Light.ActionButton" parent="android:Widget">
-        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:minWidth">48dip</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingLeft">6dip</item>
-        <item name="android:paddingRight">6dip</item>
+        <item name="android:paddingLeft">12dip</item>
+        <item name="android:paddingRight">12dip</item>
         <item name="android:scaleType">center</item>
     </style>
     
@@ -208,17 +216,12 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
     <style name="TextAppearance.Widget.Title" parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textSize">@dimen/abs__action_bar_title_text_size</item>
     </style>
     <style name="TextAppearance.Widget.Subtitle" parent="@android:style/TextAppearance.Small">
         <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
     </style>
 </resources>

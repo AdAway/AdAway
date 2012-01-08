@@ -45,13 +45,6 @@ public abstract class Window extends android.view.Window {
     public static final long FEATURE_ACTION_BAR = android.view.Window.FEATURE_ACTION_BAR;
 
     /**
-     * Enable the pre-3.0 action bar implementation to honor the 'withText'
-     * attribute on menu items regardless of display resolution and/or density.
-     */
-    //Hopefully the native Window.FEATURE_XXX numbering won't get this high anytime soon.
-    public static final long FEATURE_ACTION_BAR_ITEM_TEXT = 31;
-
-    /**
      * Flag for requesting an Action Bar that overlays window content. Normally
      * an Action Bar will sit in the space above window content, but if this
      * feature is requested along with {@link #FEATURE_ACTION_BAR} it will be

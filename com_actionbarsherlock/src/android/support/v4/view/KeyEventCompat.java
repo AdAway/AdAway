@@ -19,7 +19,8 @@ package android.support.v4.view;
 import android.view.KeyEvent;
 
 /**
- * Helper for accessing newer features in KeyEvent.
+ * Helper for accessing features in {@link KeyEvent} introduced after
+ * API level 4 in a backwards compatible fashion.
  */
 public class KeyEventCompat {
     /**

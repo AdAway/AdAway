@@ -16,7 +16,6 @@
 
 package android.support.v4.app;
 
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -24,7 +23,6 @@ import android.util.Log;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import com.actionbarsherlock.R;
 
 final class BackStackState implements Parcelable {
     final int[] mOps;
@@ -165,8 +163,6 @@ final class BackStackState implements Parcelable {
 final class BackStackRecord extends FragmentTransaction implements
         FragmentManager.BackStackEntry, Runnable {
     static final String TAG = "BackStackEntry";
-
-    private static final boolean IS_HONEYCOMB = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
 
     final FragmentManagerImpl mManager;
 
@@ -359,12 +355,6 @@ final class BackStackRecord extends FragmentTransaction implements
         }
 
         if (containerViewId != 0) {
-            //This will change the target container ID to be the content view
-            //of our custom action bar implementation when the entire activity
-            //view is selected as the target and we are pre-honeycomb
-            if (!IS_HONEYCOMB && (containerViewId == android.R.id.content)) {
-                containerViewId = R.id.abs__content;
-            }
             if (fragment.mFragmentId != 0 && fragment.mFragmentId != containerViewId) {
                 throw new IllegalStateException("Can't change container ID of fragment "
                         + fragment + ": was " + fragment.mFragmentId

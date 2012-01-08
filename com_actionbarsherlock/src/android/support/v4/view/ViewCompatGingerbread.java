@@ -18,7 +18,7 @@ package android.support.v4.view;
 
 import android.view.View;
 
-public class ViewCompatGingerbread {
+class ViewCompatGingerbread {
     public static int getOverScrollMode(View v) {
         return v.getOverScrollMode();
     }

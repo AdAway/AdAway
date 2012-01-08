@@ -24,7 +24,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 /**
- * Pre-Honeycomb versions of the platform don't have View.setSaveFromParentEnabled(),
+ * Pre-Honeycomb versions of the platform don't have {@link View#setSaveFromParentEnabled(boolean)},
  * so instead we insert this between the view and its parent.
  */
 public class NoSaveStateFrameLayout extends FrameLayout {

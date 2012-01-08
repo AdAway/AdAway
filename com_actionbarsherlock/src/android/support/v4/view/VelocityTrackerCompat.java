@@ -19,7 +19,8 @@ package android.support.v4.view;
 import android.view.VelocityTracker;
 
 /**
- * Helper for accessing newer features in VelocityTracker.
+ * Helper for accessing features in {@link VelocityTracker}
+ * introduced after API level 4 in a backwards compatible fashion.
  */
 public class VelocityTrackerCompat {
     /**

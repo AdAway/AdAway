@@ -215,7 +215,7 @@ public abstract class FragmentTransaction {
 
     /**
      * Set the full title to show as a bread crumb when this transaction
-     * is on the back stack, as used by {@link FragmentBreadCrumbs}.
+     * is on the back stack.
      *
      * @param res A string resource containing the title.
      */
@@ -230,7 +230,7 @@ public abstract class FragmentTransaction {
 
     /**
      * Set the short title to show as a bread crumb when this transaction
-     * is on the back stack, as used by {@link FragmentBreadCrumbs}.
+     * is on the back stack.
      *
      * @param res A string resource containing the title.
      */

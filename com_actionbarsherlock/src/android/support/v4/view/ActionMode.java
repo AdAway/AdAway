@@ -16,6 +16,8 @@
 
 package android.support.v4.view;
 
+import com.actionbarsherlock.internal.view.menu.MenuInflaterImpl;
+
 import android.view.View;
 
 /**
@@ -107,11 +109,11 @@ public abstract class ActionMode {
     public abstract Menu getMenu();
 
     /**
-     * Returns a {@link MenuInflater} with the ActionMode's context.
+     * Returns a {@link MenuInflaterImpl} with the ActionMode's context.
      *
      * @return Menu inflater.
      */
-    public abstract MenuInflater getMenuInflater();
+    public abstract MenuInflaterImpl getMenuInflater();
 
     /**
      * Returns the current subtitle of this action mode.

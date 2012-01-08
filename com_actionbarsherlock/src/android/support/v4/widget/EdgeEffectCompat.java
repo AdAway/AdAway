@@ -19,7 +19,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 
 /**
- * Helper for accessing EdgeEffects from newer platform versions.
+ * Helper for accessing {@link android.widget.EdgeEffect} introduced after
+ * API level 4 in a backwards compatible fashion.
  *
  * This class is used to access {@link android.widget.EdgeEffect} on platform versions
  * that support it. When running on older platforms it will result in no-ops. It should

@@ -20,7 +20,8 @@ package android.support.v4.view.accessibility;
 import android.view.accessibility.AccessibilityEvent;
 
 /**
- * Helper for accessing newer features in AccessibilityEvent.
+ * Helper for accessing features in {@link AccessibilityEvent}
+ * introduced after API level 4 in a backwards compatible fashion.
  */
 public class AccessibilityEventCompat {
 

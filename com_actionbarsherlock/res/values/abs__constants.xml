@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<resources>
-    <color name="abs__item_focused">#FF6899FF</color>
-    <integer name="abs__max_action_buttons">3</integer>
-    <string name="abs__tab_under_ab_tag">tabUnderAb</string>
-</resources>

@@ -19,7 +19,18 @@ package android.support.v4.os;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * Helper for accessing features in {@link android.os.Parcelable}
+ * introduced after API level 4 in a backwards compatible fashion.
+ */
 public class ParcelableCompat {
+
+    /**
+     * Factory method for {@link Parcelable.Creator}.
+     *
+     * @param callbacks Creator callbacks implementation.
+     * @return New creator.
+     */
     public static <T> Parcelable.Creator<T> newCreator(
             ParcelableCompatCreatorCallbacks<T> callbacks) {
         if (android.os.Build.VERSION.SDK_INT >= 13) {

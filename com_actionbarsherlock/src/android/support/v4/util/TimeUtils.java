@@ -19,7 +19,10 @@ package android.support.v4.util;
 import java.io.PrintWriter;
 
 /**
- * Useful time utilities that are not available on all versions of Android.
+ * Helper for accessing features in {@link android.util.TimeUtils}
+ * introduced after API level 4 in a backwards compatible fashion.
+ *
+ * @hide
  */
 public class TimeUtils {
     /** @hide Field length that can hold 999 days of time */

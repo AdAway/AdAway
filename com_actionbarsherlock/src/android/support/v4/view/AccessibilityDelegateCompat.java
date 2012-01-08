@@ -22,7 +22,8 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 
 /**
- * Helper for accessing AccessibilityDelegate from newer platform versions.
+ * Helper for accessing {@link View.AccessibilityDelegate} introduced after
+ * API level 4 in a backwards compatible fashion.
  */
 public class AccessibilityDelegateCompat {
 
@@ -33,7 +34,8 @@ public class AccessibilityDelegateCompat {
                 AccessibilityEvent event);
         public void onInitializeAccessibilityEvent(Object delegate, View host,
                 AccessibilityEvent event);
-        public void onInitializeAccessibilityNodeInfo(Object delegate, View host, Object info);
+        public void onInitializeAccessibilityNodeInfo(Object delegate, View host,
+                AccessibilityNodeInfoCompat info);
         public void onPopulateAccessibilityEvent(Object delegate, View host,
                 AccessibilityEvent event);
         public boolean onRequestSendAccessibilityEvent(Object delegate, ViewGroup host, View child,
@@ -62,7 +64,8 @@ public class AccessibilityDelegateCompat {
 
         }
 
-        public void onInitializeAccessibilityNodeInfo(Object delegate, View host, Object info) {
+        public void onInitializeAccessibilityNodeInfo(Object delegate, View host,
+                AccessibilityNodeInfoCompat info) {
 
         }
 
@@ -150,8 +153,10 @@ public class AccessibilityDelegateCompat {
         }
 
         @Override
-        public void onInitializeAccessibilityNodeInfo(Object delegate, View host, Object info) {
-            AccessibilityDelegateCompatIcs.onInitializeAccessibilityNodeInfo(delegate, host, info);
+        public void onInitializeAccessibilityNodeInfo(Object delegate, View host,
+                AccessibilityNodeInfoCompat info) {
+            AccessibilityDelegateCompatIcs.onInitializeAccessibilityNodeInfo(delegate, host,
+                    info.getImpl());
         }
 
         @Override

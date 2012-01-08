@@ -36,6 +36,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:scrollHorizontally="true"
+        android:layout_marginTop="@dimen/abs__action_bar_subtitle_top_margin"
+        android:layout_marginBottom="@dimen/abs__action_bar_subtitle_bottom_margin"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:marqueeRepeatLimit="marquee_forever"

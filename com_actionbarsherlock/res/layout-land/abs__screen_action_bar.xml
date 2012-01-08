@@ -16,9 +16,33 @@
 -->
 
 <!--
-This is an optimized layout for a screen with the Action Bar enabled.
+This is an optimized layout for a screen with the Action Bar (Tab's inlined) enabled.
 -->
 
-<merge>
-    <include layout="@layout/abs__screen_action_bar_inline" />
-</merge>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
+    <com.actionbarsherlock.internal.widget.ActionBarContainer
+        android:id="@+id/abs__action_bar_container"
+        android:layout_width="fill_parent"
+        android:layout_height="?attr/abHeight"
+        android:background="?attr/abBackground"
+        >
+        <com.actionbarsherlock.internal.widget.ActionBarView
+            android:id="@+id/abs__action_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.actionbarsherlock.internal.widget.ActionBarContainer>
+    <FrameLayout
+        android:id="@+id/abs__content"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:foregroundGravity="fill_horizontal|top"
+        android:foreground="?android:attr/windowContentOverlay"
+        />
+</LinearLayout>

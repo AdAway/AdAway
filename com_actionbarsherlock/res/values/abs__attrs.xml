@@ -24,7 +24,10 @@
         <attr name="popupMenuStyle" format="reference" />
         <attr name="dropdownListPreferredItemHeight" format="dimension" />
         <attr name="actionSpinnerItemStyle" format="reference" />
+        
+        <attr name="windowNoTitle" format="boolean"/>
         <attr name="windowActionBar" format="boolean"/>
+        <attr name="windowActionBarOverlay" format="boolean"/>
         <attr name="windowActionModeOverlay" format="boolean"/>
         
         

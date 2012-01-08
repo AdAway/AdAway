@@ -64,7 +64,6 @@ import android.view.accessibility.AccessibilityEvent;
  */
 public interface SupportActivity extends SherlockActivity {
     public static abstract class InternalCallbacks {
-        abstract void ensureSupportActionBarAttached();
         abstract Handler getHandler();
         abstract FragmentManagerImpl getFragments();
         abstract LoaderManagerImpl getLoaderManager(int index, boolean started, boolean create);

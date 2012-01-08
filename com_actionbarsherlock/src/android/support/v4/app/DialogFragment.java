@@ -232,9 +232,6 @@ public class DialogFragment extends Fragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //SEE: http://stackoverflow.com/questions/5637894/dialogfragments-with-devices-api-level-11/7560686#7560686
-        //mShowsDialog = mContainerId == 0;
-
         if (savedInstanceState != null) {
             mStyle = savedInstanceState.getInt(SAVED_STYLE, STYLE_NORMAL);
             mTheme = savedInstanceState.getInt(SAVED_THEME, 0);

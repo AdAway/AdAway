@@ -17,7 +17,8 @@
 package android.support.v4.app;
 
 /**
- * A copy of Honeycomb's SparseArray, only so we can have the removeAt() method.
+ * A copy of Honeycomb's {@link android.util.SparseArray}, that
+ * provides a removeAt() method.
  */
 public class HCSparseArray<E> {
     private static final Object DELETED = new Object();
@@ -329,18 +330,6 @@ public class HCSparseArray<E> {
         else
             return ~high;
     }
-
-    /*private void checkIntegrity() {
-        for (int i = 1; i < mSize; i++) {
-            if (mKeys[i] <= mKeys[i - 1]) {
-                for (int j = 0; j < mSize; j++) {
-                    Log.e("FAIL", j + ": " + mKeys[j] + " -> " + mValues[j]);
-                }
-
-                throw new RuntimeException();
-            }
-        }
-    }*/
 
     static int idealByteArraySize(int need) {
         for (int i = 4; i < 32; i++)

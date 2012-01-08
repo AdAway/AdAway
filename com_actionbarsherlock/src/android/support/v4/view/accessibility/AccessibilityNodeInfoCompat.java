@@ -21,10 +21,12 @@ import android.graphics.Rect;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * Helper for accessing AccessibilityNodeInfo from newer platform versions.
+ * Helper for accessing {@link android.view.accessibility.AccessibilityNodeInfo}
+ * introduced after API level 4 in a backwards compatible fashion.
  */
 public class AccessibilityNodeInfoCompat {
 
@@ -100,7 +102,7 @@ public class AccessibilityNodeInfoCompat {
         }
 
         public List<Object> findAccessibilityNodeInfosByText(Object info, String text) {
-            return null;
+            return Collections.emptyList();
         }
 
         public int getActions(Object info) {

@@ -20,10 +20,10 @@ import android.database.Cursor;
 import android.widget.Filter;
 
 /**
- * <p>The CursorFilter delegates most of the work to the CursorAdapter.
- * Subclasses should override these delegate methods to run the queries
- * and convert the results into String that can be used by auto-completion
- * widgets.</p>
+ * The CursorFilter delegates most of the work to the
+ * {@link android.widget.CursorAdapter}. Subclasses should override these
+ * delegate methods to run the queries and convert the results into String
+ * that can be used by auto-completion widgets.
  */
 class CursorFilter extends Filter {
 
