@@ -270,39 +270,18 @@ public class ApplyUtils {
      * @throws CommandException
      */
     public static boolean isSymlinkCorrect(String target) {
-        String commandReadlink = Constants.COMMAND_READLINK + " "
-                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
+        Log.i(Constants.TAG, "Checking whether /system/etc/hosts is a symlink and pointing to "
+                + target + " or not.");
 
-        Log.i(Constants.TAG,
-                "Checking whether /system/etc/hosts is a symlink and pointing to the target or not.");
+        String symlink = RootTools.getSymlink(new File(Constants.ANDROID_SYSTEM_ETC_HOSTS));
 
-        /* Execute commands */
-        List<String> output = null;
-        try {
-            // create directories
-            output = RootTools.sendShell(new String[] { commandReadlink }, 1);
+        Log.d(Constants.TAG, "symlink: " + symlink + "; target: " + target);
 
-            Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-        } catch (RootToolsException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+        if (symlink.equals(target)) {
+            return true;
+        } else {
+            return false;
         }
-
-        if (output != null) {
-            Log.d(Constants.TAG, "Output of " + commandReadlink + ": " + output.get(0));
-
-            if (output.get(0).equals(target)) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**

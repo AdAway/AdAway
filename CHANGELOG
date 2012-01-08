@@ -1,3 +1,7 @@
+1.19
+- Fixes for exporting entries
+- Fixes for donation screen, when no Google Android Market is available
+
 1.18
 * Local webserver now answers with blank page instead of 404 error page
 * Import and Export of Your Lists
