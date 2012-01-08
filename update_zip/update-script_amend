@@ -1,3 +1,0 @@
-show_progress 0.1 0
-symlink /data/data/hosts SYSTEM:etc/hosts
-show_progress 0.1 10

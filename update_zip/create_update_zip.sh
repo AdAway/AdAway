@@ -20,15 +20,17 @@ function createZip {
 folder="META-INF/com/google/android/"
 mkdir -p $folder
 
-cp -f update-script_amend $folder/update-script
+rm -rf $folder/*
+cp -f script_amend $folder/update-script
 name="symlink_amend"
 createZip
 
-cp -f update-script_edify $folder/update-script
+rm -rf $folder/*
+cp -f script_edify $folder/update-binary
 name="symlink_edify"
 createZip
 
-echo "update.zip created"
+echo "done"
 
-rm -R "META-INF"
+#rm -R "META-INF"
 exit 0
