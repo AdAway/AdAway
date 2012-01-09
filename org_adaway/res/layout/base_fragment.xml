@@ -39,28 +39,33 @@
             </ImageView>
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/status_subtitle"
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="26dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@id/status_layout"
-            android:ellipsize="marquee"
-            android:singleLine="true" />
-
-        <TextView
-            android:id="@+id/status_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/status_subtitle"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignWithParentIfMissing="true"
+            android:layout_height="match_parent"
             android:layout_toRightOf="@id/status_layout"
             android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/status_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:scrollHorizontally="true"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/status_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical"
+                android:lines="1" />
+        </LinearLayout>
     </RelativeLayout>
 
     <Button

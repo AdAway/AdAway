@@ -40,7 +40,7 @@
         <activity
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
-            android:name=".ui.BaseActivity" >
+            android:name=".ui.BaseActivity" android:launchMode="singleTop">
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 

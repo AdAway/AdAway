@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/menu_export"
-        android:icon="@drawable/ic_menu_add"
+        android:icon="@drawable/ic_menu_database"
         android:title="@string/menu_export"></item>
 
 </menu>

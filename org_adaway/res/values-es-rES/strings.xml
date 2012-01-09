@@ -116,6 +116,8 @@
   <string name="apply_help">Por favor, lee Ayuda para más información.</string>
   <string name="no_text_editor_title">No hay ningún editor de texto instalado</string>
   <string name="no_text_editor">No se pudo encontrar un editor de texto para abrir el archivo hosts. Puede instalar Jota u otros editores de texto para solucionar esto.\n\n¿Desea instalar Jota?</string>
+  <string name="no_file_manager_title"></string>
+  <string name="no_file_manager"></string>
   <string name="donations_flattr">Flattr</string>
   <string name="donations_google_android_market">Google Android Market</string>
   <string name="donations_google_android_market_description">• ¡Google se queda el 30% de todas las donaciones!\n• No existe una versión premium para donantes.</string>

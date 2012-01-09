@@ -26,6 +26,8 @@ import org.adaway.helper.RevertExecutor;
 import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
 import org.adaway.service.UpdateCheckService;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
 
@@ -196,7 +198,7 @@ public class BaseFragment extends Fragment {
             return true;
 
         case R.id.menu_preferences:
-                startActivity(new Intent(mActivity, PrefsActivity.class));
+            startActivity(new Intent(mActivity, PrefsActivity.class));
             return true;
 
         case R.id.menu_donations:

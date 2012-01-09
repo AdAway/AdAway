@@ -25,6 +25,7 @@
   <string name="about_description">AdAway on avoimeen lähdekoodin perustuva mainosten esto -sovellus Androidille.</string>
   <string name="about_license">Lisenssi: GPL v3</string>
   <string name="about_version">Versio:</string>
+  <string name="about_developer">Kehittäjä: Dominik Schürmann</string>
   <string name="apply_fail">Isäntätiedoston soveltaminen epäonnistui!\nYritä muuttaa isäntätiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
   <string name="apply_fail_title">Soveltaminen epäonnistui</string>
   <string name="revert_problem">Palauttaminen epäonnistui.</string>
@@ -115,8 +116,15 @@
   <string name="reboot_never_reboot">Älä koskaan käynnistä uudellen ja näytä tätä kysymystä ensi kerralla!</string>
   <string name="button_help">Ohjeet</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
+  <string name="menu_import">Tuo kaikki luettelot</string>
+  <string name="menu_export">Vie kaikki luettelot</string>
+  <string name="import_dialog">Tuodaan...</string>
+  <string name="export_dialog">Viedään...</string>
+  <string name="export_success">Kaikki merkinnät viety adaway-export-tiedostoon SD-kortille.</string>
   <string name="no_text_editor_title">Ei ole tekstieditoria asennettu</string>
   <string name="no_text_editor">Tekstieditoria ei löytynyt avataksesi isäntätiedostoa. Voit asentaa Jota tai toisen tekstieditorin, jotta voit käsitellä tätä.\n\nHaluatko asentaa Jota-sovelluksen?</string>
+  <string name="no_file_manager_title">Tiedostohallintasovellusta ei ole asennettu</string>
+  <string name="no_file_manager">Ei voitu avata tiedostoja, koska tiedostonhallintasovellusta ei löytynyt. Voit asentaa OI File Manager:n tai muun tiedostohallintasovelluksen.\n\nHaluatko asentaa OI File Manager:n?</string>
   <string name="donations_flattr">Flattr</string>
   <string name="donations_google_android_market">Googlen Android Market</string>
   <string name="donations_google_android_market_description">• Gogle ottaa 30% jokaisesta lahjoituksesta!\n• Rahasiirto voi kestää minuutin tai kaksi.\n• Ei ole premium-versiota lahjoittajille.</string>
@@ -157,4 +165,5 @@
 <item>Custom target</item>
 </string-array>
   <string name="pref_update_check_summary">Tarkista päivitykset AdAwayn käynnistykessä</string>
+  <string name="pref_sdcard_problem">Tämä toiminto ei toimi oikein, kun AdAway on asennettu SD-kortille!</string>
 </resources>

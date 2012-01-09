@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NotificationText">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="NotificationTitle">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!--
+         If you want a slightly different color for some text,
+         consider using ?android:attr/textColorSecondary
+    -->
+
+</resources>

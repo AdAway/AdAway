@@ -37,6 +37,7 @@ import java.util.HashSet;
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
+import org.adaway.ui.BaseActivity;
 import org.adaway.ui.BaseFragment;
 import org.adaway.ui.HelpActivity;
 import org.adaway.util.ApplyUtils;
@@ -51,13 +52,15 @@ import org.adaway.util.Utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.DialogInterface.OnCancelListener;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.widget.RemoteViews;
 
 public class ApplyExecutor {
     private BaseFragment mBaseFragment;
@@ -65,6 +68,9 @@ public class ApplyExecutor {
 
     private AsyncTask<Void, Integer, Integer> mDownloadTask;
     private AsyncTask<Void, String, Integer> mApplyTask;
+
+    private Notification mApplyNotification;
+    private NotificationManager mNotificationManager;
 
     /**
      * Constructor based on fragment
@@ -75,6 +81,8 @@ public class ApplyExecutor {
         super();
         this.mBaseFragment = baseFragment;
         this.mActivity = baseFragment.getActivity();
+        this.mNotificationManager = (NotificationManager) mActivity
+                .getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     /**
@@ -82,6 +90,73 @@ public class ApplyExecutor {
      */
     public void apply() {
         runDownloadTask();
+    }
+
+    // Notification id
+    private static final int PROGRESS_NOTIFICATION_ID = 10;
+    private static final int RESULT_NOTIFICATION_ID = 11;
+
+    /**
+     * Creates custom made notification with progress
+     */
+    private void showProgressNotification(String notificationText, String startTitle) {
+        // configure the intent
+        Intent intent = new Intent(mActivity, BaseActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(mActivity.getApplicationContext(),
+                0, intent, 0);
+
+        // configure the notification
+        mApplyNotification = new Notification(R.drawable.status_bar_icon, notificationText,
+                System.currentTimeMillis());
+        mApplyNotification.flags = mApplyNotification.flags | Notification.FLAG_ONGOING_EVENT
+                | Notification.FLAG_ONLY_ALERT_ONCE;
+        mApplyNotification.contentView = new RemoteViews(mActivity.getPackageName(),
+                R.layout.apply_notification);
+        mApplyNotification.contentIntent = pendingIntent;
+
+        mApplyNotification.contentView.setTextViewText(R.id.apply_notification_title, startTitle);
+
+        mNotificationManager.notify(PROGRESS_NOTIFICATION_ID, mApplyNotification);
+    }
+
+    private void setProgressNotificationText(String text) {
+        mApplyNotification.contentView.setTextViewText(R.id.apply_notification_text, text);
+
+        // inform the progress bar of updates in progress
+        mNotificationManager.notify(PROGRESS_NOTIFICATION_ID, mApplyNotification);
+    }
+
+    private void cancelProgressNotification() {
+        mNotificationManager.cancel(PROGRESS_NOTIFICATION_ID);
+    }
+
+    /**
+     * Show notification with result defined in params
+     * 
+     * @param contentTitle
+     * @param contentText
+     */
+    private void showResultNotification(CharSequence contentTitle, CharSequence contentText,
+            int applyingResult) {
+        int icon = R.drawable.status_bar_icon;
+        CharSequence tickerText = contentTitle;
+        long when = System.currentTimeMillis();
+
+        Notification notification = new Notification(icon, tickerText, when);
+        notification.flags |= Notification.FLAG_AUTO_CANCEL;
+
+        Context context = mActivity;
+        Intent notificationIntent = new Intent(mActivity, BaseActivity.class);
+
+        // give postApplyingStatus with intent
+        notificationIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, applyingResult);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(mActivity, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
+
+        mNotificationManager.notify(RESULT_NOTIFICATION_ID, notification);
     }
 
     /**
@@ -92,35 +167,18 @@ public class ApplyExecutor {
         mDownloadTask = new AsyncTask<Void, Integer, Integer>() {
             Cursor mEnabledHostsSourcesCursor;
 
-            private ProgressDialog mDownloadProgressDialog;
-
-            private int fileSize;
             private byte data[];
-            private long total;
             private int count;
             private String mCurrentUrl;
             private boolean mUrlChanged;
-            private boolean mIndeterminate;
-            private boolean mIndeterminateChanged;
             private long mCurrentLastModifiedOnline;
 
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
 
-                mDownloadProgressDialog = new ProgressDialog(mActivity);
-                mDownloadProgressDialog.setMessage(mBaseFragment
-                        .getString(R.string.download_dialog));
-                mDownloadProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                mDownloadProgressDialog.setCancelable(true);
-                mDownloadProgressDialog.setOnCancelListener(new OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        cancel(true); // cancel thread, now isCancelled() returns true
-                    }
-                });
-
-                mDownloadProgressDialog.show();
+                showProgressNotification(mActivity.getString(R.string.download_dialog),
+                        mActivity.getString(R.string.download_dialog));
 
                 mUrlChanged = false;
             }
@@ -167,18 +225,6 @@ public class ApplyExecutor {
                                     URL mURL = new URL(mCurrentUrl);
                                     URLConnection connection = mURL.openConnection();
 
-                                    fileSize = connection.getContentLength();
-                                    Log.d(Constants.TAG, "fileSize: " + fileSize);
-
-                                    /* set progressBar to indeterminate when fileSize is -1 */
-                                    if (fileSize != -1) {
-                                        mIndeterminate = false;
-                                    } else {
-                                        mIndeterminate = true;
-                                    }
-                                    mIndeterminateChanged = true;
-                                    publishProgress(0); // update UI
-
                                     /* connect */
                                     connection.connect();
                                     is = connection.getInputStream();
@@ -190,20 +236,11 @@ public class ApplyExecutor {
 
                                     /* download with progress */
                                     data = new byte[1024];
-                                    total = 0;
                                     count = 0;
 
                                     // run while only when thread is not cancelled
                                     while ((count = bis.read(data)) != -1 && !isCancelled()) {
                                         out.write(data, 0, count);
-
-                                        total += count;
-
-                                        if (fileSize != -1) {
-                                            publishProgress((int) ((total * 100) / fileSize));
-                                        } else {
-                                            publishProgress(50); // no ContentLength was returned
-                                        }
                                     }
 
                                     // add line seperator to add files together in one file
@@ -277,24 +314,11 @@ public class ApplyExecutor {
                 // update dialog with filename and progress
                 if (mUrlChanged) {
                     Log.d(Constants.TAG, "urlChanged");
-                    mDownloadProgressDialog.setMessage(mActivity
-                            .getString(R.string.download_dialog)
-                            + Constants.LINE_SEPERATOR
-                            + mCurrentUrl);
+
+                    setProgressNotificationText(mCurrentUrl);
+
                     mUrlChanged = false;
                 }
-                // update progressBar of dialog
-                if (mIndeterminateChanged) {
-                    Log.d(Constants.TAG, "indeterminateChanged");
-                    if (mIndeterminate) {
-                        mDownloadProgressDialog.setIndeterminate(true);
-                    } else {
-                        mDownloadProgressDialog.setIndeterminate(false);
-                    }
-                    mIndeterminateChanged = false;
-                }
-                // Log.d(Constants.TAG, "progress: " + progress[0]);
-                mDownloadProgressDialog.setProgress(progress[0]);
             }
 
             @Override
@@ -306,12 +330,12 @@ public class ApplyExecutor {
                 AlertDialog alertDialog;
 
                 if (result == ReturnCodes.SUCCESS) {
-                    mDownloadProgressDialog.dismiss();
+                    cancelProgressNotification();
 
                     // Apply files by Apply thread
                     runApplyTask();
                 } else {
-                    mDownloadProgressDialog.dismiss();
+                    cancelProgressNotification();
 
                     alertDialog = new AlertDialog.Builder(mActivity).create();
                     alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -359,7 +383,6 @@ public class ApplyExecutor {
      */
     private void runApplyTask() {
         mApplyTask = new AsyncTask<Void, String, Integer>() {
-            private ProgressDialog mApplyProgressDialog;
 
             @Override
             protected Integer doInBackground(Void... unused) {
@@ -579,118 +602,160 @@ public class ApplyExecutor {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                mApplyProgressDialog = new ProgressDialog(mActivity);
-                mApplyProgressDialog.setMessage(mActivity.getString(R.string.apply_dialog));
-                mApplyProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                mApplyProgressDialog.setCancelable(false);
-                mApplyProgressDialog.show();
+
+                showProgressNotification(mActivity.getString(R.string.apply_dialog),
+                        mActivity.getString(R.string.apply_dialog));
             }
 
             @Override
             protected void onProgressUpdate(String... status) {
-                mApplyProgressDialog.setMessage(status[0]);
+                setProgressNotificationText(status[0]);
             }
 
             @Override
             protected void onPostExecute(Integer result) {
                 super.onPostExecute(result);
 
+                cancelProgressNotification();
+
                 if (result == ReturnCodes.SUCCESS) {
-                    mApplyProgressDialog.dismiss();
+                    // only show if reboot dialog is not disabled in preferences
+                    if (!PreferencesHelper.getNeverReboot(mActivity)) {
 
-                    mBaseFragment.setStatusEnabled();
-
-                    Utils.rebootQuestion(mActivity, R.string.apply_success_title,
-                            R.string.apply_success);
-                } else if (result == ReturnCodes.SYMLINK_MISSING) {
-                    mApplyProgressDialog.dismiss();
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-                    builder.setTitle(R.string.apply_symlink_missing_title);
-                    builder.setMessage(mActivity.getString(R.string.apply_symlink_missing));
-                    builder.setIcon(android.R.drawable.ic_dialog_info);
-                    builder.setPositiveButton(mActivity.getString(R.string.button_yes),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    tryToCreateSymlink();
-                                }
-                            });
-                    builder.setNegativeButton(mActivity.getString(R.string.button_no),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-
-                                    mBaseFragment.setStatusDisabled();
-                                }
-                            });
-                    AlertDialog question = builder.create();
-                    question.show();
+                        // show notification
+                        showResultNotification(mActivity.getString(R.string.apply_success_title),
+                                mActivity.getString(R.string.apply_success), result);
+                    }
                 } else {
-                    mApplyProgressDialog.dismiss();
-
-                    mBaseFragment.setStatusDisabled();
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-                    builder.setIcon(android.R.drawable.ic_dialog_alert);
-                    builder.setPositiveButton(mActivity.getString(R.string.button_close),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-                                }
-                            });
-                    builder.setNegativeButton(mActivity.getString(R.string.button_help),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-
-                                    // go to help
-                                    mActivity.startActivity(new Intent(mActivity,
-                                            HelpActivity.class));
-                                }
-                            });
-
+                    String postTitle = "";
+                    String postMessage = "";
                     switch (result) {
+                    case ReturnCodes.SYMLINK_MISSING:
+                        postTitle = mActivity.getString(R.string.apply_symlink_missing_title);
+                        postMessage = mActivity.getString(R.string.apply_symlink_missing);
+                        break;
                     case ReturnCodes.APPLY_FAIL:
-                        builder.setTitle(R.string.apply_fail_title);
-                        builder.setMessage(mActivity.getString(org.adaway.R.string.apply_fail)
-                                + "\n\n" + mActivity.getString(org.adaway.R.string.apply_help));
-
+                        postTitle = mActivity.getString(R.string.apply_fail_title);
+                        postMessage = mActivity.getString(org.adaway.R.string.apply_fail);
                         break;
                     case ReturnCodes.PRIVATE_FILE_FAIL:
-                        builder.setTitle(R.string.apply_private_file_fail_title);
-                        builder.setMessage(mActivity
-                                .getString(org.adaway.R.string.apply_private_file_fail)
-                                + "\n\n"
-                                + mActivity.getString(org.adaway.R.string.apply_help));
+                        postTitle = mActivity.getString(R.string.apply_private_file_fail_title);
+                        postMessage = mActivity
+                                .getString(org.adaway.R.string.apply_private_file_fail);
                         break;
                     case ReturnCodes.NOT_ENOUGH_SPACE:
-                        builder.setTitle(R.string.apply_not_enough_space_title);
-                        builder.setMessage(mActivity
-                                .getString(org.adaway.R.string.apply_not_enough_space)
-                                + "\n\n"
-                                + mActivity.getString(org.adaway.R.string.apply_help));
+                        postTitle = mActivity.getString(R.string.apply_not_enough_space_title);
+                        postMessage = mActivity
+                                .getString(org.adaway.R.string.apply_not_enough_space);
                         break;
                     case ReturnCodes.REMOUNT_FAIL:
-                        builder.setTitle(R.string.apply_remount_fail_title);
-                        builder.setMessage(mActivity
-                                .getString(org.adaway.R.string.apply_remount_fail)
-                                + "\n\n"
-                                + mActivity.getString(org.adaway.R.string.apply_help));
+                        postTitle = mActivity.getString(R.string.apply_remount_fail_title);
+                        postMessage = mActivity.getString(org.adaway.R.string.apply_remount_fail);
                         break;
                     case ReturnCodes.COPY_FAIL:
-                        builder.setTitle(R.string.apply_copy_fail_title);
-                        builder.setMessage(mActivity.getString(org.adaway.R.string.apply_copy_fail)
-                                + "\n\n" + mActivity.getString(org.adaway.R.string.apply_help));
+                        postTitle = mActivity.getString(R.string.apply_copy_fail_title);
+                        postMessage = mActivity.getString(org.adaway.R.string.apply_copy_fail);
                         break;
                     }
 
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
+                    // show notification
+                    showResultNotification(postTitle, postMessage, result);
                 }
             }
         };
 
         mApplyTask.execute();
+    }
+
+    /**
+     * Shows dialog and further information how to proceed after the applying process has ended and
+     * the user clicked on the notification. This is based on the result from the apply process.
+     * 
+     * @param result
+     */
+    public void processApplyingResult(int result) {
+        if (result == ReturnCodes.SUCCESS) {
+            mBaseFragment.setStatusEnabled();
+
+            Utils.rebootQuestion(mActivity, R.string.apply_success_title, R.string.apply_success);
+        } else if (result == ReturnCodes.SYMLINK_MISSING) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+            builder.setTitle(R.string.apply_symlink_missing_title);
+            builder.setMessage(mActivity.getString(R.string.apply_symlink_missing));
+            builder.setIcon(android.R.drawable.ic_dialog_info);
+            builder.setPositiveButton(mActivity.getString(R.string.button_yes),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            tryToCreateSymlink();
+                        }
+                    });
+            builder.setNegativeButton(mActivity.getString(R.string.button_no),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+
+                            mBaseFragment.setStatusDisabled();
+                        }
+                    });
+            AlertDialog question = builder.create();
+            question.show();
+        } else {
+            mBaseFragment.setStatusDisabled();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+            builder.setIcon(android.R.drawable.ic_dialog_alert);
+            builder.setPositiveButton(mActivity.getString(R.string.button_close),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+            builder.setNegativeButton(mActivity.getString(R.string.button_help),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+
+                            // go to help
+                            mActivity.startActivity(new Intent(mActivity, HelpActivity.class));
+                        }
+                    });
+
+            String postTitle = "";
+            String postMessage = "";
+            switch (result) {
+            case ReturnCodes.APPLY_FAIL:
+                postTitle = mActivity.getString(R.string.apply_fail_title);
+                postMessage = mActivity.getString(org.adaway.R.string.apply_fail) + "\n\n"
+                        + mActivity.getString(org.adaway.R.string.apply_help);
+
+                break;
+            case ReturnCodes.PRIVATE_FILE_FAIL:
+                postTitle = mActivity.getString(R.string.apply_private_file_fail_title);
+                postMessage = mActivity.getString(org.adaway.R.string.apply_private_file_fail)
+                        + "\n\n" + mActivity.getString(org.adaway.R.string.apply_help);
+                break;
+            case ReturnCodes.NOT_ENOUGH_SPACE:
+                postTitle = mActivity.getString(R.string.apply_not_enough_space_title);
+                postMessage = mActivity.getString(org.adaway.R.string.apply_not_enough_space)
+                        + "\n\n" + mActivity.getString(org.adaway.R.string.apply_help);
+                break;
+            case ReturnCodes.REMOUNT_FAIL:
+                postTitle = mActivity.getString(R.string.apply_remount_fail_title);
+                postMessage = mActivity.getString(org.adaway.R.string.apply_remount_fail) + "\n\n"
+                        + mActivity.getString(org.adaway.R.string.apply_help);
+                break;
+            case ReturnCodes.COPY_FAIL:
+                postTitle = mActivity.getString(R.string.apply_copy_fail_title);
+                postMessage = mActivity.getString(org.adaway.R.string.apply_copy_fail) + "\n\n"
+                        + mActivity.getString(org.adaway.R.string.apply_help);
+                break;
+            }
+            builder.setTitle(postTitle);
+            builder.setMessage(postMessage);
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
     }
 
     /**

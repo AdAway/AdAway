@@ -8,10 +8,10 @@
     <string name="no_connection">The connection to the Internet is not working.</string>
     <string name="no_connection_title">No Connection</string>
     <string name="button_close">Close</string>
-    <string name="download_dialog">Download:</string>
+    <string name="download_dialog">Downloading...</string>
     <string name="menu_hosts_sources">Hosts sources</string>
     <string name="menu_about">About</string>
-    <string name="apply_dialog">Apply</string>
+    <string name="apply_dialog">Applying...</string>
     <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
     <string name="apply_dialog_hosts">Building hosts file</string>
     <string name="apply_dialog_apply">Applying hosts file</string>
@@ -82,7 +82,7 @@
     <string name="button_busybox">Install Busybox</string>
     <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
     <string name="menu_donations">Donations</string>
-    <string name="donations_flattr_description">• Flattr takes 10% as a monthly fee!</string>
+    <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
     <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
@@ -129,7 +129,7 @@
     <string name="donations_google_android_market">Google Android Market</string>
     <string name="donations_google_android_market_not_supported_title">In-App Donations are not supported</string>
     <string name="donations_google_android_market_not_supported">In-App Donations are not supported. Is Google Android Market installed correctly?</string>
-    <string name="donations_google_android_market_description">• Google takes 30% off every donation!\n• There is no premium version for donators.</string>
+    <string name="donations_google_android_market_description">• Google takes 30 % off every donation!\n• There is no premium version for donators.</string>
     <string name="donations_google_android_market_donate_button">Donate!</string>
     <string name="donations_google_android_market_text">How much?</string>
 

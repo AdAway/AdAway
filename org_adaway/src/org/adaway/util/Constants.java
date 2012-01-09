@@ -55,7 +55,6 @@ public class Constants {
     public static final String COMMAND_LN = "busybox ln -s";
     public static final String COMMAND_RM = "busybox rm -f";
     public static final String COMMAND_MKDIR = "busybox mkdir -p";
-    public static final String COMMAND_READLINK = "busybox readlink -f";
 
     public static final String WEBSERVER_EXECUTEABLE = "blank_webserver";
 

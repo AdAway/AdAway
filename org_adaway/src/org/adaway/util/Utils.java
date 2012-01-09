@@ -132,58 +132,52 @@ public class Utils {
      *            resource id of message string
      */
     public static void rebootQuestion(final Activity activity, int titleR, int messageR) {
-        // only show if reboot dialog is not disabled in preferences
-        if (!PreferencesHelper.getNeverReboot(activity)) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-            builder.setTitle(titleR);
-            // builder.setMessage(activity.getString(messageR));
-            builder.setIcon(android.R.drawable.ic_dialog_info);
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle(titleR);
+        builder.setIcon(android.R.drawable.ic_dialog_info);
 
-            // build view from layout
-            LayoutInflater factory = LayoutInflater.from(activity);
-            final View dialogView = factory.inflate(R.layout.reboot_dialog, null);
+        // build view from layout
+        LayoutInflater factory = LayoutInflater.from(activity);
+        final View dialogView = factory.inflate(R.layout.reboot_dialog, null);
 
-            // set text in view based on given resource id
-            TextView text = (TextView) dialogView.findViewById(R.id.reboot_dialog_text);
-            text.setText(activity.getString(messageR));
+        // set text in view based on given resource id
+        TextView text = (TextView) dialogView.findViewById(R.id.reboot_dialog_text);
+        text.setText(activity.getString(messageR));
 
-            builder.setView(dialogView);
+        builder.setView(dialogView);
 
-            builder.setPositiveButton(activity.getString(R.string.button_yes),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
+        builder.setPositiveButton(activity.getString(R.string.button_yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
 
-                            // set preference to never show reboot dialog again if checkbox is
-                            // checked
-                            CheckBox checkBox = (CheckBox) dialogView
-                                    .findViewById(R.id.reboot_dialog_checkbox);
-                            if (checkBox.isChecked()) {
-                                PreferencesHelper.setNeverReboot(activity, true);
-                            }
-
-                            // restart android quickly using RootTools
-                            RootTools.restartAndroid();
+                        // set preference to never show reboot dialog again if checkbox is checked
+                        CheckBox checkBox = (CheckBox) dialogView
+                                .findViewById(R.id.reboot_dialog_checkbox);
+                        if (checkBox.isChecked()) {
+                            PreferencesHelper.setNeverReboot(activity, true);
                         }
-                    });
-            builder.setNegativeButton(activity.getString(R.string.button_no),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
 
-                            // set preference to never show reboot dialog again if checkbox is
-                            // checked
-                            CheckBox checkBox = (CheckBox) dialogView
-                                    .findViewById(R.id.reboot_dialog_checkbox);
-                            if (checkBox.isChecked()) {
-                                PreferencesHelper.setNeverReboot(activity, true);
-                            }
+                        // restart android quickly using RootTools
+                        RootTools.restartAndroid();
+                    }
+                });
+        builder.setNegativeButton(activity.getString(R.string.button_no),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
 
-                            dialog.dismiss();
+                        // set preference to never show reboot dialog again if checkbox is checked
+                        CheckBox checkBox = (CheckBox) dialogView
+                                .findViewById(R.id.reboot_dialog_checkbox);
+                        if (checkBox.isChecked()) {
+                            PreferencesHelper.setNeverReboot(activity, true);
                         }
-                    });
-            AlertDialog question = builder.create();
 
-            question.show();
-        }
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog question = builder.create();
+
+        question.show();
     }
 
     /**

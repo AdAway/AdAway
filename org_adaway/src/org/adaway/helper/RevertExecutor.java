@@ -99,8 +99,10 @@ public class RevertExecutor {
                             // set status to disabled
                             mBaseFragment.setStatusDisabled();
 
-                            Utils.rebootQuestion(mActivity, R.string.revert_successful_title,
-                                    R.string.revert_successful);
+                            if (!PreferencesHelper.getNeverReboot(mActivity)) {
+                                Utils.rebootQuestion(mActivity, R.string.revert_successful_title,
+                                        R.string.revert_successful);
+                            }
                         } catch (Exception e) {
                             Log.e(Constants.TAG, "Exception: " + e);
                             e.printStackTrace();

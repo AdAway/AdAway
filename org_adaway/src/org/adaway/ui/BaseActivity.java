@@ -21,8 +21,12 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.helper.ApplyExecutor;
 import org.adaway.helper.PreferencesHelper;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBar;
 import android.support.v4.app.FragmentActivity;
@@ -34,6 +38,32 @@ public class BaseActivity extends FragmentActivity {
     BaseFragment mBaseFragment;
     WebserverFragment mWebserverFragment;
     FragmentManager mFragmentManager;
+
+    public static final String EXTRA_APPLYING_RESULT = "APPLYING_RESULT";
+
+    /**
+     * Handle result from applying when clicked on notification
+     * http://stackoverflow.com/questions/1198558
+     * /how-to-send-parameters-from-a-notification-click-to-an-activity
+     * BaseActivity launchMode is set to SingleTop for this in AndroidManifest
+     */
+    @Override
+    protected void onNewIntent(Intent intent) {
+        ApplyExecutor applyExecutor = new ApplyExecutor(mBaseFragment);
+        
+        // if a notification is clicked after applying was done, the following is processed
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            if (extras.containsKey(EXTRA_APPLYING_RESULT)) {
+                int result = extras.getInt(EXTRA_APPLYING_RESULT);
+                Log.d(Constants.TAG, "Result from intent extras: " + result);
+                applyExecutor.processApplyingResult(result);
+            }
+        }
+
+        super.onNewIntent(intent);
+
+    }
 
     /**
      * Instantiate View and initialize fragments for this Activity
