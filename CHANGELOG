@@ -1,4 +1,5 @@
 1.19
+* Automatic updating in background can be enabled in preferences
 * New method for checking for symlink, should fix some problems
 - Fixes for exporting entries
 - Fixes for donation screen, when no Google Android Market is available
