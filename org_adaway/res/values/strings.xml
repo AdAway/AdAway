@@ -155,8 +155,6 @@
     <string name="pref_header_preferences_summary">General preferences for AdAway</string>
     <string name="pref_never_reboot">Hide reboot dialog</string>
     <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
-    <string name="pref_update_check_daily">Check for updates daily</string>
-    <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
     <string name="pref_webserver_on_boot">Start webserver on boot</string>
     <string name="pref_webserver_on_boot_summary">Start webserver on boot delayed with 5 seconds listening on local IP addresses</string>
     <string name="pref_webserver_enabled">Enable webserver</string>
@@ -173,5 +171,10 @@
 
     <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
     <string name="pref_sdcard_problem">This feature will not work correctly when AdAway is installed on sdcard!</string>
+    <string name="pref_background">Background Services</string>
+    <string name="pref_update_check_daily">Check for updates daily</string>
+    <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
+    <string name="pref_automatic_update_daily">Automatic update</string>
+    <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
 
 </resources>

@@ -35,6 +35,7 @@ import java.net.URLConnection;
 import java.util.Calendar;
 
 import org.adaway.R;
+import org.adaway.helper.ApplyExecutor;
 import org.adaway.helper.PreferencesHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
@@ -93,9 +94,9 @@ public class UpdateCheckService extends WakefulIntentService {
         alarm.cancel(pendingIntent);
 
         if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
-            // for debugging execute service every 30 seconds
+            // for debugging execute service every 90 seconds
             alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
-                    30 * 1000, pendingIntent);
+                    90 * 1000, pendingIntent);
         } else {
             alarm.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
                     AlarmManager.INTERVAL_DAY, pendingIntent);
@@ -140,17 +141,23 @@ public class UpdateCheckService extends WakefulIntentService {
 
         int result = checkForUpdates();
 
-        Log.d(Constants.TAG, "result: " + result);
+        Log.d(Constants.TAG, "Update Check result: " + result);
 
         switch (result) {
         case ReturnCodes.UPDATE_AVAILABLE:
-            showPostNotification(getString(R.string.app_name) + ": "
-                    + getString(R.string.status_update_available),
-                    getString(R.string.status_update_available_subtitle));
+            // if automatic updating is enabled in preferences, do it!
+            if (PreferencesHelper.getAutomaticUpdateDaily(mApplicationContext)) {
+                cancelNotification();
+
+                // download and apply!
+                ApplyExecutor applyExecutor = new ApplyExecutor(this);
+                applyExecutor.apply();
+            } else {
+                showPostNotification(getString(R.string.app_name) + ": "
+                        + getString(R.string.status_update_available),
+                        getString(R.string.status_update_available_subtitle));
+            }
             break;
-        // case ReturnCodes.DISABLED:
-        // cancelNotification();
-        // break;
         case ReturnCodes.DOWNLOAD_FAIL:
             showPostNotification(getString(R.string.app_name) + ": "
                     + getString(R.string.status_download_fail),
@@ -160,7 +167,19 @@ public class UpdateCheckService extends WakefulIntentService {
             cancelNotification();
             break;
         case ReturnCodes.ENABLED:
-            cancelNotification();
+            // cancelNotification();
+            // if automatic updating is enabled in preferences, do it!
+            if (PreferencesHelper.getAutomaticUpdateDaily(mApplicationContext)) {
+                cancelNotification();
+
+                // download and apply!
+                ApplyExecutor applyExecutor = new ApplyExecutor(this);
+                applyExecutor.apply();
+            } else {
+                showPostNotification(getString(R.string.app_name) + ": "
+                        + getString(R.string.status_update_available),
+                        getString(R.string.status_update_available_subtitle));
+            }
             break;
         }
     }
@@ -245,11 +264,6 @@ public class UpdateCheckService extends WakefulIntentService {
         if (mUpdateAvailable) {
             returnCode = ReturnCodes.UPDATE_AVAILABLE;
         }
-
-        // check if hosts file is applied
-        // if (!ApplyUtils.isHostsFileApplied(mContext, Constants.ANDROID_SYSTEM_ETC_PATH)) {
-        // returnCode = ReturnCodes.DISABLED;
-        // }
 
         return returnCode;
     }

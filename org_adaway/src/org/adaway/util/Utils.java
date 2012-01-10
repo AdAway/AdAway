@@ -131,22 +131,22 @@ public class Utils {
      * @param messageR
      *            resource id of message string
      */
-    public static void rebootQuestion(final Activity activity, int titleR, int messageR) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+    public static void rebootQuestion(final Context context, int titleR, int messageR) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(titleR);
         builder.setIcon(android.R.drawable.ic_dialog_info);
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(activity);
+        LayoutInflater factory = LayoutInflater.from(context);
         final View dialogView = factory.inflate(R.layout.reboot_dialog, null);
 
         // set text in view based on given resource id
         TextView text = (TextView) dialogView.findViewById(R.id.reboot_dialog_text);
-        text.setText(activity.getString(messageR));
+        text.setText(context.getString(messageR));
 
         builder.setView(dialogView);
 
-        builder.setPositiveButton(activity.getString(R.string.button_yes),
+        builder.setPositiveButton(context.getString(R.string.button_yes),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
@@ -154,14 +154,14 @@ public class Utils {
                         CheckBox checkBox = (CheckBox) dialogView
                                 .findViewById(R.id.reboot_dialog_checkbox);
                         if (checkBox.isChecked()) {
-                            PreferencesHelper.setNeverReboot(activity, true);
+                            PreferencesHelper.setNeverReboot(context, true);
                         }
 
                         // restart android quickly using RootTools
                         RootTools.restartAndroid();
                     }
                 });
-        builder.setNegativeButton(activity.getString(R.string.button_no),
+        builder.setNegativeButton(context.getString(R.string.button_no),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
@@ -169,7 +169,7 @@ public class Utils {
                         CheckBox checkBox = (CheckBox) dialogView
                                 .findViewById(R.id.reboot_dialog_checkbox);
                         if (checkBox.isChecked()) {
-                            PreferencesHelper.setNeverReboot(activity, true);
+                            PreferencesHelper.setNeverReboot(context, true);
                         }
 
                         dialog.dismiss();

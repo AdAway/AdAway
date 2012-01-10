@@ -27,11 +27,6 @@
         type="string"
         name="pref_custom_target_def">/data/etc/hosts</item>
 
-    <string name="pref_update_check_daily_key">updateCheckDaily</string>
-    <item
-        name="pref_update_check_daily_def"
-        format="boolean"
-        type="string">false</item>
 
     <string name="pref_never_reboot_key">neverReboot</string>
     <item
@@ -50,5 +45,18 @@
         name="pref_webserver_on_boot_def"
         type="string"
         format="boolean">false</item>
+    
+    
+    <string name="pref_update_check_daily_key">updateCheckDaily</string>
+    <item
+        name="pref_update_check_daily_def"
+        format="boolean"
+        type="string">false</item>
+    
+    <string name="pref_automatic_update_daily_key">updateCheckDaily</string>
+    <item
+        name="pref_automatic_update_daily_def"
+        format="boolean"
+        type="string">false</item>
 
 </resources>

@@ -39,30 +39,40 @@ public class BaseActivity extends FragmentActivity {
     WebserverFragment mWebserverFragment;
     FragmentManager mFragmentManager;
 
+    // static String that defines intent extra to give result of applying process to base activity
     public static final String EXTRA_APPLYING_RESULT = "APPLYING_RESULT";
+    public static final String EXTRA_APPLYING_INFORMATION = "APPLYING_INFORMATION";
 
     /**
      * Handle result from applying when clicked on notification
      * http://stackoverflow.com/questions/1198558
-     * /how-to-send-parameters-from-a-notification-click-to-an-activity
-     * BaseActivity launchMode is set to SingleTop for this in AndroidManifest
+     * /how-to-send-parameters-from-a-notification-click-to-an-activity BaseActivity launchMode is
+     * set to SingleTop for this in AndroidManifest
      */
     @Override
     protected void onNewIntent(Intent intent) {
-        ApplyExecutor applyExecutor = new ApplyExecutor(mBaseFragment);
-        
+        super.onNewIntent(intent);
+
+        ApplyExecutor applyExecutor = new ApplyExecutor(this);
+
         // if a notification is clicked after applying was done, the following is processed
         Bundle extras = intent.getExtras();
         if (extras != null) {
             if (extras.containsKey(EXTRA_APPLYING_RESULT)) {
                 int result = extras.getInt(EXTRA_APPLYING_RESULT);
                 Log.d(Constants.TAG, "Result from intent extras: " + result);
-                applyExecutor.processApplyingResult(result);
+
+                // if extra information is present use it, like failed url to download
+                String extraInformation = "";
+                if (extras.containsKey(EXTRA_APPLYING_INFORMATION)) {
+                    extraInformation = extras.getString(EXTRA_APPLYING_INFORMATION);
+                    Log.d(Constants.TAG, "Applying information from intent extras: "
+                            + extraInformation);
+                }
+
+                applyExecutor.processApplyingResult(mBaseFragment, result, extraInformation);
             }
         }
-
-        super.onNewIntent(intent);
-
     }
 
     /**

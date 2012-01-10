@@ -26,8 +26,6 @@ import org.adaway.helper.RevertExecutor;
 import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
 import org.adaway.service.UpdateCheckService;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
 
@@ -131,8 +129,8 @@ public class BaseFragment extends Fragment {
     }
 
     /**
-     * Don't recreate activity on orientation change, it will break AsyncTask. Using possibility 4
-     * from http://blog.doityourselfandroid
+     * Don't recreate activity on orientation change, AdAway would otherwise check everytime for
+     * update on orientation change. Using possibility 4 from http://blog.doityourselfandroid
      * .com/2010/11/14/handling-progress-dialogs-and-screen-orientation-changes/
      */
     @Override
@@ -243,7 +241,7 @@ public class BaseFragment extends Fragment {
 
         // Initialize logic
         mStatusChecker = new StatusChecker(this);
-        mApplyExecutor = new ApplyExecutor(this);
+        mApplyExecutor = new ApplyExecutor(this.getActivity());
         mRevertExecutor = new RevertExecutor(this);
 
         mStatusText = (TextView) mActivity.findViewById(R.id.status_text);

@@ -34,13 +34,6 @@ public class PreferencesHelper {
                 Boolean.parseBoolean(context.getString(R.string.pref_update_check_def)));
     }
 
-    public static boolean getUpdateCheckDaily(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
-                Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_update_check_daily_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_update_check_daily_def)));
-    }
-
     public static boolean getNeverReboot(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
@@ -54,6 +47,20 @@ public class PreferencesHelper {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(context.getString(R.string.pref_never_reboot_key), value);
         editor.commit();
+    }
+
+    public static boolean getUpdateCheckDaily(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean(context.getString(R.string.pref_update_check_daily_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_update_check_daily_def)));
+    }
+
+    public static boolean getAutomaticUpdateDaily(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean(context.getString(R.string.pref_automatic_update_daily_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_automatic_update_daily_def)));
     }
 
     public static String getRedirectionIP(Context context) {
