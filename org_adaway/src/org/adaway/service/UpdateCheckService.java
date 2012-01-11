@@ -94,9 +94,9 @@ public class UpdateCheckService extends WakefulIntentService {
         alarm.cancel(pendingIntent);
 
         if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
-            // for debugging execute service every 90 seconds
+            // for debugging execute service every 2 minutes
             alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
-                    90 * 1000, pendingIntent);
+                    2 * 60 * 1000, pendingIntent);
         } else {
             alarm.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
                     AlarmManager.INTERVAL_DAY, pendingIntent);
@@ -167,7 +167,6 @@ public class UpdateCheckService extends WakefulIntentService {
             cancelNotification();
             break;
         case ReturnCodes.ENABLED:
-            // cancelNotification();
             // if automatic updating is enabled in preferences, do it!
             if (PreferencesHelper.getAutomaticUpdateDaily(mApplicationContext)) {
                 cancelNotification();

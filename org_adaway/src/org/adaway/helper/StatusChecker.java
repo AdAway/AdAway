@@ -109,7 +109,8 @@ public class StatusChecker {
                             .getEnabledHostsSourcesCursor(mActivity);
 
                     // iterate over all hosts sources in db with cursor
-                    if (mEnabledHostsSourcesCursor.moveToFirst()) {
+                    if (mEnabledHostsSourcesCursor != null
+                            && mEnabledHostsSourcesCursor.moveToFirst()) {
                         do {
                             // get url and lastModified from db
                             mCurrentUrl = mEnabledHostsSourcesCursor

@@ -41,7 +41,7 @@ public class BaseActivity extends FragmentActivity {
 
     // static String that defines intent extra to give result of applying process to base activity
     public static final String EXTRA_APPLYING_RESULT = "APPLYING_RESULT";
-    public static final String EXTRA_APPLYING_INFORMATION = "APPLYING_INFORMATION";
+    public static final String EXTRA_FAILING_URL = "APPLYING_INFORMATION";
 
     /**
      * Handle result from applying when clicked on notification
@@ -62,15 +62,15 @@ public class BaseActivity extends FragmentActivity {
                 int result = extras.getInt(EXTRA_APPLYING_RESULT);
                 Log.d(Constants.TAG, "Result from intent extras: " + result);
 
-                // if extra information is present use it, like failed url to download
-                String extraInformation = "";
-                if (extras.containsKey(EXTRA_APPLYING_INFORMATION)) {
-                    extraInformation = extras.getString(EXTRA_APPLYING_INFORMATION);
+                // download failed because of url
+                String failingUrl = "";
+                if (extras.containsKey(EXTRA_FAILING_URL)) {
+                    failingUrl = extras.getString(EXTRA_FAILING_URL);
                     Log.d(Constants.TAG, "Applying information from intent extras: "
-                            + extraInformation);
+                            + failingUrl);
                 }
 
-                applyExecutor.processApplyingResult(mBaseFragment, result, extraInformation);
+                applyExecutor.processApplyingResult(mBaseFragment, result, failingUrl);
             }
         }
     }

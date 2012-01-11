@@ -90,7 +90,8 @@ public class ApplyExecutor {
     }
 
     // Notification id
-    private static final int APPLY_NOTIFICATION_ID = 10;
+    private static final int PROGRESS_NOTIFICATION_ID = 10;
+    private static final int RESULT_NOTIFICATION_ID = 11;
 
     /**
      * Creates custom made notification with progress
@@ -101,6 +102,9 @@ public class ApplyExecutor {
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext.getApplicationContext(),
                 0, intent, 0);
 
+        // add app name to notificationText
+        notificationText = mContext.getString(R.string.app_name) + ": " + notificationText;
+
         // configure the notification
         mApplyNotification = new Notification(R.drawable.status_bar_icon, notificationText,
                 System.currentTimeMillis());
@@ -110,16 +114,23 @@ public class ApplyExecutor {
                 R.layout.apply_notification);
         mApplyNotification.contentIntent = pendingIntent;
 
+        // add app name to title
+        startTitle = mContext.getString(R.string.app_name) + ": " + startTitle;
+
         mApplyNotification.contentView.setTextViewText(R.id.apply_notification_title, startTitle);
 
-        mNotificationManager.notify(APPLY_NOTIFICATION_ID, mApplyNotification);
+        mNotificationManager.notify(PROGRESS_NOTIFICATION_ID, mApplyNotification);
     }
 
     private void setProgressNotificationText(String text) {
         mApplyNotification.contentView.setTextViewText(R.id.apply_notification_text, text);
 
         // inform the progress bar of updates in progress
-        mNotificationManager.notify(APPLY_NOTIFICATION_ID, mApplyNotification);
+        mNotificationManager.notify(PROGRESS_NOTIFICATION_ID, mApplyNotification);
+    }
+
+    private void cancelProgressNotification() {
+        mNotificationManager.cancel(PROGRESS_NOTIFICATION_ID);
     }
 
     /**
@@ -128,13 +139,15 @@ public class ApplyExecutor {
      * @param contentTitle
      * @param contentText
      */
-    private void showResultNotification(CharSequence contentTitle, CharSequence contentText,
-            int applyingResult, String applyingInformation) {
+    private void showResultNotification(String contentTitle, String contentText,
+            int applyingResult, String failingUrl) {
         int icon = R.drawable.status_bar_icon;
-        CharSequence tickerText = contentTitle;
         long when = System.currentTimeMillis();
 
-        Notification notification = new Notification(icon, tickerText, when);
+        // add app name to title
+        contentTitle = mContext.getString(R.string.app_name) + ": " + contentTitle;
+
+        Notification notification = new Notification(icon, contentTitle, when);
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
         Context context = mContext;
@@ -142,14 +155,14 @@ public class ApplyExecutor {
 
         // give postApplyingStatus with intent
         notificationIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, applyingResult);
-        notificationIntent.putExtra(BaseActivity.EXTRA_APPLYING_INFORMATION, applyingInformation);
+        notificationIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
 
         PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 
-        mNotificationManager.notify(APPLY_NOTIFICATION_ID, notification);
+        mNotificationManager.notify(RESULT_NOTIFICATION_ID, notification);
     }
 
     /**
@@ -294,9 +307,7 @@ public class ApplyExecutor {
             protected void onPreExecute() {
                 super.onPreExecute();
 
-                showProgressNotification(
-                        mContext.getString(R.string.app_name) + ": "
-                                + mContext.getString(R.string.download_dialog),
+                showProgressNotification(mContext.getString(R.string.download_dialog),
                         mContext.getString(R.string.download_dialog));
             }
 
@@ -317,7 +328,7 @@ public class ApplyExecutor {
                     // extra information is current url, to show it when it fails
                     showNotificationBasedOnResult(result, mCurrentUrl);
                 } else {
-                    showNotificationBasedOnResult(result, "");
+                    showNotificationBasedOnResult(result, null);
                 }
             }
         };
@@ -549,9 +560,7 @@ public class ApplyExecutor {
             protected void onPreExecute() {
                 super.onPreExecute();
 
-                showProgressNotification(
-                        mContext.getString(R.string.app_name) + ": "
-                                + mContext.getString(R.string.apply_dialog),
+                showProgressNotification(mContext.getString(R.string.apply_dialog),
                         mContext.getString(R.string.apply_dialog));
             }
 
@@ -564,7 +573,9 @@ public class ApplyExecutor {
             protected void onPostExecute(Integer result) {
                 super.onPostExecute(result);
 
-                showNotificationBasedOnResult(result, "");
+                cancelProgressNotification();
+
+                showNotificationBasedOnResult(result, null);
             }
         };
 
@@ -576,58 +587,58 @@ public class ApplyExecutor {
      * 
      * @param result
      */
-    private void showNotificationBasedOnResult(int result, String extraInformation) {
+    private void showNotificationBasedOnResult(int result, String failingUrl) {
         if (result == ReturnCodes.SUCCESS) {
             // only show if reboot dialog is not disabled in preferences
             if (!PreferencesHelper.getNeverReboot(mContext)) {
                 // show notification
-                showResultNotification(
-                        mContext.getString(R.string.app_name) + ": "
-                                + mContext.getString(R.string.apply_success_title),
-                        mContext.getString(R.string.apply_success), result, "");
+                showResultNotification(mContext.getString(R.string.apply_success_title),
+                        mContext.getString(R.string.apply_success), result, null);
             }
         } else if (result == ReturnCodes.DOWNLOAD_FAIL) {
             // extra information for intent: url
-            showResultNotification(
-                    mContext.getString(R.string.app_name) + ": "
-                            + mContext.getString(R.string.download_fail_title),
-                    mContext.getString(R.string.download_fail), result, extraInformation);
+            showResultNotification(mContext.getString(R.string.download_fail_title),
+                    mContext.getString(R.string.download_fail), result, failingUrl);
         } else {
-            String postTitle = mContext.getString(R.string.app_name) + ": ";
+            String postTitle = "";
             String postMessage = "";
             switch (result) {
+            case ReturnCodes.SYMLINK_MISSING:
+                postTitle = mContext.getString(R.string.apply_symlink_missing_title);
+                postMessage = mContext.getString(R.string.apply_symlink_missing);
+                break;
             case ReturnCodes.NO_CONNECTION:
                 postTitle = mContext.getString(R.string.no_connection_title);
-                postMessage = mContext.getString(org.adaway.R.string.no_connection);
+                postMessage = mContext.getString(R.string.no_connection);
                 break;
             case ReturnCodes.EMPTY_HOSTS_SOURCES:
                 postTitle = mContext.getString(R.string.no_sources_title);
-                postMessage = mContext.getString(org.adaway.R.string.no_sources);
+                postMessage = mContext.getString(R.string.no_sources);
                 break;
             case ReturnCodes.APPLY_FAIL:
                 postTitle = mContext.getString(R.string.apply_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_fail);
+                postMessage = mContext.getString(R.string.apply_fail);
                 break;
             case ReturnCodes.PRIVATE_FILE_FAIL:
                 postTitle = mContext.getString(R.string.apply_private_file_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_private_file_fail);
+                postMessage = mContext.getString(R.string.apply_private_file_fail);
                 break;
             case ReturnCodes.NOT_ENOUGH_SPACE:
                 postTitle = mContext.getString(R.string.apply_not_enough_space_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_not_enough_space);
+                postMessage = mContext.getString(R.string.apply_not_enough_space);
                 break;
             case ReturnCodes.REMOUNT_FAIL:
                 postTitle = mContext.getString(R.string.apply_remount_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_remount_fail);
+                postMessage = mContext.getString(R.string.apply_remount_fail);
                 break;
             case ReturnCodes.COPY_FAIL:
                 postTitle = mContext.getString(R.string.apply_copy_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_copy_fail);
+                postMessage = mContext.getString(R.string.apply_copy_fail);
                 break;
             }
 
             // show notification
-            showResultNotification(postTitle, postMessage, result, "");
+            showResultNotification(postTitle, postMessage, result, null);
         }
     }
 
@@ -637,7 +648,7 @@ public class ApplyExecutor {
      * 
      * @param result
      */
-    public void processApplyingResult(final BaseFragment baseFragment, int result, String extraInformation) {
+    public void processApplyingResult(final BaseFragment baseFragment, int result, String failingUrl) {
         if (result == ReturnCodes.SUCCESS) {
             baseFragment.setStatusEnabled();
 
@@ -689,38 +700,42 @@ public class ApplyExecutor {
             switch (result) {
             case ReturnCodes.NO_CONNECTION:
                 postTitle = mContext.getString(R.string.no_connection_title);
-                postMessage = mContext.getString(org.adaway.R.string.no_connection);
+                postMessage = mContext.getString(R.string.no_connection);
                 break;
             case ReturnCodes.DOWNLOAD_FAIL:
                 postTitle = mContext.getString(R.string.download_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.download_fail) + "\n" + extraInformation;
+                if (failingUrl != null) {
+                    postMessage = mContext.getString(R.string.download_fail) + "\n" + failingUrl;
+                } else {
+                    postMessage = mContext.getString(R.string.download_fail);
+                }
                 break;
             case ReturnCodes.EMPTY_HOSTS_SOURCES:
                 postTitle = mContext.getString(R.string.no_sources_title);
-                postMessage = mContext.getString(org.adaway.R.string.no_sources);
+                postMessage = mContext.getString(R.string.no_sources);
                 break;
             case ReturnCodes.APPLY_FAIL:
                 postTitle = mContext.getString(R.string.apply_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_fail);
+                postMessage = mContext.getString(R.string.apply_fail);
                 break;
             case ReturnCodes.PRIVATE_FILE_FAIL:
                 postTitle = mContext.getString(R.string.apply_private_file_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_private_file_fail);
+                postMessage = mContext.getString(R.string.apply_private_file_fail);
                 break;
             case ReturnCodes.NOT_ENOUGH_SPACE:
                 postTitle = mContext.getString(R.string.apply_not_enough_space_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_not_enough_space);
+                postMessage = mContext.getString(R.string.apply_not_enough_space);
                 break;
             case ReturnCodes.REMOUNT_FAIL:
                 postTitle = mContext.getString(R.string.apply_remount_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_remount_fail);
+                postMessage = mContext.getString(R.string.apply_remount_fail);
                 break;
             case ReturnCodes.COPY_FAIL:
                 postTitle = mContext.getString(R.string.apply_copy_fail_title);
-                postMessage = mContext.getString(org.adaway.R.string.apply_copy_fail);
+                postMessage = mContext.getString(R.string.apply_copy_fail);
                 break;
             }
-            postMessage += "\n\n" + mContext.getString(org.adaway.R.string.apply_help);
+            postMessage += "\n\n" + mContext.getString(R.string.apply_help);
             builder.setTitle(postTitle);
             builder.setMessage(postMessage);
 
@@ -772,8 +787,8 @@ public class ApplyExecutor {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
             builder.setTitle(R.string.apply_symlink_fail_title);
-            builder.setMessage(mContext.getString(org.adaway.R.string.apply_symlink_fail) + "\n\n"
-                    + mContext.getString(org.adaway.R.string.apply_help));
+            builder.setMessage(mContext.getString(R.string.apply_symlink_fail) + "\n\n"
+                    + mContext.getString(R.string.apply_help));
             builder.setIcon(android.R.drawable.ic_dialog_alert);
             builder.setPositiveButton(mContext.getString(R.string.button_close),
                     new DialogInterface.OnClickListener() {
