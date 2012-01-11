@@ -325,9 +325,13 @@ public class ApplyExecutor {
                     // Apply files by Apply thread
                     runApplyTask();
                 } else if (result == ReturnCodes.DOWNLOAD_FAIL) {
+                    cancelProgressNotification();
+
                     // extra information is current url, to show it when it fails
                     showNotificationBasedOnResult(result, mCurrentUrl);
                 } else {
+                    cancelProgressNotification();
+
                     showNotificationBasedOnResult(result, null);
                 }
             }
