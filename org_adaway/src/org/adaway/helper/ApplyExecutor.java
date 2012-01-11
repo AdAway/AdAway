@@ -100,7 +100,7 @@ public class ApplyExecutor {
         // configure the intent
         Intent intent = new Intent(mContext, BaseActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext.getApplicationContext(),
-                0, intent, 0);
+                0, intent, PendingIntent.FLAG_CANCEL_CURRENT); 
 
         // add app name to notificationText
         notificationText = mContext.getString(R.string.app_name) + ": " + notificationText;
