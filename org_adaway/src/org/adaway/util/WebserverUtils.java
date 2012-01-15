@@ -52,7 +52,7 @@ public class WebserverUtils {
      */
     public static void startWebserver(final Context context) {
         Log.d(Constants.TAG, "Starting webserver...");
-        RootTools.runBinary(context, Constants.WEBSERVER_EXECUTEABLE, "");
+        RootTools.runBinary(context, Constants.WEBSERVER_EXECUTEABLE, " > /dev/null 2>&1 &");
     }
 
     /**

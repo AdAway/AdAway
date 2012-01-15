@@ -12,7 +12,7 @@ import org.adaway.ui.BaseActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
-import org.adaway.util.StatusUtils;
+import org.adaway.util.DateUtils;
 import org.adaway.util.Utils;
 
 import android.app.Notification;
@@ -174,11 +174,11 @@ public class UpdateService extends WakefulIntentService {
 
                         Log.d(Constants.TAG,
                                 "mConnectionLastModified: " + mCurrentLastModifiedOnline + " ("
-                                        + StatusUtils.longToDateString(mCurrentLastModifiedOnline)
+                                        + DateUtils.longToDateString(mCurrentLastModifiedOnline)
                                         + ")");
 
                         Log.d(Constants.TAG, "mCurrentLastModified: " + mCurrentLastModifiedLocal
-                                + " (" + StatusUtils.longToDateString(mCurrentLastModifiedLocal)
+                                + " (" + DateUtils.longToDateString(mCurrentLastModifiedLocal)
                                 + ")");
 
                         // check if file is available

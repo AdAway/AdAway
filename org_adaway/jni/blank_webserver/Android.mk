@@ -22,4 +22,6 @@ LOCAL_SRC_FILES := blank_webserver.c
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/mongoose
 LOCAL_STATIC_LIBRARIES := mongoose
 
+LOCAL_LDLIBS := -llog
+
 include $(BUILD_EXECUTABLE)
