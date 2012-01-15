@@ -67,6 +67,9 @@ public class ApplyService extends WakefulIntentService {
         return super.onStartCommand(intent, flags, startId);
     }
 
+    /**
+     * Asynchronous background operations of service, with wakelock
+     */
     @Override
     public void doWakefulWork(Intent intent) {
         // download files with download method
@@ -90,6 +93,11 @@ public class ApplyService extends WakefulIntentService {
         }
     }
 
+    /**
+     * Downloads files from hosts sources
+     * 
+     * @return return code
+     */
     private int download() {
         showProgressNotification(mService.getString(R.string.download_dialog),
                 mService.getString(R.string.download_dialog));
@@ -213,6 +221,11 @@ public class ApplyService extends WakefulIntentService {
         return returnCode;
     }
 
+    /**
+     * Apply hosts file
+     * 
+     * @return return code
+     */
     int apply() {
         showProgressNotification(mService.getString(R.string.apply_dialog),
                 mService.getString(R.string.apply_dialog));

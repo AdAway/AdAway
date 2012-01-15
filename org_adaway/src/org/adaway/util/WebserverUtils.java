@@ -63,12 +63,6 @@ public class WebserverUtils {
     public static void startWebserverOnBoot(final Context context) {
         // start webserver on boot if enabled in preferences
         if (PreferencesHelper.getWebserverOnBoot(context)) {
-            // Wait a little bit before starting webserver
-            // try {
-            // Thread.sleep(10 * 1000);
-            // } catch (InterruptedException e) {
-            // e.printStackTrace();
-            // }
             startWebserver(context);
         }
     }

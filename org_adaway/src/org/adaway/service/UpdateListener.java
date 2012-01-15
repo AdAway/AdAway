@@ -16,11 +16,9 @@ import com.commonsware.cwac.wakeful.WakefulIntentService.AlarmListener;
 
 public class UpdateListener implements AlarmListener {
     public void scheduleAlarms(AlarmManager mgr, PendingIntent pi, Context ctxt) {
-        Log.d(Constants.TAG, "schedule alarms...");
-
         // register when enabled in preferences
         if (PreferencesHelper.getUpdateCheckDaily(ctxt)) {
-            Log.d(Constants.TAG, "schedule update check...");
+            Log.i(Constants.TAG, "Schedule update check...");
 
             // every day at 9 am
             Calendar calendar = Calendar.getInstance();
@@ -50,8 +48,6 @@ public class UpdateListener implements AlarmListener {
     }
 
     public long getMaxAge() {
-        Log.d(Constants.TAG, "getMaxAge");
-
         if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
             return (60 * 1000);
         } else {
