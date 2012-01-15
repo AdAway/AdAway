@@ -22,10 +22,12 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
-import org.adaway.service.UpdateCheckService;
+import org.adaway.service.UpdateListener;
 import org.adaway.util.Constants;
 import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
+
+import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,6 +36,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.support.v4.app.ActionBar;
 import android.support.v4.app.SherlockPreferenceActivity;
 import android.support.v4.view.MenuItem;
@@ -93,18 +96,24 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences);
 
-        /* Listen on change of update daily pref, register UpdateCheckService if enabled */
+        /*
+         * Listen on click of update daily pref, register UpdateService if enabled,
+         * setOnPreferenceChangeListener is not used because it is executed before setting the
+         * preference value, this would lead to a false check in UpdateListener
+         */
         Preference UpdateDailyPref = findPreference(getString(R.string.pref_update_check_daily_key));
-        UpdateDailyPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+        UpdateDailyPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+
             @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                if (newValue.equals(true)) {
-                    UpdateCheckService.registerAlarm(mContext);
+            public boolean onPreferenceClick(Preference preference) {
+                if (PreferencesHelper.getUpdateCheckDaily(mContext)) {
+                    WakefulIntentService.scheduleAlarms(new UpdateListener(), mContext, false);
                 } else {
-                    UpdateCheckService.unregisterAlarm(mContext);
+                    WakefulIntentService.cancelAlarms(mContext);
                 }
-                return true;
+                return false;
             }
+
         });
 
         /* Start webserver if pref is enabled */

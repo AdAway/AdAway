@@ -23,6 +23,8 @@ package org.adaway.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
@@ -31,6 +33,8 @@ import org.adaway.util.Log;
 import com.stericson.RootTools.RootTools;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -40,6 +44,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Build.VERSION;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -258,4 +263,44 @@ public class Utils {
         return false;
     }
 
+    public static boolean isInForeground(Context context) {
+        AsyncTask<Context, Void, Boolean> foregroundCheckTask = new AsyncTask<Context, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(Context... params) {
+                final Context context = params[0].getApplicationContext();
+                return isAppOnForeground(context);
+            }
+
+            private boolean isAppOnForeground(Context context) {
+                ActivityManager activityManager = (ActivityManager) context
+                        .getSystemService(Context.ACTIVITY_SERVICE);
+                List<RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
+                if (appProcesses == null) {
+                    return false;
+                }
+                final String packageName = context.getPackageName();
+                for (RunningAppProcessInfo appProcess : appProcesses) {
+                    if (appProcess.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND
+                            && appProcess.processName.equals(packageName)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        };
+
+        boolean foreground = false;
+        try {
+            foreground = foregroundCheckTask.execute(context).get();
+        } catch (InterruptedException e) {
+            Log.e(Constants.TAG, "IsInForeground InterruptedException");
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            Log.e(Constants.TAG, "IsInForeground ExecutionException");
+            e.printStackTrace();
+        }
+
+        return foreground;
+    }
 }

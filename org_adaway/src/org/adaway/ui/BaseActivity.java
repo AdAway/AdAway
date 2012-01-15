@@ -21,17 +21,22 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.ApplyExecutor;
 import org.adaway.helper.PreferencesHelper;
+import org.adaway.service.ApplyService;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.adaway.util.ReturnCodes;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.ActionBar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 
 public class BaseActivity extends FragmentActivity {
@@ -40,8 +45,16 @@ public class BaseActivity extends FragmentActivity {
     FragmentManager mFragmentManager;
 
     // static String that defines intent extra to give result of applying process to base activity
-    public static final String EXTRA_APPLYING_RESULT = "APPLYING_RESULT";
-    public static final String EXTRA_FAILING_URL = "APPLYING_INFORMATION";
+    public static final String EXTRA_APPLYING_RESULT = "org.adaway.APPLYING_RESULT";
+    public static final String EXTRA_FAILING_URL = "org.adaway.APPLYING_INFORMATION";
+
+    static final String ACTION_UPDATE_STATUS = "org.adaway.UPDATE_STATUS";
+    public static final String EXTRA_UPDATE_STATUS_TEXT = "org.adaway.UPDATE_STATUS.TEXT";
+    public static final String EXTRA_UPDATE_STATUS_SUBTITLE = "org.adaway.UPDATE_STATUS.SUBTITLE";
+    public static final String EXTRA_UPDATE_STATUS_ICON = "org.adaway.UPDATE_STATUS.ICON";
+
+    LocalBroadcastManager mLocalBroadcastManager;
+    BroadcastReceiver mReceiver;
 
     /**
      * Handle result from applying when clicked on notification
@@ -53,8 +66,6 @@ public class BaseActivity extends FragmentActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
-        ApplyExecutor applyExecutor = new ApplyExecutor(this);
-
         // if a notification is clicked after applying was done, the following is processed
         Bundle extras = intent.getExtras();
         if (extras != null) {
@@ -63,14 +74,13 @@ public class BaseActivity extends FragmentActivity {
                 Log.d(Constants.TAG, "Result from intent extras: " + result);
 
                 // download failed because of url
-                String failingUrl = "";
+                String failingUrl = null;
                 if (extras.containsKey(EXTRA_FAILING_URL)) {
                     failingUrl = extras.getString(EXTRA_FAILING_URL);
-                    Log.d(Constants.TAG, "Applying information from intent extras: "
-                            + failingUrl);
+                    Log.d(Constants.TAG, "Applying information from intent extras: " + failingUrl);
                 }
 
-                applyExecutor.processApplyingResult(mBaseFragment, result, failingUrl);
+                ApplyService.processApplyingResult(this, result, failingUrl);
             }
         }
     }
@@ -86,6 +96,77 @@ public class BaseActivity extends FragmentActivity {
 
         mFragmentManager = getSupportFragmentManager();
         mBaseFragment = (BaseFragment) mFragmentManager.findFragmentById(R.id.base_fragment);
+
+        // We use this to send broadcasts within our local process.
+        mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
+
+        // We are going to watch for broadcasts with status updates
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_UPDATE_STATUS);
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Bundle extras = intent.getExtras();
+
+                if (intent.getAction().equals(ACTION_UPDATE_STATUS)) {
+                    if (extras != null) {
+                        if (extras.containsKey(EXTRA_UPDATE_STATUS_TEXT)) {
+                            String text = extras.getString(EXTRA_UPDATE_STATUS_TEXT);
+                            mBaseFragment.setStatusText(text);
+                        }
+                        if (extras.containsKey(EXTRA_UPDATE_STATUS_SUBTITLE)) {
+                            String subtitle = extras.getString(EXTRA_UPDATE_STATUS_SUBTITLE);
+                            mBaseFragment.setStatusSubtitle(subtitle);
+                        }
+                        if (extras.containsKey(EXTRA_UPDATE_STATUS_ICON)) {
+                            int status = extras.getInt(EXTRA_UPDATE_STATUS_ICON);
+                            mBaseFragment.setStatusIcon(status);
+                        }
+                    }
+                }
+            }
+        };
+        mLocalBroadcastManager.registerReceiver(mReceiver, filter);
+    }
+
+    public static void updateStatusEnabled(Context context) {
+        updateStatusIconAndTextAndSubtitle(context, ReturnCodes.ENABLED,
+                context.getString(R.string.status_enabled),
+                context.getString(R.string.status_enabled_subtitle));
+    }
+    
+    public static void updateStatusDisabled(Context context) {
+        updateStatusIconAndTextAndSubtitle(context, ReturnCodes.DISABLED,
+                context.getString(R.string.status_disabled),
+                context.getString(R.string.status_disabled_subtitle));
+    }
+
+    public static void updateStatusIconAndTextAndSubtitle(Context context, int statusIcon,
+            String text, String subtitle) {
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
+
+        Intent intent = new Intent(ACTION_UPDATE_STATUS);
+        intent.putExtra(EXTRA_UPDATE_STATUS_ICON, statusIcon);
+        intent.putExtra(EXTRA_UPDATE_STATUS_TEXT, text);
+        intent.putExtra(EXTRA_UPDATE_STATUS_SUBTITLE, subtitle);
+        localBroadcastManager.sendBroadcast(intent);
+    }
+
+    public static void updateStatusTextAndSubtitle(Context context, String text, String subtitle) {
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
+
+        Intent intent = new Intent(ACTION_UPDATE_STATUS);
+        intent.putExtra(EXTRA_UPDATE_STATUS_TEXT, text);
+        intent.putExtra(EXTRA_UPDATE_STATUS_SUBTITLE, subtitle);
+        localBroadcastManager.sendBroadcast(intent);
+    }
+
+    public static void updateStatusSubtitle(Context context, String subtitle) {
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
+
+        Intent intent = new Intent(ACTION_UPDATE_STATUS);
+        intent.putExtra(EXTRA_UPDATE_STATUS_SUBTITLE, subtitle);
+        localBroadcastManager.sendBroadcast(intent);
     }
 
     /**

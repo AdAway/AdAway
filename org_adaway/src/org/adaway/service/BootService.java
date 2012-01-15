@@ -22,8 +22,9 @@ package org.adaway.service;
 
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.WakefulIntentService;
 import org.adaway.util.WebserverUtils;
+
+import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 import android.content.Context;
 import android.content.Intent;
@@ -45,8 +46,6 @@ public class BootService extends WakefulIntentService {
     public void doWakefulWork(Intent intent) {
         mApplicationContext = getApplicationContext();
         
-        UpdateCheckService.registerAlarmWhenEnabled(mApplicationContext);
-        Log.d(Constants.TAG, "between reg alarm and webserver");
 
         WebserverUtils.startWebserverOnBoot(mApplicationContext);
         

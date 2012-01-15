@@ -22,7 +22,6 @@ package org.adaway.service;
 
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.WakefulIntentService;
 import org.adaway.util.WebserverUtils;
 
 import android.content.BroadcastReceiver;
@@ -55,7 +54,7 @@ public class BootReceiver extends BroadcastReceiver {
             // Log.d(Constants.TAG,
             // "BootReceiver async: Register alarm and start webserver if enabled...");
 
-             UpdateCheckService.registerAlarmWhenEnabled(applicationContext);
+//             UpdateCheckService.registerAlarmWhenEnabled(applicationContext);
              Log.d(Constants.TAG, "between reg alarm and webserver");
             
              WebserverUtils.startWebserverOnBoot(applicationContext);

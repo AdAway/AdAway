@@ -23,6 +23,7 @@ package org.adaway.helper;
 import java.io.FileOutputStream;
 
 import org.adaway.R;
+import org.adaway.ui.BaseActivity;
 import org.adaway.ui.BaseFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
@@ -38,7 +39,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 
 public class RevertExecutor {
-    private BaseFragment mBaseFragment;
     private Activity mActivity;
 
     /**
@@ -48,7 +48,6 @@ public class RevertExecutor {
      */
     public RevertExecutor(BaseFragment baseFragment) {
         super();
-        this.mBaseFragment = baseFragment;
         this.mActivity = baseFragment.getActivity();
     }
 
@@ -97,7 +96,7 @@ public class RevertExecutor {
                             mActivity.deleteFile(Constants.HOSTS_FILENAME);
 
                             // set status to disabled
-                            mBaseFragment.setStatusDisabled();
+                            BaseActivity.updateStatusDisabled(mActivity);
 
                             if (!PreferencesHelper.getNeverReboot(mActivity)) {
                                 Utils.rebootQuestion(mActivity, R.string.revert_successful_title,

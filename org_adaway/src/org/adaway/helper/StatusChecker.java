@@ -24,8 +24,10 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.adaway.R;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
+import org.adaway.ui.BaseActivity;
 import org.adaway.ui.BaseFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -39,7 +41,6 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 
 public class StatusChecker {
-    private BaseFragment mBaseFragment;
     private Activity mActivity;
 
     private AsyncTask<Void, Integer, Integer> mStatusTask;
@@ -51,7 +52,6 @@ public class StatusChecker {
      */
     public StatusChecker(BaseFragment baseFragment) {
         super();
-        this.mBaseFragment = baseFragment;
         this.mActivity = baseFragment.getActivity();
     }
 
@@ -65,9 +65,9 @@ public class StatusChecker {
         } else {
             // check if hosts file is applied
             if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                mBaseFragment.setStatusEnabled();
+                BaseActivity.updateStatusEnabled(mActivity);
             } else {
-                mBaseFragment.setStatusDisabled();
+                BaseActivity.updateStatusDisabled(mActivity);
             }
         }
     }
@@ -95,7 +95,10 @@ public class StatusChecker {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                mBaseFragment.setStatusChecking();
+
+                BaseActivity.updateStatusIconAndTextAndSubtitle(mActivity, ReturnCodes.CHECKING,
+                        mActivity.getString(R.string.status_checking),
+                        mActivity.getString(R.string.status_checking_subtitle));
             }
 
             @Override
@@ -207,19 +210,29 @@ public class StatusChecker {
 
                 switch (result) {
                 case ReturnCodes.UPDATE_AVAILABLE:
-                    mBaseFragment.setStatusUpdateAvailable();
+                    BaseActivity.updateStatusIconAndTextAndSubtitle(mActivity,
+                            ReturnCodes.UPDATE_AVAILABLE,
+                            mActivity.getString(R.string.status_update_available),
+                            mActivity.getString(R.string.status_update_available_subtitle));
                     break;
                 case ReturnCodes.DISABLED:
-                    mBaseFragment.setStatusDisabled();
+                    BaseActivity.updateStatusDisabled(mActivity);
                     break;
                 case ReturnCodes.DOWNLOAD_FAIL:
-                    mBaseFragment.setStatusDownloadFail(mCurrentUrl);
+                    BaseActivity.updateStatusIconAndTextAndSubtitle(mActivity,
+                            ReturnCodes.DOWNLOAD_FAIL,
+                            mActivity.getString(R.string.status_download_fail),
+                            mActivity.getString(R.string.status_download_fail_subtitle) + " "
+                                    + mCurrentUrl);
                     break;
                 case ReturnCodes.NO_CONNECTION:
-                    mBaseFragment.setStatusNoConnection();
+                    BaseActivity.updateStatusIconAndTextAndSubtitle(mActivity,
+                            ReturnCodes.DOWNLOAD_FAIL,
+                            mActivity.getString(R.string.status_no_connection),
+                            mActivity.getString(R.string.status_no_connection_subtitle));
                     break;
                 case ReturnCodes.ENABLED:
-                    mBaseFragment.setStatusEnabled();
+                    BaseActivity.updateStatusEnabled(mActivity);
                     break;
                 }
             }

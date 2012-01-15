@@ -1,0 +1,3 @@
+<WakefulIntentService
+  listener="org.adaway.service.UpdateListener"
+/>

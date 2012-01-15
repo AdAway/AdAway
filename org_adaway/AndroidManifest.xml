@@ -38,54 +38,66 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock" >
         <activity
+            android:name=".ui.BaseActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
-            android:name=".ui.BaseActivity" android:launchMode="singleTop">
-            <intent-filter >
+            android:launchMode="singleTop" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:label="@string/menu_hosts_sources"
-            android:name=".ui.HostsSourcesActivity" />
+            android:name=".ui.HostsSourcesActivity"
+            android:label="@string/menu_hosts_sources" />
         <activity
+            android:name=".ui.AboutActivity"
             android:excludeFromRecents="true"
             android:label="@string/menu_about"
-            android:name=".ui.AboutActivity"
             android:theme="@android:style/Theme.Dialog" />
         <activity
+            android:name=".ui.DonationsActivity"
             android:excludeFromRecents="true"
             android:label="@string/menu_donations"
-            android:name=".ui.DonationsActivity"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:label="@string/menu_preferences"
-            android:name=".ui.PrefsActivity" />
+            android:name=".ui.PrefsActivity"
+            android:label="@string/menu_preferences" />
         <activity
-            android:label="@string/menu_help"
-            android:name=".ui.HelpActivity" />
+            android:name=".ui.HelpActivity"
+            android:label="@string/menu_help" />
         <!-- Only portrait mode enabled for lists: on rotate of device problems in lists like menu overlapping -->
         <activity
-            android:label="@string/menu_lists"
             android:name=".ui.ListsActivity"
+            android:label="@string/menu_lists"
             android:screenOrientation="portrait" />
 
+        <receiver android:name="com.commonsware.cwac.wakeful.AlarmReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.commonsware.cwac.wakeful"
+                android:resource="@xml/wakeful" />
+        </receiver>
+
+        <service android:name=".service.UpdateService" >
+        </service>
+
         <receiver android:name=".service.BootReceiver" >
-            <intent-filter >
+            <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".service.UpdateCheckAlarmReceiver" />
-
-        <service android:name=".service.UpdateCheckService" />
+        <service android:name=".service.ApplyService" />
 
         <!-- - Google Android Market donations -->
         <service android:name=".google.donations.BillingService" />
 
         <receiver android:name=".google.donations.BillingReceiver" >
-            <intent-filter >
+            <intent-filter>
                 <action android:name="com.android.vending.billing.IN_APP_NOTIFY" />
                 <action android:name="com.android.vending.billing.RESPONSE_CODE" />
                 <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
@@ -93,9 +105,9 @@
         </receiver>
 
         <provider
+            android:name=".provider.AdAwayProvider"
             android:authorities="org.adaway"
-            android:exported="false"
-            android:name=".provider.AdAwayProvider" />
+            android:exported="false" />
     </application>
 
 </manifest>

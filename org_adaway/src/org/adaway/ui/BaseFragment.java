@@ -21,17 +21,18 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.ApplyExecutor;
 import org.adaway.helper.RevertExecutor;
 import org.adaway.helper.StatusChecker;
 import org.adaway.helper.UiHelper;
-import org.adaway.service.UpdateCheckService;
+import org.adaway.service.ApplyService;
+import org.adaway.service.UpdateListener;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.Utils;
 
+import com.commonsware.cwac.wakeful.WakefulIntentService;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.Menu;
@@ -47,74 +48,52 @@ import android.widget.TextView;
 public class BaseFragment extends Fragment {
     private Activity mActivity;
 
-    private int mStatus;
     private TextView mStatusText;
     private TextView mStatusSubtitle;
     private ProgressBar mStatusProgress;
     private ImageView mStatusIcon;
 
     private StatusChecker mStatusChecker;
-    private ApplyExecutor mApplyExecutor;
     private RevertExecutor mRevertExecutor;
 
-    public void setStatusUpdateAvailable() {
-        mStatus = ReturnCodes.UPDATE_AVAILABLE;
+    public void setStatusIcon(int status) {
+        switch (status) {
+        case ReturnCodes.UPDATE_AVAILABLE:
+            mStatusProgress.setVisibility(View.GONE);
+            mStatusIcon.setVisibility(View.VISIBLE);
+            mStatusIcon.setImageResource(R.drawable.status_update);
+            break;
+        case ReturnCodes.ENABLED:
+            mStatusProgress.setVisibility(View.GONE);
+            mStatusIcon.setVisibility(View.VISIBLE);
+            mStatusIcon.setImageResource(R.drawable.status_enabled);
+            break;
+        case ReturnCodes.DISABLED:
+            mStatusProgress.setVisibility(View.GONE);
+            mStatusIcon.setVisibility(View.VISIBLE);
+            mStatusIcon.setImageResource(R.drawable.status_disabled);
+            break;
+        case ReturnCodes.DOWNLOAD_FAIL:
+            mStatusProgress.setVisibility(View.GONE);
+            mStatusIcon.setImageResource(R.drawable.status_fail);
+            mStatusIcon.setVisibility(View.VISIBLE);
+            break;
+        case ReturnCodes.CHECKING:
+            mStatusProgress.setVisibility(View.VISIBLE);
+            mStatusIcon.setVisibility(View.GONE);
+            break;
 
-        mStatusProgress.setVisibility(View.GONE);
-        mStatusIcon.setVisibility(View.VISIBLE);
-        mStatusIcon.setImageResource(R.drawable.status_update);
-        mStatusText.setText(R.string.status_update_available);
-        mStatusSubtitle.setText(R.string.status_update_available_subtitle);
+        default:
+            break;
+        }
     }
 
-    public void setStatusEnabled() {
-        mStatus = ReturnCodes.ENABLED;
-
-        mStatusProgress.setVisibility(View.GONE);
-        mStatusIcon.setVisibility(View.VISIBLE);
-        mStatusIcon.setImageResource(R.drawable.status_enabled);
-        mStatusText.setText(R.string.status_enabled);
-        mStatusSubtitle.setText(R.string.status_enabled_subtitle);
+    public void setStatusText(String text) {
+        mStatusText.setText(text);
     }
 
-    public void setStatusDisabled() {
-        mStatus = ReturnCodes.DISABLED;
-
-        mStatusProgress.setVisibility(View.GONE);
-        mStatusIcon.setVisibility(View.VISIBLE);
-        mStatusIcon.setImageResource(R.drawable.status_disabled);
-        mStatusText.setText(R.string.status_disabled);
-        mStatusSubtitle.setText(R.string.status_disabled_subtitle);
-    }
-
-    public void setStatusDownloadFail(String currentURL) {
-        mStatus = ReturnCodes.DOWNLOAD_FAIL;
-
-        mStatusProgress.setVisibility(View.GONE);
-        mStatusIcon.setImageResource(R.drawable.status_fail);
-        mStatusIcon.setVisibility(View.VISIBLE);
-        mStatusText.setText(R.string.status_download_fail);
-        mStatusSubtitle.setText(getString(R.string.status_download_fail_subtitle) + " "
-                + currentURL);
-    }
-
-    public void setStatusNoConnection() {
-        mStatus = ReturnCodes.NO_CONNECTION;
-
-        mStatusProgress.setVisibility(View.GONE);
-        mStatusIcon.setImageResource(R.drawable.status_fail);
-        mStatusIcon.setVisibility(View.VISIBLE);
-        mStatusText.setText(R.string.status_no_connection);
-        mStatusSubtitle.setText(R.string.status_no_connection_subtitle);
-    }
-
-    public void setStatusChecking() {
-        mStatus = ReturnCodes.CHECKING;
-
-        mStatusProgress.setVisibility(View.VISIBLE);
-        mStatusIcon.setVisibility(View.GONE);
-        mStatusText.setText(R.string.status_checking);
-        mStatusSubtitle.setText(R.string.status_checking_subtitle);
+    public void setStatusSubtitle(String subtitle) {
+        mStatusSubtitle.setText(subtitle);
     }
 
     /**
@@ -126,45 +105,6 @@ public class BaseFragment extends Fragment {
 
         // cancel AsyncTask for Update check
         mStatusChecker.cancelStatusCheck();
-    }
-
-    /**
-     * Don't recreate activity on orientation change, AdAway would otherwise check everytime for
-     * update on orientation change. Using possibility 4 from http://blog.doityourselfandroid
-     * .com/2010/11/14/handling-progress-dialogs-and-screen-orientation-changes/
-     */
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        mStatusText = (TextView) mActivity.findViewById(R.id.status_text);
-        mStatusSubtitle = (TextView) mActivity.findViewById(R.id.status_subtitle);
-        mStatusProgress = (ProgressBar) mActivity.findViewById(R.id.status_progress);
-        mStatusIcon = (ImageView) mActivity.findViewById(R.id.status_icon);
-
-        // build old status
-        switch (mStatus) {
-        case ReturnCodes.UPDATE_AVAILABLE:
-            setStatusUpdateAvailable();
-            break;
-        case ReturnCodes.ENABLED:
-            setStatusEnabled();
-            break;
-        case ReturnCodes.DISABLED:
-            setStatusDisabled();
-            break;
-        case ReturnCodes.DOWNLOAD_FAIL:
-            setStatusDownloadFail("");
-            break;
-        case ReturnCodes.NO_CONNECTION:
-            setStatusNoConnection();
-            break;
-        case ReturnCodes.CHECKING:
-            setStatusChecking();
-            break;
-        default:
-            break;
-        }
     }
 
     /**
@@ -237,11 +177,12 @@ public class BaseFragment extends Fragment {
 
         mActivity = getActivity();
 
-        mStatus = ReturnCodes.DISABLED; // initial status
+        // Initial Status is disabled
+        BaseActivity.updateStatusDisabled(mActivity);
 
         // Initialize logic
         mStatusChecker = new StatusChecker(this);
-        mApplyExecutor = new ApplyExecutor(this.getActivity());
+        // mApplyExecutor = new ApplyExecutor(this.getActivity());
         mRevertExecutor = new RevertExecutor(this);
 
         mStatusText = (TextView) mActivity.findViewById(R.id.status_text);
@@ -255,7 +196,7 @@ public class BaseFragment extends Fragment {
             mStatusChecker.checkForUpdatesOnCreate();
 
             // schedule CheckUpdateService
-            UpdateCheckService.registerAlarmWhenEnabled(mActivity);
+            WakefulIntentService.scheduleAlarms(new UpdateListener(), mActivity, false);
         }
     }
 
@@ -271,7 +212,7 @@ public class BaseFragment extends Fragment {
      * @param view
      */
     public void applyOnClick(View view) {
-        mApplyExecutor.apply();
+        WakefulIntentService.sendWakefulWork(mActivity, ApplyService.class);
     }
 
     /**

@@ -1,57 +1,34 @@
-/*
- * Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
- *
- * This file is part of AdAway.
- * 
- * AdAway is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * AdAway is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
-
 package org.adaway.service;
-
-import android.app.NotificationManager;
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.app.AlarmManager;
-import android.os.SystemClock;
-import android.content.Intent;
-import android.content.Context;
-import android.database.Cursor;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Calendar;
 
 import org.adaway.R;
-import org.adaway.helper.ApplyExecutor;
 import org.adaway.helper.PreferencesHelper;
-import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
+import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
 import org.adaway.util.Utils;
-import org.adaway.util.Log;
-import org.adaway.util.WakefulIntentService;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.util.Log;
+import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 /**
- * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources
+ * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources, see
+ * UpdateListener for scheduling
  */
-public class UpdateCheckService extends WakefulIntentService {
-    private Context mApplicationContext;
+public class UpdateService extends WakefulIntentService {
+    private Context mService;
 
     Cursor mEnabledHostsSourcesCursor;
 
@@ -63,71 +40,8 @@ public class UpdateCheckService extends WakefulIntentService {
     // Notification id
     private static final int UPDATE_CHECK_NOTIFICATION_ID = 1;
 
-    public UpdateCheckService() {
-        super("AdAwayUpdateCheckService");
-    }
-
-    /**
-     * Sets repeating alarm to execute service daily using AlarmManager
-     * 
-     * @param context
-     */
-    public static void registerAlarm(Context context) {
-        Log.d(Constants.TAG, "Registering alarm!");
-        Intent intent = new Intent(context, UpdateCheckAlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
-                PendingIntent.FLAG_CANCEL_CURRENT);
-
-        // every day at 9 am
-        Calendar calendar = Calendar.getInstance();
-        // if it's after or equal 9 am schedule for next day
-        if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 9) {
-            calendar.add(Calendar.DAY_OF_YEAR, 1); // add, not set!
-        }
-        calendar.set(Calendar.HOUR_OF_DAY, 9);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-
-        final AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-
-        // cancel old alarms
-        alarm.cancel(pendingIntent);
-
-        if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
-            // for debugging execute service every 2 minutes
-            alarm.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
-                    2 * 60 * 1000, pendingIntent);
-        } else {
-            alarm.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
-                    AlarmManager.INTERVAL_DAY, pendingIntent);
-        }
-    }
-
-    /**
-     * Registers alarm only if enabled in preferences
-     * 
-     * @param context
-     */
-    public static void registerAlarmWhenEnabled(Context context) {
-        // register when enabled in preferences
-        if (PreferencesHelper.getUpdateCheckDaily(context)) {
-            registerAlarm(context);
-        }
-    }
-
-    /**
-     * Cancel alarm for service using AlarmManager
-     * 
-     * @param context
-     */
-    public static void unregisterAlarm(Context context) {
-        Log.d(Constants.TAG, "Unregistering alarm!");
-
-        Intent intent = new Intent(context, UpdateCheckAlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-
-        final AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarm.cancel(pendingIntent);
+    public UpdateService() {
+        super("AdAwayUpdateService");
     }
 
     /**
@@ -135,7 +49,7 @@ public class UpdateCheckService extends WakefulIntentService {
      */
     @Override
     public void doWakefulWork(Intent intent) {
-        mApplicationContext = getApplicationContext();
+        mService = this;
 
         showPreNotification();
 
@@ -146,12 +60,11 @@ public class UpdateCheckService extends WakefulIntentService {
         switch (result) {
         case ReturnCodes.UPDATE_AVAILABLE:
             // if automatic updating is enabled in preferences, do it!
-            if (PreferencesHelper.getAutomaticUpdateDaily(mApplicationContext)) {
+            if (PreferencesHelper.getAutomaticUpdateDaily(mService)) {
                 cancelNotification();
 
                 // download and apply!
-                ApplyExecutor applyExecutor = new ApplyExecutor(this);
-                applyExecutor.apply();
+                WakefulIntentService.sendWakefulWork(mService, ApplyService.class);
             } else {
                 showPostNotification(getString(R.string.app_name) + ": "
                         + getString(R.string.status_update_available),
@@ -168,12 +81,11 @@ public class UpdateCheckService extends WakefulIntentService {
             break;
         case ReturnCodes.ENABLED:
             // if automatic updating is enabled in preferences, do it!
-            if (PreferencesHelper.getAutomaticUpdateDaily(mApplicationContext)) {
+            if (PreferencesHelper.getAutomaticUpdateDaily(mService)) {
                 cancelNotification();
 
                 // download and apply!
-                ApplyExecutor applyExecutor = new ApplyExecutor(this);
-                applyExecutor.apply();
+                WakefulIntentService.sendWakefulWork(mService, ApplyService.class);
             } else {
                 showPostNotification(getString(R.string.app_name) + ": "
                         + getString(R.string.status_update_available),
@@ -191,11 +103,11 @@ public class UpdateCheckService extends WakefulIntentService {
     private int checkForUpdates() {
         int returnCode = ReturnCodes.ENABLED; // default return code
 
-        if (Utils.isAndroidOnline(mApplicationContext)) {
+        if (Utils.isAndroidOnline(mService)) {
 
             // get cursor over all enabled hosts source
             mEnabledHostsSourcesCursor = ProviderHelper
-                    .getEnabledHostsSourcesCursor(mApplicationContext);
+                    .getEnabledHostsSourcesCursor(mService);
 
             // iterate over all hosts sources in db with cursor
             if (mEnabledHostsSourcesCursor.moveToFirst()) {
@@ -237,7 +149,7 @@ public class UpdateCheckService extends WakefulIntentService {
                         }
 
                         // save last modified online for later viewing in list
-                        ProviderHelper.updateHostsSourceLastModifiedOnline(mApplicationContext,
+                        ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
                                 mEnabledHostsSourcesCursor.getInt(mEnabledHostsSourcesCursor
                                         .getColumnIndex(HostsSources._ID)),
                                 mCurrentLastModifiedOnline);
