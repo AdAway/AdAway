@@ -228,7 +228,8 @@ public class ApplyService extends WakefulIntentService {
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
             HostsParser parser = new HostsParser(reader);
-            HashSet<String> hostnames = parser.getBlacklist();
+            HashSet<String> hostsSourcesBlacklist = parser.getBlacklist();
+            HashMap<String, String> hostsSourcesRedirectionList = parser.getRedirectionList();
 
             fis.close();
 
@@ -249,23 +250,29 @@ public class ApplyService extends WakefulIntentService {
                     .getEnabledRedirectionListHashMap(mService);
             Log.d(Constants.TAG, "Enabled redirection list: " + redirection.toString());
 
-            // get sources list
+            // get hosts sources list
             ArrayList<String> enabledHostsSources = ProviderHelper
                     .getEnabledHostsSourcesArrayList(mService);
             Log.d(Constants.TAG, "Enabled hosts sources list: " + enabledHostsSources.toString());
 
-            /* BLACKLIST AND WHITELIST */
+            /* BLACKLIST */
             // remove whitelist items
-            hostnames.removeAll(whitelist);
+            hostsSourcesBlacklist.removeAll(whitelist);
 
             // add blacklist items
-            hostnames.addAll(blacklist);
+            hostsSourcesBlacklist.addAll(blacklist);
 
-            /* REDIRECTION LIST: remove hostnames that are in redirection list */
+            // remove hostnames that are in redirection list
             HashSet<String> redirectionRemove = new HashSet<String>(redirection.keySet());
+            hostsSourcesBlacklist.removeAll(redirectionRemove);
 
-            // remove all redirection hostnames
-            hostnames.removeAll(redirectionRemove);
+            /* REDIRECTION LIST */
+            // add all redirection items from your lists
+            hostsSourcesRedirectionList.putAll(redirection);
+
+            // TODO: All whitelist items should be removed from HostsSourcesRedirectionList
+            // TODO: All blacklist items should be removed from HostsSourcesRedirectionList
+            // TODO: All redirectionList items should be removed from HostsSourcesRedirectionList
 
             /* BUILD: build one hosts file out of sets and preferences */
             setProgressNotificationText(mService.getString(R.string.apply_dialog_hosts));
@@ -299,7 +306,7 @@ public class ApplyService extends WakefulIntentService {
 
             // write hostnames
             String line;
-            for (String hostname : hostnames) {
+            for (String hostname : hostsSourcesBlacklist) {
                 line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
                 fos.write(line.getBytes());
             }
@@ -307,7 +314,7 @@ public class ApplyService extends WakefulIntentService {
             /* REDIRECTION LIST: write redirection items */
             String redirectionItemHostname;
             String redirectionItemIP;
-            for (HashMap.Entry<String, String> item : redirection.entrySet()) {
+            for (HashMap.Entry<String, String> item : hostsSourcesRedirectionList.entrySet()) {
                 redirectionItemHostname = item.getKey();
                 redirectionItemIP = item.getValue();
 
