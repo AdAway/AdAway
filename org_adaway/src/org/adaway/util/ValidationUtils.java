@@ -27,10 +27,7 @@ import android.webkit.URLUtil;
 
 public class ValidationUtils {
     /*
-     * Allow hostnames like:
-     * localserver
-     * example.com
-     * example.host.org
+     * Allow hostnames like: localserver example.com example.host.org
      */
     static final private String HOSTNAME_REGEX = "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_\\.]{0,61}[a-zA-Z0-9]))$";
     private static Pattern mHostnamePattern;
@@ -77,7 +74,13 @@ public class ValidationUtils {
     static public boolean isValidHostname(String input) {
         mHostnameMatcher = mHostnamePattern.matcher(input);
 
-        return mHostnameMatcher.find();
+        try {
+            return mHostnameMatcher.find();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Error in isValidHostname");
+            e.printStackTrace();
+            return true; // just accept every hostname
+        }
     }
 
     /**
@@ -86,7 +89,13 @@ public class ValidationUtils {
     static public boolean isValidIPv4(String input) {
         mIPv4Matcher = mIPv4Pattern.matcher(input);
 
-        return mIPv4Matcher.find();
+        try {
+            return mIPv4Matcher.find();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Error in isValidIPv4");
+            e.printStackTrace();
+            return true; // just accept every ip
+        }
     }
 
     /**
@@ -95,7 +104,13 @@ public class ValidationUtils {
     static public boolean isValidIPv6(String input) {
         mIPv6Matcher = mIPv6Pattern.matcher(input);
 
-        return mIPv6Matcher.find();
+        try {
+            return mIPv6Matcher.find();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Error in isValidIPv6");
+            e.printStackTrace();
+            return true; // just accept every ip
+        }
     }
 
     /**

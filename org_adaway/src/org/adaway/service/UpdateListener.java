@@ -48,11 +48,11 @@ public class UpdateListener implements AlarmListener {
 
     public long getMaxAge() {
         Log.d(Constants.TAG, "getMaxAge");
-        
+
         if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
             return (60 * 1000);
         } else {
-          return (AlarmManager.INTERVAL_DAY + AlarmManager.INTERVAL_FIFTEEN_MINUTES);
+            return (AlarmManager.INTERVAL_DAY + 60 * 1000);
         }
     }
 }
