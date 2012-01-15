@@ -58,12 +58,17 @@ public class ApplyService extends WakefulIntentService {
     }
 
     @Override
-    public void doWakefulWork(Intent intent) {
+    public int onStartCommand(Intent intent, int flags, int startId) {
         mService = this;
 
         mNotificationManager = (NotificationManager) mService.getApplicationContext()
                 .getSystemService(Context.NOTIFICATION_SERVICE);
 
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void doWakefulWork(Intent intent) {
         // download files with download method
         int downloadResult = download();
 

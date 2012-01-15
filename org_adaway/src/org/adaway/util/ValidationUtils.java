@@ -79,7 +79,8 @@ public class ValidationUtils {
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidHostname");
             e.printStackTrace();
-            return true; // just accept every hostname
+            // workaround for some devices that throws jni exceptions: just accept everything
+            return true;
         }
     }
 
@@ -94,7 +95,8 @@ public class ValidationUtils {
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidIPv4");
             e.printStackTrace();
-            return true; // just accept every ip
+            // workaround for some devices that throws jni exceptions: just accept everything
+            return true;
         }
     }
 
@@ -109,7 +111,8 @@ public class ValidationUtils {
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidIPv6");
             e.printStackTrace();
-            return true; // just accept every ip
+            // workaround for some devices that throws jni exceptions: just accept everything
+            return true;
         }
     }
 

@@ -9,6 +9,7 @@ import org.adaway.util.Log;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.SystemClock;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 import com.commonsware.cwac.wakeful.WakefulIntentService.AlarmListener;
@@ -43,7 +44,9 @@ public class UpdateListener implements AlarmListener {
     }
 
     public void sendWakefulWork(Context ctxt) {
-        WakefulIntentService.sendWakefulWork(ctxt, UpdateService.class);
+        Intent updateIntent = new Intent(ctxt, UpdateService.class);
+        updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, true);
+        WakefulIntentService.sendWakefulWork(ctxt, updateIntent);
     }
 
     public long getMaxAge() {

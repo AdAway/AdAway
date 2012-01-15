@@ -23,10 +23,17 @@ package org.adaway.ui;
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
 import org.adaway.service.ApplyService;
+import org.adaway.service.UpdateListener;
+import org.adaway.service.UpdateService;
+import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.ReturnCodes;
+import org.adaway.util.Utils;
 
+import com.commonsware.cwac.wakeful.WakefulIntentService;
+
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -40,21 +47,25 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 
 public class BaseActivity extends FragmentActivity {
-    BaseFragment mBaseFragment;
-    WebserverFragment mWebserverFragment;
-    FragmentManager mFragmentManager;
 
-    // static String that defines intent extra to give result of applying process to base activity
+    // Intent extras to give result of applying process to base activity
     public static final String EXTRA_APPLYING_RESULT = "org.adaway.APPLYING_RESULT";
     public static final String EXTRA_FAILING_URL = "org.adaway.APPLYING_INFORMATION";
 
+    // Intent definitions for LocalBroadcastManager to update status from other threads
     static final String ACTION_UPDATE_STATUS = "org.adaway.UPDATE_STATUS";
     public static final String EXTRA_UPDATE_STATUS_TEXT = "org.adaway.UPDATE_STATUS.TEXT";
     public static final String EXTRA_UPDATE_STATUS_SUBTITLE = "org.adaway.UPDATE_STATUS.SUBTITLE";
     public static final String EXTRA_UPDATE_STATUS_ICON = "org.adaway.UPDATE_STATUS.ICON";
 
+    BaseFragment mBaseFragment;
+    WebserverFragment mWebserverFragment;
+    FragmentManager mFragmentManager;
+
     LocalBroadcastManager mLocalBroadcastManager;
     BroadcastReceiver mReceiver;
+
+    Activity mActivity;
 
     /**
      * Handle result from applying when clicked on notification
@@ -80,7 +91,7 @@ public class BaseActivity extends FragmentActivity {
                     Log.d(Constants.TAG, "Applying information from intent extras: " + failingUrl);
                 }
 
-                ApplyService.processApplyingResult(this, result, failingUrl);
+                ApplyService.processApplyingResult(mActivity, result, failingUrl);
             }
         }
     }
@@ -93,6 +104,29 @@ public class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.base_activity);
+
+        mActivity = this;
+
+        // check for root
+        if (Utils.isAndroidRooted(mActivity)) {
+            // do background update check
+            // do only if not disabled in preferences
+            if (PreferencesHelper.getUpdateCheck(mActivity)) {
+                Intent updateIntent = new Intent(mActivity, UpdateService.class);
+                updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, false);
+                WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
+            } else {
+                // check if hosts file is applied
+                if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                    BaseActivity.updateStatusEnabled(mActivity);
+                } else {
+                    BaseActivity.updateStatusDisabled(mActivity);
+                }
+            }
+
+            // schedule CheckUpdateService
+            WakefulIntentService.scheduleAlarms(new UpdateListener(), mActivity, false);
+        }
 
         mFragmentManager = getSupportFragmentManager();
         mBaseFragment = (BaseFragment) mFragmentManager.findFragmentById(R.id.base_fragment);
@@ -134,7 +168,7 @@ public class BaseActivity extends FragmentActivity {
                 context.getString(R.string.status_enabled),
                 context.getString(R.string.status_enabled_subtitle));
     }
-    
+
     public static void updateStatusDisabled(Context context) {
         updateStatusIconAndTextAndSubtitle(context, ReturnCodes.DISABLED,
                 context.getString(R.string.status_disabled),

@@ -21,13 +21,11 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.RevertExecutor;
-import org.adaway.helper.StatusChecker;
+import org.adaway.helper.RevertHelper;
 import org.adaway.helper.UiHelper;
 import org.adaway.service.ApplyService;
-import org.adaway.service.UpdateListener;
+import org.adaway.service.UpdateService;
 import org.adaway.util.ReturnCodes;
-import org.adaway.util.Utils;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
@@ -52,9 +50,6 @@ public class BaseFragment extends Fragment {
     private TextView mStatusSubtitle;
     private ProgressBar mStatusProgress;
     private ImageView mStatusIcon;
-
-    private StatusChecker mStatusChecker;
-    private RevertExecutor mRevertExecutor;
 
     public void setStatusIcon(int status) {
         switch (status) {
@@ -94,17 +89,6 @@ public class BaseFragment extends Fragment {
 
     public void setStatusSubtitle(String subtitle) {
         mStatusSubtitle.setText(subtitle);
-    }
-
-    /**
-     * Override onDestroy to cancel AsyncTask that checks for updates
-     */
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-        // cancel AsyncTask for Update check
-        mStatusChecker.cancelStatusCheck();
     }
 
     /**
@@ -148,7 +132,9 @@ public class BaseFragment extends Fragment {
             return true;
 
         case R.id.menu_refresh:
-            mStatusChecker.checkForUpdates();
+            Intent updateIntent = new Intent(mActivity, UpdateService.class);
+            updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, false);
+            WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
             return true;
 
         case R.id.menu_help:
@@ -177,27 +163,13 @@ public class BaseFragment extends Fragment {
 
         mActivity = getActivity();
 
-        // Initial Status is disabled
+        // Initial Status
         BaseActivity.updateStatusDisabled(mActivity);
-
-        // Initialize logic
-        mStatusChecker = new StatusChecker(this);
-        // mApplyExecutor = new ApplyExecutor(this.getActivity());
-        mRevertExecutor = new RevertExecutor(this);
 
         mStatusText = (TextView) mActivity.findViewById(R.id.status_text);
         mStatusSubtitle = (TextView) mActivity.findViewById(R.id.status_subtitle);
         mStatusProgress = (ProgressBar) mActivity.findViewById(R.id.status_progress);
         mStatusIcon = (ImageView) mActivity.findViewById(R.id.status_icon);
-
-        // check for root
-        if (Utils.isAndroidRooted(mActivity)) {
-            // do background update check
-            mStatusChecker.checkForUpdatesOnCreate();
-
-            // schedule CheckUpdateService
-            WakefulIntentService.scheduleAlarms(new UpdateListener(), mActivity, false);
-        }
     }
 
     @Override
@@ -221,7 +193,7 @@ public class BaseFragment extends Fragment {
      * @param view
      */
     public void revertOnClick(View view) {
-        mRevertExecutor.revert();
+        RevertHelper.revert(mActivity);
     }
 
 }

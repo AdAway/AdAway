@@ -9,6 +9,7 @@ import org.adaway.helper.PreferencesHelper;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.ui.BaseActivity;
+import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.ReturnCodes;
 import org.adaway.util.StatusUtils;
@@ -20,6 +21,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.util.Log;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
@@ -28,6 +30,12 @@ import com.commonsware.cwac.wakeful.WakefulIntentService;
  * UpdateListener for scheduling
  */
 public class UpdateService extends WakefulIntentService {
+
+    // Intent extras to define whether to apply after checking or not
+    public static final String EXTRA_APPLY_AFTER_CHECK = "org.adaway.APPLY_AFTER_CHECK";
+
+    private boolean mApplyAfterChecking;
+
     private Context mService;
 
     Cursor mEnabledHostsSourcesCursor;
@@ -44,14 +52,37 @@ public class UpdateService extends WakefulIntentService {
         super("AdAwayUpdateService");
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        mService = this;
+
+        // get from intent extras if UpdateService should apply after checking if enabled in
+        // preferences
+        mApplyAfterChecking = false;
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            if (extras.containsKey(EXTRA_APPLY_AFTER_CHECK)) {
+                if (PreferencesHelper.getAutomaticUpdateDaily(mService)) {
+                    mApplyAfterChecking = extras.getBoolean(EXTRA_APPLY_AFTER_CHECK);
+                }
+            }
+        }
+
+        return super.onStartCommand(intent, flags, startId);
+    }
+
     /**
      * Asynchronous background operations of service, with wakelock
      */
     @Override
     public void doWakefulWork(Intent intent) {
-        mService = this;
+        if (!Utils.isInForeground(mService)) {
+            showPreNotification();
+        }
 
-        showPreNotification();
+        BaseActivity.updateStatusIconAndTextAndSubtitle(mService, ReturnCodes.CHECKING,
+                mService.getString(R.string.status_checking),
+                mService.getString(R.string.status_checking_subtitle));
 
         int result = checkForUpdates();
 
@@ -59,38 +90,49 @@ public class UpdateService extends WakefulIntentService {
 
         switch (result) {
         case ReturnCodes.UPDATE_AVAILABLE:
+            cancelNotification();
+
             // if automatic updating is enabled in preferences, do it!
-            if (PreferencesHelper.getAutomaticUpdateDaily(mService)) {
-                cancelNotification();
+            if (mApplyAfterChecking) {
 
                 // download and apply!
                 WakefulIntentService.sendWakefulWork(mService, ApplyService.class);
             } else {
-                showPostNotification(getString(R.string.app_name) + ": "
-                        + getString(R.string.status_update_available),
-                        getString(R.string.status_update_available_subtitle));
+                if (!Utils.isInForeground(mService)) {
+                    showPostNotification(getString(R.string.app_name) + ": "
+                            + getString(R.string.status_update_available),
+                            getString(R.string.status_update_available_subtitle));
+                }
+
+                BaseActivity.updateStatusIconAndTextAndSubtitle(mService,
+                        ReturnCodes.UPDATE_AVAILABLE,
+                        mService.getString(R.string.status_update_available),
+                        mService.getString(R.string.status_update_available_subtitle));
             }
             break;
         case ReturnCodes.DOWNLOAD_FAIL:
-            showPostNotification(getString(R.string.app_name) + ": "
-                    + getString(R.string.status_download_fail),
-                    getString(R.string.status_download_fail_subtitle) + " " + mCurrentUrl);
+            if (!Utils.isInForeground(mService)) {
+                showPostNotification(getString(R.string.app_name) + ": "
+                        + getString(R.string.status_download_fail),
+                        getString(R.string.status_download_fail_subtitle) + " " + mCurrentUrl);
+            }
+
+            BaseActivity.updateStatusIconAndTextAndSubtitle(mService, ReturnCodes.DOWNLOAD_FAIL,
+                    mService.getString(R.string.status_download_fail),
+                    mService.getString(R.string.status_download_fail_subtitle) + " " + mCurrentUrl);
             break;
         case ReturnCodes.NO_CONNECTION:
             cancelNotification();
+
+            BaseActivity.updateStatusIconAndTextAndSubtitle(mService, ReturnCodes.DOWNLOAD_FAIL,
+                    mService.getString(R.string.status_no_connection),
+                    mService.getString(R.string.status_no_connection_subtitle));
             break;
         case ReturnCodes.ENABLED:
-            // if automatic updating is enabled in preferences, do it!
-            if (PreferencesHelper.getAutomaticUpdateDaily(mService)) {
-                cancelNotification();
-
-                // download and apply!
-                WakefulIntentService.sendWakefulWork(mService, ApplyService.class);
-            } else {
-                showPostNotification(getString(R.string.app_name) + ": "
-                        + getString(R.string.status_update_available),
-                        getString(R.string.status_update_available_subtitle));
-            }
+            BaseActivity.updateStatusEnabled(mService);
+            break;
+        case ReturnCodes.DISABLED:
+            BaseActivity.updateStatusDisabled(mService);
             break;
         }
     }
@@ -106,12 +148,12 @@ public class UpdateService extends WakefulIntentService {
         if (Utils.isAndroidOnline(mService)) {
 
             // get cursor over all enabled hosts source
-            mEnabledHostsSourcesCursor = ProviderHelper
-                    .getEnabledHostsSourcesCursor(mService);
+            mEnabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(mService);
 
             // iterate over all hosts sources in db with cursor
             if (mEnabledHostsSourcesCursor.moveToFirst()) {
                 do {
+
                     // get url and lastModified from db
                     mCurrentUrl = mEnabledHostsSourcesCursor.getString(mEnabledHostsSourcesCursor
                             .getColumnIndex("url"));
@@ -174,6 +216,11 @@ public class UpdateService extends WakefulIntentService {
         // set return code if update is available
         if (mUpdateAvailable) {
             returnCode = ReturnCodes.UPDATE_AVAILABLE;
+        }
+
+        // check if hosts file is applied
+        if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            returnCode = ReturnCodes.DISABLED;
         }
 
         return returnCode;
