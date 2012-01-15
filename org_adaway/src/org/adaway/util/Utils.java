@@ -263,6 +263,13 @@ public class Utils {
         return false;
     }
 
+    /**
+     * Checks if AdAway is in foreground, see
+     * http://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
+     * 
+     * @param context
+     * @return
+     */
     public static boolean isInForeground(Context context) {
         AsyncTask<Context, Void, Boolean> foregroundCheckTask = new AsyncTask<Context, Void, Boolean>() {
 

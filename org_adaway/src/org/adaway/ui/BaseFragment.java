@@ -22,7 +22,7 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.helper.RevertHelper;
-import org.adaway.helper.UiHelper;
+import org.adaway.helper.OpenHostsFileHelper;
 import org.adaway.service.ApplyService;
 import org.adaway.service.UpdateService;
 import org.adaway.util.ReturnCodes;
@@ -116,7 +116,7 @@ public class BaseFragment extends Fragment {
             return true;
 
         case R.id.menu_show_hosts_file:
-            UiHelper.openHostsFile(mActivity);
+            OpenHostsFileHelper.openHostsFile(mActivity);
             return true;
 
         case R.id.menu_preferences:

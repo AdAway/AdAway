@@ -21,7 +21,10 @@
 package org.adaway.util;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 public class StatusUtils {
     /**
@@ -42,13 +45,13 @@ public class StatusUtils {
     }
 
     /**
-     * Returns current unix date as long value
+     * Returns current unix date in GMT as long value
      * 
      * @return current date as long
      */
     public static long getCurrentLongDate() {
-        Date date = new Date();
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
 
-        return date.getTime();
+        return cal.getTime().getTime();
     }
 }

@@ -33,7 +33,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 
-public class UiHelper {
+public class OpenHostsFileHelper {
 
     /**
      * Open hosts file with default text app
