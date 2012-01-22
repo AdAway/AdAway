@@ -37,7 +37,7 @@ public class WebserverFragment extends Fragment {
                 .findViewById(R.id.webserver_fragment_toggle_button);
 
         // install webserver if not already there
-        WebserverUtils.installWebserver(mActivity);
+        WebserverUtils.updateWebserver(mActivity);
         // set togglebutton checked if webserver is running
         WebserverUtils.setWebserverToggle(mWebserverToggle);
     }

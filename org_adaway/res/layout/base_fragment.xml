@@ -48,7 +48,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/status_text"
+                android:id="@+id/status_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -59,7 +59,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/status_subtitle"
+                android:id="@+id/status_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"

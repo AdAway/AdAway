@@ -22,14 +22,15 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.google.donations.BillingService;
-import org.adaway.google.donations.Consts;
+import org.adaway.google.donations.BillingConstants;
 import org.adaway.google.donations.PurchaseObserver;
 import org.adaway.google.donations.ResponseHandler;
 import org.adaway.google.donations.BillingService.RequestPurchase;
 import org.adaway.google.donations.BillingService.RestoreTransactions;
-import org.adaway.google.donations.Consts.PurchaseState;
-import org.adaway.google.donations.Consts.ResponseCode;
+import org.adaway.google.donations.BillingConstants.PurchaseState;
+import org.adaway.google.donations.BillingConstants.ResponseCode;
 import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -44,7 +45,6 @@ import android.widget.FrameLayout;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -57,7 +57,7 @@ public class DonationsActivity extends Activity {
     private BillingService mBillingService;
 
     private static final int DIALOG_BILLING_NOT_SUPPORTED_ID = 1;
-    
+
     /** An array of product list entries for the products that can be purchased. */
     private static final String[] CATALOG = new String[] { "adaway.donation.1",
             "adaway.donation.2", "adaway.donation.3", "adaway.donation.5", "adaway.donation.8",
@@ -77,9 +77,7 @@ public class DonationsActivity extends Activity {
 
         @Override
         public void onBillingSupported(boolean supported) {
-            if (Consts.DEBUG) {
-                Log.i(Constants.TAG, "supported: " + supported);
-            }
+            Log.d(Constants.TAG, "supported: " + supported);
             if (!supported) {
                 showDialog(DIALOG_BILLING_NOT_SUPPORTED_ID);
             }
@@ -88,21 +86,14 @@ public class DonationsActivity extends Activity {
         @Override
         public void onPurchaseStateChange(PurchaseState purchaseState, String itemId,
                 final String orderId, long purchaseTime, String developerPayload) {
-            if (Consts.DEBUG) {
-                Log.i(Constants.TAG, "onPurchaseStateChange() itemId: " + itemId + " "
-                        + purchaseState);
-            }
+            Log.d(Constants.TAG, "onPurchaseStateChange() itemId: " + itemId + " " + purchaseState);
         }
 
         @Override
         public void onRequestPurchaseResponse(RequestPurchase request, ResponseCode responseCode) {
-            if (Consts.DEBUG) {
-                Log.d(Constants.TAG, request.mProductId + ": " + responseCode);
-            }
+            Log.d(Constants.TAG, request.mProductId + ": " + responseCode);
             if (responseCode == ResponseCode.RESULT_OK) {
-                if (Consts.DEBUG) {
-                    Log.i(Constants.TAG, "purchase was successfully sent to server");
-                }
+                Log.d(Constants.TAG, "purchase was successfully sent to server");
                 AlertDialog.Builder dialog = new AlertDialog.Builder(DonationsActivity.this);
                 dialog.setIcon(android.R.drawable.ic_dialog_info);
                 dialog.setTitle(R.string.donations_thanks_dialog_title);
@@ -117,13 +108,9 @@ public class DonationsActivity extends Activity {
                         });
                 dialog.show();
             } else if (responseCode == ResponseCode.RESULT_USER_CANCELED) {
-                if (Consts.DEBUG) {
-                    Log.i(Constants.TAG, "user canceled purchase");
-                }
+                Log.d(Constants.TAG, "user canceled purchase");
             } else {
-                if (Consts.DEBUG) {
-                    Log.i(Constants.TAG, "purchase failed");
-                }
+                Log.d(Constants.TAG, "purchase failed");
             }
         }
 
@@ -131,13 +118,9 @@ public class DonationsActivity extends Activity {
         public void onRestoreTransactionsResponse(RestoreTransactions request,
                 ResponseCode responseCode) {
             if (responseCode == ResponseCode.RESULT_OK) {
-                if (Consts.DEBUG) {
-                    Log.d(Constants.TAG, "completed RestoreTransactions request");
-                }
+                Log.d(Constants.TAG, "completed RestoreTransactions request");
             } else {
-                if (Consts.DEBUG) {
-                    Log.d(Constants.TAG, "RestoreTransactions error: " + responseCode);
-                }
+                Log.d(Constants.TAG, "RestoreTransactions error: " + responseCode);
             }
         }
     }
@@ -176,7 +159,7 @@ public class DonationsActivity extends Activity {
         index = mGoogleAndroidMarketSpinner.getSelectedItemPosition();
         Log.d(Constants.TAG, "selected item in spinner: " + index);
 
-        if (!Constants.DEBUG) {
+        if (!BillingConstants.DEBUG) {
             if (!mBillingService.requestPurchase(CATALOG[index], null)) {
                 showDialog(DIALOG_BILLING_NOT_SUPPORTED_ID);
             }
@@ -216,7 +199,9 @@ public class DonationsActivity extends Activity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case DIALOG_BILLING_NOT_SUPPORTED_ID:
-            return createDialog(getString(R.string.donations_google_android_market_not_supported_title), getString(R.string.donations_google_android_market_not_supported));
+            return createDialog(
+                    getString(R.string.donations_google_android_market_not_supported_title),
+                    getString(R.string.donations_google_android_market_not_supported));
         default:
             return null;
         }

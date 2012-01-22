@@ -97,4 +97,19 @@ public class PreferencesHelper {
         return prefs.getBoolean(context.getString(R.string.pref_webserver_on_boot_key),
                 Boolean.parseBoolean(context.getString(R.string.pref_webserver_on_boot_def)));
     }
+
+    public static int getWebserverVersion(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getInt(context.getString(R.string.pref_webserver_version_key),
+                Integer.parseInt(context.getString(R.string.pref_webserver_version_def)));
+    }
+
+    public static void setWebserverVersion(Context context, int value) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(context.getString(R.string.pref_webserver_version_key), value);
+        editor.commit();
+    }
 }

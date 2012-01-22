@@ -2,7 +2,7 @@
 
 package org.adaway.google.donations;
 
-import org.adaway.google.donations.Consts.PurchaseState;
+import org.adaway.google.donations.BillingConstants.PurchaseState;
 import org.adaway.google.donations.util.Base64;
 import org.adaway.google.donations.util.Base64DecoderException;
 import org.json.JSONArray;
@@ -102,7 +102,7 @@ public class Security {
             Log.e(TAG, "data is null");
             return null;
         }
-        if (Consts.DEBUG) {
+        if (BillingConstants.DEBUG) {
             Log.i(TAG, "signedData: " + signedData);
         }
         boolean verified = false;
@@ -219,7 +219,7 @@ public class Security {
      * @return true if the data and signature match
      */
     public static boolean verify(PublicKey publicKey, String signedData, String signature) {
-        if (Consts.DEBUG) {
+        if (BillingConstants.DEBUG) {
             Log.i(TAG, "signature: " + signature);
         }
         Signature sig;

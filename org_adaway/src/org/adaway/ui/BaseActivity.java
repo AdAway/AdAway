@@ -22,13 +22,13 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
-import org.adaway.service.ApplyService;
+import org.adaway.helper.ResultHelper;
 import org.adaway.service.UpdateListener;
 import org.adaway.service.UpdateService;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.ReturnCodes;
+import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
@@ -54,8 +54,8 @@ public class BaseActivity extends FragmentActivity {
 
     // Intent definitions for LocalBroadcastManager to update status from other threads
     static final String ACTION_UPDATE_STATUS = "org.adaway.UPDATE_STATUS";
+    public static final String EXTRA_UPDATE_STATUS_TITLE = "org.adaway.UPDATE_STATUS.TITLE";
     public static final String EXTRA_UPDATE_STATUS_TEXT = "org.adaway.UPDATE_STATUS.TEXT";
-    public static final String EXTRA_UPDATE_STATUS_SUBTITLE = "org.adaway.UPDATE_STATUS.SUBTITLE";
     public static final String EXTRA_UPDATE_STATUS_ICON = "org.adaway.UPDATE_STATUS.ICON";
 
     BaseFragment mBaseFragment;
@@ -92,7 +92,7 @@ public class BaseActivity extends FragmentActivity {
                     Log.i(Constants.TAG, "Applying information from intent extras: " + failingUrl);
                 }
 
-                ApplyService.processApplyingResult(mActivity, result, failingUrl);
+                ResultHelper.showDialogBasedOnResult(mActivity, result, failingUrl);
             }
         }
     }
@@ -107,6 +107,41 @@ public class BaseActivity extends FragmentActivity {
         setContentView(R.layout.base_activity);
 
         mActivity = this;
+
+        mFragmentManager = getSupportFragmentManager();
+        mBaseFragment = (BaseFragment) mFragmentManager.findFragmentById(R.id.base_fragment);
+
+        // We use this to send broadcasts within our local process.
+        mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
+
+        // We are going to watch for broadcasts with status updates
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_UPDATE_STATUS);
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Bundle extras = intent.getExtras();
+
+                if (intent.getAction().equals(ACTION_UPDATE_STATUS)) {
+                    if (extras != null) {
+                        if (extras.containsKey(EXTRA_UPDATE_STATUS_TITLE)
+                                && extras.containsKey(EXTRA_UPDATE_STATUS_TEXT)
+                                && extras.containsKey(EXTRA_UPDATE_STATUS_ICON)) {
+
+                            String title = extras.getString(EXTRA_UPDATE_STATUS_TITLE);
+                            String text = extras.getString(EXTRA_UPDATE_STATUS_TEXT);
+                            int status = extras.getInt(EXTRA_UPDATE_STATUS_ICON);
+
+                            mBaseFragment.setStatus(title, text, status);
+                        }
+                    }
+                }
+            }
+        };
+        mLocalBroadcastManager.registerReceiver(mReceiver, filter);
+
+        // Initial Status
+        BaseActivity.updateStatusDisabled(mActivity);
 
         // check for root
         if (Utils.isAndroidRooted(mActivity)) {
@@ -128,88 +163,36 @@ public class BaseActivity extends FragmentActivity {
             // schedule CheckUpdateService
             WakefulIntentService.scheduleAlarms(new UpdateListener(), mActivity, false);
         }
+    }
 
-        mFragmentManager = getSupportFragmentManager();
-        mBaseFragment = (BaseFragment) mFragmentManager.findFragmentById(R.id.base_fragment);
+    public static void updateStatus(Context context, String title, String text, int iconStatus) {
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
 
-        // We use this to send broadcasts within our local process.
-        mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
-
-        // We are going to watch for broadcasts with status updates
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(ACTION_UPDATE_STATUS);
-        mReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                Bundle extras = intent.getExtras();
-
-                if (intent.getAction().equals(ACTION_UPDATE_STATUS)) {
-                    if (extras != null) {
-                        if (extras.containsKey(EXTRA_UPDATE_STATUS_TEXT)) {
-                            String text = extras.getString(EXTRA_UPDATE_STATUS_TEXT);
-                            mBaseFragment.setStatusText(text);
-                        }
-                        if (extras.containsKey(EXTRA_UPDATE_STATUS_SUBTITLE)) {
-                            String subtitle = extras.getString(EXTRA_UPDATE_STATUS_SUBTITLE);
-                            mBaseFragment.setStatusSubtitle(subtitle);
-                        }
-                        if (extras.containsKey(EXTRA_UPDATE_STATUS_ICON)) {
-                            int status = extras.getInt(EXTRA_UPDATE_STATUS_ICON);
-                            mBaseFragment.setStatusIcon(status);
-                        }
-                    }
-                }
-            }
-        };
-        mLocalBroadcastManager.registerReceiver(mReceiver, filter);
+        Intent intent = new Intent(ACTION_UPDATE_STATUS);
+        intent.putExtra(EXTRA_UPDATE_STATUS_ICON, iconStatus);
+        intent.putExtra(EXTRA_UPDATE_STATUS_TITLE, title);
+        intent.putExtra(EXTRA_UPDATE_STATUS_TEXT, text);
+        localBroadcastManager.sendBroadcast(intent);
     }
 
     public static void updateStatusEnabled(Context context) {
-        updateStatusIconAndTextAndSubtitle(context, ReturnCodes.ENABLED,
-                context.getString(R.string.status_enabled),
-                context.getString(R.string.status_enabled_subtitle));
+        updateStatus(context, context.getString(R.string.status_enabled),
+                context.getString(R.string.status_enabled_subtitle), StatusCodes.ENABLED);
     }
 
     public static void updateStatusDisabled(Context context) {
-        updateStatusIconAndTextAndSubtitle(context, ReturnCodes.DISABLED,
-                context.getString(R.string.status_disabled),
-                context.getString(R.string.status_disabled_subtitle));
-    }
-
-    public static void updateStatusIconAndTextAndSubtitle(Context context, int statusIcon,
-            String text, String subtitle) {
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
-
-        Intent intent = new Intent(ACTION_UPDATE_STATUS);
-        intent.putExtra(EXTRA_UPDATE_STATUS_ICON, statusIcon);
-        intent.putExtra(EXTRA_UPDATE_STATUS_TEXT, text);
-        intent.putExtra(EXTRA_UPDATE_STATUS_SUBTITLE, subtitle);
-        localBroadcastManager.sendBroadcast(intent);
-    }
-
-    public static void updateStatusTextAndSubtitle(Context context, String text, String subtitle) {
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
-
-        Intent intent = new Intent(ACTION_UPDATE_STATUS);
-        intent.putExtra(EXTRA_UPDATE_STATUS_TEXT, text);
-        intent.putExtra(EXTRA_UPDATE_STATUS_SUBTITLE, subtitle);
-        localBroadcastManager.sendBroadcast(intent);
-    }
-
-    public static void updateStatusSubtitle(Context context, String subtitle) {
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
-
-        Intent intent = new Intent(ACTION_UPDATE_STATUS);
-        intent.putExtra(EXTRA_UPDATE_STATUS_SUBTITLE, subtitle);
-        localBroadcastManager.sendBroadcast(intent);
+        updateStatus(context, context.getString(R.string.status_disabled),
+                context.getString(R.string.status_disabled_subtitle), StatusCodes.DISABLED);
     }
 
     /**
-     * On resume of application. Show webserver controls when enabled in preferences
+     * Set Design of ActionBar
      */
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onStart() {
+        super.onStart();
+        ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setSubtitle(R.string.app_subtitle);
 
         // add WebserverFragment when enabled in preferences
         if (PreferencesHelper.getWebserverEnabled(this)) {
@@ -230,16 +213,6 @@ public class BaseActivity extends FragmentActivity {
                 mWebserverFragment = null;
             }
         }
-    }
-
-    /**
-     * Set Design of ActionBar
-     */
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ActionBar actionBar = this.getSupportActionBar();
-        actionBar.setSubtitle(R.string.app_subtitle);
     }
 
     /**

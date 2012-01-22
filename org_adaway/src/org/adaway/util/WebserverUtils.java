@@ -31,10 +31,30 @@ import com.stericson.RootTools.RootTools;
 public class WebserverUtils {
 
     /**
+     * Update Webserver
+     * 
+     * @param context
+     */
+    public static void updateWebserver(Context context) {
+        // update mechanism
+        int oldVersion = PreferencesHelper.getWebserverVersion(context);
+
+        if (oldVersion < Constants.WEBSERVER_VERSION) {
+            Log.i(Constants.TAG, "Updating webserver binary from " + oldVersion + " to "
+                    + Constants.WEBSERVER_VERSION);
+
+            removeWebserver(context);
+            installWebserver(context);
+            PreferencesHelper.setWebserverVersion(context, Constants.WEBSERVER_VERSION);
+        } else {
+            installWebserver(context);
+        }
+    }
+
+    /**
      * Install Webserver in /data/data/org.adaway/files if not already there
      * 
      * @param context
-     * @throws RemountException
      */
     public static void installWebserver(Context context) {
         if (RootTools.installBinary(context, R.raw.blank_webserver,
@@ -42,6 +62,25 @@ public class WebserverUtils {
             Log.i(Constants.TAG, "Installed webserver if not already existing.");
         } else {
             Log.e(Constants.TAG, "Webserver could not be installed.");
+        }
+    }
+
+    /**
+     * Remove Webserver, to reinstall it on update
+     * 
+     * @param context
+     */
+    public static void removeWebserver(Context context) {
+        try {
+            String filesPath = context.getFilesDir().getCanonicalPath();
+
+            String command = Constants.COMMAND_RM + " " + filesPath + Constants.FILE_SEPERATOR
+                    + Constants.WEBSERVER_EXECUTEABLE;
+
+            RootTools.sendShell(command);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem while removing webserver: " + e);
+            e.printStackTrace();
         }
     }
 

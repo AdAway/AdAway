@@ -1,3 +1,18 @@
+Please report bugs on the following website instead of writing bad reviews:
+http://code.google.com/p/ad-away/issues
+
+1.24
+- Webserver binary now updates correctly from old AdAway versions
+
+1.23
+- Fix for import/export
+
+1.22
+- More notification and status bug fixes
+- Fixed preference bug causing automatic update to be enabled
+- Fixed color of notifications
+- Fixed a crash under Android 3.2
+
 1.21
 - Fixed staying notification when update was failing
 - Hopefully fixes webserver crashes

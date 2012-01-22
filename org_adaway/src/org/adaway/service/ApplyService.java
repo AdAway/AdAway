@@ -16,10 +16,10 @@ import java.util.HashSet;
 
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.ResultHelper;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.ui.BaseActivity;
-import org.adaway.ui.HelpActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
@@ -27,20 +27,17 @@ import org.adaway.util.HostsParser;
 import org.adaway.util.Log;
 import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
-import org.adaway.util.ReturnCodes;
+import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
-import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.widget.RemoteViews;
 
 public class ApplyService extends WakefulIntentService {
     private Context mService;
@@ -50,8 +47,7 @@ public class ApplyService extends WakefulIntentService {
     String mCurrentUrl;
 
     // Notification id
-    private static final int PROGRESS_NOTIFICATION_ID = 10;
-    private static final int RESULT_NOTIFICATION_ID = 11;
+    private static final int APPLY_NOTIFICATION_ID = 20;
 
     public ApplyService() {
         super("AdAwayApplyService");
@@ -74,22 +70,24 @@ public class ApplyService extends WakefulIntentService {
     public void doWakefulWork(Intent intent) {
         // download files with download method
         int downloadResult = download();
+        Log.d(Constants.TAG, "Download result: " + downloadResult);
 
-        Log.d(Constants.TAG, "download result: " + downloadResult);
-
-        if (downloadResult == ReturnCodes.SUCCESS) {
+        if (downloadResult == StatusCodes.SUCCESS) {
             // Apply files by apply method
             int applyResult = apply();
+            
+            cancelApplyNotification();
+            Log.d(Constants.TAG, "Apply result: " + applyResult);
 
-            cancelProgressNotification();
-            showNotificationBasedOnResult(applyResult, null);
-        } else if (downloadResult == ReturnCodes.DOWNLOAD_FAIL) {
-            cancelProgressNotification();
+            ResultHelper.showNotificationBasedOnResult(mService, applyResult, null, false);
+        } else if (downloadResult == StatusCodes.DOWNLOAD_FAIL) {
+            cancelApplyNotification();
             // extra information is current url, to show it when it fails
-            showNotificationBasedOnResult(downloadResult, mCurrentUrl);
+            ResultHelper
+                    .showNotificationBasedOnResult(mService, downloadResult, mCurrentUrl, false);
         } else {
-            cancelProgressNotification();
-            showNotificationBasedOnResult(downloadResult, null);
+            cancelApplyNotification();
+            ResultHelper.showNotificationBasedOnResult(mService, downloadResult, null, false);
         }
     }
 
@@ -99,18 +97,20 @@ public class ApplyService extends WakefulIntentService {
      * @return return code
      */
     private int download() {
-        showProgressNotification(mService.getString(R.string.download_dialog),
-                mService.getString(R.string.download_dialog));
-
         Cursor enabledHostsSourcesCursor;
 
         byte data[];
         int count;
         long currentLastModifiedOnline;
 
-        int returnCode = ReturnCodes.SUCCESS; // default return code
+        int returnCode = StatusCodes.SUCCESS; // default return code
 
         if (Utils.isAndroidOnline(mService)) {
+
+            showApplyNotification(mService, mService.getString(R.string.download_dialog),
+                    mService.getString(R.string.download_dialog),
+                    mService.getString(R.string.download_dialog));
+            
             // output to write into
             FileOutputStream out = null;
 
@@ -134,7 +134,8 @@ public class ApplyService extends WakefulIntentService {
                             Log.v(Constants.TAG, "Downloading hosts file: " + mCurrentUrl);
 
                             /* change URL in download dialog */
-                            setProgressNotificationText(mCurrentUrl); // update UI
+                            updateApplyNotification(mService,
+                                    mService.getString(R.string.download_dialog), mCurrentUrl);
 
                             /* build connection */
                             URL mURL = new URL(mCurrentUrl);
@@ -171,7 +172,7 @@ public class ApplyService extends WakefulIntentService {
 
                         } catch (Exception e) {
                             Log.e(Constants.TAG, "Exception: " + e);
-                            returnCode = ReturnCodes.DOWNLOAD_FAIL;
+                            returnCode = StatusCodes.DOWNLOAD_FAIL;
                             break; // stop for-loop
                         } finally {
                             // flush and close streams
@@ -194,7 +195,7 @@ public class ApplyService extends WakefulIntentService {
                     } while (enabledHostsSourcesCursor.moveToNext());
                 } else {
                     // cursor empty
-                    returnCode = ReturnCodes.EMPTY_HOSTS_SOURCES;
+                    returnCode = StatusCodes.EMPTY_HOSTS_SOURCES;
                 }
 
                 // close cursor in the end
@@ -203,7 +204,7 @@ public class ApplyService extends WakefulIntentService {
                 }
             } catch (Exception e) {
                 Log.e(Constants.TAG, "Private File can not be created, Exception: " + e);
-                returnCode = ReturnCodes.PRIVATE_FILE_FAIL;
+                returnCode = StatusCodes.PRIVATE_FILE_FAIL;
             } finally {
                 try {
                     if (out != null) {
@@ -215,7 +216,7 @@ public class ApplyService extends WakefulIntentService {
                 }
             }
         } else {
-            returnCode = ReturnCodes.NO_CONNECTION;
+            returnCode = StatusCodes.NO_CONNECTION;
         }
 
         return returnCode;
@@ -227,14 +228,14 @@ public class ApplyService extends WakefulIntentService {
      * @return return code
      */
     int apply() {
-        showProgressNotification(mService.getString(R.string.apply_dialog),
-                mService.getString(R.string.apply_dialog));
+        showApplyNotification(mService, mService.getString(R.string.apply_dialog),
+                mService.getString(R.string.apply_dialog),
+                mService.getString(R.string.apply_dialog_hostnames));
 
-        int returnCode = ReturnCodes.SUCCESS; // default return code
+        int returnCode = StatusCodes.SUCCESS; // default return code
 
         try {
             /* PARSE: parse hosts files to sets of hostnames and comments */
-            setProgressNotificationText(mService.getString(R.string.apply_dialog_hostnames));
 
             FileInputStream fis = mService.openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
 
@@ -246,7 +247,8 @@ public class ApplyService extends WakefulIntentService {
 
             fis.close();
 
-            setProgressNotificationText(mService.getString(R.string.apply_dialog_lists));
+            updateApplyNotification(mService, mService.getString(R.string.apply_dialog),
+                    mService.getString(R.string.apply_dialog_lists));
 
             /* READ DATABSE CONTENT */
 
@@ -283,12 +285,14 @@ public class ApplyService extends WakefulIntentService {
             // add all redirection items from your lists
             hostsSourcesRedirectionList.putAll(redirection);
 
-            // TODO: All whitelist items should be removed from HostsSourcesRedirectionList
-            // TODO: All blacklist items should be removed from HostsSourcesRedirectionList
-            // TODO: All redirectionList items should be removed from HostsSourcesRedirectionList
+            // TODO:
+            // All whitelist items should be removed from HostsSourcesRedirectionList
+            // All blacklist items should be removed from HostsSourcesRedirectionList
+            // All redirectionList items should be removed from HostsSourcesRedirectionList
 
             /* BUILD: build one hosts file out of sets and preferences */
-            setProgressNotificationText(mService.getString(R.string.apply_dialog_hosts));
+            updateApplyNotification(mService, mService.getString(R.string.apply_dialog),
+                    mService.getString(R.string.apply_dialog_hosts));
 
             FileOutputStream fos = mService.openFileOutput(Constants.HOSTS_FILENAME,
                     Context.MODE_PRIVATE);
@@ -346,20 +350,21 @@ public class ApplyService extends WakefulIntentService {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
-            returnCode = ReturnCodes.PRIVATE_FILE_FAIL;
+            returnCode = StatusCodes.PRIVATE_FILE_FAIL;
         } catch (IOException e) {
             Log.e(Constants.TAG, "files can not be written or read");
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
-            returnCode = ReturnCodes.PRIVATE_FILE_FAIL;
+            returnCode = StatusCodes.PRIVATE_FILE_FAIL;
         }
 
         // delete downloaded hosts file from private storage
         mService.deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
 
         /* APPLY: apply hosts file using RootTools in copyHostsFile() */
-        setProgressNotificationText(mService.getString(R.string.apply_dialog_apply));
+        updateApplyNotification(mService, mService.getString(R.string.apply_dialog),
+                mService.getString(R.string.apply_dialog_apply));
 
         // copy build hosts file with RootTools, based on target from preferences
         try {
@@ -377,17 +382,17 @@ public class ApplyService extends WakefulIntentService {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
-            returnCode = ReturnCodes.NOT_ENOUGH_SPACE;
+            returnCode = StatusCodes.NOT_ENOUGH_SPACE;
         } catch (RemountException e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
-            returnCode = ReturnCodes.REMOUNT_FAIL;
+            returnCode = StatusCodes.REMOUNT_FAIL;
         } catch (CommandException e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
-            returnCode = ReturnCodes.COPY_FAIL;
+            returnCode = StatusCodes.COPY_FAIL;
         }
 
         // delete generated hosts file from private storage
@@ -400,23 +405,23 @@ public class ApplyService extends WakefulIntentService {
 
         /* check if hosts file is applied with chosen method */
         // check only if everything before was successful
-        if (returnCode == ReturnCodes.SUCCESS) {
+        if (returnCode == StatusCodes.SUCCESS) {
             if (PreferencesHelper.getApplyMethod(mService).equals("writeToSystem")) {
 
                 /* /system/etc/hosts */
 
                 if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                    returnCode = ReturnCodes.APPLY_FAIL;
+                    returnCode = StatusCodes.APPLY_FAIL;
                 }
             } else if (PreferencesHelper.getApplyMethod(mService).equals("writeToDataData")) {
 
                 /* /data/data/hosts */
 
                 if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_DATA_DATA_HOSTS)) {
-                    returnCode = ReturnCodes.APPLY_FAIL;
+                    returnCode = StatusCodes.APPLY_FAIL;
                 } else {
                     if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS)) {
-                        returnCode = ReturnCodes.SYMLINK_MISSING;
+                        returnCode = StatusCodes.SYMLINK_MISSING;
                     }
                 }
             } else if (PreferencesHelper.getApplyMethod(mService).equals("customTarget")) {
@@ -426,10 +431,10 @@ public class ApplyService extends WakefulIntentService {
                 String customTarget = PreferencesHelper.getCustomTarget(mService);
 
                 if (!ApplyUtils.isHostsFileCorrect(mService, customTarget)) {
-                    returnCode = ReturnCodes.APPLY_FAIL;
+                    returnCode = StatusCodes.APPLY_FAIL;
                 } else {
                     if (!ApplyUtils.isSymlinkCorrect(customTarget)) {
-                        returnCode = ReturnCodes.SYMLINK_MISSING;
+                        returnCode = StatusCodes.SYMLINK_MISSING;
                     }
                 }
             }
@@ -441,346 +446,56 @@ public class ApplyService extends WakefulIntentService {
     /**
      * Creates custom made notification with progress
      */
-    private void showProgressNotification(String notificationText, String startTitle) {
+    private void showApplyNotification(Context context, String tickerText, String contentTitle,
+            String contentText) {
         // configure the intent
         Intent intent = new Intent(mService, BaseActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(mService.getApplicationContext(),
+        PendingIntent contentIntent = PendingIntent.getActivity(mService.getApplicationContext(),
                 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         // add app name to notificationText
-        notificationText = mService.getString(R.string.app_name) + ": " + notificationText;
+        tickerText = mService.getString(R.string.app_name) + ": " + tickerText;
 
         // configure the notification
-        mApplyNotification = new Notification(R.drawable.status_bar_icon, notificationText,
+        mApplyNotification = new Notification(R.drawable.status_bar_icon, tickerText,
                 System.currentTimeMillis());
         mApplyNotification.flags = mApplyNotification.flags | Notification.FLAG_ONGOING_EVENT
                 | Notification.FLAG_ONLY_ALERT_ONCE;
-        mApplyNotification.contentView = new RemoteViews(mService.getPackageName(),
-                R.layout.apply_notification);
-        mApplyNotification.contentIntent = pendingIntent;
 
         // add app name to title
-        String startTitleWithAppName = mService.getString(R.string.app_name) + ": " + startTitle;
+        String contentTitleWithAppName = mService.getString(R.string.app_name) + ": "
+                + contentTitle;
 
-        mApplyNotification.contentView.setTextViewText(R.id.apply_notification_title,
-                startTitleWithAppName);
+        mApplyNotification.setLatestEventInfo(context, contentTitleWithAppName, contentText,
+                contentIntent);
 
-        // update status in BaseActivity with Broadcast
-        BaseActivity.updateStatusIconAndTextAndSubtitle(mService, ReturnCodes.CHECKING, startTitle,
-                "");
-
-        mNotificationManager.notify(PROGRESS_NOTIFICATION_ID, mApplyNotification);
-    }
-
-    private void setProgressNotificationText(String text) {
-        mApplyNotification.contentView.setTextViewText(R.id.apply_notification_text, text);
+        mNotificationManager.notify(APPLY_NOTIFICATION_ID, mApplyNotification);
 
         // update status in BaseActivity with Broadcast
-        BaseActivity.updateStatusSubtitle(mService, text);
-
-        // inform the progress notification of updates in progress
-        mNotificationManager.notify(PROGRESS_NOTIFICATION_ID, mApplyNotification);
+        BaseActivity.updateStatus(mService, contentTitle, contentText, StatusCodes.CHECKING);
     }
 
-    private void cancelProgressNotification() {
-        mNotificationManager.cancel(PROGRESS_NOTIFICATION_ID);
-    }
-
-    /**
-     * Show notification with result defined in params
-     * 
-     * @param contentTitle
-     * @param contentText
-     */
-    private void showResultNotification(String contentTitle, String contentText,
-            int applyingResult, String failingUrl) {
-        int icon = R.drawable.status_bar_icon;
-        long when = System.currentTimeMillis();
+    private void updateApplyNotification(Context context, String contentTitle, String contentText) {
+        // configure the intent
+        Intent intent = new Intent(mService, BaseActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(mService.getApplicationContext(),
+                0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         // add app name to title
-        contentTitle = mService.getString(R.string.app_name) + ": " + contentTitle;
+        String contentTitleWithAppName = mService.getString(R.string.app_name) + ": "
+                + contentTitle;
 
-        Notification notification = new Notification(icon, contentTitle, when);
-        notification.flags |= Notification.FLAG_AUTO_CANCEL;
+        mApplyNotification.setLatestEventInfo(context, contentTitleWithAppName, contentText,
+                contentIntent);
 
-        Context context = mService;
-        Intent notificationIntent = new Intent(mService, BaseActivity.class);
+        mNotificationManager.notify(APPLY_NOTIFICATION_ID, mApplyNotification);
 
-        // give postApplyingStatus with intent
-        notificationIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, applyingResult);
-        notificationIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
-
-        PendingIntent contentIntent = PendingIntent.getActivity(mService, 0, notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-
-        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
-
-        mNotificationManager.notify(RESULT_NOTIFICATION_ID, notification);
+        // update status in BaseActivity with Broadcast
+        BaseActivity.updateStatus(mService, contentTitle, contentText, StatusCodes.CHECKING);
     }
 
-    /**
-     * Show notification based on result after processing download and apply
-     * 
-     * @param result
-     */
-    private void showNotificationBasedOnResult(int result, String failingUrl) {
-        if (result == ReturnCodes.SUCCESS) {
-            // only show if reboot dialog is not disabled in preferences
-            if (!PreferencesHelper.getNeverReboot(mService)) {
-                if (Utils.isInForeground(mService)) {
-                    // start BaseActivity with result
-                    Intent resultIntent = new Intent(mService, BaseActivity.class);
-                    resultIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, result);
-                    resultIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
-                    resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(resultIntent);
-                } else {
-                    // show notification
-                    showResultNotification(mService.getString(R.string.apply_success_title),
-                            mService.getString(R.string.apply_success), result, null);
-                }
-
-                // update status in BaseActivity with Broadcast
-                BaseActivity.updateStatusEnabled(mService);
-            }
-        } else if (result == ReturnCodes.DOWNLOAD_FAIL) {
-            if (Utils.isInForeground(mService)) {
-                // start BaseActivity with result
-                Intent resultIntent = new Intent(mService, BaseActivity.class);
-                resultIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, result);
-                resultIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
-                resultIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
-                resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(resultIntent);
-            } else {
-                // extra information for intent: url
-                showResultNotification(mService.getString(R.string.download_fail_title),
-                        mService.getString(R.string.download_fail), result, failingUrl);
-            }
-
-            BaseActivity.updateStatusIconAndTextAndSubtitle(mService, ReturnCodes.DOWNLOAD_FAIL,
-                    mService.getString(R.string.status_download_fail),
-                    mService.getString(R.string.status_download_fail_subtitle) + " " + failingUrl);
-        } else {
-            String postTitle = "";
-            String postMessage = "";
-            switch (result) {
-            case ReturnCodes.SYMLINK_MISSING:
-                postTitle = mService.getString(R.string.apply_symlink_missing_title);
-                postMessage = mService.getString(R.string.apply_symlink_missing);
-                break;
-            case ReturnCodes.NO_CONNECTION:
-                postTitle = mService.getString(R.string.no_connection_title);
-                postMessage = mService.getString(R.string.no_connection);
-                break;
-            case ReturnCodes.EMPTY_HOSTS_SOURCES:
-                postTitle = mService.getString(R.string.no_sources_title);
-                postMessage = mService.getString(R.string.no_sources);
-                break;
-            case ReturnCodes.APPLY_FAIL:
-                postTitle = mService.getString(R.string.apply_fail_title);
-                postMessage = mService.getString(R.string.apply_fail);
-                break;
-            case ReturnCodes.PRIVATE_FILE_FAIL:
-                postTitle = mService.getString(R.string.apply_private_file_fail_title);
-                postMessage = mService.getString(R.string.apply_private_file_fail);
-                break;
-            case ReturnCodes.NOT_ENOUGH_SPACE:
-                postTitle = mService.getString(R.string.apply_not_enough_space_title);
-                postMessage = mService.getString(R.string.apply_not_enough_space);
-                break;
-            case ReturnCodes.REMOUNT_FAIL:
-                postTitle = mService.getString(R.string.apply_remount_fail_title);
-                postMessage = mService.getString(R.string.apply_remount_fail);
-                break;
-            case ReturnCodes.COPY_FAIL:
-                postTitle = mService.getString(R.string.apply_copy_fail_title);
-                postMessage = mService.getString(R.string.apply_copy_fail);
-                break;
-            }
-
-            if (Utils.isInForeground(mService)) {
-                // start BaseActivity with result
-                Intent resultIntent = new Intent(mService, BaseActivity.class);
-                resultIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, result);
-                resultIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
-                resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(resultIntent);
-            } else {
-                // show notification
-                showResultNotification(postTitle, postMessage, result, null);
-            }
-
-            BaseActivity.updateStatusDisabled(mService);
-        }
-    }
-
-    /**
-     * Shows dialog and further information how to proceed after the applying process has ended and
-     * the user clicked on the notification. This is based on the result from the apply process.
-     * 
-     * @param result
-     */
-    public static void processApplyingResult(final Context context, int result, String failingUrl) {
-        if (result == ReturnCodes.SUCCESS) {
-            BaseActivity.updateStatusEnabled(context);
-
-            Utils.rebootQuestion(context, R.string.apply_success_title, R.string.apply_success);
-        } else if (result == ReturnCodes.SYMLINK_MISSING) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle(R.string.apply_symlink_missing_title);
-            builder.setMessage(context.getString(R.string.apply_symlink_missing));
-            builder.setIcon(android.R.drawable.ic_dialog_info);
-            builder.setPositiveButton(context.getString(R.string.button_yes),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            tryToCreateSymlink(context);
-                        }
-                    });
-            builder.setNegativeButton(context.getString(R.string.button_no),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-
-                            BaseActivity.updateStatusDisabled(context);
-                        }
-                    });
-            AlertDialog question = builder.create();
-            question.show();
-        } else {
-            BaseActivity.updateStatusDisabled(context);
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setIcon(android.R.drawable.ic_dialog_alert);
-            builder.setPositiveButton(context.getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
-            builder.setNegativeButton(context.getString(R.string.button_help),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-
-                            // go to help
-                            context.startActivity(new Intent(context, HelpActivity.class));
-                        }
-                    });
-
-            String postTitle = "";
-            String postMessage = "";
-            switch (result) {
-            case ReturnCodes.NO_CONNECTION:
-                postTitle = context.getString(R.string.no_connection_title);
-                postMessage = context.getString(R.string.no_connection);
-                break;
-            case ReturnCodes.DOWNLOAD_FAIL:
-                postTitle = context.getString(R.string.download_fail_title);
-                if (failingUrl != null) {
-                    postMessage = context.getString(R.string.download_fail) + "\n" + failingUrl;
-                } else {
-                    postMessage = context.getString(R.string.download_fail);
-                }
-                break;
-            case ReturnCodes.EMPTY_HOSTS_SOURCES:
-                postTitle = context.getString(R.string.no_sources_title);
-                postMessage = context.getString(R.string.no_sources);
-                break;
-            case ReturnCodes.APPLY_FAIL:
-                postTitle = context.getString(R.string.apply_fail_title);
-                postMessage = context.getString(R.string.apply_fail);
-                break;
-            case ReturnCodes.PRIVATE_FILE_FAIL:
-                postTitle = context.getString(R.string.apply_private_file_fail_title);
-                postMessage = context.getString(R.string.apply_private_file_fail);
-                break;
-            case ReturnCodes.NOT_ENOUGH_SPACE:
-                postTitle = context.getString(R.string.apply_not_enough_space_title);
-                postMessage = context.getString(R.string.apply_not_enough_space);
-                break;
-            case ReturnCodes.REMOUNT_FAIL:
-                postTitle = context.getString(R.string.apply_remount_fail_title);
-                postMessage = context.getString(R.string.apply_remount_fail);
-                break;
-            case ReturnCodes.COPY_FAIL:
-                postTitle = context.getString(R.string.apply_copy_fail_title);
-                postMessage = context.getString(R.string.apply_copy_fail);
-                break;
-            }
-            postMessage += "\n\n" + context.getString(R.string.apply_help);
-            builder.setTitle(postTitle);
-            builder.setMessage(postMessage);
-
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
-        }
-    }
-
-    /**
-     * Trying to create symlink and displays dialogs on fail
-     */
-    private static void tryToCreateSymlink(final Context context) {
-        boolean success = true;
-
-        try {
-            // symlink to /system/etc/hosts, based on target
-            if (PreferencesHelper.getApplyMethod(context).equals("writeToDataData")) {
-                ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
-            } else if (PreferencesHelper.getApplyMethod(context).equals("customTarget")) {
-                ApplyUtils.createSymlink(PreferencesHelper.getCustomTarget(context));
-            }
-        } catch (CommandException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            success = false;
-        } catch (RemountException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            success = false;
-        }
-
-        if (success) {
-            if (ApplyUtils.isHostsFileCorrect(context, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                success = true;
-            } else {
-                success = false;
-            }
-        }
-
-        if (success) {
-            BaseActivity.updateStatusEnabled(context);
-
-            Utils.rebootQuestion(context, R.string.apply_symlink_successful_title,
-                    R.string.apply_symlink_successful);
-        } else {
-            BaseActivity.updateStatusDisabled(context);
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle(R.string.apply_symlink_fail_title);
-            builder.setMessage(context.getString(R.string.apply_symlink_fail) + "\n\n"
-                    + context.getString(R.string.apply_help));
-            builder.setIcon(android.R.drawable.ic_dialog_alert);
-            builder.setPositiveButton(context.getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
-            builder.setNegativeButton(context.getString(R.string.button_help),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-
-                            // go to help
-                            context.startActivity(new Intent(context, HelpActivity.class));
-                        }
-                    });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
-        }
+    private void cancelApplyNotification() {
+        mNotificationManager.cancel(APPLY_NOTIFICATION_ID);
     }
 
 }

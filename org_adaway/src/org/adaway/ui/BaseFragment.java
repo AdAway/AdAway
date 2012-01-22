@@ -25,7 +25,7 @@ import org.adaway.helper.RevertHelper;
 import org.adaway.helper.OpenHostsFileHelper;
 import org.adaway.service.ApplyService;
 import org.adaway.service.UpdateService;
-import org.adaway.util.ReturnCodes;
+import org.adaway.util.StatusCodes;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
@@ -46,34 +46,34 @@ import android.widget.TextView;
 public class BaseFragment extends Fragment {
     private Activity mActivity;
 
+    private TextView mStatusTitle;
     private TextView mStatusText;
-    private TextView mStatusSubtitle;
     private ProgressBar mStatusProgress;
     private ImageView mStatusIcon;
 
-    public void setStatusIcon(int status) {
-        switch (status) {
-        case ReturnCodes.UPDATE_AVAILABLE:
+    private void setStatusIcon(int iconStatus) {
+        switch (iconStatus) {
+        case StatusCodes.UPDATE_AVAILABLE:
             mStatusProgress.setVisibility(View.GONE);
             mStatusIcon.setVisibility(View.VISIBLE);
             mStatusIcon.setImageResource(R.drawable.status_update);
             break;
-        case ReturnCodes.ENABLED:
+        case StatusCodes.ENABLED:
             mStatusProgress.setVisibility(View.GONE);
             mStatusIcon.setVisibility(View.VISIBLE);
             mStatusIcon.setImageResource(R.drawable.status_enabled);
             break;
-        case ReturnCodes.DISABLED:
+        case StatusCodes.DISABLED:
             mStatusProgress.setVisibility(View.GONE);
             mStatusIcon.setVisibility(View.VISIBLE);
             mStatusIcon.setImageResource(R.drawable.status_disabled);
             break;
-        case ReturnCodes.DOWNLOAD_FAIL:
+        case StatusCodes.DOWNLOAD_FAIL:
             mStatusProgress.setVisibility(View.GONE);
             mStatusIcon.setImageResource(R.drawable.status_fail);
             mStatusIcon.setVisibility(View.VISIBLE);
             break;
-        case ReturnCodes.CHECKING:
+        case StatusCodes.CHECKING:
             mStatusProgress.setVisibility(View.VISIBLE);
             mStatusIcon.setVisibility(View.GONE);
             break;
@@ -83,12 +83,10 @@ public class BaseFragment extends Fragment {
         }
     }
 
-    public void setStatusText(String text) {
+    public void setStatus(String title, String text, int iconStatus) {
+        mStatusTitle.setText(title);
         mStatusText.setText(text);
-    }
-
-    public void setStatusSubtitle(String subtitle) {
-        mStatusSubtitle.setText(subtitle);
+        setStatusIcon(iconStatus);
     }
 
     /**
@@ -163,11 +161,8 @@ public class BaseFragment extends Fragment {
 
         mActivity = getActivity();
 
-        // Initial Status
-        BaseActivity.updateStatusDisabled(mActivity);
-
+        mStatusTitle = (TextView) mActivity.findViewById(R.id.status_title);
         mStatusText = (TextView) mActivity.findViewById(R.id.status_text);
-        mStatusSubtitle = (TextView) mActivity.findViewById(R.id.status_subtitle);
         mStatusProgress = (ProgressBar) mActivity.findViewById(R.id.status_progress);
         mStatusIcon = (ImageView) mActivity.findViewById(R.id.status_icon);
     }

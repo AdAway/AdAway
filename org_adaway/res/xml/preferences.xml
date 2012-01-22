@@ -24,9 +24,10 @@
         </CheckBoxPreference>
         <CheckBoxPreference
             android:defaultValue="@string/pref_automatic_update_daily_def"
+            android:dependency="@string/pref_update_check_daily_key"
             android:key="@string/pref_automatic_update_daily_key"
             android:summary="@string/pref_automatic_update_daily_summary"
-            android:title="@string/pref_automatic_update_daily" android:dependency="@string/pref_update_check_daily_key">
+            android:title="@string/pref_automatic_update_daily" >
         </CheckBoxPreference>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_hosts" >

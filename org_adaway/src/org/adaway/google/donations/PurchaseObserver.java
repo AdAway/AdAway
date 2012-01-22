@@ -14,8 +14,8 @@ import java.lang.reflect.Method;
 
 import org.adaway.google.donations.BillingService.RequestPurchase;
 import org.adaway.google.donations.BillingService.RestoreTransactions;
-import org.adaway.google.donations.Consts.PurchaseState;
-import org.adaway.google.donations.Consts.ResponseCode;
+import org.adaway.google.donations.BillingConstants.PurchaseState;
+import org.adaway.google.donations.BillingConstants.ResponseCode;
 
 /**
  * An interface for observing changes related to purchases. The main application extends this class

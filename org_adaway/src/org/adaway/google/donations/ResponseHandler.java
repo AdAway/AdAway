@@ -4,8 +4,8 @@ package org.adaway.google.donations;
 
 import org.adaway.google.donations.BillingService.RequestPurchase;
 import org.adaway.google.donations.BillingService.RestoreTransactions;
-import org.adaway.google.donations.Consts.PurchaseState;
-import org.adaway.google.donations.Consts.ResponseCode;
+import org.adaway.google.donations.BillingConstants.PurchaseState;
+import org.adaway.google.donations.BillingConstants.ResponseCode;
 
 import android.app.PendingIntent;
 import android.content.Context;
@@ -73,7 +73,7 @@ public class ResponseHandler {
      */
     public static void buyPageIntentResponse(PendingIntent pendingIntent, Intent intent) {
         if (sPurchaseObserver == null) {
-            if (Consts.DEBUG) {
+            if (BillingConstants.DEBUG) {
                 Log.d(TAG, "UI is not running");
             }
             return;

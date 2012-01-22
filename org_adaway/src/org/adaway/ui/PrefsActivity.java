@@ -123,7 +123,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 if (newValue.equals(true)) {
                     // install webserver if not already there
-                    WebserverUtils.installWebserver(mContext);
+                    WebserverUtils.updateWebserver(mContext);
                     // start webserver
                     WebserverUtils.startWebserver(mContext);
                 } else {

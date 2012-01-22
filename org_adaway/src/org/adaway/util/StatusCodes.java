@@ -24,7 +24,7 @@ package org.adaway.util;
  * Return codes of various AsyncTasks
  * 
  */
-public class ReturnCodes {
+public class StatusCodes {
     public static final int CHECKING = 0;
     public static final int SUCCESS = 1;
     public static final int PRIVATE_FILE_FAIL = 2;
