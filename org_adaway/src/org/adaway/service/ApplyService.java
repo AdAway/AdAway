@@ -75,7 +75,7 @@ public class ApplyService extends WakefulIntentService {
         if (downloadResult == StatusCodes.SUCCESS) {
             // Apply files by apply method
             int applyResult = apply();
-            
+
             cancelApplyNotification();
             Log.d(Constants.TAG, "Apply result: " + applyResult);
 
@@ -110,7 +110,7 @@ public class ApplyService extends WakefulIntentService {
             showApplyNotification(mService, mService.getString(R.string.download_dialog),
                     mService.getString(R.string.download_dialog),
                     mService.getString(R.string.download_dialog));
-            
+
             // output to write into
             FileOutputStream out = null;
 
@@ -243,7 +243,11 @@ public class ApplyService extends WakefulIntentService {
 
             HostsParser parser = new HostsParser(reader);
             HashSet<String> hostsSourcesBlacklist = parser.getBlacklist();
-            HashMap<String, String> hostsSourcesRedirectionList = parser.getRedirectionList();
+
+            HashMap<String, String> hostsSourcesRedirectionList = new HashMap<String, String>();
+            if (PreferencesHelper.getRedirectionRules(mService)) {
+                hostsSourcesRedirectionList = parser.getRedirectionList();
+            }
 
             fis.close();
 

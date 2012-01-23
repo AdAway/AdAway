@@ -176,5 +176,7 @@
     <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
     <string name="pref_automatic_update_daily">Automatic update</string>
     <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
-
+    <string name="pref_redirection_rules">Allow redirections</string>
+    <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
+    
 </resources>

@@ -31,6 +31,13 @@
         </CheckBoxPreference>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_hosts" >
+        <CheckBoxPreference
+            android:defaultValue="@string/pref_redirection_rules_def"
+            android:key="@string/pref_redirection_rules_key"
+            android:summary="@string/pref_redirection_rules_summary"
+            android:title="@string/pref_redirection_rules" >
+        </CheckBoxPreference>
+
         <EditTextPreference
             android:defaultValue="@string/pref_redirection_ip_def"
             android:key="@string/pref_redirection_ip_key"

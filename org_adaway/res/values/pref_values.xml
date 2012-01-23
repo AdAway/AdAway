@@ -17,6 +17,10 @@
 
     <item name="pref_automatic_update_daily_def" format="boolean" type="string">false</item>
 
+    <string name="pref_redirection_rules_key">redirectionRules</string>
+
+    <item name="pref_redirection_rules_def" format="boolean" type="string">false</item>
+
     <string name="pref_redirection_ip_key">redirectionIP</string>
 
     <item name="pref_redirection_ip_def" format="string" type="string">127.0.0.1</item>

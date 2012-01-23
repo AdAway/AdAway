@@ -63,6 +63,13 @@ public class PreferencesHelper {
                 Boolean.parseBoolean(context.getString(R.string.pref_automatic_update_daily_def)));
     }
 
+    public static boolean getRedirectionRules(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean(context.getString(R.string.pref_redirection_rules_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_redirection_rules_def)));
+    }
+
     public static String getRedirectionIP(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
