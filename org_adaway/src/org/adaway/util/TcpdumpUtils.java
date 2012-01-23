@@ -38,9 +38,10 @@ public class TcpdumpUtils {
     /**
      * Start Tcpdump with RootTools
      * 
-     * @param context
+     * @param activity
+     * @return returns true if starting worked
      */
-    public static void startTcpdump(final Activity activity) {
+    public static boolean startTcpdump(final Activity activity) {
         Log.d(Constants.TAG, "Starting tcpdump...");
 
         // If rom contains tcpdump...
@@ -53,9 +54,13 @@ public class TcpdumpUtils {
                         + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
 
                 RootTools.sendShell(command);
+
+                return true;
             } catch (Exception e) {
                 Log.e(Constants.TAG, "Problem while starting tcpdump: " + e);
                 e.printStackTrace();
+
+                return false;
             }
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
@@ -73,6 +78,8 @@ public class TcpdumpUtils {
 
             AlertDialog alert = builder.create();
             alert.show();
+
+            return false;
         }
     }
 

@@ -65,7 +65,10 @@ public class TcpdumpFragment extends Fragment {
 
     public void tcpdumpToggleOnClick(View view) {
         if (mTcpdumpToggle.isChecked() == true) {
-            TcpdumpUtils.startTcpdump(mActivity);
+            // if starting does not work, set back to disabled...
+            if (!TcpdumpUtils.startTcpdump(mActivity)) {
+                mTcpdumpToggle.setChecked(false);
+            }
         }
         if (mTcpdumpToggle.isChecked() == false) {
             TcpdumpUtils.stopTcpdump(mActivity);
