@@ -25,6 +25,7 @@ import org.adaway.util.Log;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -81,11 +82,12 @@ public class ApplyUtils {
         boolean status = false;
 
         /* Check if first line in hosts file is AdAway comment */
-        File file = new File(target);
         InputStream stream = null;
         InputStreamReader in = null;
         BufferedReader br = null;
         try {
+            File file = new File(target);
+
             stream = new FileInputStream(file);
             in = new InputStreamReader(stream);
             br = new BufferedReader(in);
@@ -99,6 +101,10 @@ public class ApplyUtils {
             } else {
                 status = false;
             }
+        } catch (FileNotFoundException e) {
+            Log.e(Constants.TAG, "FileNotFoundException: " + e);
+            e.printStackTrace();
+            status = true; // workaround for: http://code.google.com/p/ad-away/issues/detail?id=137
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
@@ -150,6 +156,7 @@ public class ApplyUtils {
         } else {
             target = customTarget;
         }
+        Log.i(Constants.TAG, "Target: " + target);
 
         // commands when using customTarget
         String commandCopyAlternativePath = Constants.COMMAND_COPY + " " + privateFile + " "
@@ -157,6 +164,7 @@ public class ApplyUtils {
         String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " " + target;
 
         /* remount for write access */
+        Log.i(Constants.TAG, "Remounting for RW...");
         if (!RootTools.remount(target, "RW")) {
             throw new RemountException();
         }
@@ -171,7 +179,7 @@ public class ApplyUtils {
 
         /* check for space on partition */
         long size = new File(privateFile).length();
-        Log.d(Constants.TAG, "size: " + size);
+        Log.i(Constants.TAG, "Size of hosts file: " + size);
         if (!hasEnoughSpaceOnPartition(target, size)) {
             throw new NotEnoughSpaceException();
         }
@@ -180,10 +188,16 @@ public class ApplyUtils {
         List<String> output = null;
         try {
             if (customTarget == "") {
+                Log.i(Constants.TAG, "Executing: " + commandCopySystemEtc + ", "
+                        + commandChownSystemEtcHosts + ", " + commandChmodSystemEtcHosts644);
+
                 // execute commands: copy, chown, chmod
                 output = RootTools.sendShell(new String[] { commandCopySystemEtc,
                         commandChownSystemEtcHosts, commandChmodSystemEtcHosts644 }, 1);
             } else {
+                Log.i(Constants.TAG, "Executing: " + commandCopyAlternativePath + ", "
+                        + commandChmodAlternativePath666);
+
                 // execute copy
                 output = RootTools.sendShell(new String[] { commandCopyAlternativePath,
                         commandChmodAlternativePath666 }, 1);
