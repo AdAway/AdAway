@@ -109,7 +109,6 @@ public class WebserverUtils {
      * Stop Webserver
      * 
      * @param context
-     * @throws CommandException
      */
     public static void stopWebserver(Context context) {
         RootTools.killProcess(Constants.WEBSERVER_EXECUTEABLE);

@@ -152,6 +152,8 @@
     <string name="button_tcpdump_delete">Delete log file</string>
     <string name="no_tcpdump">Your Rom does not contain a tcpdump binary.</string>
     <string name="no_tcpdump_title">No Tcpdump binary!</string>
+    <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
+    <string name="toast_tcpdump_log_not_existing">Log file is not existing!</string>
     <string name="pref_download">General Preferences</string>
     <string name="pref_hosts">Hosts File</string>
     <string name="pref_redirection_ip">Redirection IP</string>

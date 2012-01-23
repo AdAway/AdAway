@@ -35,6 +35,7 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.Toast;
 
 public class OpenHelper {
 
@@ -61,6 +62,9 @@ public class OpenHelper {
             if (file.exists()) {
                 openFile(activity, filePath);
             } else {
+                Toast toast = Toast.makeText(activity, R.string.toast_tcpdump_log_not_existing,
+                        Toast.LENGTH_SHORT);
+                toast.show();
                 Log.e(Constants.TAG, "Tcpdump log is not existing!");
             }
         } catch (IOException e) {

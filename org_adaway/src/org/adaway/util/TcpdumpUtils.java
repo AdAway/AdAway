@@ -29,6 +29,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 import com.stericson.RootTools.RootTools;
 
@@ -42,17 +43,21 @@ public class TcpdumpUtils {
     public static void startTcpdump(final Activity activity) {
         Log.d(Constants.TAG, "Starting tcpdump...");
 
-        try {
-            String cachePath = activity.getCacheDir().getCanonicalPath();
+        // If rom contains tcpdump...
+        if (RootTools.findBinary(Constants.TCPDUMP_EXECUTEABLE)) {
+            try {
+                String cachePath = activity.getCacheDir().getCanonicalPath();
 
-            String command = Constants.TCPDUMP_EXECUTEABLE + " -v -t -s512 'udp dst port 53' >> "
-                    + cachePath + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
+                String command = Constants.TCPDUMP_EXECUTEABLE
+                        + " -v -t -s512 'udp dst port 53' >> " + cachePath
+                        + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
 
-            RootTools.sendShell(command);
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Problem while starting tcpdump: " + e);
-            e.printStackTrace();
-
+                RootTools.sendShell(command);
+            } catch (Exception e) {
+                Log.e(Constants.TAG, "Problem while starting tcpdump: " + e);
+                e.printStackTrace();
+            }
+        } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             builder.setIcon(android.R.drawable.ic_dialog_alert);
             builder.setTitle(R.string.no_tcpdump_title);
@@ -71,6 +76,11 @@ public class TcpdumpUtils {
         }
     }
 
+    /**
+     * Deletes log file of tcpdump
+     * 
+     * @param context
+     */
     public static void deleteLog(Context context) {
         try {
             String cachePath = context.getCacheDir().getCanonicalPath();
@@ -79,7 +89,13 @@ public class TcpdumpUtils {
             File file = new File(filePath);
             if (file.exists()) {
                 file.delete();
+                Toast toast = Toast.makeText(context, R.string.toast_tcpdump_log_deleted,
+                        Toast.LENGTH_SHORT);
+                toast.show();
             } else {
+                Toast toast = Toast.makeText(context, R.string.toast_tcpdump_log_not_existing,
+                        Toast.LENGTH_SHORT);
+                toast.show();
                 Log.e(Constants.TAG, "Tcpdump log is not existing!");
             }
         } catch (IOException e) {
@@ -92,7 +108,6 @@ public class TcpdumpUtils {
      * Stop tcpdump
      * 
      * @param context
-     * @throws CommandException
      */
     public static void stopTcpdump(Context context) {
         RootTools.killProcess(Constants.TCPDUMP_EXECUTEABLE);
@@ -101,7 +116,7 @@ public class TcpdumpUtils {
     /**
      * Checks if tcpdump is running with RootTools
      * 
-     * @return true if webserver is running
+     * @return true if tcpdump is running
      */
     public static boolean isTcpdumpRunning() {
         if (RootTools.isProcessRunning(Constants.TCPDUMP_EXECUTEABLE)) {
