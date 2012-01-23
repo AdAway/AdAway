@@ -41,7 +41,6 @@ public class UpdateService extends WakefulIntentService {
 
     private String mCurrentUrl;
 
-    // Notification id
     private static final int UPDATE_NOTIFICATION_ID = 10;
 
     public UpdateService() {
@@ -87,7 +86,13 @@ public class UpdateService extends WakefulIntentService {
 
         cancelUpdateNotification();
 
-        ResultHelper.showNotificationBasedOnResult(mService, result, mCurrentUrl, mApplyAfterCheck);
+        // If this is run from background and should update after checking...
+        if (result == StatusCodes.UPDATE_AVAILABLE && mApplyAfterCheck) {
+            // download and apply!
+            WakefulIntentService.sendWakefulWork(mService, ApplyService.class);
+        } else {
+            ResultHelper.showNotificationBasedOnResult(mService, result, mCurrentUrl);
+        }
     }
 
     /**

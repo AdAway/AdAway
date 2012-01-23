@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/button_tcpdump_text"
+        android:textAppearance="@android:style/TextAppearance.Small" >
+    </TextView>
+
+    <ToggleButton
+        android:id="@+id/tcpdump_fragment_toggle_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:onClick="tcpdumpToggleOnClick"
+        android:textOn="@string/button_tcpdump_toggle_checked"
+        android:textOff="@string/button_tcpdump_toggle_unchecked" >
+    </ToggleButton>
+
+    <Button
+        android:id="@+id/tcpdump_fragment_open_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:onClick="tcpdumpOpenOnClick"
+        android:text="@string/button_tcpdump_open" >
+    </Button>
+
+    <Button
+        android:id="@+id/tcpdump_fragment_delete_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:onClick="tcpdumpDeleteOnClick"
+        android:text="@string/button_tcpdump_delete" >
+    </Button>
+
+</LinearLayout>

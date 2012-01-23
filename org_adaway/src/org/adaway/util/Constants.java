@@ -24,9 +24,9 @@ import com.stericson.RootTools.RootTools;
 
 public class Constants {
     /* DEBUG enables Log.d outputs wrapped in org.adaway.util.Log and RootTools Debug Mode */
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
-    public static final boolean DEBUG_DISABLE_ROOT_CHECK = true;
+    public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
 
     // set RootTools to debug mode based on AdAway
     static {
@@ -58,6 +58,9 @@ public class Constants {
 
     public static final String WEBSERVER_EXECUTEABLE = "blank_webserver";
     public static final int WEBSERVER_VERSION = 1;
+
+    public static final String TCPDUMP_EXECUTEABLE = "tcpdump";
+    public static final String TCPDUMP_LOG = "log.dump";
 
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
     public static final String ANDROID_SYSTEM_ETC_HOSTS = ANDROID_SYSTEM_PATH + FILE_SEPERATOR

@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <item
         android:id="@+id/menu_refresh"
-        android:title="@string/menu_refresh"
         android:icon="@android:drawable/ic_menu_rotate"
-        android:showAsAction="always|withText"></item>
+        android:showAsAction="always|withText"
+        android:title="@string/menu_refresh">
+    </item>
     <item
         android:id="@+id/menu_lists"
-        android:title="@string/menu_lists"
         android:icon="@android:drawable/ic_menu_agenda"
-        android:showAsAction="ifRoom|withText"></item>
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_lists">
+    </item>
     <item
         android:id="@+id/menu_show_hosts_file"
-        android:title="@string/menu_show_hosts_file"
         android:icon="@drawable/ic_menu_compose"
-        android:showAsAction="ifRoom|withText">
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_show_hosts_file">
+    </item>
+    <item
+        android:id="@+id/menu_tcpdump"
+        android:icon="@drawable/ic_menu_compose"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_tcpdump">
     </item>
     <item
         android:id="@+id/menu_help"
         android:icon="@android:drawable/ic_menu_help"
-        android:title="@string/menu_help"
-        android:showAsAction="ifRoom|withText"></item>
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_help">
+    </item>
     <item
         android:id="@+id/menu_preferences"
-        android:title="@string/menu_preferences"
         android:icon="@android:drawable/ic_menu_preferences"
-        android:showAsAction="ifRoom|withText"></item>
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_preferences">
+    </item>
     <item
         android:id="@+id/menu_about"
-        android:title="@string/menu_about"
         android:icon="@android:drawable/ic_menu_info_details"
-        android:showAsAction="ifRoom|withText"></item>
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_about">
+    </item>
     <item
         android:id="@+id/menu_donations"
         android:icon="@android:drawable/ic_menu_info_details"
-        android:title="@string/menu_donations"
-        android:showAsAction="ifRoom|withText"></item>
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_donations">
+    </item>
+
 </menu>

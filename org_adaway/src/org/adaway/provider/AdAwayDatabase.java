@@ -44,7 +44,7 @@ import org.adaway.util.Log;
 
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     public interface Tables {
         String HOSTS_SOURCES = "hosts_sources";
@@ -95,13 +95,15 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         // http://winhelp2002.mvps.org/hosts.htm
         insertHostsSource(insertStmt, "http://winhelp2002.mvps.org/hosts.txt");
 
-        // http://hosts-file.net - This file contains ad/tracking servers in the hpHosts
-        // database.
+        // http://hosts-file.net
         insertHostsSource(insertStmt, "http://hosts-file.net/ad_servers.asp");
 
         // http://pgl.yoyo.org/adservers/
         insertHostsSource(insertStmt,
                 "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
+
+        // http://www.ismeh.com/HOSTS
+        insertHostsSource(insertStmt, "http://www.ismeh.com/HOSTS");
     }
 
     @Override
@@ -155,6 +157,12 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\", 0, 0, 1)");
+        }
+        if (oldVersion <= 5) {
+            // new hosts source
+            db.execSQL("INSERT INTO "
+                    + Tables.HOSTS_SOURCES
+                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://www.ismeh.com/HOSTS\", 0, 0, 1)");
         } else {
             db.execSQL("DROP TABLE IF EXISTS " + Tables.HOSTS_SOURCES);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.WHITELIST);

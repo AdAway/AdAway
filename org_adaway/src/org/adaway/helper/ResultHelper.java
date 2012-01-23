@@ -1,7 +1,6 @@
 package org.adaway.helper;
 
 import org.adaway.R;
-import org.adaway.service.ApplyService;
 import org.adaway.ui.BaseActivity;
 import org.adaway.ui.HelpActivity;
 import org.adaway.util.ApplyUtils;
@@ -11,8 +10,6 @@ import org.adaway.util.Log;
 import org.adaway.util.RemountException;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
-
-import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 import android.app.AlertDialog;
 import android.app.Notification;
@@ -27,46 +24,13 @@ public class ResultHelper {
     private static final int RESULT_NOTIFICATION_ID = 30;
 
     /**
-     * Show notification with result defined in params
-     * 
-     * @param contentTitle
-     * @param contentText
-     */
-    private static void showResultNotification(Context context, String contentTitle,
-            String contentText, int applyingResult, String failingUrl) {
-        NotificationManager notificationManager = (NotificationManager) context
-                .getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-
-        int icon = R.drawable.status_bar_icon;
-        long when = System.currentTimeMillis();
-
-        // add app name to title
-        contentTitle = context.getString(R.string.app_name) + ": " + contentTitle;
-
-        Notification notification = new Notification(icon, contentTitle, when);
-        notification.flags |= Notification.FLAG_AUTO_CANCEL;
-
-        Intent notificationIntent = new Intent(context, BaseActivity.class);
-
-        // give postApplyingStatus with intent
-        notificationIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, applyingResult);
-        notificationIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
-
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-
-        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
-
-        notificationManager.notify(RESULT_NOTIFICATION_ID, notification);
-    }
-
-    /**
      * Show notification based on result after processing download and apply
      * 
+     * @param context
      * @param result
+     * @param failingUrl
      */
-    public static void showNotificationBasedOnResult(Context context, int result,
-            String failingUrl, boolean applyUpdate) {
+    public static void showNotificationBasedOnResult(Context context, int result, String failingUrl) {
         if (result == StatusCodes.SUCCESS) {
             String title = context.getString(R.string.apply_success_title);
             String text = context.getString(R.string.apply_success);
@@ -74,22 +38,14 @@ public class ResultHelper {
             // only show if reboot dialog is not disabled in preferences
             if (!PreferencesHelper.getNeverReboot(context)) {
                 processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
-            } else {
-                processResult(context, title, text, text, result, StatusCodes.ENABLED, null, false);
             }
+            // else show no notification and no dialog
         } else if (result == StatusCodes.UPDATE_AVAILABLE) { // used from UpdateService
-            // if automatic updating is enabled in preferences, do it!
-            if (applyUpdate) {
+            String title = context.getString(R.string.status_update_available);
+            String text = context.getString(R.string.status_update_available_subtitle);
 
-                // download and apply!
-                WakefulIntentService.sendWakefulWork(context, ApplyService.class);
-            } else {
-                String title = context.getString(R.string.status_update_available);
-                String text = context.getString(R.string.status_update_available_subtitle);
-
-                processResult(context, title, text, text, result, StatusCodes.UPDATE_AVAILABLE,
-                        null, false);
-            }
+            processResult(context, title, text, text, result, StatusCodes.UPDATE_AVAILABLE, null,
+                    false);
         } else if (result == StatusCodes.DOWNLOAD_FAIL) { // used from UpdateService and
                                                           // ApplyService
             String title = context.getString(R.string.download_fail_title);
@@ -148,33 +104,6 @@ public class ResultHelper {
         }
     }
 
-    private static void processResult(Context context, String title, String text,
-            String statusText, int result, int iconStatus, String failingUrl, boolean showDialog) {
-        if (Utils.isInForeground(context)) {
-            if (showDialog) {
-                // start BaseActivity with result
-                Intent resultIntent = new Intent(context, BaseActivity.class);
-                resultIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, result);
-                if (failingUrl != null) {
-                    resultIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
-
-                }
-                resultIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
-                resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(resultIntent);
-            }
-        } else {
-            // show notification
-            showResultNotification(context, title, text, result, failingUrl);
-        }
-
-        if (failingUrl != null) {
-            BaseActivity.updateStatus(context, title, statusText + " " + failingUrl, iconStatus);
-        } else {
-            BaseActivity.updateStatus(context, title, statusText, iconStatus);
-        }
-    }
-
     /**
      * Shows dialog and further information how to proceed after the applying process has ended and
      * the user clicked on the notification. This is based on the result from the apply process.
@@ -186,6 +115,15 @@ public class ResultHelper {
             BaseActivity.updateStatusEnabled(context);
 
             Utils.rebootQuestion(context, R.string.apply_success_title, R.string.apply_success);
+        } else if (result == StatusCodes.ENABLED) {
+            BaseActivity.updateStatusEnabled(context);
+        } else if (result == StatusCodes.DISABLED) {
+            BaseActivity.updateStatusDisabled(context);
+        } else if (result == StatusCodes.UPDATE_AVAILABLE) {
+            String title = context.getString(R.string.status_update_available);
+            String text = context.getString(R.string.status_update_available_subtitle);
+
+            BaseActivity.updateStatus(context, title, text, StatusCodes.UPDATE_AVAILABLE);
         } else if (result == StatusCodes.SYMLINK_MISSING) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(R.string.apply_symlink_missing_title);
@@ -293,6 +231,79 @@ public class ResultHelper {
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }
+    }
+
+    /**
+     * Private helper used in showNotificationBasedOnResult
+     * 
+     * @param context
+     * @param title
+     * @param text
+     * @param statusText
+     * @param result
+     * @param iconStatus
+     * @param failingUrl
+     * @param showDialog
+     */
+    private static void processResult(Context context, String title, String text,
+            String statusText, int result, int iconStatus, String failingUrl, boolean showDialog) {
+        if (Utils.isInForeground(context)) {
+            if (showDialog) {
+                // start BaseActivity with result
+                Intent resultIntent = new Intent(context, BaseActivity.class);
+                resultIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, result);
+                if (failingUrl != null) {
+                    resultIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
+
+                }
+                resultIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
+                resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(resultIntent);
+            }
+        } else {
+            // show notification
+            showResultNotification(context, title, text, result, failingUrl);
+        }
+
+        if (failingUrl != null) {
+            BaseActivity.updateStatus(context, title, statusText + " " + failingUrl, iconStatus);
+        } else {
+            BaseActivity.updateStatus(context, title, statusText, iconStatus);
+        }
+    }
+
+    /**
+     * Show notification with result defined in params
+     * 
+     * @param contentTitle
+     * @param contentText
+     */
+    private static void showResultNotification(Context context, String contentTitle,
+            String contentText, int applyingResult, String failingUrl) {
+        NotificationManager notificationManager = (NotificationManager) context
+                .getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        int icon = R.drawable.status_bar_icon;
+        long when = System.currentTimeMillis();
+
+        // add app name to title
+        contentTitle = context.getString(R.string.app_name) + ": " + contentTitle;
+
+        Notification notification = new Notification(icon, contentTitle, when);
+        notification.flags |= Notification.FLAG_AUTO_CANCEL;
+
+        Intent notificationIntent = new Intent(context, BaseActivity.class);
+
+        // give postApplyingStatus with intent
+        notificationIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, applyingResult);
+        notificationIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
+
+        notificationManager.notify(RESULT_NOTIFICATION_ID, notification);
     }
 
     /**

@@ -9,15 +9,14 @@ Requirements:
 • Read/Write access on system-Partition
 
 Problems:
-• On some HTC devices with a 'feature' called S-ON system-Partition is not writable.
-• More Information can be found in in-app Help screen.
+• Information can be found in in-app Help screen.
 • If you have other problems please report them in the issue tracker on http://code.google.com/p/ad-away/issues
 
 Website and issue tracker:
-http://code.google.com/p/ad-away/
+http://code.google.com/p/ad-away
 
-Help translating AdAway:
-https://www.transifex.net/projects/p/adaway/
+Translations:
+Help translating AdAway on https://www.transifex.net/projects/p/adaway
 
 Donate:
 You can donate money to support the development in-app with Flattr or Google Android Market
@@ -26,12 +25,10 @@ License:
 GPLv3
 
 Permissions:
-This application needs root access on your device, meaning it can do EVERYTHING.
-So theoretically it makes no sense to describe the used permissions, but people requested it so here we go:
 • Root access: To write hosts file to system partition
 • Internet access: To download hosts files
-• Modify/delete SD card contents: To export lists to sd card
-• Wakelock: Daily update check in background when phone is in sleep
+• Modify/delete SD card content: To export lists to sd card
+• Wakelock: Wake up phone when AdAway updates in background
 
 
 
@@ -53,15 +50,14 @@ Anforderungen:
 • Lese- und Schreibzugriff auf der system-Partition
 
 Probleme:
-• Auf manchen HTC Geräten mit dem 'Feature' S-ON kann die system-Partition nicht beschrieben werden.
-• Weitere Informationen finden sich in der Hilfe innerhalb des Programms.
+• Informationen finden sich in der Hilfe innerhalb des Programms.
 • Wenn du andere Probleme hast melde sie im Issue-Tracker unter http://code.google.com/p/ad-away/issues
 
 Webseite und Issue-Tracker:
-http://code.google.com/p/ad-away/
+http://code.google.com/p/ad-away
 
 Hilf mit AdAway zu übersetzen:
-https://www.transifex.net/projects/p/adaway/
+https://www.transifex.net/projects/p/adaway
 
 Spenden:
 Du kannst die Entwicklung unterstützen indem du in der Anwendung über Flattr oder den Google Android Market spendest.
@@ -70,9 +66,7 @@ Lizenz:
 GPLv3
 
 Berechtigungen:
-Diese Anwendung benötigt Root-Zugriff, dass heißt sie hat VOLLEN ZUGRIFF.
-Deshalb macht es theoretisch keinen Sinn die benötigten Berechtigungen zu beschreiben, aber viele haben danach gefragt deshalb hier die Liste:
-• Root-Zugriff: Um die Hosts-Datei auf der System-Partition zu ändern
+• Root-Zugriff: Um die Hosts-Datei auf die System-Partition zu schreiben
 • Internet-Zugriff: Um Hosts-Dateien herunterzuladen
-• SD-Karte ändern/löschen: Um die Listen zu exportieren
-• Standby-Modus deaktivieren: Für den täglichen Update-Check im Hintergrund während sich das Gerät im Standby befindet
+• Inhalt der SD-Karte ändern/löschen: Um Deine Listen zu exportieren
+• Standby-Modus deaktivieren: Um das Gerät aus dem Standby aufzuwachen, wenn AdAway im Hintergrund Updates herunterlädt.

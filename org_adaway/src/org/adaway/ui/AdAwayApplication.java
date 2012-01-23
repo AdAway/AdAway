@@ -10,7 +10,7 @@ public class AdAwayApplication extends Application {
         // workaround for http://code.google.com/p/android/issues/detail?id=20915
         try {
             Class.forName("android.os.AsyncTask");
-        } catch (ClassNotFoundException e) {
+        } catch (Exception e) { // silently catch all
         }
 
         super.onCreate();

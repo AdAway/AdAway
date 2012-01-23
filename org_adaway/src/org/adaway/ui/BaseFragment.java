@@ -22,7 +22,7 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.helper.RevertHelper;
-import org.adaway.helper.OpenHostsFileHelper;
+import org.adaway.helper.OpenHelper;
 import org.adaway.service.ApplyService;
 import org.adaway.service.UpdateService;
 import org.adaway.util.StatusCodes;
@@ -51,6 +51,13 @@ public class BaseFragment extends Fragment {
     private ProgressBar mStatusProgress;
     private ImageView mStatusIcon;
 
+    /**
+     * Set status icon based on StatusCodes
+     * 
+     * @param iconStatus
+     *            Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
+     *            StatusCodes
+     */
     private void setStatusIcon(int iconStatus) {
         switch (iconStatus) {
         case StatusCodes.UPDATE_AVAILABLE:
@@ -83,6 +90,14 @@ public class BaseFragment extends Fragment {
         }
     }
 
+    /**
+     * Set status in Fragment
+     * 
+     * @param title
+     * @param text
+     * @param iconStatus
+     *            int based on StatusCodes to select icon
+     */
     public void setStatus(String title, String text, int iconStatus) {
         mStatusTitle.setText(title);
         mStatusText.setText(text);
@@ -114,7 +129,11 @@ public class BaseFragment extends Fragment {
             return true;
 
         case R.id.menu_show_hosts_file:
-            OpenHostsFileHelper.openHostsFile(mActivity);
+            OpenHelper.openHostsFile(mActivity);
+            return true;
+            
+        case R.id.menu_tcpdump:
+            startActivity(new Intent(mActivity, TcpdumpActivity.class));
             return true;
 
         case R.id.menu_preferences:

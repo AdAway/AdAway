@@ -24,7 +24,6 @@ import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
 
 import android.content.Context;
-import android.widget.ToggleButton;
 
 import com.stericson.RootTools.RootTools;
 
@@ -126,19 +125,6 @@ public class WebserverUtils {
             return true;
         } else {
             return false;
-        }
-    }
-
-    /**
-     * Set ToggleButton checked if webserver is running
-     * 
-     * @param webserverToggle
-     */
-    public static void setWebserverToggle(ToggleButton webserverToggle) {
-        if (isWebserverRunning()) {
-            webserverToggle.setChecked(true);
-        } else {
-            webserverToggle.setChecked(false);
         }
     }
 }

@@ -46,7 +46,6 @@ public class ApplyService extends WakefulIntentService {
 
     String mCurrentUrl;
 
-    // Notification id
     private static final int APPLY_NOTIFICATION_ID = 20;
 
     public ApplyService() {
@@ -79,15 +78,14 @@ public class ApplyService extends WakefulIntentService {
             cancelApplyNotification();
             Log.d(Constants.TAG, "Apply result: " + applyResult);
 
-            ResultHelper.showNotificationBasedOnResult(mService, applyResult, null, false);
+            ResultHelper.showNotificationBasedOnResult(mService, applyResult, null);
         } else if (downloadResult == StatusCodes.DOWNLOAD_FAIL) {
             cancelApplyNotification();
             // extra information is current url, to show it when it fails
-            ResultHelper
-                    .showNotificationBasedOnResult(mService, downloadResult, mCurrentUrl, false);
+            ResultHelper.showNotificationBasedOnResult(mService, downloadResult, mCurrentUrl);
         } else {
             cancelApplyNotification();
-            ResultHelper.showNotificationBasedOnResult(mService, downloadResult, null, false);
+            ResultHelper.showNotificationBasedOnResult(mService, downloadResult, null);
         }
     }
 
@@ -245,6 +243,7 @@ public class ApplyService extends WakefulIntentService {
             HashSet<String> hostsSourcesBlacklist = parser.getBlacklist();
 
             HashMap<String, String> hostsSourcesRedirectionList = new HashMap<String, String>();
+            // Use redirection rules from hosts sources only if enabled in preferences
             if (PreferencesHelper.getRedirectionRules(mService)) {
                 hostsSourcesRedirectionList = parser.getRedirectionList();
             }

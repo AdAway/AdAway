@@ -2,8 +2,10 @@ Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
 1.24
+* Tcpdump DNS request logging
+* Preference to allow redirection rules from Hosts Sources
+* New hosts source for mobile ads: http://www.ismeh.com/HOSTS
 - Webserver binary now updates correctly from old AdAway versions
-- Preference to allow redirection rules from Hosts Sources
 
 1.23
 - Fix for import/export

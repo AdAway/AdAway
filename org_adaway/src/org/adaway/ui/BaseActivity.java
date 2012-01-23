@@ -165,6 +165,16 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
+    /**
+     * Static helper method to send broadcasts to the BaseActivity and update status in frontend
+     * 
+     * @param context
+     * @param title
+     * @param text
+     * @param iconStatus
+     *            Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
+     *            StatusCodes
+     */
     public static void updateStatus(Context context, String title, String text, int iconStatus) {
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
 
@@ -175,11 +185,21 @@ public class BaseActivity extends FragmentActivity {
         localBroadcastManager.sendBroadcast(intent);
     }
 
+    /**
+     * Wrapper to set status to enabled
+     * 
+     * @param context
+     */
     public static void updateStatusEnabled(Context context) {
         updateStatus(context, context.getString(R.string.status_enabled),
                 context.getString(R.string.status_enabled_subtitle), StatusCodes.ENABLED);
     }
 
+    /**
+     * Wrapper to set status to disabled
+     * 
+     * @param context
+     */
     public static void updateStatusDisabled(Context context) {
         updateStatus(context, context.getString(R.string.status_disabled),
                 context.getString(R.string.status_disabled_subtitle), StatusCodes.DISABLED);
