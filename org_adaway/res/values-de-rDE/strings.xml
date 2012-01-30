@@ -10,6 +10,7 @@
   <string name="download_dialog">Downloading...</string>
   <string name="menu_hosts_sources">Hosts-Quellen</string>
   <string name="menu_about">Über</string>
+  <string name="menu_tcpdump">Tcpdump</string>
   <string name="apply_dialog">Wende an...</string>
   <string name="apply_dialog_hostnames">Verarbeite und füge hosts-Dateien zusammen</string>
   <string name="apply_dialog_hosts">Erstelle hosts-Datei</string>
@@ -140,6 +141,14 @@
 </string-array>
   <string name="donations_thanks_dialog_title">Danke!</string>
   <string name="donations_thanks_dialog">Danke für die Spende!\nIch weiß es wirklich zu schätzen!</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump gestartet</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump ist nicht gestartet!</string>
+  <string name="button_tcpdump_open">Log-Datei öffnen</string>
+  <string name="button_tcpdump_delete">Log-Datei löschen</string>
+  <string name="no_tcpdump">Deine Rom enthält kein tcpdump.</string>
+  <string name="no_tcpdump_title">Kein Tcpdump gefunden!</string>
+  <string name="toast_tcpdump_log_deleted">Log-Datei wurde gelöscht!</string>
+  <string name="toast_tcpdump_log_not_existing">Log-Datei existiert nicht!</string>
   <string name="pref_download">Generelle Einstellungen</string>
   <string name="pref_hosts">Hosts-Datei</string>
   <string name="pref_redirection_ip">Umleitungs-IP</string>
@@ -151,12 +160,10 @@
   <string name="pref_header_preferences_summary">Generelle AdAway Einstellungen</string>
   <string name="pref_never_reboot">Verstecke den Neustart-Dialog</string>
   <string name="pref_never_reboot_summary">Versteckt den Dialog, der nach dem Neustarten von Android fragt, nachdem Änderungen an der hosts-Datei angewendet wurden.</string>
-  <string name="pref_update_check_daily">Prüfe täglich auf Updates</string>
-  <string name="pref_update_check_daily_summary">Prüfe täglich im Hintergrund auf Updates, mit Benachrichtigung.</string>
   <string name="pref_webserver_on_boot">Starte den Webserver beim Geräte-Start</string>
   <string name="pref_webserver_on_boot_summary">Starte den Webserver auf der lokalen IP-Adresse beim Geräte-Start mit 5 Sekunden Verzögerung.</string>
   <string name="pref_webserver_enabled">Aktiviere den Webserver</string>
-  <string name="pref_webserver_enabled_summary">Aktiviere den lokalen Webserver um Anforderungen auf geblockte Hostnamen zu beantworten.</string>
+  <string name="pref_webserver_enabled_summary">Aktiviere den lokalen Webserver um Anfragen an geblockte Hostnamen zu beantworten.</string>
   <string name="pref_webserver">Lokaler Webserver</string>
   <string name="pref_custom_target">Benutzerdefinierte hosts-Datei</string>
   <string name="pref_custom_target_summary">Wird nur benutzt, wenn die hosts-Datei auf benutzerdefiniert gesetzt wurde</string>
@@ -166,4 +173,11 @@
 </string-array>
   <string name="pref_update_check_summary">Beim Starten nach Updates suchen</string>
   <string name="pref_sdcard_problem">Dieses Feature funktioniert nur korrekt wenn AdAway nicht auf der SD-Karte installiert ist.</string>
+  <string name="pref_background">Hintergrund-Dienste</string>
+  <string name="pref_update_check_daily">Prüfe täglich auf Updates</string>
+  <string name="pref_update_check_daily_summary">Prüfe täglich im Hintergrund auf Updates, mit Benachrichtigung.</string>
+  <string name="pref_automatic_update_daily">Automatisches Updates</string>
+  <string name="pref_automatic_update_daily_summary">Installiere Updates automatisch im Hintergrund, wenn neue verfügbar sind.</string>
+  <string name="pref_redirection_rules">Weiterleitungen erlauben</string>
+  <string name="pref_redirection_rules_summary">Erlaube Weiterleitungen aus den Hosts-Quellen.</string>
 </resources>
