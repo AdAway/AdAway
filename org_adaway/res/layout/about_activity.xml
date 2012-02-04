@@ -54,6 +54,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:autoLink="web"
+            android:text="@string/about_url"
+            android:textAppearance="@android:style/TextAppearance.Small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/about_description"
             android:textAppearance="@android:style/TextAppearance.Small" />
 
@@ -82,8 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:autoLink="web"
-            android:text="@string/about_url"
+            android:text="@string/about_libs"
             android:textAppearance="@android:style/TextAppearance.Small" />
     </LinearLayout>
 

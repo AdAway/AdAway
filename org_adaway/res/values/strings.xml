@@ -24,9 +24,11 @@
     <string name="button_revert">Disable ad blocking</string>
     <string name="apply_success">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="about_description">AdAway is an open source ad blocker for Android.</string>
-    <string name="about_license">License: GPL v3</string>
+    <string name="about_license">License: GPL v3+</string>
     <string name="about_version">Version:</string>
     <string name="about_developer">Developer: Dominik Schürmann</string>
+    <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' and \'www.androidicons.com\' (Both licensed under Creative Commons Attribution 3.0 Unported).</string>
+    <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android &lt; 3.0.</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed.</string>
@@ -77,7 +79,6 @@
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
     <string name="status_disabled_subtitle">Disabled</string>
-    <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' and \'www.androidicons.com\', both licensed under Creative Commons Attribution 3.0 Unported License.</string>
     <string name="no_busybox">The Busybox binary could not be found. To install it from the Android Market click the Button below.</string>
     <string name="no_busybox_title">No Busybox binary</string>
     <string name="button_busybox">Install Busybox</string>
