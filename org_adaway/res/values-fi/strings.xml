@@ -11,6 +11,7 @@
   <string name="menu_hosts_sources">Isäntälähteet</string>
   <string name="menu_about">Tietoja
 </string>
+  <string name="menu_tcpdump">Tcpdump</string>
   <string name="apply_dialog">Hyväksy</string>
   <string name="apply_dialog_hostnames">Isäntätiedostojen jäsentäminen ja yhdistäminen</string>
   <string name="apply_dialog_hosts">Luo isäntätiedosto</string>
@@ -26,6 +27,7 @@
   <string name="about_license">Lisenssi: GPL v3</string>
   <string name="about_version">Versio:</string>
   <string name="about_developer">Kehittäjä: Dominik Schürmann</string>
+  <string name="about_icons">Osa kuvakkeista ovat peräisin \'Dropbox Emblems Tango Charles A. tekijältä \' ja \'www.androidicons.com\' sivustolta, molemmat on lisenssoitu Creative Commons Nimeä 3.0 Muokkaamaton -lisensillä.</string>
   <string name="apply_fail">Isäntätiedoston soveltaminen epäonnistui!\nYritä muuttaa isäntätiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
   <string name="apply_fail_title">Soveltaminen epäonnistui</string>
   <string name="revert_problem">Palauttaminen epäonnistui.</string>
@@ -76,7 +78,6 @@
   <string name="status_enabled_subtitle">Uusimmat isäntätiedostot ovat käytössä</string>
   <string name="status_disabled">Pois käytössä</string>
   <string name="status_disabled_subtitle">Pois käytössä</string>
-  <string name="about_icons">Osa kuvakkeista ovat peräisin \'Dropbox Emblems Tango Charles A. tekijältä \' ja \'www.androidicons.com\' sivustolta, molemmat on lisenssoitu Creative Commons Nimeä 3.0 Muokkaamaton -lisensillä.</string>
   <string name="no_busybox">Busybox-binääriä ei löytynyt. Asenna se Android Marketista napsauttamalla alapuolella olevaa painiketta</string>
   <string name="no_busybox_title">Ei ole Busybox-binääriä</string>
   <string name="button_busybox">Asenna Busybox</string>
@@ -113,7 +114,7 @@
   <string name="button_webserver_toggle_text">Salli tai estä web-palvelimen vastaamasta estettyihin palvelinnimeihin.</string>
   <string name="hosts_last_modified_local">Paikallinen:</string>
   <string name="hosts_last_modified_online">Online:</string>
-  <string name="reboot_never_reboot">Älä koskaan käynnistä uudellen ja näytä tätä kysymystä ensi kerralla!</string>
+  <string name="reboot_never_reboot">Älä koskaan käynnistä uudelleen ja älä näytä tätä kysymystä ensi kerralla!</string>
   <string name="button_help">Ohjeet</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
   <string name="menu_import">Tuo kaikki luettelot</string>
@@ -127,10 +128,11 @@
   <string name="no_file_manager">Ei voitu avata tiedostoja, koska tiedostonhallintasovellusta ei löytynyt. Voit asentaa OI File Manager:n tai muun tiedostohallintasovelluksen.\n\nHaluatko asentaa OI File Manager:n?</string>
   <string name="donations_flattr">Flattr</string>
   <string name="donations_google_android_market">Googlen Android Market</string>
+  <string name="donations_google_android_market_not_supported_title">Sovelluksen sisäiset lahjoitukset eivät ole tuettu</string>
+  <string name="donations_google_android_market_not_supported">Sovelluksen sisäiset lahjoitukset eivät ole tuettu. Löytyykö laitteesta Android Market?</string>
   <string name="donations_google_android_market_description">• Gogle ottaa 30% jokaisesta lahjoituksesta!\n• Rahasiirto voi kestää minuutin tai kaksi.\n• Ei ole premium-versiota lahjoittajille.</string>
   <string name="donations_google_android_market_donate_button">Lahjoita!</string>
   <string name="donations_google_android_market_text">Kuinka paljon?</string>
-  <string name="donations_google_android_market_spinning_message">Odota, kunnes maksu on vastaanotettu!\nTämä voi kestää minuutin tai kaksi...</string>
   <string-array name="donations_google_android_market_promt_array"><item>1 euro</item>
 <item>2 euroa</item>
 <item>3 euroa</item>
@@ -140,6 +142,14 @@
 </string-array>
   <string name="donations_thanks_dialog_title">Kiitos!</string>
   <string name="donations_thanks_dialog">Kiitos lahjoituksestasi!\nArvostan sitä suuresti!</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump on käynnissä!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump ei ole käynnissä!</string>
+  <string name="button_tcpdump_open">Avaa lokitiedosto</string>
+  <string name="button_tcpdump_delete">Poista lokitiedosto</string>
+  <string name="no_tcpdump">ROM ei sillä tcpdump-binääriä</string>
+  <string name="no_tcpdump_title">Ei ole tcpdump-binääriä!</string>
+  <string name="toast_tcpdump_log_deleted">Lokitiedosto poistettu!</string>
+  <string name="toast_tcpdump_log_not_existing">Lokitiedosto ei ole olemassa!</string>
   <string name="pref_download">Yleiset asetukset</string>
   <string name="pref_hosts">Isäntätiedosto</string>
   <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>
@@ -151,12 +161,9 @@
   <string name="pref_header_preferences_summary">AdAwayn yleiset asetukset</string>
   <string name="pref_never_reboot">Piilota uudelleenkäynnistyksen valintaikkuna</string>
   <string name="pref_never_reboot_summary">Piilottaa valintaikkunan, joka kysyy uudelleenkäynnistyksestä onnistuneen soveltamisen jälkeen</string>
-  <string name="pref_update_check_daily">Tarkista päivitykset päivittäin</string>
-  <string name="pref_update_check_daily_summary">Tarkista päivitykset taustalla ilmoituksilla</string>
   <string name="pref_webserver_on_boot">Käynnistä web-palvelin käynnistyksessä</string>
   <string name="pref_webserver_on_boot_summary">Käynnistä web-palvelin 5 sekunnin viivellä, jolloin tarkastalleen paikallisia IP-osoitteita</string>
   <string name="pref_webserver_enabled">Ota web-palvelin käyttön</string>
-  <string name="pref_webserver_enabled_summary"></string>
   <string name="pref_webserver">Paikallinen web-palvelin</string>
   <string name="pref_custom_target">Mukautettu kohde</string>
   <string name="pref_custom_target_summary">Käytetään vain, jos isäntätiedosto on määritetty mukautetuksi kohteeksi</string>
@@ -166,4 +173,11 @@
 </string-array>
   <string name="pref_update_check_summary">Tarkista päivitykset AdAwayn käynnistykessä</string>
   <string name="pref_sdcard_problem">Tämä toiminto ei toimi oikein, kun AdAway on asennettu SD-kortille!</string>
+  <string name="pref_background">Taustapalvelut</string>
+  <string name="pref_update_check_daily">Tarkista päivitykset päivittäin</string>
+  <string name="pref_update_check_daily_summary">Tarkista päivitykset taustalla ilmoituksilla</string>
+  <string name="pref_automatic_update_daily">Automaattinen päivitys</string>
+  <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
+  <string name="pref_redirection_rules">Salli uudelleenohjaukset</string>
+  <string name="pref_redirection_rules_summary">Salli uudelleenohjaussäännöt isäntälähteistä.</string>
 </resources>

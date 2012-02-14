@@ -26,6 +26,7 @@
   <string name="about_license">许可协议： GPL v3</string>
   <string name="about_version">版本：</string>
   <string name="about_developer">开发者：Dominik Schürmann</string>
+  <string name="about_icons">一些图标是从\'Dropbox Emblems Tango by Charles A.\'和\'www.androidicons.com\'上取得的，两个都是Creative Commons Attribution 3.0 Unported License授权下发布的。</string>
   <string name="apply_fail">应用hosts文件修改失败！\n请尝试在[设置]里面把hosts文件目标修改为/data/data/hosts。</string>
   <string name="apply_fail_title">应用失败</string>
   <string name="revert_problem">还原失败。</string>
@@ -76,7 +77,6 @@
   <string name="status_enabled_subtitle">最新的hosts文件已经启用</string>
   <string name="status_disabled">禁用</string>
   <string name="status_disabled_subtitle">禁用</string>
-  <string name="about_icons">一些图标是从\'Dropbox Emblems Tango by Charles A.\'和\'www.androidicons.com\'上取得的，两个都是Creative Commons Attribution 3.0 Unported License授权下发布的。</string>
   <string name="no_busybox">没有找到Busybox。点击下面的按钮从Android电子市场上安装。</string>
   <string name="no_busybox_title">没有Busybox</string>
   <string name="button_busybox">安装Busybox</string>
