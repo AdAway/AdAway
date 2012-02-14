@@ -25,7 +25,7 @@ import org.adaway.provider.AdAwayContract.Whitelist;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
-import org.adaway.util.ValidationUtils;
+import org.adaway.util.RegexUtils;
 import org.adaway.util.Log;
 
 import android.support.v4.app.ListFragment;
@@ -129,7 +129,7 @@ public class WhitelistFragment extends ListFragment implements
 
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.lists_hostname_dialog, null);
+        final View dialogView = factory.inflate(R.layout.lists_whitelist_hostname_dialog, null);
         final EditText inputEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
         inputEditText.setText(cBox.getText());
@@ -148,7 +148,7 @@ public class WhitelistFragment extends ListFragment implements
 
                         String input = inputEditText.getText().toString();
 
-                        if (ValidationUtils.isValidHostname(input)) {
+                        if (RegexUtils.isValidWhitelistHostname(input)) {
                             ProviderHelper.updateWhitelistItemHostname(mActivity, mCurrentRowId,
                                     input);
                         } else {
@@ -230,7 +230,7 @@ public class WhitelistFragment extends ListFragment implements
 
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.lists_hostname_dialog, null);
+        final View dialogView = factory.inflate(R.layout.lists_whitelist_hostname_dialog, null);
         final EditText inputEditText = (EditText) dialogView
                 .findViewById(R.id.list_dialog_hostname);
 
@@ -268,7 +268,7 @@ public class WhitelistFragment extends ListFragment implements
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (ValidationUtils.isValidHostname(input)) {
+            if (RegexUtils.isValidWhitelistHostname(input)) {
                 ProviderHelper.insertWhitelistItem(mActivity, input);
             } else {
                 AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();

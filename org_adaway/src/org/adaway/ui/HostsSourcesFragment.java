@@ -25,7 +25,7 @@ import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.HostsSourcesCursorAdapter;
-import org.adaway.util.ValidationUtils;
+import org.adaway.util.RegexUtils;
 import org.adaway.util.Log;
 
 import android.app.Activity;
@@ -147,7 +147,7 @@ public class HostsSourcesFragment extends ListFragment implements
 
                         String input = inputEditText.getText().toString();
 
-                        if (ValidationUtils.isValidUrl(input)) {
+                        if (RegexUtils.isValidUrl(input)) {
                             // update in db
                             ProviderHelper.updateHostsSourceUrl(mActivity, mCurrentRowId, input);
                         } else {
@@ -268,7 +268,7 @@ public class HostsSourcesFragment extends ListFragment implements
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (ValidationUtils.isValidUrl(input)) {
+            if (RegexUtils.isValidUrl(input)) {
 
                 // insert hosts source into database
                 ProviderHelper.insertHostsSource(mActivity, input);

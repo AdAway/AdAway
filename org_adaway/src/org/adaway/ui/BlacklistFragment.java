@@ -25,7 +25,7 @@ import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
-import org.adaway.util.ValidationUtils;
+import org.adaway.util.RegexUtils;
 import org.adaway.util.Log;
 
 import android.support.v4.app.ListFragment;
@@ -148,7 +148,7 @@ public class BlacklistFragment extends ListFragment implements
 
                         String input = inputEditText.getText().toString();
 
-                        if (ValidationUtils.isValidHostname(input)) {
+                        if (RegexUtils.isValidHostname(input)) {
                             ProviderHelper.updateBlacklistItemHostname(mActivity, mCurrentRowId,
                                     input);
                         } else {
@@ -268,7 +268,7 @@ public class BlacklistFragment extends ListFragment implements
      */
     private void addEntry(String input) {
         if (input != null) {
-            if (ValidationUtils.isValidHostname(input)) {
+            if (RegexUtils.isValidHostname(input)) {
                 ProviderHelper.insertBlacklistItem(mActivity, input);
             } else {
                 AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();

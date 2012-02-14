@@ -103,20 +103,20 @@ public class HostsParser {
                     if (currentIp.equals(Constants.LOCALHOST_IPv4)
                             || currentIp.equals(Constants.BOGUS_IPv4)) {
                         // check syntax of hostname
-                        if (ValidationUtils.isValidHostname(currentHostname)) {
+                        if (RegexUtils.isValidHostname(currentHostname)) {
                             mBlacklist.add(currentHostname);
                         } else {
                             Log.d(Constants.TAG, currentHostname + " NOT matched");
                         }
                     } else if (currentIp.equals(Constants.WHITELIST_ENTRY)) {
                         // is whitelist entry
-                        if (ValidationUtils.isValidHostname(currentHostname)) {
+                        if (RegexUtils.isValidHostname(currentHostname)) {
                             mWhitelist.add(currentHostname);
                         }
                     } else {
                         // is redirection entry
-                        if (ValidationUtils.isValidIP(currentIp)
-                                && ValidationUtils.isValidHostname(currentHostname)) {
+                        if (RegexUtils.isValidIP(currentIp)
+                                && RegexUtils.isValidHostname(currentHostname)) {
                             mRedirectionList.put(currentHostname, currentIp);
                         }
                     }

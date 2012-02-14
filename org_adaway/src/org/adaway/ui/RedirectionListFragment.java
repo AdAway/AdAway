@@ -25,7 +25,7 @@ import org.adaway.provider.AdAwayContract.RedirectionList;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.RedirectionCursorAdapter;
-import org.adaway.util.ValidationUtils;
+import org.adaway.util.RegexUtils;
 import org.adaway.util.Log;
 
 import android.support.v4.app.ListFragment;
@@ -156,8 +156,8 @@ public class RedirectionListFragment extends ListFragment implements
                         String hostname = hostnameEditText.getText().toString();
                         String ip = ipEditText.getText().toString();
 
-                        if (ValidationUtils.isValidHostname(hostname)) {
-                            if (ValidationUtils.isValidIP(ip)) {
+                        if (RegexUtils.isValidHostname(hostname)) {
+                            if (RegexUtils.isValidIP(ip)) {
                                 ProviderHelper.updateRedirectionListItemHostnameAndIp(mActivity,
                                         mCurrentRowId, hostname, ip);
                             } else {
@@ -298,8 +298,8 @@ public class RedirectionListFragment extends ListFragment implements
      */
     private void addEntry(String hostname, String ip) {
         if (hostname != null) {
-            if (ValidationUtils.isValidHostname(hostname)) {
-                if (ValidationUtils.isValidIP(ip)) {
+            if (RegexUtils.isValidHostname(hostname)) {
+                if (RegexUtils.isValidIP(ip)) {
                     ProviderHelper.insertRedirectionListItem(mActivity, hostname, ip);
                 } else {
                     AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();

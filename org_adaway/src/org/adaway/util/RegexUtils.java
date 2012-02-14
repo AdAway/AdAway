@@ -25,13 +25,20 @@ import java.util.regex.Pattern;
 
 import android.webkit.URLUtil;
 
-public class ValidationUtils {
+public class RegexUtils {
     /*
      * Allow hostnames like: localserver example.com example.host.org
      */
     static final private String HOSTNAME_REGEX = "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_\\.]{0,61}[a-zA-Z0-9]))$";
     private static Pattern mHostnamePattern;
     private static Matcher mHostnameMatcher;
+
+    /*
+     * Allow also hostnames like: localserver example.com example.host.org
+     */
+    static final private String WHITELIST_HOSTNAME_REGEX = "^(([a-zA-Z0-9\\*\\?]|[a-zA-Z0-9\\*\\?][a-zA-Z0-9\\-\\_\\.\\*\\?]{0,61}[a-zA-Z0-9\\*\\?]))$";
+    private static Pattern mWhitelistHostnamePattern;
+    private static Matcher mWhitelistHostnameMatcher;
 
     /*
      * http://stackoverflow.com/questions/46146/what-are-the-java-regular-expressions-for-matching-ipv4
@@ -50,6 +57,7 @@ public class ValidationUtils {
 
     static {
         mHostnamePattern = Pattern.compile(HOSTNAME_REGEX);
+        mWhitelistHostnamePattern = Pattern.compile(WHITELIST_HOSTNAME_REGEX);
         mIPv4Pattern = Pattern.compile(IPV4_REGEX);
         mIPv6Pattern = Pattern.compile(IPV6_REGEX, Pattern.CASE_INSENSITIVE);
     }
@@ -76,6 +84,25 @@ public class ValidationUtils {
 
         try {
             return mHostnameMatcher.find();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Error in isValidHostname");
+            e.printStackTrace();
+            // workaround for some devices that throws jni exceptions: just accept everything
+            return true;
+        }
+    }
+
+    /**
+     * Same as above but also allow * and ?
+     * 
+     * @param input
+     * @return
+     */
+    static public boolean isValidWhitelistHostname(String input) {
+        mWhitelistHostnameMatcher = mWhitelistHostnamePattern.matcher(input);
+
+        try {
+            return mWhitelistHostnameMatcher.find();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidHostname");
             e.printStackTrace();
@@ -126,4 +153,75 @@ public class ValidationUtils {
 
         return (isValidIPv4(input) || isValidIPv6(input));
     }
+
+    // public static void main(String[] args) {
+    // String test = "123ABC";
+    // System.out.println(test);
+    // System.out.println(Pattern.matches(wildcardToRegex("1*"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("?2*"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("??2*"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("*A*"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("*Z*"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("123*"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("123"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("*ABC"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("*abc"), test));
+    // System.out.println(Pattern.matches(wildcardToRegex("ABC*"), test));
+    // /*
+    // output :
+    // 123ABC
+    // true
+    // true
+    // false
+    // true
+    // false
+    // true
+    // false
+    // true
+    // false
+    // false
+    // */
+    //
+    // }
+
+    /*
+     * from http://www.rgagnon.com/javadetails/java-0515.html, convert example*.* to regex:
+     * ^example.*\\..*$
+     */
+    public static String wildcardToRegex(String wildcard) {
+        StringBuffer s = new StringBuffer(wildcard.length());
+        s.append('^');
+        for (int i = 0, is = wildcard.length(); i < is; i++) {
+            char c = wildcard.charAt(i);
+            switch (c) {
+            case '*':
+                s.append(".*");
+                break;
+            case '?':
+                s.append(".");
+                break;
+            // escape special regexp-characters
+            case '(':
+            case ')':
+            case '[':
+            case ']':
+            case '$':
+            case '^':
+            case '.':
+            case '{':
+            case '}':
+            case '|':
+            case '\\':
+                s.append("\\");
+                s.append(c);
+                break;
+            default:
+                s.append(c);
+                break;
+            }
+        }
+        s.append('$');
+        return (s.toString());
+    }
+
 }

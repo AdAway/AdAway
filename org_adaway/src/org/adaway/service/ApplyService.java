@@ -33,6 +33,9 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
@@ -46,6 +49,7 @@ import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
 import org.adaway.util.Log;
 import org.adaway.util.NotEnoughSpaceException;
+import org.adaway.util.RegexUtils;
 import org.adaway.util.RemountException;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
@@ -294,8 +298,42 @@ public class ApplyService extends WakefulIntentService {
             Log.d(Constants.TAG, "Enabled hosts sources list: " + enabledHostsSources.toString());
 
             /* BLACKLIST */
-            // remove whitelist items
-            hostsSourcesBlacklist.removeAll(whitelist);
+            // remove whitelist items using regex
+            Log.d(Constants.TAG, "Compiling all whitelist regex");
+
+            HashSet<Pattern> whitelistPattern = new HashSet<Pattern>();
+            String regexItem;
+            for (String item : whitelist) {
+                // convert example*.* to regex: ^example.*\\..*$
+                regexItem = RegexUtils.wildcardToRegex(item);
+                whitelistPattern.add(Pattern.compile(regexItem));
+            }
+
+            Log.d(Constants.TAG, "Starting whitelist regex");
+            Matcher whitelistMatcher;
+            String blacklistHostname;
+            // go through all blacklist hostnames from host sources
+            for (Iterator<String> iterator = hostsSourcesBlacklist.iterator(); iterator.hasNext();) {
+                blacklistHostname = iterator.next();
+
+                // use all whitelist patterns on this hostname
+                for (Pattern pattern : whitelistPattern) {
+                    whitelistMatcher = pattern.matcher(blacklistHostname);
+
+                    try {
+                        if (whitelistMatcher.find()) {
+                            // remove item, because regex fits
+                            iterator.remove();
+                        }
+                    } catch (Exception e) {
+                        // workaround for some devices that throws jni exceptions: dont use
+                        // whitelist
+                        Log.e(Constants.TAG, "Error in whitelist regex processing");
+                        e.printStackTrace();
+                    }
+                }
+            }
+            Log.d(Constants.TAG, "Ending whitelist regex");
 
             // add blacklist items
             hostsSourcesBlacklist.addAll(blacklist);
