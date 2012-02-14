@@ -58,6 +58,8 @@ public class ResultHelper {
             // only show if reboot dialog is not disabled in preferences
             if (!PreferencesHelper.getNeverReboot(context)) {
                 processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
+            } else {
+                BaseActivity.updateStatus(context, title, text, StatusCodes.ENABLED);
             }
             // else show no notification and no dialog
         } else if (result == StatusCodes.UPDATE_AVAILABLE) { // used from UpdateService

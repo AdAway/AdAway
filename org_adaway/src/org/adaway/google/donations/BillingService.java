@@ -18,12 +18,15 @@ package org.adaway.google.donations;
 
 import com.android.vending.billing.IMarketBillingService;
 
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -38,6 +41,9 @@ import org.adaway.google.donations.BillingConstants.ResponseCode;
 import org.adaway.google.donations.Security.VerifiedPurchase;
 
 /**
+ * Extra fixes from here: http://code.google.com/p/marketbilling/issues/detail?id=25 to overcome:
+ * java.lang.NullPointerException at android.os.Parcel.readException(Parcel.java:1253)
+ * 
  * This class sends messages to Android Market on behalf of the application by connecting (binding)
  * to the MarketBillingService. The application creates an instance of this class and invokes
  * billing requests through this service.
@@ -190,15 +196,20 @@ public class BillingService extends Service implements ServiceConnection {
         @Override
         protected long run() throws RemoteException {
             Bundle request = makeRequestBundle("CHECK_BILLING_SUPPORTED");
-            Bundle response = mService.sendBillingRequest(request);
-            int responseCode = response.getInt(BillingConstants.BILLING_RESPONSE_RESPONSE_CODE);
-            if (BillingConstants.DEBUG) {
-                Log.i(TAG,
-                        "CheckBillingSupported response code: "
-                                + ResponseCode.valueOf(responseCode));
+            try {
+                Bundle response = mService.sendBillingRequest(request);
+                int responseCode = response.getInt(BillingConstants.BILLING_RESPONSE_RESPONSE_CODE);
+                if (BillingConstants.DEBUG) {
+                    Log.i(TAG,
+                            "CheckBillingSupported response code: "
+                                    + ResponseCode.valueOf(responseCode));
+                }
+                boolean billingSupported = (responseCode == ResponseCode.RESULT_OK.ordinal());
+                ResponseHandler.checkBillingSupportedResponse(billingSupported);
+            } catch (NullPointerException e) {
+                initialiseMarket();
             }
-            boolean billingSupported = (responseCode == ResponseCode.RESULT_OK.ordinal());
-            ResponseHandler.checkBillingSupportedResponse(billingSupported);
+
             return BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID;
         }
     }
@@ -229,20 +240,27 @@ public class BillingService extends Service implements ServiceConnection {
             request.putString(BillingConstants.BILLING_REQUEST_ITEM_ID, mProductId);
             // Note that the developer payload is optional.
             if (mDeveloperPayload != null) {
-                request.putString(BillingConstants.BILLING_REQUEST_DEVELOPER_PAYLOAD, mDeveloperPayload);
+                request.putString(BillingConstants.BILLING_REQUEST_DEVELOPER_PAYLOAD,
+                        mDeveloperPayload);
             }
-            Bundle response = mService.sendBillingRequest(request);
-            PendingIntent pendingIntent = response
-                    .getParcelable(BillingConstants.BILLING_RESPONSE_PURCHASE_INTENT);
-            if (pendingIntent == null) {
-                Log.e(TAG, "Error with requestPurchase");
+            try {
+                Bundle response = mService.sendBillingRequest(request);
+                PendingIntent pendingIntent = response
+                        .getParcelable(BillingConstants.BILLING_RESPONSE_PURCHASE_INTENT);
+                if (pendingIntent == null) {
+                    Log.e(TAG, "Error with requestPurchase");
+                    return BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID;
+                }
+
+                Intent intent = new Intent();
+                ResponseHandler.buyPageIntentResponse(pendingIntent, intent);
+
+                return response.getLong(BillingConstants.BILLING_RESPONSE_REQUEST_ID,
+                        BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID);
+            } catch (NullPointerException e) {
+                initialiseMarket();
                 return BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID;
             }
-
-            Intent intent = new Intent();
-            ResponseHandler.buyPageIntentResponse(pendingIntent, intent);
-            return response.getLong(BillingConstants.BILLING_RESPONSE_REQUEST_ID,
-                    BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID);
         }
 
         @Override
@@ -266,10 +284,16 @@ public class BillingService extends Service implements ServiceConnection {
         protected long run() throws RemoteException {
             Bundle request = makeRequestBundle("CONFIRM_NOTIFICATIONS");
             request.putStringArray(BillingConstants.BILLING_REQUEST_NOTIFY_IDS, mNotifyIds);
-            Bundle response = mService.sendBillingRequest(request);
-            logResponseCode("confirmNotifications", response);
-            return response.getLong(BillingConstants.BILLING_RESPONSE_REQUEST_ID,
-                    BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID);
+            try {
+                Bundle response = mService.sendBillingRequest(request);
+
+                logResponseCode("confirmNotifications", response);
+                return response.getLong(BillingConstants.BILLING_RESPONSE_REQUEST_ID,
+                        BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID);
+            } catch (NullPointerException e) {
+                initialiseMarket();
+            }
+            return BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID;
         }
     }
 
@@ -292,10 +316,15 @@ public class BillingService extends Service implements ServiceConnection {
             Bundle request = makeRequestBundle("GET_PURCHASE_INFORMATION");
             request.putLong(BillingConstants.BILLING_REQUEST_NONCE, mNonce);
             request.putStringArray(BillingConstants.BILLING_REQUEST_NOTIFY_IDS, mNotifyIds);
-            Bundle response = mService.sendBillingRequest(request);
-            logResponseCode("getPurchaseInformation", response);
-            return response.getLong(BillingConstants.BILLING_RESPONSE_REQUEST_ID,
-                    BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID);
+            try {
+                Bundle response = mService.sendBillingRequest(request);
+                logResponseCode("getPurchaseInformation", response);
+                return response.getLong(BillingConstants.BILLING_RESPONSE_REQUEST_ID,
+                        BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID);
+            } catch (NullPointerException e) {
+                initialiseMarket();
+                return BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID;
+            }
         }
 
         @Override
@@ -324,10 +353,15 @@ public class BillingService extends Service implements ServiceConnection {
 
             Bundle request = makeRequestBundle("RESTORE_TRANSACTIONS");
             request.putLong(BillingConstants.BILLING_REQUEST_NONCE, mNonce);
-            Bundle response = mService.sendBillingRequest(request);
-            logResponseCode("restoreTransactions", response);
-            return response.getLong(BillingConstants.BILLING_RESPONSE_REQUEST_ID,
-                    BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID);
+            try {
+                Bundle response = mService.sendBillingRequest(request);
+                logResponseCode("restoreTransactions", response);
+                return response.getLong(BillingConstants.BILLING_RESPONSE_REQUEST_ID,
+                        BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID);
+            } catch (NullPointerException e) {
+                initialiseMarket();
+                return BillingConstants.BILLING_RESPONSE_INVALID_REQUEST_ID;
+            }
         }
 
         @Override
@@ -408,8 +442,8 @@ public class BillingService extends Service implements ServiceConnection {
             if (BillingConstants.DEBUG) {
                 Log.i(TAG, "binding to Market billing service");
             }
-            boolean bindResult = bindService(new Intent(BillingConstants.MARKET_BILLING_SERVICE_ACTION),
-                    this, // ServiceConnection.
+            boolean bindResult = bindService(new Intent(
+                    BillingConstants.MARKET_BILLING_SERVICE_ACTION), this, // ServiceConnection.
                     Context.BIND_AUTO_CREATE);
 
             if (bindResult) {
@@ -435,8 +469,8 @@ public class BillingService extends Service implements ServiceConnection {
     /**
      * Requests that the given item be offered to the user for purchase. When the purchase succeeds
      * (or is canceled) the {@link BillingReceiver} receives an intent with the action
-     * {@link BillingConstants#ACTION_NOTIFY}. Returns false if there was an error trying to connect to
-     * Android Market.
+     * {@link BillingConstants#ACTION_NOTIFY}. Returns false if there was an error trying to connect
+     * to Android Market.
      * 
      * @param productId
      *            an identifier for the item being offered for purchase
@@ -479,8 +513,8 @@ public class BillingService extends Service implements ServiceConnection {
      * Gets the purchase information. This message includes a list of notification IDs sent to us by
      * Android Market, which we include in our request. The server responds with the purchase
      * information, encoded as a JSON string, and sends that to the {@link BillingReceiver} in an
-     * intent with the action {@link BillingConstants#ACTION_PURCHASE_STATE_CHANGED}. Returns false if there
-     * was an error trying to connect to the MarketBillingService.
+     * intent with the action {@link BillingConstants#ACTION_PURCHASE_STATE_CHANGED}. Returns false
+     * if there was an error trying to connect to the MarketBillingService.
      * 
      * @param startId
      *            an identifier for the invocation instance of this service
@@ -615,5 +649,17 @@ public class BillingService extends Service implements ServiceConnection {
         } catch (IllegalArgumentException e) {
             // This might happen if the service was disconnected
         }
+    }
+
+    private void initialiseMarket() {
+        new AlertDialog.Builder(this)
+                .setTitle("Android Market")
+                .setNeutralButton("Open Market!", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://search"));
+                        startActivity(intent);
+                    }
+                }).setMessage("Android Market not initialised. Please accept EULA and restart.")
+                .show();
     }
 }
