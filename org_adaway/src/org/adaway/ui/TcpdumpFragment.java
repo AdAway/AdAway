@@ -21,10 +21,10 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.OpenHelper;
 import org.adaway.util.TcpdumpUtils;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -76,7 +76,7 @@ public class TcpdumpFragment extends Fragment {
     }
 
     public void tcpdumpOpenOnClick(View view) {
-        OpenHelper.openTcpdumpLog(mActivity);
+        startActivity(new Intent(mActivity, TcpdumpLogActivity.class));
     }
 
     public void tcpdumpDeleteOnClick(View view) {

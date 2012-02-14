@@ -2,8 +2,9 @@ Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
 1.25
-* Updated translations
+* Better tcpdump integration
 * Wildcard characters * and ? can be used in your whitelist
+* Updated translations
 - Fixes stuck on applying hopefully
 
 1.24

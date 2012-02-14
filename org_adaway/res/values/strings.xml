@@ -155,7 +155,8 @@
     <string name="no_tcpdump">Your Rom does not contain a tcpdump binary.</string>
     <string name="no_tcpdump_title">No Tcpdump binary!</string>
     <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
-    <string name="toast_tcpdump_log_not_existing">Log file is not existing!</string>
+    <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
+    <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
     <string name="pref_download">General Preferences</string>
     <string name="pref_hosts">Hosts File</string>
     <string name="pref_redirection_ip">Redirection IP</string>
@@ -190,5 +191,9 @@
     <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
     <string name="pref_redirection_rules">Allow redirections</string>
     <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
+    <string name="tcpdump_log_context_blacklist">Add to your Blacklist</string>
+    <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
+    <string name="tcpdump_log_empty">Log file is empty!</string>
+    <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
 
 </resources>

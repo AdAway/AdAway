@@ -55,11 +55,19 @@ public class RegexUtils {
     private static Pattern mIPv6Pattern;
     private static Matcher mIPv6Matcher;
 
+    /*
+     * To find hostname in DNS log
+     */
+    static final private String TCPDUMP_HOSTNAME_REGEX = "(A\\?|AAAA\\?)\\s(\\S+)\\.\\s";
+    private static Pattern mTcpdumpHostnamePattern;
+    private static Matcher mTcpdumpHostnameMatcher;
+
     static {
         mHostnamePattern = Pattern.compile(HOSTNAME_REGEX);
         mWhitelistHostnamePattern = Pattern.compile(WHITELIST_HOSTNAME_REGEX);
         mIPv4Pattern = Pattern.compile(IPV4_REGEX);
         mIPv6Pattern = Pattern.compile(IPV6_REGEX, Pattern.CASE_INSENSITIVE);
+        mTcpdumpHostnamePattern = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
     }
 
     /**
@@ -152,6 +160,31 @@ public class RegexUtils {
         Log.d(Constants.TAG, "isvalidipv6: " + isValidIPv6(input));
 
         return (isValidIPv4(input) || isValidIPv6(input));
+    }
+
+    /**
+     * Gets hostname out of tcpdump log line
+     * 
+     * @param input
+     *            one line from dns log
+     * @return
+     */
+    static public String getTcpdumpHostname(String input) {
+        mTcpdumpHostnameMatcher = mTcpdumpHostnamePattern.matcher(input);
+
+        try {
+            if (mTcpdumpHostnameMatcher.find()) {
+                return mTcpdumpHostnameMatcher.group(2);
+            } else {
+                Log.d(Constants.TAG, "Does not find: " + input);
+                return null;
+            }
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Error in getTcpdumpHostname");
+            e.printStackTrace();
+            // workaround for some devices that throws jni exceptions: just accept everything
+            return null;
+        }
     }
 
     // public static void main(String[] args) {

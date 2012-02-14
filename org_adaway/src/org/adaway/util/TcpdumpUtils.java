@@ -49,8 +49,15 @@ public class TcpdumpUtils {
             try {
                 String cachePath = activity.getCacheDir().getCanonicalPath();
 
+                // "-i any": listen on any network interface
+                // "-p": disable promiscuous mode (doesn't work anyway)
+                // "-l": Make stdout line buffered. Useful if you want to see the data while
+                // capturing it.
+                // "-v": verbose
+                // "-t": don't print a timestamp
+                // "-s 0": capture first 512 bit of packet to get DNS content
                 String command = Constants.TCPDUMP_EXECUTEABLE
-                        + " -v -t -s512 'udp dst port 53' >> " + cachePath
+                        + " -i any -p -l -v -t -s 512 'udp dst port 53' >> " + cachePath
                         + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
 
                 RootTools.sendShell(command);

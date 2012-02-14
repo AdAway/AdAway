@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:installLocation="auto"
     package="org.adaway"
-    android:versionCode="25"
-    android:versionName="1.24" >
+    android:versionCode="26"
+    android:versionName="1.25" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -67,6 +67,9 @@
             android:label="@string/menu_preferences" />
         <activity
             android:name=".ui.TcpdumpActivity"
+            android:label="@string/menu_tcpdump" />
+        <activity
+            android:name=".ui.TcpdumpLogActivity"
             android:label="@string/menu_tcpdump" />
         <activity
             android:name=".ui.HelpActivity"

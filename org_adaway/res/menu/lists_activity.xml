@@ -4,11 +4,12 @@
     <item
         android:id="@+id/menu_import"
         android:icon="@drawable/ic_menu_add"
-        android:title="@string/menu_import"></item>
-
+        android:title="@string/menu_import">
+    </item>
     <item
         android:id="@+id/menu_export"
         android:icon="@drawable/ic_menu_database"
-        android:title="@string/menu_export"></item>
+        android:title="@string/menu_export">
+    </item>
 
 </menu>

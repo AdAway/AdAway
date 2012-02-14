@@ -27,7 +27,7 @@
   <string name="about_version">Version:</string>
   <string name="about_developer">Entwickler: Dominik Schürmann</string>
   <string name="about_icons">Einige Icons entstammen aus den Icon-Paketen \'Dropbox Emblems Tango by Charles A.\' und \'www.androidicons.com\', beide unter der Creative Commons Attribution 3.0 Unported Lizenz lizensiert.</string>
-  <string name="about_libs">AdAway benutzt \'RootTools\' (Lizenz: GPL v2) Bibliothek für den Root-Zugriff und \'ActionBarSherlock\' (Lizenz: Apache 2.0) um eine ActionBar für Android &amp;lt; 3.0 darzustellen.</string>
+  <string name="about_libs">AdAway benutzt \'RootTools\' (Lizenz: GPL v2) als Bibliothek für den Root-Zugriff und \'ActionBarSherlock\' (Lizenz: Apache 2.0) um eine ActionBar für Android &lt; 3.0 darzustellen.</string>
   <string name="apply_fail">Das Ändern der hosts-Datei auf Deinem System ist fehlgeschlagen!\nVersuch die hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
   <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
   <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>

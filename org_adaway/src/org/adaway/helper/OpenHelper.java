@@ -20,9 +20,6 @@
 
 package org.adaway.helper;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.adaway.R;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -35,7 +32,6 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.widget.Toast;
 
 public class OpenHelper {
 
@@ -50,26 +46,6 @@ public class OpenHelper {
             Log.e(Constants.TAG, "System partition could not be remounted as rw!");
         } else {
             openFile(activity, Constants.ANDROID_SYSTEM_ETC_HOSTS);
-        }
-    }
-
-    public static void openTcpdumpLog(final Activity activity) {
-        try {
-            String cachePath = activity.getCacheDir().getCanonicalPath();
-            String filePath = cachePath + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG;
-
-            File file = new File(filePath);
-            if (file.exists()) {
-                openFile(activity, filePath);
-            } else {
-                Toast toast = Toast.makeText(activity, R.string.toast_tcpdump_log_not_existing,
-                        Toast.LENGTH_SHORT);
-                toast.show();
-                Log.e(Constants.TAG, "Tcpdump log is not existing!");
-            }
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Can not get cache dir: " + e);
-            e.printStackTrace();
         }
     }
 

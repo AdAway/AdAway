@@ -362,10 +362,4 @@ public class HostsSourcesFragment extends ListFragment implements
         // longer using it.
         mAdapter.swapCursor(null);
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true); // enable options menu for this fragment
-    }
 }
