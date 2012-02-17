@@ -57,6 +57,8 @@ public class BaseActivity extends FragmentActivity {
     public static final String EXTRA_UPDATE_STATUS_TITLE = "org.adaway.UPDATE_STATUS.TITLE";
     public static final String EXTRA_UPDATE_STATUS_TEXT = "org.adaway.UPDATE_STATUS.TEXT";
     public static final String EXTRA_UPDATE_STATUS_ICON = "org.adaway.UPDATE_STATUS.ICON";
+    static final String ACTION_BUTTONS = "org.adaway.BUTTONS";
+    public static final String EXTRA_BUTTONS_ENABLED = "org.adaway.BUTTONS.ENABLED";
 
     BaseFragment mBaseFragment;
     WebserverFragment mWebserverFragment;
@@ -117,6 +119,7 @@ public class BaseActivity extends FragmentActivity {
         // We are going to watch for broadcasts with status updates
         IntentFilter filter = new IntentFilter();
         filter.addAction(ACTION_UPDATE_STATUS);
+        filter.addAction(ACTION_BUTTONS);
         mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -136,6 +139,16 @@ public class BaseActivity extends FragmentActivity {
                         }
                     }
                 }
+                if (intent.getAction().equals(ACTION_BUTTONS)) {
+                    if (extras != null) {
+                        if (extras.containsKey(EXTRA_BUTTONS_ENABLED)) {
+
+                            boolean buttonsEnabled = extras.getBoolean(EXTRA_BUTTONS_ENABLED);
+
+                            mBaseFragment.setButtonsEnabled(buttonsEnabled);
+                        }
+                    }
+                }
             }
         };
         mLocalBroadcastManager.registerReceiver(mReceiver, filter);
@@ -145,19 +158,19 @@ public class BaseActivity extends FragmentActivity {
 
         // check for root
         if (Utils.isAndroidRooted(mActivity)) {
-            // do background update check
-            // do only if not disabled in preferences
-            if (PreferencesHelper.getUpdateCheck(mActivity)) {
-                Intent updateIntent = new Intent(mActivity, UpdateService.class);
-                updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, false);
-                WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
-            } else {
-                // check if hosts file is applied
-                if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                    BaseActivity.updateStatusEnabled(mActivity);
+            // check if hosts file is applied
+            if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                // do background update check
+                // do only if not disabled in preferences
+                if (PreferencesHelper.getUpdateCheck(mActivity)) {
+                    Intent updateIntent = new Intent(mActivity, UpdateService.class);
+                    updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, false);
+                    WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
                 } else {
-                    BaseActivity.updateStatusDisabled(mActivity);
+                    BaseActivity.updateStatusEnabled(mActivity);
                 }
+            } else {
+                BaseActivity.updateStatusDisabled(mActivity);
             }
 
             // schedule CheckUpdateService
@@ -175,7 +188,7 @@ public class BaseActivity extends FragmentActivity {
      *            Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
      *            StatusCodes
      */
-    public static void updateStatus(Context context, String title, String text, int iconStatus) {
+    public static void setStatusBroadcast(Context context, String title, String text, int iconStatus) {
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
 
         Intent intent = new Intent(ACTION_UPDATE_STATUS);
@@ -186,12 +199,27 @@ public class BaseActivity extends FragmentActivity {
     }
 
     /**
+     * Static helper method to send broadcasts to the BaseActivity and enable or disable buttons
+     * 
+     * @param context
+     * @param buttonsEnabled
+     *            to enable buttons apply and revert
+     */
+    public static void setButtonsBroadcast(Context context, boolean buttonsEnabled) {
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
+
+        Intent intent = new Intent(ACTION_BUTTONS);
+        intent.putExtra(EXTRA_BUTTONS_ENABLED, buttonsEnabled);
+        localBroadcastManager.sendBroadcast(intent);
+    }
+
+    /**
      * Wrapper to set status to enabled
      * 
      * @param context
      */
     public static void updateStatusEnabled(Context context) {
-        updateStatus(context, context.getString(R.string.status_enabled),
+        setStatusBroadcast(context, context.getString(R.string.status_enabled),
                 context.getString(R.string.status_enabled_subtitle), StatusCodes.ENABLED);
     }
 
@@ -201,7 +229,7 @@ public class BaseActivity extends FragmentActivity {
      * @param context
      */
     public static void updateStatusDisabled(Context context) {
-        updateStatus(context, context.getString(R.string.status_disabled),
+        setStatusBroadcast(context, context.getString(R.string.status_disabled),
                 context.getString(R.string.status_disabled_subtitle), StatusCodes.DISABLED);
     }
 

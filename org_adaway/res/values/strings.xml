@@ -19,7 +19,6 @@
     <string name="menu_preferences">Preferences</string>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
-    <string name="revert_question">Do you really want to revert?</string>
     <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
     <string name="button_revert">Disable ad blocking</string>
     <string name="apply_success">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
@@ -69,6 +68,8 @@
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>
     <string name="status_checking">Checking for update...</string>
+    <string name="status_reverting">Reverting...</string>
+    <string name="status_reverting_subtitle">Creating standard hosts file</string>
     <string name="status_checking_subtitle">Checking if update is available</string>
     <string name="status_update_available">Update available</string>
     <string name="status_update_available_subtitle">Newer hosts files available</string>

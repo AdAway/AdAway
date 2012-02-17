@@ -1,6 +1,9 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.26
+* Usability improvements: Buttons will now be disabled while applying, reverting is improved
+
 1.25
 * Better tcpdump integration
 * Wildcard characters * and ? can be used in your whitelist

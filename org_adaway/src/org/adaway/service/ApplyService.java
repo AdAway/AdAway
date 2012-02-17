@@ -91,6 +91,9 @@ public class ApplyService extends WakefulIntentService {
      */
     @Override
     public void doWakefulWork(Intent intent) {
+        // disable buttons
+        BaseActivity.setButtonsBroadcast(mService, false);
+
         // download files with download method
         int downloadResult = download();
         Log.d(Constants.TAG, "Download result: " + downloadResult);
@@ -100,15 +103,21 @@ public class ApplyService extends WakefulIntentService {
             int applyResult = apply();
 
             cancelApplyNotification();
+            // enable buttons
+            BaseActivity.setButtonsBroadcast(mService, true);
             Log.d(Constants.TAG, "Apply result: " + applyResult);
 
             ResultHelper.showNotificationBasedOnResult(mService, applyResult, null);
         } else if (downloadResult == StatusCodes.DOWNLOAD_FAIL) {
             cancelApplyNotification();
+            // enable buttons
+            BaseActivity.setButtonsBroadcast(mService, true);
             // extra information is current url, to show it when it fails
             ResultHelper.showNotificationBasedOnResult(mService, downloadResult, mCurrentUrl);
         } else {
             cancelApplyNotification();
+            // enable buttons
+            BaseActivity.setButtonsBroadcast(mService, true);
             ResultHelper.showNotificationBasedOnResult(mService, downloadResult, null);
         }
     }
@@ -533,7 +542,7 @@ public class ApplyService extends WakefulIntentService {
         mNotificationManager.notify(APPLY_NOTIFICATION_ID, mApplyNotification);
 
         // update status in BaseActivity with Broadcast
-        BaseActivity.updateStatus(mService, contentTitle, contentText, StatusCodes.CHECKING);
+        BaseActivity.setStatusBroadcast(mService, contentTitle, contentText, StatusCodes.CHECKING);
     }
 
     private void updateApplyNotification(Context context, String contentTitle, String contentText) {
@@ -552,7 +561,7 @@ public class ApplyService extends WakefulIntentService {
         mNotificationManager.notify(APPLY_NOTIFICATION_ID, mApplyNotification);
 
         // update status in BaseActivity with Broadcast
-        BaseActivity.updateStatus(mService, contentTitle, contentText, StatusCodes.CHECKING);
+        BaseActivity.setStatusBroadcast(mService, contentTitle, contentText, StatusCodes.CHECKING);
     }
 
     private void cancelApplyNotification() {

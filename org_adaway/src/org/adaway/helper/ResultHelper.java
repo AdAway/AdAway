@@ -59,7 +59,7 @@ public class ResultHelper {
             if (!PreferencesHelper.getNeverReboot(context)) {
                 processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
             } else {
-                BaseActivity.updateStatus(context, title, text, StatusCodes.ENABLED);
+                BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
             }
             // else show no notification and no dialog
         } else if (result == StatusCodes.UPDATE_AVAILABLE) { // used from UpdateService
@@ -145,7 +145,7 @@ public class ResultHelper {
             String title = context.getString(R.string.status_update_available);
             String text = context.getString(R.string.status_update_available_subtitle);
 
-            BaseActivity.updateStatus(context, title, text, StatusCodes.UPDATE_AVAILABLE);
+            BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.UPDATE_AVAILABLE);
         } else if (result == StatusCodes.SYMLINK_MISSING) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(R.string.apply_symlink_missing_title);
@@ -195,7 +195,7 @@ public class ResultHelper {
                 text = context.getString(R.string.no_connection);
                 statusText = context.getString(R.string.status_no_connection_subtitle);
 
-                BaseActivity.updateStatus(context, title, statusText, StatusCodes.DOWNLOAD_FAIL);
+                BaseActivity.setStatusBroadcast(context, title, statusText, StatusCodes.DOWNLOAD_FAIL);
                 break;
             case StatusCodes.DOWNLOAD_FAIL:
                 title = context.getString(R.string.download_fail_title);
@@ -207,7 +207,7 @@ public class ResultHelper {
                 statusText = context.getString(R.string.status_download_fail_subtitle) + " "
                         + failingUrl;
 
-                BaseActivity.updateStatus(context, title, statusText, StatusCodes.DOWNLOAD_FAIL);
+                BaseActivity.setStatusBroadcast(context, title, statusText, StatusCodes.DOWNLOAD_FAIL);
                 break;
             case StatusCodes.EMPTY_HOSTS_SOURCES:
                 title = context.getString(R.string.no_sources_title);
@@ -288,9 +288,9 @@ public class ResultHelper {
         }
 
         if (failingUrl != null) {
-            BaseActivity.updateStatus(context, title, statusText + " " + failingUrl, iconStatus);
+            BaseActivity.setStatusBroadcast(context, title, statusText + " " + failingUrl, iconStatus);
         } else {
-            BaseActivity.updateStatus(context, title, statusText, iconStatus);
+            BaseActivity.setStatusBroadcast(context, title, statusText, iconStatus);
         }
     }
 

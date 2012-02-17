@@ -100,6 +100,7 @@
         </receiver>
 
         <service android:name=".service.ApplyService" />
+        <service android:name=".service.RevertService" />
 
         <!-- - Google Android Market donations -->
         <service android:name=".google.donations.BillingService" />

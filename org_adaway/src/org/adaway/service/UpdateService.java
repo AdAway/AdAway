@@ -97,7 +97,7 @@ public class UpdateService extends WakefulIntentService {
             showUpdateNotification();
         }
 
-        BaseActivity.updateStatus(mService, mService.getString(R.string.status_checking),
+        BaseActivity.setStatusBroadcast(mService, mService.getString(R.string.status_checking),
                 mService.getString(R.string.status_checking_subtitle), StatusCodes.CHECKING);
 
         int result = checkForUpdates();

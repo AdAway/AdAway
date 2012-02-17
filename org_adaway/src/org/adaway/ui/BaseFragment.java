@@ -21,9 +21,9 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.RevertHelper;
 import org.adaway.helper.OpenHelper;
 import org.adaway.service.ApplyService;
+import org.adaway.service.RevertService;
 import org.adaway.service.UpdateService;
 import org.adaway.util.StatusCodes;
 
@@ -39,6 +39,7 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -50,6 +51,8 @@ public class BaseFragment extends Fragment {
     private TextView mStatusText;
     private ProgressBar mStatusProgress;
     private ImageView mStatusIcon;
+    private Button mApplyButton;
+    private Button mRevertButton;
 
     /**
      * Set status icon based on StatusCodes
@@ -104,6 +107,11 @@ public class BaseFragment extends Fragment {
         setStatusIcon(iconStatus);
     }
 
+    public void setButtonsEnabled(boolean buttonsEnabled) {
+        mApplyButton.setEnabled(buttonsEnabled);
+        mRevertButton.setEnabled(buttonsEnabled);
+    }
+
     /**
      * Inflate Menu
      */
@@ -131,7 +139,7 @@ public class BaseFragment extends Fragment {
         case R.id.menu_show_hosts_file:
             OpenHelper.openHostsFile(mActivity);
             return true;
-            
+
         case R.id.menu_tcpdump:
             startActivity(new Intent(mActivity, TcpdumpActivity.class));
             return true;
@@ -184,6 +192,8 @@ public class BaseFragment extends Fragment {
         mStatusText = (TextView) mActivity.findViewById(R.id.status_text);
         mStatusProgress = (ProgressBar) mActivity.findViewById(R.id.status_progress);
         mStatusIcon = (ImageView) mActivity.findViewById(R.id.status_icon);
+        mApplyButton = (Button) mActivity.findViewById(R.id.apply_button);
+        mRevertButton = (Button) mActivity.findViewById(R.id.revert_button);
     }
 
     @Override
@@ -207,7 +217,7 @@ public class BaseFragment extends Fragment {
      * @param view
      */
     public void revertOnClick(View view) {
-        RevertHelper.revert(mActivity);
+        WakefulIntentService.sendWakefulWork(mActivity, RevertService.class);
     }
 
 }
