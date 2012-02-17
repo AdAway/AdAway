@@ -107,9 +107,6 @@ public class TcpdumpUtils {
                         Toast.LENGTH_SHORT);
                 toast.show();
             } else {
-                Toast toast = Toast.makeText(context, R.string.toast_tcpdump_log_not_existing,
-                        Toast.LENGTH_SHORT);
-                toast.show();
                 Log.e(Constants.TAG, "Tcpdump log is not existing!");
             }
         } catch (IOException e) {
