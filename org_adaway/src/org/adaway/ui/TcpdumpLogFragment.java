@@ -29,6 +29,8 @@ import org.adaway.util.Log;
 import org.adaway.util.TcpdumpLogLoader;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.MenuItem;
@@ -87,6 +89,11 @@ public class TcpdumpLogFragment extends ListFragment implements
             Toast toastWhitelist = Toast.makeText(mActivity,
                     R.string.toast_tcpdump_added_to_whitelist, Toast.LENGTH_SHORT);
             toastWhitelist.show();
+            return true;
+        case R.id.tcpdump_log_context_browser:
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse("http://" + hostname));
+            startActivity(i);
             return true;
         default:
             return super.onContextItemSelected(item);
