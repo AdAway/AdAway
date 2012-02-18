@@ -29,14 +29,14 @@ public class RegexUtils {
     /*
      * Allow hostnames like: localserver example.com example.host.org
      */
-    static final private String HOSTNAME_REGEX = "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_\\.]{0,61}[a-zA-Z0-9]))$";
+    static final private String HOSTNAME_REGEX = "[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_\\.]{0,61}[a-zA-Z0-9]";
     private static Pattern mHostnamePattern;
     private static Matcher mHostnameMatcher;
 
     /*
-     * Allow also hostnames like: localserver example.com example.host.org
+     * Allow also hostnames like: localse?ver example*.com exam?le*.host.org
      */
-    static final private String WHITELIST_HOSTNAME_REGEX = "^(([a-zA-Z0-9\\*\\?]|[a-zA-Z0-9\\*\\?][a-zA-Z0-9\\-\\_\\.\\*\\?]{0,61}[a-zA-Z0-9\\*\\?]))$";
+    static final private String WHITELIST_HOSTNAME_REGEX = "[a-zA-Z0-9\\*\\?]|[a-zA-Z0-9\\*\\?][a-zA-Z0-9\\-\\_\\.\\*\\?]{0,61}[a-zA-Z0-9\\*\\?]";
     private static Pattern mWhitelistHostnamePattern;
     private static Matcher mWhitelistHostnameMatcher;
 
@@ -44,14 +44,14 @@ public class RegexUtils {
      * http://stackoverflow.com/questions/46146/what-are-the-java-regular-expressions-for-matching-ipv4
      * -and-ipv6-strings
      */
-    static final private String IPV4_REGEX = "\\A(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}\\z";
+    static final private String IPV4_REGEX = "(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}";
     private static Pattern mIPv4Pattern;
     private static Matcher mIPv4Matcher;
 
     /*
      * http://forums.dartware.com/viewtopic.php?t=452
      */
-    static final private String IPV6_REGEX = "^(((?=(?>.*?::)(?!.*::)))(::)?([0-9A-F]{1,4}::?){0,5}|([0-9A-F]{1,4}:){6})(\2([0-9A-F]{1,4}(::?|$)){0,2}|((25[0-5]|(2[0-4]|1\\d|[1-9])?\\d)(\\.|$)){4}|[0-9A-F]{1,4}:[0-9A-F]{1,4})(?<![^:]:|\\.)\\z";
+    static final private String IPV6_REGEX = "(((?=(?>.*?::)(?!.*::)))(::)?([0-9A-F]{1,4}::?){0,5}|([0-9A-F]{1,4}:){6})(\2([0-9A-F]{1,4}(::?|$)){0,2}|((25[0-5]|(2[0-4]|1\\d|[1-9])?\\d)(\\.|$)){4}|[0-9A-F]{1,4}:[0-9A-F]{1,4})(?<![^:]:|\\.)";
     private static Pattern mIPv6Pattern;
     private static Matcher mIPv6Matcher;
 
@@ -62,12 +62,23 @@ public class RegexUtils {
     private static Pattern mTcpdumpHostnamePattern;
     private static Matcher mTcpdumpHostnameMatcher;
 
+    /*
+     * Simplified expression to parse lines in hosts files from hosts sources
+     */
+    static final private String SIMPLE_IPV6_REGEX = "[0-9A-F\\:]+";
+
+    static final private String HOSTS_PARESER = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
+            + SIMPLE_IPV6_REGEX + ")|(?:" + Constants.WHITELIST_ENTRY + "))\\s+("
+            + HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
+    public static Pattern hostsParserPattern;
+
     static {
         mHostnamePattern = Pattern.compile(HOSTNAME_REGEX);
         mWhitelistHostnamePattern = Pattern.compile(WHITELIST_HOSTNAME_REGEX);
         mIPv4Pattern = Pattern.compile(IPV4_REGEX);
         mIPv6Pattern = Pattern.compile(IPV6_REGEX, Pattern.CASE_INSENSITIVE);
         mTcpdumpHostnamePattern = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
+        hostsParserPattern = Pattern.compile(HOSTS_PARESER, Pattern.CASE_INSENSITIVE);
     }
 
     /**
@@ -91,7 +102,7 @@ public class RegexUtils {
         mHostnameMatcher = mHostnamePattern.matcher(input);
 
         try {
-            return mHostnameMatcher.find();
+            return mHostnameMatcher.matches();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidHostname");
             e.printStackTrace();
@@ -110,7 +121,7 @@ public class RegexUtils {
         mWhitelistHostnameMatcher = mWhitelistHostnamePattern.matcher(input);
 
         try {
-            return mWhitelistHostnameMatcher.find();
+            return mWhitelistHostnameMatcher.matches();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidHostname");
             e.printStackTrace();
@@ -126,7 +137,7 @@ public class RegexUtils {
         mIPv4Matcher = mIPv4Pattern.matcher(input);
 
         try {
-            return mIPv4Matcher.find();
+            return mIPv4Matcher.matches();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidIPv4");
             e.printStackTrace();
@@ -142,7 +153,7 @@ public class RegexUtils {
         mIPv6Matcher = mIPv6Pattern.matcher(input);
 
         try {
-            return mIPv6Matcher.find();
+            return mIPv6Matcher.matches();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidIPv6");
             e.printStackTrace();
@@ -187,39 +198,9 @@ public class RegexUtils {
         }
     }
 
-    // public static void main(String[] args) {
-    // String test = "123ABC";
-    // System.out.println(test);
-    // System.out.println(Pattern.matches(wildcardToRegex("1*"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("?2*"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("??2*"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("*A*"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("*Z*"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("123*"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("123"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("*ABC"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("*abc"), test));
-    // System.out.println(Pattern.matches(wildcardToRegex("ABC*"), test));
-    // /*
-    // output :
-    // 123ABC
-    // true
-    // true
-    // false
-    // true
-    // false
-    // true
-    // false
-    // true
-    // false
-    // false
-    // */
-    //
-    // }
-
     /*
-     * from http://www.rgagnon.com/javadetails/java-0515.html, convert example*.* to regex:
-     * ^example.*\\..*$
+     * Transforms String with * and ? characters to regex String, convert "example*.*" to regex
+     * "^example.*\\..*$", from http://www.rgagnon.com/javadetails/java-0515.html
      */
     public static String wildcardToRegex(String wildcard) {
         StringBuffer s = new StringBuffer(wildcard.length());
@@ -233,7 +214,7 @@ public class RegexUtils {
             case '?':
                 s.append(".");
                 break;
-            // escape special regexp-characters
+            // escape special regex-characters
             case '(':
             case ')':
             case '[':
