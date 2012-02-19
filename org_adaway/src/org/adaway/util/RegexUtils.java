@@ -65,12 +65,17 @@ public class RegexUtils {
     /*
      * Simplified expression to parse lines in hosts files from hosts sources
      */
-    static final private String SIMPLE_IPV6_REGEX = "[0-9A-F\\:]+";
+    static final private String SIMPLE_IPV6_REGEX = "[0-9A-F\\:\\.]+";
 
-    static final private String HOSTS_PARESER = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
-            + SIMPLE_IPV6_REGEX + ")|(?:" + Constants.WHITELIST_ENTRY + "))\\s+("
-            + HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
+    static final private String HOSTS_PARSER = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
+            + SIMPLE_IPV6_REGEX + "))\\s+(" + HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
     public static Pattern hostsParserPattern;
+
+    // with whitelist entries for import function
+    static final private String HOSTS_PARSER_WHITELIST_IMPORT = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
+            + SIMPLE_IPV6_REGEX + ")|(?:" + Constants.WHITELIST_ENTRY + "))\\s+("
+            + WHITELIST_HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
+    public static Pattern hostsParserWhitelistImportPattern;
 
     static {
         mHostnamePattern = Pattern.compile(HOSTNAME_REGEX);
@@ -78,7 +83,9 @@ public class RegexUtils {
         mIPv4Pattern = Pattern.compile(IPV4_REGEX);
         mIPv6Pattern = Pattern.compile(IPV6_REGEX, Pattern.CASE_INSENSITIVE);
         mTcpdumpHostnamePattern = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
-        hostsParserPattern = Pattern.compile(HOSTS_PARESER, Pattern.CASE_INSENSITIVE);
+        hostsParserPattern = Pattern.compile(HOSTS_PARSER, Pattern.CASE_INSENSITIVE);
+        hostsParserWhitelistImportPattern = Pattern.compile(HOSTS_PARSER_WHITELIST_IMPORT,
+                Pattern.CASE_INSENSITIVE);
     }
 
     /**

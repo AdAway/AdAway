@@ -272,7 +272,7 @@ public class ApplyService extends WakefulIntentService {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-            HostsParser parser = new HostsParser(reader);
+            HostsParser parser = new HostsParser(reader, false);
             HashSet<String> hostsSourcesBlacklist = parser.getBlacklist();
 
             HashMap<String, String> hostsSourcesRedirectionList = new HashMap<String, String>();

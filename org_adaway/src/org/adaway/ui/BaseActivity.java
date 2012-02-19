@@ -153,9 +153,6 @@ public class BaseActivity extends FragmentActivity {
         };
         mLocalBroadcastManager.registerReceiver(mReceiver, filter);
 
-        // Initial Status
-        BaseActivity.updateStatusDisabled(mActivity);
-
         // check for root
         if (Utils.isAndroidRooted(mActivity)) {
             // check if hosts file is applied

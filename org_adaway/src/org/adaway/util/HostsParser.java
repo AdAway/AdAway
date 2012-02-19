@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.adaway.util.Log;
 
@@ -33,9 +34,13 @@ public class HostsParser {
     private HashSet<String> mWhitelist;
     private HashMap<String, String> mRedirectionList;
 
-    private static Matcher mHostsParserMatcher;
+    private Matcher mHostsParserMatcher;
+    private Pattern mHostsParserPattern;
 
-    public HostsParser(BufferedReader input) throws IOException {
+    private boolean mWhitelistImport;
+
+    public HostsParser(BufferedReader input, boolean whitelistImport) throws IOException {
+        mWhitelistImport = whitelistImport;
         parse(input);
     }
 
@@ -65,8 +70,14 @@ public class HostsParser {
         mWhitelist = new HashSet<String>();
         mRedirectionList = new HashMap<String, String>();
 
+        // use whitelist import pattern
+        if (mWhitelistImport) {
+            mHostsParserPattern = RegexUtils.hostsParserWhitelistImportPattern;
+        } else {
+            mHostsParserPattern = RegexUtils.hostsParserPattern;
+        }
         while ((nextLine = reader.readLine()) != null) {
-            mHostsParserMatcher = RegexUtils.hostsParserPattern.matcher(nextLine);
+            mHostsParserMatcher = mHostsParserPattern.matcher(nextLine);
 
             // try {
             if (mHostsParserMatcher.matches()) {
@@ -80,13 +91,10 @@ public class HostsParser {
                 // check if ip is 127.0.0.1 or 0.0.0.0
                 if (currentIp.equals(Constants.LOCALHOST_IPv4)
                         || currentIp.equals(Constants.BOGUS_IPv4)) {
-                    // check syntax of hostname
                     mBlacklist.add(currentHostname);
                 } else if (currentIp.equals(Constants.WHITELIST_ENTRY)) {
-                    // is whitelist entry
                     mWhitelist.add(currentHostname);
                 } else {
-                    // is redirection entry
                     mRedirectionList.put(currentHostname, currentIp);
                 }
             } else {

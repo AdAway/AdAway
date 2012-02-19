@@ -131,7 +131,7 @@ public class ImportExportHelper {
                         InputStream is = context.getContentResolver().openInputStream(result);
                         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
-                        HostsParser parser = new HostsParser(reader);
+                        HostsParser parser = new HostsParser(reader, true);
                         blacklist = parser.getBlacklist();
                         whitelist = parser.getWhitelist();
                         redirectionList = parser.getRedirectionList();
