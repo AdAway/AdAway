@@ -50,4 +50,8 @@
 
     <item name="pref_webserver_version_def" format="integer" type="string">0</item>
 
+    <string name="pref_tcpdump_version_key">tcpdumpVersion</string>
+
+    <item name="pref_tcpdump_version_def" format="integer" type="string">0</item>
+
 </resources>

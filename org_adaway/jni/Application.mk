@@ -7,5 +7,5 @@ APP_ABI := armeabi
 
 # If APP_MODULES is not set, all modules are compiled!
 APP_MODULES := blank_webserver
+APP_MODULES += tcpdump
 #APP_MODULES += dnsmasq
-#APP_MODULES += tcpdump

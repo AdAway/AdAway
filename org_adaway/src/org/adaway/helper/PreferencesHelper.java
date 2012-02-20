@@ -119,4 +119,19 @@ public class PreferencesHelper {
         editor.putInt(context.getString(R.string.pref_webserver_version_key), value);
         editor.commit();
     }
+
+    public static int getTcpdumpVersion(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getInt(context.getString(R.string.pref_tcpdump_version_key),
+                Integer.parseInt(context.getString(R.string.pref_tcpdump_version_def)));
+    }
+
+    public static void setTcpdumpVersion(Context context, int value) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(context.getString(R.string.pref_tcpdump_version_key), value);
+        editor.commit();
+    }
 }

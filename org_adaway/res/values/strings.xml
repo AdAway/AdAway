@@ -11,7 +11,7 @@
     <string name="download_dialog">Downloading...</string>
     <string name="menu_hosts_sources">Hosts sources</string>
     <string name="menu_about">About</string>
-    <string name="menu_tcpdump">Tcpdump</string>
+    <string name="menu_tcpdump">Log DNS Requests</string>
     <string name="apply_dialog">Applying...</string>
     <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
     <string name="apply_dialog_hosts">Building hosts file</string>
@@ -153,8 +153,6 @@
     <string name="button_tcpdump_toggle_unchecked">Tcpdump is not running!</string>
     <string name="button_tcpdump_open">Open log file</string>
     <string name="button_tcpdump_delete">Delete log file</string>
-    <string name="no_tcpdump">Your Rom does not contain a tcpdump binary.</string>
-    <string name="no_tcpdump_title">No Tcpdump binary!</string>
     <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
     <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
     <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>

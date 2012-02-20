@@ -24,11 +24,9 @@ import java.io.File;
 import java.io.IOException;
 
 import org.adaway.R;
+import org.adaway.helper.PreferencesHelper;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.widget.Toast;
 
 import com.stericson.RootTools.RootTools;
@@ -36,55 +34,107 @@ import com.stericson.RootTools.RootTools;
 public class TcpdumpUtils {
 
     /**
+     * Update Tcpdump
+     * 
+     * @param context
+     */
+    public static void updateTcpdump(Context context) {
+        // update mechanism
+        int oldVersion = PreferencesHelper.getTcpdumpVersion(context);
+
+        if (oldVersion < Constants.TCPDUMP_VERSION) {
+            Log.i(Constants.TAG, "Updating tcpdump binary from " + oldVersion + " to "
+                    + Constants.TCPDUMP_VERSION);
+
+            removeTcpdump(context);
+            installTcpdump(context);
+            PreferencesHelper.setTcpdumpVersion(context, Constants.TCPDUMP_VERSION);
+        } else {
+            installTcpdump(context);
+        }
+    }
+
+    /**
+     * Install Tcpdump in /data/data/org.adaway/files if not already there
+     * 
+     * @param context
+     */
+    public static void installTcpdump(Context context) {
+        if (RootTools.installBinary(context, R.raw.tcpdump, Constants.TCPDUMP_EXECUTEABLE, "777")) {
+            Log.i(Constants.TAG, "Installed tcpdump if not already existing.");
+        } else {
+            Log.e(Constants.TAG, "Tcpdump could not be installed.");
+        }
+    }
+
+    /**
+     * Remove Tcpdump, to reinstall it on update
+     * 
+     * @param context
+     */
+    public static void removeTcpdump(Context context) {
+        try {
+            String filesPath = context.getFilesDir().getCanonicalPath();
+
+            String command = Constants.COMMAND_RM + " " + filesPath + Constants.FILE_SEPERATOR
+                    + Constants.TCPDUMP_EXECUTEABLE;
+
+            RootTools.sendShell(command);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem while removing tcpdump: " + e);
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Start Tcpdump with RootTools
      * 
-     * @param activity
+     * @param context
      * @return returns true if starting worked
      */
-    public static boolean startTcpdump(final Activity activity) {
+    public static boolean startTcpdump(final Context context) {
         Log.d(Constants.TAG, "Starting tcpdump...");
 
-        // If rom contains tcpdump...
-        if (RootTools.findBinary(Constants.TCPDUMP_EXECUTEABLE)) {
-            try {
-                String cachePath = activity.getCacheDir().getCanonicalPath();
+        try {
+            String cachePath = context.getCacheDir().getCanonicalPath();
+            // "-i any": listen on any network interface
+            // "-p": disable promiscuous mode (doesn't work anyway)
+            // "-l": Make stdout line buffered. Useful if you want to see the data while
+            // capturing it.
+            // "-v": verbose
+            // "-t": don't print a timestamp
+            // "-s 0": capture first 512 bit of packet to get DNS content
+            String parameters = " -i any -p -l -v -t -s 512 'udp dst port 53' >> " + cachePath
+                    + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
 
-                // "-i any": listen on any network interface
-                // "-p": disable promiscuous mode (doesn't work anyway)
-                // "-l": Make stdout line buffered. Useful if you want to see the data while
-                // capturing it.
-                // "-v": verbose
-                // "-t": don't print a timestamp
-                // "-s 0": capture first 512 bit of packet to get DNS content
-                String command = Constants.TCPDUMP_EXECUTEABLE
-                        + " -i any -p -l -v -t -s 512 'udp dst port 53' >> " + cachePath
-                        + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
+            // If rom contains tcpdump...
+            if (!RootTools.findBinary(Constants.TCPDUMP_EXECUTEABLE)) {
+                Log.i(Constants.TAG, "Rom cotains tcpdump, using this one...");
 
-                RootTools.sendShell(command);
+                try {
+                    String command = Constants.TCPDUMP_EXECUTEABLE + parameters;
+                    RootTools.sendShell(command);
+
+                    return true;
+                } catch (Exception e) {
+                    Log.e(Constants.TAG, "Problem while starting tcpdump: " + e);
+                    e.printStackTrace();
+
+                    return false;
+                }
+            } else {
+                Log.i(Constants.TAG,
+                        "Rom does NOT cotain tcpdump, installing tcpdump in files dir...");
+
+                updateTcpdump(context);
+                RootTools.runBinary(context, Constants.TCPDUMP_EXECUTEABLE, parameters);
 
                 return true;
-            } catch (Exception e) {
-                Log.e(Constants.TAG, "Problem while starting tcpdump: " + e);
-                e.printStackTrace();
-
-                return false;
             }
-        } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-            builder.setIcon(android.R.drawable.ic_dialog_alert);
-            builder.setTitle(R.string.no_tcpdump_title);
-            builder.setMessage(R.string.no_tcpdump);
 
-            builder.setNeutralButton(activity.getResources().getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-
-            AlertDialog alert = builder.create();
-            alert.show();
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "Problem while getting cache directory: " + e);
+            e.printStackTrace();
 
             return false;
         }
