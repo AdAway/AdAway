@@ -108,7 +108,7 @@ public class TcpdumpUtils {
                     + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
 
             // If rom contains tcpdump...
-            if (!RootTools.findBinary(Constants.TCPDUMP_EXECUTEABLE)) {
+            if (RootTools.findBinary(Constants.TCPDUMP_EXECUTEABLE)) {
                 Log.i(Constants.TAG, "Rom cotains tcpdump, using this one...");
 
                 try {

@@ -189,5 +189,5 @@
   <string name="tcpdump_log_context_whitelist">Zur Whitelist hinzufügen</string>
   <string name="tcpdump_log_context_browser">Im Browser öffnen</string>
   <string name="tcpdump_log_empty">Log-Datei ist leer!</string>
-  <string name="tcpdump_log_footer">Halte einen Eintrag lange gedrückt um den Hostname zu deiner Black- oder Whitelist hinzuzufügen!</string>
+  <string name="tcpdump_log_footer">Halte einen Eintrag lange gedrückt um ihn zu deiner Black- oder Whitelist hinzuzufügen!</string>
 </resources>

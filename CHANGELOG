@@ -4,6 +4,7 @@ http://code.google.com/p/ad-away/issues
 1.26
 * Usability improvements: Buttons will now be disabled while applying, reverting is improved
 * Faster due to improved hosts parsing
+* Now including tcpdump
 
 1.25
 * Better tcpdump integration
