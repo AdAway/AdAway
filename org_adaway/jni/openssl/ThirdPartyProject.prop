@@ -1,0 +1,10 @@
+# Copyright 2010 Google Inc. All Rights Reserved.
+#Fri Jul 16 10:03:09 PDT 2010
+currentVersion=1.0.0a
+version=1.0.0a
+isNative=true
+feedurl=http\://www.openssl.org/
+name=openssl
+keywords=openssl
+onDevice=true
+homepage=http\://www.openssl.org/
