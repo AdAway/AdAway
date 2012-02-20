@@ -8,5 +8,9 @@ tcpdump: https://github.com/CyanogenMod/android_external_tcpdump
 tcpdump/Android.mk changed:
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/missing\
-	$(LOCAL_PATH)/../openssl/include\
 	$(LOCAL_PATH)/../libpcap
+
+# disabled crypo libs, not needed in AdAway
+#	$(LOCAL_PATH)/../openssl/include\
+
+#LOCAL_SHARED_LIBRARIES += libssl libcrypto

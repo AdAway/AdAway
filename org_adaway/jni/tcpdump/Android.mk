@@ -124,10 +124,12 @@ LOCAL_CFLAGS += -DHAVE_CONFIG_H -D_U_="__attribute__((unused))"
 
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/missing\
-	$(LOCAL_PATH)/../openssl/include\
 	$(LOCAL_PATH)/../libpcap
 
-LOCAL_SHARED_LIBRARIES += libssl libcrypto
+# disabled crypo libs, not needed in AdAway
+#	$(LOCAL_PATH)/../openssl/include\
+
+#LOCAL_SHARED_LIBRARIES += libssl libcrypto
 
 LOCAL_STATIC_LIBRARIES += libpcap
 

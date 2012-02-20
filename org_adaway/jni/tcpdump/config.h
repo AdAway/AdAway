@@ -114,7 +114,7 @@
 /* #undef PRIu64 */
 
 /* Whether or not to include the possibly-buggy SMB printer */
-#define TCPDUMP_DO_SMB 1
+/* #undef TCPDUMP_DO_SMB */
 
 /* Long story short: aclocal.m4 depends on autoconf 2.13
  * implementation details wrt "const"; newer versions
@@ -162,7 +162,7 @@
 #define HAVE_INTTYPES_H 1
 
 /* Define to 1 if you have the `crypto' library (-lcrypto). */
-#define HAVE_LIBCRYPTO 1
+/* #undef HAVE_LIBCRYPTO */
 
 /* Define to 1 if you have the `rpc' library (-lrpc). */
 /* #undef HAVE_LIBRPC */
@@ -186,7 +186,7 @@
 /* #undef HAVE_NET_PFVAR_H */
 
 /* Define to 1 if you have the <openssl/evp.h> header file. */
-#define HAVE_OPENSSL_EVP_H 1
+/* #undef HAVE_OPENSSL_EVP_H */
 
 /* Define to 1 if you have the `pcap_breakloop' function. */
 #define HAVE_PCAP_BREAKLOOP 1
