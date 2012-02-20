@@ -1,0 +1,192 @@
+#  Copyright (c) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997
+# 	The Regents of the University of California.  All rights reserved.
+#
+#  Redistribution and use in source and binary forms, with or without
+#  modification, are permitted provided that: (1) source code distributions
+#  retain the above copyright notice and this paragraph in its entirety, (2)
+#  distributions including binary code include the above copyright notice and
+#  this paragraph in its entirety in the documentation or other materials
+#  provided with the distribution, and (3) all advertising materials mentioning
+#  features or use of this software display the following acknowledgement:
+#  ``This product includes software developed by the University of California,
+#  Lawrence Berkeley Laboratory and its contributors.'' Neither the name of
+#  the University nor the names of its contributors may be used to endorse
+#  or promote products derived from this software without specific prior
+#  written permission.
+#  THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+#
+# @(#) $Header: /tcpdump/master/tcpdump/Makefile.in,v 1.293.2.7 2007/09/12 19:48:50 guy Exp $ (LBL)
+
+#
+# Various configurable paths (remember to edit Makefile.in, not Makefile)
+#
+
+# Top level hierarchy
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+# Pathname of directory to install the binary
+sbindir = @sbindir@
+# Pathname of directory to install the man page
+mandir = @mandir@
+
+# VPATH
+srcdir = @srcdir@
+VPATH = @srcdir@
+
+#
+# You shouldn't need to edit anything below here.
+#
+
+CC = @CC@
+PROG = tcpdump
+CCOPT = @V_CCOPT@
+INCLS = -I. @V_INCLS@
+DEFS = @DEFS@ @CPPFLAGS@ @V_DEFS@
+
+# Standard CFLAGS
+CFLAGS = $(CCOPT) $(DEFS) $(INCLS)
+
+# Standard LDFLAGS
+LDFLAGS = @LDFLAGS@
+
+# Standard LIBS
+LIBS = @LIBS@
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+INSTALL_DATA = @INSTALL_DATA@
+
+# Explicitly define compilation rule since SunOS 4's make doesn't like gcc.
+# Also, gcc does not remove the .o before forking 'as', which can be a
+# problem if you don't own the file but can write to the directory.
+.c.o:
+	@rm -f $@
+	$(CC) $(CFLAGS) -c $(srcdir)/$*.c
+
+CSRC =	addrtoname.c af.c cpack.c gmpls.c oui.c gmt2local.c ipproto.c \
+        nlpid.c l2vpn.c machdep.c parsenfsfh.c \
+	print-802_11.c print-ap1394.c print-ah.c print-arcnet.c \
+	print-aodv.c print-arp.c print-ascii.c print-atalk.c print-atm.c \
+	print-beep.c print-bfd.c print-bgp.c print-bootp.c print-cdp.c \
+	print-chdlc.c print-cip.c print-cnfp.c print-dccp.c print-decnet.c \
+	print-domain.c print-dvmrp.c print-enc.c print-egp.c \
+	print-eap.c print-eigrp.c\
+	print-esp.c print-ether.c print-fddi.c print-fr.c \
+	print-gre.c print-hsrp.c print-icmp.c print-igmp.c \
+	print-igrp.c print-ip.c print-ipcomp.c print-ipfc.c \
+	print-ipx.c print-isakmp.c print-isoclns.c print-juniper.c print-krb.c \
+	print-l2tp.c print-lane.c print-ldp.c print-llc.c \
+        print-lmp.c print-lspping.c \
+	print-lwres.c print-mobile.c print-mpls.c print-msdp.c \
+	print-nfs.c print-ntp.c print-null.c print-olsr.c print-ospf.c \
+	print-pgm.c print-pim.c print-ppp.c print-pppoe.c \
+	print-pptp.c print-radius.c print-raw.c print-rip.c \
+	print-rsvp.c print-rx.c print-sctp.c print-sip.c print-sl.c print-sll.c \
+	print-slow.c print-snmp.c print-stp.c print-sunatm.c print-sunrpc.c \
+	print-symantec.c print-syslog.c print-tcp.c print-telnet.c print-tftp.c \
+	print-timed.c print-token.c print-udp.c print-vjc.c print-vrrp.c \
+	print-wb.c print-zephyr.c setsignal.c tcpdump.c util.c
+
+LOCALSRC = @LOCALSRC@
+GENSRC = version.c
+LIBOBJS = @LIBOBJS@
+
+SRC =	$(CSRC) $(GENSRC) $(LOCALSRC)
+
+# We would like to say "OBJ = $(SRC:.c=.o)" but Ultrix's make cannot
+# hack the extra indirection
+OBJ =	$(CSRC:.c=.o) $(GENSRC:.c=.o) $(LOCALSRC:.c=.o) $(LIBOBJS)
+HDR =   addrtoname.h appletalk.h bootp.h cpack.h dccp.h decnet.h \
+	ethertype.h extract.h fddi.h gmt2local.h igrp.h interface.h \
+	ipx.h llc.h machdep.h mib.h nfsfh.h nfsv2.h ntp.h ospf.h \
+	setsignal.h \
+	gnuc.h ipsec_doi.h isakmp.h l2tp.h nameser.h \
+	netbios.h oakley.h ospf6.h pf.h ppp.h route6d.h
+
+TAGHDR = \
+	/usr/include/arpa/tftp.h \
+	/usr/include/net/if_arp.h \
+	/usr/include/net/slip.h \
+	/usr/include/netinet/if_ether.h \
+	/usr/include/netinet/in.h \
+	/usr/include/netinet/ip_icmp.h \
+	/usr/include/netinet/tcp.h \
+	/usr/include/netinet/udp.h \
+	/usr/include/protocols/routed.h
+
+TAGFILES = $(SRC) $(HDR) $(TAGHDR)
+
+CLEANFILES = $(PROG) $(OBJ) $(GENSRC)
+
+all: $(PROG)
+
+$(PROG): $(OBJ) @V_PCAPDEP@
+	@rm -f $@
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJ) $(LIBS)
+
+datalinks.o: $(srcdir)/missing/datalinks.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/datalinks.c
+dlnames.o: $(srcdir)/missing/dlnames.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/dlnames.c
+getnameinfo.o: $(srcdir)/missing/getnameinfo.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/getnameinfo.c
+getaddrinfo.o: $(srcdir)/missing/getaddrinfo.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/getaddrinfo.c
+inet_pton.o: $(srcdir)/missing/inet_pton.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/inet_pton.c
+inet_ntop.o: $(srcdir)/missing/inet_ntop.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/inet_ntop.c
+inet_aton.o: $(srcdir)/missing/inet_aton.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/inet_aton.c
+snprintf.o: $(srcdir)/missing/snprintf.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/snprintf.c
+strlcat.o: $(srcdir)/missing/strlcat.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/strlcat.c
+strlcpy.o: $(srcdir)/missing/strlcpy.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/strlcpy.c
+strsep.o: $(srcdir)/missing/strsep.c
+	$(CC) $(CFLAGS) -o $@ -c $(srcdir)/missing/strsep.c
+
+version.o: version.c
+	$(CC) $(CFLAGS) -c version.c
+
+version.c: $(srcdir)/VERSION
+	@rm -f $@
+	sed -e 's/.*/char version[] = "&";/' $(srcdir)/VERSION > $@
+
+install:
+	[ -d $(DESTDIR)$(sbindir) ] || \
+	    (mkdir -p $(DESTDIR)$(sbindir); chmod 755 $(DESTDIR)$(sbindir))
+	$(INSTALL_PROGRAM) $(PROG) $(DESTDIR)$(sbindir)/$(PROG)
+	[ -d $(DESTDIR)$(mandir)/man1 ] || \
+	    (mkdir -p $(DESTDIR)$(mandir)/man1; chmod 755 $(DESTDIR)$(mandir)/man1)
+	$(INSTALL_DATA) $(srcdir)/$(PROG).1 $(DESTDIR)$(mandir)/man1/$(PROG).1
+
+uninstall:
+	rm -f $(DESTDIR)$(sbindir)/$(PROG)
+	rm -f $(DESTDIR)$(mandir)/man1/$(PROG).1
+
+lint: $(GENSRC)
+	lint -hbxn $(SRC) | \
+	    grep -v 'struct/union .* never defined' | \
+	    grep -v 'possible pointer alignment problem'
+
+clean:
+	rm -f $(CLEANFILES)
+
+distclean:
+	rm -f $(CLEANFILES) Makefile config.cache config.log config.status \
+	    config.h gnuc.h os-proto.h stamp-h stamp-h.in
+
+tags: $(TAGFILES)
+	ctags -wtd $(TAGFILES)
+
+releasetar:
+	@cwd=`pwd` ; dir=`basename $$cwd` ; name=$(PROG)-`cat VERSION` ; \
+	   list="" ; make distclean; cd ..; mkdir -p n; cd n; ln -s ../$$dir $$name; \
+	   tar -c -z -f $$name.tar.gz $$name/. ;
+
+depend: $(GENSRC)
+	${srcdir}/mkdep -c $(CC) $(DEFS) $(INCLS) $(SRC)

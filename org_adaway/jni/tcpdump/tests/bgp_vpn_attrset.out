@@ -1,0 +1,18 @@
+IP (tos 0xc0, ttl  62, id 58628, offset 0, flags [none], proto: TCP (6), length: 173) 12.4.4.4.2051 > 12.1.1.1.179: P, cksum 0xcf18 (correct), 3293077573:3293077694(121) ack 3348108582 win 16384 <nop,nop,timestamp 383131 890299>: BGP, length: 121
+	Update Message (2), length: 121
+	  Origin (1), length: 1, Flags [T]: IGP
+	  AS Path (2), length: 0, Flags [T]: empty
+	  Local Preference (5), length: 4, Flags [T]: 100
+	  Extended Community (16), length: 8, Flags [OT]: 
+	    target (0x0002), Flags [none]: 300:0.0.1.44
+	  Attribute Set (128), length: 36, Flags [OT]: 
+	    Origin AS: 65001
+	      Origin (1), length: 1, Flags [T]: IGP
+	      AS Path (2), length: 4, Flags [T]: 5555 
+	      Local Preference (5), length: 4, Flags [T]: 44
+	      Originator ID (9), length: 4, Flags [O]: 22.5.5.5
+	      Cluster List (10), length: 4, Flags [O]: 22.5.5.5
+	  Multi-Protocol Reach NLRI (14), length: 30, Flags [OE]: 
+	    AFI: IPv4 (1), SAFI: labeled VPN Unicast (128)
+	    nexthop: RD: 0:0.0.0.0, 12.4.4.4, nh-length: 12, no SNPA
+	      RD: 500:0.0.1.244, 133.0.0.0/8, label:100208 (bottom)

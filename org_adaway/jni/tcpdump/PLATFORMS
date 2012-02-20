@@ -1,0 +1,9 @@
+== Tested platforms ==
+NetBSD 		1.5/i386	(mcr - 2002/1/1)	
+Debian Linux (woody/i386)	(mcr - 2002/1/1)
+
+---
+RedHat Linux 	6.1/i386	(assar)
+FreeBSD		2.2.8/i386	(itojun)
+
+

@@ -1,0 +1,995 @@
+dnl @(#) $Header: /tcpdump/master/tcpdump/configure.in,v 1.188.2.8 2007/09/12 19:48:50 guy Exp $ (LBL)
+dnl
+dnl Copyright (c) 1994, 1995, 1996, 1997
+dnl	The Regents of the University of California.  All rights reserved.
+dnl
+dnl Process this file with autoconf to produce a configure script.
+dnl
+
+AC_REVISION($Revision: 1.188.2.8 $)
+AC_PREREQ(2.50)
+AC_INIT(tcpdump.c)
+
+AC_CANONICAL_HOST
+
+AC_LBL_C_INIT(V_CCOPT, V_INCLS)
+AC_LBL_C_INLINE
+AC_C___ATTRIBUTE__
+AC_CHECK_HEADERS(fcntl.h rpc/rpcent.h netdnet/dnetdb.h)
+AC_CHECK_HEADERS(net/pfvar.h, , , [#include <sys/types.h>
+#include <sys/socket.h>
+#include <net/if.h>])
+if test "$ac_cv_header_net_pfvar_h" == yes; then
+	LOCALSRC="print-pflog.c $LOCALSRC"
+fi
+AC_CHECK_HEADERS(netinet/if_ether.h, , , [#include <sys/types.h>
+#include <sys/socket.h>])
+if test "$ac_cv_header_netinet_if_ether_h" != yes; then
+	#
+	# The simple test didn't work.
+	# Do we need to include <net/if.h> first?
+	# Unset ac_cv_header_netinet_if_ether_h so we don't
+	# treat the previous failure as a cached value and
+	# suppress the next test.
+	#
+	AC_MSG_NOTICE([Rechecking with some additional includes])
+	unset ac_cv_header_netinet_if_ether_h
+	AC_CHECK_HEADERS(netinet/if_ether.h, , , [#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+struct mbuf;
+struct rtentry;
+#include <net/if.h>])
+fi
+
+AC_HEADER_TIME
+
+case "$host_os" in
+
+linux*)
+	AC_MSG_CHECKING(Linux kernel version)
+ 	if test "$cross_compiling" = yes; then
+ 		AC_CACHE_VAL(ac_cv_linux_vers,
+ 		    ac_cv_linux_vers=unknown)
+ 	else
+ 		AC_CACHE_VAL(ac_cv_linux_vers,
+ 		    ac_cv_linux_vers=`uname -r 2>&1 | \
+ 			sed -n -e '$s/.* //' -e '$s/\..*//p'`)
+ 	fi
+	AC_MSG_RESULT($ac_cv_linux_vers)
+ 	if test $ac_cv_linux_vers = unknown ; then
+ 		AC_MSG_ERROR(cannot determine linux version when cross-compiling)
+ 	fi
+	if test $ac_cv_linux_vers -lt 2 ; then
+		AC_MSG_ERROR(version 2 or higher required; see the INSTALL doc for more info)
+	fi
+	;;
+
+*)
+	;;
+esac
+
+
+AC_CHECK_HEADERS(smi.h)
+AC_CHECK_LIB(smi, smiInit)
+if test "$ac_cv_header_smi_h" = yes -a "$ac_cv_lib_smi_smiInit" = yes
+then
+AC_MSG_CHECKING([whether to enable libsmi])
+        AC_TRY_RUN([ /* libsmi available check */
+#include <smi.h>
+main()
+{
+  int current, revision, age, n;
+  const int required = 2;
+  if (smiInit("")) 
+    exit(1);
+  if (strcmp(SMI_LIBRARY_VERSION, smi_library_version))
+    exit(2);
+  n = sscanf(smi_library_version, "%d:%d:%d", &current, &revision, &age);
+  if (n != 3)
+    exit(3);
+  if (required < current - age || required > current)
+    exit(4);
+  exit(0);
+}
+],
+[ AC_MSG_RESULT(yes)
+  AC_DEFINE(LIBSMI)
+  libsmi=yes],
+dnl autoconf documentation says that $? contains the exit value.
+dnl reality is that it does not.  We leave this in just in case
+dnl autoconf ever comes back to match the documentation.
+[ case $? in
+  1) AC_MSG_RESULT(no - smiInit failed) ;;
+  2) AC_MSG_RESULT(no - header/library version mismatch) ;;
+  3) AC_MSG_RESULT(no - can't determine library version) ;;
+  4) AC_MSG_RESULT(no - too old) ;;
+  *) AC_MSG_RESULT(no) ;;
+  esac
+  libsmi=no],
+[ AC_MSG_RESULT(not when cross-compiling)
+  libsmi=no]
+)
+fi
+
+AC_MSG_CHECKING([whether to enable the possibly-buggy SMB printer])
+AC_ARG_ENABLE(smb,
+[  --enable-smb            enable possibly-buggy SMB printer [default=yes]
+  --disable-smb           disable possibly-buggy SMB printer],,
+   enableval=yes)
+case "$enableval" in
+yes)	AC_MSG_RESULT(yes)
+	AC_WARN([The SMB printer may have exploitable buffer overflows!!!])
+	AC_DEFINE(TCPDUMP_DO_SMB)
+	LOCALSRC="print-smb.c smbutil.c $LOCALSRC"
+	;;
+*)	AC_MSG_RESULT(no)
+	;;
+esac
+
+AC_ARG_WITH(user, [  --with-user=USERNAME    drop privileges by default to USERNAME])
+AC_MSG_CHECKING([whether to drop root privileges by default])
+if test ! -z "$with_user" ; then
+        AC_DEFINE_UNQUOTED(WITH_USER, "$withval")
+       AC_MSG_RESULT(to \"$withval\")
+else
+       AC_MSG_RESULT(no)
+fi
+
+AC_ARG_WITH(chroot, [  --with-chroot=DIRECTORY when dropping privileges, chroot to DIRECTORY])
+AC_MSG_CHECKING([whether to chroot])
+if test ! -z "$with_chroot" ; then
+        AC_DEFINE_UNQUOTED(WITH_CHROOT, "$withval")
+       AC_MSG_RESULT(to \"$withval\")
+else
+       AC_MSG_RESULT(no)
+fi
+
+AC_MSG_CHECKING([whether to enable ipv6])
+AC_ARG_ENABLE(ipv6,
+[  --enable-ipv6           enable ipv6 (with ipv4) support
+  --disable-ipv6          disable ipv6 support],
+[ case "$enableval" in
+yes)   AC_MSG_RESULT(yes)
+       LOCALSRC="print-ip6.c print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c $LOCALSRC"
+       AC_DEFINE(INET6)
+       ipv6=yes
+       ;;
+*)
+       AC_MSG_RESULT(no)
+       ipv6=no
+       ;;
+  esac ],
+
+  AC_TRY_RUN([ /* AF_INET6 available check */
+#include <sys/types.h>
+#include <sys/socket.h>
+main()
+{
+ if (socket(AF_INET6, SOCK_STREAM, 0) < 0)
+   exit(1);
+ else
+   exit(0);
+}
+],
+[ AC_MSG_RESULT(yes)
+  LOCALSRC="print-ip6.c print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c $LOCALSRC"
+  AC_DEFINE(INET6)
+  ipv6=yes],
+[ AC_MSG_RESULT(no)
+  ipv6=no],
+[ AC_MSG_RESULT(no)
+  ipv6=no]
+))
+
+ipv6type=unknown
+ipv6lib=none
+ipv6trylibc=no
+
+if test "$ipv6" = "yes"; then
+	AC_MSG_CHECKING([ipv6 stack type])
+	for i in inria kame linux-glibc linux-libinet6 toshiba v6d zeta; do
+		case $i in
+		inria)
+			dnl http://www.kame.net/
+			AC_EGREP_CPP(yes,
+[#include <netinet/in.h>
+#ifdef IPV6_INRIA_VERSION
+yes
+#endif],
+				[ipv6type=$i;
+				CFLAGS="-DINET6 $CFLAGS"])
+			;;
+		kame)
+			dnl http://www.kame.net/
+			AC_EGREP_CPP(yes,
+[#include <netinet/in.h>
+#ifdef __KAME__
+yes
+#endif],
+				[ipv6type=$i;
+				ipv6lib=inet6;
+				ipv6libdir=/usr/local/v6/lib;
+				ipv6trylibc=yes;
+				CFLAGS="-DINET6 $CFLAGS"])
+			;;
+		linux-glibc)
+			dnl http://www.v6.linux.or.jp/
+			AC_EGREP_CPP(yes,
+[#include <features.h>
+#if defined(__GLIBC__) && __GLIBC__ >= 2 && __GLIBC_MINOR__ >= 1
+yes
+#endif],
+				[ipv6type=$i;
+				CFLAGS="-DINET6 $CFLAGS"])
+			;;
+		linux-libinet6)
+			dnl http://www.v6.linux.or.jp/
+			dnl
+			dnl This also matches Solaris 8 and Tru64 UNIX 5.1,
+			dnl and possibly other versions of those OSes
+			dnl
+			if test -d /usr/inet6 -o -f /usr/include/netinet/ip6.h; then
+				ipv6type=$i
+				ipv6lib=inet6
+				ipv6libdir=/usr/inet6/lib
+				ipv6trylibc=yes;
+				CFLAGS="-DINET6 -I/usr/inet6/include $CFLAGS"
+			fi
+			;;
+		toshiba)
+			AC_EGREP_CPP(yes,
+[#include <sys/param.h>
+#ifdef _TOSHIBA_INET6
+yes
+#endif],
+				[ipv6type=$i;
+				ipv6lib=inet6;
+				ipv6libdir=/usr/local/v6/lib;
+				CFLAGS="-DINET6 $CFLAGS"])
+			;;
+		v6d)
+			AC_EGREP_CPP(yes,
+[#include </usr/local/v6/include/sys/v6config.h>
+#ifdef __V6D__
+yes
+#endif],
+				[ipv6type=$i;
+				ipv6lib=v6;
+				ipv6libdir=/usr/local/v6/lib;
+				CFLAGS="-I/usr/local/v6/include $CFLAGS"])
+			;;
+		zeta)
+			AC_EGREP_CPP(yes,
+[#include <sys/param.h>
+#ifdef _ZETA_MINAMI_INET6
+yes
+#endif],
+				[ipv6type=$i;
+				ipv6lib=inet6;
+				ipv6libdir=/usr/local/v6/lib;
+				CFLAGS="-DINET6 $CFLAGS"])
+			;;
+		esac
+		if test "$ipv6type" != "unknown"; then
+			break
+		fi
+	done
+	AC_MSG_RESULT($ipv6type)
+fi
+
+if test "$ipv6" = "yes" -a "$ipv6lib" != "none"; then
+	if test -d $ipv6libdir -a -f $ipv6libdir/lib$ipv6lib.a; then
+		LIBS="-L$ipv6libdir -l$ipv6lib $LIBS"
+		echo "You have $ipv6lib library, using it"
+	else
+		if test "$ipv6trylibc" = "yes"; then
+			echo "You do not have $ipv6lib library, using libc"
+		else
+			echo 'Fatal: no $ipv6lib library found.  cannot continue.'
+			echo "You need to fetch lib$ipv6lib.a from appropriate"
+			echo 'ipv6 kit and compile beforehand.'
+			exit 1
+		fi
+	fi
+fi
+
+
+if test "$ipv6" = "yes"; then
+	#
+	# XXX - on Tru64 UNIX 5.1, there is no "getaddrinfo()"
+	# function in libc; there are "ngetaddrinfo()" and
+	# "ogetaddrinfo()" functions, and <netdb.h> #defines
+	# "getaddrinfo" to be either "ngetaddrinfo" or
+	# "ogetaddrinfo", depending on whether _SOCKADDR_LEN
+	# or _XOPEN_SOURCE_EXTENDED are defined or not.
+	#
+	# So this test doesn't work on Tru64 5.1, and possibly
+	# on other 5.x releases.  This causes the configure
+	# script to become confused, and results in libpcap
+	# being unbuildable.
+	#
+	AC_SEARCH_LIBS(getaddrinfo, socket, [dnl
+	AC_MSG_CHECKING(getaddrinfo bug)
+	AC_CACHE_VAL(td_cv_buggygetaddrinfo, [AC_TRY_RUN([
+#include <sys/types.h>
+#include <netdb.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+main()
+{
+  int passive, gaierr, inet4 = 0, inet6 = 0;
+  struct addrinfo hints, *ai, *aitop;
+  char straddr[INET6_ADDRSTRLEN], strport[16];
+
+  for (passive = 0; passive <= 1; passive++) {
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_UNSPEC;
+    hints.ai_flags = passive ? AI_PASSIVE : 0;
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_protocol = IPPROTO_TCP;
+    if ((gaierr = getaddrinfo(NULL, "54321", &hints, &aitop)) != 0) {
+      (void)gai_strerror(gaierr);
+      goto bad;
+    }
+    for (ai = aitop; ai; ai = ai->ai_next) {
+      if (ai->ai_addr == NULL ||
+          ai->ai_addrlen == 0 ||
+          getnameinfo(ai->ai_addr, ai->ai_addrlen,
+                      straddr, sizeof(straddr), strport, sizeof(strport),
+                      NI_NUMERICHOST|NI_NUMERICSERV) != 0) {
+        goto bad;
+      }
+      switch (ai->ai_family) {
+      case AF_INET:
+        if (strcmp(strport, "54321") != 0) {
+          goto bad;
+        }
+        if (passive) {
+          if (strcmp(straddr, "0.0.0.0") != 0) {
+            goto bad;
+          }
+        } else {
+          if (strcmp(straddr, "127.0.0.1") != 0) {
+            goto bad;
+          }
+        }
+        inet4++;
+        break;
+      case AF_INET6:
+        if (strcmp(strport, "54321") != 0) {
+          goto bad;
+        }
+        if (passive) {
+          if (strcmp(straddr, "::") != 0) {
+            goto bad;
+          }
+        } else {
+          if (strcmp(straddr, "::1") != 0) {
+            goto bad;
+          }
+        }
+        inet6++;
+        break;
+      case AF_UNSPEC:
+        goto bad;
+        break;
+#ifdef AF_UNIX
+      case AF_UNIX:
+#else
+#ifdef AF_LOCAL
+      case AF_LOCAL:
+#endif
+#endif
+      default:
+        /* another family support? */
+        break;
+      }
+    }
+  }
+
+  /* supported family should be 2, unsupported family should be 0 */
+  if (!(inet4 == 0 || inet4 == 2))
+    goto bad;
+  if (!(inet6 == 0 || inet6 == 2))
+    goto bad;
+
+  if (aitop)
+    freeaddrinfo(aitop);
+  exit(0);
+
+ bad:
+  if (aitop)
+    freeaddrinfo(aitop);
+  exit(1);
+}
+],
+	td_cv_buggygetaddrinfo=no,
+	td_cv_buggygetaddrinfo=yes,
+	td_cv_buggygetaddrinfo=yes)])
+	if test "$td_cv_buggygetaddrinfo" = no; then
+		AC_MSG_RESULT(good)
+	else
+		AC_MSG_RESULT(buggy)
+	fi
+
+	if test "$td_cv_buggygetaddrinfo" = "yes"; then
+		#
+		# XXX - it doesn't appear that "ipv6type" can ever be
+		# set to "linux".  Should this be testing for
+		# "linux-glibc", or for that *or* "linux-libinet6"?
+		# If the latter, note that "linux-libinet6" is also
+		# the type given to some non-Linux OSes.
+		#
+		if test "$ipv6type" != "linux"; then
+			echo 'Fatal: You must get working getaddrinfo() function.'
+			echo '       or you can specify "--disable-ipv6"'.
+			exit 1
+		else
+			echo 'Warning: getaddrinfo() implementation on your system seems be buggy.'
+			echo '         Better upgrade your system library to newest version'
+			echo '         of GNU C library (aka glibc).'
+		fi
+	fi
+	])
+	AC_REPLACE_FUNCS(getaddrinfo getnameinfo)
+fi
+
+AC_CACHE_CHECK([for dnet_htoa declaration in netdnet/dnetdb.h],
+[td_cv_decl_netdnet_dnetdb_h_dnet_htoa],
+[AC_EGREP_HEADER(dnet_htoa, netdnet/dnetdb.h,
+	td_cv_decl_netdnet_dnetdb_h_dnet_htoa=yes,
+	td_cv_decl_netdnet_dnetdb_h_dnet_htoa=no)])
+if test "$td_cv_decl_netdnet_dnetdb_h_dnet_htoa" = yes; then
+	AC_DEFINE(HAVE_NETDNET_DNETDB_H_DNET_HTOA)
+fi
+
+dnl
+dnl check sizeof basic types.
+dnl They're very likely to be wrong for cross-compiling.
+AC_CHECK_SIZEOF(char, 1)
+AC_CHECK_SIZEOF(short, 2)
+AC_CHECK_SIZEOF(int, 4)
+AC_CHECK_SIZEOF(long, 4)
+AC_CHECK_SIZEOF(long long, 8)
+
+dnl
+dnl Checks for u_intXX_t
+dnl AC_CHECK_BITTYPES(ac_cv_bittypes)
+dnl if test "$ac_cv_bittypes" = no; then
+dnl 	missing_includes=yes
+dnl fi
+
+dnl
+dnl Checks for addrinfo structure
+AC_STRUCT_ADDRINFO(ac_cv_addrinfo)
+if test "$ac_cv_addrinfo" = no; then
+	missing_includes=yes
+fi
+
+dnl
+dnl Checks for NI_MAXSERV
+AC_NI_MAXSERV(ac_cv_maxserv)
+if test "$ac_cv_maxserv" = no; then
+	missing_includes=yes
+fi
+
+dnl
+dnl Checks for NI_NAMEREQD
+AC_NI_NAMEREQD(ac_cv_namereqd)
+if test "$ac_cv_namereqd" = no; then
+	missing_includes=yes
+fi
+
+dnl
+dnl Checks for sockaddr_storage structure
+AC_STRUCT_SA_STORAGE(ac_cv_sa_storage)
+if test "$ac_cv_sa_storage" = no; then
+	missing_includes=yes
+fi
+
+dnl
+dnl Checks for IN[6]ADDRSZ
+AC_CHECK_ADDRSZ(ac_cv_addrsz)
+if test "$ac_cv_addrsz" = no; then
+	missing_includes=yes
+fi
+
+dnl
+dnl Checks for RES_USE_INET6
+AC_CHECK_RES_USE_INET6(ac_cv_res_inet6)
+if test "$ac_cv_res_inet6" = no; then
+	missing_includes=yes
+fi
+
+dnl
+dnl Checks for res_state_ext structure
+AC_STRUCT_RES_STATE_EXT(ac_cv_res_state_ext)
+if test "$ac_cv_res_state_ext" = no; then
+	missing_includes=yes
+fi
+
+dnl
+dnl Checks if res_state structure has nsort member.
+AC_STRUCT_RES_STATE(ac_cv_res_state)
+
+
+AC_REPLACE_FUNCS(vfprintf strcasecmp strlcat strlcpy strdup strsep)
+AC_CHECK_FUNCS(strftime)
+AC_CHECK_FUNCS(setlinebuf alarm)
+
+needsnprintf=no
+AC_CHECK_FUNCS(vsnprintf snprintf,,
+	[needsnprintf=yes])
+if test $needsnprintf = yes; then
+	AC_LIBOBJ(snprintf)
+fi
+
+AC_LBL_TYPE_SIGNAL
+
+AC_SEARCH_LIBS(dnet_htoa, dnet, AC_DEFINE(HAVE_DNET_HTOA))
+
+AC_CHECK_LIB(rpc, main)		dnl It's unclear why we might need -lrpc
+
+dnl Some platforms may need -lnsl for getrpcbynumber.
+AC_SEARCH_LIBS(getrpcbynumber, nsl, AC_DEFINE(HAVE_GETRPCBYNUMBER))
+
+dnl AC_CHECK_LIB(z, uncompress)
+dnl AC_CHECK_HEADERS(zlib.h)
+
+AC_LBL_LIBPCAP(V_PCAPDEP, V_INCLS)
+
+#
+# Check for these after AC_LBL_LIBPCAP, so we link with the appropriate
+# libraries (e.g., "-lsocket -lnsl" on Solaris).
+#
+# We don't use AC_REPLACE_FUNCS because that uses AC_CHECK_FUNCS which
+# use AC_CHECK_FUNC which doesn't let us specify the right #includes
+# to make this work on BSD/OS 4.x.  BSD/OS 4.x ships with the BIND8
+# resolver, and the way it defines inet_{ntop,pton} is rather strange;
+# it does not ship with a libc symbol "inet_ntop()", it ships with
+# "_inet_ntop()", and has a #define macro in one of the system headers
+# to rename it.
+#
+dnl AC_TRY_COMPILE(inet_ntop inet_pton inet_aton)
+AC_MSG_CHECKING(for inet_ntop)
+AC_TRY_LINK([#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>], [char src[4], dst[128];
+inet_ntop(AF_INET, src, dst, sizeof(dst));],
+	[AC_MSG_RESULT(yes)], [AC_MSG_RESULT(no)
+	AC_LIBOBJ(inet_ntop)])
+AC_MSG_CHECKING(for inet_pton)
+AC_TRY_LINK([#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>], [char src[128], dst[4];
+inet_pton(AF_INET, src, dst);],
+	[AC_MSG_RESULT(yes)], [AC_MSG_RESULT(no)
+	AC_LIBOBJ(inet_pton)])
+AC_MSG_CHECKING(for inet_aton)
+AC_TRY_LINK([#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>], [char src[128];
+struct in_addr dst;
+inet_aton(src, &dst);],
+	[AC_MSG_RESULT(yes)], [AC_MSG_RESULT(no)
+	AC_LIBOBJ(inet_aton)])
+
+#
+# Check for these after AC_LBL_LIBPCAP, for the same reason.
+#
+# You are in a twisty little maze of UN*Xes, all different.
+# Some might not have ether_ntohost().
+# Some might have it, but not declare it in any header file.
+# Some might have it, but declare it in <netinet/if_ether.h>.
+# Some might have it, but declare it in <netinet/ether.h>
+# (And some might have it but document it as something declared in
+# <netinet/ethernet.h>, although <netinet/if_ether.h> appears to work.)
+#
+# Before you is a C compiler.
+#
+AC_CHECK_FUNCS(ether_ntohost, [
+    AC_CACHE_CHECK(for buggy ether_ntohost, ac_cv_buggy_ether_ntohost, [
+	AC_TRY_RUN([
+		#include <netdb.h>
+		#include <sys/types.h>
+		#include <sys/param.h>
+		#include <sys/socket.h>
+
+		int
+		main(int argc, char **argv)
+		{
+			u_char ea[6] = { 0xff, 0xff, 0xff, 0xff, 0xff };
+			char name[MAXHOSTNAMELEN];
+
+			ether_ntohost(name, (struct ether_addr *)ea);
+			exit(0);
+		}
+	], [ac_cv_buggy_ether_ntohost=no],
+	   [ac_cv_buggy_ether_ntohost=yes],
+	   [ac_cv_buggy_ether_ntohost="not while cross-compiling"])])
+    if test "$ac_cv_buggy_ether_ntohost" = "no"; then
+	AC_DEFINE(USE_ETHER_NTOHOST)
+    fi
+])
+if test "$ac_cv_func_ether_ntohost" = yes -a \
+    "$ac_cv_buggy_ether_ntohost" = "no"; then
+	#
+	# OK, we have ether_ntohost().  Do we have <netinet/if_ether.h>?
+	#
+	if test "$ac_cv_header_netinet_if_ether_h" = yes; then
+		#
+		# Yes.  Does it declare ether_ntohost()?
+		#
+		AC_CHECK_DECL(ether_ntohost,
+		    [
+			AC_DEFINE(NETINET_IF_ETHER_H_DECLARES_ETHER_NTOHOST,,
+			    [Define to 1 if netinet/if_ether.h declares `ether_ntohost'])
+		    ],,
+		    [
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+struct mbuf;
+struct rtentry;
+#include <net/if.h>
+#include <netinet/if_ether.h>
+		    ])
+	fi
+	#
+	# Did that succeed?
+	#
+	if test "$ac_cv_have_decl_ether_ntohost" != yes; then
+		#
+		# No, how about <netinet/ether.h>, as on Linux?
+		#
+		AC_CHECK_HEADERS(netinet/ether.h)
+		if test "$ac_cv_header_netinet_ether_h" = yes; then
+			#
+			# We have it - does it declare ether_ntohost()?
+			# Unset ac_cv_have_decl_ether_ntohost so we don't
+			# treat the previous failure as a cached value and
+			# suppress the next test.
+			#
+			unset ac_cv_have_decl_ether_ntohost
+			AC_CHECK_DECL(ether_ntohost,
+			    [
+				AC_DEFINE(NETINET_ETHER_H_DECLARES_ETHER_NTOHOST,,
+				    [Define to 1 if netinet/ether.h declares `ether_ntohost'])
+			    ],,
+			    [
+#include <netinet/ether.h>
+			    ])
+		fi
+	fi
+	#
+	# Is ether_ntohost() declared?
+	#
+	if test "$ac_cv_have_decl_ether_ntohost" != yes; then
+		#
+		# No, we'll have to declare it ourselves.
+		# Do we have "struct ether_addr"?
+		#
+		AC_CHECK_TYPES(struct ether_addr,,,
+		    [
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+struct mbuf;
+struct rtentry;
+#include <net/if.h>
+#include <netinet/if_ether.h>
+		    ])
+		AC_DEFINE(HAVE_DECL_ETHER_NTOHOST, 0,
+		    [Define to 1 if you have the declaration of `ether_ntohost', and to 0 if you
+don't.])
+	else
+		AC_DEFINE(HAVE_DECL_ETHER_NTOHOST, 1,
+		    [Define to 1 if you have the declaration of `ether_ntohost', and to 0 if you
+don't.])
+	fi
+fi
+
+dnl portability macros for getaddrinfo/getnameinfo
+dnl
+dnl Check for sa_len
+AC_CHECK_SA_LEN(ac_cv_sockaddr_has_sa_len)
+if test "$ac_cv_sockaddr_has_sa_len" = no; then
+	missing_includes=yes
+fi
+
+AC_CHECK_FUNCS(pcap_findalldevs pcap_dump_flush pcap_lib_version)
+if test $ac_cv_func_pcap_findalldevs = "yes" ; then
+dnl Check for Mac OS X, which may ship pcap.h from 0.6 but libpcap may
+dnl be 0.8; this means that lib has pcap_findalldevs but header doesn't
+dnl have pcap_if_t.
+    savedcflags="$CFLAGS"
+    CFLAGS="$CFLAGS $V_INCLS"
+    AC_CHECK_TYPES(pcap_if_t, , , [#include <pcap.h>])
+    CFLAGS="$savedcflags"
+fi
+
+if test $ac_cv_func_pcap_lib_version = "no" ; then
+    AC_MSG_CHECKING(whether pcap_version is defined by libpcap)
+    AC_TRY_LINK([],
+       [
+	extern char pcap_version[];
+
+	return (int)pcap_version;
+       ],
+       ac_lbl_cv_pcap_version_defined=yes,
+       ac_lbl_cv_pcap_version_defined=no)
+    if test "$ac_lbl_cv_pcap_version_defined" = yes ; then
+    	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_PCAP_VERSION)
+    else
+	AC_MSG_RESULT(no)
+    fi
+fi
+AC_MSG_CHECKING(whether pcap_debug is defined by libpcap)
+AC_TRY_LINK([],
+   [
+	extern int pcap_debug;
+
+	return pcap_debug;
+   ],
+   ac_lbl_cv_pcap_debug_defined=yes,
+   ac_lbl_cv_pcap_debug_defined=no)
+if test "$ac_lbl_cv_pcap_debug_defined" = yes ; then
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_PCAP_DEBUG)
+else
+	AC_MSG_RESULT(no)
+	#
+	# OK, what about "yydebug"?
+	#
+	AC_MSG_CHECKING(whether yydebug is defined by libpcap)
+	AC_TRY_LINK([],
+	   [
+		extern int yydebug;
+
+		return yydebug;
+	   ],
+	   ac_lbl_cv_yydebug_defined=yes,
+	   ac_lbl_cv_yydebug_defined=no)
+	if test "$ac_lbl_cv_yydebug_defined" = yes ; then
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(HAVE_YYDEBUG)
+	else
+		AC_MSG_RESULT(no)
+	fi
+fi
+AC_REPLACE_FUNCS(bpf_dump)	dnl moved to libpcap in 0.6
+
+V_GROUP=0
+if test -f /etc/group -a ! -z "`grep '^wheel:' /etc/group`" ; then
+	V_GROUP=wheel
+fi
+case "$host_os" in
+
+aix*)
+	dnl Workaround to enable certain features
+	AC_DEFINE(_SUN)
+	;;
+
+irix*)
+	V_GROUP=sys
+	;;
+
+osf*)
+	V_GROUP=system
+	;;
+
+solaris*)
+	V_GROUP=sys
+	;;
+esac
+
+if test -f /dev/bpf0 ; then
+	V_GROUP=bpf
+fi
+
+AC_CHECK_HEADERS(sys/bitypes.h)
+
+AC_CHECK_TYPE([int8_t], ,
+	[AC_DEFINE([int8_t], [signed char],
+	[Define to `signed char' if int8_t not defined.])])
+AC_CHECK_TYPE([u_int8_t], ,
+	[AC_DEFINE([u_int8_t], [unsigned char],
+	[Define to `unsigned char' if u_int8_t not defined.])],
+	[AC_INCLUDES_DEFAULT
+#ifdef HAVE_SYS_BITYPES_H
+#include <sys/bitypes.h>
+#endif])
+AC_CHECK_TYPE([int16_t], ,
+	[AC_DEFINE([int16_t], [short],
+	[Define to `short' if int16_t not defined.])])
+AC_CHECK_TYPE([u_int16_t], ,
+	[AC_DEFINE([u_int16_t], [unsigned short],
+	[Define to `unsigned short' if u_int16_t not defined.])],
+	[AC_INCLUDES_DEFAULT
+#ifdef HAVE_SYS_BITYPES_H
+#include <sys/bitypes.h>
+#endif])
+AC_CHECK_TYPE([int32_t], ,
+	[AC_DEFINE([int32_t], [int],
+	[Define to `int' if int32_t not defined.])])
+AC_CHECK_TYPE([u_int32_t], ,
+	[AC_DEFINE([u_int32_t], [unsigned int],
+	[Define to `unsigned int' if u_int32_t not defined.])],
+	[AC_INCLUDES_DEFAULT
+#ifdef HAVE_SYS_BITYPES_H
+#include <sys/bitypes.h>
+#endif])
+AC_CHECK_TYPE([int64_t], ,
+	[AC_DEFINE([int64_t], [long long],
+	[Define to `long long' if int64_t not defined.])])
+AC_CHECK_TYPE([u_int64_t], ,
+	[AC_DEFINE([u_int64_t], [unsigned long long],
+	[Define to `unsigned long long' if u_int64_t not defined.])],
+	[AC_INCLUDES_DEFAULT
+#ifdef HAVE_SYS_BITYPES_H
+#include <sys/bitypes.h>
+#endif])
+
+#
+# We can't just check for <inttypes.h> - some systems have one that
+# doesn't define all the PRI[doxu]64 macros.
+#
+AC_CHECK_HEADERS(inttypes.h,
+  [
+    #
+    # OK, we have inttypes.h, but does it define those macros?
+    #
+    AC_MSG_CHECKING([[whether inttypes.h defines the PRI[doxu]64 macros]])
+    AC_COMPILE_IFELSE(
+      [
+	AC_LANG_SOURCE(
+	  [[
+	    #include <inttypes.h>
+	    #include <stdio.h>
+	    #include <sys/types.h>
+	    #ifdef HAVE_SYS_BITYPES_H
+	    #include <sys/bitypes.h>
+	    #endif
+
+	    main()
+	    {
+	      printf("%" PRId64 "\n", (u_int64_t)1);
+	      printf("%" PRIo64 "\n", (u_int64_t)1);
+	      printf("%" PRIx64 "\n", (u_int64_t)1);
+	      printf("%" PRIu64 "\n", (u_int64_t)1);
+	    }
+	  ]])
+      ],
+      [
+	AC_MSG_RESULT(yes)
+	ac_lbl_inttypes_h_defines_formats=yes
+      ],
+      [
+	AC_MSG_RESULT(no)
+	ac_lbl_inttypes_h_defines_formats=no
+      ])
+  ],
+  [
+    #
+    # We don't have inttypes.h, so it obviously can't define those
+    # macros.
+    #
+    ac_lbl_inttypes_h_defines_formats=no
+  ])
+if test "$ac_lbl_inttypes_h_defines_formats" = no; then
+  AC_LBL_CHECK_64BIT_FORMAT(l,
+    [
+      AC_LBL_CHECK_64BIT_FORMAT(ll,
+        [
+          AC_LBL_CHECK_64BIT_FORMAT(L,
+	    [
+	      AC_LBL_CHECK_64BIT_FORMAT(q,
+	        [
+	          AC_MSG_ERROR([neither %llx nor %Lx nor %qx worked on a 64-bit integer])
+	        ])
+	    ])
+	])
+    ])
+fi
+
+AC_LBL_DEVEL(V_CCOPT)
+
+AC_LBL_SOCKADDR_SA_LEN
+
+AC_LBL_UNALIGNED_ACCESS
+
+AC_VAR_H_ERRNO
+
+AC_ARG_WITH(crypto, [  --without-crypto        disable crypto support],
+	[], [
+AC_MSG_CHECKING(for SSLeay)
+ac_cv_ssleay_path=no
+incdir=no
+
+#
+# If Xprefix is set in the environment, use that value.
+# XXX - this should arguably be done by having --with-crypto take an
+# optional argument, and have that argument be used to set Xprefix
+# if present.
+#
+if test -z "$Xprefix"; then
+	Xprefix=`eval echo $prefix`
+fi
+
+for dir in $Xprefix /usr/${host_alias} /usr /usr/local /usr/local/ssl /usr/pkg; do
+	#
+	# XXX - is there a better way to check if a given library is
+	# in a given directory than checking each of the possible
+	# shared library suffixes?
+	#
+	# Are there any other suffixes we need to look for?  Do we have to
+	# worry about ".so.{version}"?
+	#
+	# Or should we just look for "libcrypto.*"?
+	#
+	if test -d $dir/lib -a \( -f $dir/lib/libcrypto.a -o \
+			          -f $dir/lib/libcrypto.so -o \
+			          -f $dir/lib/libcrypto.sl -o \
+				  -f $dir/lib/libcrypto.dylib \); then
+		ac_cv_ssleay_path=$dir
+	fi
+	if test -d $dir/include/openssl -a -f $dir/include/openssl/des.h; then
+		incdir="-I$dir/include"
+	fi
+	if test "$ac_cv_ssleay_path" != "no" -a "$incdir" != "no"; then
+		break;
+	else
+		ac_cv_ssleay_path=no
+		incdir=no
+	fi
+done
+AC_MSG_RESULT($ac_cv_ssleay_path)
+if test "$ac_cv_ssleay_path" != no; then
+	V_INCLS="$V_INCLS $incdir"
+	LDFLAGS="-L$dir/lib $LDFLAGS"
+	if test -f $ac_cv_ssleay_path/lib/libRSAglue.a; then
+		LIBS="$LIBS -lRSAglue"
+	fi
+	if test -f $ac_cv_ssleay_path/lib/librsaref.a; then
+		LIBS="$LIBS -lrsaref"
+	fi
+	AC_CHECK_LIB(crypto, DES_cbc_encrypt)
+
+	CPPFLAGS="$CPPFLAGS $V_INCLS"
+	AC_CHECK_HEADERS(openssl/evp.h)
+fi
+])
+
+dnl
+dnl set additional include path if necessary
+if test "$missing_includes" = "yes"; then
+	CPPFLAGS="$CPPFLAGS -I\$(srcdir)/missing"
+	V_INCLS="$V_INCLS -I\$(srcdir)/missing"
+fi
+
+AC_SUBST(V_CCOPT)
+AC_SUBST(V_DEFS)
+AC_SUBST(V_GROUP)
+AC_SUBST(V_INCLS)
+AC_SUBST(V_PCAPDEP)
+AC_SUBST(LOCALSRC)
+
+AC_PROG_INSTALL
+
+AC_CONFIG_HEADER(config.h)
+
+AC_OUTPUT_COMMANDS([if test -f .devel; then
+	echo timestamp > stamp-h
+	cat Makefile-devel-adds >> Makefile
+	make depend
+fi])
+AC_OUTPUT(Makefile)
+exit 0

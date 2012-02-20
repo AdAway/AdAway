@@ -1,0 +1,191 @@
+IP (tos 0x0, ttl   1, id 44530, offset 0, flags [none], proto: UDP (17), length: 84) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Begin Verify, Flags: [Control Channel Down], length: 56
+	  Link ID Object (3), Class-Type: IPv4 Local (1) Flags: [non-negotiable], length: 8
+	    IPv4 Link ID: 1.0.0.0 (0x01000000)
+	  Message ID Object (5), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Message ID: 3 (0x00000003)
+	  Link ID Object (3), Class-Type: IPv4 Remote (2) Flags: [non-negotiable], length: 8
+	    IPv4 Link ID: 1.0.0.0 (0x01000000)
+	  Verify Begin Object (8), Class-Type: 1 (1) Flags: [negotiable], length: 24
+	    Flags: none
+	    Verify Interval: 20
+	    Data links: 30
+	    Encoding type: Lambda (photonic)
+	    Verify Tranport Mechanism: 32768 (0x8000) 
+	    Transmission Rate: 100.000 Mbps
+	    Wavelength: 8
+IP (tos 0x0, ttl   1, id 44531, offset 0, flags [none], proto: UDP (17), length: 56) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Hello, Flags: [Control Channel Down], length: 28
+	  Control Channel ID Object (1), Class-Type: Local (1) Flags: [non-negotiable], length: 8
+	    Control Channel ID: 1 (0x00000001)
+	  Hello Object (7), Class-Type: 1 (1) Flags: [non-negotiable], length: 12
+	    TxSeqNum: 50
+	    RcvSeqNum: 60
+IP (tos 0x0, ttl   1, id 44532, offset 0, flags [none], proto: UDP (17), length: 84) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Config NACK, Flags: [Control Channel Down], length: 56
+	  Control Channel ID Object (1), Class-Type: Local (1) Flags: [non-negotiable], length: 8
+	    Control Channel ID: 1 (0x00000001)
+	  Node ID Object (2), Class-Type: Local (1) Flags: [non-negotiable], length: 8
+	    Node ID: 10.0.50.1 (0x0a003201)
+	  Control Channel ID Object (1), Class-Type: Remote (2) Flags: [non-negotiable], length: 8
+	    Control Channel ID: 2 (0x00000002)
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 3 (0x00000003)
+	  Node ID Object (2), Class-Type: Remote (2) Flags: [non-negotiable], length: 8
+	    Node ID: 10.0.50.2 (0x0a003202)
+	  Configuration Object (6), Class-Type: 1 (1) Flags: [negotiable], length: 8
+	    Hello Interval: 5
+	    Hello Dead Interval: 15
+IP (tos 0x0, ttl   1, id 44533, offset 0, flags [none], proto: UDP (17), length: 76) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Config ACK, Flags: [Control Channel Down], length: 48
+	  Control Channel ID Object (1), Class-Type: Local (1) Flags: [non-negotiable], length: 8
+	    Control Channel ID: 1 (0x00000001)
+	  Node ID Object (2), Class-Type: Local (1) Flags: [non-negotiable], length: 8
+	    Node ID: 10.0.50.1 (0x0a003201)
+	  Control Channel ID Object (1), Class-Type: Remote (2) Flags: [non-negotiable], length: 8
+	    Control Channel ID: 2 (0x00000002)
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 3 (0x00000003)
+	  Node ID Object (2), Class-Type: Remote (2) Flags: [non-negotiable], length: 8
+	    Node ID: 10.0.50.2 (0x0a003202)
+IP (tos 0x0, ttl   1, id 44534, offset 0, flags [none], proto: UDP (17), length: 68) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Config, Flags: [Control Channel Down], length: 40
+	  Control Channel ID Object (1), Class-Type: Local (1) Flags: [non-negotiable], length: 8
+	    Control Channel ID: 1 (0x00000001)
+	  Message ID Object (5), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Message ID: 3 (0x00000003)
+	  Node ID Object (2), Class-Type: Local (1) Flags: [non-negotiable], length: 8
+	    Node ID: 10.0.50.1 (0x0a003201)
+	  Configuration Object (6), Class-Type: 1 (1) Flags: [negotiable], length: 8
+	    Hello Interval: 5
+	    Hello Dead Interval: 15
+IP (tos 0x0, ttl   1, id 44535, offset 0, flags [none], proto: UDP (17), length: 44) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Link Summary ACK, Flags: [Control Channel Down], length: 16
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 1 (0x00000001)
+IP (tos 0x0, ttl   1, id 44536, offset 0, flags [none], proto: UDP (17), length: 124) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Link Summary NACK, Flags: [Control Channel Down], length: 96
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 1 (0x00000001)
+	  Error Code Object (20), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Error Code: 
+		Unacceptable non-negotiable LINK_SUMMARY parameters, 
+		Renegotiate LINK_SUMMARY parameters, 
+		Invalid DATA-LINK Object, 
+		Unknown TE-LINK Object c-type, 
+		Unknown DATA-LINK Object c-type
+	  Data Link Object (12), Class-Type: IPv4 (1) Flags: [non-negotiable], length: 36
+	    Flags: [none]
+	    Local Interface ID: 192.168.1.1 (0xc0a80101) 			
+	    Remote Interface ID: 192.168.1.2 (0xc0a80102)
+	    Subobject, Type: Interface Switching Type (1), Length: 12
+		    Switching Type: Lambda-Switch Capable (150)
+		    Encoding Type: Lambda (photonic) (8)
+		    Min Reservable Bandwidth: 100.000 Mbps
+		    Max Reservable Bandwidth: 100.000 Mbps
+	    Subobject, Type: Wavelength (2), Length: 8
+		    Wavelength: 6
+	  Data Link Object (12), Class-Type: IPv4 (1) Flags: [non-negotiable], length: 36
+	    Flags: [none]
+	    Local Interface ID: 10.1.1.1 (0x0a010101) 			
+	    Remote Interface ID: 10.1.1.2 (0x0a010102)
+	    Subobject, Type: Interface Switching Type (1), Length: 12
+		    Switching Type: Lambda-Switch Capable (150)
+		    Encoding Type: ANSI/ETSI PDH (3)
+		    Min Reservable Bandwidth: 1234736768.000 Mbps
+		    Max Reservable Bandwidth: 1290693376.000 Mbps
+	    Subobject, Type: Wavelength (2), Length: 8
+		    Wavelength: 353
+IP (tos 0x0, ttl   1, id 44537, offset 0, flags [none], proto: UDP (17), length: 68) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Begin Verify ACK, Flags: [Control Channel Down], length: 40
+	  Link ID Object (3), Class-Type: IPv4 Local (1) Flags: [non-negotiable], length: 8
+	    IPv4 Link ID: 1.0.0.0 (0x01000000)
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 1 (0x00000001)
+	  Verify Begin ACK Object (9), Class-Type: 1 (1) Flags: [negotiable], length: 8
+	    Verify Dead Interval: 50 				
+	    Verify Transport Response: 100
+	  Verify ID Object (10), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Verify ID: 5
+IP (tos 0x0, ttl   1, id 44538, offset 0, flags [none], proto: UDP (17), length: 60) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Begin Verify NACK, Flags: [Control Channel Down], length: 32
+	  Link ID Object (3), Class-Type: IPv4 Local (1) Flags: [non-negotiable], length: 8
+	    IPv4 Link ID: 10.0.0.0 (0x0a000000)
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 3 (0x00000003)
+	  Error Code Object (20), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Error Code: 
+		Link Verification Procedure Not supported, 
+		Unwilling to verify, 
+		Unsupported verification transport mechanism
+IP (tos 0x0, ttl   1, id 44539, offset 0, flags [none], proto: UDP (17), length: 52) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: End Verify, Flags: [Control Channel Down], length: 24
+	  Message ID Object (5), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Message ID: 3 (0x00000003)
+	  Verify ID Object (10), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Verify ID: 5
+IP (tos 0x0, ttl   1, id 44540, offset 0, flags [none], proto: UDP (17), length: 52) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: End Verify ACK, Flags: [Control Channel Down], length: 24
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 3 (0x00000003)
+	  Verify ID Object (10), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Verify ID: 5
+IP (tos 0x0, ttl   1, id 44541, offset 0, flags [none], proto: UDP (17), length: 52) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Test, Flags: [Control Channel Down], length: 24
+	  Interface ID Object (4), Class-Type: IPv4 Local (1) Flags: [non-negotiable], length: 8
+	    IPv4 Link ID: 1.0.0.0 (0x01000000)
+	  Verify ID Object (10), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Verify ID: 5
+IP (tos 0x0, ttl   1, id 44542, offset 0, flags [none], proto: UDP (17), length: 52) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Test Status Failure, Flags: [Control Channel Down], length: 24
+	  Message ID Object (5), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Message ID: 1 (0x00000001)
+	  Verify ID Object (10), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Verify ID: 5
+IP (tos 0x0, ttl   1, id 44543, offset 0, flags [none], proto: UDP (17), length: 52) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Test Status ACK, Flags: [Control Channel Down], length: 24
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 1 (0x00000001)
+	  Verify ID Object (10), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Verify ID: 5
+IP (tos 0x0, ttl   1, id 44544, offset 0, flags [none], proto: UDP (17), length: 44) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Channel Status ACK, Flags: [Control Channel Down], length: 16
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 3 (0x00000003)
+IP (tos 0x0, ttl   1, id 44545, offset 0, flags [none], proto: UDP (17), length: 64) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Channel Status Request, Flags: [Control Channel Down], length: 36
+	  Link ID Object (3), Class-Type: IPv4 Local (1) Flags: [non-negotiable], length: 8
+	    IPv4 Link ID: 1.0.0.0 (0x01000000)
+	  Message ID Object (5), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Message ID: 3 (0x00000003)
+	  Channel Status Request Object (14), Class-Type: IPv4 (1) Flags: [non-negotiable], length: 12
+	    Interface ID: 2.0.0.0 (0x02000000)
+	    Interface ID: 2.0.0.0 (0x02000000)
+IP (tos 0x0, ttl   1, id 44546, offset 0, flags [none], proto: UDP (17), length: 72) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Channel Status, Flags: [Control Channel Down], length: 44
+	  Link ID Object (3), Class-Type: IPv4 Local (1) Flags: [non-negotiable], length: 8
+	    IPv4 Link ID: 1.0.0.0 (0x01000000)
+	  Message ID Object (5), Class-Type: 1 (1) Flags: [non-negotiable], length: 8
+	    Message ID: 3 (0x00000003)
+	  Channel Status Object (13), Class-Type: IPv4 (1) Flags: [non-negotiable], length: 20
+	    Interface ID: 1.0.0.0 (0x01000000)
+		    Active: Allocated (1)
+		    Direction: Transmit (1)
+		    Channel Status: Signal Fail (3)
+	    Interface ID: 1.0.0.0 (0x01000000)
+		    Active: Allocated (1)
+		    Direction: Receive (0)
+		    Channel Status: Signal Degraded (2)
+IP (tos 0x0, ttl   1, id 44547, offset 0, flags [none], proto: UDP (17), length: 64) 10.0.12.1.49998 > 10.0.12.2.49998: 
+	LMPv1, msg-type: Channel Status Response, Flags: [Control Channel Down], length: 36
+	  Message ID Object (5), Class-Type: 2 (2) Flags: [non-negotiable], length: 8
+	    Message ID Ack: 3 (0x00000003)
+	  Channel Status Object (13), Class-Type: IPv4 (1) Flags: [non-negotiable], length: 20
+	    Interface ID: 1.0.0.0 (0x01000000)
+		    Active: Allocated (1)
+		    Direction: Transmit (1)
+		    Channel Status: Signal Degraded (2)
+	    Interface ID: 1.0.0.0 (0x01000000)
+		    Active: Allocated (1)
+		    Direction: Transmit (1)
+		    Channel Status: Signal Okay (1)

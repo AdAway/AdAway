@@ -1,0 +1,151 @@
+This file lists people who have contributed to tcpdump:
+
+The current maintainers:
+	Bill Fenner			<fenner@research.att.com>
+        David Young                     <dyoung@pobox.com>
+	Fulvio Risso			<risso@polito.it>
+	Guy Harris	 		<guy@alum.mit.edu>
+	Hannes Gredler			<hannes@juniper.net>
+	Jun-ichiro itojun Hagino	<itojun@iijlab.net>
+	Michael Richardson	 	<mcr@sandelman.ottawa.on.ca>
+
+Additional people who have contributed patches:
+
+        Aaron Campbell                  <aaron@arbor.net>
+	Alfredo Andres			<aandres@s21sec.com>
+	Albert Chin			<china@thewrittenword.com>
+	Andrew Brown			<atatat@atatdot.net>
+	Andrew Church			<andrew@users.sourceforge.net>
+	Andrew Hintz			<adhintz@users.sourceforge.net>
+	Andrew Tridgell			<tridge@linuxcare.com>
+        Andy Heffernan                  <ahh@juniper.net>
+	Arkadiusz Miskiewicz 		<misiek@pld.org.pl>
+	Armando L. Caro Jr.		<acaro@mail.eecis.udel.edu>
+	Arnaldo Carvalho de Melo	<acme@ghostprotocols.net>
+	Atsushi Onoe			<onoe@netbsd.org>
+	Ben Smithurst			<ben@scientia.demon.co.uk>
+	Brent L. Bates			<blbates@vigyan.com>
+	Brian Ginsbach			<ginsbach@cray.com>
+	Bruce M. Simpson		<bms@spc.org>
+	Carles Kishimoto Bisbe          <ckishimo@ac.upc.es>
+	Charlie Lenahan			<clenahan@fortresstech.com>
+	Charles M. Hannum		<mycroft@netbsd.org>
+	Chris Cogdon			<chris@cogdon.org>
+	Chris G. Demetriou		<cgd@netbsd.org>
+	Christian Sievers		<c_s@users.sourceforge.net>
+	Chris Jepeway			<jepeway@blasted-heath.com>
+	Chris Larson			<clarson@kergoth.com>
+	Craig Rodrigues			<rodrigc@mediaone.net>
+	Crist J. Clark			<cjclark@alum.mit.edu>
+	Daniel Hagerty 			<hag@ai.mit.edu>
+	Darren Reed			<darrenr@reed.wattle.id.au>
+	David Binderman			<d.binderman@virgin.net>
+	David Smith			<dsmith@redhat.com>
+	David Young			<dyoung@ojctech.com>
+	Don Ebright			<Don.Ebright@compuware.com>
+	Eddie Kohler			<xexd@sourceforge.net>
+	Francis Dupont			<Francis.Dupont@enst-bretagne.fr>
+	Francisco Matias Cuenca-Acuna	<mcuenca@george.rutgers.edu>
+	Frank Volf			<volf@oasis.IAEhv.nl>
+	Fulvio Risso			<risso@polito.it>
+	George Bakos			<gbakos@ists.dartmouth.edu>
+	Gerald Combs			<gerald@ethereal.com>
+	Gert Doering			<gert@greenie.muc.de>
+        Greg Stark                      <gsstark@mit.edu>
+	Gilbert Ramirez Jr.		<gram@xiexie.org>
+	Gisle Vanem			<giva@bgnett.no>
+        Hannes Viertel                  <hviertel@juniper.net>
+	Hank Leininger			<tcpdump-workers@progressive-comp.com>
+	Harry Raaymakers		<harryr@connect.com.au>
+	Heinz-Ado Arnolds		<Ado.Arnolds@dhm-systems.de>
+	Hendrik Scholz			<hendrik@scholz.net>
+	Ian McDonald			<imcdnzl@gmail.com>
+        Jacek Tobiasz                   <Jacek.Tobiasz@atm.com.pl>
+	Jakob Schlyter			<jakob@openbsd.org>
+	Jan Oravec			<wsx@wsx6.net>
+	Jason R. Thorpe			<thorpej@netbsd.org>
+	Jefferson Ogata 		<jogata@nodc.noaa.gov>
+	Jeffrey Hutzelman		<jhutz@cmu.edu>
+	Jesper Peterson			<jesper@endace.com>
+	Jim Hutchins			<jim@ca.sandia.gov>
+        Jonathan Heusser                <jonny@drugphish.ch>
+	Tatuya Jinmei			<jinmei@kame.net>
+	Jørgen Thomsen			<jth@jth.net> 
+	Julian Cowley			<julian@lava.net>
+	Kaarthik Sivakumar		<kaarthik@torrentnet.com>
+	Kazushi Sugyo			<sugyo@pb.jp.nec.com>
+	Kelly Carmichael		<kcarmich@ipapp.com>
+	Ken Hornstein			<kenh@cmf.nrl.navy.mil>
+	Kevin Steves			<stevesk@pobox.com>
+	Klaus Klein			<kleink@reziprozitaet.de>
+ 	Kris Kennaway			<kris@freebsd.org>
+	Krzysztof Halasa		<khc@pm.waw.pl>
+	Larry Lile			<lile@stdio.com>
+	Lennert Buytenhek 		<buytenh@gnu.org>
+	Loris Degioanni			<loris@netgroup-serv.polito.it>
+	Love Hörnquist-Åstrand		<lha@stacken.kth.se>
+	Maciej W. Rozycki		<macro@ds2.pg.gda.pl>
+	Manu Pathak			<mapathak@cisco.com>
+	Marc A. Lehmann			<pcg@goof.com>
+	Mark Ellzey Thomas		<mark@ackers.net>
+	Marko Kiiskila			<carnil@cs.tut.fi>
+	Markus Schöpflin		<schoepflin@sourceforge.net>
+	Marshall Rose			<mrose@dbc.mtview.ca.us>
+	Martin Husemann			<martin@netbsd.org>
+	Max Laier			<max@love2party.net>
+	Michael Madore			<mmadore@turbolinux.com>
+	Michael Shalayeff		<mickey@openbsd.org>
+	Michael Shields			<shields@msrl.com>
+	Michael T. Stolarchuk		<mts@off.to>
+	Michele "mydecay" Marchetto	<smarchetto1@tin.it>
+	Monroe Williams 		<monroe@pobox.com>
+	Motonori Shindo			<mshindo@mshindo.net>
+	Nathan J. Williams		<nathanw@MIT.EDU>
+	Nathaniel Couper-Noles		<Nathaniel@isi1.tccisi.com>
+	Neil T. Spring			<bluehal@users.sourceforge.net>
+	Niels Provos			<provos@openbsd.org>
+	Nickolai Zeldovich		<kolya@MIT.EDU>
+        Nicolas Ferrero                 <toorop@babylo.net>
+	Noritoshi Demizu		<demizu@users.sourceforge.net>
+	Olaf Kirch 			<okir@caldera.de>
+	Onno van der Linden		<onno@simplex.nl>
+	Pascal Hennequin 		<pascal.hennequin@int-evry.fr>
+	Pasvorn Boonmark		<boonmark@juniper.net>
+	Paul Mundt			<lethal@linux-sh.org>
+	Paul S. Traina			<pst@freebsd.org>
+	Pavlin Radoslavov		<pavlin@icir.org>
+	Pekka Savola 			<pekkas@netcore.fi>	
+	Peter Fales			<peter@fales-lorenz.net>
+	Peter Jeremy			<peter.jeremy@alcatel.com.au>
+					<pfhunt@users.sourceforge.net>
+	Phil Wood			<cpw@lanl.gov>
+	Rafal Maszkowski		<rzm@icm.edu.pl>
+	Raphael Raimbault		<raphael.raimbault@netasq.com>
+	Rick Cheng                      <rcheng@juniper.net>
+	Rick Jones			<rick.jones2@hp.com>
+	Rick Watson			<watsonrick@users.sourceforge.net>
+	Rob Braun			<bbraun@synack.net>
+	Roderick Schertler		<roderick@argon.org>
+	Sami Farin			<safari@iki.fi>
+	Scott Rose			<syberpunk@users.sourceforge.net>
+	Sebastian Krahmer		<krahmer@cs.uni-potsdam.de>
+	Sebastien Vincent		<svincent@idems.fr>
+	Seth Webster			<swebster@sst.ll.mit.edu>
+	Shinsuke Suzuki			<suz@kame.net>
+	Steinar Haug			<sthaug@nethelp.no>
+        Swaminathan Chandrasekaran      <chander@juniper.net>
+	Takashi Yamamoto		<yamt@mwd.biglobe.ne.jp>
+	Terry Kennedy			<terry@tmk.com>
+	Timo Koskiahde
+	Tony Li				<tli@procket.com>
+	Uns Lider			<unslider@miranda.org>
+	Victor Oppleman			<oppleman@users.sourceforge.net>
+	Wesley Griffin			<wgriffin@users.sourceforge.net>
+	Wilbert de Graaf		<wilbertdg@hetnet.nl>
+	Yen Yen Lim
+	Yoshifumi Nishida
+
+The original LBL crew:
+	Steve McCanne
+	Craig Leres
+	Van Jacobson

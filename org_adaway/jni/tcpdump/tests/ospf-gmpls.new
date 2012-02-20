@@ -1,0 +1,83 @@
+IP (tos 0xc0, ttl   1, id 4052, offset 0, flags [none], proto: OSPF (89), length: 172) 40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length: 152
+	Router-ID: 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
+	  LSA #1
+	  Advertising Router: 10.255.245.37, seq 0x80000002, age 9s, length: 104
+	    Area Local Opaque LSA (10), Opaque-Type: Traffic Engineering LSA (1), Opaque-ID: 8
+	    Options: [External]
+	    Link TLV (2), length: 100
+	      Link Type subTLV (1), length: 1, Point-to-point (1)
+	      Link ID subTLV (2), length: 4, 10.255.245.69 (0x0afff545)
+	      Local Interface IP address subTLV (3), length: 4, 10.9.142.1
+	      Remote Interface IP address subTLV (4), length: 4, 10.9.142.2
+	      Traffic Engineering Metric subTLV (5), length: 4, Metric 63
+	      Maximum Bandwidth subTLV (6), length: 4, 622.080 Mbps
+	      Maximum Reservable Bandwidth subTLV (7), length: 4, 622.080 Mbps
+	      Unreserved Bandwidth subTLV (8), length: 32
+		TE-Class 0: 622.080 Mbps
+		TE-Class 1: 622.080 Mbps
+		TE-Class 2: 622.080 Mbps
+		TE-Class 3: 622.080 Mbps
+		TE-Class 4: 622.080 Mbps
+		TE-Class 5: 622.080 Mbps
+		TE-Class 6: 622.080 Mbps
+		TE-Class 7: 622.080 Mbps
+	      Administrative Group subTLV (9), length: 4, 0x00000000
+IP (tos 0xc0, ttl   1, id 4106, offset 0, flags [none], proto: OSPF (89), length: 172) 40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length: 152
+	Router-ID: 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
+	  LSA #1
+	  Advertising Router: 10.255.245.37, seq 0x80000002, age 9s, length: 104
+	    Area Local Opaque LSA (10), Opaque-Type: Traffic Engineering LSA (1), Opaque-ID: 9
+	    Options: [External]
+	    Link TLV (2), length: 100
+	      Link Type subTLV (1), length: 1, Point-to-point (1)
+	      Link ID subTLV (2), length: 4, 10.255.245.69 (0x0afff545)
+	      Local Interface IP address subTLV (3), length: 4, 10.9.143.1
+	      Remote Interface IP address subTLV (4), length: 4, 10.9.143.2
+	      Traffic Engineering Metric subTLV (5), length: 4, Metric 63
+	      Maximum Bandwidth subTLV (6), length: 4, 622.080 Mbps
+	      Maximum Reservable Bandwidth subTLV (7), length: 4, 622.080 Mbps
+	      Unreserved Bandwidth subTLV (8), length: 32
+		TE-Class 0: 622.080 Mbps
+		TE-Class 1: 622.080 Mbps
+		TE-Class 2: 622.080 Mbps
+		TE-Class 3: 622.080 Mbps
+		TE-Class 4: 622.080 Mbps
+		TE-Class 5: 622.080 Mbps
+		TE-Class 6: 622.080 Mbps
+		TE-Class 7: 622.080 Mbps
+	      Administrative Group subTLV (9), length: 4, 0x00000000
+IP (tos 0xc0, ttl   1, id 4160, offset 0, flags [none], proto: OSPF (89), length: 212) 40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length: 192
+	Router-ID: 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
+	  LSA #1
+	  Advertising Router: 10.255.245.35, seq 0x80000003, age 3s, length: 144
+	    Area Local Opaque LSA (10), Opaque-Type: Traffic Engineering LSA (1), Opaque-ID: 3
+	    Options: [External]
+	    Link TLV (2), length: 140
+	      Link Type subTLV (1), length: 1, Point-to-point (1)
+	      Link ID subTLV (2), length: 4, 10.255.245.40 (0x0afff528)
+	      Local Interface IP address subTLV (3), length: 4, 10.40.35.14
+	      Remote Interface IP address subTLV (4), length: 4, 10.40.35.13
+	      Traffic Engineering Metric subTLV (5), length: 4, Metric 1
+	      Maximum Bandwidth subTLV (6), length: 4, 100.000 Mbps
+	      Maximum Reservable Bandwidth subTLV (7), length: 4, 100.000 Mbps
+	      Unreserved Bandwidth subTLV (8), length: 32
+		TE-Class 0: 0.000 Mbps
+		TE-Class 1: 0.000 Mbps
+		TE-Class 2: 0.000 Mbps
+		TE-Class 3: 0.000 Mbps
+		TE-Class 4: 0.000 Mbps
+		TE-Class 5: 0.000 Mbps
+		TE-Class 6: 0.000 Mbps
+		TE-Class 7: 0.000 Mbps
+	      Interface Switching Capability subTLV (15), length: 44
+		Interface Switching Capability: Packet-Switch Capable-1
+		LSP Encoding: Ethernet V2/DIX
+		Max LSP Bandwidth:
+		  priority level 0: 0.000 Mbps
+		  priority level 1: 0.000 Mbps
+		  priority level 2: 0.000 Mbps
+		  priority level 3: 0.000 Mbps
+		  priority level 4: 0.000 Mbps
+		  priority level 5: 0.000 Mbps
+		  priority level 6: 0.000 Mbps
+		  priority level 7: 0.000 Mbps
