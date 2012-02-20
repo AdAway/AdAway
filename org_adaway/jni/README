@@ -14,3 +14,15 @@ LOCAL_C_INCLUDES += \
 #	$(LOCAL_PATH)/../openssl/include\
 
 #LOCAL_SHARED_LIBRARIES += libssl libcrypto
+
+
+In tcpdump/config.h changed:
+
+/* Whether or not to include the possibly-buggy SMB printer */
+/* #undef TCPDUMP_DO_SMB */
+
+/* Define to 1 if you have the <openssl/evp.h> header file. */
+/* #undef HAVE_OPENSSL_EVP_H */
+
+/* Define to 1 if you have the `crypto' library (-lcrypto). */
+/* #undef HAVE_LIBCRYPTO */
