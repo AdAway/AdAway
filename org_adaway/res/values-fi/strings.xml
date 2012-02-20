@@ -19,7 +19,6 @@
   <string name="menu_preferences">Asetukset</string>
   <string name="button_yes">Kyllä</string>
   <string name="button_no">Ei</string>
-  <string name="revert_question">Haluatko todella palauttaa?</string>
   <string name="revert_successful">Palautit isäntätiedoston oletustilaan.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
   <string name="button_revert">Poista mainosten esto käytöstä</string>
   <string name="apply_success">Soveltaminen onnistui.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
@@ -149,7 +148,6 @@
   <string name="no_tcpdump">ROM ei sillä tcpdump-binääriä</string>
   <string name="no_tcpdump_title">Ei ole tcpdump-binääriä!</string>
   <string name="toast_tcpdump_log_deleted">Lokitiedosto poistettu!</string>
-  <string name="toast_tcpdump_log_not_existing">Lokitiedosto ei ole olemassa!</string>
   <string name="pref_download">Yleiset asetukset</string>
   <string name="pref_hosts">Isäntätiedosto</string>
   <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>

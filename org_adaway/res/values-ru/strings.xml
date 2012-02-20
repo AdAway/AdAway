@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="no_root_description">Либо программный файл SuperUser не найден, либо Adaway не были предоставлены разрешения root.
+  <string name="no_root_description">Либо программный файл SuperUser не найден, либо AdAway не были предоставлены разрешения root.
 
 Это может произойти, когда на устройстве нет прав Root.
 О том, как получить права Root на устройстве вы можете найти на www.cyanogenmod.com или других веб-сайтах по Android.</string>
@@ -15,28 +15,29 @@
   <string name="menu_about">О программе</string>
   <string name="menu_tcpdump">Tcpdump</string>
   <string name="apply_dialog">Применение...</string>
-  <string name="apply_dialog_hostnames">Разбор и объединение файлов с хостами</string>
+  <string name="apply_dialog_hostnames">Разбор и объединение файлов хостов</string>
   <string name="apply_dialog_hosts">Построение файла Hosts</string>
   <string name="apply_dialog_apply">Применение файла Hosts</string>
   <string name="menu_preferences">Настройки</string>
   <string name="button_yes">Да</string>
   <string name="button_no">Нет</string>
-  <string name="revert_question">Вы действиетльно хотите вернуться?</string>
   <string name="revert_successful">Вы вернулись к файлу Hosts по-умолчанию.
-Возможно потребуется перезагрузить Android, чтобы изменения вступили в силу.
+Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
 
 Вы хотите перегрузить Android?
 (Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
   <string name="button_revert">Отключение блокировки рекламы</string>
   <string name="apply_success">Применение прошло успешно.
-Возможно потребуется перезагрузить Android, чтобы изменения вступили в силу.
+Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
 
 Вы хотите перегрузить Android?
 (Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
   <string name="about_description">AdAway это блокировщик рекламы для Андроид с открытым исходным кодом.</string>
-  <string name="about_license">Лицензия: GPL v3</string>
+  <string name="about_license">Лицензия: GPL v3+</string>
   <string name="about_version">Версия:</string>
   <string name="about_developer">Разработчик: Dominik Schürmann</string>
+  <string name="about_icons">Некоторые иконки взяты из \'Dropbox Emblems Tango by Charles A.\' и \'www.androidicons.com\' (на условиях лицензии Creative Commons Attribution 3.0 Unported License).</string>
+  <string name="about_libs">AdAway использует \'RootTools\' (Лицензия: GPL v2) Библиотеку для получения  прав администратора и \'ActionBarSherlock\' (Лицензия: Apache 2.0) для обеспечения доступа к ActionBar для Android &amp;lt; 3.0.</string>
   <string name="apply_fail">Не удалось применить файл Hosts на вашей системе!
 Попробуйте изменить путь к файлу Hosts в настройках на /data/data/hosts.</string>
   <string name="apply_fail_title">Применение не удалось</string>
@@ -51,12 +52,12 @@
   <string name="checkbox_list_empty">Пустой список</string>
   <string name="checkbox_list_empty_text">Вы можете добавлять элементы в список.</string>
   <string name="checkbox_list_context_delete">Удалить</string>
-  <string name="checkbox_list_footer">После добавления новых пунктов в этом списке, вы должны снова применить Adaway!</string>
+  <string name="checkbox_list_footer">После добавления новых пунктов в этом списке вы должны снова применить AdAway!</string>
   <string name="app_subtitle">Блокировщик рекламы</string>
-  <string name="button_apply_text">Все файлы хостов, загружаемые с определенных источников, сливаются с вашим собственным списком, и устанавливаются в вашей системе в виде одного файла Hosts.</string>
+  <string name="button_apply_text">Все файлы хостов, загружаемые с определенных источников, сливаются с вашим собственным списком и устанавливаются в вашей системе в виде одного файла Hosts.</string>
   <string name="button_revert_text">Восстановление файла Hosts по-умолчанию в вашей системе.</string>
   <string name="no_sources_title">Источники не определены</string>
-  <string name="no_sources">Пожалуйста добавьте источники хостов в ваш список.</string>
+  <string name="no_sources">Пожалуйста, добавьте источники хостов в ваш список.</string>
   <string name="checkbox_list_edit_dialog_title">Редактировать</string>
   <string name="button_save">Сохранить</string>
   <string name="checkbox_list_context_title">Редактировать запись</string>
@@ -69,6 +70,8 @@
   <string name="lists_tab_redirection_list">Список перенаправлений</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Имя источника:</string>
+  <string name="list_dialog_whitelist_hostname">Имя хоста:
+(Допускаются подстановочные символы * и ?)</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="no_ip">Это недопустимый IP!</string>
   <string name="no_ip_title">Неправильный IP</string>
@@ -77,6 +80,8 @@
   <string name="no_private_file">Файл не может быть создан.</string>
   <string name="no_private_file_title">Не удалось создать файл</string>
   <string name="status_checking">Проверка обновлений...</string>
+  <string name="status_reverting">Восстановление...</string>
+  <string name="status_reverting_subtitle">Создание стандартного файла Hosts</string>
   <string name="status_checking_subtitle">Проверка наличия обновлений, если доступно</string>
   <string name="status_update_available">Доступно обновление</string>
   <string name="status_update_available_subtitle">Доступны более новые файлы с хостами</string>
@@ -88,7 +93,6 @@
   <string name="status_enabled_subtitle">Включен новый файл Hosts</string>
   <string name="status_disabled">Выключено</string>
   <string name="status_disabled_subtitle">Выключено</string>
-  <string name="about_icons">Некоторые иконки взяты из \'Dropbox Emblems Tango by Charles A.\' и \'www.androidicons.com\', на условиях лицензии Creative Commons Attribution 3.0 Unported License.</string>
   <string name="no_busybox">Не найден Busybox. Для установки из Android Market нажмите кнопку ниже.</string>
   <string name="no_busybox_title">Нет Busybox</string>
   <string name="button_busybox">Инсталляция Busybox</string>
@@ -112,13 +116,13 @@
   <string name="apply_success_title">Применение успешно</string>
   <string name="revert_successful_title">Возврат успешен</string>
   <string name="apply_symlink_successful">Ссылка создана успешно.
-Возможно потребуется перезагрузить Android, чтобы изменения вступили в силу.
+Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
 
 Вы хотите перегрузить Android?
 (Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
   <string name="apply_symlink_successful_title">Ссылка создана успешно</string>
   <string name="apply_symlink_fail">Android не смог создать ссылку.
-Возможно это из-за особенности телефонов HTC, называемой S-ON!
+Возможно, это из-за особенности телефонов HTC, называемой S-ON!
 
 Решение заключается в загрузке телефона в режиме восстановления и создания ссылки при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.
 
@@ -140,7 +144,7 @@
   <string name="hosts_last_modified_online">Интернет:</string>
   <string name="reboot_never_reboot">Никогда не перезагружать и не показывать этот вопрос в следующий раз!</string>
   <string name="button_help">Справка</string>
-  <string name="apply_help">Пожалуйста читайте Справку для получения большей информации.</string>
+  <string name="apply_help">Пожалуйста, читайте Справку для получения большей информации.</string>
   <string name="menu_import">Импорт всех списков</string>
   <string name="menu_export">Экспорт всех списков</string>
   <string name="import_dialog">Импорт...</string>
@@ -180,7 +184,8 @@
   <string name="no_tcpdump">Ваше устройство не содержит программу tcpdump.</string>
   <string name="no_tcpdump_title">Нет программы Tcpdump!</string>
   <string name="toast_tcpdump_log_deleted">Файл журнала удален!</string>
-  <string name="toast_tcpdump_log_not_existing">Файл журнала не существует!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Имя хоста было добавлено в ваш Черный список!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Имя хоста было добавлено в ваш Белый список!</string>
   <string name="pref_download">Основные настройки</string>
   <string name="pref_hosts">Файл Hosts</string>
   <string name="pref_redirection_ip">Перенаправление IP</string>
@@ -198,13 +203,13 @@
   <string name="pref_webserver_enabled_summary">Позволяет веб-серверу прослушивать локальные IP адреса и отвечать на запросы к заблокированным хостам</string>
   <string name="pref_webserver">Локальный Веб-сервер</string>
   <string name="pref_custom_target">Пользовательские настройки</string>
-  <string name="pref_custom_target_summary">Используется только, если расположение файла Hosts задано пользователем</string>
+  <string name="pref_custom_target_summary">Используется только в случае, когда расположение файла Hosts задано пользователем</string>
   <string-array name="pref_apply_method_entries"><item>/system/etc/hosts</item>
 <item>/data/data/hosts</item>
 <item>Задано пользователем</item>
 </string-array>
   <string name="pref_update_check_summary">Проверять обновления при старте AdAway</string>
-  <string name="pref_sdcard_problem">Эта функция будет работать неправильно, если AdAway установлен на sdcard!</string>
+  <string name="pref_sdcard_problem">Если AdAway установлен на sdcard, то эта функция будет работать неправильно!</string>
   <string name="pref_background">Фоновый режим</string>
   <string name="pref_update_check_daily">Проверять обновления ежедневно</string>
   <string name="pref_update_check_daily_summary">Проверять обновления в фоновом режиме ежедневно с уведомлением</string>
@@ -212,4 +217,9 @@
   <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
   <string name="pref_redirection_rules">Разрешить перенаправление</string>
   <string name="pref_redirection_rules_summary">Разрешить перенаправление согласно файлу Hosts.</string>
+  <string name="tcpdump_log_context_blacklist">Добавить в ваш Черный список</string>
+  <string name="tcpdump_log_context_whitelist">Добавить в ваш Белый список</string>
+  <string name="tcpdump_log_context_browser">Открыть в браузере</string>
+  <string name="tcpdump_log_empty">Файл журнала пустой!</string>
+  <string name="tcpdump_log_footer">Долгое нажатие на имя хоста позволит добавить его в Черный или Белый список!</string>
 </resources>

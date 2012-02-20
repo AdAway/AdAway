@@ -18,7 +18,6 @@
   <string name="menu_preferences">设置</string>
   <string name="button_yes">是</string>
   <string name="button_no">否</string>
-  <string name="revert_question">你确定要还原吗？</string>
   <string name="revert_successful">你已经还原为默认的hosts文件了。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
   <string name="button_revert">禁用广告屏蔽</string>
   <string name="apply_success">应用成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
@@ -27,6 +26,7 @@
   <string name="about_version">版本：</string>
   <string name="about_developer">开发者：Dominik Schürmann</string>
   <string name="about_icons">一些图标是从\'Dropbox Emblems Tango by Charles A.\'和\'www.androidicons.com\'上取得的，两个都是Creative Commons Attribution 3.0 Unported License授权下发布的。</string>
+  <string name="about_libs">AdAway使用 \'RootTools\' (许可证: GPL v2) 数据库来控制root 权限；使用\'ActionBarSherlock\' (许可证: Apache 2.0)为安卓3.0系统提供ActionBar®。</string>
   <string name="apply_fail">应用hosts文件修改失败！\n请尝试在[设置]里面把hosts文件目标修改为/data/data/hosts。</string>
   <string name="apply_fail_title">应用失败</string>
   <string name="revert_problem">还原失败。</string>
@@ -58,6 +58,7 @@
   <string name="lists_tab_redirection_list">重定向列表</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主机名：</string>
+  <string name="list_dialog_whitelist_hostname">Hostname:\n(可使用Wildcard字符 * 和 ?)</string>
   <string name="list_dialog_ip">IP地址(IPv4或IPv6)</string>
   <string name="no_ip">IP地址无效</string>
   <string name="no_ip_title">IP地址格式不对</string>
@@ -80,7 +81,9 @@
   <string name="no_busybox">没有找到Busybox。点击下面的按钮从Android电子市场上安装。</string>
   <string name="no_busybox_title">没有Busybox</string>
   <string name="button_busybox">安装Busybox</string>
+  <string name="donations_description">喜欢这个应用程序？通过Flattr®或谷歌®安卓市场捐款来支持我们！</string>
   <string name="menu_donations">捐赠</string>
+  <string name="donations_flattr_description">Flattr®将从月费中提成10%！</string>
   <string name="apply_symlink_missing">从你设置的目标不存在或者不是正确的到 /system/etc/hosts 的符号链接！没有正确的符号链接AdAway不能运行。\n\n你需要创建符号链接吗？</string>
   <string name="apply_symlink_missing_title">符号连接丢失</string>
   <string name="apply_not_enough_space">分区上没有足够的空间\n请在设置里面修改目标hosts文件到/data/data/hosts。</string>
@@ -123,6 +126,7 @@
   <string name="no_text_editor">没有找到文本编辑器来打开hosts文件。你可以安装Jota或者其他文本编辑器来解决这。\n\n你需要安装Jota吗？</string>
   <string name="no_file_manager_title">没有安装文件管理器</string>
   <string name="no_file_manager">没有找到文件管理器来打开文件。你可以安装OI File Manager或者其他文件管理器来解决这。\n\n你需要安装OI File Manager吗？</string>
+  <string name="donations_flattr">Flattr®</string>
   <string name="donations_google_android_market">Google Android 电子市场</string>
   <string name="donations_google_android_market_not_supported_title">不支持In-App捐赠</string>
   <string name="donations_google_android_market_not_supported">不支持In-App捐赠。你的Google Android 电子市场是否安装正确了呢？</string>
@@ -146,7 +150,8 @@
   <string name="no_tcpdump">你的Rom里面没有tcpdump。</string>
   <string name="no_tcpdump_title">没有tcpdump！</string>
   <string name="toast_tcpdump_log_deleted">日志删除了！</string>
-  <string name="toast_tcpdump_log_not_existing">日志文件不存在！</string>
+  <string name="toast_tcpdump_added_to_blacklist">主机名已加入你的黑名单！</string>
+  <string name="toast_tcpdump_added_to_whitelist">主机名已加入你的白名单！</string>
   <string name="pref_download">基本设置</string>
   <string name="pref_hosts">Hosts文件</string>
   <string name="pref_redirection_ip">重定向IP</string>
@@ -178,4 +183,8 @@
   <string name="pref_automatic_update_daily_summary">如果有更新，自动在后台更新。</string>
   <string name="pref_redirection_rules">允许重定向</string>
   <string name="pref_redirection_rules_summary">允许来自Hosts源重定向规则</string>
+  <string name="tcpdump_log_context_blacklist">加入黑名单</string>
+  <string name="tcpdump_log_context_whitelist">加入白名单</string>
+  <string name="tcpdump_log_empty">日志文件无内容！</string>
+  <string name="tcpdump_log_footer">长按将主机名添加至黑/白名单！</string>
 </resources>

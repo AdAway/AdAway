@@ -10,7 +10,7 @@
   <string name="download_dialog">Downloading...</string>
   <string name="menu_hosts_sources">Hosts-Quellen</string>
   <string name="menu_about">Über</string>
-  <string name="menu_tcpdump">Tcpdump</string>
+  <string name="menu_tcpdump">Logge DNS-Anfragen</string>
   <string name="apply_dialog">Wende an...</string>
   <string name="apply_dialog_hostnames">Verarbeite und füge hosts-Dateien zusammen</string>
   <string name="apply_dialog_hosts">Erstelle hosts-Datei</string>
@@ -18,7 +18,6 @@
   <string name="menu_preferences">Einstellungen</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nein</string>
-  <string name="revert_question">Sollen die Änderungen wirklich rückgängig gemacht werden?</string>
   <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest Du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
   <string name="button_revert">Werbeblocker deaktivieren</string>
   <string name="apply_success">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest Du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
@@ -27,7 +26,7 @@
   <string name="about_version">Version:</string>
   <string name="about_developer">Entwickler: Dominik Schürmann</string>
   <string name="about_icons">Einige Icons entstammen aus den Icon-Paketen \'Dropbox Emblems Tango by Charles A.\' und \'www.androidicons.com\', beide unter der Creative Commons Attribution 3.0 Unported Lizenz lizensiert.</string>
-  <string name="about_libs">AdAway benutzt \'RootTools\' (Lizenz: GPL v2) als Bibliothek für den Root-Zugriff und \'ActionBarSherlock\' (Lizenz: Apache 2.0) um eine ActionBar für Android &lt; 3.0 darzustellen.</string>
+  <string name="about_libs">AdAway benutzt \'RootTools\' (Lizenz: GPL v2) als Bibliothek für den Root-Zugriff und \'ActionBarSherlock\' (Lizenz: Apache 2.0) um eine ActionBar für Android unter Version 3.0 darzustellen.</string>
   <string name="apply_fail">Das Ändern der hosts-Datei auf Deinem System ist fehlgeschlagen!\nVersuch die hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
   <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
   <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
@@ -59,6 +58,7 @@
   <string name="lists_tab_redirection_list">Umleitungsliste</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard-Zeichen * und ? sind erlaubt!)</string>
   <string name="list_dialog_ip">IP (IPv4 oder IPv6):</string>
   <string name="no_ip">Das ist keine gültige IP!</string>
   <string name="no_ip_title">Fehlerhafte IP</string>
@@ -67,6 +67,8 @@
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
   <string name="status_checking">Prüfe auf Updates...</string>
+  <string name="status_reverting">Zurücksetzen...</string>
+  <string name="status_reverting_subtitle">Standard hosts-Datei wirde generiert</string>
   <string name="status_checking_subtitle">Prüfe ob ein Update verfügbar ist</string>
   <string name="status_update_available">Update verfügbar</string>
   <string name="status_update_available_subtitle">Neuere hosts-Dateien verfügbar</string>
@@ -150,7 +152,8 @@
   <string name="no_tcpdump">Deine Rom enthält kein tcpdump.</string>
   <string name="no_tcpdump_title">Kein Tcpdump gefunden!</string>
   <string name="toast_tcpdump_log_deleted">Log-Datei wurde gelöscht!</string>
-  <string name="toast_tcpdump_log_not_existing">Log-Datei existiert nicht!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Der Hostname wurde zu deiner Blacklist hinzugefügt!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Der Hostname wurde zu deiner Whitelist hinzugefügt!</string>
   <string name="pref_download">Generelle Einstellungen</string>
   <string name="pref_hosts">Hosts-Datei</string>
   <string name="pref_redirection_ip">Umleitungs-IP</string>
@@ -182,4 +185,9 @@
   <string name="pref_automatic_update_daily_summary">Installiere Updates automatisch im Hintergrund, wenn neue verfügbar sind.</string>
   <string name="pref_redirection_rules">Weiterleitungen erlauben</string>
   <string name="pref_redirection_rules_summary">Erlaube Weiterleitungen aus den Hosts-Quellen.</string>
+  <string name="tcpdump_log_context_blacklist">Zur Blacklist hinzufügen</string>
+  <string name="tcpdump_log_context_whitelist">Zur Whitelist hinzufügen</string>
+  <string name="tcpdump_log_context_browser">Im Browser öffnen</string>
+  <string name="tcpdump_log_empty">Log-Datei ist leer!</string>
+  <string name="tcpdump_log_footer">Halte einen Eintrag lange gedrückt um den Hostname zu deiner Black- oder Whitelist hinzuzufügen!</string>
 </resources>

@@ -10,6 +10,7 @@
   <string name="download_dialog">Téléchargement:</string>
   <string name="menu_hosts_sources">Liste des sources</string>
   <string name="menu_about">A propos</string>
+  <string name="menu_tcpdump">Tcpdump</string>
   <string name="apply_dialog">Appliquer</string>
   <string name="apply_dialog_hostnames">Analyse et fusion des fichiers hôtes</string>
   <string name="apply_dialog_hosts">Création du fichier hosts</string>
@@ -17,13 +18,14 @@
   <string name="menu_preferences">Préférences</string>
   <string name="button_yes">Oui</string>
   <string name="button_no">Non</string>
-  <string name="revert_question">Voulez vous vraiment annuler les modifications ?</string>
   <string name="revert_successful">Les modifications ont été annulées.\nIl est nécessaire de redémarrer votre téléphone pour que les changements prennent effet.\n\nVoulez-vous redémarrer maintenant ?\n(Pour ne pas perdre de données, assurez vous qu\'il n\'y a pas d\'applications qui utilise la carte SD en ce moment !)</string>
   <string name="button_revert">Désactiver le bloqueur de publicité</string>
   <string name="apply_success">L\'application a été réussi. \nIl est peut être nécessaire de redémarrer Android pour que les modifications prennent effet. \n \nVoulez-vous redémarrer ? \n (Pour éviter toute perte de données s\'assurer qu\'aucune application n\'utilise la carte SD pour le moment !)</string>
   <string name="about_description">AdAway est un bloqueur de publicité open source pour Android.</string>
   <string name="about_license">Licence : GPL v3</string>
   <string name="about_version">Version :</string>
+  <string name="about_developer">Développeur : Dominik Schürmann</string>
+  <string name="about_icons">Certaines icônes sont tirées de \'Dropbox Emblems Tango par Charles A.\' et \"www.androidicons.com\", à la fois sous licenceCreative Commons Attribution 3.0 Unported License.</string>
   <string name="apply_fail">L\'application du fichier hosts de votre système a échoué ! \nEssayez de modifier la cible du fichier hosts dans les préférences pour /data/data/hosts.</string>
   <string name="apply_fail_title">L\'application a échoué</string>
   <string name="revert_problem">Retour en arrière échoué.</string>
@@ -74,7 +76,6 @@
   <string name="status_enabled_subtitle">Autorisé les fichiers hosts les plus récents</string>
   <string name="status_disabled">Désactivé</string>
   <string name="status_disabled_subtitle">Désactivé</string>
-  <string name="about_icons">Certaines icônes sont tirées de \'Dropbox Emblems Tango par Charles A.\' et \"www.androidicons.com\", à la fois sous licenceCreative Commons Attribution 3.0 Unported License.</string>
   <string name="no_busybox">Le binaire BusyBox n\'a pu être trouvé. Pour l\'installer depuis l\'Android Market cliquez sur le bouton ci-dessous.</string>
   <string name="no_busybox_title">Aucun binaire Busybox</string>
   <string name="button_busybox">Installer Busybox</string>
@@ -114,14 +115,22 @@
   <string name="reboot_never_reboot">Ne jamais redémarrer et ne pas afficher cette question la prochaine fois !</string>
   <string name="button_help">Aide</string>
   <string name="apply_help">Lire \"Aide\" pour plus d\'informations.</string>
+  <string name="menu_import">Importer toutes les listes</string>
+  <string name="menu_export">Exporter toutes les listes</string>
+  <string name="import_dialog">Importation...</string>
+  <string name="export_dialog">Exportation...</string>
+  <string name="export_success">Exporter les entrées vers un fichier \'adaway_export\' sur SD.</string>
   <string name="no_text_editor_title">Aucun éditeur de texte installé</string>
   <string name="no_text_editor">Aucun éditeur de texte n\'a pu être trouvé pour ouvrir le fichier hosts. Vous pouvez installer Jota ou d\'autres éditeurs de texte pour gérer cela. \n\nVoulez-vous installer Jota ?</string>
+  <string name="no_file_manager_title">Aucun gestionnaire de fichier installé</string>
+  <string name="no_file_manager">Aucun gestionnaire de fichier trouvé. Plusieurs sont disponibles sur le Market. Voulez vous tester OI File Manager ?</string>
   <string name="donations_flattr">Flattr</string>
   <string name="donations_google_android_market">Google Android Market</string>
+  <string name="donations_google_android_market_not_supported_title">Donations In-App non-supportées</string>
+  <string name="donations_google_android_market_not_supported">Donations In-App non-supportées. Le Market est-il correctement installé ?</string>
   <string name="donations_google_android_market_description">• Google prend 30% sur chaque don ! \n• Il n\'y a pas de version premium pour les donateurs.</string>
   <string name="donations_google_android_market_donate_button">Faire un don !</string>
   <string name="donations_google_android_market_text">Combien ?</string>
-  <string name="donations_google_android_market_spinning_message">S\'il vous plaît patienter pendant que le paiement est reçu ! \nCela peut prendre une minute ou deux ...</string>
   <string-array name="donations_google_android_market_promt_array"><item> 1 Euro </item>
 <item> 2 Euros </item>
 <item> 3 Euros </item>
@@ -141,8 +150,6 @@
   <string name="pref_header_preferences_summary">Préférences générales de AdAway</string>
   <string name="pref_never_reboot">Masquer le dialogue sur le reboot</string>
   <string name="pref_never_reboot_summary">Masquer la boîte de dialogue qui demande de redémarrer Android, après l\'application du fichier hosts</string>
-  <string name="pref_update_check_daily">Vérifiez les mises à jour quotidiennement</string>
-  <string name="pref_update_check_daily_summary">Vérifiez les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_webserver_on_boot">Démarrer le serveur web au démarrage</string>
   <string name="pref_webserver_on_boot_summary">Démarrer le serveur web au démarrage retardé de 5 secondes, écoutant sur les adresses IP locales</string>
   <string name="pref_webserver_enabled">Activer le serveur web</string>
@@ -150,4 +157,11 @@
   <string name="pref_webserver">Serveur web local</string>
   <string name="pref_custom_target">Cible personnalisée</string>
   <string name="pref_custom_target_summary">Utilisé uniquement si la cible du fichier hosts est réglée sur cible personnalisée</string>
+  <string name="pref_update_check_summary">Vérifier les mises à jour au démarrage</string>
+  <string name="pref_sdcard_problem">Cette fonction ne peut être exploité si AdAway est installé sur la carte SD.</string>
+  <string name="pref_background">Services de fond</string>
+  <string name="pref_update_check_daily">Vérifiez les mises à jour quotidiennement</string>
+  <string name="pref_update_check_daily_summary">Vérifiez les mises à jour quotidiennement en arrière-plan avec des notifications</string>
+  <string name="pref_automatic_update_daily">Mise à jour automatique</string>
+  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en tâche de fond</string>
 </resources>

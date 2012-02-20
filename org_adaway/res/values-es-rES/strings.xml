@@ -17,13 +17,13 @@
   <string name="menu_preferences">Preferencias</string>
   <string name="button_yes">Si</string>
   <string name="button_no">No</string>
-  <string name="revert_question">¿Está seguro de deshacer?</string>
   <string name="revert_successful">Se volvió al archivo hosts por defecto.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n ¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegurese de que no hay aplicaciones utilizando la sdcard en este momento!)</string>
   <string name="button_revert">Desactivar el bloqueo de anuncios</string>
   <string name="apply_success">Cambios realizados correctamente.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n ¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegurese de que no hay aplicaciones utilizando la sdcard en este momento!)</string>
   <string name="about_description">AdAway es un bloqueador de anuncios de código libre para Android.</string>
   <string name="about_license">Licencia: GPL v3</string>
   <string name="about_version">Versión:</string>
+  <string name="about_icons">Algunos iconos se han tomado de \"Dropbox Emblems Tango by Charles A\" y \'www.androidicons.com, ambos licenciados bajo licencia Creative Commons Attribution 3.0 Uported License.</string>
   <string name="apply_fail">¡No se pudo modificar el archivo hosts en tu sistema!\nIntente cambiar el archivo hosts de destino en las preferencias a /data/data/hosts.</string>
   <string name="apply_fail_title">No se puedo realizar el cambio</string>
   <string name="revert_problem">No se pudo deshacer el cambio</string>
@@ -74,7 +74,6 @@
   <string name="status_enabled_subtitle">Nuevos archivos de host activados</string>
   <string name="status_disabled">Desactivado</string>
   <string name="status_disabled_subtitle">Desactivado</string>
-  <string name="about_icons">Algunos iconos se han tomado de \"Dropbox Emblems Tango by Charles A\" y \'www.androidicons.com, ambos licenciados bajo licencia Creative Commons Attribution 3.0 Uported License.</string>
   <string name="no_busybox">No se pudo encontrar el binario Busybox. Para instalarlo desde el Android Market haga clic en el botón de abajo.</string>
   <string name="no_busybox_title">No hay binario Busybox</string>
   <string name="button_busybox">Instalar Busybox</string>
@@ -116,14 +115,11 @@
   <string name="apply_help">Por favor, lee Ayuda para más información.</string>
   <string name="no_text_editor_title">No hay ningún editor de texto instalado</string>
   <string name="no_text_editor">No se pudo encontrar un editor de texto para abrir el archivo hosts. Puede instalar Jota u otros editores de texto para solucionar esto.\n\n¿Desea instalar Jota?</string>
-  <string name="no_file_manager_title"></string>
-  <string name="no_file_manager"></string>
   <string name="donations_flattr">Flattr</string>
   <string name="donations_google_android_market">Google Android Market</string>
   <string name="donations_google_android_market_description">• ¡Google se queda el 30% de todas las donaciones!\n• No existe una versión premium para donantes.</string>
   <string name="donations_google_android_market_donate_button">¡Donar!</string>
   <string name="donations_google_android_market_text">¿Cuánto?</string>
-  <string name="donations_google_android_market_spinning_message">¡Por favor, espere mientras se recibe el pago!\nEsto puede tardar un minuto o dos ...</string>
   <string-array name="donations_google_android_market_promt_array"><item>1 Euro</item>
 <item>2 Euros</item>
 <item>3 Euros</item>
@@ -144,8 +140,6 @@
   <string name="pref_header_preferences_summary">Preferencias generales para AdAway</string>
   <string name="pref_never_reboot">Ocultar diálogo de reiniciar</string>
   <string name="pref_never_reboot_summary">Oculta el cuadro de diálogo que pide reiniciar Android después de aplicar cambios correctamente</string>
-  <string name="pref_update_check_daily">Buscar actualizaciones diarias</string>
-  <string name="pref_update_check_daily_summary">Comprobar actualizaciones diarias en segundo plano con notificaciones</string>
   <string name="pref_webserver_on_boot">Iniciar Servidor Web al arrancar</string>
   <string name="pref_webserver_on_boot_summary">Iniciar Servidor Web al arrancar retrasado 5 segundos escuchando en local direcciones IP</string>
   <string name="pref_webserver_enabled">Habilitar Servidor Web</string>
@@ -153,4 +147,6 @@
   <string name="pref_webserver">Servidor Web local</string>
   <string name="pref_custom_target">Destino personalizado</string>
   <string name="pref_custom_target_summary">Sólo se utiliza si el destino del archivo hosts se configura como destino personalizado</string>
+  <string name="pref_update_check_daily">Buscar actualizaciones diarias</string>
+  <string name="pref_update_check_daily_summary">Comprobar actualizaciones diarias en segundo plano con notificaciones</string>
 </resources>
