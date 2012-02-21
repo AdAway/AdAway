@@ -23,19 +23,16 @@ package org.adaway.service;
 import java.io.FileOutputStream;
 
 import org.adaway.R;
-import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.ResultHelper;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
-import org.adaway.util.Utils;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 
 public class RevertService extends WakefulIntentService {
@@ -60,6 +57,22 @@ public class RevertService extends WakefulIntentService {
         // disable buttons
         BaseActivity.setButtonsBroadcast(mService, false);
 
+        int revertResult = revert();
+
+        Log.d(Constants.TAG, "revert result: " + revertResult);
+
+        // enable buttons
+        BaseActivity.setButtonsBroadcast(mService, true);
+
+        ResultHelper.showNotificationBasedOnResult(mService, revertResult, null);
+    }
+
+    /**
+     * Reverts to default hosts file
+     * 
+     * @return Status codes REVERT_SUCCESS or REVERT_FAIL
+     */
+    private int revert() {
         BaseActivity.setStatusBroadcast(mService, getString(R.string.status_reverting),
                 getString(R.string.status_reverting_subtitle), StatusCodes.CHECKING);
 
@@ -84,36 +97,12 @@ public class RevertService extends WakefulIntentService {
             // set status to disabled
             BaseActivity.updateStatusDisabled(mService);
 
-            if (!PreferencesHelper.getNeverReboot(mService)) {
-                Utils.rebootQuestion(mService, R.string.revert_successful_title,
-                        R.string.revert_successful);
-            }
+            return StatusCodes.REVERT_SUCCESS;
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
-            // back to old status
-            if (ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                BaseActivity.updateStatusEnabled(mService);
-            } else {
-                BaseActivity.updateStatusDisabled(mService);
-            }
-
-            AlertDialog alertDialog = new AlertDialog.Builder(mService).create();
-            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-            alertDialog.setTitle(R.string.button_revert);
-            alertDialog.setMessage(mService.getString(org.adaway.R.string.revert_problem));
-            alertDialog.setButton(mService.getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dlg, int sum) {
-                            dlg.dismiss();
-                        }
-                    });
-            alertDialog.show();
+            return StatusCodes.REVERT_FAIL;
         }
-
-        // enable buttons
-        BaseActivity.setButtonsBroadcast(mService, true);
     }
-
 }

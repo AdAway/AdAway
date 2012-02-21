@@ -30,7 +30,8 @@
     <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android &lt; 3.0.</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
-    <string name="revert_problem">Reverting failed.</string>
+    <string name="revert_problem">Reverting failed due to unknown reasons.</string>
+    <string name="revert_problem_title">Reverting failed!</string>
     <string name="menu_add">Add</string>
     <string name="no_url">This is not a valid URL!</string>
     <string name="no_url_title">Malformed URL</string>

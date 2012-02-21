@@ -39,4 +39,6 @@ public class StatusCodes {
     public static final int REMOUNT_FAIL = 11;
     public static final int COPY_FAIL = 12;
     public static final int EMPTY_HOSTS_SOURCES = 13;
+    public static final int REVERT_SUCCESS = 14;
+    public static final int REVERT_FAIL = 15;
 }

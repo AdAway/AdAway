@@ -44,7 +44,7 @@ public class ResultHelper {
     private static final int RESULT_NOTIFICATION_ID = 30;
 
     /**
-     * Show notification based on result after processing download and apply
+     * Show notification based on result after ApplyService or RevertService
      * 
      * @param context
      * @param result
@@ -55,13 +55,35 @@ public class ResultHelper {
             String title = context.getString(R.string.apply_success_title);
             String text = context.getString(R.string.apply_success);
 
+            BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
+
             // only show if reboot dialog is not disabled in preferences
             if (!PreferencesHelper.getNeverReboot(context)) {
                 processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
-            } else {
-                BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
             }
-            // else show no notification and no dialog
+        } else if (result == StatusCodes.REVERT_SUCCESS) {
+            String title = context.getString(R.string.revert_successful_title);
+            String text = context.getString(R.string.revert_successful);
+
+            BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.DISABLED);
+
+            // only show if reboot dialog is not disabled in preferences
+            if (!PreferencesHelper.getNeverReboot(context)) {
+                processResult(context, title, text, text, result, StatusCodes.DISABLED, null, true);
+            }
+        } else if (result == StatusCodes.REVERT_FAIL) {
+            String title = context.getString(R.string.revert_problem_title);
+            String text = context.getString(R.string.revert_problem);
+
+            // back to old status
+            int oldStatus;
+            if (ApplyUtils.isHostsFileCorrect(context, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                oldStatus = StatusCodes.ENABLED;
+            } else {
+                oldStatus = StatusCodes.DISABLED;
+            }
+
+            processResult(context, title, text, text, result, oldStatus, null, false);
         } else if (result == StatusCodes.UPDATE_AVAILABLE) { // used from UpdateService
             String title = context.getString(R.string.status_update_available);
             String text = context.getString(R.string.status_update_available_subtitle);
@@ -137,6 +159,11 @@ public class ResultHelper {
             BaseActivity.updateStatusEnabled(context);
 
             Utils.rebootQuestion(context, R.string.apply_success_title, R.string.apply_success);
+        } else if (result == StatusCodes.REVERT_SUCCESS) {
+            BaseActivity.updateStatusDisabled(context);
+
+            Utils.rebootQuestion(context, R.string.revert_successful_title,
+                    R.string.revert_successful);
         } else if (result == StatusCodes.ENABLED) {
             BaseActivity.updateStatusEnabled(context);
         } else if (result == StatusCodes.DISABLED) {
@@ -195,7 +222,8 @@ public class ResultHelper {
                 text = context.getString(R.string.no_connection);
                 statusText = context.getString(R.string.status_no_connection_subtitle);
 
-                BaseActivity.setStatusBroadcast(context, title, statusText, StatusCodes.DOWNLOAD_FAIL);
+                BaseActivity.setStatusBroadcast(context, title, statusText,
+                        StatusCodes.DOWNLOAD_FAIL);
                 break;
             case StatusCodes.DOWNLOAD_FAIL:
                 title = context.getString(R.string.download_fail_title);
@@ -207,7 +235,8 @@ public class ResultHelper {
                 statusText = context.getString(R.string.status_download_fail_subtitle) + " "
                         + failingUrl;
 
-                BaseActivity.setStatusBroadcast(context, title, statusText, StatusCodes.DOWNLOAD_FAIL);
+                BaseActivity.setStatusBroadcast(context, title, statusText,
+                        StatusCodes.DOWNLOAD_FAIL);
                 break;
             case StatusCodes.EMPTY_HOSTS_SOURCES:
                 title = context.getString(R.string.no_sources_title);
@@ -245,6 +274,17 @@ public class ResultHelper {
 
                 BaseActivity.updateStatusDisabled(context);
                 break;
+            case StatusCodes.REVERT_FAIL:
+                title = context.getString(R.string.revert_problem_title);
+                text = context.getString(R.string.revert_problem);
+
+                // back to old status
+                if (ApplyUtils.isHostsFileCorrect(context, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                    BaseActivity.updateStatusEnabled(context);
+                } else {
+                    BaseActivity.updateStatusDisabled(context);
+                }
+                break;
             }
             text += "\n\n" + context.getString(R.string.apply_help);
             builder.setTitle(title);
@@ -276,7 +316,6 @@ public class ResultHelper {
                 resultIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, result);
                 if (failingUrl != null) {
                     resultIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
-
                 }
                 resultIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
                 resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -288,7 +327,8 @@ public class ResultHelper {
         }
 
         if (failingUrl != null) {
-            BaseActivity.setStatusBroadcast(context, title, statusText + " " + failingUrl, iconStatus);
+            BaseActivity.setStatusBroadcast(context, title, statusText + " " + failingUrl,
+                    iconStatus);
         } else {
             BaseActivity.setStatusBroadcast(context, title, statusText, iconStatus);
         }
