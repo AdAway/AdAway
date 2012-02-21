@@ -4,6 +4,7 @@ http://code.google.com/p/ad-away/issues
 1.27
 * No longer needs busybox
 - Fixed problems with reverting
+- Method to restart Android changed
 
 1.26
 * Usability improvements: Buttons will now be disabled while applying, reverting is improved

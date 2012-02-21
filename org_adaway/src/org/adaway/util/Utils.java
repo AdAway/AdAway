@@ -136,7 +136,14 @@ public class Utils {
                             PreferencesHelper.setNeverReboot(context, true);
                         }
 
-                        RootTools.restartAndroid();
+                        // not working on all devices:
+                        // RootTools.restartAndroid();
+                        try {
+                            RootTools.sendShell(Constants.COMMAND_REBOOT, -1);
+                        } catch (Exception e) {
+                            Log.e(Constants.TAG, "Problem with rebooting");
+                            e.printStackTrace();
+                        }
                     }
                 });
         builder.setNegativeButton(context.getString(R.string.button_no),
