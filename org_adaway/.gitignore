@@ -4,6 +4,7 @@ gen
 obj
 libs/armeabi
 lint.xml
+local.properties
 
 #Eclipse
 .project
