@@ -6,11 +6,15 @@ The following open source projects are used in AdAway:
 
   * RootTools
     http://code.google.com/p/roottools/
-    GNU GPL v2
+    GPLv2
 
   * Mongoose Webserver
     http://code.google.com/p/mongoose/
     MIT License
+
+  * Tcpdump/Libpcap
+    http://www.tcpdump.org/
+    BSD 3-Clause License
 
 Images:
 

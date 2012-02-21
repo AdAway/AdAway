@@ -2,7 +2,6 @@ Forked from the following sources and slightly modified to compile!
 
 dnsmasq:  https://github.com/CyanogenMod/android_external_dnsmasq
 libpcap: https://github.com/CyanogenMod/android_external_libpcap
-openssl: https://github.com/kyan-he/openssl-android
 tcpdump: https://github.com/CyanogenMod/android_external_tcpdump
 
 tcpdump/Android.mk changed:
