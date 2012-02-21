@@ -26,7 +26,7 @@ my $exit_code = 0;
 
 my @files_to_delete = ('debug.log', 'access.log', $config, "$root/a/put.txt",
   "$root/a+.txt", "$root/.htpasswd", "$root/binary_file", "$root/a",
-  $embed_exe, $unit_test_exe);
+  "$root/myperl", $embed_exe, $unit_test_exe);
 
 END {
   unlink @files_to_delete;
@@ -150,6 +150,11 @@ if (scalar(@ARGV) > 0 and $ARGV[0] eq 'embedded') {
   exit 0;
 }
 
+if (scalar(@ARGV) > 0 and $ARGV[0] eq 'unit') {
+  do_unit_test();
+  exit 0;
+}
+
 # Make sure we load config file if no options are given.
 # Command line options override config files settings
 write_file($config, "access_log_file access.log\nlistening_ports 12345\n");
@@ -159,14 +164,16 @@ unlink $config;
 kill_spawned_child();
 
 # Spawn the server on port $port
-write_file($config, "");
-my $cmd = "$exe $config -listening_ports $port -access_log_file access.log ".
-"-error_log_file debug.log ".
-"-cgi_environment CGI_FOO=foo,CGI_BAR=bar,CGI_BAZ=baz " .
-"-extra_mime_types .bar=foo/bar,.tar.gz=blah,.baz=foo " .
-'-put_delete_passwords_file test/passfile ' .
-'-access_control_list -0.0.0.0/0,+127.0.0.1 ' .
-"-document_root $root,/aiased=/etc/,/ta=$test_dir";
+my $cmd = "$exe ".
+  "-listening_ports $port ".
+  "-access_log_file access.log ".
+  "-error_log_file debug.log ".
+  "-cgi_environment CGI_FOO=foo,CGI_BAR=bar,CGI_BAZ=baz " .
+  "-extra_mime_types .bar=foo/bar,.tar.gz=blah,.baz=foo " .
+  '-put_delete_passwords_file test/passfile ' .
+  '-access_control_list -0.0.0.0/0,+127.0.0.1 ' .
+  "-document_root $root ".
+  "-url_rewrite_patterns /aiased=/etc/,/ta=$test_dir";
 $cmd .= ' -cgi_interpreter perl' if on_windows();
 spawn($cmd);
 
@@ -194,7 +201,7 @@ $num_requests++;
 write_file("$root/a+.txt", '');
 o("GET /a+.txt HTTP/1.0\n\n", 'HTTP/1.1 200 OK', 'URL-decoding, + in URI');
 
-#o("GET /hh HTTP/1.0\n\n", 'HTTP/1.1 200 OK', 'GET admin URI');
+o("GET /%5c/a.txt HTTP/1.0\n\n", 'blah', 'GET dir backslash');
 
 # Test HTTP version parsing
 o("GET / HTTPX/1.0\r\n\r\n", '400 Bad Request', 'Bad HTTP Version', 0);
@@ -206,7 +213,8 @@ o("GET / HTTP/02.0\r\n\r\n", '505 HTTP version not supported',
 # File with leading single dot
 o("GET /.leading.dot.txt HTTP/1.0\n\n", 'abc123', 'Leading dot 1');
 o("GET /...leading.dot.txt HTTP/1.0\n\n", 'abc123', 'Leading dot 2');
-o("GET /../\\\\/.//...leading.dot.txt HTTP/1.0\n\n", 'abc123', 'Leading dot 3');
+o("GET /../\\\\/.//...leading.dot.txt HTTP/1.0\n\n", 'abc123', 'Leading dot 3')
+  if on_windows();
 o("GET .. HTTP/1.0\n\n", '400 Bad Request', 'Leading dot 4', 0);
 
 mkdir $test_dir unless -d $test_dir;
@@ -222,7 +230,7 @@ o("GET /not-exist HTTP/1.0\r\n\n", 'HTTP/1.1 404', 'Not existent file');
 mkdir $test_dir . $dir_separator . 'x';
 my $path = $test_dir . $dir_separator . 'x' . $dir_separator . 'index.cgi';
 write_file($path, read_file($root . $dir_separator . 'env.cgi'));
-chmod 0755, $path;
+chmod(0755, $path);
 o("GET /$test_dir_uri/x/ HTTP/1.0\n\n", "Content-Type: text/html\r\n\r\n",
   'index.cgi execution');
 o("GET /$test_dir_uri/x/ HTTP/1.0\n\n",
@@ -230,6 +238,14 @@ o("GET /$test_dir_uri/x/ HTTP/1.0\n\n",
 o("GET /ta/x/ HTTP/1.0\n\n", "SCRIPT_NAME=/ta/x/index.cgi",
   'Aliases SCRIPT_NAME');
 o("GET /hello.txt HTTP/1.1\n\n", 'Connection: close', 'No keep-alive');
+
+$path = $test_dir . $dir_separator . 'x' . $dir_separator . 'a.cgi';
+system("ln -s `which perl` $root/myperl") == 0 or fail("Can't symlink perl");
+write_file($path, "#!../../myperl\n" .
+           "print \"Content-Type: text/plain\\n\\nhi\";");
+chmod(0755, $path);
+o("GET /$test_dir_uri/x/a.cgi HTTP/1.0\n\n", "hi", 'Relative CGI interp path');
+
 #o("GET /hello.txt HTTP/1.1\n\n   GET /hello.txt HTTP/1.0\n\n",
 #  'HTTP/1.1 200.+keep-alive.+HTTP/1.1 200.+close',
 #  'Request pipelining', 2);
@@ -322,7 +338,7 @@ unless (scalar(@ARGV) > 0 and $ARGV[0] eq "basic_tests") {
   unlink "$root/.htpasswd";
 
   o("GET /env.cgi HTTP/1.0\n\r\n", 'HTTP/1.1 200 OK', 'GET CGI file');
-  o("GET /redirect.cgi HTTP/1.0\n\n", 'HTTP/1.1 302', 'Redirect');
+  #o("GET /redirect.cgi HTTP/1.0\n\n", 'HTTP/1.1 302', 'Redirect');
   o("GET /sh.cgi HTTP/1.0\n\r\n", 'shell script CGI',
     'GET sh CGI file') unless on_windows();
   o("GET /env.cgi?var=HELLO HTTP/1.0\n\n", 'QUERY_STRING=var=HELLO',
@@ -348,6 +364,7 @@ unless (scalar(@ARGV) > 0 and $ARGV[0] eq "basic_tests") {
   o("GET /env.cgi HTTP/1.0\n\r\n", '\nCGI_FOO=foo\n', '-cgi_env 1');
   o("GET /env.cgi HTTP/1.0\n\r\n", '\nCGI_BAR=bar\n', '-cgi_env 2');
   o("GET /env.cgi HTTP/1.0\n\r\n", '\nCGI_BAZ=baz\n', '-cgi_env 3');
+  o("GET /env.cgi/a/b HTTP/1.0\n\r\n", 'PATH_INFO=/a/b\n', 'PATH_INFO');
 
   # Check that CGI's current directory is set to script's directory
   my $copy_cmd = on_windows() ? 'copy' : 'cp';
@@ -386,6 +403,7 @@ unless (scalar(@ARGV) > 0 and $ARGV[0] eq "basic_tests") {
 
   do_PUT_test();
   kill_spawned_child();
+  do_unit_test();
   do_embedded_test();
 }
 
@@ -413,6 +431,18 @@ sub do_PUT_test {
   o("PUT /a/put.txt HTTP/1.0\nExpect: 100-continue\nContent-Length: 4\n".
     "$auth_header\nabcd",
     "HTTP/1.1 100 Continue.+HTTP/1.1 200", 'PUT 100-Continue');
+}
+
+sub do_unit_test {
+  my $cmd = "cc -W -Wall -o $unit_test_exe $root/unit_test.c -I. ".
+  "-pthread -DNO_SSL ";
+  if (on_windows()) {
+    $cmd = "cl $root/embed.c mongoose.c /I. /nologo /DNO_SSL ".
+    "/DLISTENING_PORT=\\\"$port\\\" /link /out:$embed_exe.exe ws2_32.lib ";
+  }
+  print $cmd, "\n";
+  system($cmd) == 0 or fail("Cannot compile unit test");
+  system($unit_test_exe) == 0 or fail("Unit test failed!");
 }
 
 sub do_embedded_test {
