@@ -32,7 +32,6 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.RootToolsException;
 
 import android.content.Context;
 import android.os.StatFs;
@@ -193,27 +192,17 @@ public class ApplyUtils {
 
                 // execute commands: copy, chown, chmod
                 output = RootTools.sendShell(new String[] { commandCopySystemEtc,
-                        commandChownSystemEtcHosts, commandChmodSystemEtcHosts644 }, 1);
+                        commandChownSystemEtcHosts, commandChmodSystemEtcHosts644 }, 1, -1);
             } else {
                 Log.i(Constants.TAG, "Executing: " + commandCopyAlternativePath + ", "
                         + commandChmodAlternativePath666);
 
                 // execute copy
                 output = RootTools.sendShell(new String[] { commandCopyAlternativePath,
-                        commandChmodAlternativePath666 }, 1);
+                        commandChmodAlternativePath666 }, 1, -1);
             }
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        } catch (InterruptedException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        } catch (RootToolsException e) {
+        } catch (Exception e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
@@ -252,20 +241,10 @@ public class ApplyUtils {
         try {
             // create symlink
             output = RootTools.sendShell(new String[] { commandRm, commandSymlink,
-                    commandChownTarget, commandChmodTarget644 }, 1);
+                    commandChownTarget, commandChmodTarget644 }, 1, -1);
 
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        } catch (InterruptedException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        } catch (RootToolsException e) {
+        } catch (Exception e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 
@@ -316,20 +295,10 @@ public class ApplyUtils {
         List<String> output = null;
         try {
             // create directories
-            output = RootTools.sendShell(new String[] { commandMkdir }, 1);
+            output = RootTools.sendShell(new String[] { commandMkdir }, 1, -1);
 
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        } catch (InterruptedException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
-
-            throw new CommandException();
-        } catch (RootToolsException e) {
+        } catch (Exception e) {
             Log.e(Constants.TAG, "Exception: " + e);
             e.printStackTrace();
 

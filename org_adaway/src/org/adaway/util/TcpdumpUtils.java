@@ -79,7 +79,7 @@ public class TcpdumpUtils {
             String command = Constants.COMMAND_RM + " " + filesPath + Constants.FILE_SEPERATOR
                     + Constants.TCPDUMP_EXECUTEABLE;
 
-            RootTools.sendShell(command);
+            RootTools.sendShell(command, -1);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Problem while removing tcpdump: " + e);
             e.printStackTrace();
@@ -109,11 +109,11 @@ public class TcpdumpUtils {
 
             // If rom contains tcpdump...
             if (RootTools.findBinary(Constants.TCPDUMP_EXECUTEABLE)) {
-                Log.i(Constants.TAG, "Rom cotains tcpdump, using this one...");
+                Log.i(Constants.TAG, "Rom contains tcpdump, using this one...");
 
                 try {
                     String command = Constants.TCPDUMP_EXECUTEABLE + parameters;
-                    RootTools.sendShell(command);
+                    RootTools.sendShell(command, -1);
 
                     return true;
                 } catch (Exception e) {

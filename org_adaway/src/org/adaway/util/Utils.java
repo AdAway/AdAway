@@ -67,61 +67,35 @@ public class Utils {
             rootAvailable = true;
         } else {
             // check for root on device and call su binary
-            if (!RootTools.isAccessGiven()) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                builder.setCancelable(false);
-                builder.setIcon(android.R.drawable.ic_dialog_alert);
-                builder.setTitle(activity.getString(R.string.no_root_title));
-
-                // build view from layout
-                LayoutInflater factory = LayoutInflater.from(activity);
-                final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
-                builder.setView(dialogView);
-
-                builder.setNeutralButton(activity.getResources().getString(R.string.button_exit),
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                activity.finish(); // finish current activity, means exiting app
-                            }
-                        });
-
-                AlertDialog alert = builder.create();
-                alert.show();
-            } else {
-                // checking for busybox and offer if not available
-                if (!RootTools.isBusyboxAvailable()) {
+            try {
+                if (!RootTools.isAccessGiven()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setTitle(R.string.no_busybox_title);
-                    builder.setMessage(activity.getString(R.string.no_busybox));
+                    builder.setCancelable(false);
                     builder.setIcon(android.R.drawable.ic_dialog_alert);
-                    builder.setPositiveButton(activity.getString(R.string.button_busybox),
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    activity.finish();
+                    builder.setTitle(activity.getString(R.string.no_root_title));
 
-                                    // offer busybox from Android Market
-                                    try {
-                                        RootTools.offerBusyBox(activity);
-                                    } catch (Exception e) {
-                                        Log.e(Constants.TAG,
-                                                "Problem when offering busybox through Android Market. Excpetion: "
-                                                        + e);
-                                        e.printStackTrace();
-                                    }
-                                }
-                            });
-                    builder.setNegativeButton(activity.getString(R.string.button_exit),
+                    // build view from layout
+                    LayoutInflater factory = LayoutInflater.from(activity);
+                    final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
+                    builder.setView(dialogView);
+
+                    builder.setNeutralButton(activity.getResources()
+                            .getString(R.string.button_exit),
                             new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    activity.finish();
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    activity.finish(); // finish current activity, means exiting app
                                 }
                             });
-                    AlertDialog busyboxDialog = builder.create();
-                    busyboxDialog.show();
+
+                    AlertDialog alert = builder.create();
+                    alert.show();
                 } else {
                     rootAvailable = true;
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                rootAvailable = false;
             }
         }
 
@@ -162,7 +136,6 @@ public class Utils {
                             PreferencesHelper.setNeverReboot(context, true);
                         }
 
-                        // restart android quickly using RootTools
                         RootTools.restartAndroid();
                     }
                 });

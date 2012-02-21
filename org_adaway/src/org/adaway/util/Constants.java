@@ -24,7 +24,7 @@ import com.stericson.RootTools.RootTools;
 
 public class Constants {
     /* DEBUG enables Log.d outputs, wrapped in org.adaway.util.Log and RootTools Debug Mode */
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
     public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
     public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
 

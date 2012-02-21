@@ -82,9 +82,6 @@
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
     <string name="status_disabled_subtitle">Disabled</string>
-    <string name="no_busybox">The Busybox binary could not be found. To install it from the Android Market click the Button below.</string>
-    <string name="no_busybox_title">No Busybox binary</string>
-    <string name="button_busybox">Install Busybox</string>
     <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
     <string name="menu_donations">Donations</string>
     <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>

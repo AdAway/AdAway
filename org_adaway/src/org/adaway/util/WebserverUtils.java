@@ -76,7 +76,7 @@ public class WebserverUtils {
             String command = Constants.COMMAND_RM + " " + filesPath + Constants.FILE_SEPERATOR
                     + Constants.WEBSERVER_EXECUTEABLE;
 
-            RootTools.sendShell(command);
+            RootTools.sendShell(command, -1);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Problem while removing webserver: " + e);
             e.printStackTrace();

@@ -1,6 +1,10 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.27
+* No longer needs busybox
+- Fixed problems with reverting
+
 1.26
 * Usability improvements: Buttons will now be disabled while applying, reverting is improved
 * Faster due to improved hosts parsing
