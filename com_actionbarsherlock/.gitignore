@@ -1,6 +1,7 @@
 #Android generated
 bin
 gen
+local.properties
 
 #Eclipse
 .project
