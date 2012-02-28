@@ -529,7 +529,7 @@ public class ApplyService extends WakefulIntentService {
         // configure the notification
         mApplyNotification = new Notification(R.drawable.status_bar_icon, tickerText,
                 System.currentTimeMillis());
-        mApplyNotification.flags = mApplyNotification.flags | Notification.FLAG_ONGOING_EVENT
+        mApplyNotification.flags = Notification.FLAG_ONGOING_EVENT
                 | Notification.FLAG_ONLY_ALERT_ONCE;
 
         // add app name to title

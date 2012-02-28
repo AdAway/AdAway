@@ -1,6 +1,10 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.28
+* Now works on devices without cp command
+* New debug setting
+
 1.27
 * No longer needs busybox
 - Fixed problems with reverting

@@ -32,6 +32,7 @@ import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.DateUtils;
 import org.adaway.util.Utils;
@@ -43,7 +44,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 /**
@@ -218,7 +218,7 @@ public class UpdateService extends WakefulIntentService {
         long when = System.currentTimeMillis();
 
         Notification notification = new Notification(icon, tickerText, when);
-        notification.flags |= Notification.FLAG_ONGOING_EVENT;
+        notification.flags = Notification.FLAG_ONGOING_EVENT;
 
         Context context = getApplicationContext();
         CharSequence contentTitle = getString(R.string.app_name) + ": "

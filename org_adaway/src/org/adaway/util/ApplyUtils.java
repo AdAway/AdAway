@@ -142,8 +142,6 @@ public class ApplyUtils {
         }
 
         // commands when using /system/etc/hosts
-        String commandCopySystemEtc = Constants.COMMAND_COPY + " " + privateFile + " "
-                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
         String commandChownSystemEtcHosts = Constants.COMMAND_CHOWN + " "
                 + Constants.ANDROID_SYSTEM_ETC_HOSTS;
         String commandChmodSystemEtcHosts644 = Constants.COMMAND_CHMOD_644 + " "
@@ -158,8 +156,6 @@ public class ApplyUtils {
         Log.i(Constants.TAG, "Target: " + target);
 
         // commands when using customTarget
-        String commandCopyAlternativePath = Constants.COMMAND_COPY + " " + privateFile + " "
-                + target;
         String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " " + target;
 
         /* remount for write access */
@@ -187,19 +183,29 @@ public class ApplyUtils {
         List<String> output = null;
         try {
             if (customTarget == "") {
-                Log.i(Constants.TAG, "Executing: " + commandCopySystemEtc + ", "
+
+                if (!RootTools.copyFile(privateFile, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                    throw new CommandException();
+                }
+
+                Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
                         + commandChownSystemEtcHosts + ", " + commandChmodSystemEtcHosts644);
 
                 // execute commands: copy, chown, chmod
-                output = RootTools.sendShell(new String[] { commandCopySystemEtc,
-                        commandChownSystemEtcHosts, commandChmodSystemEtcHosts644 }, 1, -1);
+                output = RootTools.sendShell(new String[] { commandChownSystemEtcHosts,
+                        commandChmodSystemEtcHosts644 }, 1, -1);
             } else {
-                Log.i(Constants.TAG, "Executing: " + commandCopyAlternativePath + ", "
+
+                if (!RootTools.copyFile(privateFile, target)) {
+                    throw new CommandException();
+                }
+
+                Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
                         + commandChmodAlternativePath666);
 
                 // execute copy
-                output = RootTools.sendShell(new String[] { commandCopyAlternativePath,
-                        commandChmodAlternativePath666 }, 1, -1);
+                output = RootTools
+                        .sendShell(new String[] { commandChmodAlternativePath666 }, 1, -1);
             }
             Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
         } catch (Exception e) {

@@ -20,18 +20,12 @@
 
 package org.adaway.util;
 
-import com.stericson.RootTools.RootTools;
-
 public class Constants {
     /* DEBUG enables Log.d outputs, wrapped in org.adaway.util.Log and RootTools Debug Mode */
-    public static final boolean DEBUG = false;
+    // DEBUG must be set by a preference
+    public static boolean DEBUG;
     public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
-    public static final boolean DEBUG_DISABLE_ROOT_CHECK = true;
-
-    // set RootTools to debug mode based on AdAway
-    static {
-        RootTools.debugMode = DEBUG;
-    }
+    public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
 
     public static final String TAG = "AdAway";
 
@@ -48,7 +42,6 @@ public class Constants {
     public static final String LINE_SEPERATOR = System.getProperty("line.separator", "\n");
     public static final String FILE_SEPERATOR = System.getProperty("file.separator", "/");
 
-    public static final String COMMAND_COPY = "cp -f";
     public static final String COMMAND_CHOWN = "chown 0:0";
     public static final String COMMAND_CHMOD_644 = "chmod 644";
     public static final String COMMAND_CHMOD_666 = "chmod 666";

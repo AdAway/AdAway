@@ -32,6 +32,7 @@ import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
+import com.stericson.RootTools.RootTools;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -78,20 +79,20 @@ public class BaseActivity extends FragmentActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.i(Constants.TAG, "onNewIntent");
+        Log.d(Constants.TAG, "onNewIntent");
 
         // if a notification is clicked after applying was done, the following is processed
         Bundle extras = intent.getExtras();
         if (extras != null) {
             if (extras.containsKey(EXTRA_APPLYING_RESULT)) {
                 int result = extras.getInt(EXTRA_APPLYING_RESULT);
-                Log.i(Constants.TAG, "Result from intent extras: " + result);
+                Log.d(Constants.TAG, "Result from intent extras: " + result);
 
                 // download failed because of url
                 String failingUrl = null;
                 if (extras.containsKey(EXTRA_FAILING_URL)) {
                     failingUrl = extras.getString(EXTRA_FAILING_URL);
-                    Log.i(Constants.TAG, "Applying information from intent extras: " + failingUrl);
+                    Log.d(Constants.TAG, "Applying information from intent extras: " + failingUrl);
                 }
 
                 ResultHelper.showDialogBasedOnResult(mActivity, result, failingUrl);
@@ -172,6 +173,17 @@ public class BaseActivity extends FragmentActivity {
 
             // schedule CheckUpdateService
             WakefulIntentService.scheduleAlarms(new UpdateListener(), mActivity, false);
+
+            // Set Debug level based on preference
+            if (PreferencesHelper.getDebugEnabled(this)) {
+                Constants.DEBUG = true;
+                Log.d(Constants.TAG, "Debug set to true by preference!");
+                // set RootTools to debug mode based on AdAway
+                RootTools.debugMode = Constants.DEBUG;
+            } else {
+                Constants.DEBUG = true;
+                RootTools.debugMode = Constants.DEBUG;
+            }
         }
     }
 

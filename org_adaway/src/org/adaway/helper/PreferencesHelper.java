@@ -134,4 +134,11 @@ public class PreferencesHelper {
         editor.putInt(context.getString(R.string.pref_tcpdump_version_key), value);
         editor.commit();
     }
+
+    public static boolean getDebugEnabled(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean(context.getString(R.string.pref_enable_debug_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_enable_debug_def)));
+    }
 }

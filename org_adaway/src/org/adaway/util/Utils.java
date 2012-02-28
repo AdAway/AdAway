@@ -52,6 +52,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class Utils {
+
     /**
      * Check if Android is rooted, check for su binary and busybox and display possible solutions if
      * they are not available

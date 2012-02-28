@@ -20,6 +20,9 @@
 
 package org.adaway.ui;
 
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+
 import android.app.Application;
 
 public class AdAwayApplication extends Application {
@@ -29,6 +32,7 @@ public class AdAwayApplication extends Application {
 
         // workaround for http://code.google.com/p/android/issues/detail?id=20915
         try {
+            Log.d(Constants.TAG, "Setting workaround for AsyncTask...");
             Class.forName("android.os.AsyncTask");
         } catch (Exception e) { // silently catch all
         }

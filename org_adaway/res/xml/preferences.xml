@@ -77,5 +77,13 @@
             android:title="@string/pref_webserver_on_boot" >
         </CheckBoxPreference>
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_debug" >
+        <CheckBoxPreference
+            android:defaultValue="@string/pref_enable_debug_def"
+            android:key="@string/pref_enable_debug_key"
+            android:summary="@string/pref_enable_debug_summary"
+            android:title="@string/pref_enable_debug" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
 
 </PreferenceScreen>

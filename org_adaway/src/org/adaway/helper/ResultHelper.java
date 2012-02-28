@@ -352,7 +352,7 @@ public class ResultHelper {
         contentTitle = context.getString(R.string.app_name) + ": " + contentTitle;
 
         Notification notification = new Notification(icon, contentTitle, when);
-        notification.flags |= Notification.FLAG_AUTO_CANCEL;
+        notification.flags = Notification.FLAG_AUTO_CANCEL;
 
         Intent notificationIntent = new Intent(context, BaseActivity.class);
 

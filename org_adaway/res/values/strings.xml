@@ -9,14 +9,10 @@
     <string name="no_connection_title">No Connection</string>
     <string name="button_close">Close</string>
     <string name="download_dialog">Downloading...</string>
-    <string name="menu_hosts_sources">Hosts sources</string>
-    <string name="menu_about">About</string>
-    <string name="menu_tcpdump">Log DNS Requests</string>
     <string name="apply_dialog">Applying...</string>
     <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
     <string name="apply_dialog_hosts">Building hosts file</string>
     <string name="apply_dialog_apply">Applying hosts file</string>
-    <string name="menu_preferences">Preferences</string>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
     <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
@@ -32,7 +28,6 @@
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed due to unknown reasons.</string>
     <string name="revert_problem_title">Reverting failed!</string>
-    <string name="menu_add">Add</string>
     <string name="no_url">This is not a valid URL!</string>
     <string name="no_url_title">Malformed URL</string>
     <string name="button_add">Add</string>
@@ -82,9 +77,6 @@
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
     <string name="status_disabled_subtitle">Disabled</string>
-    <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
-    <string name="menu_donations">Donations</string>
-    <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
     <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
@@ -96,18 +88,26 @@
     <string name="apply_copy_fail">Copying of hosts file failed!</string>
     <string name="apply_copy_fail_title">Copy failed</string>
     <string name="apply_success_title">Applying successful</string>
-    <string name="revert_successful_title">Reverting successful</string>
     <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="apply_symlink_successful_title">Symlink creation successful</string>
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
+    <string name="revert_successful_title">Reverting successful</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_hosts_sources">Hosts sources</string>
+    <string name="menu_about">About</string>
+    <string name="menu_tcpdump">Log DNS Requests</string>
     <string name="menu_help">Help</string>
     <string name="menu_lists">Your Lists</string>
     <string name="menu_show_hosts_file">Open hosts file</string>
+    <string name="menu_donations">Donations</string>
+    <string name="menu_import">Import All Lists</string>
+    <string name="menu_export">Export All Lists</string>
+    <string name="menu_preferences">Preferences</string>
     <string name="lists_tab_blacklist_short">Black</string>
     <string name="lists_tab_whitelist_short">White</string>
     <string name="lists_tab_redirection_list_short">Redirection</string>
-    <string name="menu_refresh">Refresh</string>
     <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Problems</string>
     <string name="button_webserver_toggle_checked">Webserver is running</string>
@@ -118,8 +118,6 @@
     <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
     <string name="button_help">Help</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="menu_import">Import All Lists</string>
-    <string name="menu_export">Export All Lists</string>
     <string name="import_dialog">Importing...</string>
     <string name="export_dialog">Exporting...</string>
     <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
@@ -128,6 +126,8 @@
     <string name="no_file_manager_title">No file manager installed</string>
     <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
     <string name="donations_flattr">Flattr</string>
+    <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
+    <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
     <string name="donations_google_android_market">Google Android Market</string>
     <string name="donations_google_android_market_not_supported_title">In-App Donations are not supported</string>
     <string name="donations_google_android_market_not_supported">In-App Donations are not supported. Is Google Android Market installed correctly?</string>
@@ -154,6 +154,11 @@
     <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
     <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
     <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
+    <string name="tcpdump_log_context_blacklist">Add to your Blacklist</string>
+    <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
+    <string name="tcpdump_log_context_browser">Open in Browser</string>
+    <string name="tcpdump_log_empty">Log file is empty!</string>
+    <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
     <string name="pref_download">General Preferences</string>
     <string name="pref_hosts">Hosts File</string>
     <string name="pref_redirection_ip">Redirection IP</string>
@@ -188,10 +193,8 @@
     <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
     <string name="pref_redirection_rules">Allow redirections</string>
     <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
-    <string name="tcpdump_log_context_blacklist">Add to your Blacklist</string>
-    <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
-    <string name="tcpdump_log_context_browser">Open in Browser</string>
-    <string name="tcpdump_log_empty">Log file is empty!</string>
-    <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
+    <string name="pref_debug">Debug</string>
+    <string name="pref_enable_debug">Debug Logging</string>
+    <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
 
 </resources>
