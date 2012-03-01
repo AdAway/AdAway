@@ -8,14 +8,10 @@
   <string name="no_connection_title">Pas de connexion</string>
   <string name="button_close">Fermer</string>
   <string name="download_dialog">Téléchargement:</string>
-  <string name="menu_hosts_sources">Liste des sources</string>
-  <string name="menu_about">A propos</string>
-  <string name="menu_tcpdump">Tcpdump</string>
   <string name="apply_dialog">Appliquer</string>
   <string name="apply_dialog_hostnames">Analyse et fusion des fichiers hôtes</string>
   <string name="apply_dialog_hosts">Création du fichier hosts</string>
   <string name="apply_dialog_apply">Application du fichier hosts</string>
-  <string name="menu_preferences">Préférences</string>
   <string name="button_yes">Oui</string>
   <string name="button_no">Non</string>
   <string name="revert_successful">Les modifications ont été annulées.\nIl est nécessaire de redémarrer votre téléphone pour que les changements prennent effet.\n\nVoulez-vous redémarrer maintenant ?\n(Pour ne pas perdre de données, assurez vous qu\'il n\'y a pas d\'applications qui utilise la carte SD en ce moment !)</string>
@@ -26,10 +22,11 @@
   <string name="about_version">Version :</string>
   <string name="about_developer">Développeur : Dominik Schürmann</string>
   <string name="about_icons">Certaines icônes sont tirées de \'Dropbox Emblems Tango par Charles A.\' et \"www.androidicons.com\", à la fois sous licenceCreative Commons Attribution 3.0 Unported License.</string>
+  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android &amp;lt; 3.0.</string>
   <string name="apply_fail">L\'application du fichier hosts de votre système a échoué ! \nEssayez de modifier la cible du fichier hosts dans les préférences pour /data/data/hosts.</string>
   <string name="apply_fail_title">L\'application a échoué</string>
   <string name="revert_problem">Retour en arrière échoué.</string>
-  <string name="menu_add">Ajouter</string>
+  <string name="revert_problem_title">Reverting failed!</string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
   <string name="no_url_title">URL incorrecte</string>
   <string name="button_add">Ajouter</string>
@@ -57,6 +54,7 @@
   <string name="lists_tab_redirection_list">Liste de redirection</string>
   <string name="list_dialog_url">URL :</string>
   <string name="list_dialog_hostname">Nom d\'hôte:</string>
+  <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard characters * and ? are allowed!)</string>
   <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
   <string name="no_ip">Ce n\'est pas une IP valide !</string>
   <string name="no_ip_title">IP incorrecte</string>
@@ -65,6 +63,8 @@
   <string name="no_private_file">Fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Echec de la création du fichier privé</string>
   <string name="status_checking">Vérification de mise à jour ...</string>
+  <string name="status_reverting">Reverting...</string>
+  <string name="status_reverting_subtitle">Creating standard hosts file</string>
   <string name="status_checking_subtitle">Vérifier si une mise à jour est disponible</string>
   <string name="status_update_available">Mise à jour disponible</string>
   <string name="status_update_available_subtitle">De nouveaux fichiers hosts sont disponibles</string>
@@ -76,12 +76,6 @@
   <string name="status_enabled_subtitle">Autorisé les fichiers hosts les plus récents</string>
   <string name="status_disabled">Désactivé</string>
   <string name="status_disabled_subtitle">Désactivé</string>
-  <string name="no_busybox">Le binaire BusyBox n\'a pu être trouvé. Pour l\'installer depuis l\'Android Market cliquez sur le bouton ci-dessous.</string>
-  <string name="no_busybox_title">Aucun binaire Busybox</string>
-  <string name="button_busybox">Installer Busybox</string>
-  <string name="donations_description">Trouvez-vous cette application utile? \nSupporter son développement avec Flattr ou en envoyant des dons en utilisant l\'Android Market !</string>
-  <string name="menu_donations">Dons</string>
-  <string name="donations_flattr_description">• Flattr prend 10% comme frais mensuels !</string>
   <string name="apply_symlink_missing">Lien symbolique de /data/data/hosts vers /system/etc/hosts n\'est pas en vigueur ! AdAway ne fonctionnera pas si il n\'est pas en vigueur. \n \nVoulez-vous essayer de créer un lien symbolique?</string>
   <string name="apply_symlink_missing_title">Lien symbolique manquant</string>
   <string name="apply_not_enough_space">Pas assez d\'espace sur la partition ! \nEssayer de modifier le fichier hosts cible dans les préférences pour /data/data/hosts.</string>
@@ -93,18 +87,26 @@
   <string name="apply_copy_fail">Echec de la copie du fichier hosts !</string>
   <string name="apply_copy_fail_title">Echec copie</string>
   <string name="apply_success_title">Application réussie</string>
-  <string name="revert_successful_title">Retour en arrière réussi</string>
   <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès. \nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet. \n\nVoulez-vous redémarrer ?\n (Pour éviter toute perte de données s\'assurer qu\'aucune application n\'utilise la carte SD pour le moment !)</string>
   <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
   <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCela arrive la plupart du temps à cause d\'une «particularité» appelée S-ON sur les téléphones HTC !\n\nLa solution est de démarrer votre téléphone en mode recovery et de créer le lien symbolique là avec \"ln-s /data/data/hosts/system/etc/hosts\"\n\nSi cela ne fonctionne pas cherchez sur Internet pour le S-OFF et votre téléphone.</string>
   <string name="apply_symlink_fail_title">Echec de la création du lien symbolique</string>
+  <string name="revert_successful_title">Retour en arrière réussi</string>
+  <string name="menu_refresh">Actualiser</string>
+  <string name="menu_add">Ajouter</string>
+  <string name="menu_hosts_sources">Liste des sources</string>
+  <string name="menu_about">A propos</string>
+  <string name="menu_tcpdump">Tcpdump</string>
   <string name="menu_help">Aide</string>
   <string name="menu_lists">Vos Listes</string>
   <string name="menu_show_hosts_file">Ouvrir le fichier hosts</string>
+  <string name="menu_donations">Dons</string>
+  <string name="menu_import">Importer toutes les listes</string>
+  <string name="menu_export">Exporter toutes les listes</string>
+  <string name="menu_preferences">Préférences</string>
   <string name="lists_tab_blacklist_short">Noir</string>
   <string name="lists_tab_whitelist_short">Blanc</string>
   <string name="lists_tab_redirection_list_short">Redirection</string>
-  <string name="menu_refresh">Actualiser</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problèmes</string>
   <string name="button_webserver_toggle_checked">Le serveur web est en marche</string>
@@ -115,8 +117,6 @@
   <string name="reboot_never_reboot">Ne jamais redémarrer et ne pas afficher cette question la prochaine fois !</string>
   <string name="button_help">Aide</string>
   <string name="apply_help">Lire \"Aide\" pour plus d\'informations.</string>
-  <string name="menu_import">Importer toutes les listes</string>
-  <string name="menu_export">Exporter toutes les listes</string>
   <string name="import_dialog">Importation...</string>
   <string name="export_dialog">Exportation...</string>
   <string name="export_success">Exporter les entrées vers un fichier \'adaway_export\' sur SD.</string>
@@ -125,6 +125,8 @@
   <string name="no_file_manager_title">Aucun gestionnaire de fichier installé</string>
   <string name="no_file_manager">Aucun gestionnaire de fichier trouvé. Plusieurs sont disponibles sur le Market. Voulez vous tester OI File Manager ?</string>
   <string name="donations_flattr">Flattr</string>
+  <string name="donations_description">Trouvez-vous cette application utile? \nSupporter son développement avec Flattr ou en envoyant des dons en utilisant l\'Android Market !</string>
+  <string name="donations_flattr_description">• Flattr prend 10% comme frais mensuels !</string>
   <string name="donations_google_android_market">Google Android Market</string>
   <string name="donations_google_android_market_not_supported_title">Donations In-App non-supportées</string>
   <string name="donations_google_android_market_not_supported">Donations In-App non-supportées. Le Market est-il correctement installé ?</string>
@@ -139,6 +141,19 @@
 <item> 13 Euros </item></string-array>
   <string name="donations_thanks_dialog_title">Merci !</string>
   <string name="donations_thanks_dialog">Merci pour le don ! \nJ\'apprécie beaucoup !</string>
+  <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump is running!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump is not running!</string>
+  <string name="button_tcpdump_open">Open log file</string>
+  <string name="button_tcpdump_delete">Delete log file</string>
+  <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
+  <string name="tcpdump_log_context_blacklist">Add to your Blacklist</string>
+  <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
+  <string name="tcpdump_log_context_browser">Open in Browser</string>
+  <string name="tcpdump_log_empty">Log file is empty!</string>
+  <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
   <string name="pref_download">Préférences générales</string>
   <string name="pref_hosts">Fichier hosts</string>
   <string name="pref_redirection_ip">IP de redirection</string>
@@ -157,6 +172,10 @@
   <string name="pref_webserver">Serveur web local</string>
   <string name="pref_custom_target">Cible personnalisée</string>
   <string name="pref_custom_target_summary">Utilisé uniquement si la cible du fichier hosts est réglée sur cible personnalisée</string>
+  <string-array name="pref_apply_method_entries"><item>/system/etc/hosts</item>
+<item>/data/data/hosts</item>
+<item>Custom target</item>
+</string-array>
   <string name="pref_update_check_summary">Vérifier les mises à jour au démarrage</string>
   <string name="pref_sdcard_problem">Cette fonction ne peut être exploité si AdAway est installé sur la carte SD.</string>
   <string name="pref_background">Services de fond</string>
@@ -164,4 +183,9 @@
   <string name="pref_update_check_daily_summary">Vérifiez les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_automatic_update_daily">Mise à jour automatique</string>
   <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en tâche de fond</string>
+  <string name="pref_redirection_rules">Allow redirections</string>
+  <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
+  <string name="pref_debug">Debug</string>
+  <string name="pref_enable_debug">Debug Logging</string>
+  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
 </resources>
