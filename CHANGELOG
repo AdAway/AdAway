@@ -1,6 +1,10 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.29
+* Languages updated
+- Fixed copying when no cp command is available
+
 1.28
 * Now works on devices without cp command
 * New debug setting
