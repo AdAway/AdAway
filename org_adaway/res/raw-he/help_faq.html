@@ -1,0 +1,33 @@
+<html><head></head><body>
+<h2>Income by advertisements</h2>
+<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+
+<h2>How does AdAway work?</h2>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+
+<h2>Why do I have to restart Android for changes to take effect?</h2>
+<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+
+<h2>How to use the webserver in AdAway?</h2>
+<p><b>AdAway will also work without using the webserver!</b>
+<br/><br/> You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+
+<h2>It does not block ads in application XYZ!</h2>
+<p>Some hostnames may be missing in the provided hosts files from the <i>Hosts Sources</i> or the application has bundled the images to provide ads without accessing the internet.
+<br/><br/>
+You can log DNS requests (Menu->Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.
+<br/><br/> Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in the Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+
+<h2>Application XYZ is not working anymore!</h2>
+<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuses to work when the hostnames which should serve ads are not reachable. See <a href="http://code.google.com/p/ad-away/wiki/ProblemApps">http://code.google.com/p/ad-away/wiki/ProblemApps</a> to get a list of known applications that have problems. Otherwise do as described before to find out which hostnames are needed and add them to your <i>Whitelist</i> under <i>Your Lists</i> and report them to the <a href="http://code.google.com/p/ad-away/issues/list">bug tracker of AdAway</a>.</p>
+
+<h2>How can I block/unblock specific hostnames?</h2>
+<p>You can set up your own server providing a hosts file with hostnames that you want to block and add it to the <i>Hosts Sources</i> or add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+
+<h2>Where can I find more hosts sources?</h2>
+<p>See <a href="http://code.google.com/p/ad-away/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
+
+<h2>I found a bug in AdAway!</h2>
+<p>Please report it in the <a href="http://code.google.com/p/ad-away/issues/list">bug tracker of AdAway</a>.</p>
+</body></html>
