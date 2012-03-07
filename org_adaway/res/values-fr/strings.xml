@@ -22,11 +22,11 @@
   <string name="about_version">Version :</string>
   <string name="about_developer">Développeur : Dominik Schürmann</string>
   <string name="about_icons">Certaines icônes sont tirées de \'Dropbox Emblems Tango par Charles A.\' et \"www.androidicons.com\", à la fois sous licenceCreative Commons Attribution 3.0 Unported License.</string>
-  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android &amp;lt; 3.0.</string>
+  <string name="about_libs">AdAway utilise la librairie \'RootTools\' (License: GPL v2) pour fournir un accès root et \'ActionBarSherlock\' (License: Apache 2.0) pour avoir une ActionBar pour Android < 3.0.</string>
   <string name="apply_fail">L\'application du fichier hosts de votre système a échoué ! \nEssayez de modifier la cible du fichier hosts dans les préférences pour /data/data/hosts.</string>
   <string name="apply_fail_title">L\'application a échoué</string>
   <string name="revert_problem">Retour en arrière échoué.</string>
-  <string name="revert_problem_title">Reverting failed!</string>
+  <string name="revert_problem_title">Echec de l\'annulation! </string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
   <string name="no_url_title">URL incorrecte</string>
   <string name="button_add">Ajouter</string>
@@ -54,7 +54,7 @@
   <string name="lists_tab_redirection_list">Liste de redirection</string>
   <string name="list_dialog_url">URL :</string>
   <string name="list_dialog_hostname">Nom d\'hôte:</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard characters * and ? are allowed!)</string>
+  <string name="list_dialog_whitelist_hostname">Nom d\'hôte :\n(Caractère joker * et ? autorisés)</string>
   <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
   <string name="no_ip">Ce n\'est pas une IP valide !</string>
   <string name="no_ip_title">IP incorrecte</string>
@@ -63,8 +63,8 @@
   <string name="no_private_file">Fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Echec de la création du fichier privé</string>
   <string name="status_checking">Vérification de mise à jour ...</string>
-  <string name="status_reverting">Reverting...</string>
-  <string name="status_reverting_subtitle">Creating standard hosts file</string>
+  <string name="status_reverting">Annulation... </string>
+  <string name="status_reverting_subtitle">Création d\'un fichier hosts standard </string>
   <string name="status_checking_subtitle">Vérifier si une mise à jour est disponible</string>
   <string name="status_update_available">Mise à jour disponible</string>
   <string name="status_update_available_subtitle">De nouveaux fichiers hosts sont disponibles</string>
@@ -141,19 +141,19 @@
 <item> 13 Euros </item></string-array>
   <string name="donations_thanks_dialog_title">Merci !</string>
   <string name="donations_thanks_dialog">Merci pour le don ! \nJ\'apprécie beaucoup !</string>
-  <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump is running!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump is not running!</string>
-  <string name="button_tcpdump_open">Open log file</string>
-  <string name="button_tcpdump_delete">Delete log file</string>
-  <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
-  <string name="tcpdump_log_context_blacklist">Add to your Blacklist</string>
-  <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
-  <string name="tcpdump_log_context_browser">Open in Browser</string>
-  <string name="tcpdump_log_empty">Log file is empty!</string>
-  <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
+  <string name="button_tcpdump_text">Tcpdump est un outil pour suivre les requêtes DNS en les enregistrant dans un fichier. Lancez le en arrière plan,  puis utilisez vos applications...  Le fichier contenant les requêtes,  il suffira de les analyser puis de les ajouter à la liste noire. </string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump en cours! </string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump arrêté! </string>
+  <string name="button_tcpdump_open">Ouvrir le fichier d\'enregistrement </string>
+  <string name="button_tcpdump_delete">Supprimer le fichier d\'enregistrement </string>
+  <string name="toast_tcpdump_log_deleted">Fichier d\'enregistrement supprimé! </string>
+  <string name="toast_tcpdump_added_to_blacklist">Le nom d\'hôte a été ajouté à votre liste noire! </string>
+  <string name="toast_tcpdump_added_to_whitelist">Le nom d\'hôte a été ajouté à votre liste blanche! </string>
+  <string name="tcpdump_log_context_blacklist">Ajouter à votre liste noire </string>
+  <string name="tcpdump_log_context_whitelist">Ajouter à votre liste blanche</string>
+  <string name="tcpdump_log_context_browser">Ouvrir dans un navigateur </string>
+  <string name="tcpdump_log_empty">Le fichier d\'enregistrement est vide! </string>
+  <string name="tcpdump_log_footer">Appuyer longuement sur un nom d\'hôte pour l\'ajouter a votre liste noire -OU- blanche! </string>
   <string name="pref_download">Préférences générales</string>
   <string name="pref_hosts">Fichier hosts</string>
   <string name="pref_redirection_ip">IP de redirection</string>
@@ -174,7 +174,7 @@
   <string name="pref_custom_target_summary">Utilisé uniquement si la cible du fichier hosts est réglée sur cible personnalisée</string>
   <string-array name="pref_apply_method_entries"><item>/system/etc/hosts</item>
 <item>/data/data/hosts</item>
-<item>Custom target</item>
+<item>Fichier personnalisé </item>
 </string-array>
   <string name="pref_update_check_summary">Vérifier les mises à jour au démarrage</string>
   <string name="pref_sdcard_problem">Cette fonction ne peut être exploité si AdAway est installé sur la carte SD.</string>
@@ -183,9 +183,9 @@
   <string name="pref_update_check_daily_summary">Vérifiez les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_automatic_update_daily">Mise à jour automatique</string>
   <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en tâche de fond</string>
-  <string name="pref_redirection_rules">Allow redirections</string>
-  <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
+  <string name="pref_redirection_rules">Autoriser les redirections</string>
+  <string name="pref_redirection_rules_summary">Autoriser les règles de redirection depuis les sources externes. </string>
   <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug Logging</string>
-  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
+  <string name="pref_enable_debug">Enregistrer le mode debug</string>
+  <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway afin que ce paramètres prenne effet. </string>
 </resources>

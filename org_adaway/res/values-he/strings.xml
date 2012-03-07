@@ -22,11 +22,11 @@
   <string name="about_version">גירסה:</string>
   <string name="about_developer">מפתח: Dominik Schürmann</string>
   <string name="about_icons">סמלים מסויימים נלקחו מ \'Dropbox Emblems Tango by Charles A.\' ו \'www.androidicons.com\', שניהם תחת רשיון Creative Commons Attribution 3.0 Unported License.</string>
-  <string name="about_libs">AdAway משתמש ב \'RootTools\' (תחת רשיון: GPL v2) Library to handle root access and \'ActionBarSherlock\' (תחת רשיון: Apache 2.0) to provide an ActionBar for Android &amp;lt; 3.0.</string>
+  <string name="about_libs">AdAway משתמש ב \'RootTools\' (תחת רשיון: GPL v2) Library to handle root access and \'ActionBarSherlock\' (תחת רשיון: Apache 2.0) to provide an ActionBar for Android < 3.0.</string>
   <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_fail_title">החלת הגדרות נכשלה</string>
   <string name="revert_problem">חזרה נכשלה.</string>
-  <string name="revert_problem_title">Reverting failed!</string>
+  <string name="revert_problem_title">שחזור נכשל!</string>
   <string name="no_url">זו אינה כתובת חוקית</string>
   <string name="no_url_title">כתובת שגויה</string>
   <string name="button_add">הוסף</string>
@@ -54,7 +54,7 @@
   <string name="lists_tab_redirection_list">רשימת הפניות</string>
   <string name="list_dialog_url">כתובת:</string>
   <string name="list_dialog_hostname">שם שרת:</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard characters * and ? are allowed!)</string>
+  <string name="list_dialog_whitelist_hostname">שם שרת:\n(תווים כלליים * ו ? מותרים!)</string>
   <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
   <string name="no_ip">כתובת ה IP אינה חוקית!</string>
   <string name="no_ip_title">כתובת IP שגויה</string>
@@ -63,8 +63,8 @@
   <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
   <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
   <string name="status_checking">בודק עידכונים...</string>
-  <string name="status_reverting">Reverting...</string>
-  <string name="status_reverting_subtitle">Creating standard hosts file</string>
+  <string name="status_reverting">משחזר...</string>
+  <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
   <string name="status_checking_subtitle">בודק אם קיימים עידכונים</string>
   <string name="status_update_available">קיים עידכון</string>
   <string name="status_update_available_subtitle">קבצי hosts חדשים זמינים להורדה</string>
@@ -148,13 +148,13 @@
   <string name="button_tcpdump_open">פתח קובץ יומן</string>
   <string name="button_tcpdump_delete">מחק קובץ יומן</string>
   <string name="toast_tcpdump_log_deleted">קובץ יומן נמחק!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
-  <string name="tcpdump_log_context_blacklist">Add to your Blacklist</string>
-  <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
-  <string name="tcpdump_log_context_browser">Open in Browser</string>
-  <string name="tcpdump_log_empty">Log file is empty!</string>
-  <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
+  <string name="toast_tcpdump_added_to_blacklist">שם השרת נוסף לרשימה השחורה שלך!</string>
+  <string name="toast_tcpdump_added_to_whitelist">שם השרת נוסף לרשימה הלבנה שלך!</string>
+  <string name="tcpdump_log_context_blacklist">הוסף לרשימה השחורה שלך</string>
+  <string name="tcpdump_log_context_whitelist">הוסף לרשימה הלבנה שלך</string>
+  <string name="tcpdump_log_context_browser">פתח בדפדפן</string>
+  <string name="tcpdump_log_empty">קובץ היומן ריק</string>
+  <string name="tcpdump_log_footer">לחץ לחיצה ארוכה על שם השרת כדי להוסיף אותו לרשימה שחורה או לבנה!</string>
   <string name="pref_download">העדפות כלליות</string>
   <string name="pref_hosts">קובץ hosts</string>
   <string name="pref_redirection_ip">הפניית IP</string>
@@ -186,7 +186,7 @@
   <string name="pref_automatic_update_daily_summary">הפעל שירות עידכונים אוטומטיים ברקע כאשר יש עידכונים זמינים.</string>
   <string name="pref_redirection_rules">אפשר הפניות</string>
   <string name="pref_redirection_rules_summary">אפשר חוקי הפניה ממקורות Hosts.</string>
-  <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug Logging</string>
-  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
+  <string name="pref_debug">ניפוי שגיאות</string>
+  <string name="pref_enable_debug">יומן ניפוי שגיאות</string>
+  <string name="pref_enable_debug_summary">עליך להפעיל את AdAway מחדש כדי להכניס את השינוי לתוקף</string>
 </resources>
