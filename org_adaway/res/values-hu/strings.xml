@@ -22,7 +22,7 @@
   <string name="about_version">Version:</string>
   <string name="about_developer">Developer: Dominik Schürmann\n\na fordítás gidano munkája\nhttp://sympda.info</string>
   <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' and \'www.androidicons.com\' (Both licensed under Creative Commons Attribution 3.0 Unported).</string>
-  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android < 3.0.</string>
+  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android under 3.0.</string>
   <string name="apply_fail">\"A host fájlt a rendszer nem tudta alkalmazni!</string>
   <string name="apply_fail_title">Sikertelen alkalmazás</string>
   <string name="revert_problem">A visszatérés ismeretlen ok miatt nem sikerült.</string>

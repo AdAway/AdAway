@@ -34,7 +34,7 @@
   <string name="about_developer">Разработчик: Dominik Schürmann
 Русский перевод: TopDome</string>
   <string name="about_icons">Некоторые иконки взяты из \'Dropbox Emblems Tango by Charles A.\' и \'www.androidicons.com\' (на условиях лицензии Creative Commons Attribution 3.0 Unported License).</string>
-  <string name="about_libs">AdAway использует библиотеку \'RootTools\' (Лицензия: GPL v2) для получения  прав администратора и \'ActionBarSherlock\' (Лицензия: Apache 2.0) для обеспечения доступа к ActionBar для Android < 3.0.</string>
+  <string name="about_libs">AdAway использует библиотеку \'RootTools\' (Лицензия: GPL v2) для получения  прав администратора и \'ActionBarSherlock\' (Лицензия: Apache 2.0) для обеспечения доступа к ActionBar для Android под 3.0.</string>
   <string name="apply_fail">Не удалось применить файл Hosts на вашей системе!
 Попробуйте изменить путь к файлу Hosts в настройках на /data/data/hosts.</string>
   <string name="apply_fail_title">Применение не удалось</string>

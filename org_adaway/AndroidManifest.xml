@@ -61,6 +61,7 @@
             android:name=".ui.DonationsActivity"
             android:excludeFromRecents="true"
             android:label="@string/menu_donations"
+            android:launchMode="singleTask"
             android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name=".ui.PrefsActivity"

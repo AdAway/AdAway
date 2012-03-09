@@ -22,13 +22,13 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.google.donations.BillingService;
-import org.adaway.google.donations.BillingConstants;
+import org.adaway.google.donations.Consts;
 import org.adaway.google.donations.PurchaseObserver;
 import org.adaway.google.donations.ResponseHandler;
 import org.adaway.google.donations.BillingService.RequestPurchase;
 import org.adaway.google.donations.BillingService.RestoreTransactions;
-import org.adaway.google.donations.BillingConstants.PurchaseState;
-import org.adaway.google.donations.BillingConstants.ResponseCode;
+import org.adaway.google.donations.Consts.PurchaseState;
+import org.adaway.google.donations.Consts.ResponseCode;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -159,7 +159,7 @@ public class DonationsActivity extends Activity {
         index = mGoogleAndroidMarketSpinner.getSelectedItemPosition();
         Log.d(Constants.TAG, "selected item in spinner: " + index);
 
-        if (!BillingConstants.DEBUG) {
+        if (!Consts.DEBUG) {
             if (!mBillingService.requestPurchase(CATALOG[index], null)) {
                 showDialog(DIALOG_BILLING_NOT_SUPPORTED_ID);
             }

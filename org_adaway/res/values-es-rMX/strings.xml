@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="no_root_description">Los binarios de su no se ha encontrado o no tiene el permiso de root concedido para AdAway. \n\ nEsto puede suceder cuando el dispositivo no está rooteado.\nPuedes encontrar información acerca de cómo rootear el dispositivo en www.cyanogenmod.com o de otro tipo sitios web de Android.</string>
+  <string name="no_root_description">No se encontró el binario su o no tiene el permiso de root concedido para AdAway. \n\ nEsto puede suceder cuando el dispositivo no está rooteado.\nPuede encontrar información acerca de cómo rootear el dispositivo en www.cyanogenmod.com o en otros sitios web de Android.</string>
   <string name="button_exit">Salir</string>
   <string name="no_root_title">Android rooteado requerido</string>
   <string name="button_apply">Descargar archivos y aplicar bloqueo de anuncios</string>
@@ -9,29 +9,29 @@
   <string name="button_close">Cerrar</string>
   <string name="download_dialog">Descargando...</string>
   <string name="apply_dialog">Aplicando...</string>
-  <string name="apply_dialog_hostnames">Parseando y uniendo archivos de hostsS</string>
+  <string name="apply_dialog_hostnames">Analizando y uniendo archivos de hosts</string>
   <string name="apply_dialog_hosts">Construyendo archivo de hosts</string>
   <string name="apply_dialog_apply">Aplicando archivo de hosts</string>
   <string name="button_yes">Si</string>
   <string name="button_no">No</string>
-  <string name="revert_successful">Has regresado a los hosts default.
-Puede ser necesario que reinicies Android para que los cambios surtan efecto.
+  <string name="revert_successful">Ha regresado a los hosts predeterminados.
+Puede ser necesario que reinicie Android para que los cambios surtan efecto.
 
-Quieres reiniciar?
-(Para prevenir pérdida de datos, asegurate de que no hay ninguna aplicación usando la memoria en este momento)</string>
+¿Desea reiniciar?
+(Para prevenir pérdida de datos, verifique que no haya ninguna aplicación usando la memoria externa en este momento)</string>
   <string name="button_revert">Deshabilitar bloqueo de anuncios</string>
-  <string name="apply_success">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
-  <string name="about_description">AdAway es un bloqueador de anuncions de Codigo Abierto para android</string>
+  <string name="apply_success">Aplicado exitosamente.\n</string>
+  <string name="about_description">AdAway es un bloqueador de anuncios de Codigo Abierto para Android</string>
   <string name="about_license">Licencia: GPL v3+</string>
   <string name="about_version">Versión:</string>
   <string name="about_developer">Developer: Dominik Schürmann</string>
   <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' and \'www.androidicons.com\' (Both licensed under Creative Commons Attribution 3.0 Unported).</string>
-  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android &amp;lt; 3.0.</string>
+  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android below 3.0.</string>
   <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
   <string name="apply_fail_title">Aplicar fallido</string>
   <string name="revert_problem">Restituir fallido debido a razones desconocidas</string>
   <string name="revert_problem_title">Restauración fallida!</string>
-  <string name="no_url">Esta no es una URL válida!</string>
+  <string name="no_url">¡Esta no es una URL válida!</string>
   <string name="no_url_title">URL mal formado</string>
   <string name="button_add">Agregar</string>
   <string name="hosts_add_dialog">Agregar URL a archivos hosts</string>
@@ -68,16 +68,16 @@ Quieres reiniciar?
   <string name="no_private_file_title">Creación de archivo privado ha fallado</string>
   <string name="status_checking">Consultando actualización...</string>
   <string name="status_reverting">Restaurando...</string>
-  <string name="status_reverting_subtitle">Creating standard hosts file</string>
+  <string name="status_reverting_subtitle">Creando archivo Host estándar</string>
   <string name="status_checking_subtitle">Checando si hay actialización disponible</string>
   <string name="status_update_available">Actualización disponible</string>
-  <string name="status_update_available_subtitle">Newer hosts files available</string>
+  <string name="status_update_available_subtitle">Hay disponible un archivo host actualizado</string>
   <string name="status_no_connection">No hay conexión a Internet</string>
   <string name="status_no_connection_subtitle">Conexión a Internet no disponible</string>
   <string name="status_download_fail">Fuente no disponible</string>
   <string name="status_download_fail_subtitle">URL: </string>
   <string name="status_enabled">Habilitado</string>
-  <string name="status_enabled_subtitle">Newest hosts files enabled</string>
+  <string name="status_enabled_subtitle">Se habilitó el archivo host actualizado</string>
   <string name="status_disabled">Deshabilitado</string>
   <string name="status_disabled_subtitle">Deshabilitado</string>
   <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
@@ -99,7 +99,7 @@ Quieres reiniciar?
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Agregar</string>
   <string name="menu_hosts_sources">Fuentes de archivo Hosts</string>
-  <string name="menu_about">Acerca de</string>
+  <string name="menu_about">Acerca de...</string>
   <string name="menu_tcpdump">Log DNS Requests</string>
   <string name="menu_help">Ayuda</string>
   <string name="menu_lists">Tu Lista</string>
@@ -118,7 +118,7 @@ Quieres reiniciar?
   <string name="button_webserver_toggle_text">Iniciar o detener el servidor web local para responder a sitios bloqueados.</string>
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En linea</string>
-  <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
+  <string name="reboot_never_reboot">¡Nunca reiniciar ni preguntar nuevamente!</string>
   <string name="button_help">Ayuda</string>
   <string name="apply_help">Por favor lea la Ayuda para mas información.</string>
   <string name="import_dialog">Importando...</string>
@@ -132,11 +132,11 @@ Quieres reiniciar?
   <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
   <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
   <string name="donations_google_android_market">Google Android Market</string>
-  <string name="donations_google_android_market_not_supported_title">In-App Donations are not supported</string>
+  <string name="donations_google_android_market_not_supported_title">Las donaciones desde la aplicación no están soportadas</string>
   <string name="donations_google_android_market_not_supported">In-App Donations are not supported. Is Google Android Market installed correctly?</string>
-  <string name="donations_google_android_market_description">• Google takes 30 % off every donation!\n• There is no premium version for donators.</string>
-  <string name="donations_google_android_market_donate_button">Donate!</string>
-  <string name="donations_google_android_market_text">How much?</string>
+  <string name="donations_google_android_market_description">¡Google se queda con el 30% de cada donación!\n•No existe una versión Premium para donantes.</string>
+  <string name="donations_google_android_market_donate_button">¡Donar!</string>
+  <string name="donations_google_android_market_text">¿Cuánto?</string>
   <string-array name="donations_google_android_market_promt_array"><item>1 Euro</item>
 <item>2 Euros</item>
 <item>3 Euros</item>
@@ -145,7 +145,7 @@ Quieres reiniciar?
 <item>13 Euros</item>
 </string-array>
   <string name="donations_thanks_dialog_title">Gracias!</string>
-  <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
+  <string name="donations_thanks_dialog">¡Gracias por donar!\n¡Realmente aprecio esto!</string>
   <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump en ejecución!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump no está en ejecución!</string>
@@ -154,17 +154,17 @@ Quieres reiniciar?
   <string name="toast_tcpdump_log_deleted">Archivo log eliminado!</string>
   <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
   <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
-  <string name="tcpdump_log_context_blacklist">Add to your Blacklist</string>
-  <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
+  <string name="tcpdump_log_context_blacklist">Agregar a la Lista Negra</string>
+  <string name="tcpdump_log_context_whitelist">Agregar a la Lista Blanca</string>
   <string name="tcpdump_log_context_browser">Abrir en explorador</string>
-  <string name="tcpdump_log_empty">Log file is empty!</string>
+  <string name="tcpdump_log_empty">¡El registro está vacío!</string>
   <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
   <string name="pref_download">Preferencias Generales</string>
   <string name="pref_hosts">Archivo de hosts</string>
   <string name="pref_redirection_ip">IP de redirección</string>
   <string name="pref_update_check">Checar actualizacionez</string>
-  <string name="pref_apply_method">Target hosts file</string>
-  <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
+  <string name="pref_apply_method">Archivo host destino</string>
+  <string name="pref_apply_method_summary">Antes de cambiar esta configuración, lea en el archivo de ayuda acerca de esta función.</string>
   <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP address.</string>
   <string name="pref_header_preferences">Preferencias</string>
   <string name="pref_header_preferences_summary">Preferencias generales de AdAway</string>
@@ -182,7 +182,7 @@ Quieres reiniciar?
 <item>Destino personalizado</item>
 </string-array>
   <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
-  <string name="pref_sdcard_problem">This feature will not work correctly when AdAway is installed on sdcard!</string>
+  <string name="pref_sdcard_problem">¡Esta característica no funcionará correctamente cuando AdAway está instalado en la memoria externa!</string>
   <string name="pref_background">Servicios en Segundo Plano</string>
   <string name="pref_update_check_daily">Verificar actualizaciones diariamente</string>
   <string name="pref_update_check_daily_summary">Verificar actualizaciones diariamente in segundo plano con notificaciones</string>
@@ -190,7 +190,7 @@ Quieres reiniciar?
   <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
   <string name="pref_redirection_rules">Allow redirections</string>
   <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
-  <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug Logging</string>
-  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
+  <string name="pref_debug">Depuración</string>
+  <string name="pref_enable_debug">Registro de depuración</string>
+  <string name="pref_enable_debug_summary">Necesita reiniciar AdAway para que la esta configuración sea aplicada.</string>
 </resources>

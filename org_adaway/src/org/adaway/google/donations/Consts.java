@@ -20,7 +20,7 @@ package org.adaway.google.donations;
  * This class holds global constants that are used throughout the application to support in-app
  * billing.
  */
-public class BillingConstants {
+public class Consts {
     // The response codes for a request, defined by Android Market.
     public enum ResponseCode {
         RESULT_OK, RESULT_USER_CANCELED, RESULT_SERVICE_UNAVAILABLE, RESULT_BILLING_UNAVAILABLE, RESULT_ITEM_UNAVAILABLE, RESULT_DEVELOPER_ERROR, RESULT_ERROR;

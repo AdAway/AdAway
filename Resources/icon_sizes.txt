@@ -1,11 +1,21 @@
-Icon:
+Launcher Icon:
+-----------------------
 ldpi: 36x36
 mdpi: 48x48
 hdpi: 72x72
+xhdpi: 96x96
 google code: 55x55
 android market: 512x512
 
 Status Bar Icon:
+-----------------------
+Android < 3.0
 ldpi: 12x19
 mdpi: 16x25
 hdpi: 24x38
+
+Android > 3.0
+ldpi: 18x18
+mdpi: 24x24
+hdpi: 36x36
+xhdpi: 48x48

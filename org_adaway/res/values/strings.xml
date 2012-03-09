@@ -23,7 +23,7 @@
     <string name="about_version">Version:</string>
     <string name="about_developer">Developer: Dominik Schürmann</string>
     <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' and \'www.androidicons.com\' (Both licensed under Creative Commons Attribution 3.0 Unported).</string>
-    <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android &lt; 3.0.</string>
+    <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android below 3.0.</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed due to unknown reasons.</string>
@@ -126,11 +126,11 @@
     <string name="no_file_manager_title">No file manager installed</string>
     <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
     <string name="donations_flattr">Flattr</string>
-    <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
+    <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Play Store!</string>
     <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
-    <string name="donations_google_android_market">Google Android Market</string>
+    <string name="donations_google_android_market">Google Play Store</string>
     <string name="donations_google_android_market_not_supported_title">In-App Donations are not supported</string>
-    <string name="donations_google_android_market_not_supported">In-App Donations are not supported. Is Google Android Market installed correctly?</string>
+    <string name="donations_google_android_market_not_supported">In-App Donations are not supported. Is Google Play Store installed correctly?</string>
     <string name="donations_google_android_market_description">• Google takes 30 % off every donation!\n• There is no premium version for donators.</string>
     <string name="donations_google_android_market_donate_button">Donate!</string>
     <string name="donations_google_android_market_text">How much?</string>

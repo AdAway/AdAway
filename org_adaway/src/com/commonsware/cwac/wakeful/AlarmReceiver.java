@@ -10,7 +10,7 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-*/
+ */
 
 package com.commonsware.cwac.wakeful;
 
@@ -30,72 +30,61 @@ import android.util.Log;
 import com.commonsware.cwac.wakeful.WakefulIntentService.AlarmListener;
 
 public class AlarmReceiver extends BroadcastReceiver {
-  private static final String WAKEFUL_META_DATA="com.commonsware.cwac.wakeful";
-  
-  @Override
-  public void onReceive(Context ctxt, Intent intent) {
-    AlarmListener listener=getListener(ctxt);
-    
-    if (listener!=null) {
-      if (intent.getAction()==null) {
-        SharedPreferences prefs=ctxt.getSharedPreferences(WakefulIntentService.NAME, 0);
+    private static final String WAKEFUL_META_DATA = "com.commonsware.cwac.wakeful";
 
-        prefs
-          .edit()
-          .putLong(WakefulIntentService.LAST_ALARM, System.currentTimeMillis())
-          .commit();
-        
-        listener.sendWakefulWork(ctxt);
-      }
-      else {
-        WakefulIntentService.scheduleAlarms(listener, ctxt, true);
-      }
-    }
-  }
-  
-  @SuppressWarnings("unchecked")
-  private WakefulIntentService.AlarmListener getListener(Context ctxt) {
-    PackageManager pm=ctxt.getPackageManager();
-    ComponentName cn=new ComponentName(ctxt, getClass());
-    
-    try {
-      ActivityInfo ai=pm.getReceiverInfo(cn,
-                                         PackageManager.GET_META_DATA);
-      XmlResourceParser xpp=ai.loadXmlMetaData(pm,
-                                               WAKEFUL_META_DATA);
-      
-      while (xpp.getEventType()!=XmlPullParser.END_DOCUMENT) {
-        if (xpp.getEventType()==XmlPullParser.START_TAG) {
-          if (xpp.getName().equals("WakefulIntentService")) {
-            String clsName=xpp.getAttributeValue(null, "listener");
-            Class<AlarmListener> cls=(Class<AlarmListener>)Class.forName(clsName);
-            
-            return(cls.newInstance());
-          }
+    @Override
+    public void onReceive(Context ctxt, Intent intent) {
+        AlarmListener listener = getListener(ctxt);
+
+        if (listener != null) {
+            if (intent.getAction() == null) {
+                SharedPreferences prefs = ctxt.getSharedPreferences(WakefulIntentService.NAME, 0);
+
+                prefs.edit().putLong(WakefulIntentService.LAST_ALARM, System.currentTimeMillis())
+                        .commit();
+
+                listener.sendWakefulWork(ctxt);
+            } else {
+                WakefulIntentService.scheduleAlarms(listener, ctxt, true);
+            }
         }
-        
-        xpp.next();
-      }
     }
-    catch (NameNotFoundException e) {
-      Log.e(getClass().getName(), "Cannot find own info???", e);
+
+    @SuppressWarnings("unchecked")
+    private WakefulIntentService.AlarmListener getListener(Context ctxt) {
+        PackageManager pm = ctxt.getPackageManager();
+        ComponentName cn = new ComponentName(ctxt, getClass());
+
+        try {
+            ActivityInfo ai = pm.getReceiverInfo(cn, PackageManager.GET_META_DATA);
+            XmlResourceParser xpp = ai.loadXmlMetaData(pm, WAKEFUL_META_DATA);
+
+            while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
+                if (xpp.getEventType() == XmlPullParser.START_TAG) {
+                    if (xpp.getName().equals("WakefulIntentService")) {
+                        String clsName = xpp.getAttributeValue(null, "listener");
+                        Class<AlarmListener> cls = (Class<AlarmListener>) Class.forName(clsName);
+
+                        return (cls.newInstance());
+                    }
+                }
+
+                xpp.next();
+            }
+        } catch (NameNotFoundException e) {
+            Log.e(getClass().getName(), "Cannot find own info???", e);
+        } catch (XmlPullParserException e) {
+            Log.e(getClass().getName(), "Malformed metadata resource XML", e);
+        } catch (IOException e) {
+            Log.e(getClass().getName(), "Could not read resource XML", e);
+        } catch (ClassNotFoundException e) {
+            Log.e(getClass().getName(), "Listener class not found", e);
+        } catch (IllegalAccessException e) {
+            Log.e(getClass().getName(), "Listener is not public or lacks public constructor", e);
+        } catch (InstantiationException e) {
+            Log.e(getClass().getName(), "Could not create instance of listener", e);
+        }
+
+        return (null);
     }
-    catch (XmlPullParserException e) {
-      Log.e(getClass().getName(), "Malformed metadata resource XML", e);
-    }
-    catch (IOException e) {
-      Log.e(getClass().getName(), "Could not read resource XML", e);
-    }
-    catch (ClassNotFoundException e) {
-      Log.e(getClass().getName(), "Listener class not found", e);
-    }
-    catch (IllegalAccessException e) {
-      Log.e(getClass().getName(), "Listener is not public or lacks public constructor", e);
-    }
-    catch (InstantiationException e) {
-      Log.e(getClass().getName(), "Could not create instance of listener", e);
-    }
-    
-    return(null);
-  }
 }

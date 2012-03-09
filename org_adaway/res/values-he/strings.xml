@@ -22,7 +22,7 @@
   <string name="about_version">גירסה:</string>
   <string name="about_developer">מפתח: Dominik Schürmann</string>
   <string name="about_icons">סמלים מסויימים נלקחו מ \'Dropbox Emblems Tango by Charles A.\' ו \'www.androidicons.com\', שניהם תחת רשיון Creative Commons Attribution 3.0 Unported License.</string>
-  <string name="about_libs">AdAway משתמש ב \'RootTools\' (תחת רשיון: GPL v2) Library to handle root access and \'ActionBarSherlock\' (תחת רשיון: Apache 2.0) to provide an ActionBar for Android < 3.0.</string>
+  <string name="about_libs">AdAway משתמש ב \'RootTools\' (תחת רשיון: GPL v2) Library to handle root access and \'ActionBarSherlock\' (תחת רשיון: Apache 2.0) to provide an ActionBar for Android under 3.0.</string>
   <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_fail_title">החלת הגדרות נכשלה</string>
   <string name="revert_problem">חזרה נכשלה.</string>
