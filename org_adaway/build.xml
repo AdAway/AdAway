@@ -57,7 +57,7 @@
         <!-- Build binaries using NDK -->
         <exec executable="${ndk.dir}/ndk-build" failonerror="true"/>
 
-        <!--  Move binaries from libs to resources! -->     
+        <!--  Move binaries from libs to resources! -->
         <move todir="${resource.absolute.dir}/raw" overwrite="true" verbose="true" failonerror="true">
           <fileset dir="${jar.libs.absolute.dir}/armeabi">
             <include name="*"/>
@@ -100,7 +100,7 @@
          In all cases you must update the value of version-tag below to read 'custom' instead of an integer,
          in order to avoid having your file be overridden by tools such as "android update project"
     -->
-    <!-- version-tag: 1 -->
+    <!-- version-tag: custom -->
     <import file="${sdk.dir}/tools/ant/build.xml" />
 
 </project>
