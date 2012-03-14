@@ -3,8 +3,9 @@
 
     <item
         android:id="@+id/menu_add"
-        android:icon="@drawable/ic_menu_add"
+        android:icon="@drawable/action_new"
         android:showAsAction="always|withText"
-        android:title="@string/menu_add"></item>
+        android:title="@string/menu_add">
+    </item>
 
 </menu>

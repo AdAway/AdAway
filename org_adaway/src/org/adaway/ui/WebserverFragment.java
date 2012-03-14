@@ -23,15 +23,16 @@ package org.adaway.ui;
 import org.adaway.R;
 import org.adaway.util.WebserverUtils;
 
+import com.actionbarsherlock.app.SherlockFragment;
+
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ToggleButton;
 
-public class WebserverFragment extends Fragment {
+public class WebserverFragment extends SherlockFragment {
     private Activity mActivity;
 
     private ToggleButton mWebserverToggle;

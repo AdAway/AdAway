@@ -24,10 +24,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.support.v4.view.Menu;
-import android.support.v4.view.MenuItem;
-import android.support.v4.view.SubMenu;
 import android.view.KeyEvent;
+
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.SubMenu;
 
 /**
  * @hide
@@ -69,7 +70,7 @@ public class ActionMenu implements Menu {
 
     public int addIntentOptions(int groupId, int itemId, int order,
             ComponentName caller, Intent[] specifics, Intent intent, int flags,
-            android.view.MenuItem[] outSpecificItems) {
+            MenuItem[] outSpecificItems) {
         PackageManager pm = mContext.getPackageManager();
         final List<ResolveInfo> lri =
                 pm.queryIntentActivityOptions(caller, specifics, intent, 0);

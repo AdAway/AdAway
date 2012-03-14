@@ -21,13 +21,23 @@
      for different hardware and product builds. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- The maximum width we would prefer dialogs to be.  0 if there is no
+         maximum (let them grow as large as the screen).  Actual values are
+         specified for -large and -xlarge configurations. -->
+    <dimen name="abs__config_prefDialogWidth">320dp</dimen>
+
+    <!-- Sets whether menu shortcuts should be displayed on panel menus when
+         a keyboard is present. -->
+    <bool name="abs__config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+
+    <!-- Whether action menu items should be displayed in ALLCAPS or not.
+         Defaults to true. If this is not appropriate for specific locales
+         it should be disabled in that locale's resources. -->
+    <bool name="abs__config_actionMenuItemAllCaps">true</bool>
+
     <!-- Whether action menu items should obey the "withText" showAsAction
          flag. This may be set to false for situations where space is
          extremely limited. -->
     <bool name="abs__config_allowActionMenuItemTextWithIcon">false</bool>
-    
-    <color name="abs__item_focused">#FF6899FF</color>
-    <integer name="abs__max_action_buttons">3</integer>
-    <string name="abs__tab_under_ab_tag">tabUnderAb</string>
 
 </resources>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- Tabs are in AB here, so we need Dark Variant of Theme -->
-    <style name="Widget.Sherlock.Light.ActionBar.TabText.Inverse" parent="Widget.Sherlock.Light.ActionBar.TabText">
-        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
-    </style>
-
-</resources>

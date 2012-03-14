@@ -1,6 +1,9 @@
 #Android generated
 bin
 gen
+obj
+libs/armeabi
+lint.xml
 local.properties
 
 #Eclipse
@@ -15,4 +18,6 @@ local.properties
 #Maven
 target
 release.properties
-pom.xml.*
+
+#Mac
+.DS_Store

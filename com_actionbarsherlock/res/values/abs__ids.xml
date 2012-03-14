@@ -17,5 +17,10 @@
 */
 -->
 <resources>
+  <item type="id" name="abs__home" />
+  <item type="id" name="abs__up" />
+  <item type="id" name="abs__action_menu_divider" />
   <item type="id" name="abs__action_menu_presenter" />
+  <item type="id" name="abs__progress_circular" />
+  <item type="id" name="abs__progress_horizontal" />
 </resources>

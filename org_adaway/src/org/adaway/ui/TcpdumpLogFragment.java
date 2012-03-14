@@ -28,16 +28,15 @@ import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.TcpdumpLogLoader;
 
+import com.actionbarsherlock.app.SherlockListFragment;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
-import android.support.v4.view.MenuItem;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 
-import android.view.MenuInflater;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
@@ -45,7 +44,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-public class TcpdumpLogFragment extends ListFragment implements
+public class TcpdumpLogFragment extends SherlockListFragment implements
         LoaderManager.LoaderCallbacks<ArrayList<String>> {
     private Activity mActivity;
     private ArrayAdapter<String> mAdapter;
@@ -63,7 +62,8 @@ public class TcpdumpLogFragment extends ListFragment implements
         // Retrieve the item that was clicked on
         String hostname = mAdapter.getItem(info.position);
 
-        MenuInflater inflater = (MenuInflater) mActivity.getMenuInflater();
+        android.view.MenuInflater inflater = (android.view.MenuInflater) mActivity
+                .getMenuInflater();
         menu.setHeaderTitle(hostname);
         inflater.inflate(R.menu.tcpdump_log_context, menu);
     }
@@ -72,7 +72,7 @@ public class TcpdumpLogFragment extends ListFragment implements
      * Context Menu Items
      */
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
+    public boolean onContextItemSelected(android.view.MenuItem item) {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 
         String hostname = mAdapter.getItem(info.position);

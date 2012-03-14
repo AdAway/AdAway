@@ -8,9 +8,7 @@
         android:layout_height="wrap_content"
         android:isScrollContainer="true"
         android:orientation="vertical"
-        android:paddingBottom="15dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:padding="15dp"
         android:scrollbars="vertical" >
 
         <LinearLayout

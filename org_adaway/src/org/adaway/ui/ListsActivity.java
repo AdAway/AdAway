@@ -25,36 +25,28 @@ import org.adaway.helper.ImportExportHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.ActionBar.Tab;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ActionBar.Tab;
-import android.support.v4.view.Menu;
-import android.support.v4.view.MenuItem;
-import android.view.MenuInflater;
 
-public class ListsActivity extends FragmentActivity implements ActionBar.TabListener {
-    Activity mActivity;
-
-    /**
-     * Set ActionBar to include sign to Home
-     */
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ActionBar actionBar = this.getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-    }
+public class ListsActivity extends SherlockFragmentActivity implements ActionBar.TabListener {
+    private Activity mActivity;
+    private ActionBar mActionBar;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+        MenuInflater inflater = getSupportMenuInflater();
         inflater.inflate(R.menu.lists_activity, menu);
         return true;
     }
@@ -108,6 +100,10 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
 
         setContentView(R.layout.lists_activity);
 
+        mActionBar = getSupportActionBar();
+        mActionBar.setDisplayShowTitleEnabled(true);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+
         // start with blacklist
         BlacklistFragment blacklistFragment = new BlacklistFragment();
         getSupportFragmentManager().beginTransaction()
@@ -118,7 +114,7 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
         // fragment transactions are asynchronous and ActionBar is not ready at once
         getSupportFragmentManager().executePendingTransactions();
 
-        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         ActionBar.Tab tab1 = getSupportActionBar().newTab();
         ActionBar.Tab tab2 = getSupportActionBar().newTab();
@@ -156,7 +152,7 @@ public class ListsActivity extends FragmentActivity implements ActionBar.TabList
     @Override
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // choose current fragment based on tab position
-        Fragment fragment = null;
+        SherlockListFragment fragment = null;
         switch (tab.getPosition()) {
         case 0:
             fragment = new BlacklistFragment();

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2010 The Android Open Source Project
-     Copyright (C) 2011 Jake Wharton
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,31 +15,36 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingRight="10dip">
-    <com.actionbarsherlock.internal.widget.ScrollingTextView
-        android:id="@+id/abs__action_bar_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:scrollHorizontally="true"
-        android:ellipsize="marquee"
-        android:singleLine="true"
-        android:marqueeRepeatLimit="marquee_forever"
-        />
-    <com.actionbarsherlock.internal.widget.ScrollingTextView
-        android:id="@+id/abs__action_bar_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:scrollHorizontally="true"
-        android:layout_marginTop="@dimen/abs__action_bar_subtitle_top_margin"
-        android:layout_marginBottom="@dimen/abs__action_bar_subtitle_bottom_margin"
-        android:ellipsize="marquee"
-        android:singleLine="true"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:visibility="gone"
-        />
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:paddingRight="16dip"
+              android:background="?attr/actionBarItemBackground"
+              android:enabled="false">
+
+    <ImageView android:id="@id/abs__up"
+               android:src="?attr/homeAsUpIndicator"
+               android:layout_gravity="center_vertical|left"
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_vertical|left"
+                  android:orientation="vertical">
+        <TextView android:id="@+id/abs__action_bar_title"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:singleLine="true"
+                  android:ellipsize="end" />
+        <TextView android:id="@+id/abs__action_bar_subtitle"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/abs__action_bar_subtitle_top_margin"
+                  android:layout_marginBottom="@dimen/abs__action_bar_subtitle_bottom_margin"
+                  android:singleLine="true"
+                  android:ellipsize="end"
+                  android:visibility="gone" />
+    </LinearLayout>
 </LinearLayout>

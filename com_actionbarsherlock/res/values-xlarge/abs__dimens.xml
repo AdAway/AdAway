@@ -20,6 +20,8 @@
 <resources>
     <!-- Default height of an action bar. -->
     <dimen name="abs__action_bar_default_height">56dip</dimen>
+    <!-- Vertical padding around action bar icons. -->
+    <dimen name="abs__action_bar_icon_vertical_padding">4dip</dimen>
     <!-- Text size for action bar titles -->
     <dimen name="abs__action_bar_title_text_size">18dp</dimen>
     <!-- Text size for action bar subtitles -->
@@ -28,4 +30,16 @@
     <dimen name="abs__action_bar_subtitle_top_margin">-3dp</dimen>
     <!-- Bottom margin for action bar subtitles -->
     <dimen name="abs__action_bar_subtitle_bottom_margin">9dip</dimen>
+
+    <!-- Minimum width for an action button in the menu area of an action bar -->
+    <dimen name="abs__action_button_min_width">64dip</dimen>
+    
+    <!-- The platform's desired minimum size for a dialog's width when it
+         is along the major axis (that is the screen is landscape).  This may
+         be either a fraction or a dimension. -->
+    <item type="dimen" name="abs__dialog_min_width_major">45%</item>
+    <!-- The platform's desired minimum size for a dialog's width when it
+         is along the minor axis (that is the screen is portrait).  This may
+         be either a fraction or a dimension. -->
+    <item type="dimen" name="abs__dialog_min_width_minor">72%</item>
 </resources>

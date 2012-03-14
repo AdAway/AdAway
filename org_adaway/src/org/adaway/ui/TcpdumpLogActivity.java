@@ -22,28 +22,27 @@ package org.adaway.ui;
 
 import org.adaway.R;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActionBar;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.MenuItem;
 
-public class TcpdumpLogActivity extends FragmentActivity {
+public class TcpdumpLogActivity extends SherlockFragmentActivity {
+    private ActionBar mActionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.tcpdump_log_activity);
+
+        mActionBar = getSupportActionBar();
+        mActionBar.setDisplayShowTitleEnabled(true);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
     }
-    
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ActionBar actionBar = this.getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-    }
-    
+
     /**
      * Menu Options
      */

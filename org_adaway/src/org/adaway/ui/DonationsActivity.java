@@ -32,10 +32,12 @@ import org.adaway.google.donations.Consts.ResponseCode;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
-import android.app.Activity;
+import com.actionbarsherlock.app.SherlockActivity;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -48,7 +50,7 @@ import android.os.Handler;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class DonationsActivity extends Activity {
+public class DonationsActivity extends SherlockActivity {
     private DonatePurchaseObserver mDonatePurchaseObserver;
     private Handler mHandler;
 
@@ -314,6 +316,12 @@ public class DonationsActivity extends Activity {
 
         // make background of webview transparent
         // has to be called AFTER loadData
+        // http://stackoverflow.com/questions/5003156/android-webview-style-background-colortransparent-ignored-on-android-2-2
         mFlattrWebview.setBackgroundColor(0x00000000);
+
+        // disable hardware accleration for this webview to get transparent background working
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            mFlattrWebview.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
     }
 }

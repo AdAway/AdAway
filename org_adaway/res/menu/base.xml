@@ -3,49 +3,42 @@
 
     <item
         android:id="@+id/menu_hosts_sources"
-        android:icon="@drawable/ic_menu_database"
         android:title="@string/menu_hosts_sources">
     </item>
     <item
         android:id="@+id/menu_lists"
-        android:icon="@drawable/ic_menu_filter"
         android:title="@string/menu_lists">
     </item>
     <item
-        android:id="@+id/menu_preferences"
-        android:icon="@drawable/ic_menu_preferences"
-        android:title="@string/menu_preferences">
-    </item>
-    <item
-        android:id="@+id/menu_about"
-        android:icon="@drawable/ic_menu_info_details"
-        android:title="@string/menu_about">
-    </item>
-    <item
-        android:id="@+id/menu_donations"
-        android:icon="@drawable/ic_menu_love"
-        android:title="@string/menu_donations">
-    </item>
-    <item
         android:id="@+id/menu_show_hosts_file"
-        android:icon="@drawable/ic_menu_compose"
         android:title="@string/menu_show_hosts_file">
     </item>
     <item
         android:id="@+id/menu_tcpdump"
-        android:icon="@drawable/ic_menu_compose"
         android:title="@string/menu_tcpdump">
     </item>
     <item
+        android:id="@+id/menu_preferences"
+        android:title="@string/menu_preferences">
+    </item>
+    <item
+        android:id="@+id/menu_about"
+        android:title="@string/menu_about">
+    </item>
+    <item
+        android:id="@+id/menu_donations"
+        android:title="@string/menu_donations">
+    </item>
+    <item
         android:id="@+id/menu_refresh"
-        android:icon="@drawable/ic_menu_refresh"
+        android:icon="@drawable/action_refresh"
         android:showAsAction="always"
         android:title="@string/menu_refresh">
     </item>
     <item
         android:id="@+id/menu_help"
-        android:icon="@drawable/ic_menu_help"
-        android:showAsAction="ifRoom"
+        android:icon="@drawable/action_help"
+        android:showAsAction="always"
         android:title="@string/menu_help">
     </item>
 

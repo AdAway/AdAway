@@ -16,12 +16,12 @@
 
 package com.actionbarsherlock.internal.view.menu;
 
+import java.util.ArrayList;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.ArrayList;
 
 /**
  * Base class for MenuPresenters that have a consistent container view and item
@@ -29,6 +29,8 @@ import java.util.ArrayList;
  * be reused if possible when items change.
  */
 public abstract class BaseMenuPresenter implements MenuPresenter {
+    private static final boolean IS_HONEYCOMB = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
+
     protected Context mSystemContext;
     protected Context mContext;
     protected MenuBuilder mMenu;
@@ -91,7 +93,14 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
                 MenuItemImpl item = visibleItems.get(i);
                 if (shouldIncludeItem(childIndex, item)) {
                     final View convertView = parent.getChildAt(childIndex);
+                    final MenuItemImpl oldItem = convertView instanceof MenuView.ItemView ?
+                            ((MenuView.ItemView) convertView).getItemData() : null;
                     final View itemView = getItemView(item, convertView, parent);
+                    if (item != oldItem) {
+                        // Don't let old states linger with new data.
+                        itemView.setPressed(false);
+                        if (IS_HONEYCOMB) itemView.jumpDrawablesToCurrentState();
+                    }
                     if (itemView != convertView) {
                         addItemView(itemView, childIndex);
                     }
@@ -179,7 +188,7 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
     /**
      * Filter item by child index and item data.
      *
-     * @param childIndex Intended presentation index of this item
+     * @param childIndex Indended presentation index of this item
      * @param item Item to present
      * @return true if this item should be included in this menu presentation; false otherwise
      */

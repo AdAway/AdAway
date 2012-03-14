@@ -20,14 +20,16 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.MenuItem;
-import android.support.v4.view.SubMenu;
 import android.util.Log;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewDebug;
 import android.widget.LinearLayout;
+
+import com.actionbarsherlock.view.ActionProvider;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.SubMenu;
 
 /**
  * @hide
@@ -77,6 +79,9 @@ public final class MenuItemImpl implements MenuItem {
     private int mShowAsAction = SHOW_AS_ACTION_NEVER;
 
     private View mActionView;
+    private ActionProvider mActionProvider;
+    private OnActionExpandListener mOnActionExpandListener;
+    private boolean mIsActionViewExpanded = false;
 
     /** Used for the icon resource ID if this item does not have an icon */
     static final int NO_ICON = 0;
@@ -156,6 +161,10 @@ public final class MenuItemImpl implements MenuItem {
             } catch (ActivityNotFoundException e) {
                 Log.e(TAG, "Can't find activity to handle intent; ignoring", e);
             }
+        }
+
+        if (mActionProvider != null && mActionProvider.onPerformDefaultAction()) {
+            return true;
         }
 
         return false;
@@ -470,18 +479,8 @@ public final class MenuItemImpl implements MenuItem {
         return this;
     }
 
-    public MenuItem setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener clickListener) {
+   public MenuItem setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener clickListener) {
         mClickListener = clickListener;
-        return this;
-    }
-
-    public MenuItem setOnMenuItemClickListener(final android.view.MenuItem.OnMenuItemClickListener clickListener) {
-        mClickListener = new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                return clickListener.onMenuItemClick(item);
-            }
-        };
         return this;
     }
 
@@ -552,6 +551,7 @@ public final class MenuItemImpl implements MenuItem {
 
     public MenuItem setActionView(View view) {
         mActionView = view;
+        mActionProvider = null;
         if (view != null && view.getId() == View.NO_ID && mId > 0) {
             view.setId(mId);
         }
@@ -569,8 +569,79 @@ public final class MenuItemImpl implements MenuItem {
     public View getActionView() {
         if (mActionView != null) {
             return mActionView;
+        } else if (mActionProvider != null) {
+            mActionView = mActionProvider.onCreateActionView();
+            return mActionView;
         } else {
             return null;
         }
+    }
+
+    public ActionProvider getActionProvider() {
+        return mActionProvider;
+    }
+
+    public MenuItem setActionProvider(ActionProvider actionProvider) {
+        mActionView = null;
+        mActionProvider = actionProvider;
+        mMenu.onItemsChanged(true); // Measurement can be changed
+        return this;
+    }
+
+    @Override
+    public MenuItem setShowAsActionFlags(int actionEnum) {
+        setShowAsAction(actionEnum);
+        return this;
+    }
+
+    @Override
+    public boolean expandActionView() {
+        if ((mShowAsAction & SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW) == 0 || mActionView == null) {
+            return false;
+        }
+
+        if (mOnActionExpandListener == null ||
+                mOnActionExpandListener.onMenuItemActionExpand(this)) {
+            return mMenu.expandItemActionView(this);
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean collapseActionView() {
+        if ((mShowAsAction & SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW) == 0) {
+            return false;
+        }
+        if (mActionView == null) {
+            // We're already collapsed if we have no action view.
+            return true;
+        }
+
+        if (mOnActionExpandListener == null ||
+                mOnActionExpandListener.onMenuItemActionCollapse(this)) {
+            return mMenu.collapseItemActionView(this);
+        }
+
+        return false;
+    }
+
+    @Override
+    public MenuItem setOnActionExpandListener(OnActionExpandListener listener) {
+        mOnActionExpandListener = listener;
+        return this;
+    }
+
+    public boolean hasCollapsibleActionView() {
+        return (mShowAsAction & SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW) != 0 && mActionView != null;
+    }
+
+    public void setActionViewExpanded(boolean isExpanded) {
+        mIsActionViewExpanded = isExpanded;
+        mMenu.onItemsChanged(false);
+    }
+
+    public boolean isActionViewExpanded() {
+        return mIsActionViewExpanded;
     }
 }

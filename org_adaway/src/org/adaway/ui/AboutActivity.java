@@ -24,15 +24,16 @@ import org.adaway.R;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
-import android.app.Activity;
+import com.actionbarsherlock.app.SherlockActivity;
+
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class AboutActivity extends Activity {
-    Activity mActivity;
+public class AboutActivity extends SherlockActivity {
+    SherlockActivity mActivity;
 
     /**
      * Instantiate View for this Activity

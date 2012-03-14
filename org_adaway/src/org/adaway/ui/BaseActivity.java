@@ -31,6 +31,8 @@ import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 import com.stericson.RootTools.RootTools;
 
@@ -40,14 +42,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.app.ActionBar;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends SherlockFragmentActivity {
 
     // Intent extras to give result of applying process to base activity
     public static final String EXTRA_APPLYING_RESULT = "org.adaway.APPLYING_RESULT";

@@ -1,82 +1,72 @@
 package com.actionbarsherlock.internal.view.menu;
 
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.MenuItem;
-import android.support.v4.view.SubMenu;
 import android.view.View;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.SubMenu;
 
 public class SubMenuWrapper extends MenuWrapper implements SubMenu {
-    /** Native sub-menu. */
-    private final android.view.SubMenu mSubMenu;
+    private final android.view.SubMenu mNativeSubMenu;
+    private MenuItem mItem = null;
 
-    /**
-     * Create a new wrapped instance.
-     *
-     * @param subMenu Native sub-menu.
-     */
-    public SubMenuWrapper(android.view.SubMenu subMenu) {
-        super(subMenu);
-        mSubMenu = subMenu;
+    public SubMenuWrapper(android.view.SubMenu nativeSubMenu) {
+        super(nativeSubMenu);
+        mNativeSubMenu = nativeSubMenu;
     }
 
-    /**
-     * Get the native sub-menu instance we are wrapping.
-     *
-     * @return Native sub-menu.
-     */
-    android.view.SubMenu unwrap() {
-        return mSubMenu;
-    }
 
     @Override
-    public void clearHeader() {
-        mSubMenu.clearHeader();
-    }
-
-    @Override
-    public MenuItem getItem() {
-        return new MenuItemWrapper(mSubMenu.getItem());
-    }
-
-    @Override
-    public SubMenu setHeaderIcon(Drawable icon) {
-        mSubMenu.setHeaderIcon(icon);
-        return this;
-    }
-
-    @Override
-    public SubMenu setHeaderIcon(int iconRes) {
-        mSubMenu.setHeaderIcon(iconRes);
+    public SubMenu setHeaderTitle(int titleRes) {
+        mNativeSubMenu.setHeaderTitle(titleRes);
         return this;
     }
 
     @Override
     public SubMenu setHeaderTitle(CharSequence title) {
-        mSubMenu.setHeaderTitle(title);
+        mNativeSubMenu.setHeaderTitle(title);
         return this;
     }
 
     @Override
-    public SubMenu setHeaderTitle(int titleRes) {
-        mSubMenu.setHeaderTitle(titleRes);
+    public SubMenu setHeaderIcon(int iconRes) {
+        mNativeSubMenu.setHeaderIcon(iconRes);
+        return this;
+    }
+
+    @Override
+    public SubMenu setHeaderIcon(Drawable icon) {
+        mNativeSubMenu.setHeaderIcon(icon);
         return this;
     }
 
     @Override
     public SubMenu setHeaderView(View view) {
-        mSubMenu.setHeaderView(view);
+        mNativeSubMenu.setHeaderView(view);
+        return this;
+    }
+
+    @Override
+    public void clearHeader() {
+        mNativeSubMenu.clearHeader();
+    }
+
+    @Override
+    public SubMenu setIcon(int iconRes) {
+        mNativeSubMenu.setIcon(iconRes);
         return this;
     }
 
     @Override
     public SubMenu setIcon(Drawable icon) {
-        mSubMenu.setIcon(icon);
+        mNativeSubMenu.setIcon(icon);
         return this;
     }
 
     @Override
-    public SubMenu setIcon(int iconRes) {
-        mSubMenu.setIcon(iconRes);
-        return this;
+    public MenuItem getItem() {
+        if (mItem == null) {
+            mItem = new MenuItemWrapper(mNativeSubMenu.getItem());
+        }
+        return mItem;
     }
 }

@@ -18,16 +18,17 @@ package com.actionbarsherlock.internal.view.menu;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import android.content.Context;
-import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -35,6 +36,9 @@ import android.widget.Toast;
 import com.actionbarsherlock.R;
 import com.actionbarsherlock.internal.view.View_HasStateListenerSupport;
 import com.actionbarsherlock.internal.view.View_OnAttachStateChangeListener;
+import com.actionbarsherlock.internal.widget.CapitalizingButton;
+
+import static com.actionbarsherlock.internal.ResourcesCompat.getResources_getBoolean;
 
 /**
  * @hide
@@ -49,10 +53,10 @@ public class ActionMenuItemView extends LinearLayout
     private MenuBuilder.ItemInvoker mItemInvoker;
 
     private ImageButton mImageButton;
-    private Button mTextButton;
+    private CapitalizingButton mTextButton;
     private boolean mAllowTextWithIcon;
-    //UNUSED private boolean mShowTextAllCaps;
     private boolean mExpandedFormat;
+    private int mMinWidth;
 
     private final Set<View_OnAttachStateChangeListener> mListeners = new HashSet<View_OnAttachStateChangeListener>();
 
@@ -67,10 +71,13 @@ public class ActionMenuItemView extends LinearLayout
     public ActionMenuItemView(Context context, AttributeSet attrs, int defStyle) {
         //TODO super(context, attrs, defStyle);
         super(context, attrs);
-        final Resources res = context.getResources();
-        mAllowTextWithIcon = res.getBoolean(
+        mAllowTextWithIcon = getResources_getBoolean(context,
                 R.bool.abs__config_allowActionMenuItemTextWithIcon);
-        //UNUSED mShowTextAllCaps = res.getBoolean(R.bool.abs__config_actionMenuItemAllCaps);
+        TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.SherlockActionMenuItemView, 0, 0);
+        mMinWidth = a.getDimensionPixelSize(
+                R.styleable.SherlockActionMenuItemView_android_minWidth, 0);
+        a.recycle();
     }
 
     @Override
@@ -103,7 +110,7 @@ public class ActionMenuItemView extends LinearLayout
     public void onFinishInflate() {
 
         mImageButton = (ImageButton) findViewById(R.id.abs__imageButton);
-        mTextButton = (Button) findViewById(R.id.abs__textButton);
+        mTextButton = (CapitalizingButton) findViewById(R.id.abs__textButton);
         mImageButton.setOnClickListener(this);
         mTextButton.setOnClickListener(this);
         mImageButton.setOnLongClickListener(this);
@@ -194,10 +201,36 @@ public class ActionMenuItemView extends LinearLayout
     public void setTitle(CharSequence title) {
         mTitle = title;
 
-        mTextButton.setText(mTitle);
+        mTextButton.setTextCompat(mTitle);
 
         setContentDescription(mTitle);
         updateTextButtonVisibility();
+    }
+
+    @Override
+    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
+        onPopulateAccessibilityEvent(event);
+        return true;
+    }
+
+    @Override
+    public void onPopulateAccessibilityEvent(AccessibilityEvent event) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            super.onPopulateAccessibilityEvent(event);
+        }
+        final CharSequence cdesc = getContentDescription();
+        if (!TextUtils.isEmpty(cdesc)) {
+            event.getText().add(cdesc);
+        }
+    }
+
+    @Override
+    public boolean dispatchHoverEvent(MotionEvent event) {
+        // Don't allow children to hover; we want this to be treated as a single component.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            return onHoverEvent(event);
+        }
+        return false;
     }
 
     public boolean showsIcon() {
@@ -241,5 +274,22 @@ public class ActionMenuItemView extends LinearLayout
         }
         cheatSheet.show();
         return true;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        final int specSize = MeasureSpec.getSize(widthMeasureSpec);
+        final int oldMeasuredWidth = getMeasuredWidth();
+        final int targetWidth = widthMode == MeasureSpec.AT_MOST ? Math.min(specSize, mMinWidth)
+                : mMinWidth;
+
+        if (widthMode != MeasureSpec.EXACTLY && mMinWidth > 0 && oldMeasuredWidth < targetWidth) {
+            // Remeasure at exactly the minimum width.
+            super.onMeasure(MeasureSpec.makeMeasureSpec(targetWidth, MeasureSpec.EXACTLY),
+                    heightMeasureSpec);
+        }
     }
 }

@@ -21,21 +21,23 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.adaway.util.TcpdumpUtils;
+
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActionBar;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.MenuItem;
 import android.view.View;
+import android.widget.ToggleButton;
 
-public class TcpdumpActivity extends FragmentActivity {
-    TcpdumpFragment mTcpdumpFragment;
-    FragmentManager mFragmentManager;
+public class TcpdumpActivity extends SherlockActivity {
+    private Activity mActivity;
+    private ActionBar mActionBar;
 
-    Activity mActivity;
+    private ToggleButton mTcpdumpToggle;
 
     /**
      * Instantiate View and initialize fragments for this Activity
@@ -48,19 +50,19 @@ public class TcpdumpActivity extends FragmentActivity {
 
         mActivity = this;
 
-        mFragmentManager = getSupportFragmentManager();
-        mTcpdumpFragment = (TcpdumpFragment) mFragmentManager
-                .findFragmentById(R.id.tcpdump_fragment);
-    }
+        mActionBar = getSupportActionBar();
+        mActionBar.setDisplayShowTitleEnabled(true);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
 
-    /**
-     * Set Design of ActionBar
-     */
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ActionBar actionBar = this.getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        mTcpdumpToggle = (ToggleButton) mActivity.findViewById(R.id.tcpdump_fragment_toggle_button);
+
+        // set togglebutton checked if tcpdump is running
+        if (TcpdumpUtils.isTcpdumpRunning()) {
+            mTcpdumpToggle.setChecked(true);
+        } else {
+            mTcpdumpToggle.setChecked(false);
+        }
+
     }
 
     /**
@@ -81,24 +83,23 @@ public class TcpdumpActivity extends FragmentActivity {
         }
     }
 
-    /**
-     * hand over onClick events, defined in layout from Activity to Fragment
-     */
     public void tcpdumpToggleOnClick(View view) {
-        mTcpdumpFragment.tcpdumpToggleOnClick(view);
+        if (mTcpdumpToggle.isChecked() == true) {
+            // if starting does not work, set back to disabled...
+            if (!TcpdumpUtils.startTcpdump(mActivity)) {
+                mTcpdumpToggle.setChecked(false);
+            }
+        }
+        if (mTcpdumpToggle.isChecked() == false) {
+            TcpdumpUtils.stopTcpdump(mActivity);
+        }
     }
 
-    /**
-     * hand over onClick events, defined in layout from Activity to Fragment
-     */
     public void tcpdumpOpenOnClick(View view) {
-        mTcpdumpFragment.tcpdumpOpenOnClick(view);
+        startActivity(new Intent(mActivity, TcpdumpLogActivity.class));
     }
 
-    /**
-     * hand over onClick events, defined in layout from Activity to Fragment
-     */
     public void tcpdumpDeleteOnClick(View view) {
-        mTcpdumpFragment.tcpdumpDeleteOnClick(view);
+        TcpdumpUtils.deleteLog(mActivity);
     }
 }

@@ -33,14 +33,17 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v4.view.Menu;
-import android.support.v4.view.MenuItem;
-import android.support.v4.view.SubMenu;
 import android.util.SparseArray;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
+
+import com.actionbarsherlock.R;
+import com.actionbarsherlock.view.ActionProvider;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.SubMenu;
 
 /**
  * Implementation of the {@link android.view.Menu} interface for creating a
@@ -51,6 +54,7 @@ public class MenuBuilder implements Menu {
 
     private static final String PRESENTER_KEY = "android:menu:presenters";
     private static final String ACTION_VIEW_STATES_KEY = "android:menu:actionviewstates";
+    private static final String EXPANDED_ACTION_VIEW_ID = "android:menu:expandedactionview";
 
     private static final int[]  sCategoryToOrder = new int[] {
         1, /* No category */
@@ -198,72 +202,6 @@ public class MenuBuilder implements Menu {
         setShortcutsVisibleInner(true);
     }
 
-    /** Bind the non-action items to a native menu. */
-    public boolean bindOverflowToNative(android.view.Menu menu, android.view.MenuItem.OnMenuItemClickListener listener, HashMap<android.view.MenuItem, MenuItemImpl> map) {
-        final ArrayList<MenuItemImpl> nonActionItems = getNonActionItems();
-        if (nonActionItems == null || nonActionItems.size() == 0) {
-            return false;
-        }
-
-        menu.clear();
-        boolean visible = false;
-        for (MenuItemImpl nonActionItem : nonActionItems) {
-            if (nonActionItem.isVisible()) {
-                visible = true;
-
-                android.view.MenuItem nativeItem;
-                if (nonActionItem.hasSubMenu()) {
-                    android.view.SubMenu nativeSub = menu.addSubMenu(nonActionItem.getGroupId(), nonActionItem.getItemId(),
-                            nonActionItem.getOrder(), nonActionItem.getTitle());
-
-                    SubMenuBuilder subMenu = (SubMenuBuilder)nonActionItem.getSubMenu();
-                    for (MenuItemImpl subItem : subMenu.getVisibleItems()) {
-                        android.view.MenuItem nativeSubItem = nativeSub.add(subItem.getGroupId(), subItem.getItemId(),
-                                subItem.getOrder(), subItem.getTitle());
-
-                        nativeSubItem.setIcon(subItem.getIcon());
-                        nativeSubItem.setOnMenuItemClickListener(listener);
-                        nativeSubItem.setEnabled(subItem.isEnabled());
-                        nativeSubItem.setIntent(subItem.getIntent());
-                        nativeSubItem.setNumericShortcut(subItem.getNumericShortcut());
-                        nativeSubItem.setAlphabeticShortcut(subItem.getAlphabeticShortcut());
-                        nativeSubItem.setTitleCondensed(subItem.getTitleCondensed());
-                        nativeSubItem.setCheckable(subItem.isCheckable());
-                        nativeSubItem.setChecked(subItem.isChecked());
-
-                        if (subItem.isExclusiveCheckable()) {
-                            nativeSub.setGroupCheckable(subItem.getGroupId(), true, true);
-                        }
-
-                        map.put(nativeSubItem, subItem);
-                    }
-
-                    nativeItem = nativeSub.getItem();
-                } else {
-                    nativeItem = menu.add(nonActionItem.getGroupId(), nonActionItem.getItemId(),
-                            nonActionItem.getOrder(), nonActionItem.getTitle());
-                }
-                nativeItem.setIcon(nonActionItem.getIcon());
-                nativeItem.setOnMenuItemClickListener(listener);
-                nativeItem.setEnabled(nonActionItem.isEnabled());
-                nativeItem.setIntent(nonActionItem.getIntent());
-                nativeItem.setNumericShortcut(nonActionItem.getNumericShortcut());
-                nativeItem.setAlphabeticShortcut(nonActionItem.getAlphabeticShortcut());
-                nativeItem.setTitleCondensed(nonActionItem.getTitleCondensed());
-                nativeItem.setCheckable(nonActionItem.isCheckable());
-                nativeItem.setChecked(nonActionItem.isChecked());
-
-                if (nonActionItem.isExclusiveCheckable()) {
-                    menu.setGroupCheckable(nonActionItem.getGroupId(), true, true);
-                }
-
-                map.put(nativeItem, nonActionItem);
-            }
-        }
-
-        return visible;
-    }
-
     public MenuBuilder setDefaultShowAsAction(int defaultShowAsAction) {
         mDefaultShowAsAction = defaultShowAsAction;
         return this;
@@ -392,6 +330,9 @@ public class MenuBuilder implements Menu {
                     viewStates = new SparseArray<Parcelable>();
                 }
                 v.saveHierarchyState(viewStates);
+                if (item.isActionViewExpanded()) {
+                    outStates.putInt(EXPANDED_ACTION_VIEW_ID, item.getItemId());
+                }
             }
             if (item.hasSubMenu()) {
                 final SubMenuBuilder subMenu = (SubMenuBuilder) item.getSubMenu();
@@ -422,6 +363,14 @@ public class MenuBuilder implements Menu {
             if (item.hasSubMenu()) {
                 final SubMenuBuilder subMenu = (SubMenuBuilder) item.getSubMenu();
                 subMenu.restoreActionViewStates(states);
+            }
+        }
+
+        final int expandedId = states.getInt(EXPANDED_ACTION_VIEW_ID);
+        if (expandedId > 0) {
+            MenuItem itemToExpand = findItem(expandedId);
+            if (itemToExpand != null) {
+                itemToExpand.expandActionView();
             }
         }
     }
@@ -491,7 +440,7 @@ public class MenuBuilder implements Menu {
     }
 
     public int addIntentOptions(int group, int id, int categoryOrder, ComponentName caller,
-            Intent[] specifics, Intent intent, int flags, android.view.MenuItem[] outSpecificItems) {
+            Intent[] specifics, Intent intent, int flags, MenuItem[] outSpecificItems) {
         PackageManager pm = mContext.getPackageManager();
         final List<ResolveInfo> lri =
                 pm.queryIntentActivityOptions(caller, specifics, intent, 0);
@@ -765,7 +714,9 @@ public class MenuBuilder implements Menu {
 
     private void setShortcutsVisibleInner(boolean shortcutsVisible) {
         mShortcutsVisible = shortcutsVisible
-                && mResources.getConfiguration().keyboard != Configuration.KEYBOARD_NOKEYS;
+                && mResources.getConfiguration().keyboard != Configuration.KEYBOARD_NOKEYS
+                && mResources.getBoolean(
+                        R.bool.abs__config_showMenuShortcutsWhenKeyboardPresent);
     }
 
     /**
@@ -927,10 +878,17 @@ public class MenuBuilder implements Menu {
 
         boolean invoked = itemImpl.invoke();
 
-        if (item.hasSubMenu()) {
+        if (itemImpl.hasCollapsibleActionView()) {
+            invoked |= itemImpl.expandActionView();
+            if (invoked) close(true);
+        } else if (item.hasSubMenu()) {
             close(false);
 
             final SubMenuBuilder subMenu = (SubMenuBuilder) item.getSubMenu();
+            final ActionProvider provider = item.getActionProvider();
+            if (provider != null && provider.hasSubMenu()) {
+                provider.onPrepareSubMenu(subMenu);
+            }
             invoked |= dispatchSubMenuSelected(subMenu);
             if (!invoked) close(true);
         } else {
@@ -1308,5 +1266,70 @@ public class MenuBuilder implements Menu {
 
     public MenuItemImpl getExpandedItem() {
         return mExpandedItem;
+    }
+
+    public boolean bindNativeOverflow(android.view.Menu menu, android.view.MenuItem.OnMenuItemClickListener listener, HashMap<android.view.MenuItem, MenuItemImpl> map) {
+        final List<MenuItemImpl> nonActionItems = getNonActionItems();
+        if (nonActionItems == null || nonActionItems.size() == 0) {
+            return false;
+        }
+
+        boolean visible = false;
+        menu.clear();
+        for (MenuItemImpl nonActionItem : nonActionItems) {
+            if (!nonActionItem.isVisible()) {
+                continue;
+            }
+            visible = true;
+
+            android.view.MenuItem nativeItem;
+            if (nonActionItem.hasSubMenu()) {
+                android.view.SubMenu nativeSub = menu.addSubMenu(nonActionItem.getGroupId(), nonActionItem.getItemId(),
+                        nonActionItem.getOrder(), nonActionItem.getTitle());
+
+                SubMenuBuilder subMenu = (SubMenuBuilder)nonActionItem.getSubMenu();
+                for (MenuItemImpl subItem : subMenu.getVisibleItems()) {
+                    android.view.MenuItem nativeSubItem = nativeSub.add(subItem.getGroupId(), subItem.getItemId(),
+                            subItem.getOrder(), subItem.getTitle());
+
+                    nativeSubItem.setIcon(subItem.getIcon());
+                    nativeSubItem.setOnMenuItemClickListener(listener);
+                    nativeSubItem.setEnabled(subItem.isEnabled());
+                    nativeSubItem.setIntent(subItem.getIntent());
+                    nativeSubItem.setNumericShortcut(subItem.getNumericShortcut());
+                    nativeSubItem.setAlphabeticShortcut(subItem.getAlphabeticShortcut());
+                    nativeSubItem.setTitleCondensed(subItem.getTitleCondensed());
+                    nativeSubItem.setCheckable(subItem.isCheckable());
+                    nativeSubItem.setChecked(subItem.isChecked());
+
+                    if (subItem.isExclusiveCheckable()) {
+                        nativeSub.setGroupCheckable(subItem.getGroupId(), true, true);
+                    }
+
+                    map.put(nativeSubItem, subItem);
+                }
+
+                nativeItem = nativeSub.getItem();
+            } else {
+                nativeItem = menu.add(nonActionItem.getGroupId(), nonActionItem.getItemId(),
+                        nonActionItem.getOrder(), nonActionItem.getTitle());
+            }
+            nativeItem.setIcon(nonActionItem.getIcon());
+            nativeItem.setOnMenuItemClickListener(listener);
+            nativeItem.setEnabled(nonActionItem.isEnabled());
+            nativeItem.setIntent(nonActionItem.getIntent());
+            nativeItem.setNumericShortcut(nonActionItem.getNumericShortcut());
+            nativeItem.setAlphabeticShortcut(nonActionItem.getAlphabeticShortcut());
+            nativeItem.setTitleCondensed(nonActionItem.getTitleCondensed());
+            nativeItem.setCheckable(nonActionItem.isCheckable());
+            nativeItem.setChecked(nonActionItem.isChecked());
+
+            if (nonActionItem.isExclusiveCheckable()) {
+                menu.setGroupCheckable(nonActionItem.getGroupId(), true, true);
+            }
+
+            map.put(nativeItem, nonActionItem);
+        }
+        return visible;
     }
 }

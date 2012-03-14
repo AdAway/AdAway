@@ -18,10 +18,11 @@ package com.actionbarsherlock.internal.view.menu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.Menu;
-import android.support.v4.view.MenuItem;
-import android.support.v4.view.SubMenu;
 import android.view.View;
+
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.SubMenu;
 
 /**
  * The model for a sub menu, which is an extension of the menu.  Most methods are proxied to

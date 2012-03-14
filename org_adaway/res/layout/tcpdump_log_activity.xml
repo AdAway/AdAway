@@ -15,8 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="1"
-        android:background="#FF666666"
-        android:padding="4dp"
+        android:background="@drawable/abs__ab_bottom_solid_dark_holo"
+        android:paddingBottom="3dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="3dp"
         android:text="@string/tcpdump_log_footer" />
 
 </LinearLayout>

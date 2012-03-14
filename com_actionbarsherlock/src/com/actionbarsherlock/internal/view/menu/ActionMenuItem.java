@@ -19,10 +19,12 @@ package com.actionbarsherlock.internal.view.menu;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.MenuItem;
-import android.support.v4.view.SubMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
+
+import com.actionbarsherlock.view.ActionProvider;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.SubMenu;
 
 /**
  * @hide
@@ -181,16 +183,6 @@ public class ActionMenuItem implements MenuItem {
         return this;
     }
 
-    public MenuItem setOnMenuItemClickListener(final android.view.MenuItem.OnMenuItemClickListener menuItemClickListener) {
-        mClickListener = new OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                return menuItemClickListener.onMenuItemClick(item);
-            }
-        };
-        return this;
-    }
-
     public MenuItem setShortcut(char numericChar, char alphaChar) {
         mShortcutNumericChar = numericChar;
         mShortcutAlphabeticChar = alphaChar;
@@ -245,5 +237,42 @@ public class ActionMenuItem implements MenuItem {
     @Override
     public MenuItem setActionView(int resId) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public ActionProvider getActionProvider() {
+        return null;
+    }
+
+    @Override
+    public MenuItem setActionProvider(ActionProvider actionProvider) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MenuItem setShowAsActionFlags(int actionEnum) {
+        setShowAsAction(actionEnum);
+        return this;
+    }
+
+    @Override
+    public boolean expandActionView() {
+        return false;
+    }
+
+    @Override
+    public boolean collapseActionView() {
+        return false;
+    }
+
+    @Override
+    public boolean isActionViewExpanded() {
+        return false;
+    }
+
+    @Override
+    public MenuItem setOnActionExpandListener(OnActionExpandListener listener) {
+        // No need to save the listener; ActionMenuItem does not support collapsing items.
+        return this;
     }
 }

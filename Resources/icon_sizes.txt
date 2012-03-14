@@ -19,3 +19,12 @@ ldpi: 18x18
 mdpi: 24x24
 hdpi: 36x36
 xhdpi: 48x48
+
+ActionBar Icon:
+-----------------------
+ldpi: none
+mdpi: 36 x 36 px
+hdpi: 48 x 48 px
+xhdpi: 64 x 64 px 
+
+color: #737373

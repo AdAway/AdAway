@@ -27,6 +27,9 @@ import org.adaway.util.Constants;
 import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.MenuItem;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 import android.content.Context;
@@ -37,35 +40,14 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.support.v4.app.ActionBar;
-import android.support.v4.app.SherlockPreferenceActivity;
-import android.support.v4.view.MenuItem;
-
-/**
- * Preference Activity used on Android 2.x devices
- * 
- * @author Dominik Schürmann
- * 
- */
 
 public class PrefsActivity extends SherlockPreferenceActivity {
+    private Context mActivity;
+    private ActionBar mActionBar;
 
-    // public class PrefsActivity extends PreferenceActivity {
     private EditTextPreference mCustomTarget;
     private CheckBoxPreference mUpdateCheckDaily;
     private CheckBoxPreference mWebserverOnBoot;
-
-    private Context mContext;
-
-    /**
-     * Enabled Home Link in ActionBar
-     */
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ActionBar actionBar = this.getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-    }
 
     /**
      * Menu Items
@@ -91,7 +73,11 @@ public class PrefsActivity extends SherlockPreferenceActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mContext = this;
+        mActivity = this;
+        mActionBar = getSupportActionBar();
+
+        mActionBar.setDisplayShowTitleEnabled(true);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
 
         getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences);
@@ -106,10 +92,10 @@ public class PrefsActivity extends SherlockPreferenceActivity {
 
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                if (PreferencesHelper.getUpdateCheckDaily(mContext)) {
-                    WakefulIntentService.scheduleAlarms(new UpdateListener(), mContext, false);
+                if (PreferencesHelper.getUpdateCheckDaily(mActivity)) {
+                    WakefulIntentService.scheduleAlarms(new UpdateListener(), mActivity, false);
                 } else {
-                    WakefulIntentService.cancelAlarms(mContext);
+                    WakefulIntentService.cancelAlarms(mActivity);
                 }
                 return false;
             }
@@ -123,12 +109,12 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 if (newValue.equals(true)) {
                     // install webserver if not already there
-                    WebserverUtils.updateWebserver(mContext);
+                    WebserverUtils.updateWebserver(mActivity);
                     // start webserver
-                    WebserverUtils.startWebserver(mContext);
+                    WebserverUtils.startWebserver(mActivity);
                 } else {
                     // stop webserver
-                    WebserverUtils.stopWebserver(mContext);
+                    WebserverUtils.stopWebserver(mActivity);
                 }
                 return true;
             }
@@ -139,7 +125,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
                 getString(R.string.pref_custom_target_key));
 
         // enable custom target pref on create if enabled in apply method
-        if (PreferencesHelper.getApplyMethod(mContext).equals("customTarget")) {
+        if (PreferencesHelper.getApplyMethod(mActivity).equals("customTarget")) {
             mCustomTarget.setEnabled(true);
         } else {
             mCustomTarget.setEnabled(false);

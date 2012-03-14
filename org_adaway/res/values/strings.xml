@@ -35,7 +35,7 @@
     <string name="checkbox_list_add_dialog_title">Add</string>
     <string name="button_cancel">Cancel</string>
     <string name="checkbox_list_empty">Empty list</string>
-    <string name="checkbox_list_empty_text">You can add items from the menu.</string>
+    <string name="checkbox_list_empty_text">You can add items from the action bar.</string>
     <string name="checkbox_list_context_delete">Delete</string>
     <string name="checkbox_list_footer">After adding new items to this list you have to apply AdAway again!</string>
     <string name="app_subtitle">Ad blocker</string>

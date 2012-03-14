@@ -12,15 +12,15 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    height="72"
    id="svg2"
-   inkscape:export-xdpi="68.75"
-   inkscape:export-ydpi="68.75"
+   inkscape:export-xdpi="120"
+   inkscape:export-ydpi="120"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:version="0.48.1 r9760"
    sodipodi:version="0.32"
    width="72"
    version="1.1"
    sodipodi:docname="icon.svg"
-   inkscape:export-filename="/home/ds1/Projekte/Android/AdAway/STUFF/logo_googlecode.png">
+   inkscape:export-filename="/home/ds1/Projekte/AdAway/adaway/org_adaway/res/drawable-xhdpi/icon.png">
   <defs
      id="defs4">
     <linearGradient
@@ -230,7 +230,7 @@
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
         <dc:title></dc:title>
-        <dc:date></dc:date>
+        <dc:date />
         <dc:creator>
           <cc:Agent>
             <dc:title>Dominik Schürmann</dc:title>
@@ -238,12 +238,12 @@
         </dc:creator>
         <dc:rights>
           <cc:Agent>
-            <dc:title></dc:title>
+            <dc:title />
           </cc:Agent>
         </dc:rights>
         <dc:publisher>
           <cc:Agent>
-            <dc:title></dc:title>
+            <dc:title />
           </cc:Agent>
         </dc:publisher>
         <dc:subject>
@@ -251,7 +251,7 @@
         </dc:subject>
         <dc:contributor>
           <cc:Agent>
-            <dc:title></dc:title>
+            <dc:title />
           </cc:Agent>
         </dc:contributor>
       </cc:Work>
