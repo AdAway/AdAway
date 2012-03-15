@@ -28,7 +28,6 @@ import org.adaway.util.Log;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.app.SherlockListFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
@@ -37,12 +36,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-public class ListsActivity extends SherlockFragmentActivity implements ActionBar.TabListener {
+public class ListsActivity extends SherlockFragmentActivity {
     private Activity mActivity;
     private ActionBar mActionBar;
+    private ActionBar.Tab mTab1;
+    private ActionBar.Tab mTab2;
+    private ActionBar.Tab mTab3;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,77 +108,110 @@ public class ListsActivity extends SherlockFragmentActivity implements ActionBar
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
 
-        // start with blacklist
-        BlacklistFragment blacklistFragment = new BlacklistFragment();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.lists_tabs_container, blacklistFragment).commit();
-
         // https://github.com/JakeWharton/ActionBarSherlock/issues/68
-        // execute transactions before using ActionBar. ActionBar will be null because without this
+        // execute transactions before using ActionBar. ActionBar will be null because without
+        // this
         // fragment transactions are asynchronous and ActionBar is not ready at once
-        getSupportFragmentManager().executePendingTransactions();
+        // getSupportFragmentManager().executePendingTransactions();
 
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        ActionBar.Tab tab1 = getSupportActionBar().newTab();
-        ActionBar.Tab tab2 = getSupportActionBar().newTab();
-        ActionBar.Tab tab3 = getSupportActionBar().newTab();
+        mTab1 = getSupportActionBar().newTab();
+        mTab2 = getSupportActionBar().newTab();
+        mTab3 = getSupportActionBar().newTab();
 
-        tab1.setTabListener(this);
-        tab2.setTabListener(this);
-        tab3.setTabListener(this);
+        mTab1.setTabListener(new TabListener<BlacklistFragment>(this, "blacklist",
+                BlacklistFragment.class));
+        mTab2.setTabListener(new TabListener<WhitelistFragment>(this, "whitelist",
+                WhitelistFragment.class));
+        mTab3.setTabListener(new TabListener<RedirectionListFragment>(this, "redirectionlist",
+                RedirectionListFragment.class));
 
-        // longer names for landscape mode or tablets
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE
-                || getResources().getConfiguration().screenLayout == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
-            tab1.setText(getString(R.string.lists_tab_blacklist));
-            tab2.setText(getString(R.string.lists_tab_whitelist));
-            tab3.setText(getString(R.string.lists_tab_redirection_list));
+        setTabTextBasedOnOrientation(getResources().getConfiguration());
 
-        } else {
-            tab1.setText(getString(R.string.lists_tab_blacklist_short));
-            tab2.setText(getString(R.string.lists_tab_whitelist_short));
-            tab3.setText(getString(R.string.lists_tab_redirection_list_short));
-        }
-
-        getSupportActionBar().addTab(tab1);
-        getSupportActionBar().addTab(tab2);
-        getSupportActionBar().addTab(tab3);
+        mActionBar.addTab(mTab1);
+        mActionBar.addTab(mTab2);
+        mActionBar.addTab(mTab3);
     }
 
-    @Override
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    private void setTabTextBasedOnOrientation(Configuration config) {
+        // longer names for landscape mode or tablets
+        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE
+                || config.screenLayout == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
+            mTab1.setText(getString(R.string.lists_tab_blacklist));
+            mTab2.setText(getString(R.string.lists_tab_whitelist));
+            mTab3.setText(getString(R.string.lists_tab_redirection_list));
+
+        } else {
+            mTab1.setText(getString(R.string.lists_tab_blacklist_short));
+            mTab2.setText(getString(R.string.lists_tab_whitelist_short));
+            mTab3.setText(getString(R.string.lists_tab_redirection_list_short));
+        }
     }
 
     /**
-     * Open Fragment based on selected Tab
+     * Change text on orientation change
      */
     @Override
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        // choose current fragment based on tab position
-        SherlockListFragment fragment = null;
-        switch (tab.getPosition()) {
-        case 0:
-            fragment = new BlacklistFragment();
-            break;
-        case 1:
-            fragment = new WhitelistFragment();
-            break;
-        case 2:
-            fragment = new RedirectionListFragment();
-            break;
-        default:
-            fragment = new BlacklistFragment();
-            break;
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        setTabTextBasedOnOrientation(newConfig);
+    }
+
+    public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
+        private Fragment mFragment;
+        private final Activity mActivity;
+        private final String mTag;
+        private final Class<T> mClass;
+
+        /**
+         * Constructor used each time a new tab is created.
+         * 
+         * @param activity
+         *            The host Activity, used to instantiate the fragment
+         * @param tag
+         *            The identifier tag for the fragment
+         * @param clz
+         *            The fragment's Class, used to instantiate the fragment
+         */
+        public TabListener(Activity activity, String tag, Class<T> clz) {
+            mActivity = activity;
+            mTag = tag;
+            mClass = clz;
         }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.lists_tabs_container, fragment);
-        fragmentTransaction.commit();
+        @Override
+        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        }
+
+        /**
+         * Open Fragment based on selected Tab
+         */
+        @Override
+        public void onTabSelected(Tab tab, FragmentTransaction ignoredFt) {
+            // bug in compatibility lib:
+            // http://stackoverflow.com/questions/8645549/null-fragmenttransaction-being-passed-to-tablistener-ontabselected
+            FragmentManager fragMgr = ((FragmentActivity) mActivity).getSupportFragmentManager();
+            FragmentTransaction ft = fragMgr.beginTransaction();
+
+            mFragment = Fragment.instantiate(mActivity, mClass.getName());
+            ft.replace(R.id.lists_tabs_container, mFragment, mTag);
+            ft.commit();
+        }
+
+        @Override
+        public void onTabUnselected(Tab tab, FragmentTransaction ignoredFt) {
+            FragmentManager fragMgr = ((FragmentActivity) mActivity).getSupportFragmentManager();
+            FragmentTransaction ft = fragMgr.beginTransaction();
+
+            if (mFragment != null) {
+                // Remove the fragment
+                ft.remove(mFragment);
+            }
+
+            ft.commit();
+        }
     }
 
-    @Override
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-    }
 }

@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <fragment
-        android:id="@+id/hosts_sources_list_fragment"
-        android:name="org.adaway.ui.HostsSourcesFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+    android:layout_centerHorizontal="true" >
 
     <TextView
+        android:id="@+id/hosts_sources_list_footer"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/abs__ab_bottom_solid_dark_holo"
         android:paddingBottom="3dp"
         android:paddingLeft="10dp"
@@ -22,4 +16,11 @@
         android:paddingTop="3dp"
         android:text="@string/checkbox_list_footer" />
 
-</LinearLayout>
+    <fragment
+        android:id="@+id/hosts_sources_list_fragment"
+        android:name="org.adaway.ui.HostsSourcesFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/hosts_sources_list_footer" />
+
+</RelativeLayout>

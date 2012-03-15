@@ -55,14 +55,14 @@ public class RevertService extends WakefulIntentService {
     @Override
     public void doWakefulWork(Intent intent) {
         // disable buttons
-        BaseActivity.setButtonsBroadcast(mService, false);
+        BaseActivity.setButtonsDisabledBroadcast(mService, true);
 
         int revertResult = revert();
 
         Log.d(Constants.TAG, "revert result: " + revertResult);
 
         // enable buttons
-        BaseActivity.setButtonsBroadcast(mService, true);
+        BaseActivity.setButtonsDisabledBroadcast(mService, false);
 
         ResultHelper.showNotificationBasedOnResult(mService, revertResult, null);
     }

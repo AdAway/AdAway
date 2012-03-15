@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:installLocation="auto"
     package="org.adaway"
-    android:versionCode="30"
-    android:versionName="1.29" >
+    android:versionCode="31"
+    android:versionName="1.30" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -41,7 +41,6 @@
         android:theme="@style/Theme.Sherlock.ForceOverflow" >
         <activity
             android:name=".ui.BaseActivity"
-            android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
             android:launchMode="singleTop" >
             <intent-filter>
@@ -76,8 +75,10 @@
         <activity
             android:name=".ui.HelpActivity"
             android:label="@string/menu_help" />
+        <!-- android:configChanges prevents activity from recreating on orientation change -->
         <activity
             android:name=".ui.ListsActivity"
+            android:configChanges="orientation|screenSize"
             android:label="@string/menu_lists" />
 
         <receiver android:name="com.commonsware.cwac.wakeful.AlarmReceiver" >

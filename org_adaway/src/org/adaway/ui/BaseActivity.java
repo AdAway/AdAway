@@ -59,7 +59,7 @@ public class BaseActivity extends SherlockFragmentActivity {
     public static final String EXTRA_UPDATE_STATUS_TEXT = "org.adaway.UPDATE_STATUS.TEXT";
     public static final String EXTRA_UPDATE_STATUS_ICON = "org.adaway.UPDATE_STATUS.ICON";
     static final String ACTION_BUTTONS = "org.adaway.BUTTONS";
-    public static final String EXTRA_BUTTONS_ENABLED = "org.adaway.BUTTONS.ENABLED";
+    public static final String EXTRA_BUTTONS_DISABLED = "org.adaway.BUTTONS.ENABLED";
 
     BaseFragment mBaseFragment;
     WebserverFragment mWebserverFragment;
@@ -142,11 +142,11 @@ public class BaseActivity extends SherlockFragmentActivity {
                 }
                 if (intent.getAction().equals(ACTION_BUTTONS)) {
                     if (extras != null) {
-                        if (extras.containsKey(EXTRA_BUTTONS_ENABLED)) {
+                        if (extras.containsKey(EXTRA_BUTTONS_DISABLED)) {
 
-                            boolean buttonsEnabled = extras.getBoolean(EXTRA_BUTTONS_ENABLED);
+                            boolean buttonsDisabled = extras.getBoolean(EXTRA_BUTTONS_DISABLED);
 
-                            mBaseFragment.setButtonsEnabled(buttonsEnabled);
+                            mBaseFragment.setButtonsDisabled(buttonsDisabled);
                         }
                     }
                 }
@@ -156,19 +156,23 @@ public class BaseActivity extends SherlockFragmentActivity {
 
         // check for root
         if (Utils.isAndroidRooted(mActivity)) {
-            // check if hosts file is applied
-            if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                // do background update check
-                // do only if not disabled in preferences
-                if (PreferencesHelper.getUpdateCheck(mActivity)) {
-                    Intent updateIntent = new Intent(mActivity, UpdateService.class);
-                    updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, false);
-                    WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
+
+            // set status only if not coming from an orientation change
+            if (savedInstanceState == null) {
+                // check if hosts file is applied
+                if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                    // do background update check
+                    // do only if not disabled in preferences
+                    if (PreferencesHelper.getUpdateCheck(mActivity)) {
+                        Intent updateIntent = new Intent(mActivity, UpdateService.class);
+                        updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, false);
+                        WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
+                    } else {
+                        BaseActivity.updateStatusEnabled(mActivity);
+                    }
                 } else {
-                    BaseActivity.updateStatusEnabled(mActivity);
+                    BaseActivity.updateStatusDisabled(mActivity);
                 }
-            } else {
-                BaseActivity.updateStatusDisabled(mActivity);
             }
 
             // schedule CheckUpdateService
@@ -211,14 +215,14 @@ public class BaseActivity extends SherlockFragmentActivity {
      * Static helper method to send broadcasts to the BaseActivity and enable or disable buttons
      * 
      * @param context
-     * @param buttonsEnabled
+     * @param buttonsDisabled
      *            to enable buttons apply and revert
      */
-    public static void setButtonsBroadcast(Context context, boolean buttonsEnabled) {
+    public static void setButtonsDisabledBroadcast(Context context, boolean buttonsDisabled) {
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
 
         Intent intent = new Intent(ACTION_BUTTONS);
-        intent.putExtra(EXTRA_BUTTONS_ENABLED, buttonsEnabled);
+        intent.putExtra(EXTRA_BUTTONS_DISABLED, buttonsDisabled);
         localBroadcastManager.sendBroadcast(intent);
     }
 

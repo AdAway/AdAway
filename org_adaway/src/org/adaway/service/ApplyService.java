@@ -92,7 +92,7 @@ public class ApplyService extends WakefulIntentService {
     @Override
     public void doWakefulWork(Intent intent) {
         // disable buttons
-        BaseActivity.setButtonsBroadcast(mService, false);
+        BaseActivity.setButtonsDisabledBroadcast(mService, true);
 
         // download files with download method
         int downloadResult = download();
@@ -104,20 +104,20 @@ public class ApplyService extends WakefulIntentService {
 
             cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsBroadcast(mService, true);
+            BaseActivity.setButtonsDisabledBroadcast(mService, false);
             Log.d(Constants.TAG, "Apply result: " + applyResult);
 
             ResultHelper.showNotificationBasedOnResult(mService, applyResult, null);
         } else if (downloadResult == StatusCodes.DOWNLOAD_FAIL) {
             cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsBroadcast(mService, true);
+            BaseActivity.setButtonsDisabledBroadcast(mService, false);
             // extra information is current url, to show it when it fails
             ResultHelper.showNotificationBasedOnResult(mService, downloadResult, mCurrentUrl);
         } else {
             cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsBroadcast(mService, true);
+            BaseActivity.setButtonsDisabledBroadcast(mService, false);
             ResultHelper.showNotificationBasedOnResult(mService, downloadResult, null);
         }
     }

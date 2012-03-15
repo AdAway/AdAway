@@ -25,6 +25,7 @@ import org.adaway.helper.OpenHelper;
 import org.adaway.service.ApplyService;
 import org.adaway.service.RevertService;
 import org.adaway.service.UpdateService;
+import org.adaway.util.Constants;
 import org.adaway.util.StatusCodes;
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -36,6 +37,7 @@ import com.commonsware.cwac.wakeful.WakefulIntentService;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +55,11 @@ public class BaseFragment extends SherlockFragment {
     private ImageView mStatusIcon;
     private Button mApplyButton;
     private Button mRevertButton;
+
+    private boolean mCurrentButtonsDisabled;
+    private String mCurrentStatusTitle;
+    private String mCurrentStatusText;
+    private int mCurrentStatusIconStatus;
 
     /**
      * Set status icon based on StatusCodes
@@ -105,11 +112,34 @@ public class BaseFragment extends SherlockFragment {
         mStatusTitle.setText(title);
         mStatusText.setText(text);
         setStatusIcon(iconStatus);
+
+        // save for orientation change
+        mCurrentStatusTitle = title;
+        mCurrentStatusText = text;
+        mCurrentStatusIconStatus = iconStatus;
     }
 
-    public void setButtonsEnabled(boolean buttonsEnabled) {
-        mApplyButton.setEnabled(buttonsEnabled);
-        mRevertButton.setEnabled(buttonsEnabled);
+    public void setButtonsDisabled(boolean buttonsDisabled) {
+        mApplyButton.setEnabled(!buttonsDisabled);
+        mRevertButton.setEnabled(!buttonsDisabled);
+
+        // save for orientation change
+        mCurrentButtonsDisabled = buttonsDisabled;
+    }
+
+    /**
+     * Save UI state changes to the savedInstanceState. This bundle will be passed to onCreate if
+     * the process is killed and restarted like on orientation change.
+     */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // save status on orientation change
+        outState.putString("statusTitle", mCurrentStatusTitle);
+        outState.putString("statusText", mCurrentStatusText);
+        outState.putInt("statusIconStatus", mCurrentStatusIconStatus);
+        outState.putBoolean("buttonsEnabled", mCurrentButtonsDisabled);
     }
 
     /**
@@ -194,6 +224,22 @@ public class BaseFragment extends SherlockFragment {
         mStatusIcon = (ImageView) mActivity.findViewById(R.id.status_icon);
         mApplyButton = (Button) mActivity.findViewById(R.id.apply_button);
         mRevertButton = (Button) mActivity.findViewById(R.id.revert_button);
+
+        // get back status state when orientation changes and recreates activity
+        if (savedInstanceState != null) {
+            Log.d(Constants.TAG, "BaseFragment coming from an orientation change!");
+
+            String title = savedInstanceState.getString("statusTitle");
+            String text = savedInstanceState.getString("statusText");
+            int iconStatus = savedInstanceState.getInt("statusIconStatus");
+            if (title != null && text != null && iconStatus != -1) {
+                setStatus(title, text, iconStatus);
+            }
+
+            boolean buttonsDisabled = savedInstanceState.getBoolean("buttonsEnabled");
+            setButtonsDisabled(buttonsDisabled);
+        }
+
     }
 
     @Override
