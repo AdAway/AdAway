@@ -22,7 +22,7 @@
     <string name="about_license">License: GPL v3+</string>
     <string name="about_version">Version:</string>
     <string name="about_developer">Developer: Dominik Schürmann</string>
-    <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' and \'www.androidicons.com\' (Both licensed under Creative Commons Attribution 3.0 Unported).</string>
+    <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' (License: Creative Commons Attribution 3.0 Unported).</string>
     <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android below 3.0.</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
