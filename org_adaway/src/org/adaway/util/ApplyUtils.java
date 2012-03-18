@@ -332,12 +332,12 @@ public class ApplyUtils {
             Cursor cursor = context.getContentResolver().query(defaultApnUri, projection, null,
                     null, null);
 
-            // get columns
-            int nameColumn = cursor.getColumnIndex("name");
-            int proxyColumn = cursor.getColumnIndex("proxy");
-
             // get default apn
             if (cursor != null) {
+                // get columns
+                int nameColumn = cursor.getColumnIndex("name");
+                int proxyColumn = cursor.getColumnIndex("proxy");
+
                 if (cursor.moveToFirst()) {
                     // get name and proxy
                     String name = cursor.getString(nameColumn);
@@ -345,21 +345,19 @@ public class ApplyUtils {
 
                     Log.d(Constants.TAG, "APN " + name + " has proxy: " + proxy);
 
-                    try {
-                        // if it contains anything that is not a whitespace
-                        if (!proxy.matches("\\s*")) {
-                            result = true;
-                        }
-                    } catch (Exception e) {
-                        Log.e(Constants.TAG, "Error while getting default APN: " + e.getMessage());
+                    // if it contains anything that is not a whitespace
+                    if (!proxy.matches("\\s*")) {
+                        result = true;
                     }
                 }
 
                 cursor.close();
+            } else {
+                Log.d(Constants.TAG, "Could not get APN cursor!");
             }
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error while getting default APN: " + e.getMessage());
-            // ignore exception, result will be false anyway
+            // ignore exception, result = false
         }
 
         return result;
