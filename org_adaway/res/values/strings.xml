@@ -1,68 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
+    <!-- Buttons -->
     <string name="button_exit">Exit</string>
-    <string name="no_root_title">Rooted Android required</string>
     <string name="button_apply">Download files and apply ad blocking</string>
+    <string name="button_close">Close</string>
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
+    <string name="button_revert">Disable ad blocking</string>
+    <string name="button_add">Add</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_apply_text">All hosts files from the defined sources are downloaded, merged with your own lists and installed as one hosts file on your system.</string>
+    <string name="button_revert_text">Restores the default hosts file on your system.</string>
+    <string name="button_save">Save</string>
+    <string name="button_webserver_toggle_checked">Webserver is running</string>
+    <string name="button_webserver_toggle_unchecked">Webserver is not running</string>
+    <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
+    <string name="button_help">Help</string>
+    <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
+    <string name="button_tcpdump_toggle_checked">Tcpdump is running!</string>
+    <string name="button_tcpdump_toggle_unchecked">Tcpdump is not running!</string>
+    <string name="button_tcpdump_open">Open log file</string>
+    <string name="button_tcpdump_delete">Delete log file</string>
+
+    <!-- Dialogs -->
+    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
+    <string name="no_root_title">Rooted Android required</string>
     <string name="no_connection">The connection to the Internet is not working.</string>
     <string name="no_connection_title">No Connection</string>
-    <string name="button_close">Close</string>
     <string name="download_dialog">Downloading...</string>
     <string name="apply_dialog">Applying...</string>
+    <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
     <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
     <string name="apply_dialog_hosts">Building hosts file</string>
     <string name="apply_dialog_apply">Applying hosts file</string>
-    <string name="button_yes">Yes</string>
-    <string name="button_no">No</string>
     <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
-    <string name="button_revert">Disable ad blocking</string>
     <string name="apply_success">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
-    <string name="about_description">AdAway is an open source ad blocker for Android.</string>
-    <string name="about_license">License: GPL v3+</string>
-    <string name="about_version">Version:</string>
-    <string name="about_developer">Developer: Dominik Schürmann</string>
-    <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' (License: Creative Commons Attribution 3.0 Unported).</string>
-    <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android below 3.0.</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="revert_problem">Reverting failed due to unknown reasons.</string>
     <string name="revert_problem_title">Reverting failed!</string>
     <string name="no_url">This is not a valid URL!</string>
     <string name="no_url_title">Malformed URL</string>
-    <string name="button_add">Add</string>
     <string name="hosts_add_dialog">Input URL to hosts file:</string>
-    <string name="checkbox_list_add_dialog_title">Add</string>
-    <string name="button_cancel">Cancel</string>
-    <string name="checkbox_list_empty">Empty list</string>
-    <string name="checkbox_list_empty_text">You can add items from the action bar.</string>
-    <string name="checkbox_list_context_delete">Delete</string>
-    <string name="checkbox_list_footer">After adding new items to this list you have to apply AdAway again!</string>
-    <string name="app_subtitle">Ad blocker</string>
-    <string name="button_apply_text">All hosts files from the defined sources are downloaded, merged with your own lists and installed as one hosts file on your system.</string>
-    <string name="button_revert_text">Restores the default hosts file on your system.</string>
     <string name="no_sources_title">No Sources defined</string>
     <string name="no_sources">Please add hosts sources to your list.</string>
-    <string name="checkbox_list_edit_dialog_title">Edit</string>
-    <string name="button_save">Save</string>
-    <string name="checkbox_list_context_title">Edit Entry</string>
-    <string name="checkbox_list_context_edit">Edit</string>
     <string name="no_hostname">This is not a valid hostname!</string>
     <string name="no_hostname_title">Malformed hostname</string>
-    <string name="lists_tab_whitelist">Whitelist</string>
-    <string name="lists_tab_blacklist">Blacklist</string>
-    <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
-    <string name="lists_tab_redirection_list">Redirection List</string>
-    <string name="list_dialog_url">URL:</string>
-    <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard characters * and ? are allowed!)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="no_ip">This is not a valid IP!</string>
     <string name="no_ip_title">Malformed IP</string>
     <string name="download_fail">Either you are not properly connected to the Internet or one of the hosts sources you want to download is not available. Please check the following URL and change it in your hosts sources:</string>
     <string name="download_fail_title">Download failed</string>
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>
+    <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
+
+    <!-- About -->
+    <string name="about_description">AdAway is an open source ad blocker for Android.</string>
+    <string name="about_license">License: GPL v3+</string>
+    <string name="about_version">Version:</string>
+    <string name="about_developer">Developer: Dominik Schürmann</string>
+    <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' (License: Creative Commons Attribution 3.0 Unported).</string>
+    <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android below 3.0.</string>
+
+    <!-- Checkbox List -->
+    <string name="checkbox_list_add_dialog_title">Add</string>
+    <string name="checkbox_list_empty">Empty list</string>
+    <string name="checkbox_list_empty_text">You can add items from the action bar.</string>
+    <string name="checkbox_list_context_delete">Delete</string>
+    <string name="checkbox_list_footer">After adding new items to this list you have to apply AdAway again!</string>
+    <string name="checkbox_list_edit_dialog_title">Edit</string>
+    <string name="checkbox_list_context_title">Edit Entry</string>
+    <string name="checkbox_list_context_edit">Edit</string>
+
+    <!-- Your Lists -->
+    <string name="lists_tab_whitelist">Whitelist</string>
+    <string name="lists_tab_blacklist">Blacklist</string>
+    <string name="lists_tab_blacklist_short">Black</string>
+    <string name="lists_tab_whitelist_short">White</string>
+    <string name="lists_tab_redirection_list_short">Redirection</string>
+    <string name="lists_tab_redirection_list">Redirection List</string>
+    <string name="list_dialog_url">URL:</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard characters * and ? are allowed!)</string>
+    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+    <string name="import_dialog">Importing...</string>
+    <string name="export_dialog">Exporting...</string>
+    <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
+
+    <!-- Status Notifications -->
     <string name="status_checking">Checking for update...</string>
     <string name="status_reverting">Reverting...</string>
     <string name="status_reverting_subtitle">Creating standard hosts file</string>
@@ -77,6 +103,8 @@
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
     <string name="status_disabled_subtitle">Disabled</string>
+
+    <!-- Apply and Revert Dialogs -->
     <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
@@ -93,6 +121,11 @@
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
     <string name="revert_successful_title">Reverting successful</string>
+    <string name="apply_help">Please read Help for more information.</string>
+    <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+    <string name="apply_apn_proxy_title">APN proxy set!</string>
+
+    <!-- Menu entries -->
     <string name="menu_refresh">Refresh</string>
     <string name="menu_add">Add</string>
     <string name="menu_hosts_sources">Hosts sources</string>
@@ -105,26 +138,23 @@
     <string name="menu_import">Import All Lists</string>
     <string name="menu_export">Export All Lists</string>
     <string name="menu_preferences">Preferences</string>
-    <string name="lists_tab_blacklist_short">Black</string>
-    <string name="lists_tab_whitelist_short">White</string>
-    <string name="lists_tab_redirection_list_short">Redirection</string>
+
+    <!-- Help -->
     <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Problems</string>
-    <string name="button_webserver_toggle_checked">Webserver is running</string>
-    <string name="button_webserver_toggle_unchecked">Webserver is not running</string>
-    <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
+
+    <!-- Hosts Sources -->
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">Online:</string>
-    <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
-    <string name="button_help">Help</string>
-    <string name="apply_help">Please read Help for more information.</string>
-    <string name="import_dialog">Importing...</string>
-    <string name="export_dialog">Exporting...</string>
-    <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
+
+    <!-- Other -->
+    <string name="app_subtitle">Ad blocker</string>
     <string name="no_text_editor_title">No text editor installed</string>
     <string name="no_text_editor">No text editor could be found to open the hosts file. You can install Jota or other text editors to handle this.\n\nDo you want to install Jota?</string>
     <string name="no_file_manager_title">No file manager installed</string>
     <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
+
+    <!-- Donations -->
     <string name="donations_flattr">Flattr</string>
     <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Play Store!</string>
     <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
@@ -146,11 +176,8 @@
 
     <string name="donations_thanks_dialog_title">Thanks!</string>
     <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
-    <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
-    <string name="button_tcpdump_toggle_checked">Tcpdump is running!</string>
-    <string name="button_tcpdump_toggle_unchecked">Tcpdump is not running!</string>
-    <string name="button_tcpdump_open">Open log file</string>
-    <string name="button_tcpdump_delete">Delete log file</string>
+
+    <!-- Tcpdump -->
     <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
     <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
     <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
@@ -159,6 +186,8 @@
     <string name="tcpdump_log_context_browser">Open in Browser</string>
     <string name="tcpdump_log_empty">Log file is empty!</string>
     <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
+
+    <!-- Preferences -->
     <string name="pref_download">General Preferences</string>
     <string name="pref_hosts">Hosts File</string>
     <string name="pref_redirection_ip">Redirection IP</string>

@@ -90,6 +90,11 @@ public class ResultHelper {
 
             processResult(context, title, text, text, result, StatusCodes.UPDATE_AVAILABLE, null,
                     false);
+        } else if (result == StatusCodes.APN_PROXY) { // used from ApplyService
+            String title = context.getString(R.string.apply_apn_proxy_title);
+            String text = context.getString(R.string.apply_apn_proxy);
+
+            processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
         } else if (result == StatusCodes.DOWNLOAD_FAIL) { // used from UpdateService and
                                                           // ApplyService
             String title = context.getString(R.string.download_fail_title);
@@ -237,6 +242,12 @@ public class ResultHelper {
 
                 BaseActivity.setStatusBroadcast(context, title, statusText,
                         StatusCodes.DOWNLOAD_FAIL);
+                break;
+            case StatusCodes.APN_PROXY:
+                title = context.getString(R.string.apply_apn_proxy_title);
+                text = context.getString(R.string.apply_apn_proxy);
+
+                BaseActivity.updateStatusEnabled(context);
                 break;
             case StatusCodes.EMPTY_HOSTS_SOURCES:
                 title = context.getString(R.string.no_sources_title);

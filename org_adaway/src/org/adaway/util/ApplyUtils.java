@@ -34,6 +34,8 @@ import java.util.List;
 import com.stericson.RootTools.RootTools;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.StatFs;
 
 public class ApplyUtils {
@@ -312,4 +314,52 @@ public class ApplyUtils {
         }
     }
 
+    /**
+     * Returns true when an APN proxy is set. This means data is routed through this proxy. As a
+     * result hostname blocking does not work reliable because images can come from a different
+     * hostname!
+     * 
+     * @param context
+     * @return true if proxy is set
+     */
+    public static boolean isApnProxySet(Context context) {
+        boolean result = false; // default to false!
+        final Uri defaultApnUri = Uri.parse("content://telephony/carriers/preferapn");
+        final String[] projection = new String[] { "_id", "name", "proxy" };
+        // get cursor for default apns
+        Cursor cursor = context.getContentResolver().query(defaultApnUri, projection, null, null,
+                null);
+
+        // get columns
+        int nameColumn = cursor.getColumnIndex("name");
+        int proxyColumn = cursor.getColumnIndex("proxy");
+
+        // get default apn
+        if (cursor != null) {
+            try {
+                if (cursor.moveToFirst()) {
+                    // get name and proxy
+                    String name = cursor.getString(nameColumn);
+                    String proxy = cursor.getString(proxyColumn);
+
+                    Log.d(Constants.TAG, "APN " + name + " has proxy: " + proxy);
+
+                    try {
+                        // if it contains anything that is not a whitespace
+                        if (!proxy.matches("\\s*")) {
+                            result = true;
+                        }
+                    } catch (Exception e) {
+                        Log.e(Constants.TAG, "Error while getting default APN: " + e.getMessage());
+                    }
+                }
+            } catch (Exception e) {
+                Log.e(Constants.TAG, "Error while getting default APN: " + e.getMessage());
+                // ignore exception, result will be false anyway
+            }
+            cursor.close();
+        }
+
+        return result;
+    }
 }

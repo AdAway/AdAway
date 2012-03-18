@@ -185,7 +185,7 @@ public class BaseActivity extends SherlockFragmentActivity {
                 // set RootTools to debug mode based on AdAway
                 RootTools.debugMode = Constants.DEBUG;
             } else {
-                Constants.DEBUG = true;
+                Constants.DEBUG = false;
                 RootTools.debugMode = Constants.DEBUG;
             }
         }

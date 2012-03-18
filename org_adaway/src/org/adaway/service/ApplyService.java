@@ -510,6 +510,14 @@ public class ApplyService extends WakefulIntentService {
             }
         }
 
+        /* check if APN proxy is set */
+        if (returnCode == StatusCodes.SUCCESS) {
+            if (ApplyUtils.isApnProxySet(mService)) {
+                Log.d(Constants.TAG, "APN proxy is set!");
+                returnCode = StatusCodes.APN_PROXY;
+            }
+        }
+
         return returnCode;
     }
 
