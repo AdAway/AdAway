@@ -324,19 +324,20 @@ public class ApplyUtils {
      */
     public static boolean isApnProxySet(Context context) {
         boolean result = false; // default to false!
-        final Uri defaultApnUri = Uri.parse("content://telephony/carriers/preferapn");
-        final String[] projection = new String[] { "_id", "name", "proxy" };
-        // get cursor for default apns
-        Cursor cursor = context.getContentResolver().query(defaultApnUri, projection, null, null,
-                null);
 
-        // get columns
-        int nameColumn = cursor.getColumnIndex("name");
-        int proxyColumn = cursor.getColumnIndex("proxy");
+        try {
+            final Uri defaultApnUri = Uri.parse("content://telephony/carriers/preferapn");
+            final String[] projection = new String[] { "_id", "name", "proxy" };
+            // get cursor for default apns
+            Cursor cursor = context.getContentResolver().query(defaultApnUri, projection, null,
+                    null, null);
 
-        // get default apn
-        if (cursor != null) {
-            try {
+            // get columns
+            int nameColumn = cursor.getColumnIndex("name");
+            int proxyColumn = cursor.getColumnIndex("proxy");
+
+            // get default apn
+            if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     // get name and proxy
                     String name = cursor.getString(nameColumn);
@@ -353,11 +354,12 @@ public class ApplyUtils {
                         Log.e(Constants.TAG, "Error while getting default APN: " + e.getMessage());
                     }
                 }
-            } catch (Exception e) {
-                Log.e(Constants.TAG, "Error while getting default APN: " + e.getMessage());
-                // ignore exception, result will be false anyway
+
+                cursor.close();
             }
-            cursor.close();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Error while getting default APN: " + e.getMessage());
+            // ignore exception, result will be false anyway
         }
 
         return result;

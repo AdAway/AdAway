@@ -1,11 +1,14 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.32
+- Fixes crashes with 1.31
+
 1.31
 * Check for APN proxy
 
 1.30
-* Design improvments for Android 4
+* Design improvements for Android 4
 - Layout fixes for "Your Lists"
 
 1.29
