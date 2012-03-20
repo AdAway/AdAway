@@ -182,7 +182,8 @@ public class ApplyUtils {
                 Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
                         + commandChownSystemEtcHosts + ", " + commandChmodSystemEtcHosts644);
 
-                if (!RootTools.copyFile(privateFile, Constants.ANDROID_SYSTEM_ETC_HOSTS, true)) {
+                if (!RootTools.copyFile(privateFile, Constants.ANDROID_SYSTEM_ETC_HOSTS, true,
+                        false)) {
                     throw new CommandException();
                 }
 
@@ -199,7 +200,7 @@ public class ApplyUtils {
                 Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
                         + commandChmodAlternativePath666);
 
-                if (!RootTools.copyFile(privateFile, target, true)) {
+                if (!RootTools.copyFile(privateFile, target, true, false)) {
                     throw new CommandException();
                 }
 
