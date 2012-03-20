@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -44,6 +45,7 @@ public class HelpActivity extends SherlockActivity implements ActionBar.TabListe
     private ActionBar mActionBar;
 
     private TextView mHelpText;
+    private ScrollView mHelpScrollView;
 
     /**
      * Menu Items
@@ -75,6 +77,7 @@ public class HelpActivity extends SherlockActivity implements ActionBar.TabListe
         setContentView(R.layout.help_activity);
 
         mHelpText = (TextView) findViewById(R.id.help_text);
+        mHelpScrollView = (ScrollView) findViewById(R.id.help_scroll_view);
 
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
@@ -104,7 +107,6 @@ public class HelpActivity extends SherlockActivity implements ActionBar.TabListe
 
     @Override
     public void onTabSelected(Tab tab, FragmentTransaction transaction) {
-
         // select resource based on selected tab
         int resourceToLoad = -1;
         if (tab.getTag().equals("faq")) {
@@ -120,6 +122,9 @@ public class HelpActivity extends SherlockActivity implements ActionBar.TabListe
         mHelpText.setText(Html.fromHtml(helpText));
         // make links work
         mHelpText.setMovementMethod(LinkMovementMethod.getInstance());
+
+        // scroll to top
+        mHelpScrollView.scrollTo(0, 0);
     }
 
     @Override
