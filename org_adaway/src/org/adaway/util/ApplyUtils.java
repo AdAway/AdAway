@@ -160,12 +160,6 @@ public class ApplyUtils {
         // commands when using customTarget
         String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " " + target;
 
-        /* remount for write access */
-        Log.i(Constants.TAG, "Remounting for RW...");
-        if (!RootTools.remount(target, "RW")) {
-            throw new RemountException();
-        }
-
         /*
          * If custom target like /data/etc/hosts is set, create missing directories for writing this
          * file
@@ -185,27 +179,37 @@ public class ApplyUtils {
         List<String> output = null;
         try {
             if (customTarget == "") {
-
-                if (!RootTools.copyFile(privateFile, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                    throw new CommandException();
-                }
-
                 Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
                         + commandChownSystemEtcHosts + ", " + commandChmodSystemEtcHosts644);
 
-                // execute commands: copy, chown, chmod
-                output = RootTools.sendShell(new String[] { commandChownSystemEtcHosts,
-                        commandChmodSystemEtcHosts644 }, 1, -1);
-            } else {
-
-                if (!RootTools.copyFile(privateFile, target)) {
+                if (!RootTools.copyFile(privateFile, Constants.ANDROID_SYSTEM_ETC_HOSTS, true)) {
                     throw new CommandException();
                 }
 
+                /* remount for write access */
+                Log.i(Constants.TAG, "Remounting for RW...");
+                if (!RootTools.remount(target, "RW")) {
+                    throw new RemountException();
+                }
+
+                // execute commands: chown, chmod
+                output = RootTools.sendShell(new String[] { commandChownSystemEtcHosts,
+                        commandChmodSystemEtcHosts644 }, 1, -1);
+            } else {
                 Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
                         + commandChmodAlternativePath666);
 
-                // execute copy
+                if (!RootTools.copyFile(privateFile, target, true)) {
+                    throw new CommandException();
+                }
+
+                /* remount for write access */
+                Log.i(Constants.TAG, "Remounting for RW...");
+                if (!RootTools.remount(target, "RW")) {
+                    throw new RemountException();
+                }
+
+                // execute chmod
                 output = RootTools
                         .sendShell(new String[] { commandChmodAlternativePath666 }, 1, -1);
             }
