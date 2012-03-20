@@ -1,6 +1,9 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.33
+- Fixed rare problems on some devices regarding remounting /system as read/write
+
 1.32
 - Fixes crashes with 1.31
 
