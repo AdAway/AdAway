@@ -156,7 +156,7 @@
 
     <!-- Donations -->
     <string name="donations_flattr">Flattr</string>
-    <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Play Store!</string>
+    <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations to the developer!</string>
     <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
     <string name="donations_google_android_market">Google Play Store</string>
     <string name="donations_google_android_market_not_supported_title">In-App Donations are not supported</string>
@@ -173,11 +173,9 @@
         <item>8 Euros</item>
         <item>13 Euros</item>
     </string-array>
-    
-        <string name="donations_paypal">PayPal</string>
-    <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
- 
 
+    <string name="donations_paypal">PayPal</string>
+    <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
     <string name="donations_thanks_dialog_title">Thanks!</string>
     <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
 
