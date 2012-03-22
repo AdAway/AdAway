@@ -173,6 +173,10 @@
         <item>8 Euros</item>
         <item>13 Euros</item>
     </string-array>
+    
+        <string name="donations_paypal">PayPal</string>
+    <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
+ 
 
     <string name="donations_thanks_dialog_title">Thanks!</string>
     <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>

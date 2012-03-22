@@ -109,9 +109,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="donateOnClick"
+                android:onClick="donateGoogleOnClick"
                 android:text="@string/donations_google_android_market_donate_button" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="@string/donations_paypal"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/donations_paypal_description"
+            android:textAppearance="@android:style/TextAppearance.Small" />
+
+        <Button
+            android:id="@+id/donations_paypal_donate_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="donatePayPalOnClick"
+            android:text="@string/donations_google_android_market_donate_button" />
     </LinearLayout>
 
 </ScrollView>

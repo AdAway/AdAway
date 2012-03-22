@@ -156,7 +156,7 @@ public class DonationsActivity extends SherlockActivity {
      * 
      * @param view
      */
-    public void donateOnClick(View view) {
+    public void donateGoogleOnClick(View view) {
         final int index;
         index = mGoogleAndroidMarketSpinner.getSelectedItemPosition();
         Log.d(Constants.TAG, "selected item in spinner: " + index);
@@ -171,6 +171,36 @@ public class DonationsActivity extends SherlockActivity {
                 showDialog(DIALOG_BILLING_NOT_SUPPORTED_ID);
             }
         }
+    }
+
+    /**
+     * Donate button with PayPal by opening browser with defined URL
+     * 
+     * @param view
+     */
+    public void donatePayPalOnClick(View view) {
+        // Build PayPal Url
+        // For parameters see:
+        // https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_html_Appx_websitestandard_htmlvariables
+        Uri.Builder uriBuilder = new Uri.Builder();
+        uriBuilder.scheme("https").authority("www.paypal.com").path("cgi-bin/webscr");
+        uriBuilder.appendQueryParameter("cmd", "_donations");
+        uriBuilder.appendQueryParameter("business", "dominik@dominikschuermann.de");
+        uriBuilder.appendQueryParameter("lc", "US");
+        uriBuilder.appendQueryParameter("item_name", "AdAway Donation");
+        uriBuilder.appendQueryParameter("no_note", "1");
+        // uriBuilder.appendQueryParameter("no_note", "0");
+        // uriBuilder.appendQueryParameter("cn", "Note to the developer");
+        uriBuilder.appendQueryParameter("no_shipping", "1");
+        uriBuilder.appendQueryParameter("currency_code", "EUR");
+        // uriBuilder.appendQueryParameter("bn", "PP-DonationsBF:btn_donate_LG.gif:NonHosted");
+        Uri payPalUri = uriBuilder.build();
+
+        Log.d(Constants.TAG, "Opening the browser with the url: " + payPalUri.toString());
+
+        // Start your favorite browser
+        Intent viewIntent = new Intent(Intent.ACTION_VIEW, payPalUri);
+        startActivity(viewIntent);
     }
 
     /**
