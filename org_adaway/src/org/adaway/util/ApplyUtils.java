@@ -53,24 +53,33 @@ public class ApplyUtils {
     public static boolean hasEnoughSpaceOnPartition(String target, long size) {
         long availableSpace;
 
-        // new File(target).getFreeSpace() (API 9) is not working on data partition
+        try {
+            // new File(target).getFreeSpace() (API 9) is not working on data partition
 
-        // get directory without file
-        String directory = new File(target).getParent().toString();
+            // get directory without file
+            String directory = new File(target).getParent().toString();
 
-        StatFs stat = new StatFs(directory);
-        long blockSize = stat.getBlockSize();
-        long availableBlocks = stat.getAvailableBlocks();
-        availableSpace = availableBlocks * blockSize;
+            StatFs stat = new StatFs(directory);
+            long blockSize = stat.getBlockSize();
+            long availableBlocks = stat.getAvailableBlocks();
+            availableSpace = availableBlocks * blockSize;
 
-        Log.i(Constants.TAG, "Checking for enough space: Target: " + target + ", directory: "
-                + directory + " size: " + size + ", availableSpace: " + availableSpace);
+            Log.i(Constants.TAG, "Checking for enough space: Target: " + target + ", directory: "
+                    + directory + " size: " + size + ", availableSpace: " + availableSpace);
 
-        if (size < availableSpace) {
+            if (size < availableSpace) {
+                return true;
+            } else {
+                Log.e(Constants.TAG, "Not enough space on partition!");
+                return false;
+            }
+        } catch (Exception e) {
+            // if new StatFs(directory) fails catch IllegalArgumentException and just return true as
+            // workaround
+            Log.e(Constants.TAG, "Problem while getting available space on partition!");
+            Log.e(Constants.TAG, "Message: " + e.getMessage());
+            e.printStackTrace();
             return true;
-        } else {
-            Log.e(Constants.TAG, "Not enough space on partition!");
-            return false;
         }
     }
 
