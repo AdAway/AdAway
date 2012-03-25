@@ -1,67 +1,88 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
+  <!--Buttons-->
   <string name="button_exit">יציאה</string>
-  <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
   <string name="button_apply">כל קבצי ה hosts מהמקור שהוגדר ירדו בהצלחה, ואוחדו עם הרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת</string>
+  <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
+  <string name="button_yes">כן</string>
+  <string name="button_no">לא</string>
+  <string name="button_revert">בטל חסימת פרסומות</string>
+  <string name="button_add">הוסף</string>
+  <string name="button_cancel">ביטול</string>
+  <string name="button_apply_text">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
+  <string name="button_revert_text">שחזר קובץ hosts ברירת מחדל של המערך.</string>
+  <string name="button_save">שמור</string>
+  <string name="button_webserver_toggle_checked">השרת פועל</string>
+  <string name="button_webserver_toggle_unchecked">השרת אינו פועל</string>
+  <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
+  <string name="button_help">עזרה</string>
+  <string name="button_tcpdump_text">Tcpdump הוא כלי לניטור בקשות DNS ושמירה שלהם בקובץ יומן. אתה יכול להפעיל אותו ברקע, ולהפעיל יישומים שמציגים פרסומות, ולאחר מכן להסתכל ביומן בקשות ה DNS על ידי שימוש בקובץ היומן. וכך להוסיף שרתי פרסומות לרשימה השחורה שלך.</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump פעיל!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump אינו פעיל!</string>
+  <string name="button_tcpdump_open">פתח קובץ יומן</string>
+  <string name="button_tcpdump_delete">מחק קובץ יומן</string>
+  <!--Dialogs-->
+  <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
+  <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
   <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
   <string name="no_connection_title">אין חיבור</string>
-  <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
   <string name="download_dialog">לא נמצא Busybox</string>
   <string name="apply_dialog">החל</string>
+  <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
   <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
   <string name="apply_dialog_hosts">בנה קובץ hosts</string>
   <string name="apply_dialog_apply">החל קובץ hosts</string>
-  <string name="button_yes">כן</string>
-  <string name="button_no">לא</string>
   <string name="revert_successful">שחזרת את הקובץ hosts לברירת המחדל של המערכת.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
-  <string name="button_revert">בטל חסימת פרסומות</string>
   <string name="apply_success">השינויים הוחלו בהצלחה.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
-  <string name="about_description">AdAway היא תוכנת קוד פתוח עבור חסימת פרסומות לאנדרואיד.</string>
-  <string name="about_license">רשיון: GPL v3</string>
-  <string name="about_version">גירסה:</string>
-  <string name="about_developer">מפתח: Dominik Schürmann</string>
-  <string name="about_icons">סמלים מסויימים נלקחו מ \'Dropbox Emblems Tango by Charles A.\' ו \'www.androidicons.com\', שניהם תחת רשיון Creative Commons Attribution 3.0 Unported License.</string>
-  <string name="about_libs">AdAway משתמש ב \'RootTools\' (תחת רשיון: GPL v2) Library to handle root access and \'ActionBarSherlock\' (תחת רשיון: Apache 2.0) to provide an ActionBar for Android under 3.0.</string>
   <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_fail_title">החלת הגדרות נכשלה</string>
   <string name="revert_problem">חזרה נכשלה.</string>
   <string name="revert_problem_title">שחזור נכשל!</string>
   <string name="no_url">זו אינה כתובת חוקית</string>
   <string name="no_url_title">כתובת שגויה</string>
-  <string name="button_add">הוסף</string>
   <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
-  <string name="checkbox_list_add_dialog_title">הוסף</string>
-  <string name="button_cancel">ביטול</string>
-  <string name="checkbox_list_empty">רשימה ריקה</string>
-  <string name="checkbox_list_empty_text">אתה יכול להוסיף פריטים מהתפריט.</string>
-  <string name="checkbox_list_context_delete">מחק</string>
-  <string name="checkbox_list_footer">לאחר שתוסיף פריטים לרשימה זו עליך לאתחל את התוכנה שוב.</string>
-  <string name="app_subtitle">חסום פרסומות</string>
-  <string name="button_apply_text">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
-  <string name="button_revert_text">שחזר קובץ hosts ברירת מחדל של המערך.</string>
   <string name="no_sources_title">לא הוגדרו מקורות</string>
   <string name="no_sources">הוסף מקור עבור קבצי hosts לרשימה שלך.</string>
-  <string name="checkbox_list_edit_dialog_title">ערוך</string>
-  <string name="button_save">שמור</string>
-  <string name="checkbox_list_context_title">ערוך רשומה</string>
-  <string name="checkbox_list_context_edit">ערוך</string>
   <string name="no_hostname">שם השרת אינו חוקי!</string>
   <string name="no_hostname_title">שם השרת לא תקין</string>
-  <string name="lists_tab_whitelist">רשימה לבנה</string>
-  <string name="lists_tab_blacklist">רשימה שחורה</string>
-  <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
-  <string name="lists_tab_redirection_list">רשימת הפניות</string>
-  <string name="list_dialog_url">כתובת:</string>
-  <string name="list_dialog_hostname">שם שרת:</string>
-  <string name="list_dialog_whitelist_hostname">שם שרת:\n(תווים כלליים * ו ? מותרים!)</string>
-  <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
   <string name="no_ip">כתובת ה IP אינה חוקית!</string>
   <string name="no_ip_title">כתובת IP שגויה</string>
   <string name="download_fail">אינך מחובר לאינטרנט או שאחד מהמקורות שסיפקת להורדה אינו זמין. בדוק בבקשה את הכתובות הבאות ושנה אותם במידת הצורך בהגדרת המקורות:</string>
   <string name="download_fail_title">הורדה נכשלה</string>
   <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
   <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
+  <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב</string>
+  <!--About-->
+  <string name="about_description">AdAway היא תוכנת קוד פתוח עבור חסימת פרסומות לאנדרואיד.</string>
+  <string name="about_license">רשיון: GPL v3</string>
+  <string name="about_version">גירסה:</string>
+  <string name="about_developer">מפתח: Dominik Schürmann</string>
+  <string name="about_icons">סמלים מסויימים נלקחו מ \'Dropbox Emblems Tango by Charles A.\' ו \'www.androidicons.com\', שניהם תחת רשיון Creative Commons Attribution 3.0 Unported License.</string>
+  <string name="about_libs">AdAway משתמש ב \'RootTools\' (תחת רשיון: GPL v2) Library to handle root access and \'ActionBarSherlock\' (תחת רשיון: Apache 2.0) to provide an ActionBar for Android under 3.0.</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">הוסף</string>
+  <string name="checkbox_list_empty">רשימה ריקה</string>
+  <string name="checkbox_list_empty_text">אתה יכול להוסיף פריטים מהתפריט.</string>
+  <string name="checkbox_list_context_delete">מחק</string>
+  <string name="checkbox_list_footer">לאחר שתוסיף פריטים לרשימה זו עליך לאתחל את התוכנה שוב.</string>
+  <string name="checkbox_list_edit_dialog_title">ערוך</string>
+  <string name="checkbox_list_context_title">ערוך רשומה</string>
+  <string name="checkbox_list_context_edit">ערוך</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">רשימה לבנה</string>
+  <string name="lists_tab_blacklist">רשימה שחורה</string>
+  <string name="lists_tab_blacklist_short">שחור</string>
+  <string name="lists_tab_whitelist_short">לבן</string>
+  <string name="lists_tab_redirection_list_short">הפניה</string>
+  <string name="lists_tab_redirection_list">רשימת הפניות</string>
+  <string name="list_dialog_url">כתובת:</string>
+  <string name="list_dialog_hostname">שם שרת:</string>
+  <string name="list_dialog_whitelist_hostname">שם שרת:\n(תווים כלליים * ו ? מותרים!)</string>
+  <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
+  <string name="import_dialog">מייבא...</string>
+  <string name="export_dialog">מייצא...</string>
+  <string name="export_success">כל הרשומות ייוצאו לקובץ בשם \'adaway-export\' בכרטיס הזיכרון</string>
+  <!--Status Notifications-->
   <string name="status_checking">בודק עידכונים...</string>
   <string name="status_reverting">משחזר...</string>
   <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
@@ -76,6 +97,7 @@
   <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
   <string name="status_disabled">לא פעיל</string>
   <string name="status_disabled_subtitle">לא פעיל</string>
+  <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">קישור סימבולי מ /data/data/hosts אל /system/etc/hosts לא קיים! AdAway אינה יכולה לעבוד במצב זה.\n\nאתה רוצה לנסות ליצור כעת קישור סימבולי?</string>
   <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
   <string name="apply_not_enough_space">אין מספיק שטח איחסון בדיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
@@ -92,6 +114,10 @@
   <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
   <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
   <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
+  <string name="apply_help">קרא את העזרה למידע נוסף.</string>
+  <string name="apply_apn_proxy">פרוקסי APN הוגדר במערכת האנדרואיד שלך!\nAdAway לא תעבוד באמינות בעת חיבור רשת על גבי רשת סלולרית מדור 3. אתה יכול להפוך את הגדרת הפרוקסי APN ללא פעילה (באנדרואיד 4: אלחוטי ורשתות -> עוד... -> רשתות לנייד -> שמות נקודות גישה) ולמחוק את הערך בשדה proxy.</string>
+  <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
+  <!--Menu entries-->
   <string name="menu_refresh">רענן</string>
   <string name="menu_add">הוסף</string>
   <string name="menu_hosts_sources">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
@@ -104,26 +130,19 @@
   <string name="menu_import">ייבא את כל הרשימות</string>
   <string name="menu_export">ייצא את כל הרשימות</string>
   <string name="menu_preferences">העדפות</string>
-  <string name="lists_tab_blacklist_short">שחור</string>
-  <string name="lists_tab_whitelist_short">לבן</string>
-  <string name="lists_tab_redirection_list_short">הפניה</string>
+  <!--Help-->
   <string name="help_tab_faq">שאלות ותשובות</string>
   <string name="help_tab_problems">תקלות</string>
-  <string name="button_webserver_toggle_checked">השרת פועל</string>
-  <string name="button_webserver_toggle_unchecked">השרת אינו פועל</string>
-  <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
+  <!--Hosts Sources-->
   <string name="hosts_last_modified_local">מקומי:</string>
   <string name="hosts_last_modified_online">אונליין:</string>
-  <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב</string>
-  <string name="button_help">עזרה</string>
-  <string name="apply_help">קרא את העזרה למידע נוסף.</string>
-  <string name="import_dialog">מייבא...</string>
-  <string name="export_dialog">מייצא...</string>
-  <string name="export_success">כל הרשומות ייוצאו לקובץ בשם \'adaway-export\' בכרטיס הזיכרון</string>
+  <!--Other-->
+  <string name="app_subtitle">חסום פרסומות</string>
   <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
   <string name="no_text_editor">לא נמצא עורך טקסט כל שהוא מותקן עבור פתיחת קובץ hosts. אתה יכול להתקין את העורך Jota או כל עורך טקסט אחר כדי לפתוח את הקובץ.\n\nאתה רוצה להתקין את Jota כעת?</string>
   <string name="no_file_manager_title">לא מותקן מנהל קבצים</string>
   <string name="no_file_manager">לא נמצא מנהל קבצים לפתיחת קובץ זה. תוכל להתקין את  OI File Manager או כל מנהל קבצים אחר כדי לפתור זאת.\n\nהאם אתה רוצה להתקין את OI File Manager כעת?</string>
+  <!--Donations-->
   <string name="donations_flattr">Flattr</string>
   <string name="donations_description">תוכנה זו שימושית עבורך? תמוך במפתחים על ידי מתן תרומה על ידי אנדרואיד מרקט!</string>
   <string name="donations_flattr_description">• Flattr מספר הנחה של 10 % לתשלום החודשי!</string>
@@ -133,60 +152,61 @@
   <string name="donations_google_android_market_description">• גוגל מקבלת 30% מסך התרומה!\n• העברת תרומה נמשכת כדקה או שתיים.\n• אין גירסת פרימיום עבור תורמים.</string>
   <string name="donations_google_android_market_donate_button">תרומה!</string>
   <string name="donations_google_android_market_text">כמה?</string>
-  <string-array name="donations_google_android_market_promt_array"><item>יורו1</item>
-<item>2 יורו</item>
-<item>3 יורו</item>
-<item>5 יורו</item>
-<item>8 יורו</item>
-<item>13 יורו</item>
-</string-array>
-  <string name="donations_thanks_dialog_title">תודות!</string>
-  <string name="donations_thanks_dialog">תודה לך על תרומתך!\nאני מעריך זאת מאוד!</string>
-  <string name="button_tcpdump_text">Tcpdump הוא כלי לניטור בקשות DNS ושמירתם בקובץ יומן. אתה יכול להפעיל אותו ברקע, הפעל תוכנות שעובדות עם פרסומות, ולאחר מכן בדוק את בקשות ה DNS בקובץ היומן. ניתן להוסיף שרתי פרסומות לרשימה השחורה.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump פועל כעת!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump אינו פועל כעת!</string>
-  <string name="button_tcpdump_open">פתח קובץ יומן</string>
-  <string name="button_tcpdump_delete">מחק קובץ יומן</string>
+  <string-array name="donations_google_android_market_promt_array">
+    <item>יורו 1</item>
+    <item>2 יורו</item>
+    <item>3 יורו</item>
+    <item>5 יורו</item>
+    <item>8 יורו</item>
+    <item>13 יורו</item>
+  </string-array>
+  <string name="donations_paypal">PayPal</string>
+  <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
+  <string name="donations_thanks_dialog_title">תודה!</string>
+  <string name="donations_thanks_dialog">תודה על תרומתך!\nאני מאוד מעריך זאת!</string>
+  <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">קובץ יומן נמחק!</string>
-  <string name="toast_tcpdump_added_to_blacklist">שם השרת נוסף לרשימה השחורה שלך!</string>
-  <string name="toast_tcpdump_added_to_whitelist">שם השרת נוסף לרשימה הלבנה שלך!</string>
+  <string name="toast_tcpdump_added_to_blacklist">כתובת השרת נוספה לרשימה השחורה שלך!</string>
+  <string name="toast_tcpdump_added_to_whitelist">כתובת השרת נוספה לרשימה הלבנה שלך!</string>
   <string name="tcpdump_log_context_blacklist">הוסף לרשימה השחורה שלך</string>
   <string name="tcpdump_log_context_whitelist">הוסף לרשימה הלבנה שלך</string>
   <string name="tcpdump_log_context_browser">פתח בדפדפן</string>
   <string name="tcpdump_log_empty">קובץ היומן ריק</string>
-  <string name="tcpdump_log_footer">לחץ לחיצה ארוכה על שם השרת כדי להוסיף אותו לרשימה שחורה או לבנה!</string>
+  <string name="tcpdump_log_footer">לחץ על שם שרת כדי להוסיף אותו לרשימה השחורה או הלבנה שלך!</string>
+  <!--Preferences-->
   <string name="pref_download">העדפות כלליות</string>
-  <string name="pref_hosts">קובץ hosts</string>
-  <string name="pref_redirection_ip">הפניית IP</string>
+  <string name="pref_hosts">קובץ Hosts</string>
+  <string name="pref_redirection_ip">העברה לכתובת IP</string>
   <string name="pref_update_check">בדוק עידכונים</string>
-  <string name="pref_apply_method">יעד קובץ hosts</string>
-  <string name="pref_apply_method_summary">לפני שינוי ההגדרה קרא בבקשה את העזרה אודות פונקציה זו.</string>
-  <string name="pref_redirection_ip_summary">כל הכתובות החסומות יופנו לכתובת ה IP הזו</string>
+  <string name="pref_apply_method">יעד קובץ Hosts</string>
+  <string name="pref_apply_method_summary">לפני שתשנה הגדרה זו, קרא אודות פונקציה זו בעזרה</string>
+  <string name="pref_redirection_ip_summary">כל השרתים החסומים יופנו לכתובת IP זו.</string>
   <string name="pref_header_preferences">העדפות</string>
-  <string name="pref_header_preferences_summary">העדפות כלליות עבור AdAway</string>
-  <string name="pref_never_reboot">הסתר דו שיח של הפעלה מחדש</string>
-  <string name="pref_never_reboot_summary">הסתר את חלון הדו שיח לאיתחול המערכת לאחר החלת שינויים</string>
-  <string name="pref_webserver_on_boot">הפעל שרת בהפעלת המכשיר</string>
-  <string name="pref_webserver_on_boot_summary">הפעל את השרת בעת הפעלת המכשיר כולל המתנה של 5 שניות להאזנה לכתובת IP מקומית</string>
-  <string name="pref_webserver_enabled">הפעל שרת</string>
-  <string name="pref_webserver_enabled_summary">הפעלת שרת מאפשרת להאזין לכתובת IP מקומית עבור מענה לכתובות חסומות שהתבקשו</string>
+  <string name="pref_header_preferences_summary">העדפות כלליות של AdAway</string>
+  <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>
+  <string name="pref_never_reboot_summary">מסתיר את תיבת הדו שיח ששואלת אם להפעיל את מערכת אנדרואיד מחדש לאחר עדכון מוצלח</string>
+  <string name="pref_webserver_on_boot">הפעל את השירות בעת הפעלת המערכת</string>
+  <string name="pref_webserver_on_boot_summary">הפעל שרת מקומי בהפעלת המערכת עם האזנה של 5 שניות לכתובת IP מקומית</string>
+  <string name="pref_webserver_enabled">הפעל שירות</string>
+  <string name="pref_webserver_enabled_summary">הפעל את השרת להקשיב לכתובת IP מקומית ולענות לבקשות של כתובות חסומות</string>
   <string name="pref_webserver">שרת מקומי</string>
   <string name="pref_custom_target">יעד מותאם אישית</string>
-  <string name="pref_custom_target_summary">בשימוש רק אם יעד קובץ hosts מוגדר כיעד מותאם אישית</string>
-  <string-array name="pref_apply_method_entries"><item>/system/etc/hosts</item>
-<item>/data/data/hosts</item>
-<item>יעד מותאם אישית</item>
-</string-array>
-  <string name="pref_update_check_summary">בדוק עידכונים בעת הפעלת AdAway</string>
-  <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר AdAway מותקנת בכרטיס הזיכרון!</string>
-  <string name="pref_background">שירות ברקע</string>
-  <string name="pref_update_check_daily">בדוק עידכונים באופן יומי</string>
-  <string name="pref_update_check_daily_summary">בדוק עידכונים כל יום ברקע והצג התראות.</string>
-  <string name="pref_automatic_update_daily">עידכונים אוטומטיים</string>
-  <string name="pref_automatic_update_daily_summary">הפעל שירות עידכונים אוטומטיים ברקע כאשר יש עידכונים זמינים.</string>
+  <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>יעד מותאם אישית</item>
+  </string-array>
+  <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
+  <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר AdAway מותקנת על כרטיס זיכרון</string>
+  <string name="pref_background">שירותים ברקע</string>
+  <string name="pref_update_check_daily">בדוק עידכונים יומיים</string>
+  <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>
+  <string name="pref_automatic_update_daily">עדכונים אוטומטיים</string>
+  <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
   <string name="pref_redirection_rules">אפשר הפניות</string>
-  <string name="pref_redirection_rules_summary">אפשר חוקי הפניה ממקורות Hosts.</string>
+  <string name="pref_redirection_rules_summary">אפשר חוקי הפניה ממקור Hosts</string>
   <string name="pref_debug">ניפוי שגיאות</string>
-  <string name="pref_enable_debug">יומן ניפוי שגיאות</string>
-  <string name="pref_enable_debug_summary">עליך להפעיל את AdAway מחדש כדי להכניס את השינוי לתוקף</string>
+  <string name="pref_enable_debug">רשום יומן שגיאות</string>
+  <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
 </resources>

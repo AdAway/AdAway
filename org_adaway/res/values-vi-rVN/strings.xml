@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Buttons-->
+  <string name="button_exit">Thoát</string>
+  <string name="button_apply">Tải về và áp dụng chặn QC</string>
+  <string name="button_close">Đóng</string>
+  <string name="button_yes">Có</string>
+  <string name="button_no">Không</string>
+  <string name="button_revert">Tắt chặn QC</string>
+  <string name="button_add">Thêm</string>
+  <string name="button_cancel">Huỷ bỏ</string>
+  <string name="button_apply_text">Tất cả các file host từ nguồn cho trước đã được tải về, ghép với danh sách của bạn và cài đặt thành 1 file host duy nhất trên hệ thống.</string>
+  <string name="button_revert_text">Khôi phục file host mặc định trên hệ thống.</string>
+  <string name="button_save">Lưu</string>
+  <string name="button_webserver_toggle_checked">Webserver đang chạy</string>
+  <string name="button_webserver_toggle_unchecked">Chưa chạy Webserver </string>
+  <string name="button_webserver_toggle_text">Bật hoặc dừng webserver trên host cục bộ để phản hồi yêu cầu từ host đã chặn</string>
+  <string name="button_help">Trợ giúp</string>
+  <string name="button_tcpdump_text">Tcpdump là 1 công cụ để giám sát các yêu cầu DNS và lưu chúng ra tệp nhật ký. Bạn có thể dùng nó trong chế độ nền, chạy ứng dụng mà có hiển thị quảng cáo và sau đó phân tích yêu cầu DNS qua tệp nhật ký. Địa chỉ máy chủ quảng cáo sẽ được đưa vào danh sách đen.</string>
+  <string name="button_tcpdump_toggle_checked">Đang chạy Tcpdump!</string>
+  <string name="button_tcpdump_toggle_unchecked">Chưa chạy Tcpdump!</string>
+  <string name="button_tcpdump_open">Mở tệp nhật ký</string>
+  <string name="button_tcpdump_delete">Xoá tệp nhật ký</string>
+  <!--Dialogs-->
+  <string name="no_root_description">Hoặc là máy chưa có su hoặc bạn không cấp quyền truy xuất root cho AdAway.\n\nĐiều này có thể xảy ra khi máy chưa root.\nBạn có thể tìm thông tin về cách root máy trên www.cyanogenmod.com hoặc các webiste Android khác. </string>
+  <string name="no_root_title">Yêu cầu máy đã root</string>
+  <string name="no_connection">Không có kết nối tới Internet</string>
+  <string name="no_connection_title">Không có kết nối</string>
+  <string name="download_dialog">Đang tải...</string>
+  <string name="apply_dialog">Áp dụng...</string>
+  <string name="apply_dialog_lists">Áp dụng DS đen và trắng</string>
+  <string name="apply_dialog_hostnames">Xử lý và trộn các file hosts</string>
+  <string name="apply_dialog_hosts">Đang tạo file host</string>
+  <string name="apply_dialog_apply">Áp dụng file host</string>
+  <string name="revert_successful">Bạn đã khôi phục tệp host mặc định.\nCó thể cần thiết phải reboot lại máy để có hiệu lực.\n\nBạn có muốn reboor?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!)  </string>
+  <string name="apply_success">Áp dụng thành công.\nCó thể cần phải reboot lại máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
+  <string name="apply_fail">Áp dụng file host thất bại!\nHãy thử thay đổi tệp host đích trong Cấu hình thành /data/data/hosts.</string>
+  <string name="apply_fail_title">Không thể áp dụng</string>
+  <string name="revert_problem">Khôi phục lại do nguyên nhân thất bại chưa rõ.</string>
+  <string name="revert_problem_title">Khôi phục thất bại!</string>
+  <string name="no_url">Đây không phải là địa chỉ mạng hợp lệ!</string>
+  <string name="no_url_title">Địa chỉ mạng không hợp lệ</string>
+  <string name="hosts_add_dialog">Nhập URL tới file host:</string>
+  <string name="no_sources_title">Không có nguồn đã định nghĩa</string>
+  <string name="no_sources">Hãy thêm nguồn host vào danh sách</string>
+  <string name="no_hostname">Đây không phải là tên host hợp lệ!</string>
+  <string name="no_hostname_title">Tên host không đúng</string>
+  <string name="no_ip">Đây không phải là IP hợp lệ!</string>
+  <string name="no_ip_title">IP không đúng</string>
+  <string name="download_fail">Có thể bạn chưa kết nối vào Internet hoặc có thể nguồn host bạn muốn tải về bị lỗi. Hãy kiểm tra địa chỉ mạng sau và thay đổi nó trong nguồn host:</string>
+  <string name="download_fail_title">Tải về thất bại</string>
+  <string name="no_private_file">Không thể tạo tệp riêng</string>
+  <string name="no_private_file_title">Tạo tệp riêng đã thất bại</string>
+  <string name="reboot_never_reboot">Không bao giờ reboot và không hiện câu hỏi này nữa!</string>
+  <!--About-->
+  <string name="about_description">AdAway là ứng dụng chặn quảng cáo nguồn mở cho Android</string>
+  <string name="about_license">Giấy phép: GPL v3+</string>
+  <string name="about_version">Phiên bản:</string>
+  <string name="about_developer">Tác giả: Dominik Schürmann</string>
+  <string name="about_icons">Một vài icon được lấy từ \'Dropbox Emblems Tango của Charles A.\' (Giấy phép: Creative Commons Attribution 3.0 Unported).</string>
+  <string name="about_libs">AdAway dùng thư viện \'RootTools\' (giấy phép: GPL v2) để nắm quyền truy xuất root và \'ActionBarSherlock\' (giấy phép: Apache 2.0) để cung cấp 1 ActionBar cho Android phiên bản 3.0</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Thêm</string>
+  <string name="checkbox_list_empty">Danh sách rỗng</string>
+  <string name="checkbox_list_empty_text">Bạn có thể thêm 1 mục từ thanh tác vụ</string>
+  <string name="checkbox_list_context_delete">Xoá</string>
+  <string name="checkbox_list_footer">Sau khi thêm mục mới vào danh sách bạn hãy áp dụng AdAway lần nữa</string>
+  <string name="checkbox_list_edit_dialog_title">Sửa</string>
+  <string name="checkbox_list_context_title">Sửa mục</string>
+  <string name="checkbox_list_context_edit">Sửa</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">DS trắng</string>
+  <string name="lists_tab_blacklist">DS đen</string>
+  <string name="lists_tab_blacklist_short">Đen</string>
+  <string name="lists_tab_whitelist_short">Trắng</string>
+  <string name="lists_tab_redirection_list_short">Chuyển hướng</string>
+  <string name="lists_tab_redirection_list">Danh sách chuyển hướng</string>
+  <string name="list_dialog_url">ĐỊa chỉ mạng:</string>
+  <string name="list_dialog_hostname">Tên host:</string>
+  <string name="list_dialog_whitelist_hostname">Tên host:\n(Cho phép dùng ký tự đại diện * và ?)</string>
+  <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
+  <string name="import_dialog">Đang nhập...</string>
+  <string name="export_dialog">Đang xuất...</string>
+  <string name="export_success">Đã xuất tất cả các muc tới tệp tên là \'adaway-export\' trên sdcard.</string>
+  <!--Status Notifications-->
+  <string name="status_checking">Tìm phiên bản mới...</string>
+  <string name="status_reverting">Khôi phục...</string>
+  <string name="status_reverting_subtitle">Tạo file host chuẩn</string>
+  <string name="status_checking_subtitle">Tìm phiên bản mới nếu có</string>
+  <string name="status_update_available">Đã có bản mới</string>
+  <string name="status_update_available_subtitle">Có tệp host mới</string>
+  <string name="status_no_connection">Không có Internet</string>
+  <string name="status_no_connection_subtitle">Không có kết nối Internet</string>
+  <string name="status_download_fail">Không có nguồn nào</string>
+  <string name="status_download_fail_subtitle">Địa chỉ mạng:</string>
+  <string name="status_enabled">Đã bật</string>
+  <string name="status_enabled_subtitle">Đã dùng tệp host mới</string>
+  <string name="status_disabled">Đã tắt</string>
+  <string name="status_disabled_subtitle">Đã tắt</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlink từ đích /system/etc/hosts không sẵn có hoặc không đúng! Adaway sẽ không làm việc nếu nó không trỏ đến tệp đúng\n\nBạn có muốn tự 1 symlink?</string>
+  <string name="apply_symlink_missing_title">Thiếu Symlink</string>
+  <string name="apply_not_enough_space">Không đủ dung lượng trên máy!\nHãy thay đổi tệp host trong Cấu hình thành /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">Không đủ dung lượng</string>
+  <string name="apply_private_file_fail">Không thể đọc được file tải về.</string>
+  <string name="apply_private_file_fail_title">Tệp riêng thất bại</string>
+  <string name="apply_remount_fail">Thất bại khi remount phân vùng thành đọc/ghi</string>
+  <string name="apply_remount_fail_title">Remount thất bại</string>
+  <string name="apply_copy_fail">Thất bại khi chép tệp hosts</string>
+  <string name="apply_copy_fail_title">Sao chép thất bại</string>
+  <string name="apply_success_title">Áp dụng thành công</string>
+  <string name="apply_symlink_successful">Đã tạo symlink thành công.\nCó thể cần phải reboot máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!) </string>
+  <string name="apply_symlink_successful_title">Tạo symlink thành công</string>
+  <string name="apply_symlink_fail">Không thể tạo Symlink bằng Android.\nPhần lớn nguyên nhân do \'tính năng\' gọi là S-ON trên thiết bị HTC!\n\nGiải pháp là boot  phone vào chế độ recovery và tạo symlink với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu không được hãy tìm kiếm trên Internet chuỗi S-OFF và tên thiết bị của bạn.</string>
+  <string name="apply_symlink_fail_title">Thất bại tạo Symlink</string>
+  <string name="revert_successful_title">Khôi phục thành công</string>
+  <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
+  <string name="apply_apn_proxy">Một proxy APN đã được cài trên máy của bạn!\nAdAway sẽ không làm việc hiệu quả trên mạng di động 3G. Bạn có thể tắt proxy bằng cách mở APN đã chọn (Trên Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) và xoá bỏ giá trị trong trường proxy.</string>
+  <string name="apply_apn_proxy_title">Đặt proxy APN!</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Làm tươi</string>
+  <string name="menu_add">Thêm</string>
+  <string name="menu_hosts_sources">Nguồn hosts</string>
+  <string name="menu_about">Thông tin</string>
+  <string name="menu_tcpdump">Yêu cầu ghi nhật ký DNS</string>
+  <string name="menu_help">Trợ giúp</string>
+  <string name="menu_lists">DS của bạn</string>
+  <string name="menu_show_hosts_file">Mở tệp host</string>
+  <string name="menu_donations">Ủng hộ</string>
+  <string name="menu_import">Nhập tất cả các danh sách</string>
+  <string name="menu_export">Xuất tất cả các danh sách</string>
+  <string name="menu_preferences">Cấu hình</string>
+  <!--Help-->
+  <string name="help_tab_faq">Hỏi đáp</string>
+  <string name="help_tab_problems">Vấn đề</string>
+  <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Cục bộ:</string>
+  <string name="hosts_last_modified_online">Trực tuyến:</string>
+  <!--Other-->
+  <string name="app_subtitle">Chặn QC</string>
+  <string name="no_text_editor_title">Không có trình sửa văn bản trên máy</string>
+  <string name="no_text_editor">Không có trình soạn thảo văn bản nào để mở tệp host. Bạn có thể cài Joto hoặc ứng dụng tương tự để khắc phục.\n\nBạn có muốn cài Jota không?</string>
+  <string name="no_file_manager_title">Không tìm thấy trình quản lý tệp</string>
+  <string name="no_file_manager">Không có trình quản lý tệp nào để mở. Bạn có thể cài OI File Manager hoặc ứng dụng tương tự để khắc phục.\n\nBạn có muốn cài đặt OI File Manager không?</string>
+  <!--Donations-->
+  <string name="donations_flattr">Đánh giá</string>
+  <string name="donations_description">Bạn thấy ứng dụng này hữu dụng?\nHãy hỗ trợ tác giả bằng cách đánh giá cao hoặc ủng hộ vật chất qua CH Google Play!</string>
+  <string name="donations_flattr_description">• Đánh giá cao mất 10% như phí tháng! </string>
+  <string name="donations_google_android_market">CH Google Play</string>
+  <string name="donations_google_android_market_not_supported_title">Không có chức năng ủng hộ ngay trong ứng dụng</string>
+  <string name="donations_google_android_market_not_supported">Không hỗ trợ chức năng ủng hộ trong ứng dụng. CH Google Play có hoạt động chính xác?</string>
+  <string name="donations_google_android_market_description">•  Google hưởng 30% giá trị ủng hộ!\n• Không có phiên bản premium cho người đã ủng hộ.</string>
+  <string name="donations_google_android_market_donate_button">Ủng hộ!</string>
+  <string name="donations_google_android_market_text">Bao nhiêu?</string>
+  <string-array name="donations_google_android_market_promt_array">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
+  <string name="donations_paypal">PayPal</string>
+  <string name="donations_paypal_description">• Bạn có thể bấm nút chọn số tiền cần ủng hộ!</string>
+  <string name="donations_thanks_dialog_title">Xin cám ơn!</string>
+  <string name="donations_thanks_dialog">Cám ơn bạn đã ủng hộ!\nTôi thực sự cảm kích! </string>
+  <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Đã xoá file nhật ký!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Đã thêm tên host vào danh sách đen!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Đã thêm tên host vào danh sách trắng!</string>
+  <string name="tcpdump_log_context_blacklist">Thêm vào DS đen</string>
+  <string name="tcpdump_log_context_whitelist">Thêm vào DS trắng</string>
+  <string name="tcpdump_log_context_browser">Mở trong trình duyệt</string>
+  <string name="tcpdump_log_empty">Tệp nhật ký rỗng!</string>
+  <string name="tcpdump_log_footer">Bấm lưu trên tên host để thêm nó vào DS đen/trắng</string>
+  <!--Preferences-->
+  <string name="pref_download">Cấu hình tổng quát</string>
+  <string name="pref_hosts">Các file host</string>
+  <string name="pref_redirection_ip">Chuyển hướng IP</string>
+  <string name="pref_update_check">Kiểm tra phiên bản</string>
+  <string name="pref_apply_method">Tệp host đích</string>
+  <string name="pref_apply_method_summary">Trước khi thay đổi tuỳ chọn này, hãy đọc Trợ giúp.</string>
+  <string name="pref_redirection_ip_summary">Tất cả tên host đã chặn sẽ được chuyển hướng tới địa chỉ IP này.</string>
+  <string name="pref_header_preferences">Cấu hình</string>
+  <string name="pref_header_preferences_summary">Cấu hình tổng quát cho AdAway</string>
+  <string name="pref_never_reboot">Ẩn hộp thoại reboot</string>
+  <string name="pref_never_reboot_summary">Ẩn hộp thoại đòi reboot máy sau khi áp dụng thành công</string>
+  <string name="pref_webserver_on_boot">Bật webserver khi boot máy</string>
+  <string name="pref_webserver_on_boot_summary">Bật webserver khi boot máy sau 5 giây đọc địa chỉ IP cục bộ</string>
+  <string name="pref_webserver_enabled">Bật webserver</string>
+  <string name="pref_webserver_enabled_summary">Bật webserver để dùng địa chỉ IP cục bộ phản hồi các yêu cầu từ host đã chặn</string>
+  <string name="pref_webserver">Websever cục bộ</string>
+  <string name="pref_custom_target">Đích tự chọn</string>
+  <string name="pref_custom_target_summary">Chỉ dùng nếu tệp host đích đặt là đích tự chọn</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Đích tự chọn</item>
+  </string-array>
+  <string name="pref_update_check_summary">Tìm phiên bản mới khi mở AdAway</string>
+  <string name="pref_sdcard_problem">Tính năng này sẽ không làm việc đúng khi AdAway được cài trên thẻ nhớ ngoài</string>
+  <string name="pref_background">Dịch vụ chạy nền</string>
+  <string name="pref_update_check_daily">Tìm phiên bản mới mỗi ngày</string>
+  <string name="pref_update_check_daily_summary">Tìm phiên bản mới mỗi ngày ở chế độ nền và thông báo</string>
+  <string name="pref_automatic_update_daily">Tự động cập nhật</string>
+  <string name="pref_automatic_update_daily_summary">Tự động cập nhật nếu có bản nâng cấo mới.</string>
+  <string name="pref_redirection_rules">Cho phép chuyển hướng</string>
+  <string name="pref_redirection_rules_summary">Cho phép chuyển hướng từ nguồn host</string>
+  <string name="pref_debug">Dò lỗi</string>
+  <string name="pref_enable_debug">Nhật ký dò lỗi</string>
+  <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để có hiệu lực</string>
+</resources>

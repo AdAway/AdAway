@@ -1,0 +1,33 @@
+<html><head></head><body>
+<h2>Thu nhập từ quảng cáo</h2>
+<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+
+<h2>AdAway làm việc như thế nào?</h2>
+<p>AdAway sử dụng <a href="http://en.wikipedia.org/wiki/Hosts_file">file host </a> để chặn các danh sách host được dùng cho mục đích quảng cáo. File host được lưu tại <tt>/system/etc/hosts</tt> có tác dụng ánh xạ tên host thành địa chỉ IP. Đây là cách làm thông dụng để định nghĩa tên host với địa chỉ IP, không sử dụng Domain Name System (DNS). Mọi tên host không mong muốn sẽ được trỏ tới địa chỉ <tt>127.0.0.1</tt> trên máy của bạn.</p>
+
+<h2>Tại sao tôi phải khởi động lại Android để thay đổi có hiệu lực?</h2>
+<p>Java trên Android quản lý cache DNS nội tại của nó. Hệ điều hành sẽ phản chiếu tệp host mới ngay lập tức (kiểm tra với ping trên command line) nhưng bạn cần khởi động lại Android để tạo lại cache DNS của Java</p>
+
+<h2>Sử dụng webserver trong AdAway như thế nào?</h2>
+<p><b>AdAway cũng làm việc mà không sử dụng webserver!</b>⏎
+<br/><br/> Bạn có thể bật webserver cục bộ trong cấu hình của AdAway để đáp ứng yêu cầu từ địa chỉ IP cục bộ <tt>127.0.0.1</tt>. Điều đó có nghĩa là các yêu cầu quảng cáo từ ứng dụng sẽ được trỏ tới địa chỉ <tt>127.0.0.1</tt> thông qua webserver của AdAway.⏎
+<br/>Một số ứng dụng từ chối làm việc nếu không kết nối được tới máy chủ quảng cáo. Phương thức này sẽ khiến chúng vẫn có thể làm việc, cho kết quả là trang trắng, không có hình quảng cáo.</p>
+
+<h2>Không chặn được quảng cáo trong ứng dụng XYZ!</h2>
+<p>Some hostnames may be missing in the provided hosts files from the <i>Hosts Sources</i> or the application has bundled the images to provide ads without accessing the internet.
+<br/><br/>
+You can log DNS requests (Menu->Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.
+<br/><br/> Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in the Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+
+<h2>Ứng dụng XYZ không chạy được nữa!</h2>
+<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuses to work when the hostnames which should serve ads are not reachable. See <a href="http://code.google.com/p/ad-away/wiki/ProblemApps">http://code.google.com/p/ad-away/wiki/ProblemApps</a> to get a list of known applications that have problems. Otherwise do as described before to find out which hostnames are needed and add them to your <i>Whitelist</i> under <i>Your Lists</i> and report them to the <a href="http://code.google.com/p/ad-away/issues/list">bug tracker of AdAway</a>.</p>
+
+<h2>Chặn/bỏ chặn tên host bất kỳ như thế nào?</h2>
+<p>You can set up your own server providing a hosts file with hostnames that you want to block and add it to the <i>Hosts Sources</i> or add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+
+<h2>Tôi có thể tìm thêm nguồn host ở đâu?</h2>
+<p>Xem <a href="http://code.google.com/p/ad-away/wiki/HostsSources">danh sách các host khác cho AdAway</a>.</p>
+
+<h2>Tôi tìm thấy 1 lỗi trong AdAway!</h2>
+<p>Hãy báo cáo lỗi này thông qua hệ thống <a href="http://code.google.com/p/ad-away/issues/list">báo lỗi của AdAway</a>.</p>
+</body></html>

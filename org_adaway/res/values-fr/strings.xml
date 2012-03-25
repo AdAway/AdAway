@@ -1,67 +1,88 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="no_root_description">Le binaire su n\'a pu être trouvé ou vous n\'avez pas autoriser la permission root pour AdAway. \n \nCe qui peut arriver lorsque votre appareil n\'est pas rooté. \nVous pouvez trouver des informations sur la façon de rooter votre téléphone sur www.cyanogenmod.com ou d\'autres sites Android.</string>
+  <!--Buttons-->
   <string name="button_exit">Quitter</string>
-  <string name="no_root_title">Un Android rooté est requis</string>
   <string name="button_apply">Télécharger et Appliquer les filtres de publicité</string>
+  <string name="button_close">Fermer</string>
+  <string name="button_yes">Oui</string>
+  <string name="button_no">Non</string>
+  <string name="button_revert">Désactiver le bloqueur de publicité</string>
+  <string name="button_add">Ajouter</string>
+  <string name="button_cancel">Annuler</string>
+  <string name="button_apply_text">Tous les fichiers hosts provenant des sources définies sont téléchargés, fusionnés avec vos propres listes et installés en un seul fichier hosts sur votre système.</string>
+  <string name="button_revert_text">Restaure les fichiers hosts par défaut sur votre système.</string>
+  <string name="button_save">Sauvegarder</string>
+  <string name="button_webserver_toggle_checked">Le serveur web est en marche</string>
+  <string name="button_webserver_toggle_unchecked">Le serveur web ne fonctionne pas</string>
+  <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur web sur localhost pour répondre à des demandes de noms d\'hôtes bloqués.</string>
+  <string name="button_help">Aide</string>
+  <string name="button_tcpdump_text">tcpdump est un outil pour suivre les requètes DNS en les enregistrant dans un fichier journal. Démarrez le en arrière-plan et lancer vos applications qui affichent de la publicité indésirables. Puis arrêter tcpdump et analysez les requètes en lisant le fichier journal. Enfin les requètes indésirables pourront ètre ajouté à votre liste noire.</string>
+  <string name="button_tcpdump_toggle_checked">tcpdump fonctionne.</string>
+  <string name="button_tcpdump_toggle_unchecked">tcpdump ne fonctionne pas!</string>
+  <string name="button_tcpdump_open">Ouvrir le fichier journal</string>
+  <string name="button_tcpdump_delete">Supprimer le fichier journal</string>
+  <!--Dialogs-->
+  <string name="no_root_description">Le binaire su n\'a pu être trouvé ou vous n\'avez pas autoriser la permission root pour AdAway. \n \nCe qui peut arriver lorsque votre appareil n\'est pas rooté. \nVous pouvez trouver des informations sur la façon de rooter votre téléphone sur www.cyanogenmod.com ou d\'autres sites Android.</string>
+  <string name="no_root_title">Un Android rooté est requis</string>
   <string name="no_connection">La connexion à Internet ne fonctionne pas.</string>
   <string name="no_connection_title">Pas de connexion</string>
-  <string name="button_close">Fermer</string>
   <string name="download_dialog">Téléchargement:</string>
   <string name="apply_dialog">Appliquer</string>
+  <string name="apply_dialog_lists">Application de la liste noire et liste blanche</string>
   <string name="apply_dialog_hostnames">Analyse et fusion des fichiers hôtes</string>
   <string name="apply_dialog_hosts">Création du fichier hosts</string>
   <string name="apply_dialog_apply">Application du fichier hosts</string>
-  <string name="button_yes">Oui</string>
-  <string name="button_no">Non</string>
   <string name="revert_successful">Les modifications ont été annulées.\nIl est nécessaire de redémarrer votre téléphone pour que les changements prennent effet.\n\nVoulez-vous redémarrer maintenant ?\n(Pour ne pas perdre de données, assurez vous qu\'il n\'y a pas d\'applications qui utilise la carte SD en ce moment !)</string>
-  <string name="button_revert">Désactiver le bloqueur de publicité</string>
   <string name="apply_success">L\'application a été réussi. \nIl est peut être nécessaire de redémarrer Android pour que les modifications prennent effet. \n \nVoulez-vous redémarrer ? \n (Pour éviter toute perte de données s\'assurer qu\'aucune application n\'utilise la carte SD pour le moment !)</string>
-  <string name="about_description">AdAway est un bloqueur de publicité open source pour Android.</string>
-  <string name="about_license">Licence : GPL v3</string>
-  <string name="about_version">Version :</string>
-  <string name="about_developer">Développeur : Dominik Schürmann</string>
-  <string name="about_icons">Certaines icônes sont tirées de \'Dropbox Emblems Tango par Charles A.\' et \"www.androidicons.com\", à la fois sous licenceCreative Commons Attribution 3.0 Unported License.</string>
-  <string name="about_libs">AdAway utilise la librairie \'RootTools\' (License: GPL v2) pour fournir un accès root et \'ActionBarSherlock\' (License: Apache 2.0) pour avoir une ActionBar pour Android sous 3.0.</string>
   <string name="apply_fail">L\'application du fichier hosts de votre système a échoué ! \nEssayez de modifier la cible du fichier hosts dans les préférences pour /data/data/hosts.</string>
   <string name="apply_fail_title">L\'application a échoué</string>
   <string name="revert_problem">Retour en arrière échoué.</string>
   <string name="revert_problem_title">Echec de l\'annulation! </string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
   <string name="no_url_title">URL incorrecte</string>
-  <string name="button_add">Ajouter</string>
   <string name="hosts_add_dialog">Entrer une URL au fichier hosts :</string>
-  <string name="checkbox_list_add_dialog_title">Ajouter</string>
-  <string name="button_cancel">Annuler</string>
-  <string name="checkbox_list_empty">Liste vide</string>
-  <string name="checkbox_list_empty_text">Vous pouvez ajouter des éléments depuis le menu.</string>
-  <string name="checkbox_list_context_delete">Supprimer</string>
-  <string name="checkbox_list_footer">Après l\'ajout de nouveaux éléments à cette liste, vous devez appliquer AdAway à nouveau !</string>
-  <string name="app_subtitle">Ad Blocker</string>
-  <string name="button_apply_text">Tous les fichiers hosts provenant des sources définies sont téléchargés, fusionnés avec vos propres listes et installés en un seul fichier hosts sur votre système.</string>
-  <string name="button_revert_text">Restaure les fichiers hosts par défaut sur votre système.</string>
   <string name="no_sources_title">Pas de sources définies</string>
   <string name="no_sources">S\'il vous plaît ajouter des sources d\'hosts dans votre liste.</string>
-  <string name="checkbox_list_edit_dialog_title">Editer</string>
-  <string name="button_save">Sauvegarder</string>
-  <string name="checkbox_list_context_title">Editer entrée</string>
-  <string name="checkbox_list_context_edit">Editer</string>
   <string name="no_hostname">Ce n\'est pas un nom d\'hôte valide !</string>
   <string name="no_hostname_title">Nom d\'hôte incorrect</string>
-  <string name="lists_tab_whitelist">Liste blanche</string>
-  <string name="lists_tab_blacklist">Liste noire</string>
-  <string name="apply_dialog_lists">Application de la liste noire et liste blanche</string>
-  <string name="lists_tab_redirection_list">Liste de redirection</string>
-  <string name="list_dialog_url">URL :</string>
-  <string name="list_dialog_hostname">Nom d\'hôte:</string>
-  <string name="list_dialog_whitelist_hostname">Nom d\'hôte :\n(Caractère joker * et ? autorisés)</string>
-  <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
   <string name="no_ip">Ce n\'est pas une IP valide !</string>
   <string name="no_ip_title">IP incorrecte</string>
   <string name="download_fail">Soit vous n\'êtes pas correctement connecté à Internet ou l\'une des sources d\'hosts que vous souhaitez télécharger n\'est pas disponible. S\'il vous plaît vérifier l\'URL suivante et la changer dans vos sources d\'hosts :</string>
   <string name="download_fail_title">Le téléchargement a échoué</string>
   <string name="no_private_file">Fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Echec de la création du fichier privé</string>
+  <string name="reboot_never_reboot">Ne jamais redémarrer et ne pas afficher cette question la prochaine fois !</string>
+  <!--About-->
+  <string name="about_description">AdAway est un bloqueur de publicité open source pour Android.</string>
+  <string name="about_license">Licence : GPL v3</string>
+  <string name="about_version">Version :</string>
+  <string name="about_developer">Développeur : Dominik Schürmann</string>
+  <string name="about_icons">Certaines icônes sont tirées de \'Dropbox Emblems Tango par Charles A.\' et \"www.androidicons.com\", à la fois sous licenceCreative Commons Attribution 3.0 Unported License.</string>
+  <string name="about_libs">AdAway utilise la librairie \'RootTools\' (License: GPL v2) pour fournir un accès root et \'ActionBarSherlock\' (License: Apache 2.0) pour avoir une ActionBar pour Android sous 3.0.</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Ajouter</string>
+  <string name="checkbox_list_empty">Liste vide</string>
+  <string name="checkbox_list_empty_text">Vous pouvez ajouter des éléments depuis le menu.</string>
+  <string name="checkbox_list_context_delete">Supprimer</string>
+  <string name="checkbox_list_footer">Après l\'ajout de nouveaux éléments à cette liste, vous devez appliquer AdAway à nouveau !</string>
+  <string name="checkbox_list_edit_dialog_title">Editer</string>
+  <string name="checkbox_list_context_title">Editer entrée</string>
+  <string name="checkbox_list_context_edit">Editer</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Liste blanche</string>
+  <string name="lists_tab_blacklist">Liste noire</string>
+  <string name="lists_tab_blacklist_short">Noir</string>
+  <string name="lists_tab_whitelist_short">Blanc</string>
+  <string name="lists_tab_redirection_list_short">Redirection</string>
+  <string name="lists_tab_redirection_list">Liste de redirection</string>
+  <string name="list_dialog_url">URL :</string>
+  <string name="list_dialog_hostname">Nom d\'hôte:</string>
+  <string name="list_dialog_whitelist_hostname">Nom d\'hôte :\n(Caractère joker * et ? autorisés)</string>
+  <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
+  <string name="import_dialog">Importation...</string>
+  <string name="export_dialog">Exportation...</string>
+  <string name="export_success">Exporter les entrées vers un fichier \'adaway_export\' sur SD.</string>
+  <!--Status Notifications-->
   <string name="status_checking">Vérification de mise à jour ...</string>
   <string name="status_reverting">Annulation... </string>
   <string name="status_reverting_subtitle">Création d\'un fichier hosts standard </string>
@@ -76,6 +97,7 @@
   <string name="status_enabled_subtitle">Autorisé les fichiers hosts les plus récents</string>
   <string name="status_disabled">Désactivé</string>
   <string name="status_disabled_subtitle">Désactivé</string>
+  <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Lien symbolique de /data/data/hosts vers /system/etc/hosts n\'est pas en vigueur ! AdAway ne fonctionnera pas si il n\'est pas en vigueur. \n \nVoulez-vous essayer de créer un lien symbolique?</string>
   <string name="apply_symlink_missing_title">Lien symbolique manquant</string>
   <string name="apply_not_enough_space">Pas assez d\'espace sur la partition ! \nEssayer de modifier le fichier hosts cible dans les préférences pour /data/data/hosts.</string>
@@ -92,6 +114,10 @@
   <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCela arrive la plupart du temps à cause d\'une «particularité» appelée S-ON sur les téléphones HTC !\n\nLa solution est de démarrer votre téléphone en mode recovery et de créer le lien symbolique là avec \"ln-s /data/data/hosts/system/etc/hosts\"\n\nSi cela ne fonctionne pas cherchez sur Internet pour le S-OFF et votre téléphone.</string>
   <string name="apply_symlink_fail_title">Echec de la création du lien symbolique</string>
   <string name="revert_successful_title">Retour en arrière réussi</string>
+  <string name="apply_help">Lire \"Aide\" pour plus d\'informations.</string>
+  <string name="apply_apn_proxy">Un proxy APN est configuré sur votre termnal. AdAway ne peut fonctionner correctement avec sur les réseau mobile 3G. Vous pouvez désactiver ce proxy en modifiant les paramètres de votre réseau opérateur (sur Android 4 allez dans, Paramètres, Réseaux, Mobile, Point d\'accès). Il suffit alors d\'effacer la valeur indiquée dans le champ \"proxy\".</string>
+  <string name="apply_apn_proxy_title">Proxy APN configuré!</string>
+  <!--Menu entries-->
   <string name="menu_refresh">Actualiser</string>
   <string name="menu_add">Ajouter</string>
   <string name="menu_hosts_sources">Liste des sources</string>
@@ -104,26 +130,19 @@
   <string name="menu_import">Importer toutes les listes</string>
   <string name="menu_export">Exporter toutes les listes</string>
   <string name="menu_preferences">Préférences</string>
-  <string name="lists_tab_blacklist_short">Noir</string>
-  <string name="lists_tab_whitelist_short">Blanc</string>
-  <string name="lists_tab_redirection_list_short">Redirection</string>
+  <!--Help-->
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problèmes</string>
-  <string name="button_webserver_toggle_checked">Le serveur web est en marche</string>
-  <string name="button_webserver_toggle_unchecked">Le serveur web ne fonctionne pas</string>
-  <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur web sur localhost pour répondre à des demandes de noms d\'hôtes bloqués.</string>
+  <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Locale :</string>
   <string name="hosts_last_modified_online">En ligne :</string>
-  <string name="reboot_never_reboot">Ne jamais redémarrer et ne pas afficher cette question la prochaine fois !</string>
-  <string name="button_help">Aide</string>
-  <string name="apply_help">Lire \"Aide\" pour plus d\'informations.</string>
-  <string name="import_dialog">Importation...</string>
-  <string name="export_dialog">Exportation...</string>
-  <string name="export_success">Exporter les entrées vers un fichier \'adaway_export\' sur SD.</string>
+  <!--Other-->
+  <string name="app_subtitle">Ad Blocker</string>
   <string name="no_text_editor_title">Aucun éditeur de texte installé</string>
   <string name="no_text_editor">Aucun éditeur de texte n\'a pu être trouvé pour ouvrir le fichier hosts. Vous pouvez installer Jota ou d\'autres éditeurs de texte pour gérer cela. \n\nVoulez-vous installer Jota ?</string>
   <string name="no_file_manager_title">Aucun gestionnaire de fichier installé</string>
   <string name="no_file_manager">Aucun gestionnaire de fichier trouvé. Plusieurs sont disponibles sur le Market. Voulez vous tester OI File Manager ?</string>
+  <!--Donations-->
   <string name="donations_flattr">Flattr</string>
   <string name="donations_description">Trouvez-vous cette application utile? \nSupporter son développement avec Flattr ou en envoyant des dons en utilisant l\'Android Market !</string>
   <string name="donations_flattr_description">• Flattr prend 10% comme frais mensuels !</string>
@@ -133,59 +152,61 @@
   <string name="donations_google_android_market_description">• Google prend 30% sur chaque don ! \n• Il n\'y a pas de version premium pour les donateurs.</string>
   <string name="donations_google_android_market_donate_button">Faire un don !</string>
   <string name="donations_google_android_market_text">Combien ?</string>
-  <string-array name="donations_google_android_market_promt_array"><item> 1 Euro </item>
-<item> 2 Euros </item>
-<item> 3 Euros </item>
-<item> 5 Euros </item>
-<item> 8 Euros </item>
-<item> 13 Euros </item></string-array>
-  <string name="donations_thanks_dialog_title">Merci !</string>
-  <string name="donations_thanks_dialog">Merci pour le don ! \nJ\'apprécie beaucoup !</string>
-  <string name="button_tcpdump_text">Tcpdump est un outil pour suivre les requêtes DNS en les enregistrant dans un fichier. Lancez le en arrière plan,  puis utilisez vos applications...  Le fichier contenant les requêtes,  il suffira de les analyser puis de les ajouter à la liste noire. </string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump en cours! </string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump arrêté! </string>
-  <string name="button_tcpdump_open">Ouvrir le fichier d\'enregistrement </string>
-  <string name="button_tcpdump_delete">Supprimer le fichier d\'enregistrement </string>
-  <string name="toast_tcpdump_log_deleted">Fichier d\'enregistrement supprimé! </string>
-  <string name="toast_tcpdump_added_to_blacklist">Le nom d\'hôte a été ajouté à votre liste noire! </string>
-  <string name="toast_tcpdump_added_to_whitelist">Le nom d\'hôte a été ajouté à votre liste blanche! </string>
-  <string name="tcpdump_log_context_blacklist">Ajouter à votre liste noire </string>
+  <string-array name="donations_google_android_market_promt_array">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
+  <string name="donations_paypal">PayPal</string>
+  <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
+  <string name="donations_thanks_dialog_title">Merci! </string>
+  <string name="donations_thanks_dialog">Nous vous remercions pour votre don! </string>
+  <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Ficher journal supprimé! </string>
+  <string name="toast_tcpdump_added_to_blacklist">Nom d\'hôte ajouté à votre liste noire!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Nom d\'hôte ajouté à votre liste blanche!</string>
+  <string name="tcpdump_log_context_blacklist">Ajouter à votre liste noire</string>
   <string name="tcpdump_log_context_whitelist">Ajouter à votre liste blanche</string>
-  <string name="tcpdump_log_context_browser">Ouvrir dans un navigateur </string>
-  <string name="tcpdump_log_empty">Le fichier d\'enregistrement est vide! </string>
-  <string name="tcpdump_log_footer">Appuyer longuement sur un nom d\'hôte pour l\'ajouter a votre liste noire -OU- blanche! </string>
-  <string name="pref_download">Préférences générales</string>
+  <string name="tcpdump_log_context_browser">Ouvrir dans le navigateur</string>
+  <string name="tcpdump_log_empty">Fichier journal vide!</string>
+  <string name="tcpdump_log_footer">Exercer un appui long sur un nom d\'hôte pour l\'ajouter à votre liste noire ou blanche!</string>
+  <!--Preferences-->
+  <string name="pref_download">Paramètres généraux</string>
   <string name="pref_hosts">Fichier hosts</string>
   <string name="pref_redirection_ip">IP de redirection</string>
-  <string name="pref_update_check">Vérifiez les mises à jour</string>
+  <string name="pref_update_check">Vérifier les mises à jour</string>
   <string name="pref_apply_method">Fichier hosts cible</string>
-  <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lisez l\'aide sur cette fonctionnalité.</string>
-  <string name="pref_redirection_ip_summary">Tous les noms d\'hôtes bloqués sont redirigés vers cette adresse IP.</string>
+  <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lisez l\'aide concernant cette fonction.</string>
+  <string name="pref_redirection_ip_summary">Tous les noms d\'hôtes bloqués sont redirigés vers cette adresse IP</string>
   <string name="pref_header_preferences">Préférences</string>
-  <string name="pref_header_preferences_summary">Préférences générales de AdAway</string>
-  <string name="pref_never_reboot">Masquer le dialogue sur le reboot</string>
-  <string name="pref_never_reboot_summary">Masquer la boîte de dialogue qui demande de redémarrer Android, après l\'application du fichier hosts</string>
+  <string name="pref_header_preferences_summary">Préférences générales pour AdAway</string>
+  <string name="pref_never_reboot">Cacher la demande de redémarrage</string>
+  <string name="pref_never_reboot_summary">Ne pas afficher la demande de redémarrage après une mise à jour réussie</string>
   <string name="pref_webserver_on_boot">Démarrer le serveur web au démarrage</string>
-  <string name="pref_webserver_on_boot_summary">Démarrer le serveur web au démarrage retardé de 5 secondes, écoutant sur les adresses IP locales</string>
+  <string name="pref_webserver_on_boot_summary">Démarrer le serveur web avec un délai de 5 secondes au démarrage écoutant sur les adresses IP locales</string>
   <string name="pref_webserver_enabled">Activer le serveur web</string>
-  <string name="pref_webserver_enabled_summary">Permet l\'écoute sur le serveur d\'adresses IP locales pour répondre à des demandes de noms d\'hôtes bloqués</string>
+  <string name="pref_webserver_enabled_summary">Activer le serveur web écoutant sur les adresses IP locales pour répondre au requètes sur des noms d\'hôtes bloqués</string>
   <string name="pref_webserver">Serveur web local</string>
   <string name="pref_custom_target">Cible personnalisée</string>
   <string name="pref_custom_target_summary">Utilisé uniquement si la cible du fichier hosts est réglée sur cible personnalisée</string>
-  <string-array name="pref_apply_method_entries"><item>/system/etc/hosts</item>
-<item>/data/data/hosts</item>
-<item>Fichier personnalisé </item>
-</string-array>
-  <string name="pref_update_check_summary">Vérifier les mises à jour au démarrage</string>
-  <string name="pref_sdcard_problem">Cette fonction ne peut être exploité si AdAway est installé sur la carte SD.</string>
-  <string name="pref_background">Services de fond</string>
-  <string name="pref_update_check_daily">Vérifiez les mises à jour quotidiennement</string>
-  <string name="pref_update_check_daily_summary">Vérifiez les mises à jour quotidiennement en arrière-plan avec des notifications</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Cible personnalisée</item>
+  </string-array>
+  <string name="pref_update_check_summary">Vérifier les mises à jour au démarrage d\'AdAway</string>
+  <string name="pref_sdcard_problem">Cette fonction ne fonctionnera pas correctement sur AdAway est installé sur une carte SD!</string>
+  <string name="pref_background">Services en arrière-plan</string>
+  <string name="pref_update_check_daily">Vérifier les mises à jour quotidiennement</string>
+  <string name="pref_update_check_daily_summary">Vérifier les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_automatic_update_daily">Mise à jour automatique</string>
-  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en tâche de fond</string>
+  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont disponibles</string>
   <string name="pref_redirection_rules">Autoriser les redirections</string>
-  <string name="pref_redirection_rules_summary">Autoriser les règles de redirection depuis les sources externes. </string>
-  <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Enregistrer le mode debug</string>
-  <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway afin que ce paramètres prenne effet. </string>
+  <string name="pref_redirection_rules_summary">Autoriser les règles de redirections depuis les sources hosts</string>
+  <string name="pref_debug">Debogage</string>
+  <string name="pref_enable_debug">Enregisrer le debogage</string>
+  <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>
 </resources>

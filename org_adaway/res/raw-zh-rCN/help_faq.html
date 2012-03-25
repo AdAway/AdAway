@@ -1,0 +1,33 @@
+<html><head></head><body>
+<h2>广告收入</h2>
+<p>有一种错误的更解认为，如果用户从来不点击广告，那么屏蔽这些广告不要损害网站或者应用的利益。这是不对的，因为开发者只是显示也是有钱可以赚的。所以是否屏蔽广告由你决定。就我个人来说，我不会使用带广告的应用，因为我觉得它们很讨厌，所以如果没有一个广告屏蔽程序我不会安装这样的应用。</p>
+
+<h2>AdAway什么原理？</h2>
+<p>AdAway使用<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts 文件</a>来屏蔽广告主机名。hosts文件是一个保存主机名到IP地址的映射的文件， 可以在<tt>/system/etc/hosts</tt>找到。这是一种传统的不依赖域名解析系统(DNS)的定义主机名到IP地址对的方式。AdAway通过修改hosts文件把所有的不想访问的主机名都重定向到<tt>127.0.0.1</tt>，也就是你的设备的本机地址。</p>
+
+<h2>为什么我一定要重启动Android来使修改生效？</h2>
+<p>Android的Java自己维护着一个内部的DNS缓存。操作系统会立即对新的hosts文件作出反应(你可以在命令行上用ping来验证这一点)，但是你需要重启动你的Android来重建Java的DNS缓存。</p>
+
+<h2>怎么使用AdAway中的web服务器？</h2>
+<p><b>注意AdAway不需要web服务器也可以工作！</b>
+<br /><br/>你可以在AdAway设置里面启动本地web服务器来响应发到本地IP地址<tt>127.0.0.1</tt>的请求。意思就是说应用中的对广告服务器的请求会被重定向到<tt>127.0.0.1</tt>由AdAway的web服务器来响应。
+<br />因为有些应用不能访问广告服务器的时候他们就不能用。使用这种方法后，它们以为访问到广告服务器了，只是没有返回广告图片或者返回空白网页而已。</p>
+
+<h2>AdAway不能屏蔽XYZ应用中的广告！</h2>
+<p>有一些主机名在<i>Hosts源</i>中提供的hosts文件中漏掉了或者应用把广告图片捆绑到应用里面来显示广告而不是访问网络来获取。
+<br/><br/>
+你可以用AdAway上的记录DNS请求功能(菜单->记录DNS请求)记录你设备上的DNS请求，来找出更多你想到屏蔽的主机名。
+<br/><br/>长按DNS请求条目，添加主机名到你的黑名单并在<a href="http://hosts-file.net">hosts-file.net</a>的<a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox论坛</a> 验证后反馈给我们。</p>
+
+<h2>屏蔽广告后应用程序XYZ不能用了！</h2>
+<p>一些应用需要和被屏蔽的主机通信才能正常工作或者其广告服务主机机无法访问时就不工作了。 到这<a href="http://code.google.com/p/ad-away/wiki/ProblemApps">http://code.google.com/p/ad-away/wiki/ProblemApps</a> 查看有问题的应用列表。其他情况像前面说的那个找到哪些需要主机名，并把它们添加到你的<i>白名单</i>，在 <i>你的名单</i> 菜单下面，并反馈到 <a href="http://code.google.com/p/ad-away/issues/list">bug tracker of AdAway</a>。</p>
+
+<h2>我怎么屏蔽/取消屏蔽指定的主机名？</h2>
+<p>你可以配置你自己的服务器来提供一个包含你想要屏蔽的主机名的hosts文件并且把它添加到你的Hosts源里中，或者添加你想屏蔽的主机名到<i>黑名单</i>(黑)，在<i>你的名单</i>菜单中。你还可以，把你不想屏蔽的主机名添加到白名单(白)中，或者把你想要重定向到的IP地址添加到<i>重定向列表</i>(重定向)中。</p>
+
+<h2>我从哪可以找到更多的hosts源</h2>
+<p>请查看<a href="http://code.google.com/p/ad-away/wiki/HostsSources">List of additional hosts sources for AdAway</a>。</p>
+
+<h2>我发现了AdAway的一个BUG！</h2>
+<p>请反馈到 <a href="http://code.google.com/p/ad-away/issues/list">bug tracker of AdAway</a>。</p>
+</body></html>

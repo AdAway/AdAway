@@ -1,70 +1,91 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="no_root_description">没有找到su或者你没有允许AdAway的root权限。\n\n这可能是因为你的设备没有root。\n你可以到www.cyanogenmod.coma或者其他Android网站去找到如何root你的设备。</string>
+  <!--Buttons-->
   <string name="button_exit">退出</string>
-  <string name="no_root_title">需要root权限</string>
   <string name="button_apply">下载文件并应用屏蔽</string>
+  <string name="button_close">关闭</string>
+  <string name="button_yes">是</string>
+  <string name="button_no">否</string>
+  <string name="button_revert">禁用广告屏蔽</string>
+  <string name="button_add">添加</string>
+  <string name="button_cancel">取消</string>
+  <string name="button_apply_text">所有hosts源的hosts文件已经下载，和你自定义的列表合并并已经作为一个单独文件配置到你的系统了。</string>
+  <string name="button_revert_text">恢复你系统默认的hosts文件。</string>
+  <string name="button_save">保存</string>
+  <string name="button_webserver_toggle_checked">web服务器运行中</string>
+  <string name="button_webserver_toggle_unchecked">web服务器没有运行</string>
+  <string name="button_webserver_toggle_text">在本机开启和停止web服务器来应答到被屏蔽主机的请求。</string>
+  <string name="button_help">帮助</string>
+  <string name="button_tcpdump_text">Tcpdump 是一个用来监视DNS请求并保存为日志文件的工具。你可以在后台运行它，在前台运行有广告的程序，然后用目志文件来分析DNS请求。把找到了广告服务器添加到你的黑名单中。</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump正在运行！</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump没有运行！</string>
+  <string name="button_tcpdump_open">打开日志文件</string>
+  <string name="button_tcpdump_delete">删除日志文件</string>
+  <!--Dialogs-->
+  <string name="no_root_description">没有找到su或者你没有允许AdAway的root权限。\n\n这可能是因为你的设备没有root。\n你可以到www.cyanogenmod.coma或者其他Android网站去找到如何root你的设备。</string>
+  <string name="no_root_title">需要root权限</string>
   <string name="no_connection">Internet网络连接不通</string>
   <string name="no_connection_title">没有网络连接</string>
-  <string name="button_close">关闭</string>
   <string name="download_dialog">下载中...</string>
   <string name="apply_dialog">应用中...</string>
+  <string name="apply_dialog_lists">应用白名单和黑名单</string>
   <string name="apply_dialog_hostnames">解析及合并hosts文件</string>
   <string name="apply_dialog_hosts">建立hosts文件</string>
   <string name="apply_dialog_apply">应用hosts文件</string>
-  <string name="button_yes">是</string>
-  <string name="button_no">否</string>
   <string name="revert_successful">你已经还原为默认的hosts文件了。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
-  <string name="button_revert">禁用广告屏蔽</string>
   <string name="apply_success">应用成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
-  <string name="about_description">AdAway是一个开源的Android平台的广告屏蔽应用。</string>
-  <string name="about_license">许可协议： GPL v3</string>
-  <string name="about_version">版本：</string>
-  <string name="about_developer">开发者：Dominik Schürmann</string>
-  <string name="about_icons">一些图标是从\'Dropbox Emblems Tango by Charles A.\'和\'www.androidicons.com\'上取得的，两个都是Creative Commons Attribution 3.0 Unported License授权下发布的。</string>
-  <string name="about_libs">AdAway使用 \'RootTools\' (许可证: GPL v2) 数据库来控制root 权限；使用\'ActionBarSherlock\' (许可证: Apache 2.0)为安卓3.0系统提供ActionBar®。</string>
   <string name="apply_fail">应用hosts文件修改失败！\n请尝试在[设置]里面把hosts文件目标修改为/data/data/hosts。</string>
   <string name="apply_fail_title">应用失败</string>
   <string name="revert_problem">还原失败。</string>
-  <string name="revert_problem_title">Reverting failed!</string>
+  <string name="revert_problem_title">还原失败</string>
   <string name="no_url">URL无效！</string>
   <string name="no_url_title">URL格式不对</string>
-  <string name="button_add">添加</string>
   <string name="hosts_add_dialog">输入hosts文件的URL：</string>
-  <string name="checkbox_list_add_dialog_title">添加</string>
-  <string name="button_cancel">取消</string>
-  <string name="checkbox_list_empty">空列表</string>
-  <string name="checkbox_list_empty_text">你可以从菜单中添加条目。</string>
-  <string name="checkbox_list_context_delete">删除</string>
-  <string name="checkbox_list_footer">在添加条目过后，需要重新应用AdAway！</string>
-  <string name="app_subtitle">广告屏蔽</string>
-  <string name="button_apply_text">所有hosts源的hosts文件已经下载，和你自定义的列表合并并已经作为一个单独文件配置到你的系统了。</string>
-  <string name="button_revert_text">恢复你系统默认的hosts文件。</string>
   <string name="no_sources_title">没有定义源</string>
   <string name="no_sources">请添加hosts源到到列表中。</string>
-  <string name="checkbox_list_edit_dialog_title">编辑</string>
-  <string name="button_save">保存</string>
-  <string name="checkbox_list_context_title">编辑条目</string>
-  <string name="checkbox_list_context_edit">编辑</string>
   <string name="no_hostname">主机名无效法！</string>
   <string name="no_hostname_title">主机名格式不对</string>
-  <string name="lists_tab_whitelist">白名单</string>
-  <string name="lists_tab_blacklist">黑名单</string>
-  <string name="apply_dialog_lists">应用白名单和黑名单</string>
-  <string name="lists_tab_redirection_list">重定向列表</string>
-  <string name="list_dialog_url">URL:</string>
-  <string name="list_dialog_hostname">主机名：</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(可使用Wildcard字符 * 和 ?)</string>
-  <string name="list_dialog_ip">IP地址(IPv4或IPv6)</string>
   <string name="no_ip">IP地址无效</string>
   <string name="no_ip_title">IP地址格式不对</string>
   <string name="download_fail">你的网络有问题或者其中一个hosts源不可用。请检查这个URL并在你的hosts源中修改它：</string>
   <string name="download_fail_title">下载失败</string>
   <string name="no_private_file">不能创建私有文件</string>
   <string name="no_private_file_title">私有文件创建失败</string>
+  <string name="reboot_never_reboot">不要重启并不再显示这个问题！</string>
+  <!--About-->
+  <string name="about_description">AdAway是一个开源的Android平台的广告屏蔽应用。</string>
+  <string name="about_license">许可协议： GPL v3</string>
+  <string name="about_version">版本：</string>
+  <string name="about_developer">开发者：Dominik Schürmann</string>
+  <string name="about_icons">一些图标是从\'Dropbox Emblems Tango by Charles A.\'和\'www.androidicons.com\'上取得的，两个都是Creative Commons Attribution 3.0 Unported License授权下发布的。</string>
+  <string name="about_libs">AdAway使用 \'RootTools\' (许可证: GPL v2) 数据库来控制root 权限；使用\'ActionBarSherlock\' (许可证: Apache 2.0)为安卓3.0系统提供ActionBar®。</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">添加</string>
+  <string name="checkbox_list_empty">空列表</string>
+  <string name="checkbox_list_empty_text">你可以从菜单中添加条目。</string>
+  <string name="checkbox_list_context_delete">删除</string>
+  <string name="checkbox_list_footer">在添加条目过后，需要重新应用AdAway！</string>
+  <string name="checkbox_list_edit_dialog_title">编辑</string>
+  <string name="checkbox_list_context_title">编辑条目</string>
+  <string name="checkbox_list_context_edit">编辑</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">白名单</string>
+  <string name="lists_tab_blacklist">黑名单</string>
+  <string name="lists_tab_blacklist_short">黑名单</string>
+  <string name="lists_tab_whitelist_short">白名单</string>
+  <string name="lists_tab_redirection_list_short">重定向</string>
+  <string name="lists_tab_redirection_list">重定向列表</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">主机名：</string>
+  <string name="list_dialog_whitelist_hostname">Hostname:\n(可使用Wildcard字符 * 和 ?)</string>
+  <string name="list_dialog_ip">IP地址(IPv4或IPv6)</string>
+  <string name="import_dialog">导入中...</string>
+  <string name="export_dialog">导出中...</string>
+  <string name="export_success">导出全部条目为名为’adaway-export’的SD卡文件。</string>
+  <!--Status Notifications-->
   <string name="status_checking">检查更新...</string>
-  <string name="status_reverting">Reverting...</string>
-  <string name="status_reverting_subtitle">Creating standard hosts file</string>
+  <string name="status_reverting">还原中...</string>
+  <string name="status_reverting_subtitle">创建标准的hosts文件</string>
   <string name="status_checking_subtitle">检查是否有更新</string>
   <string name="status_update_available">有更新</string>
   <string name="status_update_available_subtitle">有更新的hosts文件</string>
@@ -76,6 +97,7 @@
   <string name="status_enabled_subtitle">最新的hosts文件已经启用</string>
   <string name="status_disabled">禁用</string>
   <string name="status_disabled_subtitle">禁用</string>
+  <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">从你设置的目标不存在或者不是正确的到 /system/etc/hosts 的符号链接！没有正确的符号链接AdAway不能运行。\n\n你需要创建符号链接吗？</string>
   <string name="apply_symlink_missing_title">符号连接丢失</string>
   <string name="apply_not_enough_space">分区上没有足够的空间\n请在设置里面修改目标hosts文件到/data/data/hosts。</string>
@@ -92,6 +114,10 @@
   <string name="apply_symlink_fail">符号链接创建失败。\n这很有可能是因为HTC上一个叫S-ON的’功能’！\n\n一个解决办法可以启动你的手机到恢复模式并用在哪用命令’ln -s /data/data/hosts /system/etc/hosts\’来创建符号链接。\n\n如果这没有用，在网上搜索下怎么S-OFF你的手机。</string>
   <string name="apply_symlink_fail_title">符号链接创建失败</string>
   <string name="revert_successful_title">还原成功</string>
+  <string name="apply_help">请阅读帮助获得更多信息。</string>
+  <string name="apply_apn_proxy">你的Android上APN设置了代理\n\nAdAway可能不能3G移动网络上正常运行。你可以去掉你的当前使用的APN上代理字段的内容来禁用代理设置（在Android 4系统上：无线和网络 -> 更多... -> 移动网络 -> 接入点名称）</string>
+  <string name="apply_apn_proxy_title">APN设置了代理！</string>
+  <!--Menu entries-->
   <string name="menu_refresh">刷新</string>
   <string name="menu_add">添加</string>
   <string name="menu_hosts_sources">Hosts源</string>
@@ -104,26 +130,19 @@
   <string name="menu_import">导入列表</string>
   <string name="menu_export">导出列表</string>
   <string name="menu_preferences">设置</string>
-  <string name="lists_tab_blacklist_short">黑名单</string>
-  <string name="lists_tab_whitelist_short">白名单</string>
-  <string name="lists_tab_redirection_list_short">重定向</string>
+  <!--Help-->
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">问题</string>
-  <string name="button_webserver_toggle_checked">web服务器运行中</string>
-  <string name="button_webserver_toggle_unchecked">web服务器没有运行</string>
-  <string name="button_webserver_toggle_text">在本机开启和停止web服务器来应答到被屏蔽主机的请求。</string>
+  <!--Hosts Sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">在线：</string>
-  <string name="reboot_never_reboot">不要重启并不再显示这个问题！</string>
-  <string name="button_help">帮助</string>
-  <string name="apply_help">请阅读帮助获得更多信息。</string>
-  <string name="import_dialog">导入中...</string>
-  <string name="export_dialog">导出中...</string>
-  <string name="export_success">导出全部条目为名为’adaway-export’的SD卡文件。</string>
+  <!--Other-->
+  <string name="app_subtitle">广告屏蔽</string>
   <string name="no_text_editor_title">没有安装文本编辑器</string>
   <string name="no_text_editor">没有找到文本编辑器来打开hosts文件。你可以安装Jota或者其他文本编辑器来解决这。\n\n你需要安装Jota吗？</string>
   <string name="no_file_manager_title">没有安装文件管理器</string>
   <string name="no_file_manager">没有找到文件管理器来打开文件。你可以安装OI File Manager或者其他文件管理器来解决这。\n\n你需要安装OI File Manager吗？</string>
+  <!--Donations-->
   <string name="donations_flattr">Flattr®</string>
   <string name="donations_description">喜欢这个应用程序？通过Flattr®或谷歌®安卓市场捐款来支持我们！</string>
   <string name="donations_flattr_description">Flattr®将从月费中提成10%！</string>
@@ -133,34 +152,27 @@
   <string name="donations_google_android_market_description">• Google 要从第笔捐赠中抽取3成！\n• 没有给捐赠者的高级版本。</string>
   <string name="donations_google_android_market_donate_button">捐赠！</string>
   <string name="donations_google_android_market_text">多少？</string>
-  <string-array name="donations_google_android_market_promt_array"><item>1 欧元</item>
-<item>2 欧元</item>
-<item>3 欧元</item>
-<item>5 欧元</item>
-<item>8 欧元</item>
-<item>13 欧元</item>
-</string-array>
+  <string-array name="donations_google_android_market_promt_array"/>
+  <string name="donations_paypal">PayPal</string>
+  <string name="donations_paypal_description">• 点击这个按钮选择你想要捐赠好多！</string>
   <string name="donations_thanks_dialog_title">谢谢！</string>
-  <string name="donations_thanks_dialog">谢谢您的捐赠！\n我真的很感谢您！</string>
-  <string name="button_tcpdump_text">Tcpdump 是一个用来监视DNS请求并保存为日志文件的工具。你可以在后台运行它，在前台运行有广告的程序，然后用目志文件来分析DNS请求。把找到了广告服务器添加到你的黑名单中。</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump运行中！</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump没有运行！</string>
-  <string name="button_tcpdump_open">打开日志文件</string>
-  <string name="button_tcpdump_delete">删除日志文件</string>
-  <string name="toast_tcpdump_log_deleted">日志删除了！</string>
-  <string name="toast_tcpdump_added_to_blacklist">主机名已加入你的黑名单！</string>
-  <string name="toast_tcpdump_added_to_whitelist">主机名已加入你的白名单！</string>
-  <string name="tcpdump_log_context_blacklist">加入黑名单</string>
-  <string name="tcpdump_log_context_whitelist">加入白名单</string>
-  <string name="tcpdump_log_context_browser">Open in Browser</string>
-  <string name="tcpdump_log_empty">日志文件无内容！</string>
-  <string name="tcpdump_log_footer">长按将主机名添加至黑/白名单！</string>
+  <string name="donations_thanks_dialog">谢谢捐赠！\n非常感谢您！</string>
+  <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">日志文件已删除</string>
+  <string name="toast_tcpdump_added_to_blacklist">主机名已添加到你的黑名单</string>
+  <string name="toast_tcpdump_added_to_whitelist">主机名已添加到你的白名单</string>
+  <string name="tcpdump_log_context_blacklist">添加到你的黑名单</string>
+  <string name="tcpdump_log_context_whitelist">添加到你的白名单</string>
+  <string name="tcpdump_log_context_browser">用浏览器打开</string>
+  <string name="tcpdump_log_empty">日志文件为空！</string>
+  <string name="tcpdump_log_footer">长按主机名添加它到你的黑白名单</string>
+  <!--Preferences-->
   <string name="pref_download">基本设置</string>
   <string name="pref_hosts">Hosts文件</string>
   <string name="pref_redirection_ip">重定向IP</string>
   <string name="pref_update_check">检查更新</string>
   <string name="pref_apply_method">目标hosts文件</string>
-  <string name="pref_apply_method_summary">在修改设置前请阅读帮助来了解这项功能。</string>
+  <string name="pref_apply_method_summary">在修改这项设置前请阅读帮助了解其功能。</string>
   <string name="pref_redirection_ip_summary">所有的屏蔽主机名会被重定向到这个IP地址。</string>
   <string name="pref_header_preferences">设置</string>
   <string name="pref_header_preferences_summary">AdAway基本设置</string>
@@ -173,10 +185,11 @@
   <string name="pref_webserver">本地web服务器</string>
   <string name="pref_custom_target">自定义目标</string>
   <string name="pref_custom_target_summary">只用于hosts文件被设置为自定义目标的情况</string>
-  <string-array name="pref_apply_method_entries"><item>/system/etc/hosts</item>
-<item>/data/data/hosts</item>
-<item>自定义目标</item>
-</string-array>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>自定义目标</item>
+  </string-array>
   <string name="pref_update_check_summary">在启动AdAway时检查更新</string>
   <string name="pref_sdcard_problem">如果AdAway被安装到SD卡上，这个功能可能不能正常工作！</string>
   <string name="pref_background">后台服务</string>
@@ -186,7 +199,7 @@
   <string name="pref_automatic_update_daily_summary">如果有更新，自动在后台更新。</string>
   <string name="pref_redirection_rules">允许重定向</string>
   <string name="pref_redirection_rules_summary">允许来自Hosts源重定向规则</string>
-  <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug Logging</string>
-  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
+  <string name="pref_debug">调试</string>
+  <string name="pref_enable_debug">调试日志记录</string>
+  <string name="pref_enable_debug_summary">你需要重新启动AdAway使设置生效</string>
 </resources>

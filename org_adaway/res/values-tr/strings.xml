@@ -1,67 +1,88 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="no_root_description">AdAway root izni alamıyor.\n\nSistem root edilmemiş olabilir.\nRoot izni hakkında detaylı bilgiye ve nasıl yapılacağına www.cyanogenmod.com veya diğer Android sitelerinden erişebilirsiniz.</string>
+  <!--Buttons-->
   <string name="button_exit">Çıkış</string>
-  <string name="no_root_title">Root izni gereklidir</string>
   <string name="button_apply">Dosyaları indir ve reklam engellemesini uygula</string>
+  <string name="button_close">Kapat</string>
+  <string name="button_yes">Evet</string>
+  <string name="button_no">Hayır</string>
+  <string name="button_revert">Reklam engellemeyi etkisizleştir</string>
+  <string name="button_add">le</string>
+  <string name="button_cancel">İptal</string>
+  <string name="button_apply_text">Tüm kaynaklardaki hosts dosyaları indirildi, listenizdekiler ile birleştirildi ve sisteminize tek bir hosts dosyalı olarak yüklendi.</string>
+  <string name="button_revert_text">Hosts dosyasını sistem varsayılanına döndürür.</string>
+  <string name="button_save">Kaydet</string>
+  <string name="button_webserver_toggle_checked">Websunucu çalışıyor</string>
+  <string name="button_webserver_toggle_unchecked">Websunucu çalışmıyor</string>
+  <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat yada durdur.</string>
+  <string name="button_help">Yardım</string>
+  <string name="button_tcpdump_text">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arkaplanda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump çalışıyor!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump çalışmıyor!</string>
+  <string name="button_tcpdump_open">Log dosyasını aç</string>
+  <string name="button_tcpdump_delete">Log dosyasını sil</string>
+  <!--Dialogs-->
+  <string name="no_root_description">AdAway root izni alamıyor.\n\nSistem root edilmemiş olabilir.\nRoot izni hakkında detaylı bilgiye ve nasıl yapılacağına www.cyanogenmod.com veya diğer Android sitelerinden erişebilirsiniz.</string>
+  <string name="no_root_title">Root izni gereklidir</string>
   <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
   <string name="no_connection_title">Bağlantı Yok</string>
-  <string name="button_close">Kapat</string>
   <string name="download_dialog">İndiriyor...</string>
   <string name="apply_dialog">Uygulanıyor...</string>
+  <string name="apply_dialog_lists">Beyazliste ve Karaliste uygulanıyor</string>
   <string name="apply_dialog_hostnames">Hosts dosyaları incelenip birleştiriliyor</string>
   <string name="apply_dialog_hosts">Hosts dosyası oluşturuluyor</string>
   <string name="apply_dialog_apply">Hosts dosyası uygulanıyor</string>
-  <string name="button_yes">Evet</string>
-  <string name="button_no">Hayır</string>
   <string name="revert_successful">Varsayılan hosts dosyası geri alındı.\nDeğişikliklerin geçerli olması için yeniden başlatmanı gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
-  <string name="button_revert">Reklam engellemeyi etkisizleştir</string>
   <string name="apply_success">Uygulama işlemi başarılı.\nDeğişikliklerin geçerli olması için yeniden başlatmanı gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
-  <string name="about_description">AdAway Android için geliştirilmiş açık kaynaklı bir reklam engelleyicidir..</string>
-  <string name="about_license">Lisans: GPL v3+</string>
-  <string name="about_version">Sürüm:</string>
-  <string name="about_developer">Geliştirici: Dominik Schürmann</string>
-  <string name="about_icons">Sembollerin bazıları \'Dropbox Emblems Tango by Charles A.\' ve \'www.androidicons.com\' üzerinden alınmıştır. (İkisi de Creative Commons Attribution 3.0 Unported altında lisanslıdır).</string>
-  <string name="about_libs">AdAway, root erişimi için \'RootTools\' (Lisans: GPL v2) ve ActionBar for Android desteği için \'ActionBarSherlock\' (Lisans: Apache 2.0) kütüphanelerini kullanır.</string>
   <string name="apply_fail">Hosts dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
   <string name="apply_fail_title">Uygulama başarısız</string>
   <string name="revert_problem">Geri alma bilinmeyen sebepler yüzünden başarısız oldu.</string>
   <string name="revert_problem_title">Geri alma başarısız!</string>
   <string name="no_url">Geçersiz bir URL!</string>
   <string name="no_url_title">Hatalı URL</string>
-  <string name="button_add">le</string>
   <string name="hosts_add_dialog">Hosts dosyasına URL gir:</string>
-  <string name="checkbox_list_add_dialog_title">Ekle</string>
-  <string name="button_cancel">İptal</string>
-  <string name="checkbox_list_empty">Boş liste</string>
-  <string name="checkbox_list_empty_text">Menüden öğeler ekleyebilirsiniz.</string>
-  <string name="checkbox_list_context_delete">Sil</string>
-  <string name="checkbox_list_footer">Bu listeye yeni öğe ekledikten sonra AdAway\'i yeniden uygulamalısınız.</string>
-  <string name="app_subtitle">Reklam engelleyici</string>
-  <string name="button_apply_text">Tüm kaynaklardaki hosts dosyaları indirildi, listenizdekiler ile birleştirildi ve sisteminize tek bir hosts dosyalı olarak yüklendi.</string>
-  <string name="button_revert_text">Hosts dosyasını sistem varsayılanına döndürür.</string>
   <string name="no_sources_title">Hiçbir kaynak belirtilmedi</string>
   <string name="no_sources">Lütfen listenize hosts kaynakları ekleyin.</string>
-  <string name="checkbox_list_edit_dialog_title">Düzenle</string>
-  <string name="button_save">Kaydet</string>
-  <string name="checkbox_list_context_title">Girdiyi Düzenle</string>
-  <string name="checkbox_list_context_edit">Düzenle</string>
   <string name="no_hostname">Girilen adres geçerli değil!</string>
   <string name="no_hostname_title">Geçersiz adres</string>
-  <string name="lists_tab_whitelist">Beyazliste</string>
-  <string name="lists_tab_blacklist">Karaliste</string>
-  <string name="apply_dialog_lists">Beyazliste ve Karaliste uygulanıyor</string>
-  <string name="lists_tab_redirection_list">Yönlendirme Listesi</string>
-  <string name="list_dialog_url">URL:</string>
-  <string name="list_dialog_hostname">Adres:</string>
-  <string name="list_dialog_whitelist_hostname">Adres:\n(* ve ? karakterleri de kullanılabilir)</string>
-  <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
   <string name="no_ip">Bu geçerli bir IP değildir!</string>
   <string name="no_ip_title">Hatalı biçimlendirilmiş IP</string>
   <string name="download_fail">Kaynakları indiriken bağlantınızda veya hosts kaynaklarıne erişimde bir sorun oldu. Lütfen aşağıdaki URL doğru mu kontrol edin ve gerekliyse değiştirin.</string>
   <string name="download_fail_title">İndirme işlemi başarısız</string>
   <string name="no_private_file">Özel dosya oluşturulamadı.</string>
   <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu</string>
+  <string name="reboot_never_reboot">Asla yeniden başlatma ve bu soruyu tekrar sorma!</string>
+  <!--About-->
+  <string name="about_description">AdAway Android için geliştirilmiş açık kaynaklı bir reklam engelleyicidir..</string>
+  <string name="about_license">Lisans: GPL v3+</string>
+  <string name="about_version">Sürüm:</string>
+  <string name="about_developer">Geliştirici: Dominik Schürmann</string>
+  <string name="about_icons">Sembollerin bazıları \'Dropbox Emblems Tango by Charles A.\' ve \'www.androidicons.com\' üzerinden alınmıştır. (İkisi de Creative Commons Attribution 3.0 Unported altında lisanslıdır).</string>
+  <string name="about_libs">AdAway, root erişimi için \'RootTools\' (Lisans: GPL v2) ve ActionBar for Android desteği için \'ActionBarSherlock\' (Lisans: Apache 2.0) kütüphanelerini kullanır.</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Ekle</string>
+  <string name="checkbox_list_empty">Boş liste</string>
+  <string name="checkbox_list_empty_text">Menüden öğeler ekleyebilirsiniz.</string>
+  <string name="checkbox_list_context_delete">Sil</string>
+  <string name="checkbox_list_footer">Bu listeye yeni öğe ekledikten sonra AdAway\'i yeniden uygulamalısınız.</string>
+  <string name="checkbox_list_edit_dialog_title">Düzenle</string>
+  <string name="checkbox_list_context_title">Girdiyi Düzenle</string>
+  <string name="checkbox_list_context_edit">Düzenle</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Beyazliste</string>
+  <string name="lists_tab_blacklist">Karaliste</string>
+  <string name="lists_tab_blacklist_short">Siyah</string>
+  <string name="lists_tab_whitelist_short">Beyaz</string>
+  <string name="lists_tab_redirection_list_short">Yönlendirme</string>
+  <string name="lists_tab_redirection_list">Yönlendirme Listesi</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">Adres:</string>
+  <string name="list_dialog_whitelist_hostname">Adres:\n(* ve ? karakterleri de kullanılabilir)</string>
+  <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
+  <string name="import_dialog">Alınıyor...</string>
+  <string name="export_dialog">Veriliyor...</string>
+  <string name="export_success">Tüm girdiler, sdcard üzerinde \'adaway-export\' dosyasına kaydedildi.</string>
+  <!--Status Notifications-->
   <string name="status_checking">Güncelleme kontrol ediliyor...</string>
   <string name="status_reverting">Geri alınıyor!</string>
   <string name="status_reverting_subtitle">Varsayılan hosts dosyası yapılıyor</string>
@@ -76,6 +97,7 @@
   <string name="status_enabled_subtitle">Yeni hosts dosyaları etkin</string>
   <string name="status_disabled">Etkisizleştirildi</string>
   <string name="status_disabled_subtitle">Etkisizleştirildi</string>
+  <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Hedefiniz ile /system/etc/hosts dosyası symlink ile bağlanmamış veya hatalı bağlanmış! Bu bağlanma olmadan AdAway çalışamaz.\n\nŞimdi bir symlink ayarlansın mı?</string>
   <string name="apply_symlink_missing_title">Symlink kayıp</string>
   <string name="apply_not_enough_space">Sistem bölümlemesinin boş alanı yeterli değil!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
@@ -92,6 +114,10 @@
   <string name="apply_symlink_fail">Symlink oluşturulamadı.\nBu hata genelde HTC telefonlardaki S-ON denilen özellik yüzünden olmaktadır!\n\nSorunu elle çözmek isterseniz recovery mode ile açıp \'ln -s /data/data/hosts /system/etc/hosts\' komutuyla symlink yapmanız gereklidir.\n\nEğer ki bu olmuyorsa çözüm için internette S-OFF ve telefonunuzun adı ile bir arama yapın.</string>
   <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
   <string name="revert_successful_title">Geri alma başarılı!</string>
+  <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
+  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+  <string name="apply_apn_proxy_title">APN proxy set!</string>
+  <!--Menu entries-->
   <string name="menu_refresh">Yenile</string>
   <string name="menu_add">Ekle</string>
   <string name="menu_hosts_sources">Hosts kaynakları</string>
@@ -104,26 +130,19 @@
   <string name="menu_import">Tüm Listeleri Al</string>
   <string name="menu_export">Tüm Listeleri Ver</string>
   <string name="menu_preferences">Tercihler</string>
-  <string name="lists_tab_blacklist_short">Siyah</string>
-  <string name="lists_tab_whitelist_short">Beyaz</string>
-  <string name="lists_tab_redirection_list_short">Yönlendirme</string>
+  <!--Help-->
   <string name="help_tab_faq">SSS</string>
   <string name="help_tab_problems">Sorunlar</string>
-  <string name="button_webserver_toggle_checked">Websunucu çalışıyor</string>
-  <string name="button_webserver_toggle_unchecked">Websunucu çalışmıyor</string>
-  <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat yada durdur.</string>
+  <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Yerel:</string>
   <string name="hosts_last_modified_online">Online:</string>
-  <string name="reboot_never_reboot">Asla yeniden başlatma ve bu soruyu tekrar sorma!</string>
-  <string name="button_help">Yardım</string>
-  <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
-  <string name="import_dialog">Alınıyor...</string>
-  <string name="export_dialog">Veriliyor...</string>
-  <string name="export_success">Tüm girdiler, sdcard üzerinde \'adaway-export\' dosyasına kaydedildi.</string>
+  <!--Other-->
+  <string name="app_subtitle">Reklam engelleyici</string>
   <string name="no_text_editor_title">Yüklü metin editörü yok</string>
   <string name="no_text_editor">Hosts dosyasını açacak bir metin düzenleyici bulunamadı. Jota veya benzeri bir metin düzenleyici yüklemeniz gerekebilir.\n\nŞimdi Jota yüklemek ister misiniz?</string>
   <string name="no_file_manager_title">Yüklü dosya yöneticisi yok</string>
   <string name="no_file_manager">Dosyaları açacak bir dosya yöneticisi bulunamadı. OI File Manager veya benzeri bir dosya yöneticisi yüklemeniz gerekebilir.\n\nŞimdi OI File Manager yüklemek ister misiniz?</string>
+  <!--Donations-->
   <string name="donations_flattr">Flattr</string>
   <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
   <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
@@ -133,20 +152,19 @@
   <string name="donations_google_android_market_description">• Google takes 30 % off every donation!\n• There is no premium version for donators.</string>
   <string name="donations_google_android_market_donate_button">Bağış yap!</string>
   <string name="donations_google_android_market_text">Ne kadar?</string>
-  <string-array name="donations_google_android_market_promt_array"><item>1 Avro</item>
-<item>2 Avro</item>
-<item>3 Avro</item>
-<item>5 Avro</item>
-<item>8 Avro</item>
-<item>13 Avro</item>
-</string-array>
+  <string-array name="donations_google_android_market_promt_array">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
+  <string name="donations_paypal">PayPal</string>
+  <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
   <string name="donations_thanks_dialog_title">Teşekkürler!</string>
   <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
-  <string name="button_tcpdump_text">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arkaplanda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump çalışıyor!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump çalışmıyor!</string>
-  <string name="button_tcpdump_open">Log dosyasını aç</string>
-  <string name="button_tcpdump_delete">Log dosyasını sil</string>
+  <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Log dosyası silindi!</string>
   <string name="toast_tcpdump_added_to_blacklist">Adres karalisteye eklendi</string>
   <string name="toast_tcpdump_added_to_whitelist">Adres beyazlisteye eklendi</string>
@@ -155,6 +173,7 @@
   <string name="tcpdump_log_context_browser">Tarayıcıda aç</string>
   <string name="tcpdump_log_empty">Log dosyası boş!</string>
   <string name="tcpdump_log_footer">Adresi kara- veya beyazlisteye eklemek için adrese basılı tutun.</string>
+  <!--Preferences-->
   <string name="pref_download">Genel Tercihler</string>
   <string name="pref_hosts">Hosts Dosyası</string>
   <string name="pref_redirection_ip">IP Yönlendirme</string>
@@ -167,16 +186,17 @@
   <string name="pref_never_reboot">Yeniden başlatma diyaloğunu gizle</string>
   <string name="pref_never_reboot_summary">İşlemler uygulandıktan sonraki yeniden başlatma sorusunu gizler</string>
   <string name="pref_webserver_on_boot">Başlangıçta websunucuyu çalıştır</string>
-  <string name="pref_webserver_on_boot_summary">Başlangıçta websunucuyu 5 saniye gecikme ile çalıştırır</string>
+  <string name="pref_webserver_on_boot_summary">Başlangıçta websunucuyu 5 saniye gecikmeli çalıştır</string>
   <string name="pref_webserver_enabled">Websunucuyu etkinleştir</string>
   <string name="pref_webserver_enabled_summary">Engelli adres isteklerine cevap vermek için yerel IP adresi üzerinde web sunucusu açar.</string>
   <string name="pref_webserver">Yerel Websunucu</string>
   <string name="pref_custom_target">Özel hedef</string>
   <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
-  <string-array name="pref_apply_method_entries"><item>/system/etc/hosts</item>
-<item>/data/data/hosts</item>
-<item>Özel hedef</item>
-</string-array>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Özel hedef</item>
+  </string-array>
   <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>
   <string name="pref_sdcard_problem">Bu özellik, AdAway sdcard üzerine yüklendiğinde düzgün çalışmaz!</string>
   <string name="pref_background">Arka Plan Hizmetleri</string>
@@ -186,7 +206,7 @@
   <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
   <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
   <string name="pref_redirection_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
-  <string name="pref_debug">Hata ayıklama</string>
-  <string name="pref_enable_debug">Hata ayıklaması için kayıt tut</string>
-  <string name="pref_enable_debug_summary">Değişikliklerin geçerli olması için AdAway yeniden başlatılmalı.</string>
+  <string name="pref_debug">Debug</string>
+  <string name="pref_enable_debug">Debug Logging</string>
+  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
 </resources>
