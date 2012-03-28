@@ -47,8 +47,7 @@ public class ApplyUtils {
      * @param target
      *            path where to put the file
      * 
-     * @return <code>true</code> if it will fit on partition of <code>path</code>,
-     *         <code>false</code> if it will not fit.
+     * @return true if it will fit on partition of target, false if it will not fit.
      */
     public static boolean hasEnoughSpaceOnPartition(String target, long size) {
         long availableSpace;

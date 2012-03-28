@@ -1,34 +1,34 @@
-Attention: DEVICE MUST BE ROOTED FOR THIS APPLICATION
+<b>Attention: DEVICE MUST BE ROOTED FOR THIS APPLICATION</b>
 
-Description:
+<b>Description</b>
 AdAway is an open source ad blocker for Android using the hosts file. 
 It is the open source alternative to AdFree and other Ad blockers.
 
-Requirements:
+<b>Requirements</b>
 • ROOT
 • Read/Write access on system-Partition
 
-Problems:
+<b>Problems</b>
 • Information can be found in in-app Help screen.
 • If you have other problems please report them in the issue tracker on http://code.google.com/p/ad-away/issues
 
-Website and Issue Tracker:
+<b>Website and Issue Tracker</b>
 http://code.google.com/p/ad-away
 
-Translations:
+<b>Translations</b>
 Help translating AdAway on https://www.transifex.net/projects/p/adaway
 
-Donate:
-You can donate money to support the development in-app with Flattr or Google Android Market
+<b>Donate</b>
+You can donate money to support the development in-app with PayPal, Flattr, or Google Play.
 
-License:
+<b>License</b>
 GPLv3
 
-Permissions:
-• Root access: To write hosts file to system partition
-• Internet access: To download hosts files
-• Modify/delete SD card content: To export lists to sd card
-• Wakelock: Wake up phone when AdAway updates in background
+<b>Permissions</b>
+• <i>Root access:</i> To write hosts file to system partition
+• <i>Internet access:</i> To download hosts files
+• <i>Modify/delete SD card content:</i> To export lists to sd card
+• <i>Wakelock:</i> Wake up phone when AdAway updates in background
 
 
 
@@ -39,34 +39,34 @@ Permissions:
 GERMAN:
 
 
-Achtung: ANWENDUNG BRAUCHT ROOT-ZUGRIFF AUF DEM GERÄT
+<b>Achtung: ANWENDUNG BRAUCHT ROOT-ZUGRIFF AUF DEM GERÄT</b>
 
-Beschreibung:
+<b>Beschreibung</b>
 AdAway ist ein Open-Source Ad-Blocker unter Verwendung der hosts-Datei.
 Es ist die Open-Source Alternative zu AdFree und anderen Ad blockern.
 
-Anforderungen:
+<b>Anforderungen</b>
 • ROOT
 • Lese- und Schreibzugriff auf der system-Partition
 
-Probleme:
+<b>Probleme</b>
 • Informationen finden sich in der Hilfe innerhalb des Programms.
 • Wenn du andere Probleme hast melde sie im Issue-Tracker unter http://code.google.com/p/ad-away/issues
 
-Webseite und Issue-Tracker:
+<b>Webseite und Issue-Tracker</b>
 http://code.google.com/p/ad-away
 
-Hilf mit AdAway zu übersetzen:
+<b>Hilf mit AdAway zu übersetzen</b>
 https://www.transifex.net/projects/p/adaway
 
-Spenden:
-Du kannst die Entwicklung unterstützen indem du in der Anwendung über Flattr oder den Google Android Market spendest.
+<b>Spenden</b>
+Du kannst die Entwicklung unterstützen indem du in der Anwendung über PayPal, Flattr oder den Google Play spendest.
 
-Lizenz:
+<b>Lizenz</b>
 GPLv3
 
-Berechtigungen:
-• Root-Zugriff: Um die Hosts-Datei auf die System-Partition zu schreiben
-• Internet-Zugriff: Um Hosts-Dateien herunterzuladen
-• Inhalt der SD-Karte ändern/löschen: Um Deine Listen zu exportieren
-• Standby-Modus deaktivieren: Um das Gerät aus dem Standby aufzuwachen, wenn AdAway im Hintergrund Updates herunterlädt.
+<b>Berechtigungen</b>
+• <i>Root-Zugriff:</i> Um die Hosts-Datei auf die System-Partition zu schreiben
+• <i>Internet-Zugriff:</i> Um Hosts-Dateien herunterzuladen
+• <i>Inhalt der SD-Karte ändern/löschen:</i> Um Deine Listen zu exportieren
+• <i>Standby-Modus deaktivieren:</i> Um das Gerät aus dem Standby aufzuwachen, wenn AdAway im Hintergrund Updates herunterlädt.
