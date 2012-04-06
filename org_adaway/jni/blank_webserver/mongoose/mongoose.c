@@ -24,6 +24,7 @@
 #define _XOPEN_SOURCE 600     // For flockfile() on Linux
 #define _LARGEFILE_SOURCE     // Enable 64-bit file offsets
 #define __STDC_FORMAT_MACROS  // <inttypes.h> wants this for C++
+#define __STDC_LIMIT_MACROS   // C++ wants that for INT64_MAX
 #endif
 
 #if defined(__SYMBIAN32__)
@@ -64,6 +65,7 @@
 #include <io.h>
 #else // _WIN32_WCE
 #include <winsock2.h>
+#include <ws2tcpip.h>
 #define NO_CGI // WinCE has no pipes
 
 typedef long off_t;
@@ -112,7 +114,7 @@ typedef long off_t;
 #define SHUT_WR 1
 #define snprintf _snprintf
 #define vsnprintf _vsnprintf
-#define sleep(x) Sleep((x) * 1000)
+#define mg_sleep(x) Sleep(x)
 
 #define pipe(x) _pipe(x, BUFSIZ, _O_BINARY)
 #define popen(x, y) _popen(x, y)
@@ -124,8 +126,8 @@ typedef long off_t;
 #define fdopen(x, y) _fdopen((x), (y))
 #define write(x, y, z) _write((x), (y), (unsigned) z)
 #define read(x, y, z) _read((x), (y), (unsigned) z)
-#define flockfile(x) (void) 0
-#define funlockfile(x) (void) 0
+#define flockfile(x) EnterCriticalSection(&global_log_file_lock)
+#define funlockfile(x) LeaveCriticalSection(&global_log_file_lock)
 
 #if !defined(fileno)
 #define fileno(x) _fileno(x)
@@ -205,6 +207,7 @@ typedef struct DIR {
 #define mg_mkdir(x, y) mkdir(x, y)
 #define mg_remove(x) remove(x)
 #define mg_rename(x, y) rename(x, y)
+#define mg_sleep(x) usleep((x) * 1000)
 #define ERRNO errno
 #define INVALID_SOCKET (-1)
 #define INT64_FMT PRId64
@@ -215,13 +218,14 @@ typedef int SOCKET;
 
 #include "mongoose.h"
 
-#define MONGOOSE_VERSION "3.1"
+#define MONGOOSE_VERSION "3.2"
 #define PASSWORDS_FILE_NAME ".htpasswd"
 #define CGI_ENVIRONMENT_SIZE 4096
 #define MAX_CGI_ENVIR_VARS 64
 #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
 
 #ifdef _WIN32
+static CRITICAL_SECTION global_log_file_lock;
 static pthread_t pthread_self(void) {
   return GetCurrentThreadId();
 }
@@ -246,6 +250,10 @@ static pthread_t pthread_self(void) {
 #ifdef NO_SOCKLEN_T
 typedef int socklen_t;
 #endif // NO_SOCKLEN_T
+
+#if !defined(MSG_NOSIGNAL)
+#define MSG_NOSIGNAL 0
+#endif
 
 typedef void * (*mg_thread_func_t)(void *);
 
@@ -467,6 +475,7 @@ struct mg_connection {
   int64_t consumed_content;   // How many bytes of content is already read
   char *buf;                  // Buffer for received data
   char *path_info;            // PATH_INFO part of the URL
+  int must_close;             // 1 if connection must be closed
   int buf_size;               // Buffer size
   int request_len;            // Size of the request + headers in a buffer
   int data_len;               // Total size of data in a buffer
@@ -777,7 +786,7 @@ static int match_prefix(const char *pattern, int pattern_len, const char *str) {
   const char *or_str;
   int i, j, len, res;
 
-  if ((or_str = memchr(pattern, '|', pattern_len)) != NULL) {
+  if ((or_str = (const char *) memchr(pattern, '|', pattern_len)) != NULL) {
     res = match_prefix(pattern, or_str - pattern, str);
     return res > 0 ? res :
         match_prefix(or_str + 1, (pattern + pattern_len) - (or_str + 1), str);
@@ -818,7 +827,9 @@ static int match_prefix(const char *pattern, int pattern_len, const char *str) {
 static int should_keep_alive(const struct mg_connection *conn) {
   const char *http_version = conn->request_info.http_version;
   const char *header = mg_get_header(conn, "Connection");
-  return (!mg_strcasecmp(conn->ctx->config[ENABLE_KEEP_ALIVE], "yes") &&
+  return (!conn->must_close &&
+          !conn->request_info.status_code != 401 &&
+          !mg_strcasecmp(conn->ctx->config[ENABLE_KEEP_ALIVE], "yes") &&
           (header == NULL && http_version && !strcmp(http_version, "1.1"))) ||
           (header != NULL && !mg_strcasecmp(header, "keep-alive"));
 }
@@ -951,6 +962,7 @@ static void to_unicode(const char *path, wchar_t *wbuf, size_t wbuf_len) {
   } else {
     // Convert to Unicode and back. If doubly-converted string does not
     // match the original, something is fishy, reject.
+    memset(wbuf, 0, wbuf_len * sizeof(wchar_t));
     MultiByteToWideChar(CP_UTF8, 0, buf, -1, wbuf, (int) wbuf_len);
     WideCharToMultiByte(CP_UTF8, 0, wbuf, (int) wbuf_len, buf2, sizeof(buf2),
                         NULL, NULL);
@@ -1169,16 +1181,12 @@ static pid_t spawn_process(struct mg_connection *conn, const char *prog,
   HANDLE me;
   char *p, *interp, cmdline[PATH_MAX], buf[PATH_MAX];
   FILE *fp;
-  STARTUPINFOA si;
-  PROCESS_INFORMATION pi;
+  STARTUPINFOA si = { sizeof(si) };
+  PROCESS_INFORMATION pi = { 0 };
 
   envp = NULL; // Unused
 
-  (void) memset(&si, 0, sizeof(si));
-  (void) memset(&pi, 0, sizeof(pi));
-
   // TODO(lsm): redirect CGI errors to the error log file
-  si.cb  = sizeof(si);
   si.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
   si.wShowWindow = SW_HIDE;
 
@@ -1348,11 +1356,11 @@ static int64_t push(FILE *fp, SOCKET sock, SSL *ssl, const char *buf,
     if (ssl != NULL) {
       n = SSL_write(ssl, buf + sent, k);
     } else if (fp != NULL) {
-      n = fwrite(buf + sent, 1, (size_t)k, fp);
+      n = fwrite(buf + sent, 1, (size_t) k, fp);
       if (ferror(fp))
         n = -1;
     } else {
-      n = send(sock, buf + sent, (size_t)k, 0);
+      n = send(sock, buf + sent, (size_t) k, MSG_NOSIGNAL);
     }
 
     if (n < 0)
@@ -1581,8 +1589,6 @@ static int convert_uri_to_file_name(struct mg_connection *conn, char *buf,
   //change_slashes_to_backslashes(buf);
 #endif // _WIN32
 
-  DEBUG_TRACE(("[%s] -> [%s], [%.*s]", uri, buf, (int) vec.len, vec.ptr));
-
   if ((stat_result = mg_stat(buf, st)) != 0) {
     // Support PATH_INFO for CGI scripts.
     for (p = buf + strlen(buf); p > buf + 1; p--) {
@@ -1591,8 +1597,13 @@ static int convert_uri_to_file_name(struct mg_connection *conn, char *buf,
         if (match_prefix(conn->ctx->config[CGI_EXTENSIONS],
                          strlen(conn->ctx->config[CGI_EXTENSIONS]), buf) > 0 &&
             (stat_result = mg_stat(buf, st)) == 0) {
+          // Shift PATH_INFO block one character right, e.g.
+          //  "/x.cgi/foo/bar\x00" => "/x.cgi\x00/foo/bar\x00"
+          // conn->path_info is pointing to the local variable "path" declared
+          // in handle_request(), so PATH_INFO not valid after
+          // handle_request returns.
           conn->path_info = p + 1;
-          memmove(p + 2, p + 1, strlen(p + 1));
+          memmove(p + 2, p + 1, strlen(p + 1) + 1);  // +1 is for trailing \0
           p[1] = '/';
           break;
         } else {
@@ -2446,6 +2457,7 @@ static void handle_directory_request(struct mg_connection *conn,
   sort_direction = conn->request_info.query_string != NULL &&
     conn->request_info.query_string[1] == 'd' ? 'a' : 'd';
 
+  conn->must_close = 1;
   mg_printf(conn, "%s",
             "HTTP/1.1 200 OK\r\n"
             "Connection: close\r\n"
@@ -2678,7 +2690,7 @@ static int substitute_index_file(struct mg_connection *conn, char *path,
   while ((list = next_option(list, &filename_vec, NULL)) != NULL) {
 
     // Ignore too long entries that may overflow path buffer
-    if (filename_vec.len > path_len - n)
+    if (filename_vec.len > path_len - (n + 2))
       continue;
 
     // Prepare full path to the index file
@@ -2922,7 +2934,7 @@ static void prepare_cgi_environment(struct mg_connection *conn,
 
 static void handle_cgi_request(struct mg_connection *conn, const char *prog) {
   int headers_len, data_len, i, fd_stdin[2], fd_stdout[2];
-  const char *status;
+  const char *status, *status_text;
   char buf[BUFSIZ], *pbuf, dir[PATH_MAX], *p;
   struct mg_request_info ri;
   struct cgi_env_block blk;
@@ -2993,14 +3005,24 @@ static void handle_cgi_request(struct mg_connection *conn, const char *prog) {
   parse_http_headers(&pbuf, &ri);
 
   // Make up and send the status line
+  status_text = "OK";
   if ((status = get_header(&ri, "Status")) != NULL) {
     conn->request_info.status_code = atoi(status);
+    status_text = status;
+    while (isdigit(* (unsigned char *) status_text) || *status_text == ' ') {
+      status_text++;
+    }
   } else if (get_header(&ri, "Location") != NULL) {
     conn->request_info.status_code = 302;
   } else {
     conn->request_info.status_code = 200;
   }
-  (void) mg_printf(conn, "HTTP/1.1 %d OK\r\n", conn->request_info.status_code);
+  if (get_header(&ri, "Connection") != NULL &&
+      !mg_strcasecmp(get_header(&ri, "Connection"), "keep-alive")) {
+    conn->must_close = 1;
+  }
+  (void) mg_printf(conn, "HTTP/1.1 %d %s\r\n", conn->request_info.status_code,
+                   status_text);
 
   // Send headers
   for (i = 0; i < ri.num_headers; i++) {
@@ -3242,6 +3264,7 @@ static void handle_ssi_file_request(struct mg_connection *conn,
     send_http_error(conn, 500, http_500_error, "fopen(%s): %s", path,
                     strerror(ERRNO));
   } else {
+    conn->must_close = 1;
     set_close_on_exec(fileno(fp));
     mg_printf(conn, "HTTP/1.1 200 OK\r\n"
               "Content-Type: text/html\r\nConnection: %s\r\n\r\n",
@@ -3295,6 +3318,7 @@ static void handle_propfind(struct mg_connection *conn, const char* path,
                             struct mgstat* st) {
   const char *depth = mg_get_header(conn, "Depth");
 
+  conn->must_close = 1;
   conn->request_info.status_code = 207;
   mg_printf(conn, "HTTP/1.1 207 Multi-Status\r\n"
             "Connection: close\r\n"
@@ -3776,9 +3800,6 @@ static void reset_per_request_attributes(struct mg_connection *conn) {
   struct mg_request_info *ri = &conn->request_info;
 
   // Reset request info attributes. DO NOT TOUCH is_ssl, remote_ip, remote_port
-  if (ri->remote_user != NULL) {
-    free((void *) ri->remote_user);
-  }
   ri->remote_user = ri->request_method = ri->uri = ri->http_version =
     conn->path_info = NULL;
   ri->num_headers = 0;
@@ -3787,6 +3808,7 @@ static void reset_per_request_attributes(struct mg_connection *conn) {
   conn->num_bytes_sent = conn->consumed_content = 0;
   conn->content_len = -1;
   conn->request_len = conn->data_len = 0;
+  conn->must_close = 0;
 }
 
 static void close_socket_gracefully(SOCKET sock) {
@@ -3895,8 +3917,12 @@ static void process_new_connection(struct mg_connection *conn) {
       conn->content_len = cl == NULL ? -1 : strtoll(cl, NULL, 10);
       conn->birth_time = time(NULL);
       handle_request(conn);
+      call_user(conn, MG_REQUEST_COMPLETE);
       log_access(conn);
       discard_current_request_from_buffer(conn);
+    }
+    if (ri->remote_user != NULL) {
+      free((void *) ri->remote_user);
     }
   } while (conn->ctx->stop_flag == 0 &&
            keep_alive_enabled &&
@@ -3938,9 +3964,12 @@ static void worker_thread(struct mg_context *ctx) {
   int buf_size = atoi(ctx->config[MAX_REQUEST_SIZE]);
 
   conn = (struct mg_connection *) calloc(1, sizeof(*conn) + buf_size);
+  if (conn == NULL) {
+    cry(fc(ctx), "%s", "Cannot create new connection struct, OOM");
+    return;
+  }
   conn->buf_size = buf_size;
   conn->buf = (char *) (conn + 1);
-  assert(conn != NULL);
 
   // Call consume_socket() even when ctx->stop_flag > 0, to let it signal
   // sq_empty condvar to wake up the master waiting in produce_socket()
@@ -4057,7 +4086,7 @@ static void master_thread(struct mg_context *ctx) {
       // On windows, if read_set and write_set are empty,
       // select() returns "Invalid parameter" error
       // (at least on my Windows XP Pro). So in this case, we sleep here.
-      sleep(1);
+      mg_sleep(1000);
 #endif // _WIN32
     } else {
       for (sp = ctx->listening_sockets; sp != NULL; sp = sp->next) {
@@ -4126,7 +4155,7 @@ void mg_stop(struct mg_context *ctx) {
 
   // Wait until mg_fini() stops
   while (ctx->stop_flag != 2) {
-    (void) sleep(0);
+    mg_sleep(10);
   }
   free_context(ctx);
 
@@ -4144,6 +4173,7 @@ struct mg_context *mg_start(mg_callback_t user_callback, void *user_data,
 #if defined(_WIN32) && !defined(__SYMBIAN32__)
   WSADATA data;
   WSAStartup(MAKEWORD(2,2), &data);
+  InitializeCriticalSection(&global_log_file_lock);
 #endif // _WIN32
 
   // Allocate context and initialize reasonable general case defaults.
@@ -4161,6 +4191,9 @@ struct mg_context *mg_start(mg_callback_t user_callback, void *user_data,
       cry(fc(ctx), "%s: option value cannot be NULL", name);
       free_context(ctx);
       return NULL;
+    }
+    if (ctx->config[i] != NULL) {
+      cry(fc(ctx), "%s: duplicate option", name);
     }
     ctx->config[i] = mg_strdup(value);
     DEBUG_TRACE(("[%s] -> [%s]", name, value));
