@@ -36,6 +36,12 @@
         <item name="actionMenuTextColor">?attr/textColorPrimary</item>
         <item name="actionBarDivider">?attr/dividerVertical</item>
         <item name="actionBarItemBackground">@drawable/abs__item_background_holo_dark</item>
+
+        <item name="buttonStyleSmall">@style/Widget.Sherlock.Button.Small</item>
+        
+        <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_dark</item>
+        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_dark</item>
+        <item name="activityChooserViewStyle">@style/Widget.Sherlock.ActivityChooserView</item>
         
         <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_dark</item>
         
@@ -50,11 +56,13 @@
         
         <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
         <item name="dropDownListViewStyle">@style/Widget.Sherlock.ListView.DropDown</item>
-        
+
+        <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Small</item>
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.Sherlock.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.Sherlock.Widget.PopupMenu.Small</item>
         
         <item name="popupMenuStyle">@style/Widget.Sherlock.PopupMenu</item>
+        <!-- Internal --><item name="listPopupWindowStyle">@style/Widget.Sherlock.ListPopupWindow</item>
         
         <item name="windowActionBar">true</item>
         <item name="windowActionModeOverlay">false</item>
@@ -84,6 +92,12 @@
         <item name="actionMenuTextColor">?attr/textColorPrimary</item>
         <item name="actionBarDivider">?attr/dividerVertical</item>
         <item name="actionBarItemBackground">@drawable/abs__item_background_holo_light</item>
+
+        <item name="buttonStyleSmall">@style/Widget.Sherlock.Light.Button.Small</item>
+        
+        <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_light</item>
+        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_light</item>
+        <item name="activityChooserViewStyle">@style/Widget.Sherlock.Light.ActivityChooserView</item>
         
         <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_light</item>
         
@@ -98,11 +112,13 @@
         
         <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
         <item name="dropDownListViewStyle">@style/Widget.Sherlock.Light.ListView.DropDown</item>
-        
+
+        <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Light.Small</item>
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.Sherlock.Light.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.Sherlock.Light.Widget.PopupMenu.Small</item>
         
         <item name="popupMenuStyle">@style/Widget.Sherlock.Light.PopupMenu</item>
+        <!-- Internal --><item name="listPopupWindowStyle">@style/Widget.Sherlock.Light.ListPopupWindow</item>
         
         <item name="windowActionBar">true</item>
         <item name="windowActionModeOverlay">false</item>
@@ -125,10 +141,12 @@
         <item name="actionBarTabTextStyle">@style/Widget.Sherlock.Light.ActionBar.TabText.Inverse</item>
         <item name="actionBarDivider">@drawable/abs__list_divider_holo_dark</item>
         <item name="actionBarItemBackground">@drawable/abs__item_background_holo_dark</item>
-        <item name="actionMenuTextColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="actionMenuTextColor">?attr/textColorPrimaryInverse</item>
         <item name="actionModeStyle">@style/Widget.Sherlock.Light.ActionMode.Inverse</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
         <item name="actionModePopupWindowStyle">@style/Widget.Sherlock.PopupWindow.ActionMode</item>
+        
+        <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_dark</item>
     </style>
     
     

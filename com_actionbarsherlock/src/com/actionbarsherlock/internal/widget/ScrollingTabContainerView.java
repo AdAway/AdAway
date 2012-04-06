@@ -29,7 +29,6 @@ import android.view.ViewParent;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.BaseAdapter;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -37,12 +36,13 @@ import com.actionbarsherlock.R;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.internal.nineoldandroids.animation.Animator;
 import com.actionbarsherlock.internal.nineoldandroids.animation.ObjectAnimator;
+import com.actionbarsherlock.internal.nineoldandroids.widget.NineHorizontalScrollView;
 
 /**
  * This widget implements the dynamic action bar tab behavior that can change
  * across different configurations or circumstances.
  */
-public class ScrollingTabContainerView extends HorizontalScrollView
+public class ScrollingTabContainerView extends NineHorizontalScrollView
         implements IcsAdapterView.OnItemSelectedListener {
     //UNUSED private static final String TAG = "ScrollingTabContainerView";
     Runnable mTabSelector;

@@ -417,9 +417,9 @@ public class ActionMenuView extends IcsLinearLayout implements MenuBuilder.ItemI
                 final int size = v.getMeasuredWidth() + p.leftMargin + p.rightMargin;
                 //UNUSED nonOverflowWidth += size;
                 widthRemaining -= size;
-                if (hasDividerBeforeChildAt(i)) {
+                //if (hasDividerBeforeChildAt(i)) {
                     //UNUSED nonOverflowWidth += dividerWidth;
-                }
+                //}
                 nonOverflowCount++;
             }
         }

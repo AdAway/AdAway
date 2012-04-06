@@ -18,6 +18,10 @@ public class CapitalizingTextView extends TextView {
 
     private boolean mAllCaps;
 
+    public CapitalizingTextView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
     public CapitalizingTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 

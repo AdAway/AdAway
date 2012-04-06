@@ -3,7 +3,7 @@
 <resources>
     <style name="Widget">
     </style>
-    
+
     <style name="Sherlock.__Widget.ActionBar" parent="Widget">
         <item name="displayOptions">useLogo|showHome|showTitle</item>
         <item name="height">?attr/actionBarSize</item>
@@ -71,7 +71,7 @@
         <item name="progressBarPadding">32dip</item>
         <item name="itemPadding">8dip</item>
     </style>
-    
+
     <style name="Widget.Sherlock.ActionBar.TabView" parent="Widget">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:background">@drawable/abs__tab_indicator_holo</item>
@@ -82,7 +82,7 @@
     </style>
     <style name="Widget.Sherlock.Light.ActionBar.TabView.Inverse">
     </style>
-    
+
     <style name="Widget.Sherlock.ActionBar.TabBar" parent="Widget">
         <item name="android:divider">?attr/actionBarDivider</item>
         <item name="android:showDividers">middle</item>
@@ -92,7 +92,7 @@
     </style>
     <style name="Widget.Sherlock.Light.ActionBar.TabBar.Inverse">
     </style>
-    
+
     <style name="Widget.Sherlock.ActionBar.TabText" parent="Widget">
         <item name="android:textAppearance">@null</item>
         <item name="android:textColor">?attr/textColorPrimary</item>
@@ -111,7 +111,7 @@
     <style name="Widget.Sherlock.ActionButton" parent="Widget">
         <item name="android:background">?attr/actionBarItemBackground</item>
         <item name="android:minHeight">?attr/actionBarSize</item>
-        
+
         <item name="android:minWidth">56dip</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingLeft">12dip</item>
@@ -120,14 +120,14 @@
     </style>
     <style name="Widget.Sherlock.Light.ActionButton" parent="Widget.Sherlock.ActionButton">
     </style>
-    
+
     <style name="Widget.Sherlock.ActionButton.CloseMode">
         <item name="android:background">@drawable/abs__btn_cab_done_holo_dark</item>
     </style>
     <style name="Widget.Sherlock.Light.ActionButton.CloseMode">
         <item name="android:background">@drawable/abs__btn_cab_done_holo_light</item>
     </style>
-    
+
     <style name="Widget.Sherlock.ActionButton.Overflow">
         <item name="android:src">@drawable/abs__ic_menu_moreoverflow_holo_dark</item>
         <item name="android:background">?attr/actionBarItemBackground</item>
@@ -136,7 +136,7 @@
     <style name="Widget.Sherlock.Light.ActionButton.Overflow">
         <item name="android:src">@drawable/abs__ic_menu_moreoverflow_holo_light</item>
     </style>
-    
+
     <style name="Sherlock.__Widget.ActionMode" parent="Widget">
         <item name="background">?attr/actionModeBackground</item>
         <item name="backgroundSplit">?attr/actionModeSplitBackground</item>
@@ -154,21 +154,52 @@
         <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionMode.Title.Inverse</item>
         <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionMode.Subtitle.Inverse</item>
     </style>
-    
-    
-    <style name="Widget.Sherlock.PopupMenu" parent="Widget">
+
+
+    <style name="Widget.Sherlock.ListPopupWindow" parent="Widget">
         <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_dark</item>
         <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_dark</item>
         <item name="android:dropDownVerticalOffset">0dip</item>
         <item name="android:dropDownHorizontalOffset">0dip</item>
         <item name="android:dropDownWidth">wrap_content</item>
     </style>
-    <style name="Widget.Sherlock.Light.PopupMenu" parent="Widget">
+    <style name="Widget.Sherlock.Light.ListPopupWindow" parent="Widget">
         <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_light</item>
         <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_light</item>
         <item name="android:dropDownVerticalOffset">0dip</item>
         <item name="android:dropDownHorizontalOffset">0dip</item>
         <item name="android:dropDownWidth">wrap_content</item>
+    </style>
+    <style name="Widget.Sherlock.PopupMenu" parent="Widget.Sherlock.ListPopupWindow">
+    </style>
+    <style name="Widget.Sherlock.Light.PopupMenu" parent="Widget.Sherlock.Light.ListPopupWindow">
+    </style>
+
+
+    <style name="Sherlock.__Widget.ActivityChooserView" parent="Widget">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/abs__ab_share_pack_holo_dark</item>
+        <item name="android:divider">?attr/dividerVertical</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:dividerPadding">6dip</item>
+    </style>
+    <style name="Widget.Sherlock.ActivityChooserView" parent="Sherlock.__Widget.ActivityChooserView">
+    </style>
+    <style name="Widget.Sherlock.Light.ActivityChooserView" parent="Widget.Sherlock.ActivityChooserView">
+        <item name="android:background">@drawable/abs__ab_share_pack_holo_light</item>
+    </style>
+
+    <style name="Widget.Sherlock.Button.Small" parent="Widget">
+      <item name="android:textAppearance">?attr/textAppearanceSmall</item>
+      <item name="android:textColor">@color/abs__primary_text_holo_dark</item>
+      <item name="android:minHeight">48dip</item>
+      <item name="android:minWidth">48dip</item>
+    </style>
+    <style name="Widget.Sherlock.Light.Button.Small" parent="Widget">
+      <item name="android:textAppearance">?attr/textAppearanceSmall</item>
+      <item name="android:textColor">@color/abs__primary_text_holo_light</item>
+      <item name="android:minHeight">48dip</item>
+      <item name="android:minWidth">48dip</item>
     </style>
 
 
@@ -190,7 +221,7 @@
         <item name="android:dropDownSelector">@drawable/abs__list_selector_holo_light</item>
         <item name="android:popupBackground">@drawable/abs__menu_dropdown_panel_holo_light</item>
     </style>
-    
+
     <style name="Sherlock.__Widget.Holo.ListView" parent="android:Widget.ListView">
         <item name="android:divider">@drawable/abs__list_divider_holo_dark</item>
         <item name="android:listSelector">@drawable/abs__list_selector_holo_dark</item>
@@ -306,7 +337,7 @@
         <item name="android:textSize">@dimen/abs__action_bar_subtitle_text_size</item>
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
     </style>
-    
+
     <style name="TextAppearance.Sherlock.Widget.PopupMenu" parent="Widget">
         <item name="android:textColor">?attr/textColorPrimary</item>
     </style>
@@ -320,19 +351,19 @@
     </style>
     <style name="TextAppearance.Sherlock.Light.Widget.PopupMenu.Small" parent="TextAppearance.Sherlock.Widget.PopupMenu.Small">
     </style>
-    
+
     <style name="TextAppearance.Sherlock.Widget.TextView.SpinnerItem" parent="Widget">
         <item name="android:textColor">?textColorPrimary</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>
     </style>
-    
+
     <style name="TextAppearance.Sherlock.Widget.DropDownItem" parent="Widget">
         <item name="android:textColor">?textColorPrimaryDisableOnly</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>
     </style>
-    
+
     <style name="TextAppearance.Sherlock.DialogWindowTitle" parent="Widget">
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/abs__holo_blue_light</item>
@@ -340,5 +371,14 @@
     <style name="TextAppearance.Sherlock.Light.DialogWindowTitle" parent="Widget">
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/abs__holo_blue_light</item>
+    </style>
+
+    <style name="Sherlock.__TextAppearance.Small" parent="Widget">
+      <item name="android:textSize">14sp</item>
+      <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Sherlock.Small" parent="Sherlock.__TextAppearance.Small">
+    </style>
+    <style name="TextAppearance.Sherlock.Light.Small" parent="TextAppearance.Sherlock.Small">
     </style>
 </resources>

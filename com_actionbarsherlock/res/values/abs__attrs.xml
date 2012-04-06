@@ -7,7 +7,7 @@
     <attr name="backgroundSplit" format="reference|color" />
     <attr name="height" format="dimension" />
     <attr name="divider" format="reference" />
-    
+
     <declare-styleable name="SherlockTheme">
         <!-- =================== -->
         <!-- Action bar styles   -->
@@ -60,6 +60,8 @@
         <attr name="actionModeSplitBackground" format="reference" />
         <!-- Drawable to use for the close action mode button -->
         <attr name="actionModeCloseDrawable" format="reference" />
+        <!-- Drawable to use for the Share action button in WebView selection action modes -->
+        <attr name="actionModeShareDrawable" format="reference" />
 
         <!-- PopupWindow style to use for action modes when showing as a window overlay. -->
         <attr name="actionModePopupWindowStyle" format="reference" />
@@ -71,9 +73,9 @@
 
         <!-- Small Button style. -->
         <attr name="buttonStyleSmall" format="reference" />
-        
-        
-        
+
+
+
         <!-- This Drawable is overlaid over the foreground of the Window's content area, usually
              to place a shadow below the title.  -->
         <attr name="windowContentOverlay" format="reference" />
@@ -83,15 +85,15 @@
 
         <!-- Text color, typeface, size, and style for small text inside of a popup menu. -->
         <attr name="textAppearanceSmallPopupMenu" format="reference" />
-        
-        
+
+
         <!-- Text color, typeface, size, and style for "small" text. Defaults to secondary text color. -->
         <attr name="textAppearanceSmall" format="reference" />
-        
+
         <attr name="textColorPrimary" format="color" />
         <attr name="textColorPrimaryDisableOnly" format="color" />
         <attr name="textColorPrimaryInverse" format="color" />
-        
+
         <attr name="spinnerItemStyle" format="reference" />
         <attr name="spinnerDropDownItemStyle" format="reference" />
 
@@ -99,7 +101,7 @@
         <!-- List styles -->
         <!-- =========== -->
         <eat-comment />
-        
+
         <!-- A smaller, sleeker list item height. -->
         <attr name="listPreferredItemHeightSmall" format="dimension" />
 
@@ -107,19 +109,19 @@
         <attr name="listPreferredItemPaddingLeft" format="dimension" />
         <!-- The preferred padding along the right edge of list items. -->
         <attr name="listPreferredItemPaddingRight" format="dimension" />
-        
+
         <!-- The preferred TextAppearance for the primary text of small list items. -->
         <attr name="textAppearanceListItemSmall" format="reference" />
-        
-        
+
+
         <attr name="windowMinWidthMajor" format="dimension" />
         <attr name="windowMinWidthMinor" format="dimension" />
-        
-        
+
+
 
         <!-- Drawable to use for generic vertical dividers. -->
         <attr name="dividerVertical" format="reference" />
-        
+
         <attr name="actionDropDownStyle" format="reference" />
         <attr name="actionButtonStyle" format="reference" />
         <attr name="homeAsUpIndicator" format="reference" />
@@ -132,13 +134,22 @@
         <attr name="windowActionBarOverlay" format="boolean"/>
         <attr name="windowActionModeOverlay" format="boolean"/>
         <attr name="windowSplitActionBar" format="boolean" />
-        
+
+
+        <attr name="listPopupWindowStyle" format="reference" />
+
+
+        <!-- Default ActivityChooserView style. -->
+        <attr name="activityChooserViewStyle" format="reference" />
+        <!-- Drawable used as a background for activated items. -->
+        <attr name="activatedBackgroundIndicator" format="reference" />
+
         <!-- Specified if we are forcing an action item overflow menu. -->
         <attr name="absForceOverflow" format="boolean" />
-        
+
         <attr name="android:windowIsFloating" />
     </declare-styleable>
-    
+
 
     <!-- Attributes used to style the Action Bar. -->
     <declare-styleable name="SherlockActionBar">
@@ -196,7 +207,7 @@
              system-provided items in the bar. -->
         <attr name="itemPadding" format="dimension" />
     </declare-styleable>
-    
+
 
     <declare-styleable name="SherlockActionMode">
         <!-- Specifies a style to use for title text. -->
@@ -210,7 +221,7 @@
         <!-- Specifies a fixed height for the action mode bar. -->
         <attr name="height" />
     </declare-styleable>
-    
+
     <declare-styleable name="SherlockMenuView">
         <!-- Default appearance of menu item text. -->
         <attr name="itemTextAppearance" format="reference" />
@@ -229,9 +240,23 @@
         <!-- Whether space should be reserved in layout when an icon is missing. -->
         <attr name="preserveIconSpacing" format="boolean" />
     </declare-styleable>
-    
+
     <declare-styleable name="SherlockActionMenuItemView">
         <attr name="android:minWidth" />
+    </declare-styleable>
+
+    <declare-styleable name="SherlockActivityChooserView">
+        <!-- The maximal number of items initially shown in the activity list. -->
+        <attr name="initialActivityCount" format="string" />
+        <!-- The drawable to show in the button for expanding the activities overflow popup.
+             <strong>Note:</strong> Clients would like to set this drawable
+             as a clue about the action the chosen activity will perform. For
+             example, if share activity is to be chosen the drawable should
+             give a clue that sharing is to be performed.
+         -->
+        <attr name="expandActivityOverflowButtonDrawable" format="reference" />
+
+        <attr name="android:background" />
     </declare-styleable>
 
     <!-- Base attributes that are available to all groups. -->
@@ -329,7 +354,7 @@
         <attr name="android:actionProviderClass" />
 
     </declare-styleable>
-    
+
     <declare-styleable name="SherlockSpinner">
         <!-- The prompt to display when the spinner's dialog is shown. -->
         <attr name="android:prompt" />

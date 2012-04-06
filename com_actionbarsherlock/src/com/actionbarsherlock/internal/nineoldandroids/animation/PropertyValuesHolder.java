@@ -256,7 +256,7 @@ public class PropertyValuesHolder implements Cloneable {
         else {
             PropertyValuesHolder pvh = new PropertyValuesHolder(propertyName);
             pvh.mKeyframeSet = keyframeSet;
-            pvh.mValueType = ((Keyframe)values[0]).getType();
+            pvh.mValueType = values[0].getType();
             return pvh;
         }
     }
@@ -336,9 +336,9 @@ public class PropertyValuesHolder implements Cloneable {
     public void setKeyframes(Keyframe... values) {
         int numKeyframes = values.length;
         Keyframe keyframes[] = new Keyframe[Math.max(numKeyframes,2)];
-        mValueType = ((Keyframe)values[0]).getType();
+        mValueType = values[0].getType();
         for (int i = 0; i < numKeyframes; ++i) {
-            keyframes[i] = (Keyframe)values[i];
+            keyframes[i] = values[i];
         }
         mKeyframeSet = new KeyframeSet(keyframes);
     }

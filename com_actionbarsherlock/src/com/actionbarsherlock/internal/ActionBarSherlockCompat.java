@@ -318,6 +318,10 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
     public boolean dispatchPrepareOptionsMenu(android.view.Menu menu) {
         if (DEBUG) Log.d(TAG, "[dispatchPrepareOptionsMenu] android.view.Menu: " + menu);
 
+        if (mActionMode != null) {
+            return false;
+        }
+
         mMenuIsPrepared = false;
         if (!preparePanel()) {
             return false;
