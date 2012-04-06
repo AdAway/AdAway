@@ -198,8 +198,10 @@ public class BillingService extends Service implements ServiceConnection {
             Bundle request = makeRequestBundle("CHECK_BILLING_SUPPORTED");
             try {
                 Bundle response = mService.sendBillingRequest(request);
+                // fix from
+                // http://stackoverflow.com/questions/5576733/in-app-billing-is-not-working-on-g1
                 int responseCode = response.containsKey(Consts.BILLING_RESPONSE_RESPONSE_CODE) ? response
-                        .getInt(Consts.BILLING_RESPONSE_RESPONSE_CODE)
+                        .getInt(Consts.BILLING_RESPONSE_RESPONSE_CODE, -123)
                         : ResponseCode.RESULT_BILLING_UNAVAILABLE.ordinal();
                 if (Consts.DEBUG) {
                     Log.i(TAG,
