@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">닫기</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
+  <string name="donations__flattr_description">• Flattr takes 10 % as a monthly fee!</string>
+  <string name="donations__google_android_market">Google Android Market</string>
+  <string name="donations__google_android_market_not_supported_title">In-App Donations are not supported</string>
+  <string name="donations__google_android_market_not_supported">In-App Donations are not supported. Is Google Android Market installed correctly?</string>
+  <string name="donations__google_android_market_description">• Google takes 30 % off every donation!\n• There is no premium version for donators.</string>
+  <string name="donations__google_android_market_donate_button">기부!</string>
+  <string name="donations__google_android_market_text">얼마?</string>
+  <string-array name="donations__google_android_market_promt_array">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">• You can choose how much you want to donate after clicking the button!</string>
+  <string name="donations__thanks_dialog_title">Thanks!</string>
+  <string name="donations__thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
+</resources>

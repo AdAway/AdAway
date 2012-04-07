@@ -18,6 +18,6 @@ source_file = org_adaway/res/raw/help_problems.html
 source_lang = en
 
 [adaway.donations-strings]
-file_filter = org_donations/res/values-<lang>/strings.xml
-source_file = org_donations/res/values/strings.xml
+file_filter = org_donations/res/values-<lang>/donations__strings.xml
+source_file = org_donations/res/values/donations__strings.xml
 source_lang = en

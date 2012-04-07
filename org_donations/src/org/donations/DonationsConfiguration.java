@@ -20,7 +20,7 @@ public class DonationsConfiguration {
 
     public static final String TAG = "Donations";
 
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
 
     /** Flattr */
 
@@ -35,8 +35,8 @@ public class DonationsConfiguration {
 
     /** Google Play Store In-App Billing */
 
+    // your public key from the google play publisher account
     public static final String GOOGLE_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg8bTVFK5zIg4FGYkHKKQ/j/iGZQlXU0qkAv2BA6epOX1ihbMz78iD4SmViJlECHN8bKMHxouRNd9pkmQKxwEBHg5/xDC/PHmSCXFx/gcY/xa4etA1CSfXjcsS9i94n+j0gGYUg69rNkp+p/09nO9sgfRTAQppTxtgKaXwpfKe1A8oqmDUfOnPzsEAG6ogQL6Svo6ynYLVKIvRPPhXkq+fp6sJ5YVT5Hr356yCXlM++G56Pk8Z+tPzNjjvGSSs/MsYtgFaqhPCsnKhb55xHkc8GJ9haq8k3PSqwMSeJHnGiDq5lzdmsjdmGkWdQq2jIhKlhMZMm5VQWn0T59+xjjIIwIDAQAB";
-
     // mapping from the possible donations of 1,2,3,5,8 and 13 eur to your in-app items defined in
     // the publisher account of google play
     public static final String[] GOOGLE_CATALOG = new String[] { "adaway.donation.1",
