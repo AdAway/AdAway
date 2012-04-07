@@ -1,44 +1,37 @@
 /*
  * Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
  *
- * This file is part of AdAway.
- * 
- * AdAway is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * AdAway is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * You should have received a copy of the GNU General Public License
- * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package org.adaway.ui;
+package org.donations;
 
-import org.adaway.R;
-import org.adaway.google.donations.BillingService;
-import org.adaway.google.donations.Consts;
-import org.adaway.google.donations.PurchaseObserver;
-import org.adaway.google.donations.ResponseHandler;
-import org.adaway.google.donations.BillingService.RequestPurchase;
-import org.adaway.google.donations.BillingService.RestoreTransactions;
-import org.adaway.google.donations.Consts.PurchaseState;
-import org.adaway.google.donations.Consts.ResponseCode;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
+import org.donations.google.BillingService;
+import org.donations.google.Consts;
+import org.donations.google.PurchaseObserver;
+import org.donations.google.ResponseHandler;
+import org.donations.google.BillingService.RequestPurchase;
+import org.donations.google.BillingService.RestoreTransactions;
+import org.donations.google.Consts.PurchaseState;
+import org.donations.google.Consts.ResponseCode;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -49,21 +42,22 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-public class DonationsActivity extends SherlockActivity {
+public class DonationsActivity extends Activity {
     private DonatePurchaseObserver mDonatePurchaseObserver;
     private Handler mHandler;
 
     private Spinner mGoogleAndroidMarketSpinner;
+
+    private TextView mFlattrUrl;
 
     private BillingService mBillingService;
 
     private static final int DIALOG_BILLING_NOT_SUPPORTED_ID = 1;
 
     /** An array of product list entries for the products that can be purchased. */
-    private static final String[] CATALOG = new String[] { "adaway.donation.1",
-            "adaway.donation.2", "adaway.donation.3", "adaway.donation.5", "adaway.donation.8",
-            "adaway.donation.13" };
+    private static final String[] CATALOG = DonationsConfiguration.GOOGLE_CATALOG;
 
     private static final String[] CATALOG_DEBUG = new String[] { "android.test.purchased",
             "android.test.canceled", "android.test.refunded", "android.test.item_unavailable" };
@@ -79,7 +73,7 @@ public class DonationsActivity extends SherlockActivity {
 
         @Override
         public void onBillingSupported(boolean supported) {
-            Log.d(Constants.TAG, "supported: " + supported);
+            Log.d(DonationsConfiguration.TAG, "supported: " + supported);
             if (!supported) {
                 showDialog(DIALOG_BILLING_NOT_SUPPORTED_ID);
             }
@@ -88,20 +82,21 @@ public class DonationsActivity extends SherlockActivity {
         @Override
         public void onPurchaseStateChange(PurchaseState purchaseState, String itemId,
                 final String orderId, long purchaseTime, String developerPayload) {
-            Log.d(Constants.TAG, "onPurchaseStateChange() itemId: " + itemId + " " + purchaseState);
+            Log.d(DonationsConfiguration.TAG, "onPurchaseStateChange() itemId: " + itemId + " "
+                    + purchaseState);
         }
 
         @Override
         public void onRequestPurchaseResponse(RequestPurchase request, ResponseCode responseCode) {
-            Log.d(Constants.TAG, request.mProductId + ": " + responseCode);
+            Log.d(DonationsConfiguration.TAG, request.mProductId + ": " + responseCode);
             if (responseCode == ResponseCode.RESULT_OK) {
-                Log.d(Constants.TAG, "purchase was successfully sent to server");
+                Log.d(DonationsConfiguration.TAG, "purchase was successfully sent to server");
                 AlertDialog.Builder dialog = new AlertDialog.Builder(DonationsActivity.this);
                 dialog.setIcon(android.R.drawable.ic_dialog_info);
-                dialog.setTitle(R.string.donations_thanks_dialog_title);
-                dialog.setMessage(R.string.donations_thanks_dialog);
+                dialog.setTitle(R.string.donations__thanks_dialog_title);
+                dialog.setMessage(R.string.donations__thanks_dialog);
                 dialog.setCancelable(true);
-                dialog.setNeutralButton(R.string.button_close,
+                dialog.setNeutralButton(R.string.donations__button_close,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -110,9 +105,9 @@ public class DonationsActivity extends SherlockActivity {
                         });
                 dialog.show();
             } else if (responseCode == ResponseCode.RESULT_USER_CANCELED) {
-                Log.d(Constants.TAG, "user canceled purchase");
+                Log.d(DonationsConfiguration.TAG, "user canceled purchase");
             } else {
-                Log.d(Constants.TAG, "purchase failed");
+                Log.d(DonationsConfiguration.TAG, "purchase failed");
             }
         }
 
@@ -120,9 +115,9 @@ public class DonationsActivity extends SherlockActivity {
         public void onRestoreTransactionsResponse(RestoreTransactions request,
                 ResponseCode responseCode) {
             if (responseCode == ResponseCode.RESULT_OK) {
-                Log.d(Constants.TAG, "completed RestoreTransactions request");
+                Log.d(DonationsConfiguration.TAG, "completed RestoreTransactions request");
             } else {
-                Log.d(Constants.TAG, "RestoreTransactions error: " + responseCode);
+                Log.d(DonationsConfiguration.TAG, "RestoreTransactions error: " + responseCode);
             }
         }
     }
@@ -132,15 +127,19 @@ public class DonationsActivity extends SherlockActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.donations_activity);
+        setContentView(R.layout.donations__activity);
+
+        // set url of flattr link
+        mFlattrUrl = (TextView) findViewById(R.id.donations__flattr_url);
+        mFlattrUrl.setText(DonationsConfiguration.FLATTR_URL);
 
         // build everything for flattr
         buildFlattrView();
 
         // choose donation amount
-        mGoogleAndroidMarketSpinner = (Spinner) findViewById(R.id.donations_google_android_market_spinner);
+        mGoogleAndroidMarketSpinner = (Spinner) findViewById(R.id.donations__google_android_market_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.donations_google_android_market_promt_array,
+                R.array.donations__google_android_market_promt_array,
                 android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mGoogleAndroidMarketSpinner.setAdapter(adapter);
@@ -159,7 +158,7 @@ public class DonationsActivity extends SherlockActivity {
     public void donateGoogleOnClick(View view) {
         final int index;
         index = mGoogleAndroidMarketSpinner.getSelectedItemPosition();
-        Log.d(Constants.TAG, "selected item in spinner: " + index);
+        Log.d(DonationsConfiguration.TAG, "selected item in spinner: " + index);
 
         if (!Consts.DEBUG) {
             if (!mBillingService.requestPurchase(CATALOG[index], null)) {
@@ -185,18 +184,22 @@ public class DonationsActivity extends SherlockActivity {
         Uri.Builder uriBuilder = new Uri.Builder();
         uriBuilder.scheme("https").authority("www.paypal.com").path("cgi-bin/webscr");
         uriBuilder.appendQueryParameter("cmd", "_donations");
-        uriBuilder.appendQueryParameter("business", "dominik@dominikschuermann.de");
+        uriBuilder.appendQueryParameter("business", DonationsConfiguration.PAYPAL_USER);
         uriBuilder.appendQueryParameter("lc", "US");
-        uriBuilder.appendQueryParameter("item_name", "AdAway Donation");
+        uriBuilder.appendQueryParameter("item_name", DonationsConfiguration.PAYPAL_ITEM_NAME);
         uriBuilder.appendQueryParameter("no_note", "1");
         // uriBuilder.appendQueryParameter("no_note", "0");
         // uriBuilder.appendQueryParameter("cn", "Note to the developer");
         uriBuilder.appendQueryParameter("no_shipping", "1");
-        uriBuilder.appendQueryParameter("currency_code", "EUR");
+        uriBuilder.appendQueryParameter("currency_code",
+                DonationsConfiguration.PAYPAL_CURRENCY_CODE);
         // uriBuilder.appendQueryParameter("bn", "PP-DonationsBF:btn_donate_LG.gif:NonHosted");
         Uri payPalUri = uriBuilder.build();
 
-        Log.d(Constants.TAG, "Opening the browser with the url: " + payPalUri.toString());
+        if (DonationsConfiguration.DEBUG) {
+            Log.d(DonationsConfiguration.TAG,
+                    "Opening the browser with the url: " + payPalUri.toString());
+        }
 
         // Start your favorite browser
         Intent viewIntent = new Intent(Intent.ACTION_VIEW, payPalUri);
@@ -232,8 +235,8 @@ public class DonationsActivity extends SherlockActivity {
         switch (id) {
         case DIALOG_BILLING_NOT_SUPPORTED_ID:
             return createDialog(
-                    getString(R.string.donations_google_android_market_not_supported_title),
-                    getString(R.string.donations_google_android_market_not_supported));
+                    getString(R.string.donations__google_android_market_not_supported_title),
+                    getString(R.string.donations__google_android_market_not_supported));
         default:
             return null;
         }
@@ -244,14 +247,17 @@ public class DonationsActivity extends SherlockActivity {
      */
     private Dialog createDialog(String string, String string2) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(string).setIcon(android.R.drawable.stat_sys_warning).setMessage(string2)
+        builder.setTitle(string)
+                .setIcon(android.R.drawable.stat_sys_warning)
+                .setMessage(string2)
                 .setCancelable(false)
-                .setPositiveButton(R.string.button_close, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+                .setPositiveButton(R.string.donations__button_close,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
         return builder.create();
     }
 
@@ -262,8 +268,13 @@ public class DonationsActivity extends SherlockActivity {
         final FrameLayout mLoadingFrame;
         final WebView mFlattrWebview;
 
-        mFlattrWebview = (WebView) findViewById(R.id.flattr_webview);
-        mLoadingFrame = (FrameLayout) findViewById(R.id.loading_frame);
+        mFlattrWebview = (WebView) findViewById(R.id.donations__flattr_webview);
+        mLoadingFrame = (FrameLayout) findViewById(R.id.donations__loading_frame);
+
+        // disable hardware acceleration for this webview to get transparent background working
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            mFlattrWebview.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
 
         // define own webview client to override loading behaviour
         mFlattrWebview.setWebViewClient(new WebViewClient() {
@@ -315,8 +326,8 @@ public class DonationsActivity extends SherlockActivity {
          * ://www.dafer45.com/android/for_developers/including_a_flattr_button_in_an_application.
          * html
          */
-        String projectUrl = getString(R.string.about_url);
-        String flattrUrl = getString(R.string.donations_flattr_url);
+        String projectUrl = DonationsConfiguration.FLATTR_PROJECT_URL;
+        String flattrUrl = DonationsConfiguration.FLATTR_URL;
 
         // make text white and background black
         String htmlStart = "<html> <head><style type=\"text/css\">*{color: #FFFFFF; background-color: transparent;}</style>";
@@ -349,9 +360,5 @@ public class DonationsActivity extends SherlockActivity {
         // http://stackoverflow.com/questions/5003156/android-webview-style-background-colortransparent-ignored-on-android-2-2
         mFlattrWebview.setBackgroundColor(0x00000000);
 
-        // disable hardware accleration for this webview to get transparent background working
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            mFlattrWebview.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        }
     }
 }

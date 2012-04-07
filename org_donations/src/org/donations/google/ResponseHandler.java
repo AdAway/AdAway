@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.adaway.google.donations;
+package org.donations.google;
 
-import org.adaway.google.donations.BillingService.RequestPurchase;
-import org.adaway.google.donations.BillingService.RestoreTransactions;
-import org.adaway.google.donations.Consts.PurchaseState;
-import org.adaway.google.donations.Consts.ResponseCode;
+import org.donations.google.BillingService.RequestPurchase;
+import org.donations.google.BillingService.RestoreTransactions;
+import org.donations.google.Consts.PurchaseState;
+import org.donations.google.Consts.ResponseCode;
 
 import android.app.PendingIntent;
 import android.content.Context;

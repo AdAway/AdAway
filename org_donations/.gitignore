@@ -1,0 +1,20 @@
+#Android generated
+bin
+gen
+obj
+lint.xml
+local.properties
+
+#Eclipse
+.project
+.classpath
+.settings
+
+#IntelliJ IDEA
+.idea
+*.iml
+
+#Maven
+target
+release.properties
+pom.xml.*

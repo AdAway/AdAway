@@ -15,14 +15,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/donations_description"
+            android:text="@string/donations__description"
             android:textAppearance="@android:style/TextAppearance.Small" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
-            android:text="@string/donations_flattr"
+            android:text="@string/donations__flattr"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            android:text="@string/donations_flattr_description"
+            android:text="@string/donations__flattr_description"
             android:textAppearance="@android:style/TextAppearance.Small" />
 
         <LinearLayout
@@ -39,7 +39,7 @@
             android:orientation="horizontal" >
 
             <WebView
-                android:id="@+id/flattr_webview"
+                android:id="@+id/donations__flattr_webview"
                 android:layout_width="65dip"
                 android:layout_height="70dip"
                 android:layout_gravity="center"
@@ -47,7 +47,7 @@
                 android:visibility="gone" />
 
             <FrameLayout
-                android:id="@+id/loading_frame"
+                android:id="@+id/donations__loading_frame"
                 android:layout_width="65dip"
                 android:layout_height="70dip"
                 android:layout_gravity="center" >
@@ -65,6 +65,7 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/donations__flattr_url"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -72,7 +73,7 @@
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="@string/donations_flattr_url"
+                android:text="no url defined!"
                 android:textAppearance="@android:style/TextAppearance.Small" />
         </LinearLayout>
 
@@ -80,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
-            android:text="@string/donations_google_android_market"
+            android:text="@string/donations__google_android_market"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -88,7 +89,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            android:text="@string/donations_google_android_market_description"
+            android:text="@string/donations__google_android_market_description"
             android:textAppearance="@android:style/TextAppearance.Small" />
 
         <LinearLayout
@@ -98,26 +99,26 @@
             android:paddingTop="5dp" >
 
             <Spinner
-                android:id="@+id/donations_google_android_market_spinner"
+                android:id="@+id/donations__google_android_market_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:prompt="@string/donations_google_android_market_text" />
+                android:prompt="@string/donations__google_android_market_text" />
 
             <Button
-                android:id="@+id/donations_google_android_market_donate_button"
+                android:id="@+id/donations__google_android_market_donate_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="donateGoogleOnClick"
-                android:text="@string/donations_google_android_market_donate_button" />
+                android:text="@string/donations__google_android_market_donate_button" />
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
-            android:text="@string/donations_paypal"
+            android:text="@string/donations__paypal"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -125,15 +126,15 @@
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            android:text="@string/donations_paypal_description"
+            android:text="@string/donations__paypal_description"
             android:textAppearance="@android:style/TextAppearance.Small" />
 
         <Button
-            android:id="@+id/donations_paypal_donate_button"
+            android:id="@+id/donations__paypal_donate_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="donatePayPalOnClick"
-            android:text="@string/donations_google_android_market_donate_button" />
+            android:text="@string/donations__google_android_market_donate_button" />
     </LinearLayout>
 
 </ScrollView>

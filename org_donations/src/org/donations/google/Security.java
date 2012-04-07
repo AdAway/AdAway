@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package org.adaway.google.donations;
+package org.donations.google;
 
-import org.adaway.google.donations.Consts.PurchaseState;
-import org.adaway.google.donations.util.Base64;
-import org.adaway.google.donations.util.Base64DecoderException;
+import org.donations.DonationsConfiguration;
+import org.donations.google.Consts.PurchaseState;
+import org.donations.google.util.Base64;
+import org.donations.google.util.Base64DecoderException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -133,7 +134,7 @@ public class Security {
              * Generally, encryption keys / passwords should only be kept in memory long enough to
              * perform the operation they need to perform.
              */
-            String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg8bTVFK5zIg4FGYkHKKQ/j/iGZQlXU0qkAv2BA6epOX1ihbMz78iD4SmViJlECHN8bKMHxouRNd9pkmQKxwEBHg5/xDC/PHmSCXFx/gcY/xa4etA1CSfXjcsS9i94n+j0gGYUg69rNkp+p/09nO9sgfRTAQppTxtgKaXwpfKe1A8oqmDUfOnPzsEAG6ogQL6Svo6ynYLVKIvRPPhXkq+fp6sJ5YVT5Hr356yCXlM++G56Pk8Z+tPzNjjvGSSs/MsYtgFaqhPCsnKhb55xHkc8GJ9haq8k3PSqwMSeJHnGiDq5lzdmsjdmGkWdQq2jIhKlhMZMm5VQWn0T59+xjjIIwIDAQAB";
+            String base64EncodedPublicKey = DonationsConfiguration.GOOGLE_PUBLIC_KEY;
             PublicKey key = Security.generatePublicKey(base64EncodedPublicKey);
             verified = Security.verify(key, signedData, signature);
             if (!verified) {

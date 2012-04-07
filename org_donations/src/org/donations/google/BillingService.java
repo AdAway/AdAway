@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.adaway.google.donations;
+package org.donations.google;
 
 import com.android.vending.billing.IMarketBillingService;
 
@@ -36,9 +36,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import org.adaway.google.donations.Consts.PurchaseState;
-import org.adaway.google.donations.Consts.ResponseCode;
-import org.adaway.google.donations.Security.VerifiedPurchase;
+import org.donations.google.Consts.PurchaseState;
+import org.donations.google.Consts.ResponseCode;
+import org.donations.google.Security.VerifiedPurchase;
 
 /**
  * Extra fixes from here: http://code.google.com/p/marketbilling/issues/detail?id=25 to overcome:
