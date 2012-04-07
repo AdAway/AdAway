@@ -9,7 +9,7 @@
   <string name="button_revert">禁用广告屏蔽</string>
   <string name="button_add">添加</string>
   <string name="button_cancel">取消</string>
-  <string name="button_apply_text">所有hosts源的hosts文件已经下载，和你自定义的列表合并并已经作为一个单独文件配置到你的系统了。</string>
+  <string name="button_apply_text">所有hosts源的hosts文件已经下载，并和你的名单合并作为一个hosts文件配置到你的系统了。</string>
   <string name="button_revert_text">恢复你系统默认的hosts文件。</string>
   <string name="button_save">保存</string>
   <string name="button_webserver_toggle_checked">web服务器运行中</string>
@@ -22,7 +22,7 @@
   <string name="button_tcpdump_open">打开日志文件</string>
   <string name="button_tcpdump_delete">删除日志文件</string>
   <!--Dialogs-->
-  <string name="no_root_description">没有找到su或者你没有允许AdAway的root权限。\n\n这可能是因为你的设备没有root。\n你可以到www.cyanogenmod.coma或者其他Android网站去找到如何root你的设备。</string>
+  <string name="no_root_description">没有找到su或者你没有允许AdAway的root权限。\n\n这可能是因为你的设备没有root。\n你可以到www.cyanogenmod.com或者其他Android网站去找到如何root你的设备的方法。</string>
   <string name="no_root_title">需要root权限</string>
   <string name="no_connection">Internet网络连接不通</string>
   <string name="no_connection_title">没有网络连接</string>
@@ -32,7 +32,7 @@
   <string name="apply_dialog_hostnames">解析及合并hosts文件</string>
   <string name="apply_dialog_hosts">建立hosts文件</string>
   <string name="apply_dialog_apply">应用hosts文件</string>
-  <string name="revert_successful">你已经还原为默认的hosts文件了。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
+  <string name="revert_successful">已经还原为默认的hosts文件了。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
   <string name="apply_success">应用成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
   <string name="apply_fail">应用hosts文件修改失败！\n请尝试在[设置]里面把hosts文件目标修改为/data/data/hosts。</string>
   <string name="apply_fail_title">应用失败</string>
@@ -43,7 +43,7 @@
   <string name="hosts_add_dialog">输入hosts文件的URL：</string>
   <string name="no_sources_title">没有定义源</string>
   <string name="no_sources">请添加hosts源到到列表中。</string>
-  <string name="no_hostname">主机名无效法！</string>
+  <string name="no_hostname">主机名无效！</string>
   <string name="no_hostname_title">主机名格式不对</string>
   <string name="no_ip">IP地址无效</string>
   <string name="no_ip_title">IP地址格式不对</string>
@@ -98,7 +98,7 @@
   <string name="status_disabled">禁用</string>
   <string name="status_disabled_subtitle">禁用</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">从你设置的目标不存在或者不是正确的到 /system/etc/hosts 的符号链接！没有正确的符号链接AdAway不能运行。\n\n你需要创建符号链接吗？</string>
+  <string name="apply_symlink_missing">从你设置的目标不存在或者不是正确的到 /system/etc/hosts 的符号链接！没有指向正确的文件AdAway不能运行。\n\n你需要创建符号链接吗？</string>
   <string name="apply_symlink_missing_title">符号连接丢失</string>
   <string name="apply_not_enough_space">分区上没有足够的空间\n请在设置里面修改目标hosts文件到/data/data/hosts。</string>
   <string name="apply_not_enough_space_title">空间不足</string>
@@ -146,15 +146,22 @@
   <string name="donations_flattr">Flattr®</string>
   <string name="donations_description">喜欢这个应用程序？通过Flattr®或谷歌®安卓市场捐款来支持我们！</string>
   <string name="donations_flattr_description">Flattr®将从月费中提成10%！</string>
-  <string name="donations_google_android_market">Google Android 电子市场</string>
+  <string name="donations_google_android_market">Google Play 商店</string>
   <string name="donations_google_android_market_not_supported_title">不支持In-App捐赠</string>
   <string name="donations_google_android_market_not_supported">不支持In-App捐赠。你的Google Android 电子市场是否安装正确了呢？</string>
-  <string name="donations_google_android_market_description">• Google 要从第笔捐赠中抽取3成！\n• 没有给捐赠者的高级版本。</string>
+  <string name="donations_google_android_market_description">• Google 要从每笔捐赠中抽成30%！\n• 没有给捐赠者的高级版本。</string>
   <string name="donations_google_android_market_donate_button">捐赠！</string>
   <string name="donations_google_android_market_text">多少？</string>
-  <string-array name="donations_google_android_market_promt_array"/>
+  <string-array name="donations_google_android_market_promt_array">
+    <item>1 欧元</item>
+    <item>2 欧元</item>
+    <item>3 欧元</item>
+    <item>5 欧元</item>
+    <item>8 欧元</item>
+    <item>13 欧元</item>
+  </string-array>
   <string name="donations_paypal">PayPal</string>
-  <string name="donations_paypal_description">• 点击这个按钮选择你想要捐赠好多！</string>
+  <string name="donations_paypal_description">• 点击这个按钮选择你想要捐赠多少！</string>
   <string name="donations_thanks_dialog_title">谢谢！</string>
   <string name="donations_thanks_dialog">谢谢捐赠！\n非常感谢您！</string>
   <!--Tcpdump-->
@@ -181,7 +188,7 @@
   <string name="pref_webserver_on_boot">开机启动web服务器</string>
   <string name="pref_webserver_on_boot_summary">开机启动web服务器延迟5秒监听本地IP地址</string>
   <string name="pref_webserver_enabled">启用web服务器</string>
-  <string name="pref_webserver_enabled_summary">启用web服务器到监听本地IP地址来应答被屏蔽主机的请求</string>
+  <string name="pref_webserver_enabled_summary">启用web服务器监听本地IP地址来应答被屏蔽主机的请求</string>
   <string name="pref_webserver">本地web服务器</string>
   <string name="pref_custom_target">自定义目标</string>
   <string name="pref_custom_target_summary">只用于hosts文件被设置为自定义目标的情况</string>

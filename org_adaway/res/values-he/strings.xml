@@ -3,7 +3,7 @@
   <!--Buttons-->
   <string name="button_exit">יציאה</string>
   <string name="button_apply">כל קבצי ה hosts מהמקור שהוגדר ירדו בהצלחה, ואוחדו עם הרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת</string>
-  <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
+  <string name="button_close">Close</string>
   <string name="button_yes">כן</string>
   <string name="button_no">לא</string>
   <string name="button_revert">בטל חסימת פרסומות</string>
@@ -26,7 +26,7 @@
   <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
   <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
   <string name="no_connection_title">אין חיבור</string>
-  <string name="download_dialog">לא נמצא Busybox</string>
+  <string name="download_dialog">Downloading...</string>
   <string name="apply_dialog">החל</string>
   <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
   <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
