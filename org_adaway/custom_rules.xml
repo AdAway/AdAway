@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="adaway_rules">
+  
+    <!-- check also on ndk.dir !!! -->
+    <fail
+            message="ndk.dir is missing. Edit local.properties and add ndk.dir variable or to inject it through an env var"
+            unless="ndk.dir"
+    />
+
+
+    <!-- Build and move binaries before building Java -->
+    <target name="-pre-build">
+        <!-- Build binaries using NDK -->
+        <exec executable="${ndk.dir}/ndk-build" failonerror="true"/>
+
+        <!--  Move binaries from libs to resources! -->
+        <move todir="${resource.absolute.dir}/raw" overwrite="true" verbose="true" failonerror="true">
+          <fileset dir="${jar.libs.absolute.dir}/armeabi">
+            <include name="*"/>
+          </fileset>
+        </move>
+    </target>
+
+
+    <target name="clean" depends="android_rules.clean">
+        <exec executable="${ndk.dir}/ndk-build" failonerror="true">
+            <arg value="clean"/>
+        </exec>
+    </target> 
+
+</project> 

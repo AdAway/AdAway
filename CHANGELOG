@@ -1,6 +1,9 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.44
+- Disabled hardware acceleration on ICS, caused black screens and glitches on some custom roms
+
 1.34
 * In-app PayPal donations are now possible
 
