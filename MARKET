@@ -1,8 +1,7 @@
 <b>Attention: DEVICE MUST BE ROOTED FOR THIS APPLICATION</b>
 
 <b>Description</b>
-AdAway is an open source ad blocker for Android using the hosts file. 
-It is the open source alternative to AdFree and other Ad blockers.
+AdAway is an open source ad blocker for Android using the hosts file.
 
 <b>Requirements</b>
 • ROOT
@@ -30,6 +29,11 @@ GPLv3
 • <i>Modify/delete SD card content:</i> To export lists to sd card
 • <i>Wakelock:</i> Wake up phone when AdAway updates in background
 
+<b>Keywords</b>
+adblock, adblocker, ad blocker, advertisments, advertisment blocker
+
+<b>Open source alternative to</b>
+adfree, ad free, AdBlocker, AD blocker, MyInternetSecurity Pro
 
 
 
@@ -43,7 +47,6 @@ GERMAN:
 
 <b>Beschreibung</b>
 AdAway ist ein Open-Source Ad-Blocker unter Verwendung der hosts-Datei.
-Es ist die Open-Source Alternative zu AdFree und anderen Ad blockern.
 
 <b>Anforderungen</b>
 • ROOT
@@ -70,3 +73,9 @@ GPLv3
 • <i>Internet-Zugriff:</i> Um Hosts-Dateien herunterzuladen
 • <i>Inhalt der SD-Karte ändern/löschen:</i> Um Deine Listen zu exportieren
 • <i>Standby-Modus deaktivieren:</i> Um das Gerät aus dem Standby aufzuwachen, wenn AdAway im Hintergrund Updates herunterlädt.
+
+<b>Keywords</b>
+adblock, adblocker, ad blocker, advertisments, advertisment blocker
+
+<b>Open-Source-Alternative zu</b>
+adfree, ad free, AdBlocker, AD blocker, MyInternetSecurity Pro
