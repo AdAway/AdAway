@@ -142,28 +142,6 @@
   <string name="no_text_editor">Не найден текстовый редактор для открытия файла hosts. Вы можете установить редактор Jota или другой текстовый редактор чтобы это исправить.\n\nВы хотите установить редактор Jota?</string>
   <string name="no_file_manager_title">Не установлен файловый менеджер</string>
   <string name="no_file_manager">Нет файлового менеджера для открытия файла. Вы можете установить OI File Manager или другой файловый менеджер чтобы это исправить.\n\nВы хотите установить OI File Manager?</string>
-  <!--Donations-->
-  <string name="donations_flattr">Flattr</string>
-  <string name="donations_description">Считаете ли вы приложение полезным?\nПоддержите разработчика через flattring или отправьте пожертвование через Google Android Market!</string>
-  <string name="donations_flattr_description">• Flattr взимает 10 % комиссионных!</string>
-  <string name="donations_google_android_market">Google Play Store</string>
-  <string name="donations_google_android_market_not_supported_title">In-App пожертвования не поддерживаются</string>
-  <string name="donations_google_android_market_not_supported">In-App пожертвования не поддерживаются. Google Play Store установлен правильно?</string>
-  <string name="donations_google_android_market_description">• Google взимает 30 % с каждого пожертвования!\n• Специальной версии для людей, внесших пожертвования, не существует..</string>
-  <string name="donations_google_android_market_donate_button">Пожертвовать!</string>
-  <string name="donations_google_android_market_text">Сколько?</string>
-  <string-array name="donations_google_android_market_promt_array">
-    <item>1 Евро</item>
-    <item>2 Евро</item>
-    <item>3 Евро</item>
-    <item>5 Евро</item>
-    <item>8 Евро</item>
-    <item>13 Евро</item>
-  </string-array>
-  <string name="donations_paypal">PayPal</string>
-  <string name="donations_paypal_description">• После нажатия на кнопку вы можете выбрать сколько хотите пожертвовать!</string>
-  <string name="donations_thanks_dialog_title">Благодарю!</string>
-  <string name="donations_thanks_dialog">Благодарю за пожертвование! Я очень это ценю!</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Файл журнала удален!</string>
   <string name="toast_tcpdump_added_to_blacklist">Имя хоста было добавлено в Черный список!</string>

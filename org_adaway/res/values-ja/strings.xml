@@ -9,7 +9,7 @@
   <string name="button_revert">広告ブロックを無効化</string>
   <string name="button_add">追加</string>
   <string name="button_cancel">キャンセル</string>
-  <string name="button_apply_text">定義されたソースからのhostsファイルのダウンロードが全て終了し、システムにインストールされたhostsファイルに統合されました。</string>
+  <string name="button_apply_text">定義されたソースからのダウンロードは全て終了し、システムにインストールされたhostsファイルに統合されています。</string>
   <string name="button_revert_text">システムのhostsファイルをリストアします。</string>
   <string name="button_save">保存</string>
   <string name="button_webserver_toggle_checked">ウェブサーバーは動作中です</string>
@@ -53,7 +53,7 @@
   <string name="no_private_file_title">プライベートファイルの作成失敗</string>
   <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
   <!--About-->
-  <string name="about_description">AdAwayはオープンソースのAndroid用広告ブロックアプリです。</string>
+  <string name="about_description">AdAwayはAndroid用のオープンソースの広告ブロックアプリです。</string>
   <string name="about_license">ライセンス: GPL v3+</string>
   <string name="about_version">バージョン:</string>
   <string name="about_developer">開発者: Dominik Schürmann</string>
@@ -137,33 +137,11 @@
   <string name="hosts_last_modified_local">ローカル:</string>
   <string name="hosts_last_modified_online">オンライン:</string>
   <!--Other-->
-  <string name="app_subtitle">広告ブロックアプリ</string>
+  <string name="app_subtitle">Ad blocker</string>
   <string name="no_text_editor_title">テキストエディタがありません</string>
   <string name="no_text_editor">hostsファイルを開くためのテキストエディタが見つかりません。Jotaなどテキストエディタをインストールしてください。\n\nJotaをインストールしますか?</string>
   <string name="no_file_manager_title">ファイルマネージャがインストールされていません</string>
   <string name="no_file_manager">ファイルマネージャが見つかりません。OI File ManagerやTetraなどをインストールしてください。\n\nOI File Managerをインストールしますか?</string>
-  <!--Donations-->
-  <string name="donations_flattr">Flattr</string>
-  <string name="donations_description">このアプリは役に立ちましたか?\nGoogle Playストア経由で寄付をして開発を応援してください!</string>
-  <string name="donations_flattr_description">･Flattr は月額として10 %手に入れます!</string>
-  <string name="donations_google_android_market">Google Playストア</string>
-  <string name="donations_google_android_market_not_supported_title">アプリ内寄付は非対応です</string>
-  <string name="donations_google_android_market_not_supported">アプリ内寄付は非対応です。GooglePlayストアはインストールされていますか?</string>
-  <string name="donations_google_android_market_description">･Googleは寄付の30%を持って行きます…。\n寄付での制限解除などはありません。</string>
-  <string name="donations_google_android_market_donate_button">寄付する!</string>
-  <string name="donations_google_android_market_text">いくら?</string>
-  <string-array name="donations_google_android_market_promt_array">
-    <item>1 ユーロ</item>
-    <item>2 ユーロ</item>
-    <item>3 ユーロ</item>
-    <item>5 ユーロ</item>
-    <item>8 ユーロ</item>
-    <item>13 ユーロ</item>
-  </string-array>
-  <string name="donations_paypal">PayPal</string>
-  <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
-  <string name="donations_thanks_dialog_title">ありがとう!</string>
-  <string name="donations_thanks_dialog">寄付ありがとう!\n本当に感謝しています!</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">ログファイルを削除しました!</string>
   <string name="toast_tcpdump_added_to_blacklist">ホスト名をブラックリストに追加しました!</string>

@@ -116,7 +116,7 @@
   <string name="revert_successful_title">Palauttaminen onnistui</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
   <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
-  <string name="apply_apn_proxy_title">APN proxy set!</string>
+  <string name="apply_apn_proxy_title">APN-\tvälityspalvelin on asetettu!</string>
   <!--Menu entries-->
   <string name="menu_refresh">Päivitä</string>
   <string name="menu_add">Lisää</string>
@@ -142,28 +142,6 @@
   <string name="no_text_editor">Tekstieditoria ei löytynyt avataksesi hosts-tiedostoa. Voit asentaa Jota tai toisen tekstieditorin, jotta voit käsitellä tätä.\n\nHaluatko asentaa Jota-sovelluksen?</string>
   <string name="no_file_manager_title">Tiedostohallintasovellusta ei ole asennettu</string>
   <string name="no_file_manager">Ei voitu avata tiedostoja, koska tiedostonhallintasovellusta ei löytynyt. Voit asentaa OI File Manager:n tai muun tiedostohallintasovelluksen.\n\nHaluatko asentaa OI File Manager:n?</string>
-  <!--Donations-->
-  <string name="donations_flattr">Flattr</string>
-  <string name="donations_description">Koetko tämän sovelluksen hyödylliseksi? Tue sen kehittämistä Flattr-palvelun kautta!</string>
-  <string name="donations_flattr_description">Flattr ottaa 10% kuukausipalkkiosta!</string>
-  <string name="donations_google_android_market">Googlen Android Market</string>
-  <string name="donations_google_android_market_not_supported_title">Sovelluksen sisäiset lahjoitukset eivät ole tuettu</string>
-  <string name="donations_google_android_market_not_supported">Sovelluksen sisäiset lahjoitukset eivät ole tuettu. Löytyykö laitteesta Android Market?</string>
-  <string name="donations_google_android_market_description">• Gogle ottaa 30% jokaisesta lahjoituksesta!\n• Rahasiirto voi kestää minuutin tai kaksi.\n• Ei ole premium-versiota lahjoittajille.</string>
-  <string name="donations_google_android_market_donate_button">Lahjoita!</string>
-  <string name="donations_google_android_market_text">Kuinka paljon?</string>
-  <string-array name="donations_google_android_market_promt_array">
-    <item>1 euro</item>
-    <item>2 euroa</item>
-    <item>3 euroa</item>
-    <item>5 euroa</item>
-    <item>8 euroa</item>
-    <item>13 euroa</item>
-  </string-array>
-  <string name="donations_paypal">PayPal</string>
-  <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
-  <string name="donations_thanks_dialog_title">Kiitos!</string>
-  <string name="donations_thanks_dialog">Kiitos lahjoituksestasi!\nArvostan sitä suuresti!</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Lokitiedosto poistettu!</string>
   <string name="toast_tcpdump_added_to_blacklist">Isäntänimi lisättiin mustalle listalle!</string>
@@ -206,7 +184,7 @@
   <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
   <string name="pref_redirection_rules">Salli uudelleenohjaukset</string>
   <string name="pref_redirection_rules_summary">Salli hosts-lähteiden uudelleenohjaussäännöt.</string>
-  <string name="pref_debug">Debug</string>
+  <string name="pref_debug">Virheenkorjaus</string>
   <string name="pref_enable_debug">Debug Logging</string>
-  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
+  <string name="pref_enable_debug_summary">Sinun täytyy käynnistää Adaway uudelleen ottaaksesi asetukset käyttöön.</string>
 </resources>

@@ -142,28 +142,6 @@
   <string name="no_text_editor">No ha sido encontrado editor de texto para abrir el archivo hosts. Podrias instalar Jota u otro editor de texto para manejar el archivo.\n\n¿Quieres instalar Jota?</string>
   <string name="no_file_manager_title">Ningún manejador de archivo instalado</string>
   <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
-  <!--Donations-->
-  <string name="donations_flattr">Flattr</string>
-  <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations to the developer!</string>
-  <string name="donations_flattr_description">• Flattr toma10 % como cargo mensual!</string>
-  <string name="donations_google_android_market">Google Android Market</string>
-  <string name="donations_google_android_market_not_supported_title">Las donaciones desde la aplicación no están soportadas</string>
-  <string name="donations_google_android_market_not_supported">In-App Donations are not supported. Is Google Play Store installed correctly?</string>
-  <string name="donations_google_android_market_description">¡Google se queda con el 30% de cada donación!\n•No existe una versión Premium para donantes.</string>
-  <string name="donations_google_android_market_donate_button">¡Donar!</string>
-  <string name="donations_google_android_market_text">¿Cuánto?</string>
-  <string-array name="donations_google_android_market_promt_array">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
-  <string name="donations_paypal">PayPal</string>
-  <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
-  <string name="donations_thanks_dialog_title">Gracias!</string>
-  <string name="donations_thanks_dialog">Gracias por donar!\nRealmente aprecio esto!</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Archivo de log borrado!</string>
   <string name="toast_tcpdump_added_to_blacklist">Servidor agregado a tu lista negra!</string>

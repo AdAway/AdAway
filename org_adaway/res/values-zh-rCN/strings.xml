@@ -23,7 +23,7 @@
   <string name="button_tcpdump_delete">删除日志文件</string>
   <!--Dialogs-->
   <string name="no_root_description">没有找到su或者你没有允许AdAway的root权限。\n\n这可能是因为你的设备没有root。\n你可以到www.cyanogenmod.com或者其他Android网站去找到如何root你的设备的方法。</string>
-  <string name="no_root_title">需要root权限</string>
+  <string name="no_root_title">需要root了的Android</string>
   <string name="no_connection">Internet网络连接不通</string>
   <string name="no_connection_title">没有网络连接</string>
   <string name="download_dialog">下载中...</string>
@@ -36,7 +36,7 @@
   <string name="apply_success">应用成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
   <string name="apply_fail">应用hosts文件修改失败！\n请尝试在[设置]里面把hosts文件目标修改为/data/data/hosts。</string>
   <string name="apply_fail_title">应用失败</string>
-  <string name="revert_problem">还原失败。</string>
+  <string name="revert_problem">由于未知原因还原失败。</string>
   <string name="revert_problem_title">还原失败</string>
   <string name="no_url">URL无效！</string>
   <string name="no_url_title">URL格式不对</string>
@@ -53,8 +53,8 @@
   <string name="no_private_file_title">私有文件创建失败</string>
   <string name="reboot_never_reboot">不要重启并不再显示这个问题！</string>
   <!--About-->
-  <string name="about_description">AdAway是一个开源的Android平台的广告屏蔽应用。</string>
-  <string name="about_license">许可协议： GPL v3</string>
+  <string name="about_description">AdAway是一个Android平台上的开源的的广告屏蔽应用。</string>
+  <string name="about_license">许可协议：GPL v3+</string>
   <string name="about_version">版本：</string>
   <string name="about_developer">开发者：Dominik Schürmann</string>
   <string name="about_icons">一些图标是从\'Dropbox Emblems Tango by Charles A.\'和\'www.androidicons.com\'上取得的，两个都是Creative Commons Attribution 3.0 Unported License授权下发布的。</string>
@@ -142,28 +142,6 @@
   <string name="no_text_editor">没有找到文本编辑器来打开hosts文件。你可以安装Jota或者其他文本编辑器来解决这。\n\n你需要安装Jota吗？</string>
   <string name="no_file_manager_title">没有安装文件管理器</string>
   <string name="no_file_manager">没有找到文件管理器来打开文件。你可以安装OI File Manager或者其他文件管理器来解决这。\n\n你需要安装OI File Manager吗？</string>
-  <!--Donations-->
-  <string name="donations_flattr">Flattr®</string>
-  <string name="donations_description">喜欢这个应用程序？通过Flattr®或谷歌®安卓市场捐款来支持我们！</string>
-  <string name="donations_flattr_description">Flattr®将从月费中提成10%！</string>
-  <string name="donations_google_android_market">Google Play 商店</string>
-  <string name="donations_google_android_market_not_supported_title">不支持In-App捐赠</string>
-  <string name="donations_google_android_market_not_supported">不支持In-App捐赠。你的Google Android 电子市场是否安装正确了呢？</string>
-  <string name="donations_google_android_market_description">• Google 要从每笔捐赠中抽成30%！\n• 没有给捐赠者的高级版本。</string>
-  <string name="donations_google_android_market_donate_button">捐赠！</string>
-  <string name="donations_google_android_market_text">多少？</string>
-  <string-array name="donations_google_android_market_promt_array">
-    <item>1 欧元</item>
-    <item>2 欧元</item>
-    <item>3 欧元</item>
-    <item>5 欧元</item>
-    <item>8 欧元</item>
-    <item>13 欧元</item>
-  </string-array>
-  <string name="donations_paypal">PayPal</string>
-  <string name="donations_paypal_description">• 点击这个按钮选择你想要捐赠多少！</string>
-  <string name="donations_thanks_dialog_title">谢谢！</string>
-  <string name="donations_thanks_dialog">谢谢捐赠！\n非常感谢您！</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">日志文件已删除</string>
   <string name="toast_tcpdump_added_to_blacklist">主机名已添加到你的黑名单</string>

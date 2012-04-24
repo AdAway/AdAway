@@ -3,7 +3,7 @@
   <!--Buttons-->
   <string name="button_exit">יציאה</string>
   <string name="button_apply">כל קבצי ה hosts מהמקור שהוגדר ירדו בהצלחה, ואוחדו עם הרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת</string>
-  <string name="button_close">Close</string>
+  <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
   <string name="button_yes">כן</string>
   <string name="button_no">לא</string>
   <string name="button_revert">בטל חסימת פרסומות</string>
@@ -142,28 +142,6 @@
   <string name="no_text_editor">לא נמצא עורך טקסט כל שהוא מותקן עבור פתיחת קובץ hosts. אתה יכול להתקין את העורך Jota או כל עורך טקסט אחר כדי לפתוח את הקובץ.\n\nאתה רוצה להתקין את Jota כעת?</string>
   <string name="no_file_manager_title">לא מותקן מנהל קבצים</string>
   <string name="no_file_manager">לא נמצא מנהל קבצים לפתיחת קובץ זה. תוכל להתקין את  OI File Manager או כל מנהל קבצים אחר כדי לפתור זאת.\n\nהאם אתה רוצה להתקין את OI File Manager כעת?</string>
-  <!--Donations-->
-  <string name="donations_flattr">Flattr</string>
-  <string name="donations_description">תוכנה זו שימושית עבורך? תמוך במפתחים על ידי מתן תרומה על ידי אנדרואיד מרקט!</string>
-  <string name="donations_flattr_description">• Flattr מספר הנחה של 10 % לתשלום החודשי!</string>
-  <string name="donations_google_android_market">אנדרואיד מרקט</string>
-  <string name="donations_google_android_market_not_supported_title">תרומות לתוכנה אינם נתמכות</string>
-  <string name="donations_google_android_market_not_supported">תרומות לתוכנה אינם נתמכות. האם המרקט של גוגל אנדרואיד מותקן כראוי?</string>
-  <string name="donations_google_android_market_description">• גוגל מקבלת 30% מסך התרומה!\n• העברת תרומה נמשכת כדקה או שתיים.\n• אין גירסת פרימיום עבור תורמים.</string>
-  <string name="donations_google_android_market_donate_button">תרומה!</string>
-  <string name="donations_google_android_market_text">כמה?</string>
-  <string-array name="donations_google_android_market_promt_array">
-    <item>יורו 1</item>
-    <item>2 יורו</item>
-    <item>3 יורו</item>
-    <item>5 יורו</item>
-    <item>8 יורו</item>
-    <item>13 יורו</item>
-  </string-array>
-  <string name="donations_paypal">PayPal</string>
-  <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
-  <string name="donations_thanks_dialog_title">תודה!</string>
-  <string name="donations_thanks_dialog">תודה על תרומתך!\nאני מאוד מעריך זאת!</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">קובץ יומן נמחק!</string>
   <string name="toast_tcpdump_added_to_blacklist">כתובת השרת נוספה לרשימה השחורה שלך!</string>

@@ -142,28 +142,6 @@
   <string name="no_text_editor">Hosts dosyasını açacak bir metin düzenleyici bulunamadı. Jota veya benzeri bir metin düzenleyici yüklemeniz gerekebilir.\n\nŞimdi Jota yüklemek ister misiniz?</string>
   <string name="no_file_manager_title">Yüklü dosya yöneticisi yok</string>
   <string name="no_file_manager">Dosyaları açacak bir dosya yöneticisi bulunamadı. OI File Manager veya benzeri bir dosya yöneticisi yüklemeniz gerekebilir.\n\nŞimdi OI File Manager yüklemek ister misiniz?</string>
-  <!--Donations-->
-  <string name="donations_flattr">Flattr</string>
-  <string name="donations_description">Do you find this application useful?\nSupport it\'s development by flattring it or sending donations using Google Android Market!</string>
-  <string name="donations_flattr_description">• Flattr takes 10 % as a monthly fee!</string>
-  <string name="donations_google_android_market">Google Android Market</string>
-  <string name="donations_google_android_market_not_supported_title">In-App Donations are not supported</string>
-  <string name="donations_google_android_market_not_supported">In-App Donations are not supported. Is Google Android Market installed correctly?</string>
-  <string name="donations_google_android_market_description">• Google takes 30 % off every donation!\n• There is no premium version for donators.</string>
-  <string name="donations_google_android_market_donate_button">Bağış yap!</string>
-  <string name="donations_google_android_market_text">Ne kadar?</string>
-  <string-array name="donations_google_android_market_promt_array">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
-  <string name="donations_paypal">PayPal</string>
-  <string name="donations_paypal_description">• You can choose how much you want to donate after clicking the button!</string>
-  <string name="donations_thanks_dialog_title">Teşekkürler!</string>
-  <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Log dosyası silindi!</string>
   <string name="toast_tcpdump_added_to_blacklist">Adres karalisteye eklendi</string>
