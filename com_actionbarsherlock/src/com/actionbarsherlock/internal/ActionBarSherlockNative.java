@@ -314,5 +314,15 @@ public class ActionBarSherlockNative extends ActionBarSherlock {
         public MenuInflater getMenuInflater() {
             return ActionBarSherlockNative.this.getMenuInflater();
         }
+
+        @Override
+        public void setTag(Object tag) {
+            mActionMode.setTag(tag);
+        }
+
+        @Override
+        public Object getTag() {
+            return mActionMode.getTag();
+        }
     }
 }

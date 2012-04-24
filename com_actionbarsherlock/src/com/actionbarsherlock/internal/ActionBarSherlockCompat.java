@@ -71,6 +71,8 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
     private MenuBuilder mMenu;
     /** Map between native options items and sherlock items. */
     protected HashMap<android.view.MenuItem, MenuItemImpl> mNativeItemMap;
+    /** Indication of a long-press on the hardware menu key. */
+    private boolean mMenuKeyIsLongPress = false;
 
     /** Parent view of the window decoration (action bar, mode, etc.). */
     private ViewGroup mDecor;
@@ -420,20 +422,27 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
             }
         }
 
-        if (keyCode == KeyEvent.KEYCODE_MENU && event.getAction() == KeyEvent.ACTION_UP && isReservingOverflow()) {
-            if (mActionMode == null) {
-                if (wActionBar.isOverflowMenuShowing()) {
-                    wActionBar.hideOverflowMenu();
-                } else {
-                    wActionBar.showOverflowMenu();
+        boolean result = false;
+        if (keyCode == KeyEvent.KEYCODE_MENU && isReservingOverflow()) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && event.isLongPress()) {
+                mMenuKeyIsLongPress = true;
+            } else if (event.getAction() == KeyEvent.ACTION_UP) {
+                if (!mMenuKeyIsLongPress) {
+                    if (mActionMode == null) {
+                        if (wActionBar.isOverflowMenuShowing()) {
+                            wActionBar.hideOverflowMenu();
+                        } else {
+                            wActionBar.showOverflowMenu();
+                        }
+                    }
+                    result = true;
                 }
+                mMenuKeyIsLongPress = false;
             }
-            if (DEBUG) Log.d(TAG, "[dispatchKeyEvent] returning true");
-            return true;
         }
 
-        if (DEBUG) Log.d(TAG, "[dispatchKeyEvent] returning false");
-        return false;
+        if (DEBUG) Log.d(TAG, "[dispatchKeyEvent] returning " + result);
+        return result;
     }
 
 
@@ -968,7 +977,7 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
                         @Override
                         public void run() {
                             //Invalidate if the panel menu hasn't been created before this.
-                            if (mMenu == null) {
+                            if (!mActivity.isFinishing() && mMenu == null) {
                                 dispatchInvalidateOptionsMenu();
                             }
                         }

@@ -37,7 +37,6 @@ import com.actionbarsherlock.view.MenuItem;
  * counterpart and you should refer to its documentation for instruction.</p>
  *
  * @author Jake Wharton <jakewharton@gmail.com>
- * @version 4.0.0
  */
 public abstract class ActionBarSherlock {
     protected static final String TAG = "ActionBarSherlock";

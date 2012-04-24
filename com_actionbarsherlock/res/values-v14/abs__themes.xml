@@ -10,6 +10,10 @@
         <item name="actionBarSize">?android:attr/actionBarSize</item>
         <!-- Needed for our bug-fix dropdown list navigation layout. :( -->
         <item name="dropdownListPreferredItemHeight">48dp</item>
+        <!-- Needed for our ShareActionProvider implementation. -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Sherlock</item>
+        <!-- For crazy people who use IcsSpinner. -->
+        <item name="dropDownListViewStyle">?android:attr/dropDownListViewStyle</item>
     </style>
 
     <style name="Theme.Sherlock.NoActionBar">
@@ -20,7 +24,7 @@
       <item name="android:windowActionBar">false</item>
       <item name="android:windowNoTitle">true</item>
     </style>
-    
+
     <style name="Theme.Sherlock.Dialog" parent="android:Theme.Holo.Dialog">
     </style>
     <style name="Theme.Sherlock.Light.Dialog" parent="android:Theme.Holo.Light.Dialog">

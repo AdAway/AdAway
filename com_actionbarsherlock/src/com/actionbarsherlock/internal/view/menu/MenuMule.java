@@ -15,6 +15,7 @@ public class MenuMule implements Menu {
 
 
     private final com.actionbarsherlock.view.Menu mMenu;
+    public boolean mDispatchShow = false;
 
     public MenuMule(com.actionbarsherlock.view.Menu menu) {
         mMenu = menu;

@@ -34,7 +34,9 @@ public class SherlockFragment extends Fragment {
         if (DEBUG) Log.d(TAG, "[onCreateOptionsMenu] menu: " + menu + ", inflater: " + inflater);
 
         if (menu instanceof MenuMule) {
-            onCreateOptionsMenu(((MenuMule)menu).unwrap(), mActivity.getSupportMenuInflater());
+            MenuMule mule = (MenuMule)menu;
+            mule.mDispatchShow = true;
+            onCreateOptionsMenu(mule.unwrap(), mActivity.getSupportMenuInflater());
         }
     }
 
@@ -47,7 +49,9 @@ public class SherlockFragment extends Fragment {
         if (DEBUG) Log.d(TAG, "[onPrepareOptionsMenu] menu: " + menu);
 
         if (menu instanceof MenuMule) {
-            onPrepareOptionsMenu(((MenuMule)menu).unwrap());
+            MenuMule mule = (MenuMule)menu;
+            mule.mDispatchShow = true;
+            onPrepareOptionsMenu(mule.unwrap());
         }
     }
 
