@@ -9,7 +9,7 @@
   <string name="button_revert">広告ブロックを無効化</string>
   <string name="button_add">追加</string>
   <string name="button_cancel">キャンセル</string>
-  <string name="button_apply_text">定義されたソースからのダウンロードは全て終了し、システムにインストールされたhostsファイルに統合されています。</string>
+  <string name="button_apply_text">定義されたソースからダウンロードし、システムのhostsファイルに統合しインストールします。</string>
   <string name="button_revert_text">システムのhostsファイルをリストアします。</string>
   <string name="button_save">保存</string>
   <string name="button_webserver_toggle_checked">ウェブサーバーは動作中です</string>

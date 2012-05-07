@@ -36,10 +36,6 @@ import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
-/**
- * Demonstrates combining the action bar with a ViewPager to implement a tab UI that switches
- * between tabs and also allows the user to perform horizontal flicks to move between the tabs.
- */
 public class HelpActivity extends SherlockActivity implements ActionBar.TabListener {
     private SherlockActivity mActivity;
     private ActionBar mActionBar;

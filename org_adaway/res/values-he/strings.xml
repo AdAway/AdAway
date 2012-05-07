@@ -26,7 +26,7 @@
   <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
   <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
   <string name="no_connection_title">אין חיבור</string>
-  <string name="download_dialog">Downloading...</string>
+  <string name="download_dialog">מוריד...</string>
   <string name="apply_dialog">החל</string>
   <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
   <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>

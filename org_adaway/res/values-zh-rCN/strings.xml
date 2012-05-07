@@ -92,14 +92,14 @@
   <string name="status_no_connection">没有网络连接</string>
   <string name="status_no_connection_subtitle">没有可用网络连接</string>
   <string name="status_download_fail">不可用的源</string>
-  <string name="status_download_fail_subtitle">URL:</string>
+  <string name="status_download_fail_subtitle">URL: </string>
   <string name="status_enabled">启用</string>
   <string name="status_enabled_subtitle">最新的hosts文件已经启用</string>
   <string name="status_disabled">禁用</string>
   <string name="status_disabled_subtitle">禁用</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">从你设置的目标不存在或者不是正确的到 /system/etc/hosts 的符号链接！没有指向正确的文件AdAway不能运行。\n\n你需要创建符号链接吗？</string>
-  <string name="apply_symlink_missing_title">符号连接丢失</string>
+  <string name="apply_symlink_missing_title">符号链接丢失</string>
   <string name="apply_not_enough_space">分区上没有足够的空间\n请在设置里面修改目标hosts文件到/data/data/hosts。</string>
   <string name="apply_not_enough_space_title">空间不足</string>
   <string name="apply_private_file_fail">不能读取下载的文件。</string>
