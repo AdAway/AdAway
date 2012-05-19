@@ -2,35 +2,35 @@
 <head></head>
 <body>
 <h2>Einkommen durch Werbung</h2>
-<p>Es besteht eine verbreitete ,falsche, Auffassung, das wenn ein Nutzer nie auf Werbung klickt, dies einer Webseite oder Anwendung finanziell nicht schaden könnte. Falsch ist dies insofern deswegen weil Entwickler alleine durchs Anzeigen von Werbung Geld verdienen. Es ist deine Entscheidung ob du Werbung blockierst oder nicht. Ich persönlich würde keine Anwendungen verwenden die Werbung anzeigen, weil mich diese äußerst stören. Ohne einem Werbungblockierer würd ich diese Anwendungen nicht installieren.</p>
+<p>Es existiert die Auffassung, dass wenn ein Nutzer nie auf Werbung klickt, dies einer Webseite oder Anwendung finanziell nicht schaden könnte. Entwickler werden aber oft über die Anzahl der Views bezahlt. Es bleibt deine Entscheidung ob du Werbung blockierst oder nicht. Ich persönlich würde keine Anwendungen verwenden die Werbung anzeigen, weil mich diese äußerst stören. Ohne einem Werbeblocker würde ich diese Anwendungen nicht installieren.</p>
 
 <h2>Wie funktioniert AdAway?</h2>
-<p>AdAway benutzt die <a href="http://en.wikipedia.org/wiki/Hosts_file"> Hosts Datei </a> um Hostnamen zu blockieren, die Werbung zustellen. Die Hosts Datei, ist eine Datei, die sich in <tt>/system/etc/hosts</tt> befindet und Hostnamen in IP Adressen übersetzt. Dies ist die ursprüngliche Art Hostnamen zu IP Adressen Paare  zu definieren, ohne vom Domain Name System (DNS) gebrauch zu machen. Alle unerwünschten Hostnamen werden zu <tt>127.0.0.1</tt> umgeleitet. Diese führt zum eigenen Gerät.</p>
+<p>AdAway benutzt die <a href="http://en.wikipedia.org/wiki/Hosts_file">Hosts-Datei</a> um Hostnamen zu blockieren, die Werbung ausliefern. Die Hosts-Datei ist eine Datei, die sich in <tt>/system/etc/hosts</tt> befindet und Hostnamen in IP Adressen übersetzt. Dies ist eine Möglichkeit Hostname-IP-Paare zu definieren ohne vom Domain Name System (DNS) Gebrauch zu machen. Alle unerwünschten Hostnamen werden zu <tt>127.0.0.1</tt> umgeleitet, also auf dein eigenes Gerät.</p>
 
-<h2>Warum muss ich Android neu starten, um die Änderungen wirksam werden zu lassen?</h2>
-<p>Java auf Android hält seine eigenen, internen DNS Puffer. Das Betriebssystem übernimmt die neue Hosts Datei sofort (dies kann man mit einem Ping über die Kommandozeile überprüfen). Jedoch ist es nötig Android neuzustarten um den DNS Puffer zu erneuern.</p>
+<h2>Warum muss ich Android neu starten, damit die Änderungen wirksam werden?</h2>
+<p>Java auf Android hat einen eigenen internen DNS-Buffer. Das Betriebssystem übernimmt die neue Hosts-Datei sofort (dies kann man mit ping über die Kommandozeile überprüfen). Jedoch ist es nötig Android neuzustarten um Javas DNS-Buffer zu erneuern.</p>
 
 <h2>Wie verwendet man den Webserver in AdAway?</h2>
-<p><b>AdAway funktioniert auch ohne einen Webserver aufzusetzen !</b>
-<br/><br/> Sie können einen lokalen Webserver in den Einstellungen von AdAway aktivieren, um Requests an die lokale IP Adresse <tt>127.0.0.1</tt>  zu beantworten. Das bedeutet das Requests von Anwendungen zu Ad Servern, welche zu  <tt>127.0.0.1</tt> umgeleitet werden von AdAways Webserver beantwortet werden. 
-<br/>Manche Anwendungen funktionieren nicht wenn ad Server nicht erreichbar sind. Mit dieser Methode werden sie wieder erreichbar, antworten mit einer leeren Seite und ohne Werbung.</p>
+<p><b>AdAway funktioniert auch ohne den Webserver zu aktivieren!</b>
+<br/><br/>Du kannst den lokalen Webserver in den Einstellungen von AdAway aktivieren, um Anfragen an die lokale IP-Adresse <tt>127.0.0.1</tt> zu beantworten. Das bedeutet das Anfragen von Anwendungen zu Ad-Servern, welche zu <tt>127.0.0.1</tt> umgeleitet wurden, von AdAways Webserver beantwortet werden. 
+<br/>Manche Anwendungen funktionieren nicht wenn Ad-Server nicht erreichbar sind. Mit dieser Methode werden sie wieder erreichbar, da der lokale Webserver mit einer leeren Seite antwortet.</p>
 
-<h2>Die Werbung in App XYZ wird nicht blockiert!</h2>
-<p>Einige Hostnamen mögen in der mitgelieferten Hostdatei <i>Host Quellen</i> fehlen oder die Anwendung bringt Bilder mit um Werbung ohne Internetzugriff darstellen zu können.
+<h2>Die Werbung in Anwendung XYZ wird nicht blockiert!</h2>
+<p>Einige Hostnamen mögen in der mitgelieferten Hostdatei <i>Host Quellen</i> fehlen oder die Anwendung enthält Bilder um Werbung ohne Internetzugriff darstellen zu können.
 <br/><br/>
-Sie können DNS Anfragen (Menü->Log DNS Requests) loggen um zu sehen welche zusätzlichen Hostnamen sie noch blocken wollen.
-<br/><br/> Fügen sie die verdächtigen Hostnamen zu ihrer eigenen Blacklist hinzu. Dies geschieht indem sie längere Zeit auf die Einträge in der log Datei drücken und melden sie diese Hostdateien, nachdem sie sich von ihrer Richtigkeit im Forum überzeugt haben <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+Du kannst DNS Anfragen (Menü->Logge DNS-Anfragen) mitschneiden um herauszufinden welche Hostnamen noch blockiert werden müssen.
+<br/><br/>Die verdächtigen Hostnamen kannst du zu deiner Blacklist hinzufügen. Dazu musst du einen Eintrag in der Liste gedrückt halten damit ein Kontextmenu erscheint. Hier kann der Eintrag entweder blockiert oder auf die Whitelist gesetzt werden. Wenn die Hostnamen wirklich dazu genutzt wurden Werbung auszuliefern, melde diese bitte im Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> der Webseite <a href="http://hosts-file.net">hosts-file.net</a>.</p>
 
-<h2>Applikation XYZ funktioniert nicht mehr richtig!</h2>
-<p>Manche Anwendungen müssen mit einem Hostnamen kommunizieren, der von AdAway blockiert wird oder nicht funktioniert wenn Hostnamen die Werbung liefern nicht erreichbar sind. Schauen sie auf <a href="http://code.google.com/p/ad-away/wiki/ProblemApps">http://code.google.com/p/ad-away/wiki/ProblemApps</a>um eine Liste von Anwendungen zu erhalten, die bereits gemeldet sind in diesem Fall Probleme zu haben. Anderseits folgen sie den bereits gegebenen Anweisungen und fügen sie diese zu ihrer <i>Whitelist</i> unter <i>Ihre Listen</i> hinzu und melden sie diese dem <a href="http://code.google.com/p/ad-away/issues/list"> Bug Tracker von AdAway </a>.   </p>
+<h2>Anwendung XYZ funktioniert nicht mehr richtig!</h2>
+<p>Manche Anwendungen müssen mit einem Hostnamen kommunizieren, der von AdAway blockiert wird oder verweigern ihren Dienst wenn Hostnamen, die Werbung ausliefern, nicht erreichbar sind. Auf <a href="http://code.google.com/p/ad-away/wiki/ProblemApps">http://code.google.com/p/ad-away/wiki/ProblemApps</a>findest du eine Liste von Anwendungen zu, die bereits gemeldet wurden und in diesem Bezug Probleme bereiten. Sollten Anwendungen trotzdem nicht richtig funktionieren kannst du Hostnamen zu deiner <i>Whitelist</i> unter <i>Deine Listen</i> hinzufügen und diese in dem <a href="http://code.google.com/p/ad-away/issues/list">Bug Tracker von AdAway</a> melden.   </p>
 
 <h2>Wie kann ich bestimmte Hostname sperren/entsperren?</h2>
-<p>Sie können ihren eigenen Server aufsetzen, um eine Hostsdatei, mit Hostnamen die sie blockieren wollen, zur Verfügung zu stellen. Fügen sie diese zu <i>Hosts Sources</i> hinzu oder fügen sie die Hostnamen, die sie blockieren wollen, zur Blacklist  (=Schwarz) unter <i>Your Lists</i> hinzu. Zusätzlich können Hostnamen die sie nicht blockieren wollen zur <i>Whitelist</i> (=White) hinzugefügt werden und Hostnamen die sie zu einer spezifischen IP Adresse umleiten wollen gehören zur <i>Redirection List</i> (=Umleitung).</p>
+<p>Du kannst deinen eigenen Server aufsetzen, der eine Hostsdatei, mit zu blockierenden Hostnamen zur Verfügung stellt. Fügen sie diesen zu den <i>Hosts-Quellen</i> hinzu. Alternativ fügen sie die Hostnamen, die sie blockieren wollen, zur Blacklist unter <i>Deine Listen</i> hinzu. Zusätzlich können Hostnamen die sie nicht blockieren wollen zur <i>Whitelist</i> hinzugefügt werden und Hostnamen die zu einer spezifischen IP Adresse umgeleitet werden sollen zur <i>Umleitungsliste</i>.</p>
 
 <h2>Wo finde ich mehr Hosts-Quellen?</h2>
 <p>Siehe die <a href="http://code.google.com/p/ad-away/wiki/HostsSources">Liste zusätzlicher Hosts-Quellen für AdAway</a>.</p>
 
 <h2>Ich habe einen Bug in AdAway gefunden!</h2>
-<p>Bitte melde ihn im <a href="http://code.google.com/p/ad-away/issues/list">Bug-Tracker von AdAway</a>.</p>
+<p>Bitte melde den Bug im <a href="http://code.google.com/p/ad-away/issues/list">Bug-Tracker von AdAway</a>.</p>
 </body>
 </html>

@@ -50,8 +50,6 @@ public class ApplyUtils {
      * @return true if it will fit on partition of target, false if it will not fit.
      */
     public static boolean hasEnoughSpaceOnPartition(String target, long size) {
-        long availableSpace;
-
         try {
             // new File(target).getFreeSpace() (API 9) is not working on data partition
 
@@ -61,7 +59,7 @@ public class ApplyUtils {
             StatFs stat = new StatFs(directory);
             long blockSize = stat.getBlockSize();
             long availableBlocks = stat.getAvailableBlocks();
-            availableSpace = availableBlocks * blockSize;
+            long availableSpace = availableBlocks * blockSize;
 
             Log.i(Constants.TAG, "Checking for enough space: Target: " + target + ", directory: "
                     + directory + " size: " + size + ", availableSpace: " + availableSpace);
@@ -75,9 +73,7 @@ public class ApplyUtils {
         } catch (Exception e) {
             // if new StatFs(directory) fails catch IllegalArgumentException and just return true as
             // workaround
-            Log.e(Constants.TAG, "Problem while getting available space on partition!");
-            Log.e(Constants.TAG, "Message: " + e.getMessage());
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Problem while getting available space on partition!", e);
             return true;
         }
     }

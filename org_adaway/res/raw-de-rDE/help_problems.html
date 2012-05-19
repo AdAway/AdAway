@@ -2,27 +2,27 @@
 <head></head>
 <body>
 <h2>Nicht genug Speicherplatz vorhanden.</h2>
-<p>Ändern Sie das target hosts file in den Einstellungen von AdAway auf <tt>/data/data/hosts</tt>.</p>
+<p>Ändere die zu benutzende Hosts-Datei in den Einstellungen von AdAway auf <tt>/data/data/hosts</tt>.</p>
 
 <h2>HTC Geräte</h2>
-<p>AdAway funktioniert nicht, wenn Sie ein Gerät mit einem sogenannten S-ON verwenden. Dieses "Feature" existiert auf vielen HTC-Geräten und verhindert, dass AdAway die Hostdatei schreiben kann.</p>
+<p>AdAway funktioniert nicht, wenn ein Gerät mit S-ON verwendet wird. Dieses "Feature" existiert auf vielen HTC-Geräten und verhindert, dass AdAway die Hosts-Datei beschreiben kann.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF bedeutet, dass der NAND-Anteil des Gerätes entsperrt ist und somit beschrieben werden kann. Die Standardeinstellung bei HTC-Geräten ist S-ON, was bedeutet, dass man weder Zugriff auf bestimmte Bereiche des Systems hat, noch kann man einen permanenten Root garantieren. Desweiteren ist auch dieÜberprüfung der Signatur von Firmware-Images durch das S-ON-Flag sichergestellt.</p>
+<p>S-OFF bedeutet, dass der NAND-Anteil des Gerätes entsperrt ist und somit beschrieben werden kann. Die Standardeinstellung bei HTC-Geräten ist S-ON, was bedeutet, dass man weder Zugriff auf bestimmte Bereiche des Systems hat, noch kann man einen permanenten Root garantieren. Desweiteren ist auch die Überprüfung der Signatur von Firmware-Images durch das S-ON-Flag sichergestellt.</p>
 
 <h2>Habe ich S-ON oder S-OFF?</h2>
-<p>Boote in das Boot-Menü deines Gerätes durch Halten der <i>Lautstärke verringern</i>-Taste während dem Betätigen der Power-Taste. Der Text oben zeigt den Flag-Status als S-OFF oder S-ON an. Ein voller Root bedeutet generell S-OFF.
-<br/><br/> Mehr Informationen finden Sie unter <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Boote in das Boot-Menü deines Gerätes durch Halten der <i>Lautstärke verringern</i>-Taste während du die Power-Taste gedrückt hältst. Der Text oben zeigt den Flag-Status als S-OFF oder S-ON an. Ein voller Root bedeutet generell S-OFF.
+<br/><br/>Mehr Informationen finden Sie unter <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
-<h2>Abhilfe</h2>
-<p>Vorraussetzung: Sie müssen ein funktionierendes Android-SDK mit ADB-Shell auf ihrem Computer installieren.
-<br/><br/> 1. Booten Sie in das Boot-Menü ihres Gerätes, indem Sie die <i>Lautstärke verringern</i>-Taste während dem Betätigen der Power-Taste gedrückt halten.
-<br/> 2. Verwenden Sie die <i>Lautstärke verringern</i>-Taste um recovery auszuwählen.
-<br/> 3. Im clockwork recovery mit Hilfe der Lautstärke verringern-Taste zu "partitions menu" und mit dem Trackpad auswählen.
-<br/> 4. <i>mount /system</i>, <i>mount /sdcard</i> und <i>mount /data</i> auswählen.
-<br/> 5. Stecken Sie ihr USB-Kabel ein und öffnen sie die Kommandozeile auf ihrem PC.
-<br/> 6. Öffnen Sie die ADB-Shell und geben Sie folgendes ein: <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Dies generiert einen symbolischen Link, welcher AdAway die Bearbeitung der Hostdatei, welche in <tt>/data</tt> gespeichert ist, erlaubt, während es dem OS erlaubt, die Datei so zu verwenden, als wäre sie in <tt>/system</tt> gespeichert.)
-<br/> 7. Starten Sie ihr Gerät neu und setzen Sie <i>Target hosts file</i> zu <i>/data/data/hosts</i> in den Einstellungen von AdAway.
+<h2>Workaround</h2>
+<p>Voraussetzung: Du musst ein funktionierendes Android-SDK mit ADB-Shell auf dem Computer installiert haben.
+<br/><br/>1. Boote in das Boot-Menü deines Gerätes durch Halten der <i>Lautstärke verringern</i>-Taste während du die Power-Taste gedrückt hältst.
+<br/>2. Verwende die <i>Lautstärke verringern</i>-Taste um Recovery auszuwählen.
+<br/>3. Im Clockwork-Recovery-Menu mit Hilfe der <i>Lautstärke verringern</i>-Taste zum "partitions menu" navigieren und mit dem Trackpad auswählen.
+<br/>4. <i>mount /system</i>, <i>mount /sdcard</i> und <i>mount /data</i> auswählen.
+<br/>5. Verbinde das Gerät mit dem USB-Kabel mit dem Rechner und öffnen sie die Kommandozeile auf dem Rechner.
+<br/>6. Öffne die ADB-Shell und gib folgendes ein: <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Dies generiert einen symbolischen Link, welcher AdAway die Bearbeitung der Hostdatei, welche in <tt>/data</tt> gespeichert ist, erlaubt, während es dem OS erlaubt, die Datei so zu verwenden, als wäre sie in <tt>/system</tt> gespeichert.)
+<br/> 7. Starte das Gerät neu und setze die <i>Zu benutzende Hosts-Datei</i> in den Einstellungen von AdAway auf <i>/data/data/hosts</i>.
 <br/> 8. AdAway sollte nun funktionieren.</p>
 </body>
 </html>
