@@ -55,7 +55,7 @@ public class UpdateListener implements AlarmListener {
                 mgr.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
                         60 * 1000, pi);
             } else {
-                mgr.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
+                mgr.setInexactRepeating(AlarmManager.RTC, calendar.getTimeInMillis(),
                         AlarmManager.INTERVAL_DAY, pi);
             }
         }

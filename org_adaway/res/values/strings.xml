@@ -197,6 +197,8 @@
     <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
     <string name="pref_automatic_update_daily">Automatic update</string>
     <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
+    <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+    <string name="pref_update_only_on_wifi_summary">Background updates are only done when connected to a wifi network.</string>
     <string name="pref_redirection_rules">Allow redirections</string>
     <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
     <string name="pref_debug">Debug</string>

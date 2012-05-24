@@ -63,6 +63,28 @@ public class PreferencesHelper {
                 Boolean.parseBoolean(context.getString(R.string.pref_automatic_update_daily_def)));
     }
 
+    public static boolean getUpdateOnlyOnWifi(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean(context.getString(R.string.pref_update_only_on_wifi_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_update_only_on_wifi_def)));
+    }
+
+    public static long getLastUpdateCheck(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getLong(context.getString(R.string.pref_last_update_check_key),
+                Integer.parseInt(context.getString(R.string.pref_last_update_check_def)));
+    }
+
+    public static void setLastUpdateCheck(Context context, long value) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putLong(context.getString(R.string.pref_last_update_check_key), value);
+        editor.commit();
+    }
+
     public static boolean getRedirectionRules(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);

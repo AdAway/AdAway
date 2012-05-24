@@ -34,7 +34,7 @@ import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
 
 /**
- * A custom Loader that loads all of the installed applications.
+ * A custom Loader that parses log files from tcpdump
  */
 public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
 
@@ -61,13 +61,13 @@ public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
                 // open the file for reading
                 FileInputStream instream = new FileInputStream(file);
 
-                // if file the available for reading
+                // if file is available for reading
                 if (instream != null) {
                     // prepare the file for reading
                     InputStreamReader inputreader = new InputStreamReader(instream);
                     BufferedReader reader = new BufferedReader(inputreader);
 
-                    // read every line of the file into the line-variable, on line at the time
+                    // read every line of the file into the line-variable, one line at a time
                     String nextLine;
                     String hostname;
                     while ((nextLine = reader.readLine()) != null) {
@@ -79,7 +79,7 @@ public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
                         }
                     }
                 }
-                // close the file again
+                // close the file
                 instream.close();
             } catch (java.io.FileNotFoundException e) {
                 Log.e(Constants.TAG, "Tcpdump log is not existing!");

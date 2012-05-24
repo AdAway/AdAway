@@ -144,8 +144,6 @@ public class UpdateService extends WakefulIntentService {
                             .getLong(enabledHostsSourcesCursor
                                     .getColumnIndex("last_modified_local"));
 
-                    @SuppressWarnings("unused")
-                    InputStream is = null;
                     try {
                         Log.v(Constants.TAG, "Checking hosts file: " + mCurrentUrl);
 
@@ -165,7 +163,7 @@ public class UpdateService extends WakefulIntentService {
 
                         // check if file is available
                         connection.connect();
-                        is = connection.getInputStream();
+                        connection.getInputStream();
 
                         // check if update available for this hosts file
                         if (currentLastModifiedOnline > currentLastModifiedLocal) {
