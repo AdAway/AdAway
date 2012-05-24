@@ -2,9 +2,9 @@ Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
 1.35
-* New method for background updates
-* AdAway will now only update when internet is available
-* Preference to update only when on wifi
+* New method for background update checking
+* AdAway will now reschedule the update check to execute it when the Internet connection is established
+* New preference to update only when on Wifi
 
 1.34
 * In-app PayPal donations are now possible
