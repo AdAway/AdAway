@@ -77,6 +77,12 @@ public abstract class SherlockListActivity extends ListActivity implements OnCre
     }
 
     @Override
+    protected void onDestroy() {
+        getSherlock().dispatchDestroy();
+        super.onDestroy();
+    }
+
+    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         getSherlock().dispatchPostCreate(savedInstanceState);
         super.onPostCreate(savedInstanceState);

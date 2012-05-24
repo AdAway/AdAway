@@ -77,6 +77,12 @@ public abstract class SherlockActivity extends Activity implements OnCreatePanel
     }
 
     @Override
+    protected void onDestroy() {
+        getSherlock().dispatchDestroy();
+        super.onDestroy();
+    }
+
+    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         getSherlock().dispatchPostCreate(savedInstanceState);
         super.onPostCreate(savedInstanceState);

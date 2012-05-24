@@ -81,6 +81,8 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
 
     /** Whether or not the title is stable and can be displayed. */
     private boolean mIsTitleReady = false;
+    /** Whether or not the parent activity has been destroyed. */
+    private boolean mIsDestroyed = false;
 
     /* Emulate PanelFeatureState */
     private boolean mClosingActionMenu;
@@ -413,7 +415,7 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
             }
 
             // Next collapse any expanded action views.
-            if (aActionBar != null && wActionBar.hasExpandedActionView()) {
+            if (wActionBar != null && wActionBar.hasExpandedActionView()) {
                 if (action == KeyEvent.ACTION_UP) {
                     wActionBar.collapseActionView();
                 }
@@ -428,7 +430,7 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
                 mMenuKeyIsLongPress = true;
             } else if (event.getAction() == KeyEvent.ACTION_UP) {
                 if (!mMenuKeyIsLongPress) {
-                    if (mActionMode == null) {
+                    if (mActionMode == null && wActionBar != null) {
                         if (wActionBar.isOverflowMenuShowing()) {
                             wActionBar.hideOverflowMenu();
                         } else {
@@ -443,6 +445,11 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
 
         if (DEBUG) Log.d(TAG, "[dispatchKeyEvent] returning " + result);
         return result;
+    }
+
+    @Override
+    public void dispatchDestroy() {
+        mIsDestroyed = true;
     }
 
 
@@ -977,7 +984,7 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
                         @Override
                         public void run() {
                             //Invalidate if the panel menu hasn't been created before this.
-                            if (!mActivity.isFinishing() && mMenu == null) {
+                            if (!mIsDestroyed && !mActivity.isFinishing() && mMenu == null) {
                                 dispatchInvalidateOptionsMenu();
                             }
                         }

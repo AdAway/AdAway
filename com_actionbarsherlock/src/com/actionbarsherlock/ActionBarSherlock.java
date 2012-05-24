@@ -523,6 +523,20 @@ public abstract class ActionBarSherlock {
      */
     public void dispatchPanelClosed(int featureId, android.view.Menu menu) {}
 
+    /**
+     * Notify the action bar that the activity has been destroyed. This method
+     * should be called before the superclass implementation.
+     *
+     * <blockquote><p>
+     * @Override
+     * public void onDestroy() {
+     *     mSherlock.dispatchDestroy();
+     *     super.onDestroy();
+     * }
+     * </p></blockquote>
+     */
+    public void dispatchDestroy() {}
+
 
     ///////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////

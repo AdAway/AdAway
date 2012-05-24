@@ -217,7 +217,6 @@ public class ActionBarWrapper extends ActionBar implements android.app.ActionBar
         public TabWrapper(android.app.ActionBar.Tab nativeTab) {
             mNativeTab = nativeTab;
             mNativeTab.setTag(this);
-            mNativeTab.setTabListener(this);
         }
 
         @Override
@@ -289,6 +288,7 @@ public class ActionBarWrapper extends ActionBar implements android.app.ActionBar
 
         @Override
         public Tab setTabListener(TabListener listener) {
+            mNativeTab.setTabListener(listener != null ? this : null);
             mListener = listener;
             return this;
         }

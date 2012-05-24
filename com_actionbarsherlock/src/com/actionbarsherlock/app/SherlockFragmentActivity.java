@@ -2,27 +2,24 @@ package com.actionbarsherlock.app;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app._ActionBarSherlockTrojanHorse;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import com.actionbarsherlock.ActionBarSherlock;
-import com.actionbarsherlock.ActionBarSherlock.OnActionModeFinishedListener;
-import com.actionbarsherlock.ActionBarSherlock.OnActionModeStartedListener;
-import com.actionbarsherlock.ActionBarSherlock.OnCreatePanelMenuListener;
-import com.actionbarsherlock.ActionBarSherlock.OnMenuItemSelectedListener;
-import com.actionbarsherlock.ActionBarSherlock.OnPreparePanelListener;
-import com.actionbarsherlock.internal.view.menu.MenuItemMule;
-import com.actionbarsherlock.internal.view.menu.MenuMule;
 import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-public abstract class SherlockFragmentActivity extends FragmentActivity implements OnCreatePanelMenuListener, OnPreparePanelListener, OnMenuItemSelectedListener, OnActionModeStartedListener, OnActionModeFinishedListener {
-    static final boolean DEBUG = false;
+import static com.actionbarsherlock.ActionBarSherlock.OnActionModeFinishedListener;
+import static com.actionbarsherlock.ActionBarSherlock.OnActionModeStartedListener;
+
+/** @see {@link _ActionBarSherlockTrojanHorse} */
+public class SherlockFragmentActivity extends _ActionBarSherlockTrojanHorse implements OnActionModeStartedListener, OnActionModeFinishedListener {
+    private static final boolean DEBUG = false;
     private static final String TAG = "SherlockFragmentActivity";
 
     private ActionBarSherlock mSherlock;
@@ -83,6 +80,12 @@ public abstract class SherlockFragmentActivity extends FragmentActivity implemen
     protected void onStop() {
         getSherlock().dispatchStop();
         super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        getSherlock().dispatchDestroy();
+        super.onDestroy();
     }
 
     @Override
@@ -221,73 +224,12 @@ public abstract class SherlockFragmentActivity extends FragmentActivity implemen
     // Sherlock menu handling
     ///////////////////////////////////////////////////////////////////////////
 
-    @Override
-    public boolean onCreatePanelMenu(int featureId, Menu menu) {
-        if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] featureId: " + featureId + ", menu: " + menu);
-
-        if (featureId == Window.FEATURE_OPTIONS_PANEL) {
-            boolean result = onCreateOptionsMenu(menu);
-            if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] activity create result: " + result);
-
-            //Dispatch to parent panel creation for fragment dispatching
-            if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] dispatching to native with mule");
-            MenuMule mule = new MenuMule(menu);
-            super.onCreatePanelMenu(featureId, mule);
-
-            if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] fragments create result: " + mule.mDispatchShow);
-            result |= mule.mDispatchShow;
-
-            if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] returning " + result);
-            return result;
-        }
-        return false;
-    }
-
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
 
-    @Override
-    public boolean onPreparePanel(int featureId, View view, Menu menu) {
-        if (DEBUG) Log.d(TAG, "[onPreparePanel] featureId: " + featureId + ", view: " + view + " menu: " + menu);
-
-        if (featureId == Window.FEATURE_OPTIONS_PANEL) {
-            boolean result = onPrepareOptionsMenu(menu);
-            if (DEBUG) Log.d(TAG, "[onPreparePanel] activity prepare result: " + result);
-
-            //Dispatch to parent panel preparation for fragment dispatching
-            if (DEBUG) Log.d(TAG, "[onPreparePanel] dispatching to native with mule");
-            MenuMule mule = new MenuMule(menu);
-            super.onPreparePanel(featureId, view, mule);
-
-            if (DEBUG) Log.d(TAG, "[onPreparePanel] fragments prepare result: " + mule.mDispatchShow);
-            result |= mule.mDispatchShow;
-
-            result &= menu.hasVisibleItems();
-            if (DEBUG) Log.d(TAG, "[onPreparePanel] returning " + result);
-            return result;
-        }
-        return false;
-    }
-
     public boolean onPrepareOptionsMenu(Menu menu) {
         return true;
-    }
-
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        if (DEBUG) Log.d(TAG, "[onMenuItemSelected] featureId: " + featureId + ", item: " + item);
-
-        if (featureId == Window.FEATURE_OPTIONS_PANEL) {
-            if (onOptionsItemSelected(item)) {
-                return true;
-            }
-
-            //Dispatch to parent panel selection for fragment dispatching
-            if (DEBUG) Log.d(TAG, "[onMenuItemSelected] dispatching to native with mule");
-            return super.onMenuItemSelected(featureId, new MenuItemMule(item));
-        }
-        return false;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
