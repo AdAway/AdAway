@@ -9,8 +9,8 @@
   <string name="button_revert">Werbeblocker deaktivieren</string>
   <string name="button_add">Hinzufügen</string>
   <string name="button_cancel">Abbrechen</string>
-  <string name="button_apply_text">Alle hosts-Dateien von den eingestellten Quellen werden heruntergeladen, mit Deinen eigenen Listen zusammengefügt und als eine hosts-Datei im System installiert.</string>
-  <string name="button_revert_text">Stellt die Standard hosts-Datei auf Deinem System wieder her.</string>
+  <string name="button_apply_text">Alle hosts-Dateien von den eingestellten Quellen werden heruntergeladen, mit deinen eigenen Listen zusammengefügt und als eine hosts-Datei im System installiert.</string>
+  <string name="button_revert_text">Stellt die Standard hosts-Datei auf deinem System wieder her.</string>
   <string name="button_save">Speichern</string>
   <string name="button_webserver_toggle_checked">Webserver gestartet</string>
   <string name="button_webserver_toggle_unchecked">Webserver ist nicht gestartet</string>
@@ -22,7 +22,7 @@
   <string name="button_tcpdump_open">Log-Datei öffnen</string>
   <string name="button_tcpdump_delete">Log-Datei löschen</string>
   <!--Dialogs-->
-  <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder Du hast AdAway keine root-Rechte gegeben.\n\nDas kann passieren wenn Du Dein Gerät nicht gerootet hast.\nInformationen wie Du Dein Gerät rooten kannst findest Du auf www.cyanogenmod.com oder anderen Android-Webseiten.</string>
+  <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder du hast AdAway keine root-Rechte gegeben.\n\nDas kann passieren wenn du dein Gerät nicht gerootet hast.\nInformationen wie du dein Gerät rooten kannst findest du auf www.cyanogenmod.com oder anderen Android-Webseiten.</string>
   <string name="no_root_title">Gerootetes Android benötigt</string>
   <string name="no_connection">Die Internetverbindung funktioniert nicht.</string>
   <string name="no_connection_title">Keine Verbindung</string>
@@ -32,8 +32,8 @@
   <string name="apply_dialog_hostnames">Verarbeite und füge hosts-Dateien zusammen</string>
   <string name="apply_dialog_hosts">Erstelle hosts-Datei</string>
   <string name="apply_dialog_apply">Aktiviere neue Hosts-Datei im System</string>
-  <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest Du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
-  <string name="apply_success">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest Du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
+  <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
+  <string name="apply_success">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
   <string name="apply_fail">Das Ändern der hosts-Datei auf Deinem System ist fehlgeschlagen!\nVersuch die hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
   <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
   <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
@@ -42,12 +42,12 @@
   <string name="no_url_title">Fehlerhafte URL</string>
   <string name="hosts_add_dialog">Gib die URL zur hosts-Datei an:</string>
   <string name="no_sources_title">Keine Quellen eingestellt.</string>
-  <string name="no_sources">Bitte füge Quellen für hosts-Dateien zu Deiner Liste hinzu.</string>
+  <string name="no_sources">Bitte füge Quellen für hosts-Dateien zu deiner Liste hinzu.</string>
   <string name="no_hostname">Das ist kein gültiger Hostname!</string>
   <string name="no_hostname_title">Fehlerhafter Hostname</string>
   <string name="no_ip">Das ist keine gültige IP!</string>
   <string name="no_ip_title">Fehlerhafte IP</string>
-  <string name="download_fail">Entweder funktioniert Deine Internetverbindung nicht oder die hosts-Datei die Du angegeben hast ist nicht verfügbar. Bitte prüfe die folgende URL und ändere sie in Deinen Quellen:</string>
+  <string name="download_fail">Entweder funktioniert deine Internetverbindung nicht oder die hosts-Datei, die du angegeben hast, ist nicht verfügbar. Bitte prüfe die folgende URL und ändere sie in den Quellen:</string>
   <string name="download_fail_title">Download fehlgeschlagen</string>
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
@@ -64,7 +64,7 @@
   <string name="checkbox_list_empty">Leere Liste</string>
   <string name="checkbox_list_empty_text">Du kannst Einträge über das Menü hinzufügen.</string>
   <string name="checkbox_list_context_delete">Löschen</string>
-  <string name="checkbox_list_footer">Wenn Du die Liste erweiterst musst Du AdAway nochmal aktivieren!</string>
+  <string name="checkbox_list_footer">Wenn du die Liste erweiterst musst Du AdAway nochmal aktivieren!</string>
   <string name="checkbox_list_edit_dialog_title">Bearbeiten</string>
   <string name="checkbox_list_context_title">Eintrag bearbeiten</string>
   <string name="checkbox_list_context_edit">Bearbeiten</string>
@@ -81,7 +81,7 @@
   <string name="list_dialog_ip">IP (IPv4 oder IPv6):</string>
   <string name="import_dialog">Importiere...</string>
   <string name="export_dialog">Exportiere...</string>
-  <string name="export_success">Alle Einträge wurden in eine Datei namens adaway-export auf deiner SD-Karte gespeichert.</string>
+  <string name="export_success">Alle Einträge wurden in eine Datei namens \'adaway-export\' auf deiner SD-Karte gespeichert.</string>
   <!--Status Notifications-->
   <string name="status_checking">Prüfe auf Updates...</string>
   <string name="status_reverting">Zurücksetzen...</string>
@@ -98,7 +98,7 @@
   <string name="status_disabled">Deaktiviert</string>
   <string name="status_disabled_subtitle">Deaktiviert</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Der symbolische Link von Deinem Ziel auf /system/etc/hosts existiert nicht! Ohne den Link wird AdAway nicht funktionieren.\n\nMöchtest Du versuchen den Link anlegen zu lassen?</string>
+  <string name="apply_symlink_missing">Der symbolische Link von deinem Ziel auf /system/etc/hosts existiert nicht! Ohne den Link wird AdAway nicht funktionieren.\n\nMöchtest du versuchen den Link anlegen zu lassen?</string>
   <string name="apply_symlink_missing_title">Symbolischer Link fehlt</string>
   <string name="apply_not_enough_space">Es ist nicht genug freier Speicherplatz auf der Partition verfügbar!\nVersuche die zu benutzende hosts-Datei auf /data/data/hosts zu ändern.</string>
   <string name="apply_not_enough_space_title">Nicht genug Speicherplatz</string>
@@ -109,9 +109,9 @@
   <string name="apply_copy_fail">Kopieren der hosts-Datei fehlgeschlagen!</string>
   <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
   <string name="apply_success_title">Erfolgreich angewendet</string>
-  <string name="apply_symlink_successful">Der symbolische Link wurde erfolgreich gesetzt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest Du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
+  <string name="apply_symlink_successful">Der symbolische Link wurde erfolgreich gesetzt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
   <string name="apply_symlink_successful_title">Symbolischer Link erfolgreich gesetzt</string>
-  <string name="apply_symlink_fail">Der symbolische Link konnte nicht erstellt werden.\nDas liegt wahrscheinlich an einer Funktion Namens S-ON auf HTC Geräten!\n\nEine Lösung ist es Dein Gerät in den recovery Modus zu booten und den Link von dort mit \'ln -s /data/data/hosts /system/etc/hosts\' zu erstellen.\n\nWenn das nicht funktioniert, such im Internet nach S-OFF und Deinem Gerät.</string>
+  <string name="apply_symlink_fail">Der symbolische Link konnte nicht erstellt werden.\nDas liegt wahrscheinlich an einer Funktion Namens S-ON auf HTC Geräten!\n\nEine Lösung ist es dein Gerät in den Recovery-Modus zu booten und den Link von dort mit \'ln -s /data/data/hosts /system/etc/hosts\' zu erstellen.\n\nWenn das nicht funktioniert, suche im Internet nach S-OFF und deinem Gerät.</string>
   <string name="apply_symlink_fail_title">Symbolischer Link konnte nicht erstellt werden</string>
   <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
   <string name="apply_help">Bitte lies die Hilfe für mehr Informationen.</string>
@@ -139,7 +139,7 @@
   <!--Other-->
   <string name="app_subtitle">Werbeblocker</string>
   <string name="no_text_editor_title">Kein Text-Editor installiert</string>
-  <string name="no_text_editor">Es konnte kein Text-Editor gefunden werden um die hosts-Datei zu öffnen. Du kannst Jota oder einen anderen Text-Editor installieren, um Textdateien zu öffnen.\n\nMöchtest Du Jota installieren?</string>
+  <string name="no_text_editor">Es konnte kein Text-Editor gefunden werden um die hosts-Datei zu öffnen. Du kannst Jota oder einen anderen Text-Editor installieren um Textdateien zu öffnen.\n\nMöchtest du Jota installieren?</string>
   <string name="no_file_manager_title">Kein Dateimanager installiert</string>
   <string name="no_file_manager">Es konnte kein Dateimanger gefunden werden um die Datei auszuwählen. Du kannst OI File Manager oder andere Dateimanager installieren um dies zu tun.\n\nMöchtest du OI File Manager installieren?</string>
   <!--Tcpdump-->
@@ -157,7 +157,7 @@
   <string name="pref_redirection_ip">Umleitungs-IP</string>
   <string name="pref_update_check">Prüfe auf Updates</string>
   <string name="pref_apply_method">Zu benutzende hosts-Datei</string>
-  <string name="pref_apply_method_summary">Bevor Du diese Einstellung änderst, lies bitte die Hilfe zu dem Thema.</string>
+  <string name="pref_apply_method_summary">Bevor du diese Einstellung änderst, lies bitte die Hilfe zu dem Thema.</string>
   <string name="pref_redirection_ip_summary">Alle geblockten Hostnamen werden auf diese IP-Adresse umgeleitet.</string>
   <string name="pref_header_preferences">Einstellungen</string>
   <string name="pref_header_preferences_summary">Generelle AdAway Einstellungen</string>
@@ -180,7 +180,7 @@
   <string name="pref_background">Hintergrunddienste</string>
   <string name="pref_update_check_daily">Prüfe täglich auf Updates</string>
   <string name="pref_update_check_daily_summary">Prüfe täglich im Hintergrund auf Updates, mit Benachrichtigung.</string>
-  <string name="pref_automatic_update_daily">Automatisches Updates</string>
+  <string name="pref_automatic_update_daily">Automatische Updates</string>
   <string name="pref_automatic_update_daily_summary">Installiere Updates automatisch im Hintergrund, wenn neue verfügbar sind.</string>
   <string name="pref_redirection_rules">Weiterleitungen erlauben</string>
   <string name="pref_redirection_rules_summary">Erlaube Weiterleitungen aus den Hosts-Quellen.</string>
