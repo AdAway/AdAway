@@ -224,9 +224,6 @@ public class ApplyService extends WakefulIntentService {
                         }
 
                     } while (enabledHostsSourcesCursor.moveToNext());
-                } else {
-                    // cursor empty
-                    returnCode = StatusCodes.EMPTY_HOSTS_SOURCES;
                 }
 
                 // close cursor in the end

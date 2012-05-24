@@ -123,10 +123,6 @@ public class ResultHelper {
                 title = context.getString(R.string.apply_symlink_missing_title);
                 text = context.getString(R.string.apply_symlink_missing);
                 break;
-            case StatusCodes.EMPTY_HOSTS_SOURCES:
-                title = context.getString(R.string.no_sources_title);
-                text = context.getString(R.string.no_sources);
-                break;
             case StatusCodes.APPLY_FAIL:
                 title = context.getString(R.string.apply_fail_title);
                 text = context.getString(R.string.apply_fail);
@@ -248,12 +244,6 @@ public class ResultHelper {
                 text = context.getString(R.string.apply_apn_proxy);
 
                 BaseActivity.updateStatusEnabled(context);
-                break;
-            case StatusCodes.EMPTY_HOSTS_SOURCES:
-                title = context.getString(R.string.no_sources_title);
-                text = context.getString(R.string.no_sources);
-
-                BaseActivity.updateStatusDisabled(context);
                 break;
             case StatusCodes.APPLY_FAIL:
                 title = context.getString(R.string.apply_fail_title);

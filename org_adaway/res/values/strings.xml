@@ -43,8 +43,6 @@
     <string name="no_url">This is not a valid URL!</string>
     <string name="no_url_title">Malformed URL</string>
     <string name="hosts_add_dialog">Input URL to hosts file:</string>
-    <string name="no_sources_title">No Sources defined</string>
-    <string name="no_sources">Please add hosts sources to your list.</string>
     <string name="no_hostname">This is not a valid hostname!</string>
     <string name="no_hostname_title">Malformed hostname</string>
     <string name="no_ip">This is not a valid IP!</string>
