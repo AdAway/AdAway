@@ -12,7 +12,7 @@
   <string name="button_apply_text">Alle hosts-Dateien von den eingestellten Quellen werden heruntergeladen, mit deinen eigenen Listen zusammengefügt und als eine hosts-Datei im System installiert.</string>
   <string name="button_revert_text">Stellt die Standard hosts-Datei auf deinem System wieder her.</string>
   <string name="button_save">Speichern</string>
-  <string name="button_webserver_toggle_checked">Webserver gestartet</string>
+  <string name="button_webserver_toggle_checked">Webserver wurde gestartet</string>
   <string name="button_webserver_toggle_unchecked">Webserver ist nicht gestartet</string>
   <string name="button_webserver_toggle_text">Starte oder stoppe den lokalen Webserver um Anfragen an geblockte Hostnamen zu beantworten.</string>
   <string name="button_help">Hilfe</string>
@@ -164,8 +164,8 @@
   <string name="pref_never_reboot">Verstecke den Neustart-Dialog</string>
   <string name="pref_never_reboot_summary">Versteckt den Dialog, der nach dem Neustarten von Android fragt, nachdem Änderungen an der hosts-Datei angewendet wurden.</string>
   <string name="pref_webserver_on_boot">Starte den Webserver beim Geräte-Start</string>
-  <string name="pref_webserver_on_boot_summary">Starte den Webserver auf der lokalen IP-Adresse beim Geräte-Start mit 5 Sekunden Verzögerung.</string>
-  <string name="pref_webserver_enabled">Aktiviere den Webserver</string>
+  <string name="pref_webserver_on_boot_summary">Starte den Webserver auf der lokalen IP-Adresse beim Geräte-Start</string>
+  <string name="pref_webserver_enabled">Webserver aktivieren</string>
   <string name="pref_webserver_enabled_summary">Aktiviere den lokalen Webserver um Anfragen an geblockte Hostnamen zu beantworten.</string>
   <string name="pref_webserver">Lokaler Webserver</string>
   <string name="pref_custom_target">Benutzerdefinierte hosts-Datei</string>

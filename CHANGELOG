@@ -5,6 +5,7 @@ http://code.google.com/p/ad-away/issues
 * New method for background update checking
 * AdAway will now reschedule the update check to execute it when the Internet connection is established
 * New preference to update only when on Wifi
+* AdAway now allows empty hosts sources for people who only want to maintain their own lists
 
 1.34
 * In-app PayPal donations are now possible
