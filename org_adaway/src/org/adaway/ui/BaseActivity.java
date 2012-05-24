@@ -23,7 +23,6 @@ package org.adaway.ui;
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
 import org.adaway.helper.ResultHelper;
-import org.adaway.service.UpdateListener;
 import org.adaway.service.UpdateService;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -174,10 +173,7 @@ public class BaseActivity extends SherlockFragmentActivity {
                     BaseActivity.updateStatusDisabled(mActivity);
                 }
             }
-
-            // schedule CheckUpdateService
-            WakefulIntentService.scheduleAlarms(new UpdateListener(), mActivity, false);
-
+            
             // Set Debug level based on preference
             if (PreferencesHelper.getDebugEnabled(this)) {
                 Constants.DEBUG = true;

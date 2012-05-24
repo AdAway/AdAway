@@ -83,8 +83,10 @@ abstract public class WakefulIntentService extends IntentService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if ((flags & START_FLAG_REDELIVERY) != 0) { // if crash restart...
-            getLock(this.getApplicationContext()).acquire(); // ...then quick grab the lock
+        PowerManager.WakeLock lock = getLock(this.getApplicationContext());
+
+        if (!lock.isHeld() || (flags & START_FLAG_REDELIVERY) != 0) {
+            lock.acquire();
         }
 
         super.onStartCommand(intent, flags, startId);
@@ -97,7 +99,11 @@ abstract public class WakefulIntentService extends IntentService {
         try {
             doWakefulWork(intent);
         } finally {
-            getLock(this.getApplicationContext()).release();
+            PowerManager.WakeLock lock = getLock(this.getApplicationContext());
+
+            if (lock.isHeld()) {
+                lock.release();
+            }
         }
     }
 

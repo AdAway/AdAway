@@ -22,7 +22,6 @@ package org.adaway.ui;
 
 import org.adaway.R;
 import org.adaway.helper.PreferencesHelper;
-import org.adaway.service.UpdateListener;
 import org.adaway.util.Constants;
 import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
@@ -81,26 +80,6 @@ public class PrefsActivity extends SherlockPreferenceActivity {
 
         getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences);
-
-        /*
-         * Listen on click of update daily pref, register UpdateService if enabled,
-         * setOnPreferenceChangeListener is not used because it is executed before setting the
-         * preference value, this would lead to a false check in UpdateListener
-         */
-        Preference UpdateDailyPref = findPreference(getString(R.string.pref_update_check_daily_key));
-        UpdateDailyPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                if (PreferencesHelper.getUpdateCheckDaily(mActivity)) {
-                    WakefulIntentService.scheduleAlarms(new UpdateListener(), mActivity, false);
-                } else {
-                    WakefulIntentService.cancelAlarms(mActivity);
-                }
-                return false;
-            }
-
-        });
 
         /* Start webserver if pref is enabled */
         Preference WebserverEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));

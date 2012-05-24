@@ -80,18 +80,7 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/menu_lists" />
 
-        <receiver android:name="com.commonsware.cwac.wakeful.AlarmReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-
-            <meta-data
-                android:name="com.commonsware.cwac.wakeful"
-                android:resource="@xml/wakeful" />
-        </receiver>
-
-        <service android:name=".service.UpdateService" >
-        </service>
+        <service android:name=".service.UpdateService" />
 
         <receiver android:name=".service.BootReceiver" >
             <intent-filter>

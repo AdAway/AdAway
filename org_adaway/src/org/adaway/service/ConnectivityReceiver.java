@@ -4,6 +4,8 @@ import org.adaway.helper.PreferencesHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
+import com.commonsware.cwac.wakeful.WakefulIntentService;
+
 import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -45,6 +47,10 @@ public class ConnectivityReceiver extends BroadcastReceiver {
                                 || (aNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI)) {
                             Log.d(Constants.TAG, "We have internet, start update check!");
 
+                            // Start service with wakelock by using WakefulIntentService
+                            Intent updateIntent = new Intent(context, UpdateService.class);
+                            updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, true);
+                            WakefulIntentService.sendWakefulWork(context, updateIntent);
                         }
                     }
                 }
