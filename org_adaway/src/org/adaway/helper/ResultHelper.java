@@ -58,7 +58,7 @@ public class ResultHelper {
             BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
 
             // only show if reboot dialog is not disabled in preferences
-            if (!PreferencesHelper.getNeverReboot(context)) {
+            if (!PreferenceHelper.getNeverReboot(context)) {
                 processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
             }
         } else if (result == StatusCodes.REVERT_SUCCESS) {
@@ -68,7 +68,7 @@ public class ResultHelper {
             BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.DISABLED);
 
             // only show if reboot dialog is not disabled in preferences
-            if (!PreferencesHelper.getNeverReboot(context)) {
+            if (!PreferenceHelper.getNeverReboot(context)) {
                 processResult(context, title, text, text, result, StatusCodes.DISABLED, null, true);
             }
         } else if (result == StatusCodes.REVERT_FAIL) {
@@ -387,10 +387,10 @@ public class ResultHelper {
 
         try {
             // symlink to /system/etc/hosts, based on target
-            if (PreferencesHelper.getApplyMethod(context).equals("writeToDataData")) {
+            if (PreferenceHelper.getApplyMethod(context).equals("writeToDataData")) {
                 ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
-            } else if (PreferencesHelper.getApplyMethod(context).equals("customTarget")) {
-                ApplyUtils.createSymlink(PreferencesHelper.getCustomTarget(context));
+            } else if (PreferenceHelper.getApplyMethod(context).equals("customTarget")) {
+                ApplyUtils.createSymlink(PreferenceHelper.getCustomTarget(context));
             }
         } catch (CommandException e) {
             Log.e(Constants.TAG, "Exception: " + e);

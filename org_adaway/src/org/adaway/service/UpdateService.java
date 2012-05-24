@@ -20,12 +20,11 @@
 
 package org.adaway.service;
 
-import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
 import org.adaway.R;
-import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
@@ -44,7 +43,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.PowerManager;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
@@ -54,12 +52,13 @@ import com.commonsware.cwac.wakeful.WakefulIntentService;
  */
 public class UpdateService extends WakefulIntentService {
     // Intent extras to define whether to apply after checking or not
-    public static final String EXTRA_APPLY_AFTER_CHECK = "org.adaway.APPLY_AFTER_CHECK";
+    public static final String EXTRA_BACKGROUND_EXECUTION = "org.adaway.BACKGROUND_EXECUTION";
 
     private Context mService;
     private NotificationManager mNotificationManager;
 
     private boolean mApplyAfterCheck;
+    private boolean mBackgroundExecution;
 
     private String mCurrentUrl;
 
@@ -75,15 +74,20 @@ public class UpdateService extends WakefulIntentService {
 
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        // get from intent extras if UpdateService should apply after checking if enabled in
-        // preferences
-        mApplyAfterCheck = false;
+        // get from intent extras if this service is executed in the background
+        mBackgroundExecution = false;
         Bundle extras = intent.getExtras();
         if (extras != null) {
-            if (extras.containsKey(EXTRA_APPLY_AFTER_CHECK)) {
-                if (PreferencesHelper.getAutomaticUpdateDaily(mService)) {
-                    mApplyAfterCheck = extras.getBoolean(EXTRA_APPLY_AFTER_CHECK);
-                }
+            if (extras.containsKey(EXTRA_BACKGROUND_EXECUTION)) {
+                mBackgroundExecution = extras.getBoolean(EXTRA_BACKGROUND_EXECUTION);
+            }
+        }
+
+        // UpdateService should apply after checking if enabled in preferences
+        mApplyAfterCheck = false;
+        if (mBackgroundExecution) {
+            if (PreferenceHelper.getAutomaticUpdateDaily(mService)) {
+                mApplyAfterCheck = extras.getBoolean(EXTRA_BACKGROUND_EXECUTION);
             }
         }
 
@@ -192,7 +196,13 @@ public class UpdateService extends WakefulIntentService {
                 enabledHostsSourcesCursor.close();
             }
         } else {
-            returnCode = StatusCodes.NO_CONNECTION;
+            // only report no connection when not in background
+            if (!mBackgroundExecution) {
+                returnCode = StatusCodes.NO_CONNECTION;
+            } else {
+                Log.e(Constants.TAG,
+                        "Should not happen! In background execution is no connection available!");
+            }
         }
 
         // set return code if update is available

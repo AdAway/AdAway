@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.adaway.R;
-import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Log;
 
 import com.stericson.RootTools.RootTools;
@@ -134,7 +134,7 @@ public class Utils {
                         CheckBox checkBox = (CheckBox) dialogView
                                 .findViewById(R.id.reboot_dialog_checkbox);
                         if (checkBox.isChecked()) {
-                            PreferencesHelper.setNeverReboot(context, true);
+                            PreferenceHelper.setNeverReboot(context, true);
                         }
 
                         // not working on all devices:
@@ -155,7 +155,7 @@ public class Utils {
                         CheckBox checkBox = (CheckBox) dialogView
                                 .findViewById(R.id.reboot_dialog_checkbox);
                         if (checkBox.isChecked()) {
-                            PreferencesHelper.setNeverReboot(context, true);
+                            PreferenceHelper.setNeverReboot(context, true);
                         }
 
                         dialog.dismiss();

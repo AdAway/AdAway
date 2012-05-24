@@ -21,10 +21,6 @@
 
     <item name="pref_update_only_on_wifi_def" format="boolean" type="string">false</item>
 
-    <string name="pref_last_update_check_key" translate="false">lastUpdateCheck</string>
-
-    <item name="pref_last_update_check_def" format="integer" type="string">0</item>
-
     <string name="pref_redirection_rules_key" translate="false">redirectionRules</string>
 
     <item name="pref_redirection_rules_def" format="boolean" type="string">false</item>

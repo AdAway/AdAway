@@ -24,6 +24,7 @@ public class Constants {
     /* DEBUG enables Log.d outputs, wrapped in org.adaway.util.Log and RootTools Debug Mode */
     // DEBUG must be set by a preference
     public static boolean DEBUG;
+    public static final boolean DEBUG_UPDATE_CHECK_SERVICE = true;
     public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
 
     public static final String TAG = "AdAway";

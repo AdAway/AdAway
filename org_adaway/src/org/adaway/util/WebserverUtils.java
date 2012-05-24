@@ -21,7 +21,7 @@
 package org.adaway.util;
 
 import org.adaway.R;
-import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.PreferenceHelper;
 
 import android.content.Context;
 
@@ -36,7 +36,7 @@ public class WebserverUtils {
      */
     public static void updateWebserver(Context context) {
         // update mechanism
-        int oldVersion = PreferencesHelper.getWebserverVersion(context);
+        int oldVersion = PreferenceHelper.getWebserverVersion(context);
 
         if (oldVersion < Constants.WEBSERVER_VERSION) {
             Log.i(Constants.TAG, "Updating webserver binary from " + oldVersion + " to "
@@ -44,7 +44,7 @@ public class WebserverUtils {
 
             removeWebserver(context);
             installWebserver(context);
-            PreferencesHelper.setWebserverVersion(context, Constants.WEBSERVER_VERSION);
+            PreferenceHelper.setWebserverVersion(context, Constants.WEBSERVER_VERSION);
         } else {
             installWebserver(context);
         }
@@ -100,7 +100,7 @@ public class WebserverUtils {
      */
     public static void startWebserverOnBoot(final Context context) {
         // start webserver on boot if enabled in preferences
-        if (PreferencesHelper.getWebserverOnBoot(context)) {
+        if (PreferenceHelper.getWebserverOnBoot(context)) {
             startWebserver(context);
         }
     }

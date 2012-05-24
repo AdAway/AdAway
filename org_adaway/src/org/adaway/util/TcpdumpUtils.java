@@ -24,7 +24,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.adaway.R;
-import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.PreferenceHelper;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -40,7 +40,7 @@ public class TcpdumpUtils {
      */
     public static void updateTcpdump(Context context) {
         // update mechanism
-        int oldVersion = PreferencesHelper.getTcpdumpVersion(context);
+        int oldVersion = PreferenceHelper.getTcpdumpVersion(context);
 
         if (oldVersion < Constants.TCPDUMP_VERSION) {
             Log.i(Constants.TAG, "Updating tcpdump binary from " + oldVersion + " to "
@@ -48,7 +48,7 @@ public class TcpdumpUtils {
 
             removeTcpdump(context);
             installTcpdump(context);
-            PreferencesHelper.setTcpdumpVersion(context, Constants.TCPDUMP_VERSION);
+            PreferenceHelper.setTcpdumpVersion(context, Constants.TCPDUMP_VERSION);
         } else {
             installTcpdump(context);
         }

@@ -21,8 +21,9 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
+import org.adaway.service.DailyListener;
 import org.adaway.service.UpdateService;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -162,9 +163,9 @@ public class BaseActivity extends SherlockFragmentActivity {
                 if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                     // do background update check
                     // do only if not disabled in preferences
-                    if (PreferencesHelper.getUpdateCheck(mActivity)) {
+                    if (PreferenceHelper.getUpdateCheck(mActivity)) {
                         Intent updateIntent = new Intent(mActivity, UpdateService.class);
-                        updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, false);
+                        updateIntent.putExtra(UpdateService.EXTRA_BACKGROUND_EXECUTION, false);
                         WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
                     } else {
                         BaseActivity.updateStatusEnabled(mActivity);
@@ -173,9 +174,12 @@ public class BaseActivity extends SherlockFragmentActivity {
                     BaseActivity.updateStatusDisabled(mActivity);
                 }
             }
-            
+
+            // schedule CheckUpdateService
+            WakefulIntentService.scheduleAlarms(new DailyListener(), mActivity, false);
+
             // Set Debug level based on preference
-            if (PreferencesHelper.getDebugEnabled(this)) {
+            if (PreferenceHelper.getDebugEnabled(this)) {
                 Constants.DEBUG = true;
                 Log.d(Constants.TAG, "Debug set to true by preference!");
                 // set RootTools to debug mode based on AdAway
@@ -252,7 +256,7 @@ public class BaseActivity extends SherlockFragmentActivity {
         actionBar.setSubtitle(R.string.app_subtitle);
 
         // add WebserverFragment when enabled in preferences
-        if (PreferencesHelper.getWebserverEnabled(this)) {
+        if (PreferenceHelper.getWebserverEnabled(this)) {
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
 
             mWebserverFragment = new WebserverFragment();

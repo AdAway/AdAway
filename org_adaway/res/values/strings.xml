@@ -177,7 +177,7 @@
     <string name="pref_never_reboot">Hide reboot dialog</string>
     <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
     <string name="pref_webserver_on_boot">Start webserver on boot</string>
-    <string name="pref_webserver_on_boot_summary">Start webserver on boot delayed with 5 seconds listening on local IP addresses</string>
+    <string name="pref_webserver_on_boot_summary">Start webserver on boot, listening on local IP addresses</string>
     <string name="pref_webserver_enabled">Enable webserver</string>
     <string name="pref_webserver_enabled_summary">Enables webserver listening on local IP addresses to answer requests to blocked hostnames</string>
     <string name="pref_webserver">Local Webserver</string>
@@ -198,7 +198,7 @@
     <string name="pref_automatic_update_daily">Automatic update</string>
     <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
     <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-    <string name="pref_update_only_on_wifi_summary">Background updates are only done when connected to a wifi network.</string>
+    <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
     <string name="pref_redirection_rules">Allow redirections</string>
     <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
     <string name="pref_debug">Debug</string>

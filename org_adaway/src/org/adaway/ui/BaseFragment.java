@@ -189,7 +189,7 @@ public class BaseFragment extends SherlockFragment {
 
         case R.id.menu_refresh:
             Intent updateIntent = new Intent(mActivity, UpdateService.class);
-            updateIntent.putExtra(UpdateService.EXTRA_APPLY_AFTER_CHECK, false);
+            updateIntent.putExtra(UpdateService.EXTRA_BACKGROUND_EXECUTION, false);
             WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
             return true;
 

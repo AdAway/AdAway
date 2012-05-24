@@ -38,7 +38,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.adaway.R;
-import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
@@ -277,7 +277,7 @@ public class ApplyService extends WakefulIntentService {
 
             HashMap<String, String> hostsSourcesRedirectionList = new HashMap<String, String>();
             // Use redirection rules from hosts sources only if enabled in preferences
-            if (PreferencesHelper.getRedirectionRules(mService)) {
+            if (PreferenceHelper.getRedirectionRules(mService)) {
                 hostsSourcesRedirectionList = parser.getRedirectionList();
             }
 
@@ -381,7 +381,7 @@ public class ApplyService extends WakefulIntentService {
 
             fos.write(Constants.LINE_SEPERATOR.getBytes());
 
-            String redirectionIP = PreferencesHelper.getRedirectionIP(mService);
+            String redirectionIP = PreferenceHelper.getRedirectionIP(mService);
 
             // add "127.0.0.1 localhost" entry
             String localhost = Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv4 + " "
@@ -438,15 +438,15 @@ public class ApplyService extends WakefulIntentService {
 
         // copy build hosts file with RootTools, based on target from preferences
         try {
-            if (PreferencesHelper.getApplyMethod(mService).equals("writeToSystem")) {
+            if (PreferenceHelper.getApplyMethod(mService).equals("writeToSystem")) {
 
                 ApplyUtils.copyHostsFile(mService, "");
-            } else if (PreferencesHelper.getApplyMethod(mService).equals("writeToDataData")) {
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
 
                 ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_DATA_HOSTS);
-            } else if (PreferencesHelper.getApplyMethod(mService).equals("customTarget")) {
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
 
-                ApplyUtils.copyHostsFile(mService, PreferencesHelper.getCustomTarget(mService));
+                ApplyUtils.copyHostsFile(mService, PreferenceHelper.getCustomTarget(mService));
             }
         } catch (NotEnoughSpaceException e) {
             Log.e(Constants.TAG, "Exception: " + e);
@@ -476,14 +476,14 @@ public class ApplyService extends WakefulIntentService {
         /* check if hosts file is applied with chosen method */
         // check only if everything before was successful
         if (returnCode == StatusCodes.SUCCESS) {
-            if (PreferencesHelper.getApplyMethod(mService).equals("writeToSystem")) {
+            if (PreferenceHelper.getApplyMethod(mService).equals("writeToSystem")) {
 
                 /* /system/etc/hosts */
 
                 if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                     returnCode = StatusCodes.APPLY_FAIL;
                 }
-            } else if (PreferencesHelper.getApplyMethod(mService).equals("writeToDataData")) {
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
 
                 /* /data/data/hosts */
 
@@ -494,11 +494,11 @@ public class ApplyService extends WakefulIntentService {
                         returnCode = StatusCodes.SYMLINK_MISSING;
                     }
                 }
-            } else if (PreferencesHelper.getApplyMethod(mService).equals("customTarget")) {
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
 
                 /* custom target */
 
-                String customTarget = PreferencesHelper.getCustomTarget(mService);
+                String customTarget = PreferenceHelper.getCustomTarget(mService);
 
                 if (!ApplyUtils.isHostsFileCorrect(mService, customTarget)) {
                     returnCode = StatusCodes.APPLY_FAIL;

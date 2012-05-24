@@ -21,9 +21,10 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.helper.PreferencesHelper;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Utils;
+import org.adaway.service.DailyListener;
 import org.adaway.util.WebserverUtils;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -81,6 +82,26 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences);
 
+        /*
+         * Listen on click of update daily pref, register UpdateService if enabled,
+         * setOnPreferenceChangeListener is not used because it is executed before setting the
+         * preference value, this would lead to a false check in UpdateListener
+         */
+        Preference UpdateDailyPref = findPreference(getString(R.string.pref_update_check_daily_key));
+        UpdateDailyPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                if (PreferenceHelper.getUpdateCheckDaily(mActivity)) {
+                    WakefulIntentService.scheduleAlarms(new DailyListener(), mActivity, false);
+                } else {
+                    WakefulIntentService.cancelAlarms(mActivity);
+                }
+                return false;
+            }
+
+        });
+
         /* Start webserver if pref is enabled */
         Preference WebserverEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
         WebserverEnabledPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
@@ -104,7 +125,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
                 getString(R.string.pref_custom_target_key));
 
         // enable custom target pref on create if enabled in apply method
-        if (PreferencesHelper.getApplyMethod(mActivity).equals("customTarget")) {
+        if (PreferenceHelper.getApplyMethod(mActivity).equals("customTarget")) {
             mCustomTarget.setEnabled(true);
         } else {
             mCustomTarget.setEnabled(false);
