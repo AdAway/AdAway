@@ -59,7 +59,7 @@ public class HelpFragmentAbout extends SherlockFragment {
         String aboutText = Utils.readContentFromResource(this.getActivity(), R.raw.help_about);
 
         TextView versionText = (TextView) view.findViewById(R.id.about_version);
-        versionText.setText(getString(R.string.about_version) + " " + getVersion());
+        versionText.setText(getString(R.string.help_about_version) + " " + getVersion());
 
         TextView aboutTextView = (TextView) view.findViewById(R.id.about_text);
 
