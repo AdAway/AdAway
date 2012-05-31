@@ -52,11 +52,6 @@
             android:name=".ui.HostsSourcesActivity"
             android:label="@string/menu_hosts_sources" />
         <activity
-            android:name=".ui.AboutActivity"
-            android:excludeFromRecents="true"
-            android:label="@string/menu_about"
-            android:theme="@style/Theme.Sherlock.Dialog" />
-        <activity
             android:name="org.donations.DonationsActivity"
             android:excludeFromRecents="true"
             android:label="@string/menu_donations"

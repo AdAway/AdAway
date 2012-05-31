@@ -21,27 +21,31 @@
 package org.adaway.ui;
 
 import org.adaway.R;
-import org.adaway.util.Utils;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
-public class HelpActivity extends SherlockActivity implements ActionBar.TabListener {
-    private SherlockActivity mActivity;
-    private ActionBar mActionBar;
+import java.util.ArrayList;
 
-    private TextView mHelpText;
-    private ScrollView mHelpScrollView;
+import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+
+public class HelpActivity extends SherlockFragmentActivity {
+
+    ViewPager mViewPager;
+    TabsAdapter mTabsAdapter;
+    TextView tabCenter;
+    TextView tabText;
 
     /**
      * Menu Items
@@ -60,71 +64,109 @@ public class HelpActivity extends SherlockActivity implements ActionBar.TabListe
         }
     }
 
-    /**
-     * Initialize layout with tabs
-     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mActivity = this;
-        mActionBar = getSupportActionBar();
+        mViewPager = new ViewPager(this);
+        mViewPager.setId(R.id.pager);
 
-        setContentView(R.layout.help_activity);
+        setContentView(mViewPager);
+        ActionBar bar = getSupportActionBar();
+        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        bar.setDisplayShowTitleEnabled(true);
+        bar.setDisplayHomeAsUpEnabled(true);
 
-        mHelpText = (TextView) findViewById(R.id.help_text);
-        mHelpScrollView = (ScrollView) findViewById(R.id.help_scroll_view);
+        mTabsAdapter = new TabsAdapter(this, mViewPager);
 
-        mActionBar.setDisplayShowTitleEnabled(true);
-        mActionBar.setDisplayHomeAsUpEnabled(true);
+        Bundle faqBundle = new Bundle();
+        faqBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_faq);
+        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_faq)),
+                HelpFragmentHtml.class, faqBundle);
 
-        mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        Bundle problemsBundle = new Bundle();
+        problemsBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_problems2);
+        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_problems)),
+                HelpFragmentHtml.class, problemsBundle);
 
-        ActionBar.Tab tab1 = getSupportActionBar().newTab();
-        ActionBar.Tab tab2 = getSupportActionBar().newTab();
+        Bundle sOnSOffBundle = new Bundle();
+        sOnSOffBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_problems);
+        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_s_on_s_off)),
+                HelpFragmentHtml.class, sOnSOffBundle);
 
-        // tab names
-        tab1.setText(getString(R.string.help_tab_faq));
-        tab2.setText(getString(R.string.help_tab_problems));
-
-        tab1.setTag("faq");
-        tab2.setTag("problems");
-
-        tab1.setTabListener(this);
-        tab2.setTabListener(this);
-
-        getSupportActionBar().addTab(tab1);
-        getSupportActionBar().addTab(tab2);
+        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_about)),
+                HelpFragmentAbout.class, null);
     }
 
-    @Override
-    public void onTabReselected(Tab tab, FragmentTransaction transaction) {
-    }
+    public static class TabsAdapter extends FragmentPagerAdapter implements ActionBar.TabListener,
+            ViewPager.OnPageChangeListener {
+        private final Context mContext;
+        private final ActionBar mActionBar;
+        private final ViewPager mViewPager;
+        private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
 
-    @Override
-    public void onTabSelected(Tab tab, FragmentTransaction transaction) {
-        // select resource based on selected tab
-        int resourceToLoad = -1;
-        if (tab.getTag().equals("faq")) {
-            resourceToLoad = R.raw.help_faq;
-        } else if (tab.getTag().equals("problems")) {
-            resourceToLoad = R.raw.help_problems;
+        static final class TabInfo {
+            private final Class<?> clss;
+            private final Bundle args;
+
+            TabInfo(Class<?> _class, Bundle _args) {
+                clss = _class;
+                args = _args;
+            }
         }
 
-        // load html from html file from /res/raw
-        String helpText = Utils.readContentFromResource(mActivity, resourceToLoad);
+        public TabsAdapter(SherlockFragmentActivity activity, ViewPager pager) {
+            super(activity.getSupportFragmentManager());
+            mContext = activity;
+            mActionBar = activity.getSupportActionBar();
+            mViewPager = pager;
+            mViewPager.setAdapter(this);
+            mViewPager.setOnPageChangeListener(this);
+        }
 
-        // set text from resources with html markup
-        mHelpText.setText(Html.fromHtml(helpText));
-        // make links work
-        mHelpText.setMovementMethod(LinkMovementMethod.getInstance());
+        public void addTab(ActionBar.Tab tab, Class<?> clss, Bundle args) {
+            TabInfo info = new TabInfo(clss, args);
+            tab.setTag(info);
+            tab.setTabListener(this);
+            mTabs.add(info);
+            mActionBar.addTab(tab);
+            notifyDataSetChanged();
+        }
 
-        // scroll to top
-        mHelpScrollView.scrollTo(0, 0);
+        @Override
+        public int getCount() {
+            return mTabs.size();
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            TabInfo info = mTabs.get(position);
+            return Fragment.instantiate(mContext, info.clss.getName(), info.args);
+        }
+
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        }
+
+        public void onPageSelected(int position) {
+            mActionBar.setSelectedNavigationItem(position);
+        }
+
+        public void onPageScrollStateChanged(int state) {
+        }
+
+        public void onTabSelected(Tab tab, FragmentTransaction ft) {
+            Object tag = tab.getTag();
+            for (int i = 0; i < mTabs.size(); i++) {
+                if (mTabs.get(i) == tag) {
+                    mViewPager.setCurrentItem(i);
+                }
+            }
+        }
+
+        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        }
+
+        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        }
     }
-
-    @Override
-    public void onTabUnselected(Tab tab, FragmentTransaction transaction) {
-    }
-
 }

@@ -8,7 +8,9 @@
         android:layout_height="wrap_content"
         android:isScrollContainer="true"
         android:orientation="vertical"
-        android:padding="15dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
         android:scrollbars="vertical" >
 
         <LinearLayout
@@ -38,6 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/app_name"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -49,42 +52,7 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:autoLink="web"
-            android:text="@string/about_url"
-            android:textAppearance="@android:style/TextAppearance.Small" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/about_description"
-            android:textAppearance="@android:style/TextAppearance.Small" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/about_license"
-            android:textAppearance="@android:style/TextAppearance.Small" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/about_developer"
-            android:textAppearance="@android:style/TextAppearance.Small" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/about_icons"
-            android:textAppearance="@android:style/TextAppearance.Small" />
-
-        <TextView
+            android:id="@+id/about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

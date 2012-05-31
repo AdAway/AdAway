@@ -127,7 +127,6 @@
     <string name="menu_refresh">Refresh</string>
     <string name="menu_add">Add</string>
     <string name="menu_hosts_sources">Hosts sources</string>
-    <string name="menu_about">About</string>
     <string name="menu_tcpdump">Log DNS Requests</string>
     <string name="menu_help">Help</string>
     <string name="menu_lists">Your Lists</string>
@@ -138,6 +137,8 @@
     <string name="menu_preferences">Preferences</string>
 
     <!-- Help -->
+    <string name="help_tab_about">About</string>
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Problems</string>
 
