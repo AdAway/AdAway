@@ -41,8 +41,6 @@
   <string name="no_url">Đây không phải là địa chỉ mạng hợp lệ!</string>
   <string name="no_url_title">Địa chỉ mạng không hợp lệ</string>
   <string name="hosts_add_dialog">Nhập URL tới file host:</string>
-  <string name="no_sources_title">Không có nguồn đã định nghĩa</string>
-  <string name="no_sources">Hãy thêm nguồn host vào danh sách</string>
   <string name="no_hostname">Đây không phải là tên host hợp lệ!</string>
   <string name="no_hostname_title">Tên host không đúng</string>
   <string name="no_ip">Đây không phải là IP hợp lệ!</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">Không thể tạo tệp riêng</string>
   <string name="no_private_file_title">Tạo tệp riêng đã thất bại</string>
   <string name="reboot_never_reboot">Không bao giờ reboot và không hiện câu hỏi này nữa!</string>
-  <!--About-->
-  <string name="about_description">AdAway là ứng dụng chặn quảng cáo nguồn mở cho Android</string>
-  <string name="about_license">Giấy phép: GPL v3+</string>
-  <string name="about_version">Phiên bản:</string>
-  <string name="about_developer">Tác giả: Dominik Schürmann</string>
-  <string name="about_icons">Một vài icon được lấy từ \'Dropbox Emblems Tango của Charles A.\' (Giấy phép: Creative Commons Attribution 3.0 Unported).</string>
-  <string name="about_libs">AdAway dùng thư viện \'RootTools\' (giấy phép: GPL v2) để nắm quyền truy xuất root và \'ActionBarSherlock\' (giấy phép: Apache 2.0) để cung cấp 1 ActionBar cho Android phiên bản 3.0</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Thêm</string>
   <string name="checkbox_list_empty">Danh sách rỗng</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">Làm tươi</string>
   <string name="menu_add">Thêm</string>
   <string name="menu_hosts_sources">Nguồn hosts</string>
-  <string name="menu_about">Thông tin</string>
   <string name="menu_tcpdump">Yêu cầu ghi nhật ký DNS</string>
   <string name="menu_help">Trợ giúp</string>
   <string name="menu_lists">DS của bạn</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">Xuất tất cả các danh sách</string>
   <string name="menu_preferences">Cấu hình</string>
   <!--Help-->
+  <string name="help_tab_about">Thông tin</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Hỏi đáp</string>
   <string name="help_tab_problems">Vấn đề</string>
+  <string name="help_about_version">Phiên bản:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Cục bộ:</string>
   <string name="hosts_last_modified_online">Trực tuyến:</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">Tìm phiên bản mới mỗi ngày ở chế độ nền và thông báo</string>
   <string name="pref_automatic_update_daily">Tự động cập nhật</string>
   <string name="pref_automatic_update_daily_summary">Tự động cập nhật nếu có bản nâng cấo mới.</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Cho phép chuyển hướng</string>
   <string name="pref_redirection_rules_summary">Cho phép chuyển hướng từ nguồn host</string>
   <string name="pref_debug">Dò lỗi</string>

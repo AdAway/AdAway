@@ -15,15 +15,6 @@
 <br/><br/>Du kannst den lokalen Webserver in den Einstellungen von AdAway aktivieren, um Anfragen an die lokale IP-Adresse <tt>127.0.0.1</tt> zu beantworten. Das bedeutet das Anfragen von Anwendungen zu Ad-Servern, welche zu <tt>127.0.0.1</tt> umgeleitet wurden, von AdAways Webserver beantwortet werden. 
 <br/>Manche Anwendungen funktionieren nicht wenn Ad-Server nicht erreichbar sind. Mit dieser Methode werden sie wieder erreichbar, da der lokale Webserver mit einer leeren Seite antwortet.</p>
 
-<h2>Die Werbung in Anwendung XYZ wird nicht blockiert!</h2>
-<p>Einige Hostnamen mögen in der mitgelieferten Hostdatei <i>Host Quellen</i> fehlen oder die Anwendung enthält Bilder um Werbung ohne Internetzugriff darstellen zu können.
-<br/><br/>
-Du kannst DNS Anfragen (Menü->Logge DNS-Anfragen) mitschneiden um herauszufinden welche Hostnamen noch blockiert werden müssen.
-<br/><br/>Die verdächtigen Hostnamen kannst du zu deiner Blacklist hinzufügen. Dazu musst du einen Eintrag in der Liste gedrückt halten damit ein Kontextmenu erscheint. Hier kann der Eintrag entweder blockiert oder auf die Whitelist gesetzt werden. Wenn die Hostnamen wirklich dazu genutzt wurden Werbung auszuliefern, melde diese bitte im Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> der Webseite <a href="http://hosts-file.net">hosts-file.net</a>.</p>
-
-<h2>Anwendung XYZ funktioniert nicht mehr richtig!</h2>
-<p>Manche Anwendungen müssen mit einem Hostnamen kommunizieren, der von AdAway blockiert wird oder verweigern ihren Dienst wenn Hostnamen, die Werbung ausliefern, nicht erreichbar sind. Auf <a href="http://code.google.com/p/ad-away/wiki/ProblemApps">http://code.google.com/p/ad-away/wiki/ProblemApps</a>findest du eine Liste von Anwendungen zu, die bereits gemeldet wurden und in diesem Bezug Probleme bereiten. Sollten Anwendungen trotzdem nicht richtig funktionieren kannst du Hostnamen zu deiner <i>Whitelist</i> unter <i>Deine Listen</i> hinzufügen und diese in dem <a href="http://code.google.com/p/ad-away/issues/list">Bug Tracker von AdAway</a> melden.   </p>
-
 <h2>Wie kann ich bestimmte Hostname sperren/entsperren?</h2>
 <p>Du kannst deinen eigenen Server aufsetzen, der eine Hostsdatei, mit zu blockierenden Hostnamen zur Verfügung stellt. Fügen sie diesen zu den <i>Hosts-Quellen</i> hinzu. Alternativ fügen sie die Hostnamen, die sie blockieren wollen, zur Blacklist unter <i>Deine Listen</i> hinzu. Zusätzlich können Hostnamen die sie nicht blockieren wollen zur <i>Whitelist</i> hinzugefügt werden und Hostnamen die zu einer spezifischen IP Adresse umgeleitet werden sollen zur <i>Umleitungsliste</i>.</p>
 

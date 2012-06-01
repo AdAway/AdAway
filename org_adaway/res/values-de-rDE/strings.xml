@@ -41,8 +41,6 @@
   <string name="no_url">Dies ist keine valide URL!</string>
   <string name="no_url_title">Fehlerhafte URL</string>
   <string name="hosts_add_dialog">Gib die URL zur hosts-Datei an:</string>
-  <string name="no_sources_title">Keine Quellen eingestellt.</string>
-  <string name="no_sources">Bitte füge Quellen für hosts-Dateien zu deiner Liste hinzu.</string>
   <string name="no_hostname">Das ist kein gültiger Hostname!</string>
   <string name="no_hostname_title">Fehlerhafter Hostname</string>
   <string name="no_ip">Das ist keine gültige IP!</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
   <string name="reboot_never_reboot">Starte niemals neu und zeige diese Frage nächstes Mal nicht!</string>
-  <!--About-->
-  <string name="about_description">AdAway ist ein Open-Source-Werbeblocker für Android.</string>
-  <string name="about_license">Lizenz: GPL v3</string>
-  <string name="about_version">Version:</string>
-  <string name="about_developer">Entwickler: Dominik Schürmann</string>
-  <string name="about_icons">Einige Icons entstammen aus den Icon-Paketen \'Dropbox Emblems Tango by Charles A.\' und \'www.androidicons.com\', beide unter der Creative Commons Attribution 3.0 Unported Lizenz lizensiert.</string>
-  <string name="about_libs">AdAway benutzt \'RootTools\' (Lizenz: GPL v2) als Bibliothek für den Root-Zugriff und \'ActionBarSherlock\' (Lizenz: Apache 2.0) um eine ActionBar für Android unter Version 3.0 darzustellen.</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Hinzufügen</string>
   <string name="checkbox_list_empty">Leere Liste</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">Neu laden</string>
   <string name="menu_add">Hinzufügen</string>
   <string name="menu_hosts_sources">Hosts-Quellen</string>
-  <string name="menu_about">Über</string>
   <string name="menu_tcpdump">Logge DNS-Anfragen</string>
   <string name="menu_help">Hilfe</string>
   <string name="menu_lists">Deine Listen</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">Alle Listen exportieren</string>
   <string name="menu_preferences">Einstellungen</string>
   <!--Help-->
+  <string name="help_tab_about">Über</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Probleme</string>
+  <string name="help_about_version">Version:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">Prüfe täglich im Hintergrund auf Updates, mit Benachrichtigung.</string>
   <string name="pref_automatic_update_daily">Automatische Updates</string>
   <string name="pref_automatic_update_daily_summary">Installiere Updates automatisch im Hintergrund, wenn neue verfügbar sind.</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Weiterleitungen erlauben</string>
   <string name="pref_redirection_rules_summary">Erlaube Weiterleitungen aus den Hosts-Quellen.</string>
   <string name="pref_debug">Debug</string>

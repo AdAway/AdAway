@@ -41,8 +41,6 @@
   <string name="no_url">正しいURLではありません!</string>
   <string name="no_url_title">不正な形式のURL</string>
   <string name="hosts_add_dialog">hostsファイルのURLを入力:</string>
-  <string name="no_sources_title">ソースが定義されていません。</string>
-  <string name="no_sources">リストにソースを追加してください。</string>
   <string name="no_hostname">正しいホスト名ではありません!</string>
   <string name="no_hostname_title">不正な形式のホスト名</string>
   <string name="no_ip">不正なIPです!</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">プライベートファイルが作成できません。</string>
   <string name="no_private_file_title">プライベートファイルの作成失敗</string>
   <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
-  <!--About-->
-  <string name="about_description">AdAwayはAndroid用のオープンソースの広告ブロックアプリです。</string>
-  <string name="about_license">ライセンス: GPL v3+</string>
-  <string name="about_version">バージョン:</string>
-  <string name="about_developer">開発者: Dominik Schürmann</string>
-  <string name="about_icons">アイコンの一部は \'Dropbox Emblems Tango by Charles A.\'と\'www.androidicons.com\' (Creative Commons Attribution 3.0 Unportedライセンス)のアイコンを使用しました</string>
-  <string name="about_libs">AdAwayは\'RootTools\' (ライセンス: GPL v2)ライブラリをrootアクセスに使用し\'ActionBarSherlock\' (ライセンス: Apache 2.0)をAndroid3.0向けのアクションバー に使用しています。</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">追加</string>
   <string name="checkbox_list_empty">空のリスト</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">更新</string>
   <string name="menu_add">追加</string>
   <string name="menu_hosts_sources">hostsのソース</string>
-  <string name="menu_about">情報</string>
   <string name="menu_tcpdump">DNS問合せのログ</string>
   <string name="menu_help">ヘルプ</string>
   <string name="menu_lists">リスト</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">リストをエクスポート</string>
   <string name="menu_preferences">設定</string>
   <!--Help-->
+  <string name="help_tab_about">情報</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">問題</string>
+  <string name="help_about_version">バージョン:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">ローカル:</string>
   <string name="hosts_last_modified_online">オンライン:</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します。</string>
   <string name="pref_automatic_update_daily">自動更新</string>
   <string name="pref_automatic_update_daily_summary">バックグラウンドで自動的に更新します。</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">リダイレクトを許可</string>
   <string name="pref_redirection_rules_summary">hostsソースからのリダイレクトルールを許可します。</string>
   <string name="pref_debug">デバッグ</string>

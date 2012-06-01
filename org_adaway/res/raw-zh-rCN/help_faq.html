@@ -15,15 +15,6 @@
 <br /><br/>你可以在AdAway设置里面启动本地web服务器来响应发到本地IP地址<tt>127.0.0.1</tt>的请求。意思就是说应用中的对广告服务器的请求会被重定向到<tt>127.0.0.1</tt>由AdAway的web服务器来响应。
 <br />因为有些应用不能访问广告服务器的时候他们就不能用。使用这种方法后，它们以为访问到广告服务器了，只是没有返回广告图片或者返回空白网页而已。</p>
 
-<h2>AdAway不能屏蔽XYZ应用中的广告！</h2>
-<p>有一些主机名在<i>Hosts源</i>中提供的hosts文件中漏掉了或者应用把广告图片捆绑到应用里面来显示广告而不是访问网络来获取。
-<br/><br/>
-你可以用AdAway上的记录DNS请求功能(菜单->记录DNS请求)记录你设备上的DNS请求，来找出更多你想到屏蔽的主机名。
-<br/><br/>长按DNS请求条目，添加主机名到你的黑名单并在<a href="http://hosts-file.net">hosts-file.net</a>的<a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox论坛</a> 验证后反馈给我们。</p>
-
-<h2>屏蔽广告后应用程序XYZ不能用了！</h2>
-<p>一些应用需要和被屏蔽的主机通信才能正常工作或者其广告服务主机机无法访问时就不工作了。 到这<a href="http://code.google.com/p/ad-away/wiki/ProblemApps">http://code.google.com/p/ad-away/wiki/ProblemApps</a> 查看有问题的应用列表。其他情况像前面说的那个找到哪些需要主机名，并把它们添加到你的<i>白名单</i>，在 <i>你的名单</i> 菜单下面，并反馈到 <a href="http://code.google.com/p/ad-away/issues/list">bug tracker of AdAway</a>。</p>
-
 <h2>我怎么屏蔽/取消屏蔽指定的主机名？</h2>
 <p>你可以配置你自己的服务器来提供一个包含你想要屏蔽的主机名的hosts文件并且把它添加到你的Hosts源里中，或者添加你想屏蔽的主机名到<i>黑名单</i>(黑)，在<i>你的名单</i>菜单中。你还可以，把你不想屏蔽的主机名添加到白名单(白)中，或者把你想要重定向到的IP地址添加到<i>重定向列表</i>(重定向)中。</p>
 

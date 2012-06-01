@@ -41,8 +41,6 @@
   <string name="no_url">¡Esto no es una URL válida!</string>
   <string name="no_url_title">Dirección URL incorrecta</string>
   <string name="hosts_add_dialog">Entrada de URL al archivo hosts:</string>
-  <string name="no_sources_title">No hay fuentes definidas</string>
-  <string name="no_sources">Por favor, añada fuentes de hosts a tu lista.</string>
   <string name="no_hostname">¡Esto no es un nombre de host válido!</string>
   <string name="no_hostname_title">Nombre de host incorrecto</string>
   <string name="no_ip">¡Esto no es una IP válida!</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">No se puede crear el archivo privado.</string>
   <string name="no_private_file_title">No se pudo crear el archivo privado</string>
   <string name="reboot_never_reboot">¡Nunca reinicies y no me muestres esta pregunta la próxima vez!</string>
-  <!--About-->
-  <string name="about_description">AdAway es un bloqueador de anuncios de código libre para Android.</string>
-  <string name="about_license">Licencia: GPL v3</string>
-  <string name="about_version">Versión:</string>
-  <string name="about_developer">Developer: Dominik Schürmann</string>
-  <string name="about_icons">Algunos iconos se han tomado de \"Dropbox Emblems Tango by Charles A\" y \'www.androidicons.com, ambos licenciados bajo licencia Creative Commons Attribution 3.0 Uported License.</string>
-  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android below 3.0.</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Añadir</string>
   <string name="checkbox_list_empty">Lista vacía</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Añadir</string>
   <string name="menu_hosts_sources">Fuentes de hosts </string>
-  <string name="menu_about">Acerca</string>
   <string name="menu_tcpdump">Log DNS Requests</string>
   <string name="menu_help">Ayuda</string>
   <string name="menu_lists">Tus listas</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">Export All Lists</string>
   <string name="menu_preferences">Preferencias</string>
   <!--Help-->
+  <string name="help_tab_about">Acerca</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemas</string>
+  <string name="help_about_version">Versión:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En línea:</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">Comprobar actualizaciones diarias en segundo plano con notificaciones</string>
   <string name="pref_automatic_update_daily">Automatic update</string>
   <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Allow redirections</string>
   <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
   <string name="pref_debug">Debug</string>

@@ -41,8 +41,6 @@
   <string name="no_url">Это недопустимый URL!</string>
   <string name="no_url_title">Неправильный URL</string>
   <string name="hosts_add_dialog">Вставьте URL в файл hosts:</string>
-  <string name="no_sources_title">Источники не определены</string>
-  <string name="no_sources">Пожалуйста, добавьте источники хостов в ваш список.</string>
   <string name="no_hostname">Это недопустимое имя источника!</string>
   <string name="no_hostname_title">Неправильное имя источника</string>
   <string name="no_ip">Это недопустимый IP!</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">Файл не может быть создан.</string>
   <string name="no_private_file_title">Не удалось создать файл</string>
   <string name="reboot_never_reboot">Никогда не перезагружать и не показывать этот вопрос в следующий раз!</string>
-  <!--About-->
-  <string name="about_description">AdAway это блокировщик рекламы для Андроид с открытым исходным кодом.</string>
-  <string name="about_license">Лицензия: GPL v3+</string>
-  <string name="about_version">Версия:</string>
-  <string name="about_developer">Разработчик: Dominik Schürmann\nРусский перевод: TopDome</string>
-  <string name="about_icons">Некоторые иконки взяты из \'Dropbox Emblems Tango by Charles A.\' и \'www.androidicons.com\' (на условиях лицензии Creative Commons Attribution 3.0 Unported License).</string>
-  <string name="about_libs">AdAway использует библиотеку \'RootTools\' (Лицензия: GPL v2) для получения  прав администратора и \'ActionBarSherlock\' (Лицензия: Apache 2.0) для обеспечения доступа к ActionBar для Android под 3.0.</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Добавить</string>
   <string name="checkbox_list_empty">Пустой список</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">Обновление</string>
   <string name="menu_add">Добавить</string>
   <string name="menu_hosts_sources">Источники хостов</string>
-  <string name="menu_about">О программе</string>
   <string name="menu_tcpdump">Журнал запросов DNS</string>
   <string name="menu_help">Справка</string>
   <string name="menu_lists">Ваш список</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">Экспортировать все списки</string>
   <string name="menu_preferences">Настройки</string>
   <!--Help-->
+  <string name="help_tab_about">О программе</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Проблемы</string>
+  <string name="help_about_version">Версия:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Локальный:</string>
   <string name="hosts_last_modified_online">Интернет:</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">Проверять обновления в фоновом режиме ежедневно с уведомлением</string>
   <string name="pref_automatic_update_daily">Автоматическое обновление</string>
   <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
+  <string name="pref_update_only_on_wifi">Обновление только по WiFi</string>
+  <string name="pref_update_only_on_wifi_summary">Выполнять обновления в фоне только при подключении к сети WiFi.</string>
   <string name="pref_redirection_rules">Разрешить перенаправление</string>
   <string name="pref_redirection_rules_summary">Разрешить перенаправление согласно файлу hosts.</string>
   <string name="pref_debug">Режим отладки</string>

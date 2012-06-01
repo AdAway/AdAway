@@ -41,8 +41,6 @@
   <string name="no_url">Tämä ei ei ole kevollinen URL-osoite!</string>
   <string name="no_url_title">Virheellinen URL-osoite</string>
   <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
-  <string name="no_sources_title">Ei lähteitä määritelty</string>
-  <string name="no_sources">Lisää hosts-lähde luetteloosi.</string>
   <string name="no_hostname">Tämä ei ole kelvollinen isäntänimi!</string>
   <string name="no_hostname_title">Virheellinen isäntänimi</string>
   <string name="no_ip">Tämä ei ole kelvollinen IP-osoite!</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
   <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
   <string name="reboot_never_reboot">Älä koskaan käynnistä uudelleen ja älä näytä tätä kysymystä ensi kerralla!</string>
-  <!--About-->
-  <string name="about_description">AdAway on avoimeen lähdekoodin perustuva mainosten esto -sovellus Androidille.</string>
-  <string name="about_license">Lisenssi: GPL v3</string>
-  <string name="about_version">Versio:</string>
-  <string name="about_developer">Kehittäjä: Dominik Schürmann</string>
-  <string name="about_icons">Osa kuvakkeista ovat peräisin \'Dropbox Emblems Tango Charles A. tekijältä \' ja \'www.androidicons.com\' sivustolta, molemmat on lisenssoitu Creative Commons Nimeä 3.0 Muokkaamaton -lisensillä.</string>
-  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android below 3.0.</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Lisää</string>
   <string name="checkbox_list_empty">Tyhjä lista</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">Päivitä</string>
   <string name="menu_add">Lisää</string>
   <string name="menu_hosts_sources">Hosts-lähteet</string>
-  <string name="menu_about">Tietoja\n</string>
   <string name="menu_tcpdump">Tcpdump</string>
   <string name="menu_help">Ohjeet</string>
   <string name="menu_lists">Luettelosi</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">Vie kaikki luettelot</string>
   <string name="menu_preferences">Asetukset</string>
   <!--Help-->
+  <string name="help_tab_about">Tietoja</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">UKK</string>
   <string name="help_tab_problems">Ongelmat</string>
+  <string name="help_about_version">Versio:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Paikallinen:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">Tarkista päivitykset taustalla ilmoituksilla</string>
   <string name="pref_automatic_update_daily">Automaattinen päivitys</string>
   <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Salli uudelleenohjaukset</string>
   <string name="pref_redirection_rules_summary">Salli hosts-lähteiden uudelleenohjaussäännöt.</string>
   <string name="pref_debug">Virheenkorjaus</string>

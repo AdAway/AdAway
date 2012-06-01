@@ -41,8 +41,6 @@
   <string name="no_url">URL無效</string>
   <string name="no_url_title">URL異常</string>
   <string name="hosts_add_dialog">輸入URL至主機檔:</string>
-  <string name="no_sources_title">未定義來源</string>
-  <string name="no_sources">請增加來源至你的名單</string>
   <string name="no_hostname">主機名稱無效</string>
   <string name="no_hostname_title">主機名稱異常</string>
   <string name="no_ip">IP</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">Private file can not be created.</string>
   <string name="no_private_file_title">Private file creation failed</string>
   <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
-  <!--About-->
-  <string name="about_description">AdAway 是一個Android上開源的廣告攔截程式</string>
-  <string name="about_license">版權: GPL v3</string>
-  <string name="about_version">版本:</string>
-  <string name="about_developer">Developer: Dominik Schürmann</string>
-  <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' (License: Creative Commons Attribution 3.0 Unported).</string>
-  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android below 3.0.</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">新增</string>
   <string name="checkbox_list_empty">空白名單</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">Refresh</string>
   <string name="menu_add">新增</string>
   <string name="menu_hosts_sources">主機來源</string>
-  <string name="menu_about">關於</string>
   <string name="menu_tcpdump">Log DNS Requests</string>
   <string name="menu_help">Help</string>
   <string name="menu_lists">Your Lists</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">Export All Lists</string>
   <string name="menu_preferences">設定</string>
   <!--Help-->
+  <string name="help_tab_about">關於</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problems</string>
+  <string name="help_about_version">版本:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -164,7 +157,7 @@
   <string name="pref_never_reboot">Hide reboot dialog</string>
   <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
   <string name="pref_webserver_on_boot">Start webserver on boot</string>
-  <string name="pref_webserver_on_boot_summary">Start webserver on boot delayed with 5 seconds listening on local IP addresses</string>
+  <string name="pref_webserver_on_boot_summary">Start webserver on boot, listening on local IP addresses</string>
   <string name="pref_webserver_enabled">Enable webserver</string>
   <string name="pref_webserver_enabled_summary">Enables webserver listening on local IP addresses to answer requests to blocked hostnames</string>
   <string name="pref_webserver">Local Webserver</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
   <string name="pref_automatic_update_daily">Automatic update</string>
   <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Allow redirections</string>
   <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
   <string name="pref_debug">Debug</string>

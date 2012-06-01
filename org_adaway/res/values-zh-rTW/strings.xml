@@ -41,8 +41,6 @@
   <string name="no_url">URL無效！</string>
   <string name="no_url_title">URL格式不對</string>
   <string name="hosts_add_dialog">輸入hosts檔案的URL：</string>
-  <string name="no_sources_title">沒有定義來源</string>
-  <string name="no_sources">請添加hosts來源到列表中。</string>
   <string name="no_hostname">主機名稱無效！</string>
   <string name="no_hostname_title">主機名稱格式不對</string>
   <string name="no_ip">IP位址無效</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">不能建立私人檔案</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
   <string name="reboot_never_reboot">不要重新啟動並且不再顯示！</string>
-  <!--About-->
-  <string name="about_description">AdAway是一個開源的Android平臺廣告免疫程式。</string>
-  <string name="about_license">許可協議： GPL v3</string>
-  <string name="about_version">版本：</string>
-  <string name="about_developer">開發者：Dominik Schürmann</string>
-  <string name="about_icons">一些圖標是從\'Dropbox Emblems Tango by Charles A.\'和\'www.androidicons.com\'上取得的，兩個都是在Creative Commons Attribution 3.0 Unported License授權下發布的。</string>
-  <string name="about_libs">AdAway使用 \'RootTools\' (許可: GPL v2) 檔案庫來控制root 權限；使用\'ActionBarSherlock\' (許可: Apache 2.0)為Android3.0系統提供ActionBar®。</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">添加</string>
   <string name="checkbox_list_empty">空列表</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">重新整理</string>
   <string name="menu_add">添加</string>
   <string name="menu_hosts_sources">Hosts來源</string>
-  <string name="menu_about">關於</string>
   <string name="menu_tcpdump">執行tcpdump</string>
   <string name="menu_help">幫助</string>
   <string name="menu_lists">你的名單</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">導出列表</string>
   <string name="menu_preferences">設定</string>
   <!--Help-->
+  <string name="help_tab_about">關於</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">問題</string>
+  <string name="help_about_version">版本：</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">線上：</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">每天背景檢查更新並提示</string>
   <string name="pref_automatic_update_daily">自動更新</string>
   <string name="pref_automatic_update_daily_summary">如果有更新，自動在背景更新。</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">允許重新導向</string>
   <string name="pref_redirection_rules_summary">允許來自Hosts來源重新導向規則</string>
   <string name="pref_debug">除錯</string>

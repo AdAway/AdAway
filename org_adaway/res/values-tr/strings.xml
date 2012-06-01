@@ -41,8 +41,6 @@
   <string name="no_url">Geçersiz bir URL!</string>
   <string name="no_url_title">Hatalı URL</string>
   <string name="hosts_add_dialog">Hosts dosyasına URL gir:</string>
-  <string name="no_sources_title">Hiçbir kaynak belirtilmedi</string>
-  <string name="no_sources">Lütfen listenize hosts kaynakları ekleyin.</string>
   <string name="no_hostname">Girilen adres geçerli değil!</string>
   <string name="no_hostname_title">Geçersiz adres</string>
   <string name="no_ip">Bu geçerli bir IP değildir!</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">Özel dosya oluşturulamadı.</string>
   <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu</string>
   <string name="reboot_never_reboot">Asla yeniden başlatma ve bu soruyu tekrar sorma!</string>
-  <!--About-->
-  <string name="about_description">AdAway Android için geliştirilmiş açık kaynaklı bir reklam engelleyicidir..</string>
-  <string name="about_license">Lisans: GPL v3+</string>
-  <string name="about_version">Sürüm:</string>
-  <string name="about_developer">Geliştirici: Dominik Schürmann</string>
-  <string name="about_icons">Sembollerin bazıları \'Dropbox Emblems Tango by Charles A.\' ve \'www.androidicons.com\' üzerinden alınmıştır. (İkisi de Creative Commons Attribution 3.0 Unported altında lisanslıdır).</string>
-  <string name="about_libs">AdAway, root erişimi için \'RootTools\' (Lisans: GPL v2) ve ActionBar for Android desteği için \'ActionBarSherlock\' (Lisans: Apache 2.0) kütüphanelerini kullanır.</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Ekle</string>
   <string name="checkbox_list_empty">Boş liste</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">Yenile</string>
   <string name="menu_add">Ekle</string>
   <string name="menu_hosts_sources">Hosts kaynakları</string>
-  <string name="menu_about">Hakkında</string>
   <string name="menu_tcpdump">DNS istekleri log dosyasına kaydet</string>
   <string name="menu_help">Yardım</string>
   <string name="menu_lists">Listeleriniz</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">Tüm Listeleri Ver</string>
   <string name="menu_preferences">Tercihler</string>
   <!--Help-->
+  <string name="help_tab_about">Hakkında</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">SSS</string>
   <string name="help_tab_problems">Sorunlar</string>
+  <string name="help_about_version">Sürüm:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Yerel:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
   <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
   <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
   <string name="pref_redirection_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
   <string name="pref_debug">Debug</string>

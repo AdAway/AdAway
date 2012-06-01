@@ -41,8 +41,6 @@
   <string name="no_url">Ez nem érvényes URL cím!</string>
   <string name="no_url_title">Helytelen URL</string>
   <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
-  <string name="no_sources_title">Nincsenek megadva források</string>
-  <string name="no_sources">Kérjük, adj host forrásokat a listádhoz.</string>
   <string name="no_hostname">Ez nem érvényes hostnév!</string>
   <string name="no_hostname_title">Hibás hostnév</string>
   <string name="no_ip">Ez nem érvényes IP!</string>
@@ -52,13 +50,6 @@
   <string name="no_private_file">Privát fájl nem hozható létre.</string>
   <string name="no_private_file_title">Privát fájl sikertelen létrehozása.</string>
   <string name="reboot_never_reboot">Soha ne indítsa újra és ne jelenjen meg ez a kérdés legközelebb!</string>
-  <!--About-->
-  <string name="about_description">Az AdAway egy nyílt forráskódú Android hirdetés blokkoló.</string>
-  <string name="about_license">License: GPL v3+</string>
-  <string name="about_version">Version:</string>
-  <string name="about_developer">Developer: Dominik Schürmann\n\na fordítás gidano munkája\nhttp://sympda.info</string>
-  <string name="about_icons">Some icons are taken from \'Dropbox Emblems Tango by Charles A.\' and \'www.androidicons.com\' (Both licensed under Creative Commons Attribution 3.0 Unported).</string>
-  <string name="about_libs">AdAway uses \'RootTools\' (License: GPL v2) Library to handle root access and \'ActionBarSherlock\' (License: Apache 2.0) to provide an ActionBar for Android under 3.0.</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Hozzáad</string>
   <string name="checkbox_list_empty">Üres lista</string>
@@ -121,7 +112,6 @@
   <string name="menu_refresh">Frissítés</string>
   <string name="menu_add">Hozzáadás</string>
   <string name="menu_hosts_sources">Host források</string>
-  <string name="menu_about">Névjegy</string>
   <string name="menu_tcpdump">DNS kérések naplózása</string>
   <string name="menu_help">Súgó</string>
   <string name="menu_lists">Saját listáim</string>
@@ -131,8 +121,11 @@
   <string name="menu_export">Összes lista exmportja</string>
   <string name="menu_preferences">Lehetőségek</string>
   <!--Help-->
+  <string name="help_tab_about">Névjegy</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problémák</string>
+  <string name="help_about_version">Version:</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Helyi:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -182,6 +175,8 @@
   <string name="pref_update_check_daily_summary">Naponta a háttérben ellenőrzi a frissítéseket és értesít</string>
   <string name="pref_automatic_update_daily">Automatikus frissítés</string>
   <string name="pref_automatic_update_daily_summary">Automatikusan frissít a háttérben ha frissítés érhető el.</string>
+  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Átirányítás engedélyezése</string>
   <string name="pref_redirection_rules_summary">Hagyja az átirányítás szabályait a Host Források-ra.</string>
   <string name="pref_debug">Debug</string>
