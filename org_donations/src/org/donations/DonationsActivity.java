@@ -129,10 +129,6 @@ public class DonationsActivity extends Activity {
 
         setContentView(R.layout.donations__activity);
 
-        // set url of flattr link
-        mFlattrUrl = (TextView) findViewById(R.id.donations__flattr_url);
-        mFlattrUrl.setText(DonationsConfiguration.FLATTR_URL);
-
         // build everything for flattr
         buildFlattrView();
 
@@ -272,7 +268,7 @@ public class DonationsActivity extends Activity {
         mLoadingFrame = (FrameLayout) findViewById(R.id.donations__loading_frame);
 
         // disable hardware acceleration for this webview to get transparent background working
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (Build.VERSION.SDK_INT >= 11) {
             mFlattrWebview.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
 
@@ -332,21 +328,36 @@ public class DonationsActivity extends Activity {
         // make text white and background black
         String htmlStart = "<html> <head><style type=\"text/css\">*{color: #FFFFFF; background-color: transparent;}</style>";
 
-        // see flattr api https://flattr.com/support/integrate/js
-        String flattrParameter = "mode=auto"; // &https=1 not working in android 2.1 and 2.2
+        // see flattr api http://developers.flattr.net/button/
+
+        // https not working in android 2.1 and 2.2
+        String flattrScheme;
+        if (Build.VERSION.SDK_INT >= 9) {
+            flattrScheme = "https://";
+        } else {
+            flattrScheme = "http://";
+        }
+
+        // set url of flattr link
+        mFlattrUrl = (TextView) findViewById(R.id.donations__flattr_url);
+        mFlattrUrl.setText(flattrScheme + DonationsConfiguration.FLATTR_URL);
+
         String flattrJavascript = "<script type=\"text/javascript\">"
                 + "/* <![CDATA[ */"
                 + "(function() {"
                 + "var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];"
-                + "s.type = 'text/javascript';" + "s.async = true;"
-                + "s.src = 'http://api.flattr.com/js/0.6/load.js?" + flattrParameter + "';"
-                + "t.parentNode.insertBefore(s, t);" + "})();" + "/* ]]> */" + "</script>";
-        String htmlMiddle = "</head> <body> <div align=\"center\">";
-        String flattrHtml = "<a class=\"FlattrButton\" style=\"display:none;\" href=\""
+                + "s.type = 'text/javascript';" + "s.async = true;" + "s.src = '" + flattrScheme
+                + "api.flattr.com/js/0.6/load.js?mode=auto';" + "t.parentNode.insertBefore(s, t);"
+                + "})();" + "/* ]]> */" + "</script>";
+        String htmlMiddle = "</head> <body> <div align='center'>";
+        String flattrHtml = "<a class='FlattrButton' style='display:none;' href='"
                 + projectUrl
-                + "\" target=\"_blank\"></a> <noscript><a href=\""
+                + "' target='_blank'></a> <noscript><a href='"
+                + flattrScheme
                 + flattrUrl
-                + "\" target=\"_blank\"> <img src=\"http://api.flattr.com/button/flattr-badge-large.png\" alt=\"Flattr this\" title=\"Flattr this\" border=\"0\" /></a></noscript>";
+                + "' target='_blank'> <img src='"
+                + flattrScheme
+                + "api.flattr.com/button/flattr-badge-large.png' alt='Flattr this' title='Flattr this' border='0' /></a></noscript>";
         String htmlEnd = "</div> </body> </html>";
 
         String flattrCode = htmlStart + flattrJavascript + htmlMiddle + flattrHtml + htmlEnd;
@@ -359,6 +370,5 @@ public class DonationsActivity extends Activity {
         // has to be called AFTER loadData
         // http://stackoverflow.com/questions/5003156/android-webview-style-background-colortransparent-ignored-on-android-2-2
         mFlattrWebview.setBackgroundColor(0x00000000);
-
     }
 }

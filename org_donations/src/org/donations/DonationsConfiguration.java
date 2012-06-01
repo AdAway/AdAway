@@ -25,7 +25,8 @@ public class DonationsConfiguration {
     /** Flattr */
 
     public static final String FLATTR_PROJECT_URL = "http://code.google.com/p/ad-away/";
-    public static final String FLATTR_URL = "http://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android";
+    // without http:// !
+    public static final String FLATTR_URL = "flattr.com/thing/369138/AdAway-Ad-blocker-for-Android";
 
     /** PayPal */
 
