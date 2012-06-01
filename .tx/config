@@ -17,6 +17,16 @@ file_filter = org_adaway/res/raw-<lang>/help_problems.html
 source_file = org_adaway/res/raw/help_problems.html
 source_lang = en
 
+[adaway.help-s-on-s-off]
+file_filter = org_adaway/res/raw-<lang>/help_s_on_s_off.html
+source_file = org_adaway/res/raw/help_s_on_s_off.html
+source_lang = en
+
+[adaway.help-about]
+file_filter = org_adaway/res/raw-<lang>/help_about.html
+source_file = org_adaway/res/raw/help_about.html
+source_lang = en
+
 [adaway.donations-strings]
 file_filter = org_donations/res/values-<lang>/donations__strings.xml
 source_file = org_donations/res/values/donations__strings.xml

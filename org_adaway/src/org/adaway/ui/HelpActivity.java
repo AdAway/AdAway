@@ -85,12 +85,12 @@ public class HelpActivity extends SherlockFragmentActivity {
                 HelpFragmentHtml.class, faqBundle);
 
         Bundle problemsBundle = new Bundle();
-        problemsBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_problems2);
+        problemsBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_problems);
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_problems)),
                 HelpFragmentHtml.class, problemsBundle);
 
         Bundle sOnSOffBundle = new Bundle();
-        sOnSOffBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_problems);
+        sOnSOffBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_s_on_s_off);
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_s_on_s_off)),
                 HelpFragmentHtml.class, sOnSOffBundle);
 
