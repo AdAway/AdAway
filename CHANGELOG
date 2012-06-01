@@ -1,6 +1,10 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.36
+* Help and About screens reworked
+* Simple scanner for bad Adware apps like Airpush Notifications
+
 1.35
 * New method for background update checking
 * AdAway will now reschedule the update check to execute it when the Internet connection is established

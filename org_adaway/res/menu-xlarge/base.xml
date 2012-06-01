@@ -5,43 +5,39 @@
         android:id="@+id/menu_refresh"
         android:icon="@drawable/action_refresh"
         android:showAsAction="always|withText"
-        android:title="@string/menu_refresh">
-    </item>
+        android:title="@string/menu_refresh"/>
     <item
         android:id="@+id/menu_help"
         android:icon="@drawable/action_help"
         android:showAsAction="always|withText"
-        android:title="@string/menu_help">
-    </item>
+        android:title="@string/menu_help"/>
     <item
         android:id="@+id/menu_lists"
         android:showAsAction="ifRoom|withText"
-        android:title="@string/menu_lists">
-    </item>
+        android:title="@string/menu_lists"/>
     <item
         android:id="@+id/menu_show_hosts_file"
         android:showAsAction="ifRoom|withText"
-        android:title="@string/menu_show_hosts_file">
-    </item>
+        android:title="@string/menu_show_hosts_file"/>
     <item
         android:id="@+id/menu_tcpdump"
         android:showAsAction="ifRoom|withText"
-        android:title="@string/menu_tcpdump">
-    </item>
+        android:title="@string/menu_tcpdump"/>
     <item
         android:id="@+id/menu_preferences"
         android:showAsAction="ifRoom|withText"
-        android:title="@string/menu_preferences">
-    </item>
+        android:title="@string/menu_preferences"/>
+    <item
+        android:id="@+id/menu_scan_adware"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_scan_adware"/>
     <item
         android:id="@+id/menu_about"
         android:showAsAction="ifRoom|withText"
-        android:title="@string/menu_about">
-    </item>
+        android:title="@string/menu_about"/>
     <item
         android:id="@+id/menu_donations"
         android:showAsAction="ifRoom|withText"
-        android:title="@string/menu_donations">
-    </item>
+        android:title="@string/menu_donations"/>
 
 </menu>

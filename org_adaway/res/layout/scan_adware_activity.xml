@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="@string/scan_adware_description"
+        android:textAppearance="@android:style/TextAppearance.Small" >
+    </TextView>
+
+    <Button
+        android:id="@+id/scan_adware_start_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="scanAdwareStartOnClick"
+        android:text="@string/scan_adware_start" >
+    </Button>
+
+    <LinearLayout
+        android:id="@+id/scan_adware_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp" >
+    </LinearLayout>
+
+</LinearLayout>
