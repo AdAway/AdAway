@@ -111,6 +111,7 @@
   <!--Menu entries-->
   <string name="menu_refresh">Actualiser</string>
   <string name="menu_add">Ajouter</string>
+  <string name="menu_scan_adware">Recherche de publiciel.</string>
   <string name="menu_hosts_sources">Liste des sources</string>
   <string name="menu_tcpdump">Tracer les requêtes DNS</string>
   <string name="menu_help">Aide</string>
@@ -126,6 +127,10 @@
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problèmes</string>
   <string name="help_about_version">Version :</string>
+  <!--Scan Adware-->
+  <string name="scan_adware_description">Ici, vous pouvez rechercher les mauvais publiciels</string>
+  <string name="scan_adware_start">commencer la recherche.</string>
+  <string name="scan_adware_empty">Aucun publiciel trouvé</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Locale :</string>
   <string name="hosts_last_modified_online">En ligne :</string>

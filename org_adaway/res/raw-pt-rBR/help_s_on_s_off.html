@@ -1,0 +1,25 @@
+<html>
+<head></head>
+<body>
+<h2>Dispositivos HTC</h2>
+<p>O AdAway não funciona quando você está utilizando um dispositivo com S-ON. Esta 'funcionalidade' existe em diversos celulares HTC e impede que o AdAway escreva no arquivo de hosts.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF significa que a porção NAND do dispositivo está destravada e pode ser escrita. A configuração padrão para dispositivos HTC é S-ON, o que significa que você não pode acessar certas áreas do sistema nem garantir um root permamente. Além disso, a verificação de assinatura para imagens de firmware é garantida pelo flag S-ON.</p>
+
+<h2>Estou com S-ON ou S-OFF?</h2>
+<p>Inicialize no modo Boot do seu dispositivo segurando o botão de <i>volume para baixo</i> enquanto aperta o botão power e o texto na parte superior vai exibir o status do flag com S-OFF ou S-ON. Um root completo geralmente significa S-OFF.
+<br/><br/>Mais informações podem ser encontradas em <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+
+<h2>Solução</h2>
+<p>Pré-requisito: Você deve ter o Android SDK instalado, com o terminal ADB, no seu computador.
+<br/><br/> 1. Inicialize no modo Boot do seu dispositivo segurando o botão de <i>volume para baixo</i> enquanto aperta o botão power.
+<br/> 2. Use o <i>volume para baixo</i> para selecionar o modo Recovery.
+<br/> 3. No recovery, aperte volume para baixo até "partitions menu" e clique no track pad para selecioná-lo.
+<br/> 4. Selecione <i>mount /system</i>, <i>mount /sdcard</i> e <i>mount /data</i>.
+<br/> 5. Plugue seu dispositivo no computador via USB e abra uma linha de comando.
+<br/> 6. Entre no terminal adb e digite<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Isto vai criar um link simbólico, o que permite que o AdAway edite o arquivo de hosts localizado em <tt>/data</tt>, ao mesmo tempo em que permite que o S.O. use-o como se estivesse armazenado em <tt>/system</tt>.)
+<br/> 7. Reinicie seu dispositivo e defina o <i>Arquivo de hosts destino</i> para <i>/data/data/hosts</i> nas preferências do AdAway.
+<br/> 8. O AdAway deve funcionar agora.</p>
+</body>
+</html>

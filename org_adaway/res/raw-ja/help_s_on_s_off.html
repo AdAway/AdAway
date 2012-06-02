@@ -1,0 +1,25 @@
+<html>
+<head></head>
+<body>
+<h2>HTC製デバイス</h2>
+<p>S-ONと呼ばれるデバイスではAdAwayは動作しません。この'機能'は多くのHTC製デバイスにありhostsファイルの書き込みをできなくさせます。</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFFとはデバイスのNANDをアンロックし書き込めるようにすることです。HTC製デバイスのデフォルト設定はS-ONでシステムのあるエリアにアクセス出来なかったり常時rootにできません。(日本ではシャープ製も同じような状態です)</p>
+
+<h2>私のデバイスにはS-ONやS-OFFがありますか?</h2>
+<p><i>音量下</i>ボタンを押しながら電源ボタンを押して起動するとS-OFFかS-ONのフラグが表示されます。 完全rootはS-OFFを意味します。
+<br/><br/> 詳しい情報は<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>にあります。</p>
+
+<h2>回避方法</h2>
+<p>前提条件: Android SDKとADB shellをPCにインストール済み
+<br/><br/> 1.  <i>音量下</i>ボタンを押しながら電源ボタンを押す
+<br/> 2. <i>音量下ボタン</i>でrecoveryを選択
+<br/> 3. clockwork recoveryで音量下ボタンで"partitions menu"にカーソルを移動させトラックパッドで選択する
+<br/> 4. <i>mount /system</i>,<i>mount /sdcard</i>,<i>mount /data</i>を選択する
+<br/> 5. USBケーブルを接続しPCでコマンドラインを開く
+<br/> 6. "adb shell"と入力し<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt>と入力する<br/> (<tt>/system</tt>にファイルがあれば使用が許可されるので<tt>/data</tt>にあるhostsファイルを編集できるようシンボリックリンクを作成します)
+<br/> 7. デバイスを再起動してAdAwayの設定で<i>ターゲットhostsファイル</i>を<i>/data/data/hosts</i>にする
+<br/> 8. AdAwayが動作するようになります。</p>
+</body>
+</html>

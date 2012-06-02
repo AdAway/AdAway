@@ -1,0 +1,25 @@
+<html>
+<head></head>
+<body>
+<h2>Устройства HTC</h2>
+<p>AdAway не работает на так называемых S-ON устройствах. Эта "особенность" имеется во многих устройствах HTC и не позволяет AdAway изменять файл Hosts.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF означает, что часть памяти, называемой NAND, разблокирована и позволяет производить запись. По-умолчанию устройства HTC имеют параметр S-ON, а это означает, что вы не можете получить доступа к определенным областям памяти. Кроме того флаг S-ON проверяет подпись всех прошивок.</p>
+
+<h2>Как определить S-ON или S-OFF в вашем телефоне?</h2>
+<p>Выключаем телефон. Вынимаем и снова вставляем батарейку, зажав и удерживая клавишу <i>Уменьшение громкости</i> включаем телефон. На экране отобразиться версия HBOOT и надпись S-OFF или S-ON. Для получения прав Root необходимо что там стояло S-OFF.
+<br /><br /> Более подробную информацию можно найти на <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+
+<h2>Решение</h2>
+<p>Необходимое условие: Вы должны установить рабочий Android SDK с оболочкой ADB на ваш компьютер.
+<br /><br /> 1. Выключаем телефон. Вынимаем и снова вставляем батарейку, зажав и удерживая клавишу <i>Уменьшение громкости</i> включаем телефон.
+<br /> 2. Оказавшись в меню загрузки используйте клавишу <i>Уменьшение громкости</i> для выбора пункта <tt>Восстановление</tt>.
+<br /> 3. In clockwork recovery volume down to "partitions menu" and hit the track pad to select
+<br /> 4. Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.
+<br /> 5. Plug in your usb cord and open a command line on your pc.
+<br /> 6. Enter adb shell and type<br /> <tt>ln -s /data/data/hosts /system/etc/hosts</tt><br /> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)
+<br /> 7. Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.
+<br /> 8. AdAway should work now.</p>
+</body>
+</html>

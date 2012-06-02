@@ -111,6 +111,7 @@
   <!--Menu entries-->
   <string name="menu_refresh">Làm tươi</string>
   <string name="menu_add">Thêm</string>
+  <string name="menu_scan_adware">Scan for Adware</string>
   <string name="menu_hosts_sources">Nguồn hosts</string>
   <string name="menu_tcpdump">Yêu cầu ghi nhật ký DNS</string>
   <string name="menu_help">Trợ giúp</string>
@@ -126,6 +127,10 @@
   <string name="help_tab_faq">Hỏi đáp</string>
   <string name="help_tab_problems">Vấn đề</string>
   <string name="help_about_version">Phiên bản:</string>
+  <!--Scan Adware-->
+  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
+  <string name="scan_adware_start">Start scanning</string>
+  <string name="scan_adware_empty">No bad Adware apps were found!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Cục bộ:</string>
   <string name="hosts_last_modified_online">Trực tuyến:</string>
