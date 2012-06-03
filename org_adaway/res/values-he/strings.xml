@@ -111,7 +111,7 @@
   <!--Menu entries-->
   <string name="menu_refresh">רענן</string>
   <string name="menu_add">הוסף</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
+  <string name="menu_scan_adware">סרוק רוגלות</string>
   <string name="menu_hosts_sources">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
   <string name="menu_tcpdump">Tcpdump</string>
   <string name="menu_help">עזרה</string>
@@ -129,8 +129,8 @@
   <string name="help_about_version">גירסה:</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
+  <string name="scan_adware_start">התחל סריקה</string>
+  <string name="scan_adware_empty">לא נמצאו תוכנות רוגלה! </string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">מקומי:</string>
   <string name="hosts_last_modified_online">אונליין:</string>
@@ -180,8 +180,8 @@
   <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>
   <string name="pref_automatic_update_daily">עדכונים אוטומטיים</string>
   <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
-  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
+  <string name="pref_update_only_on_wifi">עדכן רק בחיבור Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">הפועל עיכובים ברקע רק כאשר המכשיר מחובר לאינטרנט בחיבור Wifi</string>
   <string name="pref_redirection_rules">אפשר הפניות</string>
   <string name="pref_redirection_rules_summary">אפשר חוקי הפניה ממקור Hosts</string>
   <string name="pref_debug">ניפוי שגיאות</string>

@@ -5,18 +5,18 @@
 <p>La contre vérité suivante est assez répandue : si un utilisateur ne clique jamais sur les publicités affichées, alors le fait de les bloquer est sans effet financier pour l'application ou le site web utilisé. Cette affirmation est fausse car les revenus proviennent aussi de l'affichage des publicités. Vous pouvez décider de bloquer ou non les publicités mais personnellement je n'utiliserais pas des applications affichant des publicités parce que je trouve cela désagréable. En réalité sans bloqueur de publicité, je n'installerais tout simplement pas ces applications.</p>
 
 <h2>Comment fonctionne AdAway ?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<p>AdAway utilise le fichier <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts</a> pour bloquer les serveurs de publicité. Le fichier hosts se situe dans <tt>/system/etc/hosts</tt> et transforme le nom du serveur en adresse IP. C'est une solution simple pour définir la correspondance entre les noms des serveurs et leurs adresses IP sans avoir recours des Serveurs tiers de résolution des Noms de Domaines (DNS). Les noms de serveurs non désirés sont redirigés vers l'adresse IP <tt>127.0.0.1</tt> qui représente votre propre appareil.</p>
 
 <h2>Pourquoi dois-je redémarrer Android pour que ces changements prennent effet ?</h2>
 <p>Java sur Android maintient son propre cache DNS. Le système d'exploitation va prendre en compte immédiatement les modifications opérées dans le fichier hosts (vérifiez en effectuant un test de ping) mais vous devez redémarrer Android pour reconstruire le cache DNS de Java.</p>
 
 <h2>Comment utiliser le serveur Web intégré avec AdAway ?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/> You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><b>AdAway peut aussi fonctionner sans serveur web local !</b>
+<br/><br/>Si vous activez le serveur web local dans les préférences d'AdAway: ce serveur répondra aux requêtes sur l'adresse IP locale <tt>127.0.0.1</tt>. Si vous désactivez cette option, les requêtes sont renvoyées vers le serveur web AdWay.
+<br/>Certaines applications ne fonctionent que si un serveur de publicités distant est joignable. Avec cette méthode, le serveur de publicités ne retournera que des pages blanches et sans images publicitaires.</p>
 
 <h2>Comment bloquer ou débloquer des noms d'hôtes spécifiques ?</h2>
-<p>You can set up your own server providing a hosts file with hostnames that you want to block and add it to the <i>Hosts Sources</i> or add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<p>Vous pouvez configurer finement le fonctionnement de votre serveur grâce au contenu de votre fichier hosts. Pour bloquer un serveur, ajoutez-le dans <i>Hosts Sources</i> ou dans votre (liste noire) sous <i>Your Lists</i>. Au contraire pour autoriser certains serveurs, ajoutez-les à votre (liste blanche) <i>Whitelist</i>. Les serveurs que vous souhaitez (rediriger) vers une adresse IP particulière sont à définir dans <i>Redirection List</i>.</p>
 
 <h2>Où trouver d'autres fichiers hosts ?</h2>
 <p>Consultez la <a href="http://code.google.com/p/ad-away/wiki/HostsSources">liste des sources supplémentaires de fichiers hosts pour AdAway</a>.</p>
