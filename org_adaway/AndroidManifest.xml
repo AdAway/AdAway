@@ -37,7 +37,7 @@
         android:hardwareAccelerated="false"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Sherlock.ForceOverflow" >
+        android:theme="@style/Theme.adaway" >
         <activity
             android:name=".ui.BaseActivity"
             android:label="@string/app_name"

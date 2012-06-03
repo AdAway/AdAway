@@ -52,7 +52,7 @@ public class AdAwayContract {
 
     private static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
-    public static final String PATH_HOSTS_SORCES = "hostssources";
+    public static final String PATH_HOSTS_SOURCES = "hostssources";
 
     public static final String PATH_WHITELIST = "whitelist";
 
@@ -62,7 +62,7 @@ public class AdAwayContract {
 
     public static class HostsSources implements HostsSourcesColumns, BaseColumns {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
-                .appendPath(PATH_HOSTS_SORCES).build();
+                .appendPath(PATH_HOSTS_SOURCES).build();
 
         /** Use if multiple items get returned */
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.adaway.hostssources";

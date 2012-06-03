@@ -18,15 +18,6 @@
  *
  */
 
-/**
- * 
- * 
- * TODO: rework everything to extend directly OpenHelper
- * 
- * 
- * 
- */
-
 package org.adaway.provider;
 
 import android.content.Context;

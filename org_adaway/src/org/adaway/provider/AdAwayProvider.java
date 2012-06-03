@@ -66,8 +66,8 @@ public class AdAwayProvider extends ContentProvider {
         final String authority = AdAwayContract.CONTENT_AUTHORITY;
 
         // Hosts sources
-        matcher.addURI(authority, AdAwayContract.PATH_HOSTS_SORCES, HOSTS_SOURCES);
-        matcher.addURI(authority, AdAwayContract.PATH_HOSTS_SORCES + "/*", HOSTS_SOURCES_ID);
+        matcher.addURI(authority, AdAwayContract.PATH_HOSTS_SOURCES, HOSTS_SOURCES);
+        matcher.addURI(authority, AdAwayContract.PATH_HOSTS_SOURCES + "/*", HOSTS_SOURCES_ID);
 
         // Whitelist
         matcher.addURI(authority, AdAwayContract.PATH_WHITELIST, WHITELIST);

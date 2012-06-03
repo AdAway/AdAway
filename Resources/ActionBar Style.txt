@@ -1,0 +1,4 @@
+ 
+http://jgilfelt.github.com/android-actionbarstylegenerator/
+
+Sherlock, Dark, Transparent, Color: aa0000
