@@ -8,18 +8,18 @@
 <p>S-OFF signifie que la partie NAND de l'appareil est dévérouillée et peut etre modifiée. Le réglage par défaut pour les appareils HTC est S-ON, ce qui signifie que vous ne pouvez ni acceder a certaines parties du système ni vous assurez d'un accès root permanent. D'autant plus que, la vérification de la signature des images du firmware est aussi assurée par le drapeau S-ON.</p>
 
 <h2>Dois-je S-ON ou S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/> More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Lancer le menu de démarrage en pressant le bouton <i>volume bas<i> et en même temps le bouton power et le text en haut affichera le status du drapeau S-ON ou S-OFF. Un root complet generalement donne le S-OFF.
+<br/><br/> Pour plus d'information , aller à <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a></p>
 
 <h2>Solution</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
-<br/><br/> 1. Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.
-<br/> 2. Use <i>volume down</i> to select recovery.
-<br/> 3. In clockwork recovery volume down to "partitions menu" and hit the track pad to select
-<br/> 4. Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.
-<br/> 5. Plug in your usb cord and open a command line on your pc.
-<br/> 6. Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)
-<br/> 7. Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.
-<br/> 8. AdAway should work now.</p>
+<p>Prérequis: Vous devez installer un SDK Android fonctionnel avec le shell ADB sur votre PC.
+<br/><br/> 1.Lancer le menu de démarrage en pressant le bouton <i>volume bas<i> et en même temps le bouton power.
+<br/> 2. Utilisez <i>volume bas</i> pour choisir recovery
+<br/> 3. Dans clockwork recovery,  volume bas pour aller à "partitions menu" and selectionner le track pad
+<br/> 4. Selectionner <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.
+<br/> 5. Brancher le cordon USB et ouvrer un prompt sur le PC
+<br/> 6. Entrer dans le shell adb et taper <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Ceci cree le lien symbolique, qui permet à  AdAway de modifier le fichier hosts placé dans <tt>/data</tt> tout en permettant a l'OS d'utiliser ce fichier comme s'il était dans  <tt>/system</tt>.)
+<br/> 7. Redémarrer l'appareil et definisser set <i>Fichier hosts de destination</i> vers <i>/data/data/hosts</i> dans les préférences d'AdAway
+<br/> 8. AdAway devrait fonctionner maintenant.</p>
 </body>
 </html>

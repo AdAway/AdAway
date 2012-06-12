@@ -44,7 +44,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/about_version"
+                    android:id="@+id/help_about_version"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="@android:style/TextAppearance.Small" />
@@ -52,11 +52,10 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/about_text"
+            android:id="@+id/help_about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/about_libs"
             android:textAppearance="@android:style/TextAppearance.Small" />
     </LinearLayout>
 

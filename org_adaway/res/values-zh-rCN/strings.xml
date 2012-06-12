@@ -111,9 +111,9 @@
   <!--Menu entries-->
   <string name="menu_refresh">刷新</string>
   <string name="menu_add">添加</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
+  <string name="menu_scan_adware">扫描广告程序</string>
   <string name="menu_hosts_sources">Hosts源</string>
-  <string name="menu_tcpdump">运行tcpdump</string>
+  <string name="menu_tcpdump">记录DNS请求</string>
   <string name="menu_help">帮助</string>
   <string name="menu_lists">你的名单</string>
   <string name="menu_show_hosts_file">打开hosts文件</string>
@@ -128,9 +128,9 @@
   <string name="help_tab_problems">问题</string>
   <string name="help_about_version">版本：</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
+  <string name="scan_adware_description">你可以在这扫描那些不能被AdAway屏蔽的恶意广告应用。这种应用使用诸如空中推送提醒技术，它甚至可以在程序没有运行时弹出来或者改变你的铃声设置。唯一的应对措施只有在这个列表中点击删除他们！</string>
+  <string name="scan_adware_start">开始扫描</string>
+  <string name="scan_adware_empty">未发现恶意广告程序！</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">在线：</string>
@@ -180,8 +180,8 @@
   <string name="pref_update_check_daily_summary">每天后台检查更新并提示</string>
   <string name="pref_automatic_update_daily">自动更新</string>
   <string name="pref_automatic_update_daily_summary">如果有更新，自动在后台更新。</string>
-  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
+  <string name="pref_update_only_on_wifi">只在Wifi下更新</string>
+  <string name="pref_update_only_on_wifi_summary">只在连接到Wifi网络时自执行后台更新。</string>
   <string name="pref_redirection_rules">允许重定向</string>
   <string name="pref_redirection_rules_summary">允许来自Hosts源重定向规则</string>
   <string name="pref_debug">调试</string>

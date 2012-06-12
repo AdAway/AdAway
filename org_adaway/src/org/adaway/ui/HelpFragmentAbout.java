@@ -58,10 +58,10 @@ public class HelpFragmentAbout extends SherlockFragment {
         // load html from html file from /res/raw
         String aboutText = Utils.readContentFromResource(this.getActivity(), R.raw.help_about);
 
-        TextView versionText = (TextView) view.findViewById(R.id.about_version);
+        TextView versionText = (TextView) view.findViewById(R.id.help_about_version);
         versionText.setText(getString(R.string.help_about_version) + " " + getVersion());
 
-        TextView aboutTextView = (TextView) view.findViewById(R.id.about_text);
+        TextView aboutTextView = (TextView) view.findViewById(R.id.help_about_text);
 
         // load html into textview
         aboutTextView.setText(Html.fromHtml(aboutText));
