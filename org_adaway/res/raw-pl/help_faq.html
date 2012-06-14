@@ -1,0 +1,27 @@
+<html>
+<head></head>
+<body>
+<h2>Dochód z reklam</h2>
+<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+
+<h2>Jak działa AdAway?</h2>
+<p>AdAway używa <a href="http://en.wikipedia.org/wiki/Hosts_file">plik hosts</a> aby blokować wybrane nazwy hostów, serwujące reklamy. Plik hosts to plik w <tt>/system/etc/hosts</tt>, który mapuje  nazyw hostów i przypisane im adresy IP. Jest to tradycyjny sposób definiowania nazwy hostów i przypisanego do nich adresów IP bez udziału serwera DNS (Domain Name System). Wszystkie niepożądane nazwy hostów są przekierowywane na adres <tt>127.0.0.1</tt> co oznacza że wskazują na twoje własne urządzenie.</p>
+
+<h2>Dlaczego powinienem zrestartować Androida aby zmiany przyniosły efekt?</h2>
+<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+
+<h2>Jak używać lokalny swerwer www w AdAway?</h2>
+<p><b>AdAway will also work without using the webserver!</b>
+<br/><br/> You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+
+<h2>Jak mogę zablokować/odblokować określone nazwy hostów</h2>
+<p>You can set up your own server providing a hosts file with hostnames that you want to block and add it to the <i>Hosts Sources</i> or add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+
+<h2>Gdzie znajdę wiecej źródeł hostów?</h2>
+<p>Zobacz <a href="http://code.google.com/p/ad-away/wiki/HostsSources"> Lista dodatkowych źródeł hostów dla AdAway</a>.</p>
+
+<h2>Znalazłem błąd w AdAway!</h2>
+<p>Zgłoś to na <a href="http://code.google.com/p/ad-away/issues/list"> raportowanie błędów AdAway</a>.</p>
+</body>
+</html>

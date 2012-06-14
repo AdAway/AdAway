@@ -111,7 +111,7 @@
   <!--Menu entries-->
   <string name="menu_refresh">Atualizar</string>
   <string name="menu_add">Adicionar</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
+  <string name="menu_scan_adware">Pesquisa por anúncios</string>
   <string name="menu_hosts_sources">Fontes de hosts</string>
   <string name="menu_tcpdump">Gravar requisições DNS</string>
   <string name="menu_help">Ajuda</string>
@@ -128,9 +128,9 @@
   <string name="help_tab_problems">Problemas</string>
   <string name="help_about_version">Versão:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
+  <string name="scan_adware_description">Aqui você pode pesquisar por aplicativos com Anúncios ruins, os quais não podem ser bloqueados com pelo AdAway. Estes aplicativos usam por exemplo notificações Airpush que exibem pop up mesmo quando o aplicativo não está rodando ou até mesmo muda seu toque de chamada. A única contra-medida disponível é desinstalar estes aplicativos ao clicar nos itens da lista!</string>
+  <string name="scan_adware_start">Iniciar pesquisa</string>
+  <string name="scan_adware_empty">Nenhum aplicativo com anúncios ruins foi encontrado!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">Online:</string>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Zamknij</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Czy uważasz tą aplikację za przydatną?\nDoceń autora pozytywnym komentarzem lub przekazując mu darowiznę!</string>
+  <string name="donations__flattr_description">• Flattr pobiera 10% jako miesięczną opłatę!</string>
+  <string name="donations__google_android_market">Google Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">In-App Darowizny nie są wspierane</string>
+  <string name="donations__google_android_market_not_supported">In-App Darowizny nie są wspierane. Czy Google Play Store jest zainstalowany prawidłowo?</string>
+  <string name="donations__google_android_market_description">• Google pobiera 30% kwoty z każdej darowizny!</string>
+  <string name="donations__google_android_market_donate_button">Przekaż!</string>
+  <string name="donations__google_android_market_text">Kwota do przekazania?</string>
+  <string-array name="donations__google_android_market_promt_array">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">• Wybór kwoty do przekazania nastąpi po kliknięciu przycisku \"Przekaż\"!</string>
+  <string name="donations__thanks_dialog_title">Dzięki!</string>
+  <string name="donations__thanks_dialog">Dziekuję za darowiznę!\nNapradę to doceniam!</string>
+</resources>
