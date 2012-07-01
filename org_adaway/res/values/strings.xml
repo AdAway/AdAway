@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">AdAway</string>
+
     <!-- Buttons -->
     <string name="button_exit">Exit</string>
     <string name="button_apply">Download files and apply ad blocking</string>
