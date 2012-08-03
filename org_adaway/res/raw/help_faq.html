@@ -11,6 +11,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>How does AdAway work?</h2>
 <p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
 
+<h2>Why is the daily update check preference grayed out?</h2>
+<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+
 <h2>Why do I have to restart Android for changes to take effect?</h2>
 <p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
 
