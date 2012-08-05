@@ -34,20 +34,20 @@ import java.util.Iterator;
 
 import org.adaway.R;
 import org.adaway.provider.ProviderHelper;
+import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
 import org.adaway.util.Log;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
 public class ImportExportHelper {
@@ -60,43 +60,19 @@ public class ImportExportHelper {
      * 
      * @param activity
      */
-    public static void openFile(final Activity activity) {
+    public static void openFileStream(final FragmentActivity activity) {
         final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("text/plain");
-        // Do this if you need to be able to open the returned URI as a stream
         intent.addCategory(Intent.CATEGORY_OPENABLE);
 
         try {
             activity.startActivityForResult(intent, REQUEST_CODE_IMPORT);
         } catch (ActivityNotFoundException e) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-            builder.setIcon(android.R.drawable.ic_dialog_alert);
-            builder.setPositiveButton(activity.getString(R.string.button_yes),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri
-                                    .parse("market://details?id=org.openintents.filemanager"));
+            ActivityNotFoundDialogFragment notFoundDialog = ActivityNotFoundDialogFragment
+                    .newInstance(R.string.no_file_manager_title, R.string.no_file_manager,
+                            "market://details?id=org.openintents.filemanager", "OI File Manager");
 
-                            try {
-                                activity.startActivity(intent);
-                            } catch (ActivityNotFoundException e) {
-                                Log.e(Constants.TAG, "No Google Android Market installed!");
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-            builder.setNegativeButton(activity.getString(R.string.button_no),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
-
-            builder.setTitle(R.string.no_file_manager_title);
-            builder.setMessage(activity.getString(org.adaway.R.string.no_file_manager));
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+            notFoundDialog.show(activity.getSupportFragmentManager(), "notFoundDialog");
         }
     }
 

@@ -42,7 +42,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 public class ListsActivity extends SherlockFragmentActivity {
-    private Activity mActivity;
+    private FragmentActivity mActivity;
     private ActionBar mActionBar;
     private ActionBar.Tab mTab1;
     private ActionBar.Tab mTab2;
@@ -81,7 +81,7 @@ public class ListsActivity extends SherlockFragmentActivity {
             return true;
 
         case R.id.menu_import:
-            ImportExportHelper.openFile(mActivity);
+            ImportExportHelper.openFileStream(mActivity);
             return true;
 
         case R.id.menu_export:

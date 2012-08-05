@@ -21,17 +21,16 @@
 package org.adaway.helper;
 
 import org.adaway.R;
+import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
 import com.stericson.RootTools.RootTools;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.FragmentActivity;
 
 public class OpenHelper {
 
@@ -40,57 +39,36 @@ public class OpenHelper {
      * 
      * @param activity
      */
-    public static void openHostsFile(final Activity activity) {
+    public static void openHostsFile(final FragmentActivity activity) {
         /* remount for write access */
         if (!RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
             Log.e(Constants.TAG, "System partition could not be remounted as rw!");
         } else {
-            openFile(activity, Constants.ANDROID_SYSTEM_ETC_HOSTS);
+            openFileWithEditor(activity, Constants.ANDROID_SYSTEM_ETC_HOSTS);
         }
     }
 
     /**
-     * Helper to open files
+     * Open default app for opening plain text files
      * 
      * @param activity
      * @param file
      */
-    private static void openFile(final Activity activity, String file) {
-        /* start default app for opening plain text files */
-        Intent intent = new Intent(Intent.ACTION_VIEW);
+    private static void openFileWithEditor(final FragmentActivity activity, String file) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
         Uri uri = Uri.parse("file://" + file);
         intent.setDataAndType(uri, "text/plain");
 
         try {
             activity.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-            builder.setIcon(android.R.drawable.ic_dialog_alert);
-            builder.setPositiveButton(activity.getString(R.string.button_yes),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse("market://details?id=jp.sblo.pandora.jota"));
+            ActivityNotFoundDialogFragment notFoundDialog = ActivityNotFoundDialogFragment
+                    .newInstance(R.string.no_text_editor_title, R.string.no_text_editor,
+                            "market://details?id=jp.sblo.pandora.jota", "Text Edit");
 
-                            try {
-                                activity.startActivity(intent);
-                            } catch (ActivityNotFoundException e) {
-                                Log.e(Constants.TAG, "No Google Android Market installed!");
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-            builder.setNegativeButton(activity.getString(R.string.button_no),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
-
-            builder.setTitle(R.string.no_text_editor_title);
-            builder.setMessage(activity.getString(org.adaway.R.string.no_text_editor));
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+            notFoundDialog.show(activity.getSupportFragmentManager(), "notFoundDialog");
         }
     }
+
 }

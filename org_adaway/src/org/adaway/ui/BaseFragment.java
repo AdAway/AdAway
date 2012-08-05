@@ -35,9 +35,9 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +48,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class BaseFragment extends SherlockFragment {
-    private Activity mActivity;
+    private FragmentActivity mActivity;
 
     private TextView mStatusTitle;
     private TextView mStatusText;
