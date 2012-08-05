@@ -25,6 +25,8 @@ import org.donations.google.BillingService.RestoreTransactions;
 import org.donations.google.Consts.PurchaseState;
 import org.donations.google.Consts.ResponseCode;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -35,6 +37,7 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebView.HitTestResult;
 import android.widget.FrameLayout;
 
 import android.app.Dialog;
@@ -122,7 +125,9 @@ public class DonationsActivity extends Activity {
         }
     }
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,14 +174,13 @@ public class DonationsActivity extends Activity {
     }
 
     /**
-     * Donate button with PayPal by opening browser with defined URL
+     * Donate button with PayPal by opening browser with defined URL For possible parameters see:
+     * https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/
+     * e_howto_html_Appx_websitestandard_htmlvariables
      * 
      * @param view
      */
     public void donatePayPalOnClick(View view) {
-        // Build PayPal Url
-        // For parameters see:
-        // https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_html_Appx_websitestandard_htmlvariables
         Uri.Builder uriBuilder = new Uri.Builder();
         uriBuilder.scheme("https").authority("www.paypal.com").path("cgi-bin/webscr");
         uriBuilder.appendQueryParameter("cmd", "_donations");
@@ -258,8 +262,11 @@ public class DonationsActivity extends Activity {
     }
 
     /**
-     * Build view for flattr
+     * Build view for Flattr. see Flattr API for more information:
+     * http://developers.flattr.net/button/
      */
+    @SuppressLint("SetJavaScriptEnabled")
+    @TargetApi(11)
     private void buildFlattrView() {
         final FrameLayout mLoadingFrame;
         final WebView mFlattrWebview;
@@ -294,7 +301,8 @@ public class DonationsActivity extends Activity {
             @Override
             public void onLoadResource(WebView view, String url) {
                 if (url.contains("flattr")) {
-                    if (view.getHitTestResult().getType() > 0) {
+                    HitTestResult result = view.getHitTestResult();
+                    if (result != null && result.getType() > 0) {
                         view.getContext().startActivity(
                                 new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                         view.stopLoading();
@@ -303,7 +311,7 @@ public class DonationsActivity extends Activity {
             }
 
             /**
-             * When loading is done remove frame with progress circle
+             * After loading is done, remove frame with progress circle
              */
             @Override
             public void onPageFinished(WebView view, String url) {
@@ -315,22 +323,13 @@ public class DonationsActivity extends Activity {
             }
         });
 
-        /*
-         * Partly taken from
-         * http://www.dafer45.com/android/for_developers/flattr_view_example_application_how_to.html
-         * http
-         * ://www.dafer45.com/android/for_developers/including_a_flattr_button_in_an_application.
-         * html
-         */
         String projectUrl = DonationsConfiguration.FLATTR_PROJECT_URL;
         String flattrUrl = DonationsConfiguration.FLATTR_URL;
 
-        // make text white and background black
-        String htmlStart = "<html> <head><style type=\"text/css\">*{color: #FFFFFF; background-color: transparent;}</style>";
+        // make text white and background transparent
+        String htmlStart = "<html> <head><style type='text/css'>*{color: #FFFFFF; background-color: transparent;}</style>";
 
-        // see flattr api http://developers.flattr.net/button/
-
-        // https not working in android 2.1 and 2.2
+        // https is not working in android 2.1 and 2.2
         String flattrScheme;
         if (Build.VERSION.SDK_INT >= 9) {
             flattrScheme = "https://";
@@ -342,7 +341,7 @@ public class DonationsActivity extends Activity {
         mFlattrUrl = (TextView) findViewById(R.id.donations__flattr_url);
         mFlattrUrl.setText(flattrScheme + DonationsConfiguration.FLATTR_URL);
 
-        String flattrJavascript = "<script type=\"text/javascript\">"
+        String flattrJavascript = "<script type='text/javascript'>"
                 + "/* <![CDATA[ */"
                 + "(function() {"
                 + "var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];"

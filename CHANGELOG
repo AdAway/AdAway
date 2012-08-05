@@ -1,6 +1,10 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+1.38
+- Fix for crash on donations screen (Android 4.1)
+
+
 1.37
 - Bind local webserver https only to localhost (thanks to Stebalien for finding that bug)
 
