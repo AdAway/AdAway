@@ -20,11 +20,17 @@
 
 package org.adaway.ui;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import net.nightwhistler.htmlspanner.HtmlSpanner;
+
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.adaway.util.Utils;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -72,7 +78,9 @@ public class HelpFragmentHtml extends SherlockFragment {
         htmlFile = getArguments().getInt(ARG_HTML_FILE);
 
         // load html from html file from /res/raw
-        String helpText = Utils.readContentFromResource(this.getActivity(), htmlFile);
+        // TODO stream into HtmlSpanner!
+        InputStream inputStreamText = Utils
+                .getInputStreamFromResource(this.getActivity(), htmlFile);
 
         mActivity = getActivity();
 
@@ -87,7 +95,13 @@ public class HelpFragmentHtml extends SherlockFragment {
         scroller.addView(text);
 
         // load html into textview
-        text.setText(Html.fromHtml(helpText));
+        HtmlSpanner htmlSpanner = new HtmlSpanner();
+        htmlSpanner.setStripExtraWhiteSpace(true);
+        try {
+            text.setText(htmlSpanner.fromHtml(inputStreamText));
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "Error while reading raw resources as stream", e);
+        }
 
         // make links work
         text.setMovementMethod(LinkMovementMethod.getInstance());

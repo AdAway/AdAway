@@ -32,6 +32,7 @@ import org.adaway.util.Log;
 
 import com.stericson.RootTools.RootTools;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
@@ -210,12 +211,27 @@ public class Utils {
     }
 
     /**
+     * Gets input stream of raw resource
+     * 
+     * @param context
+     *            current context
+     * @param resourceID
+     *            of html file to read
+     * @return input stream of resource
+     */
+    public static InputStream getInputStreamFromResource(Context context, int resourceID) {
+        InputStream raw = context.getResources().openRawResource(resourceID);
+        return raw;
+    }
+
+    /**
      * Checks if the application is installed on the SD card. See
      * http://stackoverflow.com/questions/
      * 5814474/how-can-i-find-out-if-my-app-is-installed-on-sd-card
      * 
      * @return <code>true</code> if the application is installed on the sd card
      */
+    @SuppressLint("SdCardPath")
     public static boolean isInstalledOnSdCard(Context context) {
         // check for API level 8 and higher
         if (VERSION.SDK_INT > android.os.Build.VERSION_CODES.ECLAIR_MR1) {
@@ -229,7 +245,7 @@ public class Utils {
             }
         }
 
-        // check for API level 7 - check files dir
+        // check for API level 7 (rooted devices) - check files dir
         try {
             String filesDir = context.getFilesDir().getAbsolutePath();
             if (filesDir.startsWith("/data/")) {

@@ -20,6 +20,11 @@
 
 package org.adaway.ui;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import net.nightwhistler.htmlspanner.HtmlSpanner;
+
 import org.adaway.R;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -29,7 +34,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,7 +60,8 @@ public class HelpFragmentAbout extends SherlockFragment {
         View view = inflater.inflate(R.layout.help_fragment_about, container, false);
 
         // load html from html file from /res/raw
-        String aboutText = Utils.readContentFromResource(this.getActivity(), R.raw.help_about);
+        InputStream inputStreamText = Utils.getInputStreamFromResource(this.getActivity(),
+                R.raw.help_about);
 
         TextView versionText = (TextView) view.findViewById(R.id.help_about_version);
         versionText.setText(getString(R.string.help_about_version) + " " + getVersion());
@@ -64,7 +69,13 @@ public class HelpFragmentAbout extends SherlockFragment {
         TextView aboutTextView = (TextView) view.findViewById(R.id.help_about_text);
 
         // load html into textview
-        aboutTextView.setText(Html.fromHtml(aboutText));
+        HtmlSpanner htmlSpanner = new HtmlSpanner();
+        htmlSpanner.setStripExtraWhiteSpace(true);
+        try {
+            aboutTextView.setText(htmlSpanner.fromHtml(inputStreamText));
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "Error while reading raw resources as stream", e);
+        }
 
         // make links work
         aboutTextView.setMovementMethod(LinkMovementMethod.getInstance());
