@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import net.nightwhistler.htmlspanner.HtmlSpanner;
+import net.nightwhistler.htmlspanner.PatchedTextView;
 
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -37,7 +38,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
@@ -85,7 +85,7 @@ public class HelpFragmentHtml extends SherlockFragment {
         mActivity = getActivity();
 
         ScrollView scroller = new ScrollView(mActivity);
-        TextView text = new TextView(mActivity);
+        PatchedTextView text = new PatchedTextView(mActivity);
 
         // padding
         int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, mActivity

@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import net.nightwhistler.htmlspanner.HtmlSpanner;
+import net.nightwhistler.htmlspanner.PatchedTextView;
 
 import org.adaway.R;
 import org.adaway.util.Constants;
@@ -66,7 +67,7 @@ public class HelpFragmentAbout extends SherlockFragment {
         TextView versionText = (TextView) view.findViewById(R.id.help_about_version);
         versionText.setText(getString(R.string.help_about_version) + " " + getVersion());
 
-        TextView aboutTextView = (TextView) view.findViewById(R.id.help_about_text);
+        PatchedTextView aboutTextView = (PatchedTextView) view.findViewById(R.id.help_about_text);
 
         // load html into textview
         HtmlSpanner htmlSpanner = new HtmlSpanner();
