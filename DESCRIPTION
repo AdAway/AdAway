@@ -3,6 +3,9 @@
 <b>Description</b>
 AdAway is an open source ad blocker for Android using the hosts file.
 
+<b>To all users with Galaxy Note Android 4 stock rom:</b>
+The stock rom ships with a broken toolbox, which makes AdAway not working. Install Busybox and AdAway will use that instead!
+
 <b>Requirements</b>
 • ROOT
 • Read/Write access on system-Partition
@@ -28,6 +31,7 @@ GPLv3
 • <i>Internet access:</i> To download hosts files
 • <i>Modify/delete SD card content:</i> To export lists to sd card
 • <i>Wakelock:</i> Wake up phone when AdAway updates in background
+• <i>Google Play Billing:</i> To donate via Google Play Store
 
 <b>Keywords</b>
 adblock, adblocker, ad blocker, advertisments, advertisment blocker
@@ -44,6 +48,9 @@ GERMAN:
 
 
 <b>Achtung: ANWENDUNG BRAUCHT ROOT-ZUGRIFF AUF DEM GERÄT</b>
+
+<b>To all users with Galaxy Note Android 4 stock rom:</b>
+The stock rom ships with a broken toolbox, which makes AdAway not working. Install Busybox and AdAway will use that instead!
 
 <b>Beschreibung</b>
 AdAway ist ein Open-Source Ad-Blocker unter Verwendung der hosts-Datei.
@@ -72,7 +79,8 @@ GPLv3
 • <i>Root-Zugriff:</i> Um die Hosts-Datei auf die System-Partition zu schreiben
 • <i>Internet-Zugriff:</i> Um Hosts-Dateien herunterzuladen
 • <i>Inhalt der SD-Karte ändern/löschen:</i> Um Deine Listen zu exportieren
-• <i>Standby-Modus deaktivieren:</i> Um das Gerät aus dem Standby aufzuwachen, wenn AdAway im Hintergrund Updates herunterlädt.
+• <i>Standby-Modus deaktivieren:</i> Um das Gerät aus dem Standby aufzuwachen, wenn AdAway im Hintergrund Updates herunterlädt
+• <i>Google Play Billing:</i> Um über den Google Play Store zu spenden
 
 <b>Keywords</b>
 adblock, adblocker, ad blocker, advertisments, advertisment blocker
