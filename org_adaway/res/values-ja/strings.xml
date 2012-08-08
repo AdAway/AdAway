@@ -21,35 +21,6 @@
   <string name="button_tcpdump_toggle_unchecked">TCPダンプは非動作中です!</string>
   <string name="button_tcpdump_open">ログファイルを開く</string>
   <string name="button_tcpdump_delete">ログファイルを削除</string>
-  <!--Dialogs-->
-  <string name="no_root_description">suバイナリが見つからないかAdAwayのrootアクセス権が許可されていません。\n\nデバイスがroot化されていない場合はwww.cyanogenmod.comや\nその他のウェブサイトでroot化するための情報を入手してください。</string>
-  <string name="no_root_title">root化されたAndroidが必要です</string>
-  <string name="no_connection">ネット接続がありません。</string>
-  <string name="no_connection_title">接続なし</string>
-  <string name="download_dialog">ダウンロード中...</string>
-  <string name="apply_dialog">適用中...</string>
-  <string name="apply_dialog_lists">ブラック/ホワイトリストを適用中</string>
-  <string name="apply_dialog_hostnames">hostsファイルの解析･統合中...</string>
-  <string name="apply_dialog_hosts">hostsファイルを構成中...</string>
-  <string name="apply_dialog_apply">hostsファイルを適用中</string>
-  <string name="revert_successful">デフォルトのhostsファイルに戻しました。\n変更の適用には再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
-  <string name="apply_success">適用しました。\n変更の適用には再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
-  <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください。</string>
-  <string name="apply_fail_title">適用に失敗</string>
-  <string name="revert_problem">不明な理由により元に戻せませんでした。</string>
-  <string name="revert_problem_title">元に戻せません!</string>
-  <string name="no_url">正しいURLではありません!</string>
-  <string name="no_url_title">不正な形式のURL</string>
-  <string name="hosts_add_dialog">hostsファイルのURLを入力:</string>
-  <string name="no_hostname">正しいホスト名ではありません!</string>
-  <string name="no_hostname_title">不正な形式のホスト名</string>
-  <string name="no_ip">不正なIPです!</string>
-  <string name="no_ip_title">不正な形式のIP</string>
-  <string name="download_fail">ダウンロードしようとしたhostsソースの一部に接続できませんでした。以下のURLを確認してhostsソースを変更してください。</string>
-  <string name="download_fail_title">ダウンロード失敗</string>
-  <string name="no_private_file">プライベートファイルが作成できません。</string>
-  <string name="no_private_file_title">プライベートファイルの作成失敗</string>
-  <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">追加</string>
   <string name="checkbox_list_empty">空のリスト</string>
@@ -83,7 +54,6 @@
   <string name="status_no_connection">ネット接続なし</string>
   <string name="status_no_connection_subtitle">ネットに接続されていません</string>
   <string name="status_download_fail">ソースが利用できません</string>
-  <string name="status_download_fail_subtitle">URL: </string>
   <string name="status_enabled">有効です</string>
   <string name="status_enabled_subtitle">hostsファイルが有効化されました</string>
   <string name="status_disabled">無効です</string>
@@ -104,14 +74,41 @@
   <string name="apply_symlink_successful_title">symlink作成成功</string>
   <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください。</string>
   <string name="apply_symlink_fail_title">symlink作成失敗</string>
-  <string name="revert_successful_title">元に戻しました</string>
   <string name="apply_help">詳しくはヘルプをご覧ください。</string>
-  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -&gt; More... -&gt; Mobile Networks -&gt; Access Point Names) and remove the value in the proxy field.</string>
   <string name="apply_apn_proxy_title">APN proxy set!</string>
+  <string name="no_connection">ネット接続がありません。</string>
+  <string name="no_connection_title">接続なし</string>
+  <string name="download_dialog">ダウンロード中...</string>
+  <string name="apply_dialog">適用中...</string>
+  <string name="apply_dialog_lists">ブラック/ホワイトリストを適用中</string>
+  <string name="apply_dialog_hostnames">hostsファイルの解析･統合中...</string>
+  <string name="apply_dialog_hosts">hostsファイルを構成中...</string>
+  <string name="apply_dialog_apply">hostsファイルを適用中</string>
+  <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください。</string>
+  <string name="apply_fail_title">適用に失敗</string>
+  <string name="revert_successful">デフォルトのhostsファイルに戻しました。\n変更の適用には再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
+  <string name="revert_successful_title">元に戻しました</string>
+  <string name="revert_problem">不明な理由により元に戻せませんでした。</string>
+  <string name="revert_problem_title">元に戻せません!</string>
+  <string name="download_fail_title">ダウンロード失敗</string>
+  <string name="no_private_file">プライベートファイルが作成できません。</string>
+  <string name="no_private_file_title">プライベートファイルの作成失敗</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">suバイナリが見つからないかAdAwayのrootアクセス権が許可されていません。\n\nデバイスがroot化されていない場合はwww.cyanogenmod.comや\nその他のウェブサイトでroot化するための情報を入手してください。</string>
+  <string name="no_root_title">root化されたAndroidが必要です</string>
+  <string name="no_url">正しいURLではありません!</string>
+  <string name="no_url_title">不正な形式のURL</string>
+  <string name="hosts_add_dialog">hostsファイルのURLを入力:</string>
+  <string name="no_hostname">正しいホスト名ではありません!</string>
+  <string name="no_hostname_title">不正な形式のホスト名</string>
+  <string name="no_ip">不正なIPです!</string>
+  <string name="no_ip_title">不正な形式のIP</string>
+  <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
   <!--Menu entries-->
   <string name="menu_refresh">更新</string>
   <string name="menu_add">追加</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
+  <string name="menu_scan_adware">アドウェアをスキャン</string>
   <string name="menu_hosts_sources">hostsのソース</string>
   <string name="menu_tcpdump">DNS問合せのログ</string>
   <string name="menu_help">ヘルプ</string>
@@ -129,8 +126,8 @@
   <string name="help_about_version">バージョン:</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
+  <string name="scan_adware_start">スキャンを開始</string>
+  <string name="scan_adware_empty">アドウェアは堅守されませんでした!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">ローカル:</string>
   <string name="hosts_last_modified_online">オンライン:</string>
@@ -180,8 +177,8 @@
   <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します。</string>
   <string name="pref_automatic_update_daily">自動更新</string>
   <string name="pref_automatic_update_daily_summary">バックグラウンドで自動的に更新します。</string>
-  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
+  <string name="pref_update_only_on_wifi">Wi-Fiでのみ更新</string>
+  <string name="pref_update_only_on_wifi_summary">Wi-Fi接続されたときのみバックグラウンド更新をします。</string>
   <string name="pref_redirection_rules">リダイレクトを許可</string>
   <string name="pref_redirection_rules_summary">hostsソースからのリダイレクトルールを許可します。</string>
   <string name="pref_debug">デバッグ</string>

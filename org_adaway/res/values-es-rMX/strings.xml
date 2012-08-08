@@ -9,47 +9,16 @@
   <string name="button_revert">Deshabilitar bloqueo de anuncios</string>
   <string name="button_add">Agregar</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="button_apply_text">All hosts files from the defined sources are downloaded, merged with your own lists and installed as one hosts file on your system.</string>
   <string name="button_revert_text">Restaura el archivo de servidores original en tu sistema.</string>
   <string name="button_save">Guardar</string>
   <string name="button_webserver_toggle_checked">Servidor web en ejecución</string>
   <string name="button_webserver_toggle_unchecked">Servidor web no está en ejecución</string>
   <string name="button_webserver_toggle_text">Iniciar o detener el servidor web local para responder a sitios bloqueados.</string>
   <string name="button_help">Ayuda</string>
-  <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump está ejecutándose!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump no está ejecutándose!</string>
   <string name="button_tcpdump_open">Abrir archivo de log</string>
   <string name="button_tcpdump_delete">Borrar archivo de log</string>
-  <!--Dialogs-->
-  <string name="no_root_description">No se encontró el binario su o no tiene el permiso de root concedido para AdAway. \n\ nEsto puede suceder cuando el dispositivo no está rooteado.\nPuede encontrar información acerca de cómo rootear el dispositivo en www.cyanogenmod.com o en otros sitios web de Android.</string>
-  <string name="no_root_title">Android rooteado requerido</string>
-  <string name="no_connection">La conexión a Internet no está funcionando</string>
-  <string name="no_connection_title">Sin conexión</string>
-  <string name="download_dialog">Descargando...</string>
-  <string name="apply_dialog">Aplicando...</string>
-  <string name="apply_dialog_lists">Aplicando Lista Negra y Lista Blanca</string>
-  <string name="apply_dialog_hostnames">Analizando y uniendo archivos de hosts</string>
-  <string name="apply_dialog_hosts">Construyendo archivo de hosts</string>
-  <string name="apply_dialog_apply">Aplicando archivo de hosts</string>
-  <string name="revert_successful">Ha regresado a los hosts predeterminados.\nPuede ser necesario que reinicie Android para que los cambios surtan efecto.\n\n¿Desea reiniciar?\n(Para prevenir pérdida de datos, verifique que no haya ninguna aplicación usando la memoria externa en este momento)</string>
-  <string name="apply_success">Aplicado exitosamente.\n</string>
-  <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
-  <string name="apply_fail_title">Aplicar fallido</string>
-  <string name="revert_problem">Restituir fallido debido a razones desconocidas</string>
-  <string name="revert_problem_title">Restauración fallida!</string>
-  <string name="no_url">¡Esta no es una URL válida!</string>
-  <string name="no_url_title">URL mal formado</string>
-  <string name="hosts_add_dialog">Agregar URL a archivos hosts</string>
-  <string name="no_hostname">Este no es un nombre válido de servidor!</string>
-  <string name="no_hostname_title">Nombre de host malformado</string>
-  <string name="no_ip">Esta no es una IP válida!</string>
-  <string name="no_ip_title">IP mal formada</string>
-  <string name="download_fail">Either you are not properly connected to the Internet or one of the hosts sources you want to download is not available. Please check the following URL and change it in your hosts sources:</string>
-  <string name="download_fail_title">Descarga fallida</string>
-  <string name="no_private_file">Archivo privado no pudo ser creado.</string>
-  <string name="no_private_file_title">Creación de archivo privado ha fallado</string>
-  <string name="reboot_never_reboot">¡Nunca reiniciar ni preguntar nuevamente!</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Agregar</string>
   <string name="checkbox_list_empty">Lista vacía</string>
@@ -72,7 +41,6 @@
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Exportando...</string>
-  <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
   <!--Status Notifications-->
   <string name="status_checking">Consultando actualización...</string>
   <string name="status_reverting">Restaurando...</string>
@@ -83,13 +51,11 @@
   <string name="status_no_connection">No hay conexión a Internet</string>
   <string name="status_no_connection_subtitle">Conexión a Internet no disponible</string>
   <string name="status_download_fail">Fuente no disponible</string>
-  <string name="status_download_fail_subtitle">URL: </string>
   <string name="status_enabled">Habilitado</string>
   <string name="status_enabled_subtitle">Se habilitó el archivo host actualizado</string>
   <string name="status_disabled">Deshabilitado</string>
   <string name="status_disabled_subtitle">Deshabilitado</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
   <string name="apply_symlink_missing_title">Enlace Simbólico ausente</string>
   <string name="apply_not_enough_space">Sin suficiente espacio en la partición.\nIntenta cambiando el archivo hosts destino en preferencias a /data/data/hosts</string>
   <string name="apply_not_enough_space_title">Sin suficiente espacio</string>
@@ -104,14 +70,38 @@
   <string name="apply_symlink_successful_title">Enlace Simbólico creado de manera exitosa</string>
   <string name="apply_symlink_fail">El enlace simbólico no ha sido creado por Android.\nEsta falla podría ser originada por una característica llamada S-ON en teléfonos HTC!\n\nUna solución es arrancar tu teléfono en modo recuperación y crear el enlace con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona busca en Internet acerca de S-OFF relacionado a tu teléfono.</string>
   <string name="apply_symlink_fail_title">Creación de Enlace Simbólico fallida</string>
-  <string name="revert_successful_title">Restituyendo con éxito</string>
   <string name="apply_help">Por favor lea la Ayuda para mas información.</string>
-  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
   <string name="apply_apn_proxy_title">Proxy APN configurado</string>
+  <string name="no_connection">La conexión a Internet no está funcionando</string>
+  <string name="no_connection_title">Sin conexión</string>
+  <string name="download_dialog">Descargando...</string>
+  <string name="apply_dialog">Aplicando...</string>
+  <string name="apply_dialog_lists">Aplicando Lista Negra y Lista Blanca</string>
+  <string name="apply_dialog_hostnames">Analizando y uniendo archivos de hosts</string>
+  <string name="apply_dialog_hosts">Construyendo archivo de hosts</string>
+  <string name="apply_dialog_apply">Aplicando archivo de hosts</string>
+  <string name="apply_fail_title">Aplicar fallido</string>
+  <string name="revert_successful">Ha regresado a los hosts predeterminados.\nPuede ser necesario que reinicie Android para que los cambios surtan efecto.\n\n¿Desea reiniciar?\n(Para prevenir pérdida de datos, verifique que no haya ninguna aplicación usando la memoria externa en este momento)</string>
+  <string name="revert_successful_title">Restituyendo con éxito</string>
+  <string name="revert_problem">Restituir fallido debido a razones desconocidas</string>
+  <string name="revert_problem_title">Restauración fallida!</string>
+  <string name="download_fail_title">Descarga fallida</string>
+  <string name="no_private_file">Archivo privado no pudo ser creado.</string>
+  <string name="no_private_file_title">Creación de archivo privado ha fallado</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">No se encontró el binario su o no tiene el permiso de root concedido para AdAway. \n\ nEsto puede suceder cuando el dispositivo no está rooteado.\nPuede encontrar información acerca de cómo rootear el dispositivo en www.cyanogenmod.com o en otros sitios web de Android.</string>
+  <string name="no_root_title">Android rooteado requerido</string>
+  <string name="no_url">¡Esta no es una URL válida!</string>
+  <string name="no_url_title">URL mal formado</string>
+  <string name="hosts_add_dialog">Agregar URL a archivos hosts</string>
+  <string name="no_hostname">Este no es un nombre válido de servidor!</string>
+  <string name="no_hostname_title">Nombre de host malformado</string>
+  <string name="no_ip">Esta no es una IP válida!</string>
+  <string name="no_ip_title">IP mal formada</string>
+  <string name="reboot_never_reboot">¡Nunca reiniciar ni preguntar nuevamente!</string>
   <!--Menu entries-->
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Agregar</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
   <string name="menu_hosts_sources">Fuentes de archivo Hosts</string>
   <string name="menu_tcpdump">Loguear solicitudes de DNS</string>
   <string name="menu_help">Ayuda</string>
@@ -123,14 +113,10 @@
   <string name="menu_preferences">Preferencias</string>
   <!--Help-->
   <string name="help_tab_about">Acerca de</string>
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemas</string>
   <string name="help_about_version">Versión:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En linea</string>
@@ -139,7 +125,6 @@
   <string name="no_text_editor_title">Sin editor de texto instalado</string>
   <string name="no_text_editor">No ha sido encontrado editor de texto para abrir el archivo hosts. Podrias instalar Jota u otro editor de texto para manejar el archivo.\n\n¿Quieres instalar Jota?</string>
   <string name="no_file_manager_title">Ningún manejador de archivo instalado</string>
-  <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Archivo de log borrado!</string>
   <string name="toast_tcpdump_added_to_blacklist">Servidor agregado a tu lista negra!</string>
@@ -148,19 +133,14 @@
   <string name="tcpdump_log_context_whitelist">Agregar a tu lista blanca</string>
   <string name="tcpdump_log_context_browser">Abrir en navegador</string>
   <string name="tcpdump_log_empty">El archivo de log esta vacío!</string>
-  <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
   <!--Preferences-->
   <string name="pref_download">Preferencias Generales</string>
   <string name="pref_hosts">Archivo de Servidores</string>
   <string name="pref_redirection_ip">IP de redirección</string>
   <string name="pref_update_check">Checar actualizaciones</string>
-  <string name="pref_apply_method">Target hosts file</string>
-  <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
-  <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP address.</string>
   <string name="pref_header_preferences">Preferencias</string>
   <string name="pref_header_preferences_summary">Preferencias Generales para AdAway</string>
   <string name="pref_never_reboot">Ocultar diálogo de reiniciar</string>
-  <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
   <string name="pref_webserver_on_boot">Iniciar Servidor web en el arranque</string>
   <string name="pref_webserver_on_boot_summary">Iniciar servidor web en el arranque retrasa con 5 segundos escuchando en tu dirección IP local.</string>
   <string name="pref_webserver_enabled">Habilitar servidor de web</string>
@@ -179,12 +159,5 @@
   <string name="pref_update_check_daily">Checar actualizaciones diariamente</string>
   <string name="pref_update_check_daily_summary">Verificar actualizaciones diariamente in segundo plano con notificaciones</string>
   <string name="pref_automatic_update_daily">Actualización automática</string>
-  <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
-  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Permitir redirecciones</string>
-  <string name="pref_redirection_rules_summary">Allow redirection rules from Hosts Sources.</string>
-  <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug Logging</string>
-  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
 </resources>

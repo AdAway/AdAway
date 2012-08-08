@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Verlassen</string>
   <string name="button_apply">Dateien herunterladen und den Werbeblocker aktivieren</string>
@@ -21,35 +22,6 @@
   <string name="button_tcpdump_toggle_unchecked">Tcpdump ist nicht gestartet!</string>
   <string name="button_tcpdump_open">Log-Datei öffnen</string>
   <string name="button_tcpdump_delete">Log-Datei löschen</string>
-  <!--Dialogs-->
-  <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder du hast AdAway keine root-Rechte gegeben.\n\nDas kann passieren wenn du dein Gerät nicht gerootet hast.\nInformationen wie du dein Gerät rooten kannst findest du auf www.cyanogenmod.com oder anderen Android-Webseiten.</string>
-  <string name="no_root_title">Gerootetes Android benötigt</string>
-  <string name="no_connection">Die Internetverbindung funktioniert nicht.</string>
-  <string name="no_connection_title">Keine Verbindung</string>
-  <string name="download_dialog">Downloading...</string>
-  <string name="apply_dialog">Wende an...</string>
-  <string name="apply_dialog_lists">Wende Blacklist und Whitelist an</string>
-  <string name="apply_dialog_hostnames">Verarbeite und füge hosts-Dateien zusammen</string>
-  <string name="apply_dialog_hosts">Erstelle hosts-Datei</string>
-  <string name="apply_dialog_apply">Aktiviere neue Hosts-Datei im System</string>
-  <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
-  <string name="apply_success">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
-  <string name="apply_fail">Das Ändern der hosts-Datei auf Deinem System ist fehlgeschlagen!\nVersuch die hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
-  <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
-  <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
-  <string name="revert_problem_title">Die Wiederherstellung ist fehlgeschlagen!</string>
-  <string name="no_url">Dies ist keine valide URL!</string>
-  <string name="no_url_title">Fehlerhafte URL</string>
-  <string name="hosts_add_dialog">Gib die URL zur hosts-Datei an:</string>
-  <string name="no_hostname">Das ist kein gültiger Hostname!</string>
-  <string name="no_hostname_title">Fehlerhafter Hostname</string>
-  <string name="no_ip">Das ist keine gültige IP!</string>
-  <string name="no_ip_title">Fehlerhafte IP</string>
-  <string name="download_fail">Entweder funktioniert deine Internetverbindung nicht oder die hosts-Datei, die du angegeben hast, ist nicht verfügbar. Bitte prüfe die folgende URL und ändere sie in den Quellen:</string>
-  <string name="download_fail_title">Download fehlgeschlagen</string>
-  <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
-  <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
-  <string name="reboot_never_reboot">Starte niemals neu und zeige diese Frage nächstes Mal nicht!</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Hinzufügen</string>
   <string name="checkbox_list_empty">Leere Liste</string>
@@ -83,7 +55,6 @@
   <string name="status_no_connection">Keine Internetverbindung</string>
   <string name="status_no_connection_subtitle">Keine Internetverbindung verfügbar</string>
   <string name="status_download_fail">Nicht verfügbare Quelle</string>
-  <string name="status_download_fail_subtitle">URL: </string>
   <string name="status_enabled">Aktiviert</string>
   <string name="status_enabled_subtitle">Die neusten hosts-Dateien sind aktiv</string>
   <string name="status_disabled">Deaktiviert</string>
@@ -100,14 +71,42 @@
   <string name="apply_copy_fail">Kopieren der hosts-Datei fehlgeschlagen!</string>
   <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
   <string name="apply_success_title">Erfolgreich angewendet</string>
+  <string name="apply_success_dialog">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
   <string name="apply_symlink_successful">Der symbolische Link wurde erfolgreich gesetzt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
   <string name="apply_symlink_successful_title">Symbolischer Link erfolgreich gesetzt</string>
   <string name="apply_symlink_fail">Der symbolische Link konnte nicht erstellt werden.\nDas liegt wahrscheinlich an einer Funktion Namens S-ON auf HTC Geräten!\n\nEine Lösung ist es dein Gerät in den Recovery-Modus zu booten und den Link von dort mit \'ln -s /data/data/hosts /system/etc/hosts\' zu erstellen.\n\nWenn das nicht funktioniert, suche im Internet nach S-OFF und deinem Gerät.</string>
   <string name="apply_symlink_fail_title">Symbolischer Link konnte nicht erstellt werden</string>
-  <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
   <string name="apply_help">Bitte lies die Hilfe für mehr Informationen.</string>
-  <string name="apply_apn_proxy">Ein APN proxy ist gesetzt!\nAdAway wird damit nicht zuverlässig funktionieren wenn du dich in einem Mobilfunknetz wie 3G befindest. Du kannst den proxy deaktivieren indem du unter deinem ausgewählten APN (Unter Android 4: Drahtlos und Netzwerke -&amp;gt Mehr... -&amp;gt Mobilfunknetze -&amp;gt Zugangspunkte) den Wert in dem proxy-Feld löschst.</string>
+  <string name="apply_apn_proxy"></string>
   <string name="apply_apn_proxy_title">APN proxy gesetzt!</string>
+  <string name="no_connection">Die Internetverbindung funktioniert nicht.</string>
+  <string name="no_connection_title">Keine Verbindung</string>
+  <string name="download_dialog">Downloading...</string>
+  <string name="apply_dialog">Wende an...</string>
+  <string name="apply_dialog_lists">Wende Blacklist und Whitelist an</string>
+  <string name="apply_dialog_hostnames">Verarbeite und füge hosts-Dateien zusammen</string>
+  <string name="apply_dialog_hosts">Erstelle hosts-Datei</string>
+  <string name="apply_dialog_apply">Aktiviere neue Hosts-Datei im System</string>
+  <string name="apply_fail">Das Ändern der hosts-Datei auf Deinem System ist fehlgeschlagen!\nVersuch die hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
+  <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
+  <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
+  <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
+  <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
+  <string name="revert_problem_title">Die Wiederherstellung ist fehlgeschlagen!</string>
+  <string name="download_fail_title">Download fehlgeschlagen</string>
+  <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
+  <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder du hast AdAway keine root-Rechte gegeben.\n\nDas kann passieren wenn du dein Gerät nicht gerootet hast.\nInformationen wie du dein Gerät rooten kannst findest du auf www.cyanogenmod.com oder anderen Android-Webseiten.</string>
+  <string name="no_root_title">Gerootetes Android benötigt</string>
+  <string name="no_url">Dies ist keine valide URL!</string>
+  <string name="no_url_title">Fehlerhafte URL</string>
+  <string name="hosts_add_dialog">Gib die URL zur hosts-Datei an:</string>
+  <string name="no_hostname">Das ist kein gültiger Hostname!</string>
+  <string name="no_hostname_title">Fehlerhafter Hostname</string>
+  <string name="no_ip">Das ist keine gültige IP!</string>
+  <string name="no_ip_title">Fehlerhafte IP</string>
+  <string name="reboot_never_reboot">Starte niemals neu und zeige diese Frage nächstes Mal nicht!</string>
   <!--Menu entries-->
   <string name="menu_refresh">Neu laden</string>
   <string name="menu_add">Hinzufügen</string>

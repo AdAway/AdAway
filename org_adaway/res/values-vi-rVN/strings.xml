@@ -21,35 +21,6 @@
   <string name="button_tcpdump_toggle_unchecked">Chưa chạy Tcpdump!</string>
   <string name="button_tcpdump_open">Mở tệp nhật ký</string>
   <string name="button_tcpdump_delete">Xoá tệp nhật ký</string>
-  <!--Dialogs-->
-  <string name="no_root_description">Hoặc là máy chưa có su hoặc bạn không cấp quyền truy xuất root cho AdAway.\n\nĐiều này có thể xảy ra khi máy chưa root.\nBạn có thể tìm thông tin về cách root máy trên www.cyanogenmod.com hoặc các webiste Android khác. </string>
-  <string name="no_root_title">Yêu cầu máy đã root</string>
-  <string name="no_connection">Không có kết nối tới Internet</string>
-  <string name="no_connection_title">Không có kết nối</string>
-  <string name="download_dialog">Đang tải...</string>
-  <string name="apply_dialog">Áp dụng...</string>
-  <string name="apply_dialog_lists">Áp dụng DS đen và trắng</string>
-  <string name="apply_dialog_hostnames">Xử lý và trộn các file hosts</string>
-  <string name="apply_dialog_hosts">Đang tạo file host</string>
-  <string name="apply_dialog_apply">Áp dụng file host</string>
-  <string name="revert_successful">Bạn đã khôi phục tệp host mặc định.\nCó thể cần thiết phải reboot lại máy để có hiệu lực.\n\nBạn có muốn reboor?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!)  </string>
-  <string name="apply_success">Áp dụng thành công.\nCó thể cần phải reboot lại máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
-  <string name="apply_fail">Áp dụng file host thất bại!\nHãy thử thay đổi tệp host đích trong Cấu hình thành /data/data/hosts.</string>
-  <string name="apply_fail_title">Không thể áp dụng</string>
-  <string name="revert_problem">Khôi phục lại do nguyên nhân thất bại chưa rõ.</string>
-  <string name="revert_problem_title">Khôi phục thất bại!</string>
-  <string name="no_url">Đây không phải là địa chỉ mạng hợp lệ!</string>
-  <string name="no_url_title">Địa chỉ mạng không hợp lệ</string>
-  <string name="hosts_add_dialog">Nhập URL tới file host:</string>
-  <string name="no_hostname">Đây không phải là tên host hợp lệ!</string>
-  <string name="no_hostname_title">Tên host không đúng</string>
-  <string name="no_ip">Đây không phải là IP hợp lệ!</string>
-  <string name="no_ip_title">IP không đúng</string>
-  <string name="download_fail">Có thể bạn chưa kết nối vào Internet hoặc có thể nguồn host bạn muốn tải về bị lỗi. Hãy kiểm tra địa chỉ mạng sau và thay đổi nó trong nguồn host:</string>
-  <string name="download_fail_title">Tải về thất bại</string>
-  <string name="no_private_file">Không thể tạo tệp riêng</string>
-  <string name="no_private_file_title">Tạo tệp riêng đã thất bại</string>
-  <string name="reboot_never_reboot">Không bao giờ reboot và không hiện câu hỏi này nữa!</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Thêm</string>
   <string name="checkbox_list_empty">Danh sách rỗng</string>
@@ -83,7 +54,6 @@
   <string name="status_no_connection">Không có Internet</string>
   <string name="status_no_connection_subtitle">Không có kết nối Internet</string>
   <string name="status_download_fail">Không có nguồn nào</string>
-  <string name="status_download_fail_subtitle">Địa chỉ mạng:</string>
   <string name="status_enabled">Đã bật</string>
   <string name="status_enabled_subtitle">Đã dùng tệp host mới</string>
   <string name="status_disabled">Đã tắt</string>
@@ -100,18 +70,45 @@
   <string name="apply_copy_fail">Thất bại khi chép tệp hosts</string>
   <string name="apply_copy_fail_title">Sao chép thất bại</string>
   <string name="apply_success_title">Áp dụng thành công</string>
+  <string name="apply_success_dialog">Áp dụng thành công.\nCó thể cần phải reboot lại máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
   <string name="apply_symlink_successful">Đã tạo symlink thành công.\nCó thể cần phải reboot máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!) </string>
   <string name="apply_symlink_successful_title">Tạo symlink thành công</string>
   <string name="apply_symlink_fail">Không thể tạo Symlink bằng Android.\nPhần lớn nguyên nhân do \'tính năng\' gọi là S-ON trên thiết bị HTC!\n\nGiải pháp là boot  phone vào chế độ recovery và tạo symlink với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu không được hãy tìm kiếm trên Internet chuỗi S-OFF và tên thiết bị của bạn.</string>
   <string name="apply_symlink_fail_title">Thất bại tạo Symlink</string>
-  <string name="revert_successful_title">Khôi phục thành công</string>
   <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
-  <string name="apply_apn_proxy">Một proxy APN đã được cài trên máy của bạn!\nAdAway sẽ không làm việc hiệu quả trên mạng di động 3G. Bạn có thể tắt proxy bằng cách mở APN đã chọn (Trên Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) và xoá bỏ giá trị trong trường proxy.</string>
+  <string name="apply_apn_proxy">Một proxy APN đã được cài trên máy của bạn!\nAdAway sẽ không làm việc hiệu quả trên mạng di động 3G. Bạn có thể tắt proxy bằng cách mở APN đã chọn (Trên Android 4: Wireless and networks -&gt; More... -&gt; Mobile Networks -&gt; Access Point Names) và xoá bỏ giá trị trong trường proxy.</string>
   <string name="apply_apn_proxy_title">Đặt proxy APN!</string>
+  <string name="no_connection">Không có kết nối tới Internet</string>
+  <string name="no_connection_title">Không có kết nối</string>
+  <string name="download_dialog">Đang tải...</string>
+  <string name="apply_dialog">Áp dụng...</string>
+  <string name="apply_dialog_lists">Áp dụng DS đen và trắng</string>
+  <string name="apply_dialog_hostnames">Xử lý và trộn các file hosts</string>
+  <string name="apply_dialog_hosts">Đang tạo file host</string>
+  <string name="apply_dialog_apply">Áp dụng file host</string>
+  <string name="apply_fail">Áp dụng file host thất bại!\nHãy thử thay đổi tệp host đích trong Cấu hình thành /data/data/hosts.</string>
+  <string name="apply_fail_title">Không thể áp dụng</string>
+  <string name="revert_successful">Bạn đã khôi phục tệp host mặc định.\nCó thể cần thiết phải reboot lại máy để có hiệu lực.\n\nBạn có muốn reboor?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!)  </string>
+  <string name="revert_successful_title">Khôi phục thành công</string>
+  <string name="revert_problem">Khôi phục lại do nguyên nhân thất bại chưa rõ.</string>
+  <string name="revert_problem_title">Khôi phục thất bại!</string>
+  <string name="download_fail_title">Tải về thất bại</string>
+  <string name="no_private_file">Không thể tạo tệp riêng</string>
+  <string name="no_private_file_title">Tạo tệp riêng đã thất bại</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">Hoặc là máy chưa có su hoặc bạn không cấp quyền truy xuất root cho AdAway.\n\nĐiều này có thể xảy ra khi máy chưa root.\nBạn có thể tìm thông tin về cách root máy trên www.cyanogenmod.com hoặc các webiste Android khác. </string>
+  <string name="no_root_title">Yêu cầu máy đã root</string>
+  <string name="no_url">Đây không phải là địa chỉ mạng hợp lệ!</string>
+  <string name="no_url_title">Địa chỉ mạng không hợp lệ</string>
+  <string name="hosts_add_dialog">Nhập URL tới file host:</string>
+  <string name="no_hostname">Đây không phải là tên host hợp lệ!</string>
+  <string name="no_hostname_title">Tên host không đúng</string>
+  <string name="no_ip">Đây không phải là IP hợp lệ!</string>
+  <string name="no_ip_title">IP không đúng</string>
+  <string name="reboot_never_reboot">Không bao giờ reboot và không hiện câu hỏi này nữa!</string>
   <!--Menu entries-->
   <string name="menu_refresh">Làm tươi</string>
   <string name="menu_add">Thêm</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
   <string name="menu_hosts_sources">Nguồn hosts</string>
   <string name="menu_tcpdump">Yêu cầu ghi nhật ký DNS</string>
   <string name="menu_help">Trợ giúp</string>
@@ -123,14 +120,10 @@
   <string name="menu_preferences">Cấu hình</string>
   <!--Help-->
   <string name="help_tab_about">Thông tin</string>
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Hỏi đáp</string>
   <string name="help_tab_problems">Vấn đề</string>
   <string name="help_about_version">Phiên bản:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Cục bộ:</string>
   <string name="hosts_last_modified_online">Trực tuyến:</string>
@@ -180,8 +173,6 @@
   <string name="pref_update_check_daily_summary">Tìm phiên bản mới mỗi ngày ở chế độ nền và thông báo</string>
   <string name="pref_automatic_update_daily">Tự động cập nhật</string>
   <string name="pref_automatic_update_daily_summary">Tự động cập nhật nếu có bản nâng cấo mới.</string>
-  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Cho phép chuyển hướng</string>
   <string name="pref_redirection_rules_summary">Cho phép chuyển hướng từ nguồn host</string>
   <string name="pref_debug">Dò lỗi</string>

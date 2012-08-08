@@ -21,35 +21,6 @@
   <string name="button_tcpdump_toggle_unchecked">Tcpdump沒有執行！</string>
   <string name="button_tcpdump_open">打開記錄檔</string>
   <string name="button_tcpdump_delete">刪除記錄檔</string>
-  <!--Dialogs-->
-  <string name="no_root_description">沒有找到su或者你沒有允許AdAway的root權限。\n\n這可能是因為你的設備沒有root。\n你可以到www.cyanogenmod.coma或者其他Android網站去找到如何root你的設備方法。</string>
-  <string name="no_root_title">需要root權限</string>
-  <string name="no_connection">Internet網路不通</string>
-  <string name="no_connection_title">沒有網路</string>
-  <string name="download_dialog">下載中...</string>
-  <string name="apply_dialog">合併中...</string>
-  <string name="apply_dialog_lists">合併白名單和黑名單</string>
-  <string name="apply_dialog_hostnames">解析及合併hosts檔案</string>
-  <string name="apply_dialog_hosts">建立hosts檔案</string>
-  <string name="apply_dialog_apply">合併hosts檔案</string>
-  <string name="revert_successful">已經還原為預設的hosts檔案了。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有程式正在使用sd卡）</string>
-  <string name="apply_success">建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有程式正在使用sd卡）</string>
-  <string name="apply_fail">hosts檔案修改失敗！\n請嘗試在[設定]裡面把hosts檔案目標修改為/data/data/hosts。</string>
-  <string name="apply_fail_title">建立失敗</string>
-  <string name="revert_problem">還原失敗。</string>
-  <string name="revert_problem_title">還原失敗!</string>
-  <string name="no_url">URL無效！</string>
-  <string name="no_url_title">URL格式不對</string>
-  <string name="hosts_add_dialog">輸入hosts檔案的URL：</string>
-  <string name="no_hostname">主機名稱無效！</string>
-  <string name="no_hostname_title">主機名稱格式不對</string>
-  <string name="no_ip">IP位址無效</string>
-  <string name="no_ip_title">IP位址格式不對</string>
-  <string name="download_fail">你的網路有問題或者其中一個hosts來源不可用。請檢查這個URL並在你的hosts來源中修改它：</string>
-  <string name="download_fail_title">下載失敗</string>
-  <string name="no_private_file">不能建立私人檔案</string>
-  <string name="no_private_file_title">私人檔案建立失敗</string>
-  <string name="reboot_never_reboot">不要重新啟動並且不再顯示！</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">添加</string>
   <string name="checkbox_list_empty">空列表</string>
@@ -83,7 +54,6 @@
   <string name="status_no_connection">沒有網路連接</string>
   <string name="status_no_connection_subtitle">沒有可用的網路</string>
   <string name="status_download_fail">不可用的來源</string>
-  <string name="status_download_fail_subtitle">URL:</string>
   <string name="status_enabled">啟用</string>
   <string name="status_enabled_subtitle">最新的hosts檔案已經啟用</string>
   <string name="status_disabled">禁用</string>
@@ -100,18 +70,45 @@
   <string name="apply_copy_fail">複製hosts檔案失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
   <string name="apply_success_title">建立成功</string>
+  <string name="apply_success_dialog">建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有程式正在使用sd卡）</string>
   <string name="apply_symlink_successful">符號連結建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有應用正在使用sd卡）</string>
   <string name="apply_symlink_successful_title">符號連結建立成功</string>
   <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為HTC上一個叫S-ON的\'功能\'！\n\n一個辦法可以啟動你的手機到還原模式並使用命令\'ln -s /data/data/hosts /system/etc/hosts來建立符號連結。\n\n如果沒有用，請google怎麼S-OFF你的手機。</string>
   <string name="apply_symlink_fail_title">符號連結建立失敗</string>
-  <string name="revert_successful_title">還原成功</string>
   <string name="apply_help">請閱讀幫助以獲得更多訊息。</string>
-  <string name="apply_apn_proxy">你的Android設定了APN代理伺服器!\nAdAway 無法保證在3G下正常的工作. 你可以在APN設定中關閉代理伺服器設定(在 Android 4: 無線與網路 -> 更多... -> 行動網路 -> 存取點名稱) 和移除代理伺服器設定.</string>
+  <string name="apply_apn_proxy">你的Android設定了APN代理伺服器!\nAdAway 無法保證在3G下正常的工作. 你可以在APN設定中關閉代理伺服器設定(在 Android 4: 無線與網路 -&gt; 更多... -&gt; 行動網路 -&gt; 存取點名稱) 和移除代理伺服器設定.</string>
   <string name="apply_apn_proxy_title">APN 代理伺服器設定!</string>
+  <string name="no_connection">Internet網路不通</string>
+  <string name="no_connection_title">沒有網路</string>
+  <string name="download_dialog">下載中...</string>
+  <string name="apply_dialog">合併中...</string>
+  <string name="apply_dialog_lists">合併白名單和黑名單</string>
+  <string name="apply_dialog_hostnames">解析及合併hosts檔案</string>
+  <string name="apply_dialog_hosts">建立hosts檔案</string>
+  <string name="apply_dialog_apply">合併hosts檔案</string>
+  <string name="apply_fail">hosts檔案修改失敗！\n請嘗試在[設定]裡面把hosts檔案目標修改為/data/data/hosts。</string>
+  <string name="apply_fail_title">建立失敗</string>
+  <string name="revert_successful">已經還原為預設的hosts檔案了。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有程式正在使用sd卡）</string>
+  <string name="revert_successful_title">還原成功</string>
+  <string name="revert_problem">還原失敗。</string>
+  <string name="revert_problem_title">還原失敗!</string>
+  <string name="download_fail_title">下載失敗</string>
+  <string name="no_private_file">不能建立私人檔案</string>
+  <string name="no_private_file_title">私人檔案建立失敗</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">沒有找到su或者你沒有允許AdAway的root權限。\n\n這可能是因為你的設備沒有root。\n你可以到www.cyanogenmod.coma或者其他Android網站去找到如何root你的設備方法。</string>
+  <string name="no_root_title">需要root權限</string>
+  <string name="no_url">URL無效！</string>
+  <string name="no_url_title">URL格式不對</string>
+  <string name="hosts_add_dialog">輸入hosts檔案的URL：</string>
+  <string name="no_hostname">主機名稱無效！</string>
+  <string name="no_hostname_title">主機名稱格式不對</string>
+  <string name="no_ip">IP位址無效</string>
+  <string name="no_ip_title">IP位址格式不對</string>
+  <string name="reboot_never_reboot">不要重新啟動並且不再顯示！</string>
   <!--Menu entries-->
   <string name="menu_refresh">重新整理</string>
   <string name="menu_add">添加</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
   <string name="menu_hosts_sources">Hosts來源</string>
   <string name="menu_tcpdump">執行tcpdump</string>
   <string name="menu_help">幫助</string>
@@ -123,14 +120,10 @@
   <string name="menu_preferences">設定</string>
   <!--Help-->
   <string name="help_tab_about">關於</string>
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">問題</string>
   <string name="help_about_version">版本：</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">線上：</string>
@@ -180,8 +173,6 @@
   <string name="pref_update_check_daily_summary">每天背景檢查更新並提示</string>
   <string name="pref_automatic_update_daily">自動更新</string>
   <string name="pref_automatic_update_daily_summary">如果有更新，自動在背景更新。</string>
-  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">允許重新導向</string>
   <string name="pref_redirection_rules_summary">允許來自Hosts來源重新導向規則</string>
   <string name="pref_debug">除錯</string>

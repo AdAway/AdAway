@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Wyjście</string>
   <string name="button_apply">Pobierz pliki i zastosuj do blokowania reklam</string>
@@ -21,35 +22,6 @@
   <string name="button_tcpdump_toggle_unchecked">Tcpdump nie działa!</string>
   <string name="button_tcpdump_open">Otwórz plik logu</string>
   <string name="button_tcpdump_delete">Usuń plik logu</string>
-  <!--Dialogs-->
-  <string name="no_root_description">Nie można w systemie znaleźć binarii su, lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\nTak sie dzieje w przypadku gdy twoje urządzenie nie jest zrootowane.\nInformacje jak zrootować swoje urządzenie znajdziesz na http://www.cyanogenmod.com lub innych stronach www o tematyce Androida.</string>
-  <string name="no_root_title">Wymagany jest zrootowany Android</string>
-  <string name="no_connection">Połączenie z Internetem niedostępne.</string>
-  <string name="no_connection_title">Brak połączenia</string>
-  <string name="download_dialog">Pobieranie...</string>
-  <string name="apply_dialog">Stosowanie...</string>
-  <string name="apply_dialog_lists">Stosowanie Czarnej i Białej listy</string>
-  <string name="apply_dialog_hostnames">Analizowanie i łączenie plików hosts</string>
-  <string name="apply_dialog_hosts">Budowanie pliku hosts</string>
-  <string name="apply_dialog_apply">Stosowanie pliku hosts</string>
-  <string name="revert_successful">Przyrócono domyślny plik hosts.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
-  <string name="apply_success">Zastosowano pomyślnie.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
-  <string name="apply_fail">Stosowanie pliku hosts zakończone niepowodzeniem!\nSpróbuj zmienić w ustawieniach plik docelowy hosts na /data/data/hosts.</string>
-  <string name="apply_fail_title">Zastosowanie nieudane</string>
-  <string name="revert_problem">Przywracanie zakończone niepowodzeniem z nieznanych przyczyn.</string>
-  <string name="revert_problem_title">Przywracanie nieudane!</string>
-  <string name="no_url">To nie jest prawidłowy adres URL!</string>
-  <string name="no_url_title">Błędny URL</string>
-  <string name="hosts_add_dialog">Dopisz adres URL do pliku hosts:</string>
-  <string name="no_hostname">To jest nieprawidłowa nazwa hosta!</string>
-  <string name="no_hostname_title">Błędna nazwa hosta</string>
-  <string name="no_ip">To nie jest prawidłowy adres IP!</string>
-  <string name="no_ip_title">Błędny adres IP</string>
-  <string name="download_fail">Albo nie masz połączenia z Internetem, albo źródło hostów które wybrałeś do pobrania jest niedostępne. Sprawdź następujące adres URL i zmień je w źródłach hostów:</string>
-  <string name="download_fail_title">Pobieranie nieudane</string>
-  <string name="no_private_file">Plik osobisty nie został utworzony.</string>
-  <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
-  <string name="reboot_never_reboot">Nigdy nie restartuj i nie pokazuj tego pytania ponownie!</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Dodaj</string>
   <string name="checkbox_list_empty">Brak pozycji</string>
@@ -83,7 +55,6 @@
   <string name="status_no_connection">Brak połączenia z Internetem</string>
   <string name="status_no_connection_subtitle">Połączenie z Internetem niedostępne</string>
   <string name="status_download_fail">Źródło niedostępne</string>
-  <string name="status_download_fail_subtitle">URL:</string>
   <string name="status_enabled">Włączone</string>
   <string name="status_enabled_subtitle">Najnowsze pliki hostów zostały włączone</string>
   <string name="status_disabled">Wyłączone</string>
@@ -100,14 +71,42 @@
   <string name="apply_copy_fail">Kopiowanie pliku hostów nieudane!</string>
   <string name="apply_copy_fail_title">Nieudane kopiowanie</string>
   <string name="apply_success_title">Zastosowano pomyślnie</string>
+  <string name="apply_success_dialog">Zastosowano pomyślnie.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
   <string name="apply_symlink_successful">Symlink utworzony pomyślnie.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
   <string name="apply_symlink_successful_title">Symlink utworzony prawidłowo</string>
   <string name="apply_symlink_fail">Symlink nie mógł być utworzony przez system Android.\nBłąd ten występuje głównie na telefonach HTC z funkcją zwaną S-ON!\n\nRozwiązaniem jest uruchomienie w trybie recovery i ręczne utworzenie linka komendą \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJeżeli to nie pomaga poszukaj w Internecie informacji o S-OFF i twoim telefonie.</string>
   <string name="apply_symlink_fail_title">Symlink nie został utworzony</string>
-  <string name="revert_successful_title">Przywracanie wykonane prawidłowo</string>
   <string name="apply_help">Proszę przeczytać Pomoc aby uzyskać więcej informacji.</string>
-  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -&gt; More... -&gt; Mobile Networks -&gt; Access Point Names) and remove the value in the proxy field.</string>
   <string name="apply_apn_proxy_title">APN proxy set!</string>
+  <string name="no_connection">Połączenie z Internetem niedostępne.</string>
+  <string name="no_connection_title">Brak połączenia</string>
+  <string name="download_dialog">Pobieranie...</string>
+  <string name="apply_dialog">Stosowanie...</string>
+  <string name="apply_dialog_lists">Stosowanie Czarnej i Białej listy</string>
+  <string name="apply_dialog_hostnames">Analizowanie i łączenie plików hosts</string>
+  <string name="apply_dialog_hosts">Budowanie pliku hosts</string>
+  <string name="apply_dialog_apply">Stosowanie pliku hosts</string>
+  <string name="apply_fail">Stosowanie pliku hosts zakończone niepowodzeniem!\nSpróbuj zmienić w ustawieniach plik docelowy hosts na /data/data/hosts.</string>
+  <string name="apply_fail_title">Zastosowanie nieudane</string>
+  <string name="revert_successful">Przyrócono domyślny plik hosts.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
+  <string name="revert_successful_title">Przywracanie wykonane prawidłowo</string>
+  <string name="revert_problem">Przywracanie zakończone niepowodzeniem z nieznanych przyczyn.</string>
+  <string name="revert_problem_title">Przywracanie nieudane!</string>
+  <string name="download_fail_title">Pobieranie nieudane</string>
+  <string name="no_private_file">Plik osobisty nie został utworzony.</string>
+  <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">Nie można w systemie znaleźć binarii su, lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\nTak sie dzieje w przypadku gdy twoje urządzenie nie jest zrootowane.\nInformacje jak zrootować swoje urządzenie znajdziesz na http://www.cyanogenmod.com lub innych stronach www o tematyce Androida.</string>
+  <string name="no_root_title">Wymagany jest zrootowany Android</string>
+  <string name="no_url">To nie jest prawidłowy adres URL!</string>
+  <string name="no_url_title">Błędny URL</string>
+  <string name="hosts_add_dialog">Dopisz adres URL do pliku hosts:</string>
+  <string name="no_hostname">To jest nieprawidłowa nazwa hosta!</string>
+  <string name="no_hostname_title">Błędna nazwa hosta</string>
+  <string name="no_ip">To nie jest prawidłowy adres IP!</string>
+  <string name="no_ip_title">Błędny adres IP</string>
+  <string name="reboot_never_reboot">Nigdy nie restartuj i nie pokazuj tego pytania ponownie!</string>
   <!--Menu entries-->
   <string name="menu_refresh">Odśwież</string>
   <string name="menu_add">Dodaj</string>
@@ -128,7 +127,7 @@
   <string name="help_tab_problems">Problemy</string>
   <string name="help_about_version">Wersja</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Możesz tutaj przeskanować aplikacje w poszukiwaniu szkodliwych dodatków Adware, które nie mogą być zablokowane przez AdAway. Takie aplikacje używają np powiadomień Airpush nawet gdy same nie są uruchomione lub nawet mogą zmienić dźwięk twoego dzwonka. Jedyny środek zaradczy to odinstalowanie takiej aplikacji przez kliknięcie na jej pozycję na liście! </string>
+  <string name="scan_adware_description">Możesz tutaj przeskanować aplikacje w poszukiwaniu szkodliwych dodatków Adware, które nie mogą być zablokowane przez AdAway. Takie aplikacje używają np powiadomień Airpush nawet gdy same nie są uruchomione lub nawet mogą zmienić dźwięk twojego dzwonka. Jedyny środek zaradczy to odinstalowanie takiej aplikacji przez kliknięcie na jej pozycję na liście! </string>
   <string name="scan_adware_start">Rozpocznij skanowanie</string>
   <string name="scan_adware_empty">Nie znaleziono aplikacji zawierająych szkodliwe Adaware</string>
   <!--Hosts Sources-->

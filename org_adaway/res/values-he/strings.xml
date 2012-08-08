@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">יציאה</string>
   <string name="button_apply">כל קבצי ה hosts מהמקור שהוגדר ירדו בהצלחה, ואוחדו עם הרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת</string>
@@ -21,35 +22,6 @@
   <string name="button_tcpdump_toggle_unchecked">Tcpdump אינו פעיל!</string>
   <string name="button_tcpdump_open">פתח קובץ יומן</string>
   <string name="button_tcpdump_delete">מחק קובץ יומן</string>
-  <!--Dialogs-->
-  <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
-  <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
-  <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
-  <string name="no_connection_title">אין חיבור</string>
-  <string name="download_dialog">מוריד...</string>
-  <string name="apply_dialog">החל</string>
-  <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
-  <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
-  <string name="apply_dialog_hosts">בנה קובץ hosts</string>
-  <string name="apply_dialog_apply">החל קובץ hosts</string>
-  <string name="revert_successful">שחזרת את הקובץ hosts לברירת המחדל של המערכת.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
-  <string name="apply_success">השינויים הוחלו בהצלחה.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
-  <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
-  <string name="apply_fail_title">החלת הגדרות נכשלה</string>
-  <string name="revert_problem">חזרה נכשלה.</string>
-  <string name="revert_problem_title">שחזור נכשל!</string>
-  <string name="no_url">זו אינה כתובת חוקית</string>
-  <string name="no_url_title">כתובת שגויה</string>
-  <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
-  <string name="no_hostname">שם השרת אינו חוקי!</string>
-  <string name="no_hostname_title">שם השרת לא תקין</string>
-  <string name="no_ip">כתובת ה IP אינה חוקית!</string>
-  <string name="no_ip_title">כתובת IP שגויה</string>
-  <string name="download_fail">אינך מחובר לאינטרנט או שאחד מהמקורות שסיפקת להורדה אינו זמין. בדוק בבקשה את הכתובות הבאות ושנה אותם במידת הצורך בהגדרת המקורות:</string>
-  <string name="download_fail_title">הורדה נכשלה</string>
-  <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
-  <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
-  <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">הוסף</string>
   <string name="checkbox_list_empty">רשימה ריקה</string>
@@ -83,7 +55,6 @@
   <string name="status_no_connection">אין חיבור לאינטרנט</string>
   <string name="status_no_connection_subtitle">אין חיבור זמין לאינטרנט</string>
   <string name="status_download_fail">מקור אינו זמין</string>
-  <string name="status_download_fail_subtitle">כתובת:</string>
   <string name="status_enabled">פעיל</string>
   <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
   <string name="status_disabled">לא פעיל</string>
@@ -104,10 +75,37 @@
   <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
   <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
   <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
-  <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
   <string name="apply_help">קרא את העזרה למידע נוסף.</string>
-  <string name="apply_apn_proxy">פרוקסי APN הוגדר במערכת האנדרואיד שלך!\nAdAway לא תעבוד באמינות בעת חיבור רשת על גבי רשת סלולרית מדור 3. אתה יכול להפוך את הגדרת הפרוקסי APN ללא פעילה (באנדרואיד 4: אלחוטי ורשתות -> עוד... -> רשתות לנייד -> שמות נקודות גישה) ולמחוק את הערך בשדה proxy.</string>
+  <string name="apply_apn_proxy">פרוקסי APN הוגדר במערכת האנדרואיד שלך!\nAdAway לא תעבוד באמינות בעת חיבור רשת על גבי רשת סלולרית מדור 3. אתה יכול להפוך את הגדרת הפרוקסי APN ללא פעילה (באנדרואיד 4: אלחוטי ורשתות -&gt; עוד... -&gt; רשתות לנייד -&gt; שמות נקודות גישה) ולמחוק את הערך בשדה proxy.</string>
   <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
+  <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
+  <string name="no_connection_title">אין חיבור</string>
+  <string name="download_dialog">מוריד...</string>
+  <string name="apply_dialog">החל</string>
+  <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
+  <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
+  <string name="apply_dialog_hosts">בנה קובץ hosts</string>
+  <string name="apply_dialog_apply">החל קובץ hosts</string>
+  <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
+  <string name="apply_fail_title">החלת הגדרות נכשלה</string>
+  <string name="revert_successful">שחזרת את הקובץ hosts לברירת המחדל של המערכת.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
+  <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
+  <string name="revert_problem">חזרה נכשלה.</string>
+  <string name="revert_problem_title">שחזור נכשל!</string>
+  <string name="download_fail_title">הורדה נכשלה</string>
+  <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
+  <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
+  <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
+  <string name="no_url">זו אינה כתובת חוקית</string>
+  <string name="no_url_title">כתובת שגויה</string>
+  <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
+  <string name="no_hostname">שם השרת אינו חוקי!</string>
+  <string name="no_hostname_title">שם השרת לא תקין</string>
+  <string name="no_ip">כתובת ה IP אינה חוקית!</string>
+  <string name="no_ip_title">כתובת IP שגויה</string>
+  <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב</string>
   <!--Menu entries-->
   <string name="menu_refresh">רענן</string>
   <string name="menu_add">הוסף</string>
@@ -128,7 +126,7 @@
   <string name="help_tab_problems">תקלות</string>
   <string name="help_about_version">גירסה:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
+  <string name="scan_adware_description">כאן אתה יכול לסרוק תוכנות מזיקות, שאינן יכולות להיחסם על ידי AdAway. תוכנות אלו משתמשות לדוגמא בהודעות דחיפה שקופצים גם כאשר התוכנה אינה עובדת או לשנות את הצלצול שלך. זה רק אמצעי עזר כדי לתת לך להחליט להסיר את התוכנה דרך ניהול היישומים!</string>
   <string name="scan_adware_start">התחל סריקה</string>
   <string name="scan_adware_empty">לא נמצאו תוכנות רוגלה! </string>
   <!--Hosts Sources-->

@@ -1,0 +1,34 @@
+<html>
+<head></head>
+<body>
+<h2>Guadagni dalle pubblicità</h2>
+<p>Esiste un malinteso diffuso sul fatto che se un utente non clicca mai sulle pubblicità, allora bloccarle non danneggia finanziariamente il sito o l'applicazione. Questo è errato, gli sviluppatori guadagnano denaro anche semplicemente mostrando le pubblicità. Spetta a te decidere se bloccare gli annunci o meno. Personalmente non utilizzerei applicazioni che mostrano annunci perchè li trovo molto fastidiosi, quindi senza un programma per bloccare le pubblicità non installerei queste applicazioni.</p>
+
+
+
+<h2>Come funziona AdAway?</h2>
+<p>AdAway usa il the <a href="http://en.wikipedia.org/wiki/Hosts_file">file hosts</a> per bloccare hostname , che forniscono annunci. Il file hosts è un file localizzato in <tt>/system/etc/hosts</tt> che mappa gli hostname verso indirizzi IP. 
+E' un modo tradizionale per definire un indirizzo ip al suo hostname senza fare affidamento al Domain Name System (DNS). 
+Tutti gli hostname non voluti sono inoltrati a <tt>127.0.0.1</tt> che significa che punteranno al tuo dispositivo.</p>
+
+<h2>Why is the daily update check preference grayed out?</h2>
+<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+
+<h2>Perchè devo riavviare Android per rendere effettivi i cambiamenti?</h2>
+<p>Java su Android ha la sua propria cache DNS interna. Il sistema operativo rispecchierà il nuovo file hosts immediatamente (verificalo con un ping tramite linea di comando) ma dovrai riavviare Android per ricostruire la cache DNS di Java.</p>
+
+<h2>Come uso il webserver in AdAway?</h2>
+<p><b>AdAway will also work without using the webserver!</b>
+<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+
+<h2>Come posso bloccare/sbloccare specifici hostname?</h2>
+<p>Puoi importare un tuo server fornendo un file hosts con hostname che desideri che vengano bloccati e aggiungerli a <i>Sorgenti Host</i> oppure aggiungere gli hostname che vuoi bloccare nella Blacklist (=Nera) in <i>Le tue liste</i>. Inoltre, gli hostname che vuoi che vengano esclusi dal blocco possono essere aggiunti alla <i>Whitelist</i> (=Bianca) e gli hostname che vuoi inoltrare a uno specifico indirizzo ip nella <i>Lista reindirizzamenti</i> (=Inoltri).</p>
+
+<h2>Dove posso trovare più sorgenti host?</h2>
+<p>Guarda la <a href="http://code.google.com/p/ad-away/wiki/HostsSources">Lista di sorgenti hosts aggiuntivi per AdAway</a>.</p>
+
+<h2>Ho trovato un bug in AdAway!</h2>
+<p>Per favore riportalo nel <a href="http://code.google.com/p/ad-away/issues/list">bug tracker di AdAway</a>.</p>
+</body>
+</html>

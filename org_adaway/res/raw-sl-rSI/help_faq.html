@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+<h2>Dohodki od oglaševanja</h2>
+<p>Zmotno je misliti, da če nikoli ne kliknete oglasov, da razvijalec ne dobi denarja od oglaševanja. Že samo s prikazovanjem oglasov razvijalec aplikacije služi denar. Z blokiranjem oglasov tako zmanjšujete dohodek razvijalcev. Če vas to skrbi, ponovno razmislite o uporabi blokiranja oglasov.</p>
+
+
+
+<h2>Kako deluje AdAway?</h2>
+<p>AdAway uporablja <a href="http://en.wikipedia.org/wiki/Hosts_file">"hosts" datoteko</a> za blokiranje naslovov, ki prikazujejo oglase. Hosts je datoteka, ki povezuje naslove strani z njihovimi IP številkami, pred vpogledom v DNS. Vse nezaželene strani tako preusmerimo na IP številko <tt>127.0.0.1</tt>, ki vedno predstavlja lastno napravo(naprava se poveže sama nase) in tako preprečimo dostop do teh strani.</p>
+
+<h2>Why is the daily update check preference grayed out?</h2>
+<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+
+<h2>Zakaj je potreben ponovni zagon za uveljavljanje blokiranja oglasov?</h2>
+<p>Android shrani nekaj zadnjih pogledov v DNS v predpomnilniku za hitrejši dostop. Če je katera od aplikacij že iskala strežnik z oglasi, bo njegov naslov v tem predpomnilniku in bo ponovno uporabljen. Ponovni zagon sprazni ta predpomnilnik.</p>
+
+<h2>Kako uporabiti spletni strežnik v AdAway?</h2>
+<p><b>AdAway will also work without using the webserver!</b>
+<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+
+<h2>Kako lahko blokiram/od-blokiram določene naslove?</h2>
+<p>Naslove, ki jih želite blokirati, dodajte na Črno listo(=Črna)  v <i>Moji seznami</i>. Nalove, ki jih želite izvzeti iz blokiranja, dodajte v Belo listo(=Bela). Naslove, ki jih želite preusmeriti na določeno IP številko, dodajte v Listo preusmeritev(=Preusmeritev). Postavite lahko tudi svoj strežnik, ki po posredoval hosts datoteko z želenimi naslovi, in jo dodate v Vire za datoteke hosts.</p>
+
+<h2>Kje lahko najdem več virov hosts datotek?</h2>
+<p>Glej <a href="http://code.google.com/p/ad-away/wiki/HostsSources">Seznam dodatnih virov hosts datotek za AdAway</a>.</p>
+
+<h2>Našel sem hrošča/napako v AdAway!</h2>
+<p>Prosim, če napako prijavite v <a href="http://code.google.com/p/ad-away/issues/list">Sledilnik hroščev AdAway</a>.</p>
+</body>
+</html>

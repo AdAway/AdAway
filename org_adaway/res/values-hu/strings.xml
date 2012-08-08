@@ -21,35 +21,6 @@
   <string name="button_tcpdump_toggle_unchecked">A tcpdump nem fut!</string>
   <string name="button_tcpdump_open">Naplófájl megnyitása</string>
   <string name="button_tcpdump_delete">Naplófájl törlése</string>
-  <!--Dialogs-->
-  <string name="no_root_description">\"Vagy az su bináris nem található, vagy nem engedélyeztük a root jogot az AdAway számára.</string>
-  <string name="no_root_title">Rootolt rendszer szükséges</string>
-  <string name="no_connection">Az Internet kapcsolat nem működik.</string>
-  <string name="no_connection_title">Nincs kapcsolat</string>
-  <string name="download_dialog">Letöltés...</string>
-  <string name="apply_dialog">Alkalmazás...</string>
-  <string name="apply_dialog_lists">Fekete és Fehérlista alkalmazása</string>
-  <string name="apply_dialog_hostnames">Host fájlok feldolgozása és összefűzése</string>
-  <string name="apply_dialog_hosts">Host fájlok felépítése</string>
-  <string name="apply_dialog_apply">Host fájlok alkalmazása</string>
-  <string name="revert_successful">\"Visszatértél az alapértelmezett host fájlhoz.</string>
-  <string name="apply_success">\"Az alkalmazás sikeres volt.</string>
-  <string name="apply_fail">\"A host fájlt a rendszer nem tudta alkalmazni!</string>
-  <string name="apply_fail_title">Sikertelen alkalmazás</string>
-  <string name="revert_problem">A visszatérés ismeretlen ok miatt nem sikerült.</string>
-  <string name="revert_problem_title">Sikertelen visszatérés</string>
-  <string name="no_url">Ez nem érvényes URL cím!</string>
-  <string name="no_url_title">Helytelen URL</string>
-  <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
-  <string name="no_hostname">Ez nem érvényes hostnév!</string>
-  <string name="no_hostname_title">Hibás hostnév</string>
-  <string name="no_ip">Ez nem érvényes IP!</string>
-  <string name="no_ip_title">Hibás IP</string>
-  <string name="download_fail">Vagy nem megfelelően csatlakozik az internethez vagy egy letöltendő host forrás nem elérhető. Kérlek ellenőrizd a következő URL-t és változtasd meg a hostok forrását :</string>
-  <string name="download_fail_title">Sikertelen letöltés</string>
-  <string name="no_private_file">Privát fájl nem hozható létre.</string>
-  <string name="no_private_file_title">Privát fájl sikertelen létrehozása.</string>
-  <string name="reboot_never_reboot">Soha ne indítsa újra és ne jelenjen meg ez a kérdés legközelebb!</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Hozzáad</string>
   <string name="checkbox_list_empty">Üres lista</string>
@@ -83,7 +54,6 @@
   <string name="status_no_connection">Nincs internet kapcsolat</string>
   <string name="status_no_connection_subtitle">Nincs elérhető internet kapcsolat</string>
   <string name="status_download_fail">Elérhetetlen forrás</string>
-  <string name="status_download_fail_subtitle">URL:</string>
   <string name="status_enabled">Engedélyezett</string>
   <string name="status_enabled_subtitle">Újabb host fájlok engedélyezettek</string>
   <string name="status_disabled">Tiltott</string>
@@ -104,14 +74,38 @@
   <string name="apply_symlink_successful_title">A symlink létrehozás sikeres</string>
   <string name="apply_symlink_fail">Symlink nem hozható létre az Androidon.\nEz a sikertelenség egy S-ON nevű \"funkció\" leginkább HTC telefonokon!\n\nA megoldás az, hogy indítsd el a telefont recovery módban, és hozz létre symlinket az \'ln -s /data/data/hosts /system/etc/hosts\' segítségével.\n\nHa ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</string>
   <string name="apply_symlink_fail_title">Symlink létrehozás sikertelen</string>
-  <string name="revert_successful_title">Sikeres visszaállítás</string>
   <string name="apply_help">Kérlek olvasd el a Súgót további információkért.</string>
-  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
-  <string name="apply_apn_proxy_title">APN proxy set!</string>
+  <string name="no_connection">Az Internet kapcsolat nem működik.</string>
+  <string name="no_connection_title">Nincs kapcsolat</string>
+  <string name="download_dialog">Letöltés...</string>
+  <string name="apply_dialog">Alkalmazás...</string>
+  <string name="apply_dialog_lists">Fekete és Fehérlista alkalmazása</string>
+  <string name="apply_dialog_hostnames">Host fájlok feldolgozása és összefűzése</string>
+  <string name="apply_dialog_hosts">Host fájlok felépítése</string>
+  <string name="apply_dialog_apply">Host fájlok alkalmazása</string>
+  <string name="apply_fail">\"A host fájlt a rendszer nem tudta alkalmazni!</string>
+  <string name="apply_fail_title">Sikertelen alkalmazás</string>
+  <string name="revert_successful">\"Visszatértél az alapértelmezett host fájlhoz.</string>
+  <string name="revert_successful_title">Sikeres visszaállítás</string>
+  <string name="revert_problem">A visszatérés ismeretlen ok miatt nem sikerült.</string>
+  <string name="revert_problem_title">Sikertelen visszatérés</string>
+  <string name="download_fail_title">Sikertelen letöltés</string>
+  <string name="no_private_file">Privát fájl nem hozható létre.</string>
+  <string name="no_private_file_title">Privát fájl sikertelen létrehozása.</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">\"Vagy az su bináris nem található, vagy nem engedélyeztük a root jogot az AdAway számára.</string>
+  <string name="no_root_title">Rootolt rendszer szükséges</string>
+  <string name="no_url">Ez nem érvényes URL cím!</string>
+  <string name="no_url_title">Helytelen URL</string>
+  <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
+  <string name="no_hostname">Ez nem érvényes hostnév!</string>
+  <string name="no_hostname_title">Hibás hostnév</string>
+  <string name="no_ip">Ez nem érvényes IP!</string>
+  <string name="no_ip_title">Hibás IP</string>
+  <string name="reboot_never_reboot">Soha ne indítsa újra és ne jelenjen meg ez a kérdés legközelebb!</string>
   <!--Menu entries-->
   <string name="menu_refresh">Frissítés</string>
   <string name="menu_add">Hozzáadás</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
   <string name="menu_hosts_sources">Host források</string>
   <string name="menu_tcpdump">DNS kérések naplózása</string>
   <string name="menu_help">Súgó</string>
@@ -123,14 +117,10 @@
   <string name="menu_preferences">Lehetőségek</string>
   <!--Help-->
   <string name="help_tab_about">Névjegy</string>
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problémák</string>
   <string name="help_about_version">Version:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Helyi:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -180,11 +170,6 @@
   <string name="pref_update_check_daily_summary">Naponta a háttérben ellenőrzi a frissítéseket és értesít</string>
   <string name="pref_automatic_update_daily">Automatikus frissítés</string>
   <string name="pref_automatic_update_daily_summary">Automatikusan frissít a háttérben ha frissítés érhető el.</string>
-  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
   <string name="pref_redirection_rules">Átirányítás engedélyezése</string>
   <string name="pref_redirection_rules_summary">Hagyja az átirányítás szabályait a Host Források-ra.</string>
-  <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug Logging</string>
-  <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
 </resources>

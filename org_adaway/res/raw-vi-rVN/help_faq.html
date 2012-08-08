@@ -4,16 +4,21 @@
 <h2>Thu nhập từ quảng cáo</h2>
 <p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
 
+
+
 <h2>AdAway làm việc như thế nào?</h2>
 <p>AdAway sử dụng <a href="http://en.wikipedia.org/wiki/Hosts_file">file host </a> để chặn các danh sách host được dùng cho mục đích quảng cáo. File host được lưu tại <tt>/system/etc/hosts</tt> có tác dụng ánh xạ tên host thành địa chỉ IP. Đây là cách làm thông dụng để định nghĩa tên host với địa chỉ IP, không sử dụng Domain Name System (DNS). Mọi tên host không mong muốn sẽ được trỏ tới địa chỉ <tt>127.0.0.1</tt> trên máy của bạn.</p>
+
+<h2>Why is the daily update check preference grayed out?</h2>
+<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
 
 <h2>Tại sao tôi phải khởi động lại Android để thay đổi có hiệu lực?</h2>
 <p>Java trên Android quản lý cache DNS nội tại của nó. Hệ điều hành sẽ phản chiếu tệp host mới ngay lập tức (kiểm tra với ping trên command line) nhưng bạn cần khởi động lại Android để tạo lại cache DNS của Java</p>
 
 <h2>Sử dụng webserver trong AdAway như thế nào?</h2>
-<p><b>AdAway cũng làm việc mà không sử dụng webserver!</b>⏎
-<br/><br/> Bạn có thể bật webserver cục bộ trong cấu hình của AdAway để đáp ứng yêu cầu từ địa chỉ IP cục bộ <tt>127.0.0.1</tt>. Điều đó có nghĩa là các yêu cầu quảng cáo từ ứng dụng sẽ được trỏ tới địa chỉ <tt>127.0.0.1</tt> thông qua webserver của AdAway.⏎
-<br/>Một số ứng dụng từ chối làm việc nếu không kết nối được tới máy chủ quảng cáo. Phương thức này sẽ khiến chúng vẫn có thể làm việc, cho kết quả là trang trắng, không có hình quảng cáo.</p>
+<p><b>AdAway will also work without using the webserver!</b>
+<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Chặn/bỏ chặn tên host bất kỳ như thế nào?</h2>
 <p>You can set up your own server providing a hosts file with hostnames that you want to block and add it to the <i>Hosts Sources</i> or add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>

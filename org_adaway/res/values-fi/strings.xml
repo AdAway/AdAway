@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Sulje</string>
   <string name="button_apply">Lataa tiedostot ja ota mainosten esto käyttöön</string>
@@ -16,40 +17,11 @@
   <string name="button_webserver_toggle_unchecked">Web-palvelin ei ole käynnissä</string>
   <string name="button_webserver_toggle_text">Salli tai estä web-palvelimen vastaamasta estettyihin isäntänimeihin.</string>
   <string name="button_help">Ohjeet</string>
-  <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
+  <string name="button_tcpdump_text">Tcpdump on työkalu, jolla voit seurata DNS-pyyntöjä ja tallentaa ne lokitiedostoon. Voit käynnistää sen taustalla, käyttää sovelluksia, jotka näyttävät mainoksia ja sen jälkeen analysoida DNS-pyyntöjä käyttäen lokitiedostoa. Mahdolliset mainospalvelimen voidaan sitten lisätä mustalle listalle.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump on käynnissä!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump ei ole käynnissä!</string>
   <string name="button_tcpdump_open">Avaa lokitiedosto</string>
   <string name="button_tcpdump_delete">Poista lokitiedosto</string>
-  <!--Dialogs-->
-  <string name="no_root_description">Joko Pääkäyttäjän binääripakettia ei löytynyt tai sinulla ei ole pääkäyttäjän oikeuksia AdAwaylle.\n\nNäin voi käydä, kun laitteellasi ei ole pääkäyttäjän oikeuksia.\nVoit löytää lisätietoja kuinka hankit pääkäyttäjän oikeudet osoitteessa  www.cyanogenmod.com tai muista Android-sivustoista.</string>
-  <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
-  <string name="no_connection">Verkkoyhteys ei toimi.</string>
-  <string name="no_connection_title">Ei yhteyttä</string>
-  <string name="download_dialog">Lataus:</string>
-  <string name="apply_dialog">Hyväksy</string>
-  <string name="apply_dialog_lists">Mustan listan ja valkoinen lista soveltaminen</string>
-  <string name="apply_dialog_hostnames">Hosts-tiedostojen jäsentäminen ja yhdistäminen</string>
-  <string name="apply_dialog_hosts">Luo hosts-tiedosto</string>
-  <string name="apply_dialog_apply">Hyväksy hosts-tiedosto</string>
-  <string name="revert_successful">Palautit hosts-tiedoston oletustilaan.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
-  <string name="apply_success">Soveltaminen onnistui.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
-  <string name="apply_fail">Hosts-tiedoston soveltaminen epäonnistui!\nYritä muuttaa hosts-tiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
-  <string name="apply_fail_title">Soveltaminen epäonnistui</string>
-  <string name="revert_problem">Palauttaminen epäonnistui.</string>
-  <string name="revert_problem_title">Palauttaminen epäonnistui!</string>
-  <string name="no_url">Tämä ei ei ole kevollinen URL-osoite!</string>
-  <string name="no_url_title">Virheellinen URL-osoite</string>
-  <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
-  <string name="no_hostname">Tämä ei ole kelvollinen isäntänimi!</string>
-  <string name="no_hostname_title">Virheellinen isäntänimi</string>
-  <string name="no_ip">Tämä ei ole kelvollinen IP-osoite!</string>
-  <string name="no_ip_title">Virheellinen IP-osoite</string>
-  <string name="download_fail">Joko ei ole kunnollista verkkoyhteyttä tai jokin haluamastasi ladattavasta hosts-tälähteistä ei ole saatavilla. Tarkista seuraava URL-osoite ja muuta se hosts-lähteestä.</string>
-  <string name="download_fail_title">Lataus epäonnistui</string>
-  <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
-  <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
-  <string name="reboot_never_reboot">Älä koskaan käynnistä uudelleen ja älä näytä tätä kysymystä ensi kerralla!</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Lisää</string>
   <string name="checkbox_list_empty">Tyhjä lista</string>
@@ -83,7 +55,6 @@
   <string name="status_no_connection">Ei verkkoyhteyttä</string>
   <string name="status_no_connection_subtitle">Verkkoyhtyettä ei ole saatavilla</string>
   <string name="status_download_fail">Lähde ei ole käytettävissä</string>
-  <string name="status_download_fail_subtitle">URL-osoite:</string>
   <string name="status_enabled">Käytössä</string>
   <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
   <string name="status_disabled">Pois käytössä</string>
@@ -104,14 +75,41 @@
   <string name="apply_symlink_successful_title">Symbolisen linkin luominen onnistui</string>
   <string name="apply_symlink_fail">Android ei voinut luoda symbolista linkkiä.\nTämä \"ominaisuus\" on lähinnä HTC-puhelimien S-ON-laitteissa!\n\nRatkaisu on käynnistää palautustilaan ja luoda sinne symbolinen linkki \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJos tämä ei toimi, etsi internetistä tietoa S-OFF:sta ja puhelimestasi.</string>
   <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
-  <string name="revert_successful_title">Palauttaminen onnistui</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
-  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+  <string name="apply_apn_proxy">APN-välityspalvelin on määritetty puhelimeesi!⏎\nAdAway ei toimi luotettavasti matkaviestinverkoissa, kuten 3G. Voit poistaa kyseisen välityspalvelimen menemällä valitsemaasi APN:iin (Android 4.0: Langattomat yhteydet ja verkot -&gt; Lisää... -&gt; Mobiiliverkot -&gt; Tukiasemien nimet) ja poista arvo välityspalvelimen kentästä.</string>
   <string name="apply_apn_proxy_title">APN-\tvälityspalvelin on asetettu!</string>
+  <string name="no_connection">Verkkoyhteys ei toimi.</string>
+  <string name="no_connection_title">Ei yhteyttä</string>
+  <string name="download_dialog">Lataus:</string>
+  <string name="apply_dialog">Hyväksy</string>
+  <string name="apply_dialog_lists">Mustan listan ja valkoinen lista soveltaminen</string>
+  <string name="apply_dialog_hostnames">Hosts-tiedostojen jäsentäminen ja yhdistäminen</string>
+  <string name="apply_dialog_hosts">Luo hosts-tiedosto</string>
+  <string name="apply_dialog_apply">Hyväksy hosts-tiedosto</string>
+  <string name="apply_fail">Hosts-tiedoston soveltaminen epäonnistui!\nYritä muuttaa hosts-tiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
+  <string name="apply_fail_title">Soveltaminen epäonnistui</string>
+  <string name="revert_successful">Palautit hosts-tiedoston oletustilaan.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
+  <string name="revert_successful_title">Palauttaminen onnistui</string>
+  <string name="revert_problem">Palauttaminen epäonnistui.</string>
+  <string name="revert_problem_title">Palauttaminen epäonnistui!</string>
+  <string name="download_fail_title">Lataus epäonnistui</string>
+  <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
+  <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">Joko Pääkäyttäjän binääripakettia ei löytynyt tai sinulla ei ole pääkäyttäjän oikeuksia AdAwaylle.\n\nNäin voi käydä, kun laitteellasi ei ole pääkäyttäjän oikeuksia.\nVoit löytää lisätietoja kuinka hankit pääkäyttäjän oikeudet osoitteessa  www.cyanogenmod.com tai muista Android-sivustoista.</string>
+  <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
+  <string name="no_url">Tämä ei ei ole kevollinen URL-osoite!</string>
+  <string name="no_url_title">Virheellinen URL-osoite</string>
+  <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
+  <string name="no_hostname">Tämä ei ole kelvollinen isäntänimi!</string>
+  <string name="no_hostname_title">Virheellinen isäntänimi</string>
+  <string name="no_ip">Tämä ei ole kelvollinen IP-osoite!</string>
+  <string name="no_ip_title">Virheellinen IP-osoite</string>
+  <string name="reboot_never_reboot">Älä koskaan käynnistä uudelleen ja älä näytä tätä kysymystä ensi kerralla!</string>
   <!--Menu entries-->
   <string name="menu_refresh">Päivitä</string>
   <string name="menu_add">Lisää</string>
-  <string name="menu_scan_adware">Scan for Adware</string>
+  <string name="menu_scan_adware">Etsi mainosohjelmia</string>
   <string name="menu_hosts_sources">Hosts-lähteet</string>
   <string name="menu_tcpdump">Tcpdump</string>
   <string name="menu_help">Ohjeet</string>
@@ -128,9 +126,9 @@
   <string name="help_tab_problems">Ongelmat</string>
   <string name="help_about_version">Versio:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-  <string name="scan_adware_start">Start scanning</string>
-  <string name="scan_adware_empty">No bad Adware apps were found!</string>
+  <string name="scan_adware_description">Täällä voit etsiä mainosohjelma-sovelluksia, joita AdAway ei voinut estää. Nämä sovellukset käyttävät esimerkiksi Airpush-ilmoituksia, jotka avautuvat vaikka sovellus ei ole käynnissä tai jopa vaihtaa soittoääntä. Ainut toimiva vastatoimi on poistaa kyseiset sovellukset klikkaamalla luettelokohteessa</string>
+  <string name="scan_adware_start">Aloita skannaus</string>
+  <string name="scan_adware_empty">Mainosohjelmasovelluksia ei löytynyt!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Paikallinen:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -180,11 +178,11 @@
   <string name="pref_update_check_daily_summary">Tarkista päivitykset taustalla ilmoituksilla</string>
   <string name="pref_automatic_update_daily">Automaattinen päivitys</string>
   <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
-  <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
+  <string name="pref_update_only_on_wifi">Päivitä vain WiFissä</string>
+  <string name="pref_update_only_on_wifi_summary">Suorittaa taustapäivityksen vain, kun on WiFi-yhteys.</string>
   <string name="pref_redirection_rules">Salli uudelleenohjaukset</string>
   <string name="pref_redirection_rules_summary">Salli hosts-lähteiden uudelleenohjaussäännöt.</string>
   <string name="pref_debug">Virheenkorjaus</string>
-  <string name="pref_enable_debug">Debug Logging</string>
+  <string name="pref_enable_debug">Virheenkorjauslokin kirjaaminen</string>
   <string name="pref_enable_debug_summary">Sinun täytyy käynnistää Adaway uudelleen ottaaksesi asetukset käyttöön.</string>
 </resources>
