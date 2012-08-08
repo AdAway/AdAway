@@ -60,7 +60,7 @@
     <string name="status_no_connection">No Internet connection</string>
     <string name="status_no_connection_subtitle">No Internet connection available</string>
     <string name="status_download_fail">Unavailable sources</string>
-    <string name="status_download_fail_subtitle">No hosts sources are reachable!</string>
+    <string name="status_download_fail_subtitle_new">No hosts sources are reachable!</string>
     <string name="status_enabled">Enabled</string>
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
@@ -77,7 +77,7 @@
     <string name="apply_remount_fail_title">Remount failed</string>
     <string name="apply_copy_fail">Copying of hosts file failed!</string>
     <string name="apply_copy_fail_title">Copy failed</string>
-    <string name="apply_success">Successful hosts sources:</string>
+    <string name="apply_success_subtitle">Successful hosts sources:</string>
     <string name="apply_success_title">Applying successful</string>
     <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
@@ -101,7 +101,7 @@
     <string name="revert_successful_title">Reverting successful</string>
     <string name="revert_problem">Reverting failed due to unknown reasons.</string>
     <string name="revert_problem_title">Reverting failed!</string>
-    <string name="download_fail">None of your enabled hosts sources are reachable! Are you properly connected to the Internet?</string>
+    <string name="download_fail_dialog">None of your enabled hosts sources are reachable! Are you properly connected to the Internet?</string>
     <string name="download_fail_title">Download failed</string>
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>

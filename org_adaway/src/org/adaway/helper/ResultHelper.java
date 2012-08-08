@@ -54,7 +54,7 @@ public class ResultHelper {
             String numberOfSuccessfulDownloads) {
         if (result == StatusCodes.SUCCESS) {
             String title = context.getString(R.string.apply_success_title);
-            String text = context.getString(R.string.apply_success) + " "
+            String text = context.getString(R.string.apply_success_subtitle) + " "
                     + numberOfSuccessfulDownloads;
 
             BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
@@ -101,8 +101,8 @@ public class ResultHelper {
         } else if (result == StatusCodes.DOWNLOAD_FAIL) { // used from UpdateService and
                                                           // ApplyService
             String title = context.getString(R.string.download_fail_title);
-            String text = context.getString(R.string.download_fail);
-            String statusText = context.getString(R.string.status_download_fail_subtitle);
+            String text = context.getString(R.string.download_fail_dialog);
+            String statusText = context.getString(R.string.status_download_fail_subtitle_new);
 
             processResult(context, title, text, statusText, result, StatusCodes.DOWNLOAD_FAIL,
                     null, true);
@@ -163,7 +163,7 @@ public class ResultHelper {
         if (result == StatusCodes.SUCCESS) {
             if (numberOfSuccessfulDownloads != null) {
                 String title = context.getString(R.string.apply_success_title);
-                String text = context.getString(R.string.apply_success) + " "
+                String text = context.getString(R.string.apply_success_subtitle) + " "
                         + numberOfSuccessfulDownloads;
 
                 BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
@@ -241,8 +241,8 @@ public class ResultHelper {
                 break;
             case StatusCodes.DOWNLOAD_FAIL:
                 title = context.getString(R.string.download_fail_title);
-                text = context.getString(R.string.download_fail);
-                statusText = context.getString(R.string.status_download_fail_subtitle);
+                text = context.getString(R.string.download_fail_dialog);
+                statusText = context.getString(R.string.status_download_fail_subtitle_new);
 
                 BaseActivity.setStatusBroadcast(context, title, statusText,
                         StatusCodes.DOWNLOAD_FAIL);
