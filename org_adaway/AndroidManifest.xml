@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.adaway"
     android:installLocation="auto"
-    android:versionCode="37"
-    android:versionName="1.36" >
+    android:versionCode="38"
+    android:versionName="1.37" >
 
     <uses-sdk
         android:minSdkVersion="7"
-        android:targetSdkVersion="15" />
+        android:targetSdkVersion="16" />
 
     <uses-feature
         android:name="android.hardware.touchscreen"
