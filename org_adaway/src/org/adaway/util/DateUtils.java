@@ -26,6 +26,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
+import org.adaway.R;
+
+import android.content.Context;
+
 public class DateUtils {
     /**
      * Builds date string out of long value containing unix date
@@ -33,14 +37,14 @@ public class DateUtils {
      * @param input
      * @return formatted date string
      */
-    public static String longToDateString(long input) {
+    public static String longToDateString(Context context, long input) {
         if (input != 0) {
             Date date = new Date(input);
             DateFormat dataformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
             return dataformat.format(date);
         } else {
-            return "not available";
+            return context.getString(R.string.hosts_not_available);
         }
     }
 

@@ -20,6 +20,7 @@
 
 package org.adaway.service;
 
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -60,7 +61,8 @@ public class UpdateService extends WakefulIntentService {
     private boolean mApplyAfterCheck;
     private boolean mBackgroundExecution;
 
-    private String mCurrentUrl;
+    private int mNumberOfFailedDownloads;
+    private int mNumberOfDownloads;
 
     private static final int UPDATE_NOTIFICATION_ID = 10;
 
@@ -117,7 +119,10 @@ public class UpdateService extends WakefulIntentService {
             // download and apply!
             WakefulIntentService.sendWakefulWork(mService, ApplyService.class);
         } else {
-            ResultHelper.showNotificationBasedOnResult(mService, result, mCurrentUrl);
+            String successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/"
+                    + mNumberOfDownloads;
+
+            ResultHelper.showNotificationBasedOnResult(mService, result, successfulDownloads);
         }
     }
 
@@ -136,6 +141,9 @@ public class UpdateService extends WakefulIntentService {
 
         if (Utils.isAndroidOnline(mService)) {
 
+            mNumberOfFailedDownloads = 0;
+            mNumberOfDownloads = 0;
+
             // get cursor over all enabled hosts source
             enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(mService);
 
@@ -143,29 +151,37 @@ public class UpdateService extends WakefulIntentService {
             if (enabledHostsSourcesCursor.moveToFirst()) {
                 do {
 
+                    mNumberOfDownloads++;
+
                     // get url and lastModified from db
-                    mCurrentUrl = enabledHostsSourcesCursor.getString(enabledHostsSourcesCursor
-                            .getColumnIndex("url"));
+                    String currentUrl = enabledHostsSourcesCursor
+                            .getString(enabledHostsSourcesCursor.getColumnIndex("url"));
                     currentLastModifiedLocal = enabledHostsSourcesCursor
                             .getLong(enabledHostsSourcesCursor
                                     .getColumnIndex("last_modified_local"));
 
                     try {
-                        Log.v(Constants.TAG, "Checking hosts file: " + mCurrentUrl);
+                        Log.v(Constants.TAG, "Checking hosts file: " + currentUrl);
 
                         /* build connection */
-                        URL mURL = new URL(mCurrentUrl);
+                        URL mURL = new URL(currentUrl);
                         URLConnection connection = mURL.openConnection();
 
                         currentLastModifiedOnline = connection.getLastModified();
 
                         Log.d(Constants.TAG,
-                                "mConnectionLastModified: " + currentLastModifiedOnline + " ("
-                                        + DateUtils.longToDateString(currentLastModifiedOnline)
-                                        + ")");
+                                "mConnectionLastModified: "
+                                        + currentLastModifiedOnline
+                                        + " ("
+                                        + DateUtils.longToDateString(mService,
+                                                currentLastModifiedOnline) + ")");
 
-                        Log.d(Constants.TAG, "mCurrentLastModified: " + currentLastModifiedLocal
-                                + " (" + DateUtils.longToDateString(currentLastModifiedLocal) + ")");
+                        Log.d(Constants.TAG,
+                                "mCurrentLastModified: "
+                                        + currentLastModifiedLocal
+                                        + " ("
+                                        + DateUtils.longToDateString(mService,
+                                                currentLastModifiedLocal) + ")");
 
                         // check if file is available
                         connection.connect();
@@ -182,10 +198,15 @@ public class UpdateService extends WakefulIntentService {
                                         .getColumnIndex(HostsSources._ID)),
                                 currentLastModifiedOnline);
 
-                    } catch (Exception e) {
-                        Log.e(Constants.TAG, "Exception: " + e);
-                        returnCode = StatusCodes.DOWNLOAD_FAIL;
-                        break; // stop for-loop
+                    } catch (IOException e) {
+                        Log.e(Constants.TAG, "Exception while downloading from " + currentUrl, e);
+
+                        mNumberOfFailedDownloads++;
+
+                        // set last_modified_online of failed download to 0 (not available)
+                        ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
+                                enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
+                                        .getColumnIndex(HostsSources._ID)), 0);
                     }
 
                 } while (enabledHostsSourcesCursor.moveToNext());
@@ -194,6 +215,11 @@ public class UpdateService extends WakefulIntentService {
             // close cursor in the end
             if (enabledHostsSourcesCursor != null && !enabledHostsSourcesCursor.isClosed()) {
                 enabledHostsSourcesCursor.close();
+            }
+
+            // if all downloads failed return download_fail error
+            if (mNumberOfDownloads == mNumberOfFailedDownloads && mNumberOfDownloads != 0) {
+                returnCode = StatusCodes.DOWNLOAD_FAIL;
             }
         } else {
             // only report no connection when not in background

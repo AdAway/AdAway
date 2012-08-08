@@ -48,18 +48,21 @@ public class ResultHelper {
      * 
      * @param context
      * @param result
-     * @param failingUrl
+     * @param numberOfSuccessfulDownloads
      */
-    public static void showNotificationBasedOnResult(Context context, int result, String failingUrl) {
+    public static void showNotificationBasedOnResult(Context context, int result,
+            String numberOfSuccessfulDownloads) {
         if (result == StatusCodes.SUCCESS) {
             String title = context.getString(R.string.apply_success_title);
-            String text = context.getString(R.string.apply_success);
+            String text = context.getString(R.string.apply_success) + " "
+                    + numberOfSuccessfulDownloads;
 
             BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
 
             // only show if reboot dialog is not disabled in preferences
             if (!PreferenceHelper.getNeverReboot(context)) {
-                processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
+                processResult(context, title, text, text, result, StatusCodes.ENABLED,
+                        numberOfSuccessfulDownloads, true);
             }
         } else if (result == StatusCodes.REVERT_SUCCESS) {
             String title = context.getString(R.string.revert_successful_title);
@@ -102,7 +105,7 @@ public class ResultHelper {
             String statusText = context.getString(R.string.status_download_fail_subtitle);
 
             processResult(context, title, text, statusText, result, StatusCodes.DOWNLOAD_FAIL,
-                    failingUrl, true);
+                    null, true);
         } else if (result == StatusCodes.NO_CONNECTION) { // used from UpdateService and
                                                           // ApplyService
             String title = context.getString(R.string.no_connection_title);
@@ -155,11 +158,21 @@ public class ResultHelper {
      * 
      * @param result
      */
-    public static void showDialogBasedOnResult(final Context context, int result, String failingUrl) {
+    public static void showDialogBasedOnResult(final Context context, int result,
+            String numberOfSuccessfulDownloads) {
         if (result == StatusCodes.SUCCESS) {
-            BaseActivity.updateStatusEnabled(context);
+            if (numberOfSuccessfulDownloads != null) {
+                String title = context.getString(R.string.apply_success_title);
+                String text = context.getString(R.string.apply_success) + " "
+                        + numberOfSuccessfulDownloads;
 
-            Utils.rebootQuestion(context, R.string.apply_success_title, R.string.apply_success);
+                BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
+            } else {
+                BaseActivity.updateStatusEnabled(context);
+            }
+
+            Utils.rebootQuestion(context, R.string.apply_success_title,
+                    R.string.apply_success_dialog);
         } else if (result == StatusCodes.REVERT_SUCCESS) {
             BaseActivity.updateStatusDisabled(context);
 
@@ -228,13 +241,8 @@ public class ResultHelper {
                 break;
             case StatusCodes.DOWNLOAD_FAIL:
                 title = context.getString(R.string.download_fail_title);
-                if (failingUrl != null) {
-                    text = context.getString(R.string.download_fail) + "\n" + failingUrl;
-                } else {
-                    text = context.getString(R.string.download_fail);
-                }
-                statusText = context.getString(R.string.status_download_fail_subtitle) + " "
-                        + failingUrl;
+                text = context.getString(R.string.download_fail);
+                statusText = context.getString(R.string.status_download_fail_subtitle);
 
                 BaseActivity.setStatusBroadcast(context, title, statusText,
                         StatusCodes.DOWNLOAD_FAIL);
@@ -305,18 +313,20 @@ public class ResultHelper {
      * @param statusText
      * @param result
      * @param iconStatus
-     * @param failingUrl
+     * @param numberOfSuccessfulDownloads
      * @param showDialog
      */
     private static void processResult(Context context, String title, String text,
-            String statusText, int result, int iconStatus, String failingUrl, boolean showDialog) {
+            String statusText, int result, int iconStatus, String numberOfSuccessfulDownloads,
+            boolean showDialog) {
         if (Utils.isInForeground(context)) {
             if (showDialog) {
                 // start BaseActivity with result
                 Intent resultIntent = new Intent(context, BaseActivity.class);
                 resultIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, result);
-                if (failingUrl != null) {
-                    resultIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
+                if (numberOfSuccessfulDownloads != null) {
+                    resultIntent.putExtra(BaseActivity.EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS,
+                            numberOfSuccessfulDownloads);
                 }
                 resultIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
                 resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -324,12 +334,12 @@ public class ResultHelper {
             }
         } else {
             // show notification
-            showResultNotification(context, title, text, result, failingUrl);
+            showResultNotification(context, title, text, result, numberOfSuccessfulDownloads);
         }
 
-        if (failingUrl != null) {
-            BaseActivity.setStatusBroadcast(context, title, statusText + " " + failingUrl,
-                    iconStatus);
+        if (numberOfSuccessfulDownloads != null) {
+            BaseActivity.setStatusBroadcast(context, title, statusText + " "
+                    + numberOfSuccessfulDownloads, iconStatus);
         } else {
             BaseActivity.setStatusBroadcast(context, title, statusText, iconStatus);
         }
@@ -359,7 +369,7 @@ public class ResultHelper {
 
         // give postApplyingStatus with intent
         notificationIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, applyingResult);
-        notificationIntent.putExtra(BaseActivity.EXTRA_FAILING_URL, failingUrl);
+        notificationIntent.putExtra(BaseActivity.EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS, failingUrl);
 
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);

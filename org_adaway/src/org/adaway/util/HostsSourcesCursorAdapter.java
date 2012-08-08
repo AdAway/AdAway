@@ -75,9 +75,10 @@ public class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
                     .getColumnIndexOrThrow(HostsSources.LAST_MODIFIED_ONLINE);
             long lastModifiedOnline = cursor.getLong(lastModifiedOnlineCol);
             lastModifiedTextView.setText(context.getString(R.string.hosts_last_modified_local)
-                    + " " + DateUtils.longToDateString(lastModifiedLocal) + ", "
+                    + " " + DateUtils.longToDateString(context, lastModifiedLocal) + ", "
                     + context.getString(R.string.hosts_last_modified_online) + " "
-                    + DateUtils.longToDateString(lastModifiedOnline));
+                    + DateUtils.longToDateString(context, lastModifiedOnline));
+
         }
     }
 }

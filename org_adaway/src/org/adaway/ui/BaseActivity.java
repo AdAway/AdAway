@@ -51,7 +51,7 @@ public class BaseActivity extends SherlockFragmentActivity {
 
     // Intent extras to give result of applying process to base activity
     public static final String EXTRA_APPLYING_RESULT = "org.adaway.APPLYING_RESULT";
-    public static final String EXTRA_FAILING_URL = "org.adaway.APPLYING_INFORMATION";
+    public static final String EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS = "org.adaway.NUMBER_OF_SUCCESSFUL_DOWNLOADS";
 
     // Intent definitions for LocalBroadcastManager to update status from other threads
     static final String ACTION_UPDATE_STATUS = "org.adaway.UPDATE_STATUS";
@@ -89,13 +89,16 @@ public class BaseActivity extends SherlockFragmentActivity {
                 Log.d(Constants.TAG, "Result from intent extras: " + result);
 
                 // download failed because of url
-                String failingUrl = null;
-                if (extras.containsKey(EXTRA_FAILING_URL)) {
-                    failingUrl = extras.getString(EXTRA_FAILING_URL);
-                    Log.d(Constants.TAG, "Applying information from intent extras: " + failingUrl);
+                String numberOfSuccessfulDownloads = null;
+                if (extras.containsKey(EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS)) {
+                    numberOfSuccessfulDownloads = extras
+                            .getString(EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS);
+                    Log.d(Constants.TAG, "Applying information from intent extras: "
+                            + numberOfSuccessfulDownloads);
                 }
 
-                ResultHelper.showDialogBasedOnResult(mActivity, result, failingUrl);
+                ResultHelper
+                        .showDialogBasedOnResult(mActivity, result, numberOfSuccessfulDownloads);
             }
         }
     }

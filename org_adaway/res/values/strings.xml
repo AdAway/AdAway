@@ -25,36 +25,6 @@
     <string name="button_tcpdump_open">Open log file</string>
     <string name="button_tcpdump_delete">Delete log file</string>
 
-    <!-- Dialogs -->
-    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
-    <string name="no_root_title">Rooted Android required</string>
-    <string name="no_connection">The connection to the Internet is not working.</string>
-    <string name="no_connection_title">No Connection</string>
-    <string name="download_dialog">Downloading...</string>
-    <string name="apply_dialog">Applying...</string>
-    <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
-    <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
-    <string name="apply_dialog_hosts">Building hosts file</string>
-    <string name="apply_dialog_apply">Applying hosts file</string>
-    <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
-    <string name="apply_success">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
-    <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
-    <string name="apply_fail_title">Applying failed</string>
-    <string name="revert_problem">Reverting failed due to unknown reasons.</string>
-    <string name="revert_problem_title">Reverting failed!</string>
-    <string name="no_url">This is not a valid URL!</string>
-    <string name="no_url_title">Malformed URL</string>
-    <string name="hosts_add_dialog">Input URL to hosts file:</string>
-    <string name="no_hostname">This is not a valid hostname!</string>
-    <string name="no_hostname_title">Malformed hostname</string>
-    <string name="no_ip">This is not a valid IP!</string>
-    <string name="no_ip_title">Malformed IP</string>
-    <string name="download_fail">Either you are not properly connected to the Internet or one of the hosts sources you want to download is not available. Please check the following URL and change it in your hosts sources:</string>
-    <string name="download_fail_title">Download failed</string>
-    <string name="no_private_file">Private file can not be created.</string>
-    <string name="no_private_file_title">Private file creation failed</string>
-    <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
-
     <!-- Checkbox List -->
     <string name="checkbox_list_add_dialog_title">Add</string>
     <string name="checkbox_list_empty">Empty list</string>
@@ -89,8 +59,8 @@
     <string name="status_update_available_subtitle">Newer hosts files available</string>
     <string name="status_no_connection">No Internet connection</string>
     <string name="status_no_connection_subtitle">No Internet connection available</string>
-    <string name="status_download_fail">Unavailable source</string>
-    <string name="status_download_fail_subtitle">URL: </string>
+    <string name="status_download_fail">Unavailable sources</string>
+    <string name="status_download_fail_subtitle">No hosts sources are reachable!</string>
     <string name="status_enabled">Enabled</string>
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
@@ -107,15 +77,46 @@
     <string name="apply_remount_fail_title">Remount failed</string>
     <string name="apply_copy_fail">Copying of hosts file failed!</string>
     <string name="apply_copy_fail_title">Copy failed</string>
+    <string name="apply_success">Successful hosts sources:</string>
     <string name="apply_success_title">Applying successful</string>
+    <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="apply_symlink_successful_title">Symlink creation successful</string>
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
-    <string name="revert_successful_title">Reverting successful</string>
     <string name="apply_help">Please read Help for more information.</string>
     <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
     <string name="apply_apn_proxy_title">APN proxy set!</string>
+    <string name="no_connection">The connection to the Internet is not working.</string>
+    <string name="no_connection_title">No Connection</string>
+    <string name="download_dialog">Downloading...</string>
+    <string name="apply_dialog">Applying...</string>
+    <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
+    <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
+    <string name="apply_dialog_hosts">Building hosts file</string>
+    <string name="apply_dialog_apply">Applying hosts file</string>
+    <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
+    <string name="apply_fail_title">Applying failed</string>
+    <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
+    <string name="revert_successful_title">Reverting successful</string>
+    <string name="revert_problem">Reverting failed due to unknown reasons.</string>
+    <string name="revert_problem_title">Reverting failed!</string>
+    <string name="download_fail">None of your enabled hosts sources are reachable! Are you properly connected to the Internet?</string>
+    <string name="download_fail_title">Download failed</string>
+    <string name="no_private_file">Private file can not be created.</string>
+    <string name="no_private_file_title">Private file creation failed</string>
+
+    <!-- Other Dialogs -->
+    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
+    <string name="no_root_title">Rooted Android required</string>
+    <string name="no_url">This is not a valid URL!</string>
+    <string name="no_url_title">Malformed URL</string>
+    <string name="hosts_add_dialog">Input URL to hosts file:</string>
+    <string name="no_hostname">This is not a valid hostname!</string>
+    <string name="no_hostname_title">Malformed hostname</string>
+    <string name="no_ip">This is not a valid IP!</string>
+    <string name="no_ip_title">Malformed IP</string>
+    <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
 
     <!-- Menu entries -->
     <string name="menu_refresh">Refresh</string>
@@ -146,6 +147,7 @@
     <!-- Hosts Sources -->
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">Online:</string>
+    <string name="hosts_not_available">not available</string>
 
     <!-- Other -->
     <string name="app_subtitle">Ad blocker</string>

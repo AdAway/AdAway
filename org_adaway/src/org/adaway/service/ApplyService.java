@@ -68,7 +68,8 @@ public class ApplyService extends WakefulIntentService {
     private Notification mApplyNotification;
     private NotificationManager mNotificationManager;
 
-    String mCurrentUrl;
+    private int mNumberOfFailedDownloads;
+    private int mNumberOfDownloads;
 
     private static final int APPLY_NOTIFICATION_ID = 20;
 
@@ -107,13 +108,16 @@ public class ApplyService extends WakefulIntentService {
             BaseActivity.setButtonsDisabledBroadcast(mService, false);
             Log.d(Constants.TAG, "Apply result: " + applyResult);
 
-            ResultHelper.showNotificationBasedOnResult(mService, applyResult, null);
+            String successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/"
+                    + mNumberOfDownloads;
+
+            ResultHelper.showNotificationBasedOnResult(mService, applyResult, successfulDownloads);
         } else if (downloadResult == StatusCodes.DOWNLOAD_FAIL) {
             cancelApplyNotification();
             // enable buttons
             BaseActivity.setButtonsDisabledBroadcast(mService, false);
             // extra information is current url, to show it when it fails
-            ResultHelper.showNotificationBasedOnResult(mService, downloadResult, mCurrentUrl);
+            ResultHelper.showNotificationBasedOnResult(mService, downloadResult, null);
         } else {
             cancelApplyNotification();
             // enable buttons
@@ -149,6 +153,9 @@ public class ApplyService extends WakefulIntentService {
                 out = mService.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
                         Context.MODE_PRIVATE);
 
+                mNumberOfFailedDownloads = 0;
+                mNumberOfDownloads = 0;
+
                 // get cursor over all enabled hosts source
                 enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(mService);
 
@@ -156,20 +163,22 @@ public class ApplyService extends WakefulIntentService {
                 if (enabledHostsSourcesCursor.moveToFirst()) {
                     do {
 
+                        mNumberOfDownloads++;
+
                         InputStream is = null;
                         BufferedInputStream bis = null;
-                        try {
-                            mCurrentUrl = enabledHostsSourcesCursor
-                                    .getString(enabledHostsSourcesCursor.getColumnIndex("url"));
+                        String currentUrl = enabledHostsSourcesCursor
+                                .getString(enabledHostsSourcesCursor.getColumnIndex("url"));
 
-                            Log.v(Constants.TAG, "Downloading hosts file: " + mCurrentUrl);
+                        try {
+                            Log.v(Constants.TAG, "Downloading hosts file: " + currentUrl);
 
                             /* change URL in download dialog */
                             updateApplyNotification(mService,
-                                    mService.getString(R.string.download_dialog), mCurrentUrl);
+                                    mService.getString(R.string.download_dialog), currentUrl);
 
                             /* build connection */
-                            URL mURL = new URL(mCurrentUrl);
+                            URL mURL = new URL(currentUrl);
                             URLConnection connection = mURL.openConnection();
 
                             /* connect */
@@ -201,10 +210,16 @@ public class ApplyService extends WakefulIntentService {
                                             .getColumnIndex(HostsSources._ID)),
                                     currentLastModifiedOnline);
 
-                        } catch (Exception e) {
-                            Log.e(Constants.TAG, "Exception: " + e);
-                            returnCode = StatusCodes.DOWNLOAD_FAIL;
-                            break; // stop for-loop
+                        } catch (IOException e) {
+                            Log.e(Constants.TAG, "Exception while downloading from " + currentUrl,
+                                    e);
+
+                            mNumberOfFailedDownloads++;
+
+                            // set last_modified_online of failed download to 0 (not available)
+                            ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
+                                    enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
+                                            .getColumnIndex(HostsSources._ID)), 0);
                         } finally {
                             // flush and close streams
                             try {
@@ -229,6 +244,11 @@ public class ApplyService extends WakefulIntentService {
                 // close cursor in the end
                 if (enabledHostsSourcesCursor != null && !enabledHostsSourcesCursor.isClosed()) {
                     enabledHostsSourcesCursor.close();
+                }
+
+                // if all downloads failed return download_fail error
+                if (mNumberOfDownloads == mNumberOfFailedDownloads && mNumberOfDownloads != 0) {
+                    returnCode = StatusCodes.DOWNLOAD_FAIL;
                 }
             } catch (Exception e) {
                 Log.e(Constants.TAG, "Private File can not be created, Exception: " + e);
