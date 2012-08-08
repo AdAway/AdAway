@@ -2,7 +2,7 @@ Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
 1.38
-* Skip hosts sources that are not reachable and show number of successful sources
+* Skip unreachable hosts sources and show number of successful sources
 - Fix for crash on donations screen (Android 4.1)
 - Fix crash on help screen (Android 4.1)
 
