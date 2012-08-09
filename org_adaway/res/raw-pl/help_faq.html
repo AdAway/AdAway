@@ -2,31 +2,32 @@
 <head></head>
 <body>
 <h2>Dochód z reklam</h2>
-<p>Istnieje mylne przekonanie, że jeśli użytkownik nie kliknie na reklamie, a następnie je zablokuj nie narazi autora programu na straty finansowe. To jest błąd, deweloperzy zarabiają również przez wyświetlanie reklam. Blokować czy nie to już zależy od Ciebie. Osobiście nie będę korzystać z aplikacji, które wyświetlają reklamy, ponieważ uważam je za bardzo denerwujące, więc bez blokowania reklam nie będę instalować takich aplikacji.</p>
+<p>Istnieje mylne przekonanie, że jeśli użytkownik nie klika na reklamy, to zablokowanie ich nie naraża autora programu na straty finansowe. Jest to nieprawdą, gdyż deweloperzy zarabiają również poprzez samo wyświetlanie reklam. Do Ciebie należy decyzja czy blokować je czy nie. 
+Osobiście (autor) nie korzystałbym z aplikacji, które wyświetlają reklamy, ponieważ uważam je za bardzo denerwujące. Tak więc bez blokera reklam nie zainstalowałbym tych aplikacji.</p>
 
 
 
 <h2>Jak działa AdAway?</h2>
-<p>AdAway używa <a href="http://en.wikipedia.org/wiki/Hosts_file">plik hosts</a> aby blokować wybrane nazwy hostów, serwujące reklamy. Plik hosts to plik w <tt>/system/etc/hosts</tt>, który mapuje  nazwy hostów i przypisane im adresy IP. Jest to tradycyjny sposób definiowania nazwy hostów i przypisanego do nich adresów IP bez udziału serwera DNS (Domain Name System). Wszystkie niepożądane nazwy hostów są przekierowywane na adres <tt>127.0.0.1</tt> co oznacza że wskazują na twoje własne urządzenie.</p>
+<p>AdAway używa <a href="http://en.wikipedia.org/wiki/Hosts_file">plik hosts</a>, aby blokować wybrane nazwy hostów serwujące reklamy. Plik hosts to plik znajdujący się w katalogu <tt>/system/etc/hosts</tt>, który mapuje nazwy hostów i przypisane im adresy IP. Jest to tradycyjny sposób definiowania nazwy hostów i przypisanych do nich adresów IP bez udziału serwera DNS (Domain Name System). Wszystkie niepożądane nazwy hostów są przekierowywane na adres <tt>127.0.0.1</tt>, co oznacza twoje urządzenie.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>Dlaczego opcja "Codzienne wyszukiwanie aktualizacji" jest nieaktywna?</h2>
+<p>Automatyczne wyszukiwanie nowych aktualizacji jest dostępne tylko wtedy, gdy AdAway jest zainstalowany w pamięci wewnętrznej telefonu. Jest to spowodowane ograniczeniami systemu Android.</p>
 
-<h2>Dlaczego powinienem zrestartować Androida aby zmiany przyniosły efekt?</h2>
-<p>Java w Androidzie utrzymuje własną wewnętrzną podręczną pamięć DNS. System operacyjny od razu zobaczy nowy plik hosts, konieczny bedzie jednak restart Androida celem odbudowy pamięci podręczną DNS Javy. (Sprawdzisz to pingiem w linii poleceń)</p>
+<h2>Dlaczego powinienem zrestartować system Android, aby zmiany przyniosły efekt?</h2>
+<p>Java w Androidzie utrzymuje własną wewnętrzną podręczną pamięć DNS. System operacyjny od razu wykryje nowy plik hosts (możesz to sprawdzić poleceniem ping w wierszu poleceń). Konieczny będzie jednak restart systemu Android w celu odbudowy pamięci podręcznej DNS Javy.</p>
 
-<h2>Jak używać lokalny swerwer www w AdAway?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<h2>Jak użyć lokalnego serwera www w AdAway?</h2>
+<p><b>AdAway działa również bez używania lokalnego serwera www!</b>
+<br/><br/>Możesz włączyć lokalny serwer www w opcjach AdAway, aby odpowiadać na zapytania lokalnym adresem IP <tt>127.0.0.1</tt>. To oznacza, że do zapytań programów do serwerów reklam, które tak naprawdę będą skierowane na adres <tt>127.0.0.1</tt>, zostanie udzielona odpowiedź przez lokalny serwer www programu AdAway.
+<br/>Niektóre aplikacji przestają działać, kiedy serwery reklam są nieosiągalne. Wykorzystując tę metodę bedą one ponownie "osiągalne", lecz odpowiedź będzie "pusta", bez żadnych reklam.</p>
 
 <h2>Jak mogę zablokować/odblokować określone nazwy hostów?</h2>
-<p>Możesz skonfigurować własny serwer dostarczający plik hosts z hostami, które chcesz zablokować i dodać go do <i>Źródła hostów</ i> lub dodać nazwy hostów, które chcesz zablokować do Czarnej listy (=Czarna) w <i >Twoje Listy</ i>. Dodatkowo adresy, które chcesz wykluczyć z blokowania mogą być dodawane do <i>Białej Listy</ i>(=Biała) a także adresy, które chcesz przekierować do określonego adresu IP dodane do <i>Przekierowanie</ i>(=Przekierowanie).</p>
+<p>Możesz skonfigurować własny serwer dostarczający plik hosts z hostami, które chcesz zablokować i dodać go do <i>Źródła hostów</i> lub dodać nazwy hostów, które chcesz zablokować do Czarnej listy (=Czarna) w <i >Twoje Listy</i>. Dodatkowo adresy, które chcesz wykluczyć z blokowania, mogą być dodawane do <i>Białej Listy</i>(=Biała), a także adresy, które chcesz przekierować do określonego adresu IP, dodane do <i>Przekierowanie</i>(=Przekierowanie).</p>
 
 <h2>Gdzie znajdę wiecej źródeł hostów?</h2>
-<p>Zobacz <a href="http://code.google.com/p/ad-away/wiki/HostsSources"> Lista dodatkowych źródeł hostów dla AdAway</a>.</p>
+<p>Zobacz <a href="http://code.google.com/p/ad-away/wiki/HostsSources">Lista dodatkowych źródeł hostów dla AdAway</a>.</p>
 
 <h2>Znalazłem błąd w AdAway!</h2>
-<p>Zgłoś to na <a href="http://code.google.com/p/ad-away/issues/list"> raportowanie błędów AdAway</a>.</p>
+<p>Zgłoś to tutaj: <a href="http://code.google.com/p/ad-away/issues/list">raportowanie błędów AdAway</a>.</p>
 </body>
 </html>

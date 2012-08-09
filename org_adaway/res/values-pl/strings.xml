@@ -7,7 +7,7 @@
   <string name="button_close">Zamknij</string>
   <string name="button_yes">Tak</string>
   <string name="button_no">Nie</string>
-  <string name="button_revert">Wyłącz blokowanie</string>
+  <string name="button_revert">Wyłącz blokowanie reklam</string>
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Anuluj</string>
   <string name="button_apply_text">Wszystkie pliki ze zdefiniowanych źródeł zostaną pobrane, połączone z twoją listą i dodane do pliku hosts.</string>
@@ -15,9 +15,9 @@
   <string name="button_save">Zapisz</string>
   <string name="button_webserver_toggle_checked">Serwer www działa</string>
   <string name="button_webserver_toggle_unchecked">Serwer www nie działa</string>
-  <string name="button_webserver_toggle_text">Start lub stop lokalnego serwera www aby odpowiadać na zapytania blokowanych hostów.</string>
+  <string name="button_webserver_toggle_text">Start lub stop lokalnego serwera www, aby odpowiadać na zapytania blokowanych hostów.</string>
   <string name="button_help">Pomoc</string>
-  <string name="button_tcpdump_text">Tcpdump jest narzędziem do monitorowania zapytań DNS i zapisywania ich do logu. Możesz go uruchomić w tle, uruchomić aplikację która wyświetla reklamy, a potem przeanalizować zapisany log zapytań DNS. Serwer reklam będzie mógł być wtedy dodany do twojej Czarnej listy.</string>
+  <string name="button_tcpdump_text">Tcpdump jest narzędziem do monitorowania zapytań DNS i zapisywania ich do logu. Możesz go uruchomić w tle, uruchomić aplikację, która wyświetla reklamy, a potem przeanalizować zapisany log zapytań DNS. Serwer reklam będzie mógł być wtedy dodany do twojej Czarnej listy.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump działa!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump nie działa!</string>
   <string name="button_tcpdump_open">Otwórz plik logu</string>
@@ -48,37 +48,39 @@
   <!--Status Notifications-->
   <string name="status_checking">Wyszukiwanie aktualizacji...</string>
   <string name="status_reverting">Przywracanie...</string>
-  <string name="status_reverting_subtitle">Tworzenie standartowego pliku hosts</string>
+  <string name="status_reverting_subtitle">Tworzenie standardowego pliku hosts</string>
   <string name="status_checking_subtitle">Wyszukiwanie aktualizacji</string>
   <string name="status_update_available">Aktualizacja jest dostępna</string>
   <string name="status_update_available_subtitle">Nowe pliki hostów są dostępne</string>
   <string name="status_no_connection">Brak połączenia z Internetem</string>
   <string name="status_no_connection_subtitle">Połączenie z Internetem niedostępne</string>
   <string name="status_download_fail">Źródło niedostępne</string>
+  <string name="status_download_fail_subtitle_new">Wszystkie źródła są nieosiągalne!</string>
   <string name="status_enabled">Włączone</string>
   <string name="status_enabled_subtitle">Najnowsze pliki hostów zostały włączone</string>
   <string name="status_disabled">Wyłączone</string>
   <string name="status_disabled_subtitle">Wyłączone</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
+  <string name="apply_symlink_missing">Podany przez ciebie symlink dla /system/etc/hosts nie istnieje lub jest niepoprawny. AdAway nie będzie działał, jeżeli nie ma wskazanego poprawnego pliku.\n\nCzy chcesz spróbować stworzyć symlink?</string>
   <string name="apply_symlink_missing_title">Zagubiony symlink</string>
   <string name="apply_not_enough_space">Brak miejsca na partycji!\nSpróbuj zmienić docelowy plik hosts na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Zbyt mało miejsca</string>
   <string name="apply_private_file_fail">Pobrany plik nie może zostać odczytany.</string>
-  <string name="apply_private_file_fail_title">Private file fail</string>
-  <string name="apply_remount_fail">Zamontowanie partycji jako odczyt/zapis nieudane!</string>
+  <string name="apply_private_file_fail_title">Błąd pliku prywatnego</string>
+  <string name="apply_remount_fail">Zamontowanie partycji do odczytu/zapisu nieudane!</string>
   <string name="apply_remount_fail_title">Montowanie nieudane</string>
-  <string name="apply_copy_fail">Kopiowanie pliku hostów nieudane!</string>
+  <string name="apply_copy_fail">Kopiowanie pliku hosts nieudane!</string>
   <string name="apply_copy_fail_title">Nieudane kopiowanie</string>
+  <string name="apply_success_subtitle">Pobrano dane ze źródeł:</string>
   <string name="apply_success_title">Zastosowano pomyślnie</string>
-  <string name="apply_success_dialog">Zastosowano pomyślnie.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
-  <string name="apply_symlink_successful">Symlink utworzony pomyślnie.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
+  <string name="apply_success_dialog">Zastosowano pomyślnie.\nMoże być wymagany restart Androida, aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
+  <string name="apply_symlink_successful">Symlink utworzony pomyślnie.\nMoże być wymagany restart Androida, aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
   <string name="apply_symlink_successful_title">Symlink utworzony prawidłowo</string>
-  <string name="apply_symlink_fail">Symlink nie mógł być utworzony przez system Android.\nBłąd ten występuje głównie na telefonach HTC z funkcją zwaną S-ON!\n\nRozwiązaniem jest uruchomienie w trybie recovery i ręczne utworzenie linka komendą \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJeżeli to nie pomaga poszukaj w Internecie informacji o S-OFF i twoim telefonie.</string>
+  <string name="apply_symlink_fail">Symlink nie mógł zostać utworzony przez system Android.\nBłąd ten występuje głównie na telefonach HTC z włączoną funkcją S-ON!\n\nRozwiązaniem jest uruchomienie telefonu w trybie recovery i ręczne utworzenie linka komendą \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJeżeli to nie pomaga, poszukaj w Internecie informacji o S-OFF i twoim telefonie.</string>
   <string name="apply_symlink_fail_title">Symlink nie został utworzony</string>
-  <string name="apply_help">Proszę przeczytać Pomoc aby uzyskać więcej informacji.</string>
-  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -&gt; More... -&gt; Mobile Networks -&gt; Access Point Names) and remove the value in the proxy field.</string>
-  <string name="apply_apn_proxy_title">APN proxy set!</string>
+  <string name="apply_help">Proszę przeczytać Pomoc, aby uzyskać więcej informacji.</string>
+  <string name="apply_apn_proxy">Proxy APN jest ustawione w twoim systemie!\nAdAway może nie działać prawidłowo podczas korzystania z sieci komórkowych takich, jak 3G. Możesz deaktywować tę opcję poprzez wybranie APN (W system Android 4: Sieci zwykłe i bezprzewodowe -&gt; Więcej... -&gt; Sieci komórkowe -&gt; Punkty dostępowe) i usunięcie wartości w polu \"proxy\".</string>
+  <string name="apply_apn_proxy_title">Ustawione proxy APN!</string>
   <string name="no_connection">Połączenie z Internetem niedostępne.</string>
   <string name="no_connection_title">Brak połączenia</string>
   <string name="download_dialog">Pobieranie...</string>
@@ -89,10 +91,11 @@
   <string name="apply_dialog_apply">Stosowanie pliku hosts</string>
   <string name="apply_fail">Stosowanie pliku hosts zakończone niepowodzeniem!\nSpróbuj zmienić w ustawieniach plik docelowy hosts na /data/data/hosts.</string>
   <string name="apply_fail_title">Zastosowanie nieudane</string>
-  <string name="revert_successful">Przyrócono domyślny plik hosts.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
+  <string name="revert_successful">Przywrócono domyślny plik hosts.\nMoże być wymagany restart Androida, aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
   <string name="revert_successful_title">Przywracanie wykonane prawidłowo</string>
   <string name="revert_problem">Przywracanie zakończone niepowodzeniem z nieznanych przyczyn.</string>
   <string name="revert_problem_title">Przywracanie nieudane!</string>
+  <string name="download_fail_dialog">Wszystkie włączone źródła są nieosiągalne! Czy na pewno masz połączenie z Internetem?</string>
   <string name="download_fail_title">Pobieranie nieudane</string>
   <string name="no_private_file">Plik osobisty nie został utworzony.</string>
   <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
@@ -112,10 +115,10 @@
   <string name="menu_add">Dodaj</string>
   <string name="menu_scan_adware">Skanuj w poszukiwaniu Adware</string>
   <string name="menu_hosts_sources">Źródła hostów</string>
-  <string name="menu_tcpdump">Loguj zapytanie DNS</string>
+  <string name="menu_tcpdump">Loguj zapytania DNS</string>
   <string name="menu_help">Pomoc</string>
   <string name="menu_lists">Twoje Listy</string>
-  <string name="menu_show_hosts_file">Otwórz listę hosts</string>
+  <string name="menu_show_hosts_file">Otwórz plik hosts</string>
   <string name="menu_donations">Wsparcie dla autora</string>
   <string name="menu_import">Importuj wszystkie Listy</string>
   <string name="menu_export">Eksportuj wszystkie Listy</string>
@@ -127,18 +130,19 @@
   <string name="help_tab_problems">Problemy</string>
   <string name="help_about_version">Wersja</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Możesz tutaj przeskanować aplikacje w poszukiwaniu szkodliwych dodatków Adware, które nie mogą być zablokowane przez AdAway. Takie aplikacje używają np powiadomień Airpush nawet gdy same nie są uruchomione lub nawet mogą zmienić dźwięk twojego dzwonka. Jedyny środek zaradczy to odinstalowanie takiej aplikacji przez kliknięcie na jej pozycję na liście! </string>
+  <string name="scan_adware_description">Możesz tutaj przeskanować aplikacje w poszukiwaniu szkodliwych dodatków Adware, które nie mogą być zablokowane przez AdAway. Takie aplikacje używają np. powiadomień Airpush nawet, gdy same nie są uruchomione, a mogą nawet zmienić dźwięk twojego dzwonka. Jedyny środek zaradczy to odinstalowanie takich aplikacji przez kliknięcie na jej pozycję na liście! </string>
   <string name="scan_adware_start">Rozpocznij skanowanie</string>
-  <string name="scan_adware_empty">Nie znaleziono aplikacji zawierająych szkodliwe Adaware</string>
+  <string name="scan_adware_empty">Nie znaleziono aplikacji zawierających szkodliwe Adware</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokalny:</string>
   <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">niedostępny(e)</string>
   <!--Other-->
   <string name="app_subtitle">Bloker reklam</string>
   <string name="no_text_editor_title">Brak zainstalowanego edytora tekstu</string>
-  <string name="no_text_editor">Nie odnaleziono edytora teksty aby otworzyć plik hosts. Możesz zainstalować edytor Jota lub inny.\n\nCzy chcesz zainstalować Jota?</string>
-  <string name="no_file_manager_title">Brak zainstalowanego menadżera plików</string>
-  <string name="no_file_manager">Nie znaleziono menadżera plików aby otworzyć plik. Możesz zainstalować OI File Manager lub inny menadżer plików.\n\nCzy chcesz zainstalować OI File Manager?</string>
+  <string name="no_text_editor">Nie odnaleziono edytora tekstu, aby otworzyć plik hosts. Możesz zainstalować edytor Jota lub inny.\n\nCzy chcesz zainstalować Jota?</string>
+  <string name="no_file_manager_title">Brak zainstalowanego menedżera plików</string>
+  <string name="no_file_manager">Nie znaleziono menedżera plików w celu otwarcia plików. Możesz zainstalować OI File Manager lub inny menedżer plików.\n\nCzy chcesz zainstalować OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Plik logu usunięty!</string>
   <string name="toast_tcpdump_added_to_blacklist">Nazwa hosta została dodana do twojej Czarnej listy!</string>
@@ -151,19 +155,19 @@
   <!--Preferences-->
   <string name="pref_download">Ustawienia główne</string>
   <string name="pref_hosts">Plik hosts</string>
-  <string name="pref_redirection_ip">Przekierowanie na IP</string>
+  <string name="pref_redirection_ip">Przekierowanie do IP</string>
   <string name="pref_update_check">Szukaj aktualizacji</string>
   <string name="pref_apply_method">Docelowy plik hosts</string>
   <string name="pref_apply_method_summary">Zanim zmienisz to ustawienie, przeczytaj pomoc dotyczącą tej funkcjonalności.</string>
   <string name="pref_redirection_ip_summary">Wszystkie blokowane nazwy hostów będą przekierowywane na ten adres IP.</string>
   <string name="pref_header_preferences">Ustawienia</string>
-  <string name="pref_header_preferences_summary">ustawienia główne AdAway</string>
+  <string name="pref_header_preferences_summary">Ustawienia główne AdAway</string>
   <string name="pref_never_reboot">Ukryj komunikat o restarcie</string>
   <string name="pref_never_reboot_summary">Ukryj komunikat proszący o restart Androida po udanej aktualizacji</string>
-  <string name="pref_webserver_on_boot">Włącz serwer www przy uruchomieniu</string>
-  <string name="pref_webserver_on_boot_summary">Uruchom serwer www przy starcie systemu, serwer nasłuchuje na lokalnyn adresie IP</string>
+  <string name="pref_webserver_on_boot">Włącz serwer www przy uruchomieniu systemu</string>
+  <string name="pref_webserver_on_boot_summary">Uruchom serwer www przy starcie systemu, serwer nasłuchuje na lokalnym adresie IP</string>
   <string name="pref_webserver_enabled">Włącz serwer www</string>
-  <string name="pref_webserver_enabled_summary">Włącza serwer www nasłuchający na lokalnym adresie IP aby odpowiadać na zapytania zablokowanych hostów</string>
+  <string name="pref_webserver_enabled_summary">Włącza serwer www nasłuchujący na lokalnym adresie IP, aby odpowiadać na zapytania zablokowanych hostów</string>
   <string name="pref_webserver">Lokalny serwer www</string>
   <string name="pref_custom_target">Niestandardowy plik docelowy</string>
   <string name="pref_custom_target_summary">Używaj tylko gdy docelowy plik hosts jest ustawiony na niestandardowy</string>
@@ -173,7 +177,7 @@
     <item>Niestandardowy plik</item>
   </string-array>
   <string name="pref_update_check_summary">Szukaj aktualizacji po uruchomieniu AdAway</string>
-  <string name="pref_sdcard_problem">Ta funkcja nie działa prawidłowo w przypadku gdy AdAway jest zainstalowany na karcie SD!</string>
+  <string name="pref_sdcard_problem">Ta funkcja nie działa prawidłowo w przypadku, gdy AdAway jest zainstalowany na karcie SD!</string>
   <string name="pref_background">Funkcje w tle</string>
   <string name="pref_update_check_daily">Codzienne wyszukiwanie aktualizacji</string>
   <string name="pref_update_check_daily_summary">Szukaj codziennie aktualizacji i powiadamiaj o nich</string>
@@ -185,5 +189,5 @@
   <string name="pref_redirection_rules_summary">Zezwalaj na przekierowania dla źródeł z pliku hosts.</string>
   <string name="pref_debug">Debugowanie</string>
   <string name="pref_enable_debug">Zapisuj log</string>
-  <string name="pref_enable_debug_summary">Musisz zrestartować AdAway aby uaktywnić te ustawienia.</string>
+  <string name="pref_enable_debug_summary">Musisz zrestartować AdAway, aby uaktywnić te ustawienia.</string>
 </resources>

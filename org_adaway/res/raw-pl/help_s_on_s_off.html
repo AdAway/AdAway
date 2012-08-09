@@ -2,27 +2,27 @@
 <head></head>
 <body>
 <h2>Urządzenia HTC</h2>
-<p>AdAway nie działa gdy używasz urządzeń z funkcją zwaną S-ON. 'Funkcja' ta występuje w wielu urządzeniach HTC i zabrania programowu AdAway nadpisywania pliku hosts.</p>
+<p>AdAway nie działa, gdy używasz urządzeń z funkcją zwaną S-ON. 'Funkcja' ta występuje w wielu urządzeniach HTC i zabrania aplikacji AdAway nadpisywania pliku hosts.</p>
 
-<h2>S-ON/S-OFF</h2>
-<p>S-OFF oznacza, że fragment NAND urządzenia jest odblokowany i może być zapisywany. Domyślne ustawienie dla urządzeń HTC to S-ON, co oznacza, że ani można uzyskać dostęp do niektórych części systemu nie można zagwarantować trwałego roota. Ponadto, S-ON kontroluje podpis obrazu wgrywanego firmwaru.</p>
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF oznacza, że fragment pamięci NAND urządzenia jest odblokowany i może zostać zapisany. Domyślne ustawienie dla urządzeń HTC to S-ON, co oznacza, że ani nie można uzyskać dostępu do niektórych części systemu, ani nie można zagwarantować trwałego roota. Dodatkowo flaga S-ON implikuje sprawdzanie podpisu wgrywanego firmware'u.</p>
 
-<h2>Czy mam S-ON lub S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<h2>Mam S-ON czy S-OFF?</h2>
+<p>Uruchom telefon w trybie Hboot (przytrzymując przycisk <i>Zmniejsz głośność</i> włącz telefon). Na samej górze będzie widniał napis S-OFF lub S-ON. Flaga S-OFF oznacza w pełni odblokowany telefon.
+<br/><br/>Więcej informacji możesz znaleźć na stronie: <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Obejście problemu</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
+<p>Wymóg: Musisz zainstalować w komputerze działający Android SDK zawierający powłokę ADB (wiersz poleceń ADB).
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>Uruchom telefon w trybie Hboot (przytrzymując przycisk <i>Zmniejsz głośność</i> włącz telefon).</li>
+<li>Użyj przycisku <i>Zmniejsz głośność</i>, aby wybrać "recovery".</li>
+<li>Gdy uruchomisz CWM recovery, wybierz opcję "partitions menu"</li>
+<li>Wybierz opcje: <i>mount /system</i>, <i>mount /sdcard</i> oraz <i>mount /data</i>.</li>
+<li>Podłącz kabel USB i uruchom wiersz poleceń w komputerze.</li>
+<li>Uruchom adb shell i wpisz<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Pozwoli to aplikacji AdAway na edycję pliku hosts znajdującego się w katalogu <tt>/data</tt>, co umożliwi systemowi operacyjnemu korzystać z niego tak, jakby znajdował się w katalogu <tt>/system</tt>.)</li>
+<li>Uruchom ponownie telefon, a następnie w ustawieniach AdAway wybierz <i>/data/data/hosts</i> z menu <i>Docelowy plik hosts</i>.</li>
+<li>AdAway powinien działać już poprawnie.</li>
 </ol>
 </body>
 </html>

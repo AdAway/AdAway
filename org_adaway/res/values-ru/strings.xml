@@ -55,6 +55,7 @@
   <string name="status_no_connection">Нет подключения к сети интернет</string>
   <string name="status_no_connection_subtitle">Нет подключения к сети интернет</string>
   <string name="status_download_fail">Недоступный источник</string>
+  <string name="status_download_fail_subtitle_new">Нет доступных источников хостов!</string>
   <string name="status_enabled">Включено</string>
   <string name="status_enabled_subtitle">Используются свежие файлы со списками хостов</string>
   <string name="status_disabled">Выключено</string>
@@ -70,6 +71,7 @@
   <string name="apply_remount_fail_title">Перемонтировать не удалось</string>
   <string name="apply_copy_fail">Копирование файла hosts не удалось!</string>
   <string name="apply_copy_fail_title">Копирование не удалось</string>
+  <string name="apply_success_subtitle">Использовано источников хостов:</string>
   <string name="apply_success_title">Применено успешно</string>
   <string name="apply_success_dialog">Применение прошло успешно.\nВозможно, потребуется перезагрузить устройство, чтобы изменения вступили в силу.\n\nВы хотите перезагрузить устройство?\n(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
   <string name="apply_symlink_successful">Ссылка создана успешно.\nВозможно, потребуется перезагрузить устройство, чтобы изменения вступили в силу.\n\nВы хотите перезагрузить устройство?\n(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
@@ -93,6 +95,7 @@
   <string name="revert_successful_title">Возвращено успешно</string>
   <string name="revert_problem">Восстановление не удалось по неизвестным причинам.</string>
   <string name="revert_problem_title">Восстановление не удалось!</string>
+  <string name="download_fail_dialog">Ни один из ваших активных источников хостов недоступен! Вы правильно подключены к интернету?</string>
   <string name="download_fail_title">Загрузка не удалась</string>
   <string name="no_private_file">Файл не может быть создан.</string>
   <string name="no_private_file_title">Не удалось создать файл</string>
@@ -133,6 +136,7 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Локальный:</string>
   <string name="hosts_last_modified_online">Интернет:</string>
+  <string name="hosts_not_available">недоступен</string>
   <!--Other-->
   <string name="app_subtitle">Блокировщик рекламы</string>
   <string name="no_text_editor_title">Не установлен текстовый редактор</string>

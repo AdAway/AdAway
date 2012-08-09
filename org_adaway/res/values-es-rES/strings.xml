@@ -55,6 +55,7 @@
   <string name="status_no_connection">No hay conexión a Internet</string>
   <string name="status_no_connection_subtitle">No hay conexión a Internet disponible</string>
   <string name="status_download_fail">Fuente no disponible</string>
+  <string name="status_download_fail_subtitle_new">¡No se pueden alcanzar los fuentes de hosts!</string>
   <string name="status_enabled">Activado</string>
   <string name="status_enabled_subtitle">Nuevos archivos de host activados</string>
   <string name="status_disabled">Desactivado</string>
@@ -70,7 +71,9 @@
   <string name="apply_remount_fail_title">Fallo al volver a montar</string>
   <string name="apply_copy_fail">¡Fallo al copiar el archivo de hosts!</string>
   <string name="apply_copy_fail_title">Error de copia</string>
+  <string name="apply_success_subtitle">Fuentes de hosts correctos:</string>
   <string name="apply_success_title">Cambio realizado</string>
+  <string name="apply_success_dialog">La aplicación fue correcta.\nPuede ser necesario reiniciar Android para que los cambios tengan efecto.\n\n¿Quieres reiniciar?\n(Para evitar perdida de datos asegúrate de que ninguna aplicación utiliza la tarjeta SD en este momento)</string>
   <string name="apply_symlink_successful">Enlace simbólico creado con éxito.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n ¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegurese de que ninguna aplicación está usando la sdcard en este momento!)</string>
   <string name="apply_symlink_successful_title">Creación de link simbólico correcta</string>
   <string name="apply_symlink_fail">El enlace simbólico no puede ser creado por Android.\nEste problema se debe normalmente a una \"característica\" llamada S-ON de los teléfonos HTC\n\nUna solución es arrancar el teléfono en modo recovery y crear el enlace simbólico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona, busque en Internet S-OFF y tu teléfono.</string>
@@ -92,6 +95,7 @@
   <string name="revert_successful_title">Cambios deshechos correctamente</string>
   <string name="revert_problem">No se pudo deshacer el cambio</string>
   <string name="revert_problem_title">¡No se puedo deshacer!</string>
+  <string name="download_fail_dialog">¡Ninguno de tus fuentes de hosts son alcanzables! ¿Estás conectado correctamente a Internet?</string>
   <string name="download_fail_title">Descarga fallida</string>
   <string name="no_private_file">No se puede crear el archivo privado.</string>
   <string name="no_private_file_title">No se pudo crear el archivo privado</string>
@@ -132,6 +136,7 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En línea:</string>
+  <string name="hosts_not_available">no disponible</string>
   <!--Other-->
   <string name="app_subtitle">Bloqueador de Anuncios</string>
   <string name="no_text_editor_title">No hay ningún editor de texto instalado</string>

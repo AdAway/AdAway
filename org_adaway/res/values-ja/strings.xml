@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">終了</string>
   <string name="button_apply">ファイルをダウンロードして適用</string>
@@ -54,6 +55,7 @@
   <string name="status_no_connection">ネット接続なし</string>
   <string name="status_no_connection_subtitle">ネットに接続されていません</string>
   <string name="status_download_fail">ソースが利用できません</string>
+  <string name="status_download_fail_subtitle_new">どのhostsソースにも接続できません!</string>
   <string name="status_enabled">有効です</string>
   <string name="status_enabled_subtitle">hostsファイルが有効化されました</string>
   <string name="status_disabled">無効です</string>
@@ -69,7 +71,9 @@
   <string name="apply_remount_fail_title">再マウント失敗</string>
   <string name="apply_copy_fail">hostsファイルのコピー失敗!</string>
   <string name="apply_copy_fail_title">コピー失敗</string>
+  <string name="apply_success_subtitle">成功したhostソース:</string>
   <string name="apply_success_title">適用しました</string>
+  <string name="apply_success_dialog">適用しました。\n変更を適用するにはAndroidの再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードが今使われていないか確認してください!)</string>
   <string name="apply_symlink_successful">symlinkを作成しました。\n変更を適用するには再起動が必要です。\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
   <string name="apply_symlink_successful_title">symlink作成成功</string>
   <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください。</string>
@@ -91,6 +95,7 @@
   <string name="revert_successful_title">元に戻しました</string>
   <string name="revert_problem">不明な理由により元に戻せませんでした。</string>
   <string name="revert_problem_title">元に戻せません!</string>
+  <string name="download_fail_dialog">どのhostsソースにも接続できません!インターネットに接続されていますか?</string>
   <string name="download_fail_title">ダウンロード失敗</string>
   <string name="no_private_file">プライベートファイルが作成できません。</string>
   <string name="no_private_file_title">プライベートファイルの作成失敗</string>
@@ -131,6 +136,7 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">ローカル:</string>
   <string name="hosts_last_modified_online">オンライン:</string>
+  <string name="hosts_not_available">利用不可</string>
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
   <string name="no_text_editor_title">テキストエディタがありません</string>
