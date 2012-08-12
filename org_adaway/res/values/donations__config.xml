@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Flattr -->
+    <item name="donations__flattr_enabled" type="bool">true</item>
+    <item name="donations__flattr_project_url" format="string" type="string">http://code.google.com/p/ad-away/</item>
+    <!-- without http:// ! -->
+    <item name="donations__flattr_url" format="string" type="string">flattr.com/thing/369138/AdAway-Ad-blocker-for-Android</item>
+
+    <!-- Google Play Store In-App Billing -->
+    <item name="donations__google_enabled" type="bool">true</item>
+
+    <!-- your public key from the google play publisher account -->
+    <item name="donations__google_pubkey" format="string" type="string">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg8bTVFK5zIg4FGYkHKKQ/j/iGZQlXU0qkAv2BA6epOX1ihbMz78iD4SmViJlECHN8bKMHxouRNd9pkmQKxwEBHg5/xDC/PHmSCXFx/gcY/xa4etA1CSfXjcsS9i94n+j0gGYUg69rNkp+p/09nO9sgfRTAQppTxtgKaXwpfKe1A8oqmDUfOnPzsEAG6ogQL6Svo6ynYLVKIvRPPhXkq+fp6sJ5YVT5Hr356yCXlM++G56Pk8Z+tPzNjjvGSSs/MsYtgFaqhPCsnKhb55xHkc8GJ9haq8k3PSqwMSeJHnGiDq5lzdmsjdmGkWdQq2jIhKlhMZMm5VQWn0T59+xjjIIwIDAQAB</item>
+
+    <!--
+    mapping from the possible donations of 1,2,3,5,8 and 13 eur to your in-app items defined in
+    the publisher account of google play
+    -->
+    <string-array name="donations__google_catalog" translate="false">
+        <item>adaway.donation.1</item>
+        <item>adaway.donation.2</item>
+        <item>adaway.donation.3</item>
+        <item>adaway.donation.5</item>
+        <item>adaway.donation.8</item>
+        <item>adaway.donation.13</item>
+    </string-array>
+
+    <!-- PayPal -->
+    <item name="donations__paypal_enabled" type="bool">true</item>
+    <item name="donations__paypal_user" format="string" type="string">dominik@dominikschuermann.de</item>
+    <item name="donations__paypal_currency_code" format="string" type="string">EUR</item>
+
+    <!-- This value can also be translated! -->
+    <string name="donations__paypal_item_name">AdAway Donation</string>
+
+</resources>

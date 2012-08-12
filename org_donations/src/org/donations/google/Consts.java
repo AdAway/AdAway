@@ -16,7 +16,7 @@
 
 package org.donations.google;
 
-import org.donations.DonationsConfiguration;
+import org.donations.DonationsUtils;
 
 /**
  * This class holds global constants that are used throughout the application to support in-app
@@ -91,5 +91,5 @@ public class Consts {
     public static final String BILLING_RESPONSE_REQUEST_ID = "REQUEST_ID";
     public static long BILLING_RESPONSE_INVALID_REQUEST_ID = -1;
 
-    public static final boolean DEBUG = DonationsConfiguration.DEBUG;
+    public static final boolean DEBUG = DonationsUtils.DEBUG;
 }

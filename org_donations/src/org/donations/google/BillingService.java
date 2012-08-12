@@ -559,7 +559,7 @@ public class BillingService extends Service implements ServiceConnection {
      */
     private void purchaseStateChanged(int startId, String signedData, String signature) {
         ArrayList<Security.VerifiedPurchase> purchases;
-        purchases = Security.verifyPurchase(signedData, signature);
+        purchases = Security.verifyPurchase(this, signedData, signature);
         if (purchases == null) {
             return;
         }

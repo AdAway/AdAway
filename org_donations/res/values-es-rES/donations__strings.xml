@@ -3,11 +3,11 @@
   <string name="donations__button_close">Cerrar</string>
   <string name="donations__flattr">Flattr</string>
   <string name="donations__description">¿Encuentra útil esta aplicación?\n¡Ayude en su desarrollo con Flattr o envíe donaciones usando el Google Android Market!</string>
-  <string name="donations__flattr_description">• ¡Flattr toma un 10% como cuota mensual!</string>
+  <string name="donations__flattr_description">¡Flattr toma un 10% como cuota mensual!</string>
   <string name="donations__google_android_market">Google Android Market</string>
   <string name="donations__google_android_market_not_supported_title">In-App Donations are not supported</string>
   <string name="donations__google_android_market_not_supported">In-App Donations are not supported. Is Google Play Store installed correctly?</string>
-  <string name="donations__google_android_market_description">• ¡Google se queda el 30% de todas las donaciones!\n• No existe una versión premium para donantes.</string>
+  <string name="donations__google_android_market_description">¡Google se queda el 30% de todas las donaciones!\nNo existe una versión premium para donantes.</string>
   <string name="donations__google_android_market_donate_button">¡Donar!</string>
   <string name="donations__google_android_market_text">¿Cuánto?</string>
   <string-array name="donations__google_android_market_promt_array">
@@ -19,7 +19,7 @@
     <item>13 Euros</item>
   </string-array>
   <string name="donations__paypal">PayPal</string>
-  <string name="donations__paypal_description">• You can choose how much you want to donate after clicking the button!</string>
+  <string name="donations__paypal_description">You can choose how much you want to donate after clicking the button!</string>
   <string name="donations__thanks_dialog_title">¡Gracias!</string>
   <string name="donations__thanks_dialog">¡Gracias por donar!\n¡Te lo agradezco mucho!</string>
 </resources>
