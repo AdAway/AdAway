@@ -7,7 +7,7 @@
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">Пожертвования через приложение не поддерживаются</string>
   <string name="donations__google_android_market_not_supported">Пожертвования через приложение не поддерживаются. Google Play Store установлен правильно?</string>
-  <string name="donations__google_android_market_description">Google взимает 30% с каждого пожертвования!\nПлатной версии AdWare не существует.</string>
+  <string name="donations__google_android_market_description">Google взимает 30% с каждого пожертвования!</string>
   <string name="donations__google_android_market_donate_button">Пожертвовать!</string>
   <string name="donations__google_android_market_text">Сколько?</string>
   <string-array name="donations__google_android_market_promt_array">

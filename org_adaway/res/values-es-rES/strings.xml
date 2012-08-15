@@ -10,7 +10,7 @@
   <string name="button_revert">Desactivar el bloqueo de anuncios</string>
   <string name="button_add">Añadir</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="button_apply_text">Todos los archivos hosts de las fuentes indicadas se descargarán, se fusionarán con tus propias listas y se instalará como un archivo hosts en tu sistema.</string>
+  <string name="button_apply_text">Todos los archivos hosts de las fuentes solicitadas se descargarán, se mezclarán con tus propias listas y se instalarán como un archivo hosts en tu sistema.</string>
   <string name="button_revert_text">Restaura el archivo hosts por defecto en tu sistema.</string>
   <string name="button_save">Guardar</string>
   <string name="button_webserver_toggle_checked">El Servidor Web está funcionando</string>
@@ -51,7 +51,7 @@
   <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
   <string name="status_checking_subtitle">Comprobando si hay actualizaciones disponibles</string>
   <string name="status_update_available">Actualización disponible</string>
-  <string name="status_update_available_subtitle">Nuevos archivos host disponibles</string>
+  <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
   <string name="status_no_connection">No hay conexión a Internet</string>
   <string name="status_no_connection_subtitle">No hay conexión a Internet disponible</string>
   <string name="status_download_fail">Fuente no disponible</string>
@@ -63,7 +63,7 @@
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">¡Enlace simbólico desde /data/data/hosts no existe! AdAway no funcionará si no existe.\n\n¿Desea intentar crear un enlace simbólico?</string>
   <string name="apply_symlink_missing_title">Falta enlace simbólico</string>
-  <string name="apply_not_enough_space">¡No hay suficiente espacio en la partición!\nIntente cambiar el archivo de destino en las preferencias  a /data/data/hosts.</string>
+  <string name="apply_not_enough_space">¡No hay suficiente espacio en la partición!\nIntenta cambiar la ruta del archivo hosts en las preferencias a /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">No hay suficiente espacio</string>
   <string name="apply_private_file_fail">El archivo descargado no se puede leer.</string>
   <string name="apply_private_file_fail_title">Fallo en el archivo privado</string>
@@ -83,13 +83,13 @@
   <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
   <string name="no_connection">La conexión a Internet no está funcionando.</string>
   <string name="no_connection_title">Sin conexión</string>
-  <string name="download_dialog">Descargar:</string>
+  <string name="download_dialog">Descargando...</string>
   <string name="apply_dialog">Aplicar</string>
   <string name="apply_dialog_lists">Aplicando lista negra y lista blanca</string>
   <string name="apply_dialog_hostnames">Analizando y fusionando los archivos hosts</string>
   <string name="apply_dialog_hosts">Construyendo archivo hosts</string>
   <string name="apply_dialog_apply">Aplicando archivo hosts</string>
-  <string name="apply_fail">¡No se pudo modificar el archivo hosts en tu sistema!\nIntente cambiar el archivo hosts de destino en las preferencias a /data/data/hosts.</string>
+  <string name="apply_fail">¡No se pudo modificar el archivo hosts en tu sistema!\nIntenta cambiar la ruta del archivo hosts en las preferencias a /data/data/hosts.</string>
   <string name="apply_fail_title">No se puedo realizar el cambio</string>
   <string name="revert_successful">Se volvió al archivo hosts por defecto.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n ¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegurese de que no hay aplicaciones utilizando la sdcard en este momento!)</string>
   <string name="revert_successful_title">Cambios deshechos correctamente</string>
@@ -157,7 +157,7 @@
   <string name="pref_hosts">Archivo Hosts</string>
   <string name="pref_redirection_ip">Redirección IP</string>
   <string name="pref_update_check">Buscar actualizaciones</string>
-  <string name="pref_apply_method">Destino del archivo host</string>
+  <string name="pref_apply_method">Ruta del archivo hosts</string>
   <string name="pref_apply_method_summary">Antes de cambiar esta configuración, lea la Ayuda acerca de esta funcionalidad.</string>
   <string name="pref_redirection_ip_summary">Todos los nombres de host bloqueados son redirigidos a esta dirección IP.</string>
   <string name="pref_header_preferences">Preferencias</string>
@@ -165,16 +165,16 @@
   <string name="pref_never_reboot">Ocultar diálogo de reiniciar</string>
   <string name="pref_never_reboot_summary">Oculta el cuadro de diálogo que pide reiniciar Android después de aplicar cambios correctamente</string>
   <string name="pref_webserver_on_boot">Iniciar Servidor Web al arrancar</string>
-  <string name="pref_webserver_on_boot_summary">Iniciar Servidor Web al arrancar retrasado 5 segundos escuchando en local direcciones IP</string>
+  <string name="pref_webserver_on_boot_summary">Iniciar Servidor Web al arrancar, escuchando en direcciones IP locales</string>
   <string name="pref_webserver_enabled">Habilitar Servidor Web</string>
   <string name="pref_webserver_enabled_summary">Activa un Servidor Web escuchando en las direcciones IP locales para responder a solicitudes de nombres de host bloqueados</string>
   <string name="pref_webserver">Servidor Web local</string>
-  <string name="pref_custom_target">Destino personalizado</string>
-  <string name="pref_custom_target_summary">Sólo se utiliza si el destino del archivo hosts se configura como destino personalizado</string>
+  <string name="pref_custom_target">Ruta personalizada</string>
+  <string name="pref_custom_target_summary">Sólo se utiliza si la ruta del archivo hosts se configura como ruta personalizada</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
     <item>/data/data/hosts</item>
-    <item>Destino personalizado</item>
+    <item>Ruta personalizada</item>
   </string-array>
   <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
   <string name="pref_sdcard_problem">¡Esta característica no funcionará correctamente si AdAway está instalado en la tarjeta SD!</string>
@@ -186,7 +186,7 @@
   <string name="pref_update_only_on_wifi">Actualizar sólo con Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Actualizar en segundo plano sólo cuando esté conectado a una red Wifi.</string>
   <string name="pref_redirection_rules">Permitir redirecciones</string>
-  <string name="pref_redirection_rules_summary">Permitir reglas de redirección desde los Fuentes de Hosts.</string>
+  <string name="pref_redirection_rules_summary">Permitir reglas de redirección desde los Fuentes de hosts.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug Logging</string>
   <string name="pref_enable_debug_summary">Necesitas reiniciar AdAway para que esta opción tenga efecto.</string>

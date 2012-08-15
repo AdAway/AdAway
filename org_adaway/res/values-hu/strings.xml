@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway HU</string>
   <!--Buttons-->
   <string name="button_exit">Kilép</string>
   <string name="button_apply">Fájlok letöltése és alkalmazása hirdetések blokkolására</string>
@@ -39,7 +40,7 @@
   <string name="lists_tab_redirection_list">Átirányítás lista</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostnév:</string>
-  <string name="list_dialog_whitelist_hostname">Hostnév:\n(Helyettesítő karakterek * és ? használata is engedélyezett!)</string>
+  <string name="list_dialog_whitelist_hostname">Hostnév\n(Helyettesítő karakterek * és ? használata is engedélyezett!)</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="import_dialog">Import...</string>
   <string name="export_dialog">Export...</string>
@@ -54,14 +55,15 @@
   <string name="status_no_connection">Nincs internet kapcsolat</string>
   <string name="status_no_connection_subtitle">Nincs elérhető internet kapcsolat</string>
   <string name="status_download_fail">Elérhetetlen forrás</string>
-  <string name="status_enabled">Engedélyezett</string>
+  <string name="status_download_fail_subtitle_new">Nincs elérhető host forrás!</string>
+  <string name="status_enabled">Engedett</string>
   <string name="status_enabled_subtitle">Újabb host fájlok engedélyezettek</string>
   <string name="status_disabled">Tiltott</string>
   <string name="status_disabled_subtitle">Tiltott</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">A cél symlink /system/etc/hosts nem létező vagy hibás! Az AdAway nem fog működni, ha nem mutat megfelelő fájlt.\n\nSzeretnéd újra megpróbálni létrehozni a symlinket?</string>
-  <string name="apply_symlink_missing_title">A symlink hiányzik</string>
-  <string name="apply_not_enough_space">Nincs elég hely a partíción!\nPróbáljd meg módosítani a cél host fájlt beállításait a /data/data/hosts mappában.</string>
+  <string name="apply_symlink_missing">A cél symlink /system/etc/hosts nem létező vagy hibás! Az AdAway nem fog működni, ha nem mutat megfelelő fájlt.\n\n\nSzeretnéd újra megpróbálni létrehozni a symlinket?</string>
+  <string name="apply_symlink_missing_title">Hiányzó symlink</string>
+  <string name="apply_not_enough_space">Nincs elég hely a partíción!\nPróbáld meg módosítani a cél host fájlt beállításait a /data/data/hosts mappában.</string>
   <string name="apply_not_enough_space_title">Nincs elég hely</string>
   <string name="apply_private_file_fail">A letöltött fájlt nem lehet olvasni.</string>
   <string name="apply_private_file_fail_title">Magánfájl hiba</string>
@@ -69,12 +71,16 @@
   <string name="apply_remount_fail_title">Sikertelen visszacsatolás</string>
   <string name="apply_copy_fail">Host fájlok másolása sikertelen!</string>
   <string name="apply_copy_fail_title">Sikertelen másolás</string>
+  <string name="apply_success_subtitle">Sikeres hosts forrás:</string>
   <string name="apply_success_title">Sikeres alkalmazás</string>
+  <string name="apply_success_dialog">Alkalmazása sikeres volt.\nSzükség lehet újraindítani Android a módosítások életbe léptetéséhez.\n\nSzeretnéd újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy pillanatnyilag ne használja más app az SD kártyát!)</string>
   <string name="apply_symlink_successful">Symlink létrehozás sikeres.\nSzükség lehet a készülék újraindítására a módosítások életbe léptetéséhez\n\nSzeretné újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, nem használja-e más az SD-t jelenleg!)</string>
   <string name="apply_symlink_successful_title">A symlink létrehozás sikeres</string>
-  <string name="apply_symlink_fail">Symlink nem hozható létre az Androidon.\nEz a sikertelenség egy S-ON nevű \"funkció\" leginkább HTC telefonokon!\n\nA megoldás az, hogy indítsd el a telefont recovery módban, és hozz létre symlinket az \'ln -s /data/data/hosts /system/etc/hosts\' segítségével.\n\nHa ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</string>
-  <string name="apply_symlink_fail_title">Symlink létrehozás sikertelen</string>
+  <string name="apply_symlink_fail">Symlink nem hozható létre az Androidon.\nEz a sikertelenség egy S-ON nevű \\"funkció\\" leginkább HTC telefonokon!\n\nA megoldás az, hogy indítsd el a telefont recovery módban, és hozz létre symlinket az \'ln -s /data/data/hosts /system/etc/hosts\' segítségével.\n\nHa ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</string>
+  <string name="apply_symlink_fail_title">Symlink létrehozása sikertelen</string>
   <string name="apply_help">Kérlek olvasd el a Súgót további információkért.</string>
+  <string name="apply_apn_proxy">Az APN proxy be van állítva az Androidon!\nAz AdAway nem működik megbízhatóan a mobilhálózatokon. Kikapcsolhatod a proxy-t a kiválasztott APN-en (Android 4: Vezeték nélküli és hálózati -&gt; Tovább... -&gt; Mobil hálózatok -&gt; Hozzáférési pontok nevei) és távolítsd el az értéket a proxy mezőből.</string>
+  <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
   <string name="no_connection">Az Internet kapcsolat nem működik.</string>
   <string name="no_connection_title">Nincs kapcsolat</string>
   <string name="download_dialog">Letöltés...</string>
@@ -89,6 +95,7 @@
   <string name="revert_successful_title">Sikeres visszaállítás</string>
   <string name="revert_problem">A visszatérés ismeretlen ok miatt nem sikerült.</string>
   <string name="revert_problem_title">Sikertelen visszatérés</string>
+  <string name="download_fail_dialog">Nincs engedélyezve a host források elérése! Megfelelően csatlakozol az Internethez?</string>
   <string name="download_fail_title">Sikertelen letöltés</string>
   <string name="no_private_file">Privát fájl nem hozható létre.</string>
   <string name="no_private_file_title">Privát fájl sikertelen létrehozása.</string>
@@ -106,6 +113,7 @@
   <!--Menu entries-->
   <string name="menu_refresh">Frissítés</string>
   <string name="menu_add">Hozzáadás</string>
+  <string name="menu_scan_adware">Adware keresése</string>
   <string name="menu_hosts_sources">Host források</string>
   <string name="menu_tcpdump">DNS kérések naplózása</string>
   <string name="menu_help">Súgó</string>
@@ -117,13 +125,18 @@
   <string name="menu_preferences">Lehetőségek</string>
   <!--Help-->
   <string name="help_tab_about">Névjegy</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problémák</string>
-  <string name="help_about_version">Version:</string>
+  <string name="help_about_version">Verzió:</string>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Itt lehet keresni hibás adware alkalmazásokat, amelyeket nem blokkol az AdAway.. Az alkalmazás pl. Airpush felugró értesítést használ, még ha az app nem is fut, vagy megváltoztatja a csengőhangot. Ellenintézkedésként csak az app eltávolítása lehetséges a lista elemére érintéssel!</string>
+  <string name="scan_adware_start">Szkennelés indítása</string>
+  <string name="scan_adware_empty">Nem található hibás Adware alkalmazás!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Helyi:</string>
   <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">nem érhető el</string>
   <!--Other-->
   <string name="app_subtitle">Hirdetés blokkoló</string>
   <string name="no_text_editor_title">Nincs szövegszerkesztő telepítve</string>
@@ -170,6 +183,11 @@
   <string name="pref_update_check_daily_summary">Naponta a háttérben ellenőrzi a frissítéseket és értesít</string>
   <string name="pref_automatic_update_daily">Automatikus frissítés</string>
   <string name="pref_automatic_update_daily_summary">Automatikusan frissít a háttérben ha frissítés érhető el.</string>
+  <string name="pref_update_only_on_wifi">Csak Wifi-n frissíthet</string>
+  <string name="pref_update_only_on_wifi_summary">Csak Wifi hálózathoz csatlakozva futtathat a háttérben frissítéseket.</string>
   <string name="pref_redirection_rules">Átirányítás engedélyezése</string>
   <string name="pref_redirection_rules_summary">Hagyja az átirányítás szabályait a Host Források-ra.</string>
+  <string name="pref_debug">Hibakeresés</string>
+  <string name="pref_enable_debug">Hibakeresés naplózása</string>
+  <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>
 </resources>

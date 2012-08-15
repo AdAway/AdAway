@@ -8,21 +8,21 @@
 <p>S-OFF bedeutet, dass der NAND-Anteil des Gerätes entsperrt ist und somit beschrieben werden kann. Die Standardeinstellung bei HTC-Geräten ist S-ON, was bedeutet, dass man weder Zugriff auf bestimmte Bereiche des Systems hat, noch kann man einen permanenten Root garantieren. Desweiteren ist auch die Überprüfung der Signatur von Firmware-Images durch das S-ON-Flag sichergestellt.</p>
 
 <h2>Habe ich S-ON oder S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Starte in das Boot-Menü deines Gerätes durch Halten der <i>Lautstärke verringern</i>-Taste während du die Power-Taste gedrückt hältst. Der Text im Menü zeigt einen Status als S-OFF oder S-ON an. Ein voller Root-Zugriff bedeutet S-OFF.
+<br/><br/>Mehr Informationen findest du unter <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Workaround</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
+<p>Voraussetzung: Das Android-SDK ist installiert und die ADB-Shell ist funktionsfähig.
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>Starte in das Boot-Menü deines Gerätes durch Halten der <i>Lautstärke verringern</i>-Taste während du die Power-Taste gedrückt hältst.</li>
+<li>Nutze die <i>Lautstärke verringern</i>-Taste um zu Recovery zu navigieren.</li>
+<li>In ClockworkMod Recovery navigiere zum Partitions-Menu.</li>
+<li>Wähle <i>mount /system</i>, <i>mount /sdcard</i> und <i>mount /data</i>.</li>
+<li>Verbinde das Gerät mit dem PC und öffne die Shell.</li>
+<li>Starte die ADB-Shell<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Dies erstellt einen Link, der es AdAway erlaubt die Hosts-Datei unter <tt>/data</tt> zu verändern, während es für das Betriebssystem so aussieht als wäre sie unter <tt>/system</tt>.)</li>
+<li>Starte dein Gerät neu und konfiguriere AdAway: Die <i>Zu benutzende hosts-Datei</i> muss auf <i>/data/data/hosts</i> gesetzt werden.</li>
+<li>AdAway sollte nun funktionieren.</li>
 </ol>
 </body>
 </html>

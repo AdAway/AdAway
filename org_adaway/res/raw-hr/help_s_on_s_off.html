@@ -1,0 +1,27 @@
+<html>
+<head></head>
+<body>
+<h2>HTC uređaji</h2>
+<p>AdAway ne radi kada koristite uređaj sa takozvanim S-ON-om. To "svojstvo" prisutno je na brojnim HTC-ovim uređajima i onemogućuje AdAwayu pisanje hosts datoteke.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF označava to da je NAND dio uređaja otključan i da se može pisati na njega. Zadana postavka za HTC-ove uređaje je S-ON, što znači da ne možete pristupiti određenim dijelovima sustava, niti Vam može biti zagarantiran trajni root. Štoviše, provjera potpisa za sve slike firmwarea također je osigurana oznakom S-ON.</p>
+
+<h2>Imam li S-ON ili S-OFF?</h2>
+<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+
+<h2>Zaobilaženje</h2>
+<p>Potrebno: instaliran i funkcionalan Android SDK s ADB shellom na Vašem PC-u. \n</p>
+<ol>
+<li>Ponovno pokrenite Vaš uređaj i pritisnite tipku <i>za stišavanje</i> dok držite tipku za paljenje.</li>
+<li>Koristeći tipku <i>za stišavanje</i> odaberite stavku "Recovery".</li>
+<li>U Clockwork recoveryju koristeći tipku za stišavanje dođite do stavke "Partitions menu" te je odaberite pomoću track pada.</li>
+<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
+<li>Plug in your usb cord and open a command line on your pc.</li>
+<li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
+<li>AdAway should work now.</li>
+</ol>
+</body>
+</html>

@@ -55,6 +55,7 @@
   <string name="status_no_connection">Keine Internetverbindung</string>
   <string name="status_no_connection_subtitle">Keine Internetverbindung verfügbar</string>
   <string name="status_download_fail">Nicht verfügbare Quelle</string>
+  <string name="status_download_fail_subtitle_new">Keine Hosts-Quellen erreichbar!</string>
   <string name="status_enabled">Aktiviert</string>
   <string name="status_enabled_subtitle">Die neusten hosts-Dateien sind aktiv</string>
   <string name="status_disabled">Deaktiviert</string>
@@ -70,6 +71,7 @@
   <string name="apply_remount_fail_title">Neueinbinden ist fehlgeschlagen</string>
   <string name="apply_copy_fail">Kopieren der hosts-Datei fehlgeschlagen!</string>
   <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
+  <string name="apply_success_subtitle">Erfolgreiche Hosts-Quellen:</string>
   <string name="apply_success_title">Erfolgreich angewendet</string>
   <string name="apply_success_dialog">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
   <string name="apply_symlink_successful">Der symbolische Link wurde erfolgreich gesetzt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
@@ -93,6 +95,7 @@
   <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
   <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
   <string name="revert_problem_title">Die Wiederherstellung ist fehlgeschlagen!</string>
+  <string name="download_fail_dialog">Keine der aktivierten Hosts-Quellen ist erreichbar! Funktioniert deine Internetverbindung richtig?</string>
   <string name="download_fail_title">Download fehlgeschlagen</string>
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
@@ -133,6 +136,7 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">nicht verfügbar</string>
   <!--Other-->
   <string name="app_subtitle">Werbeblocker</string>
   <string name="no_text_editor_title">Kein Text-Editor installiert</string>

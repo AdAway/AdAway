@@ -55,6 +55,7 @@
   <string name="status_no_connection">没有网络连接</string>
   <string name="status_no_connection_subtitle">没有可用网络连接</string>
   <string name="status_download_fail">不可用的源</string>
+  <string name="status_download_fail_subtitle_new">无可连接主机！</string>
   <string name="status_enabled">启用</string>
   <string name="status_enabled_subtitle">最新的 hosts 文件已经启用</string>
   <string name="status_disabled">禁用</string>
@@ -70,6 +71,7 @@
   <string name="apply_remount_fail_title">重新挂载失败</string>
   <string name="apply_copy_fail">复制 hosts 文件失败！</string>
   <string name="apply_copy_fail_title">复制失败</string>
+  <string name="apply_success_subtitle">成功连接的主机源：</string>
   <string name="apply_success_title">应用成功</string>
   <string name="apply_success_dialog">应用成功。\n这可能需要重新启动你的 Android 才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用 sd 卡）</string>
   <string name="apply_symlink_successful">符号链接创建成功。\n这可能需要重新启动你的 Android 才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用 sd 卡）</string>
@@ -93,6 +95,7 @@
   <string name="revert_successful_title">还原成功</string>
   <string name="revert_problem">由于未知原因还原失败。</string>
   <string name="revert_problem_title">还原失败</string>
+  <string name="download_fail_dialog">所有你选择的主机源都无法连接！你确定你已经连接到互联网？</string>
   <string name="download_fail_title">下载失败</string>
   <string name="no_private_file">不能创建私有文件</string>
   <string name="no_private_file_title">私有文件创建失败</string>
@@ -133,6 +136,7 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">在线：</string>
+  <string name="hosts_not_available">不可用</string>
   <!--Other-->
   <string name="app_subtitle">广告屏蔽</string>
   <string name="no_text_editor_title">没有安装文本编辑器</string>

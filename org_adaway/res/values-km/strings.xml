@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">ចាកចេញ</string>
+  <string name="button_close">បិទ</string>
+  <string name="button_yes">បាទ</string>
+  <string name="button_no">ទេ</string>
+  <string name="button_revert">មិនអនុញ្ញាតការបំបិទការឃោសនា</string>
+  <string name="button_add">បន្ថែម</string>
+  <string name="button_cancel">បោះបង់</string>
+  <string name="button_save">រក្សាទុក</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump កំពុងដំណើរការ!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump មិនដំណើរការ!</string>
+  <string name="button_tcpdump_open">បើកឯកសារកំណត់ហេតុ</string>
+  <string name="button_tcpdump_delete">លុបឯកសារកំណត់ហេតុ</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">បន្ថែម</string>
+  <string name="checkbox_list_empty">បញ្ជីទទេ</string>
+  <string name="checkbox_list_empty_text">អ្នកអាចដាក់បន្ថែមពីរបារសកម្ម</string>
+  <string name="checkbox_list_context_delete">លុបចេញ</string>
+  <string name="checkbox_list_edit_dialog_title">កែប្រែ</string>
+  <string name="checkbox_list_context_edit">កែប្រែ</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">បញ្ជីស</string>
+  <string name="lists_tab_blacklist">បញ្ជីខ្មៅ</string>
+  <string name="import_dialog">កំពុងនាំចូល...</string>
+  <string name="export_dialog">កំពុងនាំចេញ...</string>
+  <!--Status Notifications-->
+  <string name="status_download_fail_subtitle_new">គ្មានប្រភពឯកសារម៉ាស៊ីនណាអាចទាក់ទងបាន</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_success_subtitle">ប្រភពឯកសារម៉ាស៊ីនដែលបានជោគជ័យ</string>
+  <string name="apply_apn_proxy_title">បានកំណត់ APN ប្រូកស៊ី!</string>
+  <string name="no_connection_title">គ្មានការតភ្ជាប់</string>
+  <string name="download_dialog">កំពុងទាញយក</string>
+  <string name="apply_dialog">កំពុងអនុវត្ត</string>
+  <string name="apply_dialog_lists">កំពុងអនុវត្តបញ្ជីខ្មៅ និង បញ្ជីស</string>
+  <string name="apply_dialog_hosts">កំពុងបង្កើតឯកសារ</string>
+  <string name="apply_dialog_apply">កំពុងអនុវត្តឯកសារ</string>
+  <string name="apply_fail_title">ការអនុវត្តបានបរាជ័យ</string>
+  <!--Other Dialogs-->
+  <!--Menu entries-->
+  <string name="menu_add">បន្ថែម</string>
+  <string name="menu_scan_adware">ស្កេនរក Adware</string>
+  <string name="menu_import">នាំចូលគ្រប់បញ្ជី</string>
+  <string name="menu_export">នាំចេញគ្រប់បញ្ជី</string>
+  <!--Help-->
+  <string name="help_tab_about">អំពី</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_about_version">កំណែ៖</string>
+  <!--Scan Adware-->
+  <string name="scan_adware_start">ចាប់ផ្ដើមស្កេន</string>
+  <string name="scan_adware_empty">ពុំមានកម្មវិធី Adware អាក្រក់ដែលអាចរកឃើញ!</string>
+  <!--Hosts Sources-->
+  <string name="hosts_not_available">មិនមានរកឃើញ</string>
+  <!--Other-->
+  <string name="app_subtitle">អ្នកបំបិទការឃោសនា</string>
+  <string name="no_file_manager_title">ពុំមានកម្មវិធីគ្រប់គ្រងឯកសារត្រូវបានបញ្ចូល</string>
+  <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">បានលុបចេញឯកសារកំណត់ហេតុ!</string>
+  <string name="toast_tcpdump_added_to_blacklist">ឈ្មោះម៉ាស៊ីនបានដាក់បន្ថែមក្នុងបញ្ជីខ្មៅរបស់អ្នក!</string>
+  <string name="toast_tcpdump_added_to_whitelist">ឈ្មោះម៉ាស៊ីនបានដាក់បន្ថែមក្នុងបញ្ជីសរបស់អ្នក!</string>
+  <string name="tcpdump_log_context_blacklist">បន្ថែមក្នុងបញ្ជីខ្មៅ</string>
+  <string name="tcpdump_log_context_whitelist">បន្ថែមក្នុងបញ្ជីស</string>
+  <string name="tcpdump_log_context_browser">បើកក្នុងកម្មវិធីរុករក</string>
+  <string name="tcpdump_log_empty">ឯកសារកំណត់ហេតុគឺទទេ!</string>
+  <string name="tcpdump_log_footer">ចុចអោយយួរលើឈ្មោះម៉ាស៊ីនមួយដើម្បីបន្ថែមវាទៅក្នុងបញ្ជីខ្មៅ ឬ បញ្ជីស!</string>
+  <!--Preferences-->
+  <string name="pref_download">ការកំណត់ទូរទៅ</string>
+  <string name="pref_hosts">ឯកសារម៉ាស៊ីន</string>
+  <string name="pref_redirection_ip">ការប្ដូរទិស IP</string>
+  <string name="pref_update_check">ពិនិត្យមើលភាពទាន់សម័យ</string>
+  <string name="pref_apply_method">គោលដៅឯកសារម៉ាស៊ីន</string>
+  <string name="pref_apply_method_summary">មុនពេលផ្លាស់ប្ដូរការកំណត់នេះ សូមអាន ជំនួយ អំពីលក្ខណៈពិសេសរបស់វា។</string>
+  <string name="pref_redirection_ip_summary">គ្រប់ឈ្មោះម៉ាស៊ីនដែលបានទប់ស្កាត់បានប្ដូរទិសទៅកានអាស័យដ្ឋាន IP នេះហើយ។</string>
+  <string name="pref_header_preferences">ការកំណត់</string>
+  <string name="pref_header_preferences_summary">ការកំណត់ទូរទៅសម្រាប់ AdAway</string>
+  <string name="pref_never_reboot">លាក់ប្រអប់ចាប់ផ្ដើមឡើងវិញ</string>
+  <string name="pref_never_reboot_summary">លាក់ប្រអប់ដែលសួរពីការចាប់ផ្ដើមឡើងវិញបន្ទាប់ពីបានអនុវត្តជោគជ័យ</string>
+  <string name="pref_webserver_on_boot">ចាប់ផ្ដើម</string>
+  <string name="pref_update_check_daily_summary">ពិនិត្យមើលភាពទាន់សម័យរាល់ថ្ងៃក្នុងផ្ទាំងខាងក្រោយជាមួយការជូនដំណឹង</string>
+  <string name="pref_automatic_update_daily">ធ្វើអោយទាន់សម័យដោយស្វ័យប្រវត្តិ</string>
+  <string name="pref_automatic_update_daily_summary">ធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយបើសិនជាមានភាពទាន់សម័យ។</string>
+  <string name="pref_update_only_on_wifi">ធ្វើអោយទាន់សម័យតែពេលប្រើ Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">ប្រតិបត្តិការធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយតែពេលមានការតភ្ជាប់ទៅនឹងបណ្ដាញ Wifi។</string>
+  <string name="pref_redirection_rules">អនុញ្ញាតការប្ដូរទិស</string>
+  <string name="pref_redirection_rules_summary">អនុញ្ញាតច្បាប់ការប្ដូរទិសពីប្រភពឯកសារម៉ាស៊ីន</string>
+  <string name="pref_debug">បំបាត់កំហុស</string>
+  <string name="pref_enable_debug">កំណត់ហេតុការបំបាត់កំហុស</string>
+  <string name="pref_enable_debug_summary">អ្នកគួរតែចាប់ផ្ដើម AdAway ឡើងវិញដើម្បីអោយការកំណត់មានប្រសិទ្ធភាព</string>
+</resources>

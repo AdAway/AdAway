@@ -7,7 +7,7 @@
   <string name="donations__google_android_market">Google Android Market</string>
   <string name="donations__google_android_market_not_supported_title">In-App Donations nem támogatott</string>
   <string name="donations__google_android_market_not_supported">Az alkalmazáson belüli adományozás nem támogatott. A Google Android Market megfelelően van telepítve?</string>
-  <string name="donations__google_android_market_description">A Google része 30 % minden adományból!\nNincs külön prémium változat az adományozóknak.</string>
+  <string name="donations__google_android_market_description">A Google része 30 % minden adományból!</string>
   <string name="donations__google_android_market_donate_button">Adományozok!</string>
   <string name="donations__google_android_market_text">Mennyi?</string>
   <string-array name="donations__google_android_market_promt_array">
@@ -19,7 +19,6 @@
     <item>13 Euro</item>
   </string-array>
   <string name="donations__paypal">PayPal</string>
-  <string name="donations__paypal_description">You can choose how much you want to donate after clicking the button!</string>
   <string name="donations__thanks_dialog_title">Köszönöm!</string>
   <string name="donations__thanks_dialog">Köszönjük a támogatást!\nNagyra értékeljük!</string>
 </resources>

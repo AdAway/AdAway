@@ -62,11 +62,11 @@
   <string name="status_disabled_subtitle">Wyłączone</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Podany przez ciebie symlink dla /system/etc/hosts nie istnieje lub jest niepoprawny. AdAway nie będzie działał, jeżeli nie ma wskazanego poprawnego pliku.\n\nCzy chcesz spróbować stworzyć symlink?</string>
-  <string name="apply_symlink_missing_title">Zagubiony symlink</string>
+  <string name="apply_symlink_missing_title">Brak symlinka</string>
   <string name="apply_not_enough_space">Brak miejsca na partycji!\nSpróbuj zmienić docelowy plik hosts na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Zbyt mało miejsca</string>
   <string name="apply_private_file_fail">Pobrany plik nie może zostać odczytany.</string>
-  <string name="apply_private_file_fail_title">Błąd pliku prywatnego</string>
+  <string name="apply_private_file_fail_title">Błąd pliku osobistego</string>
   <string name="apply_remount_fail">Zamontowanie partycji do odczytu/zapisu nieudane!</string>
   <string name="apply_remount_fail_title">Montowanie nieudane</string>
   <string name="apply_copy_fail">Kopiowanie pliku hosts nieudane!</string>
@@ -100,7 +100,7 @@
   <string name="no_private_file">Plik osobisty nie został utworzony.</string>
   <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Nie można w systemie znaleźć binarii su, lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\nTak sie dzieje w przypadku gdy twoje urządzenie nie jest zrootowane.\nInformacje jak zrootować swoje urządzenie znajdziesz na http://www.cyanogenmod.com lub innych stronach www o tematyce Androida.</string>
+  <string name="no_root_description">Nie można w systemie znaleźć pliku su lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\nTak sie dzieje w przypadku, gdy twoje urządzenie nie jest zrootowane.\nInformacje jak zrootować swoje urządzenie znajdziesz na http://www.cyanogenmod.com lub innych stronach www o tematyce Androida.</string>
   <string name="no_root_title">Wymagany jest zrootowany Android</string>
   <string name="no_url">To nie jest prawidłowy adres URL!</string>
   <string name="no_url_title">Błędny URL</string>
