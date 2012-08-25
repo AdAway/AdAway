@@ -240,7 +240,6 @@ public class BaseFragment extends SherlockFragment {
             boolean buttonsDisabled = savedInstanceState.getBoolean("buttonsEnabled");
             setButtonsDisabled(buttonsDisabled);
         }
-
     }
 
     @Override

@@ -108,8 +108,8 @@ public class TcpdumpUtils {
      * @param context
      */
     public static void stopTcpdump(Context context, Shell shell) {
-        Toolbox tb = new Toolbox(shell);
         try {
+            Toolbox tb = new Toolbox(shell);
             tb.killAllBinary(Constants.TCPDUMP_EXECUTEABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while killing tcpdump", e);
@@ -122,10 +122,10 @@ public class TcpdumpUtils {
      * @return true if tcpdump is running
      */
     public static boolean isTcpdumpRunning(Shell shell) {
-        Toolbox tb = new Toolbox(shell);
-
         try {
-            if (tb.isProcessRunning(Constants.TCPDUMP_EXECUTEABLE)) {
+            Toolbox tb = new Toolbox(shell);
+
+            if (tb.isBinaryRunning(Constants.TCPDUMP_EXECUTEABLE)) {
                 return true;
             } else {
                 return false;

@@ -3,9 +3,6 @@
 <b>Description</b>
 AdAway is an open source ad blocker for Android using the hosts file.
 
-<b>To all users with Galaxy Note Android 4 stock rom:</b>
-The stock rom ships with a broken toolbox, which makes AdAway not working. Install Busybox and AdAway will use that instead!
-
 <b>Requirements</b>
 • ROOT
 • Read/Write access on system-Partition
@@ -48,9 +45,6 @@ GERMAN:
 
 
 <b>Achtung: ANWENDUNG BRAUCHT ROOT-ZUGRIFF AUF DEM GERÄT</b>
-
-<b>To all users with Galaxy Note Android 4 stock rom:</b>
-The stock rom ships with a broken toolbox, which makes AdAway not working. Install Busybox and AdAway will use that instead!
 
 <b>Beschreibung</b>
 AdAway ist ein Open-Source Ad-Blocker unter Verwendung der hosts-Datei.

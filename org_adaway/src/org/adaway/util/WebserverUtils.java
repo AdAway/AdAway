@@ -36,10 +36,11 @@ public class WebserverUtils {
      */
     public static void startWebserver(Context context, Shell shell) {
         Log.d(Constants.TAG, "Starting webserver...");
-        SimpleBinaryCommand webserverCommand = new SimpleBinaryCommand(context,
-                Constants.WEBSERVER_EXECUTEABLE, " > /dev/null 2>&1 &");
 
         try {
+            SimpleBinaryCommand webserverCommand = new SimpleBinaryCommand(context,
+                    Constants.WEBSERVER_EXECUTEABLE, " > /dev/null 2>&1 &");
+
             shell.add(webserverCommand).waitForFinish();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while starting webserver", e);
@@ -70,8 +71,8 @@ public class WebserverUtils {
      * @param context
      */
     public static void stopWebserver(Context context, Shell shell) {
-        Toolbox tb = new Toolbox(shell);
         try {
+            Toolbox tb = new Toolbox(shell);
             tb.killAllBinary(Constants.WEBSERVER_EXECUTEABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while killing webserver", e);
@@ -84,10 +85,10 @@ public class WebserverUtils {
      * @return true if webserver is running
      */
     public static boolean isWebserverRunning(Shell shell) {
-        Toolbox tb = new Toolbox(shell);
-
         try {
-            if (tb.isProcessRunning(Constants.WEBSERVER_EXECUTEABLE)) {
+            Toolbox tb = new Toolbox(shell);
+
+            if (tb.isBinaryRunning(Constants.WEBSERVER_EXECUTEABLE)) {
                 return true;
             } else {
                 return false;

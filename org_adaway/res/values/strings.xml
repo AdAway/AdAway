@@ -46,13 +46,13 @@
     <string name="list_dialog_hostname">Hostname:</string>
     <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard characters * and ? are allowed!)</string>
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
-    <string name="import_dialog">Importing...</string>
-    <string name="export_dialog">Exporting...</string>
+    <string name="import_dialog">Importing…</string>
+    <string name="export_dialog">Exporting…</string>
     <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
 
     <!-- Status Notifications -->
-    <string name="status_checking">Checking for update...</string>
-    <string name="status_reverting">Reverting...</string>
+    <string name="status_checking">Checking for update…</string>
+    <string name="status_reverting">Reverting…</string>
     <string name="status_reverting_subtitle">Creating standard hosts file</string>
     <string name="status_checking_subtitle">Checking if update is available</string>
     <string name="status_update_available">Update available</string>
@@ -85,12 +85,12 @@
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More... -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+    <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More… -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
     <string name="apply_apn_proxy_title">APN proxy set!</string>
     <string name="no_connection">The connection to the Internet is not working.</string>
     <string name="no_connection_title">No Connection</string>
-    <string name="download_dialog">Downloading...</string>
-    <string name="apply_dialog">Applying...</string>
+    <string name="download_dialog">Downloading…</string>
+    <string name="apply_dialog">Applying…</string>
     <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
     <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
     <string name="apply_dialog_hosts">Building hosts file</string>
@@ -117,7 +117,8 @@
     <string name="no_ip">This is not a valid IP!</string>
     <string name="no_ip_title">Malformed IP</string>
     <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
-
+    <string name="loading">Loading…</string>
+    
     <!-- Menu entries -->
     <string name="menu_refresh">Refresh</string>
     <string name="menu_add">Add</string>

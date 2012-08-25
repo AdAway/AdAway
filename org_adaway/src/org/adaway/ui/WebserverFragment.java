@@ -81,7 +81,9 @@ public class WebserverFragment extends SherlockFragment {
         super.onDestroy();
 
         try {
-            mRootShell.close();
+            if (mRootShell != null) {
+                mRootShell.close();
+            }
         } catch (IOException e) {
             Log.e(Constants.TAG, "Problem while closing shell!", e);
         }

@@ -29,6 +29,7 @@ import java.util.concurrent.ExecutionException;
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Log;
+import org.rootcommands.RootCommands;
 import org.rootcommands.Shell;
 import org.rootcommands.Toolbox;
 
@@ -62,51 +63,39 @@ public class Utils {
      * @return true if phone is rooted
      */
     public static boolean isAndroidRooted(final Activity activity) {
-        boolean rootAvailable = false;
+        boolean rootAccess = false;
 
         // root check can be disabled for debugging in emulator
         if (Constants.DEBUG_DISABLE_ROOT_CHECK) {
-            rootAvailable = true;
+            rootAccess = true;
         } else {
-            // check for root on device and call su binary
-            try {
-                Shell rootShell = Shell.startRootShell();
+            if (RootCommands.rootAccessGiven()) {
+                rootAccess = true;
+            } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setCancelable(false);
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                builder.setTitle(activity.getString(R.string.no_root_title));
 
-                Toolbox tb = new Toolbox(rootShell);
-                if (!tb.isRootAccessGiven()) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                    builder.setCancelable(false);
-                    builder.setIcon(android.R.drawable.ic_dialog_alert);
-                    builder.setTitle(activity.getString(R.string.no_root_title));
+                // build view from layout
+                LayoutInflater factory = LayoutInflater.from(activity);
+                final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
+                builder.setView(dialogView);
 
-                    // build view from layout
-                    LayoutInflater factory = LayoutInflater.from(activity);
-                    final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
-                    builder.setView(dialogView);
+                builder.setNeutralButton(activity.getResources().getString(R.string.button_exit),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                activity.finish(); // finish current activity, means exiting app
+                            }
+                        });
 
-                    builder.setNeutralButton(activity.getResources()
-                            .getString(R.string.button_exit),
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    activity.finish(); // finish current activity, means exiting app
-                                }
-                            });
-
-                    AlertDialog alert = builder.create();
-                    alert.show();
-                } else {
-                    rootAvailable = true;
-                }
-
-                rootShell.close();
-            } catch (Exception e) {
-                Log.e(Constants.TAG, "Problem while checking for root!", e);
-                rootAvailable = false;
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         }
 
-        return rootAvailable;
+        return rootAccess;
     }
 
     /**
