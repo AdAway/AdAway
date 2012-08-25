@@ -19,6 +19,7 @@
     <item>13 euroa</item>
   </string-array>
   <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Voit valita, kuinka paljon haluat lahjoittaa painikkeen napsauttamisen jälkeen!</string>
   <string name="donations__thanks_dialog_title">Kiitos!</string>
   <string name="donations__thanks_dialog">Kiitos lahjoituksestasi!\nArvostan sitä suuresti!</string>
 </resources>

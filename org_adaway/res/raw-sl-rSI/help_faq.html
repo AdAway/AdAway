@@ -9,16 +9,16 @@
 <h2>Kako deluje AdAway?</h2>
 <p>AdAway uporablja <a href="http://en.wikipedia.org/wiki/Hosts_file">"hosts" datoteko</a> za blokiranje naslovov, ki prikazujejo oglase. Hosts je datoteka, ki povezuje naslove strani z njihovimi IP številkami, pred vpogledom v DNS. Vse nezaželene strani tako preusmerimo na IP številko <tt>127.0.0.1</tt>, ki vedno predstavlja lastno napravo(naprava se poveže sama nase) in tako preprečimo dostop do teh strani.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>Zakaj je nastavitev za dnevno posodabljanje onemogočena (siva)?</h2>
+<p>Samodejno posodabljanje je možno samo če je AdAway nameščen na notranji spomin (NE na SD kartico). To je omejitev sistema Android.</p>
 
 <h2>Zakaj je potreben ponovni zagon za uveljavljanje blokiranja oglasov?</h2>
 <p>Android shrani nekaj zadnjih pogledov v DNS v predpomnilniku za hitrejši dostop. Če je katera od aplikacij že iskala strežnik z oglasi, bo njegov naslov v tem predpomnilniku in bo ponovno uporabljen. Ponovni zagon sprazni ta predpomnilnik.</p>
 
 <h2>Kako uporabiti spletni strežnik v AdAway?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><b>AdAway deluje tudi brez spletnega strežnika!</b>
+&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;V nastavitvah lahko omogočite lokalni spletni strežnik, ki bo odgovarjal na zahteve na IP številki<tt>127.0.0.1</tt>. To pomeni, da bodo zahteve po oglasnih strežnikih, ki so preusmerjene na <tt>127.0.0.1</tt>, dobile odgovor od lokalnega spletnega strežnika.
+&lt;br&gt;&lt;/br&gt;Nekatere aplikacije prenehajo delovati, če ne dobijo odgovora od oglasnega strežnika. S to metodo bodo aplikacije dobile odgovor, vendar s prazno stranjo brez oglasnih slik.</p>
 
 <h2>Kako lahko blokiram/od-blokiram določene naslove?</h2>
 <p>Naslove, ki jih želite blokirati, dodajte na Črno listo(=Črna)  v <i>Moji seznami</i>. Nalove, ki jih želite izvzeti iz blokiranja, dodajte v Belo listo(=Bela). Naslove, ki jih želite preusmeriti na določeno IP številko, dodajte v Listo preusmeritev(=Preusmeritev). Postavite lahko tudi svoj strežnik, ki po posredoval hosts datoteko z želenimi naslovi, in jo dodate v Vire za datoteke hosts.</p>

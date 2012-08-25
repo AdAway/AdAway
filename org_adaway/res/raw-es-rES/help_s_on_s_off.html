@@ -8,8 +8,8 @@
 <p>S-OFF significa que la porción NAND del dispositivo está desbloqueada y se puede escribir en ella. La característica por defecto de los dispositivos HTC es S-OK, lo que significa que no se puede acceder a ciertas áreas del sistema, ni se puede garantizar un root permanente. Por otra parte, la comprobación de la firma de las imágenes del firmware también está asegurada por el indicador S-ON.</p>
 
 <h2>¿Tengo S-ON o S-OFF?</h2>
-<p>Inicia en el Boot Menu de tu dispositivo manteniendo pulsado el botón <i>volumen menos</i> mientras se pulsa el botón de encendido y el texto en la parte de arriba mostrará una bandera de estado como S-OFF o S-ON. Un root completo generalmente implica S-OFF.
-<br/><br/> Se puede encontrar más información en <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Solución</h2>
 <p>Prerequisito: Tienes que tener instalado y funcional un Android SDK con shell ADB en tu PC.
@@ -21,7 +21,7 @@
 <li>En clockwork recovery pulsa volumen menos hasta "partitions menu" y pulsa el track pad para seleccionar</li>
 <li>Selecciona <i>mount /system</i>, <i>mount /sdcard</i> y <i>mount /data</i>.</li>
 <li>Enchufa tu cable usb y abre un intérprete de comandos en tu pc.</li>
-<li>Entra en un shell adb y teclea<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Esto crea un enlace simbólico, lo cual permite a AdAway editar el archivo hosts almacenado en <tt>/data</tt> mientras permite al SO usar el archivo como si estuviera almacenado en <tt>/system</tt>.)</li>
+<li>Enter adb shell and type&lt;br&gt;&lt;/br&gt;<tt>ln -s /data/data/hosts /system/etc/hosts</tt>&lt;br&gt;&lt;/br&gt; (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>Reinicia tu dispositivo y configura <i>Destino del archivo hosts</i> a <i>/data/data/hosts</i> en las preferencias de AdAway</li>
 <li>AdAway debería funcionar ahora.</li>
 </ol>

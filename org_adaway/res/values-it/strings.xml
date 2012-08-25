@@ -54,6 +54,7 @@
   <string name="status_no_connection">Nessuna connessione internet.</string>
   <string name="status_no_connection_subtitle">Nessuna connessione internet disponibile</string>
   <string name="status_download_fail">Sorgente non disponibile</string>
+  <string name="status_download_fail_subtitle_new">Nessuna fonte hosts raggiungibile!</string>
   <string name="status_enabled">Abilitato</string>
   <string name="status_enabled_subtitle">File host più recenti abilitati</string>
   <string name="status_disabled">Disabilitato</string>
@@ -90,6 +91,7 @@
   <string name="revert_successful_title">Ripristino effettuato con successo!</string>
   <string name="revert_problem">Ripristino fallito per ragioni sconosciute.</string>
   <string name="revert_problem_title">Ripristino fallito!</string>
+  <string name="download_fail_dialog">Nessuna delle fonti hosts che hai abilitato è raggiungibile! Sei connesso a internet?</string>
   <string name="download_fail_title">Scaricamento fallito</string>
   <string name="no_private_file">Il file privato non può essere creato.</string>
   <string name="no_private_file_title">Creazione del file privato fallita</string>
@@ -98,6 +100,7 @@
   <string name="no_root_title">Richiesto Android con root</string>
   <string name="no_url">Questo non è un URL valido!</string>
   <string name="no_url_title">URL malformato</string>
+  <string name="hosts_add_dialog">Inserisci l\'URL al file hosts:</string>
   <string name="no_hostname">Questo non è un hostname valido</string>
   <string name="no_hostname_title">ho</string>
   <string name="no_ip">Questo non è un IP valido!</string>
@@ -106,7 +109,7 @@
   <!--Menu entries-->
   <string name="menu_refresh">Aggiorna</string>
   <string name="menu_add">Aggiungi</string>
-  <string name="menu_scan_adware">Scansione Adawre</string>
+  <string name="menu_scan_adware">Scansione Adware</string>
   <string name="menu_hosts_sources">Fonti host</string>
   <string name="menu_tcpdump">Registro Richieste DNS</string>
   <string name="menu_help">Aiuto</string>
@@ -129,6 +132,7 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Locale:</string>
   <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">non disponibile</string>
   <!--Other-->
   <string name="app_subtitle">Blocca pubblicità</string>
   <string name="no_text_editor_title">Nessun editor di testo installato</string>

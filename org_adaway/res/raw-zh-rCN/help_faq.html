@@ -9,16 +9,16 @@
 <h2>广告走开什么原理？</h2>
 <p>广告走开使用<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts 文件</a>来屏蔽广告主机名。hosts 文件是一个保存主机名到 IP 地址的映射的文件，可以在 <tt>/system/etc/hosts</tt>找到。这是一种传统的不依赖域名解析系统(DNS)的定义主机名到 IP 地址对应的方式。广告走开通过修改 hosts 文件把所有的不想访问的主机名都重定向到<tt>127.0.0.1</tt>，也就是你的设备的本机地址。</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>为什么设置里面的每天检查更新选项变灰了？</h2>
+<p>自动检查更新只有广告走开被安装到手机内部存储空间上时才可用。这是由于 Android 平台的限制。</p>
 
 <h2>为什么我一定要重启动 Android 来使修改生效？</h2>
 <p>Android 的 Java 自己维护着一个内部的 DNS 缓存。操作系统会立即对新的 hosts 文件的修改作出反应(可以在命令行上用 ping 来验证)，但是你需要重启你的 Android 来重建 Java 的 DNS 缓存。</p>
 
 <h2>怎么使用广告走开中的 web 服务器？</h2>
 <p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
+&lt;br&gt;&lt;/br&gt;Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>我怎么屏蔽/取消屏蔽指定的主机名？</h2>
 <p>你可以配置你自己的服务器来提供一个包含你想要屏蔽的主机名的hosts文件并且把它添加到你的Hosts源里中，或者添加你想屏蔽的主机名到<i>黑名单</i>(黑)，在<i>你的名单</i>菜单中。你还可以，把你不想屏蔽的主机名添加到白名单(白)中，或者把你想要重定向到的IP地址添加到<i>重定向列表</i>(重定向)中。</p>

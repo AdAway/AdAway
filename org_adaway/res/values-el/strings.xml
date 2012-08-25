@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Buttons-->
+  <string name="button_exit">Έξοδος</string>
+  <string name="button_close">Κλείσιμο</string>
+  <string name="button_yes">Ναι</string>
+  <string name="button_no">Όχι</string>
+  <string name="button_cancel">Άκυρο</string>
+  <string name="button_save">Αποθήκευση</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Προσθήκη</string>
+  <string name="checkbox_list_context_delete">Διαγραφή</string>
+  <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Λευκή λίστα</string>
+  <string name="lists_tab_blacklist">Μαύρη λίστα</string>
+  <!--Status Notifications-->
+  <!--Apply and Revert Dialogs-->
+  <!--Other Dialogs-->
+  <!--Menu entries-->
+  <!--Help-->
+  <!--Scan Adware-->
+  <!--Hosts Sources-->
+  <!--Other-->
+  <!--Tcpdump-->
+  <!--Preferences-->
+</resources>

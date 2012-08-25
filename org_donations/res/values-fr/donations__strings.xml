@@ -2,13 +2,13 @@
 <resources>
   <string name="donations__button_close">Fermer</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Trouvez-vous cette application utile? \nSupporter son développement avec Flattr ou en envoyant des dons en utilisant l\'Android Market !</string>
+  <string name="donations__description">Vous trouvez cette application utile ? \nSupporter son développement avec Flattr ou en envoyant des dons en utilisant l\'Android Market !</string>
   <string name="donations__flattr_description">Flattr prend 10% comme frais mensuels !</string>
-  <string name="donations__google_android_market">Google Android Market</string>
+  <string name="donations__google_android_market">Google Android Market / Play Store</string>
   <string name="donations__google_android_market_not_supported_title">Donations In-App non-supportées</string>
-  <string name="donations__google_android_market_not_supported">Donations In-App non-supportées. Le Market est-il correctement installé ?</string>
+  <string name="donations__google_android_market_not_supported">Donations In-App non-supportées. L\'application Google Play Store est-elle correctement installée ?</string>
   <string name="donations__google_android_market_description">Google prend 30% sur chaque don ! </string>
-  <string name="donations__google_android_market_donate_button">Faire un don !</string>
+  <string name="donations__google_android_market_donate_button">Faites un don !</string>
   <string name="donations__google_android_market_text">Combien ?</string>
   <string-array name="donations__google_android_market_promt_array">
     <item>1 Euro</item>
@@ -19,6 +19,7 @@
     <item>13 Euros</item>
   </string-array>
   <string name="donations__paypal">PayPal</string>
-  <string name="donations__thanks_dialog_title">Merci! </string>
-  <string name="donations__thanks_dialog">Nous vous remercions pour votre don! </string>
+  <string name="donations__paypal_description">Vous pouvez faire un don du montant  désiré en cliquant sur ce bouton !</string>
+  <string name="donations__thanks_dialog_title">Merci !</string>
+  <string name="donations__thanks_dialog">Merci beaucoup pour votre don ! </string>
 </resources>
