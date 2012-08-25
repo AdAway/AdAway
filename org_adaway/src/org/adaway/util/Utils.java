@@ -29,8 +29,8 @@ import java.util.concurrent.ExecutionException;
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Log;
-
-import com.stericson.RootTools.RootTools;
+import org.rootcommands.Shell;
+import org.rootcommands.Toolbox;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -70,7 +70,10 @@ public class Utils {
         } else {
             // check for root on device and call su binary
             try {
-                if (!RootTools.isAccessGiven()) {
+                Shell rootShell = Shell.startRootShell();
+
+                Toolbox tb = new Toolbox(rootShell);
+                if (!tb.isRootAccessGiven()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(activity);
                     builder.setCancelable(false);
                     builder.setIcon(android.R.drawable.ic_dialog_alert);
@@ -95,8 +98,10 @@ public class Utils {
                 } else {
                     rootAvailable = true;
                 }
+
+                rootShell.close();
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e(Constants.TAG, "Problem while checking for root!", e);
                 rootAvailable = false;
             }
         }
@@ -138,13 +143,13 @@ public class Utils {
                             PreferenceHelper.setNeverReboot(context, true);
                         }
 
-                        // not working on all devices:
-                        // RootTools.restartAndroid();
                         try {
-                            RootTools.sendShell(Constants.COMMAND_REBOOT, -1);
+                            Shell rootShell = Shell.startRootShell();
+
+                            Toolbox tb = new Toolbox(rootShell);
+                            tb.reboot(Toolbox.REBOOT_REBOOT);
                         } catch (Exception e) {
-                            Log.e(Constants.TAG, "Problem with rebooting");
-                            e.printStackTrace();
+                            Log.e(Constants.TAG, "Problem with rebooting", e);
                         }
                     }
                 });
@@ -298,11 +303,9 @@ public class Utils {
         try {
             foreground = foregroundCheckTask.execute(context).get();
         } catch (InterruptedException e) {
-            Log.e(Constants.TAG, "IsInForeground InterruptedException");
-            e.printStackTrace();
+            Log.e(Constants.TAG, "IsInForeground InterruptedException", e);
         } catch (ExecutionException e) {
-            Log.e(Constants.TAG, "IsInForeground ExecutionException");
-            e.printStackTrace();
+            Log.e(Constants.TAG, "IsInForeground ExecutionException", e);
         }
 
         return foreground;

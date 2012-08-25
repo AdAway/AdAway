@@ -20,77 +20,30 @@
 
 package org.adaway.util;
 
-import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
+import org.rootcommands.Shell;
+import org.rootcommands.Toolbox;
+import org.rootcommands.command.SimpleBinaryCommand;
 
 import android.content.Context;
 
-import com.stericson.RootTools.RootTools;
-
 public class WebserverUtils {
-
-    /**
-     * Update Webserver
-     * 
-     * @param context
-     */
-    public static void updateWebserver(Context context) {
-        // update mechanism
-        int oldVersion = PreferenceHelper.getWebserverVersion(context);
-
-        if (oldVersion < Constants.WEBSERVER_VERSION) {
-            Log.i(Constants.TAG, "Updating webserver binary from " + oldVersion + " to "
-                    + Constants.WEBSERVER_VERSION);
-
-            removeWebserver(context);
-            installWebserver(context);
-            PreferenceHelper.setWebserverVersion(context, Constants.WEBSERVER_VERSION);
-        } else {
-            installWebserver(context);
-        }
-    }
-
-    /**
-     * Install Webserver in /data/data/org.adaway/files if not already there
-     * 
-     * @param context
-     */
-    public static void installWebserver(Context context) {
-        if (RootTools.installBinary(context, R.raw.blank_webserver,
-                Constants.WEBSERVER_EXECUTEABLE, "777")) {
-            Log.i(Constants.TAG, "Installed webserver if not already existing.");
-        } else {
-            Log.e(Constants.TAG, "Webserver could not be installed.");
-        }
-    }
-
-    /**
-     * Remove Webserver, to reinstall it on update
-     * 
-     * @param context
-     */
-    public static void removeWebserver(Context context) {
-        try {
-            String filesPath = context.getFilesDir().getCanonicalPath();
-
-            String command = Constants.COMMAND_RM + " " + filesPath + Constants.FILE_SEPERATOR
-                    + Constants.WEBSERVER_EXECUTEABLE;
-
-            RootTools.sendShell(command, -1);
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Problem while removing webserver: " + e);
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Start Webserver in new Thread with RootTools
      * 
      * @param context
      */
-    public static void startWebserver(final Context context) {
+    public static void startWebserver(Context context, Shell shell) {
         Log.d(Constants.TAG, "Starting webserver...");
-        RootTools.runBinary(context, Constants.WEBSERVER_EXECUTEABLE, " > /dev/null 2>&1 &");
+        SimpleBinaryCommand webserverCommand = new SimpleBinaryCommand(context,
+                Constants.WEBSERVER_EXECUTEABLE, " > /dev/null 2>&1 &");
+
+        try {
+            shell.add(webserverCommand).waitForFinish();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Exception while starting webserver", e);
+        }
     }
 
     /**
@@ -98,32 +51,51 @@ public class WebserverUtils {
      * 
      * @param context
      */
-    public static void startWebserverOnBoot(final Context context) {
+    public static void startWebserverOnBoot(Context context) {
         // start webserver on boot if enabled in preferences
         if (PreferenceHelper.getWebserverOnBoot(context)) {
-            startWebserver(context);
+            try {
+                Shell rootShell = Shell.startRootShell();
+                startWebserver(context, rootShell);
+                rootShell.close();
+            } catch (Exception e) {
+                Log.e(Constants.TAG, "Problem while starting webserver on boot!", e);
+            }
         }
     }
 
     /**
-     * Stop Webserver
+     * Stop webserver
      * 
      * @param context
      */
-    public static void stopWebserver(Context context) {
-        RootTools.killProcess(Constants.WEBSERVER_EXECUTEABLE);
+    public static void stopWebserver(Context context, Shell shell) {
+        Toolbox tb = new Toolbox(shell);
+        try {
+            tb.killAllBinary(Constants.WEBSERVER_EXECUTEABLE);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Exception while killing webserver", e);
+        }
     }
 
     /**
-     * Checks if webserver is running with RootTools
+     * Checks if werbserver is running
      * 
      * @return true if webserver is running
      */
-    public static boolean isWebserverRunning() {
-        if (RootTools.isProcessRunning(Constants.WEBSERVER_EXECUTEABLE)) {
-            return true;
-        } else {
+    public static boolean isWebserverRunning(Shell shell) {
+        Toolbox tb = new Toolbox(shell);
+
+        try {
+            if (tb.isProcessRunning(Constants.WEBSERVER_EXECUTEABLE)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Exception while checking webserver process", e);
             return false;
         }
     }
+
 }

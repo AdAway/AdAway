@@ -29,6 +29,7 @@ import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
+import org.rootcommands.Shell;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
@@ -57,14 +58,20 @@ public class RevertService extends WakefulIntentService {
         // disable buttons
         BaseActivity.setButtonsDisabledBroadcast(mService, true);
 
-        int revertResult = revert();
+        try {
+            Shell rootShell = Shell.startRootShell();
+            int revertResult = revert(rootShell);
+            rootShell.close();
 
-        Log.d(Constants.TAG, "revert result: " + revertResult);
+            Log.d(Constants.TAG, "revert result: " + revertResult);
 
-        // enable buttons
-        BaseActivity.setButtonsDisabledBroadcast(mService, false);
+            // enable buttons
+            BaseActivity.setButtonsDisabledBroadcast(mService, false);
 
-        ResultHelper.showNotificationBasedOnResult(mService, revertResult, null);
+            ResultHelper.showNotificationBasedOnResult(mService, revertResult, null);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem while reverting!", e);
+        }
     }
 
     /**
@@ -72,7 +79,7 @@ public class RevertService extends WakefulIntentService {
      * 
      * @return Status codes REVERT_SUCCESS or REVERT_FAIL
      */
-    private int revert() {
+    private int revert(Shell shell) {
         BaseActivity.setStatusBroadcast(mService, getString(R.string.status_reverting),
                 getString(R.string.status_reverting_subtitle), StatusCodes.CHECKING);
 
@@ -89,7 +96,7 @@ public class RevertService extends WakefulIntentService {
             fos.close();
 
             // copy build hosts file with RootTools
-            ApplyUtils.copyHostsFile(mService, "");
+            ApplyUtils.copyHostsFile(mService, "", shell);
 
             // delete generated hosts file after applying it
             mService.deleteFile(Constants.HOSTS_FILENAME);

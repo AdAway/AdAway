@@ -53,6 +53,7 @@ import org.adaway.util.RegexUtils;
 import org.adaway.util.RemountException;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
+import org.rootcommands.Shell;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
@@ -453,31 +454,36 @@ public class ApplyService extends WakefulIntentService {
         updateApplyNotification(mService, mService.getString(R.string.apply_dialog),
                 mService.getString(R.string.apply_dialog_apply));
 
+        Shell rootShell = null;
+        try {
+            rootShell = Shell.startRootShell();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem opening a root shell!", e);
+        }
+
         // copy build hosts file with RootTools, based on target from preferences
         try {
             if (PreferenceHelper.getApplyMethod(mService).equals("writeToSystem")) {
 
-                ApplyUtils.copyHostsFile(mService, "");
+                ApplyUtils.copyHostsFile(mService, "", rootShell);
             } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
 
-                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_DATA_HOSTS);
+                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);
             } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
 
-                ApplyUtils.copyHostsFile(mService, PreferenceHelper.getCustomTarget(mService));
+                ApplyUtils.copyHostsFile(mService, PreferenceHelper.getCustomTarget(mService),
+                        rootShell);
             }
         } catch (NotEnoughSpaceException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Exception: ", e);
 
             returnCode = StatusCodes.NOT_ENOUGH_SPACE;
         } catch (RemountException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Exception: ", e);
 
             returnCode = StatusCodes.REMOUNT_FAIL;
         } catch (CommandException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Exception: ", e);
 
             returnCode = StatusCodes.COPY_FAIL;
         }
@@ -507,7 +513,7 @@ public class ApplyService extends WakefulIntentService {
                 if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_DATA_DATA_HOSTS)) {
                     returnCode = StatusCodes.APPLY_FAIL;
                 } else {
-                    if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS)) {
+                    if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS, rootShell)) {
                         returnCode = StatusCodes.SYMLINK_MISSING;
                     }
                 }
@@ -520,11 +526,17 @@ public class ApplyService extends WakefulIntentService {
                 if (!ApplyUtils.isHostsFileCorrect(mService, customTarget)) {
                     returnCode = StatusCodes.APPLY_FAIL;
                 } else {
-                    if (!ApplyUtils.isSymlinkCorrect(customTarget)) {
+                    if (!ApplyUtils.isSymlinkCorrect(customTarget, rootShell)) {
                         returnCode = StatusCodes.SYMLINK_MISSING;
                     }
                 }
             }
+        }
+
+        try {
+            rootShell.close();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem closing the root shell!", e);
         }
 
         /* check if APN proxy is set */

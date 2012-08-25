@@ -48,7 +48,6 @@ public class Constants {
     public static final String COMMAND_LN = "ln -s";
     public static final String COMMAND_RM = "rm -f";
     public static final String COMMAND_MKDIR = "mkdir -p";
-    public static final String COMMAND_REBOOT = "reboot";
 
     public static final String WEBSERVER_EXECUTEABLE = "blank_webserver";
     public static final int WEBSERVER_VERSION = 1;

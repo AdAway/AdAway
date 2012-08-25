@@ -20,8 +20,13 @@
 
 package org.adaway.ui;
 
+import java.io.IOException;
+
 import org.adaway.R;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.adaway.util.TcpdumpUtils;
+import org.rootcommands.Shell;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -36,8 +41,9 @@ import android.widget.ToggleButton;
 public class TcpdumpActivity extends SherlockActivity {
     private Activity mActivity;
     private ActionBar mActionBar;
-
     private ToggleButton mTcpdumpToggle;
+
+    private Shell mRootShell;
 
     /**
      * Instantiate View and initialize fragments for this Activity
@@ -56,13 +62,29 @@ public class TcpdumpActivity extends SherlockActivity {
 
         mTcpdumpToggle = (ToggleButton) mActivity.findViewById(R.id.tcpdump_fragment_toggle_button);
 
+        try {
+            mRootShell = Shell.startRootShell();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem while starting shell!", e);
+        }
+
         // set togglebutton checked if tcpdump is running
-        if (TcpdumpUtils.isTcpdumpRunning()) {
+        if (TcpdumpUtils.isTcpdumpRunning(mRootShell)) {
             mTcpdumpToggle.setChecked(true);
         } else {
             mTcpdumpToggle.setChecked(false);
         }
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        try {
+            mRootShell.close();
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "Problem while closing shell!", e);
+        }
     }
 
     /**
@@ -86,12 +108,12 @@ public class TcpdumpActivity extends SherlockActivity {
     public void tcpdumpToggleOnClick(View view) {
         if (mTcpdumpToggle.isChecked() == true) {
             // if starting does not work, set back to disabled...
-            if (!TcpdumpUtils.startTcpdump(mActivity)) {
+            if (!TcpdumpUtils.startTcpdump(mActivity, mRootShell)) {
                 mTcpdumpToggle.setChecked(false);
             }
         }
         if (mTcpdumpToggle.isChecked() == false) {
-            TcpdumpUtils.stopTcpdump(mActivity);
+            TcpdumpUtils.stopTcpdump(mActivity, mRootShell);
         }
     }
 

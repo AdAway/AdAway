@@ -30,11 +30,11 @@ import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
+import org.rootcommands.RootCommands;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
-import com.stericson.RootTools.RootTools;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -185,11 +185,11 @@ public class BaseActivity extends SherlockFragmentActivity {
             if (PreferenceHelper.getDebugEnabled(this)) {
                 Constants.DEBUG = true;
                 Log.d(Constants.TAG, "Debug set to true by preference!");
-                // set RootTools to debug mode based on AdAway
-                RootTools.debugMode = Constants.DEBUG;
+                // set RootCommands to debug mode based on AdAway
+                RootCommands.DEBUG = Constants.DEBUG;
             } else {
                 Constants.DEBUG = false;
-                RootTools.debugMode = Constants.DEBUG;
+                RootCommands.DEBUG = Constants.DEBUG;
             }
         }
     }

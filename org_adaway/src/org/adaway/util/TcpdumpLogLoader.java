@@ -78,15 +78,16 @@ public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
                             set.add(hostname);
                         }
                     }
+
+                    reader.close();
                 }
                 // close the file
                 instream.close();
             } catch (java.io.FileNotFoundException e) {
-                Log.e(Constants.TAG, "Tcpdump log is not existing!");
+                Log.e(Constants.TAG, "Tcpdump log is not existing!", e);
             }
         } catch (IOException e) {
-            Log.e(Constants.TAG, "Can not get cache dir: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Can not get cache dir", e);
         }
 
         ArrayList<String> list = null;

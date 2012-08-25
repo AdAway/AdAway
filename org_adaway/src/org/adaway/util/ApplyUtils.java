@@ -21,6 +21,9 @@
 package org.adaway.util;
 
 import org.adaway.util.Log;
+import org.rootcommands.Shell;
+import org.rootcommands.Toolbox;
+import org.rootcommands.command.SimpleCommand;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,9 +32,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.List;
-
-import com.stericson.RootTools.RootTools;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -107,20 +107,17 @@ public class ApplyUtils {
                 status = false;
             }
         } catch (FileNotFoundException e) {
-            Log.e(Constants.TAG, "FileNotFoundException: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "FileNotFoundException", e);
             status = true; // workaround for: http://code.google.com/p/ad-away/issues/detail?id=137
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Exception: ", e);
             status = false;
         } finally {
             if (stream != null) {
                 try {
                     stream.close();
                 } catch (IOException e) {
-                    Log.e(Constants.TAG, "Exception: " + e);
-                    e.printStackTrace();
+                    Log.e(Constants.TAG, "Exception", e);
                 }
             }
         }
@@ -134,7 +131,7 @@ public class ApplyUtils {
      * @throws NotEnoughSpaceException
      *             RemountException CopyException
      */
-    public static void copyHostsFile(Context context, String customTarget)
+    public static void copyHostsFile(Context context, String customTarget, Shell shell)
             throws NotEnoughSpaceException, RemountException, CommandException {
         Log.i(Constants.TAG, "Copy hosts file with target: " + customTarget);
         String privateDir = context.getFilesDir().getAbsolutePath();
@@ -169,7 +166,7 @@ public class ApplyUtils {
          * file
          */
         if (customTarget != "") {
-            createDirectories(target);
+            createDirectories(target, shell);
         }
 
         /* check for space on partition */
@@ -179,55 +176,54 @@ public class ApplyUtils {
             throw new NotEnoughSpaceException();
         }
 
+        Toolbox tb = new Toolbox(shell);
+
         /* Execute commands */
-        List<String> output = null;
         try {
             if (customTarget == "") {
                 Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
                         + commandChownSystemEtcHosts + ", " + commandChmodSystemEtcHosts644);
 
-                if (!RootTools.copyFile(privateFile, Constants.ANDROID_SYSTEM_ETC_HOSTS, true,
-                        false)) {
+                if (!tb.copyFile(privateFile, Constants.ANDROID_SYSTEM_ETC_HOSTS, true, false)) {
                     throw new CommandException();
                 }
 
                 /* remount for write access */
                 Log.i(Constants.TAG, "Remounting for RW...");
-                if (!RootTools.remount(target, "RW")) {
+                if (!tb.remount(target, "RW")) {
                     throw new RemountException();
                 }
 
                 // execute commands: chown, chmod
-                output = RootTools.sendShell(new String[] { commandChownSystemEtcHosts,
-                        commandChmodSystemEtcHosts644 }, 1, -1);
+                SimpleCommand command = new SimpleCommand(commandChownSystemEtcHosts,
+                        commandChmodSystemEtcHosts644);
+                shell.add(command).waitForFinish();
             } else {
                 Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
                         + commandChmodAlternativePath666);
 
-                if (!RootTools.copyFile(privateFile, target, true, false)) {
+                if (!tb.copyFile(privateFile, target, true, false)) {
                     throw new CommandException();
                 }
 
                 /* remount for write access */
                 Log.i(Constants.TAG, "Remounting for RW...");
-                if (!RootTools.remount(target, "RW")) {
+                if (!tb.remount(target, "RW")) {
                     throw new RemountException();
                 }
 
                 // execute chmod
-                output = RootTools
-                        .sendShell(new String[] { commandChmodAlternativePath666 }, 1, -1);
+                SimpleCommand command = new SimpleCommand(commandChmodAlternativePath666);
+                shell.add(command).waitForFinish();
             }
-            Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Exception", e);
 
             throw new CommandException();
         } finally {
             // after all remount system back as read only
             if (customTarget == "") {
-                RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
+                tb.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
             }
         }
     }
@@ -245,8 +241,17 @@ public class ApplyUtils {
         String commandChownTarget = Constants.COMMAND_CHOWN + " " + target;
         String commandChmodTarget644 = Constants.COMMAND_CHMOD_644 + " " + target;
 
+        Shell rootShell = null;
+        try {
+            rootShell = Shell.startRootShell();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem opening root shell!");
+            throw new CommandException("Problem opening root shell!");
+        }
+        Toolbox tb = new Toolbox(rootShell);
+
         /* remount /system/etc for write access */
-        if (!RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
+        if (!tb.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
             throw new RemountException();
         }
 
@@ -254,21 +259,26 @@ public class ApplyUtils {
                 + commandChownTarget + "; " + commandChmodTarget644);
 
         /* Execute commands */
-        List<String> output = null;
         try {
             // create symlink
-            output = RootTools.sendShell(new String[] { commandRm, commandSymlink,
-                    commandChownTarget, commandChmodTarget644 }, 1, -1);
+            SimpleCommand command = new SimpleCommand(commandRm, commandSymlink,
+                    commandChownTarget, commandChmodTarget644);
 
-            Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
+            rootShell.add(command).waitForFinish();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Exception!", e);
 
             throw new CommandException();
         } finally {
             // after all remount system back as read only
-            RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
+            tb.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
+
+            try {
+                rootShell.close();
+            } catch (IOException e) {
+                Log.e(Constants.TAG, "Problem closing root shell!");
+                throw new CommandException("Problem closing root shell!");
+            }
         }
     }
 
@@ -279,11 +289,18 @@ public class ApplyUtils {
      * @return
      * @throws CommandException
      */
-    public static boolean isSymlinkCorrect(String target) {
+    public static boolean isSymlinkCorrect(String target, Shell shell) {
         Log.i(Constants.TAG, "Checking whether /system/etc/hosts is a symlink and pointing to "
                 + target + " or not.");
 
-        String symlink = RootTools.getSymlink(new File(Constants.ANDROID_SYSTEM_ETC_HOSTS));
+        Toolbox tb = new Toolbox(shell);
+        String symlink = null;
+        try {
+            symlink = tb.getSymlink(Constants.ANDROID_SYSTEM_ETC_HOSTS);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem getting symlink!", e);
+            return false;
+        }
 
         Log.d(Constants.TAG, "symlink: " + symlink + "; target: " + target);
 
@@ -300,7 +317,7 @@ public class ApplyUtils {
      * 
      * @throws CommandException
      */
-    public static void createDirectories(String target) throws CommandException {
+    public static void createDirectories(String target, Shell shell) throws CommandException {
         // get directory without file
         String directory = new File(target).getParent().toString();
 
@@ -309,15 +326,17 @@ public class ApplyUtils {
         Log.i(Constants.TAG, "Create directories using " + commandMkdir);
 
         /* Execute commands */
-        List<String> output = null;
         try {
             // create directories
-            output = RootTools.sendShell(new String[] { commandMkdir }, 1, -1);
+            try {
+                SimpleCommand mkdirCommand = new SimpleCommand(commandMkdir);
 
-            Log.d(Constants.TAG, "output of sendShell commands: " + output.toString());
+                shell.add(mkdirCommand).waitForFinish();
+            } catch (Exception e) {
+                Log.e(Constants.TAG, "Mkdir Exception", e);
+            }
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Exception!", e);
 
             throw new CommandException();
         }
@@ -365,7 +384,7 @@ public class ApplyUtils {
                 Log.d(Constants.TAG, "Could not get APN cursor!");
             }
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Error while getting default APN: " + e.getMessage());
+            Log.e(Constants.TAG, "Error while getting default APN!", e);
             // ignore exception, result = false
         }
 

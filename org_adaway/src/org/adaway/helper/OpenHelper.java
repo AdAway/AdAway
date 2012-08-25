@@ -24,8 +24,8 @@ import org.adaway.R;
 import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-
-import com.stericson.RootTools.RootTools;
+import org.rootcommands.Shell;
+import org.rootcommands.Toolbox;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -39,12 +39,21 @@ public class OpenHelper {
      * 
      * @param activity
      */
-    public static void openHostsFile(final FragmentActivity activity) {
-        /* remount for write access */
-        if (!RootTools.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
-            Log.e(Constants.TAG, "System partition could not be remounted as rw!");
-        } else {
-            openFileWithEditor(activity, Constants.ANDROID_SYSTEM_ETC_HOSTS);
+    public static void openHostsFile(FragmentActivity activity) {
+        try {
+            Shell rootShell = Shell.startRootShell();
+
+            Toolbox tb = new Toolbox(rootShell);
+            /* remount for write access */
+            if (!tb.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
+                Log.e(Constants.TAG, "System partition could not be remounted as rw!");
+            } else {
+                openFileWithEditor(activity, Constants.ANDROID_SYSTEM_ETC_HOSTS);
+            }
+
+            rootShell.close();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem with root shell!", e);
         }
     }
 

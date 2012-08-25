@@ -2,7 +2,6 @@
 bin
 gen
 obj
-libs/armeabi
 lint.xml
 local.properties
 

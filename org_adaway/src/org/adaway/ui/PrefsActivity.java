@@ -20,12 +20,17 @@
 
 package org.adaway.ui;
 
+import java.io.IOException;
+
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.adaway.util.Utils;
 import org.adaway.service.DailyListener;
 import org.adaway.util.WebserverUtils;
+import org.rootcommands.Shell;
+import org.rootcommands.util.RootAccessDeniedException;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
@@ -107,15 +112,23 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         WebserverEnabledPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                if (newValue.equals(true)) {
-                    // install webserver if not already there
-                    WebserverUtils.updateWebserver(mActivity);
-                    // start webserver
-                    WebserverUtils.startWebserver(mActivity);
-                } else {
-                    // stop webserver
-                    WebserverUtils.stopWebserver(mActivity);
+                Shell rootShell;
+                try {
+                    rootShell = Shell.startRootShell();
+
+                    if (newValue.equals(true)) {
+                        // start webserver
+                        WebserverUtils.startWebserver(mActivity, rootShell);
+                    } else {
+                        // stop webserver
+                        WebserverUtils.stopWebserver(mActivity, rootShell);
+                    }
+
+                    rootShell.close();
+                } catch (Exception e) {
+                    Log.e(Constants.TAG, "Problem while starting/stopping webserver!", e);
                 }
+
                 return true;
             }
         });

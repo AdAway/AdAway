@@ -20,8 +20,13 @@
 
 package org.adaway.ui;
 
+import java.io.IOException;
+
 import org.adaway.R;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.adaway.util.WebserverUtils;
+import org.rootcommands.Shell;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
@@ -34,8 +39,9 @@ import android.widget.ToggleButton;
 
 public class WebserverFragment extends SherlockFragment {
     private Activity mActivity;
-
     private ToggleButton mWebserverToggle;
+
+    private Shell mRootShell;
 
     /**
      * Inflate the layout for this fragment
@@ -53,17 +59,31 @@ public class WebserverFragment extends SherlockFragment {
         super.onCreate(savedInstanceState);
 
         mActivity = getActivity();
-
         mWebserverToggle = (ToggleButton) mActivity
                 .findViewById(R.id.webserver_fragment_toggle_button);
 
-        // install webserver if not already there
-        WebserverUtils.updateWebserver(mActivity);
+        try {
+            mRootShell = Shell.startRootShell();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem starting root shell!", e);
+        }
+
         // set togglebutton checked if webserver is running
-        if (WebserverUtils.isWebserverRunning()) {
+        if (WebserverUtils.isWebserverRunning(mRootShell)) {
             mWebserverToggle.setChecked(true);
         } else {
             mWebserverToggle.setChecked(false);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        try {
+            mRootShell.close();
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "Problem while closing shell!", e);
         }
     }
 
@@ -74,10 +94,10 @@ public class WebserverFragment extends SherlockFragment {
      */
     public void webserverOnClick(View view) {
         if (mWebserverToggle.isChecked() == true) {
-            WebserverUtils.startWebserver(mActivity);
+            WebserverUtils.startWebserver(mActivity, mRootShell);
         }
         if (mWebserverToggle.isChecked() == false) {
-            WebserverUtils.stopWebserver(mActivity);
+            WebserverUtils.stopWebserver(mActivity, mRootShell);
         }
     }
 }
