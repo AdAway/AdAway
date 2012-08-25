@@ -50,10 +50,8 @@ public class Constants {
     public static final String COMMAND_MKDIR = "mkdir -p";
 
     public static final String WEBSERVER_EXECUTEABLE = "blank_webserver";
-    public static final int WEBSERVER_VERSION = 1;
 
     public static final String TCPDUMP_EXECUTEABLE = "tcpdump";
-    public static final int TCPDUMP_VERSION = 1;
     public static final String TCPDUMP_LOG = "dns_log.txt";
 
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
