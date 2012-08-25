@@ -7,8 +7,6 @@ IF YOU HAVE PROBLEMS WITH 2.0: Please uninstall and then reinstall AdAway!
 * Tcpdump and Webserver now included for ARM, x86, MIPS (Please test and report problems!)
 - Hopefully fixes DNS logging for Android 4.1
 
-
-
 1.37
 * Skip unreachable hosts sources and show number of successful sources
 - Fix for crash on donations screen (Android 4.1)

@@ -20,7 +20,6 @@
 
 package org.adaway.ui;
 
-
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
@@ -38,12 +37,10 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -160,74 +157,41 @@ public class BaseActivity extends SherlockFragmentActivity {
         };
         mLocalBroadcastManager.registerReceiver(mReceiver, filter);
 
-        /*
-         * Check for root asynchronous
-         */
-//        AsyncTask<Void, Void, Void> rootCheckTask = new AsyncTask<Void, Void, Void>() {
-//            private ProgressDialog mProgressDialog;
-//
-//            @Override
-//            protected Void doInBackground(Void... unused) {
-                // check for root
-                if (Utils.isAndroidRooted(mActivity)) {
+        // check for root
+        if (Utils.isAndroidRooted(mActivity)) {
 
-                    // set status only if not coming from an orientation change
-                    if (savedInstanceState == null) {
-                        // check if hosts file is applied
-                        if (ApplyUtils.isHostsFileCorrect(mActivity,
-                                Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                            // do background update check
-                            // do only if not disabled in preferences
-                            if (PreferenceHelper.getUpdateCheck(mActivity)) {
-                                Intent updateIntent = new Intent(mActivity, UpdateService.class);
-                                updateIntent.putExtra(UpdateService.EXTRA_BACKGROUND_EXECUTION,
-                                        false);
-                                WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
-                            } else {
-                                BaseActivity.updateStatusEnabled(mActivity);
-                            }
-                        } else {
-                            BaseActivity.updateStatusDisabled(mActivity);
-                        }
-                    }
-
-                    // schedule CheckUpdateService
-                    WakefulIntentService.scheduleAlarms(new DailyListener(), mActivity, false);
-
-                    // Set Debug level based on preference
-                    if (PreferenceHelper.getDebugEnabled(mActivity)) {
-                        Constants.DEBUG = true;
-                        Log.d(Constants.TAG, "Debug set to true by preference!");
-                        // set RootCommands to debug mode based on AdAway
-                        RootCommands.DEBUG = Constants.DEBUG;
+            // set status only if not coming from an orientation change
+            if (savedInstanceState == null) {
+                // check if hosts file is applied
+                if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                    // do background update check
+                    // do only if not disabled in preferences
+                    if (PreferenceHelper.getUpdateCheck(mActivity)) {
+                        Intent updateIntent = new Intent(mActivity, UpdateService.class);
+                        updateIntent.putExtra(UpdateService.EXTRA_BACKGROUND_EXECUTION, false);
+                        WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
                     } else {
-                        Constants.DEBUG = false;
-                        RootCommands.DEBUG = Constants.DEBUG;
+                        BaseActivity.updateStatusEnabled(mActivity);
                     }
+                } else {
+                    BaseActivity.updateStatusDisabled(mActivity);
                 }
+            }
 
-                // return nothing as type is Void
-//                return null;
-//            }
-//
-//            @Override
-//            protected void onPreExecute() {
-//                super.onPreExecute();
-//                mProgressDialog = new ProgressDialog(mActivity);
-//                mProgressDialog.setMessage(mActivity.getString(R.string.loading));
-//                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//                mProgressDialog.setCancelable(false);
-//                mProgressDialog.show();
-//            }
-//
-//            @Override
-//            protected void onPostExecute(Void unused) {
-//                super.onPostExecute(unused);
-//                mProgressDialog.dismiss();
-//            }
-//        };
+            // schedule CheckUpdateService
+            WakefulIntentService.scheduleAlarms(new DailyListener(), mActivity, false);
 
-//        rootCheckTask.execute();
+            // Set Debug level based on preference
+            if (PreferenceHelper.getDebugEnabled(mActivity)) {
+                Constants.DEBUG = true;
+                Log.d(Constants.TAG, "Debug set to true by preference!");
+                // set RootCommands to debug mode based on AdAway
+                RootCommands.DEBUG = Constants.DEBUG;
+            } else {
+                Constants.DEBUG = false;
+                RootCommands.DEBUG = Constants.DEBUG;
+            }
+        }
     }
 
     /**
