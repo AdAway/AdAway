@@ -198,7 +198,7 @@ public class UpdateService extends WakefulIntentService {
                                         .getColumnIndex(HostsSources._ID)),
                                 currentLastModifiedOnline);
 
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         Log.e(Constants.TAG, "Exception while downloading from " + currentUrl, e);
 
                         mNumberOfFailedDownloads++;
