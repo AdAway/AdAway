@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import net.nightwhistler.htmlspanner.HtmlSpanner;
-import net.nightwhistler.htmlspanner.PatchedTextView;
+import net.nightwhistler.htmlspanner.JellyBeanSpanFixTextView;
 
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -85,7 +85,7 @@ public class HelpFragmentHtml extends SherlockFragment {
         mActivity = getActivity();
 
         ScrollView scroller = new ScrollView(mActivity);
-        PatchedTextView text = new PatchedTextView(mActivity);
+        JellyBeanSpanFixTextView text = new JellyBeanSpanFixTextView(mActivity);
 
         // padding
         int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, mActivity

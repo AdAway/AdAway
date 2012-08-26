@@ -51,7 +51,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <net.nightwhistler.htmlspanner.PatchedTextView
+        <net.nightwhistler.htmlspanner.JellyBeanSpanFixTextView
             android:id="@+id/help_about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
