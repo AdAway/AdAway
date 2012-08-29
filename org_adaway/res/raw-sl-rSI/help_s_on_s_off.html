@@ -8,7 +8,7 @@
 <p>S-OFF pomeni, da je sistemski del telefona odklenjen in se nanj lahko piše. Privzeta nastavitev za HTC naprave je S-ON, ki onemogoči pisanje po sistemskem delu telefona (tu se nahajajo vse aplikacije, ki jih niste namestili sami; npr. aplikacija za SMS in telefon, nastavitve, itd.), kjer se nahaja tudi hosts datoteka. S-ON prav tako ne more zagotoviti trajnega root dostopa in vsili preverjanje slik pred "flashanjem".</p>
 
 <h2>Ali imam S-ON ali S-OFF?</h2>
-<p>Napravo zaženite v "Boot Menu" tako da držite tipko za zmanjšanje glasnosti (<i>volume down</i>), ko pritinsete tipko za vklop naprave in besedilo na vrhu zaslona bo prikazalo S-OFF ali S-ON. Popolni root ponavadi pomeni tudi S-OFF. FF.⏎ &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;Več informacij lahko najdete na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>(stran ni prevedena).</p>
+<p>Napravo zaženite v "Boot Menu" tako da držite tipko za zmanjšanje glasnosti (<i>volume down</i>), ko pritinsete tipko za vklop naprave in besedilo na vrhu zaslona bo prikazalo S-OFF ali S-ON. Popolni root ponavadi pomeni tudi S-OFF. FF.⏎ <br></br><br></br>Več informacij lahko najdete na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>(stran ni prevedena).</p>
 
 <h2>Rešitev</h2>
 <p>Pogoj: Nameščen morate imeti delujoč Android SDK z ADB lupino na vašem računalniku.
@@ -19,7 +19,7 @@
 <li>V clockwork recovery uporabite tipko za zmanjšanje glasnosti (<i>volume down</i>) da izberete "partitions menu" in potrdite izbiro.</li>
 <li>Izberite <i>mount /system</i>, <i>mount /sdcard</i> in <i>mount /data</i>.</li>
 <li>Priklopite napravo na računalnik in odprite ukazno vrstico.</li>
-<li>Vstopite v adb lupino in vtipkajte&lt;br&gt;&lt;/br&gt;<tt>ln -s /data/data/hosts /system/etc/hosts</tt>&lt;br&gt;&lt;/br&gt; (To naredi simboično povezavo, ki omogoči AdAway da ureja hosts datoteko shranjeno v <tt>/data</tt> , vendar jo uporablja kot da je shranjena v<tt>/system</tt>.)</li>
+<li>Vstopite v adb lupino in vtipkajte<br></br><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br></br> (To naredi simboično povezavo, ki omogoči AdAway da ureja hosts datoteko shranjeno v <tt>/data</tt> , vendar jo uporablja kot da je shranjena v<tt>/system</tt>.)</li>
 <li>Ponovno zaženite vašo napravo in nastavite <i>Ciljna hosts datoteka</i> na <i>/data/data/hosts</i> v nastvitvah AdAway.</li>
 <li>AdAway naj bi zdaj deloval.</li>
 </ol>
