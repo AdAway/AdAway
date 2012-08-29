@@ -44,6 +44,7 @@
   <string name="menu_scan_adware">ស្កេនរក Adware</string>
   <string name="menu_import">នាំចូលគ្រប់បញ្ជី</string>
   <string name="menu_export">នាំចេញគ្រប់បញ្ជី</string>
+  <string name="menu_preferences">ការកំណត់</string>
   <!--Help-->
   <string name="help_tab_about">អំពី</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>

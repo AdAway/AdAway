@@ -110,6 +110,7 @@
   <string name="no_ip">To nie jest prawidłowy adres IP!</string>
   <string name="no_ip_title">Błędny adres IP</string>
   <string name="reboot_never_reboot">Nigdy nie restartuj i nie pokazuj tego pytania ponownie!</string>
+  <string name="loading">Ładowanie...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Odśwież</string>
   <string name="menu_add">Dodaj</string>

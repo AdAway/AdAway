@@ -2,26 +2,26 @@
 <head></head>
 <body>
 <h2>Matériel HTC</h2>
-<p>AdAway ne fonctionne pas avec un appareil equipé de S-ON. Cette fonctionnalité existe sur de nombreux appareils HTC et empeche AdAway d'ecrire le fichier hosts.</p>
+<p>AdAway ne fonctionne pas avec un appareil équipé de S-ON. Cette fonctionnalité existe sur de nombreux appareils HTC et empêche AdAway d'accéder au fichier hosts.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF signifie que la partie NAND de l'appareil est dévérouillée et peut etre modifiée. Le réglage par défaut pour les appareils HTC est S-ON, ce qui signifie que vous ne pouvez ni acceder a certaines parties du système ni vous assurez d'un accès root permanent. D'autant plus que, la vérification de la signature des images du firmware est aussi assurée par le drapeau S-ON.</p>
+<p>S-OFF signifie que la partie NAND de l'appareil est déverrouillée et peut être modifiée. Le réglage par défaut des appareils HTC est S-ON, ce qui signifie que vous ne pouvez ni accéder à certaines parties du système ni obtenir un accès root permanent. D'autant plus que la vérification de la signature des images du firmware est aussi sécurisé par S-ON.</p>
 
-<h2>Ai-je S-ON ou S-OFF?</h2>
-<p>Démarrez dans le BootMenu de votre appareil en appuyant longuement sur le bouton <i>volume bas<i> et  en appuyant sur le bouton de démarrage. Le texte en haut affiche le statut de l'indicateur comme étant  S-OFF ou S-ON. S-OFF indique un root complet.
-&lt;br/&gt;&lt;br/&gt;Plus d'informations sont disponibles sur <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<h2>Mon appareil est-il S-ON ou S-OFF?</h2>
+<p>Démarrez dans le BootMenu de votre appareil en appuyant longuement sur le bouton <i>volume bas<i> et  en appuyant sur le bouton de démarrage. Le texte en haut affiche le statut de l'appareil comme étant  S-OFF ou S-ON. S-OFF indique un root complet.
+<br/><br/>Plus d'informations  sur <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Solution de contournement</h2>
 <p>Prérequis: Vous devez installer un SKD Android fonctionnel avec la ligne de commande ADB sur votre PC. 
 </p>
 <ol>
-<li>Démarrez dans le BootMenu en appuyant longuement sur le bouton <i>volume bas<i>et  en appuyant sur le bouton de démarrage.</li>
+<li>Démarrez dans le BootMenu en appuyant longuement sur le bouton <i>volume bas<i>et en appuyant sur le bouton de démarrage.</li>
 <li>Utilisez <i>volume bas<i> pour sélectionner le recovery.</li>
 <li>Dans le clockwork recovery, sélectionnez "partitions menu".</li>
 <li>Seléctionnez <i>mount /system<i>, <i>mount /sdcard and <i>mount /data<i>.</li>
 <li>Branchez votre câble USB et ouvrez une ligne de commande sur votre PC.</li>
-<li>Ouvrez la ligne de commande ADB et tapez &lt;br&gt;&lt;/br&gt;<tt>ln -s /data/data/hosts /system/etc/hosts</tt>&lt;br&gt;&lt;/br&gt; (Cela crée un lien symbolique, qui donne la permission à AdAway d'éditer le fichier hosts situé dans <tt>/data</tt> tout en permettant au système d'exploitation d'utiliser le fichier comme si elle était situé dans <tt>/system</tt>.)</li>
-<li>Redémarrez votre appareil puis dans les préférences de AdAway, définissez pour la <i>Cible du fichier hosts</i> la valeur <i>/data/data/hosts</i>.</li>
+<li>Ouvrez la ligne de commande ADB et tapez <br></br><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br></br> (Cela crée un lien symbolique, qui donne la permission à AdAway d'éditer le fichier hosts situé dans <tt>/data</tt> tout en permettant au système d'exploitation d'utiliser le fichier comme si elle était situé dans <tt>/system</tt>.)</li>
+<li>Redémarrez votre appareil, puis dans les préférences de AdAway, définissez pour la <i>Cible du fichier hosts</i> la valeur <i>/data/data/hosts</i>.</li>
 <li>AdAway devrait maintenant fonctionner.</li>
 </ol>
 </body>

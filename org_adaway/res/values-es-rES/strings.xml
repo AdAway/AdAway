@@ -100,7 +100,7 @@
   <string name="no_private_file">No se puede crear el archivo privado.</string>
   <string name="no_private_file_title">No se pudo crear el archivo privado</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">O bien el binario su no pudo ser encontrado o no se permitieron permisos de root para AdAway.\n\nEste puede suceder cuando el dispositivo no tiene root. \nPuede encontrar información sobre la forma de hacer root en su dispositivo en www.cyanogenmod.com u otros sitios web de Android.</string>
+  <string name="no_root_description">O no pudo encontrarse el binario su o no se dieron permisos de root para AdAway.\n\nEsto puede suceder cuando el dispositivo no tiene root. \nPuede encontrar información sobre la forma de hacer root en su dispositivo en www.cyanogenmod.com u otros sitios web de Android.</string>
   <string name="no_root_title">Se requiere Android con root</string>
   <string name="no_url">¡Esto no es una URL válida!</string>
   <string name="no_url_title">Dirección URL incorrecta</string>
@@ -110,6 +110,7 @@
   <string name="no_ip">¡Esto no es una IP válida!</string>
   <string name="no_ip_title">IP incorrecta</string>
   <string name="reboot_never_reboot">¡Nunca reinicies y no me muestres esta pregunta la próxima vez!</string>
+  <string name="loading">Cargando...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Añadir</string>

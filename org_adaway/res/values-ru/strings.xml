@@ -110,6 +110,7 @@
   <string name="no_ip">Это недопустимый IP!</string>
   <string name="no_ip_title">Неправильный IP</string>
   <string name="reboot_never_reboot">Никогда не перезагружать и более не показывать этот вопрос!</string>
+  <string name="loading">Загрузка…</string>
   <!--Menu entries-->
   <string name="menu_refresh">Обновить</string>
   <string name="menu_add">Добавить</string>

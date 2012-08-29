@@ -110,6 +110,7 @@
   <string name="no_ip">To ni veljaven IP naslov!</string>
   <string name="no_ip_title">Napačno oblikovan naslov IP</string>
   <string name="reboot_never_reboot">Brez ponovnega zagona in ne sprašuj me več!</string>
+  <string name="loading">Nalaganje...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Osveži</string>
   <string name="menu_add">Dodaj</string>

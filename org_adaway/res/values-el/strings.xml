@@ -5,12 +5,14 @@
   <string name="button_close">Κλείσιμο</string>
   <string name="button_yes">Ναι</string>
   <string name="button_no">Όχι</string>
+  <string name="button_add">Προσθήκη</string>
   <string name="button_cancel">Άκυρο</string>
   <string name="button_save">Αποθήκευση</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Προσθήκη</string>
   <string name="checkbox_list_context_delete">Διαγραφή</string>
   <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
+  <string name="checkbox_list_context_edit">Επεξεργασία</string>
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Λευκή λίστα</string>
   <string name="lists_tab_blacklist">Μαύρη λίστα</string>
@@ -18,6 +20,7 @@
   <!--Apply and Revert Dialogs-->
   <!--Other Dialogs-->
   <!--Menu entries-->
+  <string name="menu_add">Προσθήκη</string>
   <!--Help-->
   <!--Scan Adware-->
   <!--Hosts Sources-->

@@ -2,23 +2,23 @@
 <head></head>
 <body>
 <h2>Tuotot mainoksilla</h2>
-<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+<p>Yleinen harhaluulo on, että jos käyttäjä ei koskaan klikkaa mainoksia, niin niiden estäminen ei haittaa sivua tai sovellusta taloudellisesti. Tämä ei kuitenkaan pidä paikkaansa, sillä kehittäjät tienaavat rahaa myös vain näyttämällä mainoksia. Riippuu itsestäsi haluatko estää mainokset vai et. Henkilökohtaisesti en käyttäisi sovelluksia, jotka näyttävät mainoksia, sillä mainokset ovat mielestäni ärsyttäviä, joten ilman mainostenesto-ohjelmaa en asentaisi kyseisiä sovelluksia.</p>
 
 
 
 <h2>Kuinka AdAway toimii?</h2>
 <p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>Miksi säännöllinen päivitysten tarkistus vaihtoehto on harmaa?</h2>
+<p>Päivitysten automaattinen tarkistus on mahdollista vain, mikäli AdAway on asennettu puhelimen sisäiselle muistille. Tämä johtuu Android-käyttöjärjestelmän rajoituksista.</p>
 
 <h2>Miksi minun täytyy käynnistää Android uudelleen ottaakseni muutokset voimaan?</h2>
 <p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
 
 <h2>Kuinka käytetään web-palvelinti AdAwayssa?</h2>
 <p><b>AdAway will also work without using the webserver!</b>
-&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-&lt;br&gt;&lt;/br&gt;Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<br></br><br></br>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
+<br></br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Kuinka voin estää/sallia tiettyjä palvelinten nimet?</h2>
 <p>You can set up your own server providing a hosts file with hostnames that you want to block and add it to the <i>Hosts Sources</i> or add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
