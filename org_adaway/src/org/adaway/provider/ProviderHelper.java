@@ -92,7 +92,7 @@ public class ProviderHelper {
     }
 
     /**
-     * Returns all hosts sources, that are enabled as ArrayList
+     * Returns all hosts sources that are enabled as ArrayList
      * 
      * @param context
      * @return

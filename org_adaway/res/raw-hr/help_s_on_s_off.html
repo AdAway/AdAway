@@ -8,8 +8,7 @@
 <p>S-OFF označava to da je NAND dio uređaja otključan i da se može pisati na njega. Zadana postavka za HTC-ove uređaje je S-ON, što znači da ne možete pristupiti određenim dijelovima sustava, niti Vam može biti zagarantiran trajni root. Štoviše, provjera potpisa za sve slike firmwarea također je osigurana oznakom S-ON.</p>
 
 <h2>Imam li S-ON ili S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br></br><br></br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Ponovno pokrenite Vaš uređaj i uđite u Boot meni pritiskom na <i>tipku za stišavanje</i> za vrijeme držanja tipke za paljenje. Tekst na vrhu će Vam reći je li status Vašeg uređaja S-OFF ili S-ON. Potpuni root obično uključuje S-OFF.\n <br/><br/>Više informacija možete pronaći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Zaobilaženje</h2>
 <p>Potrebno: instaliran i funkcionalan Android SDK s ADB shellom na Vašem PC-u. \n</p>
@@ -19,7 +18,7 @@
 <li>U Clockwork recoveryju koristeći tipku za stišavanje dođite do stavke "Partitions menu" te je odaberite pomoću trackpada.</li>
 <li>Odaberite <i>mount /system</i>, <i>mount /sdcard</i> i <i>mount /data</i>.</li>
 <li>Uključite USB kabel i otvorite komandnu liniju na svom PC-u.</li>
-<li>Enter adb shell and type<br></br><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br></br> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Uđite u ADB shell i utipkajte <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (ovo stvara simboličku poveznicu koja omogućuje AdAwayu uređivanje hosts datoteke spremljene u <tt>/data</tt>, dok u isto vrijeme omogućuje operacijskom sustavu da koristi datoteku kao da je spremljena u <tt>/system</tt>.)</li>
 <li>Ponovno pokrenite Vaš uređaj i postavite <i>Target hosts file</i> na <i>/data/data/hosts</i> u opcijama AdAwaya.</li>
 <li>AdAway bi sada trebao raditi.</li>
 </ol>

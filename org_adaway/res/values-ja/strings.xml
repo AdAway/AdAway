@@ -110,6 +110,7 @@
   <string name="no_ip">不正なIPです!</string>
   <string name="no_ip_title">不正な形式のIP</string>
   <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
+  <string name="loading">読み込み中...</string>
   <!--Menu entries-->
   <string name="menu_refresh">更新</string>
   <string name="menu_add">追加</string>

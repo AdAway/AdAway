@@ -19,6 +19,7 @@
     <item>13 Euro</item>
   </string-array>
   <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Az adományozott összeget megválaszthatja a gombra való kattintás után.</string>
   <string name="donations__thanks_dialog_title">Köszönöm!</string>
   <string name="donations__thanks_dialog">Köszönjük a támogatást!\nNagyra értékeljük!</string>
 </resources>

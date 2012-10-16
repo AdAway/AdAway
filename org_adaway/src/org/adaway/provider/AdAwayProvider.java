@@ -67,19 +67,19 @@ public class AdAwayProvider extends ContentProvider {
 
         // Hosts sources
         matcher.addURI(authority, AdAwayContract.PATH_HOSTS_SOURCES, HOSTS_SOURCES);
-        matcher.addURI(authority, AdAwayContract.PATH_HOSTS_SOURCES + "/*", HOSTS_SOURCES_ID);
+        matcher.addURI(authority, AdAwayContract.PATH_HOSTS_SOURCES + "/#", HOSTS_SOURCES_ID);
 
         // Whitelist
         matcher.addURI(authority, AdAwayContract.PATH_WHITELIST, WHITELIST);
-        matcher.addURI(authority, AdAwayContract.PATH_WHITELIST + "/*", WHITELIST_ID);
+        matcher.addURI(authority, AdAwayContract.PATH_WHITELIST + "/#", WHITELIST_ID);
 
         // Blacklist
         matcher.addURI(authority, AdAwayContract.PATH_BLACKLIST, BLACKLIST);
-        matcher.addURI(authority, AdAwayContract.PATH_BLACKLIST + "/*", BLACKLIST_ID);
+        matcher.addURI(authority, AdAwayContract.PATH_BLACKLIST + "/#", BLACKLIST_ID);
 
         // Redirection list
         matcher.addURI(authority, AdAwayContract.PATH_REDIRECTION_LIST, REDIRECTION_LIST);
-        matcher.addURI(authority, AdAwayContract.PATH_REDIRECTION_LIST + "/*", REDIRECTION_LIST_ID);
+        matcher.addURI(authority, AdAwayContract.PATH_REDIRECTION_LIST + "/#", REDIRECTION_LIST_ID);
 
         return matcher;
     }

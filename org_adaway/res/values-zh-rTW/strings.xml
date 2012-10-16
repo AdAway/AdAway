@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">廣告阻擋</string>
   <!--Buttons-->
   <string name="button_exit">退出</string>
   <string name="button_apply">下載並免疫廣告</string>
@@ -54,6 +55,7 @@
   <string name="status_no_connection">沒有網路連接</string>
   <string name="status_no_connection_subtitle">沒有可用的網路</string>
   <string name="status_download_fail">不可用的來源</string>
+  <string name="status_download_fail_subtitle_new">無法連接伺服器端！</string>
   <string name="status_enabled">啟用</string>
   <string name="status_enabled_subtitle">最新的hosts檔案已經啟用</string>
   <string name="status_disabled">禁用</string>
@@ -69,6 +71,7 @@
   <string name="apply_remount_fail_title">重新掛載失敗</string>
   <string name="apply_copy_fail">複製hosts檔案失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
+  <string name="apply_success_subtitle">成功連上伺服器端：</string>
   <string name="apply_success_title">建立成功</string>
   <string name="apply_success_dialog">建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有程式正在使用sd卡）</string>
   <string name="apply_symlink_successful">符號連結建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有應用正在使用sd卡）</string>
@@ -92,6 +95,7 @@
   <string name="revert_successful_title">還原成功</string>
   <string name="revert_problem">還原失敗。</string>
   <string name="revert_problem_title">還原失敗!</string>
+  <string name="download_fail_dialog">所有伺服器端都無法連結！您是否正確連上網際網路？</string>
   <string name="download_fail_title">下載失敗</string>
   <string name="no_private_file">不能建立私人檔案</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
@@ -106,9 +110,11 @@
   <string name="no_ip">IP位址無效</string>
   <string name="no_ip_title">IP位址格式不對</string>
   <string name="reboot_never_reboot">不要重新啟動並且不再顯示！</string>
+  <string name="loading">讀取中...</string>
   <!--Menu entries-->
   <string name="menu_refresh">重新整理</string>
   <string name="menu_add">添加</string>
+  <string name="menu_scan_adware">掃描廣告軟體</string>
   <string name="menu_hosts_sources">Hosts來源</string>
   <string name="menu_tcpdump">執行tcpdump</string>
   <string name="menu_help">幫助</string>
@@ -120,13 +126,18 @@
   <string name="menu_preferences">設定</string>
   <!--Help-->
   <string name="help_tab_about">關於</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">問題</string>
   <string name="help_about_version">版本：</string>
   <!--Scan Adware-->
+  <string name="scan_adware_description">你可以掃描是否被安裝了惡意廣告軟體，這些使用推播技術 (Airpush notifications) 的廣告無法被阻擋，甚至當軟體沒有在執行時也會彈跳出廣告訊息。對付這些惡意軟體最有效的方法就是輕觸清單來移除他們！\n\n</string>
+  <string name="scan_adware_start">開始掃描</string>
+  <string name="scan_adware_empty">未發現任何惡意的廣告軟體</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">線上：</string>
+  <string name="hosts_not_available">無法使用</string>
   <!--Other-->
   <string name="app_subtitle">廣告免疫</string>
   <string name="no_text_editor_title">沒有安裝文字編輯器</string>
@@ -173,6 +184,8 @@
   <string name="pref_update_check_daily_summary">每天背景檢查更新並提示</string>
   <string name="pref_automatic_update_daily">自動更新</string>
   <string name="pref_automatic_update_daily_summary">如果有更新，自動在背景更新。</string>
+  <string name="pref_update_only_on_wifi">只透過Wi-Fi 更新</string>
+  <string name="pref_update_only_on_wifi_summary">只有在連接到 Wi-Fi 時執行背景更新。</string>
   <string name="pref_redirection_rules">允許重新導向</string>
   <string name="pref_redirection_rules_summary">允許來自Hosts來源重新導向規則</string>
   <string name="pref_debug">除錯</string>

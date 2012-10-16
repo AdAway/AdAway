@@ -16,9 +16,9 @@
 <p>Android 的 Java 自己维护着一个内部的 DNS 缓存。操作系统会立即对新的 hosts 文件的修改作出反应(可以在命令行上用 ping 来验证)，但是你需要重启你的 Android 来重建 Java 的 DNS 缓存。</p>
 
 <h2>怎么使用广告走开中的 web 服务器？</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br></br><br></br>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br></br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><b>广告走开不需要 web 服务器也可以正常使用！</b>
+<br/><br/>你可以在广告走开设置里面启动本地 web 服务器响应发到本地IP地址 <tt>127.0.0.1</tt> 的请求。也就是说被重定向到 <tt>127.0.0.1</tt> 的应用中的对广告服务器的请求会由广告走开的 web 服务器来响应。
+<br/>一些应用当访问不到广告服务器时就不能用了；使用这种方式后，应用以为广告服务器能访问了，只是返回空白网页或者没有广告图片。</p>
 
 <h2>我怎么屏蔽/取消屏蔽指定的主机名？</h2>
 <p>你可以配置你自己的服务器来提供一个包含你想要屏蔽的主机名的hosts文件并且把它添加到你的Hosts源里中，或者添加你想屏蔽的主机名到<i>黑名单</i>(黑)，在<i>你的名单</i>菜单中。你还可以，把你不想屏蔽的主机名添加到白名单(白)中，或者把你想要重定向到的IP地址添加到<i>重定向列表</i>(重定向)中。</p>

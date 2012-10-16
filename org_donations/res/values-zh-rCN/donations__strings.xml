@@ -7,7 +7,7 @@
   <string name="donations__google_android_market">Google Play 商店</string>
   <string name="donations__google_android_market_not_supported_title">不支持 In-App 捐赠</string>
   <string name="donations__google_android_market_not_supported">不支持 In-App 捐赠。你的 Google Play 商店是否安装正确了呢？</string>
-  <string name="donations__google_android_market_description">Google 要从第笔捐赠中抽取3成！\n</string>
+  <string name="donations__google_android_market_description">Google 要从捐赠中抽取3成！\n</string>
   <string name="donations__google_android_market_donate_button">捐赠！</string>
   <string name="donations__google_android_market_text">捐赠多少？</string>
   <string-array name="donations__google_android_market_promt_array">

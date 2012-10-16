@@ -8,19 +8,21 @@
 <p>S-OFF tarkoittaa, että laitteen NAND-osa is lukittu ja voidaan kirjoittaa. HTC-laitteissa oletuksena on S-ON, mikä tarkoittaa, että myöskään sinä et voi käyttää tiettyjä järjestelmän alueita, eikä ole myöskään mahdollista varmistaa pysyvää pääkäyttäjäoikeuksia. Tämän lisäksi S-ON:lla allekirjoituksen tarkistaminen laiteohjelmiston otoksista on myös varmistettu.</p>
 
 <h2>Onko minulla S-ON tai S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br></br><br></br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Käynnistä laitteesi käynnistysvalikkoon painamalla <i>äänenvoimakkuuden pienennys</i> - ja virtapainiketta painettuna. Ylhäällä pitäisi näkyä onko laite  S-OFF tai S-ON. S-OFF tarkoittaa, että on täydet pääkäyttäjäoikeudet. <br/><br/>Lisätietoa löytyy sivustolta &lt;ahref="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/"&gt;www.addictivetips.com</a>.</p>
 
 <h2>Kiertotapa</h2>
 <p>Edellytys: Tietokoneellassi täytyy olla asennettuna toimiva Android SDK ADB-lisäosalla.</p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
+<li>Käynnistä laitteesi käynnistysvalikkoon painamalla <i>äänenvoimakkuuden pienennys</i> - ja virtapainiketta painettuna.
+</li>
 <li>Käytä <i>Äänenvoimakkuus alas</i> -nappia valitaksesi palautuksen.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
+<li>Clockworkissa valitse "partitions menu"
+</li>
+<li>Valitse <i>mount /system</i>, <i>mount /sdcard</i> ja <i>mount /data</i></li>
 <li>Kytke usb-johto ja avaa komentorivi tietokoneeltasi.</li>
-<li>Enter adb shell and type<br></br><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br></br> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
+<li>Syötä adb shell ja kirjoita <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Tämä luo symbolisen linkin, jonka avulla AdAway muokkaa hosts-tiedostoa, joka on tallennettu <tt>/data</tt> sijaintiin samalla sallien käyttöjärjestelmän käyttää tiedostoa kuin se olisi tallennettu <tt>/system</tt> sijaintiin.)</li>
+<li>Käynnistä laite uudelleen ja valitse <i>Hosts-tiedoston kohde</i> -asetuksista <i>/data/data/hosts</i>.
+</li>
 <li>AdAway:n pitäisi toimia nyt.</li>
 </ol>
 </body>

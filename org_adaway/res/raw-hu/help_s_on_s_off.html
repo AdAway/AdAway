@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>HTC eszközök</h2>
+<p>AdAway nem működik olyan eszközön, amely S-ON izét használ. Ez a 'képesség' számos HTC eszközön létezik, és megakadályozza az AdAway alkalmazást a hosts fájl írásában.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>Az S-OFF azt jelenti, hogy az eszköz NAND rész nem zárolt, és írható. A HTC eszközök alapértéke S-ON, ami azt jelenti, hogy a rendszer bizonyos részeit nem érheti el és nem lehet állandó root jogot adni. Továbbá a firmware képek lenyomat ellenőrzése is be van kapcsolva az S-ON jelző miatt.</p>
+
+<h2>Nálam S-ON vagy S-OFF van?</h2>
+<p>Lépjen be az eszköze Boot menüjébe úgy, hogy bekapcsoláskor nyomva tartja a a <i>hangerő le</i> gombot. Így a felül megjelenő szöveg a jelző vagy S-OFF vagy S-ON értékét fogja mutatni. A teljes root általbanS-OFF értékkel jár.
+<br/><br/>További információkat találhat a <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a> oldalon.</p>
+
+<h2>Kerülő megoldás</h2>
+<p>Szükségletek: telepíteni kell egy működő Android SDK-t a gépre egy ADB parancssorral együtt.
+</p>
+<ol>
+<li>Lépjen be az eszköze Boot menüjébe úgy, hogy a bekapcsoló gomb mellett a <i>hangerő le</i> gombot is nyomva tartja.</li>
+<li>Használja a <i>Hangerő le</i> gombot a visszaállítás mód választásához.</li>
+<li>A clockwork recoveryben mozogjon le a hangerő le gombbal a "partitions" menüre és érintse meg a kijelzőt a kiválasztáshoz.</li>
+<li>Válassza a <i>mount/system</i>, <i>mount/sdcard</i> és a <i>mount/data</i> lehetőségeket.</li>
+<li>Csatlakoztassa az USB összekötő vezetéket és nyisson meg egy parancssort a gépén.</li>
+<li>Lépjen be az ADB parancssorba és írja:<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (ez létrehoz egy szimbolikus linket, ami lehetővé teszi az AdAway számára, hogy szerkessze a <tt>/data</tt> könyvtárban tárolt hosts fájlt, miközben az operációs rendszer úgy használja, mintha a <tt>/system</tt> könyvtárban lenne.)</li>
+<li>Indítsa újra az eszközt és állítsa be a <i>Cél host fájl</i>t <i>/data/data/hosts</i> értékre az AdAway Lehetőségek részénél.</li>
+<li>Az AdAway alkalmazásnak így már működnie kell.</li>
+</ol>
+</body>
+</html>

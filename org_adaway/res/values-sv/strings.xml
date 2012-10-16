@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Avsluta</string>
+  <string name="button_apply">Ladda ner filer och tillämpa annonsblockering</string>
+  <string name="button_close">Stäng</string>
+  <string name="button_yes">Ja</string>
+  <string name="button_no">Nej</string>
+  <string name="button_revert">Avaktivera annonsblockering</string>
+  <string name="button_add">Lägg till</string>
+  <string name="button_cancel">Avbryt</string>
+  <string name="button_apply_text">Alla värdfiler från de förinställda källorna är hämtade, ihopslagna med din egen lista och tillämpad som en värdfil på din enhet.</string>
+  <string name="button_revert_text">Återställer standardvärdfilen på din enhet</string>
+  <string name="button_save">Spara</string>
+  <string name="button_webserver_toggle_checked">Webbserver körs</string>
+  <string name="button_webserver_toggle_unchecked">Webbserver körs inte</string>
+  <string name="button_help">Hjälp</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Lägg till</string>
+  <string name="checkbox_list_empty">Tom lista</string>
+  <string name="checkbox_list_empty_text">Du kan lägga till saker från åtgärdsfältet</string>
+  <string name="checkbox_list_context_delete">Ta bort</string>
+  <string name="checkbox_list_footer">Efter att du har lagt till saker till listan så måste du tillämpa AdAway igen!</string>
+  <string name="checkbox_list_edit_dialog_title">Ändra</string>
+  <string name="checkbox_list_context_title">Ändra post</string>
+  <string name="checkbox_list_context_edit">Ändra</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Vitlista</string>
+  <string name="lists_tab_blacklist">Svartlista</string>
+  <string name="lists_tab_blacklist_short">Svart</string>
+  <string name="lists_tab_whitelist_short">Vit</string>
+  <string name="lists_tab_redirection_list_short">Omdirigering</string>
+  <string name="lists_tab_redirection_list">Omdirigeringslista</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">Värdnamn:</string>
+  <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
+  <!--Status Notifications-->
+  <string name="status_checking">Letar efter uppdateringar...</string>
+  <string name="status_checking_subtitle">Kollar om uppdatering finns tillgänglig</string>
+  <string name="status_update_available">Uppdatering tillgänglig</string>
+  <string name="status_update_available_subtitle">Nyare värdfiler är tillgängliga</string>
+  <string name="status_no_connection">Ingen internetanslutning</string>
+  <string name="status_no_connection_subtitle">Ingen internetanslutning tillgänglig</string>
+  <string name="status_download_fail">Otillgängliga källor</string>
+  <string name="status_enabled">Aktiverad</string>
+  <string name="status_enabled_subtitle">Nyaste värdfilerna har aktiverats</string>
+  <string name="status_disabled">Avaktiverad</string>
+  <string name="status_disabled_subtitle">Avaktiverad</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_not_enough_space_title">Inte tillräckligt med minne</string>
+  <string name="apply_private_file_fail">Hämtad fil kunde inte läsas.</string>
+  <string name="apply_copy_fail_title">Kopiering misslyckades</string>
+  <string name="apply_help">Läs Hjälp för mer information</string>
+  <string name="no_connection">Internetanslutningen fungerar inte.</string>
+  <string name="no_connection_title">Ingen anslutning</string>
+  <string name="download_dialog">Hämtar...</string>
+  <string name="apply_dialog">Tillämpar...</string>
+  <string name="apply_dialog_lists">Tillämpa svart- och vitlista</string>
+  <string name="apply_dialog_hostnames">Tolkar och slår ihop värdfiler</string>
+  <string name="apply_dialog_hosts">Skapar värdfil</string>
+  <string name="apply_dialog_apply">TIllämpar värdfil</string>
+  <string name="apply_fail">Tillämpning av värdfilen på din enhet misslyckades!\nTesta att ändra värdfilssökvägen i inställningarna till /data/data/hosts</string>
+  <string name="apply_fail_title">Tillämpning misslyckades</string>
+  <string name="revert_successful">Du återställa till standardvärdfilen.\nDet kan vara nödvändigt att starta om din enhet för att ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att undvika förlust av data, se till att ingen app använder SD-kortet för tillfället)</string>
+  <string name="revert_problem">Återställningen misslyckades av okända skäl</string>
+  <string name="download_fail_title">Hämtning misslyckades</string>
+  <string name="no_private_file">Privat fil kan inte skapas</string>
+  <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">Antingen kunde inte superuser-paketet hittas eller så tillät du inte AdAway att få root-rättigheter.\n\nDetta kan inträffa när enheten inte är rootad.\nDu kan hitta information om hur du rootar din enhet på www.cyanogenmod.com eller andra androidhemsidor.</string>
+  <string name="no_root_title">Rootad enhet krävs</string>
+  <string name="no_url">Det här är ingen giltig URL!</string>
+  <string name="no_url_title">Felaktig URL</string>
+  <string name="hosts_add_dialog">Importera URL till värdfil:</string>
+  <string name="no_hostname">Det här är inget giltigt värdnamn!</string>
+  <string name="no_hostname_title">Felaktigt värdnamn</string>
+  <string name="no_ip">Det här är inte en korrekt ip-adress!</string>
+  <string name="no_ip_title">Felaktig IP-adress</string>
+  <string name="loading">Laddar...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Uppdatera</string>
+  <string name="menu_add">Lägg till</string>
+  <string name="menu_scan_adware">Sök efter Adware</string>
+  <string name="menu_hosts_sources">Värdkällor</string>
+  <string name="menu_help">Hjälp</string>
+  <string name="menu_lists">Din lista</string>
+  <string name="menu_show_hosts_file">Öppna värdfil</string>
+  <string name="menu_donations">Donationer</string>
+  <string name="menu_preferences">Inställningar</string>
+  <!--Help-->
+  <string name="help_tab_about">Om</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">Problem</string>
+  <string name="help_about_version">Version:</string>
+  <!--Scan Adware-->
+  <string name="scan_adware_start">Starta sökning</string>
+  <string name="scan_adware_empty">Inga Adwares kunde hittaas!</string>
+  <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Lokal:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">inte tillgänglig</string>
+  <!--Other-->
+  <string name="app_subtitle">Annonsblockerare</string>
+  <string name="no_text_editor_title">Ingen textredigerare installerad</string>
+  <!--Tcpdump-->
+  <!--Preferences-->
+  <string name="pref_header_preferences">Inställningar</string>
+  <string name="pref_never_reboot">Göm omstartsruta</string>
+  <string name="pref_webserver_on_boot">Starta webbserver vid start</string>
+  <string name="pref_webserver_enabled">Aktivera webbserver</string>
+  <string name="pref_webserver">Lokal webbserver</string>
+  <string name="pref_update_check_summary">Sök efter uppdateringar när appen startas</string>
+  <string name="pref_background">Bakgrundstjänster</string>
+  <string name="pref_update_check_daily">Sök efter uppdateringar dagligen</string>
+  <string name="pref_automatic_update_daily">Automatiska uppdateringar</string>
+  <string name="pref_update_only_on_wifi">Uppdatera endast via WiFi</string>
+  <string name="pref_debug">Felsökning</string>
+  <string name="pref_enable_debug">Felsökningsloggning</string>
+</resources>

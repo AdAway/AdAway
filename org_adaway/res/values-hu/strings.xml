@@ -110,6 +110,7 @@
   <string name="no_ip">Ez nem érvényes IP!</string>
   <string name="no_ip_title">Hibás IP</string>
   <string name="reboot_never_reboot">Soha ne indítsa újra és ne jelenjen meg ez a kérdés legközelebb!</string>
+  <string name="loading">Betöltés...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Frissítés</string>
   <string name="menu_add">Hozzáadás</string>

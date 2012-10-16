@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+<h2>Bevétel hirdetéseken keresztül</h2>
+<p>Van egy gyakran elhangzó félreértés mely szerint, ha amúgy se katintanánk a reklámokra, akkor azzal se ártunk egy oldalnak vagy alakalmazásnak, ha meg se jelenítjük a reklámot. Ez nem igaz, mert a fejlesztők már azért is kaphatnak pénzt, hogy megjelenítsék a hirdetést. Az csak a felhasználón múlik, hogy használ-e reklám blokkolót vagy nem.</p>
+
+
+
+<h2>Hogy működik az AdAway?</h2>
+<p>Az AdAway a <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts fájl</a> segítségével blokkolja azokat gépneveket, amelyek hirdetéseket szolgálnak ki. A hosts fájl a <tt>/system/etc/hosts</tt> helyen található és gépnevekhez IP címeket párosít. Ez a hagyományos módja, hogy gépnevekhez IP címeket párosítsunk a Domain Név Rendszer (DNS) használata nélkül. Minden nem kívánatos gépnév a <tt>127.0.0.1</tt> címre lesz átirányítva, ami azt jelenti, hogy a saját eszközre fog mutatni.</p>
+
+<h2>Miért van kiszürkítve a naponta történő frissítés keresés beállítása?</h2>
+<p>Az automata frissítés keresés csak akkor lehetséges, ha az AdAway az eszköz belső memóriájára lett telepítve. Ez az Android rendszer korlátai miatt van így.</p>
+
+<h2>Miért kell újraindítani az Androidot, hogy a változások életbe lépjenek?</h2>
+<p>Az Java az Android rendszeren saját belső DNS tárat tart fenn. Az operációs rendszer azonnal használja az új hosts fájlt (ezt ellenőrizni is lehet pingeléssel), de a Java DNS tárának újraépítéséhez újra kell indítani az Androidot.</p>
+
+<h2>Hogy kell használni a web kiszolgálót az AdAway-ben?</h2>
+<p><b>Az AdAway a web kiszolgáló használata nélkül is működni fog.</b>
+<br/><br/>Engedélyezni lehet az AdAway beállításainál egy helyi web kiszolgálót , hogy válaszoljon  a <tt>127.0.0.1</tt> helyi IP címre érkező kérésekre. Ez olyan kéréseket jelent, amelyeket alkalmazások kezdeményeztek a hirdetés kiszolgálójukhoz, de a <tt>127.0.0.1</tt> címre lettek átirányítva, így az AdAway válaszol ezekre a kérésekre.
+<br/>Néhány alkalmazás nem hajlandó működni, ha a reklám kiszolgálóik nem érhető el. Ezzel a módszerrel újra elérhetőnek hiszi azt, és egy üres oldalt kapnak vissza.</p>
+
+<h2>Hogyan tudok adott gépneveket blokkolni/engedélyezni?</h2>
+<p>Indíthat egy saját kiszolgálót, ami kiszolgál egy hosts fájlt blokkolandó gépnevekkel, és ezt hozzáadhatja a <i>hosts források</i>-hoz, vagy hozzáadhatja a blokkolandó gépneveket a feketelistához (=Fekete) a <i>Saját listák</i> alatt. Továbbá a blokkolás elkerüléséhez megadhat gépneveket a <i>fehér listában</i> (=Fehér). Adott IP címre átirányításhoz megadhat gépneveket az <i>átirányítások listába</i> (=Átirányítások).</p>
+
+<h2>Hol találhatok további hosts forrásokat?</h2>
+<p>Itt: <a href="http://code.google.com/p/ad-away/wiki/HostsSources">hosts források további listája AdAway-hez</a>.</p>
+
+<h2>Találtam egy hibát az AdAway-ben!</h2>
+<p>Kérjük, hogy jelentse be az <a href="http://code.google.com/p/ad-away/issues/list">AdAway hibakövetőjében</a>.</p>
+</body>
+</html>

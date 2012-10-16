@@ -8,8 +8,8 @@
 <p>S-OFF significa che la porzione NAND del dispositivo è sbloccata e può essere scritta. L'impostazione predefinita nel dispositivi HTC è S-ON, il che significa che non si può né accedere a determinate aree del sistema, né puoi garantirti il root permanente. Inoltre, anche il controllo della firma per i firmware è assicurato dal flag S-ON.</p>
 
 <h2>Ho S-ON o S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br></br><br></br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Fai il Boot nel Boot menu del tuo dispositivo tenendo premuto il pulsante <i>volume giù</i> mentre premi power e sul display in alto apparirà lo status come S-OFF o S-ON. Un root completo generalmente significa S-OFF.
+<br/><br/>Maggiori informazioni su <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Soluzione</h2>
 <p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
@@ -20,7 +20,7 @@
 <li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
 <li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
 <li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type<br></br><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br></br> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAway should work now.</li>
 </ol>

@@ -18,7 +18,7 @@
   <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur web sur localhost pour répondre à des demandes de noms d\'hôtes bloqués.</string>
   <string name="button_help">Aide</string>
   <string name="button_tcpdump_text">Tcpdump est un outil pour suivre les requêtes DNS en les enregistrant dans un fichier journal. Démarrez le en arrière-plan et lancer vos applications qui affichent de la publicité indésirable. Puis arrêtez Tcpdump et analysez les requêtes en lisant le fichier journal. Enfin les requêtes indésirables pourront être ajoutées à votre liste noire.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump en cours ...</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump en cours...</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump arrété</string>
   <string name="button_tcpdump_open">Ouvrir le fichier journal</string>
   <string name="button_tcpdump_delete">Supprimer le fichier journal</string>
@@ -46,7 +46,7 @@
   <string name="export_dialog">Exportation...</string>
   <string name="export_success">Exporter toutes les entrées vers un fichier \'adaway-export\' sur votre carte SD.</string>
   <!--Status Notifications-->
-  <string name="status_checking">Vérification de mise à jour ...</string>
+  <string name="status_checking">Vérification de mise à jour...</string>
   <string name="status_reverting">Restauration...</string>
   <string name="status_reverting_subtitle">Création d\'un fichier hosts standard </string>
   <string name="status_checking_subtitle">Vérifier si une mise à jour est disponible</string>
@@ -61,22 +61,22 @@
   <string name="status_disabled">Désactivé</string>
   <string name="status_disabled_subtitle">Désactivé</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Le lien symbolique de /data/data/hosts vers /system/etc/hosts est absent ou incorrect. AdAway ne fonctionnera pas sans un lien valide. \n \nVoulez-vous de créer un lien symbolique?</string>
+  <string name="apply_symlink_missing">Le lien symbolique de /data/data/hosts vers /system/etc/hosts est absent ou incorrect. AdAway ne fonctionnera pas sans un lien valide.\n\nVoulez-vous de créer un lien symbolique?</string>
   <string name="apply_symlink_missing_title">Lien symbolique manquant</string>
-  <string name="apply_not_enough_space">Manque d\'espace sur la partition ! \nEssayez de modifier le fichier hosts cible dans les préférences pour /data/data/hosts.</string>
+  <string name="apply_not_enough_space">Manque d\'espace sur la partition !\nEssayez de modifier le fichier hosts cible dans les préférences pour /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Manque d\'espace</string>
   <string name="apply_private_file_fail">Le fichier téléchargé est illisible.</string>
   <string name="apply_private_file_fail_title">Échec fichier privé </string>
-  <string name="apply_remount_fail">Echec du remontage de la partition en lecture/écriture !</string>
-  <string name="apply_remount_fail_title">Echec du remontage</string>
-  <string name="apply_copy_fail">Echec pendant la copie du fichier hosts !</string>
+  <string name="apply_remount_fail">Échec du remontage de la partition en lecture/écriture !</string>
+  <string name="apply_remount_fail_title">Échec du remontage</string>
+  <string name="apply_copy_fail">Échec pendant la copie du fichier hosts !</string>
   <string name="apply_copy_fail_title">La copie a échouée</string>
   <string name="apply_success_subtitle">Sources disponibles :</string>
   <string name="apply_success_title">Mise à jour réussie</string>
-  <string name="apply_success_dialog">La mise à jour est terminée. \nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet. \n \nVoulez-vous redémarrer ? \n (Pour éviter toute perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
-  <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès. \nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet. \n\nVoulez-vous redémarrer ?\n (Pour éviter toute perte de données s\'assurer qu\'aucune application n\'utilise la carte SD pour le moment !)</string>
+  <string name="apply_success_dialog">La mise à jour est terminée.\nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
+  <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n (Pour éviter toute perte de données s\'assurer qu\'aucune application n\'utilise la carte SD en ce moment !)</string>
   <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
-  <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCela arrive la plupart du temps à cause d\'une «particularité» appelée S-ON sur les téléphones HTC !\n\nLa solution est de démarrer votre téléphone en mode recovery et de créer le lien symbolique là avec \"ln-s /data/data/hosts/system/etc/hosts\"\n\nSi cela ne fonctionne pas cherchez sur Internet pour le S-OFF et votre téléphone.</string>
+  <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCela arrive la plupart du temps à cause d\'une «particularité» appelée S-ON sur les téléphones HTC !\n\nLa solution est de démarrer votre téléphone en mode recovery et de créer un lien symbolique avec \"ln-s /data/data/hosts/system/etc/hosts\"\n\nSi cela ne fonctionne pas faites une recherche sur Internet avec les mots clés S-OFF et le nom de votre téléphone.</string>
   <string name="apply_symlink_fail_title">Echec de la création du lien symbolique</string>
   <string name="apply_help">Pour plus d\'informations, consultez l\'Aide.</string>
   <string name="apply_apn_proxy">Un proxy APN est configuré sur votre appareil. AdAway ne peut fonctionner correctement sur les réseaux mobiles haut débit comme la 3G. Vous pouvez désactiver ce proxy en modifiant les paramètres de votre réseau opérateur (sur Android 4 allez dans : Paramètres &gt; Réseaux Mobile &gt; Point d\'accès). Il suffit alors d\'effacer la valeur indiquée dans la zone \"proxy\".</string>
@@ -89,18 +89,18 @@
   <string name="apply_dialog_hostnames">Analyse et fusion des fichiers hosts</string>
   <string name="apply_dialog_hosts">Création du fichier hosts</string>
   <string name="apply_dialog_apply">Mise à jour du fichier hosts</string>
-  <string name="apply_fail">La mise à jour du fichier hosts a échoué ! \nEssayez de remplacer la cible du fichier hosts dans les préférences  par /data/data/hosts.</string>
+  <string name="apply_fail">La mise à jour du fichier hosts a échoué !\nEssayez de remplacer la cible du fichier hosts dans les préférences  par /data/data/hosts.</string>
   <string name="apply_fail_title">Mise à jour échoué</string>
   <string name="revert_successful">Le fichier hosts d\'origine a été restauré.\nUn redémarrage du système est nécessaire pour que les changements prennent effet.\n\nVoulez-vous redémarrer maintenant ?\n(Afin d\'éviter la perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD !)</string>
   <string name="revert_successful_title">Restauration réussie</string>
   <string name="revert_problem">La restauration a échoué pour des raisons inconnues.</string>
   <string name="revert_problem_title">Échec de la restauration ! </string>
-  <string name="download_fail_dialog">Aucune des sources activées n\'est disponible. Êtes-vous correctement connecté à internet?</string>
+  <string name="download_fail_dialog">Aucune des sources activées n\'est disponible. Êtes-vous correctement connecté à internet ?</string>
   <string name="download_fail_title">Échec du téléchargement</string>
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de la création du fichier privé</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Le binaire su est introuvable ou vous n\'avez pas la permission root pour AdAway. \n \nCe qui peut arriver lorsque votre appareil n\'est pas rooté. \nVous pouvez trouver des informations sur la façon de rooter votre appareil sur www.cyanogenmod.com ou d\'autres sites Android.</string>
+  <string name="no_root_description">Le binaire su est introuvable ou vous n\'avez pas les droits administrateur pour AdAway. \n\nCe qui peut arriver lorsque votre appareil n\'est pas rooté. \nVous pouvez trouver des informations sur la façon de rooter votre appareil sur www.cyanogenmod.com ou d\'autres sites Android.</string>
   <string name="no_root_title">Un Android rooté est requis</string>
   <string name="no_url">Cett URL est invalide !</string>
   <string name="no_url_title">URL incorrecte</string>
@@ -133,7 +133,7 @@
   <!--Scan Adware-->
   <string name="scan_adware_description">Ici, vous pouvez rechercher les \"mauvais\" logiciels publicitaires, ceux qui ne peuvent être bloqués par AdWay. La seule alternative est de désinstaller ces logiciels en cliquant dans la listes ci-dessous !</string>
   <string name="scan_adware_start">Démarrer la recherche</string>
-  <string name="scan_adware_empty">Aucun logiciel publicitaire trouvé!</string>
+  <string name="scan_adware_empty">Aucun logiciel publicitaire trouvé !</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Locale :</string>
   <string name="hosts_last_modified_online">En ligne :</string>
@@ -143,7 +143,7 @@
   <string name="no_text_editor_title">Aucun éditeur de texte installé</string>
   <string name="no_text_editor">Aucun éditeur de texte n\'a été trouvé pour ouvrir le fichier hosts. Vous pouvez installer Jota ou d\'autres éditeurs de texte.\n\nVoulez-vous installer Jota ?</string>
   <string name="no_file_manager_title">Aucun gestionnaire de fichier installé</string>
-  <string name="no_file_manager">Aucun gestionnaire de fichier trouvé. Des gestionnaires de fichiers sont disponibles sur Google Play, comme OI File Manager. Voulez-vous installer OI File Manager ?</string>
+  <string name="no_file_manager">Aucun gestionnaire de fichier trouvé. Des gestionnaires de fichiers sont disponibles sur le Play Store, comme OI File Manager. Voulez-vous installer OI File Manager ?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Ficher journal supprimé !</string>
   <string name="toast_tcpdump_added_to_blacklist">Nom d\'hôte ajouté à votre liste noire !</string>

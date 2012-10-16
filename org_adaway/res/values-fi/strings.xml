@@ -91,7 +91,7 @@
   <string name="apply_dialog_apply">Hyväksy hosts-tiedosto</string>
   <string name="apply_fail">Hosts-tiedoston soveltaminen epäonnistui!\nYritä muuttaa hosts-tiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
   <string name="apply_fail_title">Soveltaminen epäonnistui</string>
-  <string name="revert_successful">Palautit hosts-tiedoston oletustilaan.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
+  <string name="revert_successful">Palautit hosts-tiedoston oletustilaan.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää? (Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
   <string name="revert_successful_title">Palauttaminen onnistui</string>
   <string name="revert_problem">Palauttaminen epäonnistui.</string>
   <string name="revert_problem_title">Palauttaminen epäonnistui!</string>
@@ -110,6 +110,7 @@
   <string name="no_ip">Tämä ei ole kelvollinen IP-osoite!</string>
   <string name="no_ip_title">Virheellinen IP-osoite</string>
   <string name="reboot_never_reboot">Älä koskaan käynnistä uudelleen ja älä näytä tätä kysymystä ensi kerralla!</string>
+  <string name="loading">Ladataan...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Päivitä</string>
   <string name="menu_add">Lisää</string>

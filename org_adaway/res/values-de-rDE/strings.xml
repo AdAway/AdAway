@@ -110,6 +110,7 @@
   <string name="no_ip">Das ist keine gültige IP!</string>
   <string name="no_ip_title">Fehlerhafte IP</string>
   <string name="reboot_never_reboot">Starte niemals neu und zeige diese Frage nächstes Mal nicht!</string>
+  <string name="loading">Wird geladen...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Neu laden</string>
   <string name="menu_add">Hinzufügen</string>

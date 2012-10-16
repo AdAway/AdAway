@@ -8,8 +8,8 @@
 <p>S-OFF betyder, at NAND delen af enheden er låst op og kan skrives til. Standardindstillingen for HTC-enheder er S-ON, hvilket betyder, at man kan heller ikke få adgang til bestemte områder af systemet du kan heller ikke garantere en permanent rod. Endvidere er signatur check for firmware billeder også sikret ved S-ON flag.</p>
 
 <h2>Har jeg S-ON eller S-OFF?</h2>
-<p>Boot ind i Boot Menu på enheden ved at holde <i>lydstyrke ned</i> knappen, mens du trykker tænd og teksten i toppen af skærmen vil vise flaget status som enten S-OFF eller S-ON. En fuld root betyder generelt S-OFF.
-<br> &lt;/ br&gt; <br> &lt;/ br&gt; Mere information kan findes på <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Løsning</h2>
 <p>Forudsætning:. Du skal installere en virkende Android SDK med ADB shell på din pc.
@@ -21,8 +21,7 @@
 <li>Vælge <i>mount /system</i>, <i>mount /sdcard</i> og <i>mount /data</i>.
 </li>
 <li>Tilslut din USB-ledningen og åbne en kommandolinje på din pc.</li>
-<li>Indtast adb shell og skriv <br></br><tt> ln -s /data/ data/hosts/system 
-/etc/hosts</tt><br></br> (Dette skaber en symbolsk link, som gør det muligt AdAway at redigere værter gemt i <tt>/data</tt> samtidig med at OS kan bruge filen, som om den blev opbevaret i <tt>/system</tt>.)</li>
+<li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>Genstart enheden og sæt <i> mål hosts fil </i>til<i> /data/data/hosts</i> i AdAways præferencer.</li>
 <li>AdAway skulle virke nu.</li>
 </ol>

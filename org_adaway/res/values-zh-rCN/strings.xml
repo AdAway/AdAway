@@ -110,6 +110,7 @@
   <string name="no_ip">IP 地址无效</string>
   <string name="no_ip_title">IP 地址格式不对</string>
   <string name="reboot_never_reboot">不要重启，并且不再显示这个询问！</string>
+  <string name="loading">存取中...</string>
   <!--Menu entries-->
   <string name="menu_refresh">刷新</string>
   <string name="menu_add">添加</string>
