@@ -128,24 +128,25 @@ public class AdAwayProvider extends ContentProvider {
         final SQLiteDatabase db = mAdAwayDatabase.getWritableDatabase();
 
         Uri rowUri = null;
+        long rowId = -1;
         try {
             final int match = sUriMatcher.match(uri);
             switch (match) {
             case HOSTS_SOURCES:
-                db.insertOrThrow(Tables.HOSTS_SOURCES, null, values);
-                rowUri = HostsSources.buildUri(values.getAsString(HostsSources._ID));
+                rowId = db.insertOrThrow(Tables.HOSTS_SOURCES, null, values);
+                rowUri = HostsSources.buildUri(Long.toString(rowId));
                 break;
             case WHITELIST:
-                db.insertOrThrow(Tables.WHITELIST, null, values);
-                rowUri = Whitelist.buildUri(values.getAsString(Whitelist._ID));
+                rowId = db.insertOrThrow(Tables.WHITELIST, null, values);
+                rowUri = Whitelist.buildUri(Long.toString(rowId));
                 break;
             case BLACKLIST:
-                db.insertOrThrow(Tables.BLACKLIST, null, values);
-                rowUri = Blacklist.buildUri(values.getAsString(Blacklist._ID));
+                rowId = db.insertOrThrow(Tables.BLACKLIST, null, values);
+                rowUri = Blacklist.buildUri(Long.toString(rowId));
                 break;
             case REDIRECTION_LIST:
-                db.insertOrThrow(Tables.REDIRECTION_LIST, null, values);
-                rowUri = RedirectionList.buildUri(values.getAsString(RedirectionList._ID));
+                rowId = db.insertOrThrow(Tables.REDIRECTION_LIST, null, values);
+                rowUri = RedirectionList.buildUri(Long.toString(rowId));
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);

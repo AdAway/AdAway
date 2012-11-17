@@ -8,10 +8,10 @@
   <string name="button_yes">Evet</string>
   <string name="button_no">Hayır</string>
   <string name="button_revert">Reklam engellemeyi etkisizleştir</string>
-  <string name="button_add">le</string>
+  <string name="button_add">Ekle</string>
   <string name="button_cancel">İptal</string>
-  <string name="button_apply_text">Tüm kaynaklardaki hosts dosyaları indirildi, listenizdekiler ile birleştirildi ve sisteminize tek bir hosts dosyalı olarak yüklendi.</string>
-  <string name="button_revert_text">Hosts dosyasını sistem varsayılanına döndürür.</string>
+  <string name="button_apply_text">Tüm kaynaklardaki host dosyaları indirildi, listenizdekilerle birleştirildi ve sisteminize tek bir host dosyası olarak yüklendi.</string>
+  <string name="button_revert_text">Host dosyasını sistem varsayılanına döndürür.</string>
   <string name="button_save">Kaydet</string>
   <string name="button_webserver_toggle_checked">Websunucu çalışıyor</string>
   <string name="button_webserver_toggle_unchecked">Websunucu çalışmıyor</string>
@@ -51,27 +51,27 @@
   <string name="status_reverting_subtitle">Varsayılan hosts dosyası yapılıyor</string>
   <string name="status_checking_subtitle">Güncelleştirmenin kullanılabilir olup olmadığını kontrol et</string>
   <string name="status_update_available">Güncelleme mevcut</string>
-  <string name="status_update_available_subtitle">Daha yeni hosts dosyaları mevcut</string>
+  <string name="status_update_available_subtitle">Daha yeni host dosyaları mevcut</string>
   <string name="status_no_connection">İnternet bağlantısı yok</string>
   <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
   <string name="status_download_fail">Kullanılamaz kaynak</string>
   <string name="status_enabled">Etkinleştirildi</string>
-  <string name="status_enabled_subtitle">Yeni hosts dosyaları etkin</string>
+  <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
   <string name="status_disabled">Etkisizleştirildi</string>
   <string name="status_disabled_subtitle">Etkisizleştirildi</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Hedefiniz ile /system/etc/hosts dosyası symlink ile bağlanmamış veya hatalı bağlanmış! Bu bağlanma olmadan AdAway çalışamaz.\n\nŞimdi bir symlink ayarlansın mı?</string>
   <string name="apply_symlink_missing_title">Symlink kayıp</string>
-  <string name="apply_not_enough_space">Sistem bölümlemesinin boş alanı yeterli değil!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
+  <string name="apply_not_enough_space">Sistem bölümlemesinin boş alanı yeterli değil!\nTercihlerden hedef host dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
   <string name="apply_not_enough_space_title">Yeterli alan yok</string>
   <string name="apply_private_file_fail">İndirilen dosya okunamadı.</string>
   <string name="apply_private_file_fail_title">Özel dosya başarısız</string>
   <string name="apply_remount_fail">Okuma/yazma bölümü tekrar bağlanması başarısız!</string>
   <string name="apply_remount_fail_title">Remount başarısız oldu</string>
-  <string name="apply_copy_fail">Hosts dosyası kopyalama başarısız!</string>
+  <string name="apply_copy_fail">Host dosyası kopyalama başarısız!</string>
   <string name="apply_copy_fail_title">Kopyalama başarısız</string>
   <string name="apply_success_title">Uygulama başarılı</string>
-  <string name="apply_symlink_successful">Symlink bağlantısı oluşturuldu.\nDeğişikliklerin geçerli olması için yeniden başlatmanı gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
+  <string name="apply_symlink_successful">Symlink bağlantısı oluşturuldu.\nDeğişikliklerin geçerli olması için yeniden başlatma gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
   <string name="apply_symlink_successful_title">Symlink oluşturma başarılı</string>
   <string name="apply_symlink_fail">Symlink oluşturulamadı.\nBu hata genelde HTC telefonlardaki S-ON denilen özellik yüzünden olmaktadır!\n\nSorunu elle çözmek isterseniz recovery mode ile açıp \'ln -s /data/data/hosts /system/etc/hosts\' komutuyla symlink yapmanız gereklidir.\n\nEğer ki bu olmuyorsa çözüm için internette S-OFF ve telefonunuzun adı ile bir arama yapın.</string>
   <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
@@ -81,12 +81,12 @@
   <string name="download_dialog">İndiriyor...</string>
   <string name="apply_dialog">Uygulanıyor...</string>
   <string name="apply_dialog_lists">Beyazliste ve Karaliste uygulanıyor</string>
-  <string name="apply_dialog_hostnames">Hosts dosyaları incelenip birleştiriliyor</string>
-  <string name="apply_dialog_hosts">Hosts dosyası oluşturuluyor</string>
-  <string name="apply_dialog_apply">Hosts dosyası uygulanıyor</string>
-  <string name="apply_fail">Hosts dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
+  <string name="apply_dialog_hostnames">Host dosyaları incelenip birleştiriliyor</string>
+  <string name="apply_dialog_hosts">Host dosyası oluşturuluyor</string>
+  <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
+  <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef host dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
   <string name="apply_fail_title">Uygulama başarısız</string>
-  <string name="revert_successful">Varsayılan hosts dosyası geri alındı.\nDeğişikliklerin geçerli olması için yeniden başlatmanı gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
+  <string name="revert_successful">Varsayılan host dosyasına dönüldü.\nDeğişikliklerin geçerli olması için yeniden başlatma gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
   <string name="revert_successful_title">Geri alma başarılı!</string>
   <string name="revert_problem">Geri alma bilinmeyen sebepler yüzünden başarısız oldu.</string>
   <string name="revert_problem_title">Geri alma başarısız!</string>
@@ -98,7 +98,7 @@
   <string name="no_root_title">Root izni gereklidir</string>
   <string name="no_url">Geçersiz bir URL!</string>
   <string name="no_url_title">Hatalı URL</string>
-  <string name="hosts_add_dialog">Hosts dosyasına URL gir:</string>
+  <string name="hosts_add_dialog">Host dosyasına URL gir:</string>
   <string name="no_hostname">Girilen adres geçerli değil!</string>
   <string name="no_hostname_title">Geçersiz adres</string>
   <string name="no_ip">Bu geçerli bir IP değildir!</string>
@@ -107,11 +107,11 @@
   <!--Menu entries-->
   <string name="menu_refresh">Yenile</string>
   <string name="menu_add">Ekle</string>
-  <string name="menu_hosts_sources">Hosts kaynakları</string>
+  <string name="menu_hosts_sources">Host kaynakları</string>
   <string name="menu_tcpdump">DNS istekleri log dosyasına kaydet</string>
   <string name="menu_help">Yardım</string>
   <string name="menu_lists">Listeleriniz</string>
-  <string name="menu_show_hosts_file">Hosts dosyasını aç</string>
+  <string name="menu_show_hosts_file">Host dosyasını aç</string>
   <string name="menu_donations">Bağışlar</string>
   <string name="menu_import">Tüm Listeleri Al</string>
   <string name="menu_export">Tüm Listeleri Ver</string>
@@ -128,7 +128,7 @@
   <!--Other-->
   <string name="app_subtitle">Reklam engelleyici</string>
   <string name="no_text_editor_title">Yüklü metin editörü yok</string>
-  <string name="no_text_editor">Hosts dosyasını açacak bir metin düzenleyici bulunamadı. Jota veya benzeri bir metin düzenleyici yüklemeniz gerekebilir.\n\nŞimdi Jota yüklemek ister misiniz?</string>
+  <string name="no_text_editor">Host dosyasını açacak bir metin düzenleyici bulunamadı. Jota veya benzeri bir metin düzenleyici yüklemeniz gerekebilir.\n\nŞimdi Jota yüklemek ister misiniz?</string>
   <string name="no_file_manager_title">Yüklü dosya yöneticisi yok</string>
   <string name="no_file_manager">Dosyaları açacak bir dosya yöneticisi bulunamadı. OI File Manager veya benzeri bir dosya yöneticisi yüklemeniz gerekebilir.\n\nŞimdi OI File Manager yüklemek ister misiniz?</string>
   <!--Tcpdump-->

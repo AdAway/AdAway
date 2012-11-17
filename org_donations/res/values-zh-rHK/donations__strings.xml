@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">關閉</string>
+  <string name="donations__flattr">透過 Flattr 捐款</string>
+  <string name="donations__description">這個廣告攔截程式對您有用嗎？\n您可透過以下方式進行捐款去支持本程式及其開發者！</string>
+  <string name="donations__flattr_description">Flattr 會收取 10% 月費！</string>
+  <string name="donations__google_android_market">透過 Google Play 捐款</string>
+  <string name="donations__google_android_market_not_supported_title">捐款不支援 In-App 模式</string>
+  <string name="donations__google_android_market_not_supported">捐款不支援 In-App 模式。您的 Google Play 是否安裝正確？</string>
+  <string name="donations__google_android_market_description">Google 會在每項捐款中收取 30% 手續費！</string>
+  <string name="donations__google_android_market_donate_button">按此進行捐款！</string>
+  <string name="donations__google_android_market_text">要捐多少？</string>
+  <string-array name="donations__google_android_market_promt_array">
+    <item>1 歐元</item>
+    <item>2 歐元</item>
+    <item>3 歐元</item>
+    <item>5 歐元</item>
+    <item>8 歐元</item>
+    <item>13 歐元</item>
+  </string-array>
+  <string name="donations__paypal">透過 PayPal 捐款</string>
+  <string name="donations__paypal_description">點擊此處您就可以選擇捐多少！</string>
+  <string name="donations__thanks_dialog_title">感謝！</string>
+  <string name="donations__thanks_dialog">感謝您的捐款！\n真的非常感激！</string>
+</resources>

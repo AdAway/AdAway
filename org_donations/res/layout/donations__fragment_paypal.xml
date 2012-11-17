@@ -23,7 +23,6 @@
         android:id="@+id/donations__paypal_donate_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="donatePayPalOnClick"
         android:text="@string/donations__google_android_market_donate_button" />
 
 </LinearLayout>

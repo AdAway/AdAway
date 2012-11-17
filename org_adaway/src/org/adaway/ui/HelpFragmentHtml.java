@@ -78,7 +78,6 @@ public class HelpFragmentHtml extends SherlockFragment {
         htmlFile = getArguments().getInt(ARG_HTML_FILE);
 
         // load html from html file from /res/raw
-        // TODO stream into HtmlSpanner!
         InputStream inputStreamText = Utils
                 .getInputStreamFromResource(this.getActivity(), htmlFile);
 

@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+<h2>Los ingresos por la publicidad</h2>
+<p>Hay una idea falsa que se ha dicho en reiteradas ocasiones, que si un usuario nunca hace clic en los anuncios, el sitio o a la aplicación no tendrá beneficios financieros. Esto no es cierto, los desarrolladores también ganan dinero con sólo mostrar anuncios. Depende de si usted bloquea anuncios o no. Personalmente yo no usaría aplicaciones que muestran anuncios porque me parecen muy molestos, así que sin un bloqueador de anuncios yo no instalaría ese tipo de aplicaciones.</p>
+
+
+
+<h2>¿Cómo funciona AdAway?</h2>
+<p>AdAway usa el <a href="http://en.wikipedia.org/wiki/Hosts_file">archivo de servidores web</a> para bloquear aquellos que tienen publicidad. Este archivo se encuentra en <tt>/system/etc/hosts</tt> y registra los servidores en direcciones IP. Es una forma tradicional de definir los servidores web en pares de direcciones IP sin confiar en el sistema de dominio (DNS). Todos los servidores web no deseados son redirigidos a <tt>127.0.0.1</tt>, que significa que estos apuntarán a tu propio dispositivo.</p>
+
+<h2>¿Por qué la preferencia de comprobación de actualización diaria está sin seleccionar?</h2>
+<p>La comprobación automática de nuevas actualizaciones sólo está disponible cuando está instalado el AdAway en la memoria interna del teléfono. Esto se debe a la limitación de la plataforma Android.</p>
+
+<h2>¿Por qué tengo que reiniciar Android para que los cambios surtan efecto?</h2>
+<p>Java en Android mantiene su propia caché DNS interno. El sistema operativo mostrará el nuevo archivo de servidores inmediatamente (verificar con ping en la línea de comandos), pero tendrás que reiniciar Android para reconstruir la caché de DNS de Java.</p>
+
+<h2>¿Cómo utilizar el servidor web en AdAway?</h2>
+<p><b>¡AdAway también trabajará sin utilizar el servidor web!</b>
+<br/><br/>Puedes habilitar un servidor web local en las preferencias de AdAway para responder a las solicitudes de la dirección local IP <tt>127.0.0.1</tt>. Esto significa que las solicitudes de aplicaciones a servidores de anuncios que se redirigen a <tt>127.0.0.1</tt> son contestadas por el servidor web AdAway.
+<br/>Algunas aplicaciones se niegan a trabajar cuando los servidores de anuncios no son accesibles. Con este método dichas aplicaciones se vuelven accesibles, respondiendo con una página en blanco y no con imágenes publicitarias.</p>
+
+<h2>¿Cómo puedo bloquear / desbloquear servidores web específicos?</h2>
+<p>Usted puede configurar su propio servidor proporcionando un archivo de servidores web con los servidores que desea bloquear, y añadirlo a la <i>Fuente de Servidoress</i> o añadir los anfitriones web que desea bloquear a la lista negra (=Negro) bajo <i>Mis Listas</i>. Además, los servidores web que desea excluir del bloqueo puede ser añadido a la <i>Lista Blanca</i> (=Blanco) y los servidores que desea redirigir a una dirección IP específica que pertenecen a la <i>Lista de Redireccionamiento</i> (=Redirectión).</p>
+
+<h2>¿En dónde puedo encontrar más fuentes de servidores web?</h2>
+<p>Mira en <a href="http://code.google.com/p/ad-away/wiki/HostsSources">Lista de servidores adicionales para AdAway</a>.</p>
+
+<h2>¡Encontré un error en AdAway!</h2>
+<p>Por favor, repórtelo en el <a href="http://code.google.com/p/ad-away/issues/list">Rastreador de bugs de AdAway</a>.</p>
+</body>
+</html>
