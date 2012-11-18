@@ -9,9 +9,9 @@ For more information visit http://code.google.com/p/ad-away/
 
 1. Add a file ``local.properties`` in the folder ``AdAway`` folder with the following lines:
 ``sdk.dir=/opt/android-sdk`` and ``ndk.dir=/opt/android-ndk``. Alter these lines to your locations of the Android SDK and NDK!
-2. Execute "ant clear"
-3. Execute "ant debug -Dtemplates=other"
-4. To disable Flattr and PayPal (not allowed in Google Play), execute "ant debug -Dtemplates=google"
+2. Execute *ant clear*
+3. Execute *ant debug -Dtemplates=other*
+4. To disable Flattr and PayPal (not allowed in Google Play), execute *ant debug -Dtemplates=google*
 
 # Contribute
 
@@ -28,7 +28,7 @@ Translations are hosted on Transifex, which is configured by ``.tx/config``
 1. To pull newest translations install transifex client (e.g. aptitude install transifex-client)
 2. Config Transifex client with ``~/.transifexrc``
 3. Go into root folder of git repo
-4. execute "tx pull" ("tx pull -a" to get all languages)
+4. execute *tx pull* (*tx pull -a* to get all languages)
 
 see http://help.transifex.net/features/client/index.html#user-client
 
