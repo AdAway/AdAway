@@ -6,10 +6,9 @@
             message="ndk.dir is missing. Edit local.properties and add ndk.dir variable or to inject it through an env var"
             unless="ndk.dir"
     />
-
-
+    
     <!-- Build and move binaries before building Java -->
-    <target name="-pre-build">
+    <target name="ndk-build">
         <!-- Build binaries using NDK -->
         <exec executable="${ndk.dir}/ndk-build" failonerror="true"/>
 
@@ -26,10 +25,16 @@
     </target>
 
 
-    <target name="clean" depends="android_rules.clean">
+    <!-- Extend build by adding ndk-build as dependency -->
+    <target name="-pre-build" depends="ndk-build">
+
+    </target>
+
+
+    <!--<target name="clean" depends="android_rules.clean">
         <exec executable="${ndk.dir}/ndk-build" failonerror="true">
             <arg value="clean"/>
         </exec>
-    </target> 
+    </target>--> 
 
 </project> 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="adaway_rules">
+
+    <!-- Move files based on target property before compiling -->
+    <target name="move-templates">
+        <condition property="templatesGoogle">
+            <equals arg1="${templates}" arg2="google"/>
+        </condition>
+        <condition property="templatesOther">
+            <equals arg1="${templates}" arg2="other"/>
+        </condition>
+        <antcall target="prepare-templates"/>
+    </target>
+    
+    <target name="prepare-templates" depends="templates-google,templates-other">
+        <echo message="Preparing templates..." />
+    </target>
+    
+    <target name="templates-google" if="templatesGoogle">
+        <echo message="Templates set to google" />
+        <!-- Disable donations with flattr and paypal -->
+        <copy file="./ant-templates/google/DonationsConfig.java" todir="./src/org/donations" overwrite="true"/>
+    </target>
+    
+    <target name="templates-other" if="templatesOther">
+        <echo message="Templates set to other" />
+        <copy file="./ant-templates/other/DonationsConfig.java" todir="./src/org/donations" overwrite="true"/>
+    </target>
+
+
+    <!-- Extend build by adding move-templates as dependency -->
+    <target name="-pre-build" depends="move-templates">
+    </target>
+
+</project> 
