@@ -21,6 +21,7 @@
 package org.adaway.ui;
 
 import org.adaway.R;
+import org.donations.DonationsFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -92,6 +93,9 @@ public class HelpActivity extends SherlockFragmentActivity {
         sOnSOffBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_s_on_s_off);
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_s_on_s_off)),
                 HelpFragmentHtml.class, sOnSOffBundle);
+
+        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_donate)),
+                DonationsFragment.class, null);
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_about)),
                 HelpFragmentAbout.class, null);

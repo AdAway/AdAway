@@ -20,9 +20,6 @@
         android:id="@+id/menu_scan_adware"
         android:title="@string/menu_scan_adware"/>
     <item
-        android:id="@+id/menu_donations"
-        android:title="@string/menu_donations"/>
-    <item
         android:id="@+id/menu_refresh"
         android:icon="@drawable/action_refresh"
         android:showAsAction="always"

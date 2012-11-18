@@ -5,6 +5,7 @@ http://code.google.com/p/ad-away/issues
 IF YOU HAVE PROBLEMS WITH 2.0: Please uninstall and then reinstall AdAway!
 * New library for root access: RootCommands
 * Tcpdump and Webserver now included for ARM, x86, MIPS (Please test and report problems!)
+* Google forced me to remove the possibility to donate via Flattr and PayPal
 - Hopefully fixes DNS logging for Android 4.1
 
 1.37

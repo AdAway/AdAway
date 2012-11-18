@@ -183,10 +183,6 @@ public class BaseFragment extends SherlockFragment {
             startActivity(new Intent(mActivity, ScanAdwareActivity.class));
             return true;
 
-        case R.id.menu_donations:
-            startActivity(new Intent(mActivity, DonationsActivity.class));
-            return true;
-
         case R.id.menu_refresh:
             Intent updateIntent = new Intent(mActivity, UpdateService.class);
             updateIntent.putExtra(UpdateService.EXTRA_BACKGROUND_EXECUTION, false);
