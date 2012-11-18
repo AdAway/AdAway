@@ -9,7 +9,7 @@ For more information visit http://code.google.com/p/ad-away/
 
 1. Add a file ``local.properties`` in the folder ``AdAway`` folder with the following lines:
 ``sdk.dir=/opt/android-sdk`` and ``ndk.dir=/opt/android-ndk``. Alter these lines to your locations of the Android SDK and NDK!
-2. Execute _ant clear_
+2. Execute ```bash ant clear```
 3. Execute _ant debug -Dtemplates=other_
 4. To disable Flattr and PayPal (not allowed in Google Play), execute _ant debug -Dtemplates=google_
 
