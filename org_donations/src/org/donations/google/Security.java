@@ -16,7 +16,7 @@
 
 package org.donations.google;
 
-import org.donations.DonationsUtils;
+import org.donations.DonationsConfig;
 import org.donations.google.Consts.PurchaseState;
 import org.donations.google.util.Base64;
 import org.donations.google.util.Base64DecoderException;
@@ -136,8 +136,7 @@ public class Security {
              * Generally, encryption keys / passwords should only be kept in memory long enough to
              * perform the operation they need to perform.
              */
-            String base64EncodedPublicKey = DonationsUtils.getResourceString(context,
-                    "donations__google_pubkey");
+            String base64EncodedPublicKey = DonationsConfig.GOOGLE_PUBKEY;
             PublicKey key = Security.generatePublicKey(base64EncodedPublicKey);
             verified = Security.verify(key, signedData, signature);
             if (!verified) {

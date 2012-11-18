@@ -52,6 +52,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class DonationsFragment extends Fragment {
+
+    public static final String TAG = "Donations Library";
+
     private DonatePurchaseObserver mDonatePurchaseObserver;
     private Handler mHandler;
 
@@ -63,13 +66,8 @@ public class DonationsFragment extends Fragment {
     private static final int DIALOG_BILLING_NOT_SUPPORTED_ID = 1;
     private static final int DIALOG_THANKS = 2;
 
-    /** An array of product list entries for the products that can be purchased. */
-    private static String[] CATALOG;
-
     private static final String[] CATALOG_DEBUG = new String[] { "android.test.purchased",
             "android.test.canceled", "android.test.refunded", "android.test.item_unavailable" };
-
-    private boolean mGoogleEnabled;
 
     /**
      * A {@link PurchaseObserver} is used to get callbacks when Android Market sends messages to
@@ -82,7 +80,7 @@ public class DonationsFragment extends Fragment {
 
         @Override
         public void onBillingSupported(boolean supported) {
-            Log.d(DonationsUtils.TAG, "supported: " + supported);
+            Log.d(TAG, "supported: " + supported);
             if (!supported) {
                 displayDialog(DIALOG_BILLING_NOT_SUPPORTED_ID);
             }
@@ -91,20 +89,19 @@ public class DonationsFragment extends Fragment {
         @Override
         public void onPurchaseStateChange(PurchaseState purchaseState, String itemId,
                 final String orderId, long purchaseTime, String developerPayload) {
-            Log.d(DonationsUtils.TAG, "onPurchaseStateChange() itemId: " + itemId + " "
-                    + purchaseState);
+            Log.d(TAG, "onPurchaseStateChange() itemId: " + itemId + " " + purchaseState);
         }
 
         @Override
         public void onRequestPurchaseResponse(RequestPurchase request, ResponseCode responseCode) {
-            Log.d(DonationsUtils.TAG, request.mProductId + ": " + responseCode);
+            Log.d(TAG, request.mProductId + ": " + responseCode);
             if (responseCode == ResponseCode.RESULT_OK) {
-                Log.d(DonationsUtils.TAG, "purchase was successfully sent to server");
+                Log.d(TAG, "purchase was successfully sent to server");
                 displayDialog(DIALOG_THANKS);
             } else if (responseCode == ResponseCode.RESULT_USER_CANCELED) {
-                Log.d(DonationsUtils.TAG, "user canceled purchase");
+                Log.d(TAG, "user canceled purchase");
             } else {
-                Log.d(DonationsUtils.TAG, "purchase failed");
+                Log.d(TAG, "purchase failed");
             }
         }
 
@@ -112,9 +109,9 @@ public class DonationsFragment extends Fragment {
         public void onRestoreTransactionsResponse(RestoreTransactions request,
                 ResponseCode responseCode) {
             if (responseCode == ResponseCode.RESULT_OK) {
-                Log.d(DonationsUtils.TAG, "completed RestoreTransactions request");
+                Log.d(TAG, "completed RestoreTransactions request");
             } else {
-                Log.d(DonationsUtils.TAG, "RestoreTransactions error: " + responseCode);
+                Log.d(TAG, "RestoreTransactions error: " + responseCode);
             }
         }
     }
@@ -131,7 +128,7 @@ public class DonationsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         /* Flattr */
-        if (DonationsUtils.getResourceBoolean(getActivity(), "donations__flattr_enabled")) {
+        if (DonationsConfig.FLATTR_ENABLED) {
             // inflate flattr view into stub
             ViewStub flattrViewStub = (ViewStub) getActivity().findViewById(
                     R.id.donations__flattr_stub);
@@ -141,17 +138,11 @@ public class DonationsFragment extends Fragment {
         }
 
         /* Google */
-        mGoogleEnabled = DonationsUtils.getResourceBoolean(getActivity(),
-                "donations__google_enabled");
-        if (mGoogleEnabled) {
+        if (DonationsConfig.GOOGLE_ENABLED) {
             // inflate google view into stub
             ViewStub googleViewStub = (ViewStub) getActivity().findViewById(
                     R.id.donations__google_stub);
             googleViewStub.inflate();
-
-            // get catalog from xml config
-            CATALOG = DonationsUtils.getResourceStringArray(getActivity(),
-                    "donations__google_catalog");
 
             // choose donation amount
             mGoogleSpinner = (Spinner) getActivity().findViewById(
@@ -179,7 +170,7 @@ public class DonationsFragment extends Fragment {
         }
 
         /* PayPal */
-        if (DonationsUtils.getResourceBoolean(getActivity(), "donations__paypal_enabled")) {
+        if (DonationsConfig.PAYPAL_ENABLED) {
             // inflate paypal view into stub
             ViewStub paypalViewStub = (ViewStub) getActivity().findViewById(
                     R.id.donations__paypal_stub);
@@ -205,10 +196,10 @@ public class DonationsFragment extends Fragment {
     public void donateGoogleOnClick(View view) {
         final int index;
         index = mGoogleSpinner.getSelectedItemPosition();
-        Log.d(DonationsUtils.TAG, "selected item in spinner: " + index);
+        Log.d(TAG, "selected item in spinner: " + index);
 
         if (!Consts.DEBUG) {
-            if (!mBillingService.requestPurchase(CATALOG[index], null)) {
+            if (!mBillingService.requestPurchase(DonationsConfig.GOOGLE_CATALOG[index], null)) {
                 displayDialog(DIALOG_BILLING_NOT_SUPPORTED_ID);
             }
         } else {
@@ -231,22 +222,19 @@ public class DonationsFragment extends Fragment {
         uriBuilder.scheme("https").authority("www.paypal.com").path("cgi-bin/webscr");
         uriBuilder.appendQueryParameter("cmd", "_donations");
 
-        uriBuilder.appendQueryParameter("business",
-                DonationsUtils.getResourceString(getActivity(), "donations__paypal_user"));
+        uriBuilder.appendQueryParameter("business", DonationsConfig.PAYPAL_USER);
         uriBuilder.appendQueryParameter("lc", "US");
-        uriBuilder.appendQueryParameter("item_name",
-                DonationsUtils.getResourceString(getActivity(), "donations__paypal_item_name"));
+        uriBuilder.appendQueryParameter("item_name", DonationsConfig.PAYPAL_ITEM_NAME);
         uriBuilder.appendQueryParameter("no_note", "1");
         // uriBuilder.appendQueryParameter("no_note", "0");
         // uriBuilder.appendQueryParameter("cn", "Note to the developer");
         uriBuilder.appendQueryParameter("no_shipping", "1");
-        uriBuilder.appendQueryParameter("currency_code",
-                DonationsUtils.getResourceString(getActivity(), "donations__paypal_currency_code"));
+        uriBuilder.appendQueryParameter("currency_code", DonationsConfig.PAYPAL_CURRENCY_CODE);
         // uriBuilder.appendQueryParameter("bn", "PP-DonationsBF:btn_donate_LG.gif:NonHosted");
         Uri payPalUri = uriBuilder.build();
 
-        if (DonationsUtils.DEBUG) {
-            Log.d(DonationsUtils.TAG, "Opening the browser with the url: " + payPalUri.toString());
+        if (Consts.DEBUG) {
+            Log.d(TAG, "Opening the browser with the url: " + payPalUri.toString());
         }
 
         // Start your favorite browser
@@ -261,7 +249,7 @@ public class DonationsFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        if (mGoogleEnabled) {
+        if (DonationsConfig.GOOGLE_ENABLED) {
             ResponseHandler.register(mDonatePurchaseObserver);
         }
     }
@@ -273,7 +261,7 @@ public class DonationsFragment extends Fragment {
     public void onStop() {
         super.onStop();
 
-        if (mGoogleEnabled) {
+        if (DonationsConfig.GOOGLE_ENABLED) {
             ResponseHandler.unregister(mDonatePurchaseObserver);
         }
     }
@@ -282,7 +270,7 @@ public class DonationsFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
 
-        if (mGoogleEnabled) {
+        if (DonationsConfig.GOOGLE_ENABLED) {
             mBillingService.unbind();
         }
     }
@@ -382,9 +370,8 @@ public class DonationsFragment extends Fragment {
         });
 
         // get flattr values from xml config
-        String projectUrl = DonationsUtils.getResourceString(getActivity(),
-                "donations__flattr_project_url");
-        String flattrUrl = DonationsUtils.getResourceString(getActivity(), "donations__flattr_url");
+        String projectUrl = DonationsConfig.FLATTR_PROJECT_URL;
+        String flattrUrl = DonationsConfig.FLATTR_URL;
 
         // make text white and background transparent
         String htmlStart = "<html> <head><style type='text/css'>*{color: #FFFFFF; background-color: transparent;}</style>";
