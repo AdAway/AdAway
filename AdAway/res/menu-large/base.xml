@@ -23,13 +23,10 @@
         android:id="@+id/menu_tcpdump"
         android:showAsAction="ifRoom|withText"
         android:title="@string/menu_tcpdump"/>
-    <item
+    <item android:id="@+id/menu_scan_adware" android:showAsAction="ifRoom|withText" android:title="@string/menu_scan_adware" /><item
         android:id="@+id/menu_preferences"
         android:showAsAction="ifRoom|withText"
         android:title="@string/menu_preferences"/>
-    <item
-        android:id="@+id/menu_scan_adware"
-        android:showAsAction="ifRoom|withText"
-        android:title="@string/menu_scan_adware"/>
+    
 
 </menu>
