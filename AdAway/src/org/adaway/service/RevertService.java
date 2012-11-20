@@ -96,7 +96,7 @@ public class RevertService extends WakefulIntentService {
             fos.close();
 
             // copy build hosts file with RootTools
-            ApplyUtils.copyHostsFile(mService, "", shell);
+            ApplyUtils.copyHostsFile(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS, shell);
 
             // delete generated hosts file after applying it
             mService.deleteFile(Constants.HOSTS_FILENAME);

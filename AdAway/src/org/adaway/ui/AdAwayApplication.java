@@ -20,8 +20,10 @@
 
 package org.adaway.ui;
 
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.rootcommands.RootCommands;
 
 import android.app.Application;
 
@@ -35,6 +37,17 @@ public class AdAwayApplication extends Application {
             Log.d(Constants.TAG, "Setting workaround for AsyncTask...");
             Class.forName("android.os.AsyncTask");
         } catch (Exception e) { // silently catch all
+        }
+
+        // Set Debug level based on preference
+        if (PreferenceHelper.getDebugEnabled(this)) {
+            Constants.DEBUG = true;
+            Log.d(Constants.TAG, "Debug set to true by preference!");
+            // set RootCommands to debug mode based on AdAway
+            RootCommands.DEBUG = Constants.DEBUG;
+        } else {
+            Constants.DEBUG = false;
+            RootCommands.DEBUG = Constants.DEBUG;
         }
 
         super.onCreate();

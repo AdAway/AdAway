@@ -30,7 +30,6 @@ import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
-import org.rootcommands.RootCommands;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -180,17 +179,6 @@ public class BaseActivity extends SherlockFragmentActivity {
 
             // schedule CheckUpdateService
             WakefulIntentService.scheduleAlarms(new DailyListener(), mActivity, false);
-
-            // Set Debug level based on preference
-            if (PreferenceHelper.getDebugEnabled(mActivity)) {
-                Constants.DEBUG = true;
-                Log.d(Constants.TAG, "Debug set to true by preference!");
-                // set RootCommands to debug mode based on AdAway
-                RootCommands.DEBUG = Constants.DEBUG;
-            } else {
-                Constants.DEBUG = false;
-                RootCommands.DEBUG = Constants.DEBUG;
-            }
         }
     }
 

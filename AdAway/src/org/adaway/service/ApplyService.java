@@ -465,7 +465,7 @@ public class ApplyService extends WakefulIntentService {
         try {
             if (PreferenceHelper.getApplyMethod(mService).equals("writeToSystem")) {
 
-                ApplyUtils.copyHostsFile(mService, "", rootShell);
+                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS, rootShell);
             } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
 
                 ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);

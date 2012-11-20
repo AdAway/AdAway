@@ -27,7 +27,6 @@ import org.adaway.service.RevertService;
 import org.adaway.service.UpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.StatusCodes;
-import org.donations.DonationsActivity;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;

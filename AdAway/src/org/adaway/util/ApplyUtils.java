@@ -131,41 +131,24 @@ public class ApplyUtils {
      * @throws NotEnoughSpaceException
      *             RemountException CopyException
      */
-    public static void copyHostsFile(Context context, String customTarget, Shell shell)
+    public static void copyHostsFile(Context context, String target, Shell shell)
             throws NotEnoughSpaceException, RemountException, CommandException {
-        Log.i(Constants.TAG, "Copy hosts file with target: " + customTarget);
+        Log.i(Constants.TAG, "Copy hosts file with target: " + target);
         String privateDir = context.getFilesDir().getAbsolutePath();
         String privateFile = privateDir + File.separator + Constants.HOSTS_FILENAME;
 
-        // if the customTarget has a trailing slash, it is not a valid target!
-        if (customTarget.endsWith("/")) {
+        // if the target has a trailing slash, it is not a valid target!
+        if (target.endsWith("/")) {
             Log.e(Constants.TAG,
                     "Custom target ends with trailing slash, it is not a valid target!");
             throw new CommandException();
         }
 
-        // commands when using /system/etc/hosts
-        String commandChownSystemEtcHosts = Constants.COMMAND_CHOWN + " "
-                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
-        String commandChmodSystemEtcHosts644 = Constants.COMMAND_CHMOD_644 + " "
-                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
-
-        String target = null;
-        if (customTarget == "") {
-            target = Constants.ANDROID_SYSTEM_ETC_HOSTS;
-        } else {
-            target = customTarget;
-        }
-        Log.i(Constants.TAG, "Target: " + target);
-
-        // commands when using customTarget
-        String commandChmodAlternativePath666 = Constants.COMMAND_CHMOD_666 + " " + target;
-
-        /*
-         * If custom target like /data/etc/hosts is set, create missing directories for writing this
-         * file
-         */
-        if (customTarget != "") {
+        if (!target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            /*
+             * If custom target like /data/etc/hosts is set, create missing directories for writing
+             * this file
+             */
             createDirectories(target, shell);
         }
 
@@ -180,50 +163,38 @@ public class ApplyUtils {
 
         /* Execute commands */
         try {
-            if (customTarget == "") {
-                Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
-                        + commandChownSystemEtcHosts + ", " + commandChmodSystemEtcHosts644);
+            // remount for write access
+            Log.i(Constants.TAG, "Remounting for RW...");
+            if (!tb.remount(target, "RW")) {
+                Log.e(Constants.TAG, "Remounting as RW failed! Probably not a problem!");
+            }
 
-                if (!tb.copyFile(privateFile, Constants.ANDROID_SYSTEM_ETC_HOSTS, true, false)) {
-                    throw new CommandException();
-                }
-
-                /* remount for write access */
-                Log.i(Constants.TAG, "Remounting for RW...");
-                if (!tb.remount(target, "RW")) {
-                    throw new RemountException();
-                }
-
-                // execute commands: chown, chmod
-                SimpleCommand command = new SimpleCommand(commandChownSystemEtcHosts,
-                        commandChmodSystemEtcHosts644);
-                shell.add(command).waitForFinish();
-            } else {
-                Log.i(Constants.TAG, "Executing: copyFile with RootTools, "
-                        + commandChmodAlternativePath666);
-
-                if (!tb.copyFile(privateFile, target, true, false)) {
-                    throw new CommandException();
-                }
-
-                /* remount for write access */
-                Log.i(Constants.TAG, "Remounting for RW...");
-                if (!tb.remount(target, "RW")) {
-                    throw new RemountException();
-                }
-
-                // execute chmod
-                SimpleCommand command = new SimpleCommand(commandChmodAlternativePath666);
+            // remove before copying when using /system/etc/hosts
+            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                SimpleCommand command = new SimpleCommand(Constants.COMMAND_RM + " " + target);
                 shell.add(command).waitForFinish();
             }
+
+            // copy file
+            if (!tb.copyFile(privateFile, target, false, false)) {
+                throw new CommandException();
+            }
+
+            // execute commands: chown, chmod
+            SimpleCommand command = new SimpleCommand(Constants.COMMAND_CHOWN + " " + target,
+                    Constants.COMMAND_CHMOD_644 + " " + target);
+            shell.add(command).waitForFinish();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception", e);
+            Log.e(Constants.TAG, "Exception!", e);
 
             throw new CommandException();
         } finally {
-            // after all remount system back as read only
-            if (customTarget == "") {
-                tb.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
+            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                // after all remount system back as read only
+                Log.i(Constants.TAG, "Remounting back to RO...");
+                if (!tb.remount(target, "RO")) {
+                    Log.e(Constants.TAG, "Remounting failed in finally! Probably not a problem!");
+                }
             }
         }
     }
@@ -235,17 +206,10 @@ public class ApplyUtils {
      *             CommandException
      */
     public static void createSymlink(String target) throws RemountException, CommandException {
-        String commandRm = Constants.COMMAND_RM + " " + Constants.ANDROID_SYSTEM_ETC_HOSTS;
-        String commandSymlink = Constants.COMMAND_LN + " " + target + " "
-                + Constants.ANDROID_SYSTEM_ETC_HOSTS;
-        String commandChownTarget = Constants.COMMAND_CHOWN + " " + target;
-        String commandChmodTarget644 = Constants.COMMAND_CHMOD_644 + " " + target;
-
         Shell rootShell = null;
         try {
             rootShell = Shell.startRootShell();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Problem opening root shell!");
             throw new CommandException("Problem opening root shell!");
         }
         Toolbox tb = new Toolbox(rootShell);
@@ -255,19 +219,16 @@ public class ApplyUtils {
             throw new RemountException();
         }
 
-        Log.i(Constants.TAG, "Create symlink with " + commandRm + "; " + commandSymlink + "; "
-                + commandChownTarget + "; " + commandChmodTarget644);
-
         /* Execute commands */
         try {
             // create symlink
-            SimpleCommand command = new SimpleCommand(commandRm, commandSymlink,
-                    commandChownTarget, commandChmodTarget644);
+            SimpleCommand command = new SimpleCommand(Constants.COMMAND_RM + " "
+                    + Constants.ANDROID_SYSTEM_ETC_HOSTS, Constants.COMMAND_LN + " " + target + " "
+                    + Constants.ANDROID_SYSTEM_ETC_HOSTS, Constants.COMMAND_CHOWN + " " + target,
+                    Constants.COMMAND_CHMOD_644 + " " + target);
 
             rootShell.add(command).waitForFinish();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception!", e);
-
             throw new CommandException();
         } finally {
             // after all remount system back as read only
@@ -276,7 +237,6 @@ public class ApplyUtils {
             try {
                 rootShell.close();
             } catch (IOException e) {
-                Log.e(Constants.TAG, "Problem closing root shell!");
                 throw new CommandException("Problem closing root shell!");
             }
         }
@@ -304,7 +264,7 @@ public class ApplyUtils {
 
         Log.d(Constants.TAG, "symlink: " + symlink + "; target: " + target);
 
-        if (symlink.equals(target)) {
+        if (symlink != null && symlink.equals(target)) {
             return true;
         } else {
             return false;
@@ -321,15 +281,12 @@ public class ApplyUtils {
         // get directory without file
         String directory = new File(target).getParent().toString();
 
-        String commandMkdir = Constants.COMMAND_MKDIR + " " + directory;
-
-        Log.i(Constants.TAG, "Create directories using " + commandMkdir);
-
         /* Execute commands */
         try {
             // create directories
             try {
-                SimpleCommand mkdirCommand = new SimpleCommand(commandMkdir);
+                SimpleCommand mkdirCommand = new SimpleCommand(Constants.COMMAND_MKDIR + " "
+                        + directory);
 
                 shell.add(mkdirCommand).waitForFinish();
             } catch (Exception e) {
