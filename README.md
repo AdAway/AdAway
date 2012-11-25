@@ -7,11 +7,13 @@ For more information visit http://code.google.com/p/ad-away/
 
 # Build using Ant
 
-1. Add a file ``local.properties`` in the folder ``AdAway`` folder with the following lines:
+1. Add a file named ``local.properties`` in the folder ``AdAway`` with the following lines:
 ``sdk.dir=/opt/android-sdk`` and ``ndk.dir=/opt/android-ndk``. Alter these lines to your locations of the Android SDK and NDK!
-2. Execute ```ant clear```
-3. Execute ```ant debug -Dtemplates=other```
-4. To disable Flattr and PayPal (not allowed in Google Play), execute ```ant debug -Dtemplates=google```
+2. Add a file named ``local.properties`` in the folder ``AdAway/android-libs/Donations`` and ``AdAway/android-libs/ActionBarSherlock`` with the following line:
+``sdk.dir=/opt/android-sdk``
+3. Execute ```ant clear```
+4. Execute ```ant debug -Dtemplates=other```
+5. To disable Flattr and PayPal (not allowed in Google Play), execute ```ant debug -Dtemplates=google```
 
 # Contribute
 
