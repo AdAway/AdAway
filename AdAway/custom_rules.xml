@@ -7,16 +7,16 @@
             unless="ndk.dir"
     />
     
-    <!-- Build and move binaries before building Java -->
+    <!-- Build and rename binaries to look like libraries -->
     <target name="ndk-build">
         <!-- Build binaries using NDK -->
         <exec executable="${ndk.dir}/ndk-build" failonerror="true"/>
 
-        <!-- Rename binaries from for example hello_world to libhello_world_bin.so!
-        Then they are packaged in the apk and deployed on the device in the lib folder! -->
+        <!-- Rename binaries from hello_world to libhello_world_bin.so
+        If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder! -->
         <move todir="${jar.libs.absolute.dir}" overwrite="true" verbose="true" failonerror="true" includeemptydirs="false">
             <fileset dir="${jar.libs.absolute.dir}">
-                <!-- Do not rename libraries! -->
+                <!-- Do not rename java libraries! -->
                 <exclude name="**/*.so"/>
             </fileset>
             <!-- Rename all files in the subfolders (not the folders itself!) -->
