@@ -12,8 +12,9 @@ For more information visit http://code.google.com/p/ad-away/
 2. Add a file named ``local.properties`` in the folder ``AdAway/android-libs/Donations`` and ``AdAway/android-libs/ActionBarSherlock`` with the following line:
 ``sdk.dir=/opt/android-sdk``
 3. Execute ```ant clear```
-4. Execute ```ant debug -Dtemplates=other```
-5. To disable Flattr and PayPal (not allowed in Google Play), execute ```ant debug -Dtemplates=google```
+4. Execute ```ant debug -Ddonations=all```
+5. To disable Flattr and PayPal (not allowed in Google Play), execute ```ant debug -Ddonations=google```
+6. To disable Google (only working when the apk is signed with my private key), execute ```ant debug -Ddonations=other```
 
 # Contribute
 
