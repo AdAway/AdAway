@@ -44,8 +44,6 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 public class HelpActivity extends SherlockFragmentActivity {
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
-    TextView tabCenter;
-    TextView tabText;
 
     /**
      * Menu Items

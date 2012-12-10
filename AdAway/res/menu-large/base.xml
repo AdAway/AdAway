@@ -12,6 +12,10 @@
         android:showAsAction="always|withText"
         android:title="@string/menu_help"/>
     <item
+        android:id="@+id/menu_hosts_sources"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_hosts_sources"/>
+    <item
         android:id="@+id/menu_lists"
         android:showAsAction="ifRoom|withText"
         android:title="@string/menu_lists"/>
@@ -23,10 +27,13 @@
         android:id="@+id/menu_tcpdump"
         android:showAsAction="ifRoom|withText"
         android:title="@string/menu_tcpdump"/>
-    <item android:id="@+id/menu_scan_adware" android:showAsAction="ifRoom|withText" android:title="@string/menu_scan_adware" /><item
+    <item
+        android:id="@+id/menu_scan_adware"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_scan_adware"/>
+    <item
         android:id="@+id/menu_preferences"
         android:showAsAction="ifRoom|withText"
         android:title="@string/menu_preferences"/>
-    
 
 </menu>
