@@ -144,6 +144,13 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   http://www.tcpdump.org/  
   BSD 3-Clause License
 
+* HTMLCleander  
+  http://htmlcleaner.sourceforge.net/  
+  BSD License
+
+* HtmlSpanner  
+  Apache License v2
+
 ## Images
 * status_enabled.svg, status_disabled.svg, status_update.svg  
   Dropbox Emblems Tango by Charles A.  
