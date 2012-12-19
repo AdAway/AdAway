@@ -178,47 +178,6 @@ public class Utils {
     }
 
     /**
-     * Reads html files from /res/raw/example.html to output them as string. See
-     * http://www.monocube.com/2011/02/08/android-tutorial-html-file-in-webview/
-     * 
-     * @param context
-     *            current context
-     * @param resourceID
-     *            of html file to read
-     * @return content of html file with formatting
-     */
-    public static String readContentFromResource(Context context, int resourceID) {
-        InputStream raw = context.getResources().openRawResource(resourceID);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        int i;
-        try {
-            i = raw.read();
-            while (i != -1) {
-                stream.write(i);
-                i = raw.read();
-            }
-            raw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return stream.toString();
-    }
-
-    /**
-     * Gets input stream of raw resource
-     * 
-     * @param context
-     *            current context
-     * @param resourceID
-     *            of html file to read
-     * @return input stream of resource
-     */
-    public static InputStream getInputStreamFromResource(Context context, int resourceID) {
-        InputStream raw = context.getResources().openRawResource(resourceID);
-        return raw;
-    }
-
-    /**
      * Checks if the application is installed on the SD card. See
      * http://stackoverflow.com/questions/
      * 5814474/how-can-i-find-out-if-my-app-is-installed-on-sd-card

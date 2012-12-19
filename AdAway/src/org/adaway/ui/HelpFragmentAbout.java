@@ -61,8 +61,7 @@ public class HelpFragmentAbout extends SherlockFragment {
         View view = inflater.inflate(R.layout.help_fragment_about, container, false);
 
         // load html from html file from /res/raw
-        InputStream inputStreamText = Utils.getInputStreamFromResource(this.getActivity(),
-                R.raw.help_about);
+        InputStream inputStreamText = context.getResources().openRawResource(R.raw.help_about);
 
         TextView versionText = (TextView) view.findViewById(R.id.help_about_version);
         versionText.setText(getString(R.string.help_about_version) + " " + getVersion());

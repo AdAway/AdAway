@@ -108,3 +108,55 @@ Resources:
 * http://tjworld.net/wiki/Android/UpdaterScriptEdifyFunctions
 * http://www.freeyourandroid.com/guide/introdution_to_edify
 * http://forum.xda-developers.com/showthread.php?t=1265120
+
+# Licenses
+AdAway is licensed under the GPLv3+.  
+The file COPYING includes the full license text.
+
+## Details
+AdAway is free software: you can redistribute it and/or modify  
+it under the terms of the GNU General Public License as published by  
+the Free Software Foundation, either version 3 of the License, or  
+(at your option) any later version.
+
+AdAway is distributed in the hope that it will be useful,  
+but WITHOUT ANY WARRANTY; without even the implied warranty of  
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License  
+along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
+
+## Libraries
+* ActionBarSherlock  
+  http://actionbarsherlock.com/  
+  Apache License v2
+
+* RootTools  
+  http://code.google.com/p/roottools/  
+  GPLv2
+
+* Mongoose Webserver  
+  http://code.google.com/p/mongoose/  
+  MIT License
+
+* Tcpdump/Libpcap  
+  http://www.tcpdump.org/  
+  BSD 3-Clause License
+
+## Images
+* status_enabled.svg, status_disabled.svg, status_update.svg  
+  Dropbox Emblems Tango by Charles A.  
+  http://forums.dropbox.com/topic.php?id=7818&replies=19  
+  Creative Commons Attribution 3.0 Unported License
+
+* status_fail.svg  
+  Faenza Icons  
+  GPLv3
+
+* icon.svg, banner.svg  
+  AdAway by Dominik Schürmann  
+  GPLv3
+
+* Menu Icons  
+  Original Android Icons
