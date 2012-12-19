@@ -132,9 +132,13 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   http://actionbarsherlock.com/  
   Apache License v2
 
-* RootTools  
-  http://code.google.com/p/roottools/  
-  GPLv2
+* Android Donations Lib  
+  https://github.com/dschuermann/android-donations-lib  
+  Apache License v2
+
+* RootCommands  
+  https://github.com/dschuermann/root-commands  
+  Apache License v2
 
 * Mongoose Webserver  
   http://code.google.com/p/mongoose/  
