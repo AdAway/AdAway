@@ -13,7 +13,7 @@ ant.properties
 
 #IntelliJ IDEA
 .idea
-.iml
+*.iml
 
 #Maven
 target
@@ -21,4 +21,4 @@ release.properties
 pom.xml.*
 
 #compiled executables
-.so
+*.so
