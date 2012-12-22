@@ -148,7 +148,7 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   http://www.tcpdump.org/  
   BSD 3-Clause License
 
-* HTMLCleander  
+* HTMLCleaner  
   http://htmlcleaner.sourceforge.net/  
   BSD License
 

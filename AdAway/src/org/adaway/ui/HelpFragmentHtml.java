@@ -28,7 +28,6 @@ import net.nightwhistler.htmlspanner.JellyBeanSpanFixTextView;
 
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.Utils;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -78,7 +77,7 @@ public class HelpFragmentHtml extends SherlockFragment {
         htmlFile = getArguments().getInt(ARG_HTML_FILE);
 
         // load html from html file from /res/raw
-        InputStream inputStreamText = context.getResources().openRawResource(htmlFile);
+        InputStream inputStreamText = getResources().openRawResource(htmlFile);
 
         mActivity = getActivity();
 
