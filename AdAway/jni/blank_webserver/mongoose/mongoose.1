@@ -1,7 +1,7 @@
 .\" Process this file with
 .\" groff -man -Tascii mongoose.1
 .\" $Id: mongoose.1,v 1.12 2008/11/29 15:32:42 drozd Exp $
-.Dd Aug 31, 2010
+.Dd Sep 23, 2012
 .Dt mongoose 1
 .Sh NAME
 .Nm mongoose
@@ -82,8 +82,6 @@ Use
 as a CGI interpreter for all CGI scripts regardless script extension.
 Mongoose decides which interpreter to use by looking at
 the first line of a CGI script.  Default: "".
-.It Fl M Ar max_request_size
-Maximum HTTP request size in bytes. Default: "16384"
 .It Fl P Ar protect_uri
 Comma separated list of URI=PATH pairs, specifying that given URIs
 must be protected with respected password files. Default: ""
@@ -93,6 +91,18 @@ Authorization realm. Default: "mydomain.com"
 All files that fully match ssi_pattern are treated as SSI.
 Unknown SSI directives are silently ignored. Currently, two SSI directives
 are supported, "include" and "exec".  Default: "**.shtml$|**.shtm$"
+.It Fl T Ar throttle
+Limit download speed for clients.
+.Ar throttle
+is a comma-separated list of key=value pairs, where
+key could be a '*' character (limit for all connections), a subnet in form
+x.x.x.x/mask (limit for a given subnet, for example 10.0.0.0/8), or an
+URI prefix pattern (limit for the set of URIs, for example /foo/**). The value
+is a floating-point number of bytes per second, optionally followed by a
+`k' or `m' character, meaning kilobytes and megabytes respectively. A limit
+of 0 means unlimited rate. The last matching rule wins. For example,
+"*=1k,10.0.0.0/8" means limit everybody to 1 kilobyte per second, but give
+people from 10/8 subnet unlimited speed. Default: ""
 .It Fl a Ar access_log_file
 Access log file. Default: "", no logging is done.
 .It Fl d Ar enable_directory_listing
@@ -138,11 +148,14 @@ Switch to given user's credentials after startup. Default: ""
 Comma-separated list of URL rewrites in the form of
 "pattern=substitution,..." If the "pattern" matches some prefix
 of the requested URL, then matched prefix gets substituted with "substitution".
-For example, "-w /config=/etc,**.doc|**.rtf=/cgi-bin/handle_doc.cgi"
+For example, "-w /config=/etc,**.doc|**.rtf=/path/to/cgi-bin/handle_doc.cgi"
 will serve all URLs that start with "/config" from the "/etc" directory, and
 call handle_doc.cgi script for .doc and .rtf file requests. If some pattern
 matches, no further matching/substitution is performed
-(first matching pattern wins). Default: ""
+(first matching pattern wins). Use full paths in substitutions. Default: ""
+.It Fl x Ar hide_files_patterns
+A prefix pattern for the files to hide. Files that match the pattern will not
+show up in directory listing and return 404 Not Found if requested. Default: ""
 .El
 .Pp
 .Sh EMBEDDING
@@ -160,8 +173,8 @@ for HTTPS connections.  Use /etc/cert.pem as SSL certificate file.
 .It Nm Fl l Ar -0.0.0.0/0,+10.0.0.0/8,+1.2.3.4
 Deny connections from everywhere, allow only IP address 1.2.3.4 and
 all IP addresses from 10.0.0.0/8 subnet to connect.
-.It Nm Fl w Ar **=/my/script.cgi
-Invoke /my/script.cgi for every incoming request, regardless of the URL.
+.It Nm Fl w Ar **=/usr/bin/script.cgi
+Invoke /usr/bin/script.cgi for every incoming request, regardless of the URL.
 .El
 .Pp
 .Sh COPYRIGHT

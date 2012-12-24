@@ -141,7 +141,7 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   Apache License v2
 
 * Mongoose Webserver  
-  http://code.google.com/p/mongoose/  
+  https://github.com/valenok/mongoose  
   MIT License
 
 * Tcpdump/Libpcap  

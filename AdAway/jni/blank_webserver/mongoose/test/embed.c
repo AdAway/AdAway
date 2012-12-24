@@ -119,9 +119,10 @@ static void test_get_request_info(struct mg_connection *conn,
 
 static void test_error(struct mg_connection *conn,
                        const struct mg_request_info *ri) {
+  int status = (int) ri->ev_data;
   mg_printf(conn, "HTTP/1.1 %d XX\r\n"
-            "Conntection: close\r\n\r\n", ri->status_code);
-  mg_printf(conn, "Error: [%d]", ri->status_code);
+            "Conntection: close\r\n\r\n", status);
+  mg_printf(conn, "Error: [%d]", status);
 }
 
 static void test_post(struct mg_connection *conn,
@@ -155,8 +156,8 @@ static const struct test_config {
 };
 
 static void *callback(enum mg_event event,
-                      struct mg_connection *conn,
-                      const struct mg_request_info *request_info) {
+                      struct mg_connection *conn) {
+  const struct mg_request_info *request_info = mg_get_request_info(conn);
   int i;
 
   for (i = 0; test_config[i].uri != NULL; i++) {

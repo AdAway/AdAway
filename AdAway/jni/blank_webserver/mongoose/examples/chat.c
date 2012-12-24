@@ -1,14 +1,9 @@
-/*
- * This file is part of the Mongoose project, http://code.google.com/p/mongoose
- * It implements an online chat server. For more details,
- * see the documentation on the project web site.
- * To test the application,
- *  1. type "make" in the directory where this file lives
- *  2. point your browser to http://127.0.0.1:8081
- *
- * NOTE(lsm): this file follows Google style, not BSD style as the rest of
- * Mongoose code.
- */
+// This file is part of the Mongoose project, http://code.google.com/p/mongoose
+// It implements an online chat server. For more details,
+// see the documentation on the project web site.
+// To test the application,
+// 1. type "make" in the directory where this file lives
+// 2. point your browser to http://127.0.0.1:8081
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -127,7 +122,7 @@ static int handle_jsonp(struct mg_connection *conn,
   if (cb[0] != '\0') {
     mg_printf(conn, "%s(", cb);
   }
- 
+
   return cb[0] == '\0' ? 0 : 1;
 }
 
@@ -324,15 +319,15 @@ static void redirect_to_ssl(struct mg_connection *conn,
   if (host != NULL && (p = strchr(host, ':')) != NULL) {
     mg_printf(conn, "HTTP/1.1 302 Found\r\n"
               "Location: https://%.*s:8082/%s:8082\r\n\r\n",
-              p - host, host, request_info->uri);
+              (int) (p - host), host, request_info->uri);
   } else {
     mg_printf(conn, "%s", "HTTP/1.1 500 Error\r\n\r\nHost: header is not set");
   }
 }
 
 static void *event_handler(enum mg_event event,
-                           struct mg_connection *conn,
-                           const struct mg_request_info *request_info) {
+                           struct mg_connection *conn) {
+  const struct mg_request_info *request_info = mg_get_request_info(conn);
   void *processed = "yes";
 
   if (event == MG_NEW_REQUEST) {
@@ -351,6 +346,9 @@ static void *event_handler(enum mg_event event,
       // try to serve the request.
       processed = NULL;
     }
+  } else if (event == MG_EVENT_LOG) {
+    printf("%s\n", (const char *) mg_get_request_info(conn)->ev_data);
+    processed = NULL;
   } else {
     processed = NULL;
   }
@@ -374,8 +372,10 @@ int main(void) {
   srand((unsigned) time(0));
 
   // Setup and start Mongoose
-  ctx = mg_start(&event_handler, NULL, options);
-  assert(ctx != NULL);
+  if ((ctx = mg_start(&event_handler, NULL, options)) == NULL) {
+    printf("%s\n", "Cannot start chat server, fatal exit");
+    exit(EXIT_FAILURE);
+  }
 
   // Wait until enter is pressed, then exit
   printf("Chat server started on ports %s, press enter to quit.\n",
