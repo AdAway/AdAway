@@ -114,11 +114,9 @@ public class ImportExportHelper {
 
                         is.close();
                     } catch (FileNotFoundException e) {
-                        Log.e(Constants.TAG, "File not found!");
-                        e.printStackTrace();
+                        Log.e(Constants.TAG, "File not found!", e);
                     } catch (IOException e) {
-                        Log.e(Constants.TAG, "IO Exception");
-                        e.printStackTrace();
+                        Log.e(Constants.TAG, "IO Exception", e);
                     }
 
                     ProviderHelper.importBlacklist(context, blacklist);

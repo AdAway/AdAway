@@ -229,8 +229,7 @@ public class ApplyService extends WakefulIntentService {
                                     is.close();
                                 }
                             } catch (Exception e) {
-                                Log.e(Constants.TAG, "Exception on flush and closing streams: " + e);
-                                e.printStackTrace();
+                                Log.e(Constants.TAG, "Exception on flush and closing streams.", e);
                             }
                         }
 
@@ -255,8 +254,7 @@ public class ApplyService extends WakefulIntentService {
                         out.close();
                     }
                 } catch (Exception e) {
-                    Log.e(Constants.TAG, "Exception on close of out: " + e);
-                    e.printStackTrace();
+                    Log.e(Constants.TAG, "Exception on close of out.", e);
                 }
             }
         } else {
@@ -371,15 +369,11 @@ public class ApplyService extends WakefulIntentService {
             fos.close();
 
         } catch (FileNotFoundException e) {
-            Log.e(Constants.TAG, "file to read or file to write could not be found");
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "file to read or file to write could not be found", e);
 
             returnCode = StatusCodes.PRIVATE_FILE_FAIL;
         } catch (IOException e) {
-            Log.e(Constants.TAG, "files can not be written or read");
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "files can not be written or read", e);
 
             returnCode = StatusCodes.PRIVATE_FILE_FAIL;
         }

@@ -393,13 +393,11 @@ public class ResultHelper {
                 ApplyUtils.createSymlink(PreferenceHelper.getCustomTarget(context));
             }
         } catch (CommandException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "CommandException", e);
 
             success = false;
         } catch (RemountException e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "RemountException", e);
 
             success = false;
         }

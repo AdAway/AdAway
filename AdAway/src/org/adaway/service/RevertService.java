@@ -106,8 +106,7 @@ public class RevertService extends WakefulIntentService {
 
             return StatusCodes.REVERT_SUCCESS;
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception: " + e);
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Exception", e);
 
             return StatusCodes.REVERT_FAIL;
         }
