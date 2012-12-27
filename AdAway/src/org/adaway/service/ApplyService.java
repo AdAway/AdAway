@@ -32,10 +32,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
@@ -49,7 +45,6 @@ import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
 import org.adaway.util.Log;
 import org.adaway.util.NotEnoughSpaceException;
-import org.adaway.util.RegexUtils;
 import org.adaway.util.RemountException;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
@@ -290,13 +285,12 @@ public class ApplyService extends WakefulIntentService {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-            HostsParser parser = new HostsParser(reader, false);
-            HashSet<String> hostsSourcesBlacklist = parser.getBlacklist();
-
-            HashMap<String, String> hostsSourcesRedirectionList = new HashMap<String, String>();
             // Use redirection rules from hosts sources only if enabled in preferences
-            if (PreferenceHelper.getRedirectionRules(mService)) {
-                hostsSourcesRedirectionList = parser.getRedirectionList();
+            HostsParser parser = null;
+            if (PreferenceHelper.getWhitelistRedirectionRules(mService)) {
+                parser = new HostsParser(reader, true);
+            } else {
+                parser = new HostsParser(reader, false);
             }
 
             fis.close();
@@ -306,77 +300,20 @@ public class ApplyService extends WakefulIntentService {
 
             /* READ DATABSE CONTENT */
 
-            // get whitelist
-            HashSet<String> whitelist = ProviderHelper.getEnabledWhitelistArrayList(mService);
-            Log.d(Constants.TAG, "Enabled whitelist: " + whitelist.toString());
+            // add whitelist from db
+            parser.addWhitelist(ProviderHelper.getEnabledWhitelistHashSet(mService));
+            // add blacklist from db
+            parser.addBlacklist(ProviderHelper.getEnabledBlacklistHashSet(mService));
+            // add redirection list from db
+            parser.addRedirectionList(ProviderHelper.getEnabledRedirectionListHashMap(mService));
 
-            // get blacklist
-            HashSet<String> blacklist = ProviderHelper.getEnabledBlacklistArrayList(mService);
-            Log.d(Constants.TAG, "Enabled blacklist: " + blacklist.toString());
-
-            // get redirection list
-            HashMap<String, String> redirection = ProviderHelper
-                    .getEnabledRedirectionListHashMap(mService);
-            Log.d(Constants.TAG, "Enabled redirection list: " + redirection.toString());
-
-            // get hosts sources list
+            // get hosts sources list from db
             ArrayList<String> enabledHostsSources = ProviderHelper
                     .getEnabledHostsSourcesArrayList(mService);
             Log.d(Constants.TAG, "Enabled hosts sources list: " + enabledHostsSources.toString());
 
-            /* BLACKLIST */
-            // remove whitelist items using regex
-            Log.d(Constants.TAG, "Compiling all whitelist regex");
-
-            HashSet<Pattern> whitelistPattern = new HashSet<Pattern>();
-            String regexItem;
-            for (String item : whitelist) {
-                // convert example*.* to regex: ^example.*\\..*$
-                regexItem = RegexUtils.wildcardToRegex(item);
-                whitelistPattern.add(Pattern.compile(regexItem));
-            }
-
-            Log.d(Constants.TAG, "Starting whitelist regex");
-            Matcher whitelistMatcher;
-            String blacklistHostname;
-            // go through all blacklist hostnames from host sources
-            for (Iterator<String> iterator = hostsSourcesBlacklist.iterator(); iterator.hasNext();) {
-                blacklistHostname = iterator.next();
-
-                // use all whitelist patterns on this hostname
-                for (Pattern pattern : whitelistPattern) {
-                    whitelistMatcher = pattern.matcher(blacklistHostname);
-
-                    try {
-                        if (whitelistMatcher.find()) {
-                            // remove item, because regex fits
-                            iterator.remove();
-                        }
-                    } catch (Exception e) {
-                        // workaround for some devices that throws jni exceptions: dont use
-                        // whitelist
-                        Log.e(Constants.TAG, "Error in whitelist regex processing");
-                        e.printStackTrace();
-                    }
-                }
-            }
-            Log.d(Constants.TAG, "Ending whitelist regex");
-
-            // add blacklist items
-            hostsSourcesBlacklist.addAll(blacklist);
-
-            // remove hostnames that are in redirection list
-            HashSet<String> redirectionRemove = new HashSet<String>(redirection.keySet());
-            hostsSourcesBlacklist.removeAll(redirectionRemove);
-
-            /* REDIRECTION LIST */
-            // add all redirection items from your lists
-            hostsSourcesRedirectionList.putAll(redirection);
-
-            // TODO:
-            // All whitelist items should be removed from HostsSourcesRedirectionList
-            // All blacklist items should be removed from HostsSourcesRedirectionList
-            // All redirectionList items should be removed from HostsSourcesRedirectionList
+            // compile lists (removing whitelist entries, etc.)
+            parser.compileList();
 
             /* BUILD: build one hosts file out of sets and preferences */
             updateApplyNotification(mService, mService.getString(R.string.apply_dialog),
@@ -411,7 +348,7 @@ public class ApplyService extends WakefulIntentService {
 
             // write hostnames
             String line;
-            for (String hostname : hostsSourcesBlacklist) {
+            for (String hostname : parser.getBlacklist()) {
                 line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
                 fos.write(line.getBytes());
             }
@@ -419,7 +356,7 @@ public class ApplyService extends WakefulIntentService {
             /* REDIRECTION LIST: write redirection items */
             String redirectionItemHostname;
             String redirectionItemIP;
-            for (HashMap.Entry<String, String> item : hostsSourcesRedirectionList.entrySet()) {
+            for (HashMap.Entry<String, String> item : parser.getRedirectionList().entrySet()) {
                 redirectionItemHostname = item.getKey();
                 redirectionItemIP = item.getValue();
 

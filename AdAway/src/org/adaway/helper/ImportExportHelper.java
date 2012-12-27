@@ -162,8 +162,8 @@ public class ImportExportHelper {
 
             @Override
             protected Void doInBackground(Void... unused) {
-                HashSet<String> whitelist = ProviderHelper.getEnabledWhitelistArrayList(context);
-                HashSet<String> blacklist = ProviderHelper.getEnabledBlacklistArrayList(context);
+                HashSet<String> whitelist = ProviderHelper.getEnabledWhitelistHashSet(context);
+                HashSet<String> blacklist = ProviderHelper.getEnabledBlacklistHashSet(context);
                 HashMap<String, String> redirectionList = ProviderHelper
                         .getEnabledRedirectionListHashMap(context);
 

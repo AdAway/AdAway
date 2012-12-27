@@ -181,7 +181,7 @@ public class ProviderHelper {
      * @param context
      * @return
      */
-    public static HashSet<String> getEnabledBlacklistArrayList(Context context) {
+    public static HashSet<String> getEnabledBlacklistHashSet(Context context) {
         HashSet<String> list = new HashSet<String>();
         Cursor cursor = getEnabledBlacklistCursor(context);
 
@@ -260,7 +260,7 @@ public class ProviderHelper {
      * @param context
      * @return
      */
-    public static HashSet<String> getEnabledWhitelistArrayList(Context context) {
+    public static HashSet<String> getEnabledWhitelistHashSet(Context context) {
         HashSet<String> list = new HashSet<String>();
         Cursor cursor = getEnabledWhitelistCursor(context);
 

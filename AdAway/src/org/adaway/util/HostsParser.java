@@ -24,11 +24,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.adaway.util.Log;
 
+/**
+ * Redirection Lists have higher priority than whitelist or blacklist items
+ * 
+ */
 public class HostsParser {
     private HashSet<String> mBlacklist;
     private HashSet<String> mWhitelist;
@@ -37,10 +42,11 @@ public class HostsParser {
     private Matcher mHostsParserMatcher;
     private Pattern mHostsParserPattern;
 
-    private boolean mWhitelistImport;
+    private boolean mParseWhitelistAndRedirections;
 
-    public HostsParser(BufferedReader input, boolean whitelistImport) throws IOException {
-        mWhitelistImport = whitelistImport;
+    public HostsParser(BufferedReader input, boolean parseWhitelistAndRedirections)
+            throws IOException {
+        mParseWhitelistAndRedirections = parseWhitelistAndRedirections;
         parse(input);
     }
 
@@ -71,7 +77,7 @@ public class HostsParser {
         mRedirectionList = new HashMap<String, String>();
 
         // use whitelist import pattern
-        if (mWhitelistImport) {
+        if (mParseWhitelistAndRedirections) {
             mHostsParserPattern = RegexUtils.hostsParserWhitelistImportPattern;
         } else {
             mHostsParserPattern = RegexUtils.hostsParserPattern;
@@ -79,7 +85,6 @@ public class HostsParser {
         while ((nextLine = reader.readLine()) != null) {
             mHostsParserMatcher = mHostsParserPattern.matcher(nextLine);
 
-            // try {
             if (mHostsParserMatcher.matches()) {
                 // for (int i = 0; i <= mHostsParserMatcher.groupCount(); i++) {
                 // Log.d(Constants.TAG, "group (" + i + "): " + mHostsParserMatcher.group(i));
@@ -94,19 +99,80 @@ public class HostsParser {
                     mBlacklist.add(currentHostname);
                 } else if (currentIp.equals(Constants.WHITELIST_ENTRY)) {
                     mWhitelist.add(currentHostname);
-                } else {
+                } else if (mParseWhitelistAndRedirections) {
                     mRedirectionList.put(currentHostname, currentIp);
                 }
             } else {
                 Log.d(Constants.TAG, "Does not match: " + nextLine);
             }
-            // } catch (Exception e) {
-            // Log.e(Constants.TAG, "Error in HostsParser");
-            // e.printStackTrace();
-            // }
         }
 
         // strip localhost entry
         mBlacklist.remove(Constants.LOCALHOST_HOSTNAME);
+    }
+
+    public void addBlacklist(HashSet<String> blacklist) {
+        mBlacklist.addAll(blacklist);
+    }
+
+    public void addWhitelist(HashSet<String> whitelist) {
+        mWhitelist.addAll(whitelist);
+    }
+
+    /**
+     * Add redirection rules as HashMap.
+     * 
+     * These mappings will replace any mappings that this map had for any of the keys currently in
+     * the specified map.
+     * 
+     * @param redirectionList
+     */
+    public void addRedirectionList(HashMap<String, String> redirectionList) {
+        mRedirectionList.putAll(redirectionList);
+    }
+
+    /**
+     * Remove whitelist entries from blacklist with regex,
+     */
+    public void compileList() {
+        // remove whitelist items from blacklist using regex
+        Log.d(Constants.TAG, "Compiling all whitelist regex");
+
+        HashSet<Pattern> whitelistPattern = new HashSet<Pattern>();
+        String regexItem;
+        for (String item : mWhitelist) {
+            // convert example*.* to regex: ^example.*\\..*$
+            regexItem = RegexUtils.wildcardToRegex(item);
+            whitelistPattern.add(Pattern.compile(regexItem));
+        }
+
+        Log.d(Constants.TAG, "Starting whitelist regex");
+        Matcher whitelistMatcher;
+        String blacklistHostname;
+        // go through all blacklist hostnames from host sources
+        for (Iterator<String> iterator = mBlacklist.iterator(); iterator.hasNext();) {
+            blacklistHostname = iterator.next();
+
+            // use all whitelist patterns on this hostname
+            for (Pattern pattern : whitelistPattern) {
+                whitelistMatcher = pattern.matcher(blacklistHostname);
+
+                try {
+                    if (whitelistMatcher.find()) {
+                        // remove item, because regex fits
+                        iterator.remove();
+                    }
+                } catch (Exception e) {
+                    // workaround for some devices that throws jni exceptions: dont use
+                    // whitelist
+                    Log.e(Constants.TAG, "Error in whitelist regex processing", e);
+                }
+            }
+        }
+        Log.d(Constants.TAG, "Ending whitelist regex");
+
+        // remove hostnames that are in redirection list
+        HashSet<String> redirectionRemove = new HashSet<String>(mRedirectionList.keySet());
+        mBlacklist.removeAll(redirectionRemove);
     }
 }

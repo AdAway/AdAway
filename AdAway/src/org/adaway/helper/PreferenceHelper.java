@@ -70,11 +70,12 @@ public class PreferenceHelper {
                 Boolean.parseBoolean(context.getString(R.string.pref_update_only_on_wifi_def)));
     }
 
-    public static boolean getRedirectionRules(Context context) {
+    public static boolean getWhitelistRedirectionRules(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_redirection_rules_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_redirection_rules_def)));
+        return prefs.getBoolean(context.getString(R.string.pref_whitelist_redirection_rules_key),
+                Boolean.parseBoolean(context
+                        .getString(R.string.pref_whitelist_redirection_rules_def)));
     }
 
     public static String getRedirectionIP(Context context) {
