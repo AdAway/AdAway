@@ -111,8 +111,7 @@ public class RegexUtils {
         try {
             return mHostnameMatcher.matches();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in isValidHostname");
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Error in isValidHostname", e);
             // workaround for some devices that throws jni exceptions: just accept everything
             return true;
         }
@@ -130,8 +129,7 @@ public class RegexUtils {
         try {
             return mWhitelistHostnameMatcher.matches();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in isValidHostname");
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Error in isValidHostname", e);
             // workaround for some devices that throws jni exceptions: just accept everything
             return true;
         }
@@ -146,8 +144,7 @@ public class RegexUtils {
         try {
             return mIPv4Matcher.matches();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in isValidIPv4");
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Error in isValidIPv4", e);
             // workaround for some devices that throws jni exceptions: just accept everything
             return true;
         }
@@ -162,8 +159,7 @@ public class RegexUtils {
         try {
             return mIPv6Matcher.matches();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in isValidIPv6");
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Error in isValidIPv6", e);
             // workaround for some devices that throws jni exceptions: just accept everything
             return true;
         }
@@ -198,8 +194,7 @@ public class RegexUtils {
                 return null;
             }
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in getTcpdumpHostname");
-            e.printStackTrace();
+            Log.e(Constants.TAG, "Error in getTcpdumpHostname", e);
             // workaround for some devices that throws jni exceptions: just accept everything
             return null;
         }

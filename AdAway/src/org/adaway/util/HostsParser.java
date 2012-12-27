@@ -107,14 +107,25 @@ public class HostsParser {
             }
         }
 
-        // strip localhost entry
+        // strip localhost entry from blacklist and redirection list
         mBlacklist.remove(Constants.LOCALHOST_HOSTNAME);
+        mRedirectionList.remove(Constants.LOCALHOST_HOSTNAME);
     }
 
+    /**
+     * Add blacklist to this hosts file
+     * 
+     * @param blacklist
+     */
     public void addBlacklist(HashSet<String> blacklist) {
         mBlacklist.addAll(blacklist);
     }
 
+    /**
+     * Add whitelist to this host file. This supports simple regex in entries.
+     * 
+     * @param whitelist
+     */
     public void addWhitelist(HashSet<String> whitelist) {
         mWhitelist.addAll(whitelist);
     }
