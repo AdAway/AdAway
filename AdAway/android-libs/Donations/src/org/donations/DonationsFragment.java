@@ -270,7 +270,7 @@ public class DonationsFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
 
-        if (DonationsConfig.GOOGLE_ENABLED) {
+        if (DonationsConfig.GOOGLE_ENABLED && mBillingService != null) {
             mBillingService.unbind();
         }
     }

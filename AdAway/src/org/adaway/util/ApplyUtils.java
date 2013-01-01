@@ -278,11 +278,11 @@ public class ApplyUtils {
      * @throws CommandException
      */
     public static void createDirectories(String target, Shell shell) throws CommandException {
-        // get directory without file
-        String directory = new File(target).getParent().toString();
-
         /* Execute commands */
         try {
+            // get directory without file
+            String directory = new File(target).getParent().toString();
+
             // create directories
             try {
                 SimpleCommand mkdirCommand = new SimpleCommand(Constants.COMMAND_MKDIR + " "

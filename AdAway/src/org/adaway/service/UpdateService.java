@@ -147,7 +147,7 @@ public class UpdateService extends WakefulIntentService {
             enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(mService);
 
             // iterate over all hosts sources in db with cursor
-            if (enabledHostsSourcesCursor.moveToFirst()) {
+            if (enabledHostsSourcesCursor != null && enabledHostsSourcesCursor.moveToFirst()) {
                 do {
 
                     mNumberOfDownloads++;

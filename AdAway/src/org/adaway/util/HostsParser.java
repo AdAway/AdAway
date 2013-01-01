@@ -31,8 +31,8 @@ import java.util.regex.Pattern;
 import org.adaway.util.Log;
 
 /**
- * Redirection Lists have higher priority than whitelist or blacklist items
- * 
+ * A parser to build sets out of hosts files. Redirection Lists have higher priority than whitelist
+ * or blacklist items.
  */
 public class HostsParser {
     private HashSet<String> mBlacklist;
@@ -146,9 +146,9 @@ public class HostsParser {
      * Remove whitelist entries from blacklist with regex,
      */
     public void compileList() {
-        // remove whitelist items from blacklist using regex
         Log.d(Constants.TAG, "Compiling all whitelist regex");
-
+        
+        // remove whitelist items from blacklist using regex
         HashSet<Pattern> whitelistPattern = new HashSet<Pattern>();
         String regexItem;
         for (String item : mWhitelist) {
