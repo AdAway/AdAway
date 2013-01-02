@@ -4,17 +4,19 @@ AdAway is an open source ad blocker for Android using the hosts file.
 
 For more information visit http://code.google.com/p/ad-away/
 
+# Build AdAway
 
-# Build using Ant
+1. Have Android SDK and NDK in your PATH
+2. Execute ``android update project -p .`` in ``AdAway`` and ``AdAway/android-libs/ActionBarSherlock`` and ``AdAway/android-libs/Donations``
+3. Execute ``ndk-build`` in ``AdAway`` to compile native binaries.
+4. Execute ``ant clear``
+5. Execute ``ant debug -Ddonations=all`` or ``ant release -Ddonations=all``
 
-1. Add a file named ``local.properties`` in the folder ``AdAway`` with the following lines:
-``sdk.dir=/opt/android-sdk`` and ``ndk.dir=/opt/android-ndk``. Alter these lines to your locations of the Android SDK and NDK!
-2. Add a file named ``local.properties`` in the folder ``AdAway/android-libs/Donations`` and ``AdAway/android-libs/ActionBarSherlock`` with the following line:
-``sdk.dir=/opt/android-sdk``
-3. Execute ```ant clear```
-4. Execute ```ant debug -Ddonations=all```
-5. To disable Flattr and PayPal (not allowed in Google Play), execute ```ant debug -Ddonations=google```
-6. To disable Google (only working when the apk is signed with my private key), execute ```ant debug -Ddonations=other```
+## More build information
+
+* It is necessary to build AdAway with Ant, because we use custom_rules.xml (For more information see https://github.com/dschuermann/root-commands#binaries)
+* To disable Flattr and PayPal (not allowed in Google Play), execute ``ant debug -Ddonations=google``
+* To disable Google (only working when the apk is signed with my private key), execute ``ant debug -Ddonations=other``
 
 # Contribute
 

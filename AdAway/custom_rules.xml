@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="adaway_rules">
-  
-    <!-- check also on ndk.dir !!! -->
-    <fail
-            message="ndk.dir is missing. Edit local.properties and add ndk.dir variable or to inject it through an env var"
-            unless="ndk.dir"
-    />
-    
-    <!-- Build and rename binaries to look like libraries -->
-    <target name="ndk-build">
-        <!-- Build binaries using NDK -->
-        <exec executable="${ndk.dir}/ndk-build" failonerror="true"/>
 
+    <!-- Build and rename binaries to look like libraries -->
+    <target name="rename-binaries">
         <!-- Rename binaries from hello_world to libhello_world_bin.so
         If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder! -->
         <move todir="${jar.libs.absolute.dir}" overwrite="true" verbose="true" failonerror="true" includeemptydirs="false">
@@ -25,16 +16,10 @@
     </target>
 
 
-    <!-- Extend build by adding ndk-build as dependency -->
-    <target name="-pre-build" depends="ndk-build">
+    <!-- Extend build by adding rename-binaries as dependency -->
+    <target name="-pre-build" depends="rename-binaries">
 
     </target>
 
-
-    <!--<target name="clean" depends="android_rules.clean">
-        <exec executable="${ndk.dir}/ndk-build" failonerror="true">
-            <arg value="clean"/>
-        </exec>
-    </target>--> 
 
 </project> 
