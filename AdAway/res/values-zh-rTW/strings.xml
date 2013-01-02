@@ -120,12 +120,12 @@
   <string name="menu_help">幫助</string>
   <string name="menu_lists">你的名單</string>
   <string name="menu_show_hosts_file">打開hosts檔案</string>
-  <string name="menu_donations">捐贈</string>
   <string name="menu_import">導入列表</string>
   <string name="menu_export">導出列表</string>
   <string name="menu_preferences">設定</string>
   <!--Help-->
   <string name="help_tab_about">關於</string>
+  <string name="help_tab_donate">資助</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">問題</string>
@@ -186,8 +186,6 @@
   <string name="pref_automatic_update_daily_summary">如果有更新，自動在背景更新。</string>
   <string name="pref_update_only_on_wifi">只透過Wi-Fi 更新</string>
   <string name="pref_update_only_on_wifi_summary">只有在連接到 Wi-Fi 時執行背景更新。</string>
-  <string name="pref_redirection_rules">允許重新導向</string>
-  <string name="pref_redirection_rules_summary">允許來自Hosts來源重新導向規則</string>
   <string name="pref_debug">除錯</string>
   <string name="pref_enable_debug">除錯記錄</string>
   <string name="pref_enable_debug_summary">你需要重新啟動AdAway來使設定生效.</string>

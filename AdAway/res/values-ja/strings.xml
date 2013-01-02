@@ -10,7 +10,7 @@
   <string name="button_revert">広告ブロックを無効化</string>
   <string name="button_add">追加</string>
   <string name="button_cancel">キャンセル</string>
-  <string name="button_apply_text">定義されたソースからダウンロードし、システムのhostsファイルに統合しインストールします。</string>
+  <string name="button_apply_text">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします。</string>
   <string name="button_revert_text">システムのhostsファイルをリストアします。</string>
   <string name="button_save">保存</string>
   <string name="button_webserver_toggle_checked">ウェブサーバーは動作中です</string>
@@ -120,12 +120,12 @@
   <string name="menu_help">ヘルプ</string>
   <string name="menu_lists">リスト</string>
   <string name="menu_show_hosts_file">hostsファイルを開く</string>
-  <string name="menu_donations">寄付</string>
   <string name="menu_import">リストをインポート</string>
   <string name="menu_export">リストをエクスポート</string>
   <string name="menu_preferences">設定</string>
   <!--Help-->
   <string name="help_tab_about">情報</string>
+  <string name="help_tab_donate">寄付</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">問題</string>
@@ -133,11 +133,11 @@
   <!--Scan Adware-->
   <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
   <string name="scan_adware_start">スキャンを開始</string>
-  <string name="scan_adware_empty">アドウェアは堅守されませんでした!</string>
+  <string name="scan_adware_empty">アドウェアは検出されませんでした!</string>
   <!--Hosts Sources-->
-  <string name="hosts_last_modified_local">ローカル:</string>
-  <string name="hosts_last_modified_online">オンライン:</string>
-  <string name="hosts_not_available">利用不可</string>
+  <string name="hosts_last_modified_local">ﾛｰｶﾙ:</string>
+  <string name="hosts_last_modified_online">ｵﾝﾗｲﾝ:</string>
+  <string name="hosts_not_available">日時記録なし</string>
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
   <string name="no_text_editor_title">テキストエディタがありません</string>
@@ -166,7 +166,7 @@
   <string name="pref_never_reboot">再起動ﾀﾞｲｱﾛｸﾞを非表示</string>
   <string name="pref_never_reboot_summary">適用後に出る再起動を促すダイアログを非表示にします。</string>
   <string name="pref_webserver_on_boot">ｳｪﾌﾞｻｰﾊﾞｰを起動時に開始</string>
-  <string name="pref_webserver_on_boot_summary">ローカルIPアドレスの待ち受けのため5秒遅れてウェブサーバーを開始します。</string>
+  <string name="pref_webserver_on_boot_summary">ローカルIPアドレス待ち受けのため起動時にウェブサーバーを開始します。</string>
   <string name="pref_webserver_enabled">ｳｪﾌﾞｻｰﾊﾞｰを有効化</string>
   <string name="pref_webserver_enabled_summary">ブロックしたホスト名の問い合わせに返答するためのウェブサーバーを有効にします。</string>
   <string name="pref_webserver">ﾛｰｶﾙｳｪﾌﾞｻｰﾊﾞｰ</string>
@@ -183,12 +183,12 @@
   <string name="pref_update_check_daily">毎日更新を確認する</string>
   <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します。</string>
   <string name="pref_automatic_update_daily">自動更新</string>
-  <string name="pref_automatic_update_daily_summary">バックグラウンドで自動的に更新します。</string>
+  <string name="pref_automatic_update_daily_summary">バックグラウンドで自動更新します。</string>
   <string name="pref_update_only_on_wifi">Wi-Fiでのみ更新</string>
   <string name="pref_update_only_on_wifi_summary">Wi-Fi接続されたときのみバックグラウンド更新をします。</string>
-  <string name="pref_redirection_rules">リダイレクトを許可</string>
-  <string name="pref_redirection_rules_summary">hostsソースからのリダイレクトルールを許可します。</string>
+  <string name="pref_whitelist_redirection_rules">ﾘﾀﾞｲﾚｸﾄとﾎﾜｲﾄﾘｽﾄを許可</string>
+  <string name="pref_whitelist_redirection_rules_summary">hostsソースからのリダイレクトとホワイトリストのエントリを許可します。</string>
   <string name="pref_debug">デバッグ</string>
-  <string name="pref_enable_debug">デバッグ記録</string>
+  <string name="pref_enable_debug">デバッグ記録をする</string>
   <string name="pref_enable_debug_summary">変更を適用するにはAdAwayの再起動が必要です。</string>
 </resources>

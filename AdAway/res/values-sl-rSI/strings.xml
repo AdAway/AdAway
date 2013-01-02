@@ -120,7 +120,6 @@
   <string name="menu_help">Pomoč</string>
   <string name="menu_lists">Moji seznami</string>
   <string name="menu_show_hosts_file">Odpri datoteko hosts</string>
-  <string name="menu_donations">Donacije</string>
   <string name="menu_import">Uvozi vse sezname</string>
   <string name="menu_export">Izvozi vse sezname</string>
   <string name="menu_preferences">Nastavitve</string>
@@ -186,8 +185,6 @@
   <string name="pref_automatic_update_daily_summary">Samodejno posodobi datoteko hosts če je na voljo posodobitev.</string>
   <string name="pref_update_only_on_wifi">Posodobi samo preko omrežja Wi-Fi</string>
   <string name="pref_update_only_on_wifi_summary">Samodejno posodobi samo če je na voljo brezžično omrežje.</string>
-  <string name="pref_redirection_rules">Dovoli preusmeritve</string>
-  <string name="pref_redirection_rules_summary">Dovoli preusmeritve, če so zapisane v hosts datotekah iz virov.</string>
   <string name="pref_debug">Razhroščevanje</string>
   <string name="pref_enable_debug">Zapisovanje dnevnika ob razhroščevanju</string>
   <string name="pref_enable_debug_summary">Za uveljavitev je potreben ponovni zagon aplikacije AdAway.</string>

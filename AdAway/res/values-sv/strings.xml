@@ -16,6 +16,7 @@
   <string name="button_webserver_toggle_checked">Webbserver körs</string>
   <string name="button_webserver_toggle_unchecked">Webbserver körs inte</string>
   <string name="button_help">Hjälp</string>
+  <string name="button_tcpdump_delete">Radera loggfil</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Lägg till</string>
   <string name="checkbox_list_empty">Tom lista</string>
@@ -35,8 +36,11 @@
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Värdnamn:</string>
   <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
+  <string name="import_dialog">Importerar...</string>
+  <string name="export_dialog">Exporterar...</string>
   <!--Status Notifications-->
   <string name="status_checking">Letar efter uppdateringar...</string>
+  <string name="status_reverting">Återställer...</string>
   <string name="status_checking_subtitle">Kollar om uppdatering finns tillgänglig</string>
   <string name="status_update_available">Uppdatering tillgänglig</string>
   <string name="status_update_available_subtitle">Nyare värdfiler är tillgängliga</string>
@@ -62,8 +66,9 @@
   <string name="apply_dialog_apply">TIllämpar värdfil</string>
   <string name="apply_fail">Tillämpning av värdfilen på din enhet misslyckades!\nTesta att ändra värdfilssökvägen i inställningarna till /data/data/hosts</string>
   <string name="apply_fail_title">Tillämpning misslyckades</string>
-  <string name="revert_successful">Du återställa till standardvärdfilen.\nDet kan vara nödvändigt att starta om din enhet för att ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att undvika förlust av data, se till att ingen app använder SD-kortet för tillfället)</string>
+  <string name="revert_successful">Du återställde standardvärdfilen.\nDet kan vara nödvändigt att starta om din enhet för att ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att undvika förlust av data, se till att ingen app använder SD-kortet för tillfället)</string>
   <string name="revert_problem">Återställningen misslyckades av okända skäl</string>
+  <string name="revert_problem_title">Återställning misslyckades!</string>
   <string name="download_fail_title">Hämtning misslyckades</string>
   <string name="no_private_file">Privat fil kan inte skapas</string>
   <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
@@ -86,7 +91,8 @@
   <string name="menu_help">Hjälp</string>
   <string name="menu_lists">Din lista</string>
   <string name="menu_show_hosts_file">Öppna värdfil</string>
-  <string name="menu_donations">Donationer</string>
+  <string name="menu_import">Importera Alla Listor</string>
+  <string name="menu_export">Exportera  Alla Listor</string>
   <string name="menu_preferences">Inställningar</string>
   <!--Help-->
   <string name="help_tab_about">Om</string>
@@ -104,7 +110,9 @@
   <!--Other-->
   <string name="app_subtitle">Annonsblockerare</string>
   <string name="no_text_editor_title">Ingen textredigerare installerad</string>
+  <string name="no_file_manager_title">Ingen filhanterare installerad</string>
   <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Loggfil raderad!</string>
   <!--Preferences-->
   <string name="pref_header_preferences">Inställningar</string>
   <string name="pref_never_reboot">Göm omstartsruta</string>

@@ -110,6 +110,7 @@
   <string name="no_ip">Ovo nije valjan IP!</string>
   <string name="no_ip_title">Izobličen IP</string>
   <string name="reboot_never_reboot">Nikada ne pokreći ponovno i ne pokazuj više ovo pitanje!</string>
+  <string name="loading">utovar...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Osvježavanje</string>
   <string name="menu_add">Dodaj</string>
@@ -119,12 +120,12 @@
   <string name="menu_help">Pomoć</string>
   <string name="menu_lists">Vaši popisi</string>
   <string name="menu_show_hosts_file">Otvori hosts datoteku</string>
-  <string name="menu_donations">Donacije</string>
   <string name="menu_import">Uvezi sve popise</string>
   <string name="menu_export">Izvezi sve popise</string>
   <string name="menu_preferences">Postavke</string>
   <!--Help-->
   <string name="help_tab_about">O aplikaciji</string>
+  <string name="help_tab_donate">darovati</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">ČPP - često postavljana pitanja</string>
   <string name="help_tab_problems">Problemi</string>
@@ -185,8 +186,6 @@
   <string name="pref_automatic_update_daily_summary">Osvježi automatski u pozadini ukoliko su osvježenja dostpuna</string>
   <string name="pref_update_only_on_wifi">Osvježavaj sam na Wi-Fiju</string>
   <string name="pref_update_only_on_wifi_summary">Pokreni pozadinska osvježavanja samo kad postoji Wi-Fi mrežna povezanost.</string>
-  <string name="pref_redirection_rules">Omogući preusmjeravanja</string>
-  <string name="pref_redirection_rules_summary">Omogući pravila preusmjeravanja iz izvora hostova.</string>
   <string name="pref_debug">Otkloni grešku</string>
   <string name="pref_enable_debug">Vodi dnevnik otklanjanja greške</string>
   <string name="pref_enable_debug_summary">Ponovno pokrenite AdAway kako bi ova postavka došla do izražaja.</string>

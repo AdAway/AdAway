@@ -120,12 +120,12 @@
   <string name="menu_help">Ajuda</string>
   <string name="menu_lists">Suas Listas</string>
   <string name="menu_show_hosts_file">Abrir arquivo de hosts</string>
-  <string name="menu_donations">Doações</string>
   <string name="menu_import">Importar Todas as Listas</string>
   <string name="menu_export">Exportar Todas as Listas</string>
   <string name="menu_preferences">Preferências</string>
   <!--Help-->
   <string name="help_tab_about">Sobre</string>
+  <string name="help_tab_donate">Doar</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemas</string>
@@ -186,8 +186,6 @@
   <string name="pref_automatic_update_daily_summary">Atualização automática em segundo plano se houver atualizações disponíveis.</string>
   <string name="pref_update_only_on_wifi">Atualizar somente no Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Executar atualizações em segundo plano somente quando conectado a uma rede sem fio.</string>
-  <string name="pref_redirection_rules">Permitir redirecionamentos</string>
-  <string name="pref_redirection_rules_summary">Permitir regras de redirecionamento a partir dos fontes de hosts.</string>
   <string name="pref_debug">Depuração</string>
   <string name="pref_enable_debug">Log de Depuração</string>
   <string name="pref_enable_debug_summary">É necessário reiniciar o AdAway para que esta mudança seja aplicada.</string>

@@ -120,12 +120,12 @@
   <string name="menu_help">帮助</string>
   <string name="menu_lists">你的名单</string>
   <string name="menu_show_hosts_file">打开 hosts 文件</string>
-  <string name="menu_donations">捐赠</string>
   <string name="menu_import">导入列表</string>
   <string name="menu_export">导出列表</string>
   <string name="menu_preferences">设置</string>
   <!--Help-->
   <string name="help_tab_about">关于</string>
+  <string name="help_tab_donate"> 捐赠</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">问题</string>
@@ -186,8 +186,6 @@
   <string name="pref_automatic_update_daily_summary">如果有更新，自动在后台更新。</string>
   <string name="pref_update_only_on_wifi">只在 Wifi 下更新</string>
   <string name="pref_update_only_on_wifi_summary">只在连接到 Wifi 网络时执行后台更新。</string>
-  <string name="pref_redirection_rules">允许重定向</string>
-  <string name="pref_redirection_rules_summary">允许来自 Hosts 源重定向规则</string>
   <string name="pref_debug">调试</string>
   <string name="pref_enable_debug">调试日志记录</string>
   <string name="pref_enable_debug_summary">你需要重新启动广告走开使设置生效</string>

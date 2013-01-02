@@ -120,12 +120,12 @@
   <string name="menu_help">Aide</string>
   <string name="menu_lists">Vos Listes</string>
   <string name="menu_show_hosts_file">Ouvrir le fichier hosts</string>
-  <string name="menu_donations">Dons</string>
   <string name="menu_import">Importer toutes les listes</string>
   <string name="menu_export">Exporter toutes les listes</string>
   <string name="menu_preferences">Préférences</string>
   <!--Help-->
   <string name="help_tab_about">A propos</string>
+  <string name="help_tab_donate">Donner</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problèmes</string>
@@ -186,8 +186,8 @@
   <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont disponibles</string>
   <string name="pref_update_only_on_wifi">Mise à jour Wifi</string>
   <string name="pref_update_only_on_wifi_summary">La mise à jour en arrière-plan ne s\'effectue que lorsqu\'une connexion Wifi est active.</string>
-  <string name="pref_redirection_rules">Autoriser les redirections</string>
-  <string name="pref_redirection_rules_summary">Autoriser les règles de redirections depuis les sources hosts</string>
+  <string name="pref_whitelist_redirection_rules">Accepter les redirections et la liste blanche</string>
+  <string name="pref_whitelist_redirection_rules_summary">Accepter les redirections automatiques et les sites en liste blanche proposés par vos sources de fichiers Hosts.</string>
   <string name="pref_debug">Debogage</string>
   <string name="pref_enable_debug">Générer des logs pour faciliter le debogage</string>
   <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>

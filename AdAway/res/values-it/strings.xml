@@ -17,6 +17,7 @@
   <string name="button_webserver_toggle_unchecked">ll webserver non è avviato</string>
   <string name="button_webserver_toggle_text">Avvia o ferma il webserver in localhost per rispondere alle richieste verso hostname bloccati.</string>
   <string name="button_help">Aiuto</string>
+  <string name="button_tcpdump_text">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla tua lista nera.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump è avviato!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump non è avviato!</string>
   <string name="button_tcpdump_open">Apri file registro</string>
@@ -65,10 +66,12 @@
   <string name="apply_not_enough_space">Spazio insufficiente sulla  partizione!\n\nProva a cambiare il file hosts target nelle preferenze in /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Spazio non sufficiente</string>
   <string name="apply_private_file_fail">Il file scaricato non può essere letto.</string>
+  <string name="apply_private_file_fail_title">Creazione del file privato fallita</string>
   <string name="apply_remount_fail">Rimontaggio della partizione in lettura/scrittura fallito!</string>
   <string name="apply_remount_fail_title">Rimontaggio fallito!</string>
   <string name="apply_copy_fail">Copia del file hosts fallita!</string>
   <string name="apply_copy_fail_title">Copia fallita</string>
+  <string name="apply_success_subtitle">Hosts file scaricati con successo:</string>
   <string name="apply_success_title">Modifiche effettuate con successo!</string>
   <string name="apply_success_dialog">Modifiche effettuate con successo.\n\nPuò essere necessario riavviare Android perchè le modifiche abbiano effetto.\n\nVuoi riavviare?\n\n(Per prevenire perdite di dati assicurati che nessuna app stia usando la sdcard in questo momento!)</string>
   <string name="apply_symlink_successful">Link simbolico creato con successo!\n\nPotrebbe essere necessario riavviare Android perchè i cambiamenti abbiano effetto.\n\nVuoi riavviare?\n\n(Per prevenire perdite di dati assicurati che nessuna app stia usando la sdcard in questo momento!)</string>
@@ -106,6 +109,7 @@
   <string name="no_ip">Questo non è un IP valido!</string>
   <string name="no_ip_title">IP malformato</string>
   <string name="reboot_never_reboot">Non riavviare mai e non mostrare questo messaggio la prossima volta!</string>
+  <string name="loading">Caricamento...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Aggiorna</string>
   <string name="menu_add">Aggiungi</string>
@@ -115,12 +119,12 @@
   <string name="menu_help">Aiuto</string>
   <string name="menu_lists">Le tue liste</string>
   <string name="menu_show_hosts_file">Apri file hosts</string>
-  <string name="menu_donations">Donazioni</string>
   <string name="menu_import">Importa tutte le liste</string>
   <string name="menu_export">Esporta tutte le liste</string>
   <string name="menu_preferences">Preferenze</string>
   <!--Help-->
   <string name="help_tab_about">Informazioni</string>
+  <string name="help_tab_donate">Fai una donazione</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemi</string>
@@ -161,9 +165,12 @@
   <string name="pref_never_reboot">Nascondi finestra di dialogo di riavvio.</string>
   <string name="pref_never_reboot_summary">Nascondi la finestra di dialogo che chiede di riavviare Android dopo aver applicato le modifiche.</string>
   <string name="pref_webserver_on_boot">Avvia webserver al boot</string>
+  <string name="pref_webserver_on_boot_summary">Abilita il webserver in ascolto sull\'indirizzo locale all\'avvio del telefono</string>
   <string name="pref_webserver_enabled">Abilita webserver</string>
+  <string name="pref_webserver_enabled_summary">Abilita il webserver in ascolto sull\'indirizzo locale per rispondere alle richieste bloccate</string>
   <string name="pref_webserver">Webserver locale</string>
   <string name="pref_custom_target">Target personale</string>
+  <string name="pref_custom_target_summary">In uso solo se si usa un file hosts personalizzato</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
     <item>/data/data/hosts</item>
@@ -178,8 +185,7 @@
   <string name="pref_automatic_update_daily_summary">Aggiorna automaticamente in background se sono disponibili aggiornamenti.</string>
   <string name="pref_update_only_on_wifi">Aggiorna solo via Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso a un network wifi</string>
-  <string name="pref_redirection_rules">Permetti inoltri</string>
-  <string name="pref_redirection_rules_summary">Permetti regole di inoltro dal Sorgente Host</string>
   <string name="pref_debug">Debug</string>
+  <string name="pref_enable_debug">Log di debug</string>
   <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>
 </resources>

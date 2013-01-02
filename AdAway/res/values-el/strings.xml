@@ -2,6 +2,7 @@
 <resources>
   <!--Buttons-->
   <string name="button_exit">Έξοδος</string>
+  <string name="button_apply">Κατέβασμα αρχείων και εφαρμογή διακοπής διαφημίσεων</string>
   <string name="button_close">Κλείσιμο</string>
   <string name="button_yes">Ναι</string>
   <string name="button_no">Όχι</string>
@@ -10,6 +11,7 @@
   <string name="button_save">Αποθήκευση</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Προσθήκη</string>
+  <string name="checkbox_list_empty">Άδεια λίστα</string>
   <string name="checkbox_list_context_delete">Διαγραφή</string>
   <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
   <string name="checkbox_list_context_edit">Επεξεργασία</string>
@@ -18,9 +20,16 @@
   <string name="lists_tab_blacklist">Μαύρη λίστα</string>
   <!--Status Notifications-->
   <!--Apply and Revert Dialogs-->
+  <string name="no_connection_title">Καμία σύνδεση</string>
+  <string name="download_dialog">Κατεβάζει...</string>
+  <string name="apply_dialog">Εφαρμογή...</string>
+  <string name="apply_fail_title">Εφαρμογή απέτυχε</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Είτε το εκτελέσιμο su δε βρέθηκε ή δεν επιτράπηκε πρόσβαση root για το AdAway.\n\nΑυτό συμβαίνει όταν η συσκευή δεν έχει γίνει root.\n\nΠληροφορίες για το πως μπορεί να γίνει root μια συσκευή υπάρχουν στο www.cyanogenmod.com ή σε άλλες ιστοσελίδες Android.</string>
+  <string name="no_root_title">Χρειάζεται rooted Android</string>
   <!--Menu entries-->
   <string name="menu_add">Προσθήκη</string>
+  <string name="menu_preferences">Ρυθμίσεις</string>
   <!--Help-->
   <!--Scan Adware-->
   <!--Hosts Sources-->

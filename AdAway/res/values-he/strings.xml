@@ -120,12 +120,12 @@
   <string name="menu_help">עזרה</string>
   <string name="menu_lists">הרשימות שלך</string>
   <string name="menu_show_hosts_file">פתח קובץ hosts</string>
-  <string name="menu_donations">תרומה</string>
   <string name="menu_import">ייבא את כל הרשימות</string>
   <string name="menu_export">ייצא את כל הרשימות</string>
   <string name="menu_preferences">העדפות</string>
   <!--Help-->
   <string name="help_tab_about">אודות</string>
+  <string name="help_tab_donate">לתרום</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">שאלות ותשובות</string>
   <string name="help_tab_problems">תקלות</string>
@@ -186,8 +186,6 @@
   <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
   <string name="pref_update_only_on_wifi">עדכן רק בחיבור Wifi</string>
   <string name="pref_update_only_on_wifi_summary">הפועל עיכובים ברקע רק כאשר המכשיר מחובר לאינטרנט בחיבור Wifi</string>
-  <string name="pref_redirection_rules">אפשר הפניות</string>
-  <string name="pref_redirection_rules_summary">אפשר חוקי הפניה ממקור Hosts</string>
   <string name="pref_debug">ניפוי שגיאות</string>
   <string name="pref_enable_debug">רשום יומן שגיאות</string>
   <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>

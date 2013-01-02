@@ -120,10 +120,9 @@
   <string name="menu_help">Hjælp</string>
   <string name="menu_lists">Din liste</string>
   <string name="menu_show_hosts_file">Åben hosts filen</string>
-  <string name="menu_donations">Donationer</string>
   <string name="menu_import">Importér alle lister</string>
   <string name="menu_export">Eksportér alle lister</string>
-  <string name="menu_preferences">Præferancer</string>
+  <string name="menu_preferences">Præferencer</string>
   <!--Help-->
   <string name="help_tab_about">Om</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -186,8 +185,6 @@
   <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
   <string name="pref_update_only_on_wifi">Opdatér kun via trådløs netværk</string>
   <string name="pref_update_only_on_wifi_summary">Kør kun baggrunds opdateringer når der er forbindelse via et trådløs netværk</string>
-  <string name="pref_redirection_rules">Tillad omdirigeringer</string>
-  <string name="pref_redirection_rules_summary">Tillad omdirigerings regler fra hosts kilder</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug logging</string>
   <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>

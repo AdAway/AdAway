@@ -120,12 +120,12 @@
   <string name="menu_help">Pomoc</string>
   <string name="menu_lists">Twoje Listy</string>
   <string name="menu_show_hosts_file">Otwórz plik hosts</string>
-  <string name="menu_donations">Wsparcie dla autora</string>
   <string name="menu_import">Importuj wszystkie Listy</string>
   <string name="menu_export">Eksportuj wszystkie Listy</string>
   <string name="menu_preferences">Ustawienia</string>
   <!--Help-->
   <string name="help_tab_about">O programie</string>
+  <string name="help_tab_donate">Dotacja</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemy</string>
@@ -186,8 +186,6 @@
   <string name="pref_automatic_update_daily_summary">Aktualizuj automatycznie w tle jeżeli aktualizacje sa dostępne.</string>
   <string name="pref_update_only_on_wifi">Aktualizuj tylko przez Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Wykonuj aktualizacje w tle tylko przy połączeniu WiFi.</string>
-  <string name="pref_redirection_rules">Zezwól na przekierowania</string>
-  <string name="pref_redirection_rules_summary">Zezwalaj na przekierowania dla źródeł z pliku hosts.</string>
   <string name="pref_debug">Debugowanie</string>
   <string name="pref_enable_debug">Zapisuj log</string>
   <string name="pref_enable_debug_summary">Musisz zrestartować AdAway, aby uaktywnić te ustawienia.</string>

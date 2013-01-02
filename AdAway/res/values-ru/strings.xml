@@ -120,12 +120,12 @@
   <string name="menu_help">Справка</string>
   <string name="menu_lists">Ваши списки</string>
   <string name="menu_show_hosts_file">Открыть файл hosts</string>
-  <string name="menu_donations">Пожертвования</string>
   <string name="menu_import">Импортировать все списки</string>
   <string name="menu_export">Экспортировать все списки</string>
   <string name="menu_preferences">Настройки</string>
   <!--Help-->
   <string name="help_tab_about">О программе</string>
+  <string name="help_tab_donate">Пожертвовать</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Проблемы</string>
@@ -186,8 +186,8 @@
   <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
   <string name="pref_update_only_on_wifi">Обновление только через WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Выполнять обновления в фоне только при подключении к сети WiFi.</string>
-  <string name="pref_redirection_rules">Разрешить перенаправление</string>
-  <string name="pref_redirection_rules_summary">Разрешить перенаправление согласно файлу hosts.</string>
+  <string name="pref_whitelist_redirection_rules">Разрешить перенаправление и белые списки</string>
+  <string name="pref_whitelist_redirection_rules_summary">Разрешить перенаправление и белые списки из источников хостов.</string>
   <string name="pref_debug">Режим отладки</string>
   <string name="pref_enable_debug">Журнал отладки</string>
   <string name="pref_enable_debug_summary">Необходимо перезапустить AdAway, чтобы изменения вступили в силу.</string>

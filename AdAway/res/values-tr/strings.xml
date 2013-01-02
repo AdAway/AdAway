@@ -112,7 +112,6 @@
   <string name="menu_help">Yardım</string>
   <string name="menu_lists">Listeleriniz</string>
   <string name="menu_show_hosts_file">Host dosyasını aç</string>
-  <string name="menu_donations">Bağışlar</string>
   <string name="menu_import">Tüm Listeleri Al</string>
   <string name="menu_export">Tüm Listeleri Ver</string>
   <string name="menu_preferences">Tercihler</string>
@@ -171,6 +170,6 @@
   <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
   <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
   <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
-  <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
-  <string name="pref_redirection_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
+  <string name="pref_debug">Hata ayıklama</string>
+  <string name="pref_enable_debug">Hata ayıklama kaydı</string>
 </resources>

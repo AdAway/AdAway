@@ -120,12 +120,12 @@
   <string name="menu_help">Súgó</string>
   <string name="menu_lists">Saját listáim</string>
   <string name="menu_show_hosts_file">Host fájl megnyitása</string>
-  <string name="menu_donations">Támogatások</string>
   <string name="menu_import">Összes lista importja</string>
   <string name="menu_export">Összes lista exmportja</string>
   <string name="menu_preferences">Lehetőségek</string>
   <!--Help-->
   <string name="help_tab_about">Névjegy</string>
+  <string name="help_tab_donate">adományoz</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problémák</string>
@@ -186,8 +186,8 @@
   <string name="pref_automatic_update_daily_summary">Automatikusan frissít a háttérben ha frissítés érhető el.</string>
   <string name="pref_update_only_on_wifi">Csak Wifi-n frissíthet</string>
   <string name="pref_update_only_on_wifi_summary">Csak Wifi hálózathoz csatlakozva futtathat a háttérben frissítéseket.</string>
-  <string name="pref_redirection_rules">Átirányítás engedélyezése</string>
-  <string name="pref_redirection_rules_summary">Hagyja az átirányítás szabályait a Host Források-ra.</string>
+  <string name="pref_whitelist_redirection_rules">Átirányítások és fehérlisták engedélyezése</string>
+  <string name="pref_whitelist_redirection_rules_summary">Átirányítás és fehérlista elemek engedélyezése a kiszolgáló forrásokból.</string>
   <string name="pref_debug">Hibakeresés</string>
   <string name="pref_enable_debug">Hibakeresés naplózása</string>
   <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>
