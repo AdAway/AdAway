@@ -9,7 +9,7 @@ For more information visit http://code.google.com/p/ad-away/
 1. Have Android SDK and NDK in your PATH
 2. Execute ``android update project -p .`` in ``AdAway`` and ``AdAway/android-libs/ActionBarSherlock`` and ``AdAway/android-libs/Donations``
 3. Execute ``ndk-build`` in ``AdAway`` to compile native binaries.
-4. Execute ``ant clear``
+4. Execute ``ant clean``
 5. Execute ``ant debug -Ddonations=all`` or ``ant release -Ddonations=all``
 
 ## More build information
