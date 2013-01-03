@@ -6,8 +6,8 @@ For more information visit http://code.google.com/p/ad-away/
 
 # Build AdAway
 
-1. Have Android SDK and NDK in your PATH
-2. Change to ``AdAway`` directory with ``cd AdAway``
+1. Have Android SDK "tools" directory and NDK directory in your PATH (http://developer.android.com/sdk/index.html)
+2. Change to "AdAway" directory with ``cd AdAway``
 3. Execute ``android update project -p .``,  ``android update project -p android-libs/ActionBarSherlock``, and ``android update project -p android-libs/Donations``
 4. Execute ``ndk-build`` to compile native binaries.
 5. Execute ``ant clean``
@@ -15,7 +15,7 @@ For more information visit http://code.google.com/p/ad-away/
 
 ## More build information
 
-* It is necessary to build AdAway with Ant, because we use custom_rules.xml (For more information see https://github.com/dschuermann/root-commands#binaries)
+* It is necessary to build AdAway with Ant, because we use "custom_rules.xml" (For more information see https://github.com/dschuermann/root-commands#binaries)
 * To disable Flattr and PayPal (not allowed in Google Play), execute ``ant debug -Ddonations=google``
 * To disable Google (only working when the apk is signed with my private key), execute ``ant debug -Ddonations=other``
 
@@ -25,16 +25,16 @@ Fork AdAway and do a Pull Request. I will merge your changes back into the main 
 
 # Libraries
 
-All JAR-Libraries are provided in this repository under ``libs``, all Android Library projects are under ``android-libs``.
+All JAR-Libraries are provided in this repository under "libs", all Android Library projects are under "android-libs".
 
 # Translations
 
-Translations are hosted on Transifex, which is configured by ``.tx/config``
+Translations are hosted on Transifex, which is configured by ".tx/config".
 
-1. To pull newest translations install transifex client (e.g. aptitude install transifex-client)
-2. Config Transifex client with ``~/.transifexrc``
+1. To pull newest translations install transifex client (e.g. ``apt-get install transifex-client``)
+2. Config Transifex client with "~/.transifexrc"
 3. Go into root folder of git repo
-4. execute ```tx pull``` (```tx pull -a``` to get all languages)
+4. execute ``tx pull`` (``tx pull -a`` to get all languages)
 
 see http://help.transifex.net/features/client/index.html#user-client
 
@@ -67,12 +67,12 @@ Forked from the following sources and slightly modified to compile!
 
 ## Changes
 
-``dnsmasq/source/src/Android.mk`` add following line:
+"dnsmasq/source/src/Android.mk" add following line:
 ```
 LOCAL_LDLIBS := -llog
 ```
 
-``tcpdump/Android.mk``:
+"tcpdump/Android.mk":
 ```
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/missing\
@@ -84,7 +84,7 @@ LOCAL_C_INCLUDES += \
 #LOCAL_SHARED_LIBRARIES += libssl libcrypto
 ```
 
-``tcpdump/config.h``:
+"tcpdump/config.h":
 ```
 /* Whether or not to include the possibly-buggy SMB printer */
 /* #undef TCPDUMP_DO_SMB */
