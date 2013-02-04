@@ -95,6 +95,21 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
 
         // http://www.ismeh.com/HOSTS
         insertHostsSource(insertStmt, "http://www.ismeh.com/HOSTS");
+
+	// https://secure.fanboy.co.nz/fanboy-adblock.txt
+	insertHostsSource(insertStmt, "https://secure.fanboy.co.nz/fanboy-adblock.txt");
+
+	// https://easylist-downloads.adblockplus.org/easylist.txt
+	insertHostsSource(insertStmt, "https://easylist-downloads.adblockplus.org/easylist.txt");
+
+	// https://easylist-downloads.adblockplus.org/rolist+easylist.txt
+	insertHostsSource(insertStmt, "https://easylist-downloads.adblockplus.org/rolist+easylist.txt");
+
+	// https://popblock.googlecode.com/hg/popup-block.txt
+	insertHostsSource(insertStmt, "https://popblock.googlecode.com/hg/popup-block.txt");
+
+	// https://secure.fanboy.co.nz/fanboy-addon.txt
+	insertHostsSource(insertStmt, "https://secure.fanboy.co.nz/fanboy-addon.txt");
     }
 
     @Override
