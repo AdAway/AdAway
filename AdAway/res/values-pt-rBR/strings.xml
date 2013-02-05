@@ -186,6 +186,8 @@
   <string name="pref_automatic_update_daily_summary">Atualização automática em segundo plano se houver atualizações disponíveis.</string>
   <string name="pref_update_only_on_wifi">Atualizar somente no Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Executar atualizações em segundo plano somente quando conectado a uma rede sem fio.</string>
+  <string name="pref_whitelist_redirection_rules">Permitir redirecionamentos e listas brancas</string>
+  <string name="pref_whitelist_redirection_rules_summary">Permitir redirecionamento e entradas de listas brancas de Fontes Hosts.</string>
   <string name="pref_debug">Depuração</string>
   <string name="pref_enable_debug">Log de Depuração</string>
   <string name="pref_enable_debug_summary">É necessário reiniciar o AdAway para que esta mudança seja aplicada.</string>

@@ -76,6 +76,7 @@
   <string name="scan_adware_start">ចាប់ផ្ដើមស្កេន</string>
   <string name="scan_adware_empty">ពុំមានកម្មវិធី Adware អាក្រក់ដែលអាចរកឃើញ!</string>
   <!--Hosts Sources-->
+  <string name="hosts_last_modified_online">លើបណ្ដាញ\n\n</string>
   <string name="hosts_not_available">មិនមានរកឃើញ</string>
   <!--Other-->
   <string name="app_subtitle">អ្នកបំបិទការឃោសនា</string>

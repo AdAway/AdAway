@@ -125,6 +125,7 @@
   <string name="menu_preferences">Præferencer</string>
   <!--Help-->
   <string name="help_tab_about">Om</string>
+  <string name="help_tab_donate">Doner</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">OSS</string>
   <string name="help_tab_problems">Problemer</string>
@@ -185,6 +186,8 @@
   <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
   <string name="pref_update_only_on_wifi">Opdatér kun via trådløs netværk</string>
   <string name="pref_update_only_on_wifi_summary">Kør kun baggrunds opdateringer når der er forbindelse via et trådløs netværk</string>
+  <string name="pref_whitelist_redirection_rules">Tillad omdirigering og tilladelser</string>
+  <string name="pref_whitelist_redirection_rules_summary">Tillad omdirigering og tilladelses elementer fra hovedkilderne.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug logging</string>
   <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>

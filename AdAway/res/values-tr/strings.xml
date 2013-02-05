@@ -104,9 +104,11 @@
   <string name="no_ip">Bu geçerli bir IP değildir!</string>
   <string name="no_ip_title">Hatalı biçimlendirilmiş IP</string>
   <string name="reboot_never_reboot">Asla yeniden başlatma ve bu soruyu tekrar sorma!</string>
+  <string name="loading">Yükleniyor...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Yenile</string>
   <string name="menu_add">Ekle</string>
+  <string name="menu_scan_adware">Reklam Tara</string>
   <string name="menu_hosts_sources">Host kaynakları</string>
   <string name="menu_tcpdump">DNS istekleri log dosyasına kaydet</string>
   <string name="menu_help">Yardım</string>
@@ -117,13 +119,16 @@
   <string name="menu_preferences">Tercihler</string>
   <!--Help-->
   <string name="help_tab_about">Hakkında</string>
+  <string name="help_tab_donate">Bağışta bulunun</string>
   <string name="help_tab_faq">SSS</string>
   <string name="help_tab_problems">Sorunlar</string>
   <string name="help_about_version">Sürüm:</string>
   <!--Scan Adware-->
+  <string name="scan_adware_start">Taramaya başla</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Yerel:</string>
   <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">uygun değil</string>
   <!--Other-->
   <string name="app_subtitle">Reklam engelleyici</string>
   <string name="no_text_editor_title">Yüklü metin editörü yok</string>
@@ -170,6 +175,9 @@
   <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
   <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
   <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
+  <string name="pref_update_only_on_wifi">Sadece Wifi üzerinden güncelle</string>
+  <string name="pref_update_only_on_wifi_summary">Wifi bağlı olduğunda sadece geri plan güncelleştirmeleri yürüt.</string>
   <string name="pref_debug">Hata ayıklama</string>
   <string name="pref_enable_debug">Hata ayıklama kaydı</string>
+  <string name="pref_enable_debug_summary">Ayarların etkin olması için AdAway yeniden başlatın.</string>
 </resources>
