@@ -7,10 +7,10 @@ public class DonationsConfig {
     /**
      * Flattr
      */
-    public static final boolean FLATTR_ENABLED = true;
-    public static final String FLATTR_PROJECT_URL = "http://code.google.com/p/ad-away/";
+    public static final boolean FLATTR_ENABLED = false;
+    public static final String FLATTR_PROJECT_URL = "";
     // without http:// !
-    public static final String FLATTR_URL = "flattr.com/thing/369138/AdAway-Ad-blocker-for-Android";
+    public static final String FLATTR_URL = "";
 
     /**
      * Google
@@ -24,11 +24,11 @@ public class DonationsConfig {
     /**
      * PayPal
      */
-    public static final boolean PAYPAL_ENABLED = true;
-    public static final String PAYPAL_USER = "dominik@dominikschuermann.de";
-    public static final String PAYPAL_CURRENCY_CODE = "EUR";
+    public static final boolean PAYPAL_ENABLED = false;
+    public static final String PAYPAL_USER = "";
+    public static final String PAYPAL_CURRENCY_CODE = "";
 
     // TODO: get from values
-    public static final String PAYPAL_ITEM_NAME = "AdAway Donation";
+    public static final String PAYPAL_ITEM_NAME = "";
 
 }
