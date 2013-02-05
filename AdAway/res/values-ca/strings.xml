@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Buttons-->
+  <string name="button_exit">Sortir</string>
+  <string name="button_apply">Descarrega fitxers i aplica el bloqueig d\'anuncis</string>
+  <string name="button_close">Tancar</string>
+  <string name="button_yes">Si</string>
+  <string name="button_no">No</string>
+  <string name="button_revert">Desactiva el bloqueig d\'anuncis</string>
+  <string name="button_add">Afegiu</string>
+  <string name="button_cancel">Cancel·leu</string>
+  <string name="button_revert_text">Restaura el fitxer de hosts original del vostre sistema</string>
+  <string name="button_save">Guardeu</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump està funcionant!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump no està funcionant!</string>
+  <string name="button_tcpdump_open">Obriu el fitxer de registre</string>
+  <string name="button_tcpdump_delete">Elimineu el fitxer de register</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Afegiu</string>
+  <string name="checkbox_list_empty">Llista buida</string>
+  <string name="checkbox_list_empty_text">Podeu afegir items des de la barra d\'accions.</string>
+  <string name="checkbox_list_context_delete">Eliminar</string>
+  <string name="checkbox_list_footer">Després d\'afegir ítems a aquesta llista haureu d\'aplicar de nou l\'AdAway!</string>
+  <string name="checkbox_list_edit_dialog_title">Editeu</string>
+  <string name="checkbox_list_context_title">Editeu entrada</string>
+  <string name="checkbox_list_context_edit">Editeu</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Llista blanca</string>
+  <string name="lists_tab_blacklist">Llista negra</string>
+  <string name="lists_tab_redirection_list">Llista de redireccionaments</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">Servidor:</string>
+  <string name="list_dialog_whitelist_hostname">Nom de servidor: ⏎ (Caràcters comodí * i ? són permesos)</string>
+  <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
+  <string name="import_dialog">Important....</string>
+  <string name="export_dialog">Exportant...</string>
+  <string name="export_success">Totes les entrades han estat exportades a un fitxer anomenat \'adaway-export\' a la vostra targeta sd</string>
+  <!--Status Notifications-->
+  <string name="status_reverting">Revertint...</string>
+  <string name="status_reverting_subtitle">Creant fitxer de servidors estàndard</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_help">Si us plau, llegir l\'Ajuda per a més informació</string>
+  <string name="no_connection">La connexió a Internet no funciona.</string>
+  <string name="no_connection_title">Sense connexió</string>
+  <string name="download_dialog">Descarregant.</string>
+  <string name="apply_dialog">Aplicant....</string>
+  <string name="apply_dialog_lists">Aplicant llista negra i llista blanca</string>
+  <string name="apply_dialog_hosts">Construïnt fitxer de hosts</string>
+  <string name="apply_dialog_apply">Aplicant el fitxer de hosts</string>
+  <string name="apply_fail_title">Aplicació fallida</string>
+  <string name="revert_problem">Procés de revertiment fallit degut a causes desconegudes</string>
+  <string name="revert_problem_title">El procés de regressió ha fallat!</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
+  <string name="no_url">No és una adreça vàlida!</string>
+  <string name="no_url_title">Adreça mal formada</string>
+  <string name="hosts_add_dialog">Introduïu el fitxer de hosts:</string>
+  <string name="no_hostname">Aquest no és un nom de servidor vàlid!</string>
+  <string name="no_hostname_title">Nom de servidor mal format</string>
+  <string name="no_ip">Aquesta no és una IP vàlida!</string>
+  <string name="no_ip_title">Adreça IP mal formada</string>
+  <!--Menu entries-->
+  <string name="menu_add">Afegiu</string>
+  <string name="menu_hosts_sources">Servidors amb originals.</string>
+  <string name="menu_tcpdump">Enregistra els requeriments DNS</string>
+  <string name="menu_show_hosts_file">Obriu el fitxer de hosts</string>
+  <string name="menu_import">Importar totes les llistes</string>
+  <string name="menu_export">Exportar totes les llistes</string>
+  <string name="menu_preferences">Opcions</string>
+  <!--Help-->
+  <!--Scan Adware-->
+  <!--Hosts Sources-->
+  <!--Other-->
+  <string name="app_subtitle">Bloquejador d\'anuncis</string>
+  <string name="no_text_editor_title">No hi ha cap editor de text instal·lat</string>
+  <string name="no_file_manager_title">No hi ha cap gestor de fitxers instal·lat</string>
+  <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Fitxer de registre eliminat!</string>
+  <string name="toast_tcpdump_added_to_blacklist">El servidor ha estat afegit a la vostra Llista negra!</string>
+  <string name="toast_tcpdump_added_to_whitelist">El servidor ha estat afegit a la vostra Llista blanca!</string>
+  <string name="tcpdump_log_context_blacklist">Afegiu a la Llista negra</string>
+  <string name="tcpdump_log_context_whitelist">Afegiu a la Llista blanca</string>
+  <string name="tcpdump_log_context_browser">Obrir en el navegador</string>
+  <string name="tcpdump_log_empty">El fitxer de registre està buit!</string>
+  <!--Preferences-->
+  <string name="pref_download">Opcions generals</string>
+  <string name="pref_hosts">Fitxer de servidors</string>
+  <string name="pref_redirection_ip">Redirecció d\'IP</string>
+</resources>
