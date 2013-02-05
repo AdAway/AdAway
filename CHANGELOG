@@ -4,6 +4,8 @@ http://code.google.com/p/ad-away/issues
 2.1
 * Allow whitelist entries from hosts sources if enabled in preferences
 - Fixed missing menu entry for hosts sources on tablets
+- Webserver on boot should work more reliable
+- Webserver should not be killed on low memory
 
 2.0
 IF YOU HAVE PROBLEMS WITH 2.0: Please uninstall and then reinstall AdAway!
