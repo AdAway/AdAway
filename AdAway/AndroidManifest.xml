@@ -97,8 +97,15 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".service.ApplyService" />
-        <service android:name=".service.RevertService" />
+        <service
+            android:name=".service.ApplyService"
+            android:exported="false" />
+        <service
+            android:name=".service.RevertService"
+            android:exported="false" />
+        <service
+            android:name=".service.BootService"
+            android:exported="false" />
 
         <!-- - Google Android Market donations -->
         <service android:name="org.donations.google.BillingService" />

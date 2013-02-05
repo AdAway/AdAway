@@ -22,7 +22,6 @@ package org.adaway.service;
 
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.WebserverUtils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -38,9 +37,8 @@ public class BootReceiver extends BroadcastReceiver {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             Log.i(Constants.TAG, "BootReceiver invoked, starting BootService in background");
 
-            final Context applicationContext = context.getApplicationContext();
-
-            WebserverUtils.startWebserverOnBoot(applicationContext);
+            Intent bootIntent = new Intent(context, BootService.class);
+            context.startService(bootIntent);
         }
     }
 }
