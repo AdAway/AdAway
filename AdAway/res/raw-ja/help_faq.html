@@ -1,30 +1,30 @@
 <html>
 <head></head>
 <body>
-<h2>広告からの収入</h2>
-<p>広告はクリックされないと開発者は収入を得られないとよく誤解されますが広告を表示するだけで収入を得る場合もあります。個人的に広告を見るのは嫌なので広告ブロックアプリを使わずに広告付きアプリをインストールはしません。</p>
+<h2>hostsのソースの日時不明って何?</h2>
+<p>仕様です。ファイルをダウンロードして適用したときに成功していれば、日時不明と書かれていても反映されています。</p>
 
 
 
 <h2>AdAwayはどうやって動作しているの?</h2>
 <p>AdAway は<a href="http://ja.wikipedia.org/wiki/Hosts">hostsファイル</a>を使って広告配信元のホスト名をブロックしています。 hostsファイルは<tt>/system/etc/hosts</tt>にあります。ドメイン名サービス(DNS)に頼らずホスト名をIPアドレスに変換するのは伝統的な手法です。不要なホスト名は全て<tt>127.0.0.1</tt> にリダイレクトされます。</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>どうして設定の自動更新がチェックできないの?</h2>
+<p>自動更新の確認はAdAwayを内蔵ストレージにインストールしたときだけ使えます。Androidの仕様なので、SDカードなどからAdAwayを内蔵ストレージに移動してください。</p>
 
 <h2>なぜ再起動しないと変更が適用されないの?</h2>
 <p>Androidの内部DNSキャッシュのせいです。OSはhostsファイルをすぐに反映しますが(コマンドラインで確認できます)DNSキャッシュの再構成に再起動が必要です。</p>
 
 <h2>ウェブサーバーはどうやって使うの?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><b>AdAwayはウェブサーバーなしでも動作します!</b>
+<br/><br/>設定でウェブサーバーを有効化すると要求をローカルIPアドレス <tt>127.0.0.1</tt>に解決できます。 アプリから広告サーバーへの要求はAdAwayのウェブサーバーが解決した<tt>127.0.0.1</tt>にリダイレクトされるということです。
+<br/>一部のアプリは広告サーバーに接続できないと動作しなくなるので、この方法であれば接続できたように見せかけられます。<br/>広告の跡に?マークやドロイドくんが出る場合もウェブサーバーを使えば非表示にできます。</p>
 
 <h2>特定のホスト名をブロック/アンブロックするにはどうしたらいい?</h2>
 <p>hostsファイルを提供しているサーバーを<i>hostsソース</i>で追加したりブロックしたいホスト名を<i>リスト</i>(=ブラック) に追加出来ます。 <i>ホワイトリスト</i>(=ホワイト) に追加してブロックから除外したり<i>リダイレクトリスト</i>(=リダイレクト) にリダイレクトさせたいホスト名を追加出来ます。</p>
 
 <h2>hostsファイルはどこで見つけられる?</h2>
-<p><a href="http://code.google.com/p/ad-away/wiki/HostsSources">AdAway向けhostsソースリスト</a>を見たり<a href="http://anago.2ch.net/test/read.cgi/smartphone/1320416896/">Android hostsスレ</a>を見てください。</p>
+<p><a href="http://code.google.com/p/ad-away/wiki/HostsSources">AdAway向けhostsソースリスト</a>を見たり<a href="http://anago.2ch.net/test/read.cgi/applism/1354188008/">Android hostsスレ</a>を見てください。Googleで検索するといくつか見つかります。</p>
 
 <h2>AdAwayのバグを見つけた!</h2>
 <p><a href="http://code.google.com/p/ad-away/issues/list">AdAwayバグトラッカー</a>に報告をお願いします。</p>

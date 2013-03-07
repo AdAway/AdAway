@@ -61,7 +61,7 @@
   <string name="status_disabled">Wyłączone</string>
   <string name="status_disabled_subtitle">Wyłączone</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Podany przez ciebie symlink dla /system/etc/hosts nie istnieje lub jest niepoprawny. AdAway nie będzie działał, jeżeli nie ma wskazanego poprawnego pliku.\n\nCzy chcesz spróbować stworzyć symlink?</string>
+  <string name="apply_symlink_missing">Podany symlink dla /system/etc/hosts nie istnieje lub jest niepoprawny. AdAway nie będzie działał, jeżeli nie ma wskazanego poprawnego pliku.\n\nCzy chcesz spróbować stworzyć symlink?</string>
   <string name="apply_symlink_missing_title">Brak symlinka</string>
   <string name="apply_not_enough_space">Brak miejsca na partycji!\nSpróbuj zmienić docelowy plik hosts na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Zbyt mało miejsca</string>
@@ -81,7 +81,7 @@
   <string name="apply_help">Proszę przeczytać Pomoc, aby uzyskać więcej informacji.</string>
   <string name="apply_apn_proxy">Proxy APN jest ustawione w twoim systemie!\nAdAway może nie działać prawidłowo podczas korzystania z sieci komórkowych takich, jak 3G. Możesz deaktywować tę opcję poprzez wybranie APN (W system Android 4: Sieci zwykłe i bezprzewodowe -&gt; Więcej... -&gt; Sieci komórkowe -&gt; Punkty dostępowe) i usunięcie wartości w polu \"proxy\".</string>
   <string name="apply_apn_proxy_title">Ustawione proxy APN!</string>
-  <string name="no_connection">Połączenie z Internetem niedostępne.</string>
+  <string name="no_connection">Połączenie z Siecią jest niedostępne.</string>
   <string name="no_connection_title">Brak połączenia</string>
   <string name="download_dialog">Pobieranie...</string>
   <string name="apply_dialog">Stosowanie...</string>
@@ -91,7 +91,7 @@
   <string name="apply_dialog_apply">Stosowanie pliku hosts</string>
   <string name="apply_fail">Stosowanie pliku hosts zakończone niepowodzeniem!\nSpróbuj zmienić w ustawieniach plik docelowy hosts na /data/data/hosts.</string>
   <string name="apply_fail_title">Zastosowanie nieudane</string>
-  <string name="revert_successful">Przywrócono domyślny plik hosts.\nMoże być wymagany restart Androida, aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
+  <string name="revert_successful">Przywrócono domyślny plik hosts.\nAby zmiany przyniosły efekt, niezbędne jest ponowne uruchomienie urządzenia.\n\nBy zapobiec przypadkowej utracie danych należy upewnić się, że żadna aplikacja nie korzysta w tej chwili z karty pamięci.\nCzy chcesz uruchomić ponownie urządzenie?</string>
   <string name="revert_successful_title">Przywracanie wykonane prawidłowo</string>
   <string name="revert_problem">Przywracanie zakończone niepowodzeniem z nieznanych przyczyn.</string>
   <string name="revert_problem_title">Przywracanie nieudane!</string>
@@ -100,7 +100,7 @@
   <string name="no_private_file">Plik osobisty nie został utworzony.</string>
   <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Nie można w systemie znaleźć pliku su lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\nTak sie dzieje w przypadku, gdy twoje urządzenie nie jest zrootowane.\nInformacje jak zrootować swoje urządzenie znajdziesz na http://www.cyanogenmod.com lub innych stronach www o tematyce Androida.</string>
+  <string name="no_root_description">Nie można znaleźć pliku su lub aplikacji AdAway nie zostały nadane uprawnienia roota.\n\nZazwyczaj dzieje się tak w przypadku, gdy urządzenie nie zostało zrootowane.\nInformacje jak tego dokonać można znaleźć pod adresem http://www.cyanogenmod.com/ lub innych stronach WWW poświęconych systemowi Android.</string>
   <string name="no_root_title">Wymagany jest zrootowany Android</string>
   <string name="no_url">To nie jest prawidłowy adres URL!</string>
   <string name="no_url_title">Błędny URL</string>

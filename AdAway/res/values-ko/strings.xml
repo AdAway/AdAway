@@ -77,7 +77,7 @@
   <string name="apply_dialog_hostnames">호스트파일 구문분석 및 병합</string>
   <string name="apply_dialog_hosts">호스트파일 생성중</string>
   <string name="apply_dialog_apply">호스트파일 적용중</string>
-  <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
+  <string name="apply_fail">호스트 파일을 시스템에 적용하는데 실패하였습니다!/n 설정에서 호스트파일의 경로를 /data/data/hosts 로 변경하세요.</string>
   <string name="apply_fail_title">적용 실패</string>
   <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
   <string name="revert_successful_title">되돌리기 성공</string>

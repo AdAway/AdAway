@@ -1,0 +1,27 @@
+<html>
+<head></head>
+<body>
+<h2>Dispositius HTC</h2>
+<p>AdAway no funciona si utilitzeu un dispositiu amb la funció S-ON. Aquesta funció, que evita que AdAway escrigui fitxers hosts, existeix en diversos dispositius HTC.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF significa que la porció de la memòria NAND del vostre dispositu està desbloquejada i llesta per l'escriptura. L'ajustament per defecte d'HTC és S-ON que significa que no es pot accedir a algunes àrees del sistema i no es pot garantitzar un root permanent. A més a més, es comproven les signatures dels fitxers de firmware.</p>
+
+<h2>Tinc S-ON o S-OFF?</h2>
+<p>Aneu al menú d'arrancada del vostre dispositiu prement el botó <i>volum -</i> mentre premeu el botó d'arrancada i veureu un missatge que és S-OFF o S-ON. Un root complet és S-OFF.⏎ <br/><br/> Per a més informació aneu a <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a> (en anglès).</p>
+
+<h2>Solució</h2>
+<p>Pre-requisit: Heu d'instal·lar un SDK d'Android amb una shell ADB en el vostre ordinador personal.⏎
+</p>
+<ol>
+<li>Heu d'entrar en el menú d'arrancada del vostre dispositiu prement la tecla de <i>volum -</i> mentre premeu el botó d'inici.</li>
+<li>Utilitzeu <i>volum -</i> per seleccionar el menú de recuperació.</li>
+<li>En el menú de recuperació de Clockwork aneu al "partitions menu" i premeu el trackpad per seleccionar.</li>
+<li>Seleccioneu <i>mount /system</i>, <i>mount /sdcard</i> i <i>mount /data</i>.</li>
+<li>Connecteu el vostre cable USB i obriu una línia de comandes al vostre ordinador.</li>
+<li>Aneu a la línia de comandes d'ADB i entreu <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/>Això crearà un enllaç simbòlic que permetrà que ADB pugui editar l'arxiu hosts guardat a <tt>/data</tt> i de la mateixa manera permet el sistema operatiu d'utilitzar el fitxer com si estigués a <tt>/system</tt>.</li>
+<li>Reinicieu el vostre dispositiu i ajusteu l'<i>arxiu hosts objectiu</i> a <i>/data/data/hosts</i> als ajustaments d'AdAway.</li>
+<li>AdAway hauria de funcinar ara.</li>
+</ol>
+</body>
+</html>

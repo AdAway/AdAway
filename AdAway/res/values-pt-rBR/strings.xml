@@ -10,7 +10,7 @@
   <string name="button_revert">Desabilitar bloqueio de anúncios</string>
   <string name="button_add">Adicionar</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="button_apply_text">Todos os arquivos de hosts das fontes indicadas serão baixados, mesclados com suas próprias listas e instalados com um único arquivo de hosts em seu sistema.</string>
+  <string name="button_apply_text">Todos os arquivos de hosts das fontes indicadas serão baixados, mesclados com suas próprias listas e instalados como um único arquivo de hosts em seu sistema.</string>
   <string name="button_revert_text">Restaura o arquivo de hosts padrão no seu sistema.</string>
   <string name="button_save">Salvar</string>
   <string name="button_webserver_toggle_checked">Servidor web está rodando</string>

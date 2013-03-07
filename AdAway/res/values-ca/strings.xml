@@ -1,16 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
-  <string name="button_exit">Sortir</string>
+  <string name="button_exit">Surt</string>
   <string name="button_apply">Descarrega fitxers i aplica el bloqueig d\'anuncis</string>
-  <string name="button_close">Tancar</string>
+  <string name="button_close">Tanca</string>
   <string name="button_yes">Si</string>
   <string name="button_no">No</string>
   <string name="button_revert">Desactiva el bloqueig d\'anuncis</string>
   <string name="button_add">Afegiu</string>
   <string name="button_cancel">Cancel·leu</string>
+  <string name="button_apply_text">Es descarreguen tots els fitxers host de les fonts definides, s\'uneixen amb les vostre llistes i s\'instal·len com a un únic fitxer hosts al vostre sistema.</string>
   <string name="button_revert_text">Restaura el fitxer de hosts original del vostre sistema</string>
   <string name="button_save">Guardeu</string>
+  <string name="button_webserver_toggle_checked">El servidor web està actiu</string>
+  <string name="button_webserver_toggle_unchecked">El servidor web no està actiu</string>
+  <string name="button_webserver_toggle_text">Atura o inicia el servidor web a aquest sistema per a respondre les peticions per a les màquines bloquejades.</string>
+  <string name="button_help">Ajuda</string>
+  <string name="button_tcpdump_text">tcpdump és una eina per monitoritzar i desar les peticions DNS. Podeu iniciar-lo en segon pla, iniciar les aplicacions que mostrin anuncis i, més tard, analitzar les peticions DNS utilitzant el registre de tcpdump. Així podreu afegir els servidors d\'anuncis a la vostra llista.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump està funcionant!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump no està funcionant!</string>
   <string name="button_tcpdump_open">Obriu el fitxer de registre</string>
@@ -27,6 +34,9 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Llista blanca</string>
   <string name="lists_tab_blacklist">Llista negra</string>
+  <string name="lists_tab_blacklist_short">Negre</string>
+  <string name="lists_tab_whitelist_short">Blanc</string>
+  <string name="lists_tab_redirection_list_short">Redirecció</string>
   <string name="lists_tab_redirection_list">Llista de redireccionaments</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Servidor:</string>
@@ -36,21 +46,61 @@
   <string name="export_dialog">Exportant...</string>
   <string name="export_success">Totes les entrades han estat exportades a un fitxer anomenat \'adaway-export\' a la vostra targeta sd</string>
   <!--Status Notifications-->
+  <string name="status_checking">S\'està comprovant actualitzacions.</string>
   <string name="status_reverting">Revertint...</string>
   <string name="status_reverting_subtitle">Creant fitxer de servidors estàndard</string>
+  <string name="status_checking_subtitle">S\'està comprovant les actualitzacions disponibles</string>
+  <string name="status_update_available">Actualització disponible</string>
+  <string name="status_update_available_subtitle">Nous fitxers host disponibles</string>
+  <string name="status_no_connection">No hi ha cap connexió a internet</string>
+  <string name="status_no_connection_subtitle">No hi ha cap connexió a internet disponible</string>
+  <string name="status_download_fail">Fonts inaccessibles</string>
+  <string name="status_download_fail_subtitle_new">No s\'ha pogut contactar les fonts d\'arxius hosts</string>
+  <string name="status_enabled">Activat</string>
+  <string name="status_enabled_subtitle">S\'han activat els fitxers host més nous</string>
+  <string name="status_disabled">Desactivat</string>
+  <string name="status_disabled_subtitle">Desactivat</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">L\'enllaç simbòlic del vostre objectiu a /system/etc/hosts no existeix o és incorrecte. AdAway no funcionarà si aquest no apunta al fitxer correcte.⏎ ⏎ Voleu intentar crear un enllaç simbòlic?</string>
+  <string name="apply_symlink_missing_title">Falta l\'enllaç simbòlic</string>
+  <string name="apply_not_enough_space">No hi ha prou espai a la partició.⏎ Proveu de canviar el fitxer hosts objectiu a les preferències a /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">No hi ha prou espai</string>
+  <string name="apply_private_file_fail">No s\'ha pogut llegir el fitxer descarregat</string>
+  <string name="apply_private_file_fail_title">Error en el fitxer privat</string>
+  <string name="apply_remount_fail">Error en el remuntatge de la partició en mode escritura.</string>
+  <string name="apply_remount_fail_title">Error en el re-muntatge</string>
+  <string name="apply_copy_fail">No s\'ha pogut copiar el fitxer hosts</string>
+  <string name="apply_copy_fail_title">Error en la còpia</string>
+  <string name="apply_success_subtitle">Fonts d\'arxius hosts correctes:</string>
+  <string name="apply_success_title">S\'ha aplicat correctament</string>
+  <string name="apply_success_dialog">S\'ha aplicat correctament.⏎ Pot ser que hagueu de reinicar l\'Android perquè aquests canvis facin efecte.⏎ ⏎ Voleu reiniciar ara? Recordeu-vos de tancar les aplicacions que utilitzin la memòria SD per evitar la pèrdua de dades.</string>
+  <string name="apply_symlink_successful">S\'ha creat l\'enllaç simbòlic correctament.⏎ Pot ser que hagueu de reinicar l\'Android perquè aquests canvis facin efecte.⏎ ⏎ Voleu reiniciar ara? Recordeu-vos de tancar les aplicacions que utilitzin la memòria SD per evitar la pèrdua de dades.</string>
+  <string name="apply_symlink_successful_title">S\'ha creat l\'enllaç simbòlic correctament</string>
+  <string name="apply_symlink_fail">No s\'ha pogut crear l\'enllaç simbòlic.⏎ Això pot ser degut a la funció S-ON dels telèfons HTC.⏎ ⏎ Una solució és entrar en el mode \"recovery\" del vostre terminal i crear l\'enllaç simbòlic amb \'ln -s /data/data/hosts /system/etc/hosts\'.⏎ ⏎ Si això no funciona, busqueu ajuda a internet amb els termes de cerca \"S-OFF\".</string>
+  <string name="apply_symlink_fail_title">S\'ha produït un error en la creació de l\'enllaç simbòlic</string>
   <string name="apply_help">Si us plau, llegir l\'Ajuda per a més informació</string>
+  <string name="apply_apn_proxy">S\'ha ajustat un servidor intermediari en el vostre Android.⏎ AdAway no funcionarà correctament en xarxes mòbils de tipus 3G. Podeu desactivar el vostre servidor intermediari anant a la vostra configuració de xarxes mòbils i eliminant l\'entrada.</string>
+  <string name="apply_apn_proxy_title">S\'ha desat el servidor intermediari d\'APN</string>
   <string name="no_connection">La connexió a Internet no funciona.</string>
   <string name="no_connection_title">Sense connexió</string>
   <string name="download_dialog">Descarregant.</string>
   <string name="apply_dialog">Aplicant....</string>
   <string name="apply_dialog_lists">Aplicant llista negra i llista blanca</string>
+  <string name="apply_dialog_hostnames">Processant i unint els fitxers host</string>
   <string name="apply_dialog_hosts">Construïnt fitxer de hosts</string>
   <string name="apply_dialog_apply">Aplicant el fitxer de hosts</string>
+  <string name="apply_fail">No s\'ha pogut aplicar el fitxer hosts al vostre sistema.⏎ Proveu de canviar el fitxer hosts objectiu als ajustaments a </string>
   <string name="apply_fail_title">Aplicació fallida</string>
+  <string name="revert_successful">Heu restaurat l\'arxiu hosts per defecte. Pot ser que hagueu de reiniciar l\'Android perquè els canvis facin efecte.⏎ ⏎ Voleu reiniciar ara? Recordeu-vos de tancar les aplicacions que utilitzin la memòria SD per evitar la pèrdua de dades.</string>
+  <string name="revert_successful_title">S\'ha revertit correctament</string>
   <string name="revert_problem">Procés de revertiment fallit degut a causes desconegudes</string>
   <string name="revert_problem_title">El procés de regressió ha fallat!</string>
+  <string name="download_fail_dialog">No es pot contactar amb cap de les vostres fonts d\'arxius hosts. Comproveu la vostra connexió a internet.</string>
+  <string name="download_fail_title">Error en la descàrrega</string>
+  <string name="no_private_file">No s\'ha pogut crear el fitxer privat</string>
+  <string name="no_private_file_title">Error en la creació del fixer privat</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">No s\'ha pogut trobar el programa \"su\" o no heu donat permisos d\'administrador (root) a AdAway.⏎ ⏎ Això pot passar quan el vostre dispositiu no està rootejat.⏎ Podeu trobar informació sobre com rootejar el vostre dispositu a www.cyanogenmod.com o altres llocs web sobre Android.</string>
   <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
   <string name="no_url">No és una adreça vàlida!</string>
   <string name="no_url_title">Adreça mal formada</string>
@@ -59,21 +109,41 @@
   <string name="no_hostname_title">Nom de servidor mal format</string>
   <string name="no_ip">Aquesta no és una IP vàlida!</string>
   <string name="no_ip_title">Adreça IP mal formada</string>
+  <string name="reboot_never_reboot">No reiniciïs mai i no mostris més aquest missatge.</string>
+  <string name="loading">S\'està carregant.</string>
   <!--Menu entries-->
+  <string name="menu_refresh">Refresca</string>
   <string name="menu_add">Afegiu</string>
-  <string name="menu_hosts_sources">Servidors amb originals.</string>
+  <string name="menu_scan_adware">Trobar Adware</string>
+  <string name="menu_hosts_sources">Servidors de fitxers hosts</string>
   <string name="menu_tcpdump">Enregistra els requeriments DNS</string>
+  <string name="menu_help">Ajuda</string>
+  <string name="menu_lists">Les vostre llistes</string>
   <string name="menu_show_hosts_file">Obriu el fitxer de hosts</string>
   <string name="menu_import">Importar totes les llistes</string>
   <string name="menu_export">Exportar totes les llistes</string>
-  <string name="menu_preferences">Opcions</string>
+  <string name="menu_preferences">Preferències</string>
   <!--Help-->
+  <string name="help_tab_about">Quant a</string>
+  <string name="help_tab_donate">Fer un donatiu</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">PMF (FAQ)</string>
+  <string name="help_tab_problems">Problemes</string>
+  <string name="help_about_version">Versió:</string>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Aquí podeu trobar aplicacions Adware malignes. Aquestes no es poden bloquejar amb AdAway. Aquestes aplicacions utilitzen, per exemple, notificacions Airpush fins i tot quan no funcionen. També poden canviar el vostre to de trucada. La única defensa possible és, per tant, desinstal·lant aquestes aplicacions malignes.</string>
+  <string name="scan_adware_start">Comença l\'escanneig</string>
+  <string name="scan_adware_empty">No s\'ha trobat aplicacions Adware malignes.</string>
   <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Local:</string>
+  <string name="hosts_last_modified_online">En línia:</string>
+  <string name="hosts_not_available">no disponible</string>
   <!--Other-->
   <string name="app_subtitle">Bloquejador d\'anuncis</string>
   <string name="no_text_editor_title">No hi ha cap editor de text instal·lat</string>
+  <string name="no_text_editor">No s\'ha trobat cap editor de text per editar el fitxer hosts. Podeu instal·lar Jota o qualsevol altre editor de text.⏎ ⏎ Voleu instal·lar Jota?</string>
   <string name="no_file_manager_title">No hi ha cap gestor de fitxers instal·lat</string>
+  <string name="no_file_manager">No s\'ha trobat cap gestor de fitxers. Podeu instal·lar el Gestor de fixers d\'OI o un altre gestor de fitxers per ocupar-se d\'això.⏎ ⏎ Voleu instal·lar el Gestor de fitxers d\'OI?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Fitxer de registre eliminat!</string>
   <string name="toast_tcpdump_added_to_blacklist">El servidor ha estat afegit a la vostra Llista negra!</string>
@@ -82,8 +152,43 @@
   <string name="tcpdump_log_context_whitelist">Afegiu a la Llista blanca</string>
   <string name="tcpdump_log_context_browser">Obrir en el navegador</string>
   <string name="tcpdump_log_empty">El fitxer de registre està buit!</string>
+  <string name="tcpdump_log_footer">Feu un toc llarg a un nom de màquina per afegir-lo a la vostra llista negra o blanca.</string>
   <!--Preferences-->
-  <string name="pref_download">Opcions generals</string>
+  <string name="pref_download">Preferències generals</string>
   <string name="pref_hosts">Fitxer de servidors</string>
   <string name="pref_redirection_ip">Redirecció d\'IP</string>
+  <string name="pref_update_check">Comprova actualitzacions</string>
+  <string name="pref_apply_method">Fitxer hosts objectiu</string>
+  <string name="pref_apply_method_summary">Abans de canviar aquests paràmetres, llegiu l\'ajuda sobre aquesta funció.</string>
+  <string name="pref_redirection_ip_summary">Tots els noms de màquines es redirigeixen a aquesta adreça IP.</string>
+  <string name="pref_header_preferences">Preferències</string>
+  <string name="pref_header_preferences_summary">Preferències generals d\'AdAway</string>
+  <string name="pref_never_reboot">Amaga el missatge de reinici</string>
+  <string name="pref_never_reboot_summary">Amaga el missatge que demana que es reiniciï Android després d\'aplicar correctament els canvis </string>
+  <string name="pref_webserver_on_boot">Inicia el servidor web a l\'inici</string>
+  <string name="pref_webserver_on_boot_summary">Iniciar el servidor web que escoltarà a les adreçes IP locals durant l\'arrancada</string>
+  <string name="pref_webserver_enabled">Activa el servidor web</string>
+  <string name="pref_webserver_enabled_summary">Activa el servidor web que escolta a l\'adreça IP local i respon a les peticions per a màquines bloquejades</string>
+  <string name="pref_webserver">Servidor web local</string>
+  <string name="pref_custom_target">Objectiu personalitzt</string>
+  <string name="pref_custom_target_summary">Només s\'utilitza si el fitxer hosts objectiu s\'ha ajustat a un objectiu personalitzat</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Custom target</item>
+  </string-array>
+  <string name="pref_update_check_summary">Comprova actualitzacions a l\'inici d\'AdAway</string>
+  <string name="pref_sdcard_problem">Aquesta funció no actuarà correctament quan s\'instal·li AdAway a la memòria SD.</string>
+  <string name="pref_background">Serveis en segon pla</string>
+  <string name="pref_update_check_daily">Comprova actualitzacions diàriament</string>
+  <string name="pref_update_check_daily_summary">Comprova actualitzacions diàriament en segon pla amb notificacions</string>
+  <string name="pref_automatic_update_daily">Actualitza automàticament</string>
+  <string name="pref_automatic_update_daily_summary">Actualitza automàticament en segon pla si es troben actualitzacions.</string>
+  <string name="pref_update_only_on_wifi">Actualitzar només dins d\'una xarxa Wi-Fi.</string>
+  <string name="pref_update_only_on_wifi_summary">Executar actualitzacions en segon pla només dins de xarxes Wi-Fi.</string>
+  <string name="pref_whitelist_redirection_rules">Permet redireccions i llistes blanques</string>
+  <string name="pref_whitelist_redirection_rules_summary">Permet redireccions i entrades en la llista blanca de les fonts d\'arxius hosts.</string>
+  <string name="pref_debug">Depuració</string>
+  <string name="pref_enable_debug">Registre de depuració</string>
+  <string name="pref_enable_debug_summary">Necessiteu reiniciar AdAway per tal que aquest ajustament faci a efecte.</string>
 </resources>

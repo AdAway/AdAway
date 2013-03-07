@@ -11,7 +11,7 @@
   <string name="button_add">Додати</string>
   <string name="button_cancel">Скасувати</string>
   <string name="button_apply_text">Всі списки хостів, що завантажуються з заданих джерел, зливаються з вашим власним списком і встановлюються у вашій системі у вигляді одного файлу hosts.</string>
-  <string name="button_revert_text">Відновлення файлу hosts за замовчуванню у вашій системі.</string>
+  <string name="button_revert_text">Відновлення типового файлу у вашій системі.</string>
   <string name="button_save">Зберегти</string>
   <string name="button_webserver_toggle_checked">Веб-сервер запущено</string>
   <string name="button_webserver_toggle_unchecked">Веб-сервер не запущено</string>
@@ -48,8 +48,8 @@
   <!--Status Notifications-->
   <string name="status_checking">Перевірка оновлень…</string>
   <string name="status_reverting">Відновлення…</string>
-  <string name="status_reverting_subtitle">Створення стандартного файлу hosts</string>
-  <string name="status_checking_subtitle">Перевірка наявності доступних оновлень</string>
+  <string name="status_reverting_subtitle">Створення стандартного файлу хостів</string>
+  <string name="status_checking_subtitle">Перевіряє наявність доступних оновлень</string>
   <string name="status_update_available">Доступне оновлення</string>
   <string name="status_update_available_subtitle">Доступні свіжі списки з хостами</string>
   <string name="status_no_connection">Нема Інтернету</string>
@@ -61,22 +61,22 @@
   <string name="status_disabled">Вимкнено</string>
   <string name="status_disabled_subtitle">Вимкнено</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Посилання на ваш /system/etc/hosts неправильна або не існує! AdAway не буде працювати, якщо не вказати правильний файл. Ви хочете спробувати створити посилання?</string>
+  <string name="apply_symlink_missing">Посилання на ваш /system/etc/hosts неправильне або не існує! AdAway не буде працювати, якщо не вказати правильний файл. Ви хочете спробувати створити посилання?</string>
   <string name="apply_symlink_missing_title">Посилання відсутнє</string>
-  <string name="apply_not_enough_space">Не вистачає місця на розділі! Спробуйте змінити шлях до файлу в настройках на /data/data/hosts.</string>
+  <string name="apply_not_enough_space">Не вистачає місця на розділі! Спробуйте змінити шлях до файлу в налаштуваннях на /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Не вистачає місця</string>
   <string name="apply_private_file_fail">Завантажений файл не можу бути прочитаний</string>
   <string name="apply_private_file_fail_title">Збій файлу</string>
   <string name="apply_remount_fail">Не вдалося перемонтувати розділ для читання/запису!</string>
   <string name="apply_remount_fail_title">Перемонтувати не вдалося</string>
-  <string name="apply_copy_fail">Копіювання файлу hosts не вдалося!</string>
+  <string name="apply_copy_fail">Копіювання файлу хостів не вдалося!</string>
   <string name="apply_copy_fail_title">Копіювання не вдалося</string>
   <string name="apply_success_subtitle">Використано джерел хостів:</string>
   <string name="apply_success_title">Застосовано успішно</string>
   <string name="apply_success_dialog">Застосування пройшло успішно. \nМожливо, буде потрібно перезавантажити пристрій, щоб зміни вступили в силу. \n\nВи хочете перезавантажити пристрій? \n(Для запобігання втраті інформації, переконайтеся, що ніякі програми в даний момент не використовують карту пам\'яті!)</string>
   <string name="apply_symlink_successful">Посилання створено успішно. Можливо, буде потрібно перезавантажити пристрій, щоб зміни вступили в силу. Ви хочете перезавантажити пристрій? (Для запобігання втраті інформації, впевніться, що ніякі програми в даний момент не використовують карту пам\'яті!)</string>
   <string name="apply_symlink_successful_title">Посилання створено успішно</string>
-  <string name="apply_symlink_fail">Android не зміг створити посилання. \nМожливо, це через особливість S-ON на телефонах HTC! \nРішення полягає в завантаженні телефону в режимі відновлення і створення посилання за допомогою \'\'ln -s /data/data/hosts /system/etc/hosts\'.\n Якщо це не спрацьовує, то необхідно шукати інформацію в інтернеті по S-OFF і вашому телефону.</string>
+  <string name="apply_symlink_fail">Android не зміг створити посилання. \nМожливо, це через особливість S-ON на телефонах HTC! \nРішення полягає в завантаженні телефону в режимі відновлення і створення символічного посилання через \'\'ln -s /data/data/hosts /system/etc/hosts\'.\n Якщо це не спрацьовує, то необхідно шукати інформацію в інтернеті по S-OFF і вашому телефону.</string>
   <string name="apply_symlink_fail_title">Помилка створення посилання</string>
   <string name="apply_help">Будь ласка, читайте Довідку для отримання додаткової інформації.</string>
   <string name="apply_apn_proxy">У налаштуваннях APN вказаний проксі сервер! AdAway не буде працювати в мобільних мережах, таких як 3G. Ви можете відключити цей сервер проксі в налаштуваннях використовуваної APN (в Android 4: Бездротові мережі -&gt; Більше ... -&gt; Мобільна мережа -&gt; Точки доступу APN).</string>
@@ -116,10 +116,10 @@
   <string name="menu_add">Додати</string>
   <string name="menu_scan_adware">Сканування Adware</string>
   <string name="menu_hosts_sources">Джерела списків хостів</string>
-  <string name="menu_tcpdump">Журнал запритів DNS</string>
+  <string name="menu_tcpdump">Журнал запитів DNS</string>
   <string name="menu_help">Довідка</string>
   <string name="menu_lists">Ваші списки</string>
-  <string name="menu_show_hosts_file">Відкрити файл hosts</string>
+  <string name="menu_show_hosts_file">Відкрити файл хостів</string>
   <string name="menu_import">Імпортувати всі списки</string>
   <string name="menu_export">Експортувати усі списки</string>
   <string name="menu_preferences">Налаштування</string>
@@ -155,15 +155,15 @@
   <string name="tcpdump_log_footer">Довге натискання на ім\'я хоста дозволить додати його в Чорний або Білий список!</string>
   <!--Preferences-->
   <string name="pref_download">Основні налаштування</string>
-  <string name="pref_hosts">Файл hosts</string>
+  <string name="pref_hosts">Файл хостів</string>
   <string name="pref_redirection_ip">IP для перенаправлення</string>
   <string name="pref_update_check">Перевірка оновлень</string>
-  <string name="pref_apply_method">Шлях до файлу hosts</string>
+  <string name="pref_apply_method">Шлях до файлу хостів</string>
   <string name="pref_apply_method_summary">Перед зміною цього параметра прочитайте про цю функцію в Довідці.</string>
   <string name="pref_redirection_ip_summary">Всі заблоковані хости перенаправляються на цю адресу IP.</string>
   <string name="pref_header_preferences">Налаштування</string>
   <string name="pref_header_preferences_summary">Основні налаштування AdAway</string>
-  <string name="pref_never_reboot">Приховати діалог перевантаження</string>
+  <string name="pref_never_reboot">Сховати діалог перевантаження</string>
   <string name="pref_never_reboot_summary">Приховує діалог перезавантаження пристрою після успішного застосування</string>
   <string name="pref_webserver_on_boot">Запускати веб-сервер при завантаженні системи</string>
   <string name="pref_webserver_on_boot_summary">Запускати веб-сервер при завантаженні системи для прослуховування локальних IP-адрес</string>
@@ -177,17 +177,17 @@
     <item>/data/data/hosts</item>
     <item>Задано користувачем</item>
   </string-array>
-  <string name="pref_update_check_summary">Перевіряти оновлення при запуску AdAway</string>
+  <string name="pref_update_check_summary">Перевіряє оновлення при запуску AdAway</string>
   <string name="pref_sdcard_problem">Ця функція буде працювати неправильно, якщо AdAway встановлена ​​на карту пам\'яті!</string>
   <string name="pref_background">Фоновий режим</string>
-  <string name="pref_update_check_daily">Перевіряти оновлення щодня</string>
-  <string name="pref_update_check_daily_summary">Перевіряти оновлення у фоновому режимі щодня з сповіщенням</string>
+  <string name="pref_update_check_daily">Перевірка оновлень щодня</string>
+  <string name="pref_update_check_daily_summary">Перевіряє оновлення у фоновому режимі щодня з сповіщенням</string>
   <string name="pref_automatic_update_daily">Автоматичне оновлення</string>
   <string name="pref_automatic_update_daily_summary">Оновлювати автоматично у фоновому режимі, якщо доступні оновлення.</string>
   <string name="pref_update_only_on_wifi">Оновлення тільки через WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Автоматично виконувати оновлення тільки при підключенні до мережі WiFi.</string>
-  <string name="pref_whitelist_redirection_rules">Дозволити перенаправлення і білі списки</string>
-  <string name="pref_whitelist_redirection_rules_summary">Дозволити перенаправлення і білі списки із джерел хостів.</string>
+  <string name="pref_whitelist_redirection_rules">Перенаправлення і білі списки</string>
+  <string name="pref_whitelist_redirection_rules_summary">Дозволяє перенаправлення і білі списки із джерел хостів.</string>
   <string name="pref_debug">Режим налагодженя</string>
   <string name="pref_enable_debug">Журнал налагодження</string>
   <string name="pref_enable_debug_summary">Необхідно перезапустити AdAway, щоб зміни вступили в силу.</string>

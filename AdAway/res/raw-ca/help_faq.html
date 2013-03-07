@@ -1,0 +1,30 @@
+<html>
+<head></head>
+<body>
+<h2>Ingressos per publicitat</h2>
+<p>Sovint es diu que, si un usuari no clica els anuncis, els desenvolupadors no reben ingressos. Això és fals, ja que també es reben ingressos mostrant els anuncis. No obstant això, mostrar o amagar els anuncis es decisió vostra.</p>
+
+
+
+<h2>Com funciona AdAway?</h2>
+<p>AdAway utilitza el <a href="http://en.wikipedia.org/wiki/Hosts_file">fitxer hosts</a> per bloquejar noms de màquina que serveixen publicitat. Aquest fitxer es pot trobar a <tt>/system/etc/hosts</tt> i és un mètode tradicional per associar noms de màquina a adreçes IP sense dependre dels servidors DNS. Tots els noms de màquina que es volen bloquejar es redireccionen a  <tt>127.0.0.1</tt>, que significa que es redireccionen al vostre propi dispositiu.</p>
+
+<h2>Perquè està desactivat l'ajustament de trobar actualitzacions diàriament?</h2>
+<p>Només es poden trobar actualitzacions quan AdAway està instal·lat a la memòria interna del dispositiu. Això és una restricció de la plataforma Android.</p>
+
+<h2>Per què haig de reiniciar Android perquè els canvis facin efecte?</h2>
+<p>El Java d'Android manté la seva llista d'entrades DNS internament. El sistema utilitzarà el nou arxiu hosts immediatament (ho podeu comprovar amb "ping") però, no obstant, haureu de reiniciar Android per reinicialitzar la llista d'entrades de DNS internes.</p>
+
+<h2>Com s'utilitza el servidor web d'AdAway?</h2>
+<p><b>AdAway també funciona sense el servidor web!</a>⏎ <br/><br/>Podeu activar el servidor web local als ajustaments d'AdAway per respondre peticions a la vostra adreça IP local <tt>127.0.0.1</tt>. Això significa que les peticions per anuncis que són redirigides a <tt>127.0.0.1</tt> són respostes pel servidor web d'AdAway.⏎ <br/>Algunes aplicacions no funcionen si no poden contactar els servidors d'anuncis i, amb aquest mètode, mostraran contingut en blanc.</p>
+
+<h2>Com puc bloquejar noms de màquina específics?</h2>
+<p>Podeu definir el vostre propi servidor que proporcioni fitxers hosts que vulgueu bloquejar. Podreu afegir aquests a <i>Fonts de fitxers hosts</i> o afegir els noms de màquina que voleu bloquejar a la llista negra (=Negra) dins de <i>Les vostres llistes</i>.  A més a més, els noms de màquina que volgueu excloure del bloqueig es poden afegir a la <i>Llista blanca</i> (=Blanca) i els noms de màquina que volgueu redireccionar a una IP específica es poden afegir a la <i>Llista de redireccions</i> (=Redirecció).</p>
+
+<h2>On puc trobar més fonts de fitxers hosts?</h2>
+<p>Vegeu la <a href="http://code.google.com/p/ad-away/wiki/HostsSources">llista de fonts de fitxers hosts addicionals per a Away</a>.</p>
+
+<h2>He trobat un error a AdAway!</h2>
+<p>Informeu dels errors al  <a href="http://code.google.com/p/ad-away/issues/list">registre d'errors d'AdAway</a>.</p>
+</body>
+</html>

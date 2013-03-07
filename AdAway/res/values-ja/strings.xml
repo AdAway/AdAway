@@ -17,7 +17,7 @@
   <string name="button_webserver_toggle_unchecked">ウェブサーバーは動作していません</string>
   <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します。</string>
   <string name="button_help">ヘルプ</string>
-  <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
+  <string name="button_tcpdump_text">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。高校のサーバーだと思われるものはブラックリストに追加出来ます。</string>
   <string name="button_tcpdump_toggle_checked">TCPダンプは動作中です!</string>
   <string name="button_tcpdump_toggle_unchecked">TCPダンプは非動作中です!</string>
   <string name="button_tcpdump_open">ログファイルを開く</string>
@@ -67,7 +67,7 @@
   <string name="apply_not_enough_space_title">空き容量不足</string>
   <string name="apply_private_file_fail">ダウンロードしたファイルが読み込めません。</string>
   <string name="apply_private_file_fail_title">プライベートファイル失敗</string>
-  <string name="apply_remount_fail">領域のR/W再マウント失敗!</string>
+  <string name="apply_remount_fail">領域のR/W再マウントに失敗しました!</string>
   <string name="apply_remount_fail_title">再マウント失敗</string>
   <string name="apply_copy_fail">hostsファイルのコピー失敗!</string>
   <string name="apply_copy_fail_title">コピー失敗</string>
@@ -79,8 +79,8 @@
   <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください。</string>
   <string name="apply_symlink_fail_title">symlink作成失敗</string>
   <string name="apply_help">詳しくはヘルプをご覧ください。</string>
-  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -&gt; More... -&gt; Mobile Networks -&gt; Access Point Names) and remove the value in the proxy field.</string>
-  <string name="apply_apn_proxy_title">APN proxy set!</string>
+  <string name="apply_apn_proxy">APNプロキシが端末にセットされています!\nAdAwayは3Gなどのモバイルネットワークでは動作しない場合があります。 プロキシを無効にするにはAPN (Android 4.xの場合: 無線とネットワーク -&gt; その他... -&gt; モバイルネットワーク -&gt; アクセスポイント名) でプロキシ設定を解除してください。</string>
+  <string name="apply_apn_proxy_title">APNプロキシがセットされています!</string>
   <string name="no_connection">ネット接続がありません。</string>
   <string name="no_connection_title">接続なし</string>
   <string name="download_dialog">ダウンロード中...</string>
@@ -131,15 +131,15 @@
   <string name="help_tab_problems">問題</string>
   <string name="help_about_version">バージョン:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
+  <string name="scan_adware_description">AdAwayでブロックできない、アプリが起動していなくても通知領域に高校を表示したり、着信音を変えたりする悪質なアドウェアをスキャンできます。 アドウェア対策はそのアプリをアンインストールするしかありません!</string>
   <string name="scan_adware_start">スキャンを開始</string>
   <string name="scan_adware_empty">アドウェアは検出されませんでした!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">ﾛｰｶﾙ:</string>
   <string name="hosts_last_modified_online">ｵﾝﾗｲﾝ:</string>
-  <string name="hosts_not_available">日時記録なし</string>
+  <string name="hosts_not_available">日時不明</string>
   <!--Other-->
-  <string name="app_subtitle">Ad blocker</string>
+  <string name="app_subtitle">広告排除!</string>
   <string name="no_text_editor_title">テキストエディタがありません</string>
   <string name="no_text_editor">hostsファイルを開くためのテキストエディタが見つかりません。Jotaなどテキストエディタをインストールしてください。\n\nJotaをインストールしますか?</string>
   <string name="no_file_manager_title">ファイルマネージャがインストールされていません</string>

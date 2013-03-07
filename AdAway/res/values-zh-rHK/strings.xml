@@ -154,7 +154,9 @@
   <string name="pref_apply_method">目標 hosts 檔</string>
   <string name="pref_apply_method_summary">在更改此設定前，請先閱讀幫助去理解此功能。</string>
   <string name="pref_header_preferences">設定</string>
+  <string name="pref_header_preferences_summary">AdAway一般設定</string>
   <string name="pref_never_reboot">隱藏重新啟動系統的提示</string>
+  <string name="pref_never_reboot_summary">隱藏成功設定後要求重開機的對話框</string>
   <string name="pref_custom_target">自定義目標位置</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
