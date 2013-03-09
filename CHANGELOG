@@ -1,6 +1,11 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+2.2
+* Introduce SUPERUSER permission for new Superuser app
+* Allow backups of AdAway (for Carbon)
+
+
 2.1
 * Allow whitelist entries from hosts sources if enabled in preferences
 - Fixed missing menu entry for hosts sources on tablets
