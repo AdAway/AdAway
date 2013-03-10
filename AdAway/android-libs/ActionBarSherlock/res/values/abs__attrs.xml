@@ -74,6 +74,9 @@
         <!-- Small Button style. -->
         <attr name="buttonStyleSmall" format="reference" />
 
+        <!-- Background drawable for standalone items that need focus/pressed states. -->
+        <attr name="selectableItemBackground" format="reference" />
+
 
 
         <!-- This Drawable is overlaid over the foreground of the Window's content area, usually
@@ -96,6 +99,40 @@
 
         <attr name="spinnerItemStyle" format="reference" />
         <attr name="spinnerDropDownItemStyle" format="reference" />
+
+        <!-- ============================ -->
+        <!-- SearchView styles and assets -->
+        <!-- ============================ -->
+        <eat-comment />
+        <!-- SearchView AutoCompleteTextView style -->
+        <attr name="searchAutoCompleteTextView" format="reference" />
+        <!-- SearchView dropdown background -->
+        <attr name="searchDropdownBackground" format="reference" />
+        <!-- SearchView close button icon -->
+        <attr name="searchViewCloseIcon" format="reference" />
+        <!-- SearchView Go button icon -->
+        <attr name="searchViewGoIcon" format="reference" />
+        <!-- SearchView Search icon -->
+        <attr name="searchViewSearchIcon" format="reference" />
+        <!-- SearchView Voice button icon -->
+        <attr name="searchViewVoiceIcon" format="reference" />
+        <!-- SearchView query refinement icon -->
+        <attr name="searchViewEditQuery" format="reference" />
+        <!-- SearchView query refinement icon background -->
+        <attr name="searchViewEditQueryBackground" format="reference" />
+        <!-- SearchView text field background for the left section -->
+        <attr name="searchViewTextField" format="reference" />
+        <!-- SearchView text field background for the right section -->
+        <attr name="searchViewTextFieldRight" format="reference" />
+        <!-- Text color for urls in search suggestions, used by things like global search and the browser. @hide -->
+        <attr name="textColorSearchUrl" format="reference|color" />
+        <!-- The list item height for search results. @hide -->
+        <attr name="searchResultListItemHeight" format="dimension" />
+        <!-- Text color, typeface, size, and style for system search result title. Defaults to primary inverse text color. -->
+        <attr name="textAppearanceSearchResultTitle" format="reference" />
+        <!-- Text color, typeface, size, and style for system search result subtitle. Defaults to primary inverse text color. -->
+        <attr name="textAppearanceSearchResultSubtitle" format="reference" />
+
 
         <!-- =========== -->
         <!-- List styles -->
@@ -143,9 +180,6 @@
         <attr name="activityChooserViewStyle" format="reference" />
         <!-- Drawable used as a background for activated items. -->
         <attr name="activatedBackgroundIndicator" format="reference" />
-
-        <!-- Specified if we are forcing an action item overflow menu. -->
-        <attr name="absForceOverflow" format="boolean" />
 
         <attr name="android:windowIsFloating" />
     </declare-styleable>
@@ -376,5 +410,23 @@
         <attr name="android:popupPromptView" />
         <!-- Gravity setting for positioning the currently selected item. -->
         <attr name="android:gravity" />
+    </declare-styleable>
+
+    <declare-styleable name="SherlockSearchView">
+        <!-- The default state of the SearchView. If true, it will be iconified when not in
+             use and expanded when clicked. -->
+        <attr name="iconifiedByDefault" format="boolean"/>
+        <!-- An optional maximum width of the SearchView. -->
+        <attr name="android:maxWidth" />
+        <!-- An optional query hint string to be displayed in the empty query field. -->
+        <attr name="queryHint" format="string" />
+        <!-- The IME options to set on the query text field. -->
+        <attr name="android:imeOptions" />
+        <!-- The input type to set on the query text field. -->
+        <attr name="android:inputType" />
+    </declare-styleable>
+
+    <declare-styleable name="SherlockView">
+        <attr name="android:focusable"/>
     </declare-styleable>
 </resources>

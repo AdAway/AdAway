@@ -3,15 +3,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.actionbarsherlock</groupId>
-	<artifactId>library</artifactId>
+	<artifactId>actionbarsherlock</artifactId>
 	<name>ActionBarSherlock</name>
 	<packaging>apklib</packaging>
 
 	<parent>
 		<groupId>com.actionbarsherlock</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.1.0</version>
+		<version>4.2.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -26,11 +25,6 @@
 			<artifactId>support-v4</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.pivotallabs</groupId>
-			<artifactId>robolectric</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -47,6 +41,9 @@
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
 				<extensions>true</extensions>
+				<configuration>
+					<nativeLibrariesDirectory>ignored</nativeLibrariesDirectory>
+				</configuration>
 			</plugin>
 
 			<plugin>
@@ -132,7 +129,7 @@
 									<pluginExecutionFilter>
 										<groupId>com.google.code.maven-replacer-plugin</groupId>
 										<artifactId>maven-replacer-plugin</artifactId>
-										<versionRange>[1.4.1,)</versionRange>
+										<versionRange>[1.4.0,)</versionRange>
 										<goals>
 											<goal>replace</goal>
 										</goals>

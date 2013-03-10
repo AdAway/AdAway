@@ -9,16 +9,8 @@ import com.actionbarsherlock.internal.nineoldandroids.view.animation.AnimatorPro
 public class NineLinearLayout extends LinearLayout {
     private final AnimatorProxy mProxy;
 
-    public NineLinearLayout(Context context) {
-        super(context);
-        mProxy = AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(this) : null;
-    }
     public NineLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mProxy = AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(this) : null;
-    }
-    public NineLinearLayout(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
         mProxy = AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(this) : null;
     }
 

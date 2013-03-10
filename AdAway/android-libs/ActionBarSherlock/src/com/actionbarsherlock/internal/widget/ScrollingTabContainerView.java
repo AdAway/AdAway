@@ -188,6 +188,7 @@ public class ScrollingTabContainerView extends NineHorizontalScrollView
     private IcsLinearLayout createTabLayout() {
         final IcsLinearLayout tabLayout = (IcsLinearLayout) LayoutInflater.from(getContext())
                 .inflate(R.layout.abs__action_bar_tab_bar_view, null);
+        tabLayout.setMeasureWithLargestChildEnabled(true);
         tabLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
         return tabLayout;

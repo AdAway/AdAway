@@ -85,6 +85,11 @@
     <style name="Widget.Sherlock.Light.ProgressBar.Horizontal" parent="android:Widget.Holo.Light.ProgressBar.Horizontal">
     </style>
 
+    <style name="Widget.Sherlock.SearchAutoCompleteTextView" parent="android:Widget.Holo.AutoCompleteTextView">
+    </style>
+    <style name="Widget.Sherlock.Light.SearchAutoCompleteTextView" parent="android:Widget.Holo.Light.AutoCompleteTextView">
+    </style>
+
     <style name="TextAppearance.Sherlock.Widget.ActionBar.Menu" parent="android:TextAppearance.Holo.Widget.ActionBar.Menu">
     </style>
 

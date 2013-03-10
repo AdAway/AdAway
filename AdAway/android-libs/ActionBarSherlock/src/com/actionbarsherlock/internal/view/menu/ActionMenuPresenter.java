@@ -23,7 +23,6 @@ import java.util.Set;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -119,14 +118,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter
     }
 
     public static boolean reserveOverflow(Context context) {
-        //Check for theme-forced overflow action item
-        TypedArray a = context.getTheme().obtainStyledAttributes(R.styleable.SherlockTheme);
-        boolean result = a.getBoolean(R.styleable.SherlockTheme_absForceOverflow, false);
-        a.recycle();
-        if (result) {
-            return true;
-        }
-
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB);
         } else {
@@ -621,6 +612,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter
             for (View_OnAttachStateChangeListener listener : mListeners) {
                 listener.onViewDetachedFromWindow(this);
             }
+
+            if (mOverflowPopup != null) mOverflowPopup.dismiss();
         }
 
         @Override

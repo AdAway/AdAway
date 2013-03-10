@@ -30,15 +30,15 @@
     <dimen name="abs__action_bar_subtitle_top_margin">-3dp</dimen>
     <!-- Bottom margin for action bar subtitles -->
     <dimen name="abs__action_bar_subtitle_bottom_margin">5dip</dimen>
-    
+
     <integer name="abs__max_action_buttons">2</integer>
 
     <!-- Minimum width for an action button in the menu area of an action bar -->
     <dimen name="abs__action_button_min_width">56dip</dimen>
-    
+
     <!-- Dialog title height -->
     <dimen name="abs__alert_dialog_title_height">64dip</dimen>
-    
+
     <!-- The platform's desired minimum size for a dialog's width when it
          is along the major axis (that is the screen is landscape).  This may
          be either a fraction or a dimension. -->
@@ -47,4 +47,21 @@
          is along the minor axis (that is the screen is portrait).  This may
          be either a fraction or a dimension. -->
     <item type="dimen" name="abs__dialog_min_width_minor">95%</item>
+
+
+    <!-- Text padding for dropdown items -->
+    <dimen name="abs__dropdownitem_text_padding_left">8dip</dimen>
+
+    <!-- Text padding for dropdown items -->
+    <dimen name="abs__dropdownitem_text_padding_right">8dip</dimen>
+
+    <!-- Width of the icon in a dropdown list -->
+    <dimen name="abs__dropdownitem_icon_width">32dip</dimen>
+
+
+    <!-- Minimum width of the search view text entry area. -->
+    <dimen name="abs__search_view_text_min_width">160dip</dimen>
+
+    <!-- Preferred width of the search view. -->
+    <dimen name="abs__search_view_preferred_width">320dip</dimen>
 </resources>

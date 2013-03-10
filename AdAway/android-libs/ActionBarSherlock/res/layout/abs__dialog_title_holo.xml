@@ -35,7 +35,7 @@ enabled.
             android:layout_height="2dip"
             android:background="@color/abs__holo_blue_light" />
     <FrameLayout
-        android:layout_width="wrap_content" android:layout_height="0dp"
+        android:layout_width="match_parent" android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
         android:foreground="?attr/windowContentOverlay">

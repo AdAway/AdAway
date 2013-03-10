@@ -116,6 +116,17 @@ public abstract class SherlockPreferenceActivity extends PreferenceActivity impl
         return super.dispatchKeyEvent(event);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        getSherlock().dispatchSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        getSherlock().dispatchRestoreInstanceState(savedInstanceState);
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     // Native menu handling

@@ -2,10 +2,12 @@ package com.actionbarsherlock.internal.view.menu;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.view.View;
 import com.actionbarsherlock.internal.view.ActionProviderWrapper;
+import com.actionbarsherlock.internal.widget.CollapsibleActionViewWrapper;
 import com.actionbarsherlock.view.ActionProvider;
+import com.actionbarsherlock.view.CollapsibleActionView;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
 
@@ -215,19 +217,35 @@ public class MenuItemWrapper implements MenuItem, android.view.MenuItem.OnMenuIt
 
     @Override
     public MenuItem setActionView(View view) {
+        if (view != null && view instanceof CollapsibleActionView) {
+            view = new CollapsibleActionViewWrapper(view);
+        }
         mNativeItem.setActionView(view);
         return this;
     }
 
     @Override
     public MenuItem setActionView(int resId) {
+        //Allow the native menu to inflate the resource
         mNativeItem.setActionView(resId);
+        if (resId != 0) {
+            //Get newly created view
+            View view = mNativeItem.getActionView();
+            if (view instanceof CollapsibleActionView) {
+                //Wrap it and re-set it
+                mNativeItem.setActionView(new CollapsibleActionViewWrapper(view));
+            }
+        }
         return this;
     }
 
     @Override
     public View getActionView() {
-        return mNativeItem.getActionView();
+        View actionView = mNativeItem.getActionView();
+        if (actionView instanceof CollapsibleActionViewWrapper) {
+            return ((CollapsibleActionViewWrapper)actionView).unwrap();
+        }
+        return actionView;
     }
 
     @Override

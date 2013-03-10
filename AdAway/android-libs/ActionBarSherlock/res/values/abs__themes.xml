@@ -11,7 +11,7 @@
     </style>
     <style name="Sherlock.__Theme.Dialog" parent="android:Theme.Dialog">
     </style>
-    
+
     <style name="Theme.Sherlock" parent="Sherlock.__Theme">
         <!-- Action bar styles (from Theme.Holo) -->
         <item name="actionDropDownStyle">@style/Widget.Sherlock.Spinner.DropDown.ActionBar</item>
@@ -29,41 +29,53 @@
         <item name="actionBarSize">@dimen/abs__action_bar_default_height</item>
         <!-- Internal --><item name="actionModePopupWindowStyle">@style/Widget.Sherlock.PopupWindow.ActionMode</item>
         <item name="actionBarWidgetTheme">@null</item>
-        
+
         <!-- Action bar styles (defaults from Theme) -->
         <item name="actionBarSplitStyle">?attr/actionBarStyle</item>
         <item name="actionMenuTextAppearance">@style/TextAppearance.Sherlock.Widget.ActionBar.Menu</item>
         <item name="actionMenuTextColor">?attr/textColorPrimary</item>
         <item name="actionBarDivider">?attr/dividerVertical</item>
-        <item name="actionBarItemBackground">@drawable/abs__item_background_holo_dark</item>
+        <item name="actionBarItemBackground">?attr/selectableItemBackground</item>
 
         <item name="buttonStyleSmall">@style/Widget.Sherlock.Button.Small</item>
-        
+
+        <item name="selectableItemBackground">@drawable/abs__item_background_holo_dark</item>
+
         <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_dark</item>
         <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_dark</item>
         <item name="activityChooserViewStyle">@style/Widget.Sherlock.ActivityChooserView</item>
-        
+
         <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_dark</item>
-        
+
         <item name="dividerVertical">@drawable/abs__list_divider_holo_dark</item>
-        
+
         <item name="spinnerDropDownItemStyle">@style/Widget.Sherlock.DropDownItem.Spinner</item>
         <item name="spinnerItemStyle">@style/Widget.Sherlock.TextView.SpinnerItem</item>
-        
+
         <item name="textColorPrimary">@color/abs__primary_text_holo_dark</item>
         <item name="textColorPrimaryDisableOnly">@color/abs__primary_text_disable_only_holo_dark</item>
         <item name="textColorPrimaryInverse">@color/abs__primary_text_holo_light</item>
-        
+
         <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
         <item name="dropDownListViewStyle">@style/Widget.Sherlock.ListView.DropDown</item>
 
         <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Small</item>
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.Sherlock.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.Sherlock.Widget.PopupMenu.Small</item>
-        
+
         <item name="popupMenuStyle">@style/Widget.Sherlock.PopupMenu</item>
         <!-- Internal --><item name="listPopupWindowStyle">@style/Widget.Sherlock.ListPopupWindow</item>
-        
+
+        <item name="searchDropdownBackground">@drawable/abs__search_dropdown_dark</item>
+        <item name="searchViewTextField">@drawable/abs__textfield_searchview_holo_dark</item>
+        <item name="searchViewTextFieldRight">@drawable/abs__textfield_searchview_right_holo_dark</item>
+        <item name="searchViewCloseIcon">@drawable/abs__ic_clear</item>
+        <item name="searchViewSearchIcon">@drawable/abs__ic_search</item>
+        <item name="searchViewGoIcon">@drawable/abs__ic_go</item>
+        <item name="searchViewVoiceIcon">@drawable/abs__ic_voice_search</item>
+        <item name="searchAutoCompleteTextView">@style/Widget.Sherlock.SearchAutoCompleteTextView</item>
+        <item name="android:dropDownHintAppearance">@style/TextAppearance.Sherlock.Widget.DropDownHint</item>
+
         <item name="windowActionBar">true</item>
         <item name="windowActionModeOverlay">false</item>
         <item name="windowContentOverlay">@null</item>
@@ -85,41 +97,53 @@
         <item name="actionBarSize">@dimen/abs__action_bar_default_height</item>
         <!-- Internal --><item name="actionModePopupWindowStyle">@style/Widget.Sherlock.Light.PopupWindow.ActionMode</item>
         <item name="actionBarWidgetTheme">@null</item>
-        
+
         <!-- Action bar styles (defaults from Theme) -->
         <item name="actionBarSplitStyle">?attr/actionBarStyle</item>
         <item name="actionMenuTextAppearance">@style/TextAppearance.Sherlock.Widget.ActionBar.Menu</item>
         <item name="actionMenuTextColor">?attr/textColorPrimary</item>
         <item name="actionBarDivider">?attr/dividerVertical</item>
-        <item name="actionBarItemBackground">@drawable/abs__item_background_holo_light</item>
+        <item name="actionBarItemBackground">?attr/selectableItemBackground</item>
 
         <item name="buttonStyleSmall">@style/Widget.Sherlock.Light.Button.Small</item>
-        
+
+        <item name="selectableItemBackground">@drawable/abs__item_background_holo_light</item>
+
         <item name="activatedBackgroundIndicator">@drawable/abs__activated_background_holo_light</item>
         <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_light</item>
         <item name="activityChooserViewStyle">@style/Widget.Sherlock.Light.ActivityChooserView</item>
-        
+
         <item name="homeAsUpIndicator">@drawable/abs__ic_ab_back_holo_light</item>
-        
+
         <item name="dividerVertical">@drawable/abs__list_divider_holo_light</item>
-        
+
         <item name="spinnerDropDownItemStyle">@style/Widget.Sherlock.Light.DropDownItem.Spinner</item>
         <item name="spinnerItemStyle">@style/Widget.Sherlock.TextView.SpinnerItem</item>
-        
+
         <item name="textColorPrimary">@color/abs__primary_text_holo_light</item>
         <item name="textColorPrimaryDisableOnly">@color/abs__primary_text_disable_only_holo_light</item>
         <item name="textColorPrimaryInverse">@color/abs__primary_text_holo_dark</item>
-        
+
         <!-- Internal --><item name="dropdownListPreferredItemHeight">48dip</item>
         <item name="dropDownListViewStyle">@style/Widget.Sherlock.Light.ListView.DropDown</item>
 
         <item name="textAppearanceSmall">@style/TextAppearance.Sherlock.Light.Small</item>
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.Sherlock.Light.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.Sherlock.Light.Widget.PopupMenu.Small</item>
-        
+
         <item name="popupMenuStyle">@style/Widget.Sherlock.Light.PopupMenu</item>
         <!-- Internal --><item name="listPopupWindowStyle">@style/Widget.Sherlock.Light.ListPopupWindow</item>
-        
+
+        <item name="searchDropdownBackground">@drawable/abs__search_dropdown_light</item>
+        <item name="searchViewTextField">@drawable/abs__textfield_searchview_holo_light</item>
+        <item name="searchViewTextFieldRight">@drawable/abs__textfield_searchview_right_holo_light</item>
+        <item name="searchViewCloseIcon">@drawable/abs__ic_clear_holo_light</item>
+        <item name="searchViewSearchIcon">@drawable/abs__ic_search_api_holo_light</item>
+        <item name="searchViewGoIcon">@drawable/abs__ic_go_search_api_holo_light</item>
+        <item name="searchViewVoiceIcon">@drawable/abs__ic_voice_search_api_holo_light</item>
+        <item name="searchAutoCompleteTextView">@style/Widget.Sherlock.Light.SearchAutoCompleteTextView</item>
+        <item name="android:dropDownHintAppearance">@style/TextAppearance.Sherlock.Widget.DropDownHint</item>
+
         <item name="windowActionBar">true</item>
         <item name="windowActionModeOverlay">false</item>
         <item name="windowContentOverlay">@null</item>
@@ -145,11 +169,11 @@
         <item name="actionModeStyle">@style/Widget.Sherlock.Light.ActionMode.Inverse</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
         <item name="actionModePopupWindowStyle">@style/Widget.Sherlock.PopupWindow.ActionMode</item>
-        
+
         <item name="actionModeShareDrawable">@drawable/abs__ic_menu_share_holo_dark</item>
     </style>
-    
-    
+
+
     <style name="Theme.Sherlock.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -158,19 +182,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    
-    
-    <style name="Theme.Sherlock.ForceOverflow">
-        <item name="absForceOverflow">true</item>
-    </style>
-    <style name="Theme.Sherlock.Light.ForceOverflow">
-        <item name="absForceOverflow">true</item>
-    </style>
-    <style name="Theme.Sherlock.Light.DarkActionBar.ForceOverflow">
-        <item name="absForceOverflow">true</item>
-    </style>
-    
-    
+
+
     <style name="Theme.Sherlock.Dialog" parent="android:Theme">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowTitleStyle">@style/DialogWindowTitle.Sherlock</item>
@@ -179,21 +192,21 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
-        
+
         <item name="android:windowActionBar">false</item>
         <item name="android:windowActionModeOverlay">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimAmount">0.6</item>
-        
+
         <item name="android:colorBackgroundCacheHint">@null</item>
-        
+
         <item name="android:textColorPrimary">@color/abs__primary_text_holo_dark</item>
         <item name="android:textColorPrimaryInverse">@color/abs__primary_text_holo_light</item>
-        
+
         <item name="windowMinWidthMajor">@dimen/abs__dialog_min_width_major</item>
         <item name="windowMinWidthMinor">@dimen/abs__dialog_min_width_minor</item>
-        
+
         <item name="windowActionBar">false</item>
         <item name="windowContentOverlay">@null</item>
     </style>
@@ -205,21 +218,21 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
-        
+
         <item name="android:windowActionBar">false</item>
         <item name="android:windowActionModeOverlay">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimAmount">0.6</item>
-        
+
         <item name="android:colorBackgroundCacheHint">@null</item>
-        
+
         <item name="android:textColorPrimary">@color/abs__primary_text_holo_light</item>
         <item name="android:textColorPrimaryInverse">@color/abs__primary_text_holo_dark</item>
-        
+
         <item name="windowMinWidthMajor">@dimen/abs__dialog_min_width_major</item>
         <item name="windowMinWidthMinor">@dimen/abs__dialog_min_width_minor</item>
-        
+
         <item name="windowActionBar">false</item>
         <item name="windowContentOverlay">@null</item>
     </style>
