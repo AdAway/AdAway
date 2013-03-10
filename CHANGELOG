@@ -4,7 +4,7 @@ http://code.google.com/p/ad-away/issues
 2.2
 * Introduce SUPERUSER permission for new Superuser app
 * Allow backups of AdAway (for Carbon)
-
+* Logo reworked thanks to Alin Ţoţea-Radu
 
 2.1
 * Allow whitelist entries from hosts sources if enabled in preferences
