@@ -170,6 +170,7 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
 
 * icon.svg, banner.svg  
   AdAway by Dominik Schürmann  
+  New version by Alin Ţoţea-Radu  
   GPLv3
 
 * Menu Icons  
