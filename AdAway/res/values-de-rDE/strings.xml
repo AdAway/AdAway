@@ -186,6 +186,8 @@
   <string name="pref_automatic_update_daily_summary">Installiere Updates automatisch im Hintergrund, wenn neue verfügbar sind.</string>
   <string name="pref_update_only_on_wifi">Update nur bei WLAN-Verbindung</string>
   <string name="pref_update_only_on_wifi_summary">Hintergrundupdates sollen nur bei WLAN-Verbindung heruntergeladen werden.</string>
+  <string name="pref_whitelist_redirection_rules">Weiterleitungen und Whitelist-Einträge erlauben</string>
+  <string name="pref_whitelist_redirection_rules_summary">Erlaube Weiterleitungen und Whitelist-Einträge aus den Hosts-Quellen.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debugprotokollierung</string>
   <string name="pref_enable_debug_summary">Du musst AdAway neustarten damit diese Einstellung genutzt wird.</string>
