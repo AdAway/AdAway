@@ -1,0 +1,284 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<html>
+<head>
+</head>
+<body>
+
+<h2>2.2</h2>
+<ul>
+<li>Introduce SUPERUSER permission for new Superuser app</li>
+<li>Allow backups of AdAway (for Carbon)</li>
+<li>Logo reworked thanks to Alin Ţoţea-Radu</li>
+</ul>
+
+<h2>2.1</h2>
+<ul>
+<li>Allow whitelist entries from hosts sources if enabled in preferences</li>
+<li>Fixed missing menu entry for hosts sources on tablets</li>
+<li>Webserver on boot should work more reliable</li>
+<li>Webserver should not be killed on low memory</li>
+</ul>
+
+<h2>2.0</h2>
+<ul>
+IF YOU HAVE PROBLEMS WITH 2.0: Please uninstall and then reinstall AdAway!</li>
+<li>New library for root access: RootCommands</li>
+<li>Tcpdump and Webserver now included for ARM, x86, MIPS (Please test and report problems!)</li>
+<li>Google forced me to remove the possibility to donate via Flattr and PayPal</li>
+<li>Hopefully fixes DNS logging for Android 4.1</li>
+</ul>
+
+<h2>1.37</h2>
+<ul>
+<li>Skip unreachable hosts sources and show number of successful sources</li>
+<li>Fix for crash on donations screen (Android 4.1)</li>
+<li>Fix crash on help screen (Android 4.1)</li>
+<li>Bind local webserver https only to localhost (thanks to Stebalien for finding that bug)</li>
+</ul>
+
+<h2>1.36</h2>
+<ul>
+<li>Help and About screens reworked</li>
+<li>Simple scanner for bad Adware apps like Airpush Notifications (derived from open source Airpush-Detector, thanks!)</li>
+</ul>
+
+<h2>1.35</h2>
+<ul>
+<li>New method for background update checking</li>
+<li>AdAway will now reschedule the update check to execute it when the Internet connection is established</li>
+<li>New preference to update only when on Wifi</li>
+<li>AdAway now allows empty hosts sources for people who only want to maintain their own lists</li>
+</ul>
+
+<h2>1.34</h2>
+<ul>
+<li>In-app PayPal donations are now possible</li>
+<li>Disabled hardware acceleration on ICS, caused black screens and glitches on some custom roms</li>
+</ul>
+
+<h2>1.33</h2>
+<ul>
+<li>Fixed rare problems on some devices regarding remounting /system as read/write</li>
+</ul>
+
+<h2>1.32</h2>
+<ul>
+<li>Fixes crashes with 1.31</li>
+</ul>
+
+<h2>1.31</h2>
+<ul>
+<li>Check for APN proxy</li>
+</ul>
+
+<h2>1.30</h2>
+<ul>
+<li>Design improvements for Android 4</li>
+<li>Layout fixes for "Your Lists"</li>
+</ul>
+
+<h2>1.29</h2>
+<ul>
+<li>Languages updated</li>
+<li>Fixed copying when no cp command is available</li>
+</ul>
+
+<h2>1.28</h2>
+<ul>
+<li>Now works on devices without cp command</li>
+<li>New debug setting</li>
+</ul>
+
+<h2>1.27</h2>
+<ul>
+<li>No longer needs busybox</li>
+<li>Fixed problems with reverting</li>
+<li>Method to restart Android changed</li>
+</ul>
+
+<h2>1.26</h2>
+<ul>
+<li>Usability improvements: Buttons will now be disabled while applying, reverting is improved</li>
+<li>Faster due to improved hosts parsing</li>
+<li>Now including tcpdump</li>
+</ul>
+
+<h2>1.25</h2>
+<ul>
+<li>Better tcpdump integration</li>
+<li>Wildcard characters * and ? can be used in your whitelist</li>
+<li>Updated translations</li>
+<li>Fixes stuck on applying hopefully</li>
+</ul>
+
+<h2>1.24</h2>
+<ul>
+<li>Tcpdump DNS request logging</li>
+<li>Preference to allow redirection rules from Hosts Sources</li>
+<li>New hosts source for mobile ads: http://www.ismeh.com/HOSTS</li>
+<li>Webserver binary now updates correctly from old AdAway versions</li>
+</ul>
+
+<h2>1.23</h2>
+<ul>
+<li>Fix for import/export</li>
+</ul>
+
+<h2>1.22</h2>
+<ul>
+<li>More notification and status bug fixes</li>
+<li>Fixed preference bug causing automatic update to be enabled</li>
+<li>Fixed color of notifications</li>
+<li>Fixed a crash under Android 3.2</li>
+</ul>
+
+<h2>1.21</h2>
+<ul>
+<li>Fixed staying notification when update was failing</li>
+<li>Hopefully fixes webserver crashes</li>
+</ul>
+
+<h2>1.20</h2>
+<ul>
+<li>Fixed staying notification</li>
+</ul>
+
+<h2>1.19</h2>
+<ul>
+<li>Automatic updating in background can be enabled in preferences</li>
+<li>New method for checking for symlink, should fix some problems</li>
+<li>Fixes for exporting entries</li>
+<li>Fixes for donation screen, when no Google Android Market is available</li>
+</ul>
+
+<h2>1.18</h2>
+<ul>
+<li>Local webserver now answers with blank page instead of 404 error page</li>
+<li>Import and Export of Your Lists</li>
+<li>Bug fix for symlink check</li>
+<li>Last entry in hosts file is now working (missed new line at end of hosts file)</li>
+<li>Fixes for daily update check</li>
+<li>Allow hostnames without TLD ending</li>
+</ul>
+
+<h2>1.17</h2>
+<ul>
+<li>Fix for translation problems</li>
+</ul>
+
+<h2>1.16</h2>
+<ul>
+<li>Translations: German, French, Spanish</li>
+  Thanks to all contributors!</li>
+<li>Better check for symlink</li>
+<li>Newer version of web server mongoose</li>
+<li>Better handling of AdAway database</li>
+<li>Fixed "Not enough space available" bug</li>
+<li>Fixed problem with applying</li>
+</ul>
+
+<h2>1.15</h2>
+<ul>
+<li>Added permission for Google Android Market donations</li>
+</ul>
+
+<h2>1.14</h2>
+<ul>
+<li>Force close on open hosts file fixed</li>
+<li>Donations with Google Android Market added</li>
+</ul>
+
+<h2>1.13</h2>
+<ul>
+<li>Webserver now hears on all local IP address (0.0.0.0)</li>
+<li>Custom target can be set in preferences, for example to /data/etc/hosts</li>
+<li>Hosts file can be opened from menu</li>
+</ul>
+
+<h2>1.12</h2>
+<ul>
+<li>Delayed starting of webserver on boot</li>
+<li>Disabled debug logging</li>
+</ul>
+
+<h2>1.11</h2>
+<ul>
+<li>Fixed bugs in layout</li>
+</ul>
+
+<h2>1.10</h2>
+<ul>
+<li>Webserver is now a preference, disabled by default</li>
+<li>Fixed daily update again. Should schedule now correctly</li>
+<li>Fixed crash on Android 3.0 and 3.1 in Your Lists</li>
+<li>Fixed preferences on Android 3.x</li>
+<li>Fixed rotation bug on Android 3.x</li>
+</ul>
+
+<h2>1.09</h2>
+<ul>
+<li>New design for tablet sizes</li>
+<li>New hosts source: http://pgl.yoyo.org/adservers</li>
+<li>fixed crash on Android 3 Honeycomb</li>
+<li>Fix for daily update check</li>
+<li>Removed hosts source sysctl.org because of false positives</li>
+</ul>
+
+<h2>1.08</h2>
+<ul>
+<li>AdAway got a redesign</li>
+<li>AdAway ships with a webserver, that listens on localhost</li>
+<li>Dates of all hosts sources are saved and can be seen in Hosts sources</li>
+<li>Preference to hide reboot question dialog</li>
+<li>Help page with information about AdAway</li>
+<li>Added new hosts source sysctl.org</li>
+<li>Daily update check can be enabled in preferences</li>
+<li>Should now work on roms which doesn't symlink busybox commands</li>
+</ul>
+
+<h2>1.07</h2>
+<ul>
+<li>AdAway can now create a symlink</li>
+<li>better error handling</li>
+<li>No update check on orientation change</li>
+</ul>
+
+<h2>1.06</h2>
+<ul>
+<li>hosts file target can be choosen</li>
+<li>Donation button</li>
+<li>Fixed SQLite bug occuring on Android 2.1</li>
+</ul>
+
+<h2>1.05</h2>
+<ul>
+<li>Update Check implemented</li>
+<li>Fixed bug when changing orientation of device while downloading</li>
+<li>better error handling when downloading</li>
+<li>Fixed localhost entry again</li>
+</ul>
+
+<h2>1.04</h2>
+<ul>
+<li>Implemented Redirection List</li>
+<li>Fixed Layout bugs</li>
+</ul>
+
+<h2>1.03</h2>
+<ul>
+<li>Implemented Blacklist and Whitelist</li>
+</ul>
+
+<h2>1.02</h2>
+<ul>
+<li>Fixed localhost entry</li>
+</ul>
+
+<h2>1.01</h2>
+<ul>
+<li>Fixed permissions on /system/etc/hosts
+</ul>
+</body>
+</html>

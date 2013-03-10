@@ -94,6 +94,11 @@ public class HelpActivity extends SherlockFragmentActivity {
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_donate)),
                 DonationsFragment.class, null);
+        
+        Bundle changelogBundle = new Bundle();
+        changelogBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_changelog);
+        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_changelog)),
+                HelpFragmentHtml.class, changelogBundle);
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_about)),
                 HelpFragmentAbout.class, null);
