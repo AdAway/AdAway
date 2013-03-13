@@ -29,8 +29,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- Required permission to wake phone up for updating -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!-- Required permission to use Google Android Market donations -->
-    <uses-permission android:name="com.android.vending.BILLING" />
     <!-- Used by Koush's new Superuser app -->
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
 

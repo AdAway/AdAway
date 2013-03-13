@@ -10,14 +10,11 @@ For more information visit http://code.google.com/p/ad-away/
 2. Change to "AdAway" directory with ``cd AdAway``
 3. Execute ``android update project -p .``,  ``android update project -p android-libs/ActionBarSherlock``, and ``android update project -p android-libs/Donations``
 4. Execute ``ndk-build`` to compile native binaries.
-5. Execute ``ant clean``
-6. Execute ``ant debug -Ddonations=all`` or ``ant release -Ddonations=all``
+5. Execute ``ant debug`` or ``ant release``
 
 ## More build information
 
 * It is necessary to build AdAway with Ant, because we use "custom_rules.xml" (For more information see https://github.com/dschuermann/root-commands#binaries)
-* To disable Flattr and PayPal (not allowed in Google Play), execute ``ant debug -Ddonations=google``
-* To disable Google (only working when the apk is signed with my private key), execute ``ant debug -Ddonations=other``
 
 # Contribute
 
