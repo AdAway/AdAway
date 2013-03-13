@@ -35,7 +35,7 @@ import org.adaway.util.Log;
 
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
 
     public interface Tables {
         String HOSTS_SOURCES = "hosts_sources";
@@ -93,8 +93,8 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         insertHostsSource(insertStmt,
                 "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
 
-        // http://www.ismeh.com/HOSTS
-        insertHostsSource(insertStmt, "http://www.ismeh.com/HOSTS");
+        // AdAway's own mobile hosts
+        insertHostsSource(insertStmt, "http://adaway.sufficientlysecure.org/hosts.txt");
     }
 
     @Override
@@ -154,6 +154,15 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://www.ismeh.com/HOSTS\", 0, 0, 1)");
+        }
+        if (oldVersion <= 6) {
+            // removed http://www.ismeh.com/HOSTS hosts source
+            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
+                    + " WHERE url=\"http://www.ismeh.com/HOSTS\"");
+            // new hosts source
+            db.execSQL("INSERT INTO "
+                    + Tables.HOSTS_SOURCES
+                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://adaway.sufficientlysecure.org/hosts.txt\", 0, 0, 1)");
         } else {
             db.execSQL("DROP TABLE IF EXISTS " + Tables.HOSTS_SOURCES);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.WHITELIST);
