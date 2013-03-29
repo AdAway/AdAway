@@ -79,6 +79,7 @@
   <string name="apply_symlink_fail">Il link simbolico non può essere creato da Android.\nQuesto è dovuto quasi sicuramente a una \"caratterstica\" chiamata S-ON sui telefoni HTC!\n\n\nUna soluzione è quella di fare il boot del telefono in modalità recovery e creare un link simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono.</string>
   <string name="apply_symlink_fail_title">Creazione del link simbolico fallita</string>
   <string name="apply_help">Per favore leggi l\'Aiuto per ulteriori informazioni.</string>
+  <string name="apply_apn_proxy">Sul tuo Android è impostato un proxy APN!\nAdAway non funzionerà in maniera affidabile sulle Connessioni Mobili come il 3G. Puoi disattivare questo proxy andando nell\'APN selezionato (Su Andorid 4: Wireless e reti -&gt; Altro... -&gt; Reti mobili -&gt; Nomi punti di accesso) e rimuovi il valore presente nel campo proxy. </string>
   <string name="apply_apn_proxy_title">Proxy APN impostato!</string>
   <string name="no_connection">La connesione a internet non funziona</string>
   <string name="no_connection_title">Nessuna connessione</string>
@@ -128,6 +129,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemi</string>
+  <string name="help_tab_changelog">Changelog</string>
   <string name="help_about_version">Versione:</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Qui puoi fare una scansione alla ricerca di applicazioni malevoli con Adware, che non possono essere bloccate da AdAway. Queste applicazioni usano per esempio notifiche Airpush che appaiono anche quando l\'app non è avviata o addirittura ti cambiano la suoneria. L\'unica contromisura disponibile è disinstallare queste applicazioni cliccando nella lista delle voci!</string>
@@ -185,6 +187,8 @@
   <string name="pref_automatic_update_daily_summary">Aggiorna automaticamente in background se sono disponibili aggiornamenti.</string>
   <string name="pref_update_only_on_wifi">Aggiorna solo via Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso a un network wifi</string>
+  <string name="pref_whitelist_redirection_rules">Permetti inoltro e whitelisting</string>
+  <string name="pref_whitelist_redirection_rules_summary">Permetti voci di inoltro e whitelist dal Sorgente Host.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Log di debug</string>
   <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>

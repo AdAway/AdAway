@@ -55,6 +55,7 @@
   <string name="status_no_connection">İnternet bağlantısı yok</string>
   <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
   <string name="status_download_fail">Kullanılamaz kaynak</string>
+  <string name="status_download_fail_subtitle_new">Hiçbir host kaynağına ulaşılamadı.</string>
   <string name="status_enabled">Etkinleştirildi</string>
   <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
   <string name="status_disabled">Etkisizleştirildi</string>
@@ -70,12 +71,16 @@
   <string name="apply_remount_fail_title">Remount başarısız oldu</string>
   <string name="apply_copy_fail">Host dosyası kopyalama başarısız!</string>
   <string name="apply_copy_fail_title">Kopyalama başarısız</string>
+  <string name="apply_success_subtitle">Başarılı host kaynakları:</string>
   <string name="apply_success_title">Uygulama başarılı</string>
+  <string name="apply_success_dialog">Uygulama başarıyla sonuçlandı.\nDeğişikliklerin geçerli olması için Android\'i yeniden başlatmak gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an hafıza kartını kullanan bir program olmadığına emin olun!)</string>
   <string name="apply_symlink_successful">Symlink bağlantısı oluşturuldu.\nDeğişikliklerin geçerli olması için yeniden başlatma gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
   <string name="apply_symlink_successful_title">Symlink oluşturma başarılı</string>
   <string name="apply_symlink_fail">Symlink oluşturulamadı.\nBu hata genelde HTC telefonlardaki S-ON denilen özellik yüzünden olmaktadır!\n\nSorunu elle çözmek isterseniz recovery mode ile açıp \'ln -s /data/data/hosts /system/etc/hosts\' komutuyla symlink yapmanız gereklidir.\n\nEğer ki bu olmuyorsa çözüm için internette S-OFF ve telefonunuzun adı ile bir arama yapın.</string>
   <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
   <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
+  <string name="apply_apn_proxy">APN vekil sunucusu ayarlandı!\nAdaway 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu APN seçim ekranına giderek (Android 4 için: Ayarlar -&gt; Diğer... -&gt; Mobil Ağlar -&gt; Erişim Noktası Adları) ve Proxy alanındaki değeri silerek devre dışı bırakabilirsiniz.</string>
+  <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
   <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
   <string name="no_connection_title">Bağlantı Yok</string>
   <string name="download_dialog">İndiriyor...</string>
@@ -90,6 +95,7 @@
   <string name="revert_successful_title">Geri alma başarılı!</string>
   <string name="revert_problem">Geri alma bilinmeyen sebepler yüzünden başarısız oldu.</string>
   <string name="revert_problem_title">Geri alma başarısız!</string>
+  <string name="download_fail_dialog">Aktif ettiğiniz hiçbir host kaynağına ulaşılamıyor! İnternet\'e bağlı olduğunuza emin misiniz?</string>
   <string name="download_fail_title">İndirme işlemi başarısız</string>
   <string name="no_private_file">Özel dosya oluşturulamadı.</string>
   <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu</string>
@@ -120,11 +126,15 @@
   <!--Help-->
   <string name="help_tab_about">Hakkında</string>
   <string name="help_tab_donate">Bağışta bulunun</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">SSS</string>
   <string name="help_tab_problems">Sorunlar</string>
+  <string name="help_tab_changelog">Değişim Listesi</string>
   <string name="help_about_version">Sürüm:</string>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Burada Adware tarafından engellenemeyecek kötü yazılımlar için tarama yapabilirsiniz. Bu uygulamalar mesela Airpush bilgilendirmelerini gibi uygulama çalışmadığı zaman  ya da zil sesini değiştirdiğinizde bile reklam gösteren yazılımlardır. Bunun tek çözüm yolu listede çıkacak olan uygulamaları silmektir.</string>
   <string name="scan_adware_start">Taramaya başla</string>
+  <string name="scan_adware_empty">Hiçbir kötü Adware yazılımı bulunamadı!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Yerel:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -177,6 +187,8 @@
   <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
   <string name="pref_update_only_on_wifi">Sadece Wifi üzerinden güncelle</string>
   <string name="pref_update_only_on_wifi_summary">Wifi bağlı olduğunda sadece geri plan güncelleştirmeleri yürüt.</string>
+  <string name="pref_whitelist_redirection_rules">Yönlendirmeye ve beyaz liste oluşturmaya izin ver.</string>
+  <string name="pref_whitelist_redirection_rules_summary">Host kaynaklarındaki yönlendirmeye ve beyaz listeye izin ver.</string>
   <string name="pref_debug">Hata ayıklama</string>
   <string name="pref_enable_debug">Hata ayıklama kaydı</string>
   <string name="pref_enable_debug_summary">Ayarların etkin olması için AdAway yeniden başlatın.</string>

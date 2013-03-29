@@ -2,7 +2,7 @@
 <head></head>
 <body>
 <h2>有關 HTC 手機</h2>
-<p>AdAway 無法運作當您的手機有啟用 S-ON 功能。這個既特別又麻煩的功能存在於很多 HTC 的手機上去防止 AdAway 寫入 hosts 檔。</p>
+<p>AdAway 在有啟用 S-ON 功能的手機上會無法運作。這個既特別又麻煩的功能存在於很多 HTC 的手機去防止 AdAway 寫入 hosts 檔。</p>
 
 <h2>甚麼是 S-ON/S-OFF？</h2>
 <p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
@@ -11,13 +11,13 @@
 <p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
 <br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
-<h2>變通的解決方法</h2>
+<h2>暫時的解決方法</h2>
 <p>前提: 您需要在電腦中安裝已包含 adb shell 的 Android SDK。
 </p>
 <ol>
-<li>按住手機的「調低音量鍵」同時按下電源鍵，手機開啟會顯示開機選單。(不同手機有各自不同的按鍵組合去進入開機選單模式，請先自行了解)</li>
+<li>按住手機的「調低音量鍵」同時按下電源鍵，手機開啟會顯示開機選單。(不同手機有各自不同的按鍵組合去進入開機選單，請先自行了解)</li>
 <li>使用「調低音量鍵」去選擇 recovery。</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
+<li>在 recovery 中再次使用「調低音量鍵」去選擇 partitions menu</li>
 <li>選擇 mount /system，mount /sdcard 及 mount /data。</li>
 <li>Plug in your usb cord and open a command line on your pc.</li>
 <li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>

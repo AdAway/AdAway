@@ -1,0 +1,33 @@
+<html>
+<head></head>
+<body>
+<h2>Inkomsten via reclames</h2>
+<p>Er is een vaak voorkomende misvatting dat als een gebruiker nooit op reclames klikt, het blokkeren van deze reclames een site of applicatie financieel niet schaad. Dit klopt niet, ontwikkelaars verdienen ook geld door het alleen te tonen van reclames. Het is aan u of u deze wel of niet blokkeert. Persoonlijk zou ik applicaties die reclames tonen niet gebruiken, omdat ik deze hinderlijk vind, dus zonder ad blocker zou ik deze applicaties niet eens installeren.</p>
+
+
+
+<h2>Hoe werkt AdAway?</h2>
+<p>
+AdAway gebruikt het <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts bestand</a> om hostnamen te blokkeren die reclames aanbieden. Het hosts bestand is een bestand in <tt>/system/etc/hosts</tt> welke hostnamen omzet naar IP adressen. Het is de traditionele manier om hostnaam naar IP adres paren te definiëren, met het Domain Name System (DNS). Alle ongewenste hostnamen woorden doorverween naar <tt>127.0.0.1</tt>, wat betekend dat deze naar uw eigen apparaat zullen verwijzen.</p>
+
+<h2>Waarom is de dagelijkse update controle voorkeur onbeschikbaar?</h2>
+<p>Automatisch controleren op updates is alleen beschikbaar als AdAway is geïnstalleerd op het interne telefoon geheugen. Dit komt door beperkingen van het Android platform.</p>
+
+<h2>Waarom moet ik Android herstarten om veranderingen effect te laten hebben?</h2>
+<p>Java op Android houd zijn eigen interne DNS cache bij. Het besturingssysteem zal het nieuwe hosts bestand meteen gebruiken (controleer dit met ping op de command line) maar u zal Android opnieuw moeten opstarten om het DNS cache van java opnieuw op te bouwen.</p>
+
+<h2>Hoe gebruik ik de webserver in AdAway?</h2>
+<p><b>AdAway zal ook werken zonder het gebruik van de webserver!</b>
+<br/><br/>U kunt een lokale webserver inschakelen vanuit de voorkeuren van AdAway om verzoeken te beantwoorden naar het lokale IP adres <tt>127.0.0.1</tt>. Dit betekend dat verzoeken van applicaties aan reclame servers die doorverwezen worden naar <tt>127.0.0.1</tt>, beantwoord worden door de webserver van AdAway.
+<br/>Sommige applicaties weigeren te werken als reclame servers niet bereikbaar zijn. Met deze methode zullen ze weer bereikbaar zijn, echter resulteren ze een witte pagina en geen reclame afbeeldingen.</p>
+
+<h2>Hoe kan ik specifieke hostnamen (de)blokkeren?</h2>
+<p>U kunt uw eigen server opzetten die een hosts bestand aanbied met hostnamen die u geblokkeerd wilt zien en deze toevoegen aan de <i>Hosts Bronnen</i> of voeg de hostnamen die u wilt blokkeren toe aan de Blacklist (=Black) onder <i>Uw Lijsten</i>.  Bovendien kunt u hostnamen die u wilt uitzonderen van de blokkade toevoegen aan de <i>Whitelist</i> (=White) en hostnamen die u wilt doorverwijzen naar een specifiek IP adres horen thuis in de <i>Doorverwijzing Lijst</i> (=Redirection).</p>
+
+<h2>Waar kan ik meer hosts bronnen vinden?</h2>
+<p>Zie <a href="http://code.google.com/p/ad-away/wiki/HostsSources">Lijst met extra hosts bronnen voor AdAway</a>.</p>
+
+<h2>Ik heb een bug in AdAway gevonden!</h2>
+<p>Rapporteert u alstublieft in de <a href="http://code.google.com/p/ad-away/issues/list">bug tracker van AdAway</a>.</p>
+</body>
+</html>

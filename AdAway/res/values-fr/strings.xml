@@ -129,6 +129,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problèmes</string>
+  <string name="help_tab_changelog">Nouveautés dans cette version</string>
   <string name="help_about_version">Version :</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Ici, vous pouvez rechercher les \"mauvais\" logiciels publicitaires, ceux qui ne peuvent être bloqués par AdWay. La seule alternative est de désinstaller ces logiciels en cliquant dans la listes ci-dessous !</string>

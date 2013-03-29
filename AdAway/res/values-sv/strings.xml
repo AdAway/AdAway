@@ -16,6 +16,7 @@
   <string name="button_webserver_toggle_checked">Webbserver körs</string>
   <string name="button_webserver_toggle_unchecked">Webbserver körs inte</string>
   <string name="button_help">Hjälp</string>
+  <string name="button_tcpdump_open">Öppna loggfil</string>
   <string name="button_tcpdump_delete">Radera loggfil</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Lägg till</string>
@@ -54,6 +55,7 @@
   <!--Apply and Revert Dialogs-->
   <string name="apply_not_enough_space_title">Inte tillräckligt med minne</string>
   <string name="apply_private_file_fail">Hämtad fil kunde inte läsas.</string>
+  <string name="apply_remount_fail_title">Ommontering misslyckades</string>
   <string name="apply_copy_fail_title">Kopiering misslyckades</string>
   <string name="apply_help">Läs Hjälp för mer information</string>
   <string name="no_connection">Internetanslutningen fungerar inte.</string>
@@ -82,6 +84,7 @@
   <string name="no_hostname_title">Felaktigt värdnamn</string>
   <string name="no_ip">Det här är inte en korrekt ip-adress!</string>
   <string name="no_ip_title">Felaktig IP-adress</string>
+  <string name="reboot_never_reboot">Starta aldrig om och visa inte det här meddelandet nästa gång!</string>
   <string name="loading">Laddar...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Uppdatera</string>
@@ -96,6 +99,7 @@
   <string name="menu_preferences">Inställningar</string>
   <!--Help-->
   <string name="help_tab_about">Om</string>
+  <string name="help_tab_donate">Donera</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problem</string>
@@ -113,13 +117,17 @@
   <string name="no_file_manager_title">Ingen filhanterare installerad</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Loggfil raderad!</string>
+  <string name="tcpdump_log_context_browser">Öppna i Webbläsare</string>
   <!--Preferences-->
+  <string name="pref_update_check">Sök efter uppdateringar</string>
   <string name="pref_header_preferences">Inställningar</string>
+  <string name="pref_header_preferences_summary">Allmänna inställningar för AdAway</string>
   <string name="pref_never_reboot">Göm omstartsruta</string>
   <string name="pref_webserver_on_boot">Starta webbserver vid start</string>
   <string name="pref_webserver_enabled">Aktivera webbserver</string>
   <string name="pref_webserver">Lokal webbserver</string>
   <string name="pref_update_check_summary">Sök efter uppdateringar när appen startas</string>
+  <string name="pref_sdcard_problem">Denna funktion kommer inte att fungera korrekt om AdAway är installerat på sdkortet!</string>
   <string name="pref_background">Bakgrundstjänster</string>
   <string name="pref_update_check_daily">Sök efter uppdateringar dagligen</string>
   <string name="pref_automatic_update_daily">Automatiska uppdateringar</string>

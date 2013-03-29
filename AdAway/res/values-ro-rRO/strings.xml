@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Buttons-->
+  <string name="button_exit">Iesire</string>
+  <string name="button_apply">Descarca fisierele si blocheaza reclamele!</string>
+  <string name="button_close">Inchide</string>
+  <string name="button_yes">Da</string>
+  <string name="button_no">Nu</string>
+  <string name="button_revert">Dezactiveaza programul.</string>
+  <string name="button_add">Adauga</string>
+  <string name="button_cancel">Anuleaza</string>
+  <string name="button_apply_text">Toate fisierele \"host\" din sursa definita vor fi descarcate, combinate cu lista personala si apoi instalate ca un fisier \"hosts\" unitar.  </string>
+  <string name="button_revert_text">Restaureaza fisierele \"host\" prestabilite.</string>
+  <string name="button_save">Salveaza</string>
+  <string name="button_webserver_toggle_checked">Server activ</string>
+  <string name="button_webserver_toggle_unchecked">Server inactiv</string>
+  <string name="button_webserver_toggle_text">Activeaza sau dezactiveaza serverul in mod local, pentru a raspunde cererilor pentru \"hostname\" blocate.</string>
+  <string name="button_help">Ajutor</string>
+  <string name="button_tcpdump_text">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump este activ!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump nu este activ!</string>
+  <string name="button_tcpdump_open">Deschide fisierul \"log\"</string>
+  <string name="button_tcpdump_delete">Sterge fisierul \"log\"</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Adauga</string>
+  <string name="checkbox_list_empty">Sterge toate datele din lista</string>
+  <string name="checkbox_list_empty_text">Poti adauga elemente din bara (action bar)</string>
+  <string name="checkbox_list_context_delete">Sterge</string>
+  <string name="checkbox_list_footer">Apasa \"aplica\" dupa adaugarea noilor fisiere/atribute, </string>
+  <string name="checkbox_list_edit_dialog_title">Editeaza</string>
+  <string name="checkbox_list_context_title">Editeaza pozitia curenta</string>
+  <string name="checkbox_list_context_edit">Editeaza</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Lista cu permisiuni acceptate (white list)</string>
+  <string name="lists_tab_blacklist">Lista cu permisiuni blocate (black list)</string>
+  <string name="lists_tab_blacklist_short">Negru</string>
+  <string name="lists_tab_whitelist_short">Alb</string>
+  <string name="lists_tab_redirection_list_short">Redirectionare</string>
+  <string name="lists_tab_redirection_list">Lista redirectionare</string>
+  <string name="list_dialog_url">Adresa (URL)</string>
+  <string name="list_dialog_hostname">Numele de \'host\"</string>
+  <string name="list_dialog_ip">Adresa IP (IPv4 or IPv6):</string>
+  <string name="export_success">Toate datele au fost exportate pe sdcard sub numele \"adaway-export\" </string>
+  <!--Status Notifications-->
+  <string name="status_reverting_subtitle">Sistemul creaza fisiere \"hosts\" standard.</string>
+  <string name="status_checking_subtitle">Verifica daca exista o noua versiune</string>
+  <string name="status_update_available">O noua versiune este disponibila </string>
+  <string name="status_update_available_subtitle">Noi fisiere \"host\" sunt disponibile</string>
+  <string name="status_no_connection">Nu exista conexiune internet</string>
+  <string name="status_no_connection_subtitle">Nu exista conexiune internet</string>
+  <string name="status_enabled">Activat</string>
+  <string name="status_enabled_subtitle">Cele mai noi versiuni ale fisierelor \"host\" au fost activate</string>
+  <string name="status_disabled">Dezactivat</string>
+  <string name="status_disabled_subtitle">Dezactivat</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing_title">Legatura tip \"symlink\" lipseste</string>
+  <string name="apply_not_enough_space_title">Insuficient spatiu</string>
+  <string name="apply_private_file_fail">Fisierul descarcat nu poate fi citit</string>
+  <string name="apply_private_file_fail_title">Lansare nereusita a fisierul cu atribute speciale (private)</string>
+  <string name="apply_remount_fail">Reactivarea partitiei ca citire/scriere nereusita!</string>
+  <string name="apply_remount_fail_title">Reactivare partitie nereusita (remount)</string>
+  <string name="apply_copy_fail">Copierea fisierelor \"hosts\" nereusita</string>
+  <string name="apply_copy_fail_title">Copiere nereusita</string>
+  <string name="apply_success_title">Aplicarea modificariolor a fost reusita</string>
+  <string name="apply_symlink_successful_title">Crearea \"symlink\" a fost reusita</string>
+  <string name="apply_symlink_fail_title">Crearea \"symlink\" nereusita</string>
+  <string name="apply_help">Citeste sectiunea \"Ajutor\" pentru mai multe informatii!</string>
+  <string name="apply_apn_proxy_title">APN proxy a fost setat!</string>
+  <string name="no_connection">Conexiunea internet nu functioneaza</string>
+  <string name="no_connection_title">Nu exista conexiune!</string>
+  <string name="apply_dialog_lists">Sistemul aplica atributele ambelor liste (acceptate + blocate) </string>
+  <string name="apply_dialog_hostnames">Analizeaza nodurile si atributele (parsing) si combina fisierele (hosts)</string>
+  <string name="apply_dialog_hosts">Sistemul genereaza fisiere \"hosts\"</string>
+  <string name="apply_dialog_apply">Sistemul aplica fisierele \"hosts\"</string>
+  <string name="apply_fail_title">Aplicarea modificarilor nu a fost reusita</string>
+  <string name="revert_successful_title">Restaurarea starii precedente a fost reusita</string>
+  <string name="revert_problem">Restaurare nereusita din cauze necunoscute!</string>
+  <string name="revert_problem_title">Restaurare nereusita!</string>
+  <string name="download_fail_title">Descarcare nereusita</string>
+  <string name="no_private_file">Fisierul cu atribute speciale nu poate fi creat</string>
+  <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">Android are nevoie de \"root\"</string>
+  <string name="no_url">Adresa (URL) invalida</string>
+  <string name="no_url_title">Adreasa (URL) malformata</string>
+  <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
+  <string name="no_hostname">Nume invalid pentru fisierul \"host\"</string>
+  <string name="no_hostname_title">Numele fisierului \"host\" este malformat</string>
+  <string name="no_ip">Invalid IP!</string>
+  <string name="no_ip_title">Adresa IP malformata</string>
+  <string name="reboot_never_reboot">Nu reporni (never reboot) si ascunde acest mesaj pe viitor!</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Regenerare</string>
+  <string name="menu_add">Adauga</string>
+  <string name="menu_hosts_sources">Sursele (hosts)</string>
+  <string name="menu_tcpdump">Cerere de creare Log DNS</string>
+  <string name="menu_help">Ajutor</string>
+  <string name="menu_lists">Lista personala</string>
+  <string name="menu_show_hosts_file">Deschide fisierele \"hosts\"</string>
+  <string name="menu_import">Importa toate listele</string>
+  <string name="menu_export">Exporta toate listele</string>
+  <string name="menu_preferences">Preferinte (setari)</string>
+  <!--Help-->
+  <string name="help_tab_faq">Lista cu intrebari frecvente</string>
+  <string name="help_tab_problems">Probleme</string>
+  <!--Scan Adware-->
+  <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Local:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <!--Other-->
+  <string name="app_subtitle">Program care blocheaza reclame</string>
+  <string name="no_text_editor_title">Nu exista un editor de text instalat in system.</string>
+  <string name="no_file_manager_title">Nu exista un manager de fisiere instalat in sistem</string>
+  <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Fisierul \"log\" a fost sters!</string>
+  <string name="toast_tcpdump_added_to_blacklist">\"Hostname\" a fost adaugat la lista \"blacklist\"!</string>
+  <string name="toast_tcpdump_added_to_whitelist">\"Hostname\" a fost adaugat la lista \"whitelist\"!</string>
+  <string name="tcpdump_log_context_blacklist">Adauga la lista \"blacklist\"! </string>
+  <string name="tcpdump_log_context_whitelist">Adauga la lista \"whitelist\"! </string>
+  <string name="tcpdump_log_context_browser">Deschide in Browser!</string>
+  <string name="tcpdump_log_empty">Fisierul \"log\" nu contine nici o data!</string>
+  <string name="tcpdump_log_footer">Apasa lung pe \"hostname\" pentru a-l adauga la lista \"whitelist\" sau \"blacklist\"</string>
+  <!--Preferences-->
+  <string name="pref_download">Preferinte generale</string>
+  <string name="pref_hosts">Fisier \"hosts\"</string>
+  <string name="pref_redirection_ip">Redirectionare IP</string>
+  <string name="pref_update_check">Verifica daca exista o versiune noua</string>
+  <string name="pref_apply_method">Locatie fisier \"hosts\" </string>
+  <string name="pref_apply_method_summary">Citeste sectiunea \"Ajutor\" inainte de a modifica aceste setari!</string>
+  <string name="pref_redirection_ip_summary">Toate \"hostnames\" vor fi redirectionate la aceasta adresa IP</string>
+  <string name="pref_header_preferences">Preferinte</string>
+  <string name="pref_header_preferences_summary">Preferinte generale pentru AdAway</string>
+  <string name="pref_never_reboot">Ascunde dialogul pentru repornire (reboot)</string>
+  <string name="pref_never_reboot_summary">Ascunde dialogul care cere repornirea sistemului dupa ce modificarile au fost aplicate cu succes. </string>
+  <string name="pref_webserver_on_boot">Activeaza serverul la repornire</string>
+  <string name="pref_webserver_enabled">Activeaza serverul</string>
+  <string name="pref_webserver_enabled_summary">Activeaza serverul care verifica adresele de IP locale, pentru a raspunde cererilor pentru \"hostname\" blocate.</string>
+  <string name="pref_webserver">Server local</string>
+  <string name="pref_custom_target">Locatie aleasa de utilizator</string>
+  <string name="pref_custom_target_summary">Folosit numai daca locatia fisierul \"hosts\" este setat ca \"locatie aleasa de utilizator\" </string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Locatie aleasa de utilizator</item>
+  </string-array>
+  <string name="pref_update_check_summary">La repornirea programului verifica daca exista o versiune noua.</string>
+  <string name="pref_sdcard_problem">Nu functioneaza corect daca AdAway este instalat pe sdcard!</string>
+  <string name="pref_background">Serviciu in \"background\"</string>
+  <string name="pref_update_check_daily">Verifica zilnic daca exista o versiune noua </string>
+  <string name="pref_update_check_daily_summary">Verifica zilnic (in background) daca exista o versiune noua si notifica. </string>
+  <string name="pref_automatic_update_daily">Update automat</string>
+  <string name="pref_automatic_update_daily_summary">Update automat (in background) daca exista versiune noua.</string>
+  <string name="pref_debug">Debug</string>
+  <string name="pref_enable_debug">Debug logging</string>
+  <string name="pref_enable_debug_summary">Reporneste AdAway pentru ca modificarile sa fie aplicate!</string>
+</resources>

@@ -3,15 +3,15 @@
   <string name="app_name">AdAway HU</string>
   <!--Buttons-->
   <string name="button_exit">Kilép</string>
-  <string name="button_apply">Fájlok letöltése és alkalmazása hirdetések blokkolására</string>
+  <string name="button_apply">Fájlok letöltése és hirdetés blokkolás alkalmazása</string>
   <string name="button_close">Bezár</string>
   <string name="button_yes">Igen</string>
   <string name="button_no">Nem</string>
-  <string name="button_revert">Blokkolás tiltása</string>
+  <string name="button_revert">Hirdetés blokkolás tiltása</string>
   <string name="button_add">Új</string>
   <string name="button_cancel">Mégsem</string>
   <string name="button_apply_text">Minden host fájlt letölt a kijelölt forrásokból, összefűzi a saját listákkal és egy host fájlt telepít a rendszerre.</string>
-  <string name="button_revert_text">Visszaállítja az alapértelmezett host fájlt a rendszerre.</string>
+  <string name="button_revert_text">Visszaállítja az alapértelmezett host fájlt.</string>
   <string name="button_save">Ment</string>
   <string name="button_webserver_toggle_checked">A webszerver fut</string>
   <string name="button_webserver_toggle_unchecked">A webszerver nem fut</string>
@@ -23,13 +23,13 @@
   <string name="button_tcpdump_open">Naplófájl megnyitása</string>
   <string name="button_tcpdump_delete">Naplófájl törlése</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Új</string>
+  <string name="checkbox_list_add_dialog_title">Hozzáad</string>
   <string name="checkbox_list_empty">Üres lista</string>
   <string name="checkbox_list_empty_text">Adhatsz hozzá elemeket a menüből.</string>
   <string name="checkbox_list_context_delete">Töröl</string>
   <string name="checkbox_list_footer">Új elem hozzáadását követően a listát újra alkalmazni kell az AdAway-ben!</string>
   <string name="checkbox_list_edit_dialog_title">Szerkeszt</string>
-  <string name="checkbox_list_context_title">Bejegyzések szerk.</string>
+  <string name="checkbox_list_context_title">Bejegyzés szerk.</string>
   <string name="checkbox_list_context_edit">Szerkeszt</string>
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Fehérlista</string>
@@ -56,8 +56,8 @@
   <string name="status_no_connection_subtitle">Nincs elérhető internet kapcsolat</string>
   <string name="status_download_fail">Elérhetetlen forrás</string>
   <string name="status_download_fail_subtitle_new">Nincs elérhető host forrás!</string>
-  <string name="status_enabled">Engedett</string>
-  <string name="status_enabled_subtitle">Újabb host fájlok engedélyezettek</string>
+  <string name="status_enabled">Engedélyezett</string>
+  <string name="status_enabled_subtitle">Legújabb host fájlok engedélyezettek</string>
   <string name="status_disabled">Tiltott</string>
   <string name="status_disabled_subtitle">Tiltott</string>
   <!--Apply and Revert Dialogs-->
@@ -98,7 +98,7 @@
   <string name="download_fail_dialog">Nincs engedélyezve a host források elérése! Megfelelően csatlakozol az Internethez?</string>
   <string name="download_fail_title">Sikertelen letöltés</string>
   <string name="no_private_file">Privát fájl nem hozható létre.</string>
-  <string name="no_private_file_title">Privát fájl sikertelen létrehozása.</string>
+  <string name="no_private_file_title">Privát fájl létrehozása sikertelen.</string>
   <!--Other Dialogs-->
   <string name="no_root_description">\"Vagy az su bináris nem található, vagy nem engedélyeztük a root jogot az AdAway számára.⏎ ⏎ Ez akkor fordulhat elő ha a készülék nem rootolt.⏎ A rootolás folyamatáról információt találhat a www.cyanogenmod.com vagy egyéb Android témájú weblapokon.</string>
   <string name="no_root_title">Rootolt rendszer szükséges</string>
@@ -113,7 +113,7 @@
   <string name="loading">Betöltés...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Frissítés</string>
-  <string name="menu_add">Új</string>
+  <string name="menu_add">Hozzáad</string>
   <string name="menu_scan_adware">Adware keresése</string>
   <string name="menu_hosts_sources">Host források</string>
   <string name="menu_tcpdump">DNS kérések naplózása</string>
@@ -122,13 +122,14 @@
   <string name="menu_show_hosts_file">Host fájl megnyitása</string>
   <string name="menu_import">Összes lista importja</string>
   <string name="menu_export">Összes lista exportja</string>
-  <string name="menu_preferences">Lehetőségek</string>
+  <string name="menu_preferences">Beállítások</string>
   <!--Help-->
   <string name="help_tab_about">Névjegy</string>
   <string name="help_tab_donate">Adományozás</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_faq">GYIK</string>
   <string name="help_tab_problems">Problémák</string>
+  <string name="help_tab_changelog">Változások</string>
   <string name="help_about_version">Verzió:</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Itt lehet keresni hibás adware alkalmazásokat, amelyeket nem blokkol az AdAway.. Az alkalmazás pl. Airpush felugró értesítést használ, még ha az app nem is fut, vagy megváltoztatja a csengőhangot. Ellenintézkedésként csak az app eltávolítása lehetséges a listaelemet érintve!</string>
@@ -154,7 +155,7 @@
   <string name="tcpdump_log_empty">A naplófájl üres!</string>
   <string name="tcpdump_log_footer">A tétel hosszú érintéssel hozzáadható a fekete-, vagy fehérlistához!</string>
   <!--Preferences-->
-  <string name="pref_download">Általános lehetőségek</string>
+  <string name="pref_download">Általános beállítások</string>
   <string name="pref_hosts">Host fájl</string>
   <string name="pref_redirection_ip">IP átirányítás</string>
   <string name="pref_update_check">Frissítések ellenőrzése</string>
@@ -162,7 +163,7 @@
   <string name="pref_apply_method_summary">A beállítások módosítása előtt olvasd el funkcióját a Súgó-ban.</string>
   <string name="pref_redirection_ip_summary">Minden blokkolt hostnév átirányítása erre az IP címre</string>
   <string name="pref_header_preferences">Lehetőségek</string>
-  <string name="pref_header_preferences_summary">Az AdAway általános lehetőségei</string>
+  <string name="pref_header_preferences_summary">Az AdAway általános beállításai</string>
   <string name="pref_never_reboot">Újraindítási ablak elrejtése</string>
   <string name="pref_never_reboot_summary">Elrejti az ablakot, amelyben kéri a készülék újraindítását a sikeres alkalmazás érdekében</string>
   <string name="pref_webserver_on_boot">Webszerver indítás bootoláskor</string>

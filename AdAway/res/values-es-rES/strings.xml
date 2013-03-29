@@ -5,7 +5,7 @@
   <string name="button_exit">Salir</string>
   <string name="button_apply">Descargar archivos y aplicar bloqueo de anuncios</string>
   <string name="button_close">Cerrar</string>
-  <string name="button_yes">Si</string>
+  <string name="button_yes">Sí</string>
   <string name="button_no">No</string>
   <string name="button_revert">Desactivar el bloqueo de anuncios</string>
   <string name="button_add">Añadir</string>
@@ -107,9 +107,9 @@
   <string name="hosts_add_dialog">Entrada de URL al archivo hosts:</string>
   <string name="no_hostname">¡Esto no es un nombre de host válido!</string>
   <string name="no_hostname_title">Nombre de host incorrecto</string>
-  <string name="no_ip">¡Esto no es una IP válida!</string>
+  <string name="no_ip">¡Esta no es una IP válida!</string>
   <string name="no_ip_title">IP incorrecta</string>
-  <string name="reboot_never_reboot">¡Nunca reinicies y no me muestres esta pregunta la próxima vez!</string>
+  <string name="reboot_never_reboot">¡Nunca reiniciar y no me muestres esta pregunta la próxima vez!</string>
   <string name="loading">Cargando...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Refrescar</string>
@@ -129,6 +129,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemas</string>
+  <string name="help_tab_changelog">Registro de cambios</string>
   <string name="help_about_version">Versión:</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Aquí puedes buscar aplicaciones malas con Adware, que no pueden ser bloqueadas por AdAway. Estas aplicaciones usan, por ejemplo, notificaciones Airpush que aparecen incluso cuando la aplicación no está en ejecución o incluso cambian tu tono de llamada. ¡La única contramedida disponible es desinstalar estas aplicaciones pulsando en la lista de elementos!</string>
@@ -186,6 +187,8 @@
   <string name="pref_automatic_update_daily_summary">Actualizar automáticamente en segundo plano si hay actualizaciones disponibles.</string>
   <string name="pref_update_only_on_wifi">Actualizar sólo con Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Actualizar en segundo plano sólo cuando esté conectado a una red Wifi.</string>
+  <string name="pref_whitelist_redirection_rules">Permitir redirecciones y listas blancas</string>
+  <string name="pref_whitelist_redirection_rules_summary">Permitir redirecciones y listas blancas de fuentes de servidores.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug Logging</string>
   <string name="pref_enable_debug_summary">Necesitas reiniciar AdAway para que esta opción tenga efecto.</string>

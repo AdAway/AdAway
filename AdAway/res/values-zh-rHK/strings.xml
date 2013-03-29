@@ -17,6 +17,7 @@
   <string name="button_webserver_toggle_unchecked">網頁伺服器沒有運行</string>
   <string name="button_webserver_toggle_text">啟動或停止本地網頁伺服器去回應已攔截主機名稱的請求。</string>
   <string name="button_help">幫助</string>
+  <string name="button_tcpdump_text">Tcpdump 是一個背景執行的工具用來記錄 DNS 請求及將它們儲存到記錄檔中。您可在這裡開啟 Tcpdump，然後執行會顯示廣告的應用程式，之後再利用記錄檔分析那些 DNS 的請求，將最有可能是廣告伺機器的主機名稱加至黑名單中。</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump 正在運行！</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump 沒有運行！</string>
   <string name="button_tcpdump_open">開啟記錄檔</string>
@@ -40,7 +41,7 @@
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主機名稱:</string>
   <string name="list_dialog_whitelist_hostname">主機名稱:\n(可使用萬用字元 * 及 ?)</string>
-  <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+  <string name="list_dialog_ip">IP (IPv4 或 IPv6):</string>
   <string name="import_dialog">導入中…</string>
   <string name="export_dialog">導出中…</string>
   <string name="export_success">所有項目已導出至 SD 卡，檔案名稱為 adaway-export 。</string>
@@ -54,11 +55,13 @@
   <string name="status_no_connection">沒有任何網絡連接</string>
   <string name="status_no_connection_subtitle">没有可用的網絡連接</string>
   <string name="status_download_fail">來源無法使用</string>
+  <string name="status_download_fail_subtitle_new">不能到達任何 hosts 來源！</string>
   <string name="status_enabled">已啟用</string>
   <string name="status_enabled_subtitle">新的 hosts 檔已啟用</string>
   <string name="status_disabled">已停用</string>
   <string name="status_disabled_subtitle">已停用</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing_title">遺失符號連結</string>
   <string name="apply_not_enough_space">分割區沒有足夠的空間！\n請嘗試在設定中，更改目標 hosts 檔為 /data/data/hosts。</string>
   <string name="apply_not_enough_space_title">沒有足夠的空間</string>
   <string name="apply_private_file_fail">不能讀取已下載的檔案。</string>
@@ -70,6 +73,7 @@
   <string name="apply_success_subtitle">成功的 hosts 來源:</string>
   <string name="apply_success_title">套用成功</string>
   <string name="apply_success_dialog">套用成功。\n您可能需要重新啟動 Android 才能使變更生效。\n\n您要重新啟動嗎？\n(為防資料流失，請確定没有任何應用程式正在使用 SD 卡！)</string>
+  <string name="apply_symlink_successful">成功建立符號連結。\n您可能需要重新啟動 Android 才能使變更生效。\n\n您要重新啟動嗎？\n(為防資料流失，請確定没有任何應用程式正在使用 SD 卡！)</string>
   <string name="apply_symlink_successful_title">成功建立符號連結</string>
   <string name="apply_symlink_fail_title">建立符號連結失敗</string>
   <string name="apply_help">請閱讀幫助以獲取更多資訊。</string>
@@ -122,9 +126,10 @@
   <string name="help_tab_s_on_s_off">有關 S-ON/S-OFF</string>
   <string name="help_tab_faq">常見問題</string>
   <string name="help_tab_problems">其他問題</string>
+  <string name="help_tab_changelog">更新記錄</string>
   <string name="help_about_version">版本:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">以下所掃瞄出來的應用程式相信已附帶廣告軟件，這些應用程式所顯示的廣告是不能被 AdAway 攔截的。這些應用程式就算沒有運行，也會彈出例如Airpush 或其他相關的廣告提示。唯一的解決方法就是在以下選單中點擊應用程式及移除它們！</string>
+  <string name="scan_adware_description">以下所掃瞄出來的應用程式相信已附帶廣告軟件，這些應用程式所顯示的廣告是不能被 AdAway 攔截的。這些應用程式就算沒有運行，也會彈出例如 Airpush 或其他廣告相關的狀況列提示。唯一的解決方法就是在以下選單中點擊應用程式及移除它們！</string>
   <string name="scan_adware_start">開始掃瞄</string>
   <string name="scan_adware_empty">沒有找到任何附帶廣告軟件的應用程式！</string>
   <!--Hosts Sources-->
@@ -154,9 +159,13 @@
   <string name="pref_apply_method">目標 hosts 檔</string>
   <string name="pref_apply_method_summary">在更改此設定前，請先閱讀幫助去理解此功能。</string>
   <string name="pref_header_preferences">設定</string>
-  <string name="pref_header_preferences_summary">AdAway一般設定</string>
+  <string name="pref_header_preferences_summary">AdAway 的一般設定</string>
   <string name="pref_never_reboot">隱藏重新啟動系統的提示</string>
-  <string name="pref_never_reboot_summary">隱藏成功設定後要求重開機的對話框</string>
+  <string name="pref_never_reboot_summary">隱藏成功套用後要求重新啟動系統的提示</string>
+  <string name="pref_webserver_on_boot">在系統載入時開啟網頁伺服器</string>
+  <string name="pref_webserver_on_boot_summary">在系統載入時開啟網頁伺服器，同時監聽本地 IP 位置</string>
+  <string name="pref_webserver_enabled">開啟網頁伺服器</string>
+  <string name="pref_webserver">本地網頁伺服器</string>
   <string name="pref_custom_target">自定義目標位置</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
@@ -164,11 +173,16 @@
     <item>自定義目標位置</item>
   </string-array>
   <string name="pref_update_check_summary">在 AdAway 啟動時檢查更新</string>
+  <string name="pref_sdcard_problem">當 AdAway 安裝在 SD 卡上，這功能不能正常運作！</string>
   <string name="pref_background">背景執行服務</string>
   <string name="pref_update_check_daily">每日檢查更新</string>
+  <string name="pref_update_check_daily_summary">每日在背景檢查更新同時發出狀況列提示</string>
   <string name="pref_automatic_update_daily">自動更新</string>
+  <string name="pref_automatic_update_daily_summary">如有新的更新時，在背景執行自動更新。</string>
   <string name="pref_update_only_on_wifi">使用 Wifi 的情況下才進行更新</string>
   <string name="pref_update_only_on_wifi_summary">連接到 Wifi 網絡時才執行背景更新。</string>
+  <string name="pref_whitelist_redirection_rules">允許重新導向及使用白名單</string>
+  <string name="pref_whitelist_redirection_rules_summary">允許使用 Hosts 來源的重新導向及白名單項目</string>
   <string name="pref_debug">除錯</string>
   <string name="pref_enable_debug">記錄除錯</string>
   <string name="pref_enable_debug_summary">您需要重新啟動 AdAway 才能使此設定生效。</string>

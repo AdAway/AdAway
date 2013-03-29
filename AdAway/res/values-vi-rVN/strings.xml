@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Thoát</string>
   <string name="button_apply">Tải về và áp dụng chặn QC</string>
@@ -54,6 +55,7 @@
   <string name="status_no_connection">Không có Internet</string>
   <string name="status_no_connection_subtitle">Không có kết nối Internet</string>
   <string name="status_download_fail">Không có nguồn nào</string>
+  <string name="status_download_fail_subtitle_new">Không kết nối được tới bất cứ nguồn host nào!</string>
   <string name="status_enabled">Đã bật</string>
   <string name="status_enabled_subtitle">Đã dùng tệp host mới</string>
   <string name="status_disabled">Đã tắt</string>
@@ -69,8 +71,9 @@
   <string name="apply_remount_fail_title">Remount thất bại</string>
   <string name="apply_copy_fail">Thất bại khi chép tệp hosts</string>
   <string name="apply_copy_fail_title">Sao chép thất bại</string>
+  <string name="apply_success_subtitle">Các nguồn host thành công:</string>
   <string name="apply_success_title">Áp dụng thành công</string>
-  <string name="apply_success_dialog">Áp dụng thành công.\nCó thể cần phải reboot lại máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
+  <string name="apply_success_dialog">Áp dụng thành công.\nCó thể cần phải khởi động lại máy để thay đổi có hiệu lực.\n\nBạn có muốn khởi động lại máy không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
   <string name="apply_symlink_successful">Đã tạo symlink thành công.\nCó thể cần phải reboot máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!) </string>
   <string name="apply_symlink_successful_title">Tạo symlink thành công</string>
   <string name="apply_symlink_fail">Không thể tạo Symlink bằng Android.\nPhần lớn nguyên nhân do \'tính năng\' gọi là S-ON trên thiết bị HTC!\n\nGiải pháp là boot  phone vào chế độ recovery và tạo symlink với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu không được hãy tìm kiếm trên Internet chuỗi S-OFF và tên thiết bị của bạn.</string>
@@ -92,6 +95,7 @@
   <string name="revert_successful_title">Khôi phục thành công</string>
   <string name="revert_problem">Khôi phục lại do nguyên nhân thất bại chưa rõ.</string>
   <string name="revert_problem_title">Khôi phục thất bại!</string>
+  <string name="download_fail_dialog">Không kết nối được tới bất cứ nguồn host nào mà bạn đã chọn! Bạn có đang kết nối với mạng Internet không?</string>
   <string name="download_fail_title">Tải về thất bại</string>
   <string name="no_private_file">Không thể tạo tệp riêng</string>
   <string name="no_private_file_title">Tạo tệp riêng đã thất bại</string>
@@ -106,9 +110,11 @@
   <string name="no_ip">Đây không phải là IP hợp lệ!</string>
   <string name="no_ip_title">IP không đúng</string>
   <string name="reboot_never_reboot">Không bao giờ reboot và không hiện câu hỏi này nữa!</string>
+  <string name="loading">Đang tải...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Làm tươi</string>
   <string name="menu_add">Thêm</string>
+  <string name="menu_scan_adware">Tìm Adware</string>
   <string name="menu_hosts_sources">Nguồn hosts</string>
   <string name="menu_tcpdump">Yêu cầu ghi nhật ký DNS</string>
   <string name="menu_help">Trợ giúp</string>
@@ -119,13 +125,20 @@
   <string name="menu_preferences">Cấu hình</string>
   <!--Help-->
   <string name="help_tab_about">Thông tin</string>
+  <string name="help_tab_donate">Quyên góp</string>
+  <string name="help_tab_s_on_s_off">S-BẬT/S-TẮT</string>
   <string name="help_tab_faq">Hỏi đáp</string>
   <string name="help_tab_problems">Vấn đề</string>
+  <string name="help_tab_changelog">Các thay đổi</string>
   <string name="help_about_version">Phiên bản:</string>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Tại đây bạn có thể tìm các ứng dụng xấu mà Adware không thể khóa chúng. Những ứng dụng này, chẳng hạn như Airpush, có khả năng hiển thị thông báo kiểu tự bung ngay cả khi ứng dụng đang không chạy, hay thậm chí chúng có thể thay đổi nhạc chuông của máy. Biện pháp duy nhất là gỡ bỏ chúng bằng cách chọn từ danh sách!</string>
+  <string name="scan_adware_start">Bắt đầu quét</string>
+  <string name="scan_adware_empty">Không tìm thấy bất cứ ứng dụng xấu nào!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Cục bộ:</string>
   <string name="hosts_last_modified_online">Trực tuyến:</string>
+  <string name="hosts_not_available">không có sẵn</string>
   <!--Other-->
   <string name="app_subtitle">Chặn QC</string>
   <string name="no_text_editor_title">Không có trình sửa văn bản trên máy</string>
@@ -172,6 +185,10 @@
   <string name="pref_update_check_daily_summary">Tìm phiên bản mới mỗi ngày ở chế độ nền và thông báo</string>
   <string name="pref_automatic_update_daily">Tự động cập nhật</string>
   <string name="pref_automatic_update_daily_summary">Tự động cập nhật nếu có bản nâng cấo mới.</string>
+  <string name="pref_update_only_on_wifi">Chỉ cập nhật qua Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Chỉ tự động kiểm tra bản cập nhật khi có kết nối wifi</string>
+  <string name="pref_whitelist_redirection_rules">Cho phép tự chuyển hướng và danh sách tin cậy</string>
+  <string name="pref_whitelist_redirection_rules_summary">Cho phép tự chuyển hướng và các mục đáng tin cậy từ Các Nguồn Host.</string>
   <string name="pref_debug">Dò lỗi</string>
   <string name="pref_enable_debug">Nhật ký dò lỗi</string>
   <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để có hiệu lực</string>

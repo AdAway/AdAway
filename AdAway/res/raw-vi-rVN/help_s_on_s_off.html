@@ -8,21 +8,21 @@
 <p>S-OFF có nghĩa là phần NAND của thiết bị đã mở khoá và có thể ghi đè. Thiết lập mặc định cho các thiết bị HTC là S-ON khiến cho bạn không thể truy xuất khu vực hệ thống và cũng không thể root vĩnh viễn. Hơn nữa, cờ S-ON cũng tham gia vào quá trình kiểm tra chữ ký ảnh firmware.  </p>
 
 <h2>Máy của tôi S-ON hay S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Khởi động thiết bị vào Boot Menu bằng cách ấn đồng thời phím <i>giảm âm lượng</i> và nút nguồn và một dòng chữ trên cùng sẽ hiển thị một lá cờ trang thái S-OFF or S-ON. Thường thì máy đã root là S-OFF.
+<br/><br/>Xem thêm thông tin tại <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Khắc phục tạm</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
+<p>Điều kiện cần: Bạn phải cài đặt SDK Android với ADB shell trên máy tính.
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>Khởi động vào Boot Menu trên thiết bị bằng cách ấn đồng thời nút <i>giảm âm lượng</i> và nút nguồn.</li>
+<li>Dùng nút <i>giảm âm lượng</i> để chọn recovery.</li>
+<li>Ở chế độ clockwork recovery, ấn phím giảm âm lượng để chọn "trình đơn phân vùng" và ấn phím track pad để chọn</li>
+<li>Chọn <i>mount /system</i>, <i>mount /sdcard</i> và <i>mount /data</i>.</li>
+<li>Cắm dây nối USB và mở Command Prompt trên máy tính.</li>
+<li>Vào adb shell và gõ <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Lệnh này sẽ tạo ra một kiên kết tượng trưng cho phép AdAway chỉnh sửa tập tin host đã được lưu trữ ở <tt>/data</tt> trong khi vẫn cho phép hệ điều hành sử dụng tập tin đó như khi nó còn lưu trữ ở <tt>/system</tt>.)</li>
+<li>Khởi động lại máy và đặt <i>Tập tin host đích</i> thành <i>/data/data/hosts</i> trong Cấu Hình của AdAway.</li>
+<li>AdAway đa có thể làm việc.</li>
 </ol>
 </body>
 </html>

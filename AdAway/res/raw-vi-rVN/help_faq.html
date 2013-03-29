@@ -2,26 +2,26 @@
 <head></head>
 <body>
 <h2>Thu nhập từ quảng cáo</h2>
-<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+<p>Có những hiểu lầm rằng nếu một người dùng không bao giờ ấn vào quảng cáo, hoặc khóa chúng lại, thì sẽ làm ảnh hưởng tới tài chính của một một trang hoặc một ứng dụng. Điều này là sai, vì các nhà phát triển vẫn kiếm được tiền chỉ bằng cách đặt quảng cáo, không phụ thuộc vào việc bạn có khóa quảng cáo hay không. Cá nhân tôi sẽ không sử dụng các ứng dụng mà hiển thị quảng cáo bởi vì tôi thấy chúng rất bực mình, vì vậy nếu không có chương trình khóa quảng cáo, tôi sẽ không cài đặt các ứng dụng đó.</p>
 
 
 
 <h2>AdAway làm việc như thế nào?</h2>
 <p>AdAway sử dụng <a href="http://en.wikipedia.org/wiki/Hosts_file">file host </a> để chặn các danh sách host được dùng cho mục đích quảng cáo. File host được lưu tại <tt>/system/etc/hosts</tt> có tác dụng ánh xạ tên host thành địa chỉ IP. Đây là cách làm thông dụng để định nghĩa tên host với địa chỉ IP, không sử dụng Domain Name System (DNS). Mọi tên host không mong muốn sẽ được trỏ tới địa chỉ <tt>127.0.0.1</tt> trên máy của bạn.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>Tại sao mục thiết đặt cập nhật hàng ngày lại bị xám?</h2>
+<p>Tự động kiểm tra cập nhật chỉ có sẵn khi AdAway được cài đặt trên bộ nhớ trong. Đây là giới hạn của nền tảng Android.</p>
 
 <h2>Tại sao tôi phải khởi động lại Android để thay đổi có hiệu lực?</h2>
-<p>Java trên Android quản lý cache DNS nội tại của nó. Hệ điều hành sẽ phản chiếu tệp host mới ngay lập tức (kiểm tra với ping trên command line) nhưng bạn cần khởi động lại Android để tạo lại cache DNS của Java</p>
+<p>Java trên Android quản lý cache DNS nội tại của nó. Hệ điều hành sẽ phản chiếu tệp host mới ngay lập tức (kiểm tra với ping trên command line) nhưng bạn cần khởi động lại Android để tạo lại cache DNS của Java.</p>
 
 <h2>Sử dụng webserver trong AdAway như thế nào?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><b>AdAway sẽ hoạt động mà không cần sử dụng máy chủ!</b>
+<br/><br/>Bạn có thể cho phép máy chủ địa phương trong Cấu Hình của AdAway trả lời các truy vấn tới địa chỉ IP địa phương <tt>127.0.0.1</tt>. Điều đó có nghĩa là các truy vấn của ứng dụng tới máy chủ chứa quảng cáo sẽ được chuyển hướng tới <tt>127.0.0.1</tt> được trả lời bởi máy chủ của AdAway.
+<br/>Một số ứng dụng không hoạt động nếu không thể kết nối tới máy chủ chứa quảng cáo. Với phương pháp này, chúng sẽ có thể kết nối được, nhưng kết quả là một trang trắng không có quảng cáo gì hết.</p>
 
 <h2>Chặn/bỏ chặn tên host bất kỳ như thế nào?</h2>
-<p>You can set up your own server providing a hosts file with hostnames that you want to block and add it to the <i>Hosts Sources</i> or add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<p>Bạn có thể cài đặt máy chủ riêng của mình để cung cấp một tập tin host mà bạn muốn khóa và thêm nó vào trong <i>Các Nguồn Host</i> hoặc thêm hostnames mà bạn muốn khóa vào Danh Sách Đen (=Đen) trong <i>Danh Sách Của Bạn</i>. Còn nữa, hostname bạn muốn bỏ qua, không khóa chúng, có thể thêm vào <i>Danh Sách Trắng</i> (=Trắng) và hostnames mà bạn muốn chuyển tướng tới một địa chỉ IP nhất định nằm ở <i>Danh Sách Chuyển Hướng</i> (=Chuyển Hướng).</p>
 
 <h2>Tôi có thể tìm thêm nguồn host ở đâu?</h2>
 <p>Xem <a href="http://code.google.com/p/ad-away/wiki/HostsSources">danh sách các host khác cho AdAway</a>.</p>

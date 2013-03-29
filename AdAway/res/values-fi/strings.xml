@@ -83,8 +83,8 @@
   <string name="apply_apn_proxy_title">APN-\tvälityspalvelin on asetettu!</string>
   <string name="no_connection">Verkkoyhteys ei toimi.</string>
   <string name="no_connection_title">Ei yhteyttä</string>
-  <string name="download_dialog">Lataus:</string>
-  <string name="apply_dialog">Hyväksy</string>
+  <string name="download_dialog">Ladataan...</string>
+  <string name="apply_dialog">Hyväksytään...</string>
   <string name="apply_dialog_lists">Mustan listan ja valkoinen lista soveltaminen</string>
   <string name="apply_dialog_hostnames">Hosts-tiedostojen jäsentäminen ja yhdistäminen</string>
   <string name="apply_dialog_hosts">Luo hosts-tiedosto</string>
@@ -129,6 +129,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">UKK</string>
   <string name="help_tab_problems">Ongelmat</string>
+  <string name="help_tab_changelog">Muutokset</string>
   <string name="help_about_version">Versio:</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Täällä voit etsiä mainosohjelma-sovelluksia, joita AdAway ei voinut estää. Nämä sovellukset käyttävät esimerkiksi Airpush-ilmoituksia, jotka avautuvat vaikka sovellus ei ole käynnissä tai jopa vaihtaa soittoääntä. Ainut toimiva vastatoimi on poistaa kyseiset sovellukset klikkaamalla luettelokohteessa</string>
@@ -186,6 +187,8 @@
   <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
   <string name="pref_update_only_on_wifi">Päivitä vain WiFissä</string>
   <string name="pref_update_only_on_wifi_summary">Suorittaa taustapäivityksen vain, kun on WiFi-yhteys.</string>
+  <string name="pref_whitelist_redirection_rules">Salli uudelleenohjaaminen ja whitelist</string>
+  <string name="pref_whitelist_redirection_rules_summary">Salli hosts-lähteiden uudelleenohjaus- ja whitelist-säännöt</string>
   <string name="pref_debug">Virheenkorjaus</string>
   <string name="pref_enable_debug">Virheenkorjauslokin kirjaaminen</string>
   <string name="pref_enable_debug_summary">Sinun täytyy käynnistää Adaway uudelleen ottaaksesi asetukset käyttöön.</string>

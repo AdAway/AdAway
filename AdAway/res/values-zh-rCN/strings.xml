@@ -129,6 +129,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">问题</string>
+  <string name="help_tab_changelog">更新日志</string>
   <string name="help_about_version">版本：</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">你可以在这扫描那些不能被广告走开屏蔽的恶意广告应用。这种应用使用了诸如空中推送提醒等技术，可以在程序没有运行时弹出来，甚至改变你的铃声设置。唯一的应对措施就是在这个列表中点击，卸载它们！</string>

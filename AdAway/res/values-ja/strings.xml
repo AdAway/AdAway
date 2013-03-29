@@ -17,7 +17,7 @@
   <string name="button_webserver_toggle_unchecked">ウェブサーバーは動作していません</string>
   <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します。</string>
   <string name="button_help">ヘルプ</string>
-  <string name="button_tcpdump_text">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。高校のサーバーだと思われるものはブラックリストに追加出来ます。</string>
+  <string name="button_tcpdump_text">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。広告のサーバーだと思われるものはブラックリストに追加出来ます。</string>
   <string name="button_tcpdump_toggle_checked">TCPダンプは動作中です!</string>
   <string name="button_tcpdump_toggle_unchecked">TCPダンプは非動作中です!</string>
   <string name="button_tcpdump_open">ログファイルを開く</string>
@@ -129,9 +129,10 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">問題</string>
+  <string name="help_tab_changelog">更新履歴</string>
   <string name="help_about_version">バージョン:</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">AdAwayでブロックできない、アプリが起動していなくても通知領域に高校を表示したり、着信音を変えたりする悪質なアドウェアをスキャンできます。 アドウェア対策はそのアプリをアンインストールするしかありません!</string>
+  <string name="scan_adware_description">AdAwayでブロックできない、アプリが起動していなくても通知領域に広告を表示したり、着信音を変えたりする悪質なアドウェアをスキャンできます。 アドウェア対策はそのアプリをアンインストールするしかありません!</string>
   <string name="scan_adware_start">スキャンを開始</string>
   <string name="scan_adware_empty">アドウェアは検出されませんでした!</string>
   <!--Hosts Sources-->
