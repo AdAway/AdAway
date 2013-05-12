@@ -19,9 +19,13 @@
   <string name="checkbox_list_context_delete">Slett</string>
   <string name="checkbox_list_footer">Etter å ha lagt til nye elementer i listen må du aktivere AdAway på nytt!</string>
   <string name="checkbox_list_edit_dialog_title">Rediger</string>
+  <string name="checkbox_list_context_title">Endre oppføring</string>
   <string name="checkbox_list_context_edit">Endre</string>
   <!--Your Lists-->
   <!--Status Notifications-->
+  <string name="status_update_available_subtitle">Nyere host fil tilgjengelig</string>
+  <string name="status_no_connection">Ingen internettforbindelse</string>
+  <string name="status_enabled">Aktivert</string>
   <!--Apply and Revert Dialogs-->
   <string name="no_connection">Internett forbindelsen fungerer ikke</string>
   <string name="no_connection_title">Ingen Internett forbindelse</string>
@@ -41,6 +45,7 @@
   <string name="no_url">Dette er ikke en gyldig URL!</string>
   <string name="no_url_title">Misformet URL</string>
   <string name="hosts_add_dialog">Skriv URL til vertsfil:</string>
+  <string name="no_hostname">Dette er ikke en gyldig URL!</string>
   <!--Menu entries-->
   <string name="menu_add">Legg til</string>
   <string name="menu_hosts_sources">Vertskilder</string>

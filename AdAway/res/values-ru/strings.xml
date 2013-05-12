@@ -136,7 +136,7 @@
   <string name="scan_adware_start">Начать сканирование</string>
   <string name="scan_adware_empty">Приложений с AdWare не найдено!</string>
   <!--Hosts Sources-->
-  <string name="hosts_last_modified_local">Local:</string>
+  <string name="hosts_last_modified_local">Локальный:</string>
   <string name="hosts_last_modified_online">Интернет:</string>
   <string name="hosts_not_available">недоступен</string>
   <!--Other-->

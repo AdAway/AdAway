@@ -7,7 +7,7 @@
   <string name="button_close">Cerrar</string>
   <string name="button_yes">Sí</string>
   <string name="button_no">No</string>
-  <string name="button_revert">Desactivar bloqueo de anuncios</string>
+  <string name="button_revert">Deshabilitar Bloqueo de Anuncios</string>
   <string name="button_add">Agregar</string>
   <string name="button_cancel">Cancelar</string>
   <string name="button_apply_text">Todos los archivos de los servidores de las fuentes definidas se descargaron, se fusionaron con sus propias listas y se instalaron como un archivo de hospedaje en el sistema.</string>
@@ -82,7 +82,7 @@
   <string name="apply_apn_proxy">¡Un proxy APN se encuentra en tu Android!\nAdAway no funcionará de manera fiable en redes inalámbricas como 3G. Puede desactivar ese proxy, yendo a su APN seleccionado (En Android 4: Conexiones Inalámbricas -&gt; Más… -&gt; Redes móviles -&gt; APN) y deseleccionar el campo proxy.</string>
   <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
   <string name="no_connection">La conexión a Internet no está funcionando</string>
-  <string name="no_connection_title">Sin conexión</string>
+  <string name="no_connection_title">No hay conexión a Internet</string>
   <string name="download_dialog">Descargando…</string>
   <string name="apply_dialog">Aplicando…</string>
   <string name="apply_dialog_lists">Aplicando Lista Negra y Lista Blanca</string>
@@ -101,7 +101,7 @@
   <string name="no_private_file_title">La creación de archivo privado ha fallado</string>
   <!--Other Dialogs-->
   <string name="no_root_description">No se encontró el binario su o no tiene el permiso de administrador concedido para AdAway.\n\nEsto puede suceder cuando el dispositivo no está como usuario root.\nPuede encontrar información acerca de esto en www.cyanogenmod.com o en otros sitios web de Android.</string>
-  <string name="no_root_title">Se requiere Android con acceso a root</string>
+  <string name="no_root_title">Se requiere derechos Root</string>
   <string name="no_url">¡Esta no es una URL válida!</string>
   <string name="no_url_title">URL con formato incorrecto</string>
   <string name="hosts_add_dialog">Agregar la URL al archivo de servidores:</string>
@@ -129,6 +129,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemas</string>
+  <string name="help_tab_changelog">Registro de Cambios</string>
   <string name="help_about_version">Versión:</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Aquí puedes buscar aplicaciones de adware malos, que no pueden ser bloqueados por AdAway. Estas aplicaciones utilizan las notificaciones Airpush, por ejemplo, que aparecen incluso cuando la aplicación no se está ejecutando o incluso puede cambiar tu tono de llamada. ¡La única contramedida es desinstalar esas aplicaciones haciendo clic en los elementos de la lista!</string>

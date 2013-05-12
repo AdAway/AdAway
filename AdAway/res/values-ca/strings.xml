@@ -129,6 +129,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">PMF (FAQ)</string>
   <string name="help_tab_problems">Problemes</string>
+  <string name="help_tab_changelog">Registre de canvis</string>
   <string name="help_about_version">Versió:</string>
   <!--Scan Adware-->
   <string name="scan_adware_description">Aquí podeu trobar aplicacions Adware malignes. Aquestes no es poden bloquejar amb AdAway. Aquestes aplicacions utilitzen, per exemple, notificacions Airpush fins i tot quan no funcionen. També poden canviar el vostre to de trucada. La única defensa possible és, per tant, desinstal·lant aquestes aplicacions malignes.</string>
