@@ -26,9 +26,9 @@ import java.util.concurrent.ExecutionException;
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Log;
-import org.rootcommands.RootCommands;
-import org.rootcommands.Shell;
-import org.rootcommands.Toolbox;
+import org.sufficientlysecure.rootcommands.RootCommands;
+import org.sufficientlysecure.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Toolbox;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

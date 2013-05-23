@@ -48,7 +48,7 @@ import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
-import org.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Shell;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 

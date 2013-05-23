@@ -24,8 +24,8 @@ import org.adaway.R;
 import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.rootcommands.Shell;
-import org.rootcommands.Toolbox;
+import org.sufficientlysecure.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Toolbox;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;

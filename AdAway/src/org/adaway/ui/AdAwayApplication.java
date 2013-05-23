@@ -23,7 +23,7 @@ package org.adaway.ui;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.rootcommands.RootCommands;
+import org.sufficientlysecure.rootcommands.RootCommands;
 
 import android.app.Application;
 

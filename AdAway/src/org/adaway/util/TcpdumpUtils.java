@@ -24,9 +24,9 @@ import java.io.File;
 import java.io.IOException;
 
 import org.adaway.R;
-import org.rootcommands.Shell;
-import org.rootcommands.Toolbox;
-import org.rootcommands.command.SimpleBinaryCommand;
+import org.sufficientlysecure.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Toolbox;
+import org.sufficientlysecure.rootcommands.command.SimpleBinaryCommand;
 
 import android.content.Context;
 import android.widget.Toast;

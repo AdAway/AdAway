@@ -21,9 +21,9 @@
 package org.adaway.util;
 
 import org.adaway.util.Log;
-import org.rootcommands.Shell;
-import org.rootcommands.Toolbox;
-import org.rootcommands.command.SimpleCommand;
+import org.sufficientlysecure.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Toolbox;
+import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
 import java.io.BufferedReader;
 import java.io.File;

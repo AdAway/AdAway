@@ -26,7 +26,7 @@ import org.adaway.R;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.WebserverUtils;
-import org.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Shell;
 
 import com.actionbarsherlock.app.SherlockFragment;
 

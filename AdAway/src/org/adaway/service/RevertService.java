@@ -29,7 +29,7 @@ import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
-import org.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Shell;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
