@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Chiudi</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Hai trovato questo programma utile?\nSupporta il suo sviluppo con una donazione!</string>
+  <string name="donations__flattr_description">Flattr riceve il 10% come canone mensile!</string>
+  <string name="donations__google_android_market">Google Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">Donazioni In-App non supportate</string>
+  <string name="donations__google_android_market_not_supported">Donazioni In-App non supportate. Google Play store è installato correttamente?</string>
+  <string name="donations__google_android_market_description">Google riceve il 30% di ogni donazione!</string>
+  <string name="donations__google_android_market_donate_button">Dona!</string>
+  <string name="donations__google_android_market_text">Quanto?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Puoi scegliere quanto donare dopo aver premuto il pulsante!</string>
+  <string name="donations__thanks_dialog_title">Grazie!</string>
+  <string name="donations__thanks_dialog">Grazie per la donazione!\nLo apprezzo molto!</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.sufficientlysecure.donations"
+    android:versionCode="2"
+    android:versionName="2.0" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="17" />
+        
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Required permission to use Google Play Store donations -->
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+</manifest>

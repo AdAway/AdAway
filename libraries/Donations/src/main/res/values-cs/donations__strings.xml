@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Zavřít</string>
+  <string name="donations__google_android_market">Google Play</string>
+  <string name="donations__google_android_market_donate_button">Podpořte nás!</string>
+  <string name="donations__google_android_market_text">Kolik to stojí?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__thanks_dialog_title">Díky!</string>
+  <string name="donations__thanks_dialog">Díky za darování!\nOpravdu si toho vážím!</string>
+</resources>

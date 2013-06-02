@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Закрити</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Ви вважаєте програму корисною? Підтримайте розробника через flattr або відправте пожертвування!</string>
+  <string name="donations__flattr_description">Flattr стягує 10% у вигляді щомісячної абонентської плати!</string>
+  <string name="donations__google_android_market">магазин Google Play</string>
+  <string name="donations__google_android_market_not_supported_title">Пожертвування через програму не підтримуються</string>
+  <string name="donations__google_android_market_not_supported">Пожертвування через програму не підтримуються. Магазин Google Play встановлений правильно?</string>
+  <string name="donations__google_android_market_description">Google стягує 30% з кожного пожертвування!</string>
+  <string name="donations__google_android_market_donate_button">Пожертвувати!</string>
+  <string name="donations__google_android_market_text">Скільки?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Після натискання на кнопку ви можете вибрати скільки хочете пожертвувати!</string>
+  <string name="donations__thanks_dialog_title">Дякую!</string>
+  <string name="donations__thanks_dialog">Дякую за пожертвування! Я дуже це ціную!</string>
+</resources>

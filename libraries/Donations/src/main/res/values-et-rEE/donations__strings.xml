@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Sulge</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Kas see rakendus on kasulik? Toeta selle arendust ja arendajat läbi annetuste!</string>
+  <string name="donations__flattr_description">Flattr võtab 10% igakuist tasu!</string>
+  <string name="donations__google_android_market">Google Play pood</string>
+  <string name="donations__google_android_market_not_supported_title">Rakendusesisesed annetused ei ole toetatud</string>
+  <string name="donations__google_android_market_not_supported">Annetused rakenduse sees ei ole toetatud. Kas Google Play pood on korrektselt paigaldatud?</string>
+  <string name="donations__google_android_market_description">Google võtab 30% igalt annetuselt!</string>
+  <string name="donations__google_android_market_donate_button">Anneta!</string>
+  <string name="donations__google_android_market_text">Kui palju?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Sellel nupul klikates saad valida kui palju soovid annetada!</string>
+  <string name="donations__thanks_dialog_title">Tänan!</string>
+  <string name="donations__thanks_dialog">Tänan annetamast! \nHindan seda väga!</string>
+</resources>

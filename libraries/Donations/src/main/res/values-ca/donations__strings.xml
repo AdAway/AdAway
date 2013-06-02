@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Tanca</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Trobeu que aquesta aplicació és util?⏎ Recolzeu el seu desenvolupament enviant al desenvolupador donatius directes o amb flattr.</string>
+  <string name="donations__flattr_description">Flattr té unes comissions mensuals del deu percent!</string>
+  <string name="donations__google_android_market">Google Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">Es poden fer donatius dins de l\'aplicació</string>
+  <string name="donations__google_android_market_not_supported">No es poden fer donatius des de l\'aplicació. Heu instal·lat Google Play Store correctament?</string>
+  <string name="donations__google_android_market_description">Google té unes comissions del 30 percent!</string>
+  <string name="donations__google_android_market_donate_button">Fer un donatiu</string>
+  <string name="donations__google_android_market_text">Quant?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Podeu escollir la quantitat del vostre donatiu tocant aquest botó.</string>
+  <string name="donations__thanks_dialog_title">Gràcies!</string>
+  <string name="donations__thanks_dialog">Gràcies per fer el donatiu!⏎ N\'estic molt agraït!</string>
+</resources>

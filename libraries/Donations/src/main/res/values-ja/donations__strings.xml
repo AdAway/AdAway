@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">閉じる</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">このアプリは役に立ちましたか?\nGoogle Playストア経由で寄付をして開発を応援してください!</string>
+  <string name="donations__flattr_description">Flattr は月額として10 %手に入れます!</string>
+  <string name="donations__google_android_market">Google Playストア</string>
+  <string name="donations__google_android_market_not_supported_title">アプリ内寄付は非対応です</string>
+  <string name="donations__google_android_market_not_supported">アプリ内寄付は非対応です。GooglePlayストアはインストールされていますか?</string>
+  <string name="donations__google_android_market_description">Googleは寄付の30%を持って行きます…。</string>
+  <string name="donations__google_android_market_donate_button">寄付する!</string>
+  <string name="donations__google_android_market_text">いくら?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">ボタンを押した後寄付したい額を選べます!</string>
+  <string name="donations__thanks_dialog_title">ありがとう!</string>
+  <string name="donations__thanks_dialog">寄付ありがとう!\n本当に感謝しています!</string>
+</resources>

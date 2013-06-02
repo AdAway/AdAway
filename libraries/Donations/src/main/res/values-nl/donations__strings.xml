@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Sluiten</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Vindt u dit applicatie nuttig? \nSteun de ontwikkeling ervan d.m.v flattr of door een donatie te doen aan de ontwikkelaar!</string>
+  <string name="donations__flattr_description">Flattr neemt 10% als maandelijkse kosten</string>
+  <string name="donations__google_android_market">Google  Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">Helaas, in-App donaties worden niet ondersteund</string>
+  <string name="donations__google_android_market_not_supported">Helaas, in-App donaties worden niet ondersteund. Is Google Play Store correct geïnstalleerd?</string>
+  <string name="donations__google_android_market_description">Google houdt 30% van elke donatie in</string>
+  <string name="donations__google_android_market_donate_button">Doneer!</string>
+  <string name="donations__google_android_market_text">Welke bedrag?</string>
+  <string name="donations__paypal">Paypal</string>
+  <string name="donations__paypal_description">U kunt kiezen hoeveel u wilt doneren, na het klikken van de knop</string>
+  <string name="donations__thanks_dialog_title">Dank u wel</string>
+  <string name="donations__thanks_dialog">Bedankt voor uw donatie! Ik stel het heel erg op prijs.</string>
+</resources>

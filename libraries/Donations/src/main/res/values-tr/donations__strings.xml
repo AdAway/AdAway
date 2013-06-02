@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Kapat</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Bu uygulamayı kullanışlı mı bulunuyorsunuz?\n Geliştirilmesine flattr ederek veya geliştiricisine bağış yaparak destek olun!</string>
+  <string name="donations__flattr_description">Flattr takes 10 % as a monthly fee!</string>
+  <string name="donations__google_android_market">Google Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">Uygulama içi bağışlar desteklenmiyor</string>
+  <string name="donations__google_android_market_not_supported">Uygulama içi bağışlar desteklenmiyor. Google Play Store düzgünce kuruldu mu?</string>
+  <string name="donations__google_android_market_description">Google her bağışın %30\'unu alıyor!</string>
+  <string name="donations__google_android_market_donate_button">Bağış Yap!</string>
+  <string name="donations__google_android_market_text">Ne kadar?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Butona bastıktan sonra ne kadar bağış yapacağınızı seçebilirsiniz!</string>
+  <string name="donations__thanks_dialog_title">Teşekkürler!</string>
+  <string name="donations__thanks_dialog">Bağış için teşekkürler!\n Bunu gerçekten takdir ediyorum!</string>
+</resources>

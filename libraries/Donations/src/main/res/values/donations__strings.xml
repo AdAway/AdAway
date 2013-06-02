@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="donations__button_close">Close</string>
+    <string name="donations__flattr">Flattr</string>
+    <string name="donations__description">Do you find this application useful?\nSupport it\'s development by sending a donation to the developer!</string>
+    <string name="donations__flattr_description">Flattr takes 10 % as a monthly fee!</string>
+    <string name="donations__google_android_market">Google Play Store</string>
+    <string name="donations__google_android_market_not_supported">In-App Donations are not supported. Is Google Play Store installed correctly?</string>
+    <string name="donations__google_android_market_description">Google takes 30 % off every donation!</string>
+    <string name="donations__google_android_market_donate_button">Donate!</string>
+    <string name="donations__google_android_market_text">How much?</string>
+    <string name="donations__paypal">PayPal</string>
+    <string name="donations__paypal_description">You can choose how much you want to donate after clicking the button!</string>
+    <string name="donations__thanks_dialog_title">Thanks!</string>
+    <string name="donations__thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
+    <string name="donations__alert_dialog_title">Error occurred</string>
+    <string name="donations__alert_dialog_no_browser">No browser was found to open a website!</string>
+
+</resources>

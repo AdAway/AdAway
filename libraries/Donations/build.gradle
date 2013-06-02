@@ -1,0 +1,11 @@
+apply plugin: 'android-library'
+
+dependencies {
+    compile 'com.google.android:support-v4:r7'
+}
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "17.0.0"
+}
+
