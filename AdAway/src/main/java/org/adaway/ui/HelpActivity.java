@@ -119,12 +119,12 @@ public class HelpActivity extends SherlockFragmentActivity {
         donationsArgs.putString(DonationsFragment.ARG_PAYPAL_ITEM_NAME, getString(R.string.help_donation_paypal_item));
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_donate)),
-                DonationsFragment.class, null);
+                DonationsFragment.class, donationsArgs);
 
-        Bundle changelogBundle = new Bundle();
-        changelogBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_changelog);
+        Bundle changelogArgs = new Bundle();
+        changelogArgs.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_changelog);
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_changelog)),
-                HelpFragmentHtml.class, changelogBundle);
+                HelpFragmentHtml.class, changelogArgs);
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_about)),
                 HelpFragmentAbout.class, null);
