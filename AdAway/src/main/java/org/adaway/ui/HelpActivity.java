@@ -48,14 +48,6 @@ public class HelpActivity extends SherlockFragmentActivity {
     TabsAdapter mTabsAdapter;
 
     /**
-     * Google
-     */
-    private static final String GOOGLE_PUBKEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg8bTVFK5zIg4FGYkHKKQ/j/iGZQlXU0qkAv2BA6epOX1ihbMz78iD4SmViJlECHN8bKMHxouRNd9pkmQKxwEBHg5/xDC/PHmSCXFx/gcY/xa4etA1CSfXjcsS9i94n+j0gGYUg69rNkp+p/09nO9sgfRTAQppTxtgKaXwpfKe1A8oqmDUfOnPzsEAG6ogQL6Svo6ynYLVKIvRPPhXkq+fp6sJ5YVT5Hr356yCXlM++G56Pk8Z+tPzNjjvGSSs/MsYtgFaqhPCsnKhb55xHkc8GJ9haq8k3PSqwMSeJHnGiDq5lzdmsjdmGkWdQq2jIhKlhMZMm5VQWn0T59+xjjIIwIDAQAB";
-    private static final String[] GOOGLE_CATALOG = new String[]{"adaway.donation.1",
-            "adaway.donation.2", "adaway.donation.3", "adaway.donation.5", "adaway.donation.8",
-            "adaway.donation.13"};
-
-    /**
      * PayPal
      */
     private static final String PAYPAL_USER = "dominik@dominikschuermann.de";
@@ -117,22 +109,14 @@ public class HelpActivity extends SherlockFragmentActivity {
 
         Bundle donationsArgs = new Bundle();
         donationsArgs.putBoolean(DonationsFragment.ARG_DEBUG, Constants.DEBUG);
-        if (BuildConfig.DONATIONS_GOOGLE) {
-            donationsArgs.putBoolean(DonationsFragment.ARG_GOOGLE_ENABLED, true);
-            donationsArgs.putString(DonationsFragment.ARG_GOOGLE_PUBKEY, GOOGLE_PUBKEY);
-            donationsArgs.putStringArray(DonationsFragment.ARG_GOOGLE_CATALOG, GOOGLE_CATALOG);
-            donationsArgs.putStringArray(DonationsFragment.ARG_GOOGLE_CATALOG_VALUES,
-                    getResources().getStringArray(R.array.help_donation_google_catalog_values));
-        } else {
-            donationsArgs.putBoolean(DonationsFragment.ARG_FLATTR_ENABLED, true);
-            donationsArgs.putString(DonationsFragment.ARG_FLATTR_PROJECT_URL, FLATTR_PROJECT_URL);
-            donationsArgs.putString(DonationsFragment.ARG_FLATTR_URL, FLATTR_URL);
+        donationsArgs.putBoolean(DonationsFragment.ARG_FLATTR_ENABLED, true);
+        donationsArgs.putString(DonationsFragment.ARG_FLATTR_PROJECT_URL, FLATTR_PROJECT_URL);
+        donationsArgs.putString(DonationsFragment.ARG_FLATTR_URL, FLATTR_URL);
 
-            donationsArgs.putBoolean(DonationsFragment.ARG_PAYPAL_ENABLED, true);
-            donationsArgs.putString(DonationsFragment.ARG_PAYPAL_CURRENCY_CODE, PAYPAL_CURRENCY_CODE);
-            donationsArgs.putString(DonationsFragment.ARG_PAYPAL_USER, PAYPAL_USER);
-            donationsArgs.putString(DonationsFragment.ARG_PAYPAL_ITEM_NAME, getString(R.string.help_donation_paypal_item));
-        }
+        donationsArgs.putBoolean(DonationsFragment.ARG_PAYPAL_ENABLED, true);
+        donationsArgs.putString(DonationsFragment.ARG_PAYPAL_CURRENCY_CODE, PAYPAL_CURRENCY_CODE);
+        donationsArgs.putString(DonationsFragment.ARG_PAYPAL_USER, PAYPAL_USER);
+        donationsArgs.putString(DonationsFragment.ARG_PAYPAL_ITEM_NAME, getString(R.string.help_donation_paypal_item));
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_donate)),
                 DonationsFragment.class, null);

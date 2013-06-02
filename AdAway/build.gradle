@@ -38,15 +38,6 @@ android {
             signingConfig signingConfigs.myConfig
         }
     }
-
-    productFlavors {
-        google {
-            buildConfig "public final static boolean DONATIONS_GOOGLE = true;"
-        }
-        fdroid {
-            buildConfig "public final static boolean DONATIONS_GOOGLE = false;"
-        }
-    }
 }
 
 /**
