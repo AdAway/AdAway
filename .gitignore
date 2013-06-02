@@ -17,6 +17,7 @@ gradle.properties
 gradlew
 gradlew.bat
 gradle
+gradle-app.setting
 
 #Maven
 target
