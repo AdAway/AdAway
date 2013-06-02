@@ -4,17 +4,22 @@ AdAway is an open source ad blocker for Android using the hosts file.
 
 For more information visit http://code.google.com/p/ad-away/
 
-# Build AdAway
+# Build with Gradle
 
-1. Have Android SDK "tools" directory and NDK directory in your PATH (http://developer.android.com/sdk/index.html)
+## Build executeables
+
+1. Have NDK directory in your PATH (http://developer.android.com/sdk/index.html)
 2. Change to "AdAway" directory with ``cd AdAway``
-3. Execute ``android update project -p .``,  ``android update project -p android-libs/ActionBarSherlock``, and ``android update project -p android-libs/Donations``
-4. Execute ``ndk-build`` to compile native binaries.
-5. Execute ``ant debug`` or ``ant release``
+3. Execute ``ndk-build`` to compile native binaries.
 
-## More build information
+## Build APK
 
-* It is necessary to build AdAway with Ant, because we use "custom_rules.xml" (For more information see https://github.com/dschuermann/root-commands#binaries)
+1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (http://developer.android.com/sdk/index.html)
+2. Export ANDROID_HOME pointing to your Android SDK
+3. Install gradle
+4. Execute ``gradle wrapper`` (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html)
+5. Execute ``./gradlew renameExecutables``
+6. Execute ``./gradlew assemble``
 
 # Contribute
 
