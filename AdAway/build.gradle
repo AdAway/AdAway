@@ -62,11 +62,10 @@ tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *
  * http://www.gradle.org/docs/current/userguide/working_with_files.html
- * Using Sync type instead of Copy to delete original files after renaming.
  */
-task renameExecutables(type: Sync) {
-    from 'src/main/libs'
-    into 'src/main/libs'
+task renameExecutables(type: Copy) {
+    from 'libs'
+    into 'libs'
     include '**/*'
     exclude '**/*.so'
     exclude '**/*.jar'
