@@ -2,7 +2,7 @@
 
 AdAway is an open source ad blocker for Android using the hosts file. 
 
-For more information visit http://code.google.com/p/ad-away/
+For more information visit http://adaway.org
 
 # Build with Gradle
 
