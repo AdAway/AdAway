@@ -1,4 +1,0 @@
-show_progress(0.1, 0);
-delete("/system/etc/hosts")
-symlink("/data/data/hosts", "/system/etc/hosts");
-show_progress(0.1, 10);

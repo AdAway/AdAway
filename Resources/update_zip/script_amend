@@ -1,4 +1,0 @@
-show_progress 0.1 0
-delete SYSTEM:/etc/hosts
-symlink /data/data/hosts SYSTEM:etc/hosts
-show_progress 0.1 10
