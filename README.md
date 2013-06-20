@@ -98,22 +98,6 @@ LOCAL_C_INCLUDES += \
 /* #undef HAVE_LIBCRYPTO */
 ```
 
-# Update.zip
-
-THIS IS CURRENTLY NOT WORKING!
-
-Execute ./create_update_zip.sh to create update.zip files to work around S-ON.
-
-This works by creating a symlink from /system/etc/hosts to /data/data/hosts
-
-Info:
-Clockwordmod Recovery < 3 uses Amend Scripting language, > 3 uses Edify
-
-Resources:
-* http://tjworld.net/wiki/Android/UpdaterScriptEdifyFunctions
-* http://www.freeyourandroid.com/guide/introdution_to_edify
-* http://forum.xda-developers.com/showthread.php?t=1265120
-
 # Licenses
 AdAway is licensed under the GPLv3+.  
 The file COPYING includes the full license text.
