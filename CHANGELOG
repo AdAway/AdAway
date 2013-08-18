@@ -1,6 +1,9 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+2.5
+* Fix URLs in-app
+
 2.4
 * Fix Remounter for Android 4.3
 * Fix auto update on ethernet connection
