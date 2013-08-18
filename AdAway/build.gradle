@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 dependencies {
     compile fileTree(dir: 'libs', includes: ['*.jar'], excludes: ['android-support-v4.jar'])
-    compile 'com.android.support:support-v4:18.0.+'
+    //compile 'com.android.support:support-v4:18.0.+' // already in actionbarsherlock
     compile project(':libraries:Donations')
     compile project(':libraries:actionbarsherlock')
 }

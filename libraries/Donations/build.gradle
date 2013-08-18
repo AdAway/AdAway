@@ -1,11 +1,26 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
+}
+
 apply plugin: 'android-library'
 
 dependencies {
-    compile 'com.android.support:support-v4:18.0.+'
+    //compile 'com.android.support:support-v4:18.0.+'
+    compile project(':libraries:actionbarsherlock')
 }
 
 android {
     compileSdkVersion 17
     buildToolsVersion "17.0.0"
+
+    defaultConfig {
+        minSdkVersion 7
+        targetSdkVersion 17
+    }
 }
 
