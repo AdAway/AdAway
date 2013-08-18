@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.actionbarsherlock</groupId>
     <artifactId>parent</artifactId>
-    <version>4.3.1</version>
+    <version>4.4.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -96,6 +96,10 @@
                 <artifact>
                   <type>jar</type>
                   <file>${project.build.directory}/${project.build.finalName}.jar</file>
+                </artifact>
+                <artifact>
+                  <type>aar</type>
+                  <file>${project.basedir}/build/libs/${project.artifactId}-${gradle.version}.aar</file>
                 </artifact>
               </artifacts>
             </configuration>

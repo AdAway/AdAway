@@ -40,7 +40,7 @@
 
     <ImageView
             android:id="@+id/abs__search_button"
-            style="?android:attr/actionButtonStyle"
+            style="?attr/actionButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"

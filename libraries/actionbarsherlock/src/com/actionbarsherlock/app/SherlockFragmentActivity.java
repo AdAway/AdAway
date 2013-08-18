@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import com.actionbarsherlock.ActionBarSherlock;
-import com.actionbarsherlock.BuildConfig;
 import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -139,33 +138,33 @@ public class SherlockFragmentActivity extends Watson implements OnActionModeStar
     ///////////////////////////////////////////////////////////////////////////
 
     public MenuInflater getSupportMenuInflater() {
-        if (BuildConfig.DEBUG) Log.d(TAG, "[getSupportMenuInflater]");
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[getSupportMenuInflater]");
 
         return getSherlock().getMenuInflater();
     }
 
     public void invalidateOptionsMenu() {
-        if (BuildConfig.DEBUG) Log.d(TAG, "[invalidateOptionsMenu]");
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[invalidateOptionsMenu]");
 
         getSherlock().dispatchInvalidateOptionsMenu();
     }
 
     public void supportInvalidateOptionsMenu() {
-        if (BuildConfig.DEBUG) Log.d(TAG, "[supportInvalidateOptionsMenu]");
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[supportInvalidateOptionsMenu]");
 
         invalidateOptionsMenu();
     }
 
     @Override
     public final boolean onCreatePanelMenu(int featureId, android.view.Menu menu) {
-        if (BuildConfig.DEBUG) Log.d(TAG, "[onCreatePanelMenu] featureId: " + featureId + ", menu: " + menu);
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onCreatePanelMenu] featureId: " + featureId + ", menu: " + menu);
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL && !mIgnoreNativeCreate) {
             mIgnoreNativeCreate = true;
             boolean result = getSherlock().dispatchCreateOptionsMenu(menu);
             mIgnoreNativeCreate = false;
 
-            if (BuildConfig.DEBUG) Log.d(TAG, "[onCreatePanelMenu] returning " + result);
+            if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onCreatePanelMenu] returning " + result);
             return result;
         }
         return super.onCreatePanelMenu(featureId, menu);
@@ -178,14 +177,14 @@ public class SherlockFragmentActivity extends Watson implements OnActionModeStar
 
     @Override
     public final boolean onPreparePanel(int featureId, View view, android.view.Menu menu) {
-        if (BuildConfig.DEBUG) Log.d(TAG, "[onPreparePanel] featureId: " + featureId + ", view: " + view + ", menu: " + menu);
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onPreparePanel] featureId: " + featureId + ", view: " + view + ", menu: " + menu);
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL && !mIgnoreNativePrepare) {
             mIgnoreNativePrepare = true;
             boolean result = getSherlock().dispatchPrepareOptionsMenu(menu);
             mIgnoreNativePrepare = false;
 
-            if (BuildConfig.DEBUG) Log.d(TAG, "[onPreparePanel] returning " + result);
+            if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onPreparePanel] returning " + result);
             return result;
         }
         return super.onPreparePanel(featureId, view, menu);
@@ -198,14 +197,14 @@ public class SherlockFragmentActivity extends Watson implements OnActionModeStar
 
     @Override
     public final boolean onMenuItemSelected(int featureId, android.view.MenuItem item) {
-        if (BuildConfig.DEBUG) Log.d(TAG, "[onMenuItemSelected] featureId: " + featureId + ", item: " + item);
+        if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onMenuItemSelected] featureId: " + featureId + ", item: " + item.getTitle());
 
         if (featureId == Window.FEATURE_OPTIONS_PANEL && !mIgnoreNativeSelected) {
             mIgnoreNativeSelected = true;
             boolean result = getSherlock().dispatchOptionsItemSelected(item);
             mIgnoreNativeSelected = false;
 
-            if (BuildConfig.DEBUG) Log.d(TAG, "[onMenuItemSelected] returning " + result);
+            if (ActionBarSherlock.DEBUG) Log.d(TAG, "[onMenuItemSelected] returning " + result);
             return result;
         }
         return super.onMenuItemSelected(featureId, item);

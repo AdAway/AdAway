@@ -115,10 +115,20 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
 
         View anchor = mAnchorView;
         if (anchor != null) {
-            final boolean addGlobalListener = mTreeObserver == null;
-            mTreeObserver = anchor.getViewTreeObserver(); // Refresh to latest
-            if (addGlobalListener) mTreeObserver.addOnGlobalLayoutListener(this);
-            ((View_HasStateListenerSupport)anchor).addOnAttachStateChangeListener(this);
+            // Don't attach to the VTO unless the anchor itself is attached to avoid VTO-related leaks.
+            if (anchor.getWindowToken() != null) {
+                ViewTreeObserver vto = anchor.getViewTreeObserver();
+                if (vto != mTreeObserver) {
+                    if (mTreeObserver != null && mTreeObserver.isAlive()) {
+                        mTreeObserver.removeGlobalOnLayoutListener(this);
+                    }
+                    if ((mTreeObserver = vto) != null) {
+                        vto.addOnGlobalLayoutListener(this);
+                    }
+                }
+            } else if (anchor instanceof View_HasStateListenerSupport) {
+                ((View_HasStateListenerSupport) anchor).addOnAttachStateChangeListener(this);
+            }
             mPopup.setAnchorView(anchor);
         } else {
             return false;
@@ -141,11 +151,11 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
         mPopup = null;
         mMenu.close();
         if (mTreeObserver != null) {
-            if (!mTreeObserver.isAlive()) mTreeObserver = mAnchorView.getViewTreeObserver();
-            mTreeObserver.removeGlobalOnLayoutListener(this);
+            if (mTreeObserver.isAlive()) mTreeObserver.removeGlobalOnLayoutListener(this);
             mTreeObserver = null;
+        } else if (mAnchorView instanceof View_HasStateListenerSupport) {
+            ((View_HasStateListenerSupport) mAnchorView).removeOnAttachStateChangeListener(this);
         }
-        ((View_HasStateListenerSupport)mAnchorView).removeOnAttachStateChangeListener(this);
     }
 
     public boolean isShowing() {
@@ -207,15 +217,16 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
 
     @Override
     public void onViewAttachedToWindow(View v) {
+        ((View_HasStateListenerSupport) v).removeOnAttachStateChangeListener(this);
+
+        // The anchor wasn't attached in tryShow(), attach to the ViewRoot VTO now.
+        if (mPopup != null && mTreeObserver == null) {
+            (mTreeObserver = v.getViewTreeObserver()).addOnGlobalLayoutListener(this);
+        }
     }
 
     @Override
     public void onViewDetachedFromWindow(View v) {
-        if (mTreeObserver != null) {
-            if (!mTreeObserver.isAlive()) mTreeObserver = v.getViewTreeObserver();
-            mTreeObserver.removeGlobalOnLayoutListener(this);
-        }
-        ((View_HasStateListenerSupport)v).removeOnAttachStateChangeListener(this);
     }
 
     @Override

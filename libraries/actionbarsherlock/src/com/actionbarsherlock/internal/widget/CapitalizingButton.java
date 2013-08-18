@@ -12,9 +12,14 @@ public class CapitalizingButton extends Button {
     private static final boolean IS_GINGERBREAD = Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
 
     private static final int[] R_styleable_Button = new int[] {
+        android.R.attr.textAppearance
+    };
+    private static final int R_styleable_Button_textAppearance = 0;
+
+    private static final int[] R_styleable_TextAppearance = new int[] {
         android.R.attr.textAllCaps
     };
-    private static final int R_styleable_Button_textAllCaps = 0;
+    private static final int R_styleable_TextAppearance_textAllCaps = 0;
 
     private boolean mAllCaps;
 
@@ -22,8 +27,15 @@ public class CapitalizingButton extends Button {
         super(context, attrs);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R_styleable_Button);
-        mAllCaps = a.getBoolean(R_styleable_Button_textAllCaps, true);
+        int ap = a.getResourceId(R_styleable_Button_textAppearance, -1);
         a.recycle();
+        if (ap != -1) {
+            TypedArray appearance = context.obtainStyledAttributes(ap, R_styleable_TextAppearance);
+            if (appearance != null) {
+                mAllCaps = appearance.getBoolean(R_styleable_TextAppearance_textAllCaps, true);
+                appearance.recycle();
+            }
+        }
     }
 
     public void setTextCompat(CharSequence text) {

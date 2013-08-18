@@ -1,9 +1,14 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+2.4
+* Fix Remounter for Android 4.3
+* Fix auto update on ethernet connection
+
+
 2.3
-AdAway was removed from Google Play!
-Because http://www.ismeh.com/HOSTS is down, a alternative source has been added
+* AdAway was removed from Google Play!
+* Because http://www.ismeh.com/HOSTS is down, a alternative source has been added
 
 2.2
 * Introduce SUPERUSER permission for new Superuser app
