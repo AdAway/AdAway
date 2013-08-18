@@ -131,6 +131,15 @@
   <string name="help_tab_problems">Problèmes</string>
   <string name="help_tab_changelog">Nouveautés dans cette version</string>
   <string name="help_about_version">Version :</string>
+  <string name="help_donation_paypal_item">Faites un don</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Ici, vous pouvez rechercher les \"mauvais\" logiciels publicitaires, ceux qui ne peuvent être bloqués par AdWay. La seule alternative est de désinstaller ces logiciels en cliquant dans la listes ci-dessous !</string>
   <string name="scan_adware_start">Démarrer la recherche</string>

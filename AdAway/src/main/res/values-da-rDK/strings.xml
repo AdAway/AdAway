@@ -131,6 +131,15 @@
   <string name="help_tab_problems">Problemer</string>
   <string name="help_tab_changelog">Ændringslog</string>
   <string name="help_about_version">Version:</string>
+  <string name="help_donation_paypal_item">AdAway Donation</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Her kan du scanne for dårlige Adware-programmer, som ikke kan blokeres af AdAway. Disse apps bruger for eksempel Airpush meddelelser, der dukker op, selv når app\'en ikke kører og kan endda ændre din ringetone. Den eneste tilgængelige løsning er at afinstallere disse apps ved at klikke på punkterne på listen!</string>
   <string name="scan_adware_start">Start skan</string>

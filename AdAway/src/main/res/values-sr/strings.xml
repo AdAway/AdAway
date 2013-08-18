@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Buttons-->
+  <string name="button_exit">Izlaz</string>
+  <string name="button_apply">Preuzmi fajlove i primeni Ad Blocking</string>
+  <string name="button_close">Zatvori</string>
+  <string name="button_yes">Da</string>
+  <string name="button_no">Ne</string>
+  <string name="button_revert">Onemogući Ad Blocking</string>
+  <string name="button_add">Dodaj</string>
+  <string name="button_cancel">Otkaži</string>
+  <string name="button_apply_text">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
+  <string name="button_save">Sačuvaj</string>
+  <string name="button_webserver_toggle_checked">Webserver radi</string>
+  <string name="button_webserver_toggle_unchecked">Webserver ne radi</string>
+  <string name="button_help">Pomoć</string>
+  <string name="button_tcpdump_text">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump ne radi!</string>
+  <string name="button_tcpdump_open">Otvori log fajl</string>
+  <string name="button_tcpdump_delete">Ukloni log fajl</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Dodaj</string>
+  <string name="checkbox_list_empty">Prazna lista</string>
+  <string name="checkbox_list_empty_text">Možete dodati stavke sa action bar-a.</string>
+  <string name="checkbox_list_context_delete">Ukloni</string>
+  <string name="checkbox_list_footer">Posle dodavanja novih stavki na ovu listu morate da primenite AdAway ponovo!</string>
+  <string name="checkbox_list_edit_dialog_title">Uredi</string>
+  <string name="checkbox_list_context_title">Uredi ulazak</string>
+  <string name="checkbox_list_context_edit">Uredi</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Bela lista</string>
+  <string name="lists_tab_blacklist">Crna lista</string>
+  <string name="lists_tab_blacklist_short">Crna</string>
+  <string name="lists_tab_whitelist_short">Bela</string>
+  <string name="lists_tab_redirection_list_short">Prebacivanje</string>
+  <string name="lists_tab_redirection_list">Lista Redirekcija</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+  <!--Status Notifications-->
+  <string name="status_checking_subtitle">Proveravanje ažuriranja</string>
+  <string name="status_update_available">Ažuriranje dostupno</string>
+  <string name="status_update_available_subtitle">Noviji host-ovi fajlovi dostupni</string>
+  <string name="status_no_connection">Nema internet konekcije</string>
+  <string name="status_no_connection_subtitle">Nema dostupne internet konekcije</string>
+  <string name="status_enabled">Omogućeno</string>
+  <string name="status_enabled_subtitle">Noviji host-ovi fajlovi omogućeni</string>
+  <string name="status_disabled">Onemogućeno</string>
+  <string name="status_disabled_subtitle">Onemogućeno</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing_title">Nedostaje symlink.</string>
+  <string name="apply_not_enough_space_title">Nema dovoljno memorije</string>
+  <string name="apply_private_file_fail">Preuzeti fajl nije moguće pročitati.</string>
+  <string name="apply_private_file_fail_title">Neuspešno kreiranje privatnog fajla</string>
+  <string name="apply_remount_fail_title">Remount neuspesan</string>
+  <string name="apply_copy_fail">Neuspešno kopiranje host-ovih fajlova!</string>
+  <string name="apply_copy_fail_title">Kopiranje neuspešno</string>
+  <string name="apply_success_title">Primena uspešna</string>
+  <string name="apply_symlink_successful_title">Kreiranje symlink-a uspesno</string>
+  <string name="apply_symlink_fail_title">Kreiranje symlink-a bez uspesno</string>
+  <string name="apply_help">Molimo da pročitate Pomoć za više informacija.</string>
+  <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
+  <string name="no_connection">Konekcija sa internetom ne radi.</string>
+  <string name="no_connection_title">Nema konekcije</string>
+  <string name="apply_dialog_lists">Primenjivanje Crne i Bele liste</string>
+  <string name="apply_dialog_hostnames">Raščlanjivanje i spajanje host-ovih fajlova</string>
+  <string name="apply_dialog_hosts">Izgradnja host-ovih fajlova</string>
+  <string name="apply_dialog_apply">Primenjivanje host-ovih fajlova</string>
+  <string name="apply_fail_title">Primena neuspešna</string>
+  <string name="revert_successful_title">Vraćanje uspešno</string>
+  <string name="revert_problem">Vraćanje neusšerno iz nepoznatih razloga.</string>
+  <string name="revert_problem_title">Vraćanje neuspešno!</string>
+  <string name="download_fail_title">Preuzimanje neuspešno</string>
+  <string name="no_private_file">Privatni falj ne može biti kreiran.</string>
+  <string name="no_private_file_title">Neuspešno kreiranje privatnog fajla</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">Neophodan Root-ovan Android</string>
+  <string name="no_url">Ovo nije važeći URL!</string>
+  <string name="no_url_title">Neispravna url adresa</string>
+  <string name="hosts_add_dialog">Ulazni URL do host-ovih fajlova</string>
+  <string name="no_hostname">Ovo nije važeći hostname!</string>
+  <string name="no_hostname_title">Neispravano ime host-a</string>
+  <string name="no_ip">Ovo nije validan IP!</string>
+  <string name="no_ip_title">Neispravna IP</string>
+  <string name="reboot_never_reboot">Nikada ne pokreći ponovo i ne pokazuj ovo pitanje sledeći put!</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Osveži</string>
+  <string name="menu_add">Dodaj</string>
+  <string name="menu_hosts_sources">Host-ovi resursi</string>
+  <string name="menu_tcpdump">Log DNS zahtevi</string>
+  <string name="menu_help">Pomoć</string>
+  <string name="menu_lists">Vaša lista</string>
+  <string name="menu_show_hosts_file">Otvori host-ove fajlove</string>
+  <string name="menu_import">Uvezi Sve Liste</string>
+  <string name="menu_export">Izvezi Sve Liste</string>
+  <string name="menu_preferences">Podešavanja</string>
+  <!--Help-->
+  <string name="help_tab_faq">Često Postavljena Pitanja</string>
+  <string name="help_tab_problems">Problemi</string>
+  <!--Scan Adware-->
+  <!--Hosts Sources-->
+  <!--Other-->
+  <string name="app_subtitle">Ad Blocker</string>
+  <string name="no_text_editor_title">Nije instaliran uređivač teksta</string>
+  <string name="no_file_manager_title">Nije instaliran fajl menadžer</string>
+  <!--Tcpdump-->
+  <!--Preferences-->
+  <string name="pref_header_preferences">Podešavanja</string>
+</resources>

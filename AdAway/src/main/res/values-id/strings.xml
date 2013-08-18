@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Buttons-->
+  <string name="button_exit">Keluar</string>
+  <string name="button_apply">Mengunduh file dan memasang ad blocking</string>
+  <string name="button_close">Tutup</string>
+  <string name="button_yes">Ya</string>
+  <string name="button_no">Tidak</string>
+  <string name="button_revert">Nonaktifkan ad blocking</string>
+  <string name="button_add">Tambah</string>
+  <string name="button_cancel">Batal</string>
+  <string name="button_save">Simpan</string>
+  <string name="button_webserver_toggle_checked">Webserver berjalan</string>
+  <string name="button_webserver_toggle_unchecked">Webserver tidak berjalan</string>
+  <string name="button_help">Bantuan</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Tambah</string>
+  <string name="checkbox_list_empty">Daftar kosong</string>
+  <string name="checkbox_list_context_delete">Hapus</string>
+  <string name="checkbox_list_edit_dialog_title">Edit</string>
+  <string name="checkbox_list_context_title">Ubah Masukkan</string>
+  <string name="checkbox_list_context_edit">Edit</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Daftar putih</string>
+  <string name="lists_tab_blacklist">Daftar hitam</string>
+  <string name="lists_tab_blacklist_short">Hitam</string>
+  <string name="lists_tab_whitelist_short">Putih</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
+  <!--Status Notifications-->
+  <string name="status_checking_subtitle">Periksa jika pembaruan tersedia</string>
+  <string name="status_update_available">Pembaruan tersedia</string>
+  <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
+  <string name="status_no_connection">Tidak ada koneksi internet</string>
+  <string name="status_enabled">Dinyalakan</string>
+  <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
+  <string name="status_disabled">Dimatikan</string>
+  <string name="status_disabled_subtitle">Dimatikan</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_not_enough_space_title">Tidak cukup ruang</string>
+  <string name="apply_private_file_fail">Berkas terunduh tidak dapat dibaca.</string>
+  <string name="apply_private_file_fail_title">Berkas pribadi gagal</string>
+  <string name="apply_copy_fail_title">Penyalinan gagal</string>
+  <string name="no_connection_title">Tidak ada koneksi</string>
+  <string name="apply_dialog_hostnames">Parsing dan penggabungan file host</string>
+  <string name="apply_fail_title">Pemasangan gagal</string>
+  <string name="download_fail_title">Unduh gagal</string>
+  <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
+  <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">Dibutuhkan Rooted Android</string>
+  <string name="no_url">Kesalahan URL!</string>
+  <string name="no_url_title">Malformed URL</string>
+  <string name="hosts_add_dialog">Masukan URL ke file hosts:</string>
+  <string name="no_hostname">Ini bukan hostname yang benar!</string>
+  <string name="no_ip">Ini bukan IP yang benar!</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Segarkan</string>
+  <string name="menu_add">Tambah</string>
+  <string name="menu_hosts_sources">Sumber host</string>
+  <string name="menu_help">Bantuan</string>
+  <string name="menu_lists">Daftar Anda</string>
+  <string name="menu_show_hosts_file">Buka berkas hosts</string>
+  <string name="menu_preferences">Preferensi</string>
+  <!--Help-->
+  <string name="help_tab_problems">Masalah</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
+  <!--Scan Adware-->
+  <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Lokal:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <!--Other-->
+  <string name="app_subtitle">Ad blocker</string>
+  <string name="no_text_editor_title">Tidak terinstal pengedit teks</string>
+  <!--Tcpdump-->
+  <!--Preferences-->
+  <string name="pref_header_preferences">Preferensi</string>
+</resources>

@@ -128,6 +128,14 @@
   <string name="help_tab_problems">其他問題</string>
   <string name="help_tab_changelog">更新記錄</string>
   <string name="help_about_version">版本:</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 歐元</item>
+    <item>2 歐元</item>
+    <item>3 歐元</item>
+    <item>5 歐元</item>
+    <item>8 歐元</item>
+    <item>13 歐元</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">以下所掃瞄出來的應用程式相信已附帶廣告軟件，這些應用程式所顯示的廣告是不能被 AdAway 攔截的。這些應用程式就算沒有運行，也會彈出例如 Airpush 或其他廣告相關的狀況列提示。唯一的解決方法就是在以下選單中點擊應用程式及移除它們！</string>
   <string name="scan_adware_start">開始掃瞄</string>

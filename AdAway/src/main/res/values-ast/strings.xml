@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Colar</string>
+  <string name="button_apply">Baxar ficheros y aplicar bloquéu d\'anuncies</string>
+  <string name="button_close">Zarrar</string>
+  <string name="button_yes">Sí</string>
+  <string name="button_no">Non</string>
+  <string name="button_revert">Deshabilitar bloquéu d\'anuncies</string>
+  <string name="button_add">Añader</string>
+  <string name="button_cancel">Atayar</string>
+  <string name="button_apply_text">Tolos ficheros hosts de les fontes definíes baxaránse, amestaranse coles tos llistes ya les instalaes como un ficheru hosts nel sistema to.</string>
+  <string name="button_revert_text">Restaura\'l ficheru hosts per defeutu nel sistema to.</string>
+  <string name="button_save">Atroxar</string>
+  <string name="button_webserver_toggle_checked">El sirvidor web ta executandose</string>
+  <string name="button_webserver_toggle_unchecked">El sirvidor web nun ta executandose</string>
+  <string name="button_webserver_toggle_text">Entama o apara\'l sirividor web en localhost pa responder peticiones a viesos d\'agospios bloquiaos.</string>
+  <string name="button_help">Aida</string>
+  <string name="button_tcpdump_text">Tcpdump ye una ferramienta pa monitorizar peticiones DNS y atroxales nun ficheru de rexistru. Pues anicialu de fondu , executar aplicaciones qu\'amuesen anuncies, ya dempués analizar les peticiones DNS usando\'l ficheru de rexistros. Pue agregase un sirividor anuncies a la to llista prieta. </string>
+  <string name="button_tcpdump_toggle_checked">¡Tcpdump ta executandose!</string>
+  <string name="button_tcpdump_toggle_unchecked">¡Tcpdump nun ta executandose!</string>
+  <string name="button_tcpdump_open">Abrir ficheru de rexistru</string>
+  <string name="button_tcpdump_delete">Esniciar ficheru de rexistru</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Añader</string>
+  <string name="checkbox_list_empty">Llistáu lluellu</string>
+  <string name="checkbox_list_empty_text">Pues añader oxetos dende la barra d\'aiciones.</string>
+  <string name="checkbox_list_context_delete">Esniciar</string>
+  <string name="checkbox_list_footer">¡Dempues d\'añader oxetos nuevos a esta llista tendrás de executar AdAway bis!</string>
+  <string name="checkbox_list_edit_dialog_title">Editar</string>
+  <string name="checkbox_list_context_title">Añader entrada</string>
+  <string name="checkbox_list_context_edit">Editar</string>
+  <!--Your Lists-->
+  <string name="lists_tab_whitelist">Llista blanca</string>
+  <string name="lists_tab_blacklist">Llista prieta</string>
+  <string name="lists_tab_redirection_list_short">Redireición</string>
+  <string name="lists_tab_redirection_list">Llista de redireiciones</string>
+  <string name="list_dialog_url">Enllaz:</string>
+  <string name="list_dialog_hostname">Viesu d\'agospiu:</string>
+  <string name="list_dialog_whitelist_hostname">Agospiu:\n(¡Carauteres comodín * ya ? tán almitios!)</string>
+  <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
+  <string name="import_dialog">Importando...</string>
+  <string name="export_dialog">Esportando...</string>
+  <string name="export_success">Esportaes toles entraes a un ficheru nomáu \'adaway-export\' a la to tarxeta SD.</string>
+  <!--Status Notifications-->
+  <string name="status_checking">Comprobando anovamientos...</string>
+  <string name="status_reverting_subtitle">Creando ficheru hosts estándar</string>
+  <string name="status_checking_subtitle">Comprobando si hai anovamientos</string>
+  <string name="status_update_available">Hai un anovamientu</string>
+  <string name="status_update_available_subtitle">Disponibles ficheros hosts más nuevos</string>
+  <string name="status_no_connection">Nun hai conexón a internet</string>
+  <string name="status_no_connection_subtitle">Nun hai conexón a internet disponible</string>
+  <string name="status_download_fail">Fontes non disponibles</string>
+  <string name="status_enabled">Habilitao</string>
+  <string name="status_enabled_subtitle">Habilitaos ficheros de hosts más nuevos</string>
+  <string name="status_disabled">Deshabilitao</string>
+  <string name="status_disabled_subtitle">Deshabilitao</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_not_enough_space_title">Nun hai espaciu abondu</string>
+  <string name="apply_private_file_fail">Nun pue lleese\'l ficheru baxáu.</string>
+  <string name="apply_copy_fail">¡Copia\'l ficheru hosts fallida!</string>
+  <string name="apply_copy_fail_title">Copia fallida</string>
+  <string name="apply_help">Por favor llei l\'aida pa más información.</string>
+  <string name="apply_apn_proxy">\n</string>
+  <string name="no_connection">La conexón a internet nun ta furrulando.</string>
+  <string name="no_connection_title">Ensin conexón</string>
+  <string name="download_dialog">Baxando...</string>
+  <string name="apply_dialog">Aplicando</string>
+  <string name="apply_dialog_lists">Aplicar llista prieta ya llista blanca</string>
+  <string name="apply_dialog_hosts">Construyendo ficheru hosts</string>
+  <string name="apply_dialog_apply">Aplicando ficheru hosts</string>
+  <string name="download_fail_title">Descarga fallida</string>
+  <string name="no_private_file">Nun pudo crease\'l ficheru acutáu.</string>
+  <string name="no_private_file_title">Creacion de ficheru acutáu fallida</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">Requierse permisu root</string>
+  <string name="no_url">¡Esti enllaz nun ye válidu!</string>
+  <string name="no_url_title">Enllaz mal formáu</string>
+  <string name="hosts_add_dialog">Enllaz d\'entrada al ficheru hosts:</string>
+  <string name="no_hostname">¡Nun ye un viesu d\'agospiu válidu!</string>
+  <string name="no_hostname_title">Viesu d\'agospiu mal formáu</string>
+  <string name="no_ip">¡Nun ye una IP válida!</string>
+  <string name="no_ip_title">IP mal formada</string>
+  <string name="reboot_never_reboot">¡Nun amosar esta entruga más nin reaniciar tanina!</string>
+  <string name="loading">Cargando...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Anovar</string>
+  <string name="menu_add">Añader</string>
+  <string name="menu_scan_adware">Escanear Adware</string>
+  <string name="menu_hosts_sources">Fontes de Hosts</string>
+  <string name="menu_tcpdump">Rexistrar peticiones DNS</string>
+  <string name="menu_help">Aida</string>
+  <string name="menu_lists">Les tos llistes</string>
+  <string name="menu_show_hosts_file">Abrir ficheru hosts</string>
+  <string name="menu_import">Importar toles llistes</string>
+  <string name="menu_export">Esportar toles llistes</string>
+  <string name="menu_preferences">Preferencies</string>
+  <!--Help-->
+  <string name="help_tab_about">Alrodiu</string>
+  <string name="help_tab_donate">Donar</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">Torgues</string>
+  <string name="help_tab_changelog">Rexistru camudancies</string>
+  <string name="help_about_version">Versión:</string>
+  <string name="help_donation_paypal_item">Donación AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euru</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
+  <!--Scan Adware-->
+  <string name="scan_adware_description">Equí pues escanear aplicaciones Adware, que puen bloquease per AdAway. Estes apls usen por exemplu notificaciones Airpush que s\'amuesen cuando una aplicación nun ta executandose o inclusu camudar el tonu llamada. ¡La única midía ye desinstalar estes aplicaciones primiendo nos oxetos la llista!</string>
+  <string name="scan_adware_start">Entamar escanéu</string>
+  <string name="scan_adware_empty">¡Nun s\'alcontraron apls Adware!</string>
+  <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Llocal:</string>
+  <string name="hosts_last_modified_online">En llinia:</string>
+  <string name="hosts_not_available">non disponible</string>
+  <!--Other-->
+  <string name="app_subtitle">Bloqueador d\'anuncies</string>
+  <string name="no_text_editor_title">Nun hai instaláu editor de testu dalu</string>
+  <string name="no_file_manager_title">Nun hai instaláu alministrador de ficheros dalu</string>
+  <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">¡Ficheru de rexistru esniciáu!</string>
+  <string name="toast_tcpdump_added_to_blacklist">¡L\'agospiu fo añadíu a la llista prieta!</string>
+  <string name="toast_tcpdump_added_to_whitelist">¡L\'agospiu fo añadíu a la llista blanca!</string>
+  <string name="tcpdump_log_context_blacklist">Añader a la to llista prieta</string>
+  <string name="tcpdump_log_context_whitelist">Añader a la to llista blanca</string>
+  <string name="tcpdump_log_context_browser">Abrir nel restolador</string>
+  <string name="tcpdump_log_empty">¡El ficheru de rexistru ta lluellu!</string>
+  <string name="tcpdump_log_footer">¡Caltener primio un agospiu p\'añadellu a la to llista blanca o prieta!</string>
+  <!--Preferences-->
+  <string name="pref_download">Preferencies xenerales</string>
+  <string name="pref_hosts">Ficheru hosts</string>
+  <string name="pref_redirection_ip">Redireición d\'IP</string>
+  <string name="pref_update_check">Comprobar anovamientos</string>
+  <string name="pref_apply_method_summary">Enantes de camudar esti axuste, llei l\'aida tocante esta funcionalidá.</string>
+  <string name="pref_redirection_ip_summary">Tolos agospios bloquiaos redireicionaránse a esta IP.</string>
+  <string name="pref_header_preferences">Preferencies</string>
+  <string name="pref_header_preferences_summary">Preferencies xenerales pa AdAway</string>
+  <string name="pref_never_reboot">Anubir diálogu de reaniciu</string>
+  <string name="pref_never_reboot_summary">Anubre\'l diálogu qu\'entruga pol reaniciu d\'Android dempues d\'aplicar</string>
+  <string name="pref_webserver_on_boot">Entamar sirvidor web nel aniciu</string>
+  <string name="pref_webserver_on_boot_summary">Aniciar sirvidor web nel aniciu, escuchando na direcición IP llocal</string>
+  <string name="pref_webserver_enabled">Habilitar sirvidor web</string>
+  <string name="pref_webserver_enabled_summary">Habilita que\'l sirvidor web escuche na direición IP llocal pa responder peticiones d\'agospios bloquiaos</string>
+  <string name="pref_webserver">Sirvidor web llocal</string>
+  <string name="pref_custom_target">Oxetivu customizáu</string>
+  <string name="pref_custom_target_summary">Solo usao si\'l ficheru de hosts oxetivu ta puestu como oxetivu customizáu</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Oxetivu customizáu</item>
+  </string-array>
+  <string name="pref_update_check_summary">Comprobar anovamientos cuando s\'anicie AdAway</string>
+  <string name="pref_sdcard_problem">¡Esta carauterística nun furrulará dafechu cuando AdAway tea instaláu na tarxeta SD!</string>
+  <string name="pref_background">Servicios de fondu</string>
+  <string name="pref_update_check_daily">Comprobar anovamientos caldía</string>
+  <string name="pref_update_check_daily_summary">Comprobar anovamientos dafurto caldía con notificaciones</string>
+  <string name="pref_automatic_update_daily">Anovamientu automáticu</string>
+  <string name="pref_automatic_update_daily_summary">Anovar dafurto automáticamente si hai anovamientos.</string>
+  <string name="pref_update_only_on_wifi">Anovar solo per Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Executar anovamientos dafurto solo cuando se coneute a una rede Wifi.</string>
+  <string name="pref_debug">Depuración</string>
+  <string name="pref_enable_debug_summary">Necesites reaniciar AdAway pa qu\'esti axuste faga efeutu</string>
+</resources>

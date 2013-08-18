@@ -2,10 +2,9 @@
 <resources>
   <string name="donations__button_close">Đóng</string>
   <string name="donations__flattr">Đánh giá</string>
-  <string name="donations__description">Bạn thấy ứng dụng này hữu dụng?\nHãy hỗ trợ tác giả bằng cách đánh giá cao hoặc ủng hộ vật chất qua CH Google Play!</string>
+  <string name="donations__description">Bạn có thấy ứng này hữu ích?\nHãy hỗ trợ việc phát triển của phần mềm bằng cách ủng hộ tài chính!</string>
   <string name="donations__flattr_description">Đánh giá cao mất 10% như phí tháng! </string>
   <string name="donations__google_android_market">CH Google Play</string>
-  <string name="donations__google_android_market_not_supported_title">Không có chức năng ủng hộ ngay trong ứng dụng</string>
   <string name="donations__google_android_market_not_supported">Không hỗ trợ chức năng ủng hộ trong ứng dụng. CH Google Play có hoạt động chính xác?</string>
   <string name="donations__google_android_market_description">Google hưởng 30% giá trị ủng hộ!</string>
   <string name="donations__google_android_market_donate_button">Ủng hộ!</string>
@@ -14,4 +13,6 @@
   <string name="donations__paypal_description">Bạn có thể bấm nút chọn số tiền cần ủng hộ!</string>
   <string name="donations__thanks_dialog_title">Xin cám ơn!</string>
   <string name="donations__thanks_dialog">Cám ơn bạn đã ủng hộ!\nTôi thực sự cảm kích! </string>
+  <string name="donations__alert_dialog_title">Lỗi đã xảy ra</string>
+  <string name="donations__alert_dialog_no_browser">Không có trinnhf duyệt nào được tìm thấy để mở ra liên kết đến website!</string>
 </resources>

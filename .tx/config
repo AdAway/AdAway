@@ -13,7 +13,7 @@ source_file = AdAway/src/main/res/raw/help_faq.html
 source_lang = en
 
 [adaway.help-problems]
-file_filter = AdAway/src/mainres/raw-<lang>/help_problems.html
+file_filter = AdAway/src/main/res/raw-<lang>/help_problems.html
 source_file = AdAway/src/main/res/raw/help_problems.html
 source_lang = en
 

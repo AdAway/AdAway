@@ -26,7 +26,7 @@
   <string name="checkbox_list_add_dialog_title">Aggiungi</string>
   <string name="checkbox_list_empty">Svuota lista</string>
   <string name="checkbox_list_empty_text">Puoi aggiungere oggetti dalla barra delle azioni</string>
-  <string name="checkbox_list_context_delete">Cancella</string>
+  <string name="checkbox_list_context_delete">Elimina</string>
   <string name="checkbox_list_footer">Dopo aver aggiunto nuove voci alla tua lista devi applicare di nuovo AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Modifica</string>
   <string name="checkbox_list_context_title">Modifica valore</string>
@@ -39,7 +39,7 @@
   <string name="lists_tab_redirection_list_short">Inoltri</string>
   <string name="lists_tab_redirection_list">Lista degli inoltri</string>
   <string name="list_dialog_url">URL:</string>
-  <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_hostname">Nome host:</string>
   <string name="list_dialog_whitelist_hostname">Hostname:\n(I caratteri jolly * e ? sono consentiti!)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importo...</string>
@@ -96,7 +96,7 @@
   <string name="revert_problem">Ripristino fallito per ragioni sconosciute.</string>
   <string name="revert_problem_title">Ripristino fallito!</string>
   <string name="download_fail_dialog">Nessuna delle fonti hosts che hai abilitato è raggiungibile! Sei connesso a internet?</string>
-  <string name="download_fail_title">Scaricamento fallito</string>
+  <string name="download_fail_title">Download fallito</string>
   <string name="no_private_file">Il file privato non può essere creato.</string>
   <string name="no_private_file_title">Creazione del file privato fallita</string>
   <!--Other Dialogs-->
@@ -105,8 +105,8 @@
   <string name="no_url">Questo non è un URL valido!</string>
   <string name="no_url_title">URL malformato</string>
   <string name="hosts_add_dialog">Inserisci l\'URL al file hosts:</string>
-  <string name="no_hostname">Questo non è un hostname valido</string>
-  <string name="no_hostname_title">ho</string>
+  <string name="no_hostname">Questo non è un nome host valido!</string>
+  <string name="no_hostname_title">Nome host malformato</string>
   <string name="no_ip">Questo non è un IP valido!</string>
   <string name="no_ip_title">IP malformato</string>
   <string name="reboot_never_reboot">Non riavviare mai e non mostrare questo messaggio la prossima volta!</string>
@@ -131,6 +131,15 @@
   <string name="help_tab_problems">Problemi</string>
   <string name="help_tab_changelog">Changelog</string>
   <string name="help_about_version">Versione:</string>
+  <string name="help_donation_paypal_item">Donazione AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Qui puoi fare una scansione alla ricerca di applicazioni malevoli con Adware, che non possono essere bloccate da AdAway. Queste applicazioni usano per esempio notifiche Airpush che appaiono anche quando l\'app non è avviata o addirittura ti cambiano la suoneria. L\'unica contromisura disponibile è disinstallare queste applicazioni cliccando nella lista delle voci!</string>
   <string name="scan_adware_start">Inizia scansione</string>

@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>HTC Devices</h2>
+<p>AdAway ne radi kada koristite uređaje sa S-ON. Ova "funkcija" postiji na mnogim HTC uređajima i sprečava AdAway od pisanja host fajla.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF znači da je NAND deo uređaja je otključan i da može biti pisano. Fabrički je podešeno S-On na HTC uređajima, što znači da ne možete da pristupite pojedinim oblastima sistema niti možete da garantujete trajni "Root". Štaviše, "signature check" za "firmware" slike je takođe osiguran S-ON-om.</p>
+
+<h2>Da li ja imam S-ON ili S-OFF?</h2>
+<p>Pokrenuti "Boot Menu" na vašem uređaju držanjem <i>volume down</i> dugme dok pritiskate "power" i tekst na vrhu će pokazati status ili S-OFF ili S-ON. Potpun "Root" obučno znači S-OFF
+<br/><br/>Više informacija možete naći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+
+<h2>Rešenje</h2>
+<p>Preduslov: Morate da instalirate Android SDK sa ADB na vaš PC
+</p>
+<ol>
+<li>Pokrenuti "Boot Menu" na vašem uređaju držanjem <i>volume down</i> dugme dok pritiskate "power" dugme.</li>
+<li>Koristite <i>volume down</i> da izaberete recovery.</li>
+<li>U "clockwork recovery" <i>volume down</i> i stisnite "track pad" da izaberete</li>
+<li>Izaberire <i>mount /system</i>, <i>mount /sdcard</i> I <i>mount /data</i>.</li>
+<li>Uključite USB kabl i otvorite command line  na PC-u.</li>
+<li>Otvorite adb i upišite <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Ovo kreira simbolički link, koji dozvoljava AdAway da uređuje host fajlove skladištene u <tt>/data</tt> dok dozvoljava OS da koristi fajl kao da se čuva u <tt>/system</tt>.)</li>
+<li>Restartujte uređaj i postavite <i>Target hosts file</i> na <i>/data/data/hosts</i> u AdAway's podešavanja.</li>
+<li>AdAway bi trebalo da radi sada.</li>
+</ol>
+</body>
+</html>

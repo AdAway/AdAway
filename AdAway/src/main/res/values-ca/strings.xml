@@ -2,7 +2,7 @@
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
-  <string name="button_exit">Surt</string>
+  <string name="button_exit">Sortir</string>
   <string name="button_apply">Descarrega fitxers i aplica el bloqueig d\'anuncis</string>
   <string name="button_close">Tanca</string>
   <string name="button_yes">Si</string>
@@ -131,6 +131,15 @@
   <string name="help_tab_problems">Problemes</string>
   <string name="help_tab_changelog">Registre de canvis</string>
   <string name="help_about_version">Versió:</string>
+  <string name="help_donation_paypal_item">Donació a AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Aquí podeu trobar aplicacions Adware malignes. Aquestes no es poden bloquejar amb AdAway. Aquestes aplicacions utilitzen, per exemple, notificacions Airpush fins i tot quan no funcionen. També poden canviar el vostre to de trucada. La única defensa possible és, per tant, desinstal·lant aquestes aplicacions malignes.</string>
   <string name="scan_adware_start">Comença l\'escanneig</string>

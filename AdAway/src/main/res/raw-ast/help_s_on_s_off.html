@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>Preseos HTC</h2>
+<p>AdAway nun furrulará cuando teas usando un preséu col llamáu S-ON. Esta "carauterística" esiste en munchos preseos HTC y antemana la escritura'l ficheru hosts per AdAway.</p>
+
+<h2>¿S-ON/S-OFF?</h2>
+<p>S-OFF significa que la NAND del to preséu ta desbloquiada ya pue escribise n'ella. Los axustes per defeutu pa preseos HTC ye S-ON, llo que significa que tampoco podrás acceder a ciertes fasteres del to sistema nin pues garantizar un rootéu dafechu. Amás, la comprobación de firma pa imaxes de firmware ta tamién garantizada pol indicador S-ON.</p>
+
+<h2>¿Teo S-ON o S-OFF?</h2>
+<p>Anicia nel menú d'arranque del to preséu primiendo'l botón <i>volume -</i> entrín primes la tecla d'encendíu, el testu d'enriba amosará l'estáu del indicador S-OFF o S-ON. Un rootéu completu xeneralmente significa S-OFF.
+<br/><br/>Pue alcontrase más información en<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+
+<h2>Solución</h2>
+<p>Prerequisitu: Tienes d'instalar un SDK Android con un shell ADB que furrule nel PC to.
+</p>
+<ol>
+<li>Aniciar nel menú d'arranque del to preséu primiendo'l botón <i>volume -</i> entrín primes la tecla d'encendíu.</li>
+<li>Usa <i>volume -</i> pa esbillar el Recovery.</li>
+<li>Nel recovery ClockWord 'volume -' fasta "Menú de particiones" ya da-y col trackpad pa esbillar</li>
+<li>Esbilla <i>montar /system</i>, <i>montar /system</i> ya <i>montar /system</i>.</li>
+<li>Coneuta'l to cable USB y abre la llinia comandos nel to PC.</li>
+<li>Entra nel shell ADB ya escribi <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Esto creará un enllaz simbólicu que-y permite a AdAway editar el ficheru hosts atroxáu en <tt>/data</tt> mentanto permite tamién al SO usar el ficheru si fo atroxáu en <tt>/system</tt>.)</li>
+<li>Reanicia'l to preséu y configura <i>Destín del ficheru hosts</i> a <i>/data/data/hosts</i> nes preferencies d'AdAway.</li>
+<li>AdAway debería furrular nel intre.</li>
+</ol>
+</body>
+</html>

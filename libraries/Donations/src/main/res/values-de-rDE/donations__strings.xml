@@ -5,7 +5,6 @@
   <string name="donations__description">Findest die diese Anwendung nützlich?\nUnterstütze die Entwicklung indem Du sie flatterst oder spendest.</string>
   <string name="donations__flattr_description">Flattr behält 10 % als monatliche Gebühr ein!</string>
   <string name="donations__google_android_market">Google Play Store</string>
-  <string name="donations__google_android_market_not_supported_title">In-App-Spenden werden nicht unterstützt</string>
   <string name="donations__google_android_market_not_supported">In-App-Spenden werden nicht unterstützt. Ist der Google Play Store korrekt installiert?</string>
   <string name="donations__google_android_market_description">30 % jeder Spende geht an Google!</string>
   <string name="donations__google_android_market_donate_button">Spende!</string>
@@ -14,4 +13,6 @@
   <string name="donations__paypal_description">Du kannst auswählen wie viel Du spenden möchtest, nachdem Du auf den Button geklickt hast!</string>
   <string name="donations__thanks_dialog_title">Danke!</string>
   <string name="donations__thanks_dialog">Danke für die Spende!\nIch weiß es wirklich zu schätzen!</string>
+  <string name="donations__alert_dialog_title">Fehler aufgetreten</string>
+  <string name="donations__alert_dialog_no_browser">Kein Browser gefunden um eine Webseite zu öffnen!</string>
 </resources>

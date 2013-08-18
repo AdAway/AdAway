@@ -2,10 +2,8 @@
 <resources>
   <string name="donations__button_close">Zapri</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Se vam zdi aplikacija uporabna?\nPodprite njeno razvijanje s \"Flattranjem\" ali pošiljanjem donacije razvijalcu!</string>
   <string name="donations__flattr_description">Flattr vzame 10% kot mesečni strošek!</string>
   <string name="donations__google_android_market">Google Trgovina (Play Store)</string>
-  <string name="donations__google_android_market_not_supported_title">Donacije znotraj aplikacije niso možne</string>
   <string name="donations__google_android_market_not_supported">Donacije znotraj aplikacije niso možne. Imate nameščeno Google Trgovino (Play Store)?</string>
   <string name="donations__google_android_market_description">Google vzame 30% od vsake donacije!</string>
   <string name="donations__google_android_market_donate_button">Doniraj!</string>

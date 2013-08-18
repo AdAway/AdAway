@@ -131,6 +131,14 @@
   <string name="help_tab_problems">Проблеми</string>
   <string name="help_tab_changelog">Промени</string>
   <string name="help_about_version">Версия:</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 евро</item>
+    <item>2 евра</item>
+    <item>3 евра</item>
+    <item>5 евра</item>
+    <item>8 евра</item>
+    <item>13 евра</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Тук можете да сканирате за лоши рекламни приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват например Airpush известия, които се появяват дори когато приложението не работи или дори променят вашия тон на звънене. Единствената налична мярка за противодействие е да деинсталирате тези приложения, като чукнете върху елементите от списъка!</string>
   <string name="scan_adware_start">Започване на сканиране</string>

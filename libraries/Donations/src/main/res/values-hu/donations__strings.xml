@@ -2,10 +2,8 @@
 <resources>
   <string name="donations__button_close">Bezár</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Hasznosnak találod ezt az alkalmazást?\nTámogathatod a fejlsztést flattring-el vagy küldhetsz támogatást a Google Android Market-et használva!</string>
   <string name="donations__flattr_description">A Flattr 10 %-ot levesz havi díjként!</string>
   <string name="donations__google_android_market">Google Android Market</string>
-  <string name="donations__google_android_market_not_supported_title">In-App Donations nem támogatott</string>
   <string name="donations__google_android_market_not_supported">Az alkalmazáson belüli adományozás nem támogatott. A Google Android Market megfelelően van telepítve?</string>
   <string name="donations__google_android_market_description">A Google része 30 % minden adományból!</string>
   <string name="donations__google_android_market_donate_button">Adományozok!</string>

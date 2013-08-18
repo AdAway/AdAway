@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>Perangkat HTC</h2>
+<p>AdAway tidak bekerja ketika Anda menggunakan perangkat dengan apa yang disebut S-ON. 'Fitur' ini ada pada banyak perangkat HTC dan mencegah AdAway dari menulis file host.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF berarti bahwa bagian NAND pada perangkat tidak terkunci dan dapat ditulis. Pengaturan standar untuk perangkat HTC adalah S-ON, yang berarti bahwa tidak dapat mengakses area tertentu dari sistem juga tidak bisa menjamin root permanen. Selanjutnya, memeriksa tanda tangan untuk gambar firmware juga dijamin oleh S-ON flag.</p>
+
+<h2>Apakah saya harus S-ON atau S-OFF?</h2>
+<p>Boot into the Boot Menu pada perangkat anda dengan menekan tombol <i>volume down</i> bersamaan dengan tombol power dan text diatas akan muncul sebagai status  S-OFF or S-ON. Full root umumnya berati S-OFF.⏎
+<br/><br/>Informasi lebih lanjut dapat di lihat<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+
+<h2>Solusi</h2>
+<p>Prasyarat: Anda harus menginstal SDK Android dengan ADB shell pada PC Anda.
+</p>
+<ol>
+<li>Boot into the Boot Menu pada perangkat anda dengan menekan tombol <i>volume down</i> bersamaan dengan tombol power.</li>
+<li>Gunakan tombol <i>volume down</i> untuk memilih recovery.</li>
+<li>Pada volume pemulihan jarum jam ke "partisi menu" dan tekan trackpad untuk memilih</li>
+<li>Pilih <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
+<li>Tancapkan usb anda dan buka command line pada pc anda.</li>
+<li>Masuk adb shell dan tulis<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Ini membuat sebuah simbol link, yang memungkinkan AdAway untuk mengedit host file yang disimpan dalam <tt>/data</tt> sementara mengizinkan OS untuk menggunakan file seolah-olah itu disimpan dalam <tt>/system</tt>.)</li>
+<li>Reboot perangkat Anda dan set <i> Sasaran file hosts </i> untuk <i>/data/data/hosts</i> dalam preferensi AdAway.</li>
+<li>AdAway seharusnya bekerja sekarang.</li>
+</ol>
+</body>
+</html>

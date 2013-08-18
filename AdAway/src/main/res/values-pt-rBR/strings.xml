@@ -130,6 +130,15 @@
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemas</string>
   <string name="help_about_version">Versão:</string>
+  <string name="help_donation_paypal_item">Doação para o AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Aqui você pode pesquisar por aplicativos com Anúncios ruins, os quais não podem ser bloqueados com pelo AdAway. Estes aplicativos usam por exemplo notificações Airpush que exibem pop up mesmo quando o aplicativo não está rodando ou até mesmo muda seu toque de chamada. A única contra-medida disponível é desinstalar estes aplicativos ao clicar nos itens da lista!</string>
   <string name="scan_adware_start">Iniciar pesquisa</string>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Zatvori</string>
+  <string name="donations__description">Da li vam je ovo korisna aplikacija?\nPodržite njen razvitak slanjem donacije razvijaču!</string>
+  <string name="donations__flattr_description">Flattr uzima 10 % provizije mesečno!</string>
+  <string name="donations__google_android_market">Google Play prodavnica</string>
+  <string name="donations__google_android_market_not_supported">Donacije u aplikaciji nisu dostupne. Da li je Google Play prodavnica ispravno instalirana?</string>
+  <string name="donations__google_android_market_description">Google uzima 30 % od svae donacije!</string>
+  <string name="donations__google_android_market_donate_button">Doniraj!</string>
+  <string name="donations__google_android_market_text">Koliko?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Možete odabrati koliko ćete donirati posle pritiska na dugme!</string>
+  <string name="donations__thanks_dialog_title">Hvala!</string>
+  <string name="donations__thanks_dialog">Hvala za donaciju!\nZaista cenim to!</string>
+  <string name="donations__alert_dialog_title">Došlo je do greške</string>
+</resources>

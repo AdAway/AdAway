@@ -1,39 +1,99 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Έξοδος</string>
-  <string name="button_apply">Κατέβασμα αρχείων και εφαρμογή διακοπής διαφημίσεων</string>
+  <string name="button_apply">Κατέβασμα αρχείων και εφαρμογή αποκλεισμού διαφημίσεων</string>
   <string name="button_close">Κλείσιμο</string>
   <string name="button_yes">Ναι</string>
   <string name="button_no">Όχι</string>
+  <string name="button_revert">Απενεργοποίηση αποκλεισμού διαφημίσεων</string>
   <string name="button_add">Προσθήκη</string>
   <string name="button_cancel">Άκυρο</string>
   <string name="button_save">Αποθήκευση</string>
+  <string name="button_help">Βοήθεια</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Προσθήκη</string>
   <string name="checkbox_list_empty">Άδεια λίστα</string>
   <string name="checkbox_list_context_delete">Διαγραφή</string>
   <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
+  <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
   <string name="checkbox_list_context_edit">Επεξεργασία</string>
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Λευκή λίστα</string>
   <string name="lists_tab_blacklist">Μαύρη λίστα</string>
+  <string name="lists_tab_blacklist_short">Μαύρο</string>
+  <string name="lists_tab_whitelist_short">Λευκό</string>
+  <string name="lists_tab_redirection_list_short">Ανακατεύθυνση </string>
+  <string name="lists_tab_redirection_list">Λίστα ανακατεύθυνση</string>
+  <string name="list_dialog_ip">IP (IPv4 ή IPv6):</string>
+  <string name="import_dialog">Εισαγωγή...</string>
+  <string name="export_dialog">Εξαγωγή...</string>
   <!--Status Notifications-->
+  <string name="status_checking">Έλεγχος για ενημέρωση...</string>
+  <string name="status_checking_subtitle">Έλεγχος για ενημέρωση</string>
+  <string name="status_update_available">Υπάρχει διαθέσιμη ενημέρωση</string>
+  <string name="status_download_fail">Μη διαθέσιμες πηγές</string>
+  <string name="status_enabled">Ενεργοποιημένο</string>
+  <string name="status_disabled">Απενεργοποιημένο</string>
+  <string name="status_disabled_subtitle">Απενεργοποιημένο</string>
   <!--Apply and Revert Dialogs-->
-  <string name="no_connection_title">Καμία σύνδεση</string>
-  <string name="download_dialog">Κατεβάζει...</string>
+  <string name="apply_not_enough_space_title">Δεν υπάρχει διαθέσιμος χώρος</string>
+  <string name="apply_private_file_fail">Δεν μπορεί να διαβαστεί το κατεβασμένο αρχείο.</string>
+  <string name="apply_private_file_fail_title">Απέτυχε το προσωπικό αρχείο</string>
+  <string name="apply_copy_fail_title">Η αντιγραφή απέτυχε</string>
+  <string name="no_connection_title">Αδυναμία συνδεσης</string>
+  <string name="download_dialog">Λήψη...</string>
   <string name="apply_dialog">Εφαρμογή...</string>
+  <string name="apply_dialog_lists">Εφαρμογή Λευκής και Μαύρης λίστας</string>
   <string name="apply_fail_title">Εφαρμογή απέτυχε</string>
+  <string name="download_fail_title">Το κατέβασμα απέτυχε</string>
+  <string name="no_private_file">Το προσωπικό αρχείο δεν μπορεί να δημιουργηθεί.</string>
+  <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Είτε το εκτελέσιμο su δε βρέθηκε ή δεν επιτράπηκε πρόσβαση root για το AdAway.\n\nΑυτό συμβαίνει όταν η συσκευή δεν έχει γίνει root.\n\nΠληροφορίες για το πως μπορεί να γίνει root μια συσκευή υπάρχουν στο www.cyanogenmod.com ή σε άλλες ιστοσελίδες Android.</string>
-  <string name="no_root_title">Χρειάζεται rooted Android</string>
+  <string name="no_root_title">Χρειάζεται δικαιώματα διαχειρηστη</string>
+  <string name="no_url">Αυτή η διεύθυνση URL δεν είναι έγκυρη! </string>
+  <string name="no_ip">Αυτή η διεύθυνση IP δεν είναι έγκυρη! </string>
+  <string name="loading">Φόρτωση...</string>
   <!--Menu entries-->
+  <string name="menu_refresh">Ανανέωση</string>
   <string name="menu_add">Προσθήκη</string>
+  <string name="menu_scan_adware">Σάρωση για Adware</string>
+  <string name="menu_help">Βοήθεια</string>
+  <string name="menu_lists">Οι λίστες σας</string>
+  <string name="menu_import">Εισαγωγή όλων των λιστών</string>
+  <string name="menu_export">Εξαγωγή όλων των λιστών</string>
   <string name="menu_preferences">Ρυθμίσεις</string>
   <!--Help-->
+  <string name="help_tab_donate">Δωρίστε</string>
+  <string name="help_tab_faq">Συχνές Ερωτήσεις</string>
+  <string name="help_tab_problems">Προβλήματα</string>
+  <string name="help_about_version">Έκδοση:</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_start">Ξεκινήστε τη σάρωση</string>
   <!--Hosts Sources-->
+  <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
   <!--Other-->
   <!--Tcpdump-->
+  <string name="tcpdump_log_context_blacklist">Προσθήκη στη Μαύρη λίστα</string>
+  <string name="tcpdump_log_context_whitelist">Προσθήκη στη Λευκή λίστα</string>
+  <string name="tcpdump_log_context_browser">Άνοιγμα με Πλοηγό</string>
   <!--Preferences-->
+  <string name="pref_download">Γενικές προτιμήσεις</string>
+  <string name="pref_redirection_ip">IP Ανακατεύθυνσης</string>
+  <string name="pref_update_check">Έλεγχος για ενημερώσεις</string>
+  <string name="pref_header_preferences">Επιλογές</string>
+  <string name="pref_never_reboot">Απόκρυψη διαλόγου επανεκκίνησης</string>
+  <string name="pref_automatic_update_daily">Αυτόματη ενημέρωση</string>
+  <string name="pref_debug">Αποσφαλμάτωση</string>
+  <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
 </resources>

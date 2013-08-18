@@ -130,6 +130,14 @@
   <string name="help_tab_faq">ČPP - često postavljana pitanja</string>
   <string name="help_tab_problems">Problemi</string>
   <string name="help_about_version">verzija:</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Eura</item>
+    <item>3 Eura</item>
+    <item>5 Eura</item>
+    <item>8 Eura</item>
+    <item>13 Eura</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Ovdje možete pokrenuti potragu za zloćudnim aplikacaijama koje AdAway ne može blokirati. Te aplikacije koriste, na primjer, Airpush notifikacije koje se pojavljuju i kada aplikacija nije pokrenuta, a čak znaju promijeniti i zvuk Vašeg zvona. Jedina protuakcija koju možete poduzeti jest deinstalirati te aplikacije klikom na elemente popisa.</string>
   <string name="scan_adware_start">Pokreni potragu</string>

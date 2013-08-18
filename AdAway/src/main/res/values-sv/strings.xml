@@ -15,7 +15,11 @@
   <string name="button_save">Spara</string>
   <string name="button_webserver_toggle_checked">Webbserver körs</string>
   <string name="button_webserver_toggle_unchecked">Webbserver körs inte</string>
+  <string name="button_webserver_toggle_text">Starta eller stoppa den lokala webbservern att besvara begäran till blockerade värdnamn.</string>
   <string name="button_help">Hjälp</string>
+  <string name="button_tcpdump_text">Tcpdump är ett verktyg för att övervaka DNS förfrågningar och spara dem i en loggfil. Du kan starta det i bakgrunden, köra program som visar annonser, och efteråt analysera DNS förfrågningarna med hjälp av loggfilen. Möjlig annons server kan då läggas till på din svartlista.</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump körs!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump körs inte!</string>
   <string name="button_tcpdump_open">Öppna loggfil</string>
   <string name="button_tcpdump_delete">Radera loggfil</string>
   <!--Checkbox List-->
@@ -39,25 +43,37 @@
   <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerar...</string>
   <string name="export_dialog">Exporterar...</string>
+  <string name="export_success">Exporterade alla poster till en fil som heter \"adaway-export\" på ditt SDCard.</string>
   <!--Status Notifications-->
   <string name="status_checking">Letar efter uppdateringar...</string>
   <string name="status_reverting">Återställer...</string>
+  <string name="status_reverting_subtitle">Skapar standard värdfil</string>
   <string name="status_checking_subtitle">Kollar om uppdatering finns tillgänglig</string>
   <string name="status_update_available">Uppdatering tillgänglig</string>
   <string name="status_update_available_subtitle">Nyare värdfiler är tillgängliga</string>
   <string name="status_no_connection">Ingen internetanslutning</string>
   <string name="status_no_connection_subtitle">Ingen internetanslutning tillgänglig</string>
   <string name="status_download_fail">Otillgängliga källor</string>
+  <string name="status_download_fail_subtitle_new">Inga värdfils källor nåbara!</string>
   <string name="status_enabled">Aktiverad</string>
   <string name="status_enabled_subtitle">Nyaste värdfilerna har aktiverats</string>
   <string name="status_disabled">Avaktiverad</string>
   <string name="status_disabled_subtitle">Avaktiverad</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing_title">Symlink fil saknas</string>
   <string name="apply_not_enough_space_title">Inte tillräckligt med minne</string>
   <string name="apply_private_file_fail">Hämtad fil kunde inte läsas.</string>
+  <string name="apply_private_file_fail_title">Privat fil, fel</string>
+  <string name="apply_remount_fail">Återmontering av partitionen som läs/skriv misslyckades!</string>
   <string name="apply_remount_fail_title">Ommontering misslyckades</string>
+  <string name="apply_copy_fail">Kopiering av värdfil misslyckades!</string>
   <string name="apply_copy_fail_title">Kopiering misslyckades</string>
+  <string name="apply_success_subtitle">Lyckade värdfil källor:</string>
+  <string name="apply_success_title">Tillämpning lyckades</string>
+  <string name="apply_symlink_successful_title">Symlink skapad</string>
+  <string name="apply_symlink_fail_title">Skapande av symlink fil misslyckades</string>
   <string name="apply_help">Läs Hjälp för mer information</string>
+  <string name="apply_apn_proxy_title">APN proxy inställd!</string>
   <string name="no_connection">Internetanslutningen fungerar inte.</string>
   <string name="no_connection_title">Ingen anslutning</string>
   <string name="download_dialog">Hämtar...</string>
@@ -69,8 +85,10 @@
   <string name="apply_fail">Tillämpning av värdfilen på din enhet misslyckades!\nTesta att ändra värdfilssökvägen i inställningarna till /data/data/hosts</string>
   <string name="apply_fail_title">Tillämpning misslyckades</string>
   <string name="revert_successful">Du återställde standardvärdfilen.\nDet kan vara nödvändigt att starta om din enhet för att ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att undvika förlust av data, se till att ingen app använder SD-kortet för tillfället)</string>
+  <string name="revert_successful_title">Återställning lyckades</string>
   <string name="revert_problem">Återställningen misslyckades av okända skäl</string>
   <string name="revert_problem_title">Återställning misslyckades!</string>
+  <string name="download_fail_dialog">Ingen av dina aktiva värdkällor kan nås! Är du ansluten till Internet?</string>
   <string name="download_fail_title">Hämtning misslyckades</string>
   <string name="no_private_file">Privat fil kan inte skapas</string>
   <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
@@ -91,6 +109,7 @@
   <string name="menu_add">Lägg till</string>
   <string name="menu_scan_adware">Sök efter Adware</string>
   <string name="menu_hosts_sources">Värdkällor</string>
+  <string name="menu_tcpdump">Logga DNS Förfrågningar</string>
   <string name="menu_help">Hjälp</string>
   <string name="menu_lists">Din lista</string>
   <string name="menu_show_hosts_file">Öppna värdfil</string>
@@ -103,7 +122,17 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problem</string>
+  <string name="help_tab_changelog">Ändringslogg</string>
   <string name="help_about_version">Version:</string>
+  <string name="help_donation_paypal_item">AdAway Donation</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_start">Starta sökning</string>
   <string name="scan_adware_empty">Inga Adwares kunde hittaas!</string>
@@ -117,21 +146,42 @@
   <string name="no_file_manager_title">Ingen filhanterare installerad</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Loggfil raderad!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Värdnamn tillagt på svartlistan</string>
+  <string name="toast_tcpdump_added_to_whitelist">Värdnamn tillagt på vitlistan</string>
+  <string name="tcpdump_log_context_blacklist">Lägg till på svart listan</string>
+  <string name="tcpdump_log_context_whitelist">Lägg till på vitlistan</string>
   <string name="tcpdump_log_context_browser">Öppna i Webbläsare</string>
+  <string name="tcpdump_log_empty">Logg filen är tom!</string>
+  <string name="tcpdump_log_footer">Långtryck på ett värdnamn för att lägga till det på svart eller vitlistan!</string>
   <!--Preferences-->
+  <string name="pref_download">Allmänna Inställningar</string>
+  <string name="pref_hosts">Värdfil</string>
+  <string name="pref_redirection_ip">Omdirigera IP</string>
   <string name="pref_update_check">Sök efter uppdateringar</string>
+  <string name="pref_apply_method">Mål värdfil</string>
+  <string name="pref_redirection_ip_summary">Alla blockerade värdnamn dirigeras om till den här ip adressen.</string>
   <string name="pref_header_preferences">Inställningar</string>
   <string name="pref_header_preferences_summary">Allmänna inställningar för AdAway</string>
   <string name="pref_never_reboot">Göm omstartsruta</string>
   <string name="pref_webserver_on_boot">Starta webbserver vid start</string>
   <string name="pref_webserver_enabled">Aktivera webbserver</string>
   <string name="pref_webserver">Lokal webbserver</string>
+  <string name="pref_custom_target">Anpassat mål</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Anpassat mål</item>
+  </string-array>
   <string name="pref_update_check_summary">Sök efter uppdateringar när appen startas</string>
   <string name="pref_sdcard_problem">Denna funktion kommer inte att fungera korrekt om AdAway är installerat på sdkortet!</string>
   <string name="pref_background">Bakgrundstjänster</string>
   <string name="pref_update_check_daily">Sök efter uppdateringar dagligen</string>
+  <string name="pref_update_check_daily_summary">Sök efter uppdateringar dagligen i bakgrunden, med notifieringar</string>
   <string name="pref_automatic_update_daily">Automatiska uppdateringar</string>
+  <string name="pref_automatic_update_daily_summary">Uppdatera automatisk i bakgrunden om uppdaterignar är tillgängliga.</string>
   <string name="pref_update_only_on_wifi">Uppdatera endast via WiFi</string>
+  <string name="pref_whitelist_redirection_rules">Tillåt omdirigering och vitlistan</string>
   <string name="pref_debug">Felsökning</string>
   <string name="pref_enable_debug">Felsökningsloggning</string>
+  <string name="pref_enable_debug_summary">Du måste starta om AdAway för att den här inställningen ska börja gälla.</string>
 </resources>

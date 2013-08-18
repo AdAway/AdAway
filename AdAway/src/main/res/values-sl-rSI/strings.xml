@@ -129,6 +129,14 @@
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Težave</string>
   <string name="help_about_version">Verzija:</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Evro</item>
+    <item>2 Evra</item>
+    <item>3 Evrov</item>
+    <item>5 Evrov</item>
+    <item>8 Evrov</item>
+    <item>13 Evrov</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Poišči programe Adware, ki jih AdAway ne more blokirati. To so aplikacije ki prikazujejo oglase tudi ko niso vklopljene. Edini način da se znebite te vrste oglasov je, da te aplikacije odstranite. (če kliknete na seznam lahko to storite takoj)</string>
   <string name="scan_adware_start">Prični iskanje</string>

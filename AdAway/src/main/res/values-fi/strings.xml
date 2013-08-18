@@ -131,6 +131,14 @@
   <string name="help_tab_problems">Ongelmat</string>
   <string name="help_tab_changelog">Muutokset</string>
   <string name="help_about_version">Versio:</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 euro</item>
+    <item>2 euroa</item>
+    <item>3 euroa</item>
+    <item>5 euroa</item>
+    <item>8 euroa</item>
+    <item>13 euroa</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Täällä voit etsiä mainosohjelma-sovelluksia, joita AdAway ei voinut estää. Nämä sovellukset käyttävät esimerkiksi Airpush-ilmoituksia, jotka avautuvat vaikka sovellus ei ole käynnissä tai jopa vaihtaa soittoääntä. Ainut toimiva vastatoimi on poistaa kyseiset sovellukset klikkaamalla luettelokohteessa</string>
   <string name="scan_adware_start">Aloita skannaus</string>

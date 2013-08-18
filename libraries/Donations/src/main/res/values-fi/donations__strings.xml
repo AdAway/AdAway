@@ -2,10 +2,8 @@
 <resources>
   <string name="donations__button_close">Sulje</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Koetko tämän sovelluksen hyödylliseksi? Tue sen kehittämistä Flattr-palvelun kautta!</string>
   <string name="donations__flattr_description">Flattr ottaa 10% kuukausipalkkiosta!</string>
   <string name="donations__google_android_market">Googlen Android Market</string>
-  <string name="donations__google_android_market_not_supported_title">Sovelluksen sisäiset lahjoitukset eivät ole tuettu</string>
   <string name="donations__google_android_market_not_supported">Sovelluksen sisäiset lahjoitukset eivät ole tuettu. Löytyykö laitteesta Android Market?</string>
   <string name="donations__google_android_market_description">Gogle ottaa 30% jokaisesta lahjoituksesta!</string>
   <string name="donations__google_android_market_donate_button">Lahjoita!</string>

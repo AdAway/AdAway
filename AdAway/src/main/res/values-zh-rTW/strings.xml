@@ -131,6 +131,14 @@
   <string name="help_tab_problems">問題</string>
   <string name="help_tab_changelog">更新紀錄</string>
   <string name="help_about_version">版本：</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 歐元</item>
+    <item>2 歐元</item>
+    <item>3 歐元</item>
+    <item>5 歐元</item>
+    <item>8 歐元</item>
+    <item>13 歐元</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">你可以掃描是否被安裝了惡意廣告軟體，這些使用推播技術 (Airpush notifications) 的廣告無法被阻擋，甚至當軟體沒有在執行時也會彈跳出廣告訊息。對付這些惡意軟體最有效的方法就是輕觸清單來移除他們！\n\n</string>
   <string name="scan_adware_start">開始掃描</string>

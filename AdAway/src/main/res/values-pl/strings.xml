@@ -131,6 +131,15 @@
   <string name="help_tab_problems">Problemy</string>
   <string name="help_tab_changelog">Lista zmian</string>
   <string name="help_about_version">Wersja</string>
+  <string name="help_donation_paypal_item">Dotacja AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Możesz tutaj przeskanować aplikacje w poszukiwaniu szkodliwych dodatków Adware, które nie mogą być zablokowane przez AdAway. Takie aplikacje używają np. powiadomień Airpush nawet, gdy same nie są uruchomione, a mogą nawet zmienić dźwięk twojego dzwonka. Jedyny środek zaradczy to odinstalowanie takich aplikacji przez kliknięcie na jej pozycję na liście! </string>
   <string name="scan_adware_start">Rozpocznij skanowanie</string>

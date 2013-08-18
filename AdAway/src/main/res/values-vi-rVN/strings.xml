@@ -131,6 +131,15 @@
   <string name="help_tab_problems">Vấn đề</string>
   <string name="help_tab_changelog">Các thay đổi</string>
   <string name="help_about_version">Phiên bản:</string>
+  <string name="help_donation_paypal_item">Ủng hộ AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Tại đây bạn có thể tìm các ứng dụng xấu mà Adware không thể khóa chúng. Những ứng dụng này, chẳng hạn như Airpush, có khả năng hiển thị thông báo kiểu tự bung ngay cả khi ứng dụng đang không chạy, hay thậm chí chúng có thể thay đổi nhạc chuông của máy. Biện pháp duy nhất là gỡ bỏ chúng bằng cách chọn từ danh sách!</string>
   <string name="scan_adware_start">Bắt đầu quét</string>

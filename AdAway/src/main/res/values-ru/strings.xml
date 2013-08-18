@@ -131,6 +131,15 @@
   <string name="help_tab_problems">Проблемы</string>
   <string name="help_tab_changelog">Список изменений</string>
   <string name="help_about_version">Версия:</string>
+  <string name="help_donation_paypal_item">Пожертвование AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Евро</item>
+    <item>2 Евро</item>
+    <item>3 Евро</item>
+    <item>5 Евро</item>
+    <item>8 Евро</item>
+    <item>13 Евро</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Поиск ПО с рекламой AdWare, которую не может заблокировать AdAway. Эти приложения используют, например, систему Airpush-уведомлений, которые появляются даже тогда, когда приложение не работает или даже могут просто изменить мелодию вашего звонка. Избавиться от такой рекламы можно только удалением приложений, показанных в результатах сканирования, путем нажатия на элементы списка.</string>
   <string name="scan_adware_start">Начать сканирование</string>

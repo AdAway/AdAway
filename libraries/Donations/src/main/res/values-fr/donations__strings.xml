@@ -2,10 +2,9 @@
 <resources>
   <string name="donations__button_close">Fermer</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Vous trouvez cette application utile ? \nSupporter son développement avec Flattr ou en envoyant des dons en utilisant l\'Android Market !</string>
+  <string name="donations__description">Cette application vous rend service ?\nParticiper à son développement en effectuant un don !</string>
   <string name="donations__flattr_description">Flattr prend 10% de frais mensuels !</string>
   <string name="donations__google_android_market">Google Play Store</string>
-  <string name="donations__google_android_market_not_supported_title">Donations In-App non-supportées</string>
   <string name="donations__google_android_market_not_supported">Donations In-App non-supportées. L\'application Google Play Store est-elle correctement installée ?</string>
   <string name="donations__google_android_market_description">Google prend 30% sur chaque don ! </string>
   <string name="donations__google_android_market_donate_button">Faites un don !</string>
@@ -14,4 +13,6 @@
   <string name="donations__paypal_description">Vous pouvez faire un don du montant  désiré en cliquant sur ce bouton !</string>
   <string name="donations__thanks_dialog_title">Merci !</string>
   <string name="donations__thanks_dialog">Merci beaucoup pour votre don ! </string>
+  <string name="donations__alert_dialog_title">Une erreur est survenue</string>
+  <string name="donations__alert_dialog_no_browser">Aucun navigateur web n\'a été trouvé pour ouvrir le site web !</string>
 </resources>

@@ -101,7 +101,7 @@
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder du hast AdAway keine root-Rechte gegeben.\n\nDas kann passieren wenn du dein Gerät nicht gerootet hast.\nInformationen wie du dein Gerät rooten kannst findest du auf www.cyanogenmod.com oder anderen Android-Webseiten.</string>
-  <string name="no_root_title">Gerootetes Android benötigt</string>
+  <string name="no_root_title">Gerootetes Android-Phone benötigt</string>
   <string name="no_url">Dies ist keine gültige URL!</string>
   <string name="no_url_title">Fehlerhafte URL</string>
   <string name="hosts_add_dialog">Gib die URL zur Hosts-Datei an:</string>
@@ -131,6 +131,15 @@
   <string name="help_tab_problems">Probleme</string>
   <string name="help_tab_changelog">Changelog</string>
   <string name="help_about_version">Version:</string>
+  <string name="help_donation_paypal_item">AdAway Spende</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Hier kannst du nach Adware-Anwendungen scannen, die nicht von AdAway geblockt werden können. Diese Anwendungen belästigen den Nutzer beispielsweise durch Airpush-Notifications, die auch wenn die Anwendung gerade nicht genutzt wird in der Benachrichtungsleiste angezeigt werden. Gefundene Anwendungen können mit einem Klick auf den Eintrag deinstalliert werden!</string>
   <string name="scan_adware_start">Scanner starten</string>

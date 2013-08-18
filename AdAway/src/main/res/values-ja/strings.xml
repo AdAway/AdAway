@@ -131,6 +131,15 @@
   <string name="help_tab_problems">問題</string>
   <string name="help_tab_changelog">更新履歴</string>
   <string name="help_about_version">バージョン:</string>
+  <string name="help_donation_paypal_item">AdAway 寄付</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 ユーロ</item>
+    <item>2 ユーロ</item>
+    <item>3 ユーロ</item>
+    <item>5 ユーロ</item>
+    <item>8 ユーロ</item>
+    <item>13 ユーロ</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">AdAwayでブロックできない、アプリが起動していなくても通知領域に広告を表示したり、着信音を変えたりする悪質なアドウェアをスキャンできます。 アドウェア対策はそのアプリをアンインストールするしかありません!</string>
   <string name="scan_adware_start">スキャンを開始</string>
