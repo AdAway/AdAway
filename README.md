@@ -18,7 +18,7 @@ For more information visit http://adaway.org
 2. Export ANDROID_HOME pointing to your Android SDK
 3. Install gradle
 4. Execute ``gradle wrapper`` (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html)
-5. Execute ``./gradlew renameExecutables``
+5. Execute ``./gradlew renameExecutables`` (IMPORTANT unusual step!)
 6. Execute ``./gradlew assemble``
 
 # Contribute
