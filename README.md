@@ -25,10 +25,6 @@ For more information visit http://adaway.org
 
 Fork AdAway and do a Pull Request. I will merge your changes back into the main project.
 
-# Libraries
-
-All JAR-Libraries are provided in this repository under "libs", all Android Library projects are under "android-libs".
-
 # Translations
 
 Translations are hosted on Transifex, which is configured by ".tx/config".
