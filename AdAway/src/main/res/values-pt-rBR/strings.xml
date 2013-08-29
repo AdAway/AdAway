@@ -129,6 +129,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemas</string>
+  <string name="help_tab_changelog">Diário de mudanças</string>
   <string name="help_about_version">Versão:</string>
   <string name="help_donation_paypal_item">Doação para o AdAway</string>
   <string-array name="help_donation_google_catalog_values">

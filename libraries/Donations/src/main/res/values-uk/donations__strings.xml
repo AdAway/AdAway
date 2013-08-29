@@ -5,6 +5,7 @@
   <string name="donations__description">Ви вважаєте програму корисною?\n Підтримайте її розробку надіславши пожертву розробнику!</string>
   <string name="donations__flattr_description">Flattr стягує 10% у вигляді щомісячної абонентської плати!</string>
   <string name="donations__google_android_market">магазин Google Play</string>
+  <string name="donations__google_android_market_not_supported_title">Програмні пожертви не підтримуються.</string>
   <string name="donations__google_android_market_not_supported">Пожертвування через програму не підтримуються. Магазин Google Play встановлений правильно?</string>
   <string name="donations__google_android_market_description">Google стягує 30% з кожного пожертвування!</string>
   <string name="donations__google_android_market_donate_button">Пожертвувати!</string>

@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Izlaz</string>
   <string name="button_apply">Preuzmi fajlove i primeni Ad Blocking</string>
@@ -38,11 +39,14 @@
   <string name="list_dialog_hostname">Hostname:</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <!--Status Notifications-->
+  <string name="status_checking">Provera ažuriranja...</string>
+  <string name="status_reverting">Vraćanje...</string>
   <string name="status_checking_subtitle">Proveravanje ažuriranja</string>
   <string name="status_update_available">Ažuriranje dostupno</string>
   <string name="status_update_available_subtitle">Noviji host-ovi fajlovi dostupni</string>
   <string name="status_no_connection">Nema internet konekcije</string>
   <string name="status_no_connection_subtitle">Nema dostupne internet konekcije</string>
+  <string name="status_download_fail">Nedostupni izvori</string>
   <string name="status_enabled">Omogućeno</string>
   <string name="status_enabled_subtitle">Noviji host-ovi fajlovi omogućeni</string>
   <string name="status_disabled">Onemogućeno</string>
@@ -62,6 +66,8 @@
   <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
   <string name="no_connection">Konekcija sa internetom ne radi.</string>
   <string name="no_connection_title">Nema konekcije</string>
+  <string name="download_dialog">Preuzimanje...</string>
+  <string name="apply_dialog">Primenjivanje...</string>
   <string name="apply_dialog_lists">Primenjivanje Crne i Bele liste</string>
   <string name="apply_dialog_hostnames">Raščlanjivanje i spajanje host-ovih fajlova</string>
   <string name="apply_dialog_hosts">Izgradnja host-ovih fajlova</string>
@@ -83,9 +89,11 @@
   <string name="no_ip">Ovo nije validan IP!</string>
   <string name="no_ip_title">Neispravna IP</string>
   <string name="reboot_never_reboot">Nikada ne pokreći ponovo i ne pokazuj ovo pitanje sledeći put!</string>
+  <string name="loading">Učitavanje...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Osveži</string>
   <string name="menu_add">Dodaj</string>
+  <string name="menu_scan_adware">Skeniraj Adware</string>
   <string name="menu_hosts_sources">Host-ovi resursi</string>
   <string name="menu_tcpdump">Log DNS zahtevi</string>
   <string name="menu_help">Pomoć</string>
@@ -95,10 +103,26 @@
   <string name="menu_export">Izvezi Sve Liste</string>
   <string name="menu_preferences">Podešavanja</string>
   <!--Help-->
+  <string name="help_tab_donate">Doniraj</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Često Postavljena Pitanja</string>
   <string name="help_tab_problems">Problemi</string>
+  <string name="help_tab_changelog">Promene</string>
+  <string name="help_about_version">Verzija:</string>
+  <string name="help_donation_paypal_item">AdAway Donacija</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Eura</item>
+    <item>3 Eura</item>
+    <item>5 Eura</item>
+    <item>8 Eura</item>
+    <item>13 Eura</item>
+  </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_start">Pokreni skeniranje</string>
+  <string name="scan_adware_empty">Nisu pronađene aplikacije sa lošim Adware-ima!</string>
   <!--Hosts Sources-->
+  <string name="hosts_not_available">nije dostupo</string>
   <!--Other-->
   <string name="app_subtitle">Ad Blocker</string>
   <string name="no_text_editor_title">Nije instaliran uređivač teksta</string>
@@ -106,4 +130,19 @@
   <!--Tcpdump-->
   <!--Preferences-->
   <string name="pref_header_preferences">Podešavanja</string>
+  <string name="pref_header_preferences_summary">Opšta podešavanja za AdAway</string>
+  <string name="pref_never_reboot">Sakrij dijalog ponovnog pokretanja (reboot)</string>
+  <string name="pref_webserver_on_boot">Pokreni webserver pri pokretanju</string>
+  <string name="pref_webserver_enabled">Omogući webserver</string>
+  <string name="pref_webserver">Lokalni Webserver</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Custom target</item>
+  </string-array>
+  <string name="pref_update_check_summary">Proveri ažuriranja pri pokretanju AdAway-a</string>
+  <string name="pref_update_check_daily">Dnevna proveravanje ažuriranja</string>
+  <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>
+  <string name="pref_automatic_update_daily">Automatska ažuriranja</string>
+  <string name="pref_update_only_on_wifi">Ažuriraj samo preko Wifi</string>
 </resources>

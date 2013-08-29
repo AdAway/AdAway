@@ -5,6 +5,7 @@
   <string name="donations__description">Cette application vous rend service ?\nParticiper à son développement en effectuant un don !</string>
   <string name="donations__flattr_description">Flattr prend 10% de frais mensuels !</string>
   <string name="donations__google_android_market">Google Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">Don In-App indisponible.</string>
   <string name="donations__google_android_market_not_supported">Donations In-App non-supportées. L\'application Google Play Store est-elle correctement installée ?</string>
   <string name="donations__google_android_market_description">Google prend 30% sur chaque don ! </string>
   <string name="donations__google_android_market_donate_button">Faites un don !</string>

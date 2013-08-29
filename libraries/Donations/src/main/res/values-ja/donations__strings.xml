@@ -5,6 +5,7 @@
   <string name="donations__description">このアプリは役に立ちましたか?\n開発者に寄付をして開発を応援してください!</string>
   <string name="donations__flattr_description">Flattr は月額として10 %手に入れます!</string>
   <string name="donations__google_android_market">Google Playストア</string>
+  <string name="donations__google_android_market_not_supported_title">アプリ内寄付は非対応です</string>
   <string name="donations__google_android_market_not_supported">アプリ内寄付は非対応です。GooglePlayストアはインストールされていますか?</string>
   <string name="donations__google_android_market_description">Googleは寄付の30%を持って行きます…。</string>
   <string name="donations__google_android_market_donate_button">寄付する!</string>
