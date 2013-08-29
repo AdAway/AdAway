@@ -96,7 +96,7 @@ LOCAL_C_INCLUDES += \
 
 # Licenses
 AdAway is licensed under the GPLv3+.  
-The file COPYING includes the full license text.
+The file LICENSE includes the full license text.
 
 ## Details
 AdAway is free software: you can redistribute it and/or modify
