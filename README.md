@@ -8,7 +8,7 @@ For more information visit http://adaway.org
 
 ## Build Executables
 
-1. Have NDK directory in your PATH (http://developer.android.com/sdk/index.html)
+1. Have NDK directory in your PATH (http://developer.android.com/tools/sdk/ndk/index.html)
 2. Change to "AdAway" directory with ``cd AdAway``
 3. Execute ``ndk-build`` to compile native binaries.
 
