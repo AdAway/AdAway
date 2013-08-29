@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>net.nightwhistler.htmlspanner</groupId>
+  <artifactId>htmlspanner</artifactId>
+  <version>0.5-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>htmlspanner</name>
+  <url>http://maven.apache.org</url>
+  <repositories>
+		<repository>
+			<id>PageTurner Repo</id>
+			<url>http://repo.pageturner-reader.org</url>
+		</repository>
+  </repositories>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <build>
+      <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>                    
+                </configuration>
+             </plugin>
+         </plugins>
+  </build>
+
+  <dependencies>
+   <dependency>
+   	
+   	<groupId>com.google.android</groupId>
+    <artifactId>android</artifactId>
+    <version>2.1.2</version>
+    <scope>provided</scope>
+     
+    </dependency>
+    
+    <dependency>
+		<groupId>net.sourceforge.htmlcleaner</groupId>
+		<artifactId>htmlcleaner</artifactId>
+		<version>2.2</version>       
+     </dependency>
+
+    <dependency>
+        <groupId>com.osbcp.cssparser</groupId>
+        <artifactId>cssparser</artifactId>
+        <version>1.5</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

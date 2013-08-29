@@ -1,1 +1,5 @@
-include ':AdAway', ':libraries:Donations', ':libraries:actionbarsherlock'
+include ':AdAway'
+include ':libraries:Donations'
+include ':libraries:actionbarsherlock'
+include ':libraries:HtmlSpanner'
+include ':libraries:RootCommands'

@@ -24,9 +24,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import net.nightwhistler.htmlspanner.HtmlSpanner;
-import net.nightwhistler.htmlspanner.JellyBeanSpanFixTextView;
 
 import org.adaway.util.Constants;
+import org.adaway.util.JellyBeanSpanFixTextView;
 import org.adaway.util.Log;
 
 import android.app.Activity;

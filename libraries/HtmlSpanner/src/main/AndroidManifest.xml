@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="net.nightwhistler.htmlspanner"
+          android:versionCode="05"
+          android:versionName="0.5">
+
+    <uses-sdk
+            android:minSdkVersion="7"
+            android:targetSdkVersion="17"/>
+
+    <application/>
+
+</manifest>
