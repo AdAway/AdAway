@@ -29,7 +29,7 @@ static void WINCDECL signal_handler(int sig_num) {
 static int oom_adj_save = INT_MIN;
 
 /*
- * Tell the kernel's out-of-memory killer to avoid sshd.
+ * Tell the kernel's out-of-memory killer to avoid this process.
  * Returns the previous oom_adj value or zero.
  */
 void oom_adjust_setup(void)
