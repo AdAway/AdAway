@@ -6,7 +6,7 @@ For more information visit http://adaway.org
 
 # Build with Gradle
 
-## Build executeables
+## Build Executables
 
 1. Have NDK directory in your PATH (http://developer.android.com/sdk/index.html)
 2. Change to "AdAway" directory with ``cd AdAway``
