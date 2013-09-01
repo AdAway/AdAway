@@ -27,7 +27,7 @@ Fork AdAway and do a Pull Request. I will merge your changes back into the main 
 
 ## Development
 
-I am using the newest [Android Studio](http://developer.android.com/sdk/installing/studio.html) for development. Development with Eclipse is currently not possible because I am using the new [project layout](http://developer.android.com/sdk/installing/migrate.html).
+I am using the newest [Android Studio](http://developer.android.com/sdk/installing/studio.html) for development. Development with Eclipse is currently not possible because I am using the new [project structure](http://developer.android.com/sdk/installing/studio-tips.html).
 
 1. Clone the project from github
 2. From Android Studio: File -> Import Project -> Select the cloned top folder
