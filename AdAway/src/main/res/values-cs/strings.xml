@@ -2,7 +2,7 @@
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
-  <string name="button_exit">Konec</string>
+  <string name="button_exit">Ukončit</string>
   <string name="button_apply">Stáhnout soubory a aplikovat blokování reklamy</string>
   <string name="button_close">Zavřít</string>
   <string name="button_yes">Ano</string>
@@ -10,10 +10,13 @@
   <string name="button_revert">Vypnout blokování reklam</string>
   <string name="button_add">Přidat</string>
   <string name="button_cancel">Zrušit</string>
+  <string name="button_apply_text">Všechny host soubory z vybraných zdrojů jsou staženy, sloučeny s vaším vlastním seznamem a instalovány jako jeden host soubor na vašem systému.</string>
+  <string name="button_revert_text">Obnoví defaultní host soubor vašeho systému.</string>
   <string name="button_save">Uložit</string>
   <string name="button_webserver_toggle_checked">Webserver běži</string>
   <string name="button_webserver_toggle_unchecked">Webserver neběží</string>
   <string name="button_help">Pomoc</string>
+  <string name="button_tcpdump_text">Tcpdump je nástroj pro monitorování DNS požadavků a jejich prorokolování do souboru. Může ho spustit v pozadí, spustit aplikaci zobrazující reklamy a potom analyzovat DNS požadavky v souboru protokolu. Možné reklamní servery mohou pak být přidány do vašeho černého seznamu.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump běží!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump neběží!</string>
   <string name="button_tcpdump_open">Otevřít soubor protokolu</string>
@@ -28,6 +31,10 @@
   <string name="checkbox_list_context_title">Upravit položku</string>
   <string name="checkbox_list_context_edit">Upravit</string>
   <!--Your Lists-->
+  <string name="lists_tab_whitelist">Bílý seznam</string>
+  <string name="lists_tab_blacklist">Černý seznam</string>
+  <string name="lists_tab_blacklist_short">Černý</string>
+  <string name="lists_tab_whitelist_short">Bílý</string>
   <string name="lists_tab_redirection_list_short">Přesměrování</string>
   <string name="lists_tab_redirection_list">Seznam přesměrování</string>
   <string name="list_dialog_url">URL:</string>
@@ -35,9 +42,11 @@
   <string name="list_dialog_ip">IP (IPv4 nebo IPv6):</string>
   <string name="import_dialog">Importování...</string>
   <string name="export_dialog">Exportování...</string>
+  <string name="export_success">Všechny záznamy byly exportovány do souboru \'adaway-export\' na sd kartě.</string>
   <!--Status Notifications-->
   <string name="status_checking">Kontrola aktualizací...</string>
   <string name="status_reverting">Vracení...</string>
+  <string name="status_reverting_subtitle">Vytvářím standartní soubor hostitelů</string>
   <string name="status_checking_subtitle">Kontrola, zda je k dispozici aktualizace</string>
   <string name="status_update_available">Aktualizace je k dispozici</string>
   <string name="status_update_available_subtitle">Novější soubory zdrojů jsou dostupné</string>
@@ -49,29 +58,42 @@
   <string name="status_disabled">Zakázáno</string>
   <string name="status_disabled_subtitle">Zakázáno</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symbolický odkaz z vašeho zdroje na /system/etc/hosts buď neexistuje, nebo je vadný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.⏎\n⏎\nChcete se pokusit vytvořit symbolický odkaz?</string>
   <string name="apply_symlink_missing_title">Symlink chybí</string>
+  <string name="apply_not_enough_space">Nedostatek místa v oddílu!⏎\nZkuste změnit cílový host soubor v nastavení na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Není dostatek místa</string>
   <string name="apply_private_file_fail">Stažený soubor nelze přečíst.</string>
   <string name="apply_private_file_fail_title">Soukromý soubor selhal</string>
+  <string name="apply_remount_fail">Přemountování oddílu pro zápisu/čtení selhalo!</string>
+  <string name="apply_remount_fail_title">Přemountování oddílu selhalo!</string>
   <string name="apply_copy_fail">Kopírování soboru zdrojů se nezdařilo!</string>
   <string name="apply_copy_fail_title">Kopírování selhalo</string>
   <string name="apply_success_title">Použití úspěšné</string>
   <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
+  <string name="apply_symlink_successful">Symbolický odkaz (Symlink) byl úspěšně vytvořen.⏎\nMůže být potřeba restartovat vaše zařízení pro aktivaci změn.⏎\n⏎\nChcete restartovat zařízení?⏎\n(Pro zamezení ztrátě dat se prosím ujistěte, že žádná aplikace právě nepoužívá sd kartu!)</string>
   <string name="apply_symlink_successful_title">Symlink úspěšně vytvořen</string>
+  <string name="apply_symlink_fail">Symbolický odkaz nemohl být vytvořen.⏎\nToto selže zpravidla \'vylepšení\' zvanému S-ON na HTC telefonech!⏎\n⏎\nŘešením je nastartovat vaše zařízení do recovery módu a vytvořit zde symbolický odkaz pomocí \'ln -s /data/data/hosts /system/etc/hosts\'.⏎\n⏎\nPokud toto selže, najděte si na internetu, jak provést S-OFF vašeho zařízení.</string>
   <string name="apply_symlink_fail_title">Symlink nebyl vytvořen</string>
   <string name="apply_help">Pro více informací si prosím přečtěte nápovědu.</string>
+  <string name="apply_apn_proxy">Na vašem zařízení je nastavena APN proxy!⏎\nAdAway nebude správně fungovat při připojení přes mobilní sítě, jako je 3G. Můžete deaktivovat proxy v nastavení APN (Na Android 4: Bezdrátové připojení a sítě -&gt; Další… -&gt; Mobilní sítě -&gt; Názvy přístupových bodů) a smazat záznam v poli proxy.</string>
   <string name="apply_apn_proxy_title">APN proxy nastaven!</string>
   <string name="no_connection">Připojení k internetu nefunguje.</string>
   <string name="no_connection_title">Žádné připojení</string>
   <string name="download_dialog">Stahování...</string>
   <string name="apply_dialog">Aplikování...</string>
+  <string name="apply_dialog_lists">Aplikuji bílý a černý seznam</string>
   <string name="apply_dialog_hostnames">Analýza a sloučení soubory zdrojů</string>
+  <string name="apply_dialog_hosts">Vytvářím soubor hostitelů</string>
+  <string name="apply_dialog_apply">Aplikuji soubor hostitelů</string>
   <string name="apply_fail_title">Použití se nezdařilo</string>
   <string name="revert_successful_title">Návrat úspěšný</string>
+  <string name="revert_problem">Obnova souboru hostitelů z neznámých příčin selhala!</string>
+  <string name="revert_problem_title">Obnova souboru hostitelů selhala!</string>
   <string name="download_fail_title">Stahování selhalo</string>
   <string name="no_private_file">Soukromý soubor nelze vytvořit.</string>
   <string name="no_private_file_title">Soukromý soubor nebyl vytvořen</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Nelze buď nalézt binárku su, nebo jste aplikaci AdAway neudělili root oprávnění.⏎\n⏎\nToto se stane, pokud zařízení nemá root přistup.⏎\nInformace jak získat root oprávnění naleznete na www.cyanogenmod.com, nebo jiných stránkách o Androidu.</string>
   <string name="no_root_title">Vyžaduje Root Android</string>
   <string name="no_url">Toto není platní URL adresa!</string>
   <string name="no_url_title">Chybná URL</string>
@@ -95,12 +117,14 @@
   <string name="menu_export">Exportovat všechny seznamy</string>
   <string name="menu_preferences">Předvolby</string>
   <!--Help-->
-  <string name="help_tab_about">O</string>
-  <string name="help_tab_donate">Darovat</string>
+  <string name="help_tab_about">O programu</string>
+  <string name="help_tab_donate">Přispět</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Časté otázky</string>
   <string name="help_tab_problems">Problémy</string>
   <string name="help_tab_changelog">Seznam změn</string>
   <string name="help_about_version">Verze:</string>
+  <string name="help_donation_paypal_item">AdAway příspěvek</string>
   <string-array name="help_donation_google_catalog_values">
     <item>1 Euro</item>
     <item>2 Eura</item>
@@ -121,23 +145,41 @@
   <string name="app_subtitle">Blokování reklam</string>
   <string name="no_text_editor_title">Není nainstalován textový editor</string>
   <string name="no_file_manager_title">Správce souborů není nainstalován</string>
+  <string name="no_file_manager">Nebyl nalezen správce souborů pro otevření souborů. Můžete nainstalovat OI File Manager, nebo jiný správce souborů pro vyřešení tohoto problému.⏎\n⏎\nMáte nainstalován OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Odstraněn soubor záznamů!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Jméno bylo přidáno do vašeho černého seznamu!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Jméno bylo přidáno do vašeho bílého seznamu!</string>
+  <string name="tcpdump_log_context_blacklist">Přidat do černého seznamu</string>
+  <string name="tcpdump_log_context_whitelist">Přidat do bílého seznamu</string>
   <string name="tcpdump_log_context_browser">Otevřít v prohlížeči</string>
   <string name="tcpdump_log_empty">Soubor záznamů je prázdný!</string>
+  <string name="tcpdump_log_footer">Dlouze podržte na host jménu pro přidání do vašeho černého nebo bílého seznamu!</string>
   <!--Preferences-->
   <string name="pref_download">Obecné předvolby</string>
+  <string name="pref_hosts">Soubor hostitelů</string>
   <string name="pref_redirection_ip">Přesměrování IP</string>
   <string name="pref_update_check">Zkontrolovat aktualizace</string>
+  <string name="pref_apply_method">Cílový soubor hostitelů</string>
+  <string name="pref_apply_method_summary">Před změnou tohoto nastavení si prosím přečtěte nápovědu pro tuto funkci.</string>
+  <string name="pref_redirection_ip_summary">Všechna blokovaná host jména jsou přesměrována na tuto IP adresu.</string>
   <string name="pref_header_preferences">Předvolby</string>
   <string name="pref_header_preferences_summary">Obecné předvolby pro AdAway</string>
   <string name="pref_never_reboot">Skrýt dialogové okno restartu</string>
   <string name="pref_never_reboot_summary">Skryje dialog s dotazem, o restartování Androidu po úspěšném použití</string>
   <string name="pref_webserver_on_boot">Spustit webový server při startu</string>
+  <string name="pref_webserver_on_boot_summary">Spustit webserver po startu zařízení, naslouchat na lokálních IP adresách</string>
   <string name="pref_webserver_enabled">Povolit webserver</string>
-  <string name="pref_webserver">Místní webserver</string>
+  <string name="pref_webserver_enabled_summary">Povolit webserveru naslouchání na lokální IP adrese pro odpovídání na dotazy na blokovaná host jména</string>
+  <string name="pref_webserver">Lokální webserver</string>
   <string name="pref_custom_target">Vlastní cíl</string>
-  <string name="pref_update_check_summary">Zkontrolovat aktualizace při startu Adway</string>
+  <string name="pref_custom_target_summary">Použito pouze, pokud je cílový soubor hostitelů nastaven na vlastní cíl</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Custom target</item>
+  </string-array>
+  <string name="pref_update_check_summary">Zkontrolovat aktualizace při startu AdAway</string>
   <string name="pref_sdcard_problem">Tato funkce nebude pracovat správně, pokud je AdAway instalován na SD kartě!</string>
   <string name="pref_background">Služby na pozadí</string>
   <string name="pref_update_check_daily">Kontrolovat aktualizace denně</string>

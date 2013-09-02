@@ -5,6 +5,7 @@
   <string name="donations__description">Czy aplikacja jest dla Ciebie przydatna?\nWspomóż jej rozwój poprzez dotację dla autora!</string>
   <string name="donations__flattr_description">Flattr pobiera 10% jako miesięczną opłatę!</string>
   <string name="donations__google_android_market">Sklep Google Play</string>
+  <string name="donations__google_android_market_not_supported_title">Wsparcie poprzez płatność z aplikacji nie jest dostępne.</string>
   <string name="donations__google_android_market_not_supported">Brak wsparcia dla wbudowanych płatności. Czy aplikacja Sklep Google Play jest zainstalowana prawidłowo?</string>
   <string name="donations__google_android_market_description">Google pobiera 30% kwoty z każdej darowizny!</string>
   <string name="donations__google_android_market_donate_button">Przekaż!</string>
