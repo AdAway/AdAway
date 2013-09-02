@@ -1,6 +1,9 @@
 Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
+2.7
+* Reduce apk size by switching from HtmlSpanner to HtmlTextView library
+
 2.6
 * Improve build for F-Droid
 

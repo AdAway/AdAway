@@ -141,8 +141,8 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   http://www.tcpdump.org/  
   BSD 3-Clause License
 
-* HtmlTextView
-  https://github.com/dschuermann/html-textview
+* HtmlTextView  
+  https://github.com/dschuermann/html-textview  
   Apache License v2
 
 
