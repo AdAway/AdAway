@@ -20,21 +20,15 @@
 
 package org.adaway.ui;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import net.nightwhistler.htmlspanner.HtmlSpanner;
-
 import org.adaway.R;
 import org.adaway.util.Constants;
-import org.adaway.util.JellyBeanSpanFixTextView;
 import org.adaway.util.Log;
+import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,37 +53,23 @@ public class HelpFragmentAbout extends SherlockFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.help_fragment_about, container, false);
 
-        // load html from html file from /res/raw
-        InputStream inputStreamText = getResources().openRawResource(R.raw.help_about);
-
         TextView versionText = (TextView) view.findViewById(R.id.help_about_version);
         versionText.setText(getString(R.string.help_about_version) + " " + getVersion());
 
-        JellyBeanSpanFixTextView aboutTextView = (JellyBeanSpanFixTextView) view
-                .findViewById(R.id.help_about_text);
+        HtmlTextView aboutTextView = (HtmlTextView) view.findViewById(R.id.help_about_text);
 
-        // load html into textview
-        HtmlSpanner htmlSpanner = new HtmlSpanner();
-        htmlSpanner.setStripExtraWhiteSpace(true);
-        try {
-            aboutTextView.setText(htmlSpanner.fromHtml(inputStreamText));
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Error while reading raw resources as stream", e);
-        }
-
-        // make links work
-        aboutTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        // load html from raw resource (Parsing handled by HtmlTextView library)
+        aboutTextView.setHtmlFromRawResource(getActivity(), R.raw.help_about);
 
         // no flickering when clicking textview for Android < 4
-        aboutTextView.setTextColor(getResources().getColor(
-                android.R.color.secondary_text_dark_nodisable));
+        aboutTextView.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));
 
         return view;
     }
 
     /**
      * Get the current package version.
-     * 
+     *
      * @return The current version.
      */
     private String getVersion() {

@@ -5,7 +5,7 @@ dependencies {
     //compile 'com.android.support:support-v4:18.0.+' // already in actionbarsherlock
     compile project(':libraries:Donations')
     compile project(':libraries:actionbarsherlock')
-    compile project(':libraries:HtmlSpanner')
+    compile project(':libraries:HtmlTextView')
     compile project(':libraries:RootCommands')
 }
 

@@ -20,18 +20,10 @@
 
 package org.adaway.ui;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import net.nightwhistler.htmlspanner.HtmlSpanner;
-
-import org.adaway.util.Constants;
-import org.adaway.util.JellyBeanSpanFixTextView;
-import org.adaway.util.Log;
+import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,13 +68,10 @@ public class HelpFragmentHtml extends SherlockFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         htmlFile = getArguments().getInt(ARG_HTML_FILE);
 
-        // load html from html file from /res/raw
-        InputStream inputStreamText = getResources().openRawResource(htmlFile);
-
         mActivity = getActivity();
 
         ScrollView scroller = new ScrollView(mActivity);
-        JellyBeanSpanFixTextView text = new JellyBeanSpanFixTextView(mActivity);
+        HtmlTextView text = new HtmlTextView(mActivity);
 
         // padding
         int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, mActivity
@@ -91,17 +80,8 @@ public class HelpFragmentHtml extends SherlockFragment {
 
         scroller.addView(text);
 
-        // load html into textview
-        HtmlSpanner htmlSpanner = new HtmlSpanner();
-        htmlSpanner.setStripExtraWhiteSpace(true);
-        try {
-            text.setText(htmlSpanner.fromHtml(inputStreamText));
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Error while reading raw resources as stream", e);
-        }
-
-        // make links work
-        text.setMovementMethod(LinkMovementMethod.getInstance());
+        // load html from raw resource (Parsing handled by HtmlTextView library)
+        text.setHtmlFromRawResource(getActivity(), htmlFile);
 
         // no flickering when clicking textview for Android < 4
         text.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));

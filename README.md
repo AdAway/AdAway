@@ -141,13 +141,10 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   http://www.tcpdump.org/  
   BSD 3-Clause License
 
-* HtmlSpanner  
-  https://github.com/NightWhistler/HtmlSpanner  
+* HtmlTextView
+  https://github.com/dschuermann/html-textview
   Apache License v2
 
-* HTMLCleaner (used by HtmlSpanner)  
-  http://htmlcleaner.sourceforge.net/  
-  BSD License
 
 ## Images
 * status_enabled.svg, status_disabled.svg, status_update.svg  

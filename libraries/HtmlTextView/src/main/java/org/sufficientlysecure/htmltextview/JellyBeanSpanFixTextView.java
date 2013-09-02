@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2012 Dominik Schürmann <dominik@dominikschuermann.de>
+ * Copyright (C) 2013 Dominik Schürmann <dominik@dominikschuermann.de>
+ * Copyright (C) 2012 Pierre-Yves Ricau <py.ricau@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.adaway.util;
+package org.sufficientlysecure.htmltextview;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +26,8 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
-import org.adaway.BuildConfig;
 
 /**
- * From https://gist.github.com/3424004
  * <p>
  * A {@link android.widget.TextView} that insert spaces around its text spans where needed to prevent
  * {@link IndexOutOfBoundsException} in {@link #onMeasure(int, int)} on Jelly Bean.
@@ -41,8 +40,6 @@ import org.adaway.BuildConfig;
  * happen once per text change.
  * <p>
  * See http://code.google.com/p/android/issues/detail?id=35466
- * 
- * @author "Pierre-Yves Ricau" <py.ricau@gmail.com>
  * 
  */
 public class JellyBeanSpanFixTextView extends TextView {
@@ -68,8 +65,6 @@ public class JellyBeanSpanFixTextView extends TextView {
             this.spansWithSpacesAfter = spansWithSpacesAfter;
         }
     }
-
-    private static final String TAG = JellyBeanSpanFixTextView.class.getSimpleName();
 
     public JellyBeanSpanFixTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -102,7 +97,7 @@ public class JellyBeanSpanFixTextView extends TextView {
             fixSpannedWithSpaces(builder, widthMeasureSpec, heightMeasureSpec);
         } else {
             if (BuildConfig.DEBUG) {
-                Log.d(TAG, "The text isn't a Spanned");
+                Log.d(HtmlTextView.TAG, "The text isn't a Spanned");
             }
             fallbackToString(widthMeasureSpec, heightMeasureSpec);
         }
@@ -126,7 +121,7 @@ public class JellyBeanSpanFixTextView extends TextView {
 
         if (BuildConfig.DEBUG) {
             long fixDuration = System.currentTimeMillis() - startFix;
-            Log.d(TAG, "fixSpannedWithSpaces() duration in ms: " + fixDuration);
+            Log.d(HtmlTextView.TAG, "fixSpannedWithSpaces() duration in ms: " + fixDuration);
         }
     }
 
@@ -157,12 +152,14 @@ public class JellyBeanSpanFixTextView extends TextView {
             }
         }
         if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Could not fix the Spanned by adding spaces around spans");
+            Log.d(HtmlTextView.TAG, "Could not fix the Spanned by adding spaces around spans");
         }
         return FixingResult.notFixed();
     }
 
     private boolean isNotSpace(CharSequence text, int where) {
+        if (where < 0)
+            return true;
         return text.charAt(where) != ' ';
     }
 
@@ -206,7 +203,7 @@ public class JellyBeanSpanFixTextView extends TextView {
 
     private void fallbackToString(int widthMeasureSpec, int heightMeasureSpec) {
         if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Fallback to unspanned text");
+            Log.d(HtmlTextView.TAG, "Fallback to unspanned text");
         }
         String fallbackText = getText().toString();
         setTextAndMeasure(fallbackText, widthMeasureSpec, heightMeasureSpec);

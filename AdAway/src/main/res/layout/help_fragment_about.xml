@@ -51,7 +51,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <org.adaway.util.JellyBeanSpanFixTextView
+        <org.sufficientlysecure.htmltextview.HtmlTextView
             android:id="@+id/help_about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
