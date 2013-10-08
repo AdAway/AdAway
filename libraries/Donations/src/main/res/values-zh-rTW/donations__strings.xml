@@ -2,8 +2,10 @@
 <resources>
   <string name="donations__button_close">關閉</string>
   <string name="donations__flattr">Flattr®</string>
+  <string name="donations__description">這個程式對你來說有用嗎?\n您可捐款給開發者以幫助程式發展!</string>
   <string name="donations__flattr_description">Flattr®將從資助金額中扣取10%作為手續費！</string>
   <string name="donations__google_android_market">Google Play 商店</string>
+  <string name="donations__google_android_market_not_supported_title">不支援程式內購買</string>
   <string name="donations__google_android_market_not_supported">不支援In-App資助。你的Google Play 商店是否正確安裝？</string>
   <string name="donations__google_android_market_description">Google 會從每筆資助金額中抽取3成！</string>
   <string name="donations__google_android_market_donate_button">資助開發者！</string>
@@ -12,4 +14,6 @@
   <string name="donations__paypal_description">你可以選擇你想資助多少後點擊按鈕！</string>
   <string name="donations__thanks_dialog_title">謝謝！</string>
   <string name="donations__thanks_dialog">謝謝您的資助！\n真的很感謝您！</string>
+  <string name="donations__alert_dialog_title">發生錯誤</string>
+  <string name="donations__alert_dialog_no_browser">找不到瀏覽器來開啟網站</string>
 </resources>

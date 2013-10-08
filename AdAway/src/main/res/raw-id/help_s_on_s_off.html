@@ -19,9 +19,9 @@
 <li>Gunakan tombol <i>volume down</i> untuk memilih recovery.</li>
 <li>Pada volume pemulihan jarum jam ke "partisi menu" dan tekan trackpad untuk memilih</li>
 <li>Pilih <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Tancapkan usb anda dan buka command line pada pc anda.</li>
-<li>Masuk adb shell dan tulis<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Ini membuat sebuah simbol link, yang memungkinkan AdAway untuk mengedit host file yang disimpan dalam <tt>/data</tt> sementara mengizinkan OS untuk menggunakan file seolah-olah itu disimpan dalam <tt>/system</tt>.)</li>
-<li>Reboot perangkat Anda dan set <i> Sasaran file hosts </i> untuk <i>/data/data/hosts</i> dalam preferensi AdAway.</li>
+<li>Plug in your usb cord and open a command line on your pc.</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAway seharusnya bekerja sekarang.</li>
 </ol>
 </body>

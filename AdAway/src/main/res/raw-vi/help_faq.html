@@ -1,32 +1,32 @@
 <html>
 <head></head>
 <body>
-<h2>Income by advertisements</h2>
-<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+<h2>thu nhập bằng cách quảng cáo</h2>
+<p>Có một quan niệm sai lầm thường được đã được nêu ra rằng nếu người dùng không bao giờ nhấp chuột vào quảng cáo, sau đó ngăn chặn chúng sẽ không làm tổn thương một trang web hoặc ứng dụng tài chính. Điều này là sai, các nhà phát triển cũng kiếm được tiền bằng cách chỉ hiển thị quảng cáo. Đó là vào bạn cho dù bạn chặn quảng cáo hay không. Cá nhân tôi sẽ không sử dụng các ứng dụng hiển thị quảng cáo bởi vì tôi thấy họ rất khó chịu, vì vậy mà không có một quảng cáo bị chặn tôi sẽ không cài đặt các ứng dụng này.</p>
 
 
 
-<h2>How does AdAway work?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<h2>AdAway làm việc như thế nào?</h2>
+<p>AdAway sử dụng <a href="http://en.wikipedia.org/wiki/Hosts_file"> tập tin host &lt;/ a&gt; để ngăn chặn tên máy, phục vụ quảng cáo. Các tập tin host là một tập tin trong <tt> / hệ thống / etc / hosts &lt;/ tt&gt; mà các bản đồ hostname tới địa chỉ IP. Đó là một cách truyền thống để xác định tên máy cho các cặp địa chỉ IP mà không cần dựa trên hệ thống tên miền (DNS). Tất cả các tên máy không mong muốn được chuyển hướng đến <tt> 127.0.0.1 &lt;/ tt&gt; có nghĩa là họ sẽ trỏ đến thiết bị của riêng bạn.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>Tại sao cập nhật ưu tiên kiểm tra hàng ngày chuyển sang màu xám?</h2>
+<p>Tự động kiểm tra bản cập nhật mới chỉ có sẵn khi AdAway được cài đặt trên bộ nhớ điện thoại nội bộ. Điều này là do những hạn chế trên nền tảng Android.</p>
 
-<h2>Why do I have to restart Android for changes to take effect?</h2>
-<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+<h2>Tại sao tôi phải khởi động lại Android để thay đổi có hiệu lực?</h2>
+<p>Java trên Android duy trì của bộ nhớ cache DNS nội bộ của mình. Hệ điều hành sẽ phản ánh các tập tin host mới ngay lập tức (xác minh rằng với ping trên dòng lệnh) nhưng bạn sẽ cần phải khởi động lại Android để xây dựng lại bộ nhớ cache DNS của Java.</p>
 
-<h2>How to use the webserver in AdAway?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<h2>làm thế nào để sử dụng web chủ trong AdAway?</h2>
+<p><b> AdAway cũng sẽ làm việc mà không cần sử dụng các máy chủ web &lt;/ b&gt; ⏎
+<br/> Bạn có thể kích hoạt một máy chủ web địa phương trong sở thích của AdAway để trả lời yêu cầu đến địa chỉ IP địa phương <tt> 127.0.0.1 &lt;/ tt&gt;. Điều này có nghĩa các yêu cầu từ các ứng dụng đến các máy chủ quảng cáo được chuyển hướng đến <tt> 127.0.0.1 &lt;/ tt&gt; được trả lời của máy chủ web của AdAway. ⏎
+<br/> Một số ứng dụng từ chối làm việc, khi máy chủ quảng cáo không thể truy cập. Với phương pháp này họ sẽ có thể truy cập một lần nữa, trả lời với một trang trắng và không có hình ảnh quảng cáo.</p>
 
-<h2>How can I block/unblock specific hostnames?</h2>
-<p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<h2>Làm thế nào tôi có thể chặn / mở khóa tên máy cụ thể?</h2>
+<p>Thêm tên máy bạn muốn chặn vào danh sách đen (= Black) dưới <i> Lists của bạn &lt;/ i&gt;. Ngoài ra, tên máy bạn muốn loại trừ từ khóa có thể được thêm vào <i> Whitelist &lt;/ i&gt; (= trắng) và tên máy bạn muốn chuyển hướng đến một địa chỉ IP cụ thể thuộc Danh mục Redirection <i> &lt;/ i&gt; (= Redirection).</p>
 
-<h2>Where can I find more hosts sources?</h2>
-<p>See <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
+<h2>Tôi có thể tìm thêm các máy chủ nguồn ở đâu?</h2>
+<p>xem <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">danh sách của nguồn host được thêm cho AdAway</a>.</p>
 
-<h2>Help translating/report bugs</h2>
-<p>Please go to <a href="http://adaway.org">http://adaway.org</a>.</p>
+<h2>Giúp dịch lỗi / báo cáo</h2>
+<p>xin vui long đi tới <a href="http://adaway.org">http://adaway.org</a>.</p>
 </body>
 </html>

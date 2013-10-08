@@ -19,9 +19,9 @@
 <li>Dùng nút <i>giảm âm lượng</i> để chọn recovery.</li>
 <li>Ở chế độ clockwork recovery, ấn phím giảm âm lượng để chọn "trình đơn phân vùng" và ấn phím track pad để chọn</li>
 <li>Chọn <i>mount /system</i>, <i>mount /sdcard</i> và <i>mount /data</i>.</li>
-<li>Cắm dây nối USB và mở Command Prompt trên máy tính.</li>
-<li>Vào adb shell và gõ <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Lệnh này sẽ tạo ra một kiên kết tượng trưng cho phép AdAway chỉnh sửa tập tin host đã được lưu trữ ở <tt>/data</tt> trong khi vẫn cho phép hệ điều hành sử dụng tập tin đó như khi nó còn lưu trữ ở <tt>/system</tt>.)</li>
-<li>Khởi động lại máy và đặt <i>Tập tin host đích</i> thành <i>/data/data/hosts</i> trong Cấu Hình của AdAway.</li>
+<li>Plug in your usb cord and open a command line on your pc.</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAway đa có thể làm việc.</li>
 </ol>
 </body>

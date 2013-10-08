@@ -1,4 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="donations__button_close">Đóng</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Bạn tìm thấy ứng dụng hữu ích này? ⏎\nHỗ trợ phát triển nó bằng cách gửi một tài trợ cho các nhà phát triển!</string>
+  <string name="donations__flattr_description">Flattr tốn 10% cho một khoản phí hàng tháng!</string>
+  <string name="donations__google_android_market">kho tìm kiếm trò chơi</string>
+  <string name="donations__google_android_market_not_supported_title">tài trợ trong ứng dụng không được hỗ trợ.</string>
+  <string name="donations__google_android_market_not_supported">tài trợ trong ứng dụng không được hỗ trợ. kho tìm kiếm trò chơi đã cài đặt chính xác?</string>
+  <string name="donations__google_android_market_description">Google mất giá 30 % tất cả các đóng góp!</string>
+  <string name="donations__google_android_market_donate_button">Quyên góp</string>
+  <string name="donations__google_android_market_text">bao nhiêu?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Bạn có thể lựa chọn bạn muốn tài trợ bao nhiêu sau khi nhấn vào nút!</string>
+  <string name="donations__thanks_dialog_title">cám ơn!</string>
+  <string name="donations__thanks_dialog">cám ơn vì tài trợ!\ntôi thực sự đánh giá cao việc này!</string>
+  <string name="donations__alert_dialog_title">đã xảy ra lỗi</string>
+  <string name="donations__alert_dialog_no_browser">Không có trình duyệt được tìm thấy để mở một trang web!</string>
 </resources>

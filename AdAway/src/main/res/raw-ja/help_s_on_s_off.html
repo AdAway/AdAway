@@ -19,9 +19,9 @@
 <li><i>ボリュームマイナス</i>キーでrecoveryを選んでください。</li>
 <li>clockwork recoveryでボリュームマイナスキーで"partitions menu"を選んでください。</li>
 <li><i>mount /system</i>、<i>mount /sdcard</i>、<i>mount /data</i>を選んでください。</li>
-<li>PCにUSBケーブルを接続してコマンドラインを開いてください。</li>
-<li>adb shellと入力して<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/>と入力してください。 (これで<tt>/data</tt>にあるhostsファイルを<tt>/system</tt>にあるかのように使わせるためのシンボリックリンクが作成されます。)</li>
-<li>端末を再起動してAdAwayの設定で<i>ターゲットhostsファイル</i>を<i>/data/data/hosts</i>にしてください。</li>
+<li>Plug in your usb cord and open a command line on your pc.</li>
+<li>adb shellを開き、<tt>ln -s /data/data/hosts /system/etc/hosts</tt>と入力して実行してください。 (AdAwayが<tt>/data</tt>にあるhostsファイルを<tt>/system</tt>にあるhostsファイルの代わりに編集するためのシンボリックリンクを作成します。)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAwayが動作するはずです。</li>
 </ol>
 </body>

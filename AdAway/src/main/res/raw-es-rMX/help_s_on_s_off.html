@@ -20,7 +20,7 @@
 <li>En el menú de recuperación de reloj seleccione la opción "menú de particiones" y selecciona la pista</li>
 <li>Selecciona <i>mount/system</i>, <i>mount /sdcard</i> y <i>mount/data</i>.</li>
 <li>Conecte el cable USB y abra una línea de comandos en el PC.</li>
-<li>Ingrese en la capa adb y escriba <br/><tt> ln-s /data/data/hosts/system/etc/hosts</tt><br/> (Esto crea un enlace simbólico, que permite a AdAway editar el archivo de servidores web almacenado en <tt>/data</tt> al tiempo que permite al sistema operativo utilizar el archivo como si estuviera guardado en <tt>/system</tt>.)</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>Reinicie el dispositivo y <i>seleccione el archivo del servidores web</i> en <i>/data/data/hosts</i> en las preferencias de AdAway.</li>
 <li>AdAway debería funcionar ahora.</li>
 </ol>

@@ -20,7 +20,7 @@
 </li>
 <li>Valitse <i>mount /system</i>, <i>mount /sdcard</i> ja <i>mount /data</i></li>
 <li>Kytke usb-johto ja avaa komentorivi tietokoneeltasi.</li>
-<li>Syötä adb shell ja kirjoita <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Tämä luo symbolisen linkin, jonka avulla AdAway muokkaa hosts-tiedostoa, joka on tallennettu <tt>/data</tt> sijaintiin samalla sallien käyttöjärjestelmän käyttää tiedostoa kuin se olisi tallennettu <tt>/system</tt> sijaintiin.)</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>Käynnistä laite uudelleen ja valitse <i>Hosts-tiedoston kohde</i> -asetuksista <i>/data/data/hosts</i>.
 </li>
 <li>AdAway:n pitäisi toimia nyt.</li>

@@ -20,7 +20,7 @@
 <li>在 recovery 中再次使用「調低音量鍵」去選擇 partitions menu</li>
 <li>選擇 mount /system，mount /sdcard 及 mount /data。</li>
 <li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>重新啟動您的手機，在 AdAway 設定中設置「目標 hosts 檔」為 /data/data/hosts。</li>
 <li>AdAway 應該可以運作了。</li>
 </ol>

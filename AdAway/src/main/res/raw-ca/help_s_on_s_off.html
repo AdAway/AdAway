@@ -18,9 +18,9 @@
 <li>Utilitzeu <i>volum -</i> per seleccionar el menú de recuperació.</li>
 <li>En el menú de recuperació de Clockwork aneu al "partitions menu" i premeu el trackpad per seleccionar.</li>
 <li>Seleccioneu <i>mount /system</i>, <i>mount /sdcard</i> i <i>mount /data</i>.</li>
-<li>Connecteu el vostre cable USB i obriu una línia de comandes al vostre ordinador.</li>
-<li>Aneu a la línia de comandes d'ADB i entreu <br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/>Això crearà un enllaç simbòlic que permetrà que ADB pugui editar l'arxiu hosts guardat a <tt>/data</tt> i de la mateixa manera permet el sistema operatiu d'utilitzar el fitxer com si estigués a <tt>/system</tt>.</li>
-<li>Reinicieu el vostre dispositiu i ajusteu l'<i>arxiu hosts objectiu</i> a <i>/data/data/hosts</i> als ajustaments d'AdAway.</li>
+<li>Plug in your usb cord and open a command line on your pc.</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAway hauria de funcinar ara.</li>
 </ol>
 </body>

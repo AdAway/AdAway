@@ -20,7 +20,7 @@
 <li>在 clockwork recovery 里面用音量减移动到"partitions menu"，并选中进入</li>
 <li>选择 <i>mount /system</i>, <i>mount /sdcard</i> 以及 <i>mount /data</i>。</li>
 <li>插上你的 USB 线，然后在电脑上打开一个命令行。</li>
-<li>打开 adb shell 命令行并输入<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (这个命令作用为创建一个符号连接，使得广告走开修改存放在 <tt>/data</tt> 的 hosts 文件，同时让操作系统当它是存放在 <tt>/system</tt> 一样使用它。)</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>重启你的设备并广告走开的设置中修改<i>目标 hosts 文件</i>为 <i>/data/data/hosts</i></li>
 <li>现在应该就可以了。</li>
 </ol>

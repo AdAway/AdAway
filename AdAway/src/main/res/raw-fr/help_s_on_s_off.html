@@ -1,10 +1,10 @@
 <html>
 <head></head>
 <body>
-<h2>Matériel HTC</h2>
+<h2>Appareils HTC</h2>
 <p>AdAway ne fonctionne pas avec un appareil équipé de S-ON. Cette fonctionnalité existe sur de nombreux appareils HTC et empêche AdAway d'accéder au fichier hosts.</p>
 
-<h2>S-ON/S-OFF?</h2>
+<h2>S-ON/S-OFF ?</h2>
 <p>S-OFF signifie que la partie NAND de l'appareil est déverrouillée et peut être modifiée. Le réglage par défaut des appareils HTC est S-ON, ce qui signifie que vous ne pouvez ni accéder à certaines parties du système ni obtenir un accès root permanent. D'autant plus que la vérification de la signature des images du firmware est aussi sécurisé par S-ON.</p>
 
 <h2>Mon appareil est-il S-ON ou S-OFF?</h2>
@@ -20,7 +20,7 @@
 <li>Dans le clockwork recovery, sélectionnez "partitions menu".</li>
 <li>Seléctionnez <i>mount /system<i>, <i>mount /sdcard and <i>mount /data<i>.</li>
 <li>Branchez votre câble USB et ouvrez une ligne de commande sur votre PC.</li>
-<li>Entre adb shell et tapez<br/><tt>ln -s /data/hosts /system/etc/hosts</tt><br/> (Ceci créer un lien symbolique, qui autorise AdAway à éditer le fichiers host stocké dans <tt>/data</tt> en permettant au système d'utiliser le fichier comme si il était stocké dans <tt>/system</tt>.)</li>
+<li>Ouvrez un shell adb et tapez <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (cette commande créé un lien symbolique ce qui permet à AdAway de modifier les fichiers hôtes contenus dans <tt>/data</tt> et en même temps cela permet à l'OS Android de continuer à accéder à ces fichiers comme s'ils étaient stockés dans <tt>/system</tt>).</li>
 <li>Redémarrez votre appareil, puis dans les préférences de AdAway, définissez pour la <i>Cible du fichier hosts</i> la valeur <i>/data/data/hosts</i>.</li>
 <li>AdAway devrait maintenant fonctionner.</li>
 </ol>

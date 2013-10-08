@@ -19,8 +19,8 @@
 <li>No mecanismo de recuperação, pressione o botão para diminuir volume até o "menu de partições" e pressione o trackpad para selecionar.</li>
 <li>Selecione <i>mount /system</i>, <i>mount /sdcard</i> e <i>mount /data</i>.</li>
 <li>Conecte o cabo USB e abrir uma linha de comando no seu pc.</li>
-<li>Entre adb shell e digite <br/><tt>In -s /data/data/hosts /system/etc/hosts</tt><br/> (Isso cria um link simbólico, que permite que AdAway edite os arquivos hosts armazenados em <tt>/data</tt> enquanto permite que o sistema operacional use o arquivo como se ele estivesse armazenado em <tt>/system</tt>.)</li>
-<li>Reinicie seu dispositivo e defina <i>Selecionar arquivos hosts</i> para <i>/data/data/hosts</i> nas preferências do AdAway.</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAway deve funcionar agora.</li>
 </ol>
 </body>

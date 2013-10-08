@@ -20,7 +20,7 @@
 <li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
 <li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
 <li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>Reboot your device and set <i>Target hosts file</i> to <i>/data/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAway should work now.</li>
 </ol>

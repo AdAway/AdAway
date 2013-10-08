@@ -131,6 +131,7 @@
   <string name="help_tab_problems">問題</string>
   <string name="help_tab_changelog">更新紀錄</string>
   <string name="help_about_version">版本：</string>
+  <string name="help_donation_paypal_item">捐贈 AdAway</string>
   <string-array name="help_donation_google_catalog_values">
     <item>1 歐元</item>
     <item>2 歐元</item>
