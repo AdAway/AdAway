@@ -22,26 +22,26 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 
-public abstract class BinaryCommand extends Command {
-    public static final String BINARY_PREFIX = "lib";
-    public static final String BINARY_SUFFIX = "_bin.so";
+public abstract class ExecutableCommand extends Command {
+    public static final String EXECUTABLE_PREFIX = "lib";
+    public static final String EXECUTABLE_SUFFIX = "_exec.so";
 
     /**
      * This class provides a way to use your own binaries!
      * 
-     * Include your own binaries, renamed from * to lib*_bin.so, in your libs folder under the
+     * Include your own executables, renamed from * to lib*_exec.so, in your libs folder under the
      * architecture directories. Now they will be deployed by Android the same way libraries are
      * deployed!
      * 
-     * See README for more information how to use your own binaries!
-     * 
+     * See README for more information how to use your own executables!
+     *
      * @param context
-     * @param binaryName
+     * @param executableName
      * @param parameters
      */
-    public BinaryCommand(Context context, String binaryName, String parameters) {
-        super(getLibDirectory(context) + File.separator + BINARY_PREFIX + binaryName
-                + BINARY_SUFFIX + " " + parameters);
+    public ExecutableCommand(Context context, String executableName, String parameters) {
+        super(getLibDirectory(context) + File.separator + EXECUTABLE_PREFIX + executableName
+                + EXECUTABLE_SUFFIX + " " + parameters);
     }
 
     /**

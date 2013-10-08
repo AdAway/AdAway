@@ -18,11 +18,11 @@ package org.sufficientlysecure.rootcommands.command;
 
 import android.content.Context;
 
-public class SimpleBinaryCommand extends BinaryCommand {
+public class SimpleExecutableCommand extends ExecutableCommand {
     private StringBuilder sb = new StringBuilder();
 
-    public SimpleBinaryCommand(Context context, String binaryName, String parameters) {
-        super(context, binaryName, parameters);
+    public SimpleExecutableCommand(Context context, String executableName, String parameters) {
+        super(context, executableName, parameters);
     }
 
     @Override

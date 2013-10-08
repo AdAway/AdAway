@@ -25,7 +25,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.sufficientlysecure.rootcommands.command.BinaryCommand;
+import org.sufficientlysecure.rootcommands.command.ExecutableCommand;
 import org.sufficientlysecure.rootcommands.command.Command;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 import org.sufficientlysecure.rootcommands.util.BrokenBusyboxException;
@@ -69,7 +69,7 @@ public class Toolbox {
      * @throws BrokenBusyboxException
      */
     public boolean isRootAccessGiven() throws BrokenBusyboxException, TimeoutException, IOException {
-        SimpleCommand idCommand = new SimpleCommand("toolbox id");
+        SimpleCommand idCommand = new SimpleCommand("id");
         shell.add(idCommand).waitForFinish();
 
         if (idCommand.getOutput().contains("uid=0")) {
@@ -89,7 +89,7 @@ public class Toolbox {
         private Pattern psPattern;
 
         public PsCommand(String processName) {
-            super("toolbox ps");
+            super("ps");
             this.processName = processName;
             pids = new ArrayList<String>();
 
@@ -169,7 +169,7 @@ public class Toolbox {
         // kill processes
         if (!psCommand.getPids().isEmpty()) {
             // example: kill -9 1234 1222 5343
-            SimpleCommand killCommand = new SimpleCommand("toolbox kill -9 "
+            SimpleCommand killCommand = new SimpleCommand("kill -9 "
                     + psCommand.getPidsString());
             shell.add(killCommand).waitForFinish();
 
@@ -185,19 +185,19 @@ public class Toolbox {
     }
 
     /**
-     * Kill a running binary
+     * Kill a running executable
      * 
-     * See README for more information how to use your own binaries!
+     * See README for more information how to use your own executables!
      * 
-     * @param binaryName
+     * @param executableName
      * @return
      * @throws BrokenBusyboxException
      * @throws TimeoutException
      * @throws IOException
      */
-    public boolean killAllBinary(String binaryName) throws BrokenBusyboxException,
+    public boolean killAllExecutable(String executableName) throws BrokenBusyboxException,
             TimeoutException, IOException {
-        return killAll(BinaryCommand.BINARY_PREFIX + binaryName + BinaryCommand.BINARY_SUFFIX);
+        return killAll(ExecutableCommand.EXECUTABLE_PREFIX + executableName + ExecutableCommand.EXECUTABLE_SUFFIX);
     }
 
     /**
@@ -235,8 +235,8 @@ public class Toolbox {
      */
     public boolean isBinaryRunning(String binaryName) throws BrokenBusyboxException,
             TimeoutException, IOException {
-        return isProcessRunning(BinaryCommand.BINARY_PREFIX + binaryName
-                + BinaryCommand.BINARY_SUFFIX);
+        return isProcessRunning(ExecutableCommand.EXECUTABLE_PREFIX + binaryName
+                + ExecutableCommand.EXECUTABLE_SUFFIX);
     }
 
     /**
@@ -261,7 +261,7 @@ public class Toolbox {
         }
 
         public LsCommand(String file) {
-            super("toolbox ls -l " + file);
+            super("ls -l " + file);
 
             // get only filename:
             this.fileName = (new File(file)).getName();
@@ -417,7 +417,7 @@ public class Toolbox {
             throws BrokenBusyboxException, TimeoutException, IOException {
         Log.d(RootCommands.TAG, "Set permissions of " + file + " to " + permissions);
 
-        SimpleCommand chmodCommand = new SimpleCommand("toolbox chmod " + permissions + " " + file);
+        SimpleCommand chmodCommand = new SimpleCommand("chmod " + permissions + " " + file);
         shell.add(chmodCommand).waitForFinish();
 
         if (chmodCommand.getExitCode() == 0) {
@@ -500,7 +500,7 @@ public class Toolbox {
 
         boolean commandSuccess = false;
 
-        SimpleCommand ddCommand = new SimpleCommand("toolbox dd if=" + source + " of="
+        SimpleCommand ddCommand = new SimpleCommand("dd if=" + source + " of="
                 + destination);
         shell.add(ddCommand).waitForFinish();
 
@@ -508,7 +508,7 @@ public class Toolbox {
             commandSuccess = true;
         } else {
             // try cat if dd fails
-            SimpleCommand catCommand = new SimpleCommand("toolbox cat " + source + " > "
+            SimpleCommand catCommand = new SimpleCommand("cat " + source + " > "
                     + destination);
             shell.add(catCommand).waitForFinish();
 
@@ -585,7 +585,7 @@ public class Toolbox {
         private boolean fileExists = false;
 
         public FileExistsCommand(String file) {
-            super("toolbox ls " + file);
+            super("ls " + file);
             this.file = file;
         }
 

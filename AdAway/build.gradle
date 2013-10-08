@@ -56,7 +56,7 @@ tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
 }
 
 /**
- * Task to rename executables from hello_world to libhello_world_bin.so
+ * Task to rename executables from hello_world to libhello_world_exec.so
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *
  * http://www.gradle.org/docs/current/userguide/working_with_files.html
@@ -68,7 +68,7 @@ task renameExecutables(type: Copy) {
     exclude '**/*.so'
     exclude '**/*.jar'
 
-    rename(/(.+)/, 'lib$1_bin.so')
+    rename(/(.+)/, 'lib$1_exec.so')
 }
 
 

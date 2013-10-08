@@ -115,14 +115,18 @@ class Remounter {
             mountPoint = findMountPointRecursive(file);
         }
 
-        Log.d(RootCommands.TAG, mountPoint.getFlags() + " AND " + mountType.toLowerCase(Locale.US));
-        if (mountPoint.getFlags().contains(mountType.toLowerCase(Locale.US))) {
-            Log.d(RootCommands.TAG, mountPoint.getFlags().toString());
-            return true;
+        if (mountPoint != null) {
+            Log.d(RootCommands.TAG, mountPoint.getFlags() + " AND " + mountType.toLowerCase(Locale.US));
+            if (mountPoint.getFlags().contains(mountType.toLowerCase(Locale.US))) {
+                Log.d(RootCommands.TAG, mountPoint.getFlags().toString());
+                return true;
+            } else {
+                Log.d(RootCommands.TAG, mountPoint.getFlags().toString());
+            }
         } else {
-            Log.d(RootCommands.TAG, mountPoint.getFlags().toString());
-            return false;
+            Log.d(RootCommands.TAG, "mountPoint is null");
         }
+        return false;
     }
 
     private Mount findMountPointRecursive(String file) {

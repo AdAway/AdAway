@@ -23,7 +23,7 @@ package org.adaway.util;
 import org.adaway.helper.PreferenceHelper;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
-import org.sufficientlysecure.rootcommands.command.SimpleBinaryCommand;
+import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
 
 import android.content.Context;
 
@@ -38,7 +38,7 @@ public class WebserverUtils {
         Log.d(Constants.TAG, "Starting webserver...");
 
         try {
-            SimpleBinaryCommand webserverCommand = new SimpleBinaryCommand(context,
+            SimpleExecutableCommand webserverCommand = new SimpleExecutableCommand(context,
                     Constants.WEBSERVER_EXECUTEABLE, " > /dev/null 2>&1 &");
 
             shell.add(webserverCommand).waitForFinish();
@@ -73,7 +73,7 @@ public class WebserverUtils {
     public static void stopWebserver(Context context, Shell shell) {
         try {
             Toolbox tb = new Toolbox(shell);
-            tb.killAllBinary(Constants.WEBSERVER_EXECUTEABLE);
+            tb.killAllExecutable(Constants.WEBSERVER_EXECUTEABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while killing webserver", e);
         }

@@ -26,7 +26,7 @@ import java.io.IOException;
 import org.adaway.R;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
-import org.sufficientlysecure.rootcommands.command.SimpleBinaryCommand;
+import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -65,7 +65,7 @@ public class TcpdumpUtils {
         String parameters = "-i any -p -l -v -t -s 512 'udp dst port 53' >> " + cachePath
                 + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
 
-        SimpleBinaryCommand tcpdumpCommand = new SimpleBinaryCommand(context,
+        SimpleExecutableCommand tcpdumpCommand = new SimpleExecutableCommand(context,
                 Constants.TCPDUMP_EXECUTEABLE, parameters);
 
         try {
@@ -110,7 +110,7 @@ public class TcpdumpUtils {
     public static void stopTcpdump(Context context, Shell shell) {
         try {
             Toolbox tb = new Toolbox(shell);
-            tb.killAllBinary(Constants.TCPDUMP_EXECUTEABLE);
+            tb.killAllExecutable(Constants.TCPDUMP_EXECUTEABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while killing tcpdump", e);
         }
