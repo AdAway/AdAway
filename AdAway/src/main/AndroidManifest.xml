@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.adaway"
           android:installLocation="auto"
-          android:versionCode="46"
-          android:versionName="2.7">
+          android:versionCode="47"
+          android:versionName="2.8">
 
     <uses-sdk
             android:minSdkVersion="7"
