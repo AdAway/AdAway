@@ -2,7 +2,7 @@ Please report bugs on the following website instead of writing bad reviews:
 http://code.google.com/p/ad-away/issues
 
 2.8
-* Higher tinmeout for root commands
+* Higher timeout for root commands
 * New version of RootCommands library (If you experience problems install busybox, AdAway will then use it!)
 * Remove unused billing permission
 
