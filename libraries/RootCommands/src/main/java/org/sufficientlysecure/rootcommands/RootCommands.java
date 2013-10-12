@@ -20,7 +20,7 @@ import org.sufficientlysecure.rootcommands.util.Log;
 
 public class RootCommands {
     public static boolean DEBUG = false;
-    public static int DEFAULT_TIMEOUT = 10000;
+    public static int DEFAULT_TIMEOUT = 50000;
 
     public static final String TAG = "RootCommands";
 
