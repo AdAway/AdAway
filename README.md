@@ -16,10 +16,8 @@ For more information visit http://adaway.org
 
 1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (http://developer.android.com/sdk/index.html)
 2. Export ANDROID_HOME pointing to your Android SDK
-3. Install gradle
-4. Execute ``gradle wrapper`` (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html)
-5. Execute ``./gradlew renameExecutables`` (IMPORTANT unusual step!)
-6. Execute ``./gradlew assemble``
+3. Execute ``./gradlew renameExecutables`` (IMPORTANT unusual step!)
+4. Execute ``./gradlew assemble``
 
 # Contribute
 
