@@ -52,7 +52,8 @@ android {
  * This is a hack from https://groups.google.com/d/msg/adt-dev/Dkf9nsZlq8I/3gtG1Ofu1zAJ
  */
 tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
-    pkgTask.jniDir new File(projectDir, 'libs')
+    pkgTask.jniFolders = new HashSet<File>()
+    pkgTask.jniFolders.add(new File(projectDir, 'libs'))
 }
 
 /**
