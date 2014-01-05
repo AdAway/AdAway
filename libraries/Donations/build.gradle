@@ -22,5 +22,10 @@ android {
         minSdkVersion 7
         targetSdkVersion 17
     }
+    
+    // Do not abort build if lint finds errors
+    lintOptions {
+        abortOnError false
+    }
 }
 
