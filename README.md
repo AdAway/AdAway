@@ -15,9 +15,10 @@ For more information visit http://adaway.org
 ## Build APK
 
 1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (http://developer.android.com/sdk/index.html)
-2. Export ANDROID_HOME pointing to your Android SDK
-3. Execute ``./gradlew renameExecutables`` (IMPORTANT unusual step!)
-4. Execute ``./gradlew assemble``
+2. Open the Android SDK Manager (shell command: ``android``). Expand the Extras directory and install "Android Support Repository"
+3. Export ANDROID_HOME pointing to your Android SDK
+4. Execute ``./gradlew renameExecutables`` (IMPORTANT unusual step!)
+5. Execute ``./gradlew assemble``
 
 # Contribute
 
