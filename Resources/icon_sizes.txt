@@ -4,8 +4,9 @@ ldpi: 36x36
 mdpi: 48x48
 hdpi: 72x72
 xhdpi: 96x96
-google code: 55x55
-android market: 512x512
+xxhdpi: 144x144.
+xxxhdpi 192x192.
+google play: 512x512
 
 Status Bar Icon:
 -----------------------
