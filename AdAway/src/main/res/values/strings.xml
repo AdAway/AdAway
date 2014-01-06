@@ -77,7 +77,7 @@
     <string name="apply_remount_fail_title">Remount failed</string>
     <string name="apply_copy_fail">Copying of hosts file failed!</string>
     <string name="apply_copy_fail_title">Copy failed</string>
-    <string name="apply_success_subtitle">Successful hosts sources:</string>
+    <string name="apply_success_subtitle">Applied hosts sources:</string>
     <string name="apply_success_title">Applying successful</string>
     <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
@@ -85,7 +85,7 @@
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliable when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More… -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+    <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More… -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
     <string name="apply_apn_proxy_title">APN proxy set!</string>
     <string name="no_connection">The connection to the Internet is not working.</string>
     <string name="no_connection_title">No Connection</string>
@@ -110,12 +110,12 @@
     <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
     <string name="no_root_title">Rooted Android required</string>
     <string name="no_url">This is not a valid URL!</string>
-    <string name="no_url_title">Malformed URL</string>
+    <string name="no_url_title">Improperly formatted URL</string>
     <string name="hosts_add_dialog">Input URL to hosts file:</string>
     <string name="no_hostname">This is not a valid hostname!</string>
-    <string name="no_hostname_title">Malformed hostname</string>
+    <string name="no_hostname_title">Improperly formatted hostname</string>
     <string name="no_ip">This is not a valid IP!</string>
-    <string name="no_ip_title">Malformed IP</string>
+    <string name="no_ip_title">Improperly formatted IP</string>
     <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
     <string name="loading">Loading…</string>
 
