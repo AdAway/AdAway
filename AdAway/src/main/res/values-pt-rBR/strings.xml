@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Erro na remontagem</string>
   <string name="apply_copy_fail">Erro na cópia do arquivo de hosts!</string>
   <string name="apply_copy_fail_title">Erro na cópia</string>
-  <string name="apply_success_subtitle">Operação realizada com sucesso.</string>
   <string name="apply_success_title">Operação concluída com sucesso!</string>
   <string name="apply_success_dialog">Operação realizada com sucesso.\nTalvez seja necessário reiniciar o Android para que as mudanças sejam aplicadas.\n\nDeseja reiniciar?\n(Para prevenir perda de dados, certifique-se de que nenhum aplicativo esteja utilizando o cartão SD no momento!)</string>
   <string name="apply_symlink_successful">O link simbólico foi criado com sucesso.\nTalvez seja necessário reiniciar o Android para que as mudanças sejam aplicadas.\n\nDeseja reiniciar?\n(Para prevenir perda de dados, certifique-se de que nenhum aplicativo esteja utilizando o cartão SD no momento!) </string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">O link simbólico não pode ser criado pelo Android.\nEste erro ocorre geralmente por causa de uma \'funcionalidade\'\ chamada S-ON em telefones da HTC!\n\nUma possível solução é iniciar seu telefone no modo de recuperação e criar o link simbólico lá com o comando \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe isto não funcionar, pesquise na Internet por S-OFF no seu telefone.</string>
   <string name="apply_symlink_fail_title">Erro na criação do link simbólico</string>
   <string name="apply_help">Leia o Ajuda para mais informações.</string>
-  <string name="apply_apn_proxy">Um proxy APN está definido no seu dispositivo Android!\nO AdAway não funciona direito em redes móveis como 3G. Você pode desativar este proxy indo no seu APN selecionado (No Android 4: Redes sem fio e outras -&gt; Mais... -&gt; Redes móveis -&gt; Nomes ponto de acesso) e remover o valor do campo proxy.</string>
   <string name="apply_apn_proxy_title">Proxy APN definido!</string>
   <string name="no_connection">Não há conexão com a Internet.</string>
   <string name="no_connection_title">Sem Conexão</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">O binário su não pode ser encontrado ou você não deu permissão de root para AdAway.\n\nIsto pode acontecer quando seu dispositivo não tem root.\nVocê se informar sobre como fazer root no seu dispositivo em www.cyanogenmod.com ou outros websites sobre Android.</string>
   <string name="no_root_title">Necessário Android com root</string>
   <string name="no_url">Esta não é uma URL válida!</string>
-  <string name="no_url_title">URL incorreta</string>
   <string name="hosts_add_dialog">Digite URL para o arquivo de hosts:</string>
   <string name="no_hostname">Este não é um hostname válido!</string>
-  <string name="no_hostname_title">Hostname incorreto</string>
   <string name="no_ip">Este não é um IP válido!</string>
-  <string name="no_ip_title">IP incorreto</string>
   <string name="reboot_never_reboot">Nunca reiniciar e não exibir esta pergunta da próxima vez!</string>
   <string name="loading">Carregando...</string>
   <!--Menu entries-->

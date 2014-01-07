@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">הענקת הרשאות נכשלה</string>
   <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
   <string name="apply_copy_fail_title">העתקה נכשלה</string>
-  <string name="apply_success_subtitle">מקורות מוצלחים</string>
   <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
   <string name="apply_success_dialog">הצלחת להוסיף מקור בהצלחה מומלץ לעשות ריסט למכשיר בשביל שההוספה תיכנס לתוקף האם ברצונך לעשות זאת כעת ?</string>
   <string name="apply_symlink_successful">קישור סימבולי נוצר בהצלחה.\nיתכן ותידרש לאתחל את המערכת על מנת להכניס לתוקף את השינויים.\n\nאתה רוצה לאתחל כעת?\n(על מנת לא לאבד נתונים וודא שאין תוכנה שמשתמשת כעת בכרטיס!)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
   <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
   <string name="apply_help">קרא את העזרה למידע נוסף.</string>
-  <string name="apply_apn_proxy">פרוקסי APN הוגדר במערכת האנדרואיד שלך!\nAdAway לא תעבוד באמינות בעת חיבור רשת על גבי רשת סלולרית מדור 3. אתה יכול להפוך את הגדרת הפרוקסי APN ללא פעילה (באנדרואיד 4: אלחוטי ורשתות -&gt; עוד... -&gt; רשתות לנייד -&gt; שמות נקודות גישה) ולמחוק את הערך בשדה proxy.</string>
   <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
   <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
   <string name="no_connection_title">אין חיבור</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
   <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
   <string name="no_url">זו אינה כתובת חוקית</string>
-  <string name="no_url_title">כתובת שגויה</string>
   <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
   <string name="no_hostname">שם השרת אינו חוקי!</string>
-  <string name="no_hostname_title">שם השרת לא תקין</string>
   <string name="no_ip">כתובת ה IP אינה חוקית!</string>
-  <string name="no_ip_title">כתובת IP שגויה</string>
   <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב!</string>
   <string name="loading">טוען...</string>
   <!--Menu entries-->

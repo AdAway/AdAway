@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Remontering fejlede</string>
   <string name="apply_copy_fail">Kopiering af hosts filen fejlede</string>
   <string name="apply_copy_fail_title">Kopiering fejlede</string>
-  <string name="apply_success_subtitle">Successfulde hosts-kilder:</string>
   <string name="apply_success_title">Anvendt successfuldt</string>
   <string name="apply_success_dialog">Anvendelse lykkedes.\nDet kan være nødvendigt at genstarte Android for at ændringerne kan træde i kraft.\n\nVil du genstarte?\n(For at undgå datatab skal du sørge for at ingen apps bruger SD-kortet i øjeblikket!)</string>
   <string name="apply_symlink_successful">Symlink blev successfuldt oprettet.\nDet kan være nødvendigt at genstarte Android for at ændringerne kan træde i kraft.\n\nVil du genstarte?\n(For at undgå datatab skal du sørge for at ingen programmer benytter SD-kortet i øjeblikket!)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Symlink kunne ikke oprettes af Android.\nDette mislykkes primært på grund af en \"funktion\" som hedder S-ON på HTC telefoner!\nEn løsning er at starte din telefon i recovery mode og oprette symlink der med \'ln-s /data/data/hosts/system/etc/hosts\".\nHvis dette ikke virker søg på internettet efter S-OFF og din telefon.</string>
   <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
   <string name="apply_help">Venligst læs Hjælp for mere information.</string>
-  <string name="apply_apn_proxy">En APN proxy er indstillet på din Android!\nAdAway vil ikke virke pålideligt, når mobilnettet er 3G. Du kan deaktivere denne proxy ved at gå til din valgte APN (På Android 4: Trådløst og netværk -&gt; mere ... -&gt; Mobilnetværk -&gt; Navne på adgangspunkter) og fjern værdien i feltet Proxy.</string>
   <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
   <string name="no_connection">Internetforbindelsen virker ikke.</string>
   <string name="no_connection_title">Ingen forbindelse</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">Enten kunne su programmet ikke findes, eller du tillod ikke root-adgang til AdAway.\n\nDette kan ske hvis du ikke har rootet din enhed.\nDu kan finde information omkring hvordan man rooter sin enhed på www.cyanogenmod.com eller på andre Android hjemmesider.</string>
   <string name="no_root_title">En rootet Android kræves</string>
   <string name="no_url">Dette er ikke en gyldig URL!</string>
-  <string name="no_url_title">Forkert udformet URL</string>
   <string name="hosts_add_dialog">Indsæt URL til hosts fil:</string>
   <string name="no_hostname">Dette er ikke et gyldigt værtsnavn</string>
-  <string name="no_hostname_title">Forkert udformet værtsnavn</string>
   <string name="no_ip">Dette er ikke en gyldig IP!</string>
-  <string name="no_ip_title">Forkert udformet IP</string>
   <string name="reboot_never_reboot">Genstart aldrig og vis ikke dette spørgsmål næste gang!</string>
   <string name="loading">Indlæser...</string>
   <!--Menu entries-->

@@ -75,7 +75,6 @@
   <string name="apply_symlink_fail">Symbolický odkaz nemohl být vytvořen.⏎\nToto selže zpravidla \'vylepšení\' zvanému S-ON na HTC telefonech!⏎\n⏎\nŘešením je nastartovat vaše zařízení do recovery módu a vytvořit zde symbolický odkaz pomocí \'ln -s /data/data/hosts /system/etc/hosts\'.⏎\n⏎\nPokud toto selže, najděte si na internetu, jak provést S-OFF vašeho zařízení.</string>
   <string name="apply_symlink_fail_title">Symlink nebyl vytvořen</string>
   <string name="apply_help">Pro více informací si prosím přečtěte nápovědu.</string>
-  <string name="apply_apn_proxy">Na vašem zařízení je nastavena APN proxy!⏎\nAdAway nebude správně fungovat při připojení přes mobilní sítě, jako je 3G. Můžete deaktivovat proxy v nastavení APN (Na Android 4: Bezdrátové připojení a sítě -&gt; Další… -&gt; Mobilní sítě -&gt; Názvy přístupových bodů) a smazat záznam v poli proxy.</string>
   <string name="apply_apn_proxy_title">APN proxy nastaven!</string>
   <string name="no_connection">Připojení k internetu nefunguje.</string>
   <string name="no_connection_title">Žádné připojení</string>
@@ -96,12 +95,9 @@
   <string name="no_root_description">Nelze buď nalézt binárku su, nebo jste aplikaci AdAway neudělili root oprávnění.⏎\n⏎\nToto se stane, pokud zařízení nemá root přistup.⏎\nInformace jak získat root oprávnění naleznete na www.cyanogenmod.com, nebo jiných stránkách o Androidu.</string>
   <string name="no_root_title">Vyžaduje Root Android</string>
   <string name="no_url">Toto není platní URL adresa!</string>
-  <string name="no_url_title">Chybná URL</string>
   <string name="hosts_add_dialog">Zadej URL k souboru zdroje:</string>
   <string name="no_hostname">Toto není platný název hostitele!</string>
-  <string name="no_hostname_title">Chybný hostitel</string>
   <string name="no_ip">Toto není platná IP!</string>
-  <string name="no_ip_title">Chybná IP</string>
   <string name="reboot_never_reboot">Nikdy nerestartovat a příště již nezobrazovat tuto otázku!</string>
   <string name="loading">Nahrávání...</string>
   <!--Menu entries-->

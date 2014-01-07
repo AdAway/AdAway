@@ -53,7 +53,6 @@
   <string name="apply_not_enough_space_title">Pole piisavalt ruumi</string>
   <string name="apply_copy_fail">Hosts faili kopeerimine ebaõnnestus!</string>
   <string name="apply_copy_fail_title">Kopeerimine nurjus</string>
-  <string name="apply_success_subtitle">Edukad hosts allikad:</string>
   <string name="apply_success_title">Rakendamine edukas</string>
   <string name="apply_success_dialog">Rakendamine oli edukas.\nMuudatuste jõustumiseks võib olla vajalik Androidi taaskäivitamine.\n\nKas soovid taaskäivitada?\n(Andmekao vältimiseks veendu, et ükski teine rakendus  parasjagu sd-kaarti ei kasuta!)</string>
   <string name="apply_symlink_successful_title">Sümlingi loomine edukas</string>
@@ -69,11 +68,8 @@
   <!--Other Dialogs-->
   <string name="no_root_title">Vajalik \"rootitud\" Android</string>
   <string name="no_url">See ei ole kehtiv URL!</string>
-  <string name="no_url_title">Vigane URL</string>
   <string name="no_hostname">See ei ole kehtiv aadress!</string>
-  <string name="no_hostname_title">Vigane aadress</string>
   <string name="no_ip">See ei ole kehtiv IP!</string>
-  <string name="no_ip_title">Vigane IP</string>
   <string name="reboot_never_reboot">Keela taaskäivitamine ja järgmine kord seda küsimust ära kuva!</string>
   <string name="loading">Laadimine...</string>
   <!--Menu entries-->

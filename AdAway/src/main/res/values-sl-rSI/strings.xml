@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Pripenjanje neuspešno</string>
   <string name="apply_copy_fail">Kopiranje datoteke hosts ni uspelo!</string>
   <string name="apply_copy_fail_title">Kopiranje ni uspelo</string>
-  <string name="apply_success_subtitle">Uspešni viri za hosts datoteke:</string>
   <string name="apply_success_title">Nameščanje uspelo</string>
   <string name="apply_success_dialog">Nameščanje je bilo uspešno.\nDa uveljavite spremembo je potreben ponovni zagon.\n\nŽelite ponovno zagnati?\n(Da ne bi izgubili podatkov, se prepričajte da nobena aplikacije ne uporablja SD kartice!)</string>
   <string name="apply_symlink_successful">Symlink je ustvarjen.\nDa uveljavite spremembo je potreben ponovni zagon.\n\nŽelite ponovno zagnati?\n(Da ne bi izgubili podatkov, se prepričajte da nobena aplikacije ne uporablja SD kartice)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Symlinka ni bilo mogoče ustvariti.\nNajpogosteje se to zgodi na telefonih HTC z \"S-ON\"\n\nMožna rešitev je da ročno ustvarite symlink z ukazom  \'ln -s /data/data/hosts /system/etc/hosts\' ko je telefon v načinu recovery.\n\nČe to ne uspe se pozanimajte o \"S-OFF\" za vaš telefon.</string>
   <string name="apply_symlink_fail_title">Ustvarjanje symlinka neuspešno</string>
   <string name="apply_help">Preberite pomoč za več informacij</string>
-  <string name="apply_apn_proxy">Dodan imate APN proxy!\nAdAway ne bo deloval zanesljivo kadar boste uporabljali mobilno omrežje (3G, EDGE, GPRS). Proxy lahko onemogočite v nastavitvah APN.</string>
   <string name="apply_apn_proxy_title">APN proxy</string>
   <string name="no_connection">Povezava z internetom ne deluje.</string>
   <string name="no_connection_title">Brez povezave</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">Pridobivanje dovoljenja root ni uspelo.</string>
   <string name="no_root_title">Potreben je Android s pravicami root</string>
   <string name="no_url">To ni veljaven URL!</string>
-  <string name="no_url_title">Napačno oblikovan URL</string>
   <string name="hosts_add_dialog">URL hosts datoteke:</string>
   <string name="no_hostname">To ni veljaven naslov (hostname)!</string>
-  <string name="no_hostname_title">Napačno oblikovan naslov (hostname)</string>
   <string name="no_ip">To ni veljaven IP naslov!</string>
-  <string name="no_ip_title">Napačno oblikovan naslov IP</string>
   <string name="reboot_never_reboot">Brez ponovnega zagona in ne sprašuj me več!</string>
   <string name="loading">Nalaganje...</string>
   <!--Menu entries-->

@@ -36,8 +36,8 @@
   <string name="lists_tab_blacklist">Черный список</string>
   <string name="lists_tab_blacklist_short">Черный</string>
   <string name="lists_tab_whitelist_short">Белый</string>
-  <string name="lists_tab_redirection_list_short">Перенаправление</string>
-  <string name="lists_tab_redirection_list">Список перенаправлений</string>
+  <string name="lists_tab_redirection_list_short">Переадресация</string>
+  <string name="lists_tab_redirection_list">Список переадресаций</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Имя источника:</string>
   <string name="list_dialog_whitelist_hostname">Имя хоста:\n(допускается использование символов * и ?)</string>
@@ -71,7 +71,7 @@
   <string name="apply_remount_fail_title">Перемонтировать не удалось</string>
   <string name="apply_copy_fail">Копирование файла hosts не удалось!</string>
   <string name="apply_copy_fail_title">Копирование не удалось</string>
-  <string name="apply_success_subtitle">Использовано источников хостов:</string>
+  <string name="apply_success_subtitle">Используемые источники хостов:</string>
   <string name="apply_success_title">Применение прошло успешно</string>
   <string name="apply_success_dialog">Применение прошло успешно.\nВозможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.\n\nВы хотите перезагрузить устройство?\n(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
   <string name="apply_symlink_successful">Ссылка создана успешно.\nВозможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.\nВы хотите перегрузить Android?\n(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
@@ -79,7 +79,7 @@
   <string name="apply_symlink_fail">Android не смог создать ссылку. Возможно, это из-за особенности телефонов, например, HTC, называемой S-ON! Решение заключается в загрузке телефона в режиме восстановления и создания ссылки при помощи \'ln -s /data/data/hosts /system/etc/hosts\'. Если это не срабатывает, то необходимо искать информацию в интернете по S-OFF или S-ON Enabled и вашему телефону.</string>
   <string name="apply_symlink_fail_title">Ошибка создания ссылки</string>
   <string name="apply_help">Пожалуйста, читайте Справку для получения большей информации.</string>
-  <string name="apply_apn_proxy">В настройках APN Android установлен прокси сервер!\nAdAway не будет работать в мобильныйх сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках выбранной APN(Для Android 4.0.х: Беспроводные сети и сети - Больше... - Мобильные сети - Имя точки доступа. \nДля Android 4.1.х: Настройки - Дополнительные настройки - Мобильные сети - Точки доступа - Имя точки дсотупа) и удалите значение в поле прокси.</string>
+  <string name="apply_apn_proxy">В настройках APN указан прокси сервер!\nAdAway не будет работать в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (в Android 4: Беспроводные сети -&gt; Ещё... -&gt; Мобильная сеть -&gt; Точки доступа APN) и удалить значение в поле Прокси.</string>
   <string name="apply_apn_proxy_title">Используемая точка доступа работает через прокси-сервер!</string>
   <string name="no_connection">Отсутствует подключение к интернет.</string>
   <string name="no_connection_title">Нет соединения</string>
@@ -103,12 +103,12 @@
   <string name="no_root_description">Либо программный файл SuperUser не найден, либо AdAway не были предоставлены разрешения root.\nЭто может произойти, когда на устройстве нет прав Root.\nО том, как получить права Root на устройстве вы можете найти на www.cyanogenmod.com,  4pda.ru или других веб-сайтах по Android.</string>
   <string name="no_root_title">Для Android требуются права Root</string>
   <string name="no_url">Это недопустимый URL!</string>
-  <string name="no_url_title">Неправильный URL</string>
+  <string name="no_url_title">Неправильно отформатированный URL</string>
   <string name="hosts_add_dialog">Вставьте URL в файл hosts:</string>
   <string name="no_hostname">Это недопустимое имя источника!</string>
-  <string name="no_hostname_title">Неправильное имя источника</string>
+  <string name="no_hostname_title">Неправильно отформатированное имя хоста</string>
   <string name="no_ip">Это недопустимый IP!</string>
-  <string name="no_ip_title">Неправильный IP</string>
+  <string name="no_ip_title">Неправильно отформатированный IP</string>
   <string name="reboot_never_reboot">Никогда не перезагружать и не показывать этот вопрос в следующий раз!</string>
   <string name="loading">Загрузка…</string>
   <!--Menu entries-->
@@ -166,11 +166,11 @@
   <!--Preferences-->
   <string name="pref_download">Основные настройки</string>
   <string name="pref_hosts">Файл hosts</string>
-  <string name="pref_redirection_ip">Адрес IP для перенаправления</string>
+  <string name="pref_redirection_ip">Адрес IP для переадресации</string>
   <string name="pref_update_check">Проверка обновлений</string>
   <string name="pref_apply_method">Путь к файлу hosts</string>
   <string name="pref_apply_method_summary">Перед изменением этого параметра прочитайте об этой функции в Справке.</string>
-  <string name="pref_redirection_ip_summary">Все заблокированные хосты перенаправляются на этот адрес IP.</string>
+  <string name="pref_redirection_ip_summary">Все заблокированные хосты переадресовываются на этот адрес IP.</string>
   <string name="pref_header_preferences">Настройки</string>
   <string name="pref_header_preferences_summary">Основные настройки AdAway</string>
   <string name="pref_never_reboot">Скрыть диалог перезагрузки</string>
@@ -196,8 +196,8 @@
   <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
   <string name="pref_update_only_on_wifi">Обновление только по WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Выполнять обновления в фоне только при подключении к сети WiFi.</string>
-  <string name="pref_whitelist_redirection_rules">Разрешить перенаправление и белые списки</string>
-  <string name="pref_whitelist_redirection_rules_summary">Разрешить перенаправление и белые списки из источников хостов.</string>
+  <string name="pref_whitelist_redirection_rules">Разрешить переадресацию и белые списки</string>
+  <string name="pref_whitelist_redirection_rules_summary">Разрешить переадресацию и белые списки из источников хостов.</string>
   <string name="pref_debug">Режим отладки</string>
   <string name="pref_enable_debug">Журнал отладки</string>
   <string name="pref_enable_debug_summary">Чтобы изменения вступили в силу, необходимо перезапустить AdAway.</string>

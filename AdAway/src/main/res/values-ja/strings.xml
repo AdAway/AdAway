@@ -71,7 +71,7 @@
   <string name="apply_remount_fail_title">再マウント失敗</string>
   <string name="apply_copy_fail">hostsファイルのコピー失敗!</string>
   <string name="apply_copy_fail_title">コピー失敗</string>
-  <string name="apply_success_subtitle">成功したhostソース:</string>
+  <string name="apply_success_subtitle">適用したhostsのソース:</string>
   <string name="apply_success_title">適用しました</string>
   <string name="apply_success_dialog">適用しました。\n変更を適用するにはAndroidの再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードが今使われていないか確認してください!)</string>
   <string name="apply_symlink_successful">symlinkを作成しました。\n変更を適用するには再起動が必要です。\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
@@ -79,7 +79,7 @@
   <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください。</string>
   <string name="apply_symlink_fail_title">symlink作成失敗</string>
   <string name="apply_help">詳しくはヘルプをご覧ください。</string>
-  <string name="apply_apn_proxy">APNプロキシが端末にセットされています!\nAdAwayは3Gなどのモバイルネットワークでは動作しない場合があります。 プロキシを無効にするにはAPN (Android 4.xの場合: 無線とネットワーク -&gt; その他... -&gt; モバイルネットワーク -&gt; アクセスポイント名) でプロキシ設定を解除してください。</string>
+  <string name="apply_apn_proxy">APNプロキシが設定されています!\n3G等のモバイルネットワークでAdAwayがうまく動作しない場合があります。プロキシを無効にするには、チェックを入れてあるAPN(Android 4.xでの例: 無線とネットワーク -&gt; その他の設定 -&gt; モバイルネットワーク -&gt; アクセスポイント名)を選択して、「プロキシ」の欄を空白にしてください。</string>
   <string name="apply_apn_proxy_title">APNプロキシがセットされています!</string>
   <string name="no_connection">ネット接続がありません。</string>
   <string name="no_connection_title">接続なし</string>
@@ -103,12 +103,12 @@
   <string name="no_root_description">suバイナリが見つからないかAdAwayのrootアクセス権が許可されていません。\n\nデバイスがroot化されていない場合はwww.cyanogenmod.comや\nその他のウェブサイトでroot化するための情報を入手してください。</string>
   <string name="no_root_title">root化されたAndroidが必要です</string>
   <string name="no_url">正しいURLではありません!</string>
-  <string name="no_url_title">不正な形式のURL</string>
+  <string name="no_url_title">URLの形式が正しくありません</string>
   <string name="hosts_add_dialog">hostsファイルのURLを入力:</string>
   <string name="no_hostname">正しいホスト名ではありません!</string>
-  <string name="no_hostname_title">不正な形式のホスト名</string>
+  <string name="no_hostname_title">ホスト名が正しくありません</string>
   <string name="no_ip">不正なIPです!</string>
-  <string name="no_ip_title">不正な形式のIP</string>
+  <string name="no_ip_title">IPが正しくありません</string>
   <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
   <string name="loading">読み込み中...</string>
   <!--Menu entries-->

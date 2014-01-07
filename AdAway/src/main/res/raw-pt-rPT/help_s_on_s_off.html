@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>Aparelhos HTC</h2>
+<p>O AdAway não funciona quando utiliza um aparelho com S-ON. Esta 'característica' existe em muitos aparelhos HTC e impede a escrita no ficheiro de hosts.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF significa que a partição NAND do aparelho está desbloqueada e pode ser escrita. A definição por defeito nos aparelhos HTC é S-ON, o que significa que nem pode aceder a algumas áreas do sistema nem pode garantir um root permanente. Além disso, a verificação da assinatura nas imagens de firmware é também verificada pelo S-ON.</p>
+
+<h2>Tenho S-ON ou S-OFF?</h2>
+<p>Entre no Boot Menu no seu aparelho pressionado <i>volume para baixo</i> enquanto pressiona o botão de ligar e no topo irá aparecer uma mensagem que informa se se encontra com S-OFF ou S-ON. Um root completo normalmente significa S-OFF.
+<br/><br/>Mais informação em <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+
+<h2>Alternativa</h2>
+<p>Pré-requisito: Terá que instalar um Android SDK com ADB shell no seu PC.
+</p>
+<ol>
+<li>Entre no Boot Menu no seu aparelho pressionado <i>volume para baixo</i> enquanto pressiona o botão de ligar.</li>
+<li>Utilize o botão <i>volume para baixo</i> para escolher recovery.</li>
+<li>Na Clockwork Recovery, escolha "partitions menu" e clique para seleccionar</li>
+<li>Seleccione <i>mount /system</i>, <i>mount /sdcard</i> e <i>mount /data</i>.</li>
+<li>Ligue o cabo USB e abra uma linha de comandos no PC.</li>
+<li>Entre na adb shell e escreva <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (Isto irá criar uma ligação simbólica que permitirá o AdAway editar o ficheiro de hosts armazenado em <tt>/data</tt> permitindo simultaneamente que o SO utilize o ficheiro como se estivesse armazenado em <tt>/system</tt>.)</li>
+<li>Reinicie o aparelho e defina o <i>Ficheiro de hosts de destino</i> para <i>/data/data/hosts</i> nas preferências do AdAway.</li>
+<li>Agora o AdAway deverá funcionar.</li>
+</ol>
+</body>
+</html>

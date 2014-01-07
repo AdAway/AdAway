@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Remount thất bại</string>
   <string name="apply_copy_fail">Thất bại khi chép tệp hosts</string>
   <string name="apply_copy_fail_title">Sao chép thất bại</string>
-  <string name="apply_success_subtitle">Các nguồn host thành công:</string>
   <string name="apply_success_title">Áp dụng thành công</string>
   <string name="apply_success_dialog">Áp dụng thành công.\nCó thể cần phải khởi động lại máy để thay đổi có hiệu lực.\n\nBạn có muốn khởi động lại máy không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
   <string name="apply_symlink_successful">Đã tạo symlink thành công.\nCó thể cần phải reboot máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!) </string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Không thể tạo Symlink bằng Android.\nPhần lớn nguyên nhân do \'tính năng\' gọi là S-ON trên thiết bị HTC!\n\nGiải pháp là boot  phone vào chế độ recovery và tạo symlink với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu không được hãy tìm kiếm trên Internet chuỗi S-OFF và tên thiết bị của bạn.</string>
   <string name="apply_symlink_fail_title">Thất bại tạo Symlink</string>
   <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
-  <string name="apply_apn_proxy">Một proxy APN đã được cài trên máy của bạn!\nAdAway sẽ không làm việc hiệu quả trên mạng di động 3G. Bạn có thể tắt proxy bằng cách mở APN đã chọn (Trên Android 4: Wireless and networks -&gt; More... -&gt; Mobile Networks -&gt; Access Point Names) và xoá bỏ giá trị trong trường proxy.</string>
   <string name="apply_apn_proxy_title">Đặt proxy APN!</string>
   <string name="no_connection">Không có kết nối tới Internet</string>
   <string name="no_connection_title">Không có kết nối</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">Hoặc là máy chưa có su hoặc bạn không cấp quyền truy xuất root cho AdAway.\n\nĐiều này có thể xảy ra khi máy chưa root.\nBạn có thể tìm thông tin về cách root máy trên www.cyanogenmod.com hoặc các webiste Android khác. </string>
   <string name="no_root_title">Yêu cầu Anroid đã root</string>
   <string name="no_url">Không phải là đường dẫn hợp lệ!</string>
-  <string name="no_url_title">Đường dẫn sai quy cách</string>
   <string name="hosts_add_dialog">Nhập đường dẫn tới file host:</string>
   <string name="no_hostname">Đây không phải là tên host hợp lệ!</string>
-  <string name="no_hostname_title">Tên host sai quy cách</string>
   <string name="no_ip">Đây không phải là IP hợp lệ!</string>
-  <string name="no_ip_title">IP không đúng</string>
   <string name="reboot_never_reboot">Không bao giờ reboot và không hiện câu hỏi này nữa!</string>
   <string name="loading">Đang tải...</string>
   <!--Menu entries-->

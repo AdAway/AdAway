@@ -1,16 +1,199 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
+  <string name="button_exit">خروج</string>
+  <string name="button_apply">تحميل الملفات وتنفيذ حجب الإعلانات</string>
+  <string name="button_close">إغلاق</string>
+  <string name="button_yes">نعم</string>
+  <string name="button_no">لا</string>
+  <string name="button_revert">إلغاء حجب الإعلانات</string>
+  <string name="button_add">إضافة</string>
+  <string name="button_cancel">إلغاء</string>
+  <string name="button_apply_text">جميع ملفات المضيف حملت ودمجت مع قوائمك وثبتت في ملف واحد على نظامك</string>
+  <string name="button_revert_text">استعادة ملفات المضيف الافتراضية لنظامك</string>
+  <string name="button_save">حفظ</string>
+  <string name="button_webserver_toggle_checked">خادم الويب يعمل</string>
+  <string name="button_webserver_toggle_unchecked">خادم الويب لا يعمل</string>
+  <string name="button_webserver_toggle_text">تشغيل أو إيقاف خادم الويب على المضيف المحلي للرد على طلبات أسماء المضيفين المحظورة.</string>
+  <string name="button_help">مساعدة</string>
+  <string name="button_tcpdump_text">Tcpdump هي أداة لمراقبة طلبات DNS وحفظها في ملف سجل. يمكنكم تشغيله في الخلفية،ثم شغل التطبيقات التي تعرض الإعلانات على الشاشة،بعد ذلك سيتم تحليل طلبات DNS باستخدام ملف السجل.الأن يمكن إضافة مصدر الإعلانات إلى قائمتك السوداء.</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump يعمل!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump موقوف!</string>
+  <string name="button_tcpdump_open">فتح السجل</string>
+  <string name="button_tcpdump_delete">مسح السجل</string>
   <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">إضافة</string>
+  <string name="checkbox_list_empty">قائمة فارغة</string>
+  <string name="checkbox_list_empty_text">يمكنك إضافة عناصر من شريط الإجراءات.</string>
+  <string name="checkbox_list_context_delete">حذف</string>
+  <string name="checkbox_list_footer">بعد إضافة البنود جديدة إلى هذه القائمة يجب التحديث مرة أخرى!</string>
+  <string name="checkbox_list_edit_dialog_title">تحرير</string>
+  <string name="checkbox_list_context_title">تحرير المدخلة</string>
+  <string name="checkbox_list_context_edit">تحرير</string>
   <!--Your Lists-->
+  <string name="lists_tab_whitelist">القائمة البيضاء</string>
+  <string name="lists_tab_blacklist">القائمة السوداء</string>
+  <string name="lists_tab_blacklist_short">المحجوب</string>
+  <string name="lists_tab_whitelist_short">المسموح</string>
+  <string name="lists_tab_redirection_list_short">إعادة التوجيه</string>
+  <string name="lists_tab_redirection_list">قائمة إعادة التوجيه</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">اسم الموقع:</string>
+  <string name="list_dialog_whitelist_hostname">اسم المضيف:\n(الرموز * و ? مسموحة)</string>
+  <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+  <string name="import_dialog">استيراد…</string>
+  <string name="export_dialog">تصدير…</string>
+  <string name="export_success">تصدير جميع المدخلات إلى ملف يسمى\'adaway-export\' في بطاقة الذاكرة.</string>
   <!--Status Notifications-->
+  <string name="status_checking">جارٍ البحث عن التحديثات…</string>
+  <string name="status_reverting">استرجاع…</string>
+  <string name="status_reverting_subtitle">إنشاء ملفات مضيف قياسية</string>
+  <string name="status_checking_subtitle">تحقق من وجود تحديث</string>
+  <string name="status_update_available">يوجد تحديث</string>
+  <string name="status_update_available_subtitle">ملفات المضيف الجديدة متوفرة</string>
+  <string name="status_no_connection">غير متصل بالشبكة</string>
+  <string name="status_no_connection_subtitle">لا يوجد اتصال بالشبكة متوفر</string>
+  <string name="status_download_fail">الملقمات غير متوفرة</string>
+  <string name="status_download_fail_subtitle_new">لا يمكن الوصول إلى مصادر المضيف!</string>
+  <string name="status_enabled">مفعل</string>
+  <string name="status_enabled_subtitle">توجد ملفات مضيف جديدة</string>
+  <string name="status_disabled">معطل</string>
+  <string name="status_disabled_subtitle">معطل</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">مسار الارتباط الرمزي /system/etc/hosts ليس موجود أو غير صحيح! AdAway لن يعمل إذا لم يتم الإشارة إلى ملف الصحيح.\n\nهل ترغب في محاولة إنشاء رابط رمزي؟</string>
+  <string name="apply_symlink_missing_title">الارتباط الرمزي مفقود</string>
+  <string name="apply_not_enough_space">لا توجد مساحة كافية!\nحاول تغيير مسار ملفات المضيف من الخيارات إلى /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">لا توجد مساحة كافية</string>
+  <string name="apply_private_file_fail">لا يمكن قراءة الملف الذي تم تنزيله.</string>
+  <string name="apply_private_file_fail_title">فشل ملف الخصوصية</string>
+  <string name="apply_remount_fail">إعادة التركيب القسم للقراءة / الكتابة فشلت!</string>
+  <string name="apply_remount_fail_title">فشل إعادة التركيب</string>
+  <string name="apply_copy_fail">نسخ ملفات host فشل!</string>
+  <string name="apply_copy_fail_title">فشل النسخ</string>
+  <string name="apply_success_title">تم التنفيذ بنجاح</string>
+  <string name="apply_success_dialog">تم التنفيذ بنجاح.\nيستوجب إعادة التشغيل للهاتف لتأخذ التغيرات مجراها.\n\nهل تريد إعادة التشغيل؟\n(لتجنب فقد البيانات تأكد من أن التطبيق لا يستخدم بطاقة sd في هذه اللحظة!)</string>
+  <string name="apply_symlink_successful">الارتباط الرمزي أنشئ بنجاح.\nقد يستوجب إعادة تشغيل هاتفك لتأخذ التغييرات مجراها.\n\nهل تريد إعادة تشغيل الأن؟\n(لتجنب فقد البيانات تأكد من أن التطبيق لا يستخدم بطاقة sd في هذه اللحظة!)</string>
+  <string name="apply_symlink_successful_title">الارتباط الرمزي انشئ بنجاح</string>
+  <string name="apply_symlink_fail">الارتباط الرمزي لم ينشأ عبر نظامك.\nهذا الخطأ يحدث بسبب \'وظيفة\' تدعى S-ON في هواتف HTC !\n\nالحل يكون بتشغيل الهاتف في وضع الريكفوري وإنشاء ارتباط رمزي هناك مع \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nإذا لم تنجح هذه الطريقة ابحث في الانترنت عن S-OFF وهاتفك معاً.</string>
+  <string name="apply_symlink_fail_title">الارتباط الرمزي لم ينشئ</string>
+  <string name="apply_help">يرجى قراءة التعليمات للمزيد من المعلومات</string>
+  <string name="apply_apn_proxy_title">بروكسي APN حدد!</string>
+  <string name="no_connection">الاتصال بالشبكة لا يعمل</string>
+  <string name="no_connection_title">غير متصل</string>
+  <string name="download_dialog">جارٍ التحميل…</string>
+  <string name="apply_dialog">يتم التنفيذ…</string>
+  <string name="apply_dialog_lists">يتم تطبيق القائمة السوداء والبيضاء</string>
+  <string name="apply_dialog_hostnames">تحليل ودمج ملفات المضيف</string>
+  <string name="apply_dialog_hosts">بناء ملفات المضيف</string>
+  <string name="apply_dialog_apply">تنفيذ ملفات المضيف</string>
+  <string name="apply_fail">تنفيذ ملفات المضيف لنظامك فشلت!\nحاول  تغيير مسار ملفات المضيف في الخيارات إلى /data/data/hosts.</string>
+  <string name="apply_fail_title">فشل التنفيذ</string>
+  <string name="revert_successful">هل ستسترجع ملفات المضيف الافتراضية.\nقد يستوجب ذلك إعادة تشغيل هاتفك لتأخذ التغيرات مجراها.\n\nهل تريد إعادة التشغيل الأن؟\n(لتجنب فقد البيانات تأكد من أن التطبيق لا يستخدم بطاقة sd في هذه اللحظة!) </string>
+  <string name="revert_successful_title">تم الاسترجاع</string>
+  <string name="revert_problem">الاسترجاع فشل لأسباب غير معروفة.</string>
+  <string name="revert_problem_title">فشل الاسترجاع</string>
+  <string name="download_fail_dialog">مصادر المضيف لا يمكن الوصول إليها! هل أنت متصل بالإنترنت؟</string>
+  <string name="download_fail_title">فشل التحميل</string>
+  <string name="no_private_file">ملف الخصوصية لم ينشأ</string>
+  <string name="no_private_file_title">ملف الخصوصية لم ينشأ</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">إما أن برامج المستخدم الفائق غير موجودة أو أن الهاتف لا يحتوي على روت للسماح لAdAway\n\nفي الغالب تحدث عندما يكون الهاتف غير مروت.\nيمكنك إيجاد معلومات حول كيفية عمل روت في جهازك على www.cyanogenmod.com أو مواقع أندرويد أخرى </string>
+  <string name="no_root_title">مطلوب روت للهاتف</string>
+  <string name="no_url">عنوان URL معطوب!</string>
+  <string name="hosts_add_dialog">أدخل عنوان URL لملفات المضيف:</string>
+  <string name="no_hostname">اسم الموقع غير صالح!</string>
+  <string name="no_ip">IP غير صالح!</string>
+  <string name="reboot_never_reboot">لا تعد التشغيل ولا تظهر هذا السؤال لاحقاً</string>
+  <string name="loading">تحميل…</string>
   <!--Menu entries-->
+  <string name="menu_refresh">تحديث</string>
+  <string name="menu_add">إضافة</string>
+  <string name="menu_scan_adware">البحث عن الإعلانات المتسللة</string>
+  <string name="menu_hosts_sources">مصادر المضيف</string>
+  <string name="menu_tcpdump">تسجيل طلبات DNS</string>
+  <string name="menu_help">مساعدة</string>
+  <string name="menu_lists">قائمتك</string>
+  <string name="menu_show_hosts_file">فتح ملفات المضيف</string>
+  <string name="menu_import">استيراد جميع القوائم</string>
+  <string name="menu_export">تصدير جميع القوائم</string>
+  <string name="menu_preferences">الخيارات</string>
   <!--Help-->
+  <string name="help_tab_about">عن التطبيق</string>
+  <string name="help_tab_donate">التبرع</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">مشكلات</string>
+  <string name="help_tab_changelog">سجل التغيرات</string>
+  <string name="help_about_version">الإصدار:</string>
+  <string name="help_donation_paypal_item">AdAway دعم</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_description">هنا يمكنك البحث عن تطبيقات الإعلانات المتسللة, التي لا تحجب عبر AdAway. هذه التطبيقات تستخدم الاشعارات في كل وقت حتى عند غلق التطبيق وقد تغير نغمة الرنين مثلAirpush. و الحل الوحيد لها هو إلغاء تثبيتها عبر النقر على عنوان التطبيق أمامك.</string>
+  <string name="scan_adware_start">بدء الفحص</string>
+  <string name="scan_adware_empty">لم يتم العثور على إعلانات متسللة!</string>
   <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">المثبت:</string>
+  <string name="hosts_last_modified_online">الإصدار:</string>
+  <string name="hosts_not_available">غير متوفر</string>
   <!--Other-->
+  <string name="app_subtitle">حاجب الإعلانات</string>
+  <string name="no_text_editor_title">لا يوجد محرر نصوص</string>
+  <string name="no_text_editor">تعذر العثور على أي محرر نصوص لفتح ملف المضيف.يمكن تثبيت أي محرر نصوص مثل جوتا للتعامل مع الملف\n\nهل تريد تثبيت جوتا؟</string>
+  <string name="no_file_manager_title">لا يوجد مدير ملفات مثبت</string>
+  <string name="no_file_manager">لا يوجد مدير ملفات لفتح الملفات. يمكنك تثبيت إدارة الملفات OI أو أي مدير ملفات أخر للتعامل مع هذه الملفات.\n\nهل تريد تثبيت OI لإدارة الملفات؟</string>
   <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">ملف السجل محذوف!</string>
+  <string name="toast_tcpdump_added_to_blacklist">تم إضافة الموقع للقائمة السوداء!</string>
+  <string name="toast_tcpdump_added_to_whitelist">تم إضافة الموقع للقائمة البيضاء!</string>
+  <string name="tcpdump_log_context_blacklist">أضف للقائمة السوداء</string>
+  <string name="tcpdump_log_context_whitelist">أضف للقائمة البيضاء</string>
+  <string name="tcpdump_log_context_browser">فتح في المتصفح</string>
+  <string name="tcpdump_log_empty">ملف السجل فارغ!</string>
+  <string name="tcpdump_log_footer">الضغطة الطويلة لإضافة اسم المضيف إلى القائمة السوداء أو البيضاء!</string>
   <!--Preferences-->
+  <string name="pref_download">الخيارات العامة</string>
+  <string name="pref_hosts">ملفات المضيف</string>
+  <string name="pref_redirection_ip">إعادة توجيه IP</string>
+  <string name="pref_update_check">التحقق من وجود تحديثات</string>
+  <string name="pref_apply_method">مسار ملفات المضيف</string>
+  <string name="pref_apply_method_summary">قبل تغيير هذا الإعداد،يجب قراءة مساعدة حول هذه الوظيفة</string>
+  <string name="pref_redirection_ip_summary">يتم إعادة توجيه كل أسماء المضيفين الذين منعوا إلى هذا عنوان IP.</string>
+  <string name="pref_header_preferences">الخيارات</string>
+  <string name="pref_header_preferences_summary">الخيارات العامة للتطبيق</string>
+  <string name="pref_never_reboot">اخفاء مُحاور إعادة التشغيل</string>
+  <string name="pref_never_reboot_summary">إخفاء مُحاور إعادة التشغيل بعد تنفيذ التحديث</string>
+  <string name="pref_webserver_on_boot">بدأ خادم الويب عند الإقلاع</string>
+  <string name="pref_webserver_on_boot_summary">بدأ خادم الويب عند الإقلاع، والتعرف على عناوين IP محلية</string>
+  <string name="pref_webserver_enabled">تفعيل خادم الويب</string>
+  <string name="pref_webserver_enabled_summary">تمكين خادم الويب التعرف على عناوين IP محلية للرد على أسماء المضيفين الذين منعوا.</string>
+  <string name="pref_webserver">خادم الويب المحلي</string>
+  <string name="pref_custom_target">مسار مخصص</string>
+  <string name="pref_custom_target_summary">استخدمه إذا حدد مسار مخصص</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>مسار مخصص</item>
+  </string-array>
+  <string name="pref_update_check_summary">التحقق من وجود تحديثات عند بدء التطبيق</string>
+  <string name="pref_sdcard_problem">هذه الميزة لن تعمل بشكل صحيح عندما يتم تثبيت التطبيق في الذاكرة الخارجية!</string>
+  <string name="pref_background">الخدمات الخلفية</string>
+  <string name="pref_update_check_daily">التحقق من وجود تحديثات يومياً</string>
+  <string name="pref_update_check_daily_summary">التحقق من التحديثات يوميا في الخلفية مع التنبيه</string>
+  <string name="pref_automatic_update_daily">تحديث تلقائي</string>
+  <string name="pref_automatic_update_daily_summary">تحديث تلقائيا في الخلفية إذا كانت التحديثات متوفرة.</string>
+  <string name="pref_update_only_on_wifi">حدث مع الواي فاي فقط</string>
+  <string name="pref_update_only_on_wifi_summary">تنفيذ التحديثات الخلفية عندما يتصل بشبكة واي فاي فقط</string>
+  <string name="pref_whitelist_redirection_rules">السماح لقائمة البيضاء وإعادة التوجيه.</string>
+  <string name="pref_whitelist_redirection_rules_summary">السماح لمدخلات القائمة البيضاء وإعادة التوجيه من مصادر المضيف</string>
+  <string name="pref_debug">تصحيح</string>
+  <string name="pref_enable_debug">تسجيل التصحيحات</string>
+  <string name="pref_enable_debug_summary">يحتاج التطبيق إعادة تشغيل الهاتف لتطبيق الإعدادات.</string>
 </resources>

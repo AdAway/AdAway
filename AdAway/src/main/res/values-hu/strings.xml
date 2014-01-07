@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Sikertelen visszacsatolás</string>
   <string name="apply_copy_fail">Host fájlok másolása sikertelen!</string>
   <string name="apply_copy_fail_title">Sikertelen másolás</string>
-  <string name="apply_success_subtitle">Sikeres host források:</string>
   <string name="apply_success_title">Sikeres alkalmazás</string>
   <string name="apply_success_dialog">Sikeresen alkalmazva.\nSzükséges lehet újraindítani a rendszert a módosítások életbe léptetéséhez.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy pillanatnyilag ne használja más app az SD kártyát!)</string>
   <string name="apply_symlink_successful">Symlink létrehozás sikeres.\nSzükség lehet a készülék újraindítására a módosítások életbe léptetéséhez\n\nSzeretné újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, nem használja-e más az SD-t jelenleg!)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Symlink nem hozható létre az Androidon.\nA sikertelenség oka egy S-ON nevű \\"funkció\\", leginkább HTC telefonokon!\n\nA megoldás az, hogy indítsd el a telefont recovery módban és hozz létre symlinket az \'ln -s /data/data/hosts /system/etc/hosts\' segítségével.\n\nHa ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</string>
   <string name="apply_symlink_fail_title">Symlink létrehozása sikertelen</string>
   <string name="apply_help">Kérlek olvasd el a Súgót további információkért.</string>
-  <string name="apply_apn_proxy">Az APN proxy be van állítva az Androidon!\nAz AdAway nem működik megbízhatóan a mobilhálózatokon. Kikapcsolhatod a proxy-t a kiválasztott APN-en (Android 4: Vezeték nélküli és hálózati -&gt; Tovább... -&gt; Mobil hálózatok -&gt; Hozzáférési pontok nevei) és távolítsd el az értéket a proxy mezőből.</string>
   <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
   <string name="no_connection">Az Internet kapcsolat nem működik.</string>
   <string name="no_connection_title">Nincs kapcsolat</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">\"Vagy az su bináris nem található, vagy nem engedélyeztük a root jogot az AdAway számára.⏎ ⏎ Ez akkor fordulhat elő ha a készülék nem rootolt.⏎ A rootolás folyamatáról információt találhat a www.cyanogenmod.com vagy egyéb Android témájú weblapokon.</string>
   <string name="no_root_title">Rootolt rendszer szükséges</string>
   <string name="no_url">Ez nem érvényes URL cím!</string>
-  <string name="no_url_title">Helytelen URL</string>
   <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
   <string name="no_hostname">Ez nem érvényes hostnév!</string>
-  <string name="no_hostname_title">Hibás hostnév</string>
   <string name="no_ip">Ez nem érvényes IP!</string>
-  <string name="no_ip_title">Hibás IP</string>
   <string name="reboot_never_reboot">Soha ne indítsa újra és ne jelenjen meg ez a kérdés legközelebb!</string>
   <string name="loading">Betöltés...</string>
   <!--Menu entries-->

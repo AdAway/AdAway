@@ -48,7 +48,7 @@
   <!--Status Notifications-->
   <string name="status_checking">Prüfe auf Updates...</string>
   <string name="status_reverting">Zurücksetzen...</string>
-  <string name="status_reverting_subtitle">Standard Hosts-Datei wirde generiert</string>
+  <string name="status_reverting_subtitle">Standard Hosts-Datei wird generiert</string>
   <string name="status_checking_subtitle">Prüfe ob ein Update verfügbar ist</string>
   <string name="status_update_available">Update verfügbar</string>
   <string name="status_update_available_subtitle">Neuere Hosts-Dateien verfügbar</string>
@@ -71,7 +71,7 @@
   <string name="apply_remount_fail_title">Neueinbinden ist fehlgeschlagen</string>
   <string name="apply_copy_fail">Kopieren der Hosts-Datei fehlgeschlagen!</string>
   <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
-  <string name="apply_success_subtitle">Erfolgreiche Hosts-Quellen:</string>
+  <string name="apply_success_subtitle">Angewandte Hosts-Quellen:</string>
   <string name="apply_success_title">Erfolgreich angewendet</string>
   <string name="apply_success_dialog">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
   <string name="apply_symlink_successful">Der symbolische Link wurde erfolgreich gesetzt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest du neu starten?\n(Stell sicher dass kein Programm gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
@@ -79,7 +79,6 @@
   <string name="apply_symlink_fail">Der symbolische Link konnte nicht erstellt werden.\nDas liegt wahrscheinlich an einer Funktion Namens S-ON auf HTC Geräten!\n\nEine Lösung ist es dein Gerät in den Recovery-Modus zu booten und den Link von dort mit \'ln -s /data/data/hosts /system/etc/hosts\' zu erstellen.\n\nWenn das nicht funktioniert, suche im Internet nach S-OFF und deinem Gerät.</string>
   <string name="apply_symlink_fail_title">Symbolischer Link konnte nicht erstellt werden</string>
   <string name="apply_help">Bitte lies die Hilfe für mehr Informationen.</string>
-  <string name="apply_apn_proxy">Proxy</string>
   <string name="apply_apn_proxy_title">APN proxy gesetzt!</string>
   <string name="no_connection">Die Internetverbindung funktioniert nicht.</string>
   <string name="no_connection_title">Keine Verbindung</string>
@@ -103,12 +102,12 @@
   <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder du hast AdAway keine root-Rechte gegeben.\n\nDas kann passieren wenn du dein Gerät nicht gerootet hast.\nInformationen wie du dein Gerät rooten kannst findest du auf www.cyanogenmod.com oder anderen Android-Webseiten.</string>
   <string name="no_root_title">Gerootetes Android-Phone benötigt</string>
   <string name="no_url">Dies ist keine gültige URL!</string>
-  <string name="no_url_title">Fehlerhafte URL</string>
+  <string name="no_url_title">Falsch formatierte URL</string>
   <string name="hosts_add_dialog">Gib die URL zur Hosts-Datei an:</string>
   <string name="no_hostname">Das ist kein gültiger Hostname!</string>
-  <string name="no_hostname_title">Fehlerhafter Hostname</string>
+  <string name="no_hostname_title">Falsch formatierter Hostname</string>
   <string name="no_ip">Das ist keine gültige IP!</string>
-  <string name="no_ip_title">Fehlerhafte IP</string>
+  <string name="no_ip_title">Falsch formatierte IP</string>
   <string name="reboot_never_reboot">Starte niemals neu und zeige diese Frage nächstes Mal nicht!</string>
   <string name="loading">Wird geladen...</string>
   <!--Menu entries-->

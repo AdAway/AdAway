@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Remount mislukt</string>
   <string name="apply_copy_fail">Kopiëren van hosts bestand is mislukt!</string>
   <string name="apply_copy_fail_title">Kopiëren mislukte</string>
-  <string name="apply_success_subtitle">Succesvolle hosts bronnen:</string>
   <string name="apply_success_title">Toepassen voltooid</string>
   <string name="apply_success_dialog">Toepassen was succesvol.\nHet kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben.\n\nWilt u herstarten?\n(Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
   <string name="apply_symlink_successful">Symlink succesvol aangemaakt.\nHet kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben.\n\nWilt u herstarten?\n(Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Symlink kon niet door Android aangemaakt worden.\nDit mislukt vaak door een \'feature\' genaamd S-ON op HTC telefoons!\n\nEen oplossing is om uw telefoon in recovery modus op te starten en hier de symlink aan te maken met \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAls dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
   <string name="apply_symlink_fail_title">Aanmaak symlink mislukt</string>
   <string name="apply_help">Leest u alstublieft Help voor meer informatie.</string>
-  <string name="apply_apn_proxy">Een APN proxy is ingesteld op uw Android!\nAdAway zal op Mobiele Netwerken als 3G niet betrouwbaar werken. U kunt deze proxy deactiveren door naar u geselecteerde APN te gaan (Op Android 4: Draadloos en netwerken -&gt; Meer… -&gt; Mobiele netwerken -&gt; Namen toeganspunten) en de waarde in het proxy veld te verwijderen.</string>
   <string name="apply_apn_proxy_title">APN proxy ingesteld!</string>
   <string name="no_connection">De connectie met het Internet werkt niet.</string>
   <string name="no_connection_title">Geen Verbinding</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">De su binary kon niet worden gevonden, of u hebt AdAway geen root permissies gegeven.\n\nDit kan gebeuren als uw apparaat niet geroot is.\nU kunt informatie over het rooten van uw apparaat vinden op www.cyanogenmod.org of andere Android websites.</string>
   <string name="no_root_title">Geroote Android vereist</string>
   <string name="no_url">Dit is niet een correcte URL!</string>
-  <string name="no_url_title">Incorrecte URL</string>
   <string name="hosts_add_dialog">Voer URL naar het hosts bestand in:</string>
   <string name="no_hostname">Dit is niet een correcte hostnaam!</string>
-  <string name="no_hostname_title">Incorrecte hostnaam</string>
   <string name="no_ip">Dit is niet een correct IP!</string>
-  <string name="no_ip_title">Incorrect IP</string>
   <string name="reboot_never_reboot">Herstart nooit en laat deze vraag in het vervolg niet zien!</string>
   <string name="loading">Laden…</string>
   <!--Menu entries-->

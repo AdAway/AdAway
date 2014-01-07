@@ -83,12 +83,9 @@
   <!--Other Dialogs-->
   <string name="no_root_title">Neophodan Root-ovan Android</string>
   <string name="no_url">Ovo nije važeći URL!</string>
-  <string name="no_url_title">Neispravna url adresa</string>
   <string name="hosts_add_dialog">Ulazni URL do host-ovih fajlova</string>
   <string name="no_hostname">Ovo nije važeći hostname!</string>
-  <string name="no_hostname_title">Neispravano ime host-a</string>
   <string name="no_ip">Ovo nije validan IP!</string>
-  <string name="no_ip_title">Neispravna IP</string>
   <string name="reboot_never_reboot">Nikada ne pokreći ponovo i ne pokazuj ovo pitanje sledeći put!</string>
   <string name="loading">Učitavanje...</string>
   <!--Menu entries-->

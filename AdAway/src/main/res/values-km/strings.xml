@@ -43,7 +43,6 @@
   <!--Apply and Revert Dialogs-->
   <string name="apply_not_enough_space_title">ពុំមានប្រលោះទំនេរគ្រប់គ្រាន់</string>
   <string name="apply_copy_fail_title">ចម្លងបរាជ័យ</string>
-  <string name="apply_success_subtitle">ប្រភពឯកសារម៉ាស៊ីនដែលបានជោគជ័យ</string>
   <string name="apply_success_title">ស្នើរសុំជោគជ័យ</string>
   <string name="apply_help">សូមអាន \"ជំនួយ\" សម្រាប់ព័តមានបន្ថែម</string>
   <string name="apply_apn_proxy_title">បានកំណត់ APN ប្រូកស៊ី!</string>

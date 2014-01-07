@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">重新挂载失败</string>
   <string name="apply_copy_fail">复制 hosts 文件失败！</string>
   <string name="apply_copy_fail_title">复制失败</string>
-  <string name="apply_success_subtitle">成功连接的主机源：</string>
   <string name="apply_success_title">应用成功</string>
   <string name="apply_success_dialog">应用成功。\n这可能需要重新启动你的 Android 才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用 sd 卡）</string>
   <string name="apply_symlink_successful">符号链接创建成功。\n这可能需要重新启动你的 Android 才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用 sd 卡）</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">符号链接创建失败。\n这很有可能是因为HTC上一个叫 S-ON 的“功能”！\n\n一个解决办法可以启动你的手机到 recovery 模式并用命令”ln -s /data/data/hosts /system/etc/hosts“ 来创建符号链接。\n\n如果这招没有用，请在网上搜索下怎么 S-OFF 你的手机。</string>
   <string name="apply_symlink_fail_title">符号链接创建失败</string>
   <string name="apply_help">请阅读帮助获得更多信息。</string>
-  <string name="apply_apn_proxy">你的 Android 上 APN 设置了代理\n\n广告走开可能不能移动网络，比如3G，上正常运行。你可以去掉你的当前使用的 APN 上代理字段的内容来禁用代理设置（在 Android 4系统上：无线和网络 -&gt; 更多... -&gt; 移动网络 -&gt; 接入点名称）</string>
   <string name="apply_apn_proxy_title">APN 设置了代理！</string>
   <string name="no_connection">Internet 网络连接不通</string>
   <string name="no_connection_title">没有网络连接</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">没有找到 su 或者你没有允许广告走开的 root 权限。\n\n这可能是因为你的设备没有 root。\n你可以到 www.cyanogenmod.com 或者其他网站找到如何 root 你的设备的信息。</string>
   <string name="no_root_title">需要 root 了的 Android</string>
   <string name="no_url">URL 无效！</string>
-  <string name="no_url_title">URL 格式不对</string>
   <string name="hosts_add_dialog">输入 hosts 文件的 URL：</string>
   <string name="no_hostname">主机名无效！</string>
-  <string name="no_hostname_title">主机名格式不对</string>
   <string name="no_ip">IP 地址无效</string>
-  <string name="no_ip_title">IP 地址格式不对</string>
   <string name="reboot_never_reboot">不要重启，并且不再显示这个询问！</string>
   <string name="loading">存取中...</string>
   <!--Menu entries-->

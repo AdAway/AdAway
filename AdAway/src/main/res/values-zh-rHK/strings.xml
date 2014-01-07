@@ -70,14 +70,12 @@
   <string name="apply_remount_fail_title">重新掛載失敗！</string>
   <string name="apply_copy_fail">複製 hosts 檔失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
-  <string name="apply_success_subtitle">成功的 hosts 來源:</string>
   <string name="apply_success_title">套用成功</string>
   <string name="apply_success_dialog">套用成功。\n您可能需要重新啟動 Android 才能使變更生效。\n\n您要重新啟動嗎？\n(為防資料流失，請確定没有任何應用程式正在使用 SD 卡！)</string>
   <string name="apply_symlink_successful">成功建立符號連結。\n您可能需要重新啟動 Android 才能使變更生效。\n\n您要重新啟動嗎？\n(為防資料流失，請確定没有任何應用程式正在使用 SD 卡！)</string>
   <string name="apply_symlink_successful_title">成功建立符號連結</string>
   <string name="apply_symlink_fail_title">建立符號連結失敗</string>
   <string name="apply_help">請閱讀幫助以獲取更多資訊。</string>
-  <string name="apply_apn_proxy">您的 Android 系統已設定 APN Proxy (接入點/存取點代理伺服器)！\n在手機使用 3G 流動網絡的情況下，AdAway 無法可靠地運作。您可透過手機設定去刪除及關閉 APN Proxy，注意的是刪除該 Proxy 有可能導致不能連接到網絡，請先自行備份及了解手機網絡供應商的設定。(以 Android 4 為例: 設定 -&gt; 無線和網絡 [無線與網路] -&gt; 更多內容… -&gt; 流動網絡 [行動網路] -&gt; 接入點名稱 [存取點名稱 (APN)] -&gt; APN 選擇你正在使用的流動網絡以進行編輯 -&gt; 代理伺服器 [Proxy])</string>
   <string name="apply_apn_proxy_title">APN Proxy (接入點/存取點代理伺服器) 已設定！</string>
   <string name="no_connection">網絡連接發生問題。</string>
   <string name="no_connection_title">沒有任何網絡連接</string>
@@ -100,12 +98,9 @@
   <string name="no_root_description">未能找到 su binary 或者您未允許 AdAway 取得 root 權限。\n\n這情況可能發生於未 root 的手機上。\n您可透過 www.cyanogenmod.com 或其他 Android 網站尋找有關 root 手機的資訊。</string>
   <string name="no_root_title">需要取得 root 權限</string>
   <string name="no_url">這不是有效的 URL！</string>
-  <string name="no_url_title">URL 格式不正確</string>
   <string name="hosts_add_dialog">輸入 URL 至 hosts 檔:</string>
   <string name="no_hostname">這不是有效的主機名稱！</string>
-  <string name="no_hostname_title">主機名稱格式不正確</string>
   <string name="no_ip">這不是有效的 IP！</string>
-  <string name="no_ip_title">IP 格式不正確</string>
   <string name="reboot_never_reboot">永遠不要重新啟動及再顯示此問題！</string>
   <string name="loading">載入中…</string>
   <!--Menu entries-->

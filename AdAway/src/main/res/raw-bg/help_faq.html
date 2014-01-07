@@ -1,32 +1,32 @@
 <html>
 <head></head>
 <body>
-<h2>Income by advertisements</h2>
-<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+<h2>Приход от реклами</h2>
+<p>Има често срещана заблуда, че ако потребителят никога не натиска реклами, тогава блокирането им няма да навреди финансово на сайта или приложението. Това не е така, дивелъпърите печелят пари само като показват реклами. Зависи от Вас дали ще блокирате реклами или не. Лично аз не бих ползвал приложения, които показват реклами, защото ги намирам за много дразнещи и затова не бих ги инсталирал без блокиране на рекламите.</p>
 
 
 
-<h2>How does AdAway work?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<h2>Как работи AdAway?</h2>
+<p>AdAway използва <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts файла</a>, за да блокира имена на хостове, които предлагат реклами. Hosts файла е файл, които се намира в <tt>/system/etc/hosts</tt> и които свързва имена на хостове с IP адреси. Това е традиционен начин да се дефинират двойки "имена на хостове - IP адреси" без да се разчита на DNS. Всички нежелани имена на хостове се пренасочват към <tt>127.0.0.1</tt>, което означава, че те ще сочат към Вашето собствено устройство.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>Защо предпочитанието за ежедневна проверка за ъпдейти е в сиво?</h2>
+<p>Автоматичната проверка за нови ъпдейти и достъпна само когато AdAway е инсталиран на вътрешната памет на телефона. Това е поради ограничения в Android платформата.</p>
 
-<h2>Why do I have to restart Android for changes to take effect?</h2>
-<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+<h2>Защо трябва да рестартирам Android, за да имат ефект промените?</h2>
+<p>Java на Android поддържа свой собствен вътрешен DNS кеш. Операционната система ще отрази новия hosts файл моментално (потвърдете това с ping или команден ред), но ще трябва да рестартирате Android, за да престроите DNS кеша на Java.</p>
 
-<h2>How to use the webserver in AdAway?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<h2>Как да използвам уебсървъра в AdAway?</h2>
+<p><b>AdAway ще работи също без да използва уебсървъра</b>
+<br/><br/>Можете да пуснете локален уесървър в Предпочитания в AdAway, за да отговорите на молби от локалния IP адрес <tt>127.0.0.1</tt>. Това означава, че молби от приложения към сървъри за реклами, които са пренасочени към <tt>127.0.0.1</tt>, ще бъдат отговорени от сървъра на AdAway.
+<br/>Някои приложения отказват да работят, когато сървърите за реклами не са достижими. С този метод те отново ще бъдат достижими, отговаряйки с празна страница без картинки.</p>
 
-<h2>How can I block/unblock specific hostnames?</h2>
-<p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<h2>Как мога да блокирам/разблокирам определени имена на хостове?</h2>
+<p>Добавете имената на хостове, които искате да блокирате в Blacklist (=Black) под <i>Your Lists</i>.  Допълнително, имената на хостове, които искате да изключите от блокиране могат да бъдат добавени към  <i>Whitelist</i> (=White) и имена на хостове, които да искате да пренасочите към определен IP адрес, трябва да с в <i>Redirection List</i> (=Redirection).</p>
 
-<h2>Where can I find more hosts sources?</h2>
-<p>See <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
+<h2>Където мога да намеря още източници на hosts?</h2>
+<p>Вижте <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">Списък с допълнителни източници на hosts за AdAway</a>.</p>
 
-<h2>Help translating/report bugs</h2>
-<p>Please go to <a href="http://adaway.org">http://adaway.org</a>.</p>
+<h2>Помощ с превода/докладване на бъгове</h2>
+<p>Моля отидете на <a href="http://adaway.org">http://adaway.org</a>.</p>
 </body>
 </html>

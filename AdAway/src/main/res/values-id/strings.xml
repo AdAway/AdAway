@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Keluar</string>
   <string name="button_apply">Mengunduh file dan memasang ad blocking</string>
@@ -9,14 +10,18 @@
   <string name="button_revert">Nonaktifkan ad blocking</string>
   <string name="button_add">Tambah</string>
   <string name="button_cancel">Batal</string>
+  <string name="button_apply_text">Semua file hosts dari sumber yang ditentukan sudah diunduh dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
   <string name="button_save">Simpan</string>
   <string name="button_webserver_toggle_checked">Webserver berjalan</string>
   <string name="button_webserver_toggle_unchecked">Webserver tidak berjalan</string>
   <string name="button_help">Bantuan</string>
+  <string name="button_tcpdump_open">Buka file log</string>
+  <string name="button_tcpdump_delete">Hapus file log</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Tambah</string>
   <string name="checkbox_list_empty">Daftar kosong</string>
   <string name="checkbox_list_context_delete">Hapus</string>
+  <string name="checkbox_list_footer">Setelah menambahkan item baru kedalam list anda harus menerapkan AdAway lagi!</string>
   <string name="checkbox_list_edit_dialog_title">Edit</string>
   <string name="checkbox_list_context_title">Ubah Masukkan</string>
   <string name="checkbox_list_context_edit">Edit</string>
@@ -25,46 +30,76 @@
   <string name="lists_tab_blacklist">Daftar hitam</string>
   <string name="lists_tab_blacklist_short">Hitam</string>
   <string name="lists_tab_whitelist_short">Putih</string>
+  <string name="lists_tab_redirection_list_short">Pengalihan</string>
+  <string name="lists_tab_redirection_list">Daftar pengalihan</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
   <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
   <!--Status Notifications-->
+  <string name="status_checking">Memeriksa pembaruan...</string>
   <string name="status_checking_subtitle">Periksa jika pembaruan tersedia</string>
   <string name="status_update_available">Pembaruan tersedia</string>
   <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
   <string name="status_no_connection">Tidak ada koneksi internet</string>
+  <string name="status_no_connection_subtitle">Tidak ada koneksi internet yang tersedia</string>
+  <string name="status_download_fail">Sumber tidak tersedia</string>
   <string name="status_enabled">Dinyalakan</string>
   <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
   <string name="status_disabled">Dimatikan</string>
   <string name="status_disabled_subtitle">Dimatikan</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing_title">Symlink tidak ditemukan</string>
   <string name="apply_not_enough_space_title">Tidak cukup ruang</string>
   <string name="apply_private_file_fail">Berkas terunduh tidak dapat dibaca.</string>
   <string name="apply_private_file_fail_title">Berkas pribadi gagal</string>
+  <string name="apply_copy_fail">Penyalinan file host gagal!</string>
   <string name="apply_copy_fail_title">Penyalinan gagal</string>
+  <string name="apply_success_title">Penerapan berhasil</string>
+  <string name="apply_symlink_successful">Symlink berhasil dibuat.\nMungkin diperlukan untuk memuat ulang Android agar perubahan dapat berhasil.\n\nApakah anda ingin memuat ulang?\n(Untuk menghindari kehilangan data, pastikan saat ini tidak ada aplikasi yang sedang menggunakan sdcard)</string>
+  <string name="apply_symlink_successful_title">Pembuatan symlink berhasil</string>
+  <string name="apply_symlink_fail">Symlink tidak dapat dibuat oleh Android.\nKegagalan ini disebabkan karena \'feature\' yang dinamakan S-ON pada ponsel HTC!\n\nSolusinya adalah memboot ponsel anda kedalam mode recovery dan membuat symlink dengan \'In -s /data/data/hosts /system/etc/hosts.\'\n\nJika ini tidak berhasil, cari di internet tentang S-OFF dan ponsel anda.</string>
+  <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
+  <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
+  <string name="no_connection">Koneksi internet tidak berfungsi</string>
   <string name="no_connection_title">Tidak ada koneksi</string>
+  <string name="download_dialog">Mengunduh...</string>
+  <string name="apply_dialog">Menerapkan...</string>
   <string name="apply_dialog_hostnames">Parsing dan penggabungan file host</string>
+  <string name="apply_dialog_hosts">Membuat file hosts</string>
+  <string name="apply_dialog_apply">Menerapkan file hosts</string>
+  <string name="apply_fail">Penerapan file host kedalam sistem anda gagal!\nCoba ubah target file host didalam preferensi ke /data/data/hosts.</string>
   <string name="apply_fail_title">Pemasangan gagal</string>
+  <string name="revert_successful_title">Pengembalian berhasil</string>
+  <string name="revert_problem">Pengembalian gagal karena alasan yang tidak diketahui.</string>
   <string name="download_fail_title">Unduh gagal</string>
   <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
   <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
   <!--Other Dialogs-->
   <string name="no_root_title">Dibutuhkan Rooted Android</string>
   <string name="no_url">Kesalahan URL!</string>
-  <string name="no_url_title">Malformed URL</string>
   <string name="hosts_add_dialog">Masukan URL ke file hosts:</string>
   <string name="no_hostname">Ini bukan hostname yang benar!</string>
   <string name="no_ip">Ini bukan IP yang benar!</string>
+  <string name="reboot_never_reboot">Jangan menyalakan ulang ponsel dan jangan tanyakan ini lagi!</string>
+  <string name="loading">Memuat...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Segarkan</string>
   <string name="menu_add">Tambah</string>
+  <string name="menu_scan_adware">Pindai dari Adware</string>
   <string name="menu_hosts_sources">Sumber host</string>
   <string name="menu_help">Bantuan</string>
   <string name="menu_lists">Daftar Anda</string>
   <string name="menu_show_hosts_file">Buka berkas hosts</string>
+  <string name="menu_import">Memasukan semua daftar</string>
   <string name="menu_preferences">Preferensi</string>
   <!--Help-->
+  <string name="help_tab_about">Tentang</string>
+  <string name="help_tab_donate">Donasi</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Masalah</string>
+  <string name="help_about_version">Versi:</string>
+  <string name="help_donation_paypal_item">Donasi AdAway</string>
   <string-array name="help_donation_google_catalog_values">
     <item>1 Euro</item>
     <item>2 Euros</item>
@@ -74,13 +109,27 @@
     <item>13 Euros</item>
   </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_start">Mulai pencarian</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">Tidak tersedia</string>
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
   <string name="no_text_editor_title">Tidak terinstal pengedit teks</string>
+  <string name="no_file_manager_title">Tidak ada manager file yang terpasang</string>
+  <string name="no_file_manager">Manager file tidak ditemukan untuk membuka file. Anda dapat memasang OI File Manager atau manager file lainnya untuk menangani ini.\n\nApakah anda ingin memasang OI File Manager?</string>
   <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">File log dihapus!</string>
+  <string name="tcpdump_log_context_blacklist">Tambahkan dalam daftar hitam ku</string>
+  <string name="tcpdump_log_context_whitelist">Tambahkan dalam daftar putih ku</string>
+  <string name="tcpdump_log_context_browser">Buka dalam peramban</string>
+  <string name="tcpdump_log_empty">File log kosong!</string>
   <!--Preferences-->
+  <string name="pref_update_check">Memeriksa pembaruan</string>
   <string name="pref_header_preferences">Preferensi</string>
+  <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
+  <string name="pref_update_check_daily">Periksa pembaruan setiap hari</string>
+  <string name="pref_automatic_update_daily">Pembaruan otomatis</string>
+  <string name="pref_update_only_on_wifi">Pembaruan hanya jika menggunakan Wifi</string>
 </resources>

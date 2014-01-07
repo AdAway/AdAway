@@ -90,12 +90,9 @@
   <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
   <string name="no_root_title">루팅필수</string>
   <string name="no_url">이것은 올바른 URL이 아닙니다!</string>
-  <string name="no_url_title">잘못된 URL</string>
   <string name="hosts_add_dialog">호스트파일에 URL 입력:</string>
   <string name="no_hostname">잘못된 호스트명 입니다!</string>
-  <string name="no_hostname_title">잘못된 호스트명</string>
   <string name="no_ip">이것은 올바른 IP가 아닙니다!</string>
-  <string name="no_ip_title">잘못된 IP</string>
   <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
   <!--Menu entries-->
   <string name="menu_refresh">새로고침</string>

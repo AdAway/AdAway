@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Reactivare partitie nereusita (remount)</string>
   <string name="apply_copy_fail">Copierea fisierelor \"hosts\" nereusita</string>
   <string name="apply_copy_fail_title">Copiere nereusita</string>
-  <string name="apply_success_subtitle">Au fost gasite surse pentru fisierele \"hosts\" </string>
   <string name="apply_success_title">Aplicarea modificariolor a fost reusita</string>
   <string name="apply_success_dialog">Modificarea a fost reusita.⏎ Pentru ca modificarile sa fie aplicate, este necesara repornirea sistemului.⏎⏎ Vrei sa repornesti sistemul?⏎ (Asigura-te ca SD card-ul nu este folosit de nici o aplicatie in acest moment, pentru a preveni pierderea datelor)   </string>
   <string name="apply_symlink_successful">Symlink a fost creat cu succes.⏎ Pentru ca modificarile sa fie aplicate, este necesara repornirea sistemului.  </string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Symlink nu poate fi creat de Android.⏎ Cauza cea mai probabila este un mod implementat de HTC, numit S-ON.⏎⏎ O soltie ar fi sa repornirea telefonul in consola \"recovery\" si sa creearea \"symlink\" aici cu \"In-s/data/hosts/system/etc/hosts\"⏎⏎ Daca aceasta metoda nu functioneaza, pe internet pot fi gasite metode pentru a schimba modul implicat S-ON, in S-OFF.  </string>
   <string name="apply_symlink_fail_title">Crearea \"symlink\" nereusita</string>
   <string name="apply_help">Citeste sectiunea \"Ajutor\" pentru mai multe informatii!</string>
-  <string name="apply_apn_proxy">APN proxy pare sa fie activat in Android!⏎ AdAway nu va functiona corespunxator in retele tip 3G. Poti dezactiva proxy (On Android 4: Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) stergand valorile din campul proxy.   </string>
   <string name="apply_apn_proxy_title">APN proxy a fost setat!</string>
   <string name="no_connection">Conexiunea internet nu functioneaza</string>
   <string name="no_connection_title">Nu exista conexiune!</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">Fie \"su binaries\" n-a fost gasit, fie permisiunile de \"root\" n-au fost acordate programului AdAway. ⏎ ⏎Aceasta se poate intampla atunci cand telefonul nu este \"rooted\"⏎ Informatii despre cum se poate obtine \"root\" pot fi gasite la www.cyanogenmod.com sau pe multe alte site-uri dedicate.</string>
   <string name="no_root_title">Android are nevoie de \"root\"</string>
   <string name="no_url">Adresa (URL) invalida</string>
-  <string name="no_url_title">Adreasa (URL) malformata</string>
   <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
   <string name="no_hostname">Nume invalid pentru fisierul \"host\"</string>
-  <string name="no_hostname_title">Numele fisierului \"host\" este malformat</string>
   <string name="no_ip">Invalid IP!</string>
-  <string name="no_ip_title">Adresa IP malformata</string>
   <string name="reboot_never_reboot">Nu reporni (never reboot) si ascunde acest mesaj pe viitor!</string>
   <string name="loading">Incarca...</string>
   <!--Menu entries-->

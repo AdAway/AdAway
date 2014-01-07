@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Remontado fallido</string>
   <string name="apply_copy_fail">¡La copia del archivo del servidor ha fallado!</string>
   <string name="apply_copy_fail_title">Copia fallida</string>
-  <string name="apply_success_subtitle">Fuentes de servidores exitosas:</string>
   <string name="apply_success_title">Aplicando con éxito</string>
   <string name="apply_success_dialog">La aplicación ha sido correcta.\nPuede que sea necesario reiniciar el sistema Android para que los cambios surtan efecto.\n¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegúrese de que ninguna aplicación use la tarjeta SD en este momento!)</string>
   <string name="apply_symlink_successful">El Enlace Simbólico fue creado exitosamente.\nPuede ser necesario reiniciar el sistema Android para que los cambios surtan efecto.\n\n¿Desea reiniciar el sistema?\n(¡Para evitar la pérdida de datos asegurarse de no utilizar aplicaciones que usen la tarjeta SD en este momento!)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">El enlace simbólico no ha sido creado por Android.\n¡Esta falla podría ser originada por una característica llamada S-ON en teléfonos HTC!\n\nUna solución es arrancar tu teléfono en modo recuperación y crear el enlace con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona busca en Internet acerca del S-OFF relacionado a tu teléfono.</string>
   <string name="apply_symlink_fail_title">Creación del enlace simbólico fallida</string>
   <string name="apply_help">Por favor lea la Ayuda para más información.</string>
-  <string name="apply_apn_proxy">¡Un proxy APN se encuentra en tu Android!\nAdAway no funcionará de manera fiable en redes inalámbricas como 3G. Puede desactivar ese proxy, yendo a su APN seleccionado (En Android 4: Conexiones Inalámbricas -&gt; Más… -&gt; Redes móviles -&gt; APN) y deseleccionar el campo proxy.</string>
   <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
   <string name="no_connection">La conexión a Internet no está funcionando</string>
   <string name="no_connection_title">No hay conexión a Internet</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">No se encontró el binario su o no tiene el permiso de administrador concedido para AdAway.\n\nEsto puede suceder cuando el dispositivo no está como usuario root.\nPuede encontrar información acerca de esto en www.cyanogenmod.com o en otros sitios web de Android.</string>
   <string name="no_root_title">Se requiere derechos Root</string>
   <string name="no_url">¡Esta no es una URL válida!</string>
-  <string name="no_url_title">URL con formato incorrecto</string>
   <string name="hosts_add_dialog">Agregar la URL al archivo de servidores:</string>
   <string name="no_hostname">¡Este no es un nombre válido de servidor!</string>
-  <string name="no_hostname_title">Nombre del servidor con formato incorrecto</string>
   <string name="no_ip">Esta no es una IP válida.</string>
-  <string name="no_ip_title">IP con formato incorrecto</string>
   <string name="reboot_never_reboot">¡Nunca reiniciar ni preguntar nuevamente!</string>
   <string name="loading">Cargando...</string>
   <!--Menu entries-->

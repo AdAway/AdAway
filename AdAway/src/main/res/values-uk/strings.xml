@@ -71,7 +71,7 @@
   <string name="apply_remount_fail_title">Перемонтувати не вдалося</string>
   <string name="apply_copy_fail">Копіювання файлу хостів не вдалося!</string>
   <string name="apply_copy_fail_title">Копіювання не вдалося</string>
-  <string name="apply_success_subtitle">Використано джерел хостів:</string>
+  <string name="apply_success_subtitle">Застосовані джерела хостів:</string>
   <string name="apply_success_title">Застосовано успішно</string>
   <string name="apply_success_dialog">Застосування пройшло успішно. \nМожливо, буде потрібно перезавантажити пристрій, щоб зміни вступили в силу. \n\nВи хочете перезавантажити пристрій? \n(Для запобігання втрати даних переконайтеся, що жодна програма в даний момент не використовує карту пам\'яті!)</string>
   <string name="apply_symlink_successful">Успішно створено посилання. Можливо, буде потрібно перевантажити пристрій, щоб зміни вступили в силу. Ви хочете перевантажити пристрій? (Для запобігання втрати даних переконайтеся, що жодна програма в даний час не використовує карту пам\'яті!)</string>
@@ -79,7 +79,7 @@
   <string name="apply_symlink_fail">Android не зміг створити посилання. \nМожливо, це через особливість S-ON на телефонах HTC! \nРішення полягає в завантаженні телефону в режимі відновлення і створення символічного посилання через \'\'ln -s /data/data/hosts /system/etc/hosts\'.\n Якщо це не спрацьовує, то необхідно шукати інформацію в інтернеті по S-OFF і вашому телефону.</string>
   <string name="apply_symlink_fail_title">Помилка створення посилання</string>
   <string name="apply_help">Будь ласка, читайте Довідку для отримання додаткової інформації.</string>
-  <string name="apply_apn_proxy">У налаштуваннях APN вказаний проксі сервер! AdAway не буде працювати в мобільних мережах, таких як 3G. Ви можете відключити цей сервер проксі в налаштуваннях використовуваної APN (в Android 4: Бездротові мережі -&gt; Більше ... -&gt; Мобільна мережа -&gt; Точки доступу APN).</string>
+  <string name="apply_apn_proxy">У налаштуваннях APN вказаний проксі сервер!\nAdAway не буде працювати в мобільних мережах, таких як 3G. Ви можете вимкнути цей проксі сервер в налаштуваннях використовуваної APN (в Android 4: Бездротові мережі -&gt; Більше ... -&gt; Мобільна мережа -&gt; Точки доступу APN) і вилучити значення у полі проксі.</string>
   <string name="apply_apn_proxy_title">У використовуваної точки доступу APN встановлений проксі!</string>
   <string name="no_connection">Відсутнє підключення до мережі інтернет.</string>
   <string name="no_connection_title">Немає з\'єднання</string>
@@ -103,12 +103,12 @@
   <string name="no_root_description">Програмний файл su не знайдений, або AdAway не були надані права суперкористувача. Це може статися, якщо у вас немає прав суперкористувача на пристрої. Інформацію про те, як отримати права суперкористувача на вашому пристрої, ви можете знайти у відповідній темі на форумі 4PDA http://4pda.ru/forum або інших веб-сайтах, присвячених вашому пристрою.</string>
   <string name="no_root_title">Необхідна наявність прав суперкористувача</string>
   <string name="no_url">Це недопустимий URL!</string>
-  <string name="no_url_title">неправильний URL</string>
+  <string name="no_url_title">Неправильно відформатоване URL</string>
   <string name="hosts_add_dialog">Вставте URL у файл hosts:</string>
   <string name="no_hostname">Це недопустиме ім\'я хосту!</string>
-  <string name="no_hostname_title">Невірне ім\'я хосту</string>
+  <string name="no_hostname_title">Неправильно відформатована назва хосту</string>
   <string name="no_ip">Це недопустима IP!</string>
-  <string name="no_ip_title">Неправильний IP</string>
+  <string name="no_ip_title">Неправильно відформатована IP-адреса</string>
   <string name="reboot_never_reboot">Ніколи не перезавантажувати і більше не показувати це питання!</string>
   <string name="loading">Завантаження…</string>
   <!--Menu entries-->

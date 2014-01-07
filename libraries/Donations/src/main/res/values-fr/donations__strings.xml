@@ -2,18 +2,18 @@
 <resources>
   <string name="donations__button_close">Fermer</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Cette application vous rend service ?\nParticiper à son développement en effectuant un don !</string>
-  <string name="donations__flattr_description">Flattr prend 10% de frais mensuels !</string>
+  <string name="donations__description">Trouvez-vous cette application utile ?\nSoutenez son développement en envoyant un don à son développeur !</string>
+  <string name="donations__flattr_description">Flattr prend 10 % de frais mensuels !</string>
   <string name="donations__google_android_market">Google Play Store</string>
-  <string name="donations__google_android_market_not_supported_title">Don In-App indisponible.</string>
-  <string name="donations__google_android_market_not_supported">Donations In-App non-supportées. L\'application Google Play Store est-elle correctement installée ?</string>
-  <string name="donations__google_android_market_description">Google prend 30% sur chaque don ! </string>
-  <string name="donations__google_android_market_donate_button">Faites un don !</string>
+  <string name="donations__google_android_market_not_supported_title">Les dons dans l\'appli ne sont pas pris en charge.</string>
+  <string name="donations__google_android_market_not_supported">Les dons dans l\'appli ne sont pas pris en charge. Google Play Store est-il correctement installé ?</string>
+  <string name="donations__google_android_market_description">Google prend 30 % sur chaque don ! </string>
+  <string name="donations__google_android_market_donate_button">Faire un don !</string>
   <string name="donations__google_android_market_text">Combien ?</string>
   <string name="donations__paypal">PayPal</string>
-  <string name="donations__paypal_description">Vous pouvez faire un don du montant  désiré en cliquant sur ce bouton !</string>
+  <string name="donations__paypal_description">Vous pouvez faire un don du montant désiré en cliquant sur ce bouton !</string>
   <string name="donations__thanks_dialog_title">Merci !</string>
-  <string name="donations__thanks_dialog">Merci beaucoup pour votre don ! </string>
+  <string name="donations__thanks_dialog">Merci pour votre don !\nJe l\'apprécie vraiment !</string>
   <string name="donations__alert_dialog_title">Une erreur est survenue</string>
-  <string name="donations__alert_dialog_no_browser">Aucun navigateur web n\'a été trouvé pour ouvrir le site web !</string>
+  <string name="donations__alert_dialog_no_browser">Aucun navigateur n\'a été trouvé pour ouvrir un site Web !</string>
 </resources>

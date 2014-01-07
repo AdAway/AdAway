@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Повторното монтиране се провали</string>
   <string name="apply_copy_fail">Копирането на hosts файла e неуспешно!</string>
   <string name="apply_copy_fail_title">Копирането е неуспешно</string>
-  <string name="apply_success_subtitle">Успешни източници:</string>
   <string name="apply_success_title">Прилагането е успешно</string>
   <string name="apply_success_dialog">Прилагането беше успешно. \nМоже да се наложи да рестартирате Android за да влязат в сила промените. \n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни,  уверете се, че никое приложение в момента не използва SD-картата!)</string>
   <string name="apply_symlink_successful">Символичната връзка е създадена успешно. \nМоже да се наложи да рестартирате Android за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загубата на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Символичната връзка не може да бъде създадена от Android.\nТова се дължи най-вече на „функция“, наречена S-ON при телефоните HTC!\n\nЕдно възможно решение е да заредите телефона си в режим на възстановяване и да създадете там символична връзка с „ln -s /data/data/hosts /system/etc/hosts“. \n\nАко това не работи, потърсете в Интернет за S-OFF и вашият телефон.</string>
   <string name="apply_symlink_fail_title">Създаването на символична връзка е неуспешно</string>
   <string name="apply_help">Моля, прочетете Помощ за повече информация.</string>
-  <string name="apply_apn_proxy">Зададено е APN прокси на вашия Android!\nAdAway няма да работи надеждно, когато сте в мобилни мрежи като 3G. Можете да деактивирате това прокси, като отидете до избрания от вас APN (при Android 4: Безжични мрежи &gt; Още... &gt; Мобилни мрежи &gt; Имена на точки за достъп) и премахнете стойността в полето „Прокси“.</string>
   <string name="apply_apn_proxy_title">APN прокси е зададено!</string>
   <string name="no_connection">Връзката с интернет не работи.</string>
   <string name="no_connection_title">Няма връзка</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">Или двоичният SU не може да бъде намерен, или не сте позволили root достъп на AdAway.\n\nТова може да се случи, когато вашето устройство не е root-нато.\nМожете да намерите информация за това как да root-нете вашето устройство на www.cyanogenmod.com или други уеб сайтове за Android.</string>
   <string name="no_root_title">Изисква се Android с root достъп</string>
   <string name="no_url">Това не е валиден URL!</string>
-  <string name="no_url_title">Неправилен URL</string>
   <string name="hosts_add_dialog">Въведете URL на hosts файла:</string>
   <string name="no_hostname">Това не е валидно име на хост!</string>
-  <string name="no_hostname_title">Неправилно име на хост</string>
   <string name="no_ip">Това не е валиден IP адрес!</string>
-  <string name="no_ip_title">Неправилен IP</string>
   <string name="reboot_never_reboot">Никога не рестартирай и не показвай този въпрос следващия път!</string>
   <string name="loading">Зареждане...</string>
   <!--Menu entries-->

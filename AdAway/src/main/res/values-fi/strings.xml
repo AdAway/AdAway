@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Uudelleenkokoaminen epäonnistui</string>
   <string name="apply_copy_fail">Hosts-tiedoston kopiointi epäonnistui!</string>
   <string name="apply_copy_fail_title">Kopiointi epäonnistui</string>
-  <string name="apply_success_subtitle">Onnistuneet hosts-lähteet:</string>
   <string name="apply_success_title">Soveltaminen onnistui</string>
   <string name="apply_success_dialog">Soveltaminen onnistui.⏎ Voi olla tarpeen käynnistää Anroid uudelleen, jotta muutokset tulevat voimaan.⏎ ⏎ Haluatko uudelleenkäynnistää?⏎ (Estä tietojen katoaminen varmistamalla, ettei mikään sovellus ei käytä SD-korttia tällä hetkellä!)</string>
   <string name="apply_symlink_successful">Symbolinen linkki luotiin onnistuneesti.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Android ei voinut luoda symbolista linkkiä.\nTämä \"ominaisuus\" on lähinnä HTC-puhelimien S-ON-laitteissa!\n\nRatkaisu on käynnistää palautustilaan ja luoda sinne symbolinen linkki \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJos tämä ei toimi, etsi internetistä tietoa S-OFF:sta ja puhelimestasi.</string>
   <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
-  <string name="apply_apn_proxy">APN-välityspalvelin on määritetty puhelimeesi!⏎\nAdAway ei toimi luotettavasti matkaviestinverkoissa, kuten 3G. Voit poistaa kyseisen välityspalvelimen menemällä valitsemaasi APN:iin (Android 4.0: Langattomat yhteydet ja verkot -&gt; Lisää... -&gt; Mobiiliverkot -&gt; Tukiasemien nimet) ja poista arvo välityspalvelimen kentästä.</string>
   <string name="apply_apn_proxy_title">APN-\tvälityspalvelin on asetettu!</string>
   <string name="no_connection">Verkkoyhteys ei toimi.</string>
   <string name="no_connection_title">Ei yhteyttä</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">Joko Pääkäyttäjän binääripakettia ei löytynyt tai sinulla ei ole pääkäyttäjän oikeuksia AdAwaylle.\n\nNäin voi käydä, kun laitteellasi ei ole pääkäyttäjän oikeuksia.\nVoit löytää lisätietoja kuinka hankit pääkäyttäjän oikeudet osoitteessa  www.cyanogenmod.com tai muista Android-sivustoista.</string>
   <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
   <string name="no_url">Tämä ei ei ole kevollinen URL-osoite!</string>
-  <string name="no_url_title">Virheellinen URL-osoite</string>
   <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
   <string name="no_hostname">Tämä ei ole kelvollinen isäntänimi!</string>
-  <string name="no_hostname_title">Virheellinen isäntänimi</string>
   <string name="no_ip">Tämä ei ole kelvollinen IP-osoite!</string>
-  <string name="no_ip_title">Virheellinen IP-osoite</string>
   <string name="reboot_never_reboot">Älä koskaan käynnistä uudelleen ja älä näytä tätä kysymystä ensi kerralla!</string>
   <string name="loading">Ladataan...</string>
   <!--Menu entries-->
@@ -131,6 +126,7 @@
   <string name="help_tab_problems">Ongelmat</string>
   <string name="help_tab_changelog">Muutokset</string>
   <string name="help_about_version">Versio:</string>
+  <string name="help_donation_paypal_item">Lahjoitukset</string>
   <string-array name="help_donation_google_catalog_values">
     <item>1 euro</item>
     <item>2 euroa</item>

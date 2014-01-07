@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">重新掛載失敗</string>
   <string name="apply_copy_fail">複製hosts檔案失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
-  <string name="apply_success_subtitle">成功連上伺服器端：</string>
   <string name="apply_success_title">建立成功</string>
   <string name="apply_success_dialog">建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有程式正在使用sd卡）</string>
   <string name="apply_symlink_successful">符號連結建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有應用正在使用sd卡）</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為HTC上一個叫S-ON的\'功能\'！\n\n一個辦法可以啟動你的手機到還原模式並使用命令\'ln -s /data/data/hosts /system/etc/hosts來建立符號連結。\n\n如果沒有用，請google怎麼S-OFF你的手機。</string>
   <string name="apply_symlink_fail_title">符號連結建立失敗</string>
   <string name="apply_help">請閱讀幫助以獲得更多訊息。</string>
-  <string name="apply_apn_proxy">你的Android設定了APN代理伺服器!\nAdAway 無法保證在3G下正常的工作. 你可以在APN設定中關閉代理伺服器設定(在 Android 4: 無線與網路 -&gt; 更多... -&gt; 行動網路 -&gt; 存取點名稱) 和移除代理伺服器設定.</string>
   <string name="apply_apn_proxy_title">APN 代理伺服器設定!</string>
   <string name="no_connection">Internet網路不通</string>
   <string name="no_connection_title">無法連線</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">無法找到su或者你沒有允許AdAway取得root權限。\n\n這可能是因為你的設備沒有root。\n你可以到www.cyanogenmod.coma或者其他Android網站去找到如何root你的設備方法。</string>
   <string name="no_root_title">需要root權限</string>
   <string name="no_url">URL無效！</string>
-  <string name="no_url_title">URL格式不對</string>
   <string name="hosts_add_dialog">輸入hosts檔案的URL：</string>
   <string name="no_hostname">主機名稱無效！</string>
-  <string name="no_hostname_title">主機名稱格式不對</string>
   <string name="no_ip">IP位址無效</string>
-  <string name="no_ip_title">IP位址格式不對</string>
   <string name="reboot_never_reboot">不要重新啟動並且不再顯示！</string>
   <string name="loading">讀取中...</string>
   <!--Menu entries-->

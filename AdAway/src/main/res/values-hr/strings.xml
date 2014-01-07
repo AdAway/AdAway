@@ -55,7 +55,7 @@
   <string name="status_no_connection">Nema veze na internet</string>
   <string name="status_no_connection_subtitle">Veza na internet nedostupna</string>
   <string name="status_download_fail">Izvori nedostupni</string>
-  <string name="status_download_fail_subtitle_new">Niti jedan izvor hostova nije dokučiv!</string>
+  <string name="status_download_fail_subtitle_new">Niti jedan izvor hostova nije dohvatljiv!</string>
   <string name="status_enabled">Omogućeno</string>
   <string name="status_enabled_subtitle">Najnovija hosts datoteka omogućena</string>
   <string name="status_disabled">Spriječeno</string>
@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Ponovo montiranje neuspjelo</string>
   <string name="apply_copy_fail">Kopiranje hosts datoteke neuspjelo!</string>
   <string name="apply_copy_fail_title">Kopiranje neuspjelo</string>
-  <string name="apply_success_subtitle">Uspješni izvori hostova:</string>
   <string name="apply_success_title">Primjenjivanje uspjelo</string>
   <string name="apply_success_dialog">Primjena je bila uspješna.\n Možda će biti potrebno ponovno pokrenuti Android kako bi promjene bile vidljive.\n \n Želite li ponovno pokrenuti sustav?\n (Kako bi onemogućili gubitak podataka osigurajte da niti jedna aplikacija trenutno ne koristi SD karticu!)</string>
   <string name="apply_symlink_successful">Symlink je uspješno kreiran.\n Možda će biti potrebno ponovno pokrenuti Android kako bi promjene bile vidljive.\n \n Želite li ponovno pokrenuti sustav?\n (Kako bi onemogućili gubitak podataka osigurajte da niti jedna aplikacija trenutno ne koristi SD karticu!)</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">Symlink nije mogao biti kreiran od strane Androida.\n Ovo obično ne uspijeva zbog \"svojstva\" zvanog S-ON na HTC-ovim uređajima!\n \n Jedno od rješenja je ponovno pokrenuti uređaj u Recovery modusu rada te kreirati symlink sadržaja \"ln -s /data/data/hosts /system/etc/hosts\".\n \n Ako to ne uspije potražite na internetu kako postići S-OFF na Vašem uređaju.</string>
   <string name="apply_symlink_fail_title">Stvaranje symlinka neuspjelo</string>
   <string name="apply_help">Molim Vas da pročitate Pomoć za više informacija.</string>
-  <string name="apply_apn_proxy">Na Vašem Androidu postavljen je APN zastupnik!\n AdAway neće pouzdano raditi na mobilnim mrežama kao što je 3G. Možete deaktivirati zastupnika tako što ćete izabrati APN (na Androidu 4+: Wireless and networks -&gt; More... -&gt; Mobile Networks -&gt; Access Point Names) i obrisati vrijednost u polju zastupnika.</string>
   <string name="apply_apn_proxy_title">APN zastupnik postavljen!</string>
   <string name="no_connection">Veza na internet nije u funkciji</string>
   <string name="no_connection_title">Nepostojeća veza na internet</string>
@@ -95,7 +93,7 @@
   <string name="revert_successful_title">Vraćanje na zadano uspjelo</string>
   <string name="revert_problem">Vraćanje na zadano stanje neuspjelo iz nepoznatih razloga.</string>
   <string name="revert_problem_title">Vraćanje neuspjelo!</string>
-  <string name="download_fail_dialog">Niti jedan od Vaših omogućenih izvora hostova nije dokučiv! Jeste li ispravno spojeni na internet?</string>
+  <string name="download_fail_dialog">Niti jedan od Vaših omogućenih izvora hostova nije dohvatjliv! Jeste li ispravno spojeni na internet?</string>
   <string name="download_fail_title">Download neuspio</string>
   <string name="no_private_file">Privatna datoteka ne može biti stvorena.</string>
   <string name="no_private_file_title">Neuspjelo stvaranje privatne datoteke</string>
@@ -103,14 +101,11 @@
   <string name="no_root_description">Ili binarna datoteka nije pronađena ili niste AdAwayu dali root prava.\n \n To se može dogoditi kada Vam uređaj nije rootan.\n Informacije o tome kakko rootati vlastiti uređaj možete pronaći na www.cyanogenmod.com ili na ostalim web stranicama vezanima uz Android.</string>
   <string name="no_root_title">Potreban je rootani Android</string>
   <string name="no_url">Ovo nije važeći URL!</string>
-  <string name="no_url_title">Izobličeni URL</string>
   <string name="hosts_add_dialog">Unesi URL do hosts datoteke:</string>
   <string name="no_hostname">Ovo nije valjano ime hosta!</string>
-  <string name="no_hostname_title">Izobličeno ime hosta</string>
   <string name="no_ip">Ovo nije valjan IP!</string>
-  <string name="no_ip_title">Izobličen IP</string>
   <string name="reboot_never_reboot">Nikada ne pokreći ponovno i ne pokazuj više ovo pitanje!</string>
-  <string name="loading">utovar...</string>
+  <string name="loading">Učitavanje...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Osvježavanje</string>
   <string name="menu_add">Dodaj</string>
@@ -125,11 +120,13 @@
   <string name="menu_preferences">Postavke</string>
   <!--Help-->
   <string name="help_tab_about">O aplikaciji</string>
-  <string name="help_tab_donate">darovati</string>
+  <string name="help_tab_donate">Doniraj</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">ČPP - često postavljana pitanja</string>
   <string name="help_tab_problems">Problemi</string>
+  <string name="help_tab_changelog">Popis izmjena</string>
   <string name="help_about_version">verzija:</string>
+  <string name="help_donation_paypal_item">AdAway Donacije</string>
   <string-array name="help_donation_google_catalog_values">
     <item>1 Euro</item>
     <item>2 Eura</item>
@@ -194,6 +191,8 @@
   <string name="pref_automatic_update_daily_summary">Osvježi automatski u pozadini ukoliko su osvježenja dostpuna</string>
   <string name="pref_update_only_on_wifi">Osvježavaj sam na Wi-Fiju</string>
   <string name="pref_update_only_on_wifi_summary">Pokreni pozadinska osvježavanja samo kad postoji Wi-Fi mrežna povezanost.</string>
+  <string name="pref_whitelist_redirection_rules">Dopusti preusmjeravanja i popis dopuštenih programa</string>
+  <string name="pref_whitelist_redirection_rules_summary">Dopusti preusmjeravanja i popis dupuštenih programa s liste izvora domaćina.</string>
   <string name="pref_debug">Otkloni grešku</string>
   <string name="pref_enable_debug">Vodi dnevnik otklanjanja greške</string>
   <string name="pref_enable_debug_summary">Ponovno pokrenite AdAway kako bi ova postavka došla do izražaja.</string>

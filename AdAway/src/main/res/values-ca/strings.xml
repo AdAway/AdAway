@@ -71,7 +71,6 @@
   <string name="apply_remount_fail_title">Error en el re-muntatge</string>
   <string name="apply_copy_fail">No s\'ha pogut copiar el fitxer hosts</string>
   <string name="apply_copy_fail_title">Error en la còpia</string>
-  <string name="apply_success_subtitle">Fonts d\'arxius hosts correctes:</string>
   <string name="apply_success_title">S\'ha aplicat correctament</string>
   <string name="apply_success_dialog">S\'ha aplicat correctament.⏎ Pot ser que hagueu de reinicar l\'Android perquè aquests canvis facin efecte.⏎ ⏎ Voleu reiniciar ara? Recordeu-vos de tancar les aplicacions que utilitzin la memòria SD per evitar la pèrdua de dades.</string>
   <string name="apply_symlink_successful">S\'ha creat l\'enllaç simbòlic correctament.⏎ Pot ser que hagueu de reinicar l\'Android perquè aquests canvis facin efecte.⏎ ⏎ Voleu reiniciar ara? Recordeu-vos de tancar les aplicacions que utilitzin la memòria SD per evitar la pèrdua de dades.</string>
@@ -79,7 +78,6 @@
   <string name="apply_symlink_fail">No s\'ha pogut crear l\'enllaç simbòlic.⏎ Això pot ser degut a la funció S-ON dels telèfons HTC.⏎ ⏎ Una solució és entrar en el mode \"recovery\" del vostre terminal i crear l\'enllaç simbòlic amb \'ln -s /data/data/hosts /system/etc/hosts\'.⏎ ⏎ Si això no funciona, busqueu ajuda a internet amb els termes de cerca \"S-OFF\".</string>
   <string name="apply_symlink_fail_title">S\'ha produït un error en la creació de l\'enllaç simbòlic</string>
   <string name="apply_help">Si us plau, llegir l\'Ajuda per a més informació</string>
-  <string name="apply_apn_proxy">S\'ha ajustat un servidor intermediari en el vostre Android.⏎ AdAway no funcionarà correctament en xarxes mòbils de tipus 3G. Podeu desactivar el vostre servidor intermediari anant a la vostra configuració de xarxes mòbils i eliminant l\'entrada.</string>
   <string name="apply_apn_proxy_title">S\'ha desat el servidor intermediari d\'APN</string>
   <string name="no_connection">La connexió a Internet no funciona.</string>
   <string name="no_connection_title">Sense connexió</string>
@@ -103,12 +101,9 @@
   <string name="no_root_description">No s\'ha pogut trobar el programa \"su\" o no heu donat permisos d\'administrador (root) a AdAway.⏎ ⏎ Això pot passar quan el vostre dispositiu no està rootejat.⏎ Podeu trobar informació sobre com rootejar el vostre dispositu a www.cyanogenmod.com o altres llocs web sobre Android.</string>
   <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
   <string name="no_url">No és una adreça vàlida!</string>
-  <string name="no_url_title">Adreça mal formada</string>
   <string name="hosts_add_dialog">Introduïu el fitxer de hosts:</string>
   <string name="no_hostname">Aquest no és un nom de servidor vàlid!</string>
-  <string name="no_hostname_title">Nom de servidor mal format</string>
   <string name="no_ip">Aquesta no és una IP vàlida!</string>
-  <string name="no_ip_title">Adreça IP mal formada</string>
   <string name="reboot_never_reboot">No reiniciïs mai i no mostris més aquest missatge.</string>
   <string name="loading">S\'està carregant.</string>
   <!--Menu entries-->
