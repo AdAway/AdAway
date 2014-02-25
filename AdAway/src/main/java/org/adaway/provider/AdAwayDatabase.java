@@ -94,7 +94,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
                 "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
 
         // AdAway's own mobile hosts
-        insertHostsSource(insertStmt, "http://adaway.sufficientlysecure.org/hosts.txt");
+        insertHostsSource(insertStmt, "http://adaway.org/hosts.txt");
     }
 
     @Override
