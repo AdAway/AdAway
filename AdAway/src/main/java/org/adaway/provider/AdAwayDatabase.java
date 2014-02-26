@@ -35,7 +35,7 @@ import org.adaway.util.Log;
 
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
 
     public interface Tables {
         String HOSTS_SOURCES = "hosts_sources";
@@ -169,6 +169,19 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
                     + " WHERE url=\"http://adaway.sufficientlysecure.org/hosts.txt\"");
             // new hosts source
+            db.execSQL("INSERT INTO "
+                    + Tables.HOSTS_SOURCES
+                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://adaway.org/hosts.txt\", 0, 0, 1)");
+        }
+        if (oldVersion <= 8) {
+            // problem with db version 7: http://adaway.org/hosts.txt has only been added on db upgrade
+            // not on new installations
+            // remove both
+            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
+                    + " WHERE url=\"http://adaway.sufficientlysecure.org/hosts.txt\"");
+            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
+                    + " WHERE url=\"http://adaway.org/hosts.txt\"");
+            // add valid again
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://adaway.org/hosts.txt\", 0, 0, 1)");

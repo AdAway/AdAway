@@ -53,7 +53,7 @@ android {
 }
 
 /**
- * Android Gradle Plugin 0.4 does not support library packaging.
+ * Android Gradle Plugin 0.7 does not support library packaging.
  * This is a hack from https://groups.google.com/d/msg/adt-dev/Dkf9nsZlq8I/3gtG1Ofu1zAJ
  */
 tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
