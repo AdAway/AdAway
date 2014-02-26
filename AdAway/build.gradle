@@ -10,12 +10,12 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 17
-    buildToolsVersion "17.0.0"
+    compileSdkVersion 19
+    buildToolsVersion "19.0.1"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 17
+        targetSdkVersion 19
     }
 
     /*
@@ -53,8 +53,8 @@ android {
 }
 
 /**
- * Android Gradle Plugin 0.7 does not support library packaging.
- * This is a hack from https://groups.google.com/d/msg/adt-dev/Dkf9nsZlq8I/3gtG1Ofu1zAJ
+ * Android Gradle Plugin does not support jni packaging.
+ * This is a hack, should be removed in the future
  */
 tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
     pkgTask.jniFolders = new HashSet<File>()
