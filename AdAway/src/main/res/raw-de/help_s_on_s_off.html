@@ -1,27 +1,27 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Geräte</h2>
-<p>AdAway funktioniert nicht, wenn Sie ein Gerät mit einem sogenannten S-ON verwenden. Dieses "Feature" existiert auf vielen HTC-Geräten und verhindert, dass AdAway die Hostdatei schreiben kann.</p>
+<h2>HTC-Geräte</h2>
+<p>AdAway funktioniert nicht, wenn Sie ein Gerät mit einem sogenannten S-ON verwenden. Diese »Funktion« existiert auf vielen HTC-Geräten und verhindert, dass AdAway die Hostdatei beschreiben kann.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF bedeutet, dass der NAND-Anteil des Gerätes entsperrt ist und somit beschrieben werden kann. Die Standardeinstellung bei HTC-Geräten ist S-ON, was bedeutet, dass man weder Zugriff auf bestimmte Bereiche des Systems hat, noch kann man einen permanenten Root garantieren. Desweiteren ist auch die Überprüfung der Signatur von Firmware-Images durch das S-ON-Flag sichergestellt.</p>
+<p>S-OFF bedeutet, dass der NAND-Anteil des Gerätes entsperrt ist und somit beschrieben werden kann. Die Standardeinstellung bei HTC-Geräten ist S-ON, was bedeutet, dass man weder Zugriff auf bestimmte Bereiche des Systems hat, noch kann man einen permanenten Root garantieren. Desweiteren ist auch die Überprüfung der Signatur von Firmware-Abbildern durch das S-ON-Flag sichergestellt.</p>
 
 <h2>Habe ich S-ON oder S-OFF?</h2>
-<p>Starte in das Boot-Menü deines Gerätes durch Halten der <i>Lautstärke verringern</i>-Taste während du die Power-Taste gedrückt hältst. Der Text im Menü zeigt einen Status als S-OFF oder S-ON an. Ein voller Root-Zugriff bedeutet S-OFF.
-<br/><br/>Mehr Informationen findest du unter <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>In das Boot-Menü Ihres Gerätes, durch Halten der <i>Lautstärke verringern</i>-Taste während die Power-Taste gedrückt wird, starten. Der Text im Menü zeigt einen Status als S-OFF oder S-ON an. Ein voller Root-Zugriff bedeutet S-OFF.
+<br/><br/>Mehr Informationen finden Sie unter <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
-<h2>Workaround</h2>
+<h2>Problemumgehung</h2>
 <p>Voraussetzung: Das Android-SDK ist installiert und die ADB-Shell ist funktionsfähig.
 </p>
 <ol>
-<li>Starte in das Boot-Menü deines Gerätes durch Halten der <i>Lautstärke verringern</i>-Taste während du die Power-Taste gedrückt hältst.</li>
-<li>Nutze die <i>Lautstärke verringern</i>-Taste um zu Recovery zu navigieren.</li>
-<li>In ClockworkMod Recovery navigiere zum Partitions-Menu.</li>
-<li>Wähle <i>mount /system</i>, <i>mount /sdcard</i> und <i>mount /data</i>.</li>
-<li>Verbinde das Gerät mit dem PC und öffne die Shell.</li>
-<li>Starte die ADB-Shell<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Dies erstellt einen Link, der es AdAway erlaubt die Hosts-Datei unter <tt>/data</tt> zu verändern, während es für das Betriebssystem so aussieht als wäre sie unter <tt>/system</tt>.)</li>
-<li>Starte dein Gerät neu und konfiguriere AdAway: Die <i>Zu benutzende hosts-Datei</i> muss auf <i>/data/data/hosts</i> gesetzt werden.</li>
+<li>In das Boot-Menü Ihres Gerätes, durch Halten der <i>Lautstärke verringern</i>-Taste während die Power-Taste gedrückt wird, starten.</li>
+<li>Die <i>Lautstärke verringern</i>-Taste benutzen, um zur Wiederherstellung zu navigieren.</li>
+<li>In ClockworkMod Recovery zum Partitionsmenu navigieren.</li>
+<li><i>mount /system</i>, <i>mount /sdcard</i> und <i>mount /data</i> auswählen.</li>
+<li>Das Gerät mit dem PC verbinden und eine Befehlszeile öffnen.</li>
+<li>Die ADB-Shell starten und folgendes eingeben:<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Dieses erstellt einen Link, der es AdAway erlaubt die Hosts-Datei unter <tt>/data</tt> zu verändern, während es für das Betriebssystem so aussieht als wäre sie unter <tt>/system</tt>.)</li>
+<li>Das Gerät neu starten und AdAway konfigurieren: Die <i>zu benutzende hosts-Datei</i> muss auf <i>/data/data/hosts</i> eingestelt werden.</li>
 <li>AdAway sollte nun funktionieren.</li>
 </ol>
 </body>

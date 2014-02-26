@@ -71,6 +71,7 @@
   <string name="apply_remount_fail_title">Montowanie nieudane</string>
   <string name="apply_copy_fail">Kopiowanie pliku hosts nieudane!</string>
   <string name="apply_copy_fail_title">Nieudane kopiowanie</string>
+  <string name="apply_success_subtitle">Zastosowano źródła:</string>
   <string name="apply_success_title">Zastosowano pomyślnie</string>
   <string name="apply_success_dialog">Zastosowano pomyślnie.\nMoże być wymagany restart Androida, aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
   <string name="apply_symlink_successful">Symlink utworzony pomyślnie.\nMoże być wymagany restart Androida, aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
@@ -78,6 +79,7 @@
   <string name="apply_symlink_fail">Symlink nie mógł zostać utworzony przez system Android.\nBłąd ten występuje głównie na telefonach HTC z włączoną funkcją S-ON!\n\nRozwiązaniem jest uruchomienie telefonu w trybie recovery i ręczne utworzenie linka komendą \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJeżeli to nie pomaga, poszukaj w Internecie informacji o S-OFF i twoim telefonie.</string>
   <string name="apply_symlink_fail_title">Symlink nie został utworzony</string>
   <string name="apply_help">Proszę przeczytać Pomoc, aby uzyskać więcej informacji.</string>
+  <string name="apply_apn_proxy">Proxy APN jest ustawione w Twoim Androidzie!\nAdAway nie będzie działał niezawodnie na włączonych Sieciach Komórkowych jak 3G. Możesz deaktywować te proxy przez dostanie się do ustawień ustawionego APN (Na Androidzie 4: Sieci zwykłe i bezprzwodowe -&gt; Więcej… -&gt; Sieci komórkowe -&gt; Nazwy Punku Dostępu) i usunąć wartość w polu proxy. </string>
   <string name="apply_apn_proxy_title">Ustawione proxy APN!</string>
   <string name="no_connection">Połączenie z Siecią jest niedostępne.</string>
   <string name="no_connection_title">Brak połączenia</string>
@@ -101,9 +103,12 @@
   <string name="no_root_description">Nie można znaleźć pliku su lub aplikacji AdAway nie zostały nadane uprawnienia roota.\n\nZazwyczaj dzieje się tak w przypadku, gdy urządzenie nie zostało zrootowane.\nInformacje jak tego dokonać można znaleźć pod adresem http://www.cyanogenmod.com/ lub innych stronach WWW poświęconych systemowi Android.</string>
   <string name="no_root_title">Wymagany jest zrootowany Android</string>
   <string name="no_url">To nie jest prawidłowy adres URL!</string>
+  <string name="no_url_title">Niepoprawny adres URL</string>
   <string name="hosts_add_dialog">Dopisz adres URL do pliku hosts:</string>
   <string name="no_hostname">To jest nieprawidłowa nazwa hosta!</string>
+  <string name="no_hostname_title">Niepoprawna nazwa hosta</string>
   <string name="no_ip">To nie jest prawidłowy adres IP!</string>
+  <string name="no_ip_title">Niepoprawny adres IP</string>
   <string name="reboot_never_reboot">Nigdy nie restartuj i nie pokazuj tego pytania ponownie!</string>
   <string name="loading">Ładowanie...</string>
   <!--Menu entries-->

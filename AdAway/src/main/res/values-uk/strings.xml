@@ -7,7 +7,7 @@
   <string name="button_close">Закрити</string>
   <string name="button_yes">Так</string>
   <string name="button_no">Ні</string>
-  <string name="button_revert">Відключення блокування реклами</string>
+  <string name="button_revert">Вимкнення блокування реклами</string>
   <string name="button_add">Додати</string>
   <string name="button_cancel">Скасувати</string>
   <string name="button_apply_text">Всі списки хостів, що завантажуються з заданих джерел, зливаються з вашим власним списком і встановлюються у вашій системі у вигляді одного файлу hosts.</string>

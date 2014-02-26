@@ -7,13 +7,13 @@
 
 
 <h2>Bagaimana cara kerja AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<p>AdAway menggunakan <a href="http://en.wikipedia.org/wiki/Hosts_file"> berkas hosts </a> untuk memblokir nama host, yang melayani iklan. Berkas host adalah berkas yang ditemukan di <tt>/system/etc/hosts</tt> yang memetakan nama host menjadi alamat IP. Ini adalah cara tradisional untuk menentukan nama host ke IP address pasangan tanpa bergantung pada Domain Name System (DNS). Semua nama host yang tidak diinginkan diarahkan ke <tt>127.0.0.1</tt> yang berarti mereka akan mengarah ke perangkat Anda sendiri.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>Mengapa preferensi pengecekan pembaruan harian berwarna abu-abu?</h2>
+<p>Pemeriksaan otomatis pembaruan yang baru hanya tersedia bila AdAway diinstal pada memori telepon internal. Hal ini disebabkan oleh pembatasan pada platform Android.</p>
 
 <h2>Mengapa saya harus memulai ulang Android untuk perubahan efek?</h2>
-<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+<p>Java pada Android mengelola DNS cache internalnya sendiri. Sistem operasi akan merefleksikan berkas host yang baru segera (memverifikasi dengan ping pada command line), tetapi Anda harus memulai kembali Android untuk membangun kembali cache DNS dari Java.</p>
 
 <h2>Bagaimana menggunakan webserver di AdAway?</h2>
 <p><b>AdAway will also work without using the webserver!</b>
@@ -21,7 +21,7 @@
 <br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Bagaimana saya memblokir/membuka blokir hostname tertentu?</h2>
-<p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<p>Tambahkan nama host yang akan diblokir ke Daftar Hitam (= Hitam) di bawah <i>Daftar Anda</i>. Sebagai tambahan, nama host yang ingin Anda kecualikan dari pemblokiran dapat ditambahkan ke <i>Daftar Putih</i> (= Putih) dan nama host yang ingin Anda arahkan ulang ke alamat IP tertentu milik <i> Daftar Pengalihan &lt;/ i&gt; (= Pengalihan).</p>
 
 <h2>Di mana saya dapat menemukan lebih banyak sumber host?</h2>
 <p>Lihat <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">Daftar sumber host untuk AdAway</a>.</p>

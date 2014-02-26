@@ -71,6 +71,7 @@
   <string name="apply_remount_fail_title">Échec du remontage</string>
   <string name="apply_copy_fail">Échec de copie du fichier « hosts » !</string>
   <string name="apply_copy_fail_title">La copie a échouée</string>
+  <string name="apply_success_subtitle">Sources « hosts » mises en place :</string>
   <string name="apply_success_title">Mise à en place réussie</string>
   <string name="apply_success_dialog">Mise en place réussie.\nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet.\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, vous assurer qu\'aucune appli n\'utilise la carte SD actuellement !)</string>
   <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet.\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données vous assurer qu\'aucune application n\'utilise la carte SD en ce moment !)</string>
@@ -78,6 +79,7 @@
   <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCeci arrive la plupart du temps à cause d\'une fonction appelée S-ON sur les téléphones HTC !\nUne solution est de démarrer votre téléphone en mode récupération et d\'y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\nSi cela ne fonctionne pas, rechercher S-OFF et le votre téléphone sur Internet.</string>
   <string name="apply_symlink_fail_title">Échec de la création du lien symbolique</string>
   <string name="apply_help">Veuillez lire l\'aide pour plus d\'informations, .</string>
+  <string name="apply_apn_proxy">Un mandataire APN est configuré sur votre Android !\nAdAway ne fonctionnera pas de manière fiable sur les réseaux mobiles comme le 3G. Vous pouvez désactiver ce mandataire en allant à l\'APN choisi (sur Android 4 : Sans fil et réseaux -&gt; Paramètres supp. -&gt; Réseaux Mobile -&gt; Nom des point d\'accès) et en enlevant la valeur dans le champ « proxy »</string>
   <string name="apply_apn_proxy_title">Mandataire APN configuré !</string>
   <string name="no_connection">La connexion à Internet me fonctionne pas.</string>
   <string name="no_connection_title">Pas de connexion</string>
@@ -101,9 +103,12 @@
   <string name="no_root_description">Soit le binaire su est introuvable, soit vous n\'avez pas donné les droits « root » à AdAway.\n\nCeci peut arriver lorsque votre appareil n\'est pas rooté.\nVous pouvez trouver des informations sur la façon de rooter votre appareil sur www.cyanogenmod.com ou d\'autres sites Web Android.</string>
   <string name="no_root_title">Un Android rooté est exigé</string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
+  <string name="no_url_title">URL mal formatée</string>
   <string name="hosts_add_dialog">Ajouter une URL au fichier « hosts » :</string>
   <string name="no_hostname">Ce n\'est pas un nom d\'hôte valide !</string>
+  <string name="no_hostname_title">Nom d\'hôte mal formaté</string>
   <string name="no_ip">Ce n\'est pas une IP valide !</string>
+  <string name="no_ip_title">IP mal formatéee</string>
   <string name="reboot_never_reboot">Ne jamais redémarrer et ne plus demander à l\'avenir !</string>
   <string name="loading">Chargement...</string>
   <!--Menu entries-->
@@ -119,7 +124,7 @@
   <string name="menu_export">Exporter toutes les listes</string>
   <string name="menu_preferences">Préférences</string>
   <!--Help-->
-  <string name="help_tab_about">À propos</string>
+  <string name="help_tab_about">À propos de</string>
   <string name="help_tab_donate">Faire un don</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>

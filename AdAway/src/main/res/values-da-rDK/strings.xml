@@ -101,9 +101,11 @@
   <string name="no_root_description">Enten kunne su programmet ikke findes, eller du tillod ikke root-adgang til AdAway.\n\nDette kan ske hvis du ikke har rootet din enhed.\nDu kan finde information omkring hvordan man rooter sin enhed på www.cyanogenmod.com eller på andre Android hjemmesider.</string>
   <string name="no_root_title">En rootet Android kræves</string>
   <string name="no_url">Dette er ikke en gyldig URL!</string>
+  <string name="no_url_title">Forkert formateret URL</string>
   <string name="hosts_add_dialog">Indsæt URL til hosts fil:</string>
   <string name="no_hostname">Dette er ikke et gyldigt værtsnavn</string>
   <string name="no_ip">Dette er ikke en gyldig IP!</string>
+  <string name="no_ip_title">Forkert formateret IP</string>
   <string name="reboot_never_reboot">Genstart aldrig og vis ikke dette spørgsmål næste gang!</string>
   <string name="loading">Indlæser...</string>
   <!--Menu entries-->

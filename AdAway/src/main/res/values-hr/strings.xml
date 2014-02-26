@@ -101,9 +101,11 @@
   <string name="no_root_description">Ili binarna datoteka nije pronađena ili niste AdAwayu dali root prava.\n \n To se može dogoditi kada Vam uređaj nije rootan.\n Informacije o tome kakko rootati vlastiti uređaj možete pronaći na www.cyanogenmod.com ili na ostalim web stranicama vezanima uz Android.</string>
   <string name="no_root_title">Potreban je rootani Android</string>
   <string name="no_url">Ovo nije važeći URL!</string>
+  <string name="no_url_title">Nepravilno formatiran URL</string>
   <string name="hosts_add_dialog">Unesi URL do hosts datoteke:</string>
   <string name="no_hostname">Ovo nije valjano ime hosta!</string>
   <string name="no_ip">Ovo nije valjan IP!</string>
+  <string name="no_ip_title">Nepravilno formatiran IP</string>
   <string name="reboot_never_reboot">Nikada ne pokreći ponovno i ne pokazuj više ovo pitanje!</string>
   <string name="loading">Učitavanje...</string>
   <!--Menu entries-->
