@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>HTC Toestelle</h2>
+<p>AdAway sal nie werk in jou toestel die sogenaamde S-ON stelsel gebruik nie. Hierdie 'eienskap' bestaan gewoonlik op HTC Toestelle en verhoed AdAaway om na die gasheer lêers te skryf.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S=OFF beteken dat die NAND deel van die toestel ontsluit is en geredigeer kan word. Die verstek instelling vit HTC is S-ON, wat beteken dat sekere dele ontoeganklik is en nie geredigeer kan word nie. Verder meer , die egtheid van die kern sagteware word verseker deur die S-ON vlag.  </p>
+
+<h2>Het ek S-ON of S-OFF?</h2>
+<p>Begin in Boot Menu op jou toestel deur die volume af- en krag knoppies te druk, die teks bo aan sal dan wys of die status S-OFF of S-ON is.
+<br/><br/>Vir meer inligting <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+
+<h2>Omseil</h2>
+<p>Voorvereiste: Jy moet 'n werkende Android SDK met ADB op jou rekenaar hê.
+</p>
+<ol>
+<li>Begin in Begin Menu op jou toestel deur die <i>volume  af<i> knoppie saam met krag knoppie te druk.</li>
+<li>Gebruik <i>volume af<i> en kies "recovery".</li>
+<li>In "Clockwork recovery" volume af na "partitions menu" en druk die "track pad" om te kies</li>
+<li>Kies <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
+<li>Prop asb jou usb kabel in en maak 'n opdrag reël oop op jou rekenaar. </li>
+<li>Enter adb geheue en tik <tt>In -s /data/data/hosts /system/etc/hosts<tt> ( Dit skep 'n simboliese skakel wat AdAway toelaat om gasheer lêers te redigeer in <tt>/data<tt> terwyl dit toelaat dat die sisteem die lêer gebruik asof dit in <tt>/system<tt> gestoor is.)</li>
+<li>Begin jou toestel en stel <i> Target host file<i> na &lt;I&gt;/data/data/hosts</i> in AdAway se voorkeure.</li>
+<li>AdAway behoort nou te werk.</li>
+</ol>
+</body>
+</html>
