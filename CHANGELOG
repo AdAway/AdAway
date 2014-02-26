@@ -2,7 +2,7 @@ Please report bugs on the following website instead of writing bad reviews:
 https://github.com/dschuermann/ad-away/issues
 
 2.8.1
-* Fix AdAway's mobile hosts source
+* Fix mobile hosts source
 
 2.8
 * Higher timeout for root commands
