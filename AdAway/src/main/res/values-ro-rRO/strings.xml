@@ -170,6 +170,7 @@
   <string name="pref_custom_target_summary">Folosit numai daca locatia fisierul \"hosts\" este setat ca \"locatie aleasa de utilizator\" </string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Locatie aleasa de utilizator</item>
   </string-array>

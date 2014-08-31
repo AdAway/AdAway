@@ -179,6 +179,7 @@
   <string name="pref_custom_target_summary">Wordt alleen gebruikt als het doel hosts bestand op een eigen doel is ingesteld.</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Eigen doel</item>
   </string-array>

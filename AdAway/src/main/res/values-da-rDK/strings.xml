@@ -181,6 +181,7 @@
   <string name="pref_custom_target_summary">Bruges kun, hvis destinations-hostsfilen er indstillet til brugerdefineret destination</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Brugerdefineret destination</item>
   </string-array>

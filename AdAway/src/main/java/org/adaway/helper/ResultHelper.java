@@ -389,6 +389,8 @@ public class ResultHelper {
             // symlink to /system/etc/hosts, based on target
             if (PreferenceHelper.getApplyMethod(context).equals("writeToDataData")) {
                 ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
+            } else if (PreferenceHelper.getApplyMethod(context).equals("writeToData")) {
+                ApplyUtils.createSymlink(Constants.ANDROID_DATA_HOSTS);
             } else if (PreferenceHelper.getApplyMethod(context).equals("customTarget")) {
                 ApplyUtils.createSymlink(PreferenceHelper.getCustomTarget(context));
             }

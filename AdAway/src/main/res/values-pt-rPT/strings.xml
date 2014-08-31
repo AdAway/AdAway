@@ -179,6 +179,7 @@
   <string name="pref_custom_target_summary">Apenas utilizado se o ficheiro de hosts estiver definido num destino personalizado</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Destino personalizado</item>
   </string-array>

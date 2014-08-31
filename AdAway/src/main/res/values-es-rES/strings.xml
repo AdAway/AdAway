@@ -184,6 +184,7 @@
   <string name="pref_custom_target_summary">Sólo se utiliza si la ruta del archivo hosts se configura como ruta personalizada</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Ruta personalizada</item>
   </string-array>
