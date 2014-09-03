@@ -1,6 +1,13 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/dschuermann/ad-away/issues
 
+2.9
+This release has been done by Dāvis Mošenkovs, thanks!
+
+* Workaround for Android 4.4 (see Help)
+* Fixed Hide reboot dialog setting being ignored after symlink creation
+* Fix crashes
+
 2.8.1
 * Fix mobile hosts source
 
