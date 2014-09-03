@@ -60,7 +60,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
                         boolean updateOnlyOnWifi = PreferenceHelper.getUpdateOnlyOnWifi(context);
 
                         // if we have mobile or wifi/ethernet connectivity...
-                        if (((netInfo.getType() == ConnectivityManager.TYPE_MOBILE) && updateOnlyOnWifi == false)
+                        if (((netInfo.getType() == ConnectivityManager.TYPE_MOBILE) && updateOnlyOnWifi)
                                 || (netInfo.getType() == ConnectivityManager.TYPE_WIFI)
                                 || (netInfo.getType() == ConnectivityManager.TYPE_ETHERNET)) {
                             Log.d(Constants.TAG, "We have internet, start update check and disable receiver!");
@@ -81,7 +81,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
 
     /**
      * Enables ConnectivityReceiver
-     * 
+     *
      * @param context
      */
     public static void enableReceiver(Context context) {
@@ -93,7 +93,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
 
     /**
      * Disables ConnectivityReceiver
-     * 
+     *
      * @param context
      */
     public static void disableReceiver(Context context) {

@@ -89,20 +89,20 @@ public class WhitelistFragment extends SherlockListFragment implements
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-        case R.id.checkbox_list_context_delete:
-            menuDeleteEntry(info);
-            return true;
-        case R.id.checkbox_list_context_edit:
-            menuEditEntry(info);
-            return true;
-        default:
-            return super.onContextItemSelected(item);
+            case R.id.checkbox_list_context_delete:
+                menuDeleteEntry(info);
+                return true;
+            case R.id.checkbox_list_context_edit:
+                menuEditEntry(info);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
         }
     }
 
     /**
      * Delete entry based on selection in context menu
-     * 
+     *
      * @param info
      */
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
@@ -113,7 +113,7 @@ public class WhitelistFragment extends SherlockListFragment implements
 
     /**
      * Edit entry based on selection in context menu
-     * 
+     *
      * @param info
      */
     private void menuEditEntry(AdapterContextMenuInfo info) {
@@ -161,18 +161,21 @@ public class WhitelistFragment extends SherlockListFragment implements
                                         public void onClick(DialogInterface dlg, int sum) {
                                             dlg.dismiss();
                                         }
-                                    });
+                                    }
+                            );
                             alertDialog.show();
                         }
                     }
-                });
+                }
+        );
         builder.setNegativeButton(getResources().getString(R.string.button_cancel),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
-                });
+                }
+        );
         AlertDialog alert = builder.create();
         alert.show();
     }
@@ -211,12 +214,12 @@ public class WhitelistFragment extends SherlockListFragment implements
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-        case R.id.menu_add:
-            menuAddEntry();
-            return true;
+            case R.id.menu_add:
+                menuAddEntry();
+                return true;
 
-        default:
-            return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -249,21 +252,23 @@ public class WhitelistFragment extends SherlockListFragment implements
                         String input = inputEditText.getText().toString();
                         addEntry(input);
                     }
-                });
+                }
+        );
         builder.setNegativeButton(getResources().getString(R.string.button_cancel),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
-                });
+                }
+        );
         AlertDialog alert = builder.create();
         alert.show();
     }
 
     /**
      * Add new entry based on input
-     * 
+     *
      * @param input
      */
     private void addEntry(String input) {
@@ -280,7 +285,8 @@ public class WhitelistFragment extends SherlockListFragment implements
                             public void onClick(DialogInterface dlg, int sum) {
                                 dlg.dismiss();
                             }
-                        });
+                        }
+                );
                 alertDialog.show();
             }
         }
@@ -307,8 +313,8 @@ public class WhitelistFragment extends SherlockListFragment implements
         setHasOptionsMenu(true);
 
         // dislayFields and displayViews are handled in custom adapter!
-        String[] displayFields = new String[] {};
-        int[] displayViews = new int[] {};
+        String[] displayFields = new String[]{};
+        int[] displayViews = new int[]{};
         mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, null,
                 displayFields, displayViews, 0);
         setListAdapter(mAdapter);
@@ -322,8 +328,8 @@ public class WhitelistFragment extends SherlockListFragment implements
     }
 
     // These are the rows that we will retrieve.
-    static final String[] WHITELIST_SUMMARY_PROJECTION = new String[] { Whitelist._ID,
-            Whitelist.HOSTNAME, Whitelist.ENABLED };
+    static final String[] WHITELIST_SUMMARY_PROJECTION = new String[]{Whitelist._ID,
+            Whitelist.HOSTNAME, Whitelist.ENABLED};
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {

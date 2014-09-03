@@ -36,7 +36,7 @@ public class OpenHelper {
 
     /**
      * Open hosts file with default text app
-     * 
+     *
      * @param activity
      */
     public static void openHostsFile(FragmentActivity activity) {
@@ -59,7 +59,7 @@ public class OpenHelper {
 
     /**
      * Open default app for opening plain text files
-     * 
+     *
      * @param activity
      * @param file
      */

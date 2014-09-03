@@ -127,7 +127,7 @@ public class UpdateService extends WakefulIntentService {
 
     /**
      * Check for updates of hosts sources
-     * 
+     *
      * @return return code
      */
     private int checkForUpdates() {
@@ -173,14 +173,16 @@ public class UpdateService extends WakefulIntentService {
                                         + currentLastModifiedOnline
                                         + " ("
                                         + DateUtils.longToDateString(mService,
-                                                currentLastModifiedOnline) + ")");
+                                        currentLastModifiedOnline) + ")"
+                        );
 
                         Log.d(Constants.TAG,
                                 "mCurrentLastModified: "
                                         + currentLastModifiedLocal
                                         + " ("
                                         + DateUtils.longToDateString(mService,
-                                                currentLastModifiedLocal) + ")");
+                                        currentLastModifiedLocal) + ")"
+                        );
 
                         // check if file is available
                         connection.connect();
@@ -195,7 +197,8 @@ public class UpdateService extends WakefulIntentService {
                         ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
                                 enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
                                         .getColumnIndex(HostsSources._ID)),
-                                currentLastModifiedOnline);
+                                currentLastModifiedOnline
+                        );
 
                     } catch (Exception e) {
                         Log.e(Constants.TAG, "Exception while downloading from " + currentUrl, e);
@@ -205,7 +208,8 @@ public class UpdateService extends WakefulIntentService {
                         // set last_modified_online of failed download to 0 (not available)
                         ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
                                 enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
-                                        .getColumnIndex(HostsSources._ID)), 0);
+                                        .getColumnIndex(HostsSources._ID)), 0
+                        );
                     }
 
                 } while (enabledHostsSourcesCursor.moveToNext());

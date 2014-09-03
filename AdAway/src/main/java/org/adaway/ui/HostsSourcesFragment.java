@@ -91,20 +91,20 @@ public class HostsSourcesFragment extends SherlockListFragment implements
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-        case R.id.checkbox_list_context_delete:
-            menuDeleteEntry(info);
-            return true;
-        case R.id.checkbox_list_context_edit:
-            menuEditEntry(info);
-            return true;
-        default:
-            return super.onContextItemSelected(item);
+            case R.id.checkbox_list_context_delete:
+                menuDeleteEntry(info);
+                return true;
+            case R.id.checkbox_list_context_edit:
+                menuEditEntry(info);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
         }
     }
 
     /**
      * Delete entry based on selection in context menu
-     * 
+     *
      * @param info
      */
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
@@ -114,7 +114,7 @@ public class HostsSourcesFragment extends SherlockListFragment implements
 
     /**
      * Edit entry based on selection in context menu
-     * 
+     *
      * @param info
      */
     private void menuEditEntry(AdapterContextMenuInfo info) {
@@ -162,18 +162,21 @@ public class HostsSourcesFragment extends SherlockListFragment implements
                                         public void onClick(DialogInterface dlg, int sum) {
                                             dlg.dismiss();
                                         }
-                                    });
+                                    }
+                            );
                             alertDialog.show();
                         }
                     }
-                });
+                }
+        );
         builder.setNegativeButton(getResources().getString(R.string.button_cancel),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
-                });
+                }
+        );
         AlertDialog alert = builder.create();
         alert.show();
     }
@@ -212,12 +215,12 @@ public class HostsSourcesFragment extends SherlockListFragment implements
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-        case R.id.menu_add:
-            menuAddEntry();
-            return true;
+            case R.id.menu_add:
+                menuAddEntry();
+                return true;
 
-        default:
-            return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -251,21 +254,23 @@ public class HostsSourcesFragment extends SherlockListFragment implements
                         String input = inputEditText.getText().toString();
                         addEntry(input);
                     }
-                });
+                }
+        );
         builder.setNegativeButton(getResources().getString(R.string.button_cancel),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
-                });
+                }
+        );
         AlertDialog alert = builder.create();
         alert.show();
     }
 
     /**
      * Add new entry based on input
-     * 
+     *
      * @param input
      */
     private void addEntry(String input) {
@@ -284,7 +289,8 @@ public class HostsSourcesFragment extends SherlockListFragment implements
                             public void onClick(DialogInterface dlg, int sum) {
                                 dlg.dismiss();
                             }
-                        });
+                        }
+                );
                 alertDialog.show();
             }
         }
@@ -311,8 +317,8 @@ public class HostsSourcesFragment extends SherlockListFragment implements
         setHasOptionsMenu(true);
 
         // dislayFields and displayViews are handled in custom adapter!
-        String[] displayFields = new String[] {};
-        int[] displayViews = new int[] {};
+        String[] displayFields = new String[]{};
+        int[] displayViews = new int[]{};
         // Create an empty adapter we will use to display the loaded data.
         mAdapter = new HostsSourcesCursorAdapter(mActivity, R.layout.checkbox_list_two_entry, null,
                 displayFields, displayViews, 0);
@@ -327,9 +333,9 @@ public class HostsSourcesFragment extends SherlockListFragment implements
     }
 
     // These are the rows that we will retrieve.
-    static final String[] HOSTS_SOURCES_SUMMARY_PROJECTION = new String[] { HostsSources._ID,
+    static final String[] HOSTS_SOURCES_SUMMARY_PROJECTION = new String[]{HostsSources._ID,
             HostsSources.URL, HostsSources.ENABLED, HostsSources.LAST_MODIFIED_LOCAL,
-            HostsSources.LAST_MODIFIED_ONLINE };
+            HostsSources.LAST_MODIFIED_ONLINE};
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {

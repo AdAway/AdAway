@@ -33,7 +33,7 @@ import android.widget.TextView;
 public class RedirectionCursorAdapter extends SimpleCursorAdapter {
 
     public RedirectionCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to,
-            int flags) {
+                                    int flags) {
         super(context, layout, c, from, to, flags);
     }
 

@@ -89,8 +89,8 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
         setEmptyText(mActivity.getString(R.string.scan_adware_empty));
 
         // Create an empty adapter we will use to display the loaded data.
-        String[] from = new String[] {};
-        int[] to = new int[] {};
+        String[] from = new String[]{};
+        int[] to = new int[]{};
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
         mAdapter = new SimpleAdapter(getActivity(), data, android.R.layout.two_line_list_item,
                 from, to);
@@ -111,7 +111,7 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
 
     @Override
     public void onLoadFinished(Loader<List<Map<String, String>>> loader,
-            List<Map<String, String>> data) {
+                               List<Map<String, String>> data) {
         // Set the new data in the adapter.
         // for (String item : data) {
         // mAdapter.add(item);
@@ -123,8 +123,8 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
         // mAdapter = new ArrayAdapter<String>(mActivity, android.R.layout.two_line_list_item,
         // data);
 
-        String[] from = new String[] { "app_name", "package_name" };
-        int[] to = new int[] { android.R.id.text1, android.R.id.text2 };
+        String[] from = new String[]{"app_name", "package_name"};
+        int[] to = new int[]{android.R.id.text1, android.R.id.text2};
         mAdapter = new SimpleAdapter(getActivity(), data, android.R.layout.two_line_list_item,
                 from, to);
 

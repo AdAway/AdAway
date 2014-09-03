@@ -33,6 +33,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.SystemClock;
+
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 import com.commonsware.cwac.wakeful.WakefulIntentService.AlarmListener;
 
@@ -74,7 +75,7 @@ public class DailyListener implements AlarmListener {
             boolean updateOnlyOnWifi = PreferenceHelper.getUpdateOnlyOnWifi(context);
 
             // if we have mobile or wifi connectivity...
-            if (((netInfo.getType() == ConnectivityManager.TYPE_MOBILE) && updateOnlyOnWifi == false)
+            if (((netInfo.getType() == ConnectivityManager.TYPE_MOBILE) && updateOnlyOnWifi)
                     || (netInfo.getType() == ConnectivityManager.TYPE_WIFI)) {
                 Log.d(Constants.TAG, "We have internet, start update check directly now!");
 

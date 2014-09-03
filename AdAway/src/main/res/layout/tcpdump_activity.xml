@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp" >
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -15,8 +15,7 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:text="@string/button_tcpdump_text"
-            android:textAppearance="@android:style/TextAppearance.Small" >
-        </TextView>
+            android:textAppearance="@android:style/TextAppearance.Small" />
 
         <ToggleButton
             android:id="@+id/tcpdump_fragment_toggle_button"
@@ -25,8 +24,7 @@
             android:layout_marginTop="15dp"
             android:onClick="tcpdumpToggleOnClick"
             android:textOff="@string/button_tcpdump_toggle_unchecked"
-            android:textOn="@string/button_tcpdump_toggle_checked" >
-        </ToggleButton>
+            android:textOn="@string/button_tcpdump_toggle_checked" />
 
         <Button
             android:id="@+id/tcpdump_fragment_open_button"
@@ -34,8 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:onClick="tcpdumpOpenOnClick"
-            android:text="@string/button_tcpdump_open" >
-        </Button>
+            android:text="@string/button_tcpdump_open" />
 
         <Button
             android:id="@+id/tcpdump_fragment_delete_button"
@@ -43,8 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:onClick="tcpdumpDeleteOnClick"
-            android:text="@string/button_tcpdump_delete" >
-        </Button>
+            android:text="@string/button_tcpdump_delete" />
     </LinearLayout>
 
 </ScrollView>

@@ -40,6 +40,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+
 import org.adaway.util.Constants;
 import org.sufficientlysecure.donations.DonationsFragment;
 

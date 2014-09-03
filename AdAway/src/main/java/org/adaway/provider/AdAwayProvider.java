@@ -86,7 +86,9 @@ public class AdAwayProvider extends ContentProvider {
 
     private AdAwayDatabase mAdAwayDatabase;
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean onCreate() {
         final Context context = getContext();
@@ -94,33 +96,37 @@ public class AdAwayProvider extends ContentProvider {
         return true;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getType(Uri uri) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
-        case HOSTS_SOURCES:
-            return HostsSources.CONTENT_TYPE;
-        case HOSTS_SOURCES_ID:
-            return HostsSources.CONTENT_ITEM_TYPE;
-        case WHITELIST:
-            return Whitelist.CONTENT_TYPE;
-        case WHITELIST_ID:
-            return Whitelist.CONTENT_ITEM_TYPE;
-        case BLACKLIST:
-            return Blacklist.CONTENT_TYPE;
-        case BLACKLIST_ID:
-            return Blacklist.CONTENT_ITEM_TYPE;
-        case REDIRECTION_LIST:
-            return RedirectionList.CONTENT_TYPE;
-        case REDIRECTION_LIST_ID:
-            return RedirectionList.CONTENT_ITEM_TYPE;
-        default:
-            throw new UnsupportedOperationException("Unknown uri: " + uri);
+            case HOSTS_SOURCES:
+                return HostsSources.CONTENT_TYPE;
+            case HOSTS_SOURCES_ID:
+                return HostsSources.CONTENT_ITEM_TYPE;
+            case WHITELIST:
+                return Whitelist.CONTENT_TYPE;
+            case WHITELIST_ID:
+                return Whitelist.CONTENT_ITEM_TYPE;
+            case BLACKLIST:
+                return Blacklist.CONTENT_TYPE;
+            case BLACKLIST_ID:
+                return Blacklist.CONTENT_ITEM_TYPE;
+            case REDIRECTION_LIST:
+                return RedirectionList.CONTENT_TYPE;
+            case REDIRECTION_LIST_ID:
+                return RedirectionList.CONTENT_ITEM_TYPE;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Uri insert(Uri uri, ContentValues values) {
         Log.d(Constants.TAG, "insert(uri=" + uri + ", values=" + values.toString() + ")");
@@ -132,24 +138,24 @@ public class AdAwayProvider extends ContentProvider {
         try {
             final int match = sUriMatcher.match(uri);
             switch (match) {
-            case HOSTS_SOURCES:
-                rowId = db.insertOrThrow(Tables.HOSTS_SOURCES, null, values);
-                rowUri = HostsSources.buildUri(Long.toString(rowId));
-                break;
-            case WHITELIST:
-                rowId = db.insertOrThrow(Tables.WHITELIST, null, values);
-                rowUri = Whitelist.buildUri(Long.toString(rowId));
-                break;
-            case BLACKLIST:
-                rowId = db.insertOrThrow(Tables.BLACKLIST, null, values);
-                rowUri = Blacklist.buildUri(Long.toString(rowId));
-                break;
-            case REDIRECTION_LIST:
-                rowId = db.insertOrThrow(Tables.REDIRECTION_LIST, null, values);
-                rowUri = RedirectionList.buildUri(Long.toString(rowId));
-                break;
-            default:
-                throw new UnsupportedOperationException("Unknown uri: " + uri);
+                case HOSTS_SOURCES:
+                    rowId = db.insertOrThrow(Tables.HOSTS_SOURCES, null, values);
+                    rowUri = HostsSources.buildUri(Long.toString(rowId));
+                    break;
+                case WHITELIST:
+                    rowId = db.insertOrThrow(Tables.WHITELIST, null, values);
+                    rowUri = Whitelist.buildUri(Long.toString(rowId));
+                    break;
+                case BLACKLIST:
+                    rowId = db.insertOrThrow(Tables.BLACKLIST, null, values);
+                    rowUri = Blacklist.buildUri(Long.toString(rowId));
+                    break;
+                case REDIRECTION_LIST:
+                    rowId = db.insertOrThrow(Tables.REDIRECTION_LIST, null, values);
+                    rowUri = RedirectionList.buildUri(Long.toString(rowId));
+                    break;
+                default:
+                    throw new UnsupportedOperationException("Unknown uri: " + uri);
             }
         } catch (SQLiteConstraintException e) {
             Log.e(Constants.TAG, "Constraint exception on insert! Entry already existing?");
@@ -161,10 +167,12 @@ public class AdAwayProvider extends ContentProvider {
         return rowUri;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
-            String sortOrder) {
+                        String sortOrder) {
         Log.v(Constants.TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection) + ")");
 
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -172,20 +180,20 @@ public class AdAwayProvider extends ContentProvider {
 
         final int match = sUriMatcher.match(uri);
         switch (match) {
-        case HOSTS_SOURCES:
-            qb.setTables(Tables.HOSTS_SOURCES);
-            break;
-        case WHITELIST:
-            qb.setTables(Tables.WHITELIST);
-            break;
-        case BLACKLIST:
-            qb.setTables(Tables.BLACKLIST);
-            break;
-        case REDIRECTION_LIST:
-            qb.setTables(Tables.REDIRECTION_LIST);
-            break;
-        default:
-            throw new UnsupportedOperationException("Unknown uri: " + uri);
+            case HOSTS_SOURCES:
+                qb.setTables(Tables.HOSTS_SOURCES);
+                break;
+            case WHITELIST:
+                qb.setTables(Tables.WHITELIST);
+                break;
+            case BLACKLIST:
+                qb.setTables(Tables.BLACKLIST);
+                break;
+            case REDIRECTION_LIST:
+                qb.setTables(Tables.REDIRECTION_LIST);
+                break;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
 
         Cursor cursor = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder);
@@ -194,7 +202,9 @@ public class AdAwayProvider extends ContentProvider {
         return cursor;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         Log.v(Constants.TAG, "update(uri=" + uri + ", values=" + values.toString() + ")");
@@ -205,24 +215,24 @@ public class AdAwayProvider extends ContentProvider {
         try {
             final int match = sUriMatcher.match(uri);
             switch (match) {
-            case HOSTS_SOURCES_ID:
-                count = db.update(Tables.HOSTS_SOURCES, values,
-                        buildDefaultSelection(uri, selection), selectionArgs);
-                break;
-            case WHITELIST_ID:
-                count = db.update(Tables.WHITELIST, values, buildDefaultSelection(uri, selection),
-                        selectionArgs);
-                break;
-            case BLACKLIST_ID:
-                count = db.update(Tables.BLACKLIST, values, buildDefaultSelection(uri, selection),
-                        selectionArgs);
-                break;
-            case REDIRECTION_LIST_ID:
-                count = db.update(Tables.REDIRECTION_LIST, values,
-                        buildDefaultSelection(uri, selection), selectionArgs);
-                break;
-            default:
-                throw new UnsupportedOperationException("Unknown uri: " + uri);
+                case HOSTS_SOURCES_ID:
+                    count = db.update(Tables.HOSTS_SOURCES, values,
+                            buildDefaultSelection(uri, selection), selectionArgs);
+                    break;
+                case WHITELIST_ID:
+                    count = db.update(Tables.WHITELIST, values, buildDefaultSelection(uri, selection),
+                            selectionArgs);
+                    break;
+                case BLACKLIST_ID:
+                    count = db.update(Tables.BLACKLIST, values, buildDefaultSelection(uri, selection),
+                            selectionArgs);
+                    break;
+                case REDIRECTION_LIST_ID:
+                    count = db.update(Tables.REDIRECTION_LIST, values,
+                            buildDefaultSelection(uri, selection), selectionArgs);
+                    break;
+                default:
+                    throw new UnsupportedOperationException("Unknown uri: " + uri);
             }
         } catch (SQLiteConstraintException e) {
             Log.e(Constants.TAG, "Constraint exception on update! Entry already existing?");
@@ -234,7 +244,9 @@ public class AdAwayProvider extends ContentProvider {
         return count;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         Log.v(Constants.TAG, "delete(uri=" + uri + ")");
@@ -244,24 +256,24 @@ public class AdAwayProvider extends ContentProvider {
         int count;
         final int match = sUriMatcher.match(uri);
         switch (match) {
-        case HOSTS_SOURCES_ID:
-            count = db.delete(Tables.HOSTS_SOURCES, buildDefaultSelection(uri, selection),
-                    selectionArgs);
-            break;
-        case WHITELIST_ID:
-            count = db.delete(Tables.WHITELIST, buildDefaultSelection(uri, selection),
-                    selectionArgs);
-            break;
-        case BLACKLIST_ID:
-            count = db.delete(Tables.BLACKLIST, buildDefaultSelection(uri, selection),
-                    selectionArgs);
-            break;
-        case REDIRECTION_LIST_ID:
-            count = db.delete(Tables.REDIRECTION_LIST, buildDefaultSelection(uri, selection),
-                    selectionArgs);
-            break;
-        default:
-            throw new UnsupportedOperationException("Unknown uri: " + uri);
+            case HOSTS_SOURCES_ID:
+                count = db.delete(Tables.HOSTS_SOURCES, buildDefaultSelection(uri, selection),
+                        selectionArgs);
+                break;
+            case WHITELIST_ID:
+                count = db.delete(Tables.WHITELIST, buildDefaultSelection(uri, selection),
+                        selectionArgs);
+                break;
+            case BLACKLIST_ID:
+                count = db.delete(Tables.BLACKLIST, buildDefaultSelection(uri, selection),
+                        selectionArgs);
+                break;
+            case REDIRECTION_LIST_ID:
+                count = db.delete(Tables.REDIRECTION_LIST, buildDefaultSelection(uri, selection),
+                        selectionArgs);
+                break;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
 
         // notify of changes in db
@@ -273,7 +285,7 @@ public class AdAwayProvider extends ContentProvider {
     /**
      * Build default selection statement. If no extra selection is specified only build where clause
      * with rowId
-     * 
+     *
      * @param uri
      * @param selection
      * @return

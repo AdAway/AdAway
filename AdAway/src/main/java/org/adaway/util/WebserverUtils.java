@@ -31,7 +31,7 @@ public class WebserverUtils {
 
     /**
      * Start Webserver in new Thread with RootTools
-     * 
+     *
      * @param context
      */
     public static void startWebserver(Context context, Shell shell) {
@@ -49,7 +49,7 @@ public class WebserverUtils {
 
     /**
      * Start Webserver in new Thread with RootTools on Boot if enabled in preferences
-     * 
+     *
      * @param context
      */
     public static void startWebserverOnBoot(Context context) {
@@ -67,7 +67,7 @@ public class WebserverUtils {
 
     /**
      * Stop webserver
-     * 
+     *
      * @param context
      */
     public static void stopWebserver(Context context, Shell shell) {
@@ -81,7 +81,7 @@ public class WebserverUtils {
 
     /**
      * Checks if werbserver is running
-     * 
+     *
      * @return true if webserver is running
      */
     public static boolean isWebserverRunning(Shell shell) {

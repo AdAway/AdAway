@@ -33,7 +33,7 @@ import android.widget.TextView;
 public class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
 
     public HostsSourcesCursorAdapter(Context context, int layout, Cursor c, String[] from,
-            int[] to, int flags) {
+                                     int[] to, int flags) {
         super(context, layout, c, from, to, flags);
     }
 

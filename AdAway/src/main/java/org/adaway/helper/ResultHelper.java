@@ -45,13 +45,13 @@ public class ResultHelper {
 
     /**
      * Show notification based on result after ApplyService or RevertService
-     * 
+     *
      * @param context
      * @param result
      * @param numberOfSuccessfulDownloads
      */
     public static void showNotificationBasedOnResult(Context context, int result,
-            String numberOfSuccessfulDownloads) {
+                                                     String numberOfSuccessfulDownloads) {
         if (result == StatusCodes.SUCCESS) {
             String title = context.getString(R.string.apply_success_title);
             String text = context.getString(R.string.apply_success_subtitle) + " "
@@ -99,7 +99,7 @@ public class ResultHelper {
 
             processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
         } else if (result == StatusCodes.DOWNLOAD_FAIL) { // used from UpdateService and
-                                                          // ApplyService
+            // ApplyService
             String title = context.getString(R.string.download_fail_title);
             String text = context.getString(R.string.download_fail_dialog);
             String statusText = context.getString(R.string.status_download_fail_subtitle_new);
@@ -107,7 +107,7 @@ public class ResultHelper {
             processResult(context, title, text, statusText, result, StatusCodes.DOWNLOAD_FAIL,
                     null, true);
         } else if (result == StatusCodes.NO_CONNECTION) { // used from UpdateService and
-                                                          // ApplyService
+            // ApplyService
             String title = context.getString(R.string.no_connection_title);
             String text = context.getString(R.string.no_connection);
             String statusText = context.getString(R.string.status_no_connection_subtitle);
@@ -122,30 +122,30 @@ public class ResultHelper {
             String title = "";
             String text = "";
             switch (result) {
-            case StatusCodes.SYMLINK_MISSING:
-                title = context.getString(R.string.apply_symlink_missing_title);
-                text = context.getString(R.string.apply_symlink_missing);
-                break;
-            case StatusCodes.APPLY_FAIL:
-                title = context.getString(R.string.apply_fail_title);
-                text = context.getString(R.string.apply_fail);
-                break;
-            case StatusCodes.PRIVATE_FILE_FAIL:
-                title = context.getString(R.string.apply_private_file_fail_title);
-                text = context.getString(R.string.apply_private_file_fail);
-                break;
-            case StatusCodes.NOT_ENOUGH_SPACE:
-                title = context.getString(R.string.apply_not_enough_space_title);
-                text = context.getString(R.string.apply_not_enough_space);
-                break;
-            case StatusCodes.REMOUNT_FAIL:
-                title = context.getString(R.string.apply_remount_fail_title);
-                text = context.getString(R.string.apply_remount_fail);
-                break;
-            case StatusCodes.COPY_FAIL:
-                title = context.getString(R.string.apply_copy_fail_title);
-                text = context.getString(R.string.apply_copy_fail);
-                break;
+                case StatusCodes.SYMLINK_MISSING:
+                    title = context.getString(R.string.apply_symlink_missing_title);
+                    text = context.getString(R.string.apply_symlink_missing);
+                    break;
+                case StatusCodes.APPLY_FAIL:
+                    title = context.getString(R.string.apply_fail_title);
+                    text = context.getString(R.string.apply_fail);
+                    break;
+                case StatusCodes.PRIVATE_FILE_FAIL:
+                    title = context.getString(R.string.apply_private_file_fail_title);
+                    text = context.getString(R.string.apply_private_file_fail);
+                    break;
+                case StatusCodes.NOT_ENOUGH_SPACE:
+                    title = context.getString(R.string.apply_not_enough_space_title);
+                    text = context.getString(R.string.apply_not_enough_space);
+                    break;
+                case StatusCodes.REMOUNT_FAIL:
+                    title = context.getString(R.string.apply_remount_fail_title);
+                    text = context.getString(R.string.apply_remount_fail);
+                    break;
+                case StatusCodes.COPY_FAIL:
+                    title = context.getString(R.string.apply_copy_fail_title);
+                    text = context.getString(R.string.apply_copy_fail);
+                    break;
             }
 
             processResult(context, title, text, text, result, StatusCodes.DISABLED, null, true);
@@ -155,11 +155,11 @@ public class ResultHelper {
     /**
      * Shows dialog and further information how to proceed after the applying process has ended and
      * the user clicked on the notification. This is based on the result from the apply process.
-     * 
+     *
      * @param result
      */
     public static void showDialogBasedOnResult(final Context context, int result,
-            String numberOfSuccessfulDownloads) {
+                                               String numberOfSuccessfulDownloads) {
         if (result == StatusCodes.SUCCESS) {
             if (numberOfSuccessfulDownloads != null) {
                 String title = context.getString(R.string.apply_success_title);
@@ -197,7 +197,8 @@ public class ResultHelper {
                         public void onClick(DialogInterface dialog, int id) {
                             tryToCreateSymlink(context);
                         }
-                    });
+                    }
+            );
             builder.setNegativeButton(context.getString(R.string.button_no),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -205,7 +206,8 @@ public class ResultHelper {
 
                             BaseActivity.updateStatusDisabled(context);
                         }
-                    });
+                    }
+            );
             AlertDialog question = builder.create();
             question.show();
         } else {
@@ -216,7 +218,8 @@ public class ResultHelper {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
                         }
-                    });
+                    }
+            );
             builder.setNegativeButton(context.getString(R.string.button_help),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -225,75 +228,76 @@ public class ResultHelper {
                             // go to help
                             context.startActivity(new Intent(context, HelpActivity.class));
                         }
-                    });
+                    }
+            );
 
             String title = "";
             String text = "";
             String statusText = "";
             switch (result) {
-            case StatusCodes.NO_CONNECTION:
-                title = context.getString(R.string.no_connection_title);
-                text = context.getString(R.string.no_connection);
-                statusText = context.getString(R.string.status_no_connection_subtitle);
+                case StatusCodes.NO_CONNECTION:
+                    title = context.getString(R.string.no_connection_title);
+                    text = context.getString(R.string.no_connection);
+                    statusText = context.getString(R.string.status_no_connection_subtitle);
 
-                BaseActivity.setStatusBroadcast(context, title, statusText,
-                        StatusCodes.DOWNLOAD_FAIL);
-                break;
-            case StatusCodes.DOWNLOAD_FAIL:
-                title = context.getString(R.string.download_fail_title);
-                text = context.getString(R.string.download_fail_dialog);
-                statusText = context.getString(R.string.status_download_fail_subtitle_new);
+                    BaseActivity.setStatusBroadcast(context, title, statusText,
+                            StatusCodes.DOWNLOAD_FAIL);
+                    break;
+                case StatusCodes.DOWNLOAD_FAIL:
+                    title = context.getString(R.string.download_fail_title);
+                    text = context.getString(R.string.download_fail_dialog);
+                    statusText = context.getString(R.string.status_download_fail_subtitle_new);
 
-                BaseActivity.setStatusBroadcast(context, title, statusText,
-                        StatusCodes.DOWNLOAD_FAIL);
-                break;
-            case StatusCodes.APN_PROXY:
-                title = context.getString(R.string.apply_apn_proxy_title);
-                text = context.getString(R.string.apply_apn_proxy);
+                    BaseActivity.setStatusBroadcast(context, title, statusText,
+                            StatusCodes.DOWNLOAD_FAIL);
+                    break;
+                case StatusCodes.APN_PROXY:
+                    title = context.getString(R.string.apply_apn_proxy_title);
+                    text = context.getString(R.string.apply_apn_proxy);
 
-                BaseActivity.updateStatusEnabled(context);
-                break;
-            case StatusCodes.APPLY_FAIL:
-                title = context.getString(R.string.apply_fail_title);
-                text = context.getString(R.string.apply_fail);
-
-                BaseActivity.updateStatusDisabled(context);
-                break;
-            case StatusCodes.PRIVATE_FILE_FAIL:
-                title = context.getString(R.string.apply_private_file_fail_title);
-                text = context.getString(R.string.apply_private_file_fail);
-
-                BaseActivity.updateStatusDisabled(context);
-                break;
-            case StatusCodes.NOT_ENOUGH_SPACE:
-                title = context.getString(R.string.apply_not_enough_space_title);
-                text = context.getString(R.string.apply_not_enough_space);
-
-                BaseActivity.updateStatusDisabled(context);
-                break;
-            case StatusCodes.REMOUNT_FAIL:
-                title = context.getString(R.string.apply_remount_fail_title);
-                text = context.getString(R.string.apply_remount_fail);
-
-                BaseActivity.updateStatusDisabled(context);
-                break;
-            case StatusCodes.COPY_FAIL:
-                title = context.getString(R.string.apply_copy_fail_title);
-                text = context.getString(R.string.apply_copy_fail);
-
-                BaseActivity.updateStatusDisabled(context);
-                break;
-            case StatusCodes.REVERT_FAIL:
-                title = context.getString(R.string.revert_problem_title);
-                text = context.getString(R.string.revert_problem);
-
-                // back to old status
-                if (ApplyUtils.isHostsFileCorrect(context, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                     BaseActivity.updateStatusEnabled(context);
-                } else {
+                    break;
+                case StatusCodes.APPLY_FAIL:
+                    title = context.getString(R.string.apply_fail_title);
+                    text = context.getString(R.string.apply_fail);
+
                     BaseActivity.updateStatusDisabled(context);
-                }
-                break;
+                    break;
+                case StatusCodes.PRIVATE_FILE_FAIL:
+                    title = context.getString(R.string.apply_private_file_fail_title);
+                    text = context.getString(R.string.apply_private_file_fail);
+
+                    BaseActivity.updateStatusDisabled(context);
+                    break;
+                case StatusCodes.NOT_ENOUGH_SPACE:
+                    title = context.getString(R.string.apply_not_enough_space_title);
+                    text = context.getString(R.string.apply_not_enough_space);
+
+                    BaseActivity.updateStatusDisabled(context);
+                    break;
+                case StatusCodes.REMOUNT_FAIL:
+                    title = context.getString(R.string.apply_remount_fail_title);
+                    text = context.getString(R.string.apply_remount_fail);
+
+                    BaseActivity.updateStatusDisabled(context);
+                    break;
+                case StatusCodes.COPY_FAIL:
+                    title = context.getString(R.string.apply_copy_fail_title);
+                    text = context.getString(R.string.apply_copy_fail);
+
+                    BaseActivity.updateStatusDisabled(context);
+                    break;
+                case StatusCodes.REVERT_FAIL:
+                    title = context.getString(R.string.revert_problem_title);
+                    text = context.getString(R.string.revert_problem);
+
+                    // back to old status
+                    if (ApplyUtils.isHostsFileCorrect(context, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                        BaseActivity.updateStatusEnabled(context);
+                    } else {
+                        BaseActivity.updateStatusDisabled(context);
+                    }
+                    break;
             }
             text += "\n\n" + context.getString(R.string.apply_help);
             builder.setTitle(title);
@@ -306,7 +310,7 @@ public class ResultHelper {
 
     /**
      * Private helper used in showNotificationBasedOnResult
-     * 
+     *
      * @param context
      * @param title
      * @param text
@@ -317,8 +321,8 @@ public class ResultHelper {
      * @param showDialog
      */
     private static void processResult(Context context, String title, String text,
-            String statusText, int result, int iconStatus, String numberOfSuccessfulDownloads,
-            boolean showDialog) {
+                                      String statusText, int result, int iconStatus, String numberOfSuccessfulDownloads,
+                                      boolean showDialog) {
         if (Utils.isInForeground(context)) {
             if (showDialog) {
                 // start BaseActivity with result
@@ -347,12 +351,12 @@ public class ResultHelper {
 
     /**
      * Show notification with result defined in params
-     * 
+     *
      * @param contentTitle
      * @param contentText
      */
     private static void showResultNotification(Context context, String contentTitle,
-            String contentText, int applyingResult, String failingUrl) {
+                                               String contentText, int applyingResult, String failingUrl) {
         NotificationManager notificationManager = (NotificationManager) context
                 .getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -432,7 +436,8 @@ public class ResultHelper {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
                         }
-                    });
+                    }
+            );
             builder.setNegativeButton(context.getString(R.string.button_help),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -441,7 +446,8 @@ public class ResultHelper {
                             // go to help
                             context.startActivity(new Intent(context, HelpActivity.class));
                         }
-                    });
+                    }
+            );
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }

@@ -47,7 +47,7 @@ public class ActivityNotFoundDialogFragment extends DialogFragment {
      * Creates new instance of this delete file dialog fragment
      */
     public static ActivityNotFoundDialogFragment newInstance(int title, int message,
-            String appGooglePlayUri, String appFDroidQuery) {
+                                                             String appGooglePlayUri, String appFDroidQuery) {
         ActivityNotFoundDialogFragment frag = new ActivityNotFoundDialogFragment();
         Bundle args = new Bundle();
 

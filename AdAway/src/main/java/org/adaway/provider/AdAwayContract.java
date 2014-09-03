@@ -64,13 +64,19 @@ public class AdAwayContract {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(PATH_HOSTS_SOURCES).build();
 
-        /** Use if multiple items get returned */
+        /**
+         * Use if multiple items get returned
+         */
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.adaway.hostssources";
 
-        /** Use if a single item is returned */
+        /**
+         * Use if a single item is returned
+         */
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.hostssources";
 
-        /** Default "ORDER BY" clause. */
+        /**
+         * Default "ORDER BY" clause.
+         */
         public static final String DEFAULT_SORT = HostsSourcesColumns.URL + " ASC";
 
         public static Uri buildUri(String id) {
@@ -86,13 +92,19 @@ public class AdAwayContract {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(PATH_WHITELIST).build();
 
-        /** Use if multiple items get returned */
+        /**
+         * Use if multiple items get returned
+         */
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.adaway.whitelist";
 
-        /** Use if a single item is returned */
+        /**
+         * Use if a single item is returned
+         */
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.whitelist";
 
-        /** Default "ORDER BY" clause. */
+        /**
+         * Default "ORDER BY" clause.
+         */
         public static final String DEFAULT_SORT = WhitelistColumns.HOSTNAME + " ASC";
 
         public static Uri buildUri(String id) {
@@ -108,13 +120,19 @@ public class AdAwayContract {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(PATH_BLACKLIST).build();
 
-        /** Use if multiple items get returned */
+        /**
+         * Use if multiple items get returned
+         */
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.adaway.blacklist";
 
-        /** Use if a single item is returned */
+        /**
+         * Use if a single item is returned
+         */
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.blacklist";
 
-        /** Default "ORDER BY" clause. */
+        /**
+         * Default "ORDER BY" clause.
+         */
         public static final String DEFAULT_SORT = BlacklistColumns.HOSTNAME + " ASC";
 
         public static Uri buildUri(String id) {
@@ -130,13 +148,19 @@ public class AdAwayContract {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(PATH_REDIRECTION_LIST).build();
 
-        /** Use if multiple items get returned */
+        /**
+         * Use if multiple items get returned
+         */
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.adaway.redirectionlist";
 
-        /** Use if a single item is returned */
+        /**
+         * Use if a single item is returned
+         */
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.adaway.redirectionlist";
 
-        /** Default "ORDER BY" clause. */
+        /**
+         * Default "ORDER BY" clause.
+         */
         public static final String DEFAULT_SORT = RedirectionListColumns.HOSTNAME + " ASC";
 
         public static Uri buildUri(String id) {

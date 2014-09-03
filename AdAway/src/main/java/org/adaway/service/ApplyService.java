@@ -124,7 +124,7 @@ public class ApplyService extends WakefulIntentService {
 
     /**
      * Downloads files from hosts sources
-     * 
+     *
      * @return return code
      */
     private int download() {
@@ -204,7 +204,8 @@ public class ApplyService extends WakefulIntentService {
                             ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
                                     enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
                                             .getColumnIndex(HostsSources._ID)),
-                                    currentLastModifiedOnline);
+                                    currentLastModifiedOnline
+                            );
 
                         } catch (IOException e) {
                             Log.e(Constants.TAG, "Exception while downloading from " + currentUrl,
@@ -215,7 +216,8 @@ public class ApplyService extends WakefulIntentService {
                             // set last_modified_online of failed download to 0 (not available)
                             ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
                                     enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
-                                            .getColumnIndex(HostsSources._ID)), 0);
+                                            .getColumnIndex(HostsSources._ID)), 0
+                            );
                         } finally {
                             // flush and close streams
                             try {
@@ -266,7 +268,7 @@ public class ApplyService extends WakefulIntentService {
 
     /**
      * Apply hosts file
-     * 
+     *
      * @return return code
      */
     int apply() {
@@ -499,7 +501,7 @@ public class ApplyService extends WakefulIntentService {
      * Creates custom made notification with progress
      */
     private void showApplyNotification(Context context, String tickerText, String contentTitle,
-            String contentText) {
+                                       String contentText) {
         // configure the intent
         Intent intent = new Intent(mService, BaseActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(mService.getApplicationContext(),

@@ -73,23 +73,23 @@ public class ListsActivity extends SherlockFragmentActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case android.R.id.home:
-            // app icon in Action Bar clicked; go home
-            Intent intent = new Intent(mActivity, BaseActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            return true;
+            case android.R.id.home:
+                // app icon in Action Bar clicked; go home
+                Intent intent = new Intent(mActivity, BaseActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
 
-        case R.id.menu_import:
-            ImportExportHelper.openFileStream(mActivity);
-            return true;
+            case R.id.menu_import:
+                ImportExportHelper.openFileStream(mActivity);
+                return true;
 
-        case R.id.menu_export:
-            ImportExportHelper.exportLists(mActivity);
-            return true;
+            case R.id.menu_export:
+                ImportExportHelper.exportLists(mActivity);
+                return true;
 
-        default:
-            return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -161,13 +161,10 @@ public class ListsActivity extends SherlockFragmentActivity {
 
         /**
          * Constructor used each time a new tab is created.
-         * 
-         * @param activity
-         *            The host Activity, used to instantiate the fragment
-         * @param tag
-         *            The identifier tag for the fragment
-         * @param clz
-         *            The fragment's Class, used to instantiate the fragment
+         *
+         * @param activity The host Activity, used to instantiate the fragment
+         * @param tag      The identifier tag for the fragment
+         * @param clz      The fragment's Class, used to instantiate the fragment
          */
         public TabListener(Activity activity, String tag, Class<T> clz) {
             mActivity = activity;

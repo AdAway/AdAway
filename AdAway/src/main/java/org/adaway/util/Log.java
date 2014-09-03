@@ -22,7 +22,6 @@ package org.adaway.util;
 
 /**
  * Wraps Android Logging to enable or disable debug output using Constants
- * 
  */
 public final class Log {
 

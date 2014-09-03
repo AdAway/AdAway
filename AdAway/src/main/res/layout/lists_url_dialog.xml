@@ -3,20 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp" >
+    android:padding="5dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/list_dialog_url" >
-    </TextView>
+        android:text="@string/list_dialog_url" />
 
     <EditText
         android:id="@+id/list_dialog_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textUri"
-        android:scrollHorizontally="true" >
-    </EditText>
+        android:scrollHorizontally="true" />
 
 </LinearLayout>

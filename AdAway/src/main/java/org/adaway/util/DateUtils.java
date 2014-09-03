@@ -33,7 +33,7 @@ import android.content.Context;
 public class DateUtils {
     /**
      * Builds date string out of long value containing unix date
-     * 
+     *
      * @param input
      * @return formatted date string
      */
@@ -50,7 +50,7 @@ public class DateUtils {
 
     /**
      * Returns current unix date in GMT as long value
-     * 
+     *
      * @return current date as long
      */
     public static long getCurrentLongDate() {

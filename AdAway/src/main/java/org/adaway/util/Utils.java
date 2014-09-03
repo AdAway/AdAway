@@ -55,7 +55,7 @@ public class Utils {
     /**
      * Check if Android is rooted, check for su binary and busybox and display possible solutions if
      * they are not available
-     * 
+     *
      * @param activity
      * @return true if phone is rooted
      */
@@ -85,7 +85,8 @@ public class Utils {
                             public void onClick(DialogInterface dialog, int which) {
                                 activity.finish(); // finish current activity, means exiting app
                             }
-                        });
+                        }
+                );
 
                 AlertDialog alert = builder.create();
                 alert.show();
@@ -97,11 +98,9 @@ public class Utils {
 
     /**
      * Show reboot question
-     * 
-     * @param titleR
-     *            resource id of title string
-     * @param messageR
-     *            resource id of message string
+     *
+     * @param titleR   resource id of title string
+     * @param messageR resource id of message string
      */
     public static void rebootQuestion(final Context context, int titleR, int messageR) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -138,7 +137,8 @@ public class Utils {
                             Log.e(Constants.TAG, "Problem with rebooting", e);
                         }
                     }
-                });
+                }
+        );
         builder.setNegativeButton(context.getString(R.string.button_no),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -152,7 +152,8 @@ public class Utils {
 
                         dialog.dismiss();
                     }
-                });
+                }
+        );
         AlertDialog question = builder.create();
 
         question.show();
@@ -160,7 +161,7 @@ public class Utils {
 
     /**
      * Checks if Android is online
-     * 
+     *
      * @param context
      * @return returns true if online
      */
@@ -178,7 +179,7 @@ public class Utils {
      * Checks if the application is installed on the SD card. See
      * http://stackoverflow.com/questions/
      * 5814474/how-can-i-find-out-if-my-app-is-installed-on-sd-card
-     * 
+     *
      * @return <code>true</code> if the application is installed on the sd card
      */
     @SuppressLint("SdCardPath")
@@ -213,7 +214,7 @@ public class Utils {
     /**
      * Checks if AdAway is in foreground, see
      * http://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
-     * 
+     *
      * @param context
      * @return
      */

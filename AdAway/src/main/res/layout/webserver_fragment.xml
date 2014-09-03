@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" 
+    android:orientation="vertical"
     android:paddingTop="15dp">
 
     <ToggleButton
@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:onClick="webserverOnClick"
         android:textOff="@string/button_webserver_toggle_unchecked"
-        android:textOn="@string/button_webserver_toggle_checked" >
-    </ToggleButton>
+        android:textOn="@string/button_webserver_toggle_checked" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +20,6 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/button_webserver_toggle_text"
-        android:textAppearance="@android:style/TextAppearance.Small" >
-    </TextView>
+        android:textAppearance="@android:style/TextAppearance.Small" />
 
 </LinearLayout>

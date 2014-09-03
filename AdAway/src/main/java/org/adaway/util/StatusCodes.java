@@ -22,7 +22,6 @@ package org.adaway.util;
 
 /**
  * Return codes of various AsyncTasks
- * 
  */
 public class StatusCodes {
     public static final int CHECKING = 0;

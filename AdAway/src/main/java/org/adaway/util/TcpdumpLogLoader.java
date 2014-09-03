@@ -62,25 +62,23 @@ public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
                 FileInputStream instream = new FileInputStream(file);
 
                 // if file is available for reading
-                if (instream != null) {
-                    // prepare the file for reading
-                    InputStreamReader inputreader = new InputStreamReader(instream);
-                    BufferedReader reader = new BufferedReader(inputreader);
+                // prepare the file for reading
+                InputStreamReader inputreader = new InputStreamReader(instream);
+                BufferedReader reader = new BufferedReader(inputreader);
 
-                    // read every line of the file into the line-variable, one line at a time
-                    String nextLine;
-                    String hostname;
-                    while ((nextLine = reader.readLine()) != null) {
-                        Log.d(Constants.TAG, "nextLine: " + nextLine);
+                // read every line of the file into the line-variable, one line at a time
+                String nextLine;
+                String hostname;
+                while ((nextLine = reader.readLine()) != null) {
+                    Log.d(Constants.TAG, "nextLine: " + nextLine);
 
-                        hostname = RegexUtils.getTcpdumpHostname(nextLine);
-                        if (hostname != null) {
-                            set.add(hostname);
-                        }
+                    hostname = RegexUtils.getTcpdumpHostname(nextLine);
+                    if (hostname != null) {
+                        set.add(hostname);
                     }
-
-                    reader.close();
                 }
+
+                reader.close();
                 // close the file
                 instream.close();
             } catch (java.io.FileNotFoundException e) {
@@ -90,13 +88,10 @@ public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
             Log.e(Constants.TAG, "Can not get cache dir", e);
         }
 
-        ArrayList<String> list = null;
-        if (set != null) {
-            list = new ArrayList<String>(set);
+        ArrayList<String> list = new ArrayList<String>(set);
 
-            // Sort the list.
-            Collections.sort(list);
-        }
+        // Sort the list.
+        Collections.sort(list);
 
         return list;
     }

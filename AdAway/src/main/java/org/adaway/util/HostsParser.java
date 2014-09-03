@@ -64,14 +64,14 @@ public class HostsParser {
 
     /**
      * Parse hosts file from BufferedReader
-     * 
+     *
      * @param reader
      * @throws IOException
      */
     private void parse(BufferedReader reader) throws IOException {
-        String nextLine = new String();
-        String currentIp = new String();
-        String currentHostname = new String();
+        String nextLine;
+        String currentIp;
+        String currentHostname;
         mBlacklist = new HashSet<String>();
         mWhitelist = new HashSet<String>();
         mRedirectionList = new HashMap<String, String>();
@@ -114,7 +114,7 @@ public class HostsParser {
 
     /**
      * Add blacklist to this hosts file
-     * 
+     *
      * @param blacklist
      */
     public void addBlacklist(HashSet<String> blacklist) {
@@ -123,7 +123,7 @@ public class HostsParser {
 
     /**
      * Add whitelist to this host file. This supports simple regex in entries.
-     * 
+     *
      * @param whitelist
      */
     public void addWhitelist(HashSet<String> whitelist) {
@@ -132,10 +132,10 @@ public class HostsParser {
 
     /**
      * Add redirection rules as HashMap.
-     * 
+     * <p/>
      * These mappings will replace any mappings that this map had for any of the keys currently in
      * the specified map.
-     * 
+     *
      * @param redirectionList
      */
     public void addRedirectionList(HashMap<String, String> redirectionList) {
@@ -147,7 +147,7 @@ public class HostsParser {
      */
     public void compileList() {
         Log.d(Constants.TAG, "Compiling all whitelist regex");
-        
+
         // remove whitelist items from blacklist using regex
         HashSet<Pattern> whitelistPattern = new HashSet<Pattern>();
         String regexItem;
@@ -161,7 +161,7 @@ public class HostsParser {
         Matcher whitelistMatcher;
         String blacklistHostname;
         // go through all blacklist hostnames from host sources
-        for (Iterator<String> iterator = mBlacklist.iterator(); iterator.hasNext();) {
+        for (Iterator<String> iterator = mBlacklist.iterator(); iterator.hasNext(); ) {
             blacklistHostname = iterator.next();
 
             // use all whitelist patterns on this hostname

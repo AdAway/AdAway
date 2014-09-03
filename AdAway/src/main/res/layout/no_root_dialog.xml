@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:paddingBottom="5dp"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp" >
+    android:paddingRight="10dp">
 
     <TextView
         android:layout_width="wrap_content"

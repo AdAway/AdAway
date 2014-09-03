@@ -41,12 +41,9 @@ import android.os.StatFs;
 public class ApplyUtils {
     /**
      * Check if there is enough space on partition where target is located
-     * 
-     * @param size
-     *            size of file to put on partition
-     * @param target
-     *            path where to put the file
-     * 
+     *
+     * @param size   size of file to put on partition
+     * @param target path where to put the file
      * @return true if it will fit on partition of target, false if it will not fit.
      */
     public static boolean hasEnoughSpaceOnPartition(String target, long size) {
@@ -80,7 +77,7 @@ public class ApplyUtils {
 
     /**
      * Checks by reading hosts file if AdAway hosts file is applied or not
-     * 
+     *
      * @return true if it is applied
      */
     public static boolean isHostsFileCorrect(Context context, String target) {
@@ -127,9 +124,8 @@ public class ApplyUtils {
 
     /**
      * Copy hosts file from private storage of AdAway to internal partition using RootTools
-     * 
-     * @throws NotEnoughSpaceException
-     *             RemountException CopyException
+     *
+     * @throws NotEnoughSpaceException RemountException CopyException
      */
     public static void copyHostsFile(Context context, String target, Shell shell)
             throws NotEnoughSpaceException, RemountException, CommandException {
@@ -201,9 +197,8 @@ public class ApplyUtils {
 
     /**
      * Create symlink from /system/etc/hosts to /data/data/hosts
-     * 
-     * @throws RemountException
-     *             CommandException
+     *
+     * @throws RemountException CommandException
      */
     public static void createSymlink(String target) throws RemountException, CommandException {
         Shell rootShell = null;
@@ -227,7 +222,8 @@ public class ApplyUtils {
                     + Constants.ANDROID_SYSTEM_ETC_HOSTS,
                     Constants.COMMAND_CHCON_SYSTEMFILE + " " + target,
                     Constants.COMMAND_CHOWN + " " + target,
-                    Constants.COMMAND_CHMOD_644 + " " + target);
+                    Constants.COMMAND_CHMOD_644 + " " + target
+            );
 
             rootShell.add(command).waitForFinish();
         } catch (Exception e) {
@@ -246,7 +242,7 @@ public class ApplyUtils {
 
     /**
      * Checks whether /system/etc/hosts is a symlink and pointing to the target or not
-     * 
+     *
      * @param target
      * @return
      * @throws CommandException
@@ -276,7 +272,7 @@ public class ApplyUtils {
     /**
      * Create directories if missing, if /data/etc/hosts is set as target, this creates /data/etc/
      * directories. Needs RW on partition!
-     * 
+     *
      * @throws CommandException
      */
     public static void createDirectories(String target, Shell shell) throws CommandException {
@@ -305,7 +301,7 @@ public class ApplyUtils {
      * Returns true when an APN proxy is set. This means data is routed through this proxy. As a
      * result hostname blocking does not work reliable because images can come from a different
      * hostname!
-     * 
+     *
      * @param context
      * @return true if proxy is set
      */
@@ -314,7 +310,7 @@ public class ApplyUtils {
 
         try {
             final Uri defaultApnUri = Uri.parse("content://telephony/carriers/preferapn");
-            final String[] projection = new String[] { "_id", "name", "proxy" };
+            final String[] projection = new String[]{"_id", "name", "proxy"};
             // get cursor for default apns
             Cursor cursor = context.getContentResolver().query(defaultApnUri, projection, null,
                     null, null);

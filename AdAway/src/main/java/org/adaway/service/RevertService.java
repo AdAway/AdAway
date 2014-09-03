@@ -76,7 +76,7 @@ public class RevertService extends WakefulIntentService {
 
     /**
      * Reverts to default hosts file
-     * 
+     *
      * @return Status codes REVERT_SUCCESS or REVERT_FAIL
      */
     private int revert(Shell shell) {

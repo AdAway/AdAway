@@ -57,7 +57,7 @@ public class ImportExportHelper {
 
     /**
      * Opens file manager to open file and return it in onActivityResult in Activity
-     * 
+     *
      * @param activity
      */
     public static void openFileStream(final FragmentActivity activity) {
@@ -79,13 +79,13 @@ public class ImportExportHelper {
     /**
      * After user selected file in file manager with openFile() the path of the selected file is
      * returned by onActivityResult in the corresponding activity.
-     * 
+     *
      * @param requestCode
      * @param resultCode
      * @param data
      */
     public static void onActivityResultHandleImport(final Context context, int requestCode,
-            int resultCode, Intent data) {
+                                                    int resultCode, Intent data) {
 
         // if request is from import
         if (requestCode == REQUEST_CODE_IMPORT && resultCode == Activity.RESULT_OK && data != null
@@ -150,7 +150,7 @@ public class ImportExportHelper {
 
     /**
      * Exports all lists to adaway-export file on sdcard
-     * 
+     *
      * @param context
      */
     public static void exportLists(final Context context) {

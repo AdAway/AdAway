@@ -39,9 +39,9 @@ import android.support.v4.content.AsyncTaskLoader;
  * asking him by mail.
  */
 public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>> {
-    public static final String[] AD_PACKAGE_PREFIXES = { "com.airpush.", "com.Leadbolt.",
+    public static final String[] AD_PACKAGE_PREFIXES = {"com.airpush.", "com.Leadbolt.",
             "com.appenda.", "com.iac.notification.", "com.urbanairship.", "com.tapjoy.",
-            "com.sellaring." };
+            "com.sellaring."};
 
     Context context;
     List<String> mItems;
@@ -105,7 +105,8 @@ public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>>
             try {
                 PackageInfo pkgInfo = pm.getPackageInfo(appInfo.packageName,
                         PackageManager.GET_ACTIVITIES | PackageManager.GET_RECEIVERS
-                                | PackageManager.GET_SERVICES);
+                                | PackageManager.GET_SERVICES
+                );
 
                 Log.v(Constants.TAG, "Scanning package " + pkgInfo.packageName);
 

@@ -119,11 +119,11 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL(CREATE_BLACKLIST);
             db.execSQL(CREATE_REDIRECTION_LIST);
         }
-        if (oldVersion <= 2) {
-            // introduced last modified table
-            // db.execSQL(CREATE_LAST_MODIFIED);
-            // insertDefaultLastModified(db);
-        }
+        // if (oldVersion <= 2) {
+        // introduced last modified table
+        // db.execSQL(CREATE_LAST_MODIFIED);
+        // insertDefaultLastModified(db);
+        // }
         if (oldVersion <= 3) {
             // change mvps url
             // old url: http://www.mvps.org/winhelp2002/hosts.txt

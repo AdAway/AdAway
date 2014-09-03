@@ -95,26 +95,26 @@ public class TcpdumpActivity extends SherlockActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case android.R.id.home:
-            // app icon in Action Bar clicked; go home
-            Intent intent = new Intent(mActivity, BaseActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            return true;
+            case android.R.id.home:
+                // app icon in Action Bar clicked; go home
+                Intent intent = new Intent(mActivity, BaseActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
 
-        default:
-            return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
     public void tcpdumpToggleOnClick(View view) {
-        if (mTcpdumpToggle.isChecked() == true) {
+        if (mTcpdumpToggle.isChecked()) {
             // if starting does not work, set back to disabled...
             if (!TcpdumpUtils.startTcpdump(mActivity, mRootShell)) {
                 mTcpdumpToggle.setChecked(false);
             }
         }
-        if (mTcpdumpToggle.isChecked() == false) {
+        if (mTcpdumpToggle.isChecked()) {
             TcpdumpUtils.stopTcpdump(mActivity, mRootShell);
         }
     }

@@ -78,25 +78,25 @@ public class TcpdumpLogFragment extends SherlockListFragment implements
         String hostname = mAdapter.getItem(info.position);
 
         switch (item.getItemId()) {
-        case R.id.tcpdump_log_context_blacklist:
-            ProviderHelper.insertBlacklistItem(mActivity, hostname);
-            Toast toastBlacklist = Toast.makeText(mActivity,
-                    R.string.toast_tcpdump_added_to_blacklist, Toast.LENGTH_SHORT);
-            toastBlacklist.show();
-            return true;
-        case R.id.tcpdump_log_context_whitelist:
-            ProviderHelper.insertWhitelistItem(mActivity, hostname);
-            Toast toastWhitelist = Toast.makeText(mActivity,
-                    R.string.toast_tcpdump_added_to_whitelist, Toast.LENGTH_SHORT);
-            toastWhitelist.show();
-            return true;
-        case R.id.tcpdump_log_context_browser:
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("http://" + hostname));
-            startActivity(i);
-            return true;
-        default:
-            return super.onContextItemSelected(item);
+            case R.id.tcpdump_log_context_blacklist:
+                ProviderHelper.insertBlacklistItem(mActivity, hostname);
+                Toast toastBlacklist = Toast.makeText(mActivity,
+                        R.string.toast_tcpdump_added_to_blacklist, Toast.LENGTH_SHORT);
+                toastBlacklist.show();
+                return true;
+            case R.id.tcpdump_log_context_whitelist:
+                ProviderHelper.insertWhitelistItem(mActivity, hostname);
+                Toast toastWhitelist = Toast.makeText(mActivity,
+                        R.string.toast_tcpdump_added_to_whitelist, Toast.LENGTH_SHORT);
+                toastWhitelist.show();
+                return true;
+            case R.id.tcpdump_log_context_browser:
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("http://" + hostname));
+                startActivity(i);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
         }
     }
 
@@ -117,7 +117,7 @@ public class TcpdumpLogFragment extends SherlockListFragment implements
         setEmptyText(mActivity.getString(R.string.tcpdump_log_empty));
 
         // Create an empty adapter we will use to display the loaded data.
-        String[] values = new String[] {};
+        String[] values = new String[]{};
         mAdapter = new ArrayAdapter<String>(mActivity, android.R.layout.simple_list_item_1, values);
         setListAdapter(mAdapter);
 

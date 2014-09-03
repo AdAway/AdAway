@@ -63,50 +63,48 @@ public class BaseFragment extends SherlockFragment {
 
     /**
      * Set status icon based on StatusCodes
-     * 
-     * @param iconStatus
-     *            Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
-     *            StatusCodes
+     *
+     * @param iconStatus Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
+     *                   StatusCodes
      */
     private void setStatusIcon(int iconStatus) {
         switch (iconStatus) {
-        case StatusCodes.UPDATE_AVAILABLE:
-            mStatusProgress.setVisibility(View.GONE);
-            mStatusIcon.setVisibility(View.VISIBLE);
-            mStatusIcon.setImageResource(R.drawable.status_update);
-            break;
-        case StatusCodes.ENABLED:
-            mStatusProgress.setVisibility(View.GONE);
-            mStatusIcon.setVisibility(View.VISIBLE);
-            mStatusIcon.setImageResource(R.drawable.status_enabled);
-            break;
-        case StatusCodes.DISABLED:
-            mStatusProgress.setVisibility(View.GONE);
-            mStatusIcon.setVisibility(View.VISIBLE);
-            mStatusIcon.setImageResource(R.drawable.status_disabled);
-            break;
-        case StatusCodes.DOWNLOAD_FAIL:
-            mStatusProgress.setVisibility(View.GONE);
-            mStatusIcon.setImageResource(R.drawable.status_fail);
-            mStatusIcon.setVisibility(View.VISIBLE);
-            break;
-        case StatusCodes.CHECKING:
-            mStatusProgress.setVisibility(View.VISIBLE);
-            mStatusIcon.setVisibility(View.GONE);
-            break;
+            case StatusCodes.UPDATE_AVAILABLE:
+                mStatusProgress.setVisibility(View.GONE);
+                mStatusIcon.setVisibility(View.VISIBLE);
+                mStatusIcon.setImageResource(R.drawable.status_update);
+                break;
+            case StatusCodes.ENABLED:
+                mStatusProgress.setVisibility(View.GONE);
+                mStatusIcon.setVisibility(View.VISIBLE);
+                mStatusIcon.setImageResource(R.drawable.status_enabled);
+                break;
+            case StatusCodes.DISABLED:
+                mStatusProgress.setVisibility(View.GONE);
+                mStatusIcon.setVisibility(View.VISIBLE);
+                mStatusIcon.setImageResource(R.drawable.status_disabled);
+                break;
+            case StatusCodes.DOWNLOAD_FAIL:
+                mStatusProgress.setVisibility(View.GONE);
+                mStatusIcon.setImageResource(R.drawable.status_fail);
+                mStatusIcon.setVisibility(View.VISIBLE);
+                break;
+            case StatusCodes.CHECKING:
+                mStatusProgress.setVisibility(View.VISIBLE);
+                mStatusIcon.setVisibility(View.GONE);
+                break;
 
-        default:
-            break;
+            default:
+                break;
         }
     }
 
     /**
      * Set status in Fragment
-     * 
+     *
      * @param title
      * @param text
-     * @param iconStatus
-     *            int based on StatusCodes to select icon
+     * @param iconStatus int based on StatusCodes to select icon
      */
     public void setStatus(String title, String text, int iconStatus) {
         mStatusTitle.setText(title);
@@ -158,42 +156,42 @@ public class BaseFragment extends SherlockFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-        case R.id.menu_hosts_sources:
-            startActivity(new Intent(mActivity, HostsSourcesActivity.class));
-            return true;
+            case R.id.menu_hosts_sources:
+                startActivity(new Intent(mActivity, HostsSourcesActivity.class));
+                return true;
 
-        case R.id.menu_lists:
-            startActivity(new Intent(mActivity, ListsActivity.class));
-            return true;
+            case R.id.menu_lists:
+                startActivity(new Intent(mActivity, ListsActivity.class));
+                return true;
 
-        case R.id.menu_show_hosts_file:
-            OpenHelper.openHostsFile(mActivity);
-            return true;
+            case R.id.menu_show_hosts_file:
+                OpenHelper.openHostsFile(mActivity);
+                return true;
 
-        case R.id.menu_tcpdump:
-            startActivity(new Intent(mActivity, TcpdumpActivity.class));
-            return true;
+            case R.id.menu_tcpdump:
+                startActivity(new Intent(mActivity, TcpdumpActivity.class));
+                return true;
 
-        case R.id.menu_preferences:
-            startActivity(new Intent(mActivity, PrefsActivity.class));
-            return true;
+            case R.id.menu_preferences:
+                startActivity(new Intent(mActivity, PrefsActivity.class));
+                return true;
 
-        case R.id.menu_scan_adware:
-            startActivity(new Intent(mActivity, ScanAdwareActivity.class));
-            return true;
+            case R.id.menu_scan_adware:
+                startActivity(new Intent(mActivity, ScanAdwareActivity.class));
+                return true;
 
-        case R.id.menu_refresh:
-            Intent updateIntent = new Intent(mActivity, UpdateService.class);
-            updateIntent.putExtra(UpdateService.EXTRA_BACKGROUND_EXECUTION, false);
-            WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
-            return true;
+            case R.id.menu_refresh:
+                Intent updateIntent = new Intent(mActivity, UpdateService.class);
+                updateIntent.putExtra(UpdateService.EXTRA_BACKGROUND_EXECUTION, false);
+                WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
+                return true;
 
-        case R.id.menu_help:
-            startActivity(new Intent(mActivity, HelpActivity.class));
-            return true;
+            case R.id.menu_help:
+                startActivity(new Intent(mActivity, HelpActivity.class));
+                return true;
 
-        default:
-            return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -245,7 +243,7 @@ public class BaseFragment extends SherlockFragment {
 
     /**
      * Button Action to download and apply hosts files
-     * 
+     *
      * @param view
      */
     public void applyOnClick(View view) {
@@ -254,7 +252,7 @@ public class BaseFragment extends SherlockFragment {
 
     /**
      * Button Action to Revert to default hosts file
-     * 
+     *
      * @param view
      */
     public void revertOnClick(View view) {

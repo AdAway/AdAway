@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="10dp" >
+    android:paddingTop="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:onClick="applyOnClick"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp" >
+        android:paddingRight="5dp">
 
         <FrameLayout
             android:id="@+id/status_layout"
@@ -19,7 +19,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="6dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ProgressBar
                 android:id="@+id/status_progress"
@@ -27,25 +27,22 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:indeterminate="true"
-                android:visibility="gone" >
-            </ProgressBar>
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/status_icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/status_update"
-                android:visibility="gone" >
-            </ImageView>
+                android:visibility="gone" />
         </FrameLayout>
 
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/status_layout"
             android:gravity="center_vertical"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/status_title"
@@ -74,8 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:onClick="applyOnClick"
-        android:text="@string/button_apply" >
-    </Button>
+        android:text="@string/button_apply" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,8 +79,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/button_apply_text"
-        android:textAppearance="@android:style/TextAppearance.Small" >
-    </TextView>
+        android:textAppearance="@android:style/TextAppearance.Small" />
 
     <Button
         android:id="@+id/revert_button"
@@ -92,8 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:onClick="revertOnClick"
-        android:text="@string/button_revert" >
-    </Button>
+        android:text="@string/button_revert" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -101,7 +95,6 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/button_revert_text"
-        android:textAppearance="@android:style/TextAppearance.Small" >
-    </TextView>
+        android:textAppearance="@android:style/TextAppearance.Small" />
 
 </LinearLayout>

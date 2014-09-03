@@ -90,7 +90,7 @@ public class RegexUtils {
 
     /**
      * Just a wrapper
-     * 
+     *
      * @param input
      * @return
      */
@@ -101,7 +101,7 @@ public class RegexUtils {
     /**
      * I could not find any android class that provides checking of an hostnames, thus I am using
      * regex
-     * 
+     *
      * @param input
      * @return return true if input is valid hostname
      */
@@ -119,7 +119,7 @@ public class RegexUtils {
 
     /**
      * Same as above but also allow * and ?
-     * 
+     *
      * @param input
      * @return
      */
@@ -178,9 +178,8 @@ public class RegexUtils {
 
     /**
      * Gets hostname out of tcpdump log line
-     * 
-     * @param input
-     *            one line from dns log
+     *
+     * @param input one line from dns log
      * @return
      */
     static public String getTcpdumpHostname(String input) {
@@ -210,30 +209,30 @@ public class RegexUtils {
         for (int i = 0, is = wildcard.length(); i < is; i++) {
             char c = wildcard.charAt(i);
             switch (c) {
-            case '*':
-                s.append(".*");
-                break;
-            case '?':
-                s.append(".");
-                break;
-            // escape special regex-characters
-            case '(':
-            case ')':
-            case '[':
-            case ']':
-            case '$':
-            case '^':
-            case '.':
-            case '{':
-            case '}':
-            case '|':
-            case '\\':
-                s.append("\\");
-                s.append(c);
-                break;
-            default:
-                s.append(c);
-                break;
+                case '*':
+                    s.append(".*");
+                    break;
+                case '?':
+                    s.append(".");
+                    break;
+                // escape special regex-characters
+                case '(':
+                case ')':
+                case '[':
+                case ']':
+                case '$':
+                case '^':
+                case '.':
+                case '{':
+                case '}':
+                case '|':
+                case '\\':
+                    s.append("\\");
+                    s.append(c);
+                    break;
+                default:
+                    s.append(c);
+                    break;
             }
         }
         s.append('$');

@@ -75,7 +75,8 @@ public class PreferenceHelper {
                 Context.MODE_PRIVATE);
         return prefs.getBoolean(context.getString(R.string.pref_whitelist_redirection_rules_key),
                 Boolean.parseBoolean(context
-                        .getString(R.string.pref_whitelist_redirection_rules_def)));
+                        .getString(R.string.pref_whitelist_redirection_rules_def))
+        );
     }
 
     public static String getRedirectionIP(Context context) {

@@ -184,13 +184,12 @@ public class BaseActivity extends SherlockFragmentActivity {
 
     /**
      * Static helper method to send broadcasts to the BaseActivity and update status in frontend
-     * 
+     *
      * @param context
      * @param title
      * @param text
-     * @param iconStatus
-     *            Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
-     *            StatusCodes
+     * @param iconStatus Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
+     *                   StatusCodes
      */
     public static void setStatusBroadcast(Context context, String title, String text, int iconStatus) {
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
@@ -204,10 +203,9 @@ public class BaseActivity extends SherlockFragmentActivity {
 
     /**
      * Static helper method to send broadcasts to the BaseActivity and enable or disable buttons
-     * 
+     *
      * @param context
-     * @param buttonsDisabled
-     *            to enable buttons apply and revert
+     * @param buttonsDisabled to enable buttons apply and revert
      */
     public static void setButtonsDisabledBroadcast(Context context, boolean buttonsDisabled) {
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
@@ -219,7 +217,7 @@ public class BaseActivity extends SherlockFragmentActivity {
 
     /**
      * Wrapper to set status to enabled
-     * 
+     *
      * @param context
      */
     public static void updateStatusEnabled(Context context) {
@@ -229,7 +227,7 @@ public class BaseActivity extends SherlockFragmentActivity {
 
     /**
      * Wrapper to set status to disabled
-     * 
+     *
      * @param context
      */
     public static void updateStatusDisabled(Context context) {
