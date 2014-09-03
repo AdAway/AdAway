@@ -1,16 +1,192 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
+  <string name="button_exit">Irten</string>
+  <string name="button_apply">Jeitsi agiriak eta ezarri iragarki blokeatzea</string>
+  <string name="button_close">Itxi</string>
+  <string name="button_yes">Bai</string>
+  <string name="button_no">Ez</string>
+  <string name="button_revert">Ezgaitu iragarki blokeatzea</string>
+  <string name="button_add">Gehitu</string>
+  <string name="button_cancel">Ezeztatu</string>
+  <string name="button_revert_text">Berezko hostalari agiria leheneratzen du zure sisteman.</string>
+  <string name="button_save">Gorde</string>
+  <string name="button_webserver_toggle_checked">Web-zerbitzaria ekinean dago</string>
+  <string name="button_webserver_toggle_unchecked">Web-zerbitzaria ez dago ekinean</string>
+  <string name="button_webserver_toggle_text">Abiarazi edo gelditu web-zerbitzaria tokiko-hostalarian blokeatutako hostalari-izen eskabideak galdetzeko.</string>
+  <string name="button_help">Laguntza</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump ekinean dago!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump ez dago ekinean!</string>
+  <string name="button_tcpdump_open">Ireki ohar agiria</string>
+  <string name="button_tcpdump_delete">Ezabatu ohar agiria</string>
   <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Gehitu</string>
+  <string name="checkbox_list_empty">Zerrenda hutsik</string>
+  <string name="checkbox_list_empty_text">Gaiak gehitu ditzakezu ekintza barratik.</string>
+  <string name="checkbox_list_context_delete">Ezabatu</string>
+  <string name="checkbox_list_footer">Zerrenda honetara gai berriak gehitu ondoren AdAway ezarri behar duzu berriro!</string>
+  <string name="checkbox_list_edit_dialog_title">Editatu</string>
+  <string name="checkbox_list_context_title">Editatu Sarrera</string>
+  <string name="checkbox_list_context_edit">Editatu</string>
   <!--Your Lists-->
+  <string name="lists_tab_whitelist">Zerrenda-zuria</string>
+  <string name="lists_tab_blacklist">Zerrenda-beltza</string>
+  <string name="lists_tab_blacklist_short">Beltza</string>
+  <string name="lists_tab_whitelist_short">Zuria</string>
+  <string name="lists_tab_redirection_list_short">Berzuzenketa</string>
+  <string name="lists_tab_redirection_list">Berzuzenketa Zerrenda</string>
+  <string name="list_dialog_url">URL-a:</string>
+  <string name="list_dialog_hostname">Hostalari-izena:</string>
+  <string name="list_dialog_whitelist_hostname">Hostalari-izena:\n(* eta ? ordezhizkik ahalbidetuta daude!)</string>
+  <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
+  <string name="import_dialog">Inportatzen…</string>
+  <string name="export_dialog">Esportatzen…</string>
+  <string name="export_success">Sarrera guztiak zure sd-txarteleko \'adaway-export\' izeneko agirira esportatu dira.</string>
   <!--Status Notifications-->
+  <string name="status_checking">Eguneraketak egiaztatzen…</string>
+  <string name="status_reverting">Reverting…</string>
+  <string name="status_reverting_subtitle">Hostalari agiri estandarra sortzen</string>
+  <string name="status_checking_subtitle">Eguneraketa eskuragarririk dagoen egiaztatzen</string>
+  <string name="status_update_available">Eguneraketa eskuragarri</string>
+  <string name="status_update_available_subtitle">Hostalari agiri berrienak eskuragarri</string>
+  <string name="status_no_connection">Ez dago Internet elkarketarik</string>
+  <string name="status_no_connection_subtitle">Ez dago Internet elkarketa eskuragarririk</string>
+  <string name="status_download_fail">Ez dago iturburu eskuragarririk</string>
+  <string name="status_download_fail_subtitle_new">Ez dago hostalari ituruburu erdietsigarririk!</string>
+  <string name="status_enabled">Gaituta</string>
+  <string name="status_enabled_subtitle">Hostalari agiri berrienak gaituta</string>
+  <string name="status_disabled">Ezgaituta</string>
+  <string name="status_disabled_subtitle">Ezgaituta</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
+  <string name="apply_symlink_missing_title">Symlink missing</string>
+  <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">Ez dago nahikoa toki</string>
+  <string name="apply_private_file_fail">Downloaded file could not be read.</string>
+  <string name="apply_private_file_fail_title">Private file fail</string>
+  <string name="apply_remount_fail">Remounting the partition as read/write failed!</string>
+  <string name="apply_remount_fail_title">Remount failed</string>
+  <string name="apply_copy_fail">Copying of hosts file failed!</string>
+  <string name="apply_copy_fail_title">Kopiatze hutsegitea</string>
+  <string name="apply_success_subtitle">Applied hosts sources:</string>
+  <string name="apply_success_title">Ongi ezarri dira</string>
+  <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
+  <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
+  <string name="apply_symlink_successful_title">Symlink creation successful</string>
+  <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
+  <string name="apply_symlink_fail_title">Symlotura sortze hutsegitea</string>
+  <string name="apply_help">Please read Help for more information.</string>
+  <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) and remove the value in the proxy field.</string>
+  <string name="apply_apn_proxy_title">APN proxya ezarrita!</string>
+  <string name="no_connection">Interneteko elkarketa ez dabil.</string>
+  <string name="no_connection_title">Ez dago Elkarketarik</string>
+  <string name="download_dialog">Jeisten…</string>
+  <string name="apply_dialog">Ezartzen…</string>
+  <string name="apply_dialog_lists">Zerrenda-beltza eta Zerrenda-zuria ezartzen</string>
+  <string name="apply_dialog_hostnames">Hostalari agiriak aztertzen eta batzen</string>
+  <string name="apply_dialog_hosts">Hostalari agiria eraikitzen</string>
+  <string name="apply_dialog_apply">Hostalari agiria ezartzen</string>
+  <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
+  <string name="apply_fail_title">Ezartze hutsegitea</string>
+  <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
+  <string name="revert_problem_title">Reverting failed!</string>
+  <string name="download_fail_title">Jeisketa hutsegitea</string>
+  <string name="no_private_file">Agiri pribatua ezin da sortu.</string>
+  <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
   <!--Other Dialogs-->
+  <string name="no_root_title">Beharrezkoa Android errotua</string>
+  <string name="no_url">Ez da baliozko URL bat!</string>
+  <string name="hosts_add_dialog">Sartu hostalari agirirako URL-a:</string>
+  <string name="no_hostname">This is not a valid hostname!</string>
+  <string name="no_hostname_title">Improperly formatted hostname</string>
+  <string name="no_ip">Hau ez da baliozko IP bat!</string>
+  <string name="no_ip_title">Improperly formatted IP</string>
+  <string name="reboot_never_reboot">Inoiz ez berrabiarazi eta ez erakutsi galdera hau berriro!</string>
+  <string name="loading">Gertatzen…</string>
   <!--Menu entries-->
+  <string name="menu_refresh">Berritu</string>
+  <string name="menu_add">Gehitu</string>
+  <string name="menu_scan_adware">Mihatu Adware bila</string>
+  <string name="menu_hosts_sources">Hostalari iturburuak</string>
+  <string name="menu_tcpdump">Oharreratu DNS Eskabideak</string>
+  <string name="menu_help">Laguntza</string>
+  <string name="menu_lists">Zure Zerrendak</string>
+  <string name="menu_show_hosts_file">Ireki hostalari agiria</string>
+  <string name="menu_import">Inportatu Zerrenda Guztiak</string>
+  <string name="menu_export">Esportatu Zerrenda Guztiak</string>
+  <string name="menu_preferences">Hobespenak</string>
   <!--Help-->
+  <string name="help_tab_about">Honi buruz</string>
+  <string name="help_tab_donate">Dirulaguntza</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">SEG</string>
+  <string name="help_tab_problems">Arazoak</string>
+  <string name="help_tab_changelog">Aldaketa-oharra</string>
+  <string name="help_about_version">Bertsioa:</string>
+  <string name="help_donation_paypal_item">AdAway Dirulaguntza</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_start">Hasi mihatzen</string>
+  <string name="scan_adware_empty">Ez da Adware aplikazio kaltegarririk aurkitu!</string>
   <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Tokikoa:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">ez dago eskuragarri</string>
   <!--Other-->
+  <string name="app_subtitle">Iragarki blokeatzailea</string>
+  <string name="no_text_editor_title">Ez dago idazki editatzailerik ezarrita</string>
+  <string name="no_file_manager_title">Ez dago agiri kudeatzailerik ezarrita</string>
   <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Ohar agiria ezabatuta!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Hostalari-izena zure Zerrenda-beltzera gehitu da!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Hostalari-izena zure Zerrenda-zurira gehitu da!</string>
+  <string name="tcpdump_log_context_blacklist">Gehitu zure Zerrenda-beltzera</string>
+  <string name="tcpdump_log_context_whitelist">Gehitu zure Zerrenda-zurira</string>
+  <string name="tcpdump_log_context_browser">Ireki Nabigatzailean</string>
+  <string name="tcpdump_log_empty">Ohar agiria hutsik dago!</string>
+  <string name="tcpdump_log_footer">Sakatze luzea hostalari-izen batean zure Zerrenda-Beltzera edo Zurira gehitzeko!</string>
   <!--Preferences-->
+  <string name="pref_download">Hobespen Orokorrak</string>
+  <string name="pref_hosts">Hostalari Agiria</string>
+  <string name="pref_redirection_ip">Berzuzenketa IP-a</string>
+  <string name="pref_update_check">Egiaztatu eguneraketak</string>
+  <string name="pref_apply_method">Xede hostalari agiria</string>
+  <string name="pref_apply_method_summary">Ezarpen hau aldatu aurretik, irakurri bere eginkizunari buruz Laguntza.</string>
+  <string name="pref_redirection_ip_summary">Blokeatutako hostalari-izen guztiak IP helbide honetara berzuzentzen dira.</string>
+  <string name="pref_header_preferences">Hobespenak</string>
+  <string name="pref_header_preferences_summary">AdAway hobespen orokorrak</string>
+  <string name="pref_never_reboot">Ezkutatu berrabiarazte elkarrizketa</string>
+  <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
+  <string name="pref_webserver_on_boot">Hasi web-zerbitzaria abiatzerakoan</string>
+  <string name="pref_webserver_on_boot_summary">Hasi web-zerbitzaria Abiaraztean, tokiko IP helbidean aditzen</string>
+  <string name="pref_webserver_enabled">Gaitu web-zerbitzaria</string>
+  <string name="pref_webserver">Tokiko Web-zerbitzaria</string>
+  <string name="pref_custom_target">Norbere xedea</string>
+  <string name="pref_custom_target_summary">Bakarrik erabiltzen da xede hostalari agiria norbere xede bezala ezartzen bada</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Norbere xedea</item>
+  </string-array>
+  <string name="pref_update_check_summary">Egiaztatu eguneraketak AdAway abiatzean</string>
+  <string name="pref_sdcard_problem">Ezaugarri honek ez du zuzen lan egiten AdAway sd-txartelean ezarrita dagoenean!</string>
+  <string name="pref_background">Barreneko Zerbitzuak</string>
+  <string name="pref_update_check_daily">Egiaztatu eguneraketak egunero</string>
+  <string name="pref_update_check_daily_summary">Egiaztatu eguneraketak egunero barrenean jakinarazpenekin</string>
+  <string name="pref_automatic_update_daily">Berezgaitasunezko eguneraketa</string>
+  <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
+  <string name="pref_update_only_on_wifi">Eguneratu Wifi bidez bakarrik</string>
+  <string name="pref_update_only_on_wifi_summary">Exekutatu barreneko eguneraketak wifi sarera elkartutakoan bakarrik.</string>
+  <string name="pref_whitelist_redirection_rules">Ahalbidetu berzuzenketak eta zerrenda-zuria</string>
+  <string name="pref_debug">Garbiketa</string>
+  <string name="pref_enable_debug">Garbiketa Oharra</string>
+  <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>
 </resources>
