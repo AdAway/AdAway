@@ -1,7 +1,6 @@
 apply plugin: 'android'
 
 dependencies {
-    compile fileTree(dir: 'libs', includes: ['*.jar'], excludes: ['android-support-v4.jar'])
     //compile 'com.android.support:support-v4:18.0.+' // already in actionbarsherlock
     compile project(':libraries:Donations')
     compile project(':libraries:actionbarsherlock')
@@ -11,7 +10,7 @@ dependencies {
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.1"
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 7
