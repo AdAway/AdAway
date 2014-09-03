@@ -415,8 +415,10 @@ public class ResultHelper {
         if (success) {
             BaseActivity.updateStatusEnabled(context);
 
-            Utils.rebootQuestion(context, R.string.apply_symlink_successful_title,
-                    R.string.apply_symlink_successful);
+            if (!PreferenceHelper.getNeverReboot(context)) {
+                Utils.rebootQuestion(context, R.string.apply_symlink_successful_title,
+                        R.string.apply_symlink_successful);
+            }
         } else {
             BaseActivity.updateStatusDisabled(context);
 
