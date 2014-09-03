@@ -72,7 +72,7 @@
   <string name="apply_copy_fail">Thất bại khi chép tệp hosts</string>
   <string name="apply_copy_fail_title">Sao chép thất bại</string>
   <string name="apply_success_title">Áp dụng thành công</string>
-  <string name="apply_success_dialog">Áp dụng thành công.\nCó thể cần phải khởi động lại máy để thay đổi có hiệu lực.\n\nBạn có muốn khởi động lại máy không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
+  <string name="apply_success_dialog">Áp dụng thành công.\nCó thể cần phải reboot lại máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
   <string name="apply_symlink_successful">Đã tạo symlink thành công.\nCó thể cần phải reboot máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!) </string>
   <string name="apply_symlink_successful_title">Tạo symlink thành công</string>
   <string name="apply_symlink_fail">Không thể tạo Symlink bằng Android.\nPhần lớn nguyên nhân do \'tính năng\' gọi là S-ON trên thiết bị HTC!\n\nGiải pháp là boot  phone vào chế độ recovery và tạo symlink với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu không được hãy tìm kiếm trên Internet chuỗi S-OFF và tên thiết bị của bạn.</string>
@@ -177,12 +177,6 @@
   <string name="pref_webserver">Websever cục bộ</string>
   <string name="pref_custom_target">Đích tự chọn</string>
   <string name="pref_custom_target_summary">Chỉ dùng nếu tệp host đích đặt là đích tự chọn</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Đích tự chọn</item>
-  </string-array>
   <string name="pref_update_check_summary">Tìm phiên bản mới khi mở AdAway</string>
   <string name="pref_sdcard_problem">Tính năng này sẽ không làm việc đúng khi AdAway được cài trên thẻ nhớ ngoài</string>
   <string name="pref_background">Dịch vụ chạy nền</string>

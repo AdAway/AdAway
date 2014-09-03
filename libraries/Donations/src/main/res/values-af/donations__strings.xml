@@ -2,7 +2,6 @@
 <resources>
   <string name="donations__button_close">Maak toe</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Vind jy hierdie program waardevol?\nOndersteun dit deur \'n donasie aan die programmeerder te stuur!</string>
   <string name="donations__flattr_description">Flattr neem 10% as \'n maandelikse fooi</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">In-Program Donasies word nie ondersteun nie.</string>
@@ -13,7 +12,6 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Jy kan besluit hoeveel jy wil skenk nadat jy die knoppie geklik het!</string>
   <string name="donations__thanks_dialog_title">Dankie!</string>
-  <string name="donations__thanks_dialog">Dankie vir jou skenking!\nEk waardeer dit opreg!</string>
   <string name="donations__alert_dialog_title">\'n Fout het ingesluip</string>
   <string name="donations__alert_dialog_no_browser">Geen blaaier gevind om webwerf mee oop te maak nie!</string>
 </resources>

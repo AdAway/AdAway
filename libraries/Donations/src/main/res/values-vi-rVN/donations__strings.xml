@@ -2,7 +2,6 @@
 <resources>
   <string name="donations__button_close">Đóng</string>
   <string name="donations__flattr">Đánh giá</string>
-  <string name="donations__description">Bạn có thấy ứng này hữu ích?\nHãy hỗ trợ việc phát triển của phần mềm bằng cách ủng hộ tài chính!</string>
   <string name="donations__flattr_description">Đánh giá cao mất 10% như phí tháng! </string>
   <string name="donations__google_android_market">CH Google Play</string>
   <string name="donations__google_android_market_not_supported">Không hỗ trợ chức năng ủng hộ trong ứng dụng. CH Google Play có hoạt động chính xác?</string>

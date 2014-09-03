@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -40,7 +40,8 @@
   <string name="lists_tab_redirection_list">Список переадресаций</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Имя источника:</string>
-  <string name="list_dialog_whitelist_hostname">Имя хоста:\n(допускается использование символов * и ?)</string>
+  <string name="list_dialog_whitelist_hostname">Имя хоста:
+(Допускаются подстановочные символы * и ?)</string>
   <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
   <string name="import_dialog">Импорт...</string>
   <string name="export_dialog">Экспорт...</string>
@@ -61,9 +62,12 @@
   <string name="status_disabled">Выключено</string>
   <string name="status_disabled_subtitle">Выключено</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Ссылка на ваш /system/etc/hosts неправильная или не существует! AdAway не будет работать, если не указать правильный файл.\n\nВы хотите попробовать создать ссылку?</string>
+  <string name="apply_symlink_missing">Ссылка на ваш /system/etc/hosts неправильная или не существует! AdAway не будет работать, если не указать правильный файл.
+
+Вы хотите попробовать создать ссылку?</string>
   <string name="apply_symlink_missing_title">Ссылка отсутствует</string>
-  <string name="apply_not_enough_space">Не хватает места на разделе!\nПопробуйте изменить путь к файлу в настройках на /data/data/hosts.</string>
+  <string name="apply_not_enough_space">Не хватает места на разделе!
+Попробуйте изменить путь к файлу в настройках на /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Не хватает места</string>
   <string name="apply_private_file_fail">Загруженный файл не может быть прочитан.</string>
   <string name="apply_private_file_fail_title">Сбой файла</string>
@@ -73,13 +77,25 @@
   <string name="apply_copy_fail_title">Копирование не удалось</string>
   <string name="apply_success_subtitle">Используемые источники хостов:</string>
   <string name="apply_success_title">Применение прошло успешно</string>
-  <string name="apply_success_dialog">Применение прошло успешно.\nВозможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.\n\nВы хотите перезагрузить устройство?\n(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
-  <string name="apply_symlink_successful">Ссылка создана успешно.\nВозможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.\nВы хотите перегрузить Android?\n(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
+  <string name="apply_success_dialog">Применение прошло успешно.
+Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
+
+Вы хотите перегрузить Android?
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
+  <string name="apply_symlink_successful">Ссылка создана успешно.
+Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
+
+Вы хотите перегрузить Android?
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
   <string name="apply_symlink_successful_title">Ссылка создана успешно</string>
-  <string name="apply_symlink_fail">Android не смог создать ссылку. Возможно, это из-за особенности телефонов, например, HTC, называемой S-ON! Решение заключается в загрузке телефона в режиме восстановления и создания ссылки при помощи \'ln -s /data/data/hosts /system/etc/hosts\'. Если это не срабатывает, то необходимо искать информацию в интернете по S-OFF или S-ON Enabled и вашему телефону.</string>
+  <string name="apply_symlink_fail">Android не смог создать ссылку.
+Возможно, это из-за особенности телефонов HTC, называемой S-ON!
+
+Решение заключается в загрузке телефона в режиме восстановления и создания ссылки при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.
+
+Если это не срабатывает, то необходимо искать информацию в интернете по S-OFF и вашему телефону.</string>
   <string name="apply_symlink_fail_title">Ошибка создания ссылки</string>
   <string name="apply_help">Пожалуйста, читайте Справку для получения большей информации.</string>
-  <string name="apply_apn_proxy">В настройках APN указан прокси сервер!\nAdAway не будет работать в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (в Android 4: Беспроводные сети -&gt; Ещё... -&gt; Мобильная сеть -&gt; Точки доступа APN) и удалить значение в поле Прокси.</string>
   <string name="apply_apn_proxy_title">Используемая точка доступа работает через прокси-сервер!</string>
   <string name="no_connection">Отсутствует подключение к интернет.</string>
   <string name="no_connection_title">Нет соединения</string>
@@ -89,9 +105,14 @@
   <string name="apply_dialog_hostnames">Разбор и объединение файлов со списками хостов</string>
   <string name="apply_dialog_hosts">Построение файла hosts</string>
   <string name="apply_dialog_apply">Применение файла hosts</string>
-  <string name="apply_fail">Не удалось применить файл hosts на вашей системе!\nПопробуйте изменить путь к файлу hosts в настройках на /data/data/hosts.</string>
+  <string name="apply_fail">Не удалось применить файл Hosts на вашей системе!
+Попробуйте изменить путь к файлу Hosts в настройках на /data/data/hosts.</string>
   <string name="apply_fail_title">Применение не удалось</string>
-  <string name="revert_successful">Вы вернулись к файлу hosts по-умолчанию.\nВозможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.\n\nВы хотите перегрузить Android?\n(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
+  <string name="revert_successful">Вы вернулись к файлу Hosts по-умолчанию.
+Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
+
+Вы хотите перегрузить Android?
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
   <string name="revert_successful_title">Возврат произошел успешно</string>
   <string name="revert_problem">Восстановление не удалось по неизвестным причинам.</string>
   <string name="revert_problem_title">Восстановление не удалось!</string>
@@ -100,7 +121,10 @@
   <string name="no_private_file">Файл не может быть создан.</string>
   <string name="no_private_file_title">Не удалось создать файл</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Либо программный файл SuperUser не найден, либо AdAway не были предоставлены разрешения root.\nЭто может произойти, когда на устройстве нет прав Root.\nО том, как получить права Root на устройстве вы можете найти на www.cyanogenmod.com,  4pda.ru или других веб-сайтах по Android.</string>
+  <string name="no_root_description">Либо программный файл SuperUser не найден, либо AdAway не были предоставлены разрешения root.
+
+Это может произойти, когда на устройстве нет прав Root.
+О том, как получить права Root на устройстве вы можете найти на www.cyanogenmod.com или других веб-сайтах по Android.</string>
   <string name="no_root_title">Для Android требуются права Root</string>
   <string name="no_url">Это недопустимый URL!</string>
   <string name="no_url_title">Неправильно отформатированный URL</string>
@@ -151,9 +175,13 @@
   <!--Other-->
   <string name="app_subtitle">Блокировщик рекламы</string>
   <string name="no_text_editor_title">Не установлен текстовый редактор</string>
-  <string name="no_text_editor">Не найден текстовый редактор для открытия файла hosts. Вы можете установить редактор Jota или другой текстовый редактор чтобы это исправить.\n\nВы хотите установить редактор Jota?</string>
+  <string name="no_text_editor">Не найден текстовый редактор для открытия файла Hosts. Вы можете установить редактор Jota или другой текстовый редактор чтобы это исправить.
+
+Вы хотите установить редактор Jota?</string>
   <string name="no_file_manager_title">Не установлен файловый менеджер</string>
-  <string name="no_file_manager">Нет файлового менеджера для открытия файла. Вы можете установить OI File Manager или другой файловый менеджер чтобы это исправить.\nВы хотите установить OI File Manager?</string>
+  <string name="no_file_manager">Нет файлового менеджера для открытия файла. Вы можете установить OI File Manager или другой файловый менеджер чтобы это исправить.
+
+Вы хотите установить OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Файл журнала удален!</string>
   <string name="toast_tcpdump_added_to_blacklist">Имя хоста было добавлено в Черный список!</string>
@@ -182,12 +210,6 @@
   <string name="pref_webserver">Локальный Веб-сервер</string>
   <string name="pref_custom_target">Пользовательские настройки</string>
   <string name="pref_custom_target_summary">Используется только в случае, когда расположение файла hosts задано пользователем</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Задано пользователем</item>
-  </string-array>
   <string name="pref_update_check_summary">Проверять обновления при старте AdAway</string>
   <string name="pref_sdcard_problem">Если AdAway установлен на карту памяти, то эта функция будет работать неправильно!</string>
   <string name="pref_background">Фоновый режим</string>

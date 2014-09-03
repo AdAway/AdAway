@@ -18,8 +18,8 @@
 <li>U Clockwork recoveryju koristeći tipku za stišavanje dođite do stavke "Partitions menu" te je odaberite pomoću trackpada.</li>
 <li>Odaberite <i>mount /system</i>, <i>mount /sdcard</i> i <i>mount /data</i>.</li>
 <li>Uključite USB kabel i otvorite komandnu liniju na svom PC-u.</li>
-<li>Otvorite adb shell i upišite <tt>ln -s /data/hosts /system/etc/hosts</tt> (To stvara simboličku vezu koja omogučava da AdAway uređuje fajlove domaćina spremljene u <tt>/data</tt> pritom omogučujući OS da koristi te fajlove kao da su spremljeni u <tt>/system</tt>.)</li>
-<li>Ponovno pokrenite Vaš uređaj i postavite <i>Target hosts file</i> na <i>/data/hosts</i> u opcijama AdAwaya.</li>
+<li>Otvorite adb shell i upišite <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (To stvara simboličku vezu koja omogučava da AdAway uređuje fajlove domaćina spremljene u <tt>/data</tt> pritom omogučujući OS da koristi te fajlove kao da su spremljeni u <tt>/system</tt>.)</li>
+<li>Ponovno pokrenite Vaš uređaj i postavite <i>Target hosts file</i> na <i>/data/data/hosts</i> u opcijama AdAwaya.</li>
 <li>AdAway bi sada trebao raditi.</li>
 </ol>
 </body>

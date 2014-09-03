@@ -20,8 +20,8 @@
 <li>A clockwork recoveryben mozogjon le a hangerő le gombbal a "partitions" menüre és érintse meg a kijelzőt a kiválasztáshoz.</li>
 <li>Válassza a <i>mount/system</i>, <i>mount/sdcard</i> és a <i>mount/data</i> lehetőségeket.</li>
 <li>Csatlakoztassa az USB összekötő vezetéket és nyisson meg egy parancssort a gépén.</li>
-<li>Lépjen be az adb shell-be, és gépelje be ezt: <tt>ln -s /data/hosts /system/etc/hosts</tt> (ez egy szimbolikus linket hoz létre, mely engedélyezi AdAway-nek, hogy a hosts fájlt szerkessze a <tt>/data</tt>-ban, miközben az OS-nak úgy engedi a fájl használatát, mintha a <tt>/system</tt>-ben lenne.)</li>
-<li>Indítsa újra az eszközt és állítsa be a <i>Cél host fájl</i>t <i>/data/hosts</i> értékre az AdAway Lehetőségek részénél.</li>
+<li>Lépjen be az adb shell-be, és gépelje be ezt: <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (ez egy szimbolikus linket hoz létre, mely engedélyezi AdAway-nek, hogy a hosts fájlt szerkessze a <tt>/data</tt>-ban, miközben az OS-nak úgy engedi a fájl használatát, mintha a <tt>/system</tt>-ben lenne.)</li>
+<li>Indítsa újra az eszközt és állítsa be a <i>Cél host fájl</i>t <i>/data/data/hosts</i> értékre az AdAway Lehetőségek részénél.</li>
 <li>Az AdAway alkalmazásnak így már működnie kell.</li>
 </ol>
 </body>

@@ -1,27 +1,27 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Ukončit</string>
-  <string name="button_apply">Stáhnout soubory a aplikovat blokování reklamy</string>
+  <string name="button_apply">Stáhnout a aplikovat</string>
   <string name="button_close">Zavřít</string>
   <string name="button_yes">Ano</string>
   <string name="button_no">Ne</string>
   <string name="button_revert">Vypnout blokování reklam</string>
   <string name="button_add">Přidat</string>
   <string name="button_cancel">Zrušit</string>
-  <string name="button_apply_text">Všechny soubory hostitelů z vybraných zdrojů jsou staženy, sloučeny s vašimi vlastními seznamy a instalovány jako jeden soubor hostitelů ve vašem systému.</string>
-  <string name="button_revert_text">Obnoví výchozí soubor hostitelů ve vašem systému.</string>
+  <string name="button_apply_text">Všechny soubory Hosts z vybraných zdrojů budou staženy, sloučeny s vašimi vlastními seznamy a instalovány do vašeho systému jako jeden soubor Hosts.</string>
+  <string name="button_revert_text">Obnoví výchozí soubor Hosts ve vašem systému.</string>
   <string name="button_save">Uložit</string>
   <string name="button_webserver_toggle_checked">Webserver běži</string>
   <string name="button_webserver_toggle_unchecked">Webserver neběží</string>
   <string name="button_webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na blokované hostitele.</string>
   <string name="button_help">Pomoc</string>
-  <string name="button_tcpdump_text">Tcpdump je nástroj pro monitorování DNS požadavků a jejich protokolování do souboru. Můžete ho spustit na pozadí, spustit aplikace zobrazující reklamy a potom analyzovat jejich DNS požadavky v souboru protokolu. Možné servery poskytující reklamní obsah si pak můžete přidat na svou černou listinu.</string>
+  <string name="button_tcpdump_text">Tcpdump je nástroj pro monitorování DNS požadavků a jejich logování do souboru. Můžete ho spustit na pozadí, spustit aplikace zobrazující reklamy a potom analyzovat jejich DNS požadavky v logu. Adresy možných serverů poskytujících reklamní obsah si pak můžete přidat na svou černou listinu.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump běží!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump neběží!</string>
-  <string name="button_tcpdump_open">Otevřít soubor protokolu</string>
-  <string name="button_tcpdump_delete">Smazat soubor protokolu</string>
+  <string name="button_tcpdump_open">Otevřít log</string>
+  <string name="button_tcpdump_delete">Vymazat log</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Přidat</string>
   <string name="checkbox_list_empty">Prázdný seznam</string>
@@ -40,7 +40,7 @@
   <string name="lists_tab_redirection_list">Seznam přesměrování</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Název hostitele:</string>
-  <string name="list_dialog_whitelist_hostname">Název hostitele:\n(Jsou povoleny divoké karty * a ?)</string>
+  <string name="list_dialog_whitelist_hostname">Název hostitele: (divoké karty * a ? jsou povoleny!)</string>
   <string name="list_dialog_ip">IP (IPv4 nebo IPv6):</string>
   <string name="import_dialog">Importování...</string>
   <string name="export_dialog">Exportování...</string>
@@ -61,9 +61,9 @@
   <string name="status_disabled">Zakázáno</string>
   <string name="status_disabled_subtitle">Zakázáno</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symbolický odkaz z vašeho zdroje na /system/etc/hosts buď neexistuje, nebo je nesprávný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
+  <string name="apply_symlink_missing">Symbolický odkaz (symlink) z vašeho cíle na /system/etc/hosts buď neexistuje, nebo je špatný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
   <string name="apply_symlink_missing_title">Chybějící symbolický odkaz</string>
-  <string name="apply_not_enough_space">Nedostatek místa v oddílu!\nZkuste v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
+  <string name="apply_not_enough_space">V oddílu není dostatek volného místa!\nZkuste v nastavení změnit cílový soubor Hosts na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Nedostatek místa</string>
   <string name="apply_private_file_fail">Stažený soubor nelze přečíst.</string>
   <string name="apply_private_file_fail_title">Soukromý soubor selhal</string>
@@ -73,13 +73,13 @@
   <string name="apply_copy_fail_title">Kopírování selhalo</string>
   <string name="apply_success_subtitle">Použité zdroje soborů hostitelů:</string>
   <string name="apply_success_title">Aplikování úspěšné</string>
-  <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
-  <string name="apply_symlink_successful">Symbolický odkaz byl úspěšně vytvořen.\nPro aktivaci změn může být potřeba restartovat vaše zařízení.\n\nChcete restartovat zařízení?\n(Pro zamezení ztrátě dat se prosím ujistěte, že žádná aplikace právě nepoužívá SD kartu!)</string>
+  <string name="apply_success_dialog">Aplikování se podařilo!\nPro aktivaci změn může být nutné restartovat vaše zařízení.\n\nChcete teď zařízení restartovat?\n(Ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu, abyste předešli ztrátě dat!)</string>
+  <string name="apply_symlink_successful">Symbolický odkaz byl úspěšně vytvořen.\nPro aktivaci změn může být nutné restartovat vaše zařízení.\n\nChcete teď zařízení restartovat?\n(Ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu, abyste předešli ztrátě dat!)</string>
   <string name="apply_symlink_successful_title">Symbolický odkaz úspěšně vytvořen</string>
-  <string name="apply_symlink_fail">Symbolický odkaz nemohl být vytvořen.\nTo se většinou stává na telefonech HTC díky vlastnosti zvané S-ON.\n\nŘešením je restartovat telefon do režimu obnovy a vytvořit symbolický odkaz příkazem \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nPokud to nepomůže, pak zkuste na intenetu hledat frázi \'S-OFF\' a váš telefon.</string>
+  <string name="apply_symlink_fail">Symbolický odkaz nemohl být vytvořen.\nTo se většinou stává na telefonech HTC kvůli \'funkci\' zvané S-ON. Řešením je restartovat telefon do režimu obnovy a vytvořit symbolický odkaz příkazem \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nPokud to nepomůže, pak zkuste na intenetu vyhledat frázi \'S-OFF\' a váš telefon.</string>
   <string name="apply_symlink_fail_title">Vytvoření symbolického odkazu selhalo</string>
   <string name="apply_help">Pro více informací si prosím přečtěte nápovědu.</string>
-  <string name="apply_apn_proxy">Na vašem zařízení je nastavena APN proxy!\nAdAway nebude správně fungovat při připojení přes mobilní sítě, jako je 3G. Můžete deaktivovat proxy v nastavení APN (Na Android 4: Bezdrátové připojení a sítě -&gt; Další… -&gt; Mobilní sítě -&gt; Názvy přístupových bodů) a smazat záznam v poli proxy.</string>
+  <string name="apply_apn_proxy">Na vašem zařízení je nastaven APN proxy!\nAdAway nebude správně fungovat při připojení přes mobilní sítě, jako je 3G. Proxy můžete deaktivovat v nastavení APN (Na Androidu 4: Bezdrátové připojení a sítě -&gt; Další… -&gt; Mobilní sítě -&gt; Názvy přístupových bodů) a smazat záznam v poli proxy.</string>
   <string name="apply_apn_proxy_title">APN proxy nastaven!</string>
   <string name="no_connection">Připojení k internetu nefunguje.</string>
   <string name="no_connection_title">Žádné připojení</string>
@@ -89,9 +89,9 @@
   <string name="apply_dialog_hostnames">Parsování a slučování souborů hostitelů</string>
   <string name="apply_dialog_hosts">Vytváření souborů hostitelů</string>
   <string name="apply_dialog_apply">Aplikování souboru hostitelů</string>
-  <string name="apply_fail">Při aplikaci souboru hostitelů došlo k chybě!\nZkus v nastavení změnit cílový soubor hostitelů  na /data/data/hosts.</string>
+  <string name="apply_fail">Při aplikaci souboru Hosts došlo k chybě!\nZkus v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
   <string name="apply_fail_title">Aplikování se nezdařilo</string>
-  <string name="revert_successful">Vrátil jsi zpátky výchozí soubor hostitelů.\nPro aktivaci změn může být potřeba restartovat vaše zařízení.\n\nChcete restartovat zařízení?\n(Pro zamezení ztrátě dat se prosím ujistěte, že žádná aplikace právě nepoužívá SD kartu!)</string>
+  <string name="revert_successful">Obnovili jste výchozí soubor Hosts.\nPro aktivaci změn může být nutné restartovat vaše zařízení.\n\nChcete teď zařízení restartovat?\n(Ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu, abyste předešli ztrátě dat!)</string>
   <string name="revert_successful_title">Návrat úspěšný</string>
   <string name="revert_problem">Obnova souboru hostitelů z neznámých příčin selhala!</string>
   <string name="revert_problem_title">Obnova souboru hostitelů selhala!</string>
@@ -100,7 +100,7 @@
   <string name="no_private_file">Soukromý soubor nelze vytvořit.</string>
   <string name="no_private_file_title">Vytvoření soukromého souboru selhalo</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Buď nelze nalézt binárku su, nebo jste aplikaci AdAway neudělili root oprávnění.\n\nToto se může stát, pokud zařízení nemá root přístup.\nInformace jak získat root oprávnění naleznete na www.cyanogenmod.com, nebo jiných stránkách o Androidu.</string>
+  <string name="no_root_description">Buď nelze nalézt binárku su, nebo jste aplikaci AdAway neudělili root oprávnění.\n\nToto se může stát, pokud zařízení není rootnuté.\nInformace, jak zařízení rootnout, naleznete na www.cyanogenmod.com, nebo jiných stránkách o Androidu.</string>
   <string name="no_root_title">Vyžaduje rootnutý Android</string>
   <string name="no_url">Toto není platní URL adresa!</string>
   <string name="no_url_title">Chybný formát URL</string>
@@ -151,9 +151,9 @@
   <!--Other-->
   <string name="app_subtitle">Blokování reklam</string>
   <string name="no_text_editor_title">Není nainstalován textový editor</string>
-  <string name="no_text_editor">Nenalezen žádný textový editor pro otevření soboru hostitelů. Můžeš si nainstalovat Jota nebo nějaký jiný textový editor, který toto zvládne.\n\nChceš si nainstalovat Jota?</string>
+  <string name="no_text_editor">Nepodařilo se najít žádný textový editor pro otevření soboru Hosts. Můžete si nainstalovat Jota nebo jakýkoliv jiný textový editor, který toto zvládne.\n\nChcete nainstalovat Jota?</string>
   <string name="no_file_manager_title">Správce souborů není nainstalován</string>
-  <string name="no_file_manager">Nenalezen žádný správce souborů pro otevření soborů. Můžeš si nainstalovat OI File Manager nebo nějakého jiného správce souborů, který toto zvládne.\n\nChceš si nainstalovat OI File Manager?</string>
+  <string name="no_file_manager">Nepodařilo se najít žádného správce souborů. Můžete si nainstalovat OI File Manager nebo jakéhokoliv jiného správce souborů, který toto zvládne.\n\nChcete nainstalovat OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Soubor protokolu odstraněn!</string>
   <string name="toast_tcpdump_added_to_blacklist">Jméno hostitele bylo přidáno na vaši černou listinu!</string>
@@ -182,12 +182,6 @@
   <string name="pref_webserver">Lokální webserver</string>
   <string name="pref_custom_target">Vlastní cíl</string>
   <string name="pref_custom_target_summary">Použito pouze, pokud je cílový soubor hostitelů nastaven na vlastní cíl</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Custom target</item>
-  </string-array>
   <string name="pref_update_check_summary">Zkontrolovat aktualizace při startu AdAway</string>
   <string name="pref_sdcard_problem">Tato funkce nebude pracovat správně, pokud je AdAway instalován na SD kartě!</string>
   <string name="pref_background">Služby na pozadí</string>

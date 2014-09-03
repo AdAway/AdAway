@@ -2,7 +2,6 @@
 <resources>
   <string name="donations__button_close">Tanca</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Has trobat útil aquesta aplicació?\nAjuda al seu desenvolupament enviant una donació al creador!</string>
   <string name="donations__flattr_description">Flattr té unes comissions mensuals del deu percent!</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">No es pot fer donatius des de l\'aplicació.</string>
@@ -13,7 +12,6 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Podeu escollir la quantitat del vostre donatiu tocant aquest botó.</string>
   <string name="donations__thanks_dialog_title">Gràcies!</string>
-  <string name="donations__thanks_dialog">Gràcies per fer el donatiu!⏎ N\'estic molt agraït!</string>
   <string name="donations__alert_dialog_title">S\'ha produït un error</string>
   <string name="donations__alert_dialog_no_browser">No s\'ha trobat cap navegador per obrir el lloc web!</string>
 </resources>

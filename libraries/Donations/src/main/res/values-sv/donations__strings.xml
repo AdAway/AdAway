@@ -2,7 +2,6 @@
 <resources>
   <string name="donations__button_close">Avsluta</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Tycker du att appen är användbar?\nStöd utvecklingen genom att donera till utvecklaren!</string>
   <string name="donations__flattr_description">Flattr tar 10% som månadskostnad</string>
   <string name="donations__google_android_market">Google Play Butik</string>
   <string name="donations__google_android_market_not_supported_title">In-App-donationer stödjs inte.</string>
@@ -13,7 +12,6 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Du kan välja hur mycket du vill donera efter du har tryckt på knappen!</string>
   <string name="donations__thanks_dialog_title">Tack!</string>
-  <string name="donations__thanks_dialog">Tack för donationen!\nDet uppskattas verkligen!</string>
   <string name="donations__alert_dialog_title">Något gick fel</string>
   <string name="donations__alert_dialog_no_browser">Hittade ingen webb-läsare till att öppna en hemsida!</string>
 </resources>

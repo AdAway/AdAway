@@ -2,7 +2,6 @@
 <resources>
   <string name="donations__button_close">Luk</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Finder du denne app brugbar?\nSupporter dets udvikling ved at sende en donation til udvikleren!</string>
   <string name="donations__flattr_description">Flattr tager 10% i månedlig gebyr!</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">In-App donationer understøttes ikke.</string>
@@ -13,7 +12,6 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Du kan vælge hvor meget du vil donere efter du har trykket på knappen</string>
   <string name="donations__thanks_dialog_title">Tak!</string>
-  <string name="donations__thanks_dialog">Tak fordi du donerede!\nJeg sætter virkelig pris på dette!</string>
   <string name="donations__alert_dialog_title">En fejl opstod</string>
   <string name="donations__alert_dialog_no_browser">Ingen browser blev fundet til at åbne en webside!</string>
 </resources>

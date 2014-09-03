@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -61,9 +61,8 @@
   <string name="status_disabled">לא פעיל</string>
   <string name="status_disabled_subtitle">לא פעיל</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">קישור סימבולי מ /data/data/hosts אל /system/etc/hosts לא קיים! AdAway אינה יכולה לעבוד במצב זה.\n\nאתה רוצה לנסות ליצור כעת קישור סימבולי?</string>
   <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
-  <string name="apply_not_enough_space">אין מספיק שטח איחסון בזיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
+  <string name="apply_not_enough_space">אין מספיק שטח איחסון בדיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">אין מספיק זיכרון</string>
   <string name="apply_private_file_fail">לא ניתן לקרוא מהקובץ שהתקבל</string>
   <string name="apply_private_file_fail_title">החלת קובץ פרטי נכשל</string>
@@ -71,8 +70,9 @@
   <string name="apply_remount_fail_title">הענקת הרשאות נכשלה</string>
   <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
   <string name="apply_copy_fail_title">העתקה נכשלה</string>
+  <string name="apply_success_subtitle">מקורות:</string>
   <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
-  <string name="apply_success_dialog">הצלחת להוסיף מקור בהצלחה מומלץ לעשות ריסט למכשיר בשביל שההוספה תיכנס לתוקף האם ברצונך לעשות זאת כעת ?</string>
+  <string name="apply_success_dialog">השינויים הוחלו בהצלחה.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
   <string name="apply_symlink_successful">קישור סימבולי נוצר בהצלחה.\nיתכן ותידרש לאתחל את המערכת על מנת להכניס לתוקף את השינויים.\n\nאתה רוצה לאתחל כעת?\n(על מנת לא לאבד נתונים וודא שאין תוכנה שמשתמשת כעת בכרטיס!)</string>
   <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
   <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
@@ -89,7 +89,7 @@
   <string name="apply_dialog_apply">החל קובץ hosts</string>
   <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_fail_title">החלת הגדרות נכשלה</string>
-  <string name="revert_successful">שחזרת את הקובץ hosts לברירת המחדל של המערכת.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הזיכרון!) </string>
+  <string name="revert_successful">שחזרת את הקובץ hosts לברירת המחדל של המערכת.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
   <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
   <string name="revert_problem">חזרה נכשלה.</string>
   <string name="revert_problem_title">שחזור נכשל!</string>
@@ -101,9 +101,12 @@
   <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
   <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
   <string name="no_url">זו אינה כתובת חוקית</string>
+  <string name="no_url_title">URL בתבנית לא נכונה</string>
   <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
   <string name="no_hostname">שם השרת אינו חוקי!</string>
+  <string name="no_hostname_title">שם השרת בתבנית לא נכונה</string>
   <string name="no_ip">כתובת ה IP אינה חוקית!</string>
+  <string name="no_ip_title">כתובת IP בתבנית לא נכונה</string>
   <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב!</string>
   <string name="loading">טוען...</string>
   <!--Menu entries-->
@@ -126,6 +129,7 @@
   <string name="help_tab_problems">תקלות</string>
   <string name="help_tab_changelog">רשימת שינויים</string>
   <string name="help_about_version">גירסה:</string>
+  <string name="help_donation_paypal_item">תרומה</string>
   <string-array name="help_donation_google_catalog_values">
     <item>יורו 1</item>
     <item>2 יורו</item>
@@ -176,12 +180,6 @@
   <string name="pref_webserver">שרת מקומי</string>
   <string name="pref_custom_target">יעד מותאם אישית</string>
   <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>יעד מותאם אישית</item>
-  </string-array>
   <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
   <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר AdAway מותקנת על כרטיס זיכרון</string>
   <string name="pref_background">שירותים ברקע</string>

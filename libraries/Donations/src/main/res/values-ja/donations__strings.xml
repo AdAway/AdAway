@@ -2,7 +2,7 @@
 <resources>
   <string name="donations__button_close">閉じる</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">このアプリは役に立ちましたか?\n開発者に寄付をして開発を応援してください!</string>
+  <string name="donations__description">AdAwayが便利だと感じましたか?\n開発者に寄付して開発をサポートしましょう!</string>
   <string name="donations__flattr_description">Flattr は月額として10 %手に入れます!</string>
   <string name="donations__google_android_market">Google Playストア</string>
   <string name="donations__google_android_market_not_supported_title">アプリ内寄付は非対応です</string>

@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Danh sách chuyển hướng</string>
   <string name="list_dialog_url">Đường dẫn:</string>
   <string name="list_dialog_hostname">Tên host:</string>
-  <string name="list_dialog_whitelist_hostname">Tên host:\n(Cho phép dùng ký tự đại diện * và ?)</string>
   <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
   <string name="import_dialog">Đang nhập...</string>
   <string name="export_dialog">Đang xuất...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Đã tắt</string>
   <string name="status_disabled_subtitle">Đã tắt</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink từ đích /system/etc/hosts không sẵn có hoặc không đúng! Adaway sẽ không làm việc nếu nó không trỏ đến tệp đúng\n\nBạn có muốn tự 1 symlink?</string>
   <string name="apply_symlink_missing_title">Thiếu Symlink</string>
-  <string name="apply_not_enough_space">Không đủ dung lượng trên máy!\nHãy thay đổi tệp host trong Cấu hình thành /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Không đủ dung lượng</string>
   <string name="apply_private_file_fail">Không thể đọc được file tải về.</string>
   <string name="apply_private_file_fail_title">Tệp riêng thất bại</string>
@@ -72,10 +69,7 @@
   <string name="apply_copy_fail">Thất bại khi chép tệp hosts</string>
   <string name="apply_copy_fail_title">Sao chép thất bại</string>
   <string name="apply_success_title">Áp dụng thành công</string>
-  <string name="apply_success_dialog">Áp dụng thành công.\nCó thể cần phải khởi động lại máy để thay đổi có hiệu lực.\n\nBạn có muốn khởi động lại máy không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng sdcard để tránh mất dữ liệu!) </string>
-  <string name="apply_symlink_successful">Đã tạo symlink thành công.\nCó thể cần phải reboot máy để thay đổi có hiệu lực.\n\nBạn có muốn reboot không?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!) </string>
   <string name="apply_symlink_successful_title">Tạo symlink thành công</string>
-  <string name="apply_symlink_fail">Không thể tạo Symlink bằng Android.\nPhần lớn nguyên nhân do \'tính năng\' gọi là S-ON trên thiết bị HTC!\n\nGiải pháp là boot  phone vào chế độ recovery và tạo symlink với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu không được hãy tìm kiếm trên Internet chuỗi S-OFF và tên thiết bị của bạn.</string>
   <string name="apply_symlink_fail_title">Thất bại tạo Symlink</string>
   <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
   <string name="apply_apn_proxy_title">Đặt proxy APN!</string>
@@ -87,9 +81,7 @@
   <string name="apply_dialog_hostnames">Xử lý và trộn các file hosts</string>
   <string name="apply_dialog_hosts">Đang tạo file host</string>
   <string name="apply_dialog_apply">Áp dụng file host</string>
-  <string name="apply_fail">Áp dụng file host thất bại!\nHãy thử thay đổi tệp host đích trong Cấu hình thành /data/data/hosts.</string>
   <string name="apply_fail_title">Tùy chọn không thể áp dụng</string>
-  <string name="revert_successful">Bạn đã khôi phục tệp host mặc định.\nCó thể cần thiết phải reboot lại máy để có hiệu lực.\n\nBạn có muốn reboor?\n(Hãy chắc chắn không có ứng dụng nào đang sử dụng SDcard để tránh mất dữ liệu!)  </string>
   <string name="revert_successful_title">Khôi phục thành công</string>
   <string name="revert_problem">Khôi phục lại do nguyên nhân thất bại chưa rõ.</string>
   <string name="revert_problem_title">Khôi phục thất bại!</string>
@@ -98,7 +90,6 @@
   <string name="no_private_file">Không thể tạo tệp riêng</string>
   <string name="no_private_file_title">Tạo tệp riêng đã thất bại</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Hoặc là máy chưa có su hoặc bạn không cấp quyền truy xuất root cho AdAway.\n\nĐiều này có thể xảy ra khi máy chưa root.\nBạn có thể tìm thông tin về cách root máy trên www.cyanogenmod.com hoặc các webiste Android khác. </string>
   <string name="no_root_title">Yêu cầu Anroid đã root</string>
   <string name="no_url">Không phải là đường dẫn hợp lệ!</string>
   <string name="hosts_add_dialog">Nhập đường dẫn tới file host:</string>
@@ -146,9 +137,7 @@
   <!--Other-->
   <string name="app_subtitle">Chặn quảng cáo</string>
   <string name="no_text_editor_title">Không có trình sửa văn bản trên máy</string>
-  <string name="no_text_editor">Không có trình soạn thảo văn bản nào để mở tệp host. Bạn có thể cài Joto hoặc ứng dụng tương tự để khắc phục.\n\nBạn có muốn cài Jota không?</string>
   <string name="no_file_manager_title">Không tìm thấy trình quản lý tệp</string>
-  <string name="no_file_manager">Không có trình quản lý tệp nào để mở. Bạn có thể cài OI File Manager hoặc ứng dụng tương tự để khắc phục.\n\nBạn có muốn cài đặt OI File Manager không?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Đã xoá file nhật ký!</string>
   <string name="toast_tcpdump_added_to_blacklist">Đã thêm tên host vào danh sách đen!</string>
@@ -177,12 +166,6 @@
   <string name="pref_webserver">Websever cục bộ</string>
   <string name="pref_custom_target">Đích tự chọn</string>
   <string name="pref_custom_target_summary">Chỉ dùng nếu tệp host đích đặt là đích tự chọn</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Đích tự chọn</item>
-  </string-array>
   <string name="pref_update_check_summary">Tìm phiên bản mới khi mở AdAway</string>
   <string name="pref_sdcard_problem">Tính năng này sẽ không làm việc đúng khi AdAway được cài trên thẻ nhớ ngoài</string>
   <string name="pref_background">Dịch vụ chạy nền</string>

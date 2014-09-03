@@ -11,5 +11,4 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">O velikosti donacije boste odločili po tem ko pritisnete gumb!</string>
   <string name="donations__thanks_dialog_title">Hvala!</string>
-  <string name="donations__thanks_dialog">Hvala za donacijo!\nRes cenim to!</string>
 </resources>

@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Lista preusmeritev</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Naslov (hostname):</string>
-  <string name="list_dialog_whitelist_hostname">Naslov(hostname):\n(Dovoljeni so tudi znaki * in ?)</string>
   <string name="list_dialog_ip">IP naslov (IPv4 ali IPv6):</string>
   <string name="import_dialog">Uvažam...</string>
   <string name="export_dialog">Izvažam...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Onemogočeno</string>
   <string name="status_disabled_subtitle">Onemogočeno</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink iz vašega cilja do /system/etc/hosts ne obstaja ali je napačen! AdAway ne bo deloval če symlink ne kaže na pravo datoteko.\n\nPoskusim ustvariti symlink?</string>
   <string name="apply_symlink_missing_title">Manjkajoč symlink</string>
-  <string name="apply_not_enough_space">Ni dovolj prostora!\nPoskusite spremeniti ciljno hosts datoteko v  nastavitvah na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Ni dovolj prostora</string>
   <string name="apply_private_file_fail">Prenesene datoteke ni bilo mogoče prebrati.</string>
   <string name="apply_private_file_fail_title">Napaka v zasebni datoteki</string>
@@ -72,10 +69,7 @@
   <string name="apply_copy_fail">Kopiranje datoteke hosts ni uspelo!</string>
   <string name="apply_copy_fail_title">Kopiranje ni uspelo</string>
   <string name="apply_success_title">Nameščanje uspelo</string>
-  <string name="apply_success_dialog">Nameščanje je bilo uspešno.\nDa uveljavite spremembo je potreben ponovni zagon.\n\nŽelite ponovno zagnati?\n(Da ne bi izgubili podatkov, se prepričajte da nobena aplikacije ne uporablja SD kartice!)</string>
-  <string name="apply_symlink_successful">Symlink je ustvarjen.\nDa uveljavite spremembo je potreben ponovni zagon.\n\nŽelite ponovno zagnati?\n(Da ne bi izgubili podatkov, se prepričajte da nobena aplikacije ne uporablja SD kartice)</string>
   <string name="apply_symlink_successful_title">Ustvarjanje symlinka uspešno</string>
-  <string name="apply_symlink_fail">Symlinka ni bilo mogoče ustvariti.\nNajpogosteje se to zgodi na telefonih HTC z \"S-ON\"\n\nMožna rešitev je da ročno ustvarite symlink z ukazom  \'ln -s /data/data/hosts /system/etc/hosts\' ko je telefon v načinu recovery.\n\nČe to ne uspe se pozanimajte o \"S-OFF\" za vaš telefon.</string>
   <string name="apply_symlink_fail_title">Ustvarjanje symlinka neuspešno</string>
   <string name="apply_help">Preberite pomoč za več informacij</string>
   <string name="apply_apn_proxy_title">APN proxy</string>
@@ -87,9 +81,7 @@
   <string name="apply_dialog_hostnames">Združujem datoteke hosts</string>
   <string name="apply_dialog_hosts">Izdelujem datoteko hosts</string>
   <string name="apply_dialog_apply">Nameščam datoteko hosts</string>
-  <string name="apply_fail">Nameščenje datoteke hosts v vaš sistem ni uspelo.\nPoskusite spremeniti ciljno hosts datoteko v  nastavitvah na /data/data/hosts.</string>
   <string name="apply_fail_title">Nameščanje ni uspelo</string>
-  <string name="revert_successful">Povrnili ste začetno hosts datoteko.\nDa uveljavite spremembo je potreben ponovni zagon.\n\nŽelite ponovno zagnati?\n(Da ne bi izgubili podatkov, se prepričajte da nobena aplikacije ne uporablja SD kartice!)</string>
   <string name="revert_successful_title">Povrnitev uspešna</string>
   <string name="revert_problem">Povrnitev na začetno hosts datoteko ni uspela zaradi neznanih razlogov.</string>
   <string name="revert_problem_title">Povrnitev ni uspela!</string>
@@ -98,7 +90,6 @@
   <string name="no_private_file">Zasebne datoteke ni bilo mogoče ustvariti.</string>
   <string name="no_private_file_title">Ustvarjanje zasebne datoteke ni uspelo</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Pridobivanje dovoljenja root ni uspelo.</string>
   <string name="no_root_title">Potreben je Android s pravicami root</string>
   <string name="no_url">To ni veljaven URL!</string>
   <string name="hosts_add_dialog">URL hosts datoteke:</string>
@@ -143,9 +134,7 @@
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
   <string name="no_text_editor_title">Nameščenega ni nobenega urejevalnika besedil</string>
-  <string name="no_text_editor">Nameščenega ni nobenega urejevalnika besedil s katerim bi lahko odprli datoteko hosts. Namestite lahko Jota ali kateri koli drugi urejevalnik besedil.\n\nŽelite namestit Jota zdaj?</string>
   <string name="no_file_manager_title">Nameščenega ni nobenega upravljalnika datotek</string>
-  <string name="no_file_manager">Nameščenega ni nobenega upravljalnika datotek. Namestite lahko OI File Manager ali kateri koli drugi upravljalnik datotek.\n\nŽelite namestiti OI File Manager zdaj?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Dnevniška datoteka je izbrisana!</string>
   <string name="toast_tcpdump_added_to_blacklist">Naslov (hostname) je bil dodan na vašo črno listo!</string>
@@ -174,12 +163,6 @@
   <string name="pref_webserver">Lokalni strežnik</string>
   <string name="pref_custom_target">Poljuben cilj</string>
   <string name="pref_custom_target_summary">V uporabi samo če je hosts datoteka nastavljena na poljuben cilj.</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Poljuben cilj</item>
-  </string-array>
   <string name="pref_update_check_summary">Preveri za posodobitve ob zagonu AdAway</string>
   <string name="pref_sdcard_problem">Ta funkcija ne bo delovala pravilno če je AdAway nameščen na SD kartico</string>
   <string name="pref_background">Storitve v ozadju</string>

@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Umleitungsliste</string>
   <string name="list_dialog_url">Adresse:</string>
   <string name="list_dialog_hostname">Hostname:</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard-Zeichen * und ? sind erlaubt!)</string>
   <string name="list_dialog_ip">IP (IPv4 oder IPv6):</string>
   <string name="import_dialog">Importieren …</string>
   <string name="export_dialog">Exportieren …</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Deaktiviert</string>
   <string name="status_disabled_subtitle">Deaktiviert</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Die symbolische Verknüpfung von Ihrem Ziel auf /system/etc/hosts existiert nicht! Ohne diese Verknüpfung wird AdAway nicht funktionieren.\n\nMöchten Sie versuchen eine symbolische Verknüpfung zu erstellen?</string>
   <string name="apply_symlink_missing_title">Symbolische Verknüpfung fehlt</string>
-  <string name="apply_not_enough_space">Es ist nicht genug freier Speicherplatz auf der Partition verfügbar!\nVersuche Sie die zu benutzende Hosts-Datei auf /data/data/hosts zu ändern.</string>
   <string name="apply_not_enough_space_title">Nicht genug Speicherplatz</string>
   <string name="apply_private_file_fail">Die heruntergeladene Datei konnte nicht gelesen werden.</string>
   <string name="apply_private_file_fail_title">Private Datei fehlgeschlagen</string>
@@ -73,25 +70,19 @@
   <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
   <string name="apply_success_subtitle">Angewandte Hosts-Quellen:</string>
   <string name="apply_success_title">Erfolgreich angewendet</string>
-  <string name="apply_success_dialog">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Stellen Sie sicher, dass keine Anwendung gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
-  <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchtest Sie neu starten?\n(Stellen Sie sicher, dass keine Anwendung gerade die SD-Karte verwendet um Datenverlust zu vermeiden!)</string>
   <string name="apply_symlink_successful_title">Symbolische Verknüpfung erfolgreich erstellt</string>
-  <string name="apply_symlink_fail">Dies symbolische Verknüpfung konnte nicht erstellt werden.\nDas liegt wahrscheinlich an einer Funktion Namens S-ON auf HTC Geräten!\n\nEine Lösung ist es Ihr Gerät in den Wiederherstellungsmodus zu booten und die Verknüpfung von dort mit »ln -s /data/data/hosts /system/etc/hosts« zu erstellen.\n\nWenn das nicht funktioniert, suchen Sie im Internet nach S-OFF und Ihrem Gerät.</string>
   <string name="apply_symlink_fail_title">Symbolische Verknüpfung konnte nicht erstellt werden</string>
   <string name="apply_help">Bitte die Hilfe für mehr Informationen lesen.</string>
-  <string name="apply_apn_proxy">Eine APN-Proxy ist auf Ihrem Android eingestellt!\nAdAway wird nicht zuverlässig arbeiten, wenn Mobilfunknetze wie 3G genutzt werden. Sie können diesen Proxy deaktivieren, indem Sie zu Ihrem ausgewählten APN gehen (Bei Android 4: Drahtlos und Netzwerke -&gt; Weitere Einstellungen -&gt; Mobile Netzwerke -&gt; Zugangspunkte) und entfernen Sie den Wert im der Proxy-Feld.</string>
   <string name="apply_apn_proxy_title">APN-Proxy eingestellt!</string>
   <string name="no_connection">Die Internetverbindung funktioniert nicht.</string>
   <string name="no_connection_title">Keine Verbindung</string>
-  <string name="download_dialog">Herunterladen …</string>
-  <string name="apply_dialog">Anwenden …</string>
+  <string name="download_dialog">Wird heruntergeladen …</string>
+  <string name="apply_dialog">Wird angewendet …</string>
   <string name="apply_dialog_lists">Schwarze Liste und weiße Liste anwenden</string>
   <string name="apply_dialog_hostnames">Verarbeiten und Hosts-Dateien zusammenfügen</string>
   <string name="apply_dialog_hosts">Hosts-Datei wird erstellt</string>
   <string name="apply_dialog_apply">Neue Hosts-Datei im System aktivieren</string>
-  <string name="apply_fail">Das Ändern der Hosts-Datei auf Ihrem System ist fehlgeschlagen!\nVersuch Sie die Hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
   <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
-  <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, bitte feststellen, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
   <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
   <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
   <string name="revert_problem_title">Die Wiederherstellung ist fehlgeschlagen!</string>
@@ -100,7 +91,6 @@
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder Sie haben AdAway keine root-Rechte gegeben.\n\nDas kann passieren wenn Sie Ihr Gerät nicht gerootet haben.\nInformationen wie Sie Ihr Gerät rooten können Sie auf www.cyanogenmod.com oder anderen Android-Webseiten finden.</string>
   <string name="no_root_title">Gerootetes Android wird benötigt</string>
   <string name="no_url">Dies ist keine gültige Adresse!</string>
   <string name="no_url_title">Falsch formatierte Adresse</string>
@@ -129,7 +119,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">F&amp;A</string>
   <string name="help_tab_problems">Probleme</string>
-  <string name="help_tab_changelog">Änderungsprotokoll</string>
+  <string name="help_tab_changelog">Änderungen</string>
   <string name="help_about_version">Version:</string>
   <string name="help_donation_paypal_item">AdAway-Spende</string>
   <string-array name="help_donation_google_catalog_values">
@@ -151,9 +141,7 @@
   <!--Other-->
   <string name="app_subtitle">Werbeblocker</string>
   <string name="no_text_editor_title">Kein Text-Editor installiert</string>
-  <string name="no_text_editor">Es konnte kein Text-Editor gefunden werden um die Hosts-Datei zu öffnen. Sie können Jota oder einen anderen Text-Editor installieren um Textdateien zu öffnen.\n\nMöchten Sie Jota installieren?</string>
   <string name="no_file_manager_title">Kein Dateimanager installiert</string>
-  <string name="no_file_manager">Es konnte kein Dateimanager gefunden werden, um die Datei auszuwählen. Sie können »OI File Manager« oder andere Dateimanager installieren um dieses zu tun.\n\nMöchten Sie »OI File Manager« installieren?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Protokolldatei wurde gelöscht!</string>
   <string name="toast_tcpdump_added_to_blacklist">Der Hostname wurde zu Ihrer schwarzen Liste hinzugefügt!</string>
@@ -182,12 +170,6 @@
   <string name="pref_webserver">Lokaler Webserver</string>
   <string name="pref_custom_target">Benutzerdefiniertes Ziel</string>
   <string name="pref_custom_target_summary">Wird nur benutzt, wenn die Hosts-Datei auf benutzerdefiniert gestellt wurde</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Benutzerdefiniert</item>
-  </string-array>
   <string name="pref_update_check_summary">Beim Starten nach Aktualisierungen suchen</string>
   <string name="pref_sdcard_problem">Diese Funktion funktioniert nicht richtig, wenn AdAway auf der SD-Karte installiert ist!</string>
   <string name="pref_background">Hintergrunddienste</string>

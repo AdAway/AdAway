@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -73,13 +73,13 @@
   <string name="apply_copy_fail_title">コピー失敗</string>
   <string name="apply_success_subtitle">適用したhostsのソース:</string>
   <string name="apply_success_title">適用しました</string>
-  <string name="apply_success_dialog">適用しました。\n変更を適用するにはAndroidの再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードが今使われていないか確認してください!)</string>
+  <string name="apply_success_dialog">適用しました。\n変更の適用には再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
   <string name="apply_symlink_successful">symlinkを作成しました。\n変更を適用するには再起動が必要です。\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
   <string name="apply_symlink_successful_title">symlink作成成功</string>
   <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください。</string>
   <string name="apply_symlink_fail_title">symlink作成失敗</string>
   <string name="apply_help">詳しくはヘルプをご覧ください。</string>
-  <string name="apply_apn_proxy">APNプロキシが設定されています!\n3G等のモバイルネットワークでAdAwayがうまく動作しない場合があります。プロキシを無効にするには、チェックを入れてあるAPN(Android 4.xでの例: 無線とネットワーク -&gt; その他の設定 -&gt; モバイルネットワーク -&gt; アクセスポイント名)を選択して、「プロキシ」の欄を空白にしてください。</string>
+  <string name="apply_apn_proxy">APNプロキシが設定されています!\nAdAwayは3G/4Gのようなモバイルデータ通信では正常に動作しない場合があります。プロキシを無効にするには、APN (Android 4.x: 無線とネットワーク -&gt; その他の設定 -&gt; モバイルネットワーク -&gt; アクセスポイント名)で「プロキシ」の項目を空白にしてください。</string>
   <string name="apply_apn_proxy_title">APNプロキシがセットされています!</string>
   <string name="no_connection">ネット接続がありません。</string>
   <string name="no_connection_title">接続なし</string>
@@ -182,12 +182,6 @@
   <string name="pref_webserver">ﾛｰｶﾙｳｪﾌﾞｻｰﾊﾞｰ</string>
   <string name="pref_custom_target">カスタムターゲット</string>
   <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます。</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>カスタムターゲット</item>
-  </string-array>
   <string name="pref_update_check_summary">AdAway起動時に更新を確認</string>
   <string name="pref_sdcard_problem">AdAwayがSDカードにインストールされていると機能しません!</string>
   <string name="pref_background">バックグラウンドサービス</string>

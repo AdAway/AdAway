@@ -7,7 +7,7 @@
   <string name="button_close">Fermer</string>
   <string name="button_yes">Oui</string>
   <string name="button_no">Non</string>
-  <string name="button_revert">Désactiver le blocage des pubs</string>
+  <string name="button_revert">Désactiver le blocage des publicités</string>
   <string name="button_add">Ajouter</string>
   <string name="button_cancel">Annuler</string>
   <string name="button_apply_text">Tous les fichiers « hosts » provenant des sources définies sont téléchargés, fusionnés avec vos propres listes et installés en un seul fichier « hosts » sur votre système.</string>
@@ -61,9 +61,9 @@
   <string name="status_disabled">Désactivé</string>
   <string name="status_disabled_subtitle">Désactivé</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Le lien symbolique de votre cible vers /system/etc/hosts est absent ou incorrect ! AdAway ne fonctionnera pas sans un lien valide.\n\nVoulez-vous essayer de créer un lien symbolique ?</string>
+  <string name="apply_symlink_missing">Le lien symbolique de votre cible vers /system/etc/hosts est absent ou incorrect ! AdAway ne fonctionnera pas sans un lien vers le bon fichier.\n\nVoulez-vous essayer de créer un lien symbolique ?</string>
   <string name="apply_symlink_missing_title">Lien symbolique manquant</string>
-  <string name="apply_not_enough_space">Manque d\'espace sur la partition !\nEssayer de modifier le fichier « hosts » cible dans les préférences pour /data/data/hosts.</string>
+  <string name="apply_not_enough_space">Manque d\'espace sur la partition !\nEssayez de modifier le fichier « hosts » cible dans les préférences par /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Manque d\'espace</string>
   <string name="apply_private_file_fail">Le fichier téléchargé est illisible.</string>
   <string name="apply_private_file_fail_title">Échec fichier privé </string>
@@ -73,10 +73,10 @@
   <string name="apply_copy_fail_title">La copie a échouée</string>
   <string name="apply_success_subtitle">Sources « hosts » mises en place :</string>
   <string name="apply_success_title">Mise à en place réussie</string>
-  <string name="apply_success_dialog">Mise en place réussie.\nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet.\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, vous assurer qu\'aucune appli n\'utilise la carte SD actuellement !)</string>
-  <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl peut être nécessaire de redémarrer Android pour que les modifications prennent effet.\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données vous assurer qu\'aucune application n\'utilise la carte SD en ce moment !)</string>
+  <string name="apply_success_dialog">Mise en place réussie.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu\'aucune appli n\'utilise la carte SD actuellement !)</string>
+  <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ? (Pour éviter toute perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
   <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
-  <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCeci arrive la plupart du temps à cause d\'une fonction appelée S-ON sur les téléphones HTC !\nUne solution est de démarrer votre téléphone en mode récupération et d\'y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\nSi cela ne fonctionne pas, rechercher S-OFF et le votre téléphone sur Internet.</string>
+  <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCeci échoue la plupart du temps à cause d\'une fonction appelée S-ON sur les téléphones HTC !\n\nUne solution est de démarrer votre téléphone en mode récupération et d\'y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
   <string name="apply_symlink_fail_title">Échec de la création du lien symbolique</string>
   <string name="apply_help">Veuillez lire l\'aide pour plus d\'informations, .</string>
   <string name="apply_apn_proxy">Un mandataire APN est configuré sur votre Android !\nAdAway ne fonctionnera pas de manière fiable sur les réseaux mobiles comme le 3G. Vous pouvez désactiver ce mandataire en allant à l\'APN choisi (sur Android 4 : Sans fil et réseaux -&gt; Paramètres supp. -&gt; Réseaux Mobile -&gt; Nom des point d\'accès) et en enlevant la valeur dans le champ « proxy »</string>
@@ -91,7 +91,7 @@
   <string name="apply_dialog_apply">Mise en place du fichier « hosts »</string>
   <string name="apply_fail">Le fichier « hosts » n\'a pas pu être appliqué à votre système !\nEssayez de changer le fichier « hosts » cible dans les préférences par /data/data/hosts.</string>
   <string name="apply_fail_title">Échec lors de la mise en place</string>
-  <string name="revert_successful">Vous êtes revenu au fichier « hosts » par défaut.\nIl est peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\nVoulez-vous redémarrer ?\n(Afin d\'éviter la perte de données, vous assurer qu\'aucune application n\'utilise la carte SD en ce moment !)</string>
+  <string name="revert_successful">Vous êtes revenu au fichier « hosts » par défaut.\nIl pourrait peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d\'éviter la perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
   <string name="revert_successful_title">Retour arrière réussi</string>
   <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
   <string name="revert_problem_title">Échec du retour arrière ! </string>
@@ -149,11 +149,11 @@
   <string name="hosts_last_modified_online">En ligne :</string>
   <string name="hosts_not_available">Non disponible</string>
   <!--Other-->
-  <string name="app_subtitle">Blocage de pubs</string>
+  <string name="app_subtitle">Blocage de publicités</string>
   <string name="no_text_editor_title">Aucun éditeur de texte installé</string>
-  <string name="no_text_editor">Aucun éditeur de texte n\'a été trouvé pour ouvrir le fichier « hosts ». Vous pouvez installer Jota ou d\'autres éditeurs de texte pour ce faire.\nVoulez-vous installer Jota ?</string>
+  <string name="no_text_editor">Aucun éditeur de texte n\'a été trouvé pour ouvrir le fichier « hosts ». Vous pouvez installer Jota ou d\'autres éditeurs de texte pour ce faire.\n\nVoulez-vous installer Jota ?</string>
   <string name="no_file_manager_title">Aucun gestionnaire de fichier installé</string>
-  <string name="no_file_manager">Aucun gestionnaire de fichier trouvé pour ouvrir les fichiers. Vous pouvez installer OI File Manager ou d\'autres gestionnaires de fichiers pour ce faire.\n\nVoulez-vous installer OI File Manager ?</string>
+  <string name="no_file_manager">Aucun gestionnaire de fichier n\'a trouvé pour ouvrir les fichiers. Vous pouvez installer OI File Manager ou d\'autres gestionnaires de fichiers pour ce faire.\n\nVoulez-vous installer OI File Manager ?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Ficher journal supprimé !</string>
   <string name="toast_tcpdump_added_to_blacklist">Le nom d\'hôte a été ajouté à votre liste noire !</string>
@@ -182,12 +182,6 @@
   <string name="pref_webserver">Serveur Web local</string>
   <string name="pref_custom_target">Cible personnalisée</string>
   <string name="pref_custom_target_summary">Utilisé uniquement si le fichier « hosts » cible est personnalisé</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Cible personnalisée</item>
-  </string-array>
   <string name="pref_update_check_summary">Vérifier les mises à jour au démarrage d\'AdAway</string>
   <string name="pref_sdcard_problem">Cette option ne fonctionnera pas correctement si AdAway est installé sur une carte SD !</string>
   <string name="pref_background">Services en arrière-plan</string>

@@ -63,7 +63,7 @@
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Hedefiniz ile /system/etc/hosts dosyası symlink ile bağlanmamış veya hatalı bağlanmış! Bu bağlanma olmadan AdAway çalışamaz.\n\nŞimdi bir symlink ayarlansın mı?</string>
   <string name="apply_symlink_missing_title">Symlink kayıp</string>
-  <string name="apply_not_enough_space">Sistem bölümlemesinin boş alanı yeterli değil!\nTercihlerden hedef host dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
+  <string name="apply_not_enough_space">Sistem bölümlemesinin boş alanı yeterli değil!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
   <string name="apply_not_enough_space_title">Yeterli alan yok</string>
   <string name="apply_private_file_fail">İndirilen dosya okunamadı.</string>
   <string name="apply_private_file_fail_title">Özel dosya başarısız</string>
@@ -71,11 +71,10 @@
   <string name="apply_remount_fail_title">Remount başarısız oldu</string>
   <string name="apply_copy_fail">Host dosyası kopyalama başarısız!</string>
   <string name="apply_copy_fail_title">Kopyalama başarısız</string>
+  <string name="apply_success_subtitle">Uygulanmış host kaynakları:</string>
   <string name="apply_success_title">Uygulama başarılı</string>
-  <string name="apply_success_dialog">Uygulama başarıyla sonuçlandı.\nDeğişikliklerin geçerli olması için Android\'i yeniden başlatmak gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an hafıza kartını kullanan bir program olmadığına emin olun!)</string>
-  <string name="apply_symlink_successful">Symlink bağlantısı oluşturuldu.\nDeğişikliklerin geçerli olması için yeniden başlatma gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
+  <string name="apply_symlink_successful">Symlink bağlantısı oluşturuldu.\nDeğişikliklerin geçerli olması için yeniden başlatmanı gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
   <string name="apply_symlink_successful_title">Symlink oluşturma başarılı</string>
-  <string name="apply_symlink_fail">Symlink oluşturulamadı.\nBu hata genelde HTC telefonlardaki S-ON denilen özellik yüzünden olmaktadır!\n\nSorunu elle çözmek isterseniz recovery mode ile açıp \'ln -s /data/data/hosts /system/etc/hosts\' komutuyla symlink yapmanız gereklidir.\n\nEğer ki bu olmuyorsa çözüm için internette S-OFF ve telefonunuzun adı ile bir arama yapın.</string>
   <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
   <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
   <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
@@ -87,23 +86,24 @@
   <string name="apply_dialog_hostnames">Host dosyaları incelenip birleştiriliyor</string>
   <string name="apply_dialog_hosts">Host dosyası oluşturuluyor</string>
   <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
-  <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef host dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
+  <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
   <string name="apply_fail_title">Uygulama başarısız</string>
-  <string name="revert_successful">Varsayılan host dosyasına dönüldü.\nDeğişikliklerin geçerli olması için yeniden başlatma gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
   <string name="revert_successful_title">Geri alma başarılı!</string>
   <string name="revert_problem">Geri alma bilinmeyen sebepler yüzünden başarısız oldu.</string>
   <string name="revert_problem_title">Geri alma başarısız!</string>
   <string name="download_fail_dialog">Aktif ettiğiniz hiçbir host kaynağına ulaşılamıyor! İnternet\'e bağlı olduğunuza emin misiniz?</string>
-  <string name="download_fail_title">İndirme işlemi başarısız</string>
+  <string name="download_fail_title">İndirme işlemi başarısız.</string>
   <string name="no_private_file">Özel dosya oluşturulamadı.</string>
-  <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu</string>
+  <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu.</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">AdAway root izni alamıyor.\n\nSistem root edilmemiş olabilir.\nRoot izni hakkında detaylı bilgiye ve nasıl yapılacağına www.cyanogenmod.com veya diğer Android sitelerinden erişebilirsiniz.</string>
   <string name="no_root_title">Root izni gereklidir</string>
   <string name="no_url">Geçersiz bir URL!</string>
+  <string name="no_url_title">Uygunsuz biçimlendirilmiş URL</string>
   <string name="hosts_add_dialog">Host dosyasına URL gir:</string>
   <string name="no_hostname">Girilen adres geçerli değil!</string>
+  <string name="no_hostname_title">Uygunsuz biçimlendirilmiş adres</string>
   <string name="no_ip">Bu geçerli bir IP değildir!</string>
+  <string name="no_ip_title">Uygunsuz biçimlendirilmiş IP</string>
   <string name="reboot_never_reboot">Asla yeniden başlatma ve bu soruyu tekrar sorma!</string>
   <string name="loading">Yükleniyor...</string>
   <!--Menu entries-->
@@ -128,12 +128,12 @@
   <string name="help_about_version">Sürüm:</string>
   <string name="help_donation_paypal_item">AdAway\'e Bağış</string>
   <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
+    <item>1 Avro</item>
+    <item>2 Avro</item>
+    <item>3 Avro</item>
+    <item>5 Avro</item>
+    <item>8 Avro</item>
+    <item>13 Avro</item>
   </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Burada Adware tarafından engellenemeyecek kötü yazılımlar için tarama yapabilirsiniz. Bu uygulamalar mesela Airpush bilgilendirmelerini gibi uygulama çalışmadığı zaman  ya da zil sesini değiştirdiğinizde bile reklam gösteren yazılımlardır. Bunun tek çözüm yolu listede çıkacak olan uygulamaları silmektir.</string>
@@ -142,13 +142,12 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Yerel:</string>
   <string name="hosts_last_modified_online">Online:</string>
-  <string name="hosts_not_available">uygun değil</string>
+  <string name="hosts_not_available">Uygun değil</string>
   <!--Other-->
   <string name="app_subtitle">Reklam engelleyici</string>
   <string name="no_text_editor_title">Yüklü metin editörü yok</string>
-  <string name="no_text_editor">Host dosyasını açacak bir metin düzenleyici bulunamadı. Jota veya benzeri bir metin düzenleyici yüklemeniz gerekebilir.\n\nŞimdi Jota yüklemek ister misiniz?</string>
+  <string name="no_text_editor">Hosts dosyasını açacak bir metin düzenleyici bulunamadı. Jota veya benzeri bir metin düzenleyici yüklemeniz gerekebilir.\n\nŞimdi Jota yüklemek ister misiniz?</string>
   <string name="no_file_manager_title">Yüklü dosya yöneticisi yok</string>
-  <string name="no_file_manager">Dosyaları açacak bir dosya yöneticisi bulunamadı. OI File Manager veya benzeri bir dosya yöneticisi yüklemeniz gerekebilir.\n\nŞimdi OI File Manager yüklemek ister misiniz?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Log dosyası silindi!</string>
   <string name="toast_tcpdump_added_to_blacklist">Adres karalisteye eklendi</string>
@@ -163,7 +162,7 @@
   <string name="pref_hosts">Hosts Dosyası</string>
   <string name="pref_redirection_ip">IP Yönlendirme</string>
   <string name="pref_update_check">Güncellemeleri kontrol et</string>
-  <string name="pref_apply_method">Hedef hosts dosyası</string>
+  <string name="pref_apply_method">Hedef Hosts dosyası</string>
   <string name="pref_apply_method_summary">Bu ayarı değiştirmeden önce, bu işlevsellik hakkındaki yardımı okuyun.</string>
   <string name="pref_redirection_ip_summary">Tüm engellenmiş adresler bu IP adresine yönlendirilir.</string>
   <string name="pref_header_preferences">Tercihler</string>
@@ -171,18 +170,12 @@
   <string name="pref_never_reboot">Yeniden başlatma diyaloğunu gizle</string>
   <string name="pref_never_reboot_summary">İşlemler uygulandıktan sonraki yeniden başlatma sorusunu gizler</string>
   <string name="pref_webserver_on_boot">Başlangıçta websunucuyu çalıştır</string>
-  <string name="pref_webserver_on_boot_summary">Başlangıçta websunucuyu 5 saniye gecikmeli çalıştır</string>
+  <string name="pref_webserver_on_boot_summary">Başlangıçta WebSunucuyu 5 saniye gecikmeli çalıştır</string>
   <string name="pref_webserver_enabled">Websunucuyu etkinleştir</string>
   <string name="pref_webserver_enabled_summary">Engelli adres isteklerine cevap vermek için yerel IP adresi üzerinde web sunucusu açar.</string>
-  <string name="pref_webserver">Yerel Websunucu</string>
+  <string name="pref_webserver">Yerel WebSunucu</string>
   <string name="pref_custom_target">Özel hedef</string>
   <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Özel hedef</item>
-  </string-array>
   <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>
   <string name="pref_sdcard_problem">Bu özellik, AdAway sdcard üzerine yüklendiğinde düzgün çalışmaz!</string>
   <string name="pref_background">Arka Plan Hizmetleri</string>
@@ -196,5 +189,5 @@
   <string name="pref_whitelist_redirection_rules_summary">Host kaynaklarındaki yönlendirmeye ve beyaz listeye izin ver.</string>
   <string name="pref_debug">Hata ayıklama</string>
   <string name="pref_enable_debug">Hata ayıklama kaydı</string>
-  <string name="pref_enable_debug_summary">Ayarların etkin olması için AdAway yeniden başlatın.</string>
+  <string name="pref_enable_debug_summary">Ayarların etkinleştirmek için AdAway\'ı yeniden başlatın.</string>
 </resources>

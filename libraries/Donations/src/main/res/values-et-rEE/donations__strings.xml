@@ -11,5 +11,4 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Sellel nupul klikates saad valida kui palju soovid annetada!</string>
   <string name="donations__thanks_dialog_title">Tänan!</string>
-  <string name="donations__thanks_dialog">Tänan annetamast! \nHindan seda väga!</string>
 </resources>

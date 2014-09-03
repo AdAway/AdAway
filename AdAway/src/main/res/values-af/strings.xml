@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Aanstuur Lys</string>
   <string name="list_dialog_url">BA:</string>
   <string name="list_dialog_hostname">Gasheer naam:</string>
-  <string name="list_dialog_whitelist_hostname">Gasheername:\n(Troef karakters * en ? word toegelaat!)</string>
   <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
   <string name="import_dialog">Besig met invoering...</string>
   <string name="export_dialog">Besig met Uitvoer...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Afgeskakel</string>
   <string name="status_disabled_subtitle">Afgeskakel</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Simskakel vanaf jou teiken na /sisteem/ens/gasheer bestaan nie of is verkeerd! AdAway sal nie werk indien dit nie na die regte lêer verwys nie.\n\nWil jy probeer om \'n Simskakel te skep?</string>
   <string name="apply_symlink_missing_title">Simskakel ontbreek</string>
-  <string name="apply_not_enough_space">Nie genoeg spasie in die partisie nie!\nProbeer om die teiken gasheer lêer in voorkeure na /data/data/hosts te verander.</string>
   <string name="apply_not_enough_space_title">Nie genoeg spasie nie</string>
   <string name="apply_private_file_fail">Afgelaaide lêer kon nie gelees word nie.</string>
   <string name="apply_private_file_fail_title">Privaat lêer het misluk</string>
@@ -73,13 +70,9 @@
   <string name="apply_copy_fail_title">Kopieering het misluk</string>
   <string name="apply_success_subtitle">Gasheer Bronne toegepas:</string>
   <string name="apply_success_title">Toepassing was suksesvol</string>
-  <string name="apply_success_dialog">Toepassing was suksesvol.\nDit mag nodig wees om Android weer te begin om die veranderinge te implementeer.\n\nWil jy weer begin?\n(Om data verlies verlies te verhoed maak seker alle programme is gestop vir die oomblik!)</string>
-  <string name="apply_symlink_successful">Simskakel suksesvol geskep.\nDit mag nodig wees om Android weer te begin vir veranderinge om effek te neem.\n\nWil jy weer begin?\n(Om data verlies te voorkom verseker geen programme gebruik die sdkaart nie!)</string>
   <string name="apply_symlink_successful_title">Skep van Simskakel was suksesvol</string>
-  <string name="apply_symlink_fail">Simskakel kon nie deur Android geskep word nie.\nDie oorsaak is meestal agv. \'n eienskap genaamd S-ON op HTC fone!\n\n\'n Oplossing is om die jou foon in \"recovery\" modus te begin en dan die simskakel daar te skep in - s /data/data/hosts /system/etc/hosts .\n\nIndien dit nie werk nie soek vir S-OFF op die interenet vir jou spesifieke foon.</string>
   <string name="apply_symlink_fail_title">Simskakel skepping het misluk</string>
   <string name="apply_help">Lees asb. help vir meer informasie.</string>
-  <string name="apply_apn_proxy">\'n APN gevolmagtigde is gestel op jou Android!\nAdaway kan nie betroubaar werk op Mobiele Netwerke soos 3G nie. Jy kan die volmag deaktiveer deur na jou verkose APN (Op Android 4: Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) te gaan en die waarde te verwyder in die volmag \"proxy\" veld. </string>
   <string name="apply_apn_proxy_title">APN volmag gestel!</string>
   <string name="no_connection">Die internet konneksie werk nie</string>
   <string name="no_connection_title">Geen konneksie</string>
@@ -89,9 +82,7 @@
   <string name="apply_dialog_hostnames">Besig met ontleding en samesmelting van gas lêers</string>
   <string name="apply_dialog_hosts">Besig om gas lêers te bou</string>
   <string name="apply_dialog_apply">Besig om gas lêers toe te pas</string>
-  <string name="apply_fail">Die toepassing van die gas lêers het misluk!\nProbeer om die teiken gas lêer in voorkeure na /data/data/hosts te verander.</string>
   <string name="apply_fail_title">Toepassing het misluk</string>
-  <string name="revert_successful">Jy het terug gegaan na die verstek gas lêer.\nDit mag dalk nodig wees om Android weer te begin om sodat verandering geïmplementeer kan word.\n\nWil jy weer begin?\n(Om data verlies te voorkom verseker dat geen programme die sdkaart gebruik nie!)</string>
   <string name="revert_successful_title">Terugkering suksesvol</string>
   <string name="revert_problem">Ommekeer het misluk vir onbekende redes.</string>
   <string name="revert_problem_title">Terugkeer het misluk!</string>
@@ -100,7 +91,6 @@
   <string name="no_private_file">Private lêer kan nie geskep word nie.</string>
   <string name="no_private_file_title">Skep van Privaat Lêer het misluk</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Die su binêre kode kon nie gevind word nie of jy het nie kern toestemming verleen aan AdAway nie. \n\nDit kan gebeur as jou toestel nie kern toegang (root) het nie.\nJy kan meer inligting bekom by www. cyanogenmod.com of ander Android webwerwe.</string>
   <string name="no_root_title">Kern beskikbare (rooted) Android benodig</string>
   <string name="no_url">Hierdie is nie \'n geldige BA nie!</string>
   <string name="no_url_title">Foutief geformateerde URL </string>
@@ -151,9 +141,7 @@
   <!--Other-->
   <string name="app_subtitle">Ad Blokkeerder</string>
   <string name="no_text_editor_title">Geen teks redigeerder geïnstalleer nie </string>
-  <string name="no_text_editor">Geen teks redigeer gevind om gasheer lêers mee oop te maak nie. Jy kan Jota of ander teks redigeerder installeer om die taak te verrig.\n\nWil jy Jota installeer?</string>
   <string name="no_file_manager_title">Geen lêerbestuurder geinstalleer </string>
-  <string name="no_file_manager">Geen lêer bestuurder gevind om lêers mee oop te maak nie. Jy kan OI of ander lêerbestuurders installeer om die lêer te hanteer.</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Log lêer uitgevee!</string>
   <string name="toast_tcpdump_added_to_blacklist">Gasheer naam by Swartlys bygevoeg!</string>
@@ -162,7 +150,9 @@
   <string name="tcpdump_log_context_whitelist">Voeg by jou Witlys</string>
   <string name="tcpdump_log_context_browser">Maak oop in Blaaier</string>
   <string name="tcpdump_log_empty">Log leêer is leeg!</string>
-  <string name="tcpdump_log_footer">Lang druk op een gasheer naam om dit by jou Swart- of Witlys te voeg!\n\n</string>
+  <string name="tcpdump_log_footer">Lang druk op een gasheer naam om dit by jou Swart- of Witlys te voeg!
+
+</string>
   <!--Preferences-->
   <string name="pref_download">Algemene Voorkeure</string>
   <string name="pref_hosts">Gasheer Lêer</string>
@@ -182,12 +172,6 @@
   <string name="pref_webserver">Plaaslike Webbediener</string>
   <string name="pref_custom_target">Doelwit teiken</string>
   <string name="pref_custom_target_summary">Word slegs gebruik indien doelwit gasheer lêers gestel is as pasmaak teikens</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Custom target</item>
-  </string-array>
   <string name="pref_update_check_summary">Kyk vir opdaterings as AdAway begin</string>
   <string name="pref_sdcard_problem">Hierdie eienskap sal nie funksioneer indien AdAway op sdkaart geïnstalleer is nie! </string>
   <string name="pref_background">Agtergrond Dienste</string>

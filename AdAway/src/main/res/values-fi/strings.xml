@@ -55,13 +55,13 @@
   <string name="status_no_connection">Ei verkkoyhteyttä</string>
   <string name="status_no_connection_subtitle">Verkkoyhtyettä ei ole saatavilla</string>
   <string name="status_download_fail">Lähde ei ole käytettävissä</string>
-  <string name="status_download_fail_subtitle_new">No hosts sources are reachable!\n</string>
+  <string name="status_download_fail_subtitle_new">No hosts sources are reachable!
+</string>
   <string name="status_enabled">Käytössä</string>
   <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
   <string name="status_disabled">Pois käytössä</string>
   <string name="status_disabled_subtitle">Pois käytössä</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symbolinen linkki /data/data/hosts:sta /system/etc/hosts:lle ei ole olemassa! AdAway ei toimi, jos sitä ei ole olemassa.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
   <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
   <string name="apply_not_enough_space">Ei ole tarpeeksi tilaa osiossa!\nYritä muuttaa hosts-tiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
   <string name="apply_not_enough_space_title">Ei ole tarpeeksi tilaa</string>
@@ -72,13 +72,11 @@
   <string name="apply_copy_fail">Hosts-tiedoston kopiointi epäonnistui!</string>
   <string name="apply_copy_fail_title">Kopiointi epäonnistui</string>
   <string name="apply_success_title">Soveltaminen onnistui</string>
-  <string name="apply_success_dialog">Soveltaminen onnistui.⏎ Voi olla tarpeen käynnistää Anroid uudelleen, jotta muutokset tulevat voimaan.⏎ ⏎ Haluatko uudelleenkäynnistää?⏎ (Estä tietojen katoaminen varmistamalla, ettei mikään sovellus ei käytä SD-korttia tällä hetkellä!)</string>
   <string name="apply_symlink_successful">Symbolinen linkki luotiin onnistuneesti.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
   <string name="apply_symlink_successful_title">Symbolisen linkin luominen onnistui</string>
-  <string name="apply_symlink_fail">Android ei voinut luoda symbolista linkkiä.\nTämä \"ominaisuus\" on lähinnä HTC-puhelimien S-ON-laitteissa!\n\nRatkaisu on käynnistää palautustilaan ja luoda sinne symbolinen linkki \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJos tämä ei toimi, etsi internetistä tietoa S-OFF:sta ja puhelimestasi.</string>
   <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
-  <string name="apply_apn_proxy_title">APN-\tvälityspalvelin on asetettu!</string>
+  <string name="apply_apn_proxy_title">APN-	välityspalvelin on asetettu!</string>
   <string name="no_connection">Verkkoyhteys ei toimi.</string>
   <string name="no_connection_title">Ei yhteyttä</string>
   <string name="download_dialog">Ladataan...</string>
@@ -89,7 +87,7 @@
   <string name="apply_dialog_apply">Hyväksy hosts-tiedosto</string>
   <string name="apply_fail">Hosts-tiedoston soveltaminen epäonnistui!\nYritä muuttaa hosts-tiedoston kohde /data/data/hosts-vaihtoehdoksi.</string>
   <string name="apply_fail_title">Soveltaminen epäonnistui</string>
-  <string name="revert_successful">Palautit hosts-tiedoston oletustilaan.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää? (Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
+  <string name="revert_successful">Palautit hosts-tiedoston oletustilaan.\nLaite tarvitaan käynnistää uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko käynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei sovellus käytä SD-korttia tällä hetkellä!)</string>
   <string name="revert_successful_title">Palauttaminen onnistui</string>
   <string name="revert_problem">Palauttaminen epäonnistui.</string>
   <string name="revert_problem_title">Palauttaminen epäonnistui!</string>
@@ -177,12 +175,6 @@
   <string name="pref_webserver">Paikallinen web-palvelin</string>
   <string name="pref_custom_target">Mukautettu kohde</string>
   <string name="pref_custom_target_summary">Käytetään vain, jos hosts-tiedosto on määritetty mukautetuksi kohteeksi</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Custom target</item>
-  </string-array>
   <string name="pref_update_check_summary">Tarkista päivitykset AdAwayn käynnistykessä</string>
   <string name="pref_sdcard_problem">Tämä toiminto ei toimi oikein, kun AdAway on asennettu SD-kortille!</string>
   <string name="pref_background">Taustapalvelut</string>

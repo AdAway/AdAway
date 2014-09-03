@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list"> Списък с пренасочвания</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Име на хост:</string>
-  <string name="list_dialog_whitelist_hostname">Име на хост:\n(Позволени са заместващи символи * и ?)</string>
   <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
   <string name="import_dialog">Внасяне...</string>
   <string name="export_dialog">Изнасяне...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Забранен</string>
   <string name="status_disabled_subtitle">Забранен</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Символичната връзка от вашата цел /system/etc/hosts не съществува или е неправилна! AdAway няма да работи, ако не е насочен към правилния файл.\n\nИскате ли да опитате да създадете символична връзка?</string>
   <string name="apply_symlink_missing_title">Липсва символична връзка</string>
-  <string name="apply_not_enough_space">Няма достатъчно място на дяла!\nОпитайте да промените целевия hosts файл в предпочитанията на /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Няма достатъчно място</string>
   <string name="apply_private_file_fail">Изтегленият файл не може да бъде прочетен.</string>
   <string name="apply_private_file_fail_title">Неуспех с личен файл</string>
@@ -72,10 +69,7 @@
   <string name="apply_copy_fail">Копирането на hosts файла e неуспешно!</string>
   <string name="apply_copy_fail_title">Копирането е неуспешно</string>
   <string name="apply_success_title">Прилагането е успешно</string>
-  <string name="apply_success_dialog">Прилагането беше успешно. \nМоже да се наложи да рестартирате Android за да влязат в сила промените. \n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни,  уверете се, че никое приложение в момента не използва SD-картата!)</string>
-  <string name="apply_symlink_successful">Символичната връзка е създадена успешно. \nМоже да се наложи да рестартирате Android за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загубата на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
   <string name="apply_symlink_successful_title">Създаването на символична връзка е успешно</string>
-  <string name="apply_symlink_fail">Символичната връзка не може да бъде създадена от Android.\nТова се дължи най-вече на „функция“, наречена S-ON при телефоните HTC!\n\nЕдно възможно решение е да заредите телефона си в режим на възстановяване и да създадете там символична връзка с „ln -s /data/data/hosts /system/etc/hosts“. \n\nАко това не работи, потърсете в Интернет за S-OFF и вашият телефон.</string>
   <string name="apply_symlink_fail_title">Създаването на символична връзка е неуспешно</string>
   <string name="apply_help">Моля, прочетете Помощ за повече информация.</string>
   <string name="apply_apn_proxy_title">APN прокси е зададено!</string>
@@ -87,9 +81,7 @@
   <string name="apply_dialog_hostnames">Разбор и обединяване на Hosts файловете</string>
   <string name="apply_dialog_hosts">Изграждане на Hosts файла</string>
   <string name="apply_dialog_apply">Прилагане на Hosts файла</string>
-  <string name="apply_fail">Прилагането на hosts файла във вашата система e неуспешно!\nОпитайте да промените целевия hosts файл в предпочитанията на /data/data/hosts.</string>
   <string name="apply_fail_title">Прилагането не е успешно</string>
-  <string name="revert_successful">Вие върнахте hosts файла по подразбиране.\nМоже да се наложи да рестартирате Android за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
   <string name="revert_successful_title">Връщането е успешно</string>
   <string name="revert_problem">Връщането се провали по неизвестни причини.</string>
   <string name="revert_problem_title">Връщането е неуспешно!</string>
@@ -98,7 +90,6 @@
   <string name="no_private_file">Личен файл не може да бъде създаден.</string>
   <string name="no_private_file_title">Създаването на личен файл не успя</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Или двоичният SU не може да бъде намерен, или не сте позволили root достъп на AdAway.\n\nТова може да се случи, когато вашето устройство не е root-нато.\nМожете да намерите информация за това как да root-нете вашето устройство на www.cyanogenmod.com или други уеб сайтове за Android.</string>
   <string name="no_root_title">Изисква се Android с root достъп</string>
   <string name="no_url">Това не е валиден URL!</string>
   <string name="hosts_add_dialog">Въведете URL на hosts файла:</string>
@@ -146,9 +137,7 @@
   <!--Other-->
   <string name="app_subtitle">Спира рекламите</string>
   <string name="no_text_editor_title">Не е инсталиран текстов редактор</string>
-  <string name="no_text_editor">Не може да бъде намерен текстов редактор, който да отвори hosts файла. Можете да инсталирате Jota или друг текстов редактор, за да се справите с това.\n\nИскате ли да инсталирате Jota?</string>
   <string name="no_file_manager_title">Не е инсталиран файлов мениджър</string>
-  <string name="no_file_manager">Не е открит файлов мениджър, който да отвори файловете. Можете да инсталирате OI File Manager или други файлови мениджъри, за да се справите с това.\nИскате ли да инсталирате OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Файлът е изтрит!</string>
   <string name="toast_tcpdump_added_to_blacklist">Добавено беше име на хост към вашия черен списък!</string>
@@ -177,12 +166,6 @@
   <string name="pref_webserver">Локален уеб сървър</string>
   <string name="pref_custom_target">Персонализирана цел</string>
   <string name="pref_custom_target_summary">Използва се само ако целевият hosts файл е настроен на персонализирана цел.</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Персонализирана цел</item>
-  </string-array>
   <string name="pref_update_check_summary">Проверка за актуализации при стартиране на AdAway</string>
   <string name="pref_sdcard_problem">Тази функция няма да работи правилно, когато AdAway е инсталиран на SD-картата!</string>
   <string name="pref_background">Услуги на заден план</string>

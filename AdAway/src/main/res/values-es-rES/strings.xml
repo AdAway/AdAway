@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Lista de Redirección</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nombre de host:</string>
-  <string name="list_dialog_whitelist_hostname">Nombre de host:\n(Caracteres comodín * y ? están permitidos)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Exportando...</string>
@@ -61,9 +60,8 @@
   <string name="status_disabled">Desactivado</string>
   <string name="status_disabled_subtitle">Desactivado</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">¡Enlace simbólico desde /data/data/hosts no existe! AdAway no funcionará si no existe.\n\n¿Desea intentar crear un enlace simbólico?</string>
   <string name="apply_symlink_missing_title">Falta enlace simbólico</string>
-  <string name="apply_not_enough_space">¡No hay suficiente espacio en la partición!\nIntenta cambiar la ruta del archivo hosts en las preferencias a /data/data/hosts.</string>
+  <string name="apply_not_enough_space">¡No hay suficiente espacio en la partición!\nIntente cambiar el archivo de destino en las preferencias  a /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">No hay suficiente espacio</string>
   <string name="apply_private_file_fail">El archivo descargado no se puede leer.</string>
   <string name="apply_private_file_fail_title">Fallo en el archivo privado</string>
@@ -73,13 +71,12 @@
   <string name="apply_copy_fail_title">Error de copia</string>
   <string name="apply_success_subtitle">Fuentes de host aplicadas:</string>
   <string name="apply_success_title">Cambio realizado</string>
-  <string name="apply_success_dialog">La aplicación fue correcta.\nPuede ser necesario reiniciar Android para que los cambios tengan efecto.\n\n¿Quieres reiniciar?\n(Para evitar perdida de datos asegúrate de que ninguna aplicación utiliza la tarjeta SD en este momento)</string>
+  <string name="apply_success_dialog">Cambios realizados correctamente.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n ¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegurese de que no hay aplicaciones utilizando la sdcard en este momento!)</string>
   <string name="apply_symlink_successful">Enlace simbólico creado con éxito.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n ¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegurese de que ninguna aplicación está usando la sdcard en este momento!)</string>
   <string name="apply_symlink_successful_title">Creación de link simbólico correcta</string>
   <string name="apply_symlink_fail">El enlace simbólico no puede ser creado por Android.\nEste problema se debe normalmente a una \"característica\" llamada S-ON de los teléfonos HTC\n\nUna solución es arrancar el teléfono en modo recovery y crear el enlace simbólico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona, busque en Internet S-OFF y tu teléfono.</string>
   <string name="apply_symlink_fail_title">No se pudo crear el link simbólico</string>
   <string name="apply_help">Por favor, lee Ayuda para más información.</string>
-  <string name="apply_apn_proxy">¡Hay un proxy APN configurado en tu Android!\nAdAway no funciona de forma fiable cuando está en Redes Móviles como 3G. Puedes desactivar el proxy yendo al APN seleccionado (en Android 4: Conexiones inalámbricas y redes  -&gt; Más… -&gt; Redes móviles -&gt; APN) y eliminar el valor del campo proxy.</string>
   <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
   <string name="no_connection">La conexión a Internet no está funcionando.</string>
   <string name="no_connection_title">Sin conexión</string>
@@ -89,7 +86,7 @@
   <string name="apply_dialog_hostnames">Analizando y fusionando los archivos hosts</string>
   <string name="apply_dialog_hosts">Construyendo archivo hosts</string>
   <string name="apply_dialog_apply">Aplicando archivo hosts</string>
-  <string name="apply_fail">¡No se pudo modificar el archivo hosts en tu sistema!\nIntenta cambiar la ruta del archivo hosts en las preferencias a /data/data/hosts.</string>
+  <string name="apply_fail">¡No se pudo modificar el archivo hosts en tu sistema!\nIntente cambiar el archivo hosts de destino en las preferencias a /data/data/hosts.</string>
   <string name="apply_fail_title">No se puedo realizar el cambio</string>
   <string name="revert_successful">Se volvió al archivo hosts por defecto.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n ¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegurese de que no hay aplicaciones utilizando la sdcard en este momento!)</string>
   <string name="revert_successful_title">Cambios deshechos correctamente</string>
@@ -100,7 +97,7 @@
   <string name="no_private_file">No se puede crear el archivo privado.</string>
   <string name="no_private_file_title">No se pudo crear el archivo privado</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">O no pudo encontrarse el binario su o no se dieron permisos de root para AdAway.\n\nEsto puede suceder cuando el dispositivo no tiene root. \nPuede encontrar información sobre la forma de hacer root en su dispositivo en www.cyanogenmod.com u otros sitios web de Android.</string>
+  <string name="no_root_description">O bien el binario su no pudo ser encontrado o no se permitieron permisos de root para AdAway.\n\nEste puede suceder cuando el dispositivo no tiene root. \nPuede encontrar información sobre la forma de hacer root en su dispositivo en www.cyanogenmod.com u otros sitios web de Android.</string>
   <string name="no_root_title">Se requiere Android con root</string>
   <string name="no_url">¡Esto no es una URL válida!</string>
   <string name="no_url_title">URL formateada incorrectamente</string>
@@ -153,7 +150,6 @@
   <string name="no_text_editor_title">No hay ningún editor de texto instalado</string>
   <string name="no_text_editor">No se pudo encontrar un editor de texto para abrir el archivo hosts. Puede instalar Jota u otros editores de texto para solucionar esto.\n\n¿Desea instalar Jota?</string>
   <string name="no_file_manager_title">No hay ningún gestor de archivos instalado</string>
-  <string name="no_file_manager">No se ha encontrado ningún gestor de archivos instalado. Puedes instalar OI File Manager o cualquier otro para manejarlo.\n\n¿Quieres instalar OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">¡Archivo de log borrado!</string>
   <string name="toast_tcpdump_added_to_blacklist">¡Nombre de host añadido a tu lista negra!</string>
@@ -182,12 +178,6 @@
   <string name="pref_webserver">Servidor Web local</string>
   <string name="pref_custom_target">Ruta personalizada</string>
   <string name="pref_custom_target_summary">Sólo se utiliza si la ruta del archivo hosts se configura como ruta personalizada</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Ruta personalizada</item>
-  </string-array>
   <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
   <string name="pref_sdcard_problem">¡Esta característica no funcionará correctamente si AdAway está instalado en la tarjeta SD!</string>
   <string name="pref_background">Servicios en segundo plano</string>

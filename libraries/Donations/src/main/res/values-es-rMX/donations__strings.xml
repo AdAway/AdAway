@@ -2,7 +2,6 @@
 <resources>
   <string name="donations__button_close">Cerrar</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Encuentras útil esta aplicación ?\nApoya su desarrollo enviando una donación al desarrollador!</string>
   <string name="donations__flattr_description">¡Flattr toma 10% como cargo mensual!</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported">Las donaciones In-App no están soportadas. ¿Está la Tienda de Google Play instalada correctamente?</string>

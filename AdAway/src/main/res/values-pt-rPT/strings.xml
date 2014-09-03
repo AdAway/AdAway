@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Lista de redireccionamentos</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(São permitidos os caracteres wildcard * e ?)</string>
   <string name="list_dialog_ip">IP (IPv4 ou IPv6):</string>
   <string name="import_dialog">A importar...</string>
   <string name="export_dialog">A exportar...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Desactivado</string>
   <string name="status_disabled_subtitle">Desactivado</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink para /system/etc/hosts não existe ou encontra-se incorrecto! O AdAway não funcionará se este não for apontado para o ficheiro correcto.\n\nDeseja tentar criar um symlink?</string>
   <string name="apply_symlink_missing_title">Symlink inexistente</string>
-  <string name="apply_not_enough_space">Espaço insuficiente na partição!\nTente alterar o ficheiro alvo de hosts nas preferências para /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Espaço insuficiente</string>
   <string name="apply_private_file_fail">Impossível ler o ficheiro descarregado.</string>
   <string name="apply_private_file_fail_title">Falha no ficheiro privado</string>
@@ -71,11 +68,9 @@
   <string name="apply_remount_fail_title">Falha na remontagem</string>
   <string name="apply_copy_fail">Falha na cópia do ficheiro de hosts!</string>
   <string name="apply_copy_fail_title">Falha na cópia</string>
+  <string name="apply_success_subtitle">Hosts aplicados:</string>
   <string name="apply_success_title">Aplicado com sucesso</string>
-  <string name="apply_success_dialog">Aplicado com sucesso.\nPoderá ser necessário reiniciar o dispositivo para que as alterações tenham efeito.\n\nPretende reiniciar?\n(Para prevenir perdas de dados, certifique-se que nenhuma aplicação se encontra a utilizar o cartão de memória)</string>
-  <string name="apply_symlink_successful">Symlink criado com sucesso.\nPoderá ser necessário reiniciar o dispositivo para que as alterações tenham efeito.\n\nPretende reiniciar?\n(Para prevenir perdas de dados, certifique-se que nenhuma aplicação se encontra a utilizar o cartão de memória)</string>
   <string name="apply_symlink_successful_title">Symlink criado com sucesso</string>
-  <string name="apply_symlink_fail">Impossível criar symlink.\nNormalmente acontece devido a uma \'característica\' nos dispositivos HTC chamada S-ON!\n\nUma solução possível passa por entrar em modo recovery e criar aí o symlink com \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nCaso esta solução não funcione, pesquise na internet por \'S-OFF\' + o seu dispositivo.</string>
   <string name="apply_symlink_fail_title">Falha na criação do symlink</string>
   <string name="apply_help">Para mais informações, por favor leia a ajuda.</string>
   <string name="apply_apn_proxy_title">Proxy de APN definido!</string>
@@ -87,9 +82,7 @@
   <string name="apply_dialog_hostnames">A analisar e fundir os ficheiros de hosts</string>
   <string name="apply_dialog_hosts">A construir o ficheiro de hosts</string>
   <string name="apply_dialog_apply">A aplicar o ficheiro de hosts</string>
-  <string name="apply_fail">Falha na aplicação do ficheiro de hosts!\nTente alterar o caminho do ficheiro de hosts nas preferências para /data/data/hosts.</string>
   <string name="apply_fail_title">Falha em aplicar</string>
-  <string name="revert_successful">Foi restaurado o ficheiro original de hosts.\nPoderá ser necessário reiniciar o dispositivo para que as alterações tenham efeito.\n\nPretende reiniciar?\n(Para prevenir perdas de dados, certifique-se que nenhuma aplicação se encontra a utilizar o cartão de memória!)</string>
   <string name="revert_successful_title">Revertido com sucesso</string>
   <string name="revert_problem">Falha na restauração por motivos desconhecidos</string>
   <string name="revert_problem_title">Falha a reverter!</string>
@@ -98,12 +91,14 @@
   <string name="no_private_file">Impossível criar ficheiro privado</string>
   <string name="no_private_file_title">Falha na criação de ficheiro privado</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Binário SU não encontrado ou não deu permissões de root ao AdAway.\n\nIsto pode acontecer caso não tenha sido feito root ao dispositivo.\nPoderá encontrar mais informações acerca deste procedimento em www.cyanogenmod.com ou noutros websites sobre Android.</string>
   <string name="no_root_title">É necessário um dispositivo com root</string>
   <string name="no_url">Este não é um URL válido!</string>
+  <string name="no_url_title">Formato errado de URL</string>
   <string name="hosts_add_dialog">Insira um URL para o ficheiro de hosts:</string>
   <string name="no_hostname">Hostname inválido!</string>
+  <string name="no_hostname_title">Formato errado de hostname</string>
   <string name="no_ip">IP inválido!</string>
+  <string name="no_ip_title">Formato errado de IP</string>
   <string name="reboot_never_reboot">Nunca reiniciar e nunca mais apresentar esta questão!</string>
   <string name="loading">A carregar..</string>
   <!--Menu entries-->
@@ -146,9 +141,7 @@
   <!--Other-->
   <string name="app_subtitle">Bloqueador de anúncios</string>
   <string name="no_text_editor_title">Nenhum editor de texto instalado</string>
-  <string name="no_text_editor">Não foi encontrado nenhum editor de textos para abrir o ficheiro de hosts. Poderá instalar o Jota ou outro editor semelhante.\n\nPretende instalar o Jota?</string>
   <string name="no_file_manager_title">Sem explorador de ficheiros instalado</string>
-  <string name="no_file_manager">Não foi encontrado nenhum explorador de ficheiros. Poderá instalar o OI File Manager ou outro semelhante.\n\nPretende instalar o OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Ficheiro de registo eliminado!</string>
   <string name="toast_tcpdump_added_to_blacklist">O hostname foi adicionado à sua blacklist!</string>
@@ -177,12 +170,6 @@
   <string name="pref_webserver">Webserver local</string>
   <string name="pref_custom_target">Destino personalizado</string>
   <string name="pref_custom_target_summary">Apenas utilizado se o ficheiro de hosts estiver definido num destino personalizado</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Destino personalizado</item>
-  </string-array>
   <string name="pref_update_check_summary">Procurar actualizações ao abrir o AdAway</string>
   <string name="pref_sdcard_problem">Esta funcionalidade não funcionará correctamente enquanto o AdAway estiver instalado no cartão de memória!</string>
   <string name="pref_background">Serviços de segundo plano</string>

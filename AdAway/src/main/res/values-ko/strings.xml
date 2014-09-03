@@ -33,7 +33,6 @@
   <string name="lists_tab_redirection_list_short">리디렉션</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">호스트명:</string>
-  <string name="list_dialog_whitelist_hostname">호스트명:\n(Wildcard characters * and ? are allowed!)</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="import_dialog">가져오는중...</string>
   <string name="export_dialog">내보내는중...</string>
@@ -53,9 +52,7 @@
   <string name="status_disabled">광고차단 미적용됨</string>
   <string name="status_disabled_subtitle">광고차단 미적용됨</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
   <string name="apply_symlink_missing_title">심링크 없음</string>
-  <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">남은공간 없음</string>
   <string name="apply_private_file_fail">다운로드한 파일을 읽을 수 없습니다.</string>
   <string name="apply_private_file_fail_title">개인파일 적용실패</string>
@@ -64,9 +61,7 @@
   <string name="apply_copy_fail">호스트파일 복사가 실패 하였습니다!</string>
   <string name="apply_copy_fail_title">복사 실패</string>
   <string name="apply_success_title">적용 성공</string>
-  <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
   <string name="apply_symlink_successful_title">심링크 생성 성공</string>
-  <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
   <string name="apply_symlink_fail_title">심링크 생성실패</string>
   <string name="apply_help">Please read Help for more information.</string>
   <string name="no_connection">인터넷에 연결되지않아 작동하지않습니다</string>
@@ -77,9 +72,7 @@
   <string name="apply_dialog_hostnames">호스트파일 구문분석 및 병합</string>
   <string name="apply_dialog_hosts">호스트파일 생성중</string>
   <string name="apply_dialog_apply">호스트파일 적용중</string>
-  <string name="apply_fail">호스트 파일을 시스템에 적용하는데 실패하였습니다!/n 설정에서 호스트파일의 경로를 /data/data/hosts 로 변경하세요.</string>
   <string name="apply_fail_title">적용 실패</string>
-  <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
   <string name="revert_successful_title">되돌리기 성공</string>
   <string name="revert_problem">알수없는 이유로 되돌리기 실패하였습니다</string>
   <string name="revert_problem_title">되돌리기 실패</string>
@@ -87,7 +80,6 @@
   <string name="no_private_file">개인파일을 만들수 없습니다.</string>
   <string name="no_private_file_title">개인파일 생성실패</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
   <string name="no_root_title">루팅필수</string>
   <string name="no_url">이것은 올바른 URL이 아닙니다!</string>
   <string name="hosts_add_dialog">호스트파일에 URL 입력:</string>
@@ -123,9 +115,7 @@
   <!--Other-->
   <string name="app_subtitle">광고차단</string>
   <string name="no_text_editor_title">No text editor installed</string>
-  <string name="no_text_editor">No text editor could be found to open the hosts file. You can install Jota or other text editors to handle this.\n\nDo you want to install Jota?</string>
   <string name="no_file_manager_title">No file manager installed</string>
-  <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
   <!--Tcpdump-->
   <!--Preferences-->
 </resources>

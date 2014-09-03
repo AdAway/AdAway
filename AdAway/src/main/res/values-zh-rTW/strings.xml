@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">廣告阻擋</string>
   <!--Buttons-->
@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">重新導向列表</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主機名稱：</string>
-  <string name="list_dialog_whitelist_hostname">主機名稱:\n(可使用萬用字元 * 和 ?)</string>
   <string name="list_dialog_ip">IP位址(IPv4或IPv6)</string>
   <string name="import_dialog">導入中...</string>
   <string name="export_dialog">導出中...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">禁用</string>
   <string name="status_disabled_subtitle">禁用</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">你設定的目標不存在或者不是正確的 /system/etc/hosts 符號連結！沒有正確的符號連結AdAway不能執行。\n\n你需要建立符號連結嗎？</string>
   <string name="apply_symlink_missing_title">符號連接遺失</string>
-  <string name="apply_not_enough_space">分區上沒有足夠的空間\n請在設定裡面修改目標hosts檔案到/data/data/hosts。</string>
   <string name="apply_not_enough_space_title">空間不足</string>
   <string name="apply_private_file_fail">不能讀取下載的檔案。</string>
   <string name="apply_private_file_fail_title">私人檔案失敗</string>
@@ -72,10 +69,7 @@
   <string name="apply_copy_fail">複製hosts檔案失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
   <string name="apply_success_title">建立成功</string>
-  <string name="apply_success_dialog">建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有程式正在使用sd卡）</string>
-  <string name="apply_symlink_successful">符號連結建立成功。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有應用正在使用sd卡）</string>
   <string name="apply_symlink_successful_title">符號連結建立成功</string>
-  <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為HTC上一個叫S-ON的\'功能\'！\n\n一個辦法可以啟動你的手機到還原模式並使用命令\'ln -s /data/data/hosts /system/etc/hosts來建立符號連結。\n\n如果沒有用，請google怎麼S-OFF你的手機。</string>
   <string name="apply_symlink_fail_title">符號連結建立失敗</string>
   <string name="apply_help">請閱讀幫助以獲得更多訊息。</string>
   <string name="apply_apn_proxy_title">APN 代理伺服器設定!</string>
@@ -87,9 +81,7 @@
   <string name="apply_dialog_hostnames">解析及合併hosts檔案</string>
   <string name="apply_dialog_hosts">建立hosts檔案</string>
   <string name="apply_dialog_apply">合併hosts檔案</string>
-  <string name="apply_fail">hosts檔案修改失敗！\n請將【設定】中的hosts檔案目標修改為/data/data/hosts。</string>
   <string name="apply_fail_title">建立失敗</string>
-  <string name="revert_successful">已經還原為預設的hosts檔案了。\n需要重新啟動才能生效\n\n你是否需要重新啟動？\n（為了防止檔案遺失，請確保沒有程式正在使用sd卡）</string>
   <string name="revert_successful_title">還原成功</string>
   <string name="revert_problem">還原失敗。</string>
   <string name="revert_problem_title">還原失敗!</string>
@@ -98,7 +90,6 @@
   <string name="no_private_file">不能建立私人檔案</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">無法找到su或者你沒有允許AdAway取得root權限。\n\n這可能是因為你的設備沒有root。\n你可以到www.cyanogenmod.coma或者其他Android網站去找到如何root你的設備方法。</string>
   <string name="no_root_title">需要root權限</string>
   <string name="no_url">URL無效！</string>
   <string name="hosts_add_dialog">輸入hosts檔案的URL：</string>
@@ -136,7 +127,9 @@
     <item>13 歐元</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">你可以掃描是否被安裝了惡意廣告軟體，這些使用推播技術 (Airpush notifications) 的廣告無法被阻擋，甚至當軟體沒有在執行時也會彈跳出廣告訊息。對付這些惡意軟體最有效的方法就是輕觸清單來移除他們！\n\n</string>
+  <string name="scan_adware_description">你可以掃描是否被安裝了惡意廣告軟體，這些使用推播技術 (Airpush notifications) 的廣告無法被阻擋，甚至當軟體沒有在執行時也會彈跳出廣告訊息。對付這些惡意軟體最有效的方法就是輕觸清單來移除他們！
+
+</string>
   <string name="scan_adware_start">開始掃描</string>
   <string name="scan_adware_empty">未發現任何惡意的廣告軟體</string>
   <!--Hosts Sources-->
@@ -146,9 +139,7 @@
   <!--Other-->
   <string name="app_subtitle">廣告免疫</string>
   <string name="no_text_editor_title">沒有安裝文字編輯器</string>
-  <string name="no_text_editor">沒有找到文字編輯器來打開hosts檔案。你可以安裝Jota或者其他文字編輯器來解決。\n\n你需要安裝Jota嗎？</string>
   <string name="no_file_manager_title">沒有安裝檔案管理器</string>
-  <string name="no_file_manager">沒有找到檔案管理器來打開檔案。你可以安裝OI File Manager或者其他檔案管理器來解決。\n\n你需要安裝OI File Manager嗎？</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">記錄檔刪除了！</string>
   <string name="toast_tcpdump_added_to_blacklist">主機名稱已加入你的黑名單！</string>
@@ -177,12 +168,6 @@
   <string name="pref_webserver">本地web伺服器</string>
   <string name="pref_custom_target">自定義目標</string>
   <string name="pref_custom_target_summary">只用於hosts檔案被設定為自定義目標的情況</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>自定義目標</item>
-  </string-array>
   <string name="pref_update_check_summary">在啟動AdAway時檢查更新</string>
   <string name="pref_sdcard_problem">如果AdAway被安裝到SD卡上，這個功能可能不能正常工作！</string>
   <string name="pref_background">背景服務</string>

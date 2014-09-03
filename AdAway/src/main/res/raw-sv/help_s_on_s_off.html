@@ -1,28 +1,28 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Devices</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<h2>HTC Enheter</h2>
+<p>AdAway fungerar inte när du använder en enhet som har S-ON. Denna "egenskap" finns på många HTC enheter och hindrar AdAway från att skriva till hosts filen.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
+<p>S-OFF betyder att NAND portionen av enheten är upplåst och kan skrivas till. Standardvärdet för HTC enheter är S-ON, vilket betyder att du inte har tillgång till vissa delar av systemet eller heller kan permanent root garanteras. Vidare, signatur checkar av firmware säkerställs även av S-ON flaggan.</p>
 
-<h2>Do I have S-ON or S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<h2>Har jag S-ON eller S-OFF?</h2>
+<p>Boota in till Boot Menyn på din enhet genom att hålla in <i>volym ner</i> knappen medans du håller in AvPå-Knappen och texten uppe i toppen kommer att visa en status som säger S-OFF eller S-ON. Har du full root så står det S-OFF.
+<br/><br/>Mer info kan du finna här på <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
-<h2>Workaround</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
+<h2>Lösning</h2>
+<p>Förutsättning: Du måste installera en fungerade Android SDK med ADB på din PC.
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>Boota in till Bootmenyn på din enhet genom att hålla in <i>volym ner</i> knappen samtidigt som du trycker in PåAv-Knappen.</li>
+<li>Använd <i>volym ner</i> för at välja recovery.</li>
+<li>I clockwork recovery, tryck volym ner till "partitions menu" och tryck på mittenknappen på telefonen för att välja</li>
+<li>Välj <i>mount /system</i>, <i>mount /sdcard</i> och <i>mount /data</i>.</li>
+<li>Sätt in usbsladden och öppna en kommandoprompt på din pc.</li>
+<li>Gå in i adb shell och skriv <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (Detta skapar en symbolisk länk, som tillåter AdAway att ändra hosts filen som finns i <tt>/data</tt> medans man tillåter OSet att använda filen som om att den skulle vara lagrad i <tt>/system</tt>.)</li>
+<li>Starta om din enhet och sätt <i>Mål för hosts fil</i> till <i>/data/data/hosts</i> i Adaways inställningar.</li>
+<li>AdAway ska nu fungera.</li>
 </ol>
 </body>
 </html>

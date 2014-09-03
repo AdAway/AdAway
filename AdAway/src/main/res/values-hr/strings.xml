@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Popis preusmjeravanja</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Ime hosta:</string>
-  <string name="list_dialog_whitelist_hostname">Ime hosta: \n (Znakovi zamjene * i ? su dozvoljeni!)</string>
   <string name="list_dialog_ip">IP (IPv4 ili IPv6):</string>
   <string name="import_dialog">Uvozim...</string>
   <string name="export_dialog">Izvozim...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Spriječeno</string>
   <string name="status_disabled_subtitle">Spriječeno</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink od Vašeg odredišta do /system/etc/hosts je nepostojeći ili nepravilan! AdAway neće raditi ukoliko on ne pokazuje na ispravnu datoteku.\n \n Želite li pokušati stvoriti symlink?</string>
   <string name="apply_symlink_missing_title">Symlink nedostaje</string>
-  <string name="apply_not_enough_space">Nedovoljno prostora na particiji!\n Pokušajte promijeniti odredišnu hosts datoteku u postavkama na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Nedovoljno prostora</string>
   <string name="apply_private_file_fail">Downloadana datoteka nije mogla biti pročitana.</string>
   <string name="apply_private_file_fail_title">Neuspjela privatna datoteka</string>
@@ -72,10 +69,7 @@
   <string name="apply_copy_fail">Kopiranje hosts datoteke neuspjelo!</string>
   <string name="apply_copy_fail_title">Kopiranje neuspjelo</string>
   <string name="apply_success_title">Primjenjivanje uspjelo</string>
-  <string name="apply_success_dialog">Primjena je bila uspješna.\n Možda će biti potrebno ponovno pokrenuti Android kako bi promjene bile vidljive.\n \n Želite li ponovno pokrenuti sustav?\n (Kako bi onemogućili gubitak podataka osigurajte da niti jedna aplikacija trenutno ne koristi SD karticu!)</string>
-  <string name="apply_symlink_successful">Symlink je uspješno kreiran.\n Možda će biti potrebno ponovno pokrenuti Android kako bi promjene bile vidljive.\n \n Želite li ponovno pokrenuti sustav?\n (Kako bi onemogućili gubitak podataka osigurajte da niti jedna aplikacija trenutno ne koristi SD karticu!)</string>
   <string name="apply_symlink_successful_title">Stvaranje symlinka uspjelo</string>
-  <string name="apply_symlink_fail">Symlink nije mogao biti kreiran od strane Androida.\n Ovo obično ne uspijeva zbog \"svojstva\" zvanog S-ON na HTC-ovim uređajima!\n \n Jedno od rješenja je ponovno pokrenuti uređaj u Recovery modusu rada te kreirati symlink sadržaja \"ln -s /data/data/hosts /system/etc/hosts\".\n \n Ako to ne uspije potražite na internetu kako postići S-OFF na Vašem uređaju.</string>
   <string name="apply_symlink_fail_title">Stvaranje symlinka neuspjelo</string>
   <string name="apply_help">Molim Vas da pročitate Pomoć za više informacija.</string>
   <string name="apply_apn_proxy_title">APN zastupnik postavljen!</string>
@@ -87,9 +81,7 @@
   <string name="apply_dialog_hostnames">Parsiram i spajam host datoteke</string>
   <string name="apply_dialog_hosts">Stvaram hosts datoteku</string>
   <string name="apply_dialog_apply">Primjenjujem hosts datoteku</string>
-  <string name="apply_fail">Primjenjivanje hosts datoteke na Vaš sustav nije uspjelo!\n Pokušajte promijeniti odredište hosts datoteke u postavkama na /data/data/hosts.</string>
   <string name="apply_fail_title">Primjenjivanje neuspjelo</string>
-  <string name="revert_successful">Vratili ste zadanu hosts datoteku.\n Možda će biti potrebno ponovno pokrenuti Android kako bi promjene mogle biti primijećene.\n \n Želite li ponovno pokrenuti sustav?\n (Kako bi onemogućili gubitak podataka osigurajte da niti jedna aplikacija trenutno ne koristi SD karticu!)</string>
   <string name="revert_successful_title">Vraćanje na zadano uspjelo</string>
   <string name="revert_problem">Vraćanje na zadano stanje neuspjelo iz nepoznatih razloga.</string>
   <string name="revert_problem_title">Vraćanje neuspjelo!</string>
@@ -98,7 +90,6 @@
   <string name="no_private_file">Privatna datoteka ne može biti stvorena.</string>
   <string name="no_private_file_title">Neuspjelo stvaranje privatne datoteke</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Ili binarna datoteka nije pronađena ili niste AdAwayu dali root prava.\n \n To se može dogoditi kada Vam uređaj nije rootan.\n Informacije o tome kakko rootati vlastiti uređaj možete pronaći na www.cyanogenmod.com ili na ostalim web stranicama vezanima uz Android.</string>
   <string name="no_root_title">Potreban je rootani Android</string>
   <string name="no_url">Ovo nije važeći URL!</string>
   <string name="no_url_title">Nepravilno formatiran URL</string>
@@ -148,9 +139,7 @@
   <!--Other-->
   <string name="app_subtitle">Blokator oglasa</string>
   <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
-  <string name="no_text_editor">Nije pronađen uređivač teksta kojim bi se otvorila hosts datoteka. Možete instalirati Jotu ili neki drugi uređivač teksta kako biste riješili novonastalu situaciju.\n \n Želite li instalirati Jotu?</string>
   <string name="no_file_manager_title">Nema instaliranog upravitelja datotekama</string>
-  <string name="no_file_manager">Nije pronađen upravitelj datoteka kojim bi se mogle otvarati datoteke. Možete instalirati OI File Manager ili neki drugi upravitelj datoteka kako biste riješili novonastalu situaciju.\n \n Želite li instalirati OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Dnevnički zapis obrisan!</string>
   <string name="toast_tcpdump_added_to_blacklist">Ime hosta dodano je u popis nedopuštenih!</string>
@@ -179,12 +168,6 @@
   <string name="pref_webserver">Lokalni web server</string>
   <string name="pref_custom_target">Lokacija po narudžbi</string>
   <string name="pref_custom_target_summary">Koristi se samo ako je lokacija hosts datoteke postavljena na lokaciju po narudžbi</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Lokacija po narudžbi</item>
-  </string-array>
   <string name="pref_update_check_summary">Provjeri osvježenja pri pokretanju AdAwaya</string>
   <string name="pref_sdcard_problem">Ovo svojstvo neće raditi ispravno kada je AdAway instaliran na SD karticu!</string>
   <string name="pref_background">Pozadinski servisi</string>

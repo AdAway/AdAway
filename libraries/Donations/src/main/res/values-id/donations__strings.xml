@@ -2,7 +2,6 @@
 <resources>
   <string name="donations__button_close">Tutup</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Apakah aplikasi ini berguna?\nDukung pengembangan aplikasi dengan memberikan donasi!</string>
   <string name="donations__flattr_description">Flattr mengambil 10 % sebagai biaya bulanan!</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">Donasi In-App tidak didukung.</string>
@@ -13,7 +12,6 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Anda dapat memilih berapa banyak Anda ingin sumbangkan setelah mengklik tombol!</string>
   <string name="donations__thanks_dialog_title">Terima Kasih!</string>
-  <string name="donations__thanks_dialog">Terimkasih atas donasi anda!\n\nSaya sangat menghargai ini!</string>
   <string name="donations__alert_dialog_title">Terjadi galat</string>
   <string name="donations__alert_dialog_no_browser">Tidak di temukan browser untuk membuka laman website</string>
 </resources>

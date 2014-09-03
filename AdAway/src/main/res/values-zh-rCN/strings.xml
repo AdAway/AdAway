@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">广告走开</string>
   <!--Buttons-->
@@ -40,7 +40,7 @@
   <string name="lists_tab_redirection_list">重定向列表</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主机名：</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(可使用通配符 * 和 ?)</string>
+  <string name="list_dialog_whitelist_hostname">Hostname:\n(可使用Wildcard字符 * 和 ?)</string>
   <string name="list_dialog_ip">IP 地址(IPv4 或 IPv6)</string>
   <string name="import_dialog">导入中...</string>
   <string name="export_dialog">导出中...</string>
@@ -61,9 +61,9 @@
   <string name="status_disabled">禁用</string>
   <string name="status_disabled_subtitle">禁用</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">从你设置的目标不存在或者不是正确的到 /system/etc/hosts 的符号链接！如果没有指向正确的文件广告走开不能运行。\n\n你需要创建符号链接吗？</string>
+  <string name="apply_symlink_missing">从你设置的目标不存在或者不是正确的到 /system/etc/hosts 的符号链接！没有正确的符号链接AdAway不能运行。\n\n你需要创建符号链接吗？</string>
   <string name="apply_symlink_missing_title">符号链接丢失</string>
-  <string name="apply_not_enough_space">分区上没有足够的空间\n请在设置里面修改 目标 hosts 文件到 /data/data/hosts。</string>
+  <string name="apply_not_enough_space">分区上没有足够的空间\n请在设置里面修改目标hosts文件到/data/data/hosts。</string>
   <string name="apply_not_enough_space_title">空间不足</string>
   <string name="apply_private_file_fail">不能读取下载的文件。</string>
   <string name="apply_private_file_fail_title">私有文件失败</string>
@@ -72,10 +72,10 @@
   <string name="apply_copy_fail">复制 hosts 文件失败！</string>
   <string name="apply_copy_fail_title">复制失败</string>
   <string name="apply_success_title">应用成功</string>
-  <string name="apply_success_dialog">应用成功。\n这可能需要重新启动你的 Android 才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用 sd 卡）</string>
-  <string name="apply_symlink_successful">符号链接创建成功。\n这可能需要重新启动你的 Android 才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用 sd 卡）</string>
+  <string name="apply_success_dialog">应用成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
+  <string name="apply_symlink_successful">符号链接创建成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
   <string name="apply_symlink_successful_title">符号链接创建成功</string>
-  <string name="apply_symlink_fail">符号链接创建失败。\n这很有可能是因为HTC上一个叫 S-ON 的“功能”！\n\n一个解决办法可以启动你的手机到 recovery 模式并用命令”ln -s /data/data/hosts /system/etc/hosts“ 来创建符号链接。\n\n如果这招没有用，请在网上搜索下怎么 S-OFF 你的手机。</string>
+  <string name="apply_symlink_fail">符号链接创建失败。\n这很有可能是因为HTC上一个叫S-ON的’功能’！\n\n一个解决办法可以启动你的手机到恢复模式并用在哪用命令’ln -s /data/data/hosts /system/etc/hosts\’来创建符号链接。\n\n如果这没有用，在网上搜索下怎么S-OFF你的手机。</string>
   <string name="apply_symlink_fail_title">符号链接创建失败</string>
   <string name="apply_help">请阅读帮助获得更多信息。</string>
   <string name="apply_apn_proxy_title">APN 设置了代理！</string>
@@ -87,9 +87,9 @@
   <string name="apply_dialog_hostnames">解析及合并 hosts 文件</string>
   <string name="apply_dialog_hosts">建立 hosts 文件</string>
   <string name="apply_dialog_apply">应用 hosts 文件</string>
-  <string name="apply_fail">应用 hosts 文件修改失败！\n请尝试在设置里面把目标 hosts 文件修改为 /data/data/hosts。</string>
+  <string name="apply_fail">应用hosts文件修改失败！\n请尝试在[设置]里面把hosts文件目标修改为/data/data/hosts。</string>
   <string name="apply_fail_title">应用失败</string>
-  <string name="revert_successful">已经还原为默认的 hosts 文件了。\n这可能需要重新启动你的 Android 才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用 sd 卡）</string>
+  <string name="revert_successful">你已经还原为默认的hosts文件了。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
   <string name="revert_successful_title">还原成功</string>
   <string name="revert_problem">由于未知原因还原失败。</string>
   <string name="revert_problem_title">还原失败</string>
@@ -98,7 +98,7 @@
   <string name="no_private_file">不能创建私有文件</string>
   <string name="no_private_file_title">私有文件创建失败</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">没有找到 su 或者你没有允许广告走开的 root 权限。\n\n这可能是因为你的设备没有 root。\n你可以到 www.cyanogenmod.com 或者其他网站找到如何 root 你的设备的信息。</string>
+  <string name="no_root_description">没有找到su或者你没有允许AdAway的root权限。\n\n这可能是因为你的设备没有root。\n你可以到www.cyanogenmod.coma或者其他Android网站去找到如何root你的设备。</string>
   <string name="no_root_title">需要 root 了的 Android</string>
   <string name="no_url">URL 无效！</string>
   <string name="hosts_add_dialog">输入 hosts 文件的 URL：</string>
@@ -146,9 +146,9 @@
   <!--Other-->
   <string name="app_subtitle">广告屏蔽</string>
   <string name="no_text_editor_title">没有安装文本编辑器</string>
-  <string name="no_text_editor">没有找到文本编辑器来打开 hosts 文件。你可以安装 Jota 或者其他文本编辑器来解决这。\n\n你需要安装 Jota 吗？</string>
+  <string name="no_text_editor">没有找到文本编辑器来打开hosts文件。你可以安装Jota或者其他文本编辑器来解决这。\n\n你需要安装Jota吗？</string>
   <string name="no_file_manager_title">没有安装文件管理器</string>
-  <string name="no_file_manager">没有找到文件管理器来打开文件。你可以安装 OI File Manager 或者其他文件管理器来解决这。\n\n你需要安装 OI File Manager 吗？</string>
+  <string name="no_file_manager">没有找到文件管理器来打开文件。你可以安装OI File Manager或者其他文件管理器来解决这。\n\n你需要安装OI File Manager吗？</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">日志文件已删除</string>
   <string name="toast_tcpdump_added_to_blacklist">主机名已添加到你的黑名单</string>
@@ -177,12 +177,6 @@
   <string name="pref_webserver">本地 Web 服务器</string>
   <string name="pref_custom_target">自定义目标</string>
   <string name="pref_custom_target_summary">只用于 hosts 文件被设置为自定义目标的情况</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>自定义目标</item>
-  </string-array>
   <string name="pref_update_check_summary">在启动广告走开时检查更新</string>
   <string name="pref_sdcard_problem">如果广告走开被安装到 SD 卡上，这个功能可能不能正常工作！</string>
   <string name="pref_background">后台服务</string>

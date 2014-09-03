@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">重新導向名單</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主機名稱:</string>
-  <string name="list_dialog_whitelist_hostname">主機名稱:\n(可使用萬用字元 * 及 ?)</string>
   <string name="list_dialog_ip">IP (IPv4 或 IPv6):</string>
   <string name="import_dialog">導入中…</string>
   <string name="export_dialog">導出中…</string>
@@ -62,7 +61,6 @@
   <string name="status_disabled_subtitle">已停用</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing_title">遺失符號連結</string>
-  <string name="apply_not_enough_space">分割區沒有足夠的空間！\n請嘗試在設定中，更改目標 hosts 檔為 /data/data/hosts。</string>
   <string name="apply_not_enough_space_title">沒有足夠的空間</string>
   <string name="apply_private_file_fail">不能讀取已下載的檔案。</string>
   <string name="apply_private_file_fail_title">私人檔案失敗</string>
@@ -71,8 +69,7 @@
   <string name="apply_copy_fail">複製 hosts 檔失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
   <string name="apply_success_title">套用成功</string>
-  <string name="apply_success_dialog">套用成功。\n您可能需要重新啟動 Android 才能使變更生效。\n\n您要重新啟動嗎？\n(為防資料流失，請確定没有任何應用程式正在使用 SD 卡！)</string>
-  <string name="apply_symlink_successful">成功建立符號連結。\n您可能需要重新啟動 Android 才能使變更生效。\n\n您要重新啟動嗎？\n(為防資料流失，請確定没有任何應用程式正在使用 SD 卡！)</string>
+  <string name="apply_success_dialog">更新成功。\n你可能要重新啟動系統才能使改變生效\n\n你要重新啟動嗎?\n(請確定現在没有程式在使用SD Card以防資料遺失)</string>
   <string name="apply_symlink_successful_title">成功建立符號連結</string>
   <string name="apply_symlink_fail_title">建立符號連結失敗</string>
   <string name="apply_help">請閱讀幫助以獲取更多資訊。</string>
@@ -85,9 +82,9 @@
   <string name="apply_dialog_hostnames">正在剖析及合併 hosts 檔</string>
   <string name="apply_dialog_hosts">正在建立 hosts 檔</string>
   <string name="apply_dialog_apply">正在套用 hosts 檔</string>
-  <string name="apply_fail">套用 hosts 檔失敗！\n請嘗試在設定中，更改目標 hosts 檔為 /data/data/hosts。</string>
+  <string name="apply_fail">無法更新主機檔\n請嘗試在設定中修改目標主機檔至 /data/data/hosts</string>
   <string name="apply_fail_title">套用失敗</string>
-  <string name="revert_successful">已還原至系統預設的 hosts 檔。\n您可能需要重新啟動 Android 才能使變更生效。\n\n您要重新啟動嗎？\n(為防資料流失，請確定没有任何應用程式正在使用 SD 卡！)</string>
+  <string name="revert_successful">已復原至預設的主機檔。\n你可能要重新啟動系統才能使改變生效\n\n你要重新啟動嗎?\n(請確定現在没有程式在使用SD Card以防資料遺失)</string>
   <string name="revert_successful_title">復原成功</string>
   <string name="revert_problem">有未知原因令復原失敗。</string>
   <string name="revert_problem_title">復原失敗！</string>
@@ -95,12 +92,14 @@
   <string name="no_private_file">未能建立私人檔案</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">未能找到 su binary 或者您未允許 AdAway 取得 root 權限。\n\n這情況可能發生於未 root 的手機上。\n您可透過 www.cyanogenmod.com 或其他 Android 網站尋找有關 root 手機的資訊。</string>
   <string name="no_root_title">需要取得 root 權限</string>
   <string name="no_url">這不是有效的 URL！</string>
+  <string name="no_url_title">不正確的 URL 格式</string>
   <string name="hosts_add_dialog">輸入 URL 至 hosts 檔:</string>
   <string name="no_hostname">這不是有效的主機名稱！</string>
+  <string name="no_hostname_title">不正確的主機名稱格式</string>
   <string name="no_ip">這不是有效的 IP！</string>
+  <string name="no_ip_title">不正確的 IP 格式</string>
   <string name="reboot_never_reboot">永遠不要重新啟動及再顯示此問題！</string>
   <string name="loading">載入中…</string>
   <!--Menu entries-->
@@ -142,9 +141,7 @@
   <!--Other-->
   <string name="app_subtitle">廣告攔截程式</string>
   <string name="no_text_editor_title">沒有安裝文字編輯器</string>
-  <string name="no_text_editor">沒有找到任何文字編輯器去開啟 hosts 檔。您可安裝 Jota 或其他文字編輯器去解決這個問題。\n\n您要安裝 Jota 嗎？</string>
   <string name="no_file_manager_title">沒有安裝檔案管理工具</string>
-  <string name="no_file_manager">沒有找到任何檔案管理工具去開啟檔案。您可安裝 OI File Manager 或其他檔案管理工具去解決這個問題。\n\n您要安裝 OI File Manager 嗎？</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">記錄檔已刪除！</string>
   <string name="toast_tcpdump_added_to_blacklist">主機名稱已加至您的黑名單內！</string>
@@ -170,12 +167,6 @@
   <string name="pref_webserver_enabled">開啟網頁伺服器</string>
   <string name="pref_webserver">本地網頁伺服器</string>
   <string name="pref_custom_target">自定義目標位置</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>自定義目標位置</item>
-  </string-array>
   <string name="pref_update_check_summary">在 AdAway 啟動時檢查更新</string>
   <string name="pref_sdcard_problem">當 AdAway 安裝在 SD 卡上，這功能不能正常運作！</string>
   <string name="pref_background">背景執行服務</string>

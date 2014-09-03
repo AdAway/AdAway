@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Omdirigeringslista</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Värdnamn:</string>
-  <string name="list_dialog_whitelist_hostname">Värdnamn:\n(Jokertecken * och ? är tillåtna!)</string>
   <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerar...</string>
   <string name="export_dialog">Exporterar...</string>
@@ -62,7 +61,6 @@
   <string name="status_disabled_subtitle">Avaktiverad</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing_title">Symlink fil saknas</string>
-  <string name="apply_not_enough_space">Inte tillräckligt diskutrymme på partitionen!\nProva att ändra värdfilens sökväg i inställningarna till /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Inte tillräckligt med minne</string>
   <string name="apply_private_file_fail">Hämtad fil kunde inte läsas.</string>
   <string name="apply_private_file_fail_title">Privat fil, fel</string>
@@ -70,11 +68,9 @@
   <string name="apply_remount_fail_title">Ommontering misslyckades</string>
   <string name="apply_copy_fail">Kopiering av värdfil misslyckades!</string>
   <string name="apply_copy_fail_title">Kopiering misslyckades</string>
+  <string name="apply_success_subtitle">Tillämpade värdkällor:</string>
   <string name="apply_success_title">Tillämpning lyckades</string>
-  <string name="apply_success_dialog">Tillämpningen lyckades.\nDet kan behövas att starta om din Android för att ändringarna ska fungera.\n\nVill du starta om?\n(För att förhindra att någon data går förlorad se till att ingen app använder SD-kortet!)</string>
-  <string name="apply_symlink_successful">Den symboliska länken skapades utan problem.\nDu kan behöva starta om din Android för att ändringarna ska fungera.\n\nVill du starta om?\n(För att förhindra att någon data går förlorad se till att ingen app använder SD-kortet!)</string>
   <string name="apply_symlink_successful_title">Symlink skapad</string>
-  <string name="apply_symlink_fail">Symboliska länkar kunde inte skapas via Android.\nDetta beror troligen på en funktion som heter S-ON på HTC-telefoner!\n\nEn lösning kan vara att starta upp telefonen i återställningsläge och skapa den symboliska länken där med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nOm inte det fungerar sök på internet efter S-OFF och din telefonmodell.</string>
   <string name="apply_symlink_fail_title">Skapande av symlink fil misslyckades</string>
   <string name="apply_help">Läs Hjälp för mer information</string>
   <string name="apply_apn_proxy_title">APN proxy inställd!</string>
@@ -86,9 +82,7 @@
   <string name="apply_dialog_hostnames">Tolkar och slår ihop värdfiler</string>
   <string name="apply_dialog_hosts">Skapar värdfil</string>
   <string name="apply_dialog_apply">TIllämpar värdfil</string>
-  <string name="apply_fail">Tillämpning av värdfilen på din enhet misslyckades!\nTesta att ändra värdfilssökvägen i inställningarna till /data/data/hosts</string>
   <string name="apply_fail_title">Tillämpning misslyckades</string>
-  <string name="revert_successful">Du återställde standardvärdfilen.\nDet kan vara nödvändigt att starta om din enhet för att ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att undvika förlust av data, se till att ingen app använder SD-kortet för tillfället)</string>
   <string name="revert_successful_title">Återställning lyckades</string>
   <string name="revert_problem">Återställningen misslyckades av okända skäl</string>
   <string name="revert_problem_title">Återställning misslyckades!</string>
@@ -97,12 +91,14 @@
   <string name="no_private_file">Privat fil kan inte skapas</string>
   <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Antingen kunde inte superuser-paketet hittas eller så tillät du inte AdAway att få root-rättigheter.\n\nDetta kan inträffa när enheten inte är rootad.\nDu kan hitta information om hur du rootar din enhet på www.cyanogenmod.com eller andra androidhemsidor.</string>
   <string name="no_root_title">Rootad enhet krävs</string>
   <string name="no_url">Det här är ingen giltig URL!</string>
+  <string name="no_url_title">Felaktigt formaterad URL</string>
   <string name="hosts_add_dialog">Importera URL till värdfil:</string>
   <string name="no_hostname">Det här är inget giltigt värdnamn!</string>
+  <string name="no_hostname_title">Felaktigt formaterad värdnamn</string>
   <string name="no_ip">Det här är inte en korrekt ip-adress!</string>
+  <string name="no_ip_title">Felaktigt formaterad IP</string>
   <string name="reboot_never_reboot">Starta aldrig om och visa inte det här meddelandet nästa gång!</string>
   <string name="loading">Laddar...</string>
   <!--Menu entries-->
@@ -145,9 +141,7 @@
   <!--Other-->
   <string name="app_subtitle">Annonsblockerare</string>
   <string name="no_text_editor_title">Ingen textredigerare installerad</string>
-  <string name="no_text_editor">Hittade ingen text-redigerare för att öppna värdfilen. Du kan installera \"Jota\" eller någon annan text-redigerare.\n\nVill du installera \"Jota\"?</string>
   <string name="no_file_manager_title">Ingen filhanterare installerad</string>
-  <string name="no_file_manager">Hittade ingen filhanterade till att öppna filer med. Du kan installera OI File Manager eller någon annan filhanterare.\n\nVill du installera OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Loggfil raderad!</string>
   <string name="toast_tcpdump_added_to_blacklist">Värdnamn tillagt på svartlistan</string>
@@ -172,14 +166,10 @@
   <string name="pref_webserver_on_boot">Starta webbserver vid start</string>
   <string name="pref_webserver_on_boot_summary">Starta webb-servern vid uppstart, lyssna efter lokala IP-adresser</string>
   <string name="pref_webserver_enabled">Aktivera webbserver</string>
+  <string name="pref_webserver_enabled_summary">Aktiverar en webbserver som lyssnar på en lokal IP-Adress som svarar på förfrågningar till blockerade värdnamn</string>
   <string name="pref_webserver">Lokal webbserver</string>
   <string name="pref_custom_target">Anpassat mål</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Anpassat mål</item>
-  </string-array>
+  <string name="pref_custom_target_summary">Används bara om vald hosts fil är satt till ett eget mål</string>
   <string name="pref_update_check_summary">Sök efter uppdateringar när appen startas</string>
   <string name="pref_sdcard_problem">Denna funktion kommer inte att fungera korrekt om AdAway är installerat på sdkortet!</string>
   <string name="pref_background">Bakgrundstjänster</string>
@@ -190,6 +180,7 @@
   <string name="pref_update_only_on_wifi">Uppdatera endast via WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Starta endast bakgrundsuppdateringar om du är ansluten till ett WiFi-nätverk.</string>
   <string name="pref_whitelist_redirection_rules">Tillåt omdirigering och vitlistan</string>
+  <string name="pref_whitelist_redirection_rules_summary">Tillåt omdirigering och vitlistade inlägg från värdkällor.</string>
   <string name="pref_debug">Felsökning</string>
   <string name="pref_enable_debug">Felsökningsloggning</string>
   <string name="pref_enable_debug_summary">Du måste starta om AdAway för att den här inställningen ska börja gälla.</string>

@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head></head>
 <body>
 <h2>HTC 的產品</h2>
@@ -19,8 +19,8 @@
 <li>在 recovery 中，再次透過<i>降低音量</i>按鍵來選擇 "partitions menu"</li>
 <li>選擇<i>mount /system</i>, <i>mount /sdcard</i> 以及 <i>mount /data</i>。</li>
 <li>將你的手機連結到電腦，並且進入ADB指令介面。</li>
-<li>進入 adb 介面執行下列指令 <tt>ln -s /data/hosts /system/etc/hosts</tt> (這會建立一個符號連結，讓AdAway可以修改存放在 <tt>/data</tt> 中的主機檔案，而系統本身也使用存放在 <tt>/system</tt> 下的主機檔案)。</li>
-<li>重新啟動你的裝置並且在廣告阻擋中將<i>主機檔案存放位置</i> 指向到 <i>/data/hosts</i>。</li>
+<li>進入 adb 介面執行下列指令 <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (這會建立一個符號連結，讓AdAway可以修改存放在 <tt>/data</tt> 中的主機檔案，而系統本身也使用存放在 <tt>/system</tt> 下的主機檔案)。</li>
+<li>重新啟動你的裝置並且在廣告阻擋中將<i>主機檔案存放位置</i> 指向到 <i>/data/data/hosts</i>。</li>
 <li>廣告阻擋現在應該可以正常運作了。</li>
 </ol>
 </body>

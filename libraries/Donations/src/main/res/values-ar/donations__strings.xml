@@ -2,18 +2,16 @@
 <resources>
   <string name="donations__button_close">إغلاق</string>
   <string name="donations__flattr">فِلااتر</string>
-  <string name="donations__description">هل ترى هذا التطبيق مفيد?\nادعمنا بإرسال التبرع لنا!</string>
   <string name="donations__flattr_description">فِلااتر تأخذ 10% من الرسوم شهرياً!</string>
   <string name="donations__google_android_market">Google Play سوق</string>
   <string name="donations__google_android_market_not_supported_title">دعم التبرع من داخل البرنامج غير مدعوم.</string>
   <string name="donations__google_android_market_not_supported">دعم التبرع من داخل البرنامج غير مدعوم. هل سوق Google Play مثبت بشكل صحيح?</string>
   <string name="donations__google_android_market_description">جوجل تأخذ 30٪ من كل تبرع!</string>
   <string name="donations__google_android_market_donate_button">تبرع!</string>
-  <string name="donations__google_android_market_text">كم الثمن?</string>
+  <string name="donations__google_android_market_text">كم الثمن؟</string>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">يمكنكم اختيار المبلغ الذي تريدون أن تتبرعوا به بعد النقر على الزر!</string>
   <string name="donations__thanks_dialog_title">شكراً!</string>
-  <string name="donations__thanks_dialog">شكراً على دعمكم!\nنقدر جميلكم!</string>
   <string name="donations__alert_dialog_title">حدث خطأ</string>
   <string name="donations__alert_dialog_no_browser">لا يوجد متصفح لفتح الموقع!</string>
 </resources>

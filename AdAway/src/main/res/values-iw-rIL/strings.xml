@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">רשימת הפניות</string>
   <string name="list_dialog_url">כתובת:</string>
   <string name="list_dialog_hostname">שם שרת:</string>
-  <string name="list_dialog_whitelist_hostname">שם שרת:\n(תווים כלליים * ו ? מותרים!)</string>
   <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
   <string name="import_dialog">מייבא...</string>
   <string name="export_dialog">מייצא...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">לא פעיל</string>
   <string name="status_disabled_subtitle">לא פעיל</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">קישור סימבולי מ /data/data/hosts אל /system/etc/hosts לא קיים! AdAway אינה יכולה לעבוד במצב זה.\n\nאתה רוצה לנסות ליצור כעת קישור סימבולי?</string>
   <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
-  <string name="apply_not_enough_space">אין מספיק שטח איחסון בזיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">אין מספיק זיכרון</string>
   <string name="apply_private_file_fail">לא ניתן לקרוא מהקובץ שהתקבל</string>
   <string name="apply_private_file_fail_title">החלת קובץ פרטי נכשל</string>
@@ -72,10 +69,7 @@
   <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
   <string name="apply_copy_fail_title">העתקה נכשלה</string>
   <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
-  <string name="apply_success_dialog">הצלחת להוסיף מקור בהצלחה מומלץ לעשות ריסט למכשיר בשביל שההוספה תיכנס לתוקף האם ברצונך לעשות זאת כעת ?</string>
-  <string name="apply_symlink_successful">קישור סימבולי נוצר בהצלחה.\nיתכן ותידרש לאתחל את המערכת על מנת להכניס לתוקף את השינויים.\n\nאתה רוצה לאתחל כעת?\n(על מנת לא לאבד נתונים וודא שאין תוכנה שמשתמשת כעת בכרטיס!)</string>
   <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
-  <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
   <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
   <string name="apply_help">קרא את העזרה למידע נוסף.</string>
   <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
@@ -87,9 +81,7 @@
   <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
   <string name="apply_dialog_hosts">בנה קובץ hosts</string>
   <string name="apply_dialog_apply">החל קובץ hosts</string>
-  <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_fail_title">החלת הגדרות נכשלה</string>
-  <string name="revert_successful">שחזרת את הקובץ hosts לברירת המחדל של המערכת.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הזיכרון!) </string>
   <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
   <string name="revert_problem">חזרה נכשלה.</string>
   <string name="revert_problem_title">שחזור נכשל!</string>
@@ -98,8 +90,8 @@
   <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
   <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
-  <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
+  <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!
+נסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
   <string name="no_url">זו אינה כתובת חוקית</string>
   <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
   <string name="no_hostname">שם השרת אינו חוקי!</string>
@@ -145,9 +137,7 @@
   <!--Other-->
   <string name="app_subtitle">חסום פרסומות</string>
   <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
-  <string name="no_text_editor">לא נמצא עורך טקסט כל שהוא מותקן עבור פתיחת קובץ hosts. אתה יכול להתקין את העורך Jota או כל עורך טקסט אחר כדי לפתוח את הקובץ.\n\nאתה רוצה להתקין את Jota כעת?</string>
   <string name="no_file_manager_title">לא מותקן מנהל קבצים</string>
-  <string name="no_file_manager">לא נמצא מנהל קבצים לפתיחת קובץ זה. תוכל להתקין את  OI File Manager או כל מנהל קבצים אחר כדי לפתור זאת.\n\nהאם אתה רוצה להתקין את OI File Manager כעת?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">קובץ יומן נמחק!</string>
   <string name="toast_tcpdump_added_to_blacklist">כתובת השרת נוספה לרשימה השחורה שלך!</string>
@@ -176,12 +166,6 @@
   <string name="pref_webserver">שרת מקומי</string>
   <string name="pref_custom_target">יעד מותאם אישית</string>
   <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>יעד מותאם אישית</item>
-  </string-array>
   <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
   <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר AdAway מותקנת על כרטיס זיכרון</string>
   <string name="pref_background">שירותים ברקע</string>

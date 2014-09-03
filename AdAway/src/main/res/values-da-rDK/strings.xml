@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Omdirigeringsliste</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Værtsnavn</string>
-  <string name="list_dialog_whitelist_hostname">Værtsnavn:\n(Jokertegn * og ? er tilladt!)</string>
   <string name="list_dialog_ip">IP (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerer...</string>
   <string name="export_dialog">Exporterer...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Deaktiveret</string>
   <string name="status_disabled_subtitle">Deaktiveret</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink fra din destination til /system/etc/hosts er ikke-eksisterende eller forkert! AdAway fungerer ikke, hvis det ikke peger på den rigtige fil.\n\nVil du prøve at oprette et symlink?</string>
   <string name="apply_symlink_missing_title">Symlink mangler</string>
-  <string name="apply_not_enough_space">Ikke nok plads på den partition! ⏎ Prøv at ændre destinations-hostsfilen i Indstillinger til /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Ikke nok plads</string>
   <string name="apply_private_file_fail">Den hentede fil kunne ikke læses.</string>
   <string name="apply_private_file_fail_title">Privat fil fejlede</string>
@@ -72,10 +69,7 @@
   <string name="apply_copy_fail">Kopiering af hosts filen fejlede</string>
   <string name="apply_copy_fail_title">Kopiering fejlede</string>
   <string name="apply_success_title">Anvendt successfuldt</string>
-  <string name="apply_success_dialog">Anvendelse lykkedes.\nDet kan være nødvendigt at genstarte Android for at ændringerne kan træde i kraft.\n\nVil du genstarte?\n(For at undgå datatab skal du sørge for at ingen apps bruger SD-kortet i øjeblikket!)</string>
-  <string name="apply_symlink_successful">Symlink blev successfuldt oprettet.\nDet kan være nødvendigt at genstarte Android for at ændringerne kan træde i kraft.\n\nVil du genstarte?\n(For at undgå datatab skal du sørge for at ingen programmer benytter SD-kortet i øjeblikket!)</string>
   <string name="apply_symlink_successful_title">Symlink oprettet successfuldt</string>
-  <string name="apply_symlink_fail">Symlink kunne ikke oprettes af Android.\nDette mislykkes primært på grund af en \"funktion\" som hedder S-ON på HTC telefoner!\nEn løsning er at starte din telefon i recovery mode og oprette symlink der med \'ln-s /data/data/hosts/system/etc/hosts\".\nHvis dette ikke virker søg på internettet efter S-OFF og din telefon.</string>
   <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
   <string name="apply_help">Venligst læs Hjælp for mere information.</string>
   <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
@@ -87,9 +81,7 @@
   <string name="apply_dialog_hostnames">Parser og fletter hosts-filer</string>
   <string name="apply_dialog_hosts">Opbygger hosts-filen</string>
   <string name="apply_dialog_apply">Anvender hosts-filen</string>
-  <string name="apply_fail">Anvendelse af hosts-filen til dit system mislykkedes!\nPrøv at ændre destinations-hostsfilen i præferencer til /data/data/hosts.</string>
   <string name="apply_fail_title">Anvendelse mislykkedes</string>
-  <string name="revert_successful">Du vendte tilbage til standard hosts.\nDet kan være nødvendigt at genstarte Android for at ændringerne kan træde i kraft.\n\nVil du genstarte?\n(For at undgå datatab skal du være sikker på at ingen app bruger SD-kortet i øjeblikket!)</string>
   <string name="revert_successful_title">Gendannelse successfuld</string>
   <string name="revert_problem">Gendannelse mislykkedes af ukendte årsager.</string>
   <string name="revert_problem_title">Gendannelse mislykkedes!</string>
@@ -98,7 +90,6 @@
   <string name="no_private_file">Privat fil kan ikke oprettes.</string>
   <string name="no_private_file_title">Oprettelse af privat fil mislykkedes</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Enten kunne su programmet ikke findes, eller du tillod ikke root-adgang til AdAway.\n\nDette kan ske hvis du ikke har rootet din enhed.\nDu kan finde information omkring hvordan man rooter sin enhed på www.cyanogenmod.com eller på andre Android hjemmesider.</string>
   <string name="no_root_title">En rootet Android kræves</string>
   <string name="no_url">Dette er ikke en gyldig URL!</string>
   <string name="no_url_title">Forkert formateret URL</string>
@@ -148,9 +139,7 @@
   <!--Other-->
   <string name="app_subtitle">Reklameblokering</string>
   <string name="no_text_editor_title">Intet tekstredigeringsprogram installeret</string>
-  <string name="no_text_editor">Der kunne findes et tekstredigeringsprogram til at åbne filen hosts. Du kan installere Jota eller andet tekstredigeringsprogram til at håndtere dette.\n\nVil du installere Jota?</string>
   <string name="no_file_manager_title">Intet filhåndteringsprogram installeret</string>
-  <string name="no_file_manager">Intet filhåndteringsprogram kunne findes til at åbne filer. Du kan installere OI File Manager eller andre filhåndteringsprogrammer til at håndtere dette.\n\nVil du installere OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Logfil slettet</string>
   <string name="toast_tcpdump_added_to_blacklist">Værtsnavn blev tilføjet din ikke godkendte liste!</string>
@@ -179,12 +168,6 @@
   <string name="pref_webserver">Lokal Webserver</string>
   <string name="pref_custom_target">Brugerdefineret destination</string>
   <string name="pref_custom_target_summary">Bruges kun, hvis destinations-hostsfilen er indstillet til brugerdefineret destination</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Brugerdefineret destination</item>
-  </string-array>
   <string name="pref_update_check_summary">Check for opdateringer ved start af AdAway</string>
   <string name="pref_sdcard_problem">Denne funktion vil ikke virke korrekt når AdAway er installeret på SD kortet!</string>
   <string name="pref_background">Baggrundsservicer</string>

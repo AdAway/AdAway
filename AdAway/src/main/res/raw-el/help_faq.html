@@ -2,31 +2,31 @@
 <head></head>
 <body>
 <h2>Τα έσοδα από τις διαφημίσεις</h2>
-<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+<p>Υπάρχει η λάθος αντίληψη ότι αν ένας χρήστης δεν επιλέγει ποτέ να δει το περιεχόμενο των διαφημίσεων, ότι η φραγή τους δεν θα βλάψει οικονομικά έναν τομέα ή μια εφαρμογή. Αυτό είναι λάθος, γιατί οι προγραμματιστές κερδίζουν επίσης οικονομικά αν απλά εμφανίζουν διαφημίσεις. Είναι δική σας απόφαση αν θέλετε να εμποδίσετε την εμφάνιση των διαφημίσεων ή όχι. Προσωπικά δεν θα χρησιμοποιούσα εφαρμογές που εμφανίζουν διαφημίσεις γιατί τις βρίσκω πολύ ενοχλητικές, οπότε χωρίς την εφαρμογή φραγής τους δεν θα τις εγκαθιστούσα.</p>
 
 
 
 <h2>Πως λειτουργεί η εφαρμογή AdAway;</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<p>Το AdAway χρησιμοποιεί το <a href="http://en.wikipedia.org/wiki/Hosts_file">αρχείο hosts</a> για να φράξει ονόματα διακομιστών που παρέχουν διαφημίσεις. Το αρχείο hosts είναι ένα αρχείο στην διαδρομή <tt>/system/etc/hosts</tt>, το οποίο αντιστοιχίζει ονόματα διακομιστών σε διευθύνσεις IP. Είναι ένας παραδοσιακός τρόπος για τέτοιες αντιστοιχίσεις χωρίς την χρήση του Συστήματος Ονομάτων Τομέα (DNS). Όλα τα ανεπιθύμητα ονόματα διακομιστών ανακατευθύνονται στη διεύθυνση <tt>127.0.0.1</tt>. που σημαίνει ότι θα δείχνουν στην δική σας συσκευή.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>Γιατί είναι απενεργοποιημένη η ρύθμιση ημερήσιας ενημέρωσης;</h2>
+<p>Ο αυτόματος έλεγχος για ενημερώσεις είναι διαθέσιμος μόνο όταν το AdAway είναι εγκατεστημένο στην εσωτερική μνήμη της συσκευής. Αυτό συμβαίνει λόγω περιορισμών στην πλατφόρμα Android.</p>
 
 <h2>Γιατί χρειάζεται να επανεκκινήσω τη συσκευή μου για να ισχύσουν οι αλλαγές;</h2>
-<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+<p>Η Java στο Android χρησιμοποιεί μια δική της εσωτερική κρυφή μνήμη DNS. Το λειτουργικό σύστημα αντανακλά τις αλλαγές στο αρχείο hosts άμεσα (επαληθεύστε με την εντολή ping σε γραμμή εντολών) αλλά θα χρειαστεί να επανεκκινήσετε το Android για να ενημερώσει την κρυφή μνήμη DNS της Java.</p>
 
-<h2>How to use the webserver in AdAway?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<h2>Πώς χρησιμοποιείται ο διακομιστής ιστοσελίδων στο AdAway;</h2>
+<p><b>Το AdAway λειτουργεί επίσης και χωρίς τον διακομιστή ιστοσελίδων!</b>
+<br/><br/>Μπορείτε να ενεργοποιήσετε έναν τοπικό διακομιστή ιστοσελίδων στις ρυθμίσεις του AdAway για να εξυπηρετεί αιτήσεις στην τοπική διεύθυνση IP <tt>127.0.0.1</tt>. Αυτό σημαίνει πως αιτήσεις από εφαρμογές προς παρόχους διαφημίσεων οι οποίες ανακατευθύνονται προς το <tt>127.0.0.1</tt> εξυπηρετούνται από τον διακομιστή ιστοσελίδων του AdAway.
+<br/>Μερικές εφαρμογές δεν λειτουργούν αν δεν έχουν πρόσβαση σε παρόχους διαφημίσεων. Με αυτή τη μέθοδο θα είναι πάλι διαθέσιμοι, απαντώντας με μια λευκή σελίδα και χωρίς εικόνες διαφημίσεων.</p>
 
-<h2>How can I block/unblock specific hostnames?</h2>
-<p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<h2>Πώς μπορώ να εμποδίσω/απεμποδίσω συγκεκριμένα ονόματα διακομιστών;</h2>
+<p>Προσθέστε τα ονόματα διακομιστών που θέλετε να φράξετε στη Μαύρη λίστα, στις <i>Λίστες σας</i>. Επιπλέον, τα ονόματα διακομιστών που θέλετε να αποκλείσετε από τη φραγή μπορούν να προστεθούν στη <i>Λευκή λίστα</i> και ονόματα που θέλετε να ανακατευθύνετε σε μια συγκεκριμένη διεύθυνση IP ανήκουν στην <i>Λίστα ανακατεύθυνσης</i>.</p>
 
-<h2>Where can I find more hosts sources?</h2>
-<p>See <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
+<h2>Πού μπορώ να βρω περισσότερες πηγές αρχείων hosts;</h2>
+<p>Δείτε την <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">Λίστα επιπλέον πηγών αρχείων hosts για το AdAway</a>.</p>
 
-<h2>Help translating/report bugs</h2>
-<p>Please go to <a href="http://adaway.org">http://adaway.org</a>.</p>
+<h2>Βοήθεια στη μετάφραση/αναφορά σφαλμάτων</h2>
+<p>Παρακαλώ επισκεφτείτε το <a href="http://adaway.org">http://adaway.org</a>.</p>
 </body>
 </html>

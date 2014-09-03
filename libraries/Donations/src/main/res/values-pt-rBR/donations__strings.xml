@@ -2,7 +2,6 @@
 <resources>
   <string name="donations__button_close">Fechar</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Você achou esta aplicação útil?\nSuporte o seu desenvolvimento mandando uma doação programador!</string>
   <string name="donations__flattr_description">Flattr possui uma taxa mensal de 10%!</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">Doações pelo aplicativo não são suportadas.</string>
@@ -13,7 +12,6 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Você pode escolher quanto deseja doar após clicar no botão!</string>
   <string name="donations__thanks_dialog_title">Obrigado!</string>
-  <string name="donations__thanks_dialog">Obrigado pela sua doação!</string>
   <string name="donations__alert_dialog_title">Erro ocorrido</string>
   <string name="donations__alert_dialog_no_browser">Nenhum navegador foi encontrado para abrir um site!</string>
 </resources>

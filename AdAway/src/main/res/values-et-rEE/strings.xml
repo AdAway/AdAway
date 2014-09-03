@@ -32,7 +32,6 @@
   <string name="lists_tab_redirection_list_short">Suunamine</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Aadress:</string>
-  <string name="list_dialog_whitelist_hostname">Aadress:\n(Lubatud on metamärgid * ja ?) </string>
   <string name="list_dialog_ip">IP (IPv4 või IPv6):</string>
   <string name="import_dialog">Importimine...</string>
   <string name="export_dialog">Eksportimine...</string>
@@ -54,7 +53,6 @@
   <string name="apply_copy_fail">Hosts faili kopeerimine ebaõnnestus!</string>
   <string name="apply_copy_fail_title">Kopeerimine nurjus</string>
   <string name="apply_success_title">Rakendamine edukas</string>
-  <string name="apply_success_dialog">Rakendamine oli edukas.\nMuudatuste jõustumiseks võib olla vajalik Androidi taaskäivitamine.\n\nKas soovid taaskäivitada?\n(Andmekao vältimiseks veendu, et ükski teine rakendus  parasjagu sd-kaarti ei kasuta!)</string>
   <string name="apply_symlink_successful_title">Sümlingi loomine edukas</string>
   <string name="apply_symlink_fail_title">Sümlingi loomine nurjus</string>
   <string name="no_connection_title">Ühendus puudub</string>
@@ -131,12 +129,6 @@
   <string name="pref_webserver">Kohalik veebiserver</string>
   <string name="pref_custom_target">Muu asukoht</string>
   <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts faili asukohaks on muu asukoht.</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Muu asukoht</item>
-  </string-array>
   <string name="pref_update_check_summary">Uuendusi kontrollitakse AdAway käivitamisel</string>
   <string name="pref_update_check_daily">Uuenduste kontroll iga päev</string>
   <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>

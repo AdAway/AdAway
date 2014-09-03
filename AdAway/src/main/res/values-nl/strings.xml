@@ -40,7 +40,7 @@
   <string name="lists_tab_redirection_list">Doorverwijzing lijst</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostnaam:</string>
-  <string name="list_dialog_whitelist_hostname">Hostnaam:\n(De wildcard karakters * en ? zijn toegestaan!)</string>
+  <string name="list_dialog_whitelist_hostname">Hostnaam:(De wildcard karakters * en ? zijn toegestaan!)</string>
   <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
   <string name="import_dialog">Importeren…</string>
   <string name="export_dialog">Exporteren…</string>
@@ -63,7 +63,7 @@
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlink van uw doel naar /system/etc/hosts bestaat niet, of is incorrect! AdAway zal niet werken als dit niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink aan te maken?</string>
   <string name="apply_symlink_missing_title">Symlink mist</string>
-  <string name="apply_not_enough_space">Niet genoeg tuimte op de partitie!\nProbeer het doel hosts bestand in de voorkeuren aan te passen naar /data/data/hosts.</string>
+  <string name="apply_not_enough_space">Niet genoeg ruimte op de partitie!\nProbeer het doel hosts bestand in de voorkeuren aan te passen naar /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Niet genoeg ruimte</string>
   <string name="apply_private_file_fail">Gedownload bestand kon niet gelezen worden.</string>
   <string name="apply_private_file_fail_title">Privé bestand fout</string>
@@ -71,13 +71,25 @@
   <string name="apply_remount_fail_title">Remount mislukt</string>
   <string name="apply_copy_fail">Kopiëren van hosts bestand is mislukt!</string>
   <string name="apply_copy_fail_title">Kopiëren mislukte</string>
+  <string name="apply_success_subtitle">Host bronnen toegepast:</string>
   <string name="apply_success_title">Toepassen voltooid</string>
   <string name="apply_success_dialog">Toepassen was succesvol.\nHet kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben.\n\nWilt u herstarten?\n(Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
-  <string name="apply_symlink_successful">Symlink succesvol aangemaakt.\nHet kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben.\n\nWilt u herstarten?\n(Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
+  <string name="apply_symlink_successful">Symlink succesvol aangemaakt.
+Het kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben.
+
+Wilt u herstarten?
+(Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
   <string name="apply_symlink_successful_title">Aanmaak symlink voltooid</string>
-  <string name="apply_symlink_fail">Symlink kon niet door Android aangemaakt worden.\nDit mislukt vaak door een \'feature\' genaamd S-ON op HTC telefoons!\n\nEen oplossing is om uw telefoon in recovery modus op te starten en hier de symlink aan te maken met \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAls dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
+  <string name="apply_symlink_fail">Symlink kon niet door Android aangemaakt worden.
+Dit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons!
+
+Een oplossing is om uw telefoon in recovery modus op te starten en hier de symlink aan te maken met \'ln -s /data/data/hosts /system/etc/hosts\'.
+
+Als dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
   <string name="apply_symlink_fail_title">Aanmaak symlink mislukt</string>
   <string name="apply_help">Leest u alstublieft Help voor meer informatie.</string>
+  <string name="apply_apn_proxy">Een APN proxy is ingesteld op jouw Android!
+AdAway zal niet betrouwbaar werken als er gebruik gemaakt wordt van mobiele netwerken zoals 3G. Je kan je proxy uitschakelen door naar je geselecteerde APN te gaan( Op Android 4: draadloos en netwerken -&gt; meer... -&gt; Mobiele netwerken -&gt; namen toegangspunten) en de waarde in het proxy  veld te verwijderen.</string>
   <string name="apply_apn_proxy_title">APN proxy ingesteld!</string>
   <string name="no_connection">De connectie met het Internet werkt niet.</string>
   <string name="no_connection_title">Geen Verbinding</string>
@@ -87,9 +99,14 @@
   <string name="apply_dialog_hostnames">Lezen en samenvoegen van hosts bestanden</string>
   <string name="apply_dialog_hosts">Hosts bestand opbouwen</string>
   <string name="apply_dialog_apply">Hosts bestand toepassen</string>
-  <string name="apply_fail">Toepassen van hosts bestand in uw systeem is mislukt!\nProbeer het doel hosts bestand in uw voorkeuren aan te passen naar /data/data/hosts.</string>
+  <string name="apply_fail">Toepassen van hosts bestand in uw systeem is mislukt!
+Probeer het doel hosts bestand in uw voorkeuren aan te passen naar /data/data/hosts.</string>
   <string name="apply_fail_title">Toepassen is mislukt</string>
-  <string name="revert_successful">U hebt het standaard hosts bestand teruggezet.\nHet kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben.\n\nWilt u herstarten?\n(Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
+  <string name="revert_successful">U hebt het standaard hosts bestand teruggezet.
+Het kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben.
+
+Wilt u herstarten?
+(Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
   <string name="revert_successful_title">Terugzetten voltooid</string>
   <string name="revert_problem">Terugzetten is wegens onbekende redenen mislukt.</string>
   <string name="revert_problem_title">Terugzetten is mislukt!</string>
@@ -98,12 +115,18 @@
   <string name="no_private_file">Privé bestanden kunnen niet worden aangemaakt.</string>
   <string name="no_private_file_title">Aanmaak privé bestand mislukt</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">De su binary kon niet worden gevonden, of u hebt AdAway geen root permissies gegeven.\n\nDit kan gebeuren als uw apparaat niet geroot is.\nU kunt informatie over het rooten van uw apparaat vinden op www.cyanogenmod.org of andere Android websites.</string>
+  <string name="no_root_description">De su binary kon niet worden gevonden, of u hebt AdAway geen root permissies gegeven.
+
+Dit kan gebeuren als uw apparaat niet geroot is.
+U kunt informatie over het rooten van uw apparaat vinden op www.cyanogenmod.org of andere Android websites.</string>
   <string name="no_root_title">Geroote Android vereist</string>
   <string name="no_url">Dit is niet een correcte URL!</string>
+  <string name="no_url_title">De URL is verkeerd opgemaakt</string>
   <string name="hosts_add_dialog">Voer URL naar het hosts bestand in:</string>
   <string name="no_hostname">Dit is niet een correcte hostnaam!</string>
+  <string name="no_hostname_title">Hostnaam is verkeerd opgemaakt</string>
   <string name="no_ip">Dit is niet een correct IP!</string>
+  <string name="no_ip_title">IP is verkeerd opgemaakt</string>
   <string name="reboot_never_reboot">Herstart nooit en laat deze vraag in het vervolg niet zien!</string>
   <string name="loading">Laden…</string>
   <!--Menu entries-->
@@ -146,9 +169,13 @@
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
   <string name="no_text_editor_title">Geen tekstverwerker aangestroffen</string>
-  <string name="no_text_editor">Er kon geen tekstverwerker gevonden worden om het hosts bestand mee te openen. U kunt Jota of een andere tekstverwerker installeren om dit af te handelen.\n\nWilt u Jota installeren?</string>
+  <string name="no_text_editor">Er kon geen tekstverwerker gevonden worden om het hosts bestand mee te openen. U kunt Jota of een andere tekstverwerker installeren om dit af te handelen.
+
+Wilt u Jota installeren?</string>
   <string name="no_file_manager_title">Geen bestandsbeheerder aangetroffen</string>
-  <string name="no_file_manager">Geen bestandbeheerder gevonden om bestanden mee te openen. U kunt OI File Manager of een andere bestandsbeheerder installeren om dit af te handelen.\n\nWilt u OI File Manager installeren?</string>
+  <string name="no_file_manager">Geen bestandbeheerder gevonden om bestanden mee te openen. U kunt OI File Manager of een andere bestandsbeheerder installeren om dit af te handelen.
+
+Wilt u OI File Manager installeren?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Log bestand verwijderd!</string>
   <string name="toast_tcpdump_added_to_blacklist">Hostnaam is aan uw Blacklist toegevoegd!</string>
@@ -177,12 +204,6 @@
   <string name="pref_webserver">Lokale Webserver</string>
   <string name="pref_custom_target">Eigen doel</string>
   <string name="pref_custom_target_summary">Wordt alleen gebruikt als het doel hosts bestand op een eigen doel is ingesteld.</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Eigen doel</item>
-  </string-array>
   <string name="pref_update_check_summary">Controleer op updates terwijl AdAway opstart</string>
   <string name="pref_sdcard_problem">Deze feature zal niet correct werken als AdAway op de sdkaart is geïnstalleerd!</string>
   <string name="pref_background">Achtergrond Services</string>

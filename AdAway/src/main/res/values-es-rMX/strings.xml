@@ -40,7 +40,7 @@
   <string name="lists_tab_redirection_list">Lista de redirecciones</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nombre del servidor web:</string>
-  <string name="list_dialog_whitelist_hostname">Servidor:\n(¡Caracteres comodines * y ? son aceptados!)</string>
+  <string name="list_dialog_whitelist_hostname">Servidor:\n(Caracteres comodines * y ? son aceptados!)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Exportando...</string>
@@ -61,9 +61,8 @@
   <string name="status_disabled">Deshabilitado</string>
   <string name="status_disabled_subtitle">Deshabilitado</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">¡El snlace simbólico de tu objetivo en /system/etc/hosts no existe o es incorrecto! AdAway no trabajará si no se direcciona al archivo correcto.\n\n¿Quieres intentar crear el enlace simbólico?</string>
   <string name="apply_symlink_missing_title">Enlace simbólico ausente</string>
-  <string name="apply_not_enough_space">¡Sin suficiente espacio en la partición!\nIntenta cambiando el destino del archivo del servidor en preferencias a /data/data/hosts</string>
+  <string name="apply_not_enough_space">Sin suficiente espacio en la partición.\nIntenta cambiando el archivo hosts destino en preferencias a /data/data/hosts</string>
   <string name="apply_not_enough_space_title">Sin suficiente espacio</string>
   <string name="apply_private_file_fail">El archivo descargado no puede ser leído.</string>
   <string name="apply_private_file_fail_title">Archivo privado fallido</string>
@@ -72,10 +71,9 @@
   <string name="apply_copy_fail">¡La copia del archivo del servidor ha fallado!</string>
   <string name="apply_copy_fail_title">Copia fallida</string>
   <string name="apply_success_title">Aplicando con éxito</string>
-  <string name="apply_success_dialog">La aplicación ha sido correcta.\nPuede que sea necesario reiniciar el sistema Android para que los cambios surtan efecto.\n¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegúrese de que ninguna aplicación use la tarjeta SD en este momento!)</string>
-  <string name="apply_symlink_successful">El Enlace Simbólico fue creado exitosamente.\nPuede ser necesario reiniciar el sistema Android para que los cambios surtan efecto.\n\n¿Desea reiniciar el sistema?\n(¡Para evitar la pérdida de datos asegurarse de no utilizar aplicaciones que usen la tarjeta SD en este momento!)</string>
+  <string name="apply_symlink_successful">Enlace Simbólico fue creado de manera exitosa.\nPuede ser necesario reiniciar el sistema Android para que los cambios surtan efecto.\n\n¿Desea reiniciar el sistema?\n(Para evitar la pérdida de datos asegurarse de que no utiliza la aplicación sdcard en el momento!)</string>
   <string name="apply_symlink_successful_title">El enlace simbólico creado de manera exitosa</string>
-  <string name="apply_symlink_fail">El enlace simbólico no ha sido creado por Android.\n¡Esta falla podría ser originada por una característica llamada S-ON en teléfonos HTC!\n\nUna solución es arrancar tu teléfono en modo recuperación y crear el enlace con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona busca en Internet acerca del S-OFF relacionado a tu teléfono.</string>
+  <string name="apply_symlink_fail">El enlace simbólico no ha sido creado por Android.\nEsta falla podría ser originada por una característica llamada S-ON en teléfonos HTC!\n\nUna solución es arrancar tu teléfono en modo recuperación y crear el enlace con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona busca en Internet acerca de S-OFF relacionado a tu teléfono.</string>
   <string name="apply_symlink_fail_title">Creación del enlace simbólico fallida</string>
   <string name="apply_help">Por favor lea la Ayuda para más información.</string>
   <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
@@ -87,9 +85,12 @@
   <string name="apply_dialog_hostnames">Analizando y uniendo archivos de servidores</string>
   <string name="apply_dialog_hosts">Construyendo archivo de servidores</string>
   <string name="apply_dialog_apply">Aplicando el archivo de servidores</string>
-  <string name="apply_fail">¡Falló el sistema al aplicar el archivo de servidores web!\nIntente cambiar el archivo de destino en las preferencias a /data/data/hosts.</string>
   <string name="apply_fail_title">Falló la aplicación</string>
-  <string name="revert_successful">Ha regresado a los servidores predeterminados.\nPuede ser necesario que reinicie Android para que los cambios surtan efecto.\n\n¿Desea reiniciar?\n(¡Para prevenir pérdida de datos, verifique que no haya ninguna aplicación usando la tarjeta SD en este momento!)</string>
+  <string name="revert_successful">Has regresado a los hosts default.
+Puede ser necesario que reinicies Android para que los cambios surtan efecto.
+
+Quieres reiniciar?
+(Para prevenir pérdida de datos, asegurate de que no hay ninguna aplicación usando la memoria en este momento)</string>
   <string name="revert_successful_title">Restituyendo con éxito</string>
   <string name="revert_problem">Falló la reversión debido a razones desconocidas</string>
   <string name="revert_problem_title">¡Restauración fallida!</string>
@@ -98,7 +99,7 @@
   <string name="no_private_file">El archivo privado no pudo ser creado.</string>
   <string name="no_private_file_title">La creación de archivo privado ha fallado</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">No se encontró el binario su o no tiene el permiso de administrador concedido para AdAway.\n\nEsto puede suceder cuando el dispositivo no está como usuario root.\nPuede encontrar información acerca de esto en www.cyanogenmod.com o en otros sitios web de Android.</string>
+  <string name="no_root_description">Los binarios de su no se ha encontrado o no tiene el permiso de root concedido para AdAway. \n\ nEsto puede suceder cuando el dispositivo no está rooteado.\nPuedes encontrar información acerca de cómo rootear el dispositivo en www.cyanogenmod.com o de otro tipo sitios web de Android.</string>
   <string name="no_root_title">Se requiere derechos Root</string>
   <string name="no_url">¡Esta no es una URL válida!</string>
   <string name="hosts_add_dialog">Agregar la URL al archivo de servidores:</string>
@@ -146,9 +147,8 @@
   <!--Other-->
   <string name="app_subtitle">Bloqueador de anuncios</string>
   <string name="no_text_editor_title">Sin editor de texto instalado</string>
-  <string name="no_text_editor">No se encontró ningún editor de texto para abrir el archivo del servidor. Podrías instalar Jota u otro editor de texto para manejar el archivo.\n\n¿Deseas instalar Jota?</string>
+  <string name="no_text_editor">No ha sido encontrado editor de texto para abrir el archivo hosts. Podrias instalar Jota u otro editor de texto para manejar el archivo.\n\n¿Quieres instalar Jota?</string>
   <string name="no_file_manager_title">Ningún gestor de archivos instalado</string>
-  <string name="no_file_manager">No se encontró ningún gestor de archivos para abrir los archivos. Puede instalar OI File Manager u otros gestores de archivos para encargarse de esto.\n\n¿Quieres instalar OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">¡Archivo de registro borrado!</string>
   <string name="toast_tcpdump_added_to_blacklist">¡Servidor agregado a tu lista negra!</string>
@@ -177,12 +177,6 @@
   <string name="pref_webserver">Servidor web Local</string>
   <string name="pref_custom_target">Destino personalizado</string>
   <string name="pref_custom_target_summary">Solo usado si el destino del archivo de servidores es personalizado</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Otro destino</item>
-  </string-array>
   <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
   <string name="pref_sdcard_problem">¡Esta funcionalidad no funcionará correctamente cuando AdAways está instalado en una tarjeta SD!</string>
   <string name="pref_background">Servicios en segundo plano</string>

@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head></head>
 <body>
 <h2>HTC的设备</h2>
@@ -20,8 +20,8 @@
 <li>在 clockwork recovery 里面用音量减移动到"partitions menu"，并选中进入</li>
 <li>选择 <i>mount /system</i>, <i>mount /sdcard</i> 以及 <i>mount /data</i>。</li>
 <li>插上你的 USB 线，然后在电脑上打开一个命令行。</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>重启你的设备并广告走开的设置中修改<i>目标 hosts 文件</i>为 <i>/data/hosts</i></li>
+<li>Enter adb shell and type <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>重启你的设备并广告走开的设置中修改<i>目标 hosts 文件</i>为 <i>/data/data/hosts</i></li>
 <li>现在应该就可以了。</li>
 </ol>
 </body>

@@ -40,7 +40,6 @@
   <string name="lists_tab_redirection_list">Lista redirectionare</string>
   <string name="list_dialog_url">Adresa (URL)</string>
   <string name="list_dialog_hostname">Numele de \'host\"</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:⏎ (Caractere tip \"wildcard\" * si ? sunt permise)</string>
   <string name="list_dialog_ip">Adresa IP (IPv4 or IPv6):</string>
   <string name="import_dialog">Importa...</string>
   <string name="export_dialog">Exporta...</string>
@@ -61,9 +60,7 @@
   <string name="status_disabled">Dezactivat</string>
   <string name="status_disabled_subtitle">Dezactivat</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Nu exista (sau este corupta) legatura symlink catre /system/etc/hosts. AdAway nu va functiona daca aceasta conexiune nu exista sau este incorecta.⏎⏎ Vrei sa incerc sa creez o conexiune symlink?   </string>
   <string name="apply_symlink_missing_title">Legatura tip \"symlink\" lipseste</string>
-  <string name="apply_not_enough_space">Insuficient spatiu in partitie!⏎ Incearca sa schimbi fisierul \"hosts\" in preferinte, in locatia: /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Insuficient spatiu</string>
   <string name="apply_private_file_fail">Fisierul descarcat nu poate fi citit</string>
   <string name="apply_private_file_fail_title">Lansare nereusita a fisierul cu atribute speciale (private)</string>
@@ -72,10 +69,7 @@
   <string name="apply_copy_fail">Copierea fisierelor \"hosts\" nereusita</string>
   <string name="apply_copy_fail_title">Copiere nereusita</string>
   <string name="apply_success_title">Aplicarea modificariolor a fost reusita</string>
-  <string name="apply_success_dialog">Modificarea a fost reusita.⏎ Pentru ca modificarile sa fie aplicate, este necesara repornirea sistemului.⏎⏎ Vrei sa repornesti sistemul?⏎ (Asigura-te ca SD card-ul nu este folosit de nici o aplicatie in acest moment, pentru a preveni pierderea datelor)   </string>
-  <string name="apply_symlink_successful">Symlink a fost creat cu succes.⏎ Pentru ca modificarile sa fie aplicate, este necesara repornirea sistemului.  </string>
   <string name="apply_symlink_successful_title">Crearea \"symlink\" a fost reusita</string>
-  <string name="apply_symlink_fail">Symlink nu poate fi creat de Android.⏎ Cauza cea mai probabila este un mod implementat de HTC, numit S-ON.⏎⏎ O soltie ar fi sa repornirea telefonul in consola \"recovery\" si sa creearea \"symlink\" aici cu \"In-s/data/hosts/system/etc/hosts\"⏎⏎ Daca aceasta metoda nu functioneaza, pe internet pot fi gasite metode pentru a schimba modul implicat S-ON, in S-OFF.  </string>
   <string name="apply_symlink_fail_title">Crearea \"symlink\" nereusita</string>
   <string name="apply_help">Citeste sectiunea \"Ajutor\" pentru mai multe informatii!</string>
   <string name="apply_apn_proxy_title">APN proxy a fost setat!</string>
@@ -87,9 +81,7 @@
   <string name="apply_dialog_hostnames">Analizeaza nodurile si atributele (parsing) si combina fisierele (hosts)</string>
   <string name="apply_dialog_hosts">Sistemul genereaza fisiere \"hosts\"</string>
   <string name="apply_dialog_apply">Sistemul aplica fisierele \"hosts\"</string>
-  <string name="apply_fail">Procedura de aplicare a fisierelor \"hosts\" nu a fost reusita.⏎ Incearca sa schimbi fisierele \"hosts\" in \"Preferinte&gt;data&gt;data&gt;hosts.  </string>
   <string name="apply_fail_title">Aplicarea modificarilor nu a fost reusita</string>
-  <string name="revert_successful">Fisierele prestabilite \"hosts\" au fost reinstalate.⏎ Pentru ca modificarile sa fie aplicate, este necesara repornirea sistemului.⏎⏎ Vrei sa repornesti?⏎ (Asigura-te ca SD card-ul nu este folosit de nici o aplicatie in acest moment, pentru a preveni pierderea datelor)    </string>
   <string name="revert_successful_title">Restaurarea starii precedente a fost reusita</string>
   <string name="revert_problem">Restaurare nereusita din cauze necunoscute!</string>
   <string name="revert_problem_title">Restaurare nereusita!</string>
@@ -98,7 +90,6 @@
   <string name="no_private_file">Fisierul cu atribute speciale nu poate fi creat</string>
   <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Fie \"su binaries\" n-a fost gasit, fie permisiunile de \"root\" n-au fost acordate programului AdAway. ⏎ ⏎Aceasta se poate intampla atunci cand telefonul nu este \"rooted\"⏎ Informatii despre cum se poate obtine \"root\" pot fi gasite la www.cyanogenmod.com sau pe multe alte site-uri dedicate.</string>
   <string name="no_root_title">Android are nevoie de \"root\"</string>
   <string name="no_url">Adresa (URL) invalida</string>
   <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
@@ -137,9 +128,7 @@
   <!--Other-->
   <string name="app_subtitle">Program care blocheaza reclame</string>
   <string name="no_text_editor_title">Nu exista un editor de text instalat in system.</string>
-  <string name="no_text_editor">N-a fost gasit instalat nici un program pentru managementul fisierelor. Poti instala Jota, XPlore sau alt program similar.⏎ Vrei sa instalezi Jota? </string>
   <string name="no_file_manager_title">Nu exista un manager de fisiere instalat in sistem</string>
-  <string name="no_file_manager">N-a fost gasit instalat nici un program pentru managementul fisierelor. Poti instala OI File Manager, XPlore sau alt program similar.⏎ Vrei sa instalezi OI File Manager? </string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Fisierul \"log\" a fost sters!</string>
   <string name="toast_tcpdump_added_to_blacklist">\"Hostname\" a fost adaugat la lista \"blacklist\"!</string>
@@ -168,12 +157,6 @@
   <string name="pref_webserver">Server local</string>
   <string name="pref_custom_target">Locatie aleasa de utilizator</string>
   <string name="pref_custom_target_summary">Folosit numai daca locatia fisierul \"hosts\" este setat ca \"locatie aleasa de utilizator\" </string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Locatie aleasa de utilizator</item>
-  </string-array>
   <string name="pref_update_check_summary">La repornirea programului verifica daca exista o versiune noua.</string>
   <string name="pref_sdcard_problem">Nu functioneaza corect daca AdAway este instalat pe sdcard!</string>
   <string name="pref_background">Serviciu in \"background\"</string>
