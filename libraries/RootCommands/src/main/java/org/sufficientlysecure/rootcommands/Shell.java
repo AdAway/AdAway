@@ -228,9 +228,12 @@ public class Shell implements Closeable {
                 } else if (close) {
                     out.write("\nexit 0\n".getBytes());
                     out.flush();
-                    out.close();
                     Log.d(RootCommands.TAG, "Closing shell");
+                    shellProcess.waitFor();
+                    out.close();
                     return;
+                } else {
+                    Thread.sleep(50);
                 }
             }
         } catch (InterruptedException e) {
@@ -290,6 +293,7 @@ public class Shell implements Closeable {
         }
         Log.d(RootCommands.TAG, "Read all output");
         shellProcess.waitFor();
+        stdOutErr.close();
         destroyShellProcess();
 
         while (commandIndex < commands.size()) {

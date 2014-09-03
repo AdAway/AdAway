@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">廣告阻擋</string>
   <!--Buttons-->
@@ -179,6 +179,7 @@
   <string name="pref_custom_target_summary">只用於hosts檔案被設定為自定義目標的情況</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>自定義目標</item>
   </string-array>

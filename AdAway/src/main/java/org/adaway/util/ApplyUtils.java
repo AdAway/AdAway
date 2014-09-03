@@ -224,7 +224,9 @@ public class ApplyUtils {
             // create symlink
             SimpleCommand command = new SimpleCommand(Constants.COMMAND_RM + " "
                     + Constants.ANDROID_SYSTEM_ETC_HOSTS, Constants.COMMAND_LN + " " + target + " "
-                    + Constants.ANDROID_SYSTEM_ETC_HOSTS, Constants.COMMAND_CHOWN + " " + target,
+                    + Constants.ANDROID_SYSTEM_ETC_HOSTS,
+                    Constants.COMMAND_CHCON_SYSTEMFILE + " " + target,
+                    Constants.COMMAND_CHOWN + " " + target,
                     Constants.COMMAND_CHMOD_644 + " " + target);
 
             rootShell.add(command).waitForFinish();

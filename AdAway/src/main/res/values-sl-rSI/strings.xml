@@ -176,6 +176,7 @@
   <string name="pref_custom_target_summary">V uporabi samo če je hosts datoteka nastavljena na poljuben cilj.</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Poljuben cilj</item>
   </string-array>

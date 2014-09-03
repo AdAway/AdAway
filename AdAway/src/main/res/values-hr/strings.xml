@@ -181,6 +181,7 @@
   <string name="pref_custom_target_summary">Koristi se samo ako je lokacija hosts datoteke postavljena na lokaciju po narudžbi</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Lokacija po narudžbi</item>
   </string-array>

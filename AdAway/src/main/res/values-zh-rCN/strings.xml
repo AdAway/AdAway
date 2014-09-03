@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">广告走开</string>
   <!--Buttons-->
@@ -179,6 +179,7 @@
   <string name="pref_custom_target_summary">只用于 hosts 文件被设置为自定义目标的情况</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>自定义目标</item>
   </string-array>

@@ -389,6 +389,8 @@ public class ResultHelper {
             // symlink to /system/etc/hosts, based on target
             if (PreferenceHelper.getApplyMethod(context).equals("writeToDataData")) {
                 ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
+            } else if (PreferenceHelper.getApplyMethod(context).equals("writeToData")) {
+                ApplyUtils.createSymlink(Constants.ANDROID_DATA_HOSTS);
             } else if (PreferenceHelper.getApplyMethod(context).equals("customTarget")) {
                 ApplyUtils.createSymlink(PreferenceHelper.getCustomTarget(context));
             }
@@ -413,8 +415,10 @@ public class ResultHelper {
         if (success) {
             BaseActivity.updateStatusEnabled(context);
 
-            Utils.rebootQuestion(context, R.string.apply_symlink_successful_title,
-                    R.string.apply_symlink_successful);
+            if (!PreferenceHelper.getNeverReboot(context)) {
+                Utils.rebootQuestion(context, R.string.apply_symlink_successful_title,
+                        R.string.apply_symlink_successful);
+            }
         } else {
             BaseActivity.updateStatusDisabled(context);
 

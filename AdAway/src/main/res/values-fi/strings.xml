@@ -179,6 +179,7 @@
   <string name="pref_custom_target_summary">Käytetään vain, jos hosts-tiedosto on määritetty mukautetuksi kohteeksi</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Custom target</item>
   </string-array>

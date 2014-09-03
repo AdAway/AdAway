@@ -400,6 +400,9 @@ public class ApplyService extends WakefulIntentService {
             } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
 
                 ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToData")) {
+
+                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_HOSTS, rootShell);
             } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
 
                 ApplyUtils.copyHostsFile(mService, PreferenceHelper.getCustomTarget(mService),
@@ -445,6 +448,17 @@ public class ApplyService extends WakefulIntentService {
                     returnCode = StatusCodes.APPLY_FAIL;
                 } else {
                     if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS, rootShell)) {
+                        returnCode = StatusCodes.SYMLINK_MISSING;
+                    }
+                }
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToData")) {
+
+                /* /data/data/hosts */
+
+                if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_DATA_HOSTS)) {
+                    returnCode = StatusCodes.APPLY_FAIL;
+                } else {
+                    if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_HOSTS, rootShell)) {
                         returnCode = StatusCodes.SYMLINK_MISSING;
                     }
                 }

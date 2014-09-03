@@ -176,6 +176,7 @@
   <string name="pref_custom_target">Anpassat mål</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Anpassat mål</item>
   </string-array>

@@ -33,6 +33,7 @@
 
     <string-array name="pref_apply_method_entries_values" translate="false">
         <item>writeToSystem</item>
+        <item>writeToData</item>
         <item>writeToDataData</item>
         <item>customTarget</item>
     </string-array>
