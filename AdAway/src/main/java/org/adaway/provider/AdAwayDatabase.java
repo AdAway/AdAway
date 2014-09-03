@@ -35,7 +35,7 @@ import org.adaway.util.Log;
 
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 10;
 
     public interface Tables {
         String HOSTS_SOURCES = "hosts_sources";
@@ -185,6 +185,16 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://adaway.org/hosts.txt\", 0, 0, 1)");
+        }
+        if (oldVersion <= 9) {
+            // change to https
+            // remove both
+            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
+                    + " WHERE url=\"http://adaway.org/hosts.txt\"");
+            // add valid again
+            db.execSQL("INSERT INTO "
+                    + Tables.HOSTS_SOURCES
+                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"https://adaway.org/hosts.txt\", 0, 0, 1)");
         } else {
             db.execSQL("DROP TABLE IF EXISTS " + Tables.HOSTS_SOURCES);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.WHITELIST);
