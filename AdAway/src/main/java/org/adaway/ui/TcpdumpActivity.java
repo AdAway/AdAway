@@ -114,7 +114,7 @@ public class TcpdumpActivity extends SherlockActivity {
                 mTcpdumpToggle.setChecked(false);
             }
         }
-        if (mTcpdumpToggle.isChecked()) {
+        if (!mTcpdumpToggle.isChecked()) {
             TcpdumpUtils.stopTcpdump(mActivity, mRootShell);
         }
     }
