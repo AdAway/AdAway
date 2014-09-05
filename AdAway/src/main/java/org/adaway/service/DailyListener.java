@@ -75,7 +75,7 @@ public class DailyListener implements AlarmListener {
             boolean updateOnlyOnWifi = PreferenceHelper.getUpdateOnlyOnWifi(context);
 
             // if we have mobile or wifi connectivity...
-            if (((netInfo.getType() == ConnectivityManager.TYPE_MOBILE) && updateOnlyOnWifi)
+            if (((netInfo.getType() == ConnectivityManager.TYPE_MOBILE) && !updateOnlyOnWifi)
                     || (netInfo.getType() == ConnectivityManager.TYPE_WIFI)) {
                 Log.d(Constants.TAG, "We have internet, start update check directly now!");
 
