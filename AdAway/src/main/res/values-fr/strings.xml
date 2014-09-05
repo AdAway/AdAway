@@ -3,7 +3,7 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Quitter</string>
-  <string name="button_apply">Télécharger les fichiers et appliquer le blocage des pubs</string>
+  <string name="button_apply">Télécharger les fichiers et appliquer le blocage des publicités</string>
   <string name="button_close">Fermer</string>
   <string name="button_yes">Oui</string>
   <string name="button_no">Non</string>
@@ -17,7 +17,7 @@
   <string name="button_webserver_toggle_unchecked">Le serveur Web est arrêté</string>
   <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur Web sur « localhost » pour répondre aux requêtes aux noms d\'hôtes bloqués.</string>
   <string name="button_help">Aide</string>
-  <string name="button_tcpdump_text">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des pubs, et analyser ensuite les requêtes DNS d\'après le fichier journal. Les serveurs de pubs potentiels peuvent être ajoutés à votre liste noire.</string>
+  <string name="button_tcpdump_text">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités, et analyser ensuite les requêtes DNS d\'après le fichier journal. Le serveur potentiel de publicités peut alors être ajouté à votre liste noire.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump tourne !</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump est arrêté</string>
   <string name="button_tcpdump_open">Ouvrir le fichier journal</string>

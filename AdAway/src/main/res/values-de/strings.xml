@@ -11,7 +11,7 @@
   <string name="button_add">Hinzufügen</string>
   <string name="button_cancel">Abbrechen</string>
   <string name="button_apply_text">Alle Hosts-Dateien von den eingestellten Quellen werden heruntergeladen, mit Ihren eigenen Listen zusammengefügt und als eine Hosts-Datei im System installiert.</string>
-  <string name="button_revert_text">Stellt die Standard Hosts-Datei auf Ihrem System wieder her.</string>
+  <string name="button_revert_text">Stellt die vorgegebene Hosts-Datei auf Ihrem System wieder her.</string>
   <string name="button_save">Speichern</string>
   <string name="button_webserver_toggle_checked">Webserver läuft</string>
   <string name="button_webserver_toggle_unchecked">Webserver läuft nicht</string>

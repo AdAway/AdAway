@@ -2,8 +2,10 @@
 <resources>
   <string name="donations__button_close">关闭</string>
   <string name="donations__flattr">Flattr®</string>
+  <string name="donations__description">你觉得这个应用有用吗？\n捐赠给开发者以支持它的发展</string>
   <string name="donations__flattr_description">Flattr® 将从月费中提成10%！</string>
   <string name="donations__google_android_market">Google Play 商店</string>
+  <string name="donations__google_android_market_not_supported_title">不支持 In-App 捐赠。</string>
   <string name="donations__google_android_market_not_supported">不支持 In-App 捐赠。你的 Google Play 商店是否安装正确了呢？</string>
   <string name="donations__google_android_market_description">Google 要从捐赠中抽取3成！
 </string>

@@ -20,8 +20,8 @@
 <li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
 <li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
 <li>Συνδέστε το καλώδιο USB σας και ανοίξτε μια γραμμή εντολών στον υπολογιστή σας.</li>
-<li>Μπείτε στο κέλυφος adb και πληκτρολογήστε <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (Αυτό δημιουργεί έναν συμβολικό σύνδεσμο που επιτρέπει στο AdAway να επεξεργαζεται το αρχείο hosts που βρίσκεται στο <tt>/data</tt>, ενώ ταυτόχρονα επιτρέπει στο λειτουργικό σύστημα να χρησιμοποιεί το αρχείο σαν να ήταν αποθηκευμένο στο <tt>/system</tt>.)</li>
-<li>Επανεκκινήστε την συσκευή σας και ορίστε το <i>Αρχείο προορισμού hosts</i> σε <i>/data/data/hosts</i></li>
+<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
 <li>Το AdAway πρέπει να λειτουργεί τώρα.</li>
 </ol>
 </body>

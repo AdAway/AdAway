@@ -20,8 +20,8 @@
 <li>I clockwork recovery, tryck volym ner till "partitions menu" och tryck på mittenknappen på telefonen för att välja</li>
 <li>Välj <i>mount /system</i>, <i>mount /sdcard</i> och <i>mount /data</i>.</li>
 <li>Sätt in usbsladden och öppna en kommandoprompt på din pc.</li>
-<li>Gå in i adb shell och skriv <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (Detta skapar en symbolisk länk, som tillåter AdAway att ändra hosts filen som finns i <tt>/data</tt> medans man tillåter OSet att använda filen som om att den skulle vara lagrad i <tt>/system</tt>.)</li>
-<li>Starta om din enhet och sätt <i>Mål för hosts fil</i> till <i>/data/data/hosts</i> i Adaways inställningar.</li>
+<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAway ska nu fungera.</li>
 </ol>
 </body>

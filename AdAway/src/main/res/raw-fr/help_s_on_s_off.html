@@ -2,26 +2,26 @@
 <head></head>
 <body>
 <h2>Appareils HTC</h2>
-<p>AdAway ne fonctionne pas si vous utilisez un appareil équipé de S-ON. Cette fonction existe sur de nombreux appareils HTC et empêche à AdAway d'écrire le fichier hosts.</p>
+<p>AdAway ne fonctionne pas si vous utilisez un appareil équipé de S-ON. Cette « fonction » existe sur de nombreux appareils HTC et empêche à AdAway d'écrire le fichier « hosts ».</p>
 
 <h2>S-ON/S-OFF ?</h2>
 <p>S-OFF signifie que la partie NAND de l'appareil est déverrouillée et qu'on peut y écrire. Le réglage par défaut des appareils HTC est S-ON, ce qui signifie que vous ne pouvez ni accéder à certaines parties du système ni obtenir un accès « root » permanent. De plus, la vérification de la signature des images du micrologiciel est aussi assurée par S-ON.</p>
 
 <h2>Ai-je S-ON ou S-OFF ?</h2>
-<p>Accéder au menu de démarrage de votre appareil en appuyant longuement sur le bouton <i>volume bas<i>tout en appuyant sur le bouton de mise en marche, et le texte en haut affichera le drapeau d'état comme étant soit S-OFF ou S-ON. Un « root » complet veut habituellement dire S-OFF.
+<p>Accéder au menu d'amorçage de votre appareil en appuyant longuement sur le bouton <i>volume bas<i>tout en appuyant sur le bouton de mise en marche, et le texte en haut affichera le drapeau d'état comme étant soit S-OFF ou S-ON. Un « root » complet veut habituellement dire S-OFF.
 <br/><br/>Plus d'informations sont disponibles sur <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
 
 <h2>Palliatif</h2>
 <p>Prérequis : vous devez installer un SKD Android fonctionnel avec « ADB  shell » sur votre PC.
 </p>
 <ol>
-<li>Accéder au menu de démarrage de votre appareil en appuyant longuement sur le bouton <i>volume bas<i>tout en appuyant sur le bouton de mise en marche.</li>
+<li>Accéder au menu d'amorçage de votre appareil en appuyant longuement sur le bouton <i>volume bas<i>tout en appuyant sur le bouton de mise en marche.</li>
 <li>Utilisez <i>volume bas<i> pour choisir « recovery ».</li>
-<li>Dans « clockwork recovery », atteindre « partitions menu » avec volume-bas et toucher pour choisir.</li>
-<li>Choisir <i>mount /system<i>, <i>mount /sdcard</i> et <i>mount /data<i>.</li>
-<li>Brancher votre câble USB et ouvrir une ligne de commande sur votre PC.</li>
-<li>Lancer « ABD shell » et taper <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (ceci crée un lien symbolique qui permet à AdAway de modifier le fichier « hosts » stocké dans <tt>/data</tt> tout en permettant au SE d'utiliser le ficher comme s'il était stocké dans <tt>/system</tt>).</li>
-<li>Redémarrer votre appareil, puis régler <i>Ficher « hosts » cible</i> à <i>/data/data/hosts</i> dans les préférences d'AdAway.</li>
+<li>Dans « clockwork recovery », atteindre « partitions menu » avec volume-bas et touchez pour choisir.</li>
+<li>Choisissez <i>mount /system<i>, <i>mount /sdcard</i> et <i>mount /data<i>.</li>
+<li>Branchez votre câble USB et ouvrez une ligne de commande sur votre PC.</li>
+<li>Ouvrez un shell adb et tapez <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (cette commande créé un lien symbolique qui permet à AdAway de modifier le fichier « hosts » contenu dans <tt>/data</tt> tout en permettant au SE d'utiliser ce fichier comme s'il était stocké dans <tt>/system</tt>).</li>
+<li>Redémarrez votre appareil et définissez <i>Fichier « hosts » cible </i> à <i>/data/hosts</i> dans les préférences d'AdAway.</li>
 <li>AdAway devrait maintenant fonctionner.</li>
 </ol>
 </body>

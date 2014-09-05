@@ -8,10 +8,10 @@
   <string name="donations__google_android_market_not_supported_title">Les dons dans l\'appli ne sont pas pris en charge.</string>
   <string name="donations__google_android_market_not_supported">Les dons dans l\'appli ne sont pas pris en charge. Google Play Store est-il correctement installé ?</string>
   <string name="donations__google_android_market_description">Google prend 30 % sur chaque don ! </string>
-  <string name="donations__google_android_market_donate_button">Faire un don !</string>
+  <string name="donations__google_android_market_donate_button">Faites un don !</string>
   <string name="donations__google_android_market_text">Combien ?</string>
   <string name="donations__paypal">PayPal</string>
-  <string name="donations__paypal_description">Vous pouvez faire un don du montant désiré en cliquant sur ce bouton !</string>
+  <string name="donations__paypal_description">Vous pouvez choisir le montant du don après avoir cliqué sur le bouton !</string>
   <string name="donations__thanks_dialog_title">Merci !</string>
   <string name="donations__thanks_dialog">Merci pour votre don !\nJe l\'apprécie vraiment !</string>
   <string name="donations__alert_dialog_title">Une erreur est survenue</string>

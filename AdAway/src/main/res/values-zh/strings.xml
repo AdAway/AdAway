@@ -71,6 +71,7 @@
   <string name="apply_remount_fail_title">重新挂载失败</string>
   <string name="apply_copy_fail">复制 hosts 文件失败！</string>
   <string name="apply_copy_fail_title">复制失败</string>
+  <string name="apply_success_subtitle">已用Hosts 源：</string>
   <string name="apply_success_title">应用成功</string>
   <string name="apply_success_dialog">应用成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
   <string name="apply_symlink_successful">符号链接创建成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>

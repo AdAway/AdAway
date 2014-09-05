@@ -19,8 +19,8 @@
 <li>V clockwork recovery najeďte pomocí tlačítka Hlasitost - do "partitions menu" and potrvrďte trackpadem</li>
 <li>Zvolte <i>mount /system</i>, <i>mount /sdcard</i> a <i>mount /data</i>.</li>
 <li>Zapoj svůj USB kabel do počítač a otevři si na něm příkazovou řádku.</li>
-<li>Vstup do sdb shellu a zadej <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (vytvoří se tím symbolický odkaz umožňující AdAway upravovat soubor hostitelů uložený v <tt>/data</tt> a přitom nechat Android používat ten soubor jako by byl uložen v <tt>/system</tt>.)</li>
-<li>Restartuj zařízení a v nastavení AdAway nastav <i>Cílový soubor hostitelů</i> na <i>/data/data/hosts</i>.</li>
+<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
 <li>AdAway by měl nyní fungovat.</li>
 </ol>
 </body>

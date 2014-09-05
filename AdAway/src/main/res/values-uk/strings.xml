@@ -182,6 +182,12 @@
   <string name="pref_webserver">Локальний веб-сервер</string>
   <string name="pref_custom_target">Користувацькі налаштування</string>
   <string name="pref_custom_target_summary">Використовується тільки в тому випадку, коли розташування файлу хостів задано користувачем</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Задано користувачем</item>
+  </string-array>
   <string name="pref_update_check_summary">Перевіряє оновлення при запуску AdAway</string>
   <string name="pref_sdcard_problem">Ця функція буде працювати неправильно, якщо AdAway встановлена ​​на карту пам\'яті!</string>
   <string name="pref_background">Фоновий режим</string>

@@ -20,8 +20,8 @@
 <li>In ClockworkMod Recovery zum Partitionsmenu navigieren.</li>
 <li><i>mount /system</i>, <i>mount /sdcard</i> und <i>mount /data</i> auswählen.</li>
 <li>Das Gerät mit dem PC verbinden und eine Befehlszeile öffnen.</li>
-<li>Die ADB-Shell starten und folgendes eingeben:<br/><tt>ln -s /data/data/hosts /system/etc/hosts</tt><br/> (Dieses erstellt einen Link, der es AdAway erlaubt die Hosts-Datei unter <tt>/data</tt> zu verändern, während es für das Betriebssystem so aussieht als wäre sie unter <tt>/system</tt>.)</li>
-<li>Das Gerät neu starten und AdAway konfigurieren: Die <i>zu benutzende hosts-Datei</i> muss auf <i>/data/data/hosts</i> eingestelt werden.</li>
+<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Das Gerät neu starten und die <i>Zielrechnerdatei</i>, in den AdAway-Einstellungen, zu <i>/data/hosts</i> festlegen.</li>
 <li>AdAway sollte nun funktionieren.</li>
 </ol>
 </body>
