@@ -45,10 +45,10 @@ public class OpenHelper {
 
             Toolbox tb = new Toolbox(rootShell);
             /* remount for write access */
-            if (!tb.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
-                Log.e(Constants.TAG, "System partition could not be remounted as rw!");
-            } else {
+            if (tb.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RW")) {
                 openFileWithEditor(activity, Constants.ANDROID_SYSTEM_ETC_HOSTS);
+            } else {
+                Log.e(Constants.TAG, "System partition could not be remounted as rw!");
             }
 
             rootShell.close();
