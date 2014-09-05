@@ -97,8 +97,7 @@ public class WebserverFragment extends SherlockFragment {
     public void webserverOnClick(View view) {
         if (mWebserverToggle.isChecked()) {
             WebserverUtils.startWebserver(mActivity, mRootShell);
-        }
-        if (mWebserverToggle.isChecked()) {
+        } else {
             WebserverUtils.stopWebserver(mActivity, mRootShell);
         }
     }
