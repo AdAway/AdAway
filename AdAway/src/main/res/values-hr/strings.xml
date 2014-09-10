@@ -177,8 +177,6 @@
   <string name="pref_automatic_update_daily_summary">Osvježi automatski u pozadini ukoliko su osvježenja dostpuna</string>
   <string name="pref_update_only_on_wifi">Osvježavaj sam na Wi-Fiju</string>
   <string name="pref_update_only_on_wifi_summary">Pokreni pozadinska osvježavanja samo kad postoji Wi-Fi mrežna povezanost.</string>
-  <string name="pref_whitelist_redirection_rules">Dopusti preusmjeravanja i popis dopuštenih programa</string>
-  <string name="pref_whitelist_redirection_rules_summary">Dopusti preusmjeravanja i popis dupuštenih programa s liste izvora domaćina.</string>
   <string name="pref_debug">Otkloni grešku</string>
   <string name="pref_enable_debug">Vodi dnevnik otklanjanja greške</string>
   <string name="pref_enable_debug_summary">Ponovno pokrenite AdAway kako bi ova postavka došla do izražaja.</string>

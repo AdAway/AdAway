@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -219,8 +219,6 @@
   <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
   <string name="pref_update_only_on_wifi">Обновление только по WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Выполнять обновления в фоне только при подключении к сети WiFi.</string>
-  <string name="pref_whitelist_redirection_rules">Разрешить переадресацию и белые списки</string>
-  <string name="pref_whitelist_redirection_rules_summary">Разрешить переадресацию и белые списки из источников хостов.</string>
   <string name="pref_debug">Режим отладки</string>
   <string name="pref_enable_debug">Журнал отладки</string>
   <string name="pref_enable_debug_summary">Чтобы изменения вступили в силу, необходимо перезапустить AdAway.</string>

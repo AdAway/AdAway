@@ -179,8 +179,6 @@
   <string name="pref_automatic_update_daily_summary">Uppdatera automatisk i bakgrunden om uppdaterignar är tillgängliga.</string>
   <string name="pref_update_only_on_wifi">Uppdatera endast via WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Starta endast bakgrundsuppdateringar om du är ansluten till ett WiFi-nätverk.</string>
-  <string name="pref_whitelist_redirection_rules">Tillåt omdirigering och vitlistan</string>
-  <string name="pref_whitelist_redirection_rules_summary">Tillåt omdirigering och vitlistade inlägg från värdkällor.</string>
   <string name="pref_debug">Felsökning</string>
   <string name="pref_enable_debug">Felsökningsloggning</string>
   <string name="pref_enable_debug_summary">Du måste starta om AdAway för att den här inställningen ska börja gälla.</string>

@@ -21,9 +21,13 @@
 
     <item name="pref_update_only_on_wifi_def" format="boolean" type="string">false</item>
 
-    <string name="pref_whitelist_redirection_rules_key" translate="false">redirectionRules</string>
+    <string name="pref_whitelist_rules_key" translate="false">whitelistRules</string>
 
-    <item name="pref_whitelist_redirection_rules_def" format="boolean" type="string">false</item>
+    <item name="pref_whitelist_rules_def" format="boolean" type="string">true</item>
+
+    <string name="pref_redirection_rules_key" translate="false">redirectionRules</string>
+
+    <item name="pref_redirection_rules_def" format="boolean" type="string">false</item>
 
     <string name="pref_redirection_ip_key" translate="false">redirectionIP</string>
 

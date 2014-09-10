@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -179,8 +179,6 @@
   <string name="pref_automatic_update_daily_summary">التحديث تلقائياً في الخلفية إذا كانت التحديثات متوفرة.</string>
   <string name="pref_update_only_on_wifi">التحديث فقط عبر Wi-Fi</string>
   <string name="pref_update_only_on_wifi_summary">تنفيذ التحديثات في الخلفية فقط عند الاتصال بشبكة Wi-Fi.</string>
-  <string name="pref_whitelist_redirection_rules">السماح لقائمة البيضاء وإعادة التوجيه.</string>
-  <string name="pref_whitelist_redirection_rules_summary">السماح لمدخلات القائمة البيضاء وإعادة التوجيه من مصادر المضيف.</string>
   <string name="pref_debug">التصحيح</string>
   <string name="pref_enable_debug">تسجيل التصحيحات</string>
   <string name="pref_enable_debug_summary">يجب إعادة تشغيل التطبيق لتكون الإعدادات سارية المفعول.</string>

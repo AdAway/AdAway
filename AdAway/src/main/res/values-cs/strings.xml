@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -191,8 +191,6 @@
   <string name="pref_automatic_update_daily_summary">Automaticky aktualizovat na pozadí, pokud jsou k dispozici aktualizace.</string>
   <string name="pref_update_only_on_wifi">Aktualizovat pouze na Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Spustí aktualizaci na pozadí pouze při připojení k wifi síti.</string>
-  <string name="pref_whitelist_redirection_rules">Povolit přesměrování a bílou listinu</string>
-  <string name="pref_whitelist_redirection_rules_summary">Povolit položky přesměrování a bílé listiny  ze zdrojů souborů hostitelů.</string>
   <string name="pref_debug">Ladění</string>
   <string name="pref_enable_debug">Povolit ladící log</string>
   <string name="pref_enable_debug_summary">Musíte restartovat AdAway, aby se toto nastavení projevilo.</string>

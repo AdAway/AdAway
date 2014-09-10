@@ -285,13 +285,8 @@ public class ApplyService extends WakefulIntentService {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-            // Use redirection rules from hosts sources only if enabled in preferences
-            HostsParser parser = null;
-            if (PreferenceHelper.getWhitelistRedirectionRules(mService)) {
-                parser = new HostsParser(reader, true);
-            } else {
-                parser = new HostsParser(reader, false);
-            }
+            // Use whitelist and/or redirection rules from hosts sources only if enabled in preferences
+            HostsParser parser = new HostsParser(reader, PreferenceHelper.getWhitelistRules(mService), PreferenceHelper.getRedirectionRules(mService));
 
             fis.close();
 

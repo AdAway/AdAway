@@ -42,11 +42,13 @@ public class HostsParser {
     private Matcher mHostsParserMatcher;
     private Pattern mHostsParserPattern;
 
-    private boolean mParseWhitelistAndRedirections;
+    private boolean mParseWhitelist;
+    private boolean mParseRedirections;
 
-    public HostsParser(BufferedReader input, boolean parseWhitelistAndRedirections)
+    public HostsParser(BufferedReader input, boolean parseWhitelist, boolean parseRedirections)
             throws IOException {
-        mParseWhitelistAndRedirections = parseWhitelistAndRedirections;
+        mParseWhitelist = parseWhitelist;
+        mParseRedirections = parseRedirections;
         parse(input);
     }
 
@@ -77,7 +79,7 @@ public class HostsParser {
         mRedirectionList = new HashMap<String, String>();
 
         // use whitelist import pattern
-        if (mParseWhitelistAndRedirections) {
+        if (mParseWhitelist) {
             mHostsParserPattern = RegexUtils.hostsParserWhitelistImportPattern;
         } else {
             mHostsParserPattern = RegexUtils.hostsParserPattern;
@@ -99,7 +101,7 @@ public class HostsParser {
                     mBlacklist.add(currentHostname);
                 } else if (currentIp.equals(Constants.WHITELIST_ENTRY)) {
                     mWhitelist.add(currentHostname);
-                } else if (mParseWhitelistAndRedirections) {
+                } else if (mParseRedirections) {
                     mRedirectionList.put(currentHostname, currentIp);
                 }
             } else {

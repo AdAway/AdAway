@@ -181,8 +181,6 @@
   <string name="pref_automatic_update_daily_summary">Dateer outomaties op in die agtergrond indien beskikbaar.</string>
   <string name="pref_update_only_on_wifi">Dateer op met WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Voer slegs opdaterings uit indien gekoppel aan \'n WiFi netwerk.</string>
-  <string name="pref_whitelist_redirection_rules">Laat herleiding en witlysting toe</string>
-  <string name="pref_whitelist_redirection_rules_summary">Laat herleiding en witlys inskrywings van Gasheer Bronne toe.</string>
   <string name="pref_debug">Herstel foute</string>
   <string name="pref_enable_debug">Fout Aantekening</string>
   <string name="pref_enable_debug_summary">Jy moet AdAway weer begin om hierdie instellings te implementeer.</string>

@@ -213,8 +213,10 @@
     <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
     <string name="pref_update_only_on_wifi">Update only on Wifi</string>
     <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
-    <string name="pref_whitelist_redirection_rules">Allow redirections and whitelisting</string>
-    <string name="pref_whitelist_redirection_rules_summary">Allow redirection and whitelist entries from Hosts Sources.</string>
+    <string name="pref_whitelist_rules">Allow whitelisting</string>
+    <string name="pref_whitelist_rules_summary">Allow whitelist entries from Hosts Sources.</string>
+    <string name="pref_redirection_rules">Allow redirections</string>
+    <string name="pref_redirection_rules_summary">Allow redirection entries from Hosts Sources (MAY CAUSE SECURITY ISSUES!).</string>
     <string name="pref_debug">Debug</string>
     <string name="pref_enable_debug">Debug Logging</string>
     <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>

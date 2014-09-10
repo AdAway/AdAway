@@ -191,8 +191,6 @@
   <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont disponibles</string>
   <string name="pref_update_only_on_wifi">Mise à jour Wi-Fi seulement</string>
   <string name="pref_update_only_on_wifi_summary">Exécute les mises à jour en arrière-plan que lorsque connecté à un réseau Wi-Fi.</string>
-  <string name="pref_whitelist_redirection_rules">Permettre les redirections et la liste blanche</string>
-  <string name="pref_whitelist_redirection_rules_summary">Permettre les redirections et les entrées de liste blanche proposés par les sources d\'« hosts ».</string>
   <string name="pref_debug">Debogage</string>
   <string name="pref_enable_debug">Journalisation du débogage</string>
   <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>
