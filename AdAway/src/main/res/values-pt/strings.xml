@@ -179,8 +179,6 @@
   <string name="pref_automatic_update_daily_summary">Actualizar automaticamente em segundo plano caso haja actualizações disponíveis.</string>
   <string name="pref_update_only_on_wifi">Actualizar apenas em Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Actualizar em segundo plano apenas quando ligado a uma rede Wifi.</string>
-  <string name="pref_whitelist_redirection_rules">Permitir redireccionamentos e whitelisting</string>
-  <string name="pref_whitelist_redirection_rules_summary">Permitir redireccionamentos e entradas na whitelist de fontes de hosts</string>
   <string name="pref_debug">Depurar</string>
   <string name="pref_enable_debug">Registar a depuração</string>
   <string name="pref_enable_debug_summary">Precisará de reiniciar o AdAway para que esta configuração tenha efeito.</string>

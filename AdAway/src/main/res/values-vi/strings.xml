@@ -175,8 +175,6 @@
   <string name="pref_automatic_update_daily_summary">Tự động cập nhật nếu có bản nâng cấo mới.</string>
   <string name="pref_update_only_on_wifi">Chỉ cập nhật qua Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Chỉ tự động kiểm tra bản cập nhật khi có kết nối wifi</string>
-  <string name="pref_whitelist_redirection_rules">Cho phép tự chuyển hướng và danh sách tin cậy</string>
-  <string name="pref_whitelist_redirection_rules_summary">Cho phép tự chuyển hướng và các mục đáng tin cậy từ Các Nguồn Host.</string>
   <string name="pref_debug">Dò lỗi</string>
   <string name="pref_enable_debug">Nhật ký dò lỗi</string>
   <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để có hiệu lực</string>

@@ -213,8 +213,6 @@ Wilt u OI File Manager installeren?</string>
   <string name="pref_automatic_update_daily_summary">Update automatisch in de achtergrond als updates beschikbaar zijn</string>
   <string name="pref_update_only_on_wifi">Update alleen via Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Voert achtergrond updates alleen uit bij verbinding met een wifi netwerk.</string>
-  <string name="pref_whitelist_redirection_rules">Sta doorverwijzingen en whitelisting toe</string>
-  <string name="pref_whitelist_redirection_rules_summary">Sta doorverwijzing en whitelist regels van Hosts Bronnen toe.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug logs</string>
   <string name="pref_enable_debug_summary">U moet AdAway herstarten om deze aanpassing effect te laten hebben</string>

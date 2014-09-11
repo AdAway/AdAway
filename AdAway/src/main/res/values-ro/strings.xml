@@ -166,8 +166,6 @@
   <string name="pref_automatic_update_daily_summary">Update automat (in background) daca exista versiune noua.</string>
   <string name="pref_update_only_on_wifi">\"Update\" numai cand exista conexiune WiFi.</string>
   <string name="pref_update_only_on_wifi_summary">\"Background updates\" numai cand exista conexiune WiFi. </string>
-  <string name="pref_whitelist_redirection_rules">Permite redirectionare si deasemenea lista permisa (whitelist)</string>
-  <string name="pref_whitelist_redirection_rules_summary">Permite redirectionare si deasemenea lista permisa (whitelist) de la sursele \"hosts\"</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug logging</string>
   <string name="pref_enable_debug_summary">Reporneste AdAway pentru ca modificarile sa fie aplicate!</string>

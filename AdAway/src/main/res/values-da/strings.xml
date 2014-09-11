@@ -177,8 +177,6 @@
   <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
   <string name="pref_update_only_on_wifi">Opdatér kun via trådløst netværk</string>
   <string name="pref_update_only_on_wifi_summary">Kør kun baggrundsopdateringer når der er forbindelse via et trådløs netværk</string>
-  <string name="pref_whitelist_redirection_rules">Tillad omdirigering og tilladelser</string>
-  <string name="pref_whitelist_redirection_rules_summary">Tillad omdirigering og tilladelses elementer fra hovedkilderne.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug-logning</string>
   <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>

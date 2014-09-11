@@ -136,8 +136,6 @@
   <string name="pref_automatic_update_daily_summary">Uuenduste olemasolul tehakse need taustal automaatselt.</string>
   <string name="pref_update_only_on_wifi">Uuenda ainult WIFI-ga</string>
   <string name="pref_update_only_on_wifi_summary">Taustauuendused käivitatakse ainult WIFI võrgus olles.</string>
-  <string name="pref_whitelist_redirection_rules">Ümbersuunamised ja valge nimekiri lubatud</string>
-  <string name="pref_whitelist_redirection_rules_summary">Luba hosts allikatest aadresside ümbersuunamised ja valge nimekiri.</string>
   <string name="pref_debug">Silumine</string>
   <string name="pref_enable_debug">Silumise logimine</string>
   <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>

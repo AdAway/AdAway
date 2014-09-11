@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -197,8 +197,6 @@
   <string name="pref_automatic_update_daily_summary">バックグラウンドで自動更新します。</string>
   <string name="pref_update_only_on_wifi">Wi-Fiでのみ更新</string>
   <string name="pref_update_only_on_wifi_summary">Wi-Fi接続されたときのみバックグラウンド更新をします。</string>
-  <string name="pref_whitelist_redirection_rules">ﾘﾀﾞｲﾚｸﾄとﾎﾜｲﾄﾘｽﾄを許可</string>
-  <string name="pref_whitelist_redirection_rules_summary">hostsソースからのリダイレクトとホワイトリストのエントリを許可します。</string>
   <string name="pref_debug">デバッグ</string>
   <string name="pref_enable_debug">デバッグ記録をする</string>
   <string name="pref_enable_debug_summary">変更を適用するにはAdAwayの再起動が必要です。</string>

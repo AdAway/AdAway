@@ -179,8 +179,6 @@
   <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
   <string name="pref_update_only_on_wifi">Pembaruan hanya jika menggunakan Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Jalankan pembaruan latar belakang hanya pada saat terhubung ke jaringan wifi.</string>
-  <string name="pref_whitelist_redirection_rules">Izinkan pengalihan dan whitelisting</string>
-  <string name="pref_whitelist_redirection_rules_summary">Izinkan pengalihan dan masukan whitelist dari Sumber Host.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug Logging</string>
   <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>

@@ -21,6 +21,7 @@
 package org.adaway.util;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.adaway.R;
@@ -90,15 +91,16 @@ public class TcpdumpUtils {
 
             File file = new File(filePath);
             if (file.exists()) {
-                file.delete();
+                FileOutputStream fileStream = new FileOutputStream(file, false);
+                fileStream.close();
                 Toast toast = Toast.makeText(context, R.string.toast_tcpdump_log_deleted,
                         Toast.LENGTH_SHORT);
                 toast.show();
             } else {
                 Log.e(Constants.TAG, "Tcpdump log is not existing!");
             }
-        } catch (IOException e) {
-            Log.e(Constants.TAG, "Can not get cache dir!", e);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Error truncating file!", e);
         }
     }
 

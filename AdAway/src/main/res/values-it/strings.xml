@@ -179,8 +179,6 @@
   <string name="pref_automatic_update_daily_summary">Aggiorna automaticamente in background se sono disponibili aggiornamenti.</string>
   <string name="pref_update_only_on_wifi">Aggiorna solo via Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso a un network wifi</string>
-  <string name="pref_whitelist_redirection_rules">Permetti inoltro e whitelisting</string>
-  <string name="pref_whitelist_redirection_rules_summary">Permetti voci di inoltro e whitelist dal Sorgente Host.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Log di debug</string>
   <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>
