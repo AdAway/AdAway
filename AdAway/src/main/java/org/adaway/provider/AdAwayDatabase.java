@@ -35,7 +35,7 @@ import org.adaway.util.Log;
 
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
 
     public interface Tables {
         String HOSTS_SOURCES = "hosts_sources";
@@ -94,7 +94,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
                 "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
 
         // AdAway's own mobile hosts
-        insertHostsSource(insertStmt, "http://adaway.org/hosts.txt");
+        insertHostsSource(insertStmt, "https://adaway.org/hosts.txt");
     }
 
     @Override
@@ -186,7 +186,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://adaway.org/hosts.txt\", 0, 0, 1)");
         }
-        if (oldVersion <= 9) {
+        if (oldVersion <= 10) { // 9 and 10, forgot to change on new installs
             // change to https
             // remove both
             db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
