@@ -68,8 +68,9 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
         // Start out with a progress indicator.
         setListShown(false);
 
-        // reload list
-        getLoaderManager().restartLoader(0, null, this);
+        // Prepare the loader. Either re-connect with an existing one,
+        // or start a new one.
+        getLoaderManager().initLoader(0, null, this);
     }
 
     /**
@@ -98,10 +99,6 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
 
         // Start out with a progress indicator.
         setListShown(false);
-
-        // Prepare the loader. Either re-connect with an existing one,
-        // or start a new one.
-        getLoaderManager().initLoader(0, null, this);
     }
 
     @Override

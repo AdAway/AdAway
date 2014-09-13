@@ -45,6 +45,7 @@ public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>>
 
     Context context;
     List<String> mItems;
+    private volatile boolean canceled = false;
 
     public ScanAdwareLoader(Context context) {
         super(context);
@@ -72,17 +73,21 @@ public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>>
     protected void onReset() {
         super.onReset();
 
+        canceled = true;
+
         // Ensure the loader is stopped
         onStopLoading();
     }
 
     @Override
     protected void onStartLoading() {
+        canceled = false;
         forceLoad();
     }
 
     @Override
     protected void onStopLoading() {
+        canceled = true;
         cancelLoad();
     }
 
@@ -102,6 +107,10 @@ public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>>
         List<ApplicationInfo> appInfos = pm.getInstalledApplications(0);
 
         for (ApplicationInfo appInfo : appInfos) {
+            if(canceled) {
+                adPackages.clear();
+                break;
+            }
             try {
                 PackageInfo pkgInfo = pm.getPackageInfo(appInfo.packageName,
                         PackageManager.GET_ACTIVITIES | PackageManager.GET_RECEIVERS
