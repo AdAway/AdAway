@@ -40,11 +40,13 @@ import android.support.v4.content.Loader;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Button;
 
 public class ScanAdwareListFragment extends SherlockListFragment implements
         LoaderManager.LoaderCallbacks<List<Map<String, String>>> {
     private Activity mActivity;
     private SimpleAdapter mAdapter;
+    private Button mStartButton;
 
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
@@ -67,6 +69,9 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
 
         // Start out with a progress indicator.
         setListShown(false);
+        
+        // disable Start scanning button
+        mStartButton.setEnabled(false);
 
         // Prepare the loader. Either re-connect with an existing one,
         // or start a new one.
@@ -81,6 +86,7 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
         super.onActivityCreated(savedInstanceState);
 
         mActivity = this.getActivity();
+        mStartButton = (Button) mActivity.findViewById(R.id.scan_adware_start_button);
 
         // register long press context menu
         registerForContextMenu(getListView());
@@ -134,6 +140,9 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
         } else {
             setListShownNoAnimation(true);
         }
+
+        // enable Start scanning button
+        mStartButton.setEnabled(true);
     }
 
     @Override
