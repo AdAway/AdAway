@@ -29,7 +29,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 
 import org.adaway.R;
@@ -49,6 +48,9 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
+
+import gnu.trove.set.hash.THashSet;
+import gnu.trove.map.hash.THashMap;
 
 public class ImportExportHelper {
 
@@ -100,9 +102,9 @@ public class ImportExportHelper {
 
                 @Override
                 protected Void doInBackground(Void... unused) {
-                    HashSet<String> blacklist = null;
-                    HashSet<String> whitelist = null;
-                    HashMap<String, String> redirectionList = null;
+                    THashSet<String> blacklist = null;
+                    THashSet<String> whitelist = null;
+                    THashMap<String, String> redirectionList = null;
                     try {
                         InputStream is = context.getContentResolver().openInputStream(result);
                         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -160,9 +162,9 @@ public class ImportExportHelper {
 
             @Override
             protected Void doInBackground(Void... unused) {
-                HashSet<String> whitelist = ProviderHelper.getEnabledWhitelistHashSet(context);
-                HashSet<String> blacklist = ProviderHelper.getEnabledBlacklistHashSet(context);
-                HashMap<String, String> redirectionList = ProviderHelper
+                THashSet<String> whitelist = ProviderHelper.getEnabledWhitelistHashSet(context);
+                THashSet<String> blacklist = ProviderHelper.getEnabledBlacklistHashSet(context);
+                THashMap<String, String> redirectionList = ProviderHelper
                         .getEnabledRedirectionListHashMap(context);
 
                 try {

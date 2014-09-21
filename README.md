@@ -144,6 +144,10 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   https://github.com/dschuermann/html-textview  
   Apache License v2
 
+* Trove
+  http://trove.starlight-systems.com/
+  [multiple licenses](http://trove.starlight-systems.com/license)
+
 
 ## Images
 * status_enabled.svg, status_disabled.svg, status_update.svg  

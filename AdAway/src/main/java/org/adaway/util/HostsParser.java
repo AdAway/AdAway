@@ -22,22 +22,23 @@ package org.adaway.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.adaway.util.Log;
 
+import gnu.trove.set.hash.THashSet;
+import gnu.trove.map.hash.THashMap;
+
 /**
  * A parser to build sets out of hosts files. Redirection Lists have higher priority than whitelist
  * or blacklist items.
  */
 public class HostsParser {
-    private HashSet<String> mBlacklist;
-    private HashSet<String> mWhitelist;
-    private HashMap<String, String> mRedirectionList;
+    private THashSet<String> mBlacklist;
+    private THashSet<String> mWhitelist;
+    private THashMap<String, String> mRedirectionList;
 
     private Matcher mHostsParserMatcher;
     private Pattern mHostsParserPattern;
@@ -52,15 +53,15 @@ public class HostsParser {
         parse(input);
     }
 
-    public HashSet<String> getBlacklist() {
+    public THashSet<String> getBlacklist() {
         return mBlacklist;
     }
 
-    public HashSet<String> getWhitelist() {
+    public THashSet<String> getWhitelist() {
         return mWhitelist;
     }
 
-    public HashMap<String, String> getRedirectionList() {
+    public THashMap<String, String> getRedirectionList() {
         return mRedirectionList;
     }
 
@@ -74,9 +75,9 @@ public class HostsParser {
         String nextLine;
         String currentIp;
         String currentHostname;
-        mBlacklist = new HashSet<String>();
-        mWhitelist = new HashSet<String>();
-        mRedirectionList = new HashMap<String, String>();
+        mBlacklist = new THashSet<String>();
+        mWhitelist = new THashSet<String>();
+        mRedirectionList = new THashMap<String, String>();
 
         // use whitelist import pattern
         if (mParseWhitelist) {
@@ -119,7 +120,7 @@ public class HostsParser {
      *
      * @param blacklist
      */
-    public void addBlacklist(HashSet<String> blacklist) {
+    public void addBlacklist(THashSet<String> blacklist) {
         mBlacklist.addAll(blacklist);
     }
 
@@ -128,19 +129,19 @@ public class HostsParser {
      *
      * @param whitelist
      */
-    public void addWhitelist(HashSet<String> whitelist) {
+    public void addWhitelist(THashSet<String> whitelist) {
         mWhitelist.addAll(whitelist);
     }
 
     /**
-     * Add redirection rules as HashMap.
+     * Add redirection rules as THashMap.
      * <p/>
      * These mappings will replace any mappings that this map had for any of the keys currently in
      * the specified map.
      *
      * @param redirectionList
      */
-    public void addRedirectionList(HashMap<String, String> redirectionList) {
+    public void addRedirectionList(THashMap<String, String> redirectionList) {
         mRedirectionList.putAll(redirectionList);
     }
 
@@ -151,7 +152,7 @@ public class HostsParser {
         Log.d(Constants.TAG, "Compiling all whitelist regex");
 
         // remove whitelist items from blacklist using regex
-        HashSet<Pattern> whitelistPattern = new HashSet<Pattern>();
+        THashSet<Pattern> whitelistPattern = new THashSet<Pattern>();
         String regexItem;
         for (String item : mWhitelist) {
             // convert example*.* to regex: ^example.*\\..*$
@@ -185,7 +186,7 @@ public class HostsParser {
         Log.d(Constants.TAG, "Ending whitelist regex");
 
         // remove hostnames that are in redirection list
-        HashSet<String> redirectionRemove = new HashSet<String>(mRedirectionList.keySet());
+        THashSet<String> redirectionRemove = new THashSet<String>(mRedirectionList.keySet());
         mBlacklist.removeAll(redirectionRemove);
     }
 }
