@@ -160,30 +160,35 @@ public class HostsParser {
             whitelistPattern.add(Pattern.compile(regexItem));
         }
 
-        Log.d(Constants.TAG, "Starting whitelist regex");
-        Matcher whitelistMatcher;
-        String blacklistHostname;
-        // go through all blacklist hostnames from host sources
-        for (Iterator<String> iterator = mBlacklist.iterator(); iterator.hasNext(); ) {
-            blacklistHostname = iterator.next();
+        if(whitelistPattern.size()>0) {
+            Log.d(Constants.TAG, "Starting whitelist regex");
+            Matcher whitelistMatcher;
+            String blacklistHostname;
+            // go through all blacklist hostnames from host sources
+            for (Iterator<String> iterator = mBlacklist.iterator(); iterator.hasNext(); ) {
+                blacklistHostname = iterator.next();
 
-            // use all whitelist patterns on this hostname
-            for (Pattern pattern : whitelistPattern) {
-                whitelistMatcher = pattern.matcher(blacklistHostname);
+                // use all whitelist patterns on this hostname
+                for (Pattern pattern : whitelistPattern) {
+                    whitelistMatcher = pattern.matcher(blacklistHostname);
 
-                try {
-                    if (whitelistMatcher.find()) {
-                        // remove item, because regex fits
-                        iterator.remove();
+                    try {
+                        if (whitelistMatcher.find()) {
+                            // remove item, because regex fits
+                            iterator.remove();
+                            break;
+                        }
+                    } catch (Exception e) {
+                        // workaround for some devices that throws jni exceptions: dont use
+                        // whitelist
+                        Log.e(Constants.TAG, "Error in whitelist regex processing", e);
                     }
-                } catch (Exception e) {
-                    // workaround for some devices that throws jni exceptions: dont use
-                    // whitelist
-                    Log.e(Constants.TAG, "Error in whitelist regex processing", e);
                 }
             }
+            Log.d(Constants.TAG, "Ending whitelist regex");
+        } else {
+            Log.d(Constants.TAG, "Skipping whitelist regex");
         }
-        Log.d(Constants.TAG, "Ending whitelist regex");
 
         // remove hostnames that are in redirection list
         THashSet<String> redirectionRemove = new THashSet<String>(mRedirectionList.keySet());
