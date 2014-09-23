@@ -22,7 +22,6 @@ package org.adaway.provider;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 
 import org.adaway.provider.AdAwayContract.Blacklist;
@@ -33,6 +32,9 @@ import org.adaway.provider.AdAwayContract.Whitelist;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+
+import gnu.trove.set.hash.THashSet;
+import gnu.trove.map.hash.THashMap;
 
 public class ProviderHelper {
 
@@ -176,13 +178,13 @@ public class ProviderHelper {
     }
 
     /**
-     * Returns all blacklist items, that are enabled as HashSet
+     * Returns all blacklist items, that are enabled as THashSet
      * 
      * @param context
      * @return
      */
-    public static HashSet<String> getEnabledBlacklistHashSet(Context context) {
-        HashSet<String> list = new HashSet<String>();
+    public static THashSet<String> getEnabledBlacklistHashSet(Context context) {
+        THashSet<String> list = new THashSet<String>();
         Cursor cursor = getEnabledBlacklistCursor(context);
 
         if (cursor.moveToFirst()) {
@@ -198,15 +200,15 @@ public class ProviderHelper {
     }
 
     /**
-     * Imports blacklist from HashSet<String> into database of AdAway
+     * Imports blacklist from THashSet<String> into database of AdAway
      * 
      * @param context
      * @param whitelist
      */
-    public static void importBlacklist(Context context, HashSet<String> blacklist) {
+    public static void importBlacklist(Context context, THashSet<String> blacklist) {
         ContentValues[] values = new ContentValues[blacklist.size()];
 
-        // build values array based on HashSet
+        // build values array based on THashSet
         Iterator<String> itr = blacklist.iterator();
         int i = 0;
         while (itr.hasNext()) {
@@ -255,13 +257,13 @@ public class ProviderHelper {
     }
 
     /**
-     * Returns all whitelist items, that are enabled as HashSet
+     * Returns all whitelist items, that are enabled as THashSet
      * 
      * @param context
      * @return
      */
-    public static HashSet<String> getEnabledWhitelistHashSet(Context context) {
-        HashSet<String> list = new HashSet<String>();
+    public static THashSet<String> getEnabledWhitelistHashSet(Context context) {
+        THashSet<String> list = new THashSet<String>();
         Cursor cursor = getEnabledWhitelistCursor(context);
 
         if (cursor.moveToFirst()) {
@@ -277,15 +279,15 @@ public class ProviderHelper {
     }
 
     /**
-     * Imports whitelist from HashSet<String> into database of AdAway
+     * Imports whitelist from THashSet<String> into database of AdAway
      * 
      * @param context
      * @param whitelist
      */
-    public static void importWhitelist(Context context, HashSet<String> whitelist) {
+    public static void importWhitelist(Context context, THashSet<String> whitelist) {
         ContentValues[] values = new ContentValues[whitelist.size()];
 
-        // build values array based on HashSet
+        // build values array based on THashSet
         Iterator<String> itr = whitelist.iterator();
         int i = 0;
         while (itr.hasNext()) {
@@ -339,8 +341,8 @@ public class ProviderHelper {
                 RedirectionList.DEFAULT_SORT);
     }
 
-    public static HashMap<String, String> getEnabledRedirectionListHashMap(Context context) {
-        HashMap<String, String> list = new HashMap<String, String>();
+    public static THashMap<String, String> getEnabledRedirectionListHashMap(Context context) {
+        THashMap<String, String> list = new THashMap<String, String>();
         Cursor cursor = getEnabledRedirectionListCursor(context);
 
         if (cursor.moveToFirst()) {
@@ -357,14 +359,14 @@ public class ProviderHelper {
     }
 
     /**
-     * Imports redirection list from HashMap<String, String> into database of AdAway, where keys are
+     * Imports redirection list from THashMap<String, String> into database of AdAway, where keys are
      * hostnames and values are ip addresses.
      * 
      * @param context
      * @param whitelist
      */
     public static void importRedirectionList(Context context,
-            HashMap<String, String> redirectionList) {
+            THashMap<String, String> redirectionList) {
         ContentValues[] values = new ContentValues[redirectionList.size()];
 
         int i = 0;

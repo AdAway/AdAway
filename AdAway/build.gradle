@@ -6,6 +6,7 @@ dependencies {
     compile project(':libraries:actionbarsherlock')
     compile project(':libraries:HtmlTextView')
     compile project(':libraries:RootCommands')
+    compile 'net.sf.trove4j:trove4j:3.0.3'
 }
 
 android {
