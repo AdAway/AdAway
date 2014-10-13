@@ -20,8 +20,8 @@
 <li>Gdy uruchomisz CWM recovery, wybierz opcję "partitions menu"</li>
 <li>Wybierz opcje: <i>mount /system</i>, <i>mount /sdcard</i> oraz <i>mount /data</i>.</li>
 <li>Podłącz kabel USB i uruchom wiersz poleceń w komputerze.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Uruchom adb shell i wpisz <tt>ln -s /data/hosts /system/etc/hosts</tt> (Pozwoli to aplikacji AdAway na edycję pliku hosts znajdującego się w katalogu <tt>/data</tt>, co umożliwi systemowi operacyjnemu korzystać z niego tak, jakby znajdował się w katalogu <tt>/system</tt>.)</li>
+<li>Uruchom ponownie telefon, a następnie w ustawieniach AdAway wybierz <i>/data/hosts</i> z menu <i>Docelowy plik hosts</i>.</li>
 <li>AdAway powinien działać już poprawnie.</li>
 </ol>
 </body>

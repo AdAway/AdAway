@@ -204,6 +204,12 @@ Wilt u OI File Manager installeren?</string>
   <string name="pref_webserver">Lokale Webserver</string>
   <string name="pref_custom_target">Eigen doel</string>
   <string name="pref_custom_target_summary">Wordt alleen gebruikt als het doel hosts bestand op een eigen doel is ingesteld.</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Custom target</item>
+  </string-array>
   <string name="pref_update_check_summary">Controleer op updates terwijl AdAway opstart</string>
   <string name="pref_sdcard_problem">Deze feature zal niet correct werken als AdAway op de sdkaart is geïnstalleerd!</string>
   <string name="pref_background">Achtergrond Services</string>
@@ -213,6 +219,10 @@ Wilt u OI File Manager installeren?</string>
   <string name="pref_automatic_update_daily_summary">Update automatisch in de achtergrond als updates beschikbaar zijn</string>
   <string name="pref_update_only_on_wifi">Update alleen via Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Voert achtergrond updates alleen uit bij verbinding met een wifi netwerk.</string>
+  <string name="pref_whitelist_rules">Sta whitelisting toe</string>
+  <string name="pref_whitelist_rules_summary">Sta whitelist regels van Host bronnen toe.</string>
+  <string name="pref_redirection_rules">Sta doorverwijzingen toe </string>
+  <string name="pref_redirection_rules_summary">Potentiel beveiligings risico! Sta doorverwijzings regels van Host bronnen toe.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug logs</string>
   <string name="pref_enable_debug_summary">U moet AdAway herstarten om deze aanpassing effect te laten hebben</string>

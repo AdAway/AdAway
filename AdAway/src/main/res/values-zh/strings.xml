@@ -1,23 +1,23 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">广告走开</string>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">退出</string>
-  <string name="button_apply">下载文件和应用屏蔽</string>
+  <string name="button_apply">下载文件并屏蔽广告</string>
   <string name="button_close">关闭</string>
   <string name="button_yes">是</string>
   <string name="button_no">否</string>
   <string name="button_revert">禁用广告屏蔽</string>
   <string name="button_add">添加</string>
   <string name="button_cancel">取消</string>
-  <string name="button_apply_text">所有 hosts 源的 hosts 文件下载完成，和你的名单合并为一个 hosts 文件配置到你的系统了。</string>
+  <string name="button_apply_text">所有 hosts 源的文件下载整合完毕，并已配置到您的系统。</string>
   <string name="button_revert_text">还原系统默认 hosts 文件。</string>
   <string name="button_save">保存</string>
   <string name="button_webserver_toggle_checked">Web 服务器正在运行</string>
   <string name="button_webserver_toggle_unchecked">Web 服务器没有运行</string>
   <string name="button_webserver_toggle_text">在本机开启和停止 web 服务器来应答发到被屏蔽主机的请求。</string>
   <string name="button_help">帮助</string>
-  <string name="button_tcpdump_text">Tcpdump 是一个用来监视 DNS 请求并保存为日志文件的工具。你可以在后台运行它，在前台运行有广告的程序，然后用目志文件来分析 DNS 请求。把找到了广告服务器添加到你的黑名单中。</string>
+  <string name="button_tcpdump_text">Tcpdump 是一个用来监视 DNS 请求并保存为日志文件的工具。您可以在后台运行它，在前台运行有广告的程序，然后用目志文件来分析 DNS 请求。把找到了广告服务器添加到您的黑名单中。</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump 正在运行！</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump 没有运行！</string>
   <string name="button_tcpdump_open">打开日志文件</string>
@@ -27,7 +27,7 @@
   <string name="checkbox_list_empty">空列表</string>
   <string name="checkbox_list_empty_text">你可以从菜单中添加条目。</string>
   <string name="checkbox_list_context_delete">删除</string>
-  <string name="checkbox_list_footer">在添加条目过后，需要再重新应用广告走开！</string>
+  <string name="checkbox_list_footer">在添加新条目后，您需要重新启用 AdAway！</string>
   <string name="checkbox_list_edit_dialog_title">编辑</string>
   <string name="checkbox_list_context_title">编辑条目</string>
   <string name="checkbox_list_context_edit">编辑</string>
@@ -42,12 +42,12 @@
   <string name="list_dialog_hostname">主机名：</string>
   <string name="list_dialog_whitelist_hostname">Hostname:\n(可使用Wildcard字符 * 和 ?)</string>
   <string name="list_dialog_ip">IP 地址(IPv4 或 IPv6)</string>
-  <string name="import_dialog">导入中...</string>
-  <string name="export_dialog">导出中...</string>
+  <string name="import_dialog">正在导入...</string>
+  <string name="export_dialog">正在导出...</string>
   <string name="export_success">导出全部条目为名为“adaway-export”的 SD 卡文件。</string>
   <!--Status Notifications-->
   <string name="status_checking">检查更新...</string>
-  <string name="status_reverting">还原中...</string>
+  <string name="status_reverting">正在还原...</string>
   <string name="status_reverting_subtitle">创建标准的 hosts 文件</string>
   <string name="status_checking_subtitle">检查是否有更新</string>
   <string name="status_update_available">有更新</string>
@@ -61,25 +61,26 @@
   <string name="status_disabled">禁用</string>
   <string name="status_disabled_subtitle">禁用</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">从你设置的目标不存在或者不是正确的到 /system/etc/hosts 的符号链接！没有正确的符号链接AdAway不能运行。\n\n你需要创建符号链接吗？</string>
-  <string name="apply_symlink_missing_title">符号链接丢失</string>
-  <string name="apply_not_enough_space">分区上没有足够的空间\n请在设置里面修改目标hosts文件到/data/data/hosts。</string>
+  <string name="apply_symlink_missing">/system/etc/hosts 目标连接符不存在或者不正确！AdAway将无法运行。\n\n您是否需要尝试创建连接符？</string>
+  <string name="apply_symlink_missing_title">链接符丢失</string>
+  <string name="apply_not_enough_space">分区上没有足够的空间\n请在设置里面修改目标 hosts 文件到 /data/data/hosts。</string>
   <string name="apply_not_enough_space_title">空间不足</string>
-  <string name="apply_private_file_fail">不能读取下载的文件。</string>
+  <string name="apply_private_file_fail">无法读取下载的文件。</string>
   <string name="apply_private_file_fail_title">私有文件失败</string>
   <string name="apply_remount_fail">重新挂载分区为读/写模式失败！</string>
   <string name="apply_remount_fail_title">重新挂载失败</string>
   <string name="apply_copy_fail">复制 hosts 文件失败！</string>
   <string name="apply_copy_fail_title">复制失败</string>
-  <string name="apply_success_subtitle">已用Hosts 源：</string>
+  <string name="apply_success_subtitle">已启用的 Hosts 源：</string>
   <string name="apply_success_title">应用成功</string>
-  <string name="apply_success_dialog">应用成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
+  <string name="apply_success_dialog">应用成功。\n可能需要重新启动您的Android才能生效\n\n是否需要重启？\n(为了防止数据丢失，请确保没有应用正在使用SD卡)</string>
   <string name="apply_symlink_successful">符号链接创建成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
   <string name="apply_symlink_successful_title">符号链接创建成功</string>
   <string name="apply_symlink_fail">符号链接创建失败。\n这很有可能是因为HTC上一个叫S-ON的’功能’！\n\n一个解决办法可以启动你的手机到恢复模式并用在哪用命令’ln -s /data/data/hosts /system/etc/hosts\’来创建符号链接。\n\n如果这没有用，在网上搜索下怎么S-OFF你的手机。</string>
   <string name="apply_symlink_fail_title">符号链接创建失败</string>
   <string name="apply_help">请阅读帮助获得更多信息。</string>
-  <string name="apply_apn_proxy_title">APN 设置了代理！</string>
+  <string name="apply_apn_proxy">你的Android已设置APN代理！\nAdAway 无法在移动网络（如3G）可靠运行。 你可以在已选择的APN中关闭代理 (On Android 4: 无线和网络 -&gt; 更多… -&gt; 移动网络 -&gt; 接入点名称) 删除代理框中的值。</string>
+  <string name="apply_apn_proxy_title">APN代理已设置！</string>
   <string name="no_connection">Internet 网络连接不通</string>
   <string name="no_connection_title">没有网络连接</string>
   <string name="download_dialog">下载中...</string>
@@ -102,11 +103,14 @@
   <string name="no_root_description">没有找到su或者你没有允许AdAway的root权限。\n\n这可能是因为你的设备没有root。\n你可以到www.cyanogenmod.coma或者其他Android网站去找到如何root你的设备。</string>
   <string name="no_root_title">需要 root 了的 Android</string>
   <string name="no_url">URL 无效！</string>
+  <string name="no_url_title">URL 格式不正确</string>
   <string name="hosts_add_dialog">输入 hosts 文件的 URL：</string>
   <string name="no_hostname">主机名无效！</string>
+  <string name="no_hostname_title">主机名格式不正确</string>
   <string name="no_ip">IP 地址无效</string>
+  <string name="no_ip_title">IP 格式不正确</string>
   <string name="reboot_never_reboot">不要重启，并且不再显示这个询问！</string>
-  <string name="loading">存取中...</string>
+  <string name="loading">正在载入...</string>
   <!--Menu entries-->
   <string name="menu_refresh">刷新</string>
   <string name="menu_add">添加</string>
@@ -160,7 +164,7 @@
   <string name="tcpdump_log_empty">日志文件为空！</string>
   <string name="tcpdump_log_footer">长按主机名添加它到你的黑白名单</string>
   <!--Preferences-->
-  <string name="pref_download">一般设置</string>
+  <string name="pref_download">通用设置</string>
   <string name="pref_hosts">Hosts 文件</string>
   <string name="pref_redirection_ip">重定向 IP</string>
   <string name="pref_update_check">检查更新</string>
@@ -168,7 +172,7 @@
   <string name="pref_apply_method_summary">在修改这项设置前请阅读帮助了解其功能。</string>
   <string name="pref_redirection_ip_summary">所有的屏蔽主机名会被重定向到这个 IP 地址。</string>
   <string name="pref_header_preferences">设置</string>
-  <string name="pref_header_preferences_summary">广告走开的一般设置</string>
+  <string name="pref_header_preferences_summary">AdAway的通用设置</string>
   <string name="pref_never_reboot">隐藏重启对话框</string>
   <string name="pref_never_reboot_summary">隐藏成功应用后询问重启的对话框</string>
   <string name="pref_webserver_on_boot">开机启动 Web 服务器</string>
@@ -178,8 +182,14 @@
   <string name="pref_webserver">本地 Web 服务器</string>
   <string name="pref_custom_target">自定义目标</string>
   <string name="pref_custom_target_summary">只用于 hosts 文件被设置为自定义目标的情况</string>
-  <string name="pref_update_check_summary">在启动广告走开时检查更新</string>
-  <string name="pref_sdcard_problem">如果广告走开被安装到 SD 卡上，这个功能可能不能正常工作！</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Custom target</item>
+  </string-array>
+  <string name="pref_update_check_summary">在启动 AdAway 时检查更新</string>
+  <string name="pref_sdcard_problem">如果 AdAway 被安装到 SD 卡上，这个功能可能不能正常工作！</string>
   <string name="pref_background">后台服务</string>
   <string name="pref_update_check_daily">每天检查更新</string>
   <string name="pref_update_check_daily_summary">每天后台检查更新并提示</string>
@@ -187,6 +197,10 @@
   <string name="pref_automatic_update_daily_summary">如果有更新，自动在后台更新。</string>
   <string name="pref_update_only_on_wifi">只在 Wifi 下更新</string>
   <string name="pref_update_only_on_wifi_summary">只在连接到 Wifi 网络时执行后台更新。</string>
+  <string name="pref_whitelist_rules">允许白名单</string>
+  <string name="pref_whitelist_rules_summary">允许Host源中的白名单条目</string>
+  <string name="pref_redirection_rules">允许重定向</string>
+  <string name="pref_redirection_rules_summary">可能会有安全隐患！允许Host源中的重定向条目。</string>
   <string name="pref_debug">调试</string>
   <string name="pref_enable_debug">调试日志记录</string>
   <string name="pref_enable_debug_summary">你需要重新启动广告走开使设置生效</string>

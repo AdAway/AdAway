@@ -185,6 +185,8 @@
   <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
   <string name="pref_update_only_on_wifi">Sadece Wifi üzerinden güncelle</string>
   <string name="pref_update_only_on_wifi_summary">Wifi bağlı olduğunda sadece geri plan güncelleştirmeleri yürüt.</string>
+  <string name="pref_whitelist_rules">Beyaz listeye izin ver</string>
+  <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
   <string name="pref_debug">Hata ayıklama</string>
   <string name="pref_enable_debug">Hata ayıklama kaydı</string>
   <string name="pref_enable_debug_summary">Ayarların etkinleştirmek için AdAway\'ı yeniden başlatın.</string>

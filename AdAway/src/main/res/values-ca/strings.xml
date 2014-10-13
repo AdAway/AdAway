@@ -40,6 +40,7 @@
   <string name="lists_tab_redirection_list">Llista de redireccionaments</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Servidor:</string>
+  <string name="list_dialog_whitelist_hostname">Nom d\'amfitrió:\n(es permeten els caràcters comodí * i ?)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Important....</string>
   <string name="export_dialog">Exportant...</string>
@@ -60,7 +61,9 @@
   <string name="status_disabled">Desactivat</string>
   <string name="status_disabled_subtitle">Desactivat</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">L\'enllaç simbòlic de l\'objectiu a /system/etc/hosts no existeix o no és correcte! L\'AdAway no funcionarà si no apunta al fitxer correcte.\n\nVoleu intentar crear un enllaç simbòlic?</string>
   <string name="apply_symlink_missing_title">Falta l\'enllaç simbòlic</string>
+  <string name="apply_not_enough_space">No hi ha prou lloc a la partició!\nIntenteu canviar el fitxer d\'amfitrions a les preferències a /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">No hi ha prou espai</string>
   <string name="apply_private_file_fail">No s\'ha pogut llegir el fitxer descarregat</string>
   <string name="apply_private_file_fail_title">Error en el fitxer privat</string>
@@ -70,9 +73,13 @@
   <string name="apply_copy_fail_title">Error en la còpia</string>
   <string name="apply_success_subtitle">S\'han aplicat les següents fonts:</string>
   <string name="apply_success_title">S\'ha aplicat correctament</string>
+  <string name="apply_success_dialog">S\'ha aplicat correctament.\nÉs possible que calgui reiniciar l\'Android per activar els canvis.\n\nVoleu reiniciar?\n(Per evitar pèrdues de dades assegureu-vos que no hi ha cap app utilitzant la targeta SD!)</string>
+  <string name="apply_symlink_successful">S\'ha creat l\'enllaç simbòlic correctament.\nÉs possible que calgui reiniciar l\'Android per activar els canvis.\n\nVoleu reiniciar?\n(Per evitar pèrdues de dades assegureu-vos que ho hi ha cap app utilitzant la targeta SD!)</string>
   <string name="apply_symlink_successful_title">S\'ha creat l\'enllaç simbòlic correctament</string>
+  <string name="apply_symlink_fail">L\'Android no ha pogut crear l\'enllaç simbòlic.\nAixò falla normalment per una característica anomenada S-ON als telèfons HTC.\n\nUna solució és iniciar el telèfon en mode recuperació i crear l\'enllaç simbòlic allà amb \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi no funciona cerqueu a Internet S-OFF i el vostre telèfon.</string>
   <string name="apply_symlink_fail_title">S\'ha produït un error en la creació de l\'enllaç simbòlic</string>
   <string name="apply_help">Si us plau, llegir l\'Ajuda per a més informació</string>
+  <string name="apply_apn_proxy">S\'ha establert un servidor intermediari APN al vostre Android!\nL\'AdAway no funcionarà de manera fiable en xarxes mòbils de tipus 3G. Podeu desactivar el servidor intermediari a l\'APN seleccionat (en Android 4: Connexions sense fils i xarxes -gt; Més... -&gt; Xarxes Mòbils -&gt; APN) i suprimiu el valor del camp del servidor.</string>
   <string name="apply_apn_proxy_title">S\'ha desat el servidor intermediari d\'APN</string>
   <string name="no_connection">La connexió a Internet no funciona.</string>
   <string name="no_connection_title">Sense connexió</string>
@@ -82,7 +89,9 @@
   <string name="apply_dialog_hostnames">Processant i unint els fitxers host</string>
   <string name="apply_dialog_hosts">Construïnt fitxer de hosts</string>
   <string name="apply_dialog_apply">Aplicant el fitxer de hosts</string>
+  <string name="apply_fail">No s\'ha pogut aplicar el fitxer d\'amfitrions al sistema!\nProveu de canviar el fitxer d\'amfitrions objectiu a les preferències a /data/data/hosts.</string>
   <string name="apply_fail_title">Aplicació fallida</string>
+  <string name="revert_successful">Heu restaurat el fitxer d\'amfitrions per defecte.\nÉs possible que calgui reiniciar l\'Android per activar els canvis.\n\nVoleu reiniciar?\n(Per evitar pèrdues de dades assegureu-vos que no hi ha cap app utilitzant la targeta SD!)</string>
   <string name="revert_successful_title">S\'ha revertit correctament</string>
   <string name="revert_problem">Procés de revertiment fallit degut a causes desconegudes</string>
   <string name="revert_problem_title">El procés de regressió ha fallat!</string>
@@ -91,6 +100,7 @@
   <string name="no_private_file">No s\'ha pogut crear el fitxer privat</string>
   <string name="no_private_file_title">Error en la creació del fixer privat</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">No s\'ha trobat el binari su o no heu donat permisos d\'usuari primari a l\'AdAway.\n\nPot passar quan el dispositiu no té actiu l\'usuari primari.\nPodeu trobar informació de com activar l\'usuari primari al vostre dispositiu a www.cyanogenmod.com o d\'altres llocs web d\'Android.</string>
   <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
   <string name="no_url">No és una adreça vàlida!</string>
   <string name="no_url_title">Adreça URL formada incorrectament</string>
@@ -141,7 +151,9 @@
   <!--Other-->
   <string name="app_subtitle">Bloquejador d\'anuncis</string>
   <string name="no_text_editor_title">No hi ha cap editor de text instal·lat</string>
+  <string name="no_text_editor">No s\'ha trobat cap editor de text per obrir el fitxer d\'amfitrions. Podeu intal·lar el Jota o d\'altres editors de text per gestionar-ho.\n\nVoleu instal·lar el Jota?</string>
   <string name="no_file_manager_title">No hi ha cap gestor de fitxers instal·lat</string>
+  <string name="no_file_manager">No s\'ha trobat cap gestor de fitxers per obrir fitxers. Podeu instal·lar l\'OI File Manager o d\'altres gestors de fitxers per gestionar-ho.\n\nVoleu instal·lar l\'OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Fitxer de registre eliminat!</string>
   <string name="toast_tcpdump_added_to_blacklist">El servidor ha estat afegit a la vostra Llista negra!</string>
@@ -170,6 +182,12 @@
   <string name="pref_webserver">Servidor web local</string>
   <string name="pref_custom_target">Objectiu personalitzt</string>
   <string name="pref_custom_target_summary">Només s\'utilitza si el fitxer hosts objectiu s\'ha ajustat a un objectiu personalitzat</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Objectiu personalitzat</item>
+  </string-array>
   <string name="pref_update_check_summary">Comprova actualitzacions a l\'inici d\'AdAway</string>
   <string name="pref_sdcard_problem">Aquesta funció no actuarà correctament quan s\'instal·li AdAway a la memòria SD.</string>
   <string name="pref_background">Serveis en segon pla</string>
@@ -179,6 +197,10 @@
   <string name="pref_automatic_update_daily_summary">Actualitza automàticament en segon pla si es troben actualitzacions.</string>
   <string name="pref_update_only_on_wifi">Actualitzar només dins d\'una xarxa Wi-Fi.</string>
   <string name="pref_update_only_on_wifi_summary">Executar actualitzacions en segon pla només dins de xarxes Wi-Fi.</string>
+  <string name="pref_whitelist_rules">Permet posar a la llista blanca</string>
+  <string name="pref_whitelist_rules_summary">Permet entrades a la llista blanca de les fonts d\'amfitrions.</string>
+  <string name="pref_redirection_rules">Permet les redireccions</string>
+  <string name="pref_redirection_rules_summary">HI HA RISCOS DE SEGURETAT! Permet entrades de redireccions de les fonts d\'amfitrions.</string>
   <string name="pref_debug">Depuració</string>
   <string name="pref_enable_debug">Registre de depuració</string>
   <string name="pref_enable_debug_summary">Necessiteu reiniciar AdAway per tal que aquest ajustament faci a efecte.</string>

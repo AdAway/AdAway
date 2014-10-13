@@ -40,6 +40,7 @@
   <string name="lists_tab_redirection_list">Lista degli inoltri</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nome host:</string>
+  <string name="list_dialog_whitelist_hostname">Nome host:\n(I metacaratteri * e ? non sono consentiti!)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importo...</string>
   <string name="export_dialog">Esporto...</string>
@@ -60,7 +61,9 @@
   <string name="status_disabled">Disabilitato</string>
   <string name="status_disabled_subtitle">Disabilitato</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing_title">Link simbolico mancante</string>
+  <string name="apply_symlink_missing">Il collegamento simbolico a /system/etc/hosts non esiste o non è corretto! AdAway  non funzionerà se il collegamento non punta al file giusto.\n\nVuoi provare a creare un collegamento simbolico?</string>
+  <string name="apply_symlink_missing_title">Collegamento simbolico mancante</string>
+  <string name="apply_not_enough_space">Non c\'è abbastanza spazio nella partizione!\nProva cambiando il percorso del file hosts nelle preferenze in /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Spazio non sufficiente</string>
   <string name="apply_private_file_fail">Il file scaricato non può essere letto.</string>
   <string name="apply_private_file_fail_title">Creazione del file privato fallita</string>
@@ -70,9 +73,13 @@
   <string name="apply_copy_fail_title">Copia fallita</string>
   <string name="apply_success_subtitle">Sorgenti host applicate:</string>
   <string name="apply_success_title">Modifiche effettuate con successo!</string>
-  <string name="apply_symlink_successful_title">Link simbolico creato con successo</string>
-  <string name="apply_symlink_fail_title">Creazione del link simbolico fallita</string>
+  <string name="apply_success_dialog">Modifiche effettuate con successo.\n Può essere necessario riavviare Android affinché abbiano effetto.\n Vuoi riavviare?\n (Per prevenire perdite di dati assicurati che nessuna app stia utilizzando la sdcard in questo momento!)</string>
+  <string name="apply_symlink_successful">Collegamento simbolico creato con successo!\n Potrebbe essere necessario riavviare Android affinché i cambiamenti abbiano effetto.\n Vuoi riavviare?\n (Per prevenire perdite di dati assicurati che nessuna app stia utilizzando la sdcard in questo momento!)</string>
+  <string name="apply_symlink_successful_title">Collegamento simbolico creato con successo</string>
+  <string name="apply_symlink_fail">Il collegamento simbolico non può essere creato da Android. Questo problema è dovuto quasi sicuramente a una \"caratteristica\" chiamata S-ON nei telefoni HTC!\n\nUna possibile soluzione è quella di riavviare il telefono in modalità recovery e creare il collegamento simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono.</string>
+  <string name="apply_symlink_fail_title">Creazione del collegamento simbolico fallita</string>
   <string name="apply_help">Per favore leggi l\'Aiuto per ulteriori informazioni.</string>
+  <string name="apply_apn_proxy">Un proxy APN è impostato sul tuo Android!\nAdAway non funzionerà bene quando userai reti mobili come 3G. Puoi disattivare il proxy andando nelle impostazioni del tuo APN (In Android 4: Wireless e rete -&gt; Altre impostazioni -&gt; Reti mobili -&gt; Nomi punti d\'accesso) e rimuovendo il contenuto del campo proxy.</string>
   <string name="apply_apn_proxy_title">Proxy APN impostato!</string>
   <string name="no_connection">La connesione a internet non funziona</string>
   <string name="no_connection_title">Nessuna connessione</string>
@@ -82,7 +89,9 @@
   <string name="apply_dialog_hostnames">Analizzo e unisco i file hosts</string>
   <string name="apply_dialog_hosts">Costruisco file hosts</string>
   <string name="apply_dialog_apply">Applico file hosts</string>
+  <string name="apply_fail">L\'applicazione del file hosts al tuo sistema è fallita!\nProva cambiando il percorso del file hosts nelle prefenze in /data/data/hosts.</string>
   <string name="apply_fail_title">Modifiche fallite!</string>
+  <string name="revert_successful">Sei ritornato al file hosts predefinito.\nPuò essere necessario riavviare Android affinchè le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per prevenire perdite di dati assicurati che nessuna app stia usando la scheda SD in questo momento!)</string>
   <string name="revert_successful_title">Ripristino effettuato con successo!</string>
   <string name="revert_problem">Ripristino fallito per ragioni sconosciute.</string>
   <string name="revert_problem_title">Ripristino fallito!</string>
@@ -91,6 +100,7 @@
   <string name="no_private_file">Il file privato non può essere creato.</string>
   <string name="no_private_file_title">Creazione del file privato fallita</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Il binario Su non è stato trovato o non hai concesso i permessi di root per AdAway.\n\nQuesto succede quando il tuo dispositivo non ha il root.\nPuoi trovare maggiori informazioni su come effettuare il root sul tuo disposivo su www.cyanogenmod.com o su altri siti web Android.</string>
   <string name="no_root_title">Richiesto Android con root</string>
   <string name="no_url">Questo non è un URL valido!</string>
   <string name="no_url_title">URL non formattato correttamente</string>
@@ -141,7 +151,10 @@
   <!--Other-->
   <string name="app_subtitle">Blocca pubblicità</string>
   <string name="no_text_editor_title">Nessun editor di testo installato</string>
+  <string name="no_text_editor">Nessun editor di testo è stato trovato per aprire il file hosts. Puoi installare Jota o un altro editor di testo per rimediare.\n\nVuoi installare Jota?</string>
   <string name="no_file_manager_title">Nessun file manager installato</string>
+  <string name="no_file_manager">Nessun file manager è stato trovato per aprire i file. Puoi installare OI File Manager o altri file manager per rimediare.\n\n
+Vuoi installare OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">File registro eliminato!</string>
   <string name="toast_tcpdump_added_to_blacklist">Hostname aggiunto alla tua Blacklist!</string>
@@ -156,7 +169,7 @@
   <string name="pref_hosts">File Hosts</string>
   <string name="pref_redirection_ip">Inoltro IP</string>
   <string name="pref_update_check">Controlla aggiornamenti</string>
-  <string name="pref_apply_method">File hosts target</string>
+  <string name="pref_apply_method">Percorso file hosts</string>
   <string name="pref_apply_method_summary">Prima di cambiare questa impostazione, leggi l\'Aiuto su questa funzione.</string>
   <string name="pref_redirection_ip_summary">Tutti gli hostname bloccati vengono reindirizzati a questo indirizzo IP.</string>
   <string name="pref_header_preferences">Preferenze</string>
@@ -168,8 +181,14 @@
   <string name="pref_webserver_enabled">Abilita webserver</string>
   <string name="pref_webserver_enabled_summary">Abilita il webserver in ascolto sull\'indirizzo locale per rispondere alle richieste bloccate</string>
   <string name="pref_webserver">Webserver locale</string>
-  <string name="pref_custom_target">Target personale</string>
+  <string name="pref_custom_target">Percorso personalizzato</string>
   <string name="pref_custom_target_summary">In uso solo se si usa un file hosts personalizzato</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Percorso personalizzato</item>
+  </string-array>
   <string name="pref_update_check_summary">Controlla aggiornamenti all\'avvio di AdAway</string>
   <string name="pref_sdcard_problem">Questa funzione non funziona correttamente se AdAway è installato sulla sdcard.</string>
   <string name="pref_background">Servizi in background</string>
@@ -179,6 +198,10 @@
   <string name="pref_automatic_update_daily_summary">Aggiorna automaticamente in background se sono disponibili aggiornamenti.</string>
   <string name="pref_update_only_on_wifi">Aggiorna solo via Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso a un network wifi</string>
+  <string name="pref_whitelist_rules">Consenti whitelisting</string>
+  <string name="pref_whitelist_rules_summary">Permetti valori BIANCHI dalle fonti host.</string>
+  <string name="pref_redirection_rules">Permetti inoltri</string>
+  <string name="pref_redirection_rules_summary">RISCHIO PER LA SICUREZZA! Permetti valori di inoltro dalle fonti host.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Log di debug</string>
   <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>

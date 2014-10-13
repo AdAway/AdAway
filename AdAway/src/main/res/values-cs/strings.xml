@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -182,6 +182,12 @@
   <string name="pref_webserver">Lokální webserver</string>
   <string name="pref_custom_target">Vlastní cíl</string>
   <string name="pref_custom_target_summary">Použito pouze, pokud je cílový soubor hostitelů nastaven na vlastní cíl</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Vlastní složka</item>
+  </string-array>
   <string name="pref_update_check_summary">Zkontrolovat aktualizace při startu AdAway</string>
   <string name="pref_sdcard_problem">Tato funkce nebude pracovat správně, pokud je AdAway instalován na SD kartě!</string>
   <string name="pref_background">Služby na pozadí</string>
@@ -191,6 +197,10 @@
   <string name="pref_automatic_update_daily_summary">Automaticky aktualizovat na pozadí, pokud jsou k dispozici aktualizace.</string>
   <string name="pref_update_only_on_wifi">Aktualizovat pouze na Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Spustí aktualizaci na pozadí pouze při připojení k wifi síti.</string>
+  <string name="pref_whitelist_rules">Povolit seznam povolených hostitelů</string>
+  <string name="pref_whitelist_rules_summary">Povolit položky bílé listiny ze zdrojů souborů hostitelů.</string>
+  <string name="pref_redirection_rules">Povolit přesměrování</string>
+  <string name="pref_redirection_rules_summary">BEZPEČNOSTNÍ RIZIKO! Povolit položky přesměrování ze zdrojů souborů hostitelů.</string>
   <string name="pref_debug">Ladění</string>
   <string name="pref_enable_debug">Povolit ladící log</string>
   <string name="pref_enable_debug_summary">Musíte restartovat AdAway, aby se toto nastavení projevilo.</string>

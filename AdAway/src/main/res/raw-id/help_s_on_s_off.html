@@ -2,7 +2,7 @@
 <head></head>
 <body>
 <h2>Perangkat HTC</h2>
-<p>AdAway tidak bekerja ketika Anda menggunakan perangkat dengan apa yang disebut S-ON. 'Fitur' ini ada pada banyak perangkat HTC dan mencegah AdAway dari menulis file host.</p>
+<p>AdAway tidak bekerja ketika Anda menggunakan perangkat dengan apa yang disebut S-ON. 'Fitur' ini ada pada banyak perangkat HTC dan mencegah AdAway menulis file host.</p>
 
 <h2>S-ON/S-OFF?</h2>
 <p>S-OFF berarti bahwa bagian NAND pada perangkat tidak terkunci dan dapat ditulis. Pengaturan standar untuk perangkat HTC adalah S-ON, yang berarti bahwa tidak dapat mengakses area tertentu dari sistem juga tidak bisa menjamin root permanen. Selanjutnya, memeriksa tanda tangan untuk gambar firmware juga dijamin oleh S-ON flag.</p>
@@ -20,8 +20,8 @@
 <li>Pada volume pemulihan jarum jam ke "partisi menu" dan tekan trackpad untuk memilih</li>
 <li>Pilih <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
 <li>Tancapkan USB mu dan buka terminal dalam PC mu.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Masukkan kode berikut ke ADB shell <tt>ln -s /data/hosts /system/etc/hosts</tt> (Ini dilakukan untuk membuat link simbolik, yang memungkinkan AdAway untuk mengubah file hosts di <tt>/data</tt> dan tetap memungkinkan OS untuk menggunkan file tersebut seperti terletak di <tt>/system</tt>.)</li>
+<li>Matikan dan hidupkan kembali perangkat anda dan atur <i>Target file host</i> di prefrensi menjadi <i>/data/hosts</i>.</li>
 <li>AdAway seharusnya bekerja sekarang.</li>
 </ol>
 </body>

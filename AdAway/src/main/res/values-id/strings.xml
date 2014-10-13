@@ -40,6 +40,7 @@
   <string name="lists_tab_redirection_list">Daftar pengalihan</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_whitelist_hostname">Hostname:\n(karakter * dan ? diperbolehkan!)</string>
   <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
   <string name="import_dialog">Mengimpor ...</string>
   <string name="export_dialog">Mengekspor ...</string>
@@ -60,7 +61,9 @@
   <string name="status_disabled">Dimatikan</string>
   <string name="status_disabled_subtitle">Dimatikan</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlink dari target ke /system/etc/hosts tidak benar atau tidak ada! AdAway tidak akan bekerja jika hal itu tidak dibetulkan.\n\nApa anda ingin mencoba membuat symlink?</string>
   <string name="apply_symlink_missing_title">Symlink tidak ditemukan</string>
+  <string name="apply_not_enough_space">Tidak ada cukup ruang di partisi!\nCobalah mengganti target file host di prefrensi menjadi /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Tidak cukup ruang</string>
   <string name="apply_private_file_fail">Berkas terunduh tidak dapat dibaca.</string>
   <string name="apply_private_file_fail_title">Berkas pribadi gagal</string>
@@ -70,9 +73,13 @@
   <string name="apply_copy_fail_title">Penyalinan gagal</string>
   <string name="apply_success_subtitle">sumber host yang diterapkan:</string>
   <string name="apply_success_title">Penerapan berhasil</string>
+  <string name="apply_success_dialog">Penerapan berhasil.\nUntuk efek dapat bekerja diperlukan untuk mematikan dan menghidupkan kembali perangkat anda\n\nApa anda ingin melakukannya?\n(Pastikan tidak ada aplikasi yang sedang menggunakan sdcard saat ini untuk mencegah kehilangan data!)</string>
+  <string name="apply_symlink_successful">Link simbolik berhasil dibuat.\nUntuk efek dapat bekerja diperlukan untuk mematikan dan menghidupkan kembali perangkat anda\n\nApa anda ingin melakukannya?\n(Pastikan tidak ada aplikasi yang sedang menggunakan sdcard saat ini untuk mencegah kehilangan data!)</string>
   <string name="apply_symlink_successful_title">Pembuatan symlink berhasil</string>
+  <string name="apply_symlink_fail">Symlink tidak dapat dibuat.\nKemungkinan besar sumber masalah ini merupakan S-ON di perangkar HTC!\n\nSolusinya adalah dengan masuk ke mode recovery dan membuat symlink dengan menjalankan \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJika cara tersebut tidak bekerja cari di internet tentang S-OFF dan perangkat anda.</string>
   <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
   <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
+  <string name="apply_apn_proxy">Proxy APN ditetapkan di perangkat anda!\nAdAway tidak akan bekerja dengan baik di koneksi seluler seperti 3G. Anda bisa mematikan proxy tersebut dengan membuka pengaturan APN anda (Di android 4+ : Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) dan kosongkan bagian proxy.</string>
   <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
   <string name="no_connection">Koneksi internet tidak berfungsi.</string>
   <string name="no_connection_title">Tidak ada koneksi</string>
@@ -82,7 +89,9 @@
   <string name="apply_dialog_hostnames">Mengakses dan menggabungkan file host</string>
   <string name="apply_dialog_hosts">Menyusun file hosts</string>
   <string name="apply_dialog_apply">Menerapkan file host</string>
+  <string name="apply_fail">Penerapan file host ke sistem anda gagal!\nCobalah untuk mengganti target file host di prefrensi ke /data/data/hosts.</string>
   <string name="apply_fail_title">Pemasangan gagal</string>
+  <string name="revert_successful">Anda mengembalikan file host standar.\nMungkin diperlukan untuk mematikan dan menyalakan kembali perangkat anda agar perubahan dapat berhasil. Apakah anda ingin melakukan hal tersebut? (Untuk menghindari kehilangan data, pastikan saat ini tidak ada aplikasi yang sedang menggunakan sdcard)</string>
   <string name="revert_successful_title">Pengembalian berhasil</string>
   <string name="revert_problem">Pengembalian gagal karena alasan yang tidak diketahui.</string>
   <string name="revert_problem_title">Pengembalian gagal</string>
@@ -91,6 +100,7 @@
   <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
   <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Antara file su tidak bisa ditemukan atau anda tidak mengijinkan root untuk AdAway.\n\nIni bisa terjadi jika perangkat anda belum di root.\nAnda bisa mencari informasi tentang cara me root perangkat anda di www.cyanogenmod.com atau situs web Android lain.</string>
   <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
   <string name="no_url">URL tidak valid!</string>
   <string name="no_url_title">URL tidak diformat dengan benar</string>
@@ -141,7 +151,9 @@
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
   <string name="no_text_editor_title">Tidak terinstal pengedit teks</string>
+  <string name="no_text_editor">Tidak ada editor teks yang dapat ditemukan untuk membuka file host. Anda bisa menginstal Jota atau teks editor lain.\n\nApakah anda ingin menginstal Jota?</string>
   <string name="no_file_manager_title">Tidak ada manager file yang terpasang</string>
+  <string name="no_file_manager">Tidak ada manajer file yang dapat ditemukan untuk membuka file. Anda bisa menginstal OI File Manager atau manajer file lain.\n\nApakah anda ingin menginstal OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">File log dihapus!</string>
   <string name="toast_tcpdump_added_to_blacklist">Hostname sudah ditambahkan ke daftar hitam!</string>
@@ -170,6 +182,12 @@
   <string name="pref_webserver">Peladen Web lokal</string>
   <string name="pref_custom_target">Custom target</string>
   <string name="pref_custom_target_summary">Hanya digunakan bila target berkas hosts diatur untuk custom target</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Custom target</item>
+  </string-array>
   <string name="pref_update_check_summary">Periksa pembaruan di awal AdAway</string>
   <string name="pref_sdcard_problem">Fitur ini tidak akan bekerja dengan benar ketika AdAway dipasang di sdcard!</string>
   <string name="pref_background">Layanan latar Belakang</string>
@@ -179,6 +197,10 @@
   <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
   <string name="pref_update_only_on_wifi">Pembaruan hanya jika menggunakan Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Jalankan pembaruan latar belakang hanya pada saat terhubung ke jaringan wifi.</string>
+  <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
+  <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
+  <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
+  <string name="pref_redirection_rules_summary">BAHAYA KEAMANAN! Perbolehkan pengalihan dari sumber host.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug Logging</string>
   <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>

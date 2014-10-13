@@ -10,12 +10,14 @@
   <string name="button_revert">Ezgaitu iragarki blokeatzea</string>
   <string name="button_add">Gehitu</string>
   <string name="button_cancel">Ezeztatu</string>
+  <string name="button_apply_text">Zehaztutako iturburuetako hostalari agiri guztiak jeitsi eta batu dira zeure zerrendarekin eta hostalari agiri bat bezala ezarri dira zure sisteman.</string>
   <string name="button_revert_text">Berezko hostalari agiria leheneratzen du zure sisteman.</string>
   <string name="button_save">Gorde</string>
   <string name="button_webserver_toggle_checked">Web-zerbitzaria ekinean dago</string>
   <string name="button_webserver_toggle_unchecked">Web-zerbitzaria ez dago ekinean</string>
   <string name="button_webserver_toggle_text">Abiarazi edo gelditu web-zerbitzaria tokiko-hostalarian blokeatutako hostalari-izen eskabideak galdetzeko.</string>
   <string name="button_help">Laguntza</string>
+  <string name="button_tcpdump_text">Tcpdump DNS eskabideak monitorizatzeko eta hauek ohar agiri baten gordetzeko tresna bat da. Barrenean hasi dezakezu, iragarkiak erakusten dituzten aplikazioak ekin, eta ondoren DNS eskabideak aztertu ohar agiria erabiliz. Orduan ahalezko iragarki zerbitzaria zerrenda-beltzera gehitu daiteke.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump ekinean dago!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump ez dago ekinean!</string>
   <string name="button_tcpdump_open">Ireki ohar agiria</string>
@@ -45,6 +47,7 @@
   <string name="export_success">Sarrera guztiak zure sd-txarteleko \'adaway-export\' izeneko agirira esportatu dira.</string>
   <!--Status Notifications-->
   <string name="status_checking">Eguneraketak egiaztatzen…</string>
+  <string name="status_reverting">Leheneratzen...</string>
   <string name="status_reverting_subtitle">Hostalari agiri estandarra sortzen</string>
   <string name="status_checking_subtitle">Eguneraketa eskuragarririk dagoen egiaztatzen</string>
   <string name="status_update_available">Eguneraketa eskuragarri</string>
@@ -58,16 +61,25 @@
   <string name="status_disabled">Ezgaituta</string>
   <string name="status_disabled_subtitle">Ezgaituta</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Zure xedetiko Symlotura /system/etc/hosts-ra ez dago edo okerra da! AdAway-k ez du lan egingo ez bada agiri zuzenera zuzentzen.\n\nNahi duzu symlotura bat sortzen saiatzea?</string>
   <string name="apply_symlink_missing_title">Symlotura ez dago</string>
+  <string name="apply_not_enough_space">Ez dago nahikoa toki partizioan!\nSaiatu xede hostalari agiria aldatzen hobespenetan: /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Ez dago nahikoa toki</string>
   <string name="apply_private_file_fail">Jeitsitako agiria ezin da irakurri.</string>
   <string name="apply_private_file_fail_title">Agiri pribatu hutsegitea</string>
+  <string name="apply_remount_fail">Hutsegitea partizioa idaz/irakurtzekoa bezala ber-muntatzerakoan.</string>
+  <string name="apply_remount_fail_title">Ber-muntatze hutsegitea</string>
   <string name="apply_copy_fail">Hostalari agiri kopiatze hutsegitea!</string>
   <string name="apply_copy_fail_title">Kopiatze hutsegitea</string>
+  <string name="apply_success_subtitle">Ezarritako hostalari iturburuak:</string>
   <string name="apply_success_title">Ongi ezarri dira</string>
+  <string name="apply_success_dialog">Ongi ezarri da.\nBeharrezkoa izan daiteke Android berrabiaraztea aldaketek eragina izateko.\n\nNahi duzu berrabiaraztea?\n(Datuak galtzea saihesteko zihurtatu aplikazioak ez duela sd-txartela erabiltzen unean!)</string>
+  <string name="apply_symlink_successful">Symlotura ongi sortu da.\nBeharrezkoa izan daiteke Android berrabiaraztea aldaketek eragina izateko.\n\nNahi duzu berrabiaraztea?\n(Datuak galtzea saihesteko zihurtatu aplikazioak ez duela sd-txartela erabiltzen unean!)</string>
   <string name="apply_symlink_successful_title">Symlotura ongi sortu da</string>
+  <string name="apply_symlink_fail">Android-ek ezin izan du Symlotura sortu.\nHutsegite hau zihurrenik HTC urrutizkinetako S-ON deituriko \'ezaugarri\' baten ondoriozkoa da!\n\nKonponbide bat zure urrutizkina berreskurapen moduan berrabiaraztea eta hortik \'ln -s /data/data/hosts /system/etc/hosts\'-rekin symlotura bat sortzea da.\n\nHonek ez badu jarduten bilatu Interneten S-OFF eta zure urrutizkinari buruz.</string>
   <string name="apply_symlink_fail_title">Symlotura sortze hutsegitea</string>
   <string name="apply_help">Mesedez irakurri Laguntza argibide gehiagorako.</string>
+  <string name="apply_apn_proxy">APN proxy bat dago ezarrita zure Android-en!\nAdAway-k ez du ongi lan egingo 3G bezalako Mugikor Sareetan. Proxya ezgaitu dezakezu zure hautaturiko APN-ra joanez (Android 4-an: Harigabea eta sareak -&gt; Gehiago... -&gt; Mugikor Sareak -&gt; Sarbide Puntu Izenak) eta proxy eremuko balioa kenduz.</string>
   <string name="apply_apn_proxy_title">APN proxya ezarrita!</string>
   <string name="no_connection">Interneteko elkarketa ez dabil.</string>
   <string name="no_connection_title">Ez dago Elkarketarik</string>
@@ -77,16 +89,26 @@
   <string name="apply_dialog_hostnames">Hostalari agiriak aztertzen eta batzen</string>
   <string name="apply_dialog_hosts">Hostalari agiria eraikitzen</string>
   <string name="apply_dialog_apply">Hostalari agiria ezartzen</string>
+  <string name="apply_fail">Hutsegitea hostalari agiria zure sisteman ezartzerakoan!\nSaiatu xede hostalari agiria aldatzen hobespenetan: /data/data/hosts.</string>
   <string name="apply_fail_title">Ezartze hutsegitea</string>
+  <string name="revert_successful">Berezko hostalari agirira leheneratu duzu.\nBeharrezkoa izan daiteke Android berrabiaraztea aldaketek eragina izateko.\n\nNahi duzu berrabiaraztea?\n(Datu galera saihesteko zihurtatu aplikazioak ez duela sd-txartela erabiltzen unean!)</string>
+  <string name="revert_successful_title">Ongi leheneratu da</string>
+  <string name="revert_problem">Leheneratze hutsegitea zergaiti ezezagunengaitik.</string>
+  <string name="revert_problem_title">Leheneratze hutsegitea!</string>
+  <string name="download_fail_dialog">Zure gaitutako hostalari iturburu bat ere ez da erdiesgarria! Zihur zaude Intenetera egoki elkartuta zaudela?</string>
   <string name="download_fail_title">Jeisketa hutsegitea</string>
   <string name="no_private_file">Agiri pribatua ezin da sortu.</string>
   <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">su binarioa ezin da aurkitu edo ez duzu erro baimenik ahalbidetuta AdAway-rako.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola errotu buruzko argibideak  www.cyanogenmod.com edo beste Android webgune batzuetan aurkitu dezakezu.</string>
   <string name="no_root_title">Beharrezkoa Android errotua</string>
   <string name="no_url">Ez da baliozko URL bat!</string>
+  <string name="no_url_title">URL-a ezegoki heuskarrituta</string>
   <string name="hosts_add_dialog">Sartu hostalari agirirako URL-a:</string>
   <string name="no_hostname">Hau ez da baliozko hostalari-izen bat!</string>
+  <string name="no_hostname_title">Hostalari-izena ezegoki heuskarrituta</string>
   <string name="no_ip">Hau ez da baliozko IP bat!</string>
+  <string name="no_ip_title">IP-a ezegoki heuskarrituta</string>
   <string name="reboot_never_reboot">Inoiz ez berrabiarazi eta ez erakutsi galdera hau berriro!</string>
   <string name="loading">Gertatzen…</string>
   <!--Menu entries-->
@@ -119,6 +141,7 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Hemen AdAway-k blokeatu ezin dezakeen Adware aplikazio maltzurrik dagoen mihatu dezakezu. Aplikazio hauek adibidez aplikazioa ekinean ez dagoela ere oharleihotzen diren Airpush jakinarazpenak erabiltzen dituzte edo zure dei-doinua ere aldatu dezakete. Aurkako-neurri eskuragarri bakarra aplikazio hauek zerrendako gaietan klikatuz kentzea da.</string>
   <string name="scan_adware_start">Hasi mihatzen</string>
   <string name="scan_adware_empty">Ez da Adware aplikazio kaltegarririk aurkitu!</string>
   <!--Hosts Sources-->
@@ -128,7 +151,9 @@
   <!--Other-->
   <string name="app_subtitle">Iragarki blokeatzailea</string>
   <string name="no_text_editor_title">Ez dago idazki editatzailerik ezarrita</string>
+  <string name="no_text_editor">Ez da idazki editatzailerik aurkitu hostalari agiriak irekitzeko. Jota edo beste idazki editatzaile bat ezarri dezakezu hau kudeatzeko.\n\nNahi duzu Jota ezartzea?</string>
   <string name="no_file_manager_title">Ez dago agiri kudeatzailerik ezarrita</string>
+  <string name="no_file_manager">Ez da agiri kudeatzailerik aurkitu hostalari agiriak irekitzeko. OI File Manager edo beste agiri kudeatzaile bat ezarri dezakezu hau kudeatzeko.\n\nNahi duzu OI File Manager ezartzea?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Ohar agiria ezabatuta!</string>
   <string name="toast_tcpdump_added_to_blacklist">Hostalari-izena zure Zerrenda-beltzera gehitu da!</string>
@@ -149,9 +174,11 @@
   <string name="pref_header_preferences">Hobespenak</string>
   <string name="pref_header_preferences_summary">AdAway hobespen orokorrak</string>
   <string name="pref_never_reboot">Ezkutatu berrabiarazte elkarrizketa</string>
+  <string name="pref_never_reboot_summary">Ongi ezarri ondoren Android berrabiaraztea galdetzen duen elkarrizketa ezkutatzen du</string>
   <string name="pref_webserver_on_boot">Hasi web-zerbitzaria abiatzerakoan</string>
   <string name="pref_webserver_on_boot_summary">Hasi web-zerbitzaria Abiaraztean, tokiko IP helbidean aditzen</string>
   <string name="pref_webserver_enabled">Gaitu web-zerbitzaria</string>
+  <string name="pref_webserver_enabled_summary">Web-zerbitzari aditzea gaitzen du tokiko IP helbidean hostalari-izenak blokeatzeko eskabideei erantzuteko</string>
   <string name="pref_webserver">Tokiko Web-zerbitzaria</string>
   <string name="pref_custom_target">Norbere xedea</string>
   <string name="pref_custom_target_summary">Bakarrik erabiltzen da xede hostalari agiria norbere xede bezala ezartzen bada</string>
@@ -169,6 +196,10 @@
   <string name="pref_automatic_update_daily_summary">Eguneratu berezgaitasunez barrenean eguneraketa eskuragarririk badago.</string>
   <string name="pref_update_only_on_wifi">Eguneratu Wifi bidez bakarrik</string>
   <string name="pref_update_only_on_wifi_summary">Exekutatu barreneko eguneraketak wifi sarera elkartutakoan bakarrik.</string>
+  <string name="pref_whitelist_rules">Ahalbidetu zerrenda-zuriak</string>
+  <string name="pref_whitelist_rules_summary">Ahalbidtu zerrend-zuri sarrerak Hostalari Iturburuetatik.</string>
+  <string name="pref_redirection_rules">Ahalbidetu berzuzentzeak</string>
+  <string name="pref_redirection_rules_summary">SEGURTASUN ARRISKU JARRERAK! Ahalbidetu Hostalari Iturburuetatiko sarrerak berzuzentzea.</string>
   <string name="pref_debug">Garbiketa</string>
   <string name="pref_enable_debug">Garbiketa Oharra</string>
   <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>

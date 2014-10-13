@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
@@ -197,6 +197,10 @@
   <string name="pref_automatic_update_daily_summary">Оновлювати автоматично у фоновому режимі, якщо доступні оновлення.</string>
   <string name="pref_update_only_on_wifi">Оновлення тільки через WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Автоматично виконувати оновлення тільки при підключенні до мережі WiFi.</string>
+  <string name="pref_whitelist_rules">Дозволити білий список</string>
+  <string name="pref_whitelist_rules_summary">Дозволити білі списки із джерел хостів.</string>
+  <string name="pref_redirection_rules">Дозволити перенаправлення</string>
+  <string name="pref_redirection_rules_summary">СТАНОВИТЬ РИЗИК ДЛЯ БЕЗПЕКИ! Дозволити перенаправлення із джерел хостів.</string>
   <string name="pref_debug">Режим налагодженя</string>
   <string name="pref_enable_debug">Журнал налагодження</string>
   <string name="pref_enable_debug_summary">Необхідно перезапустити AdAway, щоб зміни вступили в силу.</string>

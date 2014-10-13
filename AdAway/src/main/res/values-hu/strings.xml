@@ -207,6 +207,7 @@ Szeretné telepíteni az OI File Manager-t?</string>
   <string name="pref_automatic_update_daily_summary">Automatikusan frissít a háttérben ha frissítés érhető el.</string>
   <string name="pref_update_only_on_wifi">Csak Wifi-n frissíthet</string>
   <string name="pref_update_only_on_wifi_summary">Csak Wifi hálózathoz csatlakozva futtathat a háttérben frissítéseket.</string>
+  <string name="pref_redirection_rules">Átirányítás engedélyezése</string>
   <string name="pref_debug">Hibakeresés</string>
   <string name="pref_enable_debug">Hibakeresés naplózása</string>
   <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>

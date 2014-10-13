@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Ukončiť</string>
+  <string name="button_yes">Áno</string>
+  <string name="button_no">Nie</string>
+  <!--Checkbox List-->
+  <!--Your Lists-->
+  <!--Status Notifications-->
+  <!--Apply and Revert Dialogs-->
+  <!--Other Dialogs-->
+  <!--Menu entries-->
+  <!--Help-->
+  <!--Scan Adware-->
+  <!--Hosts Sources-->
+  <!--Other-->
+  <!--Tcpdump-->
+  <!--Preferences-->
+</resources>

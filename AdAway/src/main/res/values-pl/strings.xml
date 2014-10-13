@@ -197,6 +197,10 @@
   <string name="pref_automatic_update_daily_summary">Aktualizuj automatycznie w tle jeżeli aktualizacje sa dostępne.</string>
   <string name="pref_update_only_on_wifi">Aktualizuj tylko przez Wifi</string>
   <string name="pref_update_only_on_wifi_summary">Wykonuj aktualizacje w tle tylko przy połączeniu WiFi.</string>
+  <string name="pref_whitelist_rules">Zezwól na białe listy</string>
+  <string name="pref_whitelist_rules_summary">Zezwól na białe listy ze Źródeł Hostów.</string>
+  <string name="pref_redirection_rules">Zezwól na przekierowania</string>
+  <string name="pref_redirection_rules_summary">STANOWI ZAGROŻENIE DLA BEZPIECZEŃSTWA! Zezwól na przekierowania ze Źródeł Hostów.</string>
   <string name="pref_debug">Debugowanie</string>
   <string name="pref_enable_debug">Zapisuj log</string>
   <string name="pref_enable_debug_summary">Musisz zrestartować AdAway, aby uaktywnić te ustawienia.</string>
