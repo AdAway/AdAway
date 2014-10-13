@@ -1,6 +1,16 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/dschuermann/ad-away/issues
 
+2.9.2
+This release has mainly been done by Dāvis Mošenkovs.
+
+* Added Trove library for high performance collections
+* Adware scan improvements
+* Separate whitelisting and redirections options - "Allow whitelisting" defaults to checked; "Allow redirections" defaults to state of "Allow redirections and whitelisting" (or unchecked on new installations)
+* Fix tcpdump logging upon file deletion
+* Fix possible crash on DB update
+* Fix AdAway's default hosts source
+
 2.9.1
 * Fixing regression bugs
 

@@ -190,7 +190,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             // change to https
             // remove both
             db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
-                    + " WHERE url=\"http://adaway.org/hosts.txt\"");
+                    + " WHERE url IN (\"http://adaway.org/hosts.txt\", \"https://adaway.org/hosts.txt\")");
             // add valid again
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
