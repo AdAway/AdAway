@@ -36,7 +36,7 @@
   <string name="lists_tab_blacklist">Blacklist</string>
   <string name="lists_tab_blacklist_short">Black</string>
   <string name="lists_tab_whitelist_short">White</string>
-  <string name="lists_tab_redirection_list_short">redirecionamento</string>
+  <string name="lists_tab_redirection_list_short">Redirecionamento</string>
   <string name="lists_tab_redirection_list">Lista de redirecionamentos</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
