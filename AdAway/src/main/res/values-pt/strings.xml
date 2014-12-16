@@ -5,7 +5,7 @@
   <string name="button_exit">Sair</string>
   <string name="button_apply">Fazer download dos ficheiros e bloquear anúncios</string>
   <string name="button_close">Fechar</string>
-  <string name="button_yes">Si</string>
+  <string name="button_yes">Sim</string>
   <string name="button_no">Não</string>
   <string name="button_revert">Desactivar o bloqueio de anúncios</string>
   <string name="button_add">Adicionar</string>
@@ -36,8 +36,8 @@
   <string name="lists_tab_blacklist">Blacklist</string>
   <string name="lists_tab_blacklist_short">Black</string>
   <string name="lists_tab_whitelist_short">White</string>
-  <string name="lists_tab_redirection_list_short">Redireccionamento</string>
-  <string name="lists_tab_redirection_list">Lista de redireccionamentos</string>
+  <string name="lists_tab_redirection_list_short">redirecionamento</string>
+  <string name="lists_tab_redirection_list">Lista de redirecionamentos</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
   <string name="list_dialog_ip">IP (IPv4 ou IPv6):</string>
@@ -55,10 +55,10 @@
   <string name="status_no_connection_subtitle">Sem ligação à Internet</string>
   <string name="status_download_fail">Fontes indisponíveis</string>
   <string name="status_download_fail_subtitle_new">Impossível aceder às fontes de hosts!</string>
-  <string name="status_enabled">Activado</string>
-  <string name="status_enabled_subtitle">Activados novos ficheiros de hosts</string>
-  <string name="status_disabled">Desactivado</string>
-  <string name="status_disabled_subtitle">Desactivado</string>
+  <string name="status_enabled">Ativado</string>
+  <string name="status_enabled_subtitle">Ativados novos ficheiros de hosts</string>
+  <string name="status_disabled">Desativado</string>
+  <string name="status_disabled_subtitle">Desativado</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing_title">Symlink inexistente</string>
   <string name="apply_not_enough_space_title">Espaço insuficiente</string>
@@ -102,7 +102,7 @@
   <string name="reboot_never_reboot">Nunca reiniciar e nunca mais apresentar esta questão!</string>
   <string name="loading">A carregar..</string>
   <!--Menu entries-->
-  <string name="menu_refresh">Actualizar</string>
+  <string name="menu_refresh">Atualizar</string>
   <string name="menu_add">Adicionar</string>
   <string name="menu_scan_adware">Procurar Adware</string>
   <string name="menu_hosts_sources">Origem dos hosts</string>
@@ -154,7 +154,7 @@
   <!--Preferences-->
   <string name="pref_download">Preferências Gerais</string>
   <string name="pref_hosts">Ficheiro de Hosts</string>
-  <string name="pref_redirection_ip">IP de redireccionamento</string>
+  <string name="pref_redirection_ip">IP de redirecionamento</string>
   <string name="pref_update_check">Verificar actualizações</string>
   <string name="pref_apply_method">Ficheiro de hosts de destino</string>
   <string name="pref_apply_method_summary">Antes de modificar esta definição, leia o ficheiro de Ajuda.</string>
@@ -176,9 +176,9 @@
   <string name="pref_update_check_daily">Procurar actualizações diariamente</string>
   <string name="pref_update_check_daily_summary">Procurar actualizações diariamente em segundo plano com notificações</string>
   <string name="pref_automatic_update_daily">Actualização automática</string>
-  <string name="pref_automatic_update_daily_summary">Actualizar automaticamente em segundo plano caso haja actualizações disponíveis.</string>
-  <string name="pref_update_only_on_wifi">Actualizar apenas em Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Actualizar em segundo plano apenas quando ligado a uma rede Wifi.</string>
+  <string name="pref_automatic_update_daily_summary">Atualizar automaticamente em segundo plano caso haja actualizações disponíveis.</string>
+  <string name="pref_update_only_on_wifi">Atualizar apenas em Wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Atualizar em segundo plano apenas quando ligado a uma rede Wifi.</string>
   <string name="pref_debug">Depurar</string>
   <string name="pref_enable_debug">Registar a depuração</string>
   <string name="pref_enable_debug_summary">Precisará de reiniciar o AdAway para que esta configuração tenha efeito.</string>
