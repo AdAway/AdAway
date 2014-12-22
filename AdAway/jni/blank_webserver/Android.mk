@@ -21,6 +21,8 @@ LOCAL_PATH := $(LOCAL_PATH)/..
 LOCAL_MODULE := blank_webserver
 
 LOCAL_SRC_FILES := blank_webserver.c
+LOCAL_CFLAGS += -pie -fPIE
+LOCAL_LDFLAGS += -pie -fPIE
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/mongoose
 LOCAL_STATIC_LIBRARIES := mongoose
 
