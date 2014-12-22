@@ -18,7 +18,8 @@ LOCAL_SRC_FILES:=\
 	scanner.c\
 	version.c
 
-LOCAL_CFLAGS:=-O2 -g
+LOCAL_CFLAGS:= -O2 -g -pie -fPIE
+LOCAL_LDFLAGS += -pie -fPIE
 LOCAL_CFLAGS+=-DHAVE_CONFIG_H -D_U_="__attribute__((unused))" -Dlinux -D__GLIBC__ -D_GNU_SOURCE
 
 LOCAL_MODULE:= libpcap
