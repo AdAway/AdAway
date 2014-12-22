@@ -6,8 +6,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE           := mongoose
 LOCAL_SRC_FILES        := main.c mongoose.c
-LOCAL_CFLAGS += -pie -fPIE
-LOCAL_LDFLAGS += -pie -fPIE
 
 include $(BUILD_STATIC_LIBRARY)
 
