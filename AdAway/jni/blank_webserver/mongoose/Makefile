@@ -17,6 +17,7 @@
 # -DUSE_LUA               - embed Lua in Mongoose (+100kb)
 
 PROG        = mongoose
+LDFLAGS     = -pie -fPIE
 CFLAGS      = -std=c99 -O2 -W -Wall -pedantic -pthread $(COPT)
 
 # To build with Lua, download and unzip Lua 5.2.1 source code into the
@@ -79,7 +80,7 @@ all:
 # "-Wl,--as-needed" turned on by default  in cc command.
 # Also, this is turned in many other distros in static linkage builds.
 linux:
-	$(CC) mongoose.c main.c -o $(PROG) -ldl $(CFLAGS)
+	$(CC) $(LDFLAGS) mongoose.c main.c -o $(PROG) -ldl $(CFLAGS)
 
 mac: bsd
 bsd:
