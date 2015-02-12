@@ -84,7 +84,7 @@ int iface_check(int family, struct all_addr *addr, char *name, int *indexp)
 	    break;
 	}
     }
-  
+        
   if (daemon->if_names || (addr && daemon->if_addrs))
     {
       ret = 0;
@@ -386,17 +386,189 @@ struct listener *create_wildcard_listeners(void)
   return l;
 }
 
-struct listener *create_bound_listeners(void)
+#ifdef __ANDROID__
+/**
+ * for a single given irec (interface name and address) create
+ * a set of sockets listening.  This is a copy of the code inside the loop
+ * of create_bound_listeners below and is added here to allow us
+ * to create just a single new listener dynamically when our interface
+ * list is changed.
+ *
+ * iface - input of the new interface details to listen on
+ * listeners - output.  Creates a new struct listener and inserts at head of the list
+ *
+ * die's on errors, so don't pass bad data.
+ */
+void create_bound_listener(struct listener **listeners, struct irec *iface)
 {
-  struct listener *listeners = NULL;
-  struct irec *iface;
   int rc, opt = 1;
 #ifdef HAVE_IPV6
   static int dad_count = 0;
 #endif
 
+  struct listener *new = safe_malloc(sizeof(struct listener));
+  new->family = iface->addr.sa.sa_family;
+  new->iface = iface;
+  new->next = *listeners;
+  new->tftpfd = -1;
+  new->tcpfd = -1;
+  new->fd = -1;
+  *listeners = new;
+
+  if (daemon->port != 0)
+  {
+    if ((new->tcpfd = socket(iface->addr.sa.sa_family, SOCK_STREAM, 0)) == -1 ||
+        (new->fd = socket(iface->addr.sa.sa_family, SOCK_DGRAM, 0)) == -1 ||
+        setsockopt(new->fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) == -1 ||
+        setsockopt(new->tcpfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) == -1 ||
+        !fix_fd(new->tcpfd) ||
+        !fix_fd(new->fd))
+      die(_("failed to create listening socket: %s"), NULL, EC_BADNET);
+
+#ifdef HAVE_IPV6
+    if (iface->addr.sa.sa_family == AF_INET6)
+    {
+      if (setsockopt(new->fd, IPV6_LEVEL, IPV6_V6ONLY, &opt, sizeof(opt)) == -1 ||
+          setsockopt(new->tcpfd, IPV6_LEVEL, IPV6_V6ONLY, &opt, sizeof(opt)) == -1)
+        die(_("failed to set IPV6 options on listening socket: %s"), NULL, EC_BADNET);\
+    }
+#endif
+
+    while(1)
+    {
+      if ((rc = bind(new->fd, &iface->addr.sa, sa_len(&iface->addr))) != -1)
+        break;
+
+#ifdef HAVE_IPV6
+      /* An interface may have an IPv6 address which is still undergoing DAD.
+         If so, the bind will fail until the DAD completes, so we try over 20 seconds
+         before failing. */
+      if (iface->addr.sa.sa_family == AF_INET6 && (errno == ENODEV || errno == EADDRNOTAVAIL) &&
+          dad_count++ < DAD_WAIT)
+      {
+        sleep(1);
+        continue;
+      }
+#endif
+      break;
+    }
+
+    if (rc == -1 || bind(new->tcpfd, &iface->addr.sa, sa_len(&iface->addr)) == -1)
+    {
+      prettyprint_addr(&iface->addr, daemon->namebuff);
+      die(_("failed to bind listening socket for %s: %s"), daemon->namebuff, EC_BADNET);
+    }
+
+    if (listen(new->tcpfd, 5) == -1)
+      die(_("failed to listen on socket: %s"), NULL, EC_BADNET);
+  }
+
+#ifdef HAVE_TFTP
+  if ((daemon->options & OPT_TFTP) && iface->addr.sa.sa_family == AF_INET && iface->dhcp_ok)
+  {
+    short save = iface->addr.in.sin_port;
+    iface->addr.in.sin_port = htons(TFTP_PORT);
+    if ((new->tftpfd = socket(AF_INET, SOCK_DGRAM, 0)) == -1 ||
+        setsockopt(new->tftpfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) == -1 ||
+        !fix_fd(new->tftpfd) ||
+        bind(new->tftpfd, &iface->addr.sa, sa_len(&iface->addr)) == -1)
+      die(_("failed to create TFTP socket: %s"), NULL, EC_BADNET);
+    iface->addr.in.sin_port = save;
+  }
+#endif
+}
+
+/**
+ * If a listener has a struct irec pointer whose address matches the newly
+ * malloc()d struct irec's address, update its pointer to refer to this new
+ * struct irec instance.
+ *
+ * Otherwise, any listeners that are preserved across interface list changes
+ * will point at interface structures that are free()d at the end of
+ * set_interfaces(), and can get overwritten by subsequent memory allocations.
+ *
+ * See b/17475756 for further discussion.
+ */
+void fixup_possible_existing_listener(struct irec *new_iface) {
+  /* find the listener, if present */
+  struct listener *l;
+  for (l = daemon->listeners; l; l = l->next) {
+    struct irec *listener_iface = l->iface;
+    if (listener_iface) {
+      if (sockaddr_isequal(&listener_iface->addr, &new_iface->addr)) {
+        l->iface = new_iface;
+        return;
+      }
+    }
+  }
+}
+
+/**
+ * Close the sockets listening on the given interface
+ *
+ * This new function is needed as we're dynamically changing the interfaces
+ * we listen on.  Before they'd be opened once in create_bound_listeners and stay
+ * until we exited.  Now, if an interface moves off the to-listen list we need to
+ * close out the listeners and keep trucking.
+ *
+ * interface - input of the interface details to listen on
+ */
+int close_bound_listener(struct irec *interface)
+{
+  /* find the listener */
+  struct listener **l, *listener;
+  for (l = &(daemon->listeners); *l; l = &((*l)->next)) {
+    struct irec *listener_iface = (*l)->iface;
+    if (listener_iface && interface) {
+      if (sockaddr_isequal(&listener_iface->addr, &interface->addr)) {
+        break;
+      }
+    } else {
+      if (interface == NULL && listener_iface == NULL) {
+        break;
+      }
+    }
+  }
+  listener = *l;
+  if (listener == NULL) return 0;
+
+  if (listener->tftpfd != -1)
+  {
+    close(listener->tftpfd);
+    listener->tftpfd = -1;
+  }
+  if (listener->tcpfd != -1)
+  {
+    close(listener->tcpfd);
+    listener->tcpfd = -1;
+  }
+  if (listener->fd != -1)
+  {
+    close(listener->fd);
+    listener->fd = -1;
+  }
+  *l = listener->next;
+  free(listener);
+  return -1;
+}
+#endif /* __ANDROID__ */
+
+struct listener *create_bound_listeners(void)
+{
+  struct listener *listeners = NULL;
+  struct irec *iface;
+#ifndef __ANDROID__
+  int rc, opt = 1;
+#ifdef HAVE_IPV6
+  static int dad_count = 0;
+#endif
+#endif
+
   for (iface = daemon->interfaces; iface; iface = iface->next)
     {
+#ifdef __ANDROID__
+      create_bound_listener(&listeners, iface);
+#else
       struct listener *new = safe_malloc(sizeof(struct listener));
       new->family = iface->addr.sa.sa_family;
       new->iface = iface;
@@ -468,7 +640,7 @@ struct listener *create_bound_listeners(void)
 	  iface->addr.in.sin_port = save;
 	}
 #endif
-
+#endif /* !__ANDROID */
     }
 
   return listeners;
@@ -533,7 +705,7 @@ int random_sock(int family)
 }
   
 
-int local_bind(int fd, union mysockaddr *addr, char *intname, int is_tcp)
+int local_bind(int fd, union mysockaddr *addr, char *intname, uint32_t mark, int is_tcp)
 {
   union mysockaddr addr_copy = *addr;
 
@@ -557,10 +729,13 @@ int local_bind(int fd, union mysockaddr *addr, char *intname, int is_tcp)
     return 0;
 #endif
 
+  if (mark != 0 && setsockopt(fd, SOL_SOCKET, SO_MARK, &mark, sizeof(mark)) == -1)
+    return 0;
+
   return 1;
 }
 
-static struct serverfd *allocate_sfd(union mysockaddr *addr, char *intname)
+static struct serverfd *allocate_sfd(union mysockaddr *addr, char *intname, uint32_t mark)
 {
   struct serverfd *sfd;
   int errsave;
@@ -587,6 +762,7 @@ static struct serverfd *allocate_sfd(union mysockaddr *addr, char *intname)
   /* may have a suitable one already */
   for (sfd = daemon->sfds; sfd; sfd = sfd->next )
     if (sockaddr_isequal(&sfd->source_addr, addr) &&
+	mark == sfd->mark &&
 	strcmp(intname, sfd->interface) == 0)
       return sfd;
   
@@ -601,7 +777,7 @@ static struct serverfd *allocate_sfd(union mysockaddr *addr, char *intname)
       return NULL;
     }
   
-  if (!local_bind(sfd->fd, addr, intname, 0) || !fix_fd(sfd->fd))
+  if (!local_bind(sfd->fd, addr, intname, mark, 0) || !fix_fd(sfd->fd))
     { 
       errsave = errno; /* save error from bind. */
       close(sfd->fd);
@@ -612,6 +788,7 @@ static struct serverfd *allocate_sfd(union mysockaddr *addr, char *intname)
     
   strcpy(sfd->interface, intname); 
   sfd->source_addr = *addr;
+  sfd->mark = mark;
   sfd->next = daemon->sfds;
   daemon->sfds = sfd;
   return sfd; 
@@ -633,7 +810,7 @@ void pre_allocate_sfds(void)
 #ifdef HAVE_SOCKADDR_SA_LEN
       addr.in.sin_len = sizeof(struct sockaddr_in);
 #endif
-      allocate_sfd(&addr, "");
+      allocate_sfd(&addr, "", 0);
 #ifdef HAVE_IPV6
       memset(&addr, 0, sizeof(addr));
       addr.in6.sin6_family = AF_INET6;
@@ -642,13 +819,13 @@ void pre_allocate_sfds(void)
 #ifdef HAVE_SOCKADDR_SA_LEN
       addr.in6.sin6_len = sizeof(struct sockaddr_in6);
 #endif
-      allocate_sfd(&addr, "");
+      allocate_sfd(&addr, "", 0);
 #endif
     }
   
   for (srv = daemon->servers; srv; srv = srv->next)
     if (!(srv->flags & (SERV_LITERAL_ADDRESS | SERV_NO_ADDR)) &&
-	!allocate_sfd(&srv->source_addr, srv->interface) &&
+	!allocate_sfd(&srv->source_addr, srv->interface, srv->mark) &&
 	errno != 0 &&
 	(daemon->options & OPT_NOWILD))
       {
@@ -698,7 +875,7 @@ void check_servers(void)
 	  
 	  /* Do we need a socket set? */
 	  if (!new->sfd && 
-	      !(new->sfd = allocate_sfd(&new->source_addr, new->interface)) &&
+	      !(new->sfd = allocate_sfd(&new->source_addr, new->interface, new->mark)) &&
 	      errno != 0)
 	    {
 	      my_syslog(LOG_WARNING, 
@@ -738,8 +915,126 @@ void check_servers(void)
 }
 
 #ifdef __ANDROID__
+/* #define __ANDROID_DEBUG__ 1 */
 /*
- * Takes a string in the format "1.2.3.4:1.2.3.4:..." - up to 1024 bytes in length
+ * Ingests a new list of interfaces and starts to listen on them, adding only the new
+ * and stopping to listen to any interfaces not on the new list.
+ *
+ * interfaces - input in the format "bt-pan:eth0:wlan0:..>" up to 1024 bytes long
+ */
+void set_interfaces(const char *interfaces)
+{
+    struct iname *if_tmp;
+    struct iname *prev_if_names;
+    struct irec *old_iface, *new_iface, *prev_interfaces;
+    char s[1024];
+    char *next = s;
+    char *interface;
+    int was_wild = 0;
+
+#ifdef __ANDROID_DEBUG__
+    my_syslog(LOG_DEBUG, _("set_interfaces(%s)"), interfaces);
+#endif
+    prev_if_names = daemon->if_names;
+    daemon->if_names = NULL;
+
+    prev_interfaces = daemon->interfaces;
+    daemon->interfaces = NULL;
+
+    if (strlen(interfaces) > sizeof(s)) {
+        die(_("interface string too long: %s"), NULL, EC_BADNET);
+    }
+    strncpy(s, interfaces, sizeof(s));
+    while((interface = strsep(&next, ":"))) {
+        if_tmp = safe_malloc(sizeof(struct iname));
+        memset(if_tmp, 0, sizeof(struct iname));
+        if ((if_tmp->name = strdup(interface)) == NULL) {
+            die(_("malloc failure in set_interfaces: %s"), NULL, EC_BADNET);
+        }
+        if_tmp->next = daemon->if_names;
+        daemon->if_names = if_tmp;
+    }
+
+    if (!enumerate_interfaces()) {
+        die(_("enumerate interfaces error in set_interfaces: %s"), NULL, EC_BADNET);
+    }
+
+    for (if_tmp = daemon->if_names; if_tmp; if_tmp = if_tmp->next) {
+        if (if_tmp->name && !if_tmp->used) {
+            die(_("unknown interface given %s in set_interfaces: %s"), if_tmp->name, EC_BADNET);
+        }
+    }
+    /* success! - setup to free the old */
+    /* check for any that have been removed */
+    for (old_iface = prev_interfaces; old_iface; old_iface=old_iface->next) {
+      int found = 0;
+      for (new_iface = daemon->interfaces; new_iface; new_iface = new_iface->next) {
+        if (sockaddr_isequal(&old_iface->addr, &new_iface->addr)) {
+            found = 1;
+            break;
+        }
+      }
+
+      if (found) {
+        fixup_possible_existing_listener(new_iface);
+      } else {
+#ifdef __ANDROID_DEBUG__
+        char debug_buff[MAXDNAME];
+        prettyprint_addr(&old_iface->addr, debug_buff);
+        my_syslog(LOG_DEBUG, _("closing listener for %s"), debug_buff);
+#endif
+
+        close_bound_listener(old_iface);
+      }
+    }
+
+    /* remove wildchar listeners */
+    was_wild = close_bound_listener(NULL);
+    if (was_wild) daemon->options |= OPT_NOWILD;
+
+    /* check for any that have been added */
+    for (new_iface = daemon->interfaces; new_iface; new_iface = new_iface->next) {
+      int found = 0;
+
+      /* if the previous setup used a wildchar, then add any current interfaces */
+      if (!was_wild) {
+        for (old_iface = prev_interfaces; old_iface; old_iface = old_iface->next) {
+          if(sockaddr_isequal(&old_iface->addr, &new_iface->addr)) {
+            found = -1;
+            break;
+          }
+        }
+      }
+      if (!found) {
+#ifdef __ANDROID_DEBUG__
+        char debug_buff[MAXDNAME];
+        prettyprint_addr(&new_iface->addr, debug_buff);
+        my_syslog(LOG_DEBUG, _("adding listener for %s"), debug_buff);
+#endif
+        create_bound_listener(&(daemon->listeners), new_iface);
+      }
+    }
+
+    while (prev_if_names) {
+      if (prev_if_names->name) free(prev_if_names->name);
+      if_tmp = prev_if_names->next;
+      free(prev_if_names);
+      prev_if_names = if_tmp;
+    }
+    while (prev_interfaces) {
+      struct irec *tmp_irec = prev_interfaces->next;
+      free(prev_interfaces);
+      prev_interfaces = tmp_irec;
+    }
+#ifdef __ANDROID_DEBUG__
+    my_syslog(LOG_DEBUG, _("done with setInterfaces"));
+#endif
+}
+
+/*
+ * Takes a string in the format "0x100b:1.2.3.4:1.2.3.4:..." - up to 1024 bytes in length
+ *  - The first element is the socket mark to set on sockets that forward DNS queries.
+ *  - The subsequent elements are the DNS servers to forward queries to.
  */
 int set_servers(const char *servers)
 {
@@ -747,6 +1042,8 @@ int set_servers(const char *servers)
   struct server *old_servers = NULL;
   struct server *new_servers = NULL;
   struct server *serv;
+  char *mark_string;
+  uint32_t mark;
 
   strncpy(s, servers, sizeof(s));
 
@@ -771,10 +1068,14 @@ int set_servers(const char *servers)
       serv = tmp;
     }
 
-    char *next = s;
-    char *saddr;
+  char *next = s;
+  char *saddr;
 
- while ((saddr = strsep(&next, ":"))) {
+  /* Parse the mark. */
+  mark_string = strsep(&next, ":");
+  mark = strtoul(mark_string, NULL, 0);
+
+  while ((saddr = strsep(&next, ":"))) {
       union mysockaddr addr, source_addr;
       memset(&addr, 0, sizeof(addr));
       memset(&source_addr, 0, sizeof(source_addr));
@@ -820,6 +1121,7 @@ int set_servers(const char *servers)
       serv->source_addr = source_addr;
       serv->domain = NULL;
       serv->interface[0] = 0;
+      serv->mark = mark;
       serv->sfd = NULL;
       serv->flags = SERV_FROM_RESOLV;
       serv->queries = serv->failed_queries = 0;
@@ -933,6 +1235,7 @@ int reload_servers(char *fname)
       serv->source_addr = source_addr;
       serv->domain = NULL;
       serv->interface[0] = 0;
+      serv->mark = 0;
       serv->sfd = NULL;
       serv->flags = SERV_FROM_RESOLV;
       serv->queries = serv->failed_queries = 0;
@@ -970,6 +1273,3 @@ struct in_addr get_ifaddr(char *intr)
   
   return ((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr;
 }
-
-
-
