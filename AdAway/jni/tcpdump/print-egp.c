@@ -20,7 +20,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-egp.c,v 1.37 2005/01/12 11:19:09 hannes Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-egp.c,v 1.38 2006-02-11 22:13:24 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -226,13 +226,23 @@ egp_print(register const u_int8_t *bp, register u_int length)
 		printf("[|egp]");
 		return;
 	}
-	(void)printf("egp: ");
+
+        if (!vflag) {
+            printf("EGPv%u, AS %u, seq %u, length %u",
+                   egp->egp_version,
+                   EXTRACT_16BITS(&egp->egp_as),
+                   EXTRACT_16BITS(&egp->egp_sequence),
+                   length);
+            return;
+        } else
+            printf("EGPv%u, length %u",
+                   egp->egp_version,
+                   length);            
 
 	if (egp->egp_version != EGP_VERSION) {
 		printf("[version %d]", egp->egp_version);
 		return;
 	}
-	printf("as:%d seq:%d", EXTRACT_16BITS(&egp->egp_as), EXTRACT_16BITS(&egp->egp_sequence));
 
 	type = egp->egp_type;
 	code = egp->egp_code;

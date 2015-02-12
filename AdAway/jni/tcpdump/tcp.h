@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/tcp.h,v 1.11.2.1 2005/11/29 09:09:26 hannes Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/tcp.h,v 1.14 2007-12-09 00:30:47 guy Exp $ (LBL) */
 /*
  * Copyright (c) 1982, 1986, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -45,20 +45,24 @@ struct tcphdr {
 	tcp_seq		th_seq;			/* sequence number */
 	tcp_seq		th_ack;			/* acknowledgement number */
 	u_int8_t	th_offx2;		/* data offset, rsvd */
-#define TH_OFF(th)	(((th)->th_offx2 & 0xf0) >> 4)
 	u_int8_t	th_flags;
-#define	TH_FIN	0x01
-#define	TH_SYN	0x02
-#define	TH_RST	0x04
-#define	TH_PUSH	0x08
-#define	TH_ACK	0x10
-#define	TH_URG	0x20
-#define TH_ECNECHO	0x40	/* ECN Echo */
-#define TH_CWR		0x80	/* ECN Cwnd Reduced */
 	u_int16_t	th_win;			/* window */
 	u_int16_t	th_sum;			/* checksum */
 	u_int16_t	th_urp;			/* urgent pointer */
-};
+} UNALIGNED;
+
+#define TH_OFF(th)	(((th)->th_offx2 & 0xf0) >> 4)
+
+/* TCP flags */
+#define	TH_FIN     0x01
+#define	TH_SYN	   0x02
+#define	TH_RST	   0x04
+#define	TH_PUSH	   0x08
+#define	TH_ACK	   0x10
+#define	TH_URG	   0x20
+#define TH_ECNECHO 0x40	/* ECN Echo */
+#define TH_CWR	   0x80	/* ECN Cwnd Reduced */
+
 
 #define	TCPOPT_EOL		0
 #define	TCPOPT_NOP		1
@@ -79,6 +83,34 @@ struct tcphdr {
 #define    TCPOLEN_SIGNATURE		18
 #define TCP_SIGLEN 16			/* length of an option 19 digest */
 #define TCPOPT_AUTH             20      /* Enhanced AUTH option */
+#define	TCPOPT_UTO		28	/* tcp user timeout (rfc5482) */
+#define	   TCPOLEN_UTO			4
+#define	TCPOPT_MPTCP		30	/* MPTCP options */
+#define TCPOPT_EXPERIMENT2	254	/* experimental headers (rfc4727) */
 
 #define TCPOPT_TSTAMP_HDR	\
     (TCPOPT_NOP<<24|TCPOPT_NOP<<16|TCPOPT_TIMESTAMP<<8|TCPOLEN_TIMESTAMP)
+
+#ifndef TELNET_PORT
+#define TELNET_PORT             23
+#endif
+#ifndef BGP_PORT
+#define BGP_PORT                179
+#endif
+#define NETBIOS_SSN_PORT        139
+#ifndef OPENFLOW_PORT
+#define OPENFLOW_PORT           6633
+#endif
+#ifndef PPTP_PORT
+#define PPTP_PORT	        1723
+#endif
+#define BEEP_PORT               10288
+#ifndef NFS_PORT
+#define NFS_PORT	        2049
+#endif
+#define MSDP_PORT	        639
+#define RPKI_RTR_PORT	        323
+#define LDP_PORT                646
+#ifndef SMB_PORT
+#define SMB_PORT                445
+#endif

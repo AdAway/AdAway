@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/dccp.h,v 1.1.2.4 2006/05/12 01:46:17 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/dccp.h,v 1.5 2006-11-02 09:05:23 hannes Exp $ (LBL) */
 /*
  * Copyright (C) Arnaldo Carvalho de Melo 2004
  * Copyright (C) Ian McDonald 2005 <iam4@cs.waikato.ac.nz>
@@ -36,8 +36,8 @@ struct dccp_hdr {
 	}		dccph_xtrs;
 };
 
-#define DCCPH_CCVAL(dh)	(((dh)->dccph_ccval_cscov) & 0x0F)
-#define DCCPH_CSCOV(dh)	(((dh)->dccph_ccval_cscov >> 4) & 0x0F)
+#define DCCPH_CCVAL(dh)	(((dh)->dccph_ccval_cscov >> 4) & 0xF)
+#define DCCPH_CSCOV(dh)	(((dh)->dccph_ccval_cscov) & 0xF)
 
 #define DCCPH_X(dh)	((dh)->dccph_xtrs.dccph_xtr & 1)
 #define DCCPH_TYPE(dh)	(((dh)->dccph_xtrs.dccph_xtr >> 1) & 0xF)

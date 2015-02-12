@@ -1,0 +1,602 @@
+23:38:56.018934 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 76)
+    172.20.4.63.16702 > 172.20.4.93.6702: sctp[ForCES LP]
+	1) [INIT] [init tag: 3355263363] [rwnd: 55296] [OS: 10] [MIS: 65535] [init TSN: 861291022] 
+23:38:56.019037 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 236)
+    172.20.4.93.6702 > 172.20.4.63.16702: sctp[ForCES LP]
+	1) [INIT ACK] [init tag: 2807207095] [rwnd: 54784] [OS: 10] [MIS: 10] [init TSN: 2957773506] 
+23:38:56.019110 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 200)
+    172.20.4.63.16702 > 172.20.4.93.6702: sctp[ForCES LP]
+	1) [COOKIE ECHO] 
+23:38:56.019241 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 36)
+    172.20.4.93.6702 > 172.20.4.63.16702: sctp[ForCES LP]
+	1) [COOKIE ACK] 
+23:38:56.019920 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 76)
+    172.20.4.63.16701 > 172.20.4.93.6701: sctp[ForCES MP]
+	1) [INIT] [init tag: 355895801] [rwnd: 55296] [OS: 10] [MIS: 65535] [init TSN: 1729985532] 
+23:38:56.020061 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 236)
+    172.20.4.93.6701 > 172.20.4.63.16701: sctp[ForCES MP]
+	1) [INIT ACK] [init tag: 2960733132] [rwnd: 54784] [OS: 10] [MIS: 10] [init TSN: 777474576] 
+23:38:56.020111 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 200)
+    172.20.4.63.16701 > 172.20.4.93.6701: sctp[ForCES MP]
+	1) [COOKIE ECHO] 
+23:38:56.020235 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 36)
+    172.20.4.93.6701 > 172.20.4.63.16701: sctp[ForCES MP]
+	1) [COOKIE ACK] 
+23:38:56.020433 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 76)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [INIT] [init tag: 3006905571] [rwnd: 55296] [OS: 10] [MIS: 65535] [init TSN: 2958179469] 
+23:38:56.020578 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 236)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [INIT ACK] [init tag: 3515444933] [rwnd: 54784] [OS: 10] [MIS: 10] [init TSN: 1811362564] 
+23:38:56.020617 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 200)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [COOKIE ECHO] 
+23:38:56.020739 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 36)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [COOKIE ACK] 
+23:38:57.240366 IP (tos 0x2,ECT(0), ttl 64, id 1, offset 0, flags [DF], proto SCTP (132), length 72)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179469] [SID: 0] [SSEQ 0] [PPID 0x0] 
+	ForCES Association Setup 
+	ForCES Version 1 len 24B flags 0xf8000000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x1
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, EMReserved(0x0),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+
+
+23:38:57.240474 IP (tos 0x2,ECT(0), ttl 64, id 0, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179469] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:38:57.241034 IP (tos 0x2,ECT(0), ttl 64, id 1, offset 0, flags [DF], proto SCTP (132), length 80)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362564] [SID: 0] [SSEQ 0] [PPID 0x0] 
+	ForCES Association Response 
+	ForCES Version 1 len 32B flags 0x38400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x1
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	ASResult TLV, length 8 (data length 4 Bytes)
+         Success (0)
+         
+
+23:38:57.241079 IP (tos 0x2,ECT(0), ttl 64, id 2, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362564] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:38:57.241047 IP (tos 0x2,ECT(0), ttl 64, id 2, offset 0, flags [DF], proto SCTP (132), length 100)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362565] [SID: 0] [SSEQ 1] [PPID 0x0] 
+	ForCES Query 
+	ForCES Version 1 len 52B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x1
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 28 (data length 24 Bytes)
+         FEObj LFB(Classid 1) instance 1
+          Oper TLV  Get(0x7) length 16
+           PATH-DATA TLV, length 12 (data encapsulated 8 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 2
+
+
+23:38:57.244420 IP (tos 0x2,ECT(0), ttl 64, id 3, offset 0, flags [DF], proto SCTP (132), length 140)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179470] [SID: 0] [SSEQ 1] [PPID 0x0] 
+	ForCES Query Response 
+	ForCES Version 1 len 92B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x1
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 68 (data length 64 Bytes)
+         FEObj LFB(Classid 1) instance 1
+          Oper TLV  GetResp(0x9) length 56
+           PATH-DATA TLV, length 52 (data encapsulated 48 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 2
+              FULLDATA TLV (Length 40 DataLen 36 Bytes)
+               [
+               0x0000:  0000 0000 0000 0001 0000 0001 0000 0001
+               0x0010:  0000 0002 0000 0001 0000 0002 0000 000e
+               0x0020:  0000 0001
+               ]
+
+
+23:38:57.440152 IP (tos 0x2,ECT(0), ttl 64, id 4, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362565] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:38:57.444197 IP (tos 0x2,ECT(0), ttl 64, id 3, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179470] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:39:04.942310 IP (tos 0x2,ECT(0), ttl 64, id 4, offset 0, flags [DF], proto SCTP (132), length 100)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362566] [SID: 0] [SSEQ 2] [PPID 0x0] 
+	ForCES Query 
+	ForCES Version 1 len 52B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x2
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 28 (data length 24 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  Get(0x7) length 16
+           PATH-DATA TLV, length 12 (data encapsulated 8 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+
+
+23:39:04.943823 IP (tos 0x2,ECT(0), ttl 64, id 5, offset 0, flags [DF], proto SCTP (132), length 188)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179471] [SID: 0] [SSEQ 2] [PPID 0x0] 
+	ForCES Query Response 
+	ForCES Version 1 len 140B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x2
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 116 (data length 112 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  GetResp(0x9) length 104
+           PATH-DATA TLV, length 100 (data encapsulated 96 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              FULLDATA TLV (Length 88 DataLen 84 Bytes)
+               [
+               0x0000:  0112 0054 0000 0000 0000 0001 0112 0028
+               0x0010:  0000 0000 0102 0304 0000 0018 0001 0203
+               0x0020:  0405 0000 0001 1112 1314 0000 0019 0a0b
+               0x0030:  0c0d 0e0f 0000 0001 0000 0002 0112 0018
+               0x0040:  0000 0000 0807 0605 0000 0010 1415 1617
+               0x0050:  1819 0000
+               ]
+
+
+23:39:05.141776 IP (tos 0x2,ECT(0), ttl 64, id 6, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362566] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:39:05.143071 IP (tos 0x2,ECT(0), ttl 64, id 5, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179471] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:39:08.406266 IP (tos 0x2,ECT(0), ttl 64, id 6, offset 0, flags [DF], proto SCTP (132), length 156)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362567] [SID: 0] [SSEQ 3] [PPID 0x0] 
+	ForCES Config 
+	ForCES Version 1 len 108B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x3
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 84 (data length 80 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  Set(0x1) length 72
+           PATH-DATA TLV, length 68 (data encapsulated 64 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              PATH-DATA TLV, length 56 (data encapsulated 52 Bytes)
+               Pathdata: Flags 0x0 ID count 1
+                 ID#01: 0
+                 PATH-DATA TLV, length 44 (data encapsulated 40 Bytes)
+                  Pathdata: Flags 0x0 ID count 1
+                    ID#01: 2
+                    PATH-DATA TLV, length 32 (data encapsulated 28 Bytes)
+                     Pathdata: Flags 0x0 ID count 1
+                       ID#01: 0
+                       PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+                        Pathdata: Flags 0x0 ID count 1
+                          ID#01: 1
+                          FULLDATA TLV (Length 8 DataLen 4 Bytes)
+                           [
+                           0x0000:  0a00 0001
+                           ]
+
+
+23:39:08.410057 IP (tos 0x2,ECT(0), ttl 64, id 7, offset 0, flags [DF], proto SCTP (132), length 108)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179472] [SID: 0] [SSEQ 3] [PPID 0x0] 
+	ForCES Config Response 
+	ForCES Version 1 len 60B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x3
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 36 (data length 32 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  SetResp(0x3) length 24
+           PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              RESULT TLV (Length 8 DataLen 4 Bytes)
+                Result: SUCCESS (code 0x0)
+
+
+23:39:08.606148 IP (tos 0x2,ECT(0), ttl 64, id 8, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362567] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:39:08.610452 IP (tos 0x2,ECT(0), ttl 64, id 7, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179472] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:39:10.517887 IP (tos 0x2,ECT(0), ttl 64, id 8, offset 0, flags [DF], proto SCTP (132), length 156)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362568] [SID: 0] [SSEQ 4] [PPID 0x0] 
+	ForCES Config 
+	ForCES Version 1 len 108B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x4
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 84 (data length 80 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  Set(0x1) length 72
+           PATH-DATA TLV, length 68 (data encapsulated 64 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              PATH-DATA TLV, length 56 (data encapsulated 52 Bytes)
+               Pathdata: Flags 0x0 ID count 1
+                 ID#01: 0
+                 PATH-DATA TLV, length 44 (data encapsulated 40 Bytes)
+                  Pathdata: Flags 0x0 ID count 1
+                    ID#01: 2
+                    PATH-DATA TLV, length 32 (data encapsulated 28 Bytes)
+                     Pathdata: Flags 0x0 ID count 1
+                       ID#01: 0
+                       PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+                        Pathdata: Flags 0x0 ID count 1
+                          ID#01: 2
+                          FULLDATA TLV (Length 8 DataLen 4 Bytes)
+                           [
+                           0x0000:  0000 0008
+                           ]
+
+
+23:39:10.521718 IP (tos 0x2,ECT(0), ttl 64, id 9, offset 0, flags [DF], proto SCTP (132), length 108)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179473] [SID: 0] [SSEQ 4] [PPID 0x0] 
+	ForCES Config Response 
+	ForCES Version 1 len 60B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x4
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 36 (data length 32 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  SetResp(0x3) length 24
+           PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              RESULT TLV (Length 8 DataLen 4 Bytes)
+                Result: SUCCESS (code 0x0)
+
+
+23:39:10.717774 IP (tos 0x2,ECT(0), ttl 64, id 10, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362568] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:39:10.721988 IP (tos 0x2,ECT(0), ttl 64, id 9, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179473] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:39:12.997636 IP (tos 0x2,ECT(0), ttl 64, id 10, offset 0, flags [DF], proto SCTP (132), length 160)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362569] [SID: 0] [SSEQ 5] [PPID 0x0] 
+	ForCES Config 
+	ForCES Version 1 len 112B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x5
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 88 (data length 84 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  Set(0x1) length 76
+           PATH-DATA TLV, length 72 (data encapsulated 68 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              PATH-DATA TLV, length 60 (data encapsulated 56 Bytes)
+               Pathdata: Flags 0x0 ID count 1
+                 ID#01: 0
+                 PATH-DATA TLV, length 48 (data encapsulated 44 Bytes)
+                  Pathdata: Flags 0x0 ID count 1
+                    ID#01: 2
+                    PATH-DATA TLV, length 36 (data encapsulated 32 Bytes)
+                     Pathdata: Flags 0x0 ID count 1
+                       ID#01: 0
+                       PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
+                        Pathdata: Flags 0x0 ID count 1
+                          ID#01: 3
+                          FULLDATA TLV (Length 10 DataLen 6 pad 2 Bytes)
+                           [
+                           0x0000:  0002 0406 080a 0000
+                           ]
+
+
+23:39:13.001457 IP (tos 0x2,ECT(0), ttl 64, id 11, offset 0, flags [DF], proto SCTP (132), length 108)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179474] [SID: 0] [SSEQ 5] [PPID 0x0] 
+	ForCES Config Response 
+	ForCES Version 1 len 60B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x5
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 36 (data length 32 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  SetResp(0x3) length 24
+           PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              RESULT TLV (Length 8 DataLen 4 Bytes)
+                Result: SUCCESS (code 0x0)
+
+
+23:39:13.197325 IP (tos 0x2,ECT(0), ttl 64, id 12, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362569] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:39:13.201336 IP (tos 0x2,ECT(0), ttl 64, id 11, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179474] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:39:15.389357 IP (tos 0x2,ECT(0), ttl 64, id 12, offset 0, flags [DF], proto SCTP (132), length 200)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362570] [SID: 0] [SSEQ 6] [PPID 0x0] 
+	ForCES Config 
+	ForCES Version 1 len 152B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x6
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 128 (data length 124 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  Set(0x1) length 116
+           PATH-DATA TLV, length 112 (data encapsulated 108 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              PATH-DATA TLV, length 100 (data encapsulated 96 Bytes)
+               Pathdata: Flags 0x0 ID count 1
+                 ID#01: 0
+                 PATH-DATA TLV, length 88 (data encapsulated 84 Bytes)
+                  Pathdata: Flags 0x0 ID count 1
+                    ID#01: 2
+                    PATH-DATA TLV, length 76 (data encapsulated 72 Bytes)
+                     Pathdata: Flags 0x0 ID count 1
+                       ID#01: 2
+                       PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+                        Pathdata: Flags 0x0 ID count 1
+                          ID#01: 1
+                          FULLDATA TLV (Length 8 DataLen 4 Bytes)
+                           [
+                           0x0000:  1400 0001
+                           ]
+                      PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+                       Pathdata: Flags 0x0 ID count 1
+                         ID#01: 2
+                         FULLDATA TLV (Length 8 DataLen 4 Bytes)
+                          [
+                          0x0000:  0000 000c
+                          ]
+                      PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
+                       Pathdata: Flags 0x0 ID count 1
+                         ID#01: 3
+                         FULLDATA TLV (Length 10 DataLen 6 pad 2 Bytes)
+                          [
+                          0x0000:  0003 0609 0c0f 0000
+                          ]
+
+
+23:39:15.393377 IP (tos 0x2,ECT(0), ttl 64, id 13, offset 0, flags [DF], proto SCTP (132), length 108)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179475] [SID: 0] [SSEQ 6] [PPID 0x0] 
+	ForCES Config Response 
+	ForCES Version 1 len 60B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x6
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 36 (data length 32 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  SetResp(0x3) length 24
+           PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              RESULT TLV (Length 8 DataLen 4 Bytes)
+                Result: SUCCESS (code 0x0)
+
+
+23:39:15.588896 IP (tos 0x2,ECT(0), ttl 64, id 14, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362570] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:39:15.592787 IP (tos 0x2,ECT(0), ttl 64, id 13, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179475] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:39:18.045055 IP (tos 0x2,ECT(0), ttl 64, id 14, offset 0, flags [DF], proto SCTP (132), length 220)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362571] [SID: 0] [SSEQ 7] [PPID 0x0] 
+	ForCES Config 
+	ForCES Version 1 len 172B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x7
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 148 (data length 144 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  Set(0x1) length 136
+           PATH-DATA TLV, length 132 (data encapsulated 128 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              PATH-DATA TLV, length 120 (data encapsulated 116 Bytes)
+               Pathdata: Flags 0x0 ID count 1
+                 ID#01: 2
+                 PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+                  Pathdata: Flags 0x0 ID count 1
+                    ID#01: 1
+                    FULLDATA TLV (Length 8 DataLen 4 Bytes)
+                     [
+                     0x0000:  0000 0003
+                     ]
+                PATH-DATA TLV, length 88 (data encapsulated 84 Bytes)
+                 Pathdata: Flags 0x0 ID count 1
+                   ID#01: 2
+                   PATH-DATA TLV, length 76 (data encapsulated 72 Bytes)
+                    Pathdata: Flags 0x0 ID count 1
+                      ID#01: 0
+                      PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+                       Pathdata: Flags 0x0 ID count 1
+                         ID#01: 1
+                         FULLDATA TLV (Length 8 DataLen 4 Bytes)
+                          [
+                          0x0000:  1e00 0001
+                          ]
+                     PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+                      Pathdata: Flags 0x0 ID count 1
+                        ID#01: 2
+                        FULLDATA TLV (Length 8 DataLen 4 Bytes)
+                         [
+                         0x0000:  0000 000d
+                         ]
+                     PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
+                      Pathdata: Flags 0x0 ID count 1
+                        ID#01: 3
+                        FULLDATA TLV (Length 10 DataLen 6 pad 2 Bytes)
+                         [
+                         0x0000:  0004 080c 1014 0000
+                         ]
+
+
+23:39:18.049369 IP (tos 0x2,ECT(0), ttl 64, id 15, offset 0, flags [DF], proto SCTP (132), length 108)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179476] [SID: 0] [SSEQ 7] [PPID 0x0] 
+	ForCES Config Response 
+	ForCES Version 1 len 60B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x7
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 36 (data length 32 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  SetResp(0x3) length 24
+           PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              RESULT TLV (Length 8 DataLen 4 Bytes)
+                Result: SUCCESS (code 0x0)
+
+
+23:39:18.244425 IP (tos 0x2,ECT(0), ttl 64, id 16, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362571] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:39:18.248927 IP (tos 0x2,ECT(0), ttl 64, id 15, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179476] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:39:20.060819 IP (tos 0x2,ECT(0), ttl 64, id 16, offset 0, flags [DF], proto SCTP (132), length 136)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362572] [SID: 0] [SSEQ 8] [PPID 0x0] 
+	ForCES Config 
+	ForCES Version 1 len 88B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x8
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 64 (data length 60 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  Del(0x5) length 52
+           PATH-DATA TLV, length 48 (data encapsulated 44 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              PATH-DATA TLV, length 36 (data encapsulated 32 Bytes)
+               Pathdata: Flags 0x0 ID count 1
+                 ID#01: 0
+                 PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
+                  Pathdata: Flags 0x0 ID count 1
+                    ID#01: 2
+                    PATH-DATA TLV, length 12 (data encapsulated 8 Bytes)
+                     Pathdata: Flags 0x0 ID count 1
+                       ID#01: 2
+
+
+23:39:20.065279 IP (tos 0x2,ECT(0), ttl 64, id 17, offset 0, flags [DF], proto SCTP (132), length 108)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179477] [SID: 0] [SSEQ 8] [PPID 0x0] 
+	ForCES Config Response 
+	ForCES Version 1 len 60B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x8
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 36 (data length 32 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  DelResp(0x6) length 24
+           PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              RESULT TLV (Length 8 DataLen 4 Bytes)
+                Result: SUCCESS (code 0x0)
+
+
+23:39:20.260061 IP (tos 0x2,ECT(0), ttl 64, id 18, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362572] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:39:20.265566 IP (tos 0x2,ECT(0), ttl 64, id 17, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179477] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 
+23:39:22.796350 IP (tos 0x2,ECT(0), ttl 64, id 18, offset 0, flags [DF], proto SCTP (132), length 112)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 1811362573] [SID: 0] [SSEQ 9] [PPID 0x0] 
+	ForCES Config 
+	ForCES Version 1 len 64B flags 0xf8400000 
+	SrcID 0x40000001(CE) DstID 0x3(FE) Correlator 0x9
+	ForCES flags:
+	  AlwaysACK(0x3), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 40 (data length 36 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  Del(0x5) length 28
+           PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              PATH-DATA TLV, length 12 (data encapsulated 8 Bytes)
+               Pathdata: Flags 0x0 ID count 1
+                 ID#01: 2
+
+
+23:39:22.800525 IP (tos 0x2,ECT(0), ttl 64, id 19, offset 0, flags [DF], proto SCTP (132), length 108)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [DATA] (B)(E) [TSN: 2958179478] [SID: 0] [SSEQ 9] [PPID 0x0] 
+	ForCES Config Response 
+	ForCES Version 1 len 60B flags 0x38400000 
+	SrcID 0x3(FE) DstID 0x40000001(CE) Correlator 0x9
+	ForCES flags:
+	  NoACK(0x0), prio=7, execute-all-or-none(0x1),
+	  Standalone(0x0), StartofTransaction(0x0)
+	  Extra flags: rsv(b5-7) 0x0 rsv(b13-31) 0x0
+	LFBselect TLV, length 36 (data length 32 Bytes)
+         #14(Classid e) instance 1
+          Oper TLV  DelResp(0x6) length 24
+           PATH-DATA TLV, length 20 (data encapsulated 16 Bytes)
+            Pathdata: Flags 0x0 ID count 1
+              ID#01: 1
+              RESULT TLV (Length 8 DataLen 4 Bytes)
+                Result: SUCCESS (code 0x0)
+
+
+23:39:22.995584 IP (tos 0x2,ECT(0), ttl 64, id 20, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.63.16700 > 172.20.4.93.6700: sctp[ForCES HP]
+	1) [SACK] [cum ack 1811362573] [a_rwnd 55264] [#gap acks 0] [#dup tsns 0] 
+23:39:23.001212 IP (tos 0x2,ECT(0), ttl 64, id 19, offset 0, flags [DF], proto SCTP (132), length 48)
+    172.20.4.93.6700 > 172.20.4.63.16700: sctp[ForCES HP]
+	1) [SACK] [cum ack 2958179478] [a_rwnd 54760] [#gap acks 0] [#dup tsns 0] 

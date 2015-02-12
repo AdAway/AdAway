@@ -16,7 +16,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-     "@(#) $Header: /tcpdump/master/tcpdump/strcasecmp.c,v 1.6 2003/11/16 09:36:43 guy Exp $";
+     "@(#) $Header: /tcpdump/master/tcpdump/strcasecmp.c,v 1.6 2003-11-16 09:36:43 guy Exp $";
 #endif
 
 #include <tcpdump-stdinc.h>
@@ -28,7 +28,7 @@ static const char rcsid[] _U_ =
  * together for a case independent comparison.  The mappings are
  * based upon ascii character sequences.
  */
-static u_char charmap[] = {
+static const u_char charmap[] = {
 	'\000', '\001', '\002', '\003', '\004', '\005', '\006', '\007',
 	'\010', '\011', '\012', '\013', '\014', '\015', '\016', '\017',
 	'\020', '\021', '\022', '\023', '\024', '\025', '\026', '\027',
@@ -67,7 +67,7 @@ int
 strcasecmp(s1, s2)
 	const char *s1, *s2;
 {
-	register u_char	*cm = charmap,
+	register const u_char *cm = charmap,
 			*us1 = (u_char *)s1,
 			*us2 = (u_char *)s2;
 
@@ -82,7 +82,7 @@ strncasecmp(s1, s2, n)
 	const char *s1, *s2;
 	register int n;
 {
-	register u_char	*cm = charmap,
+	register const u_char *cm = charmap,
 			*us1 = (u_char *)s1,
 			*us2 = (u_char *)s2;
 

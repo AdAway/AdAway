@@ -20,7 +20,7 @@
  *
  */
 
-/* $Id: lane.h,v 1.7 2002/12/11 07:13:54 guy Exp $ */
+/* $Id: lane.h,v 1.7 2002-12-11 07:13:54 guy Exp $ */
 
 #ifndef ETHER_ADDR_LEN
 #define ETHER_ADDR_LEN 6

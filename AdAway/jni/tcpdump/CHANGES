@@ -1,20 +1,223 @@
-$Header: /tcpdump/master/tcpdump/CHANGES,v 1.87.2.17 2007/09/13 13:39:44 ken Exp $
+Wednesday Jan. 15, 2014 guy@alum.mit.edu
+  Summary for 4.5.2 tcpdump release
+	Man page fix
+	Fix crashes on SPARC
 
-Mon.	September 10, 2007.  ken@xelerance.com.  Summary for 0.9.8 tcpdump release
-	Rework ARP printer
-	Rework OSPFv3 printer
-	Add support for Frame-Relay ARP
-	Decode DHCP Option 121 (RFC 3442 Classless Static Route)
-	Decode DHCP Option 249 (MS Classless Static Route) the same as Option 121
-	TLV: Add support for Juniper .pcap extensions
-	Print EGP header in new-world-order style
-	Converted print-isakmp.c to NETDISSECT
-	Moved AF specific stuff into af.h
-	Test subsystem now table driven, and saves outputs and diffs to one place
+Monday Nov. 11, 2013 mcr@sandelman.ca
+  Summary for 4.5.1 tcpdump release
+	CREDITS file fixes
+
+Thursday Nov. 7, 2013  mcr@sandelman.ca and guy@alum.mit.edu.
+  Summary for 4.5.0 tcpdump release
+        some NFSv4 fixes for printing  
+        fix printing of unknown TCP options, and tcp fast-open
+        fixes for syslog parser
+        some gcc-version-specific flag tuning
+        adopt MacOS deprecation workarounds for openssl
+        improvements to babel printing
+        add OpenFlow 1.0 (no SSL) and test cases
+        GeoNet printer.
+        added STBC Rx support
+        improvements to DHCPv6 decoder
+        clarify which autoconf is needed
+	Point users to the the-tcpdump-group repository on GitHub rather
+	    than the mcr repository
+	Add MSDP printer.
+	Fixed IPv6 check on Solaris and other OSes requiring extra
+	    networking libraries.
+	Add support for VXLAN (draft-mahalingam-dutt-dcops-vxlan-03),
+	    and add "vxlan" as an option for -T.
+	Add support for OTV (draft-hasmit-otv-04).
+        fixes for DLT_IEEE802_11_RADIO datalink types
+        added MPTCP decoder
+
+Saturday April 6, 2013 guy@alum.mit.edu.
+  Summary for 4.4.0 tcpdump release
+	RPKI-RTR (RFC6810) is now official (TCP Port 323)
+	Fix detection of OpenSSL libcrypto.
+	Add DNSSL (RFC6106) support.
+	Add "radius" as an option for -T.
+	Update Action codes for handle_action function according to
+	    802.11s amendment.
+	Decode DHCPv6 AFTR-Name option (RFC6334).
+	Updates for Babel.
+	Fix printing of infinite lifetime in ICMPv6.
+	Added support for SPB, SPBM Service Identifier, and Unicast
+	    Address sub-TLV in ISIS.
+	Decode RIPv2 authentication up to RFC4822.
+	Fix RIP Request/full table decoding issues.
+	On Linux systems with cap-ng.h, drop root privileges
+	    using Linux Capabilities.
+	Add support for reading multiple files.
+	Add MS NLB heartbeat printer.
+	Separate multiple nexthops in BGP.
+
+Wednesday  November 28, 2012 guy@alum.mit.edu.
+  Summary for 4.3.1 tcpdump release
+	Print "LLDP, length N" for LLDP packets even when not in verbose
+	    mode, so something is printed even if only the timestamp is
+	    present
+	Document "-T carp"
+	Print NTP poll interval correctly (it's an exponent, so print
+	    both its raw value and 2^value)
+	Document that "-e" is used to get MAC addresses
+	More clearly document that you need to escape or quote
+	    backslashes in filter expressions on the command line
+	Fix some "the the" in the man page
+	Use the right maximum path length
+	Don't treat 192_1_2, when passed to -i, as an interface number
+
+Friday  April 3, 2012.  mcr@sandelman.ca.
+  Summary for 4.3.0 tcpdump release
+        fixes for forces: SPARSE data (per RFC 5810)
+        some more test cases added
+        updates to documentation on -l, -U and -w flags.
+        Fix printing of BGP optional headers.
+        Tried to include DLT_PFSYNC support, failed due to headers required.
+        added TIPC support.
+        Fix LLDP Network Policy bit definitions.
+        fixes for IGMPv3's Max Response Time: it is in units of 0.1 second.
+        SIGUSR1 can be used rather than SIGINFO for stats
+        permit -n flag to affect print-ip for protocol numbers
+        ND_OPT_ADVINTERVAL is in milliseconds, not seconds
+        Teach PPPoE parser about RFC 4638
+
+
+Friday  December 9, 2011.  guy@alum.mit.edu.
+  Summary for 4.2.1 tcpdump release
+	Only build the Babel printer if IPv6 is enabled.
+	Support Babel on port 6696 as well as 6697.
+	Include ppi.h in release tarball.
+	Include all the test files in the release tarball, and don't
+	 "include" test files that no longer exist.
+	Don't assume we have <rpc/rpc.h> - check for it.
+	Support "-T carp" as a way of dissecting IP protocol 112 as CARP
+	 rather than VRRP.
+	Support Hilscher NetAnalyzer link-layer header format.
+	Constify some pointers and fix compiler warnings.
+	Get rid of never-true test.
+	Fix an unintended fall-through in a case statement in the ARP
+	 printer.
+	Fix several cases where sizeof(sizeof(XXX)) was used when just
+	 sizeof(XXX) was intended.
+	Make stricter sanity checks in the ES-IS printer.
+	Get rid of some GCCisms that caused builds to fai with compilers
+	 that don't support them.
+	Fix typo in man page.
+	Added length checks to Babel printer.
+
+Sunday  July 24, 2011.  mcr@sandelman.ca.
+  Summary for 4.2.+
+	merged 802.15.4 decoder from Dmitry Eremin-Solenikov <dbaryshkov
+	  at gmail dot com>
+        updates to forces for new port numbers
+        Use "-H", not "-h", for the 802.11s option. (-h always help)
+        Better ICMPv6 checksum handling.
+        add support for the RPKI/Router Protocol, per -ietf-sidr-rpki-rtr-12
+        get rid of uuencoded pcap test files, git can do binary.
+        sFlow changes for 64-bit counters.
+        fixes for PPI packet header handling and printing.
+        Add DCB Exchange protocol (DCBX) version 1.01.
+        Babel dissector, from Juliusz Chroboczek and Grégoire Henry.
+        improvements to radiotap for rate values > 127.
+        Many improvements to ForCES decode, including fix SCTP TML port
+        updated RPL type code to RPL-17 draft
+        Improve printout of DHCPv6 options.
+        added support and test case for QinQ (802.1q VLAN) packets
+        Handle DLT_IEEE802_15_4_NOFCS like DLT_IEEE802_15_4.
+        Build fixes for Sparc and other machines with alignment restrictions.
+        Merged changes from Debian package.
+        PGM: Add ACK decoding and add PGMCC DATA and FEEDBACK options.
+        Build fixes for OSX (Snow Leopard and others)
+        Add support for IEEE 802.15.4 packets
+
+Tue.    July 20, 2010.  guy@alum.mit.edu.
+  Summary for 4.1.2 tcpdump release
+	If -U is specified, flush the file after creating it, so it's
+	  not zero-length
+	Fix TCP flags output description, and some typoes, in the man
+	  page
+	Add a -h flag, and only attempt to recognize 802.11s mesh
+	  headers if it's set
+	When printing the link-layer type list, send *all* output to
+	  stderr
+	Include the CFLAGS setting when configure was run in the
+	  compiler flags
+
+Thu.	April 1, 2010.  guy@alum.mit.edu.
+  Summary for 4.1.1 tcpdump release
+	Fix build on systems with PF, such as FreeBSD and OpenBSD.
+	Don't blow up if a zero-length link-layer address is passed to
+	  linkaddr_string(). 
+
+Thu.	March 11, 2010.  ken@netfunctional.ca/guy@alum.mit.edu.
+  Summary for 4.1.0 tcpdump release
+	Fix printing of MAC addresses for VLAN frames with a length
+	  field
+	Add some additional bounds checks and use the EXTRACT_ macros
+	  more
+	Add a -b flag to print the AS number in BGP packets in ASDOT
+	  notation rather than ASPLAIN notation
+	Add ICMPv6 RFC 5006 support
+	Decode the access flags in NFS access requests
+	Handle the new DLT_ for memory-mapped USB captures on Linux
+	Make the default snapshot (-s) the maximum
+	Print name of device (when -L is used)
+	Support for OpenSolaris (and SXCE build 125 and later)
+	Print new TCP flags
+	Add support for RPL DIO
+	Add support for TCP User Timeout (UTO)
+	Add support for non-standard Ethertypes used by 3com PPPoE gear
+	Add support for 802.11n and 802.11s
+	Add support for Transparent Ethernet Bridge ethertype in GRE
+	Add 4 byte AS support for BGP printer
+	Add support for the MDT SAFI 66 BG printer
+	Add basic IPv6 support to print-olsr
+	Add USB printer
+	Add printer for ForCES
+	Handle frames with an FCS
+	Handle 802.11n Control Wrapper, Block Acq Req and Block Ack frames
+	Fix TCP sequence number printing 
+	Report 802.2 packets as 802.2 instead of 802.3
+	Don't include -L/usr/lib in LDFLAGS
+	On x86_64 Linux, look in lib64 directory too
+	Lots of code clean ups
+	Autoconf clean ups
+	Update testcases to make output changes
+	Fix compiling with/out smi (--with{,out}-smi)
+	Fix compiling without IPv6 support (--disable-ipv6)
+
+Mon.    October 27, 2008.  ken@netfunctional.ca.  Summary for 4.0.0 tcpdump release
+        Add support for Bluetooth Sniffing
+        Add support for Realtek Remote Control Protocol (openrrcp.org.ru)
+        Add support for 802.11 AVS
+        Add support for SMB over TCP
+        Add support for 4 byte BGP AS printing
+        Add support for compiling on case-insensitive file systems
+        Add support for ikev2 printing
+        Update support for decoding AFS
+        Update DHCPv6 printer
+        Use newer libpcap API's (allows -B option on all platforms)
+        Add -I to turn on monitor mode
+        Bugfixes in lldp, lspping, dccp, ESP, NFS printers
+        Cleanup unused files and various cruft
+
+Mon.    September 10, 2007.  ken@xelerance.com.  Summary for 3.9.8 tcpdump release
+        Rework ARP printer
+        Rework OSPFv3 printer
+        Add support for Frame-Relay ARP
+        Decode DHCP Option 121 (RFC 3442 Classless Static Route)
+        Decode DHCP Option 249 (MS Classless Static Route) the same as Option 121
+        TLV: Add support for Juniper .pcap extensions
+        Print EGP header in new-world-order style
+        Converted print-isakmp.c to NETDISSECT
+        Moved AF specific stuff into af.h
+        Test subsystem now table driven, and saves outputs and diffs to one place
         Require <net/pfvar.h> for pf definitions - allows reading of pflog formatted 
          libpcap files on an OS other than where the file was generated
 
-Wed.	July 23, 2007.  mcr@xelerance.com.  Summary for 0.9.7 tcpdump release
+
+Wed.	July 23, 2007.  mcr@xelerance.com.  Summary for 3.9.7 libpcap release
 
     	NFS: Print unsigned values as such. 
 	RX: parse safely.

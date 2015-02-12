@@ -22,7 +22,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-lane.c,v 1.23.2.2 2005/11/13 12:12:59 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-lane.c,v 1.25 2005-11-13 12:12:42 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -60,25 +60,10 @@ static const struct tok lecop2str[] = {
 	{ 0,		NULL }
 };
 
-static inline void
-lane_hdr_print(register const u_char *bp, int length)
+static void
+lane_hdr_print(netdissect_options *ndo, const u_char *bp)
 {
-	register const struct lecdatahdr_8023 *ep;
-
-	ep = (const struct lecdatahdr_8023 *)bp;
-	if (qflag)
-		(void)printf("lecid:%x %s %s %d: ",
-			     EXTRACT_16BITS(&ep->le_header),
-			     etheraddr_string(ep->h_source),
-			     etheraddr_string(ep->h_dest),
-			     length);
-	else
-		(void)printf("lecid:%x %s %s %s %d: ",
-			     EXTRACT_16BITS(&ep->le_header),
-			     etheraddr_string(ep->h_source),
-			     etheraddr_string(ep->h_dest),
-			     etherproto_string(ep->h_type),
-			     length);
+	(void)ND_PRINT((ndo, "lecid:%x ", EXTRACT_16BITS(bp)));
 }
 
 /*
@@ -93,9 +78,6 @@ void
 lane_print(const u_char *p, u_int length, u_int caplen)
 {
 	struct lane_controlhdr *lec;
-	struct lecdatahdr_8023 *ep;
-	u_short ether_type;
-	u_short extracted_ethertype;
 
 	if (caplen < sizeof(struct lane_controlhdr)) {
 		printf("[|lane]");
@@ -113,49 +95,18 @@ lane_print(const u_char *p, u_int length, u_int caplen)
 		return;
 	}
 
-	if (caplen < sizeof(struct lecdatahdr_8023)) {
-		printf("[|lane]");
-		return;
-	}
-
-	if (eflag)
-		lane_hdr_print(p, length);
+	/*
+	 * Go past the LE header.
+	 */
+	length -= 2;
+	caplen -= 2;
+	p += 2;
 
 	/*
-	 * Go past the LANE header.
+	 * Now print the encapsulated frame, under the assumption
+	 * that it's an Ethernet frame.
 	 */
-	length -= sizeof(struct lecdatahdr_8023);
-	caplen -= sizeof(struct lecdatahdr_8023);
-	ep = (struct lecdatahdr_8023 *)p;
-	p += sizeof(struct lecdatahdr_8023);
-
-	ether_type = EXTRACT_16BITS(&ep->h_type);
-
-	/*
-	 * Is it (gag) an 802.3 encapsulation?
-	 */
-	if (ether_type <= ETHERMTU) {
-		/* Try to print the LLC-layer header & higher layers */
-		if (llc_print(p, length, caplen, ep->h_source, ep->h_dest,
-		    &extracted_ethertype) == 0) {
-			/* ether_type not known, print raw packet */
-			if (!eflag)
-				lane_hdr_print((u_char *)ep, length + sizeof(*ep));
-			if (extracted_ethertype) {
-				printf("(LLC %s) ",
-			       etherproto_string(htons(extracted_ethertype)));
-			}
-			if (!suppress_default_print)
-				default_print(p, caplen);
-		}
-	} else if (ether_encap_print(ether_type, p, length, caplen,
-	    &extracted_ethertype) == 0) {
-		/* ether_type not known, print raw packet */
-		if (!eflag)
-			lane_hdr_print((u_char *)ep, length + sizeof(*ep));
-		if (!suppress_default_print)
-			default_print(p, caplen);
-	}
+	ether_print(gndo, p, length, caplen, lane_hdr_print, p - 2);
 }
 
 u_int

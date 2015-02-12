@@ -9,7 +9,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-dccp.c,v 1.1.2.6 2006/02/19 05:08:44 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-dccp.c,v 1.8 2007-11-09 00:44:09 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -60,76 +60,28 @@ static const char *dccp_feature_nums[] = {
 	"check data checksum",
 };
 
+static inline u_int dccp_csum_coverage(const struct dccp_hdr* dh, u_int len)
+{
+	u_int cov;
+	
+	if (DCCPH_CSCOV(dh) == 0)
+		return len;
+	cov = (dh->dccph_doff + DCCPH_CSCOV(dh) - 1) * sizeof(u_int32_t);
+	return (cov > len)? len : cov;
+}
+
 static int dccp_cksum(const struct ip *ip,
 	const struct dccp_hdr *dh, u_int len)
 {
-	union phu {
-		struct phdr {
-			u_int32_t src;
-			u_int32_t dst;
-			u_char mbz;
-			u_char proto;
-			u_int16_t len;
-		} ph;
-		u_int16_t pa[6];
-	} phu;
-	const u_int16_t *sp;
-
-	/* pseudo-header.. */
-	phu.ph.mbz = 0;
-	phu.ph.len = htons(len);
-	phu.ph.proto = IPPROTO_DCCP;
-	memcpy(&phu.ph.src, &ip->ip_src.s_addr, sizeof(u_int32_t));
-	if (IP_HL(ip) == 5)
-		memcpy(&phu.ph.dst, &ip->ip_dst.s_addr, sizeof(u_int32_t));
-	else
-		phu.ph.dst = ip_finddst(ip);
-
-	sp = &phu.pa[0];
-	return in_cksum((u_short *)dh, len, sp[0]+sp[1]+sp[2]+sp[3]+sp[4]+sp[5]);
+	return nextproto4_cksum(ip, (const u_int8_t *)(void *)dh,
+	    dccp_csum_coverage(dh, len), IPPROTO_DCCP);
 }
 
 #ifdef INET6
 static int dccp6_cksum(const struct ip6_hdr *ip6, const struct dccp_hdr *dh, u_int len)
 {
-	size_t i;
-	const u_int16_t *sp;
-	u_int32_t sum;
-	union {
-		struct {
-			struct in6_addr ph_src;
-			struct in6_addr ph_dst;
-			u_int32_t   ph_len;
-			u_int8_t    ph_zero[3];
-			u_int8_t    ph_nxt;
-		} ph;
-		u_int16_t pa[20];
-	} phu;
-
-	/* pseudo-header */
-	memset(&phu, 0, sizeof(phu));
-	phu.ph.ph_src = ip6->ip6_src;
-	phu.ph.ph_dst = ip6->ip6_dst;
-	phu.ph.ph_len = htonl(len);
-	phu.ph.ph_nxt = IPPROTO_DCCP;
-
-	sum = 0;
-	for (i = 0; i < sizeof(phu.pa) / sizeof(phu.pa[0]); i++)
-		sum += phu.pa[i];
-
-	sp = (const u_int16_t *)dh;
-
-	for (i = 0; i < (len & ~1); i += 2)
-		sum += *sp++;
-
-	if (len & 1)
-		sum += htons((*(const u_int8_t *)sp) << 8);
-
-	while (sum > 0xffff)
-		sum = (sum & 0xffff) + (sum >> 16);
-	sum = ~sum & 0xffff;
-
-	return (sum);
+	return nextproto6_cksum(ip6, (const u_int8_t *)(void *)dh,
+	    dccp_csum_coverage(dh, len), IPPROTO_DCCP);
 }
 #endif
 
@@ -279,32 +231,21 @@ void dccp_print(const u_char *bp, const u_char *data2, u_int len)
 	}
 
 	/* checksum calculation */
+	if (vflag && TTEST2(bp[0], len)) {
+		u_int16_t sum = 0, dccp_sum;
+
+		dccp_sum = EXTRACT_16BITS(&dh->dccph_checksum);
+		(void)printf("cksum 0x%04x ", dccp_sum);
+		if (IP_V(ip) == 4)
+			sum = dccp_cksum(ip, dh, len);
 #ifdef INET6
-	if (ip6) {
-		if (ip6->ip6_plen && vflag) {
-			u_int16_t sum, dccp_sum;
-
+		else if (IP_V(ip) == 6)
 			sum = dccp6_cksum(ip6, dh, len);
-			dccp_sum = EXTRACT_16BITS(&dh->dccph_checksum);		
-			printf("cksum 0x%04x", dccp_sum);		
-			if (sum != 0) {
-				(void)printf(" (incorrect (-> 0x%04x), ",in_cksum_shouldbe(dccp_sum, sum));
-			} else
-				(void)printf(" (correct), ");
-		}					
-	} else 
-#endif /* INET6 */
-	if (vflag)
-	{
-		u_int16_t sum, dccp_sum;
-
-		sum = dccp_cksum(ip, dh, len);
-		dccp_sum = EXTRACT_16BITS(&dh->dccph_checksum);		
-		printf("cksum 0x%04x", dccp_sum);		
-		if (sum != 0) {
-			(void)printf(" (incorrect (-> 0x%04x), ",in_cksum_shouldbe(dccp_sum, sum));
-		} else
-			(void)printf(" (correct), ");
+#endif
+		if (sum != 0)
+			(void)printf("(incorrect -> 0x%04x), ",in_cksum_shouldbe(dccp_sum, sum));
+		else
+			(void)printf("(correct), ");
 	}
 
 	switch (DCCPH_TYPE(dh)) {
@@ -407,9 +348,6 @@ trunc2:
 static int dccp_print_option(const u_char *option)
 {	
 	u_int8_t optlen, i;
-	u_int32_t *ts;
-	u_int16_t *var16;
-	u_int32_t *var32;
 
 	TCHECK(*option);
 
@@ -483,22 +421,17 @@ static int dccp_print_option(const u_char *option)
 		for (i = 0; i < optlen -2; i ++) printf("%02x", *(option +2 + i));	
 		break;
 	case 41:
-		ts = (u_int32_t *)(option + 2);
-		printf("timestamp %u", (u_int32_t)ntohl(*ts));
+		printf("timestamp %u", EXTRACT_32BITS(option + 2));
 		break;
 	case 42:
-		ts = (u_int32_t *)(option + 2);
-		printf("timestamp_echo %u", (u_int32_t)ntohl(*ts));
+		printf("timestamp_echo %u", EXTRACT_32BITS(option + 2));
 		break;
 	case 43:
 		printf("elapsed_time ");
-		if (optlen == 6){
-			ts = (u_int32_t *)(option + 2);
-			printf("%u", (u_int32_t)ntohl(*ts));
-		} else {
-			var16 = (u_int16_t *)(option + 2);
-			printf("%u", ntohs(*var16));
-		}	
+		if (optlen == 6)
+			printf("%u", EXTRACT_32BITS(option + 2));
+		else
+			printf("%u", EXTRACT_16BITS(option + 2));
 		break;
 	case 44:
 		printf("data_checksum ");
@@ -509,12 +442,10 @@ static int dccp_print_option(const u_char *option)
 			printf("CCID option %d",*option);
 			switch (optlen) {
 				case 4:
-					var16 = (u_int16_t *)(option + 2);
-					printf(" %u",ntohs(*var16));
+					printf(" %u", EXTRACT_16BITS(option + 2));
 					break;
 				case 6:
-					var32 = (u_int32_t *)(option + 2);
-					printf(" %u",(u_int32_t)ntohl(*var32));
+					printf(" %u", EXTRACT_32BITS(option + 2));
 					break;
 				default:
 					break;

@@ -17,7 +17,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/af.c,v 1.3.2.1 2007/02/26 13:33:17 hannes Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/af.c,v 1.3 2006-03-23 14:58:44 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -28,7 +28,7 @@ static const char rcsid[] _U_ =
 #include "interface.h"
 #include "af.h"
 
-struct tok af_values[] = {
+const struct tok af_values[] = {
     { 0,                      "Reserved"},
     { AFNUM_INET,             "IPv4"},
     { AFNUM_INET6,            "IPv6"},
@@ -50,7 +50,7 @@ struct tok af_values[] = {
     { 0, NULL},
 };
 
-struct tok bsd_af_values[] = {
+const struct tok bsd_af_values[] = {
     { BSD_AFNUM_INET, "IPv4" },
     { BSD_AFNUM_NS, "NS" },
     { BSD_AFNUM_ISO, "ISO" },

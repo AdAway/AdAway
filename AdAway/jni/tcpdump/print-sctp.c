@@ -35,7 +35,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-"@(#) $Header: /tcpdump/master/tcpdump/print-sctp.c,v 1.16.2.5 2007/09/13 18:04:58 guy Exp $ (NETLAB/PEL)";
+"@(#) $Header: /tcpdump/master/tcpdump/print-sctp.c,v 1.21 2007-09-13 18:03:49 guy Exp $ (NETLAB/PEL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -59,6 +59,29 @@ static const char rcsid[] _U_ =
 #include "ip6.h"
 #endif
 
+#define CHAN_HP 6704
+#define CHAN_MP 6705
+#define CHAN_LP 6706
+
+static const struct tok ForCES_channels[] = {
+	{ CHAN_HP, "ForCES HP" },
+	{ CHAN_MP, "ForCES MP" },
+	{ CHAN_LP, "ForCES LP" },
+	{ 0, NULL }
+};
+
+static inline int isForCES_port(u_short Port)
+{
+	if (Port == CHAN_HP)
+		return 1;
+	if (Port == CHAN_MP)
+		return 1;
+	if (Port == CHAN_LP)
+		return 1;
+
+	return 0;
+}
+
 void sctp_print(const u_char *bp,        /* beginning of sctp packet */
 		const u_char *bp2,       /* beginning of enclosing */
 		u_int sctpPacketLength)  /* ip packet */
@@ -74,6 +97,8 @@ void sctp_print(const u_char *bp,        /* beginning of sctp packet */
   const struct sctpChunkDesc *chunkDescPtr;
   const void *nextChunk;
   const char *sep;
+  int isforces = 0;
+
 
   sctpPktHdr = (const struct sctpHeader*) bp;
   endPacketPtr = (const u_char*)sctpPktHdr+sctpPacketLength;
@@ -119,6 +144,15 @@ void sctp_print(const u_char *bp,        /* beginning of sctp packet */
       destPort);
   }
   fflush(stdout);
+
+  if (isForCES_port(sourcePort)) {
+         printf("[%s]", tok2str(ForCES_channels, NULL, sourcePort));
+         isforces = 1;
+  }
+  if (isForCES_port(destPort)) {
+         printf("[%s]", tok2str(ForCES_channels, NULL, destPort));
+         isforces = 1;
+  }
 
   if (vflag >= 2)
     sep = "\n\t";
@@ -193,9 +227,23 @@ void sctp_print(const u_char *bp,        /* beginning of sctp packet */
 	    printf("[SSEQ %u] ", EXTRACT_16BITS(&dataHdrPtr->sequence));
 	    printf("[PPID 0x%x] ", EXTRACT_32BITS(&dataHdrPtr->payloadtype));
 	    fflush(stdout);
+	    if (isforces) {
+		const u_char *payloadPtr;
+		u_int chunksize = sizeof(struct sctpDataPart)+
+			          sizeof(struct sctpChunkDesc);
+		payloadPtr = (const u_char *) (dataHdrPtr + 1);
+		if (EXTRACT_16BITS(&chunkDescPtr->chunkLength) <
+			sizeof(struct sctpDataPart)+
+			sizeof(struct sctpChunkDesc)+1) {
+		/* Less than 1 byte of chunk payload */
+			printf("bogus ForCES chunk length %u]",
+			    EXTRACT_16BITS(&chunkDescPtr->chunkLength));
+			return;
+		}
 
-	    if (vflag >= 2)	   /* if verbose output is specified */
-	      {		           /* at the command line */
+		forces_print(payloadPtr, EXTRACT_16BITS(&chunkDescPtr->chunkLength)- chunksize);
+	   } else if (vflag >= 2) {	/* if verbose output is specified */
+					/* at the command line */
 		const u_char *payloadPtr;
 
 		printf("[Payload");
@@ -203,16 +251,16 @@ void sctp_print(const u_char *bp,        /* beginning of sctp packet */
 		if (!suppress_default_print) {
 			payloadPtr = (const u_char *) (++dataHdrPtr);
 			printf(":");
-			if (htons(chunkDescPtr->chunkLength) <
+			if (EXTRACT_16BITS(&chunkDescPtr->chunkLength) <
 			    sizeof(struct sctpDataPart)+
 			    sizeof(struct sctpChunkDesc)+1) {
 				/* Less than 1 byte of chunk payload */
 				printf("bogus chunk length %u]",
-				    htons(chunkDescPtr->chunkLength));
+				    EXTRACT_16BITS(&chunkDescPtr->chunkLength));
 				return;
 			}
 			default_print(payloadPtr,
-			      htons(chunkDescPtr->chunkLength) -
+			      EXTRACT_16BITS(&chunkDescPtr->chunkLength) -
 			      (sizeof(struct sctpDataPart)+
 			      sizeof(struct sctpChunkDesc)));
 		} else
@@ -295,15 +343,8 @@ void sctp_print(const u_char *bp,        /* beginning of sctp packet */
 	    break;
 	  }
 	case SCTP_HEARTBEAT_REQUEST :
-	  {
-	    const struct sctpHBsender *hb;
-
-	    hb=(const struct sctpHBsender*)chunkDescPtr;
-
-	    printf("[HB REQ] ");
-
-	    break;
-	  }
+	  printf("[HB REQ] ");
+	  break;
 	case SCTP_HEARTBEAT_ACK :
 	  printf("[HB ACK] ");
 	  break;

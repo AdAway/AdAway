@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/ospf6.h,v 1.6 2002/12/11 07:13:56 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/ospf6.h,v 1.7 2006-09-05 15:50:26 hannes Exp $ (LBL) */
 /*
  * Copyright (c) 1991, 1993, 1994, 1995, 1996, 1997
  *	The Regents of the University of California.  All rights reserved.
@@ -21,13 +21,11 @@
  *
  * OSPF support contributed by Jeffrey Honig (jch@mitchell.cit.cornell.edu)
  */
-#define	OSPF_TYPE_UMD	0	/* UMd's special monitoring packets */
-#define	OSPF_TYPE_HELLO	1	/* Hello */
-#define	OSPF_TYPE_DB	2	/* Database Description */
-#define	OSPF_TYPE_LSR	3	/* Link State Request */
-#define	OSPF_TYPE_LSU	4	/* Link State Update */
-#define	OSPF_TYPE_LSA	5	/* Link State Ack */
-#define	OSPF_TYPE_MAX	6
+#define	OSPF_TYPE_HELLO         1	/* Hello */
+#define	OSPF_TYPE_DD            2	/* Database Description */
+#define	OSPF_TYPE_LS_REQ        3	/* Link State Request */
+#define	OSPF_TYPE_LS_UPDATE     4	/* Link State Update */
+#define	OSPF_TYPE_LS_ACK        5	/* Link State Ack */
 
 /* Options *_options	*/
 #define OSPF6_OPTION_V6	0x01	/* V6 bit: A bit for peeping tom */
@@ -50,23 +48,18 @@
 #define	LS_TYPE_INTER_AR	4   /* Inter-Area-Router */
 #define	LS_TYPE_ASE		5   /* ASE */
 #define	LS_TYPE_GROUP		6   /* Group membership */
-#define	LS_TYPE_TYPE7		7   /* Type 7 LSA */
+#define	LS_TYPE_NSSA		7   /* NSSA */
 #define	LS_TYPE_LINK		8   /* Link LSA */
 #define	LS_TYPE_INTRA_AP	9   /* Intra-Area-Prefix */
-#define	LS_TYPE_MAX		10
+#define LS_TYPE_INTRA_ATE       10  /* Intra-Area-TE */
+#define LS_TYPE_GRACE           11  /* Grace LSA */
 #define LS_TYPE_MASK		0x1fff
 
 #define LS_SCOPE_LINKLOCAL	0x0000
 #define LS_SCOPE_AREA		0x2000
 #define LS_SCOPE_AS		0x4000
 #define LS_SCOPE_MASK		0x6000
-
-/*************************************************
- *
- * is the above a bug in the documentation?
- *
- *************************************************/
-
+#define LS_SCOPE_U              0x8000
 
 /* rla_link.link_type	*/
 #define	RLA_TYPE_ROUTER		1   /* point-to-point to another router	*/
@@ -78,6 +71,14 @@
 #define	RLA_FLAG_E	0x02
 #define	RLA_FLAG_V	0x04
 #define	RLA_FLAG_W	0x08
+#define RLA_FLAG_N      0x10
+
+/* lsa_prefix options */
+#define LSA_PREFIX_OPT_NU 0x01
+#define LSA_PREFIX_OPT_LA 0x02
+#define LSA_PREFIX_OPT_MC 0x04
+#define LSA_PREFIX_OPT_P  0x08
+#define LSA_PREFIX_OPT_DN 0x10
 
 /* sla_tosmetric breakdown	*/
 #define	SLA_MASK_TOS		0x7f000000
@@ -85,19 +86,14 @@
 #define SLA_SHIFT_TOS		24
 
 /* asla_metric */
-#define ASLA_FLAG_EXTERNAL	0x04000000
 #define ASLA_FLAG_FWDADDR	0x02000000
 #define ASLA_FLAG_ROUTETAG	0x01000000
 #define	ASLA_MASK_METRIC	0x00ffffff
 
-/* multicast vertex type */
-#define	MCLA_VERTEX_ROUTER	1
-#define	MCLA_VERTEX_NETWORK	2
-
 typedef u_int32_t rtrid_t;
 
 /* link state advertisement header */
-struct lsa_hdr {
+struct lsa6_hdr {
     u_int16_t ls_age;
     u_int16_t ls_type;
     rtrid_t ls_stateid;
@@ -107,16 +103,16 @@ struct lsa_hdr {
     u_int16_t ls_length;
 };
 
-struct lsa_prefix {
+struct lsa6_prefix {
     u_int8_t lsa_p_len;
     u_int8_t lsa_p_opt;
-    u_int16_t lsa_p_mbz;
+    u_int16_t lsa_p_metric;
     u_int8_t lsa_p_prefix[4];
 };
 
 /* link state advertisement */
-struct lsa {
-    struct lsa_hdr ls_hdr;
+struct lsa6 {
+    struct lsa6_hdr ls_hdr;
 
     /* Link state types */
     union {
@@ -128,7 +124,7 @@ struct lsa {
 	    } rla_flgandopt;
 #define rla_flags	rla_flgandopt.flg
 #define rla_options	rla_flgandopt.opt
-	    struct rlalink {
+	    struct rlalink6 {
 		u_int8_t link_type;
 		u_int8_t link_zero[1];
 		u_int16_t link_metric;
@@ -147,13 +143,13 @@ struct lsa {
 	/* Inter Area Prefix LSA */
 	struct {
 	    u_int32_t inter_ap_metric;
-	    struct lsa_prefix inter_ap_prefix[1];
+	    struct lsa6_prefix inter_ap_prefix[1];
 	} un_inter_ap;
 
 	/* AS external links advertisements */
 	struct {
 	    u_int32_t asla_metric;
-	    struct lsa_prefix asla_prefix[1];
+	    struct lsa6_prefix asla_prefix[1];
 	    /* some optional fields follow */
 	} un_asla;
 
@@ -183,7 +179,7 @@ struct lsa {
 #define llsa_options	llsa_priandopt.opt
 	    struct in6_addr llsa_lladdr;
 	    u_int32_t llsa_nprefix;
-	    struct lsa_prefix llsa_prefix[1];
+	    struct lsa6_prefix llsa_prefix[1];
 	} un_llsa;
 
 	/* Intra-Area-Prefix */
@@ -192,20 +188,11 @@ struct lsa {
 	    u_int16_t intra_ap_lstype;
 	    rtrid_t intra_ap_lsid;
 	    rtrid_t intra_ap_rtid;
-	    struct lsa_prefix intra_ap_prefix[1];
+	    struct lsa6_prefix intra_ap_prefix[1];
 	} un_intra_ap;
     } lsa_un;
 };
 
-
-/*
- * TOS metric struct (will be 0 or more in router links update)
- */
-struct tos_metric {
-    u_int8_t tos_type;
-    u_int8_t tos_zero;
-    u_int16_t tos_metric;
-};
 
 #define	OSPF_AUTH_SIZE	8
 
@@ -246,11 +233,11 @@ struct ospf6hdr {
 	    u_int8_t db_mbz;
 	    u_int8_t db_flags;
 	    u_int32_t db_seq;
-	    struct lsa_hdr db_lshdr[1]; /* may repeat	*/
+	    struct lsa6_hdr db_lshdr[1]; /* may repeat	*/
 	} un_db;
 
 	/* Link State Request */
-	struct lsr {
+	struct lsr6 {
 	    u_int16_t ls_mbz;
 	    u_int16_t ls_type;
 	    rtrid_t ls_stateid;
@@ -260,12 +247,12 @@ struct ospf6hdr {
 	/* Link State Update */
 	struct {
 	    u_int32_t lsu_count;
-	    struct lsa lsu_lsa[1]; /* may repeat	*/
+	    struct lsa6 lsu_lsa[1]; /* may repeat	*/
 	} un_lsu;
 
 	/* Link State Acknowledgement */
 	struct {
-	    struct lsa_hdr lsa_lshdr[1]; /* may repeat	*/
+	    struct lsa6_hdr lsa_lshdr[1]; /* may repeat	*/
 	} un_lsa ;
     } ospf6_un ;
 };

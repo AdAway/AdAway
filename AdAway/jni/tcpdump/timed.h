@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/timed.h,v 1.5 2002/12/11 07:14:12 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/timed.h,v 1.6 2008-02-05 19:46:19 guy Exp $ (LBL) */
 /*
  * Copyright (c) 1983, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -44,12 +44,17 @@
 #define	TSPVERSION	1
 #define ANYADDR 	NULL
 
+struct tsp_timeval {
+	u_int32_t	tv_sec;
+	u_int32_t	tv_usec;
+};
+
 struct tsp {
 	u_int8_t	tsp_type;
 	u_int8_t	tsp_vers;
 	u_int16_t	tsp_seq;
 	union {
-		struct timeval tspu_time;
+		struct tsp_timeval tspu_time;
 		int8_t tspu_hopcnt;
 	} tsp_u;
 	int8_t tsp_name[256];

@@ -23,7 +23,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-l2tp.c,v 1.17.2.3 2006/06/23 02:07:27 hannes Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-l2tp.c,v 1.20 2006-06-23 02:03:09 hannes Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -55,7 +55,7 @@ static char tstr[] = " [|l2tp]";
 #define	L2TP_MSGTYPE_WEN	15 /* WAN-Error-Notify */
 #define	L2TP_MSGTYPE_SLI	16 /* Set-Link-Info */
 
-static struct tok l2tp_msgtype2str[] = {
+static const struct tok l2tp_msgtype2str[] = {
 	{ L2TP_MSGTYPE_SCCRQ, 	"SCCRQ" },
 	{ L2TP_MSGTYPE_SCCRP,	"SCCRP" },
 	{ L2TP_MSGTYPE_SCCCN,	"SCCCN" },
@@ -115,7 +115,7 @@ static struct tok l2tp_msgtype2str[] = {
 #define L2TP_AVP_SEQ_REQUIRED 		39 /* Sequencing Required */
 #define L2TP_AVP_PPP_DISCON_CC		46 /* PPP Disconnect Cause Code */
 
-static struct tok l2tp_avp2str[] = {
+static const struct tok l2tp_avp2str[] = {
 	{ L2TP_AVP_MSGTYPE,		"MSGTYPE" },
 	{ L2TP_AVP_RESULT_CODE,		"RESULT_CODE" },
 	{ L2TP_AVP_PROTO_VER,		"PROTO_VER" },
@@ -160,7 +160,7 @@ static struct tok l2tp_avp2str[] = {
 	{ 0,				NULL }
 };
 
-static struct tok l2tp_authentype2str[] = {
+static const struct tok l2tp_authentype2str[] = {
 	{ L2TP_AUTHEN_TYPE_RESERVED,	"Reserved" },
 	{ L2TP_AUTHEN_TYPE_TEXTUAL,	"Textual" },
 	{ L2TP_AUTHEN_TYPE_CHAP,	"CHAP" },
@@ -174,7 +174,7 @@ static struct tok l2tp_authentype2str[] = {
 #define L2TP_PPP_DISCON_CC_DIRECTION_AT_PEER	1
 #define L2TP_PPP_DISCON_CC_DIRECTION_AT_LOCAL	2
 
-static struct tok l2tp_cc_direction2str[] = {
+static const struct tok l2tp_cc_direction2str[] = {
 	{ L2TP_PPP_DISCON_CC_DIRECTION_GLOBAL,	"global error" },
 	{ L2TP_PPP_DISCON_CC_DIRECTION_AT_PEER,	"at peer" },
 	{ L2TP_PPP_DISCON_CC_DIRECTION_AT_LOCAL,"at local" },
@@ -606,7 +606,7 @@ l2tp_avp_print(const u_char *dat, int length)
 void
 l2tp_print(const u_char *dat, u_int length)
 {
-	const u_int16_t *ptr = (u_int16_t *)dat;
+	const u_char *ptr = dat;
 	u_int cnt = 0;			/* total octets consumed */
 	u_int16_t pad;
 	int flag_t, flag_l, flag_s, flag_o;
@@ -614,7 +614,7 @@ l2tp_print(const u_char *dat, u_int length)
 
 	flag_t = flag_l = flag_s = flag_o = FALSE;
 
-	TCHECK(*ptr);	/* Flags & Version */
+	TCHECK2(*ptr, 2);	/* Flags & Version */
 	if ((EXTRACT_16BITS(ptr) & L2TP_VERSION_MASK) == L2TP_VERSION_L2TP) {
 		printf(" l2tp:");
 	} else if ((EXTRACT_16BITS(ptr) & L2TP_VERSION_MASK) == L2TP_VERSION_L2F) {
@@ -646,37 +646,42 @@ l2tp_print(const u_char *dat, u_int length)
 		printf("P");
 	printf("]");
 
-	ptr++;
+	ptr += 2;
 	cnt += 2;
 
 	if (flag_l) {
-		TCHECK(*ptr);	/* Length */
-		l2tp_len = EXTRACT_16BITS(ptr); ptr++;
+		TCHECK2(*ptr, 2);	/* Length */
+		l2tp_len = EXTRACT_16BITS(ptr);
+		ptr += 2;
 		cnt += 2;
 	} else {
 		l2tp_len = 0;
 	}
 
-	TCHECK(*ptr);		/* Tunnel ID */
-	printf("(%u/", EXTRACT_16BITS(ptr)); ptr++;
+	TCHECK2(*ptr, 2);		/* Tunnel ID */
+	printf("(%u/", EXTRACT_16BITS(ptr));
+	ptr += 2;
 	cnt += 2;
-	TCHECK(*ptr);		/* Session ID */
-	printf("%u)",  EXTRACT_16BITS(ptr)); ptr++;
+	TCHECK2(*ptr, 2);		/* Session ID */
+	printf("%u)",  EXTRACT_16BITS(ptr));
+	ptr += 2;
 	cnt += 2;
 
 	if (flag_s) {
-		TCHECK(*ptr);	/* Ns */
-		printf("Ns=%u,", EXTRACT_16BITS(ptr)); ptr++;
+		TCHECK2(*ptr, 2);	/* Ns */
+		printf("Ns=%u,", EXTRACT_16BITS(ptr));
+		ptr += 2;
 		cnt += 2;
-		TCHECK(*ptr);	/* Nr */
-		printf("Nr=%u",  EXTRACT_16BITS(ptr)); ptr++;
+		TCHECK2(*ptr, 2);	/* Nr */
+		printf("Nr=%u",  EXTRACT_16BITS(ptr));
+		ptr += 2;
 		cnt += 2;
 	}
 
 	if (flag_o) {
-		TCHECK(*ptr);	/* Offset Size */
-		pad =  EXTRACT_16BITS(ptr); ptr++;
-		ptr += pad / sizeof(*ptr);
+		TCHECK2(*ptr, 2);	/* Offset Size */
+		pad =  EXTRACT_16BITS(ptr);
+		ptr += (2 + pad);
 		cnt += (2 + pad);
 	}
 
@@ -699,11 +704,11 @@ l2tp_print(const u_char *dat, u_int length)
 		if (length - cnt == 0) {
 			printf(" ZLB");
 		} else {
-			l2tp_avp_print((u_char *)ptr, length - cnt);
+			l2tp_avp_print(ptr, length - cnt);
 		}
 	} else {
 		printf(" {");
-		ppp_print((u_char *)ptr, length - cnt);
+		ppp_print(ptr, length - cnt);
 		printf("}");
 	}
 

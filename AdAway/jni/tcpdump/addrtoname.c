@@ -23,7 +23,7 @@
  */
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/addrtoname.c,v 1.108.2.9 2007/09/14 00:26:18 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/addrtoname.c,v 1.119 2007-08-08 14:06:34 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -79,7 +79,6 @@ extern int ether_ntohost(char *, const struct ether_addr *);
  */
 
 #define HASHNAMESIZE 4096
-#define BUFSIZE 128
 
 struct hnamemem {
 	u_int32_t addr;
@@ -87,12 +86,12 @@ struct hnamemem {
 	struct hnamemem *nxt;
 };
 
-struct hnamemem hnametable[HASHNAMESIZE];
-struct hnamemem tporttable[HASHNAMESIZE];
-struct hnamemem uporttable[HASHNAMESIZE];
-struct hnamemem eprototable[HASHNAMESIZE];
-struct hnamemem dnaddrtable[HASHNAMESIZE];
-struct hnamemem ipxsaptable[HASHNAMESIZE];
+static struct hnamemem hnametable[HASHNAMESIZE];
+static struct hnamemem tporttable[HASHNAMESIZE];
+static struct hnamemem uporttable[HASHNAMESIZE];
+static struct hnamemem eprototable[HASHNAMESIZE];
+static struct hnamemem dnaddrtable[HASHNAMESIZE];
+static struct hnamemem ipxsaptable[HASHNAMESIZE];
 
 #if defined(INET6) && defined(WIN32)
 /*
@@ -141,7 +140,7 @@ struct h6namemem {
 	struct h6namemem *nxt;
 };
 
-struct h6namemem h6nametable[HASHNAMESIZE];
+static struct h6namemem h6nametable[HASHNAMESIZE];
 #endif /* INET6 */
 
 struct enamemem {
@@ -154,9 +153,9 @@ struct enamemem {
 	struct enamemem *e_nxt;
 };
 
-struct enamemem enametable[HASHNAMESIZE];
-struct enamemem nsaptable[HASHNAMESIZE];
-struct enamemem bytestringtable[HASHNAMESIZE];
+static struct enamemem enametable[HASHNAMESIZE];
+static struct enamemem nsaptable[HASHNAMESIZE];
+static struct enamemem bytestringtable[HASHNAMESIZE];
 
 struct protoidmem {
 	u_int32_t p_oui;
@@ -165,7 +164,7 @@ struct protoidmem {
 	struct protoidmem *p_nxt;
 };
 
-struct protoidmem protoidtable[HASHNAMESIZE];
+static struct protoidmem protoidtable[HASHNAMESIZE];
 
 /*
  * A faster replacement for inet_ntoa().
@@ -274,18 +273,24 @@ const char *
 getname6(const u_char *ap)
 {
 	register struct hostent *hp;
-	struct in6_addr addr;
+	union {
+		struct in6_addr addr;
+		struct for_hash_addr {
+			char fill[14];
+			u_int16_t d;
+		} addra;
+	} addr;
 	static struct h6namemem *p;		/* static for longjmp() */
 	register const char *cp;
 	char ntop_buf[INET6_ADDRSTRLEN];
 
 	memcpy(&addr, ap, sizeof(addr));
-	p = &h6nametable[*(u_int16_t *)&addr.s6_addr[14] & (HASHNAMESIZE-1)];
+	p = &h6nametable[addr.addra.d & (HASHNAMESIZE-1)];
 	for (; p->nxt; p = p->nxt) {
 		if (memcmp(&p->addr, &addr, sizeof(addr)) == 0)
 			return (p->name);
 	}
-	p->addr = addr;
+	p->addr = addr.addr;
 	p->nxt = newh6namemem();
 
 	/*
@@ -312,7 +317,7 @@ getname6(const u_char *ap)
 }
 #endif /* INET6 */
 
-static char hex[] = "0123456789abcdef";
+static const char hex[] = "0123456789abcdef";
 
 
 /* Find the hash node that corresponds the ether address 'ep' */
@@ -382,6 +387,9 @@ lookup_bytestring(register const u_char *bs, const unsigned int nlen)
 	tp->e_addr2 = k;
 
 	tp->e_bs = (u_char *) calloc(1, nlen + 1);
+	if (tp->e_bs == NULL)
+		error("lookup_bytestring: calloc");
+
 	memcpy(tp->e_bs, bs, nlen);
 	tp->e_nxt = (struct enamemem *)calloc(1, sizeof(*tp));
 	if (tp->e_nxt == NULL)
@@ -509,14 +517,48 @@ etheraddr_string(register const u_char *ep)
 }
 
 const char *
-linkaddr_string(const u_char *ep, const unsigned int len)
+le64addr_string(const u_char *ep)
+{
+	const unsigned int len = 8;
+	register u_int i;
+	register char *cp;
+	register struct enamemem *tp;
+	char buf[BUFSIZE];
+
+	tp = lookup_bytestring(ep, len);
+	if (tp->e_name)
+		return (tp->e_name);
+
+	cp = buf;
+	for (i = len; i > 0 ; --i) {
+		*cp++ = hex[*(ep + i - 1) >> 4];
+		*cp++ = hex[*(ep + i - 1) & 0xf];
+		*cp++ = ':';
+	}
+	cp --;
+
+	*cp = '\0';
+
+	tp->e_name = strdup(buf);
+
+	return (tp->e_name);
+}
+
+const char *
+linkaddr_string(const u_char *ep, const unsigned int type, const unsigned int len)
 {
 	register u_int i;
 	register char *cp;
 	register struct enamemem *tp;
 
-	if (len == ETHER_ADDR_LEN)	/* XXX not totally correct... */
-		return etheraddr_string(ep);
+	if (len == 0)
+		return ("<empty>");
+
+	if (type == LINKADDR_ETHER && len == ETHER_ADDR_LEN)
+		return (etheraddr_string(ep));
+
+	if (type == LINKADDR_FRELAY)
+		return (q922_string(ep));
 
 	tp = lookup_bytestring(ep, len);
 	if (tp->e_name)
@@ -743,7 +785,7 @@ init_eprotoarray(void)
 	}
 }
 
-static struct protoidlist {
+static const struct protoidlist {
 	const u_char protoid[5];
 	const char *name;
 } protoidlist[] = {
@@ -764,7 +806,7 @@ init_protoidarray(void)
 {
 	register int i;
 	register struct protoidmem *tp;
-	struct protoidlist *pl;
+	const struct protoidlist *pl;
 	u_char protoid[5];
 
 	protoid[0] = 0;
@@ -788,7 +830,7 @@ init_protoidarray(void)
 	}
 }
 
-static struct etherlist {
+static const struct etherlist {
 	const u_char addr[6];
 	const char *name;
 } etherlist[] = {
@@ -813,7 +855,7 @@ static struct etherlist {
 static void
 init_etherarray(void)
 {
-	register struct etherlist *el;
+	register const struct etherlist *el;
 	register struct enamemem *tp;
 #ifdef USE_ETHER_NTOHOST
 	char name[256];
@@ -857,7 +899,7 @@ init_etherarray(void)
 	}
 }
 
-static struct tok ipxsap_db[] = {
+static const struct tok ipxsap_db[] = {
 	{ 0x0000, "Unknown" },
 	{ 0x0001, "User" },
 	{ 0x0002, "User Group" },

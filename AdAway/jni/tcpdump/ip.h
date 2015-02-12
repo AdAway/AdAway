@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/ip.h,v 1.11.2.1 2007/09/14 01:30:02 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/ip.h,v 1.12 2007-09-14 01:29:28 guy Exp $ (LBL) */
 /*
  * Copyright (c) 1982, 1986, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -62,7 +62,7 @@ struct ip {
 	u_int8_t	ip_p;		/* protocol */
 	u_int16_t	ip_sum;		/* checksum */
 	struct	in_addr ip_src,ip_dst;	/* source and dest address */
-};
+} UNALIGNED;
 
 #define	IP_MAXPACKET	65535		/* maximum packet size */
 
@@ -134,7 +134,7 @@ struct	ip_timestamp {
 			u_int32_t ipt_time;
 		} ipt_ta[1];
 	} ipt_timestamp;
-};
+} UNALIGNED;
 
 /* flag bits for ipt_flg */
 #define	IPOPT_TS_TSONLY		0		/* timestamps only */
@@ -161,4 +161,4 @@ struct	ip_timestamp {
 #define	IP_MSS		576		/* default maximum segment size */
 
 /* in print-ip.c */
-extern u_int32_t ip_finddst(const struct ip *);
+extern int nextproto4_cksum(const struct ip *, const u_int8_t *, u_int, u_int);

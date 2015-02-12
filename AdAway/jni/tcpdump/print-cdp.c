@@ -26,7 +26,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-cdp.c,v 1.25 2004/10/07 14:53:11 hannes Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-cdp.c,v 1.25 2004-10-07 14:53:11 hannes Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -45,7 +45,7 @@ static const char rcsid[] _U_ =
 
 #define CDP_HEADER_LEN  4
 
-static struct tok cdp_tlv_values[] = {
+static const struct tok cdp_tlv_values[] = {
     { 0x01,             "Device-ID"},
     { 0x02,             "Address"},
     { 0x03,             "Port-ID"},
@@ -70,7 +70,7 @@ static struct tok cdp_tlv_values[] = {
     { 0, NULL}
 };
 
-static struct tok cdp_capability_values[] = {
+static const struct tok cdp_capability_values[] = {
     { 0x01,             "Router" },
     { 0x02,             "Transparent Bridge" },
     { 0x04,             "Source Route Bridge" },
@@ -124,22 +124,25 @@ cdp_print(const u_char *pptr, u_int length, u_int caplen)
                                tok2str(cdp_tlv_values,"unknown field type", type),
                                type,
                                len,
-                               len>1 ? "s" : ""); /* plural */
+                               PLURAL_SUFFIX(len)); /* plural */
 
                     switch (type) {
 
                     case 0x01: /* Device-ID */
                         if (!vflag)
-                            printf(", Device-ID '%.*s'", len, tptr);
-                        else
-                            printf("'%.*s'", len, tptr);
+                            printf(", Device-ID ");
+                        printf("'");
+                        fn_printn(tptr, len, NULL);
+                        printf("'");
 			break;
                     case 0x02: /* Address */
                         if (cdp_print_addr(tptr, len) < 0)
                             goto trunc;
 			break;
                     case 0x03: /* Port-ID */
-			printf("'%.*s'", len, tptr);
+                        printf("'");
+                        fn_printn(tptr, len, NULL);
+                        printf("'");
 			break;
                     case 0x04: /* Capabilities */
 			printf("(0x%08x): %s",
@@ -156,7 +159,9 @@ cdp_print(const u_char *pptr, u_int length, u_int caplen)
                         }
 			break;
                     case 0x06: /* Platform */
-			printf("'%.*s'", len, tptr);
+                        printf("'");
+                        fn_printn(tptr, len, NULL);
+                        printf("'");
 			break;
                     case 0x07: /* Prefixes */
 			if (cdp_print_prefixes(tptr, len) < 0)
@@ -165,7 +170,9 @@ cdp_print(const u_char *pptr, u_int length, u_int caplen)
                     case 0x08: /* Protocol Hello Option - not documented */
 			break;
                     case 0x09: /* VTP Mgmt Domain  - not documented */
-			printf("'%.*s'", len,tptr);
+                        printf("'");
+                        fn_printn(tptr, len, NULL);
+                        printf("'");
 			break;
                     case 0x0a: /* Native VLAN ID - not documented */
 			printf("%d",EXTRACT_16BITS(tptr));
@@ -195,14 +202,20 @@ cdp_print(const u_char *pptr, u_int length, u_int caplen)
 			printf("0x%02x", *(tptr));
 			break;
                     case 0x14: /* System Name - not documented */
-			printf("'%.*s'", len, tptr);
+                        printf("'");
+                        fn_printn(tptr, len, NULL);
+                        printf("'");
 			break;
                     case 0x16: /* System Object ID - not documented */
 			if (cdp_print_addr(tptr, len) < 0)
 				goto trunc;
 			break;
                     case 0x17: /* Physical Location - not documented */
-			printf("0x%02x/%.*s", *(tptr), len - 1, tptr + 1 );
+			printf("0x%02x", *(tptr));
+			if (len > 1) {
+				printf("/");
+	                        fn_printn(tptr + 1, len - 1, NULL);
+	                }
 			break;
                     default:
                         print_unknown_data(tptr,"\n\t  ",len);

@@ -1,3 +1,5 @@
+/*     NetBSD: print-juniper.c,v 1.2 2007/07/24 11:53:45 drochner Exp        */
+
 /* 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that: (1) source code
@@ -15,7 +17,9 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-juniper.c,v 1.8.2.22 2006/05/10 22:42:46 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-juniper.c,v 1.34 2007-08-29 02:31:44 mcr Exp $ (LBL)";
+#else
+__RCSID("NetBSD: print-juniper.c,v 1.3 2007/07/25 06:31:32 dogcow Exp ");
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -40,6 +44,8 @@ static const char rcsid[] _U_ =
 #define JUNIPER_BPF_IN            1       /* Incoming packet */
 #define JUNIPER_BPF_PKT_IN        0x1     /* Incoming packet */
 #define JUNIPER_BPF_NO_L2         0x2     /* L2 header stripped */
+#define JUNIPER_BPF_IIF           0x4     /* IIF is valid */
+#define JUNIPER_BPF_FILTER        0x40    /* BPF filtering is supported */
 #define JUNIPER_BPF_EXT           0x80    /* extensions present */
 #define JUNIPER_MGC_NUMBER        0x4d4743 /* = "MGC" */
 
@@ -59,7 +65,7 @@ static const char rcsid[] _U_ =
 #define JUNIPER_IPSEC_O_AH_AUTHENTICATION_TYPE 4
 #define JUNIPER_IPSEC_O_ESP_ENCRYPTION_TYPE 5
 
-static struct tok juniper_ipsec_type_values[] = {
+static const struct tok juniper_ipsec_type_values[] = {
     { JUNIPER_IPSEC_O_ESP_ENCRYPT_ESP_AUTHEN_TYPE, "ESP ENCR-AUTH" },
     { JUNIPER_IPSEC_O_ESP_ENCRYPT_AH_AUTHEN_TYPE, "ESP ENCR-AH AUTH" },
     { JUNIPER_IPSEC_O_ESP_AUTHENTICATION_TYPE, "ESP AUTH" },
@@ -68,10 +74,295 @@ static struct tok juniper_ipsec_type_values[] = {
     { 0, NULL}
 };
 
-static struct tok juniper_direction_values[] = {
+static const struct tok juniper_direction_values[] = {
     { JUNIPER_BPF_IN,  "In"},
     { JUNIPER_BPF_OUT, "Out"},
     { 0, NULL}
+};
+
+/* codepoints for encoding extensions to a .pcap file */
+enum {
+    JUNIPER_EXT_TLV_IFD_IDX = 1,
+    JUNIPER_EXT_TLV_IFD_NAME = 2,
+    JUNIPER_EXT_TLV_IFD_MEDIATYPE = 3,
+    JUNIPER_EXT_TLV_IFL_IDX = 4,
+    JUNIPER_EXT_TLV_IFL_UNIT = 5,
+    JUNIPER_EXT_TLV_IFL_ENCAPS = 6, 
+    JUNIPER_EXT_TLV_TTP_IFD_MEDIATYPE = 7,  
+    JUNIPER_EXT_TLV_TTP_IFL_ENCAPS = 8
+};
+
+/* 1 byte type and 1-byte length */
+#define JUNIPER_EXT_TLV_OVERHEAD 2
+
+static const struct tok jnx_ext_tlv_values[] = {
+    { JUNIPER_EXT_TLV_IFD_IDX, "Device Interface Index" },
+    { JUNIPER_EXT_TLV_IFD_NAME,"Device Interface Name" },
+    { JUNIPER_EXT_TLV_IFD_MEDIATYPE, "Device Media Type" },
+    { JUNIPER_EXT_TLV_IFL_IDX, "Logical Interface Index" },
+    { JUNIPER_EXT_TLV_IFL_UNIT,"Logical Unit Number" },
+    { JUNIPER_EXT_TLV_IFL_ENCAPS, "Logical Interface Encapsulation" },
+    { JUNIPER_EXT_TLV_TTP_IFD_MEDIATYPE, "TTP derived Device Media Type" },
+    { JUNIPER_EXT_TLV_TTP_IFL_ENCAPS, "TTP derived Logical Interface Encapsulation" },
+    { 0, NULL }
+};
+
+static const struct tok jnx_flag_values[] = {
+    { JUNIPER_BPF_EXT, "Ext" },
+    { JUNIPER_BPF_FILTER, "Filter" },
+    { JUNIPER_BPF_IIF, "IIF" },
+    { JUNIPER_BPF_NO_L2, "no-L2" },
+    { JUNIPER_BPF_PKT_IN, "In" },
+    { 0, NULL }
+};
+
+#define JUNIPER_IFML_ETHER              1
+#define JUNIPER_IFML_FDDI               2
+#define JUNIPER_IFML_TOKENRING          3
+#define JUNIPER_IFML_PPP                4
+#define JUNIPER_IFML_FRAMERELAY         5
+#define JUNIPER_IFML_CISCOHDLC          6
+#define JUNIPER_IFML_SMDSDXI            7
+#define JUNIPER_IFML_ATMPVC             8
+#define JUNIPER_IFML_PPP_CCC            9
+#define JUNIPER_IFML_FRAMERELAY_CCC     10
+#define JUNIPER_IFML_IPIP               11
+#define JUNIPER_IFML_GRE                12
+#define JUNIPER_IFML_PIM                13
+#define JUNIPER_IFML_PIMD               14
+#define JUNIPER_IFML_CISCOHDLC_CCC      15
+#define JUNIPER_IFML_VLAN_CCC           16
+#define JUNIPER_IFML_MLPPP              17
+#define JUNIPER_IFML_MLFR               18
+#define JUNIPER_IFML_ML                 19
+#define JUNIPER_IFML_LSI                20
+#define JUNIPER_IFML_DFE                21
+#define JUNIPER_IFML_ATM_CELLRELAY_CCC  22
+#define JUNIPER_IFML_CRYPTO             23
+#define JUNIPER_IFML_GGSN               24
+#define JUNIPER_IFML_LSI_PPP            25
+#define JUNIPER_IFML_LSI_CISCOHDLC      26
+#define JUNIPER_IFML_PPP_TCC            27
+#define JUNIPER_IFML_FRAMERELAY_TCC     28
+#define JUNIPER_IFML_CISCOHDLC_TCC      29
+#define JUNIPER_IFML_ETHERNET_CCC       30
+#define JUNIPER_IFML_VT                 31
+#define JUNIPER_IFML_EXTENDED_VLAN_CCC  32
+#define JUNIPER_IFML_ETHER_OVER_ATM     33
+#define JUNIPER_IFML_MONITOR            34
+#define JUNIPER_IFML_ETHERNET_TCC       35
+#define JUNIPER_IFML_VLAN_TCC           36
+#define JUNIPER_IFML_EXTENDED_VLAN_TCC  37
+#define JUNIPER_IFML_CONTROLLER         38
+#define JUNIPER_IFML_MFR                39
+#define JUNIPER_IFML_LS                 40
+#define JUNIPER_IFML_ETHERNET_VPLS      41
+#define JUNIPER_IFML_ETHERNET_VLAN_VPLS 42
+#define JUNIPER_IFML_ETHERNET_EXTENDED_VLAN_VPLS 43
+#define JUNIPER_IFML_LT                 44
+#define JUNIPER_IFML_SERVICES           45
+#define JUNIPER_IFML_ETHER_VPLS_OVER_ATM 46
+#define JUNIPER_IFML_FR_PORT_CCC        47
+#define JUNIPER_IFML_FRAMERELAY_EXT_CCC 48
+#define JUNIPER_IFML_FRAMERELAY_EXT_TCC 49
+#define JUNIPER_IFML_FRAMERELAY_FLEX    50
+#define JUNIPER_IFML_GGSNI              51
+#define JUNIPER_IFML_ETHERNET_FLEX      52
+#define JUNIPER_IFML_COLLECTOR          53
+#define JUNIPER_IFML_AGGREGATOR         54
+#define JUNIPER_IFML_LAPD               55
+#define JUNIPER_IFML_PPPOE              56
+#define JUNIPER_IFML_PPP_SUBORDINATE    57
+#define JUNIPER_IFML_CISCOHDLC_SUBORDINATE  58
+#define JUNIPER_IFML_DFC                59
+#define JUNIPER_IFML_PICPEER            60
+
+static const struct tok juniper_ifmt_values[] = {
+    { JUNIPER_IFML_ETHER, "Ethernet" },
+    { JUNIPER_IFML_FDDI, "FDDI" },
+    { JUNIPER_IFML_TOKENRING, "Token-Ring" },
+    { JUNIPER_IFML_PPP, "PPP" },
+    { JUNIPER_IFML_PPP_SUBORDINATE, "PPP-Subordinate" },
+    { JUNIPER_IFML_FRAMERELAY, "Frame-Relay" },
+    { JUNIPER_IFML_CISCOHDLC, "Cisco-HDLC" },
+    { JUNIPER_IFML_SMDSDXI, "SMDS-DXI" },
+    { JUNIPER_IFML_ATMPVC, "ATM-PVC" },
+    { JUNIPER_IFML_PPP_CCC, "PPP-CCC" },
+    { JUNIPER_IFML_FRAMERELAY_CCC, "Frame-Relay-CCC" },
+    { JUNIPER_IFML_FRAMERELAY_EXT_CCC, "Extended FR-CCC" },
+    { JUNIPER_IFML_IPIP, "IP-over-IP" },
+    { JUNIPER_IFML_GRE, "GRE" },
+    { JUNIPER_IFML_PIM, "PIM-Encapsulator" },
+    { JUNIPER_IFML_PIMD, "PIM-Decapsulator" },
+    { JUNIPER_IFML_CISCOHDLC_CCC, "Cisco-HDLC-CCC" },
+    { JUNIPER_IFML_VLAN_CCC, "VLAN-CCC" },
+    { JUNIPER_IFML_EXTENDED_VLAN_CCC, "Extended-VLAN-CCC" },
+    { JUNIPER_IFML_MLPPP, "Multilink-PPP" },
+    { JUNIPER_IFML_MLFR, "Multilink-FR" },
+    { JUNIPER_IFML_MFR, "Multilink-FR-UNI-NNI" },
+    { JUNIPER_IFML_ML, "Multilink" },
+    { JUNIPER_IFML_LS, "LinkService" },
+    { JUNIPER_IFML_LSI, "LSI" },
+    { JUNIPER_IFML_ATM_CELLRELAY_CCC, "ATM-CCC-Cell-Relay" },
+    { JUNIPER_IFML_CRYPTO, "IPSEC-over-IP" },
+    { JUNIPER_IFML_GGSN, "GGSN" },
+    { JUNIPER_IFML_PPP_TCC, "PPP-TCC" },
+    { JUNIPER_IFML_FRAMERELAY_TCC, "Frame-Relay-TCC" },
+    { JUNIPER_IFML_FRAMERELAY_EXT_TCC, "Extended FR-TCC" },
+    { JUNIPER_IFML_CISCOHDLC_TCC, "Cisco-HDLC-TCC" },
+    { JUNIPER_IFML_ETHERNET_CCC, "Ethernet-CCC" },
+    { JUNIPER_IFML_VT, "VPN-Loopback-tunnel" },
+    { JUNIPER_IFML_ETHER_OVER_ATM, "Ethernet-over-ATM" },
+    { JUNIPER_IFML_ETHER_VPLS_OVER_ATM, "Ethernet-VPLS-over-ATM" },
+    { JUNIPER_IFML_MONITOR, "Monitor" },
+    { JUNIPER_IFML_ETHERNET_TCC, "Ethernet-TCC" },
+    { JUNIPER_IFML_VLAN_TCC, "VLAN-TCC" },
+    { JUNIPER_IFML_EXTENDED_VLAN_TCC, "Extended-VLAN-TCC" },
+    { JUNIPER_IFML_CONTROLLER, "Controller" },
+    { JUNIPER_IFML_ETHERNET_VPLS, "VPLS" },
+    { JUNIPER_IFML_ETHERNET_VLAN_VPLS, "VLAN-VPLS" },
+    { JUNIPER_IFML_ETHERNET_EXTENDED_VLAN_VPLS, "Extended-VLAN-VPLS" },
+    { JUNIPER_IFML_LT, "Logical-tunnel" },
+    { JUNIPER_IFML_SERVICES, "General-Services" },
+    { JUNIPER_IFML_PPPOE, "PPPoE" },
+    { JUNIPER_IFML_ETHERNET_FLEX, "Flexible-Ethernet-Services" },
+    { JUNIPER_IFML_FRAMERELAY_FLEX, "Flexible-FrameRelay" },
+    { JUNIPER_IFML_COLLECTOR, "Flow-collection" },
+    { JUNIPER_IFML_PICPEER, "PIC Peer" },
+    { JUNIPER_IFML_DFC, "Dynamic-Flow-Capture" },
+    {0,                    NULL}
+};
+
+#define JUNIPER_IFLE_ATM_SNAP           2
+#define JUNIPER_IFLE_ATM_NLPID          3
+#define JUNIPER_IFLE_ATM_VCMUX          4
+#define JUNIPER_IFLE_ATM_LLC            5
+#define JUNIPER_IFLE_ATM_PPP_VCMUX      6
+#define JUNIPER_IFLE_ATM_PPP_LLC        7
+#define JUNIPER_IFLE_ATM_PPP_FUNI       8
+#define JUNIPER_IFLE_ATM_CCC            9
+#define JUNIPER_IFLE_FR_NLPID           10
+#define JUNIPER_IFLE_FR_SNAP            11
+#define JUNIPER_IFLE_FR_PPP             12
+#define JUNIPER_IFLE_FR_CCC             13
+#define JUNIPER_IFLE_ENET2              14
+#define JUNIPER_IFLE_IEEE8023_SNAP      15
+#define JUNIPER_IFLE_IEEE8023_LLC       16
+#define JUNIPER_IFLE_PPP                17
+#define JUNIPER_IFLE_CISCOHDLC          18
+#define JUNIPER_IFLE_PPP_CCC            19
+#define JUNIPER_IFLE_IPIP_NULL          20
+#define JUNIPER_IFLE_PIM_NULL           21
+#define JUNIPER_IFLE_GRE_NULL           22
+#define JUNIPER_IFLE_GRE_PPP            23
+#define JUNIPER_IFLE_PIMD_DECAPS        24
+#define JUNIPER_IFLE_CISCOHDLC_CCC      25
+#define JUNIPER_IFLE_ATM_CISCO_NLPID    26
+#define JUNIPER_IFLE_VLAN_CCC           27
+#define JUNIPER_IFLE_MLPPP              28
+#define JUNIPER_IFLE_MLFR               29
+#define JUNIPER_IFLE_LSI_NULL           30
+#define JUNIPER_IFLE_AGGREGATE_UNUSED   31
+#define JUNIPER_IFLE_ATM_CELLRELAY_CCC  32
+#define JUNIPER_IFLE_CRYPTO             33
+#define JUNIPER_IFLE_GGSN               34
+#define JUNIPER_IFLE_ATM_TCC            35
+#define JUNIPER_IFLE_FR_TCC             36
+#define JUNIPER_IFLE_PPP_TCC            37
+#define JUNIPER_IFLE_CISCOHDLC_TCC      38
+#define JUNIPER_IFLE_ETHERNET_CCC       39
+#define JUNIPER_IFLE_VT                 40
+#define JUNIPER_IFLE_ATM_EOA_LLC        41
+#define JUNIPER_IFLE_EXTENDED_VLAN_CCC          42
+#define JUNIPER_IFLE_ATM_SNAP_TCC       43
+#define JUNIPER_IFLE_MONITOR            44
+#define JUNIPER_IFLE_ETHERNET_TCC       45
+#define JUNIPER_IFLE_VLAN_TCC           46
+#define JUNIPER_IFLE_EXTENDED_VLAN_TCC  47
+#define JUNIPER_IFLE_MFR                48
+#define JUNIPER_IFLE_ETHERNET_VPLS      49
+#define JUNIPER_IFLE_ETHERNET_VLAN_VPLS 50
+#define JUNIPER_IFLE_ETHERNET_EXTENDED_VLAN_VPLS 51
+#define JUNIPER_IFLE_SERVICES           52
+#define JUNIPER_IFLE_ATM_ETHER_VPLS_ATM_LLC                53
+#define JUNIPER_IFLE_FR_PORT_CCC        54
+#define JUNIPER_IFLE_ATM_MLPPP_LLC      55
+#define JUNIPER_IFLE_ATM_EOA_CCC        56
+#define JUNIPER_IFLE_LT_VLAN            57
+#define JUNIPER_IFLE_COLLECTOR          58
+#define JUNIPER_IFLE_AGGREGATOR         59
+#define JUNIPER_IFLE_LAPD               60
+#define JUNIPER_IFLE_ATM_PPPOE_LLC          61
+#define JUNIPER_IFLE_ETHERNET_PPPOE         62
+#define JUNIPER_IFLE_PPPOE                  63
+#define JUNIPER_IFLE_PPP_SUBORDINATE        64
+#define JUNIPER_IFLE_CISCOHDLC_SUBORDINATE  65
+#define JUNIPER_IFLE_DFC                    66
+#define JUNIPER_IFLE_PICPEER                67
+
+static const struct tok juniper_ifle_values[] = {
+    { JUNIPER_IFLE_AGGREGATOR, "Aggregator" },
+    { JUNIPER_IFLE_ATM_CCC, "CCC over ATM" },
+    { JUNIPER_IFLE_ATM_CELLRELAY_CCC, "ATM CCC Cell Relay" },
+    { JUNIPER_IFLE_ATM_CISCO_NLPID, "CISCO compatible NLPID" },
+    { JUNIPER_IFLE_ATM_EOA_CCC, "Ethernet over ATM CCC" },
+    { JUNIPER_IFLE_ATM_EOA_LLC, "Ethernet over ATM LLC" },
+    { JUNIPER_IFLE_ATM_ETHER_VPLS_ATM_LLC, "Ethernet VPLS over ATM LLC" },
+    { JUNIPER_IFLE_ATM_LLC, "ATM LLC" },
+    { JUNIPER_IFLE_ATM_MLPPP_LLC, "MLPPP over ATM LLC" },
+    { JUNIPER_IFLE_ATM_NLPID, "ATM NLPID" },
+    { JUNIPER_IFLE_ATM_PPPOE_LLC, "PPPoE over ATM LLC" },
+    { JUNIPER_IFLE_ATM_PPP_FUNI, "PPP over FUNI" },
+    { JUNIPER_IFLE_ATM_PPP_LLC, "PPP over ATM LLC" },
+    { JUNIPER_IFLE_ATM_PPP_VCMUX, "PPP over ATM VCMUX" },
+    { JUNIPER_IFLE_ATM_SNAP, "ATM SNAP" },
+    { JUNIPER_IFLE_ATM_SNAP_TCC, "ATM SNAP TCC" },
+    { JUNIPER_IFLE_ATM_TCC, "ATM VCMUX TCC" },
+    { JUNIPER_IFLE_ATM_VCMUX, "ATM VCMUX" },
+    { JUNIPER_IFLE_CISCOHDLC, "C-HDLC" },
+    { JUNIPER_IFLE_CISCOHDLC_CCC, "C-HDLC CCC" },
+    { JUNIPER_IFLE_CISCOHDLC_SUBORDINATE, "C-HDLC via dialer" },
+    { JUNIPER_IFLE_CISCOHDLC_TCC, "C-HDLC TCC" },
+    { JUNIPER_IFLE_COLLECTOR, "Collector" },
+    { JUNIPER_IFLE_CRYPTO, "Crypto" },
+    { JUNIPER_IFLE_ENET2, "Ethernet" },
+    { JUNIPER_IFLE_ETHERNET_CCC, "Ethernet CCC" },
+    { JUNIPER_IFLE_ETHERNET_EXTENDED_VLAN_VPLS, "Extended VLAN VPLS" },
+    { JUNIPER_IFLE_ETHERNET_PPPOE, "PPPoE over Ethernet" },
+    { JUNIPER_IFLE_ETHERNET_TCC, "Ethernet TCC" },
+    { JUNIPER_IFLE_ETHERNET_VLAN_VPLS, "VLAN VPLS" },
+    { JUNIPER_IFLE_ETHERNET_VPLS, "VPLS" },
+    { JUNIPER_IFLE_EXTENDED_VLAN_CCC, "Extended VLAN CCC" },
+    { JUNIPER_IFLE_EXTENDED_VLAN_TCC, "Extended VLAN TCC" },
+    { JUNIPER_IFLE_FR_CCC, "FR CCC" },
+    { JUNIPER_IFLE_FR_NLPID, "FR NLPID" },
+    { JUNIPER_IFLE_FR_PORT_CCC, "FR CCC" },
+    { JUNIPER_IFLE_FR_PPP, "FR PPP" },
+    { JUNIPER_IFLE_FR_SNAP, "FR SNAP" },
+    { JUNIPER_IFLE_FR_TCC, "FR TCC" },
+    { JUNIPER_IFLE_GGSN, "GGSN" },
+    { JUNIPER_IFLE_GRE_NULL, "GRE NULL" },
+    { JUNIPER_IFLE_GRE_PPP, "PPP over GRE" },
+    { JUNIPER_IFLE_IPIP_NULL, "IPIP" },
+    { JUNIPER_IFLE_LAPD, "LAPD" },
+    { JUNIPER_IFLE_LSI_NULL, "LSI Null" },
+    { JUNIPER_IFLE_LT_VLAN, "LT VLAN" },
+    { JUNIPER_IFLE_MFR, "MFR" },
+    { JUNIPER_IFLE_MLFR, "MLFR" },
+    { JUNIPER_IFLE_MLPPP, "MLPPP" },
+    { JUNIPER_IFLE_MONITOR, "Monitor" },
+    { JUNIPER_IFLE_PIMD_DECAPS, "PIMd" },
+    { JUNIPER_IFLE_PIM_NULL, "PIM Null" },
+    { JUNIPER_IFLE_PPP, "PPP" },
+    { JUNIPER_IFLE_PPPOE, "PPPoE" },
+    { JUNIPER_IFLE_PPP_CCC, "PPP CCC" },
+    { JUNIPER_IFLE_PPP_SUBORDINATE, "" },
+    { JUNIPER_IFLE_PPP_TCC, "PPP TCC" },
+    { JUNIPER_IFLE_SERVICES, "General Services" },
+    { JUNIPER_IFLE_VLAN_CCC, "VLAN CCC" },
+    { JUNIPER_IFLE_VLAN_TCC, "VLAN TCC" },
+    { JUNIPER_IFLE_VT, "VT" },
+    {0,                    NULL}
 };
 
 struct juniper_cookie_table_t {
@@ -128,6 +419,7 @@ struct juniper_l2info_t {
     u_int8_t cookie[8];
     u_int8_t bundle;
     u_int16_t proto;
+    u_int8_t flags;
 };
 
 #define LS_COOKIE_ID            0x54
@@ -147,7 +439,7 @@ struct juniper_l2info_t {
 
 #define MFR_BE_MASK 0xc0
 
-static struct tok juniper_protocol_values[] = {
+static const struct tok juniper_protocol_values[] = {
     { JUNIPER_PROTO_NULL, "Null" },
     { JUNIPER_PROTO_IPV4, "IPv4" },
     { JUNIPER_PROTO_IPV6, "IPv6" },
@@ -156,6 +448,7 @@ static struct tok juniper_protocol_values[] = {
 
 int ip_heuristic_guess(register const u_char *, u_int);
 int juniper_ppp_heuristic_guess(register const u_char *, u_int);
+int juniper_read_tlv_value(const u_char *, u_int, u_int);
 static int juniper_parse_header (const u_char *, const struct pcap_pkthdr *, struct juniper_l2info_t *);
 
 #ifdef DLT_JUNIPER_GGSN
@@ -178,13 +471,14 @@ juniper_ggsn_print(const struct pcap_pkthdr *h, register const u_char *p)
             return l2info.header_len;
 
         p+=l2info.header_len;
-        gh = (struct juniper_ggsn_header *)p;
+        gh = (struct juniper_ggsn_header *)&l2info.cookie;
 
-        if (eflag)
+        if (eflag) {
             printf("proto %s (%u), vlan %u: ",
                    tok2str(juniper_protocol_values,"Unknown",gh->proto),
                    gh->proto,
                    EXTRACT_16BITS(&gh->vlan_id[0]));
+        }
 
         switch (gh->proto) {
         case JUNIPER_PROTO_IPV4:
@@ -192,7 +486,7 @@ juniper_ggsn_print(const struct pcap_pkthdr *h, register const u_char *p)
             break;
 #ifdef INET6
         case JUNIPER_PROTO_IPV6:
-            ip6_print(p, l2info.length);
+            ip6_print(gndo, p, l2info.length);
             break;
 #endif /* INET6 */
         default:
@@ -256,8 +550,8 @@ juniper_es_print(const struct pcap_pkthdr *h, register const u_char *p)
                        tok2str(juniper_ipsec_type_values,"Unknown",ih->type),
                        ih->type,
                        EXTRACT_32BITS(&ih->spi),
-                       ipaddr_string(EXTRACT_32BITS(&ih->src_ip)),
-                       ipaddr_string(EXTRACT_32BITS(&ih->dst_ip)),
+                       ipaddr_string(&ih->src_ip),
+                       ipaddr_string(&ih->dst_ip),
                        l2info.length);
             } else {
                 printf("ES SA, index %u, ttl %u type %s (%u), length %u\n", 
@@ -353,7 +647,7 @@ juniper_pppoe_print(const struct pcap_pkthdr *h, register const u_char *p)
 
         p+=l2info.header_len;
         /* this DLT contains nothing but raw ethernet frames */
-        ether_print(p, l2info.length, l2info.caplen);
+        ether_print(gndo, p, l2info.length, l2info.caplen, NULL, NULL);
         return l2info.header_len;
 }
 #endif
@@ -370,7 +664,7 @@ juniper_ether_print(const struct pcap_pkthdr *h, register const u_char *p)
 
         p+=l2info.header_len;
         /* this DLT contains nothing but raw Ethernet frames */
-        ether_print(p, l2info.length, l2info.caplen);
+        ether_print(gndo, p, l2info.length, l2info.caplen, NULL, NULL);
         return l2info.header_len;
 }
 #endif
@@ -442,11 +736,10 @@ juniper_pppoe_atm_print(const struct pcap_pkthdr *h, register const u_char *p)
         extracted_ethertype = EXTRACT_16BITS(p);
         /* this DLT contains nothing but raw PPPoE frames,
          * prepended with a type field*/
-        if (ether_encap_print(extracted_ethertype,
+        if (ethertype_print(gndo, extracted_ethertype,
                               p+ETHERTYPE_LEN,
                               l2info.length-ETHERTYPE_LEN,
-                              l2info.caplen-ETHERTYPE_LEN,
-                              &extracted_ethertype) == 0)
+                              l2info.caplen-ETHERTYPE_LEN) == 0)
             /* ether_type not known, probably it wasn't one */
             printf("unknown ethertype 0x%04x", extracted_ethertype);
         
@@ -486,7 +779,7 @@ juniper_mlppp_print(const struct pcap_pkthdr *h, register const u_char *p)
             return l2info.header_len;
 #ifdef INET6
         case JUNIPER_LSQ_L3_PROTO_IPV6:
-            ip6_print(p,l2info.length);
+            ip6_print(gndo, p,l2info.length);
             return l2info.header_len;
 #endif
         case JUNIPER_LSQ_L3_PROTO_MPLS:
@@ -541,7 +834,7 @@ juniper_mfr_print(const struct pcap_pkthdr *h, register const u_char *p)
                 return l2info.header_len;
 #ifdef INET6
             case JUNIPER_LSQ_L3_PROTO_IPV6:
-                ip6_print(p,l2info.length);
+                ip6_print(gndo, p,l2info.length);
                 return l2info.header_len;
 #endif
             case JUNIPER_LSQ_L3_PROTO_MPLS:
@@ -694,7 +987,7 @@ juniper_atm2_print(const struct pcap_pkthdr *h, register const u_char *p)
 
         if (l2info.direction != JUNIPER_BPF_PKT_IN && /* ether-over-1483 encaps ? */
             (EXTRACT_32BITS(l2info.cookie) & ATM2_GAP_COUNT_MASK)) {
-            ether_print(p, l2info.length, l2info.caplen);
+            ether_print(gndo, p, l2info.length, l2info.caplen, NULL, NULL);
             return l2info.header_len;
         }
 
@@ -780,7 +1073,7 @@ ip_heuristic_guess(register const u_char *p, u_int length) {
     case 0x6d:
     case 0x6e:
     case 0x6f:
-        ip6_print(p, length);
+        ip6_print(gndo, p, length);
         break;
 #endif
     default:
@@ -790,14 +1083,63 @@ ip_heuristic_guess(register const u_char *p, u_int length) {
     return 1; /* we printed an v4/v6 packet */
 }
 
+int
+juniper_read_tlv_value(const u_char *p, u_int tlv_type, u_int tlv_len) {
+
+   int tlv_value;
+
+   /* TLVs < 128 are little endian encoded */
+   if (tlv_type < 128) {
+       switch (tlv_len) {
+       case 1:
+           tlv_value = *p;
+           break;
+       case 2:
+           tlv_value = EXTRACT_LE_16BITS(p);
+           break;
+       case 3:
+           tlv_value = EXTRACT_LE_24BITS(p);
+           break;
+       case 4:
+           tlv_value = EXTRACT_LE_32BITS(p);
+           break;
+       default:
+           tlv_value = -1;
+           break;
+       }
+   } else {
+       /* TLVs >= 128 are big endian encoded */
+       switch (tlv_len) {
+       case 1:
+           tlv_value = *p;
+           break;
+       case 2:
+           tlv_value = EXTRACT_16BITS(p);
+           break;
+       case 3:
+           tlv_value = EXTRACT_24BITS(p);
+           break;
+       case 4:
+           tlv_value = EXTRACT_32BITS(p);
+           break;
+       default:
+           tlv_value = -1;
+           break;
+       }
+   }
+   return tlv_value;
+}
+
 static int
 juniper_parse_header (const u_char *p, const struct pcap_pkthdr *h, struct juniper_l2info_t *l2info) {
 
     struct juniper_cookie_table_t *lp = juniper_cookie_table;
-    u_int idx, offset;
-#ifdef DLT_JUNIPER_ATM2
+    u_int idx, jnx_ext_len, jnx_header_len = 0;
+    u_int8_t tlv_type,tlv_len;
     u_int32_t control_word;
-#endif
+    int tlv_value;
+    const u_char *tptr;
+
 
     l2info->header_len = 0;
     l2info->cookie_len = 0;
@@ -806,9 +1148,10 @@ juniper_parse_header (const u_char *p, const struct pcap_pkthdr *h, struct junip
 
     l2info->length = h->len;
     l2info->caplen = h->caplen;
+    TCHECK2(p[0],4);
+    l2info->flags = p[3];
     l2info->direction = p[3]&JUNIPER_BPF_PKT_IN;
     
-    TCHECK2(p[0],4);
     if (EXTRACT_24BITS(p) != JUNIPER_MGC_NUMBER) { /* magic number found ? */
         printf("no magic-number found!");
         return 0;
@@ -817,15 +1160,92 @@ juniper_parse_header (const u_char *p, const struct pcap_pkthdr *h, struct junip
     if (eflag) /* print direction */
         printf("%3s ",tok2str(juniper_direction_values,"---",l2info->direction));
 
-    /* extensions present ?  - calculate how much bytes to skip */
-    if ((p[3] & JUNIPER_BPF_EXT ) == JUNIPER_BPF_EXT ) {
-        offset = 6 + EXTRACT_16BITS(p+4);
-        if (eflag>1)
-            printf("ext-len %u, ",EXTRACT_16BITS(p+4));
-    } else
-        offset = 4;
+    /* magic number + flags */
+    jnx_header_len = 4;
 
-    if ((p[3] & JUNIPER_BPF_NO_L2 ) == JUNIPER_BPF_NO_L2 ) {            
+    if (vflag>1)
+        printf("\n\tJuniper PCAP Flags [%s]",
+               bittok2str(jnx_flag_values, "none", l2info->flags));
+
+    /* extensions present ?  - calculate how much bytes to skip */
+    if ((l2info->flags & JUNIPER_BPF_EXT ) == JUNIPER_BPF_EXT ) {
+
+        tptr = p+jnx_header_len;
+
+        /* ok to read extension length ? */
+        TCHECK2(tptr[0], 2);
+        jnx_ext_len = EXTRACT_16BITS(tptr);
+        jnx_header_len += 2;
+        tptr +=2;
+        
+        /* nail up the total length -
+         * just in case something goes wrong
+         * with TLV parsing */
+        jnx_header_len += jnx_ext_len;
+        
+        if (vflag>1)
+            printf(", PCAP Extension(s) total length %u",
+                   jnx_ext_len);
+        
+        TCHECK2(tptr[0], jnx_ext_len);
+        while (jnx_ext_len > JUNIPER_EXT_TLV_OVERHEAD) {
+            tlv_type = *(tptr++);
+            tlv_len = *(tptr++);
+            tlv_value = 0;
+            
+            /* sanity check */
+            if (tlv_type == 0 || tlv_len == 0)
+                break;
+            
+            if (vflag>1)
+                printf("\n\t  %s Extension TLV #%u, length %u, value ",
+                       tok2str(jnx_ext_tlv_values,"Unknown",tlv_type),
+                       tlv_type,
+                       tlv_len);
+            
+            tlv_value = juniper_read_tlv_value(tptr, tlv_type, tlv_len);
+            switch (tlv_type) {
+            case JUNIPER_EXT_TLV_IFD_NAME:
+                /* FIXME */
+                break;
+            case JUNIPER_EXT_TLV_IFD_MEDIATYPE:
+            case JUNIPER_EXT_TLV_TTP_IFD_MEDIATYPE:
+                if (tlv_value != -1) {
+                    if (vflag>1)
+                        printf("%s (%u)",
+                               tok2str(juniper_ifmt_values, "Unknown", tlv_value),
+                               tlv_value);
+                }
+                break;
+            case JUNIPER_EXT_TLV_IFL_ENCAPS:
+            case JUNIPER_EXT_TLV_TTP_IFL_ENCAPS:
+                if (tlv_value != -1) {
+                    if (vflag>1)
+                        printf("%s (%u)",
+                               tok2str(juniper_ifle_values, "Unknown", tlv_value),
+                               tlv_value);
+                }
+                break;
+            case JUNIPER_EXT_TLV_IFL_IDX: /* fall through */
+            case JUNIPER_EXT_TLV_IFL_UNIT:
+            case JUNIPER_EXT_TLV_IFD_IDX:
+            default:
+                if (tlv_value != -1) {
+                    if (vflag>1)
+                        printf("%u",tlv_value);
+                }
+                break;
+            }
+            
+            tptr+=tlv_len;
+            jnx_ext_len -= tlv_len+JUNIPER_EXT_TLV_OVERHEAD;
+        }
+        
+        if (vflag>1)
+            printf("\n\t-----original packet-----\n\t");
+    } 
+    
+    if ((l2info->flags & JUNIPER_BPF_NO_L2 ) == JUNIPER_BPF_NO_L2 ) {            
         if (eflag)
             printf("no-L2-hdr, ");
 
@@ -833,15 +1253,15 @@ juniper_parse_header (const u_char *p, const struct pcap_pkthdr *h, struct junip
          * perform the v4/v6 heuristics
          * to figure out what it is
          */
-        TCHECK2(p[offset+4],1);
-        if(ip_heuristic_guess(p+offset+4,l2info->length-(offset+4)) == 0)
+        TCHECK2(p[jnx_header_len+4],1);
+        if(ip_heuristic_guess(p+jnx_header_len+4,l2info->length-(jnx_header_len+4)) == 0)
             printf("no IP-hdr found!");
 
-        l2info->header_len=offset+4;
+        l2info->header_len=jnx_header_len+4;
         return 0; /* stop parsing the output further */
         
     }
-    l2info->header_len = offset;
+    l2info->header_len = jnx_header_len;
     p+=l2info->header_len;
     l2info->length -= l2info->header_len;
     l2info->caplen -= l2info->header_len;
@@ -986,6 +1406,10 @@ juniper_parse_header (const u_char *p, const struct pcap_pkthdr *h, struct junip
             if (eflag)
                 printf("control-word 0x%08x ", control_word);
         }
+        break;
+#endif
+#ifdef DLT_JUNIPER_GGSN
+    case DLT_JUNIPER_GGSN:
         break;
 #endif
 #ifdef DLT_JUNIPER_ATM1

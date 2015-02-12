@@ -25,7 +25,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-ntp.c,v 1.41.2.1 2005/05/06 07:57:18 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-ntp.c,v 1.43 2007-11-30 13:45:10 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -52,7 +52,7 @@ static void p_sfix(const struct s_fixedpt *);
 static void p_ntp_time(const struct l_fixedpt *);
 static void p_ntp_delta(const struct l_fixedpt *, const struct l_fixedpt *);
 
-static struct tok ntp_mode_values[] = {
+static const struct tok ntp_mode_values[] = {
     { MODE_UNSPEC,    "unspecified" },
     { MODE_SYM_ACT,   "symmetric active" },
     { MODE_SYM_PAS,   "symmetric passive" },
@@ -64,12 +64,18 @@ static struct tok ntp_mode_values[] = {
     { 0, NULL }
 };
 
-static struct tok ntp_leapind_values[] = {
+static const struct tok ntp_leapind_values[] = {
     { NO_WARNING,     "" },
     { PLUS_SEC,       "+1s" },
     { MINUS_SEC,      "-1s" },
     { ALARM,          "clock unsynchronized" },
     { 0, NULL }
+};
+
+static const struct tok ntp_stratum_values[] = {
+	{ UNSPECIFIED,	"unspecified" },
+	{ PRIM_REF, 	"primary reference" },
+	{ 0, NULL }
 };
 
 /*
@@ -106,10 +112,12 @@ ntp_print(register const u_char *cp, u_int length)
                 leapind);
 
 	TCHECK(bp->stratum);
-	printf(", Stratum %u", bp->stratum);
+	printf(", Stratum %u (%s)", 	
+		bp->stratum,
+		tok2str(ntp_stratum_values, (bp->stratum >=2 && bp->stratum<=15) ? "secondary reference" : "reserved", bp->stratum));
 
 	TCHECK(bp->ppoll);
-	printf(", poll %us", bp->ppoll);
+	printf(", poll %u (%us)", bp->ppoll, 1 << bp->ppoll);
 
 	/* Can't TCHECK bp->precision bitfield so bp->distance + 0 instead */
 	TCHECK2(bp->root_delay, 0);
@@ -174,8 +182,19 @@ ntp_print(register const u_char *cp, u_int length)
 	fputs("\n\t    Originator - Transmit Timestamp: ", stdout);
 	p_ntp_delta(&(bp->org_timestamp), &(bp->xmt_timestamp));
 
-        /* FIXME key-id, authentication */
-
+	if ( (sizeof(struct ntpdata) - length) == 16) { 	/* Optional: key-id */
+		TCHECK(bp->key_id);
+		printf("\n\tKey id: %u", bp->key_id);
+	} else if ( (sizeof(struct ntpdata) - length) == 0) { 	/* Optional: key-id + authentication */
+		TCHECK(bp->key_id);
+		printf("\n\tKey id: %u", bp->key_id);
+		TCHECK2(bp->message_digest, sizeof (bp->message_digest));
+                printf("\n\tAuthentication: %08x%08x%08x%08x",
+        		       EXTRACT_32BITS(bp->message_digest),
+		               EXTRACT_32BITS(bp->message_digest + 4),
+		               EXTRACT_32BITS(bp->message_digest + 8),
+		               EXTRACT_32BITS(bp->message_digest + 12));
+        }
 	return;
 
 trunc:

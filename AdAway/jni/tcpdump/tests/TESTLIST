@@ -1,0 +1,162 @@
+# Various flags applied to a TCP session.
+#
+# We cannot rely on, for example, "print-x.out" and
+# "print-X.out" being different files - we might be running
+# this on a case-insensitive file system, e.g. a Windows
+# file system or a case-insensitive HFS+ file system on
+# Mac OS X.
+#
+# Therefore, for "X" and "XX", we have "print-capX.out"
+# and "print-capXX.out".
+#
+print-x		print-flags.pcap	print-x.out	-t -x
+print-xx	print-flags.pcap	print-xx.out	-t -xx
+print-X		print-flags.pcap	print-capX.out	-t -X
+print-XX	print-flags.pcap	print-capXX.out	-t -XX
+print-A		print-flags.pcap	print-A.out	-t -A
+print-AA	print-flags.pcap	print-AA.out	-t -AA
+
+# BGP tests
+bgp_vpn_attrset bgp_vpn_attrset.pcap bgp_vpn_attrset.out -t -v 
+mpbgp-linklocal-nexthop mpbgp-linklocal-nexthop.pcap mpbgp-linklocal-nexthop.out -t -v
+
+# EAP tests
+eapon1 eapon1.pcap eapon1.out -t 
+
+# ESP tests
+esp0 02-sunrise-sunset-esp.pcap esp0.out -t -n
+esp1 02-sunrise-sunset-esp.pcap esp1.out -t -E "0x12345678@192.1.2.45 3des-cbc-hmac96:0x4043434545464649494a4a4c4c4f4f515152525454575758" 
+esp2 08-sunrise-sunset-esp2.pcap esp2.out -t -E "0x12345678@192.1.2.45 3des-cbc-hmac96:0x43434545464649494a4a4c4c4f4f51515252545457575840,0xabcdabcd@192.0.1.1 3des-cbc-hmac96:0x434545464649494a4a4c4c4f4f5151525254545757584043"
+esp3 02-sunrise-sunset-esp.pcap esp1.out -t -E "3des-cbc-hmac96:0x4043434545464649494a4a4c4c4f4f515152525454575758"
+esp4 08-sunrise-sunset-esp2.pcap esp2.out -t -E "file esp-secrets.txt"
+esp5 08-sunrise-sunset-aes.pcap esp5.out -t -E "file esp-secrets.txt"
+espudp1 espudp1.pcap                    espudp1.out -nnnn -t -E "file esp-secrets.txt"
+
+# ISAKMP tests
+isakmp1 isakmp-delete-segfault.pcap isakmp1.out -t 
+isakmp2 isakmp-pointer-loop.pcap    isakmp2.out -t
+isakmp3 isakmp-identification-segfault.pcap isakmp3.out -t -v
+isakmp4 isakmp4500.pcap             isakmp4.out -t -E "file esp-secrets.txt"
+
+# Link Management Protocol tests
+lmp		lmp.pcap		lmp.out -t -T lmp
+lmp-v		lmp.pcap		lmp-v.out -t -T lmp -v
+
+# MPLS tests
+mpls-ldp-hello	mpls-ldp-hello.pcap	mpls-ldp-hello.out -t -v
+
+# OSPF tests
+ospf-gmpls	ospf-gmpls.pcap		ospf-gmpls.out	-t -v
+
+# IKEv2 tests
+ikev2four	ikev2four.pcap		ikev2four.out	-t -v
+ikev2fourv	ikev2four.pcap		ikev2fourv.out	-t -v -v -v 
+ikev2fourv4	ikev2four.pcap		ikev2fourv4.out	-t -v -v -v -v
+ikev2pI2	ikev2pI2.pcap		ikev2pI2.out	-t -E "file ikev2pI2-secrets.txt" -v -v -v -v
+
+# IETF ROLL RPL packets
+dio01           dio.pcap                dio.out         -t -v
+
+# IPNET encapsulated site
+e1000g		e1000g.pcap		e1000g.out	-t
+
+# IETF FORCES WG packets and printer
+forces01        forces1.pcap            forces1.out     -t
+forces01vvv     forces1.pcap            forces1vvv.out  -t -v -v -v 
+forces01vvvv    forces1.pcap            forces1vvvv.out -t -v -v -v -v
+# need new pcap file, not sure what the differences were?
+#forces02        forces2.pcap            forces2.out     -t
+#forces02v       forces2.pcap            forces2v.out    -t -v
+#forces02vv      forces2.pcap            forces2vv.out   -t -v -v
+
+# 802.1ad, QinQ tests 
+qinq            QinQpacket.pcap         QinQpacket.out  -t -e
+qinqv           QinQpacket.pcap         QinQpacketv.out  -t -e -v
+
+# now SFLOW tests
+sflow1          sflow_multiple_counter_30_pdus.pcap     sflow_multiple_counter_30_pdus.out      -t -v
+sflow2          sflow_multiple_counter_30_pdus.pcap     sflow_multiple_counter_30_pdus-nv.out      -t
+
+# Babel tests
+babel1          babel.pcap             babel1.out      -t 
+babel1v         babel.pcap             babel1v.out     -t -v
+babel_auth      babel_auth.pcap        babel_auth.out  -t -v
+babel_pad1      babel_pad1.pcap        babel_pad1.out  -t
+
+# PPPoE tests
+pppoe           pppoe.pcap             pppoe.out       -t
+pppoes          pppoes.pcap            pppoes.out      -t
+pppoes_id       pppoes.pcap            pppoes_id.out   -t pppoes 0x3b
+
+# IGMP tests
+igmpv3-queries  igmpv3-queries.pcap     igmpv3-queries.out      -t
+
+# ICMPv6
+icmpv6          icmpv6.pcap             icmpv6.out      -t -vv
+
+# SPB tests
+spb	            spb.pcap	            spb.out -t
+
+# SPB BPDUv4 tests
+spb_bpduv4      spb_bpduv4.pcap       spb_bpduv4.out -t
+
+# DCB Tests
+dcb_ets         dcb_ets.pcap          dcb_ets.out   -t -vv
+dcb_pfc         dcb_pfc.pcap          dcb_pfc.out   -t -vv
+dcb_qcn         dcb_qcn.pcap          dcb_qcn.out   -t -vv
+
+# EVB tests
+evb             evb.pcap              evb.out       -t -vv
+
+# RIP tests
+ripv1v2         ripv1v2.pcap            ripv1v2.out     -t -v
+ripv2_auth      ripv2_auth.pcap         ripv2_auth.out  -t -v
+
+# DHCPv6 tests
+dhcpv6-aftr-name	dhcpv6-AFTR-Name-RFC6334.pcap	dhcpv6-AFTR-Name-RFC6334.out	-t -v
+dhcpv6-ia-na	dhcpv6-ia-na.pcap	dhcpv6-ia-na.out	-t -v
+dhcpv6-ia-pd	dhcpv6-ia-pd.pcap	dhcpv6-ia-pd.out	-t -v
+dhcpv6-ia-ta	dhcpv6-ia-ta.pcap	dhcpv6-ia-ta.out	-t -v
+dhcpv6-ntp-server	dhcpv6-ntp-server.pcap	dhcpv6-ntp-server.out	-t -v
+dhcpv6-sip-server-d	dhcpv6-sip-server-d.pcap	dhcpv6-sip-server-d.out -t -v
+dhcpv6-domain-list	dhcpv6-domain-list.pcap	dhcpv6-domain-list.out	-t -v
+
+# ZeroMQ/PGM tests
+# ZMTP/1.0 over TCP
+zmtp1v		zmtp1.pcap		zmtp1.out	-t -v -T zmtp1
+# native PGM
+pgmv		pgm_zmtp1.pcap		pgmv.out	-t -v
+# UDP-encapsulated PGM
+epgmv		epgm_zmtp1.pcap		epgmv.out	-t -v -T pgm
+# ZMTP/1.0 inside native PGM
+pgm_zmtp1v	pgm_zmtp1.pcap		pgm_zmtp1v.out	-t -v -T pgm_zmtp1
+# ZMTP/1.0 inside UDP-encapsulated PGM
+epgm_zmtp1v	epgm_zmtp1.pcap		epgm_zmtp1v.out	-t -v -T pgm_zmtp1
+
+# MS NLB tests
+msnlb		msnlb.pcap		msnlb.out	-t
+msnlb2		msnlb2.pcap		msnlb2.out	-t
+
+# MPTCP tests
+mptcp		mptcp.pcap		mptcp.out		-t
+mptcp-fclose	mptcp-fclose.pcap	mptcp-fclose.out	-t
+# TFO tests
+tfo		tfo-5c1fa7f9ae91.pcap	tfo.out		-t
+
+# IEEE 802.11 tests
+802.11_exthdr	ieee802.11_exthdr.pcap	ieee802.11_exthdr.out	-t -v
+802.11_rx-stbc	ieee802.11_rx-stbc.pcap	ieee802.11_rx-stbc.out	-t
+
+# OpenFlow tests
+of10_p3295-vv	of10_p3295.pcap		of10_p3295-vv.out	-t -vv
+of10_s4810-vvvv	of10_s4810.pcap		of10_s4810-vvvv.out	-t -vvvv
+of10_pf5240-vv	of10_pf5240.pcap	of10_pf5240-vv.out	-t -vv
+
+# GeoNetworking and CALM FAST tests
+geonet-calm-fast	geonet_and_calm_fast.pcap	geonet_and_calm_fast.out	-t -vv -n
+
+# NFLOG test case
+nflog-e		nflog.pcap		nflog-e.out		-t -e
+
+# syslog test case
+syslog-v	syslog_udp.pcap		syslog-v.out		-t -v

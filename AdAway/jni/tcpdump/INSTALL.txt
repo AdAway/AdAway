@@ -1,0 +1,255 @@
+@(#) $Header: /tcpdump/master/tcpdump/INSTALL.txt,v 1.2 2008-02-06 10:47:53 guy Exp $ (LBL)
+
+If you have not built libpcap, and your system does not have libpcap
+installed, install libpcap first.  Your system might provide a version
+of libpcap that can be installed; if so, to compile tcpdump you might
+need to install a "developer" version of libpcap as well as the
+"run-time" version.  You can also install tcpdump.org's version of
+libpcap; see the README file in this directory for the ftp location.
+
+You will need an ANSI C compiler to build tcpdump. The configure script
+will abort if your compiler is not ANSI compliant. If this happens, use
+the GNU C compiler, available via anonymous ftp:
+
+	ftp://ftp.gnu.org/pub/gnu/gcc/
+
+After libpcap has been built (either install it with "make install" or
+make sure both the libpcap and tcpdump source trees are in the same
+directory), run ./configure (a shell script).  "configure" will
+determine your system attributes and generate an appropriate Makefile
+from Makefile.in.  Now build tcpdump by running "make".
+
+If everything builds ok, su and type "make install".  This will install
+tcpdump and the manual entry.  Any user will be able to use tcpdump to
+read saved captures.  Whether a user will be able to capture traffic
+depends on the OS and the configuration of the system; see the tcpdump
+man page for details.  DO NOT give untrusted users the ability to
+capture traffic.  If a user can capture traffic, he or she could use
+utilities such as tcpdump to capture any traffic on your net, including
+passwords.
+
+Note that most systems ship tcpdump, but usually an older version.
+Remember to remove or rename the installed binary when upgrading.
+
+If your system is not one which we have tested tcpdump on, you may have
+to modify the configure script and Makefile.in. Please send us patches
+for any modifications you need to make.
+
+Please see "PLATFORMS" for notes about tested platforms.
+
+
+FILES
+-----
+CHANGES		- description of differences between releases
+CREDITS		- people that have helped tcpdump along
+FILES		- list of files exported as part of the distribution
+INSTALL.txt	- this file
+LICENSE		- the license under which tcpdump is distributed
+Makefile.in	- compilation rules (input to the configure script)
+README		- description of distribution
+Readme.Win32	- notes on building tcpdump on Win32 systems (with WinPcap)
+VERSION		- version of this release
+acconfig.h	- autoconf input
+aclocal.m4	- autoconf macros
+addrtoname.c	- address to hostname routines
+addrtoname.h	- address to hostname definitions
+ah.h		- IPSEC Authentication Header definitions
+aodv.h		- AODV definitions
+appletalk.h	- AppleTalk definitions
+arcnet.h	- ARCNET definitions
+atime.awk	- TCP ack awk script
+atm.h		- ATM traffic type definitions
+atmuni31.h	- ATM Q.2931 definitions
+bgp.h		- BGP declarations
+bootp.h		- BOOTP definitions
+bpf_dump.c	- BPF program printing routines, in case libpcap doesn't
+		  have them
+chdlc.h		- Cisco HDLC definitions
+cpack.c		- functions to extract packed data
+cpack.h		- declarations of functions to extract packed data
+config.guess	- autoconf support
+config.h.in	- autoconf input
+config.sub	- autoconf support
+configure	- configure script (run this first)
+configure.in	- configure script source
+dccp.h		- DCCP definitions
+decnet.h	- DECnet definitions
+decode_prefix.h	- Declarations of "decode_prefix{4,6}()"
+enc.h		- OpenBSD IPsec encapsulation BPF layer definitions
+esp.h		- IPSEC Encapsulating Security Payload definitions
+ether.h		- Ethernet definitions
+ethertype.h	- Ethernet type value definitions
+extract.h	- alignment definitions
+fddi.h		- Fiber Distributed Data Interface definitions
+gmpls.c		- GMPLS definitions
+gmpls.h		- GMPLS declarations
+gmt2local.c	- time conversion routines
+gmt2local.h	- time conversion prototypes
+icmp6.h		- ICMPv6 definitiions
+ieee802_11.h	- IEEE 802.11 definitions
+ieee802_11_radio.h - radiotap header definitions
+igrp.h		- Interior Gateway Routing Protocol definitions
+install-sh	- BSD style install script
+interface.h	- globals, prototypes and definitions
+ip.h		- IP definitions
+ip6.h		- IPv6 definitions
+ipfc.h		- IP-over-Fibre Channel definitions
+ipproto.c	- IP protocol type value-to-name table
+ipproto.h	- IP protocol type value definitions
+ipsec_doi.h	- ISAKMP packet definitions - RFC2407
+ipx.h		- IPX definitions
+isakmp.h	- ISAKMP packet definitions - RFC2408
+l2vpn.c		- L2VPN encapsulation value-to-name table
+l2vpn.h		- L2VPN encapsulation definitions
+l2tp.h		- Layer Two Tunneling Protocol definitions
+lane.h		- ATM LANE definitions
+lbl/os-*.h	- OS-dependent defines and prototypes
+llc.h		- LLC definitions
+machdep.c	- machine dependent routines
+machdep.h	- machine dependent definitions
+makemib		- mib to header script
+mib.h		- mib definitions
+missing/*	- replacements for missing library functions
+mkdep		- construct Makefile dependency list
+mpls.h		- MPLS definitions
+nameser.h	- DNS definitions
+netbios.h	- NETBIOS definitions
+netdissect.h	- definitions and declarations for tcpdump-as-library
+		  (under development)
+nfs.h		- Network File System V2 definitions
+nfsfh.h		- Network File System file handle definitions
+nlpid.c		- OSI NLPID value-to-name table
+nlpid.h		- OSI NLPID definitions
+ntp.h		- Network Time Protocol definitions
+oakley.h	- ISAKMP packet definitions - RFC2409
+ospf.h		- Open Shortest Path First definitions
+ospf6.h		- IPv6 Open Shortest Path First definitions
+packetdat.awk	- TCP chunk summary awk script
+parsenfsfh.c	- Network File System file parser routines
+pcap_dump_ftell.c - pcap_dump_ftell() implementation, in case libpcap
+		doesn't have it
+pcap-missing.h	- declarations of functions possibly missing from libpcap
+pmap_prot.h	- definitions for ONC RPC portmapper protocol
+ppp.h		- Point to Point Protocol definitions
+print-802_11.c	- IEEE 802.11 printer routines
+print-ap1394.c	- Apple IP-over-IEEE 1394 printer routines
+print-ah.c	- IPSEC Authentication Header printer routines
+print-aodv.c	- AODV printer routines
+print-arcnet.c	- ARCNET printer routines
+print-arp.c	- Address Resolution Protocol printer routines
+print-ascii.c	- ASCII packet dump routines
+print-atalk.c	- AppleTalk printer routines
+print-atm.c	- ATM printer routines
+print-beep.c	- BEEP printer routines
+print-bgp.c	- Border Gateway Protocol printer routines
+print-bootp.c	- BOOTP and IPv4 DHCP printer routines
+print-bt.c	- Bluetooth printer routines
+print-cdp.c	- Cisco Discovery Protocol printer routines
+print-chdlc.c	- Cisco HDLC printer routines
+print-cip.c	- Classical-IP over ATM routines
+print-cnfp.c	- Cisco NetFlow printer routines
+print-dccp.c	- DCCP printer routines
+print-decnet.c	- DECnet printer routines
+print-dhcp6.c	- IPv6 DHCP printer routines
+print-domain.c	- Domain Name System printer routines
+print-dvmrp.c	- Distance Vector Multicast Routing Protocol printer routines
+print-eap.c	- EAP printer routines
+print-enc.c	- OpenBSD IPsec encapsulation BPF layer printer routines
+print-egp.c	- External Gateway Protocol printer routines
+print-esp.c	- IPSEC Encapsulating Security Payload printer routines
+print-ether.c	- Ethernet printer routines
+print-fddi.c	- Fiber Distributed Data Interface printer routines
+print-fr.c	- Frame Relay printer routines
+print-frag6.c	- IPv6 fragmentation header printer routines
+print-gre.c	- Generic Routing Encapsulation printer routines
+print-hsrp.c	- Cisco Hot Standby Router Protocol printer routines
+print-icmp.c	- Internet Control Message Protocol printer routines
+print-icmp6.c	- IPv6 Internet Control Message Protocol printer routines
+print-igmp.c	- Internet Group Management Protocol printer routines
+print-igrp.c	- Interior Gateway Routing Protocol printer routines
+print-ip.c	- IP printer routines
+print-ip6.c	- IPv6 printer routines
+print-ip6opts.c	- IPv6 header option printer routines
+print-ipcomp.c	- IP Payload Compression Protocol printer routines
+print-ipx.c	- IPX printer routines
+print-isakmp.c	- Internet Security Association and Key Management Protocol
+print-isoclns.c	- ISO CLNS, ESIS, and ISIS printer routines
+print-krb.c	- Kerberos printer routines
+print-l2tp.c	- Layer Two Tunneling Protocol printer routines
+print-lane.c	- ATM LANE printer routines
+print-llc.c	- IEEE 802.2 LLC printer routines
+print-lspping.c	- LSPPING printer routines
+print-lwres.c	- Lightweight Resolver protocol printer routines
+print-mobile.c	- IPv4 mobility printer routines
+print-mobility.c - IPv6 mobility printer routines
+print-mpls.c	- Multi-Protocol Label Switching printer routines
+print-msdp.c	- Multicast Source Discovery Protocol printer routines
+print-netbios.c	- NetBIOS frame protocol printer routines
+print-nfs.c	- Network File System printer routines
+print-ntp.c	- Network Time Protocol printer routines
+print-null.c	- BSD loopback device printer routines
+print-ospf.c	- Open Shortest Path First printer routines
+print-ospf6.c	- IPv6 Open Shortest Path First printer routines
+print-pflog.c	- OpenBSD packet filter log file printer routines
+print-pgm.c	- Pragmatic General Multicast printer routines
+print-pim.c	- Protocol Independent Multicast printer routines
+print-ppp.c	- Point to Point Protocol printer routines
+print-pppoe.c	- PPP-over-Ethernet printer routines
+print-pptp.c	- Point-to-Point Tunnelling Protocol printer routines
+print-radius.c	- Radius protocol printer routines
+print-raw.c	- Raw IP printer routines
+print-rip.c	- Routing Information Protocol printer routines
+print-ripng.c	- IPv6 Routing Information Protocol printer routines
+print-rrcp.c	- Realtek Remote Control Protocol routines
+print-rsvp.c	- Resource reSerVation Protocol (RSVP) printer routines
+print-rt6.c	- IPv6 routing header printer routines
+print-rx.c	- AFS RX printer routines
+print-sctp.c	- Stream Control Transmission Protocol printer routines
+print-sip.c	- SIP printer routines
+print-sl.c	- Compressed Serial Line Internet Protocol printer routines
+print-sll.c	- Linux "cooked" capture printer routines
+print-slow.c	- IEEE "slow protocol" (802.3ad) printer routines
+print-smb.c	- SMB/CIFS printer routines
+print-snmp.c	- Simple Network Management Protocol printer routines
+print-stp.c	- IEEE 802.1d spanning tree protocol printer routines
+print-sunatm.c	- SunATM DLPI capture printer routines
+print-sunrpc.c	- Sun Remote Procedure Call printer routines
+print-symantec.c - Symantec Enterprise Firewall printer routines
+print-tcp.c	- TCP printer routines
+print-telnet.c	- Telnet option printer routines
+print-tftp.c	- Trivial File Transfer Protocol printer routines
+print-timed.c	- BSD time daemon protocol printer routines
+print-token.c	- Token Ring printer routines
+print-udp.c	- UDP printer routines
+print-usb.c	- USB printer routines
+print-vjc.c	- PPP Van Jacobson compression (RFC1144) printer routines
+print-vrrp.c	- Virtual Router Redundancy Protocol
+print-wb.c	- White Board printer routines
+print-zephyr.c	- Zephyr printer routines
+route6d.h	- packet definition for IPv6 Routing Information Protocol
+rpc_auth.h	- definitions for ONC RPC authentication
+rpc_msg.h	- definitions for ONC RPC messages
+rx.h		- AFS RX definitions
+sctpConstants.h	- Stream Control Transmission Protocol constant definitions
+sctpHeader.h	- Stream Control Transmission Protocol packet definitions
+send-ack.awk	- unidirectional tcp send/ack awk script
+setsignal.c	- OS-independent signal routines
+setsignal.h	- OS-independent signal prototypes
+slcompress.h	- SLIP/PPP Van Jacobson compression (RFC1144) definitions
+slip.h		- SLIP definitions
+sll.h		- Linux "cooked" capture definitions
+smb.h		- SMB/CIFS definitions
+smbutil.c	- SMB/CIFS utility routines
+stime.awk	- TCP send awk script
+strcasecmp.c	- missing routine
+tcp.h		- TCP definitions
+tcpdump.1	- manual entry
+tcpdump.c	- main program
+telnet.h	- Telnet definitions
+tftp.h		- TFTP definitions
+timed.h		- BSD time daemon protocol definitions
+token.h		- Token Ring definitions
+udp.h		- UDP definitions
+util.c		- utility routines
+vfprintf.c	- emulation routine
+win32		- headers and routines for building on Win32 systems

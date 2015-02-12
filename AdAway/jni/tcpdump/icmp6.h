@@ -1,5 +1,5 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/icmp6.h,v 1.16.2.1 2005/09/05 09:29:28 guy Exp $ (LBL) */
-/*	$NetBSD: icmp6.h,v 1.13 2000/08/03 16:30:37 itojun Exp $	*/
+/* @(#) $Header: /tcpdump/master/tcpdump/icmp6.h,v 1.18 2007-08-29 02:31:44 mcr Exp $ (LBL) */
+/*	NetBSD: icmp6.h,v 1.13 2000/08/03 16:30:37 itojun Exp 	*/
 /*	$KAME: icmp6.h,v 1.22 2000/08/03 15:25:16 jinmei Exp $	*/
 
 /*
@@ -276,7 +276,8 @@ struct nd_opt_hdr {		/* Neighbor discovery option header */
 #define ND_OPT_ADVINTERVAL		7
 #define ND_OPT_HOMEAGENT_INFO		8
 #define ND_OPT_ROUTE_INFO		9	/* draft-ietf-ipngwg-router-preference, not officially assigned yet */
-
+#define ND_OPT_RDNSS			25
+#define ND_OPT_DNSSL			31
 
 struct nd_opt_prefix_info {	/* prefix information */
 	u_int8_t	nd_opt_pi_type;
@@ -306,6 +307,22 @@ struct nd_opt_mtu {		/* MTU option */
 	u_int8_t	nd_opt_mtu_len;
 	u_int16_t	nd_opt_mtu_reserved;
 	u_int32_t	nd_opt_mtu_mtu;
+};
+
+struct nd_opt_rdnss {		/* RDNSS RFC 6106 5.1 */
+	u_int8_t	nd_opt_rdnss_type;
+	u_int8_t	nd_opt_rdnss_len;
+	u_int16_t	nd_opt_rdnss_reserved;
+	u_int32_t	nd_opt_rdnss_lifetime;
+	struct in6_addr nd_opt_rdnss_addr[1];	/* variable-length */
+};
+
+struct nd_opt_dnssl {		/* DNSSL RFC 6106 5.2 */
+	u_int8_t  nd_opt_dnssl_type;
+	u_int8_t  nd_opt_dnssl_len;
+	u_int16_t nd_opt_dnssl_reserved;
+	u_int32_t nd_opt_dnssl_lifetime;
+	/* followed by list of DNS search domains, variable-length */
 };
 
 struct nd_opt_advinterval {	/* Advertisement interval option */

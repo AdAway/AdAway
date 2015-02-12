@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/af.h,v 1.3.2.1 2007/02/26 13:33:17 hannes Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/af.h,v 1.3 2006-03-23 14:58:44 hannes Exp $ (LBL) */
 
 /*
  * Copyright (c) 1998-2006 The TCPDUMP project
@@ -17,8 +17,8 @@
  * Original code by Hannes Gredler (hannes@juniper.net)
  */
 
-extern struct tok af_values[];
-extern struct tok bsd_af_values[];
+extern const struct tok af_values[];
+extern const struct tok bsd_af_values[];
 
 /* RFC1700 address family numbers */
 #define AFNUM_INET	1

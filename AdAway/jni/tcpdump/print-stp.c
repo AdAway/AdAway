@@ -11,7 +11,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-"@(#) $Header: /tcpdump/master/tcpdump/print-stp.c,v 1.13.2.7 2007/03/18 17:12:36 hannes Exp $";
+"@(#) $Header: /tcpdump/master/tcpdump/print-stp.c,v 1.20 2007-03-18 17:11:46 hannes Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -52,11 +52,13 @@ struct stp_bpdu_ {
 #define STP_PROTO_REGULAR 0x00
 #define STP_PROTO_RAPID   0x02
 #define STP_PROTO_MSTP    0x03
+#define STP_PROTO_SPB     0x04
 
-struct tok stp_proto_values[] = {
+static const struct tok stp_proto_values[] = {
     { STP_PROTO_REGULAR, "802.1d" },
     { STP_PROTO_RAPID, "802.1w" },
     { STP_PROTO_MSTP, "802.1s" },
+    { STP_PROTO_SPB, "802.1aq" },
     { 0, NULL}
 };
 
@@ -64,7 +66,7 @@ struct tok stp_proto_values[] = {
 #define STP_BPDU_TYPE_RSTP        0x02
 #define STP_BPDU_TYPE_TOPO_CHANGE 0x80
 
-struct tok stp_bpdu_flag_values[] = {
+static const struct tok stp_bpdu_flag_values[] = {
     { 0x01, "Topology change" },
     { 0x02, "Proposal" },
     { 0x10, "Learn" },
@@ -74,14 +76,14 @@ struct tok stp_bpdu_flag_values[] = {
     { 0, NULL}
 };
 
-struct tok stp_bpdu_type_values[] = {
+static const struct tok stp_bpdu_type_values[] = {
     { STP_BPDU_TYPE_CONFIG, "Config" },
     { STP_BPDU_TYPE_RSTP, "Rapid STP" },
     { STP_BPDU_TYPE_TOPO_CHANGE, "Topology Change" },
     { 0, NULL}
 };
 
-struct tok rstp_obj_port_role_values[] = {
+static const struct tok rstp_obj_port_role_values[] = {
     { 0x00, "Unknown" },
     { 0x01, "Alternate" },
     { 0x02, "Root" },
@@ -164,6 +166,30 @@ stp_print_config_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int length)
  * 1 -  byte  CIST Remaining Hops
  * 16 - bytes MSTI information [Max 64 MSTI, each 16 bytes]
  *
+ *
+ * SPB BPDU
+ * Ref. IEEE 802.1aq. Section 14
+ *
+ * 2 -  bytes Version 4 length
+ * 1 -  byte  Aux Config Identifier  
+ * 32 - bytes Aux Config Name
+ * 2 -  bytes Aux Revision level
+ * 16 - bytes Aux Config Digest [MD5]
+ * 1 -  byte  (1 - 2) Agreement Number 
+ *            (3 - 4) Discarded Agreement Number
+ *            (5) Agreement Valid Flag
+ *            (6) Restricted Role Flag
+ *            (7 - 8) Unused sent zero
+ * 1 -  byte Unused
+ * 1 -  byte (1 - 4) Agreement Digest Format Identifier
+ *           (5 - 8) Agreement Digest Format Capabilities
+ * 1 -  byte (1 - 4) Agreement Digest Convention Identifier
+ *           (5 - 8) Agreement Digest Convention Capabilities
+ * 2 -  bytes Agreement Digest Edge Count
+ * 8 -  byte Reserved Set
+ * 20 - bytes Computed Topology Digest
+ *
+ *
  * MSTI Payload
  *
  * 1 - byte  MSTI flag
@@ -172,6 +198,7 @@ stp_print_config_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int length)
  * 1 - byte  MSTI Bridge Priority
  * 1 - byte  MSTI Port Priority
  * 1 - byte  MSTI Remaining Hops
+ *
  */
 
 #define MST_BPDU_MSTI_LENGTH		    16
@@ -192,31 +219,52 @@ stp_print_config_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int length)
 #define MST_BPDU_MSTI_PORT_PRIO_OFFSET	    14
 #define MST_BPDU_MSTI_REMAIN_HOPS_OFFSET    15
 
+#define SPB_BPDU_MIN_LEN                  87
+#define SPB_BPDU_CONFIG_NAME_OFFSET       3
+#define SPB_BPDU_CONFIG_REV_OFFSET        SPB_BPDU_CONFIG_NAME_OFFSET + 32
+#define SPB_BPDU_CONFIG_DIGEST_OFFSET     SPB_BPDU_CONFIG_REV_OFFSET + 2
+#define SPB_BPDU_AGREEMENT_OFFSET         SPB_BPDU_CONFIG_DIGEST_OFFSET + 16
+#define SPB_BPDU_AGREEMENT_UNUSED_OFFSET  SPB_BPDU_AGREEMENT_OFFSET + 1
+#define SPB_BPDU_AGREEMENT_FORMAT_OFFSET  SPB_BPDU_AGREEMENT_UNUSED_OFFSET + 1
+#define SPB_BPDU_AGREEMENT_CON_OFFSET     SPB_BPDU_AGREEMENT_FORMAT_OFFSET + 1
+#define SPB_BPDU_AGREEMENT_EDGE_OFFSET    SPB_BPDU_AGREEMENT_CON_OFFSET + 1
+#define SPB_BPDU_AGREEMENT_RES1_OFFSET    SPB_BPDU_AGREEMENT_EDGE_OFFSET + 2
+#define SPB_BPDU_AGREEMENT_RES2_OFFSET    SPB_BPDU_AGREEMENT_RES1_OFFSET + 4
+#define SPB_BPDU_AGREEMENT_DIGEST_OFFSET  SPB_BPDU_AGREEMENT_RES2_OFFSET + 4
+
+
 static void
 stp_print_mstp_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int length)
 {
-    const u_char    *ptr;
+    const u_char *ptr;
     u_int16_t	    v3len;
     u_int16_t	    len;
     u_int16_t	    msti;
-    u_int16_t	    offset;
+    u_int	    offset;
 
     ptr = (const u_char *)stp_bpdu;
-    printf(", CIST Flags [%s]",
-           bittok2str(stp_bpdu_flag_values, "none", stp_bpdu->flags));
+    printf(", CIST Flags [%s], length %u",
+           bittok2str(stp_bpdu_flag_values, "none", stp_bpdu->flags), length);
 
     /*
-     * in non-verbose mode just print the flags. We dont read that much
-     * of the packet (DEFAULT_SNAPLEN) to print out cist bridge-id
+     * in non-verbose mode just print the flags.
      */
     if (!vflag) {
         return;
     }
 
-    printf(", CIST bridge-id %s.%04x, length %u",
-           stp_print_bridge_id(ptr + MST_BPDU_CIST_BRIDGE_ID_OFFSET),
-           EXTRACT_16BITS(&stp_bpdu->port_id), length);
+    printf("\n\tport-role %s, ",
+           tok2str(rstp_obj_port_role_values, "Unknown",
+                   RSTP_EXTRACT_PORT_ROLE(stp_bpdu->flags)));
 
+    printf("CIST root-id %s, CIST ext-pathcost %u ",
+           stp_print_bridge_id((const u_char *)&stp_bpdu->root_id),
+           EXTRACT_32BITS(&stp_bpdu->root_path_cost));
+
+    printf("\n\tCIST regional-root-id %s, ",
+           stp_print_bridge_id((const u_char *)&stp_bpdu->bridge_id));
+
+    printf("CIST port-id %04x, ", EXTRACT_16BITS(&stp_bpdu->port_id));
 
     printf("\n\tmessage-age %.2fs, max-age %.2fs"
            ", hello-time %.2fs, forwarding-delay %.2fs",
@@ -225,27 +273,23 @@ stp_print_mstp_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int length)
            (float)EXTRACT_16BITS(&stp_bpdu->hello_time) / STP_TIME_BASE,
            (float)EXTRACT_16BITS(&stp_bpdu->forward_delay) / STP_TIME_BASE);
 
-    printf("\n\tCIST root-id %s, ext-pathcost %u int-pathcost %u",
-           stp_print_bridge_id((const u_char *)&stp_bpdu->root_id),
-           EXTRACT_32BITS(&stp_bpdu->root_path_cost),
-           EXTRACT_32BITS(ptr + MST_BPDU_CIST_INT_PATH_COST_OFFSET));
+    printf ("\n\tv3len %d, ", EXTRACT_16BITS(ptr + MST_BPDU_VER3_LEN_OFFSET));
+    printf("MCID Name %s, rev %u, "
+            "\n\t\tdigest %08x%08x%08x%08x, ",
+            ptr + MST_BPDU_CONFIG_NAME_OFFSET,
+	          EXTRACT_16BITS(ptr + MST_BPDU_CONFIG_NAME_OFFSET + 32),
+      	    EXTRACT_32BITS(ptr + MST_BPDU_CONFIG_DIGEST_OFFSET),
+        	  EXTRACT_32BITS(ptr + MST_BPDU_CONFIG_DIGEST_OFFSET + 4),
+	          EXTRACT_32BITS(ptr + MST_BPDU_CONFIG_DIGEST_OFFSET + 8),
+	          EXTRACT_32BITS(ptr + MST_BPDU_CONFIG_DIGEST_OFFSET + 12));
 
-    printf(", port-role %s",
-           tok2str(rstp_obj_port_role_values, "Unknown",
-                   RSTP_EXTRACT_PORT_ROLE(stp_bpdu->flags)));
+    printf ("CIST int-root-pathcost %u, ", 
+            EXTRACT_32BITS(ptr + MST_BPDU_CIST_INT_PATH_COST_OFFSET));  
 
-    printf("\n\tCIST regional-root-id %s",
-           stp_print_bridge_id((const u_char *)&stp_bpdu->bridge_id));
+    printf("\n\tCIST bridge-id %s, ",
+           stp_print_bridge_id(ptr + MST_BPDU_CIST_BRIDGE_ID_OFFSET));
 
-    printf("\n\tMSTP Configuration Name %s, revision %u, digest %08x%08x%08x%08x",
-           ptr + MST_BPDU_CONFIG_NAME_OFFSET,
-	   EXTRACT_16BITS(ptr + MST_BPDU_CONFIG_NAME_OFFSET + 32),
-	   EXTRACT_32BITS(ptr + MST_BPDU_CONFIG_DIGEST_OFFSET),
-	   EXTRACT_32BITS(ptr + MST_BPDU_CONFIG_DIGEST_OFFSET + 4),
-	   EXTRACT_32BITS(ptr + MST_BPDU_CONFIG_DIGEST_OFFSET + 8),
-	   EXTRACT_32BITS(ptr + MST_BPDU_CONFIG_DIGEST_OFFSET + 12));
-
-    printf("\n\tCIST remaining-hops %d", ptr[MST_BPDU_CIST_REMAIN_HOPS_OFFSET]);
+    printf("CIST remaining-hops %d", ptr[MST_BPDU_CIST_REMAIN_HOPS_OFFSET]);
 
     /* Dump all MSTI's */
     v3len = EXTRACT_16BITS(ptr + MST_BPDU_VER3_LEN_OFFSET);
@@ -277,14 +321,57 @@ stp_print_mstp_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int length)
     }
 }
 
+static void
+stp_print_spb_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int offset)
+{
+    const u_char *ptr;
+
+    /*
+     * in non-verbose mode don't print anything.
+     */
+    if (!vflag) {
+        return;
+    }
+
+    ptr = (const u_char *)stp_bpdu;
+    printf("\n\tv4len %d AUXMCID Name %s, Rev %u, \n\t\tdigest %08x%08x%08x%08x",
+            EXTRACT_16BITS (ptr + offset),
+            ptr + offset + SPB_BPDU_CONFIG_NAME_OFFSET,
+            EXTRACT_16BITS(ptr + offset + SPB_BPDU_CONFIG_REV_OFFSET),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 4),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 8),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 12));
+     
+    printf("\n\tAgreement num %d, Discarded Agreement num %d, Agreement valid-"
+            "flag %d, \n\tRestricted role-flag: %d, Format id %d cap %d, "
+            "Convention id %d cap %d, \n\tEdge count %d, "
+            "Agreement digest %08x%08x%08x%08x%08x\n",
+            ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>6, 
+            ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>4 & 0x3,
+            ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>3 & 0x1,
+            ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>2 & 0x1,
+            ptr[offset + SPB_BPDU_AGREEMENT_FORMAT_OFFSET]>>4,
+            ptr[offset + SPB_BPDU_AGREEMENT_FORMAT_OFFSET]&0x00ff,
+            ptr[offset + SPB_BPDU_AGREEMENT_CON_OFFSET]>>4,
+            ptr[offset + SPB_BPDU_AGREEMENT_CON_OFFSET]&0x00ff,
+            EXTRACT_16BITS(ptr + offset + SPB_BPDU_AGREEMENT_EDGE_OFFSET),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+4,
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+8,
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+12,
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+16);
+}
+
 /*
- * Print 802.1d / 802.1w / 802.1q (mstp) packets.
+ * Print 802.1d / 802.1w / 802.1q (mstp) / 802.1aq (spb) packets.
  */
 void
 stp_print(const u_char *p, u_int length)
 {
     const struct stp_bpdu_ *stp_bpdu;
-    u_int16_t              mstp_len;
+    u_int                  mstp_len;
+    u_int                  spb_len;
     
     stp_bpdu = (struct stp_bpdu_*)p;
 
@@ -304,6 +391,7 @@ stp_print(const u_char *p, u_int length)
     case STP_PROTO_REGULAR:
     case STP_PROTO_RAPID:
     case STP_PROTO_MSTP:
+    case STP_PROTO_SPB:
         break;
     default:
         return;
@@ -326,14 +414,17 @@ stp_print(const u_char *p, u_int length)
                 goto trunc;
             }
             stp_print_config_bpdu(stp_bpdu, length);
-        } else if (stp_bpdu->protocol_version == STP_PROTO_MSTP) {
+        } else if (stp_bpdu->protocol_version == STP_PROTO_MSTP ||
+                   stp_bpdu->protocol_version == STP_PROTO_SPB) {
             if (length < STP_BPDU_MSTP_MIN_LEN) {
                 goto trunc;
             }
+
             if (stp_bpdu->v1_length != 0) {
                 /* FIX ME: Emit a message here ? */
                 goto trunc;
             }
+
             /* Validate v3 length */
             mstp_len = EXTRACT_16BITS(p + MST_BPDU_VER3_LEN_OFFSET);
             mstp_len += 2;  /* length encoding itself is 2 bytes */
@@ -341,6 +432,18 @@ stp_print(const u_char *p, u_int length)
                 goto trunc;
             }
             stp_print_mstp_bpdu(stp_bpdu, length);
+
+            if (stp_bpdu->protocol_version == STP_PROTO_SPB)
+            {
+              /* Validate v4 length */
+              spb_len = EXTRACT_16BITS (p + MST_BPDU_VER3_LEN_OFFSET + mstp_len);
+              spb_len += 2;
+              if (length < (sizeof(struct stp_bpdu_) + mstp_len + spb_len) ||
+                  spb_len < SPB_BPDU_MIN_LEN) {
+                goto trunc;
+              }
+              stp_print_spb_bpdu(stp_bpdu, (sizeof(struct stp_bpdu_) + mstp_len));
+            }
         }
         break;
 

@@ -21,7 +21,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-decnet.c,v 1.38.2.1 2005/05/06 02:16:53 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-decnet.c,v 1.39 2005-05-06 02:16:26 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -819,7 +819,7 @@ trunc:
 	return (0);
 }
 
-static struct tok reason2str[] = {
+static const struct tok reason2str[] = {
 	{ UC_OBJREJECT,		"object rejected connect" },
 	{ UC_RESOURCES,		"insufficient resources" },
 	{ UC_NOSUCHNODE,	"unrecognized node name" },

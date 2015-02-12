@@ -28,7 +28,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-mpls.c,v 1.13.2.1 2005/07/05 09:39:29 hannes Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-mpls.c,v 1.14 2005-07-05 09:38:19 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -54,6 +54,13 @@ static const char *mpls_labelname[] = {
 /*15*/	"rsvd",
 };
 
+enum mpls_packet_type {
+	PT_UNKNOWN,
+	PT_IPV4,
+	PT_IPV6,
+	PT_OSI
+};
+
 /*
  * RFC3032: MPLS label stack encoding
  */
@@ -62,7 +69,8 @@ mpls_print(const u_char *bp, u_int length)
 {
 	const u_char *p;
 	u_int32_t label_entry;
-        u_int16_t label_stack_depth = 0;
+	u_int16_t label_stack_depth = 0;
+	enum mpls_packet_type pt = PT_UNKNOWN;
 
 	p = bp;
 	printf("MPLS");
@@ -70,9 +78,9 @@ mpls_print(const u_char *bp, u_int length)
 		TCHECK2(*p, sizeof(label_entry));
 		label_entry = EXTRACT_32BITS(p);
 		printf("%s(label %u",
-                       label_stack_depth ? "\n\t" : " ",
-                       MPLS_LABEL(label_entry));
-                label_stack_depth++;
+		       (label_stack_depth && vflag) ? "\n\t" : " ",
+       		       MPLS_LABEL(label_entry));
+		label_stack_depth++;
 		if (vflag &&
 		    MPLS_LABEL(label_entry) < sizeof(mpls_labelname) / sizeof(mpls_labelname[0]))
 			printf(" (%s)", mpls_labelname[MPLS_LABEL(label_entry)]);
@@ -84,97 +92,127 @@ mpls_print(const u_char *bp, u_int length)
 		p += sizeof(label_entry);
 	} while (!MPLS_STACK(label_entry));
 
+	/*
+	 * Try to figure out the packet type.
+	 */
 	switch (MPLS_LABEL(label_entry)) {
+
 	case 0:	/* IPv4 explicit NULL label */
-        case 3:	/* IPv4 implicit NULL label */
-                if (vflag>0) {
-                        printf("\n\t");
-                        ip_print(gndo, p, length - (p - bp));
-                }
-                else printf(", IP, length: %u",length);
+	case 3:	/* IPv4 implicit NULL label */
+		pt = PT_IPV4;
 		break;
-#ifdef INET6
+
 	case 2:	/* IPv6 explicit NULL label */
-                if (vflag>0) {
-                        printf("\n\t");
-                        ip6_print(p, length - (p - bp));
-                }
-                else printf(", IPv6, length: %u",length);
+		pt = PT_IPV6;
 		break;
-#endif
+
 	default:
 		/*
 		 * Generally there's no indication of protocol in MPLS label
-		 * encoding, however draft-hsmit-isis-aal5mux-00.txt describes
-                 * a technique that looks at the first payload byte if the BOS (bottom of stack)
-                 * bit is set and tries to determine the network layer protocol
-                 * 0x45-0x4f is IPv4
-                 * 0x60-0x6f is IPv6
-                 * 0x81-0x83 is OSI (CLNP,ES-IS,IS-IS)
-                 * this technique is sometimes known as NULL encapsulation
-                 * and decoding is particularly useful for control-plane traffic [BGP]
-                 * which cisco by default sends MPLS encapsulated
+		 * encoding.
+		 *
+		 * However, draft-hsmit-isis-aal5mux-00.txt describes a
+		 * technique for encapsulating IS-IS and IP traffic on the
+		 * same ATM virtual circuit; you look at the first payload
+		 * byte to determine the network layer protocol, based on
+		 * the fact that
+		 *
+		 *	1) the first byte of an IP header is 0x45-0x4f
+		 *	   for IPv4 and 0x60-0x6f for IPv6;
+		 *
+		 *	2) the first byte of an OSI CLNP packet is 0x81,
+		 *	   the first byte of an OSI ES-IS packet is 0x82,
+		 *	   and the first byte of an OSI IS-IS packet is
+		 *	   0x83;
+		 *
+		 * so the network layer protocol can be inferred from the
+		 * first byte of the packet, if the protocol is one of the
+		 * ones listed above.
+		 *
+		 * Cisco sends control-plane traffic MPLS-encapsulated in
+		 * this fashion.
 		 */
+		switch(*p) {
 
-                if (MPLS_STACK(label_entry)) { /* only do this if the stack bit is set */
-                    switch(*p) {
-                    case 0x45:
-                    case 0x46:
-                    case 0x47:
-                    case 0x48:
-                    case 0x49:
-                    case 0x4a:
-                    case 0x4b:
-                    case 0x4c:
-                    case 0x4d:
-                    case 0x4e:
-                    case 0x4f:
-		        if (vflag>0) {
-                            printf("\n\t");
-                            ip_print(gndo, p, length - (p - bp));
-			    }
-                        else printf(", IP, length: %u",length);
-                        break;
-#ifdef INET6
-                    case 0x60:
-                    case 0x61:
-                    case 0x62:
-                    case 0x63:
-                    case 0x64:
-                    case 0x65:
-                    case 0x66:
-                    case 0x67:
-                    case 0x68:
-                    case 0x69:
-                    case 0x6a:
-                    case 0x6b:
-                    case 0x6c:
-                    case 0x6d:
-                    case 0x6e:
-                    case 0x6f:
-		        if (vflag>0) {
-                            printf("\n\t");
-                            ip6_print(p, length - (p - bp));
-                            }
-			else printf(", IPv6, length: %u",length);
-                        break;
-#endif
-                    case 0x81:
-                    case 0x82:
-                    case 0x83:
-		        if (vflag>0) {
-                            printf("\n\t");
-                            isoclns_print(p, length - (p - bp), length - (p - bp));
-			    }
-			else printf(", OSI, length: %u",length);
-                        break;
-                    default:
-                        /* ok bail out - we did not figure out what it is*/
-                        break;
-                    }
-                }
-                return;
+		case 0x45:
+		case 0x46:
+		case 0x47:
+		case 0x48:
+		case 0x49:
+		case 0x4a:
+		case 0x4b:
+		case 0x4c:
+		case 0x4d:
+		case 0x4e:
+		case 0x4f:
+			pt = PT_IPV4;
+			break;
+				
+		case 0x60:
+		case 0x61:
+		case 0x62:
+		case 0x63:
+		case 0x64:
+		case 0x65:
+		case 0x66:
+		case 0x67:
+		case 0x68:
+		case 0x69:
+		case 0x6a:
+		case 0x6b:
+		case 0x6c:
+		case 0x6d:
+		case 0x6e:
+		case 0x6f:
+			pt = PT_IPV6;
+			break;
+
+		case 0x81:
+		case 0x82:
+		case 0x83:
+			pt = PT_OSI;
+			break;
+
+		default:
+			/* ok bail out - we did not figure out what it is*/
+			break;
+		}
 	}
+
+	/*
+	 * Print the payload.
+	 */
+	if (pt == PT_UNKNOWN) {
+		if (!suppress_default_print)
+			default_print(p, length - (p - bp));
+		return;
+	}
+	if (vflag)
+		printf("\n\t");
+	else
+		printf(" ");
+	switch (pt) {
+
+	case PT_IPV4:
+		ip_print(gndo, p, length - (p - bp));
+		break;
+
+	case PT_IPV6:
+#ifdef INET6
+		ip6_print(gndo, p, length - (p - bp));
+#else
+		printf("IPv6, length: %u", length);
+#endif
+		break;
+
+	case PT_OSI:
+		isoclns_print(p, length - (p - bp), length - (p - bp));
+		break;
+
+	default:
+		break;
+	}
+	return;
 
 trunc:
 	printf("[|MPLS]");

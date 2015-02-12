@@ -38,7 +38,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-gre.c,v 1.28 2005/04/06 21:32:39 mcr Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-gre.c,v 1.28 2005-04-06 21:32:39 mcr Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -65,7 +65,7 @@ static const char rcsid[] _U_ =
 #define	GRE_RECRS	0x0700		/* recursion count */
 #define	GRE_AP		0x0080		/* acknowledgment# present */
 
-struct tok gre_flag_values[] = {
+static const struct tok gre_flag_values[] = {
     { GRE_CP, "checksum present"},
     { GRE_RP, "routing present"}, 
     { GRE_KP, "key present"}, 
@@ -210,7 +210,7 @@ gre_print_0(const u_char *bp, u_int length)
 		break;
 #ifdef INET6
 	case ETHERTYPE_IPV6:
-		ip6_print(bp, len);
+		ip6_print(gndo, bp, len);
 		break;
 #endif
 	case ETHERTYPE_MPLS:
@@ -224,6 +224,9 @@ gre_print_0(const u_char *bp, u_int length)
 		break;
 	case ETHERTYPE_GRE_ISO:
 		isoclns_print(bp, len, len);
+		break;
+	case ETHERTYPE_TEB:
+		ether_print(gndo, bp, len, len, NULL, NULL);
 		break;
 	default:
 		printf("gre-proto-0x%x", prot);

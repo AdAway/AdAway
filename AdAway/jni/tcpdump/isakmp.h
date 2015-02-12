@@ -26,7 +26,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
-/* YIPS @(#)$Id: isakmp.h,v 1.10 2002/12/11 07:13:54 guy Exp $ */
+/* YIPS @(#)$Id: isakmp.h,v 1.12 2007-11-24 18:13:33 mcr Exp $ */
 
 /* refer to RFC 2408 */
 
@@ -81,7 +81,7 @@ typedef struct { /* i_cookie + r_cookie */
 #define ISAKMP_TIMER_DEFAULT     10 /* seconds */
 #define ISAKMP_TRY_DEFAULT        3 /* times */
 
-/* 3.1 ISAKMP Header Format
+/* 3.1 ISAKMP Header Format (IKEv1 and IKEv2)
          0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
         !                          Initiator                            !
@@ -127,9 +127,13 @@ struct isakmp {
 #define ISAKMP_NPTYPE_N     11 /* Notification */
 #define ISAKMP_NPTYPE_D     12 /* Delete */
 #define ISAKMP_NPTYPE_VID   13 /* Vendor ID */
+#define ISAKMP_NPTYPE_v2E   46 /* v2 Encrypted payload */
 
-#define ISAKMP_MAJOR_VERSION  1
-#define ISAKMP_MINOR_VERSION  0
+#define IKEv1_MAJOR_VERSION  1
+#define IKEv1_MINOR_VERSION  0
+
+#define IKEv2_MAJOR_VERSION  2
+#define IKEv2_MINOR_VERSION  0
 
 /* Exchange Type */
 #define ISAKMP_ETYPE_NONE   0 /* NONE */
@@ -142,6 +146,13 @@ struct isakmp {
 /* Flags */
 #define ISAKMP_FLAG_E 0x01 /* Encryption Bit */
 #define ISAKMP_FLAG_C 0x02 /* Commit Bit */
+#define ISAKMP_FLAG_extra 0x04
+
+/* IKEv2 */
+#define ISAKMP_FLAG_I (1 << 3)  /* (I)nitiator */
+#define ISAKMP_FLAG_V (1 << 4)  /* (V)ersion   */
+#define ISAKMP_FLAG_R (1 << 5)  /* (R)esponse  */
+
 
 /* 3.2 Payload Generic Header
          0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -151,7 +162,7 @@ struct isakmp {
 */
 struct isakmp_gen {
 	u_int8_t  np;       /* Next Payload */
-	u_int8_t  reserved; /* RESERVED, unused, must set to 0 */
+	u_int8_t  critical; /* bit 7 - critical, rest is RESERVED */
 	u_int16_t len;      /* Payload Length */
 };
 
@@ -188,7 +199,7 @@ struct isakmp_data {
 	message of a Base Exchange (see Section 4.4) and the value "0" in the
 	first message of an Identity Protect Exchange (see Section 4.5).
 	*/
-struct isakmp_pl_sa {
+struct ikev1_pl_sa {
 	struct isakmp_gen h;
 	u_int32_t doi; /* Domain of Interpretation */
 	u_int32_t sit; /* Situation */
@@ -202,7 +213,7 @@ struct isakmp_pl_sa {
 	last within the security association proposal, then this field will
 	be 0.
 	*/
-struct isakmp_pl_p {
+struct ikev1_pl_p {
 	struct isakmp_gen h;
 	u_int8_t p_no;      /* Proposal # */
 	u_int8_t prot_id;   /* Protocol */
@@ -218,7 +229,7 @@ struct isakmp_pl_p {
 	then this field will be 3.  If the current Transform payload is the
 	last within the proposal, then this field will be 0.
 	*/
-struct isakmp_pl_t {
+struct ikev1_pl_t {
 	struct isakmp_gen h;
 	u_int8_t  t_no;     /* Transform # */
 	u_int8_t  t_id;     /* Transform-Id */
@@ -227,14 +238,14 @@ struct isakmp_pl_t {
 };
 
 /* 3.7 Key Exchange Payload */
-struct isakmp_pl_ke {
+struct ikev1_pl_ke {
 	struct isakmp_gen h;
 	/* Key Exchange Data */
 };
 
 /* 3.8 Identification Payload */
 	/* MUST NOT to be used, because of being defined in ipsec-doi. */
-struct isakmp_pl_id {
+struct ikev1_pl_id {
 	struct isakmp_gen h;
 	union {
 		u_int8_t  id_type;   /* ID Type */
@@ -244,7 +255,7 @@ struct isakmp_pl_id {
 };
 
 /* 3.9 Certificate Payload */
-struct isakmp_pl_cert {
+struct ikev1_pl_cert {
 	struct isakmp_gen h;
 	u_int8_t encode; /* Cert Encoding */
 	char   cert;   /* Certificate Data */
@@ -268,7 +279,7 @@ struct isakmp_pl_cert {
 #define ISAKMP_CERT_SPKI   9
 
 /* 3.10 Certificate Request Payload */
-struct isakmp_pl_cr {
+struct ikev1_pl_cr {
 	struct isakmp_gen h;
 	u_int8_t num_cert; /* # Cert. Types */
 	/*
@@ -283,27 +294,27 @@ struct isakmp_pl_cr {
 
 /* 3.11 Hash Payload */
 	/* may not be used, because of having only data. */
-struct isakmp_pl_hash {
+struct ikev1_pl_hash {
 	struct isakmp_gen h;
 	/* Hash Data */
 };
 
 /* 3.12 Signature Payload */
 	/* may not be used, because of having only data. */
-struct isakmp_pl_sig {
+struct ikev1_pl_sig {
 	struct isakmp_gen h;
 	/* Signature Data */
 };
 
 /* 3.13 Nonce Payload */
 	/* may not be used, because of having only data. */
-struct isakmp_pl_nonce {
+struct ikev1_pl_nonce {
 	struct isakmp_gen h;
 	/* Nonce Data */
 };
 
 /* 3.14 Notification Payload */
-struct isakmp_pl_n {
+struct ikev1_pl_n {
 	struct isakmp_gen h;
 	u_int32_t doi;      /* Domain of Interpretation */
 	u_int8_t  prot_id;  /* Protocol-ID */
@@ -347,7 +358,7 @@ struct isakmp_pl_n {
 #define ISAKMP_LOG_RETRY_LIMIT_REACHED           65530
 
 /* 3.15 Delete Payload */
-struct isakmp_pl_d {
+struct ikev1_pl_d {
 	struct isakmp_gen h;
 	u_int32_t doi;      /* Domain of Interpretation */
 	u_int8_t  prot_id;  /* Protocol-Id */
@@ -357,15 +368,15 @@ struct isakmp_pl_d {
 };
 
 
-struct isakmp_ph1tab {
-	struct isakmp_ph1 *head;
-	struct isakmp_ph1 *tail;
+struct ikev1_ph1tab {
+	struct ikev1_ph1 *head;
+	struct ikev1_ph1 *tail;
 	int len;
 };
 
 struct isakmp_ph2tab {
-	struct isakmp_ph2 *head;
-	struct isakmp_ph2 *tail;
+	struct ikev1_ph2 *head;
+	struct ikev1_ph2 *tail;
 	int len;
 };
 
@@ -374,5 +385,117 @@ struct isakmp_ph2tab {
 
 #define PFS_NEED	1
 #define PFS_NONEED	0
+
+/* IKEv2 (RFC4306) */
+
+/* 3.3  Security Association Payload -- generic header */
+/* 3.3.1.  Proposal Substructure */
+struct ikev2_p {
+	struct isakmp_gen h;
+	u_int8_t p_no;      /* Proposal # */
+	u_int8_t prot_id;   /* Protocol */
+	u_int8_t spi_size;  /* SPI Size */
+	u_int8_t num_t;     /* Number of Transforms */
+};
+
+/* 3.3.2.  Transform Substructure */
+struct ikev2_t {
+	struct isakmp_gen h;
+	u_int8_t t_type;    /* Transform Type (ENCR,PRF,INTEG,etc.*/
+	u_int8_t res2;      /* reserved byte */
+	u_int16_t t_id;     /* Transform ID */
+};
+
+enum ikev2_t_type {
+	IV2_T_ENCR = 1,
+	IV2_T_PRF  = 2,
+	IV2_T_INTEG= 3,
+	IV2_T_DH   = 4,
+	IV2_T_ESN  = 5,
+};
+
+/* 3.4.  Key Exchange Payload */
+struct ikev2_ke {
+	struct isakmp_gen h;
+	u_int16_t  ke_group;
+	u_int16_t  ke_res1;
+	/* KE data */
+};
+
+
+/* 3.5.  Identification Payloads */
+enum ikev2_id_type {
+	ID_IPV4_ADDR=1,
+	ID_FQDN=2,
+	ID_RFC822_ADDR=3,
+	ID_IPV6_ADDR=5,
+	ID_DER_ASN1_DN=9,
+	ID_DER_ASN1_GN=10,
+	ID_KEY_ID=11,
+};
+struct ikev2_id {
+	struct isakmp_gen h;
+	u_int8_t  type;        /* ID type */
+	u_int8_t  res1;
+	u_int16_t res2;
+	/* SPI */
+	/* Notification Data */
+};
+
+/* 3.10 Notification Payload */
+struct ikev2_n {
+	struct isakmp_gen h;
+	u_int8_t  prot_id;  /* Protocol-ID */
+	u_int8_t  spi_size; /* SPI Size */
+	u_int16_t type;     /* Notify Message Type */
+};
+
+enum ikev2_n_type {
+	IV2_NOTIFY_UNSUPPORTED_CRITICAL_PAYLOAD            = 1,
+	IV2_NOTIFY_INVALID_IKE_SPI                         = 4,
+	IV2_NOTIFY_INVALID_MAJOR_VERSION                   = 5,
+	IV2_NOTIFY_INVALID_SYNTAX                          = 7,
+	IV2_NOTIFY_INVALID_MESSAGE_ID                      = 9,
+	IV2_NOTIFY_INVALID_SPI                             =11,
+	IV2_NOTIFY_NO_PROPOSAL_CHOSEN                      =14,
+	IV2_NOTIFY_INVALID_KE_PAYLOAD                      =17,
+	IV2_NOTIFY_AUTHENTICATION_FAILED                   =24,
+	IV2_NOTIFY_SINGLE_PAIR_REQUIRED                    =34,
+	IV2_NOTIFY_NO_ADDITIONAL_SAS                       =35,
+	IV2_NOTIFY_INTERNAL_ADDRESS_FAILURE                =36,
+	IV2_NOTIFY_FAILED_CP_REQUIRED                      =37,
+	IV2_NOTIFY_INVALID_SELECTORS                       =39,
+	IV2_NOTIFY_INITIAL_CONTACT                         =16384,
+	IV2_NOTIFY_SET_WINDOW_SIZE                         =16385,
+	IV2_NOTIFY_ADDITIONAL_TS_POSSIBLE                  =16386,
+	IV2_NOTIFY_IPCOMP_SUPPORTED                        =16387,
+	IV2_NOTIFY_NAT_DETECTION_SOURCE_IP                 =16388,
+	IV2_NOTIFY_NAT_DETECTION_DESTINATION_IP            =16389,
+	IV2_NOTIFY_COOKIE                                  =16390,
+	IV2_NOTIFY_USE_TRANSPORT_MODE                      =16391,
+	IV2_NOTIFY_HTTP_CERT_LOOKUP_SUPPORTED              =16392,
+	IV2_NOTIFY_REKEY_SA                                =16393,
+	IV2_NOTIFY_ESP_TFC_PADDING_NOT_SUPPORTED           =16394,
+	IV2_NOTIFY_NON_FIRST_FRAGMENTS_ALSO                =16395
+};
+
+struct notify_messages {
+	u_int16_t type;
+	char     *msg;
+};
+
+/* 3.8 Notification Payload */
+struct ikev2_auth {
+	struct isakmp_gen h;
+	u_int8_t  auth_method;  /* Protocol-ID */
+	u_int8_t  reserved[3];
+	/* authentication data */
+};
+
+enum ikev2_auth_type {
+	IV2_RSA_SIG = 1,
+	IV2_SHARED  = 2,
+	IV2_DSS_SIG = 3,
+};
 
 #endif /* !defined(_ISAKMP_H_) */

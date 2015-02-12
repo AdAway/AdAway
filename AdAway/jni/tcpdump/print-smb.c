@@ -12,7 +12,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-     "@(#) $Header: /tcpdump/master/tcpdump/print-smb.c,v 1.41.2.4 2007/07/14 22:29:05 guy Exp $";
+     "@(#) $Header: /tcpdump/master/tcpdump/print-smb.c,v 1.47 2007-12-09 00:30:47 guy Exp $";
 #endif
 
 #include <tcpdump-stdinc.h>
@@ -1244,7 +1244,47 @@ trunc:
     return;
 }
 
+/*
+ * Print an SMB-over-TCP packet received across tcp on port 445
+ */
+void
+smb_tcp_print (const u_char * data, int length)
+{
+    int caplen;
+    u_int smb_len;
+    const u_char *maxbuf;
 
+    if (length < 4)
+	goto trunc;
+    if (snapend < data)
+	goto trunc;
+    caplen = snapend - data;
+    if (caplen < 4)
+	goto trunc;
+    maxbuf = data + caplen;
+    smb_len = EXTRACT_24BITS(data + 1);
+    length -= 4;
+    caplen -= 4;
+
+    startbuf = data;
+    data += 4;
+
+    if (smb_len >= 4 && caplen >= 4 && memcmp(data,"\377SMB",4) == 0) {
+	if ((int)smb_len > caplen) {
+	    if ((int)smb_len > length)
+		printf("WARNING: Packet is continued in later TCP segments\n");
+	    else
+		printf("WARNING: Short packet. Try increasing the snap length by %d\n",
+		    smb_len - caplen);
+	}
+	print_smb(data, maxbuf > data + smb_len ? data + smb_len : maxbuf);
+    } else
+	printf("SMB-over-TCP packet:(raw data or continuation?)\n");
+    return;
+trunc:
+    printf("[|SMB]");
+    return;
+}
 
 /*
  * print a NBT packet received across udp on port 138
@@ -1459,8 +1499,7 @@ ipx_netbios_print(const u_char *data, u_int length)
 	    break;
 	if (memcmp(&data[i], "\377SMB", 4) == 0) {
 	    smb_fdata(data, "\n>>> IPX transport ", &data[i], 0);
-	    if (data != NULL)
-		print_smb(&data[i], maxbuf);
+	    print_smb(&data[i], maxbuf);
 	    printf("\n");
 	    fflush(stdout);
 	    break;

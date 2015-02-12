@@ -1,0 +1,40 @@
+IP 150.140.254.202.57077 > 211.129.72.8.6704: sctp[ForCES HP] (1) [DATA] (B)(E) [TSN: 1048037094] [SID: 0] [SSEQ 1] [PPID 0x0] 
+	ForCES Query Response 
+
+IP 211.129.72.8.6706 > 150.140.254.202.48316: sctp[ForCES LP] (1) [DATA] (B)(E) [TSN: 18398476] [SID: 0] [SSEQ 0] [PPID 0x0] 
+	ForCES HeartBeat 
+
+IP 150.140.254.202.48316 > 211.129.72.8.6706: sctp[ForCES LP] (1) [SACK] [cum ack 18398476] [a_rwnd 57320] [#gap acks 0] [#dup tsns 0] 
+IP 211.129.72.8.6704 > 150.140.254.202.57077: sctp[ForCES HP] (1) [DATA] (B)(E) [TSN: 167996938] [SID: 0] [SSEQ 2] [PPID 0x0] 
+	ForCES Query 
+
+IP 211.129.72.8.6704 > 150.140.254.202.57077: sctp[ForCES HP] (1) [DATA] (B)(E) [TSN: 167996939] [SID: 0] [SSEQ 3] [PPID 0x0] 
+	ForCES Config 
+
+IP 150.140.254.202.57077 > 211.129.72.8.6704: sctp[ForCES HP] (1) [SACK] [cum ack 167996939] [a_rwnd 57228] [#gap acks 0] [#dup tsns 0] 
+IP 211.129.72.8.6704 > 150.140.254.202.57077: sctp[ForCES HP] (1) [DATA] (B)(E) [TSN: 167996940] [SID: 0] [SSEQ 4] [PPID 0x0] 
+	ForCES Config 
+
+IP 211.129.72.8.6704 > 150.140.254.202.57077: sctp[ForCES HP] (1) [DATA] (B)(E) [TSN: 167996941] [SID: 0] [SSEQ 5] [PPID 0x0] 
+	ForCES Config 
+
+IP 150.140.254.202.57077 > 211.129.72.8.6704: sctp[ForCES HP] (1) [SACK] [cum ack 167996941] [a_rwnd 57100] [#gap acks 0] [#dup tsns 0] 
+IP 211.129.72.8.6704 > 150.140.254.202.57077: sctp[ForCES HP] (1) [DATA] (B)(E) [TSN: 167996942] [SID: 0] [SSEQ 6] [PPID 0x0] 
+	ForCES Config 
+
+IP 211.129.72.8.6706 > 150.140.254.202.48316: sctp[ForCES LP] (1) [SACK] [cum ack 1830592459] [a_rwnd 55272] [#gap acks 0] [#dup tsns 0] 
+IP 150.140.254.202.57077 > 211.129.72.8.6704: sctp[ForCES HP] (1) [HB REQ] 
+IP 211.129.72.8.6704 > 150.140.254.202.57077: sctp[ForCES HP] (1) [HB REQ] 
+IP 150.140.254.202.57077 > 211.129.72.8.6704: sctp[ForCES HP] (1) [HB ACK] 
+IP 150.140.254.202.48316 > 211.129.72.8.6706: sctp[ForCES LP] (1) [DATA] (B)(E) [TSN: 1830592460] [SID: 0] [SSEQ 30] [PPID 0x0] 
+	ForCES HeartBeat 
+
+IP 211.129.72.8.6704 > 150.140.254.202.57077: sctp[ForCES HP] (1) [HB ACK] 
+IP 211.129.72.8.6706 > 150.140.254.202.48316: sctp[ForCES LP] (1) [DATA] (B)(E) [TSN: 18398553] [SID: 0] [SSEQ 77] [PPID 0x0] 
+	ForCES HeartBeat 
+
+IP 211.129.72.8.6706 > 150.140.254.202.48316: sctp[ForCES LP] (1) [DATA] (B)(E) [TSN: 18398573] [SID: 0] [SSEQ 97] [PPID 0x0] 
+	ForCES HeartBeat 
+
+IP 211.129.72.8.6706 > 150.140.254.202.48316: sctp[ForCES LP] (1) [SACK] [cum ack 1830592477] [a_rwnd 55272] [#gap acks 0] [#dup tsns 0] 
+IP 150.140.254.202.48316 > 211.129.72.8.6706: sctp[ForCES LP] (1) [SACK] [cum ack 18398573] [a_rwnd 56144] [#gap acks 0] [#dup tsns 0] 

@@ -1,0 +1,1333 @@
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 64)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [S], cksum 0xa75a (correct), seq 469952923, win 32768, options [mss 1380,nop,wscale 5,sackOK,nop,nop,nop,nop,TS val 1 ecr 0], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [S.], cksum 0x1493 (incorrect -> 0xa59a), seq 1198728146, ack 469952924, win 14480, options [mss 1460,sackOK,TS val 47836340 ecr 1,nop,wscale 7], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0x08ec (correct), seq 1, ack 1, win 1035, options [nop,nop,TS val 1 ecr 47836340], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x293c (correct), seq 1:9, ack 1, win 1035, options [nop,nop,TS val 1 ecr 47836340], length 8: OpenFlow
+	version 1.0, type HELLO, length 8, xid 0xf1c0ecd6
+IP (tos 0x0, ttl 64, id 53094, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0x0c7c), seq 1, ack 9, win 114, options [nop,nop,TS val 47836341 ecr 1], length 0
+IP (tos 0x0, ttl 64, id 53095, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x1493 (incorrect -> 0x0b5d), seq 1:9, ack 9, win 114, options [nop,nop,TS val 47836347 ecr 1], length 8: OpenFlow
+	version 1.0, type HELLO, length 8, xid 0x00000001
+IP (tos 0x0, ttl 64, id 53096, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x1493 (incorrect -> 0x0b4e), seq 9:17, ack 9, win 114, options [nop,nop,TS val 47836348 ecr 1], length 8: OpenFlow
+	version 1.0, type FEATURES_REQUEST, length 8, xid 0x00000002
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0x08ce (correct), seq 9, ack 17, win 1034, options [nop,nop,TS val 1 ecr 47836347], length 0
+IP (tos 0x0, ttl 64, id 53469, offset 0, flags [DF], proto TCP (6), length 180)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x48dc (correct), seq 9:137, ack 17, win 1035, options [nop,nop,TS val 1 ecr 47836347], length 128: OpenFlow
+	version 1.0, type FEATURES_REPLY, length 128, xid 0x00000002
+	 dpid 0x00010001e88ae0e2, n_buffers 0, n_tables 6
+	 capabilities 0x00000007 (FLOW_STATS, TABLE_STATS, PORT_STATS)
+	 actions 0x00000137 (OUTPUT, SET_VLAN_VID, SET_VLAN_PCP, SET_DL_SRC, SET_DL_DST, SET_NW_TOS)
+	  port_no 1, hw_addr 00:01:e8:8a:e0:e4, name 'Te 0/0'
+	   config 0x00000000
+	   state 0x00000000
+	   curr 0x00000340 (10GB_FD, FIBER, AUTONEG)
+	   advertised 0x00000340 (10GB_FD, FIBER, AUTONEG)
+	   supported 0x00000340 (10GB_FD, FIBER, AUTONEG)
+	   peer 0x00000000
+	  port_no 2, hw_addr 00:01:e8:8a:e0:e4, name 'Te 0/1'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000300 (FIBER, AUTONEG)
+	   advertised 0x00000300 (FIBER, AUTONEG)
+	   supported 0x00000300 (FIBER, AUTONEG)
+	   peer 0x00000000
+IP (tos 0x0, ttl 64, id 53097, offset 0, flags [DF], proto TCP (6), length 136)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x14df (incorrect -> 0x08c9), seq 17:101, ack 137, win 122, options [nop,nop,TS val 47836352 ecr 1], length 84: OpenFlow
+	version 1.0, type SET_CONFIG, length 12, xid 0x00000003
+	 flags FRAG_NORMAL, miss_send_len 65535
+	version 1.0, type FLOW_MOD, length 72, xid 0x00000004
+	 cookie 0x0000000000000000, command DELETE, out_port NONE, flags 0x0000
+IP (tos 0x0, ttl 64, id 53098, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x1493 (incorrect -> 0x0a54), seq 101:109, ack 137, win 122, options [nop,nop,TS val 47836354 ecr 1], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000005
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0x07ed (correct), seq 137, ack 109, win 1034, options [nop,nop,TS val 1 ecr 47836352], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x06bc (correct), seq 137:145, ack 109, win 1035, options [nop,nop,TS val 1 ecr 47836352], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000005
+IP (tos 0x0, ttl 64, id 53099, offset 0, flags [DF], proto TCP (6), length 80)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x14a7 (incorrect -> 0x07f3), seq 109:137, ack 145, win 122, options [nop,nop,TS val 47836355 ecr 1], length 28: OpenFlow
+	version 1.0, type FEATURES_REQUEST, length 8, xid 0x00000006
+	version 1.0, type STATS_REQUEST, length 12, xid 0x00000007
+	 type TABLE, flags 0x0000
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000008
+IP (tos 0x0, ttl 64, id 53475, offset 0, flags [DF], proto TCP (6), length 180)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x47d0 (correct), seq 145:273, ack 137, win 1035, options [nop,nop,TS val 1 ecr 47836355], length 128: OpenFlow
+	version 1.0, type FEATURES_REPLY, length 128, xid 0x00000006
+	 dpid 0x00010001e88ae0e2, n_buffers 0, n_tables 6
+	 capabilities 0x00000007 (FLOW_STATS, TABLE_STATS, PORT_STATS)
+	 actions 0x00000137 (OUTPUT, SET_VLAN_VID, SET_VLAN_PCP, SET_DL_SRC, SET_DL_DST, SET_NW_TOS)
+	  port_no 1, hw_addr 00:01:e8:8a:e0:e4, name 'Te 0/0'
+	   config 0x00000000
+	   state 0x00000000
+	   curr 0x00000340 (10GB_FD, FIBER, AUTONEG)
+	   advertised 0x00000340 (10GB_FD, FIBER, AUTONEG)
+	   supported 0x00000340 (10GB_FD, FIBER, AUTONEG)
+	   peer 0x00000000
+	  port_no 2, hw_addr 00:01:e8:8a:e0:e4, name 'Te 0/1'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000300 (FIBER, AUTONEG)
+	   advertised 0x00000300 (FIBER, AUTONEG)
+	   supported 0x00000300 (FIBER, AUTONEG)
+	   peer 0x00000000
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x0612 (correct), seq 273:281, ack 137, win 1035, options [nop,nop,TS val 1 ecr 47836355], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000008
+IP (tos 0x0, ttl 64, id 53476, offset 0, flags [DF], proto TCP (6), length 448)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x2be8 (correct), seq 281:677, ack 137, win 1035, options [nop,nop,TS val 1 ecr 47836355], length 396: OpenFlow
+	version 1.0, type STATS_REPLY, length 396, xid 0x00000007
+	 type TABLE, flags 0x0000
+	 table_id 0, name 'VLAN Table'
+	  wildcards 0x003ffffd (IN_PORT, DL_SRC, DL_DST, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
+	  max_entries 1024, active_count 0, lookup_count 0, matched_count 0
+	 table_id 0, name 'MAC Table'
+	  wildcards 0x003ffff5 (IN_PORT, DL_SRC, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
+	  max_entries 49152, active_count 0, lookup_count 0, matched_count 0
+	 table_id 0, name 'Route Table'
+	  wildcards 0x003fffff (IN_PORT, DL_VLAN, DL_SRC, DL_DST, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
+	  max_entries 6144, active_count 0, lookup_count 0, matched_count 0
+	 table_id 0, name 'ACL Table'
+	  wildcards 0x003fffff (IN_PORT, DL_VLAN, DL_SRC, DL_DST, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
+	  max_entries 498, active_count 0, lookup_count 127028, matched_count 0
+	 table_id 0, name 'Learning Switch Table'
+	  wildcards 0x003fffff (IN_PORT, DL_VLAN, DL_SRC, DL_DST, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
+	  max_entries 24576, active_count 0, lookup_count 0, matched_count 0
+	 table_id 0, name 'Egress Port Block Table'
+	  wildcards 0x003fffff (IN_PORT, DL_VLAN, DL_SRC, DL_DST, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
+	  max_entries 256, active_count 0, lookup_count 0, matched_count 0
+IP (tos 0x0, ttl 64, id 53100, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0x088c), seq 137, ack 677, win 139, options [nop,nop,TS val 47836520 ecr 1], length 0
+IP (tos 0x0, ttl 64, id 53101, offset 0, flags [DF], proto TCP (6), length 4156)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x2493 (incorrect -> 0xa671), seq 137:4241, ack 677, win 139, options [nop,nop,TS val 47836527 ecr 1], length 4104: OpenFlow
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000009
+	 match in_port 1
+	 cookie 0x0000000000000001, command ADD, priority 35000, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port CONTROLLER, max_len 65535
+	version 1.0, type FLOW_MOD, length 80, xid 0x0000000a
+	 match in_port 1
+	 cookie 0x0000000000000002, command ADD, priority 34999, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_VLAN_VID, len 8, vlan_vid 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x0000000b
+	 match in_port 1
+	 cookie 0x0000000000000003, command ADD, priority 34998, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_VLAN_PCP, len 8, vlan_pcp 5
+	version 1.0, type FLOW_MOD, length 88, xid 0x0000000c
+	 match in_port 1
+	 cookie 0x0000000000000004, command ADD, priority 34997, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_VLAN_VID, len 8, vlan_vid 2
+	 action type SET_VLAN_PCP, len 8, vlan_pcp 5
+	version 1.0, type FLOW_MOD, length 88, xid 0x0000000d
+	 match in_port 1
+	 cookie 0x0000000000000005, command ADD, priority 34996, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 11:22:33:44:55:66
+	version 1.0, type FLOW_MOD, length 88, xid 0x0000000e
+	 match in_port 1
+	 cookie 0x0000000000000006, command ADD, priority 34995, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_DST, len 16, dl_addr 77:88:99:aa:bb:cc
+	version 1.0, type FLOW_MOD, length 104, xid 0x0000000f
+	 match in_port 1
+	 cookie 0x0000000000000007, command ADD, priority 34994, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 11:22:33:44:55:66
+	 action type SET_DL_DST, len 16, dl_addr 77:88:99:aa:bb:cc
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000010
+	 match in_port 1
+	 match dl_src 00:00:00:00:00:01
+	 cookie 0x0000000000000008, command ADD, priority 34000, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000011
+	 match in_port 1
+	 cookie 0x0000000000000009, command ADD, priority 33000, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_NW_TOS, len 8, nw_tos 0x28
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000012
+	 match dl_vlan 100
+	 match dl_vlan_pcp 4
+	 match dl_type 0x0800
+	 cookie 0x000000000000000a, command ADD, priority 32000, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000013
+	 match dl_type 0x0800
+	 match nw_src 10.11.12.0/24
+	 match nw_dst 10.13.14.0/24
+	 cookie 0x000000000000000b, command ADD, priority 31999, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000014
+	 match dl_type 0x0800
+	 match nw_proto 17
+	 match tp_src 68
+	 match tp_dst 67
+	 cookie 0x000000000000000c, command ADD, priority 31998, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000015
+	 match dl_type 0x0800
+	 match nw_proto 1
+	 match icmp_type 8
+	 cookie 0x000000000000000d, command ADD, priority 31997, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000016
+	 match dl_type 0x0800
+	 match nw_proto 1
+	 match icmp_type 3
+	 match icmp_code 13
+	 cookie 0x000000000000000e, command ADD, priority 31996, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000017
+	 match dl_src aa:00:00:00:00:11
+	 match dl_dst bb:00:00:00:00:22
+	 cookie 0x000000000000000f, command ADD, priority 31995, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000018
+	 match dl_type 0x0800
+	 match nw_tos 0x24
+	 cookie 0x0000000000000010, command ADD, priority 31994, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000019
+	 match dl_type 0x0800
+	 match nw_proto 6
+	 match tp_src 80
+	 match tp_dst 80
+	 cookie 0x0000000000000011, command ADD, priority 31993, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x0000001a
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.21.0.0/16
+	 cookie 0x0000000000000012, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x0000001b
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.22.0.0/16
+	 cookie 0x0000000000000013, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x0000001c
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.23.0.0/16
+	 cookie 0x0000000000000014, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x0000001d
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.24.0.0/16
+	 cookie 0x0000000000000015, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x0000001e
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.0.0/24
+	 cookie 0x0000000000000016, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x0000001f
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.1.0/24
+	 cookie 0x0000000000000017, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x00000020
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.2.0/24
+	 cookie 0x0000000000000018, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x00000021
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.3.0/24
+	 cookie 0x0000000000000019, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x00000022
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.4.0/24
+	 cookie 0x000000000000001a, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x00000023
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.5.0/24
+	 cookie 0x000000000000001b, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x00000024
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.6.0/24
+	 cookie 0x000000000000001c, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x00000025
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.7.0/24
+	 cookie 0x000000000000001d, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 112, xid 0x00000026
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 cookie 0x000000000000001e, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	 action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	 action type OUTPUT, len 8, port 2
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000027
+	 match dl_dst 00:11:22:33:00:32
+	 match dl_vlan 50
+	 cookie 0x000000000000001f, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000028
+	 match dl_dst 00:11:22:33:00:33
+	 match dl_vlan 51
+	 cookie 0x0000000000000020, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000029
+	 match dl_dst 00:11:22:33:00:34
+	 match dl_vlan 52
+	 cookie 0x0000000000000021, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x0000002a
+	 match dl_dst 00:11:22:33:00:35
+	 match dl_vlan 53
+	 cookie 0x0000000000000022, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x0000002b
+	 match dl_dst 00:11:22:33:00:36
+	 match dl_vlan 54
+	 cookie 0x0000000000000023, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x0000002c
+	 match dl_dst 00:11:22:33:00:37
+	 match dl_vlan 55
+	 cookie 0x0000000000000024, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x0000002d
+	 match dl_dst 00:11:22:33:00:38
+	 match dl_vlan 56
+	 cookie 0x0000000000000025, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x0000002e
+	 match dl_dst 00:11:22:33:00:39
+	 match dl_vlan 57
+	 cookie 0x0000000000000026, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x0000002f
+	 match dl_src 00:11:22:33:00:0a
+	 match dl_dst 00:11:22:33:00:14
+	 cookie 0x0000000000000027, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000030
+	 match dl_src 00:11:22:33:00:0a
+	 match dl_dst 00:11:22:33:00:15
+	 cookie 0x0000000000000028, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000031
+	 match dl_src 00:11:22:33:00:0a
+	 match dl_dst 00:11:22:33:00:16
+	 cookie 0x0000000000000029, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000032
+	 match dl_src 00:11:22:33:00:0b
+	 match dl_dst 00:11:22:33:00:14
+	 cookie 0x000000000000002a, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000033
+	 match dl_src 00:11:22:33:00:0b
+	 match dl_dst 00:11:22:33:00:15
+	 cookie 0x000000000000002b, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000034
+	 match dl_src 00:11:22:33:00:0b
+	 match dl_dst 00:11:22:33:00:16
+	 cookie 0x000000000000002c, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000035
+	 match dl_src 00:11:22:33:00:0c
+	 match dl_dst 00:11:22:33:00:14
+	 cookie 0x000000000000002d, command ADD, priority 65535, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type OUTPUT, len 8, port 1
+	version 1.0, type FLOW_MOD, length 80, xid 0x00000036
+	 match dl_src 00:11:22:33:00:0c
+	 match dl_dst 00:11:22:33:00:15 [|openflow]
+IP (tos 0x0, ttl 64, id 53104, offset 0, flags [DF], proto TCP (6), length 180)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x150b (incorrect -> 0x8ec7), seq 4241:4369, ack 677, win 139, options [nop,nop,TS val 47836527 ecr 1], length 128: OpenFlow
+	version unknown (0x00), type 0x00, length 0, xid 0x00000000 (corrupt)
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0xfaa7 (correct), seq 677, ack 2873, win 952, options [nop,nop,TS val 1 ecr 47836527], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0xf4fe (correct), seq 677, ack 4369, win 905, options [nop,nop,TS val 1 ecr 47836527], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0xf4a7 (correct), seq 677, ack 4369, win 992, options [nop,nop,TS val 1 ecr 47836527], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xf318 (correct), seq 677:685, ack 4369, win 1035, options [nop,nop,TS val 2 ecr 47836527], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000038
+IP (tos 0x0, ttl 64, id 53105, offset 0, flags [DF], proto TCP (6), length 228)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x153b (incorrect -> 0x165f), seq 4369:4545, ack 685, win 139, options [nop,nop,TS val 47836757 ecr 2], length 176: OpenFlow
+	version 1.0, type STATS_REQUEST, length 56, xid 0x00000039
+	 type FLOW, flags 0x0000
+	 table_id ALL, out_port NONE
+	version 1.0, type STATS_REQUEST, length 56, xid 0x0000003a
+	 type FLOW, flags 0x0000
+	 table_id 0, out_port NONE
+	version 1.0, type STATS_REQUEST, length 56, xid 0x0000003b
+	 type FLOW, flags 0x0000
+	 match dl_src 00:00:00:00:77:77
+	 table_id 0, out_port CONTROLLER
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x0000003c
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0xf2dd (correct), seq 685, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 64)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xf170 (correct), seq 685:697, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 12: OpenFlow
+	version 1.0, type STATS_REPLY, length 12, xid 0x0000003b
+	 type FLOW, flags 0x0000
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xf16a (correct), seq 697:705, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x0000003c
+IP (tos 0x0, ttl 64, id 53106, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xf556), seq 4545, ack 705, win 139, options [nop,nop,TS val 47837000 ecr 2], length 0
+IP (tos 0x0, ttl 64, id 53575, offset 0, flags [DF], proto TCP (6), length 1216)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x39b4 (correct), seq 705:1869, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 1164: OpenFlow
+	version 1.0, type STATS_REPLY, length 1164, xid 0x00000039
+	 type FLOW, flags 0x0001 (MORE)
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.21.0.0/16
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000012, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.22.0.0/16
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000013, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.23.0.0/16
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000014, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.24.0.0/16
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000015, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.20.0.0/24
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000016, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.20.1.0/24
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000017, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.20.2.0/24
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000018, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.20.3.0/24
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000019, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.20.4.0/24
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000001a, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+IP (tos 0x0, ttl 64, id 53576, offset 0, flags [DF], proto TCP (6), length 1176)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x6b64 (correct), seq 1869:2993, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 1124: OpenFlow
+	version 1.0, type STATS_REPLY, length 1124, xid 0x00000039
+	 type FLOW, flags 0x0001 (MORE)
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.20.5.0/24
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000001b, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.20.6.0/24
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000001c, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  match nw_dst 10.20.7.0/24
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000001d, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 128, table_id 30
+	  match dl_dst 00:01:e8:8a:e0:e4
+	  match dl_type 0x0800
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000001e, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 00:01:e8:8a:e0:e4
+	  action type SET_DL_DST, len 16, dl_addr 11:00:00:00:00:00
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 35000, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000001, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port CONTROLLER, max_len 65535
+	 length 96, table_id 40
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34999, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000002, packet_count 0, byte_count 0
+	  action type SET_VLAN_VID, len 8, vlan_vid 2
+	 length 96, table_id 40
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34998, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000003, packet_count 0, byte_count 0
+	  action type SET_VLAN_PCP, len 8, vlan_pcp 5
+	 length 104, table_id 40
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34997, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000004, packet_count 0, byte_count 0
+	  action type SET_VLAN_VID, len 8, vlan_vid 2
+	  action type SET_VLAN_PCP, len 8, vlan_pcp 5
+	 length 104, table_id 40
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34996, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000005, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 11:22:33:44:55:66
+	 length 104, table_id 40
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34995, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000006, packet_count 0, byte_count 0
+	  action type SET_DL_DST, len 16, dl_addr 77:88:99:aa:bb:cc
+IP (tos 0x0, ttl 64, id 53107, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xec39), seq 4545, ack 2993, win 184, options [nop,nop,TS val 47837000 ecr 2], length 0
+IP (tos 0x0, ttl 64, id 53108, offset 0, flags [DF], proto TCP (6), length 148)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x14eb (incorrect -> 0xc5f7), seq 4545:4641, ack 2993, win 184, options [nop,nop,TS val 47837000 ecr 2], length 96: OpenFlow
+	version 1.0, type STATS_REQUEST, length 12, xid 0x0000003d
+	 type DESC, flags 0x0000
+	version 1.0, type STATS_REQUEST, length 56, xid 0x0000003e
+	 type AGGREGATE, flags 0x0000
+	 table_id ALL, out_port NONE
+	version 1.0, type STATS_REQUEST, length 20, xid 0x0000003f
+	 type PORT, flags 0x0000
+	 port_no NONE
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000040
+IP (tos 0x0, ttl 64, id 53577, offset 0, flags [DF], proto TCP (6), length 1048)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x29df (correct), seq 2993:3989, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 996: OpenFlow
+	version 1.0, type STATS_REPLY, length 996, xid 0x00000039
+	 type FLOW, flags 0x0001 (MORE)
+	 length 120, table_id 40
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34994, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000007, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 11:22:33:44:55:66
+	  action type SET_DL_DST, len 16, dl_addr 77:88:99:aa:bb:cc
+	 length 96, table_id 40
+	  match in_port 1
+	  match dl_src 00:00:00:00:00:01
+	  duration_sec 0, duration_nsec 0, priority 34000, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000008, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 33000, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000009, packet_count 0, byte_count 0
+	  action type SET_NW_TOS, len 8, nw_tos 0x28
+	 length 96, table_id 40
+	  match dl_vlan 100
+	  match dl_vlan_pcp 4
+	  match dl_type 0x0800
+	  duration_sec 0, duration_nsec 0, priority 32000, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000a, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match dl_type 0x0800
+	  match nw_src 10.11.12.0/24
+	  match nw_dst 10.13.14.0/24
+	  duration_sec 0, duration_nsec 0, priority 31999, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000b, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match dl_type 0x0800
+	  match nw_proto 17
+	  match tp_src 68
+	  match tp_dst 67
+	  duration_sec 0, duration_nsec 0, priority 31998, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000c, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match dl_type 0x0800
+	  match nw_proto 1
+	  match icmp_type 8
+	  duration_sec 0, duration_nsec 0, priority 31997, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000d, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match dl_type 0x0800
+	  match nw_proto 1
+	  match icmp_type 3
+	  match icmp_code 13
+	  duration_sec 0, duration_nsec 0, priority 31996, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000e, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match dl_src aa:00:00:00:00:11
+	  match dl_dst bb:00:00:00:00:22
+	  duration_sec 0, duration_nsec 0, priority 31995, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000f, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match dl_type 0x0800
+	  match nw_tos 0x24
+	  duration_sec 0, duration_nsec 0, priority 31994, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000010, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+IP (tos 0x0, ttl 64, id 53578, offset 0, flags [DF], proto TCP (6), length 1024)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x45c0 (correct), seq 3989:4961, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 972: OpenFlow
+	version 1.0, type STATS_REPLY, length 972, xid 0x00000039
+	 type FLOW, flags 0x0001 (MORE)
+	 length 96, table_id 40
+	  match dl_type 0x0800
+	  match nw_proto 6
+	  match tp_src 80
+	  match tp_dst 80
+	  duration_sec 0, duration_nsec 0, priority 31993, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000011, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 40
+	  match dl_dst 00:11:22:33:00:32
+	  match dl_vlan 50
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000001f, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_dst 00:11:22:33:00:33
+	  match dl_vlan 51
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000020, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_dst 00:11:22:33:00:34
+	  match dl_vlan 52
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000021, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_dst 00:11:22:33:00:35
+	  match dl_vlan 53
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000022, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_dst 00:11:22:33:00:36
+	  match dl_vlan 54
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000023, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_dst 00:11:22:33:00:37
+	  match dl_vlan 55
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000024, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_dst 00:11:22:33:00:38
+	  match dl_vlan 56
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000025, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_dst 00:11:22:33:00:39
+	  match dl_vlan 57
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000026, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0a
+	  match dl_dst 00:11:22:33:00:14
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000027, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+IP (tos 0x0, ttl 64, id 53109, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xe405), seq 4641, ack 4961, win 220, options [nop,nop,TS val 47837000 ecr 2], length 0
+IP (tos 0x0, ttl 64, id 53579, offset 0, flags [DF], proto TCP (6), length 832)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x6f3d (correct), seq 4961:5741, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 780: OpenFlow
+	version 1.0, type STATS_REPLY, length 780, xid 0x00000039
+	 type FLOW, flags 0x0000
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0a
+	  match dl_dst 00:11:22:33:00:15
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000028, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0a
+	  match dl_dst 00:11:22:33:00:16
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000029, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0b
+	  match dl_dst 00:11:22:33:00:14
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000002a, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0b
+	  match dl_dst 00:11:22:33:00:15
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000002b, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0b
+	  match dl_dst 00:11:22:33:00:16
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000002c, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0c
+	  match dl_dst 00:11:22:33:00:14
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000002d, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0c
+	  match dl_dst 00:11:22:33:00:15
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000002e, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 40
+	  match dl_src 00:11:22:33:00:0c
+	  match dl_dst 00:11:22:33:00:16
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000002f, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+IP (tos 0x0, ttl 64, id 53580, offset 0, flags [DF], proto TCP (6), length 976)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x0dbb (correct), seq 5741:6665, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47836757], length 924: OpenFlow
+	version 1.0, type STATS_REPLY, length 924, xid 0x0000003a
+	 type FLOW, flags 0x0001 (MORE)
+	 length 96, table_id 0
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 35000, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000001, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port CONTROLLER, max_len 65535
+	 length 96, table_id 0
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34999, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000002, packet_count 0, byte_count 0
+	  action type SET_VLAN_VID, len 8, vlan_vid 2
+	 length 96, table_id 0
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34998, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000003, packet_count 0, byte_count 0
+	  action type SET_VLAN_PCP, len 8, vlan_pcp 5
+	 length 104, table_id 0
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34997, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000004, packet_count 0, byte_count 0
+	  action type SET_VLAN_VID, len 8, vlan_vid 2
+	  action type SET_VLAN_PCP, len 8, vlan_pcp 5
+	 length 104, table_id 0
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34996, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000005, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 11:22:33:44:55:66
+	 length 104, table_id 0
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34995, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000006, packet_count 0, byte_count 0
+	  action type SET_DL_DST, len 16, dl_addr 77:88:99:aa:bb:cc
+	 length 120, table_id 0
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 34994, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000007, packet_count 0, byte_count 0
+	  action type SET_DL_SRC, len 16, dl_addr 11:22:33:44:55:66
+	  action type SET_DL_DST, len 16, dl_addr 77:88:99:aa:bb:cc
+	 length 96, table_id 0
+	  match in_port 1
+	  match dl_src 00:00:00:00:00:01
+	  duration_sec 0, duration_nsec 0, priority 34000, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000008, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match in_port 1
+	  duration_sec 0, duration_nsec 0, priority 33000, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000009, packet_count 0, byte_count 0
+	  action type SET_NW_TOS, len 8, nw_tos 0x28
+IP (tos 0x0, ttl 64, id 53110, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xdd38), seq 4641, ack 6665, win 257, options [nop,nop,TS val 47837000 ecr 2], length 0
+IP (tos 0x0, ttl 64, id 53581, offset 0, flags [DF], proto TCP (6), length 1500)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0x2501 (correct), seq 6665:8113, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47837000], length 1448: OpenFlow
+	version 1.0, type STATS_REPLY, length 972, xid 0x0000003a
+	 type FLOW, flags 0x0001 (MORE)
+	 length 96, table_id 0
+	  match dl_vlan 100
+	  match dl_vlan_pcp 4
+	  match dl_type 0x0800
+	  duration_sec 0, duration_nsec 0, priority 32000, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000a, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match dl_type 0x0800
+	  match nw_src 10.11.12.0/24
+	  match nw_dst 10.13.14.0/24
+	  duration_sec 0, duration_nsec 0, priority 31999, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000b, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match dl_type 0x0800
+	  match nw_proto 17
+	  match tp_src 68
+	  match tp_dst 67
+	  duration_sec 0, duration_nsec 0, priority 31998, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000c, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match dl_type 0x0800
+	  match nw_proto 1
+	  match icmp_type 8
+	  duration_sec 0, duration_nsec 0, priority 31997, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000d, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match dl_type 0x0800
+	  match nw_proto 1
+	  match icmp_type 3
+	  match icmp_code 13
+	  duration_sec 0, duration_nsec 0, priority 31996, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000e, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match dl_src aa:00:00:00:00:11
+	  match dl_dst bb:00:00:00:00:22
+	  duration_sec 0, duration_nsec 0, priority 31995, idle_timeout 0, hard_timeout 0, cookie 0x000000000000000f, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match dl_type 0x0800
+	  match nw_tos 0x24
+	  duration_sec 0, duration_nsec 0, priority 31994, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000010, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match dl_type 0x0800
+	  match nw_proto 6
+	  match tp_src 80
+	  match tp_dst 80
+	  duration_sec 0, duration_nsec 0, priority 31993, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000011, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 2
+	 length 96, table_id 0
+	  match dl_dst 00:11:22:33:00:32
+	  match dl_vlan 50
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x000000000000001f, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 0
+	  match dl_dst 00:11:22:33:00:33
+	  match dl_vlan 51
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000020, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	version 1.0, type STATS_REPLY, length 972, xid 0x0000003a
+	 type FLOW, flags 0x0001 (MORE)
+	 length 96, table_id 0
+	  match dl_dst 00:11:22:33:00:34
+	  match dl_vlan 52
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000021, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 0
+	  match dl_dst 00:11:22:33:00:35
+	  match dl_vlan 53
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000022, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 0
+	  match dl_dst 00:11:22:33:00:36
+	  match dl_vlan 54
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000023, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 0
+	  match dl_dst 00:11:22:33:00:37
+	  match dl_vlan 55
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000024, packet_count 0, byte_count 0
+	  action type OUTPUT, len 8, port 1
+	 length 96, table_id 0
+	  match dl_dst 00:11:22:33:00:38
+	  match dl_vlan 56
+	  duration_sec 0, duration_nsec 0, priority 65535, idle_timeout 0, hard_timeout 0, cookie 0x0000000000000025, packet_count 0 [|openflow]
+IP (tos 0x0, ttl 64, id 53582, offset 0, flags [DF], proto TCP (6), length 1040)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x395e (correct), seq 8113:9101, ack 4545, win 1035, options [nop,nop,TS val 2 ecr 47837000], length 988: OpenFlow
+	version unknown (0x00), type 0x00, length 0, xid 0x00000000 (corrupt)
+IP (tos 0x0, ttl 64, id 53111, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xd387), seq 4641, ack 9101, win 302, options [nop,nop,TS val 47837000 ecr 2], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0xd0aa (correct), seq 9101, ack 4641, win 1035, options [nop,nop,TS val 2 ecr 47837000], length 0
+IP (tos 0x0, ttl 64, id 53602, offset 0, flags [DF], proto TCP (6), length 1120)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x141f (correct), seq 9101:10169, ack 4641, win 1035, options [nop,nop,TS val 3 ecr 47837000], length 1068: OpenFlow
+	version 1.0, type STATS_REPLY, length 1068, xid 0x0000003d
+	 type DESC, flags 0x0000
+	  mfr_desc 'Dell Force 10'
+	  hw_desc 'OpenFlow switch HW ver. 1.0'
+	  sw_desc 'OpenFlow switch SW ver. 1.0'
+	  serial_num '02132012'
+	  dp_desc 'Dell-Switch: 00:01:e8:8a:e0:e2; instance: 1'
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xcb12 (correct), seq 10169:10177, ack 4641, win 1035, options [nop,nop,TS val 3 ecr 47837000], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000040
+IP (tos 0x0, ttl 64, id 53603, offset 0, flags [DF], proto TCP (6), length 88)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xcaa5 (correct), seq 10177:10213, ack 4641, win 1035, options [nop,nop,TS val 3 ecr 47837000], length 36: OpenFlow
+	version 1.0, type STATS_REPLY, length 36, xid 0x0000003e
+	 type AGGREGATE, flags 0x0000
+	 packet_count 0, byte_count 0, flow_count 47
+IP (tos 0x0, ttl 64, id 53604, offset 0, flags [DF], proto TCP (6), length 189)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x03e7 (correct), seq 10213:10350, ack 4641, win 1035, options [nop,nop,TS val 3 ecr 47837000], length 137: OpenFlow
+	version 1.0, type PACKET_IN, length 137, xid 0x00000000
+	 buffer_id NONE, total_len 119, in_port 1, reason ACTION
+	 data (119 octets), frame decoding below
+STP 802.1s, Rapid STP, CIST Flags [Proposal, Learn, Forward, Agreement], length 102
+	port-role Designated, CIST root-id 8000.08:9e:01:62:d5:f4, CIST ext-pathcost 0 
+	CIST regional-root-id 8000.08:9e:01:62:d5:f4, CIST port-id 8034, 
+	message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 64, MCID Name pica8, rev 0, 
+		digest ac36177f50283cd4b83821d8ab26de62, CIST int-root-pathcost 0, 
+	CIST bridge-id 8000.08:9e:01:62:d5:f4, CIST remaining-hops 20
+IP (tos 0x0, ttl 64, id 53605, offset 0, flags [DF], proto TCP (6), length 168)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x4a03 (correct), seq 10350:10466, ack 4641, win 1035, options [nop,nop,TS val 3 ecr 47837000], length 116: OpenFlow
+	version 1.0, type STATS_REPLY, length 116, xid 0x0000003f
+	 type PORT, flags 0x0001 (MORE)
+	  port_no 1, rx_packets 129437, tx_packets 8061, rx_bytes 16090662, tx_bytes 515904, rx_dropped 0, tx_dropped 0, rx_errors 18446744073709551615, tx_errors 18446744073709551615, rx_frame_err 18446744073709551615, rx_over_err 18446744073709551615, rx_crc_err 0, collisions 0
+IP (tos 0x0, ttl 64, id 53606, offset 0, flags [DF], proto TCP (6), length 168)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc90e (correct), seq 10466:10582, ack 4641, win 1035, options [nop,nop,TS val 3 ecr 47837000], length 116: OpenFlow
+	version 1.0, type STATS_REPLY, length 116, xid 0x0000003f
+	 type PORT, flags 0x0000
+	  port_no 2, rx_packets 0, tx_packets 0, rx_bytes 0, tx_bytes 0, rx_dropped 0, tx_dropped 0, rx_errors 18446744073709551615, tx_errors 18446744073709551615, rx_frame_err 18446744073709551615, rx_over_err 18446744073709551615, rx_crc_err 0, collisions 0
+IP (tos 0x0, ttl 64, id 53112, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xcccd), seq 4641, ack 10582, win 331, options [nop,nop,TS val 47837211 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53113, offset 0, flags [DF], proto TCP (6), length 132)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x14db (incorrect -> 0xc93e), seq 4641:4721, ack 10582, win 331, options [nop,nop,TS val 47837212 ecr 3], length 80: OpenFlow
+	version 1.0, type FLOW_MOD, length 72, xid 0x00000041
+	 cookie 0x0000000000000000, command DELETE, priority 65535, out_port NONE, flags 0x0001 (SEND_FLOW_REM)
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000042
+IP (tos 0x0, ttl 64, id 53707, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc92c (correct), seq 10582:10670, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000001a
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.21.0.0/16
+	 cookie 0x0000000000000012, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53708, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc8d1 (correct), seq 10670:10758, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000001b
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.22.0.0/16
+	 cookie 0x0000000000000013, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53709, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc876 (correct), seq 10758:10846, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000001c
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.23.0.0/16
+	 cookie 0x0000000000000014, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53710, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc81b (correct), seq 10846:10934, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000001d
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.24.0.0/16
+	 cookie 0x0000000000000015, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53711, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc7c7 (correct), seq 10934:11022, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000001e
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.0.0/24
+	 cookie 0x0000000000000016, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53712, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc66d (correct), seq 11022:11110, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000001f
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.1.0/24
+	 cookie 0x0000000000000017, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53713, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc513 (correct), seq 11110:11198, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000020
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.2.0/24
+	 cookie 0x0000000000000018, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53714, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc3b9 (correct), seq 11198:11286, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000021
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.3.0/24
+	 cookie 0x0000000000000019, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53114, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xc900), seq 4721, ack 11286, win 331, options [nop,nop,TS val 47837400 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53715, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc25f (correct), seq 11286:11374, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000022
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.4.0/24
+	 cookie 0x000000000000001a, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53716, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xc105 (correct), seq 11374:11462, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000023
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.5.0/24
+	 cookie 0x000000000000001b, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53717, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xbfab (correct), seq 11462:11550, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000024
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.6.0/24
+	 cookie 0x000000000000001c, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53718, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xbe51 (correct), seq 11550:11638, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000025
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 match nw_dst 10.20.7.0/24
+	 cookie 0x000000000000001d, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53719, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xcf05 (correct), seq 11638:11726, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837212], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000026
+	 match dl_dst 00:01:e8:8a:e0:e4
+	 match dl_type 0x0800
+	 cookie 0x000000000000001e, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53720, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x37c4 (correct), seq 11726:11814, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837400], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000009
+	 match in_port 1
+	 cookie 0x0000000000000001, priority 35000, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53721, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x376b (correct), seq 11814:11902, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837400], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000000a
+	 match in_port 1
+	 cookie 0x0000000000000002, priority 34999, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53115, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xc697), seq 4721, ack 11902, win 331, options [nop,nop,TS val 47837401 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53722, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x3712 (correct), seq 11902:11990, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837400], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000000b
+	 match in_port 1
+	 cookie 0x0000000000000003, priority 34998, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53723, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x36b9 (correct), seq 11990:12078, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837400], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000000c
+	 match in_port 1
+	 cookie 0x0000000000000004, priority 34997, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53724, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x3660 (correct), seq 12078:12166, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837400], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000000d
+	 match in_port 1
+	 cookie 0x0000000000000005, priority 34996, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53725, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x3607 (correct), seq 12166:12254, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837400], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000000e
+	 match in_port 1
+	 cookie 0x0000000000000006, priority 34995, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53726, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x35ae (correct), seq 12254:12342, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837400], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000000f
+	 match in_port 1
+	 cookie 0x0000000000000007, priority 34994, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53727, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x3938 (correct), seq 12342:12430, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000010
+	 match in_port 1
+	 match dl_src 00:00:00:00:00:01
+	 cookie 0x0000000000000008, priority 34000, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53728, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x3cc3 (correct), seq 12430:12518, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000011
+	 match in_port 1
+	 cookie 0x0000000000000009, priority 33000, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53116, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xc42f), seq 4721, ack 12518, win 331, options [nop,nop,TS val 47837401 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53729, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x1317 (correct), seq 12518:12606, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000012
+	 match dl_vlan 100
+	 match dl_vlan_pcp 4
+	 match dl_type 0x0800
+	 cookie 0x000000000000000a, priority 32000, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53730, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x00fe (correct), seq 12606:12694, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000013
+	 match dl_type 0x0800
+	 match nw_src 10.11.12.0/24
+	 match nw_dst 10.13.14.0/24
+	 cookie 0x000000000000000b, priority 31999, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53731, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x16ff (correct), seq 12694:12782, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000014
+	 match dl_type 0x0800
+	 match nw_proto 17
+	 match tp_src 68
+	 match tp_dst 67
+	 cookie 0x000000000000000c, priority 31998, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53732, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x16b5 (correct), seq 12782:12870, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000015
+	 match dl_type 0x0800
+	 match nw_proto 1
+	 match icmp_type 8
+	 cookie 0x000000000000000d, priority 31997, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53733, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x16d4 (correct), seq 12870:12958, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000016
+	 match dl_type 0x0800
+	 match nw_proto 1
+	 match icmp_type 3
+	 match icmp_code 13
+	 cookie 0x000000000000000e, priority 31996, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53117, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xc37f), seq 4721, ack 12694, win 331, options [nop,nop,TS val 47837401 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53734, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xd96b (correct), seq 12958:13046, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000017
+	 match dl_src aa:00:00:00:00:11
+	 match dl_dst bb:00:00:00:00:22
+	 cookie 0x000000000000000f, priority 31995, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53735, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xf172 (correct), seq 13046:13134, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000018
+	 match dl_type 0x0800
+	 match nw_tos 0x24
+	 cookie 0x0000000000000010, priority 31994, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53736, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x1534 (correct), seq 13134:13222, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000019
+	 match dl_type 0x0800
+	 match nw_proto 6
+	 match tp_src 80
+	 match tp_dst 80
+	 cookie 0x0000000000000011, priority 31993, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53118, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xc16f), seq 4721, ack 13222, win 331, options [nop,nop,TS val 47837401 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53737, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x97c9 (correct), seq 13222:13310, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000027
+	 match dl_dst 00:11:22:33:00:32
+	 match dl_vlan 50
+	 cookie 0x000000000000001f, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53738, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x976d (correct), seq 13310:13398, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000028
+	 match dl_dst 00:11:22:33:00:33
+	 match dl_vlan 51
+	 cookie 0x0000000000000020, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53739, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x9711 (correct), seq 13398:13486, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000029
+	 match dl_dst 00:11:22:33:00:34
+	 match dl_vlan 52
+	 cookie 0x0000000000000021, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53740, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x96b5 (correct), seq 13486:13574, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000002a
+	 match dl_dst 00:11:22:33:00:35
+	 match dl_vlan 53
+	 cookie 0x0000000000000022, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53741, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x9659 (correct), seq 13574:13662, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000002b
+	 match dl_dst 00:11:22:33:00:36
+	 match dl_vlan 54
+	 cookie 0x0000000000000023, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53742, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x95fd (correct), seq 13662:13750, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000002c
+	 match dl_dst 00:11:22:33:00:37
+	 match dl_vlan 55
+	 cookie 0x0000000000000024, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53743, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x95a1 (correct), seq 13750:13838, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000002d
+	 match dl_dst 00:11:22:33:00:38
+	 match dl_vlan 56
+	 cookie 0x0000000000000025, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53119, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xbf07), seq 4721, ack 13838, win 331, options [nop,nop,TS val 47837401 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53744, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x9545 (correct), seq 13838:13926, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000002e
+	 match dl_dst 00:11:22:33:00:39
+	 match dl_vlan 57
+	 cookie 0x0000000000000026, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53745, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x72fd (correct), seq 13926:14014, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x0000002f
+	 match dl_src 00:11:22:33:00:0a
+	 match dl_dst 00:11:22:33:00:14
+	 cookie 0x0000000000000027, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53746, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x72a2 (correct), seq 14014:14102, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000030
+	 match dl_src 00:11:22:33:00:0a
+	 match dl_dst 00:11:22:33:00:15
+	 cookie 0x0000000000000028, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53747, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x7247 (correct), seq 14102:14190, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000031
+	 match dl_src 00:11:22:33:00:0a
+	 match dl_dst 00:11:22:33:00:16
+	 cookie 0x0000000000000029, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53748, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x71ee (correct), seq 14190:14278, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000032
+	 match dl_src 00:11:22:33:00:0b
+	 match dl_dst 00:11:22:33:00:14
+	 cookie 0x000000000000002a, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53120, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xbd4e), seq 4721, ack 14278, win 331, options [nop,nop,TS val 47837402 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53749, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x7193 (correct), seq 14278:14366, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000033
+	 match dl_src 00:11:22:33:00:0b
+	 match dl_dst 00:11:22:33:00:15
+	 cookie 0x000000000000002b, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53750, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x7138 (correct), seq 14366:14454, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000034
+	 match dl_src 00:11:22:33:00:0b
+	 match dl_dst 00:11:22:33:00:16
+	 cookie 0x000000000000002c, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53751, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x70df (correct), seq 14454:14542, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000035
+	 match dl_src 00:11:22:33:00:0c
+	 match dl_dst 00:11:22:33:00:14
+	 cookie 0x000000000000002d, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53752, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x7084 (correct), seq 14542:14630, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837401], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000036
+	 match dl_src 00:11:22:33:00:0c
+	 match dl_dst 00:11:22:33:00:15
+	 cookie 0x000000000000002e, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 53753, offset 0, flags [DF], proto TCP (6), length 140)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0x7028 (correct), seq 14630:14718, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837402], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000037
+	 match dl_src 00:11:22:33:00:0c
+	 match dl_dst 00:11:22:33:00:16
+	 cookie 0x000000000000002f, priority 65535, reason DELETE, duration_sec 0, duration_nsec 0, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xb769 (correct), seq 14718:14726, ack 4721, win 1035, options [nop,nop,TS val 3 ecr 47837402], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000042
+IP (tos 0x0, ttl 64, id 53121, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xbb8e), seq 4721, ack 14726, win 331, options [nop,nop,TS val 47837402 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 53122, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x1493 (incorrect -> 0xba21), seq 4721:4729, ack 14726, win 331, options [nop,nop,TS val 47837402 ecr 3], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000043
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xb758 (correct), seq 14726:14734, ack 4729, win 1035, options [nop,nop,TS val 3 ecr 47837402], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000043
+IP (tos 0x0, ttl 64, id 53123, offset 0, flags [DF], proto TCP (6), length 144)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x14e7 (incorrect -> 0x2671), seq 4729:4821, ack 14734, win 331, options [nop,nop,TS val 47837403 ecr 3], length 92: OpenFlow
+	version 1.0, type PACKET_OUT, length 84, xid 0x00000044
+	 buffer_id 0xffffffff, in_port CONTROLLER
+	 action type OUTPUT, len 8, port 1
+	 data (60 octets), frame decoding below
+67:68:00:00:00:00 > 61:62:63:64:65:66 Null Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000045
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xb6f1 (correct), seq 14734:14742, ack 4821, win 1035, options [nop,nop,TS val 3 ecr 47837403], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000045
+IP (tos 0x0, ttl 64, id 53124, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x1493 (incorrect -> 0xb9a7), seq 4821:4829, ack 14742, win 331, options [nop,nop,TS val 47837405 ecr 3], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000046
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xb6de (correct), seq 14742:14750, ack 4829, win 1035, options [nop,nop,TS val 3 ecr 47837405], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000046
+IP (tos 0x0, ttl 64, id 53125, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x1493 (incorrect -> 0xb995), seq 4829:4837, ack 14750, win 331, options [nop,nop,TS val 47837406 ecr 3], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000047
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xb6cc (correct), seq 14750:14758, ack 4837, win 1035, options [nop,nop,TS val 3 ecr 47837406], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000047
+IP (tos 0x0, ttl 64, id 53126, offset 0, flags [DF], proto TCP (6), length 72)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [P.], cksum 0x149f (incorrect -> 0xb819), seq 4837:4857, ack 14758, win 331, options [nop,nop,TS val 47837407 ecr 3], length 20: OpenFlow
+	version 1.0, type SET_CONFIG, length 12, xid 0x00000048
+	 flags FRAG_NORMAL, miss_send_len 65535
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000049
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xb6ad (correct), seq 14758:14766, ack 4857, win 1035, options [nop,nop,TS val 3 ecr 47837407], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000049
+IP (tos 0x0, ttl 64, id 53127, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xbab1), seq 4857, ack 14766, win 331, options [nop,nop,TS val 47837447 ecr 3], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 64)
+    10.0.0.81.55442 > 10.0.0.20.6633: Flags [S], cksum 0xb924 (correct), seq 553833795, win 32768, options [mss 1380,nop,wscale 5,sackOK,nop,nop,nop,nop,TS val 1 ecr 0], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.55442: Flags [S.], cksum 0x1493 (incorrect -> 0x6111), seq 845973340, ack 553833796, win 14480, options [mss 1460,sackOK,TS val 47838340 ecr 1,nop,wscale 7], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.55442 > 10.0.0.20.6633: Flags [.], cksum 0xc462 (correct), seq 1, ack 1, win 1035, options [nop,nop,TS val 1 ecr 47838340], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.81.55442 > 10.0.0.20.6633: Flags [P.], cksum 0x3724 (correct), seq 1:9, ack 1, win 1035, options [nop,nop,TS val 1 ecr 47838340], length 8: OpenFlow
+	version 1.0, type HELLO, length 8, xid 0x95e1f644
+IP (tos 0x0, ttl 64, id 29656, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.55442: Flags [.], cksum 0x148b (incorrect -> 0xc7f2), seq 1, ack 9, win 114, options [nop,nop,TS val 47838341 ecr 1], length 0
+IP (tos 0x0, ttl 64, id 29657, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.55442: Flags [P.], cksum 0x1493 (incorrect -> 0xc6d3), seq 1:9, ack 9, win 114, options [nop,nop,TS val 47838347 ecr 1], length 8: OpenFlow
+	version 1.0, type HELLO, length 8, xid 0x00000001
+IP (tos 0x0, ttl 64, id 29658, offset 0, flags [DF], proto TCP (6), length 60)
+    10.0.0.20.6633 > 10.0.0.81.55442: Flags [P.], cksum 0x1493 (incorrect -> 0xc6c4), seq 9:17, ack 9, win 114, options [nop,nop,TS val 47838348 ecr 1], length 8: OpenFlow
+	version 1.0, type FEATURES_REQUEST, length 8, xid 0x00000002
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.55442 > 10.0.0.20.6633: Flags [.], cksum 0xc444 (correct), seq 9, ack 17, win 1034, options [nop,nop,TS val 1 ecr 47838347], length 0
+IP (tos 0x0, ttl 64, id 53761, offset 0, flags [DF], proto TCP (6), length 180)
+    10.0.0.81.55442 > 10.0.0.20.6633: Flags [P.], cksum 0x1df1 (correct), seq 9:137, ack 17, win 1035, options [nop,nop,TS val 1 ecr 47838347], length 128: OpenFlow
+	version 1.0, type FEATURES_REPLY, length 128, xid 0x00000002
+	 dpid 0x00050001e88ae0e2, n_buffers 0, n_tables 6
+	 capabilities 0x00000007 (FLOW_STATS, TABLE_STATS, PORT_STATS)
+	 actions 0x00000137 (OUTPUT, SET_VLAN_VID, SET_VLAN_PCP, SET_DL_SRC, SET_DL_DST, SET_NW_TOS)
+	  port_no 13, hw_addr 00:01:e8:8a:e0:e4, name 'Te 0/12'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000300 (FIBER, AUTONEG)
+	   advertised 0x00000300 (FIBER, AUTONEG)
+	   supported 0x00000300 (FIBER, AUTONEG)
+	   peer 0x00000000
+	  port_no 16, hw_addr 00:01:e8:8a:e0:e4, name 'Te 0/15'
+	   config 0x00008001 (PORT_DOWN) (bogus)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000300 (FIBER, AUTONEG)
+	   advertised 0x00000300 (FIBER, AUTONEG)
+	   supported 0x00000300 (FIBER, AUTONEG)
+	   peer 0x00000000
+IP (tos 0x0, ttl 64, id 29659, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.55442: Flags [F.], cksum 0x148b (incorrect -> 0xc74d), seq 17, ack 137, win 122, options [nop,nop,TS val 47838353 ecr 1], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.55442 > 10.0.0.20.6633: Flags [.], cksum 0xc3bc (correct), seq 137, ack 18, win 1035, options [nop,nop,TS val 1 ecr 47838353], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.55442 > 10.0.0.20.6633: Flags [F.], cksum 0xc3bb (correct), seq 137, ack 18, win 1035, options [nop,nop,TS val 1 ecr 47838353], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.55442: Flags [.], cksum 0xc74c (correct), seq 18, ack 138, win 122, options [nop,nop,TS val 47838353 ecr 1], length 0
+IP (tos 0x0, ttl 64, id 53775, offset 0, flags [DF], proto TCP (6), length 189)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [P.], cksum 0xf083 (correct), seq 14766:14903, ack 4857, win 1035, options [nop,nop,TS val 6 ecr 47837447], length 137: OpenFlow
+	version 1.0, type PACKET_IN, length 137, xid 0x00000000
+	 buffer_id NONE, total_len 119, in_port 1, reason NO_MATCH
+	 data (119 octets), frame decoding below
+STP 802.1s, Rapid STP, CIST Flags [Proposal, Learn, Forward, Agreement], length 102
+	port-role Designated, CIST root-id 8000.08:9e:01:62:d5:f4, CIST ext-pathcost 0 
+	CIST regional-root-id 8000.08:9e:01:62:d5:f4, CIST port-id 8034, 
+	message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 64, MCID Name pica8, rev 0, 
+		digest ac36177f50283cd4b83821d8ab26de62, CIST int-root-pathcost 0, 
+	CIST bridge-id 8000.08:9e:01:62:d5:f4, CIST remaining-hops 20
+IP (tos 0x0, ttl 64, id 53128, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0x148b (incorrect -> 0xb3e0), seq 4857, ack 14903, win 331, options [nop,nop,TS val 47839052 ecr 6], length 0
+IP (tos 0x0, ttl 64, id 53129, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [F.], cksum 0x148b (incorrect -> 0xac31), seq 4857, ack 14903, win 331, options [nop,nop,TS val 47841018 ecr 6], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [.], cksum 0xa96d (correct), seq 14903, ack 4858, win 1035, options [nop,nop,TS val 10 ecr 47841018], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.81.56068 > 10.0.0.20.6633: Flags [F.], cksum 0xa96c (correct), seq 14903, ack 4858, win 1035, options [nop,nop,TS val 10 ecr 47841018], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.20.6633 > 10.0.0.81.56068: Flags [.], cksum 0xac2b (correct), seq 4858, ack 14904, win 331, options [nop,nop,TS val 47841019 ecr 10], length 0

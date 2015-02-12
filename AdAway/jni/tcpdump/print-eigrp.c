@@ -16,7 +16,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-eigrp.c,v 1.5.2.2 2005/05/06 02:53:41 guy Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-eigrp.c,v 1.7 2005-05-06 02:53:26 guy Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -280,7 +280,7 @@ eigrp_print(register const u_char *pptr, register u_int len) {
 
         if (eigrp_tlv_len < sizeof(struct eigrp_tlv_header) ||
             eigrp_tlv_len > tlen) {
-            print_unknown_data(tptr+sizeof(sizeof(struct eigrp_tlv_header)),"\n\t    ",tlen);
+            print_unknown_data(tptr+sizeof(struct eigrp_tlv_header),"\n\t    ",tlen);
             return;
         }
 
@@ -468,7 +468,7 @@ eigrp_print(register const u_char *pptr, register u_int len) {
         }
         /* do we want to see an additionally hexdump ? */
         if (vflag > 1)
-            print_unknown_data(tptr+sizeof(sizeof(struct eigrp_tlv_header)),"\n\t    ",
+            print_unknown_data(tptr+sizeof(struct eigrp_tlv_header),"\n\t    ",
                                eigrp_tlv_len-sizeof(struct eigrp_tlv_header));
 
         tptr+=eigrp_tlv_len;

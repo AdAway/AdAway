@@ -1,0 +1,16 @@
+IP (tos 0xc0, ttl 64, id 0, offset 0, flags [DF], proto UDP (17), length 52)
+    10.0.0.20.520 > 10.0.0.255.520: 
+	RIPv1, Request, length: 24, routes: 1
+	  AFI 0, 0.0.0.0, metric: 16
+IP (tos 0xc0, ttl 64, id 0, offset 0, flags [DF], proto UDP (17), length 52)
+    10.0.0.20.520 > 10.0.0.255.520: 
+	RIPv1, Response, length: 24, routes: 1
+	  10.70.178.0, metric: 1
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 52)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Request, length: 24, routes: 1 or less
+	  AFI 0,         0.0.0.0/0 , tag 0x0000, metric: 16, next-hop: self
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 52)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Response, length: 24, routes: 1 or less
+	  AFI IPv4,     10.70.178.0/24, tag 0x0000, metric: 1, next-hop: self

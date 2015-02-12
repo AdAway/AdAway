@@ -17,7 +17,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-rsvp.c,v 1.33.2.15 2007/09/13 17:33:54 guy Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-rsvp.c,v 1.50 2008-08-16 11:36:20 hannes Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -36,6 +36,7 @@ static const char rcsid[] _U_ =
 #include "ethertype.h"
 #include "gmpls.h"
 #include "af.h"
+#include "signature.h"
 
 /*
  * RFC 2205 common header
@@ -142,6 +143,7 @@ static const struct tok rsvp_header_flag_values[] = {
 #define	RSVP_OBJ_UPSTREAM_LABEL     35  /* rfc3473 */
 #define	RSVP_OBJ_LABEL_SET          36  /* rfc3473 */
 #define	RSVP_OBJ_PROTECTION         37  /* rfc3473 */
+#define RSVP_OBJ_S2L                50  /* rfc4875 */
 #define	RSVP_OBJ_DETOUR             63  /* draft-ietf-mpls-rsvp-lsp-fastreroute-07 */
 #define	RSVP_OBJ_CLASSTYPE          66  /* rfc4124 */
 #define RSVP_OBJ_CLASSTYPE_OLD      125 /* draft-ietf-tewg-diff-te-proto-07 */
@@ -198,6 +200,7 @@ static const struct tok rsvp_obj_values[] = {
     { RSVP_OBJ_NOTIFY_REQ,         "Notify Request" },
     { RSVP_OBJ_PROTECTION,         "Protection" },
     { RSVP_OBJ_ADMIN_STATUS,       "Administrative Status" },
+    { RSVP_OBJ_S2L,                "Sub-LSP to LSP" },
     { 0, NULL}
 };
 
@@ -210,6 +213,9 @@ static const struct tok rsvp_obj_values[] = {
 #define RSVP_CTYPE_2           2
 #define RSVP_CTYPE_3           3
 #define RSVP_CTYPE_4           4
+#define RSVP_CTYPE_12         12
+#define RSVP_CTYPE_13         13
+#define RSVP_CTYPE_14         14
 
 /*
  * the ctypes are not globally unique so for
@@ -235,13 +241,19 @@ static const struct tok rsvp_ctype_values[] = {
     { 256*RSVP_OBJ_FILTERSPEC+RSVP_CTYPE_IPV6,	             "IPv6" },
     { 256*RSVP_OBJ_FILTERSPEC+RSVP_CTYPE_3,	             "IPv6 Flow-label" },
     { 256*RSVP_OBJ_FILTERSPEC+RSVP_CTYPE_TUNNEL_IPV4,	     "Tunnel IPv4" },
+    { 256*RSVP_OBJ_FILTERSPEC+RSVP_CTYPE_12,                 "IPv4 P2MP LSP Tunnel" },
+    { 256*RSVP_OBJ_FILTERSPEC+RSVP_CTYPE_13,                 "IPv6 P2MP LSP Tunnel" },
     { 256*RSVP_OBJ_SESSION+RSVP_CTYPE_IPV4,	             "IPv4" },
     { 256*RSVP_OBJ_SESSION+RSVP_CTYPE_IPV6,	             "IPv6" },
     { 256*RSVP_OBJ_SESSION+RSVP_CTYPE_TUNNEL_IPV4,           "Tunnel IPv4" },
     { 256*RSVP_OBJ_SESSION+RSVP_CTYPE_UNI_IPV4,              "UNI IPv4" },
+    { 256*RSVP_OBJ_SESSION+RSVP_CTYPE_13,                    "IPv4 P2MP LSP Tunnel" },
+    { 256*RSVP_OBJ_SESSION+RSVP_CTYPE_14,                    "IPv6 P2MP LSP Tunnel" },
     { 256*RSVP_OBJ_SENDER_TEMPLATE+RSVP_CTYPE_IPV4,          "IPv4" },
     { 256*RSVP_OBJ_SENDER_TEMPLATE+RSVP_CTYPE_IPV6,          "IPv6" },
     { 256*RSVP_OBJ_SENDER_TEMPLATE+RSVP_CTYPE_TUNNEL_IPV4,   "Tunnel IPv4" },
+    { 256*RSVP_OBJ_SENDER_TEMPLATE+RSVP_CTYPE_12,            "IPv4 P2MP LSP Tunnel" },
+    { 256*RSVP_OBJ_SENDER_TEMPLATE+RSVP_CTYPE_13,            "IPv6 P2MP LSP Tunnel" },
     { 256*RSVP_OBJ_MESSAGE_ID+RSVP_CTYPE_1,                  "1" },
     { 256*RSVP_OBJ_MESSAGE_ID_ACK+RSVP_CTYPE_1,              "Message id ack" },
     { 256*RSVP_OBJ_MESSAGE_ID_ACK+RSVP_CTYPE_2,              "Message id nack" },
@@ -282,6 +294,8 @@ static const struct tok rsvp_ctype_values[] = {
     { 256*RSVP_OBJ_CLASSTYPE_OLD+RSVP_CTYPE_1,               "1" },
     { 256*RSVP_OBJ_LABEL_SET+RSVP_CTYPE_1,                   "1" },
     { 256*RSVP_OBJ_GENERALIZED_UNI+RSVP_CTYPE_1,             "1" },
+    { 256*RSVP_OBJ_S2L+RSVP_CTYPE_IPV4,                      "IPv4 sub-LSP" },
+    { 256*RSVP_OBJ_S2L+RSVP_CTYPE_IPV6,                      "IPv6 sub-LSP" },
     { 0, NULL}
 };
 
@@ -316,6 +330,7 @@ struct rsvp_obj_frr_t {
 #define	RSVP_OBJ_XRO_RES       0
 #define	RSVP_OBJ_XRO_IPV4      1
 #define	RSVP_OBJ_XRO_IPV6      2
+#define	RSVP_OBJ_XRO_LABEL     3
 #define	RSVP_OBJ_XRO_ASN       32
 #define	RSVP_OBJ_XRO_MPLS      64
 
@@ -323,6 +338,7 @@ static const struct tok rsvp_obj_xro_values[] = {
     { RSVP_OBJ_XRO_RES,	      "Reserved" },
     { RSVP_OBJ_XRO_IPV4,      "IPv4 prefix" },
     { RSVP_OBJ_XRO_IPV6,      "IPv6 prefix" },
+    { RSVP_OBJ_XRO_LABEL,     "Label" },
     { RSVP_OBJ_XRO_ASN,       "Autonomous system number" },
     { RSVP_OBJ_XRO_MPLS,      "MPLS label switched path termination" },
     { 0, NULL}
@@ -334,6 +350,12 @@ static const struct tok rsvp_obj_rro_flag_values[] = {
     { 0x02,                   "Local protection in use" },
     { 0x04,                   "Bandwidth protection" },
     { 0x08,                   "Node protection" },
+    { 0, NULL}
+};
+
+/* RFC3209 */
+static const struct tok rsvp_obj_rro_label_flag_values[] = {
+    { 0x01,                   "Global" },
     { 0, NULL}
 };
 
@@ -368,16 +390,16 @@ static const struct tok rsvp_intserv_parameter_id_values[] = {
     { 0, NULL}
 };
 
-static struct tok rsvp_session_attribute_flag_values[] = {
-    { 0x01,	              "Local Protection desired" },
-    { 0x02,                   "Label Recording desired" },
-    { 0x04,                   "SE Style desired" },
-    { 0x08,                   "Bandwidth protection desired" }, /* draft-ietf-mpls-rsvp-lsp-fastreroute-02.txt */
-    { 0x10,                   "Node protection desired" },      /* draft-ietf-mpls-rsvp-lsp-fastreroute-02.txt */
+static const struct tok rsvp_session_attribute_flag_values[] = {
+    { 0x01,	              "Local Protection" },
+    { 0x02,                   "Label Recording" },
+    { 0x04,                   "SE Style" },
+    { 0x08,                   "Bandwidth protection" }, /* RFC4090 */
+    { 0x10,                   "Node protection" },      /* RFC4090 */
     { 0, NULL}
 };
 
-static struct tok rsvp_obj_prop_tlv_values[] = {
+static const struct tok rsvp_obj_prop_tlv_values[] = {
     { 0x01,                   "Cos" },
     { 0x02,                   "Metric 1" },
     { 0x04,                   "Metric 2" },
@@ -391,7 +413,7 @@ static struct tok rsvp_obj_prop_tlv_values[] = {
 #define RSVP_OBJ_ERROR_SPEC_CODE_DIFFSERV_TE 28
 #define RSVP_OBJ_ERROR_SPEC_CODE_DIFFSERV_TE_OLD 125
 
-static struct tok rsvp_obj_error_code_values[] = {
+static const struct tok rsvp_obj_error_code_values[] = {
     { RSVP_OBJ_ERROR_SPEC_CODE_ROUTING, "Routing Problem" },
     { RSVP_OBJ_ERROR_SPEC_CODE_NOTIFY,  "Notify Error" },
     { RSVP_OBJ_ERROR_SPEC_CODE_DIFFSERV_TE, "Diffserv TE Error" },
@@ -399,7 +421,7 @@ static struct tok rsvp_obj_error_code_values[] = {
     { 0, NULL}
 };
 
-static struct tok rsvp_obj_error_code_routing_values[] = {
+static const struct tok rsvp_obj_error_code_routing_values[] = {
     { 1,                      "Bad EXPLICIT_ROUTE object" },
     { 2,                      "Bad strict node" },
     { 3,                      "Bad loose node" },
@@ -413,7 +435,7 @@ static struct tok rsvp_obj_error_code_routing_values[] = {
     { 0, NULL}
 };
 
-static struct tok rsvp_obj_error_code_diffserv_te_values[] = {
+static const struct tok rsvp_obj_error_code_diffserv_te_values[] = {
     { 1,                      "Unexpected CT object" },
     { 2,                      "Unsupported CT" },
     { 3,                      "Invalid CT value" },
@@ -614,7 +636,16 @@ rsvp_intserv_print(const u_char *tptr, u_short obj_tlen) {
 }
 
 static int
-rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
+rsvp_obj_print (const u_char *pptr
+#ifndef HAVE_LIBCRYPTO
+_U_
+#endif
+, u_int plen
+#ifndef HAVE_LIBCRYPTO
+_U_
+#endif
+, const u_char *tptr,
+                const char *ident, u_int tlen) {
 
     const struct rsvp_object_header *rsvp_obj_header;
     const u_char *obj_tptr;
@@ -624,7 +655,7 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
     } obj_ptr;
 
     u_short rsvp_obj_len,rsvp_obj_ctype,obj_tlen,intserv_serv_tlen;
-    int hexdump,processed,padbytes,error_code,error_value,i;
+    int hexdump,processed,padbytes,error_code,error_value,i,sigcheck;
     union {
 	float f;
 	u_int32_t i;
@@ -728,7 +759,30 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                 obj_tlen-=36;
                 obj_tptr+=36;                
                 break;
+
+            case RSVP_CTYPE_14: /* IPv6 p2mp LSP Tunnel */
+                if (obj_tlen < 26)
+                    return -1;
+                printf("%s  IPv6 P2MP LSP ID: 0x%08x, Tunnel ID: 0x%04x, Extended Tunnel ID: %s",
+                       ident,
+                       EXTRACT_32BITS(obj_tptr),
+                       EXTRACT_16BITS(obj_tptr+6),
+                       ip6addr_string(obj_tptr+8));
+                obj_tlen-=26;
+                obj_tptr+=26;                
+                break;
 #endif
+            case RSVP_CTYPE_13: /* IPv4 p2mp LSP Tunnel */
+                if (obj_tlen < 12)
+                    return -1;
+                printf("%s  IPv4 P2MP LSP ID: %s, Tunnel ID: 0x%04x, Extended Tunnel ID: %s",
+                       ident,
+                       ipaddr_string(obj_tptr),
+                       EXTRACT_16BITS(obj_tptr+6),
+                       ipaddr_string(obj_tptr+8));
+                obj_tlen-=12;
+                obj_tptr+=12;                
+                break;
             case RSVP_CTYPE_TUNNEL_IPV4:
             case RSVP_CTYPE_UNI_IPV4:
                 if (obj_tlen < 12)
@@ -880,6 +934,20 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                 obj_tlen-=20;
                 obj_tptr+=20;
                 break;
+            case RSVP_CTYPE_13: /* IPv6 p2mp LSP tunnel */
+                if (obj_tlen < 40)
+                    return-1;
+                printf("%s  IPv6 Tunnel Sender Address: %s, LSP ID: 0x%04x"
+                       "%s  Sub-Group Originator ID: %s, Sub-Group ID: 0x%04x",
+                       ident,
+                       ip6addr_string(obj_tptr),
+                       EXTRACT_16BITS(obj_tptr+18),
+                       ident,
+                       ip6addr_string(obj_tptr+20),
+                       EXTRACT_16BITS(obj_tptr+38));
+                obj_tlen-=40;
+                obj_tptr+=40;
+                break;
 #endif
             case RSVP_CTYPE_TUNNEL_IPV4:
                 if (obj_tlen < 8)
@@ -890,6 +958,20 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                        EXTRACT_16BITS(obj_tptr+6));
                 obj_tlen-=8;
                 obj_tptr+=8;
+                break;
+            case RSVP_CTYPE_12: /* IPv4 p2mp LSP tunnel */
+                if (obj_tlen < 16)
+                    return-1;
+                printf("%s  IPv4 Tunnel Sender Address: %s, LSP ID: 0x%04x"
+                       "%s  Sub-Group Originator ID: %s, Sub-Group ID: 0x%04x",
+                       ident,
+                       ipaddr_string(obj_tptr),
+                       EXTRACT_16BITS(obj_tptr+6),
+                       ident,
+                       ipaddr_string(obj_tptr+8),
+                       EXTRACT_16BITS(obj_tptr+12));
+                obj_tlen-=16;
+                obj_tptr+=16;
                 break;
             default:
                 hexdump=TRUE;
@@ -999,6 +1081,18 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                                bittok2str(rsvp_obj_rro_flag_values,
                                    "none",
                                    *(obj_tptr+7))); /* rfc3209 says that this field is rsvd. */
+                    break;
+                    case RSVP_OBJ_XRO_LABEL:
+                        printf(", Flags: [%s] (%#x), Class-Type: %s (%u), %u",
+                               bittok2str(rsvp_obj_rro_label_flag_values,
+                                   "none",
+                                   *(obj_tptr+2)),
+                               *(obj_tptr+2),
+                               tok2str(rsvp_ctype_values,
+                                       "Unknown",
+                                       *(obj_tptr+3) + 256*RSVP_OBJ_RRO),
+                               *(obj_tptr+3),
+                               EXTRACT_32BITS(obj_tptr+4));
                     }
                     obj_tlen-=*(obj_tptr+1);
                     obj_tptr+=*(obj_tptr+1);
@@ -1055,14 +1149,14 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                 printf("%s  Session Name: ", ident);
                 for (i = 0; i < namelen; i++)
                     safeputchar(*(obj_tptr+4+i));
-                printf("%s  Setup Priority: %u, Holding Priority: %u, Flags: [%s]",
+                printf("%s  Setup Priority: %u, Holding Priority: %u, Flags: [%s] (%#x)",
                        ident,
                        (int)*obj_tptr,
                        (int)*(obj_tptr+1),
-                       tok2str(rsvp_session_attribute_flag_values,
+                       bittok2str(rsvp_session_attribute_flag_values,
                                   "none",
-                                  *(obj_tptr+2)));
-
+                                  *(obj_tptr+2)),
+                       *(obj_tptr+2));
                 obj_tlen-=4+*(obj_tptr+3);
                 obj_tptr+=4+*(obj_tptr+3);
                 break;
@@ -1306,6 +1400,20 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                 obj_tlen-=20;
                 obj_tptr+=20;
                 break;
+            case RSVP_CTYPE_13: /* IPv6 p2mp LSP tunnel */
+                if (obj_tlen < 40)
+                    return-1;
+                printf("%s  IPv6 Tunnel Sender Address: %s, LSP ID: 0x%04x"
+                       "%s  Sub-Group Originator ID: %s, Sub-Group ID: 0x%04x",
+                       ident,
+                       ip6addr_string(obj_tptr),
+                       EXTRACT_16BITS(obj_tptr+18),
+                       ident,
+                       ip6addr_string(obj_tptr+20),
+                       EXTRACT_16BITS(obj_tptr+38));
+                obj_tlen-=40;
+                obj_tptr+=40;
+                break;
 #endif
             case RSVP_CTYPE_TUNNEL_IPV4:
                 if (obj_tlen < 8)
@@ -1316,6 +1424,20 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                        EXTRACT_16BITS(obj_tptr+6));
                 obj_tlen-=8;
                 obj_tptr+=8;
+                break;
+            case RSVP_CTYPE_12: /* IPv4 p2mp LSP tunnel */
+                if (obj_tlen < 16)
+                    return-1;
+                printf("%s  IPv4 Tunnel Sender Address: %s, LSP ID: 0x%04x"
+                       "%s  Sub-Group Originator ID: %s, Sub-Group ID: 0x%04x",
+                       ident,
+                       ipaddr_string(obj_tptr),
+                       EXTRACT_16BITS(obj_tptr+6),
+                       ident,
+                       ipaddr_string(obj_tptr+8),
+                       EXTRACT_16BITS(obj_tptr+12));
+                obj_tlen-=16;
+                obj_tptr+=16;
                 break;
             default:
                 hexdump=TRUE;
@@ -1544,12 +1666,21 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                        bittok2str(rsvp_obj_integrity_flag_values,
                                   "none",
                                   obj_ptr.rsvp_obj_integrity->flags));
-                printf("%s  MD5-sum 0x%08x%08x%08x%08x (unverified)",
+                printf("%s  MD5-sum 0x%08x%08x%08x%08x ",
                        ident,
                        EXTRACT_32BITS(obj_ptr.rsvp_obj_integrity->digest),
                        EXTRACT_32BITS(obj_ptr.rsvp_obj_integrity->digest+4),
                        EXTRACT_32BITS(obj_ptr.rsvp_obj_integrity->digest+8),
                        EXTRACT_32BITS(obj_ptr.rsvp_obj_integrity->digest+12));
+
+#ifdef HAVE_LIBCRYPTO
+                sigcheck = signature_verify(pptr, plen, (unsigned char *)obj_ptr.\
+                                             rsvp_obj_integrity->digest);
+#else
+                sigcheck = CANT_CHECK_SIGNATURE;
+#endif
+                printf(" (%s)", tok2str(signature_check_values, "Unknown", sigcheck));
+
                 obj_tlen+=sizeof(struct rsvp_obj_integrity_t);
                 obj_tptr+=sizeof(struct rsvp_obj_integrity_t);
                 break;
@@ -1613,7 +1744,32 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
                     break;
                 }
                 break;
+            default:
+                hexdump=TRUE;
+            }
 
+        case RSVP_OBJ_S2L:
+            switch (rsvp_obj_ctype) {
+            case RSVP_CTYPE_IPV4: 
+                if (obj_tlen < 4)
+                    return-1;
+                printf("%s  Sub-LSP destination address: %s",
+                       ident, ipaddr_string(obj_tptr));
+
+                obj_tlen-=4;
+                obj_tptr+=4;
+                break;
+#ifdef INET6
+            case RSVP_CTYPE_IPV6: 
+                if (obj_tlen < 16)
+                    return-1;
+                printf("%s  Sub-LSP destination address: %s",
+                       ident, ip6addr_string(obj_tptr));
+
+                obj_tlen-=16;
+                obj_tptr+=16;
+                break;
+#endif
             default:
                 hexdump=TRUE;
             }
@@ -1634,7 +1790,7 @@ rsvp_obj_print (const u_char *tptr, const char *ident, u_int tlen) {
         }
         /* do we also want to see a hex dump ? */
         if (vflag > 1 || hexdump==TRUE)
-            print_unknown_data(tptr+sizeof(sizeof(struct rsvp_object_header)),"\n\t    ", /* FIXME indentation */
+            print_unknown_data(tptr+sizeof(struct rsvp_object_header),"\n\t    ", /* FIXME indentation */
                                rsvp_obj_len-sizeof(struct rsvp_object_header));
 
         tptr+=rsvp_obj_len;
@@ -1650,13 +1806,13 @@ trunc:
 void
 rsvp_print(register const u_char *pptr, register u_int len) {
 
-    const struct rsvp_common_header *rsvp_com_header;
+    struct rsvp_common_header *rsvp_com_header;
     const u_char *tptr,*subtptr;
-    u_short tlen,subtlen;
+    u_short plen, tlen, subtlen;
 
     tptr=pptr;
 
-    rsvp_com_header = (const struct rsvp_common_header *)pptr;
+    rsvp_com_header = (struct rsvp_common_header *)pptr;
     TCHECK(*rsvp_com_header);
 
     /*
@@ -1679,7 +1835,7 @@ rsvp_print(register const u_char *pptr, register u_int len) {
 
     /* ok they seem to want to know everything - lets fully decode it */
 
-    tlen=EXTRACT_16BITS(rsvp_com_header->length);
+    plen = tlen = EXTRACT_16BITS(rsvp_com_header->length);
 
     printf("\n\tRSVPv%u %s Message (%u), Flags: [%s], length: %u, ttl: %u, checksum: 0x%04x",
            RSVP_EXTRACT_VERSION(rsvp_com_header->version_flags),
@@ -1689,6 +1845,12 @@ rsvp_print(register const u_char *pptr, register u_int len) {
            tlen,
            rsvp_com_header->ttl,
            EXTRACT_16BITS(rsvp_com_header->checksum));
+
+    /*
+     * Clear checksum prior to signature verification.
+     */
+    rsvp_com_header->checksum[0] = 0;
+    rsvp_com_header->checksum[1] = 0;
 
     if (tlen < sizeof(const struct rsvp_common_header)) {
         printf("ERROR: common header too short %u < %lu", tlen,
@@ -1704,7 +1866,7 @@ rsvp_print(register const u_char *pptr, register u_int len) {
     case RSVP_MSGTYPE_AGGREGATE:
         while(tlen > 0) {
             subtptr=tptr;
-            rsvp_com_header = (const struct rsvp_common_header *)subtptr;
+            rsvp_com_header = (struct rsvp_common_header *)subtptr;
             TCHECK(*rsvp_com_header);
 
             /*
@@ -1725,6 +1887,12 @@ rsvp_print(register const u_char *pptr, register u_int len) {
                    subtlen,
                    rsvp_com_header->ttl,
                    EXTRACT_16BITS(rsvp_com_header->checksum));
+
+            /*
+             * Clear checksum prior to signature verification.
+             */
+            rsvp_com_header->checksum[0] = 0;
+            rsvp_com_header->checksum[1] = 0;
             
             if (subtlen < sizeof(const struct rsvp_common_header)) {
                 printf("ERROR: common header too short %u < %lu", subtlen,
@@ -1741,7 +1909,7 @@ rsvp_print(register const u_char *pptr, register u_int len) {
             subtptr+=sizeof(const struct rsvp_common_header);
             subtlen-=sizeof(const struct rsvp_common_header);
 
-            if (rsvp_obj_print(subtptr,"\n\t    ", subtlen) == -1)
+            if (rsvp_obj_print(pptr, plen, subtptr,"\n\t    ", subtlen) == -1)
                 return;
 
             tptr+=subtlen+sizeof(const struct rsvp_common_header);
@@ -1761,7 +1929,7 @@ rsvp_print(register const u_char *pptr, register u_int len) {
     case RSVP_MSGTYPE_HELLO:
     case RSVP_MSGTYPE_ACK:
     case RSVP_MSGTYPE_SREFRESH:
-        if (rsvp_obj_print(tptr,"\n\t  ", tlen) == -1)
+        if (rsvp_obj_print(pptr, plen, tptr,"\n\t  ", tlen) == -1)
             return;
         break;
 

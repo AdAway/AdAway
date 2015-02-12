@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/ppp.h,v 1.16 2004/10/20 16:14:16 hannes Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/ppp.h,v 1.16 2004-10-20 16:14:16 hannes Exp $ (LBL) */
 /*
  * Point to Point Protocol (PPP) RFC1331
  *
@@ -67,5 +67,3 @@
 #define PPP_MPCP		0xc03d	/* Multi-Link */
 #define PPP_SPAP_OLD    0xc123
 #define PPP_EAP         0xc227
-
-extern struct tok ppptype2str[];

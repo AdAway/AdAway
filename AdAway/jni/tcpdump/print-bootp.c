@@ -22,7 +22,7 @@
  */
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-bootp.c,v 1.78.2.9 2007/08/21 22:02:08 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-bootp.c,v 1.89 2008-04-22 09:45:08 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -96,9 +96,9 @@ bootp_print(register const u_char *cp, u_int length)
 	/* Only print interesting fields */
 	if (bp->bp_hops)
 		printf(", hops %d", bp->bp_hops);
-	if (bp->bp_xid)
+	if (EXTRACT_32BITS(&bp->bp_xid))
 		printf(", xid 0x%x", EXTRACT_32BITS(&bp->bp_xid));
-	if (bp->bp_secs)
+	if (EXTRACT_16BITS(&bp->bp_secs))
 		printf(", secs %d", EXTRACT_16BITS(&bp->bp_secs));
 
 	printf(", Flags [%s]",
@@ -108,22 +108,22 @@ bootp_print(register const u_char *cp, u_int length)
 
 	/* Client's ip address */
 	TCHECK(bp->bp_ciaddr);
-	if (bp->bp_ciaddr.s_addr)
+	if (EXTRACT_32BITS(&bp->bp_ciaddr.s_addr))
 		printf("\n\t  Client-IP %s", ipaddr_string(&bp->bp_ciaddr));
 
 	/* 'your' ip address (bootp client) */
 	TCHECK(bp->bp_yiaddr);
-	if (bp->bp_yiaddr.s_addr)
+	if (EXTRACT_32BITS(&bp->bp_yiaddr.s_addr))
 		printf("\n\t  Your-IP %s", ipaddr_string(&bp->bp_yiaddr));
 
 	/* Server's ip address */
 	TCHECK(bp->bp_siaddr);
-	if (bp->bp_siaddr.s_addr)
+	if (EXTRACT_32BITS(&bp->bp_siaddr.s_addr))
 		printf("\n\t  Server-IP %s", ipaddr_string(&bp->bp_siaddr));
 
 	/* Gateway's ip address */
 	TCHECK(bp->bp_giaddr);
-	if (bp->bp_giaddr.s_addr)
+	if (EXTRACT_32BITS(&bp->bp_giaddr.s_addr))
 		printf("\n\t  Gateway-IP %s", ipaddr_string(&bp->bp_giaddr));
 
 	/* Client's Ethernet address */
@@ -187,7 +187,7 @@ trunc:
  *     B - on/off (8 bits)
  *     $ - special (explicit code to handle)
  */
-static struct tok tag2str[] = {
+static const struct tok tag2str[] = {
 /* RFC1048 tags */
 	{ TAG_PAD,		" PAD" },
 	{ TAG_SUBNET_MASK,	"iSubnet-Mask" },	/* subnet mask (RFC950) */
@@ -308,12 +308,12 @@ static struct tok tag2str[] = {
 	{ 0,			NULL }
 };
 /* 2-byte extended tags */
-static struct tok xtag2str[] = {
+static const struct tok xtag2str[] = {
 	{ 0,			NULL }
 };
 
 /* DHCP "options overload" types */
-static struct tok oo2str[] = {
+static const struct tok oo2str[] = {
 	{ 1,			"file" },
 	{ 2,			"sname" },
 	{ 3,			"file+sname" },
@@ -321,7 +321,7 @@ static struct tok oo2str[] = {
 };
 
 /* NETBIOS over TCP/IP node type options */
-static struct tok nbo2str[] = {
+static const struct tok nbo2str[] = {
 	{ 0x1,			"b-node" },
 	{ 0x2,			"p-node" },
 	{ 0x4,			"m-node" },
@@ -330,7 +330,7 @@ static struct tok nbo2str[] = {
 };
 
 /* ARP Hardware types, for Client-ID option */
-static struct tok arp2str[] = {
+static const struct tok arp2str[] = {
 	{ 0x1,			"ether" },
 	{ 0x6,			"ieee802" },
 	{ 0x7,			"arcnet" },
@@ -340,7 +340,7 @@ static struct tok arp2str[] = {
 	{ 0,			NULL }
 };
 
-static struct tok dhcp_msg_values[] = {
+static const struct tok dhcp_msg_values[] = {
         { DHCPDISCOVER, "Discover" },
         { DHCPOFFER, "Offer" },
         { DHCPREQUEST, "Request" },
@@ -352,9 +352,13 @@ static struct tok dhcp_msg_values[] = {
         { 0,			NULL }
 };
 
-#define AGENT_SUBOPTION_CIRCUIT_ID 1
-static struct tok agent_suboption_values[] = {
+#define AGENT_SUBOPTION_CIRCUIT_ID 	1	/* RFC 3046 */
+#define AGENT_SUBOPTION_REMOTE_ID  	2	/* RFC 3046 */
+#define AGENT_SUBOPTION_SUBSCRIBER_ID 	6	/* RFC 3993 */
+static const struct tok agent_suboption_values[] = {
         { AGENT_SUBOPTION_CIRCUIT_ID, "Circuit-ID" },
+        { AGENT_SUBOPTION_REMOTE_ID, "Remote-ID" },
+        { AGENT_SUBOPTION_SUBSCRIBER_ID, "Subscriber-ID" },
         { 0,			NULL }
 };
 
@@ -581,8 +585,6 @@ rfc1048_print(register const u_char *bp)
 				if (len < 1)  {
 					printf("ERROR: option %u len %u < 1 bytes",
 					    TAG_NETBIOS_NODE, len);
-					bp += len;
-					len = 0;
 					break;
 				}
 				tag = *bp++;
@@ -595,8 +597,6 @@ rfc1048_print(register const u_char *bp)
 				if (len < 1)  {
 					printf("ERROR: option %u len %u < 1 bytes",
 					    TAG_OPT_OVERLOAD, len);
-					bp += len;
-					len = 0;
 					break;
 				}
 				tag = *bp++;
@@ -636,8 +636,6 @@ rfc1048_print(register const u_char *bp)
 				if (len < 1)  {
 					printf("ERROR: option %u len %u < 1 bytes",
 					    TAG_CLIENT_ID, len);
-					bp += len;
-					len = 0;
 					break;
 				}
 				type = *bp++;
@@ -686,9 +684,11 @@ rfc1048_print(register const u_char *bp)
 					   suboptlen);
 					switch (subopt) {
 
-					case AGENT_SUBOPTION_CIRCUIT_ID:
-						fn_printn(bp, suboptlen, NULL);
-						break;
+                                        case AGENT_SUBOPTION_CIRCUIT_ID: /* fall through */
+                                        case AGENT_SUBOPTION_REMOTE_ID:
+                                        case AGENT_SUBOPTION_SUBSCRIBER_ID:
+                                                fn_printn(bp, suboptlen, NULL);
+                                                break;
 
 					default:
 						print_unknown_data(bp, "\n\t\t", suboptlen);

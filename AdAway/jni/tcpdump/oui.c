@@ -15,7 +15,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/oui.c,v 1.4.2.1 2005/04/17 01:20:56 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/oui.c,v 1.9 2008-01-09 09:40:47 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -28,7 +28,7 @@ static const char rcsid[] _U_ =
 
 /* FIXME complete OUI list using a script */
 
-struct tok oui_values[] = {
+const struct tok oui_values[] = {
     { OUI_ENCAP_ETHER, "Ethernet" },
     { OUI_CISCO, "Cisco" },
     { OUI_NORTEL, "Nortel Networks SONMP" },
@@ -39,6 +39,10 @@ struct tok oui_values[] = {
     { OUI_APPLETALK, "Appletalk" },
     { OUI_JUNIPER, "Juniper" },
     { OUI_HP, "Hewlett-Packard" },
+    { OUI_IEEE_8021_PRIVATE, "IEEE 802.1 Private"},
+    { OUI_IEEE_8023_PRIVATE, "IEEE 802.3 Private"},
+    { OUI_TIA, "ANSI/TIA"},
+    { OUI_DCBX, "DCBX"},
     { 0, NULL }
 };
 
@@ -52,7 +56,7 @@ struct tok oui_values[] = {
  *
  * List taken from Ethereal's epan/sminmpec.c.
  */
-struct tok smi_values[] = {
+const struct tok smi_values[] = {
     { SMI_IETF,                 "IETF (reserved)"},
     { SMI_ACC,                  "ACC"},
     { SMI_CISCO,                "Cisco"},

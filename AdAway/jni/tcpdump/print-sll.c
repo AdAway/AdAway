@@ -20,7 +20,7 @@
  */
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-sll.c,v 1.16.2.3 2005/11/13 12:13:00 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-sll.c,v 1.19 2005-11-13 12:12:43 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -41,7 +41,7 @@ static const char rcsid[] _U_ =
 #include "ether.h"
 #include "sll.h"
 
-const struct tok sll_pkttype_values[] = {
+static const struct tok sll_pkttype_values[] = {
     { LINUX_SLL_HOST, "In" },
     { LINUX_SLL_BROADCAST, "B" },
     { LINUX_SLL_MULTICAST, "M" },
@@ -85,7 +85,7 @@ sll_print(register const struct sll_header *sllp, u_int length)
 				/*
 				 * 802.2.
 				 */
-				(void)printf("802.3");
+				(void)printf("802.2");
 				break;
 
 			default:
@@ -142,8 +142,9 @@ sll_if_print(const struct pcap_pkthdr *h, const u_char *p)
 	caplen -= SLL_HDR_LEN;
 	p += SLL_HDR_LEN;
 
-	ether_type = ntohs(sllp->sll_protocol);
+	ether_type = EXTRACT_16BITS(&sllp->sll_protocol);
 
+recurse:
 	/*
 	 * Is it (gag) an 802.3 encapsulation, or some non-Ethernet
 	 * packet type?
@@ -187,13 +188,43 @@ sll_if_print(const struct pcap_pkthdr *h, const u_char *p)
 				default_print(p, caplen);
 			break;
 		}
-	} else if (ether_encap_print(ether_type, p, length, caplen,
-	    &extracted_ethertype) == 0) {
-		/* ether_type not known, print raw packet */
-		if (!eflag)
-			sll_print(sllp, length + SLL_HDR_LEN);
-		if (!suppress_default_print)
-			default_print(p, caplen);
+	} else if (ether_type == ETHERTYPE_8021Q) {
+		/*
+		 * Print VLAN information, and then go back and process
+		 * the enclosed type field.
+		 */
+		if (caplen < 4 || length < 4) {
+			printf("[|vlan]");
+			return (SLL_HDR_LEN);
+		}
+	        if (eflag) {
+	        	u_int16_t tag = EXTRACT_16BITS(p);
+
+			printf("vlan %u, p %u%s, ",
+			    tag & 0xfff,
+			    tag >> 13,
+			    (tag & 0x1000) ? ", CFI" : "");
+		}
+
+		ether_type = EXTRACT_16BITS(p + 2);
+		if (ether_type <= ETHERMTU)
+			ether_type = LINUX_SLL_P_802_2;
+		if (!qflag) {
+			(void)printf("ethertype %s, ",
+			    tok2str(ethertype_values, "Unknown", ether_type));
+		}
+		p += 4;
+		length -= 4;
+		caplen -= 4;
+		goto recurse;
+	} else {
+		if (ethertype_print(gndo, ether_type, p, length, caplen) == 0) {
+			/* ether_type not known, print raw packet */
+			if (!eflag)
+				sll_print(sllp, length + SLL_HDR_LEN);
+			if (!suppress_default_print)
+				default_print(p, caplen);
+		}
 	}
 
 	return (SLL_HDR_LEN);

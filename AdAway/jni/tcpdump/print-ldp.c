@@ -16,7 +16,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-ldp.c,v 1.8.2.10 2007/02/26 13:31:33 hannes Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-ldp.c,v 1.20 2006-06-23 02:03:09 hannes Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -33,9 +33,9 @@ static const char rcsid[] _U_ =
 #include "decode_prefix.h"
 #include "extract.h"
 #include "addrtoname.h"
-#include "af.h"
 
 #include "l2vpn.h"
+#include "af.h"
 
 /*
  * ldp common header
@@ -131,6 +131,7 @@ static const struct tok ldp_msg_values[] = {
 
 #define	LDP_TLV_FEC                  0x0100
 #define	LDP_TLV_ADDRESS_LIST         0x0101
+#define LDP_TLV_ADDRESS_LIST_AFNUM_LEN 2
 #define	LDP_TLV_HOP_COUNT            0x0103
 #define	LDP_TLV_PATH_VECTOR          0x0104
 #define	LDP_TLV_GENERIC_LABEL        0x0200
@@ -149,6 +150,7 @@ static const struct tok ldp_msg_values[] = {
 #define	LDP_TLV_FR_SESSION_PARM      0x0502
 #define LDP_TLV_FT_SESSION	     0x0503
 #define	LDP_TLV_LABEL_REQUEST_MSG_ID 0x0600
+#define LDP_TLV_MTU                  0x0601 /* rfc 3988 */
 
 static const struct tok ldp_tlv_values[] = {
     { LDP_TLV_FEC,	             "FEC" },
@@ -171,13 +173,14 @@ static const struct tok ldp_tlv_values[] = {
     { LDP_TLV_FR_SESSION_PARM,       "Frame-Relay Session Parameters" },
     { LDP_TLV_FT_SESSION,            "Fault-Tolerant Session Parameters" },
     { LDP_TLV_LABEL_REQUEST_MSG_ID,  "Label Request Message ID" },
+    { LDP_TLV_MTU,                   "MTU" },
     { 0, NULL}
 };
 
 #define LDP_FEC_WILDCARD	0x01
 #define LDP_FEC_PREFIX		0x02
 #define LDP_FEC_HOSTADDRESS	0x03
-/* From draft-martini-l2circuit-trans-mpls-13.txt */
+/* From RFC 4906; should probably be updated to RFC 4447 (e.g., VC -> PW) */
 #define LDP_FEC_MARTINI_VC	0x80
 
 static const struct tok ldp_fec_values[] = {
@@ -215,8 +218,6 @@ static const struct tok ldp_fec_martini_ifparm_vccv_cv_values[] = {
     { 0, NULL}
 };
 
-#define AFNUM_LEN       2 
-
 int ldp_msg_print(register const u_char *);
 int ldp_tlv_print(register const u_char *);
    
@@ -236,6 +237,9 @@ int ldp_tlv_print(register const u_char *);
  * |                               |
  * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  */
+
+#define TLV_TCHECK(minlen) \
+    TCHECK2(*tptr, minlen); if (tlv_tlen < minlen) goto badtlv;
 
 int
 ldp_tlv_print(register const u_char *tptr) {
@@ -272,6 +276,7 @@ ldp_tlv_print(register const u_char *tptr) {
     switch(tlv_type) {
 
     case LDP_TLV_COMMON_HELLO:
+        TLV_TCHECK(4);
         printf("\n\t      Hold Time: %us, Flags: [%s Hello%s]",
                EXTRACT_16BITS(tptr),
                (EXTRACT_16BITS(tptr+2)&0x8000) ? "Targeted" : "Link",
@@ -279,43 +284,54 @@ ldp_tlv_print(register const u_char *tptr) {
         break;
 
     case LDP_TLV_IPV4_TRANSPORT_ADDR:
+        TLV_TCHECK(4);
         printf("\n\t      IPv4 Transport Address: %s", ipaddr_string(tptr));
         break;
 #ifdef INET6
     case LDP_TLV_IPV6_TRANSPORT_ADDR:
+        TLV_TCHECK(16);
         printf("\n\t      IPv6 Transport Address: %s", ip6addr_string(tptr));
         break;
 #endif
     case LDP_TLV_CONFIG_SEQ_NUMBER:
+        TLV_TCHECK(4);
         printf("\n\t      Sequence Number: %u", EXTRACT_32BITS(tptr));
         break;
 
     case LDP_TLV_ADDRESS_LIST:
+        TLV_TCHECK(LDP_TLV_ADDRESS_LIST_AFNUM_LEN);
 	af = EXTRACT_16BITS(tptr);
-	tptr+=AFNUM_LEN;
-        tlv_tlen -= AFNUM_LEN;
-	printf("\n\t      Address Family: ");
-	if (af == AFNUM_INET) {
-	    printf("IPv4, addresses:");
+	tptr+=LDP_TLV_ADDRESS_LIST_AFNUM_LEN;
+        tlv_tlen -= LDP_TLV_ADDRESS_LIST_AFNUM_LEN;
+	printf("\n\t      Address Family: %s, addresses",
+               tok2str(af_values, "Unknown (%u)", af));
+        switch (af) {
+        case AFNUM_INET:
 	    while(tlv_tlen >= sizeof(struct in_addr)) {
+		TCHECK2(*tptr, sizeof(struct in_addr));
 		printf(" %s",ipaddr_string(tptr));
 		tlv_tlen-=sizeof(struct in_addr);
 		tptr+=sizeof(struct in_addr);                
 	    }
-	}
+            break;
 #ifdef INET6
-	else if (af == AFNUM_INET6) {
-	    printf("IPv6, addresses:");
+        case AFNUM_INET6:
 	    while(tlv_tlen >= sizeof(struct in6_addr)) {
+		TCHECK2(*tptr, sizeof(struct in6_addr));
 		printf(" %s",ip6addr_string(tptr));
 		tlv_tlen-=sizeof(struct in6_addr);
 		tptr+=sizeof(struct in6_addr);                
 	    }
-	}
+            break;
 #endif
+        default:
+            /* unknown AF */
+            break;
+        }
 	break;
 
     case LDP_TLV_COMMON_SESSION:
+	TLV_TCHECK(8);
 	printf("\n\t      Version: %u, Keepalive: %us, Flags: [Downstream %s, Loop Detection %s]",
 	       EXTRACT_16BITS(tptr), EXTRACT_16BITS(tptr+2),
 	       (EXTRACT_16BITS(tptr+6)&0x8000) ? "On Demand" : "Unsolicited",
@@ -324,50 +340,86 @@ ldp_tlv_print(register const u_char *tptr) {
 	break;
 
     case LDP_TLV_FEC:
+        TLV_TCHECK(1);
         fec_type = *tptr;
 	printf("\n\t      %s FEC (0x%02x)",
 	       tok2str(ldp_fec_values, "Unknown", fec_type),
 	       fec_type);
 
 	tptr+=1;
+	tlv_tlen-=1;
 	switch(fec_type) {
 
 	case LDP_FEC_WILDCARD:
 	    break;
 	case LDP_FEC_PREFIX:
+	    TLV_TCHECK(2);
 	    af = EXTRACT_16BITS(tptr);
-	    tptr+=2;
+	    tptr+=LDP_TLV_ADDRESS_LIST_AFNUM_LEN;
+	    tlv_tlen-=LDP_TLV_ADDRESS_LIST_AFNUM_LEN;
 	    if (af == AFNUM_INET) {
-		i=decode_prefix4(tptr,buf,sizeof(buf));
-		printf(": IPv4 prefix %s",buf);
+		i=decode_prefix4(tptr,tlv_tlen,buf,sizeof(buf));
+		if (i == -2)
+		    goto trunc;
+		if (i == -3)
+		    printf(": IPv4 prefix (goes past end of TLV)");
+		else if (i == -1)
+		    printf(": IPv4 prefix (invalid length)");
+		else
+		    printf(": IPv4 prefix %s",buf);
 	    }
 #ifdef INET6
 	    else if (af == AFNUM_INET6) {
-		i=decode_prefix6(tptr,buf,sizeof(buf));
-		printf(": IPv6 prefix %s",buf);
+		i=decode_prefix6(tptr,tlv_tlen,buf,sizeof(buf));
+		if (i == -2)
+		    goto trunc;
+		if (i == -3)
+		    printf(": IPv4 prefix (goes past end of TLV)");
+		else if (i == -1)
+		    printf(": IPv6 prefix (invalid length)");
+		else
+		    printf(": IPv6 prefix %s",buf);
 	    }
 #endif
+	    else
+		printf(": Address family %u prefix", af);
 	    break;
 	case LDP_FEC_HOSTADDRESS:
 	    break;
 	case LDP_FEC_MARTINI_VC:
-            if (!TTEST2(*tptr, 11))
-                goto trunc;
+            /*
+	     * According to RFC 4908, the VC info Length field can be zero,
+	     * in which case not only are there no interface parameters,
+	     * there's no VC ID.
+	     */
+            TLV_TCHECK(7);
             vc_info_len = *(tptr+2);
 
+            if (vc_info_len == 0) {
+                printf(": %s, %scontrol word, group-ID %u, VC-info-length: %u",
+                       tok2str(l2vpn_encaps_values, "Unknown", EXTRACT_16BITS(tptr)&0x7fff),
+                       EXTRACT_16BITS(tptr)&0x8000 ? "" : "no ",
+                       EXTRACT_32BITS(tptr+3),
+                       vc_info_len);
+                break;
+            }
+
+            /* Make sure we have the VC ID as well */
+            TLV_TCHECK(11);
 	    printf(": %s, %scontrol word, group-ID %u, VC-ID %u, VC-info-length: %u",
 		   tok2str(l2vpn_encaps_values, "Unknown", EXTRACT_16BITS(tptr)&0x7fff),
 		   EXTRACT_16BITS(tptr)&0x8000 ? "" : "no ",
                    EXTRACT_32BITS(tptr+3),
 		   EXTRACT_32BITS(tptr+7),
                    vc_info_len);
+            if (vc_info_len < 4)
+                goto trunc; /* minimum 4, for the VC ID */
+            vc_info_len -= 4; /* subtract out the VC ID, giving the length of the interface parameters */
 
-            if (vc_info_len == 0) /* infinite loop protection */
-                break;
-
+            /* Skip past the fixed information and the VC ID */
             tptr+=11;
-            if (!TTEST2(*tptr, vc_info_len))
-                goto trunc;
+            tlv_tlen-=11;
+            TLV_TCHECK(vc_info_len);
 
             while (vc_info_len > 2) {
                 vc_info_tlv_type = *tptr;
@@ -416,10 +468,12 @@ ldp_tlv_print(register const u_char *tptr) {
 	break;
 
     case LDP_TLV_GENERIC_LABEL:
+	TLV_TCHECK(4);
 	printf("\n\t      Label: %u", EXTRACT_32BITS(tptr) & 0xfffff);
 	break;
 
     case LDP_TLV_STATUS:
+	TLV_TCHECK(8);
 	ui = EXTRACT_32BITS(tptr);
 	tptr+=4;
 	printf("\n\t      Status: 0x%02x, Flags: [%s and %s forward]",
@@ -433,6 +487,7 @@ ldp_tlv_print(register const u_char *tptr) {
 	break;
 
     case LDP_TLV_FT_SESSION:
+	TLV_TCHECK(8);
 	ft_flags = EXTRACT_16BITS(tptr);
 	printf("\n\t      Flags: [%sReconnect, %sSave State, %sAll-Label Protection, %s Checkpoint, %sRe-Learn State]",
 	       ft_flags&0x8000 ? "" : "No ",
@@ -448,6 +503,11 @@ ldp_tlv_print(register const u_char *tptr) {
 	ui = EXTRACT_32BITS(tptr);
 	if (ui)
 	    printf(", Recovery Time: %ums", ui);
+	break;
+
+    case LDP_TLV_MTU:
+	TLV_TCHECK(2);
+	printf("\n\t      MTU: %u", EXTRACT_16BITS(tptr));
 	break;
 
 
@@ -477,6 +537,10 @@ ldp_tlv_print(register const u_char *tptr) {
 trunc:
     printf("\n\t\t packet exceeded snapshot");
     return 0;
+
+badtlv:
+    printf("\n\t\t TLV contents go past end of TLV");
+    return(tlv_len+4); /* Type & Length fields not included */
 }
 
 void
@@ -537,8 +601,7 @@ ldp_msg_print(register const u_char *pptr) {
 
     while(tlen>0) {
         /* did we capture enough for fully decoding the msg header ? */
-        if (!TTEST2(*tptr, sizeof(struct ldp_msg_header)))
-            goto trunc;
+        TCHECK2(*tptr, sizeof(struct ldp_msg_header));
 
         ldp_msg_header = (const struct ldp_msg_header *)tptr;
         msg_len=EXTRACT_16BITS(ldp_msg_header->length);
@@ -561,8 +624,7 @@ ldp_msg_print(register const u_char *pptr) {
         msg_tlen=msg_len-sizeof(struct ldp_msg_header)+4; /* Type & Length fields not included */
 
         /* did we capture enough for fully decoding the message ? */
-        if (!TTEST2(*tptr, msg_len))
-            goto trunc;
+        TCHECK2(*tptr, msg_len);
         hexdump=FALSE;
 
         switch(msg_type) {
@@ -600,7 +662,7 @@ ldp_msg_print(register const u_char *pptr) {
         }
         /* do we want to see an additionally hexdump ? */
         if (vflag > 1 || hexdump==TRUE)
-            print_unknown_data(tptr+sizeof(sizeof(struct ldp_msg_header)),"\n\t  ",
+            print_unknown_data(tptr+sizeof(struct ldp_msg_header),"\n\t  ",
                                msg_len);
 
         tptr += msg_len+4;
