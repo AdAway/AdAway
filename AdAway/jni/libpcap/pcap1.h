@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * @(#) $Header: /tcpdump/master/libpcap/pcap1.h,v 1.2 2004/03/30 14:42:50 mcr Exp $ (LBL)
+ * @(#) $Header: /tcpdump/master/libpcap/pcap1.h,v 1.5 2008-05-30 01:43:21 guy Exp $ (LBL)
  */
 
 #ifndef lib_pcap_h
@@ -45,7 +45,7 @@
 #endif /* WIN32 */
 
 #ifndef PCAP_DONT_INCLUDE_PCAP_BPF_H
-#include <pcap-bpf.h>
+#include <pcap/bpf.h>
 #endif
 
 #include <stdio.h>
@@ -92,8 +92,8 @@ typedef struct pcap_addr pcap_addr_t;
  *	introduce a new structure for the new format, if the layout
  *	of the structure changed;
  *
- *	send mail to "tcpdump-workers@tcpdump.org", requesting a new
- *	magic number for your new capture file format, and, when
+ *	send mail to "tcpdump-workers@lists.tcpdump.org", requesting
+ *	a new magic number for your new capture file format, and, when
  *	you get the new magic number, put it in "savefile.c";
  *
  *	use that magic number for save files with the changed file
@@ -103,9 +103,13 @@ typedef struct pcap_addr pcap_addr_t;
  *	the old file header as well as files with the new file header
  *	(using the magic number to determine the header format).
  *
- * Then supply the changes to "patches@tcpdump.org", so that future
- * versions of libpcap and programs that use it (such as tcpdump) will
- * be able to read your new capture file format.
+ * Then supply the changes by forking the branch at
+ *
+ *	https://github.com/the-tcpdump-group/libpcap/issues
+ *
+ * and issuing a pull request, so that future versions of libpcap and
+ * programs that use it (such as tcpdump) will be able to read your new
+ * capture file format.
  */
 
 enum pcap1_info_types {

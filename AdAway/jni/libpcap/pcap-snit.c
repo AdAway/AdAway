@@ -25,7 +25,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/libpcap/pcap-snit.c,v 1.72.2.1 2005/05/03 18:54:38 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/libpcap/pcap-snit.c,v 1.77 2008-04-14 20:40:58 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -84,9 +84,17 @@ static const char rcsid[] _U_ =
 /* Forwards */
 static int nit_setflags(int, int, int, char *);
 
+/*
+ * Private data for capturing on STREAMS NIT devices.
+ */
+struct pcap_snit {
+	struct pcap_stat stat;
+};
+
 static int
 pcap_stats_snit(pcap_t *p, struct pcap_stat *ps)
 {
+	struct pcap_snit *psn = p->priv;
 
 	/*
 	 * "ps_recv" counts packets handed to the filter, not packets
@@ -105,15 +113,15 @@ pcap_stats_snit(pcap_t *p, struct pcap_stat *ps)
 	 * kernel by libpcap or packets not yet read from libpcap by the
 	 * application.
 	 */
-	*ps = p->md.stat;
+	*ps = psn->stat;
 	return (0);
 }
 
 static int
 pcap_read_snit(pcap_t *p, int cnt, pcap_handler callback, u_char *user)
 {
+	struct pcap_snit *psn = p->priv;
 	register int cc, n;
-	register struct bpf_insn *fcode = p->fcode.bf_insns;
 	register u_char *bp, *cp, *ep;
 	register struct nit_bufhdr *hdrp;
 	register struct nit_iftime *ntp;
@@ -161,7 +169,7 @@ pcap_read_snit(pcap_t *p, int cnt, pcap_handler callback, u_char *user)
 			}
 		}
 
-		++p->md.stat.ps_recv;
+		++psn->stat.ps_recv;
 		cp = bp;
 
 		/* get past NIT buffer  */
@@ -173,7 +181,7 @@ pcap_read_snit(pcap_t *p, int cnt, pcap_handler callback, u_char *user)
 		cp += sizeof(*ntp);
 
 		ndp = (struct nit_ifdrops *)cp;
-		p->md.stat.ps_drop = ndp->nh_drops;
+		psn->stat.ps_drop = ndp->nh_drops;
 		cp += sizeof *ndp;
 
 		/* get past packet len  */
@@ -187,13 +195,13 @@ pcap_read_snit(pcap_t *p, int cnt, pcap_handler callback, u_char *user)
 		if (caplen > p->snapshot)
 			caplen = p->snapshot;
 
-		if (bpf_filter(fcode, cp, nlp->nh_pktlen, caplen)) {
+		if (bpf_filter(p->fcode.bf_insns, cp, nlp->nh_pktlen, caplen)) {
 			struct pcap_pkthdr h;
 			h.ts = ntp->nh_timestamp;
 			h.len = nlp->nh_pktlen;
 			h.caplen = caplen;
 			(*callback)(user, &h, cp);
-			if (++n >= cnt && cnt >= 0) {
+			if (++n >= cnt && !PACKET_COUNT_IS_UNLIMITED(cnt)) {
 				p->cc = ep - bp;
 				p->bp = bp;
 				return (n);
@@ -228,63 +236,77 @@ pcap_inject_snit(pcap_t *p, const void *buf, size_t size)
 }
 
 static int
-nit_setflags(int fd, int promisc, int to_ms, char *ebuf)
+nit_setflags(pcap_t *p)
 {
 	bpf_u_int32 flags;
 	struct strioctl si;
+	u_int zero = 0;
 	struct timeval timeout;
 
+	if (p->opt.immediate) {
+		/*
+		 * Set the chunk size to zero, so that chunks get sent
+		 * up immediately.
+		 */
+		si.ic_cmd = NIOCSCHUNK;
+		si.ic_len = sizeof(zero);
+		si.ic_dp = (char *)&zero;
+		if (ioctl(p->fd, I_STR, (char *)&si) < 0) {
+			snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "NIOCSCHUNK: %s",
+			    pcap_strerror(errno));
+			return (-1);
+		}
+	}
 	si.ic_timout = INFTIM;
-	if (to_ms != 0) {
-		timeout.tv_sec = to_ms / 1000;
-		timeout.tv_usec = (to_ms * 1000) % 1000000;
+	if (p->opt.timeout != 0) {
+		timeout.tv_sec = p->opt.timeout / 1000;
+		timeout.tv_usec = (p->opt.timeout * 1000) % 1000000;
 		si.ic_cmd = NIOCSTIME;
 		si.ic_len = sizeof(timeout);
 		si.ic_dp = (char *)&timeout;
-		if (ioctl(fd, I_STR, (char *)&si) < 0) {
-			snprintf(ebuf, PCAP_ERRBUF_SIZE, "NIOCSTIME: %s",
+		if (ioctl(p->fd, I_STR, (char *)&si) < 0) {
+			snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "NIOCSTIME: %s",
 			    pcap_strerror(errno));
 			return (-1);
 		}
 	}
 	flags = NI_TIMESTAMP | NI_LEN | NI_DROPS;
-	if (promisc)
+	if (p->opt.promisc)
 		flags |= NI_PROMISC;
 	si.ic_cmd = NIOCSFLAGS;
 	si.ic_len = sizeof(flags);
 	si.ic_dp = (char *)&flags;
-	if (ioctl(fd, I_STR, (char *)&si) < 0) {
-		snprintf(ebuf, PCAP_ERRBUF_SIZE, "NIOCSFLAGS: %s",
+	if (ioctl(p->fd, I_STR, (char *)&si) < 0) {
+		snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "NIOCSFLAGS: %s",
 		    pcap_strerror(errno));
 		return (-1);
 	}
 	return (0);
 }
 
-pcap_t *
-pcap_open_live(const char *device, int snaplen, int promisc, int to_ms,
-    char *ebuf)
+static int
+pcap_activate_snit(pcap_t *p)
 {
 	struct strioctl si;		/* struct for ioctl() */
 	struct ifreq ifr;		/* interface request struct */
 	int chunksize = CHUNKSIZE;
 	int fd;
 	static char dev[] = "/dev/nit";
-	register pcap_t *p;
 
-	p = (pcap_t *)malloc(sizeof(*p));
-	if (p == NULL) {
-		strlcpy(ebuf, pcap_strerror(errno), PCAP_ERRBUF_SIZE);
-		return (NULL);
+	if (p->opt.rfmon) {
+		/*
+		 * No monitor mode on SunOS 4.x (no Wi-Fi devices on
+		 * hardware supported by SunOS 4.x).
+		 */
+		return (PCAP_ERROR_RFMON_NOTSUP);
 	}
 
-	if (snaplen < 96)
+	if (p->snapshot < 96)
 		/*
 		 * NIT requires a snapshot length of at least 96.
 		 */
-		snaplen = 96;
+		p->snapshot = 96;
 
-	memset(p, 0, sizeof(*p));
 	/*
 	 * Initially try a read/write open (to allow the inject
 	 * method to work).  If that fails due to permission
@@ -303,19 +325,19 @@ pcap_open_live(const char *device, int snaplen, int promisc, int to_ms,
 	if (fd < 0 && errno == EACCES)
 		p->fd = fd = open(dev, O_RDONLY);
 	if (fd < 0) {
-		snprintf(ebuf, PCAP_ERRBUF_SIZE, "%s: %s", dev,
+		snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "%s: %s", dev,
 		    pcap_strerror(errno));
 		goto bad;
 	}
 
 	/* arrange to get discrete messages from the STREAM and use NIT_BUF */
 	if (ioctl(fd, I_SRDOPT, (char *)RMSGD) < 0) {
-		snprintf(ebuf, PCAP_ERRBUF_SIZE, "I_SRDOPT: %s",
+		snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "I_SRDOPT: %s",
 		    pcap_strerror(errno));
 		goto bad;
 	}
 	if (ioctl(fd, I_PUSH, "nbuf") < 0) {
-		snprintf(ebuf, PCAP_ERRBUF_SIZE, "push nbuf: %s",
+		snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "push nbuf: %s",
 		    pcap_strerror(errno));
 		goto bad;
 	}
@@ -325,34 +347,33 @@ pcap_open_live(const char *device, int snaplen, int promisc, int to_ms,
 	si.ic_len = sizeof(chunksize);
 	si.ic_dp = (char *)&chunksize;
 	if (ioctl(fd, I_STR, (char *)&si) < 0) {
-		snprintf(ebuf, PCAP_ERRBUF_SIZE, "NIOCSCHUNK: %s",
+		snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "NIOCSCHUNK: %s",
 		    pcap_strerror(errno));
 		goto bad;
 	}
 
 	/* request the interface */
-	strncpy(ifr.ifr_name, device, sizeof(ifr.ifr_name));
+	strncpy(ifr.ifr_name, p->opt.source, sizeof(ifr.ifr_name));
 	ifr.ifr_name[sizeof(ifr.ifr_name) - 1] = '\0';
 	si.ic_cmd = NIOCBIND;
 	si.ic_len = sizeof(ifr);
 	si.ic_dp = (char *)&ifr;
 	if (ioctl(fd, I_STR, (char *)&si) < 0) {
-		snprintf(ebuf, PCAP_ERRBUF_SIZE, "NIOCBIND: %s: %s",
+		snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "NIOCBIND: %s: %s",
 			ifr.ifr_name, pcap_strerror(errno));
 		goto bad;
 	}
 
 	/* set the snapshot length */
 	si.ic_cmd = NIOCSSNAP;
-	si.ic_len = sizeof(snaplen);
-	si.ic_dp = (char *)&snaplen;
+	si.ic_len = sizeof(p->snapshot);
+	si.ic_dp = (char *)&p->snapshot;
 	if (ioctl(fd, I_STR, (char *)&si) < 0) {
-		snprintf(ebuf, PCAP_ERRBUF_SIZE, "NIOCSSNAP: %s",
+		snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "NIOCSSNAP: %s",
 		    pcap_strerror(errno));
 		goto bad;
 	}
-	p->snapshot = snaplen;
-	if (nit_setflags(p->fd, promisc, to_ms, ebuf) < 0)
+	if (nit_setflags(p) < 0)
 		goto bad;
 
 	(void)ioctl(fd, I_FLUSH, (char *)FLUSHR);
@@ -364,7 +385,7 @@ pcap_open_live(const char *device, int snaplen, int promisc, int to_ms,
 	p->bufsize = BUFSPACE;
 	p->buffer = (u_char *)malloc(p->bufsize);
 	if (p->buffer == NULL) {
-		strlcpy(ebuf, pcap_strerror(errno), PCAP_ERRBUF_SIZE);
+		strlcpy(p->errbuf, pcap_strerror(errno), PCAP_ERRBUF_SIZE);
 		goto bad;
 	}
 
@@ -402,14 +423,24 @@ pcap_open_live(const char *device, int snaplen, int promisc, int to_ms,
 	p->getnonblock_op = pcap_getnonblock_fd;
 	p->setnonblock_op = pcap_setnonblock_fd;
 	p->stats_op = pcap_stats_snit;
-	p->close_op = pcap_close_common;
 
-	return (p);
+	return (0);
  bad:
-	if (fd >= 0)
-		close(fd);
-	free(p);
-	return (NULL);
+	pcap_cleanup_live_common(p);
+	return (PCAP_ERROR);
+}
+
+pcap_t *
+pcap_create_interface(const char *device, char *ebuf)
+{
+	pcap_t *p;
+
+	p = pcap_create_common(device, ebuf, sizeof (struct pcap_snit));
+	if (p == NULL)
+		return (NULL);
+
+	p->activate_op = pcap_activate_snit;
+	return (p);
 }
 
 int
