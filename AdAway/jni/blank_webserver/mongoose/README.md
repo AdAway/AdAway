@@ -1,67 +1,88 @@
-Project Mission
----------------
+# <img src="http://cesanta.com/images/mongoose_logo.png" width="64" height="64"> Mongoose Web Server
 
-Project mission is to provide simple, functional, embeddable web server to
-make it easy for application and device developers to implement web interface
-for their application and devices, and to offer a simple web development
-environment.
+Mongoose is the most easy to use web server on the planet. A web server of choice for Web developers (PHP, Ruby, Python, etc) and Web designers.
 
-Overview
---------
+Mongoose is built on top of Libmongoose embedded library, which can turn
+anything into a web server in 5 minutes worth of effort and few lines of code.
+Libmongoose is used to serve Web GUI on embedded devices, implement RESTful
+services, RPC frameworks (e.g. JSON-RPC), handle telemetry data exchange, and
+perform many other tasks in various different industries including aerospace,
+manufacturing, finance, research, automotive, gaming, IT.
 
-To accomplish it's mission, Mongoose keeps balance on functionality and
-simplicity by carefully selected list of features:
 
-- Liberal, commercial-friendly
-  [MIT license](http://en.wikipedia.org/wiki/MIT_License)
-- Works on Windows, Mac, UNIX, iPhone, Android, and many other platforms
-- Support for CGI, SSL, SSI, Digest (MD5) authorization, Websocket, WEbDAV
-- Lua server pages (PHP-like functionality using Lua), see
-  [page.lp](https://github.com/valenok/mongoose/blob/master/test/page.lp)
-- Resumed download, URL rewrite, IP-based ACL, Windows service
-- Excluding files from serving by URI pattern (file blacklist)
-- Download speed limit based on client subnet or URI pattern
-- Small footprint: executable size is 50 kB on Linux 2.6 i386 system
-- 130 kilobytes Windows executable with all of the above and no dependencies
-- Simple and clean embedding API,
-  [mongoose.h](https://github.com/valenok/mongoose/blob/master/mongoose.h).
+   * [Mailing list](http://groups.google.com/group/mongoose-users)
+   * [Downloads](http://cesanta.com/products.shtml)
+   * [Documentation](http://cesanta.com/docs.shtml)
+
+Check out Fossa - our [embedded multi-protocol library](https://github.com/cesanta/fossa) with TCP,UDP,HTTP,Websocket,MQTT,DNS support, designed for Internet Of Things!
+
+# Features
+
+- Works on Windows, Mac, UNIX/Linux, iPhone, Android eCos, QNX
+and many other platforms
+- CGI, SSI, SSL, Digest auth, Websocket, WEbDAV, Resumed download,
+  URL rewrite, file blacklist
+- Custom error pages, Virtual hosts, IP-based ACL, Windows service,
+  HTTP/HTTPS client
+- Simple and clean
+  [embedding API](https://github.com/cesanta/mongoose/blob/master/mongoose.h).
   The source is in single
-  [mongoose.c](https://github.com/valenok/mongoose/blob/master/mongoose.c) file
-  to make things easy
-- Embedding examples:
-  [hello.c](https://github.com/valenok/mongoose/blob/master/examples/hello.c),
-  [post.c](https://github.com/valenok/mongoose/blob/master/examples/post.c),
-  [upload.c](https://github.com/valenok/mongoose/blob/master/examples/upload.c),
-  [websocket.c](https://github.com/valenok/mongoose/blob/master/examples/websocket.c)
-- HTTP client functionality for embedded usage, capable of
-  sending arbitrary HTTP/HTTPS requests
-- Extensive documentation in form of
-  [User Manual](https://github.com/valenok/mongoose/blob/master/UserManual.md)
+  [mongoose.c](https://github.com/cesanta/mongoose/blob/master/mongoose.c) file
+  to make embedding easy
+- Extremely lightweight, has a core of under 40kB and tiny runtime footprint
+- Asynchronous, non-blocking core supporting single- or multi-threaded usage
+- On the market since 2004 with over 1 million cumulative downloads
+- Stable, mature and tested, has several man-years invested
+  in continuous improvement and refinement
 
-Questions can be asked at
-[mongoose-users@google.com](http://groups.google.com/group/mongoose-users)
-mailing list.
+# Screenshots
 
+Download, double-click to start, run browser -- that's all!
 
-Keep Sergey happy
------------------
+![shot1](http://cesanta.com/images/tut_sharing/tut1.png)
+![shot2](http://cesanta.com/images/tut_sharing/tut2.png)
 
-I am Sergey Lyubka, a software engineer from Galway, Ireland. I started
-working on Mongoose in 2004, and since then continuously improving it,
-investing thousands of hours of work. My other project I'm contributing to the
-community for free is
-[Super Light Regular Expression library](http://code.google.com/p/slre).
+![shot3](http://cesanta.com/images/tut_sharing/tut3.png)
+![shot4](http://cesanta.com/images/tut_sharing/tut4.png)
 
+# Acknowledgements
 
-If you feel grateful for the stuff I've done, you can buy me a book from my
-[Amazon wishlist](http://amzn.com/w/1OC2ZCPTQYIEP?sort=priority). Many thanks
-to all who already did so: T.Barmann, D.Hughes, J.C.Sloan, R.Romeo,
-L.E.Spencer, S.Kotay, B.Fjukstad and 6 others.
-Appreciated guys, you keep my brains going!
+Mongoose made better thanks to the contribution of following people:
 
-Cash is also appreciated indeed. Press
-[<img src="http://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DGZ2FMP95TAL6)
-button to donate. Donation progress: 4/1000 &euro;
-(thanks to O.M.Vilhunen, C.Radik)
+Arnout Vandecappelle, Benoît Amiaux, Boris Pek, Cody Hanson, Colin Leitner,
+Daniel Oaks, Eric Bakan, Erik Oomen, Filipp Kovalev, Ger Hobbelt,
+Hendrik Polczynski, Igor Okulist, Jay, Joe Mucchiello, John Safranek,
+José Miguel Gonçalves, Shueng Chuan, Katerina Blinova, Konstantin Sorokin,
+Marin Atanasov, Matt Healy, Mitch Hendrickson, Nigel Stewart, Pavel Khlebovich,
+Sebastian Reinhard, Stefan Doehla, abadc0de, nullable.type,
+T.Barmann, D.Hughes, J.C.Sloan, R.Romeo, L.E.Spencer, S.Kotay, R.M.Shorter,
+W.Mar, J.Wilander, Santa from Memphis, S.Davies, C.Beck,
+O.M.Vilhunen, C.Radik, G.Woodcock, M.Szczepkowski,
+Eternal Lands Dev Team, T.Tollet, C.Tangerino, G.Karsai, A.Bourgett,
+C.Blakemore, D.Fonaryov, T.Andrle, O.IJsselmuiden, R.Womack, M.Tomlinson,
+A.Slåttå, L.Farrell, J.D.P.Ballestero, V.Albaev, B.Harker, T.Scheffel, H.Klein,
+R.Merit, T.Bennett, H.Solis, A.Zincenko, M.S., S.Krul, K.Cooke, S.McCallum,
+F.Morenius, and 10 others.
 
-![Progress](http://chart.googleapis.com/chart?chxr=0,0,1000&chxt=x&chbh=30,0,0&chs=300x35&cht=bhs&chco=90c0f0&chd=s:B)
+# Licensing
+
+Mongoose is released under commercial and
+[GNU GPL v.2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) open
+source licenses. The GPLv2 open source License does not generally permit
+incorporating this software into non-open source programs. 
+For those customers who do not wish to comply with the GPLv2 open
+source license requirements,
+[Cesanta Software](http://cesanta.com) offers a full,
+royalty-free commercial license and professional support
+without any of the GPL restrictions.
+
+# Other products by Cesanta Software: simple and effective
+
+- [SSL Wrapper](https://github.com/cesanta/ssl_wrapper) - application to
+  secure network communications
+- [Frozen](https://github.com/cesanta/frozen) - JSON parser and generator
+- [SLRE](https://github.com/cesanta/slre) - Super Light Regular Expression
+  library
+- [Net Skeleton](https://github.com/cesanta/net_skeleton) - framework for
+  building network applications
+- [SLDR](https://github.com/cesanta/sldr) - Super Light DNS Resolver
