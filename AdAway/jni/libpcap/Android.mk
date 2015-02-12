@@ -1,7 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-libpcap_PSRC =	pcap-linux.c pcap-usb-linux.c  pcap-can-linux.c pcap-netfilter-linux.c  
+libpcap_PSRC =	pcap-linux.c
 libpcap_FSRC =  fad-gifc.c
 libpcap_CSRC =	pcap.c inet.c gencode.c optimize.c nametoaddr.c etherent.c \
 	savefile.c sf-pcap.c sf-pcap-ng.c pcap-common.c \

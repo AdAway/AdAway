@@ -75,25 +75,25 @@
 /* #undef HAVE_LINUX_COMPILER_H */
 
 /* Define to 1 if you have the <linux/ethtool.h> header file. */
-#define HAVE_LINUX_ETHTOOL_H 1
+/* #undef HAVE_LINUX_ETHTOOL_H */
 
 /* Define to 1 if you have the <linux/if_packet.h> header file. */
-#define HAVE_LINUX_IF_PACKET_H 1
+/* #undef HAVE_LINUX_IF_PACKET_H */
 
 /* Define to 1 if you have the <linux/net_tstamp.h> header file. */
-#define HAVE_LINUX_NET_TSTAMP_H 1
+/* #undef HAVE_LINUX_NET_TSTAMP_H */
 
 /* if tp_vlan_tci exists */
-#define HAVE_LINUX_TPACKET_AUXDATA_TP_VLAN_TCI 1
+/* #undef HAVE_LINUX_TPACKET_AUXDATA_TP_VLAN_TCI */
 
 /* Define to 1 if you have the <linux/types.h> header file. */
-#define HAVE_LINUX_TYPES_H 1
+/* #undef HAVE_LINUX_TYPES_H */
 
 /* Define to 1 if you have the <linux/usbdevice_fs.h> header file. */
-#define HAVE_LINUX_USBDEVICE_FS_H 1
+/* #undef HAVE_LINUX_USBDEVICE_FS_H */
 
 /* Define to 1 if you have the <linux/wireless.h> header file. */
-#define HAVE_LINUX_WIRELESS_H 1
+/* #undef HAVE_LINUX_WIRELESS_H */
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -198,7 +198,7 @@
 #define HAVE_UNISTD_H 1
 
 /* if struct usbdevfs_ctrltransfer has bRequestType */
-#define HAVE_USBDEVFS_CTRLTRANSFER_BREQUESTTYPE 1
+/* #undef HAVE_USBDEVFS_CTRLTRANSFER_BREQUESTTYPE */
 
 /* define if version.h is generated in the build procedure */
 #define HAVE_VERSION_H 1
@@ -267,10 +267,10 @@
 /* #undef PCAP_SUPPORT_DBUS */
 
 /* target host supports netfilter sniffing */
-#define PCAP_SUPPORT_NETFILTER 1
+/* #undef PCAP_SUPPORT_NETFILTER */
 
 /* target host supports USB sniffing */
-#define PCAP_SUPPORT_USB 1
+/* #undef PCAP_SUPPORT_USB */
 
 /* include ACN support */
 /* #undef SITA */

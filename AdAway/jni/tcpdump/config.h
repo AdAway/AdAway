@@ -39,7 +39,7 @@
 #define HAVE_INTTYPES_H 1
 
 /* Define to 1 if you have the `crypto' library (-lcrypto). */
-#define HAVE_LIBCRYPTO 1
+/* #undef HAVE_LIBCRYPTO */
 
 /* Define to 1 if you have the `rpc' library (-lrpc). */
 /* #undef HAVE_LIBRPC */
