@@ -258,7 +258,7 @@
 /* #undef PCAP_SUPPORT_BT */
 
 /* target host supports CAN sniffing */
-#define PCAP_SUPPORT_CAN 1
+/* #undef PCAP_SUPPORT_CAN */
 
 /* target host supports canusb */
 /* #undef PCAP_SUPPORT_CANUSB */
