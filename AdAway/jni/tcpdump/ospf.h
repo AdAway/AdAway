@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/ospf.h,v 1.16.2.2 2006/12/13 08:24:27 hannes Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/ospf.h,v 1.23 2007-10-08 07:53:21 hannes Exp $ (LBL) */
 /*
  * Copyright (c) 1991, 1993, 1994, 1995, 1996, 1997
  *	The Regents of the University of California.  All rights reserved.
@@ -31,7 +31,7 @@
 /* Options field
  *
  * +------------------------------------+
- * | * | O | DC | EA | N/P | MC | E | T |
+ * | DN | O | DC | L | N/P | MC | E | T |
  * +------------------------------------+
  *
  */
@@ -41,6 +41,7 @@
 #define	OSPF_OPTION_MC	0x04	/* MC bit: Multicast capable */
 #define	OSPF_OPTION_NP	0x08	/* N/P bit: NSSA capable */
 #define	OSPF_OPTION_EA	0x10	/* EA bit: External Attribute capable */
+#define	OSPF_OPTION_L	0x10	/* L bit: Packet contains LLS data block */
 #define	OSPF_OPTION_DC	0x20	/* DC bit: Demand circuit capable */
 #define	OSPF_OPTION_O	0x40	/* O bit: Opaque LSA capable */
 #define	OSPF_OPTION_DN	0x80	/* DN bit: Up/Down Bit capable - draft-ietf-ospf-2547-dnbit-04 */
@@ -53,9 +54,10 @@
 #define OSPF_AUTH_MD5_LEN	16	/* length of MD5 authentication */
 
 /* db_flags	*/
-#define	OSPF_DB_INIT		0x04	    /*	*/
+#define	OSPF_DB_INIT		0x04
 #define	OSPF_DB_MORE		0x02
-#define	OSPF_DB_MASTER		0x01
+#define	OSPF_DB_MASTER          0x01
+#define OSPF_DB_RESYNC          0x08  /* RFC4811 */
 
 /* ls_type	*/
 #define	LS_TYPE_ROUTER		1   /* router link */
@@ -86,10 +88,10 @@
 #define LS_OPAQUE_TE_LINK_SUBTLV_MAX_RES_BW            7 /* rfc3630 */
 #define LS_OPAQUE_TE_LINK_SUBTLV_UNRES_BW              8 /* rfc3630 */
 #define LS_OPAQUE_TE_LINK_SUBTLV_ADMIN_GROUP           9 /* rfc3630 */
-#define LS_OPAQUE_TE_LINK_SUBTLV_LINK_LOCAL_REMOTE_ID 11 /* draft-ietf-ccamp-ospf-gmpls-extensions */
-#define LS_OPAQUE_TE_LINK_SUBTLV_LINK_PROTECTION_TYPE 14 /* draft-ietf-ccamp-ospf-gmpls-extensions */
-#define LS_OPAQUE_TE_LINK_SUBTLV_INTF_SW_CAP_DESCR    15 /* draft-ietf-ccamp-ospf-gmpls-extensions */
-#define LS_OPAQUE_TE_LINK_SUBTLV_SHARED_RISK_GROUP    16 /* draft-ietf-ccamp-ospf-gmpls-extensions */
+#define LS_OPAQUE_TE_LINK_SUBTLV_LINK_LOCAL_REMOTE_ID 11 /* rfc4203 */
+#define LS_OPAQUE_TE_LINK_SUBTLV_LINK_PROTECTION_TYPE 14 /* rfc4203 */
+#define LS_OPAQUE_TE_LINK_SUBTLV_INTF_SW_CAP_DESCR    15 /* rfc4203 */
+#define LS_OPAQUE_TE_LINK_SUBTLV_SHARED_RISK_GROUP    16 /* rfc4203 */
 #define LS_OPAQUE_TE_LINK_SUBTLV_BW_CONSTRAINTS       17 /* rfc4124 */
 
 #define LS_OPAQUE_TE_LINK_SUBTLV_LINK_TYPE_PTP        1  /* rfc3630 */
@@ -105,12 +107,6 @@
 #define LS_OPAQUE_GRACE_TLV_REASON_CP_SWITCH   3 /* rfc3623 */
 
 #define LS_OPAQUE_RI_TLV_CAP             1 /* draft-ietf-ospf-cap-03 */
-
-/*************************************************
- *
- * is the above a bug in the documentation?
- *
- *************************************************/
 
 
 /* rla_link.link_type	*/
@@ -139,6 +135,31 @@
 /* multicast vertex type */
 #define	MCLA_VERTEX_ROUTER	1
 #define	MCLA_VERTEX_NETWORK	2
+
+/* Link-Local-Signaling */
+#define OSPF_LLS_EO             1  /* RFC4811, RFC4812 */
+#define OSPF_LLS_MD5            2  /* RFC4813 */
+
+#define OSPF_LLS_EO_LR		0x00000001		/* RFC4811 */
+#define OSPF_LLS_EO_RS		0x00000002		/* RFC4812 */
+
+/*
+ * TOS metric struct (will be 0 or more in router links update)
+ */
+struct tos_metric {
+    u_int8_t tos_type;
+    u_int8_t reserved;
+    u_int8_t tos_metric[2];
+};
+struct tos_link {
+    u_int8_t link_type;
+    u_int8_t link_tos_count;
+    u_int8_t tos_metric[2];
+};
+union un_tos {
+    struct tos_link link;
+    struct tos_metric metrics;
+};
 
 /* link state advertisement header */
 struct lsa_hdr {
@@ -172,9 +193,7 @@ struct lsa {
 	    struct rlalink {
 		struct in_addr link_id;
 		struct in_addr link_data;
-		u_int8_t link_type;
-		u_int8_t link_toscount;
-		u_int16_t link_tos0metric;
+                union un_tos un_tos;
 	    } rla_link[1];		/* may repeat	*/
 	} un_rla;
 
@@ -235,16 +254,6 @@ struct lsa {
     } lsa_un;
 };
 
-
-/*
- * TOS metric struct (will be 0 or more in router links update)
- */
-struct tos_metric {
-    u_int8_t tos_type;
-    u_int8_t tos_zero;
-    u_int16_t tos_metric;
-};
-
 #define	OSPF_AUTH_SIZE	8
 
 /*
@@ -275,7 +284,7 @@ struct ospfhdr {
 
 	/* Database Description packet */
 	struct {
-	    u_int8_t db_zero[2];
+	    u_int16_t db_ifmtu;
 	    u_int8_t db_options;
 	    u_int8_t db_flags;
 	    u_int32_t db_seq;
@@ -314,3 +323,6 @@ struct ospfhdr {
 #define	ospf_lsu	ospf_un.un_lsu
 #define	ospf_lsa	ospf_un.un_lsa
 
+/* Functions shared by ospf and ospf6 */
+extern int ospf_print_te_lsa(const u_int8_t *, u_int);
+extern int ospf_print_grace_lsa(const u_int8_t *, u_int);

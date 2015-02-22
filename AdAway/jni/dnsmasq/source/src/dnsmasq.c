@@ -390,6 +390,9 @@ int main (int argc, char **argv)
 	  /* On linux, we keep CAP_NETADMIN (for ARP-injection) and
 	     CAP_NET_RAW (for icmp) if we're doing dhcp */
 	  data->effective = data->permitted = data->inheritable =
+#ifdef __ANDROID__
+	    (1 << CAP_NET_BIND_SERVICE) |
+#endif
 	    (1 << CAP_NET_ADMIN) | (1 << CAP_NET_RAW) | (1 << CAP_SETUID);
 	  
 	  /* Tell kernel to not clear capabilities when dropping root */
@@ -433,6 +436,9 @@ int main (int argc, char **argv)
 
 #ifdef HAVE_LINUX_NETWORK
 	  data->effective = data->permitted = 
+#ifdef __ANDROID__
+	    (1 << CAP_NET_BIND_SERVICE) |
+#endif
 	    (1 << CAP_NET_ADMIN) | (1 << CAP_NET_RAW);
 	  data->inheritable = 0;
 	  
@@ -984,32 +990,47 @@ static int set_android_listeners(fd_set *set, int *maxfdp) {
 }
 
 static int check_android_listeners(fd_set *set) {
+    int retcode = 0;
     if (FD_ISSET(STDIN_FILENO, set)) {
         char buffer[1024];
         int rc;
+        int consumed = 0;
 
         if ((rc = read(STDIN_FILENO, buffer, sizeof(buffer) -1)) < 0) {
             my_syslog(LOG_ERR, _("Error reading from stdin (%s)"), strerror(errno));
             return -1;
         }
         buffer[rc] = '\0';
-        char *next = buffer;
-        char *cmd;
+        while(consumed < rc) {
+            char *cmd;
+            char *current_cmd = &buffer[consumed];
+            char *params = current_cmd;
+            int len = strlen(current_cmd);
 
-        if (!(cmd = strsep(&next, ":"))) {
-            my_syslog(LOG_ERR, _("Malformatted msg '%s'"), buffer);
-            return -1;
-        }
-
-        if (!strcmp(buffer, "update_dns")) {
-            set_servers(&buffer[11]);
-            check_servers();
-        } else {
-            my_syslog(LOG_ERR, _("Unknown cmd '%s'"), cmd);
-            return -1;
+            cmd = strsep(&params, ":");
+            if (!strcmp(cmd, "update_dns")) {
+                if (params != NULL) {
+                    set_servers(params);
+                    check_servers();
+                } else {
+                    my_syslog(LOG_ERR, _("Malformatted msg '%s'"), current_cmd);
+                    retcode = -1;
+                }
+            } else if (!strcmp(cmd, "update_ifaces")) {
+                if (params != NULL) {
+                    set_interfaces(params);
+                } else {
+                    my_syslog(LOG_ERR, _("Malformatted msg '%s'"), current_cmd);
+                    retcode = -1;
+                }
+            } else {
+                 my_syslog(LOG_ERR, _("Unknown cmd '%s'"), cmd);
+                 retcode = -1;
+            }
+            consumed += len + 1;
         }
     }
-    return 0;
+    return retcode;
 }
 #endif
 
@@ -1336,5 +1357,3 @@ int icmp_ping(struct in_addr addr)
   return gotreply;
 }
 #endif
-
- 

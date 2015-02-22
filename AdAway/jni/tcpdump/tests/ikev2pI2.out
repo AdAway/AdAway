@@ -1,0 +1,41 @@
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [none], proto UDP (17), length 536, bad cksum 0 (->f48e)!)
+    192.1.2.45.500 > 192.1.2.23.500: [no cksum] isakmp 2.0 msgid 00000000 cookie 0001020304050607->0000000000000000: parent_sa ikev2_init[I]:
+    (sa[C]: len=240
+        (p: #1 protoid=isakmp transform=4 len=40
+            (t: #1 type=encr id=aes )
+            (t: #2 type=integ id=hmac-sha )
+            (t: #3 type=prf id=hmac-sha )
+            (t: #4 type=dh id=modp1536 ))
+        (p: #2 protoid=isakmp transform=4 len=40
+            (t: #1 type=encr id=aes )
+            (t: #2 type=integ id=hmac-sha )
+            (t: #3 type=prf id=hmac-md5 )
+            (t: #4 type=dh id=modp1536 ))
+        (p: #3 protoid=isakmp transform=4 len=40
+            (t: #1 type=encr id=3des )
+            (t: #2 type=integ id=hmac-sha )
+            (t: #3 type=prf id=hmac-sha )
+            (t: #4 type=dh id=modp1536 ))
+        (p: #4 protoid=isakmp transform=4 len=40
+            (t: #1 type=encr id=3des )
+            (t: #2 type=integ id=hmac-sha )
+            (t: #3 type=prf id=hmac-md5 )
+            (t: #4 type=dh id=modp1536 ))
+        (p: #5 protoid=isakmp transform=4 len=40
+            (t: #1 type=encr id=3des )
+            (t: #2 type=integ id=hmac-sha )
+            (t: #3 type=prf id=hmac-sha )
+            (t: #4 type=dh id=modp1024 ))
+        (p: #6 protoid=isakmp transform=4 len=40
+            (t: #1 type=encr id=3des )
+            (t: #2 type=integ id=hmac-sha )
+            (t: #3 type=prf id=hmac-md5 )
+            (t: #4 type=dh id=modp1024 )))
+    (v2ke: len=192 group=modp1536 ffbc6a92a6b9559b05fa96a7a43507b4c1e1c0861a5871d9ba73a163113788c0debb3979e7ff0c52b4ce6050eb05369ea4300d2bff3b1b299f3b802ccb13318c2ab9e3b5627cb4b35eb939982076b57c050d7b35c3c5c7cc8c0feab7b64a7d7b6b8f6b4dabf4ac406dd20126b90a98ac766efa37a7890c4394ff9a77615b58f52d651bbfa58d2a549af8b01aa4bca3d762426663b155d4ebda9f60a6a13573e6a888135cdc673dd483029903f3a90eca23e1ec1e270331b2d050f4f758f49927)
+    (nonce[C]: len=16 nonce=(b5ce8419095c6e2b6b62d3055305b3c4) )
+    (v2vid: len=12 vid=OErlA\nQukSR 4f45726c415c6e51756b5352)
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [none], proto UDP (17), length 312, bad cksum 0 (->f56e)!)
+    192.1.2.45.500 > 192.1.2.23.500: [no cksum] isakmp 2.0 msgid 00000000 cookie 0001020304050607->c02e7a3031a03188: parent_sa ikev2_auth[I]:
+    (v2e[C]: len=252 000102030405060708090a0b0c0d0e0f4bcf2da20444caca5fb591c1ab4b9b4d4f22ac7cb49e6b08d2738884fb3efd8eebc607accc1f80f890e24df65e53d61e899f1d319d89c033524d036fd4ea7e0345def93356e2865e5481a6a20a7604083de04595e1071a2e98179eefb4e6ae4708e6875ae297b4dc5b2602d971e36f66cef12303946eea897d86bbb5903115281a266f4dcb627e146972ff2f7102931df82f24a2e40df594afc11e0a85eb1c56b9eddb7e2de52fa95cf51f4b4c9b5d53237ae39f64519413d201374a987fa8d1ce460fa2d67c417462203f2948c0b9ed8b734a69a015ff63bde767f44f83c3cfe5119d72d74e695b1032b957
+            (v2IDi: len=8 0200000077657374 fqdn:west)
+            (v2auth: len=196 method=rsasig authdata=(000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000) ))

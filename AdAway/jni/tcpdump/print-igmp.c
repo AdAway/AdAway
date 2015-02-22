@@ -21,7 +21,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-igmp.c,v 1.15 2004/03/24 00:59:16 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-igmp.c,v 1.15 2004-03-24 00:59:16 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -96,7 +96,7 @@ struct tr_resp {
 #define TR_PROTO_CBT    4
 
 /* igmpv3 report types */
-static struct tok igmpv3report2str[] = {
+static const struct tok igmpv3report2str[] = {
 	{ 1,	"is_in" },
 	{ 2,	"is_ex" },
 	{ 3,	"to_in" },
@@ -227,7 +227,11 @@ print_igmpv3_query(register const u_char *bp, register u_int len)
     }
     if (mrc != 100) {
 	(void)printf(" [max resp time ");
-	relts_print(mrt);
+        if (mrt < 600) {
+            (void)printf("%.1fs", mrt * 0.1);
+        } else {
+            relts_print(mrt / 10);
+        }
 	(void)printf("]");
     }
     TCHECK2(bp[4], 4);
@@ -259,6 +263,8 @@ trunc:
 void
 igmp_print(register const u_char *bp, register u_int len)
 {
+    struct cksum_vec vec[1];
+
     if (qflag) {
         (void)printf("igmp");
         return;
@@ -327,7 +333,9 @@ igmp_print(register const u_char *bp, register u_int len)
 
     if (vflag && TTEST2(bp[0], len)) {
         /* Check the IGMP checksum */
-        if (in_cksum((const u_short*)bp, len, 0))
+        vec[0].ptr = bp;
+        vec[0].len = len;
+        if (in_cksum(vec, 1))
             printf(" bad igmp cksum %x!", EXTRACT_16BITS(&bp[2]));
     }
     return;

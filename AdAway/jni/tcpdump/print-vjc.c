@@ -25,7 +25,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-vjc.c,v 1.15 2004/03/25 03:31:17 mcr Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-vjc.c,v 1.15 2004-03-25 03:31:17 mcr Exp $ (LBL)";
 #endif
 
 #include <tcpdump-stdinc.h>

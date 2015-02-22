@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/gmpls.h,v 1.3.2.1 2005/05/19 06:44:03 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/gmpls.h,v 1.5 2006-04-14 07:11:59 hannes Exp $ (LBL) */
 /* 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that: (1) source code
@@ -14,11 +14,21 @@
  * Original code by Hannes Gredler (hannes@juniper.net)
  */
 
-extern struct tok gmpls_link_prot_values[];
-extern struct tok gmpls_switch_cap_values[];
-extern struct tok gmpls_encoding_values[];
-extern struct tok gmpls_payload_values[];
-extern struct tok diffserv_te_bc_values[];
-extern struct tok lmp_sd_service_config_cpsa_link_type_values[];
-extern struct tok lmp_sd_service_config_cpsa_signal_type_sdh_values[];
-extern struct tok lmp_sd_service_config_cpsa_signal_type_sonet_values[];
+#define GMPLS_PSC1   1
+#define GMPLS_PSC2   2
+#define GMPLS_PSC3   3
+#define GMPLS_PSC4   4
+#define GMPLS_L2SC  51
+#define GMPLS_TSC  100
+#define GMPLS_LSC  150
+#define GMPLS_FSC  200
+
+extern const struct tok gmpls_link_prot_values[];
+extern const struct tok gmpls_switch_cap_values[];
+extern const struct tok gmpls_switch_cap_tsc_indication_values[];
+extern const struct tok gmpls_encoding_values[];
+extern const struct tok gmpls_payload_values[];
+extern const struct tok diffserv_te_bc_values[];
+extern const struct tok lmp_sd_service_config_cpsa_link_type_values[];
+extern const struct tok lmp_sd_service_config_cpsa_signal_type_sdh_values[];
+extern const struct tok lmp_sd_service_config_cpsa_signal_type_sonet_values[];

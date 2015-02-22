@@ -16,7 +16,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-syslog.c,v 1.1 2004/10/29 11:42:53 hannes Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-syslog.c,v 1.1 2004-10-29 11:42:53 hannes Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -30,9 +30,8 @@ static const char rcsid[] _U_ =
 
 #include "interface.h"
 #include "extract.h"
-#include "addrtoname.h"
 
-/* 
+/*
  * tokenlists and #defines taken from Ethereal - Network traffic analyzer
  * by Gerald Combs <gerald@ethereal.com>
  */
@@ -94,31 +93,22 @@ syslog_print(register const u_char *pptr, register u_int len)
      * severity and facility values
      */
 
-    if (!TTEST2(*pptr, 1))
-        goto trunc;
-
+    TCHECK2(*pptr, 1);
     if (*(pptr+msg_off) == '<') {
         msg_off++;
-
-        if (!TTEST2(*(pptr+msg_off), 1))
-            goto trunc;
-
+        TCHECK2(*(pptr+msg_off), 1);
         while ( *(pptr+msg_off) >= '0' &&
                 *(pptr+msg_off) <= '9' &&
                 msg_off <= SYSLOG_MAX_DIGITS) {
-
-            if (!TTEST2(*(pptr+msg_off), 1))
-                goto trunc;
-
             pri = pri * 10 + (*(pptr+msg_off) - '0');
             msg_off++;
-
-            if (!TTEST2(*(pptr+msg_off), 1))
-                goto trunc;
-
-        if (*(pptr+msg_off) == '>')
-            msg_off++;
+            TCHECK2(*(pptr+msg_off), 1);
         }
+        if (*(pptr+msg_off) != '>') {
+            printf("[|syslog]");
+            return;
+        }
+        msg_off++;
     } else {
         printf("[|syslog]");
         return;
@@ -127,7 +117,6 @@ syslog_print(register const u_char *pptr, register u_int len)
     facility = (pri & SYSLOG_FACILITY_MASK) >> 3;
     severity = pri & SYSLOG_SEVERITY_MASK;
 
-    
     if (vflag < 1 )
     {
         printf("SYSLOG %s.%s, length: %u",
@@ -136,7 +125,7 @@ syslog_print(register const u_char *pptr, register u_int len)
                len);
         return;
     }
-       
+
     printf("SYSLOG, length: %u\n\tFacility %s (%u), Severity %s (%u)\n\tMsg: ",
            len,
            tok2str(syslog_facility_values, "unknown (%u)", facility),
@@ -146,16 +135,13 @@ syslog_print(register const u_char *pptr, register u_int len)
 
     /* print the syslog text in verbose mode */
     for (; msg_off < len; msg_off++) {
-        if (!TTEST2(*(pptr+msg_off), 1))
-            goto trunc;
-        safeputchar(*(pptr+msg_off));        
+        TCHECK2(*(pptr+msg_off), 1);
+        safeputchar(*(pptr+msg_off));
     }
 
-    if (vflag > 1) {
-        if(!print_unknown_data(pptr,"\n\t",len))
-            return;
-    }
-    
+    if (vflag > 1)
+        print_unknown_data(pptr,"\n\t",len);
+
     return;
 
 trunc:

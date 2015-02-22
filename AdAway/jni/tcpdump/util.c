@@ -21,7 +21,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/util.c,v 1.95.2.6 2006/02/08 01:40:09 hannes Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/util.c,v 1.109 2007-01-29 09:59:42 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -44,6 +44,8 @@ static const char rcsid[] _U_ =
 
 #include "interface.h"
 
+char * ts_format(register int, register int);
+
 /*
  * Print out a null-terminated filename (or other ascii string).
  * If ep is NULL, assume no truncation check is needed.
@@ -62,12 +64,12 @@ fn_print(register const u_char *s, register const u_char *ep)
 			ret = 0;
 			break;
 		}
-		if (!isascii(c)) {
-			c = toascii(c);
+		if (!ND_ISASCII(c)) {
+			c = ND_TOASCII(c);
 			putchar('M');
 			putchar('-');
 		}
-		if (!isprint(c)) {
+		if (!ND_ISPRINT(c)) {
 			c ^= 0x40;	/* DEL to ?, others to alpha */
 			putchar('^');
 		}
@@ -90,12 +92,12 @@ fn_printn(register const u_char *s, register u_int n,
 	while (n > 0 && (ep == NULL || s < ep)) {
 		n--;
 		c = *s++;
-		if (!isascii(c)) {
-			c = toascii(c);
+		if (!ND_ISASCII(c)) {
+			c = ND_TOASCII(c);
 			putchar('M');
 			putchar('-');
 		}
-		if (!isprint(c)) {
+		if (!ND_ISPRINT(c)) {
 			c ^= 0x40;	/* DEL to ?, others to alpha */
 			putchar('^');
 		}
@@ -124,18 +126,31 @@ fn_printzp(register const u_char *s, register u_int n,
 			ret = 0;
 			break;
 		}
-		if (!isascii(c)) {
-			c = toascii(c);
+		if (!ND_ISASCII(c)) {
+			c = ND_TOASCII(c);
 			putchar('M');
 			putchar('-');
 		}
-		if (!isprint(c)) {
+		if (!ND_ISPRINT(c)) {
 			c ^= 0x40;	/* DEL to ?, others to alpha */
 			putchar('^');
 		}
 		putchar(c);
 	}
 	return (n == 0) ? 0 : ret;
+}
+
+/*
+ * Format the timestamp
+ */
+char *
+ts_format(register int sec, register int usec)
+{
+        static char buf[sizeof("00:00:00.000000")];
+        (void)snprintf(buf, sizeof(buf), "%02d:%02d:%02d.%06u",
+               sec / 3600, (sec % 3600) / 60, sec % 60, usec);
+
+        return buf;
 }
 
 /*
@@ -149,14 +164,14 @@ ts_print(register const struct timeval *tvp)
 	time_t Time;
 	static unsigned b_sec;
 	static unsigned b_usec;
+	int d_usec;
+	int d_sec;
 
 	switch (tflag) {
 
 	case 0: /* Default */
 		s = (tvp->tv_sec + thiszone) % 86400;
-		(void)printf("%02d:%02d:%02d.%06u ",
-			     s / 3600, (s % 3600) / 60, s % 60,
-			     (unsigned)tvp->tv_usec);
+                (void)printf("%s ", ts_format(s, tvp->tv_usec));
 		break;
 
 	case 1: /* No time stamp */
@@ -169,22 +184,27 @@ ts_print(register const struct timeval *tvp)
 		break;
 
 	case 3: /* Microseconds since previous packet */
+        case 5: /* Microseconds since first packet */
 		if (b_sec == 0) {
-			printf("000000 ");
-		} else {
-			int d_usec = tvp->tv_usec - b_usec;
-			int d_sec = tvp->tv_sec - b_sec;
+                        /* init timestamp for first packet */
+                        b_usec = tvp->tv_usec;
+                        b_sec = tvp->tv_sec;                        
+                }
 
-			while (d_usec < 0) {
-				d_usec += 1000000;
-				d_sec--;
-			}
-			if (d_sec)
-				printf("%d. ", d_sec);
-			printf("%06d ", d_usec);
-		}
-		b_sec = tvp->tv_sec;
-		b_usec = tvp->tv_usec;
+                d_usec = tvp->tv_usec - b_usec;
+                d_sec = tvp->tv_sec - b_sec;
+                
+                while (d_usec < 0) {
+                    d_usec += 1000000;
+                    d_sec--;
+                }
+
+                (void)printf("%s ", ts_format(d_sec, d_usec));
+
+                if (tflag == 3) { /* set timestamp for last packet */
+                    b_sec = tvp->tv_sec;
+                    b_usec = tvp->tv_usec;
+                }
 		break;
 
 	case 4: /* Default + Date*/
@@ -194,10 +214,9 @@ ts_print(register const struct timeval *tvp)
 		if (!tm)
 			printf("Date fail  ");
 		else
-			printf("%04d-%02d-%02d ",
-				   tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday);
-		printf("%02d:%02d:%02d.%06u ",
-			   s / 3600, (s % 3600) / 60, s % 60, (unsigned)tvp->tv_usec);
+			printf("%04d-%02d-%02d %s ",
+                               tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday,
+                               ts_format(s, tvp->tv_usec));
 		break;
 	}
 }
@@ -297,18 +316,19 @@ tok2str(register const struct tok *lp, register const char *fmt,
 
 /*
  * Convert a bit token value to a string; use "fmt" if not found.
- * this is useful for parsing bitfields, the output strings are comma seperated
+ * this is useful for parsing bitfields, the output strings are seperated
+ * if the s field is positive.
  */
-char *
-bittok2str(register const struct tok *lp, register const char *fmt,
-	   register int v)
+static char *
+bittok2str_internal(register const struct tok *lp, register const char *fmt,
+	   register int v, register int sep)
 {
         static char buf[256]; /* our stringbuffer */
         int buflen=0;
         register int rotbit; /* this is the bit we rotate through all bitpositions */
         register int tokval;
 
-	while (lp->s != NULL && lp != NULL) {
+	while (lp != NULL && lp->s != NULL) {
             tokval=lp->v;   /* load our first value */
             rotbit=1;
             while (rotbit != 0) {
@@ -318,13 +338,19 @@ bittok2str(register const struct tok *lp, register const char *fmt,
                  */
 		if (tokval == (v&rotbit)) {
                     /* ok we have found something */
-                    buflen+=snprintf(buf+buflen, sizeof(buf)-buflen, "%s, ",lp->s);
+                    buflen+=snprintf(buf+buflen, sizeof(buf)-buflen, "%s%s",
+                                     lp->s, sep ? ", " : "");
                     break;
                 }
                 rotbit=rotbit<<1; /* no match - lets shift and try again */
             }
             lp++;
 	}
+
+        /* user didn't want string seperation - no need to cut off trailing seperators */
+        if (!sep) {
+            return (buf);
+        }
 
         if (buflen != 0) { /* did we find anything */
             /* yep, set the the trailing zero 2 bytes before to eliminate the last comma & whitespace */
@@ -338,6 +364,28 @@ bittok2str(register const struct tok *lp, register const char *fmt,
             (void)snprintf(buf, sizeof(buf), fmt, v);
             return (buf);
         }
+}
+
+/*
+ * Convert a bit token value to a string; use "fmt" if not found.
+ * this is useful for parsing bitfields, the output strings are not seperated.
+ */
+char *
+bittok2str_nosep(register const struct tok *lp, register const char *fmt,
+	   register int v)
+{
+    return (bittok2str_internal(lp, fmt, v, 0));
+}
+
+/*
+ * Convert a bit token value to a string; use "fmt" if not found.
+ * this is useful for parsing bitfields, the output strings are comma seperated.
+ */
+char *
+bittok2str(register const struct tok *lp, register const char *fmt,
+	   register int v)
+{
+    return (bittok2str_internal(lp, fmt, v, 1));
 }
 
 /*
@@ -367,7 +415,7 @@ tok2strary_internal(register const char **lp, int n, register const char *fmt,
  */
 
 int
-mask2plen (u_int32_t mask)
+mask2plen(u_int32_t mask)
 {
 	u_int32_t bitmasks[33] = {
 		0x00000000,
@@ -390,6 +438,35 @@ mask2plen (u_int32_t mask)
 	}
 	return (prefix_len);
 }
+
+#ifdef INET6
+int
+mask62plen(const u_char *mask)
+{
+	u_char bitmasks[9] = {
+		0x00,
+		0x80, 0xc0, 0xe0, 0xf0,
+		0xf8, 0xfc, 0xfe, 0xff
+	};
+	int byte;
+	int cidr_len = 0;
+
+	for (byte = 0; byte < 16; byte++) {
+		u_int bits;
+
+		for (bits = 0; bits < (sizeof (bitmasks) / sizeof (bitmasks[0])); bits++) {
+			if (mask[byte] == bitmasks[bits]) {
+				cidr_len += bits;
+				break;
+			}
+		}
+
+		if (mask[byte] != 0xff)
+			break;
+	}
+	return (cidr_len);
+}
+#endif /* INET6 */
 
 /* VARARGS */
 void
@@ -509,7 +586,8 @@ read_infile(char *fname)
 void
 safeputs(const char *s, int maxlen)
 {
-    int idx = 0;
+	int idx = 0;
+
 	while (*s && idx < maxlen) {
 		safeputchar(*s);
                 idx++;
@@ -523,8 +601,28 @@ safeputchar(int c)
 	unsigned char ch;
 
 	ch = (unsigned char)(c & 0xff);
-	if (ch < 0x80 && isprint(ch))
+	if (ch < 0x80 && ND_ISPRINT(ch))
 		printf("%c", ch);
 	else
-		printf("\\%03o", ch);
+		printf("\\0x%02x", ch);
 }
+
+#ifdef LBL_ALIGN
+/*
+ * Some compilers try to optimize memcpy(), using the alignment constraint
+ * on the argument pointer type.  by using this function, we try to avoid the
+ * optimization.
+ */
+void
+unaligned_memcpy(void *p, const void *q, size_t l)
+{
+	memcpy(p, q, l);
+}
+
+/* As with memcpy(), so with memcmp(). */
+int
+unaligned_memcmp(const void *p, const void *q, size_t l)
+{
+	return (memcmp(p, q, l));
+}
+#endif

@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/ieee802_11.h,v 1.9.4.3 2007/07/22 20:01:16 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/ieee802_11.h,v 1.12 2007-07-22 19:59:06 guy Exp $ (LBL) */
 /*
  * Copyright (c) 2001
  *	Fortress Technologies
@@ -30,6 +30,7 @@
 #define	IEEE802_11_RA_LEN		6
 #define	IEEE802_11_TA_LEN		6
 #define	IEEE802_11_SEQ_LEN		2
+#define	IEEE802_11_CTL_LEN		2
 #define	IEEE802_11_IV_LEN		3
 #define	IEEE802_11_KID_LEN		1
 
@@ -67,11 +68,14 @@
 #define	ST_DISASSOC		0xA
 #define	ST_AUTH			0xB
 #define	ST_DEAUTH		0xC
-/* RESERVED 			0xD  */
+#define	ST_ACTION		0xD
 /* RESERVED 			0xE  */
 /* RESERVED 			0xF  */
 
 
+#define CTRL_CONTROL_WRAPPER	0x7
+#define	CTRL_BAR	0x8
+#define	CTRL_BA		0x9
 #define	CTRL_PS_POLL	0xA
 #define	CTRL_RTS	0xB
 #define	CTRL_CTS	0xC
@@ -139,12 +143,6 @@ struct mgmt_header_t {
 #define	CAPABILITY_CFP(cap)	((cap) & 0x0004)
 #define	CAPABILITY_CFP_REQ(cap)	((cap) & 0x0008)
 #define	CAPABILITY_PRIVACY(cap)	((cap) & 0x0010)
-
-typedef enum {
-	NOT_PRESENT,
-	PRESENT,
-	TRUNCATED
-} elem_status_t;
 
 struct ssid_t {
 	u_int8_t	element_id;
@@ -233,20 +231,20 @@ struct mgmt_body_t {
 	u_int16_t	reason_code;
 	u_int16_t	auth_alg;
 	u_int16_t	auth_trans_seq_num;
-	elem_status_t	challenge_status;
+	int		challenge_present;
 	struct challenge_t  challenge;
 	u_int16_t	capability_info;
-	elem_status_t	ssid_status;
+	int		ssid_present;
 	struct ssid_t	ssid;
-	elem_status_t	rates_status;
+	int		rates_present;
 	struct rates_t 	rates;
-	elem_status_t	ds_status;
+	int		ds_present;
 	struct ds_t	ds;
-	elem_status_t	cf_status;
+	int		cf_present;
 	struct cf_t	cf;
-	elem_status_t	fh_status;
+	int		fh_present;
 	struct fh_t	fh;
-	elem_status_t	tim_status;
+	int		tim_present;
 	struct tim_t	tim;
 };
 
@@ -311,6 +309,38 @@ struct ctrl_end_ack_t {
 
 #define	CTRL_END_ACK_HDRLEN	(IEEE802_11_FC_LEN+IEEE802_11_DUR_LEN+\
 				 IEEE802_11_RA_LEN+IEEE802_11_BSSID_LEN)
+
+struct ctrl_ba_t {
+	u_int16_t	fc;
+	u_int16_t	duration;
+	u_int8_t	ra[6];
+	u_int8_t	fcs[4];
+};
+
+#define	CTRL_BA_HDRLEN	(IEEE802_11_FC_LEN+IEEE802_11_DUR_LEN+IEEE802_11_RA_LEN)
+
+struct ctrl_bar_t {
+	u_int16_t	fc;
+	u_int16_t	dur;
+	u_int8_t	ra[6];
+	u_int8_t	ta[6];
+	u_int16_t	ctl;
+	u_int16_t	seq;
+	u_int8_t	fcs[4];
+};
+
+#define	CTRL_BAR_HDRLEN		(IEEE802_11_FC_LEN+IEEE802_11_DUR_LEN+\
+				 IEEE802_11_RA_LEN+IEEE802_11_TA_LEN+\
+				 IEEE802_11_CTL_LEN+IEEE802_11_SEQ_LEN)
+
+struct meshcntl_t {
+	u_int8_t	flags;
+	u_int8_t	ttl;
+	u_int8_t	seq[4];
+	u_int8_t	addr4[6];
+	u_int8_t	addr5[6];
+	u_int8_t	addr6[6];
+};
 
 #define	IV_IV(iv)	((iv) & 0xFFFFFF)
 #define	IV_PAD(iv)	(((iv) >> 24) & 0x3F)

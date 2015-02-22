@@ -1,8 +1,9 @@
-IP (tos 0xc0, ttl   1, id 4052, offset 0, flags [none], proto: OSPF (89), length: 172) 40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length: 152
-	Router-ID: 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
+IP (tos 0xc0, ttl 1, id 4052, offset 0, flags [none], proto OSPF (89), length 172)
+    40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length 152
+	Router-ID 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
 	  LSA #1
-	  Advertising Router: 10.255.245.37, seq 0x80000002, age 9s, length: 104
-	    Area Local Opaque LSA (10), Opaque-Type: Traffic Engineering LSA (1), Opaque-ID: 8
+	  Advertising Router 10.255.245.37, seq 0x80000002, age 9s, length 104
+	    Area Local Opaque LSA (10), Opaque-Type Traffic Engineering LSA (1), Opaque-ID 8
 	    Options: [External]
 	    Link TLV (2), length: 100
 	      Link Type subTLV (1), length: 1, Point-to-point (1)
@@ -22,11 +23,12 @@ IP (tos 0xc0, ttl   1, id 4052, offset 0, flags [none], proto: OSPF (89), length
 		TE-Class 6: 622.080 Mbps
 		TE-Class 7: 622.080 Mbps
 	      Administrative Group subTLV (9), length: 4, 0x00000000
-IP (tos 0xc0, ttl   1, id 4106, offset 0, flags [none], proto: OSPF (89), length: 172) 40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length: 152
-	Router-ID: 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
+IP (tos 0xc0, ttl 1, id 4106, offset 0, flags [none], proto OSPF (89), length 172)
+    40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length 152
+	Router-ID 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
 	  LSA #1
-	  Advertising Router: 10.255.245.37, seq 0x80000002, age 9s, length: 104
-	    Area Local Opaque LSA (10), Opaque-Type: Traffic Engineering LSA (1), Opaque-ID: 9
+	  Advertising Router 10.255.245.37, seq 0x80000002, age 9s, length 104
+	    Area Local Opaque LSA (10), Opaque-Type Traffic Engineering LSA (1), Opaque-ID 9
 	    Options: [External]
 	    Link TLV (2), length: 100
 	      Link Type subTLV (1), length: 1, Point-to-point (1)
@@ -46,11 +48,12 @@ IP (tos 0xc0, ttl   1, id 4106, offset 0, flags [none], proto: OSPF (89), length
 		TE-Class 6: 622.080 Mbps
 		TE-Class 7: 622.080 Mbps
 	      Administrative Group subTLV (9), length: 4, 0x00000000
-IP (tos 0xc0, ttl   1, id 4160, offset 0, flags [none], proto: OSPF (89), length: 212) 40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length: 192
-	Router-ID: 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
+IP (tos 0xc0, ttl 1, id 4160, offset 0, flags [none], proto OSPF (89), length 212)
+    40.35.1.2 > 224.0.0.5: OSPFv2, LS-Update, length 192
+	Router-ID 10.255.245.35, Backbone Area, Authentication Type: none (0), 1 LSA
 	  LSA #1
-	  Advertising Router: 10.255.245.35, seq 0x80000003, age 3s, length: 144
-	    Area Local Opaque LSA (10), Opaque-Type: Traffic Engineering LSA (1), Opaque-ID: 3
+	  Advertising Router 10.255.245.35, seq 0x80000003, age 3s, length 144
+	    Area Local Opaque LSA (10), Opaque-Type Traffic Engineering LSA (1), Opaque-ID 3
 	    Options: [External]
 	    Link TLV (2), length: 140
 	      Link Type subTLV (1), length: 1, Point-to-point (1)

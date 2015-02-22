@@ -1,5 +1,5 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/nfs.h,v 1.7 2002/12/11 07:13:55 guy Exp $ (LBL) */
-/*	$NetBSD: nfs.h,v 1.1 1996/05/23 22:49:53 fvdl Exp $	*/
+/* @(#) $Header: /tcpdump/master/tcpdump/nfs.h,v 1.9 2007-11-18 03:24:38 guy Exp $ (LBL) */
+/*	NetBSD: nfs.h,v 1.1 1996/05/23 22:49:53 fvdl Exp 	*/
 
 /*
  * Copyright (c) 1989, 1993
@@ -215,6 +215,7 @@
 #define NFSV3ACCESS_EXTEND		0x08
 #define NFSV3ACCESS_DELETE		0x10
 #define NFSV3ACCESS_EXECUTE		0x20
+#define NFSV3ACCESS_FULL		0x3f
 
 #define NFSV3WRITE_UNSTABLE		0
 #define NFSV3WRITE_DATASYNC		1
@@ -285,21 +286,6 @@ struct nfs_uquad {
 	u_int32_t nfsuquad[2];
 };
 typedef	struct nfs_uquad	nfsuint64;
-
-#if 0 /* XXX - this doesn't seemed to be used and it doesn't work
-       * with non-gcc, so comment it out for now.
-       */
-
-/*
- * Used to convert between two u_longs and a u_quad_t.
- */
-union nfs_quadconvert {
-	u_int32_t lval[2];
-	u_int64_t qval;
-};
-typedef union nfs_quadconvert	nfsquad_t;
-
-#endif
 
 /*
  * NFS Version 3 special file number.

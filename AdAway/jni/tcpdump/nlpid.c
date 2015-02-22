@@ -15,7 +15,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/nlpid.c,v 1.4 2004/10/19 15:27:55 hannes Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/nlpid.c,v 1.4 2004-10-19 15:27:55 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -26,7 +26,7 @@ static const char rcsid[] _U_ =
 #include "interface.h"
 #include "nlpid.h"
 
-struct tok nlpid_values[] = {
+const struct tok nlpid_values[] = {
     { NLPID_NULLNS, "NULL" },
     { NLPID_Q933, "Q.933" },
     { NLPID_LMI, "LMI" },
@@ -36,6 +36,7 @@ struct tok nlpid_values[] = {
     { NLPID_ISIS, "IS-IS" },
     { NLPID_CONS, "CONS" },
     { NLPID_IDRP, "IDRP" },
+    { NLPID_SPB, "ISIS_SPB" },
     { NLPID_MFR, "FRF.15" },
     { NLPID_IP, "IPv4" },
     { NLPID_PPP, "PPP" },

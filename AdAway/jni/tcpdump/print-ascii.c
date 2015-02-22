@@ -42,7 +42,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-     "@(#) $Header: /tcpdump/master/tcpdump/print-ascii.c,v 1.16.2.1 2005/07/06 20:54:49 guy Exp $";
+     "@(#) $Header: /tcpdump/master/tcpdump/print-ascii.c,v 1.17 2005-07-06 20:53:32 guy Exp $";
 #endif
 #include <tcpdump-stdinc.h>
 #include <stdio.h>
@@ -65,11 +65,25 @@ ascii_print(register const u_char *cp, register u_int length)
 	while (length > 0) {
 		s = *cp++;
 		length--;
-		if (!isgraph(s) &&
-		    (s != '\t' && s != ' ' && s != '\n' && s != '\r'))
-			putchar('.');
-		else
-			putchar(s);
+		if (s == '\r') {
+			/*
+			 * Don't print CRs at the end of the line; they
+			 * don't belong at the ends of lines on UN*X,
+			 * and the standard I/O library will give us one
+			 * on Windows so we don't need to print one
+			 * ourselves.
+			 *
+			 * In the middle of a line, just print a '.'.
+			 */
+			if (length > 1 && *cp != '\n')
+				putchar('.');
+		} else {
+			if (!ND_ISGRAPH(s) &&
+			    (s != '\t' && s != ' ' && s != '\n'))
+				putchar('.');
+			else
+				putchar(s);
+		}
 	}
 }
 
@@ -92,8 +106,8 @@ hex_and_ascii_print_with_offset(register const char *ident,
 		(void)snprintf(hsp, sizeof(hexstuff) - (hsp - hexstuff),
 		    " %02x%02x", s1, s2);
 		hsp += HEXDUMP_HEXSTUFF_PER_SHORT;
-		*(asp++) = (isgraph(s1) ? s1 : '.');
-		*(asp++) = (isgraph(s2) ? s2 : '.');
+		*(asp++) = (ND_ISGRAPH(s1) ? s1 : '.');
+		*(asp++) = (ND_ISGRAPH(s2) ? s2 : '.');
 		i++;
 		if (i >= HEXDUMP_SHORTS_PER_LINE) {
 			*hsp = *asp = '\0';
@@ -109,7 +123,7 @@ hex_and_ascii_print_with_offset(register const char *ident,
 		(void)snprintf(hsp, sizeof(hexstuff) - (hsp - hexstuff),
 		    " %02x", s1);
 		hsp += 3;
-		*(asp++) = (isgraph(s1) ? s1 : '.');
+		*(asp++) = (ND_ISGRAPH(s1) ? s1 : '.');
 		++i;
 	}
 	if (i > 0) {

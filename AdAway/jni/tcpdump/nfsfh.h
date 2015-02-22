@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/nfsfh.h,v 1.13 2002/04/24 06:27:05 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/nfsfh.h,v 1.13 2002-04-24 06:27:05 guy Exp $ (LBL) */
 
 /*
  * Copyright (c) 1993, 1994 Jeffrey C. Mogul, Digital Equipment Corporation,
@@ -65,4 +65,4 @@ typedef	struct {
 #define	fsid_eq(a,b)	((a.fsid_code == b.fsid_code) &&\
 			 dev_eq(a.Fsid_dev, b.Fsid_dev))
 
-extern void Parse_fh(const unsigned char *, int, my_fsid *, ino_t *, const char **, const char **, int);
+extern void Parse_fh(const unsigned char *, int, my_fsid *, u_int32_t *, const char **, const char **, int);

@@ -12,7 +12,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-     "@(#) $Header: /tcpdump/master/tcpdump/smbutil.c,v 1.36.2.3 2007/07/15 19:08:25 guy Exp $";
+     "@(#) $Header: /tcpdump/master/tcpdump/smbutil.c,v 1.39 2007-07-15 19:07:39 guy Exp $";
 #endif
 
 #include <tcpdump-stdinc.h>
@@ -334,7 +334,7 @@ write_bits(unsigned int val, const char *fmt)
     }
 }
 
-/* convert a UCS2 string into iso-8859-1 string */
+/* convert a UCS-2 string into an ASCII string */
 #define MAX_UNISTR_SIZE	1000
 static const char *
 unistr(const u_char *s, u_int32_t *len, int use_unicode)
@@ -389,7 +389,7 @@ unistr(const u_char *s, u_int32_t *len, int use_unicode)
     	    TCHECK(s[0]);
 	    if (l >= MAX_UNISTR_SIZE)
 		break;
-	    if (isprint(s[0]))
+	    if (ND_ISPRINT(s[0]))
 		buf[l] = s[0];
 	    else {
 		if (s[0] == 0)
@@ -405,7 +405,7 @@ unistr(const u_char *s, u_int32_t *len, int use_unicode)
 	    TCHECK2(s[0], 2);
 	    if (l >= MAX_UNISTR_SIZE)
 		break;
-	    if (s[1] == 0 && isprint(s[0])) {
+	    if (s[1] == 0 && ND_ISPRINT(s[0])) {
 		/* It's a printable ASCII character */
 		buf[l] = s[0];
 	    } else {
@@ -900,7 +900,7 @@ static const err_code_struct dos_msgs[] = {
  };
 
 /* Server Error Messages */
-err_code_struct server_msgs[] = {
+static const err_code_struct server_msgs[] = {
     { "ERRerror", 1, "Non-specific error code." },
     { "ERRbadpw", 2, "Bad password - name/password pair in a Tree Connect or Session Setup are invalid." },
     { "ERRbadtype", 3, "reserved." },
@@ -937,7 +937,7 @@ err_code_struct server_msgs[] = {
 };
 
 /* Hard Error Messages */
-err_code_struct hard_msgs[] = {
+static const err_code_struct hard_msgs[] = {
     { "ERRnowrite", 19, "Attempt to write on write-protected diskette." },
     { "ERRbadunit", 20, "Unknown unit." },
     { "ERRnotready", 21, "Drive not ready." },

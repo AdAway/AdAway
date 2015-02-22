@@ -25,7 +25,7 @@
  */
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-token.c,v 1.25.2.2 2005/11/13 12:13:01 guy Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-token.c,v 1.27 2005-11-13 12:12:43 guy Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -39,6 +39,7 @@ static const char rcsid[] _U_ =
 #include <string.h>
 
 #include "interface.h"
+#include "extract.h"
 #include "addrtoname.h"
 #include "ethertype.h"
 
@@ -126,7 +127,16 @@ token_print(const u_char *p, u_int length, u_int caplen)
 		if (eflag)
 			token_hdr_print(trp, length, ESRC(&ehdr), EDST(&ehdr));
 
+		if (caplen < TOKEN_HDRLEN + 2) {
+			printf("[|token-ring]");
+			return hdr_len;
+		}
 		route_len = RIF_LENGTH(trp);
+		hdr_len += route_len;
+		if (caplen < hdr_len) {
+			printf("[|token-ring]");
+			return hdr_len;
+		}
 		if (vflag) {
 			printf("%s ", broadcast_indicator[BROADCAST(trp)]);
 			printf("%s", direction[DIRECTION(trp)]);
@@ -135,10 +145,10 @@ token_print(const u_char *p, u_int length, u_int caplen)
 				printf(" [%d:%d]", RING_NUMBER(trp, seg),
 				    BRIDGE_NUMBER(trp, seg));
 		} else {
-			printf("rt = %x", ntohs(trp->token_rcf));
+			printf("rt = %x", EXTRACT_16BITS(&trp->token_rcf));
 
 			for (seg = 0; seg < SEGMENT_COUNT(trp); seg++)
-				printf(":%x", ntohs(trp->token_rseg[seg]));
+				printf(":%x", EXTRACT_16BITS(&trp->token_rseg[seg]));
 		}
 		printf(" (%s) ", largest_frame[LARGEST_FRAME(trp)]);
 	} else {
@@ -147,7 +157,6 @@ token_print(const u_char *p, u_int length, u_int caplen)
 	}
 
 	/* Skip over token ring MAC header and routing information */
-	hdr_len += route_len;
 	length -= hdr_len;
 	p += hdr_len;
 	caplen -= hdr_len;

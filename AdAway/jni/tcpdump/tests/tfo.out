@@ -1,0 +1,14 @@
+IP 192.168.0.100.13047 > 3.3.3.3.13054: Flags [S], seq 218476388, win 1400, options [exp-tfo cookiereq], length 0
+IP 9.9.9.9.13047 > 3.3.3.3.13054: Flags [S], seq 218476388, win 1400, options [mss 1460,exp-tfo cookiereq], length 0
+IP 3.3.3.3.13054 > 9.9.9.9.13047: Flags [S.], seq 4035392501, ack 218476389, win 1400, options [exp-tfo cookie 090909090000,nop,nop], length 0
+IP 3.3.3.3.13054 > 192.168.0.100.13047: Flags [S.], seq 4035392501, ack 218476389, win 1400, options [mss 1500,exp-tfo cookie 090909090000,nop,nop], length 0
+IP 192.168.0.100.13047 > 3.3.3.3.13054: Flags [.], ack 1, win 1400, length 0
+IP 9.9.9.9.13047 > 3.3.3.3.13054: Flags [.], ack 1, win 1400, length 0
+IP 192.168.0.100.13047 > 3.3.3.3.13054: Flags [F.], seq 1, ack 1, win 1400, length 0
+IP 9.9.9.9.13047 > 3.3.3.3.13054: Flags [F.], seq 1, ack 1, win 1400, length 0
+IP 3.3.3.3.13054 > 9.9.9.9.13047: Flags [F.], seq 1, ack 2, win 1400, length 0
+IP 3.3.3.3.13054 > 192.168.0.100.13047: Flags [F.], seq 1, ack 2, win 1400, length 0
+IP 192.168.0.100.13047 > 3.3.3.3.13054: Flags [.], ack 2, win 1400, length 0
+IP 9.9.9.9.13047 > 3.3.3.3.13054: Flags [.], ack 2, win 1400, length 0
+IP 192.168.0.100.13048 > 3.3.3.3.13054: Flags [S], seq 936732547:936732551, win 1400, options [exp-tfo cookie 090909090000,nop,nop], length 4
+IP 192.168.0.100.13048 > 3.3.3.3.13054: Flags [F.], seq 936732552, ack 0, win 1400, length 0

@@ -44,7 +44,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "$Id: print-radius.c,v 1.27.2.1 2005/09/26 01:02:40 guy Exp $";
+    "$Id: print-radius.c,v 1.28 2005-09-26 01:01:55 guy Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -84,7 +84,7 @@ static const char rcsid[] _U_ =
 #define RADCMD_STATUS_CLI  13 /* Status-Client       */
 #define RADCMD_RESERVED   255 /* Reserved            */
 
-static struct tok radius_command_values[] = {
+static const struct tok radius_command_values[] = {
     { RADCMD_ACCESS_REQ, "Access Request" },
     { RADCMD_ACCESS_ACC, "Access Accept" },
     { RADCMD_ACCESS_REJ, "Access Reject" },

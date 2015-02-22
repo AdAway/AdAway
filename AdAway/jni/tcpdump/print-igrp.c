@@ -23,7 +23,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-igrp.c,v 1.20.2.1 2005/04/20 21:02:15 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-igrp.c,v 1.21 2005-04-20 21:01:56 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -70,7 +70,7 @@ igrp_entry_print(register struct igrprte *igr, register int is_interior,
 	    mtu, igr->igr_hct);
 }
 
-static struct tok op2str[] = {
+static const struct tok op2str[] = {
 	{ IGRP_UPDATE,		"update" },
 	{ IGRP_REQUEST,		"request" },
 	{ 0,			NULL }

@@ -1,0 +1,24 @@
+To build tcpdump under Windows, you need:
+
+- version 6 (or higher) of Microsoft Visual Studio or the Cygnus gnu 
+C compiler.
+- The November 2001 (or later) edition of Microsoft Platform 
+Software Development Kit (SDK), that contains some necessary includes 
+for IPv6 support. You can download it from http://www.microsoft.com/sdk
+- the WinPcap source code, that includes libpcap for win32. Download it
+from http://winpcap.polito.it or download libpcap sources from
+http://www.tcpdump.org and follow the instructions in the README.Win32
+file.
+
+First, extract tcpdump and WinPcap in the same folder, and build WinPcap.
+
+The Visual Studio project and the cygwin makefile are in the Win32\prj
+folder.
+
+From Visual Studio, open windump.dsw and build the program. The release 
+version of the WinDump.exe executable file will be created in the 
+windump\win32\prj\release directory . The debug version will be generated
+in windump\win32\prj\debug.
+
+From cygnus, go to windump\win32\prj\ and type "make". WinDump.exe will be
+created in the same directory.

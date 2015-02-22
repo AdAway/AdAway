@@ -1,5 +1,5 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/ip6.h,v 1.6.4.1 2005/04/20 10:04:37 guy Exp $ (LBL) */
-/*	$NetBSD: ip6.h,v 1.9 2000/07/13 05:34:21 itojun Exp $	*/
+/* @(#) $Header: /tcpdump/master/tcpdump/ip6.h,v 1.8 2007-08-29 02:31:44 mcr Exp $ (LBL) */
+/*	NetBSD: ip6.h,v 1.9 2000/07/13 05:34:21 itojun Exp 	*/
 /*	$KAME: ip6.h,v 1.9 2000/07/02 21:01:32 itojun Exp $	*/
 
 /*
@@ -86,7 +86,7 @@ struct ip6_hdr {
 	} ip6_ctlun;
 	struct in6_addr ip6_src;	/* source address */
 	struct in6_addr ip6_dst;	/* destination address */
-};
+} UNALIGNED;
 
 #define ip6_vfc		ip6_ctlun.ip6_un2_vfc
 #define ip6_flow	ip6_ctlun.ip6_un1.ip6_un1_flow
@@ -109,25 +109,23 @@ struct ip6_hdr {
  */
 
 struct	ip6_ext {
-	u_char	ip6e_nxt;
-	u_char	ip6e_len;
-};
+	u_int8_t ip6e_nxt;
+	u_int8_t ip6e_len;
+} UNALIGNED;
 
 /* Hop-by-Hop options header */
-/* XXX should we pad it to force alignment on an 8-byte boundary? */
 struct ip6_hbh {
 	u_int8_t ip6h_nxt;	/* next header */
 	u_int8_t ip6h_len;	/* length in units of 8 octets */
 	/* followed by options */
-};
+} UNALIGNED;
 
 /* Destination options header */
-/* XXX should we pad it to force alignment on an 8-byte boundary? */
 struct ip6_dest {
 	u_int8_t ip6d_nxt;	/* next header */
 	u_int8_t ip6d_len;	/* length in units of 8 octets */
 	/* followed by options */
-};
+} UNALIGNED;
 
 /* Option types and related macros */
 #define IP6OPT_PAD1		0x00	/* 00 0 00000 */
@@ -163,7 +161,7 @@ struct ip6_rthdr {
 	u_int8_t  ip6r_type;	/* routing type */
 	u_int8_t  ip6r_segleft;	/* segments left */
 	/* followed by routing type specific data */
-};
+} UNALIGNED;
 
 /* Type 0 Routing header */
 struct ip6_rthdr0 {
@@ -174,7 +172,7 @@ struct ip6_rthdr0 {
 	u_int8_t  ip6r0_reserved;	/* reserved field */
 	u_int8_t  ip6r0_slmap[3];	/* strict/loose bit map */
 	struct in6_addr ip6r0_addr[1];	/* up to 23 addresses */
-};
+} UNALIGNED;
 
 /* Fragment header */
 struct ip6_frag {
@@ -182,10 +180,13 @@ struct ip6_frag {
 	u_int8_t  ip6f_reserved;	/* reserved field */
 	u_int16_t ip6f_offlg;		/* offset, reserved, and flag */
 	u_int32_t ip6f_ident;		/* identification */
-};
+} UNALIGNED;
 
 #define IP6F_OFF_MASK		0xfff8	/* mask out offset from ip6f_offlg */
 #define IP6F_RESERVED_MASK	0x0006	/* reserved bits in ip6f_offlg */
 #define IP6F_MORE_FRAG		0x0001	/* more-fragments flag */
+
+/* in print-ip6.c */
+extern int nextproto6_cksum(const struct ip6_hdr *, const u_int8_t *, u_int, u_int);
 
 #endif /* not _NETINET_IP6_H_ */

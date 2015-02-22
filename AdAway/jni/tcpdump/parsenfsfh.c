@@ -42,7 +42,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/parsenfsfh.c,v 1.28.2.1 2007/06/15 19:15:04 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/parsenfsfh.c,v 1.29 2006-06-13 22:21:38 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -114,7 +114,7 @@ Parse_fh(fh, len, fsidp, inop, osnamep, fsnamep, ourself)
 register const unsigned char *fh;
 int len _U_;
 my_fsid *fsidp;
-ino_t *inop;
+u_int32_t *inop;
 const char **osnamep;		/* if non-NULL, return OS name here */
 const char **fsnamep;		/* if non-NULL, return server fs name here (for VMS) */
 int ourself;		/* true if file handle was generated on this host */
@@ -264,8 +264,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Major = fhp[6];
 	    fsidp->fsid_code = 0;
 
-	    temp = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
 
 	    if (osnamep)
 		*osnamep = "Auspex";
@@ -276,8 +275,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Major = fhp[1];
 	    fsidp->fsid_code = 0;
 
-	    temp = make_uint32(fhp[15], fhp[14], fhp[13], fhp[12]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[15], fhp[14], fhp[13], fhp[12]);
 
 	    if (osnamep)
 		*osnamep = "BSD 4.4";
@@ -291,8 +289,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Minor = temp & 0xFFFFF;
 	    fsidp->Fsid_dev.Major = (temp>>20) & 0xFFF;
 
-	    temp = make_uint32(fhp[15], fhp[14], fhp[13], fhp[12]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[15], fhp[14], fhp[13], fhp[12]);
 	    if (osnamep)
 		*osnamep = "OSF";
 	    break;
@@ -302,8 +299,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Major = fhp[2];
 	    fsidp->fsid_code = 0;
 
-	    temp = make_uint32(fhp[8], fhp[9], fhp[10], fhp[11]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[8], fhp[9], fhp[10], fhp[11]);
 
 	    if (osnamep)
 		*osnamep = "IRIX4";
@@ -314,8 +310,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Major = make_uint16(fhp[0], fhp[1]);
 	    fsidp->fsid_code = make_uint32(fhp[4], fhp[5], fhp[6], fhp[7]);
 
-	    temp = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
 
 	    if (osnamep)
 		*osnamep = "IRIX5";
@@ -337,8 +332,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Major = fhp[2];
 	    fsidp->fsid_code = make_uint32(fhp[4], fhp[5], fhp[6], fhp[7]);
 
-	    temp = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
 
 	    if (osnamep)
 		*osnamep = "SUNOS4";
@@ -351,8 +345,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Minor = temp & 0x3FFFF;
 	    fsidp->fsid_code = make_uint32(fhp[4], fhp[5], fhp[6], fhp[7]);
 
-	    temp = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
 
 	    if (osnamep)
 		*osnamep = "SUNOS5";
@@ -403,8 +396,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Major = make_uint16(fhp[0], fhp[1]);
 	    fsidp->fsid_code = make_uint32(fhp[4], fhp[5], fhp[6], fhp[7]);
 
-	    temp = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
 
 	    if (osnamep)
 		*osnamep = "AIX32";
@@ -416,8 +408,7 @@ int ourself;		/* true if file handle was generated on this host */
 	    fsidp->Fsid_dev.Minor = temp;
 	    fsidp->fsid_code = make_uint32(fhp[4], fhp[5], fhp[6], fhp[7]);
 
-	    temp = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
-	    *inop = temp;
+	    *inop = make_uint32(fhp[12], fhp[13], fhp[14], fhp[15]);
 
 	    if (osnamep)
 		*osnamep = "HPUX9";
@@ -466,7 +457,7 @@ const unsigned char *fhp;
 	int seen_null = 0;
 
 	for (i = 1; i < 14; i++) {
-	    if (isprint(fhp[i])) {
+	    if (ND_ISPRINT(fhp[i])) {
 		if (seen_null)
 		   return(0);
 		else

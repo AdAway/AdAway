@@ -22,7 +22,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-zephyr.c,v 1.8.2.1 2005/04/21 06:51:24 guy Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-zephyr.c,v 1.10 2007-08-09 18:47:27 hannes Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -70,7 +70,7 @@ enum z_packet_type {
     Z_PACKET_STAT
 };
 
-static struct tok z_types[] = {
+static const struct tok z_types[] = {
     { Z_PACKET_UNSAFE,		"unsafe" },
     { Z_PACKET_UNACKED,		"unacked" },
     { Z_PACKET_ACKED,		"acked" },
@@ -139,6 +139,15 @@ zephyr_print(const u_char *cp, int length)
     int parselen = length;
     char *s;
     int lose = 0;
+
+    /* squelch compiler warnings */
+
+    z.kind = 0;
+    z.class = 0;
+    z.inst = 0;
+    z.opcode = 0;
+    z.sender = 0;
+    z.recipient = 0;
 
 #define PARSE_STRING				\
 	s = parse_field(&parse, &parselen);	\

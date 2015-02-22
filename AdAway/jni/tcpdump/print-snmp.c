@@ -58,7 +58,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-snmp.c,v 1.62.2.2 2005/05/06 07:57:19 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-snmp.c,v 1.64 2005-05-06 07:56:53 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -782,7 +782,7 @@ asn1_print(struct be *elem)
 		const u_char *p = elem->data.str;
 		TCHECK2(*p, asnlen);
 		for (i = asnlen; printable && i-- > 0; p++)
-			printable = isprint(*p) || isspace(*p);
+			printable = ND_ISPRINT(*p);
 		p = elem->data.str;
 		if (printable) {
 			putchar('"');

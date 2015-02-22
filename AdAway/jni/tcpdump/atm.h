@@ -14,7 +14,7 @@
  * WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @(#) $Header: /tcpdump/master/tcpdump/atm.h,v 1.1.4.1 2005/06/20 07:45:05 hannes Exp $
+ * @(#) $Header: /tcpdump/master/tcpdump/atm.h,v 1.3 2006-02-08 01:43:00 hannes Exp $
  */
 
 /*
@@ -30,3 +30,4 @@
  */
 #define ATM_OAM_NOHEC   0
 #define ATM_OAM_HEC     1
+#define ATM_HDR_LEN_NOHEC 4

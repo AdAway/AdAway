@@ -23,7 +23,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-enc.c,v 1.4 2005/04/06 21:32:39 mcr Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-enc.c,v 1.6 2008-11-18 07:35:32 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -35,6 +35,7 @@ static const char rcsid[] _U_ =
 #include <pcap.h>
 
 #include "interface.h"
+#include "extract.h"
 #include "addrtoname.h"
 
 #include "enc.h"
@@ -67,11 +68,22 @@ enc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 	ENC_PRINT_TYPE(flags, M_AUTH, "authentic");
 	ENC_PRINT_TYPE(flags, M_CONF, "confidential");
 	/* ENC_PRINT_TYPE(flags, M_TUNNEL, "tunnel"); */
-	printf("SPI 0x%08x: ", (u_int32_t)ntohl(hdr->spi));
+	printf("SPI 0x%08x: ", EXTRACT_32BITS(&hdr->spi));
 
 	length -= ENC_HDRLEN;
-	/* XXX - use the address family */
-	ip_print(gndo, p + ENC_HDRLEN, length);
+	caplen -= ENC_HDRLEN;
+	p += ENC_HDRLEN;
+	
+	switch (hdr->af) {
+	case AF_INET:
+		ip_print(gndo, p, length);
+		break;
+#ifdef INET6
+	case AF_INET6:
+		ip6_print(gndo, p, length);
+		break;
+#endif /*INET6*/
+	}
 
 out:
 	return (ENC_HDRLEN);

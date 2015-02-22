@@ -20,7 +20,7 @@
  */
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-symantec.c,v 1.4.2.1 2005/07/07 01:24:39 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-symantec.c,v 1.5 2005-07-07 01:22:21 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -33,6 +33,7 @@ static const char rcsid[] _U_ =
 #include <pcap.h>
 
 #include "interface.h"
+#include "extract.h"
 #include "addrtoname.h"
 #include "ethertype.h"
 
@@ -52,7 +53,7 @@ symantec_hdr_print(register const u_char *bp, u_int length)
 
 	sp = (const struct symantec_header *)bp;
 
-	etype = ntohs(sp->ether_type);
+	etype = EXTRACT_16BITS(&sp->ether_type);
 	if (!qflag) {
 	        if (etype <= ETHERMTU)
 		          (void)printf("invalid ethertype %u", etype);
@@ -83,7 +84,6 @@ symantec_if_print(const struct pcap_pkthdr *h, const u_char *p)
 	u_int caplen = h->caplen;
 	struct symantec_header *sp;
 	u_short ether_type;
-	u_short extracted_ether_type;
 
 	if (caplen < sizeof (struct symantec_header)) {
 		printf("[|symantec]");
@@ -98,7 +98,7 @@ symantec_if_print(const struct pcap_pkthdr *h, const u_char *p)
 	sp = (struct symantec_header *)p;
 	p += sizeof (struct symantec_header);
 
-	ether_type = ntohs(sp->ether_type);
+	ether_type = EXTRACT_16BITS(&sp->ether_type);
 
 	if (ether_type <= ETHERMTU) {
 		/* ether_type not known, print raw packet */
@@ -107,8 +107,7 @@ symantec_if_print(const struct pcap_pkthdr *h, const u_char *p)
 
 		if (!suppress_default_print)
 			default_print(p, caplen);
-	} else if (ether_encap_print(ether_type, p, length, caplen,
-	    &extracted_ether_type) == 0) {
+	} else if (ethertype_print(gndo, ether_type, p, length, caplen) == 0) {
 		/* ether_type not known, print raw packet */
 		if (!eflag)
 			symantec_hdr_print((u_char *)sp, length + sizeof (struct symantec_header));

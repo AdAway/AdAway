@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+
+$debug = 0;
+system("mkdir -p NEW DIFF");
+
+if(@ARGV == 1) {
+  open(TESTLIST, "TESTLIST") || die "can not open TESTLIST: $!\n";
+  $wanted = $ARGV[0];
+  #print "Searching for test case $wanted\n";
+  while(<TESTLIST>) {
+    #print "Processing $_\n";
+    next unless (/^$wanted/);
+
+    chop;
+    ($name,$input,$output,$options)=split(/\s+/,$_, 4);
+    last;
+  }
+  close(TESTLIST);
+
+  die "Can not find test $wanted\n" unless defined($input);
+
+} elsif(@ARGV == 4) {
+  $name=$ARGV[0];
+  $input=$ARGV[1];
+  $output=$ARGV[2];
+  $options=$ARGV[3];
+} else {
+  print "Usage: TESTonce name [input output options]\n";
+  exit 20;
+}
+
+print "Running $name. \n" if $debug;
+print "   Input: $input, OUTPUT: $output, OPTIONS: $options\n" if $debug;
+
+print "    ";
+exec("../tcpdump 2>/dev/null -n -r $input $options | tee NEW/$output | diff -w - $output >DIFF/$output.diff");
+@cores = glob("core*");
+exit 10 if (@cores > 0);
+exit 0;

@@ -21,7 +21,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-rip.c,v 1.57 2003/11/16 09:36:34 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-rip.c,v 1.59 2006-03-23 14:58:44 hannes Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -36,6 +36,8 @@ static const char rcsid[] _U_ =
 #include "interface.h"
 #include "addrtoname.h"
 #include "extract.h"			/* must come after interface.h */
+
+#include "af.h"
 
 struct rip {
 	u_int8_t rip_cmd;		/* request/response */
@@ -100,8 +102,8 @@ rip_entry_print_v1(register const struct rip_netinfo *ni)
 
 	/* RFC 1058 */
 	family = EXTRACT_16BITS(&ni->rip_family);
-	if (family != AF_INET) {
-		printf("\n\t AFI: %u:", family);
+	if (family != BSD_AFNUM_INET && family != 0) {
+		printf("\n\t AFI %s, ", tok2str(bsd_af_values, "Unknown (%u)", family));
                 print_unknown_data((u_int8_t *)&ni->rip_family,"\n\t  ",RIP_ROUTELEN);
 		return;
 	}
@@ -111,40 +113,55 @@ rip_entry_print_v1(register const struct rip_netinfo *ni)
 		/* MBZ fields not zero */
                 print_unknown_data((u_int8_t *)&ni->rip_family,"\n\t  ",RIP_ROUTELEN);
 		return;
-	} /* AF_INET */
+	}
+	if (family == 0) {
+		printf("\n\t  AFI 0, %s, metric: %u",
+			ipaddr_string(&ni->rip_dest),
+			EXTRACT_32BITS(&ni->rip_metric));
+		return;
+	} /* BSD_AFNUM_INET */
 	printf("\n\t  %s, metric: %u",
                ipaddr_string(&ni->rip_dest),
 	       EXTRACT_32BITS(&ni->rip_metric));
 }
 
-static void
-rip_entry_print_v2(register const struct rip_netinfo *ni)
+static unsigned
+rip_entry_print_v2(register const struct rip_netinfo *ni, const unsigned remaining)
 {
-	register u_char *p;
 	register u_short family;
-	u_char buf[RIP_AUTHLEN];
 
 	family = EXTRACT_16BITS(&ni->rip_family);
-	if (family == 0xFFFF) { /* 16 bytes authentication ? */
-                if (EXTRACT_16BITS(&ni->rip_tag) == 2) { /* simple text authentication ? */
-			memcpy(buf, &ni->rip_dest, sizeof(buf));
-			buf[sizeof(buf)-1] = '\0';
-			for (p = buf; *p; p++) {
-				if (!isprint(*p))
-					break;
-			}
-                        printf("\n\t  Simple Text Authentication data: %s", buf);
+	if (family == 0xFFFF) { /* variable-sized authentication structures */
+		u_int16_t auth_type = EXTRACT_16BITS(&ni->rip_tag);
+		if (auth_type == 2) {
+			register u_char *p = (u_char *)&ni->rip_dest;
+			u_int i = 0;
+			printf("\n\t  Simple Text Authentication data: ");
+			for (; i < RIP_AUTHLEN; p++, i++)
+				putchar (ND_ISPRINT(*p) ? *p : '.');
+		} else if (auth_type == 3) {
+			printf("\n\t  Auth header:");
+			printf(" Packet Len %u,", EXTRACT_16BITS((u_int8_t *)ni + 4));
+			printf(" Key-ID %u,", *((u_int8_t *)ni + 6));
+			printf(" Auth Data Len %u,", *((u_int8_t *)ni + 7));
+			printf(" SeqNo %u,", EXTRACT_32BITS(&ni->rip_dest_mask));
+			printf(" MBZ %u,", EXTRACT_32BITS(&ni->rip_router));
+			printf(" MBZ %u", EXTRACT_32BITS(&ni->rip_metric));
+		} else if (auth_type == 1) {
+			printf("\n\t  Auth trailer:");
+			print_unknown_data((u_int8_t *)&ni->rip_dest,"\n\t  ",remaining);
+			return remaining; /* AT spans till the packet end */
                 } else {
 			printf("\n\t  Unknown (%u) Authentication data:",
 			       EXTRACT_16BITS(&ni->rip_tag));
-                        print_unknown_data((u_int8_t *)&ni->rip_dest,"\n\t  ",RIP_AUTHLEN);
+			print_unknown_data((u_int8_t *)&ni->rip_dest,"\n\t  ",remaining);
 		}
-	} else if (family != AF_INET) {
-		printf("\n\t  AFI: %u", family);
+	} else if (family != BSD_AFNUM_INET && family != 0) {
+		printf("\n\t  AFI %s", tok2str(bsd_af_values, "Unknown (%u)", family));
                 print_unknown_data((u_int8_t *)&ni->rip_tag,"\n\t  ",RIP_ROUTELEN-2);
-		return;
-	} else { /* AF_INET */
-		printf("\n\t  AFI: IPv4: %15s/%-2d, tag 0x%04x, metric: %u, next-hop: ",
+	} else { /* BSD_AFNUM_INET or AFI 0 */
+		printf("\n\t  AFI %s, %15s/%-2d, tag 0x%04x, metric: %u, next-hop: ",
+                       tok2str(bsd_af_values, "%u", family),
                        ipaddr_string(&ni->rip_dest),
 		       mask2plen(EXTRACT_32BITS(&ni->rip_dest_mask)),
                        EXTRACT_16BITS(&ni->rip_tag),
@@ -154,6 +171,7 @@ rip_entry_print_v2(register const struct rip_netinfo *ni)
                 else
                     printf("self");
 	}
+	return sizeof (*ni);
 }
 
 void
@@ -162,7 +180,6 @@ rip_print(const u_char *dat, u_int length)
 	register const struct rip *rp;
 	register const struct rip_netinfo *ni;
 	register u_int i, j;
-	register int trunc;
 
 	if (snapend < dat) {
 		printf(" [|rip]");
@@ -210,25 +227,26 @@ rip_print(const u_char *dat, u_int length)
                     return;
 
 		switch (rp->rip_cmd) {
+		case RIPCMD_REQUEST:
 		case RIPCMD_RESPONSE:
 			j = length / sizeof(*ni);
-                        printf(", routes: %u",j);
-			trunc = (i / sizeof(*ni)) != j;
+                        printf(", routes: %u%s", j, rp->rip_vers == 2 ? " or less" : "");
 			ni = (struct rip_netinfo *)(rp + 1);
 			for (; i >= sizeof(*ni); ++ni) {
 				if (rp->rip_vers == 1)
+				{
 					rip_entry_print_v1(ni);
+					i -= sizeof(*ni);
+				}
 				else if (rp->rip_vers == 2)
-					rip_entry_print_v2(ni);
+					i -= rip_entry_print_v2(ni, i);
                                 else
                                     break;
-				i -= sizeof(*ni);
 			}
-			if (trunc)
+			if (i)
 				printf("[|rip]");
 			break;
 
-		case RIPCMD_REQUEST:
 		case RIPCMD_TRACEOFF:
 		case RIPCMD_POLL:
 		case RIPCMD_POLLENTRY:

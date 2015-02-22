@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/bootp.h,v 1.15.4.3 2007/08/21 22:02:08 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/bootp.h,v 1.19 2008-04-22 09:46:03 hannes Exp $ (LBL) */
 /*
  * Bootstrap Protocol (BOOTP).  RFC951 and RFC1048.
  *
@@ -27,7 +27,8 @@ struct bootp {
 	u_int8_t	bp_hops;	/* gateway hops */
 	u_int32_t	bp_xid;		/* transaction ID */
 	u_int16_t	bp_secs;	/* seconds since boot began */
-	u_int16_t	bp_flags;	/* flags - see bootp_flag_values[] in print-bootp.c */
+	u_int16_t	bp_flags;	/* flags - see bootp_flag_values[]
+					   in print-bootp.c */
 	struct in_addr	bp_ciaddr;	/* client IP address */
 	struct in_addr	bp_yiaddr;	/* 'your' IP address */
 	struct in_addr	bp_siaddr;	/* server IP address */
@@ -36,7 +37,7 @@ struct bootp {
 	u_int8_t	bp_sname[64];	/* server host name */
 	u_int8_t	bp_file[128];	/* boot file name */
 	u_int8_t	bp_vend[64];	/* vendor-specific area */
-};
+} UNALIGNED;
 
 /*
  * UDP port numbers, server and client.
@@ -216,7 +217,7 @@ struct cmu_vend {
 	struct in_addr	v_ins1, v_ins2; /* IEN-116 name servers */
 	struct in_addr	v_ts1, v_ts2;	/* Time servers */
 	u_int8_t	v_unused[24];	/* currently unused */
-};
+} UNALIGNED;
 
 
 /* v_flags values */

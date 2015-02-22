@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/udp.h,v 1.8.2.2 2007/03/28 07:45:46 hannes Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/udp.h,v 1.13 2007-08-08 17:20:58 hannes Exp $ (LBL) */
 /*
  * Copyright (c) 1982, 1986, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -76,14 +76,24 @@ struct udphdr {
 #define HSRP_PORT 1985		/*XXX*/
 #define LMP_PORT                701 /* rfc4204 */
 #define LWRES_PORT		921
+#define VQP_PORT		1589
 #define ZEPHYR_SRV_PORT		2103
 #define ZEPHYR_CLT_PORT		2104
+#define VAT_PORT		3456
 #define MPLS_LSP_PING_PORT      3503 /* draft-ietf-mpls-lsp-ping-02.txt */
 #define BFD_CONTROL_PORT        3784 /* draft-katz-ward-bfd-v4v6-1hop-00.txt */
 #define BFD_ECHO_PORT           3785 /* draft-katz-ward-bfd-v4v6-1hop-00.txt */
+#define WB_PORT			4567
+#define SFLOW_PORT              6343 /* http://www.sflow.org/developers/specifications.php */
+#define LWAPP_DATA_PORT         12222 /* draft-ohara-capwap-lwapp-04.txt */
+#define LWAPP_CONTROL_PORT      12223 /* draft-ohara-capwap-lwapp-04.txt */
+#define OTV_PORT                8472  /* draft-hasmit-otv-04 */
+#define VXLAN_PORT              4789  /* draft-mahalingam-dutt-dcops-vxlan-04 */
 
 #ifdef INET6
 #define RIPNG_PORT 521		/*XXX*/
 #define DHCP6_SERV_PORT 546	/*XXX*/
 #define DHCP6_CLI_PORT 547	/*XXX*/
+#define BABEL_PORT 6696
+#define BABEL_PORT_OLD 6697
 #endif

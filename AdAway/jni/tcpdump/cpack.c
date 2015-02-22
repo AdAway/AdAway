@@ -38,7 +38,7 @@
 #include "cpack.h"
 #include "extract.h"
 
-static u_int8_t *
+u_int8_t *
 cpack_next_boundary(u_int8_t *buf, u_int8_t *p, size_t alignment)
 {
 	size_t misalignment = (size_t)(p - buf) % alignment;
@@ -53,7 +53,7 @@ cpack_next_boundary(u_int8_t *buf, u_int8_t *p, size_t alignment)
  * wordsize bytes remain in the buffer after the boundary.  Otherwise,
  * return a pointer to the boundary.
  */
-static u_int8_t *
+u_int8_t *
 cpack_align_and_reserve(struct cpack_state *cs, size_t wordsize)
 {
 	u_int8_t *next;
@@ -66,6 +66,17 @@ cpack_align_and_reserve(struct cpack_state *cs, size_t wordsize)
 		return NULL;
 
 	return next;
+}
+
+/* Advance by N bytes without returning them. */
+int
+cpack_advance(struct cpack_state *cs, const size_t toskip)
+{
+	/* No space left? */
+	if (cs->c_next - cs->c_buf + toskip > cs->c_len)
+		return -1;
+	cs->c_next += toskip;
+	return 0;
 }
 
 int

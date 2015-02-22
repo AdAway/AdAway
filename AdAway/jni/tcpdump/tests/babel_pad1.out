@@ -1,0 +1,2 @@
+IP6 fe80::b299:28ff:fec8:d646.6696 > ff02::1:6.6696: babel 2 (9) hello pad1
+IP6 fe80::b299:28ff:fec8:d646.6696 > ff02::1:6.6696: babel 2 (60) hello pad1 nh pad1 router-id pad1 update pad1 update pad1

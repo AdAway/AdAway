@@ -15,7 +15,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-lspping.c,v 1.12.2.6 2006/06/23 02:07:27 hannes Exp $";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-lspping.c,v 1.20 2008-01-28 14:20:43 hannes Exp $";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -34,6 +34,7 @@ static const char rcsid[] _U_ =
 
 #include "bgp.h"
 #include "l2vpn.h"
+#include "oui.h"
 
 /*
  * LSPPING common header
@@ -134,7 +135,11 @@ struct lspping_tlv_header {
 #define	LSPPING_TLV_TARGET_FEC_STACK      1
 #define	LSPPING_TLV_DOWNSTREAM_MAPPING    2
 #define	LSPPING_TLV_PAD                   3
-#define	LSPPING_TLV_ERROR_CODE            4
+#define LSPPING_TLV_VENDOR_ENTERPRISE     5
+#define LSPPING_TLV_VENDOR_ENTERPRISE_LEN 4
+#define LSPPING_TLV_INTERFACE_LABEL_STACK 7
+#define	LSPPING_TLV_ERROR_CODE            9
+#define LSPPING_TLV_REPLY_TOS_BYTE        10
 #define	LSPPING_TLV_BFD_DISCRIMINATOR     15 /* draft-ietf-bfd-mpls-02 */
 #define LSPPING_TLV_BFD_DISCRIMINATOR_LEN 4
 #define	LSPPING_TLV_VENDOR_PRIVATE        0xfc00
@@ -144,8 +149,11 @@ static const struct tok lspping_tlv_values[] = {
     { LSPPING_TLV_DOWNSTREAM_MAPPING, "Downstream Mapping" },
     { LSPPING_TLV_PAD, "Pad" },
     { LSPPING_TLV_ERROR_CODE, "Error Code" },
+    { LSPPING_TLV_VENDOR_ENTERPRISE, "Vendor Enterprise Code" },
+    { LSPPING_TLV_INTERFACE_LABEL_STACK, "Interface Label Stack" },
+    { LSPPING_TLV_REPLY_TOS_BYTE, "Reply TOS Byte" },
     { LSPPING_TLV_BFD_DISCRIMINATOR, "BFD Discriminator" },
-    { LSPPING_TLV_VENDOR_PRIVATE, "Vendor Enterprise Code" },
+    { LSPPING_TLV_VENDOR_PRIVATE, "Vendor Private Code" },
     { 0, NULL}
 };
 
@@ -566,6 +574,7 @@ lspping_print(register const u_char *pptr, register u_int len) {
     tlen-=sizeof(const struct lspping_common_header);
 
     while(tlen>(int)sizeof(struct lspping_tlv_header)) {
+
         /* did we capture enough for fully decoding the tlv header ? */
         if (!TTEST2(*tptr, sizeof(struct lspping_tlv_header)))
             goto trunc;
@@ -574,10 +583,11 @@ lspping_print(register const u_char *pptr, register u_int len) {
         lspping_tlv_type=EXTRACT_16BITS(lspping_tlv_header->type);
         lspping_tlv_len=EXTRACT_16BITS(lspping_tlv_header->length);
 
-        if (lspping_tlv_len == 0)
+        /* some little sanity checking */
+        if (lspping_tlv_type == 0 || lspping_tlv_len == 0)
             return;
 
-        if(lspping_tlv_len % 4 || lspping_tlv_len < 4) { /* aligned to four octet boundary */
+        if(lspping_tlv_len < 4) {
             printf("\n\t  ERROR: TLV %u bogus size %u",lspping_tlv_type,lspping_tlv_len);
             return;
         }
@@ -839,11 +849,24 @@ lspping_print(register const u_char *pptr, register u_int len) {
                 goto trunc;
             printf("\n\t    BFD Discriminator 0x%08x", EXTRACT_32BITS(tptr));
             break;
+
+        case  LSPPING_TLV_VENDOR_ENTERPRISE:
+        {
+            u_int32_t vendor_id;
+
+            if (!TTEST2(*tptr, LSPPING_TLV_VENDOR_ENTERPRISE_LEN))
+                goto trunc;
+            vendor_id = EXTRACT_32BITS(tlv_tptr);
+            printf("\n\t    Vendor: %s (0x%04x)",
+                   tok2str(smi_values, "Unknown", vendor_id),
+                   vendor_id);
+        }
+            break;
+
             /*
              *  FIXME those are the defined TLVs that lack a decoder
              *  you are welcome to contribute code ;-)
              */
-
         case LSPPING_TLV_PAD:
         case LSPPING_TLV_ERROR_CODE:
         case LSPPING_TLV_VENDOR_PRIVATE:
@@ -855,8 +878,14 @@ lspping_print(register const u_char *pptr, register u_int len) {
         }
         /* do we want to see an additionally tlv hexdump ? */
         if (vflag > 1 || tlv_hexdump==TRUE)
-            print_unknown_data(tptr+sizeof(sizeof(struct lspping_tlv_header)),"\n\t    ",
+            print_unknown_data(tptr+sizeof(struct lspping_tlv_header),"\n\t    ",
                                lspping_tlv_len);
+
+
+        /* All TLVs are aligned to four octet boundary */
+        if (lspping_tlv_len % 4) {
+            lspping_tlv_len += (4 - lspping_tlv_len % 4);
+        }
 
         tptr+=lspping_tlv_len+sizeof(struct lspping_tlv_header);
         tlen-=lspping_tlv_len+sizeof(struct lspping_tlv_header);

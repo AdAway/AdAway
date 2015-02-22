@@ -1,0 +1,94 @@
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 72)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Request, length: 44, routes: 2 or less
+	  Simple Text Authentication data: abcdefghijklmnop
+	  AFI 0,         0.0.0.0/0 , tag 0x0000, metric: 16, next-hop: self
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 72)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Response, length: 44, routes: 2 or less
+	  Simple Text Authentication data: abcdefghijklmnop
+	  AFI IPv4,     10.70.178.0/24, tag 0x0000, metric: 1, next-hop: self
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 92)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Request, length: 64, routes: 3 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 16, SeqNo 1339429688, MBZ 0, MBZ 0
+	  AFI 0,         0.0.0.0/0 , tag 0x0000, metric: 16, next-hop: self
+	  Auth trailer:
+	  0x0000:  a2fe c865 f120 8808 2326 1369 d6c2 3593
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 92)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Response, length: 64, routes: 3 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 16, SeqNo 1339429692, MBZ 0, MBZ 0
+	  AFI IPv4,     10.70.178.0/24, tag 0x0000, metric: 1, next-hop: self
+	  Auth trailer:
+	  0x0000:  6d21 5dd5 6d27 a6f4 8a51 e2c2 fcc2 af0f
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 96)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Request, length: 68, routes: 3 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 20, SeqNo 1339429713, MBZ 0, MBZ 0
+	  AFI 0,         0.0.0.0/0 , tag 0x0000, metric: 16, next-hop: self
+	  Auth trailer:
+	  0x0000:  728c 5b16 9a1b 3913 0021 a73f 7a73 bc1b
+	  0x0010:  eee0 e6a2
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 96)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Response, length: 68, routes: 3 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 20, SeqNo 1339429716, MBZ 0, MBZ 0
+	  AFI IPv4,     10.70.178.0/24, tag 0x0000, metric: 1, next-hop: self
+	  Auth trailer:
+	  0x0000:  375c 8a50 f77f 543b 2425 a695 a27d 6b95
+	  0x0010:  3375 fc89
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 108)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Request, length: 80, routes: 4 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 32, SeqNo 1339429740, MBZ 0, MBZ 0
+	  AFI 0,         0.0.0.0/0 , tag 0x0000, metric: 16, next-hop: self
+	  Auth trailer:
+	  0x0000:  4ae5 fb9c 9702 03b8 5a93 812d 0258 6740
+	  0x0010:  451a bd20 cee4 8a3d a466 17a0 e550 5b4b
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 108)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Response, length: 80, routes: 4 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 32, SeqNo 1339429744, MBZ 0, MBZ 0
+	  AFI IPv4,     10.70.178.0/24, tag 0x0000, metric: 1, next-hop: self
+	  Auth trailer:
+	  0x0000:  3965 b755 535a 3375 e83a 973c 60c9 1693
+	  0x0010:  f2de 8132 9e87 3f7f b763 3cb0 b3dc 3ba2
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 124)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Request, length: 96, routes: 4 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 48, SeqNo 1339429761, MBZ 0, MBZ 0
+	  AFI 0,         0.0.0.0/0 , tag 0x0000, metric: 16, next-hop: self
+	  Auth trailer:
+	  0x0000:  a1f2 20f6 6f72 f45b e8e0 291f 2322 a198
+	  0x0010:  1b6b 67bc 9279 7d3b 8e05 c683 8b7e 05bc
+	  0x0020:  230c abc8 1470 8e30 5470 fb27 6fe3 4506
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 124)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Response, length: 96, routes: 4 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 48, SeqNo 1339429765, MBZ 0, MBZ 0
+	  AFI IPv4,     10.70.178.0/24, tag 0x0000, metric: 1, next-hop: self
+	  Auth trailer:
+	  0x0000:  64de 1dec 3632 e210 0258 2404 0b32 a947
+	  0x0010:  aa86 59a1 fef3 9248 3115 c266 0386 f183
+	  0x0020:  4f31 1df0 0681 e1cc ba10 b4c1 7795 9773
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 140)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Request, length: 112, routes: 5 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 64, SeqNo 1339429781, MBZ 0, MBZ 0
+	  AFI 0,         0.0.0.0/0 , tag 0x0000, metric: 16, next-hop: self
+	  Auth trailer:
+	  0x0000:  73ad b6e3 5fe6 07bd 0bc5 ca25 41cc 63ec
+	  0x0010:  bd06 55b1 77a4 e223 ef52 8ea2 7480 e39c
+	  0x0020:  ee51 96bd 4e35 8cb7 f185 ba49 9892 e683
+	  0x0030:  e756 788d aa23 bf90 0b01 5c2d 241d 2d8e
+IP (tos 0xc0, ttl 1, id 0, offset 0, flags [DF], proto UDP (17), length 140)
+    10.0.0.20.520 > 224.0.0.9.520: 
+	RIPv2, Response, length: 112, routes: 5 or less
+	  Auth header: Packet Len 44, Key-ID 45, Auth Data Len 64, SeqNo 1339429785, MBZ 0, MBZ 0
+	  AFI IPv4,     10.70.178.0/24, tag 0x0000, metric: 1, next-hop: self
+	  Auth trailer:
+	  0x0000:  ad5a 5d8a a1a8 b023 1ec3 5c1c ba6a 45fb
+	  0x0010:  bee1 5584 6b1c 724d b1b7 f02e 7365 f038
+	  0x0020:  7558 0914 6762 00d1 a92f d499 5da2 43ad
+	  0x0030:  202c 7a9b 8065 49ad 260b 2142 0f8d d83f

@@ -15,7 +15,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/ipproto.c,v 1.3.2.3 2005/09/20 06:05:37 guy Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/ipproto.c,v 1.6 2005-09-20 06:01:22 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -27,7 +27,7 @@ static const char rcsid[] _U_ =
 #include "interface.h"
 #include "ipproto.h"
 
-struct tok ipproto_values[] = {
+const struct tok ipproto_values[] = {
     { IPPROTO_HOPOPTS, "Options" },
     { IPPROTO_ICMP, "ICMP" },
     { IPPROTO_IGMP, "IGMP" },
@@ -55,6 +55,7 @@ struct tok ipproto_values[] = {
     { IPPROTO_PGM, "PGM" },
     { IPPROTO_SCTP, "SCTP" },
     { IPPROTO_MOBILITY, "Mobility" },
+    { IPPROTO_CARP, "CARP" },
     { 0, NULL }
 };
 

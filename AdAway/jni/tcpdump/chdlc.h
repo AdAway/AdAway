@@ -1,4 +1,4 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/chdlc.h,v 1.1 2000/09/18 05:11:43 guy Exp $ (LBL) */
+/* @(#) $Header: /tcpdump/master/tcpdump/chdlc.h,v 1.1 2000-09-18 05:11:43 guy Exp $ (LBL) */
 /*
  * Copyright (c) 1990, 1991, 1993, 1994, 1995, 1996, 1997
  *	The Regents of the University of California.  All rights reserved.
