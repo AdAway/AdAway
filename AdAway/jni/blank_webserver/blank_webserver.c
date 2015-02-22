@@ -412,7 +412,7 @@ static void set_options(char *argv[]) {
 
   options[0] = NULL;
   set_option(options, "document_root", s_default_document_root);
-  set_option(options, "listening_port", s_default_listening_port);
+  set_option(options, "listening_port", "127.0.0.1:80");
 
   // Update config based on command line arguments
   process_command_line_arguments(argv, options);
