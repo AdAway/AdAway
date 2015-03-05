@@ -1,5 +1,7 @@
 # AdAway
 
+**AdAway is no longer in active development. If you like to take over the maintaining, simply fork it and implement fixes. I will only do basic maintenance like merging pull requests and releasing new versions.**
+
 AdAway is an open source ad blocker for Android using the hosts file. 
 
 For more information visit http://adaway.org
