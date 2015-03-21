@@ -18,21 +18,20 @@
 
 <resources>
 
-    <style name="Theme.adaway" parent="android:Theme.Material">
-        <item name="android:colorPrimary">@color/primary</item>
-        <item name="android:colorPrimaryDark">@color/primary_dark</item>
-        <item name="android:colorAccent">@color/accent</item>
-
+    <style name="Theme.adaway" parent="@style/Theme.Sherlock">
+        <item name="actionBarItemBackground">@drawable/selectable_background_adaway</item>
         <item name="popupMenuStyle">@style/adaway_PopupMenu</item>
         <item name="dropDownListViewStyle">@style/adaway_DropDownListView</item>
         <item name="actionBarTabStyle">@style/adaway_ActionBarTabStyle</item>
         <item name="actionDropDownStyle">@style/adaway_DropDownNav</item>
+        <item name="actionBarStyle">@style/adaway_transparent_ActionBar</item>
 
         <item name="android:selectableItemBackground">@drawable/selectable_background_adaway</item>
         <item name="android:popupMenuStyle">@style/adaway_PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/adaway_DropDownListView</item>
         <item name="android:actionBarTabStyle">@style/adaway_ActionBarTabStyle</item>
         <item name="android:actionDropDownStyle">@style/adaway_DropDownNav</item>
+        <item name="android:actionBarStyle">@style/adaway_transparent_ActionBar</item>
         <item name="android:panelBackground">@drawable/menu_hardkey_panel_adaway</item>
     </style>
 
