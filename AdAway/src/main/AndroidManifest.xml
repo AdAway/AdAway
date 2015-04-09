@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.adaway"
     android:installLocation="auto"
-    android:versionCode="51"
-    android:versionName="2.9.2">
+    android:versionCode="52"
+    android:versionName="3.0">
 
     <uses-feature
         android:name="android.hardware.touchscreen"

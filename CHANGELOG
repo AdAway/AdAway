@@ -1,6 +1,12 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/dschuermann/ad-away/issues
 
+3.0
+This release has mainly been done by 0-kaladin.
+
+* Min Android version increased to Android 4.1 to support Position Independent Executables (PIE)
+* Material design
+
 2.9.2
 This release has mainly been done by Dāvis Mošenkovs.
 
