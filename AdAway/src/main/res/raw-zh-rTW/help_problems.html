@@ -1,0 +1,23 @@
+<html>
+<head></head>
+<body>
+<h2>分割區上無足夠的空間</h2>
+<p>請從設定選項中將主機檔案的位置變更為<tt>/data/data/hosts</tt> (或 <tt>/data/hosts</tt>)並且重新執行廣告阻擋。</p>
+
+<h2>無法在 Android 4.4+ 版以上運作</h2>
+<p>請從設定選項中將主機檔案的位置從 <tt>/data/data/hosts</tt> 變更為<tt>/data/hosts</tt> 或  <tt>/system/etc/hosts</tt> 並且重新執行廣告阻擋</p>
+
+<h2>在某些應用程式中仍然看的到廣告！</h2>
+<p>某些主機名稱可能在提供的主機名稱檔案中遺漏了<i> Hosts 來源</i>，或者該廣告是透過圖檔的方式內建在應用程式中，而不需存取網路。<br><br>你可以透過廣告阻擋所提供的記錄 DNS 請求功能 (選單-&gt;記錄 DNS 請求) 來找出有哪一些額外的主機需要被阻擋。<br><br>開啟記錄檔後，長按該主機名稱就能將可疑的主機加入至個人黑名單中，如果某台主機確認為廣告主機後，你可以透過下面的論壇連結回報給我們。<a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>。</p>
+
+<h2>已存於快取中的廣告</h2>
+<p>某些軟體在下載時，會同時將廣告儲存在快取檔中，因此在這些軟體仍然會有廣告出現。你可以透過 Android 應用程式清單中的刪除快取檔案來解決此問題。</p>
+
+<h2>開啟廣告阻擋後，某些應用程式無法執行了！</h2>
+<p>有些程式需要連線到被AdAway阻擋的主機名稱，或因為廣告主機被阻擋後可能導致程式無法正常執行，請參考 <a href="https://github.com/dschuermann/ad-away/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a> 中記載有問題的程式清單。或是找出需要連線的主機名稱後，將它加入到 <i>你的名單</i> 中的 <i>白名單</i>，並回報至 <a href="https://github.com/dschuermann/ad-away/issues">AdAway BUG追蹤頁面</a>。</p>
+
+<h2>退出功能在瀏覽網頁時是無效的。</h2>
+<p>可在 AdAway 的設定中啟用本地網頁伺服器作為解決辦法。</p>
+
+</body>
+</html>

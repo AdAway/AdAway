@@ -49,11 +49,11 @@
   <string name="status_checking">Vérification de mise à jour...</string>
   <string name="status_reverting">Retour arrière...</string>
   <string name="status_reverting_subtitle">Création d\'un fichier « hosts » standard </string>
-  <string name="status_checking_subtitle">Vérifier si une mise à jour est disponible</string>
-  <string name="status_update_available">Mise à jour disponible</string>
-  <string name="status_update_available_subtitle">Nouveaux fichiers « hosts » disponibles</string>
+  <string name="status_checking_subtitle">Vérifier si une mise à jour est proposée</string>
+  <string name="status_update_available">Mise à jour proposée</string>
+  <string name="status_update_available_subtitle">Nouveaux fichiers « hosts » proposés</string>
   <string name="status_no_connection">Aucune connexion Internet</string>
-  <string name="status_no_connection_subtitle">Aucune connexion Internet disponible</string>
+  <string name="status_no_connection_subtitle">Aucune connexion Internet</string>
   <string name="status_download_fail">Sources non disponibles</string>
   <string name="status_download_fail_subtitle_new">Aucune source «hosts » n\'est joignable !</string>
   <string name="status_enabled">Activé</string>
@@ -147,7 +147,7 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local :</string>
   <string name="hosts_last_modified_online">En ligne :</string>
-  <string name="hosts_not_available">Non disponible</string>
+  <string name="hosts_not_available">non disponible</string>
   <!--Other-->
   <string name="app_subtitle">Blocage de publicités</string>
   <string name="no_text_editor_title">Aucun éditeur de texte installé</string>
@@ -194,7 +194,7 @@
   <string name="pref_update_check_daily">Vérifier les mises à jour quotidiennement</string>
   <string name="pref_update_check_daily_summary">Vérifier les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_automatic_update_daily">Mise à jour automatique</string>
-  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont disponibles</string>
+  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont proposées</string>
   <string name="pref_update_only_on_wifi">Mise à jour Wi-Fi seulement</string>
   <string name="pref_update_only_on_wifi_summary">N\'exécuter les mises à jour en arrière-plan que si connecté à un réseau Wi-Fi.</string>
   <string name="pref_whitelist_rules">Permettre la mise en liste blanche</string>

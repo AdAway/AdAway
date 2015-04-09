@@ -2,18 +2,18 @@
 <resources>
   <string name="donations__button_close">Fechar</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Do you find this application useful?\nSupport it\'s development by sending a donation to the developer!</string>
-  <string name="donations__flattr_description">O Flattr retira 10% ao donativo como sendo uma tarifa mensal!</string>
+  <string name="donations__description">Acha esta aplicação útil?\nApoie o seu desenvolvimento enviando um donativo ao programador!</string>
+  <string name="donations__flattr_description">O Flattr retira 10 % ao donativo como taxa mensal!</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">Donativos na aplicação não suportados.</string>
-  <string name="donations__google_android_market_not_supported">Donativos na aplicação não suportados. A Google Play Store está correctamente instalada?</string>
-  <string name="donations__google_android_market_description">A Google reduz em 30% o donativo, guardando esse montante para si!</string>
+  <string name="donations__google_android_market_not_supported">Donativos na aplicação não suportados. A Google Play Store está instalada corretamente?</string>
+  <string name="donations__google_android_market_description">A Google reduz em 30% o donativo!</string>
   <string name="donations__google_android_market_donate_button">Doar!</string>
   <string name="donations__google_android_market_text">Quanto?</string>
   <string name="donations__paypal">PayPal</string>
-  <string name="donations__paypal_description">Poderá escolher quanto deseja doar depois de clicar no botão!</string>
+  <string name="donations__paypal_description">Pode escolher quanto deseja doar depois de clicar no botão!</string>
   <string name="donations__thanks_dialog_title">Obrigado!</string>
-  <string name="donations__thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
+  <string name="donations__thanks_dialog">Obrigado por doar!\nAgradeço-lhe imenso!</string>
   <string name="donations__alert_dialog_title">Ocorreu um erro</string>
-  <string name="donations__alert_dialog_no_browser">Nenhum browser encontrado para abrir um website!</string>
+  <string name="donations__alert_dialog_no_browser">Nenhum navegador encontrado para abrir um website!</string>
 </resources>

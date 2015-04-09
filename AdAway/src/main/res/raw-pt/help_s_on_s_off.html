@@ -1,28 +1,28 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Devices</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<h2>Dispositivos HTC</h2>
+<p>O AdAway não funciona quando utiliza um dispositivo com o chamado S-ON. Esta "funcionalidade" existe em muitos dispositivos HTC e impede que o AdAway escreva no ficheiro de hosts.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
+<p>S-OFF significa que a porção NAND do dispositivo está desbloqueada e que pode ser escrita. A definição predefinida para dispositivos HTC é S-ON, o que significa que o utilizador não pode aceder a certas áreas do sistema nem pode garantir root permanente. Além disso, a verificação de assinatura das imagens de firmware também é realizada pela flag S-ON.</p>
 
-<h2>Do I have S-ON or S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<h2>Tenho S-ON ou S-OFF?</h2>
+<p>Arranque no menu de arranque do seu dispositivo premindo os botões de <i>diminuir volume</i> e de ligar/desligar ao mesmo tempo e o texto no topo mostrará o estado da flag como S-OFF ou S-ON. Um root completo geralmente significa S-OFF.
+<br /><br />Mais informações podem ser encontradas em <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Métodos de S-OFF para além do Unrevokable (na ligação) poderão interessar-lhe, nomeadamente: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
-<h2>Workaround</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
+<h2>Solução alternativa</h2>
+<p>Pré-requisito: Deve instalar o SDK Android com shell ADB funcional no seu PC.
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>Arranque no menu de arranque do seu dispositivo premindo os botões de <i>diminuir volume</i> e de ligar/desligar ao mesmo tempo.</li>
+<li>Utilize o botão de <i>diminuir volume</i> para selecionar "recovery".</li>
+<li>No ClockworkMod Recovery, prima o botão de diminuir volume até ao menu de partições e carregue no trackpad para o selecionar</li>
+<li>Selecione <i>mount /system</i>, <i>mount /sdcard</i> e <i>mount /data</i>.</li>
+<li>Introduza o seu cabo USB e abra uma linha de comandos no seu PC.</li>
+<li>Entre na shell do ADB e introduza <tt>ln -s /data/hosts /system/etc/hosts</tt> (Isto cria uma ligação simbólica, que permite que o AdAway edite o ficheiro de hosts armazenado em <tt>/data</tt> ao mesmo tempo que permite que o SO utilize o ficheiro como se estivesse armazenado em <tt>/system</tt>.)</li>
+<li>Reinicie o seu dispositivo e defina <i>Ficheiro de hosts alvo</i> como <i>/data/hosts</i> nas preferências do AdAway.</li>
+<li>O AdAway deverá agora funcionar.</li>
 </ol>
 </body>
 </html>

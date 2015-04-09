@@ -2,6 +2,7 @@
 <resources>
   <string name="donations__button_close">Κλείσιμο</string>
   <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Βρίσκετε αυτή την εφαρμογή χρήσιμη;\nΥποστηρίξτε την ανάπτυξή της κάνοντας μια δωρεά στον προγραμματιστή!</string>
   <string name="donations__flattr_description">Το Flattr παίρνει 10 % σαν μηνιαίο τέλος!</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">Δεν υποστηρίζονται δωρεές μέσα από την εφαρμογή.</string>
@@ -12,6 +13,7 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Μπορείς να επιλέξεις πόσα θέλεις να δωρίσεις αφού πατήσεις το κουμπί!</string>
   <string name="donations__thanks_dialog_title">Ευχαριστώ!</string>
+  <string name="donations__thanks_dialog">Ευχαριστώ για την δωρεά!\nΠραγματικά το εκτιμώ!</string>
   <string name="donations__alert_dialog_title">Συνέβη σφάλμα</string>
   <string name="donations__alert_dialog_no_browser">Δεν βρέθηκε περιηγητής ιστοσελίδων για την εμφάνιση ιστοσελίδας!</string>
 </resources>

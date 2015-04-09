@@ -8,8 +8,8 @@
 <p>Το S-OFF σημαίνει ότι η περιοχή NAND της συσκευής είναι ξεκλειδωμένη και μπορεί να γραφτεί. Η προεπιλεγμένη ρύθμιση για τις συσκευές HTC είναι S-ON, που σημαίνει ότι ούτε μπορείτε να μεταβείτε ούτε να εγγυηθείτε μόνιμο root. Επιπλέον, έλεγχος υπογραφών για τις εικόνες του firmware διασφαλίζεται από το S-ON.</p>
 
 <h2>Έχω S-ON ή S-OFF;</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Εκκίνηση στο μενού εκκίνησης στην συσκευή σας, κρατώντας πατημένο το πληκτρο <i>μειωση έντασης<i>, ενώ πατώντας δύναμη το κείμενο στην κορυφή θα εμφανίσει την κατάσταση της σημαίας είτε ως S-OFF ή S-ON. Μια πλήρης ρίζα σημαίνει γενικά S-OFF.
+<br/><br/>Περισσότερες πληροφορίες μπορούν να βρεθούν στην <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Πρόσθετες μέθοδοι S-OFF από Unrevokable (σε σύνδεση) που μπορεί να σας ενδιαφέρουν συγκεκριμένα: Επαναστατικό, Revone, Firewater, RumRunner, Moonshine, Sunshine...</p>
 
 <h2>Παράκαμψη</h2>
 <p>Προαπαιτούμενο: Χρειάζεται εγκατάσταση του Android SDK με ADB shell στον υπολογιστή σας.
@@ -17,11 +17,11 @@
 <ol>
 <li>Ξεκινήστε στο Boot Menu της συσκευής σας πατώντας κρατημένο το <i>volume down</i> κουμπί καθώς πατάτε το power.</li>
 <li>Χρησιμοποιείστε το <i>volume down</i> για να επιλέξετε recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
+<li>Πηγαινετε στον μηχανισμό ανάκτησης εντασης κάτω απο το "μενού κατατμήσεων» και πατηστε την επιφάνεια κομματιου για επιλογή</li>
+<li>Επιλέξτε <i>mount /system</i>, <i>mount /sdcard</i> και <i>mount /data</i>.</li>
 <li>Συνδέστε το καλώδιο USB σας και ανοίξτε μια γραμμή εντολών στον υπολογιστή σας.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Μπείτε στο κέλυφος adb και πληκτρολογήστε <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (Αυτό δημιουργεί έναν συμβολικό σύνδεσμο που επιτρέπει στο AdAway να επεξεργαζεται το αρχείο hosts που βρίσκεται στο <tt>/data</tt>, ενώ ταυτόχρονα επιτρέπει στο λειτουργικό σύστημα να χρησιμοποιεί το αρχείο σαν να ήταν αποθηκευμένο στο <tt>/system</tt>.)</li>
+<li>Επανεκκινήστε την συσκευή σας και ορίστε <i>Αρχείο προορισμού hosts</i> σε <i>/data/hosts</i> στις ρυθμίσεις του AdAway.</li>
 <li>Το AdAway πρέπει να λειτουργεί τώρα.</li>
 </ol>
 </body>

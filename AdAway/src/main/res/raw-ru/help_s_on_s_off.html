@@ -8,8 +8,8 @@
 <p>S-OFF означает, что часть памяти, называемой NAND, разблокирована и позволяет производить запись. По-умолчанию устройства HTC работают в режиме S-ON, а это означает, что вы не можете получить доступа к определенным областям памяти. Кроме того флаг S-ON проверяет цифровую подпись всех прошивок.</p>
 
 <h2>Мое устройство работает в режиме S-ON или S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Загрузитесь в меню загрузчика на вашем устройстве, удерживая кнопку <i>громкость вниз</i> и одновременно зажимая кнопку включения, после чего вы увидите вверху текст, который покажет статут флажка -  S-OFF или S-ON. Обычно полный рут-доступ означает S-OFF.
+<br/><br/>Больше информации вы сможете найти на <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Названия дополнительных методов S-OFF, которые могут вас заинтересовать, начиная с Unrevokable (по ссылке): Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Решение</h2>
 <p>Требование: Вы должны установить рабочий Android SDK с оболочкой ADB на ваш ПК.
@@ -17,11 +17,11 @@
 <ol>
 <li>Загрузитесь в меню загрузки устройства - удерживая кнопку <i>Уменьшение громкости</i> включить устройство кнопкой питания,</li>
 <li>Используйте кнопку <i>Уменьшение громкости</i> чтобы выбрать режим восстановления.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
+<li>В Clockwork Recovery, нажимая кнопку уменьшения громкости, переместите курсор на пункт "partitions menu" и нажмите трекпад, чтобы выбрать</li>
 <li>Выберите <i>mount /system</i>, <i>mount /sdcard</i> и <i>mount /data</i>.</li>
 <li>Подключите ваш телефон к ПК через кабель USB и откройте окно коммандной строки на ПК.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Запустите adb shell и введите <tt>ln -s /data/hosts /system/etc/hosts</tt> (Это создаст символьную ссылку, которая позволит AdAway редактировать файл hosts, расположенный по пути <tt>/data</tt>, одновременно позволяя ОС использовать этот файл так, как если бы он располагался по пути  <tt>/system</tt>.)</li>
+<li>Перезагрузите ваше устройство и установите <i>Путь к файлу hosts</i> на <i>/data/hosts</i> в настройках AdAway.</li>
 <li>AdAway должен заработать.</li>
 </ol>
 </body>

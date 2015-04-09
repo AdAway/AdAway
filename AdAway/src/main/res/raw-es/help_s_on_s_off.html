@@ -2,14 +2,14 @@
 <head></head>
 <body>
 <h2>Dispositivos HTC</h2>
-<p>AdAway no funciona cuando está usando un dispositivo con el llamado S-ON. Esta 'característica' existe en muchos dispositivos HTC y evita que AdAway escriba en el fichero hosts.</p>
+<p>AdAway no funciona cuando está usando un dispositivo con el llamado S-ON. Esta 'característica' existe en muchos dispositivos HTC e impide que AdAway escriba en el fichero hosts.</p>
 
 <h2>¿S-ON/S-OFF?</h2>
 <p>S-OFF significa que la parte de la (memoria) NAND del dispositivo está desbloqueada y se puede escribir sobre ella. La configuración predeterminada para los dispositivos HTC es S-ON, lo que significa que usted ni puede acceder a ciertas áreas del sistema, ni puede garantizarse un rooteado permanente. Más aún, la comprobación de firmas para imágenes de firmware está asegurada por el indicativo S-ON.</p>
 
 <h2>¿Tengo S-ON o S-OFF?</h2>
-<p>Arranque en el menú de arranque de su dispositivo manteniendo pulsado el botón de <i>bajada de volumen</i> mientras pulsa el botón de encendido, y el texto de la parte superior mostrará el indicativo de estado como S-OFF o S-ON. Un rooteado completo normalmente significa S-OFF.
-<br/><br/>Puede encontrar más información en <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Entra el Menú de Inicio de tú dispositivo manteniendo pulsando <i>volumen menos</i> a la vez que el botón de encendido y el texto de la parte superior mostrará el estado como S-OFF o S-ON. Un root completo generalmente implica S-OFF.
+<br/><br/>Se puede encontrar más información en <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Métodos S-OFF adicionales que pueden intenteresarte, desde Unrevokable (en enlace) a: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Solución indirecta</h2>
 <p>Prerrequisito: Tiene que instalar un Android SDK con shell ADB funcional en su PC.
@@ -20,7 +20,7 @@
 <li>En el menú ClockworkMod Recovery pulse el botón de bajada de volumen hasta el elemento "partitions menu" (menú de particiones), y pulse en el track pad (panel del teléfono) para seleccionar</li>
 <li>Seleccione <i>mount /system</i>, <i>mount /sdcard</i> y <i>mount /data</i>.</li>
 <li>Conecte su cable USB y abra una línea de comandos en su PC.</li>
-<li>Entre en la shell de ADB (línea de comandos de android debug bridge) y ejecute <tt>ln -s /data/hosts /system/etc/hosts</tt> (Esto crea un enlace simbólico, que permite a AdAway editar el fichero hosts guardado en <tt>/data</tt> a la vez que permite al sistema operativo usar el fichero como si estuviera guardado en <tt>/system</tt>).</li>
+<li>Entre en la shell de ADB (interprete de comandos de android debug bridge) y ejecute <tt>ln -s /data/hosts /system/etc/hosts</tt> (Esto crea un enlace simbólico que permite a AdAway editar el fichero hosts guardado en <tt>/data</tt>, a la vez que permite al sistema operativo usar el fichero como si estuviera guardado en <tt>/system</tt>).</li>
 <li>Reinicie su dispositivo y configure la <i>Ruta al fichero hosts</i> a <i>/data/hosts</i> en las preferencias de AdAway.</li>
 <li>AdAway ahora debe funcionar.</li>
 </ol>

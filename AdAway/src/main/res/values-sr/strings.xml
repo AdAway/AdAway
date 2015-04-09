@@ -3,11 +3,11 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Izlaz</string>
-  <string name="button_apply">Preuzmi fajlove i primeni Ad Blocking</string>
+  <string name="button_apply">Preuzmi fajlove i primeni blokiranje reklama</string>
   <string name="button_close">Zatvori</string>
   <string name="button_yes">Da</string>
   <string name="button_no">Ne</string>
-  <string name="button_revert">Onemogući Ad Blocking</string>
+  <string name="button_revert">Onemogući blokiranje reklama</string>
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Otkaži</string>
   <string name="button_apply_text">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
@@ -39,9 +39,12 @@
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+  <string name="import_dialog">Uvoz…</string>
+  <string name="export_dialog">Izvoz...</string>
   <!--Status Notifications-->
   <string name="status_checking">Provera ažuriranja...</string>
   <string name="status_reverting">Vraćanje...</string>
+  <string name="status_reverting_subtitle">Kreiranje standardnog hosts fajla</string>
   <string name="status_checking_subtitle">Proveravanje ažuriranja</string>
   <string name="status_update_available">Ažuriranje dostupno</string>
   <string name="status_update_available_subtitle">Noviji host-ovi fajlovi dostupni</string>

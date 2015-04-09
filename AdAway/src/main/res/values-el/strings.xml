@@ -61,7 +61,12 @@
   <string name="status_disabled">Απενεργοποιημένο</string>
   <string name="status_disabled_subtitle">Απενεργοποιημένο</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Ο σύνδεσμος από τον προορισμό στο /system/etc/hosts δεν υπάρχει ή είναι λανθασμένος! Το AdAway δεν θα λειτουργήσει αν δεν δείχνει στο σωστό αρχείο.
+
+Θέλετε να προσπαθήσετε να δημιουργήσετε έναν σύνδεσμο;</string>
   <string name="apply_symlink_missing_title">Η συντόμευση λείπει</string>
+  <string name="apply_not_enough_space">Δεν υπάρχει αρκετός χώρος στο διαμέρισμα αποθηκευτικού χώρου!
+Προσπαθήστε να αλλάξετε το αρχείο προορισμού hosts στις ρυθμίσεις σε /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Δεν υπάρχει διαθέσιμος χώρος</string>
   <string name="apply_private_file_fail">Δεν μπορεί να διαβαστεί το κατεβασμένο αρχείο.</string>
   <string name="apply_private_file_fail_title">Απέτυχε το προσωπικό αρχείο</string>
@@ -71,9 +76,25 @@
   <string name="apply_copy_fail_title">Η αντιγραφή απέτυχε</string>
   <string name="apply_success_subtitle">Εφαρμοσμένες πηγές hosts:</string>
   <string name="apply_success_title">Επιτυχείς εφαρμογή</string>
+  <string name="apply_success_dialog">Η εφαρμογή ήταν επιτυχής.
+Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
+Θέλετε να κάνετε επανεκκίνηση;
+(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
+  <string name="apply_symlink_successful">Ο σύνδεσμος δημιουργήθηκε με επιτυχία.
+Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
+Θέλετε να κάνετε επανεκκίνηση;
+(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
   <string name="apply_symlink_successful_title">Επιτυχείς δημηουργεία συντόμευσης</string>
+  <string name="apply_symlink_fail">Δεν ήταν δυνατό να δημιουργηθεί ο σύνδεσμος από το Android.
+Η αποτυχία οφείλεται συνήθως σε ένα \'χαρακτηριστικό\' που ονομάζεται S-ON στις συσκευές HTC!
+
+Μια λύση είναι να επανεκκινήσετε την συσκευή σας σε κατάσταση ανάκτησης και να δημιουργήσετε τον σύνδεσμο εκεί με την εντολή \'ln -s /data/data/hosts /system/etc/hosts\'
+
+Αν αυτό δεν επιτύχει, αναζητήστε στο Internet για S-OFF και το μοντέλο της συσκευής σας.</string>
   <string name="apply_symlink_fail_title">Η δημιουργία συντόμευσης απέτυχε</string>
   <string name="apply_help">Παρακαλούμε ανατρέξτε στην Βοήθεια για περισσότερες πληροφορίες</string>
+  <string name="apply_apn_proxy">Υπάρχει διαμεσολαβητής APN ορισμένος στο Android σας!
+Το AdAway δεν λειτουργεί αξιόπιστα σε δίκτυα κινητής τηλεφωνίας όπως 3G. Μπορείτε να απενεργοποιήσετε τον διαμεσολαβητή πηγαίνοντας στο επιλεγμένο APN (Στο Android 4: Ασύρματες συνδέσης και δίκτυα -&gt; Περισσότερα... -&gt; Δίκτυα κινητής -&gt; Ονόματα Σημείων Πρόσβασης) και αφαιρώντας την τιμή στο πεδίο \"διαμεσολαβητής\".</string>
   <string name="apply_apn_proxy_title">Υπάρχει ορισμένος διαμεσολαβητής APN!</string>
   <string name="no_connection">Η σύνδεση στο ίντερνετ δεν λειτουργεί</string>
   <string name="no_connection_title">Αδυναμία συνδεσης</string>
@@ -83,7 +104,13 @@
   <string name="apply_dialog_hostnames">Ανάλυση και συγχώνευση αρχείων hosts</string>
   <string name="apply_dialog_hosts">Δημιουργία αρχείου hosts</string>
   <string name="apply_dialog_apply">Εφαρμογή αρχείου hosts</string>
+  <string name="apply_fail">Η εφαρμογή του αρχείου hosts στο σύστημά σας απέτυχε!
+Προσπαθήστε να αλλάξετε το αρχείο προορισμού hosts στις ρυθμίσεις σε /data/data/hosts.</string>
   <string name="apply_fail_title">Εφαρμογή απέτυχε</string>
+  <string name="revert_successful">Επαναφέρατε το αρχικό αρχείο hosts.
+Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
+Θέλετε να κάνετε επανεκκίνηση;
+(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
   <string name="revert_successful_title">Επιτυχείς επαναφορά</string>
   <string name="revert_problem">Η επαναφορά απέτυχε λόγω μη γνωστής αιτίας</string>
   <string name="revert_problem_title">Η επαναφορά απέτυχε!</string>
@@ -92,6 +119,11 @@
   <string name="no_private_file">Το προσωπικό αρχείο δεν μπορεί να δημιουργηθεί.</string>
   <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Είτε το εκτελέσιμο su δεν βρέθηκε ή δεν επιτράπηκε πρόσβαση root για το AdAway.
+
+Αυτό συμβαίνει όταν η συσκευή δεν έχει γίνει root.
+
+Πληροφορίες για το πως μπορεί να γίνει root μια συσκευή υπάρχουν στο www.cyanogenmod.com ή σε άλλες ιστοσελίδες Android.</string>
   <string name="no_root_title">Χρειάζεται δικαιώματα διαχειριστή
 </string>
   <string name="no_url">Αυτή η διεύθυνση URL δεν είναι έγκυρη! </string>
@@ -143,7 +175,13 @@
   <!--Other-->
   <string name="app_subtitle">Φραγή διαφημίσεων</string>
   <string name="no_text_editor_title">Δεν υπάρχει εγκατεστημένος κειμενογράφος</string>
+  <string name="no_text_editor">Δεν ήταν δυνατή η εύρεση επεξεργαστή κειμένου για το άνοιγμα του αρχείου hosts. Μπορείτε να εγκαταστήσετε το Jota ή άλλους επεξεργαστές κειμένου για τον χειρισμό αυτού.
+
+Θέλετε να εγκαταστήσετε το Jota;</string>
   <string name="no_file_manager_title">Δεν υπάρχει εγκατεστημένο πρόγραμμα διαχείρισης αρχείων</string>
+  <string name="no_file_manager">Δεν βρέθηκε διαχειριστής αρχείων για το άνοιγμα αρχείων. Μπορείτε να εγκαταστήσετε τον OI File Manager ή άλλους διαχειριστές αρχείων για τον χειρισμό αυτών.
+
+Θέλετε να εγκαταστήσετε τον OI File Manager;</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Το αρχείο καταγραφής διαγράφηκε!</string>
   <string name="toast_tcpdump_added_to_blacklist">Το όνομα διακομιστή προστέθηκε στη μαύρη λίστα σας!</string>
@@ -172,6 +210,11 @@
   <string name="pref_webserver">Τοπικός διακομιστής ιστοσελίδων</string>
   <string name="pref_custom_target">Παραμετροποιημένος προορισμός</string>
   <string name="pref_custom_target_summary">Χρησιμοποιείται μόνο αν το αρχείο προορισμού hosts είναι ορισμένο σε παραμετροποιημένο προορισμό</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Παραμετροποιημένος προορισμός</item>
+  </string-array>
   <string name="pref_update_check_summary">Έλεγχος για ενημερώσεις κατά την εκκίνηση του AdAway</string>
   <string name="pref_sdcard_problem">Αυτό το χαρακτηριστικό δεν θα λειτουργήσει σωστά αν το AdAway εγκατασταθεί σε κάρτα SD!</string>
   <string name="pref_background">Υπηρεσίες παρασκηνίου</string>
@@ -181,6 +224,10 @@
   <string name="pref_automatic_update_daily_summary">Αυτόματη ενημέρωση στο παρασκήνιο αν υπάρχουν διαθέσιμες ενημέρωσεις.</string>
   <string name="pref_update_only_on_wifi">Ενημέρωση μόνο με σύνδεση WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Εκτέλεση ενημερώσεων παρασκηνίου μόνο με σύνδεση δικτύου WiFi.</string>
+  <string name="pref_whitelist_rules">Να επιτραπει η λευκή λίστα</string>
+  <string name="pref_whitelist_rules_summary">Να επιτραπει η λευκή λίστα από τις πηγές hosts.</string>
+  <string name="pref_redirection_rules">Να επιτραπούν ανακατευθύνσεις </string>
+  <string name="pref_redirection_rules_summary">Κίνδυνος ασφαλείας! Να επιτραπούν ανακατευθύνσεις από τις πηγές hosts.</string>
   <string name="pref_debug">Αποσφαλμάτωση</string>
   <string name="pref_enable_debug">Καταγραφή αποσφαλμάτωσης</string>
   <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
