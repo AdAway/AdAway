@@ -17,5 +17,9 @@
 -->
 
 <resources>
-    <color name="pressed_adaway">#CCaa0000</color>
+    <color name="pressed_adaway">#CCB71C1C</color>
+    <color name="primary">#FFB71C1C</color>
+    <color name="primary_dark">#CCB71C1C</color>
+    <color name="accent">#FFB71C1C</color>
+    <color name="tabsScrollColor">#ffffffff</color>
 </resources>
