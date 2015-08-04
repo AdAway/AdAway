@@ -25,8 +25,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- Required permission to wake phone up for updating -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!-- Used by Koush's new Superuser app -->
-    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
 
     <application
         android:name=".ui.AdAwayApplication"
