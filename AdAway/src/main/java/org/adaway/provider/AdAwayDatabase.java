@@ -203,7 +203,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             // add modified entry
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
-                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"https://hosts-file.net/ad_servers.txt\", 0, 0, 1)");
+                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://hosts-file.net/ad_servers.txt\", 0, 0, 1)");
         } else {
             db.execSQL("DROP TABLE IF EXISTS " + Tables.HOSTS_SOURCES);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.WHITELIST);
