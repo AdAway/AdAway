@@ -1,6 +1,12 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/dschuermann/ad-away/issues
 
+3.0.1
+* Make some text fields single line - by Phoenix09
+* Make daily update time randomized within a range
+* Minor fixes 
+* Adjust hosts-file.net default source URL
+
 3.0
 This release has mainly been done by 0-kaladin.
 
