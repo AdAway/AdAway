@@ -199,7 +199,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         if (oldVersion <= 11) {
             // change http://hosts-file.net/ad_servers.asp to http://hosts-file.net/ad_servers.txt
             db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
-                    + " WHERE url IN (\"http://hosts-file.net/ad_servers.asp\"");
+                    + " WHERE url=\"http://hosts-file.net/ad_servers.asp\"");
             // add modified entry
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
