@@ -118,10 +118,10 @@
   <string name="menu_hosts_sources">Hosts zdroje</string>
   <string name="menu_tcpdump">Zaznamenať DNS žiadosti</string>
   <string name="menu_help">Pomoc</string>
-  <string name="menu_lists">Vaše zoznami</string>
+  <string name="menu_lists">Vaše zoznamy</string>
   <string name="menu_show_hosts_file">Otvoriť súbor hosts</string>
-  <string name="menu_import">Importovať zoznami</string>
-  <string name="menu_export">Exportovať zoznami</string>
+  <string name="menu_import">Importovať zoznamy</string>
+  <string name="menu_export">Exportovať zoznamy</string>
   <string name="menu_preferences">Nastavenia</string>
   <!--Help-->
   <string name="help_tab_about">O aplikácii</string>

@@ -17,7 +17,7 @@
   <string name="button_webserver_toggle_unchecked">Webserver läuft nicht</string>
   <string name="button_webserver_toggle_text">Den lokalen Webserver starten oder stoppen, um Anfragen an blockierte Hostnamen zu beantworten.</string>
   <string name="button_help">Hilfe</string>
-  <string name="button_tcpdump_text">Mit TCPDump können DNS-Anfragen aufgezeichnet und in einer Protokolldatei gespeichert werden. TCPDump im Hintergrund starten, dann die Anwendung mit Werbung und danach die Protokolldatei in AdAway analysieren. Mögliche Ad-Server können dann zu deiner schwarzen Liste hinzugefügt werden.</string>
+  <string name="button_tcpdump_text">Mit TCPDump können DNS-Anfragen aufgezeichnet und in einer Protokolldatei gespeichert werden. TCPDump im Hintergrund starten, dann die Anwendung mit Werbung und danach die Protokolldatei in AdAway analysieren. Mögliche Ad-Server können dann zu Ihrer Negativliste hinzugefügt werden.</string>
   <string name="button_tcpdump_toggle_checked">TCPDump läuft!</string>
   <string name="button_tcpdump_toggle_unchecked">TCPDump läuft nicht!</string>
   <string name="button_tcpdump_open">Protokolldatei öffnen</string>
@@ -32,24 +32,24 @@
   <string name="checkbox_list_context_title">Eintrag bearbeiten</string>
   <string name="checkbox_list_context_edit">Bearbeiten</string>
   <!--Your Lists-->
-  <string name="lists_tab_whitelist">Weiße Liste</string>
-  <string name="lists_tab_blacklist">Blacklist</string>
-  <string name="lists_tab_blacklist_short">Schwarz</string>
-  <string name="lists_tab_whitelist_short">Weiß</string>
+  <string name="lists_tab_whitelist">Positivliste</string>
+  <string name="lists_tab_blacklist">Negativliste</string>
+  <string name="lists_tab_blacklist_short">Negativ</string>
+  <string name="lists_tab_whitelist_short">Positiv</string>
   <string name="lists_tab_redirection_list_short">Umleitung</string>
   <string name="lists_tab_redirection_list">Umleitungsliste</string>
   <string name="list_dialog_url">Adresse:</string>
   <string name="list_dialog_hostname">Hostname:</string>
   <string name="list_dialog_whitelist_hostname">Hostname:\n(Platzhalterzeichen * und ? sind erlaubt!)</string>
   <string name="list_dialog_ip">IP (IPv4 oder IPv6):</string>
-  <string name="import_dialog">Importieren …</string>
-  <string name="export_dialog">Exportieren …</string>
+  <string name="import_dialog">Importvorgang …</string>
+  <string name="export_dialog">Exportvorgang …</string>
   <string name="export_success">Alle Einträge wurden in eine Datei namens »adaway-export« auf Ihrer SD-Karte gespeichert.</string>
   <!--Status Notifications-->
   <string name="status_checking">Aktualisierungsprüfung …</string>
   <string name="status_reverting">Zurücksetzen …</string>
   <string name="status_reverting_subtitle">Standard Hosts-Datei wird generiert</string>
-  <string name="status_checking_subtitle">Überprüfen, ob Aktualisierungen verfügbar sind</string>
+  <string name="status_checking_subtitle">Überprüfung auf Aktualisierung läuft</string>
   <string name="status_update_available">Aktualisierung verfügbar</string>
   <string name="status_update_available_subtitle">Neuere Hosts-Dateien verfügbar</string>
   <string name="status_no_connection">Keine Internetverbindung</string>
@@ -85,7 +85,7 @@
   <string name="no_connection_title">Keine Verbindung</string>
   <string name="download_dialog">Wird heruntergeladen …</string>
   <string name="apply_dialog">Wird angewendet …</string>
-  <string name="apply_dialog_lists">Schwarze Liste und weiße Liste anwenden</string>
+  <string name="apply_dialog_lists">Negativ- und Positivliste wird angewendet</string>
   <string name="apply_dialog_hostnames">Hosts-Dateien werden verarbeitet und zusammengefügt</string>
   <string name="apply_dialog_hosts">Hosts-Datei wird erstellt</string>
   <string name="apply_dialog_apply">Neue Hosts-Datei im System aktivieren</string>
@@ -102,9 +102,9 @@
   <!--Other Dialogs-->
   <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder Sie haben AdAway keine root-Rechte gegeben.\n\nDas kann passieren, wenn Sie Ihr Gerät nicht gerootet haben.\nInformationen, wie Sie Ihr Gerät rooten, können Sie auf www.cyanogenmod.com oder anderen Android-Internetseiten finden.</string>
   <string name="no_root_title">Gerootetes Android wird benötigt</string>
-  <string name="no_url">Dies ist keine gültige Adresse!</string>
+  <string name="no_url">Das ist keine gültige Adresse!</string>
   <string name="no_url_title">Falsch formatierte Adresse</string>
-  <string name="hosts_add_dialog">Die Adresse zur Hosts-Datei eingeben:</string>
+  <string name="hosts_add_dialog">Bitte Adresse zur Hosts-Datei eingeben:</string>
   <string name="no_hostname">Das ist kein gültiger Hostname!</string>
   <string name="no_hostname_title">Falsch formatierter Hostname</string>
   <string name="no_ip">Das ist keine gültige IP!</string>
@@ -141,7 +141,7 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Hier können Sie nach Adware suchen, die nicht von AdAway blockiert werden können. Diese Anwendungen belästigen den Nutzer beispielsweise durch Airpush-Benachrichtigungen, die auch, wenn die Anwendung gerade nicht genutzt wird, in der Benachrichtungsleiste angezeigt werden. Gefundene Anwendungen können mit einem Klick auf den Eintrag deinstalliert werden!</string>
+  <string name="scan_adware_description">Hier können Sie nach Adware suchen, die nicht von AdAway blockiert werden kann. Diese Anwendungen belästigen den Nutzer beispielsweise durch Airpush-Benachrichtigungen, die auch, wenn die Anwendung gerade nicht genutzt wird, in der Benachrichtungsleiste angezeigt werden. Gefundene Anwendungen können mit einem Klick auf den Eintrag deinstalliert werden!</string>
   <string name="scan_adware_start">Durchsuchen starten</string>
   <string name="scan_adware_empty">Es wurde keine Adware gefunden!</string>
   <!--Hosts Sources-->
@@ -152,17 +152,17 @@
   <string name="app_subtitle">Werbeblocker</string>
   <string name="no_text_editor_title">Keine Textbearbeitung installiert</string>
   <string name="no_text_editor">Es konnte keine Textbearbeitung gefunden werden, um die Hosts-Datei zu öffnen. Sie können Jota oder eine andere Textbearbeitung installieren, um Textdateien zu öffnen.\n\nMöchten Sie Jota installieren?</string>
-  <string name="no_file_manager_title">Kein Dateimanager installiert</string>
+  <string name="no_file_manager_title">Keine Dateiverwaltung installiert</string>
   <string name="no_file_manager">Es konnte keine Dateiverwaltung gefunden werden, um Dateien zu öffnen. Sie können »OI File Manager« oder eine andere Dateiverwaltungen installieren, um das zu handhaben.\n\n Möchten Sie »OI File Manager« installieren?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Protokolldatei wurde gelöscht!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Der Hostname wurde zu Ihrer schwarzen Liste hinzugefügt!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Der Hostname wurde zu Ihrer weißen Liste hinzugefügt!</string>
-  <string name="tcpdump_log_context_blacklist">Zur schwarzen Liste hinzufügen</string>
-  <string name="tcpdump_log_context_whitelist">Zur weiße Liste hinzufügen</string>
+  <string name="toast_tcpdump_added_to_blacklist">Der Hostname wurde zu Ihrer Negativliste hinzugefügt!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Der Hostname wurde zu Ihrer Positivliste hinzugefügt!</string>
+  <string name="tcpdump_log_context_blacklist">Zur Negativliste hinzufügen</string>
+  <string name="tcpdump_log_context_whitelist">Zur Positivliste hinzufügen</string>
   <string name="tcpdump_log_context_browser">Im Browser öffnen</string>
   <string name="tcpdump_log_empty">Protokolldatei ist leer!</string>
-  <string name="tcpdump_log_footer">Einen Eintrag lange gedrückt halten, um ihn zur schwarzen oder weißen Liste hinzuzufügen!</string>
+  <string name="tcpdump_log_footer">Einen Eintrag lange gedrückt halten, um ihn zur Negativ- oder Positivliste hinzuzufügen!</string>
   <!--Preferences-->
   <string name="pref_download">Generelle Einstellungen</string>
   <string name="pref_hosts">Hosts-Datei</string>
@@ -197,8 +197,8 @@
   <string name="pref_automatic_update_daily_summary">Wenn Aktualisierungen verfügbar sind, diese automatisch im Hintergrund installieren.</string>
   <string name="pref_update_only_on_wifi">Aktualisierung nur bei WLAN-Verbindung</string>
   <string name="pref_update_only_on_wifi_summary">Hintergrundaktualisierungen sollen nur bei WLAN-Verbindung heruntergeladen werden.</string>
-  <string name="pref_whitelist_rules">Weißlisten erlauben</string>
-  <string name="pref_whitelist_rules_summary">Weiße Listeneinträge aus den Hosts-Quellen erlauben.</string>
+  <string name="pref_whitelist_rules">Positivliste erlauben</string>
+  <string name="pref_whitelist_rules_summary">Positivlisteneinträge aus den Hosts-Quellen erlauben.</string>
   <string name="pref_redirection_rules">Weiterleitungen erlauben</string>
   <string name="pref_redirection_rules_summary">STELLT SICHERHEITSRISIKO DAR! Weiterleitungseinträge von Hosts-Quellen erlauben.</string>
   <string name="pref_debug">Fehlerdiagnose</string>

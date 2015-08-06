@@ -40,6 +40,7 @@
   <string name="lists_tab_redirection_list">Omdirigeringsliste</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Værtsnavn</string>
+  <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard karakterer * og ? er tilladt!)</string>
   <string name="list_dialog_ip">IP (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerer...</string>
   <string name="export_dialog">Exporterer...</string>
@@ -61,6 +62,7 @@
   <string name="status_disabled_subtitle">Deaktiveret</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing_title">Symlink mangler</string>
+  <string name="apply_not_enough_space">Ikke nok plads på partitionen!\nPrøv at ændre hosts kildefilen i indstillingerne til /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Ikke nok plads</string>
   <string name="apply_private_file_fail">Den hentede fil kunne ikke læses.</string>
   <string name="apply_private_file_fail_title">Privat fil fejlede</string>
@@ -68,6 +70,7 @@
   <string name="apply_remount_fail_title">Remontering fejlede</string>
   <string name="apply_copy_fail">Kopiering af hosts filen fejlede</string>
   <string name="apply_copy_fail_title">Kopiering fejlede</string>
+  <string name="apply_success_subtitle">Anvendte hosts kilder:</string>
   <string name="apply_success_title">Anvendt successfuldt</string>
   <string name="apply_success_dialog">Succesfuldt anvendt.\nlt Måske nødvendig at genstarte Android før ændringerne træder i kraft.\n\nVil du genstarte?\n(For at undgå datatab, vær sikker på at ingen programmer anvender sd kortet!)</string>
   <string name="apply_symlink_successful_title">Symlink oprettet successfuldt</string>
@@ -173,6 +176,12 @@
   <string name="pref_webserver">Lokal Webserver</string>
   <string name="pref_custom_target">Brugerdefineret destination</string>
   <string name="pref_custom_target_summary">Bruges kun, hvis destinations-hostsfilen er indstillet til brugerdefineret destination</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Tilpasset mål</item>
+  </string-array>
   <string name="pref_update_check_summary">Check for opdateringer ved start af AdAway</string>
   <string name="pref_sdcard_problem">Denne funktion vil ikke virke korrekt når AdAway er installeret på SD kortet!</string>
   <string name="pref_background">Baggrundsservicer</string>
@@ -182,6 +191,7 @@
   <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
   <string name="pref_update_only_on_wifi">Opdatér kun via trådløst netværk</string>
   <string name="pref_update_only_on_wifi_summary">Kør kun baggrundsopdateringer når der er forbindelse via et trådløs netværk</string>
+  <string name="pref_whitelist_rules">Tillad hvidlister</string>
   <string name="pref_redirection_rules">Tillad omdirigeringer</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug-logning</string>

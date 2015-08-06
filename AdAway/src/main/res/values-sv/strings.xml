@@ -110,8 +110,8 @@
   <string name="menu_help">Hjälp</string>
   <string name="menu_lists">Din lista</string>
   <string name="menu_show_hosts_file">Öppna värdfil</string>
-  <string name="menu_import">Importera Alla Listor</string>
-  <string name="menu_export">Exportera  Alla Listor</string>
+  <string name="menu_import">Importera alla listor</string>
+  <string name="menu_export">Exportera  alla listor</string>
   <string name="menu_preferences">Inställningar</string>
   <!--Help-->
   <string name="help_tab_about">Om</string>
