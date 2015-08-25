@@ -515,3 +515,7 @@
 # use finer grained hostnames?
 #127.0.0.1 tracking.applift.com
 
+# [EFF Tracker Detection]
+127.0.0.1 trackersimulator.org
+127.0.0.1 eviltracker.net
+127.0.0.1 do-not-tracker.org
