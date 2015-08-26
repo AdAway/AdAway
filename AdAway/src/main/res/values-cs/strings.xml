@@ -100,7 +100,7 @@
   <string name="no_private_file">Soukromý soubor nelze vytvořit.</string>
   <string name="no_private_file_title">Vytvoření soukromého souboru selhalo</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Buď nelze nalézt binárku su, nebo jste aplikaci AdAway neudělili root oprávnění.\n\nToto se může stát, pokud zařízení není rootnuté.\nInformace, jak zařízení rootnout, naleznete na www.cyanogenmod.com, nebo jiných stránkách o Androidu.</string>
+  <string name="no_root_description">Buď nelze nalézt binárku su, nebo jste aplikaci AdAway neudělili root oprávnění.\n\nToto se může stát, pokud zařízení není rootnuté.\nInformace, jak zařízení rootnout, naleznete na www.cyanogenmod.org, nebo jiných stránkách o Androidu.</string>
   <string name="no_root_title">Vyžaduje rootnutý Android</string>
   <string name="no_url">Toto není platní URL adresa!</string>
   <string name="no_url_title">Chybný formát URL</string>

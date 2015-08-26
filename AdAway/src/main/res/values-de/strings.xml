@@ -100,7 +100,7 @@
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder Sie haben AdAway keine root-Rechte gegeben.\n\nDas kann passieren, wenn Sie Ihr Gerät nicht gerootet haben.\nInformationen, wie Sie Ihr Gerät rooten, können Sie auf www.cyanogenmod.com oder anderen Android-Internetseiten finden.</string>
+  <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder Sie haben AdAway keine root-Rechte gegeben.\n\nDas kann passieren, wenn Sie Ihr Gerät nicht gerootet haben.\nInformationen, wie Sie Ihr Gerät rooten, können Sie auf www.cyanogenmod.org oder anderen Android-Internetseiten finden.</string>
   <string name="no_root_title">Gerootetes Android wird benötigt</string>
   <string name="no_url">Das ist keine gültige Adresse!</string>
   <string name="no_url_title">Falsch formatierte Adresse</string>

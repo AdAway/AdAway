@@ -100,7 +100,7 @@
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de la création du fichier privé</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Soit le binaire su est introuvable, soit vous n\'avez pas donné les droits « root » à AdAway.\n\nCeci peut arriver lorsque votre appareil n\'est pas rooté.\nVous pouvez trouver des informations sur la façon de rooter votre appareil sur www.cyanogenmod.com ou d\'autres sites Web Android.</string>
+  <string name="no_root_description">Soit le binaire su est introuvable, soit vous n\'avez pas donné les droits « root » à AdAway.\n\nCeci peut arriver lorsque votre appareil n\'est pas rooté.\nVous pouvez trouver des informations sur la façon de rooter votre appareil sur www.cyanogenmod.org ou d\'autres sites Web Android.</string>
   <string name="no_root_title">Un Android rooté est exigé</string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
   <string name="no_url_title">URL mal formatée</string>

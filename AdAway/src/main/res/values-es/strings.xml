@@ -100,7 +100,7 @@
   <string name="no_private_file">No se pudo crear el fichero privado.</string>
   <string name="no_private_file_title">La creación del fichero privado falló</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">O bien no se pudo encontrar el binario su, o usted no concedió permisos de root para AdAway.\n\nEsto puede ocurrir cuando su dispositivo no está rooteado.\nPuede encontrar información sobre la forma de rootear su dispositivo en www.cyanogenmod.com u otros sitios web sobre Android.</string>
+  <string name="no_root_description">O bien no se pudo encontrar el binario su, o usted no concedió permisos de root para AdAway.\n\nEsto puede ocurrir cuando su dispositivo no está rooteado.\nPuede encontrar información sobre la forma de rootear su dispositivo en www.cyanogenmod.org u otros sitios web sobre Android.</string>
   <string name="no_root_title">Se requiere un Android rooteado</string>
   <string name="no_url">¡Esta no es una URL válida!</string>
   <string name="no_url_title">URL de formato incorrecto</string>

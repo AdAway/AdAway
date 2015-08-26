@@ -126,7 +126,7 @@ AdAway не будет работать в мобильных сетях, так
   <string name="no_root_description">Либо программный файл SuperUser не найден, либо AdAway не были предоставлены разрешения root.
 
 Это может произойти, когда на устройстве нет прав Root.
-О том, как получить права Root на устройстве вы можете найти на www.cyanogenmod.com или других веб-сайтах по Android.</string>
+О том, как получить права Root на устройстве вы можете найти на www.cyanogenmod.org или других веб-сайтах по Android.</string>
   <string name="no_root_title">Для Android требуются права Root</string>
   <string name="no_url">Это недопустимый URL!</string>
   <string name="no_url_title">Неправильно отформатированный URL</string>

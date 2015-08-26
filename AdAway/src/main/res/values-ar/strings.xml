@@ -100,7 +100,7 @@
   <string name="no_private_file">لا يمكن إنشاء ملف خاص.</string>
   <string name="no_private_file_title">فشل إنشاء ملف خاص</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">اما ملفات الروت لاتعمل او انك لم تعطي صلاحيات الروت لadaway. هذا يحدث عندما يكون جهازك لا يحتوي على صلاحيات الروت. يمكنك ايجاد معلومات عن كيفية اضافة صلاحيات الروت الى جهازك من هنا www.cyanogenmod.com او اي موقع اخر </string>
+  <string name="no_root_description">اما ملفات الروت لاتعمل او انك لم تعطي صلاحيات الروت لadaway. هذا يحدث عندما يكون جهازك لا يحتوي على صلاحيات الروت. يمكنك ايجاد معلومات عن كيفية اضافة صلاحيات الروت الى جهازك من هنا www.cyanogenmod.org او اي موقع اخر </string>
   <string name="no_root_title">مطلوب روت للهاتف</string>
   <string name="no_url">عنوان URL معطوب!</string>
   <string name="no_url_title">صيغة عنوان URL غير صحيحية</string>

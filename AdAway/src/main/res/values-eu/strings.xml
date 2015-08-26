@@ -100,7 +100,7 @@
   <string name="no_private_file">Agiri pribatua ezin da sortu.</string>
   <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">su binarioa ezin da aurkitu edo ez duzu erro baimenik ahalbidetuta AdAway-rako.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola errotu buruzko argibideak  www.cyanogenmod.com edo beste Android webgune batzuetan aurkitu dezakezu.</string>
+  <string name="no_root_description">su binarioa ezin da aurkitu edo ez duzu erro baimenik ahalbidetuta AdAway-rako.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola errotu buruzko argibideak  www.cyanogenmod.org edo beste Android webgune batzuetan aurkitu dezakezu.</string>
   <string name="no_root_title">Beharrezkoa Android errotua</string>
   <string name="no_url">Ez da baliozko URL bat!</string>
   <string name="no_url_title">URL-a ezegoki heuskarrituta</string>

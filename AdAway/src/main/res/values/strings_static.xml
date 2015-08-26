@@ -2,7 +2,7 @@
 <resources>
 
     <string name="about_url" translate="false">http://code.google.com/p/ad-away/</string>
-    <string name="no_root_url" translate="false">http://www.cyanogenmod.com</string>
+    <string name="no_root_url" translate="false">http://www.cyanogenmod.org</string>
     <string name="hosts_add_dialog_input" translate="false">http://</string>
 
 </resources>

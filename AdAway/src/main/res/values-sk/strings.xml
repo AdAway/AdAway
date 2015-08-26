@@ -100,7 +100,7 @@
   <string name="no_private_file">Súkromný súbor nemožno vytvoriť.</string>
   <string name="no_private_file_title">Vytváranie súboru zlyhalo</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Buď nemáte root alebo ste nepovolili root oprávnenia pre AdAway.\n\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke www.cyanogenmod.com alebo na inej stránke o zariadeniach s Androidom.</string>
+  <string name="no_root_description">Buď nemáte root alebo ste nepovolili root oprávnenia pre AdAway.\n\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke www.cyanogenmod.org alebo na inej stránke o zariadeniach s Androidom.</string>
   <string name="no_root_title">Je potrebné rootnuté zariadenie</string>
   <string name="no_url">Toto nie je platná URL!</string>
   <string name="no_url_title">Nesprávne formulovaná URL</string>
