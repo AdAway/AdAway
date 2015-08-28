@@ -15,18 +15,30 @@
         android:paddingRight="10dp"
         android:paddingTop="20dp">
 
-        <fragment
-            android:id="@+id/base_fragment"
-            android:name="org.adaway.ui.BaseFragment"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout="@layout/base_fragment" />
+            android:id="@+id/scrollView">
 
-        <LinearLayout
-            android:id="@+id/base_activity_webserver_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <fragment
+                    android:id="@+id/base_fragment"
+                    android:name="org.adaway.ui.BaseFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/base_fragment" />
+
+                <LinearLayout
+                    android:id="@+id/base_activity_webserver_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
     <!-- Divider -->
 
@@ -34,7 +46,8 @@
         android:id="@+id/horizontalLine"
         android:layout_width="2dp"
         android:layout_height="match_parent"
-        android:background="#373737" />
+        android:background="#373737"
+        android:orientation="horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
