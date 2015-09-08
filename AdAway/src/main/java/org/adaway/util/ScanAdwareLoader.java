@@ -40,8 +40,9 @@ import android.support.v4.content.AsyncTaskLoader;
  */
 public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>> {
     public static final String[] AD_PACKAGE_PREFIXES = {"com.airpush.", "com.Leadbolt.",
-            "com.appenda.", "com.iac.notification.", "com.urbanairship.", "com.tapjoy.",
-            "com.sellaring."};
+            "com.appenda.", "com.iac.notification.", "com.appbucks.sdk.", "com.tapjoy.",
+            "com.sellaring.", "com.inmobi.", "com.senddroid.", "cn.kuguo.", "com.applovin.",
+            "com.adnotify."};
 
     Context context;
     List<String> mItems;
@@ -160,8 +161,8 @@ public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>>
                         }
                     }
                 }
-            } catch (NameNotFoundException e) {
-                Log.e(Constants.TAG, "Managed to not find a package we know about");
+            } catch (Exception e) {
+                Log.e(Constants.TAG, "Scan Adware Exception", e);
             }
         }
 
