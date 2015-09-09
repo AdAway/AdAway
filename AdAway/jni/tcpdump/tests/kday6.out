@@ -1,0 +1,460 @@
+FRF.16 Frag, seq 693, Flags [Begin], UI e8! IS-IS, length 301989913
+	L1 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 131 (131)
+	  lsp-id: 8383.8383.834f.00-60, seq: 0x06418fcc, lifetime: 33667s
+	  chksum: 0x0900(unverified), PDU length: 33667, Flags: [ Overload bit set, expense ATT bit set, L1 IS ]
+	    Multi-Topology Capability TLV #144, length: 137
+	      O: 0, RES: 4, MTID(s): 3945
+	      unknown subTLV #8, length: 233
+	      unknown subTLV #18, length: 0
+	      unknown subTLV #37, length: 144
+	      unknown subTLV #137, length: 79
+	      unknown subTLV #105, length: 8
+	      unknown subTLV #0, length: 69
+	      unknown subTLV #0, length: 0
+	      unknown subTLV #52, length: 144
+	      unknown subTLV #64, length: 64
+	      SPB Instance subTLV #1, length: 64
+	        CIST Root-ID: 06a516cc 09370acc, Path Cost: ffffff7f, Prio: 48090
+	        RES: 1031, V: 1, SPSource-ID: 324444, No of Trees: 5
+	         U:0, M:0, A:0, RES:22, ECT: 144a2d80, BVID: 256, SPVID: 1040
+	         U:0, M:1, A:1, RES:14, ECT: 55000001, BVID: 16, SPVID: 2058
+	         U:1, M:0, A:0, RES:12, ECT: f3ac2b26, BVID: 2499, SPVID: 185
+	         U:1, M:0, A:1, RES:5, ECT: 68735440, BVID: 1216, SPVID: 3072
+	         U:1, M:1, A:1, RES:23, ECT: 020000f7, BVID: 32, SPVID: 0
+	      unknown subTLV #132, length: 181
+	      unknown subTLV #156, length: 190
+	      unknown subTLV #255, length: 255
+	      unknown subTLV #255, length: 255
+	      unknown subTLV #0, length: 64
+	      unknown subTLV #6, length: 62
+	      unknown subTLV #136, length: 204
+	      unknown subTLV #9, length: 16
+	      unknown subTLV #4, length: 16
+	      unknown subTLV #5, length: 148
+	      unknown subTLV #0, length: 0
+	      SPB Instance subTLV #1, length: 1
+	        CIST Root-ID: 080a26a6 318b8cf3, Path Cost: a5d38ec4, Prio: 31240
+	        RES: 1864, V: 1, SPSource-ID: 133120, No of Trees: 45
+	         U:0, M:0, A:0, RES:0, ECT: cc09370a, BVID: 3496, SPVID: 1
+	         U:1, M:0, A:1, RES:27, ECT: 16274ce2, BVID: 3423, SPVID: 860
+	         U:1, M:1, A:0, RES:10, ECT: 80100410, BVID: 89, SPVID: 1093
+	         U:0, M:0, A:0, RES:16, ECT: 04106e55, BVID: 0, SPVID: 1
+	         U:0, M:0, A:0, RES:1, ECT: 080a8cf3, BVID: 2754, SPVID: 2854
+	         U:1, M:0, A:0, RES:28, ECT: 0e2d0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:27, ECT: 01001201, BVID: 2104, SPVID: 899
+	         U:1, M:0, A:0, RES:3, ECT: 83838383, BVID: 2104, SPVID: 899
+	         U:0, M:1, A:0, RES:15, ECT: 00600641, BVID: 2300, SPVID: 3081
+	         U:0, M:0, A:0, RES:0, ECT: 2590894f, BVID: 1680, SPVID: 2281
+	         U:0, M:0, A:0, RES:18, ECT: 0025e489, BVID: 1264, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3711
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0c0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e640e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e80ff, BVID: 3760, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e000003, BVID: 3720, SPVID: 14
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 560e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3675
+	         U:1, M:0, A:0, RES:0, ECT: acaa4016, BVID: 380, SPVID: 494
+	         U:1, M:1, A:0, RES:14, ECT: 1560b70f, BVID: 2993, SPVID: 1575
+	         U:0, M:1, A:0, RES:12, ECT: e2d5f35c, BVID: 3240, SPVID: 16
+	         U:0, M:0, A:0, RES:4, ECT: 10059445, BVID: 256, SPVID: 1040
+	         U:0, M:1, A:1, RES:14, ECT: 55000001, BVID: 16, SPVID: 2058
+	         U:1, M:0, A:0, RES:12, ECT: f3ac2b26, BVID: 2499, SPVID: 2745
+	         U:1, M:0, A:1, RES:5, ECT: 68735440, BVID: 1216, SPVID: 3072
+	         U:1, M:1, A:1, RES:23, ECT: 020000f7, BVID: 32, SPVID: 0
+	         U:1, M:0, A:0, RES:4, ECT: b59cbe8c, BVID: 4095, SPVID: 4095
+	         U:0, M:0, A:0, RES:0, ECT: 40ff3e88, BVID: 3264, SPVID: 2320
+	         U:0, M:0, A:0, RES:4, ECT: 10059400, BVID: 0, SPVID: 257
+	         U:0, M:0, A:0, RES:8, ECT: 0a269c31, BVID: 2232, SPVID: 3315
+	         U:1, M:0, A:1, RES:12, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:0, ECT: 040e0e0e, BVID: 224, SPVID: 3598
+	         U:1, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0b0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 224, SPVID: 3598
+	         U:0, M:0, A:0, RES:14, ECT: 0e0e0e0e, BVID: 3, SPVID: 3616
+	    unknown TLV #213, length: 243
+		0x0000:  5cca 8010 0410 0594 4510 0410 6e55 0000
+		0x0010:  0101 080a 8cf3 ac2b 269c 0e2d 0e0e 0e0e
+		0x0020:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0030:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0040:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0050:  0e0e 0e0e 0e0e 0e0e 0e1b 0100 1201 8383
+		0x0060:  8383 8383 8383 8383 834f 0060 0641 8fcc
+		0x0070:  0900 2590 894f 6908 e912 0025 e489 4f0e
+		0x0080:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0090:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00a0:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00b0:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00c0:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00d0:  7f0e 0e0e 0e0e 0e0e 0e0e 0e0e 0c0e 0e0e
+		0x00e0:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00f0:  0e0e 0e
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    unknown TLV #100, length: 14
+		0x0000:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    unknown TLV #96, length: 183
+		0x0000:  0fbb 1627 4ce2 d5f3 5cca 8010 0410 0594
+		0x0010:  4510 0410 6e55 0000 0101 080a 8cf3 ac2b
+		0x0020:  269c 3ab9 a568 7354 404c 0c00 f702 0000
+		0x0030:  f702 0000 84b5 9cbe 8cff ffff 0040 ff3e
+		0x0040:  88cc 0910 0410 0594 0000 0101 080a 269c
+		0x0050:  318b 8cf3 ac0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0060:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0070:  0e0e 0e0e 0004 0e0e 0e0e 0e0e 8e0e 0e0e
+		0x0080:  0e0e 0e0e 0e0b 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0090:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00a0:  0e00 3e20 0a00 b60d 0000 2000 0000 84b5
+		0x00b0:  aee0 3083 8383 1b
+	    Area address(es) TLV #1, length: 0
+	    unknown TLV #18, length: 1
+		0x0000:  83
+	    Inter-Domain Information Type TLV #131, length: 131
+	      Inter-Domain Information Type: Unknown (0x83)
+	      0x0000:  8383 8383 8383 834f 0060 0641 8fcc 0900
+	      0x0010:  2590 894f 6908 e912 0025 9089 4f69 0800
+	      0x0020:  4500 0034 9040 4001 4006 a516 cc09 370a
+	      0x0030:  ccff ffff 7fbb da80 d5f3 5c05 1614 4a2d
+	      0x0040:  8010 0410 6e55 0000 0101 080a 8cf3 ac2b
+	      0x0050:  269c 30b9 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+	      0x0060:  0e08 0e0e 0e0e 0e01 0e0e 0e0e 0e0e 110e
+	      0x0070:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+	      0x0080:  0e0e
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    unknown TLV #172, length: 198
+		0x0000:  2478 f620 70ac 2561 8ae3 3458 2d7a 4ea0
+		0x0010:  d056 a568 7354 180e 0e0e 0e0e 0e0e 0e0e
+		0x0020:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0030:  0e0d f20e 0e0e 0e0e 0e0e 0e0e 0e04 0e0e
+		0x0040:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0050:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0060:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0070:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e49 0e0e
+		0x0080:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0d
+		0x0090:  f20e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00a0:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00b0:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00c0:  0e0e 0e0e 0e0e
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3612
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 5
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3676
+	    unknown TLV #92, length: 92
+		0x0000:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0010:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0020:  5c44 4444 4444 4444 4444 4444 4444 4444
+		0x0030:  44b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0040:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0050:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+	    unknown TLV #183, length: 183
+		0x0000:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0010:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0020:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0030:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0040:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0050:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0060:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0070:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0080:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0090:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x00a0:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x00b0:  b7b7 b7b7 b7b7 b7
+	    unknown TLV #183, length: 183
+		0x0000:  b7b7 b7b7 b7b7 b7b7 b7c0 b7b7 b7b7 b7b7
+		0x0010:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0020:  b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7 b7b7
+		0x0030:  b7b7 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0040:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0050:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0060:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0070:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0080:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0090:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x00a0:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x00b0:  5c5c 5c5c 5c5c 5c
+	    unknown TLV #92, length: 92
+		0x0000:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0010:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0020:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0030:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0040:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0050:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+	    unknown TLV #92, length: 92
+		0x0000:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0010:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0020:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0030:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0040:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0050:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+	    unknown TLV #92, length: 92
+		0x0000:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0010:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0020:  5c5c 715c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0030:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0040:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0050:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+	    unknown TLV #92, length: 92
+		0x0000:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0010:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0020:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0030:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0040:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0050:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+	    unknown TLV #92, length: 92
+		0x0000:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0010:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0020:  5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c 5c5c
+		0x0030:  5c5c 5c5c 5c5c 5c5c 5c10 0594 4510 0410
+		0x0040:  6e55 0000 0101 080a 8cf3 ac2b 269c 3ab9
+		0x0050:  a568 7354 404c 0c00 f702 0000
+	    unknown TLV #247, length: 2
+		0x0000:  0000
+	    IPv4 Interface address(es) TLV #132, length: 181
+	      IPv4 interface address: 156.190.140.255
+	      IPv4 interface address: 255.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.14.14
+	      IPv4 interface address: 14.14.28.14
+	      IPv4 interface address: 28.14.21.14
+	      IPv4 interface address: 14.14.14.130
+	      IPv4 interface address: 89.186.4.171
+	      IPv4 interface address: 23.3.1.0
+	      IPv4 interface address: 32.144.252.48
+	      IPv4 interface address: 165.128.255.255
+	      IPv4 interface address: 255.246.232.117
+	      IPv4 interface address: 154.157.104.136
+	      IPv4 interface address: 118.103.188.123
+	      IPv4 interface address: 181.119.205.109
+	      IPv4 interface address: 60.22.90.116
+	      IPv4 interface address: 80.127.192.14
+	      IPv4 interface address: 156.165.230.105
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 61197
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 13
+	      LSP Buffersize: 244
+	    unknown TLV #255, length: 0
+	    unknown TLV #64, length: 6
+		0x0000:  3e88 cc09 3650
+	    unknown TLV #204, length: 9
+		0x0000:  370a da80 01bb 0404 04
+	    unknown TLV #11, length: 4
+		0x0000:  2104 0404
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    unknown TLV #234, length: 4
+		0x0000:  0404 0404
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    unknown TLV #0, length: 0
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 5
+	    unknown TLV #13, length: 178
+		0x0000:  c4e4 f9cb 0ce2 cd2e 175a 0bf3 b492 01fa
+		0x0010:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0020:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0030:  3a3a 3a3a 3a3a 3a3a 3a3a 3a3a 3a3a 3a3a
+		0x0040:  3a3a 3a0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e28
+		0x0050:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0060:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0070:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0080:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0090:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00a0:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x00b0:  0e0e
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    Partition DIS TLV #4, length: 4
+	    unknown TLV #0, length: 13
+		0x0000:  b2c4 e4f9 cb0c e2cd 2e17 5a0b f3
+	    unknown TLV #180, length: 146
+		0x0000:  01fa 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0010:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0020:  0e0e 0e28 0e0e 0e0e 0e0e fb0d 0e0e 0e0e
+		0x0030:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0040:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0050:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0060:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0070:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0080:  0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e 0e0e
+		0x0090:  0e0e
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    IPv4 Internal Reachability TLV #128, length: 0
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    LSP Buffersize TLV #14, length: 14
+	      LSP Buffersize: 3598
+	    unknown TLV #58, length: 58
+		0x0000:  3a3a 3a3a 3a3a 3a3a 3a3a 3a3a 3a3a 3a3a
+		0x0010:  3a3a 3a
+		 packet exceeded snapshot (39) bytes
+EXIT CODE 00000100

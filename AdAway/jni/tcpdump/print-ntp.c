@@ -23,19 +23,13 @@
  *	loosely based on print-bootp.c
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-ntp.c,v 1.43 2007-11-30 13:45:10 hannes Exp $ (LBL)";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <string.h>
 #ifdef HAVE_STRFTIME
 #include <time.h>
 #endif
@@ -43,14 +37,139 @@ static const char rcsid[] _U_ =
 #include "interface.h"
 #include "addrtoname.h"
 #include "extract.h"
+
+/*
+ * Based on ntp.h from the U of MD implementation
+ *	This file is based on Version 2 of the NTP spec (RFC1119).
+ */
+
+/*
+ *  Definitions for the masses
+ */
+#define	JAN_1970	2208988800U	/* 1970 - 1900 in seconds */
+
+/*
+ * Structure definitions for NTP fixed point values
+ *
+ *    0			  1		      2			  3
+ *    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+ *   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ *   |			       Integer Part			     |
+ *   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ *   |			       Fraction Part			     |
+ *   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ *
+ *    0			  1		      2			  3
+ *    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+ *   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ *   |		  Integer Part	     |	   Fraction Part	     |
+ *   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
+struct l_fixedpt {
+	uint32_t int_part;
+	uint32_t fraction;
+};
+
+struct s_fixedpt {
+	uint16_t int_part;
+	uint16_t fraction;
+};
+
+/* rfc2030
+ *                      1                   2                   3
+ *  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |LI | VN  |Mode |    Stratum    |     Poll      |   Precision   |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                          Root Delay                           |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                       Root Dispersion                         |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                     Reference Identifier                      |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                                                               |
+ * |                   Reference Timestamp (64)                    |
+ * |                                                               |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                                                               |
+ * |                   Originate Timestamp (64)                    |
+ * |                                                               |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                                                               |
+ * |                    Receive Timestamp (64)                     |
+ * |                                                               |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                                                               |
+ * |                    Transmit Timestamp (64)                    |
+ * |                                                               |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                 Key Identifier (optional) (32)                |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ * |                                                               |
+ * |                                                               |
+ * |                 Message Digest (optional) (128)               |
+ * |                                                               |
+ * |                                                               |
+ * +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ */
+
+struct ntpdata {
+	u_char status;		/* status of local clock and leap info */
+	u_char stratum;		/* Stratum level */
+	u_char ppoll;		/* poll value */
+	int precision:8;
+	struct s_fixedpt root_delay;
+	struct s_fixedpt root_dispersion;
+	uint32_t refid;
+	struct l_fixedpt ref_timestamp;
+	struct l_fixedpt org_timestamp;
+	struct l_fixedpt rec_timestamp;
+	struct l_fixedpt xmt_timestamp;
+        uint32_t key_id;
+        uint8_t  message_digest[16];
+};
+/*
+ *	Leap Second Codes (high order two bits)
+ */
+#define	NO_WARNING	0x00	/* no warning */
+#define	PLUS_SEC	0x40	/* add a second (61 seconds) */
+#define	MINUS_SEC	0x80	/* minus a second (59 seconds) */
+#define	ALARM		0xc0	/* alarm condition (clock unsynchronized) */
+
+/*
+ *	Clock Status Bits that Encode Version
+ */
+#define	NTPVERSION_1	0x08
+#define	VERSIONMASK	0x38
+#define LEAPMASK	0xc0
 #ifdef MODEMASK
 #undef MODEMASK					/* Solaris sucks */
 #endif
-#include "ntp.h"
+#define	MODEMASK	0x07
 
-static void p_sfix(const struct s_fixedpt *);
-static void p_ntp_time(const struct l_fixedpt *);
-static void p_ntp_delta(const struct l_fixedpt *, const struct l_fixedpt *);
+/*
+ *	Code values
+ */
+#define	MODE_UNSPEC	0	/* unspecified */
+#define	MODE_SYM_ACT	1	/* symmetric active */
+#define	MODE_SYM_PAS	2	/* symmetric passive */
+#define	MODE_CLIENT	3	/* client */
+#define	MODE_SERVER	4	/* server */
+#define	MODE_BROADCAST	5	/* broadcast */
+#define	MODE_RES1	6	/* reserved */
+#define	MODE_RES2	7	/* reserved */
+
+/*
+ *	Stratum Definitions
+ */
+#define	UNSPECIFIED	0
+#define	PRIM_REF	1	/* radio clock */
+#define	INFO_QUERY	62	/* **** THIS implementation dependent **** */
+#define	INFO_REPLY	63	/* **** THIS implementation dependent **** */
+
+static void p_sfix(netdissect_options *ndo, const struct s_fixedpt *);
+static void p_ntp_time(netdissect_options *, const struct l_fixedpt *);
+static void p_ntp_delta(netdissect_options *, const struct l_fixedpt *, const struct l_fixedpt *);
 
 static const struct tok ntp_mode_values[] = {
     { MODE_UNSPEC,    "unspecified" },
@@ -82,127 +201,129 @@ static const struct tok ntp_stratum_values[] = {
  * Print ntp requests
  */
 void
-ntp_print(register const u_char *cp, u_int length)
+ntp_print(netdissect_options *ndo,
+          register const u_char *cp, u_int length)
 {
 	register const struct ntpdata *bp;
 	int mode, version, leapind;
 
 	bp = (struct ntpdata *)cp;
 
-	TCHECK(bp->status);
+	ND_TCHECK(bp->status);
 
 	version = (int)(bp->status & VERSIONMASK) >> 3;
-	printf("NTPv%d", version);
+	ND_PRINT((ndo, "NTPv%d", version));
 
 	mode = bp->status & MODEMASK;
-        if (!vflag) {
-            printf (", %s, length %u",
-                    tok2str(ntp_mode_values, "Unknown mode", mode),
-                    length);
-            return;
-        }
-        
-        printf (", length %u\n\t%s",
-                length,
-                tok2str(ntp_mode_values, "Unknown mode", mode));        
+	if (!ndo->ndo_vflag) {
+		ND_PRINT((ndo, ", %s, length %u",
+		          tok2str(ntp_mode_values, "Unknown mode", mode),
+		          length));
+		return;
+	}
+
+	ND_PRINT((ndo, ", length %u\n\t%s",
+	          length,
+	          tok2str(ntp_mode_values, "Unknown mode", mode)));
 
 	leapind = bp->status & LEAPMASK;
-        printf (", Leap indicator: %s (%u)",
-                tok2str(ntp_leapind_values, "Unknown", leapind),
-                leapind);
+	ND_PRINT((ndo, ", Leap indicator: %s (%u)",
+	          tok2str(ntp_leapind_values, "Unknown", leapind),
+	          leapind));
 
-	TCHECK(bp->stratum);
-	printf(", Stratum %u (%s)", 	
+	ND_TCHECK(bp->stratum);
+	ND_PRINT((ndo, ", Stratum %u (%s)",
 		bp->stratum,
-		tok2str(ntp_stratum_values, (bp->stratum >=2 && bp->stratum<=15) ? "secondary reference" : "reserved", bp->stratum));
+		tok2str(ntp_stratum_values, (bp->stratum >=2 && bp->stratum<=15) ? "secondary reference" : "reserved", bp->stratum)));
 
-	TCHECK(bp->ppoll);
-	printf(", poll %u (%us)", bp->ppoll, 1 << bp->ppoll);
+	ND_TCHECK(bp->ppoll);
+	ND_PRINT((ndo, ", poll %u (%us)", bp->ppoll, 1 << bp->ppoll));
 
-	/* Can't TCHECK bp->precision bitfield so bp->distance + 0 instead */
-	TCHECK2(bp->root_delay, 0);
-	printf(", precision %d", bp->precision);
+	/* Can't ND_TCHECK bp->precision bitfield so bp->distance + 0 instead */
+	ND_TCHECK2(bp->root_delay, 0);
+	ND_PRINT((ndo, ", precision %d", bp->precision));
 
-	TCHECK(bp->root_delay);
-	fputs("\n\tRoot Delay: ", stdout);
-	p_sfix(&bp->root_delay);
+	ND_TCHECK(bp->root_delay);
+	ND_PRINT((ndo, "\n\tRoot Delay: "));
+	p_sfix(ndo, &bp->root_delay);
 
-	TCHECK(bp->root_dispersion);
-	fputs(", Root dispersion: ", stdout);
-	p_sfix(&bp->root_dispersion);
+	ND_TCHECK(bp->root_dispersion);
+	ND_PRINT((ndo, ", Root dispersion: "));
+	p_sfix(ndo, &bp->root_dispersion);
 
-	TCHECK(bp->refid);
-	fputs(", Reference-ID: ", stdout);
+	ND_TCHECK(bp->refid);
+	ND_PRINT((ndo, ", Reference-ID: "));
 	/* Interpretation depends on stratum */
 	switch (bp->stratum) {
 
 	case UNSPECIFIED:
-		printf("(unspec)");
+		ND_PRINT((ndo, "(unspec)"));
 		break;
 
 	case PRIM_REF:
-		if (fn_printn((u_char *)&(bp->refid), 4, snapend))
+		if (fn_printn(ndo, (u_char *)&(bp->refid), 4, ndo->ndo_snapend))
 			goto trunc;
 		break;
 
 	case INFO_QUERY:
-		printf("%s INFO_QUERY", ipaddr_string(&(bp->refid)));
+		ND_PRINT((ndo, "%s INFO_QUERY", ipaddr_string(ndo, &(bp->refid))));
 		/* this doesn't have more content */
 		return;
 
 	case INFO_REPLY:
-		printf("%s INFO_REPLY", ipaddr_string(&(bp->refid)));
+		ND_PRINT((ndo, "%s INFO_REPLY", ipaddr_string(ndo, &(bp->refid))));
 		/* this is too complex to be worth printing */
 		return;
 
 	default:
-		printf("%s", ipaddr_string(&(bp->refid)));
+		ND_PRINT((ndo, "%s", ipaddr_string(ndo, &(bp->refid))));
 		break;
 	}
 
-	TCHECK(bp->ref_timestamp);
-	fputs("\n\t  Reference Timestamp:  ", stdout);
-	p_ntp_time(&(bp->ref_timestamp));
+	ND_TCHECK(bp->ref_timestamp);
+	ND_PRINT((ndo, "\n\t  Reference Timestamp:  "));
+	p_ntp_time(ndo, &(bp->ref_timestamp));
 
-	TCHECK(bp->org_timestamp);
-	fputs("\n\t  Originator Timestamp: ", stdout);
-	p_ntp_time(&(bp->org_timestamp));
+	ND_TCHECK(bp->org_timestamp);
+	ND_PRINT((ndo, "\n\t  Originator Timestamp: "));
+	p_ntp_time(ndo, &(bp->org_timestamp));
 
-	TCHECK(bp->rec_timestamp);
-	fputs("\n\t  Receive Timestamp:    ", stdout);
-	p_ntp_time(&(bp->rec_timestamp));
+	ND_TCHECK(bp->rec_timestamp);
+	ND_PRINT((ndo, "\n\t  Receive Timestamp:    "));
+	p_ntp_time(ndo, &(bp->rec_timestamp));
 
-	TCHECK(bp->xmt_timestamp);
-	fputs("\n\t  Transmit Timestamp:   ", stdout);
-	p_ntp_time(&(bp->xmt_timestamp));
+	ND_TCHECK(bp->xmt_timestamp);
+	ND_PRINT((ndo, "\n\t  Transmit Timestamp:   "));
+	p_ntp_time(ndo, &(bp->xmt_timestamp));
 
-	fputs("\n\t    Originator - Receive Timestamp:  ", stdout);
-	p_ntp_delta(&(bp->org_timestamp), &(bp->rec_timestamp));
+	ND_PRINT((ndo, "\n\t    Originator - Receive Timestamp:  "));
+	p_ntp_delta(ndo, &(bp->org_timestamp), &(bp->rec_timestamp));
 
-	fputs("\n\t    Originator - Transmit Timestamp: ", stdout);
-	p_ntp_delta(&(bp->org_timestamp), &(bp->xmt_timestamp));
+	ND_PRINT((ndo, "\n\t    Originator - Transmit Timestamp: "));
+	p_ntp_delta(ndo, &(bp->org_timestamp), &(bp->xmt_timestamp));
 
 	if ( (sizeof(struct ntpdata) - length) == 16) { 	/* Optional: key-id */
-		TCHECK(bp->key_id);
-		printf("\n\tKey id: %u", bp->key_id);
+		ND_TCHECK(bp->key_id);
+		ND_PRINT((ndo, "\n\tKey id: %u", bp->key_id));
 	} else if ( (sizeof(struct ntpdata) - length) == 0) { 	/* Optional: key-id + authentication */
-		TCHECK(bp->key_id);
-		printf("\n\tKey id: %u", bp->key_id);
-		TCHECK2(bp->message_digest, sizeof (bp->message_digest));
-                printf("\n\tAuthentication: %08x%08x%08x%08x",
+		ND_TCHECK(bp->key_id);
+		ND_PRINT((ndo, "\n\tKey id: %u", bp->key_id));
+		ND_TCHECK2(bp->message_digest, sizeof (bp->message_digest));
+                ND_PRINT((ndo, "\n\tAuthentication: %08x%08x%08x%08x",
         		       EXTRACT_32BITS(bp->message_digest),
 		               EXTRACT_32BITS(bp->message_digest + 4),
 		               EXTRACT_32BITS(bp->message_digest + 8),
-		               EXTRACT_32BITS(bp->message_digest + 12));
+		               EXTRACT_32BITS(bp->message_digest + 12)));
         }
 	return;
 
 trunc:
-	fputs(" [|ntp]", stdout);
+	ND_PRINT((ndo, " [|ntp]"));
 }
 
 static void
-p_sfix(register const struct s_fixedpt *sfp)
+p_sfix(netdissect_options *ndo,
+       register const struct s_fixedpt *sfp)
 {
 	register int i;
 	register int f;
@@ -212,17 +333,18 @@ p_sfix(register const struct s_fixedpt *sfp)
 	f = EXTRACT_16BITS(&sfp->fraction);
 	ff = f / 65536.0;	/* shift radix point by 16 bits */
 	f = ff * 1000000.0;	/* Treat fraction as parts per million */
-	printf("%d.%06d", i, f);
+	ND_PRINT((ndo, "%d.%06d", i, f));
 }
 
 #define	FMAXINT	(4294967296.0)	/* floating point rep. of MAXINT */
 
 static void
-p_ntp_time(register const struct l_fixedpt *lfp)
+p_ntp_time(netdissect_options *ndo,
+           register const struct l_fixedpt *lfp)
 {
 	register int32_t i;
-	register u_int32_t uf;
-	register u_int32_t f;
+	register uint32_t uf;
+	register uint32_t f;
 	register float ff;
 
 	i = EXTRACT_32BITS(&lfp->int_part);
@@ -232,7 +354,7 @@ p_ntp_time(register const struct l_fixedpt *lfp)
 		ff += FMAXINT;
 	ff = ff / FMAXINT;	/* shift radix point by 32 bits */
 	f = ff * 1000000000.0;	/* treat fraction as parts per billion */
-	printf("%u.%09d", i, f);
+	ND_PRINT((ndo, "%u.%09d", i, f));
 
 #ifdef HAVE_STRFTIME
 	/*
@@ -245,20 +367,21 @@ p_ntp_time(register const struct l_fixedpt *lfp)
 
 	    tm = localtime(&seconds);
 	    strftime(time_buf, sizeof (time_buf), "%Y/%m/%d %H:%M:%S", tm);
-	    printf (" (%s)", time_buf);
+	    ND_PRINT((ndo, " (%s)", time_buf));
 	}
 #endif
 }
 
 /* Prints time difference between *lfp and *olfp */
 static void
-p_ntp_delta(register const struct l_fixedpt *olfp,
-	    register const struct l_fixedpt *lfp)
+p_ntp_delta(netdissect_options *ndo,
+            register const struct l_fixedpt *olfp,
+            register const struct l_fixedpt *lfp)
 {
 	register int32_t i;
-	register u_int32_t u, uf;
-	register u_int32_t ou, ouf;
-	register u_int32_t f;
+	register uint32_t u, uf;
+	register uint32_t ou, ouf;
+	register uint32_t f;
 	register float ff;
 	int signbit;
 
@@ -267,7 +390,7 @@ p_ntp_delta(register const struct l_fixedpt *olfp,
 	uf = EXTRACT_32BITS(&lfp->fraction);
 	ouf = EXTRACT_32BITS(&olfp->fraction);
 	if (ou == 0 && ouf == 0) {
-		p_ntp_time(lfp);
+		p_ntp_time(ndo, lfp);
 		return;
 	}
 
@@ -299,10 +422,6 @@ p_ntp_delta(register const struct l_fixedpt *olfp,
 		ff += FMAXINT;
 	ff = ff / FMAXINT;	/* shift radix point by 32 bits */
 	f = ff * 1000000000.0;	/* treat fraction as parts per billion */
-	if (signbit)
-		putchar('-');
-	else
-		putchar('+');
-	printf("%d.%09d", i, f);
+	ND_PRINT((ndo, "%s%d.%09d", signbit ? "-" : "+", i, f));
 }
 

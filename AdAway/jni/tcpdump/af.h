@@ -1,5 +1,3 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/af.h,v 1.3 2006-03-23 14:58:44 hannes Exp $ (LBL) */
-
 /*
  * Copyright (c) 1998-2006 The TCPDUMP project
  *

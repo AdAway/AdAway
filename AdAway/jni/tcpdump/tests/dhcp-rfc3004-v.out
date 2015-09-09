@@ -1,0 +1,55 @@
+IP (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 328)
+    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 00:0c:29:1f:74:06, length 300, xid 0x6e32864, Flags [none]
+	  Client-Ethernet-Address 00:0c:29:1f:74:06
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message Option 53, length 1: Discover
+	    Requested-IP Option 50, length 4: 192.168.1.4
+	    Parameter-Request Option 55, length 7: 
+	      Subnet-Mask, BR, Time-Zone, Default-Gateway
+	      Domain-Name, Domain-Name-Server, Hostname
+	    User-Class Option 77, length 37: 
+	      instance#1: "subopt1", length 7
+	      instance#2: "subopt2-123456789", length 17
+	      instance#3: "subopt3-12", length 10
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [none], proto UDP (17), length 308)
+    192.168.1.1.67 > 192.168.1.4.68: BOOTP/DHCP, Reply, length 280, xid 0x6e32864, Flags [none]
+	  Your-IP 192.168.1.4
+	  Client-Ethernet-Address 00:0c:29:1f:74:06
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message Option 53, length 1: Offer
+	    Server-ID Option 54, length 4: 192.168.1.1
+	    Lease-Time Option 51, length 4: 86400
+	    Subnet-Mask Option 1, length 4: 255.255.255.0
+	    Default-Gateway Option 3, length 4: 192.168.1.1
+	    Domain-Name-Server Option 6, length 4: 192.168.1.1
+	    Domain-Name Option 15, length 4: "Home"
+IP (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 332)
+    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 00:0c:29:1f:74:06, length 304, xid 0x6e32864, Flags [none]
+	  Client-Ethernet-Address 00:0c:29:1f:74:06
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message Option 53, length 1: Request
+	    Server-ID Option 54, length 4: 192.168.1.1
+	    Requested-IP Option 50, length 4: 192.168.1.4
+	    Parameter-Request Option 55, length 7: 
+	      Subnet-Mask, BR, Time-Zone, Default-Gateway
+	      Domain-Name, Domain-Name-Server, Hostname
+	    User-Class Option 77, length 37: 
+	      instance#1: "subopt1", length 7
+	      instance#2: "subopt2-123456789", length 17
+	      instance#3: "subopt3-12", length 10
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [none], proto UDP (17), length 308)
+    192.168.1.1.67 > 192.168.1.4.68: BOOTP/DHCP, Reply, length 280, xid 0x6e32864, Flags [none]
+	  Your-IP 192.168.1.4
+	  Client-Ethernet-Address 00:0c:29:1f:74:06
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message Option 53, length 1: ACK
+	    Server-ID Option 54, length 4: 192.168.1.1
+	    Lease-Time Option 51, length 4: 86400
+	    Subnet-Mask Option 1, length 4: 255.255.255.0
+	    Default-Gateway Option 3, length 4: 192.168.1.1
+	    Domain-Name-Server Option 6, length 4: 192.168.1.1
+	    Domain-Name Option 15, length 4: "Home"

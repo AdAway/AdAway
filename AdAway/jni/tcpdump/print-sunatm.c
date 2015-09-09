@@ -29,29 +29,21 @@
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-sunatm.c,v 1.8 2004-03-17 23:24:38 guy Exp $ (LBL)";
-#endif
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
- 
+
 struct mbuf;
 struct rtentry;
- 
-#include <stdio.h>
-#include <pcap.h>
 
 #include "interface.h"
 #include "extract.h"
-#include "addrtoname.h"
 
 #include "atm.h"
-#include "atmuni31.h"
 
 /* SunATM header for ATM packet */
 #define DIR_POS		0	/* Direction (0x80 = transmit, 0x00 = receive) */
@@ -70,7 +62,8 @@ struct rtentry;
  * is the number of bytes actually captured.
  */
 u_int
-sunatm_if_print(const struct pcap_pkthdr *h, const u_char *p)
+sunatm_if_print(netdissect_options *ndo,
+                const struct pcap_pkthdr *h, const u_char *p)
 {
 	u_int caplen = h->caplen;
 	u_int length = h->len;
@@ -79,15 +72,12 @@ sunatm_if_print(const struct pcap_pkthdr *h, const u_char *p)
 	u_int traftype;
 
 	if (caplen < PKT_BEGIN_POS) {
-		printf("[|atm]");
+		ND_PRINT((ndo, "[|atm]"));
 		return (caplen);
 	}
 
-	if (eflag) {
-		if (p[DIR_POS] & 0x80)
-			printf("Tx: ");
-		else
-			printf("Rx: ");
+	if (ndo->ndo_eflag) {
+		ND_PRINT((ndo, p[DIR_POS] & 0x80 ? "Tx: " : "Rx: "));
 	}
 
 	switch (p[DIR_POS] & 0x0f) {
@@ -111,7 +101,7 @@ sunatm_if_print(const struct pcap_pkthdr *h, const u_char *p)
 	p += PKT_BEGIN_POS;
 	caplen -= PKT_BEGIN_POS;
 	length -= PKT_BEGIN_POS;
-	atm_print(vpi, vci, traftype, p, length, caplen);
+	atm_print(ndo, vpi, vci, traftype, p, length, caplen);
 
 	return (PKT_BEGIN_POS);
 }

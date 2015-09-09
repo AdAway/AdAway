@@ -1,0 +1,3 @@
+IP6 truncated-ip6 - 26325 bytes missing!(class 0x76, flowlabel 0x76767, hlim 103, next-header Mobility (135) payload length: 26470) 6767:6767:6767:6767:6767:6767:6767:6767 > 6767:6767:6767:6767:6767:6767:6767:6705: mobility: BU seq#=26471 HL lifetime=105884(type-0x67: len=103)[trunc] 
+IP6 truncated-ip6 - 26325 bytes missing!(class 0x76, flowlabel 0x76767, hlim 103, next-header Mobility (135) payload length: 26470) 6767:6767:6767:6767:6767:6767:6767:6767 > 6767:6767:4f67:6767:6767:6767:6767:6767: (header length 8 is too small for type 6)[|MOBILITY]
+EXIT CODE 00000100

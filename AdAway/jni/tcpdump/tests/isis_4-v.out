@@ -1,0 +1,400 @@
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 1111.1111.1111, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Down (2)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 1111.1111.1111, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Down (2)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 2222.2222.2222, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Down (2)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 2222.2222.2222, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Down (2)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 1111.1111.1111, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Initializing (1)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 2222.2222.2222, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Initializing (1)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 1111.1111.1111, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Up (0)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 2222.2222.2222, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Up (0)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 74
+	L1 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  lsp-id: 1111.1111.1111.00-00, seq: 0x00000007, lifetime:  1200s
+	  chksum: 0x1da8 (correct), PDU length: 74, Flags: [ L2 IS ]
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Hostname TLV #137, length: 2
+	      Hostname: R1
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    IPv4 Internal Reachability TLV #128, length: 12
+	      IPv4 prefix:        10.0.0.0/30, Distribution: up, Metric: 10, Internal
+	    IS Reachability TLV #2, length: 12
+	      IsNotVirtual
+	      IS Neighbor: 2222.2222.2222.00, Default Metric: 10, Internal
+IS-IS, length 74
+	L2 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  lsp-id: 1111.1111.1111.00-00, seq: 0x00000007, lifetime:  1200s
+	  chksum: 0x378e (correct), PDU length: 74, Flags: [ L2 IS ]
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Hostname TLV #137, length: 2
+	      Hostname: R1
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    IS Reachability TLV #2, length: 12
+	      IsNotVirtual
+	      IS Neighbor: 2222.2222.2222.00, Default Metric: 10, Internal
+	    IPv4 Internal Reachability TLV #128, length: 12
+	      IPv4 prefix:        10.0.0.0/30, Distribution: up, Metric: 10, Internal
+IS-IS, length 74
+	L1 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  lsp-id: 2222.2222.2222.00-00, seq: 0x00000005, lifetime:  1200s
+	  chksum: 0x4382 (correct), PDU length: 74, Flags: [ L2 IS ]
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Hostname TLV #137, length: 2
+	      Hostname: R2
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    IPv4 Internal Reachability TLV #128, length: 12
+	      IPv4 prefix:        10.0.0.0/30, Distribution: up, Metric: 10, Internal
+	    IS Reachability TLV #2, length: 12
+	      IsNotVirtual
+	      IS Neighbor: 1111.1111.1111.00, Default Metric: 10, Internal
+IS-IS, length 74
+	L2 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  lsp-id: 2222.2222.2222.00-00, seq: 0x00000006, lifetime:  1200s
+	  chksum: 0xf4cf (correct), PDU length: 74, Flags: [ L2 IS ]
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Hostname TLV #137, length: 2
+	      Hostname: R2
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    IS Reachability TLV #2, length: 12
+	      IsNotVirtual
+	      IS Neighbor: 1111.1111.1111.00, Default Metric: 10, Internal
+	    IPv4 Internal Reachability TLV #128, length: 12
+	      IPv4 prefix:        10.0.0.0/30, Distribution: up, Metric: 10, Internal
+IS-IS, length 67
+	L1 CSNP, hlen: 33, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id:    2222.2222.2222.00, PDU length: 67
+	  start lsp-id: 0000.0000.0000.00-00
+	  end lsp-id:   ffff.ffff.ffff.ff-ff
+	    LSP entries TLV #9, length: 32
+	      lsp-id: 1111.1111.1111.00-00, seq: 0x00000007, lifetime:  1198s, chksum: 0x1da8
+	      lsp-id: 2222.2222.2222.00-00, seq: 0x00000005, lifetime:  1199s, chksum: 0x4382
+IS-IS, length 67
+	L1 CSNP, hlen: 33, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id:    1111.1111.1111.00, PDU length: 67
+	  start lsp-id: 0000.0000.0000.00-00
+	  end lsp-id:   ffff.ffff.ffff.ff-ff
+	    LSP entries TLV #9, length: 32
+	      lsp-id: 1111.1111.1111.00-00, seq: 0x00000007, lifetime:  1199s, chksum: 0x1da8
+	      lsp-id: 2222.2222.2222.00-00, seq: 0x00000005, lifetime:  1198s, chksum: 0x4382
+IS-IS, length 67
+	L2 CSNP, hlen: 33, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id:    1111.1111.1111.00, PDU length: 67
+	  start lsp-id: 0000.0000.0000.00-00
+	  end lsp-id:   ffff.ffff.ffff.ff-ff
+	    LSP entries TLV #9, length: 32
+	      lsp-id: 1111.1111.1111.00-00, seq: 0x00000007, lifetime:  1199s, chksum: 0x378e
+	      lsp-id: 2222.2222.2222.00-00, seq: 0x00000006, lifetime:  1198s, chksum: 0xf4cf
+IS-IS, length 67
+	L2 CSNP, hlen: 33, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id:    2222.2222.2222.00, PDU length: 67
+	  start lsp-id: 0000.0000.0000.00-00
+	  end lsp-id:   ffff.ffff.ffff.ff-ff
+	    LSP entries TLV #9, length: 32
+	      lsp-id: 1111.1111.1111.00-00, seq: 0x00000007, lifetime:  1198s, chksum: 0x378e
+	      lsp-id: 2222.2222.2222.00-00, seq: 0x00000006, lifetime:  1199s, chksum: 0xf4cf
+IS-IS, length 35
+	L1 PSNP, hlen: 17, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id:    1111.1111.1111.00, PDU length: 35
+	    LSP entries TLV #9, length: 16
+	      lsp-id: 2222.2222.2222.00-00, seq: 0x00000005, lifetime:  1197s, chksum: 0x4382
+IS-IS, length 35
+	L2 PSNP, hlen: 17, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id:    1111.1111.1111.00, PDU length: 35
+	    LSP entries TLV #9, length: 16
+	      lsp-id: 2222.2222.2222.00-00, seq: 0x00000006, lifetime:  1198s, chksum: 0xf4cf
+IS-IS, length 35
+	L1 PSNP, hlen: 17, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id:    2222.2222.2222.00, PDU length: 35
+	    LSP entries TLV #9, length: 16
+	      lsp-id: 1111.1111.1111.00-00, seq: 0x00000007, lifetime:  1197s, chksum: 0x1da8
+IS-IS, length 35
+	L2 PSNP, hlen: 17, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id:    2222.2222.2222.00, PDU length: 35
+	    LSP entries TLV #9, length: 16
+	      lsp-id: 1111.1111.1111.00-00, seq: 0x00000007, lifetime:  1198s, chksum: 0x378e
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 2222.2222.2222, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Up (0)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 1111.1111.1111, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Up (0)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 2222.2222.2222, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Up (0)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 1111.1111.1111, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Up (0)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 2222.2222.2222, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Up (0)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.2
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169
+IS-IS, length 1499
+	p2p IIH, hlen: 20, v: 1, pdu-v: 1, sys-id-len: 6 (0), max-area: 3 (0)
+	  source-id: 1111.1111.1111, holding time: 30s, Flags: [Level 1, Level 2]
+	  circuit-id: 0x00, PDU length: 1499
+	    Restart Signaling TLV #211, length: 3
+	      Flags [none], Remaining holding time 0s
+	    Point-to-point Adjacency State TLV #240, length: 1
+	      Adjacency State: Up (0)
+	    Protocols supported TLV #129, length: 1
+	      NLPID(s): IPv4 (0xcc)
+	    Area address(es) TLV #1, length: 4
+	      Area address (length: 3): 49.0001
+	    IPv4 Interface address(es) TLV #132, length: 4
+	      IPv4 interface address: 10.0.0.1
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 255
+	    Padding TLV #8, length: 169

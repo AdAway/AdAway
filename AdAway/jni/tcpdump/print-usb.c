@@ -19,21 +19,20 @@
  *
  */
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <pcap.h>
-#include <stdio.h>
-#include <string.h>
-
 #include "interface.h"
 
 
 #if defined(HAVE_PCAP_USB_H) && defined(DLT_USB_LINUX)
 #include <pcap/usb.h>
+
+static const char tstr[] = "[|usb]";
 
 /* returns direction: 1=inbound 2=outbound -1=invalid */
 static int
@@ -81,49 +80,49 @@ get_direction(int transfer_type, int event_type)
 }
 
 static void
-usb_header_print(const pcap_usb_header *uh)
+usb_header_print(netdissect_options *ndo, const pcap_usb_header *uh)
 {
 	int direction;
 
 	switch(uh->transfer_type)
 	{
 		case URB_ISOCHRONOUS:
-			printf("ISOCHRONOUS");
+			ND_PRINT((ndo, "ISOCHRONOUS"));
 			break;
 		case URB_INTERRUPT:
-			printf("INTERRUPT");
+			ND_PRINT((ndo, "INTERRUPT"));
 			break;
 		case URB_CONTROL:
-			printf("CONTROL");
+			ND_PRINT((ndo, "CONTROL"));
 			break;
 		case URB_BULK:
-			printf("BULK");
+			ND_PRINT((ndo, "BULK"));
 			break;
 		default:
-			printf(" ?");
+			ND_PRINT((ndo, " ?"));
 	}
 
 	switch(uh->event_type)
 	{
 		case URB_SUBMIT:
-			printf(" SUBMIT");
+			ND_PRINT((ndo, " SUBMIT"));
 			break;
 		case URB_COMPLETE:
-			printf(" COMPLETE");
+			ND_PRINT((ndo, " COMPLETE"));
 			break;
 		case URB_ERROR:
-			printf(" ERROR");
+			ND_PRINT((ndo, " ERROR"));
 			break;
 		default:
-			printf(" ?");
+			ND_PRINT((ndo, " ?"));
 	}
 
 	direction = get_direction(uh->transfer_type, uh->event_type);
 	if(direction == 1)
-		printf(" from");
+		ND_PRINT((ndo, " from"));
 	else if(direction == 2)
-		printf(" to");
-	printf(" %d:%d:%d", uh->bus_id, uh->device_address, uh->endpoint_number & 0x7f);
+		ND_PRINT((ndo, " to"));
+	ND_PRINT((ndo, " %d:%d:%d", uh->bus_id, uh->device_address, uh->endpoint_number & 0x7f));
 }
 
 /*
@@ -135,14 +134,15 @@ usb_header_print(const pcap_usb_header *uh)
  * is the number of bytes actually captured.
  */
 u_int
-usb_linux_48_byte_print(const struct pcap_pkthdr *h, register const u_char *p)
+usb_linux_48_byte_print(netdissect_options *ndo, const struct pcap_pkthdr *h,
+                        register const u_char *p)
 {
 	if (h->caplen < sizeof(pcap_usb_header)) {
-		printf("[|usb]");
+		ND_PRINT((ndo, "%s", tstr));
 		return(sizeof(pcap_usb_header));
 	}
 
-	usb_header_print((const pcap_usb_header *) p);
+	usb_header_print(ndo, (const pcap_usb_header *) p);
 
 	return(sizeof(pcap_usb_header));
 }
@@ -157,14 +157,15 @@ usb_linux_48_byte_print(const struct pcap_pkthdr *h, register const u_char *p)
  * is the number of bytes actually captured.
  */
 u_int
-usb_linux_64_byte_print(const struct pcap_pkthdr *h, register const u_char *p)
+usb_linux_64_byte_print(netdissect_options *ndo, const struct pcap_pkthdr *h,
+                        register const u_char *p)
 {
 	if (h->caplen < sizeof(pcap_usb_header_mmapped)) {
-		printf("[|usb]");
+		ND_PRINT((ndo, "%s", tstr));
 		return(sizeof(pcap_usb_header_mmapped));
 	}
 
-	usb_header_print((const pcap_usb_header *) p);
+	usb_header_print(ndo, (const pcap_usb_header *) p);
 
 	return(sizeof(pcap_usb_header_mmapped));
 }

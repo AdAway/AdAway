@@ -35,6 +35,7 @@
  *	@(#)in_cksum.c	8.1 (Berkeley) 6/10/93
  */
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 # include "config.h"
 #endif
@@ -53,27 +54,27 @@
 #define ADDCARRY(x)  {if ((x) > 65535) (x) -= 65535;}
 #define REDUCE {l_util.l = sum; sum = l_util.s[0] + l_util.s[1]; ADDCARRY(sum);}
 
-u_int16_t
+uint16_t
 in_cksum(const struct cksum_vec *vec, int veclen)
 {
-	register const u_int16_t *w;
+	register const uint16_t *w;
 	register int sum = 0;
 	register int mlen = 0;
 	int byte_swapped = 0;
 
 	union {
-		u_int8_t	c[2];
-		u_int16_t	s;
+		uint8_t		c[2];
+		uint16_t	s;
 	} s_util;
 	union {
-		u_int16_t	s[2];
-		u_int32_t	l;
+		uint16_t	s[2];
+		uint32_t	l;
 	} l_util;
 
 	for (; veclen != 0; vec++, veclen--) {
 		if (vec->len == 0)
 			continue;
-		w = (const u_int16_t *)(void *)vec->ptr;
+		w = (const uint16_t *)(void *)vec->ptr;
 		if (mlen == -1) {
 			/*
 			 * The first byte of this chunk is the continuation
@@ -83,9 +84,9 @@ in_cksum(const struct cksum_vec *vec, int veclen)
 			 * s_util.c[0] is already saved when scanning previous
 			 * chunk.
 			 */
-			s_util.c[1] = *(const u_int8_t *)w;
+			s_util.c[1] = *(const uint8_t *)w;
 			sum += s_util.s;
-			w = (const u_int16_t *)(void *)((const u_int8_t *)w + 1);
+			w = (const uint16_t *)(void *)((const uint8_t *)w + 1);
 			mlen = vec->len - 1;
 		} else
 			mlen = vec->len;
@@ -95,8 +96,8 @@ in_cksum(const struct cksum_vec *vec, int veclen)
 		if ((1 & (unsigned long) w) && (mlen > 0)) {
 			REDUCE;
 			sum <<= 8;
-			s_util.c[0] = *(const u_int8_t *)w;
-			w = (const u_int16_t *)(void *)((const u_int8_t *)w + 1);
+			s_util.c[0] = *(const uint8_t *)w;
+			w = (const uint16_t *)(void *)((const uint8_t *)w + 1);
 			mlen--;
 			byte_swapped = 1;
 		}
@@ -128,13 +129,13 @@ in_cksum(const struct cksum_vec *vec, int veclen)
 			sum <<= 8;
 			byte_swapped = 0;
 			if (mlen == -1) {
-				s_util.c[1] = *(const u_int8_t *)w;
+				s_util.c[1] = *(const uint8_t *)w;
 				sum += s_util.s;
 				mlen = 0;
 			} else
 				mlen = -1;
 		} else if (mlen == -1)
-			s_util.c[0] = *(const u_int8_t *)w;
+			s_util.c[0] = *(const uint8_t *)w;
 	}
 	if (mlen == -1) {
 		/* The last mbuf has odd # of bytes. Follow the
@@ -153,10 +154,10 @@ in_cksum(const struct cksum_vec *vec, int veclen)
  * that the checksum covers (including the checksum itself), compute
  * what the checksum field *should* have been.
  */
-u_int16_t
-in_cksum_shouldbe(u_int16_t sum, u_int16_t computed_sum)
+uint16_t
+in_cksum_shouldbe(uint16_t sum, uint16_t computed_sum)
 {
-	u_int32_t shouldbe;
+	uint32_t shouldbe;
 
 	/*
 	 * The value that should have gone into the checksum field

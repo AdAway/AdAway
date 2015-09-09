@@ -1,0 +1,1 @@
+IP6 (class 0x03, flowlabel 0x03030, hlim 48, next-header Options (0) payload length: 12336) 3030:3030:3030:3030:3030:3030:3030:3030 > 130:3030:3030:3030:3030:3030:3030:3030: HBH [trunc] (header length 8 is too small for type 1)[|MOBILITY]

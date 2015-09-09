@@ -18,30 +18,22 @@
  * WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-atm.c,v 1.49 2007-10-22 19:37:51 guy Exp $ (LBL)";
-#endif
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <pcap.h>
-#include <string.h>
-
 #include "interface.h"
 #include "extract.h"
 #include "addrtoname.h"
-#include "ethertype.h"
 #include "atm.h"
 #include "atmuni31.h"
 #include "llc.h"
 
-#include "ether.h"
+static const char tstr[] = "[|atm]";
 
 #define OAM_CRC10_MASK 0x3ff
 #define OAM_PAYLOAD_LEN 48
@@ -135,19 +127,20 @@ static const struct tok *oam_functype_values[16] = {
  * Print an RFC 1483 LLC-encapsulated ATM frame.
  */
 static void
-atm_llc_print(const u_char *p, int length, int caplen)
+atm_llc_print(netdissect_options *ndo,
+              const u_char *p, int length, int caplen)
 {
 	u_short extracted_ethertype;
 
-	if (!llc_print(p, length, caplen, NULL, NULL,
+	if (!llc_print(ndo, p, length, caplen, NULL, NULL,
 	    &extracted_ethertype)) {
 		/* ether_type not known, print raw packet */
 		if (extracted_ethertype) {
-			printf("(LLC %s) ",
-		etherproto_string(htons(extracted_ethertype)));
+			ND_PRINT((ndo, "(LLC %s) ",
+		etherproto_string(htons(extracted_ethertype))));
 		}
-		if (!suppress_default_print)
-			default_print(p, caplen);
+		if (!ndo->ndo_suppress_default_print)
+			ND_DEFAULTPRINT(p, caplen);
 	}
 }
 
@@ -164,25 +157,35 @@ atm_llc_print(const u_char *p, int length, int caplen)
  * is the number of bytes actually captured.
  */
 u_int
-atm_if_print(const struct pcap_pkthdr *h, const u_char *p)
+atm_if_print(netdissect_options *ndo,
+             const struct pcap_pkthdr *h, const u_char *p)
 {
 	u_int caplen = h->caplen;
 	u_int length = h->len;
-	u_int32_t llchdr;
+	uint32_t llchdr;
 	u_int hdrlen = 0;
 
-	if (caplen < 8) {
-		printf("[|atm]");
+	if (caplen < 1 || length < 1) {
+		ND_PRINT((ndo, "%s", tstr));
 		return (caplen);
 	}
 
         /* Cisco Style NLPID ? */
         if (*p == LLC_UI) {
-            if (eflag)
-                printf("CNLPID ");
-            isoclns_print(p+1, length-1, caplen-1);
+            if (ndo->ndo_eflag)
+                ND_PRINT((ndo, "CNLPID "));
+            isoclns_print(ndo, p + 1, length - 1, caplen - 1);
             return hdrlen;
         }
+
+	/*
+	 * Must have at least a DSAP, an SSAP, and the first byte of the
+	 * control field.
+	 */
+	if (caplen < 3 || length < 3) {
+		ND_PRINT((ndo, "%s", tstr));
+		return (caplen);
+	}
 
 	/*
 	 * Extract the presumed LLC header into a variable, for quick
@@ -211,18 +214,22 @@ atm_if_print(const struct pcap_pkthdr *h, const u_char *p)
 		 * packets?  If so, could it be changed to use a
 		 * new DLT_IEEE802_6 value if we added it?
 		 */
-		if (eflag)
-			printf("%08x%08x %08x%08x ",
+		if (caplen < 20 || length < 20) {
+			ND_PRINT((ndo, "%s", tstr));
+			return (caplen);
+		}
+		if (ndo->ndo_eflag)
+			ND_PRINT((ndo, "%08x%08x %08x%08x ",
 			       EXTRACT_32BITS(p),
 			       EXTRACT_32BITS(p+4),
 			       EXTRACT_32BITS(p+8),
-			       EXTRACT_32BITS(p+12));
+			       EXTRACT_32BITS(p+12)));
 		p += 20;
 		length -= 20;
 		caplen -= 20;
 		hdrlen += 20;
 	}
-	atm_llc_print(p, length, caplen);
+	atm_llc_print(ndo, p, length, caplen);
 	return (hdrlen);
 }
 
@@ -249,26 +256,27 @@ static const struct tok msgtype2str[] = {
 };
 
 static void
-sig_print(const u_char *p, int caplen)
+sig_print(netdissect_options *ndo,
+          const u_char *p, int caplen)
 {
-	bpf_u_int32 call_ref;
+	uint32_t call_ref;
 
 	if (caplen < PROTO_POS) {
-		printf("[|atm]");
+		ND_PRINT((ndo, "%s", tstr));
 		return;
 	}
 	if (p[PROTO_POS] == Q2931) {
 		/*
-		 * protocol:Q.2931 for User to Network Interface 
+		 * protocol:Q.2931 for User to Network Interface
 		 * (UNI 3.1) signalling
 		 */
-		printf("Q.2931");
+		ND_PRINT((ndo, "Q.2931"));
 		if (caplen < MSG_TYPE_POS) {
-			printf(" [|atm]");
+			ND_PRINT((ndo, " %s", tstr));
 			return;
 		}
-		printf(":%s ",
-		    tok2str(msgtype2str, "msgtype#%d", p[MSG_TYPE_POS]));
+		ND_PRINT((ndo, ":%s ",
+		    tok2str(msgtype2str, "msgtype#%d", p[MSG_TYPE_POS])));
 
 		/*
 		 * The call reference comes before the message type,
@@ -277,10 +285,10 @@ sig_print(const u_char *p, int caplen)
 		 * the call reference.
 		 */
 		call_ref = EXTRACT_24BITS(&p[CALL_REF_POS]);
-		printf("CALL_REF:0x%06x", call_ref);
+		ND_PRINT((ndo, "CALL_REF:0x%06x", call_ref));
 	} else {
 		/* SCCOP with some unknown protocol atop it */
-		printf("SSCOP, proto %d ", p[PROTO_POS]);
+		ND_PRINT((ndo, "SSCOP, proto %d ", p[PROTO_POS]));
 	}
 }
 
@@ -288,35 +296,36 @@ sig_print(const u_char *p, int caplen)
  * Print an ATM PDU (such as an AAL5 PDU).
  */
 void
-atm_print(u_int vpi, u_int vci, u_int traftype, const u_char *p, u_int length,
-    u_int caplen)
+atm_print(netdissect_options *ndo,
+          u_int vpi, u_int vci, u_int traftype, const u_char *p, u_int length,
+          u_int caplen)
 {
-	if (eflag)
-		printf("VPI:%u VCI:%u ", vpi, vci);
+	if (ndo->ndo_eflag)
+		ND_PRINT((ndo, "VPI:%u VCI:%u ", vpi, vci));
 
 	if (vpi == 0) {
 		switch (vci) {
 
 		case VCI_PPC:
-			sig_print(p, caplen);
+			sig_print(ndo, p, caplen);
 			return;
 
 		case VCI_BCC:
-			printf("broadcast sig: ");
+			ND_PRINT((ndo, "broadcast sig: "));
 			return;
 
 		case VCI_OAMF4SC: /* fall through */
 		case VCI_OAMF4EC:
-                        oam_print(p, length, ATM_OAM_HEC);
+			oam_print(ndo, p, length, ATM_OAM_HEC);
 			return;
 
 		case VCI_METAC:
-			printf("meta: ");
+			ND_PRINT((ndo, "meta: "));
 			return;
 
 		case VCI_ILMIC:
-			printf("ilmi: ");
-			snmp_print(p, length);
+			ND_PRINT((ndo, "ilmi: "));
+			snmp_print(ndo, p, length);
 			return;
 		}
 	}
@@ -328,35 +337,36 @@ atm_print(u_int vpi, u_int vci, u_int traftype, const u_char *p, u_int length,
 		/*
 		 * Assumes traffic is LLC if unknown.
 		 */
-		atm_llc_print(p, length, caplen);
+		atm_llc_print(ndo, p, length, caplen);
 		break;
 
 	case ATM_LANE:
-		lane_print(p, length, caplen);
+		lane_print(ndo, p, length, caplen);
 		break;
 	}
 }
 
 struct oam_fm_loopback_t {
-    u_int8_t loopback_indicator;
-    u_int8_t correlation_tag[4];
-    u_int8_t loopback_id[12];
-    u_int8_t source_id[12];
-    u_int8_t unused[16];
+    uint8_t loopback_indicator;
+    uint8_t correlation_tag[4];
+    uint8_t loopback_id[12];
+    uint8_t source_id[12];
+    uint8_t unused[16];
 };
 
 struct oam_fm_ais_rdi_t {
-    u_int8_t failure_type;
-    u_int8_t failure_location[16];
-    u_int8_t unused[28];
+    uint8_t failure_type;
+    uint8_t failure_location[16];
+    uint8_t unused[28];
 };
 
-int 
-oam_print (const u_char *p, u_int length, u_int hec) {
-
-    u_int32_t cell_header;
-    u_int16_t vpi, vci, cksum, cksum_shouldbe, idx;
-    u_int8_t  cell_type, func_type, payload, clp;
+int
+oam_print (netdissect_options *ndo,
+           const u_char *p, u_int length, u_int hec)
+{
+    uint32_t cell_header;
+    uint16_t vpi, vci, cksum, cksum_shouldbe, idx;
+    uint8_t  cell_type, func_type, payload, clp;
 
     union {
         const struct oam_fm_loopback_t *oam_fm_loopback;
@@ -373,47 +383,47 @@ oam_print (const u_char *p, u_int length, u_int hec) {
     payload = (cell_header>>1)&0x7;
     clp = cell_header&0x1;
 
-    printf("%s, vpi %u, vci %u, payload [ %s ], clp %u, length %u",
+    ND_PRINT((ndo, "%s, vpi %u, vci %u, payload [ %s ], clp %u, length %u",
            tok2str(oam_f_values, "OAM F5", vci),
            vpi, vci,
            tok2str(atm_pty_values, "Unknown", payload),
-           clp, length);
+           clp, length));
 
-    if (!vflag) {
+    if (!ndo->ndo_vflag) {
         return 1;
     }
 
-    printf("\n\tcell-type %s (%u)",
+    ND_PRINT((ndo, "\n\tcell-type %s (%u)",
            tok2str(oam_celltype_values, "unknown", cell_type),
-           cell_type);
+           cell_type));
 
     if (oam_functype_values[cell_type] == NULL)
-        printf(", func-type unknown (%u)", func_type);
+        ND_PRINT((ndo, ", func-type unknown (%u)", func_type));
     else
-        printf(", func-type %s (%u)",
+        ND_PRINT((ndo, ", func-type %s (%u)",
                tok2str(oam_functype_values[cell_type],"none",func_type),
-               func_type);
+               func_type));
 
     p += ATM_HDR_LEN_NOHEC + hec;
 
     switch (cell_type << 4 | func_type) {
     case (OAM_CELLTYPE_FM << 4 | OAM_FM_FUNCTYPE_LOOPBACK):
         oam_ptr.oam_fm_loopback = (const struct oam_fm_loopback_t *)(p + OAM_CELLTYPE_FUNCTYPE_LEN);
-        printf("\n\tLoopback-Indicator %s, Correlation-Tag 0x%08x",
+        ND_PRINT((ndo, "\n\tLoopback-Indicator %s, Correlation-Tag 0x%08x",
                tok2str(oam_fm_loopback_indicator_values,
                        "Unknown",
                        oam_ptr.oam_fm_loopback->loopback_indicator & OAM_FM_LOOPBACK_INDICATOR_MASK),
-               EXTRACT_32BITS(&oam_ptr.oam_fm_loopback->correlation_tag));
-        printf("\n\tLocation-ID ");
+               EXTRACT_32BITS(&oam_ptr.oam_fm_loopback->correlation_tag)));
+        ND_PRINT((ndo, "\n\tLocation-ID "));
         for (idx = 0; idx < sizeof(oam_ptr.oam_fm_loopback->loopback_id); idx++) {
             if (idx % 2) {
-                printf("%04x ", EXTRACT_16BITS(&oam_ptr.oam_fm_loopback->loopback_id[idx]));
+                ND_PRINT((ndo, "%04x ", EXTRACT_16BITS(&oam_ptr.oam_fm_loopback->loopback_id[idx])));
             }
         }
-        printf("\n\tSource-ID   ");
+        ND_PRINT((ndo, "\n\tSource-ID   "));
         for (idx = 0; idx < sizeof(oam_ptr.oam_fm_loopback->source_id); idx++) {
             if (idx % 2) {
-                printf("%04x ", EXTRACT_16BITS(&oam_ptr.oam_fm_loopback->source_id[idx]));
+                ND_PRINT((ndo, "%04x ", EXTRACT_16BITS(&oam_ptr.oam_fm_loopback->source_id[idx])));
             }
         }
         break;
@@ -421,11 +431,11 @@ oam_print (const u_char *p, u_int length, u_int hec) {
     case (OAM_CELLTYPE_FM << 4 | OAM_FM_FUNCTYPE_AIS):
     case (OAM_CELLTYPE_FM << 4 | OAM_FM_FUNCTYPE_RDI):
         oam_ptr.oam_fm_ais_rdi = (const struct oam_fm_ais_rdi_t *)(p + OAM_CELLTYPE_FUNCTYPE_LEN);
-        printf("\n\tFailure-type 0x%02x", oam_ptr.oam_fm_ais_rdi->failure_type);
-        printf("\n\tLocation-ID ");
+        ND_PRINT((ndo, "\n\tFailure-type 0x%02x", oam_ptr.oam_fm_ais_rdi->failure_type));
+        ND_PRINT((ndo, "\n\tLocation-ID "));
         for (idx = 0; idx < sizeof(oam_ptr.oam_fm_ais_rdi->failure_location); idx++) {
             if (idx % 2) {
-                printf("%04x ", EXTRACT_16BITS(&oam_ptr.oam_fm_ais_rdi->failure_location[idx]));
+                ND_PRINT((ndo, "%04x ", EXTRACT_16BITS(&oam_ptr.oam_fm_ais_rdi->failure_location[idx])));
             }
         }
         break;
@@ -442,10 +452,10 @@ oam_print (const u_char *p, u_int length, u_int hec) {
     cksum = EXTRACT_16BITS(p + OAM_CELLTYPE_FUNCTYPE_LEN + OAM_FUNCTION_SPECIFIC_LEN)
         & OAM_CRC10_MASK;
     cksum_shouldbe = verify_crc10_cksum(0, p, OAM_PAYLOAD_LEN);
-    
-    printf("\n\tcksum 0x%03x (%scorrect)",
+
+    ND_PRINT((ndo, "\n\tcksum 0x%03x (%scorrect)",
            cksum,
-           cksum_shouldbe == 0 ? "" : "in");
+           cksum_shouldbe == 0 ? "" : "in"));
 
     return 1;
 }

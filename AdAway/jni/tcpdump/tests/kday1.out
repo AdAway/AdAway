@@ -1,0 +1,15 @@
+IP6, wrong link-layer encapsulation (tos 0x10, ttl 192, id 63177, offset 0, flags [DF], proto SCTP (132), length 168, options (security [bad length 110]), bad cksum a291 (->9204)!)
+    c084:a291:b8aa:42aa:3e38:9ac7:826e:b930.33943 > 8497:1a30:7cd4:d4d4:d4d4:d428:13:68.6704: sctp[ForCES HP] (1) [DATA] (B)(E) [TSN: 1934917887] [SID: 256] [SSEQ 15360] [PPID 0x3c00] 
+	ForCES Config 
+	ForCES Version 14 len 88B flags 0x0a040604 
+	SrcID 0xff000200(AllMulticast) DstID 0xb59cbe(FE) Correlator 0x30480805f4010800
+		Messy oper TLV header, type (0x600)
+		excess of -240 Bytes 
+	[0x0000:  e803 0016 ff00 0200 00b5 9cbe 3048 0805
+	[0x0010:  f401 0800 0a04 0604 0010 003c 0000 3ce8
+	[0x0020:  0300 3c00 000e 0016 0604 0010 003c 0000
+	[0x0030:  0000 ff00 ffff a69c be30 4808 0600 0108
+	[0x0040:  0006 0400 0184 b59c be30 84b5 0010 0000
+	[0x0050:  cc05 367e 0003 0000
+	][|sctp]
+EXIT CODE 00000100

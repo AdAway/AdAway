@@ -456,7 +456,7 @@ IP (tos 0x0, ttl 64, id 783, offset 0, flags [DF], proto TCP (6), length 1500)
 	version 1.0, type FLOW_MOD, length 144, xid 0x00000010
 	 match in_port 4
 	 cookie 0x000000000000000b, command ADD, priority 54311, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
-	 action type VENDOR, len 72, vendor 0x00001234
+	 action type VENDOR, len 72, vendor 0x00001234 (unknown)
 	 data (64 octets)
 	  0x0000:  4469 6420 796f 7520 6b6e 6f77 2076 656e  Did.you.know.ven
 	  0x0010:  646f 7220 6163 7469 6f6e 2064 6174 6120  dor.action.data.
@@ -730,8 +730,8 @@ IP (tos 0x0, ttl 64, id 55529, offset 0, flags [DF], proto TCP (6), length 128)
 	version 1.0, type STATS_REPLY, length 76, xid 0x0000001f
 	 type TABLE, flags 0x0000
 	 table_id 0, name 'classifier'
-	 wildcards 0x003fffff (IN_PORT, DL_VLAN, DL_SRC, DL_DST, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
-	 max_entries 1000000, active_count 26, lookup_count 1158498983736653433, matched_count 1158498983736653433
+	  wildcards 0x003fffff (IN_PORT, DL_VLAN, DL_SRC, DL_DST, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
+	  max_entries 1000000, active_count 26, lookup_count 1158498983736653433, matched_count 1158498983736653433
 IP (tos 0x0, ttl 64, id 794, offset 0, flags [DF], proto TCP (6), length 52)
     10.0.0.20.6633 > 10.0.0.50.35256: Flags [.], cksum 0x146c (incorrect -> 0x7eb8), seq 2237, ack 7057, win 203, options [nop,nop,TS val 220958721 ecr 194889063], length 0
 IP (tos 0x0, ttl 64, id 55530, offset 0, flags [DF], proto TCP (6), length 2948)

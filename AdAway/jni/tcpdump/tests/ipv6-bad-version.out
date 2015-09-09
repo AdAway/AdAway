@@ -1,0 +1,4 @@
+IP6 :: > ff02::1:ff76:6c14: ICMP6, neighbor solicitation, who has fe80::20c:29ff:fe76:6c14, length 24
+IP6 version error: 0 != 6
+IP6 :: > ff02::1:ff76:6c14: ICMP6, neighbor solicitation, who has 1111:2222:3333:4444:20c:29ff:fe76:6c14, length 24
+IP6 version error: 0 != 6

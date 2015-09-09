@@ -1,0 +1,6 @@
+Loopback, skipCount 0, Forward Data, forwarding address aa:00:04:00:1d:04, data (44 octets)
+Loopback, skipCount 8, Reply, receipt number 1, data (40 octets)
+Loopback, skipCount 0, Forward Data, forwarding address aa:00:04:00:6a:04, data (60 octets)
+Loopback, skipCount 8, Forward Data, forwarding address aa:00:04:00:69:04, data (52 octets)
+Loopback, skipCount 16, Forward Data, forwarding address aa:00:04:00:1d:04, data (44 octets)
+Loopback, skipCount 24, Reply, receipt number 2, data (40 octets)

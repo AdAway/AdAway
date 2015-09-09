@@ -29,11 +29,7 @@
  * o BAP support
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-ppp.c,v 1.114 2005-12-05 11:35:58 hannes Exp $ (LBL)";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -45,8 +41,6 @@ static const char rcsid[] _U_ =
 #include <net/if_ppp.h>
 #endif
 
-#include <pcap.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 #include "interface.h"
@@ -107,6 +101,7 @@ static const struct tok ppptype2str[] = {
 	{ PPP_BACP,	  "BACP" },
 	{ PPP_BAP,	  "BAP" },
 	{ PPP_MPCP,	  "MLPPP-CP" },
+	{ PPP_CCP,	  "CCP" },
 	{ 0,		  NULL }
 };
 
@@ -406,73 +401,68 @@ static const struct tok papcode_values[] = {
 #define BAP_CSIND	7
 #define BAP_CSRES	8
 
-static void handle_ctrl_proto (u_int proto,const u_char *p, int length);
-static void handle_chap (const u_char *p, int length);
-static void handle_pap (const u_char *p, int length);
-static void handle_bap (const u_char *p, int length);
-static void handle_mlppp(const u_char *p, int length);
-static int print_lcp_config_options (const u_char *p, int);
-static int print_ipcp_config_options (const u_char *p, int);
-static int print_ip6cp_config_options (const u_char *p, int);
-static int print_ccp_config_options (const u_char *p, int);
-static int print_bacp_config_options (const u_char *p, int);
-static void handle_ppp (u_int proto, const u_char *p, int length);
-static void ppp_hdlc(const u_char *p, int length);
+static int print_lcp_config_options(netdissect_options *, const u_char *p, int);
+static int print_ipcp_config_options(netdissect_options *, const u_char *p, int);
+static int print_ip6cp_config_options(netdissect_options *, const u_char *p, int);
+static int print_ccp_config_options(netdissect_options *, const u_char *p, int);
+static int print_bacp_config_options(netdissect_options *, const u_char *p, int);
+static void handle_ppp(netdissect_options *, u_int proto, const u_char *p, int length);
 
 /* generic Control Protocol (e.g. LCP, IPCP, CCP, etc.) handler */
 static void
-handle_ctrl_proto(u_int proto, const u_char *pptr, int length)
+handle_ctrl_proto(netdissect_options *ndo,
+                  u_int proto, const u_char *pptr, int length)
 {
 	const char *typestr;
 	u_int code, len;
-	int (*pfunc)(const u_char *, int);
+	int (*pfunc)(netdissect_options *, const u_char *, int);
 	int x, j;
         const u_char *tptr;
 
         tptr=pptr;
 
         typestr = tok2str(ppptype2str, "unknown ctrl-proto (0x%04x)", proto);
-        printf("%s, ",typestr);
+	ND_PRINT((ndo, "%s, ", typestr));
 
 	if (length < 4) /* FIXME weak boundary checking */
 		goto trunc;
-	TCHECK2(*tptr, 2);
+	ND_TCHECK2(*tptr, 2);
 
 	code = *tptr++;
-	
-        printf("%s (0x%02x), id %u, length %u",
-               tok2str(cpcodes, "Unknown Opcode",code),
-               code,
-               *tptr++, /* ID */
-               length+2);
 
-        if (!vflag)
-                return;
+	ND_PRINT((ndo, "%s (0x%02x), id %u, length %u",
+	          tok2str(cpcodes, "Unknown Opcode",code),
+	          code,
+	          *tptr++, /* ID */
+	          length + 2));
+
+	if (!ndo->ndo_vflag)
+		return;
 
 	if (length <= 4)
 		return;    /* there may be a NULL confreq etc. */
 
-	TCHECK2(*tptr, 2);
+	ND_TCHECK2(*tptr, 2);
 	len = EXTRACT_16BITS(tptr);
 	tptr += 2;
 
-        printf("\n\tencoded length %u (=Option(s) length %u)",len,len-4);
+	ND_PRINT((ndo, "\n\tencoded length %u (=Option(s) length %u)", len, len - 4));
 
-        if (vflag>1)
-            print_unknown_data(pptr-2,"\n\t",6);
+	if (ndo->ndo_vflag > 1)
+		print_unknown_data(ndo, pptr - 2, "\n\t", 6);
 
 
 	switch (code) {
 	case CPCODES_VEXT:
 		if (length < 11)
 			break;
-		TCHECK2(*tptr, 4);
-		printf("\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr));
+		ND_TCHECK2(*tptr, 4);
+		ND_PRINT((ndo, "\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr)));
 		tptr += 4;
-		TCHECK2(*tptr, 3);
-		printf(" Vendor: %s (%u)",
+		ND_TCHECK2(*tptr, 3);
+		ND_PRINT((ndo, " Vendor: %s (%u)",
                        tok2str(oui_values,"Unknown",EXTRACT_24BITS(tptr)),
-                       EXTRACT_24BITS(tptr));
+                       EXTRACT_24BITS(tptr)));
 		/* XXX: need to decode Kind and Value(s)? */
 		break;
 	case CPCODES_CONF_REQ:
@@ -508,8 +498,8 @@ handle_ctrl_proto(u_int proto, const u_char *pptr, int length)
 
 			if (pfunc == NULL) /* catch the above null pointer if unknown CP */
 				break;
- 
-			if ((j = (*pfunc)(tptr, len)) == 0)
+
+			if ((j = (*pfunc)(ndo, tptr, len)) == 0)
 				break;
 			x -= j;
 			tptr += j;
@@ -526,209 +516,239 @@ handle_ctrl_proto(u_int proto, const u_char *pptr, int length)
 	case CPCODES_PROT_REJ:
 		if (length < 6)
 			break;
-		TCHECK2(*tptr, 2);
-		printf("\n\t  Rejected %s Protocol (0x%04x)",
+		ND_TCHECK2(*tptr, 2);
+		ND_PRINT((ndo, "\n\t  Rejected %s Protocol (0x%04x)",
 		       tok2str(ppptype2str,"unknown", EXTRACT_16BITS(tptr)),
-		       EXTRACT_16BITS(tptr));
+		       EXTRACT_16BITS(tptr)));
 		/* XXX: need to decode Rejected-Information? - hexdump for now */
-                if (len > 6) {
-                        printf("\n\t  Rejected Packet");
-                        print_unknown_data(tptr+2,"\n\t    ",len-2);
-                }
+		if (len > 6) {
+			ND_PRINT((ndo, "\n\t  Rejected Packet"));
+			print_unknown_data(ndo, tptr + 2, "\n\t    ", len - 2);
+		}
 		break;
 	case CPCODES_ECHO_REQ:
 	case CPCODES_ECHO_RPL:
 	case CPCODES_DISC_REQ:
 		if (length < 8)
 			break;
-		TCHECK2(*tptr, 4);
-		printf("\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr));
+		ND_TCHECK2(*tptr, 4);
+		ND_PRINT((ndo, "\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr)));
 		/* XXX: need to decode Data? - hexdump for now */
-                if (len > 8) {
-                        printf("\n\t  -----trailing data-----");
-                        TCHECK2(tptr[4], len-8);
-                        print_unknown_data(tptr+4,"\n\t  ",len-8);
-                }
+		if (len > 8) {
+			ND_PRINT((ndo, "\n\t  -----trailing data-----"));
+			ND_TCHECK2(tptr[4], len - 8);
+			print_unknown_data(ndo, tptr + 4, "\n\t  ", len - 8);
+		}
 		break;
 	case CPCODES_ID:
 		if (length < 8)
 			break;
-		TCHECK2(*tptr, 4);
-		printf("\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr));
+		ND_TCHECK2(*tptr, 4);
+		ND_PRINT((ndo, "\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr)));
 		/* RFC 1661 says this is intended to be human readable */
-                if (len > 8) {
-                        printf("\n\t  Message\n\t    ");
-                        fn_printn(tptr+4,len-4,snapend);
-                }
+		if (len > 8) {
+			ND_PRINT((ndo, "\n\t  Message\n\t    "));
+			if (fn_printn(ndo, tptr + 4, len - 4, ndo->ndo_snapend))
+				goto trunc;
+		}
 		break;
 	case CPCODES_TIME_REM:
 		if (length < 12)
 			break;
-		TCHECK2(*tptr, 4);
-		printf("\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr));
-		TCHECK2(*(tptr + 4), 4);
-		printf(", Seconds-Remaining %us", EXTRACT_32BITS(tptr + 4));
+		ND_TCHECK2(*tptr, 4);
+		ND_PRINT((ndo, "\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr)));
+		ND_TCHECK2(*(tptr + 4), 4);
+		ND_PRINT((ndo, ", Seconds-Remaining %us", EXTRACT_32BITS(tptr + 4)));
 		/* XXX: need to decode Message? */
 		break;
 	default:
-            /* XXX this is dirty but we do not get the
-             * original pointer passed to the begin
-             * the PPP packet */
-                if (vflag <= 1)
-                    print_unknown_data(pptr-2,"\n\t  ",length+2);
+		/* XXX this is dirty but we do not get the
+		 * original pointer passed to the begin
+		 * the PPP packet */
+		if (ndo->ndo_vflag <= 1)
+			print_unknown_data(ndo, pptr - 2, "\n\t  ", length + 2);
 		break;
 	}
 	return;
 
 trunc:
-	printf("[|%s]", typestr);
+	ND_PRINT((ndo, "[|%s]", typestr));
 }
 
 /* LCP config options */
 static int
-print_lcp_config_options(const u_char *p, int length)
+print_lcp_config_options(netdissect_options *ndo,
+                         const u_char *p, int length)
 {
 	int len, opt;
 
 	if (length < 2)
 		return 0;
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
 	len = p[1];
 	opt = p[0];
 	if (length < len)
 		return 0;
 	if (len < 2) {
 		if ((opt >= LCPOPT_MIN) && (opt <= LCPOPT_MAX))
-			printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)", lcpconfopts[opt],opt,len);
+			ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u (length bogus, should be >= 2)",
+			          lcpconfopts[opt], opt, len));
 		else
-			printf("\n\tunknown LCP option 0x%02x", opt);
+			ND_PRINT((ndo, "\n\tunknown LCP option 0x%02x", opt));
 		return 0;
 	}
 	if ((opt >= LCPOPT_MIN) && (opt <= LCPOPT_MAX))
-		printf("\n\t  %s Option (0x%02x), length %u: ", lcpconfopts[opt],opt,len);
+		ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u", lcpconfopts[opt], opt, len));
 	else {
-		printf("\n\tunknown LCP option 0x%02x", opt);
+		ND_PRINT((ndo, "\n\tunknown LCP option 0x%02x", opt));
 		return len;
 	}
 
 	switch (opt) {
 	case LCPOPT_VEXT:
-		if (len >= 6) {
-			TCHECK2(*(p + 2), 3);
-			printf("Vendor: %s (%u)",
-                               tok2str(oui_values,"Unknown",EXTRACT_24BITS(p+2)),
-                               EXTRACT_24BITS(p+2));
-#if 0
-			TCHECK(p[5]);
-			printf(", kind: 0x%02x", p[5]);
-			printf(", Value: 0x")
-			for (i = 0; i < len - 6; i++) {
-				TCHECK(p[6 + i]);
-				printf("%02x", p[6 + i]);
-			}
-#endif
+		if (len < 6) {
+			ND_PRINT((ndo, " (length bogus, should be >= 6)"));
+			return len;
 		}
+		ND_TCHECK2(*(p + 2), 3);
+		ND_PRINT((ndo, ": Vendor: %s (%u)",
+			tok2str(oui_values,"Unknown",EXTRACT_24BITS(p+2)),
+			EXTRACT_24BITS(p + 2)));
+#if 0
+		ND_TCHECK(p[5]);
+		ND_PRINT((ndo, ", kind: 0x%02x", p[5]));
+		ND_PRINT((ndo, ", Value: 0x"));
+		for (i = 0; i < len - 6; i++) {
+			ND_TCHECK(p[6 + i]);
+			ND_PRINT((ndo, "%02x", p[6 + i]));
+		}
+#endif
 		break;
 	case LCPOPT_MRU:
-		if (len == 4) {
-			TCHECK2(*(p + 2), 2);
-			printf("%u", EXTRACT_16BITS(p + 2));
+		if (len != 4) {
+			ND_PRINT((ndo, " (length bogus, should be = 4)"));
+			return len;
 		}
+		ND_TCHECK2(*(p + 2), 2);
+		ND_PRINT((ndo, ": %u", EXTRACT_16BITS(p + 2)));
 		break;
 	case LCPOPT_ACCM:
-		if (len == 6) {
-			TCHECK2(*(p + 2), 4);
-			printf("0x%08x", EXTRACT_32BITS(p + 2));
+		if (len != 6) {
+			ND_PRINT((ndo, " (length bogus, should be = 6)"));
+			return len;
 		}
+		ND_TCHECK2(*(p + 2), 4);
+		ND_PRINT((ndo, ": 0x%08x", EXTRACT_32BITS(p + 2)));
 		break;
 	case LCPOPT_AP:
-		if (len >= 4) {
-		    TCHECK2(*(p + 2), 2);
-                    printf("%s", tok2str(ppptype2str,"Unknown Auth Proto (0x04x)",EXTRACT_16BITS(p+2)));
+		if (len < 4) {
+			ND_PRINT((ndo, " (length bogus, should be >= 4)"));
+			return len;
+		}
+		ND_TCHECK2(*(p + 2), 2);
+		ND_PRINT((ndo, ": %s", tok2str(ppptype2str, "Unknown Auth Proto (0x04x)", EXTRACT_16BITS(p + 2))));
 
-		    switch (EXTRACT_16BITS(p+2)) {
-		    case PPP_CHAP:
-		        TCHECK(p[4]);
-                        printf(", %s",tok2str(authalg_values,"Unknown Auth Alg %u",p[4]));
+		switch (EXTRACT_16BITS(p+2)) {
+		case PPP_CHAP:
+			ND_TCHECK(p[4]);
+			ND_PRINT((ndo, ", %s", tok2str(authalg_values, "Unknown Auth Alg %u", p[4])));
 			break;
-		    case PPP_PAP: /* fall through */
-		    case PPP_EAP:
-		    case PPP_SPAP:
-		    case PPP_SPAP_OLD:
+		case PPP_PAP: /* fall through */
+		case PPP_EAP:
+		case PPP_SPAP:
+		case PPP_SPAP_OLD:
                         break;
-		    default:
-                        print_unknown_data(p,"\n\t",len);
-		    }
+		default:
+			print_unknown_data(ndo, p, "\n\t", len);
 		}
 		break;
 	case LCPOPT_QP:
-		if (len >= 4) {
-			TCHECK2(*(p + 2), 2);
-		        if (EXTRACT_16BITS(p+2) == PPP_LQM)
-				printf(" LQR");
-			else
-				printf(" unknown");
+		if (len < 4) {
+			ND_PRINT((ndo, " (length bogus, should be >= 4)"));
+			return 0;
 		}
+		ND_TCHECK2(*(p + 2), 2);
+		if (EXTRACT_16BITS(p+2) == PPP_LQM)
+			ND_PRINT((ndo, ": LQR"));
+		else
+			ND_PRINT((ndo, ": unknown"));
 		break;
 	case LCPOPT_MN:
-		if (len == 6) {
-			TCHECK2(*(p + 2), 4);
-			printf("0x%08x", EXTRACT_32BITS(p + 2));
+		if (len != 6) {
+			ND_PRINT((ndo, " (length bogus, should be = 6)"));
+			return 0;
 		}
+		ND_TCHECK2(*(p + 2), 4);
+		ND_PRINT((ndo, ": 0x%08x", EXTRACT_32BITS(p + 2)));
 		break;
 	case LCPOPT_PFC:
 		break;
 	case LCPOPT_ACFC:
 		break;
 	case LCPOPT_LD:
-		if (len == 4) {
-			TCHECK2(*(p + 2), 2);
-			printf("0x%04x", EXTRACT_16BITS(p + 2));
+		if (len != 4) {
+			ND_PRINT((ndo, " (length bogus, should be = 4)"));
+			return 0;
 		}
+		ND_TCHECK2(*(p + 2), 2);
+		ND_PRINT((ndo, ": 0x%04x", EXTRACT_16BITS(p + 2)));
 		break;
 	case LCPOPT_CBACK:
-		if (len < 3)
-			break;
-		TCHECK(p[2]);
-                printf("Callback Operation %s (%u)",
-                       tok2str(ppp_callback_values,"Unknown",p[2]),
-                       p[2]);
+		if (len < 3) {
+			ND_PRINT((ndo, " (length bogus, should be >= 3)"));
+			return 0;
+		}
+		ND_PRINT((ndo, ": "));
+		ND_TCHECK(p[2]);
+		ND_PRINT((ndo, ": Callback Operation %s (%u)",
+                       tok2str(ppp_callback_values, "Unknown", p[2]),
+                       p[2]));
 		break;
 	case LCPOPT_MLMRRU:
-		if (len == 4) {
-			TCHECK2(*(p + 2), 2);
-			printf("%u", EXTRACT_16BITS(p + 2));
+		if (len != 4) {
+			ND_PRINT((ndo, " (length bogus, should be = 4)"));
+			return 0;
 		}
+		ND_TCHECK2(*(p + 2), 2);
+		ND_PRINT((ndo, ": %u", EXTRACT_16BITS(p + 2)));
 		break;
 	case LCPOPT_MLED:
-		if (len < 3)
-			break;
-		TCHECK(p[2]);
+		if (len < 3) {
+			ND_PRINT((ndo, " (length bogus, should be >= 3)"));
+			return 0;
+		}
+		ND_TCHECK(p[2]);
 		switch (p[2]) {		/* class */
 		case MEDCLASS_NULL:
-			printf("Null");
+			ND_PRINT((ndo, ": Null"));
 			break;
 		case MEDCLASS_LOCAL:
-			printf("Local"); /* XXX */
+			ND_PRINT((ndo, ": Local")); /* XXX */
 			break;
 		case MEDCLASS_IPV4:
-			if (len != 7)
-				break;
-			TCHECK2(*(p + 3), 4);
-			printf("IPv4 %s", ipaddr_string(p + 3));
+			if (len != 7) {
+				ND_PRINT((ndo, " (length bogus, should be = 7)"));
+				return 0;
+			}
+			ND_TCHECK2(*(p + 3), 4);
+			ND_PRINT((ndo, ": IPv4 %s", ipaddr_string(ndo, p + 3)));
 			break;
 		case MEDCLASS_MAC:
-			if (len != 9)
-				break;
-			TCHECK(p[8]);
-			printf("MAC %02x:%02x:%02x:%02x:%02x:%02x",
-			       p[3], p[4], p[5], p[6], p[7], p[8]);
+			if (len != 9) {
+				ND_PRINT((ndo, " (length bogus, should be = 9)"));
+				return 0;
+			}
+			ND_TCHECK2(*(p + 3), 6);
+			ND_PRINT((ndo, ": MAC %s", etheraddr_string(ndo, p + 3)));
 			break;
 		case MEDCLASS_MNB:
-			printf("Magic-Num-Block"); /* XXX */
+			ND_PRINT((ndo, ": Magic-Num-Block")); /* XXX */
 			break;
 		case MEDCLASS_PSNDN:
-			printf("PSNDN"); /* XXX */
+			ND_PRINT((ndo, ": PSNDN")); /* XXX */
+			break;
+		default:
+			ND_PRINT((ndo, ": Unknown class %u", p[2]));
 			break;
 		}
 		break;
@@ -756,19 +776,23 @@ print_lcp_config_options(const u_char *p, int length)
 	case LCPOPT_PPPMUX:
 		break;
 #endif
-        default:
-                if(vflag<2)
-                        print_unknown_data(&p[2],"\n\t    ",len-2);
-                break;
+	default:
+		/*
+		 * Unknown option; dump it as raw bytes now if we're
+		 * not going to do so below.
+		 */
+		if (ndo->ndo_vflag < 2)
+			print_unknown_data(ndo, &p[2], "\n\t    ", len - 2);
+		break;
 	}
-         
-        if (vflag>1)
-                print_unknown_data(&p[2],"\n\t    ",len-2); /* exclude TLV header */
+
+	if (ndo->ndo_vflag > 1)
+		print_unknown_data(ndo, &p[2], "\n\t    ", len - 2); /* exclude TLV header */
 
 	return len;
 
 trunc:
-	printf("[|lcp]");
+	ND_PRINT((ndo, "[|lcp]"));
 	return 0;
 }
 
@@ -780,22 +804,22 @@ static const struct tok ppp_ml_flag_values[] = {
 };
 
 static void
-handle_mlppp(const u_char *p, int length) {
+handle_mlppp(netdissect_options *ndo,
+             const u_char *p, int length)
+{
+    if (!ndo->ndo_eflag)
+        ND_PRINT((ndo, "MLPPP, "));
 
-    if (!eflag)
-        printf("MLPPP, ");
-
-    printf("seq 0x%03x, Flags [%s], length %u",
+    ND_PRINT((ndo, "seq 0x%03x, Flags [%s], length %u",
            (EXTRACT_16BITS(p))&0x0fff, /* only support 12-Bit sequence space for now */
            bittok2str(ppp_ml_flag_values, "none", *p & 0xc0),
-           length);
-
-    return;
+           length));
 }
 
 /* CHAP */
 static void
-handle_chap(const u_char *p, int length)
+handle_chap(netdissect_options *ndo,
+            const u_char *p, int length)
 {
 	u_int code, len;
 	int val_size, name_size, msg_size;
@@ -804,26 +828,26 @@ handle_chap(const u_char *p, int length)
 
 	p0 = p;
 	if (length < 1) {
-		printf("[|chap]");
+		ND_PRINT((ndo, "[|chap]"));
 		return;
 	} else if (length < 4) {
-		TCHECK(*p);
-		printf("[|chap 0x%02x]", *p);
+		ND_TCHECK(*p);
+		ND_PRINT((ndo, "[|chap 0x%02x]", *p));
 		return;
 	}
 
-	TCHECK(*p);
+	ND_TCHECK(*p);
 	code = *p;
-        printf("CHAP, %s (0x%02x)",
+	ND_PRINT((ndo, "CHAP, %s (0x%02x)",
                tok2str(chapcode_values,"unknown",code),
-               code);
+               code));
 	p++;
 
-	TCHECK(*p);
-	printf(", id %u", *p);		/* ID */
+	ND_TCHECK(*p);
+	ND_PRINT((ndo, ", id %u", *p));		/* ID */
 	p++;
 
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
 	len = EXTRACT_16BITS(p);
 	p += 2;
 
@@ -839,42 +863,43 @@ handle_chap(const u_char *p, int length)
 	case CHAP_RESP:
 		if (length - (p - p0) < 1)
 			return;
-		TCHECK(*p);
+		ND_TCHECK(*p);
 		val_size = *p;		/* value size */
 		p++;
 		if (length - (p - p0) < val_size)
 			return;
-		printf(", Value ");
+		ND_PRINT((ndo, ", Value "));
 		for (i = 0; i < val_size; i++) {
-			TCHECK(*p);
-			printf("%02x", *p++);
+			ND_TCHECK(*p);
+			ND_PRINT((ndo, "%02x", *p++));
 		}
 		name_size = len - (p - p0);
-		printf(", Name ");
+		ND_PRINT((ndo, ", Name "));
 		for (i = 0; i < name_size; i++) {
-			TCHECK(*p);
-			safeputchar(*p++);
+			ND_TCHECK(*p);
+			safeputchar(ndo, *p++);
 		}
 		break;
 	case CHAP_SUCC:
 	case CHAP_FAIL:
 		msg_size = len - (p - p0);
-		printf(", Msg ");
+		ND_PRINT((ndo, ", Msg "));
 		for (i = 0; i< msg_size; i++) {
-			TCHECK(*p);
-			safeputchar(*p++);
+			ND_TCHECK(*p);
+			safeputchar(ndo, *p++);
 		}
 		break;
 	}
 	return;
 
 trunc:
-	printf("[|chap]");
+	ND_PRINT((ndo, "[|chap]"));
 }
 
 /* PAP (see RFC 1334) */
 static void
-handle_pap(const u_char *p, int length)
+handle_pap(netdissect_options *ndo,
+           const u_char *p, int length)
 {
 	u_int code, len;
 	int peerid_len, passwd_len, msg_len;
@@ -883,36 +908,36 @@ handle_pap(const u_char *p, int length)
 
 	p0 = p;
 	if (length < 1) {
-		printf("[|pap]");
+		ND_PRINT((ndo, "[|pap]"));
 		return;
 	} else if (length < 4) {
-		TCHECK(*p);
-		printf("[|pap 0x%02x]", *p);
+		ND_TCHECK(*p);
+		ND_PRINT((ndo, "[|pap 0x%02x]", *p));
 		return;
 	}
 
-	TCHECK(*p);
+	ND_TCHECK(*p);
 	code = *p;
-        printf("PAP, %s (0x%02x)",
-               tok2str(papcode_values,"unknown",code),
-               code);
+	ND_PRINT((ndo, "PAP, %s (0x%02x)",
+	          tok2str(papcode_values, "unknown", code),
+	          code));
 	p++;
 
-	TCHECK(*p);
-	printf(", id %u", *p);		/* ID */
+	ND_TCHECK(*p);
+	ND_PRINT((ndo, ", id %u", *p));		/* ID */
 	p++;
 
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
 	len = EXTRACT_16BITS(p);
 	p += 2;
 
 	if ((int)len > length) {
-		printf(", length %u > packet size", len);
+		ND_PRINT((ndo, ", length %u > packet size", len));
 		return;
 	}
 	length = len;
 	if (length < (p - p0)) {
-		printf(", length %u < PAP header length", length);
+		ND_PRINT((ndo, ", length %u < PAP header length", length));
 		return;
 	}
 
@@ -920,55 +945,56 @@ handle_pap(const u_char *p, int length)
 	case PAP_AREQ:
 		if (length - (p - p0) < 1)
 			return;
-		TCHECK(*p);
+		ND_TCHECK(*p);
 		peerid_len = *p;	/* Peer-ID Length */
 		p++;
 		if (length - (p - p0) < peerid_len)
 			return;
-		printf(", Peer ");
+		ND_PRINT((ndo, ", Peer "));
 		for (i = 0; i < peerid_len; i++) {
-			TCHECK(*p);
-			safeputchar(*p++);
+			ND_TCHECK(*p);
+			safeputchar(ndo, *p++);
 		}
 
 		if (length - (p - p0) < 1)
 			return;
-		TCHECK(*p);
+		ND_TCHECK(*p);
 		passwd_len = *p;	/* Password Length */
 		p++;
 		if (length - (p - p0) < passwd_len)
 			return;
-		printf(", Name ");
+		ND_PRINT((ndo, ", Name "));
 		for (i = 0; i < passwd_len; i++) {
-			TCHECK(*p);
-			safeputchar(*p++);
+			ND_TCHECK(*p);
+			safeputchar(ndo, *p++);
 		}
 		break;
 	case PAP_AACK:
 	case PAP_ANAK:
 		if (length - (p - p0) < 1)
 			return;
-		TCHECK(*p);
+		ND_TCHECK(*p);
 		msg_len = *p;		/* Msg-Length */
 		p++;
 		if (length - (p - p0) < msg_len)
 			return;
-		printf(", Msg ");
+		ND_PRINT((ndo, ", Msg "));
 		for (i = 0; i< msg_len; i++) {
-			TCHECK(*p);
-			safeputchar(*p++);
+			ND_TCHECK(*p);
+			safeputchar(ndo, *p++);
 		}
 		break;
 	}
 	return;
 
 trunc:
-	printf("[|pap]");
+	ND_PRINT((ndo, "[|pap]"));
 }
 
 /* BAP */
 static void
-handle_bap(const u_char *p _U_, int length _U_)
+handle_bap(netdissect_options *ndo _U_,
+           const u_char *p _U_, int length _U_)
 {
 	/* XXX: to be supported!! */
 }
@@ -976,91 +1002,99 @@ handle_bap(const u_char *p _U_, int length _U_)
 
 /* IPCP config options */
 static int
-print_ipcp_config_options(const u_char *p, int length)
+print_ipcp_config_options(netdissect_options *ndo,
+                          const u_char *p, int length)
 {
 	int len, opt;
         u_int compproto, ipcomp_subopttotallen, ipcomp_subopt, ipcomp_suboptlen;
 
 	if (length < 2)
 		return 0;
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
 	len = p[1];
 	opt = p[0];
 	if (length < len)
 		return 0;
 	if (len < 2) {
-		printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)",
+		ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u (length bogus, should be >= 2)",
 		       tok2str(ipcpopt_values,"unknown",opt),
 		       opt,
-        	       len);
+		       len));
 		return 0;
 	}
 
-	printf("\n\t  %s Option (0x%02x), length %u: ",
+	ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u",
 	       tok2str(ipcpopt_values,"unknown",opt),
 	       opt,
-               len);
+	       len));
 
 	switch (opt) {
 	case IPCPOPT_2ADDR:		/* deprecated */
-		if (len != 10)
-			goto invlen;
-		TCHECK2(*(p + 6), 4);
-		printf("src %s, dst %s",
-		       ipaddr_string(p + 2),
-		       ipaddr_string(p + 6));
+		if (len != 10) {
+			ND_PRINT((ndo, " (length bogus, should be = 10)"));
+			return len;
+		}
+		ND_TCHECK2(*(p + 6), 4);
+		ND_PRINT((ndo, ": src %s, dst %s",
+		       ipaddr_string(ndo, p + 2),
+		       ipaddr_string(ndo, p + 6)));
 		break;
 	case IPCPOPT_IPCOMP:
-		if (len < 4)
-			goto invlen;
-		TCHECK2(*(p + 2), 2);
-                compproto = EXTRACT_16BITS(p+2);
+		if (len < 4) {
+			ND_PRINT((ndo, " (length bogus, should be >= 4)"));
+			return 0;
+		}
+		ND_TCHECK2(*(p + 2), 2);
+		compproto = EXTRACT_16BITS(p+2);
 
-                printf("%s (0x%02x):",
-                       tok2str(ipcpopt_compproto_values,"Unknown",compproto),
-                       compproto);
+		ND_PRINT((ndo, ": %s (0x%02x):",
+		          tok2str(ipcpopt_compproto_values, "Unknown", compproto),
+		          compproto));
 
 		switch (compproto) {
                 case PPP_VJC:
 			/* XXX: VJ-Comp parameters should be decoded */
                         break;
                 case IPCPOPT_IPCOMP_HDRCOMP:
-                        if (len < IPCPOPT_IPCOMP_MINLEN)
-                                goto invlen;
+                        if (len < IPCPOPT_IPCOMP_MINLEN) {
+                        	ND_PRINT((ndo, " (length bogus, should be >= %u)",
+                        		IPCPOPT_IPCOMP_MINLEN));
+                        	return 0;
+                        }
 
-                        TCHECK2(*(p + 2), IPCPOPT_IPCOMP_MINLEN);
-                        printf("\n\t    TCP Space %u, non-TCP Space %u" \
+                        ND_TCHECK2(*(p + 2), IPCPOPT_IPCOMP_MINLEN);
+                        ND_PRINT((ndo, "\n\t    TCP Space %u, non-TCP Space %u" \
                                ", maxPeriod %u, maxTime %u, maxHdr %u",
                                EXTRACT_16BITS(p+4),
                                EXTRACT_16BITS(p+6),
                                EXTRACT_16BITS(p+8),
                                EXTRACT_16BITS(p+10),
-                               EXTRACT_16BITS(p+12));
+                               EXTRACT_16BITS(p+12)));
 
                         /* suboptions present ? */
                         if (len > IPCPOPT_IPCOMP_MINLEN) {
                                 ipcomp_subopttotallen = len - IPCPOPT_IPCOMP_MINLEN;
                                 p += IPCPOPT_IPCOMP_MINLEN;
-                                
-                                printf("\n\t      Suboptions, length %u", ipcomp_subopttotallen);
+
+                                ND_PRINT((ndo, "\n\t      Suboptions, length %u", ipcomp_subopttotallen));
 
                                 while (ipcomp_subopttotallen >= 2) {
-                                        TCHECK2(*p, 2);
+                                        ND_TCHECK2(*p, 2);
                                         ipcomp_subopt = *p;
                                         ipcomp_suboptlen = *(p+1);
-                                        
+
                                         /* sanity check */
                                         if (ipcomp_subopt == 0 ||
                                             ipcomp_suboptlen == 0 )
                                                 break;
 
                                         /* XXX: just display the suboptions for now */
-                                        printf("\n\t\t%s Suboption #%u, length %u",
+                                        ND_PRINT((ndo, "\n\t\t%s Suboption #%u, length %u",
                                                tok2str(ipcpopt_compproto_subopt_values,
                                                        "Unknown",
                                                        ipcomp_subopt),
                                                ipcomp_subopt,
-                                               ipcomp_suboptlen);
+                                               ipcomp_suboptlen));
 
                                         ipcomp_subopttotallen -= ipcomp_suboptlen;
                                         p += ipcomp_suboptlen;
@@ -1078,114 +1112,153 @@ print_ipcp_config_options(const u_char *p, int length)
 	case IPCPOPT_PRINBNS:
 	case IPCPOPT_SECDNS:
 	case IPCPOPT_SECNBNS:
-		if (len != 6)
-			goto invlen;
-		TCHECK2(*(p + 2), 4);
-		printf("%s", ipaddr_string(p + 2));
+		if (len != 6) {
+			ND_PRINT((ndo, " (length bogus, should be = 6)"));
+			return 0;
+		}
+		ND_TCHECK2(*(p + 2), 4);
+		ND_PRINT((ndo, ": %s", ipaddr_string(ndo, p + 2)));
 		break;
 	default:
-                if(vflag<2)
-                        print_unknown_data(&p[2],"\n\t    ",len-2);
+		/*
+		 * Unknown option; dump it as raw bytes now if we're
+		 * not going to do so below.
+		 */
+		if (ndo->ndo_vflag < 2)
+			print_unknown_data(ndo, &p[2], "\n\t    ", len - 2);
 		break;
 	}
-        if (vflag>1)
-                print_unknown_data(&p[2],"\n\t    ",len-2); /* exclude TLV header */
+	if (ndo->ndo_vflag > 1)
+		print_unknown_data(ndo, &p[2], "\n\t    ", len - 2); /* exclude TLV header */
 	return len;
 
-invlen:
-	printf(", invalid-length-%d", opt);
-	return 0;
-
 trunc:
-	printf("[|ipcp]");
+	ND_PRINT((ndo, "[|ipcp]"));
 	return 0;
 }
 
 /* IP6CP config options */
 static int
-print_ip6cp_config_options(const u_char *p, int length)
+print_ip6cp_config_options(netdissect_options *ndo,
+                           const u_char *p, int length)
 {
 	int len, opt;
 
 	if (length < 2)
 		return 0;
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
 	len = p[1];
 	opt = p[0];
 	if (length < len)
 		return 0;
 	if (len < 2) {
-		printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)",
+		ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u (length bogus, should be >= 2)",
 		       tok2str(ip6cpopt_values,"unknown",opt),
 		       opt,
-	               len);
-	        return 0;
+		       len));
+		return 0;
 	}
 
-	printf("\n\t  %s Option (0x%02x), length %u: ",
+	ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u",
 	       tok2str(ip6cpopt_values,"unknown",opt),
 	       opt,
-               len);
+	       len));
 
 	switch (opt) {
 	case IP6CP_IFID:
-		if (len != 10)
-			goto invlen;
-		TCHECK2(*(p + 2), 8);
-		printf("%04x:%04x:%04x:%04x",
+		if (len != 10) {
+			ND_PRINT((ndo, " (length bogus, should be = 10)"));
+			return len;
+		}
+		ND_TCHECK2(*(p + 2), 8);
+		ND_PRINT((ndo, ": %04x:%04x:%04x:%04x",
 		       EXTRACT_16BITS(p + 2),
 		       EXTRACT_16BITS(p + 4),
 		       EXTRACT_16BITS(p + 6),
-		       EXTRACT_16BITS(p + 8));
+		       EXTRACT_16BITS(p + 8)));
 		break;
 	default:
-                if(vflag<2)
-                        print_unknown_data(&p[2],"\n\t    ",len-2);
+		/*
+		 * Unknown option; dump it as raw bytes now if we're
+		 * not going to do so below.
+		 */
+		if (ndo->ndo_vflag < 2)
+			print_unknown_data(ndo, &p[2], "\n\t    ", len - 2);
 		break;
 	}
-        if (vflag>1)
-                print_unknown_data(&p[2],"\n\t    ",len-2); /* exclude TLV header */
+	if (ndo->ndo_vflag > 1)
+		print_unknown_data(ndo, &p[2], "\n\t    ", len - 2); /* exclude TLV header */
 
 	return len;
 
-invlen:
-	printf(", invalid-length-%d", opt);
-	return 0;
-
 trunc:
-	printf("[|ip6cp]");
+	ND_PRINT((ndo, "[|ip6cp]"));
 	return 0;
 }
 
 
 /* CCP config options */
 static int
-print_ccp_config_options(const u_char *p, int length)
+print_ccp_config_options(netdissect_options *ndo,
+                         const u_char *p, int length)
 {
 	int len, opt;
 
 	if (length < 2)
 		return 0;
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
 	len = p[1];
 	opt = p[0];
 	if (length < len)
 		return 0;
 	if (len < 2) {
-	        printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)",
-        	       tok2str(ccpconfopts_values, "Unknown", opt),
-	               opt,
-        	       len);
-        	return 0;
-        }
+		ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u (length bogus, should be >= 2)",
+		          tok2str(ccpconfopts_values, "Unknown", opt),
+		          opt,
+		          len));
+		return 0;
+	}
 
-        printf("\n\t  %s Option (0x%02x), length %u:",
-               tok2str(ccpconfopts_values, "Unknown", opt),
-               opt,
-               len);
+	ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u",
+	          tok2str(ccpconfopts_values, "Unknown", opt),
+	          opt,
+	          len));
 
 	switch (opt) {
-                /* fall through --> default: nothing supported yet */
+	case CCPOPT_BSDCOMP:
+		if (len < 3) {
+			ND_PRINT((ndo, " (length bogus, should be >= 3)"));
+			return len;
+		}
+		ND_TCHECK2(*(p + 2), 1);
+		ND_PRINT((ndo, ": Version: %u, Dictionary Bits: %u",
+			p[2] >> 5, p[2] & 0x1f));
+		break;
+	case CCPOPT_MVRCA:
+		if (len < 4) {
+			ND_PRINT((ndo, " (length bogus, should be >= 4)"));
+			return len;
+		}
+		ND_TCHECK2(*(p + 2), 1);
+		ND_PRINT((ndo, ": Features: %u, PxP: %s, History: %u, #CTX-ID: %u",
+				(p[2] & 0xc0) >> 6,
+				(p[2] & 0x20) ? "Enabled" : "Disabled",
+				p[2] & 0x1f, p[3]));
+		break;
+	case CCPOPT_DEFLATE:
+		if (len < 4) {
+			ND_PRINT((ndo, " (length bogus, should be >= 4)"));
+			return len;
+		}
+		ND_TCHECK2(*(p + 2), 1);
+		ND_PRINT((ndo, ": Window: %uK, Method: %s (0x%x), MBZ: %u, CHK: %u",
+			(p[2] & 0xf0) >> 4,
+			((p[2] & 0x0f) == 8) ? "zlib" : "unkown",
+			p[2] & 0x0f, (p[3] & 0xfc) >> 2, p[3] & 0x03));
+		break;
+
+/* XXX: to be supported */
+#if 0
 	case CCPOPT_OUI:
 	case CCPOPT_PRED1:
 	case CCPOPT_PRED2:
@@ -1195,82 +1268,98 @@ print_ccp_config_options(const u_char *p, int length)
 	case CCPOPT_MPPC:
 	case CCPOPT_GFZA:
 	case CCPOPT_V42BIS:
-	case CCPOPT_BSDCOMP:
 	case CCPOPT_LZSDCP:
-	case CCPOPT_MVRCA:
 	case CCPOPT_DEC:
-	case CCPOPT_DEFLATE:
 	case CCPOPT_RESV:
+		break;
+#endif
 	default:
-                if(vflag<2)
-                        print_unknown_data(&p[2],"\n\t    ",len-2);
+		/*
+		 * Unknown option; dump it as raw bytes now if we're
+		 * not going to do so below.
+		 */
+		if (ndo->ndo_vflag < 2)
+			print_unknown_data(ndo, &p[2], "\n\t    ", len - 2);
 		break;
 	}
-        if (vflag>1)
-                print_unknown_data(&p[2],"\n\t    ",len-2); /* exclude TLV header */
+	if (ndo->ndo_vflag > 1)
+		print_unknown_data(ndo, &p[2], "\n\t    ", len - 2); /* exclude TLV header */
 
 	return len;
 
 trunc:
-	printf("[|ccp]");
+	ND_PRINT((ndo, "[|ccp]"));
 	return 0;
 }
 
 /* BACP config options */
 static int
-print_bacp_config_options(const u_char *p, int length)
+print_bacp_config_options(netdissect_options *ndo,
+                          const u_char *p, int length)
 {
 	int len, opt;
 
 	if (length < 2)
 		return 0;
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
 	len = p[1];
 	opt = p[0];
 	if (length < len)
 		return 0;
 	if (len < 2) {
-	        printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)",
-        	       tok2str(bacconfopts_values, "Unknown", opt),
-	               opt,
-        	       len);
-        	return 0;
-        }
+		ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u (length bogus, should be >= 2)",
+		          tok2str(bacconfopts_values, "Unknown", opt),
+		          opt,
+		          len));
+		return 0;
+	}
 
-        printf("\n\t  %s Option (0x%02x), length %u:",
-               tok2str(bacconfopts_values, "Unknown", opt),
-               opt,
-               len);
+	ND_PRINT((ndo, "\n\t  %s Option (0x%02x), length %u",
+	          tok2str(bacconfopts_values, "Unknown", opt),
+	          opt,
+	          len));
 
 	switch (opt) {
 	case BACPOPT_FPEER:
-		TCHECK2(*(p + 2), 4);
-		printf(", Magic-Num 0x%08x", EXTRACT_32BITS(p + 2));
-                break;
+		if (len != 6) {
+			ND_PRINT((ndo, " (length bogus, should be = 6)"));
+			return len;
+		}
+		ND_TCHECK2(*(p + 2), 4);
+		ND_PRINT((ndo, ": Magic-Num 0x%08x", EXTRACT_32BITS(p + 2)));
+		break;
 	default:
-                if(vflag<2)
-                        print_unknown_data(&p[2],"\n\t    ",len-2);
+		/*
+		 * Unknown option; dump it as raw bytes now if we're
+		 * not going to do so below.
+		 */
+		if (ndo->ndo_vflag < 2)
+			print_unknown_data(ndo, &p[2], "\n\t    ", len - 2);
 		break;
 	}
-        if (vflag>1)
-                print_unknown_data(&p[2],"\n\t    ",len-2); /* exclude TLV header */
+	if (ndo->ndo_vflag > 1)
+		print_unknown_data(ndo, &p[2], "\n\t    ", len - 2); /* exclude TLV header */
 
 	return len;
 
 trunc:
-	printf("[|bacp]");
+	ND_PRINT((ndo, "[|bacp]"));
 	return 0;
 }
 
-
 static void
-ppp_hdlc(const u_char *p, int length)
+ppp_hdlc(netdissect_options *ndo,
+         const u_char *p, int length)
 {
-	u_char *b, *s, *t, c;
+	u_char *b, *t, c;
+	const u_char *s;
 	int i, proto;
 	const void *se;
 
-	b = (u_int8_t *)malloc(length);
+        if (length <= 0)
+                return;
+
+	b = (u_char *)malloc(length);
 	if (b == NULL)
 		return;
 
@@ -1279,64 +1368,74 @@ ppp_hdlc(const u_char *p, int length)
 	 * Do this so that we dont overwrite the original packet
 	 * contents.
 	 */
-	for (s = (u_char *)p, t = b, i = length; i > 0; i--) {
+	for (s = p, t = b, i = length; i > 0 && ND_TTEST(*s); i--) {
 		c = *s++;
 		if (c == 0x7d) {
-			if (i > 1) {
-				i--;
-				c = *s++ ^ 0x20;
-			} else
-				continue;
+			if (i <= 1 || !ND_TTEST(*s))
+				break;
+			i--;
+			c = *s++ ^ 0x20;
 		}
 		*t++ = c;
 	}
 
-	se = snapend;
-	snapend = t;
+	se = ndo->ndo_snapend;
+	ndo->ndo_snapend = t;
+	length = t - b;
 
         /* now lets guess about the payload codepoint format */
+        if (length < 1)
+                goto trunc;
         proto = *b; /* start with a one-octet codepoint guess */
-        
+
         switch (proto) {
         case PPP_IP:
-		ip_print(gndo, b+1, t - b - 1);
+		ip_print(ndo, b + 1, length - 1);
 		goto cleanup;
-#ifdef INET6
         case PPP_IPV6:
-		ip6_print(gndo, b+1, t - b - 1);
+		ip6_print(ndo, b + 1, length - 1);
 		goto cleanup;
-#endif
         default: /* no luck - try next guess */
 		break;
         }
 
+        if (length < 2)
+                goto trunc;
         proto = EXTRACT_16BITS(b); /* next guess - load two octets */
 
         switch (proto) {
         case (PPP_ADDRESS << 8 | PPP_CONTROL): /* looks like a PPP frame */
+            if (length < 4)
+                goto trunc;
             proto = EXTRACT_16BITS(b+2); /* load the PPP proto-id */
-            handle_ppp(proto, b+4, t - b - 4);
+            handle_ppp(ndo, proto, b + 4, length - 4);
             break;
         default: /* last guess - proto must be a PPP proto-id */
-            handle_ppp(proto, b+2, t - b - 2);
+            handle_ppp(ndo, proto, b + 2, length - 2);
             break;
         }
 
 cleanup:
-        snapend = se;
+	ndo->ndo_snapend = se;
 	free(b);
         return;
+
+trunc:
+	ndo->ndo_snapend = se;
+	free(b);
+	ND_PRINT((ndo, "[|ppp]"));
 }
 
 
 /* PPP */
 static void
-handle_ppp(u_int proto, const u_char *p, int length)
+handle_ppp(netdissect_options *ndo,
+           u_int proto, const u_char *p, int length)
 {
-        if ((proto & 0xff00) == 0x7e00) {/* is this an escape code ? */
-            ppp_hdlc(p-1, length);
-            return;
-        }
+	if ((proto & 0xff00) == 0x7e00) { /* is this an escape code ? */
+		ppp_hdlc(ndo, p - 1, length);
+		return;
+	}
 
 	switch (proto) {
 	case PPP_LCP: /* fall through */
@@ -1346,55 +1445,54 @@ handle_ppp(u_int proto, const u_char *p, int length)
 	case PPP_IPV6CP:
 	case PPP_CCP:
 	case PPP_BACP:
-		handle_ctrl_proto(proto, p, length);
+		handle_ctrl_proto(ndo, proto, p, length);
 		break;
-        case PPP_ML:
-                handle_mlppp(p, length);
-                break;
+	case PPP_ML:
+		handle_mlppp(ndo, p, length);
+		break;
 	case PPP_CHAP:
-		handle_chap(p, length);
+		handle_chap(ndo, p, length);
 		break;
 	case PPP_PAP:
-		handle_pap(p, length);
+		handle_pap(ndo, p, length);
 		break;
 	case PPP_BAP:		/* XXX: not yet completed */
-		handle_bap(p, length);
+		handle_bap(ndo, p, length);
 		break;
 	case ETHERTYPE_IP:	/*XXX*/
         case PPP_VJNC:
 	case PPP_IP:
-		ip_print(gndo, p, length);
+		ip_print(ndo, p, length);
 		break;
-#ifdef INET6
 	case ETHERTYPE_IPV6:	/*XXX*/
 	case PPP_IPV6:
-		ip6_print(gndo, p, length);
+		ip6_print(ndo, p, length);
 		break;
-#endif
 	case ETHERTYPE_IPX:	/*XXX*/
 	case PPP_IPX:
-		ipx_print(p, length);
+		ipx_print(ndo, p, length);
 		break;
 	case PPP_OSI:
-	        isoclns_print(p, length, length);
-	        break;
+		isoclns_print(ndo, p, length, length);
+		break;
 	case PPP_MPLS_UCAST:
 	case PPP_MPLS_MCAST:
-		mpls_print(p, length);
+		mpls_print(ndo, p, length);
 		break;
 	case PPP_COMP:
-		printf("compressed PPP data");
+		ND_PRINT((ndo, "compressed PPP data"));
 		break;
 	default:
-		printf("%s ", tok2str(ppptype2str, "unknown PPP protocol (0x%04x)", proto));
-		print_unknown_data(p,"\n\t",length);
+		ND_PRINT((ndo, "%s ", tok2str(ppptype2str, "unknown PPP protocol (0x%04x)", proto)));
+		print_unknown_data(ndo, p, "\n\t", length);
 		break;
 	}
 }
 
 /* Standard PPP printer */
 u_int
-ppp_print(register const u_char *p, u_int length)
+ppp_print(netdissect_options *ndo,
+          register const u_char *p, u_int length)
 {
 	u_int proto,ppp_header;
         u_int olen = length; /* _o_riginal length */
@@ -1406,18 +1504,18 @@ ppp_print(register const u_char *p, u_int length)
 	 */
 	if (length < 2)
 		goto trunc;
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
         ppp_header = EXTRACT_16BITS(p);
 
         switch(ppp_header) {
         case (PPP_WITHDIRECTION_IN  << 8 | PPP_CONTROL):
-            if (eflag) printf("In  ");
+            if (ndo->ndo_eflag) ND_PRINT((ndo, "In  "));
             p += 2;
             length -= 2;
             hdr_len += 2;
             break;
         case (PPP_WITHDIRECTION_OUT << 8 | PPP_CONTROL):
-            if (eflag) printf("Out ");
+            if (ndo->ndo_eflag) ND_PRINT((ndo, "Out "));
             p += 2;
             length -= 2;
             hdr_len += 2;
@@ -1434,43 +1532,44 @@ ppp_print(register const u_char *p, u_int length)
 
 	if (length < 2)
 		goto trunc;
-	TCHECK(*p);
+	ND_TCHECK(*p);
 	if (*p % 2) {
 		proto = *p;		/* PFC is used */
 		p++;
 		length--;
 		hdr_len++;
 	} else {
-		TCHECK2(*p, 2);
+		ND_TCHECK2(*p, 2);
 		proto = EXTRACT_16BITS(p);
 		p += 2;
 		length -= 2;
 		hdr_len += 2;
 	}
 
-        if (eflag)
-            printf("%s (0x%04x), length %u: ",
-                   tok2str(ppptype2str, "unknown", proto),
-                   proto,
-                   olen);
+	if (ndo->ndo_eflag)
+		ND_PRINT((ndo, "%s (0x%04x), length %u: ",
+		          tok2str(ppptype2str, "unknown", proto),
+		          proto,
+		          olen));
 
-	handle_ppp(proto, p, length);
+	handle_ppp(ndo, proto, p, length);
 	return (hdr_len);
 trunc:
-	printf("[|ppp]");
+	ND_PRINT((ndo, "[|ppp]"));
 	return (0);
 }
 
 
 /* PPP I/F printer */
 u_int
-ppp_if_print(const struct pcap_pkthdr *h, register const u_char *p)
+ppp_if_print(netdissect_options *ndo,
+             const struct pcap_pkthdr *h, register const u_char *p)
 {
 	register u_int length = h->len;
 	register u_int caplen = h->caplen;
 
 	if (caplen < PPP_HDRLEN) {
-		printf("[|ppp]");
+		ND_PRINT((ndo, "[|ppp]"));
 		return (caplen);
 	}
 
@@ -1511,11 +1610,11 @@ ppp_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 	 * (Is the Cisco framing in question what DLT_C_HDLC, in
 	 * BSD/OS, is?)
 	 */
-	if (eflag)
-		printf("%c %4d %02x ", p[0] ? 'O' : 'I', length, p[1]);
+	if (ndo->ndo_eflag)
+		ND_PRINT((ndo, "%c %4d %02x ", p[0] ? 'O' : 'I', length, p[1]));
 #endif
 
-	ppp_print(p, length);
+	ppp_print(ndo, p, length);
 
 	return (0);
 }
@@ -1530,7 +1629,8 @@ ppp_if_print(const struct pcap_pkthdr *h, register const u_char *p)
  * This handles, for example, DLT_PPP_SERIAL in NetBSD.
  */
 u_int
-ppp_hdlc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
+ppp_hdlc_if_print(netdissect_options *ndo,
+                  const struct pcap_pkthdr *h, register const u_char *p)
 {
 	register u_int length = h->len;
 	register u_int caplen = h->caplen;
@@ -1538,7 +1638,7 @@ ppp_hdlc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 	u_int hdrlen = 0;
 
 	if (caplen < 2) {
-		printf("[|ppp]");
+		ND_PRINT((ndo, "[|ppp]"));
 		return (caplen);
 	}
 
@@ -1546,12 +1646,12 @@ ppp_hdlc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 
 	case PPP_ADDRESS:
 		if (caplen < 4) {
-			printf("[|ppp]");
+			ND_PRINT((ndo, "[|ppp]"));
 			return (caplen);
 		}
 
-		if (eflag)
-			printf("%02x %02x %d ", p[0], p[1], length);
+		if (ndo->ndo_eflag)
+			ND_PRINT((ndo, "%02x %02x %d ", p[0], p[1], length));
 		p += 2;
 		length -= 2;
 		hdrlen += 2;
@@ -1560,20 +1660,19 @@ ppp_hdlc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 		p += 2;
 		length -= 2;
 		hdrlen += 2;
-		printf("%s: ", tok2str(ppptype2str, "unknown PPP protocol (0x%04x)", proto));
+		ND_PRINT((ndo, "%s: ", tok2str(ppptype2str, "unknown PPP protocol (0x%04x)", proto)));
 
-		handle_ppp(proto, p, length);
+		handle_ppp(ndo, proto, p, length);
 		break;
 
 	case CHDLC_UNICAST:
 	case CHDLC_BCAST:
-		return (chdlc_if_print(h, p));
+		return (chdlc_if_print(ndo, h, p));
 
 	default:
-		if (eflag)
-			printf("%02x %02x %d ", p[0], p[1], length);
+		if (ndo->ndo_eflag)
+			ND_PRINT((ndo, "%02x %02x %d ", p[0], p[1], length));
 		p += 2;
-		length -= 2;
 		hdrlen += 2;
 
 		/*
@@ -1581,7 +1680,7 @@ ppp_hdlc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 		 * the next two octets as an Ethernet type; does that
 		 * ever happen?
 		 */
-		printf("unknown addr %02x; ctrl %02x", p[0], p[1]);
+		ND_PRINT((ndo, "unknown addr %02x; ctrl %02x", p[0], p[1]));
 		break;
 	}
 
@@ -1592,18 +1691,19 @@ ppp_hdlc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 
 /* BSD/OS specific PPP printer */
 u_int
-ppp_bsdos_if_print(const struct pcap_pkthdr *h _U_, register const u_char *p _U_)
+ppp_bsdos_if_print(netdissect_options *ndo _U_,
+                   const struct pcap_pkthdr *h _U_, register const u_char *p _U_)
 {
 	register int hdrlength;
 #ifdef __bsdi__
 	register u_int length = h->len;
 	register u_int caplen = h->caplen;
-	u_int16_t ptype;
+	uint16_t ptype;
 	const u_char *q;
 	int i;
 
 	if (caplen < PPP_BSDI_HDRLEN) {
-		printf("[|ppp]");
+		ND_PRINT((ndo, "[|ppp]"));
 		return (caplen)
 	}
 
@@ -1611,34 +1711,34 @@ ppp_bsdos_if_print(const struct pcap_pkthdr *h _U_, register const u_char *p _U_
 
 #if 0
 	if (p[0] == PPP_ADDRESS && p[1] == PPP_CONTROL) {
-		if (eflag)
-			printf("%02x %02x ", p[0], p[1]);
+		if (ndo->ndo_eflag)
+			ND_PRINT((ndo, "%02x %02x ", p[0], p[1]));
 		p += 2;
 		hdrlength = 2;
 	}
 
-	if (eflag)
-		printf("%d ", length);
+	if (ndo->ndo_eflag)
+		ND_PRINT((ndo, "%d ", length));
 	/* Retrieve the protocol type */
 	if (*p & 01) {
 		/* Compressed protocol field */
 		ptype = *p;
-		if (eflag)
-			printf("%02x ", ptype);
+		if (ndo->ndo_eflag)
+			ND_PRINT((ndo, "%02x ", ptype));
 		p++;
 		hdrlength += 1;
 	} else {
 		/* Un-compressed protocol field */
 		ptype = EXTRACT_16BITS(p);
-		if (eflag)
-			printf("%04x ", ptype);
+		if (ndo->ndo_eflag)
+			ND_PRINT((ndo, "%04x ", ptype));
 		p += 2;
 		hdrlength += 2;
 	}
 #else
 	ptype = 0;	/*XXX*/
-	if (eflag)
-		printf("%c ", p[SLC_DIR] ? 'O' : 'I');
+	if (ndo->ndo_eflag)
+		ND_PRINT((ndo, "%c ", p[SLC_DIR] ? 'O' : 'I'));
 	if (p[SLC_LLHL]) {
 		/* link level header */
 		struct ppp_header *ph;
@@ -1647,72 +1747,68 @@ ppp_bsdos_if_print(const struct pcap_pkthdr *h _U_, register const u_char *p _U_
 		ph = (struct ppp_header *)q;
 		if (ph->phdr_addr == PPP_ADDRESS
 		 && ph->phdr_ctl == PPP_CONTROL) {
-			if (eflag)
-				printf("%02x %02x ", q[0], q[1]);
+			if (ndo->ndo_eflag)
+				ND_PRINT((ndo, "%02x %02x ", q[0], q[1]));
 			ptype = EXTRACT_16BITS(&ph->phdr_type);
-			if (eflag && (ptype == PPP_VJC || ptype == PPP_VJNC)) {
-				printf("%s ", tok2str(ppptype2str,
-						"proto-#%d", ptype));
+			if (ndo->ndo_eflag && (ptype == PPP_VJC || ptype == PPP_VJNC)) {
+				ND_PRINT((ndo, "%s ", tok2str(ppptype2str,
+						"proto-#%d", ptype)));
 			}
 		} else {
-			if (eflag) {
-				printf("LLH=[");
+			if (ndo->ndo_eflag) {
+				ND_PRINT((ndo, "LLH=["));
 				for (i = 0; i < p[SLC_LLHL]; i++)
-					printf("%02x", q[i]);
-				printf("] ");
+					ND_PRINT((ndo, "%02x", q[i]));
+				ND_PRINT((ndo, "] "));
 			}
 		}
 	}
-	if (eflag)
-		printf("%d ", length);
+	if (ndo->ndo_eflag)
+		ND_PRINT((ndo, "%d ", length));
 	if (p[SLC_CHL]) {
 		q = p + SLC_BPFHDRLEN + p[SLC_LLHL];
 
 		switch (ptype) {
 		case PPP_VJC:
-			ptype = vjc_print(q, ptype);
+			ptype = vjc_print(ndo, q, ptype);
 			hdrlength = PPP_BSDI_HDRLEN;
 			p += hdrlength;
 			switch (ptype) {
 			case PPP_IP:
-				ip_print(gndo, p, length);
+				ip_print(ndo, p, length);
 				break;
-#ifdef INET6
 			case PPP_IPV6:
-				ip6_print(gndo, p, length);
+				ip6_print(ndo, p, length);
 				break;
-#endif
 			case PPP_MPLS_UCAST:
 			case PPP_MPLS_MCAST:
-				mpls_print(p, length);
+				mpls_print(ndo, p, length);
 				break;
 			}
 			goto printx;
 		case PPP_VJNC:
-			ptype = vjc_print(q, ptype);
+			ptype = vjc_print(ndo, q, ptype);
 			hdrlength = PPP_BSDI_HDRLEN;
 			p += hdrlength;
 			switch (ptype) {
 			case PPP_IP:
-				ip_print(gndo, p, length);
+				ip_print(ndo, p, length);
 				break;
-#ifdef INET6
 			case PPP_IPV6:
-				ip6_print(gndo, p, length);
+				ip6_print(ndo, p, length);
 				break;
-#endif
 			case PPP_MPLS_UCAST:
 			case PPP_MPLS_MCAST:
-				mpls_print(p, length);
+				mpls_print(ndo, p, length);
 				break;
 			}
 			goto printx;
 		default:
-			if (eflag) {
-				printf("CH=[");
+			if (ndo->ndo_eflag) {
+				ND_PRINT((ndo, "CH=["));
 				for (i = 0; i < p[SLC_LLHL]; i++)
-					printf("%02x", q[i]);
-				printf("] ");
+					ND_PRINT((ndo, "%02x", q[i]));
+				ND_PRINT((ndo, "] "));
 			}
 			break;
 		}
@@ -1728,17 +1824,15 @@ ppp_bsdos_if_print(const struct pcap_pkthdr *h _U_, register const u_char *p _U_
 	case PPP_IP:
 		ip_print(p, length);
 		break;
-#ifdef INET6
 	case PPP_IPV6:
-		ip6_print(gndo, p, length);
+		ip6_print(ndo, p, length);
 		break;
-#endif
-        case PPP_MPLS_UCAST:
-        case PPP_MPLS_MCAST:
-                mpls_print(gndo, p, length);
-                break;
+	case PPP_MPLS_UCAST:
+	case PPP_MPLS_MCAST:
+		mpls_print(ndo, p, length);
+		break;
 	default:
-		printf("%s ", tok2str(ppptype2str, "unknown PPP protocol (0x%04x)", ptype));
+		ND_PRINT((ndo, "%s ", tok2str(ppptype2str, "unknown PPP protocol (0x%04x)", ptype)));
 	}
 
 printx:

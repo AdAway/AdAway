@@ -1,0 +1,912 @@
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::3 > fe80::2: OSPFv3, Hello, length 36
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 100
+	  Designated Router 3.3.3.3
+	  Neighbor List:
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::3 > fe80::1: OSPFv3, Hello, length 36
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 100
+	  Designated Router 3.3.3.3
+	  Neighbor List:
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 40) fe80::1 > fe80::3: OSPFv3, Hello, length 40
+	Router-ID 1.1.1.1, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 1
+	  Designated Router 1.1.1.1
+	  Neighbor List:
+	    3.3.3.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::3 > fe80::1: OSPFv3, Database Description, length 28
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router], DD Flags [Init, More, Master], MTU 1500, DD-Sequence 0x0000149b
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::1 > fe80::3: OSPFv3, Database Description, length 28
+	Router-ID 1.1.1.1, Backbone Area
+	Options [V6, External, Router], DD Flags [Init, More, Master], MTU 1500, DD-Sequence 0x00001b67
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 308) fe80::1 > fe80::3: OSPFv3, Database Description, length 308
+	Router-ID 1.1.1.1, Backbone Area
+	Options [V6, External, Router], DD Flags [More], MTU 1500, DD-Sequence 0x0000149b
+	  Advertising Router 1.1.1.1, seq 0x8000000d, age 209s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x8000000a, age 517s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000006, age 1127s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1157s, length 16
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 330s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 509s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1303s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1303s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1303s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 329s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 1307s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1303s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 329s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1157s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 148) fe80::3 > fe80::1: OSPFv3, Database Description, length 148
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router], DD Flags [More, Master], MTU 1500, DD-Sequence 0x0000149c
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 14s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 124s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 124s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.1
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 114s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 134s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 134s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 160) fe80::3 > fe80::1: OSPFv3, LS-Request, length 160
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 1.1.1.1
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 3.3.3.3
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 2.2.2.2
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 1.1.1.1
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 2.2.2.2
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+	  Advertising Router 1.1.1.1
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::1 > fe80::3: OSPFv3, Database Description, length 28
+	Router-ID 1.1.1.1, Backbone Area
+	Options [V6, External, Router], DD Flags [none], MTU 1500, DD-Sequence 0x0000149c
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 76) fe80::1 > fe80::3: OSPFv3, LS-Request, length 76
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 3.3.3.3
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2
+	  Advertising Router 3.3.3.3
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.1
+	  Advertising Router 3.3.3.3
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::3 > fe80::1: OSPFv3, Database Description, length 28
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router], DD Flags [Master], MTU 1500, DD-Sequence 0x0000149d
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 228) fe80::3 > fe80::1: OSPFv3, LS-Update, length 228
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 115s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2, metric 20
+		2001:db8:0:4::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 125s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.1, metric 10
+		2001:db8:0:34::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 125s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.0, metric 10
+		2001:db8:0:3::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 135s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Priority 100, Link-local address fe80::3, Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 135s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 1:
+		2001:db8::/64, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 504) fe80::1 > fe80::3: OSPFv3, LS-Update, length 504
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000006, age 1128s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+	  Advertising Router 2.2.2.2, seq 0x8000000a, age 518s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+	  Advertising Router 1.1.1.1, seq 0x8000000d, age 210s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1158s, length 16
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Connected Routers:
+		3.3.3.3
+		2.2.2.2
+		1.1.1.1
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1304s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4, metric 10
+		2001:db8:0:34::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1304s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 20
+		2001:db8:0:4::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 510s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 331s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 1308s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Priority 1, Link-local address fe80::2, Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 330s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Priority 1, Link-local address fe80::1, Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1158s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	      Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 330s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 1:
+		2001:db8::/64, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::1 > fe80::3: OSPFv3, Database Description, length 28
+	Router-ID 1.1.1.1, Backbone Area
+	Options [V6, External, Router], DD Flags [none], MTU 1500, DD-Sequence 0x0000149d
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 44) fe80::3 > fe80::1: OSPFv3, LS-Update, length 44
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000007, age 1s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 92) fe80::1 > fe80::3: OSPFv3, LS-Update, length 92
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+	  Advertising Router 1.1.1.1, seq 0x8000000e, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 52) fe80::3 > fe80::1: OSPFv3, LS-Update, length 52
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 40) fe80::2 > fe80::3: OSPFv3, Hello, length 40
+	Router-ID 2.2.2.2, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 1
+	  Designated Router 2.2.2.2
+	  Neighbor List:
+	    3.3.3.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::3 > fe80::2: OSPFv3, Database Description, length 28
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router], DD Flags [Init, More, Master], MTU 1500, DD-Sequence 0x0000027c
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::2 > fe80::3: OSPFv3, Database Description, length 28
+	Router-ID 2.2.2.2, Backbone Area
+	Options [V6, External, Router], DD Flags [Init, More, Master], MTU 1500, DD-Sequence 0x00000cd9
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 308) fe80::2 > fe80::3: OSPFv3, Database Description, length 308
+	Router-ID 2.2.2.2, Backbone Area
+	Options [V6, External, Router], DD Flags [More], MTU 1500, DD-Sequence 0x0000027c
+	  Advertising Router 1.1.1.1, seq 0x8000000a, age 556s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x8000000d, age 209s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000006, age 1130s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1160s, length 16
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 546s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 330s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1306s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1306s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1306s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 1310s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 329s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1305s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 329s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1160s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 348) fe80::3 > fe80::2: OSPFv3, Database Description, length 348
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router], DD Flags [More, Master], MTU 1500, DD-Sequence 0x0000027d
+	  Advertising Router 1.1.1.1, seq 0x8000000d, age 212s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x8000000a, age 520s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000007, age 2s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1160s, length 16
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 333s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 512s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 127s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 127s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.1
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 117s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1306s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1306s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 332s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 1310s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 136s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 332s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 1160s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 76) fe80::3 > fe80::2: OSPFv3, LS-Request, length 76
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 1.1.1.1
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 2.2.2.2
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 2.2.2.2
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::2 > fe80::3: OSPFv3, Database Description, length 28
+	Router-ID 2.2.2.2, Backbone Area
+	Options [V6, External, Router], DD Flags [none], MTU 1500, DD-Sequence 0x0000027d
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 136) fe80::2 > fe80::3: OSPFv3, LS-Request, length 136
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 3.3.3.3
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 1.1.1.1
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2
+	  Advertising Router 3.3.3.3
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.1
+	  Advertising Router 3.3.3.3
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 1.1.1.1
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 3.3.3.3
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 216) fe80::2 > fe80::3: OSPFv3, LS-Update, length 216
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x8000000d, age 210s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 547s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 330s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Priority 1, Link-local address fe80::2, Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 330s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 1:
+		2001:db8::/64, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::3 > fe80::2: OSPFv3, Database Description, length 28
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router], DD Flags [Master], MTU 1500, DD-Sequence 0x0000027e
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 404) fe80::3 > fe80::2: OSPFv3, LS-Update, length 404
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000007, age 3s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	  Advertising Router 1.1.1.1, seq 0x8000000d, age 213s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 118s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2, metric 20
+		2001:db8:0:4::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 128s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.1, metric 10
+		2001:db8:0:34::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 128s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.0, metric 10
+		2001:db8:0:3::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 513s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 334s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 137s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Priority 100, Link-local address fe80::3, Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 333s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Priority 1, Link-local address fe80::1, Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 333s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 1:
+		2001:db8::/64, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 28) fe80::2 > fe80::3: OSPFv3, Database Description, length 28
+	Router-ID 2.2.2.2, Backbone Area
+	Options [V6, External, Router], DD Flags [none], MTU 1500, DD-Sequence 0x0000027e
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 136) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 136
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 115s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 125s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.1
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 125s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 135s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 135s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000007, age 1s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 216) fe80::3 > fe80::2: OSPFv3, LS-Update, length 216
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Priority 1, Link-local address fe80::2, Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x8000000d, age 211s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 332s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 548s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 1:
+		2001:db8::/64, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 216) fe80::3 > fe80::1: OSPFv3, LS-Update, length 216
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Priority 1, Link-local address fe80::2, Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x8000000d, age 211s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 332s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 548s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 10
+		2001:db8:0:12::/64, metric 0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 1:
+		2001:db8::/64, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 116) fe80::2 > fe80::3: OSPFv3, LS-Ack, length 116
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 2.2.2.2, seq 0x8000000d, age 211s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 332s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 548s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 92) fe80::2 > fe80::3: OSPFv3, LS-Update, length 92
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+	  Advertising Router 2.2.2.2, seq 0x8000000e, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 216) fe80::2 > fe80::3: OSPFv3, LS-Ack, length 216
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000007, age 3s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 1.1.1.1, seq 0x8000000d, age 213s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 118s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.2
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 128s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.1
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 128s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 513s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 334s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 3.3.3.3, seq 0x80000001, age 137s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 333s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 333s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 116) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 116
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 36
+	    Link LSA (8), Link Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 2.2.2.2, seq 0x8000000d, age 211s, length 4
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 332s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 1.1.1.1, seq 0x80000001, age 548s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 2.2.2.2, seq 0x80000001, age 331s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 92) fe80::1 > fe80::3: OSPFv3, LS-Update, length 92
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+	  Advertising Router 1.1.1.1, seq 0x8000000e, age 5s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 92) fe80::3 > fe80::2: OSPFv3, LS-Update, length 92
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+	  Advertising Router 1.1.1.1, seq 0x8000000e, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 92) fe80::3 > fe80::1: OSPFv3, LS-Update, length 92
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+	  Advertising Router 1.1.1.1, seq 0x8000000e, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 52) fe80::3 > fe80::1: OSPFv3, LS-Update, length 52
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 244) fe80::3 > fe80::2: OSPFv3, LS-Update, length 244
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 1s, length 16
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Connected Routers:
+		3.3.3.3
+		2.2.2.2
+		1.1.1.1
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4, metric 16777215
+		2001:db8:0:34::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 16777215
+		2001:db8:0:4::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 1s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	      Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000008, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+	  Advertising Router 3.3.3.3, seq 0x80000003, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 244) fe80::3 > fe80::1: OSPFv3, LS-Update, length 244
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 1s, length 16
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	      Options [V6, External, Router, Demand Circuit]
+	      Connected Routers:
+		3.3.3.3
+		2.2.2.2
+		1.1.1.1
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4, metric 16777215
+		2001:db8:0:34::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 16777215
+		2001:db8:0:4::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 1s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	      Prefixes 1:
+		2001:db8::/64, metric 0
+	  Advertising Router 3.3.3.3, seq 0x80000008, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+	  Advertising Router 3.3.3.3, seq 0x80000003, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::2 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000003, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 56) fe80::1 > fe80::3: OSPFv3, LS-Update, length 56
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 16777215
+		2001:db8:0:12::/64, metric 0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 56) fe80::3 > fe80::2: OSPFv3, LS-Update, length 56
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 16777215
+		2001:db8:0:12::/64, metric 0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 56) fe80::3 > fe80::1: OSPFv3, LS-Update, length 56
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 16777215
+		2001:db8:0:12::/64, metric 0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 92) fe80::2 > fe80::3: OSPFv3, LS-Update, length 92
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+	  Advertising Router 2.2.2.2, seq 0x8000000e, age 5s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 176) fe80::2 > fe80::3: OSPFv3, LS-Ack, length 176
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 1.1.1.1, seq 0x8000000e, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 1s, length 16
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 1s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+	  Advertising Router 3.3.3.3, seq 0x80000008, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 92) fe80::3 > fe80::2: OSPFv3, LS-Update, length 92
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+	  Advertising Router 2.2.2.2, seq 0x8000000e, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 92) fe80::3 > fe80::1: OSPFv3, LS-Update, length 92
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+	  Advertising Router 2.2.2.2, seq 0x8000000e, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 236) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 236
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 1.1.1.1, seq 0x8000000e, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 1s, length 16
+	    Network LSA (2), Area Local Scope, LSA-ID 0.0.0.6
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.4
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 3.3.3.3, seq 0x80000002, age 1s, length 24
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.24.0
+	  Advertising Router 3.3.3.3, seq 0x80000008, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 1.1.1.1, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x8000000e, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 56) fe80::2 > fe80::3: OSPFv3, LS-Update, length 56
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 16777215
+		2001:db8:0:12::/64, metric 0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 56) fe80::3 > fe80::2: OSPFv3, LS-Update, length 56
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 16777215
+		2001:db8:0:12::/64, metric 0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 56) fe80::3 > fe80::1: OSPFv3, LS-Update, length 56
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3, metric 16777215
+		2001:db8:0:12::/64, metric 0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 76) fe80::2 > fe80::3: OSPFv3, LS-Ack, length 76
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x8000000e, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 52) fe80::3 > fe80::1: OSPFv3, LS-Update, length 52
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000003, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Prefixes 0:
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000003, age 3600s, length 12
+	    Intra-Area Prefix LSA (9), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x80000002, age 3600s, length 16
+	    Inter-Area Prefix LSA (3), Area Local Scope, LSA-ID 0.0.0.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 44) fe80::3 > fe80::2: OSPFv3, Hello, length 44
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 100
+	  Designated Router 3.3.3.3
+	  Neighbor List:
+	    2.2.2.2
+	    1.1.1.1
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 44) fe80::3 > fe80::1: OSPFv3, Hello, length 44
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 100
+	  Designated Router 3.3.3.3
+	  Neighbor List:
+	    2.2.2.2
+	    1.1.1.1
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 40) fe80::1 > fe80::3: OSPFv3, Hello, length 40
+	Router-ID 1.1.1.1, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 1
+	  Designated Router 3.3.3.3, Backup Designated Router 1.1.1.1
+	  Neighbor List:
+	    3.3.3.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::3 > fe80::2: OSPFv3, LS-Update, length 60
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000009, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::3 > fe80::1: OSPFv3, LS-Update, length 60
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000009, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 40) fe80::2 > fe80::3: OSPFv3, Hello, length 40
+	Router-ID 2.2.2.2, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 1
+	  Designated Router 3.3.3.3, Backup Designated Router 2.2.2.2
+	  Neighbor List:
+	    3.3.3.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::2 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000009, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x80000009, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::3 > fe80::2: OSPFv3, LS-Update, length 60
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x8000000a, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::3 > fe80::1: OSPFv3, LS-Update, length 60
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x8000000a, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x8000000a, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::2 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 3.3.3.3, seq 0x8000000a, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 44) fe80::3 > fe80::2: OSPFv3, Hello, length 44
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 100
+	  Designated Router 3.3.3.3, Backup Designated Router 2.2.2.2
+	  Neighbor List:
+	    2.2.2.2
+	    1.1.1.1
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 44) fe80::3 > fe80::1: OSPFv3, Hello, length 44
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 100
+	  Designated Router 3.3.3.3, Backup Designated Router 2.2.2.2
+	  Neighbor List:
+	    2.2.2.2
+	    1.1.1.1
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::2 > fe80::3: OSPFv3, LS-Update, length 60
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x8000000f, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::1 > fe80::3: OSPFv3, LS-Update, length 60
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x8000000f, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::3 > fe80::2: OSPFv3, LS-Update, length 60
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x8000000f, age 2s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::3 > fe80::1: OSPFv3, LS-Update, length 60
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x8000000f, age 2s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::3 > fe80::2: OSPFv3, LS-Ack, length 36
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x8000000f, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::3 > fe80::1: OSPFv3, LS-Ack, length 36
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x8000000f, age 1s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::2 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 2.2.2.2, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x8000000f, age 2s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 1.1.1.1, seq 0x8000000f, age 2s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 60) fe80::3 > fe80::1: OSPFv3, LS-Update, length 60
+	Router-ID 3.3.3.3, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x8000000f, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+	      Options [V6, External, Router, Demand Circuit], RLA-Flags [ABR]
+	      Neighbor Network-ID 3.3.3.3
+	      Neighbor Interface-ID 0.0.0.6, Interface 0.0.0.6, metric 64
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 36) fe80::1 > fe80::3: OSPFv3, LS-Ack, length 36
+	Router-ID 1.1.1.1, Backbone Area
+	  Advertising Router 2.2.2.2, seq 0x8000000f, age 6s, length 20
+	    Router LSA (1), Area Local Scope, LSA-ID 0.0.0.0
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 40) fe80::1 > fe80::3: OSPFv3, Hello, length 40
+	Router-ID 1.1.1.1, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 1
+	  Designated Router 3.3.3.3, Backup Designated Router 1.1.1.1
+	  Neighbor List:
+	    3.3.3.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 40) fe80::2 > fe80::3: OSPFv3, Hello, length 40
+	Router-ID 2.2.2.2, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 1
+	  Designated Router 3.3.3.3, Backup Designated Router 2.2.2.2
+	  Neighbor List:
+	    3.3.3.3
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 44) fe80::3 > fe80::2: OSPFv3, Hello, length 44
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 100
+	  Designated Router 3.3.3.3, Backup Designated Router 2.2.2.2
+	  Neighbor List:
+	    2.2.2.2
+	    1.1.1.1
+IP6 (class 0xe0, hlim 1, next-header OSPF (89) payload length: 44) fe80::3 > fe80::1: OSPFv3, Hello, length 44
+	Router-ID 3.3.3.3, Backbone Area
+	Options [V6, External, Router]
+	  Hello Timer 30s, Dead Timer 120s, Interface-ID 0.0.0.6, Priority 100
+	  Designated Router 3.3.3.3, Backup Designated Router 2.2.2.2
+	  Neighbor List:
+	    2.2.2.2
+	    1.1.1.1

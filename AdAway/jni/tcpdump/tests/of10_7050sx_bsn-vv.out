@@ -1,0 +1,343 @@
+IP (tos 0x0, ttl 55, id 5483, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.37044 > 109.74.202.168.6653: Flags [S], cksum 0x0576 (correct), seq 1216143989, win 14600, options [mss 1460,sackOK,TS val 50525982 ecr 0,nop,wscale 7], length 0
+IP (tos 0x0, ttl 64, id 26571, offset 0, flags [DF], proto TCP (6), length 40)
+    109.74.202.168.6653 > 88.150.169.52.37044: Flags [R.], cksum 0xa06e (correct), seq 0, ack 1216143990, win 0, length 0
+IP (tos 0x0, ttl 55, id 49495, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [S], cksum 0x4629 (correct), seq 774256709, win 14600, options [mss 1460,sackOK,TS val 50526482 ecr 0,nop,wscale 7], length 0
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [S.], cksum 0x39ec (incorrect -> 0x0c04), seq 3422281440, ack 774256710, win 28960, options [mss 1460,sackOK,TS val 590230513 ecr 50526482,nop,wscale 7], length 0
+IP (tos 0x0, ttl 55, id 49496, offset 0, flags [DF], proto TCP (6), length 52)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [.], cksum 0xab7c (correct), seq 1, ack 1, win 115, options [nop,nop,TS val 50526483 ecr 590230513], length 0
+IP (tos 0x0, ttl 64, id 60691, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa9f0), seq 1:9, ack 1, win 227, options [nop,nop,TS val 590230516 ecr 50526483], length 8: OpenFlow
+	version 1.0, type HELLO, length 8, xid 0x00000001
+IP (tos 0x0, ttl 55, id 49497, offset 0, flags [DF], proto TCP (6), length 52)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [.], cksum 0xab6e (correct), seq 1, ack 9, win 115, options [nop,nop,TS val 50526486 ecr 590230516], length 0
+IP (tos 0x0, ttl 55, id 49498, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x7b45 (correct), seq 1:9, ack 9, win 115, options [nop,nop,TS val 50526732 ecr 590230516], length 8: OpenFlow
+	version 1.0, type HELLO, length 8, xid 0x00002e1b
+IP (tos 0x0, ttl 64, id 60692, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa8d7), seq 9, ack 9, win 227, options [nop,nop,TS val 590230813 ecr 50526732], length 0
+IP (tos 0x0, ttl 64, id 60693, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa7b8), seq 9:17, ack 9, win 227, options [nop,nop,TS val 590230813 ecr 50526732], length 8: OpenFlow
+	version 1.0, type FEATURES_REQUEST, length 8, xid 0x00000002
+IP (tos 0x0, ttl 55, id 49499, offset 0, flags [DF], proto TCP (6), length 52)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [.], cksum 0xa93e (correct), seq 9, ack 17, win 115, options [nop,nop,TS val 50526733 ecr 590230813], length 0
+IP (tos 0x0, ttl 55, id 49500, offset 0, flags [DF], proto TCP (6), length 468)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xff61 (correct), seq 9:425, ack 17, win 115, options [nop,nop,TS val 50526733 ecr 590230813], length 416: OpenFlow
+	version 1.0, type FEATURES_REPLY, length 416, xid 0x00000002
+	 dpid 0x0000001c737d280f, n_buffers 0, n_tables 1
+	 capabilities 0x000000c7 (FLOW_STATS, TABLE_STATS, PORT_STATS, QUEUE_STATS, ARP_MATCH_IP)
+	 actions 0x00000905 (OUTPUT, SET_VLAN_PCP, SET_NW_TOS, ENQUEUE)
+	  port_no 16, hw_addr 00:1c:73:7d:28:1f, name 'Ethernet16'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 20, hw_addr 00:1c:73:7d:28:23, name 'Ethernet20'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 18, hw_addr 00:1c:73:7d:28:21, name 'Ethernet18'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 22, hw_addr 00:1c:73:7d:28:25, name 'Ethernet22'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 17, hw_addr 00:1c:73:7d:28:20, name 'Ethernet17'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000cc0 (10GB_FD, COPPER, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 21, hw_addr 00:1c:73:7d:28:24, name 'Ethernet21'
+	   config 0x80000001 (PORT_DOWN) (bogus)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000cc0 (10GB_FD, COPPER, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 19, hw_addr 00:1c:73:7d:28:22, name 'Ethernet19'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 23, hw_addr 00:1c:73:7d:28:26, name 'Ethernet23'
+	   config 0x80000001 (PORT_DOWN) (bogus)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+IP (tos 0x0, ttl 64, id 60694, offset 0, flags [DF], proto TCP (6), length 136)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x3a38 (incorrect -> 0xa414), seq 17:101, ack 425, win 235, options [nop,nop,TS val 590230815 ecr 50526733], length 84: OpenFlow
+	version 1.0, type SET_CONFIG, length 12, xid 0x00000003
+	 flags FRAG_NORMAL, miss_send_len 65535
+	version 1.0, type FLOW_MOD, length 72, xid 0x00000004
+	 cookie 0x0000000000000000, command DELETE, out_port NONE, flags 0x0000
+IP (tos 0x0, ttl 64, id 60695, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa5a0), seq 101:109, ack 425, win 235, options [nop,nop,TS val 590230816 ecr 50526733], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000005
+IP (tos 0x0, ttl 55, id 49501, offset 0, flags [DF], proto TCP (6), length 140)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x8297 (correct), seq 425:513, ack 109, win 115, options [nop,nop,TS val 50526735 ecr 590230815], length 88: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000ffd
+	 match in_port 16
+	 cookie 0x0000000000000001, priority 33000, reason DELETE, duration_sec 53, duration_nsec 990000000, packet_count 0, byte_count 0
+IP (tos 0x0, ttl 64, id 60696, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa661), seq 109, ack 513, win 235, options [nop,nop,TS val 590230828 ecr 50526735], length 0
+IP (tos 0x0, ttl 55, id 49502, offset 0, flags [DF], proto TCP (6), length 236)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x6fdb (correct), seq 513:697, ack 109, win 115, options [nop,nop,TS val 50526745 ecr 590230828], length 184: OpenFlow
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000ffe
+	 match in_port 18
+	 cookie 0x0000000000000002, priority 31000, reason DELETE, duration_sec 53, duration_nsec 990000000, packet_count 0, byte_count 0
+	version 1.0, type FLOW_REMOVED, length 88, xid 0x00000fff
+	 match in_port 22
+	 cookie 0x0000000000000003, priority 30000, reason DELETE, duration_sec 53, duration_nsec 990000000, packet_count 0, byte_count 0
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000005
+IP (tos 0x0, ttl 64, id 60697, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa596), seq 109, ack 697, win 243, options [nop,nop,TS val 590230829 ecr 50526745], length 0
+IP (tos 0x0, ttl 64, id 60698, offset 0, flags [DF], proto TCP (6), length 140)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x3a3c (incorrect -> 0x41fa), seq 109:197, ack 697, win 243, options [nop,nop,TS val 590230829 ecr 50526745], length 88: OpenFlow
+	version 1.0, type VENDOR, length 20, xid 0x00000006, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SET_MIRRORING, report_mirror_ports ON
+	version 1.0, type VENDOR, length 20, xid 0x00000007, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_MIRRORING_REQUEST, report_mirror_ports OFF
+	version 1.0, type VENDOR, length 20, xid 0x00000008, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SET_MIRRORING, report_mirror_ports OFF
+	version 1.0, type VENDOR, length 20, xid 0x00000009, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_MIRRORING_REQUEST, report_mirror_ports OFF
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x0000000a
+IP (tos 0x0, ttl 55, id 49503, offset 0, flags [DF], proto TCP (6), length 72)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x8c59 (correct), seq 697:717, ack 197, win 115, options [nop,nop,TS val 50526747 ecr 590230829], length 20: OpenFlow
+	version 1.0, type VENDOR, length 20, xid 0x00000007, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_MIRRORING_REPLY, report_mirror_ports ON
+IP (tos 0x0, ttl 64, id 60699, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa51a), seq 197, ack 717, win 243, options [nop,nop,TS val 590230843 ecr 50526747], length 0
+IP (tos 0x0, ttl 55, id 49504, offset 0, flags [DF], proto TCP (6), length 80)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x8bfd (correct), seq 717:745, ack 197, win 115, options [nop,nop,TS val 50526758 ecr 590230843], length 28: OpenFlow
+	version 1.0, type VENDOR, length 20, xid 0x00000009, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_MIRRORING_REPLY, report_mirror_ports OFF
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x0000000a
+IP (tos 0x0, ttl 64, id 60700, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa4f3), seq 197, ack 745, win 243, options [nop,nop,TS val 590230843 ecr 50526758], length 0
+IP (tos 0x0, ttl 64, id 60701, offset 0, flags [DF], proto TCP (6), length 80)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x3a00 (incorrect -> 0xa165), seq 197:225, ack 745, win 243, options [nop,nop,TS val 590230843 ecr 50526758], length 28: OpenFlow
+	version 1.0, type FEATURES_REQUEST, length 8, xid 0x0000000b
+	version 1.0, type STATS_REQUEST, length 12, xid 0x0000000c
+	 type TABLE, flags 0x0000
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x0000000d
+IP (tos 0x0, ttl 55, id 49505, offset 0, flags [DF], proto TCP (6), length 468)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xfb70 (correct), seq 745:1161, ack 225, win 115, options [nop,nop,TS val 50526759 ecr 590230843], length 416: OpenFlow
+	version 1.0, type FEATURES_REPLY, length 416, xid 0x0000000b
+	 dpid 0x0000001c737d280f, n_buffers 0, n_tables 1
+	 capabilities 0x000000c7 (FLOW_STATS, TABLE_STATS, PORT_STATS, QUEUE_STATS, ARP_MATCH_IP)
+	 actions 0x00000905 (OUTPUT, SET_VLAN_PCP, SET_NW_TOS, ENQUEUE)
+	  port_no 16, hw_addr 00:1c:73:7d:28:1f, name 'Ethernet16'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 20, hw_addr 00:1c:73:7d:28:23, name 'Ethernet20'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 18, hw_addr 00:1c:73:7d:28:21, name 'Ethernet18'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 22, hw_addr 00:1c:73:7d:28:25, name 'Ethernet22'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 17, hw_addr 00:1c:73:7d:28:20, name 'Ethernet17'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000cc0 (10GB_FD, COPPER, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 21, hw_addr 00:1c:73:7d:28:24, name 'Ethernet21'
+	   config 0x80000001 (PORT_DOWN) (bogus)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000cc0 (10GB_FD, COPPER, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 19, hw_addr 00:1c:73:7d:28:22, name 'Ethernet19'
+	   config 0x00000001 (PORT_DOWN)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+	  port_no 23, hw_addr 00:1c:73:7d:28:26, name 'Ethernet23'
+	   config 0x80000001 (PORT_DOWN) (bogus)
+	   state 0x00000001 (LINK_DOWN)
+	   curr 0x00000040 (10GB_FD)
+	   advertised 0x00000000
+	   supported 0x00000c40 (10GB_FD, PAUSE, PAUSE_ASYM)
+	   peer 0x00000000
+IP (tos 0x0, ttl 64, id 60702, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa320), seq 225, ack 1161, win 252, options [nop,nop,TS val 590230856 ecr 50526759], length 0
+IP (tos 0x0, ttl 55, id 49506, offset 0, flags [DF], proto TCP (6), length 136)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x4ea6 (correct), seq 1161:1245, ack 225, win 115, options [nop,nop,TS val 50526769 ecr 590230856], length 84: OpenFlow
+	version 1.0, type STATS_REPLY, length 76, xid 0x0000000c
+	 type TABLE, flags 0x0000
+	 table_id 0, name 'Table 0'
+	  wildcards 0x003fffff (IN_PORT, DL_VLAN, DL_SRC, DL_DST, DL_TYPE, NW_PROTO, TP_SRC, TP_DST, DL_VLAN_PCP, NW_TOS)
+	  max_entries 1500, active_count 0, lookup_count 0, matched_count 0
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x0000000d
+IP (tos 0x0, ttl 64, id 60703, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa2c1), seq 225, ack 1245, win 252, options [nop,nop,TS val 590230857 ecr 50526769], length 0
+IP (tos 0x0, ttl 64, id 60704, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa189), seq 225:233, ack 1245, win 252, options [nop,nop,TS val 590230857 ecr 50526769], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x0000000e
+IP (tos 0x0, ttl 55, id 49507, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xa208 (correct), seq 1245:1253, ack 233, win 115, options [nop,nop,TS val 50526770 ecr 590230857], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x0000000e
+IP (tos 0x0, ttl 64, id 60705, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa176), seq 233:241, ack 1253, win 252, options [nop,nop,TS val 590230858 ecr 50526770], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x0000000f
+IP (tos 0x0, ttl 55, id 49508, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xa1f5 (correct), seq 1253:1261, ack 241, win 115, options [nop,nop,TS val 50526771 ecr 590230858], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x0000000f
+IP (tos 0x0, ttl 64, id 60706, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa163), seq 241:249, ack 1261, win 252, options [nop,nop,TS val 590230859 ecr 50526771], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000010
+IP (tos 0x0, ttl 55, id 49509, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xa1e3 (correct), seq 1261:1269, ack 249, win 115, options [nop,nop,TS val 50526771 ecr 590230859], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000010
+IP (tos 0x0, ttl 64, id 60707, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa151), seq 249:257, ack 1269, win 252, options [nop,nop,TS val 590230860 ecr 50526771], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000011
+IP (tos 0x0, ttl 55, id 49510, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xa1d0 (correct), seq 1269:1277, ack 257, win 115, options [nop,nop,TS val 50526772 ecr 590230860], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000011
+IP (tos 0x0, ttl 64, id 60708, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa13e), seq 257:265, ack 1277, win 252, options [nop,nop,TS val 590230861 ecr 50526772], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000012
+IP (tos 0x0, ttl 55, id 49511, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xa1bd (correct), seq 1277:1285, ack 265, win 115, options [nop,nop,TS val 50526773 ecr 590230861], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000012
+IP (tos 0x0, ttl 64, id 60709, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0xa12b), seq 265:273, ack 1285, win 252, options [nop,nop,TS val 590230862 ecr 50526773], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000013
+IP (tos 0x0, ttl 55, id 49512, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xa1aa (correct), seq 1285:1293, ack 273, win 115, options [nop,nop,TS val 50526774 ecr 590230862], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000013
+IP (tos 0x0, ttl 64, id 60710, offset 0, flags [DF], proto TCP (6), length 120)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x3a28 (incorrect -> 0x9a6c), seq 273:341, ack 1293, win 252, options [nop,nop,TS val 590230863 ecr 50526774], length 68: OpenFlow
+	version 1.0, type QUEUE_GET_CONFIG_REQUEST, length 12, xid 0x00000014
+	 port_no 16
+	version 1.0, type QUEUE_GET_CONFIG_REQUEST, length 12, xid 0x00000015
+	 port_no 20
+	version 1.0, type QUEUE_GET_CONFIG_REQUEST, length 12, xid 0x00000016
+	 port_no 18
+	version 1.0, type QUEUE_GET_CONFIG_REQUEST, length 12, xid 0x00000017
+	 port_no 22
+	version 1.0, type QUEUE_GET_CONFIG_REQUEST, length 12, xid 0x00000018
+	 port_no 17
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000019
+IP (tos 0x0, ttl 55, id 49513, offset 0, flags [DF], proto TCP (6), length 68)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0xa139 (correct), seq 1293:1309, ack 341, win 115, options [nop,nop,TS val 50526775 ecr 590230863], length 16: OpenFlow
+	version 1.0, type QUEUE_GET_CONFIG_REPLY, length 16, xid 0x00000014
+	 port_no 16
+IP (tos 0x0, ttl 64, id 60711, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa1f5), seq 341, ack 1309, win 252, options [nop,nop,TS val 590230875 ecr 50526775], length 0
+IP (tos 0x0, ttl 55, id 49514, offset 0, flags [DF], proto TCP (6), length 124)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x9bb5 (correct), seq 1309:1381, ack 341, win 115, options [nop,nop,TS val 50526785 ecr 590230875], length 72: OpenFlow
+	version 1.0, type QUEUE_GET_CONFIG_REPLY, length 16, xid 0x00000015
+	 port_no 20
+	version 1.0, type QUEUE_GET_CONFIG_REPLY, length 16, xid 0x00000016
+	 port_no 18
+	version 1.0, type QUEUE_GET_CONFIG_REPLY, length 16, xid 0x00000017
+	 port_no 22
+	version 1.0, type QUEUE_GET_CONFIG_REPLY, length 16, xid 0x00000018
+	 port_no 17
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000019
+IP (tos 0x0, ttl 64, id 60712, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0xa1a3), seq 341, ack 1381, win 252, options [nop,nop,TS val 590230875 ecr 50526785], length 0
+IP (tos 0x0, ttl 64, id 60713, offset 0, flags [DF], proto TCP (6), length 562)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x3be2 (incorrect -> 0x4d80), seq 341:851, ack 1381, win 252, options [nop,nop,TS val 590230876 ecr 50526785], length 510: OpenFlow
+	version 1.0, type VENDOR, length 24, xid 0x0000001a, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SET_IP_MASK, index 1, mask 255.0.14.0
+	version 1.0, type VENDOR, length 24, xid 0x0000001b, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SET_IP_MASK, index 2, mask 255.0.28.0
+	version 1.0, type VENDOR, length 24, xid 0x0000001c, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SET_IP_MASK, index 3, mask 255.0.56.0
+	version 1.0, type VENDOR, length 24, xid 0x0000001d, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SET_IP_MASK, index 4, mask 255.0.112.0
+	version 1.0, type VENDOR, length 24, xid 0x0000001e, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SET_IP_MASK, index 5, mask 255.0.224.0
+	version 1.0, type VENDOR, length 24, xid 0x0000001f, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_IP_MASK_REQUEST, index 3
+	version 1.0, type VENDOR, length 30, xid 0x00000020, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SHELL_COMMAND, service 0, data 'show clock'
+	version 1.0, type FLOW_MOD, length 104, xid 0x00000021
+	 match in_port 16
+	 cookie 0x0000000000000001, command ADD, priority 33000, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type VENDOR, len 24, vendor 0x005c16c7 (Big Switch Networks)
+	  subtype MIRROR, dest_port 21, vlan_tag none, copy_stage INGRESS
+	 action type OUTPUT, len 8, port 17
+	version 1.0, type FLOW_MOD, length 128, xid 0x00000022
+	 match in_port 18
+	 cookie 0x0000000000000002, command ADD, priority 31000, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type VENDOR, len 24, vendor 0x005c16c7 (Big Switch Networks)
+	  subtype MIRROR, dest_port 21, vlan_tag 802.1Q (vlan 2, p 4), copy_stage INGRESS
+	 action type OUTPUT, len 8, port 19
+	 action type VENDOR, len 24, vendor 0x005c16c7 (Big Switch Networks)
+	  subtype MIRROR, dest_port 23, vlan_tag 802.1Q (vlan 2748, p 5, DEI), copy_stage EGRESS
+	version 1.0, type FLOW_MOD, length 96, xid 0x00000023
+	 match in_port 22
+	 cookie 0x0000000000000003, command ADD, priority 30000, buffer_id NONE, flags 0x0001 (SEND_FLOW_REM)
+	 action type VENDOR, len 24, vendor 0x005c16c7 (Big Switch Networks)
+	  subtype MIRROR, dest_port 21, vlan_tag 802.1Q (vlan 0, p 1), copy_stage INGRESS
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000024
+IP (tos 0x0, ttl 55, id 49515, offset 0, flags [DF], proto TCP (6), length 76)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x4da3 (correct), seq 1381:1405, ack 851, win 123, options [nop,nop,TS val 50526786 ecr 590230876], length 24: OpenFlow
+	version 1.0, type VENDOR, length 24, xid 0x0000001f, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_IP_MASK_REPLY, index 3, mask 255.0.56.0
+IP (tos 0x0, ttl 64, id 60714, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0x9f7f), seq 851, ack 1405, win 252, options [nop,nop,TS val 590230888 ecr 50526786], length 0
+IP (tos 0x0, ttl 55, id 49516, offset 0, flags [DF], proto TCP (6), length 80)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x8632 (correct), seq 1405:1433, ack 851, win 123, options [nop,nop,TS val 50526795 ecr 590230888], length 28: OpenFlow
+	version 1.0, type VENDOR, length 20, xid 0x00000020, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype SHELL_STATUS, status 0xfffffffe
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000024
+IP (tos 0x0, ttl 64, id 60715, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0x9f59), seq 851, ack 1433, win 252, options [nop,nop,TS val 590230889 ecr 50526795], length 0
+IP (tos 0x0, ttl 64, id 60716, offset 0, flags [DF], proto TCP (6), length 60)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [P.], cksum 0x39ec (incorrect -> 0x9e0a), seq 851:859, ack 1433, win 252, options [nop,nop,TS val 590230889 ecr 50526795], length 8: OpenFlow
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x00000025
+IP (tos 0x0, ttl 55, id 49517, offset 0, flags [DF], proto TCP (6), length 60)
+    88.150.169.52.4756 > 109.74.202.168.6653: Flags [P.], cksum 0x9e80 (correct), seq 1433:1441, ack 859, win 123, options [nop,nop,TS val 50526797 ecr 590230889], length 8: OpenFlow
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x00000025
+IP (tos 0x0, ttl 64, id 60717, offset 0, flags [DF], proto TCP (6), length 52)
+    109.74.202.168.6653 > 88.150.169.52.4756: Flags [.], cksum 0x39e4 (incorrect -> 0x9f3a), seq 859, ack 1441, win 252, options [nop,nop,TS val 590230902 ecr 50526797], length 0

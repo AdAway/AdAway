@@ -1,0 +1,57 @@
+CDPv2, ttl: 180s, checksum: 0xb0bd (unverified), length 378
+	Device-ID (0x01), value length: 6 bytes: 'Switch'
+	Version String (0x05), value length: 192 bytes: 
+	  Cisco IOS Software, C3560 Software (C3560-ADVIPSERVICESK9-M), Version 12.2(25)SEB4, RELEASE SOFTWARE (fc1)
+	  Copyright (c) 1986-2005 by Cisco Systems, Inc.
+	  Compiled Tue 30-Aug-05 17:56 by yenanh
+	Platform (0x06), value length: 20 bytes: 'cisco WS-C3560G-24PS'
+	Address (0x02), value length: 13 bytes: IPv4 (1) 192.168.0.1
+	Port-ID (0x03), value length: 18 bytes: 'GigabitEthernet0/5'
+	Capability (0x04), value length: 4 bytes: (0x00000028): L2 Switch, IGMP snooping
+	Protocol-Hello option (0x08), value length: 32 bytes: 
+	VTP Management Domain (0x09), value length: 3 bytes: 'Lab'
+	Native VLAN ID (0x0a), value length: 2 bytes: 1
+	Duplex (0x0b), value length: 1 byte: full
+	AVVID trust bitmap (0x12), value length: 1 byte: 0x00
+	AVVID untrusted ports CoS (0x13), value length: 1 byte: 0x00
+	Management Addresses (0x16), value length: 13 bytes: IPv4 (1) 192.168.0.1
+	unknown field type (0x1a), value length: 12 bytes: 
+	  0x0000:  0000 0001 0000 0000 ffff ffff
+CDPv2, ttl: 180s, checksum: 0xb0bd (unverified), length 378
+	Device-ID (0x01), value length: 6 bytes: 'Switch'
+	Version String (0x05), value length: 192 bytes: 
+	  Cisco IOS Software, C3560 Software (C3560-ADVIPSERVICESK9-M), Version 12.2(25)SEB4, RELEASE SOFTWARE (fc1)
+	  Copyright (c) 1986-2005 by Cisco Systems, Inc.
+	  Compiled Tue 30-Aug-05 17:56 by yenanh
+	Platform (0x06), value length: 20 bytes: 'cisco WS-C3560G-24PS'
+	Address (0x02), value length: 13 bytes: IPv4 (1) 192.168.0.1
+	Port-ID (0x03), value length: 18 bytes: 'GigabitEthernet0/5'
+	Capability (0x04), value length: 4 bytes: (0x00000028): L2 Switch, IGMP snooping
+	Protocol-Hello option (0x08), value length: 32 bytes: 
+	VTP Management Domain (0x09), value length: 3 bytes: 'Lab'
+	Native VLAN ID (0x0a), value length: 2 bytes: 1
+	Duplex (0x0b), value length: 1 byte: full
+	AVVID trust bitmap (0x12), value length: 1 byte: 0x00
+	AVVID untrusted ports CoS (0x13), value length: 1 byte: 0x00
+	Management Addresses (0x16), value length: 13 bytes: IPv4 (1) 192.168.0.1
+	unknown field type (0x1a), value length: 12 bytes: 
+	  0x0000:  0000 0001 0000 0000 ffff ffff
+CDPv2, ttl: 180s, checksum: 0xb0bd (unverified), length 378
+	Device-ID (0x01), value length: 6 bytes: 'Switch'
+	Version String (0x05), value length: 192 bytes: 
+	  Cisco IOS Software, C3560 Software (C3560-ADVIPSERVICESK9-M), Version 12.2(25)SEB4, RELEASE SOFTWARE (fc1)
+	  Copyright (c) 1986-2005 by Cisco Systems, Inc.
+	  Compiled Tue 30-Aug-05 17:56 by yenanh
+	Platform (0x06), value length: 20 bytes: 'cisco WS-C3560G-24PS'
+	Address (0x02), value length: 13 bytes: IPv4 (1) 192.168.0.1
+	Port-ID (0x03), value length: 18 bytes: 'GigabitEthernet0/5'
+	Capability (0x04), value length: 4 bytes: (0x00000028): L2 Switch, IGMP snooping
+	Protocol-Hello option (0x08), value length: 32 bytes: 
+	VTP Management Domain (0x09), value length: 3 bytes: 'Lab'
+	Native VLAN ID (0x0a), value length: 2 bytes: 1
+	Duplex (0x0b), value length: 1 byte: full
+	AVVID trust bitmap (0x12), value length: 1 byte: 0x00
+	AVVID untrusted ports CoS (0x13), value length: 1 byte: 0x00
+	Management Addresses (0x16), value length: 13 bytes: IPv4 (1) 192.168.0.1
+	unknown field type (0x1a), value length: 12 bytes: 
+	  0x0000:  0000 0001 0000 0000 ffff ffff

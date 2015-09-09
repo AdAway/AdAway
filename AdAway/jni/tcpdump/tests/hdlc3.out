@@ -1,0 +1,38 @@
+SLARP (length: 20), keepalive: mineseen=0x00000005, yourseen=0x00000002, reliability=0xffff, link uptime=0d2h12m5s
+SLARP (length: 20), keepalive: mineseen=0x00000003, yourseen=0x00000005, reliability=0xffff, link uptime=0d6h51m44s
+SLARP (length: 20), keepalive: mineseen=0x00000006, yourseen=0x00000003, reliability=0xffff, link uptime=0d2h12m15s
+SLARP (length: 20), keepalive: mineseen=0x00000004, yourseen=0x00000006, reliability=0xffff, link uptime=0d6h51m54s
+SLARP (length: 20), keepalive: mineseen=0x00000007, yourseen=0x00000004, reliability=0xffff, link uptime=0d2h12m25s
+SLARP (length: 20), keepalive: mineseen=0x00000005, yourseen=0x00000007, reliability=0xffff, link uptime=0d6h52m4s
+IP 10.0.0.1 > 10.0.0.2: ICMP echo request, id 0, seq 0, length 80
+IP 10.0.0.2 > 10.0.0.1: ICMP echo reply, id 0, seq 0, length 80
+IP 10.0.0.1 > 10.0.0.2: ICMP echo request, id 0, seq 1, length 80
+IP 10.0.0.2 > 10.0.0.1: ICMP echo reply, id 0, seq 1, length 80
+IP 10.0.0.1 > 10.0.0.2: ICMP echo request, id 0, seq 2, length 80
+IP 10.0.0.2 > 10.0.0.1: ICMP echo reply, id 0, seq 2, length 80
+IP 10.0.0.1 > 10.0.0.2: ICMP echo request, id 0, seq 3, length 80
+IP 10.0.0.2 > 10.0.0.1: ICMP echo reply, id 0, seq 3, length 80
+IP 10.0.0.1 > 10.0.0.2: ICMP echo request, id 0, seq 4, length 80
+IP 10.0.0.2 > 10.0.0.1: ICMP echo reply, id 0, seq 4, length 80
+unknown CHDLC protocol (0x2000)
+SLARP (length: 20), keepalive: mineseen=0x00000008, yourseen=0x00000005, reliability=0xffff, link uptime=0d2h12m35s
+SLARP (length: 20), keepalive: mineseen=0x00000006, yourseen=0x00000008, reliability=0xffff, link uptime=0d6h52m14s
+unknown CHDLC protocol (0x2000)
+SLARP (length: 20), keepalive: mineseen=0x00000009, yourseen=0x00000006, reliability=0xffff, link uptime=0d2h12m45s
+SLARP (length: 20), keepalive: mineseen=0x00000007, yourseen=0x00000009, reliability=0xffff, link uptime=0d6h52m24s
+SLARP (length: 20), keepalive: mineseen=0x0000000a, yourseen=0x00000007, reliability=0xffff, link uptime=0d2h12m55s
+SLARP (length: 20), keepalive: mineseen=0x00000008, yourseen=0x0000000a, reliability=0xffff, link uptime=0d6h52m34s
+SLARP (length: 20), keepalive: mineseen=0x0000000b, yourseen=0x00000008, reliability=0xffff, link uptime=0d2h13m5s
+SLARP (length: 20), keepalive: mineseen=0x00000009, yourseen=0x0000000b, reliability=0xffff, link uptime=0d6h52m44s
+SLARP (length: 20), keepalive: mineseen=0x0000000c, yourseen=0x00000009, reliability=0xffff, link uptime=0d2h13m15s
+SLARP (length: 20), keepalive: mineseen=0x0000000a, yourseen=0x0000000c, reliability=0xffff, link uptime=0d6h52m54s
+SLARP (length: 20), keepalive: mineseen=0x0000000d, yourseen=0x0000000a, reliability=0xffff, link uptime=0d2h13m25s
+SLARP (length: 20), keepalive: mineseen=0x0000000b, yourseen=0x0000000d, reliability=0xffff, link uptime=0d6h53m4s
+unknown CHDLC protocol (0x2000)
+SLARP (length: 20), keepalive: mineseen=0x0000000e, yourseen=0x0000000b, reliability=0xffff, link uptime=0d2h13m35s
+SLARP (length: 20), keepalive: mineseen=0x0000000c, yourseen=0x0000000e, reliability=0xffff, link uptime=0d6h53m14s
+unknown CHDLC protocol (0x2000)
+SLARP (length: 20), keepalive: mineseen=0x0000000f, yourseen=0x0000000c, reliability=0xffff, link uptime=0d2h13m45s
+SLARP (length: 20), keepalive: mineseen=0x0000000d, yourseen=0x0000000f, reliability=0xffff, link uptime=0d6h53m24s
+SLARP (length: 20), keepalive: mineseen=0x00000010, yourseen=0x0000000d, reliability=0xffff, link uptime=0d2h13m55s
+SLARP (length: 20), keepalive: mineseen=0x0000000e, yourseen=0x00000010, reliability=0xffff, link uptime=0d6h53m34s

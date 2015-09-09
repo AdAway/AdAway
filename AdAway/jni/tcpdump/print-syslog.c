@@ -14,22 +14,17 @@
  * FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-syslog.c,v 1.1 2004-10-29 11:42:53 hannes Exp $";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "interface.h"
 #include "extract.h"
+
+static const char tstr[] = "[|syslog]";
 
 /*
  * tokenlists and #defines taken from Ethereal - Network traffic analyzer
@@ -81,11 +76,12 @@ static const struct tok syslog_facility_values[] = {
 };
 
 void
-syslog_print(register const u_char *pptr, register u_int len)
+syslog_print(netdissect_options *ndo,
+             register const u_char *pptr, register u_int len)
 {
-    u_int16_t msg_off = 0;
-    u_int16_t pri = 0;
-    u_int16_t facility,severity;
+    uint16_t msg_off = 0;
+    uint16_t pri = 0;
+    uint16_t facility,severity;
 
     /* extract decimal figures that are
      * encapsulated within < > tags
@@ -93,57 +89,57 @@ syslog_print(register const u_char *pptr, register u_int len)
      * severity and facility values
      */
 
-    TCHECK2(*pptr, 1);
+    ND_TCHECK2(*pptr, 1);
     if (*(pptr+msg_off) == '<') {
         msg_off++;
-        TCHECK2(*(pptr+msg_off), 1);
+        ND_TCHECK2(*(pptr + msg_off), 1);
         while ( *(pptr+msg_off) >= '0' &&
                 *(pptr+msg_off) <= '9' &&
                 msg_off <= SYSLOG_MAX_DIGITS) {
             pri = pri * 10 + (*(pptr+msg_off) - '0');
             msg_off++;
-            TCHECK2(*(pptr+msg_off), 1);
+            ND_TCHECK2(*(pptr + msg_off), 1);
         }
         if (*(pptr+msg_off) != '>') {
-            printf("[|syslog]");
+            ND_PRINT((ndo, "%s", tstr));
             return;
         }
         msg_off++;
     } else {
-        printf("[|syslog]");
+        ND_PRINT((ndo, "%s", tstr));
         return;
     }
 
     facility = (pri & SYSLOG_FACILITY_MASK) >> 3;
     severity = pri & SYSLOG_SEVERITY_MASK;
 
-    if (vflag < 1 )
+    if (ndo->ndo_vflag < 1 )
     {
-        printf("SYSLOG %s.%s, length: %u",
+        ND_PRINT((ndo, "SYSLOG %s.%s, length: %u",
                tok2str(syslog_facility_values, "unknown (%u)", facility),
                tok2str(syslog_severity_values, "unknown (%u)", severity),
-               len);
+               len));
         return;
     }
 
-    printf("SYSLOG, length: %u\n\tFacility %s (%u), Severity %s (%u)\n\tMsg: ",
+    ND_PRINT((ndo, "SYSLOG, length: %u\n\tFacility %s (%u), Severity %s (%u)\n\tMsg: ",
            len,
            tok2str(syslog_facility_values, "unknown (%u)", facility),
            facility,
            tok2str(syslog_severity_values, "unknown (%u)", severity),
-           severity);
+           severity));
 
     /* print the syslog text in verbose mode */
     for (; msg_off < len; msg_off++) {
-        TCHECK2(*(pptr+msg_off), 1);
-        safeputchar(*(pptr+msg_off));
+        ND_TCHECK2(*(pptr + msg_off), 1);
+        safeputchar(ndo, *(pptr + msg_off));
     }
 
-    if (vflag > 1)
-        print_unknown_data(pptr,"\n\t",len);
+    if (ndo->ndo_vflag > 1)
+        print_unknown_data(ndo, pptr, "\n\t", len);
 
     return;
 
 trunc:
-        printf("[|syslog]");
+    ND_PRINT((ndo, "%s", tstr));
 }

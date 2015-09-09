@@ -1,0 +1,76 @@
+IP6 (class 0xc0, hlim 1, next-header UDP (17) payload length: 60) fe80::6aa3:c4ff:fef4:841e.5359 > ff02::cca6:c0f9:e182:5359.5359: [udp sum ok] AHCP Version 1
+	Hopcount 1, Original Hopcount 1, Nonce 0x7ce31135, Source Id 6a:a3:c4:ff:fe:f4:84:1e, Destination Id ff:ff:ff:ff:ff:ff:ff:ff
+	Discover, Length 24
+	 Origin Time: 2013-11-10 07:59:42 UTC
+	 Expires: 418s
+	 IPv4 Address: 0.0.0.0
+	 IPv6 Prefix
+	 Name Server
+	 NTP Server
+IP6 (class 0xc0, hlim 64, next-header UDP (17) payload length: 193) fe80::22cf:30ff:fe02:b052.5359 > fe80::6aa3:c4ff:fef4:841e.5359: [udp sum ok] AHCP Version 1
+	Hopcount 1, Original Hopcount 1, Nonce 0x9dccbd40, Source Id 08:4b:37:1e:f3:6e:1e:dc, Destination Id 6a:a3:c4:ff:fe:f4:84:1e
+	Offer, Length 157
+	 Origin Time: 2013-11-10 07:59:44 UTC
+	 Mandatory
+	 Expires: 512s
+	 IPv4 Address: 10.100.0.1
+	 Name Server: ::ffff:89.233.43.71, ::ffff:89.104.194.142, 2002:d596:2a92:1:71:53::, 2002:5968:c28e::53
+	 NTP Server: ::ffff:195.234.155.124, ::ffff:78.156.97.78, ::ffff:80.71.132.103, ::ffff:83.151.158.44
+	 My-IPv4-Address: 10.0.0.80
+IP6 (class 0xc0, hlim 1, next-header UDP (17) payload length: 56) fe80::6aa3:c4ff:fef4:841e.5359 > ff02::cca6:c0f9:e182:5359.5359: [udp sum ok] AHCP Version 1
+	Hopcount 1, Original Hopcount 1, Nonce 0x7de31135, Source Id 6a:a3:c4:ff:fe:f4:84:1e, Destination Id 08:4b:37:1e:f3:6e:1e:dc
+	Request, Length 20
+	 Origin Time: 2013-11-10 07:59:42 UTC
+	 Expires: 405s
+	 IPv4 Address
+	 IPv6 Prefix
+	 Name Server
+	 NTP Server
+IP6 (class 0xc0, hlim 64, next-header UDP (17) payload length: 193) fe80::22cf:30ff:fe02:b052.5359 > fe80::6aa3:c4ff:fef4:841e.5359: [udp sum ok] AHCP Version 1
+	Hopcount 1, Original Hopcount 1, Nonce 0x9eccbd40, Source Id 08:4b:37:1e:f3:6e:1e:dc, Destination Id 6a:a3:c4:ff:fe:f4:84:1e
+	Ack, Length 157
+	 Origin Time: 2013-11-10 07:59:44 UTC
+	 Mandatory
+	 Expires: 524s
+	 IPv4 Address: 10.100.0.1
+	 Name Server: ::ffff:89.233.43.71, ::ffff:89.104.194.142, 2002:d596:2a92:1:71:53::, 2002:5968:c28e::53
+	 NTP Server: ::ffff:195.234.155.124, ::ffff:78.156.97.78, ::ffff:80.71.132.103, ::ffff:83.151.158.44
+	 My-IPv4-Address: 10.0.0.80
+IP6 (class 0xc0, hlim 1, next-header UDP (17) payload length: 56) fe80::6aa3:c4ff:fef4:841e.5359 > ff02::cca6:c0f9:e182:5359.5359: [udp sum ok] AHCP Version 1
+	Hopcount 1, Original Hopcount 1, Nonce 0x7ee31135, Source Id 6a:a3:c4:ff:fe:f4:84:1e, Destination Id ff:ff:ff:ff:ff:ff:ff:ff
+	Discover, Length 20
+	 Origin Time: 2013-11-10 08:00:09 UTC
+	 Expires: 415s
+	 IPv4 Address
+	 IPv6 Prefix
+	 Name Server
+	 NTP Server
+IP6 (class 0xc0, hlim 64, next-header UDP (17) payload length: 193) fe80::22cf:30ff:fe02:b052.5359 > fe80::6aa3:c4ff:fef4:841e.5359: [udp sum ok] AHCP Version 1
+	Hopcount 1, Original Hopcount 1, Nonce 0x9fccbd40, Source Id 08:4b:37:1e:f3:6e:1e:dc, Destination Id 6a:a3:c4:ff:fe:f4:84:1e
+	Offer, Length 157
+	 Origin Time: 2013-11-10 08:00:11 UTC
+	 Mandatory
+	 Expires: 505s
+	 IPv4 Address: 10.100.0.1
+	 Name Server: ::ffff:89.233.43.71, ::ffff:89.104.194.142, 2002:d596:2a92:1:71:53::, 2002:5968:c28e::53
+	 NTP Server: ::ffff:195.234.155.124, ::ffff:78.156.97.78, ::ffff:80.71.132.103, ::ffff:83.151.158.44
+	 My-IPv4-Address: 10.0.0.80
+IP6 (class 0xc0, hlim 1, next-header UDP (17) payload length: 56) fe80::6aa3:c4ff:fef4:841e.5359 > ff02::cca6:c0f9:e182:5359.5359: [udp sum ok] AHCP Version 1
+	Hopcount 1, Original Hopcount 1, Nonce 0x7fe31135, Source Id 6a:a3:c4:ff:fe:f4:84:1e, Destination Id 08:4b:37:1e:f3:6e:1e:dc
+	Request, Length 20
+	 Origin Time: 2013-11-10 08:00:09 UTC
+	 Expires: 409s
+	 IPv4 Address
+	 IPv6 Prefix
+	 Name Server
+	 NTP Server
+IP6 (class 0xc0, hlim 64, next-header UDP (17) payload length: 193) fe80::22cf:30ff:fe02:b052.5359 > fe80::6aa3:c4ff:fef4:841e.5359: [udp sum ok] AHCP Version 1
+	Hopcount 1, Original Hopcount 1, Nonce 0xa0ccbd40, Source Id 08:4b:37:1e:f3:6e:1e:dc, Destination Id 6a:a3:c4:ff:fe:f4:84:1e
+	Ack, Length 157
+	 Origin Time: 2013-11-10 08:00:12 UTC
+	 Mandatory
+	 Expires: 518s
+	 IPv4 Address: 10.100.0.1
+	 Name Server: ::ffff:89.233.43.71, ::ffff:89.104.194.142, 2002:d596:2a92:1:71:53::, 2002:5968:c28e::53
+	 NTP Server: ::ffff:195.234.155.124, ::ffff:78.156.97.78, ::ffff:80.71.132.103, ::ffff:83.151.158.44
+	 My-IPv4-Address: 10.0.0.80

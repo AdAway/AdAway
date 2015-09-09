@@ -2,11 +2,12 @@ This file lists people who have contributed to tcpdump:
 
 The current maintainers:
     Bill Fenner                   <fenner at research dot att dot com>
-    Denis Ovsienko                <infrastation at yandex dot ru>
+    Denis Ovsienko                <denis at ovsienko dot info>
     Fulvio Risso                  <risso at polito dot it>
     Guy Harris                    <guy at alum dot mit dot edu>
     Hannes Gredler                <hannes at juniper dot net>
     Michael Richardson            <mcr at sandelman dot ottawa dot on dot ca>
+    Francois-Xavier Le Bail       <fx dot lebail at yahoo dot com>
 
 Additional people who have contributed patches:
 
@@ -28,6 +29,7 @@ Additional people who have contributed patches:
     Armando L. Caro Jr.           <acaro at mail dot eecis dot udel dot edu>
     Arnaldo Carvalho de Melo      <acme at ghostprotocols dot net>
     Atsushi Onoe                  <onoe at netbsd dot org>
+    Baptiste Jonglez              <baptiste dot jonglez at ens-lyon dot org>
     Ben Byer                      <bushing at sourceforge dot net>
     Ben Smithurst                 <ben at scientia dot demon dot co dot uk>
     Bert Vermeulen                <bert at biot dot com>
@@ -66,7 +68,6 @@ Additional people who have contributed patches:
     Francesco Fondelli            <francesco dot fondelli at gmail dot com>
     Francisco Matias Cuenca-Acuna <mcuenca at george dot rutgers dot edu>
     Francis Dupont                <Francis dot Dupont at enst-bretagne dot fr>
-    Francois-Xavier Le Bail       <fx dot lebail at yahoo dot com>
     Frank Volf                    <volf at oasis dot IAEhv dot nl>
     Fulvio Risso                  <risso at polito dot it>
     George Bakos                  <gbakos at ists dot dartmouth dot edu>
@@ -74,7 +75,7 @@ Additional people who have contributed patches:
     Gerrit Renker                 <gerrit at erg dot abdn dot ac dot uk>
     Gert Doering                  <gert at greenie dot muc dot de>
     Gilbert Ramirez Jr.           <gram at xiexie dot org>
-    Gisle Vanem                   <gvanem at broadpark dot no>
+    Gisle Vanem                   <gvanem at yahoo dot no>
     Greg Minshall                 <minshall at acm dot org>
     Grégoire Henry                <henry at pps dot jussieu dot fr>
     Gregory Detal                 <gregory dot detal at uclouvain dot be>
@@ -84,6 +85,7 @@ Additional people who have contributed patches:
     Harry Raaymakers              <harryr at connect dot com dot au>
     Heinz-Ado Arnolds             <Ado dot Arnolds at dhm-systems dot de>
     Hendrik Scholz                <hendrik at scholz dot net>
+    Herwin Weststrate             <herwin at quarantainenet dot nl>
     Ian McDonald                  <imcdnzl at gmail dot com>
     Ilpo Järvinen                 <ilpo dot jarvinen at helsinki dot fi>
     Jacek Tobiasz                 <Jacek dot Tobiasz at atm dot com dot pl>
@@ -94,6 +96,7 @@ Additional people who have contributed patches:
     Jefferson Ogata               <jogata at nodc dot noaa dot gov>
     Jeffrey Hutzelman             <jhutz at cmu dot edu>
     Jesper Peterson               <jesper at endace dot com>
+    Jesse Gross                   <jesse at nicira dot com>
     Jim Hutchins                  <jim at ca dot sandia dot gov>
     João Medeiros                 <ignotus21 at sourceforge dot net>
     Joerg Mayer                   <jmayer at loplof dot de>
@@ -115,6 +118,7 @@ Additional people who have contributed patches:
     Krzysztof Halasa              <khc at pm dot waw dot pl>
     Larry Lile                    <lile at stdio dot com>
     Lennert Buytenhek             <buytenh at gnu dot org>
+    Loganaden Velvindron          <logan at elandsys dot com>
     Longinus00                    <Longinus00 at gmail dot com>
     Loris Degioanni               <loris at netgroup-serv dot polito dot it>
     Love Hörnquist-Åstrand        <lha at stacken dot kth dot se>
@@ -194,6 +198,7 @@ Additional people who have contributed patches:
     Steinar Haug                  <sthaug at nethelp dot no>
     Stephane Bortzmeyer           <stephane+github at bortzmeyer dot org>
     Swaminathan Chandrasekaran    <chander at juniper dot net>
+    Swaathi Vetrivel              <swaathiv at juniper dot net>
     Takashi Yamamoto              <yamt at mwd dot biglobe dot ne dot jp>
     Tatuya Jinmei                 <jinmei at kame dot net>
     Terry Kennedy                 <terry at tmk dot com>
@@ -204,6 +209,7 @@ Additional people who have contributed patches:
     Udayakumar                    <udaya011 at gmail dot com>
     Uns Lider                     <unslider at miranda dot org>
     Victor Oppleman               <oppleman at users dot sourceforge dot net>
+    Vyacheslav Trushkin           <dogonthesun at gmail dot com>
     Weesan Lee                    <weesan at juniper dot net>
     Wesley Griffin                <wgriffin at users dot sourceforge dot net>
     Wesley Shields                <wxs at FreeBSD dot org>

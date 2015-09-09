@@ -44,7 +44,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="4"
 				AdditionalIncludeDirectories="../../../winpcap/wpcap/libpcap/bpf,../../../winpcap/wpcap/libpcap,../../../winpcap/wpcap/libpcap/Win32/Include,../../../winpcap/wpcap/libpcap/Win32/Include/net,../../Win32/Include,../../linux-Include,../../lbl,../../,../../../winpcap/wpcap/win32-extensions"
-				PreprocessorDefinitions="_DEBUG;_WINDOWS;INET6;WIN32;_CONSOLE;__STDC__;WPCAP;HAVE_ADDRINFO=1;HAVE_SOCKADDR_STORAGE=1;HAVE_PCAP_LIST_DATALINKS=1;HAVE_PCAP_SET_DATALINK=1;HAVE_PCAP_DATALINK_NAME_TO_VAL=1;HAVE_PCAP_DATALINK_VAL_TO_DESCRIPTION=1;HAVE_PCAP_DUMP_FTELL=1;HAVE_BPF_DUMP=1;HAVE_PCAP_DUMP_FLUSH=1;HAVE_PCAP_FINDALLDEVS=1;HAVE_PCAP_IF_T=1;HAVE_PCAP_LIB_VERSION=1;HAVE_REMOTE;_U_=;_CRT_SECURE_NO_WARNINGS"
+				PreprocessorDefinitions="_DEBUG;_WINDOWS;INET6;WIN32;_CONSOLE;__STDC__;WPCAP;HAVE_ADDRINFO=1;HAVE_SOCKADDR_STORAGE=1;HAVE_PCAP_LIST_DATALINKS=1;HAVE_PCAP_SET_DATALINK=1;HAVE_PCAP_DATALINK_NAME_TO_VAL=1;HAVE_PCAP_DATALINK_VAL_TO_DESCRIPTION=1;HAVE_PCAP_DUMP_FTELL=1;HAVE_BPF_DUMP=1;HAVE_PCAP_DUMP_FLUSH=1;HAVE_PCAP_FINDALLDEVS=1;HAVE_PCAP_IF_T=1;HAVE_PCAP_LIB_VERSION=1;HAVE_REMOTE;_U_=;_CRT_SECURE_NO_WARNINGS;USE_ETHER_NTOHOST"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
 				PrecompiledHeaderFile=".\Debug/WinDump.pch"
@@ -359,7 +359,7 @@
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="..\Src\getopt.c"
+			RelativePath="..\..\missing\getopt_long.c"
 			>
 			<FileConfiguration
 				Name="Debug|Win32"
@@ -3200,6 +3200,10 @@
 				/>
 			</FileConfiguration>
 		</File>
+		
+		<File RelativePath="..\Src\ether_ntohost.c">
+		</File>
+		
 		<File
 			RelativePath="..\..\Tcpdump.c"
 			>

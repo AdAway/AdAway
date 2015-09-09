@@ -1,0 +1,139 @@
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+1.1 > 1.1 34 conn-initiate 8195>0 ver 4.1 segsize 16403 
+1.1 > 1.1 9 [|decnet]
+1.1 > 1.1 16 conn-confirm 8196>8195 ver 4.1 segsize 16403 
+1.1 > 1.1 19 link-service 8195>8196 ack 0 ackdat 0 seg 1 dat seg count 0 
+1.1 > 1.1 15 ils-ack 8196>8195 ack 1 ackdat 0 
+1.1 > 1.1 45 data 8195>8196 ack 0 oack 0 seg 1 
+1.1 > 1.1 15 data-ack 8196>8195 ack 1 oack 1 
+1.1 > 1.1 18 data 8196>8195 ack 1 oack 1 seg 1 
+1.1 > 1.1 15 data-ack 8195>8196 ack 1 oack 0 
+1.1 > 1.1 33 data 8195>8196 ack 1 oack 0 seg 2 
+1.1 > 1.1 15 data-ack 8196>8195 ack 2 oack 1 
+1.1 > 1.1 18 data 8196>8195 ack 2 oack 1 seg 2 
+1.1 > 1.1 15 data-ack 8195>8196 ack 2 oack 0 
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+1.1 > 1.1 34 conn-initiate 8197>0 ver 4.1 segsize 16403 
+1.1 > 1.1 9 [|decnet]
+1.1 > 1.1 16 conn-confirm 8198>8197 ver 4.1 segsize 16403 
+1.1 > 1.1 19 link-service 8197>8198 ack 0 ackdat 0 seg 1 dat seg count 0 
+1.1 > 1.1 15 ils-ack 8198>8197 ack 1 ackdat 0 
+1.1 > 1.1 45 data 8197>8198 ack 0 oack 0 seg 1 
+1.1 > 1.1 15 data-ack 8198>8197 ack 1 oack 1 
+1.1 > 1.1 32 data 8197>8198 ack 0 oack 0 seg 2 
+1.1 > 1.1 15 data-ack 8198>8197 ack 2 oack 1 
+1.1 > 1.1 18 data 8198>8197 ack 2 oack 1 seg 1 
+1.1 > 1.1 15 data-ack 8197>8198 ack 1 oack 0 
+1.1 > 1.1 19 link-service 8195>8196 ack 0 ackdat 2 seg 2 dat seg count 0 
+1.1 > 1.1 15 ils-ack 8196>8195 ack 2 ackdat 2 
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+1.1 > 1.1 19 link-service 8197>8198 ack 0 ackdat 1 seg 2 dat seg count 0 
+1.1 > 1.1 19 link-service 8198>8197 ack 1 ackdat 2 seg 1 dat seg count 0 
+1.1 > 1.1 15 ils-ack 8198>8197 ack 2 ackdat 2 
+1.1 > 1.1 15 ils-ack 8197>8198 ack 1 ackdat 1 
+1.1 > 1.1 19 link-service 8195>8196 ack 0 ackdat 2 seg 3 dat seg count 0 
+1.1 > 1.1 15 ils-ack 8196>8195 ack 3 ackdat 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 3 
+1.1 > 1.1 15 data-ack 8198>8197 ack 3 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 4 
+1.1 > 1.1 15 data-ack 8198>8197 ack 4 oack 2 
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 5 
+1.1 > 1.1 15 data-ack 8198>8197 ack 5 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 6 
+1.1 > 1.1 15 data-ack 8198>8197 ack 6 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 7 
+1.1 > 1.1 15 data-ack 8198>8197 ack 7 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 8 
+1.1 > 1.1 15 data-ack 8198>8197 ack 8 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 9 
+1.1 > 1.1 15 data-ack 8198>8197 ack 9 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 10 
+1.1 > 1.1 15 data-ack 8198>8197 ack 10 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 11 
+1.1 > 1.1 15 data-ack 8198>8197 ack 11 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 12 
+1.1 > 1.1 15 data-ack 8198>8197 ack 12 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 13 
+1.1 > 1.1 15 data-ack 8198>8197 ack 13 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 14 
+1.1 > 1.1 15 data-ack 8198>8197 ack 14 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 15 
+1.1 > 1.1 15 data-ack 8198>8197 ack 15 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 16 
+1.1 > 1.1 15 data-ack 8198>8197 ack 16 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 17 
+1.1 > 1.1 15 data-ack 8198>8197 ack 17 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 18 
+1.1 > 1.1 15 data-ack 8198>8197 ack 18 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 19 
+1.1 > 1.1 15 data-ack 8198>8197 ack 19 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 20 
+1.1 > 1.1 15 data-ack 8198>8197 ack 20 oack 2 
+1.1 > 1.1 33 data 8197>8198 ack 1 oack 1 seg 21 
+1.1 > 1.1 15 data-ack 8198>8197 ack 21 oack 2 
+1.1 > 1.1 19 link-service 8195>8196 ack 0 ackdat 2 seg 4 dat seg count 0 
+1.1 > 1.1 15 ils-ack 8196>8195 ack 4 ackdat 2 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 3 
+1.1 > 1.1 15 data-ack 8196>8195 ack 3 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 4 
+1.1 > 1.1 15 data-ack 8196>8195 ack 4 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 5 
+1.1 > 1.1 15 data-ack 8196>8195 ack 5 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 6 
+1.1 > 1.1 15 data-ack 8196>8195 ack 6 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 7 
+1.1 > 1.1 15 data-ack 8196>8195 ack 7 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 8 
+1.1 > 1.1 15 data-ack 8196>8195 ack 8 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 9 
+1.1 > 1.1 15 data-ack 8196>8195 ack 9 oack 4 
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 10 
+1.1 > 1.1 15 data-ack 8196>8195 ack 10 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 11 
+1.1 > 1.1 15 data-ack 8196>8195 ack 11 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 12 
+1.1 > 1.1 15 data-ack 8196>8195 ack 12 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 13 
+1.1 > 1.1 15 data-ack 8196>8195 ack 13 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 14 
+1.1 > 1.1 15 data-ack 8196>8195 ack 14 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 15 
+1.1 > 1.1 15 data-ack 8196>8195 ack 15 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 16 
+1.1 > 1.1 15 data-ack 8196>8195 ack 16 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 17 
+1.1 > 1.1 15 data-ack 8196>8195 ack 17 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 18 
+1.1 > 1.1 15 data-ack 8196>8195 ack 18 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 19 
+1.1 > 1.1 15 data-ack 8196>8195 ack 19 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 20 
+1.1 > 1.1 15 data-ack 8196>8195 ack 20 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 21 
+1.1 > 1.1 15 data-ack 8196>8195 ack 21 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 22 
+1.1 > 1.1 15 data-ack 8196>8195 ack 22 oack 4 
+1.1 > 1.1 33 data 8195>8196 ack 2 oack 0 seg 23 
+1.1 > 1.1 15 data-ack 8196>8195 ack 23 oack 4 
+1.1 > 1.1 19 link-service 8197>8198 ack 1 ackdat 1 seg 3 dat seg count 0 
+1.1 > 1.1 19 link-service 8198>8197 ack 2 ackdat 21 seg 2 dat seg count 0 
+1.1 > 1.1 15 ils-ack 8198>8197 ack 3 ackdat 21 
+1.1 > 1.1 15 ils-ack 8197>8198 ack 2 ackdat 1 
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2
+1.1 > 1.1 32 data 8197>8198 ack 1 oack 2 seg 22 
+1.1 > 1.1 15 data-ack 8198>8197 ack 22 oack 3 
+1.1 > 1.1 32 data 8197>8198 ack 1 oack 2 seg 23 
+1.1 > 1.1 15 data-ack 8198>8197 ack 23 oack 3 
+1.1 > 1.1 14 disconn-initiate 8196>8195 object rejected connect 
+1.1 > 1.1 13 disconn-confirm 8195>8196 disconnect complete 
+1.1 > 1.1 14 disconn-initiate 8197>8198 object rejected connect 
+1.1 > 1.1 13 disconn-confirm 8198>8197 disconnect complete 
+1.1 > 1.1 13 disconn-confirm 8198>8197 disconnect complete 
+1.1 > 1.1 13 disconn-confirm 8195>8196 disconnect complete 
+endnode-hello endnode vers 2 eco 0 ueco 0 src 1.1 blksize 16434 rtr 0.0 hello 10 data 2

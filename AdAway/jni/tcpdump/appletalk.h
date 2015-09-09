@@ -19,14 +19,12 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * AppleTalk protocol formats (courtesy Bill Croft of Stanford/SUMEX).
- *
- * @(#) $Header: /tcpdump/master/tcpdump/appletalk.h,v 1.16 2004-05-01 09:41:50 hannes Exp $ (LBL)
  */
 
 struct LAP {
-	u_int8_t	dst;
-	u_int8_t	src;
-	u_int8_t	type;
+	uint8_t		dst;
+	uint8_t		src;
+	uint8_t		type;
 };
 #define lapShortDDP	1	/* short DDP type */
 #define lapDDP		2	/* DDP type */
@@ -35,22 +33,22 @@ struct LAP {
 /* Datagram Delivery Protocol */
 
 struct atDDP {
-	u_int16_t	length;
-	u_int16_t	checksum;
-	u_int16_t	dstNet;
-	u_int16_t	srcNet;
-	u_int8_t	dstNode;
-	u_int8_t	srcNode;
-	u_int8_t	dstSkt;
-	u_int8_t	srcSkt;
-	u_int8_t	type;
+	uint16_t	length;
+	uint16_t	checksum;
+	uint16_t	dstNet;
+	uint16_t	srcNet;
+	uint8_t		dstNode;
+	uint8_t		srcNode;
+	uint8_t		dstSkt;
+	uint8_t		srcSkt;
+	uint8_t		type;
 };
 
 struct atShortDDP {
-	u_int16_t	length;
-	u_int8_t	dstSkt;
-	u_int8_t	srcSkt;
-	u_int8_t	type;
+	uint16_t	length;
+	uint8_t		dstSkt;
+	uint8_t		srcSkt;
+	uint8_t		type;
 };
 
 #define	ddpMaxWKS	0x7F
@@ -74,10 +72,10 @@ struct atShortDDP {
 /* AppleTalk Transaction Protocol */
 
 struct atATP {
-	u_int8_t	control;
-	u_int8_t	bitmap;
-	u_int16_t	transID;
-	int32_t userData;
+	uint8_t		control;
+	uint8_t		bitmap;
+	uint16_t	transID;
+	int32_t		userData;
 };
 
 #define	atpReqCode	0x40
@@ -95,8 +93,8 @@ struct atATP {
 /* AppleTalk Echo Protocol */
 
 struct atEcho {
-	u_int8_t	echoFunction;
-	u_int8_t	*echoData;
+	uint8_t		echoFunction;
+	uint8_t		*echoData;
 };
 
 #define echoSkt		4		/* the echoer socket */
@@ -108,15 +106,15 @@ struct atEcho {
 /* Name Binding Protocol */
 
 struct atNBP {
-	u_int8_t	control;
-	u_int8_t	id;
+	uint8_t		control;
+	uint8_t		id;
 };
 
 struct atNBPtuple {
-	u_int16_t	net;
-	u_int8_t	node;
-	u_int8_t	skt;
-	u_int8_t	enumerator;
+	uint16_t	net;
+	uint8_t		node;
+	uint8_t		skt;
+	uint8_t		enumerator;
 };
 
 #define	nbpBrRq		0x10
@@ -142,8 +140,8 @@ struct atNBPtuple {
 /* Zone Information Protocol */
 
 struct zipHeader {
-	u_int8_t	command;
-	u_int8_t	netcount;
+	uint8_t		command;
+	uint8_t		netcount;
 };
 
 #define	zipHeaderSize	2

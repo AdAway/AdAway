@@ -26,6 +26,7 @@
  * SUCH DAMAGE.
  */
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -35,38 +36,42 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "addrtoname.h"
 #include "interface.h"
+#include "addrtoname.h"
 #include "extract.h"
 
-static void babel_print_v2(const u_char *cp, u_int length);
+static const char tstr[] = "[|babel]";
+
+static void babel_print_v2(netdissect_options *, const u_char *cp, u_int length);
 
 void
-babel_print(const u_char *cp, u_int length) {
-    printf("babel");
+babel_print(netdissect_options *ndo,
+            const u_char *cp, u_int length)
+{
+    ND_PRINT((ndo, "babel"));
 
-    TCHECK2(*cp, 4);
+    ND_TCHECK2(*cp, 4);
 
     if(cp[0] != 42) {
-        printf(" malformed header");
+        ND_PRINT((ndo, " malformed header"));
         return;
     } else {
-        printf(" %d", cp[1]);
+        ND_PRINT((ndo, " %d", cp[1]));
     }
 
     switch(cp[1]) {
     case 2:
-        babel_print_v2(cp,length);
+        babel_print_v2(ndo, cp, length);
         break;
     default:
-        printf(" unknown version");
+        ND_PRINT((ndo, " unknown version"));
         break;
     }
 
     return;
 
  trunc:
-    printf(" [|babel]");
+    ND_PRINT((ndo, " %s", tstr));
     return;
 }
 
@@ -89,6 +94,7 @@ babel_print(const u_char *cp, u_int length) {
 #define MESSAGE_SUB_PAD1 0
 #define MESSAGE_SUB_PADN 1
 #define MESSAGE_SUB_DIVERSITY 2
+#define MESSAGE_SUB_TIMESTAMP 3
 
 /* Diversity sub-TLV channel codes */
 static const struct tok diversity_str[] = {
@@ -111,14 +117,14 @@ static const unsigned char v4prefix[16] =
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0, 0, 0 };
 
 static const char *
-format_prefix(const u_char *prefix, unsigned char plen)
+format_prefix(netdissect_options *ndo, const u_char *prefix, unsigned char plen)
 {
     static char buf[50];
     if(plen >= 96 && memcmp(prefix, v4prefix, 12) == 0)
-        snprintf(buf, 50, "%s/%u", ipaddr_string(prefix + 12), plen - 96);
+        snprintf(buf, 50, "%s/%u", ipaddr_string(ndo, prefix + 12), plen - 96);
     else
 #ifdef INET6
-        snprintf(buf, 50, "%s/%u", ip6addr_string(prefix), plen);
+        snprintf(buf, 50, "%s/%u", ip6addr_string(ndo, prefix), plen);
 #else
         snprintf(buf, 50, "IPv6 addresses not supported");
 #endif
@@ -127,33 +133,41 @@ format_prefix(const u_char *prefix, unsigned char plen)
 }
 
 static const char *
-format_address(const u_char *prefix)
+format_address(netdissect_options *ndo, const u_char *prefix)
 {
     if(memcmp(prefix, v4prefix, 12) == 0)
-        return ipaddr_string(prefix + 12);
+        return ipaddr_string(ndo, prefix + 12);
     else
 #ifdef INET6
-        return ip6addr_string(prefix);
+        return ip6addr_string(ndo, prefix);
 #else
         return "IPv6 addresses not supported";
 #endif
 }
 
 static const char *
-format_interval(const u_int16_t i)
+format_interval(const uint16_t i)
 {
-    static char buf[sizeof("0000.0s")];
+    static char buf[sizeof("000.00s")];
 
     if (i == 0)
         return "0.0s (bogus)";
-    snprintf(buf, sizeof(buf), "%u.%us", i / 10, i % 10);
+    snprintf(buf, sizeof(buf), "%u.%02us", i / 100, i % 100);
     return buf;
 }
 
 static const char *
-format_interval_update(const u_int16_t i)
+format_interval_update(const uint16_t i)
 {
     return i == 0xFFFF ? "infinity" : format_interval(i);
+}
+
+static const char *
+format_timestamp(const uint32_t i)
+{
+    static char buf[sizeof("0000.000000s")];
+    snprintf(buf, sizeof(buf), "%u.%06us", i / 1000000, i % 1000000);
+    return buf;
 }
 
 /* Return number of octets consumed from the input buffer (not the prefix length
@@ -242,21 +256,31 @@ network_address(int ae, const unsigned char *a, unsigned int len,
  *   each representing per-hop number of interferring radio channel for the
  *   prefix. Channel 0 is invalid and must not be used in the sub-TLV, channel
  *   255 interferes with any other channel.
+ * o Type 3 stands for Timestamp sub-TLV, used to compute RTT between
+ *   neighbours. In the case of a Hello TLV, the body stores a 32-bits
+ *   timestamp, while in the case of a IHU TLV, two 32-bits timestamps are
+ *   stored.
  *
  * Sub-TLV types 0 and 1 are valid for any TLV type, whether sub-TLV type 2 is
  * only valid for TLV type 8 (Update). Note that within an Update TLV a missing
  * Diversity sub-TLV is not the same as a Diversity sub-TLV with an empty body.
  * The former would mean a lack of any claims about the interference, and the
- * latter would state that interference is definitely absent. */
+ * latter would state that interference is definitely absent.
+ * A type 3 sub-TLV is valid both for Hello and IHU TLVs, though the exact
+ * semantic of the sub-TLV is different in each case.
+ */
 static void
-subtlvs_print(const u_char *cp, const u_char *ep, const uint8_t tlv_type) {
+subtlvs_print(netdissect_options *ndo,
+              const u_char *cp, const u_char *ep, const uint8_t tlv_type)
+{
     uint8_t subtype, sublen;
     const char *sep;
+    uint32_t t1, t2;
 
     while (cp < ep) {
         subtype = *cp++;
         if(subtype == MESSAGE_SUB_PAD1) {
-            printf(" sub-pad1");
+            ND_PRINT((ndo, " sub-pad1"));
             continue;
         }
         if(cp == ep)
@@ -267,50 +291,70 @@ subtlvs_print(const u_char *cp, const u_char *ep, const uint8_t tlv_type) {
 
         switch(subtype) {
         case MESSAGE_SUB_PADN:
-            printf(" sub-padn");
+            ND_PRINT((ndo, " sub-padn"));
             cp += sublen;
             break;
         case MESSAGE_SUB_DIVERSITY:
-            printf(" sub-diversity");
+            ND_PRINT((ndo, " sub-diversity"));
             if (sublen == 0) {
-                printf(" empty");
+                ND_PRINT((ndo, " empty"));
                 break;
             }
             sep = " ";
             while(sublen--) {
-                printf("%s%s", sep, tok2str(diversity_str, "%u", *cp++));
+                ND_PRINT((ndo, "%s%s", sep, tok2str(diversity_str, "%u", *cp++)));
                 sep = "-";
             }
             if(tlv_type != MESSAGE_UPDATE)
-                printf(" (bogus)");
+                ND_PRINT((ndo, " (bogus)"));
+            break;
+        case MESSAGE_SUB_TIMESTAMP:
+            ND_PRINT((ndo, " sub-timestamp"));
+            if(tlv_type == MESSAGE_HELLO) {
+                if(sublen < 4)
+                    goto corrupt;
+                t1 = EXTRACT_32BITS(cp);
+                ND_PRINT((ndo, " %s", format_timestamp(t1)));
+            } else if(tlv_type == MESSAGE_IHU) {
+                if(sublen < 8)
+                    goto corrupt;
+                t1 = EXTRACT_32BITS(cp);
+                ND_PRINT((ndo, " %s", format_timestamp(t1)));
+                t2 = EXTRACT_32BITS(cp + 4);
+                ND_PRINT((ndo, "|%s", format_timestamp(t2)));
+            } else
+                ND_PRINT((ndo, " (bogus)"));
+            cp += sublen;
             break;
         default:
-            printf(" sub-unknown-0x%02x", subtype);
+            ND_PRINT((ndo, " sub-unknown-0x%02x", subtype));
             cp += sublen;
         } /* switch */
     } /* while */
     return;
 
  corrupt:
-    printf(" (corrupt)");
+    ND_PRINT((ndo, " (corrupt)"));
 }
 
 #define ICHECK(i, l) \
 	if ((i) + (l) > bodylen || (i) + (l) > length) goto corrupt;
 
 static void
-babel_print_v2(const u_char *cp, u_int length) {
+babel_print_v2(netdissect_options *ndo,
+               const u_char *cp, u_int length)
+{
     u_int i;
     u_short bodylen;
     u_char v4_prefix[16] =
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0, 0, 0 };
     u_char v6_prefix[16] = {0};
 
-    TCHECK2(*cp, 4);
+    ND_TCHECK2(*cp, 4);
     if (length < 4)
         goto corrupt;
     bodylen = EXTRACT_16BITS(cp + 2);
-    printf(" (%u)", bodylen);
+    ND_PRINT((ndo, " (%u)", bodylen));
 
     /* Process the TLVs in the body */
     i = 0;
@@ -320,131 +364,138 @@ babel_print_v2(const u_char *cp, u_int length) {
 
         message = cp + 4 + i;
 
-        TCHECK2(*message, 1);
+        ND_TCHECK2(*message, 1);
         if((type = message[0]) == MESSAGE_PAD1) {
-            printf(vflag ? "\n\tPad 1" : " pad1");
+            ND_PRINT((ndo, ndo->ndo_vflag ? "\n\tPad 1" : " pad1"));
             i += 1;
             continue;
         }
 
-        TCHECK2(*message, 2);
+        ND_TCHECK2(*message, 2);
         ICHECK(i, 2);
         len = message[1];
 
-        TCHECK2(*message, 2 + len);
+        ND_TCHECK2(*message, 2 + len);
         ICHECK(i, 2 + len);
 
         switch(type) {
         case MESSAGE_PADN: {
-            if(!vflag)
-                printf(" padN");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " padN"));
             else
-                printf("\n\tPad %d", len + 2);
+                ND_PRINT((ndo, "\n\tPad %d", len + 2));
         }
             break;
 
         case MESSAGE_ACK_REQ: {
             u_short nonce, interval;
-            if(!vflag)
-                printf(" ack-req");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " ack-req"));
             else {
-                printf("\n\tAcknowledgment Request ");
+                ND_PRINT((ndo, "\n\tAcknowledgment Request "));
                 if(len < 6) goto corrupt;
                 nonce = EXTRACT_16BITS(message + 4);
                 interval = EXTRACT_16BITS(message + 6);
-                printf("%04x %s", nonce, format_interval(interval));
+                ND_PRINT((ndo, "%04x %s", nonce, format_interval(interval)));
             }
         }
             break;
 
         case MESSAGE_ACK: {
             u_short nonce;
-            if(!vflag)
-                printf(" ack");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " ack"));
             else {
-                printf("\n\tAcknowledgment ");
+                ND_PRINT((ndo, "\n\tAcknowledgment "));
                 if(len < 2) goto corrupt;
                 nonce = EXTRACT_16BITS(message + 2);
-                printf("%04x", nonce);
+                ND_PRINT((ndo, "%04x", nonce));
             }
         }
             break;
 
         case MESSAGE_HELLO:  {
             u_short seqno, interval;
-            if(!vflag)
-                printf(" hello");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " hello"));
             else {
-                printf("\n\tHello ");
+                ND_PRINT((ndo, "\n\tHello "));
                 if(len < 6) goto corrupt;
                 seqno = EXTRACT_16BITS(message + 4);
                 interval = EXTRACT_16BITS(message + 6);
-                printf("seqno %u interval %s", seqno, format_interval(interval));
+                ND_PRINT((ndo, "seqno %u interval %s", seqno, format_interval(interval)));
+                /* Extra data. */
+                if(len > 6)
+                    subtlvs_print(ndo, message + 8, message + 2 + len, type);
             }
         }
             break;
 
         case MESSAGE_IHU: {
             unsigned short txcost, interval;
-            if(!vflag)
-                printf(" ihu");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " ihu"));
             else {
                 u_char address[16];
                 int rc;
-                printf("\n\tIHU ");
+                ND_PRINT((ndo, "\n\tIHU "));
                 if(len < 6) goto corrupt;
                 txcost = EXTRACT_16BITS(message + 4);
                 interval = EXTRACT_16BITS(message + 6);
                 rc = network_address(message[2], message + 8, len - 6, address);
-                if(rc < 0) { printf("[|babel]"); break; }
-                printf("%s txcost %u interval %s",
-                       format_address(address), txcost, format_interval(interval));
+                if(rc < 0) { ND_PRINT((ndo, "%s", tstr)); break; }
+                ND_PRINT((ndo, "%s txcost %u interval %s",
+                       format_address(ndo, address), txcost, format_interval(interval)));
+                /* Extra data. */
+                if((u_int)rc < len - 6)
+                    subtlvs_print(ndo, message + 8 + rc, message + 2 + len,
+                                  type);
             }
         }
             break;
 
         case MESSAGE_ROUTER_ID: {
-            if(!vflag)
-                printf(" router-id");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " router-id"));
             else {
-                printf("\n\tRouter Id");
+                ND_PRINT((ndo, "\n\tRouter Id"));
                 if(len < 10) goto corrupt;
-                printf(" %s", format_id(message + 4));
+                ND_PRINT((ndo, " %s", format_id(message + 4)));
             }
         }
             break;
 
         case MESSAGE_NH: {
-            if(!vflag)
-                printf(" nh");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " nh"));
             else {
                 int rc;
                 u_char nh[16];
-                printf("\n\tNext Hop");
+                ND_PRINT((ndo, "\n\tNext Hop"));
                 if(len < 2) goto corrupt;
                 rc = network_address(message[2], message + 4, len - 2, nh);
                 if(rc < 0) goto corrupt;
-                printf(" %s", format_address(nh));
+                ND_PRINT((ndo, " %s", format_address(ndo, nh)));
             }
         }
             break;
 
         case MESSAGE_UPDATE: {
-            if(!vflag) {
-                printf(" update");
+            if (!ndo->ndo_vflag) {
+                ND_PRINT((ndo, " update"));
                 if(len < 1)
-                    printf("/truncated");
+                    ND_PRINT((ndo, "/truncated"));
                 else
-                    printf("%s%s%s",
+                    ND_PRINT((ndo, "%s%s%s",
                            (message[3] & 0x80) ? "/prefix": "",
                            (message[3] & 0x40) ? "/id" : "",
-                           (message[3] & 0x3f) ? "/unknown" : "");
+                           (message[3] & 0x3f) ? "/unknown" : ""));
             } else {
                 u_short interval, seqno, metric;
                 u_char plen;
                 int rc;
                 u_char prefix[16];
-                printf("\n\tUpdate");
+                ND_PRINT((ndo, "\n\tUpdate"));
                 if(len < 10) goto corrupt;
                 plen = message[4] + (message[2] == 1 ? 96 : 0);
                 rc = network_prefix(message[2], message[4], message[5],
@@ -455,12 +506,12 @@ babel_print_v2(const u_char *cp, u_int length) {
                 interval = EXTRACT_16BITS(message + 6);
                 seqno = EXTRACT_16BITS(message + 8);
                 metric = EXTRACT_16BITS(message + 10);
-                printf("%s%s%s %s metric %u seqno %u interval %s",
+                ND_PRINT((ndo, "%s%s%s %s metric %u seqno %u interval %s",
                        (message[3] & 0x80) ? "/prefix": "",
                        (message[3] & 0x40) ? "/id" : "",
                        (message[3] & 0x3f) ? "/unknown" : "",
-                       format_prefix(prefix, plen),
-                       metric, seqno, format_interval_update(interval));
+                       format_prefix(ndo, prefix, plen),
+                       metric, seqno, format_interval_update(interval)));
                 if(message[3] & 0x80) {
                     if(message[2] == 1)
                         memcpy(v4_prefix, prefix, 16);
@@ -469,88 +520,87 @@ babel_print_v2(const u_char *cp, u_int length) {
                 }
                 /* extra data? */
                 if((u_int)rc < len - 10)
-                    subtlvs_print(message + 12 + rc, message + 2 + len, type);
+                    subtlvs_print(ndo, message + 12 + rc, message + 2 + len, type);
             }
         }
             break;
 
         case MESSAGE_REQUEST: {
-            if(!vflag)
-                printf(" request");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " request"));
             else {
                 int rc;
                 u_char prefix[16], plen;
-                printf("\n\tRequest ");
+                ND_PRINT((ndo, "\n\tRequest "));
                 if(len < 2) goto corrupt;
                 plen = message[3] + (message[2] == 1 ? 96 : 0);
                 rc = network_prefix(message[2], message[3], 0,
                                     message + 4, NULL, len - 2, prefix);
                 if(rc < 0) goto corrupt;
-                plen = message[3] + (message[2] == 1 ? 96 : 0);
-                printf("for %s",
-                       message[2] == 0 ? "any" : format_prefix(prefix, plen));
+                ND_PRINT((ndo, "for %s",
+                       message[2] == 0 ? "any" : format_prefix(ndo, prefix, plen)));
             }
         }
             break;
 
         case MESSAGE_MH_REQUEST : {
-            if(!vflag)
-                printf(" mh-request");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " mh-request"));
             else {
                 int rc;
                 u_short seqno;
                 u_char prefix[16], plen;
-                printf("\n\tMH-Request ");
+                ND_PRINT((ndo, "\n\tMH-Request "));
                 if(len < 14) goto corrupt;
                 seqno = EXTRACT_16BITS(message + 4);
                 rc = network_prefix(message[2], message[3], 0,
                                     message + 16, NULL, len - 14, prefix);
                 if(rc < 0) goto corrupt;
                 plen = message[3] + (message[2] == 1 ? 96 : 0);
-                printf("(%u hops) for %s seqno %u id %s",
-                       message[6], format_prefix(prefix, plen),
-                       seqno, format_id(message + 8));
+                ND_PRINT((ndo, "(%u hops) for %s seqno %u id %s",
+                       message[6], format_prefix(ndo, prefix, plen),
+                       seqno, format_id(message + 8)));
             }
         }
             break;
         case MESSAGE_TSPC :
-            if(!vflag)
-                printf(" tspc");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " tspc"));
             else {
-                printf("\n\tTS/PC ");
+                ND_PRINT((ndo, "\n\tTS/PC "));
                 if(len < 6) goto corrupt;
-                printf("timestamp %u packetcounter %u", EXTRACT_32BITS (message + 4),
-                       EXTRACT_16BITS(message + 2));
+                ND_PRINT((ndo, "timestamp %u packetcounter %u", EXTRACT_32BITS (message + 4),
+                       EXTRACT_16BITS(message + 2)));
             }
             break;
         case MESSAGE_HMAC : {
-            if(!vflag)
-                printf(" hmac");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " hmac"));
             else {
                 unsigned j;
-                printf("\n\tHMAC ");
+                ND_PRINT((ndo, "\n\tHMAC "));
                 if(len < 18) goto corrupt;
-                printf("key-id %u digest-%u ", EXTRACT_16BITS(message + 2), len - 2);
+                ND_PRINT((ndo, "key-id %u digest-%u ", EXTRACT_16BITS(message + 2), len - 2));
                 for (j = 0; j < len - 2; j++)
-                    printf ("%02X", message[4 + j]);
+                    ND_PRINT((ndo, "%02X", message[4 + j]));
             }
         }
             break;
         default:
-            if(!vflag)
-                printf(" unknown");
+            if (!ndo->ndo_vflag)
+                ND_PRINT((ndo, " unknown"));
             else
-                printf("\n\tUnknown message type %d", type);
+                ND_PRINT((ndo, "\n\tUnknown message type %d", type));
         }
         i += len + 2;
     }
     return;
 
  trunc:
-    printf(" [|babel]");
+    ND_PRINT((ndo, " %s", tstr));
     return;
 
  corrupt:
-    printf(" (corrupt)");
+    ND_PRINT((ndo, " (corrupt)"));
     return;
 }

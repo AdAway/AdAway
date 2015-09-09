@@ -1,0 +1,238 @@
+IP (tos 0xc0, ttl 1, id 121, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 115, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0x0, ttl 31, id 4621, offset 0, flags [none], proto UDP (17), length 1498)
+    172.16.40.10.1064 > 239.123.123.123.5001: UDP, length 1470
+IP (tos 0xc0, ttl 1, id 122, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Join / Prune, cksum 0x8fd8 (correct), upstream-neighbor: 10.0.0.1
+	  1 group(s), holdtime: 3m30s
+	    group #1: 239.123.123.123, joined sources: 0, pruned sources: 1
+	      pruned source #1: 172.16.40.10
+IP (tos 0xc0, ttl 1, id 130, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 123, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 141, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 131, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 150, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 138, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 160, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 147, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 168, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 154, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 179, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 162, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 187, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 169, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0x0, ttl 31, id 4804, offset 0, flags [none], proto UDP (17), length 1498)
+    172.16.40.10.1064 > 239.123.123.123.5001: UDP, length 1470
+IP (tos 0x0, ttl 31, id 4805, offset 0, flags [none], proto UDP (17), length 1498)
+    172.16.40.10.1064 > 239.123.123.123.5001: UDP, length 1470
+IP (tos 0xc0, ttl 1, id 171, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Join / Prune, cksum 0x8fd8 (correct), upstream-neighbor: 10.0.0.1
+	  1 group(s), holdtime: 3m30s
+	    group #1: 239.123.123.123, joined sources: 0, pruned sources: 1
+	      pruned source #1: 172.16.40.10
+IP (tos 0xc0, ttl 1, id 198, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 178, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 206, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 185, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 217, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 194, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 225, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 201, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 236, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 209, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 245, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 216, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0x0, ttl 31, id 4988, offset 0, flags [none], proto UDP (17), length 1498)
+    172.16.40.10.1064 > 239.123.123.123.5001: UDP, length 1470
+IP (tos 0x0, ttl 31, id 4989, offset 0, flags [none], proto UDP (17), length 1498)
+    172.16.40.10.1064 > 239.123.123.123.5001: UDP, length 1470
+IP (tos 0xc0, ttl 1, id 218, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Join / Prune, cksum 0x8fd8 (correct), upstream-neighbor: 10.0.0.1
+	  1 group(s), holdtime: 3m30s
+	    group #1: 239.123.123.123, joined sources: 0, pruned sources: 1
+	      pruned source #1: 172.16.40.10
+IP (tos 0xc0, ttl 1, id 255, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xb3eb (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd76852f6
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 226, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x4fce (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0xd767b714
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1

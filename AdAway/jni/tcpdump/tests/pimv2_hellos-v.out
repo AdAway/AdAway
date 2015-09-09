@@ -1,0 +1,42 @@
+IP (tos 0xc0, ttl 1, id 895, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xaa6e (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0x3f0ef4cd
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 1093, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x6083 (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0x3ef93ece
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 912, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xaa6e (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0x3f0ef4cd
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 1112, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x6083 (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0x3ef93ece
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 927, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.2 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0xaa6e (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0x3f0ef4cd
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1
+IP (tos 0xc0, ttl 1, id 1129, offset 0, flags [none], proto PIM (103), length 54)
+    10.0.0.1 > 224.0.0.13: PIMv2, length 34
+	Hello, cksum 0x6083 (correct)
+	  Hold Time Option (1), length 2, Value: 1m45s
+	  Generation ID Option (20), length 4, Value: 0x3ef93ece
+	  DR Priority Option (19), length 4, Value: 1
+	  State Refresh Capability Option (21), length 4, Value: v1

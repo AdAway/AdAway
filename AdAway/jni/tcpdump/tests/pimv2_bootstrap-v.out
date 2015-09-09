@@ -1,0 +1,24 @@
+IP (tos 0xc0, ttl 1, id 477, offset 0, flags [none], proto PIM (103), length 66)
+    10.0.0.5 > 224.0.0.13: PIMv2, length 46
+	Bootstrap, cksum 0xe410 (correct) tag=4b0 hashmlen=0 BSRprio=0 BSR=1.1.1.1 (group0: 224.0.0.0/4 RPcnt=2 FRPcnt=2 RP0=2.2.2.2,holdtime=2m30s,prio=0 RP1=3.3.3.3,holdtime=2m30s,prio=0)
+IP (tos 0xc0, ttl 255, id 433, offset 0, flags [none], proto PIM (103), length 42)
+    10.0.0.6 > 1.1.1.1: PIMv2, length 22
+	Candidate RP Advertisement, cksum 0xee5e (correct) prefix-cnt=1 prio=0 holdtime=2m30s RP=3.3.3.3 Group0=224.0.0.0/4
+IP (tos 0xc0, ttl 1, id 520, offset 0, flags [none], proto PIM (103), length 66)
+    10.0.0.5 > 224.0.0.13: PIMv2, length 46
+	Bootstrap, cksum 0xdf74 (correct) tag=94c hashmlen=0 BSRprio=0 BSR=1.1.1.1 (group0: 224.0.0.0/4 RPcnt=2 FRPcnt=2 RP0=2.2.2.2,holdtime=2m30s,prio=0 RP1=3.3.3.3,holdtime=2m30s,prio=0)
+IP (tos 0xc0, ttl 255, id 471, offset 0, flags [none], proto PIM (103), length 42)
+    10.0.0.6 > 1.1.1.1: PIMv2, length 22
+	Candidate RP Advertisement, cksum 0xee5e (correct) prefix-cnt=1 prio=0 holdtime=2m30s RP=3.3.3.3 Group0=224.0.0.0/4
+IP (tos 0xc0, ttl 1, id 563, offset 0, flags [none], proto PIM (103), length 66)
+    10.0.0.5 > 224.0.0.13: PIMv2, length 46
+	Bootstrap, cksum 0xd555 (correct) tag=136b hashmlen=0 BSRprio=0 BSR=1.1.1.1 (group0: 224.0.0.0/4 RPcnt=2 FRPcnt=2 RP0=2.2.2.2,holdtime=2m30s,prio=0 RP1=3.3.3.3,holdtime=2m30s,prio=0)
+IP (tos 0xc0, ttl 255, id 508, offset 0, flags [none], proto PIM (103), length 42)
+    10.0.0.6 > 1.1.1.1: PIMv2, length 22
+	Candidate RP Advertisement, cksum 0xee5e (correct) prefix-cnt=1 prio=0 holdtime=2m30s RP=3.3.3.3 Group0=224.0.0.0/4
+IP (tos 0xc0, ttl 1, id 606, offset 0, flags [none], proto PIM (103), length 66)
+    10.0.0.5 > 224.0.0.13: PIMv2, length 46
+	Bootstrap, cksum 0xe3ab (correct) tag=515 hashmlen=0 BSRprio=0 BSR=1.1.1.1 (group0: 224.0.0.0/4 RPcnt=2 FRPcnt=2 RP0=2.2.2.2,holdtime=2m30s,prio=0 RP1=3.3.3.3,holdtime=2m30s,prio=0)
+IP (tos 0xc0, ttl 255, id 547, offset 0, flags [none], proto PIM (103), length 42)
+    10.0.0.6 > 1.1.1.1: PIMv2, length 22
+	Candidate RP Advertisement, cksum 0xee5e (correct) prefix-cnt=1 prio=0 holdtime=2m30s RP=3.3.3.3 Group0=224.0.0.0/4

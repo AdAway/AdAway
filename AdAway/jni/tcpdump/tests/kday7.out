@@ -1,0 +1,59 @@
+IP (tos 0x10, ttl 64, id 63177, offset 0, flags [none], proto unknown (240), length 168, bad cksum 418f (->80a5)!)
+    204.9.54.80 > 204.9.51.132:  ip-proto-240 148
+IP (tos 0x10, ttl 62, id 64806, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 3da6 (->35a6)!)
+    212.9.51.132.50079 > 204.9.54.80.22: Flags [.], cksum 0x8611 (incorrect -> 0x4811), ack 1819218606, win 17918, options [nop,nop,TS val 941371903 ecr 1340592074], length 0
+84:b5:9c:be:30:48 Unknown SSAP 0x10 > 0c:c4:7a:08:e9:12 Unknown DSAP 0x44 Information, send seq 0, rcv seq 26, Flags [Command], length 52
+IP (tos 0x0, ttl 64, id 63178, offset 0, flags [DF], proto TCP (6), length 52)
+    204.9.54.80.55936 > 204.9.55.10.443: Flags [.], cksum 0x0594 (incorrect -> 0x725a), ack 3589495407, win 1040, options [nop,nop,TS val 647770294 ecr 2364779354], length 0
+IP (tos 0x0, ttl 64, id 36752, offset 0, flags [DF], proto TCP (6), length 399, bad cksum a46b (->a474)!)
+    204.0.55.10.323 > 204.9.54.80.55936: Flags [P.], cksum 0xc9b6 (incorrect -> 0xcd5f), seq 3589495407:3589495754, ack 370436242, win 1040, options [nop,nop,TS val 2364757411 ecr 3084508609], length 347
+	RPKI-RTRv177, Unknown PDU (100), length: 60
+	  0x0000:  b164 003c 0000 003c 0000 00ff ff1f 1b70
+	  0x0010:  f857 ee68 4dfd 4d5f d9bd c709 30ac 8176
+	  0x0020:  b36d cc11 3abf 1291 f106 4ede 58f4 6297
+	  0x0030:  afc4 39a4 0db9 7aa5 6873 33e8
+	RPKI-RTRv65, Error Report PDU (10), length: 66
+	  Error code: Unknown (66), Encapsulated PDU length: 37
+	    -----encapsulated PDU-----|trunc|trunc
+	RPKI-RTRv115, Error Report PDU (10), length: 66
+	  Error code: Unknown (66), Encapsulated PDU length: 12
+	    -----encapsulated PDU-----|trunc|trunc
+	[|RPKI-RTR]
+IP (tos 0x10, ttl 62, id 64806, offset 0, flags [DF], proto TCP (6), length 52)
+    204.9.51.132.50079 > 204.9.54.80.22: Flags [.], cksum 0x8611 (incorrect -> 0xa678), ack 1819218606, win 4094, options [nop,nop,TS val 941371775 ecr 4294967242], length 0
+IP (tos 0x10, ttl 62, id 62920, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 4504 (->451a)!)
+    204.9.51.132.50079 > 204.243.53.80.22: Flags [.], cksum 0x858b (incorrect -> 0x85a1), ack 1819218722, win 4092, options [nop,nop,TS val 941371913 ecr 1340592084], length 0
+IP (tos 0x0, ttl 64, id 63178, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 3e8c (->438c)!)
+    204.9.64.80.55936 > 204.9.40.10.443: Flags [.], cksum 0x0594 (incorrect -> 0x8d67), ack 3587398274, win 1040, options [nop,nop,TS val 647770294 ecr 2364773722], length 0
+IP (tos 0x0, ttl 64, id 36752, offset 0, flags [DF], proto TCP (6), length 399, bad cksum a46b (->a474)!)
+    204.0.55.10.323 > 204.9.54.80.55936: Flags [P.], cksum 0xc9b6 (incorrect -> 0xfa86), seq 0:347, ack 4294959105, win 1040, options [nop,nop,TS val 2364757411 ecr 3084508609], length 347
+	RPKI-RTRv197, Unknown PDU (100), length: 60
+	  0x0000:  c564 003c 0000 003c 0000 00ff ff1f 1b70
+	  0x0010:  f857 ee68 4dfd 4d5f d9bd c709 30ac 8176
+	  0x0020:  b36d cc11 3abf 1291 f106 4ede 61f4 6297
+	  0x0030:  afc4 39a4 0db9 7aa5 6873 33e8
+	RPKI-RTRv65, Error Report PDU (10), length: 66
+	  Error code: Unknown (66), Encapsulated PDU length: 37
+	    -----encapsulated PDU-----|trunc|trunc
+	RPKI-RTRv115, Error Report PDU (10), length: 66
+	  Error code: Unknown (66), Encapsulated PDU length: 12
+	    -----encapsulated PDU-----|trunc|trunc
+	[|RPKI-RTR]
+IP truncated-ip - 768 bytes missing! (tos 0x10, ttl 62, id 64806, offset 0, flags [DF], proto TCP (6), length 820, bad cksum 3da6 (->3aa6)!)
+    204.9.51.132.50079 > 204.9.54.80.22: Flags [.], seq 0:768, ack 1, win 4094, options [nop,nop,TS val 941371775 ecr 4294967242], length 768
+IP (tos 0x6,ECT(0), ttl 62, id 62920, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 4504 (->4524)!)
+    204.9.51.132.50079 > 204.243.53.80.22: Flags [.], cksum 0x858b (incorrect -> 0x85a1), ack 1, win 4092, options [nop,nop,TS val 941371913 ecr 1340592084], length 0
+IP (tos 0x0, ttl 64, id 63178, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 3e8c (->438c)!)
+    204.9.64.80.55936 > 204.9.40.10.443: Flags [.], cksum 0x0594 (incorrect -> 0x8d67), ack 1, win 1040, options [nop,nop,TS val 647770294 ecr 2364773722], length 0
+IP (tos 0x0, ttl 64, id 36752, offset 0, flags [DF], proto TCP (6), length 399, bad cksum a46b (->a474)!)
+    204.0.55.10.323 > 204.9.54.80.55936: Flags [P.], cksum 0xc9b6 (incorrect -> 0x4ba9), seq 0:347, ack 4294959105, win 1040, options [nop,nop,TS val 2364757411 ecr 3084508609], length 347
+	RPKI-RTRv177, Unknown PDU (100), length: 60
+	  0x0000:  b164 003c 0000 003c 0000 00ff ff1f 1b70
+	  0x0010:  f857 ee68 4dfd 4d5f d9bd c709 30ac 8176
+	  0x0020:  b36d cc11 3abf 1291 f106 4ede 61f4 6297
+	  0x0030:  afc4 39a4 0db9 7aa5 6873 33e8
+	RPKI-RTRv65, Error Report PDU (10), length: 66
+	  Error code: Unknown (66), Encapsulated PDU length: 100|trunc
+	RPKI-RTRv115, Error Report PDU (10), length: 66|trunc
+	[|RPKI-RTR]
+EXIT CODE 00000100

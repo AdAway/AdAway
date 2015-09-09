@@ -1,0 +1,47 @@
+IP (tos 0x0, ttl 255, id 70, offset 0, flags [none], proto UDP (17), length 167)
+    10.0.0.1.1645 > 10.0.0.100.1812: RADIUS, length: 139
+	Access-Request (1), id: 0x05, Authenticator: ecfe3d2fe4473ec6299095ee46aedf77
+	  NAS-IP-Address Attribute (4), length: 6, Value: 10.0.0.1
+	  NAS-Port Attribute (5), length: 6, Value: 50012
+	  NAS-Port-Type Attribute (61), length: 6, Value: Ethernet
+	  User-Name Attribute (1), length: 14, Value: John.McGuirk
+	  Called-Station-Id Attribute (30), length: 19, Value: 00-19-06-EA-B8-8C
+	  Calling-Station-Id Attribute (31), length: 19, Value: 00-14-22-E9-54-5E
+	  Service-Type Attribute (6), length: 6, Value: Framed
+	  Framed-MTU Attribute (12), length: 6, Value: 1500
+	  EAP-Message Attribute (79), length: 19, Value: .
+	  Message-Authenticator Attribute (80), length: 18, Value: (....$..p.Q1o.x.
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto UDP (17), length 137)
+    10.0.0.100.1812 > 10.0.0.1.1645: RADIUS, length: 109
+	Access-Challenge (11), id: 0x05, Authenticator: f050649184625d36f14c9075b7a48b83
+	  Framed-IP-Address Attribute (8), length: 6, Value: NAS Select
+	  Framed-MTU Attribute (12), length: 6, Value: 576
+	  Service-Type Attribute (6), length: 6, Value: Framed
+	  Reply-Message Attribute (18), length: 11, Value: Hello, %u
+	  EAP-Message Attribute (79), length: 24, Value: ..
+	  Message-Authenticator Attribute (80), length: 18, Value: ...<.(.X.13..t4.
+	  State Attribute (24), length: 18, Value: ..../.0$.s..1..w
+IP (tos 0x0, ttl 255, id 71, offset 0, flags [none], proto UDP (17), length 202)
+    10.0.0.1.1645 > 10.0.0.100.1812: RADIUS, length: 174
+	Access-Request (1), id: 0x06, Authenticator: 6a6f38e6dae830304d2333e5d5364643
+	  NAS-IP-Address Attribute (4), length: 6, Value: 10.0.0.1
+	  NAS-Port Attribute (5), length: 6, Value: 50012
+	  NAS-Port-Type Attribute (61), length: 6, Value: Ethernet
+	  User-Name Attribute (1), length: 14, Value: John.McGuirk
+	  Called-Station-Id Attribute (30), length: 19, Value: 00-19-06-EA-B8-8C
+	  Calling-Station-Id Attribute (31), length: 19, Value: 00-14-22-E9-54-5E
+	  Service-Type Attribute (6), length: 6, Value: Framed
+	  Framed-MTU Attribute (12), length: 6, Value: 1500
+	  State Attribute (24), length: 18, Value: ..../.0$.s..1..w
+	  EAP-Message Attribute (79), length: 36, Value: ..
+	  Message-Authenticator Attribute (80), length: 18, Value: '&.q1.....Ojb..8
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto UDP (17), length 125)
+    10.0.0.100.1812 > 10.0.0.1.1645: RADIUS, length: 97
+	Access-Accept (2), id: 0x06, Authenticator: fbba6a784c7decb314caf0f27944a37b
+	  Framed-IP-Address Attribute (8), length: 6, Value: NAS Select
+	  Framed-MTU Attribute (12), length: 6, Value: 576
+	  Service-Type Attribute (6), length: 6, Value: Framed
+	  Reply-Message Attribute (18), length: 21, Value: Hello, John.McGuirk
+	  EAP-Message Attribute (79), length: 6, Value: ..
+	  Message-Authenticator Attribute (80), length: 18, Value: ...b...2.^..NLc`
+	  User-Name Attribute (1), length: 14, Value: John.McGuirk

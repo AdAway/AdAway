@@ -1,0 +1,40 @@
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto GRE (47), length 54)
+    253.120.2.55 > 192.168.1.1: GREv0, Flags [none], length 34
+	IS-IS, length 30
+	L1 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (6), max-area: 7 (7)
+	  lsp-id: ffff.ffff.ffff.ff-ff, seq: 0xffffffff, lifetime: 65535s
+	  chksum: 0xffff (incorrect should be 0x0fe8), PDU length: 65535, Flags: [ L1 IS ]
+	    IS Neighbor(s) (variable length) TLV #7, length: 0
+	      1 straggler bytes
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto GRE (47), length 54)
+    234.176.145.73 > 192.168.1.1: GREv0, Flags [none], length 34
+	IS-IS, length 30
+	L1 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (6), max-area: 7 (7)
+	  lsp-id: ffff.ffff.ffff.ff-ff, seq: 0xffffffff, lifetime: 65535s
+	  chksum: 0xffff (incorrect should be 0x0fe8), PDU length: 65535, Flags: [ L1 IS ]
+	    IS Neighbor(s) (variable length) TLV #7, length: 0
+	      1 straggler bytes
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto GRE (47), length 54)
+    225.91.211.91 > 192.168.1.1: GREv0, Flags [none], length 34
+	IS-IS, length 30
+	L1 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (6), max-area: 7 (7)
+	  lsp-id: ffff.ffff.ffff.ff-ff, seq: 0xffffffff, lifetime: 65535s
+	  chksum: 0xffff (incorrect should be 0x0fe8), PDU length: 65535, Flags: [ L1 IS ]
+	    IS Neighbor(s) (variable length) TLV #7, length: 0
+	      1 straggler bytes
+IP (tos 0x0, ttl 128, id 0, offset 0, flags [DF], proto GRE (47), length 54)
+    160.196.17.46 > 192.168.1.1: GREv0, Flags [none], length 34
+	IS-IS, length 30
+	L1 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (6), max-area: 7 (7)
+	  lsp-id: ffff.ffff.ffff.ff-ff, seq: 0xffffffff, lifetime: 65535s
+	  chksum: 0xffff (incorrect should be 0x0fe8), PDU length: 65535, Flags: [ L1 IS ]
+	    IS Neighbor(s) (variable length) TLV #7, length: 0
+	      1 straggler bytes
+IP (tos 0x0, ttl 128, id 0, offset 0, flags [DF], proto GRE (47), length 54)
+    246.181.173.63 > 192.168.1.1: GREv0, Flags [none], length 34
+	IS-IS, length 30
+	L1 LSP, hlen: 27, v: 1, pdu-v: 1, sys-id-len: 6 (6), max-area: 7 (7)
+	  lsp-id: ffff.ffff.ffff.ff-ff, seq: 0xffffffff, lifetime: 65535s
+	  chksum: 0xffff (incorrect should be 0x0fe8), PDU length: 65535, Flags: [ L1 IS ]
+	    IS Neighbor(s) (variable length) TLV #7, length: 0
+	      1 straggler bytes

@@ -19,11 +19,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-pflog.c,v 1.16 2007-09-12 19:36:18 guy Exp $ (LBL)";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -39,12 +35,10 @@ static const char rcsid[] _U_ =
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <pcap.h>
-
-#include "extract.h"
 #include "interface.h"
-#include "addrtoname.h"
+#include "extract.h"
+
+static const char tstr[] = "[|pflog]";
 
 static const struct tok pf_reasons[] = {
 	{ 0,	"0(match)" },
@@ -91,58 +85,59 @@ static const struct tok pf_directions[] = {
 #define	OPENBSD_AF_INET6	24
 
 static void
-pflog_print(const struct pfloghdr *hdr)
+pflog_print(netdissect_options *ndo, const struct pfloghdr *hdr)
 {
-	u_int32_t rulenr, subrulenr;
+	uint32_t rulenr, subrulenr;
 
 	rulenr = EXTRACT_32BITS(&hdr->rulenr);
 	subrulenr = EXTRACT_32BITS(&hdr->subrulenr);
-	if (subrulenr == (u_int32_t)-1)
-		printf("rule %u/", rulenr);
+	if (subrulenr == (uint32_t)-1)
+		ND_PRINT((ndo, "rule %u/", rulenr));
 	else
-		printf("rule %u.%s.%u/", rulenr, hdr->ruleset, subrulenr);
+		ND_PRINT((ndo, "rule %u.%s.%u/", rulenr, hdr->ruleset, subrulenr));
 
-	printf("%s: %s %s on %s: ",
+	ND_PRINT((ndo, "%s: %s %s on %s: ",
 	    tok2str(pf_reasons, "unkn(%u)", hdr->reason),
 	    tok2str(pf_actions, "unkn(%u)", hdr->action),
 	    tok2str(pf_directions, "unkn(%u)", hdr->dir),
-	    hdr->ifname);
+	    hdr->ifname));
 }
 
 u_int
-pflog_if_print(const struct pcap_pkthdr *h, register const u_char *p)
+pflog_if_print(netdissect_options *ndo, const struct pcap_pkthdr *h,
+               register const u_char *p)
 {
 	u_int length = h->len;
 	u_int hdrlen;
 	u_int caplen = h->caplen;
 	const struct pfloghdr *hdr;
-	u_int8_t af;
+	uint8_t af;
 
 	/* check length */
-	if (caplen < sizeof(u_int8_t)) {
-		printf("[|pflog]");
+	if (caplen < sizeof(uint8_t)) {
+		ND_PRINT((ndo, "%s", tstr));
 		return (caplen);
 	}
 
 #define MIN_PFLOG_HDRLEN	45
 	hdr = (struct pfloghdr *)p;
 	if (hdr->length < MIN_PFLOG_HDRLEN) {
-		printf("[pflog: invalid header length!]");
+		ND_PRINT((ndo, "[pflog: invalid header length!]"));
 		return (hdr->length);	/* XXX: not really */
 	}
 	hdrlen = BPF_WORDALIGN(hdr->length);
 
 	if (caplen < hdrlen) {
-		printf("[|pflog]");
+		ND_PRINT((ndo, "%s", tstr));
 		return (hdrlen);	/* XXX: true? */
 	}
 
 	/* print what we know */
 	hdr = (struct pfloghdr *)p;
-	TCHECK(*hdr);
-	if (eflag)
-		pflog_print(hdr);
-	
+	ND_TCHECK(*hdr);
+	if (ndo->ndo_eflag)
+		pflog_print(ndo, hdr);
+
 	/* skip to the real packet */
 	af = hdr->af;
 	length -= hdrlen;
@@ -154,29 +149,31 @@ pflog_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 #if OPENBSD_AF_INET != AF_INET
 		case OPENBSD_AF_INET:		/* XXX: read pcap files */
 #endif
-		        ip_print(gndo, p, length);
+		        ip_print(ndo, p, length);
 			break;
 
-#ifdef INET6
+#if defined(AF_INET6) || defined(OPENBSD_AF_INET6)
+#ifdef AF_INET6
 		case AF_INET6:
-#if OPENBSD_AF_INET6 != AF_INET6
+#endif /* AF_INET6 */
+#if !defined(AF_INET6) || OPENBSD_AF_INET6 != AF_INET6
 		case OPENBSD_AF_INET6:		/* XXX: read pcap files */
-#endif
-			ip6_print(gndo, p, length);
+#endif /* !defined(AF_INET6) || OPENBSD_AF_INET6 != AF_INET6 */
+			ip6_print(ndo, p, length);
 			break;
-#endif
+#endif /* defined(AF_INET6) || defined(OPENBSD_AF_INET6) */
 
 	default:
 		/* address family not handled, print raw packet */
-		if (!eflag)
-			pflog_print(hdr);
-		if (!suppress_default_print)
-			default_print(p, caplen);
+		if (!ndo->ndo_eflag)
+			pflog_print(ndo, hdr);
+		if (!ndo->ndo_suppress_default_print)
+			ND_DEFAULTPRINT(p, caplen);
 	}
-	
+
 	return (hdrlen);
 trunc:
-	printf("[|pflog]");
+	ND_PRINT((ndo, "%s", tstr));
 	return (hdrlen);
 }
 

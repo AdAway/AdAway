@@ -1,0 +1,2 @@
+# or pullup
+ether[12:2] = 0x800 or ether[12:2] = 0x8100 or ether[0] & 0x80 != 0 or ether[12:2] = 0x9100

@@ -1,0 +1,34 @@
+CFMv0 unknown (204), MD Level 0, length 168
+	First TLV offset 52
+	  0x0000:  a300 0000 0080 0000 0000 0000 0000 0000
+	  0x0010:  0000 00aa 6873 54d7 060b 003c 0000 003c
+	  0x0020:  d4c3 b2a1 0200 1a00 000b 003c 0000 003c
+	  0x0030:  d4c3 b2a1 0200 1a00 0000 0000 3620 0a00
+	  0x0040:  b600 0000 b600 0000 40b5 9cbe 3048 0cc4
+	  0x0050:  ad37 1005 ffff 05cc 0934 9300 0000 0080
+	  0x0060:  fffa 0000 0000 3200 0000 0000 00aa 6873
+	Port status TLV (0x02), length 26, Status: Unknown (0)
+	Unknown TLV (0x37), length 4101
+	  0x0000:  3710 05ff ff05 cc09 3493 0000 0000 80ff
+	  0x0010:  fa00 0000 0032 0000 0000 0000 aa68 7354
+	  0x0020:  d706 0b00 3c00 0000 3c00 0000 0080 0000
+	  0x0030:  fffd 4d5f d9bd c709 30ac 8176 b36d cc11
+	  0x0040:  3abf 1291 f106 4ede 61f4 6297 afc4 39a4
+	  0x0050:  0db9 7a
+IP (tos 0x10, ttl 62, id 64806, offset 0, flags [DF], proto TCP (6), length 52)
+    204.9.51.132.50079 > 204.9.54.80.22: Flags [.], cksum 0x8611 (incorrect -> 0xa678), ack 1819218606, win 4094, options [nop,nop,TS val 941371775 ecr 4294967242], length 0
+IP (tos 0x10, ttl 62, id 62920, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 4504 (->451a)!)
+    204.9.51.132.50079 > 204.243.53.80.22: Flags [.], cksum 0x858b (incorrect -> 0x85a1), ack 1819218722, win 4092, options [nop,nop,TS val 941371913 ecr 1340592084], length 0
+IP (tos 0x0, ttl 64, id 63178, offset 0, flags [DF], proto TCP (6), length 52, bad cksum 3e8c (->438c)!)
+    204.9.64.80.55936 > 204.9.40.10.443: Flags [.], cksum 0x0594 (incorrect -> 0x7767), ack 3587398274, win 1040, options [nop,nop,TS val 647770294 ecr 2364779354], length 0
+IP (tos 0x0, ttl 64, id 36752, offset 0, flags [DF], proto TCP (6), length 399, bad cksum a46b (->a474)!)
+    204.0.55.10.323 > 204.9.54.80.55936: Flags [P.], cksum 0xc9b6 (incorrect -> 0xed9b), seq 3589495407:3589495754, ack 370428050, win 1040, options [nop,nop,TS val 2364757411 ecr 3084508609], length 347
+	RPKI-RTRv177, Unknown PDU (100), length: 60
+	  0x0000:  b164 003c 0000 003c 0000 00ff ff1f 1b70
+	  0x0010:  f857 ee68 4dfd 4d5f d9bd c709 30ac 8176
+	  0x0020:  b36d cc11 3abf 1291 f106 4ede 61f4 6297
+	  0x0030:  afc4 39a4 0db9 7aa5 6873 33e8
+	RPKI-RTRv65, Error Report PDU (10), length: 66
+	  Error code: Unknown (66), Encapsulated PDU length: 80|trunc
+	[|RPKI-RTR]
+EXIT CODE 00000100

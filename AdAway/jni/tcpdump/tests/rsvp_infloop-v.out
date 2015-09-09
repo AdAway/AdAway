@@ -1,0 +1,35 @@
+IP (tos 0x0, ttl 128, id 0, offset 0, flags [DF], proto RSVP (46), length 40)
+    208.208.77.43 > 192.168.1.1: 
+	RSVPv1 Hello Message (20), Flags: [none], length: 20, ttl: 64, checksum: 0x98ce
+	  ERO Object (20) Flags: [reject if unknown], Class-Type: IPv4 (1), length: 8
+	    Subobject Type: Label, length 0
+	    ERROR: zero length ERO subtype
+	  ERROR: object header too short 0 < 4
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto RSVP (46), length 40)
+    199.106.167.61 > 192.168.1.1: 
+	RSVPv1 Hello Message (20), Flags: [none], length: 20, ttl: 64, checksum: 0x98ce
+	  ERO Object (20) Flags: [reject if unknown], Class-Type: IPv4 (1), length: 8
+	    Subobject Type: Label, length 0
+	    ERROR: zero length ERO subtype
+	  ERROR: object header too short 0 < 4
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto RSVP (46), length 40)
+    179.9.22.16 > 192.168.1.1: 
+	RSVPv1 Hello Message (20), Flags: [none], length: 20, ttl: 128, checksum: 0x58ce
+	  ERO Object (20) Flags: [reject if unknown], Class-Type: IPv4 (1), length: 8
+	    Subobject Type: Label, length 0
+	    ERROR: zero length ERO subtype
+	  ERROR: object header too short 0 < 4
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto RSVP (46), length 40)
+    99.107.153.33 > 192.168.1.1: 
+	RSVPv1 Hello Message (20), Flags: [none], length: 20, ttl: 128, checksum: 0x58ce
+	  ERO Object (20) Flags: [reject if unknown], Class-Type: IPv4 (1), length: 8
+	    Subobject Type: Label, length 0
+	    ERROR: zero length ERO subtype
+	  ERROR: object header too short 0 < 4
+IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto RSVP (46), length 40)
+    188.46.23.116 > 192.168.1.1: 
+	RSVPv1 Hello Message (20), Flags: [none], length: 20, ttl: 128, checksum: 0x58ce
+	  ERO Object (20) Flags: [reject if unknown], Class-Type: IPv4 (1), length: 8
+	    Subobject Type: Label, length 0
+	    ERROR: zero length ERO subtype
+	  ERROR: object header too short 0 < 4

@@ -1,0 +1,1 @@
+tcp[tcpflags]&tcp-syn != 0 or tcp[tcpflags]&tcp-fin != 0 or tcp[tcpflags]&tcp-rst != 0

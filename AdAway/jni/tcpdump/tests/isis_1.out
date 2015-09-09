@@ -1,0 +1,15 @@
+IS-IS, L1 CSNP, src-id 3333.3333.3333.00, length 83
+IS-IS, L1 Lan IIH, src-id 3333.3333.3333, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 Lan IIH, src-id 3333.3333.3333, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 Lan IIH, src-id 2222.2222.2222, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 Lan IIH, src-id 3333.3333.3333, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 CSNP, src-id 3333.3333.3333.00, length 83
+IS-IS, L1 Lan IIH, src-id 3333.3333.3333, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 Lan IIH, src-id 3333.3333.3333, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 LSP, lsp-id 2222.2222.2222.00-00, seq 0x0000000f, lifetime  1199s, length 136
+IS-IS, L1 Lan IIH, src-id 2222.2222.2222, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 Lan IIH, src-id 3333.3333.3333, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 CSNP, src-id 3333.3333.3333.00, length 83
+IS-IS, L1 Lan IIH, src-id 3333.3333.3333, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 Lan IIH, src-id 3333.3333.3333, lan-id 3333.3333.3333.02, prio 64, length 1497
+IS-IS, L1 Lan IIH, src-id 2222.2222.2222, lan-id 3333.3333.3333.02, prio 64, length 1497

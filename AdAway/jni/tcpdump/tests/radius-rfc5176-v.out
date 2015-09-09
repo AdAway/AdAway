@@ -1,0 +1,24 @@
+IP (tos 0x0, ttl 4, id 29161, offset 0, flags [none], proto UDP (17), length 66)
+    10.0.0.10.12345 > 10.0.0.1.3799: RADIUS, length: 38
+	Disconnect-Request (40), id: 0x01, Authenticator: e1792d2b4ab349f1a4c0fcc733d091c1
+	  Message-Authenticator Attribute (80), length: 18, Value: XQ=f(G..sJ0.....
+IP (tos 0x0, ttl 4, id 18682, offset 0, flags [none], proto UDP (17), length 66)
+    10.0.0.1.3799 > 10.0.0.10.12345: RADIUS, length: 38
+	Disconnect-ACK (41), id: 0x02, Authenticator: 3bc9c343f689990756b96c583a56890a
+	  Message-Authenticator Attribute (80), length: 18, Value: .O........iC,'}.
+IP (tos 0x0, ttl 4, id 22542, offset 0, flags [none], proto UDP (17), length 66)
+    10.0.0.1.3799 > 10.0.0.10.12345: RADIUS, length: 38
+	Disconnect-NAK (42), id: 0x03, Authenticator: d867c308c9c43112b3a669a0e8c0ab8c
+	  Message-Authenticator Attribute (80), length: 18, Value: ...p.I...(."....
+IP (tos 0x0, ttl 4, id 16413, offset 0, flags [none], proto UDP (17), length 66)
+    10.0.0.10.12345 > 10.0.0.1.3799: RADIUS, length: 38
+	CoA-Request (43), id: 0x04, Authenticator: 5f18309be67cd6150fe4c3a0b93536c9
+	  Message-Authenticator Attribute (80), length: 18, Value: '..6|.F..._...[.
+IP (tos 0x0, ttl 4, id 170, offset 0, flags [none], proto UDP (17), length 66)
+    10.0.0.1.3799 > 10.0.0.10.12345: RADIUS, length: 38
+	CoA-ACK (44), id: 0x05, Authenticator: 55ab6cb78aa161d692753fa9130c5019
+	  Message-Authenticator Attribute (80), length: 18, Value: .........+.x...s
+IP (tos 0x0, ttl 4, id 29645, offset 0, flags [none], proto UDP (17), length 66)
+    10.0.0.1.3799 > 10.0.0.10.12345: RADIUS, length: 38
+	CoA-NAK (45), id: 0x06, Authenticator: 40f21bdee27a87a5d757a30bfed62f28
+	  Message-Authenticator Attribute (80), length: 18, Value: .%y.....x...&j..

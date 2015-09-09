@@ -1,4 +1,4 @@
-/* 
+/*
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that: (1) source code
  * distributions retain the above copyright notice and this paragraph
@@ -15,7 +15,8 @@
  * Original code by Hannes Gredler (hannes@juniper.net)
  */
 
-/* @(#) $Header: /tcpdump/master/tcpdump/signature.h,v 1.1 2008-08-16 11:36:20 hannes Exp $ (LBL) */
+/* for netdissect_options */
+#include "netdissect.h"
 
 /* signature checking result codes */
 #define SIGNATURE_VALID		0
@@ -23,4 +24,4 @@
 #define CANT_CHECK_SIGNATURE	2
 
 extern const struct tok signature_check_values[];
-extern int signature_verify (const u_char *, u_int, u_char *);
+extern int signature_verify(netdissect_options *, const u_char *, u_int, u_char *);

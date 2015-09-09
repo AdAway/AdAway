@@ -1,4 +1,3 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/smb.h,v 1.9 2004-12-28 22:29:44 guy Exp $ (LBL) */
 /*
  * Copyright (C) Andrew Tridgell 1995-1999
  *
@@ -7,7 +6,8 @@
  * or later
  */
 
-#define SMBMIN(a,b) ((a)<(b)?(a):(b))
+/* for netdissect_options */
+#include "netdissect.h"
 
 /* the complete */
 #define SMBmkdir      0x00   /* create directory */
@@ -119,4 +119,4 @@
 #define PTR_DIFF(p1, p2) ((size_t)(((char *)(p1)) - (char *)(p2)))
 
 /* some protos */
-const u_char *smb_fdata(const u_char *, const char *, const u_char *, int);
+const u_char *smb_fdata(netdissect_options *, const u_char *, const char *, const u_char *, int);

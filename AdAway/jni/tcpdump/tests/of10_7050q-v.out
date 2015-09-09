@@ -1,0 +1,18 @@
+IP (tos 0x0, ttl 64, id 53965, offset 0, flags [DF], proto TCP (6), length 104)
+    10.0.0.80.6633 > 86.139.225.177.57145: Flags [P.], cksum 0xddb3 (correct), seq 3804035784:3804035836, ack 3936946676, win 136, options [nop,nop,TS val 256259488 ecr 12980962], length 52: OpenFlow
+	version 1.0, type VENDOR, length 24, xid 0x00000018, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_IP_MASK_REQUEST, index 0
+	version 1.0, type VENDOR, length 20, xid 0x00000019, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_MIRRORING_REQUEST, report_mirror_ports OFF
+	version 1.0, type BARRIER_REQUEST, length 8, xid 0x0000001a
+IP (tos 0x0, ttl 44, id 2943, offset 0, flags [DF], proto TCP (6), length 76)
+    86.139.225.177.57145 > 10.0.0.80.6633: Flags [P.], cksum 0xf75f (correct), seq 1:25, ack 52, win 54, options [nop,nop,TS val 12980987 ecr 256259488], length 24: OpenFlow
+	version 1.0, type VENDOR, length 24, xid 0x00000018, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_IP_MASK_REPLY, index 0, mask 255.255.255.255
+IP (tos 0x0, ttl 64, id 53966, offset 0, flags [DF], proto TCP (6), length 52)
+    10.0.0.80.6633 > 86.139.225.177.57145: Flags [.], cksum 0x42b3 (incorrect -> 0x0ee3), ack 25, win 136, options [nop,nop,TS val 256259628 ecr 12980987], length 0
+IP (tos 0x0, ttl 44, id 2944, offset 0, flags [DF], proto TCP (6), length 80)
+    86.139.225.177.57145 > 10.0.0.80.6633: Flags [P.], cksum 0xf55e (correct), seq 25:53, ack 52, win 54, options [nop,nop,TS val 12981023 ecr 256259628], length 28: OpenFlow
+	version 1.0, type VENDOR, length 20, xid 0x00000019, vendor 0x005c16c7 (Big Switch Networks)
+	 subtype GET_MIRRORING_REPLY, report_mirror_ports OFF
+	version 1.0, type BARRIER_REPLY, length 8, xid 0x0000001a

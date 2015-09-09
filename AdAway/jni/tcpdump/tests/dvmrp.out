@@ -1,0 +1,2 @@
+IP 10.0.0.1 > 2.2.2.2: igmp dvmrp Ask-neighbors2
+IP 2.2.2.2 > 10.0.0.1: igmp dvmrp Neighbors2 (v 12.4): [10.0.0.2 -> 10.0.0.1 (1/0/querier)] [10.0.0.9 -> 10.0.0.10 (1/0)]

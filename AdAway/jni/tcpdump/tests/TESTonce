@@ -1,39 +1,68 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
-$debug = 0;
 system("mkdir -p NEW DIFF");
 
-if(@ARGV == 1) {
-  open(TESTLIST, "TESTLIST") || die "can not open TESTLIST: $!\n";
-  $wanted = $ARGV[0];
-  #print "Searching for test case $wanted\n";
-  while(<TESTLIST>) {
-    #print "Processing $_\n";
-    next unless (/^$wanted/);
-
-    chop;
-    ($name,$input,$output,$options)=split(/\s+/,$_, 4);
-    last;
-  }
-  close(TESTLIST);
-
-  die "Can not find test $wanted\n" unless defined($input);
-
-} elsif(@ARGV == 4) {
-  $name=$ARGV[0];
-  $input=$ARGV[1];
-  $output=$ARGV[2];
-  $options=$ARGV[3];
-} else {
-  print "Usage: TESTonce name [input output options]\n";
+if(@ARGV != 4) {
+  print "Usage: TESTonce name input output options\n";
   exit 20;
 }
 
-print "Running $name. \n" if $debug;
-print "   Input: $input, OUTPUT: $output, OPTIONS: $options\n" if $debug;
+$name=$ARGV[0];
+$input=$ARGV[1];
+$output=$ARGV[2];
+$options=$ARGV[3];
 
-print "    ";
-exec("../tcpdump 2>/dev/null -n -r $input $options | tee NEW/$output | diff -w - $output >DIFF/$output.diff");
-@cores = glob("core*");
-exit 10 if (@cores > 0);
-exit 0;
+my $r;
+
+if ($^O eq 'MSWin32') {
+    $r = system "..\\windump -n -r $input $options 2>NUL | sed 's/\\r//' | tee NEW/$output | diff $output - >DIFF/$output.diff";
+    # need to do same as below for Cygwin.
+}
+else {
+    # we used to do this as a nice pipeline, but the problem is that $r fails to
+    # to be set properly if the tcpdump core dumps.
+    $r = system "../tcpdump 2>/dev/null -n -r $input $options >NEW/$output";
+    if($r == 0x100) {
+        # this means tcpdump exited with code 1.
+        open(OUTPUT, ">>"."NEW/$output") || die "fail to open $output\n";
+        printf OUTPUT "EXIT CODE %08x\n", $r;
+        close(OUTPUT);
+        $r = 0;
+    }
+    if($r == 0) {
+        $r = system "cat NEW/$output | diff $output - >DIFF/$output.diff";
+    }
+    #print sprintf("END: %08x\n", $r);
+}
+
+if($r == 0) {
+  printf "    %-30s: passed\n", $name;
+  unlink "DIFF/$output.diff";
+  exit 0;
+}
+printf "    %-30s: TEST FAILED", $name;
+open FOUT, '>>failure-outputs.txt';
+printf FOUT "Failed test: $name\n\n";
+close FOUT;
+if(-f "DIFF/$output.diff") {
+    system "cat DIFF/$output.diff >> failure-outputs.txt";
+}
+
+if($r == -1) {
+  print " (failed to execute: $!)\n";
+  exit 30;
+}
+
+# this is not working right, $r == 0x8b00 when there is a core dump.
+# clearly, we need some platform specific perl magic to take this apart, so look for "core"
+# too.
+if($r & 127 || -f "core") {
+    my $with = ($r & 128) ? 'with' : 'without';
+    if(-f "core") {
+        $with = "with";
+    }
+    printf " (terminated with signal %u, %s coredump)\n", ($r & 127), $with;
+    exit ($r & 128) ? 10 : 20;
+}
+print "\n";
+exit $r >> 8;

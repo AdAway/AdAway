@@ -29,18 +29,12 @@
 
 /* Cisco Hot Standby Router Protocol (HSRP). */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-hsrp.c,v 1.10 2005-05-06 07:56:52 guy Exp $";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
-
-#include <stdio.h>
 
 #include "interface.h"
 #include "addrtoname.h"
@@ -85,56 +79,56 @@ static const struct tok states[] = {
 
 /* HSRP protocol header. */
 struct hsrp {
-	u_int8_t	hsrp_version;
-	u_int8_t	hsrp_op_code;
-	u_int8_t	hsrp_state;
-	u_int8_t	hsrp_hellotime;
-	u_int8_t	hsrp_holdtime;
-	u_int8_t	hsrp_priority;
-	u_int8_t	hsrp_group;
-	u_int8_t	hsrp_reserved;
-	u_int8_t	hsrp_authdata[HSRP_AUTH_SIZE];
+	uint8_t		hsrp_version;
+	uint8_t		hsrp_op_code;
+	uint8_t		hsrp_state;
+	uint8_t		hsrp_hellotime;
+	uint8_t		hsrp_holdtime;
+	uint8_t		hsrp_priority;
+	uint8_t		hsrp_group;
+	uint8_t		hsrp_reserved;
+	uint8_t		hsrp_authdata[HSRP_AUTH_SIZE];
 	struct in_addr	hsrp_virtaddr;
 };
 
 void
-hsrp_print(register const u_int8_t *bp, register u_int len)
+hsrp_print(netdissect_options *ndo, register const uint8_t *bp, register u_int len)
 {
 	struct hsrp *hp = (struct hsrp *) bp;
 
-	TCHECK(hp->hsrp_version);
-	printf("HSRPv%d", hp->hsrp_version);
+	ND_TCHECK(hp->hsrp_version);
+	ND_PRINT((ndo, "HSRPv%d", hp->hsrp_version));
 	if (hp->hsrp_version != 0)
 		return;
-	TCHECK(hp->hsrp_op_code);
-	printf("-");
-	printf("%s ", tok2strary(op_code_str, "unknown (%d)", hp->hsrp_op_code));
-	printf("%d: ", len);
-	TCHECK(hp->hsrp_state);
-	printf("state=%s ", tok2str(states, "Unknown (%d)", hp->hsrp_state));
-	TCHECK(hp->hsrp_group);
-	printf("group=%d ", hp->hsrp_group);
-	TCHECK(hp->hsrp_reserved);
+	ND_TCHECK(hp->hsrp_op_code);
+	ND_PRINT((ndo, "-"));
+	ND_PRINT((ndo, "%s ", tok2strary(op_code_str, "unknown (%d)", hp->hsrp_op_code)));
+	ND_PRINT((ndo, "%d: ", len));
+	ND_TCHECK(hp->hsrp_state);
+	ND_PRINT((ndo, "state=%s ", tok2str(states, "Unknown (%d)", hp->hsrp_state)));
+	ND_TCHECK(hp->hsrp_group);
+	ND_PRINT((ndo, "group=%d ", hp->hsrp_group));
+	ND_TCHECK(hp->hsrp_reserved);
 	if (hp->hsrp_reserved != 0) {
-		printf("[reserved=%d!] ", hp->hsrp_reserved);
+		ND_PRINT((ndo, "[reserved=%d!] ", hp->hsrp_reserved));
 	}
-	TCHECK(hp->hsrp_virtaddr);
-	printf("addr=%s", ipaddr_string(&hp->hsrp_virtaddr));
-	if (vflag) {
-		printf(" hellotime=");
-		relts_print(hp->hsrp_hellotime);
-		printf(" holdtime=");
-		relts_print(hp->hsrp_holdtime);
-		printf(" priority=%d", hp->hsrp_priority);
-		printf(" auth=\"");
-		if (fn_printn(hp->hsrp_authdata, sizeof(hp->hsrp_authdata),
-		    snapend)) {
-			printf("\"");
+	ND_TCHECK(hp->hsrp_virtaddr);
+	ND_PRINT((ndo, "addr=%s", ipaddr_string(ndo, &hp->hsrp_virtaddr)));
+	if (ndo->ndo_vflag) {
+		ND_PRINT((ndo, " hellotime="));
+		relts_print(ndo, hp->hsrp_hellotime);
+		ND_PRINT((ndo, " holdtime="));
+		relts_print(ndo, hp->hsrp_holdtime);
+		ND_PRINT((ndo, " priority=%d", hp->hsrp_priority));
+		ND_PRINT((ndo, " auth=\""));
+		if (fn_printn(ndo, hp->hsrp_authdata, sizeof(hp->hsrp_authdata),
+		    ndo->ndo_snapend)) {
+			ND_PRINT((ndo, "\""));
 			goto trunc;
 		}
-		printf("\"");
+		ND_PRINT((ndo, "\""));
 	}
 	return;
 trunc:
-	printf("[|hsrp]");
+	ND_PRINT((ndo, "[|hsrp]"));
 }

@@ -28,16 +28,17 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-
 #include "interface.h"
 #include "extract.h"
+
+static const char tstr[] = " [|zmtp1]";
 
 /* Maximum number of ZMTP/1.0 frame body bytes (without the flags) to dump in
  * hex and ASCII under a single "-v" flag.
@@ -75,42 +76,43 @@
  */
 
 static const u_char *
-zmtp1_print_frame(const u_char *cp, const u_char *ep) {
-	u_int64_t body_len_declared, body_len_captured, header_len;
-	u_int8_t flags;
+zmtp1_print_frame(netdissect_options *ndo, const u_char *cp, const u_char *ep)
+{
+	uint64_t body_len_declared, body_len_captured, header_len;
+	uint8_t flags;
 
-	printf("\n\t");
-	TCHECK2(*cp, 1); /* length/0xFF */
+	ND_PRINT((ndo, "\n\t"));
+	ND_TCHECK2(*cp, 1); /* length/0xFF */
 
 	if (cp[0] != 0xFF) {
 		header_len = 1; /* length */
 		body_len_declared = cp[0];
 		if (body_len_declared == 0)
 			return cp + header_len; /* skip to next frame */
-		printf(" frame flags+body  (8-bit) length %u", cp[0]);
-		TCHECK2(*cp, header_len + 1); /* length, flags */
+		ND_PRINT((ndo, " frame flags+body  (8-bit) length %u", cp[0]));
+		ND_TCHECK2(*cp, header_len + 1); /* length, flags */
 		flags = cp[1];
 	} else {
 		header_len = 1 + 8; /* 0xFF, length */
-		printf(" frame flags+body (64-bit) length");
-		TCHECK2(*cp, header_len); /* 0xFF, length */
+		ND_PRINT((ndo, " frame flags+body (64-bit) length"));
+		ND_TCHECK2(*cp, header_len); /* 0xFF, length */
 		body_len_declared = EXTRACT_64BITS(cp + 1);
 		if (body_len_declared == 0)
 			return cp + header_len; /* skip to next frame */
-		printf(" %" PRIu64, body_len_declared);
-		TCHECK2(*cp, header_len + 1); /* 0xFF, length, flags */
+		ND_PRINT((ndo, " %" PRIu64, body_len_declared));
+		ND_TCHECK2(*cp, header_len + 1); /* 0xFF, length, flags */
 		flags = cp[9];
 	}
 
 	body_len_captured = ep - cp - header_len;
 	if (body_len_declared > body_len_captured)
-		printf(" (%" PRIu64 " captured)", body_len_captured);
-	printf(", flags 0x%02x", flags);
+		ND_PRINT((ndo, " (%" PRIu64 " captured)", body_len_captured));
+	ND_PRINT((ndo, ", flags 0x%02x", flags));
 
-	if (vflag) {
-		u_int64_t body_len_printed = MIN(body_len_captured, body_len_declared);
+	if (ndo->ndo_vflag) {
+		uint64_t body_len_printed = min(body_len_captured, body_len_declared);
 
-		printf(" (%s|%s|%s|%s|%s|%s|%s|%s)",
+		ND_PRINT((ndo, " (%s|%s|%s|%s|%s|%s|%s|%s)",
 			flags & 0x80 ? "MBZ" : "-",
 			flags & 0x40 ? "MBZ" : "-",
 			flags & 0x20 ? "MBZ" : "-",
@@ -118,32 +120,33 @@ zmtp1_print_frame(const u_char *cp, const u_char *ep) {
 			flags & 0x08 ? "MBZ" : "-",
 			flags & 0x04 ? "MBZ" : "-",
 			flags & 0x02 ? "MBZ" : "-",
-			flags & 0x01 ? "MORE" : "-");
+			flags & 0x01 ? "MORE" : "-"));
 
-		if (vflag == 1)
-			body_len_printed = MIN(VBYTES + 1, body_len_printed);
+		if (ndo->ndo_vflag == 1)
+			body_len_printed = min(VBYTES + 1, body_len_printed);
 		if (body_len_printed > 1) {
-			printf(", first %" PRIu64 " byte(s) of body:", body_len_printed - 1);
-			hex_and_ascii_print("\n\t ", cp + header_len + 1, body_len_printed - 1);
-			printf("\n");
+			ND_PRINT((ndo, ", first %" PRIu64 " byte(s) of body:", body_len_printed - 1));
+			hex_and_ascii_print(ndo, "\n\t ", cp + header_len + 1, body_len_printed - 1);
+			ND_PRINT((ndo, "\n"));
 		}
 	}
 
-	TCHECK2(*cp, header_len + body_len_declared); /* Next frame within the buffer ? */
+	ND_TCHECK2(*cp, header_len + body_len_declared); /* Next frame within the buffer ? */
 	return cp + header_len + body_len_declared;
 
 trunc:
-	printf(" [|zmtp1]");
+	ND_PRINT((ndo, "%s", tstr));
 	return ep;
 }
 
 void
-zmtp1_print(const u_char *cp, u_int len) {
-	const u_char *ep = MIN(snapend, cp + len);
+zmtp1_print(netdissect_options *ndo, const u_char *cp, u_int len)
+{
+	const u_char *ep = min(ndo->ndo_snapend, cp + len);
 
-	printf(": ZMTP/1.0");
+	ND_PRINT((ndo, ": ZMTP/1.0"));
 	while (cp < ep)
-		cp = zmtp1_print_frame(cp, ep);
+		cp = zmtp1_print_frame(ndo, cp, ep);
 }
 
 /* The functions below decode a ZeroMQ datagram, supposedly stored in the "Data"
@@ -163,52 +166,54 @@ zmtp1_print(const u_char *cp, u_int len) {
  */
 
 static const u_char *
-zmtp1_print_intermediate_part(const u_char *cp, const u_int len) {
+zmtp1_print_intermediate_part(netdissect_options *ndo, const u_char *cp, const u_int len)
+{
 	u_int frame_offset;
-	u_int64_t remaining_len;
+	uint64_t remaining_len;
 
-	TCHECK2(*cp, 2);
+	ND_TCHECK2(*cp, 2);
 	frame_offset = EXTRACT_16BITS(cp);
-	printf("\n\t frame offset 0x%04x", frame_offset);
+	ND_PRINT((ndo, "\n\t frame offset 0x%04x", frame_offset));
 	cp += 2;
-	remaining_len = snapend - cp; /* without the frame length */
+	remaining_len = ndo->ndo_snapend - cp; /* without the frame length */
 
 	if (frame_offset == 0xFFFF)
 		frame_offset = len - 2; /* always within the declared length */
 	else if (2 + frame_offset > len) {
-		printf(" (exceeds datagram declared length)");
+		ND_PRINT((ndo, " (exceeds datagram declared length)"));
 		goto trunc;
 	}
 
 	/* offset within declared length of the datagram */
 	if (frame_offset) {
-		printf("\n\t frame intermediate part, %u bytes", frame_offset);
+		ND_PRINT((ndo, "\n\t frame intermediate part, %u bytes", frame_offset));
 		if (frame_offset > remaining_len)
-			printf(" (%"PRIu64" captured)", remaining_len);
-		if (vflag) {
-			u_int64_t len_printed = MIN(frame_offset, remaining_len);
+			ND_PRINT((ndo, " (%"PRIu64" captured)", remaining_len));
+		if (ndo->ndo_vflag) {
+			uint64_t len_printed = min(frame_offset, remaining_len);
 
-			if (vflag == 1)
-				len_printed = MIN(VBYTES, len_printed);
+			if (ndo->ndo_vflag == 1)
+				len_printed = min(VBYTES, len_printed);
 			if (len_printed > 1) {
-				printf(", first %"PRIu64" byte(s):", len_printed);
-				hex_and_ascii_print("\n\t ", cp, len_printed);
-				printf("\n");
+				ND_PRINT((ndo, ", first %"PRIu64" byte(s):", len_printed));
+				hex_and_ascii_print(ndo, "\n\t ", cp, len_printed);
+				ND_PRINT((ndo, "\n"));
 			}
 		}
 	}
 	return cp + frame_offset;
 
 trunc:
-	printf(" [|zmtp1]");
+	ND_PRINT((ndo, "%s", tstr));
 	return cp + len;
 }
 
 void
-zmtp1_print_datagram(const u_char *cp, const u_int len) {
-	const u_char *ep = MIN(snapend, cp + len);
+zmtp1_print_datagram(netdissect_options *ndo, const u_char *cp, const u_int len)
+{
+	const u_char *ep = min(ndo->ndo_snapend, cp + len);
 
-	cp = zmtp1_print_intermediate_part(cp, len);
+	cp = zmtp1_print_intermediate_part(ndo, cp, len);
 	while (cp < ep)
-		cp = zmtp1_print_frame(cp, ep);
+		cp = zmtp1_print_frame(ndo, cp, ep);
 }

@@ -1,0 +1,30 @@
+IP (tos 0x0, ttl 64, id 38618, offset 0, flags [none], proto SCTP (132), length 132)
+    10.28.6.42.2905 > 10.28.6.44.2905: sctp
+	1) [DATA] (B)(E) [TSN: 1822994892] [SID: 6] [SSEQ 42] [PPID M3UA] 
+		Transfer Data Message
+			Unknown Parameter (0x0002): (length 73)
+IP (tos 0x0, ttl 255, id 50089, offset 0, flags [DF], proto SCTP (132), length 76)
+    10.28.6.44.2905 > 10.28.6.42.2905: sctp
+	1) [DATA] (B)(E) [TSN: 4307] [SID: 0] [SSEQ 643] [PPID M3UA] 
+		Transfer Data Message
+			Unknown Parameter (0x0002): (length 18)
+IP (tos 0x0, ttl 255, id 50090, offset 0, flags [DF], proto SCTP (132), length 72)
+    10.28.6.44.2905 > 10.28.6.42.2905: sctp
+	1) [DATA] (B)(E) [TSN: 4308] [SID: 0] [SSEQ 644] [PPID M3UA] 
+		Transfer Data Message
+			Unknown Parameter (0x0002): (length 15)
+IP (tos 0x0, ttl 255, id 50091, offset 0, flags [DF], proto SCTP (132), length 72)
+    10.28.6.44.2905 > 10.28.6.42.2905: sctp
+	1) [DATA] (B)(E) [TSN: 4309] [SID: 0] [SSEQ 645] [PPID M3UA] 
+		Transfer Data Message
+			Unknown Parameter (0x0002): (length 13)
+IP (tos 0x0, ttl 64, id 38651, offset 0, flags [none], proto SCTP (132), length 76)
+    10.28.6.42.2905 > 10.28.6.44.2905: sctp
+	1) [DATA] (B)(E) [TSN: 1822994893] [SID: 6] [SSEQ 43] [PPID M3UA] 
+		Transfer Data Message
+			Unknown Parameter (0x0002): (length 17)
+IP (tos 0x0, ttl 255, id 50109, offset 0, flags [DF], proto SCTP (132), length 72)
+    10.28.6.44.2905 > 10.28.6.42.2905: sctp
+	1) [DATA] (B)(E) [TSN: 4310] [SID: 0] [SSEQ 646] [PPID M3UA] 
+		Transfer Data Message
+			Unknown Parameter (0x0002): (length 13)

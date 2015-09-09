@@ -1,0 +1,1 @@
+ip and ((icmp and dst host 1.1.1.1 and not host 2.2.2.2) or (host 1.1.1.1 and src host 3.3.3.3))

@@ -13,7 +13,7 @@ IP (tos 0x2,ECT(0), ttl 64, id 4, offset 0, flags [DF], proto SCTP (132), length
           Oper TLV  GetResp(0x9) length 296
            PATH-DATA TLV, length 292 (data encapsulated 288 Bytes)
             Pathdata: Flags 0x0 ID count 1
-              ID#01: 2
+            ID#01: 2
               FULLDATA TLV (Length 280 DataLen 276 Bytes)
                [
                0x0000:  0000 0000 0000 0001 0000 0001 0000 0001
@@ -96,7 +96,7 @@ IP (tos 0x0, ttl 46, id 3, offset 0, flags [DF], proto SCTP (132), length 100)
           Oper TLV  Get(0x7) length 16
            PATH-DATA TLV, length 12 (data encapsulated 8 Bytes)
             Pathdata: Flags 0x0 ID count 1
-              ID#01: 1
+            ID#01: 1
 
 	  Raw ForCES message
 	 [
@@ -121,8 +121,8 @@ IP (tos 0x0, ttl 46, id 4, offset 0, flags [DF], proto SCTP (132), length 112)
           Oper TLV  SetProp(0x2) length 28
            PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
             Pathdata: Flags 0x0 ID count 2
-              ID#01: 60
-              ID#02: 1
+            ID#01: 60
+            ID#02: 1
               FULLDATA TLV (Length 8 DataLen 4 Bytes)
                [
                0x0000:  0000 0001
@@ -154,8 +154,8 @@ IP (tos 0x0, ttl 46, id 5, offset 0, flags [DF], proto SCTP (132), length 112)
           Oper TLV  SetProp(0x2) length 28
            PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
             Pathdata: Flags 0x0 ID count 2
-              ID#01: 60
-              ID#02: 2
+            ID#01: 60
+            ID#02: 2
               FULLDATA TLV (Length 8 DataLen 4 Bytes)
                [
                0x0000:  0000 0001
@@ -184,8 +184,8 @@ IP (tos 0x0, ttl 46, id 6, offset 0, flags [DF], proto SCTP (132), length 112)
           Oper TLV  SetProp(0x2) length 28
            PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
             Pathdata: Flags 0x0 ID count 2
-              ID#01: 60
-              ID#02: 3
+            ID#01: 60
+            ID#02: 3
               FULLDATA TLV (Length 8 DataLen 4 Bytes)
                [
                0x0000:  0000 0001
@@ -217,8 +217,8 @@ IP (tos 0x0, ttl 46, id 7, offset 0, flags [DF], proto SCTP (132), length 112)
           Oper TLV  SetProp(0x2) length 28
            PATH-DATA TLV, length 24 (data encapsulated 20 Bytes)
             Pathdata: Flags 0x0 ID count 2
-              ID#01: 60
-              ID#02: 1
+            ID#01: 60
+            ID#02: 1
               FULLDATA TLV (Length 8 DataLen 4 Bytes)
                [
                0x0000:  0000 0001

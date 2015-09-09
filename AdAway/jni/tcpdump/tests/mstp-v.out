@@ -1,0 +1,130 @@
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward], length 134
+	port-role Root, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 8012, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 200000, 
+	CIST bridge-id 8000.00:1e:f7:05:a8:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 0
+		MSTI bridge-prio 6, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward, Agreement], length 134
+	port-role Designated, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 800f, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 0, 
+	CIST bridge-id 8000.00:16:46:b5:8c:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 0
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward], length 134
+	port-role Root, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 8012, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 200000, 
+	CIST bridge-id 8000.00:1e:f7:05:a8:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 0
+		MSTI bridge-prio 6, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward, Agreement], length 134
+	port-role Designated, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 800f, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 0, 
+	CIST bridge-id 8000.00:16:46:b5:8c:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 0
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward], length 134
+	port-role Root, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 8012, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 200000, 
+	CIST bridge-id 8000.00:1e:f7:05:a8:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 0
+		MSTI bridge-prio 6, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward, Agreement], length 134
+	port-role Designated, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 800f, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 0, 
+	CIST bridge-id 8000.00:16:46:b5:8c:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 0
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward], length 134
+	port-role Root, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 8012, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 200000, 
+	CIST bridge-id 8000.00:1e:f7:05:a8:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 0
+		MSTI bridge-prio 6, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward, Agreement], length 134
+	port-role Designated, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 800f, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 0, 
+	CIST bridge-id 8000.00:16:46:b5:8c:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 0
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward], length 134
+	port-role Root, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 8012, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 200000, 
+	CIST bridge-id 8000.00:1e:f7:05:a8:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 0
+		MSTI bridge-prio 6, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+STP 802.1s, Rapid STP, CIST Flags [Learn, Forward, Agreement], length 134
+	port-role Designated, CIST root-id 0000.00:1f:27:b4:7d:80, CIST ext-pathcost 200000 
+	CIST regional-root-id 8000.00:16:46:b5:8c:80, CIST port-id 800f, 
+	message-age 1.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	v3len 96, MCID Name Brewery, rev 0, 
+		digest 9357ebb7a8d74dd5fef4f2bab50531aa, CIST int-root-pathcost 0, 
+	CIST bridge-id 8000.00:16:46:b5:8c:80, CIST remaining-hops 20
+	MSTI 1, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Root
+		MSTI regional-root-id 6001.00:1e:f7:05:a8:80, pathcost 200000
+		MSTI bridge-prio 8, port-prio 8, hops 20
+	MSTI 2, Flags [Learn, Forward, Agreement, Topology change ACK], port-role Designated
+		MSTI regional-root-id 8002.00:16:46:b5:8c:80, pathcost 0
+		MSTI bridge-prio 8, port-prio 8, hops 20

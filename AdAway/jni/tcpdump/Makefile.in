@@ -16,8 +16,6 @@
 #  THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
 #  WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
 #  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-#
-# @(#) $Header: /tcpdump/master/tcpdump/Makefile.in,v 1.325 2008-11-21 23:17:26 guy Exp $ (LBL)
 
 #
 # Various configurable paths (remember to edit Makefile.in, not Makefile)
@@ -41,6 +39,7 @@ VPATH = @srcdir@
 #
 
 CC = @CC@
+AR = @AR@
 MKDEP = @MKDEP@
 PROG = tcpdump
 CCOPT = @V_CCOPT@
@@ -71,127 +70,209 @@ DEPENDENCY_CFLAG = @DEPENDENCY_CFLAG@
 	@rm -f $@
 	$(CC) $(FULL_CFLAGS) -c $(srcdir)/$*.c
 
-CSRC =	addrtoname.c af.c checksum.c cpack.c gmpls.c oui.c gmt2local.c ipproto.c \
-        nlpid.c l2vpn.c machdep.c parsenfsfh.c in_cksum.c \
-	print-802_11.c print-802_15_4.c print-ap1394.c print-ah.c \
-	print-arcnet.c print-aodv.c print-arp.c print-ascii.c print-atalk.c \
-	print-atm.c print-beep.c print-bfd.c print-bgp.c \
-	print-bootp.c print-bt.c print-calm-fast.c print-carp.c print-cdp.c print-cfm.c \
-	print-chdlc.c print-cip.c print-cnfp.c print-dccp.c print-decnet.c \
-	print-domain.c print-dtp.c print-dvmrp.c print-enc.c print-egp.c \
-	print-eap.c print-eigrp.c\
-	print-esp.c print-ether.c print-fddi.c print-forces.c print-fr.c \
-	print-geonet.c print-gre.c print-hsrp.c print-icmp.c print-igmp.c \
-	print-igrp.c print-ip.c print-ipcomp.c print-ipfc.c print-ipnet.c \
-	print-ipx.c print-isoclns.c print-juniper.c print-krb.c \
-	print-l2tp.c print-lane.c print-ldp.c print-lldp.c print-llc.c \
-        print-lmp.c print-lspping.c print-lwapp.c \
-	print-lwres.c print-mobile.c print-mpcp.c print-mpls.c print-mptcp.c print-msdp.c \
-	print-msnlb.c print-nflog.c print-nfs.c print-ntp.c print-null.c \
-	print-olsr.c print-openflow.c print-openflow-1.0.c print-ospf.c \
-	print-pgm.c print-pim.c \
-	print-ppi.c print-ppp.c print-pppoe.c print-pptp.c \
-	print-radius.c print-raw.c print-rip.c print-rpki-rtr.c print-rrcp.c print-rsvp.c \
-	print-rx.c print-sctp.c print-sflow.c print-sip.c print-sl.c print-sll.c \
-	print-slow.c print-snmp.c print-stp.c print-sunatm.c print-sunrpc.c \
-	print-symantec.c print-syslog.c print-tcp.c print-telnet.c print-tftp.c \
-	print-timed.c print-tipc.c print-token.c print-udld.c print-udp.c \
-	print-usb.c print-vjc.c print-vqp.c print-vrrp.c print-vtp.c \
-	print-wb.c print-zephyr.c print-zeromq.c print-vxlan.c print-otv.c signature.c setsignal.c tcpdump.c util.c
+CSRC =	setsignal.c tcpdump.c
 
-LIBNETDISSECT_SRC=print-isakmp.c
-LIBNETDISSECT_OBJ=$(LIBNETDISSECT_SRC:.c=.o)
-LIBNETDISSECT=libnetdissect.a
+LIBNETDISSECT_SRC=\
+	addrtoname.c \
+	af.c \
+	checksum.c \
+	cpack.c \
+	gmpls.c \
+	gmt2local.c \
+	in_cksum.c \
+	ipproto.c \
+	l2vpn.c \
+	machdep.c \
+	nlpid.c \
+	oui.c \
+	parsenfsfh.c \
+	print-802_11.c \
+	print-802_15_4.c \
+	print-ah.c \
+	print-ahcp.c \
+	print-aodv.c \
+	print-aoe.c \
+	print-ap1394.c \
+	print-arcnet.c \
+	print-arp.c \
+	print-ascii.c \
+	print-atalk.c \
+	print-atm.c \
+	print-beep.c \
+	print-bfd.c \
+	print-bgp.c \
+	print-bootp.c \
+	print-bt.c \
+	print-calm-fast.c \
+	print-carp.c \
+	print-cdp.c \
+	print-cfm.c \
+	print-chdlc.c \
+	print-cip.c \
+	print-cnfp.c \
+	print-dccp.c \
+	print-decnet.c \
+	print-domain.c \
+	print-dtp.c \
+	print-dvmrp.c \
+	print-eap.c \
+	print-egp.c \
+	print-eigrp.c \
+	print-enc.c \
+	print-esp.c \
+	print-ether.c \
+	print-fddi.c \
+	print-forces.c \
+	print-fr.c \
+	print-ftp.c \
+	print-geneve.c \
+	print-geonet.c \
+	print-gre.c \
+	print-hsrp.c \
+	print-http.c \
+	print-icmp.c \
+	print-igmp.c \
+	print-igrp.c \
+	print-ip.c \
+	print-ip6.c \
+	print-ipcomp.c \
+	print-ipfc.c \
+	print-ipnet.c \
+	print-ipx.c \
+	print-isakmp.c \
+	print-isoclns.c \
+	print-juniper.c \
+	print-krb.c \
+	print-l2tp.c \
+	print-lane.c \
+	print-ldp.c \
+	print-llc.c \
+	print-lldp.c \
+	print-lmp.c \
+	print-loopback.c \
+	print-lspping.c \
+	print-lwapp.c \
+	print-lwres.c \
+	print-m3ua.c \
+	print-mobile.c \
+	print-mpcp.c \
+	print-mpls.c \
+	print-mptcp.c \
+	print-msdp.c \
+	print-msnlb.c \
+	print-nflog.c \
+	print-nfs.c \
+	print-ntp.c \
+	print-null.c \
+	print-olsr.c \
+	print-openflow-1.0.c \
+	print-openflow.c \
+	print-ospf.c \
+	print-otv.c \
+	print-pgm.c \
+	print-pim.c \
+	print-pktap.c \
+	print-ppi.c \
+	print-ppp.c \
+	print-pppoe.c \
+	print-pptp.c \
+	print-radius.c \
+	print-raw.c \
+	print-rip.c \
+	print-rpki-rtr.c \
+	print-rrcp.c \
+	print-rsvp.c \
+	print-rtsp.c \
+	print-rx.c \
+	print-sctp.c \
+	print-sflow.c \
+	print-sip.c \
+	print-sl.c \
+	print-sll.c \
+	print-slow.c \
+	print-smtp.c \
+	print-snmp.c \
+	print-stp.c \
+	print-sunatm.c \
+	print-sunrpc.c \
+	print-symantec.c \
+	print-syslog.c \
+	print-tcp.c \
+	print-telnet.c \
+	print-tftp.c \
+	print-timed.c \
+	print-tipc.c \
+	print-token.c \
+	print-udld.c \
+	print-udp.c \
+	print-usb.c \
+	print-vjc.c \
+	print-vqp.c \
+	print-vrrp.c \
+	print-vtp.c \
+	print-vxlan.c \
+	print-wb.c \
+	print-zephyr.c \
+	print-zeromq.c \
+	signature.c \
+	util.c
 
 LOCALSRC = @LOCALSRC@
 GENSRC = version.c
 LIBOBJS = @LIBOBJS@
 
+LIBNETDISSECT_OBJ=$(LIBNETDISSECT_SRC:.c=.o) ${LOCALSRC:.c=.o} ${LIBOBJS}
+LIBNETDISSECT=libnetdissect.a
+
+
 SRC =	$(CSRC) $(GENSRC) $(LOCALSRC) $(LIBNETDISSECT_SRC)
 
 # We would like to say "OBJ = $(SRC:.c=.o)" but Ultrix's make cannot
 # hack the extra indirection
-OBJ =	$(CSRC:.c=.o) $(GENSRC:.c=.o) $(LOCALSRC:.c=.o) $(LIBOBJS) $(LIBNETDISSECT_OBJ)
+OBJ =	$(CSRC:.c=.o) $(GENSRC:.c=.o) $(LIBNETDISSECT_OBJ)
 HDR = \
 	addrtoname.h \
 	af.h \
 	ah.h \
-	aodv.h \
 	appletalk.h \
-	arcnet.h \
 	atm.h \
 	atmuni31.h \
-	bootp.h \
-	bgp.h \
 	chdlc.h \
 	cpack.h \
-	dccp.h \
-	decnet.h \
-	decode_prefix.h \
-	enc.h \
-	esp.h \
 	ether.h \
 	ethertype.h \
 	extract.h \
-	fddi.h \
+	getopt_long.h \
 	gmpls.h \
 	gmt2local.h \
-	icmp6.h \
-	ieee802_11.h \
-	ieee802_11_radio.h \
-	igrp.h \
-	interface.h \
 	interface.h \
 	ip.h \
 	ip6.h \
-	ipfc.h \
-	ipnet.h \
 	ipproto.h \
-	ipsec_doi.h \
-	ipx.h \
-	isakmp.h \
-	l2tp.h \
 	l2vpn.h \
-	lane.h \
 	llc.h \
 	machdep.h \
 	mib.h \
 	mpls.h \
-	mptcp.h \
 	nameser.h \
-	netbios.h \
 	netdissect.h \
 	nfs.h \
 	nfsfh.h \
 	nlpid.h \
-	ntp.h \
-	oakley.h \
 	openflow.h \
 	ospf.h \
-	ospf6.h \
 	oui.h \
 	pcap-missing.h \
-	pmap_prot.h \
-	ppi.h \
 	ppp.h \
-	route6d.h \
 	rpc_auth.h \
 	rpc_msg.h \
-	rx.h \
-	sctpConstants.h \
-	sctpHeader.h \
+	rpl.h \
 	setsignal.h \
 	signature.h \
 	slcompress.h \
-	slip.h \
-	sll.h \
 	smb.h \
 	tcp.h \
 	tcpdump-stdinc.h \
-	telnet.h \
-	tftp.h \
-	timed.h \
-	token.h \
 	udp.h
 
 TAGHDR = \
@@ -237,11 +318,11 @@ EXTRA_DIST = \
 	missing/dlnames.c \
 	missing/datalinks.c \
 	missing/getnameinfo.c \
+	missing/getopt_long.c \
 	missing/inet_aton.c \
 	missing/inet_ntop.c \
 	missing/inet_pton.c \
 	missing/snprintf.c \
-	missing/sockstorage.h \
 	missing/strdup.c \
 	missing/strlcat.c \
 	missing/strlcpy.c \
@@ -253,10 +334,8 @@ EXTRA_DIST = \
 	print-dhcp6.c \
 	print-frag6.c \
 	print-icmp6.c \
-	print-ip6.c \
 	print-ip6opts.c \
 	print-mobility.c \
-	print-netbios.c \
 	print-ospf6.c \
 	print-pflog.c \
 	print-ripng.c \
@@ -268,18 +347,14 @@ EXTRA_DIST = \
 	strcasecmp.c \
 	tcpdump.1.in \
 	vfprintf.c \
-	win32/Include/bittypes.h \
-	win32/Include/errno.h \
-	win32/Include/getopt.h \
 	win32/Include/w32_fzs.h \
-	win32/Src/getopt.c \
 	win32/prj/GNUmakefile \
 	win32/prj/WinDump.dsp \
 	win32/prj/WinDump.dsw
 
 TEST_DIST= `find tests \( -name 'DIFF' -prune \) -o \( -name NEW -prune \) -o -type f \! -name '.*' \! -name '*~' -print`
 
-all: $(PROG)
+all: $(PROG) $(LIBNETDISSECT)
 
 $(PROG): $(OBJ) @V_PCAPDEP@
 	@rm -f $@
@@ -287,7 +362,7 @@ $(PROG): $(OBJ) @V_PCAPDEP@
 
 $(LIBNETDISSECT): $(LIBNETDISSECT_OBJ)
 	@rm -f $@
-	$(AR) cr $@ $(LIBNETDISSECT_OBJ) 
+	$(AR) cr $@ $(LIBNETDISSECT_OBJ)
 	$(RANLIB) $@
 
 datalinks.o: $(srcdir)/missing/datalinks.c
@@ -296,8 +371,8 @@ dlnames.o: $(srcdir)/missing/dlnames.c
 	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/dlnames.c
 getnameinfo.o: $(srcdir)/missing/getnameinfo.c
 	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/getnameinfo.c
-getaddrinfo.o: $(srcdir)/missing/getaddrinfo.c
-	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/getaddrinfo.c
+getopt_long.o: $(srcdir)/missing/getopt_long.c
+	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/getopt_long.c
 inet_pton.o: $(srcdir)/missing/inet_pton.c
 	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/inet_pton.c
 inet_ntop.o: $(srcdir)/missing/inet_ntop.c
@@ -306,6 +381,8 @@ inet_aton.o: $(srcdir)/missing/inet_aton.c
 	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/inet_aton.c
 snprintf.o: $(srcdir)/missing/snprintf.c
 	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/snprintf.c
+strdup.o: $(srcdir)/missing/strdup.c
+	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/strdup.c
 strlcat.o: $(srcdir)/missing/strlcat.c
 	$(CC) $(FULL_CFLAGS) -o $@ -c $(srcdir)/missing/strlcat.c
 strlcpy.o: $(srcdir)/missing/strlcpy.c
@@ -349,8 +426,10 @@ clean:
 
 distclean:
 	rm -f $(CLEANFILES) Makefile config.cache config.log config.status \
-	    config.h gnuc.h os-proto.h stamp-h stamp-h.in $(PROG).1
-	rm -rf autom4te.cache
+	    config.h gnuc.h os-proto.h stamp-h stamp-h.in $(PROG).1 \
+	    libnetdissect.a tests/.failed tests/.passed \
+	    tests/failure-outputs.txt
+	rm -rf autom4te.cache tests/DIFF tests/NEW
 
 check: tcpdump
 	(cd tests && ./TESTrun.sh)

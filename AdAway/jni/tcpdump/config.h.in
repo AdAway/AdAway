@@ -9,6 +9,21 @@
 /* Define to 1 if you have the `bpf_dump' function. */
 #undef HAVE_BPF_DUMP
 
+/* capsicum support available */
+#undef HAVE_CAPSICUM
+
+/* Define to 1 if you have the `cap_enter' function. */
+#undef HAVE_CAP_ENTER
+
+/* Define to 1 if you have the `cap_ioctls_limit' function. */
+#undef HAVE_CAP_IOCTLS_LIMIT
+
+/* Define to 1 if you have the <cap-ng.h> header file. */
+#undef HAVE_CAP_NG_H
+
+/* Define to 1 if you have the `cap_rights_limit' function. */
+#undef HAVE_CAP_RIGHTS_LIMIT
+
 /* Define to 1 if you have the declaration of `ether_ntohost', and to 0 if you
    don't. */
 #undef HAVE_DECL_ETHER_NTOHOST
@@ -28,6 +43,9 @@
 /* Define to 1 if you have the `getnameinfo' function. */
 #undef HAVE_GETNAMEINFO
 
+/* Define to 1 if you have the `getopt_long' function. */
+#undef HAVE_GETOPT_LONG
+
 /* define if you have getrpcbynumber() */
 #undef HAVE_GETRPCBYNUMBER
 
@@ -37,14 +55,14 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
+/* Define to 1 if you have the `cap-ng' library (-lcap-ng). */
+#undef HAVE_LIBCAP_NG
+
 /* Define to 1 if you have the `crypto' library (-lcrypto). */
 #undef HAVE_LIBCRYPTO
 
 /* Define to 1 if you have the `rpc' library (-lrpc). */
 #undef HAVE_LIBRPC
-
-/* Define to 1 if you have the `smi' library (-lsmi). */
-#undef HAVE_LIBSMI
 
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
@@ -63,6 +81,9 @@
 
 /* Define to 1 if you have the <net/pfvar.h> header file. */
 #undef HAVE_NET_PFVAR_H
+
+/* Define to 1 if you have the `openat' function. */
+#undef HAVE_OPENAT
 
 /* Define to 1 if you have the <openssl/evp.h> header file. */
 #undef HAVE_OPENSSL_EVP_H
@@ -97,6 +118,9 @@
 /* Define to 1 if you have the `pcap_findalldevs' function. */
 #undef HAVE_PCAP_FINDALLDEVS
 
+/* Define to 1 if you have the `pcap_free_datalinks' function. */
+#undef HAVE_PCAP_FREE_DATALINKS
+
 /* Define to 1 if the system has the type `pcap_if_t'. */
 #undef HAVE_PCAP_IF_T
 
@@ -112,8 +136,14 @@
 /* Define to 1 if you have the `pcap_setdirection' function. */
 #undef HAVE_PCAP_SETDIRECTION
 
-/* define if libpcap has pcap_set_datalink() */
+/* Define to 1 if you have the `pcap_set_datalink' function. */
 #undef HAVE_PCAP_SET_DATALINK
+
+/* Define to 1 if you have the `pcap_set_immediate_mode' function. */
+#undef HAVE_PCAP_SET_IMMEDIATE_MODE
+
+/* Define to 1 if you have the `pcap_set_tstamp_precision' function. */
+#undef HAVE_PCAP_SET_TSTAMP_PRECISION
 
 /* Define to 1 if you have the `pcap_set_tstamp_type' function. */
 #undef HAVE_PCAP_SET_TSTAMP_TYPE
@@ -142,17 +172,11 @@
 /* Define to 1 if you have the `sigset' function. */
 #undef HAVE_SIGSET
 
-/* Define to 1 if you have the <smi.h> header file. */
-#undef HAVE_SMI_H
-
 /* Define to 1 if you have the `snprintf' function. */
 #undef HAVE_SNPRINTF
 
 /* if struct sockaddr has the sa_len member */
 #undef HAVE_SOCKADDR_SA_LEN
-
-/* define if you have struct sockaddr_storage */
-#undef HAVE_SOCKADDR_STORAGE
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H
@@ -187,14 +211,14 @@
 /* Define to 1 if the system has the type `struct ether_addr'. */
 #undef HAVE_STRUCT_ETHER_ADDR
 
-/* Define to 1 if you have the <sys/bitypes.h> header file. */
-#undef HAVE_SYS_BITYPES_H
-
 /* Define to 1 if you have the <sys/stat.h> header file. */
 #undef HAVE_SYS_STAT_H
 
 /* Define to 1 if you have the <sys/types.h> header file. */
 #undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if the system has the type `uintptr_t'. */
+#undef HAVE_UINTPTR_T
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
@@ -219,9 +243,6 @@
 
 /* if unaligned access fails */
 #undef LBL_ALIGN
-
-/* Define if you enable support for libsmi */
-#undef LIBSMI
 
 /* define if you need to include missing/addrinfo.h */
 #undef NEED_ADDRINFO_H
@@ -279,6 +300,9 @@
 
 /* define if you have ether_ntohost() and it works */
 #undef USE_ETHER_NTOHOST
+
+/* Define if you enable support for libsmi */
+#undef USE_LIBSMI
 
 /* define if should chroot when dropping privileges */
 #undef WITH_CHROOT
@@ -340,16 +364,16 @@
    a type exists and the standard includes do not define it. */
 #undef int8_t
 
-/* Define to `unsigned short' if u_int16_t not defined. */
+/* Define to `uint16_t' if u_int16_t not defined. */
 #undef u_int16_t
 
-/* Define to `unsigned int' if u_int32_t not defined. */
+/* Define to `uint32_t' if u_int32_t not defined. */
 #undef u_int32_t
 
-/* Define to `unsigned long long' if u_int64_t not defined. */
+/* Define to `uint64_t' if u_int64_t not defined. */
 #undef u_int64_t
 
-/* Define to `unsigned char' if u_int8_t not defined. */
+/* Define to `uint8_t' if u_int8_t not defined. */
 #undef u_int8_t
 
 /* Define to the type of an unsigned integer type of width exactly 16 bits if
@@ -367,3 +391,7 @@
 /* Define to the type of an unsigned integer type of width exactly 8 bits if
    such a type exists and the standard includes do not define it. */
 #undef uint8_t
+
+/* Define to the type of an unsigned integer type wide enough to hold a
+   pointer, if such a type exists, and if the system does not define it. */
+#undef uintptr_t

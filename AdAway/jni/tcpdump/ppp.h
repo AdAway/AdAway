@@ -1,4 +1,3 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/ppp.h,v 1.16 2004-10-20 16:14:16 hannes Exp $ (LBL) */
 /*
  * Point to Point Protocol (PPP) RFC1331
  *

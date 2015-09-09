@@ -1,5 +1,5 @@
 IP (tos 0xc0, ttl 62, id 58628, offset 0, flags [none], proto TCP (6), length 173)
-    12.4.4.4.2051 > 12.1.1.1.179: Flags [P.], cksum 0xcf18 (correct), seq 3293077573:3293077694, ack 3348108582, win 16384, options [nop,nop,TS val 383131 ecr 890299], length 121: BGP, length: 121
+    12.4.4.4.2051 > 12.1.1.1.179: Flags [P.], cksum 0xcf18 (correct), seq 3293077573:3293077694, ack 3348108582, win 16384, options [nop,nop,TS val 383131 ecr 890299], length 121: BGP
 	Update Message (2), length: 121
 	  Origin (1), length: 1, Flags [T]: IGP
 	  AS Path (2), length: 0, Flags [T]: empty

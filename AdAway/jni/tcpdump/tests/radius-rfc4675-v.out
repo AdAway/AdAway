@@ -1,0 +1,43 @@
+IP (tos 0x0, ttl 64, id 20820, offset 0, flags [none], proto UDP (17), length 108)
+    127.0.0.1.53334 > 127.0.0.1.1812: RADIUS, length: 80
+	Access-Request (1), id: 0x46, Authenticator: f44757bc498c3393763a27d0b2393702
+	  User-Name Attribute (1), length: 12, Value: bob-tagged
+	  User-Password Attribute (2), length: 18, Value: 
+	  NAS-IP-Address Attribute (4), length: 6, Value: 127.0.0.1
+	  NAS-Port Attribute (5), length: 6, Value: 1
+	  Message-Authenticator Attribute (80), length: 18, Value: .....b..7-...b.
+IP (tos 0x0, ttl 64, id 20821, offset 0, flags [none], proto UDP (17), length 81)
+    127.0.0.1.1812 > 127.0.0.1.53334: RADIUS, length: 53
+	Access-Accept (2), id: 0x46, Authenticator: 766a0314eaf4b95f1ec271ae19cb3bdc
+	  Egress-VLANID Attribute (56), length: 6, Value: Tagged (0x31) 123
+	  Ingress-Filters Attribute (57), length: 6, Value: Enabled
+	  Egress-VLAN-Name Attribute (58), length: 11, Value: Tagged (0x31) vlanname
+	  User-Priority-Table Attribute (59), length: 10, Value: 
+IP (tos 0x0, ttl 64, id 21127, offset 0, flags [none], proto UDP (17), length 110)
+    127.0.0.1.46281 > 127.0.0.1.1812: RADIUS, length: 82
+	Access-Request (1), id: 0xb5, Authenticator: 11851d8b1b483f54a864b703ea21f4dc
+	  User-Name Attribute (1), length: 14, Value: bob-untagged
+	  User-Password Attribute (2), length: 18, Value: 
+	  NAS-IP-Address Attribute (4), length: 6, Value: 127.0.0.1
+	  NAS-Port Attribute (5), length: 6, Value: 1
+	  Message-Authenticator Attribute (80), length: 18, Value: ..o..}f..d.;..R[
+IP (tos 0x0, ttl 64, id 21128, offset 0, flags [none], proto UDP (17), length 71)
+    127.0.0.1.1812 > 127.0.0.1.46281: RADIUS, length: 43
+	Access-Accept (2), id: 0xb5, Authenticator: e223a663823b20ccc18bcf90c3ecbe27
+	  Egress-VLANID Attribute (56), length: 6, Value: Untagged (0x32) 123
+	  Ingress-Filters Attribute (57), length: 6, Value: Disabled
+	  Egress-VLAN-Name Attribute (58), length: 11, Value: Untagged (0x32) vlanname
+IP (tos 0x0, ttl 64, id 21190, offset 0, flags [none], proto UDP (17), length 109)
+    127.0.0.1.39300 > 127.0.0.1.1812: RADIUS, length: 81
+	Access-Request (1), id: 0x5a, Authenticator: 8dd685f50f837e8ad29e9cc095261172
+	  User-Name Attribute (1), length: 13, Value: bob-invalid
+	  User-Password Attribute (2), length: 18, Value: 
+	  NAS-IP-Address Attribute (4), length: 6, Value: 127.0.0.1
+	  NAS-Port Attribute (5), length: 6, Value: 1
+	  Message-Authenticator Attribute (80), length: 18, Value: ....(..^A.f.....
+IP (tos 0x0, ttl 64, id 21191, offset 0, flags [none], proto UDP (17), length 71)
+    127.0.0.1.1812 > 127.0.0.1.39300: RADIUS, length: 43
+	Access-Accept (2), id: 0x5a, Authenticator: fbaa7d05d009953514d00697da4d1dfc
+	  Egress-VLANID Attribute (56), length: 6, Value: Unknown tag (0x33) 123
+	  Ingress-Filters Attribute (57), length: 6, Value: #3
+	  Egress-VLAN-Name Attribute (58), length: 11, Value: Unknown tag (0x33) vlanname

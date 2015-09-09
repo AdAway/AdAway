@@ -17,19 +17,16 @@
  * Original code by Carles Kishimoto <carles.kishimoto@gmail.com>
  */
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <string.h>
-
 #include "interface.h"
 #include "addrtoname.h"
-#include "extract.h"		
-#include "nlpid.h"
+#include "extract.h"
 
 #define DTP_HEADER_LEN			1
 #define DTP_DOMAIN_TLV			0x0001
@@ -46,7 +43,7 @@ static const struct tok dtp_tlv_values[] = {
 };
 
 void
-dtp_print (const u_char *pptr, u_int length)
+dtp_print (netdissect_options *ndo, const u_char *pptr, u_int length)
 {
     int type, len;
     const u_char *tptr;
@@ -54,19 +51,18 @@ dtp_print (const u_char *pptr, u_int length)
     if (length < DTP_HEADER_LEN)
         goto trunc;
 
-    tptr = pptr; 
+    tptr = pptr;
 
-    if (!TTEST2(*tptr, DTP_HEADER_LEN))	
-	goto trunc;
+    ND_TCHECK2(*tptr, DTP_HEADER_LEN);
 
-    printf("DTPv%u, length %u", 
+    ND_PRINT((ndo, "DTPv%u, length %u",
            (*tptr),
-           length);
+           length));
 
     /*
      * In non-verbose mode, just print version.
      */
-    if (vflag < 1) {
+    if (ndo->ndo_vflag < 1) {
 	return;
     }
 
@@ -74,45 +70,44 @@ dtp_print (const u_char *pptr, u_int length)
 
     while (tptr < (pptr+length)) {
 
-        if (!TTEST2(*tptr, 4)) 
-            goto trunc;
+        ND_TCHECK2(*tptr, 4);
 
 	type = EXTRACT_16BITS(tptr);
-        len  = EXTRACT_16BITS(tptr+2); 
+        len  = EXTRACT_16BITS(tptr+2);
 
         /* infinite loop check */
         if (type == 0 || len == 0) {
             return;
         }
 
-        printf("\n\t%s (0x%04x) TLV, length %u",
+        ND_PRINT((ndo, "\n\t%s (0x%04x) TLV, length %u",
                tok2str(dtp_tlv_values, "Unknown", type),
-               type, len);
+               type, len));
 
         switch (type) {
 	case DTP_DOMAIN_TLV:
-		printf(", %s", tptr+4);
+		ND_PRINT((ndo, ", %s", tptr+4));
 		break;
 
-	case DTP_STATUS_TLV:            
+	case DTP_STATUS_TLV:
 	case DTP_DTP_TYPE_TLV:
-                printf(", 0x%x", *(tptr+4));
+                ND_PRINT((ndo, ", 0x%x", *(tptr+4)));
                 break;
 
 	case DTP_NEIGHBOR_TLV:
-                printf(", %s", etheraddr_string(tptr+4));
+                ND_PRINT((ndo, ", %s", etheraddr_string(ndo, tptr+4)));
                 break;
 
         default:
             break;
-        }	
+        }
         tptr += len;
     }
 
     return;
 
  trunc:
-    printf("[|dtp]");
+    ND_PRINT((ndo, "[|dtp]"));
 }
 
 /*

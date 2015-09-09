@@ -1,0 +1,7 @@
+SLARP (length: 20), keepalive: mineseen=0x00000001, yourseen=0x00000000, reliability=0xffff, link uptime=1d0h1m32s
+SLARP (length: 20), request
+SLARP (length: 20), reply 15.0.0.1/255.255.255.252
+SLARP (length: 20), keepalive: mineseen=0x00000001, yourseen=0x00000000, reliability=0xffff, link uptime=1d0h1m42s
+SLARP (length: 20), keepalive: mineseen=0x00000001, yourseen=0x00000001, reliability=0xffff, link uptime=1d4h41m19s
+SLARP (length: 20), keepalive: mineseen=0x00000002, yourseen=0x00000001, reliability=0xffff, link uptime=1d0h1m52s
+SLARP (length: 20), keepalive: mineseen=0x00000002, yourseen=0x00000002, reliability=0xffff, link uptime=1d4h41m29s
