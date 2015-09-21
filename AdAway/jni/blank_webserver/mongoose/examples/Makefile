@@ -1,7 +1,7 @@
 # Copyright (c) 2014 Cesanta Software
 # All rights reserved
 
-SUBDIRS = $(sort $(filter-out csharp/, $(dir $(wildcard */))))
+SUBDIRS = $(sort $(dir $(wildcard */)))
 X = $(SUBDIRS)
 
 .PHONY: $(SUBDIRS)
