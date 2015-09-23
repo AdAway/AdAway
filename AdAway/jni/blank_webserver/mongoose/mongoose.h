@@ -42,7 +42,7 @@
 #endif
 #undef WIN32_LEAN_AND_MEAN /* Let windows.h always include winsock2.h */
 #undef _XOPEN_SOURCE
-#define _XOPEN_SOURCE 600    /* For flockfile() on Linux */
+#define _XOPEN_SOURCE 700    /* For flockfile() on Linux */
 #define __STDC_FORMAT_MACROS /* <inttypes.h> wants this for C++ */
 #define __STDC_LIMIT_MACROS  /* C++ wants that for INT64_MAX */
 #ifndef _LARGEFILE_SOURCE
