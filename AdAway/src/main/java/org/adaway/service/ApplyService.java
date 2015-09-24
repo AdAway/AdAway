@@ -343,9 +343,19 @@ public class ApplyService extends WakefulIntentService {
 
             // write hostnames
             String line;
-            for (String hostname : parser.getBlacklist()) {
-                line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
-                fos.write(line.getBytes());
+            String linev6;
+            if (PreferenceHelper.getEnableIpv6(mService)) {
+                for (String hostname : parser.getBlacklist()) {
+                    line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
+                    linev6 = Constants.LINE_SEPERATOR + "::1" + " " + hostname;
+                    fos.write(line.getBytes());
+                    fos.write(linev6.getBytes());
+                }
+            } else {
+                for (String hostname : parser.getBlacklist()) {
+                    line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
+                    fos.write(line.getBytes());
+                }
             }
 
             /* REDIRECTION LIST: write redirection items */

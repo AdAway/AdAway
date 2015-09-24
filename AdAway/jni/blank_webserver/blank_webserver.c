@@ -50,7 +50,7 @@ int main(void) {
   struct mg_mgr mgr;
   struct mg_connection *nc1;
   struct mg_connection *nc2;
-  const char *port1 = "127.0.0.1:80", *port2 = "127.0.0.1:443";
+  const char *port1 = "127.0.0.1:80", *port2 = "[::1]:80";
 
   oom_adjust_setup();
 
