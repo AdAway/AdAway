@@ -23,11 +23,36 @@ static void signal_handler(int sig_num) {
   s_sig_num = sig_num;
 }
 
+#define OOM_ADJ_PATH    "/proc/self/oom_score_adj"
+#define OOM_ADJ_NOKILL  -17
+static int oom_adj_save = INT_MIN;
+/*
+* Tell the kernel's out-of-memory killer to avoid this process.
+* Returns the previous oom_score_adj value or zero.
+*/
+void oom_adjust_setup(void) {
+  FILE *fp;
+  if ((fp = fopen(OOM_ADJ_PATH, "r+")) != NULL) {
+    if (fscanf(fp, "%d", &oom_adj_save) != 1)
+      __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error reading %s: %s", OOM_ADJ_PATH, strerror(errno));
+    else {
+      rewind(fp);
+      if (fprintf(fp, "%d\n", OOM_ADJ_NOKILL) <= 0)
+        __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error writing %s: %s", OOM_ADJ_PATH, strerror(errno));
+      else
+        __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "Set %s from %d to %d", OOM_ADJ_PATH, oom_adj_save, OOM_ADJ_NOKILL);
+    }
+    fclose(fp);
+  }
+}
+
 int main(void) {
   struct mg_mgr mgr;
   struct mg_connection *nc1;
   struct mg_connection *nc2;
   const char *port1 = "127.0.0.1:80", *port2 = "127.0.0.1:443";
+
+  oom_adjust_setup();
 
   mg_mgr_init(&mgr, NULL);
   nc1 = mg_bind(&mgr, port1, ev_handler);
