@@ -22,6 +22,7 @@ package org.adaway.service;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -277,6 +278,7 @@ public class ApplyService extends WakefulIntentService {
                 mService.getString(R.string.apply_dialog_hostnames));
 
         int returnCode = StatusCodes.SUCCESS; // default return code
+        BufferedOutputStream bos = null;
 
         try {
             /* PARSE: parse hosts files to sets of hostnames and comments */
@@ -317,19 +319,21 @@ public class ApplyService extends WakefulIntentService {
             FileOutputStream fos = mService.openFileOutput(Constants.HOSTS_FILENAME,
                     Context.MODE_PRIVATE);
 
+            bos = new BufferedOutputStream(fos);
+
             // add adaway header
             String header = Constants.HEADER1 + Constants.LINE_SEPERATOR + Constants.HEADER2
                     + Constants.LINE_SEPERATOR + Constants.HEADER_SOURCES;
-            fos.write(header.getBytes());
+            bos.write(header.getBytes());
 
             // write sources into header
             String source = null;
             for (String host : enabledHostsSources) {
                 source = Constants.LINE_SEPERATOR + "# " + host;
-                fos.write(source.getBytes());
+                bos.write(source.getBytes());
             }
 
-            fos.write(Constants.LINE_SEPERATOR.getBytes());
+            bos.write(Constants.LINE_SEPERATOR.getBytes());
 
             String redirectionIP = PreferenceHelper.getRedirectionIP(mService);
 
@@ -337,9 +341,9 @@ public class ApplyService extends WakefulIntentService {
             String localhost = Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv4 + " "
                     + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPERATOR
                     + Constants.LOCALHOST_IPv6 + " " + Constants.LOCALHOST_HOSTNAME;
-            fos.write(localhost.getBytes());
+            bos.write(localhost.getBytes());
 
-            fos.write(Constants.LINE_SEPERATOR.getBytes());
+            bos.write(Constants.LINE_SEPERATOR.getBytes());
 
             // write hostnames
             String line;
@@ -348,13 +352,13 @@ public class ApplyService extends WakefulIntentService {
                 for (String hostname : parser.getBlacklist()) {
                     line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
                     linev6 = Constants.LINE_SEPERATOR + "::1" + " " + hostname;
-                    fos.write(line.getBytes());
-                    fos.write(linev6.getBytes());
+                    bos.write(line.getBytes());
+                    bos.write(linev6.getBytes());
                 }
             } else {
                 for (String hostname : parser.getBlacklist()) {
                     line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
-                    fos.write(line.getBytes());
+                    bos.write(line.getBytes());
                 }
             }
 
@@ -366,14 +370,12 @@ public class ApplyService extends WakefulIntentService {
                 redirectionItemIP = item.getValue();
 
                 line = Constants.LINE_SEPERATOR + redirectionItemIP + " " + redirectionItemHostname;
-                fos.write(line.getBytes());
+                bos.write(line.getBytes());
             }
 
             // hosts file has to end with new line, when not done last entry won't be
             // recognized
-            fos.write(Constants.LINE_SEPERATOR.getBytes());
-
-            fos.close();
+            bos.write(Constants.LINE_SEPERATOR.getBytes());
 
         } catch (FileNotFoundException e) {
             Log.e(Constants.TAG, "file to read or file to write could not be found", e);
@@ -383,6 +385,17 @@ public class ApplyService extends WakefulIntentService {
             Log.e(Constants.TAG, "files can not be written or read", e);
 
             returnCode = StatusCodes.PRIVATE_FILE_FAIL;
+        }
+        finally {
+            try {
+                if (bos != null) {
+                    bos.flush();
+                    bos.close();
+                }
+            }
+            catch (Exception e) {
+                Log.e(Constants.TAG, "Error closing output streams", e);
+            }
         }
 
         // delete downloaded hosts file from private storage
