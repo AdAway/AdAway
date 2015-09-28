@@ -177,6 +177,8 @@ public class ApplyService extends WakefulIntentService {
                             /* build connection */
                             URL mURL = new URL(currentUrl);
                             URLConnection connection = mURL.openConnection();
+                            connection.setConnectTimeout(5000);
+                            connection.setReadTimeout(30000);
 
                             /* connect */
                             connection.connect();
