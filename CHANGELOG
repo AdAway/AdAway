@@ -1,7 +1,7 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/Free-Software-for-Android/AdAway/issues
 
-3.0.3
+3.1
 * Add 64bit arch which allows tcpdump to run on those devices
 * Adjust scan adware list and stop it from crashing
 * Update libpcap to 1.7.4 release
@@ -9,6 +9,7 @@ https://github.com/Free-Software-for-Android/AdAway/issues
 * Update mongoose internal webserver to 6.0 release and add IPv6 support
 * Add enable IPv6 option which adds ::1 to all hosts entries
 * Improve building hosts file speed by up to 2.5x
+* RevertService uses Target hosts file preference
 
 3.0.2
 * Disable autocorrect/autocomplete for hosts input on whilelist and redirection inputs
