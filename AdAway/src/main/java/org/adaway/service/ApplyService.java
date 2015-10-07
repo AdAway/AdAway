@@ -53,7 +53,7 @@ import org.sufficientlysecure.rootcommands.Shell;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
-import android.app.Notification;
+import android.support.v4.app.NotificationCompat;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -62,7 +62,6 @@ import android.database.Cursor;
 
 public class ApplyService extends WakefulIntentService {
     private Context mService;
-    private Notification mApplyNotification;
     private NotificationManager mNotificationManager;
 
     private int mNumberOfFailedDownloads;
@@ -529,21 +528,20 @@ public class ApplyService extends WakefulIntentService {
 
         // add app name to notificationText
         tickerText = mService.getString(R.string.app_name) + ": " + tickerText;
-
-        // configure the notification
-        mApplyNotification = new Notification(R.drawable.status_bar_icon, tickerText,
-                System.currentTimeMillis());
-        mApplyNotification.flags = Notification.FLAG_ONGOING_EVENT
-                | Notification.FLAG_ONLY_ALERT_ONCE;
+        int icon = R.drawable.status_bar_icon;
+        long when = System.currentTimeMillis();
 
         // add app name to title
         String contentTitleWithAppName = mService.getString(R.string.app_name) + ": "
                 + contentTitle;
 
-        mApplyNotification.setLatestEventInfo(context, contentTitleWithAppName, contentText,
-                contentIntent);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(icon).setContentTitle(contentTitleWithAppName).setTicker(tickerText)
+                .setWhen(when).setOngoing(true).setOnlyAlertOnce(true).setContentText(contentText);
 
-        mNotificationManager.notify(APPLY_NOTIFICATION_ID, mApplyNotification);
+        mNotificationManager.notify(APPLY_NOTIFICATION_ID, mBuilder.build());
+
+        mBuilder.setContentIntent(contentIntent);
 
         // update status in BaseActivity with Broadcast
         BaseActivity.setStatusBroadcast(mService, contentTitle, contentText, StatusCodes.CHECKING);
@@ -555,14 +553,19 @@ public class ApplyService extends WakefulIntentService {
         PendingIntent contentIntent = PendingIntent.getActivity(mService.getApplicationContext(),
                 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
+        int icon = R.drawable.status_bar_icon;
+
         // add app name to title
         String contentTitleWithAppName = mService.getString(R.string.app_name) + ": "
                 + contentTitle;
 
-        mApplyNotification.setLatestEventInfo(context, contentTitleWithAppName, contentText,
-                contentIntent);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(icon).setContentTitle(contentTitleWithAppName)
+                .setContentText(contentText);
 
-        mNotificationManager.notify(APPLY_NOTIFICATION_ID, mApplyNotification);
+        mNotificationManager.notify(APPLY_NOTIFICATION_ID, mBuilder.build());
+
+        mBuilder.setContentIntent(contentIntent);
 
         // update status in BaseActivity with Broadcast
         BaseActivity.setStatusBroadcast(mService, contentTitle, contentText, StatusCodes.CHECKING);
