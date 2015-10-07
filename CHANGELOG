@@ -10,6 +10,7 @@ https://github.com/Free-Software-for-Android/AdAway/issues
 * Add enable IPv6 option which adds ::1 to all hosts entries
 * Improve building hosts file speed by up to 2.5x
 * RevertService uses Target hosts file preference
+* Updates to support Android 6.0 SDK (23)
 
 3.0.2
 * Disable autocorrect/autocomplete for hosts input on whilelist and redirection inputs
