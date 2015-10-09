@@ -100,7 +100,6 @@
   <string name="no_private_file">ไฟล์ส่วนตัวไม่สามารถสร้างได้</string>
   <string name="no_private_file_title">สร้างไฟล์ส่วนตัวล้มเหลว</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">ไม่พบไบนารี่ Su หรือคุณไม่ได้รูทระบบสำหรับ AdAway\n\nจะเกิดขึ้นเมื่อระบบยังไม่ได้รูท.\nสามารถหาข้อมูลเกี่ยวกับการรูทระบบได้ที่ www.cyanogenmod.com หรือเว็บไซต์แอนดรอยอื่นๆ</string>
   <string name="no_root_title">จำเป็นต้องรูท</string>
   <string name="no_url">URL ไม่ถูกต้อง!</string>
   <string name="no_url_title">รูปแบบ URL ไม่ถูกต้อง</string>

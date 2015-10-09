@@ -100,7 +100,6 @@
   <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
   <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Antara file su tidak bisa ditemukan atau anda tidak mengijinkan root untuk AdAway.\n\nIni bisa terjadi jika perangkat anda belum di root.\nAnda bisa mencari informasi tentang cara me root perangkat anda di www.cyanogenmod.org atau situs web Android lain.</string>
   <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
   <string name="no_url">URL tidak valid!</string>
   <string name="no_url_title">URL tidak diformat dengan benar</string>

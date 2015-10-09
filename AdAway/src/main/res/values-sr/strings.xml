@@ -11,9 +11,11 @@
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Otkaži</string>
   <string name="button_apply_text">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
+  <string name="button_revert_text">Vraća podrazumevani hosts fajl na vaš sistem</string>
   <string name="button_save">Sačuvaj</string>
   <string name="button_webserver_toggle_checked">Webserver radi</string>
   <string name="button_webserver_toggle_unchecked">Webserver ne radi</string>
+  <string name="button_webserver_toggle_text">Pokreni ili zaustavi lokalni webserverda odgovoriš na zahteve za blokiranim sajtovima</string>
   <string name="button_help">Pomoć</string>
   <string name="button_tcpdump_text">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump radi!</string>
@@ -38,9 +40,11 @@
   <string name="lists_tab_redirection_list">Lista Redirekcija</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_whitelist_hostname">Stranica:\n(Zamenski karakteri * i ? su dozvoljeni)</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="import_dialog">Uvoz…</string>
   <string name="export_dialog">Izvoz...</string>
+  <string name="export_success">Svi unosi su izvučeni na sd karticu u fajl koji se zove \'adaway-export\'</string>
   <!--Status Notifications-->
   <string name="status_checking">Provera ažuriranja...</string>
   <string name="status_reverting">Vraćanje...</string>
@@ -51,18 +55,23 @@
   <string name="status_no_connection">Nema internet konekcije</string>
   <string name="status_no_connection_subtitle">Nema dostupne internet konekcije</string>
   <string name="status_download_fail">Nedostupni izvori</string>
+  <string name="status_download_fail_subtitle_new">Ne mogu da pristupim ni jednom izvoru hosts fajlova!</string>
   <string name="status_enabled">Omogućeno</string>
   <string name="status_enabled_subtitle">Noviji host-ovi fajlovi omogućeni</string>
   <string name="status_disabled">Onemogućeno</string>
   <string name="status_disabled_subtitle">Onemogućeno</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Simbolički link od tvojeg fajla do /system/etc/hosts ne postoji ili nije dobar. AdAway neće raditi ako ne pokazuje na dobar fajl.\n\nDa li želiš da pokušaš da kreiraš simbolički link?</string>
   <string name="apply_symlink_missing_title">Nedostaje symlink.</string>
+  <string name="apply_not_enough_space">Na particiji nema dovoljno mesta!\nProbaj da promeniš lokaciju hosts fajla u podešavanjima na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Nema dovoljno memorije</string>
   <string name="apply_private_file_fail">Preuzeti fajl nije moguće pročitati.</string>
   <string name="apply_private_file_fail_title">Neuspešno kreiranje privatnog fajla</string>
+  <string name="apply_remount_fail">Remount particije za čitanje/pisanje nije uspelo!</string>
   <string name="apply_remount_fail_title">Remount neuspesan</string>
   <string name="apply_copy_fail">Neuspešno kopiranje host-ovih fajlova!</string>
   <string name="apply_copy_fail_title">Kopiranje neuspešno</string>
+  <string name="apply_success_subtitle">Primenjeni izvori hosts fajla: </string>
   <string name="apply_success_title">Primena uspešna</string>
   <string name="apply_symlink_successful_title">Kreiranje symlink-a uspesno</string>
   <string name="apply_symlink_fail_title">Kreiranje symlink-a bez uspesno</string>
@@ -86,9 +95,12 @@
   <!--Other Dialogs-->
   <string name="no_root_title">Neophodan Root-ovan Android</string>
   <string name="no_url">Ovo nije važeći URL!</string>
+  <string name="no_url_title">Nije dobro formiran URL</string>
   <string name="hosts_add_dialog">Ulazni URL do host-ovih fajlova</string>
   <string name="no_hostname">Ovo nije važeći hostname!</string>
+  <string name="no_hostname_title">Nije dobro formirano ime hosta</string>
   <string name="no_ip">Ovo nije validan IP!</string>
+  <string name="no_ip_title">Nije dobro formiran IP</string>
   <string name="reboot_never_reboot">Nikada ne pokreći ponovo i ne pokazuj ovo pitanje sledeći put!</string>
   <string name="loading">Učitavanje...</string>
   <!--Menu entries-->
@@ -104,6 +116,7 @@
   <string name="menu_export">Izvezi Sve Liste</string>
   <string name="menu_preferences">Podešavanja</string>
   <!--Help-->
+  <string name="help_tab_about">O...</string>
   <string name="help_tab_donate">Doniraj</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Često Postavljena Pitanja</string>
@@ -123,19 +136,42 @@
   <string name="scan_adware_start">Pokreni skeniranje</string>
   <string name="scan_adware_empty">Nisu pronađene aplikacije sa lošim Adware-ima!</string>
   <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Lokalno:</string>
+  <string name="hosts_last_modified_online">Sa interneta;</string>
   <string name="hosts_not_available">nije dostupo</string>
   <!--Other-->
   <string name="app_subtitle">Ad Blocker</string>
   <string name="no_text_editor_title">Nije instaliran uređivač teksta</string>
   <string name="no_file_manager_title">Nije instaliran fajl menadžer</string>
   <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Log fajl je obrisan!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Host je dodat u crnu listu!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Host je dodat u belu listu!</string>
+  <string name="tcpdump_log_context_blacklist">Dodaj u crnu listu</string>
+  <string name="tcpdump_log_context_whitelist">Dodaj u belu listu</string>
+  <string name="tcpdump_log_context_browser">Otvori u pretraživaču</string>
+  <string name="tcpdump_log_empty">Log fajl je prazan!</string>
+  <string name="tcpdump_log_footer">Dugo pritisni host da ga dodaš u crnu ili belu listu!</string>
   <!--Preferences-->
+  <string name="pref_download">Opšta Podešavanja</string>
+  <string name="pref_hosts">Hosts Fajl</string>
+  <string name="pref_redirection_ip">IP adresa za redirekciju</string>
+  <string name="pref_update_check">Proveri nove verzije</string>
+  <string name="pref_apply_method">Odredišni hosts fajl</string>
+  <string name="pref_apply_method_summary">Pre promene ovog podešavanja, pročitaj pomoć o ovoj funkcionalnosti.</string>
+  <string name="pref_redirection_ip_summary">Svi blokirani hostovi su preusmereni na ovu IP adresu.</string>
   <string name="pref_header_preferences">Podešavanja</string>
   <string name="pref_header_preferences_summary">Opšta podešavanja za AdAway</string>
   <string name="pref_never_reboot">Sakrij dijalog ponovnog pokretanja (reboot)</string>
   <string name="pref_webserver_on_boot">Pokreni webserver pri pokretanju</string>
   <string name="pref_webserver_enabled">Omogući webserver</string>
   <string name="pref_webserver">Lokalni Webserver</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Drugi fajl</item>
+  </string-array>
   <string name="pref_update_check_summary">Proveri ažuriranja pri pokretanju AdAway-a</string>
   <string name="pref_update_check_daily">Dnevna proveravanje ažuriranja</string>
   <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>

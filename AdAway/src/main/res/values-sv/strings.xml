@@ -3,21 +3,21 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Avsluta</string>
-  <string name="button_apply">Ladda ner filer och tillämpa annonsblockering</string>
+  <string name="button_apply">Ladda ned filer och tillämpa annonsblockering</string>
   <string name="button_close">Stäng</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nej</string>
   <string name="button_revert">Avaktivera annonsblockering</string>
   <string name="button_add">Lägg till</string>
   <string name="button_cancel">Avbryt</string>
-  <string name="button_apply_text">Alla värdfiler från de förinställda källorna är hämtade, ihopslagna med din egen lista och tillämpad som en värdfil på din enhet.</string>
+  <string name="button_apply_text">Alla värdfiler från de förinställda källorna är hämtade, ihopslagna med dina egna listor och tillämpade som en värdfil på ditt system.</string>
   <string name="button_revert_text">Återställer standardvärdfilen på din enhet</string>
   <string name="button_save">Spara</string>
   <string name="button_webserver_toggle_checked">Webbserver körs</string>
-  <string name="button_webserver_toggle_unchecked">Webbserver körs inte</string>
+  <string name="button_webserver_toggle_unchecked">Webbserver körs ej</string>
   <string name="button_webserver_toggle_text">Starta eller stoppa den lokala webbservern att besvara begäran till blockerade värdnamn.</string>
   <string name="button_help">Hjälp</string>
-  <string name="button_tcpdump_text">Tcpdump är ett verktyg för att övervaka DNS förfrågningar och spara dem i en loggfil. Du kan starta det i bakgrunden, köra program som visar annonser, och efteråt analysera DNS förfrågningarna med hjälp av loggfilen. Möjlig annons server kan då läggas till på din svartlista.</string>
+  <string name="button_tcpdump_text">Tcpdump är ett verktyg för att övervaka DNS-förfrågningar och spara dem i en loggfil. Du kan starta det i bakgrunden, köra program som visar annonser, och efteråt analysera DNS-förfrågningarna med hjälp av loggfilen. Möjlig annonsserver kan då läggas till på din svartlista.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump körs!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump körs inte!</string>
   <string name="button_tcpdump_open">Öppna loggfil</string>
@@ -25,12 +25,12 @@
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Lägg till</string>
   <string name="checkbox_list_empty">Tom lista</string>
-  <string name="checkbox_list_empty_text">Du kan lägga till saker från åtgärdsfältet</string>
+  <string name="checkbox_list_empty_text">Du kan lägga till saker från åtgärdsfältet.</string>
   <string name="checkbox_list_context_delete">Ta bort</string>
-  <string name="checkbox_list_footer">Efter att du har lagt till saker till listan så måste du tillämpa AdAway igen!</string>
-  <string name="checkbox_list_edit_dialog_title">Ändra</string>
-  <string name="checkbox_list_context_title">Ändra post</string>
-  <string name="checkbox_list_context_edit">Ändra</string>
+  <string name="checkbox_list_footer">Efter du har lagt till saker till listan måste du tillämpa AdAway igen!</string>
+  <string name="checkbox_list_edit_dialog_title">Redigera</string>
+  <string name="checkbox_list_context_title">Redigera post</string>
+  <string name="checkbox_list_context_edit">Redigera</string>
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Vitlista</string>
   <string name="lists_tab_blacklist">Svartlista</string>
@@ -40,78 +40,87 @@
   <string name="lists_tab_redirection_list">Omdirigeringslista</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Värdnamn:</string>
+  <string name="list_dialog_whitelist_hostname">Värdnamn:\n(Joker-tecken * och ? är tillåtna!)</string>
   <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerar...</string>
   <string name="export_dialog">Exporterar...</string>
-  <string name="export_success">Exporterade alla poster till en fil som heter \"adaway-export\" på ditt SDCard.</string>
+  <string name="export_success">Exporterade alla poster till en fil med namnet \"adaway-export\" på ditt SD-kort.</string>
   <!--Status Notifications-->
   <string name="status_checking">Letar efter uppdateringar...</string>
   <string name="status_reverting">Återställer...</string>
-  <string name="status_reverting_subtitle">Skapar standard värdfil</string>
+  <string name="status_reverting_subtitle">Skapar standardvärdfil</string>
   <string name="status_checking_subtitle">Kollar om uppdatering finns tillgänglig</string>
   <string name="status_update_available">Uppdatering tillgänglig</string>
   <string name="status_update_available_subtitle">Nyare värdfiler är tillgängliga</string>
   <string name="status_no_connection">Ingen internetanslutning</string>
   <string name="status_no_connection_subtitle">Ingen internetanslutning tillgänglig</string>
   <string name="status_download_fail">Otillgängliga källor</string>
-  <string name="status_download_fail_subtitle_new">Inga värdfils källor nåbara!</string>
+  <string name="status_download_fail_subtitle_new">Inga värdfilskällor nåbara!</string>
   <string name="status_enabled">Aktiverad</string>
-  <string name="status_enabled_subtitle">Nyaste värdfilerna har aktiverats</string>
+  <string name="status_enabled_subtitle">Nyaste värdfilerna aktiverade</string>
   <string name="status_disabled">Avaktiverad</string>
   <string name="status_disabled_subtitle">Avaktiverad</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing_title">Symlink fil saknas</string>
-  <string name="apply_not_enough_space_title">Inte tillräckligt med minne</string>
+  <string name="apply_symlink_missing">Symlink från ditt mål till /system/etc/hosts existerar ej eller är inkorrekt! AdAway kommer inte fungera om den inte pekar på rätt fil.\n\nVill du försöka skapa en symlink?</string>
+  <string name="apply_symlink_missing_title">Symlink saknas</string>
+  <string name="apply_not_enough_space">Inte tillräckligt med utrymme på partitionen!\nFörsök ändra värdfilen i inställningarna till /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">Inte tillräckligt med utrymme</string>
   <string name="apply_private_file_fail">Hämtad fil kunde inte läsas.</string>
-  <string name="apply_private_file_fail_title">Privat fil, fel</string>
-  <string name="apply_remount_fail">Återmontering av partitionen som läs/skriv misslyckades!</string>
+  <string name="apply_private_file_fail_title">Fel med privat fil</string>
+  <string name="apply_remount_fail">Ommontering av partitionen som läs/skriv misslyckades!</string>
   <string name="apply_remount_fail_title">Ommontering misslyckades</string>
   <string name="apply_copy_fail">Kopiering av värdfil misslyckades!</string>
   <string name="apply_copy_fail_title">Kopiering misslyckades</string>
   <string name="apply_success_subtitle">Tillämpade värdkällor:</string>
   <string name="apply_success_title">Tillämpning lyckades</string>
-  <string name="apply_symlink_successful_title">Symlink skapad</string>
-  <string name="apply_symlink_fail_title">Skapande av symlink fil misslyckades</string>
-  <string name="apply_help">Läs Hjälp för mer information</string>
-  <string name="apply_apn_proxy_title">APN proxy inställd!</string>
-  <string name="no_connection">Internetanslutningen fungerar inte.</string>
+  <string name="apply_success_dialog">Tillämpning lyckades.\nDet kan vara nödvändigt att starta om Android för att ändringarna ska få effekt.\n\nVill du starta om nu?\n(För att förhindra dataförlust, se till att ingen applikation använder SD-kortet för tillfället!)</string>
+  <string name="apply_symlink_successful">Symlink skapades utan problem.\nDet kan vara nödvändigt att starta om Android för att ändringarna ska få effekt.\n\nVill du starta om nu?\n(För att förhindra dataförlust, se till att ingen applikation använder SD-kortet för tillfället!)</string>
+  <string name="apply_symlink_successful_title">Symlink skapad utan problem</string>
+  <string name="apply_symlink_fail">Symlink kunde ej skapas av Android.\nDetta fel beror oftast på en \"funktion\" som kallas S-ON på HTC-telefoner!\n\nEn lösning är att boota telefonen i återställningsläge och skapa en symlink därifrån med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nOm detta inte fungerar, sök på internet efter S-OFF och din telefonmodell.</string>
+  <string name="apply_symlink_fail_title">Skapande av symlink misslyckades</string>
+  <string name="apply_help">Läs Hjälp för mer information.</string>
+  <string name="apply_apn_proxy">En APN-proxy är inställd i Android!\nAdAway kommer inte fungera pålitligt på mobila nätverk som 3G. Proxyn kan avaktiveras genom att gå till din inställda APN (I Android 4: Trådlöst och nätverk -&gt; Mer... -&gt; Mobila nätverk -&gt; Åtkomstpunktens namn (APN)) och ta bort värdet i Proxy-fältet.</string>
+  <string name="apply_apn_proxy_title">APN-proxy inställt!</string>
+  <string name="no_connection">Internetanslutningen fungerar ej.</string>
   <string name="no_connection_title">Ingen anslutning</string>
   <string name="download_dialog">Hämtar...</string>
   <string name="apply_dialog">Tillämpar...</string>
-  <string name="apply_dialog_lists">Tillämpa svart- och vitlista</string>
+  <string name="apply_dialog_lists">Tillämpar Svart- och Vitlista</string>
   <string name="apply_dialog_hostnames">Tolkar och slår ihop värdfiler</string>
-  <string name="apply_dialog_hosts">Skapar värdfil</string>
+  <string name="apply_dialog_hosts">Bygger värdfil</string>
   <string name="apply_dialog_apply">TIllämpar värdfil</string>
+  <string name="apply_fail">Tillämpning av värdfil på systemet misslyckades!\nFörsök ändra värdfil i inställningarna till /data/data/hosts.</string>
   <string name="apply_fail_title">Tillämpning misslyckades</string>
+  <string name="revert_successful">Du återställde till standardvärdfilen.\nDet kan vara nödvändigt att starta om Android för att ändringarna ska få effekt.\n\nVill du starta om nu?\n(För att förhindra dataförlust, se till att ingen applikation använder SD-kortet för tillfället!)</string>
   <string name="revert_successful_title">Återställning lyckades</string>
-  <string name="revert_problem">Återställningen misslyckades av okända skäl</string>
+  <string name="revert_problem">Återställningen misslyckades av okända skäl.</string>
   <string name="revert_problem_title">Återställning misslyckades!</string>
   <string name="download_fail_dialog">Ingen av dina aktiva värdkällor kan nås! Är du ansluten till Internet?</string>
   <string name="download_fail_title">Hämtning misslyckades</string>
   <string name="no_private_file">Privat fil kan inte skapas</string>
   <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
   <!--Other Dialogs-->
-  <string name="no_root_title">Rootad enhet krävs</string>
-  <string name="no_url">Det här är ingen giltig URL!</string>
-  <string name="no_url_title">Felaktigt formaterad URL</string>
+  <string name="no_root_title">Rootad Android krävs</string>
+  <string name="no_url">Detta är ingen giltig URL!</string>
+  <string name="no_url_title">Felaktigt utformad URL</string>
   <string name="hosts_add_dialog">Importera URL till värdfil:</string>
-  <string name="no_hostname">Det här är inget giltigt värdnamn!</string>
-  <string name="no_hostname_title">Felaktigt formaterad värdnamn</string>
-  <string name="no_ip">Det här är inte en korrekt ip-adress!</string>
-  <string name="no_ip_title">Felaktigt formaterad IP</string>
-  <string name="reboot_never_reboot">Starta aldrig om och visa inte det här meddelandet nästa gång!</string>
+  <string name="no_hostname">Detta är inget giltigt värdnamn!</string>
+  <string name="no_hostname_title">Felaktigt utformat värdnamn</string>
+  <string name="no_ip">Detta är inte en korrekt ip-adress!</string>
+  <string name="no_ip_title">Felaktigt utformad IP</string>
+  <string name="reboot_never_reboot">Starta aldrig om och visa inte detta meddelande nästa gång!</string>
   <string name="loading">Laddar...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Uppdatera</string>
   <string name="menu_add">Lägg till</string>
   <string name="menu_scan_adware">Sök efter Adware</string>
   <string name="menu_hosts_sources">Värdkällor</string>
-  <string name="menu_tcpdump">Logga DNS Förfrågningar</string>
+  <string name="menu_tcpdump">Logga DNS-förfrågningar</string>
   <string name="menu_help">Hjälp</string>
-  <string name="menu_lists">Din lista</string>
+  <string name="menu_lists">Dina listor</string>
   <string name="menu_show_hosts_file">Öppna värdfil</string>
   <string name="menu_import">Importera alla listor</string>
-  <string name="menu_export">Exportera  alla listor</string>
+  <string name="menu_export">Exportera alla listor</string>
   <string name="menu_preferences">Inställningar</string>
   <!--Help-->
   <string name="help_tab_about">Om</string>
@@ -131,54 +140,66 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Här kan du söka efter Adware-appar som inte AdAway kan blockera. Dessa appar använder till exempel så kallade Airpush meddelande som visas även om appen inte körs. Enda sättet att bli av med dem är att avinstallera apparna genom att klicka i listan!</string>
+  <string name="scan_adware_description">Här kan du söka efter Adware-appar som inte AdAway kan blockera. Dessa appar använder till exempel så kallade Airpush-meddelanden som visas även om appen inte körs. Enda sättet att bli av med dem är att avinstallera apparna genom att klicka i listan!</string>
   <string name="scan_adware_start">Starta sökning</string>
-  <string name="scan_adware_empty">Inga Adwares-appar kunde hittas!</string>
+  <string name="scan_adware_empty">Inga Adware-appar kunde hittas!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
-  <string name="hosts_not_available">inte tillgänglig</string>
+  <string name="hosts_not_available">ej tillgänglig</string>
   <!--Other-->
   <string name="app_subtitle">Annonsblockerare</string>
   <string name="no_text_editor_title">Ingen textredigerare installerad</string>
+  <string name="no_text_editor">Ingen textredigerare kunde hittas för att öppna värdfilen. Du kan installera Jota eller andra textredigerare att hantera detta.\n\nVill du installera Jota nu?</string>
   <string name="no_file_manager_title">Ingen filhanterare installerad</string>
+  <string name="no_file_manager">Ingen filhanterare kunde hittas för att öppna filer. Du kan installera OI File Manager eller andra filhanterare att hantera detta.\n\nVill du installera OI File Manager nu?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Loggfil raderad!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Värdnamn tillagt på svartlistan</string>
-  <string name="toast_tcpdump_added_to_whitelist">Värdnamn tillagt på vitlistan</string>
-  <string name="tcpdump_log_context_blacklist">Lägg till på svart listan</string>
+  <string name="toast_tcpdump_added_to_blacklist">Värdnamn tillagt på svartlistan!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Värdnamn tillagt på vitlistan!</string>
+  <string name="tcpdump_log_context_blacklist">Lägg till på svartlistan</string>
   <string name="tcpdump_log_context_whitelist">Lägg till på vitlistan</string>
-  <string name="tcpdump_log_context_browser">Öppna i Webbläsare</string>
-  <string name="tcpdump_log_empty">Logg filen är tom!</string>
-  <string name="tcpdump_log_footer">Långtryck på ett värdnamn för att lägga till det på svart eller vitlistan!</string>
+  <string name="tcpdump_log_context_browser">Öppna i webbläsare</string>
+  <string name="tcpdump_log_empty">Loggfilen är tom!</string>
+  <string name="tcpdump_log_footer">Långtryck på ett värdnamn för att lägga till det på svart- eller vitlistan!</string>
   <!--Preferences-->
-  <string name="pref_download">Allmänna Inställningar</string>
+  <string name="pref_download">Allmänna inställningar</string>
   <string name="pref_hosts">Värdfil</string>
   <string name="pref_redirection_ip">Omdirigera IP</string>
   <string name="pref_update_check">Sök efter uppdateringar</string>
-  <string name="pref_apply_method">Mål värdfil</string>
-  <string name="pref_apply_method_summary">Innan du ändrar denna inställning läs i hjälpen.</string>
-  <string name="pref_redirection_ip_summary">Alla blockerade värdnamn dirigeras om till den här ip adressen.</string>
+  <string name="pref_apply_method">Värdfil</string>
+  <string name="pref_apply_method_summary">Innan du ändrar denna inställning läs i hjälpen om funktionen.</string>
+  <string name="pref_redirection_ip_summary">Alla blockerade värdnamn dirigeras om till denna IP-adress.</string>
   <string name="pref_header_preferences">Inställningar</string>
   <string name="pref_header_preferences_summary">Allmänna inställningar för AdAway</string>
-  <string name="pref_never_reboot">Göm omstartsruta</string>
-  <string name="pref_never_reboot_summary">Gömmer dialogrutan som frågar om du vill starta om din Android efter lyckad uppdatering</string>
-  <string name="pref_webserver_on_boot">Starta webbserver vid start</string>
-  <string name="pref_webserver_on_boot_summary">Starta webb-servern vid uppstart, lyssna efter lokala IP-adresser</string>
+  <string name="pref_never_reboot">Göm omstartsdialog</string>
+  <string name="pref_never_reboot_summary">Gömmer dialogrutan som frågar om du vill starta om din Android efter lyckad tillämpning</string>
+  <string name="pref_webserver_on_boot">Starta webbserver vid uppstart</string>
+  <string name="pref_webserver_on_boot_summary">Starta webbservern vid uppstart, lyssnande på lokala IP-adresser</string>
   <string name="pref_webserver_enabled">Aktivera webbserver</string>
-  <string name="pref_webserver_enabled_summary">Aktiverar en webbserver som lyssnar på en lokal IP-Adress som svarar på förfrågningar till blockerade värdnamn</string>
+  <string name="pref_webserver_enabled_summary">Aktiverar en webbserver som lyssnar på lokala IP-Adresser för att svara på förfrågningar till blockerade värdnamn</string>
   <string name="pref_webserver">Lokal webbserver</string>
   <string name="pref_custom_target">Anpassat mål</string>
-  <string name="pref_custom_target_summary">Används bara om vald hosts fil är satt till ett eget mål</string>
-  <string name="pref_update_check_summary">Sök efter uppdateringar när appen startas</string>
-  <string name="pref_sdcard_problem">Denna funktion kommer inte att fungera korrekt om AdAway är installerat på sdkortet!</string>
+  <string name="pref_custom_target_summary">Används bara om vald värdfil är satt till ett eget mål</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Custom target</item>
+  </string-array>
+  <string name="pref_update_check_summary">Sök efter uppdateringar när AdAway startas</string>
+  <string name="pref_sdcard_problem">Denna funktion kommer inte fungera korrekt om AdAway är installerat på SD-kortet!</string>
   <string name="pref_background">Bakgrundstjänster</string>
   <string name="pref_update_check_daily">Sök efter uppdateringar dagligen</string>
   <string name="pref_update_check_daily_summary">Sök efter uppdateringar dagligen i bakgrunden, med notifieringar</string>
   <string name="pref_automatic_update_daily">Automatiska uppdateringar</string>
-  <string name="pref_automatic_update_daily_summary">Uppdatera automatisk i bakgrunden om uppdaterignar är tillgängliga.</string>
+  <string name="pref_automatic_update_daily_summary">Uppdatera automatiskt i bakgrunden om uppdateringar är tillgängliga.</string>
   <string name="pref_update_only_on_wifi">Uppdatera endast via WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Starta endast bakgrundsuppdateringar om du är ansluten till ett WiFi-nätverk.</string>
+  <string name="pref_whitelist_rules">Tillåt vitlistning</string>
+  <string name="pref_whitelist_rules_summary">Tillåt vitlistningsposter från värdkällor.</string>
+  <string name="pref_redirection_rules">Tillåt omdirigeringar</string>
+  <string name="pref_redirection_rules_summary">UTGER EN SÄKERHETSRISK! Tillåt omdirigeringsposter från värdkällor.</string>
   <string name="pref_debug">Felsökning</string>
   <string name="pref_enable_debug">Felsökningsloggning</string>
   <string name="pref_enable_debug_summary">Du måste starta om AdAway för att den här inställningen ska börja gälla.</string>

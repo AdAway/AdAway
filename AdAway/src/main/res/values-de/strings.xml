@@ -85,7 +85,7 @@
   <string name="no_connection_title">Keine Verbindung</string>
   <string name="download_dialog">Wird heruntergeladen …</string>
   <string name="apply_dialog">Wird angewendet …</string>
-  <string name="apply_dialog_lists">Negativ- und Positivliste wird angewendet</string>
+  <string name="apply_dialog_lists">Weiße und schwarze Liste werden angewendet</string>
   <string name="apply_dialog_hostnames">Hosts-Dateien werden verarbeitet und zusammengefügt</string>
   <string name="apply_dialog_hosts">Hosts-Datei wird erstellt</string>
   <string name="apply_dialog_apply">Neue Hosts-Datei im System aktivieren</string>
@@ -156,10 +156,10 @@
   <string name="no_file_manager">Es konnte keine Dateiverwaltung gefunden werden, um Dateien zu öffnen. Sie können »OI File Manager« oder eine andere Dateiverwaltungen installieren, um das zu handhaben.\n\n Möchten Sie »OI File Manager« installieren?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Protokolldatei wurde gelöscht!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Der Hostname wurde zu Ihrer Negativliste hinzugefügt!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Der Hostname wurde zu Ihrer Positivliste hinzugefügt!</string>
-  <string name="tcpdump_log_context_blacklist">Zur Negativliste hinzufügen</string>
-  <string name="tcpdump_log_context_whitelist">Zur Positivliste hinzufügen</string>
+  <string name="toast_tcpdump_added_to_blacklist">Der Hostname wurde zu Ihrer schwarzen Liste hinzugefügt!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Der Hostname wurde zu Ihrer weißen Liste hinzugefügt!</string>
+  <string name="tcpdump_log_context_blacklist">Zur schwarzen Liste hinzufügen</string>
+  <string name="tcpdump_log_context_whitelist">Zur weißen Liste hinzufügen</string>
   <string name="tcpdump_log_context_browser">Im Browser öffnen</string>
   <string name="tcpdump_log_empty">Protokolldatei ist leer!</string>
   <string name="tcpdump_log_footer">Einen Eintrag lange gedrückt halten, um ihn zur Negativ- oder Positivliste hinzuzufügen!</string>
@@ -197,11 +197,13 @@
   <string name="pref_automatic_update_daily_summary">Wenn Aktualisierungen verfügbar sind, diese automatisch im Hintergrund installieren.</string>
   <string name="pref_update_only_on_wifi">Aktualisierung nur bei WLAN-Verbindung</string>
   <string name="pref_update_only_on_wifi_summary">Hintergrundaktualisierungen sollen nur bei WLAN-Verbindung heruntergeladen werden.</string>
-  <string name="pref_whitelist_rules">Positivliste erlauben</string>
-  <string name="pref_whitelist_rules_summary">Positivlisteneinträge aus den Hosts-Quellen erlauben.</string>
+  <string name="pref_whitelist_rules">Das auflisten von weißer Liste erlauben</string>
+  <string name="pref_whitelist_rules_summary">Einträge der weißen Liste aus den Hosts-Quellen erlauben.</string>
   <string name="pref_redirection_rules">Weiterleitungen erlauben</string>
   <string name="pref_redirection_rules_summary">STELLT SICHERHEITSRISIKO DAR! Weiterleitungseinträge von Hosts-Quellen erlauben.</string>
   <string name="pref_debug">Fehlerdiagnose</string>
   <string name="pref_enable_debug">Fehlerdiagnoseprotokollierung</string>
   <string name="pref_enable_debug_summary">Sie müssen AdAway neu Starten, damit diese Einstellung genutzt werden kann.</string>
+  <string name="pref_enable_ipv6">IPv6 akitivieren</string>
+  <string name="pref_enable_ipv6_summary">Alle Einträge in der Host-Datei werden einen entsprechenden Eintrag ::1 (IPv6 localhost) erhalten.</string>
 </resources>

@@ -10,14 +10,14 @@
   <string name="button_revert">Deshabilitar bloquéu d\'anuncios</string>
   <string name="button_add">Amestar</string>
   <string name="button_cancel">Encaboxar</string>
-  <string name="button_apply_text">Tolos ficheros hosts de les fontes defeníes tan baxaos, amestaos coles tos propies llistes ya instalaos como un ficheru hosts nel to sistema.</string>
-  <string name="button_revert_text">Restaura\'l ficheru hosts orixinal nel to sistema.</string>
+  <string name="button_apply_text">Tolos ficheros «Hosts» de les fontes defeníes báxense, amiéstense coles tos propies llistes ya instálense como un ficheru «Hosts» nel sistema.</string>
+  <string name="button_revert_text">Restaura\'l ficheru «Hosts» orixinal nel sistema.</string>
   <string name="button_save">Guardar</string>
-  <string name="button_webserver_toggle_checked">El sirvidor web ta executándose</string>
-  <string name="button_webserver_toggle_unchecked">El sirvidor web nun ta executándose</string>
-  <string name="button_webserver_toggle_text">Aniciar o parar el sirvidor web nel agospiu llocal pa responder les peticiones de los nomes d\'agospiu bloquiaos.</string>
+  <string name="button_webserver_toggle_checked">Ta executándose\'l sirvidor web</string>
+  <string name="button_webserver_toggle_unchecked">Nun ta executándose\'l sirvidor web</string>
+  <string name="button_webserver_toggle_text">Anicia o para\'l sirvidor web nel agospiu llocal pa responder les solicitúes a nomes d\'agospiu bloquiaos.</string>
   <string name="button_help">Ayuda</string>
-  <string name="button_tcpdump_text">Tcpdump ye una ferramienta pa monitorizar les peticiones DNS y guardales nun ficheru de rexistru. Pues anicialu de fondu, executar les aplicaciones qu\'amuesen anuncios, y sero analizar les peticiones DNS usando\'l ficheru de rexistru. Ye posible amestar el sirvidor d\'anuncies a la to llista prieta.</string>
+  <string name="button_tcpdump_text">Tcpdump ye una ferramienta pa monitorizar les solicitúes DNS y guardales nun ficheru de rexistru. Pues anicialu de fondu, executar les aplicaciones qu\'amuesen anuncios y sero analizar les solicitúes DNS usando\'l ficheru de rexistru. Ye posible amestar el sirvidor d\'anuncios a la to llista prieta.</string>
   <string name="button_tcpdump_toggle_checked">¡Tcpdump ta executándose!</string>
   <string name="button_tcpdump_toggle_unchecked">¡Tcpdump nun ta executándose!</string>
   <string name="button_tcpdump_open">Abrir ficheru de rexistru</string>
@@ -25,28 +25,29 @@
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Amestar</string>
   <string name="checkbox_list_empty">Llista balera</string>
-  <string name="checkbox_list_empty_text">Pues amestar oxetos dende la barra d\'aiciones.</string>
+  <string name="checkbox_list_empty_text">Pues amestar elementos dende la barra d\'aiciones.</string>
   <string name="checkbox_list_context_delete">Desaniciar</string>
-  <string name="checkbox_list_footer">¡Dempues d\'amestar oxetos nuevos a esta llista tendrás d\'executar AdAway de nueves!</string>
+  <string name="checkbox_list_footer">¡Tienes d\'executar AdAway de nueves dempués d\'amestar elementos nuevos a esta llista!</string>
   <string name="checkbox_list_edit_dialog_title">Editar</string>
-  <string name="checkbox_list_context_title">Amestar entrada</string>
+  <string name="checkbox_list_context_title">Editar entrada</string>
   <string name="checkbox_list_context_edit">Editar</string>
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Llista blanca</string>
   <string name="lists_tab_blacklist">Llista prieta</string>
   <string name="lists_tab_blacklist_short">Prieta</string>
   <string name="lists_tab_whitelist_short">Blanca</string>
-  <string name="lists_tab_redirection_list_short">Redireición</string>
+  <string name="lists_tab_redirection_list_short">Redireiciones</string>
   <string name="lists_tab_redirection_list">Llista de redireición</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nome d\'agospiu:</string>
+  <string name="list_dialog_whitelist_hostname">Nome d\'agospiu:\n(¡Almítense caráuteres comodín * y ? !)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Esportando...</string>
-  <string name="export_success">Esportaes toles entraes al ficheru nomáu \'adaway-export\' na to tarxeta SD.</string>
+  <string name="export_success">Esportáronse toles entraes al ficheru nomáu \'adaway-export\' na to tarxeta SD.</string>
   <!--Status Notifications-->
   <string name="status_checking">Comprobando anovamientos...</string>
-  <string name="status_reverting">Recuperando...</string>
+  <string name="status_reverting">Desfaciendo...</string>
   <string name="status_reverting_subtitle">Creando ficheru hosts estándar</string>
   <string name="status_checking_subtitle">Comprobando si hai anovamientos disponibles</string>
   <string name="status_update_available">Anovamientu disponible</string>
@@ -54,43 +55,71 @@
   <string name="status_no_connection">Ensin conexón d\'internet</string>
   <string name="status_no_connection_subtitle">Ensin conexón d\'internet disponible</string>
   <string name="status_download_fail">Fontes non disponibles</string>
-  <string name="status_download_fail_subtitle_new">¡Nun pue algamase denguna fonte de hosts!</string>
+  <string name="status_download_fail_subtitle_new">¡Nun pue algamase dal fonte d\'agospios!</string>
   <string name="status_enabled">Habilitáu</string>
-  <string name="status_enabled_subtitle">Habilitaos los ficheros hosts más nuevos</string>
+  <string name="status_enabled_subtitle">Habilitáronse los ficheros «hosts» más nuevos</string>
   <string name="status_disabled">Deshabilitáu</string>
   <string name="status_disabled_subtitle">Deshabilitáu</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">¡Nun esiste o ye incorreutu l\'enllaz simbólicu dende\'l to oxetivu a /system/etc/hosts! Adaway nun furrulará si nun ta apuntando al ficheru correutu.\n\n¿Quies crear un enllaz simbólicu?</string>
+  <string name="apply_symlink_missing_title">Falta l\'enllaz simbólicu</string>
+  <string name="apply_not_enough_space">¡Nun hai espaciu abondo na partición!\nIntenta camudar nes preferencies el ficheru «hosts» oxetivu a /data/data/hosts .</string>
   <string name="apply_not_enough_space_title">Nun hai espaciu abondo</string>
-  <string name="apply_private_file_fail">Nun pudo lleese\'l ficheru descargáu.</string>
+  <string name="apply_private_file_fail">Nun pudo lleese\'l ficheru baxáu.</string>
+  <string name="apply_private_file_fail_title">Fallu nel ficheru priváu</string>
+  <string name="apply_remount_fail">¡Fallu remontando la partición como llectura/escritura!</string>
+  <string name="apply_remount_fail_title">Fallu nel remontaxe</string>
+  <string name="apply_copy_fail">¡Fallu copiando\'l ficheru «hosts»!</string>
   <string name="apply_copy_fail_title">Copia fallida</string>
-  <string name="apply_apn_proxy_title">¡Afitáu\'l proxy APN!</string>
+  <string name="apply_success_subtitle">Fontes d\'agospios aplicaes:</string>
+  <string name="apply_success_title">Aplicadura esitosa</string>
+  <string name="apply_success_dialog">L\'aplicadura foi esitosa.\nQuiciabes sía necesario reaniciar Android pa que les camudancies faigan efeutu.\n\n¿Quies reaniciar?\n(¡Pa evitar la perda de datos asegúrate que dal aplicación usa la tarxeta SD nesti momentu!)</string>
+  <string name="apply_symlink_successful">L\'enllaz simbólicu creóse con ésitu.\nQuiciabes sía necesario reaniciar Android pa que les camudancies faigan efeutu.\n\n¿Quies reaniciar?\n(¡Pa evitar la perda de datos asegúrate que dal aplicación usa la tarxeta SD nesti momentu!)</string>
+  <string name="apply_symlink_successful_title">Creación esitosa del enllaz simbólicu</string>
+  <string name="apply_symlink_fail">Android nun pudo crear l\'enllaz simbólicu.\n¡Esto falla, la mayoría de vegaes, pola mor d\'una «carauterística» nomada S-ON nos teléfonos HTC!\n\nUna igua ye arrancar nel recovery del to teléfonu y crear l\'enllaz simbólicu ende con «ln -s /data/data/hosts /system/etc/hosts».\n\nSi nun furrula, gueta n\'internet S-OFF y el to teléfonu.</string>
+  <string name="apply_symlink_fail_title">Fallu na creación d\'enllaz simbólicu</string>
+  <string name="apply_help">Por favor, llei l\'ayuda pa más información.</string>
+  <string name="apply_apn_proxy">¡Afitóse un proxy d\'APN nel to Android!\nAdAway nun furrulará de mou fiable tando en redes móviles como 3G. Pues desactivar esi proxy diendo a la to APN esbillada (n\'Android 4: Conexones inalámbriques y redes -&gt; Más… -&gt; Redes móviles -&gt; APN) y desaniciar el valor nel campu\'l proxy.</string>
+  <string name="apply_apn_proxy_title">¡Afitóse\'l proxy APN!</string>
   <string name="no_connection">La conexón d\'internet nun ta furrulando.</string>
   <string name="no_connection_title">Ensin conexón</string>
   <string name="download_dialog">Baxando...</string>
-  <string name="apply_dialog">Aplicando</string>
+  <string name="apply_dialog">Aplicando...</string>
   <string name="apply_dialog_lists">Aplicando llista prieta y blanca</string>
-  <string name="apply_dialog_hostnames">Analizando y amestando ficheru hosts estándar</string>
-  <string name="apply_dialog_hosts">Construyendo ficheru hosts</string>
-  <string name="apply_dialog_apply">Aplicando ficheru hosts</string>
+  <string name="apply_dialog_hostnames">Analizando y meciendo los ficheros «hosts»</string>
+  <string name="apply_dialog_hosts">Construyendo\'l ficheru «hosts»</string>
+  <string name="apply_dialog_apply">Aplicando\'l ficheru «hosts»</string>
+  <string name="apply_fail">¡Falló l\'aplicadura del ficheru «hosts» nel sistema!\nIntenta camudar nes preferencies el ficheru «hosts» oxetivu a /data/data/hosts.</string>
+  <string name="apply_fail_title">Falló l\'aplicadura</string>
+  <string name="revert_successful">Desfixesti\'l ficheru «hosts» predetermináu.\nQuiciabes sía necesario reaniciar Android pa que les camudancies faigan efeutu.\n\n¿Quies reaniciar?\n(¡Pa evitar la perda de datos asegúrate que dal aplicación usa la taxeta SD nesti momentu!)</string>
+  <string name="revert_successful_title">Desfechura esitosa</string>
+  <string name="revert_problem">Fallu na desfechura pola mor de razones desconocíes.</string>
+  <string name="revert_problem_title">¡Fallu na desfechura!</string>
+  <string name="download_fail_dialog">¡Nun s\'algamó dal fonte de «hosts» de to! ¿De xuru que tas coneutáu afayadizamente a internet?</string>
   <string name="download_fail_title">Descarga fallida</string>
-  <string name="no_private_file">Nun pue criase\'l ficheru priváu.</string>
-  <string name="no_private_file_title">Fallu na criación del ficheru priváu</string>
+  <string name="no_private_file">Nun pue crease\'l ficheru priváu.</string>
+  <string name="no_private_file_title">Fallu na creación del ficheru priváu</string>
   <!--Other Dialogs-->
-  <string name="no_root_title">Requierse permisu root</string>
-  <string name="no_url">¡Esti enllaz nun ye válidu!</string>
+  <string name="no_root_description">Nun pudo alcontrase\'l binariu su o nun permitiesti los permisos root p\'Adaway.\n\nEsto pue pasar cuando\'l to preséu nun ta rootexáu.\nPues alcontrar más información tocante a como rootexar el to preséu en www.cyanogenmod.org u otros sitios web d\'Android.</string>
+  <string name="no_root_title">Riquese\'l permisu root</string>
+  <string name="no_url">¡Esta URL nun ye válida!</string>
+  <string name="no_url_title">URL mal formada</string>
   <string name="hosts_add_dialog">Enllaz d\'entrada al ficheru hosts:</string>
-  <string name="no_hostname">¡Esto nun ye un ficheru de nomes d\'agospiu válidu!</string>
-  <string name="no_ip">¡Nun ye una IP válida!</string>
-  <string name="reboot_never_reboot">¡Nun reaniciar enxamas y nun amosar esta entruga de nueves!</string>
+  <string name="no_hostname">¡Esto nun ye un nome d\'agospiu válidu!</string>
+  <string name="no_hostname_title">Nome d\'agospiu mal formáu</string>
+  <string name="no_ip">¡Esto nun ye una IP válida!</string>
+  <string name="no_ip_title">IP mal formada</string>
+  <string name="reboot_never_reboot">¡Enxamás nun reaniciar y nun amosar esta entruga de nueves!</string>
   <string name="loading">Cargando...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Amestar</string>
+  <string name="menu_scan_adware">Escaniar adware</string>
   <string name="menu_hosts_sources">Fontes de hosts</string>
   <string name="menu_tcpdump">Rexistrar peticiones DNS</string>
   <string name="menu_help">Ayuda</string>
-  <string name="menu_lists">Les llistes de to</string>
-  <string name="menu_show_hosts_file">Abrir ficheru hosts</string>
+  <string name="menu_lists">Les tos llistes</string>
+  <string name="menu_show_hosts_file">Abrir ficheru «hosts»</string>
   <string name="menu_import">Importar toles llistes</string>
   <string name="menu_export">Esportar toles llistes</string>
   <string name="menu_preferences">Preferencies</string>
@@ -112,36 +141,69 @@
     <item>13 Euros</item>
   </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Equí pues escaniar aplicaciones adware que nun puen bloquiase pente AdAway. Estes aplicaciones usen por exemplu, avisos airpush qu\'emerxen incluso cuando nun tán n\'execución amás de camudar, quiciabes, el to tonu de llamada. ¡La única midida disponible ye desinstalar eses aplicaciones primiendo nos elmentos la llista!</string>
   <string name="scan_adware_start">Entamar escanéu</string>
+  <string name="scan_adware_empty">¡Nun s\'alcontraron aplicaciones d\'adware!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Llocal:</string>
   <string name="hosts_last_modified_online">En llinia:</string>
   <string name="hosts_not_available">non disponible</string>
   <!--Other-->
-  <string name="app_subtitle">Bloquiador d\'anuncies</string>
-  <string name="no_text_editor_title">Nun hai un editor de testos instaláu</string>
+  <string name="app_subtitle">Bloquiador d\'anuncios</string>
+  <string name="no_text_editor_title">Nun hai dal editor de testos instaláu</string>
+  <string name="no_text_editor">Nun pudo alcontrase dal editor de testos p\'abrir el ficheru «hosts». Pues instalar Jota u otros pa remanar esto.\n\n¿Quies instalar Jota?</string>
+  <string name="no_file_manager_title">Nun hai instaláu dal xestor de ficheros</string>
+  <string name="no_file_manager">Nun pudo alcontrase dal xestor de ficheros. Pues instalar OI File Manager u otros pa remanar esto.\n\n¿Quies instalar OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="tcpdump_log_context_blacklist">Amestar a la llista prieta</string>
-  <string name="tcpdump_log_context_whitelist">Amestar a la llista blanca</string>
+  <string name="toast_tcpdump_log_deleted">¡Desanicióse\'l ficheru de rexistru!</string>
+  <string name="toast_tcpdump_added_to_blacklist">¡Amestóse\'l nome d\'agospiu a la to llista prieta!</string>
+  <string name="toast_tcpdump_added_to_whitelist">¡Amestóse\'l nome d\'agospiu a la to llista blanca!</string>
+  <string name="tcpdump_log_context_blacklist">Amestar a la to llista prieta</string>
+  <string name="tcpdump_log_context_whitelist">Amestar a la to llista blanca</string>
   <string name="tcpdump_log_context_browser">Abrir nel restolador</string>
-  <string name="tcpdump_log_empty">¡El ficheru de rexistru ta baleru!</string>
+  <string name="tcpdump_log_empty">¡Ta baleru\'l ficheru de rexistru!</string>
+  <string name="tcpdump_log_footer">¡Calcu llargu nun nome d\'agospiu p\'amestalu a la to llista prieta o blanca!</string>
   <!--Preferences-->
   <string name="pref_download">Preferencies xenerales</string>
-  <string name="pref_hosts">Ficheru Hosts</string>
+  <string name="pref_hosts">Ficheru «hosts»</string>
   <string name="pref_redirection_ip">Redireición d\'IP</string>
   <string name="pref_update_check">Comprobar anovamientos</string>
-  <string name="pref_redirection_ip_summary">Tolos nomes d\'equipu redireicionaránse a esta direición IP.</string>
+  <string name="pref_apply_method">Ficheru «hosts» oxetivu</string>
+  <string name="pref_apply_method_summary">Enantes de camudar esti axuste, llei l\'ayuda tocante a esta funcionalidá.</string>
+  <string name="pref_redirection_ip_summary">Redireicionaránse a esta direición IP tolos nomes d\'agospiu.</string>
   <string name="pref_header_preferences">Preferencies</string>
-  <string name="pref_header_preferences_summary">Preferencies xenerales pa AdAway</string>
+  <string name="pref_header_preferences_summary">Preferencies xenerales p\'AdAway</string>
   <string name="pref_never_reboot">Anubrir dialogu de reaniciu</string>
+  <string name="pref_never_reboot_summary">Anubre\'l diálogu qu\'entruga pol reaniciu d\'Android dempués d\'aplicar les camudancies con ésitu.</string>
+  <string name="pref_webserver_on_boot">Habilitar sirvidor web nel arranque</string>
+  <string name="pref_webserver_on_boot_summary">Anicia\'l sirvidor web nel arranque escuchando nes direiciones IP llocales</string>
   <string name="pref_webserver_enabled">Habilitar sirvidor web</string>
-  <string name="pref_webserver">Habilitar sirvidor web</string>
+  <string name="pref_webserver_enabled_summary">Habilita\'l sirvidor web escuchando nes direiciones IP llocales pa responder a les solicitúes de nomes d\'agospiu bloquiaos</string>
+  <string name="pref_webserver">Sirvidor web llocal</string>
   <string name="pref_custom_target">Oxetivu personalizáu</string>
-  <string name="pref_sdcard_problem">¡Esta carauterística nun furrula correcho entrín AdAway tea instaláu na tarxeta SD!</string>
+  <string name="pref_custom_target_summary">Úsase namái si\'l ficheru «hosts» oxetivu ta afitáu como oxetivu personalizáu</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Oxetivu personalizáu</item>
+  </string-array>
+  <string name="pref_update_check_summary">Comprueba anovamientos nel aniciu d\'AdAway</string>
+  <string name="pref_sdcard_problem">¡Esta carauterística nun furrula correutamente entrín AdAway tea instaláu na tarxeta SD!</string>
   <string name="pref_background">Servicios de fondu</string>
   <string name="pref_update_check_daily">Comprobar caldía anovamientos</string>
-  <string name="pref_automatic_update_daily">Anovación automática</string>
-  <string name="pref_update_only_on_wifi">Anovar solo per WiFi</string>
+  <string name="pref_update_check_daily_summary">Comprueba de fondu con avisos anovamientos caldía</string>
+  <string name="pref_automatic_update_daily">Anovamientu automáticu</string>
+  <string name="pref_automatic_update_daily_summary">Anueva automáticamente de fondu si tán disponibles anovamientos.</string>
+  <string name="pref_update_only_on_wifi">Anovar namái per Wi-Fi</string>
+  <string name="pref_update_only_on_wifi_summary">Executa los anovamientos de fondu namái al tar coneutáu a una rede wifi.</string>
+  <string name="pref_whitelist_rules">Permitir llista blanca</string>
+  <string name="pref_whitelist_rules_summary">Permite la llista blanca de les fontes de «hosts»</string>
+  <string name="pref_redirection_rules">Permitir redireiciones</string>
+  <string name="pref_redirection_rules_summary">¡PLANTEGA RIESGU DE SEGURANZA! Permite la redireición d\'entraes dende les fontes de «hosts»</string>
   <string name="pref_debug">Depuración</string>
+  <string name="pref_enable_debug">Rexistru de depuración</string>
   <string name="pref_enable_debug_summary">Necesites reaniciar AdAway pa qu\'esti axuste faiga efeutu.</string>
+  <string name="pref_enable_ipv6">Habilitar IPv6</string>
+  <string name="pref_enable_ipv6_summary">Toles entraes del ficheru «hosts» consiguirán una entrada ::1 (localhost d\'IPv6) correspondiente.</string>
 </resources>

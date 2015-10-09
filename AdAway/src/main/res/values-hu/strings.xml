@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway HU</string>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
-  <string name="button_exit">Kilép</string>
+  <string name="button_exit">Kilépés</string>
   <string name="button_apply">Fájlok letöltése és hirdetés blokkolás alkalmazása</string>
   <string name="button_close">Bezár</string>
   <string name="button_yes">Igen</string>
   <string name="button_no">Nem</string>
   <string name="button_revert">Hirdetés blokkolás tiltása</string>
   <string name="button_add">Új</string>
-  <string name="button_cancel">Mégsem</string>
+  <string name="button_cancel">Mégse</string>
   <string name="button_apply_text">Minden host fájlt letölt a kijelölt forrásokból, összefűzi a saját listákkal és egyetlen host fájlként telepíti a rendszerre.</string>
   <string name="button_revert_text">Visszaállítja az alapértelmezett host fájlt.</string>
   <string name="button_save">Ment</string>
@@ -112,7 +112,6 @@ Ha ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</s
   <string name="no_private_file">Privát fájl nem hozható létre.</string>
   <string name="no_private_file_title">Privát fájl létrehozása sikertelen.</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">\"Vagy az su bináris nem található, vagy nem engedélyeztük a root jogot az AdAway számára.</string>
   <string name="no_root_title">Rootolt rendszer szükséges</string>
   <string name="no_url">Ez nem érvényes URL cím!</string>
   <string name="no_url_title">Helytelenül formázott URL</string>
@@ -211,4 +210,5 @@ Szeretné telepíteni az OI File Manager-t?</string>
   <string name="pref_debug">Hibakeresés</string>
   <string name="pref_enable_debug">Hibakeresés naplózása</string>
   <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>
+  <string name="pref_enable_ipv6">IPv6 engedélyezése</string>
 </resources>

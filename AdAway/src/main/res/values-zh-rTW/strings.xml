@@ -100,7 +100,7 @@
   <string name="no_private_file">不能建立私人檔案。</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">沒有找到 su 執行檔或者你沒有允許 AdAway 的 root 權限。 這可能是因為你的設備沒有 root。 你可以到 www.cyanogenmod.org 或者其他 Android 網站去找到如何 root 你的設備方法。</string>
+  <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 www.cyanogenmod.org 或其他相關的 Android 網站取得相關資訊。</string>
   <string name="no_root_title">需要 root 權限</string>
   <string name="no_url">URL 無效！</string>
   <string name="no_url_title">URL 格式錯誤</string>
@@ -205,4 +205,6 @@
   <string name="pref_debug">除錯</string>
   <string name="pref_enable_debug">除錯記錄</string>
   <string name="pref_enable_debug_summary">需要重新啟動 AdAway 使設定生效。</string>
+  <string name="pref_enable_ipv6">啟用 IPv6</string>
+  <string name="pref_enable_ipv6_summary">所有的 host 檔案項目將取得相同的 ::1 (IPv6 本地端) 項目。</string>
 </resources>

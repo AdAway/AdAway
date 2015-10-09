@@ -57,7 +57,7 @@
   <string name="status_download_fail">Fontes indisponíveis</string>
   <string name="status_download_fail_subtitle_new">Impossível aceder às fontes de hosts!</string>
   <string name="status_enabled">Ativado</string>
-  <string name="status_enabled_subtitle">Novos ficheiros de hosts ativados</string>
+  <string name="status_enabled_subtitle">Os ficheiros de hosts mais recentes estão ativos</string>
   <string name="status_disabled">Desativado</string>
   <string name="status_disabled_subtitle">Desativado</string>
   <!--Apply and Revert Dialogs-->
@@ -100,7 +100,7 @@
   <string name="no_private_file">Impossível criar ficheiro privado.</string>
   <string name="no_private_file_title">Falha ao criar ficheiro privado</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">O binário su não foi encontrado ou não concedeu permissão de root ao AdAway.\n\nIsto pode acontecer quando o seu dispositivo não tem root.\nPode encontrar informações sobre como fazer root ao seu dispositivo em www.cyanogenmod.org ou noutros websites sobre Android.</string>
+  <string name="no_root_description">O binário su não foi encontrado ou não concedeu permissões de root ao AdAway.\n\nIsto pode acontecer quando o seu dispositivo não possui root.\nPode encontrar informações sobre como fazer root ao seu dispositivo em www.cyanogenmod.org ou noutros websites sobre Android.</string>
   <string name="no_root_title">É necessário um Android com root</string>
   <string name="no_url">Este não é um URL válido!</string>
   <string name="no_url_title">URL incorretamente formatado</string>
@@ -204,4 +204,6 @@
   <string name="pref_debug">Depuração</string>
   <string name="pref_enable_debug">Registo de depuração</string>
   <string name="pref_enable_debug_summary">Precisa de reiniciar o AdAway para que esta definição entre em efeito.</string>
+  <string name="pref_enable_ipv6">Ativar IPv6</string>
+  <string name="pref_enable_ipv6_summary">Todas as entradas no ficheiro de hosts ficarão com uma entrada ::1 (localhost em IPv6) correspondente.</string>
 </resources>
