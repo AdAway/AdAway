@@ -1,1 +1,0 @@
-IP6 (hlim 64, next-header UDP (17) payload length: 101) fe80::20c:29ff:fe9b:a15d.547 > fe80::20c:29ff:fe38:f368.546: [udp sum ok] dhcp6 reply (xid=aa56ce (client-ID hwaddr/time type 1 time 418384703 000c2938f368) (server-ID hwaddr/time type 1 time 418354459 000c299ba153) (DNS-search-list example.com. sales.example.com. eng.example.com.))

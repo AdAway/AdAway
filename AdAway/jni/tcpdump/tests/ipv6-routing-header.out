@@ -1,4 +1,0 @@
-IP6 (hlim 4, next-header Routing (43) payload length: 32) 2200::244:212:3fff:feae:22f7 > 2200::240:2:0:0:4: srcrt (len=2, type=0, segleft=1, rsv=0x0, [0]2200::210:2:0:0:4) [icmp6 sum ok] ICMP6, echo request, seq 0
-IP6 (hlim 5, next-header Routing (43) payload length: 48) 2200::244:212:3fff:feae:22f7 > 2200::211:2:0:0:2: srcrt (len=4, type=0, segleft=2, rsv=0x0, [0]2200::210:2:0:0:4, [1]2200::240:2:0:0:4) [icmp6 sum ok] ICMP6, echo request, seq 0
-IP6 (hlim 4, next-header Routing (43) payload length: 32) 2200::244:212:3fff:feae:22f7 > 2200::240:2:0:0:4: srcrt (len=2, type=0, segleft=1, rsv=0x0, [0]2200::210:2:0:0:4) 5645 > 5642: [udp sum ok] UDP, length 0
-IP6 (hlim 5, next-header Routing (43) payload length: 48) 2200::244:212:3fff:feae:22f7 > 2200::211:2:0:0:2: srcrt (len=4, type=0, segleft=2, rsv=0x0, [0]2200::210:2:0:0:4, [1]2200::240:2:0:0:4) 5645 > 5642: [udp sum ok] UDP, length 0

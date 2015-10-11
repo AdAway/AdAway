@@ -1,8 +1,0 @@
-IP (tos 0x0, ttl 255, id 350, offset 0, flags [none], proto PIM (103), length 128)
-    192.168.0.6 > 192.168.1.254: PIMv2, length 108
-	Register, cksum 0xdeff (correct), Flags [ none ]
-	IP (tos 0x0, ttl 254, id 15, offset 0, flags [none], proto ICMP (1), length 100)
-    192.168.20.10 > 239.1.2.3: ICMP echo request, id 3, seq 0, length 80
-IP (tos 0xc0, ttl 255, id 642, offset 0, flags [none], proto PIM (103), length 38)
-    192.168.1.254 > 192.168.0.6: PIMv2, length 18
-	Register Stop, cksum 0x1628 (correct) group=239.1.2.3 source=192.168.20.10
