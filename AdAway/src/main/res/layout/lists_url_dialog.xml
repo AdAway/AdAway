@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:inputType="textUri"
         android:singleLine="true"
+        android:inputType="textVisiblePassword"
         android:scrollHorizontally="true" />
 
 </LinearLayout>
