@@ -32,7 +32,7 @@ import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
 
 import android.app.AlertDialog;
-import android.app.Notification;
+import android.support.v4.app.NotificationCompat;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -356,7 +356,7 @@ public class ResultHelper {
      * @param contentText
      */
     private static void showResultNotification(Context context, String contentTitle,
-                                               String contentText, int applyingResult, String failingUrl) {
+                                        String contentText, int applyingResult, String failingUrl) {
         NotificationManager notificationManager = (NotificationManager) context
                 .getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -366,8 +366,9 @@ public class ResultHelper {
         // add app name to title
         contentTitle = context.getString(R.string.app_name) + ": " + contentTitle;
 
-        Notification notification = new Notification(icon, contentTitle, when);
-        notification.flags = Notification.FLAG_AUTO_CANCEL;
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+            .setSmallIcon(icon).setWhen(when).setAutoCancel(true).setContentTitle(contentTitle)
+                .setContentText(contentText);
 
         Intent notificationIntent = new Intent(context, BaseActivity.class);
 
@@ -378,9 +379,9 @@ public class ResultHelper {
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
-        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
+        mBuilder.setContentIntent(contentIntent);
 
-        notificationManager.notify(RESULT_NOTIFICATION_ID, notification);
+        notificationManager.notify(RESULT_NOTIFICATION_ID, mBuilder.build());
     }
 
     /**

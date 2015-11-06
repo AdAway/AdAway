@@ -1,5 +1,35 @@
 Please report bugs on the following website instead of writing bad reviews:
-https://github.com/dschuermann/ad-away/issues
+https://github.com/Free-Software-for-Android/AdAway/issues
+
+3.1
+* Add 64bit arch which allows tcpdump to run on those devices
+* Adjust scan adware list and stop it from crashing
+* Update libpcap to 1.7.4 release
+* Update tcpdump to 4.7.4 release
+* Update mongoose internal webserver to 6.0 release and add IPv6 support
+* Add enable IPv6 option which adds ::1 to all hosts entries
+* Improve building hosts file speed by up to 2.5x
+* RevertService uses Target hosts file preference
+* Updates to support Android 6.0 SDK (23)
+
+3.0.2
+* Disable autocorrect/autocomplete for hosts input on whilelist and redirection inputs
+* Allow two pane layout as long as min of 600dp width available regardless of orientation
+* Add material colored status icons
+* Adjust asset layout per latest development guidelines
+* Minor other adjustments
+
+3.0.1
+* Make some text fields single line - by Phoenix09
+* Make daily update time randomized within a range
+* Minor fixes 
+* Adjust hosts-file.net default source URL
+
+3.0
+This release has mainly been done by 0-kaladin.
+
+* Min Android version increased to Android 4.1 to support Position Independent Executables (PIE)
+* Material design
 
 2.9.2
 This release has mainly been done by Dāvis Mošenkovs.

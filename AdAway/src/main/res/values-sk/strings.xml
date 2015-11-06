@@ -3,18 +3,207 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Ukončiť</string>
+  <string name="button_apply">Stiahnuť súbory a povoliť blokovanie reklám</string>
+  <string name="button_close">Zavrieť</string>
   <string name="button_yes">Áno</string>
   <string name="button_no">Nie</string>
+  <string name="button_revert">Zakázať blokovanie reklám</string>
+  <string name="button_add">Pridať</string>
+  <string name="button_cancel">Zrušiť</string>
+  <string name="button_apply_text">Všetky hosts súbory z vybraných zdrojov budú stiahnuté, zlúčené s vašimi zoznamami a nainštalované ako jeden hosts súbor do vášho systému.</string>
+  <string name="button_revert_text">Obnoví pôvodný hosts súbor vo vašom systéme.</string>
+  <string name="button_save">Uložiť</string>
+  <string name="button_webserver_toggle_checked">Webserver je spustený</string>
+  <string name="button_webserver_toggle_unchecked">Webserver je zastavený</string>
+  <string name="button_webserver_toggle_text">Spustiť alebo zastaviť webserver pre odpovedanie na žiadosti pre blokované adresy.</string>
+  <string name="button_help">Pomoc</string>
+  <string name="button_tcpdump_text">Tcpdump je nástroj na monitorovanie DNS žiadostí a ich ukladanie do záznamu. Môžete ho spustiť na pozadí, spustiť aplikáciu, ktorá zobrazuje reklamy a potom analyzovať DNS požiadavky pomocou záznamu. Adresy serverov s reklamami si potom môžete pridať do čiernej listiny.</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump je spustený!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump je zastavený!</string>
+  <string name="button_tcpdump_open">Otvoriť záznam</string>
+  <string name="button_tcpdump_delete">Vymazať záznam</string>
   <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Pridať</string>
+  <string name="checkbox_list_empty">Prázdny zoznam</string>
+  <string name="checkbox_list_empty_text">Položku môžete pridať cez hornú lištu s tlačidlami.</string>
+  <string name="checkbox_list_context_delete">Vymazať</string>
+  <string name="checkbox_list_footer">Po pridaní novej položky do zoznamu musíte znova povoliť AdAway!</string>
+  <string name="checkbox_list_edit_dialog_title">Upraviť</string>
+  <string name="checkbox_list_context_title">Upraviť položku</string>
+  <string name="checkbox_list_context_edit">Upraviť</string>
   <!--Your Lists-->
+  <string name="lists_tab_whitelist">Biela listina</string>
+  <string name="lists_tab_blacklist">Čierna listina</string>
+  <string name="lists_tab_blacklist_short">Čierna</string>
+  <string name="lists_tab_whitelist_short">Biela</string>
+  <string name="lists_tab_redirection_list_short">Presmerovania</string>
+  <string name="lists_tab_redirection_list">Presmerovania</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">Adresa:</string>
+  <string name="list_dialog_whitelist_hostname">Adresa:\n(Zástupné znaky * a ? sú povolené!)</string>
+  <string name="list_dialog_ip">IP (IPv4 alebo IPv6):</string>
+  <string name="import_dialog">Importovanie…</string>
+  <string name="export_dialog">Exportovanie…</string>
+  <string name="export_success">Všetky položky uložené do súboru \'adaway-export\' na SD karte.</string>
   <!--Status Notifications-->
+  <string name="status_checking">Kontrolovanie aktualizácií…</string>
+  <string name="status_reverting">Obnovovanie…</string>
+  <string name="status_reverting_subtitle">Vytváranie štandardného hosts súboru</string>
+  <string name="status_checking_subtitle">Kontrola dostupnosti aktualizácie</string>
+  <string name="status_update_available">Aktualizácia dostupná</string>
+  <string name="status_update_available_subtitle">Sú dostupné novšie hosts súbory</string>
+  <string name="status_no_connection">Bez internetového pripojenia</string>
+  <string name="status_no_connection_subtitle">Internetové pripojenie nie je dostupné</string>
+  <string name="status_download_fail">Nedostupné zdroje</string>
+  <string name="status_download_fail_subtitle_new">Nie sú dostupné žiadne hosts zdroje!</string>
+  <string name="status_enabled">Povolené</string>
+  <string name="status_enabled_subtitle">Máte najnovšie hosts súbory</string>
+  <string name="status_disabled">Zakázané</string>
+  <string name="status_disabled_subtitle">Zakázané</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Odkaz z vášho cieľa do /system/etc/hosts neexistuje alebo je nesprávny! AdAway nebude fungovať, pokiaľ odkaz nebude smerovať na správny súbor.\n\nChcete sa pokúsiť vytvoriť odkaz?</string>
+  <string name="apply_symlink_missing_title">Odkaz chýba</string>
+  <string name="apply_not_enough_space">Nedostatok miesta na partícii!\nSkúste zmeniť umiestnenie hosts súboru v nastaveniach na /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">Nedostatok miesta</string>
+  <string name="apply_private_file_fail">Stiahnutý súbor sa nedá čítať</string>
+  <string name="apply_private_file_fail_title">Chyba v súkromnom súbore</string>
+  <string name="apply_remount_fail">Znovupripojenie partície na čítanie aj zápis zlyhalo!</string>
+  <string name="apply_remount_fail_title">Znovupripojenie zlyhalo</string>
+  <string name="apply_copy_fail">Kopírovanie hosts súboru zlyhalo!</string>
+  <string name="apply_copy_fail_title">Kopírovanie zlyhalo</string>
+  <string name="apply_success_subtitle">Použité zdroje:</string>
+  <string name="apply_success_title">Aplikovanie úspešné</string>
+  <string name="apply_success_dialog">Aplikovanie bolo úspešné.\nJe potrebné reštartovať zariadenie aby sa zmeny prejavili.\n\nChcete reštartovať?\n(Aby ste zabránili strate dát, uistite sa, že momentálne žiadna aplikácia nepoužíva kartu SD!)</string>
+  <string name="apply_symlink_successful">Odkaz bol úspešne vytvorený\nJe potrebné reštartovať zariadenie aby sa zmeny prejavili.\n\nChcete reštartovať?\n(Aby ste zabránili strate dát, uistite sa, že momentálne žiadna aplikácia nepoužíva kartu SD!)</string>
+  <string name="apply_symlink_successful_title">Vytvorenie odkazu úspešné</string>
+  <string name="apply_symlink_fail">Odkaz nie je možné vytvoriť.\nTo sa najčastejšie stáva kvôli \"funkcii\" zvanej S-ON na HTC zariadeniach!\n\nRiešením je spustiť zariadenie do recovery a vytvoriť odkaz tam pomocou \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAk to nepomôže, vyhľadajte na internete informácie o S-OFF pre vaše zariadenie.</string>
+  <string name="apply_symlink_fail_title">Vytvorenie odkazu zlyhalo</string>
+  <string name="apply_help">Prosím, pre viac informácií si prečítajte Pomoc.</string>
+  <string name="apply_apn_proxy">Na zariadení je nastavené APN proxy!\nAdAway nebude správne fungovať na mobilných sieťach, napr. 3G. Proxy môžete deaktivovať v nastaveniach APN (na Android 4: Nastavenia -&gt; Viac... -&gt; Mobilné siete -&gt; Názvy prístupových bodov) a vymazaním hodnoty v políšku Server proxy.</string>
+  <string name="apply_apn_proxy_title">Nastavené APN proxy!</string>
+  <string name="no_connection">Pripojenie k internetu nefunguje.</string>
+  <string name="no_connection_title">Bez pripojenia</string>
+  <string name="download_dialog">Sťahovanie…</string>
+  <string name="apply_dialog">Aplikovanie…</string>
+  <string name="apply_dialog_lists">Aplikovanie čiernej a bielej listiny</string>
+  <string name="apply_dialog_hostnames">Analyzovanie a zlučovanie hosts súborov</string>
+  <string name="apply_dialog_hosts">Vytváranie hosts súboru</string>
+  <string name="apply_dialog_apply">Aplikovanie hosts súboru</string>
+  <string name="apply_fail">Aplikovanie hosts súboru do vašeho systému zlyhalo!\nSkúste zmeniť umiestnenie hosts súboru v nastaveniach na /data/data/hosts.</string>
+  <string name="apply_fail_title">Aplikovanie zlyhalo</string>
+  <string name="revert_successful">Vrátili ste sa k pôvodnému hosts súboru.\nJe potrebné reštartovať zariadenie aby sa zmeny prejavili.\n\nChcete reštartovať?\n(Aby ste zabránili strate dát, uistite sa, že momentálne žiadna aplikácia nepoužíva kartu SD!)</string>
+  <string name="revert_successful_title">Obnovenie úspešné</string>
+  <string name="revert_problem">Obnovenie zlyhalo z neznámeho dôvodu.</string>
+  <string name="revert_problem_title">Obnovenie zlyhalo!</string>
+  <string name="download_fail_dialog">Žiadne z vašich povolených hosts zdrojov nie je dostupný! Ste správne pripojený k internetu?</string>
+  <string name="download_fail_title">Sťahovanie zlyhalo</string>
+  <string name="no_private_file">Súkromný súbor nemožno vytvoriť.</string>
+  <string name="no_private_file_title">Vytváranie súboru zlyhalo</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">SU binárny súbor nebol nájdený alebo ste nepovolili root oprávnenia pre AdAway.\n\nToto sa môže stať, ak vaše zariadenie nie je rootnuté\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke www.cyanogenmod.org alebo na inej stránke o zariadeniach s Androidom.</string>
+  <string name="no_root_title">Je potrebné rootnuté zariadenie</string>
+  <string name="no_url">Toto nie je platná URL!</string>
+  <string name="no_url_title">Nesprávne formulovaná URL</string>
+  <string name="hosts_add_dialog">Zadajte URL k hosts súboru:</string>
+  <string name="no_hostname">Toto nie je platná adresa!</string>
+  <string name="no_hostname_title">Nesprávne formulovaná adresa</string>
+  <string name="no_ip">Toto nie je platná IP!</string>
+  <string name="no_ip_title">Nesprávne formulovaná IP</string>
+  <string name="reboot_never_reboot">Nereštartovať a túto otázku už nezobrazovať!</string>
+  <string name="loading">Načítavanie…</string>
   <!--Menu entries-->
+  <string name="menu_refresh">Obnoviť</string>
+  <string name="menu_add">Pridať</string>
+  <string name="menu_scan_adware">Vyhľadať Adware</string>
+  <string name="menu_hosts_sources">Hosts zdroje</string>
+  <string name="menu_tcpdump">Zaznamenať DNS žiadosti</string>
+  <string name="menu_help">Pomoc</string>
+  <string name="menu_lists">Vaše zoznamy</string>
+  <string name="menu_show_hosts_file">Otvoriť súbor hosts</string>
+  <string name="menu_import">Importovať zoznamy</string>
+  <string name="menu_export">Exportovať zoznamy</string>
+  <string name="menu_preferences">Nastavenia</string>
   <!--Help-->
+  <string name="help_tab_about">O aplikácii</string>
+  <string name="help_tab_donate">Podporiť</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">Problémy</string>
+  <string name="help_tab_changelog">Zoznam zmien</string>
+  <string name="help_about_version">Verzia:</string>
+  <string name="help_donation_paypal_item">Dar pre AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Eurá</item>
+    <item>3 Eurá</item>
+    <item>5 Eur</item>
+    <item>8 Eur</item>
+    <item>13 Eur</item>
+  </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Tu môžete vyhľadať Adware aplikácie, ktoré AdAway nemôže zablokovať. Tieto aplikácie používajú napríklad Airpush upozornenia, ktoré sa zobrazujú aj keď aplikácia nie je spustená alebo vám môžu zmeniť zvonenie. Jediné dostupné protiopatrenie je odinštalovať tieto aplikácie kliknutím na položku v zozname!</string>
+  <string name="scan_adware_start">Spustiť vyhľadávanie</string>
+  <string name="scan_adware_empty">Neboli nájdené žiadne Adware aplikácie!</string>
   <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Použité:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">nie je dostupné</string>
   <!--Other-->
+  <string name="app_subtitle">Blokovanie reklám</string>
+  <string name="no_text_editor_title">Nie je nainštalovaný žiadny textový editor</string>
+  <string name="no_text_editor">Nebol nájdený žiadny textový editor na otvorenie hosts súboru. Môžete nainštalovať aplikáciu Jota alebo iný textový editor.\n\nChcete nainštalovať aplikáciu Jota?</string>
+  <string name="no_file_manager_title">Nie je nainštalovaný žiadny správca súborov</string>
+  <string name="no_file_manager">Nebol nájdený žiadny správca súborov na otvorenie súborov. Môžete nainštalovať aplikáciu OI File Manager alebo iného správcu súborov.\n\nChcete nainštalovať aplikáciu OI File Manager?</string>
   <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Záznam vymazaný!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Adresa bola pridaná do vašej čiernej listiny!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Adresa bola pridaná do vašej bielej listiny!</string>
+  <string name="tcpdump_log_context_blacklist">Pridať do čiernej listiny</string>
+  <string name="tcpdump_log_context_whitelist">Pridať do bielej listiny</string>
+  <string name="tcpdump_log_context_browser">Otvoriť v prehliadači</string>
+  <string name="tcpdump_log_empty">Záznam je prázdny!</string>
+  <string name="tcpdump_log_footer">Podržte dlho na adrese pre pridanie do čiernej alebo bielej listiny!</string>
   <!--Preferences-->
+  <string name="pref_download">Všeobecné nastavenia</string>
+  <string name="pref_hosts">Hosts súbor</string>
+  <string name="pref_redirection_ip">IP pre presmerovanie</string>
+  <string name="pref_update_check">Skontrolovať aktualizácie</string>
+  <string name="pref_apply_method">Umiestnenie hosts súboru</string>
+  <string name="pref_apply_method_summary">Skôr než zmeníte toto nastavenie, prečítajte si Pomoc o tejto funkcii.</string>
+  <string name="pref_redirection_ip_summary">Všetky blokované adresy sú presmerované na túto IP adresu.</string>
+  <string name="pref_header_preferences">Nastavenia</string>
+  <string name="pref_header_preferences_summary">Všeobecné nastavenia pre AdAway</string>
+  <string name="pref_never_reboot">Skryť otázku na reštart</string>
+  <string name="pref_never_reboot_summary">Skryje okno s otázkou na reštartovanie zariadenia po úspešnom aplikovaní</string>
+  <string name="pref_webserver_on_boot">Spustiť webserver po naštartovaní</string>
+  <string name="pref_webserver_on_boot_summary">Spustí webserver po naštartovaní zariadenia, počúva na lokálnych IP adresách</string>
+  <string name="pref_webserver_enabled">Povoliť webserver</string>
+  <string name="pref_webserver_enabled_summary">Spustí webserver na lokálnych IP adresách pre odpovedanie na žiadosti pre blokované adresy</string>
+  <string name="pref_webserver">Miestny webserver</string>
+  <string name="pref_custom_target">Vlastné umiestnenie</string>
+  <string name="pref_custom_target_summary">Použité iba ak je umiestnenie hosts súboru nastavené na vlastné umiestnenie</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Vlastné umiestnenie</item>
+  </string-array>
+  <string name="pref_update_check_summary">Skontrolovať aktualizácie po spustení AdAway</string>
+  <string name="pref_sdcard_problem">Táto funkcia nebude fungovať správne ak je AdAway nainštalovaný na karte SD!</string>
+  <string name="pref_background">Služby na pozadí</string>
+  <string name="pref_update_check_daily">Denne kontrolovať aktualizácie</string>
+  <string name="pref_update_check_daily_summary">Každý deň skontroluje aktualizácie na pozadí s oznámením</string>
+  <string name="pref_automatic_update_daily">Automatické aktualizácie</string>
+  <string name="pref_automatic_update_daily_summary">Automaticky aplikuje aktualizácie na pozadí, ak sú dostupné</string>
+  <string name="pref_update_only_on_wifi">Aktualizovať iba cez Wi-Fi</string>
+  <string name="pref_update_only_on_wifi_summary">Spustí aktualizácie na pozadí iba ak je zariadenie pripojené k Wi-Fi sieti</string>
+  <string name="pref_whitelist_rules">Povoliť bielu listinu</string>
+  <string name="pref_whitelist_rules_summary">Povolí vkladať položky do bielej listiny z hosts zdrojov</string>
+  <string name="pref_redirection_rules">Povoliť presmerovania</string>
+  <string name="pref_redirection_rules_summary">PREDSTAVUJE BEZPEČNOSTNÉ RIZIKO! Povolí vkladať položky do presmerovaní z hosts zdrojov</string>
+  <string name="pref_debug">Odstraňovanie chýb</string>
+  <string name="pref_enable_debug">Zaznamenávanie chýb</string>
+  <string name="pref_enable_debug_summary">Je potrebné reštartovať AdAway aby sa zmeny prejavili.</string>
+  <string name="pref_enable_ipv6">Povoliť IPv6</string>
+  <string name="pref_enable_ipv6_summary">Všetky položky v hosts súbore budú mať zodpovedajúci ::1 (IPv6 localhost) záznam.</string>
 </resources>

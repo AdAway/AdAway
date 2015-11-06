@@ -1,28 +1,28 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Devices</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<h2>أجهزة HTC</h2>
+<p>adaway لن يعمل في الاجهزة التي تستخدم خاصية S-on هذه الميزة موجودة في اغلب اجهزة HTC وهي تمنع adaway من العمل</p>
 
-<h2>S-ON/S-OFF?</h2>
-<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
+<h2>تشغيل S - ايقاف S</h2>
+<p>عدم وجود S يعني ان القرص غير مقفول و يمكن الكتابة عليه. الاعدادت الافتراضية لاجهزة HTC تجعل S تعمل وهذا يعني ان adaway لن يعمل </p>
 
-<h2>Do I have S-ON or S-OFF?</h2>
+<h2>هل املك خاصية s ام لا املك ؟</h2>
 <p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
-<h2>Workaround</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
+<h2>العمل</h2>
+<p>المتطلبات: يجب عليك تثبيت بيئه اندرويد مع محاكي ADB على حاسوبك 
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
+<li>اعد تشغيل جهازك بوضع اعادة النشغيل من خلال الضغط المستمر على زر خفض الصوت و زر الطاقة</li>
+<li>استخدم زر خفض الصوت لاختيار وضع الريكفري</li>
+<li>في ريكفري clockwork اضغط زر خفض الصوت للدخول لقائمة الاقراص</li>
+<li>اختار mount /system , mount/sdcard و mount/data</li>
+<li>اربط جهازك بالحاسوب و افتح نافذة اوامر في حاسوبك</li>
 <li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>اعد تشغيل جهازك و حدد مسار الملفات الى /data/hosts في الاعدادات </li>
+<li>adaway يجب ان يعمل الان</li>
 </ol>
 </body>
 </html>

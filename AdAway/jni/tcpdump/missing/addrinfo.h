@@ -27,8 +27,6 @@
  * SUCH DAMAGE.
  */
 
-/* $Id: addrinfo.h,v 1.4 2002-06-11 17:13:36 itojun Exp $ */
-
 #ifndef HAVE_ADDRINFO
 
 /*

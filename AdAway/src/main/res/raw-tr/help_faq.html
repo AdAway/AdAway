@@ -7,7 +7,7 @@
 
 
 <h2>AdAway nasıl çalışır?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<p>AdAway reklam içeren host kaynaklarını engellemek için<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts dosyalarını</a> kullanır. Host dosyaları şu konumdadır <tt>/system/etc/hosts</tt> ve host kaynaklarını gereken IP adresine yönlendirir. Bu yöntem IP adreslerini DNS kullanmaksızın yönlendiren bir yöntemdir. Tüm gereksiz host kaynakları <tt>127.0.0.1</tt> adresine yani kendi cihazınıza yönlendirilir.</p>
 
 <h2>Neden günlük güncelleme denetleme özelliği kullanılabilir değil?</h2>
 <p>Yeni güncellemeler için otomatik denetleme sadece AdAway telefonun dahili hafızasına kurulduğunda kullanılabilir. Bu Android platformundaki kısıtlamalar yüzünden.</p>
@@ -16,12 +16,14 @@
 <p>Android üzerinde Javanın korumalı kendi iç DNS ön belleği vardır. İşletim sistemi yeni sunucu dosyasını hemen oluşturacaktır (komut satırı üzerinde ping ile doğrulanır) fakat Java DNS önbelleğinin yeniden derlenmesi için Android yeniden başlatılmalıdır.</p>
 
 <h2>AdAway içindeki web sunucusu nasıl kullanılır?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><b>AdAway, websunucu olmadan da çalışabilmektedir!</b>
+
+<br/><br/>Yerel IP adresinizden <tt>127.0.0.1</tt> gelen isteklere cevap vermek için AdAway seçeneklerinden yerel websunucu'yu aktifleştirebilirsiniz. Bu,  <tt>127.0.0.1</tt>'e yönlendirilmiş uygulama isteklerini AdAway websunucuları cevaplandıracaktır.
+
+<br/>Bazı uygulamalar, websunucuya ulaşılamazken çalışmamaktadır. Bu yöntemle istek, boş ve reklamsız bir sayfa ile cevaplanır ve böylece websunucular ulaşılabilir durumda olmaktadır.</p>
 
 <h2>Nasıl özel alanadlarını engelleyip/engelini kaldırabilirim?</h2>
-<p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<p> <i>Listeniz</i> menüsü altında karalisteye eklemek istediğiniz hostisimlerini (=Black) ekleyin. Buna ek olarak, karalisteye koyulmasını istemediğiniz hostisimlerini <i>Beyaz Liste</i>ye (=White) ekleyin ve o hostisimleri <i>Yönlendirme Listesi</i>ne (=Redirection) eklenir ve belli bir IP adresine yönlendirilir.</p>
 
 <h2>Daha fazla sunucu kaynağını nereden bulabilirim?</h2>
 <p>AdAway için <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">Ek Sunucu Kaynağı Listesine</a> bakın.</p>

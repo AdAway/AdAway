@@ -98,7 +98,6 @@
   <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
   <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">הפקודה הבינארית su לא נמצאה או שאין הרשאת רוט עבור תוכנת AdAway.\n\nזה יכול לקרות אם לא ביצעו למכשיר רוט.\nתוכל לקבל מידע נוסף כיצד לבצע רוט למכשירכם באתר www.cyanogenmod.com או באתרי תמיכה אחרים באנדרואיד.</string>
   <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
   <string name="no_url">זו אינה כתובת חוקית</string>
   <string name="no_url_title">URL בתבנית לא נכונה</string>

@@ -100,7 +100,7 @@
   <string name="no_private_file">Agiri pribatua ezin da sortu.</string>
   <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">su binarioa ezin da aurkitu edo ez duzu erro baimenik ahalbidetuta AdAway-rako.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola errotu buruzko argibideak  www.cyanogenmod.com edo beste Android webgune batzuetan aurkitu dezakezu.</string>
+  <string name="no_root_description">Bietako bat edo su binarioa ezin da aurkitu edo ez diozu erro baimenik eman AdAway-ri.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola erroturi buruzko argibideak www.cyanogenmod.org edo beste Android webgune batean aurkitu dezakezu.</string>
   <string name="no_root_title">Beharrezkoa Android errotua</string>
   <string name="no_url">Ez da baliozko URL bat!</string>
   <string name="no_url_title">URL-a ezegoki heuskarrituta</string>
@@ -203,4 +203,6 @@
   <string name="pref_debug">Garbiketa</string>
   <string name="pref_enable_debug">Garbiketa Oharra</string>
   <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>
+  <string name="pref_enable_ipv6">Gaitu IPv6</string>
+  <string name="pref_enable_ipv6_summary">Hostalari agiri guztiek dagokien ::1 (IPv6 localhost) sarrera lortuko dute.</string>
 </resources>

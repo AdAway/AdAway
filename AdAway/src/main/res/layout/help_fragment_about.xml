@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/icon" />
+                    android:src="@mipmap/icon" />
             </LinearLayout>
 
             <LinearLayout

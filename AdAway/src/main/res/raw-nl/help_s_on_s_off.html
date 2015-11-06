@@ -1,27 +1,27 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Apparaten</h2>
-<p>AdAway werkt niet als u een apparaat gebruikt met een zogenaamd S-ON. Deze 'feature' bestaat op vele HTC apparaten en voorkomt dat AdAway naar het hosts bestand kan schrijven.</p>
+<h2>HTC-apparaten</h2>
+<p>AdAway werkt niet als u een apparaat gebruikt met zogenaamde S-ON. Deze 'functie' bestaat op veel HTC-apparaten en voorkomt dat AdAway het hosts-bestand kan bewerken.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF betekend dat het NAND gedeelte van het apparaat is vrijgegeven en dat ernaar geschreven kan worden. De standaard instelling op HTC apparaten is S-ON, wat betekend dat sommige gedeelten van het systeem niet benaderd kunnen worden en dat een permanente root niet gegarandeerd kan worden. Verder is de signature controle voor firmware images ook verzekerd door de S-ON flag.</p>
+<p>S-OFF betekend dat het NAND-gedeelte van het apparaat is vrijgegeven en dat ernaar geschreven kan worden. De standaard instelling op HTC-apparaten is S-ON, wat betekend dat sommige gedeelten van het systeem niet benaderd kunnen worden en dat een permanente root niet gegarandeerd kan worden. Verder is de handtekeningscontrole voor firmware updates ook geforceerd door S-ON.</p>
 
 <h2>Heb ik S-ON of S-OFF?</h2>
-<p>Start in het Boot Menu op uw apparaat door <i>volume min</i> samen met de power knop ingedrukt te houden. De tekst bovenaan zal de status als S-OFF of S-ON aangeven. Een volledige root betekend in het algemeen S-OFF.
-<br/><br/>Meer informatie kan gevonden worden op <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<p>Kom in het opstartmenu op uw apparaat door de <i>onderste volumeknop</i> ingedrukt te houden tijdens het opstarten van uw apparaat. Bovenin het scherm verschijnt 'S-OFF' of 'S-ON'. Als uw apparaat volledig geroot is, staat hier meestal 'S-OFF'.
+<br/><br/>Meer informatie kunt u vinden op <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. U kunt wellicht geïnteresseerd in andere methodes om S-OFF te krijgen naast Unrevokable (zie link), namelijk: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine... </p>
 
 <h2>Tijdelijke oplossing</h2>
-<p>Vereiste: U moet een werkende Android SDK met ADB shell installeren op uw computer.
+<p>Vereiste: U moet een werkende Android SDK met ADB-shell installeren op uw computer.
 </p>
 <ol>
-<li>Start in het Opstart Menu op uw apparaat door de <i>volume min</i> knop samen met de <i>power&lt;/&gt; knop ingedrukt te houden.</li>
-<li>Gebruik <i>volume min</i> om recovery te selecteren.</li>
-<li>In clockwork recovery, volume min naar "partitions menu" en druk op het track pas om te selecteren</li>
+<li>Kom in het opstartmenu op uw apparaat door de <i>onderste volumeknop</i> ingedrukt te houden terwijl u uw apparaat opstart.</li>
+<li>Gebruik de <i>onderste volumeknop</i> om recovery te selecteren.</li>
+<li>Gebruik de onderste volumeknop om de optie "partitions menu" te selecteren in ClockWorkMod recovery.</li>
 <li>Selecteer <i>mount /system</i>, <i>mount /sdcard</i> en <i>mount /data</i>.</li>
 <li>Sluit uw USB-kabel aan en open een command line op uw pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Ga in de ADB-shell en typ het volgende: <tt>ln -s /data/hosts /system/etc/hosts</tt> (deze opdracht maakt een symlink aan die het AdAway mogelijk maakt om het hosts-bestand te bewerken die zich bevindt in <tt>/data</tt> en ondertussen het OS het bestand te laten gebruiken alsof het zich bevindt in <tt>/system</tt>.)</li>
+<li>Herstart uw apparaat en selecteer <i>/data/hosts</i> als het <i>doel hosts-bestand</i> in AdAway's voorkeuren.</li>
 <li>AdAway zou nu moeten werken.</li>
 </ol>
 </body>

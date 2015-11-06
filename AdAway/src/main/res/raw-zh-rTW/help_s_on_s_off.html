@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>HTC 的產品</h2>
+<p>這個軟體在 S-ON 的裝置上將無法運作，大部分的 HTC 產品都有這個“功能”，而這個功能會造成AdAway無法寫入hosts file的錯誤。</p>
+
+<h2>什麼是 S-ON / S-OFF ？</h2>
+<p>S-OFF 指的是安全鎖 Security Lock 是關閉的，此時系統分區是處於可寫入狀態。HTC 所生產的裝置在出廠時預設是S-ON，因此你將無法存取某些系統分區，也無法取得管理員權限，除此之外韌體的數位簽章檢查也是由安全鎖來提供保護。</p>
+
+<h2>我的是S-ON 還是 S-OFF？</h2>
+<p>按住 <i>降低音量</i> 按鍵不放並開啟手機電源，手機會進入開機選單，在上方會顯示目前安全鎖的狀態。安全鎖狀態若顯示 S-OFF， 表示你有完整的管理者權限。
+<br/><br/>更多詳細資訊請參閱此網站<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a> Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+
+<h2>解決辦法</h2>
+<p>前提：必須已經安裝Android SDK，並且可以進入 ADB 指令介面。
+</p>
+<ol>
+<li>按住 <i>降低音量</i> 按鍵不放並開啟手機電源，手機會進入開機選單。 </li>
+<li>透過 <i>降低音量</i> 按鍵，選擇 Recovery 。</li>
+<li>在 clockwork recovery 中按下 <i>降低音量</i> 選擇 "partitions menu" ，按下按鍵選擇此項目。</li>
+<li>選擇 <i>mount /system</i> ， <i>mount /sdcard</i> 以及 <i>mount /data</i>。</li>
+<li>將你的手機連結到電腦，並且進入 ADB 指令介面。</li>
+<li>進入 adb 介面執行下列指令 <tt>ln -s /data/data/hosts /system/etc/hosts</tt> (這會建立一個符號連結，讓AdAway可以修改存放在 <tt>/data</tt> 中的主機檔案，而系統本身也使用存放在 <tt>/system</tt> 下的主機檔案)。</li>
+<li>重新啟動你的裝置並且在廣告阻擋中將 <i>主機檔案存放位置</i> 指向到 <i>/data/data/hosts</i>。</li>
+<li>AdAway 現在應該可以正常運作了。</li>
+</ol>
+</body>
+</html>

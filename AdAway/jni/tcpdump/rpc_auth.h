@@ -1,4 +1,3 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/rpc_auth.h,v 1.2 2005-04-27 21:43:48 guy Exp $ (LBL) */
 /*
  * Sun RPC is a product of Sun Microsystems, Inc. and is provided for
  * unrestricted use provided that this legend is included on all tape
@@ -66,8 +65,8 @@ enum sunrpc_auth_stat {
  * Authentication info.  Opaque to client.
  */
 struct sunrpc_opaque_auth {
-	u_int32_t oa_flavor;		/* flavor of auth */
-	u_int32_t oa_len;		/* length of opaque body */
+	uint32_t oa_flavor;		/* flavor of auth */
+	uint32_t oa_len;		/* length of opaque body */
 	/* zero or more bytes of body */
 };
 

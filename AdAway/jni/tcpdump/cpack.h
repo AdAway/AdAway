@@ -31,25 +31,25 @@
 #define _CPACK_H
 
 struct cpack_state {
-	u_int8_t					*c_buf;
-	u_int8_t					*c_next;
+	uint8_t					*c_buf;
+	uint8_t					*c_next;
 	size_t						 c_len;
 };
 
-int cpack_init(struct cpack_state *, u_int8_t *, size_t);
+int cpack_init(struct cpack_state *, uint8_t *, size_t);
 
-int cpack_uint8(struct cpack_state *, u_int8_t *);
-int cpack_uint16(struct cpack_state *, u_int16_t *);
-int cpack_uint32(struct cpack_state *, u_int32_t *);
-int cpack_uint64(struct cpack_state *, u_int64_t *);
+int cpack_uint8(struct cpack_state *, uint8_t *);
+int cpack_uint16(struct cpack_state *, uint16_t *);
+int cpack_uint32(struct cpack_state *, uint32_t *);
+int cpack_uint64(struct cpack_state *, uint64_t *);
 
-u_int8_t *cpack_next_boundary(u_int8_t *buf, u_int8_t *p, size_t alignment);
-u_int8_t *cpack_align_and_reserve(struct cpack_state *cs, size_t wordsize);
+uint8_t *cpack_next_boundary(uint8_t *buf, uint8_t *p, size_t alignment);
+uint8_t *cpack_align_and_reserve(struct cpack_state *cs, size_t wordsize);
 
-#define cpack_int8(__s, __p)	cpack_uint8((__s),  (u_int8_t*)(__p))
-#define cpack_int16(__s, __p)	cpack_uint16((__s), (u_int16_t*)(__p))
-#define cpack_int32(__s, __p)	cpack_uint32((__s), (u_int32_t*)(__p))
-#define cpack_int64(__s, __p)	cpack_uint64((__s), (u_int64_t*)(__p))
+#define cpack_int8(__s, __p)	cpack_uint8((__s),  (uint8_t*)(__p))
+#define cpack_int16(__s, __p)	cpack_uint16((__s), (uint16_t*)(__p))
+#define cpack_int32(__s, __p)	cpack_uint32((__s), (uint32_t*)(__p))
+#define cpack_int64(__s, __p)	cpack_uint64((__s), (uint64_t*)(__p))
 
 extern int cpack_advance(struct cpack_state *, const size_t);
 

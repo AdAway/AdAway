@@ -1,16 +1,25 @@
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <pcap.h>
-
-#include "netdissect.h"
 #include "interface.h"
-#include "addrtoname.h"
-#include "ipnet.h"
+
+typedef struct ipnet_hdr {
+	uint8_t		iph_version;
+	uint8_t		iph_family;
+	uint16_t	iph_htype;
+	uint32_t	iph_pktlen;
+	uint32_t	iph_ifindex;
+	uint32_t	iph_grifindex;
+	uint32_t	iph_zsrc;
+	uint32_t	iph_zdst;
+} ipnet_hdr_t;
+
+#define	IPH_AF_INET	2		/* Matches Solaris's AF_INET */
+#define	IPH_AF_INET6	26		/* Matches Solaris's AF_INET6 */
 
 #ifdef DLT_IPNET
 
@@ -21,7 +30,7 @@ static const struct tok ipnet_values[] = {
 };
 
 static inline void
-ipnet_hdr_print(struct netdissect_options *ndo, const u_char *bp, u_int length)
+ipnet_hdr_print(netdissect_options *ndo, const u_char *bp, u_int length)
 {
 	const ipnet_hdr_t *hdr;
 	hdr = (const ipnet_hdr_t *)bp;
@@ -44,7 +53,7 @@ ipnet_hdr_print(struct netdissect_options *ndo, const u_char *bp, u_int length)
 }
 
 static void
-ipnet_print(struct netdissect_options *ndo, const u_char *p, u_int length, u_int caplen)
+ipnet_print(netdissect_options *ndo, const u_char *p, u_int length, u_int caplen)
 {
 	ipnet_hdr_t *hdr;
 
@@ -67,11 +76,9 @@ ipnet_print(struct netdissect_options *ndo, const u_char *p, u_int length, u_int
 	        ip_print(ndo, p, length);
 		break;
 
-#ifdef INET6
 	case IPH_AF_INET6:
 		ip6_print(ndo, p, length);
 		break;
-#endif /*INET6*/
 
 	default:
 		if (!ndo->ndo_eflag)
@@ -79,7 +86,7 @@ ipnet_print(struct netdissect_options *ndo, const u_char *p, u_int length, u_int
 					length + sizeof(ipnet_hdr_t));
 
 		if (!ndo->ndo_suppress_default_print)
-			ndo->ndo_default_print(ndo, p, caplen);
+			ND_DEFAULTPRINT(p, caplen);
 		break;
 	}
 }
@@ -91,7 +98,7 @@ ipnet_print(struct netdissect_options *ndo, const u_char *p, u_int length, u_int
  * is the number of bytes actually captured.
  */
 u_int
-ipnet_if_print(struct netdissect_options *ndo,
+ipnet_if_print(netdissect_options *ndo,
                const struct pcap_pkthdr *h, const u_char *p)
 {
 	ipnet_print(ndo, p, h->len, h->caplen);

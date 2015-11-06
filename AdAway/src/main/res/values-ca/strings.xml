@@ -100,7 +100,6 @@
   <string name="no_private_file">No s\'ha pogut crear el fitxer privat</string>
   <string name="no_private_file_title">Error en la creació del fixer privat</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">No s\'ha trobat el binari su o no heu donat permisos d\'usuari primari a l\'AdAway.\n\nPot passar quan el dispositiu no té actiu l\'usuari primari.\nPodeu trobar informació de com activar l\'usuari primari al vostre dispositiu a www.cyanogenmod.com o d\'altres llocs web d\'Android.</string>
   <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
   <string name="no_url">No és una adreça vàlida!</string>
   <string name="no_url_title">Adreça URL formada incorrectament</string>
@@ -204,4 +203,5 @@
   <string name="pref_debug">Depuració</string>
   <string name="pref_enable_debug">Registre de depuració</string>
   <string name="pref_enable_debug_summary">Necessiteu reiniciar AdAway per tal que aquest ajustament faci a efecte.</string>
+  <string name="pref_enable_ipv6">Habilita IPv6</string>
 </resources>

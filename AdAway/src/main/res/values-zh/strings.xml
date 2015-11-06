@@ -100,7 +100,6 @@
   <string name="no_private_file">不能创建私有文件</string>
   <string name="no_private_file_title">私有文件创建失败</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">没有找到su或者你没有允许AdAway的root权限。\n\n这可能是因为你的设备没有root。\n你可以到www.cyanogenmod.coma或者其他Android网站去找到如何root你的设备。</string>
   <string name="no_root_title">需要 root 了的 Android</string>
   <string name="no_url">URL 无效！</string>
   <string name="no_url_title">URL 格式不正确</string>

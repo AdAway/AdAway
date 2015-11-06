@@ -2,19 +2,18 @@
 <resources>
   <string name="donations__button_close">Sluiten</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__description">Vindt u dit applicatie nuttig?
-Draag bij aan de ontwikkeling ervan door een donatie te sturen aan de ontwikkelaar!</string>
-  <string name="donations__flattr_description">Flattr neemt 10% als maandelijkse kosten</string>
-  <string name="donations__google_android_market">Google  Play Store</string>
-  <string name="donations__google_android_market_not_supported_title">In-App donaties worden niet ondersteund. </string>
-  <string name="donations__google_android_market_not_supported">Helaas, in-App donaties worden niet ondersteund. Is Google Play Store correct geïnstalleerd?</string>
-  <string name="donations__google_android_market_description">Google houdt 30% van elke donatie in</string>
-  <string name="donations__google_android_market_donate_button">Doneer!</string>
-  <string name="donations__google_android_market_text">Welke bedrag?</string>
-  <string name="donations__paypal">Paypal</string>
-  <string name="donations__paypal_description">U kunt kiezen hoeveel u wilt doneren, na het klikken van de knop</string>
-  <string name="donations__thanks_dialog_title">Dank u wel</string>
-  <string name="donations__thanks_dialog">Bedankt voor uw donatie!n\ Ik stel het heel erg op prijs.</string>
-  <string name="donations__alert_dialog_title">Er is iets fout gegaan!</string>
-  <string name="donations__alert_dialog_no_browser">Er is geen browser gevonden om een website te openen!</string>
+  <string name="donations__description">Vindt u deze applicatie nuttig?\nDraag dan bij aan de ontwikkeling ervan door een donatie te sturen aan de ontwikkelaar!</string>
+  <string name="donations__flattr_description">Flattr houdt 10% als maandelijkse kosten van elke donatie in!</string>
+  <string name="donations__google_android_market">Google Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">In-app-donaties worden niet ondersteund.</string>
+  <string name="donations__google_android_market_not_supported">Helaas, in-app-donaties worden niet ondersteund. Is de Google Play Store correct geïnstalleerd?</string>
+  <string name="donations__google_android_market_description">Google houdt 30% o van elke donatie in!</string>
+  <string name="donations__google_android_market_donate_button">Doneren!</string>
+  <string name="donations__google_android_market_text">Hoeveel?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Na het aanraken van de knop kunt u zelf kiezen hoeveel u wilt doneren!</string>
+  <string name="donations__thanks_dialog_title">Bedankt!</string>
+  <string name="donations__thanks_dialog">Bedankt voor uw donatie!n\Ik stel het heel erg op prijs.</string>
+  <string name="donations__alert_dialog_title">Er is een fout opgetreden</string>
+  <string name="donations__alert_dialog_no_browser">Er is geen webbrowser gevonden om de website mee te openen!</string>
 </resources>

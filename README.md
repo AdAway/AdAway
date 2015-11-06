@@ -71,39 +71,17 @@ See http://www.androidpolice.com/2009/11/04/auto-formatting-android-xml-files-wi
 Forked from the following sources and slightly modified to compile!
 
 * dnsmasq:  https://github.com/CyanogenMod/android_external_dnsmasq
-* libpcap: https://github.com/CyanogenMod/android_external_libpcap
-* tcpdump: https://github.com/CyanogenMod/android_external_tcpdump
+* libpcap: https://github.com/the-tcpdump-group/libpcap/tree/libpcap-1.7.4
+* tcpdump: https://github.com/the-tcpdump-group/tcpdump/tree/tcpdump-4.7.4
 
 ## Changes
 
-"dnsmasq/source/src/Android.mk" add following line:
-```
-LOCAL_LDLIBS := -llog
-```
+Please review the following commits for the changes made to the sources above
+in order for them to compile in this project:
 
-"tcpdump/Android.mk":
-```
-LOCAL_C_INCLUDES += \
-	$(LOCAL_PATH)/missing\
-	$(LOCAL_PATH)/../libpcap
-
-# disabled crypo libs, not needed in AdAway
-#	$(LOCAL_PATH)/../openssl/include\
-
-#LOCAL_SHARED_LIBRARIES += libssl libcrypto
-```
-
-"tcpdump/config.h":
-```
-/* Whether or not to include the possibly-buggy SMB printer */
-/* #undef TCPDUMP_DO_SMB */
-
-/* Define to 1 if you have the <openssl/evp.h> header file. */
-/* #undef HAVE_OPENSSL_EVP_H */
-
-/* Define to 1 if you have the `crypto' library (-lcrypto). */
-/* #undef HAVE_LIBCRYPTO */
-```
+* Commit: https://github.com/Free-Software-for-Android/AdAway/commit/1f4ccb3cec3758757341ad90813506fc2a8fdf7b
+* Commit: https://github.com/Free-Software-for-Android/AdAway/commit/289df896c0ac4f96bd862e8a5054f1011ec07cac
+* Commit: https://github.com/Free-Software-for-Android/AdAway/commit/08da0745b0732b94221c0f5746160fef8126fd99
 
 # Licenses
 AdAway is licensed under the GPLv3+.  
@@ -137,8 +115,8 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   Apache License v2
 
 * Mongoose Webserver  
-  https://github.com/valenok/mongoose  
-  MIT License
+  https://github.com/cesanta/mongoose  
+  GPLv2 License
 
 * Tcpdump/Libpcap  
   http://www.tcpdump.org/  

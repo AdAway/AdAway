@@ -22,64 +22,81 @@
  * Contributed by Brad Parker (brad@fcr.com).
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-ipx.c,v 1.42 2005-05-06 08:26:44 guy Exp $";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
 #include "interface.h"
 #include "addrtoname.h"
-#include "ipx.h"
 #include "extract.h"
 
+/* well-known sockets */
+#define	IPX_SKT_NCP		0x0451
+#define	IPX_SKT_SAP		0x0452
+#define	IPX_SKT_RIP		0x0453
+#define	IPX_SKT_NETBIOS		0x0455
+#define	IPX_SKT_DIAGNOSTICS	0x0456
+#define	IPX_SKT_NWLINK_DGM	0x0553	/* NWLink datagram, may contain SMB */
+#define	IPX_SKT_EIGRP		0x85be	/* Cisco EIGRP over IPX */
 
-static const char *ipxaddr_string(u_int32_t, const u_char *);
-void ipx_decode(const struct ipxHdr *, const u_char *, u_int);
-void ipx_sap_print(const u_short *, u_int);
-void ipx_rip_print(const u_short *, u_int);
+/* IPX transport header */
+struct ipxHdr {
+    uint16_t	cksum;		/* Checksum */
+    uint16_t	length;		/* Length, in bytes, including header */
+    uint8_t	tCtl;		/* Transport Control (i.e. hop count) */
+    uint8_t	pType;		/* Packet Type (i.e. level 2 protocol) */
+    uint16_t	dstNet[2];	/* destination net */
+    uint8_t	dstNode[6];	/* destination node */
+    uint16_t	dstSkt;		/* destination socket */
+    uint16_t	srcNet[2];	/* source net */
+    uint8_t	srcNode[6];	/* source node */
+    uint16_t	srcSkt;		/* source socket */
+};
+
+#define ipxSize	30
+
+static const char *ipxaddr_string(uint32_t, const u_char *);
+static void ipx_decode(netdissect_options *, const struct ipxHdr *, const u_char *, u_int);
+static void ipx_sap_print(netdissect_options *, const u_short *, u_int);
+static void ipx_rip_print(netdissect_options *, const u_short *, u_int);
 
 /*
  * Print IPX datagram packets.
  */
 void
-ipx_print(const u_char *p, u_int length)
+ipx_print(netdissect_options *ndo, const u_char *p, u_int length)
 {
 	const struct ipxHdr *ipx = (const struct ipxHdr *)p;
 
-	if (!eflag)
-		printf("IPX ");
+	if (!ndo->ndo_eflag)
+		ND_PRINT((ndo, "IPX "));
 
-	TCHECK(ipx->srcSkt);
-	(void)printf("%s.%04x > ",
+	ND_TCHECK(ipx->srcSkt);
+	ND_PRINT((ndo, "%s.%04x > ",
 		     ipxaddr_string(EXTRACT_32BITS(ipx->srcNet), ipx->srcNode),
-		     EXTRACT_16BITS(&ipx->srcSkt));
+		     EXTRACT_16BITS(&ipx->srcSkt)));
 
-	(void)printf("%s.%04x: ",
+	ND_PRINT((ndo, "%s.%04x: ",
 		     ipxaddr_string(EXTRACT_32BITS(ipx->dstNet), ipx->dstNode),
-		     EXTRACT_16BITS(&ipx->dstSkt));
+		     EXTRACT_16BITS(&ipx->dstSkt)));
 
 	/* take length from ipx header */
-	TCHECK(ipx->length);
+	ND_TCHECK(ipx->length);
 	length = EXTRACT_16BITS(&ipx->length);
 
-	ipx_decode(ipx, (u_char *)ipx + ipxSize, length - ipxSize);
+	ipx_decode(ndo, ipx, (u_char *)ipx + ipxSize, length - ipxSize);
 	return;
 trunc:
-	printf("[|ipx %d]", length);
+	ND_PRINT((ndo, "[|ipx %d]", length));
 }
 
 static const char *
-ipxaddr_string(u_int32_t net, const u_char *node)
+ipxaddr_string(uint32_t net, const u_char *node)
 {
     static char line[256];
 
@@ -89,52 +106,52 @@ ipxaddr_string(u_int32_t net, const u_char *node)
     return line;
 }
 
-void
-ipx_decode(const struct ipxHdr *ipx, const u_char *datap, u_int length)
+static void
+ipx_decode(netdissect_options *ndo, const struct ipxHdr *ipx, const u_char *datap, u_int length)
 {
     register u_short dstSkt;
 
     dstSkt = EXTRACT_16BITS(&ipx->dstSkt);
     switch (dstSkt) {
       case IPX_SKT_NCP:
-	(void)printf("ipx-ncp %d", length);
+	ND_PRINT((ndo, "ipx-ncp %d", length));
 	break;
       case IPX_SKT_SAP:
-	ipx_sap_print((u_short *)datap, length);
+	ipx_sap_print(ndo, (u_short *)datap, length);
 	break;
       case IPX_SKT_RIP:
-	ipx_rip_print((u_short *)datap, length);
+	ipx_rip_print(ndo, (u_short *)datap, length);
 	break;
       case IPX_SKT_NETBIOS:
-	(void)printf("ipx-netbios %d", length);
+	ND_PRINT((ndo, "ipx-netbios %d", length));
 #ifdef TCPDUMP_DO_SMB
-	ipx_netbios_print(datap, length);
+	ipx_netbios_print(ndo, datap, length);
 #endif
 	break;
       case IPX_SKT_DIAGNOSTICS:
-	(void)printf("ipx-diags %d", length);
+	ND_PRINT((ndo, "ipx-diags %d", length));
 	break;
       case IPX_SKT_NWLINK_DGM:
-	(void)printf("ipx-nwlink-dgm %d", length);
+	ND_PRINT((ndo, "ipx-nwlink-dgm %d", length));
 #ifdef TCPDUMP_DO_SMB
-	ipx_netbios_print(datap, length);
+	ipx_netbios_print(ndo, datap, length);
 #endif
 	break;
       case IPX_SKT_EIGRP:
-	eigrp_print(datap, length);
+	eigrp_print(ndo, datap, length);
 	break;
       default:
-	(void)printf("ipx-#%x %d", dstSkt, length);
+	ND_PRINT((ndo, "ipx-#%x %d", dstSkt, length));
 	break;
     }
 }
 
-void
-ipx_sap_print(const u_short *ipx, u_int length)
+static void
+ipx_sap_print(netdissect_options *ndo, const u_short *ipx, u_int length)
 {
     int command, i;
 
-    TCHECK(ipx[0]);
+    ND_TCHECK(ipx[0]);
     command = EXTRACT_16BITS(ipx);
     ipx++;
     length -= 2;
@@ -143,79 +160,79 @@ ipx_sap_print(const u_short *ipx, u_int length)
       case 1:
       case 3:
 	if (command == 1)
-	    (void)printf("ipx-sap-req");
+	    ND_PRINT((ndo, "ipx-sap-req"));
 	else
-	    (void)printf("ipx-sap-nearest-req");
+	    ND_PRINT((ndo, "ipx-sap-nearest-req"));
 
-	TCHECK(ipx[0]);
-	(void)printf(" %s", ipxsap_string(htons(EXTRACT_16BITS(&ipx[0]))));
+	ND_TCHECK(ipx[0]);
+	ND_PRINT((ndo, " %s", ipxsap_string(htons(EXTRACT_16BITS(&ipx[0])))));
 	break;
 
       case 2:
       case 4:
 	if (command == 2)
-	    (void)printf("ipx-sap-resp");
+	    ND_PRINT((ndo, "ipx-sap-resp"));
 	else
-	    (void)printf("ipx-sap-nearest-resp");
+	    ND_PRINT((ndo, "ipx-sap-nearest-resp"));
 
 	for (i = 0; i < 8 && length > 0; i++) {
-	    TCHECK(ipx[0]);
-	    (void)printf(" %s '", ipxsap_string(htons(EXTRACT_16BITS(&ipx[0]))));
-	    if (fn_printzp((u_char *)&ipx[1], 48, snapend)) {
-		printf("'");
+	    ND_TCHECK(ipx[0]);
+	    ND_PRINT((ndo, " %s '", ipxsap_string(htons(EXTRACT_16BITS(&ipx[0])))));
+	    if (fn_printzp(ndo, (u_char *)&ipx[1], 48, ndo->ndo_snapend)) {
+		ND_PRINT((ndo, "'"));
 		goto trunc;
 	    }
-	    TCHECK2(ipx[25], 10);
-	    printf("' addr %s",
-		ipxaddr_string(EXTRACT_32BITS(&ipx[25]), (u_char *)&ipx[27]));
+	    ND_TCHECK2(ipx[25], 10);
+	    ND_PRINT((ndo, "' addr %s",
+		ipxaddr_string(EXTRACT_32BITS(&ipx[25]), (u_char *)&ipx[27])));
 	    ipx += 32;
 	    length -= 64;
 	}
 	break;
       default:
-	(void)printf("ipx-sap-?%x", command);
+	ND_PRINT((ndo, "ipx-sap-?%x", command));
 	break;
     }
     return;
 trunc:
-    printf("[|ipx %d]", length);
+    ND_PRINT((ndo, "[|ipx %d]", length));
 }
 
-void
-ipx_rip_print(const u_short *ipx, u_int length)
+static void
+ipx_rip_print(netdissect_options *ndo, const u_short *ipx, u_int length)
 {
     int command, i;
 
-    TCHECK(ipx[0]);
+    ND_TCHECK(ipx[0]);
     command = EXTRACT_16BITS(ipx);
     ipx++;
     length -= 2;
 
     switch (command) {
       case 1:
-	(void)printf("ipx-rip-req");
+	ND_PRINT((ndo, "ipx-rip-req"));
 	if (length > 0) {
-	    TCHECK(ipx[3]);
-	    (void)printf(" %08x/%d.%d", EXTRACT_32BITS(&ipx[0]),
-			 EXTRACT_16BITS(&ipx[2]), EXTRACT_16BITS(&ipx[3]));
+	    ND_TCHECK(ipx[3]);
+	    ND_PRINT((ndo, " %08x/%d.%d", EXTRACT_32BITS(&ipx[0]),
+			 EXTRACT_16BITS(&ipx[2]), EXTRACT_16BITS(&ipx[3])));
 	}
 	break;
       case 2:
-	(void)printf("ipx-rip-resp");
+	ND_PRINT((ndo, "ipx-rip-resp"));
 	for (i = 0; i < 50 && length > 0; i++) {
-	    TCHECK(ipx[3]);
-	    (void)printf(" %08x/%d.%d", EXTRACT_32BITS(&ipx[0]),
-			 EXTRACT_16BITS(&ipx[2]), EXTRACT_16BITS(&ipx[3]));
+	    ND_TCHECK(ipx[3]);
+	    ND_PRINT((ndo, " %08x/%d.%d", EXTRACT_32BITS(&ipx[0]),
+			 EXTRACT_16BITS(&ipx[2]), EXTRACT_16BITS(&ipx[3])));
 
 	    ipx += 4;
 	    length -= 8;
 	}
 	break;
       default:
-	(void)printf("ipx-rip-?%x", command);
+	ND_PRINT((ndo, "ipx-rip-?%x", command));
 	break;
     }
     return;
 trunc:
-    printf("[|ipx %d]", length);
+    ND_PRINT((ndo, "[|ipx %d]", length));
 }

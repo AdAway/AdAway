@@ -1,5 +1,3 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/nfsfh.h,v 1.13 2002-04-24 06:27:05 guy Exp $ (LBL) */
-
 /*
  * Copyright (c) 1993, 1994 Jeffrey C. Mogul, Digital Equipment Corporation,
  * Western Research Laboratory. All rights reserved.
@@ -46,8 +44,8 @@
  * that we might be spying upon use different external representations.
  */
 typedef struct {
-	u_int32_t Minor;	/* upper case to avoid clashing with macro names */
-	u_int32_t Major;
+	uint32_t Minor;	/* upper case to avoid clashing with macro names */
+	uint32_t Major;
 } my_devt;
 
 #define	dev_eq(a,b)	((a.Minor == b.Minor) && (a.Major == b.Major))
@@ -59,10 +57,10 @@ typedef struct {
 typedef	struct {
 	my_devt	Fsid_dev;		/* XXX avoid name conflict with AIX */
 	char Opaque_Handle[2 * 32 + 1];
-	u_int32_t fsid_code;
+	uint32_t fsid_code;
 } my_fsid;
 
 #define	fsid_eq(a,b)	((a.fsid_code == b.fsid_code) &&\
 			 dev_eq(a.Fsid_dev, b.Fsid_dev))
 
-extern void Parse_fh(const unsigned char *, int, my_fsid *, u_int32_t *, const char **, const char **, int);
+extern void Parse_fh(const unsigned char *, int, my_fsid *, uint32_t *, const char **, const char **, int);

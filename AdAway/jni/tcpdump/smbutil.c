@@ -6,13 +6,9 @@
  * or later
  */
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
-
-#ifndef lint
-static const char rcsid[] _U_ =
-     "@(#) $Header: /tcpdump/master/tcpdump/smbutil.c,v 1.39 2007-07-15 19:07:39 guy Exp $";
 #endif
 
 #include <tcpdump-stdinc.h>
@@ -25,16 +21,16 @@ static const char rcsid[] _U_ =
 #include "extract.h"
 #include "smb.h"
 
-static u_int32_t stringlen;
+static uint32_t stringlen;
 extern const u_char *startbuf;
 
 /*
  * interpret a 32 bit dos packed date/time to some parameters
  */
 static void
-interpret_dos_date(u_int32_t date, struct tm *tp)
+interpret_dos_date(uint32_t date, struct tm *tp)
 {
-    u_int32_t p0, p1, p2, p3;
+    uint32_t p0, p1, p2, p3;
 
     p0 = date & 0xFF;
     p1 = ((date & 0xFF00) >> 8) & 0xFF;
@@ -54,7 +50,7 @@ interpret_dos_date(u_int32_t date, struct tm *tp)
  * create a unix date from a dos date
  */
 static time_t
-int_unix_date(u_int32_t dos_date)
+int_unix_date(uint32_t dos_date)
 {
     struct tm t;
 
@@ -76,7 +72,7 @@ int_unix_date(u_int32_t dos_date)
 static time_t
 make_unix_date(const u_char *date_ptr)
 {
-    u_int32_t dos_date = 0;
+    uint32_t dos_date = 0;
 
     dos_date = EXTRACT_LE_32BITS(date_ptr);
 
@@ -90,7 +86,7 @@ make_unix_date(const u_char *date_ptr)
 static time_t
 make_unix_date2(const u_char *date_ptr)
 {
-    u_int32_t x, x2;
+    uint32_t x, x2;
 
     x = EXTRACT_LE_32BITS(date_ptr);
     x2 = ((x & 0xFFFF) << 16) | ((x & 0xFFFF0000) >> 16);
@@ -129,14 +125,15 @@ interpret_long_date(const u_char *p)
  * we run past the end of the buffer
  */
 static int
-name_interpret(const u_char *in, const u_char *maxbuf, char *out)
+name_interpret(netdissect_options *ndo,
+               const u_char *in, const u_char *maxbuf, char *out)
 {
     int ret;
     int len;
 
     if (in >= maxbuf)
 	return(-1);	/* name goes past the end of the buffer */
-    TCHECK2(*in, 1);
+    ND_TCHECK2(*in, 1);
     len = (*in++) / 2;
 
     *out=0;
@@ -145,7 +142,7 @@ name_interpret(const u_char *in, const u_char *maxbuf, char *out)
 	return(0);
 
     while (len--) {
-	TCHECK2(*in, 2);
+	ND_TCHECK2(*in, 2);
 	if (in + 1 >= maxbuf)
 	    return(-1);	/* name goes past the end of the buffer */
 	if (in[0] < 'A' || in[0] > 'P' || in[1] < 'A' || in[1] > 'P') {
@@ -169,7 +166,8 @@ trunc:
  * find a pointer to a netbios name
  */
 static const u_char *
-name_ptr(const u_char *buf, int ofs, const u_char *maxbuf)
+name_ptr(netdissect_options *ndo,
+         const u_char *buf, int ofs, const u_char *maxbuf)
 {
     const u_char *p;
     u_char c;
@@ -177,15 +175,15 @@ name_ptr(const u_char *buf, int ofs, const u_char *maxbuf)
     p = buf + ofs;
     if (p >= maxbuf)
 	return(NULL);	/* name goes past the end of the buffer */
-    TCHECK2(*p, 1);
+    ND_TCHECK2(*p, 1);
 
     c = *p;
 
     /* XXX - this should use the same code that the DNS dissector does */
     if ((c & 0xC0) == 0xC0) {
-	u_int16_t l;
+	uint16_t l;
 
-	TCHECK2(*p, 2);
+	ND_TCHECK2(*p, 2);
 	if ((p + 1) >= maxbuf)
 	    return(NULL);	/* name goes past the end of the buffer */
 	l = EXTRACT_16BITS(p) & 0x3FFF;
@@ -196,7 +194,7 @@ name_ptr(const u_char *buf, int ofs, const u_char *maxbuf)
 	p = buf + l;
 	if (p >= maxbuf)
 	    return(NULL);	/* name goes past the end of the buffer */
-	TCHECK2(*p, 1);
+	ND_TCHECK2(*p, 1);
     }
     return(p);
 
@@ -208,13 +206,14 @@ trunc:
  * extract a netbios name from a buf
  */
 static int
-name_extract(const u_char *buf, int ofs, const u_char *maxbuf, char *name)
+name_extract(netdissect_options *ndo,
+             const u_char *buf, int ofs, const u_char *maxbuf, char *name)
 {
-    const u_char *p = name_ptr(buf, ofs, maxbuf);
+    const u_char *p = name_ptr(ndo, buf, ofs, maxbuf);
     if (p == NULL)
 	return(-1);	/* error (probably name going past end of buffer) */
     name[0] = '\0';
-    return(name_interpret(p, maxbuf, name));
+    return(name_interpret(ndo, p, maxbuf, name));
 }
 
 
@@ -222,21 +221,22 @@ name_extract(const u_char *buf, int ofs, const u_char *maxbuf, char *name)
  * return the total storage length of a mangled name
  */
 static int
-name_len(const unsigned char *s, const unsigned char *maxbuf)
+name_len(netdissect_options *ndo,
+         const unsigned char *s, const unsigned char *maxbuf)
 {
     const unsigned char *s0 = s;
     unsigned char c;
 
     if (s >= maxbuf)
 	return(-1);	/* name goes past the end of the buffer */
-    TCHECK2(*s, 1);
+    ND_TCHECK2(*s, 1);
     c = *s;
     if ((c & 0xC0) == 0xC0)
 	return(2);
     while (*s) {
 	if (s >= maxbuf)
 	    return(-1);	/* name goes past the end of the buffer */
-	TCHECK2(*s, 1);
+	ND_TCHECK2(*s, 1);
 	s += (*s) + 1;
     }
     return(PTR_DIFF(s, s0) + 1);
@@ -246,11 +246,12 @@ trunc:
 }
 
 static void
-print_asc(const unsigned char *buf, int len)
+print_asc(netdissect_options *ndo,
+          const unsigned char *buf, int len)
 {
     int i;
     for (i = 0; i < len; i++)
-	safeputchar(buf[i]);
+        safeputchar(ndo, buf[i]);
 }
 
 static const char *
@@ -271,56 +272,58 @@ name_type_str(int name_type)
 }
 
 void
-print_data(const unsigned char *buf, int len)
+print_data(netdissect_options *ndo,
+           const unsigned char *buf, int len)
 {
     int i = 0;
 
     if (len <= 0)
 	return;
-    printf("[%03X] ", i);
+    ND_PRINT((ndo, "[%03X] ", i));
     for (i = 0; i < len; /*nothing*/) {
-        TCHECK(buf[i]);
-	printf("%02X ", buf[i] & 0xff);
+        ND_TCHECK(buf[i]);
+	ND_PRINT((ndo, "%02X ", buf[i] & 0xff));
 	i++;
 	if (i%8 == 0)
-	    printf(" ");
+	    ND_PRINT((ndo, " "));
 	if (i % 16 == 0) {
-	    print_asc(&buf[i - 16], 8);
-	    printf(" ");
-	    print_asc(&buf[i - 8], 8);
-	    printf("\n");
+	    print_asc(ndo, &buf[i - 16], 8);
+	    ND_PRINT((ndo, " "));
+	    print_asc(ndo, &buf[i - 8], 8);
+	    ND_PRINT((ndo, "\n"));
 	    if (i < len)
-		printf("[%03X] ", i);
+		ND_PRINT((ndo, "[%03X] ", i));
 	}
     }
     if (i % 16) {
 	int n;
 
 	n = 16 - (i % 16);
-	printf(" ");
+	ND_PRINT((ndo, " "));
 	if (n>8)
-	    printf(" ");
+	    ND_PRINT((ndo, " "));
 	while (n--)
-	    printf("   ");
+	    ND_PRINT((ndo, "   "));
 
-	n = SMBMIN(8, i % 16);
-	print_asc(&buf[i - (i % 16)], n);
-	printf(" ");
+	n = min(8, i % 16);
+	print_asc(ndo, &buf[i - (i % 16)], n);
+	ND_PRINT((ndo, " "));
 	n = (i % 16) - n;
 	if (n > 0)
-	    print_asc(&buf[i - n], n);
-	printf("\n");
+	    print_asc(ndo, &buf[i - n], n);
+	ND_PRINT((ndo, "\n"));
     }
     return;
 
 trunc:
-    printf("\n");
-    printf("WARNING: Short packet. Try increasing the snap length\n");
+    ND_PRINT((ndo, "\n"));
+    ND_PRINT((ndo, "WARNING: Short packet. Try increasing the snap length\n"));
 }
 
 
 static void
-write_bits(unsigned int val, const char *fmt)
+write_bits(netdissect_options *ndo,
+           unsigned int val, const char *fmt)
 {
     const char *p = fmt;
     int i = 0;
@@ -328,7 +331,7 @@ write_bits(unsigned int val, const char *fmt)
     while ((p = strchr(fmt, '|'))) {
 	size_t l = PTR_DIFF(p, fmt);
 	if (l && (val & (1 << i)))
-	    printf("%.*s ", (int)l, fmt);
+	    ND_PRINT((ndo, "%.*s ", (int)l, fmt));
 	fmt = p + 1;
 	i++;
     }
@@ -337,11 +340,12 @@ write_bits(unsigned int val, const char *fmt)
 /* convert a UCS-2 string into an ASCII string */
 #define MAX_UNISTR_SIZE	1000
 static const char *
-unistr(const u_char *s, u_int32_t *len, int use_unicode)
+unistr(netdissect_options *ndo,
+       const u_char *s, uint32_t *len, int use_unicode)
 {
     static char buf[MAX_UNISTR_SIZE+1];
     size_t l = 0;
-    u_int32_t strsize;
+    uint32_t strsize;
     const u_char *sp;
 
     if (use_unicode) {
@@ -349,7 +353,7 @@ unistr(const u_char *s, u_int32_t *len, int use_unicode)
 	 * Skip padding that puts the string on an even boundary.
 	 */
 	if (((s - startbuf) % 2) != 0) {
-	    TCHECK(s[0]);
+	    ND_TCHECK(s[0]);
 	    s++;
 	}
     }
@@ -361,7 +365,7 @@ unistr(const u_char *s, u_int32_t *len, int use_unicode)
 	sp = s;
 	if (!use_unicode) {
 	    for (;;) {
-		TCHECK(sp[0]);
+		ND_TCHECK(sp[0]);
 		*len += 1;
 		if (sp[0] == 0)
 		    break;
@@ -370,7 +374,7 @@ unistr(const u_char *s, u_int32_t *len, int use_unicode)
 	    strsize = *len - 1;
 	} else {
 	    for (;;) {
-		TCHECK2(sp[0], 2);
+		ND_TCHECK2(sp[0], 2);
 		*len += 2;
 		if (sp[0] == 0 && sp[1] == 0)
 		    break;
@@ -386,7 +390,7 @@ unistr(const u_char *s, u_int32_t *len, int use_unicode)
     }
     if (!use_unicode) {
     	while (strsize != 0) {
-    	    TCHECK(s[0]);
+          ND_TCHECK(s[0]);
 	    if (l >= MAX_UNISTR_SIZE)
 		break;
 	    if (ND_ISPRINT(s[0]))
@@ -402,7 +406,7 @@ unistr(const u_char *s, u_int32_t *len, int use_unicode)
 	}
     } else {
 	while (strsize != 0) {
-	    TCHECK2(s[0], 2);
+	    ND_TCHECK2(s[0], 2);
 	    if (l >= MAX_UNISTR_SIZE)
 		break;
 	    if (s[1] == 0 && ND_ISPRINT(s[0])) {
@@ -429,8 +433,9 @@ trunc:
 }
 
 static const u_char *
-smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
-    int unicodestr)
+smb_fdata1(netdissect_options *ndo,
+           const u_char *buf, const char *fmt, const u_char *maxbuf,
+           int unicodestr)
 {
     int reverse = 0;
     const char *attrib_fmt = "READONLY|HIDDEN|SYSTEM|VOLUME|DIR|ARCHIVE|";
@@ -438,15 +443,15 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
     while (*fmt && buf<maxbuf) {
 	switch (*fmt) {
 	case 'a':
-	    TCHECK(buf[0]);
-	    write_bits(buf[0], attrib_fmt);
+	    ND_TCHECK(buf[0]);
+	    write_bits(ndo, buf[0], attrib_fmt);
 	    buf++;
 	    fmt++;
 	    break;
 
 	case 'A':
-	    TCHECK2(buf[0], 2);
-	    write_bits(EXTRACT_LE_16BITS(buf), attrib_fmt);
+	    ND_TCHECK2(buf[0], 2);
+	    write_bits(ndo, EXTRACT_LE_16BITS(buf), attrib_fmt);
 	    buf += 2;
 	    fmt++;
 	    break;
@@ -466,8 +471,8 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	    strncpy(bitfmt, fmt, l);
 	    bitfmt[l] = '\0';
 	    fmt = p + 1;
-	    TCHECK(buf[0]);
-	    write_bits(buf[0], bitfmt);
+	    ND_TCHECK(buf[0]);
+	    write_bits(ndo, buf[0], bitfmt);
 	    buf++;
 	    break;
 	  }
@@ -475,7 +480,7 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'P':
 	  {
 	    int l = atoi(fmt + 1);
-	    TCHECK2(buf[0], l);
+	    ND_TCHECK2(buf[0], l);
 	    buf += l;
 	    fmt++;
 	    while (isdigit((unsigned char)*fmt))
@@ -489,9 +494,9 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'b':
 	  {
 	    unsigned int x;
-	    TCHECK(buf[0]);
+	    ND_TCHECK(buf[0]);
 	    x = buf[0];
-	    printf("%u (0x%x)", x, x);
+	    ND_PRINT((ndo, "%u (0x%x)", x, x));
 	    buf += 1;
 	    fmt++;
 	    break;
@@ -499,10 +504,10 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'd':
 	  {
 	    unsigned int x;
-	    TCHECK2(buf[0], 2);
+	    ND_TCHECK2(buf[0], 2);
 	    x = reverse ? EXTRACT_16BITS(buf) :
 			  EXTRACT_LE_16BITS(buf);
-	    printf("%d (0x%x)", x, x);
+	    ND_PRINT((ndo, "%d (0x%x)", x, x));
 	    buf += 2;
 	    fmt++;
 	    break;
@@ -510,21 +515,21 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'D':
 	  {
 	    unsigned int x;
-	    TCHECK2(buf[0], 4);
+	    ND_TCHECK2(buf[0], 4);
 	    x = reverse ? EXTRACT_32BITS(buf) :
 			  EXTRACT_LE_32BITS(buf);
-	    printf("%d (0x%x)", x, x);
+	    ND_PRINT((ndo, "%d (0x%x)", x, x));
 	    buf += 4;
 	    fmt++;
 	    break;
 	  }
 	case 'L':
 	  {
-	    u_int64_t x;
-	    TCHECK2(buf[0], 8);
+	    uint64_t x;
+	    ND_TCHECK2(buf[0], 8);
 	    x = reverse ? EXTRACT_64BITS(buf) :
 			  EXTRACT_LE_64BITS(buf);
-	    printf("%" PRIu64 " (0x%" PRIx64 ")", x, x);
+	    ND_PRINT((ndo, "%" PRIu64 " (0x%" PRIx64 ")", x, x));
 	    buf += 8;
 	    fmt++;
 	    break;
@@ -532,15 +537,15 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'M':
 	  {
 	    /* Weird mixed-endian length values in 64-bit locks */
-	    u_int32_t x1, x2;
-	    u_int64_t x;
-	    TCHECK2(buf[0], 8);
+	    uint32_t x1, x2;
+	    uint64_t x;
+	    ND_TCHECK2(buf[0], 8);
 	    x1 = reverse ? EXTRACT_32BITS(buf) :
 			   EXTRACT_LE_32BITS(buf);
 	    x2 = reverse ? EXTRACT_32BITS(buf + 4) :
 			   EXTRACT_LE_32BITS(buf + 4);
-	    x = (((u_int64_t)x1) << 32) | x2;
-	    printf("%" PRIu64 " (0x%" PRIx64 ")", x, x);
+	    x = (((uint64_t)x1) << 32) | x2;
+	    ND_PRINT((ndo, "%" PRIu64 " (0x%" PRIx64 ")", x, x));
 	    buf += 8;
 	    fmt++;
 	    break;
@@ -548,9 +553,9 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'B':
 	  {
 	    unsigned int x;
-	    TCHECK(buf[0]);
+	    ND_TCHECK(buf[0]);
 	    x = buf[0];
-	    printf("0x%X", x);
+	    ND_PRINT((ndo, "0x%X", x));
 	    buf += 1;
 	    fmt++;
 	    break;
@@ -558,10 +563,10 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'w':
 	  {
 	    unsigned int x;
-	    TCHECK2(buf[0], 2);
+	    ND_TCHECK2(buf[0], 2);
 	    x = reverse ? EXTRACT_16BITS(buf) :
 			  EXTRACT_LE_16BITS(buf);
-	    printf("0x%X", x);
+	    ND_PRINT((ndo, "0x%X", x));
 	    buf += 2;
 	    fmt++;
 	    break;
@@ -569,10 +574,10 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'W':
 	  {
 	    unsigned int x;
-	    TCHECK2(buf[0], 4);
+	    ND_TCHECK2(buf[0], 4);
 	    x = reverse ? EXTRACT_32BITS(buf) :
 			  EXTRACT_LE_32BITS(buf);
-	    printf("0x%X", x);
+	    ND_PRINT((ndo, "0x%X", x));
 	    buf += 4;
 	    fmt++;
 	    break;
@@ -583,25 +588,25 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	    switch (*fmt) {
 
 	    case 'b':
-		TCHECK(buf[0]);
+		ND_TCHECK(buf[0]);
 		stringlen = buf[0];
-		printf("%u", stringlen);
+		ND_PRINT((ndo, "%u", stringlen));
 		buf += 1;
 		break;
 
 	    case 'd':
-		TCHECK2(buf[0], 2);
+		ND_TCHECK2(buf[0], 2);
 		stringlen = reverse ? EXTRACT_16BITS(buf) :
 				      EXTRACT_LE_16BITS(buf);
-		printf("%u", stringlen);
+		ND_PRINT((ndo, "%u", stringlen));
 		buf += 2;
 		break;
 
 	    case 'D':
-		TCHECK2(buf[0], 4);
+		ND_TCHECK2(buf[0], 4);
 		stringlen = reverse ? EXTRACT_32BITS(buf) :
 				      EXTRACT_LE_32BITS(buf);
-		printf("%u", stringlen);
+		ND_PRINT((ndo, "%u", stringlen));
 		buf += 4;
 		break;
 	    }
@@ -613,13 +618,13 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	  {
 	    /*XXX unistr() */
 	    const char *s;
-	    u_int32_t len;
+	    uint32_t len;
 
 	    len = 0;
-	    s = unistr(buf, &len, (*fmt == 'R') ? 0 : unicodestr);
+	    s = unistr(ndo, buf, &len, (*fmt == 'R') ? 0 : unicodestr);
 	    if (s == NULL)
 		goto trunc;
-	    printf("%s", s);
+	    ND_PRINT((ndo, "%s", s));
 	    buf += len;
 	    fmt++;
 	    break;
@@ -628,18 +633,18 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'Y':	/* like 'Z', but always ASCII */
 	  {
 	    const char *s;
-	    u_int32_t len;
+	    uint32_t len;
 
-	    TCHECK(*buf);
+	    ND_TCHECK(*buf);
 	    if (*buf != 4 && *buf != 2) {
-		printf("Error! ASCIIZ buffer of type %u", *buf);
+		ND_PRINT((ndo, "Error! ASCIIZ buffer of type %u", *buf));
 		return maxbuf;	/* give up */
 	    }
 	    len = 0;
-	    s = unistr(buf + 1, &len, (*fmt == 'Y') ? 0 : unicodestr);
+	    s = unistr(ndo, buf + 1, &len, (*fmt == 'Y') ? 0 : unicodestr);
 	    if (s == NULL)
 		goto trunc;
-	    printf("%s", s);
+	    ND_PRINT((ndo, "%s", s));
 	    buf += len + 1;
 	    fmt++;
 	    break;
@@ -647,8 +652,8 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 's':
 	  {
 	    int l = atoi(fmt + 1);
-	    TCHECK2(*buf, l);
-	    printf("%-*.*s", l, l, buf);
+	    ND_TCHECK2(*buf, l);
+	    ND_PRINT((ndo, "%-*.*s", l, l, buf));
 	    buf += l;
 	    fmt++;
 	    while (isdigit((unsigned char)*fmt))
@@ -657,8 +662,8 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	  }
 	case 'c':
 	  {
-	    TCHECK2(*buf, stringlen);
-	    printf("%-*.*s", (int)stringlen, (int)stringlen, buf);
+	    ND_TCHECK2(*buf, stringlen);
+	    ND_PRINT((ndo, "%-*.*s", (int)stringlen, (int)stringlen, buf));
 	    buf += stringlen;
 	    fmt++;
 	    while (isdigit((unsigned char)*fmt))
@@ -668,10 +673,10 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'C':
 	  {
 	    const char *s;
-	    s = unistr(buf, &stringlen, unicodestr);
+	    s = unistr(ndo, buf, &stringlen, unicodestr);
 	    if (s == NULL)
 		goto trunc;
-	    printf("%s", s);
+	    ND_PRINT((ndo, "%s", s));
 	    buf += stringlen;
 	    fmt++;
 	    break;
@@ -679,9 +684,9 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	case 'h':
 	  {
 	    int l = atoi(fmt + 1);
-	    TCHECK2(*buf, l);
+	    ND_TCHECK2(*buf, l);
 	    while (l--)
-		printf("%02x", *buf++);
+		ND_PRINT((ndo, "%02x", *buf++));
 	    fmt++;
 	    while (isdigit((unsigned char)*fmt))
 		fmt++;
@@ -696,22 +701,22 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 
 	    switch (t) {
 	    case 1:
-		name_type = name_extract(startbuf, PTR_DIFF(buf, startbuf),
+		name_type = name_extract(ndo, startbuf, PTR_DIFF(buf, startbuf),
 		    maxbuf, nbuf);
 		if (name_type < 0)
 		    goto trunc;
-		len = name_len(buf, maxbuf);
+		len = name_len(ndo, buf, maxbuf);
 		if (len < 0)
 		    goto trunc;
 		buf += len;
-		printf("%-15.15s NameType=0x%02X (%s)", nbuf, name_type,
-		    name_type_str(name_type));
+		ND_PRINT((ndo, "%-15.15s NameType=0x%02X (%s)", nbuf, name_type,
+		    name_type_str(name_type)));
 		break;
 	    case 2:
-		TCHECK(buf[15]);
+		ND_TCHECK(buf[15]);
 		name_type = buf[15];
-		printf("%-15.15s NameType=0x%02X (%s)", buf, name_type,
-		    name_type_str(name_type));
+		ND_PRINT((ndo, "%-15.15s NameType=0x%02X (%s)", buf, name_type,
+		    name_type_str(name_type)));
 		buf += 16;
 		break;
 	    }
@@ -725,11 +730,11 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	    time_t t;
 	    struct tm *lt;
 	    const char *tstring;
-	    u_int32_t x;
+	    uint32_t x;
 
 	    switch (atoi(fmt + 1)) {
 	    case 1:
-		TCHECK2(buf[0], 4);
+		ND_TCHECK2(buf[0], 4);
 		x = EXTRACT_LE_32BITS(buf);
 		if (x == 0 || x == 0xFFFFFFFF)
 		    t = 0;
@@ -738,7 +743,7 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 		buf += 4;
 		break;
 	    case 2:
-		TCHECK2(buf[0], 4);
+		ND_TCHECK2(buf[0], 4);
 		x = EXTRACT_LE_32BITS(buf);
 		if (x == 0 || x == 0xFFFFFFFF)
 		    t = 0;
@@ -747,7 +752,7 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 		buf += 4;
 		break;
 	    case 3:
-		TCHECK2(buf[0], 8);
+		ND_TCHECK2(buf[0], 8);
 		t = interpret_long_date(buf);
 		buf += 8;
 		break;
@@ -763,33 +768,34 @@ smb_fdata1(const u_char *buf, const char *fmt, const u_char *maxbuf,
 		    tstring = "(Can't convert time)\n";
 	    } else
 		tstring = "NULL\n";
-	    printf("%s", tstring);
+	    ND_PRINT((ndo, "%s", tstring));
 	    fmt++;
 	    while (isdigit((unsigned char)*fmt))
 		fmt++;
 	    break;
 	  }
 	default:
-	    putchar(*fmt);
+	    ND_PRINT((ndo, "%c", *fmt));
 	    fmt++;
 	    break;
 	}
     }
 
     if (buf >= maxbuf && *fmt)
-	printf("END OF BUFFER\n");
+	ND_PRINT((ndo, "END OF BUFFER\n"));
 
     return(buf);
 
 trunc:
-    printf("\n");
-    printf("WARNING: Short packet. Try increasing the snap length\n");
+    ND_PRINT((ndo, "\n"));
+    ND_PRINT((ndo, "WARNING: Short packet. Try increasing the snap length\n"));
     return(NULL);
 }
 
 const u_char *
-smb_fdata(const u_char *buf, const char *fmt, const u_char *maxbuf,
-    int unicodestr)
+smb_fdata(netdissect_options *ndo,
+          const u_char *buf, const char *fmt, const u_char *maxbuf,
+          int unicodestr)
 {
     static int depth = 0;
     char s[128];
@@ -802,7 +808,7 @@ smb_fdata(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	    while (buf < maxbuf) {
 		const u_char *buf2;
 		depth++;
-		buf2 = smb_fdata(buf, fmt, maxbuf, unicodestr);
+		buf2 = smb_fdata(ndo, buf, fmt, maxbuf, unicodestr);
 		depth--;
 		if (buf2 == NULL)
 		    return(NULL);
@@ -841,22 +847,21 @@ smb_fdata(const u_char *buf, const char *fmt, const u_char *maxbuf,
 	    strncpy(s, fmt, p - fmt);
 	    s[p - fmt] = '\0';
 	    fmt = p + 1;
-	    buf = smb_fdata1(buf, s, maxbuf, unicodestr);
+	    buf = smb_fdata1(ndo, buf, s, maxbuf, unicodestr);
 	    if (buf == NULL)
 		return(NULL);
 	    break;
 
 	default:
-	    putchar(*fmt);
+	    ND_PRINT((ndo, "%c", *fmt));
 	    fmt++;
-	    fflush(stdout);
 	    break;
 	}
     }
     if (!depth && buf < maxbuf) {
 	size_t len = PTR_DIFF(maxbuf, buf);
-	printf("Data: (%lu bytes)\n", (unsigned long)len);
-	print_data(buf, len);
+	ND_PRINT((ndo, "Data: (%lu bytes)\n", (unsigned long)len));
+	print_data(ndo, buf, len);
 	return(buf + len);
     }
     return(buf);
@@ -1008,7 +1013,7 @@ smb_errstr(int class, int num)
 }
 
 typedef struct {
-    u_int32_t code;
+    uint32_t code;
     const char *name;
 } nt_err_code_struct;
 
@@ -1872,7 +1877,7 @@ static const nt_err_code_struct nt_errors[] = {
  * return an NT error string from a SMB buffer
  */
 const char *
-nt_errstr(u_int32_t err)
+nt_errstr(uint32_t err)
 {
     static char ret[128];
     int i;

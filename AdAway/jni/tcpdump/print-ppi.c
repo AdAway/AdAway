@@ -1,47 +1,52 @@
 /*
  * Oracle
  */
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <pcap.h>
-
-#include "netdissect.h"
 #include "interface.h"
 #include "extract.h"
-#include "ppi.h"
+
+typedef struct ppi_header {
+	uint8_t		ppi_ver;
+	uint8_t		ppi_flags;
+	uint16_t	ppi_len;
+	uint32_t	ppi_dlt;
+} ppi_header_t;
+
+#define	PPI_HDRLEN	8
 
 #ifdef DLT_PPI
 
 static inline void
-ppi_header_print(struct netdissect_options *ndo, const u_char *bp, u_int length)
+ppi_header_print(netdissect_options *ndo, const u_char *bp, u_int length)
 {
 	const ppi_header_t *hdr;
-	u_int32_t dlt;
-	u_int16_t len;
+	uint16_t len;
+	uint32_t dlt;
 
 	hdr = (const ppi_header_t *)bp;
 
-	len = EXTRACT_16BITS(&hdr->ppi_len);
-	dlt = EXTRACT_32BITS(&hdr->ppi_dlt);
+	len = EXTRACT_LE_16BITS(&hdr->ppi_len);
+	dlt = EXTRACT_LE_32BITS(&hdr->ppi_dlt);
 
 	if (!ndo->ndo_qflag) {
-		ND_PRINT((ndo,", V.%d DLT %s (%d) len %d", hdr->ppi_ver,
+		ND_PRINT((ndo, "V.%d DLT %s (%d) len %d", hdr->ppi_ver,
 			  pcap_datalink_val_to_name(dlt), dlt,
                           len));
         } else {
-		ND_PRINT((ndo,", %s", pcap_datalink_val_to_name(dlt)));
+		ND_PRINT((ndo, "%s", pcap_datalink_val_to_name(dlt)));
         }
 
 	ND_PRINT((ndo, ", length %u: ", length));
 }
 
 static void
-ppi_print(struct netdissect_options *ndo,
+ppi_print(netdissect_options *ndo,
                const struct pcap_pkthdr *h, const u_char *p)
 {
 	if_ndo_printer ndo_printer;
@@ -49,21 +54,32 @@ ppi_print(struct netdissect_options *ndo,
 	ppi_header_t *hdr;
 	u_int caplen = h->caplen;
 	u_int length = h->len;
-	u_int32_t dlt;
+	uint16_t len;
+	uint32_t dlt;
 
 	if (caplen < sizeof(ppi_header_t)) {
 		ND_PRINT((ndo, "[|ppi]"));
 		return;
 	}
+
 	hdr = (ppi_header_t *)p;
-	dlt = EXTRACT_32BITS(&hdr->ppi_dlt);
+	len = EXTRACT_LE_16BITS(&hdr->ppi_len);
+	if (len < sizeof(ppi_header_t)) {
+		ND_PRINT((ndo, "[|ppi]"));
+		return;
+	}
+	if (caplen < len) {
+		ND_PRINT((ndo, "[|ppi]"));
+		return;
+	}
+	dlt = EXTRACT_LE_32BITS(&hdr->ppi_dlt);
 
 	if (ndo->ndo_eflag)
 		ppi_header_print(ndo, p, length);
 
-	length -= sizeof(ppi_header_t);
-	caplen -= sizeof(ppi_header_t);
-	p += sizeof(ppi_header_t);
+	length -= len;
+	caplen -= len;
+	p += len;
 
 	if ((printer = lookup_printer(dlt)) != NULL) {
 		printer(h, p);
@@ -71,11 +87,10 @@ ppi_print(struct netdissect_options *ndo,
 		ndo_printer(ndo, h, p);
 	} else {
 		if (!ndo->ndo_eflag)
-			ppi_header_print(ndo, (u_char *)hdr,
-					length + sizeof(ppi_header_t));
+			ppi_header_print(ndo, (u_char *)hdr, length + len);
 
 		if (!ndo->ndo_suppress_default_print)
-			ndo->ndo_default_print(ndo, p, caplen);
+			ND_DEFAULTPRINT(p, caplen);
 	}
 }
 
@@ -86,7 +101,7 @@ ppi_print(struct netdissect_options *ndo,
  * is the number of bytes actually captured.
  */
 u_int
-ppi_if_print(struct netdissect_options *ndo,
+ppi_if_print(netdissect_options *ndo,
                const struct pcap_pkthdr *h, const u_char *p)
 {
 	ppi_print(ndo, h, p);

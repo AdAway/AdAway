@@ -1,0 +1,2 @@
+# common block merging
+port 80

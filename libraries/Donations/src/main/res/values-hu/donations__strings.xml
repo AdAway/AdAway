@@ -2,18 +2,19 @@
 <resources>
   <string name="donations__button_close">Bezár</string>
   <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Hasznosnak találod ezt az alkalmazást?\nTámogasd a fejlesztését azzal, hogy adományt küldesz a fejlesztőnek!</string>
   <string name="donations__flattr_description">A Flattr 10 %-ot levesz havi díjként!</string>
-  <string name="donations__google_android_market">Google Play Üzlet</string>
-  <string name="donations__google_android_market_not_supported_title">A mikrotranzakciós adományozás nem támogatott.</string>
+  <string name="donations__google_android_market">Google Play Áruház</string>
+  <string name="donations__google_android_market_not_supported_title">Az alkalmazáson belüli adományozás nem támogatott.</string>
   <string name="donations__google_android_market_not_supported">Az alkalmazáson belüli adományozás nem támogatott. A Google Android Market megfelelően van telepítve?</string>
   <string name="donations__google_android_market_description">A Google része 30 % minden adományból!</string>
   <string name="donations__google_android_market_donate_button">Adományozok!</string>
   <string name="donations__google_android_market_text">Mennyi?</string>
   <string name="donations__paypal">PayPal</string>
-  <string name="donations__paypal_description">Az adományozott összeget megválaszthatja a gombra való kattintás után.</string>
+  <string name="donations__paypal_description">Az adományozott összeget megválaszthatod a gombra való kattintás után!</string>
   <string name="donations__thanks_dialog_title">Köszönöm!</string>
-  <string name="donations__thanks_dialog">Köszönjük a támogatást!
-Nagyra értékeljük!</string>
+  <string name="donations__thanks_dialog">Köszönöm a támogatást!
+Nagyra értékelem!</string>
   <string name="donations__alert_dialog_title">Hiba történt</string>
   <string name="donations__alert_dialog_no_browser">Böngésző nem található a weboldal megnyitásához!</string>
 </resources>

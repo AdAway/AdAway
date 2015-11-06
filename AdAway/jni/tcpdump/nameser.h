@@ -1,4 +1,3 @@
-/* @(#) $Header: /tcpdump/master/tcpdump/nameser.h,v 1.16 2006-11-10 03:18:21 guy Exp $ (LBL) */
 /*
  * Copyright (c) 1983, 1989, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -225,13 +224,13 @@
  * Structure for query header.
  */
 typedef struct {
-	u_int16_t id;		/* query identification number */
-	u_int8_t  flags1;	/* first byte of flags */
-	u_int8_t  flags2;	/* second byte of flags */
-	u_int16_t qdcount;	/* number of question entries */
-	u_int16_t ancount;	/* number of answer entries */
-	u_int16_t nscount;	/* number of authority entries */
-	u_int16_t arcount;	/* number of resource entries */
+	uint16_t id;		/* query identification number */
+	uint8_t  flags1;	/* first byte of flags */
+	uint8_t  flags2;	/* second byte of flags */
+	uint16_t qdcount;	/* number of question entries */
+	uint16_t ancount;	/* number of answer entries */
+	uint16_t nscount;	/* number of authority entries */
+	uint16_t arcount;	/* number of resource entries */
 } HEADER;
 
 /*
@@ -262,36 +261,36 @@ struct rrec {
 	int16_t	r_zone;			/* zone number */
 	int16_t	r_class;		/* class number */
 	int16_t	r_type;			/* type number */
-	u_int32_t	r_ttl;			/* time to live */
+	uint32_t	r_ttl;			/* time to live */
 	int	r_size;			/* size of data area */
 	char	*r_data;		/* pointer to data */
 };
 
 /*
  * Inline versions of get/put short/long.  Pointer is advanced.
- * We also assume that a "u_int16_t" holds 2 "chars"
- * and that a "u_int32_t" holds 4 "chars".
+ * We also assume that a "uint16_t" holds 2 "chars"
+ * and that a "uint32_t" holds 4 "chars".
  *
  * These macros demonstrate the property of C whereby it can be
  * portable or it can be elegant but never both.
  */
 #define GETSHORT(s, cp) { \
 	register u_char *t_cp = (u_char *)(cp); \
-	(s) = ((u_int16_t)t_cp[0] << 8) | (u_int16_t)t_cp[1]; \
+	(s) = ((uint16_t)t_cp[0] << 8) | (uint16_t)t_cp[1]; \
 	(cp) += 2; \
 }
 
 #define GETLONG(l, cp) { \
 	register u_char *t_cp = (u_char *)(cp); \
-	(l) = (((u_int32_t)t_cp[0]) << 24) \
-	    | (((u_int32_t)t_cp[1]) << 16) \
-	    | (((u_int32_t)t_cp[2]) << 8) \
-	    | (((u_int32_t)t_cp[3])); \
+	(l) = (((uint32_t)t_cp[0]) << 24) \
+	    | (((uint32_t)t_cp[1]) << 16) \
+	    | (((uint32_t)t_cp[2]) << 8) \
+	    | (((uint32_t)t_cp[3])); \
 	(cp) += 4; \
 }
 
 #define PUTSHORT(s, cp) { \
-	register u_int16_t t_s = (u_int16_t)(s); \
+	register uint16_t t_s = (uint16_t)(s); \
 	register u_char *t_cp = (u_char *)(cp); \
 	*t_cp++ = t_s >> 8; \
 	*t_cp   = t_s; \
@@ -303,7 +302,7 @@ struct rrec {
  * were depending on this "feature", you will lose.
  */
 #define PUTLONG(l, cp) { \
-	register u_int32_t t_l = (u_int32_t)(l); \
+	register uint32_t t_l = (uint32_t)(l); \
 	register u_char *t_cp = (u_char *)(cp); \
 	*t_cp++ = t_l >> 24; \
 	*t_cp++ = t_l >> 16; \

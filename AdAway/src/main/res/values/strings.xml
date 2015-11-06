@@ -107,7 +107,7 @@
     <string name="no_private_file_title">Private file creation failed</string>
 
     <!-- Other Dialogs -->
-    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.com or other Android websites.</string>
+    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.org or other Android websites.</string>
     <string name="no_root_title">Rooted Android required</string>
     <string name="no_url">This is not a valid URL!</string>
     <string name="no_url_title">Improperly formatted URL</string>
@@ -220,5 +220,7 @@
     <string name="pref_debug">Debug</string>
     <string name="pref_enable_debug">Debug Logging</string>
     <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
+    <string name="pref_enable_ipv6">Enable IPv6</string>
+    <string name="pref_enable_ipv6_summary">All host file entries will get a corresponding ::1 (IPv6 localhost) entry.</string>
 
 </resources>

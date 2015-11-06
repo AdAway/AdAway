@@ -66,7 +66,7 @@
 /* #undef HAVE_NET_PFVAR_H */
 
 /* Define to 1 if you have the <openssl/evp.h> header file. */
-#define HAVE_OPENSSL_EVP_H 1
+/* #undef HAVE_OPENSSL_EVP_H */
 
 /* if there's an os_proto.h for this platform, to use additional prototypes */
 /* #undef HAVE_OS_PROTO_H */
@@ -273,7 +273,7 @@
 #define STDC_HEADERS 1
 
 /* define if you want to build the possibly-buggy SMB printer */
-#define TCPDUMP_DO_SMB 1
+/* #undef TCPDUMP_DO_SMB */
 
 /* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
 #define TIME_WITH_SYS_TIME 1

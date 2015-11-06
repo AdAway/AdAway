@@ -2,6 +2,7 @@
 <resources>
   <string name="donations__button_close">Zatvori</string>
   <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Da li vam je ovo korisna aplikacija? Podržite njeno razvijanje slanjem donacije programeru !</string>
   <string name="donations__flattr_description">Flattr uzima 10 % provizije mesečno!</string>
   <string name="donations__google_android_market">Google Play prodavnica</string>
   <string name="donations__google_android_market_not_supported_title">Donacije u aplikaciji nisu dostupne.</string>
@@ -12,6 +13,7 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Možete odabrati koliko ćete donirati posle pritiska na dugme!</string>
   <string name="donations__thanks_dialog_title">Hvala!</string>
+  <string name="donations__thanks_dialog">Hvala na doniranju!\nZaista cenim to!</string>
   <string name="donations__alert_dialog_title">Došlo je do greške</string>
   <string name="donations__alert_dialog_no_browser">Nije pronađen pretraživač koji može da otvori website!</string>
 </resources>

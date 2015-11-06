@@ -1,2 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources/>
+<resources>
+  <string name="donations__button_close">Zavrieť</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Páči sa vám táto aplikácia?\nPodporte jej vývoj zaslaním daru autorovi!</string>
+  <string name="donations__flattr_description">Flattr berie 10% ako mesačný poplatok!</string>
+  <string name="donations__google_android_market">Obchod Play</string>
+  <string name="donations__google_android_market_not_supported_title">Platby v aplikácii nie sú dostupné.</string>
+  <string name="donations__google_android_market_not_supported">Platby v aplikácii nie sú dostupné. Je Obchod Play nainštalovaný správne?</string>
+  <string name="donations__google_android_market_description">Google si berie 30% od každého daru!</string>
+  <string name="donations__google_android_market_donate_button">Podporiť!</string>
+  <string name="donations__google_android_market_text">Koľko?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Po kliknutí na tlačidlo budete môcť zvoliť sumu!</string>
+  <string name="donations__thanks_dialog_title">Ďakujem!</string>
+  <string name="donations__thanks_dialog">Ďakujem za dar!\nNaozaj si to veľmi vážim!</string>
+  <string name="donations__alert_dialog_title">Vyskytla sa chyba</string>
+  <string name="donations__alert_dialog_no_browser">Nebol nájdený prehliadač na otvorenie stránky!</string>
+</resources>

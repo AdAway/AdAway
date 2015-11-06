@@ -1,28 +1,28 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Devices</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<h2>HTC zariadenia</h2>
+<p>AdAway nefunguje na S-ON zariadeniach. Táto "funkcia" existuje na veľkom množstve HTC zariadení a bráni AdAway zapisovať hosts súbor.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
+<p>S-OFF znamená, že NAND partícia na zariadení je odomknutá a je možné do nej zapisovať. Predvolené nastavenie pre HTC zariadenia je S-ON, čo znamená, že nie je možné získať prístup k určitej časti systému. Okrem toho, kontrola podpisu pre firmware obrazy je tiež zabezpečená S-ON značkou.</p>
 
-<h2>Do I have S-ON or S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>.</p>
+<h2>Mám S-ON alebo S-OFF?</h2>
+<p>Naštartujte zariadenie do boot menu, držte tlačidlo <i>zníženie hlasitosti</i> pri stláčaní tlačidla pre zapnutie a na vrchu sa zobrazí status S-OFF alebo S-ON. Úplný root všeobecne znamená S-OFF.
+<br/><br/>Viac informácií môžete nájsť na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Ďalšie S-OFF metódy od Unrevokable (v odkaze) by vás mohli zaujímať, a síce: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
-<h2>Workaround</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
+<h2>Riešenie</h2>
+<p>Musíte mať nainštalovaný Android SDK s ADB vo vašom PC.
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>Naštartujte zariadenie do boot menu, držte tlačidlo <i>zníženie hlasitosti</i> pri stláčaní tlačidla pre zapnutie.</li>
+<li>Použite tlačidlo <i>zníženie hlasitosti</i> a zvoľte recovery.</li>
+<li>V CWM prejdite na "partitions menu" a potvrďte</li>
+<li>Zvoľte <i>mount /system</i>, <i>mount /sdcard</i> a <i>mount /data</i>.</li>
+<li>Pripojte USB kábel a vo vašom PC spustite príkazový riadok.</li>
+<li>Zadajte adb shell a dopíšte <tt>ln -s /data/hosts /system/etc/hosts</tt> (Toto vytvorí sybolický odkaz, ktorý dovolí AdAway upravovať hosts súbor umiestnený v <tt>/data</tt> pričom dovoľuje OS používať súbor akoby bol umiestnený v <tt>/system</tt>.)</li>
+<li>Reštartujte zariadenie a nastavte <i>Umiestnenie hosts súboru</i> na <i>/data/hosts</i> v nastaveniach AdAway.</li>
+<li>AdAway by teraz mal fungovať.</li>
 </ol>
 </body>
 </html>

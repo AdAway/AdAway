@@ -100,7 +100,7 @@
   <string name="no_private_file">Особистий файл не може бути створений.</string>
   <string name="no_private_file_title">Не вдалося створити особистий файл</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Програмний файл su не знайдений, або AdAway не були надані права суперкористувача.\n\n Це може статися, якщо у вас немає прав суперкористувача на пристрої. \nІнформацію про те, як отримати права суперкористувача на вашому пристрої, ви можете знайти у відповідній темі на форумі www.cyanogenmod.com або інших веб-сайтах, присвячених вашому пристрою.</string>
+  <string name="no_root_description">Програмний файл su не знайдений, або AdAway не були надані права суперкористувача.\n\n Це може статися, якщо у вас немає прав суперкористувача на пристрої. \nІнформацію про те, як отримати права суперкористувача на вашому пристрої, ви можете знайти на форумі www.cyanogenmod.org або інших веб-сайтах, про Андроїд.</string>
   <string name="no_root_title">Необхідна наявність прав суперкористувача</string>
   <string name="no_url">Це недопустимий URL!</string>
   <string name="no_url_title">Неправильно відформатоване URL</string>
@@ -204,4 +204,6 @@
   <string name="pref_debug">Режим налагодженя</string>
   <string name="pref_enable_debug">Журнал налагодження</string>
   <string name="pref_enable_debug_summary">Необхідно перезапустити AdAway, щоб зміни вступили в силу.</string>
+  <string name="pref_enable_ipv6">Увімкнути IPv6</string>
+  <string name="pref_enable_ipv6_summary">Усі записи файлу хостів отримають належний елемент ::1 (IPv6 localhost).</string>
 </resources>

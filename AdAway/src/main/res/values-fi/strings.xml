@@ -96,7 +96,6 @@
   <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
   <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Joko Pääkäyttäjän binääripakettia ei löytynyt tai sinulla ei ole pääkäyttäjän oikeuksia AdAwaylle.\n\nNäin voi käydä, kun laitteellasi ei ole pääkäyttäjän oikeuksia.\nVoit löytää lisätietoja kuinka hankit pääkäyttäjän oikeudet osoitteessa  www.cyanogenmod.com tai muista Android-sivustoista.</string>
   <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
   <string name="no_url">Tämä ei ei ole kevollinen URL-osoite!</string>
   <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>

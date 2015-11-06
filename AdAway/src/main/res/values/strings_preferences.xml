@@ -9,6 +9,10 @@
 
     <item name="pref_never_reboot_def" format="boolean" type="string">false</item>
 
+    <string name="pref_enable_ipv6_key" translate="false">enableIpv6</string>
+
+    <item name="pref_enable_ipv6_def" format="boolean" type="string">false</item>
+
     <string name="pref_update_check_daily_key" translate="false">updateCheckDaily</string>
 
     <item name="pref_update_check_daily_def" format="boolean" type="string">false</item>

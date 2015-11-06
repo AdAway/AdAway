@@ -1,5 +1,3 @@
-dnl @(#) $Header: /tcpdump/master/tcpdump/configure.in,v 1.204 2008-11-18 07:39:20 guy Exp $ (LBL)
-dnl
 dnl Copyright (c) 1994, 1995, 1996, 1997
 dnl	The Regents of the University of California.  All rights reserved.
 dnl
@@ -33,6 +31,7 @@ if test "$ac_cv___attribute__" = "yes"; then
 		AC_C___ATTRIBUTE___FORMAT_FUNCTION_POINTER
 	fi
 fi
+
 AC_CHECK_HEADERS(fcntl.h rpc/rpc.h rpc/rpcent.h netdnet/dnetdb.h)
 AC_CHECK_HEADERS(net/pfvar.h, , , [#include <sys/types.h>
 #include <sys/socket.h>
@@ -90,28 +89,6 @@ darwin*)
 		esac
 	fi
 	;;
-
-linux*)
-	AC_MSG_CHECKING(Linux kernel version)
- 	if test "$cross_compiling" = yes; then
- 		AC_CACHE_VAL(ac_cv_linux_vers,
- 		    ac_cv_linux_vers=unknown)
- 	else
- 		AC_CACHE_VAL(ac_cv_linux_vers,
- 		    ac_cv_linux_vers=`uname -r 2>&1 | \
- 			sed -n -e '$s/.* //' -e '$s/\..*//p'`)
- 	fi
-	AC_MSG_RESULT($ac_cv_linux_vers)
- 	if test $ac_cv_linux_vers = unknown ; then
- 		AC_MSG_ERROR(cannot determine linux version when cross-compiling)
- 	fi
-	if test $ac_cv_linux_vers -lt 2 ; then
-		AC_MSG_ERROR(version 2 or higher required; see the INSTALL doc for more info)
-	fi
-	;;
-
-*)
-	;;
 esac
 
 
@@ -121,18 +98,28 @@ AC_ARG_WITH(smi,
    with_smi=yes)
 
 if test "x$with_smi" != "xno" ; then
-AC_CHECK_HEADERS(smi.h)
-AC_CHECK_LIB(smi, smiInit)
-if test "$ac_cv_header_smi_h" = yes -a "$ac_cv_lib_smi_smiInit" = yes
-then
-AC_MSG_CHECKING([whether to enable libsmi])
-        AC_TRY_RUN([ /* libsmi available check */
+	AC_CHECK_HEADER(smi.h,
+	[
+		#
+		# OK, we found smi.h.  Do we have libsmi with smiInit?
+		#
+		AC_CHECK_LIB(smi, smiInit,
+		[
+			#
+			# OK, we have libsmi with smiInit.  Can we use it?
+			#
+			AC_MSG_CHECKING([whether to enable libsmi])
+			savedlibs="$LIBS"
+			LIBS="-lsmi $LIBS"
+			AC_TRY_RUN(
+				[
+/* libsmi available check */
 #include <smi.h>
 main()
 {
   int current, revision, age, n;
   const int required = 2;
-  if (smiInit("")) 
+  if (smiInit(""))
     exit(1);
   if (strcmp(SMI_LIBRARY_VERSION, smi_library_version))
     exit(2);
@@ -143,25 +130,35 @@ main()
     exit(4);
   exit(0);
 }
-],
-[ AC_MSG_RESULT(yes)
-  AC_DEFINE(LIBSMI, 1, [Define if you enable support for libsmi])
-  libsmi=yes],
-dnl autoconf documentation says that $? contains the exit value.
-dnl reality is that it does not.  We leave this in just in case
-dnl autoconf ever comes back to match the documentation.
-[ case $? in
-  1) AC_MSG_RESULT(no - smiInit failed) ;;
-  2) AC_MSG_RESULT(no - header/library version mismatch) ;;
-  3) AC_MSG_RESULT(no - can't determine library version) ;;
-  4) AC_MSG_RESULT(no - too old) ;;
-  *) AC_MSG_RESULT(no) ;;
-  esac
-  libsmi=no],
-[ AC_MSG_RESULT(not when cross-compiling)
-  libsmi=no]
-)
-fi
+				],
+				[
+					AC_MSG_RESULT(yes)
+					AC_DEFINE(USE_LIBSMI, 1,
+					    [Define if you enable support for libsmi])
+				],
+				[
+					dnl autoconf documentation says that
+					dnl $? contains the exit value.
+					dnl reality is that it does not.
+					dnl We leave this in just in case
+					dnl autoconf ever comes back to
+					dnl match the documentation.
+					case $? in
+					  1) AC_MSG_RESULT(no - smiInit failed) ;;
+					  2) AC_MSG_RESULT(no - header/library version mismatch) ;;
+					  3) AC_MSG_RESULT(no - can't determine library version) ;;
+					  4) AC_MSG_RESULT(no - too old) ;;
+					  *) AC_MSG_RESULT(no) ;;
+					esac
+					LIBS="$savedlibs"
+				],
+				[
+					AC_MSG_RESULT(not when cross-compiling)
+					LIBS="$savedlibs"
+				]
+			)
+		])
+	])
 fi
 
 AC_MSG_CHECKING([whether to enable the possibly-buggy SMB printer])
@@ -200,6 +197,37 @@ else
        AC_MSG_RESULT(no)
 fi
 
+AC_ARG_WITH(sandbox-capsicum,
+	AS_HELP_STRING([--with-sandbox-capsicum],
+		       [use Capsicum security functions @<:@default=yes, if available@:>@]))
+#
+# Check whether various functions are available.  If any are, set
+# ac_lbl_capsicum_function_seen to yes; if any are not, set
+# ac_lbl_capsicum_function_not_seen to yes.
+#
+# We don't check cap_rights_init(), as it's a macro, wrapping another
+# function, in at least some versions of FreeBSD, and AC_CHECK_FUNCS()
+# doesn't handle that.
+#
+# All of the ones we check for must be available in order to enable
+# capsicum sandboxing.
+#
+# XXX - do we need to check for all of them, or are there some that, if
+# present, imply others are present?
+#
+if test ! -z "$with_sandbox-capsicum" && test "$with_sandbox-capsicum" != "no" ; then
+	AC_CHECK_FUNCS(cap_enter cap_rights_limit cap_ioctls_limit openat,
+	    ac_lbl_capsicum_function_seen=yes,
+	    ac_lbl_capsicum_function_not_seen=yes)
+fi
+AC_MSG_CHECKING([whether to sandbox using capsicum])
+if test "x$ac_lbl_capsicum_function_seen" = "xyes" -a "x$ac_lbl_capsicum_function_not_seen" != "xyes"; then
+	AC_DEFINE(HAVE_CAPSICUM, 1, [capsicum support available])
+	AC_MSG_RESULT(yes)
+else
+	AC_MSG_RESULT(no)
+fi
+
 #
 # We must check this before checking whether to enable IPv6, because,
 # on some platforms (such as SunOS 5.x), the test program requires
@@ -213,7 +241,7 @@ AC_ARG_ENABLE(ipv6,
   --disable-ipv6          disable ipv6 support],
 [ case "$enableval" in
 yes)   AC_MSG_RESULT(yes)
-       LOCALSRC="print-ip6.c print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c print-babel.c $LOCALSRC"
+       LOCALSRC="print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c print-babel.c $LOCALSRC"
        AC_DEFINE(INET6, 1, [Define if you enable IPv6 support])
        ipv6=yes
        ;;
@@ -242,7 +270,7 @@ foo(struct in6_addr *addr)
         ]])
     ],
 [ AC_MSG_RESULT(yes)
-  LOCALSRC="print-ip6.c print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c print-babel.c $LOCALSRC"
+  LOCALSRC="print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c print-babel.c $LOCALSRC"
   AC_DEFINE(INET6, 1, [Define if you enable IPv6 support])
   ipv6=yes],
 [ AC_MSG_RESULT(no)
@@ -477,9 +505,11 @@ main()
 ],
 	td_cv_buggygetaddrinfo=no,
 	td_cv_buggygetaddrinfo=yes,
-	td_cv_buggygetaddrinfo=yes)])
+	td_cv_buggygetaddrinfo=unknown)])
 	if test "$td_cv_buggygetaddrinfo" = no; then
 		AC_MSG_RESULT(good)
+	elif test "$td_cv_buggygetaddrinfo" = unknown; then
+		AC_MSG_RESULT([unknown (cross-compiling)])
 	else
 		AC_MSG_RESULT(buggy)
 	fi
@@ -537,14 +567,7 @@ if test "$ac_cv_namereqd" = no; then
 	missing_includes=yes
 fi
 
-dnl
-dnl Checks for sockaddr_storage structure
-AC_STRUCT_SA_STORAGE(ac_cv_sa_storage)
-if test "$ac_cv_sa_storage" = no; then
-	missing_includes=yes
-fi
-
-AC_REPLACE_FUNCS(vfprintf strcasecmp strlcat strlcpy strdup strsep)
+AC_REPLACE_FUNCS(vfprintf strcasecmp strlcat strlcpy strdup strsep getopt_long)
 AC_CHECK_FUNCS(fork vfork strftime)
 AC_CHECK_FUNCS(setlinebuf alarm)
 
@@ -738,6 +761,54 @@ if test "$ac_cv_sockaddr_has_sa_len" = no; then
 	missing_includes=yes
 fi
 
+dnl
+dnl Check for "pcap_list_datalinks()", "pcap_set_datalink()",
+dnl and "pcap_datalink_name_to_val()", and use substitute versions
+dnl if they're not present.
+dnl
+AC_CHECK_FUNC(pcap_list_datalinks,
+	[
+	    AC_DEFINE(HAVE_PCAP_LIST_DATALINKS, 1,
+		[define if libpcap has pcap_list_datalinks()])
+	    AC_CHECK_FUNCS(pcap_free_datalinks)
+	],
+	[
+	    AC_LIBOBJ(datalinks)
+	])
+AC_CHECK_FUNCS(pcap_set_datalink)
+AC_CHECK_FUNC(pcap_datalink_name_to_val,
+	[
+	    AC_DEFINE(HAVE_PCAP_DATALINK_NAME_TO_VAL, 1,
+		[define if libpcap has pcap_datalink_name_to_val()])
+	    AC_CHECK_FUNC(pcap_datalink_val_to_description,
+		AC_DEFINE(HAVE_PCAP_DATALINK_VAL_TO_DESCRIPTION, 1,
+		    [define if libpcap has pcap_datalink_val_to_description()]),
+		[
+		    AC_LIBOBJ(dlnames)
+		])
+	],
+	[
+	    AC_LIBOBJ(dlnames)
+	])
+
+dnl
+dnl Check for "pcap_breakloop()"; you can't substitute for it if
+dnl it's absent (it has hooks into the live capture routines),
+dnl so just define the HAVE_ value if it's there.
+dnl
+AC_CHECK_FUNCS(pcap_breakloop)
+
+dnl
+dnl Check for "pcap_dump_ftell()" and use a substitute version
+dnl if it's not present.
+dnl
+AC_CHECK_FUNC(pcap_dump_ftell,
+	AC_DEFINE(HAVE_PCAP_DUMP_FTELL, 1,
+	    [define if libpcap has pcap_dump_ftell()]),
+	[
+	    AC_LIBOBJ(pcap_dump_ftell)
+	])
+
 #
 # Do we have the new open API?  Check for pcap_create, and assume that,
 # if we do, we also have pcap_activate() and the other new routines
@@ -750,9 +821,18 @@ if test $ac_cv_func_pcap_create = "yes" ; then
 	# pcap_list_tstamp_types and pcap_free_tstamp_types as well.
 	#
 	AC_CHECK_FUNCS(pcap_set_tstamp_type)
+	#
+	# And do we have pcap_set_tstamp_precision?  If so, we assume
+	# we also have pcap_open_offline_with_tstamp_precision.
+	#
+	AC_CHECK_FUNCS(pcap_set_tstamp_precision)
 fi
 
-AC_CHECK_FUNCS(pcap_findalldevs pcap_dump_flush pcap_lib_version pcap_setdirection)
+#
+# Check for a miscellaneous collection of functions which we use
+# if we have them.
+#
+AC_CHECK_FUNCS(pcap_findalldevs pcap_dump_flush pcap_lib_version pcap_setdirection pcap_set_immediate_mode)
 if test $ac_cv_func_pcap_findalldevs = "yes" ; then
 dnl Check for Mac OS X, which may ship pcap.h from 0.6 but libpcap may
 dnl be 0.8; this means that lib has pcap_findalldevs but header doesn't
@@ -774,7 +854,7 @@ if test $ac_cv_func_pcap_lib_version = "no" ; then
        ac_lbl_cv_pcap_version_defined=yes,
        ac_lbl_cv_pcap_version_defined=no)
     if test "$ac_lbl_cv_pcap_version_defined" = yes ; then
-    	AC_MSG_RESULT(yes)
+	AC_MSG_RESULT(yes)
 	AC_DEFINE(HAVE_PCAP_VERSION, 1, [define if libpcap has pcap_version])
     else
 	AC_MSG_RESULT(no)
@@ -878,6 +958,7 @@ fi
 #
 # Make sure we have definitions for all the C99 specified-width types
 # (regardless of whether the environment is a C99 environment or not).
+#
 AC_TYPE_INT8_T
 AC_TYPE_INT16_T
 AC_TYPE_INT32_T
@@ -888,41 +969,39 @@ AC_TYPE_UINT32_T
 AC_TYPE_UINT64_T
 
 #
-# For now, we're using the old BSD-style u_intXX_t types, so check for
-# them.
+# Make sure we have a definition for C99's uintptr_t (regardless of
+# whether the environment is a C99 environment or not).
 #
-# We should probably migrate to the standard C uintXX_t types.
-#
-AC_CHECK_HEADERS(sys/bitypes.h)
+AC_TYPE_UINTPTR_T
 
+#
+# Define the old BSD specified-width types in terms of the C99 types;
+# we may need them with libpcap include files.
+#
 AC_CHECK_TYPE([u_int8_t], ,
-	[AC_DEFINE([u_int8_t], [unsigned char],
-	[Define to `unsigned char' if u_int8_t not defined.])],
+	[AC_DEFINE([u_int8_t], [uint8_t],
+	[Define to `uint8_t' if u_int8_t not defined.])],
 	[AC_INCLUDES_DEFAULT
-#ifdef HAVE_SYS_BITYPES_H
-#include <sys/bitypes.h>
-#endif])
+#include <sys/types.h>
+])
 AC_CHECK_TYPE([u_int16_t], ,
-	[AC_DEFINE([u_int16_t], [unsigned short],
-	[Define to `unsigned short' if u_int16_t not defined.])],
+	[AC_DEFINE([u_int16_t], [uint16_t],
+	[Define to `uint16_t' if u_int16_t not defined.])],
 	[AC_INCLUDES_DEFAULT
-#ifdef HAVE_SYS_BITYPES_H
-#include <sys/bitypes.h>
-#endif])
+#include <sys/types.h>
+])
 AC_CHECK_TYPE([u_int32_t], ,
-	[AC_DEFINE([u_int32_t], [unsigned int],
-	[Define to `unsigned int' if u_int32_t not defined.])],
+	[AC_DEFINE([u_int32_t], [uint32_t],
+	[Define to `uint32_t' if u_int32_t not defined.])],
 	[AC_INCLUDES_DEFAULT
-#ifdef HAVE_SYS_BITYPES_H
-#include <sys/bitypes.h>
-#endif])
+#include <sys/types.h>
+])
 AC_CHECK_TYPE([u_int64_t], ,
-	[AC_DEFINE([u_int64_t], [unsigned long long],
-	[Define to `unsigned long long' if u_int64_t not defined.])],
+	[AC_DEFINE([u_int64_t], [uint64_t],
+	[Define to `uint64_t' if u_int64_t not defined.])],
 	[AC_INCLUDES_DEFAULT
-#ifdef HAVE_SYS_BITYPES_H
-#include <sys/bitypes.h>
-#endif])
+#include <sys/types.h>
+])
 
 #
 # Check for <inttypes.h>
@@ -941,16 +1020,13 @@ AC_CHECK_HEADERS(inttypes.h,
 	    #include <inttypes.h>
 	    #include <stdio.h>
 	    #include <sys/types.h>
-	    #ifdef HAVE_SYS_BITYPES_H
-	    #include <sys/bitypes.h>
-	    #endif
 
 	    main()
 	    {
-	      printf("%" PRId64 "\n", (u_int64_t)1);
-	      printf("%" PRIo64 "\n", (u_int64_t)1);
-	      printf("%" PRIx64 "\n", (u_int64_t)1);
-	      printf("%" PRIu64 "\n", (u_int64_t)1);
+	      printf("%" PRId64 "\n", (uint64_t)1);
+	      printf("%" PRIo64 "\n", (uint64_t)1);
+	      printf("%" PRIx64 "\n", (uint64_t)1);
+	      printf("%" PRIu64 "\n", (uint64_t)1);
 	    }
 	  ]])
       ],
@@ -1001,6 +1077,7 @@ AC_CHECK_HEADERS(pcap/usb.h,,,[#include "tcpdump-stdinc.h"])
 CPPFLAGS="$savedcppflags"
 
 AC_PROG_RANLIB
+AC_CHECK_TOOL([AR], [ar])
 
 AC_LBL_DEVEL(V_CCOPT)
 
@@ -1037,6 +1114,35 @@ AC_ARG_WITH(crypto,
 if test "$want_libcrypto" != "no"; then
 	AC_CHECK_LIB(crypto, DES_cbc_encrypt)
 	AC_CHECK_HEADERS(openssl/evp.h)
+fi
+
+# Check for libcap-ng
+AC_MSG_CHECKING(whether to use libcap-ng)
+# Specify location for both includes and libraries.
+want_libcap_ng=ifavailable
+AC_ARG_WITH(cap_ng,
+    AS_HELP_STRING([--with-cap-ng],
+		   [use libcap-ng @<:@default=yes, if available@:>@]),
+[
+	if test $withval = no
+	then
+		want_libcap_ng=no
+		AC_MSG_RESULT(no)
+	elif test $withval = yes
+	then
+		want_libcap_ng=yes
+		AC_MSG_RESULT(yes)
+	fi
+],[
+	#
+	# Use libcap-ng if it's present, otherwise don't.
+	#
+	want_libcap_ng=ifavailable
+	AC_MSG_RESULT([yes, if available])
+])
+if test "$want_libcap_ng" != "no"; then
+	AC_CHECK_LIB(cap-ng, capng_change_id)
+	AC_CHECK_HEADERS(cap-ng.h)
 fi
 
 dnl

@@ -32,11 +32,7 @@
  * Ken Hornstein <kenh@cmf.nrl.navy.mil>
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-rx.c,v 1.42 2008-07-01 07:44:50 guy Exp $";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -50,9 +46,87 @@ static const char rcsid[] _U_ =
 #include "addrtoname.h"
 #include "extract.h"
 
-#include "rx.h"
-
 #include "ip.h"
+
+#define FS_RX_PORT	7000
+#define CB_RX_PORT	7001
+#define PROT_RX_PORT	7002
+#define VLDB_RX_PORT	7003
+#define KAUTH_RX_PORT	7004
+#define VOL_RX_PORT	7005
+#define ERROR_RX_PORT	7006		/* Doesn't seem to be used */
+#define BOS_RX_PORT	7007
+
+#define AFSNAMEMAX 256
+#define AFSOPAQUEMAX 1024
+#define PRNAMEMAX 64
+#define VLNAMEMAX 65
+#define KANAMEMAX 64
+#define BOSNAMEMAX 256
+
+#define	PRSFS_READ		1 /* Read files */
+#define	PRSFS_WRITE		2 /* Write files */
+#define	PRSFS_INSERT		4 /* Insert files into a directory */
+#define	PRSFS_LOOKUP		8 /* Lookup files into a directory */
+#define	PRSFS_DELETE		16 /* Delete files */
+#define	PRSFS_LOCK		32 /* Lock files */
+#define	PRSFS_ADMINISTER	64 /* Change ACL's */
+
+struct rx_header {
+	uint32_t epoch;
+	uint32_t cid;
+	uint32_t callNumber;
+	uint32_t seq;
+	uint32_t serial;
+	uint8_t type;
+#define RX_PACKET_TYPE_DATA		1
+#define RX_PACKET_TYPE_ACK		2
+#define RX_PACKET_TYPE_BUSY		3
+#define RX_PACKET_TYPE_ABORT		4
+#define RX_PACKET_TYPE_ACKALL		5
+#define RX_PACKET_TYPE_CHALLENGE	6
+#define RX_PACKET_TYPE_RESPONSE		7
+#define RX_PACKET_TYPE_DEBUG		8
+#define RX_PACKET_TYPE_PARAMS		9
+#define RX_PACKET_TYPE_VERSION		13
+	uint8_t flags;
+#define RX_CLIENT_INITIATED	1
+#define RX_REQUEST_ACK		2
+#define RX_LAST_PACKET		4
+#define RX_MORE_PACKETS		8
+#define RX_FREE_PACKET		16
+#define RX_SLOW_START_OK	32
+#define RX_JUMBO_PACKET		32
+	uint8_t userStatus;
+	uint8_t securityIndex;
+	uint16_t spare;		/* How clever: even though the AFS */
+	uint16_t serviceId;		/* header files indicate that the */
+};					/* serviceId is first, it's really */
+					/* encoded _after_ the spare field */
+					/* I wasted a day figuring that out! */
+
+#define NUM_RX_FLAGS 7
+
+#define RX_MAXACKS 255
+
+struct rx_ackPacket {
+	uint16_t bufferSpace;		/* Number of packet buffers available */
+	uint16_t maxSkew;		/* Max diff between ack'd packet and */
+					/* highest packet received */
+	uint32_t firstPacket;		/* The first packet in ack list */
+	uint32_t previousPacket;	/* Previous packet recv'd (obsolete) */
+	uint32_t serial;		/* # of packet that prompted the ack */
+	uint8_t reason;		/* Reason for acknowledgement */
+	uint8_t nAcks;			/* Number of acknowledgements */
+	uint8_t acks[RX_MAXACKS];	/* Up to RX_MAXACKS acknowledgements */
+};
+
+/*
+ * Values for the acks array
+ */
+
+#define RX_ACK_TYPE_NACK	0	/* Don't have this packet */
+#define RX_ACK_TYPE_ACK		1	/* I have this packet */
 
 static const struct tok rx_types[] = {
 	{ RX_PACKET_TYPE_DATA,		"data" },
@@ -68,7 +142,7 @@ static const struct tok rx_types[] = {
 	{ 0,				NULL },
 };
 
-static struct double_tok {
+static const struct double_tok {
 	int flag;		/* Rx flag */
 	int packetType;		/* Packet type */
 	const char *s;		/* Flag string */
@@ -373,7 +447,7 @@ static const struct tok afs_fs_errors[] = {
 	{ 110, 		"volume busy" },
 	{ 111, 		"volume moved" },
 	{ 112, 		"AFS IO error" },
-	{ -100,		"restarting fileserver" },
+	{ 0xffffff9c,	"restarting fileserver" }, /* -100, sic! */
 	{ 0,		NULL }
 };
 
@@ -400,12 +474,12 @@ static const struct tok rx_ack_reasons[] = {
  */
 
 struct rx_cache_entry {
-	u_int32_t	callnum;	/* Call number (net order) */
+	uint32_t	callnum;	/* Call number (net order) */
 	struct in_addr	client;		/* client IP address (net order) */
 	struct in_addr	server;		/* server IP address (net order) */
 	int		dport;		/* server port (host order) */
 	u_short		serviceId;	/* Service identifier (net order) */
-	u_int32_t	opcode;		/* RX opcode (host order) */
+	uint32_t	opcode;		/* RX opcode (host order) */
 };
 
 #define RX_CACHE_SIZE	64
@@ -414,31 +488,31 @@ static struct rx_cache_entry	rx_cache[RX_CACHE_SIZE];
 
 static int	rx_cache_next = 0;
 static int	rx_cache_hint = 0;
-static void	rx_cache_insert(const u_char *, const struct ip *, int);
+static void	rx_cache_insert(netdissect_options *, const u_char *, const struct ip *, int);
 static int	rx_cache_find(const struct rx_header *, const struct ip *,
 			      int, int32_t *);
 
-static void fs_print(const u_char *, int);
-static void fs_reply_print(const u_char *, int, int32_t);
-static void acl_print(u_char *, int, u_char *);
-static void cb_print(const u_char *, int);
-static void cb_reply_print(const u_char *, int, int32_t);
-static void prot_print(const u_char *, int);
-static void prot_reply_print(const u_char *, int, int32_t);
-static void vldb_print(const u_char *, int);
-static void vldb_reply_print(const u_char *, int, int32_t);
-static void kauth_print(const u_char *, int);
-static void kauth_reply_print(const u_char *, int, int32_t);
-static void vol_print(const u_char *, int);
-static void vol_reply_print(const u_char *, int, int32_t);
-static void bos_print(const u_char *, int);
-static void bos_reply_print(const u_char *, int, int32_t);
-static void ubik_print(const u_char *);
-static void ubik_reply_print(const u_char *, int, int32_t);
+static void fs_print(netdissect_options *, const u_char *, int);
+static void fs_reply_print(netdissect_options *, const u_char *, int, int32_t);
+static void acl_print(netdissect_options *, u_char *, int, u_char *);
+static void cb_print(netdissect_options *, const u_char *, int);
+static void cb_reply_print(netdissect_options *, const u_char *, int, int32_t);
+static void prot_print(netdissect_options *, const u_char *, int);
+static void prot_reply_print(netdissect_options *, const u_char *, int, int32_t);
+static void vldb_print(netdissect_options *, const u_char *, int);
+static void vldb_reply_print(netdissect_options *, const u_char *, int, int32_t);
+static void kauth_print(netdissect_options *, const u_char *, int);
+static void kauth_reply_print(netdissect_options *, const u_char *, int, int32_t);
+static void vol_print(netdissect_options *, const u_char *, int);
+static void vol_reply_print(netdissect_options *, const u_char *, int, int32_t);
+static void bos_print(netdissect_options *, const u_char *, int);
+static void bos_reply_print(netdissect_options *, const u_char *, int, int32_t);
+static void ubik_print(netdissect_options *, const u_char *);
+static void ubik_reply_print(netdissect_options *, const u_char *, int, int32_t);
 
-static void rx_ack_print(const u_char *, int);
+static void rx_ack_print(netdissect_options *, const u_char *, int);
 
-static int is_ubik(u_int32_t);
+static int is_ubik(uint32_t);
 
 /*
  * Handle the rx-level packet.  See if we know what port it's going to so
@@ -446,51 +520,52 @@ static int is_ubik(u_int32_t);
  */
 
 void
-rx_print(register const u_char *bp, int length, int sport, int dport,
-	 u_char *bp2)
+rx_print(netdissect_options *ndo,
+         register const u_char *bp, int length, int sport, int dport,
+         u_char *bp2)
 {
 	register struct rx_header *rxh;
 	int i;
 	int32_t opcode;
 
-	if (snapend - bp < (int)sizeof (struct rx_header)) {
-		printf(" [|rx] (%d)", length);
+	if (ndo->ndo_snapend - bp < (int)sizeof (struct rx_header)) {
+		ND_PRINT((ndo, " [|rx] (%d)", length));
 		return;
 	}
 
 	rxh = (struct rx_header *) bp;
 
-	printf(" rx %s", tok2str(rx_types, "type %d", rxh->type));
+	ND_PRINT((ndo, " rx %s", tok2str(rx_types, "type %d", rxh->type)));
 
-	if (vflag) {
+	if (ndo->ndo_vflag) {
 		int firstflag = 0;
 
-		if (vflag > 1)
-			printf(" cid %08x call# %d",
+		if (ndo->ndo_vflag > 1)
+			ND_PRINT((ndo, " cid %08x call# %d",
 			       (int) EXTRACT_32BITS(&rxh->cid),
-			       (int) EXTRACT_32BITS(&rxh->callNumber));
+			       (int) EXTRACT_32BITS(&rxh->callNumber)));
 
-		printf(" seq %d ser %d",
+		ND_PRINT((ndo, " seq %d ser %d",
 		       (int) EXTRACT_32BITS(&rxh->seq),
-		       (int) EXTRACT_32BITS(&rxh->serial));
+		       (int) EXTRACT_32BITS(&rxh->serial)));
 
-		if (vflag > 2)
-			printf(" secindex %d serviceid %hu",
+		if (ndo->ndo_vflag > 2)
+			ND_PRINT((ndo, " secindex %d serviceid %hu",
 				(int) rxh->securityIndex,
-				EXTRACT_16BITS(&rxh->serviceId));
+				EXTRACT_16BITS(&rxh->serviceId)));
 
-		if (vflag > 1)
+		if (ndo->ndo_vflag > 1)
 			for (i = 0; i < NUM_RX_FLAGS; i++) {
 				if (rxh->flags & rx_flags[i].flag &&
 				    (!rx_flags[i].packetType ||
 				     rxh->type == rx_flags[i].packetType)) {
 					if (!firstflag) {
 						firstflag = 1;
-						printf(" ");
+						ND_PRINT((ndo, " "));
 					} else {
-						printf(",");
+						ND_PRINT((ndo, ","));
 					}
-					printf("<%s>", rx_flags[i].s);
+					ND_PRINT((ndo, "<%s>", rx_flags[i].s));
 				}
 			}
 	}
@@ -513,29 +588,29 @@ rx_print(register const u_char *bp, int length, int sport, int dport,
 		 * have a chance to print out replies
 		 */
 
-		rx_cache_insert(bp, (const struct ip *) bp2, dport);
+		rx_cache_insert(ndo, bp, (const struct ip *) bp2, dport);
 
 		switch (dport) {
 			case FS_RX_PORT:	/* AFS file service */
-				fs_print(bp, length);
+				fs_print(ndo, bp, length);
 				break;
 			case CB_RX_PORT:	/* AFS callback service */
-				cb_print(bp, length);
+				cb_print(ndo, bp, length);
 				break;
 			case PROT_RX_PORT:	/* AFS protection service */
-				prot_print(bp, length);
+				prot_print(ndo, bp, length);
 				break;
 			case VLDB_RX_PORT:	/* AFS VLDB service */
-				vldb_print(bp, length);
+				vldb_print(ndo, bp, length);
 				break;
 			case KAUTH_RX_PORT:	/* AFS Kerberos auth service */
-				kauth_print(bp, length);
+				kauth_print(ndo, bp, length);
 				break;
 			case VOL_RX_PORT:	/* AFS Volume service */
-				vol_print(bp, length);
+				vol_print(ndo, bp, length);
 				break;
 			case BOS_RX_PORT:	/* AFS BOS service */
-				bos_print(bp, length);
+				bos_print(ndo, bp, length);
 				break;
 			default:
 				;
@@ -557,25 +632,25 @@ rx_print(register const u_char *bp, int length, int sport, int dport,
 
 		switch (sport) {
 			case FS_RX_PORT:	/* AFS file service */
-				fs_reply_print(bp, length, opcode);
+				fs_reply_print(ndo, bp, length, opcode);
 				break;
 			case CB_RX_PORT:	/* AFS callback service */
-				cb_reply_print(bp, length, opcode);
+				cb_reply_print(ndo, bp, length, opcode);
 				break;
 			case PROT_RX_PORT:	/* AFS PT service */
-				prot_reply_print(bp, length, opcode);
+				prot_reply_print(ndo, bp, length, opcode);
 				break;
 			case VLDB_RX_PORT:	/* AFS VLDB service */
-				vldb_reply_print(bp, length, opcode);
+				vldb_reply_print(ndo, bp, length, opcode);
 				break;
 			case KAUTH_RX_PORT:	/* AFS Kerberos auth service */
-				kauth_reply_print(bp, length, opcode);
+				kauth_reply_print(ndo, bp, length, opcode);
 				break;
 			case VOL_RX_PORT:	/* AFS Volume service */
-				vol_reply_print(bp, length, opcode);
+				vol_reply_print(ndo, bp, length, opcode);
 				break;
 			case BOS_RX_PORT:	/* AFS BOS service */
-				bos_reply_print(bp, length, opcode);
+				bos_reply_print(ndo, bp, length, opcode);
 				break;
 			default:
 				;
@@ -588,10 +663,10 @@ rx_print(register const u_char *bp, int length, int sport, int dport,
 	 */
 
 	} else if (rxh->type == RX_PACKET_TYPE_ACK)
-		rx_ack_print(bp, length);
+		rx_ack_print(ndo, bp, length);
 
 
-	printf(" (%d)", length);
+	ND_PRINT((ndo, " (%d)", length));
 }
 
 /*
@@ -599,12 +674,13 @@ rx_print(register const u_char *bp, int length, int sport, int dport,
  */
 
 static void
-rx_cache_insert(const u_char *bp, const struct ip *ip, int dport)
+rx_cache_insert(netdissect_options *ndo,
+                const u_char *bp, const struct ip *ip, int dport)
 {
 	struct rx_cache_entry *rxent;
 	const struct rx_header *rxh = (const struct rx_header *) bp;
 
-	if (snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t)))
+	if (ndo->ndo_snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t)))
 		return;
 
 	rxent = &rx_cache[rx_cache_next];
@@ -633,8 +709,8 @@ rx_cache_find(const struct rx_header *rxh, const struct ip *ip, int sport,
 {
 	int i;
 	struct rx_cache_entry *rxent;
-	u_int32_t clip = ip->ip_dst.s_addr;
-	u_int32_t sip = ip->ip_src.s_addr;
+	uint32_t clip = ip->ip_dst.s_addr;
+	uint32_t sip = ip->ip_src.s_addr;
 
 	/* Start the search where we last left off */
 
@@ -666,101 +742,101 @@ rx_cache_find(const struct rx_header *rxh, const struct ip *ip, int sport,
  */
 
 #define FIDOUT() { unsigned long n1, n2, n3; \
-			TCHECK2(bp[0], sizeof(int32_t) * 3); \
+			ND_TCHECK2(bp[0], sizeof(int32_t) * 3); \
 			n1 = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
 			n2 = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
 			n3 = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
-			printf(" fid %d/%d/%d", (int) n1, (int) n2, (int) n3); \
+			ND_PRINT((ndo, " fid %d/%d/%d", (int) n1, (int) n2, (int) n3)); \
 		}
 
 #define STROUT(MAX) { unsigned int i; \
-			TCHECK2(bp[0], sizeof(int32_t)); \
+			ND_TCHECK2(bp[0], sizeof(int32_t)); \
 			i = EXTRACT_32BITS(bp); \
 			if (i > (MAX)) \
 				goto trunc; \
 			bp += sizeof(int32_t); \
-			printf(" \""); \
-			if (fn_printn(bp, i, snapend)) \
+			ND_PRINT((ndo, " \"")); \
+			if (fn_printn(ndo, bp, i, ndo->ndo_snapend)) \
 				goto trunc; \
-			printf("\""); \
+			ND_PRINT((ndo, "\"")); \
 			bp += ((i + sizeof(int32_t) - 1) / sizeof(int32_t)) * sizeof(int32_t); \
 		}
 
 #define INTOUT() { int i; \
-			TCHECK2(bp[0], sizeof(int32_t)); \
+			ND_TCHECK2(bp[0], sizeof(int32_t)); \
 			i = (int) EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
-			printf(" %d", i); \
+			ND_PRINT((ndo, " %d", i)); \
 		}
 
 #define UINTOUT() { unsigned long i; \
-			TCHECK2(bp[0], sizeof(int32_t)); \
+			ND_TCHECK2(bp[0], sizeof(int32_t)); \
 			i = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
-			printf(" %lu", i); \
+			ND_PRINT((ndo, " %lu", i)); \
 		}
 
-#define UINT64OUT() { u_int64_t i; \
-			TCHECK2(bp[0], sizeof(u_int64_t)); \
+#define UINT64OUT() { uint64_t i; \
+			ND_TCHECK2(bp[0], sizeof(uint64_t)); \
 			i = EXTRACT_64BITS(bp); \
-			bp += sizeof(u_int64_t); \
-			printf(" %" PRIu64, i); \
+			bp += sizeof(uint64_t); \
+			ND_PRINT((ndo, " %" PRIu64, i)); \
 		}
 
 #define DATEOUT() { time_t t; struct tm *tm; char str[256]; \
-			TCHECK2(bp[0], sizeof(int32_t)); \
+			ND_TCHECK2(bp[0], sizeof(int32_t)); \
 			t = (time_t) EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
 			tm = localtime(&t); \
 			strftime(str, 256, "%Y/%m/%d %T", tm); \
-			printf(" %s", str); \
+			ND_PRINT((ndo, " %s", str)); \
 		}
 
 #define STOREATTROUT() { unsigned long mask, i; \
-			TCHECK2(bp[0], (sizeof(int32_t)*6)); \
+			ND_TCHECK2(bp[0], (sizeof(int32_t)*6)); \
 			mask = EXTRACT_32BITS(bp); bp += sizeof(int32_t); \
-			if (mask) printf (" StoreStatus"); \
-		        if (mask & 1) { printf(" date"); DATEOUT(); } \
+			if (mask) ND_PRINT((ndo, " StoreStatus")); \
+		        if (mask & 1) { ND_PRINT((ndo, " date")); DATEOUT(); } \
 			else bp += sizeof(int32_t); \
 			i = EXTRACT_32BITS(bp); bp += sizeof(int32_t); \
-		        if (mask & 2) printf(" owner %lu", i);  \
+		        if (mask & 2) ND_PRINT((ndo, " owner %lu", i));  \
 			i = EXTRACT_32BITS(bp); bp += sizeof(int32_t); \
-		        if (mask & 4) printf(" group %lu", i); \
+		        if (mask & 4) ND_PRINT((ndo, " group %lu", i)); \
 			i = EXTRACT_32BITS(bp); bp += sizeof(int32_t); \
-		        if (mask & 8) printf(" mode %lo", i & 07777); \
+		        if (mask & 8) ND_PRINT((ndo, " mode %lo", i & 07777)); \
 			i = EXTRACT_32BITS(bp); bp += sizeof(int32_t); \
-		        if (mask & 16) printf(" segsize %lu", i); \
+		        if (mask & 16) ND_PRINT((ndo, " segsize %lu", i)); \
 			/* undocumented in 3.3 docu */ \
-		        if (mask & 1024) printf(" fsync");  \
+		        if (mask & 1024) ND_PRINT((ndo, " fsync"));  \
 		}
 
 #define UBIK_VERSIONOUT() {int32_t epoch; int32_t counter; \
-			TCHECK2(bp[0], sizeof(int32_t) * 2); \
+			ND_TCHECK2(bp[0], sizeof(int32_t) * 2); \
 			epoch = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
 			counter = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
-			printf(" %d.%d", epoch, counter); \
+			ND_PRINT((ndo, " %d.%d", epoch, counter)); \
 		}
 
-#define AFSUUIDOUT() {u_int32_t temp; int i; \
-			TCHECK2(bp[0], 11*sizeof(u_int32_t)); \
+#define AFSUUIDOUT() {uint32_t temp; int i; \
+			ND_TCHECK2(bp[0], 11*sizeof(uint32_t)); \
 			temp = EXTRACT_32BITS(bp); \
-			bp += sizeof(u_int32_t); \
-			printf(" %08x", temp); \
+			bp += sizeof(uint32_t); \
+			ND_PRINT((ndo, " %08x", temp)); \
 			temp = EXTRACT_32BITS(bp); \
-			bp += sizeof(u_int32_t); \
-			printf("%04x", temp); \
+			bp += sizeof(uint32_t); \
+			ND_PRINT((ndo, "%04x", temp)); \
 			temp = EXTRACT_32BITS(bp); \
-			bp += sizeof(u_int32_t); \
-			printf("%04x", temp); \
+			bp += sizeof(uint32_t); \
+			ND_PRINT((ndo, "%04x", temp)); \
 			for (i = 0; i < 8; i++) { \
 				temp = EXTRACT_32BITS(bp); \
-				bp += sizeof(u_int32_t); \
-				printf("%02x", (unsigned char) temp); \
+				bp += sizeof(uint32_t); \
+				ND_PRINT((ndo, "%02x", (unsigned char) temp)); \
 			} \
 		}
 
@@ -773,27 +849,27 @@ rx_cache_find(const struct rx_header *rxh, const struct ip *ip, int sport,
 			int k; \
 			if ((MAX) + 1 > sizeof(s)) \
 				goto trunc; \
-			TCHECK2(bp[0], (MAX) * sizeof(int32_t)); \
+			ND_TCHECK2(bp[0], (MAX) * sizeof(int32_t)); \
 			sp = s; \
 			for (k = 0; k < (MAX); k++) { \
 				*sp++ = (u_char) EXTRACT_32BITS(bp); \
 				bp += sizeof(int32_t); \
 			} \
 			s[(MAX)] = '\0'; \
-			printf(" \""); \
-			fn_print(s, NULL); \
-			printf("\""); \
+			ND_PRINT((ndo, " \"")); \
+			fn_print(ndo, s, NULL); \
+			ND_PRINT((ndo, "\"")); \
 		}
 
 #define DESTSERVEROUT() { unsigned long n1, n2, n3; \
-			TCHECK2(bp[0], sizeof(int32_t) * 3); \
+			ND_TCHECK2(bp[0], sizeof(int32_t) * 3); \
 			n1 = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
 			n2 = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
 			n3 = EXTRACT_32BITS(bp); \
 			bp += sizeof(int32_t); \
-			printf(" server %d:%d:%d", (int) n1, (int) n2, (int) n3); \
+			ND_PRINT((ndo, " server %d:%d:%d", (int) n1, (int) n2, (int) n3)); \
 		}
 
 /*
@@ -801,7 +877,8 @@ rx_cache_find(const struct rx_header *rxh, const struct ip *ip, int sport,
  */
 
 static void
-fs_print(register const u_char *bp, int length)
+fs_print(netdissect_options *ndo,
+         register const u_char *bp, int length)
 {
 	int fs_op;
 	unsigned long i;
@@ -809,7 +886,7 @@ fs_print(register const u_char *bp, int length)
 	if (length <= (int)sizeof(struct rx_header))
 		return;
 
-	if (snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
+	if (ndo->ndo_snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
 		goto trunc;
 	}
 
@@ -820,7 +897,7 @@ fs_print(register const u_char *bp, int length)
 
 	fs_op = EXTRACT_32BITS(bp + sizeof(struct rx_header));
 
-	printf(" fs call %s", tok2str(fs_req, "op#%d", fs_op));
+	ND_PRINT((ndo, " fs call %s", tok2str(fs_req, "op#%d", fs_op)));
 
 	/*
 	 * Print out arguments to some of the AFS calls.  This stuff is
@@ -836,9 +913,9 @@ fs_print(register const u_char *bp, int length)
 	switch (fs_op) {
 		case 130:	/* Fetch data */
 			FIDOUT();
-			printf(" offset");
+			ND_PRINT((ndo, " offset"));
 			UINTOUT();
-			printf(" length");
+			ND_PRINT((ndo, " length"));
 			UINTOUT();
 			break;
 		case 131:	/* Fetch ACL */
@@ -858,25 +935,25 @@ fs_print(register const u_char *bp, int length)
 		case 133:	/* Store data */
 			FIDOUT();
 			STOREATTROUT();
-			printf(" offset");
+			ND_PRINT((ndo, " offset"));
 			UINTOUT();
-			printf(" length");
+			ND_PRINT((ndo, " length"));
 			UINTOUT();
-			printf(" flen");
+			ND_PRINT((ndo, " flen"));
 			UINTOUT();
 			break;
 		case 134:	/* Store ACL */
 		{
 			char a[AFSOPAQUEMAX+1];
 			FIDOUT();
-			TCHECK2(bp[0], 4);
+			ND_TCHECK2(bp[0], 4);
 			i = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
-			TCHECK2(bp[0], i);
+			ND_TCHECK2(bp[0], i);
 			i = min(AFSOPAQUEMAX, i);
 			strncpy(a, (char *) bp, i);
 			a[i] = '\0';
-			acl_print((u_char *) a, sizeof(a), (u_char *) a + i);
+			acl_print(ndo, (u_char *) a, sizeof(a), (u_char *) a + i);
 			break;
 		}
 		case 137:	/* Create file */
@@ -891,23 +968,23 @@ fs_print(register const u_char *bp, int length)
 			STROUT(AFSNAMEMAX);
 			break;
 		case 138:	/* Rename file */
-			printf(" old");
+			ND_PRINT((ndo, " old"));
 			FIDOUT();
 			STROUT(AFSNAMEMAX);
-			printf(" new");
+			ND_PRINT((ndo, " new"));
 			FIDOUT();
 			STROUT(AFSNAMEMAX);
 			break;
 		case 139:	/* Symlink */
 			FIDOUT();
 			STROUT(AFSNAMEMAX);
-			printf(" link to");
+			ND_PRINT((ndo, " link to"));
 			STROUT(AFSNAMEMAX);
 			break;
 		case 140:	/* Link */
 			FIDOUT();
 			STROUT(AFSNAMEMAX);
-			printf(" link to");
+			ND_PRINT((ndo, " link to"));
 			FIDOUT();
 			break;
 		case 148:	/* Get volume info */
@@ -915,48 +992,48 @@ fs_print(register const u_char *bp, int length)
 			break;
 		case 149:	/* Get volume stats */
 		case 150:	/* Set volume stats */
-			printf(" volid");
+			ND_PRINT((ndo, " volid"));
 			UINTOUT();
 			break;
 		case 154:	/* New get volume info */
-			printf(" volname");
+			ND_PRINT((ndo, " volname"));
 			STROUT(AFSNAMEMAX);
 			break;
 		case 155:	/* Bulk stat */
 		case 65536:     /* Inline bulk stat */
 		{
 			unsigned long j;
-			TCHECK2(bp[0], 4);
+			ND_TCHECK2(bp[0], 4);
 			j = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 
 			for (i = 0; i < j; i++) {
 				FIDOUT();
 				if (i != j - 1)
-					printf(",");
+					ND_PRINT((ndo, ","));
 			}
 			if (j == 0)
-				printf(" <none!>");
+				ND_PRINT((ndo, " <none!>"));
 		}
 		case 65537:	/* Fetch data 64 */
 			FIDOUT();
-			printf(" offset");
+			ND_PRINT((ndo, " offset"));
 			UINT64OUT();
-			printf(" length");
+			ND_PRINT((ndo, " length"));
 			UINT64OUT();
 			break;
 		case 65538:	/* Store data 64 */
 			FIDOUT();
 			STOREATTROUT();
-			printf(" offset");
+			ND_PRINT((ndo, " offset"));
 			UINT64OUT();
-			printf(" length");
+			ND_PRINT((ndo, " length"));
 			UINT64OUT();
-			printf(" flen");
+			ND_PRINT((ndo, " flen"));
 			UINT64OUT();
 			break;
 		case 65541:    /* CallBack rx conn address */
-			printf(" addr");
+			ND_PRINT((ndo, " addr"));
 			UINTOUT();
 		default:
 			;
@@ -965,7 +1042,7 @@ fs_print(register const u_char *bp, int length)
 	return;
 
 trunc:
-	printf(" [|fs]");
+	ND_PRINT((ndo, " [|fs]"));
 }
 
 /*
@@ -973,7 +1050,8 @@ trunc:
  */
 
 static void
-fs_reply_print(register const u_char *bp, int length, int32_t opcode)
+fs_reply_print(netdissect_options *ndo,
+               register const u_char *bp, int length, int32_t opcode)
 {
 	unsigned long i;
 	struct rx_header *rxh;
@@ -988,7 +1066,7 @@ fs_reply_print(register const u_char *bp, int length, int32_t opcode)
 	 * gleaned from fsint/afsint.xg
 	 */
 
-	printf(" fs reply %s", tok2str(fs_req, "op#%d", opcode));
+	ND_PRINT((ndo, " fs reply %s", tok2str(fs_req, "op#%d", opcode)));
 
 	bp += sizeof(struct rx_header);
 
@@ -1001,23 +1079,23 @@ fs_reply_print(register const u_char *bp, int length, int32_t opcode)
 		case 131:	/* Fetch ACL */
 		{
 			char a[AFSOPAQUEMAX+1];
-			TCHECK2(bp[0], 4);
+			ND_TCHECK2(bp[0], 4);
 			i = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
-			TCHECK2(bp[0], i);
+			ND_TCHECK2(bp[0], i);
 			i = min(AFSOPAQUEMAX, i);
 			strncpy(a, (char *) bp, i);
 			a[i] = '\0';
-			acl_print((u_char *) a, sizeof(a), (u_char *) a + i);
+			acl_print(ndo, (u_char *) a, sizeof(a), (u_char *) a + i);
 			break;
 		}
 		case 137:	/* Create file */
 		case 141:	/* MakeDir */
-			printf(" new");
+			ND_PRINT((ndo, " new"));
 			FIDOUT();
 			break;
 		case 151:	/* Get root volume */
-			printf(" root volume");
+			ND_PRINT((ndo, " root volume"));
 			STROUT(AFSNAMEMAX);
 			break;
 		case 153:	/* Get time */
@@ -1032,19 +1110,19 @@ fs_reply_print(register const u_char *bp, int length, int32_t opcode)
 		/*
 		 * Otherwise, just print out the return code
 		 */
-		TCHECK2(bp[0], sizeof(int32_t));
+		ND_TCHECK2(bp[0], sizeof(int32_t));
 		i = (int) EXTRACT_32BITS(bp);
 		bp += sizeof(int32_t);
 
-		printf(" error %s", tok2str(afs_fs_errors, "#%d", i));
+		ND_PRINT((ndo, " error %s", tok2str(afs_fs_errors, "#%d", i)));
 	} else {
-		printf(" strange fs reply of type %d", rxh->type);
+		ND_PRINT((ndo, " strange fs reply of type %d", rxh->type));
 	}
 
 	return;
 
 trunc:
-	printf(" [|fs]");
+	ND_PRINT((ndo, " [|fs]"));
 }
 
 /*
@@ -1062,7 +1140,8 @@ trunc:
  */
 
 static void
-acl_print(u_char *s, int maxsize, u_char *end)
+acl_print(netdissect_options *ndo,
+          u_char *s, int maxsize, u_char *end)
 {
 	int pos, neg, acl;
 	int n, i;
@@ -1085,31 +1164,25 @@ acl_print(u_char *s, int maxsize, u_char *end)
 	 */
 
 #define ACLOUT(acl) \
-	if (acl & PRSFS_READ) \
-		printf("r"); \
-	if (acl & PRSFS_LOOKUP) \
-		printf("l"); \
-	if (acl & PRSFS_INSERT) \
-		printf("i"); \
-	if (acl & PRSFS_DELETE) \
-		printf("d"); \
-	if (acl & PRSFS_WRITE) \
-		printf("w"); \
-	if (acl & PRSFS_LOCK) \
-		printf("k"); \
-	if (acl & PRSFS_ADMINISTER) \
-		printf("a");
+	ND_PRINT((ndo, "%s%s%s%s%s%s%s", \
+	          acl & PRSFS_READ       ? "r" : "", \
+	          acl & PRSFS_LOOKUP     ? "l" : "", \
+	          acl & PRSFS_INSERT     ? "i" : "", \
+	          acl & PRSFS_DELETE     ? "d" : "", \
+	          acl & PRSFS_WRITE      ? "w" : "", \
+	          acl & PRSFS_LOCK       ? "k" : "", \
+	          acl & PRSFS_ADMINISTER ? "a" : ""));
 
 	for (i = 0; i < pos; i++) {
 		snprintf(fmt, sizeof(fmt), "%%%ds %%d\n%%n", maxsize - 1);
 		if (sscanf((char *) s, fmt, user, &acl, &n) != 2)
 			goto finish;
 		s += n;
-		printf(" +{");
-		fn_print((u_char *)user, NULL);
-		printf(" ");
+		ND_PRINT((ndo, " +{"));
+		fn_print(ndo, (u_char *)user, NULL);
+		ND_PRINT((ndo, " "));
 		ACLOUT(acl);
-		printf("}");
+		ND_PRINT((ndo, "}"));
 		if (s > end)
 			goto finish;
 	}
@@ -1119,11 +1192,11 @@ acl_print(u_char *s, int maxsize, u_char *end)
 		if (sscanf((char *) s, fmt, user, &acl, &n) != 2)
 			goto finish;
 		s += n;
-		printf(" -{");
-		fn_print((u_char *)user, NULL);
-		printf(" ");
+		ND_PRINT((ndo, " -{"));
+		fn_print(ndo, (u_char *)user, NULL);
+		ND_PRINT((ndo, " "));
 		ACLOUT(acl);
-		printf("}");
+		ND_PRINT((ndo, "}"));
 		if (s > end)
 			goto finish;
 	}
@@ -1140,7 +1213,8 @@ finish:
  */
 
 static void
-cb_print(register const u_char *bp, int length)
+cb_print(netdissect_options *ndo,
+         register const u_char *bp, int length)
 {
 	int cb_op;
 	unsigned long i;
@@ -1148,7 +1222,7 @@ cb_print(register const u_char *bp, int length)
 	if (length <= (int)sizeof(struct rx_header))
 		return;
 
-	if (snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
+	if (ndo->ndo_snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
 		goto trunc;
 	}
 
@@ -1159,7 +1233,7 @@ cb_print(register const u_char *bp, int length)
 
 	cb_op = EXTRACT_32BITS(bp + sizeof(struct rx_header));
 
-	printf(" cb call %s", tok2str(cb_req, "op#%d", cb_op));
+	ND_PRINT((ndo, " cb call %s", tok2str(cb_req, "op#%d", cb_op)));
 
 	bp += sizeof(struct rx_header) + 4;
 
@@ -1172,38 +1246,38 @@ cb_print(register const u_char *bp, int length)
 		case 204:		/* Callback */
 		{
 			unsigned long j, t;
-			TCHECK2(bp[0], 4);
+			ND_TCHECK2(bp[0], 4);
 			j = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 
 			for (i = 0; i < j; i++) {
 				FIDOUT();
 				if (i != j - 1)
-					printf(",");
+					ND_PRINT((ndo, ","));
 			}
 
 			if (j == 0)
-				printf(" <none!>");
+				ND_PRINT((ndo, " <none!>"));
 
 			j = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 
 			if (j != 0)
-				printf(";");
+				ND_PRINT((ndo, ";"));
 
 			for (i = 0; i < j; i++) {
-				printf(" ver");
+				ND_PRINT((ndo, " ver"));
 				INTOUT();
-				printf(" expires");
+				ND_PRINT((ndo, " expires"));
 				DATEOUT();
-				TCHECK2(bp[0], 4);
+				ND_TCHECK2(bp[0], 4);
 				t = EXTRACT_32BITS(bp);
 				bp += sizeof(int32_t);
 				tok2str(cb_types, "type %d", t);
 			}
 		}
 		case 214: {
-			printf(" afsuuid");
+			ND_PRINT((ndo, " afsuuid"));
 			AFSUUIDOUT();
 			break;
 		}
@@ -1214,7 +1288,7 @@ cb_print(register const u_char *bp, int length)
 	return;
 
 trunc:
-	printf(" [|cb]");
+	ND_PRINT((ndo, " [|cb]"));
 }
 
 /*
@@ -1222,7 +1296,8 @@ trunc:
  */
 
 static void
-cb_reply_print(register const u_char *bp, int length, int32_t opcode)
+cb_reply_print(netdissect_options *ndo,
+               register const u_char *bp, int length, int32_t opcode)
 {
 	struct rx_header *rxh;
 
@@ -1236,7 +1311,7 @@ cb_reply_print(register const u_char *bp, int length, int32_t opcode)
 	 * gleaned from fsint/afscbint.xg
 	 */
 
-	printf(" cb reply %s", tok2str(cb_req, "op#%d", opcode));
+	ND_PRINT((ndo, " cb reply %s", tok2str(cb_req, "op#%d", opcode)));
 
 	bp += sizeof(struct rx_header);
 
@@ -1256,14 +1331,14 @@ cb_reply_print(register const u_char *bp, int length, int32_t opcode)
 		/*
 		 * Otherwise, just print out the return code
 		 */
-		printf(" errcode");
+		ND_PRINT((ndo, " errcode"));
 		INTOUT();
 	}
 
 	return;
 
 trunc:
-	printf(" [|cb]");
+	ND_PRINT((ndo, " [|cb]"));
 }
 
 /*
@@ -1271,7 +1346,8 @@ trunc:
  */
 
 static void
-prot_print(register const u_char *bp, int length)
+prot_print(netdissect_options *ndo,
+           register const u_char *bp, int length)
 {
 	unsigned long i;
 	int pt_op;
@@ -1279,7 +1355,7 @@ prot_print(register const u_char *bp, int length)
 	if (length <= (int)sizeof(struct rx_header))
 		return;
 
-	if (snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
+	if (ndo->ndo_snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
 		goto trunc;
 	}
 
@@ -1290,14 +1366,14 @@ prot_print(register const u_char *bp, int length)
 
 	pt_op = EXTRACT_32BITS(bp + sizeof(struct rx_header));
 
-	printf(" pt");
+	ND_PRINT((ndo, " pt"));
 
 	if (is_ubik(pt_op)) {
-		ubik_print(bp);
+		ubik_print(ndo, bp);
 		return;
 	}
 
-	printf(" call %s", tok2str(pt_req, "op#%d", pt_op));
+	ND_PRINT((ndo, " call %s", tok2str(pt_req, "op#%d", pt_op)));
 
 	/*
 	 * Decode some of the arguments to the PT calls
@@ -1308,9 +1384,9 @@ prot_print(register const u_char *bp, int length)
 	switch (pt_op) {
 		case 500:	/* I New User */
 			STROUT(PRNAMEMAX);
-			printf(" id");
+			ND_PRINT((ndo, " id"));
 			INTOUT();
-			printf(" oldid");
+			ND_PRINT((ndo, " oldid"));
 			INTOUT();
 			break;
 		case 501:	/* Where is it */
@@ -1322,25 +1398,25 @@ prot_print(register const u_char *bp, int length)
 		case 518:	/* Get CPS2 */
 		case 519:	/* Get host CPS */
 		case 530:	/* List super groups */
-			printf(" id");
+			ND_PRINT((ndo, " id"));
 			INTOUT();
 			break;
 		case 502:	/* Dump entry */
-			printf(" pos");
+			ND_PRINT((ndo, " pos"));
 			INTOUT();
 			break;
 		case 503:	/* Add to group */
 		case 507:	/* Remove from group */
 		case 515:	/* Is a member of? */
-			printf(" uid");
+			ND_PRINT((ndo, " uid"));
 			INTOUT();
-			printf(" gid");
+			ND_PRINT((ndo, " gid"));
 			INTOUT();
 			break;
 		case 504:	/* Name to ID */
 		{
 			unsigned long j;
-			TCHECK2(bp[0], 4);
+			ND_TCHECK2(bp[0], 4);
 			j = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 
@@ -1355,46 +1431,46 @@ prot_print(register const u_char *bp, int length)
 				VECOUT(PRNAMEMAX);
 			}
 			if (j == 0)
-				printf(" <none!>");
+				ND_PRINT((ndo, " <none!>"));
 		}
 			break;
 		case 505:	/* Id to name */
 		{
 			unsigned long j;
-			printf(" ids:");
-			TCHECK2(bp[0], 4);
+			ND_PRINT((ndo, " ids:"));
+			ND_TCHECK2(bp[0], 4);
 			i = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 			for (j = 0; j < i; j++)
 				INTOUT();
 			if (j == 0)
-				printf(" <none!>");
+				ND_PRINT((ndo, " <none!>"));
 		}
 			break;
 		case 509:	/* New entry */
 			STROUT(PRNAMEMAX);
-			printf(" flag");
+			ND_PRINT((ndo, " flag"));
 			INTOUT();
-			printf(" oid");
+			ND_PRINT((ndo, " oid"));
 			INTOUT();
 			break;
 		case 511:	/* Set max */
-			printf(" id");
+			ND_PRINT((ndo, " id"));
 			INTOUT();
-			printf(" gflag");
+			ND_PRINT((ndo, " gflag"));
 			INTOUT();
 			break;
 		case 513:	/* Change entry */
-			printf(" id");
+			ND_PRINT((ndo, " id"));
 			INTOUT();
 			STROUT(PRNAMEMAX);
-			printf(" oldid");
+			ND_PRINT((ndo, " oldid"));
 			INTOUT();
-			printf(" newid");
+			ND_PRINT((ndo, " newid"));
 			INTOUT();
 			break;
 		case 520:	/* Update entry */
-			printf(" id");
+			ND_PRINT((ndo, " id"));
 			INTOUT();
 			STROUT(PRNAMEMAX);
 			break;
@@ -1406,7 +1482,7 @@ prot_print(register const u_char *bp, int length)
 	return;
 
 trunc:
-	printf(" [|pt]");
+	ND_PRINT((ndo, " [|pt]"));
 }
 
 /*
@@ -1414,7 +1490,8 @@ trunc:
  */
 
 static void
-prot_reply_print(register const u_char *bp, int length, int32_t opcode)
+prot_reply_print(netdissect_options *ndo,
+                 register const u_char *bp, int length, int32_t opcode)
 {
 	struct rx_header *rxh;
 	unsigned long i;
@@ -1430,14 +1507,14 @@ prot_reply_print(register const u_char *bp, int length, int32_t opcode)
 	 * Ubik call, however.
 	 */
 
-	printf(" pt");
+	ND_PRINT((ndo, " pt"));
 
 	if (is_ubik(opcode)) {
-		ubik_reply_print(bp, length, opcode);
+		ubik_reply_print(ndo, bp, length, opcode);
 		return;
 	}
 
-	printf(" reply %s", tok2str(pt_req, "op#%d", opcode));
+	ND_PRINT((ndo, " reply %s", tok2str(pt_req, "op#%d", opcode)));
 
 	bp += sizeof(struct rx_header);
 
@@ -1450,20 +1527,20 @@ prot_reply_print(register const u_char *bp, int length, int32_t opcode)
 		case 504:		/* Name to ID */
 		{
 			unsigned long j;
-			printf(" ids:");
-			TCHECK2(bp[0], 4);
+			ND_PRINT((ndo, " ids:"));
+			ND_TCHECK2(bp[0], 4);
 			i = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 			for (j = 0; j < i; j++)
 				INTOUT();
 			if (j == 0)
-				printf(" <none!>");
+				ND_PRINT((ndo, " <none!>"));
 		}
 			break;
 		case 505:		/* ID to name */
 		{
 			unsigned long j;
-			TCHECK2(bp[0], 4);
+			ND_TCHECK2(bp[0], 4);
 			j = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 
@@ -1478,7 +1555,7 @@ prot_reply_print(register const u_char *bp, int length, int32_t opcode)
 				VECOUT(PRNAMEMAX);
 			}
 			if (j == 0)
-				printf(" <none!>");
+				ND_PRINT((ndo, " <none!>"));
 		}
 			break;
 		case 508:		/* Get CPS */
@@ -1488,20 +1565,20 @@ prot_reply_print(register const u_char *bp, int length, int32_t opcode)
 		case 519:		/* Get host CPS */
 		{
 			unsigned long j;
-			TCHECK2(bp[0], 4);
+			ND_TCHECK2(bp[0], 4);
 			j = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 			for (i = 0; i < j; i++) {
 				INTOUT();
 			}
 			if (j == 0)
-				printf(" <none!>");
+				ND_PRINT((ndo, " <none!>"));
 		}
 			break;
 		case 510:		/* List max */
-			printf(" maxuid");
+			ND_PRINT((ndo, " maxuid"));
 			INTOUT();
-			printf(" maxgid");
+			ND_PRINT((ndo, " maxgid"));
 			INTOUT();
 			break;
 		default:
@@ -1511,14 +1588,14 @@ prot_reply_print(register const u_char *bp, int length, int32_t opcode)
 		/*
 		 * Otherwise, just print out the return code
 		 */
-		printf(" errcode");
+		ND_PRINT((ndo, " errcode"));
 		INTOUT();
 	}
 
 	return;
 
 trunc:
-	printf(" [|pt]");
+	ND_PRINT((ndo, " [|pt]"));
 }
 
 /*
@@ -1526,7 +1603,8 @@ trunc:
  */
 
 static void
-vldb_print(register const u_char *bp, int length)
+vldb_print(netdissect_options *ndo,
+           register const u_char *bp, int length)
 {
 	int vldb_op;
 	unsigned long i;
@@ -1534,7 +1612,7 @@ vldb_print(register const u_char *bp, int length)
 	if (length <= (int)sizeof(struct rx_header))
 		return;
 
-	if (snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
+	if (ndo->ndo_snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
 		goto trunc;
 	}
 
@@ -1545,13 +1623,13 @@ vldb_print(register const u_char *bp, int length)
 
 	vldb_op = EXTRACT_32BITS(bp + sizeof(struct rx_header));
 
-	printf(" vldb");
+	ND_PRINT((ndo, " vldb"));
 
 	if (is_ubik(vldb_op)) {
-		ubik_print(bp);
+		ubik_print(ndo, bp);
 		return;
 	}
-	printf(" call %s", tok2str(vldb_req, "op#%d", vldb_op));
+	ND_PRINT((ndo, " call %s", tok2str(vldb_req, "op#%d", vldb_op)));
 
 	/*
 	 * Decode some of the arguments to the VLDB calls
@@ -1570,13 +1648,13 @@ vldb_print(register const u_char *bp, int length)
 		case 508:	/* Set lock */
 		case 509:	/* Release lock */
 		case 518:	/* Get entry by ID N */
-			printf(" volid");
+			ND_PRINT((ndo, " volid"));
 			INTOUT();
-			TCHECK2(bp[0], sizeof(int32_t));
+			ND_TCHECK2(bp[0], sizeof(int32_t));
 			i = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 			if (i <= 2)
-				printf(" type %s", voltype[i]);
+				ND_PRINT((ndo, " type %s", voltype[i]));
 			break;
 		case 504:	/* Get entry by name */
 		case 519:	/* Get entry by name N */
@@ -1585,23 +1663,23 @@ vldb_print(register const u_char *bp, int length)
 			STROUT(VLNAMEMAX);
 			break;
 		case 505:	/* Get new vol id */
-			printf(" bump");
+			ND_PRINT((ndo, " bump"));
 			INTOUT();
 			break;
 		case 506:	/* Replace entry */
 		case 520:	/* Replace entry N */
-			printf(" volid");
+			ND_PRINT((ndo, " volid"));
 			INTOUT();
-			TCHECK2(bp[0], sizeof(int32_t));
+			ND_TCHECK2(bp[0], sizeof(int32_t));
 			i = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 			if (i <= 2)
-				printf(" type %s", voltype[i]);
+				ND_PRINT((ndo, " type %s", voltype[i]));
 			VECOUT(VLNAMEMAX);
 			break;
 		case 510:	/* List entry */
 		case 521:	/* List entry N */
-			printf(" index");
+			ND_PRINT((ndo, " index"));
 			INTOUT();
 			break;
 		default:
@@ -1611,7 +1689,7 @@ vldb_print(register const u_char *bp, int length)
 	return;
 
 trunc:
-	printf(" [|vldb]");
+	ND_PRINT((ndo, " [|vldb]"));
 }
 
 /*
@@ -1619,7 +1697,8 @@ trunc:
  */
 
 static void
-vldb_reply_print(register const u_char *bp, int length, int32_t opcode)
+vldb_reply_print(netdissect_options *ndo,
+                 register const u_char *bp, int length, int32_t opcode)
 {
 	struct rx_header *rxh;
 	unsigned long i;
@@ -1635,14 +1714,14 @@ vldb_reply_print(register const u_char *bp, int length, int32_t opcode)
 	 * Ubik call, however.
 	 */
 
-	printf(" vldb");
+	ND_PRINT((ndo, " vldb"));
 
 	if (is_ubik(opcode)) {
-		ubik_reply_print(bp, length, opcode);
+		ubik_reply_print(ndo, bp, length, opcode);
 		return;
 	}
 
-	printf(" reply %s", tok2str(vldb_req, "op#%d", opcode));
+	ND_PRINT((ndo, " reply %s", tok2str(vldb_req, "op#%d", opcode)));
 
 	bp += sizeof(struct rx_header);
 
@@ -1653,93 +1732,93 @@ vldb_reply_print(register const u_char *bp, int length, int32_t opcode)
 	if (rxh->type == RX_PACKET_TYPE_DATA)
 		switch (opcode) {
 		case 510:	/* List entry */
-			printf(" count");
+			ND_PRINT((ndo, " count"));
 			INTOUT();
-			printf(" nextindex");
+			ND_PRINT((ndo, " nextindex"));
 			INTOUT();
 		case 503:	/* Get entry by id */
 		case 504:	/* Get entry by name */
 		{	unsigned long nservers, j;
 			VECOUT(VLNAMEMAX);
-			TCHECK2(bp[0], sizeof(int32_t));
+			ND_TCHECK2(bp[0], sizeof(int32_t));
 			bp += sizeof(int32_t);
-			printf(" numservers");
-			TCHECK2(bp[0], sizeof(int32_t));
+			ND_PRINT((ndo, " numservers"));
+			ND_TCHECK2(bp[0], sizeof(int32_t));
 			nservers = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
-			printf(" %lu", nservers);
-			printf(" servers");
+			ND_PRINT((ndo, " %lu", nservers));
+			ND_PRINT((ndo, " servers"));
 			for (i = 0; i < 8; i++) {
-				TCHECK2(bp[0], sizeof(int32_t));
+				ND_TCHECK2(bp[0], sizeof(int32_t));
 				if (i < nservers)
-					printf(" %s",
-					   intoa(((struct in_addr *) bp)->s_addr));
+					ND_PRINT((ndo, " %s",
+					   intoa(((struct in_addr *) bp)->s_addr)));
 				bp += sizeof(int32_t);
 			}
-			printf(" partitions");
+			ND_PRINT((ndo, " partitions"));
 			for (i = 0; i < 8; i++) {
-				TCHECK2(bp[0], sizeof(int32_t));
+				ND_TCHECK2(bp[0], sizeof(int32_t));
 				j = EXTRACT_32BITS(bp);
 				if (i < nservers && j <= 26)
-					printf(" %c", 'a' + (int)j);
+					ND_PRINT((ndo, " %c", 'a' + (int)j));
 				else if (i < nservers)
-					printf(" %lu", j);
+					ND_PRINT((ndo, " %lu", j));
 				bp += sizeof(int32_t);
 			}
-			TCHECK2(bp[0], 8 * sizeof(int32_t));
+			ND_TCHECK2(bp[0], 8 * sizeof(int32_t));
 			bp += 8 * sizeof(int32_t);
-			printf(" rwvol");
+			ND_PRINT((ndo, " rwvol"));
 			UINTOUT();
-			printf(" rovol");
+			ND_PRINT((ndo, " rovol"));
 			UINTOUT();
-			printf(" backup");
+			ND_PRINT((ndo, " backup"));
 			UINTOUT();
 		}
 			break;
 		case 505:	/* Get new volume ID */
-			printf(" newvol");
+			ND_PRINT((ndo, " newvol"));
 			UINTOUT();
 			break;
 		case 521:	/* List entry */
 		case 529:	/* List entry U */
-			printf(" count");
+			ND_PRINT((ndo, " count"));
 			INTOUT();
-			printf(" nextindex");
+			ND_PRINT((ndo, " nextindex"));
 			INTOUT();
 		case 518:	/* Get entry by ID N */
 		case 519:	/* Get entry by name N */
 		{	unsigned long nservers, j;
 			VECOUT(VLNAMEMAX);
-			printf(" numservers");
-			TCHECK2(bp[0], sizeof(int32_t));
+			ND_PRINT((ndo, " numservers"));
+			ND_TCHECK2(bp[0], sizeof(int32_t));
 			nservers = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
-			printf(" %lu", nservers);
-			printf(" servers");
+			ND_PRINT((ndo, " %lu", nservers));
+			ND_PRINT((ndo, " servers"));
 			for (i = 0; i < 13; i++) {
-				TCHECK2(bp[0], sizeof(int32_t));
+				ND_TCHECK2(bp[0], sizeof(int32_t));
 				if (i < nservers)
-					printf(" %s",
-					   intoa(((struct in_addr *) bp)->s_addr));
+					ND_PRINT((ndo, " %s",
+					   intoa(((struct in_addr *) bp)->s_addr)));
 				bp += sizeof(int32_t);
 			}
-			printf(" partitions");
+			ND_PRINT((ndo, " partitions"));
 			for (i = 0; i < 13; i++) {
-				TCHECK2(bp[0], sizeof(int32_t));
+				ND_TCHECK2(bp[0], sizeof(int32_t));
 				j = EXTRACT_32BITS(bp);
 				if (i < nservers && j <= 26)
-					printf(" %c", 'a' + (int)j);
+					ND_PRINT((ndo, " %c", 'a' + (int)j));
 				else if (i < nservers)
-					printf(" %lu", j);
+					ND_PRINT((ndo, " %lu", j));
 				bp += sizeof(int32_t);
 			}
-			TCHECK2(bp[0], 13 * sizeof(int32_t));
+			ND_TCHECK2(bp[0], 13 * sizeof(int32_t));
 			bp += 13 * sizeof(int32_t);
-			printf(" rwvol");
+			ND_PRINT((ndo, " rwvol"));
 			UINTOUT();
-			printf(" rovol");
+			ND_PRINT((ndo, " rovol"));
 			UINTOUT();
-			printf(" backup");
+			ND_PRINT((ndo, " backup"));
 			UINTOUT();
 		}
 			break;
@@ -1747,40 +1826,40 @@ vldb_reply_print(register const u_char *bp, int length, int32_t opcode)
 		case 527:	/* Get entry by name U */
 		{	unsigned long nservers, j;
 			VECOUT(VLNAMEMAX);
-			printf(" numservers");
-			TCHECK2(bp[0], sizeof(int32_t));
+			ND_PRINT((ndo, " numservers"));
+			ND_TCHECK2(bp[0], sizeof(int32_t));
 			nservers = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
-			printf(" %lu", nservers);
-			printf(" servers");
+			ND_PRINT((ndo, " %lu", nservers));
+			ND_PRINT((ndo, " servers"));
 			for (i = 0; i < 13; i++) {
 				if (i < nservers) {
-					printf(" afsuuid");
+					ND_PRINT((ndo, " afsuuid"));
 					AFSUUIDOUT();
 				} else {
-					TCHECK2(bp[0], 44);
+					ND_TCHECK2(bp[0], 44);
 					bp += 44;
 				}
 			}
-			TCHECK2(bp[0], 4 * 13);
+			ND_TCHECK2(bp[0], 4 * 13);
 			bp += 4 * 13;
-			printf(" partitions");
+			ND_PRINT((ndo, " partitions"));
 			for (i = 0; i < 13; i++) {
-				TCHECK2(bp[0], sizeof(int32_t));
+				ND_TCHECK2(bp[0], sizeof(int32_t));
 				j = EXTRACT_32BITS(bp);
 				if (i < nservers && j <= 26)
-					printf(" %c", 'a' + (int)j);
+					ND_PRINT((ndo, " %c", 'a' + (int)j));
 				else if (i < nservers)
-					printf(" %lu", j);
+					ND_PRINT((ndo, " %lu", j));
 				bp += sizeof(int32_t);
 			}
-			TCHECK2(bp[0], 13 * sizeof(int32_t));
+			ND_TCHECK2(bp[0], 13 * sizeof(int32_t));
 			bp += 13 * sizeof(int32_t);
-			printf(" rwvol");
+			ND_PRINT((ndo, " rwvol"));
 			UINTOUT();
-			printf(" rovol");
+			ND_PRINT((ndo, " rovol"));
 			UINTOUT();
-			printf(" backup");
+			ND_PRINT((ndo, " backup"));
 			UINTOUT();
 		}
 		default:
@@ -1791,14 +1870,14 @@ vldb_reply_print(register const u_char *bp, int length, int32_t opcode)
 		/*
 		 * Otherwise, just print out the return code
 		 */
-		printf(" errcode");
+		ND_PRINT((ndo, " errcode"));
 		INTOUT();
 	}
 
 	return;
 
 trunc:
-	printf(" [|vldb]");
+	ND_PRINT((ndo, " [|vldb]"));
 }
 
 /*
@@ -1806,14 +1885,15 @@ trunc:
  */
 
 static void
-kauth_print(register const u_char *bp, int length)
+kauth_print(netdissect_options *ndo,
+            register const u_char *bp, int length)
 {
 	int kauth_op;
 
 	if (length <= (int)sizeof(struct rx_header))
 		return;
 
-	if (snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
+	if (ndo->ndo_snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
 		goto trunc;
 	}
 
@@ -1824,15 +1904,15 @@ kauth_print(register const u_char *bp, int length)
 
 	kauth_op = EXTRACT_32BITS(bp + sizeof(struct rx_header));
 
-	printf(" kauth");
+	ND_PRINT((ndo, " kauth"));
 
 	if (is_ubik(kauth_op)) {
-		ubik_print(bp);
+		ubik_print(ndo, bp);
 		return;
 	}
 
 
-	printf(" call %s", tok2str(kauth_req, "op#%d", kauth_op));
+	ND_PRINT((ndo, " call %s", tok2str(kauth_req, "op#%d", kauth_op)));
 
 	/*
 	 * Decode some of the arguments to the KA calls
@@ -1851,7 +1931,7 @@ kauth_print(register const u_char *bp, int length)
 		case 8:		/* Get entry */
 		case 14:	/* Unlock */
 		case 15:	/* Lock status */
-			printf(" principal");
+			ND_PRINT((ndo, " principal"));
 			STROUT(KANAMEMAX);
 			STROUT(KANAMEMAX);
 			break;
@@ -1859,29 +1939,29 @@ kauth_print(register const u_char *bp, int length)
 		case 23:	/* GetTicket */
 		{
 			int i;
-			printf(" kvno");
+			ND_PRINT((ndo, " kvno"));
 			INTOUT();
-			printf(" domain");
+			ND_PRINT((ndo, " domain"));
 			STROUT(KANAMEMAX);
-			TCHECK2(bp[0], sizeof(int32_t));
+			ND_TCHECK2(bp[0], sizeof(int32_t));
 			i = (int) EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
-			TCHECK2(bp[0], i);
+			ND_TCHECK2(bp[0], i);
 			bp += i;
-			printf(" principal");
+			ND_PRINT((ndo, " principal"));
 			STROUT(KANAMEMAX);
 			STROUT(KANAMEMAX);
 			break;
 		}
 		case 4:		/* Set Password */
-			printf(" principal");
+			ND_PRINT((ndo, " principal"));
 			STROUT(KANAMEMAX);
 			STROUT(KANAMEMAX);
-			printf(" kvno");
+			ND_PRINT((ndo, " kvno"));
 			INTOUT();
 			break;
 		case 12:	/* Get password */
-			printf(" name");
+			ND_PRINT((ndo, " name"));
 			STROUT(KANAMEMAX);
 			break;
 		default:
@@ -1891,7 +1971,7 @@ kauth_print(register const u_char *bp, int length)
 	return;
 
 trunc:
-	printf(" [|kauth]");
+	ND_PRINT((ndo, " [|kauth]"));
 }
 
 /*
@@ -1899,7 +1979,8 @@ trunc:
  */
 
 static void
-kauth_reply_print(register const u_char *bp, int length, int32_t opcode)
+kauth_reply_print(netdissect_options *ndo,
+                  register const u_char *bp, int length, int32_t opcode)
 {
 	struct rx_header *rxh;
 
@@ -1913,14 +1994,14 @@ kauth_reply_print(register const u_char *bp, int length, int32_t opcode)
 	 * gleaned from kauth/kauth.rg
 	 */
 
-	printf(" kauth");
+	ND_PRINT((ndo, " kauth"));
 
 	if (is_ubik(opcode)) {
-		ubik_reply_print(bp, length, opcode);
+		ubik_reply_print(ndo, bp, length, opcode);
 		return;
 	}
 
-	printf(" reply %s", tok2str(kauth_req, "op#%d", opcode));
+	ND_PRINT((ndo, " reply %s", tok2str(kauth_req, "op#%d", opcode)));
 
 	bp += sizeof(struct rx_header);
 
@@ -1935,14 +2016,14 @@ kauth_reply_print(register const u_char *bp, int length, int32_t opcode)
 		/*
 		 * Otherwise, just print out the return code
 		 */
-		printf(" errcode");
+		ND_PRINT((ndo, " errcode"));
 		INTOUT();
 	}
 
 	return;
 
 trunc:
-	printf(" [|kauth]");
+	ND_PRINT((ndo, " [|kauth]"));
 }
 
 /*
@@ -1950,14 +2031,15 @@ trunc:
  */
 
 static void
-vol_print(register const u_char *bp, int length)
+vol_print(netdissect_options *ndo,
+          register const u_char *bp, int length)
 {
 	int vol_op;
 
 	if (length <= (int)sizeof(struct rx_header))
 		return;
 
-	if (snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
+	if (ndo->ndo_snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
 		goto trunc;
 	}
 
@@ -1968,126 +2050,126 @@ vol_print(register const u_char *bp, int length)
 
 	vol_op = EXTRACT_32BITS(bp + sizeof(struct rx_header));
 
-	printf(" vol call %s", tok2str(vol_req, "op#%d", vol_op));
+	ND_PRINT((ndo, " vol call %s", tok2str(vol_req, "op#%d", vol_op)));
 
 	bp += sizeof(struct rx_header) + 4;
 
 	switch (vol_op) {
 		case 100:	/* Create volume */
-			printf(" partition");
+			ND_PRINT((ndo, " partition"));
 			UINTOUT();
-			printf(" name");
+			ND_PRINT((ndo, " name"));
 			STROUT(AFSNAMEMAX);
-			printf(" type");
+			ND_PRINT((ndo, " type"));
 			UINTOUT();
-			printf(" parent");
+			ND_PRINT((ndo, " parent"));
 			UINTOUT();
 			break;
 		case 101:	/* Delete volume */
 		case 107:	/* Get flags */
-			printf(" trans");
+			ND_PRINT((ndo, " trans"));
 			UINTOUT();
 			break;
 		case 102:	/* Restore */
-			printf(" totrans");
+			ND_PRINT((ndo, " totrans"));
 			UINTOUT();
-			printf(" flags");
+			ND_PRINT((ndo, " flags"));
 			UINTOUT();
 			break;
 		case 103:	/* Forward */
-			printf(" fromtrans");
+			ND_PRINT((ndo, " fromtrans"));
 			UINTOUT();
-			printf(" fromdate");
+			ND_PRINT((ndo, " fromdate"));
 			DATEOUT();
 			DESTSERVEROUT();
-			printf(" desttrans");
+			ND_PRINT((ndo, " desttrans"));
 			INTOUT();
 			break;
 		case 104:	/* End trans */
-			printf(" trans");
+			ND_PRINT((ndo, " trans"));
 			UINTOUT();
 			break;
 		case 105:	/* Clone */
-			printf(" trans");
+			ND_PRINT((ndo, " trans"));
 			UINTOUT();
-			printf(" purgevol");
+			ND_PRINT((ndo, " purgevol"));
 			UINTOUT();
-			printf(" newtype");
+			ND_PRINT((ndo, " newtype"));
 			UINTOUT();
-			printf(" newname");
+			ND_PRINT((ndo, " newname"));
 			STROUT(AFSNAMEMAX);
 			break;
 		case 106:	/* Set flags */
-			printf(" trans");
+			ND_PRINT((ndo, " trans"));
 			UINTOUT();
-			printf(" flags");
+			ND_PRINT((ndo, " flags"));
 			UINTOUT();
 			break;
 		case 108:	/* Trans create */
-			printf(" vol");
+			ND_PRINT((ndo, " vol"));
 			UINTOUT();
-			printf(" partition");
+			ND_PRINT((ndo, " partition"));
 			UINTOUT();
-			printf(" flags");
+			ND_PRINT((ndo, " flags"));
 			UINTOUT();
 			break;
 		case 109:	/* Dump */
 		case 655537:	/* Get size */
-			printf(" fromtrans");
+			ND_PRINT((ndo, " fromtrans"));
 			UINTOUT();
-			printf(" fromdate");
+			ND_PRINT((ndo, " fromdate"));
 			DATEOUT();
 			break;
 		case 110:	/* Get n-th volume */
-			printf(" index");
+			ND_PRINT((ndo, " index"));
 			UINTOUT();
 			break;
 		case 111:	/* Set forwarding */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UINTOUT();
-			printf(" newsite");
+			ND_PRINT((ndo, " newsite"));
 			UINTOUT();
 			break;
 		case 112:	/* Get name */
 		case 113:	/* Get status */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			break;
 		case 114:	/* Signal restore */
-			printf(" name");
+			ND_PRINT((ndo, " name"));
 			STROUT(AFSNAMEMAX);
-			printf(" type");
+			ND_PRINT((ndo, " type"));
 			UINTOUT();
-			printf(" pid");
+			ND_PRINT((ndo, " pid"));
 			UINTOUT();
-			printf(" cloneid");
+			ND_PRINT((ndo, " cloneid"));
 			UINTOUT();
 			break;
 		case 116:	/* List volumes */
-			printf(" partition");
+			ND_PRINT((ndo, " partition"));
 			UINTOUT();
-			printf(" flags");
+			ND_PRINT((ndo, " flags"));
 			UINTOUT();
 			break;
 		case 117:	/* Set id types */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UINTOUT();
-			printf(" name");
+			ND_PRINT((ndo, " name"));
 			STROUT(AFSNAMEMAX);
-			printf(" type");
+			ND_PRINT((ndo, " type"));
 			UINTOUT();
-			printf(" pid");
+			ND_PRINT((ndo, " pid"));
 			UINTOUT();
-			printf(" clone");
+			ND_PRINT((ndo, " clone"));
 			UINTOUT();
-			printf(" backup");
+			ND_PRINT((ndo, " backup"));
 			UINTOUT();
 			break;
 		case 119:	/* Partition info */
-			printf(" name");
+			ND_PRINT((ndo, " name"));
 			STROUT(AFSNAMEMAX);
 			break;
 		case 120:	/* Reclone */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UINTOUT();
 			break;
 		case 121:	/* List one volume */
@@ -2095,46 +2177,46 @@ vol_print(register const u_char *bp, int length)
 		case 124:	/* Extended List volumes */
 		case 125:	/* Extended List one volume */
 		case 65536:	/* Convert RO to RW volume */
-			printf(" partid");
+			ND_PRINT((ndo, " partid"));
 			UINTOUT();
-			printf(" volid");
+			ND_PRINT((ndo, " volid"));
 			UINTOUT();
 			break;
 		case 123:	/* Set date */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UINTOUT();
-			printf(" date");
+			ND_PRINT((ndo, " date"));
 			DATEOUT();
 			break;
 		case 126:	/* Set info */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UINTOUT();
 			break;
 		case 128:	/* Forward multiple */
-			printf(" fromtrans");
+			ND_PRINT((ndo, " fromtrans"));
 			UINTOUT();
-			printf(" fromdate");
+			ND_PRINT((ndo, " fromdate"));
 			DATEOUT();
 			{
 				unsigned long i, j;
-				TCHECK2(bp[0], 4);
+				ND_TCHECK2(bp[0], 4);
 				j = EXTRACT_32BITS(bp);
 				bp += sizeof(int32_t);
 				for (i = 0; i < j; i++) {
 					DESTSERVEROUT();
 					if (i != j - 1)
-						printf(",");
+						ND_PRINT((ndo, ","));
 				}
 				if (j == 0)
-					printf(" <none!>");
+					ND_PRINT((ndo, " <none!>"));
 			}
 			break;
 		case 65538:	/* Dump version 2 */
-			printf(" fromtrans");
+			ND_PRINT((ndo, " fromtrans"));
 			UINTOUT();
-			printf(" fromdate");
+			ND_PRINT((ndo, " fromdate"));
 			DATEOUT();
-			printf(" flags");
+			ND_PRINT((ndo, " flags"));
 			UINTOUT();
 			break;
 		default:
@@ -2143,7 +2225,7 @@ vol_print(register const u_char *bp, int length)
 	return;
 
 trunc:
-	printf(" [|vol]");
+	ND_PRINT((ndo, " [|vol]"));
 }
 
 /*
@@ -2151,7 +2233,8 @@ trunc:
  */
 
 static void
-vol_reply_print(register const u_char *bp, int length, int32_t opcode)
+vol_reply_print(netdissect_options *ndo,
+                register const u_char *bp, int length, int32_t opcode)
 {
 	struct rx_header *rxh;
 
@@ -2165,7 +2248,7 @@ vol_reply_print(register const u_char *bp, int length, int32_t opcode)
 	 * gleaned from volser/volint.xg
 	 */
 
-	printf(" vol reply %s", tok2str(vol_req, "op#%d", opcode));
+	ND_PRINT((ndo, " vol reply %s", tok2str(vol_req, "op#%d", opcode)));
 
 	bp += sizeof(struct rx_header);
 
@@ -2176,66 +2259,66 @@ vol_reply_print(register const u_char *bp, int length, int32_t opcode)
 	if (rxh->type == RX_PACKET_TYPE_DATA) {
 		switch (opcode) {
 			case 100:	/* Create volume */
-				printf(" volid");
+				ND_PRINT((ndo, " volid"));
 				UINTOUT();
-				printf(" trans");
+				ND_PRINT((ndo, " trans"));
 				UINTOUT();
 				break;
 			case 104:	/* End transaction */
 				UINTOUT();
 				break;
 			case 105:	/* Clone */
-				printf(" newvol");
+				ND_PRINT((ndo, " newvol"));
 				UINTOUT();
 				break;
 			case 107:	/* Get flags */
 				UINTOUT();
 				break;
 			case 108:	/* Transaction create */
-				printf(" trans");
+				ND_PRINT((ndo, " trans"));
 				UINTOUT();
 				break;
 			case 110:	/* Get n-th volume */
-				printf(" volume");
+				ND_PRINT((ndo, " volume"));
 				UINTOUT();
-				printf(" partition");
+				ND_PRINT((ndo, " partition"));
 				UINTOUT();
 				break;
 			case 112:	/* Get name */
 				STROUT(AFSNAMEMAX);
 				break;
 			case 113:	/* Get status */
-				printf(" volid");
+				ND_PRINT((ndo, " volid"));
 				UINTOUT();
-				printf(" nextuniq");
+				ND_PRINT((ndo, " nextuniq"));
 				UINTOUT();
-				printf(" type");
+				ND_PRINT((ndo, " type"));
 				UINTOUT();
-				printf(" parentid");
+				ND_PRINT((ndo, " parentid"));
 				UINTOUT();
-				printf(" clone");
+				ND_PRINT((ndo, " clone"));
 				UINTOUT();
-				printf(" backup");
+				ND_PRINT((ndo, " backup"));
 				UINTOUT();
-				printf(" restore");
+				ND_PRINT((ndo, " restore"));
 				UINTOUT();
-				printf(" maxquota");
+				ND_PRINT((ndo, " maxquota"));
 				UINTOUT();
-				printf(" minquota");
+				ND_PRINT((ndo, " minquota"));
 				UINTOUT();
-				printf(" owner");
+				ND_PRINT((ndo, " owner"));
 				UINTOUT();
-				printf(" create");
+				ND_PRINT((ndo, " create"));
 				DATEOUT();
-				printf(" access");
+				ND_PRINT((ndo, " access"));
 				DATEOUT();
-				printf(" update");
+				ND_PRINT((ndo, " update"));
 				DATEOUT();
-				printf(" expire");
+				ND_PRINT((ndo, " expire"));
 				DATEOUT();
-				printf(" backup");
+				ND_PRINT((ndo, " backup"));
 				DATEOUT();
-				printf(" copy");
+				ND_PRINT((ndo, " copy"));
 				DATEOUT();
 				break;
 			case 115:	/* Old list partitions */
@@ -2244,24 +2327,24 @@ vol_reply_print(register const u_char *bp, int length, int32_t opcode)
 			case 121:	/* List one volume */
 				{
 					unsigned long i, j;
-					TCHECK2(bp[0], 4);
+					ND_TCHECK2(bp[0], 4);
 					j = EXTRACT_32BITS(bp);
 					bp += sizeof(int32_t);
 					for (i = 0; i < j; i++) {
-						printf(" name");
+						ND_PRINT((ndo, " name"));
 						VECOUT(32);
-						printf(" volid");
+						ND_PRINT((ndo, " volid"));
 						UINTOUT();
-						printf(" type");
+						ND_PRINT((ndo, " type"));
 						bp += sizeof(int32_t) * 21;
 						if (i != j - 1)
-							printf(",");
+							ND_PRINT((ndo, ","));
 					}
 					if (j == 0)
-						printf(" <none!>");
+						ND_PRINT((ndo, " <none!>"));
 				}
 				break;
-				
+
 
 			default:
 				;
@@ -2270,14 +2353,14 @@ vol_reply_print(register const u_char *bp, int length, int32_t opcode)
 		/*
 		 * Otherwise, just print out the return code
 		 */
-		printf(" errcode");
+		ND_PRINT((ndo, " errcode"));
 		INTOUT();
 	}
 
 	return;
 
 trunc:
-	printf(" [|vol]");
+	ND_PRINT((ndo, " [|vol]"));
 }
 
 /*
@@ -2285,14 +2368,15 @@ trunc:
  */
 
 static void
-bos_print(register const u_char *bp, int length)
+bos_print(netdissect_options *ndo,
+          register const u_char *bp, int length)
 {
 	int bos_op;
 
 	if (length <= (int)sizeof(struct rx_header))
 		return;
 
-	if (snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
+	if (ndo->ndo_snapend - bp + 1 <= (int)(sizeof(struct rx_header) + sizeof(int32_t))) {
 		goto trunc;
 	}
 
@@ -2303,7 +2387,7 @@ bos_print(register const u_char *bp, int length)
 
 	bos_op = EXTRACT_32BITS(bp + sizeof(struct rx_header));
 
-	printf(" bos call %s", tok2str(bos_req, "op#%d", bos_op));
+	ND_PRINT((ndo, " bos call %s", tok2str(bos_req, "op#%d", bos_op)));
 
 	/*
 	 * Decode some of the arguments to the BOS calls
@@ -2313,9 +2397,9 @@ bos_print(register const u_char *bp, int length)
 
 	switch (bos_op) {
 		case 80:	/* Create B node */
-			printf(" type");
+			ND_PRINT((ndo, " type"));
 			STROUT(BOSNAMEMAX);
-			printf(" instance");
+			ND_PRINT((ndo, " instance"));
 			STROUT(BOSNAMEMAX);
 			break;
 		case 81:	/* Delete B node */
@@ -2336,12 +2420,12 @@ bos_print(register const u_char *bp, int length)
 		case 82:	/* Set status */
 		case 98:	/* Set T status */
 			STROUT(BOSNAMEMAX);
-			printf(" status");
+			ND_PRINT((ndo, " status"));
 			INTOUT();
 			break;
 		case 86:	/* Get instance parm */
 			STROUT(BOSNAMEMAX);
-			printf(" num");
+			ND_PRINT((ndo, " num"));
 			INTOUT();
 			break;
 		case 84:	/* Enumerate instance */
@@ -2354,11 +2438,11 @@ bos_print(register const u_char *bp, int length)
 			break;
 		case 105:	/* Install */
 			STROUT(BOSNAMEMAX);
-			printf(" size");
+			ND_PRINT((ndo, " size"));
 			INTOUT();
-			printf(" flags");
+			ND_PRINT((ndo, " flags"));
 			INTOUT();
-			printf(" date");
+			ND_PRINT((ndo, " date"));
 			INTOUT();
 			break;
 		default:
@@ -2368,7 +2452,7 @@ bos_print(register const u_char *bp, int length)
 	return;
 
 trunc:
-	printf(" [|bos]");
+	ND_PRINT((ndo, " [|bos]"));
 }
 
 /*
@@ -2376,7 +2460,8 @@ trunc:
  */
 
 static void
-bos_reply_print(register const u_char *bp, int length, int32_t opcode)
+bos_reply_print(netdissect_options *ndo,
+                register const u_char *bp, int length, int32_t opcode)
 {
 	struct rx_header *rxh;
 
@@ -2390,7 +2475,7 @@ bos_reply_print(register const u_char *bp, int length, int32_t opcode)
 	 * gleaned from volser/volint.xg
 	 */
 
-	printf(" bos reply %s", tok2str(bos_req, "op#%d", opcode));
+	ND_PRINT((ndo, " bos reply %s", tok2str(bos_req, "op#%d", opcode)));
 
 	bp += sizeof(struct rx_header);
 
@@ -2405,14 +2490,14 @@ bos_reply_print(register const u_char *bp, int length, int32_t opcode)
 		/*
 		 * Otherwise, just print out the return code
 		 */
-		printf(" errcode");
+		ND_PRINT((ndo, " errcode"));
 		INTOUT();
 	}
 
 	return;
 
 trunc:
-	printf(" [|bos]");
+	ND_PRINT((ndo, " [|bos]"));
 }
 
 /*
@@ -2420,7 +2505,7 @@ trunc:
  */
 
 static int
-is_ubik(u_int32_t opcode)
+is_ubik(uint32_t opcode)
 {
 	if ((opcode >= VOTE_LOW && opcode <= VOTE_HIGH) ||
 	    (opcode >= DISK_LOW && opcode <= DISK_HIGH))
@@ -2434,7 +2519,8 @@ is_ubik(u_int32_t opcode)
  */
 
 static void
-ubik_print(register const u_char *bp)
+ubik_print(netdissect_options *ndo,
+           register const u_char *bp)
 {
 	int ubik_op;
 	int32_t temp;
@@ -2446,7 +2532,7 @@ ubik_print(register const u_char *bp)
 
 	ubik_op = EXTRACT_32BITS(bp + sizeof(struct rx_header));
 
-	printf(" ubik call %s", tok2str(ubik_req, "op#%d", ubik_op));
+	ND_PRINT((ndo, " ubik call %s", tok2str(ubik_req, "op#%d", ubik_op)));
 
 	/*
 	 * Decode some of the arguments to the Ubik calls
@@ -2456,19 +2542,19 @@ ubik_print(register const u_char *bp)
 
 	switch (ubik_op) {
 		case 10000:		/* Beacon */
-			TCHECK2(bp[0], 4);
+			ND_TCHECK2(bp[0], 4);
 			temp = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
-			printf(" syncsite %s", temp ? "yes" : "no");
-			printf(" votestart");
+			ND_PRINT((ndo, " syncsite %s", temp ? "yes" : "no"));
+			ND_PRINT((ndo, " votestart"));
 			DATEOUT();
-			printf(" dbversion");
+			ND_PRINT((ndo, " dbversion"));
 			UBIK_VERSIONOUT();
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UBIK_VERSIONOUT();
 			break;
 		case 10003:		/* Get sync site */
-			printf(" site");
+			ND_PRINT((ndo, " site"));
 			UINTOUT();
 			break;
 		case 20000:		/* Begin */
@@ -2476,56 +2562,56 @@ ubik_print(register const u_char *bp)
 		case 20007:		/* Abort */
 		case 20008:		/* Release locks */
 		case 20010:		/* Writev */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UBIK_VERSIONOUT();
 			break;
 		case 20002:		/* Lock */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UBIK_VERSIONOUT();
-			printf(" file");
+			ND_PRINT((ndo, " file"));
 			INTOUT();
-			printf(" pos");
+			ND_PRINT((ndo, " pos"));
 			INTOUT();
-			printf(" length");
+			ND_PRINT((ndo, " length"));
 			INTOUT();
 			temp = EXTRACT_32BITS(bp);
 			bp += sizeof(int32_t);
 			tok2str(ubik_lock_types, "type %d", temp);
 			break;
 		case 20003:		/* Write */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UBIK_VERSIONOUT();
-			printf(" file");
+			ND_PRINT((ndo, " file"));
 			INTOUT();
-			printf(" pos");
+			ND_PRINT((ndo, " pos"));
 			INTOUT();
 			break;
 		case 20005:		/* Get file */
-			printf(" file");
+			ND_PRINT((ndo, " file"));
 			INTOUT();
 			break;
 		case 20006:		/* Send file */
-			printf(" file");
+			ND_PRINT((ndo, " file"));
 			INTOUT();
-			printf(" length");
+			ND_PRINT((ndo, " length"));
 			INTOUT();
-			printf(" dbversion");
+			ND_PRINT((ndo, " dbversion"));
 			UBIK_VERSIONOUT();
 			break;
 		case 20009:		/* Truncate */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UBIK_VERSIONOUT();
-			printf(" file");
+			ND_PRINT((ndo, " file"));
 			INTOUT();
-			printf(" length");
+			ND_PRINT((ndo, " length"));
 			INTOUT();
 			break;
 		case 20012:		/* Set version */
-			printf(" tid");
+			ND_PRINT((ndo, " tid"));
 			UBIK_VERSIONOUT();
-			printf(" oldversion");
+			ND_PRINT((ndo, " oldversion"));
 			UBIK_VERSIONOUT();
-			printf(" newversion");
+			ND_PRINT((ndo, " newversion"));
 			UBIK_VERSIONOUT();
 			break;
 		default:
@@ -2535,7 +2621,7 @@ ubik_print(register const u_char *bp)
 	return;
 
 trunc:
-	printf(" [|ubik]");
+	ND_PRINT((ndo, " [|ubik]"));
 }
 
 /*
@@ -2543,7 +2629,8 @@ trunc:
  */
 
 static void
-ubik_reply_print(register const u_char *bp, int length, int32_t opcode)
+ubik_reply_print(netdissect_options *ndo,
+                 register const u_char *bp, int length, int32_t opcode)
 {
 	struct rx_header *rxh;
 
@@ -2557,7 +2644,7 @@ ubik_reply_print(register const u_char *bp, int length, int32_t opcode)
 	 * from ubik/ubik_int.xg
 	 */
 
-	printf(" ubik reply %s", tok2str(ubik_req, "op#%d", opcode));
+	ND_PRINT((ndo, " ubik reply %s", tok2str(ubik_req, "op#%d", opcode)));
 
 	bp += sizeof(struct rx_header);
 
@@ -2568,10 +2655,10 @@ ubik_reply_print(register const u_char *bp, int length, int32_t opcode)
 	if (rxh->type == RX_PACKET_TYPE_DATA)
 		switch (opcode) {
 		case 10000:		/* Beacon */
-			printf(" vote no");
+			ND_PRINT((ndo, " vote no"));
 			break;
 		case 20004:		/* Get version */
-			printf(" dbversion");
+			ND_PRINT((ndo, " dbversion"));
 			UBIK_VERSIONOUT();
 			break;
 		default:
@@ -2587,18 +2674,18 @@ ubik_reply_print(register const u_char *bp, int length, int32_t opcode)
 	else
 		switch (opcode) {
 		case 10000:		/* Beacon */
-			printf(" vote yes until");
+			ND_PRINT((ndo, " vote yes until"));
 			DATEOUT();
 			break;
 		default:
-			printf(" errcode");
+			ND_PRINT((ndo, " errcode"));
 			INTOUT();
 		}
 
 	return;
 
 trunc:
-	printf(" [|ubik]");
+	ND_PRINT((ndo, " [|ubik]"));
 }
 
 /*
@@ -2606,11 +2693,12 @@ trunc:
  */
 
 static void
-rx_ack_print(register const u_char *bp, int length)
+rx_ack_print(netdissect_options *ndo,
+             register const u_char *bp, int length)
 {
 	struct rx_ackPacket *rxa;
 	int i, start, last;
-	u_int32_t firstPacket;
+	uint32_t firstPacket;
 
 	if (length < (int)sizeof(struct rx_header))
 		return;
@@ -2625,7 +2713,7 @@ rx_ack_print(register const u_char *bp, int length)
 	 * rx_ackPacket structure.
 	 */
 
-	TCHECK2(bp[0], sizeof(struct rx_ackPacket) - RX_MAXACKS);
+	ND_TCHECK2(bp[0], sizeof(struct rx_ackPacket) - RX_MAXACKS);
 
 	rxa = (struct rx_ackPacket *) bp;
 	bp += (sizeof(struct rx_ackPacket) - RX_MAXACKS);
@@ -2634,15 +2722,15 @@ rx_ack_print(register const u_char *bp, int length)
 	 * Print out a few useful things from the ack packet structure
 	 */
 
-	if (vflag > 2)
-		printf(" bufspace %d maxskew %d",
+	if (ndo->ndo_vflag > 2)
+		ND_PRINT((ndo, " bufspace %d maxskew %d",
 		       (int) EXTRACT_16BITS(&rxa->bufferSpace),
-		       (int) EXTRACT_16BITS(&rxa->maxSkew));
+		       (int) EXTRACT_16BITS(&rxa->maxSkew)));
 
 	firstPacket = EXTRACT_32BITS(&rxa->firstPacket);
-	printf(" first %d serial %d reason %s",
+	ND_PRINT((ndo, " first %d serial %d reason %s",
 	       firstPacket, EXTRACT_32BITS(&rxa->serial),
-	       tok2str(rx_ack_reasons, "#%d", (int) rxa->reason));
+	       tok2str(rx_ack_reasons, "#%d", (int) rxa->reason)));
 
 	/*
 	 * Okay, now we print out the ack array.  The way _this_ works
@@ -2665,7 +2753,7 @@ rx_ack_print(register const u_char *bp, int length)
 
 	if (rxa->nAcks != 0) {
 
-		TCHECK2(bp[0], rxa->nAcks);
+		ND_TCHECK2(bp[0], rxa->nAcks);
 
 		/*
 		 * Sigh, this is gross, but it seems to work to collapse
@@ -2683,13 +2771,12 @@ rx_ack_print(register const u_char *bp, int length)
 				 */
 
 				if (last == -2) {
-					printf(" acked %d",
-					       firstPacket + i);
+					ND_PRINT((ndo, " acked %d", firstPacket + i));
 					start = i;
 				}
 
 				/*
-				 * Otherwise, if the there is a skip in
+				 * Otherwise, if there is a skip in
 				 * the range (such as an nacked packet in
 				 * the middle of some acked packets),
 				 * then print the current packet number
@@ -2698,7 +2785,7 @@ rx_ack_print(register const u_char *bp, int length)
 				 */
 
 				else if (last != i - 1) {
-					printf(",%d", firstPacket + i);
+					ND_PRINT((ndo, ",%d", firstPacket + i));
 					start = i;
 				}
 
@@ -2724,7 +2811,7 @@ rx_ack_print(register const u_char *bp, int length)
 				 * range.
 				 */
 			} else if (last == i - 1 && start != last)
-				printf("-%d", firstPacket + i - 1);
+				ND_PRINT((ndo, "-%d", firstPacket + i - 1));
 
 		/*
 		 * So, what's going on here?  We ran off the end of the
@@ -2738,7 +2825,7 @@ rx_ack_print(register const u_char *bp, int length)
 		 */
 
 		if (last == i - 1 && start != last)
-			printf("-%d", firstPacket + i - 1);
+			ND_PRINT((ndo, "-%d", firstPacket + i - 1));
 
 		/*
 		 * Same as above, just without comments
@@ -2747,19 +2834,18 @@ rx_ack_print(register const u_char *bp, int length)
 		for (i = 0, start = last = -2; i < rxa->nAcks; i++)
 			if (rxa->acks[i] == RX_ACK_TYPE_NACK) {
 				if (last == -2) {
-					printf(" nacked %d",
-					       firstPacket + i);
+					ND_PRINT((ndo, " nacked %d", firstPacket + i));
 					start = i;
 				} else if (last != i - 1) {
-					printf(",%d", firstPacket + i);
+					ND_PRINT((ndo, ",%d", firstPacket + i));
 					start = i;
 				}
 				last = i;
 			} else if (last == i - 1 && start != last)
-				printf("-%d", firstPacket + i - 1);
+				ND_PRINT((ndo, "-%d", firstPacket + i - 1));
 
 		if (last == i - 1 && start != last)
-			printf("-%d", firstPacket + i - 1);
+			ND_PRINT((ndo, "-%d", firstPacket + i - 1));
 
 		bp += rxa->nAcks;
 	}
@@ -2770,29 +2856,29 @@ rx_ack_print(register const u_char *bp, int length)
 	 * you may or may not see them
 	 */
 
-#define TRUNCRET(n)	if (snapend - bp + 1 <= n) return;
+#define TRUNCRET(n)	if (ndo->ndo_snapend - bp + 1 <= n) return;
 
-	if (vflag > 1) {
+	if (ndo->ndo_vflag > 1) {
 		TRUNCRET(4);
-		printf(" ifmtu");
+		ND_PRINT((ndo, " ifmtu"));
 		INTOUT();
 
 		TRUNCRET(4);
-		printf(" maxmtu");
+		ND_PRINT((ndo, " maxmtu"));
 		INTOUT();
 
 		TRUNCRET(4);
-		printf(" rwind");
+		ND_PRINT((ndo, " rwind"));
 		INTOUT();
 
 		TRUNCRET(4);
-		printf(" maxpackets");
+		ND_PRINT((ndo, " maxpackets"));
 		INTOUT();
 	}
 
 	return;
 
 trunc:
-	printf(" [|ack]");
+	ND_PRINT((ndo, " [|ack]"));
 }
 #undef TRUNCRET

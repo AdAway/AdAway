@@ -12,6 +12,11 @@
             android:key="@string/pref_never_reboot_key"
             android:summary="@string/pref_never_reboot_summary"
             android:title="@string/pref_never_reboot" />
+        <CheckBoxPreference
+            android:defaultValue="@string/pref_enable_ipv6_def"
+            android:key="@string/pref_enable_ipv6_key"
+            android:summary="@string/pref_enable_ipv6_summary"
+            android:title="@string/pref_enable_ipv6" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_background">
         <CheckBoxPreference

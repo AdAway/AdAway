@@ -1,4 +1,0 @@
-version 0, resource ID 20, family IPv4 (2), length 180: 74.82.42.42.53 > 10.0.0.20.42585: 17265 1/0/0 A 93.184.216.119 (45)
-version 0, resource ID 20, family IPv4 (2), length 192: 74.82.42.42.53 > 10.0.0.20.45190: 52954 1/0/0 AAAA 2606:2800:220:6d:26bf:1447:1097:aa7 (57)
-version 0, resource ID 20, family IPv4 (2), length 184: 74.82.42.42.53 > 10.0.0.20.44031: 8279 1/0/0 A 93.184.216.119 (49)
-version 0, resource ID 20, family IPv4 (2), length 196: 74.82.42.42.53 > 10.0.0.20.48736: 2122 1/0/0 AAAA 2606:2800:220:6d:26bf:1447:1097:aa7 (61)

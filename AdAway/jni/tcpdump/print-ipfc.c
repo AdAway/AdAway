@@ -19,31 +19,30 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-ipfc.c,v 1.9 2005-11-13 12:12:42 guy Exp $ (LBL)";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <pcap.h>
-#include <stdio.h>
 #include <string.h>
 
 #include "interface.h"
 #include "addrtoname.h"
-#include "ethertype.h"
 
 #include "ether.h"
-#include "ipfc.h"
 
 /*
  * RFC 2625 IP-over-Fibre Channel.
  */
+
+struct ipfc_header {
+	u_char  ipfc_dhost[8];
+	u_char  ipfc_shost[8];
+};
+
+#define IPFC_HDRLEN 16
 
 /* Extract src, dst addresses */
 static inline void
@@ -62,30 +61,31 @@ extract_ipfc_addrs(const struct ipfc_header *ipfcp, char *ipfcsrc,
  * Print the Network_Header
  */
 static inline void
-ipfc_hdr_print(register const struct ipfc_header *ipfcp _U_,
+ipfc_hdr_print(netdissect_options *ndo,
+	   register const struct ipfc_header *ipfcp _U_,
 	   register u_int length, register const u_char *ipfcsrc,
 	   register const u_char *ipfcdst)
 {
 	const char *srcname, *dstname;
 
-	srcname = etheraddr_string(ipfcsrc);
-	dstname = etheraddr_string(ipfcdst);
+	srcname = etheraddr_string(ndo, ipfcsrc);
+	dstname = etheraddr_string(ndo, ipfcdst);
 
 	/*
 	 * XXX - show the upper 16 bits?  Do so only if "vflag" is set?
 	 */
-	(void) printf("%s %s %d: ", srcname, dstname, length);
+	ND_PRINT((ndo, "%s %s %d: ", srcname, dstname, length));
 }
 
 static void
-ipfc_print(const u_char *p, u_int length, u_int caplen)
+ipfc_print(netdissect_options *ndo, const u_char *p, u_int length, u_int caplen)
 {
 	const struct ipfc_header *ipfcp = (const struct ipfc_header *)p;
 	struct ether_header ehdr;
 	u_short extracted_ethertype;
 
 	if (caplen < IPFC_HDRLEN) {
-		printf("[|ipfc]");
+		ND_PRINT((ndo, "[|ipfc]"));
 		return;
 	}
 	/*
@@ -93,8 +93,8 @@ ipfc_print(const u_char *p, u_int length, u_int caplen)
 	 */
 	extract_ipfc_addrs(ipfcp, (char *)ESRC(&ehdr), (char *)EDST(&ehdr));
 
-	if (eflag)
-		ipfc_hdr_print(ipfcp, length, ESRC(&ehdr), EDST(&ehdr));
+	if (ndo->ndo_eflag)
+		ipfc_hdr_print(ndo, ipfcp, length, ESRC(&ehdr), EDST(&ehdr));
 
 	/* Skip over Network_Header */
 	length -= IPFC_HDRLEN;
@@ -102,21 +102,21 @@ ipfc_print(const u_char *p, u_int length, u_int caplen)
 	caplen -= IPFC_HDRLEN;
 
 	/* Try to print the LLC-layer header & higher layers */
-	if (llc_print(p, length, caplen, ESRC(&ehdr), EDST(&ehdr),
+	if (llc_print(ndo, p, length, caplen, ESRC(&ehdr), EDST(&ehdr),
 	    &extracted_ethertype) == 0) {
 		/*
 		 * Some kinds of LLC packet we cannot
 		 * handle intelligently
 		 */
-		if (!eflag)
-			ipfc_hdr_print(ipfcp, length + IPFC_HDRLEN,
+		if (!ndo->ndo_eflag)
+			ipfc_hdr_print(ndo, ipfcp, length + IPFC_HDRLEN,
 			    ESRC(&ehdr), EDST(&ehdr));
 		if (extracted_ethertype) {
-			printf("(LLC %s) ",
-		etherproto_string(htons(extracted_ethertype)));
+			ND_PRINT((ndo, "(LLC %s) ",
+		etherproto_string(htons(extracted_ethertype))));
 		}
-		if (!suppress_default_print)
-			default_print(p, caplen);
+		if (!ndo->ndo_suppress_default_print)
+			ND_DEFAULTPRINT(p, caplen);
 	}
 }
 
@@ -127,9 +127,9 @@ ipfc_print(const u_char *p, u_int length, u_int caplen)
  * is the number of bytes actually captured.
  */
 u_int
-ipfc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
+ipfc_if_print(netdissect_options *ndo, const struct pcap_pkthdr *h, register const u_char *p)
 {
-	ipfc_print(p, h->len, h->caplen);
+	ipfc_print(ndo, p, h->len, h->caplen);
 
 	return (IPFC_HDRLEN);
 }

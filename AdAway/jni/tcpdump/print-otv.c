@@ -13,20 +13,15 @@
  * Original code by Francesco Fondelli (francesco dot fondelli, gmail dot com)
  */
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "interface.h"
 #include "extract.h"
-#include "addrtoname.h"
-
-#include "udp.h"
 
 /*
  * OTV header, draft-hasmit-otv-04
@@ -41,14 +36,14 @@
  */
 
 void
-otv_print(const u_char *bp, u_int len)
+otv_print(netdissect_options *ndo, const u_char *bp, u_int len)
 {
-    u_int8_t flags;
-    u_int32_t overlay_id;
-    u_int32_t instance_id;
-    
+    uint8_t flags;
+    uint32_t overlay_id;
+    uint32_t instance_id;
+
     if (len < 8) {
-        printf("[|OTV]");
+        ND_PRINT((ndo, "[|OTV]"));
         return;
     }
 
@@ -61,19 +56,10 @@ otv_print(const u_char *bp, u_int len)
     instance_id = EXTRACT_24BITS(bp);
     bp += 4;
 
-    printf("OTV, ");
+    ND_PRINT((ndo, "OTV, "));
+    ND_PRINT((ndo, "flags [%s] (0x%02x), ", flags & 0x08 ? "I" : ".", flags));
+    ND_PRINT((ndo, "overlay %u, ", overlay_id));
+    ND_PRINT((ndo, "instance %u\n", instance_id));
 
-    fputs("flags [", stdout);
-    if (flags & 0x08)
-        fputs("I", stdout);
-    else
-        fputs(".", stdout);
-    fputs("] ", stdout);
-
-    printf("(0x%02x), ", flags);
-    printf("overlay %u, ", overlay_id);
-    printf("instance %u\n", instance_id);
-
-    ether_print(gndo, bp, len - 8, len - 8, NULL, NULL);
-    return;
+    ether_print(ndo, bp, len - 8, len - 8, NULL, NULL);
 }

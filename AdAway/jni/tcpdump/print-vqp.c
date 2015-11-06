@@ -12,25 +12,17 @@
  * LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
  * FOR A PARTICULAR PURPOSE.
  *
- * support for the Cisco prop. VQP Protocol 
+ * support for the Cisco prop. VQP Protocol
  *
  * Original code by Carles Kishimoto <Carles.Kishimoto@bsc.es>
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-vqp.c,v 1.3 2006-08-19 06:51:13 guy Exp $";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 #include "interface.h"
 #include "extract.h"
@@ -52,16 +44,16 @@ static const char rcsid[] _U_ =
  */
 
 struct vqp_common_header_t {
-    u_int8_t version;
-    u_int8_t msg_type;
-    u_int8_t error_code;
-    u_int8_t nitems;
-    u_int8_t sequence[4];
+    uint8_t version;
+    uint8_t msg_type;
+    uint8_t error_code;
+    uint8_t nitems;
+    uint8_t sequence[4];
 };
 
 struct vqp_obj_tlv_t {
-    u_int8_t obj_type[4];
-    u_int8_t obj_length[2];
+    uint8_t obj_type[4];
+    uint8_t obj_length[2];
 };
 
 #define VQP_OBJ_REQ_JOIN_PORT  0x01
@@ -106,52 +98,52 @@ static const struct tok vqp_obj_values[] = {
 };
 
 void
-vqp_print(register const u_char *pptr, register u_int len) 
+vqp_print(netdissect_options *ndo, register const u_char *pptr, register u_int len)
 {
     const struct vqp_common_header_t *vqp_common_header;
     const struct vqp_obj_tlv_t *vqp_obj_tlv;
 
     const u_char *tptr;
-    u_int16_t vqp_obj_len;
-    u_int32_t vqp_obj_type;
+    uint16_t vqp_obj_len;
+    uint32_t vqp_obj_type;
     int tlen;
-    u_int8_t nitems;
+    uint8_t nitems;
 
     tptr=pptr;
     tlen = len;
     vqp_common_header = (const struct vqp_common_header_t *)pptr;
-    TCHECK(*vqp_common_header);
+    ND_TCHECK(*vqp_common_header);
 
     /*
      * Sanity checking of the header.
      */
     if (VQP_EXTRACT_VERSION(vqp_common_header->version) != VQP_VERSION) {
-	printf("VQP version %u packet not supported",
-               VQP_EXTRACT_VERSION(vqp_common_header->version));
+	ND_PRINT((ndo, "VQP version %u packet not supported",
+               VQP_EXTRACT_VERSION(vqp_common_header->version)));
 	return;
     }
 
     /* in non-verbose mode just lets print the basic Message Type */
-    if (vflag < 1) {
-        printf("VQPv%u %s Message, error-code %s (%u), length %u",
+    if (ndo->ndo_vflag < 1) {
+        ND_PRINT((ndo, "VQPv%u %s Message, error-code %s (%u), length %u",
                VQP_EXTRACT_VERSION(vqp_common_header->version),
                tok2str(vqp_msg_type_values, "unknown (%u)",vqp_common_header->msg_type),
                tok2str(vqp_error_code_values, "unknown (%u)",vqp_common_header->error_code),
 	       vqp_common_header->error_code,
-               len);
+               len));
         return;
     }
-    
+
     /* ok they seem to want to know everything - lets fully decode it */
     nitems = vqp_common_header->nitems;
-    printf("\n\tVQPv%u, %s Message, error-code %s (%u), seq 0x%08x, items %u, length %u",
+    ND_PRINT((ndo, "\n\tVQPv%u, %s Message, error-code %s (%u), seq 0x%08x, items %u, length %u",
            VQP_EXTRACT_VERSION(vqp_common_header->version),
 	   tok2str(vqp_msg_type_values, "unknown (%u)",vqp_common_header->msg_type),
 	   tok2str(vqp_error_code_values, "unknown (%u)",vqp_common_header->error_code),
 	   vqp_common_header->error_code,
            EXTRACT_32BITS(&vqp_common_header->sequence),
            nitems,
-           len);
+           len));
 
     /* skip VQP Common header */
     tptr+=sizeof(const struct vqp_common_header_t);
@@ -165,9 +157,9 @@ vqp_print(register const u_char *pptr, register u_int len)
         tptr+=sizeof(struct vqp_obj_tlv_t);
         tlen-=sizeof(struct vqp_obj_tlv_t);
 
-        printf("\n\t  %s Object (0x%08x), length %u, value: ",
+        ND_PRINT((ndo, "\n\t  %s Object (0x%08x), length %u, value: ",
                tok2str(vqp_obj_values, "Unknown", vqp_obj_type),
-               vqp_obj_type, vqp_obj_len);
+               vqp_obj_type, vqp_obj_len));
 
         /* basic sanity check */
         if (vqp_obj_type == 0 || vqp_obj_len ==0) {
@@ -175,28 +167,27 @@ vqp_print(register const u_char *pptr, register u_int len)
         }
 
         /* did we capture enough for fully decoding the object ? */
-        if (!TTEST2(*tptr, vqp_obj_len)) 
-            goto trunc;
+        ND_TCHECK2(*tptr, vqp_obj_len);
 
         switch(vqp_obj_type) {
 	case VQP_OBJ_IP_ADDRESS:
-            printf("%s (0x%08x)", ipaddr_string(tptr), EXTRACT_32BITS(tptr));
+            ND_PRINT((ndo, "%s (0x%08x)", ipaddr_string(ndo, tptr), EXTRACT_32BITS(tptr)));
             break;
             /* those objects have similar semantics - fall through */
         case VQP_OBJ_PORT_NAME:
 	case VQP_OBJ_VLAN_NAME:
 	case VQP_OBJ_VTP_DOMAIN:
 	case VQP_OBJ_ETHERNET_PKT:
-            safeputs((const char *)tptr, vqp_obj_len);
+            safeputs(ndo, tptr, vqp_obj_len);
             break;
             /* those objects have similar semantics - fall through */
 	case VQP_OBJ_MAC_ADDRESS:
 	case VQP_OBJ_MAC_NULL:
-	      printf("%s", etheraddr_string(tptr));
+	      ND_PRINT((ndo, "%s", etheraddr_string(ndo, tptr)));
               break;
         default:
-            if (vflag <= 1)
-                print_unknown_data(tptr, "\n\t    ", vqp_obj_len);
+            if (ndo->ndo_vflag <= 1)
+                print_unknown_data(ndo,tptr, "\n\t    ", vqp_obj_len);
             break;
         }
 	tptr += vqp_obj_len;
@@ -205,5 +196,5 @@ vqp_print(register const u_char *pptr, register u_int len)
     }
     return;
 trunc:
-    printf("\n\t[|VQP]");
+    ND_PRINT((ndo, "\n\t[|VQP]"));
 }

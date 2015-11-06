@@ -100,7 +100,7 @@
   <string name="no_private_file">No se pudo crear el fichero privado.</string>
   <string name="no_private_file_title">La creación del fichero privado falló</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">O bien no se pudo encontrar el binario su, o usted no concedió permisos de root para AdAway.\n\nEsto puede ocurrir cuando su dispositivo no está rooteado.\nPuede encontrar información sobre la forma de rootear su dispositivo en www.cyanogenmod.com u otros sitios web sobre Android.</string>
+  <string name="no_root_description">No se encuentra el binario su o no se ha otorgado permiso root a AdAway.\n\nEsto puede suceder cuando el dispositivo no está rooteado.\nPuede encontrar información sobre como rootear el dispositivo en www.cyanogenmod.org u otras páginas sobre Android.</string>
   <string name="no_root_title">Se requiere un Android rooteado</string>
   <string name="no_url">¡Esta no es una URL válida!</string>
   <string name="no_url_title">URL de formato incorrecto</string>
@@ -204,4 +204,6 @@
   <string name="pref_debug">Depurar</string>
   <string name="pref_enable_debug">Registro (log) de depuración</string>
   <string name="pref_enable_debug_summary">Tiene que reiniciar AdAway para que esta opción surta efecto.</string>
+  <string name="pref_enable_ipv6">Habilitar IPv6</string>
+  <string name="pref_enable_ipv6_summary">Todas las entradas del archivo de host obtendrán una entrada correspondiente a ::1 (IPv6 localhost).</string>
 </resources>

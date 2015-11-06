@@ -17,8 +17,6 @@
  * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
  * WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @(#) $Header: /tcpdump/master/tcpdump/addrtoname.h,v 1.20 2007-08-08 14:06:34 hannes Exp $ (LBL)
  */
 
 /* Name to address translation routines. */
@@ -32,25 +30,30 @@ enum {
 
 #define BUFSIZE 128
 
-extern const char *linkaddr_string(const u_char *, const unsigned int, const unsigned int);
-extern const char *etheraddr_string(const u_char *);
+extern const char *linkaddr_string(netdissect_options *, const u_char *, const unsigned int, const unsigned int);
+extern const char *etheraddr_string(netdissect_options *, const u_char *);
 extern const char *le64addr_string(const u_char *);
 extern const char *etherproto_string(u_short);
 extern const char *tcpport_string(u_short);
 extern const char *udpport_string(u_short);
-extern const char *getname(const u_char *);
+extern const char *isonsap_string(const u_char *, register u_int);
+extern const char *dnaddr_string(netdissect_options *, u_short);
+extern const char *protoid_string(const u_char *);
+extern const char *ipxsap_string(u_short);
+extern const char *getname(netdissect_options *, const u_char *);
 #ifdef INET6
-extern const char *getname6(const u_char *);
+extern const char *getname6(netdissect_options *, const u_char *);
 #endif
-extern const char *intoa(u_int32_t);
+extern const char *intoa(uint32_t);
 
-extern void init_addrtoname(u_int32_t, u_int32_t);
+extern void init_addrtoname(netdissect_options *, uint32_t, uint32_t);
 extern struct hnamemem *newhnamemem(void);
 #ifdef INET6
 extern struct h6namemem *newh6namemem(void);
 #endif
+extern const char * ieee8021q_tci_string(const uint16_t);
 
-#define ipaddr_string(p) getname((const u_char *)(p))
+#define ipaddr_string(ndo, p) getname(ndo, (const u_char *)(p))
 #ifdef INET6
-#define ip6addr_string(p) getname6((const u_char *)(p))
+#define ip6addr_string(ndo, p) getname6(ndo, (const u_char *)(p))
 #endif

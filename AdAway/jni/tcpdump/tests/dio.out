@@ -1,1 +1,0 @@
-IP6 (hlim 255, next-header ICMPv6 (58) payload length: 24) fe80::1000:ff:fe64:6423 > ff02::1: [icmp6 sum ok] ICMP6, RPL, (CLR)Destination Advertisement Object

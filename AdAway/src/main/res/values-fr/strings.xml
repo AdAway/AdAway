@@ -49,11 +49,11 @@
   <string name="status_checking">Vérification de mise à jour...</string>
   <string name="status_reverting">Retour arrière...</string>
   <string name="status_reverting_subtitle">Création d\'un fichier « hosts » standard </string>
-  <string name="status_checking_subtitle">Vérifier si une mise à jour est disponible</string>
-  <string name="status_update_available">Mise à jour disponible</string>
-  <string name="status_update_available_subtitle">Nouveaux fichiers « hosts » disponibles</string>
+  <string name="status_checking_subtitle">Vérifier si une mise à jour est proposée</string>
+  <string name="status_update_available">Mise à jour proposée</string>
+  <string name="status_update_available_subtitle">Nouveaux fichiers « hosts » proposés</string>
   <string name="status_no_connection">Aucune connexion Internet</string>
-  <string name="status_no_connection_subtitle">Aucune connexion Internet disponible</string>
+  <string name="status_no_connection_subtitle">Aucune connexion Internet</string>
   <string name="status_download_fail">Sources non disponibles</string>
   <string name="status_download_fail_subtitle_new">Aucune source «hosts » n\'est joignable !</string>
   <string name="status_enabled">Activé</string>
@@ -100,7 +100,7 @@
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de la création du fichier privé</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Soit le binaire su est introuvable, soit vous n\'avez pas donné les droits « root » à AdAway.\n\nCeci peut arriver lorsque votre appareil n\'est pas rooté.\nVous pouvez trouver des informations sur la façon de rooter votre appareil sur www.cyanogenmod.com ou d\'autres sites Web Android.</string>
+  <string name="no_root_description">Le binaire \'su\' est absent ou AdAway n\'est pas autorisé à s\'exécuter en root. Peut-être que votre appareil n\'est pas rooté ?\n\nVous pouvez trouver des informations sur comment rooter votre appareil en allant sur www.cyanogenmod.org ou d\'autres sites web dédiés au système Android.</string>
   <string name="no_root_title">Un Android rooté est exigé</string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
   <string name="no_url_title">URL mal formatée</string>
@@ -147,7 +147,7 @@
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local :</string>
   <string name="hosts_last_modified_online">En ligne :</string>
-  <string name="hosts_not_available">Non disponible</string>
+  <string name="hosts_not_available">non disponible</string>
   <!--Other-->
   <string name="app_subtitle">Blocage de publicités</string>
   <string name="no_text_editor_title">Aucun éditeur de texte installé</string>
@@ -194,7 +194,7 @@
   <string name="pref_update_check_daily">Vérifier les mises à jour quotidiennement</string>
   <string name="pref_update_check_daily_summary">Vérifier les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_automatic_update_daily">Mise à jour automatique</string>
-  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont disponibles</string>
+  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont proposées</string>
   <string name="pref_update_only_on_wifi">Mise à jour Wi-Fi seulement</string>
   <string name="pref_update_only_on_wifi_summary">N\'exécuter les mises à jour en arrière-plan que si connecté à un réseau Wi-Fi.</string>
   <string name="pref_whitelist_rules">Permettre la mise en liste blanche</string>
@@ -204,4 +204,6 @@
   <string name="pref_debug">Debogage</string>
   <string name="pref_enable_debug">Journalisation du débogage</string>
   <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>
+  <string name="pref_enable_ipv6">Activer IPv6</string>
+  <string name="pref_enable_ipv6_summary">Tous les fichiers host contiendront une entrée ::1 (IPv6 localhost).</string>
 </resources>

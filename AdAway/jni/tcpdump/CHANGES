@@ -1,3 +1,58 @@
+Friday April 10, 2015 guy@alum.mit.edu
+  Summary for 4.7.4 tcpdump release
+	RPKI to Router Protocol: Fix Segmentation Faults and other problems
+	RPKI to Router Protocol: print strings with fn_printn()
+	wb: fix some bounds checks
+
+Wednesday March 11, 2015 mcr@sandelman.ca
+  Summary for 4.7.3 tcpdump release
+	Capsicum fixes for FreeBSD 10
+
+Tuesday March 10, 2015 mcr@sandelman.ca
+  Summary for 4.7.2 tcpdump release
+	DCCP: update Packet Types with RFC4340/IANA names
+        fixes for CVE-2015-0261: IPv6 mobility header check issue
+        fixes for CVE-2015-2153, 2154, 2155: kday packets
+
+Friday Nov. 12, 2014 guy@alum.mit.edu
+  Summary for 4.7.0 tcpdump release
+        changes to hex printing of CDP packets
+	Fix PPI printing
+	Radius: update Packet Type Codes and Attribute Types with RFC/IANA names
+	Add a routine to print "text protocols", and add FTP/HTTP/SMTP/RTSP support.
+	improvements to telnet printer, even if not -v
+	omit length for bcp, print-tcp uses it
+	formatting fixes for a bunch of protocols
+	new bounds checks for a number of protocols
+	split netflow 1,6, and 6 dissector up.
+	added geneve dissector
+        CVE-2014-9140 PPP dissector fixed.
+
+Tuesday  Sep.  2, 2014 mcr@sandelman.ca
+  Summary for 4.6.2 tcpdump release
+	fix out-of-source-tree builds: find libpcap that is out of source
+	better configure check for libsmi
+
+Saturday Jul. 19, 2014 mcr@sandelman.ca
+  Summary for 4.6.1 tcpdump release
+	added FreeBSD capsicum
+	add a short option '#', same as long option '--number'
+
+Wednesday Jul. 2, 2014 mcr@sandelman.ca
+  Summary for 4.6.0 tcpdump release
+        all of tcpdump is now using the new "NDO" code base (Thanks Denis!)
+        nflog, mobile, forces, pptp, AODV, AHCP, IPv6, OSPFv4, RPL, DHCPv6 enhancements/fixes
+        M3UA decode added.
+        many new test cases: 82 in 4.5.1 to 133 in 4.6.0
+        many improvements to travis continuous integration system: OSX, and Coverity options
+        cleaned up some unnecessary header files
+        Added bittok2str().
+        a number of unaligned access faults fixed
+        -A flag does not consider CR to be printable anymore
+        fx.lebail took over coverity baby sitting
+        default snapshot size increased to 256K for accomodate USB captures
+        WARNING: this release contains a lot of very worthwhile code churn.
+
 Wednesday Jan. 15, 2014 guy@alum.mit.edu
   Summary for 4.5.2 tcpdump release
 	Man page fix
@@ -9,7 +64,7 @@ Monday Nov. 11, 2013 mcr@sandelman.ca
 
 Thursday Nov. 7, 2013  mcr@sandelman.ca and guy@alum.mit.edu.
   Summary for 4.5.0 tcpdump release
-        some NFSv4 fixes for printing  
+        some NFSv4 fixes for printing
         fix printing of unknown TCP options, and tcp fast-open
         fixes for syslog parser
         some gcc-version-specific flag tuning
@@ -148,7 +203,7 @@ Thu.	April 1, 2010.  guy@alum.mit.edu.
   Summary for 4.1.1 tcpdump release
 	Fix build on systems with PF, such as FreeBSD and OpenBSD.
 	Don't blow up if a zero-length link-layer address is passed to
-	  linkaddr_string(). 
+	  linkaddr_string().
 
 Thu.	March 11, 2010.  ken@netfunctional.ca/guy@alum.mit.edu.
   Summary for 4.1.0 tcpdump release
@@ -177,7 +232,7 @@ Thu.	March 11, 2010.  ken@netfunctional.ca/guy@alum.mit.edu.
 	Add printer for ForCES
 	Handle frames with an FCS
 	Handle 802.11n Control Wrapper, Block Acq Req and Block Ack frames
-	Fix TCP sequence number printing 
+	Fix TCP sequence number printing
 	Report 802.2 packets as 802.2 instead of 802.3
 	Don't include -L/usr/lib in LDFLAGS
 	On x86_64 Linux, look in lib64 directory too
@@ -213,13 +268,13 @@ Mon.    September 10, 2007.  ken@xelerance.com.  Summary for 3.9.8 tcpdump relea
         Converted print-isakmp.c to NETDISSECT
         Moved AF specific stuff into af.h
         Test subsystem now table driven, and saves outputs and diffs to one place
-        Require <net/pfvar.h> for pf definitions - allows reading of pflog formatted 
+        Require <net/pfvar.h> for pf definitions - allows reading of pflog formatted
          libpcap files on an OS other than where the file was generated
 
 
 Wed.	July 23, 2007.  mcr@xelerance.com.  Summary for 3.9.7 libpcap release
 
-    	NFS: Print unsigned values as such. 
+    	NFS: Print unsigned values as such.
 	RX: parse safely.
 	BGP: fixes for IPv6-less builds.
 	801.1ag: use standard codepoint.
@@ -229,7 +284,7 @@ Wed.	July 23, 2007.  mcr@xelerance.com.  Summary for 3.9.7 libpcap release
 	smb: squelch an uninitialized complaint from coverity.
 	NFS: from NetBSD; don't interpret the reply as a possible NFS reply
 		if it got MSG_DENIED.
-	BGP: don't print TLV values that didn't fit, from www.digit-labs.org. 
+	BGP: don't print TLV values that didn't fit, from www.digit-labs.org.
 	revised INSTALL.txt about libpcap dependancy.
 
 Wed.	April 25, 2007. ken@xelerance.com.  Summary for 3.9.6 tcpdump release
@@ -247,11 +302,11 @@ Wed.	April 25, 2007. ken@xelerance.com.  Summary for 3.9.6 tcpdump release
 	Add support for 802.3ah loopback ctrl msg
 	Add support for Multiple-STP as per 802.1s
 	Add support for rapid-SPT as per 802.1w
-	Add support for CFM Link-trace msg, Link-trace-Reply msg, 
+	Add support for CFM Link-trace msg, Link-trace-Reply msg,
 	 Sender-ID tlv, private tlv, port, interface status
 	Add support for unidirectional link detection as per
 	 http://www.ietf.org/internet-drafts/draft-foschiano-udld-02.txt
-	Add support for the olsr protocol as per RFC 3626 plus the LQ 
+	Add support for the olsr protocol as per RFC 3626 plus the LQ
 	 extensions from olsr.org
 	Add support for variable-length checksum in DCCP, as per section 9 of
 	 RFC 4340.
@@ -263,7 +318,7 @@ Wed.	April 25, 2007. ken@xelerance.com.  Summary for 3.9.6 tcpdump release
 
 
 Tue.	September 19, 2006. ken@xelerance.com. Summary for 3.9.5 tcpdump release
-	
+
 	Fix compiling on AIX (, at end of ENUM)
 	Updated list of DNS RR typecodes
 	Use local Ethernet defs on WIN32
@@ -278,7 +333,7 @@ Tue.	September 19, 2006. ken@xelerance.com. Summary for 3.9.5 tcpdump release
 	Add support for BGP signaled VPLS
 	Cleanup the bootp printer
 	Add support for PPP over Frame-Relay
-	Add some bounds checking to the IP options code, and clean up 
+	Add some bounds checking to the IP options code, and clean up
 	 the options output a bit.
 	Add additional modp groups to ISAKMP printer
 	Add support for Address-Withdraw and Label-Withdraw Msgs

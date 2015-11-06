@@ -25,16 +25,13 @@
  * DAMAGE.
  */
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <pcap.h>
-
-#include "netdissect.h"
 #include "interface.h"
 
 #if defined(DLT_NFLOG) && defined(HAVE_PCAP_NFLOG_H)
@@ -42,12 +39,14 @@
 
 static const struct tok nflog_values[] = {
 	{ AF_INET,		"IPv4" },
+#ifdef INET6
 	{ AF_INET6,		"IPv6" },
-	{ 0,				NULL }
+#endif /*INET6*/
+	{ 0,			NULL }
 };
 
 static inline void
-nflog_hdr_print(struct netdissect_options *ndo, const nflog_hdr_t *hdr, u_int length)
+nflog_hdr_print(netdissect_options *ndo, const nflog_hdr_t *hdr, u_int length)
 {
 	ND_PRINT((ndo, "version %d, resource ID %d", hdr->nflog_version, ntohs(hdr->nflog_rid)));
 
@@ -67,13 +66,13 @@ nflog_hdr_print(struct netdissect_options *ndo, const nflog_hdr_t *hdr, u_int le
 }
 
 u_int
-nflog_if_print(struct netdissect_options *ndo,
+nflog_if_print(netdissect_options *ndo,
 			   const struct pcap_pkthdr *h, const u_char *p)
 {
 	const nflog_hdr_t *hdr = (const nflog_hdr_t *)p;
 	const nflog_tlv_t *tlv;
-	u_int16_t size;
-	u_int16_t h_size = sizeof(nflog_hdr_t);
+	uint16_t size;
+	uint16_t h_size = sizeof(nflog_hdr_t);
 	u_int caplen = h->caplen;
 	u_int length = h->len;
 
@@ -146,11 +145,11 @@ nflog_if_print(struct netdissect_options *ndo,
 		ip_print(ndo, p, length);
 		break;
 
-#ifdef INET6
+#ifdef AF_INET6
 	case AF_INET6:
 		ip6_print(ndo, p, length);
 		break;
-#endif /*INET6*/
+#endif /* AF_INET6 */
 
 	default:
 		if (!ndo->ndo_eflag)
@@ -158,7 +157,7 @@ nflog_if_print(struct netdissect_options *ndo,
 				length + sizeof(nflog_hdr_t));
 
 		if (!ndo->ndo_suppress_default_print)
-			ndo->ndo_default_print(ndo, p, caplen);
+			ND_DEFAULTPRINT(p, caplen);
 		break;
 	}
 

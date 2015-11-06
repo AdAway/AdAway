@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Zarrar</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">¿Alcuentres útil esta aplicación?\n¡Sofita\'l so desendolcu unviando una donación al desendolcador!</string>
+  <string name="donations__flattr_description">¡Flattr cueye un 10 % acomo cuota mensual!</string>
+  <string name="donations__google_android_market">Google Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">Nun tán sofitaes les donaciones na aplicación.</string>
+  <string name="donations__google_android_market_not_supported">Nun tán sofitaes les donaciones na aplicación. ¿Instalóse correutamente la Google Play Store?</string>
+  <string name="donations__google_android_market_description">¡Google cueye un 30 % ode cada donación!</string>
+  <string name="donations__google_android_market_donate_button">¡Dona!</string>
+  <string name="donations__google_android_market_text">¿Cuánto?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">¡Pues esbillar cuanto quies donar dempués de primir nel botón!</string>
+  <string name="donations__thanks_dialog_title">¡Gracies!</string>
+  <string name="donations__thanks_dialog">¡Gracies por donar!\n
+¡Apréciolo milenta!</string>
+  <string name="donations__alert_dialog_title">Asocedió un fallu</string>
+  <string name="donations__alert_dialog_no_browser">¡Nun s\'alcontró dal restolador p\'abrir la páxina!</string>
+</resources>

@@ -21,33 +21,72 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-enc.c,v 1.6 2008-11-18 07:35:32 guy Exp $ (LBL)";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <pcap.h>
-
 #include "interface.h"
 #include "extract.h"
-#include "addrtoname.h"
 
-#include "enc.h"
+/* From $OpenBSD: if_enc.h,v 1.8 2001/06/25 05:14:00 angelos Exp $ */
+/*
+ * The authors of this code are John Ioannidis (ji@tla.org),
+ * Angelos D. Keromytis (kermit@csd.uch.gr) and
+ * Niels Provos (provos@physnet.uni-hamburg.de).
+ *
+ * This code was written by John Ioannidis for BSD/OS in Athens, Greece,
+ * in November 1995.
+ *
+ * Ported to OpenBSD and NetBSD, with additional transforms, in December 1996,
+ * by Angelos D. Keromytis.
+ *
+ * Additional transforms and features in 1997 and 1998 by Angelos D. Keromytis
+ * and Niels Provos.
+ *
+ * Copyright (C) 1995, 1996, 1997, 1998 by John Ioannidis, Angelos D. Keromytis
+ * and Niels Provos.
+ * Copyright (c) 2001, Angelos D. Keromytis.
+ *
+ * Permission to use, copy, and modify this software with or without fee
+ * is hereby granted, provided that this entire notice is included in
+ * all copies of any software which is or includes a copy or
+ * modification of this software.
+ * You may use this code under the GNU public license if you so wish. Please
+ * contribute changes back to the authors under this freer than GPL license
+ * so that we may further the use of strong encryption without limitations to
+ * all.
+ *
+ * THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR
+ * IMPLIED WARRANTY. IN PARTICULAR, NONE OF THE AUTHORS MAKES ANY
+ * REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE
+ * MERCHANTABILITY OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR
+ * PURPOSE.
+ */
+
+#define ENC_HDRLEN	12
+
+/* From $OpenBSD: mbuf.h,v 1.56 2002/01/25 15:50:23 art Exp $	*/
+#define M_CONF		0x0400  /* packet was encrypted (ESP-transport) */
+#define M_AUTH		0x0800  /* packet was authenticated (AH) */
+
+struct enchdr {
+	uint32_t af;
+	uint32_t spi;
+	uint32_t flags;
+};
 
 #define ENC_PRINT_TYPE(wh, xf, nam) \
 	if ((wh) & (xf)) { \
-		printf("%s%s", nam, (wh) == (xf) ? "): " : ","); \
+		ND_PRINT((ndo, "%s%s", nam, (wh) == (xf) ? "): " : ",")); \
 		(wh) &= ~(xf); \
 	}
 
 u_int
-enc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
+enc_if_print(netdissect_options *ndo,
+             const struct pcap_pkthdr *h, register const u_char *p)
 {
 	register u_int length = h->len;
 	register u_int caplen = h->caplen;
@@ -55,34 +94,34 @@ enc_if_print(const struct pcap_pkthdr *h, register const u_char *p)
 	const struct enchdr *hdr;
 
 	if (caplen < ENC_HDRLEN) {
-		printf("[|enc]");
+		ND_PRINT((ndo, "[|enc]"));
 		goto out;
 	}
 
 	hdr = (struct enchdr *)p;
 	flags = hdr->flags;
 	if (flags == 0)
-		printf("(unprotected): ");
+		ND_PRINT((ndo, "(unprotected): "));
 	else
-		printf("(");
+		ND_PRINT((ndo, "("));
 	ENC_PRINT_TYPE(flags, M_AUTH, "authentic");
 	ENC_PRINT_TYPE(flags, M_CONF, "confidential");
 	/* ENC_PRINT_TYPE(flags, M_TUNNEL, "tunnel"); */
-	printf("SPI 0x%08x: ", EXTRACT_32BITS(&hdr->spi));
+	ND_PRINT((ndo, "SPI 0x%08x: ", EXTRACT_32BITS(&hdr->spi)));
 
 	length -= ENC_HDRLEN;
 	caplen -= ENC_HDRLEN;
 	p += ENC_HDRLEN;
-	
+
 	switch (hdr->af) {
 	case AF_INET:
-		ip_print(gndo, p, length);
+		ip_print(ndo, p, length);
 		break;
-#ifdef INET6
+#ifdef AF_INET6
 	case AF_INET6:
-		ip6_print(gndo, p, length);
+		ip6_print(ndo, p, length);
 		break;
-#endif /*INET6*/
+#endif
 	}
 
 out:

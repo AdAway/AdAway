@@ -14,11 +14,11 @@
         android:id="@+id/menu_tcpdump"
         android:title="@string/menu_tcpdump" />
     <item
-        android:id="@+id/menu_preferences"
-        android:title="@string/menu_preferences" />
-    <item
         android:id="@+id/menu_scan_adware"
         android:title="@string/menu_scan_adware" />
+    <item
+        android:id="@+id/menu_preferences"
+        android:title="@string/menu_preferences" />
     <item
         android:id="@+id/menu_refresh"
         android:icon="@drawable/action_refresh"

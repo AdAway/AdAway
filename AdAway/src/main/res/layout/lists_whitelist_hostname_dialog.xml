@@ -14,7 +14,8 @@
         android:id="@+id/list_dialog_hostname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="none"
+        android:inputType="textVisiblePassword"
+        android:singleLine="true"
         android:scrollHorizontally="true" />
 
 </LinearLayout>

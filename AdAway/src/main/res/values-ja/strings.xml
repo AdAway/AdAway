@@ -100,7 +100,7 @@
   <string name="no_private_file">プライベートファイルが作成できません。</string>
   <string name="no_private_file_title">プライベートファイルの作成失敗</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">suバイナリが見つからないかAdAwayのrootアクセス権が許可されていません。\n\nデバイスがroot化されていない場合はwww.cyanogenmod.comや\nその他のウェブサイトでroot化するための情報を入手してください。</string>
+  <string name="no_root_description">suバイナリが見つからないか、AdAwayにroot権限が許可されていません。\n\nこのエラーはお使いの機器が正しくroot化されていないときに起こります。\nwww.cyanogenmod.org やGoogleで検索するなどしてroot化する方法を探してください。</string>
   <string name="no_root_title">root化されたAndroidが必要です</string>
   <string name="no_url">正しいURLではありません!</string>
   <string name="no_url_title">URLの形式が正しくありません</string>
@@ -204,4 +204,6 @@
   <string name="pref_debug">デバッグ</string>
   <string name="pref_enable_debug">デバッグ記録をする</string>
   <string name="pref_enable_debug_summary">変更を適用するにはAdAwayの再起動が必要です。</string>
+  <string name="pref_enable_ipv6">IPv6の有効化</string>
+  <string name="pref_enable_ipv6_summary">hostファイルのエントリがすべて::1 (IPv6 localhost) エントリを持つようになります。</string>
 </resources>

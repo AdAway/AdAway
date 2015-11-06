@@ -19,23 +19,71 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-timed.c,v 1.9 2003-11-16 09:36:40 guy Exp $";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <string.h>
-
-#include "timed.h"
 #include "interface.h"
 #include "extract.h"
+
+/*
+ * Time Synchronization Protocol
+ */
+
+struct tsp_timeval {
+	uint32_t	tv_sec;
+	uint32_t	tv_usec;
+};
+
+struct tsp {
+	uint8_t		tsp_type;
+	uint8_t		tsp_vers;
+	uint16_t	tsp_seq;
+	union {
+		struct tsp_timeval tspu_time;
+		int8_t tspu_hopcnt;
+	} tsp_u;
+	int8_t tsp_name[256];
+};
+
+#define	tsp_time	tsp_u.tspu_time
+#define	tsp_hopcnt	tsp_u.tspu_hopcnt
+
+/*
+ * Command types.
+ */
+#define	TSP_ANY			0	/* match any types */
+#define	TSP_ADJTIME		1	/* send adjtime */
+#define	TSP_ACK			2	/* generic acknowledgement */
+#define	TSP_MASTERREQ		3	/* ask for master's name */
+#define	TSP_MASTERACK		4	/* acknowledge master request */
+#define	TSP_SETTIME		5	/* send network time */
+#define	TSP_MASTERUP		6	/* inform slaves that master is up */
+#define	TSP_SLAVEUP		7	/* slave is up but not polled */
+#define	TSP_ELECTION		8	/* advance candidature for master */
+#define	TSP_ACCEPT		9	/* support candidature of master */
+#define	TSP_REFUSE		10	/* reject candidature of master */
+#define	TSP_CONFLICT		11	/* two or more masters present */
+#define	TSP_RESOLVE		12	/* masters' conflict resolution */
+#define	TSP_QUIT		13	/* reject candidature if master is up */
+#define	TSP_DATE		14	/* reset the time (date command) */
+#define	TSP_DATEREQ		15	/* remote request to reset the time */
+#define	TSP_DATEACK		16	/* acknowledge time setting  */
+#define	TSP_TRACEON		17	/* turn tracing on */
+#define	TSP_TRACEOFF		18	/* turn tracing off */
+#define	TSP_MSITE		19	/* find out master's site */
+#define	TSP_MSITEREQ		20	/* remote master's site request */
+#define	TSP_TEST		21	/* for testing election algo */
+#define	TSP_SETDATE		22	/* New from date command */
+#define	TSP_SETDATEREQ		23	/* New remote for above */
+#define	TSP_LOOP		24	/* loop detection packet */
+
+#define	TSPTYPENUMBER		25
+
+static const char tstr[] = "[|timed]";
 
 static const char *tsptype[TSPTYPENUMBER] =
   { "ANY", "ADJTIME", "ACK", "MASTERREQ", "MASTERACK", "SETTIME", "MASTERUP",
@@ -44,68 +92,56 @@ static const char *tsptype[TSPTYPENUMBER] =
   "TEST", "SETDATE", "SETDATEREQ", "LOOP" };
 
 void
-timed_print(register const u_char *bp)
+timed_print(netdissect_options *ndo,
+            register const u_char *bp)
 {
-#define endof(x) ((u_char *)&(x) + sizeof (x))
 	struct tsp *tsp = (struct tsp *)bp;
 	long sec, usec;
-	const u_char *end;
 
-	if (endof(tsp->tsp_type) > snapend) {
-		fputs("[|timed]", stdout);
-		return;
-	}
+	ND_TCHECK(tsp->tsp_type);
 	if (tsp->tsp_type < TSPTYPENUMBER)
-		printf("TSP_%s", tsptype[tsp->tsp_type]);
+		ND_PRINT((ndo, "TSP_%s", tsptype[tsp->tsp_type]));
 	else
-		printf("(tsp_type %#x)", tsp->tsp_type);
+		ND_PRINT((ndo, "(tsp_type %#x)", tsp->tsp_type));
 
-	if (endof(tsp->tsp_vers) > snapend) {
-		fputs(" [|timed]", stdout);
-		return;
-	}
-	printf(" vers %d", tsp->tsp_vers);
+	ND_TCHECK(tsp->tsp_vers);
+	ND_PRINT((ndo, " vers %u", tsp->tsp_vers));
 
-	if (endof(tsp->tsp_seq) > snapend) {
-		fputs(" [|timed]", stdout);
-		return;
-	}
-	printf(" seq %d", tsp->tsp_seq);
+	ND_TCHECK(tsp->tsp_seq);
+	ND_PRINT((ndo, " seq %u", tsp->tsp_seq));
 
-	if (tsp->tsp_type == TSP_LOOP) {
-		if (endof(tsp->tsp_hopcnt) > snapend) {
-			fputs(" [|timed]", stdout);
-			return;
-		}
-		printf(" hopcnt %d", tsp->tsp_hopcnt);
-	} else if (tsp->tsp_type == TSP_SETTIME ||
-	  tsp->tsp_type == TSP_ADJTIME ||
-	  tsp->tsp_type == TSP_SETDATE ||
-	  tsp->tsp_type == TSP_SETDATEREQ) {
-		if (endof(tsp->tsp_time) > snapend) {
-			fputs(" [|timed]", stdout);
-			return;
-		}
+	switch (tsp->tsp_type) {
+	case TSP_LOOP:
+		ND_TCHECK(tsp->tsp_hopcnt);
+		ND_PRINT((ndo, " hopcnt %u", tsp->tsp_hopcnt));
+		break;
+	case TSP_SETTIME:
+	case TSP_ADJTIME:
+	case TSP_SETDATE:
+	case TSP_SETDATEREQ:
+		ND_TCHECK(tsp->tsp_time);
 		sec = EXTRACT_32BITS(&tsp->tsp_time.tv_sec);
 		usec = EXTRACT_32BITS(&tsp->tsp_time.tv_usec);
+		/* XXX The comparison below is always false? */
 		if (usec < 0)
 			/* corrupt, skip the rest of the packet */
 			return;
-		fputs(" time ", stdout);
+		ND_PRINT((ndo, " time "));
 		if (sec < 0 && usec != 0) {
 			sec++;
 			if (sec == 0)
-				fputc('-', stdout);
+				ND_PRINT((ndo, "-"));
 			usec = 1000000 - usec;
 		}
-		printf("%ld.%06ld", sec, usec);
+		ND_PRINT((ndo, "%ld.%06ld", sec, usec));
+		break;
 	}
+	ND_TCHECK(tsp->tsp_name);
+	ND_PRINT((ndo, " name "));
+	if (fn_print(ndo, (u_char *)tsp->tsp_name, (u_char *)tsp->tsp_name + sizeof(tsp->tsp_name)))
+		goto trunc;
+	return;
 
-	end = memchr(tsp->tsp_name, '\0', snapend - (u_char *)tsp->tsp_name);
-	if (end == NULL)
-		fputs(" [|timed]", stdout);
-	else {
-		fputs(" name ", stdout);
-		fwrite(tsp->tsp_name, end - (u_char *)tsp->tsp_name, 1, stdout);
-	}
+trunc:
+	ND_PRINT((ndo, " %s", tstr));
 }

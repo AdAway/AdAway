@@ -24,19 +24,17 @@
  */
 
 #ifndef lint
-static const char rcsid[] _U_ =
-"@(#) $Header: /tcpdump/master/tcpdump/print-tcp.c,v 1.135 2008-11-09 23:35:03 mcr Exp $ (LBL)";
 #else
 __RCSID("$NetBSD: print-tcp.c,v 1.8 2007/07/24 11:53:48 drochner Exp $");
 #endif
 
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -60,11 +58,12 @@ __RCSID("$NetBSD: print-tcp.c,v 1.8 2007/07/24 11:53:48 drochner Exp $");
 #include <openssl/md5.h>
 #include <signature.h>
 
-static int tcp_verify_signature(const struct ip *ip, const struct tcphdr *tp,
+static int tcp_verify_signature(netdissect_options *ndo,
+                                const struct ip *ip, const struct tcphdr *tp,
                                 const u_char *data, int length, const u_char *rcvsig);
 #endif
 
-static void print_tcp_rst_data(register const u_char *sp, u_int length);
+static void print_tcp_rst_data(netdissect_options *, register const u_char *sp, u_int length);
 
 #define MAX_RST_DATA_LEN	30
 
@@ -140,27 +139,30 @@ static const struct tok tcp_option_values[] = {
         { 0, NULL }
 };
 
-static int tcp_cksum(register const struct ip *ip,
-		     register const struct tcphdr *tp,
-		     register u_int len)
+static int
+tcp_cksum(netdissect_options *ndo,
+          register const struct ip *ip,
+          register const struct tcphdr *tp,
+          register u_int len)
 {
-	return (nextproto4_cksum(ip, (const u_int8_t *)tp, len,
-	    IPPROTO_TCP));
+	return nextproto4_cksum(ndo, ip, (const uint8_t *)tp, len, len,
+				IPPROTO_TCP);
 }
 
 void
-tcp_print(register const u_char *bp, register u_int length,
-	  register const u_char *bp2, int fragmented)
+tcp_print(netdissect_options *ndo,
+          register const u_char *bp, register u_int length,
+          register const u_char *bp2, int fragmented)
 {
         register const struct tcphdr *tp;
         register const struct ip *ip;
         register u_char flags;
         register u_int hlen;
         register char ch;
-        u_int16_t sport, dport, win, urp;
-        u_int32_t seq, ack, thseq, thack;
+        uint16_t sport, dport, win, urp;
+        uint32_t seq, ack, thseq, thack;
         u_int utoval;
-        u_int16_t magic;
+        uint16_t magic;
         register int rev;
 #ifdef INET6
         register const struct ip6_hdr *ip6;
@@ -175,10 +177,10 @@ tcp_print(register const u_char *bp, register u_int length,
                 ip6 = NULL;
 #endif /*INET6*/
         ch = '\0';
-        if (!TTEST(tp->th_dport)) {
-                (void)printf("%s > %s: [|tcp]",
-                             ipaddr_string(&ip->ip_src),
-                             ipaddr_string(&ip->ip_dst));
+        if (!ND_TTEST(tp->th_dport)) {
+                ND_PRINT((ndo, "%s > %s: [|tcp]",
+                             ipaddr_string(ndo, &ip->ip_src),
+                             ipaddr_string(ndo, &ip->ip_dst)));
                 return;
         }
 
@@ -190,56 +192,56 @@ tcp_print(register const u_char *bp, register u_int length,
 #ifdef INET6
         if (ip6) {
                 if (ip6->ip6_nxt == IPPROTO_TCP) {
-                        (void)printf("%s.%s > %s.%s: ",
-                                     ip6addr_string(&ip6->ip6_src),
+                        ND_PRINT((ndo, "%s.%s > %s.%s: ",
+                                     ip6addr_string(ndo, &ip6->ip6_src),
                                      tcpport_string(sport),
-                                     ip6addr_string(&ip6->ip6_dst),
-                                     tcpport_string(dport));
+                                     ip6addr_string(ndo, &ip6->ip6_dst),
+                                     tcpport_string(dport)));
                 } else {
-                        (void)printf("%s > %s: ",
-                                     tcpport_string(sport), tcpport_string(dport));
+                        ND_PRINT((ndo, "%s > %s: ",
+                                     tcpport_string(sport), tcpport_string(dport)));
                 }
         } else
 #endif /*INET6*/
         {
                 if (ip->ip_p == IPPROTO_TCP) {
-                        (void)printf("%s.%s > %s.%s: ",
-                                     ipaddr_string(&ip->ip_src),
+                        ND_PRINT((ndo, "%s.%s > %s.%s: ",
+                                     ipaddr_string(ndo, &ip->ip_src),
                                      tcpport_string(sport),
-                                     ipaddr_string(&ip->ip_dst),
-                                     tcpport_string(dport));
+                                     ipaddr_string(ndo, &ip->ip_dst),
+                                     tcpport_string(dport)));
                 } else {
-                        (void)printf("%s > %s: ",
-                                     tcpport_string(sport), tcpport_string(dport));
+                        ND_PRINT((ndo, "%s > %s: ",
+                                     tcpport_string(sport), tcpport_string(dport)));
                 }
         }
 
         if (hlen < sizeof(*tp)) {
-                (void)printf(" tcp %d [bad hdr length %u - too short, < %lu]",
-                             length - hlen, hlen, (unsigned long)sizeof(*tp));
+                ND_PRINT((ndo, " tcp %d [bad hdr length %u - too short, < %lu]",
+                             length - hlen, hlen, (unsigned long)sizeof(*tp)));
                 return;
         }
 
-        TCHECK(*tp);
+        ND_TCHECK(*tp);
 
         seq = EXTRACT_32BITS(&tp->th_seq);
         ack = EXTRACT_32BITS(&tp->th_ack);
         win = EXTRACT_16BITS(&tp->th_win);
         urp = EXTRACT_16BITS(&tp->th_urp);
 
-        if (qflag) {
-                (void)printf("tcp %d", length - hlen);
+        if (ndo->ndo_qflag) {
+                ND_PRINT((ndo, "tcp %d", length - hlen));
                 if (hlen > length) {
-                        (void)printf(" [bad hdr length %u - too long, > %u]",
-                                     hlen, length);
+                        ND_PRINT((ndo, " [bad hdr length %u - too long, > %u]",
+                                     hlen, length));
                 }
                 return;
         }
 
         flags = tp->th_flags;
-        printf("Flags [%s]", bittok2str_nosep(tcp_flag_values, "none", flags));
+        ND_PRINT((ndo, "Flags [%s]", bittok2str_nosep(tcp_flag_values, "none", flags)));
 
-        if (!Sflag && (flags & TH_ACK)) {
+        if (!ndo->ndo_Sflag && (flags & TH_ACK)) {
                 /*
                  * Find (or record) the initial sequence numbers for
                  * this conversation.  (we pick an arbitrary
@@ -363,40 +365,41 @@ tcp_print(register const u_char *bp, register u_int length,
                 thseq = thack = rev = 0;
         }
         if (hlen > length) {
-                (void)printf(" [bad hdr length %u - too long, > %u]",
-                             hlen, length);
+                ND_PRINT((ndo, " [bad hdr length %u - too long, > %u]",
+                             hlen, length));
                 return;
         }
 
-        if (vflag && !Kflag && !fragmented) {
+        if (ndo->ndo_vflag && !ndo->ndo_Kflag && !fragmented) {
                 /* Check the checksum, if possible. */
-                u_int16_t sum, tcp_sum;
+                uint16_t sum, tcp_sum;
 
                 if (IP_V(ip) == 4) {
-                        if (TTEST2(tp->th_sport, length)) {
-                                sum = tcp_cksum(ip, tp, length);
+                        if (ND_TTEST2(tp->th_sport, length)) {
+                                sum = tcp_cksum(ndo, ip, tp, length);
                                 tcp_sum = EXTRACT_16BITS(&tp->th_sum);
 
-                                (void)printf(", cksum 0x%04x", tcp_sum);
+                                ND_PRINT((ndo, ", cksum 0x%04x", tcp_sum));
                                 if (sum != 0)
-                                        (void)printf(" (incorrect -> 0x%04x)",
-                                            in_cksum_shouldbe(tcp_sum, sum));
+                                        ND_PRINT((ndo, " (incorrect -> 0x%04x)",
+                                            in_cksum_shouldbe(tcp_sum, sum)));
                                 else
-                                        (void)printf(" (correct)");
+                                        ND_PRINT((ndo, " (correct)"));
                         }
                 }
 #ifdef INET6
                 else if (IP_V(ip) == 6 && ip6->ip6_plen) {
-                        if (TTEST2(tp->th_sport, length)) {
-                                sum = nextproto6_cksum(ip6, (const u_int8_t *)tp, length, IPPROTO_TCP);
+                        if (ND_TTEST2(tp->th_sport, length)) {
+                                sum = nextproto6_cksum(ip6, (const uint8_t *)tp,
+							length, length, IPPROTO_TCP);
                                 tcp_sum = EXTRACT_16BITS(&tp->th_sum);
 
-                                (void)printf(", cksum 0x%04x", tcp_sum);
+                                ND_PRINT((ndo, ", cksum 0x%04x", tcp_sum));
                                 if (sum != 0)
-                                        (void)printf(" (incorrect -> 0x%04x)",
-                                            in_cksum_shouldbe(tcp_sum, sum));
+                                        ND_PRINT((ndo, " (incorrect -> 0x%04x)",
+                                            in_cksum_shouldbe(tcp_sum, sum)));
                                 else
-                                        (void)printf(" (correct)");
+                                        ND_PRINT((ndo, " (correct)"));
 
                         }
                 }
@@ -404,22 +407,22 @@ tcp_print(register const u_char *bp, register u_int length,
         }
 
         length -= hlen;
-        if (vflag > 1 || length > 0 || flags & (TH_SYN | TH_FIN | TH_RST)) {
-                (void)printf(", seq %u", seq);
+        if (ndo->ndo_vflag > 1 || length > 0 || flags & (TH_SYN | TH_FIN | TH_RST)) {
+                ND_PRINT((ndo, ", seq %u", seq));
 
                 if (length > 0) {
-                        (void)printf(":%u", seq + length);
+                        ND_PRINT((ndo, ":%u", seq + length));
                 }
         }
 
         if (flags & TH_ACK) {
-                (void)printf(", ack %u", ack);
+                ND_PRINT((ndo, ", ack %u", ack));
         }
 
-        (void)printf(", win %d", win);
+        ND_PRINT((ndo, ", win %d", win));
 
         if (flags & TH_URG)
-                (void)printf(", urg %d", urp);
+                ND_PRINT((ndo, ", urg %d", urp));
         /*
          * Handle any options.
          */
@@ -430,16 +433,16 @@ tcp_print(register const u_char *bp, register u_int length,
 
                 hlen -= sizeof(*tp);
                 cp = (const u_char *)tp + sizeof(*tp);
-                printf(", options [");
+                ND_PRINT((ndo, ", options ["));
                 while (hlen > 0) {
                         if (ch != '\0')
-                                putchar(ch);
-                        TCHECK(*cp);
+                                ND_PRINT((ndo, "%c", ch));
+                        ND_TCHECK(*cp);
                         opt = *cp++;
                         if (ZEROLENOPT(opt))
                                 len = 1;
                         else {
-                                TCHECK(*cp);
+                                ND_TCHECK(*cp);
                                 len = *cp++;	/* total including type, len */
                                 if (len < 2 || len > hlen)
                                         goto bad;
@@ -449,33 +452,33 @@ tcp_print(register const u_char *bp, register u_int length,
                         datalen = 0;
 
 /* Bail if "l" bytes of data are not left or were not captured  */
-#define LENCHECK(l) { if ((l) > hlen) goto bad; TCHECK2(*cp, l); }
+#define LENCHECK(l) { if ((l) > hlen) goto bad; ND_TCHECK2(*cp, l); }
 
 
-                        printf("%s", tok2str(tcp_option_values, "unknown-%u", opt));
+                        ND_PRINT((ndo, "%s", tok2str(tcp_option_values, "unknown-%u", opt)));
 
                         switch (opt) {
 
                         case TCPOPT_MAXSEG:
                                 datalen = 2;
                                 LENCHECK(datalen);
-                                (void)printf(" %u", EXTRACT_16BITS(cp));
+                                ND_PRINT((ndo, " %u", EXTRACT_16BITS(cp)));
                                 break;
 
                         case TCPOPT_WSCALE:
                                 datalen = 1;
                                 LENCHECK(datalen);
-                                (void)printf(" %u", *cp);
+                                ND_PRINT((ndo, " %u", *cp));
                                 break;
 
                         case TCPOPT_SACK:
                                 datalen = len - 2;
                                 if (datalen % 8 != 0) {
-                                        (void)printf("malformed sack");
+                                        ND_PRINT((ndo, "malformed sack"));
                                 } else {
-                                        u_int32_t s, e;
+                                        uint32_t s, e;
 
-                                        (void)printf(" %d ", datalen / 8);
+                                        ND_PRINT((ndo, " %d ", datalen / 8));
                                         for (i = 0; i < datalen; i += 8) {
                                                 LENCHECK(i + 4);
                                                 s = EXTRACT_32BITS(cp + i);
@@ -488,7 +491,7 @@ tcp_print(register const u_char *bp, register u_int length,
                                                         s -= thack;
                                                         e -= thack;
                                                 }
-                                                (void)printf("{%u:%u}", s, e);
+                                                ND_PRINT((ndo, "{%u:%u}", s, e));
                                         }
                                 }
                                 break;
@@ -505,50 +508,50 @@ tcp_print(register const u_char *bp, register u_int length,
                                  */
                                 datalen = 4;
                                 LENCHECK(datalen);
-                                (void)printf(" %u", EXTRACT_32BITS(cp));
+                                ND_PRINT((ndo, " %u", EXTRACT_32BITS(cp)));
                                 break;
 
                         case TCPOPT_TIMESTAMP:
                                 datalen = 8;
                                 LENCHECK(datalen);
-                                (void)printf(" val %u ecr %u",
+                                ND_PRINT((ndo, " val %u ecr %u",
                                              EXTRACT_32BITS(cp),
-                                             EXTRACT_32BITS(cp + 4));
+                                             EXTRACT_32BITS(cp + 4)));
                                 break;
 
                         case TCPOPT_SIGNATURE:
                                 datalen = TCP_SIGLEN;
                                 LENCHECK(datalen);
 #ifdef HAVE_LIBCRYPTO
-                                switch (tcp_verify_signature(ip, tp,
+                                switch (tcp_verify_signature(ndo, ip, tp,
                                                              bp + TH_OFF(tp) * 4, length, cp)) {
 
                                 case SIGNATURE_VALID:
-                                        (void)printf("valid");
+                                        ND_PRINT((ndo, "valid"));
                                         break;
 
                                 case SIGNATURE_INVALID:
-                                        (void)printf("invalid");
+                                        ND_PRINT((ndo, "invalid"));
                                         break;
 
                                 case CANT_CHECK_SIGNATURE:
-                                        (void)printf("can't check - ");
+                                        ND_PRINT((ndo, "can't check - "));
                                         for (i = 0; i < TCP_SIGLEN; ++i)
-                                                (void)printf("%02x", cp[i]);
+                                                ND_PRINT((ndo, "%02x", cp[i]));
                                         break;
                                 }
 #else
                                 for (i = 0; i < TCP_SIGLEN; ++i)
-                                        (void)printf("%02x", cp[i]);
+                                        ND_PRINT((ndo, "%02x", cp[i]));
 #endif
                                 break;
 
                         case TCPOPT_AUTH:
-                                (void)printf("keyid %d", *cp++);
+                                ND_PRINT((ndo, "keyid %d", *cp++));
                                 datalen = len - 3;
                                 for (i = 0; i < datalen; ++i) {
                                         LENCHECK(i);
-                                        (void)printf("%02x", cp[i]);
+                                        ND_PRINT((ndo, "%02x", cp[i]));
                                 }
                                 break;
 
@@ -566,18 +569,18 @@ tcp_print(register const u_char *bp, register u_int length,
                                 datalen = 2;
                                 LENCHECK(datalen);
                                 utoval = EXTRACT_16BITS(cp);
-                                (void)printf("0x%x", utoval);
+                                ND_PRINT((ndo, "0x%x", utoval));
                                 if (utoval & 0x0001)
                                         utoval = (utoval >> 1) * 60;
                                 else
                                         utoval >>= 1;
-                                (void)printf(" %u", utoval);
+                                ND_PRINT((ndo, " %u", utoval));
                                 break;
 
                         case TCPOPT_MPTCP:
                                 datalen = len - 2;
                                 LENCHECK(datalen);
-                                if (!mptcp_print(cp-2, len, flags))
+                                if (!mptcp_print(ndo, cp-2, len, flags))
                                         goto bad;
                                 break;
 
@@ -588,30 +591,30 @@ tcp_print(register const u_char *bp, register u_int length,
                                         goto bad;
                                 /* RFC6994 */
                                 magic = EXTRACT_16BITS(cp);
-                                (void)printf("-");
+                                ND_PRINT((ndo, "-"));
 
                                 switch(magic) {
 
                                 case 0xf989:
-                                        /* TCP Fast Open: draft-ietf-tcpm-fastopen-04 */
+                                        /* TCP Fast Open: RFC 7413 */
                                         if (datalen == 2) {
                                                 /* Fast Open Cookie Request */
-                                                (void)printf("tfo cookiereq");
+                                                ND_PRINT((ndo, "tfo cookiereq"));
                                         } else {
                                                 /* Fast Open Cookie */
                                                 if (datalen % 2 != 0 || datalen < 6 || datalen > 18) {
-                                                        (void)printf("tfo malformed");
+                                                        ND_PRINT((ndo, "tfo malformed"));
                                                 } else {
-                                                        (void)printf("tfo cookie ");
+                                                        ND_PRINT((ndo, "tfo cookie "));
                                                         for (i = 2; i < datalen; ++i)
-                                                                (void)printf("%02x", cp[i]);
+                                                                ND_PRINT((ndo, "%02x", cp[i]));
                                                 }
                                         }
                                         break;
 
                                 default:
                                         /* Unknown magic number */
-                                        (void)printf("%04x", magic);
+                                        ND_PRINT((ndo, "%04x", magic));
                                         break;
                                 }
                                 break;
@@ -619,10 +622,10 @@ tcp_print(register const u_char *bp, register u_int length,
                         default:
                                 datalen = len - 2;
                                 if (datalen)
-                                        printf(" 0x");
+                                        ND_PRINT((ndo, " 0x"));
                                 for (i = 0; i < datalen; ++i) {
                                         LENCHECK(i);
-                                        (void)printf("%02x", cp[i]);
+                                        ND_PRINT((ndo, "%02x", cp[i]));
                                 }
                                 break;
                         }
@@ -636,18 +639,18 @@ tcp_print(register const u_char *bp, register u_int length,
                         if (!ZEROLENOPT(opt))
                                 ++datalen;		/* size octet */
                         if (datalen != len)
-                                (void)printf("[len %d]", len);
+                                ND_PRINT((ndo, "[len %d]", len));
                         ch = ',';
                         if (opt == TCPOPT_EOL)
                                 break;
                 }
-                putchar(']');
+                ND_PRINT((ndo, "]"));
         }
 
         /*
          * Print length field before crawling down the stack.
          */
-        printf(", length %u", length);
+        ND_PRINT((ndo, ", length %u", length));
 
         if (length <= 0)
                 return;
@@ -656,62 +659,76 @@ tcp_print(register const u_char *bp, register u_int length,
          * Decode payload if necessary.
          */
         bp += TH_OFF(tp) * 4;
-        if ((flags & TH_RST) && vflag) {
-                print_tcp_rst_data(bp, length);
+        if ((flags & TH_RST) && ndo->ndo_vflag) {
+                print_tcp_rst_data(ndo, bp, length);
                 return;
-        } 
+        }
 
-        if (packettype) {
-                switch (packettype) {
+        if (ndo->ndo_packettype) {
+                switch (ndo->ndo_packettype) {
                 case PT_ZMTP1:
-                        zmtp1_print(bp, length);
+                        zmtp1_print(ndo, bp, length);
                         break;
                 }
                 return;
         }
 
         if (sport == TELNET_PORT || dport == TELNET_PORT) {
-                if (!qflag && vflag)
-                        telnet_print(bp, length);
+                telnet_print(ndo, bp, length);
+        } else if (sport == SMTP_PORT || dport == SMTP_PORT) {
+                ND_PRINT((ndo, ": "));
+                smtp_print(ndo, bp, length);
         } else if (sport == BGP_PORT || dport == BGP_PORT)
-                bgp_print(bp, length);
+                bgp_print(ndo, bp, length);
         else if (sport == PPTP_PORT || dport == PPTP_PORT)
-                pptp_print(bp);
+                pptp_print(ndo, bp);
 #ifdef TCPDUMP_DO_SMB
         else if (sport == NETBIOS_SSN_PORT || dport == NETBIOS_SSN_PORT)
-                nbt_tcp_print(bp, length);
+                nbt_tcp_print(ndo, bp, length);
 	else if (sport == SMB_PORT || dport == SMB_PORT)
-		smb_tcp_print(bp, length);
+		smb_tcp_print(ndo, bp, length);
 #endif
         else if (sport == BEEP_PORT || dport == BEEP_PORT)
-                beep_print(bp, length);
-        else if (sport == OPENFLOW_PORT || dport == OPENFLOW_PORT)
-                openflow_print(bp, length);
-        else if (length > 2 &&
+                beep_print(ndo, bp, length);
+        else if (sport == OPENFLOW_PORT_OLD || dport == OPENFLOW_PORT_OLD ||
+                 sport == OPENFLOW_PORT_IANA || dport == OPENFLOW_PORT_IANA)
+                openflow_print(ndo, bp, length);
+        else if (sport == FTP_PORT || dport == FTP_PORT) {
+                ND_PRINT((ndo, ": "));
+                ftp_print(ndo, bp, length);
+        } else if (sport == HTTP_PORT || dport == HTTP_PORT ||
+            sport == HTTP_PORT_ALT || dport == HTTP_PORT_ALT) {
+                ND_PRINT((ndo, ": "));
+                http_print(ndo, bp, length);
+        } else if (sport == RTSP_PORT || dport == RTSP_PORT ||
+            sport == RTSP_PORT_ALT || dport == RTSP_PORT_ALT) {
+                ND_PRINT((ndo, ": "));
+                rtsp_print(ndo, bp, length);
+        } else if (length > 2 &&
                  (sport == NAMESERVER_PORT || dport == NAMESERVER_PORT ||
                   sport == MULTICASTDNS_PORT || dport == MULTICASTDNS_PORT)) {
                 /*
                  * TCP DNS query has 2byte length at the head.
                  * XXX packet could be unaligned, it can go strange
                  */
-                ns_print(bp + 2, length - 2, 0);
+                ns_print(ndo, bp + 2, length - 2, 0);
         } else if (sport == MSDP_PORT || dport == MSDP_PORT) {
-                msdp_print(bp, length);
+                msdp_print(ndo, bp, length);
         } else if (sport == RPKI_RTR_PORT || dport == RPKI_RTR_PORT) {
-                rpki_rtr_print(bp, length);
+                rpki_rtr_print(ndo, bp, length);
         }
         else if (length > 0 && (sport == LDP_PORT || dport == LDP_PORT)) {
-                ldp_print(bp, length);
+                ldp_print(ndo, bp, length);
         }
         else if ((sport == NFS_PORT || dport == NFS_PORT) &&
-                 length >= 4 && TTEST2(*bp, 4)) {
+                 length >= 4 && ND_TTEST2(*bp, 4)) {
                 /*
                  * If data present, header length valid, and NFS port used,
                  * assume NFS.
                  * Pass offset of data plus 4 bytes for RPC TCP msg length
                  * to NFS print routines.
                  */
-                u_int32_t fraglen;
+                uint32_t fraglen;
                 register struct sunrpc_msg *rp;
                 enum sunrpc_msg_type direction;
 
@@ -719,16 +736,16 @@ tcp_print(register const u_char *bp, register u_int length,
                 if (fraglen > (length) - 4)
                         fraglen = (length) - 4;
                 rp = (struct sunrpc_msg *)(bp + 4);
-                if (TTEST(rp->rm_direction)) {
+                if (ND_TTEST(rp->rm_direction)) {
                         direction = (enum sunrpc_msg_type)EXTRACT_32BITS(&rp->rm_direction);
                         if (dport == NFS_PORT && direction == SUNRPC_CALL) {
-                                (void)printf(": NFS request xid %u ", EXTRACT_32BITS(&rp->rm_xid));
-                                nfsreq_print_noaddr((u_char *)rp, fraglen, (u_char *)ip);
+                                ND_PRINT((ndo, ": NFS request xid %u ", EXTRACT_32BITS(&rp->rm_xid)));
+                                nfsreq_print_noaddr(ndo, (u_char *)rp, fraglen, (u_char *)ip);
                                 return;
                         }
                         if (sport == NFS_PORT && direction == SUNRPC_REPLY) {
-                                (void)printf(": NFS reply xid %u ", EXTRACT_32BITS(&rp->rm_xid));
-                                nfsreply_print_noaddr((u_char *)rp, fraglen, (u_char *)ip);
+                                ND_PRINT((ndo, ": NFS reply xid %u ", EXTRACT_32BITS(&rp->rm_xid)));
+                                nfsreply_print_noaddr(ndo, (u_char *)rp, fraglen, (u_char *)ip);
                                 return;
                         }
                 }
@@ -736,14 +753,14 @@ tcp_print(register const u_char *bp, register u_int length,
 
         return;
  bad:
-        fputs("[bad opt]", stdout);
+        ND_PRINT((ndo, "[bad opt]"));
         if (ch != '\0')
-                putchar('>');
+                ND_PRINT((ndo, ">"));
         return;
  trunc:
-        fputs("[|tcp]", stdout);
+        ND_PRINT((ndo, "[|tcp]"));
         if (ch != '\0')
-                putchar('>');
+                ND_PRINT((ndo, ">"));
 }
 
 /*
@@ -762,52 +779,51 @@ tcp_print(register const u_char *bp, register u_int length,
  */
 
 static void
-print_tcp_rst_data(register const u_char *sp, u_int length)
+print_tcp_rst_data(netdissect_options *ndo,
+                   register const u_char *sp, u_int length)
 {
         int c;
 
-        if (TTEST2(*sp, length))
-                printf(" [RST");
-        else
-                printf(" [!RST");
+        ND_PRINT((ndo, ND_TTEST2(*sp, length) ? " [RST" : " [!RST"));
         if (length > MAX_RST_DATA_LEN) {
                 length = MAX_RST_DATA_LEN;	/* can use -X for longer */
-                putchar('+');			/* indicate we truncate */
+                ND_PRINT((ndo, "+"));			/* indicate we truncate */
         }
-        putchar(' ');
-        while (length-- && sp <= snapend) {
+        ND_PRINT((ndo, " "));
+        while (length-- && sp <= ndo->ndo_snapend) {
                 c = *sp++;
-                safeputchar(c);
+                safeputchar(ndo, c);
         }
-        putchar(']');
+        ND_PRINT((ndo, "]"));
 }
 
 #ifdef HAVE_LIBCRYPTO
 USES_APPLE_DEPRECATED_API
 static int
-tcp_verify_signature(const struct ip *ip, const struct tcphdr *tp,
+tcp_verify_signature(netdissect_options *ndo,
+                     const struct ip *ip, const struct tcphdr *tp,
                      const u_char *data, int length, const u_char *rcvsig)
 {
         struct tcphdr tp1;
         u_char sig[TCP_SIGLEN];
         char zero_proto = 0;
         MD5_CTX ctx;
-        u_int16_t savecsum, tlen;
+        uint16_t savecsum, tlen;
 #ifdef INET6
         struct ip6_hdr *ip6;
-        u_int32_t len32;
-        u_int8_t nxt;
+        uint32_t len32;
+        uint8_t nxt;
 #endif
 
-	if (data + length > snapend) {
-		printf("snaplen too short, ");
+	if (data + length > ndo->ndo_snapend) {
+		ND_PRINT((ndo, "snaplen too short, "));
 		return (CANT_CHECK_SIGNATURE);
 	}
 
         tp1 = *tp;
 
-        if (sigsecret == NULL) {
-		printf("shared secret not supplied with -M, ");
+        if (ndo->ndo_sigsecret == NULL) {
+		ND_PRINT((ndo, "shared secret not supplied with -M, "));
                 return (CANT_CHECK_SIGNATURE);
         }
 
@@ -839,9 +855,9 @@ tcp_verify_signature(const struct ip *ip, const struct tcphdr *tp,
 #endif
         } else {
 #ifdef INET6
-		printf("IP version not 4 or 6, ");
+		ND_PRINT((ndo, "IP version not 4 or 6, "));
 #else
-		printf("IP version not 4, ");
+		ND_PRINT((ndo, "IP version not 4, "));
 #endif
                 return (CANT_CHECK_SIGNATURE);
         }
@@ -862,7 +878,7 @@ tcp_verify_signature(const struct ip *ip, const struct tcphdr *tp,
         /*
          * Step 4: Update MD5 hash with shared secret.
          */
-        MD5_Update(&ctx, sigsecret, strlen(sigsecret));
+        MD5_Update(&ctx, ndo->ndo_sigsecret, strlen(ndo->ndo_sigsecret));
         MD5_Final(sig, &ctx);
 
         if (memcmp(rcvsig, sig, TCP_SIGLEN) == 0)

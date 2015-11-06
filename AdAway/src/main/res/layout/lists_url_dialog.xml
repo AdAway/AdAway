@@ -14,7 +14,8 @@
         android:id="@+id/list_dialog_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textUri"
+        android:singleLine="true"
+        android:inputType="textVisiblePassword"
         android:scrollHorizontally="true" />
 
 </LinearLayout>

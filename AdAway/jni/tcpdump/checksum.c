@@ -17,11 +17,7 @@
  * Original code by Hannes Gredler (hannes@juniper.net)
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/checksum.c,v 1.4 2006-09-25 09:23:32 hannes Exp $";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -55,7 +51,7 @@ for i in range(len(crc_table)/8):
 	sys.stdout.write("\n")
 
  */
-static const u_int16_t crc10_table[256] =
+static const uint16_t crc10_table[256] =
 {
 	0x0000, 0x0233, 0x0255, 0x0066, 0x0299, 0x00aa, 0x00cc, 0x02ff,
 	0x0301, 0x0132, 0x0154, 0x0367, 0x0198, 0x03ab, 0x03cd, 0x01fe,
@@ -93,12 +89,12 @@ static const u_int16_t crc10_table[256] =
 
 static void
 init_crc10_table(void)
-{   
+{
 #define CRC10_POLYNOMIAL 0x633
     register int i, j;
-    register u_int16_t accum;
-    u_int16_t verify_crc10_table[256];
-    
+    register uint16_t accum;
+    uint16_t verify_crc10_table[256];
+
     for ( i = 0;  i < 256;  i++ )
     {
         accum = ((unsigned short) i << 2);
@@ -114,8 +110,8 @@ init_crc10_table(void)
 #undef CRC10_POLYNOMIAL
 }
 
-u_int16_t
-verify_crc10_cksum(u_int16_t accum, const u_char *p, int length)
+uint16_t
+verify_crc10_cksum(uint16_t accum, const u_char *p, int length)
 {
     register int i;
 
@@ -140,16 +136,16 @@ init_checksum(void) {
  * Creates the OSI Fletcher checksum. See 8473-1, Appendix C, section C.3.
  * The checksum field of the passed PDU does not need to be reset to zero.
  */
-u_int16_t
-create_osi_cksum (const u_int8_t *pptr, int checksum_offset, int length)
+uint16_t
+create_osi_cksum (const uint8_t *pptr, int checksum_offset, int length)
 {
 
     int x;
     int y;
-    u_int32_t mul;
-    u_int32_t c0;
-    u_int32_t c1;
-    u_int16_t checksum;
+    uint32_t mul;
+    uint32_t c0;
+    uint32_t c1;
+    uint16_t checksum;
     int index;
 
     c0 = 0;
@@ -166,14 +162,14 @@ create_osi_cksum (const u_int8_t *pptr, int checksum_offset, int length)
         } else {
             c0 = c0 + *(pptr++);
             c1 += c0;
-        } 
+        }
     }
 
     c0 = c0 % 255;
     c1 = c1 % 255;
 
     mul = (length - checksum_offset)*(c0);
-  
+
     x = mul - c0 - c1;
     y = c1 - mul - 1;
 
@@ -189,6 +185,6 @@ create_osi_cksum (const u_int8_t *pptr, int checksum_offset, int length)
 
     y &= 0x00FF;
     checksum = ((x << 8) | y);
-  
+
     return checksum;
 }

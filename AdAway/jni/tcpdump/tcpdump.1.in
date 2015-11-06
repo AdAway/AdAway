@@ -1,5 +1,3 @@
-.\" @(#) $Header: /tcpdump/master/tcpdump/tcpdump.1.in,v 1.2 2008-11-09 23:35:03 mcr Exp $ (LBL)
-.\"
 .\"	$NetBSD: tcpdump.8,v 1.9 2003/03/31 00:18:17 perry Exp $
 .\"
 .\" Copyright (c) 1987, 1988, 1989, 1990, 1991, 1992, 1994, 1995, 1996, 1997
@@ -22,18 +20,21 @@
 .\" WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
 .\" MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 .\"
-.TH TCPDUMP 1  "3 February 2014"
+.TH TCPDUMP 1  "11 July 2014"
 .SH NAME
 tcpdump \- dump traffic on a network
 .SH SYNOPSIS
 .na
 .B tcpdump
 [
-.B \-AbdDefhHIJKlLnNOpqRStuUvxX
+.B \-AbdDefhHIJKlLnNOpqRStuUvxX#
 ] [
 .B \-B
 .I buffer_size
-] [
+]
+.br
+.ti +8
+[
 .B \-c
 .I count
 ]
@@ -69,6 +70,9 @@ tcpdump \- dump traffic on a network
 ]
 .br
 .ti +8
+[
+.B \-\-number
+]
 [
 .B \-Q
 .I in|out|inout
@@ -122,6 +126,17 @@ tcpdump \- dump traffic on a network
 ]
 .ti +8
 [
+.BI \-\-time\-stamp\-precision= tstamp_precision
+]
+.ti +8
+[
+.B \-\-immediate\-mode
+]
+[
+.B \-\-version
+]
+.ti +8
+[
 .I expression
 ]
 .br
@@ -129,7 +144,9 @@ tcpdump \- dump traffic on a network
 .SH DESCRIPTION
 .LP
 \fITcpdump\fP prints out a description of the contents of packets on a
-network interface that match the boolean \fIexpression\fP.  It can also
+network interface that match the boolean \fIexpression\fP; the
+description is preceded by a time stamp, printed, by default, as hours,
+minutes, seconds, and fractions of a second since midnight.  It can also
 be run with the
 .B \-w
 flag, which causes it to save the packet data to a file for later
@@ -193,7 +210,9 @@ your ``status'' character, typically control-T, although on some
 platforms, such as Mac OS X, the ``status'' character is not set by
 default, so you must set it with
 .BR stty (1)
-in order to use it) and will continue capturing packets.
+in order to use it) and will continue capturing packets. On platforms that
+do not support the SIGINFO signal, the same can be achieved by using the
+SIGUSR1 signal.
 .LP
 Reading packets from a network interface may require that you have
 special privileges; see the
@@ -210,14 +229,18 @@ capturing web pages.
 Print the AS number in BGP packets in ASDOT notation rather than ASPLAIN
 notation.
 .TP
-.B \-B
+.BI \-B " buffer_size"
+.PD 0
+.TP
+.BI \-\-buffer\-size= buffer_size
+.PD
 Set the operating system capture buffer size to \fIbuffer_size\fP, in
 units of KiB (1024 bytes).
 .TP
-.B \-c
+.BI \-c " count"
 Exit after receiving \fIcount\fP packets.
 .TP
-.B \-C
+.BI \-C " file_size"
 Before writing a raw packet to a savefile, check whether the file is
 currently larger than \fIfile_size\fP and, if so, close the current
 savefile and open a new one.  Savefiles after the first savefile will
@@ -240,6 +263,10 @@ program fragment.
 Dump packet-matching code as decimal numbers (preceded with a count).
 .TP
 .B \-D
+.PD 0
+.TP
+.B \-\-list\-interfaces
+.PD
 Print the list of the network interfaces available on the system and on
 which
 .I tcpdump
@@ -319,11 +346,11 @@ because the capture is being done on the Linux "any" interface, which
 can capture on more than one interface, this option will not work
 correctly.
 .TP
-.B \-F
+.BI \-F " file"
 Use \fIfile\fP as input for the filter expression.
 An additional expression given on the command line is ignored.
 .TP
-.B \-G
+.BI \-G " rotate_seconds"
 If specified, rotates the dump file specified with the
 .B \-w
 option every \fIrotate_seconds\fP seconds.
@@ -338,13 +365,25 @@ If used in conjunction with the
 option, filenames will take the form of `\fIfile\fP<count>'.
 .TP
 .B \-h
+.PD 0
+.TP
+.B \-\-help
+.PD
 Print the tcpdump and libpcap version strings, print a usage message,
 and exit.
+.TP
+.B \-\-version
+.PD
+Print the tcpdump and libpcap version strings and exit.
 .TP
 .B \-H
 Attempt to detect 802.11s draft mesh headers.
 .TP
-.B \-i
+.BI \-i " interface"
+.PD 0
+.TP
+.BI \-\-interface= interface
+.PD
 Listen on \fIinterface\fP.
 If unspecified, \fItcpdump\fP searches the system interface list for the
 lowest numbered, configured up interface (excluding loopback), which may turn
@@ -364,6 +403,10 @@ used as the
 argument.
 .TP
 .B \-I
+.PD 0
+.TP
+.B \-\-monitor\-mode
+.PD
 Put the interface in "monitor mode"; this is supported only on IEEE
 802.11 Wi-Fi interfaces, and supported only on some operating systems.
 .IP
@@ -384,7 +427,18 @@ monitor mode will be shown; if
 is specified, only those link-layer types available when in monitor mode
 will be shown.
 .TP
-.B \-j
+.BI \-\-immediate\-mode
+Capture in "immediate mode".  In this mode, packets are delivered to
+tcpdump as soon as they arrive, rather than being buffered for
+efficiency.  This is the default when printing packets rather than
+saving packets to a ``savefile'' if the packets are being printed to a
+terminal rather than to a file or pipe.
+.TP
+.BI \-j " tstamp_type"
+.PD 0
+.TP
+.BI \-\-time\-stamp\-type= tstamp_type
+.PD
 Set the time stamp type for the capture to \fItstamp_type\fP.  The names
 to use for the time stamp types are given in
 .BR pcap-tstamp (@MAN_MISC_INFO@);
@@ -392,11 +446,38 @@ not all the types listed there will necessarily be valid for any given
 interface.
 .TP
 .B \-J
+.PD 0
+.TP
+.B \-\-list\-time\-stamp\-types
+.PD
 List the supported time stamp types for the interface and exit.  If the
 time stamp type cannot be set for the interface, no time stamp types are
 listed.
 .TP
+.BI \-\-time\-stamp\-precision= tstamp_precision
+When capturing, set the time stamp precision for the capture to
+\fItstamp_precision\fP.  Note that availability of high precision time
+stamps (nanoseconds) and their actual accuracy is platform and hardware
+dependent.  Also note that when writing captures made with nanosecond
+accuracy to a savefile, the time stamps are written with nanosecond
+resolution, and the file is written with a different magic number, to
+indicate that the time stamps are in seconds and nanoseconds; not all
+programs that read pcap savefiles will be able to read those captures.
+.LP
+When reading a savefile, convert time stamps to the precision specified
+by \fItimestamp_precision\fP, and display them with that resolution.  If
+the precision specified is less than the precision of time stamps in the
+file, the conversion will lose precision.
+.LP
+The supported values for \fItimestamp_precision\fP are \fBmicro\fP for
+microsecond resolution and \fBnano\fP for nanosecond resolution.  The
+default is microsecond resolution.
+.TP
 .B \-K
+.PD 0
+.TP
+.B \-\-dont\-verify\-checksums
+.PD
 Don't attempt to verify IP, TCP, or UDP checksums.  This is useful for
 interfaces that perform some or all of those checksum calculation in
 hardware; otherwise, all outgoing TCP checksums will be flagged as bad.
@@ -439,6 +520,10 @@ than at the end of each line; this is buffered on all platforms,
 including Windows.
 .TP
 .B \-L
+.PD 0
+.TP
+.B \-\-list\-data\-link\-types
+.PD
 List the known data link types for the interface, in the specified mode,
 and exit.  The list of known data link types may be dependent on the
 specified mode; for example, on some platforms, a Wi-Fi interface might
@@ -449,12 +534,12 @@ and another set of data link types when in monitor mode (for example, it
 might support 802.11 headers, or 802.11 headers with radio information,
 only in monitor mode).
 .TP
-.B \-m
+.BI \-m " module"
 Load SMI MIB module definitions from file \fImodule\fR.
 This option
 can be used several times to load several MIB modules into \fItcpdump\fP.
 .TP
-.B \-M
+.BI \-M " secret"
 Use \fIsecret\fP as a shared secret for validating the digests found in
 TCP segments with the TCP-MD5 option (RFC 2385), if present.
 .TP
@@ -467,19 +552,38 @@ E.g.,
 if you give this flag then \fItcpdump\fP will print ``nic''
 instead of ``nic.ddn.mil''.
 .TP
+.B \-#
+.PD 0
+.TP
+.B \-\-number
+.PD
+Print an optional packet number at the beginning of the line.
+.TP
 .B \-O
+.PD 0
+.TP
+.B \-\-no\-optimize
+.PD
 Do not run the packet-matching code optimizer.
 This is useful only
 if you suspect a bug in the optimizer.
 .TP
 .B \-p
+.PD 0
+.TP
+.B \-\-no\-promiscuous\-mode
+.PD
 \fIDon't\fP put the interface
 into promiscuous mode.
 Note that the interface might be in promiscuous
 mode for some other reason; hence, `-p' cannot be used as an abbreviation for
 `ether host {local-hw-addr} or ether broadcast'.
 .TP
-.B \-Q
+.BI \-Q " direction"
+.PD 0
+.TP
+.BI \-\-direction= direction
+.PD
 Choose send/receive direction \fIdirection\fR for which packets should be
 captured. Possible values are `in', `out' and `inout'. Not available
 on all platforms.
@@ -495,16 +599,24 @@ If specified, \fItcpdump\fP will not print replay prevention field.
 Since there is no protocol version field in ESP/AH specification,
 \fItcpdump\fP cannot deduce the version of ESP/AH protocol.
 .TP
-.B \-r
+.BI \-r " file"
 Read packets from \fIfile\fR (which was created with the
 .B \-w
-option).
+option or by other tools that write pcap or pcap-ng files).
 Standard input is used if \fIfile\fR is ``-''.
 .TP
 .B \-S
+.PD 0
+.TP
+.B \-\-absolute\-tcp\-sequence\-numbers
+.PD
 Print absolute, rather than relative, TCP sequence numbers.
 .TP
-.B \-s
+.BI \-s " snaplen"
+.PD 0
+.TP
+.BI \-\-snapshot\-length= snaplen
+.PD
 Snarf \fIsnaplen\fP bytes of data from each packet rather than the
 default of 65535 bytes.
 Packets truncated because of a limited snapshot
@@ -522,7 +634,7 @@ Setting
 for backwards compatibility with recent older versions of
 .IR tcpdump .
 .TP
-.B \-T
+.BI \-T " type"
 Force packets selected by "\fIexpression\fP" to be interpreted the
 specified \fItype\fR.
 Currently known types are
@@ -558,14 +670,16 @@ an encapsulated PGM packet.
 \fIDon't\fP print a timestamp on each dump line.
 .TP
 .B \-tt
-Print an unformatted timestamp on each dump line.
+Print the timestamp, as seconds since January 1, 1970, 00:00:00, UTC, and
+fractions of a second since that time, on each dump line.
 .TP
 .B \-ttt
 Print a delta (micro-second resolution) between current and previous line
 on each dump line.
 .TP
 .B \-tttt
-Print a timestamp in default format proceeded by date on each dump line.
+Print a timestamp, as hours, minutes, seconds, and fractions of a second
+since midnight, preceded by the date, on each dump line.
 .TP
 .B \-ttttt
 Print a delta (micro-second resolution) between current and first line
@@ -575,6 +689,10 @@ on each dump line.
 Print undecoded NFS handles.
 .TP
 .B \-U
+.PD 0
+.TP
+.B \-\-packet\-buffered
+.PD
 If the
 .B \-w
 option is not specified, make the printed packet output
@@ -625,11 +743,11 @@ With
 .B \-X
 Telnet options are printed in hex as well.
 .TP
-.B \-V
+.BI \-V " file"
 Read a list of filenames from \fIfile\fR. Standard input is used
 if \fIfile\fR is ``-''.
 .TP
-.B \-w
+.BI \-w " file"
 Write the raw packets to \fIfile\fR rather than parsing and printing
 them out.
 They can later be printed with the \-r option.
@@ -702,10 +820,14 @@ each packet,
 .I including
 its link level header, in hex and ASCII.
 .TP
-.B \-y
+.BI \-y " datalinktype"
+.PD 0
+.TP
+.BI \-\-linktype= datalinktype
+.PD
 Set the data link type to use while capturing packets to \fIdatalinktype\fP.
 .TP
-.B \-z
+.BI \-z " postrotate-command"
 Used in conjunction with the
 .B -C
 or
@@ -713,7 +835,7 @@ or
 options, this will make
 .I tcpdump
 run "
-.I command file
+.I postrotate-command file
 " where
 .I file
 is the savefile being closed after each rotation. For example, specifying
@@ -730,7 +852,11 @@ different arguments, you can always write a shell script that will take the
 savefile name as the only argument, make the flags & arguments arrangements
 and execute the command that you want.
 .TP
-.B \-Z
+.BI \-Z " user"
+.PD 0
+.TP
+.BI \-\-relinquish\-privileges= user
+.PD
 If
 .I tcpdump
 is running as root, after opening the capture device or input savefile,
@@ -1412,39 +1538,45 @@ Sun NFS (Network File System) requests and replies are printed as:
 .RS
 .nf
 .sp .5
-\fIsrc.xid > dst.nfs: len op args\fP
-\fIsrc.nfs > dst.xid: reply stat len op results\fP
+\fIsrc.sport > dst.nfs: NFS request xid xid len op args\fP
+\fIsrc.nfs > dst.dport: NFS reply xid xid reply stat len op results\fP
 .sp .5
 \f(CW
-sushi.6709 > wrl.nfs: 112 readlink fh 21,24/10.73165
-wrl.nfs > sushi.6709: reply ok 40 readlink "../var"
-sushi.201b > wrl.nfs:
+sushi.1023 > wrl.nfs: NFS request xid 26377
+	112 readlink fh 21,24/10.73165
+wrl.nfs > sushi.1023: NFS reply xid 26377
+	reply ok 40 readlink "../var"
+sushi.1022 > wrl.nfs: NFS request xid 8219
 	144 lookup fh 9,74/4096.6878 "xcolors"
-wrl.nfs > sushi.201b:
+wrl.nfs > sushi.1022: NFS reply xid 8219
 	reply ok 128 lookup fh 9,74/4134.3150
 \fR
 .sp .5
 .fi
 .RE
-In the first line, host \fIsushi\fP sends a transaction with id \fI6709\fP
-to \fIwrl\fP (note that the number following the src host is a
-transaction id, \fInot\fP the source port).
+In the first line, host \fIsushi\fP sends a transaction with id \fI26377\fP
+to \fIwrl\fP.
 The request was 112 bytes,
 excluding the UDP and IP headers.
 The operation was a \fIreadlink\fP
 (read symbolic link) on file handle (\fIfh\fP) 21,24/10.731657119.
 (If one is lucky, as in this case, the file handle can be interpreted
 as a major,minor device number pair, followed by the inode number and
-generation number.)
-\fIWrl\fP replies `ok' with the contents of the link.
+generation number.) In the second line, \fIwrl\fP replies `ok' with
+the same transaction id and the contents of the link.
 .LP
-In the third line, \fIsushi\fP asks \fIwrl\fP to lookup the name
-`\fIxcolors\fP' in directory file 9,74/4096.6878.
+In the third line, \fIsushi\fP asks (using a new transaction id) \fIwrl\fP
+to lookup the name `\fIxcolors\fP' in directory file 9,74/4096.6878. In
+the fourth line, \fIwrl\fP sends a reply with the respective transaction id.
+.LP
 Note that the data printed
 depends on the operation type.
 The format is intended to be self
 explanatory if read in conjunction with
 an NFS protocol spec.
+Also note that older versions of tcpdump printed NFS packets in a
+slightly different format: the transaction id (xid) would be printed
+instead of the non-NFS port number of the packet.
 .LP
 If the \-v (verbose) flag is given, additional information is printed.
 For example:
@@ -1452,9 +1584,9 @@ For example:
 .nf
 .sp .5
 \f(CW
-sushi.1372a > wrl.nfs:
+sushi.1023 > wrl.nfs: NFS request xid 79658
 	148 read fh 21,11/12.195 8192 bytes @ 24576
-wrl.nfs > sushi.1372a:
+wrl.nfs > sushi.1023: NFS reply xid 79658
 	reply ok 1472 read REG 100664 ids 417/0 sz 29388
 \fP
 .sp .5

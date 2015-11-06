@@ -21,28 +21,17 @@
  * and Realtek Echo Protocol (RRCP-REP) packets.
  */
 
-#ifndef lint
-static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-rrcp.c,v 1.2 2008-04-11 17:21:34 gianluca Exp $";
-#endif
-
+#define NETDISSECT_REWORKED
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include <tcpdump-stdinc.h>
 
-#include <stdio.h>
-#include <string.h>
-
-#include "netdissect.h"
+#include "interface.h"
 #include "addrtoname.h"
 #include "extract.h"
 #include "ether.h"
-
-#ifndef ETH_ALEN 
-#define ETH_ALEN 6
-#endif
 
 #define RRCP_OPCODE_MASK	0x7F	/* 0x00 = hello, 0x01 = get, 0x02 = set */
 #define RRCP_ISREPLY		0x80	/* 0 = request to switch, 0x80 = reply from switch */
@@ -86,8 +75,8 @@ rrcp_print(netdissect_options *ndo,
 	  u_int length _U_)
 {
 	const u_char *rrcp;
-	u_int8_t rrcp_proto;
-	u_int8_t rrcp_opcode;
+	uint8_t rrcp_proto;
+	uint8_t rrcp_opcode;
 	register const struct ether_header *ep;
 	char proto_str[16];
 	char opcode_str[32];
@@ -100,8 +89,8 @@ rrcp_print(netdissect_options *ndo,
 	ND_TCHECK(*(rrcp + RRCP_OPCODE_ISREPLY_OFFSET));
 	rrcp_opcode = (*(rrcp + RRCP_OPCODE_ISREPLY_OFFSET)) & RRCP_OPCODE_MASK;
         ND_PRINT((ndo, "%s > %s, %s %s",
-		etheraddr_string(ESRC(ep)),
-		etheraddr_string(EDST(ep)),
+		etheraddr_string(ndo, ESRC(ep)),
+		etheraddr_string(ndo, EDST(ep)),
 		tok2strbuf(proto_values,"RRCP-0x%02x",rrcp_proto,proto_str,sizeof(proto_str)),
 		((*(rrcp + RRCP_OPCODE_ISREPLY_OFFSET)) & RRCP_ISREPLY) ? "reply" : "query"));
 	if (rrcp_proto==1){
@@ -125,7 +114,7 @@ rrcp_print(netdissect_options *ndo,
 	    ND_PRINT((ndo, " downlink_port=%d, uplink_port=%d, uplink_mac=%s, vendor_id=%08x ,chip_id=%04x ",
 		     *(rrcp + RRCP_DOWNLINK_PORT_OFFSET),
 		     *(rrcp + RRCP_UPLINK_PORT_OFFSET),
-		     etheraddr_string(rrcp + RRCP_UPLINK_MAC_OFFSET),
+		     etheraddr_string(ndo, rrcp + RRCP_UPLINK_MAC_OFFSET),
 		     EXTRACT_32BITS(rrcp + RRCP_VENDOR_ID_OFFSET),
 		     EXTRACT_16BITS(rrcp + RRCP_CHIP_ID_OFFSET)));
 	}else if (rrcp_opcode==1 || rrcp_opcode==2 || rrcp_proto==2){
@@ -134,8 +123,6 @@ rrcp_print(netdissect_options *ndo,
 		    EXTRACT_32BITS(rrcp + RRCP_COOKIE2_OFFSET),
 		    EXTRACT_32BITS(rrcp + RRCP_COOKIE1_OFFSET)));
 	}
-        if (!ndo->ndo_vflag)
-            return;
 	return;
 
 trunc:

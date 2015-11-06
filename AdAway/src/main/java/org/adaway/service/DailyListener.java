@@ -21,6 +21,7 @@
 package org.adaway.service;
 
 import java.util.Calendar;
+import java.util.Random;
 
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Constants;
@@ -38,10 +39,17 @@ import com.commonsware.cwac.wakeful.WakefulIntentService;
 import com.commonsware.cwac.wakeful.WakefulIntentService.AlarmListener;
 
 public class DailyListener implements AlarmListener {
+    public static int randInt(int min, int max) {
+        Random rand = new Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        return randomNum;
+    }
+
     public void scheduleAlarms(AlarmManager mgr, PendingIntent pi, Context context) {
         // register when enabled in preferences
         if (PreferenceHelper.getUpdateCheckDaily(context)) {
-            Log.i(Constants.TAG, "Schedule update check...");
+            int randhr = randInt(3, 8);
+            int randmin = randInt(1,58);
 
             // every day at 9 am
             Calendar calendar = Calendar.getInstance();
@@ -49,12 +57,13 @@ public class DailyListener implements AlarmListener {
             if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 9) {
                 calendar.add(Calendar.DAY_OF_YEAR, 1); // add, not set!
             }
-            calendar.set(Calendar.HOUR_OF_DAY, 9);
-            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.HOUR_OF_DAY, randhr);
+            calendar.set(Calendar.MINUTE, randmin);
             calendar.set(Calendar.SECOND, 0);
+            Log.i(Constants.TAG, "Daily update check set for: " + randhr + ":"+randmin);
 
             if (Constants.DEBUG_UPDATE_CHECK_SERVICE) {
-                // for debugging execute service ever minute
+                // for debugging execute service every minute
                 mgr.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(),
                         60 * 1000, pi);
             } else {

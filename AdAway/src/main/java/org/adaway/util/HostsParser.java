@@ -98,7 +98,8 @@ public class HostsParser {
 
                 // check if ip is 127.0.0.1 or 0.0.0.0
                 if (currentIp.equals(Constants.LOCALHOST_IPv4)
-                        || currentIp.equals(Constants.BOGUS_IPv4)) {
+                        || currentIp.equals(Constants.BOGUS_IPv4)
+                        || currentIp.equals(Constants.LOCALHOST_IPv6)) {
                     mBlacklist.add(currentHostname);
                 } else if (currentIp.equals(Constants.WHITELIST_ENTRY)) {
                     mWhitelist.add(currentHostname);

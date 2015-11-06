@@ -23,6 +23,7 @@ package org.adaway.service;
 import java.io.FileOutputStream;
 
 import org.adaway.R;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.ApplyUtils;
@@ -95,8 +96,21 @@ public class RevertService extends WakefulIntentService {
             fos.write(localhost.getBytes());
             fos.close();
 
-            // copy build hosts file with RootTools
-            ApplyUtils.copyHostsFile(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS, shell);
+            // copy build hosts file with RootTools, based on target from preferences
+            if (PreferenceHelper.getApplyMethod(mService).equals("writeToSystem")) {
+
+                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS, shell);
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
+
+                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_DATA_HOSTS, shell);
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToData")) {
+
+                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_HOSTS, shell);
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
+
+                ApplyUtils.copyHostsFile(mService, PreferenceHelper.getCustomTarget(mService),
+                        shell);
+            }
 
             // delete generated hosts file after applying it
             mService.deleteFile(Constants.HOSTS_FILENAME);

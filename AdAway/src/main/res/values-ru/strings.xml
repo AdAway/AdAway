@@ -50,7 +50,7 @@
   <string name="status_checking">Проверка обновлений...</string>
   <string name="status_reverting">Восстановление...</string>
   <string name="status_reverting_subtitle">Создание стандартного файла hosts</string>
-  <string name="status_checking_subtitle">Проверка наличия обновлений, если доступно</string>
+  <string name="status_checking_subtitle">Проверка доступных обновлений...</string>
   <string name="status_update_available">Доступно обновление</string>
   <string name="status_update_available_subtitle">Имеются обновленные списки хостов</string>
   <string name="status_no_connection">Нет соединения с интернет</string>
@@ -96,6 +96,8 @@
 Если это не срабатывает, то необходимо искать информацию в интернете по S-OFF и вашему телефону.</string>
   <string name="apply_symlink_fail_title">Ошибка создания ссылки</string>
   <string name="apply_help">Пожалуйста, читайте Справку для получения большей информации.</string>
+  <string name="apply_apn_proxy">В настройках APN указан прокси сервер!
+AdAway не будет работать в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (в Android 4: Беспроводные сети -&gt; Ещё... -&gt; Мобильная сеть -&gt; Точки доступа APN) и удалить значение в поле Прокси.</string>
   <string name="apply_apn_proxy_title">Используемая точка доступа работает через прокси-сервер!</string>
   <string name="no_connection">Отсутствует подключение к интернет.</string>
   <string name="no_connection_title">Нет соединения</string>
@@ -121,10 +123,6 @@
   <string name="no_private_file">Файл не может быть создан.</string>
   <string name="no_private_file_title">Не удалось создать файл</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Либо программный файл SuperUser не найден, либо AdAway не были предоставлены разрешения root.
-
-Это может произойти, когда на устройстве нет прав Root.
-О том, как получить права Root на устройстве вы можете найти на www.cyanogenmod.com или других веб-сайтах по Android.</string>
   <string name="no_root_title">Для Android требуются права Root</string>
   <string name="no_url">Это недопустимый URL!</string>
   <string name="no_url_title">Неправильно отформатированный URL</string>
@@ -210,6 +208,12 @@
   <string name="pref_webserver">Локальный Веб-сервер</string>
   <string name="pref_custom_target">Пользовательские настройки</string>
   <string name="pref_custom_target_summary">Используется только в случае, когда расположение файла hosts задано пользователем</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Задано пользователем</item>
+  </string-array>
   <string name="pref_update_check_summary">Проверять обновления при старте AdAway</string>
   <string name="pref_sdcard_problem">Если AdAway установлен на карту памяти, то эта функция будет работать неправильно!</string>
   <string name="pref_background">Фоновый режим</string>
@@ -219,8 +223,13 @@
   <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
   <string name="pref_update_only_on_wifi">Обновление только по WiFi</string>
   <string name="pref_update_only_on_wifi_summary">Выполнять обновления в фоне только при подключении к сети WiFi.</string>
+  <string name="pref_whitelist_rules">Разрешить белые списки</string>
+  <string name="pref_whitelist_rules_summary">Разрешить белые списки из источников хостов.</string>
   <string name="pref_redirection_rules">Разрешить перенаправление</string>
+  <string name="pref_redirection_rules_summary">ПРЕДСТАВЛЯЕТ УГРОЗУ БЕЗОПАСНОСТИ! Разрешить перенаправление из источников хостов.</string>
   <string name="pref_debug">Режим отладки</string>
   <string name="pref_enable_debug">Журнал отладки</string>
   <string name="pref_enable_debug_summary">Чтобы изменения вступили в силу, необходимо перезапустить AdAway.</string>
+  <string name="pref_enable_ipv6">Использовать IPv6</string>
+  <string name="pref_enable_ipv6_summary">Все записи файла host будут получать соответствующую :: 1  запись (localhost IPv6).</string>
 </resources>

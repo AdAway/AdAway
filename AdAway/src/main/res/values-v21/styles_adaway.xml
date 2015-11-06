@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File created by the Android Action Bar Style Generator
+
+     Copyright (C) 2012 readyState Software Ltd
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <style name="Theme.adaway" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+
+        <item name="popupMenuStyle">@style/adaway_PopupMenu</item>
+        <item name="dropDownListViewStyle">@style/adaway_DropDownListView</item>
+        <item name="actionBarTabStyle">@style/adaway_ActionBarTabStyle</item>
+        <item name="actionDropDownStyle">@style/adaway_DropDownNav</item>
+
+        <item name="android:selectableItemBackground">@drawable/selectable_background_adaway</item>
+        <item name="android:popupMenuStyle">@style/adaway_PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/adaway_DropDownListView</item>
+        <item name="android:actionBarTabStyle">@style/adaway_ActionBarTabStyle</item>
+        <item name="android:actionDropDownStyle">@style/adaway_DropDownNav</item>
+        <item name="android:panelBackground">@drawable/menu_hardkey_panel_adaway</item>
+    </style>
+
+    <style name="adaway_solid_ActionBar" parent="@style/Widget.Sherlock.ActionBar.Solid">
+        <item name="background">@drawable/ab_solid_adaway</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_adaway</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_adaway</item>
+        <item name="progressBarStyle">@style/adaway_ProgressBar</item>
+
+        <item name="android:background">@drawable/ab_solid_adaway</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_adaway</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_adaway</item>
+        <item name="android:progressBarStyle">@style/adaway_ProgressBar</item>
+    </style>
+
+    <style name="adaway_transparent_ActionBar" parent="@style/Widget.Sherlock.ActionBar">
+        <item name="background">@drawable/ab_transparent_adaway</item>
+        <item name="progressBarStyle">@style/adaway_ProgressBar</item>
+        
+        <item name="android:background">@drawable/ab_transparent_adaway</item>
+        <item name="android:progressBarStyle">@style/adaway_ProgressBar</item>
+    </style>
+	
+    <style name="adaway_PopupMenu" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_adaway</item>	
+    </style>
+	
+    <style name="adaway_DropDownListView" parent="@style/Widget.Sherlock.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_adaway</item>
+    </style>
+
+    <style name="adaway_ActionBarTabStyle" parent="@style/Widget.Sherlock.ActionBar.TabView">
+        <item name="background">@drawable/tab_indicator_ab_adaway</item>
+
+        <item name="android:background">@drawable/tab_indicator_ab_adaway</item>
+    </style>
+	
+    <style name="adaway_DropDownNav" parent="@style/Widget.Sherlock.Spinner.DropDown.ActionBar">
+        <item name="background">@drawable/spinner_background_ab_adaway</item>
+
+        <item name="android:background">@drawable/spinner_background_ab_adaway</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_adaway</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_adaway</item>
+    </style>
+    
+    <style name="adaway_ProgressBar" parent="@style/Widget.Sherlock.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_adaway</item>
+    </style>
+
+</resources>

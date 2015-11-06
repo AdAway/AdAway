@@ -39,6 +39,7 @@ OBJS = \
 	../../missing/datalinks.o \
 	../../missing/strsep.o \
 	../../missing/inet_pton.o \
+	../../missing/getopt_long.o \
 	../../machdep.o \
 	../../oui.o \
 	../../parsenfsfh.o \
@@ -146,7 +147,6 @@ OBJS = \
 	../../smbutil.o \
 	../../tcpdump.o \
 	../../util.o \
-	../../Win32/src/getopt.o \
 	../../cpack.o \
 	../../ipproto.o \
 	../../l2vpn.o \

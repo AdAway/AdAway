@@ -40,6 +40,7 @@
   <string name="lists_tab_redirection_list">قائمة إعادة التوجيه</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">اسم المضيف:</string>
+  <string name="list_dialog_whitelist_hostname">اسم المضيف . )wildcard characters * و ؟ غير مدعومين(</string>
   <string name="list_dialog_ip">بروتكول الانترنت (IPv4 أو IPv6):</string>
   <string name="import_dialog">استيراد…</string>
   <string name="export_dialog">تصدير…</string>
@@ -60,7 +61,9 @@
   <string name="status_disabled">معطل</string>
   <string name="status_disabled_subtitle">معطل</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">symlink من مسارك الى /system/etc/hosts غير موجود او غير صحيح . البرنامج لن يعمل اذا لم يتم تحديد الملف الصحيح . هل تريد محاولة انشاء symlink ؟</string>
   <string name="apply_symlink_missing_title">الارتباط الرمزي مفقود</string>
+  <string name="apply_not_enough_space">لا توجد مساحة كافية على القرص حاول تغيير المسار من الاعدادت الى /data/data/hosts</string>
   <string name="apply_not_enough_space_title">لا توجد مساحة كافية</string>
   <string name="apply_private_file_fail">لا يمكن قراءة الملف الذي تم تنزيله.</string>
   <string name="apply_private_file_fail_title">فشل الملف الخاص</string>
@@ -70,9 +73,13 @@
   <string name="apply_copy_fail_title">فشل النسخ</string>
   <string name="apply_success_subtitle">مصادر المضيف المنفذة:</string>
   <string name="apply_success_title">تم التنفيذ بنجاح</string>
+  <string name="apply_success_dialog">تم التثبيت بنجاح . يستوجب اعاده تشغيل الجهاز الان . هل تريد اعادة تشغيل جهازك؟ (لتجنب حصول فقدان في الملفات تأكد من عدم وجود تطبيقات تستخدم الذاكرة الان)</string>
+  <string name="apply_symlink_successful">تم التثبيت بنجاح . يستوجب اعاده تشغيل الجهاز الان . هل تريد اعادة تشغيل جهازك؟ (لتجنب حصول فقدان في الملفات تأكد من عدم وجود تطبيقات تستخدم الذاكرة الان)</string>
   <string name="apply_symlink_successful_title">الارتباط الرمزي أنشئ بنجاح</string>
+  <string name="apply_symlink_fail">لم يتم انشاء symlink هذا يحرث بسبب خاصية S on في اجهزه HTC . الحل هو اعاده تشغيل جهازك في وضع الريكفري و انشاء symlink في -s /data/data/hosts/system/etc/hosts اذا لم يعمل ابحث في الانترنت عن اطفاء s</string>
   <string name="apply_symlink_fail_title">الارتباط الرمزي لم ينشئ</string>
   <string name="apply_help">يرجى قراءة التعليمات للمزيد من المعلومات.</string>
+  <string name="apply_apn_proxy">adaway لن يعمل اذا كنت تستخدم شبكات اتصال الجيل الثالث 3G. يمكنك الغاء تفعيل الشبكات من اعدادات الهاتف و المحاولة مرة اخرى</string>
   <string name="apply_apn_proxy_title">تعيين وكيل APN!</string>
   <string name="no_connection">الاتصال بالشبكة لا يعمل</string>
   <string name="no_connection_title">غير متصل</string>
@@ -82,7 +89,9 @@
   <string name="apply_dialog_hostnames">تحليل ودمج ملفات المضيف</string>
   <string name="apply_dialog_hosts">بناء ملفات المضيف</string>
   <string name="apply_dialog_apply">تنفيذ ملفات المضيف</string>
+  <string name="apply_fail">لقد فشلت عملية تثبيت ملفات المضيف! حاول تغيير مسار الملفات من الاعدادات الى /data/data/hosts</string>
   <string name="apply_fail_title">فشل التنفيذ</string>
+  <string name="revert_successful">لقد استعدت الملفات الافتراضية. يستوجب القيام بأعادة تشغيل لجهازك لتثبيت التغييرات. هل تريد اعادة تشغيل الجهاز؟ (لمنع حصول فقدان للبيانات تاكد من عدم وجود تطبيقات تستخدم الذاكرة الان)</string>
   <string name="revert_successful_title">تم الاسترجاع</string>
   <string name="revert_problem">الاسترجاع فشل لأسباب غير معروفة.</string>
   <string name="revert_problem_title">فشل الاسترجاع!</string>
@@ -141,7 +150,9 @@
   <!--Other-->
   <string name="app_subtitle">حاجب الإعلانات</string>
   <string name="no_text_editor_title">لا يوجد محرر نصوص مثبت</string>
+  <string name="no_text_editor">تعذر العثور على محرر نصوص لفتح ملف المضيف. يمكنك تثبيت محرر النصوص JOTA او اي محرر نصوص اخر لتجاوز هذا. هل تريد تثبيت JOTA ؟</string>
   <string name="no_file_manager_title">لا يوجد مدير ملفات مثبت</string>
+  <string name="no_file_manager">تعذر العثور على مدير ملفات لفتح الملف. يمكنك تثبيت مدير ملفات OI او أي مدير ملفات اخر لتجاوز هذا. هل تريد تثبيت OI؟</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">ملف السجل تم حذفه!</string>
   <string name="toast_tcpdump_added_to_blacklist">تم إضافة الموقع للقائمة السوداء!</string>
@@ -170,6 +181,7 @@
   <string name="pref_webserver">خادم الويب المحلي</string>
   <string name="pref_custom_target">مسار مخصص</string>
   <string name="pref_custom_target_summary">استخدمه فقط إذا حدد مسار مخصص لملفات المضيف</string>
+  <string-array name="pref_apply_method_entries"/>
   <string name="pref_update_check_summary">التحقق من وجود تحديثات عند تشغيل التطبيق</string>
   <string name="pref_sdcard_problem">هذه الميزة لن تعمل بشكل صحيح عندما يتم تثبيت التطبيق في الذاكرة الخارجية!</string>
   <string name="pref_background">الخدمات الخلفية</string>
@@ -179,6 +191,10 @@
   <string name="pref_automatic_update_daily_summary">التحديث تلقائياً في الخلفية إذا كانت التحديثات متوفرة.</string>
   <string name="pref_update_only_on_wifi">التحديث فقط عبر Wi-Fi</string>
   <string name="pref_update_only_on_wifi_summary">تنفيذ التحديثات في الخلفية فقط عند الاتصال بشبكة Wi-Fi.</string>
+  <string name="pref_whitelist_rules">السماح للقائمة البيضاء</string>
+  <string name="pref_whitelist_rules_summary">السماح لمداخلات القائمة البيضاء من مصادر المضيف</string>
+  <string name="pref_redirection_rules">إعادة التوجيه</string>
+  <string name="pref_redirection_rules_summary">للتقليل من المخاطر الامنية ! قم بالسماح للمداخلات المعاد تحويلها من مصادر المضيف</string>
   <string name="pref_debug">التصحيح</string>
   <string name="pref_enable_debug">تسجيل التصحيحات</string>
   <string name="pref_enable_debug_summary">يجب إعادة تشغيل التطبيق لتكون الإعدادات سارية المفعول.</string>

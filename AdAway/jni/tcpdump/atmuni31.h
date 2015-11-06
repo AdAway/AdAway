@@ -28,8 +28,6 @@
  * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- *
- * @(#) $Header: /tcpdump/master/tcpdump/atmuni31.h,v 1.3 2007-10-22 19:37:51 guy Exp $ (LBL)
  */
 
 /* Based on UNI3.1 standard by ATM Forum */

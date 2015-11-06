@@ -2,6 +2,7 @@
 <resources>
   <string name="donations__button_close">Закрыть</string>
   <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Считаете это приложение полезным?\nПоддержите его разработку, отправив пожертвование разработчику!</string>
   <string name="donations__flattr_description">Flattr взимает 10% в виде ежемесячной абонентской платы!</string>
   <string name="donations__google_android_market">Google Play Store</string>
   <string name="donations__google_android_market_not_supported_title">In-App пожертвования не поддерживаются.</string>
