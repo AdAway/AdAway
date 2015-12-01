@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Lukk</string>
+  <string name="button_apply">Last ned filer og start ad blocking</string>
+  <string name="button_close">Lukk</string>
+  <string name="button_yes">Ja</string>
+  <string name="button_no">Nei</string>
+  <string name="button_revert">Deaktiver ad blocking</string>
+  <string name="button_add">Legg til</string>
+  <string name="button_cancel">Avbryt</string>
+  <string name="button_apply_text">Alle vertsfiler fra valgte kilder er nedlastet, legg dem sammen med din egen liste og installer som en vertsfil.</string>
+  <string name="button_revert_text">Tilbakestill vertsfilen til standard.</string>
+  <string name="button_save">Lagre</string>
+  <string name="button_webserver_toggle_checked">Webserver kjører</string>
+  <string name="button_webserver_toggle_unchecked">Webserver kjører ikke</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Legg til</string>
+  <!--Your Lists-->
+  <!--Status Notifications-->
+  <!--Apply and Revert Dialogs-->
+  <!--Other Dialogs-->
+  <!--Menu entries-->
+  <string name="menu_add">Legg til</string>
+  <!--Help-->
+  <!--Scan Adware-->
+  <!--Hosts Sources-->
+  <!--Other-->
+  <!--Tcpdump-->
+  <!--Preferences-->
+</resources>

@@ -73,8 +73,8 @@
   <string name="apply_copy_fail_title">Falha ao copiar</string>
   <string name="apply_success_subtitle">Fontes de hosts aplicadas:</string>
   <string name="apply_success_title">Aplicado com sucesso</string>
-  <string name="apply_success_dialog">Aplicado cdom sucesso.\nPoderá ser necessário reiniciar o Android para as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão de memória de momento!)</string>
-  <string name="apply_symlink_successful">A ligação simbólica foi criada com sucess.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão de memória de momento!)</string>
+  <string name="apply_success_dialog">Aplicado com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
+  <string name="apply_symlink_successful">A ligação simbólica foi criada com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="apply_symlink_successful_title">Ligação simbólica criada com sucesso</string>
   <string name="apply_symlink_fail">A ligação simbólica não pôde ser criada pelo Android.\nGeralmente, isto falha devido a uma \"funcionalidade\" chamada S-ON dos telemóveis HTC!\n\nUma solução é arrancar o telemóvel no modo de recuperação e criar a ligação simbólica lá com \"ln -s /data/data/hosts /system/etc/hosts\".\n\nSe isto não funcionar, pesquise na internet por S-OFF e o seu telemóvel.</string>
   <string name="apply_symlink_fail_title">Falha ao criar a ligação simbólica</string>
@@ -91,7 +91,7 @@
   <string name="apply_dialog_apply">A aplicar o ficheiro de hosts</string>
   <string name="apply_fail">Falha ao aplicar o ficheiro de hosts no sistema!\nExperimente alterar o ficheiro de hosts de destino nas preferências para /data/data/hosts.</string>
   <string name="apply_fail_title">Falha ao aplicar</string>
-  <string name="revert_successful">Reverteu o ficheiro de hosts predefinido.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão de memória de momento!)</string>
+  <string name="revert_successful">Reverteu o ficheiro de hosts predefinido.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="revert_successful_title">Revertido com sucesso</string>
   <string name="revert_problem">Falha ao reverter por motivos desconhecidos.</string>
   <string name="revert_problem_title">Falha ao reverter!</string>

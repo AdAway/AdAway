@@ -3,7 +3,7 @@
   <string name="donations__button_close">關閉</string>
   <string name="donations__flattr">Flattr</string>
   <string name="donations__description">本程式對您來說是否實用？\n藉由捐款給開發人員可協助程式進展！</string>
-  <string name="donations__flattr_description">Flattr 將從月費中抽取 10% a費用 ！</string>
+  <string name="donations__flattr_description">Flattr 將從月費中抽取 10% a 費用 ！</string>
   <string name="donations__google_android_market">Google Play 商店</string>
   <string name="donations__google_android_market_not_supported_title">不支援程式內贊助。</string>
   <string name="donations__google_android_market_not_supported">不支援程式內贊助， Google Play 商店是否安裝正確？</string>

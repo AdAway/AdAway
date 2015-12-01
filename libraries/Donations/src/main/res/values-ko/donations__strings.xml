@@ -1,2 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources/>
+<resources>
+  <string name="donations__button_close">닫기</string>
+  <string name="donations__description">이 프로그램이 마음에 드십니까? 개발자에게 기부 해주세요!</string>
+</resources>

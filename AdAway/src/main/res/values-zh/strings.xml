@@ -100,6 +100,7 @@
   <string name="no_private_file">不能创建私有文件</string>
   <string name="no_private_file_title">私有文件创建失败</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">未找到su二进制文件，或未许可 AdAway 使用 root 权限。\n\n通常发生于尚未root的设备中。\n请参考 www.cyanogenmod.org 或其他安卓网站，了解如何root您的设备。</string>
   <string name="no_root_title">需要 root 了的 Android</string>
   <string name="no_url">URL 无效！</string>
   <string name="no_url_title">URL 格式不正确</string>
@@ -203,4 +204,6 @@
   <string name="pref_debug">调试</string>
   <string name="pref_enable_debug">调试日志记录</string>
   <string name="pref_enable_debug_summary">你需要重新启动广告走开使设置生效</string>
+  <string name="pref_enable_ipv6">启用 IPv6</string>
+  <string name="pref_enable_ipv6_summary">所有的host项目将取得相同的入口 ::1 (IPv6 localhost) 。</string>
 </resources>

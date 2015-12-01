@@ -100,6 +100,7 @@
   <string name="no_private_file">Privébestanden kunnen niet worden aangemaakt.</string>
   <string name="no_private_file_title">Aanmaak privébestand mislukt</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">De su binary is niet gevonden of je hebt geen roottoegang verleend aan AdAway.\n\nDit kan gebeuren als je apparaat niet geroot is.\nInformatie over het rooten van je apparaat kun je vinden op www.cyanogenmod.org of op andere Android websites.</string>
   <string name="no_root_title">Geroote Android vereist</string>
   <string name="no_url">Dit is geen correcte URL!</string>
   <string name="no_url_title">URL is verkeerd opgemaakt</string>
@@ -203,4 +204,6 @@
   <string name="pref_debug">Foutopsporing</string>
   <string name="pref_enable_debug">Foutopsporing loggen</string>
   <string name="pref_enable_debug_summary">AdAway moet opnieuw worden gestart om deze aanpassing effect te laten hebben.</string>
+  <string name="pref_enable_ipv6">IPv6 inschakelen</string>
+  <string name="pref_enable_ipv6_summary">Bij alle adressen in het hosts-bestand wordt ::1 (de IPv6-versie van localhost) toegevoegd.</string>
 </resources>

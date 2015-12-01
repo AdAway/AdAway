@@ -73,9 +73,13 @@
   <string name="apply_copy_fail_title">Kopiranje neuspjelo</string>
   <string name="apply_success_subtitle">Primijenjeni izvori poslužitelja:</string>
   <string name="apply_success_title">Primjenjivanje uspjelo</string>
+  <string name="apply_success_dialog">Primjena uspješna.\nIt Nekada je potrebno ponovo pokrenuti Android da promjene postanu aktivne.\n\n Da li želite ponovo pokrenuti Android?\n (Da biste izbjegli gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
+  <string name="apply_symlink_successful">Poveznica je uspješno napravljena.\nIt Nekada je potrebno ponovo pokrenuti Android da promjene postanu aktivne.\n\n Da li želite ponovo pokrenuti Android?\n (Da biste izbjegli gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
   <string name="apply_symlink_successful_title">Stvaranje simboličke poveznice uspješno</string>
+  <string name="apply_symlink_fail">Poveznicu nije moguće kreirati.\n Ovo uglavnom onemogućuje \'opcija\' zvana S-ON na HTC telefonima!\n\n Moguće rješenje: pokrenite telefon u \"recovery mode\" i kreirajte poveznicu komandom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n Ako ovo nije moguće, potražite na internetu da li postoji S-OFF način za vaš model telefona.</string>
   <string name="apply_symlink_fail_title">Stvaranje simboličke poveznice neuspješno</string>
   <string name="apply_help">Pročitajte Pomoć za više informacija.</string>
+  <string name="apply_apn_proxy">APN proxy je omogućen na vašem telefonu!\n AdAway neće pozdano raditi na nekim 3G mrežama. Proxy možete onemogućiti odlaskom na podešavanje vašeg APN-a (Za Android 4: Bežično i mreže -&gt; Više… -&gt; Mobilne mreže -&gt; Pristupne točke) i obrišite podatak u polju proxy.</string>
   <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
   <string name="no_connection">Internet pristup ne radi.</string>
   <string name="no_connection_title">Neme pristupa internetu</string>
@@ -85,7 +89,9 @@
   <string name="apply_dialog_hostnames">Obrada i spajanje datoteke poslužitelja</string>
   <string name="apply_dialog_hosts">Izgradnja datoteke poslužitelja</string>
   <string name="apply_dialog_apply">Primjenjivanje datoteke poslužitelja</string>
+  <string name="apply_fail">Primjena hosts datoteke na Vaš sistem nije uspjela!\n Pokušajte promjeniti hosts datoteku u postavkama u /data/data/hosts.</string>
   <string name="apply_fail_title">Primjenjivanje neuspjelo</string>
+  <string name="revert_successful">Ponovo koristite izvornu hosts datoteku.\nIt Nekada je potrebno ponovo pokrenuti Android da promjene postanu aktivne.\n\n Da li želite ponovo pokrenuti Android?\n (Da biste izbjegli gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
   <string name="revert_successful_title">Vraćanje na zadano uspjelo</string>
   <string name="revert_problem">Vraćanje na zadano stanje neuspjelo iz nepoznatih razloga.</string>
   <string name="revert_problem_title">Vraćanje neuspjelo!</string>
@@ -94,6 +100,7 @@
   <string name="no_private_file">Privatna datoteka ne može biti stvorena.</string>
   <string name="no_private_file_title">Neuspjelo stvaranje privatne datoteke</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Ne mogu pronaći \"su\" izvršnu datoteku ili za AdAway nije dozvoljen \"root način\".\n\n Ovo se događa kada na vašem telefonu nije omogućen root način. \n Kako omogućiti root na Vašem telefonu pogledajte na www.cyanogenmod.org ili na drugim Android web stranicama.</string>
   <string name="no_root_title">Potreban je rootani Android</string>
   <string name="no_url">Ovo nije ispravan URL!</string>
   <string name="no_url_title">Nepravilno formatiran URL</string>
@@ -144,7 +151,9 @@
   <!--Other-->
   <string name="app_subtitle">Blokator oglasa</string>
   <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
+  <string name="no_text_editor">Nemate instaliran uređivač teksta. Predlažem instalaciju Jota ili sličnog uređivača teksta.\n\n Želite li instalirati Jotu?</string>
   <string name="no_file_manager_title">Nema instaliranog upravitelja datotekama</string>
+  <string name="no_file_manager">Ne mogu pronaći upravitelj datoteka. Predlažem instalaciju OI File Manager-a ili drugog upravitelja datoteka.\n\n Želite li instalirati OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Datoteka zapisa obrisana!</string>
   <string name="toast_tcpdump_added_to_blacklist">Naziv poslužitelja je dodan u popis nedopuštenih!</string>

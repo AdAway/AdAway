@@ -123,6 +123,7 @@ AdAway не будет работать в мобильных сетях, так
   <string name="no_private_file">Файл не может быть создан.</string>
   <string name="no_private_file_title">Не удалось создать файл</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Или не найден двоичный файл su, либо отсутствуют разрешения для выполнения операций с AdAway от имени администратора.\n\nЭто происходит при отсутствии разрешений администратора на устройстве.\nДополнительные сведения о том как получить административные полномочия на вашем устройстве, вы можете найти на www.cyanogenmod.org или других веб-сайтах о Android.</string>
   <string name="no_root_title">Для Android требуются права Root</string>
   <string name="no_url">Это недопустимый URL!</string>
   <string name="no_url_title">Неправильно отформатированный URL</string>

@@ -44,7 +44,7 @@
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Esportando...</string>
-  <string name="export_success">Esportáronse toles entraes al ficheru nomáu \'adaway-export\' na to tarxeta SD.</string>
+  <string name="export_success">Esportáronse toles entraes al ficheru nomáu «adaway-export» na to tarxeta SD.</string>
   <!--Status Notifications-->
   <string name="status_checking">Comprobando anovamientos...</string>
   <string name="status_reverting">Desfaciendo...</string>
@@ -198,7 +198,7 @@
   <string name="pref_update_only_on_wifi">Anovar namái per Wi-Fi</string>
   <string name="pref_update_only_on_wifi_summary">Executa los anovamientos de fondu namái al tar coneutáu a una rede wifi.</string>
   <string name="pref_whitelist_rules">Permitir llista blanca</string>
-  <string name="pref_whitelist_rules_summary">Permite la llista blanca de les fontes de «hosts»</string>
+  <string name="pref_whitelist_rules_summary">Permite les entraes de la llista blanca de les fontes de «hosts»</string>
   <string name="pref_redirection_rules">Permitir redireiciones</string>
   <string name="pref_redirection_rules_summary">¡PLANTEGA RIESGU DE SEGURANZA! Permite la redireición d\'entraes dende les fontes de «hosts»</string>
   <string name="pref_debug">Depuración</string>

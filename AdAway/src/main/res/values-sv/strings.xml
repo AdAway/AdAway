@@ -100,6 +100,7 @@
   <string name="no_private_file">Privat fil kan inte skapas</string>
   <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Antingen su binären kunde inte hittas eller så nekade du root åtkomst för AdAway.\n\nDet kan hända när din enhet är inte rootad.\nDu kan hitta information om hur du rootar din enhet i www.cyanogenmod.org eller i andra Android hemsidor.</string>
   <string name="no_root_title">Rootad Android krävs</string>
   <string name="no_url">Detta är ingen giltig URL!</string>
   <string name="no_url_title">Felaktigt utformad URL</string>
@@ -203,4 +204,6 @@
   <string name="pref_debug">Felsökning</string>
   <string name="pref_enable_debug">Felsökningsloggning</string>
   <string name="pref_enable_debug_summary">Du måste starta om AdAway för att den här inställningen ska börja gälla.</string>
+  <string name="pref_enable_ipv6">Aktivera ipv6
+</string>
 </resources>

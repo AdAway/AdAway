@@ -100,6 +100,7 @@
   <string name="no_private_file">Il file privato non può essere creato.</string>
   <string name="no_private_file_title">Creazione del file privato fallita</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Non e\' stato possibile trovare il file binario di SU oppure non hai concesso i permessi di root per AdAway. \n\n Questo puo\' succedere se il tuo dispositivo non e\' stato rootato.  \n Puoi trovare informazioni riguardo al rooting del tuo dispositivo su www.cyanogenmod.org  oppure altri siti riguardo Android</string>
   <string name="no_root_title">Richiesto Android con root</string>
   <string name="no_url">Questo non è un URL valido!</string>
   <string name="no_url_title">URL non formattato correttamente</string>
@@ -204,4 +205,6 @@ Vuoi installare OI File Manager?</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Log di debug</string>
   <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>
+  <string name="pref_enable_ipv6">Abilita IPv6</string>
+  <string name="pref_enable_ipv6_summary">Tutte le voci nel file di host avranno una voce  ::1 (IPV6 localhost) corrispondente</string>
 </resources>

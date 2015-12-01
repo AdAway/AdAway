@@ -66,8 +66,7 @@
 
 Szeretnéd újra megpróbálni létrehozni a symlinket?</string>
   <string name="apply_symlink_missing_title">Hiányzó symlink</string>
-  <string name="apply_not_enough_space">Nincs elég hely a partíción!
-Próbáljd meg módosítani a cél host fájlt beállításait a /data/data/hosts mappában.</string>
+  <string name="apply_not_enough_space">Nincs elég hely a partíción!\nPróbálja meg módosítani a cél host fájlt a preferenciákban /data/data/hosts -ra.</string>
   <string name="apply_not_enough_space_title">Nincs elég hely</string>
   <string name="apply_private_file_fail">A letöltött fájlt nem lehet olvasni.</string>
   <string name="apply_private_file_fail_title">Magánfájl hiba</string>
@@ -92,6 +91,7 @@ A megoldás az, hogy indítsd el a telefont recovery módban, és hozz létre sy
 Ha ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</string>
   <string name="apply_symlink_fail_title">Symlink létrehozása sikertelen</string>
   <string name="apply_help">Kérlek olvasd el a Súgót további információkért.</string>
+  <string name="apply_apn_proxy">Egy APN proxy be van állítva az Androidján!\nAz AdAway nem fog megbízhatón működni Mobil Hálózatokon, mint például 3G-n. Kikapcsolhatja ezt a proxy-t, ha rámegy a kiválasztott APN-re (Android 4-en: Vezeték nélküli és hálózatok -&gt; Továbbiak… -&gt; Mobilhálózatok -&gt; Hozzáférési pontok neve) és eltávolítja az értéket a proxy mezőből.</string>
   <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
   <string name="no_connection">Az Internet kapcsolat nem működik.</string>
   <string name="no_connection_title">Nincs kapcsolat</string>
@@ -112,6 +112,7 @@ Ha ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</s
   <string name="no_private_file">Privát fájl nem hozható létre.</string>
   <string name="no_private_file_title">Privát fájl létrehozása sikertelen.</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Vagy az su bináris nem található vagy nem engedélyezett root jogot az AdAway-nek.\n\nEz akkor történhet, ha a készüléke nincs root-olva.\nA www.cyanogenmod.org -on vagy egyéb Android weboldalon találhat információt arról, hogy hogyan root-olja a készülékét.</string>
   <string name="no_root_title">Rootolt rendszer szükséges</string>
   <string name="no_url">Ez nem érvényes URL cím!</string>
   <string name="no_url_title">Helytelenül formázott URL</string>
@@ -133,7 +134,7 @@ Ha ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</s
   <string name="menu_show_hosts_file">Host fájl megnyitása</string>
   <string name="menu_import">Összes lista importja</string>
   <string name="menu_export">Összes lista exportja</string>
-  <string name="menu_preferences">Beállítások</string>
+  <string name="menu_preferences">Preferenciák</string>
   <!--Help-->
   <string name="help_tab_about">Névjegy</string>
   <string name="help_tab_donate">Adományozás</string>
@@ -179,15 +180,15 @@ Szeretné telepíteni az OI File Manager-t?</string>
   <string name="tcpdump_log_empty">A naplófájl üres!</string>
   <string name="tcpdump_log_footer">A tétel hosszú érintéssel hozzáadható a fekete-, vagy fehérlistához!</string>
   <!--Preferences-->
-  <string name="pref_download">Általános beállítások</string>
+  <string name="pref_download">Általános preferenciák</string>
   <string name="pref_hosts">Host fájl</string>
   <string name="pref_redirection_ip">IP átirányítás</string>
   <string name="pref_update_check">Frissítések ellenőrzése</string>
   <string name="pref_apply_method">Cél host fájl</string>
   <string name="pref_apply_method_summary">A beállítások módosítása előtt olvasd el funkcióját a Súgó-ban.</string>
   <string name="pref_redirection_ip_summary">Minden blokkolt hostnév átirányítása erre az IP címre</string>
-  <string name="pref_header_preferences">Lehetőségek</string>
-  <string name="pref_header_preferences_summary">Az AdAway általános beállításai</string>
+  <string name="pref_header_preferences">Preferenciák</string>
+  <string name="pref_header_preferences_summary">Az AdAway általános preferenciái</string>
   <string name="pref_never_reboot">Újraindítási ablak elrejtése</string>
   <string name="pref_never_reboot_summary">Elrejti az ablakot, amelyben kéri a készülék újraindítását a sikeres alkalmazás érdekében</string>
   <string name="pref_webserver_on_boot">Webszerver indítás bootoláskor</string>
@@ -197,6 +198,12 @@ Szeretné telepíteni az OI File Manager-t?</string>
   <string name="pref_webserver">Helyi webszerver</string>
   <string name="pref_custom_target">Egyéni cél</string>
   <string name="pref_custom_target_summary">Csak akkor használd, ha a cél host fájlban beállítottad az egyéni célt</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Egyéni cél</item>
+  </string-array>
   <string name="pref_update_check_summary">Az AdAway induláskor ellenőrizze a frissítéseket</string>
   <string name="pref_sdcard_problem">A funkciók nem működnek pontosan, ha az AdAway-t az SD-re telepíted!</string>
   <string name="pref_background">Háttérszolgáltatások</string>
@@ -206,9 +213,13 @@ Szeretné telepíteni az OI File Manager-t?</string>
   <string name="pref_automatic_update_daily_summary">Automatikusan frissít a háttérben ha frissítés érhető el.</string>
   <string name="pref_update_only_on_wifi">Csak Wifi-n frissíthet</string>
   <string name="pref_update_only_on_wifi_summary">Csak Wifi hálózathoz csatlakozva futtathat a háttérben frissítéseket.</string>
+  <string name="pref_whitelist_rules">Fehérlistázás engedélyezése</string>
+  <string name="pref_whitelist_rules_summary">Fehérlista bejegyzések engedélyezése a Host forrásokból.</string>
   <string name="pref_redirection_rules">Átirányítás engedélyezése</string>
+  <string name="pref_redirection_rules_summary">BIZTONSÁGI KOCKÁZATOT JELENT! Átirányított bejegyzések engedélyezése a Host forrásokból.</string>
   <string name="pref_debug">Hibakeresés</string>
   <string name="pref_enable_debug">Hibakeresés naplózása</string>
   <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>
   <string name="pref_enable_ipv6">IPv6 engedélyezése</string>
+  <string name="pref_enable_ipv6_summary">Minden host fájl bejegyzés kap egy megfelelő ::1 (IPv6 localhost) bejegyzést.</string>
 </resources>
