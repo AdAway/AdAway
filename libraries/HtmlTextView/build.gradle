@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 android {
     useLibrary 'org.apache.http.legacy'
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         minSdkVersion 16
