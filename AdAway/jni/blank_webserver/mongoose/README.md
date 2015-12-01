@@ -16,11 +16,10 @@ network protocols or scalable network applications  with little effort.
 Mongoose helps developers to manage the complexity of network programming
 and let them concentrate on the logic, saving time and money.
 
-[Download Mongoose Source Code here](http://hubs.ly/H0150FK0)
+[Download Mongoose Source Code here](http://hubs.ly/H01bWvx0)
 
 > Nothing overdone. Nothing less. So unbelievably easy to use.
-> Just how good software should be!
-> - Pritin Tyagaraj, SAP
+> Just how good software should be! -- Pritin Tyagaraj, SAP
 
 
 # Features
@@ -60,6 +59,13 @@ the functionality:
 [Developing a new product? Contact us today to discuss how Mongoose can help
 ](https://www.cesanta.com/contact)
 
+# Contributions
+
+People who have agreed to the
+[Cesanta CLA](https://docs.cesanta.com/contributors_la.shtml)
+can make contributions. Note that the CLA isn't a copyright
+_assigment_ but rather a copyright _license_.
+You retain the copyright on your contributions.
 
 # Licensing
 
@@ -89,7 +95,7 @@ and web designers. Available in three editions to suit your needs: free, pro
 (USD 5) and dev edition (from USD 8). To install, simply download, double-click
 to start and run browser - that's all!
 
-[Download Mongoose Binary here](https://www.cesanta.com/mongoose)
+[Download Mongoose Binary here](https://www.cesanta.com/products#binary)
 
 # Other products by Cesanta
 
