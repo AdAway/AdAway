@@ -152,7 +152,7 @@
   <string name="app_subtitle">Adblocker</string>
   <string name="no_text_editor_title">Geen tekstbewerker geïnstalleerd</string>
   <string name="no_text_editor">Geen tekstbewerker gevonden worden om het hosts-bestand te openen. U kunt Jota of een andere tekstbewerker installeren om dit af te handelen.\n\nWilt u Jota installeren?</string>
-  <string name="no_file_manager_title">Geen bestandsbeheerder aangetroffen</string>
+  <string name="no_file_manager_title">Geen bestandsbeheerder gevonden</string>
   <string name="no_file_manager">Geen bestandsbeheerder gevonden om bestanden te openen. U kunt OI Bestandsbeheer of een andere bestandsbeheerder installeren om dit af te handelen.\n\nWilt u OI Bestandsbeheer installeren?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Logbestand verwijderd!</string>
