@@ -165,6 +165,8 @@ public class UpdateService extends WakefulIntentService {
                         /* build connection */
                         URL mURL = new URL(currentUrl);
                         URLConnection connection = mURL.openConnection();
+                        connection.setConnectTimeout(15000);
+                        connection.setReadTimeout(30000);
 
                         currentLastModifiedOnline = connection.getLastModified();
 
