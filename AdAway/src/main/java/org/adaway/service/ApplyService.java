@@ -329,8 +329,9 @@ public class ApplyService extends WakefulIntentService {
             Date now = new Date();
 
             // add adaway header
-            String header = Constants.HEADER1 + formatter.format(now) + Constants.LINE_SEPERATOR +
-                    Constants.HEADER2 + Constants.LINE_SEPERATOR + Constants.HEADER_SOURCES;
+            String header = Constants.HEADER1 + Constants.LINE_SEPERATOR + formatter.format(now) +
+                    Constants.LINE_SEPERATOR + Constants.HEADER2 + Constants.LINE_SEPERATOR +
+                    Constants.HEADER_SOURCES;
             bos.write(header.getBytes());
 
             // write sources into header
