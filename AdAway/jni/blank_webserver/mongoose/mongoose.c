@@ -1,6 +1,6 @@
 #include "mongoose.h"
 #ifdef NS_MODULE_LINES
-#line 1 "src/internal.h"
+#line 1 "./src/internal.h"
 /**/
 #endif
 /*
@@ -63,7 +63,10 @@
 #define MG_DISABLE_PFS
 #endif
 
-/* Amalgamated: #include "../mongoose.h" */
+/* Amalgamated: #include "mongoose/src/net.h" */
+/* Amalgamated: #include "mongoose/src/http.h" */
+
+#define MG_CTL_MSG_MESSAGE_SIZE 8192
 
 /* internals that need to be accessible in unit tests */
 MG_INTERNAL struct mg_connection *mg_do_connect(struct mg_connection *nc,
@@ -74,12 +77,18 @@ MG_INTERNAL int mg_parse_address(const char *str, union socket_address *sa,
                                  int *proto, char *host, size_t host_len);
 MG_INTERNAL void mg_call(struct mg_connection *nc,
                          mg_event_handler_t ev_handler, int ev, void *ev_data);
-MG_INTERNAL void mg_forward(struct mg_connection *, struct mg_connection *);
+MG_INTERNAL void mg_forward(struct mg_connection *from,
+                            struct mg_connection *to);
 MG_INTERNAL void mg_add_conn(struct mg_mgr *mgr, struct mg_connection *c);
 MG_INTERNAL void mg_remove_conn(struct mg_connection *c);
+MG_INTERNAL size_t recv_avail_size(struct mg_connection *conn, size_t max);
+MG_INTERNAL struct mg_connection *mg_create_connection(
+    struct mg_mgr *mgr, mg_event_handler_t callback,
+    struct mg_add_sock_opts opts);
 
 #ifndef MG_DISABLE_FILESYSTEM
-MG_INTERNAL int find_index_file(char *, size_t, const char *, cs_stat_t *);
+MG_INTERNAL int find_index_file(char *path, size_t path_len, const char *list,
+                                cs_stat_t *stp);
 #endif
 
 #ifdef _WIN32
@@ -106,13 +115,18 @@ MG_INTERNAL time_t mg_parse_date_string(const char *datetime);
 MG_INTERNAL int mg_is_not_modified(struct http_message *hm, cs_stat_t *st);
 #endif
 
+struct ctl_msg {
+  mg_event_handler_t callback;
+  char message[MG_CTL_MSG_MESSAGE_SIZE];
+};
+
 /* Forward declarations for testing. */
-extern void *(*test_malloc)(size_t);
-extern void *(*test_calloc)(size_t, size_t);
+extern void *(*test_malloc)(size_t size);
+extern void *(*test_calloc)(size_t count, size_t size);
 
 #endif /* MG_INTERNAL_HEADER_INCLUDED */
 #ifdef NS_MODULE_LINES
-#line 1 "src/../../common/base64.c"
+#line 1 "./src/../../common/base64.c"
 /**/
 #endif
 /*
@@ -122,7 +136,7 @@ extern void *(*test_calloc)(size_t, size_t);
 
 #ifndef EXCLUDE_COMMON
 
-/* Amalgamated: #include "base64.h" */
+/* Amalgamated: #include "common/base64.h" */
 #include <string.h>
 
 /* ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/ */
@@ -314,17 +328,17 @@ int cs_base64_decode(const unsigned char *s, int len, char *dst) {
 
 #endif /* EXCLUDE_COMMON */
 #ifdef NS_MODULE_LINES
-#line 1 "src/../../common/cs_dbg.c"
+#line 1 "./src/../../common/cs_dbg.c"
 /**/
 #endif
-/* Amalgamated: #include "cs_dbg.h" */
+/* Amalgamated: #include "common/cs_dbg.h" */
 
 #include <stdarg.h>
 #include <stdio.h>
 
 enum cs_log_level s_cs_log_level =
 #ifdef CS_ENABLE_DEBUG
-    LL_DEBUG;
+    LL_VERBOSE_DEBUG;
 #else
     LL_ERROR;
 #endif
@@ -342,7 +356,7 @@ void cs_log_set_level(enum cs_log_level level) {
   s_cs_log_level = level;
 }
 #ifdef NS_MODULE_LINES
-#line 1 "src/../../common/dirent.c"
+#line 1 "./src/../../common/cs_dirent.c"
 /**/
 #endif
 /*
@@ -352,7 +366,8 @@ void cs_log_set_level(enum cs_log_level level) {
 
 #ifndef EXCLUDE_COMMON
 
-/* Amalgamated: #include "osdep.h" */
+/* Amalgamated: #include "common/osdep.h" */
+/* Amalgamated: #include "common/cs_dirent.h" */
 
 /*
  * This file contains POSIX opendir/closedir/readdir API implementation
@@ -434,9 +449,75 @@ struct dirent *readdir(DIR *dir) {
 }
 #endif
 
+#ifdef CS_ENABLE_SPIFFS
+
+DIR *opendir(const char *dir_name) {
+  DIR *dir = NULL;
+  extern spiffs fs;
+
+  if (dir_name != NULL && (dir = (DIR *) malloc(sizeof(*dir))) != NULL &&
+      SPIFFS_opendir(&fs, (char *) dir_name, &dir->dh) == NULL) {
+    free(dir);
+    dir = NULL;
+  }
+
+  return dir;
+}
+
+int closedir(DIR *dir) {
+  if (dir != NULL) {
+    SPIFFS_closedir(&dir->dh);
+    free(dir);
+  }
+  return 0;
+}
+
+struct dirent *readdir(DIR *dir) {
+  return SPIFFS_readdir(&dir->dh, &dir->de);
+}
+
+/* SPIFFs doesn't support directory operations */
+int rmdir(const char *path) {
+  (void) path;
+  return ENOTDIR;
+}
+
+int mkdir(const char *path, mode_t mode) {
+  (void) path;
+  (void) mode;
+  /* for spiffs supports only root dir, which comes from mongoose as '.' */
+  return (strlen(path) == 1 && *path == '.') ? 0 : ENOTDIR;
+}
+
+#endif /* CS_ENABLE_SPIFFS */
+
 #endif /* EXCLUDE_COMMON */
 #ifdef NS_MODULE_LINES
-#line 1 "src/../deps/frozen/frozen.c"
+#line 1 "./src/../../common/cs_time.c"
+/**/
+#endif
+#ifndef _WIN32
+#include <stddef.h>
+#ifndef MG_CC3200
+#include <sys/time.h>
+#endif
+#else
+#include <windows.h>
+#endif
+
+double cs_time() {
+  double now;
+#ifndef _WIN32
+  struct timeval tv;
+  if (gettimeofday(&tv, NULL /* tz */) != 0) return 0;
+  now = (double) tv.tv_sec + (((double) tv.tv_usec) / 1000000.0);
+#else
+  now = GetTickCount() / 1000.0;
+#endif
+  return now;
+}
+#ifdef NS_MODULE_LINES
+#line 1 "./src/../deps/frozen/frozen.c"
 /**/
 #endif
 /*
@@ -937,7 +1018,7 @@ int json_emit(char *buf, int buf_len, const char *fmt, ...) {
   return len;
 }
 #ifdef NS_MODULE_LINES
-#line 1 "src/../../common/md5.c"
+#line 1 "./src/../../common/md5.c"
 /**/
 #endif
 /*
@@ -959,7 +1040,7 @@ int json_emit(char *buf, int buf_len, const char *fmt, ...) {
 
 #if !defined(DISABLE_MD5) && !defined(EXCLUDE_COMMON)
 
-/* Amalgamated: #include "md5.h" */
+/* Amalgamated: #include "common/md5.h" */
 
 #ifndef CS_ENABLE_NATIVE_MD5
 static void byteReverse(unsigned char *buf, unsigned longs) {
@@ -1185,7 +1266,7 @@ char *cs_md5(char buf[33], ...) {
 
 #endif /* EXCLUDE_COMMON */
 #ifdef NS_MODULE_LINES
-#line 1 "src/../../common/mbuf.c"
+#line 1 "./src/../../common/mbuf.c"
 /**/
 #endif
 /*
@@ -1197,7 +1278,7 @@ char *cs_md5(char buf[33], ...) {
 
 #include <assert.h>
 #include <string.h>
-/* Amalgamated: #include "mbuf.h" */
+/* Amalgamated: #include "common/mbuf.h" */
 
 #ifndef MBUF_REALLOC
 #define MBUF_REALLOC realloc
@@ -1283,7 +1364,7 @@ void mbuf_remove(struct mbuf *mb, size_t n) {
 
 #endif /* EXCLUDE_COMMON */
 #ifdef NS_MODULE_LINES
-#line 1 "src/../../common/sha1.c"
+#line 1 "./src/../../common/sha1.c"
 /**/
 #endif
 /* Copyright(c) By Steve Reid <steve@edmweb.com> */
@@ -1291,11 +1372,11 @@ void mbuf_remove(struct mbuf *mb, size_t n) {
 
 #if !defined(DISABLE_SHA1) && !defined(EXCLUDE_COMMON)
 
-/* Amalgamated: #include "sha1.h" */
+/* Amalgamated: #include "common/sha1.h" */
 
 #define SHA1HANDSOFF
 #if defined(__sun)
-/* Amalgamated: #include "solarisfixes.h" */
+/* Amalgamated: #include "common/solarisfixes.h" */
 #endif
 
 union char64long16 {
@@ -1538,7 +1619,7 @@ void cs_hmac_sha1(const unsigned char *key, size_t keylen,
 
 #endif /* EXCLUDE_COMMON */
 #ifdef NS_MODULE_LINES
-#line 1 "src/../../common/str_util.c"
+#line 1 "./src/../../common/str_util.c"
 /**/
 #endif
 /*
@@ -1548,8 +1629,8 @@ void cs_hmac_sha1(const unsigned char *key, size_t keylen,
 
 #ifndef EXCLUDE_COMMON
 
-/* Amalgamated: #include "osdep.h" */
-/* Amalgamated: #include "str_util.h" */
+/* Amalgamated: #include "common/osdep.h" */
+/* Amalgamated: #include "common/str_util.h" */
 
 #ifdef _MG_PROVIDE_STRNLEN
 size_t strnlen(const char *s, size_t maxlen) {
@@ -1705,6 +1786,9 @@ int c_vsnprintf(char *buf, size_t buf_size, const char *fmt, va_list ap) {
       } else if (ch == 'd' && len_mod == 'l') {
         i += c_itoa(buf + i, buf_size - i, va_arg(ap, long), 10, flags,
                     field_width);
+      } else if (ch == 'd' && len_mod == 'q') {
+        i += c_itoa(buf + i, buf_size - i, va_arg(ap, int64_t), 10, flags,
+                    field_width);
       } else if ((ch == 'x' || ch == 'u') && len_mod == 0) {
         i += c_itoa(buf + i, buf_size - i, va_arg(ap, unsigned),
                     ch == 'x' ? 16 : 10, flags, field_width);
@@ -1773,7 +1857,7 @@ void to_wchar(const char *path, wchar_t *wbuf, size_t wbuf_len) {
 
 #endif /* EXCLUDE_COMMON */
 #ifdef NS_MODULE_LINES
-#line 1 "src/net.c"
+#line 1 "./src/net.c"
 /**/
 #endif
 /*
@@ -1794,14 +1878,16 @@ void to_wchar(const char *path, wchar_t *wbuf, size_t wbuf_len) {
  * license, as set out in <https://www.cesanta.com/license>.
  */
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/util.h" */
+/* Amalgamated: #include "mongoose/src/dns.h" */
+/* Amalgamated: #include "mongoose/src/resolv.h" */
+/* Amalgamated: #include "common/cs_time.h" */
 
 #if MG_MGR_EV_MGR == 1 /* epoll() */
 #include <sys/epoll.h>
 #endif
 
-#define MG_CTL_MSG_MESSAGE_SIZE 8192
-#define MG_VPRINTF_BUFFER_SIZE 100
 #define MG_MAX_HOST_LEN 200
 
 #define MG_COPY_COMMON_CONNECTION_OPTIONS(dst, src) \
@@ -1820,11 +1906,6 @@ void to_wchar(const char *path, wchar_t *wbuf, size_t wbuf_len) {
 #ifndef intptr_t
 #define intptr_t long
 #endif
-
-struct ctl_msg {
-  mg_event_handler_t callback;
-  char message[MG_CTL_MSG_MESSAGE_SIZE];
-};
 
 int mg_is_error(int n);
 void mg_set_non_blocking_mode(sock_t sock);
@@ -1892,14 +1973,33 @@ MG_INTERNAL void mg_call(struct mg_connection *nc,
        (int) nc->recv_mbuf.len, (int) nc->send_mbuf.len));
 }
 
+void mg_if_timer(struct mg_connection *c, double now) {
+  if (c->ev_timer_time > 0 && now >= c->ev_timer_time) {
+    double old_value = c->ev_timer_time;
+    mg_call(c, NULL, MG_EV_TIMER, &now);
+    /*
+     * To prevent timer firing all the time, reset the timer after delivery.
+     * However, in case user sets it to new value, do not reset.
+     */
+    if (c->ev_timer_time == old_value) {
+      c->ev_timer_time = 0;
+    }
+  }
+}
+
 void mg_if_poll(struct mg_connection *nc, time_t now) {
   mg_call(nc, NULL, MG_EV_POLL, &now);
 }
 
 static void mg_destroy_conn(struct mg_connection *conn) {
   mg_if_destroy_conn(conn);
+#ifdef MG_ENABLE_SSL
+  if (conn->ssl != NULL) SSL_free(conn->ssl);
+  if (conn->ssl_ctx != NULL) SSL_CTX_free(conn->ssl_ctx);
+#endif
   mbuf_free(&conn->recv_mbuf);
   mbuf_free(&conn->send_mbuf);
+  memset(conn, 0, sizeof(*conn));
   MG_FREE(conn);
 }
 
@@ -1912,7 +2012,9 @@ void mg_close_conn(struct mg_connection *conn) {
 
 void mg_mgr_init(struct mg_mgr *m, void *user_data) {
   memset(m, 0, sizeof(*m));
+#ifndef MG_DISABLE_SOCKETPAIR
   m->ctl[0] = m->ctl[1] = INVALID_SOCKET;
+#endif
   m->user_data = user_data;
 
 #ifdef _WIN32
@@ -1942,18 +2044,20 @@ void mg_mgr_init(struct mg_mgr *m, void *user_data) {
 }
 
 #ifdef MG_ENABLE_JAVASCRIPT
-static v7_val_t mg_send_js(struct v7 *v7) {
+static enum v7_err mg_send_js(struct v7 *v7, v7_val_t *res) {
   v7_val_t arg0 = v7_arg(v7, 0);
   v7_val_t arg1 = v7_arg(v7, 1);
   struct mg_connection *c = (struct mg_connection *) v7_to_foreign(arg0);
   size_t len = 0;
 
   if (v7_is_string(arg1)) {
-    const char *data = v7_to_string(v7, &arg1, &len);
+    const char *data = v7_get_string_data(v7, &arg1, &len);
     mg_send(c, data, len);
   }
 
-  return v7_create_number(len);
+  *res = v7_create_number(len);
+
+  return V7_OK;
 }
 
 enum v7_err mg_enable_javascript(struct mg_mgr *m, struct v7 *v7,
@@ -1976,8 +2080,8 @@ void mg_mgr_free(struct mg_mgr *m) {
 #ifndef MG_DISABLE_SOCKETPAIR
   if (m->ctl[0] != INVALID_SOCKET) closesocket(m->ctl[0]);
   if (m->ctl[1] != INVALID_SOCKET) closesocket(m->ctl[1]);
-#endif
   m->ctl[0] = m->ctl[1] = INVALID_SOCKET;
+#endif
 
   for (conn = m->active_connections; conn != NULL; conn = tmp_conn) {
     tmp_conn = conn->next;
@@ -2057,7 +2161,7 @@ MG_INTERNAL struct mg_connection *mg_create_connection(
     conn->sock = INVALID_SOCKET;
     conn->handler = callback;
     conn->mgr = mgr;
-    conn->last_io_time = time(NULL);
+    conn->last_io_time = mg_time();
     conn->flags = opts.flags & _MG_ALLOWED_CONNECT_FLAGS_MASK;
     conn->user_data = opts.user_data;
     /*
@@ -2066,6 +2170,11 @@ MG_INTERNAL struct mg_connection *mg_create_connection(
      * doesn't compile with pedantic ansi flags.
      */
     conn->recv_mbuf_limit = ~0;
+    if (!mg_if_create_conn(conn)) {
+      MG_FREE(conn);
+      conn = NULL;
+      MG_SET_PTRPTR(opts.error_string, "failed init connection");
+    }
   } else {
     MG_SET_PTRPTR(opts.error_string, "failed create connection");
   }
@@ -2278,6 +2387,16 @@ static int mg_use_cert(SSL_CTX *ctx, const char *pem_file) {
 const char *mg_set_ssl(struct mg_connection *nc, const char *cert,
                        const char *ca_cert) {
   const char *result = NULL;
+  DBG(("%p %s %s", nc, (cert ? cert : ""), (ca_cert ? ca_cert : "")));
+
+  if (nc->ssl != NULL) {
+    SSL_free(nc->ssl);
+    nc->ssl = NULL;
+  }
+  if (nc->ssl_ctx != NULL) {
+    SSL_CTX_free(nc->ssl_ctx);
+    nc->ssl_ctx = NULL;
+  }
 
   if ((nc->flags & MG_F_LISTENING) &&
       (nc->ssl_ctx = SSL_CTX_new(SSLv23_server_method())) == NULL) {
@@ -2306,13 +2425,6 @@ const char *mg_set_ssl(struct mg_connection *nc, const char *cert,
 #endif
   return result;
 }
-
-static int mg_ssl_err(struct mg_connection *conn, int res) {
-  int ssl_err = SSL_get_error(conn->ssl, res);
-  if (ssl_err == SSL_ERROR_WANT_READ) conn->flags |= MG_F_WANT_READ;
-  if (ssl_err == SSL_ERROR_WANT_WRITE) conn->flags |= MG_F_WANT_WRITE;
-  return ssl_err;
-}
 #endif /* MG_ENABLE_SSL */
 
 struct mg_connection *mg_if_accept_tcp_cb(struct mg_connection *lc,
@@ -2331,7 +2443,7 @@ struct mg_connection *mg_if_accept_tcp_cb(struct mg_connection *lc,
   nc->recv_mbuf_limit = lc->recv_mbuf_limit;
   nc->sa = *sa;
   mg_add_conn(nc->mgr, nc);
-  if (nc->ssl == NULL) {
+  if (lc->ssl_ctx == NULL) {
     /* For non-SSL connections deliver MG_EV_ACCEPT right away. */
     mg_call(nc, NULL, MG_EV_ACCEPT, &nc->sa);
   }
@@ -2340,48 +2452,15 @@ struct mg_connection *mg_if_accept_tcp_cb(struct mg_connection *lc,
   return nc;
 }
 
-static size_t recv_avail_size(struct mg_connection *conn, size_t max) {
+MG_INTERNAL size_t recv_avail_size(struct mg_connection *conn, size_t max) {
   size_t avail;
   if (conn->recv_mbuf_limit < conn->recv_mbuf.len) return 0;
   avail = conn->recv_mbuf_limit - conn->recv_mbuf.len;
   return avail > max ? max : avail;
 }
 
-#ifdef MG_ENABLE_SSL
-static void mg_ssl_begin(struct mg_connection *nc) {
-  int server_side = nc->listener != NULL;
-  int res = server_side ? SSL_accept(nc->ssl) : SSL_connect(nc->ssl);
-  DBG(("%p %d res %d %d %d", nc, server_side, res, errno, mg_ssl_err(nc, res)));
-
-  if (res == 1) {
-    nc->flags |= MG_F_SSL_HANDSHAKE_DONE;
-    nc->flags &= ~(MG_F_WANT_READ | MG_F_WANT_WRITE);
-
-    if (server_side) {
-      union socket_address sa;
-      socklen_t sa_len = sizeof(sa);
-      /* In case port was set to 0, get the real port number */
-      (void) getsockname(nc->sock, &sa.sa, &sa_len);
-      mg_call(nc, NULL, MG_EV_ACCEPT, &sa);
-    } else {
-      int err = 0;
-      mg_call(nc, NULL, MG_EV_CONNECT, &err);
-    }
-  } else {
-    int ssl_err = mg_ssl_err(nc, res);
-    if (ssl_err != SSL_ERROR_WANT_READ && ssl_err != SSL_ERROR_WANT_WRITE) {
-      nc->flags |= MG_F_CLOSE_IMMEDIATELY;
-      if (!server_side) {
-        int err = 0;
-        mg_call(nc, NULL, MG_EV_CONNECT, &err);
-      }
-    }
-  }
-}
-#endif /* MG_ENABLE_SSL */
-
 void mg_send(struct mg_connection *nc, const void *buf, int len) {
-  nc->last_io_time = time(NULL);
+  nc->last_io_time = mg_time();
   if (nc->flags & MG_F_UDP) {
     mg_if_udp_send(nc, buf, len);
   } else {
@@ -2412,7 +2491,7 @@ static void mg_recv_common(struct mg_connection *nc, void *buf, int len) {
     MG_FREE(buf);
     return;
   }
-  nc->last_io_time = time(NULL);
+  nc->last_io_time = mg_time();
   if (nc->recv_mbuf.len == 0) {
     /* Adopt buf as recv_mbuf's backing store. */
     mbuf_free(&nc->recv_mbuf);
@@ -2499,15 +2578,7 @@ MG_INTERNAL struct mg_connection *mg_do_connect(struct mg_connection *nc,
 void mg_if_connect_cb(struct mg_connection *nc, int err) {
   DBG(("%p connect, err=%d", nc, err));
   nc->flags &= ~MG_F_CONNECTING;
-  if (err == 0) {
-#ifdef MG_ENABLE_SSL
-    if (nc->ssl != NULL) {
-      SSL_set_fd(nc->ssl, nc->sock);
-      mg_ssl_begin(nc);
-      return;
-    }
-#endif
-  } else {
+  if (err != 0) {
     nc->flags |= MG_F_CLOSE_IMMEDIATELY;
   }
   mg_call(nc, NULL, MG_EV_CONNECT, &err);
@@ -2520,11 +2591,13 @@ void mg_if_connect_cb(struct mg_connection *nc, int err) {
  *    either failure (and dealloc the connection)
  *    or success (and proceed with connect()
  */
-static void resolve_cb(struct mg_dns_message *msg, void *data) {
+static void resolve_cb(struct mg_dns_message *msg, void *data,
+                       enum mg_resolve_err e) {
   struct mg_connection *nc = (struct mg_connection *) data;
   int i;
   int failure = -1;
 
+  nc->flags &= ~MG_F_RESOLVING;
   if (msg != NULL) {
     /*
      * Take the first DNS A answer and run...
@@ -2542,6 +2615,11 @@ static void resolve_cb(struct mg_dns_message *msg, void *data) {
         return;
       }
     }
+  }
+
+  if (e == MG_RESOLVE_TIMEOUT) {
+    double now = mg_time();
+    mg_call(nc, NULL, MG_EV_TIMER, &now);
   }
 
   /*
@@ -2589,12 +2667,18 @@ struct mg_connection *mg_connect_opt(struct mg_mgr *mgr, const char *address,
      * DNS resolution is required for host.
      * mg_parse_address() fills port in nc->sa, which we pass to resolve_cb()
      */
-    if (mg_resolve_async(nc->mgr, host, MG_DNS_A_RECORD, resolve_cb, nc) != 0) {
+    struct mg_connection *dns_conn = NULL;
+    struct mg_resolve_async_opts o;
+    memset(&o, 0, sizeof(o));
+    o.dns_conn = &dns_conn;
+    if (mg_resolve_async_opt(nc->mgr, host, MG_DNS_A_RECORD, resolve_cb, nc,
+                             o) != 0) {
       MG_SET_PTRPTR(opts.error_string, "cannot schedule DNS lookup");
       mg_destroy_conn(nc);
       return NULL;
     }
-
+    nc->priv_2 = dns_conn;
+    nc->flags |= MG_F_RESOLVING;
     return nc;
 #else
     MG_SET_PTRPTR(opts.error_string, "Resolver is disabled");
@@ -2732,19 +2816,44 @@ void mg_forward(struct mg_connection *from, struct mg_connection *to) {
   mg_send(to, from->recv_mbuf.buf, from->recv_mbuf.len);
   mbuf_remove(&from->recv_mbuf, from->recv_mbuf.len);
 }
+
+double mg_set_timer(struct mg_connection *c, double timestamp) {
+  double result = c->ev_timer_time;
+  c->ev_timer_time = timestamp;
+  /*
+   * If this connection is resolving, it's not in the list of active
+   * connections, so not processed yet. It has a DNS resolver connection
+   * linked to it. Set up a timer for the DNS connection.
+   */
+  DBG(("%p %p %d -> %lu", c, c->priv_2, c->flags & MG_F_RESOLVING,
+       (unsigned long) timestamp));
+  if ((c->flags & MG_F_RESOLVING) && c->priv_2 != NULL) {
+    ((struct mg_connection *) c->priv_2)->ev_timer_time = timestamp;
+  }
+  return result;
+}
+
+double mg_time() {
+  return cs_time();
+}
 #ifdef NS_MODULE_LINES
-#line 1 "src/net_if_socket.c"
+#line 1 "./src/net_if_socket.c"
 /**/
 #endif
 #ifndef MG_DISABLE_SOCKET_IF
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/util.h" */
 
 #define MG_TCP_RECV_BUFFER_SIZE 1024
 #define MG_UDP_RECV_BUFFER_SIZE 1500
 
 static sock_t mg_open_listening_socket(union socket_address *sa, int proto);
 static void mg_sock_set(struct mg_connection *nc, sock_t sock);
+#ifdef MG_ENABLE_SSL
+static void mg_ssl_begin(struct mg_connection *nc);
+static int mg_ssl_err(struct mg_connection *conn, int res);
+#endif
 
 void mg_set_non_blocking_mode(sock_t sock) {
 #ifdef _WIN32
@@ -2830,12 +2939,13 @@ void mg_if_recved(struct mg_connection *nc, size_t len) {
   (void) len;
 }
 
+int mg_if_create_conn(struct mg_connection *nc) {
+  (void) nc;
+  return 1;
+}
+
 void mg_if_destroy_conn(struct mg_connection *nc) {
   if (nc->sock == INVALID_SOCKET) return;
-#ifdef MG_ENABLE_SSL
-  if (nc->ssl != NULL) SSL_free(nc->ssl);
-  if (nc->ssl_ctx != NULL) SSL_CTX_free(nc->ssl_ctx);
-#endif
   if (!(nc->flags & MG_F_UDP)) {
     closesocket(nc->sock);
   } else {
@@ -2957,8 +3067,6 @@ static void mg_write_to_socket(struct mg_connection *nc) {
         int ssl_err = mg_ssl_err(nc, n);
         if (ssl_err == SSL_ERROR_WANT_READ || ssl_err == SSL_ERROR_WANT_WRITE) {
           return; /* Call us again */
-        } else {
-          nc->flags |= MG_F_CLOSE_IMMEDIATELY;
         }
       } else {
         /* Successful SSL operation, clear off SSL wait flags */
@@ -3056,11 +3164,57 @@ static void mg_handle_udp_read(struct mg_connection *nc) {
   mg_if_recv_udp_cb(nc, buf, n, &sa, sa_len);
 }
 
+#ifdef MG_ENABLE_SSL
+static int mg_ssl_err(struct mg_connection *conn, int res) {
+  int ssl_err = SSL_get_error(conn->ssl, res);
+  DBG(("%p %d -> %d", conn, res, ssl_err));
+  if (ssl_err == SSL_ERROR_WANT_READ) {
+    conn->flags |= MG_F_WANT_READ;
+  } else if (ssl_err == SSL_ERROR_WANT_WRITE) {
+    conn->flags |= MG_F_WANT_WRITE;
+  } else {
+    /* There could be an alert to deliver. Try our best. */
+    SSL_write(conn->ssl, "", 0);
+    conn->flags |= MG_F_CLOSE_IMMEDIATELY;
+  }
+  return ssl_err;
+}
+
+static void mg_ssl_begin(struct mg_connection *nc) {
+  int server_side = nc->listener != NULL;
+  int res = server_side ? SSL_accept(nc->ssl) : SSL_connect(nc->ssl);
+  DBG(("%p %d res %d %d %d", nc, server_side, res, errno, mg_ssl_err(nc, res)));
+
+  if (res == 1) {
+    nc->flags |= MG_F_SSL_HANDSHAKE_DONE;
+    nc->flags &= ~(MG_F_WANT_READ | MG_F_WANT_WRITE);
+
+    if (server_side) {
+      union socket_address sa;
+      socklen_t sa_len = sizeof(sa);
+      /* In case port was set to 0, get the real port number */
+      (void) getsockname(nc->sock, &sa.sa, &sa_len);
+      mg_call(nc, NULL, MG_EV_ACCEPT, &sa);
+    } else {
+      mg_if_connect_cb(nc, 0);
+    }
+  } else {
+    int ssl_err = mg_ssl_err(nc, res);
+    if (ssl_err != SSL_ERROR_WANT_READ && ssl_err != SSL_ERROR_WANT_WRITE) {
+      if (!server_side) {
+        mg_if_connect_cb(nc, ssl_err);
+      }
+      nc->flags |= MG_F_CLOSE_IMMEDIATELY;
+    }
+  }
+}
+#endif /* MG_ENABLE_SSL */
+
 #define _MG_F_FD_CAN_READ 1
 #define _MG_F_FD_CAN_WRITE 1 << 1
 #define _MG_F_FD_ERROR 1 << 2
 
-void mg_mgr_handle_conn(struct mg_connection *nc, int fd_flags, time_t now) {
+void mg_mgr_handle_conn(struct mg_connection *nc, int fd_flags, double now) {
   DBG(("%p fd=%d fd_flags=%d nc_flags=%lu rmbl=%d smbl=%d", nc, nc->sock,
        fd_flags, nc->flags, (int) nc->recv_mbuf.len, (int) nc->send_mbuf.len));
 
@@ -3080,7 +3234,16 @@ void mg_mgr_handle_conn(struct mg_connection *nc, int fd_flags, time_t now) {
  * TODO(rojer): Figure out why it fails where blocking succeeds.
  */
 #endif
+#ifdef MG_ENABLE_SSL
+      if (nc->ssl != NULL && err == 0) {
+        SSL_set_fd(nc->ssl, nc->sock);
+        mg_ssl_begin(nc);
+      } else {
+        mg_if_connect_cb(nc, err);
+      }
+#else
       mg_if_connect_cb(nc, err);
+#endif
     } else if (nc->err != 0) {
       mg_if_connect_cb(nc, nc->err);
     }
@@ -3112,6 +3275,7 @@ void mg_mgr_handle_conn(struct mg_connection *nc, int fd_flags, time_t now) {
   if (!(fd_flags & (_MG_F_FD_CAN_READ | _MG_F_FD_CAN_WRITE))) {
     mg_if_poll(nc, now);
   }
+  mg_if_timer(nc, now);
 
   DBG(("%p after fd=%d nc_flags=%lu rmbl=%d smbl=%d", nc, nc->sock, nc->flags,
        (int) nc->recv_mbuf.len, (int) nc->send_mbuf.len));
@@ -3123,6 +3287,7 @@ static void mg_mgr_handle_ctl_sock(struct mg_mgr *mgr) {
   int len =
       (int) MG_RECV_FUNC(mgr->ctl[1], (char *) &ctl_msg, sizeof(ctl_msg), 0);
   size_t dummy = MG_SEND_FUNC(mgr->ctl[1], ctl_msg.message, 1, 0);
+  DBG(("read %d from ctl socket", len));
   (void) dummy; /* https://gcc.gnu.org/bugzilla/show_bug.cgi?id=25509 */
   if (len >= (int) sizeof(ctl_msg.callback) && ctl_msg.callback != NULL) {
     struct mg_connection *nc;
@@ -3255,10 +3420,10 @@ time_t mg_mgr_poll(struct mg_mgr *mgr, int timeout_ms) {
   struct epoll_event events[MG_EPOLL_MAX_EVENTS];
   struct mg_connection *nc, *next;
   int num_ev, fd_flags;
-  time_t now;
+  double now;
 
   num_ev = epoll_wait(epoll_fd, events, MG_EPOLL_MAX_EVENTS, timeout_ms);
-  now = time(NULL);
+  now = mg_time();
   DBG(("epoll_wait @ %ld num_ev=%d", (long) now, num_ev));
 
   while (num_ev-- > 0) {
@@ -3339,7 +3504,7 @@ void mg_add_to_set(sock_t sock, fd_set *set, sock_t *max_fd) {
 }
 
 time_t mg_mgr_poll(struct mg_mgr *mgr, int milli) {
-  time_t now = time(NULL);
+  double now = mg_time();
   struct mg_connection *nc, *tmp;
   struct timeval tv;
   fd_set read_set, write_set, err_set;
@@ -3349,7 +3514,9 @@ time_t mg_mgr_poll(struct mg_mgr *mgr, int milli) {
   FD_ZERO(&read_set);
   FD_ZERO(&write_set);
   FD_ZERO(&err_set);
+#ifndef MG_DISABLE_SOCKETPAIR
   mg_add_to_set(mgr->ctl[1], &read_set, &max_fd);
+#endif
 
   for (nc = mgr->active_connections, num_fds = 0; nc != NULL; nc = tmp) {
     tmp = nc->next;
@@ -3378,7 +3545,7 @@ time_t mg_mgr_poll(struct mg_mgr *mgr, int milli) {
   tv.tv_usec = (milli % 1000) * 1000;
 
   num_selected = select((int) max_fd + 1, &read_set, &write_set, &err_set, &tv);
-  now = time(NULL);
+  now = mg_time();
   DBG(("select @ %ld num_ev=%d of %d", (long) now, num_selected, num_fds));
 
 #ifndef MG_DISABLE_SOCKETPAIR
@@ -3495,7 +3662,7 @@ void mg_if_get_conn_addr(struct mg_connection *nc, int remote,
 
 #endif /* !MG_DISABLE_SOCKET_IF */
 #ifdef NS_MODULE_LINES
-#line 1 "src/multithreading.c"
+#line 1 "./src/multithreading.c"
 /**/
 #endif
 /*
@@ -3503,7 +3670,8 @@ void mg_if_get_conn_addr(struct mg_connection *nc, int remote,
  * All rights reserved
  */
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/util.h" */
 
 #ifdef MG_ENABLE_THREADS
 
@@ -3602,7 +3770,7 @@ void mg_enable_multithreading(struct mg_connection *nc) {
 }
 #endif
 #ifdef NS_MODULE_LINES
-#line 1 "src/http.c"
+#line 1 "./src/http.c"
 /**/
 #endif
 /*
@@ -3612,7 +3780,10 @@ void mg_enable_multithreading(struct mg_connection *nc) {
 
 #ifndef MG_DISABLE_HTTP
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/util.h" */
+/* Amalgamated: #include "common/sha1.h" */
+/* Amalgamated: #include "common/md5.h" */
 
 enum http_proto_data_type { DATA_NONE, DATA_FILE, DATA_PUT, DATA_CGI };
 
@@ -4091,7 +4262,7 @@ void mg_send_websocket_framev(struct mg_connection *nc, int op,
 
 void mg_printf_websocket_frame(struct mg_connection *nc, int op,
                                const char *fmt, ...) {
-  char mem[BUFSIZ], *buf = mem;
+  char mem[MG_VPRINTF_BUFFER_SIZE], *buf = mem;
   va_list ap;
   int len;
 
@@ -4131,7 +4302,7 @@ static void websocket_handler(struct mg_connection *nc, int ev, void *ev_data) {
 
 static void ws_handshake(struct mg_connection *nc, const struct mg_str *key) {
   static const char *magic = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
-  char buf[500], sha[20], b64_sha[sizeof(sha) * 2];
+  char buf[MG_VPRINTF_BUFFER_SIZE], sha[20], b64_sha[sizeof(sha) * 2];
   cs_sha1_ctx sha_ctx;
 
   snprintf(buf, sizeof(buf), "%.*s%s", (int) key->len, key->p, magic);
@@ -4447,7 +4618,7 @@ void http_handler(struct mg_connection *nc, int ev, void *ev_data) {
         /* Invoke callback. TODO(lsm): report errors */
         v7_array_push(v7, args, v7_create_foreign(nc));
         v7_array_push(v7, args, req);
-        if (v7_apply(v7, &res, v2, v7_create_undefined(), args) == V7_OK &&
+        if (v7_apply(v7, v2, v7_create_undefined(), args, &res) == V7_OK &&
             v7_is_true(v7, res)) {
           js_callback_handled_request++;
         }
@@ -4491,8 +4662,6 @@ void mg_send_websocket_handshake(struct mg_connection *nc, const char *uri,
 
 #endif /* MG_DISABLE_HTTP_WEBSOCKET */
 
-#ifndef MG_DISABLE_FILESYSTEM
-
 void mg_send_response_line(struct mg_connection *nc, int status_code,
                            const char *extra_headers) {
   const char *status_message = "OK";
@@ -4530,14 +4699,17 @@ void mg_send_head(struct mg_connection *c, int status_code,
   mg_send(c, "\r\n", 2);
 }
 
+#ifdef MG_DISABLE_FILESYSTEM
+void mg_serve_http(struct mg_connection *nc, struct http_message *hm,
+                   struct mg_serve_http_opts opts) {
+  mg_send_head(nc, 501, 0, NULL);
+}
+#else
 static void send_http_error(struct mg_connection *nc, int code,
                             const char *reason) {
-  if (reason == NULL) {
-    reason = "";
-  }
-  mg_printf(nc, "HTTP/1.1 %d %s\r\nContent-Length: 0\r\n\r\n", code, reason);
+  (void) reason;
+  mg_send_head(nc, code, 0, NULL);
 }
-
 #ifndef MG_DISABLE_SSI
 static void send_ssi_file(struct mg_connection *, const char *, FILE *, int,
                           const struct mg_serve_http_opts *);
@@ -4851,8 +5023,8 @@ static void remove_double_dots(char *s) {
 
 #endif
 
-static int mg_url_decode(const char *src, int src_len, char *dst, int dst_len,
-                         int is_form_url_encoded) {
+int mg_url_decode(const char *src, int src_len, char *dst, int dst_len,
+                  int is_form_url_encoded) {
   int i, j, a, b;
 #define HEXTOI(x) (isdigit(x) ? x - '0' : x - 'W')
 
@@ -4927,7 +5099,7 @@ void mg_send_http_chunk(struct mg_connection *nc, const char *buf, size_t len) {
 }
 
 void mg_printf_http_chunk(struct mg_connection *nc, const char *fmt, ...) {
-  char mem[500], *buf = mem;
+  char mem[MG_VPRINTF_BUFFER_SIZE], *buf = mem;
   int len;
   va_list ap;
 
@@ -4947,7 +5119,7 @@ void mg_printf_http_chunk(struct mg_connection *nc, const char *fmt, ...) {
 }
 
 void mg_printf_html_escape(struct mg_connection *nc, const char *fmt, ...) {
-  char mem[500], *buf = mem;
+  char mem[MG_VPRINTF_BUFFER_SIZE], *buf = mem;
   int i, j, len;
   va_list ap;
 
@@ -5173,7 +5345,7 @@ static int is_authorized(struct http_message *hm, const char *path,
 #ifndef MG_DISABLE_DIRECTORY_LISTING
 static size_t mg_url_encode(const char *src, size_t s_len, char *dst,
                             size_t dst_len) {
-  static const char *dont_escape = "._-$,;~()";
+  static const char *dont_escape = "._-$,;~()/";
   static const char *hex = "0123456789abcdef";
   size_t i = 0, j = 0;
 
@@ -5252,12 +5424,12 @@ static void scan_directory(struct mg_connection *nc, const char *dir,
   if ((dirp = (opendir(dir))) != NULL) {
     while ((dp = readdir(dirp)) != NULL) {
       /* Do not show current dir and hidden files */
-      if (is_file_hidden(dp->d_name, opts)) {
+      if (is_file_hidden((const char *) dp->d_name, opts)) {
         continue;
       }
       snprintf(path, sizeof(path), "%s/%s", dir, dp->d_name);
       if (mg_stat(path, &st) == 0) {
-        func(nc, dp->d_name, &st);
+        func(nc, (const char *) dp->d_name, &st);
       }
     }
     closedir(dirp);
@@ -5363,7 +5535,7 @@ static void handle_propfind(struct mg_connection *nc, const char *path,
 static void handle_mkcol(struct mg_connection *nc, const char *path,
                          struct http_message *hm) {
   int status_code = 500;
-  if (mg_get_http_header(hm, "Content-Length") != NULL) {
+  if (hm->body.len != (size_t) ~0 && hm->body.len > 0) {
     status_code = 415;
   } else if (!mg_mkdir(path, 0755)) {
     status_code = 201;
@@ -5373,11 +5545,14 @@ static void handle_mkcol(struct mg_connection *nc, const char *path,
     status_code = 403;
   } else if (errno == ENOENT) {
     status_code = 409;
+  } else {
+    status_code = 500;
   }
   send_http_error(nc, status_code, NULL);
 }
 
-static int remove_directory(const char *dir) {
+static int remove_directory(const struct mg_serve_http_opts *opts,
+                            const char *dir) {
   char path[MAX_PATH_SIZE];
   struct dirent *dp;
   cs_stat_t st;
@@ -5386,11 +5561,13 @@ static int remove_directory(const char *dir) {
   if ((dirp = opendir(dir)) == NULL) return 0;
 
   while ((dp = readdir(dirp)) != NULL) {
-    if (!strcmp(dp->d_name, ".") || !strcmp(dp->d_name, "..")) continue;
+    if (is_file_hidden((const char *) dp->d_name, opts)) {
+      continue;
+    }
     snprintf(path, sizeof(path), "%s%c%s", dir, '/', dp->d_name);
     mg_stat(path, &st);
     if (S_ISDIR(st.st_mode)) {
-      remove_directory(path);
+      remove_directory(opts, path);
     } else {
       remove(path);
     }
@@ -5401,12 +5578,38 @@ static int remove_directory(const char *dir) {
   return 1;
 }
 
-static void handle_delete(struct mg_connection *nc, const char *path) {
+static void handle_move(struct mg_connection *c,
+                        const struct mg_serve_http_opts *opts, const char *path,
+                        struct http_message *hm) {
+  const struct mg_str *dest = mg_get_http_header(hm, "Destination");
+  if (dest == NULL) {
+    send_http_error(c, 411, NULL);
+  } else {
+    const char *p = (char *) memchr(dest->p, '/', dest->len);
+    if (p != NULL && p[1] == '/' &&
+        (p = (char *) memchr(p + 2, '/', dest->p + dest->len - p)) != NULL) {
+      char buf[MAX_PATH_SIZE];
+      snprintf(buf, sizeof(buf), "%s%.*s", opts->dav_document_root,
+               (int) (dest->p + dest->len - p), p);
+      if (rename(path, buf) == 0) {
+        send_http_error(c, 200, NULL);
+      } else {
+        send_http_error(c, 418, NULL);
+      }
+    } else {
+      send_http_error(c, 500, NULL);
+    }
+  }
+}
+
+static void handle_delete(struct mg_connection *nc,
+                          const struct mg_serve_http_opts *opts,
+                          const char *path) {
   cs_stat_t st;
   if (mg_stat(path, &st) != 0) {
     send_http_error(nc, 404, NULL);
   } else if (S_ISDIR(st.st_mode)) {
-    remove_directory(path);
+    remove_directory(opts, path);
     send_http_error(nc, 204, NULL);
   } else if (remove(path) == 0) {
     send_http_error(nc, 204, NULL);
@@ -5417,10 +5620,10 @@ static void handle_delete(struct mg_connection *nc, const char *path) {
 
 /* Return -1 on error, 1 on success. */
 static int create_itermediate_directories(const char *path) {
-  const char *s = path;
+  const char *s;
 
   /* Create intermediate directories if they do not exist */
-  while (*s) {
+  for (s = path + 1; *s != '\0'; s++) {
     if (*s == '/') {
       char buf[MAX_PATH_SIZE];
       cs_stat_t st;
@@ -5430,7 +5633,6 @@ static int create_itermediate_directories(const char *path) {
         return -1;
       }
     }
-    s++;
   }
 
   return 1;
@@ -5478,7 +5680,7 @@ static void handle_put(struct mg_connection *nc, const char *path,
 
 static int is_dav_request(const struct mg_str *s) {
   return !mg_vcmp(s, "PUT") || !mg_vcmp(s, "DELETE") || !mg_vcmp(s, "MKCOL") ||
-         !mg_vcmp(s, "PROPFIND");
+         !mg_vcmp(s, "PROPFIND") || !mg_vcmp(s, "MOVE");
 }
 
 /*
@@ -6110,6 +6312,20 @@ static void mg_send_digest_auth_request(struct mg_connection *c,
             domain, (unsigned long) time(NULL));
 }
 
+static void send_options(struct mg_connection *nc) {
+  mg_printf(nc, "%s",
+            "HTTP/1.1 200 OK\r\nAllow: GET, POST, HEAD, CONNECT, OPTIONS"
+#ifndef MG_DISABLE_DAV
+            ", MKCOL, PUT, DELETE, PROPFIND, MOVE\r\nDAV: 1,2"
+#endif
+            "\r\n\r\n");
+  nc->flags |= MG_F_SEND_AND_CLOSE;
+}
+
+static int is_creation_request(const struct http_message *hm) {
+  return mg_vcmp(&hm->method, "MKCOL") == 0 || mg_vcmp(&hm->method, "PUT") == 0;
+}
+
 void mg_send_http_file(struct mg_connection *nc, char *path,
                        size_t path_buf_len, struct http_message *hm,
                        struct mg_serve_http_opts *opts) {
@@ -6131,7 +6347,8 @@ void mg_send_http_file(struct mg_connection *nc, char *path,
              !is_authorized(hm, path, is_directory, opts->auth_domain,
                             opts->per_directory_auth_file, 0)) {
     mg_send_digest_auth_request(nc, opts->auth_domain);
-  } else if ((stat_result != 0 || is_file_hidden(path, opts)) && !is_dav) {
+  } else if ((stat_result != 0 || is_file_hidden(path, opts)) &&
+             !is_creation_request(hm)) {
     mg_printf(nc, "%s", "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\n\r\n");
   } else if (is_directory && path[strlen(path) - 1] != '/' && !is_dav) {
     mg_printf(nc,
@@ -6144,17 +6361,22 @@ void mg_send_http_file(struct mg_connection *nc, char *path,
 #ifndef MG_DISABLE_DAV_AUTH
   } else if (is_dav &&
              (opts->dav_auth_file == NULL ||
-              !is_authorized(hm, path, is_directory, opts->auth_domain,
-                             opts->dav_auth_file, 1))) {
+              (strcmp(opts->dav_auth_file, "-") != 0 &&
+               !is_authorized(hm, path, is_directory, opts->auth_domain,
+                              opts->dav_auth_file, 1)))) {
     mg_send_digest_auth_request(nc, opts->auth_domain);
 #endif
   } else if (!mg_vcmp(&hm->method, "MKCOL")) {
     handle_mkcol(nc, path, hm);
   } else if (!mg_vcmp(&hm->method, "DELETE")) {
-    handle_delete(nc, path);
+    handle_delete(nc, opts, path);
   } else if (!mg_vcmp(&hm->method, "PUT")) {
     handle_put(nc, path, hm);
+  } else if (!mg_vcmp(&hm->method, "MOVE")) {
+    handle_move(nc, opts, path, hm);
 #endif
+  } else if (!mg_vcmp(&hm->method, "OPTIONS")) {
+    send_options(nc);
   } else if (S_ISDIR(st.st_mode) &&
              !find_index_file(path, path_buf_len, opts->index_files, &st)) {
     if (strcmp(opts->enable_directory_listing, "yes") == 0) {
@@ -6339,7 +6561,7 @@ size_t mg_parse_multipart(const char *buf, size_t buf_len, char *var_name,
 
 #endif /* MG_DISABLE_HTTP */
 #ifdef NS_MODULE_LINES
-#line 1 "src/util.c"
+#line 1 "./src/util.c"
 /**/
 #endif
 /*
@@ -6347,7 +6569,9 @@ size_t mg_parse_multipart(const char *buf, size_t buf_len, char *var_name,
  * All rights reserved
  */
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "common/base64.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/util.h" */
 
 const char *mg_skip(const char *s, const char *end, const char *delims,
                     struct mg_str *v) {
@@ -6699,7 +6923,7 @@ int mg_match_prefix(const char *pattern, int pattern_len, const char *str) {
   return j;
 }
 #ifdef NS_MODULE_LINES
-#line 1 "src/json-rpc.c"
+#line 1 "./src/json-rpc.c"
 /**/
 #endif
 /* Copyright (c) 2014 Cesanta Software Limited */
@@ -6707,7 +6931,9 @@ int mg_match_prefix(const char *pattern, int pattern_len, const char *str) {
 
 #ifndef MG_DISABLE_JSON_RPC
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/json-rpc.h" */
+/* Amalgamated: #include "mongoose/deps/frozen/frozen.h" */
 
 int mg_rpc_create_reply(char *buf, int len, const struct mg_rpc_request *req,
                         const char *result_fmt, ...) {
@@ -6859,7 +7085,7 @@ int mg_rpc_parse_reply(const char *buf, int len, struct json_token *toks,
 
 #endif /* MG_DISABLE_JSON_RPC */
 #ifdef NS_MODULE_LINES
-#line 1 "src/mqtt.c"
+#line 1 "./src/mqtt.c"
 /**/
 #endif
 /*
@@ -6869,7 +7095,8 @@ int mg_rpc_parse_reply(const char *buf, int len, struct json_token *toks,
 
 #ifndef MG_DISABLE_MQTT
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/mqtt.h" */
 
 static int parse_mqtt(struct mbuf *io, struct mg_mqtt_message *mm) {
   uint8_t header;
@@ -7160,7 +7387,7 @@ void mg_mqtt_disconnect(struct mg_connection *nc) {
 
 #endif /* MG_DISABLE_MQTT */
 #ifdef NS_MODULE_LINES
-#line 1 "src/mqtt-broker.c"
+#line 1 "./src/mqtt-broker.c"
 /**/
 #endif
 /*
@@ -7168,7 +7395,8 @@ void mg_mqtt_disconnect(struct mg_connection *nc) {
  * All rights reserved
  */
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/mqtt-broker.h" */
 
 #ifdef MG_ENABLE_MQTT_BROKER
 
@@ -7333,7 +7561,7 @@ struct mg_mqtt_session *mg_mqtt_next(struct mg_mqtt_broker *brk,
 
 #endif /* MG_ENABLE_MQTT_BROKER */
 #ifdef NS_MODULE_LINES
-#line 1 "src/dns.c"
+#line 1 "./src/dns.c"
 /**/
 #endif
 /*
@@ -7343,7 +7571,8 @@ struct mg_mqtt_session *mg_mqtt_next(struct mg_mqtt_broker *brk,
 
 #ifndef MG_DISABLE_DNS
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/dns.h" */
 
 static int mg_dns_tid = 0xa0;
 
@@ -7693,7 +7922,7 @@ void mg_set_protocol_dns(struct mg_connection *nc) {
 
 #endif /* MG_DISABLE_DNS */
 #ifdef NS_MODULE_LINES
-#line 1 "src/dns-server.c"
+#line 1 "./src/dns-server.c"
 /**/
 #endif
 /*
@@ -7703,7 +7932,8 @@ void mg_set_protocol_dns(struct mg_connection *nc) {
 
 #ifdef MG_ENABLE_DNS_SERVER
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/dns-server.h" */
 
 struct mg_dns_reply mg_dns_create_reply(struct mbuf *io,
                                         struct mg_dns_message *msg) {
@@ -7767,7 +7997,7 @@ int mg_dns_reply_record(struct mg_dns_reply *reply,
 
 #endif /* MG_ENABLE_DNS_SERVER */
 #ifdef NS_MODULE_LINES
-#line 1 "src/resolv.c"
+#line 1 "./src/resolv.c"
 /**/
 #endif
 /*
@@ -7777,7 +8007,8 @@ int mg_dns_reply_record(struct mg_dns_reply *reply,
 
 #ifndef MG_DISABLE_RESOLVER
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/resolv.h" */
 
 #ifndef MG_DEFAULT_NAMESERVER
 #define MG_DEFAULT_NAMESERVER "8.8.8.8"
@@ -7794,6 +8025,7 @@ struct mg_resolve_async_request {
   void *data;
   time_t timeout;
   int max_retries;
+  enum mg_resolve_err err;
 
   /* state */
   time_t last_time;
@@ -7923,6 +8155,7 @@ static void mg_resolve_async_eh(struct mg_connection *nc, int ev, void *data) {
     case MG_EV_CONNECT:
     case MG_EV_POLL:
       if (req->retries > req->max_retries) {
+        req->err = MG_RESOLVE_EXCEEDED_RETRY_COUNT;
         nc->flags |= MG_F_CLOSE_IMMEDIATELY;
         break;
       }
@@ -7936,9 +8169,11 @@ static void mg_resolve_async_eh(struct mg_connection *nc, int ev, void *data) {
       msg = (struct mg_dns_message *) MG_MALLOC(sizeof(*msg));
       if (mg_parse_dns(nc->recv_mbuf.buf, *(int *) data, msg) == 0 &&
           msg->num_answers > 0) {
-        req->callback(msg, req->data);
+        req->callback(msg, req->data, MG_RESOLVE_OK);
         nc->user_data = NULL;
         MG_FREE(req);
+      } else {
+        req->err = MG_RESOLVE_NO_ANSWERS;
       }
       MG_FREE(msg);
       nc->flags |= MG_F_CLOSE_IMMEDIATELY;
@@ -7951,10 +8186,14 @@ static void mg_resolve_async_eh(struct mg_connection *nc, int ev, void *data) {
       nc->flags &= ~MG_F_CLOSE_IMMEDIATELY;
       mbuf_remove(&nc->send_mbuf, nc->send_mbuf.len);
       break;
+    case MG_EV_TIMER:
+      req->err = MG_RESOLVE_TIMEOUT;
+      nc->flags |= MG_F_CLOSE_IMMEDIATELY;
+      break;
     case MG_EV_CLOSE:
       /* If we got here with request still not done, fire an error callback. */
       if (req != NULL) {
-        req->callback(NULL, req->data);
+        req->callback(NULL, req->data, req->err);
         nc->user_data = NULL;
         MG_FREE(req);
       }
@@ -7976,7 +8215,7 @@ int mg_resolve_async_opt(struct mg_mgr *mgr, const char *name, int query,
   struct mg_connection *dns_nc;
   const char *nameserver = opts.nameserver_url;
 
-  DBG(("%s %d", name, query));
+  DBG(("%s %d %p", name, query, opts.dns_conn));
 
   /* resolve with DNS */
   req = (struct mg_resolve_async_request *) MG_CALLOC(1, sizeof(*req));
@@ -8009,13 +8248,16 @@ int mg_resolve_async_opt(struct mg_mgr *mgr, const char *name, int query,
     return -1;
   }
   dns_nc->user_data = req;
+  if (opts.dns_conn != NULL) {
+    *opts.dns_conn = dns_nc;
+  }
 
   return 0;
 }
 
 #endif /* MG_DISABLE_RESOLVE */
 #ifdef NS_MODULE_LINES
-#line 1 "src/coap.c"
+#line 1 "./src/coap.c"
 /**/
 #endif
 /*
@@ -8035,7 +8277,8 @@ int mg_resolve_async_opt(struct mg_mgr *mgr, const char *name, int query,
  * license, as set out in <https://www.cesanta.com/license>.
  */
 
-/* Amalgamated: #include "internal.h" */
+/* Amalgamated: #include "mongoose/src/internal.h" */
+/* Amalgamated: #include "mongoose/src/coap.h" */
 
 #ifdef MG_ENABLE_COAP
 
