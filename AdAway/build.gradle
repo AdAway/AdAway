@@ -10,12 +10,6 @@ dependencies {
 }
 
 android {
-    sourceSets {
-        main {
-            jniLibs.srcDir new File(projectDir, 'libs')
-        }
-    }
-
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
@@ -58,7 +52,16 @@ android {
     }
 }
 
-/**
+ /**
+ * Android Gradle Plugin does not support jni packaging.
+ * This is a hack, should be removed in the future
+ */
+tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
+    pkgTask.jniFolders = new HashSet<File>()
+    pkgTask.jniFolders.add(new File(projectDir, 'libs'))
+}
+ 
+ /**
  * Task to rename executables from hello_world to libhello_world_exec.so
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *
