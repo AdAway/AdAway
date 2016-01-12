@@ -100,6 +100,7 @@
   <string name="no_private_file">Plik osobisty nie został utworzony.</string>
   <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Nie można znaleźć pliku su lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\n Tak się dzieje kiedy twoje urządzenie nie jest zrootowane.\nMożesz znaleźć informacje jak zrootować swoje urządzenie na www.cyanogenmod.org lub innych stronach o  Androidzie.</string>
   <string name="no_root_title">Wymagany jest zrootowany Android</string>
   <string name="no_url">To nie jest prawidłowy adres URL!</string>
   <string name="no_url_title">Niepoprawny adres URL</string>

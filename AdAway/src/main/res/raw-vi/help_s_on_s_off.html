@@ -1,28 +1,28 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Devices</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<h2>Các thiết bị HTC</h2>
+<p>AdAway sẽ không hoạt động khi thiết bị bạn đang sử dụng có S-ON. "Tính năng" này hiện hữu trên nhiều thiết bị HTC và ngăn không cho AdAway ghi tập tin tên miền.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
+<p>S-OFF có nghĩa là bộ phận NAND của thiết bị được mở khoá và có thể được ghi đè. Cài đặt mặc định cho các thiết bị HTC là S-ON, nghĩa là bạn không thể truy cập một số khu vực cụ thể của hệ thống lẫn khả năng root máy vĩnh viễn. Hơn nữa, việc kiểm tra chữ ký cho các ảnh phần cứng cũng bị hạn chế bởi cờ S-ON.</p>
 
-<h2>Do I have S-ON or S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<h2>Thiết bị của tôi là S-ON hay S-OFF?</h2>
+<p>Khởi động Chế độ boot trên thiết bị bằng cách bấm giữ nút <i>giảm âm lượng</i> khi đang giữ nút nguồn và dòng chữ trên cùng sẽ hiển thị trạng thái cờ là S-OFF hoặc S-ON. Một bản root đầy đủ thường là S-OFF.
+<br/><br/>Xem thêm thông tin tại <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Bạn có thể tham khảo các phương pháp chuyển thành S-OFF khác kể từ sau Unrevokable (trong liên kết) như là: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
-<h2>Workaround</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
+<h2>Giải pháp</h2>
+<p>Yêu cầu: Bạn phải cài đặt một SDK đang hoạt động cho Android với vỏ ADB trên PC của bạn.
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>Khởi động Chế độ boot trên thiết bị bằng cách bấm giữ nút <i>giảm âm lượng</i> khi đang giữ nút nguồn.</li>
+<li>Dùng nút <i>giảm âm lượng</i> để chọn bản khôi phục.</li>
+<li>Trong clockwork recovery, chọn nút giảm âm lượng đến "trình đơn phân vùng" và chạm vào bảng dò để chọn</li>
+<li>Chọn <i>mount /system</i>, <i>mount /sdcard</i> và <i>mount /data</i>.</li>
+<li>Cắm dây USB và mở một dòng lệnh trên PC.</li>
+<li>Truy cập vỏ adb và gõ <tt>ln -s /data/hosts /system/etc/hosts</tt> (Thao tác này sẽ tạo một liên kết biểu trưng và cho phép AdAway chỉnh sửa tập tin miền được lưu trữ trong <tt>/data</tt> trong khi cho phép HĐH sử dụng tập tin này như thể nó được lưu trong <tt>/system</tt>.)</li>
+<li>Khởi động lại thiết bị và đổi <i>Tập tin miền mục tiêu</i> thành <i>/data/hosts</i> trong tuỳ chỉnh AdAway.</li>
+<li>AdAway sẽ hoạt động bình thường.</li>
 </ol>
 </body>
 </html>

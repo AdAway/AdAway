@@ -2,16 +2,18 @@
 <resources>
   <string name="donations__button_close">Đóng</string>
   <string name="donations__flattr">Flattr</string>
-  <string name="donations__flattr_description">Flattr tốn 10% cho một khoản phí hàng tháng!</string>
-  <string name="donations__google_android_market">kho tìm kiếm trò chơi</string>
-  <string name="donations__google_android_market_not_supported_title">tài trợ trong ứng dụng không được hỗ trợ.</string>
-  <string name="donations__google_android_market_not_supported">tài trợ trong ứng dụng không được hỗ trợ. kho tìm kiếm trò chơi đã cài đặt chính xác?</string>
-  <string name="donations__google_android_market_description">Google mất giá 30 % tất cả các đóng góp!</string>
-  <string name="donations__google_android_market_donate_button">Quyên góp</string>
-  <string name="donations__google_android_market_text">bao nhiêu?</string>
+  <string name="donations__description">Bạn có thấy ứng dụng này hữu ích?\nHãy hỗ trợ phát triển ứng dụng bằng cách quyên một ít tiền cho nhà phát triển!</string>
+  <string name="donations__flattr_description">Flattr hưởng 10 % số tiền làm phí hàng tháng!</string>
+  <string name="donations__google_android_market">Cửa hàng Google Play</string>
+  <string name="donations__google_android_market_not_supported_title">Không hỗ trợ Quyên góp ngay trong ứng dụng.</string>
+  <string name="donations__google_android_market_not_supported">Không hỗ trợ Quyên góp ngay trong ứng dụng. Cửa hàng Google Play đã được cài đặt đúng cách chưa?</string>
+  <string name="donations__google_android_market_description">Google hưởng 30 % số tiền quyên góp!</string>
+  <string name="donations__google_android_market_donate_button">Quyên góp!</string>
+  <string name="donations__google_android_market_text">Bao nhiêu?</string>
   <string name="donations__paypal">PayPal</string>
-  <string name="donations__paypal_description">Bạn có thể lựa chọn bạn muốn tài trợ bao nhiêu sau khi nhấn vào nút!</string>
-  <string name="donations__thanks_dialog_title">cám ơn!</string>
-  <string name="donations__alert_dialog_title">đã xảy ra lỗi</string>
-  <string name="donations__alert_dialog_no_browser">Không có trình duyệt được tìm thấy để mở một trang web!</string>
+  <string name="donations__paypal_description">Bạn có thể chọn số tiền muốn quyên góp sau khi nhấn nút!</string>
+  <string name="donations__thanks_dialog_title">Cảm ơn!</string>
+  <string name="donations__thanks_dialog">Cảm ơn đã quyên góp!\nTôi vô cùng cảm kích!</string>
+  <string name="donations__alert_dialog_title">Đã xảy ra lỗi</string>
+  <string name="donations__alert_dialog_no_browser">Không có trình duyệt nào để mở trang web!</string>
 </resources>

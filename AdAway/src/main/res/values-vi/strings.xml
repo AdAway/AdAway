@@ -3,34 +3,34 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Thoát</string>
-  <string name="button_apply">Tải về và áp dụng chặn quảng cáo</string>
+  <string name="button_apply">Tải tập tin và áp dụng chặn quảng cáo</string>
   <string name="button_close">Đóng</string>
   <string name="button_yes">Có</string>
   <string name="button_no">Không</string>
   <string name="button_revert">Tắt chặn quảng cáo</string>
   <string name="button_add">Thêm</string>
   <string name="button_cancel">Huỷ bỏ</string>
-  <string name="button_apply_text">Tất cả các file host từ nguồn cho trước đã được tải về, ghép với danh sách của bạn và cài đặt thành 1 file host duy nhất trên hệ thống.</string>
-  <string name="button_revert_text">Khôi phục file host mặc định trên hệ thống.</string>
+  <string name="button_apply_text">Tất cả các tập tin miền từ nguồn xác định sẽ được tải về, ghép với danh sách của bạn và cài đặt thành một tập tin miền duy nhất trên hệ thống.</string>
+  <string name="button_revert_text">Khôi phục tập tin miền mặc định trên hệ thống.</string>
   <string name="button_save">Lưu</string>
   <string name="button_webserver_toggle_checked">Webserver đang chạy</string>
-  <string name="button_webserver_toggle_unchecked">Chưa chạy Webserver </string>
-  <string name="button_webserver_toggle_text">Bật hoặc dừng webserver trên host cục bộ để phản hồi yêu cầu từ host đã chặn</string>
+  <string name="button_webserver_toggle_unchecked">Chưa chạy webserver</string>
+  <string name="button_webserver_toggle_text">Bật hoặc dừng webserver trên miền cục bộ để phản hồi yêu cầu từ các tên miền đã chặn.</string>
   <string name="button_help">Trợ giúp</string>
-  <string name="button_tcpdump_text">Tcpdump là 1 công cụ để giám sát các yêu cầu DNS và lưu chúng ra tệp nhật ký. Bạn có thể dùng nó trong chế độ nền, chạy ứng dụng mà có hiển thị quảng cáo và sau đó phân tích yêu cầu DNS qua tệp nhật ký. Địa chỉ máy chủ quảng cáo sẽ được đưa vào danh sách đen.</string>
+  <string name="button_tcpdump_text">Tcpdump là công cụ giám sát các yêu cầu DNS và lưu chúng vào tập tin nhật ký. Bạn có thể khởi động nó trong chế độ nền, chạy các ứng dụng có quảng cáo và sau đó phân tích yêu cầu DNS qua tập tin nhật ký. Máy chủ quảng cáo nhận được sẽ bị đưa vào danh sách đen.</string>
   <string name="button_tcpdump_toggle_checked">Đang chạy Tcpdump!</string>
   <string name="button_tcpdump_toggle_unchecked">Chưa chạy Tcpdump!</string>
-  <string name="button_tcpdump_open">Mở tệp nhật ký</string>
-  <string name="button_tcpdump_delete">Xoá tệp nhật ký</string>
+  <string name="button_tcpdump_open">Mở tập tin nhật ký</string>
+  <string name="button_tcpdump_delete">Xoá tập tin nhật ký</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Thêm</string>
   <string name="checkbox_list_empty">Danh sách rỗng</string>
-  <string name="checkbox_list_empty_text">Bạn có thể thêm 1 mục từ thanh tác vụ</string>
+  <string name="checkbox_list_empty_text">Bạn có thể thêm nội dung từ thanh tác vụ.</string>
   <string name="checkbox_list_context_delete">Xoá</string>
-  <string name="checkbox_list_footer">Sau khi thêm mục mới vào danh sách bạn hãy áp dụng AdAway lại</string>
-  <string name="checkbox_list_edit_dialog_title">Sửa</string>
-  <string name="checkbox_list_context_title">Sửa mục</string>
-  <string name="checkbox_list_context_edit">Sửa</string>
+  <string name="checkbox_list_footer">Sau khi thêm nội dung mới vào danh sách, hãy áp dụng lại AdAway!</string>
+  <string name="checkbox_list_edit_dialog_title">Chỉnh sửa</string>
+  <string name="checkbox_list_context_title">Chỉnh sửa mục</string>
+  <string name="checkbox_list_context_edit">Chỉnh sửa</string>
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Danh sách trắng</string>
   <string name="lists_tab_blacklist">Danh sách đen</string>
@@ -38,144 +38,172 @@
   <string name="lists_tab_whitelist_short">Trắng</string>
   <string name="lists_tab_redirection_list_short">Chuyển hướng</string>
   <string name="lists_tab_redirection_list">Danh sách chuyển hướng</string>
-  <string name="list_dialog_url">Đường dẫn:</string>
-  <string name="list_dialog_hostname">Tên host:</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">Tên miền:</string>
+  <string name="list_dialog_whitelist_hostname">Tên miền:\n(Cho phép các ký tự thay thế * và ?)</string>
   <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
   <string name="import_dialog">Đang nhập...</string>
   <string name="export_dialog">Đang xuất...</string>
-  <string name="export_success">Đã xuất tất cả các muc tới tệp tên là \'adaway-export\' trên sdcard.</string>
+  <string name="export_success">Đã xuất tất cả các mục vào tập tin \'adaway-export\' trên sdcard.</string>
   <!--Status Notifications-->
-  <string name="status_checking">Tìm phiên bản mới...</string>
-  <string name="status_reverting">Khôi phục...</string>
-  <string name="status_reverting_subtitle">Tạo file host chuẩn</string>
-  <string name="status_checking_subtitle">Tìm phiên bản mới nếu có</string>
-  <string name="status_update_available">Đã có bản mới</string>
-  <string name="status_update_available_subtitle">Có tệp host mới</string>
-  <string name="status_no_connection">Không có Internet</string>
-  <string name="status_no_connection_subtitle">Không có kết nối Internet</string>
+  <string name="status_checking">Đang kiểm tra cập nhật...</string>
+  <string name="status_reverting">Đang đổi lại...</string>
+  <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
+  <string name="status_checking_subtitle">Đang kiểm tra cập nhật nếu có</string>
+  <string name="status_update_available">Đã có cập nhật</string>
+  <string name="status_update_available_subtitle">Đã có tập tin miền mới</string>
+  <string name="status_no_connection">Không có mạng</string>
+  <string name="status_no_connection_subtitle">Không có kết nối mạng</string>
   <string name="status_download_fail">Không có nguồn nào</string>
-  <string name="status_download_fail_subtitle_new">Không kết nối được tới bất cứ nguồn host nào!</string>
+  <string name="status_download_fail_subtitle_new">Không kết nối được tới bất cứ nguồn nào!</string>
   <string name="status_enabled">Đã bật</string>
-  <string name="status_enabled_subtitle">Đã dùng tệp host mới</string>
+  <string name="status_enabled_subtitle">Đã dùng tập tin miền mới</string>
   <string name="status_disabled">Đã tắt</string>
   <string name="status_disabled_subtitle">Đã tắt</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing_title">Thiếu Symlink</string>
+  <string name="apply_symlink_missing">Liên kết biểu trưng từ mục tiêu đến /system/etc/hosts không tồn tại hoặc không đúng! AdAway sẽ không hoạt động nếu nó không được dẫn đến đúng tập tin.\n\nBạn có muốn thử tạo liên kết mới?</string>
+  <string name="apply_symlink_missing_title">Thiếu liên kết biểu trưng</string>
+  <string name="apply_not_enough_space">Không đủ dung lượng trên ổ đĩa!\nHãy thử đổi tập tin miền mục tiêu trong tuỳ chỉnh thành /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Không đủ dung lượng</string>
-  <string name="apply_private_file_fail">Không thể đọc được file tải về.</string>
-  <string name="apply_private_file_fail_title">Tệp riêng thất bại</string>
-  <string name="apply_remount_fail">Thất bại khi remount phân vùng thành đọc/ghi</string>
-  <string name="apply_remount_fail_title">Remount thất bại</string>
-  <string name="apply_copy_fail">Thất bại khi chép tệp hosts</string>
+  <string name="apply_private_file_fail">Không đọc được tập tin đã tải về.</string>
+  <string name="apply_private_file_fail_title">Tập tin riêng tư thất bại</string>
+  <string name="apply_remount_fail">Thất bại khi gắn phân vùng thành đọc/ghi!</string>
+  <string name="apply_remount_fail_title">Gắn thất bại</string>
+  <string name="apply_copy_fail">Thất bại khi sao chép tập tin miền!</string>
   <string name="apply_copy_fail_title">Sao chép thất bại</string>
+  <string name="apply_success_subtitle">Đã áp dụng các nguồn miền:</string>
   <string name="apply_success_title">Áp dụng thành công</string>
-  <string name="apply_symlink_successful_title">Tạo symlink thành công</string>
-  <string name="apply_symlink_fail_title">Thất bại tạo Symlink</string>
+  <string name="apply_success_dialog">Áp dụng thành công.\nCần khởi động lại Android để kích hoạt các thay đổi.\n\nBạn có muốn khởi động lại?\n(Để tránh mất mát dữ liệu, hãy chắc rằng không có ứng dụng nào sử dụng sdcard trong lúc này!)</string>
+  <string name="apply_symlink_successful">Tạo liên kết biểu trưng thành công.\nCần khởi động lại Android để kích hoạt các thay đổi.\n\nBạn có muốn khởi động lại?\n(Để tránh mất mát dữ liệu, hãy chắc rằng không có ứng dụng nào sử dụng sdcard trong lúc này!)</string>
+  <string name="apply_symlink_successful_title">Tạo liên kết biểu trưng thành công</string>
+  <string name="apply_symlink_fail">Android không thể tạo liên kết biểu trưng.\nThất bại này hầu như là do \'tính năng\' S-ON trên điện thoại HTC!\n\nGiải pháp là khởi động điện thoại ở chế độ khôi phục và tạo liên kết biểu trưng tại đây với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu vẫn không được, hãy tra cứu trên mạng về S-OFF và điện thoại của bạn.</string>
+  <string name="apply_symlink_fail_title">Tạo liên kết biểu trưng thất bại</string>
   <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
-  <string name="apply_apn_proxy_title">Đặt proxy APN!</string>
-  <string name="no_connection">Không có kết nối tới Internet</string>
+  <string name="apply_apn_proxy">Đã tạo một proxy APN trên thiết bị Android!\nAdAway sẽ không hoạt động hiệu quả trên các mạng di động như là 3G. Bạn có thể tắt proxy đó bằng cách đi đến APN đã chọn (Trên Android 4: Mạng và kết nối không dây -&gt; Xem thêm... -&gt; Mạng di động -&gt; Tên điểm truy cập) và xoá đi giá trị trong trường proxy. </string>
+  <string name="apply_apn_proxy_title">Đã tạo proxy APN!</string>
+  <string name="no_connection">Kết nối mạng không hoạt động.</string>
   <string name="no_connection_title">Không có kết nối</string>
-  <string name="download_dialog">Đang tải...</string>
-  <string name="apply_dialog">Áp dụng...</string>
-  <string name="apply_dialog_lists">Áp dụng sổ đen và trắng</string>
-  <string name="apply_dialog_hostnames">Xử lý và trộn các file hosts</string>
-  <string name="apply_dialog_hosts">Đang tạo file host</string>
-  <string name="apply_dialog_apply">Áp dụng file host</string>
-  <string name="apply_fail_title">Tùy chọn không thể áp dụng</string>
-  <string name="revert_successful_title">Khôi phục thành công</string>
-  <string name="revert_problem">Khôi phục lại do nguyên nhân thất bại chưa rõ.</string>
-  <string name="revert_problem_title">Khôi phục thất bại!</string>
-  <string name="download_fail_dialog">Không kết nối được tới bất cứ nguồn host nào mà bạn đã chọn! Bạn có đang kết nối với mạng Internet không?</string>
+  <string name="download_dialog">Đang tải xuống...</string>
+  <string name="apply_dialog">Đang áp dụng...</string>
+  <string name="apply_dialog_lists">Đang áp dụng Danh sách đen và Danh sách trắng</string>
+  <string name="apply_dialog_hostnames">Đang xử lý và hợp nhất các tập tin miền</string>
+  <string name="apply_dialog_hosts">Đang tạo tập tin miền</string>
+  <string name="apply_dialog_apply">Đang áp dụng tập tin miền</string>
+  <string name="apply_fail">Thất bại khi áp dụng tập tin miền vào hệ thống!\nHãy thử đổi tập tin miền mục tiêu trong tuỳ chỉnh thành /data/data/hosts.</string>
+  <string name="apply_fail_title">Áp dụng thất bại</string>
+  <string name="revert_successful">Đã đổi lại thành tập tin miền mặc định.\nCần khởi động lại Android để kích hoạt các thay đổi.\n\nBạn có muốn khởi động lại?\n(Để tránh mất mát dữ liệu, hãy chắc rằng không có ứng dụng nào sử dụng sdcard trong lúc này!)</string>
+  <string name="revert_successful_title">Đổi lại thành công</string>
+  <string name="revert_problem">Đổi lại bị thất bại mà không rõ nguyên nhân.</string>
+  <string name="revert_problem_title">Đổi lại thất bại!</string>
+  <string name="download_fail_dialog">Không truy cập được bất kỳ nguồn tên miền đã kích hoạt nào! Bạn có đang kết nối mạng không?</string>
   <string name="download_fail_title">Tải về thất bại</string>
-  <string name="no_private_file">Không thể tạo tệp riêng</string>
-  <string name="no_private_file_title">Tạo tệp riêng đã thất bại</string>
+  <string name="no_private_file">Không thể tạo tập tin riêng.</string>
+  <string name="no_private_file_title">Tạo tập tin riêng thất bại</string>
   <!--Other Dialogs-->
-  <string name="no_root_title">Yêu cầu Anroid đã root</string>
-  <string name="no_url">Không phải là đường dẫn hợp lệ!</string>
-  <string name="hosts_add_dialog">Nhập đường dẫn tới file host:</string>
-  <string name="no_hostname">Đây không phải là tên host hợp lệ!</string>
-  <string name="no_ip">Đây không phải là IP hợp lệ!</string>
-  <string name="reboot_never_reboot">Không bao giờ reboot và không hiện câu hỏi này nữa!</string>
+  <string name="no_root_description">Không tìm thấy tập tin chạy su hoặc bạn không trao quyền root cho AdAway.\n\nĐiều này có thể xảy ra khi thiết bị chưa được root.\nBạn có thể tìm thông tin về cách root máy tại www.cyanogenmod.org hay các web khác cho Android.</string>
+  <string name="no_root_title">Yêu cầu Android đã root</string>
+  <string name="no_url">URL không hợp lệ!</string>
+  <string name="no_url_title">Định dạng URL không đúng</string>
+  <string name="hosts_add_dialog">Nhập URL vào tập tin miền:</string>
+  <string name="no_hostname">Tên miền không hợp lệ!</string>
+  <string name="no_hostname_title">Định dạng tên miền không đúng</string>
+  <string name="no_ip">IP không hợp lệ!</string>
+  <string name="no_ip_title">Định dạng IP không đúng</string>
+  <string name="reboot_never_reboot">Không bao giờ khởi động lại và đừng hiện câu hỏi này nữa!</string>
   <string name="loading">Đang tải...</string>
   <!--Menu entries-->
-  <string name="menu_refresh">Làm tươi</string>
+  <string name="menu_refresh">Làm mới</string>
   <string name="menu_add">Thêm</string>
-  <string name="menu_scan_adware">Tìm Adware</string>
-  <string name="menu_hosts_sources">Nguồn hosts</string>
+  <string name="menu_scan_adware">Tìm phần mềm kèm quảng cáo</string>
+  <string name="menu_hosts_sources">Các nguồn miền</string>
   <string name="menu_tcpdump">Yêu cầu ghi nhật ký DNS</string>
   <string name="menu_help">Trợ giúp</string>
-  <string name="menu_lists">DS của bạn</string>
-  <string name="menu_show_hosts_file">Mở tệp host</string>
+  <string name="menu_lists">Danh sách của bạn</string>
+  <string name="menu_show_hosts_file">Mở tập tin miền</string>
   <string name="menu_import">Nhập tất cả các danh sách</string>
   <string name="menu_export">Xuất tất cả các danh sách</string>
-  <string name="menu_preferences">Cấu hình</string>
+  <string name="menu_preferences">Tuỳ chỉnh</string>
   <!--Help-->
-  <string name="help_tab_about">Thông tin</string>
+  <string name="help_tab_about">Thông tin về</string>
   <string name="help_tab_donate">Quyên góp</string>
-  <string name="help_tab_s_on_s_off">S-BẬT/S-TẮT</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Hỏi đáp</string>
   <string name="help_tab_problems">Vấn đề</string>
-  <string name="help_tab_changelog">Các thay đổi</string>
+  <string name="help_tab_changelog">Nhật ký thay đổi</string>
   <string name="help_about_version">Phiên bản:</string>
-  <string name="help_donation_paypal_item">Ủng hộ AdAway</string>
+  <string name="help_donation_paypal_item">Quyên tiền giúp AdAway</string>
   <string-array name="help_donation_google_catalog_values">
     <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Tại đây bạn có thể tìm các ứng dụng xấu mà Adware không thể khóa chúng. Những ứng dụng này, chẳng hạn như Airpush, có khả năng hiển thị thông báo kiểu tự bung ngay cả khi ứng dụng đang không chạy, hay thậm chí chúng có thể thay đổi nhạc chuông của máy. Biện pháp duy nhất là gỡ bỏ chúng bằng cách chọn từ danh sách!</string>
+  <string name="scan_adware_description">Tại đây bạn có thể quét các ứng dụng kèm quảng cáo khó chịu mà AdAway không thể chặn. Chúng sử dụng các phần mềm thông báo như Airpush chẳng hạn để hiển thị quảng cáo ngay cả khi ứng dụng không chạy, hay thậm chí đổi nhạc chuông của máy. Biện pháp duy nhất là gỡ bỏ chúng bằng cách chọn từ danh sách!</string>
   <string name="scan_adware_start">Bắt đầu quét</string>
-  <string name="scan_adware_empty">Không tìm thấy bất cứ ứng dụng xấu nào!</string>
+  <string name="scan_adware_empty">Không tìm thấy ứng dụng kèm quảng cáo nào!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Cục bộ:</string>
   <string name="hosts_last_modified_online">Trực tuyến:</string>
   <string name="hosts_not_available">không có sẵn</string>
   <!--Other-->
-  <string name="app_subtitle">Chặn quảng cáo</string>
-  <string name="no_text_editor_title">Không có trình sửa văn bản trên máy</string>
-  <string name="no_file_manager_title">Không tìm thấy trình quản lý tệp</string>
+  <string name="app_subtitle">Ứng dụng chặn quảng cáo</string>
+  <string name="no_text_editor_title">Chưa cài trình sửa văn bản</string>
+  <string name="no_text_editor">Không tìm thấy trình sửa văn bản để mở tập tin miền. Bạn có thể cài Jota hoặc các trình sửa văn bản khác.\n\nBạn có muốn cài Jota?</string>
+  <string name="no_file_manager_title">Chưa cài trình quản lý tập tin</string>
+  <string name="no_file_manager">Không tìm thấy trình quản lý để mở tập tin. Bạn có thể cài OI File Manager hoặc các trình quản lý khác.\n\nBạn có muốn cài OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Đã xoá file nhật ký!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Đã thêm tên host vào danh sách đen!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Đã thêm tên host vào danh sách trắng!</string>
-  <string name="tcpdump_log_context_blacklist">Thêm vào DS đen</string>
-  <string name="tcpdump_log_context_whitelist">Thêm vào DS trắng</string>
+  <string name="toast_tcpdump_log_deleted">Đã xoá tập tin nhật ký!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Đã thêm tên miền vào Danh sách đen!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Đã thêm tên miền vào Danh sách trắng!</string>
+  <string name="tcpdump_log_context_blacklist">Thêm vào Danh sách đen</string>
+  <string name="tcpdump_log_context_whitelist">Thêm vào Danh sách trắng</string>
   <string name="tcpdump_log_context_browser">Mở trong trình duyệt</string>
-  <string name="tcpdump_log_empty">Tệp nhật ký rỗng!</string>
-  <string name="tcpdump_log_footer">Bấm lưu trên tên host để thêm nó vào DS đen/trắng</string>
+  <string name="tcpdump_log_empty">Tập tin nhật ký rỗng!</string>
+  <string name="tcpdump_log_footer">Bấm giữ tên miền để thêm vào Danh sách đen hoặc trắng!</string>
   <!--Preferences-->
-  <string name="pref_download">Cấu hình tổng quát</string>
-  <string name="pref_hosts">Các file host</string>
+  <string name="pref_download">Tuỳ chỉnh tổng quát</string>
+  <string name="pref_hosts">Tập tin miền</string>
   <string name="pref_redirection_ip">Chuyển hướng IP</string>
-  <string name="pref_update_check">Kiểm tra phiên bản</string>
-  <string name="pref_apply_method">Tệp host đích</string>
-  <string name="pref_apply_method_summary">Trước khi thay đổi tuỳ chọn này, hãy đọc Trợ giúp.</string>
-  <string name="pref_redirection_ip_summary">Tất cả tên host đã chặn sẽ được chuyển hướng tới địa chỉ IP này.</string>
-  <string name="pref_header_preferences">Cấu hình</string>
-  <string name="pref_header_preferences_summary">Cấu hình tổng quát cho AdAway</string>
-  <string name="pref_never_reboot">Ẩn hộp thoại reboot</string>
-  <string name="pref_never_reboot_summary">Ẩn hộp thoại đòi reboot máy sau khi áp dụng thành công</string>
-  <string name="pref_webserver_on_boot">Bật webserver khi boot máy</string>
-  <string name="pref_webserver_on_boot_summary">Bật webserver khi boot máy sau 5 giây đọc địa chỉ IP cục bộ</string>
+  <string name="pref_update_check">Kiểm tra cập nhật</string>
+  <string name="pref_apply_method">Tập tin miền mục tiêu</string>
+  <string name="pref_apply_method_summary">Trước khi thay đổi cài đặt, hãy đọc Trợ giúp về tính năng này.</string>
+  <string name="pref_redirection_ip_summary">Tất cả tên miền đã chặn sẽ được chuyển hướng tới địa chỉ IP này.</string>
+  <string name="pref_header_preferences">Tuỳ chỉnh</string>
+  <string name="pref_header_preferences_summary">Tuỳ chỉnh tổng quát cho AdAway</string>
+  <string name="pref_never_reboot">Ẩn hộp thoại khởi động lại</string>
+  <string name="pref_never_reboot_summary">Ẩn hộp thoại đòi khởi động lại Android sau khi áp dụng thành công</string>
+  <string name="pref_webserver_on_boot">Bật webserver khi khởi động máy</string>
+  <string name="pref_webserver_on_boot_summary">Bật webserver khi khởi động máy, lắng nghe các địa chỉ IP cục bộ</string>
   <string name="pref_webserver_enabled">Bật webserver</string>
-  <string name="pref_webserver_enabled_summary">Bật webserver để dùng địa chỉ IP cục bộ phản hồi các yêu cầu từ host đã chặn</string>
-  <string name="pref_webserver">Websever cục bộ</string>
+  <string name="pref_webserver_enabled_summary">Bật webserver để lắng nghe các địa chỉ IP cục bộ và phản hồi yêu cầu đến các tên miền bị chặn</string>
+  <string name="pref_webserver">Webserver cục bộ</string>
   <string name="pref_custom_target">Đích tự chọn</string>
-  <string name="pref_custom_target_summary">Chỉ dùng nếu tệp host đích đặt là đích tự chọn</string>
-  <string name="pref_update_check_summary">Tìm phiên bản mới khi mở AdAway</string>
-  <string name="pref_sdcard_problem">Tính năng này sẽ không làm việc đúng khi AdAway được cài trên thẻ nhớ ngoài</string>
+  <string name="pref_custom_target_summary">Chỉ dùng nếu tập tin miền mục tiêu được đặt làm đích tự chọn</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Đích tự chọn</item>
+  </string-array>
+  <string name="pref_update_check_summary">Kiểm tra cập nhật khi khởi động AdAway</string>
+  <string name="pref_sdcard_problem">Tính năng này sẽ không hoạt động chính xác khi AdAway được cài trên sdcard!</string>
   <string name="pref_background">Dịch vụ chạy nền</string>
-  <string name="pref_update_check_daily">Tìm phiên bản mới mỗi ngày</string>
-  <string name="pref_update_check_daily_summary">Tìm phiên bản mới mỗi ngày ở chế độ nền và thông báo</string>
+  <string name="pref_update_check_daily">Kiểm tra cập nhật mỗi ngày</string>
+  <string name="pref_update_check_daily_summary">Kiểm tra cập nhật mỗi ngày ở chế độ nền có kèm thông báo</string>
   <string name="pref_automatic_update_daily">Tự động cập nhật</string>
-  <string name="pref_automatic_update_daily_summary">Tự động cập nhật nếu có bản nâng cấo mới.</string>
+  <string name="pref_automatic_update_daily_summary">Tự động cập nhật ở chế độ nền nếu có bản nâng cấp.</string>
   <string name="pref_update_only_on_wifi">Chỉ cập nhật qua Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Chỉ tự động kiểm tra bản cập nhật khi có kết nối wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Chỉ tiến hành cập nhật ở chế độ nền khi có kết nối wifi.</string>
+  <string name="pref_whitelist_rules">Cho phép tạo danh sách trắng</string>
+  <string name="pref_whitelist_rules_summary">Cho phép các mục trong danh sách trắng từ Các nguồn tên miền.</string>
+  <string name="pref_redirection_rules">Cho phép chuyển hướng</string>
+  <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! Cho phép các mục điều hướng từ Các nguồn tên miền.</string>
   <string name="pref_debug">Dò lỗi</string>
   <string name="pref_enable_debug">Nhật ký dò lỗi</string>
-  <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để có hiệu lực</string>
+  <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
+  <string name="pref_enable_ipv6">Bật IPv6</string>
+  <string name="pref_enable_ipv6_summary">Tất cả các mục tập tin miền đều sẽ nhận được một mục ::1 (miền cục bộ IPv6) tương ứng.</string>
 </resources>

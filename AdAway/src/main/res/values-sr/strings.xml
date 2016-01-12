@@ -173,8 +173,10 @@
     <item>Drugi fajl</item>
   </string-array>
   <string name="pref_update_check_summary">Proveri ažuriranja pri pokretanju AdAway-a</string>
+  <string name="pref_background">Pozadinski servisi</string>
   <string name="pref_update_check_daily">Dnevna proveravanje ažuriranja</string>
   <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>
   <string name="pref_automatic_update_daily">Automatska ažuriranja</string>
+  <string name="pref_automatic_update_daily_summary">Ažuriraj automatski u pozadini ako su ažuriranja dostupna</string>
   <string name="pref_update_only_on_wifi">Ažuriraj samo preko Wifi</string>
 </resources>

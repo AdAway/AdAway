@@ -1,32 +1,32 @@
 <html>
 <head></head>
 <body>
-<h2>thu nhập bằng cách quảng cáo</h2>
-<p>Có một quan niệm sai lầm thường được đã được nêu ra rằng nếu người dùng không bao giờ nhấp chuột vào quảng cáo, sau đó ngăn chặn chúng sẽ không làm tổn thương một trang web hoặc ứng dụng tài chính. Điều này là sai, các nhà phát triển cũng kiếm được tiền bằng cách chỉ hiển thị quảng cáo. Đó là vào bạn cho dù bạn chặn quảng cáo hay không. Cá nhân tôi sẽ không sử dụng các ứng dụng hiển thị quảng cáo bởi vì tôi thấy họ rất khó chịu, vì vậy mà không có một quảng cáo bị chặn tôi sẽ không cài đặt các ứng dụng này.</p>
+<h2>Thu nhập từ quảng cáo</h2>
+<p>Có một quan niệm cho rằng nếu người dùng không bao giờ nhấp chuột vào quảng cáo thì việc chặn chúng sẽ không làm trang web hoặc ứng dụng bị tổn thất về mặt tài chính. Điều này thật sai lầm vì các nhà phát triển cũng kiếm được tiền cho dù chỉ hiển thị quảng cáo. Việc chặn quảng cáo hay không tuỳ thuộc vào bạn. Cá nhân tôi sẽ không dùng các ứng dụng có hiển thị quảng cáo bởi vì tôi thấy chúng rất khó chịu, chính vì vậy mà khi không có phần mềm chặn quảng cáo tôi sẽ không cài đặt những ứng dụng này.</p>
 
 
 
-<h2>AdAway làm việc như thế nào?</h2>
-<p>AdAway sử dụng <a href="http://en.wikipedia.org/wiki/Hosts_file"> tập tin host &lt;/ a&gt; để ngăn chặn tên máy, phục vụ quảng cáo. Các tập tin host là một tập tin trong <tt> / hệ thống / etc / hosts &lt;/ tt&gt; mà các bản đồ hostname tới địa chỉ IP. Đó là một cách truyền thống để xác định tên máy cho các cặp địa chỉ IP mà không cần dựa trên hệ thống tên miền (DNS). Tất cả các tên máy không mong muốn được chuyển hướng đến <tt> 127.0.0.1 &lt;/ tt&gt; có nghĩa là họ sẽ trỏ đến thiết bị của riêng bạn.</p>
+<h2>AdAway hoạt động như thế nào?</h2>
+<p>AdAway sử dụng <a href="http://en.wikipedia.org/wiki/Hosts_file">tập tin miền</a> để chặn các tên miền phục vụ cho quảng cáo. Tập tin miền nằm trong <tt>/system/etc/hosts</tt> sẽ lập bản đồ các tên miền tới các địa chỉ IP. Đó là cách truyền thống để xác định tên miền cho các cặp địa chỉ IP mà không cần dựa trên Hệ thống tên miền (DNS). Tất cả các tên miền không mong muốn sẽ được chuyển hướng đến <tt>127.0.0.1</tt>, nghĩa là chúng sẽ hướng đến thiết bị của bạn.</p>
 
-<h2>Tại sao cập nhật ưu tiên kiểm tra hàng ngày chuyển sang màu xám?</h2>
-<p>Tự động kiểm tra bản cập nhật mới chỉ có sẵn khi AdAway được cài đặt trên bộ nhớ điện thoại nội bộ. Điều này là do những hạn chế trên nền tảng Android.</p>
+<h2>Tại sao tuỳ chọn kiểm tra cập nhật hàng ngày chuyển sang màu xám?</h2>
+<p>Tự động kiểm tra cập nhật mới chỉ có hiệu lực khi AdAway được cài đặt trên bộ nhớ trong của điện thoại. Đó là do những hạn chế trên nền tảng Android.</p>
 
 <h2>Tại sao tôi phải khởi động lại Android để thay đổi có hiệu lực?</h2>
-<p>Java trên Android duy trì của bộ nhớ cache DNS nội bộ của mình. Hệ điều hành sẽ phản ánh các tập tin host mới ngay lập tức (xác minh rằng với ping trên dòng lệnh) nhưng bạn sẽ cần phải khởi động lại Android để xây dựng lại bộ nhớ cache DNS của Java.</p>
+<p>Java trên Android duy trì bộ nhớ đệm DNS bên trong của chính nó. Hệ điều hành sẽ phản xạ tập tin tên miền mới ngay lập tức (xác minh nó với ping trên dòng lệnh) nhưng bạn cần khởi động lại Android để xây dựng lại bộ nhớ đệm DNS của Java.</p>
 
-<h2>làm thế nào để sử dụng web chủ trong AdAway?</h2>
-<p><b> AdAway cũng sẽ làm việc mà không cần sử dụng các máy chủ web &lt;/ b&gt; ⏎
-<br/> Bạn có thể kích hoạt một máy chủ web địa phương trong sở thích của AdAway để trả lời yêu cầu đến địa chỉ IP địa phương <tt> 127.0.0.1 &lt;/ tt&gt;. Điều này có nghĩa các yêu cầu từ các ứng dụng đến các máy chủ quảng cáo được chuyển hướng đến <tt> 127.0.0.1 &lt;/ tt&gt; được trả lời của máy chủ web của AdAway. ⏎
-<br/> Một số ứng dụng từ chối làm việc, khi máy chủ quảng cáo không thể truy cập. Với phương pháp này họ sẽ có thể truy cập một lần nữa, trả lời với một trang trắng và không có hình ảnh quảng cáo.</p>
+<h2>Cách sử dụng webserver trong AdAway?</h2>
+<p><b>AdAway cũng sẽ hoạt động mà không cần sử dụng webserver!</b>
+<br/><br/>Bạn có thể kích hoạt một webserver cục bộ trong tuỳ chỉnh của AdAway để trả lời yêu cầu đến địa chỉ IP cục bộ <tt>127.0.0.1</tt>. Điều này nghĩa là những yêu cầu từ ứng dụng đến các máy chủ quảng cáo mà đã được chuyển hướng đến <tt>127.0.0.1</tt> sẽ được trả lời bởi webserver của AdAway.
+<br/>Một vài ứng dụng từ chối hoạt động khi không thể truy cập vào các máy chủ quảng cáo. Với phương pháp này, chúng sẽ hoạt động trở lại, hồi đáp với một trang trắng và không kèm hình ảnh quảng cáo.</p>
 
-<h2>Làm thế nào tôi có thể chặn / mở khóa tên máy cụ thể?</h2>
-<p>Thêm tên máy bạn muốn chặn vào danh sách đen (= Black) dưới <i> Lists của bạn &lt;/ i&gt;. Ngoài ra, tên máy bạn muốn loại trừ từ khóa có thể được thêm vào <i> Whitelist &lt;/ i&gt; (= trắng) và tên máy bạn muốn chuyển hướng đến một địa chỉ IP cụ thể thuộc Danh mục Redirection <i> &lt;/ i&gt; (= Redirection).</p>
+<h2>Làm sao có thể chặn/bỏ chặn tên miền cụ thể?</h2>
+<p>Thêm tên miền bạn muốn chặn vào Danh sách đen (=Đen) dưới <i>Danh sách của bạn</i>. Ngoài ra, tên miền bạn không muốn chặn có thể được thêm vào <i>Danh sách trắng</i> (=Trắng) và tên miền bạn muốn chuyển hướng đến một địa chỉ IP cụ thể sẽ nằm trong <i>Danh sách chuyển hướng</i> (=Chuyển hướng).</p>
 
-<h2>Tôi có thể tìm thêm các máy chủ nguồn ở đâu?</h2>
-<p>xem <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">danh sách của nguồn host được thêm cho AdAway</a>.</p>
+<h2>Tôi có thể tìm thêm các nguồn tên miền ở đâu?</h2>
+<p>Xem <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">Danh sách các nguồn tên miền thêm cho AdAway</a>.</p>
 
-<h2>Giúp dịch lỗi / báo cáo</h2>
-<p>xin vui long đi tới <a href="http://adaway.org">http://adaway.org</a>.</p>
+<h2>Giúp dịch thuật/báo cáo lỗi</h2>
+<p>Hãy truy cập trang <a href="http://adaway.org">http://adaway.org</a>.</p>
 </body>
 </html>

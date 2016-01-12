@@ -119,6 +119,7 @@
   <string name="no_private_file">Το προσωπικό αρχείο δεν μπορεί να δημιουργηθεί.</string>
   <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Είτε το su binary δεν μπορούσε να βρεθεί ή δεν επιτράπηκε άδεια διαχειριστή για το AdAway.\n\nΑυτό μπορεί να συμβεί όταν δεν υπάρχουν πλήρη δικαιώματα διαχειριστή.\nΜπορείτε να βρείτε πληροφορίες για το πώς να αποκτήσετε πλήρη δικαιώματα διαχειριστή για τη συσκευή σας στην ιστοσελίδα www.cyanogenmod.org ή σε άλλες Android ιστοσελίδες.</string>
   <string name="no_root_title">Χρειάζεται δικαιώματα διαχειριστή
 </string>
   <string name="no_url">Αυτή η διεύθυνση URL δεν είναι έγκυρη! </string>
@@ -226,4 +227,6 @@
   <string name="pref_debug">Αποσφαλμάτωση</string>
   <string name="pref_enable_debug">Καταγραφή αποσφαλμάτωσης</string>
   <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
+  <string name="pref_enable_ipv6">Ενεργοποίηση πρωτοκόλλου IPv6.</string>
+  <string name="pref_enable_ipv6_summary">Όλες οι καταχωρήσεις του αρχείου host θα αποκτήσουν μια καταχώρηση ::1 (IPv6 localhost) αντίστοιχα.</string>
 </resources>
