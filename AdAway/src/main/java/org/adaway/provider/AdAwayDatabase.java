@@ -204,6 +204,15 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://hosts-file.net/ad_servers.txt\", 0, 0, 1)");
+        }
+        if (oldVersion <= 12) {
+            // change http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext to https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
+            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
+                    + " WHERE url=\"http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\"");
+            // add modified entry
+            db.execSQL("INSERT INTO "
+                    + Tables.HOSTS_SOURCES
+                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\", 0, 0, 1)");
         } else {
             db.execSQL("DROP TABLE IF EXISTS " + Tables.HOSTS_SOURCES);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.WHITELIST);
