@@ -35,7 +35,7 @@ import org.adaway.util.Log;
 
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 12;
+    private static final int DATABASE_VERSION = 13;
 
     public interface Tables {
         String HOSTS_SOURCES = "hosts_sources";
