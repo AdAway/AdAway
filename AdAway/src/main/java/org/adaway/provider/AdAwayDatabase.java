@@ -89,9 +89,9 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         // http://hosts-file.net
         insertHostsSource(insertStmt, "http://hosts-file.net/ad_servers.txt");
 
-        // http://pgl.yoyo.org/adservers/
+        // https://pgl.yoyo.org/adservers/
         insertHostsSource(insertStmt,
-                "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
+                "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
 
         // AdAway's own mobile hosts
         insertHostsSource(insertStmt, "https://adaway.org/hosts.txt");
@@ -147,7 +147,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             // new hosts source
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
-                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\", 0, 0, 1)");
+                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\", 0, 0, 1)");
         }
         if (oldVersion <= 5) {
             // new hosts source
