@@ -4,6 +4,12 @@ AdAway is an open source ad blocker for Android using the hosts file.
 
 For more information visit http://adaway.org
 
+[![F-Droid](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Get_it_on_F-Droid.svg/320px-Get_it_on_F-Droid.svg.png)](https://f-droid.org/repository/browse/?fdid=org.adaway "AdAway on F-Droid")
+
+## Support
+
+You can post [Issues](https://github.com/Free-Software-for-Android/AdAway/issues) here or obtain more detailed community support via the [XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753).
+
 ## Authors
 
 AdAway is currently maintained by 0-kaladin and Dāvis Mošenkovs.
