@@ -12,7 +12,7 @@
 #define AP_CHAN 9
 #define MG_LISTEN_ADDR "80"
 
-#define MG_TASK_STACK_SIZE 2048
+#define MG_TASK_STACK_SIZE 4096
 #define MG_TASK_PRIORITY 1
 
 void uart_div_modify(int uart_no, unsigned int freq);
@@ -54,6 +54,8 @@ void ev_handler(struct mg_connection *nc, int ev, void *p) {
 }
 
 void setup_ap() {
+  int off = 0;
+  struct ip_info info;
   struct softap_config cfg;
 
   wifi_set_opmode_current(SOFTAP_MODE);
@@ -70,6 +72,12 @@ void setup_ap() {
 
   LOG(LL_INFO, ("Setting up AP '%s' on channel %d", cfg.ssid, cfg.channel));
   wifi_softap_set_config_current(&cfg);
+  wifi_softap_dhcps_stop();
+  wifi_softap_set_dhcps_offer_option(OFFER_ROUTER, &off);
+  wifi_softap_dhcps_start();
+  wifi_get_ip_info(SOFTAP_IF, &info);
+  LOG(LL_INFO, ("WiFi AP: SSID %s, channel %d, IP " IPSTR "", cfg.ssid,
+                cfg.channel, IP2STR(&info.ip)));
 }
 
 static void mg_task(void *arg) {
@@ -99,9 +107,6 @@ xTaskHandle s_mg_task_handle;
 
 void user_init(void) {
   uart_div_modify(0, UART_CLK_FREQ / 115200);
-
-  setvbuf(stdout, NULL, _IONBF, 0);
-  setvbuf(stderr, NULL, _IONBF, 0);
 
   xTaskCreate(mg_task, (const signed char *) "mongoose", MG_TASK_STACK_SIZE,
               NULL, MG_TASK_PRIORITY, &s_mg_task_handle);
