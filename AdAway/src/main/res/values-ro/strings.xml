@@ -2,19 +2,19 @@
 <resources>
   <string name="app_name">AdAway</string>
   <!--Buttons-->
-  <string name="button_exit">Iesire</string>
-  <string name="button_apply">Descarca fisierele si blocheaza reclamele!</string>
-  <string name="button_close">Inchide</string>
+  <string name="button_exit">Ieșire</string>
+  <string name="button_apply">Descarcă  fișierele și blochează  reclamele!</string>
+  <string name="button_close">Închide </string>
   <string name="button_yes">Da</string>
   <string name="button_no">Nu</string>
-  <string name="button_revert">Dezactiveaza programul.</string>
-  <string name="button_add">Adauga</string>
-  <string name="button_cancel">Anuleaza</string>
-  <string name="button_apply_text">Toate fisierele \"host\" din sursa definita vor fi descarcate, combinate cu lista personala si apoi instalate ca un fisier \"hosts\" unitar.  </string>
-  <string name="button_revert_text">Restaureaza fisierele \"host\" prestabilite.</string>
-  <string name="button_save">Salveaza</string>
-  <string name="button_webserver_toggle_checked">Server activ</string>
-  <string name="button_webserver_toggle_unchecked">Server inactiv</string>
+  <string name="button_revert">Dezactivează programul.</string>
+  <string name="button_add">Adaugă</string>
+  <string name="button_cancel">Anulează</string>
+  <string name="button_apply_text">Toate fișierele \"host\" din sursa definită vor fi descărcate, combinate cu lista personală și apoi instalate ca un fișier \"hosts\" unitar.  </string>
+  <string name="button_revert_text">Restaureaza fisierele \"hosts\" prestabilite.</string>
+  <string name="button_save">Salvează</string>
+  <string name="button_webserver_toggle_checked">Server web activ</string>
+  <string name="button_webserver_toggle_unchecked">Server web inactiv</string>
   <string name="button_webserver_toggle_text">Activeaza sau dezactiveaza serverul in mod local, pentru a raspunde cererilor pentru \"hostname\" blocate.</string>
   <string name="button_help">Ajutor</string>
   <string name="button_tcpdump_text">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
@@ -40,6 +40,7 @@
   <string name="lists_tab_redirection_list">Lista redirectionare</string>
   <string name="list_dialog_url">Adresa (URL)</string>
   <string name="list_dialog_hostname">Numele de \'host\"</string>
+  <string name="list_dialog_whitelist_hostname">Hostname:\n(Caractere wildcard * și ? sunt permise!) </string>
   <string name="list_dialog_ip">Adresa IP (IPv4 or IPv6):</string>
   <string name="import_dialog">Importa...</string>
   <string name="export_dialog">Exporta...</string>
@@ -60,18 +61,25 @@
   <string name="status_disabled">Dezactivat</string>
   <string name="status_disabled_subtitle">Dezactivat</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlink-ul de la ținta dumneavoastră spre /system/etc/hosts nu există sau este incorect! AdAway nu va funcționa dacă nu este îndreptat către fișierul corect.\n\nVreți să încercați să creați un symlink?</string>
   <string name="apply_symlink_missing_title">Legatura tip \"symlink\" lipseste</string>
-  <string name="apply_not_enough_space_title">Insuficient spatiu</string>
+  <string name="apply_not_enough_space">Spațiu insuficient pe partiție! \nÎncercați să schimbați fișierul hosts țintă din preferințe în /data/data/hosts. </string>
+  <string name="apply_not_enough_space_title">Spațiu insuficient</string>
   <string name="apply_private_file_fail">Fisierul descarcat nu poate fi citit</string>
   <string name="apply_private_file_fail_title">Lansare nereusita a fisierul cu atribute speciale (private)</string>
   <string name="apply_remount_fail">Reactivarea partitiei ca citire/scriere nereusita!</string>
   <string name="apply_remount_fail_title">Reactivare partitie nereusita (remount)</string>
   <string name="apply_copy_fail">Copierea fisierelor \"hosts\" nereusita</string>
   <string name="apply_copy_fail_title">Copiere nereusita</string>
+  <string name="apply_success_subtitle">Surse hosts aplicate:</string>
   <string name="apply_success_title">Aplicarea modificariolor a fost reusita</string>
+  <string name="apply_success_dialog">Aplicarea a fost făcută cu succes.\nEste posibil să trebuiască să redemarați Android pentru ca schimbările să fie luate în considerare.\n\nVreți să redemarați?\n(Pentru a preveni pierderea de informații asigurați-vă că nici o aplicație nu folosește în acest moment cartela SD!) </string>
+  <string name="apply_symlink_successful">Symlink-ul a fost creat cu succes.\nEste posibil să trebuiască să redemarați Android pentru ca schimbările să fie luate în considerare.\n\nVreți să redemarați?\n(Pentru a preveni pierderea de informații asigurați-vă că nici o aplicație nu folosește în acest moment cartela SD!) </string>
   <string name="apply_symlink_successful_title">Crearea \"symlink\" a fost reusita</string>
+  <string name="apply_symlink_fail">Symlink-ul nu a putut fi creat de către Android.\nAceasta se întâmplă de obicei datorită unei \"funcționalități\" numită S-ON de pe telefoanele HTC!\n\nO posibilă soluție este redemararea telefonului în modul recovery și crearea symlink-ului acolo cu \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nDacă această soluție nu funcționează căutați pe internet S-OFF și numele telefonului dumneavoastră. </string>
   <string name="apply_symlink_fail_title">Crearea \"symlink\" nereusita</string>
   <string name="apply_help">Citeste sectiunea \"Ajutor\" pentru mai multe informatii!</string>
+  <string name="apply_apn_proxy">Un Proxy APN este setat pe sistemul dumneavoastră Android!\n AdAway nu va funcționa fiabil când va fi folosită o conexiune mobila ca și 3G-ul. Puteți dezactiva acel proxy mergând la APN-ul selectat (Pe Android 4: Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) și îndepărtați valoarea din câmpul proxy. </string>
   <string name="apply_apn_proxy_title">APN proxy a fost setat!</string>
   <string name="no_connection">Conexiunea internet nu functioneaza</string>
   <string name="no_connection_title">Nu exista conexiune!</string>
@@ -81,7 +89,9 @@
   <string name="apply_dialog_hostnames">Analizeaza nodurile si atributele (parsing) si combina fisierele (hosts)</string>
   <string name="apply_dialog_hosts">Sistemul genereaza fisiere \"hosts\"</string>
   <string name="apply_dialog_apply">Sistemul aplica fisierele \"hosts\"</string>
+  <string name="apply_fail">Aplicarea fișierului hosts pe sistemul dumneavoastră a eșuat!\nÎncercați să schimbați fișierul hosts țintă din preferințe în /data/data/hosts. </string>
   <string name="apply_fail_title">Aplicarea modificarilor nu a fost reusita</string>
+  <string name="revert_successful">Ați revenit la fișierul hosts implicit. \nEste posibil să trebuiască să redemarați Android pentru ca schimbările să fie luate în seamă. \n\nVreți să redemarați? \n(Pentru a preveni pierderea de informații asigurați-vă că nici o aplicație nu folosește în acest moment cartela SD!) </string>
   <string name="revert_successful_title">Restaurarea starii precedente a fost reusita</string>
   <string name="revert_problem">Restaurare nereusita din cauze necunoscute!</string>
   <string name="revert_problem_title">Restaurare nereusita!</string>
@@ -90,11 +100,15 @@
   <string name="no_private_file">Fisierul cu atribute speciale nu poate fi creat</string>
   <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Fie fișierul binar SU nu a putut fi găsit, fie nu ați autorizat permisiunea root pentru AdAway.\n\nAcest lucru se poate întâmpla dacă aparatul dumneavoastră nu vă permite accesul la root.\nPuteți găsi informații despre cum să aveți acces la root pe aparatul dumneavoastră pe www.cyanogenmod.org sau alte site-uri despre Android. </string>
   <string name="no_root_title">Android are nevoie de \"root\"</string>
   <string name="no_url">Adresa (URL) invalida</string>
+  <string name="no_url_title">URL formatat incorect</string>
   <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
   <string name="no_hostname">Nume invalid pentru fisierul \"host\"</string>
+  <string name="no_hostname_title">Hostname formatat incorect</string>
   <string name="no_ip">Invalid IP!</string>
+  <string name="no_ip_title">IP formatat incorect</string>
   <string name="reboot_never_reboot">Nu reporni (never reboot) si ascunde acest mesaj pe viitor!</string>
   <string name="loading">Incarca...</string>
   <!--Menu entries-->
@@ -117,6 +131,15 @@
   <string name="help_tab_problems">Probleme</string>
   <string name="help_tab_changelog">Registrii cu modificari</string>
   <string name="help_about_version">Versiuni:</string>
+  <string name="help_donation_paypal_item">Donație pentru AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
   <!--Scan Adware-->
   <string name="scan_adware_description">Scaneaza aplicatiile impotriva Adware; AdAway va afisa numai aplicatiile care nu pot fi blocate. Aceste aplicatii folosesc sisteme de notificare intrusive (ex: Airpush) care pot aparea chiar si cand aplicatia nu functioneaza, sau pot chiar modifica melodia telefonului (ringtone). Singura masura eficienta este dezinstalarea acestor aplicatii. Da un click pe fiecare aplicatie pe care doresti sa o dezinstalezi!    </string>
   <string name="scan_adware_start">Porneste scanarea!</string>
@@ -128,7 +151,9 @@
   <!--Other-->
   <string name="app_subtitle">Program care blocheaza reclame</string>
   <string name="no_text_editor_title">Nu exista un editor de text instalat in system.</string>
+  <string name="no_text_editor">Nici un editor de text nu a putut fi găsit pentru a deschide fișierul hosts. Puteți să instalați Jota sau alte editoare de text pentru a face asta.\n\nVreți să instalați Jota? </string>
   <string name="no_file_manager_title">Nu exista un manager de fisiere instalat in sistem</string>
+  <string name="no_file_manager">Nici un manager de fișiere nu a putut fi găsit pentru a deschide fișiere. Puteți sa instalați OI File Manager sau alți manageri de fișiere pentru a face asta.\n\nVreți să instalați OI File Manager? </string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Fisierul \"log\" a fost sters!</string>
   <string name="toast_tcpdump_added_to_blacklist">\"Hostname\" a fost adaugat la lista \"blacklist\"!</string>
@@ -157,6 +182,12 @@
   <string name="pref_webserver">Server local</string>
   <string name="pref_custom_target">Locatie aleasa de utilizator</string>
   <string name="pref_custom_target_summary">Folosit numai daca locatia fisierul \"hosts\" este setat ca \"locatie aleasa de utilizator\" </string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Țintă personalizată</item>
+  </string-array>
   <string name="pref_update_check_summary">La repornirea programului verifica daca exista o versiune noua.</string>
   <string name="pref_sdcard_problem">Nu functioneaza corect daca AdAway este instalat pe sdcard!</string>
   <string name="pref_background">Serviciu in \"background\"</string>
@@ -166,7 +197,13 @@
   <string name="pref_automatic_update_daily_summary">Update automat (in background) daca exista versiune noua.</string>
   <string name="pref_update_only_on_wifi">\"Update\" numai cand exista conexiune WiFi.</string>
   <string name="pref_update_only_on_wifi_summary">\"Background updates\" numai cand exista conexiune WiFi. </string>
+  <string name="pref_whitelist_rules">Permiteți whitelisting</string>
+  <string name="pref_whitelist_rules_summary">Permiteți înscrieri în whitelist din sursele de hosts. </string>
+  <string name="pref_redirection_rules">Permiteți redirecționări</string>
+  <string name="pref_redirection_rules_summary">PREZINTĂ RISC DE SECURITATE! Permiteți înregistrări de redirecționare din sursele Hosts. </string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug logging</string>
   <string name="pref_enable_debug_summary">Reporneste AdAway pentru ca modificarile sa fie aplicate!</string>
+  <string name="pref_enable_ipv6">Activați IPv6</string>
+  <string name="pref_enable_ipv6_summary">Toate înregistrările din fișierul host vor primi o înregistrare ::1 (IPv6 localhost) corespunzătoare. </string>
 </resources>

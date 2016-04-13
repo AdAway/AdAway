@@ -1,16 +1,82 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
+  <string name="button_exit">Išeiti</string>
+  <string name="button_apply">Atsisiusti failus ir pritaikyti reklamų blokavimą</string>
+  <string name="button_close">Uždaryti</string>
+  <string name="button_yes">Taip</string>
+  <string name="button_no">Ne</string>
+  <string name="button_revert">Išjungti reklamų blokavimą</string>
+  <string name="button_add">Pridėti</string>
+  <string name="button_cancel">Atčaukti</string>
+  <string name="button_save">Išsaugoi</string>
+  <string name="button_help">Pagalba</string>
   <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Pridėti</string>
+  <string name="checkbox_list_empty">Tuščias sąrašas</string>
+  <string name="checkbox_list_context_delete">Ištrinti</string>
+  <string name="checkbox_list_edit_dialog_title">Redeguoti</string>
+  <string name="checkbox_list_context_title">Redeguoti Įrašą</string>
+  <string name="checkbox_list_context_edit">Redeguoti</string>
   <!--Your Lists-->
+  <string name="lists_tab_whitelist">Baltasis sąrašas</string>
+  <string name="lists_tab_blacklist">Juodasis sąrašas</string>
   <!--Status Notifications-->
+  <string name="status_checking">Ieškoma atnaujinimų...</string>
+  <string name="status_reverting">Atkuriama...</string>
+  <string name="status_update_available">Pasiekiamas atnaujinimas</string>
+  <string name="status_update_available_subtitle">Pasiekiamas naujesnis host failas</string>
+  <string name="status_enabled">Įjungta</string>
+  <string name="status_enabled_subtitle">Naujausias host failas ijungtas</string>
+  <string name="status_disabled">Išjungta</string>
+  <string name="status_disabled_subtitle">Išjungta</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_not_enough_space_title">Nepakanka vietos</string>
+  <string name="apply_copy_fail_title">Kopijavimas nepavyko</string>
+  <string name="apply_success_subtitle">Pritaikyti host šaltiniai:</string>
+  <string name="apply_success_title">Pritaikymas sėkmingas</string>
+  <string name="no_connection">Prisijungti pire interneto nepavyko.</string>
+  <string name="no_connection_title">Nėra Interneto</string>
+  <string name="download_dialog">Atsisiunčiama...</string>
+  <string name="apply_dialog">Pritaikoma...</string>
+  <string name="apply_dialog_lists">Pritaikomas Juodasis ir Baltasis sąrašas.</string>
+  <string name="apply_dialog_hostnames">Nagrinėjamas ir suliejamas host faias</string>
+  <string name="apply_dialog_hosts">Tvarkomas host failas</string>
+  <string name="apply_dialog_apply">Pritaikomas host failas</string>
+  <string name="apply_fail_title">Pritaikymas nepavyko</string>
+  <string name="revert_successful_title">Atkūrimas sėkmingas</string>
+  <string name="revert_problem_title">Atkūrimas nepavyko!</string>
+  <string name="download_fail_title">Atsisiuntimas nepavyko</string>
   <!--Other Dialogs-->
+  <string name="no_root_title">Rooted Android būtinas!</string>
+  <string name="reboot_never_reboot">Niekada neperkrauti ir daugiau neberodyti šio klausimo!</string>
+  <string name="loading">Kraunama...</string>
   <!--Menu entries-->
+  <string name="menu_refresh">Atnaujinti</string>
+  <string name="menu_add">Pridėti</string>
+  <string name="menu_help">Pagalba</string>
+  <string name="menu_lists">Jūsų Sąrašas </string>
+  <string name="menu_show_hosts_file">Atidaryti host faila</string>
+  <string name="menu_import">Importuoti Visą Sąrašą</string>
+  <string name="menu_preferences">Nustatymai</string>
   <!--Help-->
+  <string name="help_tab_about">Apie</string>
+  <string name="help_tab_faq">DUK</string>
+  <string name="help_tab_problems">Problemos</string>
+  <string name="help_tab_changelog">Pasikeitimai</string>
+  <string name="help_about_version">Versija:</string>
   <!--Scan Adware-->
+  <string name="scan_adware_start">Pradėti skenavimą</string>
   <!--Hosts Sources-->
   <!--Other-->
   <!--Tcpdump-->
+  <string name="tcpdump_log_context_browser">Atidaryti Naršyklėje</string>
   <!--Preferences-->
+  <string name="pref_download">Pagrindiniai nustatymai</string>
+  <string name="pref_hosts">Host Failas</string>
+  <string name="pref_header_preferences">Pasirinkimai</string>
+  <string name="pref_update_check_daily">Kasdien ieškoti atnaujinimų</string>
+  <string name="pref_automatic_update_daily">Automatiški atnaujinimai</string>
+  <string name="pref_enable_ipv6">Įjungti IPv6</string>
 </resources>

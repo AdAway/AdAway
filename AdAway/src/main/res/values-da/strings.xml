@@ -3,21 +3,21 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Afslut</string>
-  <string name="button_apply">Hent filer og anvend annonceblokering</string>
+  <string name="button_apply">Hent filer og anvend reklameblokering </string>
   <string name="button_close">Luk</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nej</string>
   <string name="button_revert">Deaktiver reklameblokering</string>
   <string name="button_add">Tilføj</string>
   <string name="button_cancel">Annuller</string>
-  <string name="button_apply_text">Alle hosts filer fra de definerede kilder er hentet, flettet med dine egne lister og installeret som en hosts fil på dit system.</string>
-  <string name="button_revert_text">Gendanner standard hosts filen på dit system.</string>
+  <string name="button_apply_text">Alle hosts-filer fra de definerede kilder er hentet, flettet sammen med dine egne lister og installeret som en hosts-fil på dit system.</string>
+  <string name="button_revert_text">Gendanner standard hosts-filen på dit system.</string>
   <string name="button_save">Gem</string>
   <string name="button_webserver_toggle_checked">Webserver kører</string>
   <string name="button_webserver_toggle_unchecked">Webserver kører ikke</string>
   <string name="button_webserver_toggle_text">Start eller stop webserver på localhost til at besvare anmodninger til blokerede værtsnavne.</string>
   <string name="button_help">Hjælp</string>
-  <string name="button_tcpdump_text">Tcpdump er et værktøj til at overvåge DNS-anmodninger og gemme dem i en logfil. Du kan starte den i baggrunden, køre programmer, der viser annoncer, og bagefter analysere DNS-anmodninger ved hjælp af logfilen. Mulig annonceværter kan derefter blive tilføjet til din blackliste.</string>
+  <string name="button_tcpdump_text">Tcpdump er et værktøj til at overvåge DNS-anmodninger og gemme dem i en logfil. Du kan starte den i baggrunden, køre programmer, der viser reklamer, for bagefter at analysere DNS-anmodningerne ved hjælp af logfilen. Mulig reklameværter kan derefter blive tilføjet til din blackliste.</string>
   <string name="button_tcpdump_toggle_checked">Tcpdump kører!</string>
   <string name="button_tcpdump_toggle_unchecked">Tcpdump kører ikke!</string>
   <string name="button_tcpdump_open">Åben logfil</string>
@@ -32,35 +32,36 @@
   <string name="checkbox_list_context_title">Rediger opslag</string>
   <string name="checkbox_list_context_edit">Rediger</string>
   <!--Your Lists-->
-  <string name="lists_tab_whitelist">Godkendte</string>
-  <string name="lists_tab_blacklist">Ikke godkendte</string>
-  <string name="lists_tab_blacklist_short">Ikke godkendt</string>
-  <string name="lists_tab_whitelist_short">Godkendt</string>
+  <string name="lists_tab_whitelist">Tilladte</string>
+  <string name="lists_tab_blacklist">Blokerede</string>
+  <string name="lists_tab_blacklist_short">Blokeret</string>
+  <string name="lists_tab_whitelist_short">Tilladt</string>
   <string name="lists_tab_redirection_list_short">Omdirigering</string>
   <string name="lists_tab_redirection_list">Omdirigeringsliste</string>
   <string name="list_dialog_url">URL:</string>
-  <string name="list_dialog_hostname">Værtsnavn</string>
+  <string name="list_dialog_hostname">Værtsnavn:</string>
   <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard karakterer * og ? er tilladt!)</string>
   <string name="list_dialog_ip">IP (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerer...</string>
-  <string name="export_dialog">Exporterer...</string>
-  <string name="export_success">Eksporterede alle poster til en fil kaldet \'adaway-export\' på dit SD-kort.</string>
+  <string name="export_dialog">Eksporterer...</string>
+  <string name="export_success">Eksporterede alle poster til en fil kaldet \'adaway-export\' på dit SD-kort/integreret hukommelse.</string>
   <!--Status Notifications-->
-  <string name="status_checking">Checker for opdateringer...</string>
-  <string name="status_reverting">Gendanner ...</string>
+  <string name="status_checking">Tjekker for opdateringer...</string>
+  <string name="status_reverting">Gendanner...</string>
   <string name="status_reverting_subtitle">Opretter en standard hosts-fil</string>
-  <string name="status_checking_subtitle">Kontrollerer om der er opdateringer til rådighed</string>
+  <string name="status_checking_subtitle">Kontrollerer om der er opdateringer tilgængelig</string>
   <string name="status_update_available">Opdatering fundet</string>
-  <string name="status_update_available_subtitle">Ny hosts-fil findes</string>
+  <string name="status_update_available_subtitle">En nyere hosts-fil findes</string>
   <string name="status_no_connection">Ingen Internetforbindelse</string>
-  <string name="status_no_connection_subtitle">Ingen Internetforbindelse til rådighed</string>
-  <string name="status_download_fail">utilgængelige kilder</string>
+  <string name="status_no_connection_subtitle">Ingen Internetforbindelse tilgængelig</string>
+  <string name="status_download_fail">Utilgængelige kilder</string>
   <string name="status_download_fail_subtitle_new">Ingen hostskilder kan nås!</string>
   <string name="status_enabled">Aktiveret</string>
   <string name="status_enabled_subtitle">Nyeste hosts-fil aktiveret</string>
   <string name="status_disabled">Deaktiveret</string>
   <string name="status_disabled_subtitle">Deaktiveret</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlink fra dit mål til /system/etc/hosts findes ikke eller er sat forkert! AdAway virker ikke, hvis den ikke peger det rigtige sted hen.\n\nVil du prøve at lave et symlink?</string>
   <string name="apply_symlink_missing_title">Symlink mangler</string>
   <string name="apply_not_enough_space">Ikke nok plads på partitionen!\nPrøv at ændre hosts kildefilen i indstillingerne til /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Ikke nok plads</string>
@@ -73,9 +74,12 @@
   <string name="apply_success_subtitle">Anvendte hosts kilder:</string>
   <string name="apply_success_title">Anvendt successfuldt</string>
   <string name="apply_success_dialog">Succesfuldt anvendt.\nlt Måske nødvendig at genstarte Android før ændringerne træder i kraft.\n\nVil du genstarte?\n(For at undgå datatab, vær sikker på at ingen programmer anvender sd kortet!)</string>
+  <string name="apply_symlink_successful">Symlink blev oprettet korrekt.\nDet kan muligvis være nødvendigt at genstarte Android for at reflektere ændringerne.\n\nVil du genstarte?\n(For at undgå data-tab må ingen programmer bruge SD-kortet!)</string>
   <string name="apply_symlink_successful_title">Symlink oprettet successfuldt</string>
+  <string name="apply_symlink_fail">Symlink kunne ikke oprettes igennem Android.\nDette sker oftest grundet en \'feature\' S-ON på HTC-telefoner!\n\nEn løsning er at boote ind i recovery-mode og oprette symlinket manuelt med kommandoen \"ln -s /data/data/hosts /system/etc/hosts\".\n\nHvis dette ikke virker, kan du søge efter \"S-OFF\" og din telefons modelnavn.</string>
   <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
   <string name="apply_help">Venligst læs Hjælp for mere information.</string>
+  <string name="apply_apn_proxy">En APN-proxy er sat til på din Android!\nAdAway vil ikke virke pålideligt når du er på mobile netværker som 3G/4G. Du kan deaktivere denne proxy ved at gå til din valgte APN (På Android 4+: WiFi og netværker -&gt; Mere... -&gt; Mobile netværker -&gt; Access Point Names) og fjerne værdien i proxy-feltet.</string>
   <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
   <string name="no_connection">Internetforbindelsen virker ikke.</string>
   <string name="no_connection_title">Ingen forbindelse</string>
@@ -85,6 +89,7 @@
   <string name="apply_dialog_hostnames">Parser og fletter hosts-filer</string>
   <string name="apply_dialog_hosts">Opbygger hosts-filen</string>
   <string name="apply_dialog_apply">Anvender hosts-filen</string>
+  <string name="apply_fail">Hosts-filen kunne ikke påføres dit system!\nPrøv at ændre placeringen af hosts-filen i indstillingerne til \"/data/data/hosts\".</string>
   <string name="apply_fail_title">Anvendelse mislykkedes</string>
   <string name="revert_successful">Du gendannede standard hosts filen.\nlt Måske nødvendig at genstarte Android før ændringerne træder i kraft.\n\nVil du genstarte?\n(For at undgå datatab, vær sikker på at ingen programmer anvender sd kortet!)</string>
   <string name="revert_successful_title">Gendannelse successfuld</string>
@@ -95,6 +100,7 @@
   <string name="no_private_file">Privat fil kan ikke oprettes.</string>
   <string name="no_private_file_title">Oprettelse af privat fil mislykkedes</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Enten findes SU-binary\'et ikke eller du afviste root-adgang for AdAway.\n\nDette kan ske når din enhed ikke har opnået root-adgang.\nDu kan finde information om hvordan du får root-adgang på din enhed på www.cyanogenmod.org eller andre Android-websider.</string>
   <string name="no_root_title">En rootet Android kræves</string>
   <string name="no_url">Dette er ikke en gyldig URL!</string>
   <string name="no_url_title">Forkert formateret URL</string>
@@ -192,8 +198,12 @@
   <string name="pref_update_only_on_wifi">Opdatér kun via trådløst netværk</string>
   <string name="pref_update_only_on_wifi_summary">Kør kun baggrundsopdateringer når der er forbindelse via et trådløs netværk</string>
   <string name="pref_whitelist_rules">Tillad hvidlister</string>
+  <string name="pref_whitelist_rules_summary">Tillad hvidlist indhold fra Hosts kilden.</string>
   <string name="pref_redirection_rules">Tillad omdirigeringer</string>
+  <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug-logning</string>
   <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>
+  <string name="pref_enable_ipv6">Aktivér IPv6</string>
+  <string name="pref_enable_ipv6_summary">Alle hosts-fils poster vil få en tilsvarende ::1 (IPv6 localhost) post.</string>
 </resources>

@@ -2,26 +2,26 @@
 <head></head>
 <body>
 <h2>Einnahmen durch Werbung</h2>
-<p>Es existiert die Auffassung, dass wenn ein Nutzer nie auf Werbung klickt, dieses einer Webseite oder Anwendung finanziell nicht schadet, wenn diese blockiert werden. Entwickler werden aber oft über die Anzahl der Aufrufe bezahlt. Es bleibt Ihre Entscheidung, ob Sie Werbung blockieren oder nicht. Ich persönlich würde keine Anwendungen verwenden, die Werbung anzeigt, weil mich diese äußerst stört. Ohne einen Werbeblocker würde ich diese Anwendungen nicht installieren.</p>
+<p>Die oft geäußerte Auffassung, dass ein Nutzer, der nie auf Werbung klickt, einer Webseite oder Anwendung finanziell nicht schadet, wenn Werbung blockiert wird, ist falsch. Denn Entwickler erhalten auch durch das bloße Einblenden von Werbung Geld. Es bleibt Ihre Entscheidung, ob Sie Werbung blockieren oder nicht. Ich persönlich würde keine Anwendungen verwenden, die Werbung anzeigen, da ich sie sehr störend finde, d. h. ohne einen Werbeblocker würde ich diese Anwendungen nicht installieren.</p>
 
 
 
 <h2>Wie funktioniert AdAway?</h2>
-<p>AdAway benutzt die <a href="http://en.wikipedia.org/wiki/Hosts_file">Hosts-Datei</a>, um Hostnamen zu blockieren, die Werbung ausliefern. Die Hosts-Datei ist eine Datei, die sich in <tt>/system/etc/hosts</tt> befindet und Hostnamen in IP-Adressen übersetzt. Dies ist eine Möglichkeit Hostnamen zu IP-Adresspaaren zu definieren ohne vom Domain Name System (DNS) Gebrauch zu machen. Alle unerwünschten Hostnamen werden zu <tt>127.0.0.1</tt> umgeleitet, also auf Ihr eigenes Gerät.</p>
+<p>AdAway verwendet die Hosts-Datei <a href="http://en.wikipedia.org/wiki/Hosts_file"></a>, um Hostnamen zu blockieren, die Werbung ausliefern. Die Hosts-Datei befindet sich in <tt>/system/etc/hosts</tt> und enthält Hostnamen und ihre zugehörigen IP-Adressen. Es ist die klassische Art, Paare aus Hostnamen und IP-Adressen festzulegen, ohne vom Domain Name System (DNS) Gebrauch zu machen. Alle unerwünschten Hostnamen werden an <tt>127.0.0.1</tt> umgeleitet, also auf Ihr eigenes Gerät.</p>
 
 <h2>Warum ist die Einstellung für die tägliche Aktualisierungsprüfung ausgegraut?</h2>
-<p>Automatische Überprüfung für neue Aktualisierungen ist nur verfügbar, wenn AdAway auf dem internen Telefonspeicher installiert ist. Dieses ist aufgrund von Beschränkungen durch die Android-Plattform.</p>
+<p>Aufgrund von systembedingten Beschränkungen, ist die automatische Überprüfung auf Aktualisierungen nur möglich, wenn AdAway auf dem internen Telefonspeicher installiert ist.</p>
 
 <h2>Warum muss ich Android neu starten, damit die Änderungen wirksam werden?</h2>
 <p>Java auf Android hat einen eigenen internen DNS-Zwischenspeicher. Das Betriebssystem übernimmt die neue Hosts-Datei sofort (dieses kann man mit einem Ping über die Kommandozeile überprüfen). Jedoch ist es nötig Android neu zu starten, um Javas DNS-Zwischenspeicher zu erneuern.</p>
 
 <h2>Wie verwendet man den Webserver in AdAway?</h2>
-<p><b>AdAway funktioniert auch ohne den Webserver zu aktivieren!</b>
-<br/><br/>Sie können den lokalen Webserver in den Einstellungen von AdAway aktivieren, damit Anfragen an die lokale IP-Adresse <tt>127.0.0.1</tt> beantwortet werden. Das bedeutet das Anfragen von Anwendungen an Server, die eigentlich Werbung ausliefern, nun von AdAways-Webserver beantwortet werden. 
-<br/>Manche Anwendungen funktionieren nicht wenn Werbeserver nicht erreichbar sind. Mit dieser Methode werden sie wieder erreichbar, da der lokale Webserver mit einer leeren Seite antwortet.</p>
+<p><b>AdAway wird auch funktionieren, wenn kein Webserver verwendet wird!</b>
+<br/><br/>Sie können in den Einstellungen von AdAway einen lokalen Webserver aktivieren, damit Anfragen an die lokale IP-Adresse <tt>127.0.0.1</tt> beantwortet werden. Dadurch werden Anfragen von Anwendungen an Werbeserver, die an <tt>127.0.0.1</tt> umgeleitet werden, nun vom AdAway-Webserver beantwortet. 
+<br/>Manche Anwendungen funktionieren nicht, wenn keine Werbeserver erreichbar sind. Mit dieser Methode werden sie (scheinbar) wieder erreichbar, indem der lokale Webserver mit einer leeren Seite antwortet.</p>
 
 <h2>Wie kann ich bestimmte Hostnamen sperren/entsperren?</h2>
-<p>Fügen Sie die Hostnamen, die Sie blockieren wollen, zur »Negativliste« (=Negativ) unter »Meine Listen« hinzu. Zusätzlich können Hostnamen die Sie nicht blockieren wollen zur »Positivliste« (=Positiv) hinzugefügt werden und Umleitungen eingetragen werden (=Umleitung).</p>
+<p>Fügen Sie die Hostnamen, die Sie blockieren wollen, zur »Negativliste« (=Negativ) unter »Meine Listen« hinzu. Zusätzlich können Hostnamen, die Sie nicht blockieren wollen, zur »Positivliste« (=Positiv) hinzugefügt bzw. Hostnamen, die Sie an eine spezielle IP-Adresse weiterleiten möchten, in die »Umleitungsliste« (=Umleitung) eingetragen werden.</p>
 
 <h2>Wo finde ich weitere Hosts-Quellen?</h2>
 <p>Siehe die <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">Liste zusätzlicher Hosts-Quellen für AdAway</a>.</p>

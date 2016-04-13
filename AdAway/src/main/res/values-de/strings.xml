@@ -27,7 +27,7 @@
   <string name="checkbox_list_empty">Leere Liste</string>
   <string name="checkbox_list_empty_text">Sie können Einträge über das Menü hinzufügen.</string>
   <string name="checkbox_list_context_delete">Löschen</string>
-  <string name="checkbox_list_footer">Wenn Sie die Liste erweitern, müssen Sie AdAway nochmal aktivieren!</string>
+  <string name="checkbox_list_footer">Wenn Sie die Liste erweitern, müssen Sie AdAway neustarten!</string>
   <string name="checkbox_list_edit_dialog_title">Bearbeiten</string>
   <string name="checkbox_list_context_title">Eintrag bearbeiten</string>
   <string name="checkbox_list_context_edit">Bearbeiten</string>
@@ -61,7 +61,7 @@
   <string name="status_disabled">Deaktiviert</string>
   <string name="status_disabled_subtitle">Deaktiviert</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Die symbolische Verknüpfung von Ihrem Ziel auf /system/etc/hosts ist nicht vorhanden oder falsch! Ohne diese Verknüpfung wird AdAway nicht funktionieren.\n\nMöchten Sie versuchen eine symbolische Verknüpfung zu erstellen?</string>
+  <string name="apply_symlink_missing">Die symbolische Verknüpfung zwischen Ihrem Ziel und /system/etc/hosts ist nicht vorhanden oder falsch! Ohne diese Verknüpfung wird AdAway nicht funktionieren.\n\nMöchten Sie versuchen eine symbolische Verknüpfung zu erstellen?</string>
   <string name="apply_symlink_missing_title">Symbolische Verknüpfung fehlt</string>
   <string name="apply_not_enough_space">Nicht genügend Speicherplatz auf der Partition!\nVersuchen Sie die zu benutzende Hosts-Datei auf /data/data/hosts zu ändern.</string>
   <string name="apply_not_enough_space_title">Nicht genug Speicherplatz</string>
@@ -73,25 +73,25 @@
   <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
   <string name="apply_success_subtitle">Angewandte Hosts-Quellen:</string>
   <string name="apply_success_title">Erfolgreich angewendet</string>
-  <string name="apply_success_dialog">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, stellen Sie bitte sicher, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
-  <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, bitte feststellen, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="apply_success_dialog">Änderungen waren erfolgreich.\Damit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\Damit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
   <string name="apply_symlink_successful_title">Symbolische Verknüpfung erfolgreich erstellt</string>
-  <string name="apply_symlink_fail">Symbolische Verknüpfung konnte nicht, von Android, erstellt werden.\nDas liegt wahrscheinlich an einer Funktion namens S-ON auf HTC-Geräten!\n\nEine Lösung ist es, Ihr Gerät im Wiederherstellungsmodus zu starten und die Verknüpfung von dort mit »ln -s /data/data/hosts /system/etc/hosts« zu erstellen.\n\nWenn das nicht funktioniert, suchen Sie bitte im Internet nach S-OFF und Ihrem Gerät.</string>
+  <string name="apply_symlink_fail">Android konnte keine symbolische Verknüpfung erstellen.\nDas liegt vermutlich an einer Eigenheit von HTC-Geräten namens S-ON!\n\nEine Lösung ist es, Ihr Gerät im Wiederherstellungsmodus zu starten und dort die Verknüpfung mit »ln -s /data/data/hosts /system/etc/hosts« zu erstellen.\n\nWenn das nicht funktioniert, suchen Sie bitte im Internet nach S-OFF und Ihrem Gerät.</string>
   <string name="apply_symlink_fail_title">Symbolische Verknüpfung konnte nicht erstellt werden</string>
   <string name="apply_help">Bitte die Hilfe für mehr Informationen lesen.</string>
-  <string name="apply_apn_proxy">Ein Zugangspunktvermittlungsserver (APN-Proxy) ist auf Ihrem Android eingestellt!\nAdAway wird nicht zuverlässig arbeiten, wenn Mobilfunknetze wie 3G genutzt werden. Sie können diesen Vermittlungsserver (Proxy) deaktivieren, indem Sie zu Ihrem ausgewählten Zugangspunkt gehen (Bei Android 4: Drahtlos und Netzwerke -&gt; Weitere Einstellungen -&gt; Mobile Netzwerke -&gt; Zugangspunkte) und den Wert im Proxy-Feld entfernen.</string>
+  <string name="apply_apn_proxy">Auf Ihrem Android-Gerät ist ein Zugangspunktvermittlungsserver (APN-Proxy) festgelegt!\nAdAway wird in Mobilfunknetzen nicht zuverlässig funktionieren. Sie können diesen Vermittlungsserver (Proxy) deaktivieren, indem Sie in den Systemeinstellungen den eingetragenen Wert für den Zugangspunkt löschen (Bei Android 4: Drahtlos und Netzwerke -&gt; Weitere Einstellungen -&gt; Mobile Netzwerke -&gt; Zugangspunkte).</string>
   <string name="apply_apn_proxy_title">APN-Proxy eingestellt!</string>
   <string name="no_connection">Die Internetverbindung funktioniert nicht.</string>
   <string name="no_connection_title">Keine Verbindung</string>
   <string name="download_dialog">Wird heruntergeladen …</string>
   <string name="apply_dialog">Wird angewendet …</string>
-  <string name="apply_dialog_lists">Weiße und schwarze Liste werden angewendet</string>
+  <string name="apply_dialog_lists">Negativ- und Positivliste werden angewendet</string>
   <string name="apply_dialog_hostnames">Hosts-Dateien werden verarbeitet und zusammengefügt</string>
   <string name="apply_dialog_hosts">Hosts-Datei wird erstellt</string>
   <string name="apply_dialog_apply">Neue Hosts-Datei im System aktivieren</string>
   <string name="apply_fail">Das Ändern der Hosts-Datei auf Ihrem System ist fehlgeschlagen!\nVersuchen Sie bitte die Hosts-Datei, in den Einstellungen, auf /data/data/hosts zu ändern.</string>
   <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
-  <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, bitte feststellen, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
   <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
   <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
   <string name="revert_problem_title">Die Wiederherstellung ist fehlgeschlagen!</string>
@@ -100,8 +100,8 @@
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Entweder konnte die su-Binary nicht gefunden werden oder Sie haben AdAway keine root-Rechte gegeben.\n\nDas kann passieren, wenn Sie Ihr Gerät nicht gerootet haben.\nInformationen, wie Sie Ihr Gerät rooten, können Sie auf www.cyanogenmod.org oder anderen Android-Internetseiten finden.</string>
-  <string name="no_root_title">Gerootetes Android wird benötigt</string>
+  <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es exisitiert keine su-Binary.\n\nLetzteres deutet daraufhin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf www.cyanogenmod.org oder anderen Android-Internetseiten.</string>
+  <string name="no_root_title">Das System muss gerootet sein</string>
   <string name="no_url">Das ist keine gültige Adresse!</string>
   <string name="no_url_title">Falsch formatierte Adresse</string>
   <string name="hosts_add_dialog">Bitte Adresse zur Hosts-Datei eingeben:</string>
@@ -109,7 +109,7 @@
   <string name="no_hostname_title">Falsch formatierter Hostname</string>
   <string name="no_ip">Das ist keine gültige IP!</string>
   <string name="no_ip_title">Falsch formatierte IP</string>
-  <string name="reboot_never_reboot">Niemals neu Starten und diese Frage nächstes Mal nicht anzeigen!</string>
+  <string name="reboot_never_reboot">Niemals neu starten und diese Frage nicht wieder stellen!</string>
   <string name="loading">Wird geladen …</string>
   <!--Menu entries-->
   <string name="menu_refresh">Neu laden</string>
@@ -153,18 +153,18 @@
   <string name="no_text_editor_title">Keine Textbearbeitung installiert</string>
   <string name="no_text_editor">Es konnte keine Textbearbeitung gefunden werden, um die Hosts-Datei zu öffnen. Sie können Jota oder eine andere Textbearbeitung installieren, um Textdateien zu öffnen.\n\nMöchten Sie Jota installieren?</string>
   <string name="no_file_manager_title">Keine Dateiverwaltung installiert</string>
-  <string name="no_file_manager">Es konnte keine Dateiverwaltung gefunden werden, um Dateien zu öffnen. Sie können »OI File Manager« oder eine andere Dateiverwaltungen installieren, um das zu handhaben.\n\n Möchten Sie »OI File Manager« installieren?</string>
+  <string name="no_file_manager">Es konnte keine Dateiverwaltung gefunden werden, um Dateien zu öffnen. Sie können »OI File Manager« oder  andere Dateimanager installieren, um das zu beheben.\n\n Möchten Sie »OI File Manager« installieren?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Protokolldatei wurde gelöscht!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Der Hostname wurde zu Ihrer schwarzen Liste hinzugefügt!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Der Hostname wurde zu Ihrer weißen Liste hinzugefügt!</string>
-  <string name="tcpdump_log_context_blacklist">Zur schwarzen Liste hinzufügen</string>
-  <string name="tcpdump_log_context_whitelist">Zur weißen Liste hinzufügen</string>
+  <string name="toast_tcpdump_added_to_blacklist">Der Hostname wurde zu Ihrer Negativliste hinzugefügt!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Der Hostname wurde zu Ihrer Positivliste hinzugefügt!</string>
+  <string name="tcpdump_log_context_blacklist">Zur Negativliste hinzufügen</string>
+  <string name="tcpdump_log_context_whitelist">Zur Positivliste hinzufügen</string>
   <string name="tcpdump_log_context_browser">Im Browser öffnen</string>
   <string name="tcpdump_log_empty">Protokolldatei ist leer!</string>
   <string name="tcpdump_log_footer">Einen Eintrag lange gedrückt halten, um ihn zur Negativ- oder Positivliste hinzuzufügen!</string>
   <!--Preferences-->
-  <string name="pref_download">Generelle Einstellungen</string>
+  <string name="pref_download">Grundeinstellungen</string>
   <string name="pref_hosts">Hosts-Datei</string>
   <string name="pref_redirection_ip">Umleitungs-IP</string>
   <string name="pref_update_check">Nach Aktualisierungen suchen</string>
@@ -174,8 +174,8 @@
   <string name="pref_header_preferences">Einstellungen</string>
   <string name="pref_header_preferences_summary">Generelle AdAway-Einstellungen</string>
   <string name="pref_never_reboot">Neustartdialog verstecken</string>
-  <string name="pref_never_reboot_summary">Versteckt den Dialog, der nach dem Neustarten von Android fragt, nachdem Änderungen an der Hosts-Datei angewendet wurden.</string>
-  <string name="pref_webserver_on_boot">Beim Gerätestart den Webserver starten</string>
+  <string name="pref_never_reboot_summary">Nach Änderungen an der Hosts-Datei wird der Dialog mit der Frage nach einem Android-Neustart nicht mehr eingeblendet. </string>
+  <string name="pref_webserver_on_boot">Webserver-Start bei Gerätestart</string>
   <string name="pref_webserver_on_boot_summary">Beim Gerätestart den Webserver auf der lokalen IP-Adresse starten</string>
   <string name="pref_webserver_enabled">Webserver aktivieren</string>
   <string name="pref_webserver_enabled_summary">Den lokalen Webserver aktivieren, um Anfragen an blockierte Hostnamen zu beantworten.</string>
@@ -197,13 +197,13 @@
   <string name="pref_automatic_update_daily_summary">Wenn Aktualisierungen verfügbar sind, diese automatisch im Hintergrund installieren.</string>
   <string name="pref_update_only_on_wifi">Aktualisierung nur bei WLAN-Verbindung</string>
   <string name="pref_update_only_on_wifi_summary">Hintergrundaktualisierungen sollen nur bei WLAN-Verbindung heruntergeladen werden.</string>
-  <string name="pref_whitelist_rules">Das auflisten von weißer Liste erlauben</string>
-  <string name="pref_whitelist_rules_summary">Einträge der weißen Liste aus den Hosts-Quellen erlauben.</string>
+  <string name="pref_whitelist_rules">Positivlisten erlauben</string>
+  <string name="pref_whitelist_rules_summary">Positivlisteneinträge aus Hosts-Quellen zulassen.</string>
   <string name="pref_redirection_rules">Weiterleitungen erlauben</string>
-  <string name="pref_redirection_rules_summary">STELLT SICHERHEITSRISIKO DAR! Weiterleitungseinträge von Hosts-Quellen erlauben.</string>
+  <string name="pref_redirection_rules_summary">SICHERHEITSGEFÄHRDEND! Weiterleitungseinträge aus Hosts-Quellen zulassen.</string>
   <string name="pref_debug">Fehlerdiagnose</string>
   <string name="pref_enable_debug">Fehlerdiagnoseprotokollierung</string>
-  <string name="pref_enable_debug_summary">Sie müssen AdAway neu Starten, damit diese Einstellung genutzt werden kann.</string>
+  <string name="pref_enable_debug_summary">Sie müssen AdAway neustarten, damit diese Einstellung genutzt werden kann.</string>
   <string name="pref_enable_ipv6">IPv6 aktivieren</string>
   <string name="pref_enable_ipv6_summary">Alle Einträge in der Host-Datei werden einen entsprechenden Eintrag ::1 (IPv6 localhost) erhalten.</string>
 </resources>

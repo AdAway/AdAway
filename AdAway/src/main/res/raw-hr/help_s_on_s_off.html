@@ -8,8 +8,8 @@
 <p>S-OFF označava to da je NAND dio uređaja otključan i da se može pisati na njega. Zadana postavka za HTC-ove uređaje je S-ON, što znači da ne možete pristupiti određenim dijelovima sustava, niti Vam može biti zagarantiran trajni root. Štoviše, provjera potpisa za sve slike firmwarea također je osigurana oznakom S-ON.</p>
 
 <h2>Imam li S-ON ili S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Pokrenite Boot Menu na vašem uređaju tako da držite <i>volume down</i> tipku dok pritiščete Power tipku i text pri vrhu zaslona će pokazati status ili kao S-OFF ili S-ON. Potpuni root obično znači S-OFF.
+<br/><br/>Više informacija možete naći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Dodatne S-OFF metode od Unrevokable (na linku) vas mogu zanimati, imenom: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Zaobilaženje</h2>
 <p>Potrebno: instaliran i funkcionalan Android SDK s ADB shellom na Vašem PC-u. \n</p>
@@ -19,8 +19,9 @@
 <li>U Clockwork recoveryju koristeći tipku za stišavanje dođite do stavke "Partitions menu" te je odaberite pomoću trackpada.</li>
 <li>Odaberite <i>mount /system</i>, <i>mount /sdcard</i> i <i>mount /data</i>.</li>
 <li>Uključite USB kabel i otvorite komandnu liniju na svom PC-u.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Pokrenite adb shell i upišite <tt>ln -s /data/hosts /system/etc/hosts</tt>
+(Ovo će stvoriti simbolički link, koji dopušta AdAway-u da uređuje datoteku poslužitelja pohranjenu u <tt>/data</tt> dopuštajući sustavu da koristi tu datoteku kao da je pohranjena u <tt>/system</tt>.)</li>
+<li>Ponovno pokrenite vaš uređaj i postavite <i>Ciljana datoteka poslužitelja</i> u <i>/data/hosts</i> u postavkama AdAwaya.</li>
 <li>AdAway bi sada trebao raditi.</li>
 </ol>
 </body>

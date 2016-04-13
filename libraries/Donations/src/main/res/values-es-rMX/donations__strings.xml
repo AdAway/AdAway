@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Cerrar</string>
+  <string name="donations__google_android_market_donate_button">¡Donar!</string>
+  <string name="donations__google_android_market_text">¿Cuánto?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">¡Puede seleccionar cuanto quiere donar despues de oprimir el botón!</string>
+  <string name="donations__thanks_dialog_title">¡Gracias!</string>
+  <string name="donations__thanks_dialog">¡Gracias por donar!\n!Mi sincero aprecio por su donación!</string>
+  <string name="donations__alert_dialog_title">Ha ocurrido un error</string>
+</resources>

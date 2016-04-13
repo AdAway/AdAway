@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Salir</string>
+  <string name="button_close">Cerrar</string>
+  <string name="button_yes">SI</string>
+  <string name="button_no">No</string>
+  <string name="button_revert">Deshabilitar bloqueado de anuncios</string>
+  <string name="button_add">Agregar</string>
+  <string name="button_cancel">¡Cancelar!</string>
+  <string name="button_save">Guardar</string>
+  <string name="button_help">Ayuda</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_add_dialog_title">Agregar</string>
+  <string name="checkbox_list_empty">Vaciar lista</string>
+  <string name="checkbox_list_context_delete">Eliminar</string>
+  <string name="checkbox_list_edit_dialog_title">Editar</string>
+  <string name="checkbox_list_context_title">Editar entrada</string>
+  <string name="checkbox_list_context_edit">Editar</string>
+  <!--Your Lists-->
+  <string name="lists_tab_blacklist_short">Negro</string>
+  <string name="lists_tab_whitelist_short">Blanco</string>
+  <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
+  <string name="import_dialog">Importando...</string>
+  <string name="export_dialog">Exportando...</string>
+  <!--Status Notifications-->
+  <string name="status_checking">Buscando actualizaciones...</string>
+  <string name="status_reverting">Revirtiendo...</string>
+  <string name="status_checking_subtitle">Buscando actualizaciones...</string>
+  <string name="status_update_available">Actualización disponible</string>
+  <string name="status_no_connection">No hay conexión a Internet</string>
+  <string name="status_no_connection_subtitle">No hay conexión a Internet</string>
+  <string name="status_enabled">Habilitado</string>
+  <string name="status_disabled">Deshabilitado</string>
+  <string name="status_disabled_subtitle">Deshabilitado</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_not_enough_space_title">No hay suficiente espacio</string>
+  <string name="no_connection_title">No hay conexión a Internet</string>
+  <string name="download_dialog">Descargando...</string>
+  <string name="apply_dialog">Aplicando cambios...</string>
+  <string name="download_fail_title">Falla durante descarga</string>
+  <string name="no_private_file">Archivo privado no pudo ser creado</string>
+  <!--Other Dialogs-->
+  <string name="no_url">¡Este no es un URL válido!</string>
+  <string name="no_url_title">Formato de URL equivocado</string>
+  <string name="no_ip">¡Este no es un IP válido!</string>
+  <string name="no_ip_title">Formato de IP equivocado</string>
+  <string name="loading">Cargando...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Refrescar</string>
+  <string name="menu_add">Agregar</string>
+  <string name="menu_help">Ayuda</string>
+  <string name="menu_preferences">Preferencias</string>
+  <!--Help-->
+  <string name="help_tab_about">Acerca de...</string>
+  <string name="help_tab_donate">Donar</string>
+  <string name="help_tab_faq">Preguntas comunes</string>
+  <string name="help_tab_problems">Problemas</string>
+  <string name="help_tab_changelog">Revision de cambios</string>
+  <string name="help_donation_paypal_item">Donaciones a AdAway</string>
+  <!--Scan Adware-->
+  <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Local:</string>
+  <string name="hosts_last_modified_online">En linea:</string>
+  <string name="hosts_not_available">No disponible</string>
+  <!--Other-->
+  <string name="no_text_editor_title">Ningún editor de textos instalado</string>
+  <!--Tcpdump-->
+  <!--Preferences-->
+  <string name="pref_download">Preferencias Generales</string>
+  <string name="pref_redirection_ip">Redireccionar IP</string>
+  <string name="pref_header_preferences">Preferencias</string>
+  <string name="pref_update_check_summary">Buscar por actualizaciones al iniciar AdAway</string>
+  <string name="pref_update_check_daily">Buscar por actualizaciones diariamente</string>
+  <string name="pref_automatic_update_daily">Actualización automática</string>
+  <string name="pref_update_only_on_wifi">Actualizar solo con WiFi</string>
+  <string name="pref_debug">Depurar</string>
+  <string name="pref_enable_ipv6">Habilitar IPv6</string>
+</resources>

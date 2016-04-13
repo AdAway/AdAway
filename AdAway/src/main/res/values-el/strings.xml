@@ -10,7 +10,7 @@
   <string name="button_revert">Απενεργοποίηση αποκλεισμού διαφημίσεων</string>
   <string name="button_add">Προσθήκη</string>
   <string name="button_cancel">Άκυρο</string>
-  <string name="button_apply_text">Ολα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
+  <string name="button_apply_text">Όλα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
   <string name="button_revert_text">Επαναφορά του αρχικού αρχείου hosts στο σύστημά σας.</string>
   <string name="button_save">Αποθήκευση</string>
   <string name="button_webserver_toggle_checked">Ο διακομιστής δικτύου λειτουργεί</string>
@@ -75,7 +75,7 @@
   <string name="apply_copy_fail">Η αντιγραφή του αρχείου hosts απέτυχε!</string>
   <string name="apply_copy_fail_title">Η αντιγραφή απέτυχε</string>
   <string name="apply_success_subtitle">Εφαρμοσμένες πηγές hosts:</string>
-  <string name="apply_success_title">Επιτυχείς εφαρμογή</string>
+  <string name="apply_success_title">Επιτυχής εφαρμογή</string>
   <string name="apply_success_dialog">Η εφαρμογή ήταν επιτυχής.
 Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
 Θέλετε να κάνετε επανεκκίνηση;
@@ -84,7 +84,7 @@
 Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
 Θέλετε να κάνετε επανεκκίνηση;
 (Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
-  <string name="apply_symlink_successful_title">Επιτυχείς δημηουργεία συντόμευσης</string>
+  <string name="apply_symlink_successful_title">Επιτυχής δημιουργία συντόμευσης</string>
   <string name="apply_symlink_fail">Δεν ήταν δυνατό να δημιουργηθεί ο σύνδεσμος από το Android.
 Η αποτυχία οφείλεται συνήθως σε ένα \'χαρακτηριστικό\' που ονομάζεται S-ON στις συσκευές HTC!
 
@@ -111,7 +111,7 @@
 Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
 Θέλετε να κάνετε επανεκκίνηση;
 (Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
-  <string name="revert_successful_title">Επιτυχείς επαναφορά</string>
+  <string name="revert_successful_title">Επιτυχής επαναφορά</string>
   <string name="revert_problem">Η επαναφορά απέτυχε λόγω μη γνωστής αιτίας</string>
   <string name="revert_problem_title">Η επαναφορά απέτυχε!</string>
   <string name="download_fail_dialog">Καμία από τις ενεργοποιημένες πηγές hosts σας δεν είναι διαθέσιμη! Είστε συνδεδεμένοι στο Internet;</string>
@@ -166,7 +166,7 @@
   <string name="scan_adware_empty">Δεν βρέθηκαν κακές εφαρμογές Adware!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Τοπικά</string>
-  <string name="hosts_last_modified_online">Σε λειουργεία</string>
+  <string name="hosts_last_modified_online">Σε λειτουργία</string>
   <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
   <!--Other-->
   <string name="app_subtitle">Φραγή διαφημίσεων</string>

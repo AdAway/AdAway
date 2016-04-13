@@ -203,4 +203,5 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="pref_debug">Hata ayıklama</string>
   <string name="pref_enable_debug">Hata ayıklama kaydı</string>
   <string name="pref_enable_debug_summary">Ayarların etkinleştirmek için AdAway\'ı yeniden başlatın.</string>
+  <string name="pref_enable_ipv6">IPv6 etkinleştir</string>
 </resources>

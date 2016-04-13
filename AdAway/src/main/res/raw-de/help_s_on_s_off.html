@@ -2,26 +2,26 @@
 <head></head>
 <body>
 <h2>HTC-Geräte</h2>
-<p>AdAway funktioniert nicht, wenn Sie ein Gerät mit einem sogenannten S-ON verwenden. Diese »Funktion« existiert auf vielen HTC-Geräten und verhindert, dass AdAway die Hostdatei beschreiben kann.</p>
+<p>AdAway funktioniert nicht, wenn Sie ein Gerät mit einem sogenannten S-ON verwenden. Viele HTC-Geräte besitzen dieses »Merkmal«, das verhindert, dass AdAway die Hosts-Datei überschreiben kann.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF bedeutet, dass der NAND-Anteil des Gerätes entsperrt ist und somit beschrieben werden kann. Die Standardeinstellung bei HTC-Geräten ist S-ON, was bedeutet, dass man weder Zugriff auf bestimmte Bereiche des Systems hat, noch kann man einen permanenten Root garantieren. Desweiteren ist auch die Überprüfung der Signatur von Firmware-Abbildern durch das S-ON-Flag sichergestellt.</p>
+<p>S-OFF bedeutet, dass der NAND-Anteil des Gerätes entsperrt ist und somit beschrieben werden kann. Die Standardeinstellung bei HTC-Geräten ist S-ON, was wiederum heißt, dass Sie weder auf bestimmte Systembereiche zugreifen, noch einen dauerhaften Root-Zugriff gewährleisten können. Durch das S-ON-Flag wird außerdem die Überprüfung der Signatur von Firmware-Abbildern sichergestellt.</p>
 
 <h2>Habe ich S-ON oder S-OFF?</h2>
-<p>Starte in das Boot-Menü deines Gerätes durch Halten der <i>Lautstärke verringern</i>-Taste während du die Power-Taste gedrückt hältst. Der Text im Menü zeigt einen Status als S-OFF oder S-ON an. Ein voller Root-Zugriff bedeutet S-OFF.
-<br/><br/>Mehr Informationen findest du unter<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Zusätzliche S-OFF Methoden seit dem Unrevokable (in Verbindung) könnten Sie interessieren, und zwar: Revolutionäre, RevOne, Firewater, RumRunner, Moonshine, Sonnenschein ...</p>
+<p>Starten Sie in das Boot-Menü, indem Sie bei gedrückter  <i>Lautstärke verringern</i>-Taste Ihr Gerät einschalten. Der Status »S-OFF« oder »S-ON« wird oben im Menü angezeigt. »S-OFF« ist gleichbedeutend mit vollem Root-Zugriff.
+<br/><br/>Mehr Informationen hierzu finden Sie unter<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Möglicherweise haben Sie Interesse an weiteren »S-OFF«-Methoden seit Unrevokable (in der  Verknüpfung enthalten), insbesondere an: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine ...</p>
 
 <h2>Problemumgehung</h2>
-<p>Voraussetzung: Das Android-SDK ist installiert und die ADB-Shell ist funktionsfähig.
+<p>Voraussetzung: Ein, auf Ihrem PC installiertes, funktionsfähiges Android-SDK mit ADB-Shell.
 </p>
 <ol>
-<li>In das Boot-Menü Ihres Gerätes, durch Halten der <i>Lautstärke verringern</i>-Taste während die Power-Taste gedrückt wird, starten.</li>
-<li>Die <i>Lautstärke verringern</i>-Taste benutzen, um zur Wiederherstellung zu navigieren.</li>
+<li>Starten Sie in das Boot-Menü, indem Sie bei gedrückter  <i>Lautstärke verringern</i>-Taste Ihr Gerät einschalten.</li>
+<li>Verwenden Sie die <i>Lautstärke verringern</i>-Taste, um zur Recovery zu navigieren.</li>
 <li>In ClockworkMod Recovery zum Partitionsmenu navigieren.</li>
 <li><i>mount /system</i>, <i>mount /sdcard</i> und <i>mount /data</i> auswählen.</li>
 <li>Das Gerät mit dem PC verbinden und eine Befehlszeile öffnen.</li>
-<li>ADB-Shell starten und <tt>ln -s /data/data/hosts /system/etc/hosts</tt> eingeben (Das erstellt einen symbolischen Verweis, der es AdAway erlaubt die Hosts-Datei unter <tt>/data</tt> zu verändern, während es für das Betriebssystem so aussieht als wäre sie unter <tt>/system</tt> vorhanden.)</li>
-<li>Das Gerät neu starten und die <i>Hosts-Zieldatei</i>, in den AdAway-Einstellungen, zu <i>/data/hosts</i> festlegen.</li>
+<li>ADB-Shell starten und <tt>ln -s /data/data/hosts /system/etc/hosts</tt> eingeben (Es wird ein symbolischer Verweis erstellt, der es AdAway erlaubt, die Hosts-Datei unter <tt>/data</tt> zu verändern, während es für das Betriebssystem so aussieht, als wäre sie unter <tt>/system</tt> vorhanden.)</li>
+<li>Das Gerät neu starten und in den AdAway-Einstellungen  die <i>Zu benutzende Hosts-Datei</i> auf  <i>/data/hosts</i> umstellen.</li>
 <li>AdAway sollte nun funktionieren.</li>
 </ol>
 </body>

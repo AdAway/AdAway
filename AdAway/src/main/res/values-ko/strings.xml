@@ -13,7 +13,7 @@
   <string name="button_revert_text">Restores the default hosts file on your system.</string>
   <string name="button_save">저장</string>
   <string name="button_webserver_toggle_checked">웹서버 실행중</string>
-  <string name="button_webserver_toggle_unchecked">웹서버 미싱행중</string>
+  <string name="button_webserver_toggle_unchecked">웹서버 미실행중</string>
   <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
   <string name="button_help">도움말</string>
   <!--Checkbox List-->

@@ -7,29 +7,29 @@
   <string name="button_close">Sluiten</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nee</string>
-  <string name="button_revert">Advertentieblokkering uitschakelen</string>
+  <string name="button_revert">Schakel advertentieblokkering uit</string>
   <string name="button_add">Toevoegen</string>
   <string name="button_cancel">Annuleren</string>
-  <string name="button_apply_text">Alle hosts-bestanden van de gekozen bronnen zijn gedownload, samengevoegd met uw eigen lijsten en als één enkel hosts-bestand op uw systeem geïnstalleerd.</string>
+  <string name="button_apply_text">Alle hosts-bestanden van de gekozen bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geplaatst.</string>
   <string name="button_revert_text">Zet het standaard hosts-bestand terug op uw systeem.</string>
   <string name="button_save">Opslaan</string>
-  <string name="button_webserver_toggle_checked">Webserver draait</string>
-  <string name="button_webserver_toggle_unchecked">Webserver draait niet</string>
+  <string name="button_webserver_toggle_checked">Webserver wordt uitgevoerd</string>
+  <string name="button_webserver_toggle_unchecked">Webserver wordt niet uitgevoerd</string>
   <string name="button_webserver_toggle_text">Start of stop de webserver op localhost om verzoeken aan geblokkeerde hostnamen te beantwoorden.</string>
   <string name="button_help">Hulp</string>
-  <string name="button_tcpdump_text">Tcpdump is een hulpmiddel om DNS-verzoeken te bekijken en deze op te slaan in een logbestand. U kunt het in de achtergrond starten, een applicatie met reclames gebruiken, en achteraf de DNS-verzoeken analyseren middels het logbestand. Mogelijke reclameservers kunnen dan aan uw zwarte lijst worden toegevoegd.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump draait!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump draait niet!</string>
-  <string name="button_tcpdump_open">Logbestand openen</string>
-  <string name="button_tcpdump_delete">Logbestand verwijderen</string>
+  <string name="button_tcpdump_text">Tcpdump is een hulpmiddel om DNS-verzoeken te bekijken en deze op te slaan in een logbestand. U kunt het in de achtergrond starten, een app met reclames gebruiken, en achteraf de DNS-verzoeken analyseren middels het logbestand. Mogelijke reclameservers kunnen dan aan uw zwarte lijst worden toegevoegd.</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump wordt uitgevoerd!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump wordt niet uitgevoerd!</string>
+  <string name="button_tcpdump_open">Open logbestand</string>
+  <string name="button_tcpdump_delete">Verwijder logbestand</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Toevoegen</string>
   <string name="checkbox_list_empty">Lege lijst</string>
-  <string name="checkbox_list_empty_text">U kunt elementen toevoegen vanuit de actiebalk.</string>
-  <string name="checkbox_list_context_delete">Verwijderen</string>
-  <string name="checkbox_list_footer">Na het toevoegen van nieuwe regels aan deze lijst moet u AdAway opnieuw toepassen!</string>
+  <string name="checkbox_list_empty_text">U kunt hostnamen toevoegen vanuit de actiebalk.</string>
+  <string name="checkbox_list_context_delete">Verwijder</string>
+  <string name="checkbox_list_footer">Na het toevoegen van nieuwe hostnamen aan deze lijst, moet u AdAway opnieuw toepassen!</string>
   <string name="checkbox_list_edit_dialog_title">Wijzigen</string>
-  <string name="checkbox_list_context_title">Invoer wijzigen</string>
+  <string name="checkbox_list_context_title">Wijzig invoer</string>
   <string name="checkbox_list_context_edit">Wijzigen</string>
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Witte lijst</string>
@@ -61,9 +61,9 @@
   <string name="status_disabled">Uitgeschakeld</string>
   <string name="status_disabled_subtitle">Uitgeschakeld</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink van uw doel naar /system/etc/hosts bestaat niet of is incorrect! AdAway zal niet werken als dit niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink aan te maken?</string>
+  <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink te maken?</string>
   <string name="apply_symlink_missing_title">Symlink ontbreekt</string>
-  <string name="apply_not_enough_space">Niet genoeg ruimte op de partitie!\nProbeer het hosts-bestand dat u bedoelde in de voorkeuren te wijzigen naar /data/data/hosts.</string>
+  <string name="apply_not_enough_space">Niet genoeg ruimte op de systeempartitie!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
   <string name="apply_not_enough_space_title">Onvoldoende ruimte</string>
   <string name="apply_private_file_fail">Gedownload bestand kon niet worden gelezen.</string>
   <string name="apply_private_file_fail_title">Privébestandsfout</string>
@@ -73,8 +73,8 @@
   <string name="apply_copy_fail_title">Kopiëren mislukt</string>
   <string name="apply_success_subtitle">Toegepaste hosts-bronnen:</string>
   <string name="apply_success_title">Toepassen voltooid</string>
-  <string name="apply_success_dialog">Toepassen succesvol.\nHet kan nodig zijn dat Android opnieuw moet worden opgestart om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de SD-kaart gebruikt.)</string>
-  <string name="apply_symlink_successful">Symlink succesvol aangemaakt.\nHet kan nodig zijn dat Android opnieuw moet worden opgestart om de wijzigingen effect te laten hebben.\n\nWilt u herstarten?\n(Om dataverlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de SD-kaart gebruikt.)</string>
+  <string name="apply_success_dialog">Toepassen voltooid.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
+  <string name="apply_symlink_successful">Symlink succesvol aangemaakt.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
   <string name="apply_symlink_successful_title">Aanmaak symlink voltooid</string>
   <string name="apply_symlink_fail">De symlink kon niet door Android worden aangemaakt.\nDit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons!\n\nEen oplossing is uw telefoon in recoverymodus opstarten en hier de symlink aanmaken met \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAls dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
   <string name="apply_symlink_fail_title">Aanmaak symlink mislukt</string>
@@ -88,9 +88,9 @@
   <string name="apply_dialog_lists">Zwarte en witte lijst toepassen</string>
   <string name="apply_dialog_hostnames">Lezen en samenvoegen van hosts-bestanden</string>
   <string name="apply_dialog_hosts">Hosts-bestand opbouwen</string>
-  <string name="apply_dialog_apply">Hosts-bestand toepassen</string>
-  <string name="apply_fail">Het toepassen van het hosts-bestand op uw systeem is mislukt!\nProbeer het hosts-bestand dat u bedoelde in de voorkeuren te wijzigen naar /data/data/hosts.</string>
-  <string name="apply_fail_title">Toepassen mislukt</string>
+  <string name="apply_dialog_apply">Hosts-bestand plaatsen</string>
+  <string name="apply_fail">Het plaatsen van het hosts-bestand is mislukt!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
+  <string name="apply_fail_title">Hosts-bestand plaatsen mislukt</string>
   <string name="revert_successful">U hebt het standaard hosts-bestand teruggezet.\nHet kan nodig zijn dat Android opnieuw moet worden opgestart om de wijzigingen effect te laten hebben.\nnWilt u herstarten?\n(Om dataverlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de SD-kaart gebruikt.)</string>
   <string name="revert_successful_title">Terugzetten voltooid</string>
   <string name="revert_problem">Terugzetten is wegens onbekende redenen mislukt.</string>
@@ -151,8 +151,8 @@
   <!--Other-->
   <string name="app_subtitle">Adblocker</string>
   <string name="no_text_editor_title">Geen tekstverwerker geïnstalleerd</string>
-  <string name="no_text_editor">Geen tekstverwerker gevonden worden om het hosts-bestand te openen. U kunt Jota of een andere tekstverwerker installeren om dit af te handelen.\n\nWilt u Jota installeren?</string>
-  <string name="no_file_manager_title">Geen bestandsbeheerder gevonden</string>
+  <string name="no_text_editor">Geen tekstverwerker gevonden om het hosts-bestand mee te openen. U kunt Jota of een andere tekstverwerker installeren om dit te verhelpen.\n\nWilt u Jota installeren?</string>
+  <string name="no_file_manager_title">Geen bestandsbeheerder aangetroffen</string>
   <string name="no_file_manager">Geen bestandsbeheerder gevonden om bestanden te openen. U kunt OI Bestandsbeheer of een andere bestandsbeheerder installeren om dit af te handelen.\n\nWilt u OI Bestandsbeheer installeren?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Logbestand verwijderd!</string>
@@ -168,25 +168,25 @@
   <string name="pref_hosts">Hosts-bestand</string>
   <string name="pref_redirection_ip">Doorverwijzing-IP</string>
   <string name="pref_update_check">Controleer op updates</string>
-  <string name="pref_apply_method">Doel hosts-bestand </string>
+  <string name="pref_apply_method">Locatie van hosts-bestand</string>
   <string name="pref_apply_method_summary">Lees de hulp over deze functie voordat u dit aanpast.</string>
   <string name="pref_redirection_ip_summary">Alle geblokkeerde hostnamen worden doorverwezen naar dit IP-adres.</string>
   <string name="pref_header_preferences">Voorkeuren</string>
   <string name="pref_header_preferences_summary">Algemene voorkeuren voor AdAway</string>
   <string name="pref_never_reboot">Verberg het herstart-dialoogvenster</string>
-  <string name="pref_never_reboot_summary">Verbergt het dialoogvenster dat vraagt om Android opnieuw op te starten na een succesvolle toepassing</string>
+  <string name="pref_never_reboot_summary">Verbergt het dialoogvenster dat vraagt om Android opnieuw op te starten na het plaatsen van hosts-bestand</string>
   <string name="pref_webserver_on_boot">Start webserver tijdens het opstarten van de telefoon</string>
   <string name="pref_webserver_on_boot_summary">Start webserver bij het opstarten van het apparaat</string>
   <string name="pref_webserver_enabled">Zet webserver aan</string>
   <string name="pref_webserver_enabled_summary">Zorgt ervoor dat de webserver lokale IP-adressen afluistert om aanvragen naar geblokkeerde hostnamen te beantwoorden</string>
   <string name="pref_webserver">Lokale webserver</string>
-  <string name="pref_custom_target">Aangepast doel</string>
-  <string name="pref_custom_target_summary">Wordt alleen gebruikt als een aangepast doel is ingesteld.</string>
+  <string name="pref_custom_target">Aangepaste locatie</string>
+  <string name="pref_custom_target_summary">Wordt alleen gebruikt als u een aangepaste locatie voor het hosts-bestand heeft gekozen.</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>Aangepast doel</item>
+    <item>Aangepaste locatie</item>
   </string-array>
   <string name="pref_update_check_summary">Controleer op updates als AdAway wordt geopend</string>
   <string name="pref_sdcard_problem">Deze functie zal niet correct werken als AdAway op de SD-kaart is geïnstalleerd!</string>

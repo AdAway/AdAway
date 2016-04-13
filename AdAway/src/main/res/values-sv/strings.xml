@@ -206,4 +206,5 @@
   <string name="pref_enable_debug_summary">Du måste starta om AdAway för att den här inställningen ska börja gälla.</string>
   <string name="pref_enable_ipv6">Aktivera ipv6
 </string>
+  <string name="pref_enable_ipv6_summary">Alla värdfils poster kommer att få ett motsvarande ::1 (IPv6 localhost) post.</string>
 </resources>

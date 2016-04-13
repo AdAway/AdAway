@@ -1,27 +1,26 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Enheder</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<h2>HTC-enheder</h2>
+<p>AdAway virker ikke når du bruger en enheder med S-ON. Denne 'feature' findes på mange HTC-enheder og gør at AdAway ikke kan skrive til hosts-filen. </p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
+<p>S-OFF betyder at NAND-delen af din enhed er ulåst og kan skrives til. Standard-indstillingen for HTC-enheder er S-ON, hvilket betyder at du hverken kan tilgå bestemte områder af filsystemet eller sikre dig en permanent root-adgang. Ydermere, signatur-tjek for dine firmware-images er også påvirket af S-ON.</p>
 
 <h2>Har jeg S-ON eller S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boot in i bootloader'en på din enhed ved at holde <i>volume ned</i> nede imens du trykker på tænd-knappen og teksten i toppen vil vise flag-status som enten S-OFF eller S-ON. En fuld root-adgang vil oftest repræsenteres med S-OFF.
+Mere information kan findes på <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Måske kan du bruge disse S-OFF-metoder; Unrevokable (i link), Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine.</p>
 
-<h2>Workaround</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
-</p>
+<h2>Mulig omvej</h2>
+<p>Nødvendigt: Du skal have sat en virkende installation af Android SDK med en ADB-shell på din computer.</p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Boot ind i bootloader'en på din enhed ved at holde <i>volume ned</i> knappen nede imens du tænder på tænd-knappen.</li>
+<li>Brug <i>volume ned</i> til at vælge recovery.</li>
+<li>I Clockwork-recovery, brug volume ned til at vælge "partitions menu" og tryk på track-pad'en for at vælge.</li>
+<li>Vælg <i>mount /system</i>,<i>mount /sdcard</i> og <i>mount /data</i>.</li>
+<li>Sæt et USB-kabel i og åben en kommandoprompt på din computer.</li>
+<li>Find din ADB-shell og skriv <tt>ln -s /data/hosts /system/etc/hosts</tt> (Dette opretter et symbolsk link, hvilket tillader AdAway at konstruere hosts-filen i en anden placering end hosts-filens almindelige placering "/etc/hosts".)</li>
+<li>Genstart din enhed og sæt <i>Target hosts file</i> til <i>/data/hosts</i> i AdAways indstillinger.</li>
 <li>AdAway skulle virke nu.</li>
 </ol>
 </body>
