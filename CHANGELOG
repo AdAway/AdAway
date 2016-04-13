@@ -1,6 +1,13 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/Free-Software-for-Android/AdAway/issues
 
+3.1.1
+* Minor bugfixes
+* Update mongoose internal webserver to 6.4 release
+* Translations updates
+* Update pgl.yoyo.org default source to use https
+* Add generated timestamp into header of hosts file
+
 3.1
 * Add 64bit arch which allows tcpdump to run on those devices
 * Adjust scan adware list and stop it from crashing
