@@ -132,7 +132,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
                     + Tables.HOSTS_SOURCES
                     + " SET url=\"http://winhelp2002.mvps.org/hosts.txt\" WHERE url=\"http://www.mvps.org/winhelp2002/hosts.txt\"");
             // new hosts source
-            db.execSQL("INSERT INTO " + Tables.HOSTS_SOURCES
+            db.execSQL("INSERT OR IGNORE INTO " + Tables.HOSTS_SOURCES
                     + " (url, enabled) VALUES (\"http://sysctl.org/cameleon/hosts\", 1)");
             // removed last modified table, is now a column in hosts_sources
             db.execSQL("DROP TABLE IF EXISTS last_modified");
@@ -145,13 +145,13 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
                     + " WHERE url=\"http://sysctl.org/cameleon/hosts\"");
             // new hosts source
-            db.execSQL("INSERT INTO "
+            db.execSQL("INSERT OR IGNORE INTO "
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\", 0, 0, 1)");
         }
         if (oldVersion <= 5) {
             // new hosts source
-            db.execSQL("INSERT INTO "
+            db.execSQL("INSERT OR IGNORE INTO "
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://www.ismeh.com/HOSTS\", 0, 0, 1)");
         }
@@ -160,27 +160,22 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
                     + " WHERE url=\"http://www.ismeh.com/HOSTS\"");
             // new hosts source
-            db.execSQL("INSERT INTO "
+            db.execSQL("INSERT OR IGNORE INTO "
                     + Tables.HOSTS_SOURCES
                     + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://adaway.sufficientlysecure.org/hosts.txt\", 0, 0, 1)");
         }
         if (oldVersion <= 7) {
-            // removed http://adaway.sufficientlysecure.org/hosts.txt hosts source
-            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
+            // change http://adaway.sufficientlysecure.org/hosts.txt to http://adaway.org/hosts.txt
+            db.execSQL("UPDATE " + Tables.HOSTS_SOURCES
+                    + " SET url=\"http://adaway.org/hosts.txt\""
                     + " WHERE url=\"http://adaway.sufficientlysecure.org/hosts.txt\"");
-            // new hosts source
-            db.execSQL("INSERT INTO "
-                    + Tables.HOSTS_SOURCES
-                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://adaway.org/hosts.txt\", 0, 0, 1)");
         }
         if (oldVersion <= 8) {
             // problem with db version 7: http://adaway.org/hosts.txt has only been added on db upgrade
             // not on new installations
             // remove both
             db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
-                    + " WHERE url=\"http://adaway.sufficientlysecure.org/hosts.txt\"");
-            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
-                    + " WHERE url=\"http://adaway.org/hosts.txt\"");
+                    + " WHERE url IN (\"http://adaway.sufficientlysecure.org/hosts.txt\", \"http://adaway.org/hosts.txt\")");
             // add valid again
             db.execSQL("INSERT INTO "
                     + Tables.HOSTS_SOURCES
@@ -198,21 +193,15 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         }
         if (oldVersion <= 11) {
             // change http://hosts-file.net/ad_servers.asp to http://hosts-file.net/ad_servers.txt
-            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
+            db.execSQL("UPDATE " + Tables.HOSTS_SOURCES
+                    + " SET url=\"http://hosts-file.net/ad_servers.txt\""
                     + " WHERE url=\"http://hosts-file.net/ad_servers.asp\"");
-            // add modified entry
-            db.execSQL("INSERT INTO "
-                    + Tables.HOSTS_SOURCES
-                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"http://hosts-file.net/ad_servers.txt\", 0, 0, 1)");
         }
         if (oldVersion <= 12) {
             // change http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext to https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
-            db.execSQL("DELETE FROM " + Tables.HOSTS_SOURCES
+            db.execSQL("UPDATE " + Tables.HOSTS_SOURCES
+                    + " SET url=\"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\""
                     + " WHERE url=\"http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\"");
-            // add modified entry
-            db.execSQL("INSERT INTO "
-                    + Tables.HOSTS_SOURCES
-                    + " (url, last_modified_local, last_modified_online, enabled) VALUES (\"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\", 0, 0, 1)");
         } else {
             db.execSQL("DROP TABLE IF EXISTS " + Tables.HOSTS_SOURCES);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.WHITELIST);
