@@ -8,8 +8,6 @@ For more information visit http://adaway.org
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/org.adaway)
 
-[![F-Droid](https://f-droid.org/badge/get-it-on.png)](https://f-droid.org/repository/browse/?fdid=org.adaway "AdAway on F-Droid")
-
 ## Support
 
 You can post [Issues](https://github.com/Free-Software-for-Android/AdAway/issues) here or obtain more detailed community support via the [XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753).
