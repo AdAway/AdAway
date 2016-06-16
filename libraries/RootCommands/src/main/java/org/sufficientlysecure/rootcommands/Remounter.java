@@ -54,79 +54,17 @@ class Remounter {
      *         remounted as specified.
      */
     protected boolean remount(String file, String mountType) {
+        // grab an instance of the internal class
+        try {
+            SimpleCommand command = new SimpleCommand("busybox mount -o remount,"
+                    + mountType.toLowerCase(Locale.US) + " /system");
 
-        // if the path has a trailing slash get rid of it.
-        if (file.endsWith("/") && !file.equals("/")) {
-            file = file.substring(0, file.lastIndexOf("/"));
+            // execute on shell
+            shell.add(command).waitForFinish();
+
+        } catch (Exception e) {
         }
-        // Make sure that what we are trying to remount is in the mount list.
-        boolean foundMount = false;
-        while (!foundMount) {
-            try {
-                for (Mount mount : getMounts()) {
-                    Log.d(RootCommands.TAG, mount.getMountPoint().toString());
-
-                    if (file.equals(mount.getMountPoint().toString())) {
-                        foundMount = true;
-                        break;
-                    }
-                }
-            } catch (Exception e) {
-                Log.e(RootCommands.TAG, "Exception", e);
-                return false;
-            }
-            if (!foundMount) {
-                try {
-                    file = (new File(file).getParent()).toString();
-                } catch (Exception e) {
-                    Log.e(RootCommands.TAG, "Exception", e);
-                    return false;
-                }
-            }
-        }
-        Mount mountPoint = findMountPointRecursive(file);
-
-        Log.d(RootCommands.TAG, "Remounting " + mountPoint.getMountPoint().getAbsolutePath()
-                + " as " + mountType.toLowerCase(Locale.US));
-        final boolean isMountMode = mountPoint.getFlags().contains(mountType.toLowerCase(Locale.US));
-
-        if (!isMountMode) {
-            // grab an instance of the internal class
-            try {
-                SimpleCommand command = new SimpleCommand("busybox mount -o remount,"
-                        + mountType.toLowerCase(Locale.US) + " " + mountPoint.getDevice().getAbsolutePath()
-                        + " " + mountPoint.getMountPoint().getAbsolutePath(),
-                        "toolbox mount -o remount," + mountType.toLowerCase(Locale.US) + " "
-                                + mountPoint.getDevice().getAbsolutePath() + " "
-                                + mountPoint.getMountPoint().getAbsolutePath(), "mount -o remount,"
-                                + mountType.toLowerCase(Locale.US) + " "
-                                + mountPoint.getDevice().getAbsolutePath() + " "
-                                + mountPoint.getMountPoint().getAbsolutePath(),
-                        "/system/bin/toolbox mount -o remount," + mountType.toLowerCase(Locale.US) + " "
-                                + mountPoint.getDevice().getAbsolutePath() + " "
-                                + mountPoint.getMountPoint().getAbsolutePath());
-
-                // execute on shell
-                shell.add(command).waitForFinish();
-
-            } catch (Exception e) {
-            }
-
-            mountPoint = findMountPointRecursive(file);
-        }
-
-        if (mountPoint != null) {
-            Log.d(RootCommands.TAG, mountPoint.getFlags() + " AND " + mountType.toLowerCase(Locale.US));
-            if (mountPoint.getFlags().contains(mountType.toLowerCase(Locale.US))) {
-                Log.d(RootCommands.TAG, mountPoint.getFlags().toString());
-                return true;
-            } else {
-                Log.d(RootCommands.TAG, mountPoint.getFlags().toString());
-            }
-        } else {
-            Log.d(RootCommands.TAG, "mountPoint is null");
-        }
-        return false;
+    return true;
     }
 
     private Mount findMountPointRecursive(String file) {
@@ -160,7 +98,7 @@ class Remounter {
      */
     protected static ArrayList<Mount> getMounts() throws Exception {
 
-        final String tempFile = "/data/local/RootToolsMounts";
+        final String tempFile = "/sdcard/RootToolsMounts";
 
         // copy /proc/mounts to tempfile. Directly reading it does not work on 4.3
         Shell shell = Shell.startRootShell();
