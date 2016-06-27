@@ -35,7 +35,7 @@ import org.adaway.util.Log;
 
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 13;
+    private static final int DATABASE_VERSION = 14;
 
     public interface Tables {
         String HOSTS_SOURCES = "hosts_sources";
@@ -86,8 +86,8 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         // http://winhelp2002.mvps.org/hosts.htm
         insertHostsSource(insertStmt, "http://winhelp2002.mvps.org/hosts.txt");
 
-        // http://hosts-file.net
-        insertHostsSource(insertStmt, "http://hosts-file.net/ad_servers.txt");
+        // https://hosts-file.net
+        insertHostsSource(insertStmt, "https://hosts-file.net/ad_servers.txt");
 
         // https://pgl.yoyo.org/adservers/
         insertHostsSource(insertStmt,
@@ -202,6 +202,12 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("UPDATE " + Tables.HOSTS_SOURCES
                     + " SET url=\"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\""
                     + " WHERE url=\"http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\"");
+        } 
+        if (oldVersion <= 13) {
+            // change http://hosts-file.net/ad_servers.txt to https://hosts-file.net/ad_servers.txt
+            db.execSQL("UPDATE " + Tables.HOSTS_SOURCES
+                    + " SET url=\"https://hosts-file.net/ad_servers.txt\""
+                    + " WHERE url=\"http://hosts-file.net/ad_servers.txt\"");
         } else {
             db.execSQL("DROP TABLE IF EXISTS " + Tables.HOSTS_SOURCES);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.WHITELIST);
