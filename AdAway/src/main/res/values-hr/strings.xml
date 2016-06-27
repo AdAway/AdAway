@@ -3,7 +3,7 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Izlaz</string>
-  <string name="button_apply">Preuzmi datoteke i primijeni onemogućavanje oglasa</string>
+  <string name="button_apply">Preuzmi datoteke i primijeni blokiranje oglasa</string>
   <string name="button_close">Zatvori</string>
   <string name="button_yes">Da</string>
   <string name="button_no">Ne</string>
@@ -11,7 +11,7 @@
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Odustani</string>
   <string name="button_apply_text">Sve datoteke određenih poslužitelja iz definiranih izvora su preuzete, spojene s vašim popisima i instalirane kao jedna datoteka određenih poslužitelja na vaš sustav.</string>
-  <string name="button_revert_text">Vraća zadanu datoteku određenih poslužitelja na vašem sustavu.</string>
+  <string name="button_revert_text">Vraća zadanu datoteku poslužitelja na vaš sustav.</string>
   <string name="button_save">Spremi</string>
   <string name="button_webserver_toggle_checked">Web poslužitelj je pokrenut</string>
   <string name="button_webserver_toggle_unchecked">Web poslužitelj nije pokrenut</string>
@@ -24,10 +24,10 @@
   <string name="button_tcpdump_delete">Izbriši datoteku zapisa</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Dodaj</string>
-  <string name="checkbox_list_empty">Izbriši popis</string>
-  <string name="checkbox_list_empty_text">Možete dodavati stavke iz trake radnje.</string>
+  <string name="checkbox_list_empty">Popis je prazan</string>
+  <string name="checkbox_list_empty_text">Stavke možete dodati putem akcijske trake.</string>
   <string name="checkbox_list_context_delete">Izbriši</string>
-  <string name="checkbox_list_footer">Nakon dodavanja novih stavka ovom popisu morate ponovno primijeniti AdAway!</string>
+  <string name="checkbox_list_footer">Nakon dodavanja novih stavki u ovaj popis morate ponovno primijeniti AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Uredi</string>
   <string name="checkbox_list_context_title">Uredi unos</string>
   <string name="checkbox_list_context_edit">Uredi</string>
@@ -36,7 +36,7 @@
   <string name="lists_tab_blacklist">Popis nedopuštenih</string>
   <string name="lists_tab_blacklist_short">Nedopušteno</string>
   <string name="lists_tab_whitelist_short">Dopušteno</string>
-  <string name="lists_tab_redirection_list_short">Preusmjeravanje</string>
+  <string name="lists_tab_redirection_list_short">Preusmj.</string>
   <string name="lists_tab_redirection_list">Popis preusmjeravanja</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Naziv poslužitelja:</string>
@@ -46,18 +46,18 @@
   <string name="export_dialog">Izvoženje...</string>
   <string name="export_success">Svi unosi su izvezeni u datoteku naziva \"adaway-export\" na vašoj SD kartici.</string>
   <!--Status Notifications-->
-  <string name="status_checking">Provjeravanje nadopuna...</string>
+  <string name="status_checking">Provjeravanje ažuriranja...</string>
   <string name="status_reverting">Vraćanje...</string>
   <string name="status_reverting_subtitle">Stvaranje standardne datoteke poslužitelja</string>
   <string name="status_checking_subtitle">Provjeravanje ima li dostupnih ažuriranja</string>
   <string name="status_update_available">Ažuriranje je dostupno</string>
-  <string name="status_update_available_subtitle">Novija datoteka poslužitelja je dostupna</string>
+  <string name="status_update_available_subtitle">Novija hosts datoteka je dostupna</string>
   <string name="status_no_connection">Nema Internetske veze</string>
   <string name="status_no_connection_subtitle">Nema dostupne Internetske veze</string>
   <string name="status_download_fail">Nedostupni izvori</string>
   <string name="status_download_fail_subtitle_new">Niti jedan izvor hostova nije dostupan!</string>
   <string name="status_enabled">Omogućeno</string>
-  <string name="status_enabled_subtitle">Najnovija datoteka poslužitelja je omogućena</string>
+  <string name="status_enabled_subtitle">Omogućena je najnovija datoteka poslužitelja</string>
   <string name="status_disabled">Onemogućeno</string>
   <string name="status_disabled_subtitle">Onemogućeno</string>
   <!--Apply and Revert Dialogs-->
@@ -72,9 +72,9 @@
   <string name="apply_copy_fail">Kopiranje datoteke poslužitelja nije uspjelo!</string>
   <string name="apply_copy_fail_title">Kopiranje nije uspjelo</string>
   <string name="apply_success_subtitle">Primijenjeni izvori poslužitelja:</string>
-  <string name="apply_success_title">Primjenjivanje je uspjelo</string>
+  <string name="apply_success_title">Primijenjivanje je uspjelo</string>
   <string name="apply_success_dialog">Primjena je bila uspješna.\nIt Nekada je potrebno ponovo pokrenuti Android da promjene postanu aktivne.\n\n Želite li ponovno pokrenuti Android?\n (Da biste izbjegli gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
-  <string name="apply_symlink_successful">Simbolička poveznica je uspješno stvorena.\nIt Možda je potrebno ponovo pokrenuti Android za primjenjivanje promjena.\n\n Želite li ponovo pokrenuti Android?\n (Kako biste izbjegli gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
+  <string name="apply_symlink_successful">Simbolička poveznica je uspješno stvorena.\nIt Možda je potrebno ponovo pokrenuti Android za primijenjivanje promjena.\n\n Želite li ponovo pokrenuti Android?\n (Kako biste izbjegli gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
   <string name="apply_symlink_successful_title">Stvaranje simboličke poveznice uspješno</string>
   <string name="apply_symlink_fail">Poveznicu nije moguće stvoriti.\n Ovo uglavnom onemogućuje \'opcija\' zvana S-ON na HTC telefonima!\n\n Moguće rješenje: pokrenite telefon u \"recovery modu\" i kreirajte poveznicu komandom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n Ako ovo nije moguće, potražite na internetu da li postoji S-OFF način za vaš model telefona.</string>
   <string name="apply_symlink_fail_title">Stvaranje simboličke poveznice nije uspjelo</string>
@@ -84,14 +84,14 @@
   <string name="no_connection">Internet pristup ne radi.</string>
   <string name="no_connection_title">Nema veze</string>
   <string name="download_dialog">Preuzimanje...</string>
-  <string name="apply_dialog">Primjenjivanje...</string>
-  <string name="apply_dialog_lists">Primjenjivanje popisa dopuštenih i nedopuštenih</string>
+  <string name="apply_dialog">Primijenjivanje...</string>
+  <string name="apply_dialog_lists">Primijenjivanje vaših popisa</string>
   <string name="apply_dialog_hostnames">Obrada i spajanje datoteka poslužitelja</string>
   <string name="apply_dialog_hosts">Izgradnja datoteke poslužitelja</string>
-  <string name="apply_dialog_apply">Primjenjivanje datoteke poslužitelja</string>
+  <string name="apply_dialog_apply">Primijenjivanje datoteke poslužitelja</string>
   <string name="apply_fail">Primjena hosts datoteke na vaš sustav nije uspjela!\n Pokušajte promjeniti hosts datoteku u postavkama u /data/data/hosts.</string>
-  <string name="apply_fail_title">Primjenjivanje nije uspjelo</string>
-  <string name="revert_successful">Ponovo koristite izvornu hosts datoteku.\nIt Nekada je potrebno ponovo pokrenuti Android kako bi primjenili promjene.\n\n Želite li ponovo pokrenuti Android?\n (Kako biste izbjegli gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
+  <string name="apply_fail_title">Primijenjivanje nije uspjelo</string>
+  <string name="revert_successful">Ponovo koristite izvornu hosts datoteku.\nIt Nekada je potrebno ponovo pokrenuti Android kako bi primijenili promjene.\n\n Želite li ponovo pokrenuti Android?\n (Kako biste izbjegli gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
   <string name="revert_successful_title">Vraćanje na zadano uspjelo</string>
   <string name="revert_problem">Vraćanje na zadano stanje nije uspjelo iz nepoznatih razloga.</string>
   <string name="revert_problem_title">Vraćanje nije uspjelo!</string>
@@ -116,7 +116,7 @@
   <string name="menu_add">Dodaj</string>
   <string name="menu_scan_adware">Pretraži zloćudne aplikacije</string>
   <string name="menu_hosts_sources">Izvori poslužitelja</string>
-  <string name="menu_tcpdump">Zapisuj DNS zahtjeve</string>
+  <string name="menu_tcpdump">Zapiši DNS zahtjeve</string>
   <string name="menu_help">Pomoć</string>
   <string name="menu_lists">Vaši popisi</string>
   <string name="menu_show_hosts_file">Otvori datoteku poslužitelja</string>
@@ -191,8 +191,8 @@
   <string name="pref_update_check_summary">Provjeri ima li ažuriranja pri pokretanju AdAwaya</string>
   <string name="pref_sdcard_problem">Ova značajka neće raditi ispravno kada je AdAway instaliran na SD karticu!</string>
   <string name="pref_background">Pozadinske usluge</string>
-  <string name="pref_update_check_daily">Provjeravaj ima li ažuriranja dnevno</string>
-  <string name="pref_update_check_daily_summary">Provjeravaj ima li ažuriranja dnevno u pozadini s obavijestima</string>
+  <string name="pref_update_check_daily">Dnevno provjeravaj ima li ažuriranja</string>
+  <string name="pref_update_check_daily_summary">Dnevno provjeravaj ima li ažuriranja u pozadini s obavijestima</string>
   <string name="pref_automatic_update_daily">Automatski ažuriraj</string>
   <string name="pref_automatic_update_daily_summary">Ažuriraj automatski u pozadini ako su ažuriranja dostupna</string>
   <string name="pref_update_only_on_wifi">Ažuriraj samo putem Wi-Fi-a</string>

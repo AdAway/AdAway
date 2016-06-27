@@ -100,6 +100,7 @@
   <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
   <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Entah su binary  yang tidak dapat ditemukan atau Anda belum mendapatkan izin root untuk AdAway. \n\nIni terjadi bila perangkat Anda tidak di-root. \nAnda dapat menemukan informasi tentang cara untuk me-root perangkat Anda pada www.cyanogenmod.org atau situs Android lainnya.</string>
   <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
   <string name="no_url">URL tidak valid!</string>
   <string name="no_url_title">URL tidak diformat dengan benar</string>
@@ -203,4 +204,6 @@
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug Logging</string>
   <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>
+  <string name="pref_enable_ipv6">Ijinkan IPv6</string>
+  <string name="pref_enable_ipv6_summary">Semua entri file host akan disesuaikan dengan entri :: 1 (IPv6 localhost).</string>
 </resources>

@@ -40,6 +40,7 @@
   <string name="lists_tab_redirection_list"> Списък с пренасочвания</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Име на хост:</string>
+  <string name="list_dialog_whitelist_hostname">Име на хост:\n(Позволени са заместващи символи * и ?)</string>
   <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
   <string name="import_dialog">Внасяне...</string>
   <string name="export_dialog">Изнасяне...</string>
@@ -60,7 +61,9 @@
   <string name="status_disabled">Забранен</string>
   <string name="status_disabled_subtitle">Забранен</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Символичната връзка от вашата цел /system/etc/hosts не съществува или е неправилна! AdAway няма да работи, ако не е насочен към правилния файл.\n\nИскате ли да опитате да създадете символична връзка?</string>
   <string name="apply_symlink_missing_title">Липсва символична връзка</string>
+  <string name="apply_not_enough_space">Няма достатъчно място на дяла!\nОпитайте да подмените целевия хост файл в /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Няма достатъчно място</string>
   <string name="apply_private_file_fail">Изтегленият файл не може да бъде прочетен.</string>
   <string name="apply_private_file_fail_title">Неуспех с личен файл</string>
@@ -68,10 +71,15 @@
   <string name="apply_remount_fail_title">Повторното монтиране се провали</string>
   <string name="apply_copy_fail">Копирането на hosts файла e неуспешно!</string>
   <string name="apply_copy_fail_title">Копирането е неуспешно</string>
+  <string name="apply_success_subtitle">Приложени хост източници:</string>
   <string name="apply_success_title">Прилагането е успешно</string>
+  <string name="apply_success_dialog">Прилагането беше успешно.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате? \n(За да предотвратите загуба на данни, уверете се, че никое приложение в момента не използва SD-картата!)</string>
+  <string name="apply_symlink_successful">Символичната връзка е създадена успешно.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загубата на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
   <string name="apply_symlink_successful_title">Създаването на символична връзка е успешно</string>
+  <string name="apply_symlink_fail">Символичната връзка не може да бъде създадена от Android. nТова се дължи най-вече на „функция“, наречена S-ON при телефоните HTC!\n\nЕдно възможно решение е да заредите телефона си в режим на възстановяване и да създадете там символична връзка с „ln -s /data/data/hosts /system/etc/hosts“.\n\nАко това не работи, потърсете в Интернет за S-OFF и вашият телефон.</string>
   <string name="apply_symlink_fail_title">Създаването на символична връзка е неуспешно</string>
   <string name="apply_help">Моля, прочетете Помощ за повече информация.</string>
+  <string name="apply_apn_proxy">Зададено е APN прокси на вашия Android!\nAdAway няма да работи надеждно, когато сте в мобилни мрежи като 3G. Можете да деактивирате това прокси, като отидете до избрания от вас APN (при Android 4: Безжични мрежи -&amp;gt; Още...  -&amp;gt Мобилни мрежи -&amp;gt; Имена на точки за достъп) и премахнете стойността в полето „Прокси“.</string>
   <string name="apply_apn_proxy_title">APN прокси е зададено!</string>
   <string name="no_connection">Връзката с интернет не работи.</string>
   <string name="no_connection_title">Няма връзка</string>
@@ -81,7 +89,9 @@
   <string name="apply_dialog_hostnames">Разбор и обединяване на Hosts файловете</string>
   <string name="apply_dialog_hosts">Изграждане на Hosts файла</string>
   <string name="apply_dialog_apply">Прилагане на Hosts файла</string>
+  <string name="apply_fail">Прилагането на host файлове във вашата система е неуспешно!\nОпитайте да подмените целевия хост файл в /data/data/hosts.</string>
   <string name="apply_fail_title">Прилагането не е успешно</string>
+  <string name="revert_successful">Вие върнахте hosts файла по подразбиране.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
   <string name="revert_successful_title">Връщането е успешно</string>
   <string name="revert_problem">Връщането се провали по неизвестни причини.</string>
   <string name="revert_problem_title">Връщането е неуспешно!</string>
@@ -90,11 +100,15 @@
   <string name="no_private_file">Личен файл не може да бъде създаден.</string>
   <string name="no_private_file_title">Създаването на личен файл не успя</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Или не може да бъде намерен su binary, или не сте дали root права на AdAway.\n\nТова може да се получи, когато устройството ви няма root достъп.\nМоже да намерите информация как да го root на www.cyanogenmod.org или други Android сайтове.</string>
   <string name="no_root_title">Изисква се Android с root достъп</string>
   <string name="no_url">Това не е валиден URL!</string>
+  <string name="no_url_title">Неправилно форматиран URL адрес</string>
   <string name="hosts_add_dialog">Въведете URL на hosts файла:</string>
   <string name="no_hostname">Това не е валидно име на хост!</string>
+  <string name="no_hostname_title">Неюправилно форматирано име на хост</string>
   <string name="no_ip">Това не е валиден IP адрес!</string>
+  <string name="no_ip_title">Неправилно форматиран IP адрес</string>
   <string name="reboot_never_reboot">Никога не рестартирай и не показвай този въпрос следващия път!</string>
   <string name="loading">Зареждане...</string>
   <!--Menu entries-->
@@ -137,7 +151,9 @@
   <!--Other-->
   <string name="app_subtitle">Спира рекламите</string>
   <string name="no_text_editor_title">Не е инсталиран текстов редактор</string>
+  <string name="no_text_editor">Не е намерен текстов редактор. Можете да инсталирате Jota или друг текстов редактор. \n\n Искате ли да инсталирате Jota?</string>
   <string name="no_file_manager_title">Не е инсталиран файлов мениджър</string>
+  <string name="no_file_manager">Няма намерен файлов мениджър, който да отваря файлове. Може да инсталирате OI File Manager или други файлови мениджъри, който да се справят с това.\n\nИскате ли да инсталирате OI File Manager?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Файлът е изтрит!</string>
   <string name="toast_tcpdump_added_to_blacklist">Добавено беше име на хост към вашия черен списък!</string>
@@ -166,6 +182,12 @@
   <string name="pref_webserver">Локален уеб сървър</string>
   <string name="pref_custom_target">Персонализирана цел</string>
   <string name="pref_custom_target_summary">Използва се само ако целевият hosts файл е настроен на персонализирана цел.</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Custom target</item>
+  </string-array>
   <string name="pref_update_check_summary">Проверка за актуализации при стартиране на AdAway</string>
   <string name="pref_sdcard_problem">Тази функция няма да работи правилно, когато AdAway е инсталиран на SD-картата!</string>
   <string name="pref_background">Услуги на заден план</string>
@@ -175,7 +197,13 @@
   <string name="pref_automatic_update_daily_summary">Автоматично актуализиране във фонов режим, ако са налични актуализации.</string>
   <string name="pref_update_only_on_wifi">Актуализиране само през Wi-Fi</string>
   <string name="pref_update_only_on_wifi_summary">Изпълнение на актуализации на заден план само когато е свързан към WiFi мрежа.</string>
+  <string name="pref_whitelist_rules">Разреши добавяне в бял списък</string>
+  <string name="pref_whitelist_rules_summary">Позволяване на вписвания от белия списък от източниците на hosts файлове.</string>
+  <string name="pref_redirection_rules">Разреши пренасочвания</string>
+  <string name="pref_redirection_rules_summary">ВНИМАНИЕ! Позволяване на пренасочвания от източниците на hosts файлове.</string>
   <string name="pref_debug">Отстраняване на грешки</string>
   <string name="pref_enable_debug">Записи за отстраняване на грешки</string>
   <string name="pref_enable_debug_summary">Трябва да рестартирате AdAway, за да влезе в сила тази настройка.</string>
+  <string name="pref_enable_ipv6">Включи  IPv6</string>
+  <string name="pref_enable_ipv6_summary">Всички вписвания от host файла ще кореспондират с ::1 (IPv6 localhost).</string>
 </resources>

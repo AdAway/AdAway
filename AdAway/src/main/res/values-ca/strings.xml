@@ -100,7 +100,7 @@
   <string name="no_private_file">No s\'ha pogut crear el fitxer privat</string>
   <string name="no_private_file_title">Error en la creació del fixer privat</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Binari su no trobat o root no permes per AdAway.\n\n Aixo pot passar cuan el terminal no esta rootejat.\n Pot trobar informacio de com rootejar el seu terminal a www.cyanogenmod.org o en altres webs de Android.</string>
+  <string name="no_root_description">Binari su no trobat o root no permes per AdAway.\n\n Aixo succeeix cuan el terminal no esta rootejat.\n Pot trobar informacio de com rootejar el seu terminal a www.cyanogenmod.org o en altres webs de Android.</string>
   <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
   <string name="no_url">No és una adreça URL vàlida!</string>
   <string name="no_url_title">Adreça URL formada incorrectament</string>

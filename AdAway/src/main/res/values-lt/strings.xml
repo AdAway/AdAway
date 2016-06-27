@@ -10,32 +10,77 @@
   <string name="button_revert">Išjungti reklamų blokavimą</string>
   <string name="button_add">Pridėti</string>
   <string name="button_cancel">Atčaukti</string>
+  <string name="button_apply_text">Visi hosts failai atsiųsti ir apjungti su įdiegtu hosts failu.</string>
+  <string name="button_revert_text">Atstato numatytą sistemos hosts failą.</string>
   <string name="button_save">Išsaugoi</string>
+  <string name="button_webserver_toggle_checked">Serveris veikia</string>
+  <string name="button_webserver_toggle_unchecked">Serveris neveikia</string>
+  <string name="button_webserver_toggle_text">Įjungti ar stabdyti serverį localhost, blokuotų reklamos siuntėjų atsakymui.</string>
   <string name="button_help">Pagalba</string>
+  <string name="button_tcpdump_text">Tcpdump tai įrankis DNS užklausų stebėjimui ir iįsaugoimui log faile. Galite paleisti fone, įjungti programą, kuri rodo reklamą ir po to analizuoti DNS užklausas log faile. Reklamos serverį galėsite pridėti į juodąjį sąrašą.</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump veikia!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump neveikia!</string>
+  <string name="button_tcpdump_open">Atidaryti log failą</string>
+  <string name="button_tcpdump_delete">Ištrinti log failą</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Pridėti</string>
   <string name="checkbox_list_empty">Tuščias sąrašas</string>
+  <string name="checkbox_list_empty_text">Galite pridėti elementus iš veiksmų juostos.</string>
   <string name="checkbox_list_context_delete">Ištrinti</string>
+  <string name="checkbox_list_footer">Po to, kai pridėsite elementus, turėsite iš naujo taikyti AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Redeguoti</string>
   <string name="checkbox_list_context_title">Redeguoti Įrašą</string>
   <string name="checkbox_list_context_edit">Redeguoti</string>
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Baltasis sąrašas</string>
   <string name="lists_tab_blacklist">Juodasis sąrašas</string>
+  <string name="lists_tab_blacklist_short">Juoda</string>
+  <string name="lists_tab_whitelist_short">Balta</string>
+  <string name="lists_tab_redirection_list_short">Nukreipimas</string>
+  <string name="lists_tab_redirection_list">Nukreipimų sąrašas</string>
+  <string name="list_dialog_url">URL:</string>
+  <string name="list_dialog_hostname">Host vardas:</string>
+  <string name="list_dialog_whitelist_hostname">Host vardas:\n(Simboliai * ir ? galimi!)</string>
+  <string name="list_dialog_ip">IP (IPv4 ar IPv6):</string>
+  <string name="import_dialog">Importuoju...</string>
+  <string name="export_dialog">Eksportuoju...</string>
+  <string name="export_success">Eksportavau visus elementus į \'adaway-wxport\' failą SD kortelėje.</string>
   <!--Status Notifications-->
   <string name="status_checking">Ieškoma atnaujinimų...</string>
   <string name="status_reverting">Atkuriama...</string>
+  <string name="status_reverting_subtitle">Kuriu standartinį hosts failą</string>
+  <string name="status_checking_subtitle">ieškau ar yra atnaujinimų</string>
   <string name="status_update_available">Pasiekiamas atnaujinimas</string>
   <string name="status_update_available_subtitle">Pasiekiamas naujesnis host failas</string>
+  <string name="status_no_connection">Nėra interneto</string>
+  <string name="status_no_connection_subtitle">Neprisijungęs prie interneto</string>
+  <string name="status_download_fail">Šaltiniai nepasiekiami</string>
+  <string name="status_download_fail_subtitle_new">Nepasiekiami hosts šaltiniai!</string>
   <string name="status_enabled">Įjungta</string>
   <string name="status_enabled_subtitle">Naujausias host failas ijungtas</string>
   <string name="status_disabled">Išjungta</string>
   <string name="status_disabled_subtitle">Išjungta</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlink neteisingas /system/etc/hosts! AdAway neveiks jei neteisingai nurodytas kelias.\n\nPabandyti sukurti teisingą symlink?</string>
+  <string name="apply_symlink_missing_title">Nėra symlink</string>
+  <string name="apply_not_enough_space">Skirsnyje neužtenka vietos!\nPabandykite pakeisti paskirties vietą nustatymuose į /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Nepakanka vietos</string>
+  <string name="apply_private_file_fail">Nepavyksta nuskaityti atsiųsto failo.</string>
+  <string name="apply_private_file_fail_title">Asmeninio failo klaida</string>
+  <string name="apply_remount_fail">Nepavyko skirsnio padaryti įrašomu!</string>
+  <string name="apply_remount_fail_title">Permantavimo klaida</string>
+  <string name="apply_copy_fail">Nepavyko kopijuoti hosts failo!</string>
   <string name="apply_copy_fail_title">Kopijavimas nepavyko</string>
   <string name="apply_success_subtitle">Pritaikyti host šaltiniai:</string>
   <string name="apply_success_title">Pritaikymas sėkmingas</string>
+  <string name="apply_success_dialog">Priskyrimas pavyko.\nGali prireikti paleisti įrenginį iš naujo, kad būtųū blokuojama reklama.\n\nAr norite padaryti tai dabar?\n(Prieš tai uždarykite visas paleistas programas!)</string>
+  <string name="apply_symlink_successful">Symlink sukurtas.\nGali prireikti paleisti įrenginį iš naujo.\n\nAr norite padaryti tai dabar?\n(Prieš tai uždarykite visas paleistas programas!)</string>
+  <string name="apply_symlink_successful_title">Symlink sukurtas</string>
+  <string name="apply_symlink_fail">Symlink Android negali sukurti.\nDažniausia problema, tai vadinama S-ON HTC įrenginiuose!\n\nSprendimas: įjunkite įrenginį atkurimo (recovery) režime ir sukurkite symlink ten su \'In -s /data/data/hosts /system/etc/hosts\'.\n\nJei nesuveiks, ieškokite internete kaip atlikti S-OFF Jūsų įrenginiui.</string>
+  <string name="apply_symlink_fail_title">Nepavyko sukurti symlink</string>
+  <string name="apply_help">Detalesnę informaciją rasite skiltyje Pagalba</string>
+  <string name="apply_apn_proxy">APN proxy įjungtas Jūsų įrenginyje!\nAdAway gali neveikti su 3G internetu. Pabandykite išjungti APN proxy savo įrenginyje.</string>
+  <string name="apply_apn_proxy_title">APN proxy nustatytas!</string>
   <string name="no_connection">Prisijungti pire interneto nepavyko.</string>
   <string name="no_connection_title">Nėra Interneto</string>
   <string name="download_dialog">Atsisiunčiama...</string>
@@ -44,39 +89,121 @@
   <string name="apply_dialog_hostnames">Nagrinėjamas ir suliejamas host faias</string>
   <string name="apply_dialog_hosts">Tvarkomas host failas</string>
   <string name="apply_dialog_apply">Pritaikomas host failas</string>
+  <string name="apply_fail">Nepavyko pritaikyti hosts failo!\nPabandykite pakeisti paskirties vietą nustatymuose į /data/data/hosts.</string>
   <string name="apply_fail_title">Pritaikymas nepavyko</string>
+  <string name="revert_successful">Gražinote numatytą hosts failą.\nGali prireikti perleisti įrenginį iš naujo.\n\nAr norite padaryti tai dabar?\n(Prieš tai uždarykite visas paleistas programas!)</string>
   <string name="revert_successful_title">Atkūrimas sėkmingas</string>
+  <string name="revert_problem">Nepavyko atstatyti dėl nežinomų priežasčių.</string>
   <string name="revert_problem_title">Atkūrimas nepavyko!</string>
+  <string name="download_fail_dialog">Nepasiekiamas nei vienas iš pasirinktų hosts šaltinių! Ar tikrai prisijung3 prie interneto?</string>
   <string name="download_fail_title">Atsisiuntimas nepavyko</string>
+  <string name="no_private_file">Nepavyko sukurti asmeninio failo.</string>
+  <string name="no_private_file_title">Nepavyko sukurti asmeninio failo</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Neradau su failo, ar tikrai suteikėte root prieigą AdAway programai?\n\nTai gali nutikti jei Jūsų įrenginys neturi root prieigos.\nGalite rasti informaciją apie tai www.cyanogenmod.org ar kitose svetainėse.</string>
   <string name="no_root_title">Rooted Android būtinas!</string>
+  <string name="no_url">Netinkama URL!</string>
+  <string name="no_url_title">Neteisingas URL formatas</string>
+  <string name="hosts_add_dialog">Įterpti URL į hosts failą:</string>
+  <string name="no_hostname">Neteisingas host vardas!</string>
+  <string name="no_hostname_title">Neteisingas host vardo formatas</string>
+  <string name="no_ip">Neteisingas IP</string>
+  <string name="no_ip_title">Neteisingas IP formatas</string>
   <string name="reboot_never_reboot">Niekada neperkrauti ir daugiau neberodyti šio klausimo!</string>
   <string name="loading">Kraunama...</string>
   <!--Menu entries-->
   <string name="menu_refresh">Atnaujinti</string>
   <string name="menu_add">Pridėti</string>
+  <string name="menu_scan_adware">Ieškoti Adware</string>
+  <string name="menu_hosts_sources">Host šaltiniai</string>
+  <string name="menu_tcpdump">Irašyti DNS užklausas</string>
   <string name="menu_help">Pagalba</string>
   <string name="menu_lists">Jūsų Sąrašas </string>
   <string name="menu_show_hosts_file">Atidaryti host faila</string>
   <string name="menu_import">Importuoti Visą Sąrašą</string>
+  <string name="menu_export">Eksportuoti visą sąrašą</string>
   <string name="menu_preferences">Nustatymai</string>
   <!--Help-->
   <string name="help_tab_about">Apie</string>
+  <string name="help_tab_donate">Paremti</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">DUK</string>
   <string name="help_tab_problems">Problemos</string>
   <string name="help_tab_changelog">Pasikeitimai</string>
   <string name="help_about_version">Versija:</string>
+  <string name="help_donation_paypal_item">AdAway Parėmimas</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euras</item>
+    <item>2 Eurai</item>
+    <item>3 Eurai</item>
+    <item>5 Eurai</item>
+    <item>8 Eurai</item>
+    <item>13 Eurų</item>
+  </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Čia galite ieškoti programėlių su įterpta reklama, kurias AdAway gali blokuoti. Programėlės gali naudoti Airpush pranešimus, kurie iššoka būsenos juostoje net kai programa neaktyvi, ar net pakeisti skambėjimo melodiją. Vienintelis būdas išvengti to - pašalinti tokias programas!</string>
   <string name="scan_adware_start">Pradėti skenavimą</string>
+  <string name="scan_adware_empty">Neradau probleminių AdAware programų!</string>
   <!--Hosts Sources-->
+  <string name="hosts_last_modified_local">Vietinis:</string>
+  <string name="hosts_last_modified_online">Prisijungęs:</string>
+  <string name="hosts_not_available">nepasiekiama</string>
   <!--Other-->
+  <string name="app_subtitle">Reklamos blokavimas</string>
+  <string name="no_text_editor_title">Neradau teksto redagavimo programos</string>
+  <string name="no_text_editor">Neturite jokios teksto redagavimo programos, su kuria galėtume atidaryti host failą.\n\nĮdiegti Jota?</string>
+  <string name="no_file_manager_title">Nėra failų tvarkyklės</string>
+  <string name="no_file_manager">Neturite failų tvarkymo programos, su kuria galėtume atidaryti failus. Galite įdiegti OI Failų Tvarkyklę\n\nĮdiegti Dabar?</string>
   <!--Tcpdump-->
+  <string name="toast_tcpdump_log_deleted">Log failas ištrintas!</string>
+  <string name="toast_tcpdump_added_to_blacklist">Host vardas įtrauktas į Juodą sąrašą!</string>
+  <string name="toast_tcpdump_added_to_whitelist">Host vardas įtrauktas į Baltą sąrašą!</string>
+  <string name="tcpdump_log_context_blacklist">Įtrauktas į Juodą sąrašą</string>
+  <string name="tcpdump_log_context_whitelist">Įtrauktas į Baltą sąrašą</string>
   <string name="tcpdump_log_context_browser">Atidaryti Naršyklėje</string>
+  <string name="tcpdump_log_empty">Log failas tuščias!</string>
+  <string name="tcpdump_log_footer">Ilgai palaikykite ant host vardo Įtraukimui į Juodą ar Baltą sąrašą!</string>
   <!--Preferences-->
   <string name="pref_download">Pagrindiniai nustatymai</string>
   <string name="pref_hosts">Host Failas</string>
+  <string name="pref_redirection_ip">Nukreipimo IP</string>
+  <string name="pref_update_check">Ieškoti atnaujinimų</string>
+  <string name="pref_apply_method">Nukreipti host failą</string>
+  <string name="pref_apply_method_summary">Prieš keičiant šį nustatymą, perskaitykite Pagalbą apie funkcionalumą.</string>
+  <string name="pref_redirection_ip_summary">Visi blokuojami host vardai nekreipiami į šį IP adresą.</string>
   <string name="pref_header_preferences">Pasirinkimai</string>
+  <string name="pref_header_preferences_summary">Pagrindiniai AdAway nustatymai</string>
+  <string name="pref_never_reboot">Slepti perkrovimo užklausą</string>
+  <string name="pref_never_reboot_summary">Paslepia perkrovimo užklausą kai sėkmingai atnaujintas host failas</string>
+  <string name="pref_webserver_on_boot">Įjungti serverį startuojant</string>
+  <string name="pref_webserver_on_boot_summary">Įjungti serverį startuojant, kuris stebės IP adresus</string>
+  <string name="pref_webserver_enabled">Įjungti serverį</string>
+  <string name="pref_webserver_enabled_summary">Įjungia serverį, kurtis stebės gaunamus IP ir blokuos host vardus</string>
+  <string name="pref_webserver">Vietinis serveris</string>
+  <string name="pref_custom_target">Pasirinktinis nukreipimas</string>
+  <string name="pref_custom_target_summary">Naudojamas kai nukreiptas host failas</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Pasirinktinis nukreipimas</item>
+  </string-array>
+  <string name="pref_update_check_summary">Ieškoti atnaujinimų kai paleidžiama AdAway</string>
+  <string name="pref_sdcard_problem">Ši funkcija neveks jei AdAway įdiegta į SD kortelę!</string>
+  <string name="pref_background">Foniniai servisai</string>
   <string name="pref_update_check_daily">Kasdien ieškoti atnaujinimų</string>
+  <string name="pref_update_check_daily_summary">Ieškoti atnaujinimų kasdien su perspėjimu</string>
   <string name="pref_automatic_update_daily">Automatiški atnaujinimai</string>
+  <string name="pref_automatic_update_daily_summary">Atnaujinti automatiškai fone, jei jų yra.</string>
+  <string name="pref_update_only_on_wifi">Atnaujinti tik per WiFi</string>
+  <string name="pref_update_only_on_wifi_summary">Vykdyti foninį atnaujinimą tik prisijungus prie WiFi.</string>
+  <string name="pref_whitelist_rules">Leisti įtraukti į Baltą sąrašą</string>
+  <string name="pref_whitelist_rules_summary">Leisti elementus įtrauktus į Baltą sąrašą iš Host šaltinių.</string>
+  <string name="pref_redirection_rules">Leisti nukreipimus</string>
+  <string name="pref_redirection_rules_summary">GALIMA APSAUGOS RIZIKA! Leisti nukreipimus iš Host šaltinių.</string>
+  <string name="pref_debug">Derinti</string>
+  <string name="pref_enable_debug">Derinimo įrašymas į Log failą</string>
+  <string name="pref_enable_debug_summary">Reikia paleisti iš naujo AdAway, kad veiktų nustatymai.</string>
   <string name="pref_enable_ipv6">Įjungti IPv6</string>
+  <string name="pref_enable_ipv6_summary">Visi host failo įrašai bus pažymėti ::1 (IPv6 localhost) įrašu.</string>
 </resources>

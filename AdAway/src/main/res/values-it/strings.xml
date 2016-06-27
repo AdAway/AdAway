@@ -14,7 +14,7 @@
   <string name="button_revert_text">Ripristina il file hosts predefinito sul tuo sistema.</string>
   <string name="button_save">Salva</string>
   <string name="button_webserver_toggle_checked">Il webserver è avviato</string>
-  <string name="button_webserver_toggle_unchecked">ll webserver non è avviato</string>
+  <string name="button_webserver_toggle_unchecked">Il webserver non è avviato</string>
   <string name="button_webserver_toggle_text">Avvia o ferma il webserver in localhost per rispondere alle richieste verso hostname bloccati.</string>
   <string name="button_help">Aiuto</string>
   <string name="button_tcpdump_text">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla tua lista nera.</string>

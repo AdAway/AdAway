@@ -101,6 +101,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="no_private_file">Özel dosya oluşturulamadı.</string>
   <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu.</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">su binary dosyası bulunamadı veya AdAway için root hakkı sağlanmadı.\n\nEğer cihazınız root edilmemişse bu yaşanabilir.\nDetaylı bilgi ve cihazınızı nasıl root edeceğinizi öğrenmek için www.cyanogenmod.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
   <string name="no_root_title">Root izni gereklidir</string>
   <string name="no_url">Geçersiz bir URL!</string>
   <string name="no_url_title">Uygunsuz biçimlendirilmiş URL</string>
@@ -204,4 +205,5 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="pref_enable_debug">Hata ayıklama kaydı</string>
   <string name="pref_enable_debug_summary">Ayarların etkinleştirmek için AdAway\'ı yeniden başlatın.</string>
   <string name="pref_enable_ipv6">IPv6 etkinleştir</string>
+  <string name="pref_enable_ipv6_summary">Tüm host dosyası kayıtlarına ::1 (IPv6 yerel IP\'si) eklenecektir.</string>
 </resources>

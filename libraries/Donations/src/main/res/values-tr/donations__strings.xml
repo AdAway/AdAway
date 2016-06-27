@@ -4,7 +4,7 @@
   <string name="donations__flattr">Flattr</string>
   <string name="donations__description">Bu uygulamayı kullanışlı mı buluyorsunuz?
 Geliştiriciye bağış yaparak gelişmesine yardımcı olun!</string>
-  <string name="donations__flattr_description">Flattr takes 10 % as a monthly fee!</string>
+  <string name="donations__flattr_description">Flattr aylık ücret olarak 10% alıyor!</string>
   <string name="donations__google_android_market">Google Play Mağazası</string>
   <string name="donations__google_android_market_not_supported_title">Uygulama içi bağışlar desteklenmez.</string>
   <string name="donations__google_android_market_not_supported">Uygulama içi bağışlar desteklenmez. Google Play Mağazası doğru şekilde kuruldu mu?</string>
@@ -14,7 +14,7 @@ Geliştiriciye bağış yaparak gelişmesine yardımcı olun!</string>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Butona bastıktan sonra ne kadar bağış yapacağınızı seçebilirsiniz!</string>
   <string name="donations__thanks_dialog_title">Teşekkürler!</string>
-  <string name="donations__thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
+  <string name="donations__thanks_dialog">Bağışınız için teşekkürler!\nBu beni çok mutlu etti!</string>
   <string name="donations__alert_dialog_title">Hata oluştu</string>
   <string name="donations__alert_dialog_no_browser">Web site açmak için tarayıcı bulunamadı!</string>
 </resources>

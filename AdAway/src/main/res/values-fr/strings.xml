@@ -100,7 +100,7 @@
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de la création du fichier privé</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Le binaire \'su\' est absent ou AdAway n\'est pas autorisé à s\'exécuter en root. Peut-être que votre appareil n\'est pas rooté ?\n\nVous pouvez trouver des informations sur comment rooter votre appareil en allant sur www.cyanogenmod.org ou d\'autres sites web dédiés au système Android.</string>
+  <string name="no_root_description">Soit le fichier binaire « su » est introuvable, soit vous n\'avez pas donné l\'accès root à AdAway.\n\nCela peut arriver quand votre appareil n\'est pas enraciné\nVous trouverez des informations sur comment enraciner votre appareil sur www.cyanogenmod.org ou d\'autres sites Web dédiés à Android.</string>
   <string name="no_root_title">Un Android rooté est exigé</string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
   <string name="no_url_title">URL mal formatée</string>
@@ -205,5 +205,5 @@
   <string name="pref_enable_debug">Journalisation du débogage</string>
   <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>
   <string name="pref_enable_ipv6">Activer IPv6</string>
-  <string name="pref_enable_ipv6_summary">Tous les fichiers host contiendront une entrée ::1 (IPv6 localhost).</string>
+  <string name="pref_enable_ipv6_summary">Toutes les entrées du fichier host auront une entrée ::1 (IPv6 localhost) correspondante.</string>
 </resources>

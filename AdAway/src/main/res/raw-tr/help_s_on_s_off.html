@@ -1,25 +1,26 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Cihazlar</h2>
-<p>AdAway cihazınızda S-ON kullandığınızda çalışmaz. Bu 'özellik' bir çok HTC cihazında vardır ve AdAway programının sunucu dosyasına yazmasını engeller.</p>
+<h2>HTC markalı Cihazlar</h2>
+<p>Cihazınızda "S-ON" özelliği kullandığınızda AdAway programı çalışmaz. Bu 'özellik' bir çok HTC markalı cihazda vardır ve AdAway programının sunucu dosyasına (hosts) yazmasını engeller.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
+<p>S-OFF cihazınızdaki NAND bölümünün kilitli olmadığı ve yazılabilir olduğu anlamına gelir. HTC cihazlar için varsayılan ayar S-ON'dur, bu da hem sizin sistemin belli alanlarına erişiminizin olmadığını, hem de kalıcı bir root'u garanti edemeyeceğiniz anlamına gelir. Buna ek olarak, aygıt yazılımı (firmware) imajları için imza kontrolü ayrıca S-ON işaretinin varlığıyla gerçekleştirilir.</p>
 
-<h2>Cihazım S-ON ya da S-OFF özelliklerinden hangisine sahip?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<h2>Cihazım S-ON modunda mı yoksa S-OFF modunda mı?</h2>
+<p>Açılış esnasında güç düğmesine basılı tutarken <i>Ses kısma</i> düğmesine basarak önyükleyici menüsünü açın. En yukarıdaki metinden S-OFF veya S-ON olduğu anlaşılabilir.
+Cihazda yönetici yetkileri tam olarak açılmışsa yani full root var ise çoğunlukla S-OFF olacaktır.
+<br/><br/>Daha fazla bilgi için şu linke bakabilirsiniz:<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Bunun haricindeki S-OFF yöntemlerine de bakabilirsiniz: Unrevorkable (yukarıdaki linkten ulaşabilirsiniz), Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Geçici çözüm</h2>
 <p>Önkoşul: Bilgisayarınıza ADB shell ile çalışan Android SDK yüklemelisiniz. \n</p>
 <ol>
 <li>Boot menüsüne geçmek için güç tuşu + <i>ses azaltma tuşuna</i> basılı tutun</li>
-<li>Recovery (Kurtarma) seçmek için <i>ses azaltma</i> tuşunu kullanın.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
+<li>Kurtarma (recovery) menüsünü seçmek için <i>ses kısma</i> tuşunu kullanın.</li>
+<li>Clockwork Kurtarma Mod'unda ses kısma tuşuyla "partitions menu" satırına inin ve seçin</li>
 <li>Sırasıyla <i>mount /system</i>, <i>mount /sdcard</i> ve <i>mount /data</i> seçin.</li>
-<li>Usb kablonuzu takın ve bilgisayarınızda komut satırını (CMD) açın.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
+<li>Cihazınıza USB kablonuzu takın ve bilgisayarınızda komut satırını açın. Başlat&gt;Çalıştır&gt;CMD </li>
+<li>ADB shell'e girin ve şu komudu yazın: <tt>ln -s /data/hosts /system/etc/hosts</tt> (Bu komut sembolik bir link oluşturur. Böylece Adaway programı <tt>/data</tt> konumundaki sunucular yani hosts dosyasını değiştirebilir ve işletim sistemi sunucular dosyasını sanki <tt>/system</tt> konumundaymış gibi kullanabilir)</li>
 <li>Cihazınızı yeniden başlatın ve ayarlayın <i>Hedef hosts dosyası</i> to <i>/data/hosts</i> AdAway'in tercihleri.</li>
 <li>AdAway şimdi çalışmalı.</li>
 </ol>
