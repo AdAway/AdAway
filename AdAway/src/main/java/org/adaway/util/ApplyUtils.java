@@ -55,7 +55,7 @@ public class ApplyUtils {
 
             StatFs stat = new StatFs(directory);
             long blockSize = stat.getBlockSize();
-            long availableBlocks = stat.getAvailableBlocks();
+            long availableBlocks = stat.getFreeBlocks();
             long availableSpace = availableBlocks * blockSize;
 
             Log.i(Constants.TAG, "Checking for enough space: Target: " + target + ", directory: "
