@@ -88,6 +88,29 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         addPreferencesFromResource(R.xml.preferences);
 
         /*
+         * Install systemless script if pref is enabled.
+         */
+        Preference SystemlessPref = findPreference(getString(R.string.pref_enable_systemless_key));
+        SystemlessPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                try {
+                    Shell rootShell = Shell.startRootShell();
+                    if (newValue.equals(true)) {
+                        // WIP Install 0000adaway.script in /su/su.d/
+                    } else {
+                        // WIP Remove /su/su.d/0000adaway.script
+                    }
+                    // WIP Ask to reboot
+                    return true;
+                } catch (Exception exception) {
+                    Log.e(Constants.TAG, "Problem while installing/removing systemless script.", exception);
+                }
+                return false;
+            }
+        });
+
+        /*
          * Listen on click of update daily pref, register UpdateService if enabled,
          * setOnPreferenceChangeListener is not used because it is executed before setting the
          * preference value, this would lead to a false check in UpdateListener
