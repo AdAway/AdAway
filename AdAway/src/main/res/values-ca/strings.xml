@@ -186,6 +186,7 @@
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
+    <item>/su/etc/hosts</item>
     <item>Objectiu personalitzat</item>
   </string-array>
   <string name="pref_update_check_summary">Comprova actualitzacions a l\'inici d\'AdAway</string>

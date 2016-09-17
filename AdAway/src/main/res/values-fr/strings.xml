@@ -186,6 +186,7 @@
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
+    <item>/su/etc/hosts</item>
     <item>Cible personnalisée</item>
   </string-array>
   <string name="pref_update_check_summary">Vérifier les mises à jour au démarrage d\'AdAway</string>

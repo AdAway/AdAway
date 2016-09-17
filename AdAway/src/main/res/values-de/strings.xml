@@ -186,6 +186,7 @@
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
+    <item>/su/etc/hosts</item>
     <item>Benutzerdefiniert</item>
   </string-array>
   <string name="pref_update_check_summary">Beim Starten nach Aktualisierungen suchen</string>

@@ -43,6 +43,7 @@
         <item>writeToSystem</item>
         <item>writeToData</item>
         <item>writeToDataData</item>
+        <item>writeToSuSystem</item>
         <item>customTarget</item>
     </string-array>
 
