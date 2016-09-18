@@ -379,7 +379,7 @@ public class ApplyUtils {
             }
             return true;
         } catch (Exception exception) {
-            exception.printStackTrace();
+            Log.e(Constants.TAG, "Error while enabling systemless mode.", exception);
             return false;
         }
     }
@@ -403,7 +403,7 @@ public class ApplyUtils {
             }
             return true;
         } catch (Exception exception) {
-            exception.printStackTrace();
+            Log.e(Constants.TAG, "Error while disabling systemless mode.", exception);
             return false;
         }
     }
