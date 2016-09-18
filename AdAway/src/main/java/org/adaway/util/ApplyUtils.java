@@ -150,9 +150,7 @@ public class ApplyUtils {
         /* check for space on partition */
         long size = new File(privateFile).length();
         Log.i(Constants.TAG, "Size of hosts file: " + size);
-        String checkSpaceTarget = SystemlessUtils.isSystemlessModeEnabled(shell) ?
-                Constants.ANDROID_DATA_HOSTS : target;
-        if (!hasEnoughSpaceOnPartition(checkSpaceTarget, size)) {
+        if (!hasEnoughSpaceOnPartition(target, size)) {
             throw new NotEnoughSpaceException();
         }
 
