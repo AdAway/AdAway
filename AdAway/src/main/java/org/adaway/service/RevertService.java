@@ -106,6 +106,9 @@ public class RevertService extends WakefulIntentService {
             } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToData")) {
 
                 ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_HOSTS, shell);
+            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToSu")) {
+
+                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_SU_ETC_HOSTS, shell);
             } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
 
                 ApplyUtils.copyHostsFile(mService, PreferenceHelper.getCustomTarget(mService),
