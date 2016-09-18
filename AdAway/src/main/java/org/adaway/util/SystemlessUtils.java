@@ -41,8 +41,8 @@ public class SystemlessUtils {
 
     /**
      * Install systemless script.<br>
-     * Create <code>/su/su.d/0000adaway.script</code> file to mount hosts file to
-     * <code>/su/etc/hosts</code> location and copy current hosts file to mounted hosts file.<br>
+     * Create and execute<code>/su/su.d/0000adaway.script</code> file to mount hosts file to
+     * <code>/su/etc/hosts</code> location and ensure mounted hosts file is present.<br>
      * Require SuperSU >= 2.76.
      *
      * @param context The application context (current activity).
@@ -53,6 +53,11 @@ public class SystemlessUtils {
     public static boolean enableSystemlessMode(Context context, Shell shell) {
         try {
             Toolbox toolbox = new Toolbox(shell);
+            // Ensure mounted hosts file exists
+            if (!toolbox.fileExists(Constants.ANDROID_SU_ETC_HOSTS)) {
+                // Copy current hosts file to mounted host file
+                toolbox.copyFile(Constants.ANDROID_SYSTEM_ETC_HOSTS, Constants.ANDROID_SU_ETC_HOSTS, false, true);
+            }
             // Check if systemless mode is already enabled
             if (!SystemlessUtils.isSystemlessModeEnabled(shell)) {
                 // Create temp file
@@ -69,11 +74,8 @@ public class SystemlessUtils {
                 toolbox.setFilePermissions(Constants.ANDROID_SYSTEMLESS_SCRIPT, "755");
                 // Remove temp file
                 tempFile.delete();
-            }
-            // Check if mounted hosts file exists
-            if (!toolbox.fileExists(Constants.ANDROID_SU_ETC_HOSTS)) {
-                // Copy current hosts file to mounted host file
-                toolbox.copyFile(Constants.ANDROID_SYSTEM_ETC_HOSTS, Constants.ANDROID_SU_ETC_HOSTS, false, true);
+                // Execute script
+                shell.add(new SimpleCommand(Constants.ANDROID_SYSTEMLESS_SCRIPT)).waitForFinish();
             }
             return true;
         } catch (Exception exception) {
@@ -84,7 +86,7 @@ public class SystemlessUtils {
 
     /**
      * Remove systemless script.<br>
-     * Remove <code>/su/su.d/0000adaway.script</code> file.
+     * Remove <code>/su/su.d/0000adaway.script</code> and mounted hosts files.
      *
      * @param shell The current root shell to install script.
      * @return The script removal status (<code>true</code> if the systemless script is removed,
@@ -95,8 +97,17 @@ public class SystemlessUtils {
             // Check if systemless mode is enabled
             if (SystemlessUtils.isSystemlessModeEnabled(shell)) {
                 // Remove systemless script
-                SimpleCommand command = new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SYSTEMLESS_SCRIPT);
-                shell.add(command).waitForFinish();
+                SimpleCommand removeScriptCommand =
+                        new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SYSTEMLESS_SCRIPT);
+                shell.add(removeScriptCommand).waitForFinish();
+                // Try to umount hosts file (resource must be used: it requires reboot)
+                SimpleCommand umountCommand =
+                        new SimpleCommand("umount " + Constants.ANDROID_SYSTEM_ETC_HOSTS);
+                shell.add(umountCommand).waitForFinish();
+                // Remove mounted hosts file
+                SimpleCommand removeMountedHostsCommand =
+                        new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SU_ETC_HOSTS);
+                shell.add(removeMountedHostsCommand).waitForFinish();
             }
             return true;
         } catch (Exception exception) {

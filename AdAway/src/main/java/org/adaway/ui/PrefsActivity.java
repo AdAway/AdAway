@@ -95,16 +95,14 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 try {
                     Shell rootShell = Shell.startRootShell();
-                    boolean successful = false;
+                    boolean successful;
                     if (newValue.equals(true)) {
-                        // WIP Install 0000adaway.script in /su/su.d/
                         successful = SystemlessUtils.enableSystemlessMode(PrefsActivity.this, rootShell);
                     } else {
-                        // WIP Remove /su/su.d/0000adaway.script
                         successful = SystemlessUtils.disableSystemlessMode(rootShell);
+                        // WIP Ask to reboot
                     }
                     rootShell.close();
-                    // WIP Ask to reboot
                     return successful;
                 } catch (Exception exception) {
                     Log.e(Constants.TAG, "Problem while installing/removing systemless script.", exception);
