@@ -20,15 +20,16 @@
 
 package org.adaway.util;
 
-import org.adaway.util.Log;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -344,5 +345,66 @@ public class ApplyUtils {
         }
 
         return result;
+    }
+
+    /**
+     * Install systemless script.<br>
+     * Create <code>/su/su.d/0000adaway.script</code> file to mount hosts file to
+     * <code>/su/etc/hosts</code> location. Require SuperSU >= 2.76.
+     *
+     * @param context The application context (current activity).
+     * @param shell   The current root shell to install script.
+     * @return The script installation status (<code>true</code> if the systemless script is installed,
+     * <code>false</code> otherwise).
+     */
+    public static boolean enableSystemlessMode(Context context, Shell shell) {
+        try {
+            Toolbox toolbox = new Toolbox(shell);
+            // Check if script is already installed
+            if (!toolbox.fileExists(Constants.ANDROID_SYSTEMLESS_SCRIPT)) {
+                    // Create temp file
+                    File cacheDir = context.getCacheDir();
+                    File tempFile = File.createTempFile(Constants.TAG, ".script", cacheDir);
+                    // Write script content to temp file
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+                    writer.write("mount -o bind "+Constants.ANDROID_SU_ETC_HOSTS+" "+Constants.ANDROID_SYSTEM_ETC_HOSTS+";");
+                    writer.newLine();
+                    writer.close();
+                    // Copy temp file to /su partition
+                    toolbox.copyFile(tempFile.getAbsolutePath(), Constants.ANDROID_SYSTEMLESS_SCRIPT, false, false);
+                    // Apply script permissions
+                    toolbox.setFilePermissions(Constants.ANDROID_SYSTEMLESS_SCRIPT, "755");
+                    // Remove temp file
+                    tempFile.delete();
+            }
+            return true;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * Remove systemless script.<br>
+     * Remove <code>/su/su.d/0000adaway.script</code> file.
+     *
+     * @param shell   The current root shell to install script.
+     * @return The script removal status (<code>true</code> if the systemless script is removed,
+     * <code>false</code> otherwise).
+     */
+    public static boolean disableSystemlessMode(Shell shell) {
+        try {
+            Toolbox toolbox = new Toolbox(shell);
+            // Check if script is already installed
+            if (toolbox.fileExists(Constants.ANDROID_SYSTEMLESS_SCRIPT)) {
+                // Remove systemless script
+                SimpleCommand command = new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SYSTEMLESS_SCRIPT);
+                shell.add(command).waitForFinish();
+            }
+            return true;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
     }
 }

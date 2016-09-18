@@ -20,23 +20,6 @@
 
 package org.adaway.ui;
 
-import java.io.IOException;
-
-import org.adaway.R;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-import org.adaway.util.Utils;
-import org.adaway.service.DailyListener;
-import org.adaway.util.WebserverUtils;
-import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.MenuItem;
-import com.commonsware.cwac.wakeful.WakefulIntentService;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,6 +28,21 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.MenuItem;
+import com.commonsware.cwac.wakeful.WakefulIntentService;
+
+import org.adaway.R;
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.service.DailyListener;
+import org.adaway.util.ApplyUtils;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.adaway.util.Utils;
+import org.adaway.util.WebserverUtils;
+import org.sufficientlysecure.rootcommands.Shell;
 
 public class PrefsActivity extends SherlockPreferenceActivity {
     private Context mActivity;
@@ -96,17 +94,21 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 try {
                     Shell rootShell = Shell.startRootShell();
+                    boolean successful = false;
                     if (newValue.equals(true)) {
                         // WIP Install 0000adaway.script in /su/su.d/
+                        successful = ApplyUtils.enableSystemlessMode(PrefsActivity.this, rootShell);
                     } else {
                         // WIP Remove /su/su.d/0000adaway.script
+                        successful = ApplyUtils.disableSystemlessMode(rootShell);
                     }
+                    rootShell.close();
                     // WIP Ask to reboot
-                    return true;
+                    return successful;
                 } catch (Exception exception) {
                     Log.e(Constants.TAG, "Problem while installing/removing systemless script.", exception);
+                    return false;
                 }
-                return false;
             }
         });
 
