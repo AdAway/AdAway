@@ -37,9 +37,9 @@ import com.commonsware.cwac.wakeful.WakefulIntentService;
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.service.DailyListener;
-import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.adaway.util.SystemlessUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
 import org.sufficientlysecure.rootcommands.Shell;
@@ -49,6 +49,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
     private ActionBar mActionBar;
 
     private EditTextPreference mCustomTarget;
+    private CheckBoxPreference mSystemless;
     private CheckBoxPreference mUpdateCheckDaily;
     private CheckBoxPreference mWebserverOnBoot;
 
@@ -97,10 +98,10 @@ public class PrefsActivity extends SherlockPreferenceActivity {
                     boolean successful = false;
                     if (newValue.equals(true)) {
                         // WIP Install 0000adaway.script in /su/su.d/
-                        successful = ApplyUtils.enableSystemlessMode(PrefsActivity.this, rootShell);
+                        successful = SystemlessUtils.enableSystemlessMode(PrefsActivity.this, rootShell);
                     } else {
                         // WIP Remove /su/su.d/0000adaway.script
-                        successful = ApplyUtils.disableSystemlessMode(rootShell);
+                        successful = SystemlessUtils.disableSystemlessMode(rootShell);
                     }
                     rootShell.close();
                     // WIP Ask to reboot
@@ -157,6 +158,17 @@ public class PrefsActivity extends SherlockPreferenceActivity {
                 return true;
             }
         });
+
+        // Find systemless mode preferences
+        mSystemless = (CheckBoxPreference) getPreferenceScreen().findPreference(getString(R.string.pref_enable_systemless_key));
+        // Check preference if systemless mode is enabled
+        try {
+            Shell rootShell = Shell.startRootShell();
+            mSystemless.setChecked(SystemlessUtils.isSystemlessModeEnabled(rootShell));
+            rootShell.close();
+        } catch (Exception exception) {
+            Log.e(Constants.TAG, "Problem while checking systemless mode.", exception);
+        }
 
         // find custom target edit
         mCustomTarget = (EditTextPreference) getPreferenceScreen().findPreference(
