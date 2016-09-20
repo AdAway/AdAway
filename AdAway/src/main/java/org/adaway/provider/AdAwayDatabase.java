@@ -83,9 +83,6 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
                 + "(url, last_modified_local, last_modified_online, enabled) VALUES (?, ?, ?, ?)";
         insertStmt = db.compileStatement(insertHostsSources);
 
-        // http://winhelp2002.mvps.org/hosts.htm
-        insertHostsSource(insertStmt, "http://winhelp2002.mvps.org/hosts.txt");
-
         // https://hosts-file.net
         insertHostsSource(insertStmt, "https://hosts-file.net/ad_servers.txt");
 
