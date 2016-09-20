@@ -14,6 +14,7 @@
             android:title="@string/pref_never_reboot" />
         <CheckBoxPreference
             android:defaultValue="@string/pref_enable_systemless_def"
+            android:enabled="false"
             android:key="@string/pref_enable_systemless_key"
             android:summary="@string/pref_enable_systemless_summary"
             android:title="@string/pref_enable_systemless" />

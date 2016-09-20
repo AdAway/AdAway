@@ -22,6 +22,7 @@ package org.adaway.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
@@ -160,13 +161,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         // Find systemless mode preferences
         mSystemless = (CheckBoxPreference) getPreferenceScreen().findPreference(getString(R.string.pref_enable_systemless_key));
         // Check preference if systemless mode is enabled
-        try {
-            Shell rootShell = Shell.startRootShell();
-            mSystemless.setChecked(SystemlessUtils.isSystemlessModeEnabled(rootShell));
-            rootShell.close();
-        } catch (Exception exception) {
-            Log.e(Constants.TAG, "Problem while checking systemless mode.", exception);
-        }
+        new SystemlessCheckTask().execute();
 
         // find custom target edit
         mCustomTarget = (EditTextPreference) getPreferenceScreen().findPreference(
@@ -214,5 +209,36 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             mWebserverOnBoot.setSummary(R.string.pref_webserver_on_boot_summary);
         }
 
+    }
+
+    /**
+     * This class is an async task to check systemless mode status.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     */
+    private class SystemlessCheckTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            boolean result = false;
+            try {
+                Shell rootShell = Shell.startRootShell();
+                result = SystemlessUtils.isSystemlessModeEnabled(rootShell);
+                rootShell.close();
+            } catch (Exception exception) {
+                Log.e(Constants.TAG, "Problem while checking systemless mode.", exception);
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean isSystemlessModeEnabled) {
+            // Ensure reference exists
+            if (mSystemless == null) {
+                return;
+            }
+            // Enable setting and set initial value
+            mSystemless.setEnabled(true);
+            mSystemless.setChecked(isSystemlessModeEnabled);
+        }
     }
 }
