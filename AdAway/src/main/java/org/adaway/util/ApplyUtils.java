@@ -49,16 +49,13 @@ public class ApplyUtils {
         try {
             // new File(target).getFreeSpace() (API 9) is not working on data partition
 
-            // get directory without file
-            String directory = new File(target).getParent().toString();
-
-            StatFs stat = new StatFs(directory);
+            StatFs stat = new StatFs(target);
             long blockSize = stat.getBlockSize();
             long availableBlocks = stat.getAvailableBlocks();
             long availableSpace = availableBlocks * blockSize;
 
-            Log.i(Constants.TAG, "Checking for enough space: Target: " + target + ", directory: "
-                    + directory + " size: " + size + ", availableSpace: " + availableSpace);
+            Log.i(Constants.TAG, "Checking for enough space: Target: " + target + " size: " + size
+                    + ", availableSpace: " + availableSpace);
 
             if (size < availableSpace) {
                 return true;
