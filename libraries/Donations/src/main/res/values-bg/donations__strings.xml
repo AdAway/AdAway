@@ -2,6 +2,7 @@
 <resources>
   <string name="donations__button_close">Затвори</string>
   <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Намирате ли това приложение полезно?\nПомогнете неговото разработване като изпратите дарение на разработчика!</string>
   <string name="donations__flattr_description">Flattr взема 10% като месечна такса!</string>
   <string name="donations__google_android_market">Google Play магазин</string>
   <string name="donations__google_android_market_not_supported_title">Дарения чрез приложението не се поддържат.</string>
@@ -12,6 +13,7 @@
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Можете да изберете колко искате да дарите след натискане на бутона!</string>
   <string name="donations__thanks_dialog_title">Благодаря!</string>
+  <string name="donations__thanks_dialog">Благодаря за дарението!\nНаистина оценявам това!</string>
   <string name="donations__alert_dialog_title">Възникна грешка</string>
   <string name="donations__alert_dialog_no_browser">Не е намерен браузър, който да отвори сайта!</string>
 </resources>

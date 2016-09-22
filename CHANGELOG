@@ -1,6 +1,10 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/Free-Software-for-Android/AdAway/issues
 
+3.1.2
+* Update hosts-file.net source to use https
+* Translations updates
+
 3.1.1
 * Minor bugfixes
 * Update mongoose internal webserver to 6.4 release
