@@ -187,7 +187,6 @@ Vuoi installare OI File Manager?</string>
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>/su/etc/hosts</item>
     <item>Percorso personalizzato</item>
   </string-array>
   <string name="pref_update_check_summary">Controlla aggiornamenti all\'avvio di AdAway</string>

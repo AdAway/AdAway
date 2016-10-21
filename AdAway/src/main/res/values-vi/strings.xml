@@ -186,7 +186,6 @@
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>/su/etc/hosts</item>
     <item>Đích tự chọn</item>
   </string-array>
   <string name="pref_update_check_summary">Kiểm tra cập nhật khi khởi động AdAway</string>

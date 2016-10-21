@@ -185,7 +185,6 @@
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>/su/etc/hosts</item>
     <item>Vlastní složka</item>
   </string-array>
   <string name="pref_update_check_summary">Zkontrolovat aktualizace při startu AdAway</string>

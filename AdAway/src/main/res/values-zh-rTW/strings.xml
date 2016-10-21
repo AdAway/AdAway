@@ -187,7 +187,6 @@
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>/su/etc/hosts</item>
     <item>自訂目標</item>
   </string-array>
   <string name="pref_update_check_summary">在啟動 AdAway 時檢查更新</string>

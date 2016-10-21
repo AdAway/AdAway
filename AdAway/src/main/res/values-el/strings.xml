@@ -208,9 +208,7 @@
   <string name="pref_custom_target_summary">Χρησιμοποιείται μόνο αν το αρχείο προορισμού hosts είναι ορισμένο σε παραμετροποιημένο προορισμό</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>/su/etc/hosts</item>
     <item>Παραμετροποιημένος προορισμός</item>
   </string-array>
   <string name="pref_update_check_summary">Έλεγχος για ενημερώσεις κατά την εκκίνηση του AdAway</string>

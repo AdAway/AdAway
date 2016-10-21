@@ -185,9 +185,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>/su/etc/hosts</item>
     <item>Özel hedef</item>
   </string-array>
   <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>

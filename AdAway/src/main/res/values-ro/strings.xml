@@ -186,7 +186,6 @@
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>/su/etc/hosts</item>
     <item>Țintă personalizată</item>
   </string-array>
   <string name="pref_update_check_summary">La repornirea programului verifica daca exista o versiune noua.</string>
