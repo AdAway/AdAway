@@ -72,6 +72,23 @@ public class ApplyUtils {
     }
 
     /**
+     * Check if a path is writable.
+     * @param shell The shell used to check if the path is writable.
+     * @param path The path to check.
+     * @return <code>true</code> if the path is writable, <code>false</code> otherwise.
+     */
+    public static boolean isWritable(Shell shell, String path) {
+        SimpleCommand touchCommand = new SimpleCommand("touch "+path);
+        try {
+            shell.add(touchCommand).waitForFinish();
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem while checking if writable.", e);
+            return false;
+        }
+        return touchCommand.getExitCode() == 0;
+    }
+
+    /**
      * Checks by reading hosts file if AdAway hosts file is applied or not
      *
      * @return true if it is applied
@@ -153,12 +170,16 @@ public class ApplyUtils {
 
         Toolbox tb = new Toolbox(shell);
 
+        // Check write access
+        boolean writable = ApplyUtils.isWritable(shell, target);
         /* Execute commands */
         try {
-            // remount for write access
-            Log.i(Constants.TAG, "Remounting for RW...");
-            if (!tb.remount(target, "RW")) {
-                Log.e(Constants.TAG, "Remounting as RW failed! Probably not a problem!");
+            if (!writable) {
+                // remount for write access
+                Log.i(Constants.TAG, "Remounting for RW...");
+                if (!tb.remount(target, "RW")) {
+                    Log.e(Constants.TAG, "Remounting as RW failed! Probably not a problem!");
+                }
             }
 
             // remove before copying when using /system/etc/hosts
@@ -181,7 +202,7 @@ public class ApplyUtils {
 
             throw new CommandException();
         } finally {
-            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            if (!writable) {
                 // after all remount system back as read only
                 Log.i(Constants.TAG, "Remounting back to RO...");
                 if (!tb.remount(target, "RO")) {
