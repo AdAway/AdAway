@@ -102,8 +102,8 @@ public class PrefsActivity extends SherlockPreferenceActivity {
                     } else {
                         successful = SystemlessUtils.disableSystemlessMode(rootShell);
                         if (successful) {
-                            Utils.rebootQuestion(PrefsActivity.this, R.string.revert_systemless_successful_title,
-                                    R.string.revert_systemless_successful);
+                            Utils.rebootQuestion(PrefsActivity.this, R.string.disable_systemless_successful_title,
+                                    R.string.disable_systemless_successful);
                         }
                     }
                     rootShell.close();

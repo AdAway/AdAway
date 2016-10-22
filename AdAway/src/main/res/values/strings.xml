@@ -105,8 +105,8 @@
     <string name="download_fail_title">Download failed</string>
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>
-    <string name="revert_systemless_successful">You disable the systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
-    <string name="revert_systemless_successful_title">Disabling successful</string>
+    <string name="disable_systemless_successful">You disabled the systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
+    <string name="disable_systemless_successful_title">Disabling successful</string>
 
     <!-- Other Dialogs -->
     <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.org or other Android websites.</string>

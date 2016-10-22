@@ -99,8 +99,8 @@
   <string name="download_fail_title">Échec du téléchargement</string>
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de la création du fichier privé</string>
-  <string name="revert_systemless_successful">Vous avez désactivé le root systemless.\nIl pourrait peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d\'éviter la perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
-  <string name="revert_systemless_successful_title">Désactivation réussie</string>
+  <string name="disable_systemless_successful">Vous avez désactivé le root systemless.\nIl pourrait peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d\'éviter la perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
+  <string name="disable_systemless_successful_title">Désactivation réussie</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Soit le fichier binaire « su » est introuvable, soit vous n\'avez pas donné l\'accès root à AdAway.\n\nCela peut arriver quand votre appareil n\'est pas enraciné\nVous trouverez des informations sur comment enraciner votre appareil sur www.cyanogenmod.org ou d\'autres sites Web dédiés à Android.</string>
   <string name="no_root_title">Un Android rooté est exigé</string>
