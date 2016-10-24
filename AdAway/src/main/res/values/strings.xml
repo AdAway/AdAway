@@ -105,7 +105,7 @@
     <string name="download_fail_title">Download failed</string>
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>
-    <string name="disable_systemless_successful">You disabled the systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
+    <string name="disable_systemless_successful">You disabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="disable_systemless_successful_title">Disabling successful</string>
 
     <!-- Other Dialogs -->
@@ -226,7 +226,7 @@
     <string name="pref_enable_ipv6_summary">All host file entries will get a corresponding ::1 (IPv6 localhost) entry.</string>
     <string name="pref_enable_systemless_def">false</string>
     <string name="pref_enable_systemless_key">enableSystemless</string>
-    <string name="pref_enable_systemless_summary"><![CDATA[Prevent AdAway to modify system partition (requires SuperSU >= 2.76)]]></string>
+    <string name="pref_enable_systemless_summary"><![CDATA[Prevent AdAway from modifying the system partition (requires SuperSU >= 2.76)]]></string>
     <string name="pref_enable_systemless">Enable systemless mode</string>
 
 </resources>
