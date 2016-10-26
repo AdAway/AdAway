@@ -14,19 +14,19 @@ dependencies {
 
 android {
     sourceSets {
-        main {
-            jniLibs.srcDir 'libs'
-        }
-
         instrumentTest.setRoot('tests')
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
     }
 
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 23
+
     }
 
     /*
@@ -62,8 +62,12 @@ android {
         abortOnError false
     }
 
+    externalNativeBuild {
+        ndkBuild {
+            path 'jni/Android.mk'
+        }
+    }
 }
-
 
 
 /**
@@ -81,6 +85,5 @@ task renameExecutables(type: Copy) {
 
     rename(/(.+)/, 'lib$1_exec.so')
 }
-
 
 build.dependsOn renameExecutables

@@ -107,9 +107,8 @@ public class Shell implements Closeable {
     public static Shell startCustomShell(String shellPath, ArrayList<String> customEnv,
             String baseDirectory) throws IOException {
         Log.d(RootCommands.TAG, "Starting Custom Shell!");
-        Shell shell = new Shell(shellPath, customEnv, baseDirectory);
 
-        return shell;
+        return new Shell(shellPath, customEnv, baseDirectory);
     }
 
     /**
