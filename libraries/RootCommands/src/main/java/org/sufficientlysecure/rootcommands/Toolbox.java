@@ -68,15 +68,11 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws BrokenBusyboxException
      */
-    public boolean isRootAccessGiven() throws BrokenBusyboxException, TimeoutException, IOException {
+    public boolean isRootAccessGiven() throws TimeoutException, IOException {
         SimpleCommand idCommand = new SimpleCommand("id");
         shell.add(idCommand).waitForFinish();
 
-        if (idCommand.getOutput().contains("uid=0")) {
-            return true;
-        } else {
-            return false;
-        }
+        return idCommand.getOutput().contains("uid=0");
     }
 
     /**
@@ -88,10 +84,10 @@ public class Toolbox {
         private String psRegex;
         private Pattern psPattern;
 
-        public PsCommand(String processName) {
+        PsCommand(String processName) {
             super("ps");
             this.processName = processName;
-            pids = new ArrayList<String>();
+            pids = new ArrayList<>();
 
             /**
              * regex to get pid out of ps line, example:
@@ -105,11 +101,11 @@ public class Toolbox {
             psPattern = Pattern.compile(psRegex);
         }
 
-        public ArrayList<String> getPids() {
+        ArrayList<String> getPids() {
             return pids;
         }
 
-        public String getPidsString() {
+        String getPidsString() {
             StringBuilder sb = new StringBuilder();
             for (String s : pids) {
                 sb.append(s);
@@ -159,7 +155,7 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws BrokenBusyboxException
      */
-    public boolean killAll(String processName) throws BrokenBusyboxException, TimeoutException,
+    public boolean killAll(String processName) throws TimeoutException,
             IOException {
         Log.d(RootCommands.TAG, "Killing process " + processName);
 
@@ -195,7 +191,7 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws IOException
      */
-    public boolean killAllExecutable(String executableName) throws BrokenBusyboxException,
+    public boolean killAllExecutable(String executableName) throws
             TimeoutException, IOException {
         return killAll(ExecutableCommand.EXECUTABLE_PREFIX + executableName + ExecutableCommand.EXECUTABLE_SUFFIX);
     }
@@ -211,7 +207,7 @@ public class Toolbox {
      * @throws TimeoutException
      *             (Could not determine if the process is running)
      */
-    public boolean isProcessRunning(String processName) throws BrokenBusyboxException,
+    public boolean isProcessRunning(String processName) throws
             TimeoutException, IOException {
         PsCommand psCommand = new PsCommand(processName);
         shell.add(psCommand).waitForFinish();
@@ -233,7 +229,7 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws IOException
      */
-    public boolean isBinaryRunning(String binaryName) throws BrokenBusyboxException,
+    public boolean isBinaryRunning(String binaryName) throws
             TimeoutException, IOException {
         return isProcessRunning(ExecutableCommand.EXECUTABLE_PREFIX + binaryName
                 + ExecutableCommand.EXECUTABLE_SUFFIX);
@@ -376,14 +372,13 @@ public class Toolbox {
     /**
      * @param file
      *            String that represent the file, including the full path to the file and its name.
-     * @param followSymlinks
      * @return File permissions as String, for example: 777, returns null on error
      * @throws IOException
      * @throws TimeoutException
      * @throws BrokenBusyboxException
      * 
      */
-    public String getFilePermissions(String file) throws BrokenBusyboxException, TimeoutException,
+    public String getFilePermissions(String file) throws TimeoutException,
             IOException {
         Log.d(RootCommands.TAG, "Checking permissions for " + file);
 
@@ -414,7 +409,7 @@ public class Toolbox {
      * @throws IOException
      */
     public boolean setFilePermissions(String file, String permissions)
-            throws BrokenBusyboxException, TimeoutException, IOException {
+            throws TimeoutException, IOException {
         Log.d(RootCommands.TAG, "Set permissions of " + file + " to " + permissions);
 
         SimpleCommand chmodCommand = new SimpleCommand("chmod " + permissions + " " + file);
@@ -439,7 +434,7 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws BrokenBusyboxException
      */
-    public String getSymlink(String file) throws BrokenBusyboxException, TimeoutException,
+    public String getSymlink(String file) throws TimeoutException,
             IOException {
         Log.d(RootCommands.TAG, "Find symlink for " + file);
 
@@ -463,7 +458,7 @@ public class Toolbox {
      *            example: /system/etc/hosts
      * @param remountAsRw
      *            remounts the destination as read/write before writing to it
-     * @param preserveFileAttributes
+     * @param preservePermissions
      *            tries to copy file attributes from source to destination, if only cat is available
      *            only permissions are preserved
      * @return true if it was successfully copied
@@ -472,7 +467,7 @@ public class Toolbox {
      * @throws TimeoutException
      */
     public boolean copyFile(String source, String destination, boolean remountAsRw,
-            boolean preservePermissions) throws BrokenBusyboxException, IOException,
+            boolean preservePermissions) throws IOException,
             TimeoutException {
 
         /*
@@ -486,7 +481,7 @@ public class Toolbox {
 
         // remount destination as read/write before copying to it
         if (remountAsRw) {
-            if (!remount(destination, "RW")) {
+            if (!remount("/system","RW")) {
                 Log.d(RootCommands.TAG,
                         "Remounting failed! There is probably no need to remount this partition!");
             }
@@ -523,7 +518,7 @@ public class Toolbox {
 
         // remount destination back to read only
         if (remountAsRw) {
-            if (!remount(destination, "RO")) {
+            if (!remount("/system","RO")) {
                 Log.d(RootCommands.TAG,
                         "Remounting failed! There is probably no need to remount this partition!");
             }
@@ -546,7 +541,7 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws BrokenBusyboxException
      */
-    public void reboot(int action) throws BrokenBusyboxException, TimeoutException, IOException {
+    public void reboot(int action) throws TimeoutException, IOException {
         if (action == REBOOT_HOTREBOOT) {
             killAll("system_server");
             // or: killAll("zygote");
@@ -617,7 +612,7 @@ public class Toolbox {
      * @throws BrokenBusyboxException
      * 
      */
-    public boolean fileExists(String file) throws BrokenBusyboxException, TimeoutException,
+    public boolean fileExists(String file) throws TimeoutException,
             IOException {
         FileExistsCommand fileExistsCommand = new FileExistsCommand(file);
         shell.add(fileExistsCommand).waitForFinish();
@@ -643,7 +638,7 @@ public class Toolbox {
      * @throws IOException
      */
     public void withPermission(String file, String permission, WithPermissions withPermissions)
-            throws BrokenBusyboxException, TimeoutException, IOException {
+            throws TimeoutException, IOException {
         String oldPermissions = getFilePermissions(file);
 
         // set permissions (If set to 666, then Dalvik VM can also write to that file!)
@@ -667,7 +662,7 @@ public class Toolbox {
      * @throws IOException
      */
     public void withWritePermissions(String file, WithPermissions withWritePermissions)
-            throws BrokenBusyboxException, TimeoutException, IOException {
+            throws TimeoutException, IOException {
         withPermission(file, "666", withWritePermissions);
     }
 
@@ -679,7 +674,7 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws IOException
      */
-    public void setSystemClock(final long millis) throws BrokenBusyboxException, TimeoutException,
+    public void setSystemClock(final long millis) throws TimeoutException,
             IOException {
         withWritePermissions("/dev/alarm", new WithPermissions() {
 
@@ -698,7 +693,7 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws IOException
      */
-    public void adjustSystemClock(final long offset) throws BrokenBusyboxException,
+    public void adjustSystemClock(final long offset) throws
             TimeoutException, IOException {
         withWritePermissions("/dev/alarm", new WithPermissions() {
 
@@ -717,19 +712,17 @@ public class Toolbox {
      * "/system/bin/some/directory/that/really/would/never/exist" will result in /system ultimately
      * being remounted. However, keep in mind that the longer the path you supply, the more work
      * this has to do, and the slower it will run.
-     * 
-     * @param file
-     *            file path
+     *
      * @param mountType
      *            mount type: pass in RO (Read only) or RW (Read Write)
      * @return a <code>boolean</code> which indicates whether or not the partition has been
      *         remounted as specified.
      */
-    public boolean remount(String file, String mountType) {
+    public boolean remount(String mountPoint, String mountType) {
         // Recieved a request, get an instance of Remounter
         Remounter remounter = new Remounter(shell);
         // send the request
-        return (remounter.remount(file, mountType));
+        return (remounter.remount(mountPoint, mountType));
     }
 
     /**
@@ -780,7 +773,7 @@ public class Toolbox {
      * @throws TimeoutException
      * @throws BrokenBusyboxException
      */
-    public void toggleAdbDaemon(boolean toggle) throws BrokenBusyboxException, TimeoutException,
+    public void toggleAdbDaemon(boolean toggle) throws TimeoutException,
             IOException {
         SimpleCommand disableAdb = new SimpleCommand("setprop persist.service.adb.enable 0",
                 "stop adbd");

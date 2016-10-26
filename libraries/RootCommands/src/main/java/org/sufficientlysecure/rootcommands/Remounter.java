@@ -46,25 +46,26 @@ class Remounter {
      * being remounted. However, keep in mind that the longer the path you supply, the more work
      * this has to do, and the slower it will run.
      * 
-     * @param file
-     *            file path
+     * @param mountPoint
+     *            the mount point you want to remount
      * @param mountType
      *            mount type: pass in RO (Read only) or RW (Read Write)
      * @return a <code>boolean</code> which indicates whether or not the partition has been
      *         remounted as specified.
      */
-    protected boolean remount(String file, String mountType) {
+    protected boolean remount(String mountPoint,String mountType) {
         // grab an instance of the internal class
         try {
-            //According to Chainfire, previous versions of Android never actually check the mountpoint, so we can just use /system.
+            //According to ChainFire, previous versions of Android never actually check the mount point, so we can just duplicate it.
             SimpleCommand command = new SimpleCommand("mount -o remount,"
-                    + mountType.toLowerCase(Locale.US) + " /system /system");
+                    + mountType.toLowerCase(Locale.US) + " "+ mountPoint+" "+mountPoint);
 
             // execute on shell
             shell.add(command).waitForFinish();
             if (command.getExitCode() != 0) {
-                //If we recieve a non-zero error, then the above remount failed, so we should attempt a remount for N
-                command = new SimpleCommand("mount -o "+ mountType.toLowerCase(Locale.US) + ",remount /system");
+                //If we receive a non-zero error, then the above remount failed, so we should attempt a remount for N
+                //Note: N requires ro/rw first and remount second
+                command = new SimpleCommand("mount -o "+ mountType.toLowerCase(Locale.US) + ",remount "+mountPoint);
                 // execute on shell
                 shell.add(command).waitForFinish();
             }
@@ -74,4 +75,5 @@ class Remounter {
         }
         return true;
     }
+
 }

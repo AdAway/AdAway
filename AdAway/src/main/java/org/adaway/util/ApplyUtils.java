@@ -161,7 +161,7 @@ public class ApplyUtils {
         try {
             // remount for write access
             Log.i(Constants.TAG, "Remounting for RW...");
-            if (!tb.remount(target, "RW")) {
+            if (!tb.remount("/system", "RW")) {
                 Log.e(Constants.TAG, "Remounting as RW failed! Probably not a problem!");
             }
 
@@ -188,7 +188,7 @@ public class ApplyUtils {
             if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 // after all remount system back as read only
                 Log.i(Constants.TAG, "Remounting back to RO...");
-                if (!tb.remount(target, "RO")) {
+                if (!tb.remount("/system", "RO")) {
                     Log.e(Constants.TAG, "Remounting failed in finally! Probably not a problem!");
                 }
             }
