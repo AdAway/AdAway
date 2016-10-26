@@ -4,12 +4,12 @@ repositories {
 }
 dependencies {
 
-    compile project(':libraries:Donations')
     compile project(':libraries:RootCommands')
     compile 'net.sf.trove4j:trove4j:3.0.3'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'com.android.support:support-v4:18.0.+'
     compile 'org.sufficientlysecure:html-textview:2.0'
+    compile 'org.sufficientlysecure:donations:2.4'
 }
 
 android {

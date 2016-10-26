@@ -1,3 +1,2 @@
 include ':AdAway'
-include ':libraries:Donations'
 include ':libraries:RootCommands'
