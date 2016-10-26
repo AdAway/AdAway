@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    //compile 'com.android.support:support-v4:18.0.+'
-    compile project(':libraries:actionbarsherlock')
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    compile 'com.android.support:support-v4:18.0.+'
 }
 
 android {

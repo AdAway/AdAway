@@ -81,7 +81,7 @@ public class HelpFragmentHtml extends SherlockFragment {
         scroller.addView(text);
 
         // load html from raw resource (Parsing handled by HtmlTextView library)
-        text.setHtmlFromRawResource(getActivity(), htmlFile);
+        text.setHtmlFromRawResource(getActivity(), htmlFile, true);
 
         // no flickering when clicking textview for Android < 4
         text.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));

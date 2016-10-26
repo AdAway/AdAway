@@ -465,14 +465,14 @@ public class ApplyService extends WakefulIntentService {
 
                 /* /system/etc/hosts */
 
-                if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                     returnCode = StatusCodes.APPLY_FAIL;
                 }
             } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
 
                 /* /data/data/hosts */
 
-                if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_DATA_DATA_HOSTS)) {
+                if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_DATA_HOSTS)) {
                     returnCode = StatusCodes.APPLY_FAIL;
                 } else {
                     if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS, rootShell)) {
@@ -483,7 +483,7 @@ public class ApplyService extends WakefulIntentService {
 
                 /* /data/data/hosts */
 
-                if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_DATA_HOSTS)) {
+                if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_HOSTS)) {
                     returnCode = StatusCodes.APPLY_FAIL;
                 } else {
                     if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_HOSTS, rootShell)) {
@@ -496,7 +496,7 @@ public class ApplyService extends WakefulIntentService {
 
                 String customTarget = PreferenceHelper.getCustomTarget(mService);
 
-                if (!ApplyUtils.isHostsFileCorrect(mService, customTarget)) {
+                if (!ApplyUtils.isHostsFileCorrect(customTarget)) {
                     returnCode = StatusCodes.APPLY_FAIL;
                 } else {
                     if (!ApplyUtils.isSymlinkCorrect(customTarget, rootShell)) {

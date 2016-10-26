@@ -80,7 +80,7 @@ public class ResultHelper {
 
             // back to old status
             int oldStatus;
-            if (ApplyUtils.isHostsFileCorrect(context, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 oldStatus = StatusCodes.ENABLED;
             } else {
                 oldStatus = StatusCodes.DISABLED;
@@ -292,7 +292,7 @@ public class ResultHelper {
                     text = context.getString(R.string.revert_problem);
 
                     // back to old status
-                    if (ApplyUtils.isHostsFileCorrect(context, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                    if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                         BaseActivity.updateStatusEnabled(context);
                     } else {
                         BaseActivity.updateStatusDisabled(context);
@@ -410,11 +410,7 @@ public class ResultHelper {
         }
 
         if (success) {
-            if (ApplyUtils.isHostsFileCorrect(context, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                success = true;
-            } else {
-                success = false;
-            }
+            success = ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS);
         }
 
         if (success) {

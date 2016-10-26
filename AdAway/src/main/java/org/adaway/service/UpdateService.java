@@ -242,7 +242,7 @@ public class UpdateService extends WakefulIntentService {
         }
 
         // check if hosts file is applied
-        if (!ApplyUtils.isHostsFileCorrect(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+        if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
             returnCode = StatusCodes.DISABLED;
         }
 

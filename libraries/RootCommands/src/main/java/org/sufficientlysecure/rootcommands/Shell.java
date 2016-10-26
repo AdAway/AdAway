@@ -17,6 +17,11 @@
 
 package org.sufficientlysecure.rootcommands;
 
+import org.sufficientlysecure.rootcommands.command.Command;
+import org.sufficientlysecure.rootcommands.util.Log;
+import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
+import org.sufficientlysecure.rootcommands.util.Utils;
+
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.DataOutputStream;
@@ -25,16 +30,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.sufficientlysecure.rootcommands.command.Command;
-import org.sufficientlysecure.rootcommands.util.Log;
-import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
-import org.sufficientlysecure.rootcommands.util.Utils;
-
 public class Shell implements Closeable {
     private final Process shellProcess;
     private final BufferedReader stdOutErr;
     private final DataOutputStream outputStream;
-    private final List<Command> commands = new ArrayList<Command>();
+    private final List<Command> commands = new ArrayList<>();
     private boolean close = false;
 
     private static final String LD_LIBRARY_PATH = System.getenv("LD_LIBRARY_PATH");
@@ -43,50 +43,46 @@ public class Shell implements Closeable {
     /**
      * Start root shell
      * 
-     * @param customEnv
-     * @param baseDirectory
-     * @return
+     * @param customEnv Custom environment variables to pass through to the shell
+     * @param baseDirectory Base directory for the shell
+     * @return A Shell that can then be used to run commands as root
      * @throws IOException
      */
     public static Shell startRootShell(ArrayList<String> customEnv, String baseDirectory)
-            throws IOException, RootAccessDeniedException {
+            throws IOException {
         Log.d(RootCommands.TAG, "Starting Root Shell!");
 
         // On some versions of Android (ICS) LD_LIBRARY_PATH is unset when using su
         // We need to pass LD_LIBRARY_PATH over su for some commands to work correctly.
         if (customEnv == null) {
-            customEnv = new ArrayList<String>();
+            customEnv = new ArrayList<>();
         }
         customEnv.add("LD_LIBRARY_PATH=" + LD_LIBRARY_PATH);
 
-        Shell shell = new Shell(Utils.getSuPath(), customEnv, baseDirectory);
-
-        return shell;
+        return new Shell(Utils.getSuPath(), customEnv, baseDirectory);
     }
 
     /**
      * Start root shell without custom environment and base directory
-     * 
-     * @return
+     *
      * @throws IOException
      */
-    public static Shell startRootShell() throws IOException, RootAccessDeniedException {
+    public static Shell startRootShell() throws IOException {
         return startRootShell(null, null);
     }
 
     /**
      * Start default sh shell
      * 
-     * @param customEnv
-     * @param baseDirectory
-     * @return
+     * @param customEnv Custom environment variables to pass through to the shell
+     * @param baseDirectory Base directory for the shell
+     * @return A Shell that can then be used to run commands
      * @throws IOException
      */
     public static Shell startShell(ArrayList<String> customEnv, String baseDirectory)
             throws IOException {
         Log.d(RootCommands.TAG, "Starting Shell!");
-        Shell shell = new Shell("sh", customEnv, baseDirectory);
-        return shell;
+        return new Shell("sh", customEnv, baseDirectory);
     }
 
     /**

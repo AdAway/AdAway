@@ -17,15 +17,10 @@
 
 package org.sufficientlysecure.rootcommands;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
-import java.util.ArrayList;
-import java.util.Locale;
-
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 import org.sufficientlysecure.rootcommands.util.Log;
+
+import java.util.Locale;
 
 //no modifier, this means it is package-private. Only our internal classes can use this.
 class Remounter {

@@ -1,12 +1,15 @@
 apply plugin: 'com.android.application'
-
+repositories {
+    jcenter()
+}
 dependencies {
-    //compile 'com.android.support:support-v4:18.0.+' // already in actionbarsherlock
+
     compile project(':libraries:Donations')
-    compile project(':libraries:actionbarsherlock')
-    compile project(':libraries:HtmlTextView')
     compile project(':libraries:RootCommands')
     compile 'net.sf.trove4j:trove4j:3.0.3'
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    compile 'com.android.support:support-v4:18.0.+'
+    compile 'org.sufficientlysecure:html-textview:2.0'
 }
 
 android {
@@ -39,7 +42,7 @@ android {
             project.hasProperty('signingKeyAlias') &&
             project.hasProperty('signingKeyPassword')) {
         println "Found sign properties in gradle.properties! Signing build…"
-        
+
         signingConfigs {
             release {
                 storeFile file(signingStoreLocation)
@@ -53,7 +56,7 @@ android {
     } else {
         buildTypes.release.signingConfig = null
     }
-    
+
     // Do not abort build if lint finds errors
     lintOptions {
         abortOnError false
@@ -62,8 +65,8 @@ android {
 }
 
 
- 
- /**
+
+/**
  * Task to rename executables from hello_world to libhello_world_exec.so
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *

@@ -162,7 +162,7 @@ public class BaseActivity extends SherlockFragmentActivity {
             // set status only if not coming from an orientation change
             if (savedInstanceState == null) {
                 // check if hosts file is applied
-                if (ApplyUtils.isHostsFileCorrect(mActivity, Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                     // do background update check
                     // do only if not disabled in preferences
                     if (PreferenceHelper.getUpdateCheck(mActivity)) {

@@ -1,5 +1,3 @@
 include ':AdAway'
 include ':libraries:Donations'
-include ':libraries:actionbarsherlock'
-include ':libraries:HtmlTextView'
 include ':libraries:RootCommands'
