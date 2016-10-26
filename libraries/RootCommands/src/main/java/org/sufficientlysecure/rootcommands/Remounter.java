@@ -56,74 +56,22 @@ class Remounter {
     protected boolean remount(String file, String mountType) {
         // grab an instance of the internal class
         try {
-            SimpleCommand command = new SimpleCommand("busybox mount -o remount,"
-                    + mountType.toLowerCase(Locale.US) + " /system");
+            //According to Chainfire, previous versions of Android never actually check the mountpoint, so we can just use /system.
+            SimpleCommand command = new SimpleCommand("mount -o remount,"
+                    + mountType.toLowerCase(Locale.US) + " /system /system");
 
             // execute on shell
             shell.add(command).waitForFinish();
-
-        } catch (Exception e) {
-        }
-    return true;
-    }
-
-    private Mount findMountPointRecursive(String file) {
-        try {
-            ArrayList<Mount> mounts = getMounts();
-            for (File path = new File(file); path != null;) {
-                for (Mount mount : mounts) {
-                    if (mount.getMountPoint().equals(path)) {
-                        return mount;
-                    }
-                }
+            if (command.getExitCode() != 0) {
+                //If we recieve a non-zero error, then the above remount failed, so we should attempt a remount for N
+                command = new SimpleCommand("mount -o "+ mountType.toLowerCase(Locale.US) + ",remount /system");
+                // execute on shell
+                shell.add(command).waitForFinish();
             }
-            return null;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
-            Log.e(RootCommands.TAG, "Exception", e);
+                Log.e(RootCommands.TAG, "Exception", e);
+                return false;
         }
-        return null;
-    }
-
-    /**
-     * This will return an ArrayList of the class Mount. The class mount contains the following
-     * property's: device mountPoint type flags
-     * <p/>
-     * These will provide you with any information you need to work with the mount points.
-     * 
-     * @return <code>ArrayList<Mount></code> an ArrayList of the class Mount.
-     * @throws Exception
-     *             if we cannot return the mount points.
-     */
-    protected static ArrayList<Mount> getMounts() throws Exception {
-
-        final String tempFile = "/sdcard/RootToolsMounts";
-
-        // copy /proc/mounts to tempfile. Directly reading it does not work on 4.3
-        Shell shell = Shell.startRootShell();
-        Toolbox tb = new Toolbox(shell);
-        tb.copyFile("/proc/mounts", tempFile, false, false);
-        tb.setFilePermissions(tempFile, "777");
-        shell.close();
-
-        LineNumberReader lnr = null;
-        lnr = new LineNumberReader(new FileReader(tempFile));
-        String line;
-        ArrayList<Mount> mounts = new ArrayList<Mount>();
-        while ((line = lnr.readLine()) != null) {
-
-            Log.d(RootCommands.TAG, line);
-
-            String[] fields = line.split(" ");
-            mounts.add(new Mount(new File(fields[0]), // device
-                    new File(fields[1]), // mountPoint
-                    fields[2], // fstype
-                    fields[3] // flags
-            ));
-        }
-        lnr.close();
-
-        return mounts;
+        return true;
     }
 }

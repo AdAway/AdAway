@@ -499,7 +499,6 @@ public class Toolbox {
         }
 
         boolean commandSuccess = false;
-
         SimpleCommand ddCommand = new SimpleCommand("dd if=" + source + " of="
                 + destination);
         shell.add(ddCommand).waitForFinish();
@@ -731,32 +730,6 @@ public class Toolbox {
         Remounter remounter = new Remounter(shell);
         // send the request
         return (remounter.remount(file, mountType));
-    }
-
-    /**
-     * This will tell you how the specified mount is mounted. rw, ro, etc...
-     * 
-     * @param The
-     *            mount you want to check
-     * 
-     * @return <code>String</code> What the mount is mounted as.
-     * @throws Exception
-     *             if we cannot determine how the mount is mounted.
-     */
-    public String getMountedAs(String path) throws Exception {
-        ArrayList<Mount> mounts = Remounter.getMounts();
-        if (mounts != null) {
-            for (Mount mount : mounts) {
-                if (path.contains(mount.getMountPoint().getAbsolutePath())) {
-                    Log.d(RootCommands.TAG, (String) mount.getFlags().toArray()[0]);
-                    return (String) mount.getFlags().toArray()[0];
-                }
-            }
-
-            throw new Exception();
-        } else {
-            throw new Exception();
-        }
     }
 
     /**
