@@ -47,7 +47,12 @@
             android:label="@string/menu_hosts_sources" />
         <activity
             android:name=".ui.PrefsActivity"
-            android:label="@string/menu_preferences" />
+            android:label="@string/menu_preferences">
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.ScanAdwareActivity"
             android:label="@string/menu_scan_adware" />
