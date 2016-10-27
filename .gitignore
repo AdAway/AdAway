@@ -8,6 +8,8 @@ local.properties
 release.properties
 ant.properties
 *.class
+*.apk
+
 #Gradle
 .gradle
 build
