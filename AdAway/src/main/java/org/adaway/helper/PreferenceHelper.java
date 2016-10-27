@@ -49,6 +49,13 @@ public class PreferenceHelper {
         editor.commit();
     }
 
+    public static boolean getSystemlessMode(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+                Context.MODE_PRIVATE);
+        return prefs.getBoolean(context.getString(R.string.pref_enable_systemless_key),
+                Boolean.parseBoolean(context.getString(R.string.pref_enable_systemless_def)));
+    }
+
     public static boolean getEnableIpv6(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
