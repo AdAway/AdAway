@@ -8,8 +8,6 @@ local.properties
 release.properties
 ant.properties
 *.class
-*.apk
-
 #Gradle
 .gradle
 build
@@ -29,3 +27,4 @@ pom.xml.*
 #IntelliJ IDEA
 .idea
 *.iml
+/AdAway/.externalNativeBuild/
