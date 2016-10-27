@@ -20,25 +20,9 @@
 
 package org.adaway.ui;
 
-import java.io.IOException;
-
-import org.adaway.R;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-import org.adaway.util.Utils;
-import org.adaway.service.DailyListener;
-import org.adaway.util.WebserverUtils;
-import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.MenuItem;
-import com.commonsware.cwac.wakeful.WakefulIntentService;
-
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
@@ -46,11 +30,27 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.MenuItem;
+import com.commonsware.cwac.wakeful.WakefulIntentService;
+
+import org.adaway.R;
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.service.DailyListener;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.adaway.util.SystemlessUtils;
+import org.adaway.util.Utils;
+import org.adaway.util.WebserverUtils;
+import org.sufficientlysecure.rootcommands.Shell;
+
 public class PrefsActivity extends SherlockPreferenceActivity {
     private Context mActivity;
     private ActionBar mActionBar;
 
     private EditTextPreference mCustomTarget;
+    private CheckBoxPreference mSystemless;
     private CheckBoxPreference mUpdateCheckDaily;
     private CheckBoxPreference mWebserverOnBoot;
 
@@ -86,6 +86,34 @@ public class PrefsActivity extends SherlockPreferenceActivity {
 
         getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences);
+
+        /*
+         * Install systemless script if pref is enabled.
+         */
+        Preference SystemlessPref = findPreference(getString(R.string.pref_enable_systemless_key));
+        SystemlessPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                try {
+                    Shell rootShell = Shell.startRootShell();
+                    boolean successful;
+                    if (newValue.equals(true)) {
+                        successful = SystemlessUtils.enableSystemlessMode(PrefsActivity.this, rootShell);
+                    } else {
+                        successful = SystemlessUtils.disableSystemlessMode(rootShell);
+                        if (successful) {
+                            Utils.rebootQuestion(PrefsActivity.this, R.string.disable_systemless_successful_title,
+                                    R.string.disable_systemless_successful);
+                        }
+                    }
+                    rootShell.close();
+                    return successful;
+                } catch (Exception exception) {
+                    Log.e(Constants.TAG, "Problem while installing/removing systemless script.", exception);
+                    return false;
+                }
+            }
+        });
 
         /*
          * Listen on click of update daily pref, register UpdateService if enabled,
@@ -133,6 +161,11 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             }
         });
 
+        // Find systemless mode preferences
+        mSystemless = (CheckBoxPreference) getPreferenceScreen().findPreference(getString(R.string.pref_enable_systemless_key));
+        // Check preference if systemless mode is enabled
+        new SystemlessCheckTask().execute();
+
         // find custom target edit
         mCustomTarget = (EditTextPreference) getPreferenceScreen().findPreference(
                 getString(R.string.pref_custom_target_key));
@@ -179,5 +212,36 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             mWebserverOnBoot.setSummary(R.string.pref_webserver_on_boot_summary);
         }
 
+    }
+
+    /**
+     * This class is an async task to check systemless mode status.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     */
+    private class SystemlessCheckTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            boolean result = false;
+            try {
+                Shell rootShell = Shell.startRootShell();
+                result = SystemlessUtils.isSystemlessModeEnabled(rootShell);
+                rootShell.close();
+            } catch (Exception exception) {
+                Log.e(Constants.TAG, "Problem while checking systemless mode.", exception);
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean isSystemlessModeEnabled) {
+            // Ensure reference exists
+            if (mSystemless == null) {
+                return;
+            }
+            // Enable setting and set initial value
+            mSystemless.setEnabled(true);
+            mSystemless.setChecked(isSystemlessModeEnabled);
+        }
     }
 }

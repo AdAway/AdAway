@@ -49,9 +49,9 @@
   <string name="status_checking">Vérification de mise à jour...</string>
   <string name="status_reverting">Retour arrière...</string>
   <string name="status_reverting_subtitle">Création d\'un fichier « hosts » standard </string>
-  <string name="status_checking_subtitle">Vérifier si une mise à jour est proposée</string>
-  <string name="status_update_available">Mise à jour proposée</string>
-  <string name="status_update_available_subtitle">Nouveaux fichiers « hosts » proposés</string>
+  <string name="status_checking_subtitle">Vérifier si une mise à jour est disponible</string>
+  <string name="status_update_available">Mise à jour disponible</string>
+  <string name="status_update_available_subtitle">Nouveaux fichiers « hosts » disponibles</string>
   <string name="status_no_connection">Aucune connexion Internet</string>
   <string name="status_no_connection_subtitle">Aucune connexion Internet</string>
   <string name="status_download_fail">Sources non disponibles</string>
@@ -70,22 +70,22 @@
   <string name="apply_remount_fail">Échec du remontage de la partition en lecture/écriture !</string>
   <string name="apply_remount_fail_title">Échec du remontage</string>
   <string name="apply_copy_fail">Échec de copie du fichier « hosts » !</string>
-  <string name="apply_copy_fail_title">La copie a échouée</string>
+  <string name="apply_copy_fail_title">La copie a échoué</string>
   <string name="apply_success_subtitle">Sources « hosts » mises en place :</string>
   <string name="apply_success_title">Mise à en place réussie</string>
   <string name="apply_success_dialog">Mise en place réussie.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu\'aucune appli n\'utilise la carte SD actuellement !)</string>
   <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ? (Pour éviter toute perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
   <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
-  <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCeci échoue la plupart du temps à cause d\'une fonction appelée S-ON sur les téléphones HTC !\n\nUne solution est de démarrer votre téléphone en mode récupération et d\'y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
+  <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCeci échoue la plupart du temps à cause d\'une fonctionn appelée S-ON sur les téléphones HTC !\n\nUne solution est de démarrer votre téléphone en mode récupération et d\'y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
   <string name="apply_symlink_fail_title">Échec de la création du lien symbolique</string>
-  <string name="apply_help">Veuillez lire l\'aide pour plus d\'informations, .</string>
+  <string name="apply_help">Veuillez lire l\'aide pour plus d\'informations.</string>
   <string name="apply_apn_proxy">Un mandataire APN est configuré sur votre Android !\nAdAway ne fonctionnera pas de manière fiable sur les réseaux mobiles comme le 3G. Vous pouvez désactiver ce mandataire en allant à l\'APN choisi (sur Android 4 : Sans fil et réseaux -&gt; Paramètres supp. -&gt; Réseaux Mobile -&gt; Nom des point d\'accès) et en enlevant la valeur dans le champ « proxy »</string>
   <string name="apply_apn_proxy_title">Mandataire APN configuré !</string>
   <string name="no_connection">La connexion à Internet me fonctionne pas.</string>
   <string name="no_connection_title">Pas de connexion</string>
   <string name="download_dialog">Téléchargement...</string>
   <string name="apply_dialog">Mise en place...</string>
-  <string name="apply_dialog_lists">Mise en place des liste noire et blanche</string>
+  <string name="apply_dialog_lists">Mise en place des listes noire et blanche</string>
   <string name="apply_dialog_hostnames">Analyse et fusion des fichiers « hosts »</string>
   <string name="apply_dialog_hosts">Création du fichier « hosts »</string>
   <string name="apply_dialog_apply">Mise en place du fichier « hosts »</string>
@@ -95,12 +95,14 @@
   <string name="revert_successful_title">Retour arrière réussi</string>
   <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
   <string name="revert_problem_title">Échec du retour arrière ! </string>
-  <string name="download_fail_dialog">Aucune de vos sources d\'« hosts » activées n\'est disponible. Êtes-vous correctement connecté à internet ?</string>
+  <string name="download_fail_dialog">Aucune de vos sources d\'« hosts » activées n\'est disponible. Êtes-vous correctement connecté à Internet ?</string>
   <string name="download_fail_title">Échec du téléchargement</string>
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de la création du fichier privé</string>
+  <string name="disable_systemless_successful">Vous avez désactivé le root systemless.\nIl pourrait peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d\'éviter la perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
+  <string name="disable_systemless_successful_title">Désactivation réussie</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Soit le fichier binaire « su » est introuvable, soit vous n\'avez pas donné l\'accès root à AdAway.\n\nCela peut arriver quand votre appareil n\'est pas enraciné\nVous trouverez des informations sur comment enraciner votre appareil sur www.cyanogenmod.org ou d\'autres sites Web dédiés à Android.</string>
+  <string name="no_root_description">Soit le fichier binaire « su » est introuvable, soit vous n\'avez pas donné l\'accès root à AdAway.\n\nCela peut arriver quand votre appareil n\'est pas rooté.\nVous trouverez des informations sur comment rooter votre appareil sur www.cyanogenmod.org ou d\'autres sites Web dédiés à Android.</string>
   <string name="no_root_title">Un Android rooté est exigé</string>
   <string name="no_url">Ce n\'est pas une URL valide !</string>
   <string name="no_url_title">URL mal formatée</string>
@@ -108,7 +110,7 @@
   <string name="no_hostname">Ce n\'est pas un nom d\'hôte valide !</string>
   <string name="no_hostname_title">Nom d\'hôte mal formaté</string>
   <string name="no_ip">Ce n\'est pas une IP valide !</string>
-  <string name="no_ip_title">IP mal formatéee</string>
+  <string name="no_ip_title">IP mal formatée</string>
   <string name="reboot_never_reboot">Ne jamais redémarrer et ne plus demander à l\'avenir !</string>
   <string name="loading">Chargement...</string>
   <!--Menu entries-->
@@ -152,8 +154,8 @@
   <string name="app_subtitle">Blocage de publicités</string>
   <string name="no_text_editor_title">Aucun éditeur de texte installé</string>
   <string name="no_text_editor">Aucun éditeur de texte n\'a été trouvé pour ouvrir le fichier « hosts ». Vous pouvez installer Jota ou d\'autres éditeurs de texte pour ce faire.\n\nVoulez-vous installer Jota ?</string>
-  <string name="no_file_manager_title">Aucun gestionnaire de fichier installé</string>
-  <string name="no_file_manager">Aucun gestionnaire de fichier n\'a trouvé pour ouvrir les fichiers. Vous pouvez installer OI File Manager ou d\'autres gestionnaires de fichiers pour ce faire.\n\nVoulez-vous installer OI File Manager ?</string>
+  <string name="no_file_manager_title">Aucun gestionnaire de fichiers installé</string>
+  <string name="no_file_manager">Aucun gestionnaire de fichiers n\'a trouvé pour ouvrir les fichiers. Vous pouvez installer OI File Manager ou d\'autres gestionnaires de fichiers pour ce faire.\n\nVoulez-vous installer OI File Manager ?</string>
   <!--Tcpdump-->
   <string name="toast_tcpdump_log_deleted">Ficher journal supprimé !</string>
   <string name="toast_tcpdump_added_to_blacklist">Le nom d\'hôte a été ajouté à votre liste noire !</string>
@@ -162,14 +164,14 @@
   <string name="tcpdump_log_context_whitelist">Ajouter à votre liste blanche</string>
   <string name="tcpdump_log_context_browser">Ouvrir dans le navigateur</string>
   <string name="tcpdump_log_empty">Fichier journal vide !</string>
-  <string name="tcpdump_log_footer">Appuyer longuement sur un nom d\'hôte pour l\'ajouter à votre liste noire ou blanche !</string>
+  <string name="tcpdump_log_footer">Appuyez longuement sur un nom d\'hôte pour l\'ajouter à votre liste noire ou blanche !</string>
   <!--Preferences-->
   <string name="pref_download">Paramètres généraux</string>
   <string name="pref_hosts">Fichier « hosts »</string>
   <string name="pref_redirection_ip">IP de redirection</string>
   <string name="pref_update_check">Vérifier les mises à jour</string>
   <string name="pref_apply_method">Fichier « hosts » cible</string>
-  <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lire l\'aide concernant cette fonction.</string>
+  <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lisez l\'aide concernant cette fonctionnalité.</string>
   <string name="pref_redirection_ip_summary">Tous les noms d\'hôtes bloqués sont redirigés vers cette adresse IP.</string>
   <string name="pref_header_preferences">Préférences</string>
   <string name="pref_header_preferences_summary">Préférences générales d\'AdAway</string>
@@ -194,8 +196,8 @@
   <string name="pref_update_check_daily">Vérifier les mises à jour quotidiennement</string>
   <string name="pref_update_check_daily_summary">Vérifier les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_automatic_update_daily">Mise à jour automatique</string>
-  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont proposées</string>
-  <string name="pref_update_only_on_wifi">Mise à jour Wi-Fi seulement</string>
+  <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jour sont proposées.</string>
+  <string name="pref_update_only_on_wifi">Mise à jour Wi-Fi uniquement</string>
   <string name="pref_update_only_on_wifi_summary">N\'exécuter les mises à jour en arrière-plan que si connecté à un réseau Wi-Fi.</string>
   <string name="pref_whitelist_rules">Permettre la mise en liste blanche</string>
   <string name="pref_whitelist_rules_summary">Permettre les entrées de liste blanche des sources « hosts »</string>
