@@ -174,12 +174,13 @@ public class ApplyUtils {
                 if (!tb.remount(target, "RW")) {
                     Log.e(Constants.TAG, "Remounting as RW failed! Probably not a problem!");
                 }
+            }
 
+            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 // remove before copying when using /system/etc/hosts
                 SimpleCommand command = new SimpleCommand(Constants.COMMAND_RM + " " + target);
                 shell.add(command).waitForFinish();
             }
-
             // copy file
             if (!tb.copyFile(privateFile, target, false, false)) {
                 throw new CommandException();
