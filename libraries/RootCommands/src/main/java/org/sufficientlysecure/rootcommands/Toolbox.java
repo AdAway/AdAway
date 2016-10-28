@@ -481,7 +481,7 @@ public class Toolbox {
 
         // remount destination as read/write before copying to it
         if (remountAsRw) {
-            if (!remount("/system","RW")) {
+            if (!remount(source,"RW")) {
                 Log.d(RootCommands.TAG,
                         "Remounting failed! There is probably no need to remount this partition!");
             }
@@ -518,7 +518,7 @@ public class Toolbox {
 
         // remount destination back to read only
         if (remountAsRw) {
-            if (!remount("/system","RO")) {
+            if (!remount(source,"RO")) {
                 Log.d(RootCommands.TAG,
                         "Remounting failed! There is probably no need to remount this partition!");
             }

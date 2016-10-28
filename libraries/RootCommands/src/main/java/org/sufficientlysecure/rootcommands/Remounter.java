@@ -108,9 +108,9 @@ class Remounter {
                         "/system/bin/toolbox mount -o remount," + mountType.toLowerCase(Locale.US) + " "
                                 + mountPoint.getDevice().getAbsolutePath() + " "
                                 + mountPoint.getMountPoint().getAbsolutePath(),
-                "toybox mount -o "+mountType.toLowerCase(Locale.US)+",remount" + " "
-                        + mountPoint.getDevice().getAbsolutePath() + " "
-                        + mountPoint.getMountPoint().getAbsolutePath());
+                        "toybox mount -o "+mountType.toLowerCase(Locale.US)+",remount" + " "
+                                + mountPoint.getDevice().getAbsolutePath() + " "
+                                + mountPoint.getMountPoint().getAbsolutePath());
 
                 // execute on shell
                 shell.add(command).waitForFinish();
@@ -138,11 +138,10 @@ class Remounter {
     private Mount findMountPointRecursive(String file) {
         try {
             ArrayList<Mount> mounts = getMounts();
-            for (File path = new File(file); path != null;) {
-                for (Mount mount : mounts) {
-                    if (mount.getMountPoint().equals(path)) {
-                        return mount;
-                    }
+            File path = new File(file);
+            for (Mount mount : mounts) {
+                if (mount.getMountPoint().equals(path)) {
+                    return mount;
                 }
             }
             return null;
