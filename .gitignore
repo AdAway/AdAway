@@ -29,3 +29,4 @@ pom.xml.*
 #IntelliJ IDEA
 .idea
 *.iml
+/AdAway/.externalNativeBuild/

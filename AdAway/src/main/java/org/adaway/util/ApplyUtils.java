@@ -48,7 +48,7 @@ public class ApplyUtils {
     public static boolean hasEnoughSpaceOnPartition(String target, long size) {
         try {
             // new File(target).getFreeSpace() (API 9) is not working on data partition
-
+            // get directory without file
             StatFs stat = new StatFs(target);
             long blockSize = stat.getBlockSize();
             long availableBlocks = stat.getAvailableBlocks();
@@ -93,13 +93,13 @@ public class ApplyUtils {
      *
      * @return true if it is applied
      */
-    public static boolean isHostsFileCorrect(Context context, String target) {
+    public static boolean isHostsFileCorrect(String target) {
         boolean status = false;
 
         /* Check if first line in hosts file is AdAway comment */
         InputStream stream = null;
-        InputStreamReader in = null;
-        BufferedReader br = null;
+        InputStreamReader in;
+        BufferedReader br;
         try {
             File file = new File(target);
 
@@ -111,11 +111,7 @@ public class ApplyUtils {
 
             Log.d(Constants.TAG, "First line of " + target + ": " + firstLine);
 
-            if (firstLine.equals(Constants.HEADER1)) {
-                status = true;
-            } else {
-                status = false;
-            }
+            status = firstLine.equals(Constants.HEADER1);
         } catch (FileNotFoundException e) {
             Log.e(Constants.TAG, "FileNotFoundException", e);
             status = true; // workaround for: http://code.google.com/p/ad-away/issues/detail?id=137
@@ -169,21 +165,17 @@ public class ApplyUtils {
         }
 
         Toolbox tb = new Toolbox(shell);
-
-        // Check write access
-        boolean writable = ApplyUtils.isWritable(shell, target);
         /* Execute commands */
         try {
-            if (!writable) {
+            //Due to the fact that we have remounter looking for mounts, it only works for /system
+            if (!target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 // remount for write access
                 Log.i(Constants.TAG, "Remounting for RW...");
-                if (!tb.remount(target, "RW")) {
+                if (!tb.remount("/system", "RW")) {
                     Log.e(Constants.TAG, "Remounting as RW failed! Probably not a problem!");
                 }
-            }
 
-            // remove before copying when using /system/etc/hosts
-            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                // remove before copying when using /system/etc/hosts
                 SimpleCommand command = new SimpleCommand(Constants.COMMAND_RM + " " + target);
                 shell.add(command).waitForFinish();
             }
@@ -202,13 +194,16 @@ public class ApplyUtils {
 
             throw new CommandException();
         } finally {
-            if (!writable) {
+            if (!target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                // remount for write access
                 // after all remount system back as read only
                 Log.i(Constants.TAG, "Remounting back to RO...");
-                if (!tb.remount(target, "RO")) {
-                    Log.e(Constants.TAG, "Remounting failed in finally! Probably not a problem!");
+                //Due to the fact that we have remounter looking for mounts, it only works for /system
+                if (!tb.remount("/system", "RO")) {
+                    Log.e(Constants.TAG, "Remounting as RO failed! Probably not a problem!");
                 }
             }
+
         }
     }
 
@@ -218,7 +213,7 @@ public class ApplyUtils {
      * @throws RemountException CommandException
      */
     public static void createSymlink(String target) throws RemountException, CommandException {
-        Shell rootShell = null;
+        Shell rootShell;
         try {
             rootShell = Shell.startRootShell();
         } catch (Exception e) {
@@ -261,15 +256,13 @@ public class ApplyUtils {
      * Checks whether /system/etc/hosts is a symlink and pointing to the target or not
      *
      * @param target
-     * @return
-     * @throws CommandException
      */
     public static boolean isSymlinkCorrect(String target, Shell shell) {
         Log.i(Constants.TAG, "Checking whether /system/etc/hosts is a symlink and pointing to "
                 + target + " or not.");
 
         Toolbox tb = new Toolbox(shell);
-        String symlink = null;
+        String symlink;
         try {
             symlink = tb.getSymlink(Constants.ANDROID_SYSTEM_ETC_HOSTS);
         } catch (Exception e) {

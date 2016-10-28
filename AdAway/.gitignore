@@ -34,3 +34,4 @@ pom.xml.*
 #IntelliJ IDEA
 .idea
 *.iml
+/.externalNativeBuild/

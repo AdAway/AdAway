@@ -1,21 +1,32 @@
 apply plugin: 'com.android.application'
-
+repositories {
+    jcenter()
+}
 dependencies {
-    //compile 'com.android.support:support-v4:18.0.+' // already in actionbarsherlock
-    compile project(':libraries:Donations')
-    compile project(':libraries:actionbarsherlock')
-    compile project(':libraries:HtmlTextView')
+
     compile project(':libraries:RootCommands')
     compile 'net.sf.trove4j:trove4j:3.0.3'
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    compile 'com.android.support:support-v4:18.0.+'
+    compile 'org.sufficientlysecure:html-textview:2.0'
+    compile 'org.sufficientlysecure:donations:2.4'
 }
 
 android {
+    sourceSets {
+        instrumentTest.setRoot('tests')
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 23
+
     }
 
     /*
@@ -31,7 +42,7 @@ android {
             project.hasProperty('signingKeyAlias') &&
             project.hasProperty('signingKeyPassword')) {
         println "Found sign properties in gradle.properties! Signing build…"
-        
+
         signingConfigs {
             release {
                 storeFile file(signingStoreLocation)
@@ -45,23 +56,21 @@ android {
     } else {
         buildTypes.release.signingConfig = null
     }
-    
+
     // Do not abort build if lint finds errors
     lintOptions {
         abortOnError false
     }
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'jni/Android.mk'
+        }
+    }
 }
 
- /**
- * Android Gradle Plugin does not support jni packaging.
- * This is a hack, should be removed in the future
- */
-tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
-    pkgTask.jniFolders = new HashSet<File>()
-    pkgTask.jniFolders.add(new File(projectDir, 'libs'))
-}
- 
- /**
+
+/**
  * Task to rename executables from hello_world to libhello_world_exec.so
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *
@@ -76,6 +85,5 @@ task renameExecutables(type: Copy) {
 
     rename(/(.+)/, 'lib$1_exec.so')
 }
-
 
 build.dependsOn renameExecutables
