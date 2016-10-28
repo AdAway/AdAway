@@ -17,11 +17,18 @@
 
 package org.sufficientlysecure.rootcommands;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.sufficientlysecure.rootcommands.command.Command;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 import org.sufficientlysecure.rootcommands.util.Log;
-
-import java.util.Locale;
 
 //no modifier, this means it is package-private. Only our internal classes can use this.
 class Remounter {
@@ -41,34 +48,145 @@ class Remounter {
      * "/system/bin/some/directory/that/really/would/never/exist" will result in /system ultimately
      * being remounted. However, keep in mind that the longer the path you supply, the more work
      * this has to do, and the slower it will run.
-     * 
-     * @param mountPoint
-     *            the mount point you want to remount
+     *
+     * @param file
+     *            file path
      * @param mountType
      *            mount type: pass in RO (Read only) or RW (Read Write)
      * @return a <code>boolean</code> which indicates whether or not the partition has been
      *         remounted as specified.
      */
-    protected boolean remount(String mountPoint,String mountType) {
-        // grab an instance of the internal class
-        try {
-            //According to ChainFire, previous versions of Android never actually check the mount point, so we can just duplicate it.
-            SimpleCommand command = new SimpleCommand("mount -o remount,"
-                    + mountType.toLowerCase(Locale.US) + " "+ mountPoint+" "+mountPoint);
+    protected boolean remount(String file, String mountType) {
 
-            // execute on shell
-            shell.add(command).waitForFinish();
-            if (command.getExitCode() != 0) {
-                //If we receive a non-zero error, then the above remount failed, so we should attempt a remount for N
-                //Note: N requires ro/rw first and remount second
-                command = new SimpleCommand("mount -o "+ mountType.toLowerCase(Locale.US) + ",remount "+mountPoint);
-                // execute on shell
-                shell.add(command).waitForFinish();
-            }
-        } catch (Exception e) {
+        // if the path has a trailing slash get rid of it.
+        if (file.endsWith("/") && !file.equals("/")) {
+            file = file.substring(0, file.lastIndexOf("/"));
+        }
+        // Make sure that what we are trying to remount is in the mount list.
+        boolean foundMount = false;
+        while (!foundMount) {
+            try {
+                for (Mount mount : getMounts()) {
+                    Log.d(RootCommands.TAG, mount.getMountPoint().toString());
+
+                    if (file.equals(mount.getMountPoint().toString())) {
+                        foundMount = true;
+                        break;
+                    }
+                }
+            } catch (Exception e) {
                 Log.e(RootCommands.TAG, "Exception", e);
                 return false;
+            }
+            if (!foundMount) {
+                try {
+                    file = new File(file).getParent();
+                } catch (Exception e) {
+                    Log.e(RootCommands.TAG, "Exception", e);
+                    return false;
+                }
+            }
         }
-        return true;
+        Mount mountPoint = findMountPointRecursive(file);
+
+        Log.d(RootCommands.TAG, "Remounting " + mountPoint.getMountPoint().getAbsolutePath()
+                + " as " + mountType.toLowerCase(Locale.US));
+        final boolean isMountMode = mountPoint.getFlags().contains(mountType.toLowerCase(Locale.US));
+
+        if (!isMountMode) {
+            // grab an instance of the internal class
+            try {
+                SimpleCommand command = new SimpleCommand("busybox mount -o remount,"
+                        + mountType.toLowerCase(Locale.US) + " " + mountPoint.getDevice().getAbsolutePath()
+                        + " " + mountPoint.getMountPoint().getAbsolutePath(),
+                        "toolbox mount -o remount," + mountType.toLowerCase(Locale.US) + " "
+                                + mountPoint.getDevice().getAbsolutePath() + " "
+                                + mountPoint.getMountPoint().getAbsolutePath(), "mount -o remount,"
+                        + mountType.toLowerCase(Locale.US) + " "
+                        + mountPoint.getDevice().getAbsolutePath() + " "
+                        + mountPoint.getMountPoint().getAbsolutePath(),
+                        "/system/bin/toolbox mount -o remount," + mountType.toLowerCase(Locale.US) + " "
+                                + mountPoint.getDevice().getAbsolutePath() + " "
+                                + mountPoint.getMountPoint().getAbsolutePath(),
+                "toybox mount -o "+mountType.toLowerCase(Locale.US)+",remount" + " "
+                        + mountPoint.getDevice().getAbsolutePath() + " "
+                        + mountPoint.getMountPoint().getAbsolutePath());
+
+                // execute on shell
+                shell.add(command).waitForFinish();
+
+            } catch (Exception e) {
+            }
+
+            mountPoint = findMountPointRecursive(file);
+        }
+
+        if (mountPoint != null) {
+            Log.d(RootCommands.TAG, mountPoint.getFlags() + " AND " + mountType.toLowerCase(Locale.US));
+            if (mountPoint.getFlags().contains(mountType.toLowerCase(Locale.US))) {
+                Log.d(RootCommands.TAG, mountPoint.getFlags().toString());
+                return true;
+            } else {
+                Log.d(RootCommands.TAG, mountPoint.getFlags().toString());
+            }
+        } else {
+            Log.d(RootCommands.TAG, "mountPoint is null");
+        }
+        return false;
+    }
+
+    private Mount findMountPointRecursive(String file) {
+        try {
+            ArrayList<Mount> mounts = getMounts();
+            for (File path = new File(file); path != null;) {
+                for (Mount mount : mounts) {
+                    if (mount.getMountPoint().equals(path)) {
+                        return mount;
+                    }
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            Log.e(RootCommands.TAG, "Exception", e);
+        }
+        return null;
+    }
+
+    /**
+     * This will return an ArrayList of the class Mount. The class mount contains the following
+     * property's: device mountPoint type flags
+     * <p/>
+     * These will provide you with any information you need to work with the mount points.
+     *
+     * @return <code>ArrayList<Mount></code> an ArrayList of the class Mount.
+     * @throws Exception
+     *             if we cannot return the mount points.
+     */
+    protected static ArrayList<Mount> getMounts() throws Exception {
+        Shell shell = Shell.startRootShell();
+        FindMountCommand command = new FindMountCommand();
+        shell.add(command).waitForFinish();
+        return command.mounts;
+    }
+    private static class FindMountCommand extends Command {
+        ArrayList<Mount> mounts = new ArrayList<>();
+        FindMountCommand() {
+            super("cat /proc/mounts");
+        }
+        @Override
+        public void output(int id, String line) {
+            String[] fields = line.split(" ");
+            mounts.add(new Mount(new File(fields[0]), // device
+                    new File(fields[1]), // mountPoint
+                    fields[2], // fstype
+                    fields[3] // flags
+            ));
+        }
+
+        @Override
+        public void afterExecution(int id, int exitCode) {
+        }
     }
 }

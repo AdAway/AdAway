@@ -165,13 +165,13 @@ public class ApplyUtils {
         }
 
         Toolbox tb = new Toolbox(shell);
+        boolean writable = isWritable(shell,target);
         /* Execute commands */
         try {
-            //Due to the fact that we have remounter looking for mounts, it only works for /system
-            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            if (!writable) {
                 // remount for write access
                 Log.i(Constants.TAG, "Remounting for RW...");
-                if (!tb.remount("/system", "RW")) {
+                if (!tb.remount(target, "RW")) {
                     Log.e(Constants.TAG, "Remounting as RW failed! Probably not a problem!");
                 }
 
@@ -194,12 +194,10 @@ public class ApplyUtils {
 
             throw new CommandException();
         } finally {
-            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                // remount for write access
-                // after all remount system back as read only
+            if (!writable) {
+                // after all remount target back as read only
                 Log.i(Constants.TAG, "Remounting back to RO...");
-                //Due to the fact that we have remounter looking for mounts, it only works for /system
-                if (!tb.remount("/system", "RO")) {
+                if (!tb.remount(target, "RO")) {
                     Log.e(Constants.TAG, "Remounting as RO failed! Probably not a problem!");
                 }
             }
@@ -289,7 +287,7 @@ public class ApplyUtils {
         /* Execute commands */
         try {
             // get directory without file
-            String directory = new File(target).getParent().toString();
+            String directory = new File(target).getParent();
 
             // create directories
             try {

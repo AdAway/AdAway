@@ -718,11 +718,11 @@ public class Toolbox {
      * @return a <code>boolean</code> which indicates whether or not the partition has been
      *         remounted as specified.
      */
-    public boolean remount(String mountPoint, String mountType) {
+    public boolean remount(String path, String mountType) {
         // Recieved a request, get an instance of Remounter
         Remounter remounter = new Remounter(shell);
         // send the request
-        return (remounter.remount(mountPoint, mountType));
+        return (remounter.remount(path, mountType));
     }
 
     /**
