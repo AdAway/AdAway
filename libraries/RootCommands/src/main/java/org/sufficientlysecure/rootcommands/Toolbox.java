@@ -481,7 +481,7 @@ public class Toolbox {
 
         // remount destination as read/write before copying to it
         if (remountAsRw) {
-            if (!remount("/system","RW")) {
+            if (!remount(source,"RW")) {
                 Log.d(RootCommands.TAG,
                         "Remounting failed! There is probably no need to remount this partition!");
             }
@@ -518,7 +518,7 @@ public class Toolbox {
 
         // remount destination back to read only
         if (remountAsRw) {
-            if (!remount("/system","RO")) {
+            if (!remount(source,"RO")) {
                 Log.d(RootCommands.TAG,
                         "Remounting failed! There is probably no need to remount this partition!");
             }
@@ -718,11 +718,11 @@ public class Toolbox {
      * @return a <code>boolean</code> which indicates whether or not the partition has been
      *         remounted as specified.
      */
-    public boolean remount(String mountPoint, String mountType) {
+    public boolean remount(String path, String mountType) {
         // Recieved a request, get an instance of Remounter
         Remounter remounter = new Remounter(shell);
         // send the request
-        return (remounter.remount(mountPoint, mountType));
+        return (remounter.remount(path, mountType));
     }
 
     /**
