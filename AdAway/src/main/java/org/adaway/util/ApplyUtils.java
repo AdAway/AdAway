@@ -168,7 +168,7 @@ public class ApplyUtils {
         /* Execute commands */
         try {
             //Due to the fact that we have remounter looking for mounts, it only works for /system
-            if (!target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 // remount for write access
                 Log.i(Constants.TAG, "Remounting for RW...");
                 if (!tb.remount("/system", "RW")) {
@@ -194,7 +194,7 @@ public class ApplyUtils {
 
             throw new CommandException();
         } finally {
-            if (!target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            if (target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 // remount for write access
                 // after all remount system back as read only
                 Log.i(Constants.TAG, "Remounting back to RO...");

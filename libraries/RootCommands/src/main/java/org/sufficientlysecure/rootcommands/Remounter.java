@@ -17,6 +17,7 @@
 
 package org.sufficientlysecure.rootcommands;
 
+import org.sufficientlysecure.rootcommands.command.Command;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 import org.sufficientlysecure.rootcommands.util.Log;
 
@@ -70,5 +71,4 @@ class Remounter {
         }
         return true;
     }
-
 }
