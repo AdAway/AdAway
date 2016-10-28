@@ -3,14 +3,14 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Izlaz</string>
-  <string name="button_apply">Preuzmi datoteke i primijeni blokiranje oglasa</string>
+  <string name="button_apply">Preuzmi datoteke i primijeni blokiranje</string>
   <string name="button_close">Zatvori</string>
   <string name="button_yes">Da</string>
   <string name="button_no">Ne</string>
   <string name="button_revert">Onemogući blokiranje oglasa</string>
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Odustani</string>
-  <string name="button_apply_text">Sve datoteke određenih poslužitelja iz definiranih izvora su preuzete, spojene s vašim popisima i instalirane kao jedna datoteka određenih poslužitelja na vaš sustav.</string>
+  <string name="button_apply_text">Sve datoteke poslužitelja su preuzete iz definiranih izvora, spojene s vašim popisima i instalirane kao jedna datoteka na vaš sustav.</string>
   <string name="button_revert_text">Vraća zadanu datoteku poslužitelja na vaš sustav.</string>
   <string name="button_save">Spremi</string>
   <string name="button_webserver_toggle_checked">Web poslužitelj je pokrenut</string>
@@ -27,7 +27,7 @@
   <string name="checkbox_list_empty">Popis je prazan</string>
   <string name="checkbox_list_empty_text">Stavke možete dodati putem akcijske trake.</string>
   <string name="checkbox_list_context_delete">Izbriši</string>
-  <string name="checkbox_list_footer">Nakon dodavanja novih stavki u ovaj popis morate ponovno primijeniti AdAway!</string>
+  <string name="checkbox_list_footer">Nakon dodavanja novih stavki na ovaj popis morate ponovno primijeniti AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Uredi</string>
   <string name="checkbox_list_context_title">Uredi unos</string>
   <string name="checkbox_list_context_edit">Uredi</string>
@@ -50,14 +50,14 @@
   <string name="status_reverting">Vraćanje...</string>
   <string name="status_reverting_subtitle">Stvaranje standardne datoteke poslužitelja</string>
   <string name="status_checking_subtitle">Provjeravanje ima li dostupnih ažuriranja</string>
-  <string name="status_update_available">Ažuriranje je dostupno</string>
-  <string name="status_update_available_subtitle">Novija hosts datoteka je dostupna</string>
+  <string name="status_update_available">Dostupno je ažuriranje</string>
+  <string name="status_update_available_subtitle">Dostupna je novija datoteka posl.</string>
   <string name="status_no_connection">Nema Internetske veze</string>
   <string name="status_no_connection_subtitle">Nema dostupne Internetske veze</string>
   <string name="status_download_fail">Nedostupni izvori</string>
-  <string name="status_download_fail_subtitle_new">Niti jedan izvor hostova nije dostupan!</string>
+  <string name="status_download_fail_subtitle_new">Niti jedan izvor poslužitelja nije dostupan!</string>
   <string name="status_enabled">Omogućeno</string>
-  <string name="status_enabled_subtitle">Omogućena je najnovija datoteka poslužitelja</string>
+  <string name="status_enabled_subtitle">Najnovija datoteka posluž. je omogućena</string>
   <string name="status_disabled">Onemogućeno</string>
   <string name="status_disabled_subtitle">Onemogućeno</string>
   <!--Apply and Revert Dialogs-->
@@ -95,7 +95,7 @@
   <string name="revert_successful_title">Vraćanje na zadano uspjelo</string>
   <string name="revert_problem">Vraćanje na zadano stanje nije uspjelo iz nepoznatih razloga.</string>
   <string name="revert_problem_title">Vraćanje nije uspjelo!</string>
-  <string name="download_fail_dialog">Niti jedan od Vaših omogućenih izvora poslužitelja nije dostupan! Jeste li ispravno povezani na internet?</string>
+  <string name="download_fail_dialog">Niti jedan od vaših omogućenih izvora poslužitelja nije dostupan! Jeste li ispravno povezani na internet?</string>
   <string name="download_fail_title">Preuzimanje nije uspjelo</string>
   <string name="no_private_file">Privatna datoteka ne može biti stvorena.</string>
   <string name="no_private_file_title">Stvaranje privatne datoteke nije uspjelo</string>
@@ -127,7 +127,7 @@
   <string name="help_tab_about">O aplikaciji</string>
   <string name="help_tab_donate">Donirajte</string>
   <string name="help_tab_s_on_s_off">S-UKLJ/S-ISKLJ</string>
-  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_faq">Česta pitanja</string>
   <string name="help_tab_problems">Problemi</string>
   <string name="help_tab_changelog">Popis promjena</string>
   <string name="help_about_version">Inačica:</string>

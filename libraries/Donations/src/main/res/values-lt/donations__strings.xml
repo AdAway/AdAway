@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Uždaryti</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Ar ši programa jums naudingą?\nPrisidėkite prie programos vystimosi aukodami jos kurėjūi !</string>
+  <string name="donations__google_android_market">Google Play Parduotuvė</string>
+  <string name="donations__google_android_market_not_supported_title">Aukojimas programos viduje nepalaikomas.</string>
+  <string name="donations__google_android_market_not_supported">Aukojimas programos viduje nepalaikomas. Ar Google Play Parduotuvė irašyta teisingai? </string>
+  <string name="donations__google_android_market_description">Google pasilieka 30 % off nuo kiekvienos pinignės aukos!</string>
+  <string name="donations__google_android_market_donate_button">Paaukoti!</string>
+  <string name="donations__google_android_market_text">Kiek?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Jūs galite pasirinkti kiek norite aukoti, kai paspaudžiate mygtuką!</string>
+  <string name="donations__thanks_dialog_title">Ačiū!</string>
+  <string name="donations__thanks_dialog">Ačių už jūsų auką!\nI nuoširdžiai dėkojų !</string>
+  <string name="donations__alert_dialog_title">Įvyko klaida</string>
+  <string name="donations__alert_dialog_no_browser">Nerasta jokia interneto naršyklė svetainei atidaryti!</string>
+</resources>

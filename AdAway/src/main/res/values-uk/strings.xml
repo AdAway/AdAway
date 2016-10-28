@@ -99,6 +99,8 @@
   <string name="download_fail_title">Завантаження не вдалося</string>
   <string name="no_private_file">Особистий файл не може бути створений.</string>
   <string name="no_private_file_title">Не вдалося створити особистий файл</string>
+  <string name="disable_systemless_successful">Ви вимкнули безсистемний режим.\nЦе може бути потрібний для перезавантаження  Android для набуття чинності змін.\n\nХочете перезавантаження?\n(Щоб уникнути втрати даних переконайтеся, що жодна програма не використовує карту пам\'яті SD у цю мить!)</string>
+  <string name="disable_systemless_successful_title">Вимкнення - успішне</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Програмний файл su не знайдений, або AdAway не були надані права суперкористувача.\n\n Це може статися, якщо у вас немає прав суперкористувача на пристрої. \nІнформацію про те, як отримати права суперкористувача на вашому пристрої, ви можете знайти на форумі www.cyanogenmod.org або інших веб-сайтах, про Андроїд.</string>
   <string name="no_root_title">Необхідна наявність прав суперкористувача</string>
@@ -206,4 +208,8 @@
   <string name="pref_enable_debug_summary">Необхідно перезапустити AdAway, щоб зміни вступили в силу.</string>
   <string name="pref_enable_ipv6">Увімкнути IPv6</string>
   <string name="pref_enable_ipv6_summary">Усі записи файлу хостів отримають належний елемент ::1 (IPv6 localhost).</string>
+  <string name="pref_enable_systemless_def">хибність</string>
+  <string name="pref_enable_systemless_key">увімкнути безсистемний</string>
+  <string name="pref_enable_systemless_summary"><![CDATA[Запобігати AdAway від зміни системного розділу (потрібний SuperSU >= 2.76)]]></string>
+  <string name="pref_enable_systemless">Увімкнути безсистемний режим</string>
 </resources>

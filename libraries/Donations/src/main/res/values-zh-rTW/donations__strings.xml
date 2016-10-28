@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">關閉</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">本程式對您來說是否實用？\n藉由捐款給開發人員可協助程式進展！</string>
+  <string name="donations__flattr_description">Flattr 將從月費中抽取 10% a 費用 ！</string>
+  <string name="donations__google_android_market">Google Play 商店</string>
+  <string name="donations__google_android_market_not_supported_title">不支援程式內贊助。</string>
+  <string name="donations__google_android_market_not_supported">不支援程式內贊助， Google Play 商店是否安裝正確？</string>
+  <string name="donations__google_android_market_description">Google 將從每筆捐贈中抽取 30% o費用！</string>
+  <string name="donations__google_android_market_donate_button">贊助！</string>
+  <string name="donations__google_android_market_text">多少？</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">你可以選擇你想捐出多少後點擊按鈕！</string>
+  <string name="donations__thanks_dialog_title">謝謝！</string>
+  <string name="donations__thanks_dialog">謝謝贊助！\n真的很感謝您！</string>
+  <string name="donations__alert_dialog_title">發生錯誤</string>
+  <string name="donations__alert_dialog_no_browser">找不到瀏覽器來開啟網站！</string>
+</resources>

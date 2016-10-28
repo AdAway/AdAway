@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Stäng</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Finner du applikationen användbar?\nStöd utvecklingen av den genom att skicka en donation till utvecklaren!</string>
+  <string name="donations__flattr_description">Flattr tar 10% som månadskostnad</string>
+  <string name="donations__google_android_market">Google Play Butik</string>
+  <string name="donations__google_android_market_not_supported_title">In-App-donationer stödjs inte.</string>
+  <string name="donations__google_android_market_not_supported">In-App-donationer stödjs inte. Är Google Play Butik korrekt installerad?</string>
+  <string name="donations__google_android_market_description">Google tar 30% av varje donation</string>
+  <string name="donations__google_android_market_donate_button">Donera!</string>
+  <string name="donations__google_android_market_text">Hur mycket?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Du kan välja hur mycket du vill donera efter du tryckt på knappen!</string>
+  <string name="donations__thanks_dialog_title">Tack!</string>
+  <string name="donations__thanks_dialog">Tack för donationen!\nJag uppskattar det verkligen!</string>
+  <string name="donations__alert_dialog_title">Något gick fel</string>
+  <string name="donations__alert_dialog_no_browser">Hittade ingen webbläsare att öppna en hemsida med!</string>
+</resources>

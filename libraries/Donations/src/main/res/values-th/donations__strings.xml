@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">ปิด</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">แอพพลิเคชันมีประโยชน์?\nสนับสนุนโดยการบริจาคไปยังนักพัฒนา!</string>
+  <string name="donations__flattr_description">Flattr takes 10 % as a monthly fee!</string>
+  <string name="donations__google_android_market">Play สโตร์</string>
+  <string name="donations__google_android_market_not_supported_title">ไม่รองรับการบริจาค</string>
+  <string name="donations__google_android_market_not_supported">ไม่รองรับการบริจาค แน่ใจว่า Play สโตร์ถูกติดตั้งถูกต้อง?</string>
+  <string name="donations__google_android_market_description">Google takes 30 % off every donation!</string>
+  <string name="donations__google_android_market_donate_button">บริจาค!</string>
+  <string name="donations__google_android_market_text">เท่าไหร่?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">สามารถเลือกจำนวนเงินที่ต้องการบริจาคหลังจากคลิกปุ่ม!</string>
+  <string name="donations__thanks_dialog_title">ขอบคุณ!</string>
+  <string name="donations__thanks_dialog">ขอบคุณสำหรับการบริจาค!\nขอแสดงความขอบคุณยิ่ง!</string>
+  <string name="donations__alert_dialog_title">เกิดผิดพลาด</string>
+  <string name="donations__alert_dialog_no_browser">ไม่พบเบราเซอร์เพื่อเปิดเว็บไซต์</string>
+</resources>

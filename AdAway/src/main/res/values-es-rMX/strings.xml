@@ -3,27 +3,42 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Salir</string>
+  <string name="button_apply">Descargar archivos y aplicar el bloqueo de Anuncios</string>
   <string name="button_close">Cerrar</string>
   <string name="button_yes">SI</string>
   <string name="button_no">No</string>
   <string name="button_revert">Deshabilitar bloqueado de anuncios</string>
   <string name="button_add">Agregar</string>
   <string name="button_cancel">¡Cancelar!</string>
+  <string name="button_revert_text">Restaurar el archivo hosts predeterminado de tu sistema</string>
   <string name="button_save">Guardar</string>
+  <string name="button_webserver_toggle_checked">El servidor Web se encuentra en Ejecución</string>
+  <string name="button_webserver_toggle_unchecked">El servidor Web No se encuentra en Ejecución</string>
   <string name="button_help">Ayuda</string>
+  <string name="button_tcpdump_toggle_checked">Tcpdump se encuentra en Ejecución!</string>
+  <string name="button_tcpdump_toggle_unchecked">Tcpdump No se encuentra en Ejecución!</string>
+  <string name="button_tcpdump_open">Abrir el archivo log</string>
+  <string name="button_tcpdump_delete">Borrar el archivo log</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Agregar</string>
   <string name="checkbox_list_empty">Vaciar lista</string>
+  <string name="checkbox_list_empty_text">Puedes agregar elementos desde el Menú.</string>
   <string name="checkbox_list_context_delete">Eliminar</string>
   <string name="checkbox_list_edit_dialog_title">Editar</string>
   <string name="checkbox_list_context_title">Editar entrada</string>
   <string name="checkbox_list_context_edit">Editar</string>
   <!--Your Lists-->
+  <string name="lists_tab_whitelist">Lista Blanca</string>
+  <string name="lists_tab_blacklist">Lista Negra</string>
   <string name="lists_tab_blacklist_short">Negro</string>
   <string name="lists_tab_whitelist_short">Blanco</string>
+  <string name="lists_tab_redirection_list_short">Redirección</string>
+  <string name="lists_tab_redirection_list">Lista de Redirección</string>
+  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Exportando...</string>
+  <string name="export_success">Se han exportado todas las entradas a un archivo llamado \"adaway-export\" en tu tarjeta sd</string>
   <!--Status Notifications-->
   <string name="status_checking">Buscando actualizaciones...</string>
   <string name="status_reverting">Revirtiendo...</string>
@@ -31,17 +46,24 @@
   <string name="status_update_available">Actualización disponible</string>
   <string name="status_no_connection">No hay conexión a Internet</string>
   <string name="status_no_connection_subtitle">No hay conexión a Internet</string>
+  <string name="status_download_fail">Fuentes no Disponibles</string>
   <string name="status_enabled">Habilitado</string>
   <string name="status_disabled">Deshabilitado</string>
   <string name="status_disabled_subtitle">Deshabilitado</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_not_enough_space_title">No hay suficiente espacio</string>
+  <string name="apply_copy_fail_title">Falló la Copia </string>
+  <string name="apply_help">Por favor lee la Ayuda para mas Información</string>
+  <string name="no_connection">La conexión a Internet no esta funcionando</string>
   <string name="no_connection_title">No hay conexión a Internet</string>
   <string name="download_dialog">Descargando...</string>
   <string name="apply_dialog">Aplicando cambios...</string>
+  <string name="apply_dialog_lists">Aplicando la Lista Negra y la Lista Blanca</string>
   <string name="download_fail_title">Falla durante descarga</string>
   <string name="no_private_file">Archivo privado no pudo ser creado</string>
+  <string name="no_private_file_title">La creación del Archivo Privado ha fallado</string>
   <!--Other Dialogs-->
+  <string name="no_root_title">Se requiere un dispositivo Android Rooteado</string>
   <string name="no_url">¡Este no es un URL válido!</string>
   <string name="no_url_title">Formato de URL equivocado</string>
   <string name="no_ip">¡Este no es un IP válido!</string>
@@ -50,7 +72,11 @@
   <!--Menu entries-->
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Agregar</string>
+  <string name="menu_scan_adware">Escanear Adware</string>
   <string name="menu_help">Ayuda</string>
+  <string name="menu_lists">Tus Listas</string>
+  <string name="menu_import">Importar todas las Listas</string>
+  <string name="menu_export">Exportar todas las Listas</string>
   <string name="menu_preferences">Preferencias</string>
   <!--Help-->
   <string name="help_tab_about">Acerca de...</string>
@@ -58,23 +84,50 @@
   <string name="help_tab_faq">Preguntas comunes</string>
   <string name="help_tab_problems">Problemas</string>
   <string name="help_tab_changelog">Revision de cambios</string>
+  <string name="help_about_version">Versión:</string>
   <string name="help_donation_paypal_item">Donaciones a AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euros</item>
+    <item>3 Euros</item>
+    <item>5 Euros</item>
+    <item>8 Euros</item>
+    <item>13 Euros</item>
+  </string-array>
   <!--Scan Adware-->
+  <string name="scan_adware_start">Empezar Escaneo</string>
+  <string name="scan_adware_empty">¡Ninguna Aplicación Adware fue encontrada!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En linea:</string>
   <string name="hosts_not_available">No disponible</string>
   <!--Other-->
+  <string name="app_subtitle">Bloqueador de Publicidad</string>
   <string name="no_text_editor_title">Ningún editor de textos instalado</string>
+  <string name="no_file_manager_title">No se encontró ningún gestor de archivos instalado</string>
   <!--Tcpdump-->
+  <string name="tcpdump_log_context_blacklist">Añadir a tu Lista Negra</string>
+  <string name="tcpdump_log_context_whitelist">Añadir a tu Lista Blanca</string>
+  <string name="tcpdump_log_context_browser">Abrir en el Navegador</string>
   <!--Preferences-->
   <string name="pref_download">Preferencias Generales</string>
   <string name="pref_redirection_ip">Redireccionar IP</string>
+  <string name="pref_update_check">Revisar Actualizaciones</string>
   <string name="pref_header_preferences">Preferencias</string>
+  <string name="pref_header_preferences_summary">Preferencias Generales para AdAway</string>
+  <string name="pref_never_reboot">Ocultar diálogo de Reinicio</string>
+  <string name="pref_webserver">Servidor Web Local</string>
   <string name="pref_update_check_summary">Buscar por actualizaciones al iniciar AdAway</string>
+  <string name="pref_sdcard_problem">¡Esta característica no funciona correctamente cuando AdAway esta instalado en la tarjeta SD!</string>
+  <string name="pref_background">Servicios en Segundo Plano</string>
   <string name="pref_update_check_daily">Buscar por actualizaciones diariamente</string>
   <string name="pref_automatic_update_daily">Actualización automática</string>
+  <string name="pref_automatic_update_daily_summary">Actualizar automáticamente en segundo plano si hay actualizaciones disponibles</string>
   <string name="pref_update_only_on_wifi">Actualizar solo con WiFi</string>
+  <string name="pref_update_only_on_wifi_summary">Ejecutar actualizaciones en Segundo Plano solo cuando me encuentro conectado a una red Wifi</string>
+  <string name="pref_whitelist_rules">Permitir la revisión de la Lista Blanca</string>
+  <string name="pref_redirection_rules">Permitir Redirecciones</string>
   <string name="pref_debug">Depurar</string>
+  <string name="pref_enable_debug_summary">Necesitas reiniciar AdAway para que esta opción tenga efecto.</string>
   <string name="pref_enable_ipv6">Habilitar IPv6</string>
 </resources>

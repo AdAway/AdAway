@@ -99,6 +99,8 @@
   <string name="download_fail_title">Изтеглянето е неуспешно</string>
   <string name="no_private_file">Личен файл не може да бъде създаден.</string>
   <string name="no_private_file_title">Създаването на личен файл не успя</string>
+  <string name="disable_systemless_successful">Вие изключихте неметодичния режим.\nМоже да е нужно рестартиране на Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, първо се уверете, че няма приложение, използващо паметта в момента!)</string>
+  <string name="disable_systemless_successful_title">Деактивирането е успешно</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Или не може да бъде намерен su binary, или не сте дали root права на AdAway.\n\nТова може да се получи, когато устройството ви няма root достъп.\nМоже да намерите информация как да го root на www.cyanogenmod.org или други Android сайтове.</string>
   <string name="no_root_title">Изисква се Android с root достъп</string>
@@ -206,4 +208,8 @@
   <string name="pref_enable_debug_summary">Трябва да рестартирате AdAway, за да влезе в сила тази настройка.</string>
   <string name="pref_enable_ipv6">Включи  IPv6</string>
   <string name="pref_enable_ipv6_summary">Всички вписвания от host файла ще кореспондират с ::1 (IPv6 localhost).</string>
+  <string name="pref_enable_systemless_def">грешен</string>
+  <string name="pref_enable_systemless_key">Включване на неметодичен режим</string>
+  <string name="pref_enable_systemless_summary"><![CDATA[Предотвратяване на AdAway от модифициране на системния партишън (изисква SuperSU >= 2.76)]]></string>
+  <string name="pref_enable_systemless">Включване на неметодичен режим</string>
 </resources>

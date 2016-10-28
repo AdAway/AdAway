@@ -10,7 +10,7 @@
   <string name="button_revert">Werbeblocker deaktivieren</string>
   <string name="button_add">Hinzufügen</string>
   <string name="button_cancel">Abbrechen</string>
-  <string name="button_apply_text">Alle Hosts-Dateien von den eingestellten Quellen werden heruntergeladen, mit Ihren eigenen Listen zusammengefügt und als eine Hosts-Datei im System installiert.</string>
+  <string name="button_apply_text">Alle Hosts-Dateien aus den festgelegten Quellen werden heruntergeladen, mit Ihren eigenen Listen zusammengefügt und als eine Hosts-Datei im System installiert.</string>
   <string name="button_revert_text">Stellt die vorgegebene Hosts-Datei auf Ihrem System wieder her.</string>
   <string name="button_save">Speichern</string>
   <string name="button_webserver_toggle_checked">Webserver läuft</string>
@@ -99,6 +99,7 @@
   <string name="download_fail_title">Herunterladen fehlgeschlagen</string>
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
+  <string name="disable_systemless_successful_title">Deaktivieren erfolgreich</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es exisitiert keine su-Binary.\n\nLetzteres deutet daraufhin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf www.cyanogenmod.org oder anderen Android-Internetseiten.</string>
   <string name="no_root_title">Das System muss gerootet sein</string>
@@ -206,4 +207,6 @@
   <string name="pref_enable_debug_summary">Sie müssen AdAway neustarten, damit diese Einstellung genutzt werden kann.</string>
   <string name="pref_enable_ipv6">IPv6 aktivieren</string>
   <string name="pref_enable_ipv6_summary">Alle Einträge in der Host-Datei werden einen entsprechenden Eintrag ::1 (IPv6 localhost) erhalten.</string>
+  <string name="pref_enable_systemless_def">falsch</string>
+  <string name="pref_enable_systemless">Systemlosen Modus aktivieren</string>
 </resources>

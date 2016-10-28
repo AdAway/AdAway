@@ -1,5 +1,11 @@
 Please report bugs on the following website instead of writing bad reviews:
-https://github.com/Free-Software-for-Android/AdAway/issues
+https://github.com/AdAway/AdAway/issues
+
+3.2
+* Systemless root support - extensive work by PerfectSlayer
+* Improvements to root mounter - by sanjay900
+* Translations updates
+* Various updates for support on Android 7.x
 
 3.1.2
 * Update hosts-file.net source to use https

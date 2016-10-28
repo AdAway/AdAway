@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Tutup</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Apa menurutmu aplikasi ini berguna?\nDukung pengembangan aplikasi ini dengan mengirim donasi ke pengembang!</string>
+  <string name="donations__flattr_description">Flattr mengambil 10 % sebagai biaya bulanan!</string>
+  <string name="donations__google_android_market">Google Play Store</string>
+  <string name="donations__google_android_market_not_supported_title">Donasi lewat aplikasi tidak didukung.</string>
+  <string name="donations__google_android_market_not_supported">Donasi lewat aplikasi tidak didukung. Apakah Google Play Store terpasang dengan benar?</string>
+  <string name="donations__google_android_market_description">Google mengambil 30 % dari setiap donasi!</string>
+  <string name="donations__google_android_market_donate_button">Donasi!</string>
+  <string name="donations__google_android_market_text">Berapa banyak?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Anda dapat memilih seberapa banyak yang ingin Anda donasikan setelah mengklik tombol!</string>
+  <string name="donations__thanks_dialog_title">Terima Kasih!</string>
+  <string name="donations__thanks_dialog">Terima kasih atas donasinya!\nSaya sangat mengapresiasikannya!</string>
+  <string name="donations__alert_dialog_title">Terjadi galat</string>
+  <string name="donations__alert_dialog_no_browser">Browser tidak ditemukan untuk membuka laman website! </string>
+</resources>

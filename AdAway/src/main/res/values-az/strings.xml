@@ -1,16 +1,64 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
+  <string name="button_exit">Çıxış</string>
+  <string name="button_apply">Faylları yüklə və reklam bloklanmasını işə sal</string>
+  <string name="button_close">Bağla</string>
+  <string name="button_yes">Bəli</string>
+  <string name="button_no">Xeyr</string>
+  <string name="button_revert">Reklam bloklanmasını deaktiv et</string>
+  <string name="button_revert_text">Sistemdəki adi host faylları geri yükləyir.</string>
+  <string name="button_save">Yadda saxla</string>
+  <string name="button_help">Yardım</string>
   <!--Checkbox List-->
+  <string name="checkbox_list_context_delete">Sil</string>
   <!--Your Lists-->
+  <string name="lists_tab_blacklist">Qara siyahı</string>
+  <string name="lists_tab_blacklist_short">Qara</string>
+  <string name="lists_tab_whitelist_short">Ağ</string>
   <!--Status Notifications-->
+  <string name="status_checking">Güncəlləmə axtarılır...</string>
+  <string name="status_checking_subtitle">Güncəlləmə varmı deyə yoxlanılır</string>
+  <string name="status_update_available">Güncəlləmə mövcuddur</string>
+  <string name="status_update_available_subtitle">Yeni hosts faylları mövcuddur</string>
+  <string name="status_no_connection">İnternet bağlantısı yoxdur</string>
+  <string name="status_no_connection_subtitle">İnternet bağlantısı mövcud deyil</string>
+  <string name="status_download_fail">Əlçatmaz resurslar</string>
+  <string name="status_download_fail_subtitle_new">Heçbir hosts resursları əlçatan deyil! </string>
+  <string name="status_enabled">Aktivdir</string>
+  <string name="status_enabled_subtitle">Ən yeni hosts faylları aktiv edildi</string>
+  <string name="status_disabled">Qeyri-aktivdir</string>
+  <string name="status_disabled_subtitle">Qeyri-aktivdir</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_success_title">Tətbiq uğurla başa çatdı</string>
+  <string name="download_fail_title">Yükləmə alınmadı</string>
   <!--Other Dialogs-->
+  <string name="no_root_title">Root lu android tələb olunur</string>
+  <string name="reboot_never_reboot">Yenidən başlatma və bu sualı bir daha göstərmə! </string>
+  <string name="loading">Yüklənir...</string>
   <!--Menu entries-->
+  <string name="menu_refresh">Yenilə</string>
+  <string name="menu_hosts_sources">Hosts resursları</string>
+  <string name="menu_help">Yardım</string>
+  <string name="menu_lists">Sizin siyahılarınız</string>
+  <string name="menu_preferences">Tənzimləmələr</string>
   <!--Help-->
+  <string name="help_tab_about">Haqqında</string>
+  <string name="help_tab_donate">İanə ver</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">Problemlər</string>
+  <string name="help_tab_changelog">Dəyişikliklər</string>
+  <string name="help_about_version">Versiya:</string>
+  <string name="help_donation_paypal_item">AdAway ianə</string>
   <!--Scan Adware-->
+  <string name="scan_adware_description">Siz burda AdAway tərəfindən bloklana bilməyən Adware proqramlarını skan edə bilərsiniz. Bu proqramlar misal olaraq Airpush bildirişlərindən istifadə edirlər ki bu bildirişlər hətta proqram çalışmadıqda və ya səs siqnalını dəyişdikdə belə açılır.Mövcud olan əks-tədbir metodu yalnız proqramları siyahıdan seçip silməkdir!</string>
+  <string name="scan_adware_start">Skan et</string>
   <!--Hosts Sources-->
   <!--Other-->
   <!--Tcpdump-->
   <!--Preferences-->
+  <string name="pref_header_preferences">Tənzimləmələr</string>
+  <string name="pref_never_reboot">Yenidən başlatma dialoqunu gizlət</string>
 </resources>
