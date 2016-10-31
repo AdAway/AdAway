@@ -14,8 +14,17 @@ signature: |
     size_t recv_mbuf_limit;  /* Max size of recv buffer */
     struct mbuf recv_mbuf;   /* Received data */
     struct mbuf send_mbuf;   /* Data scheduled for sending */
+  #if MG_ENABLE_SSL
+  #if MG_NET_IF != MG_NET_IF_SIMPLELINK
     SSL *ssl;
     SSL_CTX *ssl_ctx;
+  #else
+    char *ssl_cert;
+    char *ssl_key;
+    char *ssl_ca_cert;
+    char *ssl_server_name;
+  #endif
+  #endif
     time_t last_io_time;              /* Timestamp of the last socket IO */
     double ev_timer_time;             /* Timestamp of the future MG_EV_TIMER */
     mg_event_handler_t proto_handler; /* Protocol-specific event handler */
@@ -39,16 +48,18 @@ signature: |
   #define MG_F_UDP (1 << 1)                /* This connection is UDP */
   #define MG_F_RESOLVING (1 << 2)          /* Waiting for async resolver */
   #define MG_F_CONNECTING (1 << 3)         /* connect() call in progress */
-  #define MG_F_SSL_HANDSHAKE_DONE (1 << 4) /* SSL specific */
-  #define MG_F_WANT_READ (1 << 5)          /* SSL specific */
-  #define MG_F_WANT_WRITE (1 << 6)         /* SSL specific */
-  #define MG_F_IS_WEBSOCKET (1 << 7)       /* Websocket specific */
+  #define MG_F_SSL (1 << 4)                /* SSL is enabled on the connection */
+  #define MG_F_SSL_HANDSHAKE_DONE (1 << 5) /* SSL hanshake has completed */
+  #define MG_F_WANT_READ (1 << 6)          /* SSL specific */
+  #define MG_F_WANT_WRITE (1 << 7)         /* SSL specific */
+  #define MG_F_IS_WEBSOCKET (1 << 8)       /* Websocket specific */
   
   /* Flags that are settable by user */
   #define MG_F_SEND_AND_CLOSE (1 << 10)      /* Push remaining data and close  */
   #define MG_F_CLOSE_IMMEDIATELY (1 << 11)   /* Disconnect */
   #define MG_F_WEBSOCKET_NO_DEFRAG (1 << 12) /* Websocket specific */
   #define MG_F_DELETE_CHUNK (1 << 13)        /* HTTP specific */
+  #define MG_F_ENABLE_BROADCAST (1 << 14)    /* Allow broadcast address usage */
   
   #define MG_F_USER_1 (1 << 20) /* Flags left for application */
   #define MG_F_USER_2 (1 << 21)

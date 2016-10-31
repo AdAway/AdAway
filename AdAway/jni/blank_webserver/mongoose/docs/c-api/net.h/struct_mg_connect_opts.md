@@ -7,10 +7,15 @@ signature: |
     void *user_data;           /* Initial value for connection's user_data */
     unsigned int flags;        /* Extra connection flags */
     const char **error_string; /* Placeholder for the error string */
-  #ifdef MG_ENABLE_SSL
+  #if MG_ENABLE_SSL
     /* SSL settings. */
     const char *ssl_cert;    /* Client certificate to present to the server */
-    const char *ssl_ca_cert; /* Verify server certificate using this CA bundle */
+    const char *ssl_key;     /* Private key corresponding to the certificate.
+                                If ssl_cert is set but ssl_key is not, ssl_cert
+                                is used. */
+    const char *ssl_ca_cert; /* Verify server certificate using this CA bundle.
+                                If set to "*", then SSL is enabled but no cert
+                                verification is performed. */
   
     /*
      * Server name verification. If ssl_ca_cert is set and the certificate has

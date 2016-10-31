@@ -1,5 +1,5 @@
 SOURCES = $(PROG).c ../../mongoose.c
-CFLAGS = -g -W -Wall -I../.. -Wno-unused-function $(CFLAGS_EXTRA) $(MODULE_CFLAGS)
+CFLAGS = -g -W -Wall -Werror -I../.. -Wno-unused-function $(CFLAGS_EXTRA) $(MODULE_CFLAGS)
 
 all: $(PROG)
 
@@ -11,7 +11,7 @@ else
 ifeq ($(SSL_LIB),openssl)
 CFLAGS += -DMG_ENABLE_SSL -lssl -lcrypto
 else ifeq ($(SSL_LIB), krypton)
-CFLAGS += -DMG_ENABLE_SSL ../../../krypton/krypton.c
+CFLAGS += -DMG_ENABLE_SSL -DMG_DISABLE_PFS ../../../krypton/krypton.c
 endif
 CFLAGS += -lpthread
 endif
