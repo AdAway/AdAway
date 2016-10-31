@@ -1,0 +1,41 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="Settings"
+        android:enabled="true"
+        android:icon="@drawable/status_bar_icon"
+        android:shortcutShortLabel="@string/menu_preferences"
+        android:shortcutLongLabel="@string/menu_preferences"
+        android:shortcutDisabledMessage="@string/menu_preferences">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.adaway"
+            android:targetClass="org.adaway.ui.PrefsActivity" />
+        <categories android:name="org.adaway.ui.PrefsActivity" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="TCP"
+        android:enabled="true"
+        android:icon="@drawable/status_bar_icon"
+        android:shortcutShortLabel="@string/menu_tcpdump"
+        android:shortcutLongLabel="@string/menu_tcpdump"
+        android:shortcutDisabledMessage="@string/menu_tcpdump">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.adaway"
+            android:targetClass="org.adaway.ui.TcpdumpActivity" />
+        <categories android:name="org.adaway.ui.TcpdumpActivity" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="Lists"
+        android:enabled="true"
+        android:icon="@drawable/action_new"
+        android:shortcutShortLabel="@string/menu_lists"
+        android:shortcutLongLabel="@string/menu_lists"
+        android:shortcutDisabledMessage="@string/menu_lists">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.adaway"
+            android:targetClass="org.adaway.ui.ListsActivity" />
+        <categories android:name="org.adaway.ui.ListsActivity" />
+    </shortcut>
+</shortcuts>
