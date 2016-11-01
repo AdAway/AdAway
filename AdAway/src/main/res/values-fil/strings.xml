@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <!--Buttons-->
+  <string name="button_close">Isara</string>
   <!--Checkbox List-->
   <!--Your Lists-->
   <!--Status Notifications-->

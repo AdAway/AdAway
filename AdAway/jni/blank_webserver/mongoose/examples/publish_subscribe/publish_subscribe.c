@@ -19,10 +19,11 @@
 #include "mongoose.h"
 
 static void *stdin_thread(void *param) {
-  int ch, sock = * (int *) param;
+  int ch, sock = *(int *) param;
+  // Forward all types characters to the socketpair
   while ((ch = getchar()) != EOF) {
     unsigned char c = (unsigned char) ch;
-    send(sock, &c, 1, 0);  // Forward all types characters to the socketpair
+    send(sock, (const char *) &c, 1, 0);
   }
   return NULL;
 }
@@ -75,7 +76,7 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "Usage: %s <port> <client|server>\n", argv[0]);
     exit(EXIT_FAILURE);
   } else if (strcmp(argv[2], "client") == 0) {
-    int fds[2];
+    sock_t fds[2];
     struct mg_connection *ioconn, *server_conn;
 
     mg_mgr_init(&mgr, NULL);
@@ -93,7 +94,7 @@ int main(int argc, char *argv[]) {
 
     // The other end of a pair goes inside the server
     ioconn = mg_add_sock(&mgr, fds[0], client_handler);
-    ioconn->flags |= MG_F_USER_1;    // Mark this so we know this is a stdin
+    ioconn->flags |= MG_F_USER_1;  // Mark this so we know this is a stdin
     ioconn->user_data = server_conn;
 
   } else {

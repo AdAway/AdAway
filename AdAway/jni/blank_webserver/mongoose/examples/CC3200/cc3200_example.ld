@@ -1,7 +1,7 @@
 /*****************************************************************************
 * app.ld
 *
-* GCC Linker script for SmartJS. Based on TI's example "blinky.ld".
+* GCC Linker script for Mongoose IoT. Based on TI's example "blinky.ld".
 *
 * Copyright (C) 2014 Texas Instruments Incorporated - http://www.ti.com/ 
 * 
@@ -42,9 +42,8 @@ HEAP_SIZE = 0xB000;
 MEMORY
 {
     /* SRAM size of 240KB (0x3C000) for cc3200 ES 1.33 device onward,
-     * 176KB (0x2C000) for XCC3200HZ (pre-release device).
-     * We use the latter for maximum compatibility. */
-    SRAM (rwx) : ORIGIN = 0x20004000, LENGTH = 0x2C000
+     * 176KB (0x2C000) for XCC3200HZ (pre-release device). */
+    SRAM (rwx) : ORIGIN = 0x20004000, LENGTH = 0x3C000
 }
 
 SECTIONS

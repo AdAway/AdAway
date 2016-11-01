@@ -24,9 +24,7 @@ endif
 #   for a subtree within the makefile rooted therein
 #
 DEFINES += -DCS_PLATFORM=3 \
-           -DMG_NO_BSD_SOCKETS \
-           -DMG_DISABLE_FILESYSTEM \
-           -DRTOS_SDK -DMG_LWIP -DLWIP_TIMEVAL_PRIVATE=0 \
+           -DRTOS_SDK \
            -DMG_INTERNAL=
 
 #############################################################

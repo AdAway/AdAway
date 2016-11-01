@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Lukk</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Drar du nytte av dette programmet?\nStøtt dets utvikling ved å sende en donasjon til utvikleren!</string>
+</resources>

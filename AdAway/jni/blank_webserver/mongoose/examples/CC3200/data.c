@@ -12,6 +12,7 @@
 
 #include "bm222.h"
 #include "tmp006.h"
+#include "cs_dbg.h"
 
 struct temp_data {
   double ts;
@@ -46,7 +47,7 @@ void data_init_sensors(int tmp006_addr, int bm222_addr) {
   }
 }
 
-void data_collect() {
+void data_collect(void) {
   double volt = tmp006_read_sensor_voltage(s_tmp006_addr);
   double temp = tmp006_read_die_temp(s_tmp006_addr);
   if (volt != TMP006_INVALID_READING && temp != TMP006_INVALID_READING) {
@@ -95,27 +96,14 @@ static double send_acc_data_since(struct mg_connection *nc,
 
 static void process_command(struct mg_connection *nc, unsigned char *data,
                             size_t len) {
-  struct json_token *toks = parse_json2((const char *) data, len);
-  if (toks == NULL) {
-    LOG(LL_ERROR, ("Invalid command: %.*s", (int) len, data));
+  // TODO(lsm): use proper JSON parser
+  int cmd, val;
+  if (sscanf((char *) data, "{\"t\":%d,\"v\":%d}", &cmd, &val) != 2) {
+    LOG(LL_ERROR, ("Invalid request: %.*s", (int) len, data));
     return;
   }
-  struct json_token *t = find_json_token(toks, "t");
-  if (t == NULL) {
-    LOG(LL_ERROR, ("Missing type field: %.*s", (int) len, data));
-    goto out_free;
-  }
-  if (t->len == 1 && *t->ptr == '1') {
-    struct json_token *v = find_json_token(toks, "v");
-    if (v == NULL) {
-      LOG(LL_ERROR, ("Missing value: %.*s", (int) len, data));
-      goto out_free;
-    }
-    if (v->len != 1) {
-      LOG(LL_ERROR, ("Invalid value: %.*s", (int) len, data));
-      goto out_free;
-    }
-    switch (*v->ptr) {
+  if (cmd == 1) {
+    switch (val) {
       case '0': {
         GPIO_IF_LedOff(MCU_RED_LED_GPIO);
         break;
@@ -130,15 +118,13 @@ static void process_command(struct mg_connection *nc, unsigned char *data,
       }
       default: {
         LOG(LL_ERROR, ("Invalid value: %.*s", (int) len, data));
-        goto out_free;
+        return;
       }
     }
   } else {
-    LOG(LL_ERROR, ("Unknown command: %.*s", (int) t->len, t->ptr));
-    goto out_free;
+    LOG(LL_ERROR, ("Unknown command: %.*s", (int) len, data));
+    return;
   }
-out_free:
-  free(toks);
 }
 
 void data_conn_handler(struct mg_connection *nc, int ev, void *ev_data) {

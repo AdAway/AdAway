@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="donations__button_close">Itxi</string>
+  <string name="donations__flattr">Flattr</string>
+  <string name="donations__description">Aplikazio hau erabilgarria aurkitzen duzu?\nSostengatu bere garapena dirulaguntza bat bidaliz garatzaileari!</string>
+  <string name="donations__flattr_description">Flattr-ek 10 % ardainarazten du hileko kuota bezala!</string>
+  <string name="donations__google_android_market">Google Play Denda</string>
+  <string name="donations__google_android_market_not_supported_title">In-App Dirulaguntzak ez daude sostengatuta.</string>
+  <string name="donations__google_android_market_not_supported">In-App Dirulaguntzak ez daude sostengatuta. Google Play Denda zuzen ezarrita dago?</string>
+  <string name="donations__google_android_market_description">Google-ek 30 % ordainarazten du dirulaguntza guztietatik!</string>
+  <string name="donations__google_android_market_donate_button">Eman dirulaguntza bat!</string>
+  <string name="donations__google_android_market_text">Zenbat?</string>
+  <string name="donations__paypal">PayPal</string>
+  <string name="donations__paypal_description">Zenbateko dirulaguntza ematea nahi duzun hautatu dezakezu botoia klikatu ondoren!</string>
+  <string name="donations__thanks_dialog_title">Mila esker!</string>
+  <string name="donations__thanks_dialog">Mila esker dirulaguntzagaitik!\nEgitan estimatzen dut!</string>
+  <string name="donations__alert_dialog_title">Akatsa gertatu da</string>
+  <string name="donations__alert_dialog_no_browser">Ez da nabigatzailerik aurkitu webgune bat irekitzeko!</string>
+</resources>

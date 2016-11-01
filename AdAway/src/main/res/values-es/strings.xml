@@ -99,6 +99,8 @@
   <string name="download_fail_title">La descarga falló</string>
   <string name="no_private_file">No se pudo crear el fichero privado.</string>
   <string name="no_private_file_title">La creación del fichero privado falló</string>
+  <string name="disable_systemless_successful">Has desactivado el modo systemless.\nPuede ser necesario reiniciar Android para que los cambios tengan efecto.\n\n¿Quiere reiniciar?\n(¡Para evitar pérdida de datos asegúrese de que ninguna aplicación está accediendo a la tarjeta SD en este momento!)</string>
+  <string name="disable_systemless_successful_title">Desactivado con exito</string>
   <!--Other Dialogs-->
   <string name="no_root_description">No se encuentra el binario su o no se ha otorgado permiso root a AdAway.\n\nEsto puede suceder cuando el dispositivo no está rooteado.\nPuede encontrar información sobre como rootear el dispositivo en www.cyanogenmod.org u otras páginas sobre Android.</string>
   <string name="no_root_title">Se requiere un Android rooteado</string>
@@ -127,7 +129,7 @@
   <string name="help_tab_about">Acerca de</string>
   <string name="help_tab_donate">Donar</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">Preguntas frecuentes</string>
+  <string name="help_tab_faq">Preguntas frecuentes (FAQ)</string>
   <string name="help_tab_problems">Problemas</string>
   <string name="help_tab_changelog">Registro de cambios</string>
   <string name="help_about_version">Versión:</string>
@@ -206,4 +208,7 @@
   <string name="pref_enable_debug_summary">Tiene que reiniciar AdAway para que esta opción surta efecto.</string>
   <string name="pref_enable_ipv6">Habilitar IPv6</string>
   <string name="pref_enable_ipv6_summary">Todas las entradas del archivo de host obtendrán una entrada correspondiente a ::1 (IPv6 localhost).</string>
+  <string name="pref_enable_systemless_def">falso</string>
+  <string name="pref_enable_systemless_summary"><![CDATA[Evita que AdAway modifique la partición system (requiere SuperSU >= 2.76)]]></string>
+  <string name="pref_enable_systemless">Activar modo systemless</string>
 </resources>

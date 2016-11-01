@@ -5,7 +5,6 @@
 PLATFORM = CC3200
 SDK_PATH ?= /cc3200-sdk
 REPO_PATH ?= ../../..
-COMMON_PATH ?= $(REPO_PATH)/common
 BUILD_DIR ?= ./.build
 FW_DIR ?= ./out
 SLFS_PATH ?= ./slfs
@@ -23,7 +22,7 @@ IPATH = . ../.. $(REPO_PATH)
 
 VPATH = ../..
 
-MONGOOSE_FEATURES = -DMG_ENABLE_HTTP_STREAMING_MULTIPART
+MONGOOSE_FEATURES = -DMG_ENABLE_SSL -DMG_ENABLE_HTTP_STREAMING_MULTIPART
 
 SDK_FLAGS = -DUSE_FREERTOS -DSL_PLATFORM_MULTI_THREADED
 # -DTARGET_IS_CC3200 would reduce code size by using functions in ROM
@@ -31,7 +30,6 @@ SDK_FLAGS = -DUSE_FREERTOS -DSL_PLATFORM_MULTI_THREADED
 
 CFLAGS += -Os -Wall -Werror \
           $(SDK_FLAGS) -DCS_PLATFORM=4 -DCC3200_FS_SLFS \
-          -DFS_SLFS_MAX_FILE_SIZE=131072 \
           $(MONGOOSE_FEATURES) $(CFLAGS_EXTRA)
 
 FW_ELF = $(FW_DIR)/$(PROG).axf
@@ -60,18 +58,21 @@ $(FW_DIR):
 $(FW_ZIP): $(FW_ELF) $(FW_BIN) $(SLFS_FILES)
 	@echo "    Code size: $(shell ls -l $(FW_BIN) | awk '{print $$5}')"
 	@echo "  GEN   $(FW_MANIFEST)"
-	@$(COMMON_PATH)/tools/fw_meta.py gen_build_info \
+	@fw_meta gen_build_info \
 	  --json_output=$(BUILD_INFO_JSON)
 	@cp -v $(SLFS_FILES) out/
-	@$(COMMON_PATH)/tools/fw_meta.py create_manifest \
+	@cp $(CC3200_SP_FILE)* $(FW_DIR)
+	@fw_meta create_manifest \
 	  --name=$(PROG) --platform=$(PLATFORM) \
 	  --build_info=$(BUILD_INFO_JSON) \
 	  --output=$(FW_MANIFEST) \
 	  --src_dir=$(FW_DIR) \
-	  sys_mcuimg.bin:src=$(notdir $(FW_BIN)) \
-		$(foreach f,$(SLFS_FILES), $(notdir $(f)):src=$(notdir $(f)))
+	  /sys/servicepack.ucf:type=slfile,src=$(CC3200_SP_FILE),falloc=60416,sign=$(notdir $(CC3200_SP_FILE)).sign \
+	  $(notdir $(CC3200_SP_FILE)).sign:type=signature,src=$(CC3200_SP_FILE).sign \
+	  /sys/mcuimg.bin:type=app,src=$(notdir $(FW_BIN)) \
+	  $(foreach f,$(SLFS_FILES), $(notdir $(f)):type=slfile,src=$(notdir $(f)))
 	@echo "  ZIP   $@"
-	@$(COMMON_PATH)/tools/fw_meta.py create_fw \
+	@fw_meta create_fw \
 	  --manifest=$(FW_MANIFEST) \
 	  --src_dir=$(FW_DIR) \
 	  --output=$@
@@ -105,4 +106,3 @@ ENTRY_$(PROG) = ResetISR
 
 SDK_OBJS = $(addprefix $(OBJDIR)/,$(patsubst %.c,%.o,$(SDK_SRCS)))
 $(SDK_OBJS): CFLAGS += -include mongoose.h -Wno-missing-braces -Wno-strict-aliasing -Wno-parentheses -Wno-unused-variable
-$(BUILD_DIR)/cc_pal.o: CFLAGS += -Wno-error

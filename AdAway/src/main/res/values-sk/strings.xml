@@ -99,6 +99,8 @@
   <string name="download_fail_title">Sťahovanie zlyhalo</string>
   <string name="no_private_file">Súkromný súbor nemožno vytvoriť.</string>
   <string name="no_private_file_title">Vytváranie súboru zlyhalo</string>
+  <string name="disable_systemless_successful">Zakázali ste bezsystémový režim.\nBude potrebné reštartovať zariadenie aby sa zmeny prejavili.\n\nChcete reštartovať?\n(Aby sa zabránilo strate dát, uistite sa, že žiadna aplikácia práve nevyužíva kartu SD!)</string>
+  <string name="disable_systemless_successful_title">Zakázanie úspešné</string>
   <!--Other Dialogs-->
   <string name="no_root_description">SU binárny súbor nebol nájdený alebo ste nepovolili root oprávnenia pre AdAway.\n\nToto sa môže stať, ak vaše zariadenie nie je rootnuté\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke www.cyanogenmod.org alebo na inej stránke o zariadeniach s Androidom.</string>
   <string name="no_root_title">Je potrebné rootnuté zariadenie</string>
@@ -206,4 +208,8 @@
   <string name="pref_enable_debug_summary">Je potrebné reštartovať AdAway aby sa zmeny prejavili.</string>
   <string name="pref_enable_ipv6">Povoliť IPv6</string>
   <string name="pref_enable_ipv6_summary">Všetky položky v hosts súbore budú mať zodpovedajúci ::1 (IPv6 localhost) záznam.</string>
+  <string name="pref_enable_systemless_def">nepravdivé</string>
+  <string name="pref_enable_systemless_key">PovoliťBezsystémovýRežim</string>
+  <string name="pref_enable_systemless_summary"><![CDATA[Zabrániť AdAway upravovať systémovú partíciu (vyžaduje SuperSU >= 2.76)]]></string>
+  <string name="pref_enable_systemless">Povoliť bezsystémový režim</string>
 </resources>

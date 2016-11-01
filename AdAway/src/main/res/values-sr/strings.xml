@@ -179,4 +179,6 @@
   <string name="pref_automatic_update_daily">Automatska ažuriranja</string>
   <string name="pref_automatic_update_daily_summary">Ažuriraj automatski u pozadini ako su ažuriranja dostupna</string>
   <string name="pref_update_only_on_wifi">Ažuriraj samo preko Wifi</string>
+  <string name="pref_whitelist_rules">Dozvoli belu listu</string>
+  <string name="pref_redirection_rules">Dozvoli preusmeravanje</string>
 </resources>
