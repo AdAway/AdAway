@@ -1,10 +1,10 @@
 package org.adaway.util;
 
-
 import android.content.Context;
 
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
+import org.sufficientlysecure.rootcommands.command.Command;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
 import java.io.BufferedWriter;
@@ -21,9 +21,31 @@ import java.util.concurrent.TimeoutException;
 public class SystemlessUtils {
 
     /**
+     * Check if the systemless mode is supported.
+     *
+     * @param shell The shell used to check.
+     * @return <code>true</code> if the systemless mode is supported, <code>false</code> otherwise.
+     */
+    public static boolean isSystemlessModeSupported(Shell shell) {
+        // Declare SuperSU internal version
+        int internalVersion = 0;
+        // Get SuperSU internal version
+        try {
+            SimpleCommand command = new SimpleCommand("su -V");
+            shell.add(command).waitForFinish();
+            String[] output = command.getOutput().split("\n");
+            internalVersion = Integer.parseInt(output[0]);
+        } catch (Exception exception) {
+            Log.e(Constants.TAG, "Error while checking if systemless mode is supported.", exception);
+        }
+        // Check if SuperSU internal version is greater or equals to 2.56
+        return internalVersion >= 256;
+    }
+
+    /**
      * Check if systemless mode is enabled.
      *
-     * @param shell She current root shell to check
+     * @param shell The root shell used to check.
      * @return The systemless mode installation status (<code>true</code> if enabled,
      * <code>false</code> otherwise).
      */
@@ -43,7 +65,7 @@ public class SystemlessUtils {
      * Install systemless script.<br>
      * Create and execute<code>/su/su.d/0000adaway.script</code> file to mount hosts file to
      * <code>/su/etc/hosts</code> location and ensure mounted hosts file is present.<br>
-     * Require SuperSU >= 2.76.
+     * Require SuperSU >= 2.56.
      *
      * @param context The application context (current activity).
      * @param shell   The current root shell to install script.
@@ -113,6 +135,51 @@ public class SystemlessUtils {
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Error while disabling systemless mode.", exception);
             return false;
+        }
+    }
+
+    /**
+     * This class provides systemless mode statuses (support and activation).
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     */
+    public static class SystemlessModeStatus {
+        /**
+         * The systemless mode support status (<code>true</code> if supported, <code>false</code> otherwise).
+         */
+        private final boolean supported;
+        /**
+         * The systemless mode activation status (<code>true</code> if enabled, <code>false</code> otherwise).
+         */
+        private final boolean enabled;
+
+        /**
+         * Constructor.
+         *
+         * @param supported The systemless mode support status (<code>true</code> if supported, <code>false</code> otherwise).
+         * @param enabled   The systemless mode activation status (<code>true</code> if enabled, <code>false</code> otherwise).
+         */
+        public SystemlessModeStatus(boolean supported, boolean enabled) {
+            this.supported = supported;
+            this.enabled = enabled;
+        }
+
+        /**
+         * Get the systemless mode support status.
+         *
+         * @return The systemless mode support status (<code>true</code> if supported, <code>false</code> otherwise).
+         */
+        public boolean isSupported() {
+            return this.supported;
+        }
+
+        /**
+         * Get the systemless mode activation status.
+         *
+         * @return The systemless mode activation status (<code>true</code> if enabled, <code>false</code> otherwise).
+         */
+        public boolean isEnabled() {
+            return this.enabled;
         }
     }
 }
