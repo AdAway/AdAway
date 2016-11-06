@@ -229,9 +229,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             try {
                 Shell rootShell = Shell.startRootShell();
                 supported = SystemlessUtils.isSystemlessModeSupported(rootShell);
-                if (supported) {
-                    enabled = SystemlessUtils.isSystemlessModeEnabled(rootShell);
-                }
+                enabled = SystemlessUtils.isSystemlessModeEnabled(rootShell);
                 rootShell.close();
             } catch (Exception exception) {
                 Log.e(Constants.TAG, "Problem while checking systemless mode.", exception);

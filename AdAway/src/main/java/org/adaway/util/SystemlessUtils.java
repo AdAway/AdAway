@@ -4,14 +4,11 @@ import android.content.Context;
 
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
-import org.sufficientlysecure.rootcommands.command.Command;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
 
 /**
  * This class provides methods to check, install and remove systemless script.
@@ -27,19 +24,24 @@ public class SystemlessUtils {
      * @return <code>true</code> if the systemless mode is supported, <code>false</code> otherwise.
      */
     public static boolean isSystemlessModeSupported(Shell shell) {
-        // Declare SuperSU internal version
-        int internalVersion = 0;
-        // Get SuperSU internal version
         try {
+            // Check su binary version
+            SimpleCommand suVersionCommand = new SimpleCommand("su -v");
+            shell.add(suVersionCommand).waitForFinish();
+            if (!suVersionCommand.getOutput().contains("SUPERSU")) {
+                return false;
+            }
+            // Check SuperSU internal version
             SimpleCommand command = new SimpleCommand("su -V");
             shell.add(command).waitForFinish();
             String[] output = command.getOutput().split("\n");
-            internalVersion = Integer.parseInt(output[0]);
+            int internalVersion = Integer.parseInt(output[0]);
+            // Check if SuperSU internal version is greater or equals to 2.56
+            return internalVersion >= 256;
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Error while checking if systemless mode is supported.", exception);
+            return false;
         }
-        // Check if SuperSU internal version is greater or equals to 2.56
-        return internalVersion >= 256;
     }
 
     /**
@@ -51,9 +53,10 @@ public class SystemlessUtils {
      */
     public static boolean isSystemlessModeEnabled(Shell shell) {
         try {
-            Toolbox toolbox = new Toolbox(shell);
-            // Check if systemless script is present
-            return toolbox.fileExists(Constants.ANDROID_SYSTEMLESS_SCRIPT);
+            // Look for mount point of system hosts file
+            SimpleCommand command = new SimpleCommand("mount | grep " + Constants.ANDROID_SYSTEM_ETC_HOSTS);
+            shell.add(command).waitForFinish();
+            return command.getExitCode() == 0;
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Error while checking if systemless mode is installed.", exception);
             // Consider systemless mode is not installed if script could not be checked
@@ -95,7 +98,9 @@ public class SystemlessUtils {
                 // Apply script permissions
                 toolbox.setFilePermissions(Constants.ANDROID_SYSTEMLESS_SCRIPT, "755");
                 // Remove temp file
-                tempFile.delete();
+                if (!tempFile.delete()) {
+                    Log.w(Constants.TAG, "Could not delete the temporary script file.");
+                }
                 // Execute script
                 shell.add(new SimpleCommand(Constants.ANDROID_SYSTEMLESS_SCRIPT)).waitForFinish();
             }
