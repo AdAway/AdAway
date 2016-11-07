@@ -99,6 +99,7 @@
   <string name="download_fail_title">Downloaden mislukt</string>
   <string name="no_private_file">Privébestanden kunnen niet worden aangemaakt.</string>
   <string name="no_private_file_title">Aanmaak privébestand mislukt</string>
+  <string name="disable_systemless_successful">U heeft systemless mode uitgeschakeld..\nIt Het kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
   <!--Other Dialogs-->
   <string name="no_root_description">De su binary is niet gevonden of je hebt geen roottoegang verleend aan AdAway.\n\nDit kan gebeuren als je apparaat niet geroot is.\nInformatie over het rooten van je apparaat kun je vinden op www.cyanogenmod.org of op andere Android websites.</string>
   <string name="no_root_title">Geroote Android vereist</string>

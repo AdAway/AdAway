@@ -99,6 +99,8 @@
   <string name="download_fail_title">Hämtning misslyckades</string>
   <string name="no_private_file">Privat fil kan inte skapas</string>
   <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
+  <string name="disable_systemless_successful">Du inaktiverade systemlöst läge. \nDet kan vara nödvändigt att starta om Android för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra förlust av data se till att ingen app använder sdkortet just nu!)</string>
+  <string name="disable_systemless_successful_title">Inaktivering lyckades</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Antingen su binären kunde inte hittas eller så nekade du root åtkomst för AdAway.\n\nDet kan hända när din enhet är inte rootad.\nDu kan hitta information om hur du rootar din enhet i www.cyanogenmod.org eller i andra Android hemsidor.</string>
   <string name="no_root_title">Rootad Android krävs</string>
@@ -207,4 +209,6 @@
   <string name="pref_enable_ipv6">Aktivera ipv6
 </string>
   <string name="pref_enable_ipv6_summary">Alla värdfils poster kommer att få ett motsvarande ::1 (IPv6 localhost) post.</string>
+  <string name="pref_enable_systemless_def">falsk</string>
+  <string name="pref_enable_systemless">Aktivera systemlöst läge</string>
 </resources>

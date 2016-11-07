@@ -73,7 +73,7 @@
   <string name="apply_copy_fail_title">Falha ao copiar</string>
   <string name="apply_success_subtitle">Fontes de hosts aplicadas:</string>
   <string name="apply_success_title">Aplicado com sucesso</string>
-  <string name="apply_success_dialog">Aplicado com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
+  <string name="apply_success_dialog">Aplicado com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="apply_symlink_successful">A ligação simbólica foi criada com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="apply_symlink_successful_title">Ligação simbólica criada com sucesso</string>
   <string name="apply_symlink_fail">A ligação simbólica não pôde ser criada pelo Android.\nGeralmente, isto falha devido a uma \"funcionalidade\" chamada S-ON dos telemóveis HTC!\n\nUma solução é arrancar o telemóvel no modo de recuperação e criar a ligação simbólica lá com \"ln -s /data/data/hosts /system/etc/hosts\".\n\nSe isto não funcionar, pesquise na internet por S-OFF e o seu telemóvel.</string>

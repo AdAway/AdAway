@@ -49,8 +49,8 @@
   <string name="status_checking">Provjeravanje ažuriranja...</string>
   <string name="status_reverting">Vraćanje...</string>
   <string name="status_reverting_subtitle">Stvaranje standardne datoteke poslužitelja</string>
-  <string name="status_checking_subtitle">Provjeravanje ima li dostupnih ažuriranja</string>
-  <string name="status_update_available">Dostupno je ažuriranje</string>
+  <string name="status_checking_subtitle">Provjerava se ima li dostupnih ažuriranja</string>
+  <string name="status_update_available">Ažuriranje je dostupno</string>
   <string name="status_update_available_subtitle">Dostupna je novija datoteka posl.</string>
   <string name="status_no_connection">Nema Internetske veze</string>
   <string name="status_no_connection_subtitle">Nema dostupne Internetske veze</string>
@@ -99,6 +99,8 @@
   <string name="download_fail_title">Preuzimanje nije uspjelo</string>
   <string name="no_private_file">Privatna datoteka ne može biti stvorena.</string>
   <string name="no_private_file_title">Stvaranje privatne datoteke nije uspjelo</string>
+  <string name="disable_systemless_successful">Onemogućili ste systemless način.\nMožda ćete morati ponovno pokrenuti Android kako bi promjene stupile u snagu.\n\Želite li ponovno pokrenuti uređaj?\n(Kako bi spriječili gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi SD karticu!)</string>
+  <string name="disable_systemless_successful_title">Onemogućavanje je uspjelo</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Nije moguće pronaći \"su\" izvršnu datoteku ili za AdAway nije dozvoljen \"root način\".\n\n Ovo se događa kada na vašem telefonu nije omogućen root način. \n Kako omogućiti root na Vašem telefonu pogledajte na www.cyanogenmod.org ili na drugim Android web stranicama.</string>
   <string name="no_root_title">Potreban je root-ani Android</string>
@@ -192,7 +194,7 @@
   <string name="pref_sdcard_problem">Ova značajka neće raditi ispravno kada je AdAway instaliran na SD karticu!</string>
   <string name="pref_background">Pozadinske usluge</string>
   <string name="pref_update_check_daily">Dnevno provjeravaj ima li ažuriranja</string>
-  <string name="pref_update_check_daily_summary">Dnevno provjeravaj ima li ažuriranja u pozadini s obavijestima</string>
+  <string name="pref_update_check_daily_summary">U pozadini dnevno provjeravaj ima li ažuriranja te mi pošalji obavijest</string>
   <string name="pref_automatic_update_daily">Automatski ažuriraj</string>
   <string name="pref_automatic_update_daily_summary">Ažuriraj automatski u pozadini ako su ažuriranja dostupna</string>
   <string name="pref_update_only_on_wifi">Ažuriraj samo putem Wi-Fi-a</string>
@@ -206,4 +208,8 @@
   <string name="pref_enable_debug_summary">Ponovno pokrenite AdAway kako bi ova postavka bila primijenjena.</string>
   <string name="pref_enable_ipv6">Omogući IPv6</string>
   <string name="pref_enable_ipv6_summary">Sve datoteke poslužitelja će dobiti odgovarajući ::1 (IPv6 localhost) unos.</string>
+  <string name="pref_enable_systemless_def">false</string>
+  <string name="pref_enable_systemless_key">enableSystemless</string>
+  <string name="pref_enable_systemless_summary"><![CDATA[Spriječite AdAway da izmjenjuje sustavsku particiju (zahtijeva SuperSU >= 2.76)]]></string>
+  <string name="pref_enable_systemless">Omogući systemless način</string>
 </resources>
