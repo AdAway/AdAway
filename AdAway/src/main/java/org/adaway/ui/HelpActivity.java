@@ -62,6 +62,11 @@ public class HelpActivity extends SherlockFragmentActivity {
     private static final String FLATTR_URL = "flattr.com/thing/369138/AdAway-Ad-blocker-for-Android";
 
     /**
+     * Bitcoin
+     */
+    private static final String BITCOIN = "1LDEN2cjZ498QYxk14UTJHRakuwxAcggWR";
+
+    /**
      * Menu Items
      */
     @Override
@@ -118,6 +123,9 @@ public class HelpActivity extends SherlockFragmentActivity {
         donationsArgs.putString(DonationsFragment.ARG_PAYPAL_CURRENCY_CODE, PAYPAL_CURRENCY_CODE);
         donationsArgs.putString(DonationsFragment.ARG_PAYPAL_USER, PAYPAL_USER);
         donationsArgs.putString(DonationsFragment.ARG_PAYPAL_ITEM_NAME, getString(R.string.help_donation_paypal_item));
+
+        donationsArgs.putBoolean(DonationsFragment.ARG_BITCOIN_ENABLED, true);
+        donationsArgs.putString(DonationsFragment.ARG_BITCOIN_ADDRESS, BITCOIN);
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_donate)),
                 DonationsFragment.class, donationsArgs);

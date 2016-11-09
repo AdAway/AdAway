@@ -99,6 +99,8 @@
   <string name="download_fail_title">Pobieranie nieudane</string>
   <string name="no_private_file">Plik osobisty nie został utworzony.</string>
   <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
+  <string name="disable_systemless_successful">Wyłączyłeś tryb systemless.\nMoże być konieczne uruchomienie ponowne telefonu, aby zmiany przyniosły efekt.\n\nCzy chcesz uruchomić ponownie telefon?\n(Aby uniknąć utraty danych, upewnij się, że żadna aplikacja nie używa karty SD w tym momencie!)</string>
+  <string name="disable_systemless_successful_title">Wyłączono poprawnie</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Nie można znaleźć pliku su lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\n Tak się dzieje kiedy twoje urządzenie nie jest zrootowane.\nMożesz znaleźć informacje jak zrootować swoje urządzenie na www.cyanogenmod.org lub innych stronach o  Androidzie.</string>
   <string name="no_root_title">Wymagany jest zrootowany Android</string>
@@ -206,4 +208,8 @@
   <string name="pref_enable_debug_summary">Musisz zrestartować AdAway, aby uaktywnić te ustawienia.</string>
   <string name="pref_enable_ipv6">Włącz IPv6</string>
   <string name="pref_enable_ipv6_summary">Wszystkie wpisy plików hosta są odpowiednie :: 1 (IPv6 localhost).</string>
+  <string name="pref_enable_systemless_def">false</string>
+  <string name="pref_enable_systemless_key">enableSystemless</string>
+  <string name="pref_enable_systemless_summary"><![CDATA[Prevent AdAway from modifying the system partition (requires SuperSU >= 2.76)]]></string>
+  <string name="pref_enable_systemless">Włącz tryb systemless</string>
 </resources>

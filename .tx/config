@@ -26,8 +26,3 @@ source_lang = en
 file_filter = AdAway/src/main/res/raw-<lang>/help_about.html
 source_file = AdAway/src/main/res/raw/help_about.html
 source_lang = en
-
-[adaway.donations-strings]
-file_filter = libraries/Donations/src/main/res/values-<lang>/donations__strings.xml
-source_file = libraries/Donations/src/main/res/values/donations__strings.xml
-source_lang = en

@@ -59,7 +59,7 @@ public class HelpFragmentAbout extends SherlockFragment {
         HtmlTextView aboutTextView = (HtmlTextView) view.findViewById(R.id.help_about_text);
 
         // load html from raw resource (Parsing handled by HtmlTextView library)
-        aboutTextView.setHtmlFromRawResource(getActivity(), R.raw.help_about, true);
+        aboutTextView.setHtml(R.raw.help_about);
 
         // no flickering when clicking textview for Android < 4
         aboutTextView.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));

@@ -99,6 +99,8 @@
   <string name="download_fail_title">Jeisketa hutsegitea</string>
   <string name="no_private_file">Agiri pribatua ezin da sortu.</string>
   <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
+  <string name="disable_systemless_successful">Sistemagabe modua ezgaitu duzu.\nBadaiteke beharrezkoa izatea Androida berrabiaraztea aldaketek eragina izateko.\nBerrabiaraztea nahi duzu?\n(Datuen galera saihesteko zihurtatu ez dagoela aplikazioarik sdtxartela erabiltzen une honetan!)</string>
+  <string name="disable_systemless_successful_title">Ongi ezgaitu da</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Bietako bat edo su binarioa ezin da aurkitu edo ez diozu erro baimenik eman AdAway-ri.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola erroturi buruzko argibideak www.cyanogenmod.org edo beste Android webgune batean aurkitu dezakezu.</string>
   <string name="no_root_title">Beharrezkoa Android errotua</string>
@@ -205,4 +207,8 @@
   <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>
   <string name="pref_enable_ipv6">Gaitu IPv6</string>
   <string name="pref_enable_ipv6_summary">Hostalari agiri guztiek dagokien ::1 (IPv6 localhost) sarrera lortuko dute.</string>
+  <string name="pref_enable_systemless_def">faltsua</string>
+  <string name="pref_enable_systemless_key">Gaitu Sistemagabe</string>
+  <string name="pref_enable_systemless_summary"><![CDATA[Saihestu AdAway-k sistemaren partizioak aldatzea (SuperSU behar du >= 2.76)]]></string>
+  <string name="pref_enable_systemless">Gaitu sistemagabe modua</string>
 </resources>

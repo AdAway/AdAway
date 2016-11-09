@@ -57,7 +57,7 @@
   <string name="status_download_fail">Nicht verfügbare Quelle</string>
   <string name="status_download_fail_subtitle_new">Keine Hosts-Quellen erreichbar!</string>
   <string name="status_enabled">Aktiviert</string>
-  <string name="status_enabled_subtitle">Die neusten Hosts-Dateien sind aktiv</string>
+  <string name="status_enabled_subtitle">Die neuesten Hosts-Dateien sind aktiv</string>
   <string name="status_disabled">Deaktiviert</string>
   <string name="status_disabled_subtitle">Deaktiviert</string>
   <!--Apply and Revert Dialogs-->
@@ -99,6 +99,7 @@
   <string name="download_fail_title">Herunterladen fehlgeschlagen</string>
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
+  <string name="disable_systemless_successful">Sie haben den Systemlosen Modus deaktiviert.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
   <string name="disable_systemless_successful_title">Deaktivieren erfolgreich</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es exisitiert keine su-Binary.\n\nLetzteres deutet daraufhin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf www.cyanogenmod.org oder anderen Android-Internetseiten.</string>

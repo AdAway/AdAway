@@ -1,28 +1,28 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Enheter</h2>
-<p>AdAway fungerar inte när du använder en enhet som har S-ON. Denna "egenskap" finns på många HTC enheter och hindrar AdAway från att skriva till hosts filen.</p>
+<h2>HTC-enheter</h2>
+<p>AdAway fungerar inte när du använder en enhet med så kallad S-ON. Denna "egenskap" finns på många HTC-enheter och hindrar AdAway från att skriva till värdfilen.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF betyder att NAND portionen av enheten är upplåst och kan skrivas till. Standardvärdet för HTC enheter är S-ON, vilket betyder att du inte har tillgång till vissa delar av systemet eller heller kan permanent root garanteras. Vidare, signatur checkar av firmware säkerställs även av S-ON flaggan.</p>
+<p>S-OFF betyder att NAND-delen av enheten är upplåst och kan skrivas till. Standardvärdet för HTC-enheter är S-ON, vilket betyder att du inte har tillgång till vissa delar av systemet inte heller kan permanent root garanteras. Vidare är signaturkontroll av mjukvaruavbilder garanterad av S-ON-flaggan.</p>
 
 <h2>Har jag S-ON eller S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boota till boot-menyn på enheten genom att hålla nere <i>volym ned</i>-knappen samtidigt med på/av-knappen och texten längst upp på skärmen kommer att visa flaggans status som antingen S-OFF eller S-ON. En total rootning innebär generellt sett S-OFF.
+<br/><br/>Mer information kan hittas på <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Fler S-OFF-metoder sedan "Unrevokable" (i länk) kanske intresserar dig, närmare: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Lösning</h2>
 <p>Förutsättning: Du måste installera en fungerade Android SDK med ADB på din PC.
 </p>
 <ol>
-<li>Boota in till Bootmenyn på din enhet genom att hålla in <i>volym ner</i> knappen samtidigt som du trycker in PåAv-Knappen.</li>
-<li>Använd <i>volym ner</i> för at välja recovery.</li>
-<li>I clockwork recovery, tryck volym ner till "partitions menu" och tryck på mittenknappen på telefonen för att välja</li>
+<li>Boota till boot-menyn på din enhet genom att hålla nere <i>volym ned</i>-knappen samtidigt med på/av-knappen.</li>
+<li>Använd <i>volym ned</i> för att välja "recovery".</li>
+<li>I clockwork recovery, tryck volym ned till "partitions menu" och tryck på mittenknappen på telefonen för att välja</li>
 <li>Välj <i>mount /system</i>, <i>mount /sdcard</i> och <i>mount /data</i>.</li>
-<li>Sätt in usbsladden och öppna en kommandoprompt på din pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway ska nu fungera.</li>
+<li>Koppla in USB-sladden och öppna en kommandoprompt på din pc.</li>
+<li>Öppna "adb shell" och skriv <tt>ln -s /data/hosts /system/etc/hosts</tt> (Detta skapar en symbolisk länk, vilket tillåter AdAway att redigera hosts-filen i <tt>/data</tt> medan operativsystemet tillåts använda filen som om den ligger i <tt>/system</tt>.)</li>
+<li>Starta om enheten och ställ in <i>Värdfil</i> till <i>/data/hosts</i> i AdAways inställningar.</li>
+<li>AdAway borde nu fungera.</li>
 </ol>
 </body>
 </html>
