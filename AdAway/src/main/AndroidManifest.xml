@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.adaway"
     android:installLocation="auto"
-    android:versionCode="58"
+    android:versionCode="59"
     android:versionName="3.2">
 
     <uses-feature
