@@ -25,19 +25,9 @@ public class SystemlessUtils {
      */
     public static boolean isSystemlessModeSupported(Shell shell) {
         try {
-            // Check su binary version
-            SimpleCommand suVersionCommand = new SimpleCommand("su -v");
-            shell.add(suVersionCommand).waitForFinish();
-            if (!suVersionCommand.getOutput().contains("SUPERSU")) {
-                return false;
-            }
-            // Check SuperSU internal version
-            SimpleCommand command = new SimpleCommand("su -V");
-            shell.add(command).waitForFinish();
-            String[] output = command.getOutput().split("\n");
-            int internalVersion = Integer.parseInt(output[0]);
-            // Check if SuperSU internal version is greater or equals to 2.56
-            return internalVersion >= 256;
+            // Check if SuperSU systemless root is installed
+            Toolbox toolbox = new Toolbox(shell);
+            return toolbox.fileExists("/su/bin/su");
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Error while checking if systemless mode is supported.", exception);
             return false;
