@@ -210,6 +210,6 @@
   <string name="pref_enable_ipv6_summary">Všetky položky v hosts súbore budú mať zodpovedajúci ::1 (IPv6 localhost) záznam.</string>
   <string name="pref_enable_systemless_def">nepravdivé</string>
   <string name="pref_enable_systemless_key">PovoliťBezsystémovýRežim</string>
-  <string name="pref_enable_systemless_summary"><![CDATA[Zabrániť AdAway upravovať systémovú partíciu (vyžaduje SuperSU >= 2.76)]]></string>
+  <string name="pref_enable_systemless_summary"><![CDATA[Zabrániť AdAway upravovať systémovú partíciu (vyžaduje SuperSU >= 2.56)]]></string>
   <string name="pref_enable_systemless">Povoliť bezsystémový režim</string>
 </resources>

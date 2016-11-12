@@ -219,29 +219,34 @@ public class PrefsActivity extends SherlockPreferenceActivity {
      *
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
-    private class SystemlessCheckTask extends AsyncTask<Void, Void, Boolean> {
+    private class SystemlessCheckTask extends AsyncTask<Void, Void, SystemlessUtils.SystemlessModeStatus> {
         @Override
-        protected Boolean doInBackground(Void... params) {
-            boolean result = false;
+        protected SystemlessUtils.SystemlessModeStatus doInBackground(Void... params) {
+            // Declare statuses
+            boolean supported = false;
+            boolean enabled = false;
+            // Check statuses from shell
             try {
                 Shell rootShell = Shell.startRootShell();
-                result = SystemlessUtils.isSystemlessModeEnabled(rootShell);
+                supported = SystemlessUtils.isSystemlessModeSupported(rootShell);
+                enabled = SystemlessUtils.isSystemlessModeEnabled(rootShell);
                 rootShell.close();
             } catch (Exception exception) {
                 Log.e(Constants.TAG, "Problem while checking systemless mode.", exception);
             }
-            return result;
+            // Return systemless mode statuses
+            return new SystemlessUtils.SystemlessModeStatus(supported, enabled);
         }
 
         @Override
-        protected void onPostExecute(Boolean isSystemlessModeEnabled) {
+        protected void onPostExecute(SystemlessUtils.SystemlessModeStatus status) {
             // Ensure reference exists
             if (mSystemless == null) {
                 return;
             }
             // Enable setting and set initial value
-            mSystemless.setEnabled(true);
-            mSystemless.setChecked(isSystemlessModeEnabled);
+            mSystemless.setEnabled(status.isSupported());
+            mSystemless.setChecked(status.isEnabled());
         }
     }
 }
