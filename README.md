@@ -4,8 +4,11 @@ AdAway is an open source ad blocker for Android using the hosts file.
 
 For more information visit http://adaway.org
 
-##Preview Build
-For Android Nougat users, or users with bugs, please test out the preview build from http://forum.xda-developers.com/showthread.php?t=2190753 before creating an issue. The preview build also has patches for Systemless users.
+## Preview Build
+For Android Nougat users, or users with bugs, there may be preview builds available from the [AdAway XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753). It is recommended to try those builds to see if your issue is resolved before creating an issue. The preview builds may contain bug fixes or new features for new android versions.  You can also obtain Preview or Stable builds from the [XDA Labs](https://labs.xda-developers.com/store/app/org.adaway) application.
+
+## Stable Build
+After preview builds have been tested a bit by the more technical or responsive community within the forums, we will then post the stable build to F-Droid.
 
 [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
