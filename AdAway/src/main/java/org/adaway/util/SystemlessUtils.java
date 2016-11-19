@@ -74,26 +74,47 @@ public class SystemlessUtils {
                 toolbox.copyFile(Constants.ANDROID_SYSTEM_ETC_HOSTS, Constants.ANDROID_SU_ETC_HOSTS, false, true);
             }
             // Check if systemless mode is already enabled
-            if (!SystemlessUtils.isSystemlessModeEnabled(shell)) {
-                // Create temp file
-                File cacheDir = context.getCacheDir();
-                File tempFile = File.createTempFile(Constants.TAG, ".script", cacheDir);
-                // Write script content to temp file
-                BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-                writer.write("mount -o bind " + Constants.ANDROID_SU_ETC_HOSTS + " " + Constants.ANDROID_SYSTEM_ETC_HOSTS + ";");
-                writer.newLine();
-                writer.close();
-                // Copy temp file to /su partition
-                toolbox.copyFile(tempFile.getAbsolutePath(), Constants.ANDROID_SYSTEMLESS_SCRIPT, false, false);
-                // Apply script permissions
-                toolbox.setFilePermissions(Constants.ANDROID_SYSTEMLESS_SCRIPT, "755");
-                // Remove temp file
-                if (!tempFile.delete()) {
-                    Log.w(Constants.TAG, "Could not delete the temporary script file.");
-                }
-                // Execute script
-                shell.add(new SimpleCommand(Constants.ANDROID_SYSTEMLESS_SCRIPT)).waitForFinish();
+            if (SystemlessUtils.isSystemlessModeEnabled(shell)) {
+                return true;
             }
+            /*
+             * Install systemless script by writing content to a temporary file, copying to su hook location then running it.
+             */
+            // Create temp file
+            File cacheDir = context.getCacheDir();
+            File tempFile = File.createTempFile(Constants.TAG, ".script", cacheDir);
+            // Write script content to temp file
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            writer.write("mount -o bind " + Constants.ANDROID_SU_ETC_HOSTS + " " + Constants.ANDROID_SYSTEM_ETC_HOSTS + ";");
+            writer.newLine();
+            writer.close();
+            // Copy temp file to /su partition
+            if (!toolbox.copyFile(tempFile.getAbsolutePath(), Constants.ANDROID_SYSTEMLESS_SCRIPT, false, false)) {
+                Log.w(Constants.TAG, "Could not copy the systemless script to " + Constants.ANDROID_SYSTEMLESS_SCRIPT + ".");
+                return false;
+            }
+            // Apply script permissions
+            if (!toolbox.setFilePermissions(Constants.ANDROID_SYSTEMLESS_SCRIPT, "755")) {
+                Log.w(Constants.TAG, "Could not set systemless script rights.");
+                return false;
+            }
+            // Remove temp file
+            if (!tempFile.delete()) {
+                Log.i(Constants.TAG, "Could not delete the temporary script file.");
+            }
+            // Execute script
+            SimpleCommand command = new SimpleCommand(Constants.ANDROID_SYSTEMLESS_SCRIPT);
+            shell.add(command).waitForFinish();
+            if (command.getExitCode() != 0) {
+                Log.w(Constants.TAG, "Could not execute the systemless script.");
+                return false;
+            }
+            // Check if installation is successful
+            if (!SystemlessUtils.isSystemlessModeEnabled(shell)) {
+                Log.w(Constants.TAG, "Systemless mode installation was successful but systemless is not working.");
+                return false;
+            }
+            // Systemless mode is installed and working
             return true;
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Error while enabling systemless mode.", exception);
@@ -112,20 +133,25 @@ public class SystemlessUtils {
     public static boolean disableSystemlessMode(Shell shell) {
         try {
             // Check if systemless mode is enabled
-            if (SystemlessUtils.isSystemlessModeEnabled(shell)) {
-                // Remove systemless script
-                SimpleCommand removeScriptCommand =
-                        new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SYSTEMLESS_SCRIPT);
-                shell.add(removeScriptCommand).waitForFinish();
-                // Try to umount hosts file (resource must be used: it requires reboot)
-                SimpleCommand umountCommand =
-                        new SimpleCommand("umount " + Constants.ANDROID_SYSTEM_ETC_HOSTS);
-                shell.add(umountCommand).waitForFinish();
-                // Remove mounted hosts file
-                SimpleCommand removeMountedHostsCommand =
-                        new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SU_ETC_HOSTS);
-                shell.add(removeMountedHostsCommand).waitForFinish();
+            if (!SystemlessUtils.isSystemlessModeEnabled(shell)) {
+                return true;
             }
+            // Remove systemless script
+            SimpleCommand removeScriptCommand =
+                    new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SYSTEMLESS_SCRIPT);
+            shell.add(removeScriptCommand).waitForFinish();
+            if (removeScriptCommand.getExitCode() != 0) {
+                Log.w(Constants.TAG, "Couldn't remove systemless script.");
+                return false;
+            }
+            // Try to umount hosts file (resource must be used: it requires reboot)
+            SimpleCommand umountCommand =
+                    new SimpleCommand("umount " + Constants.ANDROID_SYSTEM_ETC_HOSTS);
+            shell.add(umountCommand).waitForFinish();
+            // Remove mounted hosts file
+            SimpleCommand removeMountedHostsCommand =
+                    new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SU_ETC_HOSTS);
+            shell.add(removeMountedHostsCommand).waitForFinish();
             return true;
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Error while disabling systemless mode.", exception);
