@@ -3,11 +3,11 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Keluar</string>
-  <string name="button_apply">Download data yang dibutuhkan dan menyalakan sistem pemblokiran iklan</string>
+  <string name="button_apply">Unduh data yang dibutuhkan dan menyalakan sistem pemblokiran iklan</string>
   <string name="button_close">Tutup</string>
   <string name="button_yes">Ya</string>
   <string name="button_no">Tidak</string>
-  <string name="button_revert">Nonaktifkan pemblokiran iklan</string>
+  <string name="button_revert">Non-aktifkan pemblokiran iklan</string>
   <string name="button_add">Tambah</string>
   <string name="button_cancel">Batal</string>
   <string name="button_apply_text">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
@@ -28,16 +28,16 @@
   <string name="checkbox_list_empty_text">Anda bisa menambahkan item dari action bar.</string>
   <string name="checkbox_list_context_delete">Hapus</string>
   <string name="checkbox_list_footer">Setelah menambahkan item baru kedalam list anda harus menerapkan AdAway lagi!</string>
-  <string name="checkbox_list_edit_dialog_title">Edit</string>
-  <string name="checkbox_list_context_title">Ubah Masukkan</string>
-  <string name="checkbox_list_context_edit">Edit</string>
+  <string name="checkbox_list_edit_dialog_title">Sunting</string>
+  <string name="checkbox_list_context_title">Ubah Masukan</string>
+  <string name="checkbox_list_context_edit">Sunting</string>
   <!--Your Lists-->
-  <string name="lists_tab_whitelist">Daftar putih</string>
-  <string name="lists_tab_blacklist">Daftar hitam</string>
+  <string name="lists_tab_whitelist">Daftar Putih</string>
+  <string name="lists_tab_blacklist">Daftar Hitam</string>
   <string name="lists_tab_blacklist_short">Hitam</string>
   <string name="lists_tab_whitelist_short">Putih</string>
   <string name="lists_tab_redirection_list_short">Pengalihan</string>
-  <string name="lists_tab_redirection_list">Daftar pengalihan</string>
+  <string name="lists_tab_redirection_list">Daftar Pengalihan</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
   <string name="list_dialog_whitelist_hostname">Hostname:\n(karakter * dan ? diperbolehkan!)</string>
@@ -99,6 +99,8 @@
   <string name="download_fail_title">Download gagal</string>
   <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
   <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
+  <string name="disable_systemless_successful">Anda mematikan modus systemless.\n Mungkin diperlukan reboot Android untuk menerapkan perubahan. \n \n Apakah Anda ingin reboot? \n (Untuk mencegah kehilangan data pastikan tidak ada aplikasi menggunakan sdcard saat ini!)</string>
+  <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Entah su binary  yang tidak dapat ditemukan atau Anda belum mendapatkan izin root untuk AdAway. \n\nIni terjadi bila perangkat Anda tidak di-root. \nAnda dapat menemukan informasi tentang cara untuk me-root perangkat Anda pada www.cyanogenmod.org atau situs Android lainnya.</string>
   <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
@@ -204,6 +206,10 @@
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug Logging</string>
   <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>
-  <string name="pref_enable_ipv6">Ijinkan IPv6</string>
+  <string name="pref_enable_ipv6">Aktifkan IPv6</string>
   <string name="pref_enable_ipv6_summary">Semua entri file host akan disesuaikan dengan entri :: 1 (IPv6 localhost).</string>
+  <string name="pref_enable_systemless_def">salah</string>
+  <string name="pref_enable_systemless_key">AktifkanSystemless</string>
+  <string name="pref_enable_systemless_summary">Mencegah AdAway dari memodifikasi partisi sistem (diperlukan systemless SuperSU untuk memasang secara otomatis)</string>
+  <string name="pref_enable_systemless">Aktifkan Mode Systemless</string>
 </resources>

@@ -6,25 +6,25 @@
 
 
 
-<h2>AdAway是怎么工作的呢</h2>
+<h2>AdAway是如何工作？</h2>
 <p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
 
 <h2>为什么设置中的”每天检查更新“呈灰色无法选择？</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<p>自动检查更新只限于AdAway安装在内部存储。 这是一个安卓平台限制。</p>
 
 <h2>为什么我需要重启 Android 以使更改生效？</h2>
 <p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
 
-<h2>How to use the webserver in AdAway?</h2>
+<h2>如何在AdAway里使用 webserver？</h2>
 <p><b>AdAway will also work without using the webserver!</b>
 <br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
 <br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
-<h2>How can I block/unblock specific hostnames?</h2>
+<h2>如何封锁/解锁hostname?</h2>
 <p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
 
-<h2>Where can I find more hosts sources?</h2>
-<p>请访问 <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources"> 查看 AdAway 的额外 host清单。</a>.</p>
+<h2>在那里可以找到更多host源？</h2>
+<p>请访问 <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources"> 查看 AdAway 的额外 host源。</a>.</p>
 
 <h2>帮助翻译/报告 bug</h2>
 <p>请访问 <a href="http://adaway.org">http://adaway.org</a>.</p>

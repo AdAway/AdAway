@@ -100,6 +100,7 @@
   <string name="no_private_file">Privébestanden kunnen niet worden aangemaakt.</string>
   <string name="no_private_file_title">Aanmaak privébestand mislukt</string>
   <string name="disable_systemless_successful">U heeft systemless mode uitgeschakeld..\nIt Het kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
+  <string name="disable_systemless_successful_title">Uitschakelen gelukt</string>
   <!--Other Dialogs-->
   <string name="no_root_description">De su binary is niet gevonden of je hebt geen roottoegang verleend aan AdAway.\n\nDit kan gebeuren als je apparaat niet geroot is.\nInformatie over het rooten van je apparaat kun je vinden op www.cyanogenmod.org of op andere Android websites.</string>
   <string name="no_root_title">Geroote Android vereist</string>
@@ -207,4 +208,7 @@
   <string name="pref_enable_debug_summary">AdAway moet opnieuw worden gestart om deze aanpassing effect te laten hebben.</string>
   <string name="pref_enable_ipv6">IPv6 inschakelen</string>
   <string name="pref_enable_ipv6_summary">Bij alle adressen in het hosts-bestand wordt ::1 (de IPv6-versie van localhost) toegevoegd.</string>
+  <string name="pref_enable_systemless_def">Onwaar</string>
+  <string name="pref_enable_systemless_key">inschakelenSysteemloos</string>
+  <string name="pref_enable_systemless">Systeemloze modus inschakelen</string>
 </resources>
