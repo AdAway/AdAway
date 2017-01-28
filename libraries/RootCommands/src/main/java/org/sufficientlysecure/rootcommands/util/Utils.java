@@ -37,7 +37,7 @@ public class Utils {
      */
     static final String[] BinaryPlaces = { "/data/bin/", "/system/bin/", "/system/xbin/", "/sbin/",
             "/data/local/xbin/", "/data/local/bin/", "/system/sd/xbin/", "/system/bin/failsafe/",
-            "/data/local/" };
+            "/data/local/", "/su/bin/" };
 
     /**
      * Determine the path of the su executable.
