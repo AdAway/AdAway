@@ -40,6 +40,8 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.service.DailyListener;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.adaway.util.systemless.AbstractSystemlessMode;
+import org.adaway.util.systemless.NotSupportedSystemlessMode;
 import org.adaway.util.SystemlessUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
@@ -88,30 +90,40 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         addPreferencesFromResource(R.xml.preferences);
 
         /*
-         * Install systemless script if pref is enabled.
+         * Enable systemless mode systemless mode if supported.
          */
         Preference SystemlessPref = findPreference(getString(R.string.pref_enable_systemless_key));
         SystemlessPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                try {
-                    Shell rootShell = Shell.startRootShell();
-                    boolean successful;
-                    if (newValue.equals(true)) {
-                        successful = SystemlessUtils.enableSystemlessMode(PrefsActivity.this, rootShell);
-                    } else {
-                        successful = SystemlessUtils.disableSystemlessMode(rootShell);
-                        if (successful) {
-                            Utils.rebootQuestion(PrefsActivity.this, R.string.disable_systemless_successful_title,
-                                    R.string.disable_systemless_successful);
-                        }
-                    }
-                    rootShell.close();
-                    return successful;
-                } catch (Exception exception) {
-                    Log.e(Constants.TAG, "Problem while installing/removing systemless script.", exception);
+                // Get device systemless mode
+                AbstractSystemlessMode systemlessMode = SystemlessUtils.getSystemlessMode();
+                // Check if systemless is supported
+                if (!systemlessMode.isSupported()) {
                     return false;
                 }
+                // Declare successful action status
+                boolean successful;
+                // Check action to apply
+                if (newValue.equals(true)) {
+                    // Enable systemless mode
+                    successful = systemlessMode.enable(PrefsActivity.this);
+                    // Check if reboot is needed
+                    if (successful && systemlessMode.isRebootNeededAfterActivation()) {
+                        Utils.rebootQuestion(PrefsActivity.this, R.string.enable_systemless_successful_title,
+                                R.string.enable_systemless_successful);
+                    }
+                } else {
+                    // Disable systemless mode
+                    successful = systemlessMode.disable(PrefsActivity.this);
+                    // Check if reboot is needed
+                    if (successful && systemlessMode.isRebootNeededAfterDeactivation()) {
+                        Utils.rebootQuestion(PrefsActivity.this, R.string.disable_systemless_successful_title,
+                                R.string.disable_systemless_successful);
+                    }
+                }
+                // Return successful action status
+                return successful;
             }
         });
 
@@ -219,34 +231,22 @@ public class PrefsActivity extends SherlockPreferenceActivity {
      *
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
-    private class SystemlessCheckTask extends AsyncTask<Void, Void, SystemlessUtils.SystemlessModeStatus> {
+    private class SystemlessCheckTask extends AsyncTask<Void, Void, AbstractSystemlessMode> {
         @Override
-        protected SystemlessUtils.SystemlessModeStatus doInBackground(Void... params) {
-            // Declare statuses
-            boolean supported = false;
-            boolean enabled = false;
-            // Check statuses from shell
-            try {
-                Shell rootShell = Shell.startRootShell();
-                supported = SystemlessUtils.isSystemlessModeSupported(rootShell);
-                enabled = SystemlessUtils.isSystemlessModeEnabled(rootShell);
-                rootShell.close();
-            } catch (Exception exception) {
-                Log.e(Constants.TAG, "Problem while checking systemless mode.", exception);
-            }
-            // Return systemless mode statuses
-            return new SystemlessUtils.SystemlessModeStatus(supported, enabled);
+        protected AbstractSystemlessMode doInBackground(Void... params) {
+            // Retrieve the systemless mode
+            return SystemlessUtils.getSystemlessMode();
         }
 
         @Override
-        protected void onPostExecute(SystemlessUtils.SystemlessModeStatus status) {
+        protected void onPostExecute(AbstractSystemlessMode systemlessMode) {
             // Ensure reference exists
             if (mSystemless == null) {
                 return;
             }
             // Enable setting and set initial value
-            mSystemless.setEnabled(status.isSupported());
-            mSystemless.setChecked(status.isEnabled());
+            mSystemless.setEnabled(systemlessMode.isSupported());
+            mSystemless.setChecked(systemlessMode.isEnabled(PrefsActivity.this));
         }
     }
 }
