@@ -22,7 +22,9 @@ static void ev_handler(struct mg_connection *c, int ev, void *p) {
     fwrite(hm->message.p, 1, hm->message.len, stdout);
     putchar('\n');
     exit_flag = 1;
-  }
+  } else if (ev == MG_EV_CLOSE) {
+    exit_flag = 1;
+  };
 }
 
 int main(void) {
@@ -41,4 +43,4 @@ int main(void) {
 }
 ```
 
-See full source code at [HTTP client example](https://github.com/cesanta/dev/tree/master/mongoose/examples/http_client).
+See full source code at [HTTP client example](https://github.com/cesanta/mongoose/tree/master/examples/http_client).

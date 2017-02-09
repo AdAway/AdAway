@@ -10,14 +10,14 @@ Mongoose makes embedded network programming fast, robust, and easy.
 
 - [Download Mongoose Source Code here](https://www.cesanta.com)
 
-Looking for a complete IoT solution with firmware and cloud components?
-Check out [Mongoose IoT Firmware and Cloud](https://mongoose-iot.com).
+Looking for a complete IoT firmware solution?
+
+Check out [Mongoose OS](https://mongoose-iot.com) - open source embedded operating system for low-power connected microcontrollers. Secure, designed for Internet of Things, complete environment for prototyping, development and managing.
 
 # Support
 - [Study mongoose example code](https://github.com/cesanta/mongoose/tree/master/examples)
 - [Read User Guide and API reference](https://docs.cesanta.com/mongoose)
 - [Support Forum - ask your technical questions here] (http://forum.cesanta.com/index.php?p=/categories/mongoose)
-- [Chat - visit www.cesanta.com for our live chat] (http://www.cesanta.com)
 - [Commercial licensing and support available] (https://www.cesanta.com/services-support)
 - [Check our latest releases] (https://github.com/cesanta/mongoose/releases)
 

@@ -36,7 +36,7 @@ SIZE    		:= "$(GNU_INSTALL_ROOT)/bin/$(GNU_PREFIX)-size"
 remduplicates = $(strip $(if $1,$(firstword $1) $(call remduplicates,$(filter-out $(firstword $1),$1))))
 
 #source common to all targets
-C_SOURCE_FILES += \
+C_SOURCE_FILES_SDK = \
 ../../../../nrf51_iot_sdk/components/libraries/button/app_button.c \
 ../../../../nrf51_iot_sdk/components/libraries/util/app_error.c \
 ../../../../nrf51_iot_sdk/components/libraries/fifo/app_fifo.c \
@@ -46,19 +46,27 @@ C_SOURCE_FILES += \
 ../../../../nrf51_iot_sdk/components/libraries/trace/app_trace.c \
 ../../../../nrf51_iot_sdk/components/libraries/mem_manager/mem_manager.c \
 ../../../../nrf51_iot_sdk/components/libraries/util/nrf_assert.c \
-../../../../nrf51_iot_sdk/components/libraries/uart/retarget.c \
 ../../../../nrf51_iot_sdk/external/lwip/src/port/nrf_platform_port.c \
 ../../../../nrf51_iot_sdk/components/drivers_nrf/uart/app_uart_fifo.c \
 ../../../../nrf51_iot_sdk/components/drivers_nrf/hal/nrf_delay.c \
 ../../../../nrf51_iot_sdk/components/drivers_nrf/common/nrf_drv_common.c \
 ../../../../nrf51_iot_sdk/components/drivers_nrf/gpiote/nrf_drv_gpiote.c \
-../../../main.c \
 ../../../../nrf51_iot_sdk/components/ble/common/ble_advdata.c \
 ../../../../nrf51_iot_sdk/components/ble/common/ble_srv_common.c \
 ../../../../nrf51_iot_sdk/components/iot/context_manager/iot_context_manager.c \
 ../../../../nrf51_iot_sdk/components/toolchain/system_nrf51.c \
 ../../../../nrf51_iot_sdk/components/softdevice/common/softdevice_handler/softdevice_handler.c \
 ../../../../nrf51_iot_sdk/components/softdevice/common/softdevice_handler/softdevice_handler_appsh.c \
+
+C_SOURCE_FILES_APP = \
+../../../main.c \
+../../../bleconfig.c \
+../../../rtt/RTT/SEGGER_RTT.c \
+../../../rtt/RTT/SEGGER_RTT_printf.c \
+../../../rtt/Syscalls/RTT_Syscalls_GCC.c \
+../../../../../../mongoose.c \
+
+C_SOURCE_FILES = $(C_SOURCE_FILES_SDK) $(C_SOURCE_FILES_APP)
 
 #assembly files common to all targets
 ASM_SOURCE_FILES  = ../../../../nrf51_iot_sdk/components/toolchain/gcc/gcc_startup_nrf51.s
@@ -88,6 +96,8 @@ INC_PATHS += -I../../../../nrf51_iot_sdk/components/libraries/scheduler
 INC_PATHS += -I../../../../nrf51_iot_sdk/external/lwip/src/include/netif
 INC_PATHS += -I../../../../nrf51_iot_sdk/components/iot/include
 INC_PATHS += -I../../..
+INC_PATHS += -I../../../../../..
+INC_PATHS += -I../../../rtt/RTT
 INC_PATHS += -I../../../../nrf51_iot_sdk/components/iot/context_manager
 INC_PATHS += -I../../../../nrf51_iot_sdk/components/toolchain/gcc
 INC_PATHS += -I../../../../nrf51_iot_sdk/components/drivers_nrf/gpiote
@@ -105,6 +115,14 @@ OUTPUT_BINARY_DIRECTORY = $(OBJECT_DIRECTORY)
 # Sorting removes duplicates
 BUILD_DIRECTORIES := $(sort $(OBJECT_DIRECTORY) $(OUTPUT_BINARY_DIRECTORY) $(LISTING_DIRECTORY) )
 
+# Mongoose features
+MG_FEATURES_TINY = \
+                   -DMG_DISABLE_HTTP_DIGEST_AUTH \
+                   -DMG_DISABLE_MD5 \
+                   -DMG_DISABLE_HTTP_KEEP_ALIVE \
+                   -DMG_ENABLE_HTTP_SSI=0 \
+                   -DMG_ENABLE_HTTP_STREAMING_MULTIPART
+
 #flags common to all targets
 CFLAGS  = -D__HEAP_SIZE=512
 CFLAGS += -DSWI_DISABLE0
@@ -116,11 +134,19 @@ CFLAGS += -DBLE_STACK_SUPPORT_REQD
 CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -mcpu=cortex-m0
 CFLAGS += -mthumb -mabi=aapcs --std=gnu99
-CFLAGS += -Wall -Werror -O3
+CFLAGS += -g3 -O3
 CFLAGS += -mfloat-abi=soft
 # keep every function in separate section. This will allow linker to dump unused functions
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
 CFLAGS += -fno-builtin --short-enums
+
+CFLAGS += -DCS_ENABLE_STDIO
+
+# This macro is needed for stdout to be retargeted to either UART or RTT
+CFLAGS += -DENABLE_DEBUG_LOG_SUPPORT
+
+# Mongoose flags
+CFLAGS += -DCS_PLATFORM=CS_P_NRF51 $(MG_FEATURES_TINY) -DMG_MODULE_LINES
 
 # keep every function in separate section. This will allow linker to dump unused functions
 LDFLAGS += -Xlinker -Map=$(LISTING_DIRECTORY)/$(OUTPUT_FILENAME).map
@@ -158,6 +184,17 @@ help:
 C_SOURCE_FILE_NAMES = $(notdir $(C_SOURCE_FILES))
 C_PATHS = $(call remduplicates, $(dir $(C_SOURCE_FILES) ) )
 C_OBJECTS = $(addprefix $(OBJECT_DIRECTORY)/, $(C_SOURCE_FILE_NAMES:.c=.o) )
+
+C_SOURCE_FILE_NAMES_SDK = $(notdir $(C_SOURCE_FILES_SDK))
+C_SOURCE_FILE_NAMES_APP = $(notdir $(C_SOURCE_FILES_APP))
+C_OBJECTS_SDK = $(addprefix $(OBJECT_DIRECTORY)/, $(C_SOURCE_FILE_NAMES_SDK:.c=.o) )
+C_OBJECTS_APP = $(addprefix $(OBJECT_DIRECTORY)/, $(C_SOURCE_FILE_NAMES_APP:.c=.o) )
+
+# Disable all warnings for SDK sources since we have no control of them
+$(C_OBJECTS_SDK): CFLAGS += -w
+
+# Enable all warnings for the application's files
+$(C_OBJECTS_APP): CFLAGS += -Wall
 
 ASM_SOURCE_FILE_NAMES = $(notdir $(ASM_SOURCE_FILES))
 ASM_PATHS = $(call remduplicates, $(dir $(ASM_SOURCE_FILES) ))
