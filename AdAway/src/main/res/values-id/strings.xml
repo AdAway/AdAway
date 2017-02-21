@@ -102,7 +102,7 @@
   <string name="disable_systemless_successful">Anda mematikan modus systemless.\n Mungkin diperlukan reboot Android untuk menerapkan perubahan. \n \n Apakah Anda ingin reboot? \n (Untuk mencegah kehilangan data pastikan tidak ada aplikasi menggunakan sdcard saat ini!)</string>
   <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Entah su binary  yang tidak dapat ditemukan atau Anda belum mendapatkan izin root untuk AdAway. \n\nIni terjadi bila perangkat Anda tidak di-root. \nAnda dapat menemukan informasi tentang cara untuk me-root perangkat Anda pada www.cyanogenmod.org atau situs Android lainnya.</string>
+  <string name="no_root_description">Entah su binary  yang tidak dapat ditemukan atau Anda belum mendapatkan izin root untuk AdAway. \n\nIni terjadi bila perangkat Anda tidak di-root. \nAnda dapat menemukan informasi tentang cara untuk me-root perangkat Anda pada wiki.lineageos.org atau situs Android lainnya.</string>
   <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
   <string name="no_url">URL tidak valid!</string>
   <string name="no_url_title">URL tidak diformat dengan benar</string>

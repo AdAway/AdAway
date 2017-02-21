@@ -102,7 +102,7 @@
   <string name="disable_systemless_successful">Wyłączyłeś tryb systemless.\nMoże być konieczne uruchomienie ponowne telefonu, aby zmiany przyniosły efekt.\n\nCzy chcesz uruchomić ponownie telefon?\n(Aby uniknąć utraty danych, upewnij się, że żadna aplikacja nie używa karty SD w tym momencie!)</string>
   <string name="disable_systemless_successful_title">Wyłączono poprawnie</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Nie można znaleźć pliku su lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\n Tak się dzieje kiedy twoje urządzenie nie jest zrootowane.\nMożesz znaleźć informacje jak zrootować swoje urządzenie na www.cyanogenmod.org lub innych stronach o  Androidzie.</string>
+  <string name="no_root_description">Nie można znaleźć pliku su lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\n Tak się dzieje kiedy twoje urządzenie nie jest zrootowane.\nMożesz znaleźć informacje jak zrootować swoje urządzenie na wiki.lineageos.org lub innych stronach o  Androidzie.</string>
   <string name="no_root_title">Wymagany jest zrootowany Android</string>
   <string name="no_url">To nie jest prawidłowy adres URL!</string>
   <string name="no_url_title">Niepoprawny adres URL</string>

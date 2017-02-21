@@ -100,7 +100,7 @@
   <string name="no_private_file">Privat fil kan ikke oprettes.</string>
   <string name="no_private_file_title">Oprettelse af privat fil mislykkedes</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Enten findes SU-binary\'et ikke eller du afviste root-adgang for AdAway.\n\nDette kan ske når din enhed ikke har opnået root-adgang.\nDu kan finde information om hvordan du får root-adgang på din enhed på www.cyanogenmod.org eller andre Android-websider.</string>
+  <string name="no_root_description">Enten findes SU-binary\'et ikke eller du afviste root-adgang for AdAway.\n\nDette kan ske når din enhed ikke har opnået root-adgang.\nDu kan finde information om hvordan du får root-adgang på din enhed på wiki.lineageos.org eller andre Android-websider.</string>
   <string name="no_root_title">En rootet Android kræves</string>
   <string name="no_url">Dette er ikke en gyldig URL!</string>
   <string name="no_url_title">Forkert formateret URL</string>

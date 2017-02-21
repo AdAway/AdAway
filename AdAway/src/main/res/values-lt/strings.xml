@@ -100,7 +100,7 @@
   <string name="no_private_file">Nepavyko sukurti asmeninio failo.</string>
   <string name="no_private_file_title">Nepavyko sukurti asmeninio failo</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Neradau su failo, ar tikrai suteikėte root prieigą AdAway programai?\n\nTai gali nutikti jei Jūsų įrenginys neturi root prieigos.\nGalite rasti informaciją apie tai www.cyanogenmod.org ar kitose svetainėse.</string>
+  <string name="no_root_description">Neradau su failo, ar tikrai suteikėte root prieigą AdAway programai?\n\nTai gali nutikti jei Jūsų įrenginys neturi root prieigos.\nGalite rasti informaciją apie tai wiki.lineageos.org ar kitose svetainėse.</string>
   <string name="no_root_title">Rooted Android būtinas!</string>
   <string name="no_url">Netinkama URL!</string>
   <string name="no_url_title">Neteisingas URL formatas</string>

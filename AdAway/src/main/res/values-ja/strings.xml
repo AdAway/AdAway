@@ -100,7 +100,7 @@
   <string name="no_private_file">プライベートファイルが作成できません。</string>
   <string name="no_private_file_title">プライベートファイルの作成失敗</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">suバイナリが見つからないか、AdAwayにroot権限が許可されていません。\n\nこのエラーはお使いの機器が正しくroot化されていないときに起こります。\nwww.cyanogenmod.org やGoogleで検索するなどしてroot化する方法を探してください。</string>
+  <string name="no_root_description">suバイナリが見つからないか、AdAwayにroot権限が許可されていません。\n\nこのエラーはお使いの機器が正しくroot化されていないときに起こります。\nwiki.lineageos.org やGoogleで検索するなどしてroot化する方法を探してください。</string>
   <string name="no_root_title">root化されたAndroidが必要です</string>
   <string name="no_url">正しいURLではありません!</string>
   <string name="no_url_title">URLの形式が正しくありません</string>

@@ -102,7 +102,7 @@
   <string name="disable_systemless_successful">Sie haben den Systemlosen Modus deaktiviert.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
   <string name="disable_systemless_successful_title">Deaktivieren erfolgreich</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es exisitiert keine su-Binary.\n\nLetzteres deutet daraufhin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf www.cyanogenmod.org oder anderen Android-Internetseiten.</string>
+  <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es exisitiert keine su-Binary.\n\nLetzteres deutet daraufhin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf wiki.lineageos.org oder anderen Android-Internetseiten.</string>
   <string name="no_root_title">Das System muss gerootet sein</string>
   <string name="no_url">Das ist keine gültige Adresse!</string>
   <string name="no_url_title">Falsch formatierte Adresse</string>
