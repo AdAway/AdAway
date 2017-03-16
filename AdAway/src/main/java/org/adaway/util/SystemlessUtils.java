@@ -47,8 +47,15 @@ public class SystemlessUtils {
                 if (command.getExitCode() == 0) {
                     SystemlessUtils.systemlessMode = new SuperUserSystemlessMode();
                 } else {
-                    // Otherwise not supported systemless mode
-                    SystemlessUtils.systemlessMode = new NotSupportedSystemlessMode();
+                    // Check if Magisk root is installed
+                    SimpleCommand command = new SimpleCommand("su -v | grep MAGISKSU");
+                    shell.add(command).waitForFinish();
+                    if (command.getExitCode() == 0) {
+                        SystemlessUtils.systemlessMode = new SuperUserSystemlessMode();
+                    } else {
+                        // Otherwise not supported systemless mode
+                        SystemlessUtils.systemlessMode = new NotSupportedSystemlessMode();
+                    }
                 }
             }
         } catch (Exception exception) {
