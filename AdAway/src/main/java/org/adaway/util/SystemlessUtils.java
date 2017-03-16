@@ -40,6 +40,9 @@ public class SystemlessUtils {
             // Check if ChainFire's SuperSU systemless root is installed
             if (toolbox.fileExists("/su/bin/su")) {
                 SystemlessUtils.systemlessMode = new SuperSuSystemlessMode();
+            } else if (toolbox.fileExists("/sbin/su")) {
+                // Check if Magisk root exists
+                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode();  
             } else {
                 // Check if phh's SuperUser su bind is installed
                 SimpleCommand command = new SimpleCommand("su -v | grep subind");
