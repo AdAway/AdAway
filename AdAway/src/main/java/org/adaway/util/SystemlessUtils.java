@@ -40,9 +40,6 @@ public class SystemlessUtils {
             // Check if ChainFire's SuperSU systemless root is installed
             if (toolbox.fileExists("/su/bin/su")) {
                 SystemlessUtils.systemlessMode = new SuperSuSystemlessMode();
-            } else if (toolbox.fileExists("/sbin/su")) {
-                // Check if Magisk root exists
-                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode();  
             } else {
                 // Check if phh's SuperUser su bind is installed
                 SimpleCommand command = new SimpleCommand("su -v | grep subind");
@@ -50,8 +47,15 @@ public class SystemlessUtils {
                 if (command.getExitCode() == 0) {
                     SystemlessUtils.systemlessMode = new SuperUserSystemlessMode();
                 } else {
-                    // Otherwise not supported systemless mode
-                    SystemlessUtils.systemlessMode = new NotSupportedSystemlessMode();
+                    // Check if Magisk root is installed
+                    SimpleCommand command = new SimpleCommand("su -v | grep MAGISKSU");
+                    shell.add(command).waitForFinish();
+                    if (command.getExitCode() == 0) {
+                        SystemlessUtils.systemlessMode = new SuperUserSystemlessMode();
+                    } else {
+                        // Otherwise not supported systemless mode
+                        SystemlessUtils.systemlessMode = new NotSupportedSystemlessMode();
+                    }
                 }
             }
         } catch (Exception exception) {
