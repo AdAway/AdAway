@@ -6,7 +6,6 @@ repositories {
     }
 }
 dependencies {
-
     compile 'com.commonsware.cwac:wakeful:1.0.+'
     compile project(':libraries:RootCommands')
     compile 'net.sf.trove4j:trove4j:3.0.3'
@@ -25,7 +24,7 @@ android {
     }
 
     compileSdkVersion 25
-    buildToolsVersion "24.0.3"
+    buildToolsVersion '25.0.3'
 
     defaultConfig {
         minSdkVersion 16
@@ -91,3 +90,6 @@ task renameExecutables(type: Copy) {
 }
 
 build.dependsOn renameExecutables
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn renameExecutables
+}
