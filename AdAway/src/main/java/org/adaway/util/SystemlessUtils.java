@@ -1,8 +1,10 @@
 package org.adaway.util;
 
 import org.adaway.util.systemless.AbstractSystemlessMode;
+import org.adaway.util.systemless.MagiskSuSystemlessMode;
 import org.adaway.util.systemless.NotSupportedSystemlessMode;
 import org.adaway.util.systemless.SuperSuSystemlessMode;
+import org.adaway.util.systemless.SuperSuSystemlessMode.Mode;
 import org.adaway.util.systemless.SuperUserSystemlessMode;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
@@ -37,20 +39,16 @@ public class SystemlessUtils {
         try {
             // Start shell
             shell = Shell.startShell();
-            // Check if ChainFire's SuperSU systemless root is installed
-            SuperSuSystemlessMode.Mode mode = SystemlessUtils.checkSuperSuSystemlessMode(shell);
-            if (mode != null) {
-                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode(mode);
+            // Check each supported su implementations
+            if (SystemlessUtils.checkChainFireSuperSu(shell)) {
+                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode(Mode.SU_PARTITION);
+            } else if (SystemlessUtils.checkPhhSuperUserSuBind(shell)) {
+                SystemlessUtils.systemlessMode = new SuperUserSystemlessMode();
+            } else if (SystemlessUtils.checkMagiskSu(shell)) {
+                SystemlessUtils.systemlessMode = new MagiskSuSystemlessMode();
             } else {
-                // Check if phh's SuperUser su bind is installed
-                SimpleCommand command = new SimpleCommand("su -v | grep subind");
-                shell.add(command).waitForFinish();
-                if (command.getExitCode() == 0) {
-                    SystemlessUtils.systemlessMode = new SuperUserSystemlessMode();
-                } else {
-                    // Otherwise not supported systemless mode
-                    SystemlessUtils.systemlessMode = new NotSupportedSystemlessMode();
-                }
+                // Otherwise not supported systemless mode
+                SystemlessUtils.systemlessMode = new NotSupportedSystemlessMode();
             }
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Error while getting systemless mode.", exception);
@@ -70,27 +68,43 @@ public class SystemlessUtils {
     }
 
     /**
-     * Check if ChainFire's SuperSU systemless root is installed.<br>
-     * Look for <code>/su/bin/su</code> binary in case of "/su partition" systemless mode and
-     * for <code>/sbin/su</code> mount point in case of "bind sbin" systemless mode.
+     * Check installation of ChainFire's SuperSU systemless root.
      *
-     * @param shell The root shell.
-     * @return The SuperSU systemless mode found, <code>null</code> if no SuperSU systemless root was found.
-     * @throws IOException      If the check could be done.
-     * @throws TimeoutException If the commands take too long.
+     * @param shell The current shell.
+     * @return <code>true</code> if the ChainFire's SuperSU systemless root is installed, <code>false</code> otherwise.
+     * @throws Exception if the installation could not be checked.
      */
-    private static SuperSuSystemlessMode.Mode checkSuperSuSystemlessMode(Shell shell) throws IOException, TimeoutException {
-        // Check toolbox
+    private static boolean checkChainFireSuperSu(Shell shell) throws Exception {
+        // Check if a su binary is present in su partition
         Toolbox toolbox = new Toolbox(shell);
-        // Check if "/su partition" systemless mode is installed
-        if (toolbox.fileExists("/su/bin/su")) {
-            return SuperSuSystemlessMode.Mode.SU_PARTITION;
-        }
-        // Check if "bind sbin" systemless mode is installed
-        else if (toolbox.fileExists("/sbin/supersu/supersu_is_here")) {
-            return SuperSuSystemlessMode.Mode.BIND_SBIN;
-        }
-        // No ChainFire's SuperSU systemless root was found
-        return null;
+        return toolbox.fileExists("/su/bin/su");
+    }
+
+    /**
+     * Check installation of SuperUser su bind.
+     *
+     * @param shell The current shell.
+     * @return <code>true</code> if the SuperUser su bind is install, <code>false</code> otherwise.
+     * @throws Exception if the installation could not be checked.
+     */
+    private static boolean checkPhhSuperUserSuBind(Shell shell) throws Exception {
+        // Check if phh's SuperUser su bind is installed
+        SimpleCommand command = new SimpleCommand("su -v | grep subind");
+        shell.add(command).waitForFinish();
+        return command.getExitCode() == 0;
+    }
+
+    /**
+     * Check installation of MagiskSU.
+     *
+     * @param shell The current shell.
+     * @return <code>true</code> if the MagiskSU is installed, <code>false</code> otherwise.
+     * @throws Exception if the installation could not be checked.
+     */
+    private static boolean checkMagiskSu(Shell shell) throws Exception {
+        // Check if MagiskSU is installed
+        SimpleCommand command = new SimpleCommand("su -v | grep MAGISKSU");
+        shell.add(command).waitForFinish();
+        return command.getExitCode() == 0;
     }
 }
