@@ -163,7 +163,7 @@ public class BaseActivity extends AppCompatActivity {
                     // do background update check
                     // do only if not disabled in preferences
                     if (PreferenceHelper.getUpdateCheck(mActivity)) {
-                        UpdateService.check(this, true);
+                        UpdateService.checkAsync(this);
                     } else {
                         BaseActivity.updateStatusEnabled(mActivity);
                     }
