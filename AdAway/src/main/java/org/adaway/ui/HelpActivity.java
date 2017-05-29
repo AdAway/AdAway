@@ -20,33 +20,27 @@
 
 package org.adaway.ui;
 
-import org.adaway.BuildConfig;
-import org.adaway.R;
-
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.widget.TextView;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.view.MenuItem;
-
-import java.util.ArrayList;
-
-import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-
+import org.adaway.R;
 import org.adaway.util.Constants;
 import org.sufficientlysecure.donations.DonationsFragment;
 
-public class HelpActivity extends SherlockFragmentActivity {
+import java.util.ArrayList;
+
+public class HelpActivity extends AppCompatActivity {
     ViewPager mViewPager;
-    TabsAdapter mTabsAdapter;
+//    TabsAdapter mTabsAdapter;
 
     /**
      * PayPal
@@ -91,12 +85,12 @@ public class HelpActivity extends SherlockFragmentActivity {
         mViewPager.setId(R.id.pager);
 
         setContentView(mViewPager);
-        ActionBar bar = getSupportActionBar();
+        ActionBar bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         bar.setDisplayShowTitleEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
 
-        mTabsAdapter = new TabsAdapter(this, mViewPager);
+       /* mTabsAdapter = new TabsAdapter(this, mViewPager);
 
         Bundle faqBundle = new Bundle();
         faqBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_faq);
@@ -136,10 +130,10 @@ public class HelpActivity extends SherlockFragmentActivity {
                 HelpFragmentHtml.class, changelogArgs);
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_about)),
-                HelpFragmentAbout.class, null);
+                HelpFragmentAbout.class, null);*/
     }
 
-    public static class TabsAdapter extends FragmentPagerAdapter implements ActionBar.TabListener,
+  /*  public static class TabsAdapter extends FragmentPagerAdapter implements ActionBar.TabListener,
             ViewPager.OnPageChangeListener {
         private final Context mContext;
         private final ActionBar mActionBar;
@@ -156,10 +150,10 @@ public class HelpActivity extends SherlockFragmentActivity {
             }
         }
 
-        public TabsAdapter(SherlockFragmentActivity activity, ViewPager pager) {
+        public TabsAdapter(FragmentActivity activity, ViewPager pager) {
             super(activity.getSupportFragmentManager());
             mContext = activity;
-            mActionBar = activity.getSupportActionBar();
+            mActionBar = activity.getActionBar();
             mViewPager = pager;
             mViewPager.setAdapter(this);
             mViewPager.setOnPageChangeListener(this);
@@ -195,7 +189,7 @@ public class HelpActivity extends SherlockFragmentActivity {
         public void onPageScrollStateChanged(int state) {
         }
 
-        public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
             Object tag = tab.getTag();
             for (int i = 0; i < mTabs.size(); i++) {
                 if (mTabs.get(i) == tag) {
@@ -204,10 +198,10 @@ public class HelpActivity extends SherlockFragmentActivity {
             }
         }
 
-        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
         }
 
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
         }
-    }
+    }*/
 }

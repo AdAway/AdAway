@@ -20,21 +20,6 @@
 
 package org.adaway.ui;
 
-import org.adaway.R;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.helper.ResultHelper;
-import org.adaway.service.DailyListener;
-import org.adaway.service.UpdateService;
-import org.adaway.util.ApplyUtils;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-import org.adaway.util.StatusCodes;
-import org.adaway.util.Utils;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.commonsware.cwac.wakeful.WakefulIntentService;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -44,9 +29,21 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class BaseActivity extends SherlockFragmentActivity {
+import org.adaway.R;
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.helper.ResultHelper;
+import org.adaway.service.UpdateService;
+import org.adaway.util.ApplyUtils;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.adaway.util.StatusCodes;
+import org.adaway.util.Utils;
+
+public class BaseActivity extends AppCompatActivity {
 
     // Intent extras to give result of applying process to base activity
     public static final String EXTRA_APPLYING_RESULT = "org.adaway.APPLYING_RESULT";
@@ -166,9 +163,7 @@ public class BaseActivity extends SherlockFragmentActivity {
                     // do background update check
                     // do only if not disabled in preferences
                     if (PreferenceHelper.getUpdateCheck(mActivity)) {
-                        Intent updateIntent = new Intent(mActivity, UpdateService.class);
-                        updateIntent.putExtra(UpdateService.EXTRA_BACKGROUND_EXECUTION, false);
-                        WakefulIntentService.sendWakefulWork(mActivity, updateIntent);
+                        UpdateService.check(this, true);
                     } else {
                         BaseActivity.updateStatusEnabled(mActivity);
                     }
@@ -178,7 +173,7 @@ public class BaseActivity extends SherlockFragmentActivity {
             }
 
             // schedule CheckUpdateService
-            WakefulIntentService.scheduleAlarms(new DailyListener(), mActivity, false);
+            UpdateService.enable();
         }
     }
 

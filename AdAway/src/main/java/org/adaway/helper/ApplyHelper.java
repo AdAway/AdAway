@@ -18,29 +18,18 @@
  *
  */
 
-package org.adaway.service;
+package org.adaway.helper;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.support.v4.app.NotificationCompat;
 
 import org.adaway.R;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.helper.ResultHelper;
-import org.adaway.provider.ProviderHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
+import org.adaway.provider.ProviderHelper;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
@@ -53,45 +42,44 @@ import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
 import org.sufficientlysecure.rootcommands.Shell;
 
-import com.commonsware.cwac.wakeful.WakefulIntentService;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
-import android.support.v4.app.NotificationCompat;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-
-public class ApplyService extends WakefulIntentService {
-    private Context mService;
-    private NotificationManager mNotificationManager;
-
+public class ApplyHelper {
+    private static final int APPLY_NOTIFICATION_ID = 20;
+    private final Context mContext;
+    private final NotificationManager mNotificationManager;
     private int mNumberOfFailedDownloads;
     private int mNumberOfDownloads;
 
-    private static final int APPLY_NOTIFICATION_ID = 20;
-
-    public ApplyService() {
-        super("AdAwayApplyService");
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        mService = this;
-
-        mNotificationManager = (NotificationManager) mService.getApplicationContext()
-                .getSystemService(Context.NOTIFICATION_SERVICE);
-
-        return super.onStartCommand(intent, flags, startId);
-    }
-
     /**
-     * Asynchronous background operations of service, with wakelock
+     * Constructor.
+     *
+     * @param context The application context.
      */
-    @Override
-    public void doWakefulWork(Intent intent) {
+    public ApplyHelper(Context context) {
+        this.mContext = context;
+        this.mNotificationManager = (NotificationManager) mContext.getApplicationContext()
+                .getSystemService(Context.NOTIFICATION_SERVICE);
+    }
+
+
+    public void apply() {
         // disable buttons
-        BaseActivity.setButtonsDisabledBroadcast(mService, true);
+        BaseActivity.setButtonsDisabledBroadcast(mContext, true);
 
         // download files with download method
         int downloadResult = download();
@@ -99,28 +87,28 @@ public class ApplyService extends WakefulIntentService {
 
         if (downloadResult == StatusCodes.SUCCESS) {
             // Apply files by apply method
-            int applyResult = apply();
+            int applyResult = this.applyHostsFile();
 
-            cancelApplyNotification();
+            this.cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsDisabledBroadcast(mService, false);
+            BaseActivity.setButtonsDisabledBroadcast(mContext, false);
             Log.d(Constants.TAG, "Apply result: " + applyResult);
 
             String successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/"
                     + mNumberOfDownloads;
 
-            ResultHelper.showNotificationBasedOnResult(mService, applyResult, successfulDownloads);
+            ResultHelper.showNotificationBasedOnResult(mContext, applyResult, successfulDownloads);
         } else if (downloadResult == StatusCodes.DOWNLOAD_FAIL) {
-            cancelApplyNotification();
+            this.cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsDisabledBroadcast(mService, false);
+            BaseActivity.setButtonsDisabledBroadcast(mContext, false);
             // extra information is current url, to show it when it fails
-            ResultHelper.showNotificationBasedOnResult(mService, downloadResult, null);
+            ResultHelper.showNotificationBasedOnResult(mContext, downloadResult, null);
         } else {
-            cancelApplyNotification();
+            this.cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsDisabledBroadcast(mService, false);
-            ResultHelper.showNotificationBasedOnResult(mService, downloadResult, null);
+            BaseActivity.setButtonsDisabledBroadcast(mContext, false);
+            ResultHelper.showNotificationBasedOnResult(mContext, downloadResult, null);
         }
     }
 
@@ -138,24 +126,24 @@ public class ApplyService extends WakefulIntentService {
 
         int returnCode = StatusCodes.SUCCESS; // default return code
 
-        if (Utils.isAndroidOnline(mService)) {
+        if (Utils.isAndroidOnline(mContext)) {
 
-            showApplyNotification(mService, mService.getString(R.string.download_dialog),
-                    mService.getString(R.string.download_dialog),
-                    mService.getString(R.string.download_dialog));
+            showApplyNotification(mContext, mContext.getString(R.string.download_dialog),
+                    mContext.getString(R.string.download_dialog),
+                    mContext.getString(R.string.download_dialog));
 
             // output to write into
             FileOutputStream out = null;
 
             try {
-                out = mService.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
+                out = mContext.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
                         Context.MODE_PRIVATE);
 
                 mNumberOfFailedDownloads = 0;
                 mNumberOfDownloads = 0;
 
                 // get cursor over all enabled hosts source
-                enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(mService);
+                enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(mContext);
 
                 // iterate over all hosts sources in db with cursor
                 if (enabledHostsSourcesCursor.moveToFirst()) {
@@ -172,8 +160,8 @@ public class ApplyService extends WakefulIntentService {
                             Log.v(Constants.TAG, "Downloading hosts file: " + currentUrl);
 
                             /* change URL in download dialog */
-                            updateApplyNotification(mService,
-                                    mService.getString(R.string.download_dialog), currentUrl);
+                            updateApplyNotification(mContext,
+                                    mContext.getString(R.string.download_dialog), currentUrl);
 
                             /* build connection */
                             URL mURL = new URL(currentUrl);
@@ -205,7 +193,7 @@ public class ApplyService extends WakefulIntentService {
                             // save last modified online for later use
                             currentLastModifiedOnline = connection.getLastModified();
 
-                            ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
+                            ProviderHelper.updateHostsSourceLastModifiedOnline(mContext,
                                     enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
                                             .getColumnIndex(HostsSources._ID)),
                                     currentLastModifiedOnline
@@ -218,7 +206,7 @@ public class ApplyService extends WakefulIntentService {
                             mNumberOfFailedDownloads++;
 
                             // set last_modified_online of failed download to 0 (not available)
-                            ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
+                            ProviderHelper.updateHostsSourceLastModifiedOnline(mContext,
                                     enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
                                             .getColumnIndex(HostsSources._ID)), 0
                             );
@@ -275,10 +263,10 @@ public class ApplyService extends WakefulIntentService {
      *
      * @return return code
      */
-    int apply() {
-        showApplyNotification(mService, mService.getString(R.string.apply_dialog),
-                mService.getString(R.string.apply_dialog),
-                mService.getString(R.string.apply_dialog_hostnames));
+    int applyHostsFile() {
+        showApplyNotification(mContext, mContext.getString(R.string.apply_dialog),
+                mContext.getString(R.string.apply_dialog),
+                mContext.getString(R.string.apply_dialog_hostnames));
 
         int returnCode = StatusCodes.SUCCESS; // default return code
         BufferedOutputStream bos = null;
@@ -286,40 +274,40 @@ public class ApplyService extends WakefulIntentService {
         try {
             /* PARSE: parse hosts files to sets of hostnames and comments */
 
-            FileInputStream fis = mService.openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
+            FileInputStream fis = mContext.openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
             // Use whitelist and/or redirection rules from hosts sources only if enabled in preferences
-            HostsParser parser = new HostsParser(reader, PreferenceHelper.getWhitelistRules(mService), PreferenceHelper.getRedirectionRules(mService));
+            HostsParser parser = new HostsParser(reader, PreferenceHelper.getWhitelistRules(mContext), PreferenceHelper.getRedirectionRules(mContext));
 
             fis.close();
 
-            updateApplyNotification(mService, mService.getString(R.string.apply_dialog),
-                    mService.getString(R.string.apply_dialog_lists));
+            updateApplyNotification(mContext, mContext.getString(R.string.apply_dialog),
+                    mContext.getString(R.string.apply_dialog_lists));
 
             /* READ DATABSE CONTENT */
 
             // add whitelist from db
-            parser.addWhitelist(ProviderHelper.getEnabledWhitelistHashSet(mService));
+            parser.addWhitelist(ProviderHelper.getEnabledWhitelistHashSet(mContext));
             // add blacklist from db
-            parser.addBlacklist(ProviderHelper.getEnabledBlacklistHashSet(mService));
+            parser.addBlacklist(ProviderHelper.getEnabledBlacklistHashSet(mContext));
             // add redirection list from db
-            parser.addRedirectionList(ProviderHelper.getEnabledRedirectionListHashMap(mService));
+            parser.addRedirectionList(ProviderHelper.getEnabledRedirectionListHashMap(mContext));
 
             // get hosts sources list from db
             ArrayList<String> enabledHostsSources = ProviderHelper
-                    .getEnabledHostsSourcesArrayList(mService);
+                    .getEnabledHostsSourcesArrayList(mContext);
             Log.d(Constants.TAG, "Enabled hosts sources list: " + enabledHostsSources.toString());
 
             // compile lists (removing whitelist entries, etc.)
             parser.compileList();
 
             /* BUILD: build one hosts file out of sets and preferences */
-            updateApplyNotification(mService, mService.getString(R.string.apply_dialog),
-                    mService.getString(R.string.apply_dialog_hosts));
+            updateApplyNotification(mContext, mContext.getString(R.string.apply_dialog),
+                    mContext.getString(R.string.apply_dialog_hosts));
 
-            FileOutputStream fos = mService.openFileOutput(Constants.HOSTS_FILENAME,
+            FileOutputStream fos = mContext.openFileOutput(Constants.HOSTS_FILENAME,
                     Context.MODE_PRIVATE);
 
             bos = new BufferedOutputStream(fos);
@@ -343,7 +331,7 @@ public class ApplyService extends WakefulIntentService {
 
             bos.write(Constants.LINE_SEPERATOR.getBytes());
 
-            String redirectionIP = PreferenceHelper.getRedirectionIP(mService);
+            String redirectionIP = PreferenceHelper.getRedirectionIP(mContext);
 
             // add "127.0.0.1 localhost" entry
             String localhost = Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv4 + " "
@@ -356,7 +344,7 @@ public class ApplyService extends WakefulIntentService {
             // write hostnames
             String line;
             String linev6;
-            if (PreferenceHelper.getEnableIpv6(mService)) {
+            if (PreferenceHelper.getEnableIpv6(mContext)) {
                 for (String hostname : parser.getBlacklist()) {
                     line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
                     linev6 = Constants.LINE_SEPERATOR + "::1" + " " + hostname;
@@ -393,25 +381,23 @@ public class ApplyService extends WakefulIntentService {
             Log.e(Constants.TAG, "files can not be written or read", e);
 
             returnCode = StatusCodes.PRIVATE_FILE_FAIL;
-        }
-        finally {
+        } finally {
             try {
                 if (bos != null) {
                     bos.flush();
                     bos.close();
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.e(Constants.TAG, "Error closing output streams", e);
             }
         }
 
         // delete downloaded hosts file from private storage
-        mService.deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
+        mContext.deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
 
         /* APPLY: apply hosts file using RootTools in copyHostsFile() */
-        updateApplyNotification(mService, mService.getString(R.string.apply_dialog),
-                mService.getString(R.string.apply_dialog_apply));
+        updateApplyNotification(mContext, mContext.getString(R.string.apply_dialog),
+                mContext.getString(R.string.apply_dialog_apply));
 
         Shell rootShell = null;
         try {
@@ -422,18 +408,18 @@ public class ApplyService extends WakefulIntentService {
 
         // copy build hosts file with RootTools, based on target from preferences
         try {
-            if (PreferenceHelper.getApplyMethod(mService).equals("writeToSystem")) {
+            if (PreferenceHelper.getApplyMethod(mContext).equals("writeToSystem")) {
 
-                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS, rootShell);
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
+                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_SYSTEM_ETC_HOSTS, rootShell);
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToDataData")) {
 
-                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToData")) {
+                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToData")) {
 
-                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_HOSTS, rootShell);
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
+                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_HOSTS, rootShell);
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("customTarget")) {
 
-                ApplyUtils.copyHostsFile(mService, PreferenceHelper.getCustomTarget(mService),
+                ApplyUtils.copyHostsFile(mContext, PreferenceHelper.getCustomTarget(mContext),
                         rootShell);
             }
         } catch (NotEnoughSpaceException e) {
@@ -451,24 +437,24 @@ public class ApplyService extends WakefulIntentService {
         }
 
         // delete generated hosts file from private storage
-        mService.deleteFile(Constants.HOSTS_FILENAME);
+        mContext.deleteFile(Constants.HOSTS_FILENAME);
 
         /*
          * Set last_modified_local dates in database to last_modified_online, got in download task
          */
-        ProviderHelper.updateAllEnabledHostsSourcesLastModifiedLocalFromOnline(mService);
+        ProviderHelper.updateAllEnabledHostsSourcesLastModifiedLocalFromOnline(mContext);
 
         /* check if hosts file is applied with chosen method */
         // check only if everything before was successful
         if (returnCode == StatusCodes.SUCCESS) {
-            if (PreferenceHelper.getApplyMethod(mService).equals("writeToSystem")) {
+            if (PreferenceHelper.getApplyMethod(mContext).equals("writeToSystem")) {
 
                 /* /system/etc/hosts */
 
                 if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                     returnCode = StatusCodes.APPLY_FAIL;
                 }
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToDataData")) {
 
                 /* /data/data/hosts */
 
@@ -479,7 +465,7 @@ public class ApplyService extends WakefulIntentService {
                         returnCode = StatusCodes.SYMLINK_MISSING;
                     }
                 }
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToData")) {
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToData")) {
 
                 /* /data/data/hosts */
 
@@ -490,11 +476,11 @@ public class ApplyService extends WakefulIntentService {
                         returnCode = StatusCodes.SYMLINK_MISSING;
                     }
                 }
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("customTarget")) {
 
                 /* custom target */
 
-                String customTarget = PreferenceHelper.getCustomTarget(mService);
+                String customTarget = PreferenceHelper.getCustomTarget(mContext);
 
                 if (!ApplyUtils.isHostsFileCorrect(customTarget)) {
                     returnCode = StatusCodes.APPLY_FAIL;
@@ -514,7 +500,7 @@ public class ApplyService extends WakefulIntentService {
 
         /* check if APN proxy is set */
         if (returnCode == StatusCodes.SUCCESS) {
-            if (ApplyUtils.isApnProxySet(mService)) {
+            if (ApplyUtils.isApnProxySet(mContext)) {
                 Log.d(Constants.TAG, "APN proxy is set!");
                 returnCode = StatusCodes.APN_PROXY;
             }
@@ -526,23 +512,23 @@ public class ApplyService extends WakefulIntentService {
     /**
      * Creates custom made notification with progress
      */
-    private void showApplyNotification(Context context, String tickerText, String contentTitle,
+    private void showApplyNotification(Context mContext, String tickerText, String contentTitle,
                                        String contentText) {
         // configure the intent
-        Intent intent = new Intent(mService, BaseActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(mService.getApplicationContext(),
+        Intent intent = new Intent(mContext, BaseActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(mContext.getApplicationContext(),
                 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         // add app name to notificationText
-        tickerText = mService.getString(R.string.app_name) + ": " + tickerText;
+        tickerText = mContext.getString(R.string.app_name) + ": " + tickerText;
         int icon = R.drawable.status_bar_icon;
         long when = System.currentTimeMillis();
 
         // add app name to title
-        String contentTitleWithAppName = mService.getString(R.string.app_name) + ": "
+        String contentTitleWithAppName = mContext.getString(R.string.app_name) + ": "
                 + contentTitle;
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext)
                 .setSmallIcon(icon).setContentTitle(contentTitleWithAppName).setTicker(tickerText)
                 .setWhen(when).setOngoing(true).setOnlyAlertOnce(true).setContentText(contentText);
 
@@ -551,22 +537,22 @@ public class ApplyService extends WakefulIntentService {
         mBuilder.setContentIntent(contentIntent);
 
         // update status in BaseActivity with Broadcast
-        BaseActivity.setStatusBroadcast(mService, contentTitle, contentText, StatusCodes.CHECKING);
+        BaseActivity.setStatusBroadcast(mContext, contentTitle, contentText, StatusCodes.CHECKING);
     }
 
-    private void updateApplyNotification(Context context, String contentTitle, String contentText) {
+    private void updateApplyNotification(Context mContext, String contentTitle, String contentText) {
         // configure the intent
-        Intent intent = new Intent(mService, BaseActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(mService.getApplicationContext(),
+        Intent intent = new Intent(mContext, BaseActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(mContext.getApplicationContext(),
                 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         int icon = R.drawable.status_bar_icon;
 
         // add app name to title
-        String contentTitleWithAppName = mService.getString(R.string.app_name) + ": "
+        String contentTitleWithAppName = mContext.getString(R.string.app_name) + ": "
                 + contentTitle;
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext)
                 .setSmallIcon(icon).setContentTitle(contentTitleWithAppName)
                 .setContentText(contentText);
 
@@ -575,7 +561,7 @@ public class ApplyService extends WakefulIntentService {
         mBuilder.setContentIntent(contentIntent);
 
         // update status in BaseActivity with Broadcast
-        BaseActivity.setStatusBroadcast(mService, contentTitle, contentText, StatusCodes.CHECKING);
+        BaseActivity.setStatusBroadcast(mContext, contentTitle, contentText, StatusCodes.CHECKING);
     }
 
     private void cancelApplyNotification() {

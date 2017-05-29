@@ -21,11 +21,15 @@
 package org.adaway.ui;
 
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.service.UpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.sufficientlysecure.rootcommands.RootCommands;
 
 import android.app.Application;
+
+import com.evernote.android.job.JobCreator;
+import com.evernote.android.job.JobManager;
 
 public class AdAwayApplication extends Application {
 
@@ -49,6 +53,9 @@ public class AdAwayApplication extends Application {
             Constants.DEBUG = false;
             RootCommands.DEBUG = Constants.DEBUG;
         }
+
+        // Create job manager an register job creators
+        JobManager.create(this).addJobCreator(new UpdateService.UpdateJobCreator());
 
         super.onCreate();
     }

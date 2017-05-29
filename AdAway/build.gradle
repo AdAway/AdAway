@@ -4,13 +4,19 @@ repositories {
     maven {
         url "https://s3.amazonaws.com/repo.commonsware.com"
     }
+    maven {
+        url "https://maven.google.com"
+    }
 }
 dependencies {
-    implementation 'com.commonsware.cwac:wakeful:1.0.+'
+
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support:support-v4:25.3.1'
+    implementation 'com.android.support:design:25.3.1'
+    implementation 'com.evernote:android-job:1.1.10'
     implementation project(':libraries:RootCommands')
     implementation 'net.sf.trove4j:trove4j:3.0.3'
-    implementation 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    implementation 'com.android.support:support-v4:18.0.+'
+    implementation 'com.android.support:support-v4:25.3.1'
     implementation 'org.sufficientlysecure:html-textview:2.0'
     implementation 'org.sufficientlysecure:donations:2.4'
 }
@@ -23,12 +29,12 @@ android {
         }
     }
 
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 26
 
     }
 
@@ -63,6 +69,12 @@ android {
     // Do not abort build if lint finds errors
     lintOptions {
         abortOnError false
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'jni/Android.mk'
+        }
     }
 }
 

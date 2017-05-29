@@ -28,17 +28,13 @@ import org.adaway.util.HostsSourcesCursorAdapter;
 import org.adaway.util.RegexUtils;
 import org.adaway.util.Log;
 
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -48,6 +44,9 @@ import android.text.InputType;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
@@ -55,7 +54,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class HostsSourcesFragment extends SherlockListFragment implements
+public class HostsSourcesFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<Cursor> {
     private Activity mActivity;
     private HostsSourcesCursorAdapter mAdapter;
@@ -77,8 +76,7 @@ public class HostsSourcesFragment extends SherlockListFragment implements
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        android.view.MenuInflater inflater = (android.view.MenuInflater) mActivity
-                .getMenuInflater();
+        android.view.MenuInflater inflater = mActivity.getMenuInflater();
         menu.setHeaderTitle(R.string.checkbox_list_context_title);
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }
