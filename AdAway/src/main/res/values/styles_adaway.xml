@@ -18,24 +18,27 @@
 
 <resources>
 
-    <style name="Theme.adaway" parent="@style/Theme.Sherlock">
+    <style name="Theme.AdAway" parent="Theme.AppCompat">
         <item name="actionBarItemBackground">@drawable/selectable_background_adaway</item>
-        <item name="popupMenuStyle">@style/adaway_PopupMenu</item>
+     <!--   <item name="popupMenuStyle">@style/adaway_PopupMenu</item>
         <item name="dropDownListViewStyle">@style/adaway_DropDownListView</item>
         <item name="actionBarTabStyle">@style/adaway_ActionBarTabStyle</item>
         <item name="actionDropDownStyle">@style/adaway_DropDownNav</item>
-        <item name="actionBarStyle">@style/adaway_transparent_ActionBar</item>
+        <item name="actionBarStyle">@style/adaway_transparent_ActionBar</item>-->
 
         <item name="android:selectableItemBackground">@drawable/selectable_background_adaway</item>
-        <item name="android:popupMenuStyle">@style/adaway_PopupMenu</item>
+       <!-- <item name="android:popupMenuStyle">@style/adaway_PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/adaway_DropDownListView</item>
         <item name="android:actionBarTabStyle">@style/adaway_ActionBarTabStyle</item>
         <item name="android:actionDropDownStyle">@style/adaway_DropDownNav</item>
-        <item name="android:actionBarStyle">@style/adaway_transparent_ActionBar</item>
+        <item name="android:actionBarStyle">@style/adaway_transparent_ActionBar</item>-->
         <item name="android:panelBackground">@drawable/menu_hardkey_panel_adaway</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
     </style>
 
-    <style name="adaway_solid_ActionBar" parent="@style/Widget.Sherlock.ActionBar.Solid">
+  <!--  <style name="adaway_solid_ActionBar" parent="@style/Widget.Sherlock.ActionBar.Solid">
         <item name="background">@drawable/ab_solid_adaway</item>
         <item name="backgroundStacked">@drawable/ab_stacked_solid_adaway</item>
         <item name="backgroundSplit">@drawable/ab_bottom_solid_adaway</item>
@@ -50,15 +53,15 @@
     <style name="adaway_transparent_ActionBar" parent="@style/Widget.Sherlock.ActionBar">
         <item name="background">@drawable/ab_transparent_adaway</item>
         <item name="progressBarStyle">@style/adaway_ProgressBar</item>
-        
+
         <item name="android:background">@drawable/ab_transparent_adaway</item>
         <item name="android:progressBarStyle">@style/adaway_ProgressBar</item>
     </style>
-	
+
     <style name="adaway_PopupMenu" parent="@android:style/Widget.Holo.ListPopupWindow">
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_adaway</item>	
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_adaway</item>
     </style>
-	
+
     <style name="adaway_DropDownListView" parent="@style/Widget.Sherlock.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_adaway</item>
     </style>
@@ -68,7 +71,7 @@
 
         <item name="android:background">@drawable/tab_indicator_ab_adaway</item>
     </style>
-	
+
     <style name="adaway_DropDownNav" parent="@style/Widget.Sherlock.Spinner.DropDown.ActionBar">
         <item name="background">@drawable/spinner_background_ab_adaway</item>
 
@@ -76,9 +79,9 @@
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_adaway</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_adaway</item>
     </style>
-    
+
     <style name="adaway_ProgressBar" parent="@style/Widget.Sherlock.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_adaway</item>
-    </style>
+    </style>-->
 
 </resources>

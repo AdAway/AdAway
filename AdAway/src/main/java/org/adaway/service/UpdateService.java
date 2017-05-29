@@ -20,266 +20,343 @@
 
 package org.adaway.service;
 
-import java.net.URL;
-import java.net.URLConnection;
-
-import org.adaway.R;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.helper.ResultHelper;
-import org.adaway.provider.ProviderHelper;
-import org.adaway.provider.AdAwayContract.HostsSources;
-import org.adaway.ui.BaseActivity;
-import org.adaway.util.ApplyUtils;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-import org.adaway.util.StatusCodes;
-import org.adaway.util.DateUtils;
-import org.adaway.util.Utils;
-
-import android.support.v4.app.NotificationCompat;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
 
-import com.commonsware.cwac.wakeful.WakefulIntentService;
+import com.evernote.android.job.Job;
+import com.evernote.android.job.JobCreator;
+import com.evernote.android.job.JobManager;
+import com.evernote.android.job.JobRequest;
+
+import org.adaway.R;
+import org.adaway.helper.ApplyHelper;
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.helper.ResultHelper;
+import org.adaway.provider.AdAwayContract.HostsSources;
+import org.adaway.provider.ProviderHelper;
+import org.adaway.ui.BaseActivity;
+import org.adaway.util.Constants;
+import org.adaway.util.DateUtils;
+import org.adaway.util.Log;
+import org.adaway.util.StatusCodes;
+import org.adaway.util.Utils;
+
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 /**
- * CheckUpdateService checks every 24 hours at about 9 am for updates of hosts sources, see
- * UpdateListener for scheduling
+ * This class is a service to check for update.<br/>
+ * It could be {@link #enable()} or {@link #disable()} for periodic check.<br>
+ * It could also be launched manually which {@link #check(Context, boolean)}.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class UpdateService extends WakefulIntentService {
-    // Intent extras to define whether to apply after checking or not
-    public static final String EXTRA_BACKGROUND_EXECUTION = "org.adaway.BACKGROUND_EXECUTION";
-
-    private Context mService;
-    private NotificationManager mNotificationManager;
-
-    private boolean mApplyAfterCheck;
-    private boolean mBackgroundExecution;
-
-    private int mNumberOfFailedDownloads;
-    private int mNumberOfDownloads;
-
+public class UpdateService extends Job {
+    // TODO Regroup notification identifier
     private static final int UPDATE_NOTIFICATION_ID = 10;
-
-    public UpdateService() {
-        super("AdAwayUpdateService");
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        mService = this;
-
-        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        // get from intent extras if this service is executed in the background
-        mBackgroundExecution = false;
-        Bundle extras = intent.getExtras();
-        if (extras != null) {
-            if (extras.containsKey(EXTRA_BACKGROUND_EXECUTION)) {
-                mBackgroundExecution = extras.getBoolean(EXTRA_BACKGROUND_EXECUTION);
-            }
-        }
-
-        // UpdateService should apply after checking if enabled in preferences
-        mApplyAfterCheck = false;
-        if (mBackgroundExecution) {
-            if (PreferenceHelper.getAutomaticUpdateDaily(mService)) {
-                mApplyAfterCheck = extras.getBoolean(EXTRA_BACKGROUND_EXECUTION);
-            }
-        }
-
-        return super.onStartCommand(intent, flags, startId);
-    }
-
     /**
-     * Asynchronous background operations of service, with wakelock
+     * The update service job tag.
      */
-    @Override
-    public void doWakefulWork(Intent intent) {
-        if (!Utils.isInForeground(mService)) {
-            showUpdateNotification();
+    private static final String JOB_TAG = "UpdateServiceJob";
+
+    /**
+     * Enable update service.
+     */
+    public static void enable() {
+        /*
+         * Compute time frame between (the next) 3 am and 9 am.
+         */
+        // Get calendar
+        Calendar calendar = Calendar.getInstance();
+        // Check current time
+        if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 3) {
+            // Set the next day if time frame already starts for today
+            calendar.add(Calendar.DAY_OF_YEAR, 1);
         }
-
-        BaseActivity.setStatusBroadcast(mService, mService.getString(R.string.status_checking),
-                mService.getString(R.string.status_checking_subtitle), StatusCodes.CHECKING);
-
-        int result = checkForUpdates();
-
-        Log.d(Constants.TAG, "Update Check result: " + result);
-
-        cancelUpdateNotification();
-
-        // If this is run from background and should update after checking...
-        if (result == StatusCodes.UPDATE_AVAILABLE && mApplyAfterCheck) {
-            // download and apply!
-            WakefulIntentService.sendWakefulWork(mService, ApplyService.class);
-        } else {
-            String successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/"
-                    + mNumberOfDownloads;
-
-            ResultHelper.showNotificationBasedOnResult(mService, result, successfulDownloads);
-        }
+        // Set start of the time frame
+        calendar.set(Calendar.HOUR_OF_DAY, 3);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        // Get start in ms
+        long startMs = calendar.getTimeInMillis();
+        // Get end in ms
+        long endMs = startMs + TimeUnit.HOURS.toMillis(6);
+        // Schedule update job
+        new JobRequest.Builder(UpdateService.JOB_TAG)
+                .setExecutionWindow(startMs, endMs)
+                .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
+                .setRequirementsEnforced(true)
+                .setPersisted(true)
+                .setUpdateCurrent(true)
+                .build()
+                .schedule();
     }
 
     /**
-     * Check for updates of hosts sources
+     * Disable update service.
+     */
+    public static void disable() {
+        // Cancel update job
+        JobManager.instance().cancelAllForTag(UpdateService.JOB_TAG);
+    }
+
+    /**
+     * Check for update.
      *
-     * @return return code
+     * @param context    The application context.
+     * @param foreground <code>true</code> if the check is in foreground, <code>false</code> otherwise.
+     * @return The update check result.
      */
-    private int checkForUpdates() {
-        Cursor enabledHostsSourcesCursor;
+    @NonNull
+    public static UpdateResult check(Context context, boolean foreground) {
+        // Get system notification manager
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        // Check foreground update
+        if (foreground) {
+            // Display update check notification
+            showUpdateNotification(context, notificationManager);
+            // Notify base activity
+            BaseActivity.setStatusBroadcast(context, context.getString(R.string.status_checking),
+                    context.getString(R.string.status_checking_subtitle), StatusCodes.CHECKING);
+        }
+        // Check for update
+        UpdateResult result = UpdateService.checkForUpdates(context);
+        Log.d(Constants.TAG, "Update check result: " + result);
+        // Check foreground update
+        if (foreground) {
+            cancelUpdateNotification(notificationManager);
+        }
+        // Display update check notification
+        String successfulDownloads = (result.mNumberOfDownloads - result.mNumberOfFailedDownloads)
+                + "/" + result.mNumberOfDownloads;
+        ResultHelper.showNotificationBasedOnResult(context, result.mCode, successfulDownloads);
+        // Return update check result
+        return result;
+    }
+
+    /**
+     * Check for updates of hosts sources.
+     *
+     * @param context The application context.
+     * @return return code (from {@link StatusCodes}).
+     */
+    @NonNull
+    private static UpdateResult checkForUpdates(Context context) {
         long currentLastModifiedLocal;
         long currentLastModifiedOnline;
         boolean updateAvailable = false;
 
-        int returnCode = StatusCodes.ENABLED; // default return code
+        // Declare update result
+        UpdateResult updateResult = new UpdateResult();
+        // Check current connection
+        if (!Utils.isAndroidOnline(context)) {
+            updateResult.mCode = StatusCodes.NO_CONNECTION;
+            return updateResult;
+        }
 
-        if (Utils.isAndroidOnline(mService)) {
+        // Get cursor over all enabled hosts sources
+        Cursor enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(context);
+        // Iterate over all hosts sources in db with cursor
+        if (enabledHostsSourcesCursor != null && enabledHostsSourcesCursor.moveToFirst()) {
+            do {
+                // Increase number of downloads
 
-            mNumberOfFailedDownloads = 0;
-            mNumberOfDownloads = 0;
+                updateResult.mNumberOfDownloads++;
 
-            // get cursor over all enabled hosts source
-            enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(mService);
+                // Get URL and lastModified from db
+                String currentUrl = enabledHostsSourcesCursor
+                        .getString(enabledHostsSourcesCursor.getColumnIndex("url"));
+                currentLastModifiedLocal = enabledHostsSourcesCursor
+                        .getLong(enabledHostsSourcesCursor
+                                .getColumnIndex("last_modified_local"));
 
-            // iterate over all hosts sources in db with cursor
-            if (enabledHostsSourcesCursor != null && enabledHostsSourcesCursor.moveToFirst()) {
-                do {
-
-                    mNumberOfDownloads++;
-
-                    // get url and lastModified from db
-                    String currentUrl = enabledHostsSourcesCursor
-                            .getString(enabledHostsSourcesCursor.getColumnIndex("url"));
-                    currentLastModifiedLocal = enabledHostsSourcesCursor
-                            .getLong(enabledHostsSourcesCursor
-                                    .getColumnIndex("last_modified_local"));
-
-                    try {
-                        Log.v(Constants.TAG, "Checking hosts file: " + currentUrl);
+                try {
+                    Log.v(Constants.TAG, "Checking hosts file: " + currentUrl);
 
                         /* build connection */
-                        URL mURL = new URL(currentUrl);
-                        URLConnection connection = mURL.openConnection();
-                        connection.setConnectTimeout(15000);
-                        connection.setReadTimeout(30000);
+                    URL mURL = new URL(currentUrl);
+                    URLConnection connection = mURL.openConnection();
+                    connection.setConnectTimeout(15000);
+                    connection.setReadTimeout(30000);
 
-                        currentLastModifiedOnline = connection.getLastModified();
+                    currentLastModifiedOnline = connection.getLastModified();
 
-                        Log.d(Constants.TAG,
-                                "mConnectionLastModified: "
-                                        + currentLastModifiedOnline
-                                        + " ("
-                                        + DateUtils.longToDateString(mService,
-                                        currentLastModifiedOnline) + ")"
-                        );
+                    Log.d(Constants.TAG,
+                            "mConnectionLastModified: "
+                                    + currentLastModifiedOnline
+                                    + " ("
+                                    + DateUtils.longToDateString(context,
+                                    currentLastModifiedOnline) + ")"
+                    );
 
-                        Log.d(Constants.TAG,
-                                "mCurrentLastModified: "
-                                        + currentLastModifiedLocal
-                                        + " ("
-                                        + DateUtils.longToDateString(mService,
-                                        currentLastModifiedLocal) + ")"
-                        );
+                    Log.d(Constants.TAG,
+                            "mCurrentLastModified: "
+                                    + currentLastModifiedLocal
+                                    + " ("
+                                    + DateUtils.longToDateString(context,
+                                    currentLastModifiedLocal) + ")"
+                    );
 
-                        // check if file is available
-                        connection.connect();
-                        connection.getInputStream();
+                    // Check if file is available
+                    connection.connect();
+                    connection.getInputStream();
 
-                        // check if update available for this hosts file
-                        if (currentLastModifiedOnline > currentLastModifiedLocal) {
-                            updateAvailable = true;
-                        }
-
-                        // save last modified online for later viewing in list
-                        ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
-                                enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
-                                        .getColumnIndex(HostsSources._ID)),
-                                currentLastModifiedOnline
-                        );
-
-                    } catch (Exception e) {
-                        Log.e(Constants.TAG, "Exception while downloading from " + currentUrl, e);
-
-                        mNumberOfFailedDownloads++;
-
-                        // set last_modified_online of failed download to 0 (not available)
-                        ProviderHelper.updateHostsSourceLastModifiedOnline(mService,
-                                enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
-                                        .getColumnIndex(HostsSources._ID)), 0
-                        );
+                    // Check if update is available for this hosts file
+                    if (currentLastModifiedOnline > currentLastModifiedLocal) {
+                        updateAvailable = true;
                     }
 
-                } while (enabledHostsSourcesCursor.moveToNext());
-            }
+                    // Save last modified online for later viewing in list
+                    ProviderHelper.updateHostsSourceLastModifiedOnline(context,
+                            enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
+                                    .getColumnIndex(HostsSources._ID)),
+                            currentLastModifiedOnline
+                    );
 
-            // close cursor in the end
-            if (enabledHostsSourcesCursor != null && !enabledHostsSourcesCursor.isClosed()) {
-                enabledHostsSourcesCursor.close();
-            }
+                } catch (Exception exception) {
+                    Log.e(Constants.TAG, "Exception while downloading from " + currentUrl, exception);
 
-            // if all downloads failed return download_fail error
-            if (mNumberOfDownloads == mNumberOfFailedDownloads && mNumberOfDownloads != 0) {
-                returnCode = StatusCodes.DOWNLOAD_FAIL;
-            }
-        } else {
-            // only report no connection when not in background
-            if (!mBackgroundExecution) {
-                returnCode = StatusCodes.NO_CONNECTION;
-            } else {
-                Log.e(Constants.TAG,
-                        "Should not happen! In background execution is no connection available!");
-            }
+                    // Increase number of failed download
+                    updateResult.mNumberOfFailedDownloads++;
+
+                    // Set last_modified_online of failed download to 0 (not available)
+                    ProviderHelper.updateHostsSourceLastModifiedOnline(context,
+                            enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
+                                    .getColumnIndex(HostsSources._ID)), 0
+                    );
+                }
+
+            } while (enabledHostsSourcesCursor.moveToNext());
         }
-
-        // set return code if update is available
+        // Close cursor in the end
+        if (enabledHostsSourcesCursor != null && !enabledHostsSourcesCursor.isClosed()) {
+            enabledHostsSourcesCursor.close();
+        }
+        // Check if all downloads failed
+        if (updateResult.mNumberOfDownloads == updateResult.mNumberOfFailedDownloads &&
+                updateResult.mNumberOfDownloads != 0) {
+            // Return download fails
+            updateResult.mCode = StatusCodes.DOWNLOAD_FAIL;
+            return updateResult;
+        }
+        // Check if update is available
         if (updateAvailable) {
-            returnCode = StatusCodes.UPDATE_AVAILABLE;
+            updateResult.mCode = StatusCodes.UPDATE_AVAILABLE;
         }
-
-        // check if hosts file is applied
-        if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-            returnCode = StatusCodes.DISABLED;
-        }
-
-        return returnCode;
+        // Return update check successful
+        updateResult.mCode = StatusCodes.SUCCESS;
+        return updateResult;
     }
 
     /**
-     * Show permanent notification while executing checkForUpdates
+     * Show permanent notification while executing {@link #checkForUpdates(Context)}.
+     *
+     * @param context             The application context.
+     * @param notificationManager The system notification manager.
      */
-    private void showUpdateNotification() {
+    private static void showUpdateNotification(Context context, NotificationManager notificationManager) {
         int icon = R.drawable.status_bar_icon;
-        CharSequence tickerText = getString(R.string.app_name) + ": "
-                + getString(R.string.status_checking);
+        CharSequence tickerText = context.getString(R.string.app_name) + ": "
+                + context.getString(R.string.status_checking);
         long when = System.currentTimeMillis();
 
-        Context context = getApplicationContext();
-        CharSequence contentTitle = getString(R.string.app_name) + ": "
-                + getString(R.string.status_checking);
-        CharSequence contentText = getString(R.string.status_checking_subtitle);
+
+        CharSequence contentTitle = context.getString(R.string.app_name) + ": "
+                + context.getString(R.string.status_checking);
+        CharSequence contentText = context.getString(R.string.status_checking_subtitle);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-            .setSmallIcon(icon).setContentTitle(contentTitle).setTicker(tickerText)
+                .setSmallIcon(icon).setContentTitle(contentTitle).setTicker(tickerText)
                 .setWhen(when).setOngoing(true).setContentText(contentText);
 
-        Intent notificationIntent = new Intent(this, BaseActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+        Intent notificationIntent = new Intent(context, BaseActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
 
         mBuilder.setContentIntent(contentIntent);
 
-        mNotificationManager.notify(UPDATE_NOTIFICATION_ID, mBuilder.build());
+        notificationManager.notify(UpdateService.UPDATE_NOTIFICATION_ID, mBuilder.build());
     }
 
     /**
-     * Cancel Notification
+     * Cancel notification.
+     *
+     * @param notificationManager The system notification manager.
      */
-    private void cancelUpdateNotification() {
-        mNotificationManager.cancel(UPDATE_NOTIFICATION_ID);
+    private static void cancelUpdateNotification(NotificationManager notificationManager) {
+        notificationManager.cancel(UpdateService.UPDATE_NOTIFICATION_ID);
     }
 
+    @NonNull
+    @Override
+    protected Result onRunJob(Params params) {
+        // Retrieve application context
+        Context context = getContext();
+        // Check for update
+        UpdateResult result = check(context, false);
+        // Check if no connection
+        if (result.mCode == StatusCodes.NO_CONNECTION) {
+            // Reschedule the job
+            return Result.RESCHEDULE;
+        }
+        // Check if update available and automatic update enabled
+        else if (result.mCode == StatusCodes.UPDATE_AVAILABLE && PreferenceHelper.getAutomaticUpdateDaily(context)) {
+            // Download and apply update
+            new ApplyHelper(context).apply();
+        }
+        // Return job is successful
+        return Result.SUCCESS;
+    }
+
+    /**
+     * This class is a job creator for update jobs.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     */
+    public static class UpdateJobCreator implements JobCreator {
+        @Override
+        public Job create(String tag) {
+            switch (tag) {
+                case JOB_TAG:
+                    return new UpdateService();
+                default:
+                    return null;
+            }
+        }
+    }
+
+    /**
+     * This class represents the update result.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     */
+    private static class UpdateResult {
+        /**
+         * The result code (from {@link StatusCodes}).
+         */
+        private int mCode = StatusCodes.CHECKING;
+        /**
+         * The number of downloads.
+         */
+        private int mNumberOfDownloads = 0;
+        /**
+         * The number of failed downloads.
+         */
+        private int mNumberOfFailedDownloads = 0;
+
+        @Override
+        public String toString() {
+            return "UpdateResult{" +
+                    "mCode=" + mCode +
+                    ", mNumberOfDownloads=" + mNumberOfDownloads +
+                    ", mNumberOfFailedDownloads=" + mNumberOfFailedDownloads +
+                    '}';
+        }
+    }
 }

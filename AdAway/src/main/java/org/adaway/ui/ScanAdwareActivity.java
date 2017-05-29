@@ -20,20 +20,19 @@
 
 package org.adaway.ui;
 
-import org.adaway.R;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.MenuItem;
 import android.view.View;
 
-public class ScanAdwareActivity extends SherlockFragmentActivity {
+import org.adaway.R;
+
+public class ScanAdwareActivity extends FragmentActivity {
     private Activity mActivity;
     private ActionBar mActionBar;
 
@@ -48,7 +47,7 @@ public class ScanAdwareActivity extends SherlockFragmentActivity {
 
         mActivity = this;
 
-        mActionBar = getSupportActionBar();
+        mActionBar = getActionBar();
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
     }

@@ -20,6 +20,7 @@
 
 package org.adaway.ui;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -29,25 +30,22 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
+import android.view.MenuItem;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.MenuItem;
-import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.service.DailyListener;
+import org.adaway.service.UpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.systemless.AbstractSystemlessMode;
-import org.adaway.util.systemless.NotSupportedSystemlessMode;
 import org.adaway.util.SystemlessUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
+import org.adaway.util.systemless.AbstractSystemlessMode;
 import org.sufficientlysecure.rootcommands.Shell;
 
-public class PrefsActivity extends SherlockPreferenceActivity {
+public class PrefsActivity extends PreferenceActivity {
     private Context mActivity;
     private ActionBar mActionBar;
 
@@ -81,7 +79,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         super.onCreate(savedInstanceState);
 
         mActivity = this;
-        mActionBar = getSupportActionBar();
+        mActionBar = getActionBar();
 
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
@@ -138,9 +136,9 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 if (PreferenceHelper.getUpdateCheckDaily(mActivity)) {
-                    WakefulIntentService.scheduleAlarms(new DailyListener(), mActivity, false);
+                    UpdateService.enable();
                 } else {
-                    WakefulIntentService.cancelAlarms(mActivity);
+                    UpdateService.disable();
                 }
                 return false;
             }

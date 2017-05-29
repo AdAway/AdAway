@@ -44,7 +44,7 @@ public class ResultHelper {
     private static final int RESULT_NOTIFICATION_ID = 30;
 
     /**
-     * Show notification based on result after ApplyService or RevertService
+     * Show notification based on result after ApplyHelper or RevertHelper
      *
      * @param context
      * @param result
@@ -93,13 +93,13 @@ public class ResultHelper {
 
             processResult(context, title, text, text, result, StatusCodes.UPDATE_AVAILABLE, null,
                     false);
-        } else if (result == StatusCodes.APN_PROXY) { // used from ApplyService
+        } else if (result == StatusCodes.APN_PROXY) { // used from ApplyHelper
             String title = context.getString(R.string.apply_apn_proxy_title);
             String text = context.getString(R.string.apply_apn_proxy);
 
             processResult(context, title, text, text, result, StatusCodes.ENABLED, null, true);
         } else if (result == StatusCodes.DOWNLOAD_FAIL) { // used from UpdateService and
-            // ApplyService
+            // ApplyHelper
             String title = context.getString(R.string.download_fail_title);
             String text = context.getString(R.string.download_fail_dialog);
             String statusText = context.getString(R.string.status_download_fail_subtitle_new);
@@ -107,7 +107,7 @@ public class ResultHelper {
             processResult(context, title, text, statusText, result, StatusCodes.DOWNLOAD_FAIL,
                     null, true);
         } else if (result == StatusCodes.NO_CONNECTION) { // used from UpdateService and
-            // ApplyService
+            // ApplyHelper
             String title = context.getString(R.string.no_connection_title);
             String text = context.getString(R.string.no_connection);
             String statusText = context.getString(R.string.status_no_connection_subtitle);

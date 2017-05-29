@@ -28,12 +28,12 @@ import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.TcpdumpLogLoader;
 
-import com.actionbarsherlock.app.SherlockListFragment;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 
@@ -44,7 +44,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-public class TcpdumpLogFragment extends SherlockListFragment implements
+public class TcpdumpLogFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<ArrayList<String>> {
     private Activity mActivity;
     private ArrayAdapter<String> mAdapter;
@@ -62,8 +62,7 @@ public class TcpdumpLogFragment extends SherlockListFragment implements
         // Retrieve the item that was clicked on
         String hostname = mAdapter.getItem(info.position);
 
-        android.view.MenuInflater inflater = (android.view.MenuInflater) mActivity
-                .getMenuInflater();
+        android.view.MenuInflater inflater = mActivity.getMenuInflater();
         menu.setHeaderTitle(hostname);
         inflater.inflate(R.menu.tcpdump_log_context, menu);
     }
@@ -118,7 +117,7 @@ public class TcpdumpLogFragment extends SherlockListFragment implements
 
         // Create an empty adapter we will use to display the loaded data.
         String[] values = new String[]{};
-        mAdapter = new ArrayAdapter<String>(mActivity, android.R.layout.simple_list_item_1, values);
+        mAdapter = new ArrayAdapter<>(mActivity, android.R.layout.simple_list_item_1, values);
         setListAdapter(mAdapter);
 
         // Start out with a progress indicator.
@@ -144,7 +143,7 @@ public class TcpdumpLogFragment extends SherlockListFragment implements
         // TODO: real swapping the data to the already defined adapter doesn't work
         // Workaround: recreate adapter!
         // http://stackoverflow.com/questions/2356091/android-add-function-of-arrayadapter-not-working
-        mAdapter = new ArrayAdapter<String>(mActivity, android.R.layout.simple_list_item_1, data);
+        mAdapter = new ArrayAdapter<>(mActivity, android.R.layout.simple_list_item_1, data);
         mAdapter.notifyDataSetChanged();
         setListAdapter(mAdapter);
 

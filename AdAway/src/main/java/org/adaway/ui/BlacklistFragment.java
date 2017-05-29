@@ -28,17 +28,13 @@ import org.adaway.util.Constants;
 import org.adaway.util.RegexUtils;
 import org.adaway.util.Log;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ListFragment;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.app.LoaderManager;
@@ -47,15 +43,18 @@ import android.text.Editable;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
-public class BlacklistFragment extends SherlockListFragment implements
+public class BlacklistFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<Cursor> {
-    private SherlockFragmentActivity mActivity;
+    private FragmentActivity mActivity;
     private CheckboxCursorAdapter mAdapter;
 
     private long mCurrentRowId;
@@ -75,8 +74,7 @@ public class BlacklistFragment extends SherlockListFragment implements
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        android.view.MenuInflater inflater = (android.view.MenuInflater) mActivity
-                .getMenuInflater();
+        android.view.MenuInflater inflater = mActivity.getMenuInflater();
         menu.setHeaderTitle(R.string.checkbox_list_context_title);
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }
@@ -293,7 +291,7 @@ public class BlacklistFragment extends SherlockListFragment implements
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mActivity = this.getSherlockActivity();
+        mActivity = this.getActivity();
 
         // register long press context menu
         registerForContextMenu(getListView());

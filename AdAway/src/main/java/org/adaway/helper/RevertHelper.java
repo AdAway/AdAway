@@ -18,13 +18,11 @@
  *
  */
 
-package org.adaway.service;
+package org.adaway.helper;
 
-import java.io.FileOutputStream;
+import android.content.Context;
 
 import org.adaway.R;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.helper.ResultHelper;
 import org.adaway.ui.BaseActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -32,61 +30,60 @@ import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
 import org.sufficientlysecure.rootcommands.Shell;
 
-import com.commonsware.cwac.wakeful.WakefulIntentService;
+import java.io.FileOutputStream;
 
-import android.content.Context;
-import android.content.Intent;
+// TODO Add Javadoc
+public class RevertHelper {
+    /**
+     * The application context.
+     */
+    private final Context mContext;
 
-public class RevertService extends WakefulIntentService {
-    private Context mService;
-
-    public RevertService() {
-        super("AdAwayRevertService");
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        mService = this;
-
-        return super.onStartCommand(intent, flags, startId);
+    /**
+     * Constructor.
+     *
+     * @param context The application context.
+     */
+    public RevertHelper(Context context) {
+        this.mContext = context;
     }
 
     /**
      * Asynchronous background operations of service, with wakelock
      */
-    @Override
-    public void doWakefulWork(Intent intent) {
+    public void revert() {
         // disable buttons
-        BaseActivity.setButtonsDisabledBroadcast(mService, true);
+        BaseActivity.setButtonsDisabledBroadcast(mContext, true);
 
         try {
-            Shell rootShell = Shell.startRootShell();
-            int revertResult = revert(rootShell);
+            Shell rootShell = Shell.startRootShell();   // TODO Close shell
+            int revertResult = revertHostFiles(rootShell);
             rootShell.close();
 
             Log.d(Constants.TAG, "revert result: " + revertResult);
 
-            // enable buttons
-            BaseActivity.setButtonsDisabledBroadcast(mService, false);
 
-            ResultHelper.showNotificationBasedOnResult(mService, revertResult, null);
+            ResultHelper.showNotificationBasedOnResult(mContext, revertResult, null);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Problem while reverting!", e);
         }
+        // enable buttons
+        BaseActivity.setButtonsDisabledBroadcast(mContext, false);
     }
 
     /**
      * Reverts to default hosts file
      *
-     * @return Status codes REVERT_SUCCESS or REVERT_FAIL
+     * @return @{@link StatusCodes#REVERT_SUCCESS} or {@link StatusCodes#REVERT_FAIL}.
      */
-    private int revert(Shell shell) {
-        BaseActivity.setStatusBroadcast(mService, getString(R.string.status_reverting),
-                getString(R.string.status_reverting_subtitle), StatusCodes.CHECKING);
+    private int revertHostFiles(Shell shell) {
+        BaseActivity.setStatusBroadcast(mContext, mContext.getString(R.string.status_reverting),
+                mContext.getString(R.string.status_reverting_subtitle), StatusCodes.CHECKING);
 
         // build standard hosts file
         try {
-            FileOutputStream fos = mService.openFileOutput(Constants.HOSTS_FILENAME,
+            // TODO Close stream
+            FileOutputStream fos = mContext.openFileOutput(Constants.HOSTS_FILENAME,
                     Context.MODE_PRIVATE);
 
             // default localhost
@@ -97,26 +94,26 @@ public class RevertService extends WakefulIntentService {
             fos.close();
 
             // copy build hosts file with RootTools, based on target from preferences
-            if (PreferenceHelper.getApplyMethod(mService).equals("writeToSystem")) {
+            if (PreferenceHelper.getApplyMethod(mContext).equals("writeToSystem")) {
 
-                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_SYSTEM_ETC_HOSTS, shell);
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToDataData")) {
+                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_SYSTEM_ETC_HOSTS, shell);
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToDataData")) {
 
-                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_DATA_HOSTS, shell);
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("writeToData")) {
+                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_DATA_HOSTS, shell);
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToData")) {
 
-                ApplyUtils.copyHostsFile(mService, Constants.ANDROID_DATA_HOSTS, shell);
-            } else if (PreferenceHelper.getApplyMethod(mService).equals("customTarget")) {
+                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_HOSTS, shell);
+            } else if (PreferenceHelper.getApplyMethod(mContext).equals("customTarget")) {
 
-                ApplyUtils.copyHostsFile(mService, PreferenceHelper.getCustomTarget(mService),
+                ApplyUtils.copyHostsFile(mContext, PreferenceHelper.getCustomTarget(mContext),
                         shell);
             }
 
             // delete generated hosts file after applying it
-            mService.deleteFile(Constants.HOSTS_FILENAME);
+            mContext.deleteFile(Constants.HOSTS_FILENAME);
 
             // set status to disabled
-            BaseActivity.updateStatusDisabled(mService);
+            BaseActivity.updateStatusDisabled(mContext);
 
             return StatusCodes.REVERT_SUCCESS;
         } catch (Exception e) {

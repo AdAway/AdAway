@@ -20,16 +20,16 @@
 
 package org.adaway.ui;
 
-import org.adaway.R;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
-public class HostsSourcesActivity extends SherlockFragmentActivity {
+import org.adaway.R;
+
+public class HostsSourcesActivity extends AppCompatActivity {
     private ActionBar mActionBar;
 
     @Override

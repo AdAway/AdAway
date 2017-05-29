@@ -29,12 +29,11 @@ import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.ScanAdwareLoader;
 
-import com.actionbarsherlock.app.SherlockListFragment;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.view.View;
@@ -42,7 +41,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Button;
 
-public class ScanAdwareListFragment extends SherlockListFragment implements
+public class ScanAdwareListFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<List<Map<String, String>>> {
     private Activity mActivity;
     private SimpleAdapter mAdapter;
@@ -98,7 +97,7 @@ public class ScanAdwareListFragment extends SherlockListFragment implements
         // Create an empty adapter we will use to display the loaded data.
         String[] from = new String[]{};
         int[] to = new int[]{};
-        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+        List<Map<String, String>> data = new ArrayList<>();
         mAdapter = new SimpleAdapter(getActivity(), data, android.R.layout.two_line_list_item,
                 from, to);
         setListAdapter(mAdapter);

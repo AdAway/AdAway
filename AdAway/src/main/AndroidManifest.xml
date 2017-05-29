@@ -32,7 +32,7 @@
         android:icon="@mipmap/icon"
         android:roundIcon="@mipmap/icon_round"
         android:label="@string/app_name"
-        android:theme="@style/Theme.adaway">
+        android:theme="@style/Theme.AdAway">
         <activity
             android:name=".ui.BaseActivity"
             android:label="@string/app_name"
@@ -74,36 +74,12 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/menu_lists" />
 
-        <service android:name=".service.UpdateService" />
-
         <receiver android:name=".service.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.commonsware.cwac.wakeful.AlarmReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
 
-            <meta-data
-                android:name="com.commonsware.cwac.wakeful"
-                android:resource="@xml/wakeful" />
-        </receiver>
-        <receiver
-            android:name=".service.ConnectivityReceiver"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name=".service.ApplyService"
-            android:exported="false" />
-        <service
-            android:name=".service.RevertService"
-            android:exported="false" />
         <service
             android:name=".service.BootService"
             android:exported="false" />

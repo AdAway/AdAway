@@ -20,37 +20,34 @@
 
 package org.adaway.ui;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
 import org.adaway.R;
 import org.adaway.helper.ImportExportHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-
-public class ListsActivity extends SherlockFragmentActivity {
+public class ListsActivity extends AppCompatActivity {
     private FragmentActivity mActivity;
-    private ActionBar mActionBar;
-    private ActionBar.Tab mTab1;
-    private ActionBar.Tab mTab2;
-    private ActionBar.Tab mTab3;
+    private TabLayout.Tab mTab1;
+    private TabLayout.Tab mTab2;
+    private TabLayout.Tab mTab3;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getSupportMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.lists_activity, menu);
         return true;
     }
@@ -104,28 +101,24 @@ public class ListsActivity extends SherlockFragmentActivity {
 
         setContentView(R.layout.lists_activity);
 
-        mActionBar = getSupportActionBar();
-        mActionBar.setDisplayShowTitleEnabled(true);
-        mActionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
-        mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.lists_tabs);
 
-        mTab1 = getSupportActionBar().newTab();
-        mTab2 = getSupportActionBar().newTab();
-        mTab3 = getSupportActionBar().newTab();
+        TabLayout.OnTabSelectedListener listener = new MyTabSelectedListener();
+        tabLayout.addOnTabSelectedListener(listener);
 
-        mTab1.setTabListener(new TabListener<BlacklistFragment>(this, "blacklist",
-                BlacklistFragment.class));
-        mTab2.setTabListener(new TabListener<WhitelistFragment>(this, "whitelist",
-                WhitelistFragment.class));
-        mTab3.setTabListener(new TabListener<RedirectionListFragment>(this, "redirectionlist",
-                RedirectionListFragment.class));
+        mTab1 = tabLayout.getTabAt(0);
+        mTab2 = tabLayout.getTabAt(1);
+        mTab3 = tabLayout.getTabAt(2);
 
         setTabTextBasedOnOrientation(getResources().getConfiguration());
 
-        mActionBar.addTab(mTab1);
-        mActionBar.addTab(mTab2);
-        mActionBar.addTab(mTab3);
+        listener.onTabSelected(mTab1);
     }
 
     private void setTabTextBasedOnOrientation(Configuration config) {
@@ -153,47 +146,41 @@ public class ListsActivity extends SherlockFragmentActivity {
         setTabTextBasedOnOrientation(newConfig);
     }
 
-    public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
+
+    public class MyTabSelectedListener implements TabLayout.OnTabSelectedListener {
         private Fragment mFragment;
-        private final Activity mActivity;
-        private final String mTag;
-        private final Class<T> mClass;
-
-        /**
-         * Constructor used each time a new tab is created.
-         *
-         * @param activity The host Activity, used to instantiate the fragment
-         * @param tag      The identifier tag for the fragment
-         * @param clz      The fragment's Class, used to instantiate the fragment
-         */
-        public TabListener(Activity activity, String tag, Class<T> clz) {
-            mActivity = activity;
-            mTag = tag;
-            mClass = clz;
-        }
 
         @Override
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {
-        }
-
-        /**
-         * Open Fragment based on selected Tab
-         */
-        @Override
-        public void onTabSelected(Tab tab, FragmentTransaction ignoredFt) {
+        public void onTabSelected(TabLayout.Tab tab) {
             // bug in compatibility lib:
             // http://stackoverflow.com/questions/8645549/null-fragmenttransaction-being-passed-to-tablistener-ontabselected
-            FragmentManager fragMgr = ((FragmentActivity) mActivity).getSupportFragmentManager();
+            FragmentManager fragMgr = mActivity.getSupportFragmentManager();
             FragmentTransaction ft = fragMgr.beginTransaction();
 
-            mFragment = Fragment.instantiate(mActivity, mClass.getName());
-            ft.replace(R.id.lists_tabs_container, mFragment, mTag);
+
+            Class<? extends Fragment> fragment;
+            switch (tab.getPosition()) {
+                case 0:
+                    fragment = BlacklistFragment.class;
+                    break;
+                case 1:
+                    fragment = WhitelistFragment.class;
+                    break;
+                case 2:
+                    fragment = RedirectionListFragment.class;
+                    break;
+                default:
+                    return;
+            }
+
+            mFragment = Fragment.instantiate(mActivity, fragment.getName());
+            ft.replace(R.id.lists_tabs_container, mFragment, fragment.getSimpleName());
             ft.commit();
         }
 
         @Override
-        public void onTabUnselected(Tab tab, FragmentTransaction ignoredFt) {
-            FragmentManager fragMgr = ((FragmentActivity) mActivity).getSupportFragmentManager();
+        public void onTabUnselected(TabLayout.Tab tab) {
+            FragmentManager fragMgr = mActivity.getSupportFragmentManager();
             FragmentTransaction ft = fragMgr.beginTransaction();
 
             if (mFragment != null) {
@@ -203,6 +190,10 @@ public class ListsActivity extends SherlockFragmentActivity {
 
             ft.commit();
         }
-    }
 
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+            // Nothing special to do
+        }
+    }
 }
