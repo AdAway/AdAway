@@ -179,7 +179,7 @@ public class BaseFragment extends Fragment {
                 return true;
 
             case R.id.menu_refresh:
-                UpdateService.check(mActivity, true);
+                UpdateService.checkAsync(mActivity);
                 return true;
 
             case R.id.menu_help:

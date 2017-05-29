@@ -21,6 +21,7 @@
 package org.adaway.helper;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
 import org.adaway.R;
 import org.adaway.ui.BaseActivity;
@@ -48,9 +49,18 @@ public class RevertHelper {
         this.mContext = context;
     }
 
-    /**
-     * Asynchronous background operations of service, with wakelock
-     */
+
+    public void revertAsync() {
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                RevertHelper.this.revert();
+                return null;
+            }
+        };
+        task.execute();
+    }
+
     public void revert() {
         // disable buttons
         BaseActivity.setButtonsDisabledBroadcast(mContext, true);

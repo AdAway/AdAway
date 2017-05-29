@@ -25,6 +25,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 
@@ -40,6 +41,7 @@ import org.adaway.helper.ResultHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.ui.BaseActivity;
+import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.DateUtils;
 import org.adaway.util.Log;
@@ -54,7 +56,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * This class is a service to check for update.<br/>
  * It could be {@link #enable()} or {@link #disable()} for periodic check.<br>
- * It could also be launched manually which {@link #check(Context, boolean)}.
+ * It could also be launched manually which {@link #checkAsync(Context)}.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
@@ -108,37 +110,36 @@ public class UpdateService extends Job {
     }
 
     /**
-     * Check for update.
+     * Check if there is hosts file update.<br>
+     * The check will be asynchronous.
      *
-     * @param context    The application context.
-     * @param foreground <code>true</code> if the check is in foreground, <code>false</code> otherwise.
-     * @return The update check result.
+     * @param context The application context.
      */
-    @NonNull
-    public static UpdateResult check(Context context, boolean foreground) {
-        // Get system notification manager
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        // Check foreground update
-        if (foreground) {
-            // Display update check notification
-            showUpdateNotification(context, notificationManager);
-            // Notify base activity
-            BaseActivity.setStatusBroadcast(context, context.getString(R.string.status_checking),
-                    context.getString(R.string.status_checking_subtitle), StatusCodes.CHECKING);
-        }
-        // Check for update
-        UpdateResult result = UpdateService.checkForUpdates(context);
-        Log.d(Constants.TAG, "Update check result: " + result);
-        // Check foreground update
-        if (foreground) {
-            cancelUpdateNotification(notificationManager);
-        }
-        // Display update check notification
-        String successfulDownloads = (result.mNumberOfDownloads - result.mNumberOfFailedDownloads)
-                + "/" + result.mNumberOfDownloads;
-        ResultHelper.showNotificationBasedOnResult(context, result.mCode, successfulDownloads);
-        // Return update check result
-        return result;
+    public static void checkAsync(final Context context) {
+        AsyncTask<Void, Void, UpdateResult> task = new AsyncTask<Void, Void, UpdateResult>() {
+            @Override
+            protected void onPreExecute() {
+                // Display update checking notification
+                showUpdateNotification(context);
+                // Notify base activity
+                BaseActivity.setStatusBroadcast(context, context.getString(R.string.status_checking),
+                        context.getString(R.string.status_checking_subtitle), StatusCodes.CHECKING);
+            }
+
+            @Override
+            protected UpdateResult doInBackground(Void... params) {
+                return UpdateService.checkForUpdates(context);
+            }
+
+            @Override
+            protected void onPostExecute(UpdateResult result) {
+                // Cancel update checking notification
+                UpdateService.cancelUpdateNotification(context);
+                // Display update checked notification
+                UpdateService.displayResultNotification(context, result);
+            }
+        };
+        task.execute();
     }
 
     /**
@@ -250,18 +251,22 @@ public class UpdateService extends Job {
         if (updateAvailable) {
             updateResult.mCode = StatusCodes.UPDATE_AVAILABLE;
         }
-        // Return update check successful
-        updateResult.mCode = StatusCodes.SUCCESS;
+        // Otherwise, return current status
+        else if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            updateResult.mCode = StatusCodes.ENABLED;
+        } else {
+            updateResult.mCode = StatusCodes.DISABLED;
+        }
+        Log.d(Constants.TAG, "Update check result: " + updateResult);
         return updateResult;
     }
 
     /**
      * Show permanent notification while executing {@link #checkForUpdates(Context)}.
      *
-     * @param context             The application context.
-     * @param notificationManager The system notification manager.
+     * @param context The application context.
      */
-    private static void showUpdateNotification(Context context, NotificationManager notificationManager) {
+    private static void showUpdateNotification(Context context) {
         int icon = R.drawable.status_bar_icon;
         CharSequence tickerText = context.getString(R.string.app_name) + ": "
                 + context.getString(R.string.status_checking);
@@ -281,16 +286,35 @@ public class UpdateService extends Job {
 
         mBuilder.setContentIntent(contentIntent);
 
+        // Get system notification manager
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
         notificationManager.notify(UpdateService.UPDATE_NOTIFICATION_ID, mBuilder.build());
     }
 
     /**
      * Cancel notification.
      *
-     * @param notificationManager The system notification manager.
+     * @param context The application context.
      */
-    private static void cancelUpdateNotification(NotificationManager notificationManager) {
+    private static void cancelUpdateNotification(Context context) {
+        // Get system notification manager
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        // Cancel notification
         notificationManager.cancel(UpdateService.UPDATE_NOTIFICATION_ID);
+    }
+
+    /**
+     * Display result notification.
+     *
+     * @param context The application context.
+     * @param result  The update result.
+     */
+    private static void displayResultNotification(Context context, UpdateResult result) {
+        // Display update checked notification
+        String successfulDownloads = (result.mNumberOfDownloads - result.mNumberOfFailedDownloads)
+                + "/" + result.mNumberOfDownloads;
+        ResultHelper.showNotificationBasedOnResult(context, result.mCode, successfulDownloads);
     }
 
     @NonNull
@@ -299,7 +323,9 @@ public class UpdateService extends Job {
         // Retrieve application context
         Context context = getContext();
         // Check for update
-        UpdateResult result = check(context, false);
+        UpdateResult result = UpdateService.checkForUpdates(context);
+        // Display result notification
+        UpdateService.displayResultNotification(context, result);
         // Check if no connection
         if (result.mCode == StatusCodes.NO_CONNECTION) {
             // Reschedule the job

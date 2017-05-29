@@ -25,6 +25,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
+import android.support.annotation.UiThread;
 import android.support.v4.app.NotificationCompat;
 
 import org.adaway.R;
@@ -74,6 +76,17 @@ public class ApplyHelper {
         this.mContext = context;
         this.mNotificationManager = (NotificationManager) mContext.getApplicationContext()
                 .getSystemService(Context.NOTIFICATION_SERVICE);
+    }
+
+    public void applyAsync() {
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                ApplyHelper.this.apply();
+                return null;
+            }
+        };
+        task.execute();
     }
 
 
