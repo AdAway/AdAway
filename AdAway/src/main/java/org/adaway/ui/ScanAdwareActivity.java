@@ -27,14 +27,15 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
 import org.adaway.R;
 
-public class ScanAdwareActivity extends FragmentActivity {
+public class ScanAdwareActivity extends AppCompatActivity {
     private Activity mActivity;
-    private ActionBar mActionBar;
+    private android.support.v7.app.ActionBar mActionBar;
 
     /**
      * Instantiate View and initialize fragments for this Activity
@@ -47,7 +48,7 @@ public class ScanAdwareActivity extends FragmentActivity {
 
         mActivity = this;
 
-        mActionBar = getActionBar();
+        mActionBar = getSupportActionBar();
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
     }
