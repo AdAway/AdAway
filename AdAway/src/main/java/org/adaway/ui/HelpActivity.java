@@ -20,15 +20,14 @@
 
 package org.adaway.ui;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -39,26 +38,23 @@ import org.sufficientlysecure.donations.DonationsFragment;
 import java.util.ArrayList;
 
 public class HelpActivity extends AppCompatActivity {
-    ViewPager mViewPager;
-//    TabsAdapter mTabsAdapter;
-
     /**
      * PayPal
      */
     private static final String PAYPAL_USER = "dominik@sufficientlysecure.org";
     private static final String PAYPAL_CURRENCY_CODE = "EUR";
-
     /**
      * Flattr
      */
     private static final String FLATTR_PROJECT_URL = "http://code.google.com/p/ad-away/";
     // without http:// !
     private static final String FLATTR_URL = "flattr.com/thing/369138/AdAway-Ad-blocker-for-Android";
-
     /**
      * Bitcoin
      */
     private static final String BITCOIN = "1LDEN2cjZ498QYxk14UTJHRakuwxAcggWR";
+    ViewPager mViewPager;
+    TabsAdapter mTabsAdapter;
 
     /**
      * Menu Items
@@ -85,12 +81,12 @@ public class HelpActivity extends AppCompatActivity {
         mViewPager.setId(R.id.pager);
 
         setContentView(mViewPager);
-        ActionBar bar = getActionBar();
+        ActionBar bar = getSupportActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         bar.setDisplayShowTitleEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
 
-       /* mTabsAdapter = new TabsAdapter(this, mViewPager);
+        mTabsAdapter = new TabsAdapter(this, mViewPager);
 
         Bundle faqBundle = new Bundle();
         faqBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_faq);
@@ -130,30 +126,20 @@ public class HelpActivity extends AppCompatActivity {
                 HelpFragmentHtml.class, changelogArgs);
 
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_about)),
-                HelpFragmentAbout.class, null);*/
+                HelpFragmentAbout.class, null);
     }
 
-  /*  public static class TabsAdapter extends FragmentPagerAdapter implements ActionBar.TabListener,
+    public static class TabsAdapter extends FragmentPagerAdapter implements ActionBar.TabListener,
             ViewPager.OnPageChangeListener {
         private final Context mContext;
         private final ActionBar mActionBar;
         private final ViewPager mViewPager;
-        private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
+        private final ArrayList<TabInfo> mTabs = new ArrayList<>();
 
-        static final class TabInfo {
-            private final Class<?> clss;
-            private final Bundle args;
-
-            TabInfo(Class<?> _class, Bundle _args) {
-                clss = _class;
-                args = _args;
-            }
-        }
-
-        public TabsAdapter(FragmentActivity activity, ViewPager pager) {
+        public TabsAdapter(AppCompatActivity activity, ViewPager pager) {
             super(activity.getSupportFragmentManager());
             mContext = activity;
-            mActionBar = activity.getActionBar();
+            mActionBar = activity.getSupportActionBar();
             mViewPager = pager;
             mViewPager.setAdapter(this);
             mViewPager.setOnPageChangeListener(this);
@@ -203,5 +189,15 @@ public class HelpActivity extends AppCompatActivity {
 
         public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
         }
-    }*/
+
+        static final class TabInfo {
+            private final Class<?> clss;
+            private final Bundle args;
+
+            TabInfo(Class<?> _class, Bundle _args) {
+                clss = _class;
+                args = _args;
+            }
+        }
+    }
 }
