@@ -20,7 +20,14 @@
 
 package org.adaway.ui;
 
-import java.io.IOException;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ToggleButton;
 
 import org.adaway.R;
 import org.adaway.util.Constants;
@@ -28,15 +35,7 @@ import org.adaway.util.Log;
 import org.adaway.util.TcpdumpUtils;
 import org.sufficientlysecure.rootcommands.Shell;
 
-
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ToggleButton;
+import java.io.IOException;
 
 public class TcpdumpActivity extends AppCompatActivity {
     private Activity mActivity;
@@ -56,7 +55,7 @@ public class TcpdumpActivity extends AppCompatActivity {
 
         mActivity = this;
 
-        mActionBar = getActionBar();
+        mActionBar = getSupportActionBar();
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
 
