@@ -111,7 +111,7 @@
     <string name="disable_systemless_successful_title">Disabling successful</string>
 
     <!-- Other Dialogs -->
-    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.org or other Android websites.</string>
+    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on lineageos.org or other Android websites.</string>
     <string name="no_root_title">Rooted Android required</string>
     <string name="no_url">This is not a valid URL!</string>
     <string name="no_url_title">Improperly formatted URL</string>
