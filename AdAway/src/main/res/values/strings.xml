@@ -126,15 +126,10 @@
     <!-- Menu entries -->
     <string name="menu_refresh">Refresh</string>
     <string name="menu_add">Add</string>
-    <string name="menu_scan_adware">Scan for Adware</string>
     <string name="menu_hosts_sources">Hosts sources</string>
-    <string name="menu_tcpdump">Log DNS Requests</string>
     <string name="menu_help">Help</string>
-    <string name="menu_lists">Your Lists</string>
-    <string name="menu_show_hosts_file">Open hosts file</string>
     <string name="menu_import">Import All Lists</string>
     <string name="menu_export">Export All Lists</string>
-    <string name="menu_preferences">Preferences</string>
 
     <!-- Help -->
     <string name="help_tab_about">About</string>
@@ -228,5 +223,16 @@
     <string name="pref_enable_ipv6_summary">All host file entries will get a corresponding ::1 (IPv6 localhost) entry.</string>
     <string name="pref_enable_systemless_summary">Prevent AdAway from modifying the system partition</string>
     <string name="pref_enable_systemless">Enable systemless mode</string>
+    <string name="drawer_open">Open menu</string>
+    <string name="drawer_close">Close menu</string>
+
+    <string-array name="drawer_items">
+        <item>Hosts sources</item>
+        <item>Your Lists</item>
+        <item>Open hosts file</item>
+        <item>Log DNS Requests</item>
+        <item>Scan for Adware</item>
+        <item>Preferences</item>
+    </string-array>
 
 </resources>

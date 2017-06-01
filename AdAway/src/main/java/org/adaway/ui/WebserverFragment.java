@@ -60,6 +60,12 @@ public class WebserverFragment extends Fragment {
         mActivity = getActivity();
         mWebserverToggle = (ToggleButton) mActivity
                 .findViewById(R.id.webserver_fragment_toggle_button);
+        mWebserverToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webserverOnClick(view);
+            }
+        });
 
         try {
             mRootShell = Shell.startRootShell();

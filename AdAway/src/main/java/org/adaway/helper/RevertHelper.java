@@ -24,7 +24,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import org.adaway.R;
-import org.adaway.ui.BaseActivity;
+import org.adaway.ui.HomeFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -63,7 +63,7 @@ public class RevertHelper {
 
     public void revert() {
         // disable buttons
-        BaseActivity.setButtonsDisabledBroadcast(mContext, true);
+        HomeFragment.setButtonsDisabledBroadcast(mContext, true);
 
         try {
             Shell rootShell = Shell.startRootShell();   // TODO Close shell
@@ -78,7 +78,7 @@ public class RevertHelper {
             Log.e(Constants.TAG, "Problem while reverting!", e);
         }
         // enable buttons
-        BaseActivity.setButtonsDisabledBroadcast(mContext, false);
+        HomeFragment.setButtonsDisabledBroadcast(mContext, false);
     }
 
     /**
@@ -87,7 +87,7 @@ public class RevertHelper {
      * @return @{@link StatusCodes#REVERT_SUCCESS} or {@link StatusCodes#REVERT_FAIL}.
      */
     private int revertHostFiles(Shell shell) {
-        BaseActivity.setStatusBroadcast(mContext, mContext.getString(R.string.status_reverting),
+        HomeFragment.setStatusBroadcast(mContext, mContext.getString(R.string.status_reverting),
                 mContext.getString(R.string.status_reverting_subtitle), StatusCodes.CHECKING);
 
         // build standard hosts file
@@ -123,7 +123,7 @@ public class RevertHelper {
             mContext.deleteFile(Constants.HOSTS_FILENAME);
 
             // set status to disabled
-            BaseActivity.updateStatusDisabled(mContext);
+            HomeFragment.updateStatusDisabled(mContext);
 
             return StatusCodes.REVERT_SUCCESS;
         } catch (Exception e) {

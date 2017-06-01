@@ -21,7 +21,8 @@
 package org.adaway.helper;
 
 import org.adaway.R;
-import org.adaway.ui.BaseActivity;
+import org.adaway.ui.HomeFragment;
+import org.adaway.ui.MainActivity;
 import org.adaway.ui.HelpActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
@@ -57,7 +58,7 @@ public class ResultHelper {
             String text = context.getString(R.string.apply_success_subtitle) + " "
                     + numberOfSuccessfulDownloads;
 
-            BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
+            HomeFragment.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
 
             // only show if reboot dialog is not disabled in preferences
             if (!PreferenceHelper.getNeverReboot(context)) {
@@ -68,7 +69,7 @@ public class ResultHelper {
             String title = context.getString(R.string.revert_successful_title);
             String text = context.getString(R.string.revert_successful);
 
-            BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.DISABLED);
+            HomeFragment.setStatusBroadcast(context, title, text, StatusCodes.DISABLED);
 
             // only show if reboot dialog is not disabled in preferences
             if (!PreferenceHelper.getNeverReboot(context)) {
@@ -115,9 +116,9 @@ public class ResultHelper {
             processResult(context, title, text, statusText, result, StatusCodes.DOWNLOAD_FAIL,
                     null, false);
         } else if (result == StatusCodes.ENABLED) { // used from UpdateService
-            BaseActivity.updateStatusEnabled(context);
+            HomeFragment.updateStatusEnabled(context);
         } else if (result == StatusCodes.DISABLED) { // used from UpdateService
-            BaseActivity.updateStatusDisabled(context);
+            HomeFragment.updateStatusDisabled(context);
         } else {
             String title = "";
             String text = "";
@@ -166,27 +167,27 @@ public class ResultHelper {
                 String text = context.getString(R.string.apply_success_subtitle) + " "
                         + numberOfSuccessfulDownloads;
 
-                BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
+                HomeFragment.setStatusBroadcast(context, title, text, StatusCodes.ENABLED);
             } else {
-                BaseActivity.updateStatusEnabled(context);
+                HomeFragment.updateStatusEnabled(context);
             }
 
             Utils.rebootQuestion(context, R.string.apply_success_title,
                     R.string.apply_success_dialog);
         } else if (result == StatusCodes.REVERT_SUCCESS) {
-            BaseActivity.updateStatusDisabled(context);
+            HomeFragment.updateStatusDisabled(context);
 
             Utils.rebootQuestion(context, R.string.revert_successful_title,
                     R.string.revert_successful);
         } else if (result == StatusCodes.ENABLED) {
-            BaseActivity.updateStatusEnabled(context);
+            HomeFragment.updateStatusEnabled(context);
         } else if (result == StatusCodes.DISABLED) {
-            BaseActivity.updateStatusDisabled(context);
+            HomeFragment.updateStatusDisabled(context);
         } else if (result == StatusCodes.UPDATE_AVAILABLE) {
             String title = context.getString(R.string.status_update_available);
             String text = context.getString(R.string.status_update_available_subtitle);
 
-            BaseActivity.setStatusBroadcast(context, title, text, StatusCodes.UPDATE_AVAILABLE);
+            HomeFragment.setStatusBroadcast(context, title, text, StatusCodes.UPDATE_AVAILABLE);
         } else if (result == StatusCodes.SYMLINK_MISSING) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(R.string.apply_symlink_missing_title);
@@ -204,7 +205,7 @@ public class ResultHelper {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
 
-                            BaseActivity.updateStatusDisabled(context);
+                            HomeFragment.updateStatusDisabled(context);
                         }
                     }
             );
@@ -240,7 +241,7 @@ public class ResultHelper {
                     text = context.getString(R.string.no_connection);
                     statusText = context.getString(R.string.status_no_connection_subtitle);
 
-                    BaseActivity.setStatusBroadcast(context, title, statusText,
+                    HomeFragment.setStatusBroadcast(context, title, statusText,
                             StatusCodes.DOWNLOAD_FAIL);
                     break;
                 case StatusCodes.DOWNLOAD_FAIL:
@@ -248,44 +249,44 @@ public class ResultHelper {
                     text = context.getString(R.string.download_fail_dialog);
                     statusText = context.getString(R.string.status_download_fail_subtitle_new);
 
-                    BaseActivity.setStatusBroadcast(context, title, statusText,
+                    HomeFragment.setStatusBroadcast(context, title, statusText,
                             StatusCodes.DOWNLOAD_FAIL);
                     break;
                 case StatusCodes.APN_PROXY:
                     title = context.getString(R.string.apply_apn_proxy_title);
                     text = context.getString(R.string.apply_apn_proxy);
 
-                    BaseActivity.updateStatusEnabled(context);
+                    HomeFragment.updateStatusEnabled(context);
                     break;
                 case StatusCodes.APPLY_FAIL:
                     title = context.getString(R.string.apply_fail_title);
                     text = context.getString(R.string.apply_fail);
 
-                    BaseActivity.updateStatusDisabled(context);
+                    HomeFragment.updateStatusDisabled(context);
                     break;
                 case StatusCodes.PRIVATE_FILE_FAIL:
                     title = context.getString(R.string.apply_private_file_fail_title);
                     text = context.getString(R.string.apply_private_file_fail);
 
-                    BaseActivity.updateStatusDisabled(context);
+                    HomeFragment.updateStatusDisabled(context);
                     break;
                 case StatusCodes.NOT_ENOUGH_SPACE:
                     title = context.getString(R.string.apply_not_enough_space_title);
                     text = context.getString(R.string.apply_not_enough_space);
 
-                    BaseActivity.updateStatusDisabled(context);
+                    HomeFragment.updateStatusDisabled(context);
                     break;
                 case StatusCodes.REMOUNT_FAIL:
                     title = context.getString(R.string.apply_remount_fail_title);
                     text = context.getString(R.string.apply_remount_fail);
 
-                    BaseActivity.updateStatusDisabled(context);
+                    HomeFragment.updateStatusDisabled(context);
                     break;
                 case StatusCodes.COPY_FAIL:
                     title = context.getString(R.string.apply_copy_fail_title);
                     text = context.getString(R.string.apply_copy_fail);
 
-                    BaseActivity.updateStatusDisabled(context);
+                    HomeFragment.updateStatusDisabled(context);
                     break;
                 case StatusCodes.REVERT_FAIL:
                     title = context.getString(R.string.revert_problem_title);
@@ -293,9 +294,9 @@ public class ResultHelper {
 
                     // back to old status
                     if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                        BaseActivity.updateStatusEnabled(context);
+                        HomeFragment.updateStatusEnabled(context);
                     } else {
-                        BaseActivity.updateStatusDisabled(context);
+                        HomeFragment.updateStatusDisabled(context);
                     }
                     break;
             }
@@ -325,11 +326,11 @@ public class ResultHelper {
                                       boolean showDialog) {
         if (Utils.isInForeground(context)) {
             if (showDialog) {
-                // start BaseActivity with result
-                Intent resultIntent = new Intent(context, BaseActivity.class);
-                resultIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, result);
+                // start MainActivity with result
+                Intent resultIntent = new Intent(context, MainActivity.class);
+                resultIntent.putExtra(HomeFragment.EXTRA_APPLYING_RESULT, result);
                 if (numberOfSuccessfulDownloads != null) {
-                    resultIntent.putExtra(BaseActivity.EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS,
+                    resultIntent.putExtra(HomeFragment.EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS,
                             numberOfSuccessfulDownloads);
                 }
                 resultIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
@@ -342,10 +343,10 @@ public class ResultHelper {
         }
 
         if (numberOfSuccessfulDownloads != null) {
-            BaseActivity.setStatusBroadcast(context, title, statusText + " "
+            HomeFragment.setStatusBroadcast(context, title, statusText + " "
                     + numberOfSuccessfulDownloads, iconStatus);
         } else {
-            BaseActivity.setStatusBroadcast(context, title, statusText, iconStatus);
+            HomeFragment.setStatusBroadcast(context, title, statusText, iconStatus);
         }
     }
 
@@ -370,11 +371,11 @@ public class ResultHelper {
             .setSmallIcon(icon).setWhen(when).setAutoCancel(true).setContentTitle(contentTitle)
                 .setContentText(contentText);
 
-        Intent notificationIntent = new Intent(context, BaseActivity.class);
+        Intent notificationIntent = new Intent(context, MainActivity.class);
 
         // give postApplyingStatus with intent
-        notificationIntent.putExtra(BaseActivity.EXTRA_APPLYING_RESULT, applyingResult);
-        notificationIntent.putExtra(BaseActivity.EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS, failingUrl);
+        notificationIntent.putExtra(HomeFragment.EXTRA_APPLYING_RESULT, applyingResult);
+        notificationIntent.putExtra(HomeFragment.EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS, failingUrl);
 
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
@@ -414,14 +415,14 @@ public class ResultHelper {
         }
 
         if (success) {
-            BaseActivity.updateStatusEnabled(context);
+            HomeFragment.updateStatusEnabled(context);
 
             if (!PreferenceHelper.getNeverReboot(context)) {
                 Utils.rebootQuestion(context, R.string.apply_symlink_successful_title,
                         R.string.apply_symlink_successful);
             }
         } else {
-            BaseActivity.updateStatusDisabled(context);
+            HomeFragment.updateStatusDisabled(context);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(R.string.apply_symlink_fail_title);
