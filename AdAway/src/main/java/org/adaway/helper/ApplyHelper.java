@@ -26,13 +26,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.support.annotation.UiThread;
 import android.support.v4.app.NotificationCompat;
 
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.ui.BaseActivity;
+import org.adaway.ui.HomeFragment;
+import org.adaway.ui.MainActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
@@ -92,7 +92,7 @@ public class ApplyHelper {
 
     public void apply() {
         // disable buttons
-        BaseActivity.setButtonsDisabledBroadcast(mContext, true);
+        HomeFragment.setButtonsDisabledBroadcast(mContext, true);
 
         // download files with download method
         int downloadResult = download();
@@ -104,7 +104,7 @@ public class ApplyHelper {
 
             this.cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsDisabledBroadcast(mContext, false);
+            HomeFragment.setButtonsDisabledBroadcast(mContext, false);
             Log.d(Constants.TAG, "Apply result: " + applyResult);
 
             String successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/"
@@ -114,13 +114,13 @@ public class ApplyHelper {
         } else if (downloadResult == StatusCodes.DOWNLOAD_FAIL) {
             this.cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsDisabledBroadcast(mContext, false);
+            HomeFragment.setButtonsDisabledBroadcast(mContext, false);
             // extra information is current url, to show it when it fails
             ResultHelper.showNotificationBasedOnResult(mContext, downloadResult, null);
         } else {
             this.cancelApplyNotification();
             // enable buttons
-            BaseActivity.setButtonsDisabledBroadcast(mContext, false);
+            HomeFragment.setButtonsDisabledBroadcast(mContext, false);
             ResultHelper.showNotificationBasedOnResult(mContext, downloadResult, null);
         }
     }
@@ -528,7 +528,7 @@ public class ApplyHelper {
     private void showApplyNotification(Context mContext, String tickerText, String contentTitle,
                                        String contentText) {
         // configure the intent
-        Intent intent = new Intent(mContext, BaseActivity.class);
+        Intent intent = new Intent(mContext, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(mContext.getApplicationContext(),
                 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
@@ -549,13 +549,13 @@ public class ApplyHelper {
 
         mBuilder.setContentIntent(contentIntent);
 
-        // update status in BaseActivity with Broadcast
-        BaseActivity.setStatusBroadcast(mContext, contentTitle, contentText, StatusCodes.CHECKING);
+        // update status in MainActivity with Broadcast
+        HomeFragment.setStatusBroadcast(mContext, contentTitle, contentText, StatusCodes.CHECKING);
     }
 
     private void updateApplyNotification(Context mContext, String contentTitle, String contentText) {
         // configure the intent
-        Intent intent = new Intent(mContext, BaseActivity.class);
+        Intent intent = new Intent(mContext, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(mContext.getApplicationContext(),
                 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
@@ -573,8 +573,8 @@ public class ApplyHelper {
 
         mBuilder.setContentIntent(contentIntent);
 
-        // update status in BaseActivity with Broadcast
-        BaseActivity.setStatusBroadcast(mContext, contentTitle, contentText, StatusCodes.CHECKING);
+        // update status in MainActivity with Broadcast
+        HomeFragment.setStatusBroadcast(mContext, contentTitle, contentText, StatusCodes.CHECKING);
     }
 
     private void cancelApplyNotification() {

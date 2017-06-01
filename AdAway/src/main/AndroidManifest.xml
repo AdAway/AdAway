@@ -34,7 +34,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AdAway">
         <activity
-            android:name=".ui.BaseActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop">
             <intent-filter>

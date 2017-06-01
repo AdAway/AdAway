@@ -40,7 +40,8 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.ui.BaseActivity;
+import org.adaway.ui.HomeFragment;
+import org.adaway.ui.MainActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.DateUtils;
@@ -122,7 +123,7 @@ public class UpdateService extends Job {
                 // Display update checking notification
                 showUpdateNotification(context);
                 // Notify base activity
-                BaseActivity.setStatusBroadcast(context, context.getString(R.string.status_checking),
+                HomeFragment.setStatusBroadcast(context, context.getString(R.string.status_checking),
                         context.getString(R.string.status_checking_subtitle), StatusCodes.CHECKING);
             }
 
@@ -281,7 +282,7 @@ public class UpdateService extends Job {
                 .setSmallIcon(icon).setContentTitle(contentTitle).setTicker(tickerText)
                 .setWhen(when).setOngoing(true).setContentText(contentText);
 
-        Intent notificationIntent = new Intent(context, BaseActivity.class);
+        Intent notificationIntent = new Intent(context, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
 
         mBuilder.setContentIntent(contentIntent);

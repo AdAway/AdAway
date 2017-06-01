@@ -9,7 +9,6 @@
         android:id="@+id/webserver_fragment_toggle_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="webserverOnClick"
         android:textOff="@string/button_webserver_toggle_unchecked"
         android:textOn="@string/button_webserver_toggle_checked" />
 

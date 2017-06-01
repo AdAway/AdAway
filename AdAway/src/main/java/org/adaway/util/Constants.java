@@ -25,7 +25,7 @@ public class Constants {
     // DEBUG must be set by a preference
     public static boolean DEBUG;
     public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
-    public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
+    public static final boolean DEBUG_DISABLE_ROOT_CHECK = true;
 
     public static final String TAG = "AdAway";
 
