@@ -227,6 +227,7 @@
     <string name="drawer_close">Close menu</string>
 
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Hosts sources</item>
         <item>Your Lists</item>
         <item>Open hosts file</item>
