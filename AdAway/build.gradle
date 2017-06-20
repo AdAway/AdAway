@@ -11,13 +11,13 @@ repositories {
 dependencies {
 
     implementation 'com.android.support:appcompat-v7:25.3.1'
-    implementation 'com.android.support:support-v4:25.3.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:design:25.3.1'
     implementation 'com.android.support:preference-v7:25.3.1'
+    implementation 'com.android.support:support-v4:25.3.1'
     implementation 'com.evernote:android-job:1.1.10'
     implementation project(':libraries:RootCommands')
     implementation 'net.sf.trove4j:trove4j:3.0.3'
-    implementation 'com.android.support:support-v4:25.3.1'
     implementation 'org.sufficientlysecure:html-textview:2.0'
     implementation 'org.sufficientlysecure:donations:2.4'
 }
@@ -78,7 +78,6 @@ android {
         }
     }
 }
-
 
 /**
  * Task to rename executables from hello_world to libhello_world_exec.so
