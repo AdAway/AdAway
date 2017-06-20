@@ -231,10 +231,6 @@ public class HomeFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.menu_hosts_sources:
-                startActivity(new Intent(mActivity, HostsSourcesActivity.class));
-                return true;
-
             case R.id.menu_lists:
                 startActivity(new Intent(mActivity, ListsActivity.class));
                 return true;
@@ -281,18 +277,18 @@ public class HomeFragment extends Fragment {
         // Inflate layout
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         // Retrieve view components
-        mStatusTitle = (TextView) view.findViewById(R.id.status_title);
-        mStatusText = (TextView) view.findViewById(R.id.status_text);
-        mStatusProgress = (ProgressBar) view.findViewById(R.id.status_progress);
-        mStatusIcon = (ImageView) view.findViewById(R.id.status_icon);
-        mApplyButton = (Button) view.findViewById(R.id.apply_button);
+        mStatusTitle = view.findViewById(R.id.status_title);
+        mStatusText = view.findViewById(R.id.status_text);
+        mStatusProgress = view.findViewById(R.id.status_progress);
+        mStatusIcon = view.findViewById(R.id.status_icon);
+        mApplyButton = view.findViewById(R.id.apply_button);
         mApplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 applyOnClick(view);
             }
         });
-        mRevertButton = (Button) view.findViewById(R.id.revert_button);
+        mRevertButton = view.findViewById(R.id.revert_button);
         mRevertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

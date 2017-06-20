@@ -20,14 +20,6 @@
 
 package org.adaway.ui;
 
-import org.adaway.R;
-import org.adaway.provider.AdAwayContract.HostsSources;
-import org.adaway.provider.ProviderHelper;
-import org.adaway.util.Constants;
-import org.adaway.util.HostsSourcesCursorAdapter;
-import org.adaway.util.RegexUtils;
-import org.adaway.util.Log;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -38,7 +30,6 @@ import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-
 import android.text.Editable;
 import android.text.InputType;
 import android.view.ContextMenu;
@@ -53,6 +44,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.adaway.R;
+import org.adaway.provider.AdAwayContract.HostsSources;
+import org.adaway.provider.ProviderHelper;
+import org.adaway.util.Constants;
+import org.adaway.util.HostsSourcesCursorAdapter;
+import org.adaway.util.Log;
+import org.adaway.util.RegexUtils;
 
 public class HostsSourcesFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<Cursor> {
@@ -76,7 +75,7 @@ public class HostsSourcesFragment extends ListFragment implements
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        android.view.MenuInflater inflater = mActivity.getMenuInflater();
+        MenuInflater inflater = mActivity.getMenuInflater();
         menu.setHeaderTitle(R.string.checkbox_list_context_title);
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }
@@ -85,7 +84,7 @@ public class HostsSourcesFragment extends ListFragment implements
      * Context Menu Items
      */
     @Override
-    public boolean onContextItemSelected(android.view.MenuItem item) {
+    public boolean onContextItemSelected(MenuItem item) {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
@@ -154,7 +153,7 @@ public class HostsSourcesFragment extends ListFragment implements
                             AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                             alertDialog.setTitle(R.string.no_url_title);
-                            alertDialog.setMessage(getString(org.adaway.R.string.no_url));
+                            alertDialog.setMessage(getString(R.string.no_url));
                             alertDialog.setButton(getString(R.string.button_close),
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dlg, int sum) {
@@ -233,7 +232,7 @@ public class HostsSourcesFragment extends ListFragment implements
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.lists_url_dialog, null);
-        final EditText inputEditText = (EditText) dialogView.findViewById(R.id.list_dialog_url);
+        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_url);
         // set EditText
         inputEditText.setText(getString(R.string.hosts_add_dialog_input));
         inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
@@ -281,7 +280,7 @@ public class HostsSourcesFragment extends ListFragment implements
                 AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_url_title);
-                alertDialog.setMessage(getString(org.adaway.R.string.no_url));
+                alertDialog.setMessage(getString(R.string.no_url));
                 alertDialog.setButton(getString(R.string.button_close),
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sum) {
@@ -304,7 +303,12 @@ public class HostsSourcesFragment extends ListFragment implements
         mActivity = this.getActivity();
 
         // register long press context menu
-        registerForContextMenu(getListView());
+        ListView listView = getListView();
+        registerForContextMenu(listView);
+        // Add list footer
+        LayoutInflater layoutInflater = mActivity.getLayoutInflater();
+        View footerView = layoutInflater.inflate(R.layout.hosts_sources_fragment, listView, false);
+        listView.addFooterView(footerView);
 
         // Give some text to display if there is no data. In a real
         // application this would come from a resource.
