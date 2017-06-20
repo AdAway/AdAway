@@ -46,9 +46,6 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
-            android:name=".ui.HostsSourcesActivity"
-            android:label="@string/menu_hosts_sources" />
-        <activity
             android:name=".ui.PrefsActivity"
             android:label="@string/menu_preferences">
             <intent-filter>
