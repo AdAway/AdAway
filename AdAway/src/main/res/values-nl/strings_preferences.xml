@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+
+
+
+
+
+    <string name="pref_automatic_update_daily_key" translate="false">automaticUpdateDaily</string>
+
+
+
+
+
+
+
+
+
+
+    <string name="pref_apply_method_key" translate="false">applyMethod</string>
+
+    <string-array name="pref_apply_method_entries_values" translate="false">
+        <item>writeToSystem</item>
+        <item></item>
+        <item></item>
+        <item>customTarget</item>
+    </string-array>
+
+    <string name="pref_apply_method_def" translate="false">writeToSystem</string>
+    <string name="pref_custom_target_key" translate="false">customTarget</string>
+
+
+
+
+
+
+
+
+
+
+    <string name="pref_enable_debug_key" translate="false">debugEnabled</string>
+
+
+    <string name="pref_enable_systemless_key">inschakelenSysteemloos</string>
+
+
+</resources>
