@@ -31,10 +31,14 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
-
-    public HostsSourcesCursorAdapter(Context context, int layout, Cursor c, String[] from,
-                                     int[] to, int flags) {
-        super(context, layout, c, from, to, flags);
+    /**
+     * Constructor.
+     *
+     * @param context The application context.
+     */
+    public HostsSourcesCursorAdapter(Context context) {
+        super(context, R.layout.checkbox_list_two_entry, null,
+                new String[]{}, new int[]{}, 0);
     }
 
     /**
@@ -42,9 +46,9 @@ public class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
      */
     @Override
     public void bindView(View v, Context context, Cursor cursor) {
-        CheckBox cBox = (CheckBox) v.findViewById(R.id.checkbox_list_two_checkbox);
-        TextView hostnameTextView = (TextView) v.findViewById(R.id.checkbox_list_two_text);
-        TextView lastModifiedTextView = (TextView) v.findViewById(R.id.checkbox_list_two_subtext);
+        CheckBox cBox = v.findViewById(R.id.checkbox_list_two_checkbox);
+        TextView hostnameTextView = v.findViewById(R.id.checkbox_list_two_text);
+        TextView lastModifiedTextView = v.findViewById(R.id.checkbox_list_two_subtext);
 
         if (cBox != null) {
             // bind cursor position to tag of list item
