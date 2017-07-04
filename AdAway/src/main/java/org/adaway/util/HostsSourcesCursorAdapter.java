@@ -37,8 +37,7 @@ public class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
      * @param context The application context.
      */
     public HostsSourcesCursorAdapter(Context context) {
-        super(context, R.layout.checkbox_list_two_entry, null,
-                new String[]{}, new int[]{}, 0);
+        super(context, R.layout.checkbox_list_two_entries, null, new String[]{}, new int[]{}, 0);
     }
 
     /**
