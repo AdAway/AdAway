@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -152,6 +153,10 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
 
             @Override
             public void onDestroyActionMode(ActionMode actionMode) {
+                // Get current list item child view
+                View childView = HostsSourcesFragment.this.mListView.getChildAt(HostsSourcesFragment.this.mCurrentListItemPosition);
+                // Clear background color
+                childView.setBackgroundColor(Color.TRANSPARENT);
                 // Clear current list item position
                 HostsSourcesFragment.this.mCurrentListItemPosition = -1;
                 // Clear action mode
@@ -169,9 +174,11 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
                 // Store current list item position
                 HostsSourcesFragment.this.mCurrentListItemPosition = position;
                 // Start action mode and store it
-                HostsSourcesFragment.this.mActionMode = HostsSourcesFragment.this.mActionMode = getActivity().startActionMode(callback);
-                // Select the view
-                view.setSelected(true);
+                HostsSourcesFragment.this.mActionMode = HostsSourcesFragment.this.mActivity.startActionMode(callback);
+                // Get current item background color
+                int currentItemBackgroundColor = HostsSourcesFragment.this.getResources().getColor(R.color.selected_background);
+                // Apply background color to current item view
+                view.setBackgroundColor(currentItemBackgroundColor);
                 // Return event consumed
                 return true;
             }
