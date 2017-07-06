@@ -8,7 +8,6 @@
         android:id="@+id/hosts_sources_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:listSelector="@color/selected_background"
         android:longClickable="true" />
 
     <android.support.design.widget.FloatingActionButton
