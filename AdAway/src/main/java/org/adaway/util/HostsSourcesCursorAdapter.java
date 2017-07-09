@@ -71,16 +71,20 @@ public class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
             hostnameTextView.setText(url);
 
             // set last modified
-            int lastModifiedLocalCol = cursor
-                    .getColumnIndexOrThrow(HostsSources.LAST_MODIFIED_LOCAL);
+            int lastModifiedLocalCol = cursor.getColumnIndexOrThrow(HostsSources.LAST_MODIFIED_LOCAL);
             long lastModifiedLocal = cursor.getLong(lastModifiedLocalCol);
-            int lastModifiedOnlineCol = cursor
-                    .getColumnIndexOrThrow(HostsSources.LAST_MODIFIED_ONLINE);
+            int lastModifiedOnlineCol = cursor.getColumnIndexOrThrow(HostsSources.LAST_MODIFIED_ONLINE);
             long lastModifiedOnline = cursor.getLong(lastModifiedOnlineCol);
-            lastModifiedTextView.setText(context.getString(R.string.hosts_last_modified_local)
-                    + " " + DateUtils.longToDateString(context, lastModifiedLocal) + ", "
-                    + context.getString(R.string.hosts_last_modified_online) + " "
-                    + DateUtils.longToDateString(context, lastModifiedOnline));
+
+            int modifiedText;
+            if (lastModifiedLocal == 0 || lastModifiedOnline == 0) {
+                modifiedText = R.string.hosts_source_unknown_status;
+            } else if (lastModifiedLocal < lastModifiedOnline) {
+                modifiedText = R.string.hosts_source_update_available;
+            } else {
+                modifiedText = R.string.hosts_source_up_to_date;
+            }
+            lastModifiedTextView.setText(modifiedText);
 
         }
     }
