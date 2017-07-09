@@ -226,14 +226,20 @@
     <string name="drawer_open">Open menu</string>
     <string name="drawer_close">Close menu</string>
 
+    <!-- Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Hosts sources</item>
-        <item>Your Lists</item>
+        <item>Your lists</item>
         <item>Open hosts file</item>
-        <item>Log DNS Requests</item>
-        <item>Scan for Adware</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Preferences</item>
     </string-array>
+
+    <!-- Hosts source status -->
+    <string name="hosts_source_update_available">Update available</string>
+    <string name="hosts_source_up_to_date">Up-to-date</string>
+    <string name="hosts_source_unknown_status">Unknown update status</string>
 
 </resources>
