@@ -24,11 +24,11 @@ You can post [Issues](https://github.com/Free-Software-for-Android/AdAway/issues
 ## Authors
 
 AdAway is currently maintained by:
-* @0-kaladin
-* Sanjay Govind (@sanjay900)
-* Bruce Bujon (@PerfectSlayer)
+* [@0-kaladin](https://github.com/0-kaladin)
+* Sanjay Govind ([@sanjay900](https://github.com/sanjay900))
+* Bruce Bujon ([@PerfectSlayer](https://github.com/PerfectSlayer))
 
-The original author is Dominik Schürmann (@dschuermann) and it was previously maintained by Dāvis Mošenkovs (@DavisNT).
+The original author is Dominik Schürmann ([@dschuermann](https://github.com/dschuermann)) and it was previously maintained by Dāvis Mošenkovs ([@DavisNT](https://github.com/DavisNT)).
 
 # Build with Gradle
 
