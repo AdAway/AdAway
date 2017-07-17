@@ -1,0 +1,1 @@
+open source ad blocker for Android using the hosts file
