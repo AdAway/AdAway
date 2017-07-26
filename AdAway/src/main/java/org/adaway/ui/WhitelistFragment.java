@@ -20,14 +20,6 @@
 
 package org.adaway.ui;
 
-import org.adaway.R;
-import org.adaway.provider.AdAwayContract.Whitelist;
-import org.adaway.provider.ProviderHelper;
-import org.adaway.util.CheckboxCursorAdapter;
-import org.adaway.util.Constants;
-import org.adaway.util.RegexUtils;
-import org.adaway.util.Log;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
@@ -35,38 +27,33 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.app.LoaderManager;
-
 import android.text.Editable;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import org.adaway.R;
+import org.adaway.provider.AdAwayContract.Whitelist;
+import org.adaway.provider.ProviderHelper;
+import org.adaway.util.CheckboxCursorAdapter;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.adaway.util.RegexUtils;
+
 public class WhitelistFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<Cursor> {
+        LoaderManager.LoaderCallbacks<Cursor>, ListsFragmentPagerAdapter.AddItemActionListener {
     private FragmentActivity mActivity;
     private CheckboxCursorAdapter mAdapter;
 
     private long mCurrentRowId;
-
-    /**
-     * Options Menu
-     */
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.lists_fragment, menu);
-    }
 
     /**
      * Context Menu on Long Click
@@ -120,7 +107,7 @@ public class WhitelistFragment extends ListFragment implements
         int position = info.position;
         View v = info.targetView;
 
-        CheckBox cBox = (CheckBox) v.findViewWithTag(position);
+        CheckBox cBox = v.findViewWithTag(position);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
@@ -129,8 +116,7 @@ public class WhitelistFragment extends ListFragment implements
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.lists_whitelist_hostname_dialog, null);
-        final EditText inputEditText = (EditText) dialogView
-                .findViewById(R.id.list_dialog_hostname);
+        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_hostname);
         inputEditText.setText(cBox.getText());
 
         // move cursor to end of EditText
@@ -190,7 +176,7 @@ public class WhitelistFragment extends ListFragment implements
 
         // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
         // checkboxes by position of cursor
-        CheckBox cBox = (CheckBox) v.findViewWithTag(position);
+        CheckBox cBox = v.findViewWithTag(position);
 
         if (cBox != null) {
             if (cBox.isChecked()) {
@@ -206,26 +192,8 @@ public class WhitelistFragment extends ListFragment implements
         }
     }
 
-    /**
-     * Menu Options
-     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.menu_add:
-                menuAddEntry();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    /**
-     * Add Entry Menu Action
-     */
-    public void menuAddEntry() {
+    public void addItem() {
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
@@ -233,8 +201,7 @@ public class WhitelistFragment extends ListFragment implements
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.lists_whitelist_hostname_dialog, null);
-        final EditText inputEditText = (EditText) dialogView
-                .findViewById(R.id.list_dialog_hostname);
+        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_hostname);
 
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();

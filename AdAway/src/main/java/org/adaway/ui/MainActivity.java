@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new HostsSourcesFragment();
                 break;
             case 2:
-                fragment = new ListFragment();
+                fragment = new ListsFragment();
                 break;
             case 3:
                 OpenHelper.openHostsFile(this);

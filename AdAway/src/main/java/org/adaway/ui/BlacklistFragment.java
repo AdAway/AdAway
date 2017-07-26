@@ -20,53 +20,41 @@
 
 package org.adaway.ui;
 
-import org.adaway.R;
-import org.adaway.provider.AdAwayContract.Blacklist;
-import org.adaway.provider.ProviderHelper;
-import org.adaway.util.CheckboxCursorAdapter;
-import org.adaway.util.Constants;
-import org.adaway.util.RegexUtils;
-import org.adaway.util.Log;
-
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.app.LoaderManager;
-
 import android.text.Editable;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import org.adaway.R;
+import org.adaway.provider.AdAwayContract.Blacklist;
+import org.adaway.provider.ProviderHelper;
+import org.adaway.util.CheckboxCursorAdapter;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.adaway.util.RegexUtils;
+
 public class BlacklistFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<Cursor> {
-    private FragmentActivity mActivity;
+        LoaderManager.LoaderCallbacks<Cursor>, ListsFragmentPagerAdapter.AddItemActionListener {
+    // These are the rows that we will retrieve.
+    static final String[] BLACKLIST_SUMMARY_PROJECTION = new String[]{Blacklist._ID,
+            Blacklist.HOSTNAME, Blacklist.ENABLED};
     private CheckboxCursorAdapter mAdapter;
-
     private long mCurrentRowId;
-
-    /**
-     * Options Menu
-     */
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.lists_fragment, menu);
-    }
 
     /**
      * Context Menu on Long Click
@@ -74,7 +62,7 @@ public class BlacklistFragment extends ListFragment implements
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        android.view.MenuInflater inflater = mActivity.getMenuInflater();
+        android.view.MenuInflater inflater = this.getActivity().getMenuInflater();
         menu.setHeaderTitle(R.string.checkbox_list_context_title);
         inflater.inflate(R.menu.checkbox_list_context, menu);
     }
@@ -87,49 +75,50 @@ public class BlacklistFragment extends ListFragment implements
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-        case R.id.checkbox_list_context_delete:
-            menuDeleteEntry(info);
-            return true;
-        case R.id.checkbox_list_context_edit:
-            menuEditEntry(info);
-            return true;
-        default:
-            return super.onContextItemSelected(item);
+            case R.id.checkbox_list_context_delete:
+                menuDeleteEntry(info);
+                return true;
+            case R.id.checkbox_list_context_edit:
+                menuEditEntry(info);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
         }
     }
 
     /**
      * Delete entry based on selection in context menu
-     * 
+     *
      * @param info
      */
     private void menuDeleteEntry(AdapterContextMenuInfo info) {
         mCurrentRowId = info.id; // row id from cursor
 
-        ProviderHelper.deleteBlacklistItem(mActivity, mCurrentRowId);
+        ProviderHelper.deleteBlacklistItem(this.getActivity(), mCurrentRowId);
     }
 
     /**
      * Edit entry based on selection in context menu
-     * 
+     *
      * @param info
      */
     private void menuEditEntry(AdapterContextMenuInfo info) {
+        final Activity activity = this.getActivity();
+
         mCurrentRowId = info.id; // set global RowId to row id from cursor to use inside save button
         int position = info.position;
         View v = info.targetView;
 
-        CheckBox cBox = (CheckBox) v.findViewWithTag(position);
+        CheckBox cBox = v.findViewWithTag(position);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mActivity);
+        LayoutInflater factory = LayoutInflater.from(activity);
         final View dialogView = factory.inflate(R.layout.lists_hostname_dialog, null);
-        final EditText inputEditText = (EditText) dialogView
-                .findViewById(R.id.list_dialog_hostname);
+        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_hostname);
         inputEditText.setText(cBox.getText());
 
         // move cursor to end of EditText
@@ -147,10 +136,13 @@ public class BlacklistFragment extends ListFragment implements
                         String input = inputEditText.getText().toString();
 
                         if (RegexUtils.isValidHostname(input)) {
-                            ProviderHelper.updateBlacklistItemHostname(mActivity, mCurrentRowId,
-                                    input);
+                            ProviderHelper.updateBlacklistItemHostname(
+                                    activity,
+                                    mCurrentRowId,
+                                    input
+                            );
                         } else {
-                            AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
+                            AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                             alertDialog.setTitle(R.string.no_hostname_title);
                             alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
@@ -164,13 +156,12 @@ public class BlacklistFragment extends ListFragment implements
                         }
                     }
                 });
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+        builder.setNegativeButton(getResources().getString(R.string.button_cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
         AlertDialog alert = builder.create();
         alert.show();
     }
@@ -186,51 +177,32 @@ public class BlacklistFragment extends ListFragment implements
 
         // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
         // checkboxes by position of cursor
-        CheckBox cBox = (CheckBox) v.findViewWithTag(position);
+        CheckBox cBox = v.findViewWithTag(position);
 
         if (cBox != null) {
             if (cBox.isChecked()) {
                 cBox.setChecked(false);
                 // change status based on row id from cursor
-                ProviderHelper.updateBlacklistItemEnabled(mActivity, mCurrentRowId, false);
+                ProviderHelper.updateBlacklistItemEnabled(this.getActivity(), mCurrentRowId, false);
             } else {
                 cBox.setChecked(true);
-                ProviderHelper.updateBlacklistItemEnabled(mActivity, mCurrentRowId, true);
+                ProviderHelper.updateBlacklistItemEnabled(this.getActivity(), mCurrentRowId, true);
             }
         } else {
             Log.e(Constants.TAG, "Checkbox could not be found!");
         }
     }
 
-    /**
-     * Menu Options
-     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-        case R.id.menu_add:
-            menuAddEntry();
-            return true;
-
-        default:
-            return super.onOptionsItemSelected(item);
-        }
-    }
-
-    /**
-     * Add Entry Menu Action
-     */
-    public void menuAddEntry() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+    public void addItem() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
 
         // build view from layout
-        LayoutInflater factory = LayoutInflater.from(mActivity);
+        LayoutInflater factory = LayoutInflater.from(this.getActivity());
         final View dialogView = factory.inflate(R.layout.lists_hostname_dialog, null);
-        final EditText inputEditText = (EditText) dialogView
-                .findViewById(R.id.list_dialog_hostname);
+        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_hostname);
 
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
@@ -261,15 +233,16 @@ public class BlacklistFragment extends ListFragment implements
 
     /**
      * Add new entry based on input
-     * 
+     *
      * @param input
      */
     private void addEntry(String input) {
+        Activity activity = this.getActivity();
         if (input != null) {
             if (RegexUtils.isValidHostname(input)) {
-                ProviderHelper.insertBlacklistItem(mActivity, input);
+                ProviderHelper.insertBlacklistItem(activity, input);
             } else {
-                AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
+                AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_hostname_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
@@ -284,14 +257,9 @@ public class BlacklistFragment extends ListFragment implements
         }
     }
 
-    /**
-     * Define Adapter and Loader on create of Activity
-     */
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        mActivity = this.getActivity();
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         // register long press context menu
         registerForContextMenu(getListView());
@@ -304,24 +272,24 @@ public class BlacklistFragment extends ListFragment implements
         // We have a menu item to show in action bar.
         setHasOptionsMenu(true);
 
-        // dislayFields and displayViews are handled in custom adapter!
-        String[] displayFields = new String[] {};
-        int[] displayViews = new int[] {};
-        mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, null,
-                displayFields, displayViews, 0);
+        // displayFields and displayViews are handled in custom adapter!
+        String[] displayFields = new String[]{};
+        int[] displayViews = new int[]{};
+        mAdapter = new CheckboxCursorAdapter(
+                this.getActivity(),
+                R.layout.checkbox_list_entry,
+                null,
+                displayFields,
+                displayViews,
+                0);
         setListAdapter(mAdapter);
 
         // Start out with a progress indicator.
         setListShown(false);
 
-        // Prepare the loader. Either re-connect with an existing one,
-        // or start a new one.
-        getLoaderManager().initLoader(0, null, this);
+        // Prepare the loader. Either re-connect with an existing one, or start a new one.
+        this.getLoaderManager().initLoader(0, null, this);
     }
-
-    // These are the rows that we will retrieve.
-    static final String[] BLACKLIST_SUMMARY_PROJECTION = new String[] { Blacklist._ID,
-            Blacklist.HOSTNAME, Blacklist.ENABLED };
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -352,8 +320,7 @@ public class BlacklistFragment extends ListFragment implements
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         // This is called when the last Cursor provided to onLoadFinished()
-        // above is about to be closed. We need to make sure we are no
-        // longer using it.
+        // above is about to be closed. We need to make sure we are no longer using it.
         mAdapter.swapCursor(null);
     }
 }

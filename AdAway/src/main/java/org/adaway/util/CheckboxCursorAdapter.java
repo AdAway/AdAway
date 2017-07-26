@@ -42,7 +42,7 @@ public class CheckboxCursorAdapter extends SimpleCursorAdapter {
      */
     @Override
     public void bindView(View v, Context context, Cursor cursor) {
-        CheckBox cBox = (CheckBox) v.findViewById(R.id.checkbox_list_checkbox);
+        CheckBox cBox = v.findViewById(R.id.checkbox_list_checkbox);
         if (cBox != null) {
             // bind cursor position to tag of list item
             int cursorPosition = cursor.getPosition();
