@@ -43,7 +43,6 @@ import android.widget.ListView;
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.Whitelist;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
@@ -51,7 +50,7 @@ import org.adaway.util.RegexUtils;
 public class WhitelistFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<Cursor>, ListsFragmentPagerAdapter.AddItemActionListener {
     private FragmentActivity mActivity;
-    private CheckboxCursorAdapter mAdapter;
+    private ListsCursorAdapter mAdapter;
 
     private long mCurrentRowId;
 
@@ -278,11 +277,7 @@ public class WhitelistFragment extends ListFragment implements
         // We have a menu item to show in action bar.
         setHasOptionsMenu(true);
 
-        // dislayFields and displayViews are handled in custom adapter!
-        String[] displayFields = new String[]{};
-        int[] displayViews = new int[]{};
-        mAdapter = new CheckboxCursorAdapter(mActivity, R.layout.checkbox_list_entry, null,
-                displayFields, displayViews, 0);
+        mAdapter = new ListsCursorAdapter(mActivity);
         setListAdapter(mAdapter);
 
         // Start out with a progress indicator.
