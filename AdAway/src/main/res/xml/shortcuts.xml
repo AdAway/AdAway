@@ -35,7 +35,7 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="org.adaway"
-            android:targetClass="org.adaway.ui.ListsActivity" />
-        <categories android:name="org.adaway.ui.ListsActivity" />
+            android:targetClass="org.adaway.ui.ListsFragment" />
+        <categories android:name="org.adaway.ui.ListsFragment" />
     </shortcut>
 </shortcuts>

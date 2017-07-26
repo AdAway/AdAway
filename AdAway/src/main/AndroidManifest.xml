@@ -66,10 +66,6 @@
             android:name=".ui.HelpActivity"
             android:label="@string/menu_help" />
         <!-- android:configChanges prevents activity from recreating on orientation change -->
-        <activity
-            android:name=".ui.ListsActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/menu_lists" />
 
         <receiver android:name=".service.BootReceiver">
             <intent-filter>

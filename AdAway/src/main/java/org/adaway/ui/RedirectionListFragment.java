@@ -20,14 +20,6 @@
 
 package org.adaway.ui;
 
-import org.adaway.R;
-import org.adaway.provider.AdAwayContract.RedirectionList;
-import org.adaway.provider.ProviderHelper;
-import org.adaway.util.Constants;
-import org.adaway.util.RedirectionCursorAdapter;
-import org.adaway.util.RegexUtils;
-import org.adaway.util.Log;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
@@ -35,16 +27,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.app.LoaderManager;
-
 import android.text.Editable;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
@@ -53,21 +42,20 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.adaway.R;
+import org.adaway.provider.AdAwayContract.RedirectionList;
+import org.adaway.provider.ProviderHelper;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.adaway.util.RedirectionCursorAdapter;
+import org.adaway.util.RegexUtils;
+
 public class RedirectionListFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<Cursor> {
+        LoaderManager.LoaderCallbacks<Cursor>, ListsFragmentPagerAdapter.AddItemActionListener {
     private FragmentActivity mActivity;
     private RedirectionCursorAdapter mAdapter;
 
     private long mCurrentRowId;
-
-    /**
-     * Options Menu
-     */
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.lists_fragment, menu);
-    }
 
     /**
      * Context Menu on Long Click
@@ -119,8 +107,8 @@ public class RedirectionListFragment extends ListFragment implements
         int position = info.position;
         View v = info.targetView;
 
-        TextView hostnameTextView = (TextView) v.findViewWithTag("hostname_" + position);
-        TextView ipTextView = (TextView) v.findViewWithTag("ip_" + position);
+        TextView hostnameTextView = v.findViewWithTag("hostname_" + position);
+        TextView ipTextView = v.findViewWithTag("ip_" + position);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
@@ -129,9 +117,8 @@ public class RedirectionListFragment extends ListFragment implements
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.lists_redirection_dialog, null);
-        final EditText hostnameEditText = (EditText) dialogView
-                .findViewById(R.id.list_dialog_hostname);
-        final EditText ipEditText = (EditText) dialogView.findViewById(R.id.list_dialog_ip);
+        final EditText hostnameEditText = dialogView.findViewById(R.id.list_dialog_hostname);
+        final EditText ipEditText = dialogView.findViewById(R.id.list_dialog_ip);
 
         // set text from list
         hostnameEditText.setText(hostnameTextView.getText());
@@ -213,7 +200,7 @@ public class RedirectionListFragment extends ListFragment implements
 
         // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
         // checkboxes by position of cursor
-        CheckBox cBox = (CheckBox) v.findViewWithTag("checkbox_" + position);
+        CheckBox cBox = v.findViewWithTag("checkbox_" + position);
 
         if (cBox != null) {
             if (cBox.isChecked()) {
@@ -229,26 +216,8 @@ public class RedirectionListFragment extends ListFragment implements
         }
     }
 
-    /**
-     * Menu Options
-     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.menu_add:
-                menuAddEntry();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    /**
-     * Add Entry Menu Action
-     */
-    public void menuAddEntry() {
+    public void addItem() {
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
@@ -256,9 +225,9 @@ public class RedirectionListFragment extends ListFragment implements
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(mActivity);
         final View dialogView = factory.inflate(R.layout.lists_redirection_dialog, null);
-        final EditText hostnameEditText = (EditText) dialogView
+        final EditText hostnameEditText = dialogView
                 .findViewById(R.id.list_dialog_hostname);
-        final EditText ipEditText = (EditText) dialogView.findViewById(R.id.list_dialog_ip);
+        final EditText ipEditText = dialogView.findViewById(R.id.list_dialog_ip);
 
         // move cursor to end of EditText
         Editable hostnameEditContent = hostnameEditText.getText();

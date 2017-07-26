@@ -232,7 +232,7 @@ public class HomeFragment extends Fragment {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.menu_lists:
-                startActivity(new Intent(mActivity, ListsActivity.class));
+                startActivity(new Intent(mActivity, ListsFragment.class));
                 return true;
 
             case R.id.menu_show_hosts_file:
