@@ -43,7 +43,6 @@ import android.widget.ListView;
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.util.CheckboxCursorAdapter;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
@@ -53,7 +52,7 @@ public class BlacklistFragment extends ListFragment implements
     // These are the rows that we will retrieve.
     static final String[] BLACKLIST_SUMMARY_PROJECTION = new String[]{Blacklist._ID,
             Blacklist.HOSTNAME, Blacklist.ENABLED};
-    private CheckboxCursorAdapter mAdapter;
+    private ListsCursorAdapter mAdapter;
     private long mCurrentRowId;
 
     /**
@@ -272,16 +271,7 @@ public class BlacklistFragment extends ListFragment implements
         // We have a menu item to show in action bar.
         setHasOptionsMenu(true);
 
-        // displayFields and displayViews are handled in custom adapter!
-        String[] displayFields = new String[]{};
-        int[] displayViews = new int[]{};
-        mAdapter = new CheckboxCursorAdapter(
-                this.getActivity(),
-                R.layout.checkbox_list_entry,
-                null,
-                displayFields,
-                displayViews,
-                0);
+        mAdapter = new ListsCursorAdapter(this.getActivity());
         setListAdapter(mAdapter);
 
         // Start out with a progress indicator.

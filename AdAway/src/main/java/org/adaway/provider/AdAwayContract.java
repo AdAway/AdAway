@@ -32,14 +32,17 @@ public class AdAwayContract {
         String ENABLED = "enabled";
     }
 
-    interface WhitelistColumns {
+    interface ListColumns {
         String HOSTNAME = "url"; // is url because of legacy reasons
         String ENABLED = "enabled";
     }
 
-    interface BlacklistColumns {
-        String HOSTNAME = "url"; // is url because of legacy reasons
-        String ENABLED = "enabled";
+    interface WhitelistColumns extends ListColumns {
+
+    }
+
+    interface BlacklistColumns extends ListColumns {
+
     }
 
     interface RedirectionListColumns {
