@@ -267,7 +267,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true); // enable options menu for this fragment
+        this.setHasOptionsMenu(true); // enable options menu for this fragment
         mHomeFragment = this;
         mActivity = this.getActivity();
     }

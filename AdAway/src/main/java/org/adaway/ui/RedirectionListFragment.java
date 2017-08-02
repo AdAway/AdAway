@@ -323,9 +323,6 @@ public class RedirectionListFragment extends ListFragment implements
         setEmptyText(getString(R.string.checkbox_list_empty) + "\n\n"
                 + getString(R.string.checkbox_list_empty_text));
 
-        // We have a menu item to show in action bar.
-        setHasOptionsMenu(true);
-
         // dislayFields and displayViews are handled in custom adapter!
         String[] displayFields = new String[]{};
         int[] displayViews = new int[]{};
