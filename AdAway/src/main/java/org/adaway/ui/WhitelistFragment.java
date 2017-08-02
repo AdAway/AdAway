@@ -274,9 +274,6 @@ public class WhitelistFragment extends ListFragment implements
         setEmptyText(getString(R.string.checkbox_list_empty) + "\n\n"
                 + getString(R.string.checkbox_list_empty_text));
 
-        // We have a menu item to show in action bar.
-        setHasOptionsMenu(true);
-
         mAdapter = new ListsCursorAdapter(mActivity);
         setListAdapter(mAdapter);
 
