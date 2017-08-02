@@ -94,7 +94,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         // Create fragment view
         View view = inflater.inflate(R.layout.hosts_sources_fragment, container, false);
         /*
-         * Hosts sources list.
+         * Configure hosts sources list.
          */
         // Store list view
         this.mListView = view.findViewById(R.id.hosts_sources_list);

@@ -36,6 +36,11 @@ import org.adaway.provider.AdAwayContract.Blacklist;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 class ListsCursorAdapter extends SimpleCursorAdapter {
+    /** The enabled status checkbox tag. */
+    static final String ENABLED_CHECKBOX_TAG = "enabled";
+    /** The hostname value text view tag. */
+    static final String HOSTNAME_TEXTVIEW_TAG = "hostname";
+
     /**
      * Constructor.
      *
@@ -57,9 +62,6 @@ class ListsCursorAdapter extends SimpleCursorAdapter {
         // Get the checkbox
         CheckBox checkBox = view.findViewById(R.id.checkbox_list_checkbox);
         if (checkBox != null) {
-            // Bind cursor position to tag of list item
-            int cursorPosition = cursor.getPosition();
-            checkBox.setTag(cursorPosition);
             // Get enabled value
             int enabledColumnIndex = cursor.getColumnIndexOrThrow(Blacklist.ENABLED);
             String enabled = cursor.getString(enabledColumnIndex);
@@ -69,6 +71,8 @@ class ListsCursorAdapter extends SimpleCursorAdapter {
             } else {
                 checkBox.setChecked(false);
             }
+            // Set tag to find view in fragment
+            checkBox.setTag(ListsCursorAdapter.ENABLED_CHECKBOX_TAG);
         }
         // Get text view
         TextView textView = view.findViewById(R.id.checkbox_list_text);
@@ -78,6 +82,8 @@ class ListsCursorAdapter extends SimpleCursorAdapter {
             String hostname = cursor.getString(hostnameColumnIndex);
             // Set hostname text
             textView.setText(hostname);
+            // Set tag to find view in fragment
+            textView.setTag(ListsCursorAdapter.HOSTNAME_TEXTVIEW_TAG);
         }
     }
 }
