@@ -104,18 +104,21 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
                 // checkboxes by position of cursor
-                CheckBox cBox = view.findViewWithTag("checkbox_" + position);
-                if (cBox == null) {
+                CheckBox checkBox = view.findViewWithTag("checkbox_" + position);
+                if (checkBox == null) {
                     Log.w(Constants.TAG, "Checkbox could not be found for hosts source.");
                     return;
                 }
                 // Get current status
-                boolean checked = cBox.isChecked();
+                boolean checked = checkBox.isChecked();
                 // Set new status
-                cBox.setChecked(!checked);
+                checkBox.setChecked(!checked);
                 ProviderHelper.updateHostsSourceEnabled(HostsSourcesFragment.this.mActivity, id, !checked);
             }
         });
+        /*
+         * Create action mode.
+         */
         // Create action mode callback to display edit/delete menu
         final ActionMode.Callback callback = new ActionMode.Callback() {
             @Override
@@ -141,10 +144,10 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
                 // Check item identifier
                 switch (item.getItemId()) {
                     case R.id.checkbox_list_context_edit:
-                        editEntry();
+                        HostsSourcesFragment.this.editEntry();
                         return true;
                     case R.id.checkbox_list_context_delete:
-                        menuDeleteEntry();
+                        HostsSourcesFragment.this.deleteEntry();
                         return true;
                     default:
                         return false;
@@ -242,7 +245,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
 
 
     /**
-     * Add Entry Menu Action
+     * Add a hosts source entry.
      */
     private void addEntry() {
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
@@ -288,7 +291,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
     }
 
     /**
-     * Edit entry based on selection in context menu
+     * Edit selected hosts source entry.
      */
     private void editEntry() {
         // Check current list item position
@@ -329,7 +332,10 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        // Close dialog
                         dialog.dismiss();
+                        // Finish action mode
+                        HostsSourcesFragment.this.mActionMode.finish();
 
                         String input = inputEditText.getText().toString();
 
@@ -359,7 +365,10 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        // Close dialog
                         dialog.dismiss();
+                        // Finish action mode
+                        HostsSourcesFragment.this.mActionMode.finish();
                     }
                 }
         );
@@ -368,9 +377,9 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
     }
 
     /**
-     * Delete entry based on selection in context menu.
+     * Delete selected hosts source entry.
      */
-    private void menuDeleteEntry() {
+    private void deleteEntry() {
         // Check current list item position
         if (this.mCurrentListItemPosition == -1) {
             return;
@@ -379,12 +388,14 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         long itemId = this.mAdapter.getItemId(this.mCurrentListItemPosition);
         // Delete related hosts source
         ProviderHelper.deleteHostsSource(this.mActivity, itemId);
+        // Finish action mode
+        this.mActionMode.finish();
     }
 
     /**
-     * Add new entry based on url
+     * Add new hosts source.
      *
-     * @param url The URL of the hosts source.
+     * @param url The URL of the hosts source to add.
      */
     private void insertHostsSource(String url) {
         // Check parameter
@@ -393,7 +404,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         }
         // Check if URL is valid
         if (RegexUtils.isValidUrl(url)) {
-            // insert hosts source into database
+            // Insert hosts source into database
             ProviderHelper.insertHostsSource(this.mActivity, url);
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(this.mActivity).create();
