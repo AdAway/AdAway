@@ -46,7 +46,7 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
-            android:name=".ui.PrefsActivity"
+            android:name=".ui.prefs.PrefsActivity"
             android:label="@string/menu_preferences">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />

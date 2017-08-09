@@ -1,4 +1,4 @@
-package org.adaway.ui;
+package org.adaway.ui.prefs;
 
 import android.content.Context;
 import android.content.Intent;

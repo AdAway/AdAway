@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.lists;
 
 import android.content.Intent;
 import android.os.Bundle;
