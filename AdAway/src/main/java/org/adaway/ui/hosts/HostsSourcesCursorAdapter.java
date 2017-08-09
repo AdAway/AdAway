@@ -45,9 +45,9 @@ class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
      */
     @Override
     public void bindView(View v, Context context, Cursor cursor) {
-        CheckBox cBox = v.findViewById(R.id.checkbox_list_two_checkbox);
-        TextView hostnameTextView = v.findViewById(R.id.checkbox_list_two_text);
-        TextView lastModifiedTextView = v.findViewById(R.id.checkbox_list_two_subtext);
+        CheckBox cBox = v.findViewById(R.id.checkbox_list_checkbox);
+        TextView hostnameTextView = v.findViewById(R.id.checkbox_list_text);
+        TextView lastModifiedTextView = v.findViewById(R.id.checkbox_list_subtext);
 
         if (cBox != null) {
             // bind cursor position to tag of list item

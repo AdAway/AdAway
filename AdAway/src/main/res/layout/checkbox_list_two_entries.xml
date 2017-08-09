@@ -5,7 +5,7 @@
     android:layout_height="72dp">
 
     <CheckBox
-        android:id="@+id/checkbox_list_two_checkbox"
+        android:id="@+id/checkbox_list_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -20,7 +20,7 @@
     <!-- focusable and clickable MUST be false to handle click and longClick in ListView Activity -->
 
     <TextView
-        android:id="@+id/checkbox_list_two_text"
+        android:id="@+id/checkbox_list_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/checkbox_list_two_subtext"
+        android:id="@+id/checkbox_list_subtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -53,5 +53,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_list_two_text" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_list_text" />
 </android.support.constraint.ConstraintLayout>

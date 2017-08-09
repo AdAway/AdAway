@@ -39,15 +39,15 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
     /**
      * The blacklist fragment.
      */
-    private AddItemActionListener blacklistFragment;
+    private AbstractListFragment blacklistFragment;
     /**
      * The whitelist fragment.
      */
-    private AddItemActionListener whitelistFragment;
+    private AbstractListFragment whitelistFragment;
     /**
      * The redirection list fragment.
      */
-    private AddItemActionListener redirectionListFragment;
+    private AbstractListFragment redirectionListFragment;
 
     /**
      * Constructor.
@@ -130,7 +130,7 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
     // More explanation here: https://stackoverflow.com/a/29288093/1538096
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        AddItemActionListener fragment = (AddItemActionListener) super.instantiateItem(container, position);
+        AbstractListFragment fragment = (AbstractListFragment) super.instantiateItem(container, position);
         switch (position) {
             case BLACKLIST_FRAGMENT_INDEX:
                 this.blacklistFragment = fragment;
@@ -148,17 +148,5 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return FRAGMENT_COUNT;
-    }
-
-    /**
-     * This interface describe the listener of the add item floating action button.
-     *
-     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
-     */
-    interface AddItemActionListener {
-        /**
-         * Notify the add item action.
-         */
-        void addItem();
     }
 }

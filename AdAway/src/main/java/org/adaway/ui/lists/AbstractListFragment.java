@@ -38,7 +38,6 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 
 import org.adaway.R;
-import org.adaway.provider.ProviderHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -48,7 +47,7 @@ import org.adaway.util.Log;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public abstract class AbstractListFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<Cursor>, ListsFragmentPagerAdapter.AddItemActionListener {
+        LoaderManager.LoaderCallbacks<Cursor> {
     /**
      * The list cursor adapter.
      */
@@ -150,7 +149,7 @@ public abstract class AbstractListFragment extends ListFragment implements
          * Load data.
          */
         // Create cursor adapter
-        this.mAdapter = this.getCursorAdapter(activity);
+        this.mAdapter = this.getCursorAdapter();
         // Bind adapter to list
         this.setListAdapter(this.mAdapter);
         // Prepare the loader. Either re-connect with an existing one, or start a new one.
@@ -170,7 +169,8 @@ public abstract class AbstractListFragment extends ListFragment implements
         boolean checked = checkBox.isChecked();
         // Set new status
         checkBox.setChecked(!checked);
-        ProviderHelper.updateBlacklistItemEnabled(this.getActivity(), id, !checked);
+        // Enable item
+        this.enableItem(id, !checked);
     }
 
     /*
@@ -200,12 +200,18 @@ public abstract class AbstractListFragment extends ListFragment implements
         this.mAdapter.swapCursor(null);
     }
 
-    /*
-     * AddItemActionListener.
+    /**
+     * Add a new item.
      */
+    protected abstract void addItem();
 
-    @Override
-    public abstract void addItem();
+    /**
+     * Enable or not a list item.
+     *
+     * @param itemId  The item identifier.
+     * @param enabled The item enable state (<code>true</code> if enabled, <code>false</code> otherwise).
+     */
+    protected abstract void enableItem(long itemId, boolean enabled);
 
     /**
      * Edit the selected list item.
@@ -266,8 +272,7 @@ public abstract class AbstractListFragment extends ListFragment implements
     /**
      * Get the cursor adapter for the list view.
      *
-     * @param activity The current fragment activity.
      * @return The cursor adapter for the list view.
      */
-    protected abstract CursorAdapter getCursorAdapter(FragmentActivity activity);
+    protected abstract CursorAdapter getCursorAdapter();
 }
