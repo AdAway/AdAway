@@ -1,4 +1,4 @@
-# AdAway [![Build Status](https://travis-ci.org/PerfectSlayer/AdAway.svg?branch=master)](https://travis-ci.org/PerfectSlayer/AdAway)
+# AdAway [![Build Status](https://travis-ci.org/PerfectSlayer/AdAway.svg?branch=master)](https://travis-ci.org/PerfectSlayer/AdAway)  [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](blob/master/LICENSE)
 
 AdAway is an open source ad blocker for Android using the hosts file. 
 
