@@ -28,28 +28,37 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.adaway.R;
-import org.adaway.provider.AdAwayContract.Blacklist;
+import org.adaway.provider.AdAwayContract;
 
 /**
- * This class is a {@link android.support.v4.widget.CursorAdapter} to provide blacklist and whitelist items.
+ * This class is a {@link android.support.v4.widget.CursorAdapter} to provide list items.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 class ListsCursorAdapter extends SimpleCursorAdapter {
-    /** The enabled status checkbox tag. */
+    /**
+     * The enabled status checkbox tag.
+     */
     static final String ENABLED_CHECKBOX_TAG = "enabled";
-    /** The hostname value text view tag. */
+    /**
+     * The hostname value text view tag.
+     */
     static final String HOSTNAME_TEXTVIEW_TAG = "hostname";
+    /**
+     * The IP address value text view tag.
+     */
+    static final String IP_TEXTVIEW_TAG = "ip";
 
     /**
      * Constructor.
      *
      * @param context The activity context.
+     * @param layout  The view layout.
      */
-    ListsCursorAdapter(Context context) {
+    ListsCursorAdapter(Context context, int layout) {
         super(
                 context,
-                R.layout.checkbox_list_entry,
+                layout,
                 null,                         // No cursor to reuse
                 new String[]{},               // Column to field are handled by this implementation
                 new int[]{},                  // Column to field are handled by this implementation
@@ -59,31 +68,42 @@ class ListsCursorAdapter extends SimpleCursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        // Get the checkbox
-        CheckBox checkBox = view.findViewById(R.id.checkbox_list_checkbox);
-        if (checkBox != null) {
+        // Get enabled checkbox
+        CheckBox enabledCheckBox = view.findViewById(R.id.checkbox_list_checkbox);
+        if (enabledCheckBox != null) {
             // Get enabled value
-            int enabledColumnIndex = cursor.getColumnIndexOrThrow(Blacklist.ENABLED);
+            int enabledColumnIndex = cursor.getColumnIndexOrThrow(AdAwayContract.ListColumns.ENABLED);
             String enabled = cursor.getString(enabledColumnIndex);
             // Enable checkbox according enabled value
             if (Integer.parseInt(enabled) == 1) {
-                checkBox.setChecked(true);
+                enabledCheckBox.setChecked(true);
             } else {
-                checkBox.setChecked(false);
+                enabledCheckBox.setChecked(false);
             }
             // Set tag to find view in fragment
-            checkBox.setTag(ListsCursorAdapter.ENABLED_CHECKBOX_TAG);
+            enabledCheckBox.setTag(ListsCursorAdapter.ENABLED_CHECKBOX_TAG);
         }
-        // Get text view
-        TextView textView = view.findViewById(R.id.checkbox_list_text);
-        if (textView != null) {
+        // Get hostname text view
+        TextView hostnameTextView = view.findViewById(R.id.checkbox_list_text);
+        if (hostnameTextView != null) {
             // Get hostname value
-            int hostnameColumnIndex = cursor.getColumnIndexOrThrow(Blacklist.HOSTNAME);
+            int hostnameColumnIndex = cursor.getColumnIndexOrThrow(AdAwayContract.ListColumns.HOSTNAME);
             String hostname = cursor.getString(hostnameColumnIndex);
             // Set hostname text
-            textView.setText(hostname);
+            hostnameTextView.setText(hostname);
             // Set tag to find view in fragment
-            textView.setTag(ListsCursorAdapter.HOSTNAME_TEXTVIEW_TAG);
+            hostnameTextView.setTag(ListsCursorAdapter.HOSTNAME_TEXTVIEW_TAG);
+        }
+        // Get IP text view
+        TextView ipTextView = view.findViewById(R.id.checkbox_list_subtext);
+        if (ipTextView != null) {
+            // Get ip value
+            int hostnameColumnIndex = cursor.getColumnIndexOrThrow(AdAwayContract.RedirectionList.IP);
+            String ip = cursor.getString(hostnameColumnIndex);
+            // Set ip text
+            ipTextView.setText(ip);
+            // Set tag to find view in fragment
+            ipTextView.setTag(ListsCursorAdapter.IP_TEXTVIEW_TAG);
         }
     }
 }

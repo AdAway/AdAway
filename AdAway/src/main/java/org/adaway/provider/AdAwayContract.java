@@ -25,30 +25,28 @@ import android.provider.BaseColumns;
 
 public class AdAwayContract {
 
-    interface HostsSourcesColumns {
+    public interface HostsSourcesColumns {
         String URL = "url";
         String LAST_MODIFIED_LOCAL = "last_modified_local";
         String LAST_MODIFIED_ONLINE = "last_modified_online";
         String ENABLED = "enabled";
     }
 
-    interface ListColumns {
+    public interface ListColumns {
         String HOSTNAME = "url"; // is url because of legacy reasons
         String ENABLED = "enabled";
     }
 
-    interface WhitelistColumns extends ListColumns {
+    public interface WhitelistColumns extends ListColumns {
 
     }
 
-    interface BlacklistColumns extends ListColumns {
+    public interface BlacklistColumns extends ListColumns {
 
     }
 
-    interface RedirectionListColumns {
-        String HOSTNAME = "url"; // is url because of legacy reasons
+    public interface RedirectionListColumns extends ListColumns {
         String IP = "ip";
-        String ENABLED = "enabled";
     }
 
     public static final String CONTENT_AUTHORITY = "org.adaway";

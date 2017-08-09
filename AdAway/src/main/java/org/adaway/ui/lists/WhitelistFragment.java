@@ -25,6 +25,7 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ListFragment;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
@@ -39,11 +40,16 @@ import org.adaway.provider.AdAwayContract.Whitelist;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.RegexUtils;
 
+/**
+ * This class is a {@link ListFragment} to display and manage white-listed hosts.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class WhitelistFragment extends AbstractListFragment {
     /**
      * The blacklist fields display in this view.
      */
-    static final String[] WHITELIST_SUMMARY_PROJECTION = new String[]{
+    protected static final String[] WHITELIST_SUMMARY_PROJECTION = new String[]{
             Whitelist._ID,
             Whitelist.HOSTNAME,
             Whitelist.ENABLED
@@ -66,12 +72,8 @@ public class WhitelistFragment extends AbstractListFragment {
         );
     }
 
-    /*
-     * AddItemActionListener.
-     */
-
     @Override
-    public void addItem() {
+    protected void addItem() {
         FragmentActivity activity = this.getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setCancelable(true);
@@ -95,7 +97,7 @@ public class WhitelistFragment extends AbstractListFragment {
                         dialog.dismiss();
 
                         String input = inputEditText.getText().toString();
-                        insertItem(input);
+                        WhitelistFragment.this.addItem(input);
                     }
                 }
         );
@@ -111,32 +113,42 @@ public class WhitelistFragment extends AbstractListFragment {
         alert.show();
     }
 
-
     /**
-     * Add new entry based on input
+     * Add a new item.
      *
-     * @param input
+     * @param host The host to insert.
      */
-    protected void insertItem(String input) {
-        FragmentActivity activity = this.getActivity();
-        if (input != null) {
-            if (RegexUtils.isValidWhitelistHostname(input)) {
-                ProviderHelper.insertWhitelistItem(activity, input);
-            } else {
-                AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
-                alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                alertDialog.setTitle(R.string.no_hostname_title);
-                alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
-                alertDialog.setButton(getString(R.string.button_close),
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dlg, int sum) {
-                                dlg.dismiss();
-                            }
-                        }
-                );
-                alertDialog.show();
-            }
+    protected void addItem(String host) {
+        // Check parameter
+        if (host == null) {
+            return;
         }
+        // Get activity
+        FragmentActivity activity = this.getActivity();
+        // Check if host is valid
+        if (RegexUtils.isValidWhitelistHostname(host)) {
+            // Insert host to whitelist
+            ProviderHelper.insertWhitelistItem(activity, host);
+        } else {
+            // Notify host is not valid
+            AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
+            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+            alertDialog.setTitle(R.string.no_hostname_title);
+            alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
+            alertDialog.setButton(getString(R.string.button_close),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dlg, int sum) {
+                            dlg.dismiss();
+                        }
+                    }
+            );
+            alertDialog.show();
+        }
+    }
+
+    @Override
+    protected void enableItem(long itemId, boolean enabled) {
+        ProviderHelper.updateWhitelistItemEnabled(this.getActivity(), itemId, enabled);
     }
 
     @Override
@@ -204,12 +216,11 @@ public class WhitelistFragment extends AbstractListFragment {
 
     @Override
     protected void deleteItem(long itemId) {
-        // Delete related hosts source
         ProviderHelper.deleteWhitelistItem(this.getActivity(), itemId);
     }
 
     @Override
-    protected CursorAdapter getCursorAdapter(FragmentActivity activity) {
-        return new ListsCursorAdapter(activity);
+    protected CursorAdapter getCursorAdapter() {
+        return new ListsCursorAdapter(this.getActivity(), R.layout.checkbox_list_entry);
     }
 }

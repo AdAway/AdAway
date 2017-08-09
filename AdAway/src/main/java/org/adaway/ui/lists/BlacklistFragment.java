@@ -25,7 +25,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -50,7 +49,7 @@ public class BlacklistFragment extends AbstractListFragment {
     /**
      * The blacklist fields display in this view.
      */
-    private static final String[] BLACKLIST_SUMMARY_PROJECTION = new String[]{
+    protected static final String[] BLACKLIST_SUMMARY_PROJECTION = new String[]{
             Blacklist._ID,
             Blacklist.HOSTNAME,
             Blacklist.ENABLED
@@ -73,12 +72,8 @@ public class BlacklistFragment extends AbstractListFragment {
         );
     }
 
-    /*
-     * AddItemActionListener.
-     */
-
     @Override
-    public void addItem() {
+    protected void addItem() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
@@ -101,7 +96,7 @@ public class BlacklistFragment extends AbstractListFragment {
                         dialog.dismiss();
 
                         String input = inputEditText.getText().toString();
-                        insertItem(input);
+                        BlacklistFragment.this.addItem(input);
                     }
                 });
         builder.setNegativeButton(getResources().getString(R.string.button_cancel),
@@ -116,11 +111,11 @@ public class BlacklistFragment extends AbstractListFragment {
     }
 
     /**
-     * Insert an entry.
+     * Add a new item.
      *
      * @param host The host to insert.
      */
-    protected void insertItem(String host) {
+    protected void addItem(String host) {
         // Check parameter
         if (host == null) {
             return;
@@ -132,6 +127,7 @@ public class BlacklistFragment extends AbstractListFragment {
             // Insert host to black list
             ProviderHelper.insertBlacklistItem(activity, host);
         } else {
+            // Notify host is not valid
             AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
             alertDialog.setTitle(R.string.no_hostname_title);
@@ -144,6 +140,11 @@ public class BlacklistFragment extends AbstractListFragment {
                     });
             alertDialog.show();
         }
+    }
+
+    @Override
+    protected void enableItem(long itemId, boolean enabled) {
+        ProviderHelper.updateBlacklistItemEnabled(this.getActivity(), itemId, enabled);
     }
 
     @Override
@@ -209,12 +210,11 @@ public class BlacklistFragment extends AbstractListFragment {
 
     @Override
     protected void deleteItem(long itemId) {
-        // Delete related hosts source
         ProviderHelper.deleteBlacklistItem(this.getActivity(), itemId);
     }
 
     @Override
-    protected CursorAdapter getCursorAdapter(FragmentActivity activity) {
-        return new ListsCursorAdapter(activity);
+    protected CursorAdapter getCursorAdapter() {
+        return new ListsCursorAdapter(this.getActivity(), R.layout.checkbox_list_entry);
     }
 }
