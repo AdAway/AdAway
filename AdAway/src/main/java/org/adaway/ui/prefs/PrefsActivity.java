@@ -18,13 +18,15 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.prefs;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import org.adaway.ui.MainActivity;
 
 /**
  * This activity is the settings activity of the application.

@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.hosts;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -51,7 +51,6 @@ import org.adaway.R;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.Constants;
-import org.adaway.util.HostsSourcesCursorAdapter;
 import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
 

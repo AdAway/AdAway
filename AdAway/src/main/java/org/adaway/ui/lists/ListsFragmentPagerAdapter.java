@@ -1,4 +1,4 @@
-package org.adaway.ui;
+package org.adaway.ui.lists;
 
 import android.app.Activity;
 import android.content.res.Configuration;

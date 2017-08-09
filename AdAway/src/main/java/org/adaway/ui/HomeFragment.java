@@ -48,6 +48,8 @@ import org.adaway.helper.OpenHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
 import org.adaway.service.UpdateService;
+import org.adaway.ui.lists.ListsFragment;
+import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.StatusCodes;

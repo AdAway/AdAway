@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.util;
+package org.adaway.ui.hosts;
 
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.HostsSources;
@@ -30,13 +30,13 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
+class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
     /**
      * Constructor.
      *
      * @param context The application context.
      */
-    public HostsSourcesCursorAdapter(Context context) {
+    HostsSourcesCursorAdapter(Context context) {
         super(context, R.layout.checkbox_list_two_entries, null, new String[]{}, new int[]{}, 0);
     }
 

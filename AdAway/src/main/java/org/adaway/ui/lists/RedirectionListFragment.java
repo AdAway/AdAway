@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.lists;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -34,7 +34,6 @@ import android.text.Editable;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.CheckBox;

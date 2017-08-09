@@ -155,7 +155,7 @@
 
         <fragment
             android:id="@+id/hosts_sources_list_fragment"
-            android:name="org.adaway.ui.HostsSourcesFragment"
+            android:name="org.adaway.ui.hosts.HostsSourcesFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@android:layout/two_line_list_item" />
