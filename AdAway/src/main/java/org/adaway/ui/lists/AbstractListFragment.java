@@ -201,6 +201,15 @@ public abstract class AbstractListFragment extends ListFragment implements
     }
 
     /**
+     * Ensure action mode is cancelled.
+     */
+    void ensureActionModeCanceled() {
+        if (this.mActionMode != null) {
+            this.mActionMode.finish();
+        }
+    }
+
+    /**
      * Add a new item.
      */
     protected abstract void addItem();
