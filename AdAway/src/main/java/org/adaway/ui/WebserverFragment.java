@@ -58,8 +58,7 @@ public class WebserverFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         mActivity = getActivity();
-        mWebserverToggle = (ToggleButton) mActivity
-                .findViewById(R.id.webserver_fragment_toggle_button);
+        mWebserverToggle = mActivity.findViewById(R.id.webserver_fragment_toggle_button);
         mWebserverToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

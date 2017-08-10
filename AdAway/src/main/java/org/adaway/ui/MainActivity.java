@@ -47,16 +47,30 @@ import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
 
-// Documentation about navigation drawer here: https://developer.android.com/training/implementing-navigation/nav-drawer.html#top
-
 public class MainActivity extends AppCompatActivity {
-
-
     Activity mActivity;
+    /*
+     * Application navigation related.
+     */
+    /**
+     * The navigation drawer layout.
+     */
     private DrawerLayout mDrawerLayout;
+    /**
+     * The navigation drawer toggle.
+     */
     private ActionBarDrawerToggle mDrawerToggle;
+    /**
+     * The navigation drawer list.
+     */
     private ListView mDrawerList;
+    /**
+     * The activity title.
+     */
     private CharSequence mTitle;
+    /**
+     * The navigation drawer title.
+     */
     private CharSequence mDrawerTitle;
 
 
@@ -106,9 +120,8 @@ public class MainActivity extends AppCompatActivity {
          */
         // Configure drawer items
         String[] mPlanetTitles = getResources().getStringArray(R.array.drawer_items);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        mDrawerList.setAdapter(
-                new ArrayAdapter<>(this, R.layout.drawer_list_item, mPlanetTitles)
+        mDrawerList = this.findViewById(R.id.left_drawer);
+        mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, mPlanetTitles)
         );
         // Set drawer item listener
         // Set the list's click listener
@@ -121,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Configure drawer toggle
         mTitle = mDrawerTitle = getTitle();
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = this.findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 mDrawerLayout,         /* DrawerLayout object */
@@ -131,13 +144,19 @@ public class MainActivity extends AppCompatActivity {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                getSupportActionBar().setTitle(mTitle);
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null) {
+                    actionBar.setTitle(mTitle);
+                }
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                getSupportActionBar().setTitle(mDrawerTitle);
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null) {
+                    actionBar.setTitle(mDrawerTitle);
+                }
             }
 
         };
@@ -196,7 +215,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getSupportActionBar().setTitle(mTitle);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(mTitle);
+        }
     }
 
     /**
@@ -223,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new WebserverFragment();
                 break;
             case 5:
-                fragment = new ScanAdwareListFragment();
+                fragment = new ScanAdwareListFragment();    // TODO Not working yet
                 break;
             case 6:
                 fragment = new PrefsFragment();
