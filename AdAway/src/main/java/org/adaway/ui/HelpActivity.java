@@ -78,7 +78,7 @@ public class HelpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mViewPager = new ViewPager(this);
-        mViewPager.setId(R.id.pager);
+        mViewPager.setId(R.id.all); // TODO Set proper id
 
         setContentView(mViewPager);
         ActionBar bar = getSupportActionBar();
