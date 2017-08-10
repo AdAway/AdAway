@@ -96,10 +96,11 @@ public class ListsFragment extends Fragment {
         // Enable tab navigation mode
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         // Add view pager on page listener to set selected tab according the selected page
-        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 actionBar.setSelectedNavigationItem(position);
+                pagerAdapter.ensureActionModeCanceled();
             }
         });
         /*

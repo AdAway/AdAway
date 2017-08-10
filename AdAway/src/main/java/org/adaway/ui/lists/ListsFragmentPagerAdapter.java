@@ -61,6 +61,15 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     /**
+     * Ensure action mode is cancelled.
+     */
+    void ensureActionModeCanceled() {
+        this.blacklistFragment.ensureActionModeCanceled();
+        this.whitelistFragment.ensureActionModeCanceled();
+        this.redirectionListFragment.ensureActionModeCanceled();
+    }
+
+    /**
      * Add an item into the requested fragment.
      *
      * @param position The fragment position.
