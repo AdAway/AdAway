@@ -15,19 +15,10 @@ android:
     # Additional components
     - extra-google-m2repository
     - extra-android-m2repository
-before_install:
-  - git clone https://github.com/urho3d/android-ndk.git $HOME/android-ndk-root
-  - export ANDROID_NDK_HOME=$HOME/android-ndk-root
-deploy:
-  provider: gcs
-  access_key_id: GOOGJSPL74KO5UIY4ADY
-  secret_access_key:
-    secure: wNC9TdC1OX7FIJ4ZXkA6+USlS7wWTAQcjo2jYPdJ2iRuBWL2EcSb4HycROcQ1oT7Xe9KHeWafI8bnkHy9vExDlvP01wgmXsAz+rYt7EEwtUiuuBORCgAUH0vdw/LnbQGG8q8N6I2hr3IMKZHC2EDuaNWsb5MPjXJneJMLlKSydo8UaKwieU8/dyiKXlM0f+T41xJyMRCCqg6zEsbc+NStviHLxtlLGuVn7h+6efp4+Vv+AIG72aULPszg6Oallr3wMeAyWD3cLbuO7bvhW08gWdtsngmwwQnfYhnsaSmC5xg+k+0wwRwYmEE5hzmz3xfvb9xzSt6uy3X6engcBv3vlwXwbe2snebyWMu68o2OExf+P03ncrDctIoSiuDc0kkY7AlGUNayDjUokdpppZ1mVxeyIpRm2ewVLqHH+V30ss9Eu2IF1mKr2NgLrt2/IDQ5BIaQK3ic8XINiUs2hZ4tdwc/mv1L6OSdUtvyctRsbgL8rirfoAEghMJoA5mGAsnV8FD+/V3isFHFJGH5k4AZu5KSbTRwz1LG5kqPReBGgd9wgzJxV7UHFmktKpvY7d72ES+r9nIOg0SYtulZWZwKxM1n8uMHEJJv8PmGOaCHWbFQvZD352QWl+mISzXXkUyjsm4TZkWp8DV6bvJZi5vBniT4sqcuXBeXZ/UgUCHAyA=
-  bucket: build-repository
-  # Do not clean up the build machine (with the build result) before uploading APK
-  skip_cleanup: true
-  # CI built APK is public
-  acl: public-read
-  # The APK file must be signed and zip-align before uploading it
-  file: /home/travis/build/PerfectSlayer/AdAway/AdAway/build/outputs/apk/AdAway-debug.apk
+before_script:
+  - openssl aes-256-cbc -K $encrypted_5b4f70877b4a_key -iv $encrypted_5b4f70877b4a_iv -in .boto.enc -out ~/.boto -d
+script:
+  - deploy.sh
+after_script:
+  - rm ~/.boto
 
