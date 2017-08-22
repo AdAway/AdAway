@@ -29,3 +29,7 @@ pom.xml.*
 .idea
 *.iml
 /AdAway/.externalNativeBuild/
+
+#Credentials
+.boto
+
