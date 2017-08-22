@@ -9,6 +9,7 @@ import org.sufficientlysecure.rootcommands.Toolbox;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 /**
  * This class provides methods to check, install and remove systemless script.
@@ -36,10 +37,10 @@ public class SystemlessUtils {
         try {
             // Start shell
             shell = Shell.startShell();
-            Toolbox toolbox = new Toolbox(shell);
             // Check if ChainFire's SuperSU systemless root is installed
-            if (toolbox.fileExists("/su/bin/su")) {
-                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode();
+            SuperSuSystemlessMode.Mode mode = SystemlessUtils.checkSuperSuSystemlessMode(shell);
+            if (mode != null) {
+                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode(mode);
             } else {
                 // Check if phh's SuperUser su bind is installed
                 SimpleCommand command = new SimpleCommand("su -v | grep subind");
@@ -66,5 +67,32 @@ public class SystemlessUtils {
         }
         // Return found systemless mode
         return SystemlessUtils.systemlessMode;
+    }
+
+    /**
+     * Check if ChainFire's SuperSU systemless root is installed.<br>
+     * Look for <code>/su/bin/su</code> binary in case of "/su partition" systemless mode and
+     * for <code>/sbin/su</code> mount point in case of "bind sbin" systemless mode.
+     *
+     * @param shell The root shell.
+     * @return The SuperSU systemless mode found, <code>null</code> if no SuperSU systemless root was found.
+     * @throws IOException      If the check could be done.
+     * @throws TimeoutException If the commands take too long.
+     */
+    private static SuperSuSystemlessMode.Mode checkSuperSuSystemlessMode(Shell shell) throws IOException, TimeoutException {
+        // Check toolbox
+        Toolbox toolbox = new Toolbox(shell);
+        // Check if "/su partition" systemless mode is installed
+        if (toolbox.fileExists("/su/bin/su")) {
+            return SuperSuSystemlessMode.Mode.SU_PARTITION;
+        }
+        // Check if "bind sbin" systemless mode is installed
+        SimpleCommand command = new SimpleCommand("mount | grep /sbin/su");
+        shell.add(command).waitForFinish();
+        if (command.getExitCode() == 0) {
+            return SuperSuSystemlessMode.Mode.BIND_SBIN;
+        }
+        // No ChainFire's SuperSU systemless root was found
+        return null;
     }
 }

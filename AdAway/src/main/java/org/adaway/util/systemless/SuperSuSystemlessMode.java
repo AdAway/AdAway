@@ -7,6 +7,7 @@ import org.adaway.util.Log;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
+import org.sufficientlysecure.rootcommands.util.Utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,6 +20,20 @@ import java.io.IOException;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class SuperSuSystemlessMode extends AbstractSystemlessMode {
+    /**
+     * The systemless mode.
+     */
+    private final Mode mode;
+
+    /**
+     * Constructor.
+     *
+     * @param mode The systemless mode.
+     */
+    public SuperSuSystemlessMode(Mode mode) {
+        this.mode = mode;
+    }
+
     @Override
     boolean isEnabled(Context context, Shell shell) throws Exception {
         // Look for mount point of system hosts file
@@ -29,9 +44,12 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
 
     /**
      * Install systemless script.<br>
-     * Create and execute<code>/su/su.d/0000adaway.script</code> file to mount hosts file to
-     * <code>/su/etc/hosts</code> location and ensure mounted hosts file is present.<br>
-     * Require SuperSU >= 2.56.
+     * Create and execute systemless script file to mount hosts file to a not /system location and
+     * ensure mounted hosts file is present.<br>
+     * In "/su partition" systemless mode, which requires SuperSU 2.56, the script file is located in
+     * <code>/su/su.d/</code> folder and hosts file in <code>/su/etc/</code> folder.<br>
+     * In "bind sbin" systemless mode, which require SuperSU 2.82, the script file is located in
+     * <code>/sbin/supersu/su.d/</code> folder and hosts file in <code>/sbin/supersu/etc/</code> folder.
      *
      * @param context The application context (current activity).
      * @return The script installation status (<code>true</code> if the systemless script is installed,
@@ -42,14 +60,14 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
         // Declare root shell
         Shell shell = null;
         try {
-            // Start root shell
-            shell = Shell.startRootShell();
+            // Start root shell with "mount master" feature (to apply 'publicly' the mount)
+            shell = Shell.startCustomShell(Utils.getSuPath()+" -mm");
             Toolbox toolbox = new Toolbox(shell);
             // Ensure mounted hosts file exists
-            if (!toolbox.fileExists(Constants.ANDROID_SU_ETC_HOSTS)) {
+            if (!toolbox.fileExists(this.mode.hostsFileLocation)) {
                 // Copy current hosts file to mounted host file
-                if (!toolbox.copyFile(Constants.ANDROID_SYSTEM_ETC_HOSTS, Constants.ANDROID_SU_ETC_HOSTS, false, true)) {
-                    Log.w(Constants.TAG, "Could not copy hosts file to " + Constants.ANDROID_SU_ETC_HOSTS + ".");
+                if (!toolbox.copyFile(Constants.ANDROID_SYSTEM_ETC_HOSTS, this.mode.hostsFileLocation, false, true)) {
+                    Log.w(Constants.TAG, "Could not copy hosts file to " + this.mode.hostsFileLocation + ".");
                     return false;
                 }
             }
@@ -65,16 +83,16 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
             File tempFile = File.createTempFile(Constants.TAG, ".script", cacheDir);
             // Write script content to temp file
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            writer.write("mount -o bind " + Constants.ANDROID_SU_ETC_HOSTS + " " + Constants.ANDROID_SYSTEM_ETC_HOSTS + ";");
+            writer.write("mount -o bind " + this.mode.hostsFileLocation + " " + Constants.ANDROID_SYSTEM_ETC_HOSTS + ";");
             writer.newLine();
             writer.close();
-            // Copy temp file to /su partition
-            if (!toolbox.copyFile(tempFile.getAbsolutePath(), Constants.ANDROID_SYSTEMLESS_SCRIPT, false, false)) {
-                Log.w(Constants.TAG, "Could not copy the systemless script to " + Constants.ANDROID_SYSTEMLESS_SCRIPT + ".");
+            // Copy temp file to systemless script location
+            if (!toolbox.copyFile(tempFile.getAbsolutePath(), this.mode.systemlessScriptLocation, false, false)) {
+                Log.w(Constants.TAG, "Could not copy the systemless script to " + this.mode.systemlessScriptLocation + ".");
                 return false;
             }
             // Apply script permissions
-            if (!toolbox.setFilePermissions(Constants.ANDROID_SYSTEMLESS_SCRIPT, "755")) {
+            if (!toolbox.setFilePermissions(this.mode.systemlessScriptLocation, "755")) {
                 Log.w(Constants.TAG, "Could not set systemless script rights.");
                 return false;
             }
@@ -83,7 +101,7 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
                 Log.i(Constants.TAG, "Could not delete the temporary script file.");
             }
             // Execute script
-            SimpleCommand command = new SimpleCommand(Constants.ANDROID_SYSTEMLESS_SCRIPT);
+            SimpleCommand command = new SimpleCommand(this.mode.systemlessScriptLocation);
             shell.add(command).waitForFinish();
             if (command.getExitCode() != 0) {
                 Log.w(Constants.TAG, "Could not execute the systemless script.");
@@ -113,7 +131,7 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
 
     /**
      * Remove systemless script.<br>
-     * Remove <code>/su/su.d/0000adaway.script</code> and mounted hosts files.
+     * Remove systemless script file and mounted hosts files.
      *
      * @param context The application context (current activity).
      * @return The script removal status (<code>true</code> if the systemless script is removed,
@@ -132,7 +150,7 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
             }
             // Remove systemless script
             SimpleCommand removeScriptCommand =
-                    new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SYSTEMLESS_SCRIPT);
+                    new SimpleCommand(Constants.COMMAND_RM + " " + this.mode.systemlessScriptLocation);
             shell.add(removeScriptCommand).waitForFinish();
             if (removeScriptCommand.getExitCode() != 0) {
                 Log.w(Constants.TAG, "Couldn't remove systemless script.");
@@ -144,7 +162,7 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
             shell.add(umountCommand).waitForFinish();
             // Remove mounted hosts file
             SimpleCommand removeMountedHostsCommand =
-                    new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SU_ETC_HOSTS);
+                    new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SBIN_SUPERSU_ETC_HOSTS);
             shell.add(removeMountedHostsCommand).waitForFinish();
             // Return successfully removed
             return true;
@@ -165,6 +183,41 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
 
     @Override
     public boolean isRebootNeededAfterActivation() {
-        return false;
+        // Reboot is only needed with "bind sbin" systemless mode
+        return this.mode == Mode.BIND_SBIN;
+    }
+
+    /**
+     * The ChainFire's SuperSU systemless mode.
+     */
+    public enum Mode {
+        /**
+         * The "/su partition" systemless mode.
+         */
+        SU_PARTITION(Constants.ANDROID_SU_ETC_HOSTS, Constants.ANDROID_SYSTEMLESS_SCRIPT_SU),
+        /**
+         * The "bind sbin" systemless mode.
+         */
+        BIND_SBIN(Constants.ANDROID_SBIN_SUPERSU_ETC_HOSTS, Constants.ANDROID_SYSTEMLESS_SCRIPT_SBIN);
+
+        /**
+         * The hosts file location.
+         */
+        private final String hostsFileLocation;
+        /**
+         * The systemless script location.
+         */
+        private final String systemlessScriptLocation;
+
+        /**
+         * Constructor.
+         *
+         * @param hostsFileLocation        The hosts file location.
+         * @param systemlessScriptLocation The systemless script location.
+         */
+        Mode(String hostsFileLocation, String systemlessScriptLocation) {
+            this.hostsFileLocation = hostsFileLocation;
+            this.systemlessScriptLocation = systemlessScriptLocation;
+        }
     }
 }
