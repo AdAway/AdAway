@@ -162,7 +162,7 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
             shell.add(umountCommand).waitForFinish();
             // Remove mounted hosts file
             SimpleCommand removeMountedHostsCommand =
-                    new SimpleCommand(Constants.COMMAND_RM + " " + Constants.ANDROID_SBIN_SUPERSU_ETC_HOSTS);
+                    new SimpleCommand(Constants.COMMAND_RM + " " + this.mode.hostsFileLocation);
             shell.add(removeMountedHostsCommand).waitForFinish();
             // Return successfully removed
             return true;
