@@ -87,9 +87,7 @@ public class SystemlessUtils {
             return SuperSuSystemlessMode.Mode.SU_PARTITION;
         }
         // Check if "bind sbin" systemless mode is installed
-        SimpleCommand command = new SimpleCommand("mount | grep /sbin/su");
-        shell.add(command).waitForFinish();
-        if (command.getExitCode() == 0) {
+        else if (toolbox.fileExists("/sbin/supersu/supersu_is_here")) {
             return SuperSuSystemlessMode.Mode.BIND_SBIN;
         }
         // No ChainFire's SuperSU systemless root was found
