@@ -22,14 +22,14 @@ package org.adaway.ui;
 
 import org.adaway.R;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
-public class TcpdumpLogActivity extends SherlockFragmentActivity {
+public class TcpdumpLogActivity extends AppCompatActivity {
     private ActionBar mActionBar;
 
     @Override
@@ -38,7 +38,7 @@ public class TcpdumpLogActivity extends SherlockFragmentActivity {
 
         setContentView(R.layout.tcpdump_log_activity);
 
-        mActionBar = getSupportActionBar();
+        mActionBar = getActionBar();
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
     }

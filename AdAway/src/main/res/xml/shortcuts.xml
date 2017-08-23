@@ -9,8 +9,8 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="org.adaway"
-            android:targetClass="org.adaway.ui.PrefsActivity" />
-        <categories android:name="org.adaway.ui.PrefsActivity" />
+            android:targetClass="org.adaway.ui.prefs.PrefsActivity" />
+        <categories android:name="org.adaway.ui.prefs.PrefsActivity" />
     </shortcut>
     <shortcut
         android:shortcutId="TCP"
@@ -35,7 +35,7 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="org.adaway"
-            android:targetClass="org.adaway.ui.ListsActivity" />
-        <categories android:name="org.adaway.ui.ListsActivity" />
+            android:targetClass="org.adaway.ui.lists.ListsFragment" />
+        <categories android:name="org.adaway.ui.lists.ListsFragment" />
     </shortcut>
 </shortcuts>

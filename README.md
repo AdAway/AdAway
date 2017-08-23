@@ -1,11 +1,14 @@
-# AdAway
+# AdAway [![Build Status](https://travis-ci.org/PerfectSlayer/AdAway.svg?branch=master)](https://travis-ci.org/PerfectSlayer/AdAway)  [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](blob/master/LICENSE)
 
 AdAway is an open source ad blocker for Android using the hosts file. 
 
 For more information visit http://adaway.org
 
 ## Preview Build
-For Android Nougat users, or users with bugs, there may be preview builds available from the [AdAway XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753). It is recommended to try those builds to see if your issue is resolved before creating an issue. The preview builds may contain bug fixes or new features for new android versions.  You can also obtain Preview or Stable builds from the [XDA Labs](https://labs.xda-developers.com/store/app/org.adaway) application.
+For users with bugs, there may be preview builds available from the [AdAway XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753).
+It is recommended to try those builds to see if your issue is resolved before creating an issue.
+The preview builds may contain bug fixes or new features for new android versions. 
+You can also obtain Preview or Stable builds from the [XDA Labs](https://labs.xda-developers.com/store/app/org.adaway) application.
 
 ## Stable Build
 After preview builds have been tested a bit by the more technical or responsive community within the forums, we will then post the stable build to F-Droid.
@@ -20,8 +23,12 @@ You can post [Issues](https://github.com/Free-Software-for-Android/AdAway/issues
 
 ## Authors
 
-AdAway is currently maintained by 0-kaladin and Dāvis Mošenkovs.
-The original author is Dominik Schürmann.
+AdAway is currently maintained by:
+* [@0-kaladin](https://github.com/0-kaladin)
+* Sanjay Govind ([@sanjay900](https://github.com/sanjay900))
+* Bruce Bujon ([@PerfectSlayer](https://github.com/PerfectSlayer))
+
+The original author is Dominik Schürmann ([@dschuermann](https://github.com/dschuermann)) and it was previously maintained by Dāvis Mošenkovs ([@DavisNT](https://github.com/DavisNT)).
 
 # Build with Gradle
 
@@ -45,9 +52,10 @@ Fork AdAway and do a Pull Request. I will merge your changes back into the main 
 
 ## Development
 
-I am using the newest [Android Studio](http://developer.android.com/sdk/installing/studio.html) for development. Development with Eclipse is currently not possible because I am using the new [project structure](http://developer.android.com/sdk/installing/studio-tips.html).
+I am using the newest [Android Studio](http://developer.android.com/sdk/installing/studio.html) for development.
+Development with Eclipse is currently not possible because I am using the new [project structure](http://developer.android.com/sdk/installing/studio-tips.html).
 
-1. Clone the project from github
+1. Clone the project from GitHub
 2. From Android Studio: File -> Import Project -> Select the cloned top folder
 3. Import project from external model -> choose Gradle
 
@@ -60,7 +68,7 @@ Translations are hosted on Transifex, which is configured by ".tx/config".
 3. Go into root folder of git repo
 4. execute ``tx pull`` (``tx pull -a`` to get all languages)
 
-see http://docs.transifex.com/client/
+see http://docs.transifex.com/client/ for more details.
 
 # Coding Style
 
@@ -85,14 +93,13 @@ See http://www.androidpolice.com/2009/11/04/auto-formatting-android-xml-files-wi
 
 Forked from the following sources and slightly modified to compile!
 
-* dnsmasq:  https://github.com/CyanogenMod/android_external_dnsmasq
+* dnsmasq: https://github.com/CyanogenMod/android_external_dnsmasq
 * libpcap: https://github.com/the-tcpdump-group/libpcap/tree/libpcap-1.7.4
 * tcpdump: https://github.com/the-tcpdump-group/tcpdump/tree/tcpdump-4.7.4
 
 ## Changes
 
-Please review the following commits for the changes made to the sources above
-in order for them to compile in this project:
+Please review the following commits for the changes made to the sources above in order for them to compile in this project:
 
 * Commit: https://github.com/Free-Software-for-Android/AdAway/commit/1f4ccb3cec3758757341ad90813506fc2a8fdf7b
 * Commit: https://github.com/Free-Software-for-Android/AdAway/commit/289df896c0ac4f96bd862e8a5054f1011ec07cac
@@ -117,9 +124,6 @@ You should have received a copy of the GNU General Public License
 along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
 
 ## Libraries
-* ActionBarSherlock  
-  http://actionbarsherlock.com/  
-  Apache License v2
 
 * Android Donations Lib  
   https://github.com/dschuermann/android-donations-lib  

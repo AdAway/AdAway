@@ -20,22 +20,20 @@
 
 package org.adaway.ui;
 
-import org.adaway.R;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 
-public class ScanAdwareActivity extends SherlockFragmentActivity {
+import org.adaway.R;
+
+public class ScanAdwareActivity extends AppCompatActivity {
     private Activity mActivity;
-    private ActionBar mActionBar;
+    private android.support.v7.app.ActionBar mActionBar;
 
     /**
      * Instantiate View and initialize fragments for this Activity
@@ -61,7 +59,7 @@ public class ScanAdwareActivity extends SherlockFragmentActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in Action Bar clicked; go home
-                Intent intent = new Intent(mActivity, BaseActivity.class);
+                Intent intent = new Intent(mActivity, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

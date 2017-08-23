@@ -198,7 +198,7 @@ public class Shell implements Closeable {
 
     /**
      * Writes queued commands one after another into the opened shell. After an execution a token is
-     * written to seperate command output on read
+     * written to separate command output on read
      * 
      * @throws IOException
      */
@@ -237,7 +237,7 @@ public class Shell implements Closeable {
     }
 
     /**
-     * Reads output line by line, seperated by token written after every command
+     * Reads output line by line, separated by token written after every command
      * 
      * @throws IOException
      * @throws InterruptedException

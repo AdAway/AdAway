@@ -20,7 +20,13 @@
 
 package org.adaway.ui;
 
-import java.io.IOException;
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ToggleButton;
 
 import org.adaway.R;
 import org.adaway.util.Constants;
@@ -28,16 +34,9 @@ import org.adaway.util.Log;
 import org.adaway.util.WebserverUtils;
 import org.sufficientlysecure.rootcommands.Shell;
 
-import com.actionbarsherlock.app.SherlockFragment;
+import java.io.IOException;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ToggleButton;
-
-public class WebserverFragment extends SherlockFragment {
+public class WebserverFragment extends Fragment {
     private Activity mActivity;
     private ToggleButton mWebserverToggle;
 
@@ -56,11 +55,16 @@ public class WebserverFragment extends SherlockFragment {
      */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onActivityCreated(savedInstanceState);
 
         mActivity = getActivity();
-        mWebserverToggle = (ToggleButton) mActivity
-                .findViewById(R.id.webserver_fragment_toggle_button);
+        mWebserverToggle = mActivity.findViewById(R.id.webserver_fragment_toggle_button);
+        mWebserverToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webserverOnClick(view);
+            }
+        });
 
         try {
             mRootShell = Shell.startRootShell();

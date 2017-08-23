@@ -20,51 +20,41 @@
 
 package org.adaway.ui;
 
-import org.adaway.BuildConfig;
-import org.adaway.R;
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.widget.TextView;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.view.MenuItem;
-
-import java.util.ArrayList;
-
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-
+import org.adaway.R;
 import org.adaway.util.Constants;
 import org.sufficientlysecure.donations.DonationsFragment;
 
-public class HelpActivity extends SherlockFragmentActivity {
-    ViewPager mViewPager;
-    TabsAdapter mTabsAdapter;
+import java.util.ArrayList;
 
+public class HelpActivity extends AppCompatActivity {
     /**
      * PayPal
      */
     private static final String PAYPAL_USER = "dominik@sufficientlysecure.org";
     private static final String PAYPAL_CURRENCY_CODE = "EUR";
-
     /**
      * Flattr
      */
     private static final String FLATTR_PROJECT_URL = "http://code.google.com/p/ad-away/";
     // without http:// !
     private static final String FLATTR_URL = "flattr.com/thing/369138/AdAway-Ad-blocker-for-Android";
-
     /**
      * Bitcoin
      */
     private static final String BITCOIN = "1LDEN2cjZ498QYxk14UTJHRakuwxAcggWR";
+    ViewPager mViewPager;
+    TabsAdapter mTabsAdapter;
 
     /**
      * Menu Items
@@ -74,7 +64,7 @@ public class HelpActivity extends SherlockFragmentActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in Action Bar clicked; go home
-                Intent intent = new Intent(this, BaseActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
@@ -88,7 +78,7 @@ public class HelpActivity extends SherlockFragmentActivity {
         super.onCreate(savedInstanceState);
 
         mViewPager = new ViewPager(this);
-        mViewPager.setId(R.id.pager);
+        mViewPager.setId(R.id.all); // TODO Set proper id
 
         setContentView(mViewPager);
         ActionBar bar = getSupportActionBar();
@@ -144,19 +134,9 @@ public class HelpActivity extends SherlockFragmentActivity {
         private final Context mContext;
         private final ActionBar mActionBar;
         private final ViewPager mViewPager;
-        private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
+        private final ArrayList<TabInfo> mTabs = new ArrayList<>();
 
-        static final class TabInfo {
-            private final Class<?> clss;
-            private final Bundle args;
-
-            TabInfo(Class<?> _class, Bundle _args) {
-                clss = _class;
-                args = _args;
-            }
-        }
-
-        public TabsAdapter(SherlockFragmentActivity activity, ViewPager pager) {
+        public TabsAdapter(AppCompatActivity activity, ViewPager pager) {
             super(activity.getSupportFragmentManager());
             mContext = activity;
             mActionBar = activity.getSupportActionBar();
@@ -195,7 +175,7 @@ public class HelpActivity extends SherlockFragmentActivity {
         public void onPageScrollStateChanged(int state) {
         }
 
-        public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
             Object tag = tab.getTag();
             for (int i = 0; i < mTabs.size(); i++) {
                 if (mTabs.get(i) == tag) {
@@ -204,10 +184,20 @@ public class HelpActivity extends SherlockFragmentActivity {
             }
         }
 
-        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
         }
 
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+        }
+
+        static final class TabInfo {
+            private final Class<?> clss;
+            private final Bundle args;
+
+            TabInfo(Class<?> _class, Bundle _args) {
+                clss = _class;
+                args = _args;
+            }
         }
     }
 }

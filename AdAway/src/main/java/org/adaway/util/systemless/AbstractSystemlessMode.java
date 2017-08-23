@@ -5,7 +5,6 @@ import android.content.Context;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
 import java.io.IOException;
 

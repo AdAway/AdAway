@@ -4,14 +4,19 @@ repositories {
     maven {
         url "https://s3.amazonaws.com/repo.commonsware.com"
     }
+    maven {
+        url "https://maven.google.com"
+    }
 }
 dependencies {
-
-    compile 'com.commonsware.cwac:wakeful:1.0.+'
+    compile 'com.android.support:appcompat-v7:26.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:26.0.0'
+    compile 'com.android.support:preference-v7:26.0.0'
+    compile 'com.android.support:support-v4:26.0.0'
+    compile 'com.evernote:android-job:1.1.10'
     compile project(':libraries:RootCommands')
     compile 'net.sf.trove4j:trove4j:3.0.3'
-    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    compile 'com.android.support:support-v4:18.0.+'
     compile 'org.sufficientlysecure:html-textview:2.0'
     compile 'org.sufficientlysecure:donations:2.4'
 }
@@ -24,12 +29,12 @@ android {
         }
     }
 
-    compileSdkVersion 25
-    buildToolsVersion "24.0.3"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.1'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 26
 
     }
 
@@ -73,7 +78,6 @@ android {
     }
 }
 
-
 /**
  * Task to rename executables from hello_world to libhello_world_exec.so
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
@@ -91,3 +95,6 @@ task renameExecutables(type: Copy) {
 }
 
 build.dependsOn renameExecutables
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn renameExecutables
+}

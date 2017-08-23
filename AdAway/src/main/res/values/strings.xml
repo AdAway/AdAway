@@ -28,7 +28,7 @@
     <!-- Checkbox List -->
     <string name="checkbox_list_add_dialog_title">Add</string>
     <string name="checkbox_list_empty">Empty list</string>
-    <string name="checkbox_list_empty_text">You can add items from the action bar.</string>
+    <string name="checkbox_list_empty_text">You can add items from the plus button.</string>
     <string name="checkbox_list_context_delete">Delete</string>
     <string name="checkbox_list_footer">After adding new items to this list you have to apply AdAway again!</string>
     <string name="checkbox_list_edit_dialog_title">Edit</string>
@@ -111,7 +111,7 @@
     <string name="disable_systemless_successful_title">Disabling successful</string>
 
     <!-- Other Dialogs -->
-    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on www.cyanogenmod.org or other Android websites.</string>
+    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on lineageos.org or other Android websites.</string>
     <string name="no_root_title">Rooted Android required</string>
     <string name="no_url">This is not a valid URL!</string>
     <string name="no_url_title">Improperly formatted URL</string>
@@ -126,15 +126,10 @@
     <!-- Menu entries -->
     <string name="menu_refresh">Refresh</string>
     <string name="menu_add">Add</string>
-    <string name="menu_scan_adware">Scan for Adware</string>
     <string name="menu_hosts_sources">Hosts sources</string>
-    <string name="menu_tcpdump">Log DNS Requests</string>
     <string name="menu_help">Help</string>
-    <string name="menu_lists">Your Lists</string>
-    <string name="menu_show_hosts_file">Open hosts file</string>
     <string name="menu_import">Import All Lists</string>
     <string name="menu_export">Export All Lists</string>
-    <string name="menu_preferences">Preferences</string>
 
     <!-- Help -->
     <string name="help_tab_about">About</string>
@@ -228,5 +223,23 @@
     <string name="pref_enable_ipv6_summary">All host file entries will get a corresponding ::1 (IPv6 localhost) entry.</string>
     <string name="pref_enable_systemless_summary">Prevent AdAway from modifying the system partition</string>
     <string name="pref_enable_systemless">Enable systemless mode</string>
+    <string name="drawer_open">Open menu</string>
+    <string name="drawer_close">Close menu</string>
+
+    <!-- Drawer menu items -->
+    <string-array name="drawer_items">
+        <item>Home</item>
+        <item>Hosts sources</item>
+        <item>Your lists</item>
+        <item>Open hosts file</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
+        <item>Preferences</item>
+    </string-array>
+
+    <!-- Hosts source status -->
+    <string name="hosts_source_update_available">Update available</string>
+    <string name="hosts_source_up_to_date">Up-to-date</string>
+    <string name="hosts_source_unknown_status">Unknown update status</string>
 
 </resources>
