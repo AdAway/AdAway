@@ -48,7 +48,6 @@ import org.adaway.helper.OpenHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
 import org.adaway.service.UpdateService;
-import org.adaway.ui.lists.ListsFragment;
 import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -233,16 +232,8 @@ public class HomeFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.menu_lists:
-                startActivity(new Intent(mActivity, ListsFragment.class));
-                return true;
-
             case R.id.menu_show_hosts_file:
                 OpenHelper.openHostsFile(mActivity);
-                return true;
-
-            case R.id.menu_tcpdump:
-                startActivity(new Intent(mActivity, TcpdumpActivity.class));
                 return true;
 
             case R.id.menu_preferences:

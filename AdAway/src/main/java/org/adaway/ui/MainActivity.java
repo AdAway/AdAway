@@ -43,6 +43,7 @@ import org.adaway.helper.ResultHelper;
 import org.adaway.ui.hosts.HostsSourcesFragment;
 import org.adaway.ui.lists.ListsFragment;
 import org.adaway.ui.prefs.PrefsFragment;
+import org.adaway.ui.tcpdump.TcpdumpFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -242,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
                 OpenHelper.openHostsFile(this);
                 break;
             case 4:
-                fragment = new WebserverFragment();
+                fragment = new TcpdumpFragment();
                 break;
             case 5:
                 fragment = new ScanAdwareListFragment();    // TODO Not working yet

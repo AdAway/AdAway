@@ -22,8 +22,8 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="org.adaway"
-            android:targetClass="org.adaway.ui.TcpdumpActivity" />
-        <categories android:name="org.adaway.ui.TcpdumpActivity" />
+            android:targetClass="org.adaway.ui.tcpdump.TcpdumpFragment" />
+        <categories android:name="org.adaway.ui.tcpdump.TcpdumpFragment" />
     </shortcut>
     <shortcut
         android:shortcutId="Lists"

@@ -57,10 +57,7 @@
             android:name=".ui.ScanAdwareActivity"
             android:label="@string/menu_scan_adware" />
         <activity
-            android:name=".ui.TcpdumpActivity"
-            android:label="@string/menu_tcpdump" />
-        <activity
-            android:name=".ui.TcpdumpLogActivity"
+            android:name=".ui.tcpdump.TcpdumpLogActivity"
             android:label="@string/menu_tcpdump" />
         <activity
             android:name=".ui.HelpActivity"

@@ -22,7 +22,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:onClick="tcpdumpToggleOnClick"
             android:textOff="@string/button_tcpdump_toggle_unchecked"
             android:textOn="@string/button_tcpdump_toggle_checked" />
 
@@ -31,7 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:onClick="tcpdumpOpenOnClick"
             android:text="@string/button_tcpdump_open" />
 
         <Button
@@ -39,7 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:onClick="tcpdumpDeleteOnClick"
             android:text="@string/button_tcpdump_delete" />
     </LinearLayout>
 

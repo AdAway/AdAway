@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.tcpdump;
 
 import java.util.ArrayList;
 

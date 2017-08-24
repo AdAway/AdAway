@@ -18,14 +18,14 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.tcpdump;
 
 import org.adaway.R;
+import org.adaway.ui.MainActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -38,7 +38,7 @@ public class TcpdumpLogActivity extends AppCompatActivity {
 
         setContentView(R.layout.tcpdump_log_activity);
 
-        mActionBar = getActionBar();
+        mActionBar = getSupportActionBar();
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
     }
@@ -51,7 +51,7 @@ public class TcpdumpLogActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in Action Bar clicked; go home
-                Intent intent = new Intent(this, TcpdumpActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
