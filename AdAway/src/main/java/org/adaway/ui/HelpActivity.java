@@ -51,7 +51,7 @@ public class HelpActivity extends SherlockFragmentActivity {
     /**
      * PayPal
      */
-    private static final String PAYPAL_USER = "dominik@sufficientlysecure.org";
+    private static final String PAYPAL_USER = "android@schuermann.eu";
     private static final String PAYPAL_CURRENCY_CODE = "EUR";
 
     /**
