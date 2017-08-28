@@ -22,7 +22,7 @@ before_install:
   - export ANDROID_NDK_HOME=$HOME/android-ndk-root
 
 before_deploy:
-  - openssl aes-256-cbc -K $encrypted_5b4f70877b4a_key -iv $encrypted_5b4f70877b4a_iv -in .boto.enc -out ~/.boto -d
+  - openssl aes-256-cbc -K $encrypted_5b4f70877b4a_key -iv $encrypted_5b4f70877b4a_iv -in .boto.enc -out .boto -d
 deploy:
   provider: script
   script: sh deploy.sh
