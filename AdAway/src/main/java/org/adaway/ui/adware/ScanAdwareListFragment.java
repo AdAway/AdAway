@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.adware;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -54,7 +54,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.ScanAdwareActivity"
+            android:name=".ui.adware.ScanAdwareActivity"
             android:label="@string/menu_scan_adware" />
         <activity
             android:name=".ui.tcpdump.TcpdumpLogActivity"

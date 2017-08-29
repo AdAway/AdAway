@@ -48,7 +48,7 @@ import org.adaway.helper.OpenHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
 import org.adaway.service.UpdateService;
-import org.adaway.ui.ScanAdwareActivity;
+import org.adaway.ui.adware.ScanAdwareActivity;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.util.ApplyUtils;

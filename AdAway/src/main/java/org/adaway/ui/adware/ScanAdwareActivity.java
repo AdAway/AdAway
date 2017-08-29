@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.adware;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,6 +30,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import org.adaway.R;
+import org.adaway.ui.MainActivity;
 
 public class ScanAdwareActivity extends AppCompatActivity {
     private Activity mActivity;
