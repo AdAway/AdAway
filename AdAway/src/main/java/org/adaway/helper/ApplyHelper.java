@@ -31,7 +31,7 @@ import android.support.v4.app.NotificationCompat;
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.ui.HomeFragment;
+import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.MainActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;

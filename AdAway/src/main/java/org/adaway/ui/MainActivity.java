@@ -40,6 +40,7 @@ import android.widget.ListView;
 import org.adaway.R;
 import org.adaway.helper.OpenHelper;
 import org.adaway.helper.ResultHelper;
+import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.hosts.HostsSourcesFragment;
 import org.adaway.ui.lists.ListsFragment;
 import org.adaway.ui.prefs.PrefsFragment;

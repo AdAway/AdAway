@@ -21,7 +21,7 @@
 package org.adaway.helper;
 
 import org.adaway.R;
-import org.adaway.ui.HomeFragment;
+import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.MainActivity;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.util.ApplyUtils;

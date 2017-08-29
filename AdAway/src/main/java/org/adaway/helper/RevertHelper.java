@@ -24,7 +24,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import org.adaway.R;
-import org.adaway.ui.HomeFragment;
+import org.adaway.ui.home.HomeFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;

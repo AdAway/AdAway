@@ -40,7 +40,7 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.ui.HomeFragment;
+import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.MainActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;

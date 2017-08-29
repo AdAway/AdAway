@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.home;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -48,6 +48,7 @@ import org.adaway.helper.OpenHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
 import org.adaway.service.UpdateService;
+import org.adaway.ui.ScanAdwareActivity;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.util.ApplyUtils;

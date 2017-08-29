@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.home;
 
 import android.app.Activity;
 import android.os.Bundle;
