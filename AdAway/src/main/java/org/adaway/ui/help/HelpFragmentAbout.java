@@ -18,39 +18,24 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.help;
 
+import org.adaway.R;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
-import android.app.Activity;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
+import android.widget.TextView;
 
-public class HelpFragmentHtml extends Fragment {
-    private Activity mActivity;
-
-    private int htmlFile;
-
-    public static final String ARG_HTML_FILE = "htmlFile";
-
-    /**
-     * Create a new instance of HelpFragmentHtml, providing "htmlFile" as an argument.
-     */
-    static HelpFragmentHtml newInstance(int htmlFile) {
-        HelpFragmentHtml f = new HelpFragmentHtml();
-
-        // Supply html raw file input as an argument.
-        Bundle args = new Bundle();
-        args.putInt(ARG_HTML_FILE, htmlFile);
-        f.setArguments(args);
-
-        return f;
-    }
+public class HelpFragmentAbout extends Fragment {
 
     /**
      * Workaround for Android Bug. See
@@ -65,26 +50,40 @@ public class HelpFragmentHtml extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        htmlFile = getArguments().getInt(ARG_HTML_FILE);
+        View view = inflater.inflate(R.layout.help_fragment_about, container, false);
 
-        mActivity = getActivity();
+        TextView versionText = view.findViewById(R.id.help_about_version);
+        versionText.setText(getString(R.string.help_about_version) + " " + getVersion());
 
-        ScrollView scroller = new ScrollView(mActivity);
-        HtmlTextView text = new HtmlTextView(mActivity);
-
-        // padding
-        int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, mActivity
-                .getResources().getDisplayMetrics());
-        text.setPadding(padding, padding, padding, 0);
-
-        scroller.addView(text);
+        HtmlTextView aboutTextView = view.findViewById(R.id.help_about_text);
 
         // load html from raw resource (Parsing handled by HtmlTextView library)
-        text.setHtml(htmlFile);
+        aboutTextView.setHtml(R.raw.help_about);
 
         // no flickering when clicking textview for Android < 4
-        text.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));
+        aboutTextView.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));
 
-        return scroller;
+        return view;
     }
+
+    /**
+     * Get the current package version.
+     *
+     * @return The current version.
+     */
+    private String getVersion() {
+        String result = "";
+        try {
+            PackageManager manager = getActivity().getPackageManager();
+            PackageInfo info = manager.getPackageInfo(getActivity().getPackageName(), 0);
+
+            result = String.format("%s (%s)", info.versionName, info.versionCode);
+        } catch (NameNotFoundException e) {
+            Log.w(Constants.TAG, "Unable to get application version: " + e.getMessage());
+            result = "Unable to get application version.";
+        }
+
+        return result;
+    }
+
 }

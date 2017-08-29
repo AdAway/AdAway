@@ -60,7 +60,7 @@
             android:name=".ui.tcpdump.TcpdumpLogActivity"
             android:label="@string/menu_tcpdump" />
         <activity
-            android:name=".ui.HelpActivity"
+            android:name=".ui.help.HelpActivity"
             android:label="@string/menu_help" />
         <!-- android:configChanges prevents activity from recreating on orientation change -->
 

@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.help;
 
 import android.content.Context;
 import android.content.Intent;
@@ -32,6 +32,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import org.adaway.R;
+import org.adaway.ui.MainActivity;
 import org.adaway.util.Constants;
 import org.sufficientlysecure.donations.DonationsFragment;
 

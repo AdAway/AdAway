@@ -18,24 +18,39 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway.ui.help;
 
-import org.adaway.R;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ScrollView;
 
-public class HelpFragmentAbout extends Fragment {
+public class HelpFragmentHtml extends Fragment {
+    private Activity mActivity;
+
+    private int htmlFile;
+
+    public static final String ARG_HTML_FILE = "htmlFile";
+
+    /**
+     * Create a new instance of HelpFragmentHtml, providing "htmlFile" as an argument.
+     */
+    static HelpFragmentHtml newInstance(int htmlFile) {
+        HelpFragmentHtml f = new HelpFragmentHtml();
+
+        // Supply html raw file input as an argument.
+        Bundle args = new Bundle();
+        args.putInt(ARG_HTML_FILE, htmlFile);
+        f.setArguments(args);
+
+        return f;
+    }
 
     /**
      * Workaround for Android Bug. See
@@ -50,40 +65,26 @@ public class HelpFragmentAbout extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.help_fragment_about, container, false);
+        htmlFile = getArguments().getInt(ARG_HTML_FILE);
 
-        TextView versionText = (TextView) view.findViewById(R.id.help_about_version);
-        versionText.setText(getString(R.string.help_about_version) + " " + getVersion());
+        mActivity = getActivity();
 
-        HtmlTextView aboutTextView = (HtmlTextView) view.findViewById(R.id.help_about_text);
+        ScrollView scroller = new ScrollView(mActivity);
+        HtmlTextView text = new HtmlTextView(mActivity);
+
+        // padding
+        int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, mActivity
+                .getResources().getDisplayMetrics());
+        text.setPadding(padding, padding, padding, 0);
+
+        scroller.addView(text);
 
         // load html from raw resource (Parsing handled by HtmlTextView library)
-        aboutTextView.setHtml(R.raw.help_about);
+        text.setHtml(htmlFile);
 
         // no flickering when clicking textview for Android < 4
-        aboutTextView.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));
+        text.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));
 
-        return view;
+        return scroller;
     }
-
-    /**
-     * Get the current package version.
-     *
-     * @return The current version.
-     */
-    private String getVersion() {
-        String result = "";
-        try {
-            PackageManager manager = getActivity().getPackageManager();
-            PackageInfo info = manager.getPackageInfo(getActivity().getPackageName(), 0);
-
-            result = String.format("%s (%s)", info.versionName, info.versionCode);
-        } catch (NameNotFoundException e) {
-            Log.w(Constants.TAG, "Unable to get application version: " + e.getMessage());
-            result = "Unable to get application version.";
-        }
-
-        return result;
-    }
-
 }
