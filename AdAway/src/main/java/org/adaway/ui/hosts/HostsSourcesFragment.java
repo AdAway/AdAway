@@ -54,6 +54,11 @@ import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
 
+/**
+ * This class is a {@link Fragment} to display and manage hosts sources.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class HostsSourcesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     /**
      * The rows to retrieve for the view.
@@ -217,28 +222,28 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        // This is called when a new Loader needs to be created. This
-        // sample only has one Loader, so we don't care about the ID.
-        Uri baseUri = HostsSources.CONTENT_URI;
-
-        // Now create and return a CursorLoader that will take care of
-        // creating a Cursor for the data being displayed.
-        return new CursorLoader(getActivity(), baseUri, HOSTS_SOURCES_SUMMARY_PROJECTION, null,
-                null, HostsSources.DEFAULT_SORT);
+        // Create and return cursor loader
+        return new CursorLoader(
+                this.getActivity(),
+                HostsSources.CONTENT_URI,                               // Look for blacklist items
+                HostsSourcesFragment.HOSTS_SOURCES_SUMMARY_PROJECTION,  // Columns to display
+                null,                                                   // No selection
+                null,                                                   // No selection
+                HostsSources.DEFAULT_SORT                               // Sort by URL ASC
+        );
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        // Swap the new cursor in. (The framework will take care of closing the
-        // old cursor once we return.)
+        // Swap the new cursor in.
+        // (The framework will take care of closing the old cursor once we return.)
         this.mAdapter.swapCursor(data);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         // This is called when the last Cursor provided to onLoadFinished()
-        // above is about to be closed. We need to make sure we are no
-        // longer using it.
+        // above is about to be closed. We need to make sure we are no longer using it.
         this.mAdapter.swapCursor(null);
     }
 

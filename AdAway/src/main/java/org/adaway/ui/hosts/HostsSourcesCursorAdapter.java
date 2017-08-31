@@ -30,6 +30,11 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+/**
+ * This class is a {@link android.support.v4.widget.CursorAdapter} to bind hosts sources to list item view.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 class HostsSourcesCursorAdapter extends SimpleCursorAdapter {
     /**
      * Constructor.
