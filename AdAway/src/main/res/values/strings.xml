@@ -151,7 +151,8 @@
 
     <!-- Scan Adware -->
     <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
-    <string name="scan_adware_start">Start scanning</string>
+    <string name="scan_adware_start">Start scan</string>
+    <string name="scan_adware_scanning">Scanning&#8230;</string>
     <string name="scan_adware_empty">No bad Adware apps were found!</string>
 
     <!-- Hosts Sources -->

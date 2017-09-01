@@ -48,7 +48,7 @@ import org.adaway.helper.OpenHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
 import org.adaway.service.UpdateService;
-import org.adaway.ui.adware.ScanAdwareActivity;
+import org.adaway.ui.adware.ScanAdwareFragment;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.util.ApplyUtils;
@@ -243,7 +243,7 @@ public class HomeFragment extends Fragment {
                 return true;
 
             case R.id.menu_scan_adware:
-                startActivity(new Intent(mActivity, ScanAdwareActivity.class));
+                startActivity(new Intent(mActivity, ScanAdwareFragment.class));
                 return true;
 
             case R.id.menu_refresh:

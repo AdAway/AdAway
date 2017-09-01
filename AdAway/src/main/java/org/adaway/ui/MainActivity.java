@@ -40,7 +40,7 @@ import android.widget.ListView;
 import org.adaway.R;
 import org.adaway.helper.OpenHelper;
 import org.adaway.helper.ResultHelper;
-import org.adaway.ui.adware.ScanAdwareListFragment;
+import org.adaway.ui.adware.ScanAdwareFragment;
 import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.hosts.HostsSourcesFragment;
 import org.adaway.ui.lists.ListsFragment;
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new TcpdumpFragment();
                 break;
             case 5:
-                fragment = new ScanAdwareListFragment();    // TODO Not working yet
+                fragment = new ScanAdwareFragment();
                 break;
             case 6:
                 fragment = new PrefsFragment();

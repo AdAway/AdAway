@@ -15,14 +15,7 @@
  * limitations under the License.
  */
 
-package org.adaway.util;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+package org.adaway.ui.adware;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -30,92 +23,92 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ServiceInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.support.v4.content.AsyncTaskLoader;
 
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
- * A custom Loader to search for bad adware apps, based on
- * https://github.com/brosmike/AirPush-Detector. Daniel Bjorge licensed it under Apachev2 after
- * asking him by mail.
+ * A custom Loader to search for bad adware apps, based on https://github.com/brosmike/AirPush-Detector.
+ * Daniel Bjorge licensed it under Apachev2 after asking him by mail.
  */
-public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>> {
-    public static final String[] AD_PACKAGE_PREFIXES = {"com.airpush.", "com.Leadbolt.",
-            "com.appenda.", "com.iac.notification.", "com.appbucks.sdk.", "com.tapjoy.",
-            "com.sellaring.", "com.inmobi.", "com.senddroid.", "cn.kuguo.", "com.applovin.",
-            "com.adnotify."};
+class AdwareInstallLoader extends AsyncTaskLoader<List<AdwareInstall>> {
+    /**
+     * The adware package prefixes.
+     */
+    private static final String[] AD_PACKAGE_PREFIXES = {
+            "com.airpush.",
+            "com.adnotify.",
+            "com.appbucks.sdk.",
+            "com.appenda.",
+            "com.applovin.",
+            "com.iac.notification.",
+            "com.inmobi.",
+            "com.Leadbolt.",
+            "com.sellaring.",
+            "com.senddroid.",
+            "com.tapjoy.",
+            "cn.kuguo."
+    };
 
-    Context context;
-    List<String> mItems;
-    private volatile boolean canceled = false;
-
-    public ScanAdwareLoader(Context context) {
+    /**
+     * Constructor.
+     *
+     * @param context The application context.
+     */
+    AdwareInstallLoader(Context context) {
         super(context);
-
-        this.context = context;
     }
 
     @Override
-    public List<Map<String, String>> loadInBackground() {
-        List<PackageInfo> adPackages = getAdPackages();
-        PackageManager pm = context.getPackageManager();
-
-        List<Map<String, String>> data = new ArrayList<Map<String, String>>(adPackages.size());
-        for (PackageInfo pkg : adPackages) {
-            Map<String, String> attrs = new HashMap<String, String>();
-            attrs.put("app_name", pm.getApplicationLabel(pkg.applicationInfo).toString());
-            attrs.put("package_name", pkg.packageName);
-            data.add(attrs);
+    public List<AdwareInstall> loadInBackground() {
+        // Get the package manager
+        PackageManager pm = this.getContext().getPackageManager();
+        // Get the adware packages
+        List<PackageInfo> adwarePackages = this.getAdwarePackages(pm);
+        // Create related adware installs
+        List<AdwareInstall> adwareInstalls = new ArrayList<>(adwarePackages.size());
+        for (PackageInfo pkg : adwarePackages) {
+            // Retrieve application name
+            String applicationName = pm.getApplicationLabel(pkg.applicationInfo).toString();
+            // Add adware install
+            adwareInstalls.add(new AdwareInstall(applicationName, pkg.packageName));
         }
-
-        return data;
-    }
-
-    @Override
-    protected void onReset() {
-        super.onReset();
-
-        canceled = true;
-
-        // Ensure the loader is stopped
-        onStopLoading();
-    }
-
-    @Override
-    protected void onStartLoading() {
-        canceled = false;
-        forceLoad();
-    }
-
-    @Override
-    protected void onStopLoading() {
-        canceled = true;
-        cancelLoad();
-    }
-
-    @Override
-    public void deliverResult(List<Map<String, String>> data) {
-        super.deliverResult(data);
+        // Sort adware installs found
+        Collections.sort(adwareInstalls);
+        // Return loaded adware installs
+        return adwareInstalls;
     }
 
     /**
      * Finds all installed packages that look like they include a known ad framework
+     *
+     * @param pm The package manager.
+     * @return The found adware package information.
      */
-    private List<PackageInfo> getAdPackages() {
-        Set<PackageInfo> adPackages = new HashSet<PackageInfo>();
-
-        PackageManager pm = context.getPackageManager();
+    private List<PackageInfo> getAdwarePackages(PackageManager pm) {
         // It'd be simpler to just use pm.getInstalledPackages here, but apparently it's broken
-        List<ApplicationInfo> appInfos = pm.getInstalledApplications(0);
+        List<ApplicationInfo> applicationInfoList = pm.getInstalledApplications(0);
 
-        for (ApplicationInfo appInfo : appInfos) {
-            if(canceled) {
+        Set<PackageInfo> adPackages = new HashSet<>();
+        for (ApplicationInfo applicationInfo : applicationInfoList) {
+            // Check if cursor was canceled
+            if (this.isLoadInBackgroundCanceled()) {
+                // Clear found adware packages
                 adPackages.clear();
+                // Stop looking further
                 break;
             }
             try {
-                PackageInfo pkgInfo = pm.getPackageInfo(appInfo.packageName,
-                        PackageManager.GET_ACTIVITIES | PackageManager.GET_RECEIVERS
-                                | PackageManager.GET_SERVICES
+                PackageInfo pkgInfo = pm.getPackageInfo(
+                        applicationInfo.packageName,
+                        PackageManager.GET_ACTIVITIES | PackageManager.GET_RECEIVERS | PackageManager.GET_SERVICES
                 );
 
                 Log.v(Constants.TAG, "Scanning package " + pkgInfo.packageName);
@@ -129,6 +122,7 @@ public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>>
                                         + adPackagePrefix + " in package " + pkgInfo.packageName
                                         + " as activity " + activity.name);
                                 adPackages.add(pkgInfo);
+                                break;
                             }
                         }
                     }
@@ -165,8 +159,6 @@ public class ScanAdwareLoader extends AsyncTaskLoader<List<Map<String, String>>>
                 Log.e(Constants.TAG, "Scan Adware Exception", e);
             }
         }
-
-        return new ArrayList<PackageInfo>(adPackages);
+        return new ArrayList<>(adPackages);
     }
-
 }
