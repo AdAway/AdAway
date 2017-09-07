@@ -108,12 +108,12 @@ public class ScanAdwareFragment extends Fragment implements LoaderManager.Loader
                 AdwareInstall.PACKAGE_NAME_KEY
         };
         int[] to = new int[]{
-                android.R.id.text1,
-                android.R.id.text2
+                R.id.checkbox_list_text,
+                R.id.checkbox_list_subtext
         };
         SimpleAdapter adapter = new SimpleAdapter(this.getContext(),
                 data,
-                android.R.layout.two_line_list_item,
+                R.layout.list_two_entries,
                 from,
                 to
         );
