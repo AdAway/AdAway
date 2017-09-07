@@ -234,26 +234,12 @@ public class HomeFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.menu_show_hosts_file:
-                OpenHelper.openHostsFile(mActivity);
-                return true;
-
-            case R.id.menu_preferences:
-                startActivity(new Intent(mActivity, PrefsActivity.class));
-                return true;
-
-            case R.id.menu_scan_adware:
-                startActivity(new Intent(mActivity, ScanAdwareFragment.class));
-                return true;
-
             case R.id.menu_refresh:
                 UpdateService.checkAsync(mActivity);
                 return true;
-
             case R.id.menu_help:
                 startActivity(new Intent(mActivity, HelpActivity.class));
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }

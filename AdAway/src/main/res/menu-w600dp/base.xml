@@ -1,40 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <item
         android:id="@+id/menu_refresh"
         android:icon="@drawable/action_refresh"
         android:title="@string/menu_refresh"
-        app:showAsAction="always|withText" />
+        app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/menu_help"
         android:icon="@drawable/action_help"
         android:title="@string/menu_help"
-        app:showAsAction="always|withText" />
-    <item
-        android:id="@+id/menu_hosts_sources"
-        android:title="@string/menu_hosts_sources"
         app:showAsAction="ifRoom|withText" />
-    <item
-        android:id="@+id/menu_lists"
-        android:title="@string/menu_lists"
-        app:showAsAction="ifRoom|withText" />
-    <item
-        android:id="@+id/menu_show_hosts_file"
-        android:title="@string/menu_show_hosts_file"
-        app:showAsAction="ifRoom|withText" />
-    <item
-        android:id="@+id/menu_tcpdump"
-        android:title="@string/menu_tcpdump"
-        app:showAsAction="ifRoom|withText" />
-    <item
-        android:id="@+id/menu_scan_adware"
-        android:title="@string/menu_scan_adware"
-        app:showAsAction="ifRoom|withText" />
-    <item
-        android:id="@+id/menu_preferences"
-        android:title="@string/menu_preferences"
-        app:showAsAction="ifRoom|withText" />
-
 </menu>

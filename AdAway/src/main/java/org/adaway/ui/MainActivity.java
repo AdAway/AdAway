@@ -20,7 +20,6 @@
 
 package org.adaway.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -51,7 +50,6 @@ import org.adaway.util.Log;
 
 
 public class MainActivity extends AppCompatActivity {
-    Activity mActivity;
     /*
      * Application navigation related.
      */
@@ -106,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         + numberOfSuccessfulDownloads);
             }
 
-            ResultHelper.showDialogBasedOnResult(mActivity, result, numberOfSuccessfulDownloads);
+            ResultHelper.showDialogBasedOnResult(this, result, numberOfSuccessfulDownloads);
         }
     }
 
@@ -116,19 +114,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mActivity = this;
         setContentView(R.layout.base_activity_drawer);
         /*
          * Configure navigation drawer.
          */
         // Configure drawer items
         String[] mPlanetTitles = getResources().getStringArray(R.array.drawer_items);
-        mDrawerList = this.findViewById(R.id.left_drawer);
-        mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, mPlanetTitles)
+        this.mDrawerList = this.findViewById(R.id.left_drawer);
+        this.mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, mPlanetTitles)
         );
         // Set drawer item listener
         // Set the list's click listener
-        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        this.mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectDrawerMenuItem(position);
@@ -136,11 +133,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Configure drawer toggle
-        mTitle = mDrawerTitle = getTitle();
-        mDrawerLayout = this.findViewById(R.id.drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(
+        this.mTitle = this.mDrawerTitle = this.getTitle();
+        this.mDrawerLayout = this.findViewById(R.id.drawer_layout);
+        this.mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
-                mDrawerLayout,         /* DrawerLayout object */
+                this.mDrawerLayout,         /* DrawerLayout object */
                 R.string.drawer_open,  /* "open drawer" description */
                 R.string.drawer_close  /* "close drawer" description */
         ) {
@@ -149,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onDrawerClosed(view);
                 ActionBar actionBar = getSupportActionBar();
                 if (actionBar != null) {
-                    actionBar.setTitle(mTitle);
+                    actionBar.setTitle(MainActivity.this.mTitle);
                 }
             }
 
@@ -158,12 +155,12 @@ public class MainActivity extends AppCompatActivity {
                 super.onDrawerOpened(drawerView);
                 ActionBar actionBar = getSupportActionBar();
                 if (actionBar != null) {
-                    actionBar.setTitle(mDrawerTitle);
+                    actionBar.setTitle(MainActivity.this.mDrawerTitle);
                 }
             }
 
         };
-        mDrawerLayout.addDrawerListener(mDrawerToggle);
+        this.mDrawerLayout.addDrawerListener(this.mDrawerToggle);
         /*
          * Configure actionbar.
          */
@@ -186,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.content_frame, homeFragment);
             fragmentTransaction.commit();
             // Select home menu item
-            mDrawerList.setItemChecked(0, true);
+            this.mDrawerList.setItemChecked(0, true);
         }
     }
 
@@ -194,33 +191,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
+        this.mDrawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        mDrawerToggle.onConfigurationChanged(newConfig);
+        this.mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Pass the event to ActionBarDrawerToggle, if it returns
-        // true, then it has handled the app icon touch event
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
+        // Pass the event to ActionBarDrawerToggle, if it returns true,
+        // then it has handled the app icon touch event
+        if (this.mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
         // Handle your other action bar items...
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void setTitle(CharSequence title) {
-        mTitle = title;
-        ActionBar actionBar = getSupportActionBar();
+        this.mTitle = title;
+        ActionBar actionBar = this.getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(mTitle);
+            actionBar.setTitle(this.mTitle);
         }
     }
 
@@ -271,14 +267,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Highlight the selected item, update the title, and close the drawer
-        mDrawerList.setItemChecked(position, true);
+        this.mDrawerList.setItemChecked(position, true);
         String itemName;
         if (position == 0) {
             itemName = getString(R.string.app_name);
         } else {
-            itemName = getResources().getStringArray(R.array.drawer_items)[position];
+            itemName = this.getResources().getStringArray(R.array.drawer_items)[position];
         }
-        setTitle(itemName);
-        mDrawerLayout.closeDrawer(mDrawerList);
+        this.setTitle(itemName);
+        this.mDrawerLayout.closeDrawer(this.mDrawerList);
     }
 }
