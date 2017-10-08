@@ -73,8 +73,8 @@
   <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
   <string name="apply_success_subtitle">Angewandte Hosts-Quellen:</string>
   <string name="apply_success_title">Erfolgreich angewendet</string>
-  <string name="apply_success_dialog">Änderungen waren erfolgreich.\Damit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
-  <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\Damit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="apply_success_dialog">Änderungen waren erfolgreich.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
   <string name="apply_symlink_successful_title">Symbolische Verknüpfung erfolgreich erstellt</string>
   <string name="apply_symlink_fail">Android konnte keine symbolische Verknüpfung erstellen.\nDas liegt vermutlich an einer Eigenheit von HTC-Geräten namens S-ON!\n\nEine Lösung ist es, Ihr Gerät im Wiederherstellungsmodus zu starten und dort die Verknüpfung mit »ln -s /data/data/hosts /system/etc/hosts« zu erstellen.\n\nWenn das nicht funktioniert, suchen Sie bitte im Internet nach S-OFF und Ihrem Gerät.</string>
   <string name="apply_symlink_fail_title">Symbolische Verknüpfung konnte nicht erstellt werden</string>
