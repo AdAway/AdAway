@@ -46,7 +46,7 @@
         <item>customTarget</item>
     </string-array>
 
-    <string name="pref_apply_method_def" translate="false">writeToSystem</string>
+    <string name="pref_apply_method_def" format="string" type="string"">writeToSystem</string>
     <string name="pref_custom_target_key" translate="false">customTarget</string>
 
     <item name="pref_custom_target_def" format="string" type="string">/data/etc/hosts</item>
@@ -71,8 +71,8 @@
 
     <item name="pref_enable_debug_def" format="boolean" type="string">false</item>
 
-    <string name="pref_enable_systemless_key">enableSystemless</string>
+    <string name="pref_enable_systemless_key" translate="false">enableSystemless</string>
 
-    <string name="pref_enable_systemless_def">false</string>
+    <string name="pref_enable_systemless_def" format="boolean" type="string">false</string>
 
 </resources>
