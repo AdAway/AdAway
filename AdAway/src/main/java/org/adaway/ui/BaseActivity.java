@@ -45,7 +45,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
-import java.io.IOException;
 
 public class BaseActivity extends SherlockFragmentActivity {
 
@@ -111,18 +110,6 @@ public class BaseActivity extends SherlockFragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.base_activity);
-
-        // The RootCommands library is not well supported by Magisk 15.x
-        // Magisk doesn't recognize the root request and doesn't show it to the user.
-        // This leads to an application freeze at startup.
-        // To solve this problem, we use the following line to force a root request that
-        // is recognized by magisk and shown to the user. Once the user has granted this
-        // request, the rest of the RootCommands library will work.
-        try {
-            Runtime.getRuntime().exec("su");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         mActivity = this;
 
