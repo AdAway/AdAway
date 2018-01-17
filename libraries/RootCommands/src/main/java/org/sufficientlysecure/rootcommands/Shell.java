@@ -57,7 +57,9 @@ public class Shell implements Closeable {
         if (customEnv == null) {
             customEnv = new ArrayList<>();
         }
-        customEnv.add("LD_LIBRARY_PATH=" + LD_LIBRARY_PATH);
+        if(LD_LIBRARY_PATH != null){
+            customEnv.add("LD_LIBRARY_PATH=" + LD_LIBRARY_PATH);
+        }
 
         return new Shell(Utils.getSuPath(), customEnv, baseDirectory);
     }
