@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pref_update_check_key" translate="false">Aktualisierungsprüfung</string>
+
+
+    <string name="pref_never_reboot_key" translate="false">Niemals Neustarten</string>
+
+
+    <string name="pref_enable_ipv6_key" translate="false">aktiviere Ipv6</string>
+
+
+    <string name="pref_update_check_daily_key" translate="false">Täglich auf Aktualisierungen prüfen</string>
+
+
+    <string name="pref_automatic_update_daily_key" translate="false">Täglich automatische Aktualisierung</string>
+
+
+    <string name="pref_update_only_on_wifi_key" translate="false">Aktualisierung nur über Wlan</string>
+
+
+    <string name="pref_whitelist_rules_key" translate="false">PositivlisteRegeln</string>
+
+
+    <string name="pref_redirection_rules_key" translate="false">Weiterleitungsregeln</string>
+
+
+    <string name="pref_redirection_ip_key" translate="false">UmleitungIP</string>
+
+
+    <string name="pref_apply_method_key" translate="false">Methode anwenden</string>
+
+    <string-array name="pref_apply_method_entries_values" translate="false">
+        <item>Ins System schreiben</item>
+        <item>I</item>
+        <item>In Daten Daten schreiben</item>
+        <item>Benutzerdefiniertes Ziel</item>
+    </string-array>
+
+    <string name="pref_apply_method_def" translate="false">Ins System schreiben</string>
+    <string name="pref_custom_target_key" translate="false">benutzerdefiniertes Ziel</string>
+
+
+    <string name="pref_webserver_enabled_key" translate="false">WebserverAktiviert</string>
+
+
+    <string name="pref_webserver_on_boot_key" translate="false">Webserver beim Hochfahren</string>
+
+
+    <string name="pref_webserver_version_key" translate="false">Webserver Version</string>
+
+
+    <string name="pref_tcpdump_version_key" translate="false">TcpDumpVersion</string>
+
+
+    <string name="pref_enable_debug_key" translate="false">FehleranalyseAktiviert</string>
+
+
+    <string name="pref_enable_systemless_key">SystemlosAktivieren</string>
+
+    <string name="pref_enable_systemless_def">falsch</string>
+
+</resources>
