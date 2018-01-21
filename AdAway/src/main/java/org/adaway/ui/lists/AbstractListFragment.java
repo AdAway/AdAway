@@ -23,6 +23,8 @@ package org.adaway.ui.lists;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
@@ -33,7 +35,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
@@ -62,7 +63,7 @@ public abstract class AbstractListFragment extends ListFragment implements
     protected ActionMode mActionMode;
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final FragmentActivity activity = this.getActivity();
         /*
@@ -126,24 +127,21 @@ public abstract class AbstractListFragment extends ListFragment implements
             }
         };
         // Set item long click listener to start action
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                // Check if there is already a current action
-                if (AbstractListFragment.this.mActionMode != null) {
-                    return false;
-                }
-                // Store current list item position
-                AbstractListFragment.this.mCurrentListItemPosition = position;
-                // Start action mode and store it
-                AbstractListFragment.this.mActionMode = activity.startActionMode(callback);
-                // Get current item background color
-                int currentItemBackgroundColor = AbstractListFragment.this.getResources().getColor(R.color.selected_background);
-                // Apply background color to current item view
-                view.setBackgroundColor(currentItemBackgroundColor);
-                // Return event consumed
-                return true;
+        listView.setOnItemLongClickListener((parent, clickedView, position, id) -> {
+            // Check if there is already a current action
+            if (AbstractListFragment.this.mActionMode != null) {
+                return false;
             }
+            // Store current list item position
+            AbstractListFragment.this.mCurrentListItemPosition = position;
+            // Start action mode and store it
+            AbstractListFragment.this.mActionMode = activity.startActionMode(callback);
+            // Get current item background color
+            int currentItemBackgroundColor = AbstractListFragment.this.getResources().getColor(R.color.selected_background);
+            // Apply background color to current item view
+            clickedView.setBackgroundColor(currentItemBackgroundColor);
+            // Return event consumed
+            return true;
         });
         /*
          * Load data.

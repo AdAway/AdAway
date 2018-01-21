@@ -22,6 +22,8 @@ package org.adaway.ui.lists;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -53,7 +55,7 @@ public class ListsFragment extends Fragment {
     private FragmentActivity mActivity;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Store activity
         this.mActivity = this.getActivity();
         // Enable option menu
@@ -109,14 +111,11 @@ public class ListsFragment extends Fragment {
         // Get the add action button
         FloatingActionButton addActionButton = view.findViewById(R.id.lists_add);
         // Set add action button listener
-        addActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Get current fragment position
-                int currentItemPosition = viewPager.getCurrentItem();
-                // Add item to the current fragment
-                pagerAdapter.addItem(currentItemPosition);
-            }
+        addActionButton.setOnClickListener(clickedView -> {
+            // Get current fragment position
+            int currentItemPosition = viewPager.getCurrentItem();
+            // Add item to the current fragment
+            pagerAdapter.addItem(currentItemPosition);
         });
         // Return fragment view
         return view;

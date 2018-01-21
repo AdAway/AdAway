@@ -2,6 +2,7 @@ package org.adaway.ui.lists;
 
 import android.app.Activity;
 import android.content.res.Configuration;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -138,6 +139,7 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     // More explanation here: https://stackoverflow.com/a/29288093/1538096
     @Override
+    @NonNull
     public Object instantiateItem(ViewGroup container, int position) {
         AbstractListFragment fragment = (AbstractListFragment) super.instantiateItem(container, position);
         switch (position) {

@@ -21,7 +21,6 @@
 package org.adaway.ui.lists;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -90,25 +89,14 @@ public class WhitelistFragment extends AbstractListFragment {
 
         builder.setView(dialogView);
 
-        builder.setPositiveButton(getResources().getString(R.string.button_add),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+        builder.setPositiveButton(getResources().getString(R.string.button_add), (dialog, which) -> {
+                    dialog.dismiss();
 
-                        String input = inputEditText.getText().toString();
-                        WhitelistFragment.this.addItem(input);
-                    }
+                    String input = inputEditText.getText().toString();
+                    WhitelistFragment.this.addItem(input);
                 }
         );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }
-        );
+        builder.setNegativeButton(getResources().getString(R.string.button_cancel), (dialog, which) -> dialog.dismiss());
         AlertDialog alert = builder.create();
         alert.show();
     }
@@ -135,13 +123,7 @@ public class WhitelistFragment extends AbstractListFragment {
             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
             alertDialog.setTitle(R.string.no_hostname_title);
             alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
-            alertDialog.setButton(getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dlg, int sum) {
-                            dlg.dismiss();
-                        }
-                    }
-            );
+            alertDialog.setButton(getString(R.string.button_close), (dlg, sum) -> dlg.dismiss());
             alertDialog.show();
         }
     }
@@ -174,42 +156,26 @@ public class WhitelistFragment extends AbstractListFragment {
 
         builder.setView(dialogView);
 
-        builder.setPositiveButton(getResources().getString(R.string.button_save),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+        builder.setPositiveButton(getResources().getString(R.string.button_save), (dialog, which) -> {
+                    dialog.dismiss();
 
-                        String input = inputEditText.getText().toString();
+                    String input = inputEditText.getText().toString();
 
-                        if (RegexUtils.isValidWhitelistHostname(input)) {
-                            ProviderHelper.updateWhitelistItemHostname(activity, itemId,
-                                    input);
-                        } else {
-                            AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
-                            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                            alertDialog.setTitle(R.string.no_hostname_title);
-                            alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
-                            alertDialog.setButton(getString(R.string.button_close),
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dlg, int sum) {
-                                            dlg.dismiss();
-                                        }
-                                    }
-                            );
-                            alertDialog.show();
-                        }
+                    if (RegexUtils.isValidWhitelistHostname(input)) {
+                        ProviderHelper.updateWhitelistItemHostname(activity, itemId,
+                                input);
+                    } else {
+                        AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
+                        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                        alertDialog.setTitle(R.string.no_hostname_title);
+                        alertDialog.setMessage(getString(R.string.no_hostname));
+                        alertDialog.setButton(getString(R.string.button_close),
+                                (dlg, sum) -> dlg.dismiss());
+                        alertDialog.show();
                     }
                 }
         );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }
-        );
+        builder.setNegativeButton(getResources().getString(R.string.button_cancel), (dialog, which) -> dialog.dismiss());
         AlertDialog alert = builder.create();
         alert.show();
     }

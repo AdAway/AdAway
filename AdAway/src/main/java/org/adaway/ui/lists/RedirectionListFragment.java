@@ -98,27 +98,16 @@ public class RedirectionListFragment extends AbstractListFragment {
 
         builder.setView(dialogView);
 
-        builder.setPositiveButton(getResources().getString(R.string.button_add),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+        builder.setPositiveButton(getResources().getString(R.string.button_add), (dialog, which) -> {
+                    dialog.dismiss();
 
-                        String hostname = hostnameEditText.getText().toString();
-                        String ip = ipEditText.getText().toString();
+                    String hostname = hostnameEditText.getText().toString();
+                    String ip = ipEditText.getText().toString();
 
-                        RedirectionListFragment.this.addItem(hostname, ip);
-                    }
+                    RedirectionListFragment.this.addItem(hostname, ip);
                 }
         );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }
-        );
+        builder.setNegativeButton(getResources().getString(R.string.button_cancel), (dialog, which) -> dialog.dismiss());
         AlertDialog alert = builder.create();
         alert.show();
     }
@@ -147,13 +136,7 @@ public class RedirectionListFragment extends AbstractListFragment {
                 alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialog.setTitle(R.string.no_ip_title);
                 alertDialog.setMessage(getString(org.adaway.R.string.no_ip));
-                alertDialog.setButton(getString(R.string.button_close),
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dlg, int sum) {
-                                dlg.dismiss();
-                            }
-                        }
-                );
+                alertDialog.setButton(getString(R.string.button_close), (dlg, sum) -> dlg.dismiss());
                 alertDialog.show();
             }
         } else {
@@ -162,13 +145,7 @@ public class RedirectionListFragment extends AbstractListFragment {
             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
             alertDialog.setTitle(R.string.no_hostname_title);
             alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
-            alertDialog.setButton(getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dlg, int sum) {
-                            dlg.dismiss();
-                        }
-                    }
-            );
+            alertDialog.setButton(getString(R.string.button_close), (dlg, sum) -> dlg.dismiss());
             alertDialog.show();
         }
     }
@@ -207,59 +184,38 @@ public class RedirectionListFragment extends AbstractListFragment {
 
         builder.setView(dialogView);
 
-        builder.setPositiveButton(getResources().getString(R.string.button_save),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+        builder.setPositiveButton(getResources().getString(R.string.button_save), (dialog, which) -> {
+                    dialog.dismiss();
 
-                        String hostname = hostnameEditText.getText().toString();
-                        String ip = ipEditText.getText().toString();
+                    String hostname = hostnameEditText.getText().toString();
+                    String ip = ipEditText.getText().toString();
 
-                        if (RegexUtils.isValidHostname(hostname)) {
-                            if (RegexUtils.isValidIP(ip)) {
-                                ProviderHelper.updateRedirectionListItemHostnameAndIp(activity,
-                                        itemId, hostname, ip);
-                            } else {
-                                AlertDialog alertDialog = new AlertDialog.Builder(activity)
-                                        .create();
-                                alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                                alertDialog.setTitle(R.string.no_ip_title);
-                                alertDialog.setMessage(getString(org.adaway.R.string.no_ip));
-                                alertDialog.setButton(getString(R.string.button_close),
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dlg, int sum) {
-                                                dlg.dismiss();
-                                            }
-                                        }
-                                );
-                                alertDialog.show();
-                            }
+                    if (RegexUtils.isValidHostname(hostname)) {
+                        if (RegexUtils.isValidIP(ip)) {
+                            ProviderHelper.updateRedirectionListItemHostnameAndIp(activity,
+                                    itemId, hostname, ip);
                         } else {
-                            AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
+                            AlertDialog alertDialog = new AlertDialog.Builder(activity)
+                                    .create();
                             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                            alertDialog.setTitle(R.string.no_hostname_title);
-                            alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
+                            alertDialog.setTitle(R.string.no_ip_title);
+                            alertDialog.setMessage(getString(R.string.no_ip));
                             alertDialog.setButton(getString(R.string.button_close),
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dlg, int sum) {
-                                            dlg.dismiss();
-                                        }
-                                    }
-                            );
+                                    (dlg, sum) -> dlg.dismiss());
                             alertDialog.show();
                         }
+                    } else {
+                        AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
+                        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                        alertDialog.setTitle(R.string.no_hostname_title);
+                        alertDialog.setMessage(getString(R.string.no_hostname));
+                        alertDialog.setButton(getString(R.string.button_close),
+                                (dlg, sum) -> dlg.dismiss());
+                        alertDialog.show();
                     }
                 }
         );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }
-        );
+        builder.setNegativeButton(getResources().getString(R.string.button_cancel), (dialog, which) -> dialog.dismiss());
         AlertDialog alert = builder.create();
         alert.show();
     }
