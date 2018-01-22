@@ -19,6 +19,16 @@ dependencies {
     implementation 'org.sufficientlysecure:donations:2.4'
 }
 
+
+def getGitSha1 = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'rev-parse', '--short' , 'HEAD'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
 android {
     sourceSets {
         instrumentTest.setRoot('tests')
@@ -34,7 +44,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 60
-        versionName "3.2"
+        versionName "4.0.0"
+        versionNameSuffix '-'+getGitSha1()
     }
 
     /*
