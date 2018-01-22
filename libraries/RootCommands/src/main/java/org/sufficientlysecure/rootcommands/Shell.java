@@ -37,7 +37,6 @@ public class Shell implements Closeable {
     private final List<Command> commands = new ArrayList<>();
     private boolean close = false;
 
-    private static final String LD_LIBRARY_PATH = System.getenv("LD_LIBRARY_PATH");
     private static final String token = "F*D^W@#FGF";
 
     /**
@@ -51,15 +50,6 @@ public class Shell implements Closeable {
     public static Shell startRootShell(ArrayList<String> customEnv, String baseDirectory)
             throws IOException {
         Log.d(RootCommands.TAG, "Starting Root Shell!");
-
-        // On some versions of Android (ICS) LD_LIBRARY_PATH is unset when using su
-        // We need to pass LD_LIBRARY_PATH over su for some commands to work correctly.
-        if (customEnv == null) {
-            customEnv = new ArrayList<>();
-        }
-        if(LD_LIBRARY_PATH != null){
-            customEnv.add("LD_LIBRARY_PATH=" + LD_LIBRARY_PATH);
-        }
 
         return new Shell(Utils.getSuPath(), customEnv, baseDirectory);
     }
