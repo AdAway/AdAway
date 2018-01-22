@@ -207,7 +207,7 @@ public class ImportExportHelper {
      *
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
-    private static class ExportListsTask extends AsyncTask<Void, Void, Void> {
+    private static class ExportListsTask extends AsyncTask<Void, Void, Boolean> {
         /**
          * A weak reference to application context.
          */
@@ -228,11 +228,12 @@ public class ImportExportHelper {
         }
 
         @Override
-        protected Void doInBackground(Void... unused) {
+        protected Boolean doInBackground(Void... unused) {
             // Get context from weak reference
             Context context = this.mWeakContext.get();
             if (context == null) {
-                return null;
+                // Fail to export
+                return false;
             }
             // Get list values
             THashSet<String> whitelist = ProviderHelper.getEnabledWhitelistHashSet(context);
@@ -243,7 +244,8 @@ public class ImportExportHelper {
             File sdcard = Environment.getExternalStorageDirectory();
             if (!sdcard.canWrite()) {
                 Log.e(Constants.TAG, "External storage can not be written.");
-                return null;
+                // Fail to export
+                return false;
             }
             // Create export file
             File exportFile = new File(sdcard, "adaway-export");
@@ -268,8 +270,8 @@ public class ImportExportHelper {
             } catch (IOException exception) {
                 Log.e(Constants.TAG, "Could not write file.", exception);
             }
-            // Return nothing
-            return null;
+            // Return successfully exported
+            return true;
         }
 
         @Override
@@ -289,23 +291,24 @@ public class ImportExportHelper {
         }
 
         @Override
-        protected void onPostExecute(Void unused) {
-            super.onPostExecute(unused);
+        protected void onPostExecute(Boolean exported) {
+            super.onPostExecute(exported);
             // Check progress dialog
             if (this.mProgressDialog != null) {
                 this.mProgressDialog.dismiss();
             }
             // Get context from weak reference
             Context context = this.mWeakContext.get();
-            if (context != null) {
-                // Display user success toast notification
-                Toast toast = Toast.makeText(
-                        context,
-                        context.getString(R.string.export_success),
-                        Toast.LENGTH_LONG
-                );
-                toast.show();
+            if (context == null) {
+                return;
             }
+            // Display user toast notification
+            Toast toast = Toast.makeText(
+                    context,
+                    context.getString(exported ? R.string.export_success : R.string.export_failed),
+                    Toast.LENGTH_LONG
+            );
+            toast.show();
         }
     }
 }

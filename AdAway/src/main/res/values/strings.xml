@@ -49,6 +49,7 @@
     <string name="import_dialog">Importing…</string>
     <string name="export_dialog">Exporting…</string>
     <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
+    <string name="export_failed">Failed to export your list to your sdcard.</string>
 
     <!-- Status Notifications -->
     <string name="status_checking">Checking for update…</string>
