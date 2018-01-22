@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.adaway"
-    android:installLocation="auto"
-    android:versionCode="61"
-    android:versionName="3.3">
+    android:installLocation="auto">
 
     <uses-feature
         android:name="android.hardware.touchscreen"
