@@ -100,7 +100,7 @@
   <string name="no_private_file">Nun pue crease\'l ficheru priváu.</string>
   <string name="no_private_file_title">Fallu na creación del ficheru priváu</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Nun pudo alcontrase\'l binariu su o nun permitiesti los permisos root p\'Adaway.\n\nEsto pue pasar cuando\'l to preséu nun ta rootexáu.\nPues alcontrar más información tocante a como rootexar el to preséu en www.cyanogenmod.org u otros sitios web d\'Android.</string>
+  <string name="no_root_description">Nun pudo alcontrase\'l binariu su o nun permitiesti los permisos root p\'Adaway.\n\nEsto pue pasar cuando\'l to preséu nun ta rootexáu.\nPues alcontrar más información tocante a como rootexar el to preséu en wiki.lineageos.org u otros sitios web d\'Android.</string>
   <string name="no_root_title">Riquese\'l permisu root</string>
   <string name="no_url">¡Esta URL nun ye válida!</string>
   <string name="no_url_title">URL mal formada</string>

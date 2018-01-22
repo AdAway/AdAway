@@ -102,7 +102,7 @@
   <string name="disable_systemless_successful">Sistemagabe modua ezgaitu duzu.\nBadaiteke beharrezkoa izatea Androida berrabiaraztea aldaketek eragina izateko.\nBerrabiaraztea nahi duzu?\n(Datuen galera saihesteko zihurtatu ez dagoela aplikazioarik sdtxartela erabiltzen une honetan!)</string>
   <string name="disable_systemless_successful_title">Ongi ezgaitu da</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Bietako bat edo su binarioa ezin da aurkitu edo ez diozu erro baimenik eman AdAway-ri.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola erroturi buruzko argibideak www.cyanogenmod.org edo beste Android webgune batean aurkitu dezakezu.</string>
+  <string name="no_root_description">Bietako bat edo su binarioa ezin da aurkitu edo ez diozu erro baimenik eman AdAway-ri.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola erroturi buruzko argibideak wiki.lineageos.org edo beste Android webgune batean aurkitu dezakezu.</string>
   <string name="no_root_title">Beharrezkoa Android errotua</string>
   <string name="no_url">Ez da baliozko URL bat!</string>
   <string name="no_url_title">URL-a ezegoki heuskarrituta</string>

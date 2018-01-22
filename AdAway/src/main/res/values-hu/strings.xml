@@ -112,7 +112,7 @@ Ha ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</s
   <string name="no_private_file">Privát fájl nem hozható létre.</string>
   <string name="no_private_file_title">Privát fájl létrehozása sikertelen.</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Vagy az su bináris nem található vagy nem engedélyezett root jogot az AdAway-nek.\n\nEz akkor történhet, ha a készüléke nincs root-olva.\nA www.cyanogenmod.org -on vagy egyéb Android weboldalon találhat információt arról, hogy hogyan root-olja a készülékét.</string>
+  <string name="no_root_description">Vagy az su bináris nem található vagy nem engedélyezett root jogot az AdAway-nek.\n\nEz akkor történhet, ha a készüléke nincs root-olva.\nA wiki.lineageos.org -on vagy egyéb Android weboldalon találhat információt arról, hogy hogyan root-olja a készülékét.</string>
   <string name="no_root_title">Rootolt rendszer szükséges</string>
   <string name="no_url">Ez nem érvényes URL cím!</string>
   <string name="no_url_title">Helytelenül formázott URL</string>

@@ -100,7 +100,7 @@
   <string name="no_private_file">不能建立私人檔案。</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 www.cyanogenmod.org 或其他相關的 Android 網站取得相關資訊。</string>
+  <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 wiki.lineageos.org 或其他相關的 Android 網站取得相關資訊。</string>
   <string name="no_root_title">需要 root 權限</string>
   <string name="no_url">URL 無效！</string>
   <string name="no_url_title">URL 格式錯誤</string>

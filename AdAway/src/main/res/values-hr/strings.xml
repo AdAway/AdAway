@@ -102,7 +102,7 @@
   <string name="disable_systemless_successful">Onemogućili ste systemless način.\nMožda ćete morati ponovno pokrenuti Android kako bi promjene stupile u snagu.\n\Želite li ponovno pokrenuti uređaj?\n(Kako bi spriječili gubitak podataka uvjerite se da nijedna aplikacija trenutno ne koristi SD karticu!)</string>
   <string name="disable_systemless_successful_title">Onemogućavanje je uspjelo</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Nije moguće pronaći \"su\" izvršnu datoteku ili za AdAway nije dozvoljen \"root način\".\n\n Ovo se događa kada na vašem telefonu nije omogućen root način. \n Kako omogućiti root na Vašem telefonu pogledajte na www.cyanogenmod.org ili na drugim Android web stranicama.</string>
+  <string name="no_root_description">Nije moguće pronaći \"su\" izvršnu datoteku ili za AdAway nije dozvoljen \"root način\".\n\n Ovo se događa kada na vašem telefonu nije omogućen root način. \n Kako omogućiti root na Vašem telefonu pogledajte na wiki.lineageos.org ili na drugim Android web stranicama.</string>
   <string name="no_root_title">Potreban je root-ani Android</string>
   <string name="no_url">Ovo nije ispravan URL!</string>
   <string name="no_url_title">Nepravilno formatiran URL</string>

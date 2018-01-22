@@ -100,7 +100,7 @@
   <string name="no_private_file">لا يمكن إنشاء ملف خاص.</string>
   <string name="no_private_file_title">فشل إنشاء ملف خاص</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">فضلا، تاكد هل جهازك يحتوي على root أو السماح  للتطبيق بالوصول لصلاحيات root،  في حال جهازك لا يحتوي على root يمكن الحصول على الادوات والطريقة من خلال www.cyanogenmod.org</string>
+  <string name="no_root_description">فضلا، تاكد هل جهازك يحتوي على root أو السماح  للتطبيق بالوصول لصلاحيات root،  في حال جهازك لا يحتوي على root يمكن الحصول على الادوات والطريقة من خلال wiki.lineageos.org</string>
   <string name="no_root_title">مطلوب روت للهاتف</string>
   <string name="no_url">عنوان URL معطوب!</string>
   <string name="no_url_title">صيغة عنوان URL غير صحيحية</string>

@@ -102,7 +102,7 @@
   <string name="disable_systemless_successful">Zakázali ste bezsystémový režim.\nBude potrebné reštartovať zariadenie aby sa zmeny prejavili.\n\nChcete reštartovať?\n(Aby sa zabránilo strate dát, uistite sa, že žiadna aplikácia práve nevyužíva kartu SD!)</string>
   <string name="disable_systemless_successful_title">Zakázanie úspešné</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">SU binárny súbor nebol nájdený alebo ste nepovolili root oprávnenia pre AdAway.\n\nToto sa môže stať, ak vaše zariadenie nie je rootnuté\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke www.cyanogenmod.org alebo na inej stránke o zariadeniach s Androidom.</string>
+  <string name="no_root_description">SU binárny súbor nebol nájdený alebo ste nepovolili root oprávnenia pre AdAway.\n\nToto sa môže stať, ak vaše zariadenie nie je rootnuté\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke wiki.lineageos.org alebo na inej stránke o zariadeniach s Androidom.</string>
   <string name="no_root_title">Je potrebné rootnuté zariadenie</string>
   <string name="no_url">Toto nie je platná URL!</string>
   <string name="no_url_title">Nesprávne formulovaná URL</string>

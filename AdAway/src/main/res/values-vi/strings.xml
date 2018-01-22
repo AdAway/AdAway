@@ -100,7 +100,7 @@
   <string name="no_private_file">Không thể tạo tập tin riêng.</string>
   <string name="no_private_file_title">Tạo tập tin riêng thất bại</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Không tìm thấy tập tin chạy su hoặc bạn không trao quyền root cho AdAway.\n\nĐiều này có thể xảy ra khi thiết bị chưa được root.\nBạn có thể tìm thông tin về cách root máy tại www.cyanogenmod.org hay các web khác cho Android.</string>
+  <string name="no_root_description">Không tìm thấy tập tin chạy su hoặc bạn không trao quyền root cho AdAway.\n\nĐiều này có thể xảy ra khi thiết bị chưa được root.\nBạn có thể tìm thông tin về cách root máy tại wiki.lineageos.org hay các web khác cho Android.</string>
   <string name="no_root_title">Yêu cầu Android đã root</string>
   <string name="no_url">URL không hợp lệ!</string>
   <string name="no_url_title">Định dạng URL không đúng</string>

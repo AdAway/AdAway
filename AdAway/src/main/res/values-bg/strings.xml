@@ -102,7 +102,7 @@
   <string name="disable_systemless_successful">Вие изключихте неметодичния режим.\nМоже да е нужно рестартиране на Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, първо се уверете, че няма приложение, използващо паметта в момента!)</string>
   <string name="disable_systemless_successful_title">Деактивирането е успешно</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Или не може да бъде намерен su binary, или не сте дали root права на AdAway.\n\nТова може да се получи, когато устройството ви няма root достъп.\nМоже да намерите информация как да го root на www.cyanogenmod.org или други Android сайтове.</string>
+  <string name="no_root_description">Или не може да бъде намерен su binary, или не сте дали root права на AdAway.\n\nТова може да се получи, когато устройството ви няма root достъп.\nМоже да намерите информация как да го root на wiki.lineageos.org или други Android сайтове.</string>
   <string name="no_root_title">Изисква се Android с root достъп</string>
   <string name="no_url">Това не е валиден URL!</string>
   <string name="no_url_title">Неправилно форматиран URL адрес</string>

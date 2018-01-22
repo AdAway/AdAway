@@ -100,7 +100,7 @@
   <string name="no_private_file">Fisierul cu atribute speciale nu poate fi creat</string>
   <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Fie fișierul binar SU nu a putut fi găsit, fie nu ați autorizat permisiunea root pentru AdAway.\n\nAcest lucru se poate întâmpla dacă aparatul dumneavoastră nu vă permite accesul la root.\nPuteți găsi informații despre cum să aveți acces la root pe aparatul dumneavoastră pe www.cyanogenmod.org sau alte site-uri despre Android. </string>
+  <string name="no_root_description">Fie fișierul binar SU nu a putut fi găsit, fie nu ați autorizat permisiunea root pentru AdAway.\n\nAcest lucru se poate întâmpla dacă aparatul dumneavoastră nu vă permite accesul la root.\nPuteți găsi informații despre cum să aveți acces la root pe aparatul dumneavoastră pe wiki.lineageos.org sau alte site-uri despre Android. </string>
   <string name="no_root_title">Android are nevoie de \"root\"</string>
   <string name="no_url">Adresa (URL) invalida</string>
   <string name="no_url_title">URL formatat incorect</string>
