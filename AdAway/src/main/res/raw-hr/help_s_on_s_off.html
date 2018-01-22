@@ -2,26 +2,26 @@
 <head></head>
 <body>
 <h2>HTC uređaji</h2>
-<p>AdAway ne radi kada koristite uređaj sa takozvanim S-ON-om. To "svojstvo" prisutno je na brojnim HTC-ovim uređajima i onemogućuje AdAwayu pisanje datoteke poslužitelja.</p>
+<p>AdAway ne radi kada koristite takozvane S-ON uređaje. Ta "značajka" je prisutna na mnogim HTC uređajima i sprječava AdAway u pisanju datoteke poslužitelja.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF označava to da je NAND dio uređaja otključan i da se može pisati na njega. Zadana postavka za HTC-ove uređaje je S-ON, što znači da ne možete pristupiti određenim dijelovima sustava, niti Vam može biti zagarantiran trajni root. Štoviše, provjera potpisa za sve slike firmwarea također je osigurana oznakom S-ON.</p>
+<p>S-OFF označava da je NAND dio uređaja otključan i može se zapisivati na njega. Zadana postavka za HTC uređaje je S-ON, što znači da ne možete pristupiti određenim dijelovima sustava, niti vam može jamčiti trajni root pristup. Štoviše, provjera potpisa za slike firmvera isto je osigurana S-ON oznakom.</p>
 
-<h2>Imam li S-UKLJ ili S-ISKLJ?</h2>
-<p>Pokrenite Boot Menu na vašem uređaju tako da držite <i>volume down</i> tipku dok pritiščete Power tipku i text pri vrhu zaslona će pokazati status ili kao S-OFF ili S-ON. Potpuni root obično znači S-OFF.
-<br/><br/>Više informacija možete naći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Dodatne S-OFF metode od Unrevokable (na linku) vas mogu zanimati, imenom: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<h2>Imam li S-ON ili S-OFF?</h2>
+<p>Pokrenite u Boot Menu vaš uređaj držeći tipku <i>smanjivanja glasnoće zvuka</i> i istovremeno držeći tipku isključivanja a tekst na vrhu zaslona će prikazati oznaku stanja kao S-OFF ili kao S-ON. Potpuni root uobičajeno znači S-OFF.
+<br/><br/>Više informacija možete pronaći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Dodatni S-OFF načini od Unrevokable (na poveznici) vas mogu zanimati, imenima: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Zaobilaženje</h2>
-<p>Potrebno: instaliran i funkcionalan Android SDK s ADB shellom na Vašem PC-u. \n</p>
+<p>Preduvjet: instalirani i funkcionalni Android SDK s ADB ljuskom na vašem PC-u. \n</p>
 <ol>
-<li>Ponovno pokrenite Vaš uređaj i pritisnite <i>tipku za stišavanje</i> dok držite tipku za paljenje.</li>
-<li>Koristeći <i>tipku za stišavanje</i> odaberite stavku "Recovery".</li>
-<li>U Clockwork recoveryju koristeći tipku za stišavanje dođite do stavke "Partitions menu" te je odaberite pomoću trackpada.</li>
+<li>Pokrenite u Boot Menu vaš uređaj držeći tipku <i>smanjivanja glasnoće zvuka</i> i istovremeno držeći tipku isključivanja.</li>
+<li>Koristite tipku <i>smanjivanja glasnoće zvuka</i> za odabir stavke "Recovery".</li>
+<li>U Clockwork recoveriju tipkom smanjivnja glasnoće zvuka idite na stavku "Partitions menu" te je odaberite pomoću trackpada.</li>
 <li>Odaberite <i>mount /system</i>, <i>mount /sdcard</i> i <i>mount /data</i>.</li>
-<li>Uključite USB kabel i otvorite komandnu liniju na svom PC-u.</li>
-<li>Pokrenite adb shell i upišite <tt>ln -s /data/hosts /system/etc/hosts</tt>
-(Ovo će stvoriti simbolički link, koji dopušta AdAway-u da uređuje datoteku poslužitelja pohranjenu u <tt>/data</tt> dopuštajući sustavu da koristi tu datoteku kao da je pohranjena u <tt>/system</tt>.)</li>
-<li>Ponovno pokrenite vaš uređaj i postavite <i>Ciljana datoteka poslužitelja</i> u <i>/data/hosts</i> u postavkama AdAwaya.</li>
+<li>Priključite USB kabel i otvorite naredbeni redak na svom PC-u.</li>
+<li>Pokrenite adb ljusku i upišite <tt>ln -s /data/hosts /system/etc/hosts</tt>
+(Ovo će stvoriti simboličku poveznicu, koja dopušta AdAwayu uređivanje datoteke poslužitelja pohranjene u <tt>/data</tt> dopuštajući operativnom sustavu da koristi tu datoteku kao da je pohranjena u <tt>/system</tt>.)</li>
+<li>Ponovno pokrenite svoj uređaj i postavite <i>Odredišna datoteka poslužitelja</i> u <i>/data/hosts</i> u postavkama AdAwaya.</li>
 <li>AdAway bi sada trebao raditi.</li>
 </ol>
 </body>
