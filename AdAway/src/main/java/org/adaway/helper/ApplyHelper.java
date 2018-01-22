@@ -336,7 +336,7 @@ public class ApplyHelper {
             bos.write(header.getBytes());
 
             // write sources into header
-            String source = null;
+            String source;
             for (String host : enabledHostsSources) {
                 source = Constants.LINE_SEPERATOR + "# " + host;
                 bos.write(source.getBytes());

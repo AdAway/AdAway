@@ -40,9 +40,6 @@ public class HostsParser {
     private THashSet<String> mWhitelist;
     private THashMap<String, String> mRedirectionList;
 
-    private Matcher mHostsParserMatcher;
-    private Pattern mHostsParserPattern;
-
     private boolean mParseWhitelist;
     private boolean mParseRedirections;
 
@@ -75,18 +72,19 @@ public class HostsParser {
         String nextLine;
         String currentIp;
         String currentHostname;
-        mBlacklist = new THashSet<String>();
-        mWhitelist = new THashSet<String>();
-        mRedirectionList = new THashMap<String, String>();
+        mBlacklist = new THashSet<>();
+        mWhitelist = new THashSet<>();
+        mRedirectionList = new THashMap<>();
 
         // use whitelist import pattern
+        Pattern mHostsParserPattern;
         if (mParseWhitelist) {
             mHostsParserPattern = RegexUtils.hostsParserWhitelistImportPattern;
         } else {
             mHostsParserPattern = RegexUtils.hostsParserPattern;
         }
         while ((nextLine = reader.readLine()) != null) {
-            mHostsParserMatcher = mHostsParserPattern.matcher(nextLine);
+            Matcher mHostsParserMatcher = mHostsParserPattern.matcher(nextLine);
 
             if (mHostsParserMatcher.matches()) {
                 // for (int i = 0; i <= mHostsParserMatcher.groupCount(); i++) {
