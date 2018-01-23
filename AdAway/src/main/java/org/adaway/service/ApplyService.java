@@ -56,6 +56,8 @@ import org.sufficientlysecure.rootcommands.Shell;
 import com.commonsware.cwac.wakeful.WakefulIntentService;
 
 import android.support.v4.app.NotificationCompat;
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -65,10 +67,12 @@ import android.database.Cursor;
 public class ApplyService extends WakefulIntentService {
     private Context mService;
     private NotificationManager mNotificationManager;
+    private NotificationChannel mNotificationChannel;
 
     private int mNumberOfFailedDownloads;
     private int mNumberOfDownloads;
 
+    private static final String CHANNEL_ID = "apply_notification_channel_name";
     private static final int APPLY_NOTIFICATION_ID = 20;
 
     public ApplyService() {
@@ -81,6 +85,10 @@ public class ApplyService extends WakefulIntentService {
 
         mNotificationManager = (NotificationManager) mService.getApplicationContext()
                 .getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationChannel = new NotificationChannel(CHANNEL_ID,
+                getString(R.string.apply_notification_channel_name),
+                NotificationManager.IMPORTANCE_LOW);
+        mNotificationManager.createNotificationChannel(mNotificationChannel);
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -542,7 +550,7 @@ public class ApplyService extends WakefulIntentService {
         String contentTitleWithAppName = mService.getString(R.string.app_name) + ": "
                 + contentTitle;
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+        Notification.Builder mBuilder = new Notification.Builder(context, CHANNEL_ID)
                 .setSmallIcon(icon).setContentTitle(contentTitleWithAppName).setTicker(tickerText)
                 .setWhen(when).setOngoing(true).setOnlyAlertOnce(true).setContentText(contentText);
 
@@ -566,7 +574,7 @@ public class ApplyService extends WakefulIntentService {
         String contentTitleWithAppName = mService.getString(R.string.app_name) + ": "
                 + contentTitle;
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+        Notification.Builder mBuilder = new Notification.Builder(context, CHANNEL_ID)
                 .setSmallIcon(icon).setContentTitle(contentTitleWithAppName)
                 .setContentText(contentText);
 
@@ -580,6 +588,7 @@ public class ApplyService extends WakefulIntentService {
 
     private void cancelApplyNotification() {
         mNotificationManager.cancel(APPLY_NOTIFICATION_ID);
+        mNotificationManager.deleteNotificationChannel(CHANNEL_ID);
     }
 
 }
