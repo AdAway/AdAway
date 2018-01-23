@@ -32,7 +32,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -121,17 +120,9 @@ public class MainActivity extends AppCompatActivity {
         // Configure drawer items
         String[] mPlanetTitles = getResources().getStringArray(R.array.drawer_items);
         this.mDrawerList = this.findViewById(R.id.left_drawer);
-        this.mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, mPlanetTitles)
-        );
+        this.mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, mPlanetTitles));
         // Set drawer item listener
-        // Set the list's click listener
-        this.mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectDrawerMenuItem(position);
-            }
-        });
-
+        this.mDrawerList.setOnItemClickListener((parent, view, position, id) -> selectDrawerMenuItem(position));
         // Configure drawer toggle
         this.mTitle = this.mDrawerTitle = this.getTitle();
         this.mDrawerLayout = this.findViewById(R.id.drawer_layout);
