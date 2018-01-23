@@ -20,7 +20,12 @@
 
 package org.adaway.ui.lists;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -28,6 +33,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -50,9 +56,41 @@ import org.adaway.util.Log;
  */
 public class ListsFragment extends Fragment {
     /**
+     * The request code to identify the write external storage permission in {@link android.support.v4.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
+     */
+    private final static int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 10;
+    /**
      * The fragment activity (<code>null</code> if view not created).
      */
     private FragmentActivity mActivity;
+
+    /**
+     * Ensure a permission is granted.<br>
+     * If the permission is not granted, a request is shown to user.
+     *
+     * @param permission The permission to check
+     * @return <code>true</code> if the permission is granted, <code>false</code> otherwise.
+     */
+    private boolean checkPermission(String permission) {
+        // Get application context
+        Context context = this.getContext();
+        if (context == null) {
+            // Return permission failed as no context to check
+            return false;
+        }
+        int permissionCheck = ContextCompat.checkSelfPermission(context, permission);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            // Request write external storage permission
+            this.requestPermissions(
+                    new String[]{permission},
+                    ListsFragment.REQUEST_CODE_WRITE_STORAGE_PERMISSION
+            );
+            // Return permission not granted yes
+            return false;
+        }
+        // Return permission granted
+        return true;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -121,17 +159,56 @@ public class ListsFragment extends Fragment {
         return view;
     }
 
-    /**
-     * Used to get file contents trough intents for import and export
-     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(Constants.TAG, "Handling onActivityResult...");
-
-        // handle import and export of files in helper
-        ImportExportHelper.onActivityResultHandleImport(this.getActivity(), requestCode, resultCode, data);
+        // Check request code
+        if (requestCode != ImportExportHelper.REQUEST_CODE_IMPORT) {
+            return;
+        }
+        // Check result
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+        // Check data
+        if (data != null && data.getData() != null) {
+            // Get selected file URI
+            Uri userListsUri = data.getData();
+            Log.d(Constants.TAG, "User lists URI: " + userListsUri.toString());
+            // Import user lists
+            ImportExportHelper.importLists(this.getContext(), userListsUri);
+        }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Check permission request code
+        if (requestCode != ListsFragment.REQUEST_CODE_WRITE_STORAGE_PERMISSION) {
+            return;
+        }
+        // Check results
+        if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        // Check permissions
+        if (permissions.length < 0) {
+            return;
+        }
+        // Restart action according granted permission
+        switch (permissions[0]) {
+            case Manifest.permission.READ_EXTERNAL_STORAGE:
+                ImportExportHelper.importLists(this.getActivity());
+                break;
+            case Manifest.permission.WRITE_EXTERNAL_STORAGE:
+                ImportExportHelper.exportLists(this.getContext());
+                break;
+        }
+    }
+
+    /*
+     * Menu related.
+     */
 
     @Override
     public void onDestroyView() {
@@ -147,10 +224,6 @@ public class ListsFragment extends Fragment {
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
     }
 
-    /*
-     * Menu related.
-     */
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.lists_fragment, menu);
@@ -161,10 +234,18 @@ public class ListsFragment extends Fragment {
         // Check item identifier
         switch (item.getItemId()) {
             case R.id.menu_import:
-                ImportExportHelper.openFileStream(this.mActivity);
+                // Check read storage permission
+                if (this.checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    // Import user lists
+                    ImportExportHelper.importLists(this.mActivity);
+                }
                 return true;
             case R.id.menu_export:
-                ImportExportHelper.exportLists(this.mActivity);
+                // Check write storage permission
+                if (this.checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    // Export user lists
+                    ImportExportHelper.exportLists(this.mActivity);
+                }
                 return true;
             default:
                 // Delegate item selection

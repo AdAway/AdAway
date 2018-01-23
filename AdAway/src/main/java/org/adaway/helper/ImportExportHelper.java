@@ -20,7 +20,6 @@
 
 package org.adaway.helper;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -52,25 +51,30 @@ import java.util.HashMap;
 import gnu.trove.map.hash.THashMap;
 import gnu.trove.set.hash.THashSet;
 
+/**
+ * This class is a helper class to import/export user lists to a backup file on sdcard.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class ImportExportHelper {
     /**
-     * The request code to identify the selection of a file in onActivityResult() in activity.
+     * The request code to identify the selection of a file in {@link android.support.v4.app.Fragment#onActivityResult(int, int, Intent)}.
      */
-    private final static int REQUEST_CODE_IMPORT = 42;
+    public final static int REQUEST_CODE_IMPORT = 42;
 
     /**
-     * Opens file manager to open file and return it in onActivityResult in Activity
+     * Import user lists backup file by showing a file picker.
      *
      * @param activity The application activity.
      */
-    public static void openFileStream(final FragmentActivity activity) {
+    public static void importLists(FragmentActivity activity) {
         // Create intent to pick a text file
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("text/plain");
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         // Start file picker activity
         try {
-            activity.startActivityForResult(intent, REQUEST_CODE_IMPORT);
+            activity.startActivityForResult(intent, ImportExportHelper.REQUEST_CODE_IMPORT);
         } catch (ActivityNotFoundException exception) {
             // Show dialog to install file picker
             ActivityNotFoundDialogFragment.newInstance(
@@ -82,28 +86,14 @@ public class ImportExportHelper {
     }
 
     /**
-     * After user selected file in file manager with openFile() the path of the selected file is
-     * returned by onActivityResult in the corresponding activity.
+     * Import the given user lists backup file.
      *
-     * @param requestCode The integer request code originally supplied to
-     *                    startActivityForResult(), allowing you to identify who this
-     *                    result came from.
-     * @param resultCode  The integer result code returned by the child activity
-     *                    through its setResult().
-     * @param data        An Intent, which can return result data to the caller
-     *                    (various data can be attached to Intent "extras").
+     * @param context      The application context.
+     * @param userListsUri The URI of the user lists backup file.
      */
-    public static void onActivityResultHandleImport(final Context context, int requestCode,
-                                                    int resultCode, Intent data) {
-        // if request is from import
-        if (requestCode == REQUEST_CODE_IMPORT && resultCode == Activity.RESULT_OK && data != null
-                && data.getData() != null) {
-            // Get selected file URI
-            Uri result = data.getData();
-            Log.d(Constants.TAG, "File manager URI: " + result.toString());
-            // Import user lists
-            new ImportListsTask(context).execute(result);
-        }
+    public static void importLists(Context context, Uri userListsUri) {
+        // Import user lists
+        new ImportListsTask(context).execute(userListsUri);
     }
 
     /**
