@@ -175,8 +175,6 @@ public class PrefsActivity extends SherlockPreferenceActivity {
 
         // Find systemless mode preferences
         mSystemless = (CheckBoxPreference) getPreferenceScreen().findPreference(getString(R.string.pref_enable_systemless_key));
-        // Check preference if systemless mode is enabled
-        new SystemlessCheckTask().execute();
 
         // find custom target edit
         mCustomTarget = (EditTextPreference) getPreferenceScreen().findPreference(
@@ -224,6 +222,13 @@ public class PrefsActivity extends SherlockPreferenceActivity {
             mWebserverOnBoot.setSummary(R.string.pref_webserver_on_boot_summary);
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Check preference if systemless mode is enabled
+        new SystemlessCheckTask().execute();
     }
 
     /**
