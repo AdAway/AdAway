@@ -38,10 +38,7 @@
     <!-- Your Lists -->
     <string name="lists_tab_whitelist">Whitelist</string>
     <string name="lists_tab_blacklist">Blacklist</string>
-    <string name="lists_tab_blacklist_short">Black</string>
-    <string name="lists_tab_whitelist_short">White</string>
-    <string name="lists_tab_redirection_list_short">Redirection</string>
-    <string name="lists_tab_redirection_list">Redirection List</string>
+    <string name="lists_tab_redirection_list">Redirections</string>
     <string name="list_dialog_url">URL:</string>
     <string name="list_dialog_hostname">Hostname:</string>
     <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard characters * and ? are allowed!)</string>

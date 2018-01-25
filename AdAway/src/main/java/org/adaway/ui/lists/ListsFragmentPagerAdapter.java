@@ -38,15 +38,15 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
      */
     private final Activity activity;
     /**
-     * The blacklist fragment.
+     * The blacklist fragment (<code>null</code> until first retrieval).
      */
     private AbstractListFragment blacklistFragment;
     /**
-     * The whitelist fragment.
+     * The whitelist fragment (<code>null</code> until first retrieval).
      */
     private AbstractListFragment whitelistFragment;
     /**
-     * The redirection list fragment.
+     * The redirection list fragment (<code>null</code> until first retrieval).
      */
     private AbstractListFragment redirectionListFragment;
 
@@ -65,9 +65,15 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
      * Ensure action mode is cancelled.
      */
     void ensureActionModeCanceled() {
-        this.blacklistFragment.ensureActionModeCanceled();
-        this.whitelistFragment.ensureActionModeCanceled();
-        this.redirectionListFragment.ensureActionModeCanceled();
+        if (this.blacklistFragment != null) {
+            this.blacklistFragment.ensureActionModeCanceled();
+        }
+        if (this.whitelistFragment != null) {
+            this.whitelistFragment.ensureActionModeCanceled();
+        }
+        if (this.redirectionListFragment != null) {
+            this.redirectionListFragment.ensureActionModeCanceled();
+        }
     }
 
     /**
@@ -78,13 +84,19 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
     void addItem(int position) {
         switch (position) {
             case BLACKLIST_FRAGMENT_INDEX:
-                this.blacklistFragment.addItem();
+                if (this.blacklistFragment != null) {
+                    this.blacklistFragment.addItem();
+                }
                 break;
             case WHITELIST_FRAGMENT_INDEX:
-                this.whitelistFragment.addItem();
+                if (this.whitelistFragment != null) {
+                    this.whitelistFragment.addItem();
+                }
                 break;
             case REDIRECTION_FRAGMENT_INDEX:
-                this.redirectionListFragment.addItem();
+                if (this.redirectionListFragment != null) {
+                    this.redirectionListFragment.addItem();
+                }
                 break;
         }
     }

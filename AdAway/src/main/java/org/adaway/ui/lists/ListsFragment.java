@@ -29,14 +29,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -103,45 +101,36 @@ public class ListsFragment extends Fragment {
         /*
          * Configure tabs.
          */
-        // Get actionbar
-        final ActionBar actionBar = ((AppCompatActivity) this.getActivity()).getSupportActionBar();
         // Get view pager
         final ViewPager viewPager = view.findViewById(R.id.lists_view_pager);
         // Create pager adapter
         final ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(this.getActivity(), this.getFragmentManager());
         // Set view pager adapter
         viewPager.setAdapter(pagerAdapter);
-        // Create each tab
-        for (int index = 0; index < pagerAdapter.getCount(); index++) {
-            ActionBar.Tab tab = actionBar.newTab();
-            tab.setText(pagerAdapter.getPageTitle(index));
-            tab.setTabListener(new ActionBar.TabListener() {
-                @Override
-                public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-                    viewPager.setCurrentItem(tab.getPosition());
-                }
-
-                @Override
-                public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-                    // Nothing special to do
-                }
-
-                @Override
-                public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-                    // Nothing special to do
-                }
-            });
-            actionBar.addTab(tab, index);
-        }
-        // Enable tab navigation mode
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        // Get navigation view
+        BottomNavigationView navigationView = view.findViewById(R.id.navigation);
         // Add view pager on page listener to set selected tab according the selected page
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                actionBar.setSelectedNavigationItem(position);
+                navigationView.getMenu().getItem(position).setChecked(true);
                 pagerAdapter.ensureActionModeCanceled();
             }
+        });
+        // Add navigation view item selected listener to change view pager current item
+        navigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.lists_navigation_blacklist:
+                    viewPager.setCurrentItem(0);
+                    return true;
+                case R.id.lists_navigation_whitelist:
+                    viewPager.setCurrentItem(1);
+                    return true;
+                case R.id.lists_navigation_redirection_list:
+                    viewPager.setCurrentItem(2);
+                    return true;
+            }
+            return false;
         });
         /*
          * Configure add action button.
@@ -209,20 +198,6 @@ public class ListsFragment extends Fragment {
     /*
      * Menu related.
      */
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        /*
-         * Restore actionbar.
-         */
-        // Get actionbar
-        final ActionBar actionBar = ((AppCompatActivity) this.getActivity()).getSupportActionBar();
-        // Clear all tabs
-        actionBar.removeAllTabs();
-        // Restore navigation mode
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
