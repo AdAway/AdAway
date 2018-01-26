@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -44,13 +45,10 @@ import android.widget.TextView;
 
 import org.adaway.R;
 import org.adaway.helper.ApplyHelper;
-import org.adaway.helper.OpenHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
 import org.adaway.service.UpdateService;
-import org.adaway.ui.adware.ScanAdwareFragment;
 import org.adaway.ui.help.HelpActivity;
-import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.StatusCodes;
@@ -125,8 +123,12 @@ public class HomeFragment extends Fragment {
      * @param context
      */
     public static void updateStatusEnabled(Context context) {
-        setStatusBroadcast(context, context.getString(R.string.status_enabled),
-                context.getString(R.string.status_enabled_subtitle), StatusCodes.ENABLED);
+        setStatusBroadcast(
+                context,
+                context.getString(R.string.status_enabled),
+                context.getString(R.string.status_enabled_subtitle),
+                StatusCodes.ENABLED
+        );
     }
 
     /**
@@ -135,8 +137,12 @@ public class HomeFragment extends Fragment {
      * @param context
      */
     public static void updateStatusDisabled(Context context) {
-        setStatusBroadcast(context, context.getString(R.string.status_disabled),
-                context.getString(R.string.status_disabled_subtitle), StatusCodes.DISABLED);
+        setStatusBroadcast(
+                context,
+                context.getString(R.string.status_disabled),
+                context.getString(R.string.status_disabled_subtitle),
+                StatusCodes.DISABLED
+        );
     }
 
     /**
@@ -208,7 +214,7 @@ public class HomeFragment extends Fragment {
      * the process is killed and restarted like on orientation change.
      */
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
         // save status on orientation change
@@ -254,7 +260,7 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate layout
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         // Retrieve view components
@@ -263,19 +269,9 @@ public class HomeFragment extends Fragment {
         mStatusProgress = view.findViewById(R.id.status_progress);
         mStatusIcon = view.findViewById(R.id.status_icon);
         mApplyButton = view.findViewById(R.id.apply_button);
-        mApplyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                applyOnClick(view);
-            }
-        });
+        mApplyButton.setOnClickListener(this::applyOnClick);
         mRevertButton = view.findViewById(R.id.revert_button);
-        mRevertButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                revertOnClick(view);
-            }
-        });
+        mRevertButton.setOnClickListener(this::revertOnClick);
 
         /*
          * Register local broadcast receiver.
@@ -385,7 +381,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        // Append webserver fragment onStart as we need the layout ready to add another fragement
+        // Append webserver fragment onStart as we need the layout ready to add another fragment
         FragmentManager fragmentManager = this.getFragmentManager();
         // add WebserverFragment when enabled in preferences
         if (PreferenceHelper.getWebserverEnabled(this.getContext())) {
