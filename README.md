@@ -28,7 +28,7 @@ The original author is Dominik Schürmann.
 ## Build Executables
 
 1. Have NDK directory in your PATH (http://developer.android.com/tools/sdk/ndk/index.html)
-2. Change to "AdAway" directory with ``cd AdAway``
+2. Change to "AdAway" directory with ``cd AdAway`` (Ensure your already within the AdAway git repository)
 3. Execute ``ndk-build`` to compile native binaries.
 
 ## Build APK
@@ -38,6 +38,8 @@ The original author is Dominik Schürmann.
 3. Export ANDROID_HOME pointing to your Android SDK
 4. Execute ``./gradlew renameExecutables`` (IMPORTANT unusual step!)
 5. Execute ``./gradlew build``
+6. Locate the built apks within directory "AdAway/AdAway/build/outputs/apk"
+Note - you may need to sign the apk to install, else you can use the debug signed apk generated
 
 # Contribute
 
