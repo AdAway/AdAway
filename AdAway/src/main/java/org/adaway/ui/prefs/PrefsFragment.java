@@ -182,7 +182,7 @@ public class PrefsFragment extends PreferenceFragmentCompat {
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-// Configure preferences
+        // Configure preferences
         this.getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         this.addPreferencesFromResource(R.xml.preferences);
         // Get current context
@@ -192,38 +192,35 @@ public class PrefsFragment extends PreferenceFragmentCompat {
          * Enable systemless mode systemless mode if supported.
          */
         Preference SystemlessPref = findPreference(getString(R.string.pref_enable_systemless_key));
-        SystemlessPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                // Get device systemless mode
-                AbstractSystemlessMode systemlessMode = SystemlessUtils.getSystemlessMode();
-                // Check if systemless is supported
-                if (!systemlessMode.isSupported()) {
-                    return false;
-                }
-                // Declare successful action status
-                boolean successful;
-                // Check action to apply
-                if (newValue.equals(true)) {
-                    // Enable systemless mode
-                    successful = systemlessMode.enable(context);
-                    // Check if reboot is needed
-                    if (successful && systemlessMode.isRebootNeededAfterActivation()) {
-                        Utils.rebootQuestion(context, R.string.enable_systemless_successful_title,
-                                R.string.enable_systemless_successful);
-                    }
-                } else {
-                    // Disable systemless mode
-                    successful = systemlessMode.disable(context);
-                    // Check if reboot is needed
-                    if (successful && systemlessMode.isRebootNeededAfterDeactivation()) {
-                        Utils.rebootQuestion(context, R.string.disable_systemless_successful_title,
-                                R.string.disable_systemless_successful);
-                    }
-                }
-                // Return successful action status
-                return successful;
+        SystemlessPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            // Get device systemless mode
+            AbstractSystemlessMode systemlessMode = SystemlessUtils.getSystemlessMode();
+            // Check if systemless is supported
+            if (!systemlessMode.isSupported()) {
+                return false;
             }
+            // Declare successful action status
+            boolean successful;
+            // Check action to apply
+            if (newValue.equals(true)) {
+                // Enable systemless mode
+                successful = systemlessMode.enable(context);
+                // Check if reboot is needed
+                if (successful && systemlessMode.isRebootNeededAfterActivation()) {
+                    Utils.rebootQuestion(context, R.string.enable_systemless_successful_title,
+                            R.string.enable_systemless_successful);
+                }
+            } else {
+                // Disable systemless mode
+                successful = systemlessMode.disable(context);
+                // Check if reboot is needed
+                if (successful && systemlessMode.isRebootNeededAfterDeactivation()) {
+                    Utils.rebootQuestion(context, R.string.disable_systemless_successful_title,
+                            R.string.disable_systemless_successful);
+                }
+            }
+            // Return successful action status
+            return successful;
         });
 
         /*
@@ -232,44 +229,36 @@ public class PrefsFragment extends PreferenceFragmentCompat {
          * preference value, this would lead to a false check in UpdateListener
          */
         Preference UpdateDailyPref = findPreference(getString(R.string.pref_update_check_daily_key));
-        UpdateDailyPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                if (PreferenceHelper.getUpdateCheckDaily(context)) {
-                    UpdateService.enable();
-                } else {
-                    UpdateService.disable();
-                }
-                return false;
+        UpdateDailyPref.setOnPreferenceClickListener(preference -> {
+            if (PreferenceHelper.getUpdateCheckDaily(context)) {
+                UpdateService.enable();
+            } else {
+                UpdateService.disable();
             }
-
+            return false;
         });
 
         /* Start webserver if pref is enabled */
         Preference WebserverEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
-        WebserverEnabledPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                Shell rootShell;
-                try {
-                    rootShell = Shell.startRootShell();
+        WebserverEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            Shell rootShell;
+            try {
+                rootShell = Shell.startRootShell();
 
-                    if (newValue.equals(true)) {
-                        // start webserver
-                        WebserverUtils.startWebserver(context, rootShell);
-                    } else {
-                        // stop webserver
-                        WebserverUtils.stopWebserver(context, rootShell);
-                    }
-
-                    rootShell.close();
-                } catch (Exception e) {
-                    Log.e(Constants.TAG, "Problem while starting/stopping webserver!", e);
+                if (newValue.equals(true)) {
+                    // start webserver
+                    WebserverUtils.startWebserver(context, rootShell);
+                } else {
+                    // stop webserver
+                    WebserverUtils.stopWebserver(context, rootShell);
                 }
 
-                return true;
+                rootShell.close();
+            } catch (Exception e) {
+                Log.e(Constants.TAG, "Problem while starting/stopping webserver!", e);
             }
+
+            return true;
         });
 
         // Find systemless mode preferences
@@ -288,16 +277,13 @@ public class PrefsFragment extends PreferenceFragmentCompat {
 
         /* enable custom target pref if enabled in apply method */
         Preference customTargetPref = findPreference(getString(R.string.pref_apply_method_key));
-        customTargetPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                if (newValue.equals("customTarget")) {
-                    mCustomTarget.setEnabled(true);
-                } else {
-                    mCustomTarget.setEnabled(false);
-                }
-                return true;
+        customTargetPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if (newValue.equals("customTarget")) {
+                mCustomTarget.setEnabled(true);
+            } else {
+                mCustomTarget.setEnabled(false);
             }
+            return true;
         });
 
         /*
