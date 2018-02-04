@@ -208,8 +208,6 @@
   <string name="pref_enable_debug_summary">Трябва да рестартирате AdAway, за да влезе в сила тази настройка.</string>
   <string name="pref_enable_ipv6">Включи  IPv6</string>
   <string name="pref_enable_ipv6_summary">Всички вписвания от host файла ще кореспондират с ::1 (IPv6 localhost).</string>
-  <string name="pref_enable_systemless_def">грешен</string>
-  <string name="pref_enable_systemless_key">Включване на неметодичен режим</string>
   <string name="pref_enable_systemless_summary">Предотвратяване на AdAway от модифициране на системния партишън (изисква неметодичен SuperSU за автоматично инсталиране)</string>
   <string name="pref_enable_systemless">Включване на неметодичен режим</string>
 </resources>

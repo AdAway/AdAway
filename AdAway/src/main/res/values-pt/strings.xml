@@ -208,8 +208,6 @@
   <string name="pref_enable_debug_summary">Tem de reiniciar o AdAway para que esta definição entre em efeito.</string>
   <string name="pref_enable_ipv6">Ativar IPv6</string>
   <string name="pref_enable_ipv6_summary">Todas as entradas no ficheiro de hosts ficarão com uma entrada ::1 (localhost em IPv6) correspondente.</string>
-  <string name="pref_enable_systemless_def">false</string>
-  <string name="pref_enable_systemless_key">enableSystemless</string>
   <string name="pref_enable_systemless_summary">Impedir que o AdAway modifique a partição system (requer o SuperSU \"systemless\" para instalar automaticamente)</string>
   <string name="pref_enable_systemless">Ativar modo \"systemless\"</string>
 </resources>

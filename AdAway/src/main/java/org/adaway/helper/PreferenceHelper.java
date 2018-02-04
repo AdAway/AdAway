@@ -30,15 +30,20 @@ public class PreferenceHelper {
     public static boolean getUpdateCheck(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_update_check_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_update_check_def)));
+
+        return prefs.getBoolean(
+                context.getString(R.string.pref_update_check_key),
+                context.getResources().getBoolean(R.bool.pref_update_check_def)
+        );
     }
 
     public static boolean getNeverReboot(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_never_reboot_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_never_reboot_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_never_reboot_key),
+                context.getResources().getBoolean(R.bool.pref_never_reboot_def)
+        );
     }
 
     public static void setNeverReboot(Context context, boolean value) {
@@ -52,95 +57,117 @@ public class PreferenceHelper {
     public static boolean getSystemlessMode(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_enable_systemless_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_enable_systemless_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_enable_systemless_key),
+                context.getResources().getBoolean(R.bool.pref_enable_systemless_def)
+        );
     }
 
     public static boolean getEnableIpv6(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_enable_ipv6_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_enable_ipv6_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_enable_ipv6_key),
+                context.getResources().getBoolean(R.bool.pref_enable_ipv6_def)
+        );
     }
 
     public static boolean getUpdateCheckDaily(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_update_check_daily_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_update_check_daily_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_update_check_daily_key),
+                context.getResources().getBoolean(R.bool.pref_update_check_daily_def)
+        );
     }
 
     public static boolean getAutomaticUpdateDaily(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_automatic_update_daily_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_automatic_update_daily_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_automatic_update_daily_key),
+                context.getResources().getBoolean(R.bool.pref_automatic_update_daily_def)
+        );
     }
 
     public static boolean getUpdateOnlyOnWifi(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_update_only_on_wifi_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_update_only_on_wifi_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_update_only_on_wifi_key),
+                context.getResources().getBoolean(R.bool.pref_update_only_on_wifi_def)
+        );
     }
 
     public static boolean getWhitelistRules(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_whitelist_rules_key),
-                Boolean.parseBoolean(context
-                        .getString(R.string.pref_whitelist_rules_def))
+        return prefs.getBoolean(
+                context.getString(R.string.pref_whitelist_rules_key),
+                context.getResources().getBoolean(R.bool.pref_whitelist_rules_def)
         );
     }
 
     public static boolean getRedirectionRules(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_redirection_rules_key),
-                Boolean.parseBoolean(context
-                        .getString(R.string.pref_redirection_rules_def))
+        return prefs.getBoolean(
+                context.getString(R.string.pref_redirection_rules_key),
+                context.getResources().getBoolean(R.bool.pref_redirection_rules_def)
         );
     }
 
     public static String getRedirectionIP(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getString(context.getString(R.string.pref_redirection_ip_key),
-                context.getString(R.string.pref_redirection_ip_def));
+        return prefs.getString(
+                context.getString(R.string.pref_redirection_ip_key),
+                context.getString(R.string.pref_redirection_ip_def)
+        );
     }
 
     public static String getApplyMethod(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getString(context.getString(R.string.pref_apply_method_key),
-                context.getString(R.string.pref_apply_method_def));
+        return prefs.getString(
+                context.getString(R.string.pref_apply_method_key),
+                context.getString(R.string.pref_apply_method_def)
+        );
     }
 
     public static String getCustomTarget(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getString(context.getString(R.string.pref_custom_target_key),
-                context.getString(R.string.pref_custom_target_def));
+        return prefs.getString(
+                context.getString(R.string.pref_custom_target_key),
+                context.getString(R.string.pref_custom_target_def)
+        );
     }
 
     public static boolean getWebserverEnabled(Context context) {
         SharedPreferences prefs = context.getApplicationContext().getSharedPreferences(
                 Constants.PREFS_NAME, Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_webserver_enabled_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_webserver_enabled_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_webserver_enabled_key),
+                context.getResources().getBoolean(R.bool.pref_webserver_enabled_def)
+        );
     }
 
     public static boolean getWebserverOnBoot(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_webserver_on_boot_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_webserver_on_boot_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_webserver_on_boot_key),
+                context.getResources().getBoolean(R.bool.pref_webserver_on_boot_def)
+        );
     }
 
     public static boolean getDebugEnabled(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
-        return prefs.getBoolean(context.getString(R.string.pref_enable_debug_key),
-                Boolean.parseBoolean(context.getString(R.string.pref_enable_debug_def)));
+        return prefs.getBoolean(
+                context.getString(R.string.pref_enable_debug_key),
+                context.getResources().getBoolean(R.bool.pref_enable_debug_def)
+        );
     }
 }

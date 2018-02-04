@@ -208,7 +208,5 @@
   <string name="pref_enable_debug_summary">AdAway moet opnieuw worden gestart om deze aanpassing effect te laten hebben.</string>
   <string name="pref_enable_ipv6">IPv6 inschakelen</string>
   <string name="pref_enable_ipv6_summary">Bij alle adressen in het hosts-bestand wordt ::1 (de IPv6-versie van localhost) toegevoegd.</string>
-  <string name="pref_enable_systemless_def">Onwaar</string>
-  <string name="pref_enable_systemless_key">inschakelenSysteemloos</string>
   <string name="pref_enable_systemless">Systeemloze modus inschakelen</string>
 </resources>

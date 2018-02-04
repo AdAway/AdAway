@@ -208,8 +208,6 @@
   <string name="pref_enable_debug_summary">Je potrebné reštartovať AdAway aby sa zmeny prejavili.</string>
   <string name="pref_enable_ipv6">Povoliť IPv6</string>
   <string name="pref_enable_ipv6_summary">Všetky položky v hosts súbore budú mať zodpovedajúci ::1 (IPv6 localhost) záznam.</string>
-  <string name="pref_enable_systemless_def">nepravdivé</string>
-  <string name="pref_enable_systemless_key">PovoliťBezsystémovýRežim</string>
   <string name="pref_enable_systemless_summary">Zabráni AdAway upravovať systémovú partíciu (vyžaduje bezsystémový SuperSU pre automatickú inštaláciu)</string>
   <string name="pref_enable_systemless">Povoliť bezsystémový režim</string>
 </resources>

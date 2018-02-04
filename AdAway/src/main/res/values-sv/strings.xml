@@ -209,7 +209,6 @@
   <string name="pref_enable_ipv6">Aktivera ipv6
 </string>
   <string name="pref_enable_ipv6_summary">Alla värdfils poster kommer att få ett motsvarande ::1 (IPv6 localhost) post.</string>
-  <string name="pref_enable_systemless_def">falsk</string>
   <string name="pref_enable_systemless_summary">Förhindra AdAway från att ändra systempartitionen (kräver systemless SuperSU för automatisk installation)</string>
   <string name="pref_enable_systemless">Aktivera systemlöst läge</string>
 </resources>
