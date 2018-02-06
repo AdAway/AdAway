@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="about_url" translate="false">http://code.google.com/p/ad-away/</string>
-    <string name="no_root_url" translate="false">http://wiki.lineageos.org</string>
-    <string name="hosts_add_dialog_input" translate="false">http://</string>
-
+    <string name="about_url" translatable="false">http://code.google.com/p/ad-away/</string>
+    <string name="no_root_url" translatable="false">http://wiki.lineageos.org</string>
+    <string name="hosts_add_dialog_input" translatable="false">http://</string>
 </resources>

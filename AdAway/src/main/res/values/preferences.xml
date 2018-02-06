@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_update_check_key" translatable="false">updateCheck</string>
+    <bool name="pref_update_check_def">true</bool>
+    <string name="pref_never_reboot_key" translatable="false">neverReboot</string>
+    <bool name="pref_never_reboot_def">false</bool>
+    <string name="pref_enable_ipv6_key" translatable="false">enableIpv6</string>
+    <bool name="pref_enable_ipv6_def">false</bool>
+    <string name="pref_update_check_daily_key" translatable="false">updateCheckDaily</string>
+    <bool name="pref_update_check_daily_def">false</bool>
+    <string name="pref_automatic_update_daily_key" translatable="false">automaticUpdateDaily</string>
+    <bool name="pref_automatic_update_daily_def">false</bool>
+    <string name="pref_update_only_on_wifi_key" translatable="false">updateOnlyOnWifi</string>
+    <bool name="pref_update_only_on_wifi_def">false</bool>
+    <string name="pref_whitelist_rules_key" translatable="false">whitelistRules</string>
+    <bool name="pref_whitelist_rules_def">true</bool>
+    <string name="pref_redirection_rules_key" translatable="false">redirectionRules</string>
+    <bool name="pref_redirection_rules_def">false</bool>
+    <string name="pref_redirection_ip_key" translatable="false">redirectionIP</string>
+    <string name="pref_redirection_ip_def">127.0.0.1</string>
+    <string name="pref_apply_method_key" translatable="false">applyMethod</string>
+    <string-array name="pref_apply_method_entries_values" translatable="false">
+        <item>writeToSystem</item>
+        <item>writeToData</item>
+        <item>writeToDataData</item>
+        <item>customTarget</item>
+    </string-array>
+    <string name="pref_apply_method_def">writeToSystem</string>
+    <string name="pref_custom_target_key" translatable="false">customTarget</string>
+    <string name="pref_custom_target_def">/data/etc/hosts</string>
+    <string name="pref_webserver_enabled_key" translatable="false">webserverEnabled</string>
+    <bool name="pref_webserver_enabled_def">false</bool>
+    <string name="pref_webserver_on_boot_key" translatable="false">webserverOnBoot</string>
+    <bool name="pref_webserver_on_boot_def">false</bool>
+    <string name="pref_enable_debug_key" translatable="false">debugEnabled</string>
+    <bool name="pref_enable_debug_def">false</bool>
+    <string name="pref_enable_systemless_key" translatable="false">enableSystemless</string>
+    <bool name="pref_enable_systemless_def">false</bool>
+</resources>

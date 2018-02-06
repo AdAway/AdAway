@@ -3,41 +3,41 @@
 
     <PreferenceCategory android:title="@string/pref_download">
         <CheckBoxPreference
-            android:defaultValue="@string/pref_update_check_def"
+            android:defaultValue="@bool/pref_update_check_def"
             android:key="@string/pref_update_check_key"
             android:summary="@string/pref_update_check_summary"
             android:title="@string/pref_update_check" />
         <CheckBoxPreference
-            android:defaultValue="@string/pref_never_reboot_def"
+            android:defaultValue="@bool/pref_never_reboot_def"
             android:key="@string/pref_never_reboot_key"
             android:summary="@string/pref_never_reboot_summary"
             android:title="@string/pref_never_reboot" />
         <CheckBoxPreference
-            android:defaultValue="@string/pref_enable_systemless_def"
+            android:defaultValue="@bool/pref_enable_systemless_def"
             android:enabled="false"
             android:key="@string/pref_enable_systemless_key"
             android:summary="@string/pref_enable_systemless_summary"
             android:title="@string/pref_enable_systemless" />
         <CheckBoxPreference
-            android:defaultValue="@string/pref_enable_ipv6_def"
+            android:defaultValue="@bool/pref_enable_ipv6_def"
             android:key="@string/pref_enable_ipv6_key"
             android:summary="@string/pref_enable_ipv6_summary"
             android:title="@string/pref_enable_ipv6" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_background">
         <CheckBoxPreference
-            android:defaultValue="@string/pref_update_check_daily_def"
+            android:defaultValue="@bool/pref_update_check_daily_def"
             android:key="@string/pref_update_check_daily_key"
             android:summary="@string/pref_update_check_daily_summary"
             android:title="@string/pref_update_check_daily" />
         <CheckBoxPreference
-            android:defaultValue="@string/pref_automatic_update_daily_def"
+            android:defaultValue="@bool/pref_automatic_update_daily_def"
             android:dependency="@string/pref_update_check_daily_key"
             android:key="@string/pref_automatic_update_daily_key"
             android:summary="@string/pref_automatic_update_daily_summary"
             android:title="@string/pref_automatic_update_daily" />
         <CheckBoxPreference
-            android:defaultValue="@string/pref_update_only_on_wifi_def"
+            android:defaultValue="@bool/pref_update_only_on_wifi_def"
             android:dependency="@string/pref_update_check_daily_key"
             android:key="@string/pref_update_only_on_wifi_key"
             android:summary="@string/pref_update_only_on_wifi_summary"
@@ -45,13 +45,13 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_hosts">
         <CheckBoxPreference
-            android:defaultValue="@string/pref_whitelist_rules_def"
+            android:defaultValue="@bool/pref_whitelist_rules_def"
             android:key="@string/pref_whitelist_rules_key"
             android:summary="@string/pref_whitelist_rules_summary"
             android:title="@string/pref_whitelist_rules" />
 
         <CheckBoxPreference
-            android:defaultValue="@string/pref_redirection_rules_def"
+            android:defaultValue="@bool/pref_redirection_rules_def"
             android:key="@string/pref_redirection_rules_key"
             android:summary="@string/pref_redirection_rules_summary"
             android:title="@string/pref_redirection_rules" />
@@ -80,19 +80,19 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_webserver">
         <CheckBoxPreference
-            android:defaultValue="@string/pref_webserver_enabled_def"
+            android:defaultValue="@bool/pref_webserver_enabled_def"
             android:key="@string/pref_webserver_enabled_key"
             android:summary="@string/pref_webserver_enabled_summary"
             android:title="@string/pref_webserver_enabled" />
         <CheckBoxPreference
-            android:defaultValue="@string/pref_webserver_on_boot_def"
+            android:defaultValue="@bool/pref_webserver_on_boot_def"
             android:key="@string/pref_webserver_on_boot_key"
             android:summary="@string/pref_webserver_on_boot_summary"
             android:title="@string/pref_webserver_on_boot" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_debug">
         <CheckBoxPreference
-            android:defaultValue="@string/pref_enable_debug_def"
+            android:defaultValue="@bool/pref_enable_debug_def"
             android:key="@string/pref_enable_debug_key"
             android:summary="@string/pref_enable_debug_summary"
             android:title="@string/pref_enable_debug" />

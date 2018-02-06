@@ -42,12 +42,12 @@
   <string name="list_dialog_hostname">Naziv poslužitelja:</string>
   <string name="list_dialog_whitelist_hostname">Naziv poslužitelja:\n(Zamjenski znakovi * i ? su dopušteni!)</string>
   <string name="list_dialog_ip">IP (IPv4 ili IPv6):</string>
-  <string name="import_dialog">Uvažanje...</string>
-  <string name="export_dialog">Izvažanje...</string>
+  <string name="import_dialog">Uvažanje…</string>
+  <string name="export_dialog">Izvažanje…</string>
   <string name="export_success">Svi unosi su izvezeni u datoteku naziva \"adaway-export\" na vašoj SD kartici.</string>
   <!--Status Notifications-->
-  <string name="status_checking">Provjeravanje ažuriranja...</string>
-  <string name="status_reverting">Vraćanje...</string>
+  <string name="status_checking">Provjeravanje ažuriranja…</string>
+  <string name="status_reverting">Vraćanje…</string>
   <string name="status_reverting_subtitle">Stvaranje standardne datoteke poslužitelja</string>
   <string name="status_checking_subtitle">Provjeravanje dostupnih ažuriranja</string>
   <string name="status_update_available">Ažuriranje je dostupno</string>
@@ -83,8 +83,8 @@
   <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
   <string name="no_connection">Internet pristup ne radi.</string>
   <string name="no_connection_title">Neme pristupa internetu</string>
-  <string name="download_dialog">Preuzimanje...</string>
-  <string name="apply_dialog">Primijenjivanje...</string>
+  <string name="download_dialog">Preuzimanje…</string>
+  <string name="apply_dialog">Primijenjivanje…</string>
   <string name="apply_dialog_lists">Primijenjivanje vaših blokiranih i neblokiranih popisa</string>
   <string name="apply_dialog_hostnames">Obrada i spajanje datoteka poslužitelja</string>
   <string name="apply_dialog_hosts">Izgradnja datoteke poslužitelja</string>
@@ -114,7 +114,7 @@
   <string name="no_ip">Ovo nije valjani IP!</string>
   <string name="no_ip_title">Nepravilno oblikovan IP</string>
   <string name="reboot_never_reboot">Nikada ne pokreći ponovno i ne prikazuj ovo pitanje!</string>
-  <string name="loading">Učitavanje...</string>
+  <string name="loading">Učitavanje…</string>
   <!--Menu entries-->
   <string name="menu_refresh">Osvježi</string>
   <string name="menu_add">Dodaj</string>
@@ -210,7 +210,5 @@
   <string name="pref_enable_debug_summary">Ponovno pokrenite AdAway kako bi ova postavka bila primijenjena.</string>
   <string name="pref_enable_ipv6">Omogući IPv6</string>
   <string name="pref_enable_ipv6_summary">Svi unosi datoteke poslužitelja će dobiti odgovarajući ::1 (IPv6 localhost) unos.</string>
-  <string name="pref_enable_systemless_def">false</string>
-  <string name="pref_enable_systemless_key">enableSystemless</string>
   <string name="pref_enable_systemless">Omogući način rada bez sustava</string>
 </resources>

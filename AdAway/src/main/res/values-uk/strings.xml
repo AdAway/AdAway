@@ -208,8 +208,6 @@
   <string name="pref_enable_debug_summary">Необхідно перезапустити AdAway, щоб зміни вступили в силу.</string>
   <string name="pref_enable_ipv6">Увімкнути IPv6</string>
   <string name="pref_enable_ipv6_summary">Усі записи файлу хостів отримають належний елемент ::1 (IPv6 localhost).</string>
-  <string name="pref_enable_systemless_def">хибність</string>
-  <string name="pref_enable_systemless_key">увімкнути безсистемний</string>
   <string name="pref_enable_systemless_summary">Запобігати зміні системного розділу через AdAway (вимагає несистемного SuperSU для автоматичного встановлення)</string>
   <string name="pref_enable_systemless">Увімкнути безсистемний режим</string>
 </resources>

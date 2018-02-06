@@ -209,7 +209,5 @@ Vuoi installare OI File Manager?</string>
   <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>
   <string name="pref_enable_ipv6">Abilita IPv6</string>
   <string name="pref_enable_ipv6_summary">Tutte le voci nel file di host avranno una voce  ::1 (IPV6 localhost) corrispondente</string>
-  <string name="pref_enable_systemless_def">falso</string>
-  <string name="pref_enable_systemless_key">attivaSystemless</string>
   <string name="pref_enable_systemless">Attivare modalità Systemless</string>
 </resources>
