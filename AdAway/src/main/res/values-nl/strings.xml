@@ -46,13 +46,13 @@
     <string name="list_dialog_hostname">Hostnaam:</string>
     <string name="list_dialog_whitelist_hostname">Hostnaam:/n(De wildcard karakters * en ? zijn toegestaan!)</string>
     <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
-    <string name="import_dialog">Bezig met importeren...</string>
-    <string name="export_dialog">Bezig met exporteren...</string>
+    <string name="import_dialog">Bezig met importeren…</string>
+    <string name="export_dialog">Bezig met exporteren…</string>
     <string name="export_success">Alle regels zijn geëxporteerd naar een bestand genaamd \'adaway-export\' op uw SD-kaart.</string>
 
     <!-- Status Notifications -->
-    <string name="status_checking">Bezig met controleren op updates...</string>
-    <string name="status_reverting">Bezig met terugzetten...</string>
+    <string name="status_checking">Bezig met controleren op updates…</string>
+    <string name="status_reverting">Bezig met terugzetten…</string>
     <string name="status_reverting_subtitle">Standaard hosts-bestand aanmaken</string>
     <string name="status_checking_subtitle">Bezig met controleren op updates</string>
     <string name="status_update_available">Er is een update beschikbaar</string>
@@ -102,7 +102,7 @@
     <string name="apply_symlink_fail_title">Aanmaak symlink mislukt</string>
     <string name="apply_help">Leest u alstublieft de hulp voor meer informatie.</string>
     <string name="apply_apn_proxy">Een APN-proxy is ingesteld op uw Android!\n
-  AdAway zal niet goed werken als er gebruik wordt gemaakt van mobiele netwerken zoals 3G. U kunt uw proxy uitschakelen door naar je geselecteerde APN te gaan (Op Android 4: Draadloos en netwerken -> Meer... -> Mobiele netwerken -> Namen toegangspunten) en de waarde in het veld genaamd \'Proxy\' te verwijderen.</string>
+  AdAway zal niet goed werken als er gebruik wordt gemaakt van mobiele netwerken zoals 3G. U kunt uw proxy uitschakelen door naar je geselecteerde APN te gaan (Op Android 4: Draadloos en netwerken -> Meer… -> Mobiele netwerken -> Namen toegangspunten) en de waarde in het veld genaamd \'Proxy\' te verwijderen.</string>
     <string name="apply_apn_proxy_title">APN-proxy ingesteld!</string>
     <string name="no_connection">De internetverbinding werkt niet.</string>
     <string name="no_connection_title">Geen verbinding</string>
