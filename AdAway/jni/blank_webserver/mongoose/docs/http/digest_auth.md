@@ -1,5 +1,0 @@
----
-title: Digest Authentication
----
-
-TBD
