@@ -1,209 +1,269 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">AdAway</string>
-  <!--Buttons-->
-  <string name="button_exit">Çıkış</string>
-  <string name="button_apply">Dosyaları indir ve reklam engellemesini uygula</string>
-  <string name="button_close">Kapat</string>
-  <string name="button_yes">Evet</string>
-  <string name="button_no">Hayır</string>
-  <string name="button_revert">Reklam engellemeyi etkisizleştir</string>
-  <string name="button_add">Ekle</string>
-  <string name="button_cancel">İptal</string>
-  <string name="button_apply_text">Tüm kaynaklardaki host dosyaları indirildi, listenizdekilerle birleştirildi ve sisteminize tek bir host dosyası olarak yüklendi.</string>
-  <string name="button_revert_text">Host dosyasını sistem varsayılanına döndürür.</string>
-  <string name="button_save">Kaydet</string>
-  <string name="button_webserver_toggle_checked">Websunucu çalışıyor</string>
-  <string name="button_webserver_toggle_unchecked">Websunucu çalışmıyor</string>
-  <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat yada durdur.</string>
-  <string name="button_help">Yardım</string>
-  <string name="button_tcpdump_text">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arkaplanda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump çalışıyor!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump çalışmıyor!</string>
-  <string name="button_tcpdump_open">Log dosyasını aç</string>
-  <string name="button_tcpdump_delete">Log dosyasını sil</string>
-  <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Ekle</string>
-  <string name="checkbox_list_empty">Boş liste</string>
-  <string name="checkbox_list_empty_text">Menüden öğeler ekleyebilirsiniz.</string>
-  <string name="checkbox_list_context_delete">Sil</string>
-  <string name="checkbox_list_footer">Bu listeye yeni öğe ekledikten sonra AdAway\'i yeniden uygulamalısınız.</string>
-  <string name="checkbox_list_edit_dialog_title">Düzenle</string>
-  <string name="checkbox_list_context_title">Girdiyi Düzenle</string>
-  <string name="checkbox_list_context_edit">Düzenle</string>
-  <!--Your Lists-->
-  <string name="lists_tab_whitelist">Beyazliste</string>
-  <string name="lists_tab_blacklist">Karaliste</string>
-  <string name="lists_tab_blacklist_short">Siyah</string>
-  <string name="lists_tab_whitelist_short">Beyaz</string>
-  <string name="lists_tab_redirection_list_short">Yönlendirme</string>
-  <string name="lists_tab_redirection_list">Yönlendirme Listesi</string>
-  <string name="list_dialog_url">URL:</string>
-  <string name="list_dialog_hostname">Adres:</string>
-  <string name="list_dialog_whitelist_hostname">Adres:\n(* ve ? karakterleri de kullanılabilir)</string>
-  <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
-  <string name="import_dialog">Alınıyor...</string>
-  <string name="export_dialog">Veriliyor...</string>
-  <string name="export_success">Tüm girdiler, sdcard üzerinde \'adaway-export\' dosyasına kaydedildi.</string>
-  <!--Status Notifications-->
-  <string name="status_checking">Güncelleme kontrol ediliyor...</string>
-  <string name="status_reverting">Geri alınıyor!</string>
-  <string name="status_reverting_subtitle">Varsayılan hosts dosyası yapılıyor</string>
-  <string name="status_checking_subtitle">Güncelleştirmenin kullanılabilir olup olmadığını kontrol et</string>
-  <string name="status_update_available">Güncelleme mevcut</string>
-  <string name="status_update_available_subtitle">Daha yeni host dosyaları mevcut</string>
-  <string name="status_no_connection">İnternet bağlantısı yok</string>
-  <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
-  <string name="status_download_fail">Kullanılamaz kaynak</string>
-  <string name="status_download_fail_subtitle_new">Hiçbir host kaynağına ulaşılamadı.</string>
-  <string name="status_enabled">Etkinleştirildi</string>
-  <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
-  <string name="status_disabled">Etkisizleştirildi</string>
-  <string name="status_disabled_subtitle">Etkisizleştirildi</string>
-  <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Hedefiniz ile /system/etc/hosts dosyası symlink ile bağlanmamış veya hatalı bağlanmış! Bu bağlanma olmadan AdAway çalışamaz.\n\nŞimdi bir symlink ayarlansın mı?</string>
-  <string name="apply_symlink_missing_title">Symlink kayıp</string>
-  <string name="apply_not_enough_space">Sistem bölümlemesinin boş alanı yeterli değil!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
-  <string name="apply_not_enough_space_title">Yeterli alan yok</string>
-  <string name="apply_private_file_fail">İndirilen dosya okunamadı.</string>
-  <string name="apply_private_file_fail_title">Özel dosya başarısız</string>
-  <string name="apply_remount_fail">Okuma/yazma bölümü tekrar bağlanması başarısız!</string>
-  <string name="apply_remount_fail_title">Remount başarısız oldu</string>
-  <string name="apply_copy_fail">Host dosyası kopyalama başarısız!</string>
-  <string name="apply_copy_fail_title">Kopyalama başarısız</string>
-  <string name="apply_success_subtitle">Uygulanmış host kaynakları:</string>
-  <string name="apply_success_title">Uygulama başarılı</string>
-  <string name="apply_success_dialog">Uygulama başarıyla sonuçlandı.\nDeğişikliklerin geçerli olması için Android\'i yeniden başlatmak gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an hafıza kartını kullanan bir program olmadığına emin olun!)</string>
-  <string name="apply_symlink_successful">Symlink bağlantısı oluşturuldu.\nDeğişikliklerin geçerli olması için yeniden başlatmanı gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
-  <string name="apply_symlink_successful_title">Symlink oluşturma başarılı</string>
-  <string name="apply_symlink_fail">Symlink oluşturulamadı.\nBu hata genelde HTC telefonlardaki S-ON denilen özellik yüzünden olmaktadır!\n\nSorunu elle çözmek isterseniz recovery mode ile açıp \'ln -s /data/data/hosts /system/etc/hosts\' komutuyla symlink yapmanız gereklidir.\n\nEğer ki bu olmuyorsa çözüm için internette S-OFF ve telefonunuzun adı ile bir arama yapın.</string>
-  <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
-  <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
-  <string name="apply_apn_proxy">APN vekil sunucusu ayarlanmış!
-Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçili APN ayarlarında (Android 4 için: Ayarlar -&gt; Diğer... -&gt; Mobil Ağlar -&gt; Erişim Noktası Adları) Proxy alanındaki değeri silerek devre dışı bırakabilirsiniz.</string>
-  <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
-  <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
-  <string name="no_connection_title">Bağlantı Yok</string>
-  <string name="download_dialog">İndiriyor...</string>
-  <string name="apply_dialog">Uygulanıyor...</string>
-  <string name="apply_dialog_lists">Beyazliste ve Karaliste uygulanıyor</string>
-  <string name="apply_dialog_hostnames">Host dosyaları incelenip birleştiriliyor</string>
-  <string name="apply_dialog_hosts">Host dosyası oluşturuluyor</string>
-  <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
-  <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
-  <string name="apply_fail_title">Uygulama başarısız</string>
-  <string name="revert_successful">Varsayılan host dosyasına dönüldü.\nDeğişikliklerin geçerli olması için yeniden başlatma gerekebilir.\n\nYeniden başlatmak istiyor musunuz?\n(Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
-  <string name="revert_successful_title">Geri alma başarılı!</string>
-  <string name="revert_problem">Geri alma bilinmeyen sebepler yüzünden başarısız oldu.</string>
-  <string name="revert_problem_title">Geri alma başarısız!</string>
-  <string name="download_fail_dialog">Aktif ettiğiniz hiçbir host kaynağına ulaşılamıyor! İnternet\'e bağlı olduğunuza emin misiniz?</string>
-  <string name="download_fail_title">İndirme işlemi başarısız.</string>
-  <string name="no_private_file">Özel dosya oluşturulamadı.</string>
-  <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu.</string>
-  <!--Other Dialogs-->
-  <string name="no_root_description">su binary dosyası bulunamadı veya AdAway için root hakkı sağlanmadı.\n\nEğer cihazınız root edilmemişse bu yaşanabilir.\nDetaylı bilgi ve cihazınızı nasıl root edeceğinizi öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
-  <string name="no_root_title">Root izni gereklidir</string>
-  <string name="no_url">Geçersiz bir URL!</string>
-  <string name="no_url_title">Uygunsuz biçimlendirilmiş URL</string>
-  <string name="hosts_add_dialog">Host dosyasına URL gir:</string>
-  <string name="no_hostname">Girilen adres geçerli değil!</string>
-  <string name="no_hostname_title">Uygunsuz biçimlendirilmiş adres</string>
-  <string name="no_ip">Bu geçerli bir IP değildir!</string>
-  <string name="no_ip_title">Uygunsuz biçimlendirilmiş IP</string>
-  <string name="reboot_never_reboot">Asla yeniden başlatma ve bu soruyu tekrar sorma!</string>
-  <string name="loading">Yükleniyor...</string>
-  <!--Menu entries-->
-  <string name="menu_refresh">Yenile</string>
-  <string name="menu_add">Ekle</string>
-  <string name="menu_scan_adware">Reklam Tara</string>
-  <string name="menu_hosts_sources">Host kaynakları</string>
-  <string name="menu_tcpdump">DNS istekleri log dosyasına kaydet</string>
-  <string name="menu_help">Yardım</string>
-  <string name="menu_lists">Listeleriniz</string>
-  <string name="menu_show_hosts_file">Host dosyasını aç</string>
-  <string name="menu_import">Tüm Listeleri Al</string>
-  <string name="menu_export">Tüm Listeleri Ver</string>
-  <string name="menu_preferences">Tercihler</string>
-  <!--Help-->
-  <string name="help_tab_about">Hakkında</string>
-  <string name="help_tab_donate">Bağışta bulunun</string>
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">SSS</string>
-  <string name="help_tab_problems">Sorunlar</string>
-  <string name="help_tab_changelog">Değişim Listesi</string>
-  <string name="help_about_version">Sürüm:</string>
-  <string name="help_donation_paypal_item">AdAway\'e Bağış</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Avro</item>
-    <item>2 Avro</item>
-    <item>3 Avro</item>
-    <item>5 Avro</item>
-    <item>8 Avro</item>
-    <item>13 Avro</item>
-  </string-array>
-  <!--Scan Adware-->
-  <string name="scan_adware_description">Burada Adware tarafından engellenemeyecek kötü yazılımlar için tarama yapabilirsiniz. Bu uygulamalar mesela Airpush bilgilendirmelerini gibi uygulama çalışmadığı zaman  ya da zil sesini değiştirdiğinizde bile reklam gösteren yazılımlardır. Bunun tek çözüm yolu listede çıkacak olan uygulamaları silmektir.</string>
-  <string name="scan_adware_start">Taramaya başla</string>
-  <string name="scan_adware_empty">Hiçbir kötü Adware yazılımı bulunamadı!</string>
-  <!--Hosts Sources-->
-  <string name="hosts_last_modified_local">Yerel:</string>
-  <string name="hosts_last_modified_online">Online:</string>
-  <string name="hosts_not_available">Uygun değil</string>
-  <!--Other-->
-  <string name="app_subtitle">Reklam engelleyici</string>
-  <string name="no_text_editor_title">Yüklü metin editörü yok</string>
-  <string name="no_text_editor">Hosts dosyasını açacak bir metin düzenleyici bulunamadı. Jota veya benzeri bir metin düzenleyici yüklemeniz gerekebilir.\n\nŞimdi Jota yüklemek ister misiniz?</string>
-  <string name="no_file_manager_title">Yüklü dosya yöneticisi yok</string>
-  <string name="no_file_manager">Dosyaları açacak bir dosya yöneticisi bulunamadı. OI File Manager veya benzeri bir dosya yöneticisi yüklemeniz gerekebilir.\n\nŞimdi OI File Manager yüklemek ister misiniz?</string>
-  <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Log dosyası silindi!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Adres karalisteye eklendi</string>
-  <string name="toast_tcpdump_added_to_whitelist">Adres beyazlisteye eklendi</string>
-  <string name="tcpdump_log_context_blacklist">Karalisteye ekle</string>
-  <string name="tcpdump_log_context_whitelist">Beyazlisteye ekle</string>
-  <string name="tcpdump_log_context_browser">Tarayıcıda aç</string>
-  <string name="tcpdump_log_empty">Log dosyası boş!</string>
-  <string name="tcpdump_log_footer">Adresi kara- veya beyazlisteye eklemek için adrese basılı tutun.</string>
-  <!--Preferences-->
-  <string name="pref_download">Genel Tercihler</string>
-  <string name="pref_hosts">Hosts Dosyası</string>
-  <string name="pref_redirection_ip">IP Yönlendirme</string>
-  <string name="pref_update_check">Güncellemeleri kontrol et</string>
-  <string name="pref_apply_method">Hedef Hosts dosyası</string>
-  <string name="pref_apply_method_summary">Bu ayarı değiştirmeden önce, bu işlevsellik hakkındaki yardımı okuyun.</string>
-  <string name="pref_redirection_ip_summary">Tüm engellenmiş adresler bu IP adresine yönlendirilir.</string>
-  <string name="pref_header_preferences">Tercihler</string>
-  <string name="pref_header_preferences_summary">AdAway için genel tercihler</string>
-  <string name="pref_never_reboot">Yeniden başlatma diyaloğunu gizle</string>
-  <string name="pref_never_reboot_summary">İşlemler uygulandıktan sonraki yeniden başlatma sorusunu gizler</string>
-  <string name="pref_webserver_on_boot">Başlangıçta websunucuyu çalıştır</string>
-  <string name="pref_webserver_on_boot_summary">Başlangıçta WebSunucuyu 5 saniye gecikmeli çalıştır</string>
-  <string name="pref_webserver_enabled">Websunucuyu etkinleştir</string>
-  <string name="pref_webserver_enabled_summary">Engelli adres isteklerine cevap vermek için yerel IP adresi üzerinde web sunucusu açar.</string>
-  <string name="pref_webserver">Yerel WebSunucu</string>
-  <string name="pref_custom_target">Özel hedef</string>
-  <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Özel hedef</item>
-  </string-array>
-  <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>
-  <string name="pref_sdcard_problem">Bu özellik, AdAway sdcard üzerine yüklendiğinde düzgün çalışmaz!</string>
-  <string name="pref_background">Arka Plan Hizmetleri</string>
-  <string name="pref_update_check_daily">Güncellemeleri günlük denetle</string>
-  <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
-  <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
-  <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
-  <string name="pref_update_only_on_wifi">Sadece Wifi üzerinden güncelle</string>
-  <string name="pref_update_only_on_wifi_summary">Wifi bağlı olduğunda sadece geri plan güncelleştirmeleri yürüt.</string>
-  <string name="pref_whitelist_rules">Beyaz listeye izin ver</string>
-  <string name="pref_whitelist_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
-  <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
-  <string name="pref_redirection_rules_summary">BÜYÜK RİSK İÇERİR! Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
-  <string name="pref_debug">Hata ayıklama</string>
-  <string name="pref_enable_debug">Hata ayıklama kaydı</string>
-  <string name="pref_enable_debug_summary">Ayarların etkinleştirmek için AdAway\'ı yeniden başlatın.</string>
-  <string name="pref_enable_ipv6">IPv6 etkinleştir</string>
-  <string name="pref_enable_ipv6_summary">Tüm host dosyası kayıtlarına ::1 (IPv6 yerel IP\'si) eklenecektir.</string>
+
+    <string name="app_name">AdAway</string>
+
+    <!-- Buttons -->
+    <string name="button_exit">Çıkış</string>
+    <string name="button_apply">Dosyaları indir ve reklam engellemesini uygula</string>
+    <string name="button_close">Kapat</string>
+    <string name="button_yes">Evet</string>
+    <string name="button_no">Hayır</string>
+    <string name="button_revert">Reklam engellemeyi etkisizleştir</string>
+    <string name="button_add">Ekle</string>
+    <string name="button_cancel">İptal</string>
+    <string name="button_apply_text">Tüm kaynaklardaki host dosyaları indirildi, listenizdekilerle birleştirildi ve sisteminize tek bir host dosyası olarak yüklendi.</string>
+    <string name="button_revert_text">Host dosyasını sistem varsayılanına döndürür.</string>
+    <string name="button_save">Kaydet</string>
+    <string name="button_webserver_toggle_checked">Websunucu çalışıyor</string>
+    <string name="button_webserver_toggle_unchecked">Websunucu çalışmıyor</string>
+    <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat yada durdur.</string>
+    <string name="button_help">Yardım</string>
+    <string name="button_tcpdump_text">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arkaplanda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
+    <string name="button_tcpdump_toggle_checked">Tcpdump çalışıyor!</string>
+    <string name="button_tcpdump_toggle_unchecked">Tcpdump çalışmıyor!</string>
+    <string name="button_tcpdump_open">Log dosyasını aç</string>
+    <string name="button_tcpdump_delete">Log dosyasını sil</string>
+
+    <!-- Checkbox List -->
+    <string name="checkbox_list_add_dialog_title">Ekle</string>
+    <string name="checkbox_list_empty">Boş liste</string>
+    <string name="checkbox_list_empty_text">Menüden öğeler ekleyebilirsiniz.</string>
+    <string name="checkbox_list_context_delete">Sil</string>
+    <string name="checkbox_list_footer">Bu listeye yeni öğe ekledikten sonra AdAway\'i yeniden uygulamalısınız.</string>
+    <string name="checkbox_list_edit_dialog_title">Düzenle</string>
+    <string name="checkbox_list_context_title">Girdiyi Düzenle</string>
+    <string name="checkbox_list_context_edit">Düzenle</string>
+
+    <!-- Your Lists -->
+    <string name="lists_tab_whitelist">Beyazliste</string>
+    <string name="lists_tab_blacklist">Karaliste</string>
+    <string name="lists_tab_blacklist_short">Siyah</string>
+    <string name="lists_tab_whitelist_short">Beyaz</string>
+    <string name="lists_tab_redirection_list_short">Yönlendirme</string>
+    <string name="lists_tab_redirection_list">Yönlendirme Listesi</string>
+    <string name="list_dialog_url">URL:</string>
+    <string name="list_dialog_hostname">Adres:</string>
+    <string name="list_dialog_whitelist_hostname">Adres:\n
+  (* ve ? karakterleri de kullanılabilir)</string>
+    <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
+    <string name="import_dialog">Alınıyor…</string>
+    <string name="export_dialog">Veriliyor…</string>
+    <string name="export_success">Tüm girdiler, sdcard üzerinde \'adaway-export\' dosyasına kaydedildi.</string>
+
+    <!-- Status Notifications -->
+    <string name="status_checking">Güncelleme kontrol ediliyor…</string>
+    <string name="status_reverting">Geri alınıyor!</string>
+    <string name="status_reverting_subtitle">Varsayılan hosts dosyası yapılıyor</string>
+    <string name="status_checking_subtitle">Güncelleştirmenin kullanılabilir olup olmadığını kontrol et</string>
+    <string name="status_update_available">Güncelleme mevcut</string>
+    <string name="status_update_available_subtitle">Daha yeni host dosyaları mevcut</string>
+    <string name="status_no_connection">İnternet bağlantısı yok</string>
+    <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
+    <string name="status_download_fail">Kullanılamaz kaynak</string>
+    <string name="status_download_fail_subtitle_new">Hiçbir host kaynağına ulaşılamadı.</string>
+    <string name="status_enabled">Etkinleştirildi</string>
+    <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
+    <string name="status_disabled">Etkisizleştirildi</string>
+    <string name="status_disabled_subtitle">Etkisizleştirildi</string>
+
+    <!-- Apply and Revert Dialogs -->
+    <string name="apply_symlink_missing">Hedefiniz ile /system/etc/hosts dosyası symlink ile bağlanmamış veya hatalı bağlanmış! Bu bağlanma olmadan AdAway çalışamaz.\n
+  \n
+  Şimdi bir symlink ayarlansın mı?</string>
+    <string name="apply_symlink_missing_title">Symlink kayıp</string>
+    <string name="apply_not_enough_space">Sistem bölümlemesinin boş alanı yeterli değil!\n
+  Tercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
+    <string name="apply_not_enough_space_title">Yeterli alan yok</string>
+    <string name="apply_private_file_fail">İndirilen dosya okunamadı.</string>
+    <string name="apply_private_file_fail_title">Özel dosya başarısız</string>
+    <string name="apply_remount_fail">Okuma/yazma bölümü tekrar bağlanması başarısız!</string>
+    <string name="apply_remount_fail_title">Remount başarısız oldu</string>
+    <string name="apply_copy_fail">Host dosyası kopyalama başarısız!</string>
+    <string name="apply_copy_fail_title">Kopyalama başarısız</string>
+    <string name="apply_success_subtitle">Uygulanmış host kaynakları:</string>
+    <string name="apply_success_title">Uygulama başarılı</string>
+    <string name="apply_success_dialog">Uygulama başarıyla sonuçlandı.\n
+  Değişikliklerin geçerli olması için Android\'i yeniden başlatmak gerekebilir.\n
+  \n
+  Yeniden başlatmak istiyor musunuz?\n
+  (Veri kaybını önlemek için şu an hafıza kartını kullanan bir program olmadığına emin olun!)</string>
+    <string name="apply_symlink_successful">Symlink bağlantısı oluşturuldu.\n
+  Değişikliklerin geçerli olması için yeniden başlatmanı gerekebilir.\n
+  \n
+  Yeniden başlatmak istiyor musunuz?\n
+  (Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
+    <string name="apply_symlink_successful_title">Symlink oluşturma başarılı</string>
+    <string name="apply_symlink_fail">Symlink oluşturulamadı.\n
+  Bu hata genelde HTC telefonlardaki S-ON denilen özellik yüzünden olmaktadır!\n
+  \n
+  Sorunu elle çözmek isterseniz recovery mode ile açıp \'ln -s /data/data/hosts /system/etc/hosts\' komutuyla symlink yapmanız gereklidir.\n
+  \n
+  Eğer ki bu olmuyorsa çözüm için internette S-OFF ve telefonunuzun adı ile bir arama yapın.</string>
+    <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
+    <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
+    <string name="apply_apn_proxy">APN vekil sunucusu ayarlanmış! Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçili APN ayarlarında (Android 4 için: Ayarlar -> Diğer… -> Mobil Ağlar -> Erişim Noktası Adları) Proxy alanındaki değeri silerek devre dışı bırakabilirsiniz.</string>
+    <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
+    <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
+    <string name="no_connection_title">Bağlantı Yok</string>
+    <string name="download_dialog">İndiriyor…</string>
+    <string name="apply_dialog">Uygulanıyor…</string>
+    <string name="apply_dialog_lists">Beyazliste ve Karaliste uygulanıyor</string>
+    <string name="apply_dialog_hostnames">Host dosyaları incelenip birleştiriliyor</string>
+    <string name="apply_dialog_hosts">Host dosyası oluşturuluyor</string>
+    <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
+    <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\n
+  Tercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
+    <string name="apply_fail_title">Uygulama başarısız</string>
+    <string name="revert_successful">Varsayılan host dosyasına dönüldü.\n
+  Değişikliklerin geçerli olması için yeniden başlatma gerekebilir.\n
+  \n
+  Yeniden başlatmak istiyor musunuz?\n
+  (Veri kaybını önlemek için şu an sdcard kullanan bir program olmadığına emin olun!)</string>
+    <string name="revert_successful_title">Geri alma başarılı!</string>
+    <string name="revert_problem">Geri alma bilinmeyen sebepler yüzünden başarısız oldu.</string>
+    <string name="revert_problem_title">Geri alma başarısız!</string>
+    <string name="download_fail_dialog">Aktif ettiğiniz hiçbir host kaynağına ulaşılamıyor! İnternet\'e bağlı olduğunuza emin misiniz?</string>
+    <string name="download_fail_title">İndirme işlemi başarısız.</string>
+    <string name="no_private_file">Özel dosya oluşturulamadı.</string>
+    <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu.</string>
+    <string name="enable_systemless_successful">Sistemsiz modu etkinleştirdiniz.\n
+ Değişikliklerin geçerli olması için Android\'i yeniden başlatmak gerekebilir.\n
+ \n
+ Yeniden başlatmak istiyor musunuz?\n
+ (Veri kaybını önlemek için herhangi bir uygulamanın hafıza kartını kullanmadığından emin olun!)</string>
+    <string name="enable_systemless_successful_title">Etkinleştirme başarılı</string>
+    <string name="disable_systemless_successful">Sistemsiz modu devre dışı bıraktınız.\n
+ Değişikliklerin geçerli olması için Android\'i yeniden başlatmak gerekebilir.\n
+ \n
+ Yeniden başlatmak istiyor musunuz?\n
+ (Veri kaybını önlemek için herhangi bir uygulamanın hafıza kartını kullanmadığından emin olun!)</string>
+    <string name="disable_systemless_successful_title">Devre dışı bırakma başarılı</string>
+
+    <!-- Other Dialogs -->
+    <string name="no_root_description">su binary dosyası bulunamadı veya AdAway için root hakkı sağlanmadı.\n
+  \n
+  Eğer cihazınız root edilmemişse bu yaşanabilir.\n
+  Detaylı bilgi ve cihazınızı nasıl root edeceğinizi öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
+    <string name="no_root_title">Root izni gereklidir</string>
+    <string name="no_url">Geçersiz bir URL!</string>
+    <string name="no_url_title">Uygunsuz biçimlendirilmiş URL</string>
+    <string name="hosts_add_dialog">Host dosyasına URL gir:</string>
+    <string name="no_hostname">Girilen adres geçerli değil!</string>
+    <string name="no_hostname_title">Uygunsuz biçimlendirilmiş adres</string>
+    <string name="no_ip">Bu geçerli bir IP değildir!</string>
+    <string name="no_ip_title">Uygunsuz biçimlendirilmiş IP</string>
+    <string name="reboot_never_reboot">Asla yeniden başlatma ve bu soruyu tekrar sorma!</string>
+    <string name="loading">Yükleniyor…</string>
+
+    <!-- Menu entries -->
+    <string name="menu_refresh">Yenile</string>
+    <string name="menu_add">Ekle</string>
+    <string name="menu_scan_adware">Reklam Tara</string>
+    <string name="menu_hosts_sources">Host kaynakları</string>
+    <string name="menu_tcpdump">DNS istekleri log dosyasına kaydet</string>
+    <string name="menu_help">Yardım</string>
+    <string name="menu_lists">Listeleriniz</string>
+    <string name="menu_show_hosts_file">Host dosyasını aç</string>
+    <string name="menu_import">Tüm Listeleri Al</string>
+    <string name="menu_export">Tüm Listeleri Ver</string>
+    <string name="menu_preferences">Tercihler</string>
+
+    <!-- Help -->
+    <string name="help_tab_about">Hakkında</string>
+    <string name="help_tab_donate">Bağışta bulunun</string>
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <string name="help_tab_faq">SSS</string>
+    <string name="help_tab_problems">Sorunlar</string>
+    <string name="help_tab_changelog">Değişim Listesi</string>
+    <string name="help_about_version">Sürüm:</string>
+    <string name="help_donation_paypal_item">AdAway\'e Bağış</string>
+    <string-array name="help_donation_google_catalog_values">
+        <item>1 Avro</item>
+        <item>2 Avro</item>
+        <item>3 Avro</item>
+        <item>5 Avro</item>
+        <item>8 Avro</item>
+        <item>13 Avro</item>
+    </string-array>
+
+    <!-- Scan Adware -->
+    <string name="scan_adware_description">Burada Adware tarafından engellenemeyecek kötü yazılımlar için tarama yapabilirsiniz. Bu uygulamalar mesela Airpush bilgilendirmelerini gibi uygulama çalışmadığı zaman  ya da zil sesini değiştirdiğinizde bile reklam gösteren yazılımlardır. Bunun tek çözüm yolu listede çıkacak olan uygulamaları silmektir.</string>
+    <string name="scan_adware_start">Taramaya başla</string>
+    <string name="scan_adware_empty">Hiçbir kötü Adware yazılımı bulunamadı!</string>
+
+    <!-- Hosts Sources -->
+    <string name="hosts_last_modified_local">Yerel:</string>
+    <string name="hosts_last_modified_online">Online:</string>
+    <string name="hosts_not_available">Uygun değil</string>
+
+    <!-- Other -->
+    <string name="app_subtitle">Reklam engelleyici</string>
+    <string name="no_text_editor_title">Yüklü metin editörü yok</string>
+    <string name="no_text_editor">Hosts dosyasını açacak bir metin düzenleyici bulunamadı. Jota veya benzeri bir metin düzenleyici yüklemeniz gerekebilir.\n
+  \n
+  Şimdi Jota yüklemek ister misiniz?</string>
+    <string name="no_file_manager_title">Yüklü dosya yöneticisi yok</string>
+    <string name="no_file_manager">Dosyaları açacak bir dosya yöneticisi bulunamadı. OI File Manager veya benzeri bir dosya yöneticisi yüklemeniz gerekebilir.\n
+  \n
+  Şimdi OI File Manager yüklemek ister misiniz?</string>
+
+    <!-- Tcpdump -->
+    <string name="toast_tcpdump_log_deleted">Log dosyası silindi!</string>
+    <string name="toast_tcpdump_added_to_blacklist">Adres karalisteye eklendi</string>
+    <string name="toast_tcpdump_added_to_whitelist">Adres beyazlisteye eklendi</string>
+    <string name="tcpdump_log_context_blacklist">Karalisteye ekle</string>
+    <string name="tcpdump_log_context_whitelist">Beyazlisteye ekle</string>
+    <string name="tcpdump_log_context_browser">Tarayıcıda aç</string>
+    <string name="tcpdump_log_empty">Log dosyası boş!</string>
+    <string name="tcpdump_log_footer">Adresi kara- veya beyazlisteye eklemek için adrese basılı tutun.</string>
+
+    <!-- Preferences -->
+    <string name="pref_download">Genel Tercihler</string>
+    <string name="pref_hosts">Hosts Dosyası</string>
+    <string name="pref_redirection_ip">IP Yönlendirme</string>
+    <string name="pref_update_check">Güncellemeleri kontrol et</string>
+    <string name="pref_apply_method">Hedef Hosts dosyası</string>
+    <string name="pref_apply_method_summary">Bu ayarı değiştirmeden önce, bu işlevsellik hakkındaki yardımı okuyun.</string>
+    <string name="pref_redirection_ip_summary">Tüm engellenmiş adresler bu IP adresine yönlendirilir.</string>
+    <string name="pref_header_preferences">Tercihler</string>
+    <string name="pref_header_preferences_summary">AdAway için genel tercihler</string>
+    <string name="pref_never_reboot">Yeniden başlatma diyaloğunu gizle</string>
+    <string name="pref_never_reboot_summary">İşlemler uygulandıktan sonraki yeniden başlatma sorusunu gizler</string>
+    <string name="pref_webserver_on_boot">Başlangıçta websunucuyu çalıştır</string>
+    <string name="pref_webserver_on_boot_summary">Başlangıçta WebSunucuyu 5 saniye gecikmeli çalıştır</string>
+    <string name="pref_webserver_enabled">Websunucuyu etkinleştir</string>
+    <string name="pref_webserver_enabled_summary">Engelli adres isteklerine cevap vermek için yerel IP adresi üzerinde web sunucusu açar.</string>
+    <string name="pref_webserver">Yerel WebSunucu</string>
+    <string name="pref_custom_target">Özel hedef</string>
+    <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
+
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Özel hedef</item>
+    </string-array>
+
+    <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>
+    <string name="pref_sdcard_problem">Bu özellik, AdAway sdcard üzerine yüklendiğinde düzgün çalışmaz!</string>
+    <string name="pref_background">Arka Plan Hizmetleri</string>
+    <string name="pref_update_check_daily">Güncellemeleri günlük denetle</string>
+    <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
+    <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
+    <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
+    <string name="pref_update_only_on_wifi">Sadece Wifi üzerinden güncelle</string>
+    <string name="pref_update_only_on_wifi_summary">Wifi bağlı olduğunda sadece geri plan güncelleştirmeleri yürüt.</string>
+    <string name="pref_whitelist_rules">Beyaz listeye izin ver</string>
+    <string name="pref_whitelist_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
+    <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
+    <string name="pref_redirection_rules_summary">BÜYÜK RİSK İÇERİR! Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
+    <string name="pref_debug">Hata ayıklama</string>
+    <string name="pref_enable_debug">Hata ayıklama kaydı</string>
+    <string name="pref_enable_debug_summary">Ayarların etkinleştirmek için AdAway\'ı yeniden başlatın.</string>
+    <string name="pref_enable_ipv6">IPv6 etkinleştir</string>
+    <string name="pref_enable_ipv6_summary">Tüm host dosyası kayıtlarına ::1 (IPv6 yerel IP\'si) eklenecektir.</string>
+    <string name="pref_enable_systemless_summary">AdAway\'in sistem dosyalarını değiştirmesini engelle</string>
+    <string name="pref_enable_systemless">Sistemsiz modu etkinleştir</string>
+
 </resources>
