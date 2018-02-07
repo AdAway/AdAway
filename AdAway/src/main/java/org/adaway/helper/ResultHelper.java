@@ -20,10 +20,17 @@
 
 package org.adaway.helper;
 
+import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+
 import org.adaway.R;
-import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.MainActivity;
 import org.adaway.ui.help.HelpActivity;
+import org.adaway.ui.home.HomeFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
@@ -31,14 +38,6 @@ import org.adaway.util.Log;
 import org.adaway.util.RemountException;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
-
-import android.app.AlertDialog;
-import android.support.v4.app.NotificationCompat;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 
 public class ResultHelper {
 
@@ -194,19 +193,13 @@ public class ResultHelper {
             builder.setMessage(context.getString(R.string.apply_symlink_missing));
             builder.setIcon(android.R.drawable.ic_dialog_info);
             builder.setPositiveButton(context.getString(R.string.button_yes),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            tryToCreateSymlink(context);
-                        }
-                    }
+                    (dialog, id) -> tryToCreateSymlink(context)
             );
             builder.setNegativeButton(context.getString(R.string.button_no),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
+                    (dialog, id) -> {
+                        dialog.dismiss();
 
-                            HomeFragment.updateStatusDisabled(context);
-                        }
+                        HomeFragment.updateStatusDisabled(context);
                     }
             );
             AlertDialog question = builder.create();
@@ -215,26 +208,20 @@ public class ResultHelper {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setIcon(android.R.drawable.ic_dialog_alert);
             builder.setPositiveButton(context.getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    }
+                    (dialog, id) -> dialog.dismiss()
             );
             builder.setNegativeButton(context.getString(R.string.button_help),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
+                    (dialog, id) -> {
+                        dialog.dismiss();
 
-                            // go to help
-                            context.startActivity(new Intent(context, HelpActivity.class));
-                        }
+                        // go to help
+                        context.startActivity(new Intent(context, HelpActivity.class));
                     }
             );
 
             String title = "";
             String text = "";
-            String statusText = "";
+            String statusText;
             switch (result) {
                 case StatusCodes.NO_CONNECTION:
                     title = context.getString(R.string.no_connection_title);
@@ -430,20 +417,14 @@ public class ResultHelper {
                     + context.getString(R.string.apply_help));
             builder.setIcon(android.R.drawable.ic_dialog_alert);
             builder.setPositiveButton(context.getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    }
+                    (dialog, id) -> dialog.dismiss()
             );
             builder.setNegativeButton(context.getString(R.string.button_help),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
+                    (dialog, id) -> {
+                        dialog.dismiss();
 
-                            // go to help
-                            context.startActivity(new Intent(context, HelpActivity.class));
-                        }
+                        // go to help
+                        context.startActivity(new Intent(context, HelpActivity.class));
                     }
             );
             AlertDialog alertDialog = builder.create();
