@@ -25,14 +25,13 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.support.v4.app.NotificationCompat;
 
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.MainActivity;
+import org.adaway.ui.home.HomeFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
@@ -59,6 +58,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class ApplyHelper {
     private static final int APPLY_NOTIFICATION_ID = 20;
@@ -78,205 +78,153 @@ public class ApplyHelper {
                 .getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
-    public void applyAsync() {
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                ApplyHelper.this.apply();
-                return null;
-            }
-        };
-        task.execute();
-    }
-
-
+    /**
+     * Download and apply enabled hosts file as system hosts file.
+     */
     public void apply() {
-        // disable buttons
-        HomeFragment.setButtonsDisabledBroadcast(mContext, true);
-
-        // download files with download method
-        int downloadResult = download();
-        Log.d(Constants.TAG, "Download result: " + downloadResult);
-
-        if (downloadResult == StatusCodes.SUCCESS) {
-            // Apply files by apply method
-            int applyResult = this.applyHostsFile();
-
-            this.cancelApplyNotification();
-            // enable buttons
-            HomeFragment.setButtonsDisabledBroadcast(mContext, false);
-            Log.d(Constants.TAG, "Apply result: " + applyResult);
-
-            String successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/"
+        String successfulDownloads = null;
+        // Download hosts files
+        int result = this.download();
+        Log.d(Constants.TAG, "Download result: " + result);
+        // Check if hosts files was successfully downloaded
+        if (result == StatusCodes.SUCCESS) {
+            // Apply hosts files
+            result = this.applyHostsFile();
+            Log.d(Constants.TAG, "Apply result: " + result);
+            // Compute successful downloads
+            successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/"
                     + mNumberOfDownloads;
-
-            ResultHelper.showNotificationBasedOnResult(mContext, applyResult, successfulDownloads);
-        } else if (downloadResult == StatusCodes.DOWNLOAD_FAIL) {
-            this.cancelApplyNotification();
-            // enable buttons
-            HomeFragment.setButtonsDisabledBroadcast(mContext, false);
-            // extra information is current url, to show it when it fails
-            ResultHelper.showNotificationBasedOnResult(mContext, downloadResult, null);
-        } else {
-            this.cancelApplyNotification();
-            // enable buttons
-            HomeFragment.setButtonsDisabledBroadcast(mContext, false);
-            ResultHelper.showNotificationBasedOnResult(mContext, downloadResult, null);
         }
+        // Cancel apply notification
+        this.cancelApplyNotification();
+        // Show result notification
+        ResultHelper.showNotificationBasedOnResult(mContext, result, successfulDownloads);
     }
 
     /**
      * Downloads files from hosts sources
      *
-     * @return return code
+     * @return The resulting {@link StatusCodes}.
      */
     private int download() {
-        Cursor enabledHostsSourcesCursor;
-
-        byte data[];
-        int count;
-        long currentLastModifiedOnline;
-
-        int returnCode = StatusCodes.SUCCESS; // default return code
-
+        // Check connection status
         if (Utils.isAndroidOnline(mContext)) {
-
-            showApplyNotification(mContext, mContext.getString(R.string.download_dialog),
-                    mContext.getString(R.string.download_dialog),
-                    mContext.getString(R.string.download_dialog));
-
-            // output to write into
-            FileOutputStream out = null;
-
-            try {
-                out = mContext.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME,
-                        Context.MODE_PRIVATE);
-
-                mNumberOfFailedDownloads = 0;
-                mNumberOfDownloads = 0;
-
-                // get cursor over all enabled hosts source
-                enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(mContext);
-
-                // iterate over all hosts sources in db with cursor
-                if (enabledHostsSourcesCursor.moveToFirst()) {
-                    do {
-
-                        mNumberOfDownloads++;
-
-                        InputStream is = null;
-                        BufferedInputStream bis = null;
-                        String currentUrl = enabledHostsSourcesCursor
-                                .getString(enabledHostsSourcesCursor.getColumnIndex("url"));
-
-                        try {
-                            Log.v(Constants.TAG, "Downloading hosts file: " + currentUrl);
-
-                            /* change URL in download dialog */
-                            updateApplyNotification(mContext,
-                                    mContext.getString(R.string.download_dialog), currentUrl);
-
-                            /* build connection */
-                            URL mURL = new URL(currentUrl);
-                            URLConnection connection = mURL.openConnection();
-                            connection.setConnectTimeout(15000);
-                            connection.setReadTimeout(30000);
-
-                            /* connect */
-                            connection.connect();
-                            is = connection.getInputStream();
-
-                            bis = new BufferedInputStream(is);
-                            if (is == null) {
-                                Log.e(Constants.TAG, "Stream is null");
-                            }
-
-                            /* download with progress */
-                            data = new byte[1024];
-                            count = 0;
-
-                            // run while only when thread is not cancelled
-                            while ((count = bis.read(data)) != -1) {
-                                out.write(data, 0, count);
-                            }
-
-                            // add line seperator to add files together in one file
-                            out.write(Constants.LINE_SEPERATOR.getBytes());
-
-                            // save last modified online for later use
-                            currentLastModifiedOnline = connection.getLastModified();
-
-                            ProviderHelper.updateHostsSourceLastModifiedOnline(mContext,
-                                    enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
-                                            .getColumnIndex(HostsSources._ID)),
-                                    currentLastModifiedOnline
-                            );
-
-                        } catch (IOException e) {
-                            Log.e(Constants.TAG, "Exception while downloading from " + currentUrl,
-                                    e);
-
-                            mNumberOfFailedDownloads++;
-
-                            // set last_modified_online of failed download to 0 (not available)
-                            ProviderHelper.updateHostsSourceLastModifiedOnline(mContext,
-                                    enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
-                                            .getColumnIndex(HostsSources._ID)), 0
-                            );
-                        } finally {
-                            // flush and close streams
-                            try {
-                                if (out != null) {
-                                    out.flush();
-                                }
-                                if (bis != null) {
-                                    bis.close();
-                                }
-                                if (is != null) {
-                                    is.close();
-                                }
-                            } catch (Exception e) {
-                                Log.e(Constants.TAG, "Exception on flush and closing streams.", e);
-                            }
-                        }
-
-                    } while (enabledHostsSourcesCursor.moveToNext());
-                }
-
-                // close cursor in the end
-                if (enabledHostsSourcesCursor != null && !enabledHostsSourcesCursor.isClosed()) {
-                    enabledHostsSourcesCursor.close();
-                }
-
-                // if all downloads failed return download_fail error
-                if (mNumberOfDownloads == mNumberOfFailedDownloads && mNumberOfDownloads != 0) {
-                    returnCode = StatusCodes.DOWNLOAD_FAIL;
-                }
-            } catch (Exception e) {
-                Log.e(Constants.TAG, "Private File can not be created, Exception: " + e);
-                returnCode = StatusCodes.PRIVATE_FILE_FAIL;
-            } finally {
-                try {
-                    if (out != null) {
-                        out.close();
-                    }
-                } catch (Exception e) {
-                    Log.e(Constants.TAG, "Exception on close of out.", e);
-                }
-            }
-        } else {
-            returnCode = StatusCodes.NO_CONNECTION;
+            return StatusCodes.NO_CONNECTION;
         }
-
-        return returnCode;
+        // Initialize statuses
+        this.mNumberOfFailedDownloads = 0;
+        this.mNumberOfDownloads = 0;
+        int statusCode = StatusCodes.SUCCESS;
+        // Show apply notification
+        this.showApplyNotification(
+                this.mContext,
+                this.mContext.getString(R.string.download_dialog),
+                this.mContext.getString(R.string.download_dialog),
+                this.mContext.getString(R.string.download_dialog)
+        );
+        // Open local private file and get cursor to enabled hosts sources
+        try (FileOutputStream out = this.mContext.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE);
+             Cursor enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(this.mContext)) {
+            // iterate over all hosts sources in db with cursor
+            if (enabledHostsSourcesCursor.moveToFirst()) {
+                do {
+                    this.downloadHost(enabledHostsSourcesCursor, out);
+                } while (enabledHostsSourcesCursor.moveToNext());
+            }
+            // Check if all downloads failed
+            if (this.mNumberOfDownloads == mNumberOfFailedDownloads && this.mNumberOfDownloads != 0) {
+                // Mark downloads failed
+                statusCode = StatusCodes.DOWNLOAD_FAIL;
+            }
+        } catch (IOException exception) {
+            Log.e(Constants.TAG, "Private file can not be created." + exception);
+            statusCode = StatusCodes.PRIVATE_FILE_FAIL;
+        }
+        // Return status code
+        return statusCode;
     }
 
     /**
-     * Apply hosts file
+     * Download an hosts file and write it to a private file.
      *
-     * @return return code
+     * @param cursor The cursor to get the hosts file URL.
+     * @param out    The output stream to write the hosts file content to.
      */
-    int applyHostsFile() {
+    private void downloadHost(Cursor cursor, FileOutputStream out) {
+        // Increase number downloads
+        this.mNumberOfDownloads++;
+        // Get hosts file URL
+        String hostsFileUrl = cursor.getString(cursor.getColumnIndex("url"));
+        Log.v(Constants.TAG, "Downloading hosts file: " + hostsFileUrl);
+        // Notify apply
+        this.updateApplyNotification(
+                this.mContext,
+                this.mContext.getString(R.string.download_dialog),
+                hostsFileUrl
+        );
+        // Create connection
+        URLConnection connection;
+        try {
+            URL mURL = new URL(hostsFileUrl);
+            connection = mURL.openConnection();
+            connection.setConnectTimeout(15000);
+            connection.setReadTimeout(30000);
+            connection.connect();
+        } catch (IOException exception) {
+            Log.e(Constants.TAG, "Unable to connect to " + hostsFileUrl + ".", exception);
+            // Increase number of failed downloads
+            this.mNumberOfFailedDownloads++;
+            // Update last_modified_online of failed download to 0 (not available)
+            ProviderHelper.updateHostsSourceLastModifiedOnline(
+                    this.mContext,
+                    cursor.getInt(cursor.getColumnIndex(HostsSources._ID)),
+                    0
+            );
+            return;
+        }
+        // Download hosts file content
+        try (InputStream is = connection.getInputStream();
+             BufferedInputStream bis = new BufferedInputStream(is)) {
+            // Read all content into output stream
+            byte[] data = new byte[1024];
+            int count;
+            // run while only when thread is not cancelled
+            while ((count = bis.read(data)) != -1) {
+                out.write(data, 0, count);
+            }
+            // add line separator to add files together in one file
+            out.write(Constants.LINE_SEPERATOR.getBytes());
+            // Save last modified online for later use
+            long currentLastModifiedOnline = connection.getLastModified();
+            // Update
+            ProviderHelper.updateHostsSourceLastModifiedOnline(
+                    this.mContext,
+                    cursor.getInt(cursor.getColumnIndex(HostsSources._ID)),
+                    currentLastModifiedOnline
+            );
+        } catch (IOException exception) {
+            Log.e(
+                    Constants.TAG,
+                    "Exception while downloading hosts file from " + hostsFileUrl + ".",
+                    exception
+            );
+            // Increase number of failed downloads
+            this.mNumberOfFailedDownloads++;
+            // Update last_modified_online of failed download to 0 (not available)
+            ProviderHelper.updateHostsSourceLastModifiedOnline(
+                    this.mContext,
+                    cursor.getInt(cursor.getColumnIndex(HostsSources._ID)),
+                    0
+            );
+        }
+    }
+
+    /**
+     * Apply hosts file.
+     *
+     * @return The resulting {@link StatusCodes}.
+     */
+    private int applyHostsFile() {
         showApplyNotification(mContext, mContext.getString(R.string.apply_dialog),
                 mContext.getString(R.string.apply_dialog),
                 mContext.getString(R.string.apply_dialog_hostnames));
@@ -326,7 +274,7 @@ public class ApplyHelper {
             bos = new BufferedOutputStream(fos);
 
             // build current timestamp for header
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
             Date now = new Date();
 
             // add adaway header
@@ -506,7 +454,9 @@ public class ApplyHelper {
         }
 
         try {
-            rootShell.close();
+            if (rootShell != null) {
+                rootShell.close();
+            }
         } catch (Exception e) {
             Log.e(Constants.TAG, "Problem closing the root shell!", e);
         }
