@@ -21,7 +21,6 @@
 package org.adaway.helper;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
 import org.adaway.R;
 import org.adaway.ui.home.HomeFragment;
@@ -32,8 +31,13 @@ import org.adaway.util.StatusCodes;
 import org.sufficientlysecure.rootcommands.Shell;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 
-// TODO Add Javadoc
+/**
+ * This class is a helper class to revert hosts file to the default configuration.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class RevertHelper {
     /**
      * The application context.
@@ -50,35 +54,45 @@ public class RevertHelper {
     }
 
 
-    public void revertAsync() {
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                RevertHelper.this.revert();
-                return null;
-            }
-        };
-        task.execute();
-    }
-
+    /**
+     * Revert to default host file.
+     */
     public void revert() {
-        // disable buttons
-        HomeFragment.setButtonsDisabledBroadcast(mContext, true);
-
+        // Notify revert
+        HomeFragment.setStatusBroadcast(
+                this.mContext,
+                this.mContext.getString(R.string.status_reverting),
+                this.mContext.getString(R.string.status_reverting_subtitle),
+                StatusCodes.CHECKING
+        );
+        // Declare status code
+        int statusCode;
+        // Create root shell
+        Shell rootShell = null;
         try {
-            Shell rootShell = Shell.startRootShell();   // TODO Close shell
-            int revertResult = revertHostFiles(rootShell);
-            rootShell.close();
-
-            Log.d(Constants.TAG, "revert result: " + revertResult);
-
-
-            ResultHelper.showNotificationBasedOnResult(mContext, revertResult, null);
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Problem while reverting!", e);
+            rootShell = Shell.startRootShell();
+            // Revert hosts file
+            statusCode = this.revertHostFiles(rootShell);
+            Log.d(Constants.TAG, "Revert status code: " + statusCode);
+        } catch (Exception exception) {
+            Log.e(Constants.TAG, "Unable to revert hosts file.", exception);
+            statusCode = StatusCodes.REVERT_FAIL;
+        } finally {
+            // Close shell
+            if (rootShell != null) {
+                try {
+                    rootShell.close();
+                } catch (IOException exception) {
+                    Log.d(Constants.TAG, "Error while closing shell.", exception);
+                }
+            }
         }
-        // enable buttons
-        HomeFragment.setButtonsDisabledBroadcast(mContext, false);
+        // Notify revert status
+        ResultHelper.showNotificationBasedOnResult(
+                this.mContext,
+                statusCode,
+                null
+        );
     }
 
     /**
@@ -87,48 +101,45 @@ public class RevertHelper {
      * @return @{@link StatusCodes#REVERT_SUCCESS} or {@link StatusCodes#REVERT_FAIL}.
      */
     private int revertHostFiles(Shell shell) {
-        HomeFragment.setStatusBroadcast(mContext, mContext.getString(R.string.status_reverting),
-                mContext.getString(R.string.status_reverting_subtitle), StatusCodes.CHECKING);
-
-        // build standard hosts file
-        try {
-            // TODO Close stream
-            FileOutputStream fos = mContext.openFileOutput(Constants.HOSTS_FILENAME,
-                    Context.MODE_PRIVATE);
-
-            // default localhost
+        // Create private file
+        try (FileOutputStream fos =
+                     this.mContext.openFileOutput(Constants.HOSTS_FILENAME, Context.MODE_PRIVATE)) {
+            // Write default localhost as hosts file
             String localhost = Constants.LOCALHOST_IPv4 + " " + Constants.LOCALHOST_HOSTNAME
                     + Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv6 + " "
                     + Constants.LOCALHOST_HOSTNAME;
             fos.write(localhost.getBytes());
             fos.close();
-
-            // copy build hosts file with RootTools, based on target from preferences
-            if (PreferenceHelper.getApplyMethod(mContext).equals("writeToSystem")) {
-
-                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_SYSTEM_ETC_HOSTS, shell);
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToDataData")) {
-
-                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_DATA_HOSTS, shell);
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToData")) {
-
-                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_HOSTS, shell);
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("customTarget")) {
-
-                ApplyUtils.copyHostsFile(mContext, PreferenceHelper.getCustomTarget(mContext),
-                        shell);
+            // Get hosts file target based on preferences
+            String applyMethod = PreferenceHelper.getApplyMethod(mContext);
+            String target;
+            switch (applyMethod) {
+                case "writeToSystem":
+                    target = Constants.ANDROID_SYSTEM_ETC_HOSTS;
+                    break;
+                case "writeToDataData":
+                    target = Constants.ANDROID_DATA_DATA_HOSTS;
+                    break;
+                case "writeToData":
+                    target = Constants.ANDROID_DATA_HOSTS;
+                    break;
+                case "customTarget":
+                    target = PreferenceHelper.getCustomTarget(mContext);
+                    break;
+                default:
+                    throw new IllegalStateException("The apply method does not match any settings: " + applyMethod + ".");
             }
-
-            // delete generated hosts file after applying it
-            mContext.deleteFile(Constants.HOSTS_FILENAME);
-
-            // set status to disabled
+            // Copy generated hosts file to target location
+            ApplyUtils.copyHostsFile(mContext, target, shell);
+            // Delete generated hosts file after applying it
+            this.mContext.deleteFile(Constants.HOSTS_FILENAME);
+            // Set status to disabled
             HomeFragment.updateStatusDisabled(mContext);
-
+            // Return as revert successful
             return StatusCodes.REVERT_SUCCESS;
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception", e);
-
+        } catch (Exception exception) {
+            Log.e(Constants.TAG, "Unable to revert hosts file.", exception);
+            // Return as revert failed
             return StatusCodes.REVERT_FAIL;
         }
     }
