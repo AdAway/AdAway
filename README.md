@@ -1,13 +1,13 @@
 # AdAway [![Build Status](https://travis-ci.org/PerfectSlayer/AdAway.svg?branch=master)](https://travis-ci.org/PerfectSlayer/AdAway)  [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](blob/master/LICENSE)
 
-AdAway is an open source ad blocker for Android using the hosts file. 
+AdAway is an open source ad blocker for Android using the hosts file.
 
 For more information visit http://adaway.org
 
 ## Preview Build
 For users with bugs, there may be preview builds available from the [AdAway XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753).
 It is recommended to try those builds to see if your issue is resolved before creating an issue.
-The preview builds may contain bug fixes or new features for new android versions. 
+The preview builds may contain bug fixes or new features for new android versions.
 You can also obtain Preview or Stable builds from the [XDA Labs](https://labs.xda-developers.com/store/app/org.adaway) application.
 
 ## Stable Build
@@ -32,18 +32,10 @@ The original author is Dominik Schürmann ([@dschuermann](https://github.com/dsc
 
 # Build with Gradle
 
-## Build Executables
-
-1. Have NDK directory in your PATH (http://developer.android.com/tools/sdk/ndk/index.html)
-2. Change to "AdAway" directory with ``cd AdAway``
-3. Execute ``ndk-build`` to compile native binaries.
-
-## Build APK
-
-1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (http://developer.android.com/sdk/index.html)
-2. Open the Android SDK Manager (shell command: ``android``). Expand the Extras directory and install "Android Support Repository"
-3. Export ANDROID_HOME pointing to your Android SDK
-4. Execute ``./gradlew renameExecutables`` (IMPORTANT unusual step!)
+1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (https://developer.android.com/studio/index.html#command-tools)
+2. Have NDK directory in your PATH (http://developer.android.com/tools/sdk/ndk/index.html)
+3. Open the Android SDK Manager (shell command: ``android``). Expand the Extras directory and install "Android Support Repository"
+4. Export ANDROID_HOME pointing to your Android SDK
 5. Execute ``./gradlew build``
 
 # Contribute
