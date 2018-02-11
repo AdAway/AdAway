@@ -98,17 +98,26 @@ android {
  *
  * http://www.gradle.org/docs/current/userguide/working_with_files.html
  */
-task renameExecutables(type: Copy) {
-    from 'libs'
+task renameDebugExecutables(type: Sync) {
+    from('build/intermediates/ndkBuild/debug/obj/local') {
+        rename(/(.+)/, 'lib$1_exec.so')
+    }
     into 'libs'
-    include '**/*'
-    exclude '**/*.so'
-    exclude '**/*.jar'
 
-    rename(/(.+)/, 'lib$1_exec.so')
+    exclude '*/objs'
+    exclude '*/*.a'
+}
+task renameReleaseExecutables(type: Sync) {
+    from('build/intermediates/ndkBuild/release/obj/local') {
+        rename(/(.+)/, 'lib$1_exec.so')
+    }
+    into 'libs'
+
+    exclude '*/objs'
+    exclude '*/*.a'
 }
 
-build.dependsOn renameExecutables
-tasks.withType(JavaCompile) {
-    compileTask -> compileTask.dependsOn renameExecutables
+gradle.projectsEvaluated {
+    packageDebug.dependsOn renameDebugExecutables
+    packageRelease.dependsOn renameReleaseExecutables
 }
