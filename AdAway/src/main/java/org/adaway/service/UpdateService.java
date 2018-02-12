@@ -29,6 +29,7 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 
+import com.evernote.android.job.DailyJob;
 import com.evernote.android.job.Job;
 import com.evernote.android.job.JobCreator;
 import com.evernote.android.job.JobManager;
@@ -40,8 +41,8 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
 import org.adaway.provider.AdAwayContract.HostsSources;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.MainActivity;
+import org.adaway.ui.home.HomeFragment;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.DateUtils;
@@ -49,9 +50,9 @@ import org.adaway.util.Log;
 import org.adaway.util.StatusCodes;
 import org.adaway.util.Utils;
 
+import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -61,7 +62,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class UpdateService extends Job {
+public class UpdateService extends DailyJob {
     // TODO Regroup notification identifier
     private static final int UPDATE_NOTIFICATION_ID = 10;
     /**
@@ -73,33 +74,16 @@ public class UpdateService extends Job {
      * Enable update service.
      */
     public static void enable() {
-        /*
-         * Compute time frame between (the next) 3 am and 9 am.
-         */
-        // Get calendar
-        Calendar calendar = Calendar.getInstance();
-        // Check current time
-        if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) >= 3) {
-            // Set the next day if time frame already starts for today
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
+        // Check if job is already scheduled
+        if (!JobManager.instance().getAllJobRequestsForTag(UpdateService.JOB_TAG).isEmpty()) {
+            return;
         }
-        // Set start of the time frame
-        calendar.set(Calendar.HOUR_OF_DAY, 3);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        // Get start in ms
-        long startMs = calendar.getTimeInMillis();
-        // Get end in ms
-        long endMs = startMs + TimeUnit.HOURS.toMillis(6);
-        // Schedule update job
-        new JobRequest.Builder(UpdateService.JOB_TAG)
-                .setExecutionWindow(startMs, endMs)
-                .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
-                .setRequirementsEnforced(true)
-                .setPersisted(true)
-                .setUpdateCurrent(true)
-                .build()
-                .schedule();
+        // Create job request builder with unlimited network and good battery
+        JobRequest.Builder builder = new JobRequest.Builder(UpdateService.JOB_TAG)
+                .setRequiredNetworkType(JobRequest.NetworkType.UNMETERED)
+                .setRequiresBatteryNotLow(true);
+        // Schedule update job during the night (between 11pm and 6am)
+        DailyJob.schedule(builder, TimeUnit.HOURS.toMillis(23), TimeUnit.HOURS.toMillis(6));
     }
 
     /**
@@ -117,30 +101,7 @@ public class UpdateService extends Job {
      * @param context The application context.
      */
     public static void checkAsync(final Context context) {
-        AsyncTask<Void, Void, UpdateResult> task = new AsyncTask<Void, Void, UpdateResult>() {
-            @Override
-            protected void onPreExecute() {
-                // Display update checking notification
-                showUpdateNotification(context);
-                // Notify base activity
-                HomeFragment.setStatusBroadcast(context, context.getString(R.string.status_checking),
-                        context.getString(R.string.status_checking_subtitle), StatusCodes.CHECKING);
-            }
-
-            @Override
-            protected UpdateResult doInBackground(Void... params) {
-                return UpdateService.checkForUpdates(context);
-            }
-
-            @Override
-            protected void onPostExecute(UpdateResult result) {
-                // Cancel update checking notification
-                UpdateService.cancelUpdateNotification(context);
-                // Display update checked notification
-                UpdateService.displayResultNotification(context, result);
-            }
-        };
-        task.execute();
+        new CheckAsyncTask(context).execute();
     }
 
     /**
@@ -289,8 +250,9 @@ public class UpdateService extends Job {
 
         // Get system notification manager
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        notificationManager.notify(UpdateService.UPDATE_NOTIFICATION_ID, mBuilder.build());
+        if (notificationManager != null) {
+            notificationManager.notify(UpdateService.UPDATE_NOTIFICATION_ID, mBuilder.build());
+        }
     }
 
     /**
@@ -301,8 +263,10 @@ public class UpdateService extends Job {
     private static void cancelUpdateNotification(Context context) {
         // Get system notification manager
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        // Cancel notification
-        notificationManager.cancel(UpdateService.UPDATE_NOTIFICATION_ID);
+        if (notificationManager != null) {
+            // Cancel notification
+            notificationManager.cancel(UpdateService.UPDATE_NOTIFICATION_ID);
+        }
     }
 
     /**
@@ -320,7 +284,7 @@ public class UpdateService extends Job {
 
     @NonNull
     @Override
-    protected Result onRunJob(Params params) {
+    protected DailyJobResult onRunDailyJob(@NonNull Params params) {
         // Retrieve application context
         Context context = getContext();
         // Check for update
@@ -329,8 +293,8 @@ public class UpdateService extends Job {
         UpdateService.displayResultNotification(context, result);
         // Check if no connection
         if (result.mCode == StatusCodes.NO_CONNECTION) {
-            // Reschedule the job
-            return Result.RESCHEDULE;
+            // Cannot do update
+            return DailyJobResult.SUCCESS;
         }
         // Check if update available and automatic update enabled
         else if (result.mCode == StatusCodes.UPDATE_AVAILABLE && PreferenceHelper.getAutomaticUpdateDaily(context)) {
@@ -338,7 +302,7 @@ public class UpdateService extends Job {
             new ApplyHelper(context).apply();
         }
         // Return job is successful
-        return Result.SUCCESS;
+        return DailyJobResult.SUCCESS;
     }
 
     /**
@@ -348,13 +312,72 @@ public class UpdateService extends Job {
      */
     public static class UpdateJobCreator implements JobCreator {
         @Override
-        public Job create(String tag) {
+        public Job create(@NonNull String tag) {
             switch (tag) {
                 case JOB_TAG:
                     return new UpdateService();
                 default:
                     return null;
             }
+        }
+    }
+
+    /**
+     * This class is an asynchronous task to check if there is hosts to update.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     */
+    private static class CheckAsyncTask extends AsyncTask<Void, Void, UpdateResult> {
+        /**
+         * A weak reference to application context.
+         */
+        private WeakReference<Context> mWeakContext;
+
+        /**
+         * Constructor.
+         *
+         * @param context The application context.
+         */
+        private CheckAsyncTask(Context context) {
+            // Store context into weak reference to prevent memory leak
+            this.mWeakContext = new WeakReference<>(context);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // Get context from weak reference
+            Context context = this.mWeakContext.get();
+            if (context == null) {
+                return;
+            }
+            // Display update checking notification
+            showUpdateNotification(context);
+            // Notify base activity
+            HomeFragment.setStatusBroadcast(context, context.getString(R.string.status_checking),
+                    context.getString(R.string.status_checking_subtitle), StatusCodes.CHECKING);
+        }
+
+        @Override
+        protected UpdateResult doInBackground(Void... params) {
+            // Get context from weak reference
+            Context context = this.mWeakContext.get();
+            if (context == null) {
+                return new UpdateResult();
+            }
+            return UpdateService.checkForUpdates(context);
+        }
+
+        @Override
+        protected void onPostExecute(UpdateResult result) {
+            // Get context from weak reference
+            Context context = this.mWeakContext.get();
+            if (context == null) {
+                return;
+            }
+            // Cancel update checking notification
+            UpdateService.cancelUpdateNotification(context);
+            // Display update checked notification
+            UpdateService.displayResultNotification(context, result);
         }
     }
 
