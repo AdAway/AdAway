@@ -26,16 +26,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -49,10 +46,10 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
 import org.adaway.service.UpdateService;
 import org.adaway.ui.help.HelpActivity;
-import org.adaway.util.ApplyUtils;
+import org.adaway.ui.home.UpdateStatusAsyncTask.UpdateStatus;
 import org.adaway.util.Constants;
 import org.adaway.util.StatusCodes;
-import org.adaway.util.Utils;
+import org.adaway.util.WebserverUtils;
 
 public class HomeFragment extends Fragment {
     // Intent extras to give result of applying process to base activity
@@ -61,69 +58,115 @@ public class HomeFragment extends Fragment {
     public static final String EXTRA_UPDATE_STATUS_TITLE = "org.adaway.UPDATE_STATUS.TITLE";
     public static final String EXTRA_UPDATE_STATUS_TEXT = "org.adaway.UPDATE_STATUS.TEXT";
     public static final String EXTRA_UPDATE_STATUS_ICON = "org.adaway.UPDATE_STATUS.ICON";
-    public static final String EXTRA_BUTTONS_DISABLED = "org.adaway.BUTTONS.ENABLED";
     // Intent definitions for LocalBroadcastManager to update status from other threads
     static final String ACTION_UPDATE_STATUS = "org.adaway.UPDATE_STATUS";
-    static final String ACTION_BUTTONS = "org.adaway.BUTTONS";
-    HomeFragment mHomeFragment;
-    WebserverFragment mWebserverFragment;
 
     private FragmentActivity mActivity;
-
-    private TextView mStatusTitle;
-    private TextView mStatusText;
-    private ProgressBar mStatusProgress;
-    private ImageView mStatusIcon;
-    private Button mApplyButton;
-    private Button mRevertButton;
-
-    private boolean mCurrentButtonsDisabled;
-    private String mCurrentStatusTitle;
-    private String mCurrentStatusText;
-    private int mCurrentStatusIconStatus;
     private BroadcastReceiver mBroadcastReceiver;
 
+
+    /*
+     * Current statuses.
+     */
+    /**
+     * The status title text.
+     */
+    private String mCurrentStatusTitle;
+    /**
+     * The status text.
+     */
+    private String mCurrentStatusText;
+    /**
+     * The status icon code.
+     */
+    private int mCurrentStatusIconStatus;
+    /**
+     * The web server running status (<code>true</code> if running, <code>false</code> otherwise).
+     */
+    private boolean mWebServerRunning = false;
+    /*
+     * About card views.
+     */
+    /**
+     * The about main text view (<code>null</code> until view created).
+     */
+    private TextView mHelpTextView;
+    /**
+     * The show help button (<code>null</code> until view created).
+     */
+    private Button mShowHelpButton;
+    /**
+     * The expand/minimize help image view (<code>null</code> until view created).
+     */
+    private ImageView mExpandHelpImageView;
+    /*
+     * Status card views.
+     */
+    /**
+     * The status progress bar (<code>null</code> until view created).
+     */
+    private ProgressBar mStatusProgressBar;
+    /**
+     * The status icon image view (<code>null</code> until view created).
+     */
+    private ImageView mStatusIconImageView;
+    /**
+     * The status title text view (<code>null</code> until view created).
+     */
+    private TextView mStatusTitleTextView;
+    /**
+     * The status title text view (<code>null</code> until view created).
+     */
+    private TextView mStatusTextView;
+    /**
+     * The update hosts button (<code>null</code> until view created).
+     */
+    private Button mUpdateHostsButton;
+    /**
+     * The revert hosts button (<code>null</code> until view created).
+     */
+    private Button mRevertHostsButton;
+    /*
+     * Web server card views.
+     */
+    /**
+     * The web server card (<code>null</code> until view created).
+     */
+    private CardView mWebServerCardView;
+    /**
+     * The enable/disable web server button (<code>null</code> until view created).
+     */
+    private Button mRunningWebServerButton;
 
     /**
      * Static helper method to send broadcasts to the MainActivity and update status in frontend
      *
-     * @param context
-     * @param title
-     * @param text
-     * @param iconStatus Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
-     *                   StatusCodes
+     * @param context    The application context.
+     * @param title      The status title.
+     * @param text       The status text.
+     * @param iconStatus The status icon ({@link StatusCodes#UPDATE_AVAILABLE},
+     *                   {@link StatusCodes#ENABLED}, {@link StatusCodes#DISABLED},
+     *                   {@link StatusCodes#DOWNLOAD_FAIL} or {@link StatusCodes#CHECKING}.
      */
     public static void setStatusBroadcast(Context context, String title, String text, int iconStatus) {
+        // Get local broadcast manager
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
-
-        Intent intent = new Intent(ACTION_UPDATE_STATUS);
-        intent.putExtra(EXTRA_UPDATE_STATUS_ICON, iconStatus);
-        intent.putExtra(EXTRA_UPDATE_STATUS_TITLE, title);
-        intent.putExtra(EXTRA_UPDATE_STATUS_TEXT, text);
+        // Create intent to update status
+        Intent intent = new Intent(HomeFragment.ACTION_UPDATE_STATUS);
+        intent.putExtra(HomeFragment.EXTRA_UPDATE_STATUS_ICON, iconStatus);
+        intent.putExtra(HomeFragment.EXTRA_UPDATE_STATUS_TITLE, title);
+        intent.putExtra(HomeFragment.EXTRA_UPDATE_STATUS_TEXT, text);
+        // Send intent using local broadcast
         localBroadcastManager.sendBroadcast(intent);
     }
 
     /**
-     * Static helper method to send broadcasts to the MainActivity and enable or disable buttons
+     * Wrapper to set status to enabled.
      *
-     * @param context
-     * @param buttonsDisabled to enable buttons apply and revert
-     */
-    public static void setButtonsDisabledBroadcast(Context context, boolean buttonsDisabled) {
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
-
-        Intent intent = new Intent(ACTION_BUTTONS);
-        intent.putExtra(EXTRA_BUTTONS_DISABLED, buttonsDisabled);
-        localBroadcastManager.sendBroadcast(intent);
-    }
-
-    /**
-     * Wrapper to set status to enabled
-     *
-     * @param context
+     * @param context The application context.
      */
     public static void updateStatusEnabled(Context context) {
-        setStatusBroadcast(
+        HomeFragment.setStatusBroadcast(
                 context,
                 context.getString(R.string.status_enabled),
                 context.getString(R.string.status_enabled_subtitle),
@@ -132,12 +175,12 @@ public class HomeFragment extends Fragment {
     }
 
     /**
-     * Wrapper to set status to disabled
+     * Wrapper to set status to disabled.
      *
-     * @param context
+     * @param context The application context.
      */
     public static void updateStatusDisabled(Context context) {
-        setStatusBroadcast(
+        HomeFragment.setStatusBroadcast(
                 context,
                 context.getString(R.string.status_disabled),
                 context.getString(R.string.status_disabled_subtitle),
@@ -146,67 +189,76 @@ public class HomeFragment extends Fragment {
     }
 
     /**
-     * Set status icon based on StatusCodes
+     * Set status in Fragment
      *
-     * @param iconStatus Select UPDATE_AVAILABLE, ENABLED, DISABLED, DOWNLOAD_FAIL, or CHECKING from
-     *                   StatusCodes
+     * @param title      The status title.
+     * @param text       The status text.
+     * @param iconStatus The status icon ({@link StatusCodes#UPDATE_AVAILABLE},
+     *                   {@link StatusCodes#ENABLED}, {@link StatusCodes#DISABLED},
+     *                   {@link StatusCodes#DOWNLOAD_FAIL} or {@link StatusCodes#CHECKING}.
      */
-    private void setStatusIcon(int iconStatus) {
+    public void setStatus(String title, String text, int iconStatus) {
+        // Update status title
+        mStatusTitleTextView.setText(title);
+        // Update status text
+        mStatusTextView.setText(text);
+        // Update status icon and progress bar
         switch (iconStatus) {
             case StatusCodes.UPDATE_AVAILABLE:
-                mStatusProgress.setVisibility(View.GONE);
-                mStatusIcon.setVisibility(View.VISIBLE);
-                mStatusIcon.setImageResource(R.drawable.status_update);
+                mStatusProgressBar.setVisibility(View.GONE);
+                mStatusIconImageView.setVisibility(View.VISIBLE);
+                mStatusIconImageView.setImageResource(R.drawable.status_update);
                 break;
             case StatusCodes.ENABLED:
-                mStatusProgress.setVisibility(View.GONE);
-                mStatusIcon.setVisibility(View.VISIBLE);
-                mStatusIcon.setImageResource(R.drawable.status_enabled);
+                mStatusProgressBar.setVisibility(View.GONE);
+                mStatusIconImageView.setVisibility(View.VISIBLE);
+                mStatusIconImageView.setImageResource(R.drawable.status_enabled);
                 break;
             case StatusCodes.DISABLED:
-                mStatusProgress.setVisibility(View.GONE);
-                mStatusIcon.setVisibility(View.VISIBLE);
-                mStatusIcon.setImageResource(R.drawable.status_disabled);
+                mStatusProgressBar.setVisibility(View.GONE);
+                mStatusIconImageView.setVisibility(View.VISIBLE);
+                mStatusIconImageView.setImageResource(R.drawable.status_disabled);
                 break;
             case StatusCodes.DOWNLOAD_FAIL:
-                mStatusProgress.setVisibility(View.GONE);
-                mStatusIcon.setImageResource(R.drawable.status_fail);
-                mStatusIcon.setVisibility(View.VISIBLE);
+                mStatusProgressBar.setVisibility(View.GONE);
+                mStatusIconImageView.setImageResource(R.drawable.status_fail);
+                mStatusIconImageView.setVisibility(View.VISIBLE);
                 break;
             case StatusCodes.CHECKING:
-                mStatusProgress.setVisibility(View.VISIBLE);
-                mStatusIcon.setVisibility(View.GONE);
+                mStatusProgressBar.setVisibility(View.VISIBLE);
+                mStatusIconImageView.setVisibility(View.GONE);
                 break;
-
             default:
                 break;
         }
-    }
-
-    /**
-     * Set status in Fragment
-     *
-     * @param title
-     * @param text
-     * @param iconStatus int based on StatusCodes to select icon
-     */
-    public void setStatus(String title, String text, int iconStatus) {
-        mStatusTitle.setText(title);
-        mStatusText.setText(text);
-        setStatusIcon(iconStatus);
-
-        // save for orientation change
+        // Save statuses for configuration change
         mCurrentStatusTitle = title;
         mCurrentStatusText = text;
         mCurrentStatusIconStatus = iconStatus;
-    }
-
-    public void setButtonsDisabled(boolean buttonsDisabled) {
-        mApplyButton.setEnabled(!buttonsDisabled);
-        mRevertButton.setEnabled(!buttonsDisabled);
-
-        // save for orientation change
-        mCurrentButtonsDisabled = buttonsDisabled;
+        // Update update hosts button label
+        int updateHostsText;
+        switch (iconStatus) {
+            case StatusCodes.UPDATE_AVAILABLE:
+                updateHostsText = R.string.button_update_hosts;
+                break;
+            case StatusCodes.DISABLED:
+                updateHostsText = R.string.button_enable_hosts;
+                break;
+            default:
+                updateHostsText = R.string.button_check_update_hosts;
+                break;
+        }
+        mUpdateHostsButton.setText(updateHostsText);
+        // Update revert hosts button visibility
+        mRevertHostsButton.setVisibility(
+                iconStatus == StatusCodes.DISABLED ?
+                        View.GONE :
+                        View.VISIBLE
+        );
+        // Update button enable state
+        boolean enabledButton = iconStatus != StatusCodes.CHECKING;
+        mUpdateHostsButton.setEnabled(enabledButton);
+        mRevertHostsButton.setEnabled(enabledButton);
     }
 
     /**
@@ -216,46 +268,16 @@ public class HomeFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-
-        // save status on orientation change
+        // Append current statuses
         outState.putString("statusTitle", mCurrentStatusTitle);
         outState.putString("statusText", mCurrentStatusText);
         outState.putInt("statusIconStatus", mCurrentStatusIconStatus);
-        outState.putBoolean("buttonsEnabled", mCurrentButtonsDisabled);
-    }
-
-    /**
-     * Inflate Menu
-     */
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.base, menu);
-    }
-
-    /**
-     * Menu Options
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.menu_refresh:
-                UpdateService.checkAsync(mActivity);
-                return true;
-            case R.id.menu_help:
-                startActivity(new Intent(mActivity, HelpActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        outState.putBoolean("webServerRunning", mWebServerRunning);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setHasOptionsMenu(true); // enable options menu for this fragment
-        mHomeFragment = this;
         mActivity = this.getActivity();
     }
 
@@ -263,81 +285,87 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate layout
         View view = inflater.inflate(R.layout.home_fragment, container, false);
-        // Retrieve view components
-        mStatusTitle = view.findViewById(R.id.status_title);
-        mStatusText = view.findViewById(R.id.status_text);
-        mStatusProgress = view.findViewById(R.id.status_progress);
-        mStatusIcon = view.findViewById(R.id.status_icon);
-        mApplyButton = view.findViewById(R.id.apply_button);
-        mApplyButton.setOnClickListener(this::applyOnClick);
-        mRevertButton = view.findViewById(R.id.revert_button);
-        mRevertButton.setOnClickListener(this::revertOnClick);
-
+        /*
+         * Retrieve view elements.
+         */
+        // Get views from about card
+        mHelpTextView = view.findViewById(R.id.home_help_text);
+        mShowHelpButton = view.findViewById(R.id.home_show_help);
+        mExpandHelpImageView = view.findViewById(R.id.home_expand_help);
+        // Get views from status card
+        mStatusProgressBar = view.findViewById(R.id.home_status_progress);
+        mStatusIconImageView = view.findViewById(R.id.home_status_icon);
+        mStatusTitleTextView = view.findViewById(R.id.home_status_title);
+        mStatusTextView = view.findViewById(R.id.home_status_text);
+        mUpdateHostsButton = view.findViewById(R.id.home_update_hosts);
+        mRevertHostsButton = view.findViewById(R.id.home_revert_hosts);
+        // Get view from web server card
+        mWebServerCardView = view.findViewById(R.id.home_webserver_card);
+        mRunningWebServerButton = view.findViewById(R.id.home_enable_webserver);
         /*
          * Register local broadcast receiver.
          */
-        if (mBroadcastReceiver == null) {
+        // Get fragment context
+        Context context = this.getContext();
+        // Check if broadcast is already initialized
+        if (mBroadcastReceiver == null && context != null) {
             // We use this to send broadcasts within our local process.
-            LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this.getContext());
+            LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
             // We are going to watch for broadcasts with status updates
             IntentFilter filter = new IntentFilter();
-            filter.addAction(ACTION_UPDATE_STATUS);
-            filter.addAction(ACTION_BUTTONS);
+            filter.addAction(HomeFragment.ACTION_UPDATE_STATUS);
             mBroadcastReceiver = new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
                     Bundle extras = intent.getExtras();
-                    if (extras == null) {
+                    String action = intent.getAction();
+                    if (action == null || extras == null) {
                         return;
                     }
-                    switch (intent.getAction()) {
-                        case ACTION_UPDATE_STATUS:
-                            if (extras.containsKey(EXTRA_UPDATE_STATUS_TITLE)
-                                    && extras.containsKey(EXTRA_UPDATE_STATUS_TEXT)
-                                    && extras.containsKey(EXTRA_UPDATE_STATUS_ICON)) {
-
-                                String title = extras.getString(EXTRA_UPDATE_STATUS_TITLE);
-                                String text = extras.getString(EXTRA_UPDATE_STATUS_TEXT);
-                                int status = extras.getInt(EXTRA_UPDATE_STATUS_ICON);
-
-                                mHomeFragment.setStatus(title, text, status);
-                            }
-                            break;
-                        case ACTION_BUTTONS:
-                            if (extras.containsKey(EXTRA_BUTTONS_DISABLED)) {
-
-                                boolean buttonsDisabled = extras.getBoolean(EXTRA_BUTTONS_DISABLED);
-
-                                mHomeFragment.setButtonsDisabled(buttonsDisabled);
-                            }
-                            break;
+                    if (action.equals(HomeFragment.ACTION_UPDATE_STATUS)
+                            && extras.containsKey(HomeFragment.EXTRA_UPDATE_STATUS_TITLE)
+                            && extras.containsKey(HomeFragment.EXTRA_UPDATE_STATUS_TEXT)
+                            && extras.containsKey(HomeFragment.EXTRA_UPDATE_STATUS_ICON)) {
+                        // Get title, text and status from extras
+                        String title = extras.getString(HomeFragment.EXTRA_UPDATE_STATUS_TITLE);
+                        String text = extras.getString(HomeFragment.EXTRA_UPDATE_STATUS_TEXT);
+                        int status = extras.getInt(HomeFragment.EXTRA_UPDATE_STATUS_ICON);
+                        // Update view
+                        HomeFragment.this.setStatus(title, text, status);
                     }
                 }
             };
             localBroadcastManager.registerReceiver(mBroadcastReceiver, filter);
         }
-
         /*
-         * Initialize current status.
+         * Initialize statuses and behaviors.
          */
+        // Set show help button click listener
+        mShowHelpButton.setOnClickListener(this::showMoreHelp);
+
+        // TODO
+        mExpandHelpImageView.setOnClickListener(this::toggleHelpText);
+
+        // Set update hosts button click listener
+        mUpdateHostsButton.setOnClickListener(this::updateHosts);
+        // Set revert hosts button click listener
+        mRevertHostsButton.setOnClickListener(this::revertHosts);
+        // Update web server card visibility
+        boolean webServerCardVisible = context != null && PreferenceHelper.getWebserverEnabled(context);
+        if (!webServerCardVisible) {
+            mWebServerCardView.setVisibility(View.GONE);
+        }
+        // Set running web server button click listener
+        mRunningWebServerButton.setOnClickListener(this::toggleWebServer);
+        // Check statuses to restore
         if (savedInstanceState == null) {
-            // check for root
-            if (Utils.isAndroidRooted(mActivity)) {
-                // set status only if not coming from an orientation change
-                // check if hosts file is applied
-                if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                    // do background update check
-                    // do only if not disabled in preferences
-                    if (PreferenceHelper.getUpdateCheck(mActivity)) {
-                        UpdateService.checkAsync(this.getContext());
-                    } else {
-                        HomeFragment.updateStatusEnabled(mActivity);
-                    }
-                } else {
-                    HomeFragment.updateStatusDisabled(mActivity);
-                }
-                // schedule CheckUpdateService
-                UpdateService.enable();
+            // Create update status task
+            UpdateStatusAsyncTask updateStatusAsyncTask = new UpdateStatusAsyncTask(this);
+            // Request to update host status
+            if (webServerCardVisible) {
+                updateStatusAsyncTask.execute(UpdateStatus.HOSTS, UpdateStatus.WEB_SERVER);
+            } else {
+                updateStatusAsyncTask.execute(UpdateStatus.HOSTS);
             }
         } else {
             // get back status state when orientation changes and recreates activity
@@ -350,66 +378,23 @@ public class HomeFragment extends Fragment {
             if (title != null && text != null && iconStatus != -1) {
                 setStatus(title, text, iconStatus);
             }
-
-            boolean buttonsDisabled = savedInstanceState.getBoolean("buttonsEnabled");
-            setButtonsDisabled(buttonsDisabled);
+            boolean webServerRunning = savedInstanceState.getBoolean("webServerRunning");
+            notifyWebServerRunning(webServerRunning);
         }
+
 
         // Return inflated view
         return view;
     }
 
-//    @Override
-//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        // get back status state when orientation changes and recreates activity
-//        if (savedInstanceState != null) {
-//            Log.d(Constants.TAG, "HomeFragment coming from an orientation change!");
-//
-//            String title = savedInstanceState.getString("statusTitle");
-//            String text = savedInstanceState.getString("statusText");
-//            int iconStatus = savedInstanceState.getInt("statusIconStatus");
-//            if (title != null && text != null && iconStatus != -1) {
-//                setStatus(title, text, iconStatus);
-//            }
-//
-//            boolean buttonsDisabled = savedInstanceState.getBoolean("buttonsEnabled");
-//            setButtonsDisabled(buttonsDisabled);
-//        }
-//    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Append webserver fragment onStart as we need the layout ready to add another fragment
-        FragmentManager fragmentManager = this.getFragmentManager();
-        // add WebserverFragment when enabled in preferences
-        if (PreferenceHelper.getWebserverEnabled(this.getContext())) {
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-            mWebserverFragment = new WebserverFragment();
-            // replace container in view with fragment
-            fragmentTransaction.replace(R.id.base_activity_webserver_container, mWebserverFragment);
-            fragmentTransaction.commit();
-        } else {
-            // when disabled in preferences remove fragment if existing
-            if (mWebserverFragment != null) {
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                fragmentTransaction.remove(mWebserverFragment);
-                fragmentTransaction.commit();
-
-                mWebserverFragment = null;
-            }
-        }
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        // Get fragment context
+        Context context = this.getContext();
         // Unregister broadcast receiver
-        if (mBroadcastReceiver != null) {
-            LocalBroadcastManager.getInstance(this.getContext()).unregisterReceiver(mBroadcastReceiver);
+        if (mBroadcastReceiver != null && context != null) {
+            LocalBroadcastManager.getInstance(context).unregisterReceiver(mBroadcastReceiver);
             mBroadcastReceiver = null;
         }
     }
@@ -417,19 +402,101 @@ public class HomeFragment extends Fragment {
     /**
      * Button Action to download and apply hosts files
      *
-     * @param view
+     * @param view The view which trigger the action.
      */
-
-    public void applyOnClick(View view) {
-        new ApplyHelper(mActivity).apply();
+    private void updateHosts(@Nullable View view) {
+        switch (this.mCurrentStatusIconStatus) {
+            case StatusCodes.APN_PROXY:
+            case StatusCodes.UPDATE_AVAILABLE:
+            case StatusCodes.DISABLED:
+            case StatusCodes.APPLY_FAIL:
+            case StatusCodes.DOWNLOAD_FAIL:
+            case StatusCodes.COPY_FAIL:
+            case StatusCodes.NOT_ENOUGH_SPACE:
+            case StatusCodes.PRIVATE_FILE_FAIL:
+            case StatusCodes.REMOUNT_FAIL:
+            case StatusCodes.REVERT_FAIL:
+            case StatusCodes.REVERT_SUCCESS:
+            case StatusCodes.SYMLINK_MISSING:
+                new ApplyHelper(mActivity).apply();
+                break;
+            case StatusCodes.ENABLED:
+            case StatusCodes.SUCCESS:
+            case StatusCodes.NO_CONNECTION:
+                UpdateService.checkAsync(mActivity);
+                break;
+            default:
+            case StatusCodes.CHECKING:
+                // Do nothing
+                break;
+        }
     }
 
     /**
-     * Button Action to Revert to default hosts file
+     * Revert to default hosts file.
      *
-     * @param view
+     * @param view The view which trigger the action.
      */
-    public void revertOnClick(View view) {
+    private void revertHosts(@Nullable View view) {
         new RevertHelper(mActivity).revert();
+    }
+
+    /**
+     * Show more help.
+     *
+     * @param view The view which trigger the action.
+     */
+    private void showMoreHelp(@Nullable View view) {
+        // Start help activity
+        this.startActivity(new Intent(mActivity, HelpActivity.class));
+    }
+
+    /**
+     * Toggle help text.
+     *
+     * @param view The view which trigger the action.
+     */
+    private void toggleHelpText(@Nullable View view) {
+        // TODO Create and update preferences
+        if (mHelpTextView.getVisibility() == View.VISIBLE) {
+            mHelpTextView.setVisibility(View.GONE);
+            mExpandHelpImageView.setImageResource(R.drawable.ic_expand_more_white_24dp);
+        } else {
+            mHelpTextView.setVisibility(View.VISIBLE);
+            mExpandHelpImageView.setImageResource(R.drawable.ic_expand_less_white_24dp);
+        }
+    }
+
+    /**
+     * Toggle web server running.
+     *
+     * @param view The view which trigger the action.
+     */
+    private void toggleWebServer(@Nullable View view) {
+        if (mWebServerRunning) {
+            WebserverUtils.stopWebServer();
+        } else {
+            WebserverUtils.stopWebServer();
+        }
+        this.notifyWebServerRunning(!mWebServerRunning);
+    }
+
+    /**
+     * Notify the web server is running.
+     *
+     * @param running <code>true</code> if the web server is running, <code>false</code> otherwise.
+     */
+    void notifyWebServerRunning(boolean running) {
+        // Check button
+        if (mRunningWebServerButton == null) {
+            return;
+        }
+        // Store web server running status
+        mWebServerRunning = running;
+        // Update button text
+        mRunningWebServerButton.setText(running ?
+                R.string.button_disable_webserver :
+                R.string.button_enable_webserver
+        );
     }
 }

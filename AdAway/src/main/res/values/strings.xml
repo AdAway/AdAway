@@ -25,6 +25,20 @@
     <string name="button_tcpdump_open">Open log file</string>
     <string name="button_tcpdump_delete">Delete log file</string>
 
+    <!-- Home -->
+    <string name="header_about">About</string>
+    <string name="button_show_help">Show more help</string>
+    <string name="icon_minimize_help_text">Minimize about text</string>
+    <string name="icon_expand_help_text">Expand about text</string>
+    <string name="icon_update_status">Update status</string>
+    <string name="button_check_update_hosts">Check for updates</string>
+    <string name="button_update_hosts">Update hosts</string>
+    <string name="button_enable_hosts">Enable ad-blocking</string>
+    <string name="button_disable_hosts">Disable ad-blocking</string>
+    <string name="header_webserver">Web server</string>
+    <string name="button_enable_webserver">Enable web server</string>
+    <string name="button_disable_webserver">Disable web server</string>
+
     <!-- Checkbox List -->
     <string name="checkbox_list_add_dialog_title">Add</string>
     <string name="checkbox_list_empty">Empty list</string>

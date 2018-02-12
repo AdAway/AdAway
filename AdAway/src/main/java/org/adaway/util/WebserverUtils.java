@@ -27,76 +27,99 @@ import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
 
 import android.content.Context;
 
+import java.io.IOException;
+
 public class WebserverUtils {
-
     /**
-     * Start Webserver in new Thread with RootTools
+     * Start the web server in new thread with RootTools
      *
-     * @param context
+     * @param context The application context.
      */
-    public static void startWebserver(Context context, Shell shell) {
-        Log.d(Constants.TAG, "Starting webserver...");
+    public static void startWebServer(Context context) {
+        Log.d(Constants.TAG, "Starting web server...");
 
+        Shell shell = null;
         try {
-            SimpleExecutableCommand webserverCommand = new SimpleExecutableCommand(context,
-                    Constants.WEBSERVER_EXECUTEABLE, " > /dev/null 2>&1 &");
-
-            shell.add(webserverCommand).waitForFinish();
+            shell = Shell.startRootShell();
+            SimpleExecutableCommand webServerCommand = new SimpleExecutableCommand(
+                    context,
+                    Constants.WEBSERVER_EXECUTEABLE,
+                    " > /dev/null 2>&1 &"
+            );
+            shell.add(webServerCommand).waitForFinish();
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while starting webserver", e);
-        }
-    }
-
-    /**
-     * Start Webserver in new Thread with RootTools on Boot if enabled in preferences
-     *
-     * @param context
-     */
-    public static void startWebserverOnBoot(Context context) {
-        // start webserver on boot if enabled in preferences
-        if (PreferenceHelper.getWebserverOnBoot(context)) {
-            try {
-                Shell rootShell = Shell.startRootShell();
-                startWebserver(context, rootShell);
-                rootShell.close();
-            } catch (Exception e) {
-                Log.e(Constants.TAG, "Problem while starting webserver on boot!", e);
+            Log.e(Constants.TAG, "Exception while starting web server", e);
+        } finally {
+            if (shell != null) {
+                try {
+                    shell.close();
+                } catch (IOException exception) {
+                    Log.d(Constants.TAG, "Error while closing root shell.", exception);
+                }
             }
         }
     }
 
     /**
-     * Stop webserver
+     * Start web server in new Thread with RootTools on Boot if enabled in preferences.
      *
-     * @param context
+     * @param context The application context.
      */
-    public static void stopWebserver(Context context, Shell shell) {
+    public static void startWebServerOnBoot(Context context) {
+        // start web server on boot if enabled in preferences
+        if (PreferenceHelper.getWebserverOnBoot(context)) {
+            WebserverUtils.startWebServer(context);
+        }
+    }
+
+    /**
+     * Stop the web server.
+     */
+    public static void stopWebServer() {
+        Shell shell = null;
         try {
+            shell = Shell.startRootShell();
             Toolbox tb = new Toolbox(shell);
             tb.killAllExecutable(Constants.WEBSERVER_EXECUTEABLE);
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while killing webserver", e);
+            Log.e(Constants.TAG, "Exception while killing web server", e);
+        } finally {
+            if (shell != null) {
+                try {
+                    shell.close();
+                } catch (IOException exception) {
+                    Log.d(Constants.TAG, "Error while closing root shell.", exception);
+                }
+            }
         }
     }
 
     /**
-     * Checks if werbserver is running
+     * Checks if web server is running
      *
-     * @return true if webserver is running
+     * @return <code>true</code> if webs server is running, <code>false</code> otherwise.
      */
-    public static boolean isWebserverRunning(Shell shell) {
+    public static boolean isWebServerRunning() {
+        boolean running = false;
+        Shell shell = null;
         try {
+            shell = Shell.startRootShell();
             Toolbox tb = new Toolbox(shell);
 
             if (tb.isBinaryRunning(Constants.WEBSERVER_EXECUTEABLE)) {
-                return true;
-            } else {
-                return false;
+                running = true;
             }
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while checking webserver process", e);
-            return false;
+            Log.e(Constants.TAG, "Exception while checking web server process", e);
+        } finally {
+            if (shell != null) {
+                try {
+                    shell.close();
+                } catch (IOException exception) {
+                    Log.d(Constants.TAG, "Error while closing root shell.", exception);
+                }
+            }
         }
+        return running;
     }
-
 }

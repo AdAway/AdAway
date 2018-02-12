@@ -14,12 +14,10 @@ import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.service.UpdateService;
 import org.adaway.util.Constants;
-import org.adaway.util.Log;
 import org.adaway.util.SystemlessUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.WebserverUtils;
 import org.adaway.util.systemless.AbstractSystemlessMode;
-import org.sufficientlysecure.rootcommands.Shell;
 
 /**
  * This fragment is the main fragment of the {@link PrefsActivity}.
@@ -115,10 +113,10 @@ public class PrefsFragment extends PreferenceFragmentCompat {
 //
 //                    if (newValue.equals(true)) {
 //                        // start webserver
-//                        WebserverUtils.startWebserver(context, rootShell);
+//                        WebserverUtils.startWebServer(context, rootShell);
 //                    } else {
 //                        // stop webserver
-//                        WebserverUtils.stopWebserver(context, rootShell);
+//                        WebserverUtils.stopWebServer(context, rootShell);
 //                    }
 //
 //                    rootShell.close();
@@ -241,23 +239,13 @@ public class PrefsFragment extends PreferenceFragmentCompat {
         /* Start webserver if pref is enabled */
         Preference WebserverEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
         WebserverEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
-            Shell rootShell;
-            try {
-                rootShell = Shell.startRootShell();
-
-                if (newValue.equals(true)) {
-                    // start webserver
-                    WebserverUtils.startWebserver(context, rootShell);
-                } else {
-                    // stop webserver
-                    WebserverUtils.stopWebserver(context, rootShell);
-                }
-
-                rootShell.close();
-            } catch (Exception e) {
-                Log.e(Constants.TAG, "Problem while starting/stopping webserver!", e);
+            if (newValue.equals(true)) {
+                // start webserver
+                WebserverUtils.startWebServer(context);
+            } else {
+                // stop webserver
+                WebserverUtils.stopWebServer();
             }
-
             return true;
         });
 

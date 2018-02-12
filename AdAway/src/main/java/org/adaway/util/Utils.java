@@ -20,23 +20,12 @@
 
 package org.adaway.util;
 
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-
-import org.adaway.R;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.Log;
-import org.sufficientlysecure.rootcommands.RootCommands;
-import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.Toolbox;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -49,6 +38,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import org.adaway.R;
+import org.adaway.helper.PreferenceHelper;
+import org.sufficientlysecure.rootcommands.RootCommands;
+import org.sufficientlysecure.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Toolbox;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class Utils {
 
@@ -79,12 +77,10 @@ public class Utils {
                 final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
                 builder.setView(dialogView);
 
-                builder.setNeutralButton(activity.getResources().getString(R.string.button_exit),
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                activity.finish(); // finish current activity, means exiting app
-                            }
+                builder.setNeutralButton(
+                        activity.getResources().getString(R.string.button_exit),
+                        (dialog, which) -> {
+                            activity.finish(); // finish current activity, means exiting app
                         }
                 );
 
@@ -112,46 +108,40 @@ public class Utils {
         final View dialogView = factory.inflate(R.layout.reboot_dialog, null);
 
         // set text in view based on given resource id
-        TextView text = (TextView) dialogView.findViewById(R.id.reboot_dialog_text);
+        TextView text = dialogView.findViewById(R.id.reboot_dialog_text);
         text.setText(context.getString(messageR));
 
         builder.setView(dialogView);
 
         builder.setPositiveButton(context.getString(R.string.button_yes),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                (dialog, id) -> {
 
-                        // set preference to never show reboot dialog again if checkbox is checked
-                        CheckBox checkBox = (CheckBox) dialogView
-                                .findViewById(R.id.reboot_dialog_checkbox);
-                        if (checkBox.isChecked()) {
-                            PreferenceHelper.setNeverReboot(context, true);
-                        }
+                    // set preference to never show reboot dialog again if checkbox is checked
+                    CheckBox checkBox = dialogView.findViewById(R.id.reboot_dialog_checkbox);
+                    if (checkBox.isChecked()) {
+                        PreferenceHelper.setNeverReboot(context, true);
+                    }
 
-                        try {
-                            Shell rootShell = Shell.startRootShell();
+                    try {
+                        Shell rootShell = Shell.startRootShell();   // TODO Shell not closed
 
-                            Toolbox tb = new Toolbox(rootShell);
-                            tb.reboot(Toolbox.REBOOT_REBOOT);
-                        } catch (Exception e) {
-                            Log.e(Constants.TAG, "Problem with rebooting", e);
-                        }
+                        Toolbox tb = new Toolbox(rootShell);
+                        tb.reboot(Toolbox.REBOOT_REBOOT);
+                    } catch (Exception e) {
+                        Log.e(Constants.TAG, "Problem with rebooting", e);
                     }
                 }
         );
         builder.setNegativeButton(context.getString(R.string.button_no),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                (dialog, id) -> {
 
-                        // set preference to never show reboot dialog again if checkbox is checked
-                        CheckBox checkBox = (CheckBox) dialogView
-                                .findViewById(R.id.reboot_dialog_checkbox);
-                        if (checkBox.isChecked()) {
-                            PreferenceHelper.setNeverReboot(context, true);
-                        }
-
-                        dialog.dismiss();
+                    // set preference to never show reboot dialog again if checkbox is checked
+                    CheckBox checkBox = dialogView.findViewById(R.id.reboot_dialog_checkbox);
+                    if (checkBox.isChecked()) {
+                        PreferenceHelper.setNeverReboot(context, true);
                     }
+
+                    dialog.dismiss();
                 }
         );
         AlertDialog question = builder.create();

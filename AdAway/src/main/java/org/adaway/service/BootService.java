@@ -35,9 +35,9 @@ public class BootService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        // start webserver
+        // Start web server
         Log.d(Constants.TAG, "BootService: onHandleIntent");
-        WebserverUtils.startWebserverOnBoot(getApplicationContext());
+        WebserverUtils.startWebServerOnBoot(getApplicationContext());
     }
 
 }
