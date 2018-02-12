@@ -23,7 +23,7 @@ dependencies {
 def getGitSha1 = { ->
     def stdout = new ByteArrayOutputStream()
     exec {
-        commandLine 'git', 'rev-parse', '--short' , 'HEAD'
+        commandLine 'git', 'rev-parse', '--short', 'HEAD'
         standardOutput = stdout
     }
     return stdout.toString().trim()
@@ -45,7 +45,7 @@ android {
         targetSdkVersion 26
         versionCode 40000   // Read 4.00.00 to match version name
         versionName '4.0.0'
-        versionNameSuffix '-'+getGitSha1()
+        versionNameSuffix '-' + getGitSha1()
     }
 
     /*
@@ -118,6 +118,10 @@ task renameReleaseExecutables(type: Sync) {
 }
 
 gradle.projectsEvaluated {
-    packageDebug.dependsOn renameDebugExecutables
-    packageRelease.dependsOn renameReleaseExecutables
+    if (project.hasProperty('packageDebug')) {
+        packageDebug.dependsOn renameDebugExecutables
+    }
+    if (project.hasProperty('packageRelease')) {
+        packageRelease.dependsOn renameReleaseExecutables
+    }
 }
