@@ -21,18 +21,15 @@
 package org.adaway.helper;
 
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
 import org.adaway.R;
 import org.adaway.provider.ProviderHelper;
-import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
 import org.adaway.util.Log;
@@ -61,29 +58,6 @@ public class ImportExportHelper {
      * The request code to identify the selection of a file in {@link android.support.v4.app.Fragment#onActivityResult(int, int, Intent)}.
      */
     public final static int REQUEST_CODE_IMPORT = 42;
-
-    /**
-     * Import user lists backup file by showing a file picker.
-     *
-     * @param activity The application activity.
-     */
-    public static void importLists(FragmentActivity activity) {
-        // Create intent to pick a text file
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("text/plain");
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        // Start file picker activity
-        try {
-            activity.startActivityForResult(intent, ImportExportHelper.REQUEST_CODE_IMPORT);
-        } catch (ActivityNotFoundException exception) {
-            // Show dialog to install file picker
-            ActivityNotFoundDialogFragment.newInstance(
-                    R.string.no_file_manager_title,
-                    R.string.no_file_manager,
-                    "market://details?id=org.openintents.filemanager", "OI File Manager"
-            ).show(activity.getSupportFragmentManager(), "notFoundDialog");
-        }
-    }
 
     /**
      * Import the given user lists backup file.

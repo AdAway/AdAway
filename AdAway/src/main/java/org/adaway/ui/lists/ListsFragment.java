@@ -22,6 +22,7 @@ package org.adaway.ui.lists;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -33,6 +34,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -44,6 +46,7 @@ import android.view.ViewGroup;
 
 import org.adaway.R;
 import org.adaway.helper.ImportExportHelper;
+import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -187,7 +190,7 @@ public class ListsFragment extends Fragment {
         // Restart action according granted permission
         switch (permissions[0]) {
             case Manifest.permission.READ_EXTERNAL_STORAGE:
-                ImportExportHelper.importLists(this.getActivity());
+                this.importLists();
                 break;
             case Manifest.permission.WRITE_EXTERNAL_STORAGE:
                 ImportExportHelper.exportLists(this.getContext());
@@ -212,7 +215,7 @@ public class ListsFragment extends Fragment {
                 // Check read storage permission
                 if (this.checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
                     // Import user lists
-                    ImportExportHelper.importLists(this.mActivity);
+                    this.importLists();
                 }
                 return true;
             case R.id.menu_export:
@@ -225,6 +228,30 @@ public class ListsFragment extends Fragment {
             default:
                 // Delegate item selection
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /**
+     * Import user lists backup file by showing a file picker.
+     */
+    private void importLists() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        // Start file picker activity
+        try {
+            this.startActivityForResult(intent, ImportExportHelper.REQUEST_CODE_IMPORT);
+        } catch (ActivityNotFoundException exception) {
+            // Show dialog to install file picker
+            FragmentManager fragmentManager = this.getFragmentManager();
+            if (fragmentManager != null) {
+                ActivityNotFoundDialogFragment.newInstance(
+                        R.string.no_file_manager_title,
+                        R.string.no_file_manager,
+                        "market://details?id=org.openintents.filemanager",
+                        "OI File Manager"
+                ).show(fragmentManager, "notFoundDialog");
+            }
         }
     }
 }
