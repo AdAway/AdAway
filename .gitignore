@@ -31,5 +31,8 @@ pom.xml.*
 /AdAway/.externalNativeBuild/
 
 #Credentials
-.boto
+/.boto
+/before-install.sh
+/encrypted.tgz
+/keystore.jks
 
