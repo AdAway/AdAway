@@ -25,6 +25,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.support.v4.app.NotificationCompat;
 
 import org.adaway.R;
@@ -52,6 +53,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
@@ -76,6 +78,15 @@ public class ApplyHelper {
         this.mContext = context;
         this.mNotificationManager = (NotificationManager) mContext.getApplicationContext()
                 .getSystemService(Context.NOTIFICATION_SERVICE);
+    }
+
+    /**
+     * Call {@link #apply()} asynchronously.
+     *
+     * @param context The application context.
+     */
+    public static void applyAsync(Context context) {
+        new AsyncApplyHelper(context).execute();
     }
 
     /**
@@ -108,7 +119,7 @@ public class ApplyHelper {
      */
     private int download() {
         // Check connection status
-        if (Utils.isAndroidOnline(mContext)) {
+        if (!Utils.isAndroidOnline(mContext)) {
             return StatusCodes.NO_CONNECTION;
         }
         // Initialize statuses
@@ -531,4 +542,38 @@ public class ApplyHelper {
         mNotificationManager.cancel(APPLY_NOTIFICATION_ID);
     }
 
+    /**
+     * This class is an async task to apply hosts.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     */
+    private static class AsyncApplyHelper extends AsyncTask<Void, Void, Void> {
+        /**
+         * A weak reference to application context.
+         */
+        private WeakReference<Context> mWeakContext;
+
+        /**
+         * Constructor.
+         *
+         * @param context The application context.
+         */
+        private AsyncApplyHelper(Context context) {
+            // Store context into weak reference to prevent memory leak
+            this.mWeakContext = new WeakReference<>(context);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            // Get context from weak reference
+            Context context = this.mWeakContext.get();
+            if (context == null) {
+                return null;
+            }
+            // Call apply
+            new ApplyHelper(context).apply();
+            // Return void
+            return null;
+        }
+    }
 }

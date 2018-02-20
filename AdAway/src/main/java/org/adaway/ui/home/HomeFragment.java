@@ -236,25 +236,23 @@ public class HomeFragment extends Fragment {
         mCurrentStatusText = text;
         mCurrentStatusIconStatus = iconStatus;
         // Update update hosts button label
-        int updateHostsText;
         switch (iconStatus) {
+            case StatusCodes.SUCCESS:
+            case StatusCodes.ENABLED:
+                mUpdateHostsButton.setText(R.string.button_check_update_hosts);
+                mRevertHostsButton.setVisibility(View.VISIBLE);
+                break;
             case StatusCodes.UPDATE_AVAILABLE:
-                updateHostsText = R.string.button_update_hosts;
+                mUpdateHostsButton.setText(R.string.button_update_hosts);
                 break;
             case StatusCodes.DISABLED:
-                updateHostsText = R.string.button_enable_hosts;
+            case StatusCodes.REVERT_SUCCESS:
+                mUpdateHostsButton.setText(R.string.button_enable_hosts);
+                mRevertHostsButton.setVisibility(View.GONE);
                 break;
             default:
-                updateHostsText = R.string.button_check_update_hosts;
                 break;
         }
-        mUpdateHostsButton.setText(updateHostsText);
-        // Update revert hosts button visibility
-        mRevertHostsButton.setVisibility(
-                iconStatus == StatusCodes.DISABLED ?
-                        View.GONE :
-                        View.VISIBLE
-        );
         // Update button enable state
         boolean enabledButton = iconStatus != StatusCodes.CHECKING;
         mUpdateHostsButton.setEnabled(enabledButton);
@@ -418,7 +416,7 @@ public class HomeFragment extends Fragment {
             case StatusCodes.REVERT_FAIL:
             case StatusCodes.REVERT_SUCCESS:
             case StatusCodes.SYMLINK_MISSING:
-                new ApplyHelper(mActivity).apply();
+                ApplyHelper.applyAsync(mActivity);
                 break;
             case StatusCodes.ENABLED:
             case StatusCodes.SUCCESS:
