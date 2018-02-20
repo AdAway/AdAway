@@ -32,11 +32,11 @@ The original author is Dominik Schürmann ([@dschuermann](https://github.com/dsc
 
 # Build with Gradle
 
-1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (https://developer.android.com/studio/index.html#command-tools)
-2. Have NDK directory in your PATH (http://developer.android.com/tools/sdk/ndk/index.html)
-3. Open the Android SDK Manager (shell command: ``android``). Expand the Extras directory and install "Android Support Repository"
-4. Export ANDROID_HOME pointing to your Android SDK
-5. Execute ``./gradlew build``
+1. Ensure you have Android SDK (Software Development Kit) and NDK (Native Development Kit) installed. If not:
+    * Option 1: [Install Android Studio](https://developer.android.com/studio/index.html) or,
+    * Option 2: Install command line tools and install build tools and ndk bundle with sdk manager (`tools/bin/sdkmanager "build-tools;27.0.3" ndk-bundle`)
+2. Export ANDROID_HOME environment variable pointing to your Android SDK (`export ANDROID_HOME=/path/to/your/sdk`)
+3. Execute `./gradlew build`
 
 # Contribute
 
