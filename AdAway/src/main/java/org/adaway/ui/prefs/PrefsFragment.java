@@ -43,44 +43,7 @@ public class PrefsFragment extends PreferenceFragmentCompat {
 //        this.addPreferencesFromResource(R.xml.preferences);
 //        // Get current context
 //        final Context context = this.getActivity();
-//
-//        /*
-//         * Enable systemless mode systemless mode if supported.
-//         */
-//        Preference SystemlessPref = findPreference(getString(R.string.pref_enable_systemless_key));
-//        SystemlessPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-//            @Override
-//            public boolean onPreferenceChange(Preference preference, Object newValue) {
-//                // Get device systemless mode
-//                AbstractSystemlessMode systemlessMode = SystemlessUtils.getSystemlessMode();
-//                // Check if systemless is supported
-//                if (!systemlessMode.isSupported()) {
-//                    return false;
-//                }
-//                // Declare successful action status
-//                boolean successful;
-//                // Check action to apply
-//                if (newValue.equals(true)) {
-//                    // Enable systemless mode
-//                    successful = systemlessMode.enable(context);
-//                    // Check if reboot is needed
-//                    if (successful && systemlessMode.isRebootNeededAfterActivation()) {
-//                        Utils.rebootQuestion(context, R.string.enable_systemless_successful_title,
-//                                R.string.enable_systemless_successful);
-//                    }
-//                } else {
-//                    // Disable systemless mode
-//                    successful = systemlessMode.disable(context);
-//                    // Check if reboot is needed
-//                    if (successful && systemlessMode.isRebootNeededAfterDeactivation()) {
-//                        Utils.rebootQuestion(context, R.string.disable_systemless_successful_title,
-//                                R.string.disable_systemless_successful);
-//                    }
-//                }
-//                // Return successful action status
-//                return successful;
-//            }
-//        });
+
 //
 //        /*
 //         * Listen on click of update daily pref, register UpdateService if enabled,
@@ -189,7 +152,7 @@ public class PrefsFragment extends PreferenceFragmentCompat {
         /*
          * Enable systemless mode systemless mode if supported.
          */
-        Preference SystemlessPref = findPreference(getString(R.string.pref_enable_systemless_key));
+        Preference SystemlessPref = this.findPreference(getString(R.string.pref_enable_systemless_key));
         SystemlessPref.setOnPreferenceChangeListener((preference, newValue) -> {
             // Get device systemless mode
             AbstractSystemlessMode systemlessMode = SystemlessUtils.getSystemlessMode();
@@ -226,7 +189,7 @@ public class PrefsFragment extends PreferenceFragmentCompat {
          * setOnPreferenceChangeListener is not used because it is executed before setting the
          * preference value, this would lead to a false check in UpdateListener
          */
-        Preference UpdateDailyPref = findPreference(getString(R.string.pref_update_check_daily_key));
+        Preference UpdateDailyPref = this.findPreference(getString(R.string.pref_update_check_daily_key));
         UpdateDailyPref.setOnPreferenceClickListener(preference -> {
             if (PreferenceHelper.getUpdateCheckDaily(context)) {
                 UpdateService.enable();
@@ -236,14 +199,14 @@ public class PrefsFragment extends PreferenceFragmentCompat {
             return false;
         });
 
-        /* Start webserver if pref is enabled */
-        Preference WebserverEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
-        WebserverEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
+        // Start web server when preference is enabled
+        Preference WebServerEnabledPref = this.findPreference(getString(R.string.pref_webserver_enabled_key));
+        WebServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
             if (newValue.equals(true)) {
-                // start webserver
+                // Start web server
                 WebserverUtils.startWebServer(context);
             } else {
-                // stop webserver
+                // Stop web server
                 WebserverUtils.stopWebServer();
             }
             return true;
