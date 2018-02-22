@@ -51,9 +51,12 @@ public class PreferenceHelper {
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(context.getString(R.string.pref_never_reboot_key), value);
-        editor.commit();
+        editor.apply();
     }
 
+    /*
+     * Not used. Defined by AbstractSystemlessMode.isEnabled().
+     */
     public static boolean getSystemlessMode(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
                 Context.MODE_PRIVATE);
