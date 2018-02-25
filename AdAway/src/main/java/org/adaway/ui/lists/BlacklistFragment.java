@@ -22,6 +22,7 @@ package org.adaway.ui.lists;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -122,7 +123,11 @@ public class BlacklistFragment extends AbstractListFragment {
             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
             alertDialog.setTitle(R.string.no_hostname_title);
             alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
-            alertDialog.setButton(getString(R.string.button_close), (dlg, sum) -> dlg.dismiss());
+            alertDialog.setButton(
+                    DialogInterface.BUTTON_NEUTRAL,
+                    getString(R.string.button_close),
+                    (dlg, sum) -> dlg.dismiss()
+            );
             alertDialog.show();
         }
     }
@@ -170,7 +175,9 @@ public class BlacklistFragment extends AbstractListFragment {
                         alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
                         alertDialog.setTitle(R.string.no_hostname_title);
                         alertDialog.setMessage(getString(R.string.no_hostname));
-                        alertDialog.setButton(getString(R.string.button_close),
+                        alertDialog.setButton(
+                                DialogInterface.BUTTON_NEUTRAL,
+                                getString(R.string.button_close),
                                 (dialog1, which1) -> dialog1.dismiss());
                         alertDialog.show();
                     }
