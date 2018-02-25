@@ -352,7 +352,7 @@ public class HomeFragment extends Fragment {
         // Set revert hosts button click listener
         mRevertHostsButton.setOnClickListener(this::revertHosts);
         // Update web server card visibility
-        boolean webServerCardVisible = context != null && PreferenceHelper.getWebserverEnabled(context);
+        boolean webServerCardVisible = context != null && PreferenceHelper.getWebServerEnabled(context);
         if (!webServerCardVisible) {
             mWebServerCardView.setVisibility(View.GONE);
         }

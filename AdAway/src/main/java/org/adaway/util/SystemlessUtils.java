@@ -4,14 +4,12 @@ import org.adaway.util.systemless.AbstractSystemlessMode;
 import org.adaway.util.systemless.MagiskSuSystemlessMode;
 import org.adaway.util.systemless.NotSupportedSystemlessMode;
 import org.adaway.util.systemless.SuperSuSystemlessMode;
-import org.adaway.util.systemless.SuperSuSystemlessMode.Mode;
 import org.adaway.util.systemless.SuperUserSystemlessMode;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
 import java.io.IOException;
-import java.util.concurrent.TimeoutException;
 
 /**
  * This class provides methods to check, install and remove systemless script.
@@ -40,8 +38,10 @@ public class SystemlessUtils {
             // Start shell
             shell = Shell.startShell();
             // Check each supported su implementations
-            if (SystemlessUtils.checkChainFireSuperSu(shell)) {
-                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode(Mode.SU_PARTITION);
+            if (SystemlessUtils.checkChainFireSuperSuBindSbin(shell)) {
+                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode(SuperSuSystemlessMode.Mode.BIND_SBIN);
+            } else if (SystemlessUtils.checkChainFireSuperSuSuPartition(shell)) {
+                SystemlessUtils.systemlessMode = new SuperSuSystemlessMode(SuperSuSystemlessMode.Mode.SU_PARTITION);
             } else if (SystemlessUtils.checkPhhSuperUserSuBind(shell)) {
                 SystemlessUtils.systemlessMode = new SuperUserSystemlessMode();
             } else if (SystemlessUtils.checkMagiskSu(shell)) {
@@ -68,16 +68,29 @@ public class SystemlessUtils {
     }
 
     /**
-     * Check installation of ChainFire's SuperSU systemless root.
+     * Check installation of ChainFire's SuperSU "/su partition" systemless root mode.
      *
      * @param shell The current shell.
-     * @return <code>true</code> if the ChainFire's SuperSU systemless root is installed, <code>false</code> otherwise.
+     * @return <code>true</code> if the ChainFire's SuperSU "/su partition" systemless root mode is installed, <code>false</code> otherwise.
      * @throws Exception if the installation could not be checked.
      */
-    private static boolean checkChainFireSuperSu(Shell shell) throws Exception {
+    private static boolean checkChainFireSuperSuSuPartition(Shell shell) throws Exception {
         // Check if a su binary is present in su partition
         Toolbox toolbox = new Toolbox(shell);
         return toolbox.fileExists("/su/bin/su");
+    }
+
+    /**
+     * Check installation of ChainFire's SuperSU "bind sbin" systemless root mode.
+     *
+     * @param shell The current shell.
+     * @return <code>true</code> if the ChainFire's SuperSU "bind sbin" systemless root mode is installed, <code>false</code> otherwise.
+     * @throws Exception if the installation could not be checked.
+     */
+    private static boolean checkChainFireSuperSuBindSbin(Shell shell) throws Exception {
+        // Check if a su binary is present in su partition
+        Toolbox toolbox = new Toolbox(shell);
+        return toolbox.fileExists("/sbin/supersu/supersu_is_here");
     }
 
     /**

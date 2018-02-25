@@ -67,7 +67,7 @@ public class WebserverUtils {
      */
     public static void startWebServerOnBoot(Context context) {
         // start web server on boot if enabled in preferences
-        if (PreferenceHelper.getWebserverOnBoot(context)) {
+        if (PreferenceHelper.getWebServerOnBoot(context)) {
             WebserverUtils.startWebServer(context);
         }
     }
