@@ -81,7 +81,9 @@ public class UpdateService extends DailyJob {
         // Create job request builder with unlimited network and good battery
         JobRequest.Builder builder = new JobRequest.Builder(UpdateService.JOB_TAG)
                 .setRequiredNetworkType(JobRequest.NetworkType.UNMETERED)
-                .setRequiresBatteryNotLow(true);
+                .setRequiresBatteryNotLow(true)
+                .setRequirementsEnforced(true);
+        // TODO Add WiFi only option
         // Schedule update job during the night (between 11pm and 6am)
         DailyJob.schedule(builder, TimeUnit.HOURS.toMillis(23), TimeUnit.HOURS.toMillis(6));
     }
