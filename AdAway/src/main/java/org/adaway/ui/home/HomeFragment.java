@@ -81,6 +81,10 @@ public class HomeFragment extends Fragment {
      */
     private int mCurrentStatusIconStatus;
     /**
+     * The status of the hosts files buttons.
+     */
+    private HostsStatus mHostsButtonStatus;
+    /**
      * The web server running status (<code>true</code> if running, <code>false</code> otherwise).
      */
     private boolean mWebServerRunning = false;
@@ -239,16 +243,14 @@ public class HomeFragment extends Fragment {
         switch (iconStatus) {
             case StatusCodes.SUCCESS:
             case StatusCodes.ENABLED:
-                mUpdateHostsButton.setText(R.string.button_check_update_hosts);
-                mRevertHostsButton.setVisibility(View.VISIBLE);
+                setHostsButtonStatus(HostsStatus.ENABLED);
                 break;
             case StatusCodes.UPDATE_AVAILABLE:
-                mUpdateHostsButton.setText(R.string.button_update_hosts);
+                setHostsButtonStatus(HostsStatus.UPDATE_AVAILABLE);
                 break;
             case StatusCodes.DISABLED:
             case StatusCodes.REVERT_SUCCESS:
-                mUpdateHostsButton.setText(R.string.button_enable_hosts);
-                mRevertHostsButton.setVisibility(View.GONE);
+                setHostsButtonStatus(HostsStatus.DISABLED);
                 break;
             default:
                 break;
@@ -270,6 +272,7 @@ public class HomeFragment extends Fragment {
         outState.putString("statusTitle", mCurrentStatusTitle);
         outState.putString("statusText", mCurrentStatusText);
         outState.putInt("statusIconStatus", mCurrentStatusIconStatus);
+        outState.putSerializable("hostsButtonStatus", mHostsButtonStatus);
         outState.putBoolean("webServerRunning", mWebServerRunning);
     }
 
@@ -370,6 +373,10 @@ public class HomeFragment extends Fragment {
 
             Log.d(Constants.TAG, "HomeFragment coming from an orientation change!");
 
+            HostsStatus hostsButtonStatus = (HostsStatus) savedInstanceState.getSerializable("hostsButtonStatus");
+            if (hostsButtonStatus != null) {
+                setHostsButtonStatus(hostsButtonStatus);
+            }
             String title = savedInstanceState.getString("statusTitle");
             String text = savedInstanceState.getString("statusText");
             int iconStatus = savedInstanceState.getInt("statusIconStatus");
@@ -398,34 +405,42 @@ public class HomeFragment extends Fragment {
     }
 
     /**
+     * Set the hosts button statuses.
+     *
+     * @param hostsStatus The hosts file status.
+     */
+    private void setHostsButtonStatus(HostsStatus hostsStatus) {
+        // Store hosts status
+        mHostsButtonStatus = hostsStatus;
+        // Update update hosts button label
+        switch (hostsStatus) {
+            case ENABLED:
+                mUpdateHostsButton.setText(R.string.button_check_update_hosts);
+                mRevertHostsButton.setVisibility(View.VISIBLE);
+                break;
+            case UPDATE_AVAILABLE:
+                mUpdateHostsButton.setText(R.string.button_update_hosts);
+                break;
+            case DISABLED:
+                mUpdateHostsButton.setText(R.string.button_enable_hosts);
+                mRevertHostsButton.setVisibility(View.GONE);
+                break;
+        }
+    }
+
+    /**
      * Button Action to download and apply hosts files
      *
      * @param view The view which trigger the action.
      */
     private void updateHosts(@Nullable View view) {
-        switch (this.mCurrentStatusIconStatus) {
-            case StatusCodes.APN_PROXY:
-            case StatusCodes.UPDATE_AVAILABLE:
-            case StatusCodes.DISABLED:
-            case StatusCodes.APPLY_FAIL:
-            case StatusCodes.DOWNLOAD_FAIL:
-            case StatusCodes.COPY_FAIL:
-            case StatusCodes.NOT_ENOUGH_SPACE:
-            case StatusCodes.PRIVATE_FILE_FAIL:
-            case StatusCodes.REMOUNT_FAIL:
-            case StatusCodes.REVERT_FAIL:
-            case StatusCodes.REVERT_SUCCESS:
-            case StatusCodes.SYMLINK_MISSING:
+        switch (this.mHostsButtonStatus) {
+            case UPDATE_AVAILABLE:
+            case DISABLED:
                 ApplyHelper.applyAsync(mActivity);
                 break;
-            case StatusCodes.ENABLED:
-            case StatusCodes.SUCCESS:
-            case StatusCodes.NO_CONNECTION:
+            case ENABLED:
                 UpdateService.checkAsync(mActivity);
-                break;
-            default:
-            case StatusCodes.CHECKING:
-                // Do nothing
                 break;
         }
     }
