@@ -175,15 +175,13 @@ public class Utils {
     @SuppressLint("SdCardPath")
     public static boolean isInstalledOnSdCard(Context context) {
         // check for API level 8 and higher
-        if (VERSION.SDK_INT > android.os.Build.VERSION_CODES.ECLAIR_MR1) {
-            PackageManager pm = context.getPackageManager();
-            try {
-                PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
-                ApplicationInfo ai = pi.applicationInfo;
-                return (ai.flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) == ApplicationInfo.FLAG_EXTERNAL_STORAGE;
-            } catch (NameNotFoundException e) {
-                // ignore
-            }
+        PackageManager pm = context.getPackageManager();
+        try {
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            ApplicationInfo ai = pi.applicationInfo;
+            return (ai.flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) == ApplicationInfo.FLAG_EXTERNAL_STORAGE;
+        } catch (NameNotFoundException e) {
+            // ignore
         }
 
         // check for API level 7 (rooted devices) - check files dir

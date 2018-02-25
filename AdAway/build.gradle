@@ -61,7 +61,7 @@ android {
             project.hasProperty('signingStorePassword') &&
             project.hasProperty('signingKeyAlias') &&
             project.hasProperty('signingKeyPassword')) {
-        println "Found sign properties in gradle.properties! Signing build…"
+        println "Found signature properties in gradle.properties. Build will be signed."
 
         signingConfigs {
             release {
