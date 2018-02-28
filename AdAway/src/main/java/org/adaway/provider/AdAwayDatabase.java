@@ -115,7 +115,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
 
         insertDefaultHostsSources(db);
         //Throws exception and overidden method can't throw exception
-        //insertCustomHostSources(db);
+        try { insertCustomHostSources(db);} catch (Exception e) {/*don't do this*/}
     }
 
     @Override
