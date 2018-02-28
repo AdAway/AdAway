@@ -13,6 +13,7 @@ dependencies {
     compile 'com.android.support:support-v4:18.0.+'
     compile 'org.sufficientlysecure:html-textview:2.0'
     compile 'org.sufficientlysecure:donations:2.4'
+    compile 'com.google.code.gson:gson:2.8.2'
 }
 
 android {
