@@ -1,20 +1,22 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
     }
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.9'
+    gradleVersion = '4.1'
 }
 
