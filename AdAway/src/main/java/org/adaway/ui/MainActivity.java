@@ -49,6 +49,11 @@ import org.adaway.util.Log;
 
 
 public class MainActivity extends AppCompatActivity {
+    /**
+     * The back stack state name of the secondary fragment.
+     * ({@link HomeFragment} is always the primary fragment.)
+     */
+    public static final String STACK_STATE_NAME = "secondary-fragment";
     /*
      * Application navigation related.
      */
@@ -72,7 +77,10 @@ public class MainActivity extends AppCompatActivity {
      * The navigation drawer title.
      */
     private CharSequence mDrawerTitle;
-
+    /**
+     * The position of selected menu item of drawer list.
+     */
+    private int mSelectedMenuItem;
 
     /**
      * Handle result from applying when clicked on notification
@@ -125,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         this.mDrawerList.setOnItemClickListener((parent, view, position, id) -> selectDrawerMenuItem(position));
         // Configure drawer toggle
         this.mTitle = this.mDrawerTitle = this.getTitle();
+        this.mSelectedMenuItem = 0;
         this.mDrawerLayout = this.findViewById(R.id.drawer_layout);
         this.mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
@@ -169,40 +178,33 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Get fragment manager
             FragmentManager fragmentManager = getSupportFragmentManager();
+            // Add selected menu item as back stack change listener
+            fragmentManager.addOnBackStackChangedListener(this::updateSelectedMenuItem);
+            // Insert fragment as main content
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new HomeFragment());
+            fragmentTransaction.commit();
             // Get shortcut extra if defined
             Intent intent = this.getIntent();
             Bundle extras = intent.getExtras();
-            String shortcut = "none";
             if (extras != null) {
-                shortcut = extras.getString("shortcut", shortcut);
+                String shortcut = extras.getString("shortcut", "");
+                // Check shortcut to start
+                switch (shortcut) {
+                    case "your_lists":
+                        selectDrawerMenuItem(2);
+                        break;
+                    case "dns_requests":
+                        selectDrawerMenuItem(4);
+                        break;
+                    case "preferences":
+                        selectDrawerMenuItem(6);
+                        break;
+                    default:
+                        // Shortcut not defined
+                        break;
+                }
             }
-            // Define fragment to insert
-            Fragment fragment;
-            int checkedMenuItem;
-            switch (shortcut) {
-                case "your_lists":
-                    fragment = new ListsFragment();
-                    checkedMenuItem = 2;
-                    break;
-                case "dns_requests":
-                    fragment = new TcpdumpFragment();
-                    checkedMenuItem = 4;
-                    break;
-                case "preferences":
-                    fragment = new PrefsFragment();
-                    checkedMenuItem = 6;
-                    break;
-                default:
-                    fragment = new HomeFragment();
-                    checkedMenuItem = 0;
-                    break;
-            }
-            // Insert fragment as main content
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment);
-            fragmentTransaction.commit();
-            // Select home menu item
-            this.mDrawerList.setItemChecked(checkedMenuItem, true);
         }
     }
 
@@ -231,6 +233,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        // Define HomeFragment as selected menu item
+        mSelectedMenuItem = 0;
+        // Delegate back pressed
+        super.onBackPressed();
+    }
+
+    @Override
     public void setTitle(CharSequence title) {
         this.mTitle = title;
         ActionBar actionBar = this.getSupportActionBar();
@@ -248,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                // HomeFragment, no fragment to instantiate
                 break;
             case 1:
                 fragment = new HostsSourcesFragment();
@@ -268,32 +278,43 @@ public class MainActivity extends AppCompatActivity {
             case 6:
                 fragment = new PrefsFragment();
                 break;
+            default:
+                // Position is not supported. Exit.
+                return;
         }
-
-        // Create a new fragment and specify the planet to show based on position
-//        Bundle args = new Bundle();
-//        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-//        fragment.setArguments(args);
-
+        // Update selected menu item
+        mSelectedMenuItem = position;
+        // Pop back stack up to HomeFragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack(STACK_STATE_NAME, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        // Check there is new fragment to insert
         if (fragment != null) {
             // Insert the fragment by replacing any existing fragment
-            FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, fragment)
+                    .addToBackStack(STACK_STATE_NAME)
                     .commit();
-        } else {
-            return;
         }
-
         // Highlight the selected item, update the title, and close the drawer
+        this.mDrawerLayout.closeDrawer(this.mDrawerList);
+    }
+
+    /**
+     * Update the activity title and selected menu item in drawer list.
+     */
+    private void updateSelectedMenuItem() {
+        // Get position of selected menu item
+        int position = mSelectedMenuItem;
+        // Set selected item in drawer list
         this.mDrawerList.setItemChecked(position, true);
+        // Get item name
         String itemName;
         if (position == 0) {
             itemName = getString(R.string.app_name);
         } else {
-            itemName = this.getResources().getStringArray(R.array.drawer_items)[position];
+            itemName = getResources().getStringArray(R.array.drawer_items)[position];
         }
+        // Update title with item name
         this.setTitle(itemName);
-        this.mDrawerLayout.closeDrawer(this.mDrawerList);
     }
 }
