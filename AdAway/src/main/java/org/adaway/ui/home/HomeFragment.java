@@ -46,10 +46,9 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
 import org.adaway.service.UpdateService;
 import org.adaway.ui.help.HelpActivity;
-import org.adaway.ui.home.UpdateStatusAsyncTask.UpdateStatus;
 import org.adaway.util.Constants;
 import org.adaway.util.StatusCodes;
-import org.adaway.util.WebserverUtils;
+import org.adaway.util.WebServerUtils;
 
 public class HomeFragment extends Fragment {
     // Intent extras to give result of applying process to base activity
@@ -360,13 +359,12 @@ public class HomeFragment extends Fragment {
         mRunningWebServerButton.setOnClickListener(this::toggleWebServer);
         // Check statuses to restore
         if (savedInstanceState == null) {
-            // Create update status task
-            UpdateStatusAsyncTask updateStatusAsyncTask = new UpdateStatusAsyncTask(this);
+            // Check hosts status
+            new UpdateHostsStatusAsyncTask(this).execute();
             // Request to update host status
             if (webServerCardVisible) {
-                updateStatusAsyncTask.execute(UpdateStatus.HOSTS, UpdateStatus.WEB_SERVER);
-            } else {
-                updateStatusAsyncTask.execute(UpdateStatus.HOSTS);
+                // Check web server status
+                new UpdateWebServerStatusAsyncTask(this).execute();
             }
         } else {
             // get back status state when orientation changes and recreates activity
@@ -487,9 +485,9 @@ public class HomeFragment extends Fragment {
      */
     private void toggleWebServer(@Nullable View view) {
         if (mWebServerRunning) {
-            WebserverUtils.stopWebServer();
+            WebServerUtils.stopWebServer();
         } else {
-            WebserverUtils.stopWebServer();
+            WebServerUtils.stopWebServer();
         }
         this.notifyWebServerRunning(!mWebServerRunning);
     }

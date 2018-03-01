@@ -3,9 +3,10 @@ package org.adaway.ui.home;
 import java.io.Serializable;
 
 /**
- * Created by jcdenton on 25/02/2018.
+ * This enumerate represents the status of the hosts file.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-
 enum HostsStatus implements Serializable {
     /**
      * Hosts file is installed.

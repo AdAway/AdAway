@@ -16,7 +16,7 @@ import org.adaway.service.UpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.SystemlessUtils;
 import org.adaway.util.Utils;
-import org.adaway.util.WebserverUtils;
+import org.adaway.util.WebServerUtils;
 import org.adaway.util.systemless.AbstractSystemlessMode;
 
 /**
@@ -76,10 +76,10 @@ public class PrefsFragment extends PreferenceFragmentCompat {
 //
 //                    if (newValue.equals(true)) {
 //                        // start webserver
-//                        WebserverUtils.startWebServer(context, rootShell);
+//                        WebServerUtils.startWebServer(context, rootShell);
 //                    } else {
 //                        // stop webserver
-//                        WebserverUtils.stopWebServer(context, rootShell);
+//                        WebServerUtils.stopWebServer(context, rootShell);
 //                    }
 //
 //                    rootShell.close();
@@ -204,10 +204,10 @@ public class PrefsFragment extends PreferenceFragmentCompat {
         WebServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
             if (newValue.equals(true)) {
                 // Start web server
-                WebserverUtils.startWebServer(context);
+                WebServerUtils.startWebServer(context);
             } else {
                 // Stop web server
-                WebserverUtils.stopWebServer();
+                WebServerUtils.stopWebServer();
             }
             return true;
         });

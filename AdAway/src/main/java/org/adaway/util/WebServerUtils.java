@@ -29,7 +29,7 @@ import android.content.Context;
 
 import java.io.IOException;
 
-public class WebserverUtils {
+public class WebServerUtils {
     /**
      * Start the web server in new thread with RootTools
      *
@@ -68,7 +68,7 @@ public class WebserverUtils {
     public static void startWebServerOnBoot(Context context) {
         // start web server on boot if enabled in preferences
         if (PreferenceHelper.getWebServerOnBoot(context)) {
-            WebserverUtils.startWebServer(context);
+            WebServerUtils.startWebServer(context);
         }
     }
 

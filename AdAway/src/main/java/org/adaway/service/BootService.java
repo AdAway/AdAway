@@ -22,7 +22,7 @@ package org.adaway.service;
 
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.WebserverUtils;
+import org.adaway.util.WebServerUtils;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -37,7 +37,7 @@ public class BootService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         // Start web server
         Log.d(Constants.TAG, "BootService: onHandleIntent");
-        WebserverUtils.startWebServerOnBoot(getApplicationContext());
+        WebServerUtils.startWebServerOnBoot(getApplicationContext());
     }
 
 }
