@@ -1,6 +1,16 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/AdAway/AdAway/issues
 
+3.3
+* Add support for ChainFire's SuperSU "bind sbin" systemless mode - by PerfectSlayer
+* Improve systemless activation error handling - by PerfectSlayer
+* Improve su location detection - by tstaylor7
+* Update Mongoose webserver - by MrRobinson
+* Replace CyanogenMod references by LineageOS - by experience7
+* Update translations - by Mattter, mission712, ThomasSmallert and muzena
+* Fix translation attributes - by Vankog
+* Fix Magisk 15.x support - by pec0ra
+
 3.2
 * Systemless root support - extensive work by PerfectSlayer
 * Improvements to root mounter - by sanjay900

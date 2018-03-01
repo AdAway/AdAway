@@ -64,7 +64,7 @@ public class ImportExportHelper {
      */
     public static void openFileStream(final FragmentActivity activity) {
         final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("text/plain");
+        intent.setType("*/*");
         intent.addCategory(Intent.CATEGORY_OPENABLE);
 
         try {
