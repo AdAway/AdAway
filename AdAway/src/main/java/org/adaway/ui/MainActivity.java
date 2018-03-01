@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 R.string.drawer_close  /* "close drawer" description */
         ) {
             /** Called when a drawer has settled in a completely closed state. */
+            @Override
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 ActionBar actionBar = getSupportActionBar();
@@ -142,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             /** Called when a drawer has settled in a completely open state. */
+            @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 ActionBar actionBar = getSupportActionBar();
@@ -157,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
          */
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-//            actionBar.setSubtitle(R.string.app_subtitle);
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
         }
@@ -168,13 +169,40 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Get fragment manager
             FragmentManager fragmentManager = getSupportFragmentManager();
-            // Insert HomeFragment as main content
+            // Get shortcut extra if defined
+            Intent intent = this.getIntent();
+            Bundle extras = intent.getExtras();
+            String shortcut = "none";
+            if (extras != null) {
+                shortcut = extras.getString("shortcut", shortcut);
+            }
+            // Define fragment to insert
+            Fragment fragment;
+            int checkedMenuItem;
+            switch (shortcut) {
+                case "your_lists":
+                    fragment = new ListsFragment();
+                    checkedMenuItem = 2;
+                    break;
+                case "dns_requests":
+                    fragment = new TcpdumpFragment();
+                    checkedMenuItem = 4;
+                    break;
+                case "preferences":
+                    fragment = new PrefsFragment();
+                    checkedMenuItem = 6;
+                    break;
+                default:
+                    fragment = new HomeFragment();
+                    checkedMenuItem = 0;
+                    break;
+            }
+            // Insert fragment as main content
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            HomeFragment homeFragment = new HomeFragment();
-            fragmentTransaction.replace(R.id.content_frame, homeFragment);
+            fragmentTransaction.replace(R.id.content_frame, fragment);
             fragmentTransaction.commit();
             // Select home menu item
-            this.mDrawerList.setItemChecked(0, true);
+            this.mDrawerList.setItemChecked(checkedMenuItem, true);
         }
     }
 
@@ -193,8 +221,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Pass the event to ActionBarDrawerToggle, if it returns true,
-        // then it has handled the app icon touch event
+        // Pass the event to ActionBarDrawerToggle
+        // If it returns true then it has handled the app icon touch event
         if (this.mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

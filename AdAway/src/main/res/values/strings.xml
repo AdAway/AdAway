@@ -250,6 +250,11 @@
         <item>Preferences</item>
     </string-array>
 
+    <!-- Shortcuts -->
+    <string name="shortcut_dns_requests">DNS requests</string>
+    <string name="shortcut_your_lists">Your lists</string>
+    <string name="shortcut_preferences">Preferences</string>
+
     <!-- Hosts source status -->
     <string name="hosts_source_update_available">Update available</string>
     <string name="hosts_source_up_to_date">Up-to-date</string>

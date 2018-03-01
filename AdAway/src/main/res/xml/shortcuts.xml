@@ -1,41 +1,50 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
-        android:shortcutId="Settings"
         android:enabled="true"
-        android:icon="@drawable/status_bar_icon"
-        android:shortcutShortLabel="@string/menu_preferences"
-        android:shortcutLongLabel="@string/menu_preferences"
-        android:shortcutDisabledMessage="@string/menu_preferences">
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:shortcutDisabledMessage="@string/shortcut_preferences"
+        android:shortcutId="preferences"
+        android:shortcutLongLabel="@string/shortcut_preferences"
+        android:shortcutShortLabel="@string/shortcut_preferences">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="org.adaway"
-            android:targetClass="org.adaway.ui.prefs.PrefsActivity" />
-        <categories android:name="org.adaway.ui.prefs.PrefsActivity" />
+            android:targetClass="org.adaway.ui.MainActivity"
+            android:targetPackage="org.adaway">
+            <extra
+                android:name="shortcut"
+                android:value="preferences" />
+        </intent>
     </shortcut>
     <shortcut
-        android:shortcutId="TCP"
         android:enabled="true"
-        android:icon="@drawable/status_bar_icon"
-        android:shortcutShortLabel="@string/menu_tcpdump"
-        android:shortcutLongLabel="@string/menu_tcpdump"
-        android:shortcutDisabledMessage="@string/menu_tcpdump">
+        android:icon="@drawable/ic_language_black_24dp"
+        android:shortcutDisabledMessage="@string/shortcut_dns_requests"
+        android:shortcutId="dns_requests"
+        android:shortcutLongLabel="@string/shortcut_dns_requests"
+        android:shortcutShortLabel="@string/shortcut_dns_requests">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="org.adaway"
-            android:targetClass="org.adaway.ui.tcpdump.TcpdumpFragment" />
-        <categories android:name="org.adaway.ui.tcpdump.TcpdumpFragment" />
+            android:targetClass="org.adaway.ui.MainActivity"
+            android:targetPackage="org.adaway">
+            <extra
+                android:name="shortcut"
+                android:value="dns_requests" />
+        </intent>
     </shortcut>
     <shortcut
-        android:shortcutId="Lists"
         android:enabled="true"
-        android:icon="@drawable/action_new"
-        android:shortcutShortLabel="@string/menu_lists"
-        android:shortcutLongLabel="@string/menu_lists"
-        android:shortcutDisabledMessage="@string/menu_lists">
+        android:icon="@drawable/ic_list_black_24dp"
+        android:shortcutDisabledMessage="@string/shortcut_your_lists"
+        android:shortcutId="your_lists"
+        android:shortcutLongLabel="@string/shortcut_your_lists"
+        android:shortcutShortLabel="@string/shortcut_your_lists">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="org.adaway"
-            android:targetClass="org.adaway.ui.lists.ListsFragment" />
-        <categories android:name="org.adaway.ui.lists.ListsFragment" />
+            android:targetClass="org.adaway.ui.MainActivity"
+            android:targetPackage="org.adaway">
+            <extra
+                android:name="shortcut"
+                android:value="your_lists" />
+        </intent>
     </shortcut>
 </shortcuts>
