@@ -163,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
         };
         this.mDrawerLayout.addDrawerListener(this.mDrawerToggle);
+        this.updateSelectedMenuItem();
         /*
          * Configure actionbar.
          */
