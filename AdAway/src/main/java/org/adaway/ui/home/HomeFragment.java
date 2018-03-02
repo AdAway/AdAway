@@ -88,21 +88,6 @@ public class HomeFragment extends Fragment {
      */
     private boolean mWebServerRunning = false;
     /*
-     * About card views.
-     */
-    /**
-     * The about main text view (<code>null</code> until view created).
-     */
-    private TextView mHelpTextView;
-    /**
-     * The show help button (<code>null</code> until view created).
-     */
-    private Button mShowHelpButton;
-    /**
-     * The expand/minimize help image view (<code>null</code> until view created).
-     */
-    private ImageView mExpandHelpImageView;
-    /*
      * Status card views.
      */
     /**
@@ -132,10 +117,6 @@ public class HomeFragment extends Fragment {
     /*
      * Web server card views.
      */
-    /**
-     * The web server card (<code>null</code> until view created).
-     */
-    private CardView mWebServerCardView;
     /**
      * The enable/disable web server button (<code>null</code> until view created).
      */
@@ -288,10 +269,8 @@ public class HomeFragment extends Fragment {
         /*
          * Retrieve view elements.
          */
-        // Get views from about card
-        mHelpTextView = view.findViewById(R.id.home_help_text);
-        mShowHelpButton = view.findViewById(R.id.home_show_help);
-        mExpandHelpImageView = view.findViewById(R.id.home_expand_help);
+        // Get view from help card
+        Button showHelpButton = view.findViewById(R.id.home_show_help);
         // Get views from status card
         mStatusProgressBar = view.findViewById(R.id.home_status_progress);
         mStatusIconImageView = view.findViewById(R.id.home_status_icon);
@@ -300,8 +279,8 @@ public class HomeFragment extends Fragment {
         mUpdateHostsButton = view.findViewById(R.id.home_update_hosts);
         mRevertHostsButton = view.findViewById(R.id.home_revert_hosts);
         // Get view from web server card
-        mWebServerCardView = view.findViewById(R.id.home_webserver_card);
-        mRunningWebServerButton = view.findViewById(R.id.home_enable_webserver);
+        CardView webServerCardView = view.findViewById(R.id.home_webserver_card);
+        mRunningWebServerButton = view.findViewById(R.id.home_webserver_enable);
         /*
          * Register local broadcast receiver.
          */
@@ -341,11 +320,7 @@ public class HomeFragment extends Fragment {
          * Initialize statuses and behaviors.
          */
         // Set show help button click listener
-        mShowHelpButton.setOnClickListener(this::showMoreHelp);
-
-        // TODO
-        mExpandHelpImageView.setOnClickListener(this::toggleHelpText);
-
+        showHelpButton.setOnClickListener(this::showMoreHelp);
         // Set update hosts button click listener
         mUpdateHostsButton.setOnClickListener(this::updateHosts);
         // Set revert hosts button click listener
@@ -353,7 +328,7 @@ public class HomeFragment extends Fragment {
         // Update web server card visibility
         boolean webServerCardVisible = context != null && PreferenceHelper.getWebServerEnabled(context);
         if (!webServerCardVisible) {
-            mWebServerCardView.setVisibility(View.GONE);
+            webServerCardView.setVisibility(View.GONE);
         }
         // Set running web server button click listener
         mRunningWebServerButton.setOnClickListener(this::toggleWebServer);
@@ -460,22 +435,6 @@ public class HomeFragment extends Fragment {
     private void showMoreHelp(@Nullable View view) {
         // Start help activity
         this.startActivity(new Intent(mActivity, HelpActivity.class));
-    }
-
-    /**
-     * Toggle help text.
-     *
-     * @param view The view which trigger the action.
-     */
-    private void toggleHelpText(@Nullable View view) {
-        // TODO Create and update preferences
-        if (mHelpTextView.getVisibility() == View.VISIBLE) {
-            mHelpTextView.setVisibility(View.GONE);
-            mExpandHelpImageView.setImageResource(R.drawable.ic_expand_more_white_24dp);
-        } else {
-            mHelpTextView.setVisibility(View.VISIBLE);
-            mExpandHelpImageView.setImageResource(R.drawable.ic_expand_less_white_24dp);
-        }
     }
 
     /**

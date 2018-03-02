@@ -12,7 +12,6 @@
     <string name="button_revert">Disable ad blocking</string>
     <string name="button_add">Add</string>
     <string name="button_cancel">Cancel</string>
-    <string name="button_apply_text">All hosts files from the defined sources are downloaded, merged with your own lists and installed as one hosts file on your system.</string>
     <string name="button_revert_text">Restores the default hosts file on your system.</string>
     <string name="button_save">Save</string>
     <string name="button_webserver_toggle_checked">Webserver is running</string>
@@ -26,11 +25,11 @@
     <string name="button_tcpdump_delete">Delete log file</string>
 
     <!-- Home -->
-    <string name="header_about">About</string>
+    <string name="header_help">Welcome!</string>
+    <string name="text_help">AdAway is a free and open-source software design to block advertising. It downloads ad network and configure your device to block them.\nWant to know more? Check the help below!</string>
     <string name="button_show_help">Show more help</string>
-    <string name="icon_minimize_help_text">Minimize about text</string>
-    <string name="icon_expand_help_text">Expand about text</string>
     <string name="icon_update_status">Update status</string>
+    <string name="text_update">All hosts files from the defined sources are downloaded, merged with your own lists and installed as one hosts file on your system.</string>
     <string name="button_check_update_hosts">Check for updates</string>
     <string name="button_update_hosts">Update hosts</string>
     <string name="button_enable_hosts">Enable ad-blocking</string>

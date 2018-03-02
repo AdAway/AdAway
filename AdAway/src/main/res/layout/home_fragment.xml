@@ -20,11 +20,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/home_header_about"
+                    android:id="@+id/home_help_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:text="@string/header_about"
+                    android:text="@string/header_help"
                     android:textAppearance="@android:style/TextAppearance.Medium" />
 
                 <View
@@ -37,8 +37,9 @@
                     android:id="@+id/home_help_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:padding="16dp"
-                    android:text="@string/button_webserver_toggle_text"
+                    android:text="@string/text_help"
                     android:textAppearance="@android:style/TextAppearance.Small" />
 
                 <View
@@ -61,23 +62,6 @@
                         android:layout_weight="0"
                         android:padding="16dp"
                         android:text="@string/button_show_help" />
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:id="@+id/home_expand_help"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:contentDescription="@string/icon_minimize_help_text"
-                        android:paddingEnd="16dp"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                        android:paddingStart="16dp"
-                        app:srcCompat="@drawable/ic_expand_less_white_24dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -160,8 +144,9 @@
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:padding="16dp"
-                    android:text="@string/button_apply_text"
+                    android:text="@string/text_update"
                     android:textAppearance="@android:style/TextAppearance.Small" />
 
                 <View
@@ -213,7 +198,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/home_header_webserver"
+                    android:id="@+id/home_webserver_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -226,9 +211,10 @@
                     android:background="#3F000000" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/home_webserver_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:padding="16dp"
                     android:text="@string/button_webserver_toggle_text"
                     android:textAppearance="@android:style/TextAppearance.Small" />
@@ -245,7 +231,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/home_enable_webserver"
+                        android:id="@+id/home_webserver_enable"
                         style="?android:attr/buttonBarButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
