@@ -34,6 +34,7 @@ import com.evernote.android.job.Job;
 import com.evernote.android.job.JobCreator;
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
+import com.evernote.android.job.JobRequest.NetworkType;
 
 import org.adaway.R;
 import org.adaway.helper.ApplyHelper;
@@ -57,7 +58,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * This class is a service to check for update.<br/>
- * It could be {@link #enable()} or {@link #disable()} for periodic check.<br>
+ * It could be {@link #enable(boolean)} or {@link #disable()} for periodic check.<br>
  * It could also be launched manually which {@link #checkAsync(Context)}.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
@@ -72,18 +73,23 @@ public class UpdateService extends DailyJob {
 
     /**
      * Enable update service.
+     *
+     * @param unmeteredNetworkOnly <code>true</code> if the update should be done on unmetered network only, <code>false</code> otherwise.
      */
-    public static void enable() {
+    public static void enable(boolean unmeteredNetworkOnly) {
         // Check if job is already scheduled
         if (!JobManager.instance().getAllJobRequestsForTag(UpdateService.JOB_TAG).isEmpty()) {
             return;
         }
+        // Define network type
+        NetworkType networkType = unmeteredNetworkOnly ?
+                NetworkType.UNMETERED :
+                NetworkType.CONNECTED;
         // Create job request builder with unlimited network and good battery
         JobRequest.Builder builder = new JobRequest.Builder(UpdateService.JOB_TAG)
-                .setRequiredNetworkType(JobRequest.NetworkType.UNMETERED)
+                .setRequiredNetworkType(networkType)
                 .setRequiresBatteryNotLow(true)
                 .setRequirementsEnforced(true);
-        // TODO Add WiFi only option
         // Schedule update job during the night (between 11pm and 6am)
         DailyJob.schedule(builder, TimeUnit.HOURS.toMillis(23), TimeUnit.HOURS.toMillis(6));
     }

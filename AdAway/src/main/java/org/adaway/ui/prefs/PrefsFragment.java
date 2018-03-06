@@ -189,15 +189,19 @@ public class PrefsFragment extends PreferenceFragmentCompat {
          * setOnPreferenceChangeListener is not used because it is executed before setting the
          * preference value, this would lead to a false check in UpdateListener
          */
-        Preference UpdateDailyPref = this.findPreference(getString(R.string.pref_update_check_daily_key));
-        UpdateDailyPref.setOnPreferenceClickListener(preference -> {
+        Preference updateDailyPref = this.findPreference(getString(R.string.pref_update_check_daily_key));
+        Preference updateOnlyOnWifiPref = this.findPreference(this.getString(R.string.pref_update_only_on_wifi_key));
+        Preference.OnPreferenceClickListener onPreferenceClickListener = preference -> {
             if (PreferenceHelper.getUpdateCheckDaily(context)) {
-                UpdateService.enable();
+                boolean unmeteredNetworkOnly = PreferenceHelper.getUpdateOnlyOnWifi(context);
+                UpdateService.enable(unmeteredNetworkOnly);
             } else {
                 UpdateService.disable();
             }
             return false;
-        });
+        };
+        updateDailyPref.setOnPreferenceClickListener(onPreferenceClickListener);
+        updateOnlyOnWifiPref.setOnPreferenceClickListener(onPreferenceClickListener);
 
         // Start web server when preference is enabled
         Preference WebServerEnabledPref = this.findPreference(getString(R.string.pref_webserver_enabled_key));
@@ -238,24 +242,24 @@ public class PrefsFragment extends PreferenceFragmentCompat {
         });
 
         /*
-         * Disable update check daily and webserver on boot when installed on sd card. See
+         * Disable update check daily and web server on boot when installed on sd card. See
          * http://developer.android.com/guide/appendix/install-location.html why
          */
         CheckBoxPreference updateCheckDaily = (CheckBoxPreference) getPreferenceScreen().findPreference(
                 getString(R.string.pref_update_check_daily_key));
-        CheckBoxPreference webserverOnBoot = (CheckBoxPreference) getPreferenceScreen().findPreference(
+        CheckBoxPreference webServerOnBoot = (CheckBoxPreference) getPreferenceScreen().findPreference(
                 getString(R.string.pref_webserver_on_boot_key));
 
         if (Utils.isInstalledOnSdCard(context)) {
             updateCheckDaily.setEnabled(false);
-            webserverOnBoot.setEnabled(false);
+            webServerOnBoot.setEnabled(false);
             updateCheckDaily.setSummary(R.string.pref_sdcard_problem);
-            webserverOnBoot.setSummary(R.string.pref_sdcard_problem);
+            webServerOnBoot.setSummary(R.string.pref_sdcard_problem);
         } else {
             updateCheckDaily.setEnabled(true);
-            webserverOnBoot.setEnabled(true);
+            webServerOnBoot.setEnabled(true);
             updateCheckDaily.setSummary(R.string.pref_update_check_daily_summary);
-            webserverOnBoot.setSummary(R.string.pref_webserver_on_boot_summary);
+            webServerOnBoot.setSummary(R.string.pref_webserver_on_boot_summary);
         }
     }
 
