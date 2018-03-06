@@ -18,39 +18,43 @@
  *
  */
 
-package org.adaway.util;
+package org.adaway.ui.tcpdump;
+
+import android.content.Context;
+import android.widget.Toast;
+
+import org.adaway.R;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.sufficientlysecure.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.Toolbox;
+import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import org.adaway.R;
-import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.Toolbox;
-import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
-
-import android.content.Context;
-import android.widget.Toast;
-
-public class TcpdumpUtils {
+class TcpdumpUtils {
 
     /**
      * Start Tcpdump with RootTools
-     * 
-     * @param context
+     *
+     * @param context The application context.
      * @return returns true if starting worked
      */
-    public static boolean startTcpdump(Context context, Shell shell) {
+    static boolean startTcpdump(Context context, Shell shell) {
         Log.d(Constants.TAG, "Starting tcpdump...");
 
-        String cachePath = null;
+        String cachePath;
         try {
             cachePath = context.getCacheDir().getCanonicalPath();
             String filePath = cachePath + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG;
 
             // create log file before using it with tcpdump
             File file = new File(filePath);
-            file.createNewFile();
+            if (!file.createNewFile()) {
+                return false;
+            }
         } catch (IOException e) {
             Log.e(Constants.TAG, "Problem while getting cache directory!", e);
             return false;
@@ -81,10 +85,10 @@ public class TcpdumpUtils {
 
     /**
      * Deletes log file of tcpdump
-     * 
-     * @param context
+     *
+     * @param context The application context.
      */
-    public static void deleteLog(Context context) {
+    static void deleteLog(Context context) {
         try {
             String cachePath = context.getCacheDir().getCanonicalPath();
             String filePath = cachePath + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG;
@@ -106,10 +110,8 @@ public class TcpdumpUtils {
 
     /**
      * Stop tcpdump
-     * 
-     * @param context
      */
-    public static void stopTcpdump(Context context, Shell shell) {
+    static void stopTcpdump(Shell shell) {
         try {
             Toolbox tb = new Toolbox(shell);
             tb.killAllExecutable(Constants.TCPDUMP_EXECUTEABLE);
@@ -120,18 +122,14 @@ public class TcpdumpUtils {
 
     /**
      * Checks if tcpdump is running
-     * 
+     *
      * @return true if tcpdump is running
      */
-    public static boolean isTcpdumpRunning(Shell shell) {
+    static boolean isTcpdumpRunning(Shell shell) {
         try {
             Toolbox tb = new Toolbox(shell);
 
-            if (tb.isBinaryRunning(Constants.TCPDUMP_EXECUTEABLE)) {
-                return true;
-            } else {
-                return false;
-            }
+            return tb.isBinaryRunning(Constants.TCPDUMP_EXECUTEABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while checking tcpdump", e);
             return false;

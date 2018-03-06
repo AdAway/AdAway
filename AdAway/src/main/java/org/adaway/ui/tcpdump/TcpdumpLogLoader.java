@@ -18,7 +18,14 @@
  *
  */
 
-package org.adaway.util;
+package org.adaway.ui.tcpdump;
+
+import android.content.Context;
+import android.support.v4.content.AsyncTaskLoader;
+
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.adaway.util.RegexUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,20 +35,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
-
-import android.content.Context;
-import android.support.v4.content.AsyncTaskLoader;
 
 /**
  * A custom Loader that parses log files from tcpdump
  */
-public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
+class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
 
     Context context;
-    List<String> mItems;
 
-    public TcpdumpLogLoader(Context context) {
+    TcpdumpLogLoader(Context context) {
         super(context);
 
         this.context = context;
@@ -50,7 +52,7 @@ public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
     @Override
     public ArrayList<String> loadInBackground() {
         // hashset, because every hostname should be contained only once
-        HashSet<String> set = new HashSet<String>();
+        HashSet<String> set = new HashSet<>();
 
         try {
             String cachePath = context.getCacheDir().getCanonicalPath();
@@ -88,7 +90,7 @@ public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
             Log.e(Constants.TAG, "Can not get cache dir", e);
         }
 
-        ArrayList<String> list = new ArrayList<String>(set);
+        ArrayList<String> list = new ArrayList<>(set);
 
         // Sort the list.
         Collections.sort(list);
@@ -118,5 +120,4 @@ public class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
     public void deliverResult(ArrayList<String> data) {
         super.deliverResult(data);
     }
-
 }

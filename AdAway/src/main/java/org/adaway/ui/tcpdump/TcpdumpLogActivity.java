@@ -39,8 +39,10 @@ public class TcpdumpLogActivity extends AppCompatActivity {
         setContentView(R.layout.tcpdump_log_activity);
 
         mActionBar = getSupportActionBar();
-        mActionBar.setDisplayShowTitleEnabled(true);
-        mActionBar.setDisplayHomeAsUpEnabled(true);
+        if (mActionBar != null) {
+            mActionBar.setDisplayShowTitleEnabled(true);
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     /**

@@ -26,7 +26,6 @@ import org.adaway.R;
 import org.adaway.provider.ProviderHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.TcpdumpLogLoader;
 
 
 import android.app.Activity;

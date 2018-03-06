@@ -23,19 +23,18 @@ package org.adaway.ui.tcpdump;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 import org.adaway.R;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.TcpdumpUtils;
 import org.sufficientlysecure.rootcommands.Shell;
 
 import java.io.IOException;
@@ -50,7 +49,7 @@ public class TcpdumpFragment extends Fragment {
     private Shell mRootShell;
     
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate layout
         View view = inflater.inflate(R.layout.tcpdump_fragment, container, false);
         // Get activity
@@ -69,44 +68,33 @@ public class TcpdumpFragment extends Fragment {
         // Set tcpdump toggle button checked state according tcpdump running state
         tcpdumpToggleButton.setChecked(TcpdumpUtils.isTcpdumpRunning(this.mRootShell));
         // Set tcpdump toggle button checked listener to start/stop tcpdump
-        tcpdumpToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                // Check shell
-                if (TcpdumpFragment.this.mRootShell == null) {
-                    return;
+        tcpdumpToggleButton.setOnCheckedChangeListener((buttonView, checked) -> {
+            // Check shell
+            if (this.mRootShell == null) {
+                return;
+            }
+            // Check button checked state
+            if (checked) {
+                // Start tcpdump
+                if (!TcpdumpUtils.startTcpdump(activity, this.mRootShell)) {
+                    // If tcpdump start failed, uncheck button
+                    tcpdumpToggleButton.setChecked(false);
                 }
-                // Check button checked state
-                if (checked) {
-                    // Start tcpdump
-                    if (!TcpdumpUtils.startTcpdump(activity, TcpdumpFragment.this.mRootShell)) {
-                        // If tcpdump start failed, uncheck button
-                        tcpdumpToggleButton.setChecked(false);
-                    }
-                } else {
-                    // Stop tcpdump
-                    TcpdumpUtils.stopTcpdump(activity, TcpdumpFragment.this.mRootShell);
-                }
+            } else {
+                // Stop tcpdump
+                TcpdumpUtils.stopTcpdump(this.mRootShell);
             }
         });
         // Get open button
         Button openButton = view.findViewById(R.id.tcpdump_fragment_open_button);
         // Set open button on click listener to start tcpdump log activity
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TcpdumpFragment.this.startActivity(new Intent(activity, TcpdumpLogActivity.class));
-            }
-        });
+        openButton.setOnClickListener(
+                clickedView -> this.startActivity(new Intent(activity, TcpdumpLogActivity.class))
+        );
         // Get delete button
         Button deleteButton = view.findViewById(R.id.tcpdump_fragment_delete_button);
         // Set delete button on click listener to delete tcpdump log
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TcpdumpUtils.deleteLog(activity);
-            }
-        });
+        deleteButton.setOnClickListener(clickedView -> TcpdumpUtils.deleteLog(activity));
         // Return created view
         return view;
     }
