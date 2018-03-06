@@ -25,8 +25,8 @@
         android:name=".ui.AdAwayApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
-        android:roundIcon="@mipmap/icon_round"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/icon_round"
         android:theme="@style/Theme.AdAway">
         <activity
             android:name=".ui.MainActivity"
@@ -41,18 +41,11 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
-            android:name=".ui.prefs.PrefsActivity"
-            android:label="@string/menu_preferences">
-            <intent-filter>
-                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".ui.tcpdump.TcpdumpLogActivity"
             android:label="@string/menu_tcpdump" />
         <activity
             android:name=".ui.help.HelpActivity"
+            android:exported="false"
             android:label="@string/menu_help" />
         <!-- android:configChanges prevents activity from recreating on orientation change -->
 
