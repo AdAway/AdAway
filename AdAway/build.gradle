@@ -6,13 +6,13 @@ repositories {
     }
 }
 dependencies {
-    compile 'com.commonsware.cwac:wakeful:1.0.+'
-    compile project(':libraries:RootCommands')
-    compile 'net.sf.trove4j:trove4j:3.0.3'
-    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    compile 'com.android.support:support-v4:18.0.+'
-    compile 'org.sufficientlysecure:html-textview:2.0'
-    compile 'org.sufficientlysecure:donations:2.4'
+    implementation 'com.commonsware.cwac:wakeful:1.0.+'
+    implementation project(':libraries:RootCommands')
+    implementation 'net.sf.trove4j:trove4j:3.0.3'
+    implementation 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    implementation 'com.android.support:support-v4:18.0.+'
+    implementation 'org.sufficientlysecure:html-textview:2.0'
+    implementation 'org.sufficientlysecure:donations:2.4'
 }
 
 android {
