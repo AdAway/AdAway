@@ -20,25 +20,27 @@
 
 package org.adaway.service;
 
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+import org.adaway.util.WebServerUtils;
 
 /**
  * This broadcast receiver is executed after boot
  */
 public class BootReceiver extends BroadcastReceiver {
-
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-            Log.i(Constants.TAG, "BootReceiver invoked, starting BootService in background");
-
-            Intent bootIntent = new Intent(context, BootService.class);
-            context.startService(bootIntent);
+            Log.i(Constants.TAG, "BootReceiver invoked");
+            // Start web server on boot if enabled in preferences
+            if (PreferenceHelper.getWebServerOnBoot(context)) {
+                WebServerUtils.startWebServer(context);
+            }
         }
     }
 }

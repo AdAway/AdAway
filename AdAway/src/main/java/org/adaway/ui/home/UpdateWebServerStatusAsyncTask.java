@@ -34,13 +34,13 @@ public class UpdateWebServerStatusAsyncTask extends AsyncTask<Void, Void, Boolea
     }
 
     @Override
-    protected void onPostExecute(Boolean isWebServerRunnnig) {
+    protected void onPostExecute(Boolean isWebServerRunning) {
         // Get the home fragment
         HomeFragment homeFragment = this.homeFragmentReference.get();
         if (homeFragment == null) {
             return;
         }
         // Update home fragment
-        homeFragment.notifyWebServerRunning(isWebServerRunnnig);
+        homeFragment.notifyWebServerRunning(isWebServerRunning);
     }
 }

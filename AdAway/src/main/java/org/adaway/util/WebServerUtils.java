@@ -20,12 +20,11 @@
 
 package org.adaway.util;
 
-import org.adaway.helper.PreferenceHelper;
+import android.content.Context;
+
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
 import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
-
-import android.content.Context;
 
 import java.io.IOException;
 
@@ -57,18 +56,6 @@ public class WebServerUtils {
                     Log.d(Constants.TAG, "Error while closing root shell.", exception);
                 }
             }
-        }
-    }
-
-    /**
-     * Start web server in new Thread with RootTools on Boot if enabled in preferences.
-     *
-     * @param context The application context.
-     */
-    public static void startWebServerOnBoot(Context context) {
-        // start web server on boot if enabled in preferences
-        if (PreferenceHelper.getWebServerOnBoot(context)) {
-            WebServerUtils.startWebServer(context);
         }
     }
 

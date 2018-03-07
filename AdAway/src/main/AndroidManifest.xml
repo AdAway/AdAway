@@ -55,10 +55,6 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name=".service.BootService"
-            android:exported="false" />
-
         <provider
             android:name=".provider.AdAwayProvider"
             android:authorities="org.adaway"
