@@ -2,17 +2,14 @@ apply plugin: 'com.android.application'
 repositories {
     jcenter()
     google()
-    maven {
-        url "https://s3.amazonaws.com/repo.commonsware.com"
-    }
 }
 dependencies {
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    implementation 'com.android.support:cardview-v7:27.0.2'
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:cardview-v7:27.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:design:27.0.2'
-    implementation 'com.android.support:preference-v7:27.0.2'
-    implementation 'com.android.support:support-v4:27.0.2'
+    implementation 'com.android.support:design:27.1.0'
+    implementation 'com.android.support:preference-v7:27.1.0'
+    implementation 'com.android.support:support-v4:27.1.0'
     implementation 'com.evernote:android-job:1.2.4'
     implementation project(':libraries:RootCommands')
     implementation 'net.sf.trove4j:trove4j:3.0.3'
