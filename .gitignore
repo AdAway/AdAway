@@ -13,7 +13,6 @@ ant.properties
 #Gradle
 .gradle
 build
-gradle.properties
 gradle-app.setting
 
 #Maven
