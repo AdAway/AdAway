@@ -29,7 +29,6 @@ def getGitSha1 = { ->
 
 android {
     sourceSets {
-        instrumentTest.setRoot('tests')
         main {
             jniLibs.srcDirs = ['libs']
         }
