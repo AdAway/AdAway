@@ -15,8 +15,6 @@
   <string name="checkbox_list_context_delete">Sil</string>
   <!--Your Lists-->
   <string name="lists_tab_blacklist">Qara siyahı</string>
-  <string name="lists_tab_blacklist_short">Qara</string>
-  <string name="lists_tab_whitelist_short">Ağ</string>
   <!--Status Notifications-->
   <string name="status_checking">Güncəlləmə axtarılır...</string>
   <string name="status_checking_subtitle">Güncəlləmə varmı deyə yoxlanılır</string>
@@ -41,8 +39,6 @@
   <string name="menu_refresh">Yenilə</string>
   <string name="menu_hosts_sources">Hosts resursları</string>
   <string name="menu_help">Yardım</string>
-  <string name="menu_lists">Sizin siyahılarınız</string>
-  <string name="menu_preferences">Tənzimləmələr</string>
   <!--Help-->
   <string name="help_tab_about">Haqqında</string>
   <string name="help_tab_donate">İanə ver</string>

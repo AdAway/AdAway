@@ -10,7 +10,6 @@
   <string name="button_revert">停用廣告封鎖</string>
   <string name="button_add">加入</string>
   <string name="button_cancel">取消</string>
-  <string name="button_apply_text">所有自訂來源的主機 hosts 檔已下載完成、整合至您的自訂列表中，並安裝至系統中。</string>
   <string name="button_revert_text">還原系統預設的 hosts 檔案。</string>
   <string name="button_save">儲存</string>
   <string name="button_webserver_toggle_checked">網頁伺服器正在執行中</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">白名單</string>
   <string name="lists_tab_blacklist">黑名單</string>
-  <string name="lists_tab_blacklist_short">黑名單</string>
-  <string name="lists_tab_whitelist_short">白名單</string>
-  <string name="lists_tab_redirection_list_short">重新導向</string>
   <string name="lists_tab_redirection_list">重新導向列表</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主機名稱：</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">重新整理</string>
   <string name="menu_add">加入</string>
-  <string name="menu_scan_adware">掃描廣告軟體</string>
   <string name="menu_hosts_sources">Hosts 來源</string>
-  <string name="menu_tcpdump">紀錄 DNS 請求</string>
   <string name="menu_help">說明</string>
-  <string name="menu_lists">你的清單</string>
-  <string name="menu_show_hosts_file">開啟 hosts 檔案</string>
   <string name="menu_import">匯入所有清單</string>
   <string name="menu_export">匯出所有清單</string>
-  <string name="menu_preferences">設定</string>
   <!--Help-->
   <string name="help_tab_about">關於</string>
   <string name="help_tab_donate">

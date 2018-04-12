@@ -10,7 +10,6 @@
   <string name="button_revert">إلغاء حجب الإعلانات</string>
   <string name="button_add">إضافة</string>
   <string name="button_cancel">إلغاء</string>
-  <string name="button_apply_text">جميع ملفات المضيف ستحمل و ستدمج مع قوائمك و ستثبت في ملف واحد على نظامك.</string>
   <string name="button_revert_text">استعادة ملفات المضيف الافتراضية لنظامك.</string>
   <string name="button_save">حفظ</string>
   <string name="button_webserver_toggle_checked">خادم الويب يعمل</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">القائمة البيضاء</string>
   <string name="lists_tab_blacklist">القائمة السوداء</string>
-  <string name="lists_tab_blacklist_short">المحجوب</string>
-  <string name="lists_tab_whitelist_short">المسموح</string>
-  <string name="lists_tab_redirection_list_short">إعادة التوجيه</string>
   <string name="lists_tab_redirection_list">قائمة إعادة التوجيه</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">اسم المضيف:</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">تحديث</string>
   <string name="menu_add">إضافة</string>
-  <string name="menu_scan_adware">البحث عن الإعلانات المتسللة</string>
   <string name="menu_hosts_sources">مصادر المضيف</string>
-  <string name="menu_tcpdump">تسجيل طلبات DNS</string>
   <string name="menu_help">مساعدة</string>
-  <string name="menu_lists">قوائمك</string>
-  <string name="menu_show_hosts_file">فتح ملفات المضيف</string>
   <string name="menu_import">استيراد جميع القوائم</string>
   <string name="menu_export">تصدير جميع القوائم</string>
-  <string name="menu_preferences">الخيارات</string>
   <!--Help-->
   <string name="help_tab_about">حول التطبيق</string>
   <string name="help_tab_donate">التبرع</string>

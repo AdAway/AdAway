@@ -10,7 +10,6 @@
   <string name="button_revert">Desactiva el bloqueig d\'anuncis</string>
   <string name="button_add">Afegiu</string>
   <string name="button_cancel">Cancel·leu</string>
-  <string name="button_apply_text">Es descarreguen tots els fitxers host de les fonts definides, s\'uneixen amb les vostres llistes i s\'instalen com a un únic fitxer hosts al vostre sistema.</string>
   <string name="button_revert_text">Restaura el fitxer  hosts original al vostre sistema</string>
   <string name="button_save">Guardeu</string>
   <string name="button_webserver_toggle_checked">El servidor web està actiu</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Llista blanca</string>
   <string name="lists_tab_blacklist">Llista negra</string>
-  <string name="lists_tab_blacklist_short">Negre</string>
-  <string name="lists_tab_whitelist_short">Blanc</string>
-  <string name="lists_tab_redirection_list_short">Redirecció</string>
   <string name="lists_tab_redirection_list">Llista de redireccionaments</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Servidor:</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Refresca</string>
   <string name="menu_add">Afegiu</string>
-  <string name="menu_scan_adware">Trobar Adware</string>
   <string name="menu_hosts_sources">Servidors de fitxers hosts</string>
-  <string name="menu_tcpdump">Enregistra els requeriments DNS</string>
   <string name="menu_help">Ajuda</string>
-  <string name="menu_lists">Les vostre llistes</string>
-  <string name="menu_show_hosts_file">Obriu el fitxer de hosts</string>
   <string name="menu_import">Importar totes les llistes</string>
   <string name="menu_export">Exportar totes les llistes</string>
-  <string name="menu_preferences">Preferències</string>
   <!--Help-->
   <string name="help_tab_about">Quant a</string>
   <string name="help_tab_donate">Fer un donatiu</string>

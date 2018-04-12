@@ -10,7 +10,6 @@
   <string name="button_revert">広告ブロックを無効化</string>
   <string name="button_add">追加</string>
   <string name="button_cancel">キャンセル</string>
-  <string name="button_apply_text">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします。</string>
   <string name="button_revert_text">システムのhostsファイルをリストアします。</string>
   <string name="button_save">保存</string>
   <string name="button_webserver_toggle_checked">ウェブサーバーは動作中です</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">ホワイトリスト</string>
   <string name="lists_tab_blacklist">ブラックリスト</string>
-  <string name="lists_tab_blacklist_short">ブラック</string>
-  <string name="lists_tab_whitelist_short">ホワイト</string>
-  <string name="lists_tab_redirection_list_short">リダイレクト</string>
   <string name="lists_tab_redirection_list">リダイレクトリスト</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">ホスト名:</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">更新</string>
   <string name="menu_add">追加</string>
-  <string name="menu_scan_adware">アドウェアをスキャン</string>
   <string name="menu_hosts_sources">hostsのソース</string>
-  <string name="menu_tcpdump">DNS問合せのログ</string>
   <string name="menu_help">ヘルプ</string>
-  <string name="menu_lists">リスト</string>
-  <string name="menu_show_hosts_file">hostsファイルを開く</string>
   <string name="menu_import">リストをインポート</string>
   <string name="menu_export">リストをエクスポート</string>
-  <string name="menu_preferences">設定</string>
   <!--Help-->
   <string name="help_tab_about">情報</string>
   <string name="help_tab_donate">寄付</string>

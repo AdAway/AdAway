@@ -10,7 +10,6 @@
   <string name="button_revert">Deaktiveer ad. blokkering</string>
   <string name="button_add">Voeg by</string>
   <string name="button_cancel">Kanselleer</string>
-  <string name="button_apply_text">Alle gas lêers van die omskrewe bronne word afgelaai, en geïntegreer met jou eie lys en dan as een lys geinstalleer in jou sisteem. </string>
   <string name="button_revert_text">Herstel die verstek gasheer lêers op jou sisteem.</string>
   <string name="button_save">Stoor</string>
   <string name="button_webserver_toggle_checked">Webbediener is aktief</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Witlys</string>
   <string name="lists_tab_blacklist">Swartlys</string>
-  <string name="lists_tab_blacklist_short">Swart</string>
-  <string name="lists_tab_whitelist_short">Wit</string>
-  <string name="lists_tab_redirection_list_short">Herleiding</string>
   <string name="lists_tab_redirection_list">Aanstuur Lys</string>
   <string name="list_dialog_url">BA:</string>
   <string name="list_dialog_hostname">Gasheer naam:</string>
@@ -104,15 +100,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Verfris</string>
   <string name="menu_add">Voeg by</string>
-  <string name="menu_scan_adware">Skandeer vir Advertensies</string>
   <string name="menu_hosts_sources">Gaste bronne</string>
-  <string name="menu_tcpdump">Teken DNS versoeke aan</string>
   <string name="menu_help">Help</string>
-  <string name="menu_lists">Jou Lyste</string>
-  <string name="menu_show_hosts_file">Maak Gasheer lêer oop</string>
   <string name="menu_import">Voer Alle Lyste in</string>
   <string name="menu_export">Voer Alle Lyste Uit</string>
-  <string name="menu_preferences">Voorkeure</string>
   <!--Help-->
   <string name="help_tab_about">Omtrent</string>
   <string name="help_tab_donate">Skenk</string>

@@ -10,7 +10,6 @@
   <string name="button_revert">ปิดใช้งานบล็อคโฆษณา</string>
   <string name="button_add">เพิ่ม</string>
   <string name="button_cancel">ยกเลิก</string>
-  <string name="button_apply_text">ไฟล์โฮสต์ทั้งหมดจากแหล่งที่กำหนดไว้ถูกดาวน์โหลดและติดตั้งเป็นไฟล์โฮสต์บนระบบของคุณแล้ว</string>
   <string name="button_revert_text">คืนค่าไฟล์โฮสต์เริ่มต้นบนระบบของคุณ</string>
   <string name="button_save">บันทึก</string>
   <string name="button_webserver_toggle_checked">กำลังใช้งานเว็บเซิร์ฟเวอร์</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">บัญชีขาว</string>
   <string name="lists_tab_blacklist">บัญชีดำ</string>
-  <string name="lists_tab_blacklist_short">ดำ</string>
-  <string name="lists_tab_whitelist_short">ขาว</string>
-  <string name="lists_tab_redirection_list_short">Redirection</string>
   <string name="lists_tab_redirection_list">รายการ Redirection</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">ชื่อโฮสต์:</string>
@@ -113,15 +109,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">รีเฟรช</string>
   <string name="menu_add">เพิ่ม</string>
-  <string name="menu_scan_adware">ตรวจหา Adware</string>
   <string name="menu_hosts_sources">แหล่งที่มาโฮสต์</string>
-  <string name="menu_tcpdump">บันทึกคำร้องขอ DNS</string>
   <string name="menu_help">ช่วยเหลือ</string>
-  <string name="menu_lists">รายการของคุณ</string>
-  <string name="menu_show_hosts_file">เปิดไฟล์โฮสต์</string>
   <string name="menu_import">นำเข้ารายการทั้งหมด</string>
   <string name="menu_export">ส่งออกรายการทั้งหมด</string>
-  <string name="menu_preferences">การตั้งค่า</string>
   <!--Help-->
   <string name="help_tab_about">เกี่ยวกับ</string>
   <string name="help_tab_donate">บริจาค</string>

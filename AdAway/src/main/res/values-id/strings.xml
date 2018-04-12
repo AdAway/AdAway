@@ -10,7 +10,6 @@
   <string name="button_revert">Non-aktifkan pemblokiran iklan</string>
   <string name="button_add">Tambah</string>
   <string name="button_cancel">Batal</string>
-  <string name="button_apply_text">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
   <string name="button_revert_text">Kembalikan file host anda ke versi awal.</string>
   <string name="button_save">Simpan</string>
   <string name="button_webserver_toggle_checked">Webserver berjalan</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Daftar Putih</string>
   <string name="lists_tab_blacklist">Daftar Hitam</string>
-  <string name="lists_tab_blacklist_short">Hitam</string>
-  <string name="lists_tab_whitelist_short">Putih</string>
-  <string name="lists_tab_redirection_list_short">Pengalihan</string>
   <string name="lists_tab_redirection_list">Daftar Pengalihan</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Segarkan</string>
   <string name="menu_add">Tambah</string>
-  <string name="menu_scan_adware">Pindai dari Adware</string>
   <string name="menu_hosts_sources">Sumber host</string>
-  <string name="menu_tcpdump">Catat permintaan DNS</string>
   <string name="menu_help">Bantuan</string>
-  <string name="menu_lists">Daftar Anda</string>
-  <string name="menu_show_hosts_file">Buka berkas hosts</string>
   <string name="menu_import">Memasukan semua daftar</string>
   <string name="menu_export">Ekspor Semua Daftar</string>
-  <string name="menu_preferences">Pengaturan</string>
   <!--Help-->
   <string name="help_tab_about">Tentang</string>
   <string name="help_tab_donate">Donasi</string>

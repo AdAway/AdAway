@@ -10,7 +10,6 @@
   <string name="button_revert">Отключение блокировки рекламы</string>
   <string name="button_add">Добавить</string>
   <string name="button_cancel">Отменить</string>
-  <string name="button_apply_text">Все файлы со списками хостов, загружаемые с определенных источников, сливаются с вашим собственным списком и устанавливаются в вашей системе в виде одного файла hosts.</string>
   <string name="button_revert_text">Восстановление файла hosts по-умолчанию в вашей системе.</string>
   <string name="button_save">Сохранить</string>
   <string name="button_webserver_toggle_checked">Веб-сервер запущен</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Белый список</string>
   <string name="lists_tab_blacklist">Черный список</string>
-  <string name="lists_tab_blacklist_short">Черный</string>
-  <string name="lists_tab_whitelist_short">Белый</string>
-  <string name="lists_tab_redirection_list_short">Переадресация</string>
   <string name="lists_tab_redirection_list">Список переадресаций</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Имя источника:</string>
@@ -137,15 +133,10 @@ AdAway не будет работать в мобильных сетях, так
   <!--Menu entries-->
   <string name="menu_refresh">Обновление</string>
   <string name="menu_add">Добавить</string>
-  <string name="menu_scan_adware">Сканирование Adware</string>
   <string name="menu_hosts_sources">Источники списков хостов</string>
-  <string name="menu_tcpdump">Журнал запросов DNS</string>
   <string name="menu_help">Справка</string>
-  <string name="menu_lists">Ваши списки</string>
-  <string name="menu_show_hosts_file">Открыть файл hosts</string>
   <string name="menu_import">Импортировать все списки</string>
   <string name="menu_export">Экспортировать все списки</string>
-  <string name="menu_preferences">Настройки</string>
   <!--Help-->
   <string name="help_tab_about">О программе</string>
   <string name="help_tab_donate">Пожертвовать</string>

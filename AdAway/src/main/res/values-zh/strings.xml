@@ -10,7 +10,6 @@
   <string name="button_revert">禁用广告屏蔽</string>
   <string name="button_add">添加</string>
   <string name="button_cancel">取消</string>
-  <string name="button_apply_text">所有 hosts 源的文件下载整合完毕，并已配置到您的系统。</string>
   <string name="button_revert_text">还原系统默认 hosts 文件。</string>
   <string name="button_save">保存</string>
   <string name="button_webserver_toggle_checked">Web 服务器正在运行</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">白名单</string>
   <string name="lists_tab_blacklist">黑名单</string>
-  <string name="lists_tab_blacklist_short">黑名单</string>
-  <string name="lists_tab_whitelist_short">白名单</string>
-  <string name="lists_tab_redirection_list_short">重定向</string>
   <string name="lists_tab_redirection_list">重定向列表</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主机名：</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">刷新</string>
   <string name="menu_add">添加</string>
-  <string name="menu_scan_adware">扫描广告程序</string>
   <string name="menu_hosts_sources">Hosts 源</string>
-  <string name="menu_tcpdump">记录 DNS 请求</string>
   <string name="menu_help">帮助</string>
-  <string name="menu_lists">你的名单</string>
-  <string name="menu_show_hosts_file">打开 hosts 文件</string>
   <string name="menu_import">导入列表</string>
   <string name="menu_export">导出列表</string>
-  <string name="menu_preferences">设置</string>
   <!--Help-->
   <string name="help_tab_about">关于</string>
   <string name="help_tab_donate"> 捐赠</string>

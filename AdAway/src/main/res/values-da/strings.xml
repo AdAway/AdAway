@@ -10,7 +10,6 @@
   <string name="button_revert">Deaktiver reklameblokering</string>
   <string name="button_add">Tilføj</string>
   <string name="button_cancel">Annuller</string>
-  <string name="button_apply_text">Alle hosts-filer fra de definerede kilder er hentet, flettet sammen med dine egne lister og installeret som en hosts-fil på dit system.</string>
   <string name="button_revert_text">Gendanner standard hosts-filen på dit system.</string>
   <string name="button_save">Gem</string>
   <string name="button_webserver_toggle_checked">Webserver kører</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Tilladte</string>
   <string name="lists_tab_blacklist">Blokerede</string>
-  <string name="lists_tab_blacklist_short">Blokeret</string>
-  <string name="lists_tab_whitelist_short">Tilladt</string>
-  <string name="lists_tab_redirection_list_short">Omdirigering</string>
   <string name="lists_tab_redirection_list">Omdirigeringsliste</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Værtsnavn:</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Opdater</string>
   <string name="menu_add">Tilføj</string>
-  <string name="menu_scan_adware">Skan for Adware</string>
   <string name="menu_hosts_sources">Hosts kilder</string>
-  <string name="menu_tcpdump">Log DNS-anmodninger</string>
   <string name="menu_help">Hjælp</string>
-  <string name="menu_lists">Dine lister</string>
-  <string name="menu_show_hosts_file">Åben hosts-filen</string>
   <string name="menu_import">Importér alle lister</string>
   <string name="menu_export">Eksportér alle lister</string>
-  <string name="menu_preferences">Indstillinger</string>
   <!--Help-->
   <string name="help_tab_about">Om</string>
   <string name="help_tab_donate">Doner</string>

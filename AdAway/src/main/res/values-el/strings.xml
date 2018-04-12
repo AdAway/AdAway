@@ -10,7 +10,6 @@
   <string name="button_revert">Απενεργοποίηση αποκλεισμού διαφημίσεων</string>
   <string name="button_add">Προσθήκη</string>
   <string name="button_cancel">Άκυρο</string>
-  <string name="button_apply_text">Όλα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
   <string name="button_revert_text">Επαναφορά του αρχικού αρχείου hosts στο σύστημά σας.</string>
   <string name="button_save">Αποθήκευση</string>
   <string name="button_webserver_toggle_checked">Ο διακομιστής δικτύου λειτουργεί</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Λευκή λίστα</string>
   <string name="lists_tab_blacklist">Μαύρη λίστα</string>
-  <string name="lists_tab_blacklist_short">Μαύρο</string>
-  <string name="lists_tab_whitelist_short">Λευκό</string>
-  <string name="lists_tab_redirection_list_short">Ανακατεύθυνση </string>
   <string name="lists_tab_redirection_list">Λίστα ανακατεύθυνση</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Όνομα:</string>
@@ -134,15 +130,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Ανανέωση</string>
   <string name="menu_add">Προσθήκη</string>
-  <string name="menu_scan_adware">Σάρωση για Adware</string>
   <string name="menu_hosts_sources">Πηγές Hosts </string>
-  <string name="menu_tcpdump">Καταγραφή αιτήσεων DNS</string>
   <string name="menu_help">Βοήθεια</string>
-  <string name="menu_lists">Οι λίστες σας</string>
-  <string name="menu_show_hosts_file">Άνοιγμα του αρχείου hosts</string>
   <string name="menu_import">Εισαγωγή όλων των λιστών</string>
   <string name="menu_export">Εξαγωγή όλων των λιστών</string>
-  <string name="menu_preferences">Ρυθμίσεις</string>
   <!--Help-->
   <string name="help_tab_about">Περί</string>
   <string name="help_tab_donate">Δωρίστε</string>

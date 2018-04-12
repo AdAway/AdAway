@@ -10,7 +10,6 @@
   <string name="button_revert">Hirdetés blokkolás tiltása</string>
   <string name="button_add">Új</string>
   <string name="button_cancel">Mégse</string>
-  <string name="button_apply_text">Minden host fájlt letölt a kijelölt forrásokból, összefűzi a saját listákkal és egyetlen host fájlként telepíti a rendszerre.</string>
   <string name="button_revert_text">Visszaállítja az alapértelmezett host fájlt.</string>
   <string name="button_save">Ment</string>
   <string name="button_webserver_toggle_checked">A webszerver fut</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Fehérlista</string>
   <string name="lists_tab_blacklist">Feketelista</string>
-  <string name="lists_tab_blacklist_short">Fekete</string>
-  <string name="lists_tab_whitelist_short">Fehér</string>
-  <string name="lists_tab_redirection_list_short">Átirányítás</string>
   <string name="lists_tab_redirection_list">Átirányítás lista</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostnév:</string>
@@ -126,15 +122,10 @@ Ha ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</s
   <!--Menu entries-->
   <string name="menu_refresh">Frissítés</string>
   <string name="menu_add">Hozzáad</string>
-  <string name="menu_scan_adware">Adware keresése</string>
   <string name="menu_hosts_sources">Host források</string>
-  <string name="menu_tcpdump">DNS kérések naplózása</string>
   <string name="menu_help">Súgó</string>
-  <string name="menu_lists">Saját listáim</string>
-  <string name="menu_show_hosts_file">Host fájl megnyitása</string>
   <string name="menu_import">Összes lista importja</string>
   <string name="menu_export">Összes lista exportja</string>
-  <string name="menu_preferences">Preferenciák</string>
   <!--Help-->
   <string name="help_tab_about">Névjegy</string>
   <string name="help_tab_donate">Adományozás</string>

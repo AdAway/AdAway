@@ -10,7 +10,6 @@
   <string name="button_revert">בטל חסימת פרסומות</string>
   <string name="button_add">הוסף</string>
   <string name="button_cancel">ביטול</string>
-  <string name="button_apply_text">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
   <string name="button_revert_text">שחזר קובץ hosts לברירת מחדל של המערך.</string>
   <string name="button_save">שמור</string>
   <string name="button_webserver_toggle_checked">השרת פועל</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">רשימה לבנה</string>
   <string name="lists_tab_blacklist">רשימה שחורה</string>
-  <string name="lists_tab_blacklist_short">שחור</string>
-  <string name="lists_tab_whitelist_short">לבן</string>
-  <string name="lists_tab_redirection_list_short">הפניה</string>
   <string name="lists_tab_redirection_list">רשימת הפניות</string>
   <string name="list_dialog_url">כתובת:</string>
   <string name="list_dialog_hostname">שם שרת:</string>
@@ -111,15 +107,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">רענן</string>
   <string name="menu_add">הוסף</string>
-  <string name="menu_scan_adware">סרוק רוגלות</string>
   <string name="menu_hosts_sources">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
-  <string name="menu_tcpdump">Tcpdump</string>
   <string name="menu_help">עזרה</string>
-  <string name="menu_lists">הרשימות שלך</string>
-  <string name="menu_show_hosts_file">פתח קובץ hosts</string>
   <string name="menu_import">ייבא את כל הרשימות</string>
   <string name="menu_export">ייצא את כל הרשימות</string>
-  <string name="menu_preferences">העדפות</string>
   <!--Help-->
   <string name="help_tab_about">אודות</string>
   <string name="help_tab_donate">לתרום</string>

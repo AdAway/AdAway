@@ -10,7 +10,6 @@
   <string name="button_revert">Wyłącz blokowanie reklam</string>
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Anuluj</string>
-  <string name="button_apply_text">Wszystkie pliki ze zdefiniowanych źródeł zostaną pobrane, połączone z twoją listą i dodane do pliku hosts.</string>
   <string name="button_revert_text">Przywraca domyślny plik hosts.</string>
   <string name="button_save">Zapisz</string>
   <string name="button_webserver_toggle_checked">Serwer www działa</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Biała lista</string>
   <string name="lists_tab_blacklist">Czarna lista</string>
-  <string name="lists_tab_blacklist_short">Czarna</string>
-  <string name="lists_tab_whitelist_short">Biała</string>
-  <string name="lists_tab_redirection_list_short">Przekierowanie</string>
   <string name="lists_tab_redirection_list">Lista przekierowań</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nazwa hosta:</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Odśwież</string>
   <string name="menu_add">Dodaj</string>
-  <string name="menu_scan_adware">Skanuj w poszukiwaniu Adware</string>
   <string name="menu_hosts_sources">Źródła hostów</string>
-  <string name="menu_tcpdump">Loguj zapytania DNS</string>
   <string name="menu_help">Pomoc</string>
-  <string name="menu_lists">Twoje Listy</string>
-  <string name="menu_show_hosts_file">Otwórz plik hosts</string>
   <string name="menu_import">Importuj wszystkie Listy</string>
   <string name="menu_export">Eksportuj wszystkie Listy</string>
-  <string name="menu_preferences">Ustawienia</string>
   <!--Help-->
   <string name="help_tab_about">O programie</string>
   <string name="help_tab_donate">Dotacja</string>

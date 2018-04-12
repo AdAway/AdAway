@@ -10,7 +10,6 @@
   <string name="button_revert">Poista mainosten esto käytöstä</string>
   <string name="button_add">Lisää</string>
   <string name="button_cancel">Peruuta</string>
-  <string name="button_apply_text">Kaikki hosts-tiedostot määritellyistä lähteistä ovat ladattu, yhdistyi luetteloihin ja asenettu yhdeksi hosts-tiedostoksi.</string>
   <string name="button_revert_text">Palauttaa hosts-tiedostot oletusarvoihin.</string>
   <string name="button_save">Tallenna</string>
   <string name="button_webserver_toggle_checked">Web-palvelin on käynnissä</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Valkoinen lista</string>
   <string name="lists_tab_blacklist">Musta lista</string>
-  <string name="lists_tab_blacklist_short">Musta</string>
-  <string name="lists_tab_whitelist_short">Valkoinen</string>
-  <string name="lists_tab_redirection_list_short">Uudelleenohjaus</string>
   <string name="lists_tab_redirection_list">Luettelon uudelleenohjaus</string>
   <string name="list_dialog_url">URL-osoite:</string>
   <string name="list_dialog_hostname">host-nimi:</string>
@@ -115,15 +111,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Päivitä</string>
   <string name="menu_add">Lisää</string>
-  <string name="menu_scan_adware">Etsi mainosohjelmia</string>
   <string name="menu_hosts_sources">Hosts-lähteet</string>
-  <string name="menu_tcpdump">Kirjaa DNS-pyynnöt</string>
   <string name="menu_help">Ohjeet</string>
-  <string name="menu_lists">Luettelosi</string>
-  <string name="menu_show_hosts_file">Avaa hosts-tiedosto</string>
   <string name="menu_import">Tuo kaikki luettelot</string>
   <string name="menu_export">Vie kaikki luettelot</string>
-  <string name="menu_preferences">Asetukset</string>
   <!--Help-->
   <string name="help_tab_about">Tietoja</string>
   <string name="help_tab_donate">Lahjoita</string>

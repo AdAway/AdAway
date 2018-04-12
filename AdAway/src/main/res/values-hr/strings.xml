@@ -10,7 +10,6 @@
   <string name="button_revert">Onemogući blokiranje oglasa</string>
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Odustani</string>
-  <string name="button_apply_text">Sve datoteke poslužitelja su preuzete sa određenih izvora, spojene s vašim popisima i instalirane kao jedna datoteka na vašem sustavu.</string>
   <string name="button_revert_text">Obnavlja zadanu datoteku poslužitelja na vašem sustavu.</string>
   <string name="button_save">Spremi</string>
   <string name="button_webserver_toggle_checked">Web poslužitelj je pokrenut</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Popis neblokiranih</string>
   <string name="lists_tab_blacklist">Popis blokiranih</string>
-  <string name="lists_tab_blacklist_short">Blokirani</string>
-  <string name="lists_tab_whitelist_short">Neblokirani</string>
-  <string name="lists_tab_redirection_list_short">Preusmjereni</string>
   <string name="lists_tab_redirection_list">Popis preusmjerenih</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Naziv poslužitelja:</string>
@@ -118,15 +114,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Osvježi</string>
   <string name="menu_add">Dodaj</string>
-  <string name="menu_scan_adware">Pretraži zlonamjerne aplikacije</string>
   <string name="menu_hosts_sources">Izvori poslužitelja</string>
-  <string name="menu_tcpdump">Zapisuj DNS zahtjeve</string>
   <string name="menu_help">Pomoć</string>
-  <string name="menu_lists">Vaši popisi</string>
-  <string name="menu_show_hosts_file">Otvori datoteku poslužitelja</string>
   <string name="menu_import">Uvezi sve popise</string>
   <string name="menu_export">Izvezi sve popise</string>
-  <string name="menu_preferences">Postavke</string>
   <!--Help-->
   <string name="help_tab_about">O aplikaciji</string>
   <string name="help_tab_donate">Donirajte</string>

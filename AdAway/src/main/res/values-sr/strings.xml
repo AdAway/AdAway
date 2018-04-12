@@ -10,7 +10,6 @@
   <string name="button_revert">Onemogući blokiranje reklama</string>
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Otkaži</string>
-  <string name="button_apply_text">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
   <string name="button_revert_text">Vraća podrazumevani hosts fajl na vaš sistem</string>
   <string name="button_save">Sačuvaj</string>
   <string name="button_webserver_toggle_checked">Webserver radi</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Bela lista</string>
   <string name="lists_tab_blacklist">Crna lista</string>
-  <string name="lists_tab_blacklist_short">Crna</string>
-  <string name="lists_tab_whitelist_short">Bela</string>
-  <string name="lists_tab_redirection_list_short">Prebacivanje</string>
   <string name="lists_tab_redirection_list">Lista Redirekcija</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Osveži</string>
   <string name="menu_add">Dodaj</string>
-  <string name="menu_scan_adware">Skeniraj Adware</string>
   <string name="menu_hosts_sources">Host-ovi resursi</string>
-  <string name="menu_tcpdump">Log DNS zahtevi</string>
   <string name="menu_help">Pomoć</string>
-  <string name="menu_lists">Vaša lista</string>
-  <string name="menu_show_hosts_file">Otvori host-ove fajlove</string>
   <string name="menu_import">Uvezi Sve Liste</string>
   <string name="menu_export">Izvezi Sve Liste</string>
-  <string name="menu_preferences">Podešavanja</string>
   <!--Help-->
   <string name="help_tab_about">O...</string>
   <string name="help_tab_donate">Doniraj</string>

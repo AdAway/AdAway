@@ -1,7 +1,6 @@
 package org.adaway.ui.lists;
 
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -118,34 +117,16 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        // Get configuration
-        Configuration configuration = this.activity.getResources().getConfiguration();
-        // Check screen size
-        if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-                || configuration.screenLayout == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
-            // Check fragment position
-            switch (position) {
-                case BLACKLIST_FRAGMENT_INDEX:
-                    return this.activity.getString(R.string.lists_tab_blacklist);
-                case WHITELIST_FRAGMENT_INDEX:
-                    return this.activity.getString(R.string.lists_tab_whitelist);
-                case REDIRECTION_FRAGMENT_INDEX:
-                    return this.activity.getString(R.string.lists_tab_redirection_list);
-                default:
-                    return null;
-            }
-        } else {
-            // Check fragment position
-            switch (position) {
-                case BLACKLIST_FRAGMENT_INDEX:
-                    return this.activity.getString(R.string.lists_tab_blacklist_short);
-                case WHITELIST_FRAGMENT_INDEX:
-                    return this.activity.getString(R.string.lists_tab_whitelist_short);
-                case REDIRECTION_FRAGMENT_INDEX:
-                    return this.activity.getString(R.string.lists_tab_redirection_list_short);
-                default:
-                    return null;
-            }
+        // Check fragment position
+        switch (position) {
+            case BLACKLIST_FRAGMENT_INDEX:
+                return this.activity.getString(R.string.lists_tab_blacklist);
+            case WHITELIST_FRAGMENT_INDEX:
+                return this.activity.getString(R.string.lists_tab_whitelist);
+            case REDIRECTION_FRAGMENT_INDEX:
+                return this.activity.getString(R.string.lists_tab_redirection_list);
+            default:
+                return null;
         }
     }
 

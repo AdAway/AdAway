@@ -10,7 +10,6 @@
   <string name="button_revert">Keela blokeerimine</string>
   <string name="button_add">Lisa</string>
   <string name="button_cancel">Tühista</string>
-  <string name="button_apply_text">Kõik hosts failid laetakse määratud allikatest, ühendatakse sinu loenditega ning paigaldatakse süsteemi ühe failina.</string>
   <string name="button_revert_text">Taastab süsteemi vaikimisi hosts faili.</string>
   <string name="button_save">Salvesta</string>
   <string name="button_webserver_toggle_checked">Veebiserver töötab</string>
@@ -27,9 +26,6 @@
   <string name="checkbox_list_edit_dialog_title">Redigeeri</string>
   <string name="checkbox_list_context_edit">Redigeeri</string>
   <!--Your Lists-->
-  <string name="lists_tab_blacklist_short">Must</string>
-  <string name="lists_tab_whitelist_short">Valge</string>
-  <string name="lists_tab_redirection_list_short">Suunamine</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Aadress:</string>
   <string name="list_dialog_ip">IP (IPv4 või IPv6):</string>
@@ -73,15 +69,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Värskenda</string>
   <string name="menu_add">Lisa</string>
-  <string name="menu_scan_adware">Reklaamvara otsimine</string>
   <string name="menu_hosts_sources">Allikad</string>
-  <string name="menu_tcpdump">DNS-päringute logimine</string>
   <string name="menu_help">Abi</string>
-  <string name="menu_lists">Sinu loendid</string>
-  <string name="menu_show_hosts_file">Ava hosts fail</string>
   <string name="menu_import">Impordi kõik loendid</string>
   <string name="menu_export">Expordi kõik loendid</string>
-  <string name="menu_preferences">Eelistused</string>
   <!--Help-->
   <string name="help_tab_about">Programmist</string>
   <string name="help_tab_donate">Anneta</string>

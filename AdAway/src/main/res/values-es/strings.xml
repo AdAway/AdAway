@@ -10,7 +10,6 @@
   <string name="button_revert">Deshabilitar bloqueo de publicidad</string>
   <string name="button_add">Añadir</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="button_apply_text">Todos los ficheros hosts de las fuentes especificadas se han descargado, fusionado con sus propias listas, e instalado como un único fichero hosts en su sistema.</string>
   <string name="button_revert_text">Restaura el fichero hosts predeterminado en su sistema.</string>
   <string name="button_save">Guardar</string>
   <string name="button_webserver_toggle_checked">El servidor web está ejecutándose</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Lista blanca</string>
   <string name="lists_tab_blacklist">Lista negra</string>
-  <string name="lists_tab_blacklist_short">Negra</string>
-  <string name="lists_tab_whitelist_short">Blanca</string>
-  <string name="lists_tab_redirection_list_short">Redireccionamiento</string>
   <string name="lists_tab_redirection_list">Lista de redireccionamiento</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nombre del servidor:</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Añadir</string>
-  <string name="menu_scan_adware">Escanear en busca de adware </string>
   <string name="menu_hosts_sources">Fuentes de ficheros hosts </string>
-  <string name="menu_tcpdump">Registrar (log) peticiones de DNS</string>
   <string name="menu_help">Ayuda</string>
-  <string name="menu_lists">Sus listas</string>
-  <string name="menu_show_hosts_file">Abrir el fichero hosts</string>
   <string name="menu_import">Importar todas las listas</string>
   <string name="menu_export">Exportar todas las listas</string>
-  <string name="menu_preferences">Preferencias</string>
   <!--Help-->
   <string name="help_tab_about">Acerca de</string>
   <string name="help_tab_donate">Donar</string>

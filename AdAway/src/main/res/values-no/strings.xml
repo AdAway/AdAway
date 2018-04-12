@@ -10,7 +10,6 @@
   <string name="button_revert">Deaktiver ad blocking</string>
   <string name="button_add">Legg til</string>
   <string name="button_cancel">Avbryt</string>
-  <string name="button_apply_text">Alle vertsfiler fra valgte kilder er nedlastet, legg dem sammen med din egen liste og installer som en vertsfil.</string>
   <string name="button_revert_text">Tilbakestill vertsfilen til standard.</string>
   <string name="button_save">Lagre</string>
   <string name="button_webserver_toggle_checked">Webserver kjører</string>

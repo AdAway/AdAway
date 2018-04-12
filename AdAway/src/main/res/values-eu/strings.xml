@@ -10,7 +10,6 @@
   <string name="button_revert">Ezgaitu iragarki blokeatzea</string>
   <string name="button_add">Gehitu</string>
   <string name="button_cancel">Ezeztatu</string>
-  <string name="button_apply_text">Zehaztutako iturburuetako hostalari agiri guztiak jeitsi eta batu dira zeure zerrendarekin eta hostalari agiri bat bezala ezarri dira zure sisteman.</string>
   <string name="button_revert_text">Berezko hostalari agiria leheneratzen du zure sisteman.</string>
   <string name="button_save">Gorde</string>
   <string name="button_webserver_toggle_checked">Web-zerbitzaria ekinean dago</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Zerrenda-zuria</string>
   <string name="lists_tab_blacklist">Zerrenda-beltza</string>
-  <string name="lists_tab_blacklist_short">Beltza</string>
-  <string name="lists_tab_whitelist_short">Zuria</string>
-  <string name="lists_tab_redirection_list_short">Berzuzenketa</string>
   <string name="lists_tab_redirection_list">Berzuzenketa Zerrenda</string>
   <string name="list_dialog_url">URL-a:</string>
   <string name="list_dialog_hostname">Hostalari-izena:</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Berritu</string>
   <string name="menu_add">Gehitu</string>
-  <string name="menu_scan_adware">Mihatu Adware bila</string>
   <string name="menu_hosts_sources">Hostalari iturburuak</string>
-  <string name="menu_tcpdump">Oharreratu DNS Eskabideak</string>
   <string name="menu_help">Laguntza</string>
-  <string name="menu_lists">Zure Zerrendak</string>
-  <string name="menu_show_hosts_file">Ireki hostalari agiria</string>
   <string name="menu_import">Inportatu Zerrenda Guztiak</string>
   <string name="menu_export">Esportatu Zerrenda Guztiak</string>
-  <string name="menu_preferences">Hobespenak</string>
   <!--Help-->
   <string name="help_tab_about">Honi buruz</string>
   <string name="help_tab_donate">Dirulaguntza</string>

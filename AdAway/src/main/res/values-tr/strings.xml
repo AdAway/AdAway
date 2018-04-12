@@ -12,7 +12,6 @@
     <string name="button_revert">Reklam engellemeyi etkisizleştir</string>
     <string name="button_add">Ekle</string>
     <string name="button_cancel">İptal</string>
-    <string name="button_apply_text">Tüm kaynaklardaki host dosyaları indirildi, listenizdekilerle birleştirildi ve sisteminize tek bir host dosyası olarak yüklendi.</string>
     <string name="button_revert_text">Host dosyasını sistem varsayılanına döndürür.</string>
     <string name="button_save">Kaydet</string>
     <string name="button_webserver_toggle_checked">Websunucu çalışıyor</string>
@@ -38,9 +37,6 @@
     <!-- Your Lists -->
     <string name="lists_tab_whitelist">Beyazliste</string>
     <string name="lists_tab_blacklist">Karaliste</string>
-    <string name="lists_tab_blacklist_short">Siyah</string>
-    <string name="lists_tab_whitelist_short">Beyaz</string>
-    <string name="lists_tab_redirection_list_short">Yönlendirme</string>
     <string name="lists_tab_redirection_list">Yönlendirme Listesi</string>
     <string name="list_dialog_url">URL:</string>
     <string name="list_dialog_hostname">Adres:</string>
@@ -159,15 +155,10 @@
     <!-- Menu entries -->
     <string name="menu_refresh">Yenile</string>
     <string name="menu_add">Ekle</string>
-    <string name="menu_scan_adware">Reklam Tara</string>
     <string name="menu_hosts_sources">Host kaynakları</string>
-    <string name="menu_tcpdump">DNS istekleri log dosyasına kaydet</string>
     <string name="menu_help">Yardım</string>
-    <string name="menu_lists">Listeleriniz</string>
-    <string name="menu_show_hosts_file">Host dosyasını aç</string>
     <string name="menu_import">Tüm Listeleri Al</string>
     <string name="menu_export">Tüm Listeleri Ver</string>
-    <string name="menu_preferences">Tercihler</string>
 
     <!-- Help -->
     <string name="help_tab_about">Hakkında</string>

@@ -10,7 +10,6 @@
   <string name="button_revert">Werbeblocker deaktivieren</string>
   <string name="button_add">Hinzufügen</string>
   <string name="button_cancel">Abbrechen</string>
-  <string name="button_apply_text">Alle Hosts-Dateien aus den festgelegten Quellen werden heruntergeladen, mit Ihren eigenen Listen zusammengefügt und als eine Hosts-Datei im System installiert.</string>
   <string name="button_revert_text">Stellt die vorgegebene Hosts-Datei auf Ihrem System wieder her.</string>
   <string name="button_save">Speichern</string>
   <string name="button_webserver_toggle_checked">Webserver läuft</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Positivliste</string>
   <string name="lists_tab_blacklist">Negativliste</string>
-  <string name="lists_tab_blacklist_short">Negativ</string>
-  <string name="lists_tab_whitelist_short">Positiv</string>
-  <string name="lists_tab_redirection_list_short">Umleitung</string>
   <string name="lists_tab_redirection_list">Umleitungsliste</string>
   <string name="list_dialog_url">Adresse:</string>
   <string name="list_dialog_hostname">Hostname:</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Neu laden</string>
   <string name="menu_add">Hinzufügen</string>
-  <string name="menu_scan_adware">Nach Adware suchen</string>
   <string name="menu_hosts_sources">Hosts-Quellen</string>
-  <string name="menu_tcpdump">DNS-Anfragen protokollieren</string>
   <string name="menu_help">Hilfe</string>
-  <string name="menu_lists">Meine Listen</string>
-  <string name="menu_show_hosts_file">Hosts-Datei öffnen</string>
   <string name="menu_import">Alle Listen importieren</string>
   <string name="menu_export">Alle Listen exportieren</string>
-  <string name="menu_preferences">Einstellungen</string>
   <!--Help-->
   <string name="help_tab_about">Über</string>
   <string name="help_tab_donate">Spenden</string>

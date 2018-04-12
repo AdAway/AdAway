@@ -10,7 +10,6 @@
   <string name="button_revert">Забраняване блокирането на реклами</string>
   <string name="button_add">Добавяне</string>
   <string name="button_cancel">Отказ</string>
-  <string name="button_apply_text">Всички Hosts файлове от зададените източници се изтеглят, сливат се с вашите собствени списъци и се инсталират като един Hosts файл във вашата система.</string>
   <string name="button_revert_text">Възстановява Hosts файла по подразбиране на вашата система.</string>
   <string name="button_save">Запазване</string>
   <string name="button_webserver_toggle_checked">Уеб сървърът работи</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Бял списък</string>
   <string name="lists_tab_blacklist">Черен списък</string>
-  <string name="lists_tab_blacklist_short">Черен</string>
-  <string name="lists_tab_whitelist_short">Бял</string>
-  <string name="lists_tab_redirection_list_short">Пренасочване</string>
   <string name="lists_tab_redirection_list"> Списък с пренасочвания</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Име на хост:</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Опресняване</string>
   <string name="menu_add">Добавяне</string>
-  <string name="menu_scan_adware">Сканиране за рекламен софтуер</string>
   <string name="menu_hosts_sources">Източници за Hosts файла</string>
-  <string name="menu_tcpdump">Записване на DNS заявките</string>
   <string name="menu_help">Помощ</string>
-  <string name="menu_lists">Вашите списъци</string>
-  <string name="menu_show_hosts_file">Отвори hosts файла</string>
   <string name="menu_import">Внасяне на всички списъци</string>
   <string name="menu_export">Изнасяне на всички списъци</string>
-  <string name="menu_preferences">Настройки</string>
   <!--Help-->
   <string name="help_tab_about">За приложението</string>
   <string name="help_tab_donate">Дарение</string>

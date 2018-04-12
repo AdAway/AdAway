@@ -10,7 +10,6 @@
   <string name="button_revert">Tắt chặn quảng cáo</string>
   <string name="button_add">Thêm</string>
   <string name="button_cancel">Huỷ bỏ</string>
-  <string name="button_apply_text">Tất cả các tập tin miền từ nguồn xác định sẽ được tải về, ghép với danh sách của bạn và cài đặt thành một tập tin miền duy nhất trên hệ thống.</string>
   <string name="button_revert_text">Khôi phục tập tin miền mặc định trên hệ thống.</string>
   <string name="button_save">Lưu</string>
   <string name="button_webserver_toggle_checked">Webserver đang chạy</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Danh sách trắng</string>
   <string name="lists_tab_blacklist">Danh sách đen</string>
-  <string name="lists_tab_blacklist_short">Đen</string>
-  <string name="lists_tab_whitelist_short">Trắng</string>
-  <string name="lists_tab_redirection_list_short">Chuyển hướng</string>
   <string name="lists_tab_redirection_list">Danh sách chuyển hướng</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Tên miền:</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Làm mới</string>
   <string name="menu_add">Thêm</string>
-  <string name="menu_scan_adware">Tìm phần mềm kèm quảng cáo</string>
   <string name="menu_hosts_sources">Các nguồn miền</string>
-  <string name="menu_tcpdump">Yêu cầu ghi nhật ký DNS</string>
   <string name="menu_help">Trợ giúp</string>
-  <string name="menu_lists">Danh sách của bạn</string>
-  <string name="menu_show_hosts_file">Mở tập tin miền</string>
   <string name="menu_import">Nhập tất cả các danh sách</string>
   <string name="menu_export">Xuất tất cả các danh sách</string>
-  <string name="menu_preferences">Tuỳ chỉnh</string>
   <!--Help-->
   <string name="help_tab_about">Thông tin về</string>
   <string name="help_tab_donate">Quyên góp</string>

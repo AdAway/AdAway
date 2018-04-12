@@ -10,7 +10,6 @@
   <string name="button_revert">Dezactivează programul.</string>
   <string name="button_add">Adaugă</string>
   <string name="button_cancel">Anulează</string>
-  <string name="button_apply_text">Toate fișierele \"host\" din sursa definită vor fi descărcate, combinate cu lista personală și apoi instalate ca un fișier \"hosts\" unitar.  </string>
   <string name="button_revert_text">Restaureaza fisierele \"hosts\" prestabilite.</string>
   <string name="button_save">Salvează</string>
   <string name="button_webserver_toggle_checked">Server web activ</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Lista cu permisiuni acceptate (white list)</string>
   <string name="lists_tab_blacklist">Lista cu permisiuni blocate (black list)</string>
-  <string name="lists_tab_blacklist_short">Negru</string>
-  <string name="lists_tab_whitelist_short">Alb</string>
-  <string name="lists_tab_redirection_list_short">Redirectionare</string>
   <string name="lists_tab_redirection_list">Lista redirectionare</string>
   <string name="list_dialog_url">Adresa (URL)</string>
   <string name="list_dialog_hostname">Numele de \'host\"</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Regenerare</string>
   <string name="menu_add">Adauga</string>
-  <string name="menu_scan_adware">Scaneaza Adware</string>
   <string name="menu_hosts_sources">Sursele (hosts)</string>
-  <string name="menu_tcpdump">Cerere de creare Log DNS</string>
   <string name="menu_help">Ajutor</string>
-  <string name="menu_lists">Lista personala</string>
-  <string name="menu_show_hosts_file">Deschide fisierele \"hosts\"</string>
   <string name="menu_import">Importa toate listele</string>
   <string name="menu_export">Exporta toate listele</string>
-  <string name="menu_preferences">Preferinte (setari)</string>
   <!--Help-->
   <string name="help_tab_about">Despre</string>
   <string name="help_tab_donate">Doneaza</string>

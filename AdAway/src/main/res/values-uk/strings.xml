@@ -10,7 +10,6 @@
   <string name="button_revert">Вимкнення блокування реклами</string>
   <string name="button_add">Додати</string>
   <string name="button_cancel">Скасувати</string>
-  <string name="button_apply_text">Всі списки хостів, що завантажуються з заданих джерел, зливаються з вашим власним списком і встановлюються у вашій системі у вигляді одного файлу hosts.</string>
   <string name="button_revert_text">Відновлення типового файлу у вашій системі.</string>
   <string name="button_save">Зберегти</string>
   <string name="button_webserver_toggle_checked">Веб-сервер запущено</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Білий список</string>
   <string name="lists_tab_blacklist">Чорний список</string>
-  <string name="lists_tab_blacklist_short">Чорний</string>
-  <string name="lists_tab_whitelist_short">Білий</string>
-  <string name="lists_tab_redirection_list_short">Перенаправлення</string>
   <string name="lists_tab_redirection_list">Список перенаправлень</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Ім\'я хосту</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Оновити</string>
   <string name="menu_add">Додати</string>
-  <string name="menu_scan_adware">Сканування Adware</string>
   <string name="menu_hosts_sources">Джерела списків хостів</string>
-  <string name="menu_tcpdump">Журнал запитів DNS</string>
   <string name="menu_help">Довідка</string>
-  <string name="menu_lists">Ваші списки</string>
-  <string name="menu_show_hosts_file">Відкрити файл хостів</string>
   <string name="menu_import">Імпортувати всі списки</string>
   <string name="menu_export">Експортувати усі списки</string>
-  <string name="menu_preferences">Налаштування</string>
   <!--Help-->
   <string name="help_tab_about">Про програму</string>
   <string name="help_tab_donate">Пожертвувати</string>

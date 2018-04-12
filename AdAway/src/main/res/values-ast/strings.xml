@@ -10,7 +10,6 @@
   <string name="button_revert">Deshabilitar bloquéu d\'anuncios</string>
   <string name="button_add">Amestar</string>
   <string name="button_cancel">Encaboxar</string>
-  <string name="button_apply_text">Tolos ficheros «Hosts» de les fontes defeníes báxense, amiéstense coles tos propies llistes ya instálense como un ficheru «Hosts» nel sistema.</string>
   <string name="button_revert_text">Restaura\'l ficheru «Hosts» orixinal nel sistema.</string>
   <string name="button_save">Guardar</string>
   <string name="button_webserver_toggle_checked">Ta executándose\'l sirvidor web</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Llista blanca</string>
   <string name="lists_tab_blacklist">Llista prieta</string>
-  <string name="lists_tab_blacklist_short">Prieta</string>
-  <string name="lists_tab_whitelist_short">Blanca</string>
-  <string name="lists_tab_redirection_list_short">Redireiciones</string>
   <string name="lists_tab_redirection_list">Llista de redireición</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nome d\'agospiu:</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Amestar</string>
-  <string name="menu_scan_adware">Escaniar adware</string>
   <string name="menu_hosts_sources">Fontes de hosts</string>
-  <string name="menu_tcpdump">Rexistrar peticiones DNS</string>
   <string name="menu_help">Ayuda</string>
-  <string name="menu_lists">Les tos llistes</string>
-  <string name="menu_show_hosts_file">Abrir ficheru «hosts»</string>
   <string name="menu_import">Importar toles llistes</string>
   <string name="menu_export">Esportar toles llistes</string>
-  <string name="menu_preferences">Preferencies</string>
   <!--Help-->
   <string name="help_tab_about">Tocante a</string>
   <string name="help_tab_donate">Donar</string>

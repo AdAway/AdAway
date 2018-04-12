@@ -42,7 +42,7 @@
         </activity>
         <activity
             android:name=".ui.tcpdump.TcpdumpLogActivity"
-            android:label="@string/menu_tcpdump" />
+            android:label="@string/shortcut_dns_requests" />
         <activity
             android:name=".ui.help.HelpActivity"
             android:exported="false"

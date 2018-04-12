@@ -10,7 +10,6 @@
   <string name="button_revert">Vypnout blokování reklam</string>
   <string name="button_add">Přidat</string>
   <string name="button_cancel">Zrušit</string>
-  <string name="button_apply_text">Všechny soubory Hosts z vybraných zdrojů budou staženy, sloučeny s vašimi vlastními seznamy a instalovány do vašeho systému jako jeden soubor Hosts.</string>
   <string name="button_revert_text">Obnoví výchozí soubor Hosts ve vašem systému.</string>
   <string name="button_save">Uložit</string>
   <string name="button_webserver_toggle_checked">Webserver běži</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Bílá listina</string>
   <string name="lists_tab_blacklist">Černá listina</string>
-  <string name="lists_tab_blacklist_short">Černý</string>
-  <string name="lists_tab_whitelist_short">Bílý</string>
-  <string name="lists_tab_redirection_list_short">Přesměrování</string>
   <string name="lists_tab_redirection_list">Seznam přesměrování</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Název hostitele:</string>
@@ -113,15 +109,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Obnovit</string>
   <string name="menu_add">Přidat</string>
-  <string name="menu_scan_adware">Vyhledat Adware</string>
   <string name="menu_hosts_sources">Zdroje</string>
-  <string name="menu_tcpdump">Záznam DNS požadavků</string>
   <string name="menu_help">Pomoc</string>
-  <string name="menu_lists">Vaše seznamy</string>
-  <string name="menu_show_hosts_file">Otevřít soubor hostitelů</string>
   <string name="menu_import">Importovat všechny seznamy</string>
   <string name="menu_export">Exportovat všechny seznamy</string>
-  <string name="menu_preferences">Předvolby</string>
   <!--Help-->
   <string name="help_tab_about">O programu</string>
   <string name="help_tab_donate">Přispět</string>

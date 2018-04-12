@@ -10,7 +10,6 @@
   <string name="button_revert">Išjungti reklamų blokavimą</string>
   <string name="button_add">Pridėti</string>
   <string name="button_cancel">Atčaukti</string>
-  <string name="button_apply_text">Visi hosts failai atsiųsti ir apjungti su įdiegtu hosts failu.</string>
   <string name="button_revert_text">Atstato numatytą sistemos hosts failą.</string>
   <string name="button_save">Išsaugoi</string>
   <string name="button_webserver_toggle_checked">Serveris veikia</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Baltasis sąrašas</string>
   <string name="lists_tab_blacklist">Juodasis sąrašas</string>
-  <string name="lists_tab_blacklist_short">Juoda</string>
-  <string name="lists_tab_whitelist_short">Balta</string>
-  <string name="lists_tab_redirection_list_short">Nukreipimas</string>
   <string name="lists_tab_redirection_list">Nukreipimų sąrašas</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Host vardas:</string>
@@ -114,15 +110,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Atnaujinti</string>
   <string name="menu_add">Pridėti</string>
-  <string name="menu_scan_adware">Ieškoti Adware</string>
   <string name="menu_hosts_sources">Host šaltiniai</string>
-  <string name="menu_tcpdump">Irašyti DNS užklausas</string>
   <string name="menu_help">Pagalba</string>
-  <string name="menu_lists">Jūsų Sąrašas </string>
-  <string name="menu_show_hosts_file">Atidaryti host faila</string>
   <string name="menu_import">Importuoti Visą Sąrašą</string>
   <string name="menu_export">Eksportuoti visą sąrašą</string>
-  <string name="menu_preferences">Nustatymai</string>
   <!--Help-->
   <string name="help_tab_about">Apie</string>
   <string name="help_tab_donate">Paremti</string>

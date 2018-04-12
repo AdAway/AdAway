@@ -10,7 +10,6 @@
   <string name="button_revert">Avaktivera annonsblockering</string>
   <string name="button_add">Lägg till</string>
   <string name="button_cancel">Avbryt</string>
-  <string name="button_apply_text">Alla värdfiler från de förinställda källorna är hämtade, ihopslagna med dina egna listor och tillämpade som en värdfil på ditt system.</string>
   <string name="button_revert_text">Återställer standardvärdfilen på din enhet</string>
   <string name="button_save">Spara</string>
   <string name="button_webserver_toggle_checked">Webbserver körs</string>
@@ -34,9 +33,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Vitlista</string>
   <string name="lists_tab_blacklist">Svartlista</string>
-  <string name="lists_tab_blacklist_short">Svart</string>
-  <string name="lists_tab_whitelist_short">Vit</string>
-  <string name="lists_tab_redirection_list_short">Omdirigering</string>
   <string name="lists_tab_redirection_list">Omdirigeringslista</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Värdnamn:</string>
@@ -116,15 +112,10 @@
   <!--Menu entries-->
   <string name="menu_refresh">Uppdatera</string>
   <string name="menu_add">Lägg till</string>
-  <string name="menu_scan_adware">Sök efter Adware</string>
   <string name="menu_hosts_sources">Värdkällor</string>
-  <string name="menu_tcpdump">Logga DNS-förfrågningar</string>
   <string name="menu_help">Hjälp</string>
-  <string name="menu_lists">Dina listor</string>
-  <string name="menu_show_hosts_file">Öppna värdfil</string>
   <string name="menu_import">Importera alla listor</string>
   <string name="menu_export">Exportera alla listor</string>
-  <string name="menu_preferences">Inställningar</string>
   <!--Help-->
   <string name="help_tab_about">Om</string>
   <string name="help_tab_donate">Donera</string>

@@ -12,7 +12,6 @@
     <string name="button_revert">Schakel advertentieblokkering uit</string>
     <string name="button_add">Toevoegen</string>
     <string name="button_cancel">Annuleren</string>
-    <string name="button_apply_text">Alle hosts-bestanden van de gekozen bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geplaatst.</string>
     <string name="button_revert_text">Zet het standaard hosts-bestand terug op uw systeem.</string>
     <string name="button_save">Opslaan</string>
     <string name="button_webserver_toggle_checked">Webserver wordt uitgevoerd</string>
@@ -38,9 +37,6 @@
     <!-- Your Lists -->
     <string name="lists_tab_whitelist">Witte lijst</string>
     <string name="lists_tab_blacklist">Zwarte lijst</string>
-    <string name="lists_tab_blacklist_short">Zwart</string>
-    <string name="lists_tab_whitelist_short">Wit</string>
-    <string name="lists_tab_redirection_list_short">Doorverwijzing</string>
     <string name="lists_tab_redirection_list">Doorverwijzingslijst</string>
     <string name="list_dialog_url">URL:</string>
     <string name="list_dialog_hostname">Hostnaam:</string>
@@ -156,15 +152,10 @@
     <!-- Menu entries -->
     <string name="menu_refresh">Verversen</string>
     <string name="menu_add">Voeg toe</string>
-    <string name="menu_scan_adware">Scan op adware</string>
     <string name="menu_hosts_sources">Hosts-bronnen</string>
-    <string name="menu_tcpdump">Log DNS-verzoeken</string>
     <string name="menu_help">Hulp</string>
-    <string name="menu_lists">Uw lijsten</string>
-    <string name="menu_show_hosts_file">Open hosts-bestand</string>
     <string name="menu_import">Importeer alle lijsten</string>
     <string name="menu_export">Exporteer alle lijsten</string>
-    <string name="menu_preferences">Voorkeuren</string>
 
     <!-- Help -->
     <string name="help_tab_about">Over</string>

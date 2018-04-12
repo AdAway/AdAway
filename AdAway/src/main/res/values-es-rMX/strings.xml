@@ -30,9 +30,6 @@
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Lista Blanca</string>
   <string name="lists_tab_blacklist">Lista Negra</string>
-  <string name="lists_tab_blacklist_short">Negro</string>
-  <string name="lists_tab_whitelist_short">Blanco</string>
-  <string name="lists_tab_redirection_list_short">Redirección</string>
   <string name="lists_tab_redirection_list">Lista de Redirección</string>
   <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
@@ -72,12 +69,9 @@
   <!--Menu entries-->
   <string name="menu_refresh">Refrescar</string>
   <string name="menu_add">Agregar</string>
-  <string name="menu_scan_adware">Escanear Adware</string>
   <string name="menu_help">Ayuda</string>
-  <string name="menu_lists">Tus Listas</string>
   <string name="menu_import">Importar todas las Listas</string>
   <string name="menu_export">Exportar todas las Listas</string>
-  <string name="menu_preferences">Preferencias</string>
   <!--Help-->
   <string name="help_tab_about">Acerca de...</string>
   <string name="help_tab_donate">Donar</string>
