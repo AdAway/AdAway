@@ -4,12 +4,12 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 27
     }
     // Do not abort build if lint finds errors
     lintOptions {
