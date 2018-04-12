@@ -323,4 +323,14 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
                 reader.close();
         }
     }
+    private class ListofUrls {
+        public int arraylen;
+        public String[] urls;
+
+        public ListofUrls(int i, String[] urls){
+            this.arraylen = i;
+            this.urls = urls;
+        }
+    }
+
 }
