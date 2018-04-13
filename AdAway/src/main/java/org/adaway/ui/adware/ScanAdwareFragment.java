@@ -23,13 +23,13 @@ package org.adaway.ui.adware;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -56,29 +56,21 @@ public class ScanAdwareFragment extends Fragment implements LoaderManager.Loader
     private TextView mEmptyTextView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Create fragment view
         View view = inflater.inflate(R.layout.scan_adware_fragment, container, false);
         // Get start button
         this.mStartButton = view.findViewById(R.id.scan_adware_start_button);
         // Bind start adware scan
-        this.mStartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ScanAdwareFragment.this.startAdwareScan();
-            }
-        });
+        this.mStartButton.setOnClickListener(v -> ScanAdwareFragment.this.startAdwareScan());
         // Get list view
         this.mListView = view.findViewById(R.id.scan_adware_list);
         // Bind
-        this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Get clicked adware
-                AdwareInstall adwareInstall = (AdwareInstall) parent.getItemAtPosition(position);
-                // Uninstall adware
-                ScanAdwareFragment.this.uninstallAdware(adwareInstall);
-            }
+        this.mListView.setOnItemClickListener((parent, view1, position, id) -> {
+            // Get clicked adware
+            AdwareInstall adwareInstall = (AdwareInstall) parent.getItemAtPosition(position);
+            // Uninstall adware
+            ScanAdwareFragment.this.uninstallAdware(adwareInstall);
         });
         // Get loading view
         this.mProgressbar = view.findViewById(R.id.scan_adware_progressbar);
@@ -92,6 +84,7 @@ public class ScanAdwareFragment extends Fragment implements LoaderManager.Loader
     * LoaderCallbacks.
      */
 
+    @NonNull
     @Override
     public Loader<List<AdwareInstall>> onCreateLoader(int id, Bundle args) {
         // Create loader
@@ -99,7 +92,7 @@ public class ScanAdwareFragment extends Fragment implements LoaderManager.Loader
     }
 
     @Override
-    public void onLoadFinished(Loader<List<AdwareInstall>> loader, List<AdwareInstall> data) {
+    public void onLoadFinished(@NonNull Loader<List<AdwareInstall>> loader, List<AdwareInstall> data) {
         // Stop adware scan
         this.stopAdwareScan();
         // Create adapter
@@ -123,7 +116,7 @@ public class ScanAdwareFragment extends Fragment implements LoaderManager.Loader
     }
 
     @Override
-    public void onLoaderReset(Loader<List<AdwareInstall>> loader) {
+    public void onLoaderReset(@NonNull Loader<List<AdwareInstall>> loader) {
         // Stop adware scan
         this.stopAdwareScan();
     }
