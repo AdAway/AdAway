@@ -89,7 +89,7 @@ public class Toolbox {
             this.processName = processName;
             pids = new ArrayList<>();
 
-            /**
+            /*
              * regex to get pid out of ps line, example:
              * 
              * <pre>
@@ -151,7 +151,6 @@ public class Toolbox {
      * @param processName
      *            name of process to kill
      * @return <code>true</code> if process was found and killed successfully
-     * @throws IOException
      * @throws TimeoutException
      * @throws BrokenBusyboxException
      */
@@ -169,11 +168,7 @@ public class Toolbox {
                     + psCommand.getPidsString());
             shell.add(killCommand).waitForFinish();
 
-            if (killCommand.getExitCode() == 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return killCommand.getExitCode() == 0;
         } else {
             Log.d(RootCommands.TAG, "No pid found! Nothing was killed!");
             return false;
@@ -213,11 +208,7 @@ public class Toolbox {
         shell.add(psCommand).waitForFinish();
 
         // if pids are available process is running!
-        if (!psCommand.getPids().isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return !psCommand.getPids().isEmpty();
     }
 
     /**
@@ -263,7 +254,7 @@ public class Toolbox {
             this.fileName = (new File(file)).getName();
             Log.d(RootCommands.TAG, "fileName: " + fileName);
 
-            /**
+            /*
              * regex to get pid out of ps line, example:
              * 
              * <pre>
@@ -280,7 +271,7 @@ public class Toolbox {
             permissionRegex = "^.*?(\\S{10}).*$";
             permissionPattern = Pattern.compile(permissionRegex);
 
-            /**
+            /*
              * regex to get symlink
              * 
              * <pre>
@@ -415,11 +406,7 @@ public class Toolbox {
         SimpleCommand chmodCommand = new SimpleCommand("chmod " + permissions + " " + file);
         shell.add(chmodCommand).waitForFinish();
 
-        if (chmodCommand.getExitCode() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return chmodCommand.getExitCode() == 0;
     }
 
     /**
@@ -438,14 +425,10 @@ public class Toolbox {
             IOException {
         Log.d(RootCommands.TAG, "Find symlink for " + file);
 
-        String symlink = null;
-
         LsCommand lsCommand = new LsCommand(file);
         shell.add(lsCommand).waitForFinish();
 
-        symlink = lsCommand.getSymlink();
-
-        return symlink;
+        return lsCommand.getSymlink();
     }
 
     /**
@@ -617,11 +600,7 @@ public class Toolbox {
         FileExistsCommand fileExistsCommand = new FileExistsCommand(file);
         shell.add(fileExistsCommand).waitForFinish();
 
-        if (fileExistsCommand.isFileExists()) {
-            return true;
-        } else {
-            return false;
-        }
+        return fileExistsCommand.isFileExists();
     }
 
     public abstract class WithPermissions {
@@ -719,7 +698,7 @@ public class Toolbox {
      *         remounted as specified.
      */
     public boolean remount(String path, String mountType) {
-        // Recieved a request, get an instance of Remounter
+        // Received a request, get an instance of Remounter
         Remounter remounter = new Remounter(shell);
         // send the request
         return (remounter.remount(path, mountType));
@@ -740,7 +719,7 @@ public class Toolbox {
             // new File(target).getFreeSpace() (API 9) is not working on data partition
 
             // get directory without file
-            String directory = new File(target).getParent().toString();
+            String directory = new File(target).getParent();
 
             StatFs stat = new StatFs(directory);
             long blockSize = stat.getBlockSize();

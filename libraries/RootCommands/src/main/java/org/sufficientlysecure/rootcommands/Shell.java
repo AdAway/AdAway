@@ -115,7 +115,7 @@ public class Shell implements Closeable {
     }
 
     private Shell(String shell, ArrayList<String> customEnv, String baseDirectory)
-            throws IOException, RootAccessDeniedException {
+            throws IOException {
         Log.d(RootCommands.TAG, "Starting shell: " + shell);
 
         // start shell process!
