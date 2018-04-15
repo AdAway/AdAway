@@ -1,7 +1,6 @@
 package org.adaway.ui.prefs;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,7 +19,7 @@ import org.adaway.util.WebServerUtils;
 import org.adaway.util.systemless.AbstractSystemlessMode;
 
 /**
- * This fragment is the main fragment of the {@link PrefsActivity}.
+ * This fragment is the preferences fragment.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
@@ -33,7 +32,6 @@ public class PrefsFragment extends PreferenceFragmentCompat {
      * The systemless preferences (<code>null</code> if fragment is not created).
      */
     private CheckBoxPreference mSystemless;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -264,8 +262,8 @@ public class PrefsFragment extends PreferenceFragmentCompat {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onResume() {
+        super.onResume();
         // Check preference if systemless mode is enabled
         new SystemlessCheckTask().execute();
     }
