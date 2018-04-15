@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -58,38 +58,38 @@ public class Utils {
      * @return true if phone is rooted
      */
     public static boolean isAndroidRooted(final Activity activity) {
-        boolean rootAccess = false;
-
         // root check can be disabled for debugging in emulator
         if (Constants.DEBUG_DISABLE_ROOT_CHECK) {
-            rootAccess = true;
-        } else {
-            if (RootCommands.rootAccessGiven()) {
-                rootAccess = true;
-            } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                builder.setCancelable(false);
-                builder.setIcon(android.R.drawable.ic_dialog_alert);
-                builder.setTitle(activity.getString(R.string.no_root_title));
-
-                // build view from layout
-                LayoutInflater factory = LayoutInflater.from(activity);
-                final View dialogView = factory.inflate(R.layout.no_root_dialog, null);
-                builder.setView(dialogView);
-
-                builder.setNeutralButton(
-                        activity.getResources().getString(R.string.button_exit),
-                        (dialog, which) -> {
-                            activity.finish(); // finish current activity, means exiting app
-                        }
-                );
-
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
+            return true;
         }
+        return RootCommands.rootAccessGiven();
+    }
 
-        return rootAccess;
+    /**
+     * Display a dialog to inform user that root was not found then finish the activity.
+     *
+     * @param activity The current activity.
+     */
+    public static void displayNoRootDialog(Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setCancelable(false);
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setTitle(activity.getString(R.string.no_root_title));
+
+        // build view from layout
+        LayoutInflater factory = LayoutInflater.from(activity);
+        View dialogView = factory.inflate(R.layout.no_root_dialog, null);
+        builder.setView(dialogView);
+
+        builder.setNeutralButton(
+                activity.getResources().getString(R.string.button_exit),
+                (dialog, which) -> {
+                    activity.finish(); // finish current activity, means exiting app
+                }
+        );
+
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     /**

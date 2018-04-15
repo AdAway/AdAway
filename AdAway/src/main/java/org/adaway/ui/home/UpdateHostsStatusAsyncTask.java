@@ -1,7 +1,8 @@
 package org.adaway.ui.home;
 
+import android.app.Activity;
 import android.os.AsyncTask;
-import android.support.v4.app.FragmentActivity;
+import android.support.annotation.Nullable;
 
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.service.UpdateService;
@@ -16,7 +17,7 @@ import java.lang.ref.WeakReference;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class UpdateHostsStatusAsyncTask extends AsyncTask<Void, Void, Void> {
+public class UpdateHostsStatusAsyncTask extends AsyncTask<Void, Void, Boolean> {
     /**
      * A reference to the {@link HomeFragment} to update.
      */
@@ -33,20 +34,15 @@ public class UpdateHostsStatusAsyncTask extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
-        // Get the home fragment
-        HomeFragment homeFragment = this.homeFragmentReference.get();
-        if (homeFragment == null) {
-            return null;
-        }
-        // Get the current activity
-        FragmentActivity activity = homeFragment.getActivity();
+    protected Boolean doInBackground(Void... voids) {
+        // Get activity
+        Activity activity = this.getActivity();
         if (activity == null) {
-            return null;
+            return true; // Suppose to be root
         }
         // Check if Android is rooted
         if (!Utils.isAndroidRooted(activity)) {
-            return null;
+            return false;
         }
         // Check if hosts was file installed by AdAway
         if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
@@ -61,7 +57,34 @@ public class UpdateHostsStatusAsyncTask extends AsyncTask<Void, Void, Void> {
             // Otherwise notify AdAway is disabled
             HomeFragment.updateStatusDisabled(activity);
         }
-        // Return void
-        return null;
+        // Return device is well rooted
+        return true;
+    }
+
+    @Override
+    protected void onPostExecute(Boolean rooted) {
+        // Get activity
+        Activity activity = this.getActivity();
+        // Display warning if not rooted
+        if (activity != null && !rooted) {
+            Utils.displayNoRootDialog(activity);
+        }
+    }
+
+    /**
+     * Get the current activity.
+     *
+     * @return The current activity, <code>null</code> if recycled.
+     */
+    // SHOULD USE OPTIONAL WHEN AVAILABLE IN API
+    @Nullable
+    private Activity getActivity() {
+        // Get the home fragment
+        HomeFragment homeFragment = this.homeFragmentReference.get();
+        if (homeFragment == null) {
+            return null;
+        }
+        // Get the current activity
+        return homeFragment.getActivity();
     }
 }
