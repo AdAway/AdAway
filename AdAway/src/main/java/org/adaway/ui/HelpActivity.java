@@ -64,7 +64,7 @@ public class HelpActivity extends SherlockFragmentActivity {
     /**
      * Bitcoin
      */
-    private static final String BITCOIN = "1LDEN2cjZ498QYxk14UTJHRakuwxAcggWR";
+    private static final String BITCOIN = "173kZxbkKuvnF5fa5b7t21kqU5XfEvvwTs";
 
     /**
      * Menu Items
