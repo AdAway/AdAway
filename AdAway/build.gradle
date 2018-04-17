@@ -6,6 +6,7 @@ repositories {
     }
 }
 dependencies {
+    implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.commonsware.cwac:wakeful:1.0.+'
     implementation project(':libraries:RootCommands')
     implementation 'net.sf.trove4j:trove4j:3.0.3'

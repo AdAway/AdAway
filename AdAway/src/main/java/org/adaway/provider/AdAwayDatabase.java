@@ -33,6 +33,15 @@ import org.adaway.provider.AdAwayContract.WhitelistColumns;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.io.BufferedReader;
+import java.net.URL;
+import java.net.MalformedURLException;
+
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
     private static final int DATABASE_VERSION = 14;
@@ -45,24 +54,24 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
     }
 
     private static final String CREATE_HOSTS_SOURCES = "CREATE TABLE IF NOT EXISTS "
-            + Tables.HOSTS_SOURCES + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + HostsSourcesColumns.URL + " TEXT UNIQUE, " + HostsSourcesColumns.LAST_MODIFIED_LOCAL
-            + " INTEGER, " + HostsSourcesColumns.LAST_MODIFIED_ONLINE + " INTEGER, "
-            + HostsSourcesColumns.ENABLED + " INTEGER)";
+        + Tables.HOSTS_SOURCES + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + HostsSourcesColumns.URL + " TEXT UNIQUE, " + HostsSourcesColumns.LAST_MODIFIED_LOCAL
+        + " INTEGER, " + HostsSourcesColumns.LAST_MODIFIED_ONLINE + " INTEGER, "
+        + HostsSourcesColumns.ENABLED + " INTEGER)";
 
     private static final String CREATE_WHITELIST = "CREATE TABLE IF NOT EXISTS " + Tables.WHITELIST
-            + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + WhitelistColumns.HOSTNAME + " TEXT UNIQUE, " + WhitelistColumns.ENABLED + " INTEGER)";
+        + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + WhitelistColumns.HOSTNAME + " TEXT UNIQUE, " + WhitelistColumns.ENABLED + " INTEGER)";
 
     private static final String CREATE_BLACKLIST = "CREATE TABLE IF NOT EXISTS " + Tables.BLACKLIST
-            + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + BlacklistColumns.HOSTNAME + " TEXT UNIQUE, " + BlacklistColumns.ENABLED + " INTEGER)";
+        + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + BlacklistColumns.HOSTNAME + " TEXT UNIQUE, " + BlacklistColumns.ENABLED + " INTEGER)";
 
     private static final String CREATE_REDIRECTION_LIST = "CREATE TABLE IF NOT EXISTS "
-            + Tables.REDIRECTION_LIST + "(" + BaseColumns._ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RedirectionListColumns.HOSTNAME
-            + " TEXT UNIQUE, " + RedirectionListColumns.IP + " TEXT, "
-            + RedirectionListColumns.ENABLED + " INTEGER)";
+        + Tables.REDIRECTION_LIST + "(" + BaseColumns._ID
+        + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RedirectionListColumns.HOSTNAME
+        + " TEXT UNIQUE, " + RedirectionListColumns.IP + " TEXT, "
+        + RedirectionListColumns.ENABLED + " INTEGER)";
 
     AdAwayDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -80,7 +89,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         // fill default hosts sources
         SQLiteStatement insertStmt;
         String insertHostsSources = "INSERT OR IGNORE INTO " + Tables.HOSTS_SOURCES
-                + "(url, last_modified_local, last_modified_online, enabled) VALUES (?, ?, ?, ?)";
+            + "(url, last_modified_local, last_modified_online, enabled) VALUES (?, ?, ?, ?)";
         insertStmt = db.compileStatement(insertHostsSources);
 
         // https://hosts-file.net
@@ -94,6 +103,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         insertHostsSource(insertStmt, "https://adaway.org/hosts.txt");
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.w(Constants.TAG, "Creating database...");
@@ -104,6 +114,8 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         db.execSQL(CREATE_REDIRECTION_LIST);
 
         insertDefaultHostsSources(db);
+        //Throws exception and overidden method can't throw exception
+        try { insertCustomHostSources(db);} catch (Exception e) {/*don't do this*/}
     }
 
     @Override
@@ -213,4 +225,112 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             onCreate(db);
         }
     }
+
+    private final String jsonURL(){
+        //uBlock Origin ad blocking lists
+        return "https://raw.githubusercontent.com/gorhill/uBlock/master/assets/ublock/filter-lists.json";
+    }
+
+    private void insertCustomHostSources(SQLiteDatabase db) throws MalformedURLException, IOException, Exception {
+        // fill default hosts sources
+        SQLiteStatement insertStmt;
+        String insertHostsSources = "INSERT OR IGNORE INTO " + Tables.HOSTS_SOURCES
+            + "(url, last_modified_local, last_modified_online, enabled) VALUES (?, ?, ?, ?)";
+        insertStmt = db.compileStatement(insertHostsSources);
+        
+        JsonReader reader = new JsonReader(new StringReader(readUrl(jsonURL())));
+        String[] urls = new String[144];
+        ListofUrls list = handleObject(reader, new ListofUrls(0,urls));
+        for(int i = 0; i < list.arraylen; i++){
+            insertHostsSource(insertStmt, list.urls[i]);
+        }
+    }
+
+    //parse and read the urls from the json file
+    /**
+     * Handle an Object. Consume the first token which is BEGIN_OBJECT. Within
+     * the Object there could be array or non array tokens. We write handler
+     * methods for both. Noe the peek() method. It is used to find out the type
+     * of the next token without actually consuming it.
+     *
+     * @param reader
+     * @throws IOException
+     */
+    private ListofUrls handleObject(JsonReader reader, ListofUrls list) throws IOException {
+        reader.beginObject();
+        while (reader.hasNext()) {
+            JsonToken token = reader.peek();
+            if (token.equals(JsonToken.BEGIN_ARRAY))
+                list = handleArray(reader, list);
+            else if (token.equals(JsonToken.END_OBJECT)) {
+                reader.endObject();
+                return list;
+            } else {
+                list = handleNonArrayToken(reader, token, list);
+            }
+        }
+        return list;
+    }
+    /**
+     * Handle a json array. The first token would be JsonToken.BEGIN_ARRAY.
+     * Arrays may contain objects or primitives.
+     *
+     * @param reader
+     * @throws IOException
+     */
+    private ListofUrls handleArray(JsonReader reader, ListofUrls list) throws IOException {
+        reader.beginArray();
+        while (true) {
+            JsonToken token = reader.peek();
+            if (token.equals(JsonToken.END_ARRAY)) {
+                reader.endArray();
+                return list;
+            } else if (token.equals(JsonToken.BEGIN_OBJECT)) {
+                list = handleObject(reader, list);
+            } else if (token.equals(JsonToken.END_OBJECT)) {
+                reader.endObject();
+            } else
+                list = handleNonArrayToken(reader, token, list);
+        }
+    }
+
+    private ListofUrls handleNonArrayToken(JsonReader reader, JsonToken token, ListofUrls list) throws IOException
+    {
+        if (token.equals(JsonToken.NAME)){
+            String s = reader.nextName();
+            list.urls[list.arraylen++] = s;
+        } else {
+            reader.skipValue();
+        }
+        return list;
+    }
+
+    //function to read JSON file from the URL address
+    private String readUrl(String urlString) throws Exception {
+        BufferedReader reader = null;
+        try {
+            URL url = new URL(urlString);
+            reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            StringBuffer buffer = new StringBuffer();
+            int read;
+            char[] chars = new char[1024];
+            while ((read = reader.read(chars)) != -1){
+                buffer.append(chars, 0, read);
+            }
+            return buffer.toString();
+        } finally {
+            if (reader != null)
+                reader.close();
+        }
+    }
+    private class ListofUrls {
+        public int arraylen;
+        public String[] urls;
+
+        public ListofUrls(int i, String[] urls){
+            this.arraylen = i;
+            this.urls = urls;
+        }
+    }
+
 }
