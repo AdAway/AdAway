@@ -1,3 +1,6 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
 <html>
 <head></head>
 <body>
@@ -8,13 +11,15 @@
 <p>Próbálja meg megváltoztatni a cél host fájlt a preferenciákban <tt>/data/data/hosts</tt> -ról <tt>/data/hosts</tt> -ra vagy <tt>/system/etc/hosts</tt> -ra és alkalmazza az AdAway újra.</p>
 
 <h2>Nem blokkolja a hirdetéseket XYZ alkalmazásban!</h2>
-<p>Néhány hostnévnév hiányozhat a megadott host fájlból a <i>Hosts Források</i>ban, vagy az alkalmazás tartalmazza a hirdetések képeit, így reklámoz internet elérése nélkül.<br><br>Lehet naplózni az AdAway DNS kéréseit (Menü-&gt;DNS kérések naplózása), hogy további blokkolandó host neveket keressünk benne.<br><br>Adja a gyanús host neveket a saját Fekete listájához - hosszan nyomva tartva a naplóban -, majd jelentse ezeket a host neveket a <a href="http://hosts-file.net">hosts-file.net</a> fórum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> részében, ha meggyőződött róla, hogy tényleg reklámot szolgáltatnak.</p>
+<p>Néhány hostnévnév hiányozhat a megadott host fájlból a <i>Hosts Források</i>ban, vagy az alkalmazás tartalmazza a hirdetések képeit, így reklámoz internet elérése nélkül.<br><br>
+Lehet naplózni az AdAway DNS kéréseit (Menü-&gt;DNS kérések naplózása), hogy további blokkolandó host neveket keressünk benne.
+<br><br>Adja a gyanús host neveket a saját Fekete listájához - hosszan nyomva tartva a naplóban -, majd jelentse ezeket a host neveket a <a href="http://hosts-file.net">hosts-file.net</a> fórum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> részében, ha meggyőződött róla, hogy tényleg reklámot szolgáltatnak.</p>
 
 <h2>Gyorstárazott reklámok</h2>
 <p>Néhány alkalmazás gyorstárazza a reklámokat letöltés után. Így reklámok maradhatnak egyes alkalmazásokban. Megpróbálhatja kitörölni ezen alkalmazások gyorstárát az Android Alkalmazások listájában, hogy ezek a reklámok is eltűnjenek.</p>
 
 <h2>Az XYZ alkalmazás már nem működik!</h2>
-<p>Néhány alkalmazásnak kommunikálnia kell egy vagy több kiszolgálóval ami blokkolva van az AdAway által, és megtagadja a működést, amikor ezek a kiszolgálók, melyek biztosítják a reklámokat, nem találhatóak. Lásd a következő címet, azon alkalmazások listájához, melyek problémásak: <a href="https://github.com/dschuermann/ad-away/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a>. Egyébként találja meg mely kiszolgálók szükségesek, és adja hozzá a <i>Fehérlistájához</i>, mely a <i>Saját listáim</i> alatt található, és jelentse azokat itt: <a href="https://github.com/dschuermann/ad-away/issues">bug tracker of AdAway</a>.</p>
+<p>Néhány alkalmazás működéséhez szükséges, hogy kapcsolatba tudjon lépni az AdAway által blokkolt hosztokkal, illetve egyáltalán nem hajlandó működni, ha a reklámokat kiszolgáló szerver nem érhető el. A <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> weboldalon megtalálod azon alkalmazások listáját, amelyeknél ez a probléma fennáll. Egyéb esetekben derítsd ki, hogy mely hosztnevek szükségesek, és add hozzá a <i>Kivételekhez</i> a <i>Saját listák</i> menüpont alatt, és jelentsd az esetet az <a href="https://github.com/AdAway/AdAway/issues">AdAway bug trackerén</a>.</p>
 
 <h2>A vissza gombok nem működnek a böngészőkben</h2>
 <p>Engedélyezheted az AdAway helyi webszerverét a beállításokban, a probléma megkerüléséhez.</p>
