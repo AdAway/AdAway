@@ -32,9 +32,13 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -47,6 +51,8 @@ public class ListsActivity extends SherlockFragmentActivity {
     private ActionBar.Tab mTab1;
     private ActionBar.Tab mTab2;
     private ActionBar.Tab mTab3;
+
+    final private int REQUEST_CODE_ASK_PERMISSIONS = 0;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -126,6 +132,7 @@ public class ListsActivity extends SherlockFragmentActivity {
         mActionBar.addTab(mTab1);
         mActionBar.addTab(mTab2);
         mActionBar.addTab(mTab3);
+        checkWritePermission();
     }
 
     private void setTabTextBasedOnOrientation(Configuration config) {
@@ -202,6 +209,19 @@ public class ListsActivity extends SherlockFragmentActivity {
             }
 
             ft.commit();
+        }
+    }
+    /**
+     * Check for write permission on supported versions
+     */
+    @TargetApi(23)
+    private void checkWritePermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            int hasWriteExternalPermission = checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (hasWriteExternalPermission != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        REQUEST_CODE_ASK_PERMISSIONS);
+            }
         }
     }
 
