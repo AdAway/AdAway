@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,21 +20,25 @@
 
 package org.adaway.provider;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-
-import org.adaway.provider.AdAwayContract.Blacklist;
-import org.adaway.provider.AdAwayContract.HostsSources;
-import org.adaway.provider.AdAwayContract.RedirectionList;
-import org.adaway.provider.AdAwayContract.Whitelist;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
+import android.support.annotation.Nullable;
 
-import gnu.trove.set.hash.THashSet;
+import org.adaway.provider.AdAwayContract.Blacklist;
+import org.adaway.provider.AdAwayContract.HostsSources;
+import org.adaway.provider.AdAwayContract.ListColumns;
+import org.adaway.provider.AdAwayContract.RedirectionList;
+import org.adaway.provider.AdAwayContract.Whitelist;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import gnu.trove.map.hash.THashMap;
+import gnu.trove.set.hash.THashSet;
 
 public class ProviderHelper {
 
@@ -69,7 +73,7 @@ public class ProviderHelper {
     }
 
     public static void updateHostsSourceLastModifiedLocal(Context context, long rowId,
-            long last_modified_local) {
+                                                          long last_modified_local) {
         ContentValues values = new ContentValues();
         values.put(HostsSources.LAST_MODIFIED_LOCAL, last_modified_local);
         context.getContentResolver().update(HostsSources.buildUri(Long.toString(rowId)), values,
@@ -77,80 +81,77 @@ public class ProviderHelper {
     }
 
     public static void updateHostsSourceLastModifiedOnline(Context context, long rowId,
-            long last_modified_online) {
+                                                           long last_modified_online) {
         ContentValues values = new ContentValues();
         values.put(HostsSources.LAST_MODIFIED_ONLINE, last_modified_online);
         context.getContentResolver().update(HostsSources.buildUri(Long.toString(rowId)), values,
                 null, null);
     }
 
-    public static Cursor getEnabledHostsSourcesCursor(Context context) {
+    public static @Nullable Cursor getEnabledHostsSourcesCursor(Context context) {
         return context.getContentResolver().query(
                 HostsSources.CONTENT_URI,
-                new String[] { HostsSources._ID, HostsSources.URL,
+                new String[]{HostsSources._ID, HostsSources.URL,
                         HostsSources.LAST_MODIFIED_LOCAL, HostsSources.LAST_MODIFIED_ONLINE,
-                        HostsSources.ENABLED }, HostsSources.ENABLED + "=1", null,
+                        HostsSources.ENABLED}, HostsSources.ENABLED + "=1", null,
                 HostsSources.DEFAULT_SORT);
     }
 
     /**
      * Returns all hosts sources that are enabled as ArrayList
-     * 
+     *
      * @param context
      * @return
      */
     public static ArrayList<String> getEnabledHostsSourcesArrayList(Context context) {
-        ArrayList<String> list = new ArrayList<String>();
-        Cursor cursor = getEnabledHostsSourcesCursor(context);
-
-        if (cursor.moveToFirst()) {
-            do {
-                list.add(cursor.getString(cursor.getColumnIndexOrThrow(HostsSources.URL)));
-            } while (cursor.moveToNext());
+        ArrayList<String> list = new ArrayList<>();
+        try (Cursor cursor = getEnabledHostsSourcesCursor(context)) {
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    list.add(cursor.getString(cursor.getColumnIndexOrThrow(HostsSources.URL)));
+                } while (cursor.moveToNext());
+            }
         }
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
-        }
-
         return list;
     }
 
     /**
      * Go through all enabled hosts sources and set local last modified to online last modified
-     * 
+     *
      * @param context
      * @return
      */
     public static void updateAllEnabledHostsSourcesLastModifiedLocalFromOnline(Context context) {
-        Cursor cursor = getEnabledHostsSourcesCursor(context);
-        int idCol = cursor.getColumnIndex(HostsSources._ID);
-        int lastModifiedOnlineCol = cursor.getColumnIndex(HostsSources.LAST_MODIFIED_ONLINE);
+        try (Cursor cursor = getEnabledHostsSourcesCursor(context)) {
+            if (cursor != null && cursor.moveToFirst()) {
+                int idCol = cursor.getColumnIndex(HostsSources._ID);
+                int lastModifiedOnlineCol = cursor.getColumnIndex(HostsSources.LAST_MODIFIED_ONLINE);
 
-        long lastModifiedOnline;
-        long id;
+                long lastModifiedOnline;
+                long id;
 
-        if (cursor.moveToFirst()) {
-            do {
-                lastModifiedOnline = cursor.getLong(lastModifiedOnlineCol);
-                id = cursor.getLong(idCol);
+                do {
+                    lastModifiedOnline = cursor.getLong(lastModifiedOnlineCol);
+                    id = cursor.getLong(idCol);
 
-                // set last_modified_local to last modified_online
-                updateHostsSourceLastModifiedLocal(context, id, lastModifiedOnline);
+                    // set last_modified_local to last modified_online
+                    updateHostsSourceLastModifiedLocal(context, id, lastModifiedOnline);
 
-            } while (cursor.moveToNext());
-        }
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
+                } while (cursor.moveToNext());
+            }
         }
     }
 
     /* BLACKLIST */
 
+    /**
+     * Insert blacklist item into database.
+     *
+     * @param context  The application context.
+     * @param hostname The hostname of the blacklist item to insert.
+     */
     public static void insertBlacklistItem(Context context, String hostname) {
-        ContentValues values = new ContentValues();
-        values.put(Blacklist.HOSTNAME, hostname);
-        values.put(Blacklist.ENABLED, true); // default is enabled
-        context.getContentResolver().insert(Blacklist.CONTENT_URI, values);
+        ProviderHelper.insertListItem(context, Blacklist.CONTENT_URI, hostname);
     }
 
     public static void deleteBlacklistItem(Context context, long rowId) {
@@ -171,71 +172,71 @@ public class ProviderHelper {
                 null);
     }
 
-    public static Cursor getEnabledBlacklistCursor(Context context) {
+    private static Cursor getEnabledBlacklistCursor(Context context) {
         return context.getContentResolver().query(Blacklist.CONTENT_URI,
-                new String[] { Blacklist._ID, Blacklist.HOSTNAME, Blacklist.ENABLED },
+                new String[]{Blacklist._ID, Blacklist.HOSTNAME, Blacklist.ENABLED},
                 Blacklist.ENABLED + "=1", null, Blacklist.DEFAULT_SORT);
     }
 
     /**
      * Returns all blacklist items, that are enabled as THashSet
-     * 
+     *
      * @param context
      * @return
      */
-    public static THashSet<String> getEnabledBlacklistHashSet(Context context) {
-        THashSet<String> list = new THashSet<String>();
-        Cursor cursor = getEnabledBlacklistCursor(context);
+    public static Set<String> getEnabledBlacklistHashSet(Context context) {
+        Set<String> list = new THashSet<>();
 
-        if (cursor.moveToFirst()) {
-            do {
-                list.add(cursor.getString(cursor.getColumnIndexOrThrow(Blacklist.HOSTNAME)));
-            } while (cursor.moveToNext());
-        }
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
+        try (Cursor cursor = getEnabledBlacklistCursor(context)) {
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    list.add(cursor.getString(cursor.getColumnIndexOrThrow(Blacklist.HOSTNAME)));
+                } while (cursor.moveToNext());
+            }
         }
 
         return list;
     }
 
     /**
-     * Imports blacklist from THashSet<String> into database of AdAway
-     * 
-     * @param context
-     * @param whitelist
+     * Import blacklist items into database.
+     *
+     * @param context   The application context.
+     * @param blacklist The blacklist items.
      */
-    public static void importBlacklist(Context context, THashSet<String> blacklist) {
-        ContentValues[] values = new ContentValues[blacklist.size()];
-
-        // build values array based on THashSet
-        Iterator<String> itr = blacklist.iterator();
-        int i = 0;
-        while (itr.hasNext()) {
-            values[i] = new ContentValues();
-            values[i].put(Blacklist.HOSTNAME, itr.next());
-            values[i].put(Blacklist.ENABLED, true); // default is enabled
-
-            i++;
-        }
-
-        // insert as bulk operation
-        context.getContentResolver().bulkInsert(Blacklist.CONTENT_URI, values);
+    public static void importBlacklist(Context context, Set<String> blacklist) {
+        ProviderHelper.importList(context, Blacklist.CONTENT_URI, blacklist);
     }
 
     /* WHITELIST */
 
+    /**
+     * Insert blacklist item into database.
+     *
+     * @param context  The application context.
+     * @param hostname The hostname of the blacklist item to insert.
+     */
     public static void insertWhitelistItem(Context context, String hostname) {
-        ContentValues values = new ContentValues();
-        values.put(Whitelist.HOSTNAME, hostname);
-        values.put(Whitelist.ENABLED, true); // default is enabled
-        context.getContentResolver().insert(Whitelist.CONTENT_URI, values);
+        ProviderHelper.insertListItem(context, Whitelist.CONTENT_URI, hostname);
     }
 
+    /**
+     * Delete whitelist item.
+     *
+     * @param context The application context.
+     * @param rowId   The whitelist item row identifier to delete.
+     */
     public static void deleteWhitelistItem(Context context, long rowId) {
         context.getContentResolver().delete(Whitelist.buildUri(Long.toString(rowId)), null, null);
     }
 
+    /**
+     * Update whitelist item hostname.
+     *
+     * @param context  The application context.
+     * @param rowId    The whitelist item row identifier to update.
+     * @param hostname The hostname to set to the whitelist item.
+     */
     public static void updateWhitelistItemHostname(Context context, long rowId, String hostname) {
         ContentValues values = new ContentValues();
         values.put(Whitelist.HOSTNAME, hostname);
@@ -243,6 +244,13 @@ public class ProviderHelper {
                 null);
     }
 
+    /**
+     * Update whitelist item enabled status.
+     *
+     * @param context The application context.
+     * @param rowId   The whitelist item row identifier to update.
+     * @param enabled The enabled status to set to the whitelist item.
+     */
     public static void updateWhitelistItemEnabled(Context context, long rowId, boolean enabled) {
         ContentValues values = new ContentValues();
         values.put(Whitelist.ENABLED, enabled);
@@ -250,56 +258,38 @@ public class ProviderHelper {
                 null);
     }
 
-    public static Cursor getEnabledWhitelistCursor(Context context) {
+    private static Cursor getEnabledWhitelistCursor(Context context) {
         return context.getContentResolver().query(Whitelist.CONTENT_URI,
-                new String[] { Whitelist._ID, Whitelist.HOSTNAME, Whitelist.ENABLED },
+                new String[]{Whitelist._ID, Whitelist.HOSTNAME, Whitelist.ENABLED},
                 Whitelist.ENABLED + "=1", null, Whitelist.DEFAULT_SORT);
     }
 
     /**
-     * Returns all whitelist items, that are enabled as THashSet
-     * 
-     * @param context
-     * @return
+     * Returns all enabled whitelist items
+     *
+     * @param context The application context.
+     * @return All enabled whitelist items.
      */
-    public static THashSet<String> getEnabledWhitelistHashSet(Context context) {
-        THashSet<String> list = new THashSet<String>();
-        Cursor cursor = getEnabledWhitelistCursor(context);
-
-        if (cursor.moveToFirst()) {
-            do {
-                list.add(cursor.getString(cursor.getColumnIndexOrThrow(Whitelist.HOSTNAME)));
-            } while (cursor.moveToNext());
+    public static Set<String> getEnabledWhitelistHashSet(Context context) {
+        Set<String> list = new THashSet<>();
+        try (Cursor cursor = getEnabledWhitelistCursor(context)) {
+            if (cursor.moveToFirst()) {
+                do {
+                    list.add(cursor.getString(cursor.getColumnIndexOrThrow(Whitelist.HOSTNAME)));
+                } while (cursor.moveToNext());
+            }
         }
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
-        }
-
         return list;
     }
 
     /**
-     * Imports whitelist from THashSet<String> into database of AdAway
-     * 
-     * @param context
-     * @param whitelist
+     * Import whitelist items into database.
+     *
+     * @param context   The application context.
+     * @param whitelist The whitelist items.
      */
-    public static void importWhitelist(Context context, THashSet<String> whitelist) {
-        ContentValues[] values = new ContentValues[whitelist.size()];
-
-        // build values array based on THashSet
-        Iterator<String> itr = whitelist.iterator();
-        int i = 0;
-        while (itr.hasNext()) {
-            values[i] = new ContentValues();
-            values[i].put(Whitelist.HOSTNAME, itr.next());
-            values[i].put(Whitelist.ENABLED, true); // default is enabled
-
-            i++;
-        }
-
-        // insert as bulk operation
-        context.getContentResolver().bulkInsert(Whitelist.CONTENT_URI, values);
+    public static void importWhitelist(Context context, Set<String> whitelist) {
+        ProviderHelper.importList(context, Whitelist.CONTENT_URI, whitelist);
     }
 
     /* REDIRECTION LIST */
@@ -318,7 +308,7 @@ public class ProviderHelper {
     }
 
     public static void updateRedirectionListItemHostnameAndIp(Context context, long rowId,
-            String hostname, String ip) {
+                                                              String hostname, String ip) {
         ContentValues values = new ContentValues();
         values.put(RedirectionList.HOSTNAME, hostname);
         values.put(RedirectionList.IP, ip);
@@ -336,51 +326,93 @@ public class ProviderHelper {
     public static Cursor getEnabledRedirectionListCursor(Context context) {
         return context.getContentResolver().query(
                 RedirectionList.CONTENT_URI,
-                new String[] { RedirectionList._ID, RedirectionList.HOSTNAME, RedirectionList.IP,
-                        RedirectionList.ENABLED }, RedirectionList.ENABLED + "=1", null,
+                new String[]{RedirectionList._ID, RedirectionList.HOSTNAME, RedirectionList.IP,
+                        RedirectionList.ENABLED}, RedirectionList.ENABLED + "=1", null,
                 RedirectionList.DEFAULT_SORT);
     }
 
-    public static THashMap<String, String> getEnabledRedirectionListHashMap(Context context) {
-        THashMap<String, String> list = new THashMap<String, String>();
-        Cursor cursor = getEnabledRedirectionListCursor(context);
-
-        if (cursor.moveToFirst()) {
-            do {
-                list.put(cursor.getString(cursor.getColumnIndexOrThrow(RedirectionList.HOSTNAME)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(RedirectionList.IP)));
-            } while (cursor.moveToNext());
-        }
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
+    public static Map<String, String> getEnabledRedirectionListHashMap(Context context) {
+        Map<String, String> list = new THashMap<>();
+        try (Cursor cursor = getEnabledRedirectionListCursor(context)) {
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    list.put(cursor.getString(cursor.getColumnIndexOrThrow(RedirectionList.HOSTNAME)),
+                            cursor.getString(cursor.getColumnIndexOrThrow(RedirectionList.IP)));
+                } while (cursor.moveToNext());
+            }
         }
 
         return list;
     }
 
     /**
-     * Imports redirection list from THashMap<String, String> into database of AdAway, where keys are
-     * hostnames and values are ip addresses.
-     * 
-     * @param context
-     * @param whitelist
+     * Import redirect list items into database.
+     *
+     * @param context  The application context.
+     * @param redirect The redirect list items.
      */
-    public static void importRedirectionList(Context context,
-            THashMap<String, String> redirectionList) {
-        ContentValues[] values = new ContentValues[redirectionList.size()];
-
-        int i = 0;
-        for (HashMap.Entry<String, String> item : redirectionList.entrySet()) {
-            values[i] = new ContentValues();
-            values[i].put(RedirectionList.HOSTNAME, item.getKey());
-            values[i].put(RedirectionList.IP, item.getValue());
-            values[i].put(RedirectionList.ENABLED, true); // default is enabled
-
-            i++;
-        }
-
-        // insert as bulk operation
-        context.getContentResolver().bulkInsert(RedirectionList.CONTENT_URI, values);
+    public static void importRedirectionList(Context context, Map<String, String> redirect) {
+        ProviderHelper.importList(context, RedirectionList.CONTENT_URI, RedirectionList.IP, redirect);
     }
 
+    /**
+     * Insert list item into database.
+     *
+     * @param context  The application context.
+     * @param tableUrl The URL of the table to insert list item into.
+     * @param hostname The hostname of the list item to insert.
+     */
+    private static void insertListItem(Context context, Uri tableUrl, String hostname) {
+        ContentValues values = new ContentValues();
+        values.put(ListColumns.HOSTNAME, hostname);
+        values.put(ListColumns.ENABLED, true); // default is enabled
+        context.getContentResolver().insert(tableUrl, values);
+    }
+
+    /**
+     * Import list items into database.
+     *
+     * @param context  The application context.
+     * @param tableUrl The URL of the table to insert list items into.
+     * @param list     The list items.
+     */
+    private static void importList(Context context, Uri tableUrl, Set<String> list) {
+        // build values array based on set
+        ContentValues[] values = new ContentValues[list.size()];
+        int i = 0;
+        for (String item : list) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(ListColumns.HOSTNAME, item);
+            contentValues.put(ListColumns.ENABLED, true); // default is enabled
+            values[i] = contentValues;
+            i++;
+        }
+        // insert as bulk operation
+        context.getContentResolver().bulkInsert(tableUrl, values);
+    }
+
+    /**
+     * Import list items into database.
+     *
+     * @param context     The application context.
+     * @param tableUrl    The URL of the table to insert list items into.
+     * @param valueColumn The column name for the item value.
+     * @param list        The list items.
+     */
+    private static void importList(Context context, Uri tableUrl, String valueColumn,
+                                   Map<String, String> list) {
+        // build values array based on map
+        ContentValues[] values = new ContentValues[list.size()];
+        int i = 0;
+        for (HashMap.Entry<String, String> item : list.entrySet()) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(ListColumns.HOSTNAME, item.getKey());
+            contentValues.put(valueColumn, item.getValue());
+            contentValues.put(ListColumns.ENABLED, true); // default is enabled
+            values[i] = contentValues;
+            i++;
+        }
+        // insert as bulk operation
+        context.getContentResolver().bulkInsert(tableUrl, values);
+    }
 }

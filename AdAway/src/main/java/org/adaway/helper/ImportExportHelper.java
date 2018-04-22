@@ -44,9 +44,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-
-import gnu.trove.map.hash.THashMap;
-import gnu.trove.set.hash.THashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * This class is a helper class to import/export user lists to a backup file on sdcard.
@@ -200,9 +199,9 @@ public class ImportExportHelper {
                 return false;
             }
             // Get list values
-            THashSet<String> whitelist = ProviderHelper.getEnabledWhitelistHashSet(context);
-            THashSet<String> blacklist = ProviderHelper.getEnabledBlacklistHashSet(context);
-            THashMap<String, String> redirectionList = ProviderHelper
+            Set<String> whitelist = ProviderHelper.getEnabledWhitelistHashSet(context);
+            Set<String> blacklist = ProviderHelper.getEnabledBlacklistHashSet(context);
+            Map<String, String> redirectionList = ProviderHelper
                     .getEnabledRedirectionListHashMap(context);
             // Check if sdcard can be written
             File sdcard = Environment.getExternalStorageDirectory();
