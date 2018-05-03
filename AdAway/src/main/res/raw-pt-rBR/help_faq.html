@@ -1,0 +1,30 @@
+<html>
+<head></head>
+<body>
+<h2>Rendimento por anúncios</h2>
+<p>Existe um equívoco bastante comum de que se um usuário nunca clica em anúncios, então bloqueá-los não irá prejudicar um site ou aplicativo financeiramente. Isso está errado. Os desenvolvedores também ganham dinheiro apenas por mostrar os anúncios. Você decide se deseja bloquear ou não os anúncios. Particularmente, eu não utilizaria aplicativos que exibem anúncios, pois os acho irritantes. Então, sem um bloqueador de anúncios, eu não instalaria esses aplicativos.</p>
+
+
+
+<h2>Como o AdAway funciona?</h2>
+<p>O AdAway utiliza o <a href="http://pt.wikipedia.org/wiki/Hosts_(arquivo)">arquivo de hosts</a> para bloquear hostnames que fornecem anúncios. O arquivo de hosts é um arquivo encontrado em <tt>/system/etc/hosts</tt> que mapeia hostnames a endereços IP. É uma forma tradicional de definir pares de hostname e endereço IP sem precisar do Domain Name System (DNS). Todos os hostnames indesejados são redirecionados para <tt>127.0.0.1</tt>, o que significa que eles apontarão para seu próprio dispositivo.</p>
+
+<h2>Por que a preferência verificação diária atualização desmarcada?</h2>
+<p>Verificação automática de atualizações novas só está disponível quando AdAway está instalado na memória interna do telefone. Isto é devido a restrições sobre a plataforma Android.</p>
+
+<h2>Por quê é necessário reiniciar o Android para que as mudanças sejam aplicadas?</h2>
+<p>No Android, o Java mantém seu próprio cache interno de DNS. O sistema operacional irá refletir o novo arquivo de hosts imediatamente (você pode confirmar isso utilizando o ping na linha de comando), mas é necessário reiniciar o Android para que o cache de DNS do Java seja reconstruído.</p>
+
+<h2>Como utilizar o servidor web no AdAway?</h2>
+<p><b>AdAway também irá trabalhar sem usar o servidor web!</b>⏎ <br/><br/>Você pode ativar um servidor web local nas preferências de AdAway para responder a pedidos para o endereço IP local <tt>127.0.0.1</tt>. Isso significa que os pedidos das aplicações aos servidores de anúncios que são redirecionadas para <tt>127.0.0.1</tt> serão respondidos pelo servidor do AdAway.⏎ <br/>Algumas aplicações se recusam a trabalhar, quando servidores de anúncios não são acessíveis. Com este método que será acessível novamente, respondendo com uma página em branco e que não há imagens do anúncio.</p>
+
+<h2>Como bloquear/desbloquear hostnames específicos?</h2>
+<p>Adicione os nomes de host que você queira bloquear para a Lista Negra (=Black) em <i>Your Lists</i>. Além disso, os nomes de host que você queira excluir do bloqueio pode ser adiocionado para <i>Whitelist</i> (=White) e os nomes de host que você queira redirecionar  para um endereço IP específico pertence a <i>Redirection List</i> (=Redirection).</p>
+
+<h2>Onde posso encontrar mais fontes de hosts?</h2>
+<p>Veja <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">Lista de fontes com nomes de hosts adicionais para o AdAway</a>.</p>
+
+<h2>Ajude na tradução/denuncie um erro</h2>
+<p>Por favor vá  <a href="http://adaway.org">http://adaway.org</a>.</p>
+</body>
+</html>
