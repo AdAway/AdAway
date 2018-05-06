@@ -5,4 +5,4 @@ APP_OPTIM := release
 APP_ABI := all
 
 # If APP_MODULES is not set, all modules are compiled!
-APP_MODULES := blank_webserver tcpdump
+APP_MODULES := tcpdump

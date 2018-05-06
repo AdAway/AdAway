@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+
+android {
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'jni/Android.mk'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+/**
+ * Task to rename executables from hello_world to libhello_world_exec.so
+ * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
+ *
+ * http://www.gradle.org/docs/current/userguide/working_with_files.html
+ */
+task renameDebugExecutables(type: Sync) {
+    from('build/intermediates/ndkBuild/debug/obj/local') {
+        rename(/(.+)/, 'lib$1_exec.so')
+    }
+    into 'libs'
+
+    exclude '*/objs*'
+    exclude '*/*.a'
+}
+task renameReleaseExecutables(type: Sync) {
+    from('build/intermediates/ndkBuild/release/obj/local') {
+        rename(/(.+)/, 'lib$1_exec.so')
+    }
+    into 'libs'
+
+    exclude '*/objs'
+    exclude '*/*.a'
+}
+
+gradle.projectsEvaluated {
+    if (project.hasProperty('assembleDebug')) {
+        assembleDebug.dependsOn renameDebugExecutables
+    }
+    if (project.hasProperty('assembleRelease')) {
+        assembleRelease.dependsOn renameReleaseExecutables
+    }
+}
