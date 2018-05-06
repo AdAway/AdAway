@@ -1,2 +1,2 @@
-include ':app', ':webserver'
+include ':app', ':tcpdump', ':webserver'
 include ':libraries:RootCommands'
