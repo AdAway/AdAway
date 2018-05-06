@@ -446,7 +446,7 @@ public class HomeFragment extends Fragment {
         if (mWebServerRunning) {
             WebServerUtils.stopWebServer();
         } else {
-            WebServerUtils.stopWebServer();
+            WebServerUtils.startWebServer(mActivity);
         }
         this.notifyWebServerRunning(!mWebServerRunning);
     }
