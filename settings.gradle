@@ -1,2 +1,2 @@
-include ':AdAway', ':webserver'
+include ':app', ':webserver'
 include ':libraries:RootCommands'
