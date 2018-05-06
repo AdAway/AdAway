@@ -22,11 +22,10 @@ package org.adaway.ui.hosts;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -41,7 +40,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -92,7 +90,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
     private ActionMode mActionMode;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Store activity
         this.mActivity = this.getActivity();
         // Create fragment view
@@ -103,22 +101,19 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         // Store list view
         this.mListView = view.findViewById(R.id.hosts_sources_list);
         // Set item click listener to enable/disable hosts source
-        this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
-                // checkboxes by position of cursor
-                CheckBox checkBox = view.findViewWithTag("checkbox_" + position);
-                if (checkBox == null) {
-                    Log.w(Constants.TAG, "Checkbox could not be found for hosts source.");
-                    return;
-                }
-                // Get current status
-                boolean checked = checkBox.isChecked();
-                // Set new status
-                checkBox.setChecked(!checked);
-                ProviderHelper.updateHostsSourceEnabled(HostsSourcesFragment.this.mActivity, id, !checked);
+        this.mListView.setOnItemClickListener((parent, listView, position, id) -> {
+            // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
+            // checkboxes by position of cursor
+            CheckBox checkBox = listView.findViewWithTag("checkbox_" + position);
+            if (checkBox == null) {
+                Log.w(Constants.TAG, "Checkbox could not be found for hosts source.");
+                return;
             }
+            // Get current status
+            boolean checked = checkBox.isChecked();
+            // Set new status
+            checkBox.setChecked(!checked);
+            ProviderHelper.updateHostsSourceEnabled(HostsSourcesFragment.this.mActivity, id, !checked);
         });
         /*
          * Create action mode.
@@ -171,24 +166,21 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
             }
         };
         // Set item long click listener to start action
-        this.mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                // Check if there is already a current action
-                if (HostsSourcesFragment.this.mActionMode != null) {
-                    return false;
-                }
-                // Store current list item position
-                HostsSourcesFragment.this.mCurrentListItemPosition = position;
-                // Start action mode and store it
-                HostsSourcesFragment.this.mActionMode = HostsSourcesFragment.this.mActivity.startActionMode(callback);
-                // Get current item background color
-                int currentItemBackgroundColor = HostsSourcesFragment.this.getResources().getColor(R.color.selected_background);
-                // Apply background color to current item view
-                view.setBackgroundColor(currentItemBackgroundColor);
-                // Return event consumed
-                return true;
+        this.mListView.setOnItemLongClickListener((parent, listView2, position, id) -> {
+            // Check if there is already a current action
+            if (HostsSourcesFragment.this.mActionMode != null) {
+                return false;
             }
+            // Store current list item position
+            HostsSourcesFragment.this.mCurrentListItemPosition = position;
+            // Start action mode and store it
+            HostsSourcesFragment.this.mActionMode = HostsSourcesFragment.this.mActivity.startActionMode(callback);
+            // Get current item background color
+            int currentItemBackgroundColor = HostsSourcesFragment.this.getResources().getColor(R.color.selected_background);
+            // Apply background color to current item view
+            listView2.setBackgroundColor(currentItemBackgroundColor);
+            // Return event consumed
+            return true;
         });
         /*
          * Add floating action button.
@@ -196,12 +188,9 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         // Get floating action button
         FloatingActionButton button = view.findViewById(R.id.hosts_sources_add);
         // Set click listener to display menu add entry
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Display menu add entry
-                HostsSourcesFragment.this.addEntry();
-            }
+        button.setOnClickListener(actionButton -> {
+            // Display menu add entry
+            HostsSourcesFragment.this.addEntry();
         });
         /*
          * Load data.
@@ -220,6 +209,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
      * CursorLoader related.
      */
 
+    @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // Create and return cursor loader
@@ -234,14 +224,14 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         // Swap the new cursor in.
         // (The framework will take care of closing the old cursor once we return.)
         this.mAdapter.swapCursor(data);
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         // This is called when the last Cursor provided to onLoadFinished()
         // above is about to be closed. We need to make sure we are no longer using it.
         this.mAdapter.swapCursor(null);
@@ -271,24 +261,16 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
 
         builder.setPositiveButton(
                 getResources().getString(R.string.button_add),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+                (dialog, which) -> {
+                    dialog.dismiss();
 
-                        String input = inputEditText.getText().toString();
-                        insertHostsSource(input);
-                    }
+                    String input = inputEditText.getText().toString();
+                    insertHostsSource(input);
                 }
         );
         builder.setNegativeButton(
                 getResources().getString(R.string.button_cancel),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }
+                (dialog, which) -> dialog.dismiss()
         );
         AlertDialog alert = builder.create();
         alert.show();
@@ -333,47 +315,37 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         builder.setView(dialogView);
 
         builder.setPositiveButton(getResources().getString(R.string.button_save),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Close dialog
-                        dialog.dismiss();
-                        // Finish action mode
-                        HostsSourcesFragment.this.mActionMode.finish();
+                (dialog, which) -> {
+                    // Close dialog
+                    dialog.dismiss();
+                    // Finish action mode
+                    HostsSourcesFragment.this.mActionMode.finish();
 
-                        String input = inputEditText.getText().toString();
+                    String input = inputEditText.getText().toString();
 
-                        if (RegexUtils.isValidUrl(input)) {
-                            // update in db
-                            ProviderHelper.updateHostsSourceUrl(mActivity, itemId, input);
-                        } else {
-                            AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
-                            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                            alertDialog.setTitle(R.string.no_url_title);
-                            alertDialog.setMessage(getString(R.string.no_url));
-                            alertDialog.setButton(
-                                    AlertDialog.BUTTON_NEUTRAL,
-                                    getString(R.string.button_close),
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            dialog.dismiss();
-                                        }
-                                    }
-                            );
-                            alertDialog.show();
-                        }
+                    if (RegexUtils.isValidUrl(input)) {
+                        // update in db
+                        ProviderHelper.updateHostsSourceUrl(mActivity, itemId, input);
+                    } else {
+                        AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
+                        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+                        alertDialog.setTitle(R.string.no_url_title);
+                        alertDialog.setMessage(getString(R.string.no_url));
+                        alertDialog.setButton(
+                                AlertDialog.BUTTON_NEUTRAL,
+                                getString(R.string.button_close),
+                                (dialog1, which1) -> dialog1.dismiss()
+                        );
+                        alertDialog.show();
                     }
                 }
         );
         builder.setNegativeButton(getResources().getString(R.string.button_cancel),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Close dialog
-                        dialog.dismiss();
-                        // Finish action mode
-                        HostsSourcesFragment.this.mActionMode.finish();
-                    }
+                (dialog, which) -> {
+                    // Close dialog
+                    dialog.dismiss();
+                    // Finish action mode
+                    HostsSourcesFragment.this.mActionMode.finish();
                 }
         );
         AlertDialog alert = builder.create();
@@ -418,11 +390,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
             alertDialog.setButton(
                     AlertDialog.BUTTON_NEUTRAL,
                     getString(R.string.button_close),
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }
+                    (dialog, which) -> dialog.dismiss()
             );
             alertDialog.show();
         }

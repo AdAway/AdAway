@@ -1,5 +1,7 @@
 package org.adaway.ui.adware;
 
+import android.support.annotation.NonNull;
+
 import java.util.HashMap;
 
 /**
@@ -30,7 +32,7 @@ class AdwareInstall extends HashMap<String, String> implements Comparable<Adware
     }
 
     @Override
-    public int compareTo(AdwareInstall other) {
+    public int compareTo(@NonNull AdwareInstall other) {
         int nameComparison = this.get(AdwareInstall.APPLICATION_NAME_KEY).compareTo(other.get(AdwareInstall.APPLICATION_NAME_KEY));
         if (nameComparison == 0) {
             return this.get(AdwareInstall.PACKAGE_NAME_KEY).compareTo(other.get(AdwareInstall.PACKAGE_NAME_KEY));
