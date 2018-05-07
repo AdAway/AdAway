@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
     <PreferenceCategory android:title="@string/pref_download">
         <CheckBoxPreference
             android:defaultValue="@bool/pref_update_check_def"
@@ -49,19 +48,17 @@
             android:key="@string/pref_whitelist_rules_key"
             android:summary="@string/pref_whitelist_rules_summary"
             android:title="@string/pref_whitelist_rules" />
-
         <CheckBoxPreference
             android:defaultValue="@bool/pref_redirection_rules_def"
             android:key="@string/pref_redirection_rules_key"
             android:summary="@string/pref_redirection_rules_summary"
             android:title="@string/pref_redirection_rules" />
-
         <EditTextPreference
             android:defaultValue="@string/pref_redirection_ip_def"
+            android:dialogLayout="@layout/pref_edittext_dialog"
             android:key="@string/pref_redirection_ip_key"
             android:summary="@string/pref_redirection_ip_summary"
             android:title="@string/pref_redirection_ip" />
-
         <ListPreference
             android:defaultValue="@string/pref_apply_method_def"
             android:entries="@array/pref_apply_method_entries"
@@ -69,9 +66,9 @@
             android:key="@string/pref_apply_method_key"
             android:summary="@string/pref_apply_method_summary"
             android:title="@string/pref_apply_method" />
-
         <EditTextPreference
             android:defaultValue="@string/pref_custom_target_def"
+            android:dialogLayout="@layout/pref_edittext_dialog"
             android:enabled="false"
             android:key="@string/pref_custom_target_key"
             android:shouldDisableView="true"
@@ -97,5 +94,4 @@
             android:summary="@string/pref_enable_debug_summary"
             android:title="@string/pref_enable_debug" />
     </PreferenceCategory>
-
 </PreferenceScreen>

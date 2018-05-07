@@ -226,7 +226,7 @@
     <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
     <string name="pref_whitelist_rules">Allow whitelisting</string>
     <string name="pref_whitelist_rules_summary">Allow whitelist entries from Hosts Sources.</string>
-    <string name="pref_redirection_rules">Allow redirections</string>
+    <string name="pref_redirection_rules">Allow redirects</string>
     <string name="pref_redirection_rules_summary">POSES SECURITY RISK! Allow redirection entries from Hosts Sources.</string>
     <string name="pref_debug">Debug</string>
     <string name="pref_enable_debug">Debug Logging</string>
@@ -235,6 +235,7 @@
     <string name="pref_enable_ipv6_summary">All host file entries will get a corresponding ::1 (IPv6 localhost) entry.</string>
     <string name="pref_enable_systemless_summary">Prevent AdAway from modifying the system partition</string>
     <string name="pref_enable_systemless">Enable systemless mode</string>
+    <string name="pref_edit_text_value">Edit text preference value</string>
     <string name="drawer_open">Open menu</string>
     <string name="drawer_close">Close menu</string>
 
