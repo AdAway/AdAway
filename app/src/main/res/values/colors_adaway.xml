@@ -22,4 +22,5 @@
     <color name="primary_dark">#ccb71c1c</color>
     <color name="accent">#b71c1c</color>
     <color name="selected_background">#78b71c1c</color>
+    <color name="shortcut_background">#f5f5f5</color>
 </resources>

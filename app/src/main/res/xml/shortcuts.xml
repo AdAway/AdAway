@@ -1,7 +1,7 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/ic_settings_black_24dp"
+        android:icon="@mipmap/shortcut_preferences"
         android:shortcutDisabledMessage="@string/shortcut_preferences"
         android:shortcutId="preferences"
         android:shortcutLongLabel="@string/shortcut_preferences"
@@ -17,7 +17,7 @@
     </shortcut>
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/ic_language_black_24dp"
+        android:icon="@mipmap/shortcut_dns_requests"
         android:shortcutDisabledMessage="@string/shortcut_dns_requests"
         android:shortcutId="dns_requests"
         android:shortcutLongLabel="@string/shortcut_dns_requests"
@@ -33,7 +33,7 @@
     </shortcut>
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/ic_list_black_24dp"
+        android:icon="@mipmap/shortcut_your_lists"
         android:shortcutDisabledMessage="@string/shortcut_your_lists"
         android:shortcutId="your_lists"
         android:shortcutLongLabel="@string/shortcut_your_lists"
