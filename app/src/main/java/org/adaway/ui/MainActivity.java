@@ -54,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
      * ({@link HomeFragment} is always the primary fragment.)
      */
     public static final String STACK_STATE_NAME = "secondary-fragment";
+    /**
+     * The selected menu item key for saved instance {@link Bundle}.
+     */
+    public static final String SELECTED_MENU_ITEM_KEY = "SELECTED_MENU_ITEM";
     /*
      * Application navigation related.
      */
@@ -206,6 +210,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
             }
+        } else {
+            // Restore selected menu item
+            this.mSelectedMenuItem = savedInstanceState.getInt(SELECTED_MENU_ITEM_KEY, 0);
+            // Restore activity title
+            this.updateSelectedMenuItem();
         }
     }
 
@@ -214,6 +223,12 @@ public class MainActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         this.mDrawerToggle.syncState();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SELECTED_MENU_ITEM_KEY, this.mSelectedMenuItem);
     }
 
     @Override
@@ -236,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // Define HomeFragment as selected menu item
-        mSelectedMenuItem = 0;
+        this.mSelectedMenuItem = 0;
         // Delegate back pressed
         super.onBackPressed();
     }
@@ -284,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
         }
         // Update selected menu item
-        mSelectedMenuItem = position;
+        this.mSelectedMenuItem = position;
         // Pop back stack up to HomeFragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.popBackStack(STACK_STATE_NAME, FragmentManager.POP_BACK_STACK_INCLUSIVE);
