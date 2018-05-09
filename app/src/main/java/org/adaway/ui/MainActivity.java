@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -36,11 +36,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.adaway.R;
-import org.adaway.helper.OpenHelper;
 import org.adaway.helper.ResultHelper;
 import org.adaway.ui.adware.ScanAdwareFragment;
 import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.hosts.HostsSourcesFragment;
+import org.adaway.ui.hostscontent.HostsContentFragment;
 import org.adaway.ui.lists.ListsFragment;
 import org.adaway.ui.prefs.PrefsFragment;
 import org.adaway.ui.tcpdump.TcpdumpFragment;
@@ -283,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new ListsFragment();
                 break;
             case 3:
-                OpenHelper.openHostsFile(this);
+                fragment = new HostsContentFragment();
                 break;
             case 4:
                 fragment = new TcpdumpFragment();

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/hosts_content_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/hosts_header"
+                    android:textAppearance="@android:style/TextAppearance.Medium" />
+
+                <View
+                    android:id="@+id/separator_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#3F000000" />
+
+                <TextView
+                    android:id="@+id/hosts_description_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:padding="16dp"
+                    android:text="@string/hosts_description"
+                    android:textAppearance="@android:style/TextAppearance.Small" />
+
+                <TextView
+                    android:id="@+id/hosts_content_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="@string/hosts_content"
+                    android:textAppearance="@android:style/TextAppearance.Small"
+                    android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/separator_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#3F000000" />
+
+                <LinearLayout
+                    style="?android:attr/buttonBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/hosts_open_file"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:padding="16dp"
+                        android:text="@string/hosts_open_button" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

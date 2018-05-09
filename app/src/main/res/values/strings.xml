@@ -48,7 +48,7 @@
     <string name="checkbox_list_context_title">Edit Entry</string>
     <string name="checkbox_list_context_edit">Edit</string>
 
-    <!-- Your Lists -->
+    <!-- Your lists -->
     <string name="lists_tab_whitelist">Whitelist</string>
     <string name="lists_tab_blacklist">Blacklist</string>
     <string name="lists_tab_redirection_list">Redirects</string>
@@ -60,6 +60,12 @@
     <string name="export_dialog">Exporting…</string>
     <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
     <string name="export_failed">Failed to export your list to your sdcard.</string>
+
+    <!-- Hosts content -->
+    <string name="hosts_header">The hosts file</string>
+    <string name="hosts_description">The hosts file is a system file that maps hostnames to IP addresses. It is a plain text file which configuration is handled by AdAway. Here is its few first lines:</string>
+    <string name="hosts_content">Loading the hosts file content…</string>
+    <string name="hosts_open_button">Open the hosts file</string>
 
     <!-- Status Notifications -->
     <string name="status_checking">Checking for update…</string>
@@ -160,13 +166,13 @@
         <item>13 Euros</item>
     </string-array>
 
-    <!-- Scan Adware -->
+    <!-- Scan adware -->
     <string name="scan_adware_description">Here you can scan for bad Adware applications, which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to deinstall those apps by clicking on the list items!</string>
     <string name="scan_adware_start">Start scan</string>
     <string name="scan_adware_scanning">Scanning&#8230;</string>
     <string name="scan_adware_empty">No bad Adware apps were found!</string>
 
-    <!-- Hosts Sources -->
+    <!-- Hosts sources -->
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">Online:</string>
     <string name="hosts_not_available">not available</string>
