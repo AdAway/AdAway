@@ -1,4 +1,4 @@
-# AdAway [![Build Status](https://travis-ci.org/PerfectSlayer/AdAway.svg?branch=master)](https://travis-ci.org/PerfectSlayer/AdAway)  [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](blob/master/LICENSE)
+# AdAway [![Build Status](https://travis-ci.org/AdAway/AdAway.svg?branch=master)](https://travis-ci.org/AdAway/AdAway)  [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](blob/master/LICENSE)
 
 AdAway is an open source ad blocker for Android using the hosts file.
 
@@ -19,7 +19,7 @@ After preview builds have been tested a bit by the more technical or responsive 
 
 ## Support
 
-You can post [Issues](https://github.com/Free-Software-for-Android/AdAway/issues) here or obtain more detailed community support via the [XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753).
+You can post [Issues](https://github.com/AdAway/AdAway/issues) here or obtain more detailed community support via the [XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753).
 
 ## Authors
 
@@ -81,7 +81,7 @@ See http://source.android.com/source/code-style.html
 See http://www.androidpolice.com/2009/11/04/auto-formatting-android-xml-files-with-eclipse/
 
 
-# AdAway/jni
+# `tcpdump` and `webserver` binary modules
 
 Forked from the following sources and slightly modified to compile!
 
@@ -93,9 +93,9 @@ Forked from the following sources and slightly modified to compile!
 
 Please review the following commits for the changes made to the sources above in order for them to compile in this project:
 
-* Commit: https://github.com/Free-Software-for-Android/AdAway/commit/1f4ccb3cec3758757341ad90813506fc2a8fdf7b
-* Commit: https://github.com/Free-Software-for-Android/AdAway/commit/289df896c0ac4f96bd862e8a5054f1011ec07cac
-* Commit: https://github.com/Free-Software-for-Android/AdAway/commit/08da0745b0732b94221c0f5746160fef8126fd99
+* Commit: https://github.com/AdAway/AdAway/commit/1f4ccb3cec3758757341ad90813506fc2a8fdf7b
+* Commit: https://github.com/AdAway/AdAway/commit/289df896c0ac4f96bd862e8a5054f1011ec07cac
+* Commit: https://github.com/AdAway/AdAway/commit/08da0745b0732b94221c0f5746160fef8126fd99
 
 # Licenses
 AdAway is licensed under the GPLv3+.  

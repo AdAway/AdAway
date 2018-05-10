@@ -28,11 +28,4 @@ pom.xml.*
 #IntelliJ IDEA
 .idea
 *.iml
-/AdAway/.externalNativeBuild/
-
-#Credentials
-/.boto
-/before-install.sh
-/encrypted.tgz
-/keystore.jks
 
