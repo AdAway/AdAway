@@ -204,7 +204,7 @@ public class ApplyHelper {
                 out.write(data, 0, count);
             }
             // add line separator to add files together in one file
-            out.write(Constants.LINE_SEPERATOR.getBytes());
+            out.write(Constants.LINE_SEPARATOR.getBytes());
             // Save last modified online for later use
             long currentLastModifiedOnline = connection.getLastModified();
             // Update
@@ -289,43 +289,43 @@ public class ApplyHelper {
             Date now = new Date();
 
             // add adaway header
-            String header = Constants.HEADER1 + Constants.LINE_SEPERATOR + "# " +
-                    formatter.format(now) + Constants.LINE_SEPERATOR + Constants.HEADER2 +
-                    Constants.LINE_SEPERATOR + Constants.HEADER_SOURCES;
+            String header = Constants.HEADER1 + Constants.LINE_SEPARATOR + "# " +
+                    formatter.format(now) + Constants.LINE_SEPARATOR + Constants.HEADER2 +
+                    Constants.LINE_SEPARATOR + Constants.HEADER_SOURCES;
             bos.write(header.getBytes());
 
             // write sources into header
             String source;
             for (String host : enabledHostsSources) {
-                source = Constants.LINE_SEPERATOR + "# " + host;
+                source = Constants.LINE_SEPARATOR + "# " + host;
                 bos.write(source.getBytes());
             }
 
-            bos.write(Constants.LINE_SEPERATOR.getBytes());
+            bos.write(Constants.LINE_SEPARATOR.getBytes());
 
             String redirectionIP = PreferenceHelper.getRedirectionIP(mContext);
 
             // add "127.0.0.1 localhost" entry
-            String localhost = Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv4 + " "
-                    + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPERATOR
+            String localhost = Constants.LINE_SEPARATOR + Constants.LOCALHOST_IPv4 + " "
+                    + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPARATOR
                     + Constants.LOCALHOST_IPv6 + " " + Constants.LOCALHOST_HOSTNAME;
             bos.write(localhost.getBytes());
 
-            bos.write(Constants.LINE_SEPERATOR.getBytes());
+            bos.write(Constants.LINE_SEPARATOR.getBytes());
 
             // write hostnames
             String line;
             String linev6;
             if (PreferenceHelper.getEnableIpv6(mContext)) {
                 for (String hostname : parser.getBlacklist()) {
-                    line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
-                    linev6 = Constants.LINE_SEPERATOR + "::1" + " " + hostname;
+                    line = Constants.LINE_SEPARATOR + redirectionIP + " " + hostname;
+                    linev6 = Constants.LINE_SEPARATOR + "::1" + " " + hostname;
                     bos.write(line.getBytes());
                     bos.write(linev6.getBytes());
                 }
             } else {
                 for (String hostname : parser.getBlacklist()) {
-                    line = Constants.LINE_SEPERATOR + redirectionIP + " " + hostname;
+                    line = Constants.LINE_SEPARATOR + redirectionIP + " " + hostname;
                     bos.write(line.getBytes());
                 }
             }
@@ -337,13 +337,13 @@ public class ApplyHelper {
                 redirectionItemHostname = item.getKey();
                 redirectionItemIP = item.getValue();
 
-                line = Constants.LINE_SEPERATOR + redirectionItemIP + " " + redirectionItemHostname;
+                line = Constants.LINE_SEPARATOR + redirectionItemIP + " " + redirectionItemHostname;
                 bos.write(line.getBytes());
             }
 
             // hosts file has to end with new line, when not done last entry won't be
             // recognized
-            bos.write(Constants.LINE_SEPERATOR.getBytes());
+            bos.write(Constants.LINE_SEPARATOR.getBytes());
 
         } catch (FileNotFoundException e) {
             Log.e(Constants.TAG, "file to read or file to write could not be found", e);

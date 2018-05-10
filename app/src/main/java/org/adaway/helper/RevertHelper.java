@@ -106,7 +106,7 @@ public class RevertHelper {
                      this.mContext.openFileOutput(Constants.HOSTS_FILENAME, Context.MODE_PRIVATE)) {
             // Write default localhost as hosts file
             String localhost = Constants.LOCALHOST_IPv4 + " " + Constants.LOCALHOST_HOSTNAME
-                    + Constants.LINE_SEPERATOR + Constants.LOCALHOST_IPv6 + " "
+                    + Constants.LINE_SEPARATOR + Constants.LOCALHOST_IPv6 + " "
                     + Constants.LOCALHOST_HOSTNAME;
             fos.write(localhost.getBytes());
             fos.close();

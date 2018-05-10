@@ -48,7 +48,7 @@ class TcpdumpUtils {
         String cachePath;
         try {
             cachePath = context.getCacheDir().getCanonicalPath();
-            String filePath = cachePath + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG;
+            String filePath = cachePath + Constants.FILE_SEPARATOR + Constants.TCPDUMP_LOG;
 
             // create log file before using it with tcpdump
             File file = new File(filePath);
@@ -68,10 +68,10 @@ class TcpdumpUtils {
         // "-t": don't print a timestamp
         // "-s 0": capture first 512 bit of packet to get DNS content
         String parameters = "-i any -p -l -v -t -s 512 'udp dst port 53' >> " + cachePath
-                + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
+                + Constants.FILE_SEPARATOR + Constants.TCPDUMP_LOG + " 2>&1 &";
 
         SimpleExecutableCommand tcpdumpCommand = new SimpleExecutableCommand(context,
-                Constants.TCPDUMP_EXECUTEABLE, parameters);
+                Constants.TCPDUMP_EXECUTABLE, parameters);
 
         try {
             shell.add(tcpdumpCommand).waitForFinish();
@@ -91,7 +91,7 @@ class TcpdumpUtils {
     static void deleteLog(Context context) {
         try {
             String cachePath = context.getCacheDir().getCanonicalPath();
-            String filePath = cachePath + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG;
+            String filePath = cachePath + Constants.FILE_SEPARATOR + Constants.TCPDUMP_LOG;
 
             File file = new File(filePath);
             if (file.exists()) {
@@ -114,7 +114,7 @@ class TcpdumpUtils {
     static void stopTcpdump(Shell shell) {
         try {
             Toolbox tb = new Toolbox(shell);
-            tb.killAllExecutable(Constants.TCPDUMP_EXECUTEABLE);
+            tb.killAllExecutable(Constants.TCPDUMP_EXECUTABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while killing tcpdump", e);
         }
@@ -129,7 +129,7 @@ class TcpdumpUtils {
         try {
             Toolbox tb = new Toolbox(shell);
 
-            return tb.isBinaryRunning(Constants.TCPDUMP_EXECUTEABLE);
+            return tb.isBinaryRunning(Constants.TCPDUMP_EXECUTABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while checking tcpdump", e);
             return false;

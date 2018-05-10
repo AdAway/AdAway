@@ -42,7 +42,7 @@ public class WebServerUtils {
             shell = Shell.startRootShell();
             SimpleExecutableCommand webServerCommand = new SimpleExecutableCommand(
                     context,
-                    Constants.WEBSERVER_EXECUTEABLE,
+                    Constants.WEBSERVER_EXECUTABLE,
                     " > /dev/null 2>&1 &"
             );
             shell.add(webServerCommand).waitForFinish();
@@ -67,7 +67,7 @@ public class WebServerUtils {
         try {
             shell = Shell.startRootShell();
             Toolbox tb = new Toolbox(shell);
-            tb.killAllExecutable(Constants.WEBSERVER_EXECUTEABLE);
+            tb.killAllExecutable(Constants.WEBSERVER_EXECUTABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while killing web server", e);
         } finally {
@@ -93,7 +93,7 @@ public class WebServerUtils {
             shell = Shell.startRootShell();
             Toolbox tb = new Toolbox(shell);
 
-            if (tb.isBinaryRunning(Constants.WEBSERVER_EXECUTEABLE)) {
+            if (tb.isBinaryRunning(Constants.WEBSERVER_EXECUTABLE)) {
                 running = true;
             }
         } catch (Exception e) {

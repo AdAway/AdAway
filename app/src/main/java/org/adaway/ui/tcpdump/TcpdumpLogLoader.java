@@ -56,7 +56,7 @@ class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
 
         try {
             String cachePath = context.getCacheDir().getCanonicalPath();
-            String filePath = cachePath + Constants.FILE_SEPERATOR + Constants.TCPDUMP_LOG;
+            String filePath = cachePath + Constants.FILE_SEPARATOR + Constants.TCPDUMP_LOG;
 
             File file = new File(filePath);
             try {

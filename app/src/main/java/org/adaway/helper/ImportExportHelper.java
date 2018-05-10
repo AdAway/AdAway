@@ -214,21 +214,21 @@ public class ImportExportHelper {
             File exportFile = new File(sdcard, "adaway-export");
             // Open writer on the export file
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(exportFile))) {
-                writer.write(Constants.HEADER_EXPORT + Constants.LINE_SEPERATOR);
+                writer.write(Constants.HEADER_EXPORT + Constants.LINE_SEPARATOR);
                 // Write blacklist items
                 for (String aBlacklist : blacklist) {
                     writer.write(Constants.LOCALHOST_IPv4 + " " + aBlacklist
-                            + Constants.LINE_SEPERATOR);
+                            + Constants.LINE_SEPARATOR);
                 }
                 // Write whitelist items
                 for (String aWhitelist : whitelist) {
                     writer.write(Constants.WHITELIST_ENTRY + " " + aWhitelist
-                            + Constants.LINE_SEPERATOR);
+                            + Constants.LINE_SEPARATOR);
                 }
                 // Write redirection list items
                 for (HashMap.Entry<String, String> item : redirectionList.entrySet()) {
                     writer.write(item.getValue() + " " + item.getKey()
-                            + Constants.LINE_SEPERATOR);
+                            + Constants.LINE_SEPARATOR);
                 }
             } catch (IOException exception) {
                 Log.e(Constants.TAG, "Could not write file.", exception);
