@@ -20,22 +20,14 @@
 
 package org.adaway.ui.tcpdump;
 
-import java.util.ArrayList;
-
-import org.adaway.R;
-import org.adaway.provider.ProviderHelper;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
@@ -43,8 +35,15 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import org.adaway.R;
+import org.adaway.provider.ProviderHelper;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+
+import java.util.List;
+
 public class TcpdumpLogFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<ArrayList<String>> {
+        LoaderManager.LoaderCallbacks<List<String>> {
     private Activity mActivity;
     private ArrayAdapter<String> mAdapter;
 
@@ -127,13 +126,14 @@ public class TcpdumpLogFragment extends ListFragment implements
         getLoaderManager().initLoader(0, null, this);
     }
 
+    @NonNull
     @Override
-    public Loader<ArrayList<String>> onCreateLoader(int id, Bundle args) {
+    public Loader<List<String>> onCreateLoader(int id, Bundle args) {
         return new TcpdumpLogLoader(mActivity);
     }
 
     @Override
-    public void onLoadFinished(Loader<ArrayList<String>> loader, ArrayList<String> data) {
+    public void onLoadFinished(@NonNull Loader<List<String>> loader, List<String> data) {
         // Set the new data in the adapter.
         // for (String item : data) {
         // mAdapter.add(item);
@@ -155,7 +155,7 @@ public class TcpdumpLogFragment extends ListFragment implements
     }
 
     @Override
-    public void onLoaderReset(Loader<ArrayList<String>> loader) {
+    public void onLoaderReset(@NonNull Loader<List<String>> loader) {
         // Clear the data in the adapter.
         mAdapter.clear();
     }

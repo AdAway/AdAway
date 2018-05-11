@@ -82,10 +82,10 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
             File cacheDir = context.getCacheDir();
             File tempFile = File.createTempFile(Constants.TAG, ".script", cacheDir);
             // Write script content to temp file
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            writer.write("mount -o bind " + this.mode.hostsFileLocation + " " + Constants.ANDROID_SYSTEM_ETC_HOSTS + ";");
-            writer.newLine();
-            writer.close();
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                writer.write("mount -o bind " + this.mode.hostsFileLocation + " " + Constants.ANDROID_SYSTEM_ETC_HOSTS + ";");
+                writer.newLine();
+            }
             // Copy temp file to systemless script location
             if (!toolbox.copyFile(tempFile.getAbsolutePath(), this.mode.systemlessScriptLocation, false, false)) {
                 Log.w(Constants.TAG, "Could not copy the systemless script to " + this.mode.systemlessScriptLocation + ".");

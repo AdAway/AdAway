@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -35,39 +35,38 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * A custom Loader that parses log files from tcpdump
  */
-class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
+class TcpdumpLogLoader extends AsyncTaskLoader<List<String>> {
+    /**
+     * The application specific cache directory.
+     */
+    private final File cacheDir;
 
-    Context context;
-
+    /**
+     * Constructor.
+     *
+     * @param context The application context.
+     */
     TcpdumpLogLoader(Context context) {
         super(context);
-
-        this.context = context;
+        // Get application cache directory
+        this.cacheDir = context.getCacheDir();
     }
 
     @Override
-    public ArrayList<String> loadInBackground() {
+    public List<String> loadInBackground() {
         // hashset, because every hostname should be contained only once
-        HashSet<String> set = new HashSet<>();
+        Set<String> set = new HashSet<>();
 
         try {
-            String cachePath = context.getCacheDir().getCanonicalPath();
-            String filePath = cachePath + Constants.FILE_SEPARATOR + Constants.TCPDUMP_LOG;
-
-            File file = new File(filePath);
-            try {
-                // open the file for reading
-                FileInputStream instream = new FileInputStream(file);
-
-                // if file is available for reading
-                // prepare the file for reading
-                InputStreamReader inputreader = new InputStreamReader(instream);
-                BufferedReader reader = new BufferedReader(inputreader);
-
+            File file = new File(this.cacheDir, Constants.TCPDUMP_LOG);
+            // open the file for reading
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
                 // read every line of the file into the line-variable, one line at a time
                 String nextLine;
                 String hostname;
@@ -79,10 +78,6 @@ class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
                         set.add(hostname);
                     }
                 }
-
-                reader.close();
-                // close the file
-                instream.close();
             } catch (java.io.FileNotFoundException e) {
                 Log.e(Constants.TAG, "Tcpdump log is not existing!", e);
             }
@@ -90,7 +85,7 @@ class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
             Log.e(Constants.TAG, "Can not get cache dir", e);
         }
 
-        ArrayList<String> list = new ArrayList<>(set);
+        List<String> list = new ArrayList<>(set);
 
         // Sort the list.
         Collections.sort(list);
@@ -117,7 +112,7 @@ class TcpdumpLogLoader extends AsyncTaskLoader<ArrayList<String>> {
     }
 
     @Override
-    public void deliverResult(ArrayList<String> data) {
+    public void deliverResult(List<String> data) {
         super.deliverResult(data);
     }
 }

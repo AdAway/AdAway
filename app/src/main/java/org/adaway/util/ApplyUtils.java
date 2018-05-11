@@ -34,7 +34,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class ApplyUtils {
@@ -94,20 +93,12 @@ public class ApplyUtils {
      * @return true if it is applied
      */
     public static boolean isHostsFileCorrect(String target) {
-        boolean status = false;
+        boolean status;
 
         /* Check if first line in hosts file is AdAway comment */
-        InputStream stream = null;
-        InputStreamReader in;
-        BufferedReader br;
-        try {
-            File file = new File(target);
-
-            stream = new FileInputStream(file);
-            in = new InputStreamReader(stream);
-            br = new BufferedReader(in);
-
-            String firstLine = br.readLine();
+        File file = new File(target);
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))){
+            String firstLine = reader.readLine();
 
             Log.d(Constants.TAG, "First line of " + target + ": " + firstLine);
 
@@ -118,14 +109,6 @@ public class ApplyUtils {
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception: ", e);
             status = false;
-        } finally {
-            if (stream != null) {
-                try {
-                    stream.close();
-                } catch (IOException e) {
-                    Log.e(Constants.TAG, "Exception", e);
-                }
-            }
         }
 
         return status;
