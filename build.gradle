@@ -9,6 +9,19 @@ buildscript {
     }
 }
 
+plugins {
+    id "org.sonarqube" version "2.6.2"
+}
+
+sonarqube {
+    properties {
+        // Root project information
+        property "sonar.projectKey", "org.adaway"
+        property "sonar.projectName", "AdAway"
+        property "sonar.projectVersion", "4.00.02"
+    }
+}
+
 allprojects {
     repositories {
         google()
