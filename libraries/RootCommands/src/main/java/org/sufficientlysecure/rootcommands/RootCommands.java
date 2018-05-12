@@ -19,8 +19,8 @@ package org.sufficientlysecure.rootcommands;
 import org.sufficientlysecure.rootcommands.util.Log;
 
 public class RootCommands {
-    public static boolean debug = false;
-    public final static int DEFAULT_TIMEOUT = 50000;
+    private static boolean debug = false;
+    public static final int DEFAULT_TIMEOUT = 50000;
 
     public static final String TAG = "RootCommands";
 
