@@ -105,7 +105,7 @@ public class HelpActivity extends AppCompatActivity {
                 HelpFragmentHtml.class, sOnSOffBundle);
 
         Bundle donationsArgs = new Bundle();
-        donationsArgs.putBoolean(DonationsFragment.ARG_DEBUG, Constants.DEBUG);
+        donationsArgs.putBoolean(DonationsFragment.ARG_DEBUG, Constants.isDebugEnabled());
         donationsArgs.putBoolean(DonationsFragment.ARG_FLATTR_ENABLED, true);
         donationsArgs.putString(DonationsFragment.ARG_FLATTR_PROJECT_URL, FLATTR_PROJECT_URL);
         donationsArgs.putString(DonationsFragment.ARG_FLATTR_URL, FLATTR_URL);

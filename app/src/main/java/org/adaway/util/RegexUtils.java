@@ -29,64 +29,49 @@ public class RegexUtils {
     /*
      * Allow hostnames like: localserver example.com example.host.org
      */
-    static final private String HOSTNAME_REGEX = "[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_\\.]{0,61}[a-zA-Z0-9]";
-    private static Pattern mHostnamePattern;
-    private static Matcher mHostnameMatcher;
+    private static final String HOSTNAME_REGEX = "[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-\\_\\.]{0,61}[a-zA-Z0-9]";
+    private static final Pattern HOSTNAME_PATTERN = Pattern.compile(HOSTNAME_REGEX);
 
     /*
      * Allow also hostnames like: localse?ver example*.com exam?le*.host.org
      */
-    static final private String WHITELIST_HOSTNAME_REGEX = "[a-zA-Z0-9\\*\\?]|[a-zA-Z0-9\\*\\?][a-zA-Z0-9\\-\\_\\.\\*\\?]{0,61}[a-zA-Z0-9\\*\\?]";
-    private static Pattern mWhitelistHostnamePattern;
-    private static Matcher mWhitelistHostnameMatcher;
+    private static final String WHITELIST_HOSTNAME_REGEX = "[a-zA-Z0-9\\*\\?]|[a-zA-Z0-9\\*\\?][a-zA-Z0-9\\-\\_\\.\\*\\?]{0,61}[a-zA-Z0-9\\*\\?]";
+    private static final Pattern WHITELIST_HOSTNAME_PATTERN = Pattern.compile(WHITELIST_HOSTNAME_REGEX);
 
     /*
      * http://stackoverflow.com/questions/46146/what-are-the-java-regular-expressions-for-matching-ipv4
      * -and-ipv6-strings
      */
-    static final private String IPV4_REGEX = "(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}";
-    private static Pattern mIPv4Pattern;
-    private static Matcher mIPv4Matcher;
+    private static final String IPV4_REGEX = "(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}";
+    private static final Pattern IPV4_PATTERN = Pattern.compile(IPV4_REGEX);
 
     /*
      * http://forums.dartware.com/viewtopic.php?t=452
      */
-    static final private String IPV6_REGEX = "(((?=(?>.*?::)(?!.*::)))(::)?([0-9A-F]{1,4}::?){0,5}|([0-9A-F]{1,4}:){6})(\2([0-9A-F]{1,4}(::?|$)){0,2}|((25[0-5]|(2[0-4]|1\\d|[1-9])?\\d)(\\.|$)){4}|[0-9A-F]{1,4}:[0-9A-F]{1,4})(?<![^:]:|\\.)";
-    private static Pattern mIPv6Pattern;
-    private static Matcher mIPv6Matcher;
+    private static final String IPV6_REGEX = "(((?=(?>.*?::)(?!.*::)))(::)?([0-9A-F]{1,4}::?){0,5}|([0-9A-F]{1,4}:){6})(\2([0-9A-F]{1,4}(::?|$)){0,2}|((25[0-5]|(2[0-4]|1\\d|[1-9])?\\d)(\\.|$)){4}|[0-9A-F]{1,4}:[0-9A-F]{1,4})(?<![^:]:|\\.)";
+    private static final Pattern IPV6_PATTERN = Pattern.compile(IPV6_REGEX, Pattern.CASE_INSENSITIVE);
 
     /*
      * To find hostname in DNS log
      */
-    static final private String TCPDUMP_HOSTNAME_REGEX = "(A\\?|AAAA\\?)\\s(\\S+)\\.\\s";
-    private static Pattern mTcpdumpHostnamePattern;
-    private static Matcher mTcpdumpHostnameMatcher;
+    private static final String TCPDUMP_HOSTNAME_REGEX = "(A\\?|AAAA\\?)\\s(\\S+)\\.\\s";
+    private static final Pattern TCPDUMP_HOSTNAME_PATTERN = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
 
     /*
      * Simplified expression to parse lines in hosts files from hosts sources
      */
-    static final private String SIMPLE_IPV6_REGEX = "[0-9A-F\\:\\.]+";
+    private static final String SIMPLE_IPV6_REGEX = "[0-9A-F\\:\\.]+";
 
-    static final private String HOSTS_PARSER = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
+    private static final String HOSTS_PARSER = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
             + SIMPLE_IPV6_REGEX + "))\\s+(" + HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
-    public static Pattern hostsParserPattern;
+    public static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER, Pattern.CASE_INSENSITIVE);
 
     // with whitelist entries for import function
-    static final private String HOSTS_PARSER_WHITELIST_IMPORT = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
+    private static final String HOSTS_PARSER_WHITELIST_IMPORT = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
             + SIMPLE_IPV6_REGEX + ")|(?:" + Constants.WHITELIST_ENTRY + "))\\s+("
             + WHITELIST_HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
-    public static Pattern hostsParserWhitelistImportPattern;
-
-    static {
-        mHostnamePattern = Pattern.compile(HOSTNAME_REGEX);
-        mWhitelistHostnamePattern = Pattern.compile(WHITELIST_HOSTNAME_REGEX);
-        mIPv4Pattern = Pattern.compile(IPV4_REGEX);
-        mIPv6Pattern = Pattern.compile(IPV6_REGEX, Pattern.CASE_INSENSITIVE);
-        mTcpdumpHostnamePattern = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
-        hostsParserPattern = Pattern.compile(HOSTS_PARSER, Pattern.CASE_INSENSITIVE);
-        hostsParserWhitelistImportPattern = Pattern.compile(HOSTS_PARSER_WHITELIST_IMPORT,
-                Pattern.CASE_INSENSITIVE);
-    }
+    public static final Pattern HOSTS_PARSER_WHITELIST_IMPORT_PATTERN =
+            Pattern.compile(HOSTS_PARSER_WHITELIST_IMPORT, Pattern.CASE_INSENSITIVE);
 
     /**
      * Just a wrapper
@@ -94,7 +79,7 @@ public class RegexUtils {
      * @param input
      * @return
      */
-    static public boolean isValidUrl(String input) {
+    public static boolean isValidUrl(String input) {
         return URLUtil.isValidUrl(input);
     }
 
@@ -105,11 +90,11 @@ public class RegexUtils {
      * @param input
      * @return return true if input is valid hostname
      */
-    static public boolean isValidHostname(String input) {
-        mHostnameMatcher = mHostnamePattern.matcher(input);
+    public static boolean isValidHostname(String input) {
+        Matcher hostnameMatcher = HOSTNAME_PATTERN.matcher(input);
 
         try {
-            return mHostnameMatcher.matches();
+            return hostnameMatcher.matches();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidHostname", e);
             // workaround for some devices that throws jni exceptions: just accept everything
@@ -123,11 +108,11 @@ public class RegexUtils {
      * @param input
      * @return
      */
-    static public boolean isValidWhitelistHostname(String input) {
-        mWhitelistHostnameMatcher = mWhitelistHostnamePattern.matcher(input);
+    public static boolean isValidWhitelistHostname(String input) {
+        Matcher whitelistHostnameMatcher = WHITELIST_HOSTNAME_PATTERN.matcher(input);
 
         try {
-            return mWhitelistHostnameMatcher.matches();
+            return whitelistHostnameMatcher.matches();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidHostname", e);
             // workaround for some devices that throws jni exceptions: just accept everything
@@ -138,11 +123,11 @@ public class RegexUtils {
     /**
      * Check if input is a valid IPv4 address
      */
-    static public boolean isValidIPv4(String input) {
-        mIPv4Matcher = mIPv4Pattern.matcher(input);
+    public static boolean isValidIPv4(String input) {
+        Matcher iPv4Matcher = IPV4_PATTERN.matcher(input);
 
         try {
-            return mIPv4Matcher.matches();
+            return iPv4Matcher.matches();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidIPv4", e);
             // workaround for some devices that throws jni exceptions: just accept everything
@@ -153,11 +138,11 @@ public class RegexUtils {
     /**
      * Check if input is a valid IPv6 address
      */
-    static public boolean isValidIPv6(String input) {
-        mIPv6Matcher = mIPv6Pattern.matcher(input);
+    public static boolean isValidIPv6(String input) {
+        Matcher iPv6Matcher = IPV6_PATTERN.matcher(input);
 
         try {
-            return mIPv6Matcher.matches();
+            return iPv6Matcher.matches();
         } catch (Exception e) {
             Log.e(Constants.TAG, "Error in isValidIPv6", e);
             // workaround for some devices that throws jni exceptions: just accept everything
@@ -168,7 +153,7 @@ public class RegexUtils {
     /**
      * Check if input is a valid IP address
      */
-    static public boolean isValidIP(String input) {
+    public static boolean isValidIP(String input) {
         Log.d(Constants.TAG, "input: " + input);
         Log.d(Constants.TAG, "isvalidipv4: " + isValidIPv4(input));
         Log.d(Constants.TAG, "isvalidipv6: " + isValidIPv6(input));
@@ -182,12 +167,12 @@ public class RegexUtils {
      * @param input one line from dns log
      * @return
      */
-    static public String getTcpdumpHostname(String input) {
-        mTcpdumpHostnameMatcher = mTcpdumpHostnamePattern.matcher(input);
+    public static String getTcpdumpHostname(String input) {
+        Matcher tcpdumpHostnameMatcher = TCPDUMP_HOSTNAME_PATTERN.matcher(input);
 
         try {
-            if (mTcpdumpHostnameMatcher.find()) {
-                return mTcpdumpHostnameMatcher.group(2);
+            if (tcpdumpHostnameMatcher.find()) {
+                return tcpdumpHostnameMatcher.group(2);
             } else {
                 Log.d(Constants.TAG, "Does not find: " + input);
                 return null;

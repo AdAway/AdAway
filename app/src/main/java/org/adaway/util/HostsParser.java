@@ -79,9 +79,9 @@ public class HostsParser {
         // use whitelist import pattern
         Pattern mHostsParserPattern;
         if (mParseWhitelist) {
-            mHostsParserPattern = RegexUtils.hostsParserWhitelistImportPattern;
+            mHostsParserPattern = RegexUtils.HOSTS_PARSER_WHITELIST_IMPORT_PATTERN;
         } else {
-            mHostsParserPattern = RegexUtils.hostsParserPattern;
+            mHostsParserPattern = RegexUtils.HOSTS_PARSER_PATTERN;
         }
         while ((nextLine = reader.readLine()) != null) {
             Matcher mHostsParserMatcher = mHostsParserPattern.matcher(nextLine);

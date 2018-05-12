@@ -45,13 +45,12 @@ public class AdAwayApplication extends Application {
 
         // Set Debug level based on preference
         if (PreferenceHelper.getDebugEnabled(this)) {
-            Constants.DEBUG = true;
+            Constants.enableDebug();
             Log.d(Constants.TAG, "Debug set to true by preference!");
-            // set RootCommands to debug mode based on AdAway
-            RootCommands.DEBUG = Constants.DEBUG;
+            RootCommands.enableDebug();
         } else {
-            Constants.DEBUG = false;
-            RootCommands.DEBUG = Constants.DEBUG;
+            Constants.disableDebug();
+            RootCommands.disableDebug();
         }
 
         // Create job manager an register job creators

@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -23,7 +23,7 @@ package org.adaway.util;
 public class Constants {
     /* DEBUG enables Log.d outputs, wrapped in org.adaway.util.Log and RootTools Debug Mode */
     // DEBUG must be set by a preference
-    public static boolean DEBUG;
+    private static boolean debug = false;
     public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
     public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
 
@@ -79,4 +79,27 @@ public class Constants {
     public static final String HEADER_SOURCES = "# This file is generated from the following sources:";
 
     public static final String HEADER_EXPORT = "# This hosts file contains exported entries from AdAway.";
+
+    /**
+     * Check if debug mode is enabled.
+     *
+     * @return <code>true</code> if debug moode is enabled, <code>false</code> otherwise.
+     */
+    public static boolean isDebugEnabled() {
+        return debug;
+    }
+
+    /**
+     * Enable application debug mode.
+     */
+    public static void enableDebug() {
+        debug = true;
+    }
+
+    /**
+     * Disable application debug mode.
+     */
+    public static void disableDebug() {
+        debug = false;
+    }
 }

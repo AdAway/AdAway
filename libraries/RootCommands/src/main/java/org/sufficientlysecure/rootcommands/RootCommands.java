@@ -19,10 +19,33 @@ package org.sufficientlysecure.rootcommands;
 import org.sufficientlysecure.rootcommands.util.Log;
 
 public class RootCommands {
-    public static boolean DEBUG = false;
-    public static int DEFAULT_TIMEOUT = 50000;
+    public static boolean debug = false;
+    public final static int DEFAULT_TIMEOUT = 50000;
 
     public static final String TAG = "RootCommands";
+
+    /**
+     * Check if debug mode is enabled.
+     *
+     * @return <code>true</code> if debug moode is enabled, <code>false</code> otherwise.
+     */
+    public static boolean isDebugEnabled() {
+        return debug;
+    }
+
+    /**
+     * Enable application debug mode.
+     */
+    public static void enableDebug() {
+        debug = true;
+    }
+
+    /**
+     * Disable application debug mode.
+     */
+    public static void disableDebug() {
+        debug = false;
+    }
 
     /**
      * General method to check if user has su binary and accepts root access for this program!
