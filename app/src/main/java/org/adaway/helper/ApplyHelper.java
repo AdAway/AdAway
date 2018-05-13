@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -137,7 +137,7 @@ public class ApplyHelper {
         try (FileOutputStream out = this.mContext.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE);
              Cursor enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(this.mContext)) {
             // iterate over all hosts sources in db with cursor
-            if (enabledHostsSourcesCursor.moveToFirst()) {
+            if (enabledHostsSourcesCursor != null && enabledHostsSourcesCursor.moveToFirst()) {
                 do {
                     this.downloadHost(enabledHostsSourcesCursor, out);
                 } while (enabledHostsSourcesCursor.moveToNext());
@@ -380,19 +380,22 @@ public class ApplyHelper {
 
         // copy build hosts file with RootTools, based on target from preferences
         try {
-            if (PreferenceHelper.getApplyMethod(mContext).equals("writeToSystem")) {
-
-                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_SYSTEM_ETC_HOSTS, rootShell);
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToDataData")) {
-
-                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToData")) {
-
-                ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_HOSTS, rootShell);
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("customTarget")) {
-
-                ApplyUtils.copyHostsFile(mContext, PreferenceHelper.getCustomTarget(mContext),
-                        rootShell);
+            switch (PreferenceHelper.getApplyMethod(mContext)) {
+                case "writeToSystem":
+                    ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_SYSTEM_ETC_HOSTS, rootShell);
+                    break;
+                case "writeToDataData":
+                    ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);
+                    break;
+                case "writeToData":
+                    ApplyUtils.copyHostsFile(mContext, Constants.ANDROID_DATA_HOSTS, rootShell);
+                    break;
+                case "customTarget":
+                    String customTarget = PreferenceHelper.getCustomTarget(mContext);
+                    ApplyUtils.copyHostsFile(mContext, customTarget, rootShell);
+                    break;
+                default:
+                    break;
             }
         } catch (NotEnoughSpaceException e) {
             Log.e(Constants.TAG, "Exception: ", e);
@@ -419,48 +422,46 @@ public class ApplyHelper {
         /* check if hosts file is applied with chosen method */
         // check only if everything before was successful
         if (returnCode == StatusCodes.SUCCESS) {
-            if (PreferenceHelper.getApplyMethod(mContext).equals("writeToSystem")) {
-
-                /* /system/etc/hosts */
-
-                if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
-                    returnCode = StatusCodes.APPLY_FAIL;
-                }
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToDataData")) {
-
-                /* /data/data/hosts */
-
-                if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_DATA_HOSTS)) {
-                    returnCode = StatusCodes.APPLY_FAIL;
-                } else {
-                    if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS, rootShell)) {
-                        returnCode = StatusCodes.SYMLINK_MISSING;
+            switch (PreferenceHelper.getApplyMethod(mContext)) {
+                case "writeToSystem":
+                    /* /system/etc/hosts */
+                    if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+                        returnCode = StatusCodes.APPLY_FAIL;
                     }
-                }
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("writeToData")) {
-
-                /* /data/data/hosts */
-
-                if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_HOSTS)) {
-                    returnCode = StatusCodes.APPLY_FAIL;
-                } else {
-                    if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_HOSTS, rootShell)) {
-                        returnCode = StatusCodes.SYMLINK_MISSING;
+                    break;
+                case "writeToDataData":
+                    /* /data/data/hosts */
+                    if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_DATA_HOSTS)) {
+                        returnCode = StatusCodes.APPLY_FAIL;
+                    } else {
+                        if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS, rootShell)) {
+                            returnCode = StatusCodes.SYMLINK_MISSING;
+                        }
                     }
-                }
-            } else if (PreferenceHelper.getApplyMethod(mContext).equals("customTarget")) {
-
-                /* custom target */
-
-                String customTarget = PreferenceHelper.getCustomTarget(mContext);
-
-                if (!ApplyUtils.isHostsFileCorrect(customTarget)) {
-                    returnCode = StatusCodes.APPLY_FAIL;
-                } else {
-                    if (!ApplyUtils.isSymlinkCorrect(customTarget, rootShell)) {
-                        returnCode = StatusCodes.SYMLINK_MISSING;
+                    break;
+                case "writeToData":
+                    /* /data/data/hosts */
+                    if (!ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_HOSTS)) {
+                        returnCode = StatusCodes.APPLY_FAIL;
+                    } else {
+                        if (!ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_HOSTS, rootShell)) {
+                            returnCode = StatusCodes.SYMLINK_MISSING;
+                        }
                     }
-                }
+                    break;
+                case "customTarget":
+                    /* custom target */
+                    String customTarget = PreferenceHelper.getCustomTarget(mContext);
+                    if (!ApplyUtils.isHostsFileCorrect(customTarget)) {
+                        returnCode = StatusCodes.APPLY_FAIL;
+                    } else {
+                        if (!ApplyUtils.isSymlinkCorrect(customTarget, rootShell)) {
+                            returnCode = StatusCodes.SYMLINK_MISSING;
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
         }
 
