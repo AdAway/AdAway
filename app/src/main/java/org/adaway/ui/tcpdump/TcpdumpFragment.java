@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -30,6 +30,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import org.adaway.R;
@@ -45,9 +46,11 @@ import java.io.IOException;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class TcpdumpFragment extends Fragment {
-    /** The root shell to start and stop tcpdump. */
+    /**
+     * The root shell to start and stop tcpdump.
+     */
     private Shell mRootShell;
-    
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate layout
@@ -94,7 +97,15 @@ public class TcpdumpFragment extends Fragment {
         // Get delete button
         Button deleteButton = view.findViewById(R.id.tcpdump_fragment_delete_button);
         // Set delete button on click listener to delete tcpdump log
-        deleteButton.setOnClickListener(clickedView -> TcpdumpUtils.deleteLog(activity));
+        deleteButton.setOnClickListener(clickedView -> {
+            if (TcpdumpUtils.clearLogFile(activity)) {
+                Toast.makeText(
+                        getContext(),
+                        R.string.toast_tcpdump_log_deleted,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
         // Return created view
         return view;
     }
