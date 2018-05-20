@@ -34,6 +34,13 @@ import java.io.IOException;
 
 class TcpdumpUtils {
     /**
+     * Private constructor.
+     */
+    private TcpdumpUtils() {
+
+    }
+
+    /**
      * Get the tcpdump log file.
      *
      * @param context The application context.
