@@ -2,11 +2,10 @@ package org.adaway.ui.adware;
 
 import android.arch.lifecycle.LiveData;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.ComponentInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ServiceInfo;
 import android.support.annotation.WorkerThread;
 
 import org.adaway.util.AppExecutors;
@@ -15,9 +14,7 @@ import org.adaway.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * This class is {@link LiveData} to represents installed adware on device.
@@ -38,8 +35,7 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
             "com.sellaring.",
             "com.senddroid.",
             "com.tapjoy.",
-            "cn.kuguo.",
-            "com"
+            "cn.kuguo."
     };
 
     /**
@@ -84,65 +80,63 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
      * @return The found adware package information.
      */
     private List<PackageInfo> getAdwarePackages(PackageManager pm) {
+        List<PackageInfo> adPackages = new ArrayList<>();
         // It'd be simpler to just use pm.getInstalledPackages here, but apparently it's broken
         List<ApplicationInfo> applicationInfoList = pm.getInstalledApplications(0);
-
-        Set<PackageInfo> adPackages = new HashSet<>();
         for (ApplicationInfo applicationInfo : applicationInfoList) {
             try {
-                PackageInfo pkgInfo = pm.getPackageInfo(
+                // Retrieve package information
+                PackageInfo packageInfo = pm.getPackageInfo(
                         applicationInfo.packageName,
                         PackageManager.GET_ACTIVITIES | PackageManager.GET_RECEIVERS | PackageManager.GET_SERVICES
                 );
-
-                Log.v(Constants.TAG, "Scanning package " + pkgInfo.packageName);
-
-                if (pkgInfo.activities != null) {
-                    for (ActivityInfo activity : pkgInfo.activities) {
-                        Log.v(Constants.TAG, "[ACTIVITY] " + activity.name);
-                        for (String adPackagePrefix : AD_PACKAGE_PREFIXES) {
-                            if (activity.name.startsWith(adPackagePrefix)) {
-                                Log.i(Constants.TAG, "Detected ad framework prefix "
-                                        + adPackagePrefix + " in package " + pkgInfo.packageName
-                                        + " as activity " + activity.name);
-                                adPackages.add(pkgInfo);
-                                break;
-                            }
-                        }
-                    }
+                if (this.isAdware(packageInfo)) {
+                    adPackages.add(packageInfo);
                 }
-                if (pkgInfo.receivers != null) {
-                    for (ActivityInfo receiver : pkgInfo.receivers) {
-                        Log.v(Constants.TAG, "[RECEIVER] " + receiver.name);
-                        for (String adPackagePrefix : AD_PACKAGE_PREFIXES) {
-                            if (receiver.name.startsWith(adPackagePrefix)) {
-                                Log.i(Constants.TAG, "Detected ad framework prefix "
-                                        + adPackagePrefix + " in package " + pkgInfo.packageName
-                                        + " as receiver " + receiver.name);
-                                adPackages.add(pkgInfo);
-                                break;
-                            }
-                        }
-                    }
-                }
-                if (pkgInfo.services != null) {
-                    for (ServiceInfo service : pkgInfo.services) {
-                        Log.v(Constants.TAG, "[SERVICE] " + service.name);
-                        for (String adPackagePrefix : AD_PACKAGE_PREFIXES) {
-                            if (service.name.startsWith(adPackagePrefix)) {
-                                Log.i(Constants.TAG, "Detected ad framework prefix "
-                                        + adPackagePrefix + " in package " + pkgInfo.packageName
-                                        + " as service " + service.name);
-                                adPackages.add(pkgInfo);
-                                break;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                Log.e(Constants.TAG, "Scan Adware Exception", e);
+            } catch (Exception exception) {
+                Log.e(Constants.TAG, "An error occurred while scanning applications for adware", exception);
             }
         }
-        return new ArrayList<>(adPackages);
+        return adPackages;
+    }
+
+    /**
+     * Check if application is an adware.
+     *
+     * @param info The application package information.
+     * @return <code>true</code> if the appliaction is an adware, <code>false</code> otherwise.
+     */
+    private boolean isAdware(PackageInfo info) {
+        // Get package name
+        String packageName = info.packageName;
+        Log.v(Constants.TAG, "Scanning package " + packageName);
+        // Check package components
+        boolean matchActivity = info.activities != null && checkComponent(packageName, "activity", info.activities);
+        boolean matchReceiver = info.receivers != null && checkComponent(packageName, "receiver", info.receivers);
+        boolean matchService = info.services != null && checkComponent(packageName, "service", info.services);
+        return matchActivity || matchReceiver || matchService;
+    }
+
+
+    /**
+     * Check if an application component match the adware signature.
+     *
+     * @param packageName The application package name.
+     * @param type        The component type.
+     * @param info        The application components to check.
+     * @return <code>true</code> if a component matches adware signature, <code>false</code> otherwise.
+     */
+    private boolean checkComponent(String packageName, String type, ComponentInfo[] info) {
+        for (ComponentInfo componentInfo : info) {
+            String componentName = componentInfo.name;
+            Log.v(Constants.TAG, "[" + type + "] " + componentName);
+            for (String adPackagePrefix : AD_PACKAGE_PREFIXES) {
+                if (componentName.startsWith(adPackagePrefix)) {
+                    Log.i(Constants.TAG, String.format("Detected ad framework prefix %s in package %s as %s %s", adPackagePrefix, packageName, type, componentName));
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
