@@ -109,8 +109,10 @@ public class HostsContentFragment extends Fragment {
                 short readLines = 0;
                 // Read until end of file or max line to read
                 while ((line = reader.readLine()) != null && readLines < MAX_READ_LINES) {
+                    if (readLines > 0) {
+                        content.append("\n");
+                    }
                     content.append(line);
-                    content.append("\n");
                     readLines++;
                 }
                 // Return lines as string
