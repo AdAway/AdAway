@@ -132,9 +132,8 @@
     <item>13 Euros</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Equí pues escaniar aplicaciones adware que nun puen bloquiase pente AdAway. Estes aplicaciones usen por exemplu, avisos airpush qu\'emerxen incluso cuando nun tán n\'execución amás de camudar, quiciabes, el to tonu de llamada. ¡La única midida disponible ye desinstalar eses aplicaciones primiendo nos elmentos la llista!</string>
-  <string name="scan_adware_start">Entamar escanéu</string>
-  <string name="scan_adware_empty">¡Nun s\'alcontraron aplicaciones d\'adware!</string>
+  <string name="adware_description">Equí pues escaniar aplicaciones adware que nun puen bloquiase pente AdAway. Estes aplicaciones usen por exemplu, avisos airpush qu\'emerxen incluso cuando nun tán n\'execución amás de camudar, quiciabes, el to tonu de llamada. ¡La única midida disponible ye desinstalar eses aplicaciones primiendo nos elmentos la llista!</string>
+  <string name="adware_empty">¡Nun s\'alcontraron aplicaciones d\'adware!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Llocal:</string>
   <string name="hosts_last_modified_online">En llinia:</string>

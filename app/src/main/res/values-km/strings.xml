@@ -70,8 +70,7 @@
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_about_version">កំណែ៖</string>
   <!--Scan Adware-->
-  <string name="scan_adware_start">ចាប់ផ្ដើមស្កេន</string>
-  <string name="scan_adware_empty">ពុំមានកម្មវិធី Adware អាក្រក់ដែលអាចរកឃើញ!</string>
+  <string name="adware_empty">ពុំមានកម្មវិធី Adware អាក្រក់ដែលអាចរកឃើញ!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_online">លើបណ្ដាញ
 

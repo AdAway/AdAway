@@ -132,9 +132,8 @@
     <item>13 欧元</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">你可以在这扫描那些不能被广告走开屏蔽的恶意广告应用。这种应用使用了诸如空中推送提醒等技术，可以在程序没有运行时弹出来，甚至改变你的铃声设置。唯一的应对措施就是在这个列表中点击，卸载它们！</string>
-  <string name="scan_adware_start">开始扫描</string>
-  <string name="scan_adware_empty">未发现恶意广告程序！</string>
+  <string name="adware_description">你可以在这扫描那些不能被广告走开屏蔽的恶意广告应用。这种应用使用了诸如空中推送提醒等技术，可以在程序没有运行时弹出来，甚至改变你的铃声设置。唯一的应对措施就是在这个列表中点击，卸载它们！</string>
+  <string name="adware_empty">未发现恶意广告程序！</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">在线：</string>

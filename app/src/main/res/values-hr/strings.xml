@@ -136,9 +136,8 @@
     <item>13 Eura</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Ovdje možete pokrenuti potragu za zlonamjernim aplikacijama koje AdAway ne može blokirati. Te aplikacije koriste, na primjer, Airpush obavijesti koje se pojavljuju i kada aplikacija nije pokrenuta, a čak znaju promijeniti i zvuk vašeg zvona. Jedina protumjera koju možete poduzeti jest deinstalirati te aplikacije klikom na popis stavki.</string>
-  <string name="scan_adware_start">Pokreni pretraživanje</string>
-  <string name="scan_adware_empty">Nema pronađenih zlonamjernih aplikacija!</string>
+  <string name="adware_description">Ovdje možete pokrenuti potragu za zlonamjernim aplikacijama koje AdAway ne može blokirati. Te aplikacije koriste, na primjer, Airpush obavijesti koje se pojavljuju i kada aplikacija nije pokrenuta, a čak znaju promijeniti i zvuk vašeg zvona. Jedina protumjera koju možete poduzeti jest deinstalirati te aplikacije klikom na popis stavki.</string>
+  <string name="adware_empty">Nema pronađenih zlonamjernih aplikacija!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokalni:</string>
   <string name="hosts_last_modified_online">Na mreži:</string>

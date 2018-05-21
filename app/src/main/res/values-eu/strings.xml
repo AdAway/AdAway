@@ -134,9 +134,8 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Hemen AdAway-k blokeatu ezin dezakeen Adware aplikazio maltzurrik dagoen mihatu dezakezu. Aplikazio hauek adibidez aplikazioa ekinean ez dagoela ere oharleihotzen diren Airpush jakinarazpenak erabiltzen dituzte edo zure dei-doinua ere aldatu dezakete. Aurkako-neurri eskuragarri bakarra aplikazio hauek zerrendako gaietan klikatuz kentzea da.</string>
-  <string name="scan_adware_start">Hasi mihatzen</string>
-  <string name="scan_adware_empty">Ez da Adware aplikazio kaltegarririk aurkitu!</string>
+  <string name="adware_description">Hemen AdAway-k blokeatu ezin dezakeen Adware aplikazio maltzurrik dagoen mihatu dezakezu. Aplikazio hauek adibidez aplikazioa ekinean ez dagoela ere oharleihotzen diren Airpush jakinarazpenak erabiltzen dituzte edo zure dei-doinua ere aldatu dezakete. Aurkako-neurri eskuragarri bakarra aplikazio hauek zerrendako gaietan klikatuz kentzea da.</string>
+  <string name="adware_empty">Ez da Adware aplikazio kaltegarririk aurkitu!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Tokikoa:</string>
   <string name="hosts_last_modified_online">Online:</string>

@@ -179,9 +179,8 @@
     </string-array>
 
     <!-- Scan Adware -->
-    <string name="scan_adware_description">Burada Adware tarafından engellenemeyecek kötü yazılımlar için tarama yapabilirsiniz. Bu uygulamalar mesela Airpush bilgilendirmelerini gibi uygulama çalışmadığı zaman  ya da zil sesini değiştirdiğinizde bile reklam gösteren yazılımlardır. Bunun tek çözüm yolu listede çıkacak olan uygulamaları silmektir.</string>
-    <string name="scan_adware_start">Taramaya başla</string>
-    <string name="scan_adware_empty">Hiçbir kötü Adware yazılımı bulunamadı!</string>
+    <string name="adware_description">Burada Adware tarafından engellenemeyecek kötü yazılımlar için tarama yapabilirsiniz. Bu uygulamalar mesela Airpush bilgilendirmelerini gibi uygulama çalışmadığı zaman  ya da zil sesini değiştirdiğinizde bile reklam gösteren yazılımlardır. Bunun tek çözüm yolu listede çıkacak olan uygulamaları silmektir.</string>
+    <string name="adware_empty">Hiçbir kötü Adware yazılımı bulunamadı!</string>
 
     <!-- Hosts Sources -->
     <string name="hosts_last_modified_local">Yerel:</string>

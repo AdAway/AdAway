@@ -131,9 +131,8 @@
     <item>13 Euros</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">สามารถสแกนแอพพลิเคชันโฆษณาที่ไม่สามารถบล็อคด้วย AdAway</string>
-  <string name="scan_adware_start">กำลังเริ่มสแกน</string>
-  <string name="scan_adware_empty">ไม่พบ Adware</string>
+  <string name="adware_description">สามารถสแกนแอพพลิเคชันโฆษณาที่ไม่สามารถบล็อคด้วย AdAway</string>
+  <string name="adware_empty">ไม่พบ Adware</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">เครื่อง:</string>
   <string name="hosts_last_modified_online">ออนไลน์:</string>

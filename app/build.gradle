@@ -6,12 +6,20 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:cardview-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'com.android.support:preference-v7:27.1.1'
-    implementation 'com.android.support:support-fragment:27.1.1'
+    // Define library versions
+    def lifecycle_version = '1.1.1'
+    def support_version = '27.1.1'
+    // Architecture components
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
+    // Support libraries
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:cardview-v7:$support_version"
+    implementation "com.android.support.constraint:constraint-layout:1.1.0"
+    implementation "com.android.support:design:$support_version"
+    implementation "com.android.support:preference-v7:$support_version"
+    implementation "com.android.support:support-fragment:$support_version"
+
     implementation 'com.evernote:android-job:1.2.4'
     implementation project(':libraries:RootCommands')
     implementation project(':tcpdump')

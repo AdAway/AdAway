@@ -132,9 +132,8 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Her kan du scanne for dårlige Adware-programmer, som ikke kan blokeres af AdAway. Disse apps bruger for eksempel Airpush meddelelser, der dukker op, selv når app\'en ikke kører og kan endda ændre din ringetone. Den eneste tilgængelige løsning er at afinstallere disse apps ved at klikke på punkterne på listen!</string>
-  <string name="scan_adware_start">Start skan</string>
-  <string name="scan_adware_empty">Ingen dårlige Adware apps blev fundet</string>
+  <string name="adware_description">Her kan du scanne for dårlige Adware-programmer, som ikke kan blokeres af AdAway. Disse apps bruger for eksempel Airpush meddelelser, der dukker op, selv når app\'en ikke kører og kan endda ændre din ringetone. Den eneste tilgængelige løsning er at afinstallere disse apps ved at klikke på punkterne på listen!</string>
+  <string name="adware_empty">Ingen dårlige Adware apps blev fundet</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokalt:</string>
   <string name="hosts_last_modified_online">Online:</string>

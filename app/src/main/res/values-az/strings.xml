@@ -49,8 +49,7 @@
   <string name="help_about_version">Versiya:</string>
   <string name="help_donation_paypal_item">AdAway ianə</string>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Siz burda AdAway tərəfindən bloklana bilməyən Adware proqramlarını skan edə bilərsiniz. Bu proqramlar misal olaraq Airpush bildirişlərindən istifadə edirlər ki bu bildirişlər hətta proqram çalışmadıqda və ya səs siqnalını dəyişdikdə belə açılır.Mövcud olan əks-tədbir metodu yalnız proqramları siyahıdan seçip silməkdir!</string>
-  <string name="scan_adware_start">Skan et</string>
+  <string name="adware_description">Siz burda AdAway tərəfindən bloklana bilməyən Adware proqramlarını skan edə bilərsiniz. Bu proqramlar misal olaraq Airpush bildirişlərindən istifadə edirlər ki bu bildirişlər hətta proqram çalışmadıqda və ya səs siqnalını dəyişdikdə belə açılır.Mövcud olan əks-tədbir metodu yalnız proqramları siyahıdan seçip silməkdir!</string>
   <!--Hosts Sources-->
   <!--Other-->
   <!--Tcpdump-->

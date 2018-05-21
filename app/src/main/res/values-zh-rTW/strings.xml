@@ -133,9 +133,8 @@
     <item>13 歐元</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">你可以掃描是否被安裝了惡意廣告軟體，這些使用推播技術 Airpush notifications 的廣告無法被阻擋，甚至當軟體沒有在執行時也會彈跳出廣告訊息。對付這些惡意軟體最有效的方法就是輕觸清單來移除他們！ </string>
-  <string name="scan_adware_start">開始掃描</string>
-  <string name="scan_adware_empty">沒有發現任何惡意的廣告軟體！</string>
+  <string name="adware_description">你可以掃描是否被安裝了惡意廣告軟體，這些使用推播技術 Airpush notifications 的廣告無法被阻擋，甚至當軟體沒有在執行時也會彈跳出廣告訊息。對付這些惡意軟體最有效的方法就是輕觸清單來移除他們！ </string>
+  <string name="adware_empty">沒有發現任何惡意的廣告軟體！</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">線上：</string>

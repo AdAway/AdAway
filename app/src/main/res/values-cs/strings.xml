@@ -131,9 +131,8 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Zde můžete vyhledat špatné Adware aplikace, které nemohou být blokovány AdAway. Tyto aplikace používají pro oznámení například Airpush, které se objevují i v případě, že aplikace není spuštěna nebo dokonce mění vyzvánění. Protiopatření je pouze odinstalovat ty aplikace klepnutím na položky seznamu!</string>
-  <string name="scan_adware_start">Zahájit skenování</string>
-  <string name="scan_adware_empty">Špatné Adware aplikace nebyly nalezeny!</string>
+  <string name="adware_description">Zde můžete vyhledat špatné Adware aplikace, které nemohou být blokovány AdAway. Tyto aplikace používají pro oznámení například Airpush, které se objevují i v případě, že aplikace není spuštěna nebo dokonce mění vyzvánění. Protiopatření je pouze odinstalovat ty aplikace klepnutím na položky seznamu!</string>
+  <string name="adware_empty">Špatné Adware aplikace nebyly nalezeny!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokální:</string>
   <string name="hosts_last_modified_online">Online:</string>

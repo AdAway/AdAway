@@ -132,9 +132,8 @@
     <item>13 Euros</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Aquí podeu escanejar aplicacions Adware malignes que no es poden bloquejar amb AdAway. Aquestes aplicacions utilitzen, per exemple, notificacions Airpush o canviar el vostre to de trucada fins i tot cuan no funcionen. La única defensa possible és, desinstalar-les clicant en la llista de elements</string>
-  <string name="scan_adware_start">Comença l\'escaneig</string>
-  <string name="scan_adware_empty">No s\'ha trobat aplicacions Adware malignes.</string>
+  <string name="adware_description">Aquí podeu escanejar aplicacions Adware malignes que no es poden bloquejar amb AdAway. Aquestes aplicacions utilitzen, per exemple, notificacions Airpush o canviar el vostre to de trucada fins i tot cuan no funcionen. La única defensa possible és, desinstalar-les clicant en la llista de elements</string>
+  <string name="adware_empty">No s\'ha trobat aplicacions Adware malignes.</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En línia:</string>

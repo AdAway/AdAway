@@ -132,9 +132,8 @@
     <item>13 يورو</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">هنا يمكنك البحث عن تطبيقات الإعلانات المتسللة، التي لا تحجب عبر AdAway. هذه التطبيقات تستخدم الاشعارات في كل وقت حتى عند غلق التطبيق وقد تغير نغمة الرنين مثلAirpush. و الحل الوحيد لها هو إلغاء تثبيتها عبر النقر على عنوان التطبيق أمامك.</string>
-  <string name="scan_adware_start">بدء الفحص</string>
-  <string name="scan_adware_empty">لم يتم العثور على إعلانات متسللة!</string>
+  <string name="adware_description">هنا يمكنك البحث عن تطبيقات الإعلانات المتسللة، التي لا تحجب عبر AdAway. هذه التطبيقات تستخدم الاشعارات في كل وقت حتى عند غلق التطبيق وقد تغير نغمة الرنين مثلAirpush. و الحل الوحيد لها هو إلغاء تثبيتها عبر النقر على عنوان التطبيق أمامك.</string>
+  <string name="adware_empty">لم يتم العثور على إعلانات متسللة!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">المثبت:</string>
   <string name="hosts_last_modified_online">الجديد:</string>

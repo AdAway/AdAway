@@ -134,9 +134,8 @@
     <item>13 Eur</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Tu môžete vyhľadať Adware aplikácie, ktoré AdAway nemôže zablokovať. Tieto aplikácie používajú napríklad Airpush upozornenia, ktoré sa zobrazujú aj keď aplikácia nie je spustená alebo vám môžu zmeniť zvonenie. Jediné dostupné protiopatrenie je odinštalovať tieto aplikácie kliknutím na položku v zozname!</string>
-  <string name="scan_adware_start">Spustiť vyhľadávanie</string>
-  <string name="scan_adware_empty">Neboli nájdené žiadne Adware aplikácie!</string>
+  <string name="adware_description">Tu môžete vyhľadať Adware aplikácie, ktoré AdAway nemôže zablokovať. Tieto aplikácie používajú napríklad Airpush upozornenia, ktoré sa zobrazujú aj keď aplikácia nie je spustená alebo vám môžu zmeniť zvonenie. Jediné dostupné protiopatrenie je odinštalovať tieto aplikácie kliknutím na položku v zozname!</string>
+  <string name="adware_empty">Neboli nájdené žiadne Adware aplikácie!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Použité:</string>
   <string name="hosts_last_modified_online">Online:</string>

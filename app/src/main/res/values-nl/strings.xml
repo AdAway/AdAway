@@ -176,9 +176,8 @@
     </string-array>
 
     <!-- Scan Adware -->
-    <string name="scan_adware_description">Hier kunt u scannen naar adware-apps die niet door AdAway geblokkeerd kunnen worden. Deze apps gebruiken bijvoorbeeld pushmeldingen die zelfs verschijnen als de applicatie niet draait. Het kan zelfs gebeuren dat deze apps uw beltoon veranderen. De enige beschikbare oplossing is deze apps deïnstalleren door de apps die weergegeven worden in de lijst aan te raken!</string>
-    <string name="scan_adware_start">Start scannen</string>
-    <string name="scan_adware_empty">Geen adware-apps gevonden!</string>
+    <string name="adware_description">Hier kunt u scannen naar adware-apps die niet door AdAway geblokkeerd kunnen worden. Deze apps gebruiken bijvoorbeeld pushmeldingen die zelfs verschijnen als de applicatie niet draait. Het kan zelfs gebeuren dat deze apps uw beltoon veranderen. De enige beschikbare oplossing is deze apps deïnstalleren door de apps die weergegeven worden in de lijst aan te raken!</string>
+    <string name="adware_empty">Geen adware-apps gevonden!</string>
 
     <!-- Hosts Sources -->
     <string name="hosts_last_modified_local">Lokaal:</string>

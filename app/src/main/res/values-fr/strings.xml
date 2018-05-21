@@ -134,9 +134,8 @@
     <item>13 euros</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Vous pouvez rechercher ici les mauvais pubiciels qui ne peuvent être bloqués par AdAWay. Ces applis utilisent par exemple des notifications intempestives « airpush » qui s\'affichent même si l\'appli ne tourne pas et peuvent aussi changer votre sonnerie. La seule contre-mesure est de désinstaller ces applis en cliquant sur les éléments listés !</string>
-  <string name="scan_adware_start">Démarrer l\'analyse</string>
-  <string name="scan_adware_empty">Aucun mauvais pubiciel trouvé !</string>
+  <string name="adware_description">Vous pouvez rechercher ici les mauvais pubiciels qui ne peuvent être bloqués par AdAWay. Ces applis utilisent par exemple des notifications intempestives « airpush » qui s\'affichent même si l\'appli ne tourne pas et peuvent aussi changer votre sonnerie. La seule contre-mesure est de désinstaller ces applis en cliquant sur les éléments listés !</string>
+  <string name="adware_empty">Aucun mauvais pubiciel trouvé !</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local :</string>
   <string name="hosts_last_modified_online">En ligne :</string>

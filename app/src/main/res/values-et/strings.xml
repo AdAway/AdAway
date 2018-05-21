@@ -90,9 +90,8 @@
     <item>13 eurot</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Siin saad otsida pahasid reklaamvara rakendusi, mida AdAway blokeerida ei suuda. Need rakendused kasutavad näiteks Airpush teavitusi, mis hüppavad ette ka siis, kui rakendus ise ei tööta, või isegi muudavad helinatooni. Ainus vastumeede on nende rakenduste eemaldamine. Selleks klõpsa nimekirjas rakenduse peal.</string>
-  <string name="scan_adware_start">Alusta skanneerimist</string>
-  <string name="scan_adware_empty">Reklaamvara rakendusi ei leitud!</string>
+  <string name="adware_description">Siin saad otsida pahasid reklaamvara rakendusi, mida AdAway blokeerida ei suuda. Need rakendused kasutavad näiteks Airpush teavitusi, mis hüppavad ette ka siis, kui rakendus ise ei tööta, või isegi muudavad helinatooni. Ainus vastumeede on nende rakenduste eemaldamine. Selleks klõpsa nimekirjas rakenduse peal.</string>
+  <string name="adware_empty">Reklaamvara rakendusi ei leitud!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Kohalik:</string>
   <string name="hosts_last_modified_online">Onlain:</string>

@@ -133,9 +133,8 @@
     <item>13 euroa</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Täällä voit etsiä mainosohjelma-sovelluksia, joita AdAway ei voinut estää. Nämä sovellukset käyttävät esimerkiksi Airpush-ilmoituksia, jotka avautuvat vaikka sovellus ei ole käynnissä tai jopa vaihtaa soittoääntä. Ainut toimiva vastatoimi on poistaa kyseiset sovellukset klikkaamalla luettelokohteessa</string>
-  <string name="scan_adware_start">Aloita skannaus</string>
-  <string name="scan_adware_empty">Mainosohjelmasovelluksia ei löytynyt!</string>
+  <string name="adware_description">Täällä voit etsiä mainosohjelma-sovelluksia, joita AdAway ei voinut estää. Nämä sovellukset käyttävät esimerkiksi Airpush-ilmoituksia, jotka avautuvat vaikka sovellus ei ole käynnissä tai jopa vaihtaa soittoääntä. Ainut toimiva vastatoimi on poistaa kyseiset sovellukset klikkaamalla luettelokohteessa</string>
+  <string name="adware_empty">Mainosohjelmasovelluksia ei löytynyt!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Paikallinen:</string>
   <string name="hosts_last_modified_online">Online:</string>

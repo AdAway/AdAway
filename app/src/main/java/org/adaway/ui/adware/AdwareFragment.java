@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,19 +20,16 @@
 
 package org.adaway.ui.adware;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -41,60 +38,73 @@ import org.adaway.R;
 import java.util.List;
 
 /**
- * This class is a {@link Fragment} to scan and uninstall adwares.
+ * This class is a {@link Fragment} to scan and uninstall adware.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class ScanAdwareFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<AdwareInstall>> {
-    /** The start scan button. */
-    private Button mStartButton;
-    /** The adware install list view. */
+public class AdwareFragment extends Fragment {
+    /**
+     * The adware install list view.
+     */
     private ListView mListView;
-    /** The scanning loading view. */
-    private ProgressBar mProgressbar;
-    /** The empty text view. */
-    private TextView mEmptyTextView;
+    /**
+     * The status text.
+     */
+    private TextView mStatusText;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Create fragment view
-        View view = inflater.inflate(R.layout.scan_adware_fragment, container, false);
-        // Get start button
-        this.mStartButton = view.findViewById(R.id.scan_adware_start_button);
-        // Bind start adware scan
-        this.mStartButton.setOnClickListener(v -> ScanAdwareFragment.this.startAdwareScan());
+        View view = inflater.inflate(R.layout.adware_fragment, container, false);
         // Get list view
-        this.mListView = view.findViewById(R.id.scan_adware_list);
-        // Bind
+        this.mListView = view.findViewById(R.id.adware_list);
+        // Bind list onclick listener
         this.mListView.setOnItemClickListener((parent, view1, position, id) -> {
             // Get clicked adware
             AdwareInstall adwareInstall = (AdwareInstall) parent.getItemAtPosition(position);
             // Uninstall adware
-            ScanAdwareFragment.this.uninstallAdware(adwareInstall);
+            AdwareFragment.this.uninstallAdware(adwareInstall);
         });
-        // Get loading view
-        this.mProgressbar = view.findViewById(R.id.scan_adware_progressbar);
-        // Get empty text view
-        this.mEmptyTextView = view.findViewById(R.id.scan_adware_empty_textview);
+        // Get status text
+        this.mStatusText = view.findViewById(R.id.adware_status_text);
+        /*
+         * Get model and bind it to view.
+         */
+        // Get the model
+        AdwareViewModel model = ViewModelProviders.of(this).get(AdwareViewModel.class);
+        // Bind model to views
+        model.getAdware().observe(this, data -> {
+            if (data == null) {
+                this.displayStatusText(R.string.adware_scanning);
+            } else if (data.isEmpty()) {
+                this.displayStatusText(R.string.adware_empty);
+            } else {
+                this.displayAdware(data);
+            }
+        });
         // Return created view
         return view;
     }
 
-    /*
-    * LoaderCallbacks.
+    /**
+     * Display a status text.
+     *
+     * @param text The status text to display.
      */
-
-    @NonNull
-    @Override
-    public Loader<List<AdwareInstall>> onCreateLoader(int id, Bundle args) {
-        // Create loader
-        return new AdwareInstallLoader(this.getContext());
+    private void displayStatusText(int text) {
+        // Set text
+        this.mStatusText.setText(text);
+        // Show the text
+        this.mStatusText.setVisibility(View.VISIBLE);
+        this.mListView.setVisibility(View.GONE);
     }
 
-    @Override
-    public void onLoadFinished(@NonNull Loader<List<AdwareInstall>> loader, List<AdwareInstall> data) {
-        // Stop adware scan
-        this.stopAdwareScan();
+    /**
+     * Display the installed adware.
+     *
+     * @param data The adware to show.
+     */
+    private void displayAdware(List<AdwareInstall> data) {
         // Create adapter
         String[] from = new String[]{
                 AdwareInstall.APPLICATION_NAME_KEY,
@@ -112,41 +122,10 @@ public class ScanAdwareFragment extends Fragment implements LoaderManager.Loader
         );
         // Update list
         adapter.notifyDataSetChanged();
+        // Show the list
         this.mListView.setAdapter(adapter);
-    }
-
-    @Override
-    public void onLoaderReset(@NonNull Loader<List<AdwareInstall>> loader) {
-        // Stop adware scan
-        this.stopAdwareScan();
-    }
-
-    /**
-     * Start adware scan.
-     */
-    private void startAdwareScan() {
-        // Disable start button
-        this.mStartButton.setText(R.string.scan_adware_scanning);
-        this.mStartButton.setEnabled(false);
-        // Display spinner
-        this.mProgressbar.setVisibility(View.VISIBLE);
-        // Clear empty view
-        this.mListView.setEmptyView(null);
-        // Initialize loader
-        this.getLoaderManager().initLoader(0, null, this).forceLoad();
-    }
-
-    /**
-     * Stop adware scan.
-     */
-    private void stopAdwareScan() {
-        // Hide spinner
-        this.mProgressbar.setVisibility(View.GONE);
-        // Restore start button
-        this.mStartButton.setText(R.string.scan_adware_start);
-        this.mStartButton.setEnabled(true);
-        // Bind empty view
-        this.mListView.setEmptyView(this.mEmptyTextView);
+        this.mStatusText.setVisibility(View.GONE);
+        this.mListView.setVisibility(View.VISIBLE);
     }
 
     /**

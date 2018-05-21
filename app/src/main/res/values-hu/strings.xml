@@ -144,9 +144,8 @@ Ha ez nem működik, keress az interneten egy S-OFF megoldást a telefonodra.</s
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Itt lehet keresni hibás adware alkalmazásokat, amelyeket nem blokkol az AdAway.. Az alkalmazás pl. Airpush felugró értesítést használ, még ha az app nem is fut, vagy megváltoztatja a csengőhangot. Ellenintézkedésként csak az app eltávolítása lehetséges a listaelemet érintve!</string>
-  <string name="scan_adware_start">Felismerés indítása</string>
-  <string name="scan_adware_empty">Nem található hibás Adware alkalmazás!</string>
+  <string name="adware_description">Itt lehet keresni hibás adware alkalmazásokat, amelyeket nem blokkol az AdAway.. Az alkalmazás pl. Airpush felugró értesítést használ, még ha az app nem is fut, vagy megváltoztatja a csengőhangot. Ellenintézkedésként csak az app eltávolítása lehetséges a listaelemet érintve!</string>
+  <string name="adware_empty">Nem található hibás Adware alkalmazás!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Helyi:</string>
   <string name="hosts_last_modified_online">Online:</string>

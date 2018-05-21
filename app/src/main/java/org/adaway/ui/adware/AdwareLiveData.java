@@ -1,30 +1,15 @@
-/*
- * Copyright (C) 2012 Daniel Bjorge
- *                    Dominik Schürmann
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.adaway.ui.adware;
 
+import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ServiceInfo;
-import android.support.v4.content.AsyncTaskLoader;
+import android.support.annotation.WorkerThread;
 
+import org.adaway.util.AppExecutors;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -35,10 +20,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * A custom Loader to search for bad adware apps, based on https://github.com/brosmike/AirPush-Detector.
- * Daniel Bjorge licensed it under Apachev2 after asking him by mail.
+ * This class is {@link LiveData} to represents installed adware on device.
  */
-class AdwareInstallLoader extends AsyncTaskLoader<List<AdwareInstall>> {
+class AdwareLiveData extends LiveData<List<AdwareInstall>> {
     /**
      * The adware package prefixes.
      */
@@ -54,22 +38,29 @@ class AdwareInstallLoader extends AsyncTaskLoader<List<AdwareInstall>> {
             "com.sellaring.",
             "com.senddroid.",
             "com.tapjoy.",
-            "cn.kuguo."
+            "cn.kuguo.",
+            "com"
     };
+
+    /**
+     * The application context.
+     */
+    private final Context context;
 
     /**
      * Constructor.
      *
      * @param context The application context.
      */
-    AdwareInstallLoader(Context context) {
-        super(context);
+    AdwareLiveData(Context context) {
+        this.context = context;
+        AppExecutors.getInstance().diskIO().execute(this::loadData);
     }
 
-    @Override
-    public List<AdwareInstall> loadInBackground() {
+    @WorkerThread
+    private void loadData() {
         // Get the package manager
-        PackageManager pm = this.getContext().getPackageManager();
+        PackageManager pm = context.getPackageManager();
         // Get the adware packages
         List<PackageInfo> adwarePackages = this.getAdwarePackages(pm);
         // Create related adware installs
@@ -82,8 +73,8 @@ class AdwareInstallLoader extends AsyncTaskLoader<List<AdwareInstall>> {
         }
         // Sort adware installs found
         Collections.sort(adwareInstalls);
-        // Return loaded adware installs
-        return adwareInstalls;
+        // Post loaded adware installs
+        this.postValue(adwareInstalls);
     }
 
     /**
@@ -98,13 +89,6 @@ class AdwareInstallLoader extends AsyncTaskLoader<List<AdwareInstall>> {
 
         Set<PackageInfo> adPackages = new HashSet<>();
         for (ApplicationInfo applicationInfo : applicationInfoList) {
-            // Check if cursor was canceled
-            if (this.isLoadInBackgroundCanceled()) {
-                // Clear found adware packages
-                adPackages.clear();
-                // Stop looking further
-                break;
-            }
             try {
                 PackageInfo pkgInfo = pm.getPackageInfo(
                         applicationInfo.packageName,

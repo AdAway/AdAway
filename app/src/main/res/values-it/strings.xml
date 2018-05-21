@@ -134,9 +134,8 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Qui puoi fare una scansione alla ricerca di applicazioni malevoli con Adware, che non possono essere bloccate da AdAway. Queste applicazioni usano per esempio notifiche Airpush che appaiono anche quando l\'app non è avviata o addirittura ti cambiano la suoneria. L\'unica contromisura disponibile è disinstallare queste applicazioni cliccando nella lista delle voci!</string>
-  <string name="scan_adware_start">Inizia scansione</string>
-  <string name="scan_adware_empty">Nessuna cattiva applicazione Adware trovata!</string>
+  <string name="adware_description">Qui puoi fare una scansione alla ricerca di applicazioni malevoli con Adware, che non possono essere bloccate da AdAway. Queste applicazioni usano per esempio notifiche Airpush che appaiono anche quando l\'app non è avviata o addirittura ti cambiano la suoneria. L\'unica contromisura disponibile è disinstallare queste applicazioni cliccando nella lista delle voci!</string>
+  <string name="adware_empty">Nessuna cattiva applicazione Adware trovata!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Locale:</string>
   <string name="hosts_last_modified_online">Online:</string>

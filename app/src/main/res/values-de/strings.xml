@@ -134,9 +134,8 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Hier können Sie nach Adware suchen, die nicht von AdAway blockiert werden kann. Diese Anwendungen belästigen den Nutzer beispielsweise durch Airpush-Benachrichtigungen, die auch, wenn die Anwendung gerade nicht genutzt wird, in der Benachrichtungsleiste angezeigt werden. Gefundene Anwendungen können mit einem Klick auf den Eintrag deinstalliert werden!</string>
-  <string name="scan_adware_start">Durchsuchen starten</string>
-  <string name="scan_adware_empty">Es wurde keine Adware gefunden!</string>
+  <string name="adware_description">Hier können Sie nach Adware suchen, die nicht von AdAway blockiert werden kann. Diese Anwendungen belästigen den Nutzer beispielsweise durch Airpush-Benachrichtigungen, die auch, wenn die Anwendung gerade nicht genutzt wird, in der Benachrichtungsleiste angezeigt werden. Gefundene Anwendungen können mit einem Klick auf den Eintrag deinstalliert werden!</string>
+  <string name="adware_empty">Es wurde keine Adware gefunden!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>

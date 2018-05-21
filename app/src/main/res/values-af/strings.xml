@@ -122,9 +122,8 @@
     <item>13 Euros</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Hier kan jy vir slegte advertensies skandeer wat nie deur AdAway geblokkeer kan word nie. Hierdie programmes gebruik bv. Airpush kennisgewings wat verskyn al sou die program nie aktief wees nie of self jou luitoon verander. Die enigste oplossing is om daardie programme te verwyder duer op die lys items te klik!</string>
-  <string name="scan_adware_start">Begin skandering</string>
-  <string name="scan_adware_empty">Geen slegte Advertensie programme gevind nie!</string>
+  <string name="adware_description">Hier kan jy vir slegte advertensies skandeer wat nie deur AdAway geblokkeer kan word nie. Hierdie programmes gebruik bv. Airpush kennisgewings wat verskyn al sou die program nie aktief wees nie of self jou luitoon verander. Die enigste oplossing is om daardie programme te verwyder duer op die lys items te klik!</string>
+  <string name="adware_empty">Geen slegte Advertensie programme gevind nie!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokaal:</string>
   <string name="hosts_last_modified_online">Aanlyn:</string>

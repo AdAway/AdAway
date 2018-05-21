@@ -132,9 +132,8 @@
     <item>13 ユーロ</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">AdAwayでブロックできない、アプリが起動していなくても通知領域に広告を表示したり、着信音を変えたりする悪質なアドウェアをスキャンできます。 アドウェア対策はそのアプリをアンインストールするしかありません!</string>
-  <string name="scan_adware_start">スキャンを開始</string>
-  <string name="scan_adware_empty">アドウェアは検出されませんでした!</string>
+  <string name="adware_description">AdAwayでブロックできない、アプリが起動していなくても通知領域に広告を表示したり、着信音を変えたりする悪質なアドウェアをスキャンできます。 アドウェア対策はそのアプリをアンインストールするしかありません!</string>
+  <string name="adware_empty">アドウェアは検出されませんでした!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">ﾛｰｶﾙ:</string>
   <string name="hosts_last_modified_online">ｵﾝﾗｲﾝ:</string>

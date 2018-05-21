@@ -134,9 +134,8 @@
     <item>13 Euros</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Di sini Anda dapat memindai aplikasi Adware jahat, yang tidak dapat diblokir oleh AdAway. Aplikasi ini menggunakan misalnya pemberitahuan Airpush yang muncul bahkan ketika aplikasi tidak berjalan atau bahkan mengubah nada dering Anda. Tindakan balasan yang tersedia adalah dengan menghapus instalasi aplikasi tersebut dengan mengklik pada list items!</string>
-  <string name="scan_adware_start">Mulai pencarian</string>
-  <string name="scan_adware_empty">Tidak ditemukan ada aplikasi Adware buruk!</string>
+  <string name="adware_description">Di sini Anda dapat memindai aplikasi Adware jahat, yang tidak dapat diblokir oleh AdAway. Aplikasi ini menggunakan misalnya pemberitahuan Airpush yang muncul bahkan ketika aplikasi tidak berjalan atau bahkan mengubah nada dering Anda. Tindakan balasan yang tersedia adalah dengan menghapus instalasi aplikasi tersebut dengan mengklik pada list items!</string>
+  <string name="adware_empty">Tidak ditemukan ada aplikasi Adware buruk!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>

@@ -132,9 +132,8 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Tại đây bạn có thể quét các ứng dụng kèm quảng cáo khó chịu mà AdAway không thể chặn. Chúng sử dụng các phần mềm thông báo như Airpush chẳng hạn để hiển thị quảng cáo ngay cả khi ứng dụng không chạy, hay thậm chí đổi nhạc chuông của máy. Biện pháp duy nhất là gỡ bỏ chúng bằng cách chọn từ danh sách!</string>
-  <string name="scan_adware_start">Bắt đầu quét</string>
-  <string name="scan_adware_empty">Không tìm thấy ứng dụng kèm quảng cáo nào!</string>
+  <string name="adware_description">Tại đây bạn có thể quét các ứng dụng kèm quảng cáo khó chịu mà AdAway không thể chặn. Chúng sử dụng các phần mềm thông báo như Airpush chẳng hạn để hiển thị quảng cáo ngay cả khi ứng dụng không chạy, hay thậm chí đổi nhạc chuông của máy. Biện pháp duy nhất là gỡ bỏ chúng bằng cách chọn từ danh sách!</string>
+  <string name="adware_empty">Không tìm thấy ứng dụng kèm quảng cáo nào!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Cục bộ:</string>
   <string name="hosts_last_modified_online">Trực tuyến:</string>

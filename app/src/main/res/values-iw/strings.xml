@@ -129,9 +129,8 @@
     <item>13 יורו</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">כאן אתה יכול לסרוק תוכנות מזיקות, שאינן יכולות להיחסם על ידי AdAway. תוכנות אלו משתמשות לדוגמא בהודעות דחיפה שקופצים גם כאשר התוכנה אינה עובדת או לשנות את הצלצול שלך. זה רק אמצעי עזר כדי לתת לך להחליט אם להסיר את התוכנה דרך ניהול היישומים!</string>
-  <string name="scan_adware_start">התחל סריקה</string>
-  <string name="scan_adware_empty">לא נמצאו תוכנות רוגלה! </string>
+  <string name="adware_description">כאן אתה יכול לסרוק תוכנות מזיקות, שאינן יכולות להיחסם על ידי AdAway. תוכנות אלו משתמשות לדוגמא בהודעות דחיפה שקופצים גם כאשר התוכנה אינה עובדת או לשנות את הצלצול שלך. זה רק אמצעי עזר כדי לתת לך להחליט אם להסיר את התוכנה דרך ניהול היישומים!</string>
+  <string name="adware_empty">לא נמצאו תוכנות רוגלה! </string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">מקומי:</string>
   <string name="hosts_last_modified_online">אונליין:</string>

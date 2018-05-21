@@ -132,9 +132,8 @@
     <item>13 Eurų</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Čia galite ieškoti programėlių su įterpta reklama, kurias AdAway gali blokuoti. Programėlės gali naudoti Airpush pranešimus, kurie iššoka būsenos juostoje net kai programa neaktyvi, ar net pakeisti skambėjimo melodiją. Vienintelis būdas išvengti to - pašalinti tokias programas!</string>
-  <string name="scan_adware_start">Pradėti skenavimą</string>
-  <string name="scan_adware_empty">Neradau probleminių AdAware programų!</string>
+  <string name="adware_description">Čia galite ieškoti programėlių su įterpta reklama, kurias AdAway gali blokuoti. Programėlės gali naudoti Airpush pranešimus, kurie iššoka būsenos juostoje net kai programa neaktyvi, ar net pakeisti skambėjimo melodiją. Vienintelis būdas išvengti to - pašalinti tokias programas!</string>
+  <string name="adware_empty">Neradau probleminių AdAware programų!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Vietinis:</string>
   <string name="hosts_last_modified_online">Prisijungęs:</string>

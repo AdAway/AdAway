@@ -134,9 +134,8 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Możesz tutaj przeskanować aplikacje w poszukiwaniu szkodliwych dodatków Adware, które nie mogą być zablokowane przez AdAway. Takie aplikacje używają np. powiadomień Airpush nawet, gdy same nie są uruchomione, a mogą nawet zmienić dźwięk twojego dzwonka. Jedyny środek zaradczy to odinstalowanie takich aplikacji przez kliknięcie na jej pozycję na liście! </string>
-  <string name="scan_adware_start">Rozpocznij skanowanie</string>
-  <string name="scan_adware_empty">Nie znaleziono aplikacji zawierających szkodliwe Adware</string>
+  <string name="adware_description">Możesz tutaj przeskanować aplikacje w poszukiwaniu szkodliwych dodatków Adware, które nie mogą być zablokowane przez AdAway. Takie aplikacje używają np. powiadomień Airpush nawet, gdy same nie są uruchomione, a mogą nawet zmienić dźwięk twojego dzwonka. Jedyny środek zaradczy to odinstalowanie takich aplikacji przez kliknięcie na jej pozycję na liście! </string>
+  <string name="adware_empty">Nie znaleziono aplikacji zawierających szkodliwe Adware</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokalny:</string>
   <string name="hosts_last_modified_online">Online:</string>

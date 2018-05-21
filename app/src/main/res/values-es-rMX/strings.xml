@@ -89,8 +89,7 @@
     <item>13 Euros</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_start">Empezar Escaneo</string>
-  <string name="scan_adware_empty">¡Ninguna Aplicación Adware fue encontrada!</string>
+  <string name="adware_empty">¡Ninguna Aplicación Adware fue encontrada!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En linea:</string>

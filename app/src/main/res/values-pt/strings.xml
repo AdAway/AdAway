@@ -134,9 +134,8 @@
     <item>13 euros</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Aqui, pode procurar aplicações com adware malicioso, as quais não podem ser bloqueadas pelo AdAway. Estas aplicações utilizam, por exemplo, notificações Airpush, que aparecem mesmo que a aplicação não esteja em execução ou até alteram o seu tom de toque. A única solução possível é desinstalar estas aplicações tocando nos itens da lista!</string>
-  <string name="scan_adware_start">Começar a procurar</string>
-  <string name="scan_adware_empty">Não foram encontradas aplicações com adware malicioso!</string>
+  <string name="adware_description">Aqui, pode procurar aplicações com adware malicioso, as quais não podem ser bloqueadas pelo AdAway. Estas aplicações utilizam, por exemplo, notificações Airpush, que aparecem mesmo que a aplicação não esteja em execução ou até alteram o seu tom de toque. A única solução possível é desinstalar estas aplicações tocando nos itens da lista!</string>
+  <string name="adware_empty">Não foram encontradas aplicações com adware malicioso!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Locais:</string>
   <string name="hosts_last_modified_online">Online:</string>

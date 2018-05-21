@@ -134,9 +134,8 @@
     <item>13 Euro</item>
   </string-array>
   <!--Scan Adware-->
-  <string name="scan_adware_description">Här kan du söka efter Adware-appar som inte AdAway kan blockera. Dessa appar använder till exempel så kallade Airpush-meddelanden som visas även om appen inte körs. Enda sättet att bli av med dem är att avinstallera apparna genom att klicka i listan!</string>
-  <string name="scan_adware_start">Starta sökning</string>
-  <string name="scan_adware_empty">Inga Adware-appar kunde hittas!</string>
+  <string name="adware_description">Här kan du söka efter Adware-appar som inte AdAway kan blockera. Dessa appar använder till exempel så kallade Airpush-meddelanden som visas även om appen inte körs. Enda sättet att bli av med dem är att avinstallera apparna genom att klicka i listan!</string>
+  <string name="adware_empty">Inga Adware-appar kunde hittas!</string>
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>

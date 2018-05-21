@@ -37,7 +37,7 @@ import android.widget.ListView;
 
 import org.adaway.R;
 import org.adaway.helper.ResultHelper;
-import org.adaway.ui.adware.ScanAdwareFragment;
+import org.adaway.ui.adware.AdwareFragment;
 import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.hosts.HostsSourcesFragment;
 import org.adaway.ui.hostscontent.HostsContentFragment;
@@ -289,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new TcpdumpFragment();
                 break;
             case 5:
-                fragment = new ScanAdwareFragment();
+                fragment = new AdwareFragment();
                 break;
             case 6:
                 fragment = new PrefsFragment();
