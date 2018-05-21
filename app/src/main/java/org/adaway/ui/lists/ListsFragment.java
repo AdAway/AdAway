@@ -183,10 +183,6 @@ public class ListsFragment extends Fragment {
         if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        // Check permissions
-        if (permissions.length < 0) {
-            return;
-        }
         // Restart action according granted permission
         switch (permissions[0]) {
             case Manifest.permission.READ_EXTERNAL_STORAGE:
