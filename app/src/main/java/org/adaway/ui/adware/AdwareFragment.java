@@ -26,6 +26,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,18 +71,22 @@ public class AdwareFragment extends Fragment {
         /*
          * Get model and bind it to view.
          */
-        // Get the model
-        AdwareViewModel model = ViewModelProviders.of(this).get(AdwareViewModel.class);
-        // Bind model to views
-        model.getAdware().observe(this, data -> {
-            if (data == null) {
-                this.displayStatusText(R.string.adware_scanning);
-            } else if (data.isEmpty()) {
-                this.displayStatusText(R.string.adware_empty);
-            } else {
-                this.displayAdware(data);
-            }
-        });
+        // Get the model scope
+        FragmentActivity activity = this.getActivity();
+        if (activity != null) {
+            // Get the model
+            AdwareViewModel model = ViewModelProviders.of(activity).get(AdwareViewModel.class);
+            // Bind model to views
+            model.getAdware().observe(this, data -> {
+                if (data == null) {
+                    this.displayStatusText(R.string.adware_scanning);
+                } else if (data.isEmpty()) {
+                    this.displayStatusText(R.string.adware_empty);
+                } else {
+                    this.displayAdware(data);
+                }
+            });
+        }
         // Return created view
         return view;
     }
