@@ -8,5 +8,4 @@
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall"
-    android:textColor="#fff" />
+    android:textAppearance="?android:attr/textAppearanceListItemSmall" />

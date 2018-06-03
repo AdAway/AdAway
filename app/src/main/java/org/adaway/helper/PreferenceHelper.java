@@ -27,6 +27,17 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class PreferenceHelper {
+    public static boolean getDarkTheme(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getBoolean(
+                context.getString(R.string.pref_dark_theme_key),
+                context.getResources().getBoolean(R.bool.pref_dark_theme_def)
+        );
+    }
+
     public static boolean getUpdateCheck(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,

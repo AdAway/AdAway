@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_dark_theme_key" translatable="false">darkTheme</string>
+    <bool name="pref_dark_theme_def">true</bool>
     <string name="pref_update_check_key" translatable="false">updateCheck</string>
     <bool name="pref_update_check_def">true</bool>
     <string name="pref_never_reboot_key" translatable="false">neverReboot</string>

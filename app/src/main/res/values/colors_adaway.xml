@@ -23,4 +23,9 @@
     <color name="accent">#b71c1c</color>
     <color name="selected_background">#78b71c1c</color>
     <color name="shortcut_background">#f5f5f5</color>
+
+    <!-- Light theme -->
+    <color name="light_primary">#ff6060</color>
+    <color name="light_primary_dark">#ccb71c1c</color>
+    <color name="light_accent">#ec2626</color>
 </resources>

@@ -21,6 +21,7 @@
 package org.adaway.ui.tcpdump;
 
 import org.adaway.R;
+import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.MainActivity;
 
 import android.content.Intent;
@@ -35,7 +36,7 @@ public class TcpdumpLogActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ThemeHelper.applyTheme(this);
         setContentView(R.layout.tcpdump_log_activity);
 
         mActionBar = getSupportActionBar();

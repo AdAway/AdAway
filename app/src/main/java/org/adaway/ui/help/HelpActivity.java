@@ -32,6 +32,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import org.adaway.R;
+import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.MainActivity;
 import org.adaway.util.Constants;
 import org.sufficientlysecure.donations.DonationsFragment;
@@ -77,6 +78,7 @@ public class HelpActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeHelper.applyTheme(this);
 
         mViewPager = new ViewPager(this);
         mViewPager.setId(R.id.all); // TODO Set proper id

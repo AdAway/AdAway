@@ -8,6 +8,7 @@ import android.support.v7.preference.CheckBoxPreference;
 import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
+import android.widget.Toast;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
@@ -146,6 +147,21 @@ public class PrefsFragment extends PreferenceFragmentCompat {
         this.addPreferencesFromResource(R.xml.preferences);
         // Get current context
         final Context context = this.getActivity();
+
+        /*
+         * Display notification on theme change to tell user to restart application.
+         */
+        Preference darkThemePref = this.findPreference(getString(R.string.pref_dark_theme_key));
+        darkThemePref.setOnPreferenceChangeListener((preference, newValue) -> {
+            // Display user toast notification
+            Toast.makeText(
+                    context,
+                    R.string.pref_dark_theme_notification,
+                    Toast.LENGTH_LONG
+            ).show();
+            // Allow preference change
+            return true;
+        });
 
         /*
          * Enable systemless mode systemless mode if supported.

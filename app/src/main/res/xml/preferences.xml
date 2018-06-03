@@ -2,6 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/pref_download">
         <CheckBoxPreference
+            android:defaultValue="@bool/pref_dark_theme_def"
+            android:key="@string/pref_dark_theme_key"
+            android:summary="@string/pref_dark_theme_summary"
+            android:title="@string/pref_dark_theme" />
+        <CheckBoxPreference
             android:defaultValue="@bool/pref_update_check_def"
             android:key="@string/pref_update_check_key"
             android:summary="@string/pref_update_check_summary"

@@ -196,6 +196,9 @@
 
     <!-- Preferences -->
     <string name="pref_download">General Preferences</string>
+    <string name="pref_dark_theme">Enable dark theme</string>
+    <string name="pref_dark_theme_summary">Use dark theme instead of light one</string>
+    <string name="pref_dark_theme_notification">Theme will be applied on next application start!</string>
     <string name="pref_hosts">Hosts File</string>
     <string name="pref_redirection_ip">Redirection IP</string>
     <string name="pref_update_check">Check for updates</string>

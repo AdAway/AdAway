@@ -37,6 +37,7 @@ import android.widget.ListView;
 
 import org.adaway.R;
 import org.adaway.helper.ResultHelper;
+import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.adware.AdwareFragment;
 import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.hosts.HostsSourcesFragment;
@@ -47,7 +48,11 @@ import org.adaway.ui.tcpdump.TcpdumpFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
-
+/**
+ * This class is the application main activity.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class MainActivity extends AppCompatActivity {
     /**
      * The back stack state name of the secondary fragment.
@@ -125,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeHelper.applyTheme(this);
         setContentView(R.layout.base_activity_drawer);
         /*
          * Configure navigation drawer.
