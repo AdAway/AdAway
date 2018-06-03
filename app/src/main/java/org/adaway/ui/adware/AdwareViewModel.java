@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class AdwareViewModel extends AndroidViewModel {
+public class AdwareViewModel extends AndroidViewModel {
     /**
      * The install adware.
      */
@@ -20,7 +20,7 @@ class AdwareViewModel extends AndroidViewModel {
      *
      * @param application The application context.
      */
-    AdwareViewModel(@NonNull Application application) {
+    public AdwareViewModel(@NonNull Application application) {
         super(application);
         this.adware = new AdwareLiveData(application);
     }
@@ -30,7 +30,7 @@ class AdwareViewModel extends AndroidViewModel {
      *
      * @return The installed adware.
      */
-    AdwareLiveData getAdware() {
+    public AdwareLiveData getAdware() {
         return this.adware;
     }
 }
