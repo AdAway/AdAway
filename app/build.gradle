@@ -8,10 +8,13 @@ repositories {
 dependencies {
     // Define library versions
     def lifecycle_version = '1.1.1'
+    def room_version = '1.1.0'
     def support_version = '27.1.1'
     // Architecture components
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     // Support libraries
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:cardview-v7:$support_version"
@@ -48,6 +51,12 @@ android {
         versionCode 40004   // Read 4.xx.yy to match version name
         versionName '4.0.4'
         versionNameSuffix '-' + getGitSha1()
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     /*

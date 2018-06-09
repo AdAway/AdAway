@@ -49,7 +49,7 @@ public class ProviderHelper {
         values.put(HostsSources.URL, url);
         values.put(HostsSources.ENABLED, true); // default is enabled
         values.put(HostsSources.LAST_MODIFIED_LOCAL, 0); // last_modified_local starts at 0
-        values.put(HostsSources.LAST_MODIFIED_ONLINE, 0); // last_modified_onlinestarts at 0
+        values.put(HostsSources.LAST_MODIFIED_ONLINE, 0); // last_modified_online starts at 0
         context.getContentResolver().insert(HostsSources.CONTENT_URI, values);
     }
 
