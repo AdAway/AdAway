@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -22,15 +22,12 @@ package org.adaway.ui.hosts;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.database.Cursor;
+import android.arch.lifecycle.ViewModelProviders;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
 import android.text.Editable;
 import android.text.InputType;
 import android.view.ActionMode;
@@ -40,16 +37,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.adaway.R;
-import org.adaway.provider.AdAwayContract.HostsSources;
-import org.adaway.provider.ProviderHelper;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
+import org.adaway.db.entity.HostsSource;
 import org.adaway.util.RegexUtils;
 
 /**
@@ -57,29 +50,23 @@ import org.adaway.util.RegexUtils;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class HostsSourcesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    /**
-     * The rows to retrieve for the view.
-     */
-    private static final String[] HOSTS_SOURCES_SUMMARY_PROJECTION = new String[]{
-            HostsSources._ID,
-            HostsSources.URL,
-            HostsSources.ENABLED,
-            HostsSources.LAST_MODIFIED_LOCAL,
-            HostsSources.LAST_MODIFIED_ONLINE
-    };
+public class HostsSourcesFragment extends Fragment {
     /**
      * The current activity (<code>null</code> if view is not created).
      */
     private Activity mActivity;
     /**
+     * The view model (<code>null</code> if view is not created)..
+     */
+    private HostsSourcesViewModel mViewModel;
+    /**
      * The hosts sources list view (<code>null</code> if view is not created).
      */
     private ListView mListView;
     /**
-     * The hosts sources list adapter.
+     * The hosts sources list adapter (<code>null</code> if view is not created)..
      */
-    private HostsSourcesCursorAdapter mAdapter;
+    private ListAdapter mAdapter;
     /**
      * The position of current list item (<code>-1</code> if no current list item).
      */
@@ -101,19 +88,11 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         // Store list view
         this.mListView = view.findViewById(R.id.hosts_sources_list);
         // Set item click listener to enable/disable hosts source
-        this.mListView.setOnItemClickListener((parent, listView, position, id) -> {
-            // Checkbox tags are defined by cursor position in HostsCursorAdapter, so we can get
-            // checkboxes by position of cursor
-            CheckBox checkBox = listView.findViewWithTag("checkbox_" + position);
-            if (checkBox == null) {
-                Log.w(Constants.TAG, "Checkbox could not be found for hosts source.");
-                return;
-            }
-            // Get current status
-            boolean checked = checkBox.isChecked();
-            // Set new status
-            checkBox.setChecked(!checked);
-            ProviderHelper.updateHostsSourceEnabled(HostsSourcesFragment.this.mActivity, id, !checked);
+        this.mListView.setOnItemClickListener((parent, listItemView, position, id) -> {
+            // Get clicked source
+            HostsSource source = (HostsSource) this.mAdapter.getItem(position);
+            // Toggle source enabled status
+            this.mViewModel.toggleSourceEnabled(source);
         });
         /*
          * Create action mode.
@@ -166,19 +145,19 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
             }
         };
         // Set item long click listener to start action
-        this.mListView.setOnItemLongClickListener((parent, listView2, position, id) -> {
+        this.mListView.setOnItemLongClickListener((parent, listItemView, position, id) -> {
             // Check if there is already a current action
-            if (HostsSourcesFragment.this.mActionMode != null) {
+            if (this.mActionMode != null) {
                 return false;
             }
             // Store current list item position
-            HostsSourcesFragment.this.mCurrentListItemPosition = position;
+            this.mCurrentListItemPosition = position;
             // Start action mode and store it
-            HostsSourcesFragment.this.mActionMode = HostsSourcesFragment.this.mActivity.startActionMode(callback);
+            this.mActionMode = this.mActivity.startActionMode(callback);
             // Get current item background color
-            int currentItemBackgroundColor = HostsSourcesFragment.this.getResources().getColor(R.color.selected_background);
+            int currentItemBackgroundColor = this.getResources().getColor(R.color.selected_background);
             // Apply background color to current item view
-            listView2.setBackgroundColor(currentItemBackgroundColor);
+            listItemView.setBackgroundColor(currentItemBackgroundColor);
             // Return event consumed
             return true;
         });
@@ -195,48 +174,17 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         /*
          * Load data.
          */
-        // Create and store an empty adapter used to display the loaded data.
-        this.mAdapter = new HostsSourcesCursorAdapter(this.mActivity);
-        // Apply the adapter to the view
-        this.mListView.setAdapter(this.mAdapter);
-        // Prepare the loader. Either re-connect with an existing one, or start a new one.
-        this.getLoaderManager().initLoader(0, null, this);
+        // Get view model and bind it to the list view
+        this.mViewModel = ViewModelProviders.of(this).get(HostsSourcesViewModel.class);
+        this.mViewModel.getHostsSources().observe(this, sources -> {
+            if (sources != null) {
+                this.mAdapter = new HostsSourcesAdapter(getContext(), sources);
+                this.mListView.setAdapter(this.mAdapter);
+            }
+        });
         // Return fragment view
         return view;
     }
-
-    /*
-     * CursorLoader related.
-     */
-
-    @NonNull
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        // Create and return cursor loader
-        return new CursorLoader(
-                this.getActivity(),
-                HostsSources.CONTENT_URI,                               // Look for blacklist items
-                HostsSourcesFragment.HOSTS_SOURCES_SUMMARY_PROJECTION,  // Columns to display
-                null,                                                   // No selection
-                null,                                                   // No selection
-                HostsSources.DEFAULT_SORT                               // Sort by URL ASC
-        );
-    }
-
-    @Override
-    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
-        // Swap the new cursor in.
-        // (The framework will take care of closing the old cursor once we return.)
-        this.mAdapter.swapCursor(data);
-    }
-
-    @Override
-    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-        // This is called when the last Cursor provided to onLoadFinished()
-        // above is about to be closed. We need to make sure we are no longer using it.
-        this.mAdapter.swapCursor(null);
-    }
-
 
     /**
      * Add a hosts source entry.
@@ -284,18 +232,8 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         if (this.mCurrentListItemPosition == -1) {
             return;
         }
-        // Get current list item identifier
-        final long itemId = this.mAdapter.getItemId(this.mCurrentListItemPosition);
-        // Get current list item view
-        int firstPosition = this.mListView.getFirstVisiblePosition() - this.mListView.getHeaderViewsCount();
-        int wantedChild = this.mCurrentListItemPosition - firstPosition;
-        if (wantedChild < 0 || wantedChild >= this.mListView.getChildCount()) {
-            Log.w(Constants.TAG, "Unable to get view for desired position, because it's not being displayed on screen.");
-            return;
-        }
-        View listItemView = this.mListView.getChildAt(wantedChild);
-        // Get URL text view
-        TextView urlTextView = listItemView.findViewWithTag("url_" + this.mCurrentListItemPosition);
+        // Get current list item
+        HostsSource source = (HostsSource) this.mAdapter.getItem(this.mCurrentListItemPosition);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
@@ -306,7 +244,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         final View dialogView = factory.inflate(R.layout.lists_url_dialog, null);
         final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_url);
         // set text from list
-        inputEditText.setText(urlTextView.getText());
+        inputEditText.setText(source.getUrl());
         inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
@@ -324,8 +262,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
                     String input = inputEditText.getText().toString();
 
                     if (RegexUtils.isValidUrl(input)) {
-                        // update in db
-                        ProviderHelper.updateHostsSourceUrl(mActivity, itemId, input);
+                        this.mViewModel.updateSourceUrl(source, input);
                     } else {
                         AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                         alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -360,10 +297,10 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         if (this.mCurrentListItemPosition == -1) {
             return;
         }
-        // Get current list item identifier
-        long itemId = this.mAdapter.getItemId(this.mCurrentListItemPosition);
-        // Delete related hosts source
-        ProviderHelper.deleteHostsSource(this.mActivity, itemId);
+        // Get current list item
+        HostsSource source = (HostsSource) this.mAdapter.getItem(this.mCurrentListItemPosition);
+        // Remove related hosts source
+        this.mViewModel.removeSource(source);
         // Finish action mode
         this.mActionMode.finish();
     }
@@ -381,7 +318,7 @@ public class HostsSourcesFragment extends Fragment implements LoaderManager.Load
         // Check if URL is valid
         if (RegexUtils.isValidUrl(url)) {
             // Insert hosts source into database
-            ProviderHelper.insertHostsSource(this.mActivity, url);
+            this.mViewModel.addSourceFromUrl(url);
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(this.mActivity).create();
             alertDialog.setIcon(android.R.drawable.ic_dialog_alert);

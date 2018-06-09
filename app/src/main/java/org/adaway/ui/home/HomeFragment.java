@@ -63,7 +63,6 @@ public class HomeFragment extends Fragment {
     private FragmentActivity mActivity;
     private BroadcastReceiver mBroadcastReceiver;
 
-
     /*
      * Current statuses.
      */

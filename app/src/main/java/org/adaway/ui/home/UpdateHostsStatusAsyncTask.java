@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 
+import org.adaway.db.AppDatabase;
+import org.adaway.db.entity.HostsSource;
+import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.service.UpdateService;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
+import org.adaway.util.Log;
 import org.adaway.util.Utils;
 
 import java.lang.ref.WeakReference;
@@ -40,6 +44,20 @@ public class UpdateHostsStatusAsyncTask extends AsyncTask<Void, Void, Boolean> {
         if (activity == null) {
             return true; // Suppose to be root
         }
+
+
+        // TODO TEST
+
+        AppDatabase db = AppDatabase.getInstance(activity.getApplicationContext());
+        HostsSourceDao hostsSourceDao = db.hostsSourceDao();
+        for (HostsSource hostsSource : hostsSourceDao.getAll()) {
+            Log.e(Constants.TAG, hostsSource.toString());
+        }
+
+
+        // TODO TEST
+
+
         // Check if Android is rooted
         if (!Utils.isAndroidRooted(activity)) {
             return false;
