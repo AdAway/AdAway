@@ -52,7 +52,6 @@
     <string name="lists_tab_whitelist">Whitelist</string>
     <string name="lists_tab_blacklist">Blacklist</string>
     <string name="lists_tab_redirection_list">Redirects</string>
-    <string name="list_dialog_url">URL:</string>
     <string name="list_dialog_hostname">Hostname:</string>
     <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard characters * and ? are allowed!)</string>
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
@@ -130,8 +129,6 @@
     <!-- Other Dialogs -->
     <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on wiki.lineageos.org or other Android websites.</string>
     <string name="no_root_title">Rooted Android required</string>
-    <string name="no_url">This is not a valid URL!</string>
-    <string name="no_url_title">Improperly formatted URL</string>
     <string name="hosts_add_dialog">Input URL to hosts file:</string>
     <string name="no_hostname">This is not a valid hostname!</string>
     <string name="no_hostname_title">Improperly formatted hostname</string>
@@ -176,6 +173,10 @@
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">Online:</string>
     <string name="hosts_not_available">not available</string>
+    <string name="hosts_add_dialog_title">Add source</string>
+    <string name="hosts_add_dialog_url">URL:</string>
+    <string name="hosts_add_dialog_url_hint">The hosts source URL</string>
+    <string name="hosts_edit_dialog_title">Edit source</string>
 
     <!-- Other -->
     <string name="app_subtitle">Ad blocker</string>

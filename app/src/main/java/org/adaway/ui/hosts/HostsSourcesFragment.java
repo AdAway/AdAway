@@ -23,6 +23,7 @@ package org.adaway.ui.hosts;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,7 +33,7 @@ import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
-import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -40,6 +41,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import org.adaway.R;
@@ -123,10 +125,10 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
                 // Check item identifier
                 switch (item.getItemId()) {
                     case R.id.checkbox_list_context_edit:
-                        HostsSourcesFragment.this.editEntry();
+                        HostsSourcesFragment.this.editSource();
                         return true;
                     case R.id.checkbox_list_context_delete:
-                        HostsSourcesFragment.this.deleteEntry();
+                        HostsSourcesFragment.this.deleteSource();
                         return true;
                     default:
                         return false;
@@ -154,7 +156,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         // Set click listener to display menu add entry
         button.setOnClickListener(actionButton -> {
             // Display menu add entry
-            HostsSourcesFragment.this.addEntry();
+            HostsSourcesFragment.this.addSource();
         });
         /*
          * Load data.
@@ -192,92 +194,81 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     }
 
     /**
-     * Add a hosts source entry.
+     * Add a hosts source.
      */
-    private void addEntry() {
+    private void addSource() {
+        // Create dialog builder
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+        builder.setTitle(R.string.hosts_add_dialog_title);
         builder.setCancelable(true);
-        builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
-
-        // build view from layout
+        // Create dialog view
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.lists_url_dialog, null);
-        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_url);
-        // set EditText
-        inputEditText.setText(getString(R.string.hosts_add_dialog_input));
-        inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
-        // move cursor to end of EditText
+        View view = factory.inflate(R.layout.hosts_sources_dialog, null);
+        builder.setView(view);
+        // Move cursor to end of EditText
+        EditText inputEditText = view.findViewById(R.id.hosts_add_dialog_url);
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
-
-        builder.setView(dialogView);
-
+        // Setup buttons
         builder.setPositiveButton(
-                getResources().getString(R.string.button_add),
+                R.string.button_add,
                 (dialog, which) -> {
+                    String url = inputEditText.getText().toString();
+                    if (RegexUtils.isValidUrl(url)) {
+                        // Insert hosts source into database
+                        this.mViewModel.addSourceFromUrl(url);
+                    }
                     dialog.dismiss();
-
-                    String input = inputEditText.getText().toString();
-                    insertHostsSource(input);
                 }
         );
         builder.setNegativeButton(
-                getResources().getString(R.string.button_cancel),
+                R.string.button_cancel,
                 (dialog, which) -> dialog.dismiss()
         );
-        AlertDialog alert = builder.create();
-        alert.show();
+        // Display dialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        // Set button validation behavior
+        Button addButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        addButton.setEnabled(false);
+        inputEditText.addTextChangedListener(new UrlDialogValidator(addButton));
     }
 
     /**
-     * Edit selected hosts source entry.
+     * Edit selected hosts source.
      */
-    private void editEntry() {
+    private void editSource() {
         // Check action source
         if (this.mActionSource == null) {
             return;
         }
         HostsSource editedSource = this.mActionSource;
-
+        // Create dialog builder
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+        builder.setTitle(R.string.hosts_edit_dialog_title);
         builder.setCancelable(true);
-        builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
-
-        // build view from layout
+        // Create dialog view
         LayoutInflater factory = LayoutInflater.from(mActivity);
-        final View dialogView = factory.inflate(R.layout.lists_url_dialog, null);
-        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_url);
-        // set text from list
+        View view = factory.inflate(R.layout.hosts_sources_dialog, null);
+        builder.setView(view);
+        // Set current source URL
+        EditText inputEditText = view.findViewById(R.id.hosts_add_dialog_url);
         inputEditText.setText(editedSource.getUrl());
-        inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
-        // move cursor to end of EditText
+        // Move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
-
-        builder.setView(dialogView);
-
+        // Setup buttons
         builder.setPositiveButton(getResources().getString(R.string.button_save),
                 (dialog, which) -> {
                     // Close dialog
                     dialog.dismiss();
                     // Finish action mode
                     HostsSourcesFragment.this.mActionMode.finish();
-
-                    String input = inputEditText.getText().toString();
-
-                    if (RegexUtils.isValidUrl(input)) {
-                        this.mViewModel.updateSourceUrl(editedSource, input);
-                    } else {
-                        AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
-                        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                        alertDialog.setTitle(R.string.no_url_title);
-                        alertDialog.setMessage(getString(R.string.no_url));
-                        alertDialog.setButton(
-                                AlertDialog.BUTTON_NEUTRAL,
-                                getString(R.string.button_close),
-                                (dialog1, which1) -> dialog1.dismiss()
-                        );
-                        alertDialog.show();
+                    // Check url validity
+                    String url = inputEditText.getText().toString();
+                    if (RegexUtils.isValidUrl(url)) {
+                        // Update hosts source into database
+                        this.mViewModel.updateSourceUrl(editedSource, url);
                     }
                 }
         );
@@ -289,14 +280,17 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
                     HostsSourcesFragment.this.mActionMode.finish();
                 }
         );
-        AlertDialog alert = builder.create();
-        alert.show();
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        // Set button validation behavior
+        Button saveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        inputEditText.addTextChangedListener(new UrlDialogValidator(saveButton));
     }
 
     /**
-     * Delete selected hosts source entry.
+     * Delete selected hosts source.
      */
-    private void deleteEntry() {
+    private void deleteSource() {
         // Check current source
         if (this.mActionSource == null) {
             return;
@@ -308,30 +302,39 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     }
 
     /**
-     * Add new hosts source.
+     * This class is a {@link TextWatcher} to validate URL in order to change dialog validation button status.
      *
-     * @param url The URL of the hosts source to add.
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
-    private void insertHostsSource(String url) {
-        // Check parameter
-        if (url == null) {
-            return;
+    private static class UrlDialogValidator implements TextWatcher {
+        /**
+         * The button to change status.
+         */
+        private final Button mButton;
+
+        /**
+         * Consturctor.
+         *
+         * @param mButton The button to change status.
+         */
+        private UrlDialogValidator(Button mButton) {
+            this.mButton = mButton;
         }
-        // Check if URL is valid
-        if (RegexUtils.isValidUrl(url)) {
-            // Insert hosts source into database
-            this.mViewModel.addSourceFromUrl(url);
-        } else {
-            AlertDialog alertDialog = new AlertDialog.Builder(this.mActivity).create();
-            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-            alertDialog.setTitle(R.string.no_url_title);
-            alertDialog.setMessage(getString(R.string.no_url));
-            alertDialog.setButton(
-                    AlertDialog.BUTTON_NEUTRAL,
-                    getString(R.string.button_close),
-                    (dialog, which) -> dialog.dismiss()
-            );
-            alertDialog.show();
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            String url = s.toString();
+            this.mButton.setEnabled(RegexUtils.isValidUrl(url));
         }
     }
 }
