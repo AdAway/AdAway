@@ -52,4 +52,27 @@ public class HostsSource {
     public void setLastOnlineModification(Date lastOnlineModification) {
         this.lastOnlineModification = lastOnlineModification;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        HostsSource source = (HostsSource) o;
+
+        if (!url.equals(source.url)) return false;
+        if (!enabled.equals(source.enabled)) return false;
+        if (lastLocalModification != null ? !lastLocalModification.equals(source.lastLocalModification) : source.lastLocalModification != null)
+            return false;
+        return lastOnlineModification != null ? lastOnlineModification.equals(source.lastOnlineModification) : source.lastOnlineModification == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = url.hashCode();
+        result = 31 * result + enabled.hashCode();
+        result = 31 * result + (lastLocalModification != null ? lastLocalModification.hashCode() : 0);
+        result = 31 * result + (lastOnlineModification != null ? lastOnlineModification.hashCode() : 0);
+        return result;
+    }
 }

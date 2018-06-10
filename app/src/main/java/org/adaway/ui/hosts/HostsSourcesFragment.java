@@ -28,6 +28,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.recyclerview.extensions.ListAdapter;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.InputType;
 import android.view.ActionMode;
@@ -38,8 +41,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
@@ -50,7 +51,7 @@ import org.adaway.util.RegexUtils;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class HostsSourcesFragment extends Fragment {
+public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCallback {
     /**
      * The current activity (<code>null</code> if view is not created).
      */
@@ -60,21 +61,21 @@ public class HostsSourcesFragment extends Fragment {
      */
     private HostsSourcesViewModel mViewModel;
     /**
-     * The hosts sources list view (<code>null</code> if view is not created).
-     */
-    private ListView mListView;
-    /**
-     * The hosts sources list adapter (<code>null</code> if view is not created)..
-     */
-    private ListAdapter mAdapter;
-    /**
-     * The position of current list item (<code>-1</code> if no current list item).
-     */
-    private int mCurrentListItemPosition = -1;
-    /**
      * The current action mode when item is selection (<code>null</code> if no action started).
      */
     private ActionMode mActionMode;
+    /**
+     * The action mode callback (<code>null</code> if view is not created).
+     */
+    private ActionMode.Callback mActionCallback;
+    /**
+     * The hosts source related to the current action (<code>null</code> if view is not created).
+     */
+    private HostsSource mActionSource;
+    /**
+     * The view related hosts source of the current action (<code>null</code> if view is not created).
+     */
+    private View mActionSourceView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -83,22 +84,22 @@ public class HostsSourcesFragment extends Fragment {
         // Create fragment view
         View view = inflater.inflate(R.layout.hosts_sources_fragment, container, false);
         /*
-         * Configure hosts sources list.
+         * Configure recycler view.
          */
-        // Store list view
-        this.mListView = view.findViewById(R.id.hosts_sources_list);
-        // Set item click listener to enable/disable hosts source
-        this.mListView.setOnItemClickListener((parent, listItemView, position, id) -> {
-            // Get clicked source
-            HostsSource source = (HostsSource) this.mAdapter.getItem(position);
-            // Toggle source enabled status
-            this.mViewModel.toggleSourceEnabled(source);
-        });
+        // Store recycler view
+        RecyclerView recyclerView = view.findViewById(R.id.hosts_sources_list);
+        recyclerView.setHasFixedSize(true);
+        // Defile recycler layout
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mActivity);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        // Create recycler adapter
+        ListAdapter adapter = new HostsSourcesAdapter(this);
+        recyclerView.setAdapter(adapter);
         /*
          * Create action mode.
          */
         // Create action mode callback to display edit/delete menu
-        final ActionMode.Callback callback = new ActionMode.Callback() {
+        this.mActionCallback = new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
                 // Get menu inflater
@@ -134,33 +135,17 @@ public class HostsSourcesFragment extends Fragment {
 
             @Override
             public void onDestroyActionMode(ActionMode actionMode) {
-                // Get current list item child view
-                View childView = HostsSourcesFragment.this.mListView.getChildAt(HostsSourcesFragment.this.mCurrentListItemPosition);
-                // Clear background color
-                childView.setBackgroundColor(Color.TRANSPARENT);
-                // Clear current list item position
-                HostsSourcesFragment.this.mCurrentListItemPosition = -1;
+                // Clear view background color
+                if (HostsSourcesFragment.this.mActionSourceView != null) {
+                    HostsSourcesFragment.this.mActionSourceView.setBackgroundColor(Color.TRANSPARENT);
+                }
+                // Clear current source and its view
+                HostsSourcesFragment.this.mActionSource = null;
+                HostsSourcesFragment.this.mActionSourceView = null;
                 // Clear action mode
                 HostsSourcesFragment.this.mActionMode = null;
             }
         };
-        // Set item long click listener to start action
-        this.mListView.setOnItemLongClickListener((parent, listItemView, position, id) -> {
-            // Check if there is already a current action
-            if (this.mActionMode != null) {
-                return false;
-            }
-            // Store current list item position
-            this.mCurrentListItemPosition = position;
-            // Start action mode and store it
-            this.mActionMode = this.mActivity.startActionMode(callback);
-            // Get current item background color
-            int currentItemBackgroundColor = this.getResources().getColor(R.color.selected_background);
-            // Apply background color to current item view
-            listItemView.setBackgroundColor(currentItemBackgroundColor);
-            // Return event consumed
-            return true;
-        });
         /*
          * Add floating action button.
          */
@@ -176,14 +161,34 @@ public class HostsSourcesFragment extends Fragment {
          */
         // Get view model and bind it to the list view
         this.mViewModel = ViewModelProviders.of(this).get(HostsSourcesViewModel.class);
-        this.mViewModel.getHostsSources().observe(this, sources -> {
-            if (sources != null) {
-                this.mAdapter = new HostsSourcesAdapter(getContext(), sources);
-                this.mListView.setAdapter(this.mAdapter);
-            }
-        });
+        this.mViewModel.getHostsSources().observe(this, adapter::submitList);
         // Return fragment view
         return view;
+    }
+
+
+    @Override
+    public void toggleEnabled(HostsSource source) {
+        this.mViewModel.toggleSourceEnabled(source);
+    }
+
+    @Override
+    public boolean startAction(HostsSource source, View sourceView) {
+        // Check if there is already a current action
+        if (this.mActionMode != null) {
+            return false;
+        }
+        // Store current source and its view
+        this.mActionSource = source;
+        this.mActionSourceView = sourceView;
+        // Get current item background color
+        int currentItemBackgroundColor = this.getResources().getColor(R.color.selected_background);
+        // Apply background color to view
+        this.mActionSourceView.setBackgroundColor(currentItemBackgroundColor);
+        // Start action mode and store it
+        this.mActionMode = this.mActivity.startActionMode(this.mActionCallback);
+        // Return event consumed
+        return true;
     }
 
     /**
@@ -228,12 +233,11 @@ public class HostsSourcesFragment extends Fragment {
      * Edit selected hosts source entry.
      */
     private void editEntry() {
-        // Check current list item position
-        if (this.mCurrentListItemPosition == -1) {
+        // Check action source
+        if (this.mActionSource == null) {
             return;
         }
-        // Get current list item
-        HostsSource source = (HostsSource) this.mAdapter.getItem(this.mCurrentListItemPosition);
+        HostsSource editedSource = this.mActionSource;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
         builder.setCancelable(true);
@@ -244,7 +248,7 @@ public class HostsSourcesFragment extends Fragment {
         final View dialogView = factory.inflate(R.layout.lists_url_dialog, null);
         final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_url);
         // set text from list
-        inputEditText.setText(source.getUrl());
+        inputEditText.setText(editedSource.getUrl());
         inputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
         // move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
@@ -262,7 +266,7 @@ public class HostsSourcesFragment extends Fragment {
                     String input = inputEditText.getText().toString();
 
                     if (RegexUtils.isValidUrl(input)) {
-                        this.mViewModel.updateSourceUrl(source, input);
+                        this.mViewModel.updateSourceUrl(editedSource, input);
                     } else {
                         AlertDialog alertDialog = new AlertDialog.Builder(mActivity).create();
                         alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -293,14 +297,12 @@ public class HostsSourcesFragment extends Fragment {
      * Delete selected hosts source entry.
      */
     private void deleteEntry() {
-        // Check current list item position
-        if (this.mCurrentListItemPosition == -1) {
+        // Check current source
+        if (this.mActionSource == null) {
             return;
         }
-        // Get current list item
-        HostsSource source = (HostsSource) this.mAdapter.getItem(this.mCurrentListItemPosition);
         // Remove related hosts source
-        this.mViewModel.removeSource(source);
+        this.mViewModel.removeSource(this.mActionSource);
         // Finish action mode
         this.mActionMode.finish();
     }

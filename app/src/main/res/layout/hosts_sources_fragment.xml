@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/hosts_sources_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:longClickable="true" />
+        android:longClickable="true"
+        android:scrollbars="vertical" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/hosts_sources_add"

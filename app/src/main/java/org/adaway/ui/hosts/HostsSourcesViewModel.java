@@ -27,7 +27,7 @@ public class HostsSourcesViewModel extends AndroidViewModel {
 
     public void toggleSourceEnabled(HostsSource source) {
         source.setEnabled(!source.isEnabled());
-        this.updateSource(source);
+        AppExecutors.getInstance().diskIO().execute(() -> this.hostsSourceDao.update(source));
     }
 
     public void addSourceFromUrl(String url) {
@@ -38,17 +38,17 @@ public class HostsSourcesViewModel extends AndroidViewModel {
     }
 
     public void updateSourceUrl(HostsSource source, String url) {
-        source.setUrl(url);
-        source.setLastLocalModification(null);
-        source.setLastOnlineModification(null);
-        this.updateSource(source);
+        HostsSource newSource = new HostsSource();
+        newSource.setUrl(url);
+        newSource.setEnabled(source.isEnabled());
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            this.hostsSourceDao.delete(source);
+            this.hostsSourceDao.insert(newSource);
+        });
+
     }
 
     public void removeSource(HostsSource source) {
         AppExecutors.getInstance().diskIO().execute(() -> this.hostsSourceDao.delete(source));
-    }
-
-    private void updateSource(HostsSource source) {
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostsSourceDao.update(source));
     }
 }

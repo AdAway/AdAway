@@ -1,65 +1,74 @@
 package org.adaway.ui.hosts;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.v7.recyclerview.extensions.ListAdapter;
+import android.support.v7.util.DiffUtil;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
 
-import java.util.List;
-
 /**
- * This class is an {@link ArrayAdapter} to bind hosts sources to list item view.
+ * This class is a the {@link RecyclerView.Adapter} for the hosts sources view.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class HostsSourcesAdapter extends ArrayAdapter<HostsSource> {
-    private final LayoutInflater mLayoutInflater;
+class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.ViewHolder> {
+    /**
+     * This callback is use to compare hosts sources.
+     */
+    private static final DiffUtil.ItemCallback<HostsSource> DIFF_CALLBACK =
+            new DiffUtil.ItemCallback<HostsSource>() {
+                @Override
+                public boolean areItemsTheSame(@NonNull HostsSource oldSource, @NonNull HostsSource newSource) {
+                    return oldSource.getUrl().equals(newSource.getUrl());
+                }
+
+                @Override
+                public boolean areContentsTheSame(@NonNull HostsSource oldSource, @NonNull HostsSource newSource) {
+                    // NOTE: if you use equals, your object must properly override Object#equals()
+                    // Incorrectly returning false here will result in too many animations.
+                    return oldSource.equals(newSource);
+                }
+            };
+
+    /**
+     * This callback is use to call view actions.
+     */
+    @NonNull
+    private final HostsSourcesViewCallback viewCallback;
 
     /**
      * Constructor.
      *
-     * @param context The application context.
-     * @param sources The sources to display into the list.
+     * @param viewCallback The view callback.
      */
-    HostsSourcesAdapter(@NonNull Context context, @NonNull List<HostsSource> sources) {
-        super(context, R.layout.checkbox_list_two_entries, sources);
-        this.mLayoutInflater = LayoutInflater.from(context);
+    HostsSourcesAdapter(@NonNull HostsSourcesViewCallback viewCallback) {
+        super(DIFF_CALLBACK);
+        this.viewCallback = viewCallback;
     }
-
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        // Try to recycle view
-        View view = convertView;
-        if (view == null) {
-            view = this.mLayoutInflater.inflate(R.layout.checkbox_list_two_entries, parent, false);
-        }
-        // Bind source to view
-        HostsSource source = this.getItem(position);
-        if (source != null) {
-            bindView(view, source);
-        }
-        // Return view
-        return view;
+    public HostsSourcesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.checkbox_list_two_entries, parent, false);
+        return new ViewHolder(view);
     }
 
-    private void bindView(View view, HostsSource source) {
-        CheckBox enabledCheckBox = view.findViewById(R.id.checkbox_list_checkbox);
-        TextView hostnameTextView = view.findViewById(R.id.checkbox_list_text);
-        TextView lastModifiedTextView = view.findViewById(R.id.checkbox_list_subtext);
-
-        enabledCheckBox.setChecked(source.isEnabled());
-        hostnameTextView.setText(source.getUrl());
-        lastModifiedTextView.setText(getModifiedText(source));
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        HostsSource source = this.getItem(position);
+        holder.enabledCheckBox.setChecked(source.isEnabled());
+        holder.enabledCheckBox.setOnClickListener(view -> viewCallback.toggleEnabled(source));
+        holder.hostnameTextView.setText(source.getUrl());
+        holder.lastModifiedTextView.setText(getModifiedText(source));
+        holder.itemView.setOnLongClickListener(view -> viewCallback.startAction(source, holder.itemView));
     }
 
     private int getModifiedText(HostsSource source) {
@@ -72,5 +81,28 @@ class HostsSourcesAdapter extends ArrayAdapter<HostsSource> {
             modifiedText = R.string.hosts_source_up_to_date;
         }
         return modifiedText;
+    }
+
+    /**
+     * This class is a the {@link RecyclerView.ViewHolder} for the hosts sources view.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     */
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        final CheckBox enabledCheckBox;
+        final TextView hostnameTextView;
+        final TextView lastModifiedTextView;
+
+        /**
+         * Constructor.
+         *
+         * @param itemView The hosts sources view.
+         */
+        ViewHolder(View itemView) {
+            super(itemView);
+            this.enabledCheckBox = itemView.findViewById(R.id.checkbox_list_checkbox);
+            this.hostnameTextView = itemView.findViewById(R.id.checkbox_list_text);
+            this.lastModifiedTextView = itemView.findViewById(R.id.checkbox_list_subtext);
+        }
     }
 }
