@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -37,6 +37,7 @@ import android.widget.TextView;
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.Whitelist;
 import org.adaway.provider.ProviderHelper;
+import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
 /**
@@ -74,58 +75,40 @@ public class WhitelistFragment extends AbstractListFragment {
     @Override
     protected void addItem() {
         FragmentActivity activity = this.getActivity();
+        // Create dialog builder
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setCancelable(true);
-        builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
-
-        // build view from layout
+        builder.setTitle(R.string.list_add_dialog_white);
+        // Create dialog view
         LayoutInflater factory = LayoutInflater.from(activity);
-        final View dialogView = factory.inflate(R.layout.lists_whitelist_hostname_dialog, null);
-        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_hostname);
-
-        // move cursor to end of EditText
-        Editable inputEditContent = inputEditText.getText();
-        inputEditText.setSelection(inputEditContent.length());
-
-        builder.setView(dialogView);
-
-        builder.setPositiveButton(getResources().getString(R.string.button_add), (dialog, which) -> {
+        View view = factory.inflate(R.layout.lists_white_dialog, null);
+        EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
+        builder.setView(view);
+        // Setup buttons
+        builder.setPositiveButton(
+                R.string.button_add,
+                (dialog, which) -> {
+                    // Close dialog
                     dialog.dismiss();
-
-                    String input = inputEditText.getText().toString();
-                    WhitelistFragment.this.addItem(input);
+                    // Check hostname validity
+                    String hostname = inputEditText.getText().toString();
+                    if (RegexUtils.isValidWhitelistHostname(hostname)) {
+                        // Insert host to whitelist
+                        ProviderHelper.insertWhitelistItem(activity, hostname);
+                    }
                 }
         );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel), (dialog, which) -> dialog.dismiss());
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
-    /**
-     * Add a new item.
-     *
-     * @param host The host to insert.
-     */
-    protected void addItem(String host) {
-        // Check parameter
-        if (host == null) {
-            return;
-        }
-        // Get activity
-        FragmentActivity activity = this.getActivity();
-        // Check if host is valid
-        if (RegexUtils.isValidWhitelistHostname(host)) {
-            // Insert host to whitelist
-            ProviderHelper.insertWhitelistItem(activity, host);
-        } else {
-            // Notify host is not valid
-            AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
-            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-            alertDialog.setTitle(R.string.no_hostname_title);
-            alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
-            alertDialog.setButton(getString(R.string.button_close), (dlg, sum) -> dlg.dismiss());
-            alertDialog.show();
-        }
+        builder.setNegativeButton(
+                R.string.button_cancel,
+                (dialog, which) -> dialog.dismiss()
+        );
+        // Show dialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        // Set button validation behavior
+        inputEditText.addTextChangedListener(
+                new AlertDialogValidator(alertDialog, RegexUtils::isValidWhitelistHostname, false)
+        );
     }
 
     @Override
@@ -135,49 +118,48 @@ public class WhitelistFragment extends AbstractListFragment {
 
     @Override
     protected void editItem(final long itemId, View itemView) {
-        final FragmentActivity activity = this.getActivity();
-
-        // Get URL text view
+        // Get hostname text
         TextView hostnameTextView = itemView.findViewWithTag(ListsCursorAdapter.HOSTNAME_TEXTVIEW_TAG);
-
+        CharSequence hostnameText = hostnameTextView.getText();
+        // Create dialog builder
+        FragmentActivity activity = this.getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setCancelable(true);
-        builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
-
-        // build view from layout
+        builder.setTitle(R.string.list_edit_dialog_white);
+        // Create dialog view
         LayoutInflater factory = LayoutInflater.from(activity);
-        final View dialogView = factory.inflate(R.layout.lists_whitelist_hostname_dialog, null);
-        final EditText inputEditText = dialogView.findViewById(R.id.list_dialog_hostname);
-        inputEditText.setText(hostnameTextView.getText());
-
-        // move cursor to end of EditText
+        View view = factory.inflate(R.layout.lists_white_dialog, null);
+        builder.setView(view);
+        // Set hostname
+        EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
+        inputEditText.setText(hostnameText);
+        // Move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
-
-        builder.setView(dialogView);
-
-        builder.setPositiveButton(getResources().getString(R.string.button_save), (dialog, which) -> {
+        // Setup buttons
+        builder.setPositiveButton(
+                R.string.button_save,
+                (dialog, which) -> {
+                    // Close dialog
                     dialog.dismiss();
-
-                    String input = inputEditText.getText().toString();
-
-                    if (RegexUtils.isValidWhitelistHostname(input)) {
-                        ProviderHelper.updateWhitelistItemHostname(activity, itemId,
-                                input);
-                    } else {
-                        AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
-                        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                        alertDialog.setTitle(R.string.no_hostname_title);
-                        alertDialog.setMessage(getString(R.string.no_hostname));
-                        alertDialog.setButton(getString(R.string.button_close),
-                                (dlg, sum) -> dlg.dismiss());
-                        alertDialog.show();
+                    // Check hostname validity
+                    String hostname = inputEditText.getText().toString();
+                    if (RegexUtils.isValidWhitelistHostname(hostname)) {
+                        ProviderHelper.updateWhitelistItemHostname(activity, itemId, hostname);
                     }
                 }
         );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel), (dialog, which) -> dialog.dismiss());
-        AlertDialog alert = builder.create();
-        alert.show();
+        builder.setNegativeButton(
+                R.string.button_cancel,
+                (dialog, which) -> dialog.dismiss()
+        );
+        // Show dialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        // Set button validation behavior
+        inputEditText.addTextChangedListener(
+                new AlertDialogValidator(alertDialog, RegexUtils::isValidWhitelistHostname, true)
+        );
     }
 
     @Override

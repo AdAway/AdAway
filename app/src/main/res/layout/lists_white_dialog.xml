@@ -3,32 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="16dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/list_dialog_hostname" />
+        android:text="@string/list_dialog_hostname"
+        android:textAppearance="@android:style/TextAppearance.Medium" />
 
     <EditText
         android:id="@+id/list_dialog_hostname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/list_dialog_hostname_hint"
         android:inputType="textVisiblePassword"
-        android:singleLine="true"
-        android:scrollHorizontally="true" />
+        android:scrollHorizontally="true"
+        android:singleLine="true" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/list_dialog_ip" />
-
-    <EditText
-        android:id="@+id/list_dialog_ip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textVisiblePassword"
-        android:singleLine="true"
-        android:scrollHorizontally="true" />
+        android:text="@string/list_dialog_wildcard" />
 
 </LinearLayout>

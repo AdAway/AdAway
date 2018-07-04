@@ -8,14 +8,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hosts_add_dialog_url"
+        android:text="@string/hosts_dialog_url"
         android:textAppearance="@android:style/TextAppearance.Medium" />
 
     <EditText
         android:id="@+id/hosts_add_dialog_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hosts_add_dialog_url_hint"
+        android:hint="@string/hosts_dialog_url_hint"
         android:inputType="textUri"
         android:scrollHorizontally="true"
         android:singleLine="true"

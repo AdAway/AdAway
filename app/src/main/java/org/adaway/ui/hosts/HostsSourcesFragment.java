@@ -23,7 +23,6 @@ package org.adaway.ui.hosts;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -33,7 +32,6 @@ import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,11 +39,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
+import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
 /**
@@ -229,9 +227,9 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
         // Set button validation behavior
-        Button addButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-        addButton.setEnabled(false);
-        inputEditText.addTextChangedListener(new UrlDialogValidator(addButton));
+        inputEditText.addTextChangedListener(
+                new AlertDialogValidator(alertDialog, RegexUtils::isValidUrl, false)
+        );
     }
 
     /**
@@ -251,7 +249,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         LayoutInflater factory = LayoutInflater.from(mActivity);
         View view = factory.inflate(R.layout.hosts_sources_dialog, null);
         builder.setView(view);
-        // Set current source URL
+        // Set source URL
         EditText inputEditText = view.findViewById(R.id.hosts_add_dialog_url);
         inputEditText.setText(editedSource.getUrl());
         // Move cursor to end of EditText
@@ -283,8 +281,9 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
         // Set button validation behavior
-        Button saveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-        inputEditText.addTextChangedListener(new UrlDialogValidator(saveButton));
+        inputEditText.addTextChangedListener(
+                new AlertDialogValidator(alertDialog, RegexUtils::isValidUrl, true)
+        );
     }
 
     /**
@@ -301,40 +300,4 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         this.mActionMode.finish();
     }
 
-    /**
-     * This class is a {@link TextWatcher} to validate URL in order to change dialog validation button status.
-     *
-     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
-     */
-    private static class UrlDialogValidator implements TextWatcher {
-        /**
-         * The button to change status.
-         */
-        private final Button mButton;
-
-        /**
-         * Consturctor.
-         *
-         * @param mButton The button to change status.
-         */
-        private UrlDialogValidator(Button mButton) {
-            this.mButton = mButton;
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            String url = s.toString();
-            this.mButton.setEnabled(RegexUtils.isValidUrl(url));
-        }
-    }
 }

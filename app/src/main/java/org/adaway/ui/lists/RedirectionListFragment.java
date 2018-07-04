@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -21,7 +21,6 @@
 package org.adaway.ui.lists;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -38,6 +37,7 @@ import android.widget.TextView;
 import org.adaway.R;
 import org.adaway.provider.AdAwayContract.RedirectionList;
 import org.adaway.provider.ProviderHelper;
+import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
 /**
@@ -76,40 +76,49 @@ public class RedirectionListFragment extends AbstractListFragment {
     @Override
     protected void addItem() {
         FragmentActivity activity = this.getActivity();
-
+        // Create dialog builder
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setCancelable(true);
-        builder.setTitle(getString(R.string.checkbox_list_add_dialog_title));
-
-        // build view from layout
+        builder.setTitle(R.string.list_add_dialog_redirect);
+        // Create dialog view
         LayoutInflater factory = LayoutInflater.from(activity);
-        final View dialogView = factory.inflate(R.layout.lists_redirection_dialog, null);
-        final EditText hostnameEditText = dialogView
-                .findViewById(R.id.list_dialog_hostname);
-        final EditText ipEditText = dialogView.findViewById(R.id.list_dialog_ip);
-
-        // move cursor to end of EditText
-        Editable hostnameEditContent = hostnameEditText.getText();
-        hostnameEditText.setSelection(hostnameEditContent.length());
-
-        // move cursor to end of EditText
-        Editable ipEditContent = ipEditText.getText();
-        ipEditText.setSelection(ipEditContent.length());
-
-        builder.setView(dialogView);
-
-        builder.setPositiveButton(getResources().getString(R.string.button_add), (dialog, which) -> {
+        View view = factory.inflate(R.layout.lists_redirect_dialog, null);
+        EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
+        EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
+        builder.setView(view);
+        // Setup buttons
+        builder.setPositiveButton(
+                R.string.button_add,
+                (dialog, which) -> {
+                    // Close dialog
                     dialog.dismiss();
-
+                    // Check if hostname and IP are valid
                     String hostname = hostnameEditText.getText().toString();
                     String ip = ipEditText.getText().toString();
-
-                    RedirectionListFragment.this.addItem(hostname, ip);
+                    if (RegexUtils.isValidHostname(hostname) && RegexUtils.isValidIP(ip)) {
+                        ProviderHelper.insertRedirectionListItem(activity, hostname, ip);
+                    }
                 }
         );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel), (dialog, which) -> dialog.dismiss());
-        AlertDialog alert = builder.create();
-        alert.show();
+        builder.setNegativeButton(
+                R.string.button_cancel,
+                (dialog, which) -> dialog.dismiss()
+        );
+        // Show dialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        // Set button validation behavior
+        AlertDialogValidator validator = new AlertDialogValidator(
+                alertDialog,
+                input -> {
+                    String hostname = hostnameEditText.getText().toString();
+                    String ip = ipEditText.getText().toString();
+                    return RegexUtils.isValidHostname(hostname) && RegexUtils.isValidIP(ip);
+                },
+                false
+        );
+        hostnameEditText.addTextChangedListener(validator);
+        ipEditText.addTextChangedListener(validator);
     }
 
     /**
@@ -157,67 +166,60 @@ public class RedirectionListFragment extends AbstractListFragment {
 
     @Override
     protected void editItem(final long itemId, View itemView) {
-        final FragmentActivity activity = this.getActivity();
-
+        // Get hostname and IP text
         TextView hostnameTextView = itemView.findViewWithTag(ListsCursorAdapter.HOSTNAME_TEXTVIEW_TAG);
         TextView ipTextView = itemView.findViewWithTag(ListsCursorAdapter.IP_TEXTVIEW_TAG);
-
+        CharSequence hostnameText = hostnameTextView.getText();
+        CharSequence ipText = ipTextView.getText();
+        // Create dialog builder
+        FragmentActivity activity = this.getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setCancelable(true);
-        builder.setTitle(getString(R.string.checkbox_list_edit_dialog_title));
-
-        // build view from layout
+        builder.setTitle(getString(R.string.list_edit_dialog_redirect));
+        // Create dialog view
         LayoutInflater factory = LayoutInflater.from(activity);
-        final View dialogView = factory.inflate(R.layout.lists_redirection_dialog, null);
-        final EditText hostnameEditText = dialogView.findViewById(R.id.list_dialog_hostname);
-        final EditText ipEditText = dialogView.findViewById(R.id.list_dialog_ip);
-
-        // set text from list
-        hostnameEditText.setText(hostnameTextView.getText());
-        ipEditText.setText(ipTextView.getText());
-
-        // move cursor to end of EditText
+        View view = factory.inflate(R.layout.lists_redirect_dialog, null);
+        builder.setView(view);
+        // Set hostname and IP
+        EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
+        EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
+        hostnameEditText.setText(hostnameText);
+        ipEditText.setText(ipText);
+        // Move cursor to end of EditText
         Editable hostnameEditContent = hostnameEditText.getText();
         hostnameEditText.setSelection(hostnameEditContent.length());
-        Editable ipEditContent = ipEditText.getText();
-        ipEditText.setSelection(ipEditContent.length());
-
-        builder.setView(dialogView);
-
-        builder.setPositiveButton(getResources().getString(R.string.button_save), (dialog, which) -> {
+        // Set buttons
+        builder.setPositiveButton(R.string.button_save,
+                (dialog, which) -> {
+                    // Close dialog
                     dialog.dismiss();
-
+                    // Check hostname and IP validity
                     String hostname = hostnameEditText.getText().toString();
                     String ip = ipEditText.getText().toString();
-
-                    if (RegexUtils.isValidHostname(hostname)) {
-                        if (RegexUtils.isValidIP(ip)) {
-                            ProviderHelper.updateRedirectionListItemHostnameAndIp(activity,
-                                    itemId, hostname, ip);
-                        } else {
-                            AlertDialog alertDialog = new AlertDialog.Builder(activity)
-                                    .create();
-                            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                            alertDialog.setTitle(R.string.no_ip_title);
-                            alertDialog.setMessage(getString(R.string.no_ip));
-                            alertDialog.setButton(getString(R.string.button_close),
-                                    (dlg, sum) -> dlg.dismiss());
-                            alertDialog.show();
-                        }
-                    } else {
-                        AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
-                        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                        alertDialog.setTitle(R.string.no_hostname_title);
-                        alertDialog.setMessage(getString(R.string.no_hostname));
-                        alertDialog.setButton(getString(R.string.button_close),
-                                (dlg, sum) -> dlg.dismiss());
-                        alertDialog.show();
+                    if (RegexUtils.isValidHostname(hostname) && RegexUtils.isValidIP(ip)) {
+                        ProviderHelper.updateRedirectionListItemHostnameAndIp(activity, itemId, hostname, ip);
                     }
                 }
         );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel), (dialog, which) -> dialog.dismiss());
-        AlertDialog alert = builder.create();
-        alert.show();
+        builder.setNegativeButton(
+                R.string.button_cancel,
+                (dialog, which) -> dialog.dismiss()
+        );
+        // Show dialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        // Set button validation behavior
+        AlertDialogValidator validator = new AlertDialogValidator(
+                alertDialog,
+                input -> {
+                    String hostname = hostnameEditText.getText().toString();
+                    String ip = ipEditText.getText().toString();
+                    return RegexUtils.isValidHostname(hostname) && RegexUtils.isValidIP(ip);
+                },
+                true
+        );
+        hostnameEditText.addTextChangedListener(validator);
+        ipEditText.addTextChangedListener(validator);
     }
 
     @Override
