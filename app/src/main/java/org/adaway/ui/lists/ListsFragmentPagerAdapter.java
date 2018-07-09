@@ -105,9 +105,9 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
         // Check fragment position
         switch (position) {
             case BLACKLIST_FRAGMENT_INDEX:
-                return new BlacklistFragment();
+                return new BlackListFragment();
             case WHITELIST_FRAGMENT_INDEX:
-                return new WhitelistFragment();
+                return new WhiteListFragment();
             case REDIRECTION_FRAGMENT_INDEX:
                 return new RedirectionListFragment();
             default:

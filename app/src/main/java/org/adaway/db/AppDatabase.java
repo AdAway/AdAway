@@ -10,13 +10,13 @@ import android.support.annotation.NonNull;
 
 import org.adaway.db.converter.DateConverter;
 import org.adaway.db.converter.ListTypeConverter;
-import org.adaway.db.dao.HostListDao;
+import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
-import org.adaway.db.entity.HostList;
+import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.util.AppExecutors;
 
-@Database(entities = {HostsSource.class, HostList.class}, version = 1)
+@Database(entities = {HostsSource.class, HostListItem.class}, version = 1)
 @TypeConverters({DateConverter.class, ListTypeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     /**
@@ -80,9 +80,9 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract HostsSourceDao hostsSourceDao();
 
     /**
-     * Get the hosts list DAO.
+     * Get the hosts list item DAO.
      *
-     * @return The hosts list DAO.
+     * @return The hosts list item DAO.
      */
-    public abstract HostListDao hostsListDao();
+    public abstract HostListItemDao hostsListItemDao();
 }

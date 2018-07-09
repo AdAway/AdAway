@@ -45,7 +45,6 @@ public class HostsSourcesViewModel extends AndroidViewModel {
             this.hostsSourceDao.delete(source);
             this.hostsSourceDao.insert(newSource);
         });
-
     }
 
     public void removeSource(HostsSource source) {

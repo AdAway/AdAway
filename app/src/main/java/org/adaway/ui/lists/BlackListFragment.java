@@ -20,68 +20,40 @@
 
 package org.adaway.ui.lists;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.database.Cursor;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.ListFragment;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
+import android.arch.lifecycle.LiveData;
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import org.adaway.R;
-import org.adaway.provider.AdAwayContract.Blacklist;
-import org.adaway.provider.ProviderHelper;
+import org.adaway.db.entity.HostListItem;
+import org.adaway.db.entity.ListType;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
+import java.util.List;
+
 /**
- * This class is a {@link ListFragment} to display and manage black-listed hosts.
+ * This class is a {@link AbstractListFragment} to display and manage black-listed hosts.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class BlacklistFragment extends AbstractListFragment {
-    /**
-     * The blacklist fields display in this view.
-     */
-    protected static final String[] BLACKLIST_SUMMARY_PROJECTION = new String[]{
-            Blacklist._ID,
-            Blacklist.HOSTNAME,
-            Blacklist.ENABLED
-    };
-
-    /*
-     * LoaderCallback.
-     */
-
+public class BlackListFragment extends AbstractListFragment {
     @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        // Create and return cursor loader
-        return new CursorLoader(
-                this.getActivity(),
-                Blacklist.CONTENT_URI,                          // Look for blacklist items
-                BlacklistFragment.BLACKLIST_SUMMARY_PROJECTION, // Columns to display
-                null,                                           // No selection
-                null,                                           // No selection
-                Blacklist.DEFAULT_SORT                          // Sort by hostname ASC
-        );
+    protected LiveData<List<HostListItem>> getData() {
+        return this.mViewModel.getBlackListItems();
     }
 
     @Override
     protected void addItem() {
-        FragmentActivity activity = this.getActivity();
         // Create dialog builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
         builder.setCancelable(true);
         builder.setTitle(R.string.list_add_dialog_black);
         // Create dialog view
-        LayoutInflater factory = LayoutInflater.from(activity);
+        LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_black_dialog, null);
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
         builder.setView(view);
@@ -95,7 +67,7 @@ public class BlacklistFragment extends AbstractListFragment {
                     String hostname = inputEditText.getText().toString();
                     if (RegexUtils.isValidHostname(hostname)) {
                         // Insert host to black list
-                        ProviderHelper.insertBlacklistItem(activity, hostname);
+                        this.mViewModel.addListItem(ListType.BLACK_LIST, hostname, null);
                     }
                 });
         builder.setNegativeButton(
@@ -112,27 +84,18 @@ public class BlacklistFragment extends AbstractListFragment {
     }
 
     @Override
-    protected void enableItem(long itemId, boolean enabled) {
-        ProviderHelper.updateBlacklistItemEnabled(this.getActivity(), itemId, enabled);
-    }
-
-    @Override
-    protected void editItem(final long itemId, View itemView) {
-        // Get hostname text
-        TextView hostnameTextView = itemView.findViewWithTag(ListsCursorAdapter.HOSTNAME_TEXTVIEW_TAG);
-        CharSequence hostnameText = hostnameTextView.getText();
+    protected void editItem(HostListItem item) {
         // Create dialog builder
-        Activity activity = this.getActivity();
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
         builder.setCancelable(true);
         builder.setTitle(R.string.list_edit_dialog_black);
         // Create dialog view
-        LayoutInflater factory = LayoutInflater.from(activity);
+        LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_black_dialog, null);
         builder.setView(view);
         // Set hostname
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
-        inputEditText.setText(hostnameText);
+        inputEditText.setText(item.getHost());
         // Move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
@@ -145,11 +108,8 @@ public class BlacklistFragment extends AbstractListFragment {
                     // Check hostname validity
                     String hostname = inputEditText.getText().toString();
                     if (RegexUtils.isValidHostname(hostname)) {
-                        ProviderHelper.updateBlacklistItemHostname(
-                                activity,
-                                itemId,
-                                hostname
-                        );
+                        // Update list item
+                        this.mViewModel.updateListItem(item, hostname, null);
                     }
                 });
         builder.setNegativeButton(
@@ -163,15 +123,5 @@ public class BlacklistFragment extends AbstractListFragment {
         inputEditText.addTextChangedListener(
                 new AlertDialogValidator(alertDialog, RegexUtils::isValidHostname, true)
         );
-    }
-
-    @Override
-    protected void deleteItem(long itemId) {
-        ProviderHelper.deleteBlacklistItem(this.getActivity(), itemId);
-    }
-
-    @Override
-    protected CursorAdapter getCursorAdapter() {
-        return new ListsCursorAdapter(this.getActivity(), R.layout.checkbox_list_entry);
     }
 }

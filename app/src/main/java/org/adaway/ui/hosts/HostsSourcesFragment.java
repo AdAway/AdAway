@@ -57,7 +57,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
      */
     private Activity mActivity;
     /**
-     * The view model (<code>null</code> if view is not created)..
+     * The view model (<code>null</code> if view is not created).
      */
     private HostsSourcesViewModel mViewModel;
     /**

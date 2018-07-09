@@ -1,86 +1,83 @@
-/*
- * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
- *
- * This file is part of AdAway.
- * 
- * AdAway is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * AdAway is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
-
 package org.adaway.ui.lists;
 
-import android.database.Cursor;
+import android.app.Activity;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.ViewModelProviders;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.ListFragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v7.recyclerview.extensions.ListAdapter;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.ActionMode;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.ListView;
+import android.view.ViewGroup;
 
 import org.adaway.R;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
+import org.adaway.db.entity.HostListItem;
+
+import java.util.List;
 
 /**
- * This class is a {@link ListFragment} to display and manage lists of {@link ListsFragment}.
+ * This class is a {@link Fragment} to display and manage lists of {@link ListsFragment}.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public abstract class AbstractListFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<Cursor> {
+public abstract class AbstractListFragment extends Fragment implements ListsViewCallback {
     /**
-     * The list cursor adapter.
+     * The view model (<code>null</code> if view is not created).
      */
-    protected CursorAdapter mAdapter;
+    protected ListsViewModel mViewModel;
     /**
-     * The position of current list item (<code>-1</code> if no current list item).
+     * The current activity (<code>null</code> if view is not created).
      */
-    protected int mCurrentListItemPosition = -1;
+    protected Activity mActivity;
     /**
      * The current action mode when item is selection (<code>null</code> if no action started).
      */
-    protected ActionMode mActionMode;
+    private ActionMode mActionMode;
+    /**
+     * The action mode callback (<code>null</code> if view is not created).
+     */
+    private ActionMode.Callback mActionCallback;
+    /**
+     * The hosts list related to the current action (<code>null</code> if view is not created).
+     */
+    private HostListItem mActionItem;
+    /**
+     * The view related hosts source of the current action (<code>null</code> if view is not created).
+     */
+    private View mActionSourceView;
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        final FragmentActivity activity = this.getActivity();
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Store activity
+        this.mActivity = this.getActivity();
+        // Create fragment view
+        View view = inflater.inflate(R.layout.hosts_lists_fragment, container, false);
         /*
-         * Configure list.
+         * Configure recycler view.
          */
-        // Get list view
-        final ListView listView = this.getListView();
-        // Give some text to display if there is no data.
-        this.setEmptyText(getString(R.string.checkbox_list_empty) + "\n\n"
-                + getString(R.string.checkbox_list_empty_text));
-        // Start out with a progress indicator
-        this.setListShown(false);
+        // Store recycler view
+        RecyclerView recyclerView = view.findViewById(R.id.hosts_sources_list);
+        recyclerView.setHasFixedSize(true);
+        // Defile recycler layout
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mActivity);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        // Create recycler adapter
+        ListAdapter adapter = new ListsAdapter(this, this.isTwoRowsItem());
+        recyclerView.setAdapter(adapter);
         /*
          * Create action mode.
          */
         // Create action mode callback to display edit/delete menu
-        final ActionMode.Callback callback = new ActionMode.Callback() {
+        this.mActionCallback = new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
                 // Get menu inflater
@@ -101,13 +98,23 @@ public abstract class AbstractListFragment extends ListFragment implements
 
             @Override
             public boolean onActionItemClicked(ActionMode actionMode, MenuItem item) {
+                // Check action item
+                if (AbstractListFragment.this.mActionItem == null) {
+                    return false;
+                }
                 // Check item identifier
                 switch (item.getItemId()) {
                     case R.id.checkbox_list_context_edit:
-                        AbstractListFragment.this.editItem();
+                        // Edit action item
+                        AbstractListFragment.this.editItem(AbstractListFragment.this.mActionItem);
+                        // Finish action mode
+                        AbstractListFragment.this.mActionMode.finish();
                         return true;
                     case R.id.checkbox_list_context_delete:
-                        AbstractListFragment.this.deleteItem();
+                        // Delete action item
+                        AbstractListFragment.this.deleteItem(AbstractListFragment.this.mActionItem);
+                        // Finish action mode
+                        AbstractListFragment.this.mActionMode.finish();
                         return true;
                     default:
                         return false;
@@ -116,86 +123,44 @@ public abstract class AbstractListFragment extends ListFragment implements
 
             @Override
             public void onDestroyActionMode(ActionMode actionMode) {
-                // Get current list item child view
-                View childView = listView.getChildAt(AbstractListFragment.this.mCurrentListItemPosition);
-                // Clear background color
-                childView.setBackgroundColor(Color.TRANSPARENT);
-                // Clear current list item position
-                AbstractListFragment.this.mCurrentListItemPosition = -1;
+                // Clear view background color
+                if (AbstractListFragment.this.mActionSourceView != null) {
+                    AbstractListFragment.this.mActionSourceView.setBackgroundColor(Color.TRANSPARENT);
+                }
+                // Clear current source and its view
+                AbstractListFragment.this.mActionItem = null;
+                AbstractListFragment.this.mActionSourceView = null;
                 // Clear action mode
                 AbstractListFragment.this.mActionMode = null;
             }
         };
-        // Set item long click listener to start action
-        listView.setOnItemLongClickListener((parent, clickedView, position, id) -> {
-            // Check if there is already a current action
-            if (AbstractListFragment.this.mActionMode != null) {
-                return false;
-            }
-            // Store current list item position
-            AbstractListFragment.this.mCurrentListItemPosition = position;
-            // Start action mode and store it
-            AbstractListFragment.this.mActionMode = activity.startActionMode(callback);
-            // Get current item background color
-            int currentItemBackgroundColor = AbstractListFragment.this.getResources().getColor(R.color.selected_background);
-            // Apply background color to current item view
-            clickedView.setBackgroundColor(currentItemBackgroundColor);
-            // Return event consumed
-            return true;
-        });
         /*
          * Load data.
          */
-        // Create cursor adapter
-        this.mAdapter = this.getCursorAdapter();
-        // Bind adapter to list
-        this.setListAdapter(this.mAdapter);
-        // Prepare the loader. Either re-connect with an existing one, or start a new one.
-        this.getLoaderManager().initLoader(0, null, this);
+        // Get view model and bind it to the list view
+        this.mViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
+        this.getData().observe(this, adapter::submitList);
+        // Return created view
+        return view;
     }
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        // Get checkbox
-        CheckBox checkBox = v.findViewWithTag(ListsCursorAdapter.ENABLED_CHECKBOX_TAG);
-        if (checkBox == null) {
-            Log.w(Constants.TAG, "Checkbox could not be found for list entry.");
-            return;
+    public boolean startAction(HostListItem item, View sourceView) {
+        // Check if there is already a current action
+        if (this.mActionMode != null) {
+            return false;
         }
-        // Get current status
-        boolean checked = checkBox.isChecked();
-        // Set new status
-        checkBox.setChecked(!checked);
-        // Enable item
-        this.enableItem(id, !checked);
-    }
-
-    /*
-     * LoaderCallback.
-     */
-
-    @Override
-    public abstract Loader<Cursor> onCreateLoader(int id, Bundle args);
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        // Swap the new cursor in.
-        // (The framework will take care of closing the old cursor once we return.)
-        this.mAdapter.swapCursor(data);
-        // The list should now be shown.
-        if (isResumed()) {
-            setListShown(true);
-        } else {
-            setListShownNoAnimation(true);
-        }
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-        // This is called when the last Cursor provided to onLoadFinished()
-        // above is about to be closed. We need to make sure we are no longer using it.
-        this.mAdapter.swapCursor(null);
+        // Store current source and its view
+        this.mActionItem = item;
+        this.mActionSourceView = sourceView;
+        // Get current item background color
+        int currentItemBackgroundColor = this.getResources().getColor(R.color.selected_background);
+        // Apply background color to view
+        this.mActionSourceView.setBackgroundColor(currentItemBackgroundColor);
+        // Start action mode and store it
+        this.mActionMode = this.mActivity.startActionMode(this.mActionCallback);
+        // Return event consumed
+        return true;
     }
 
     /**
@@ -207,79 +172,22 @@ public abstract class AbstractListFragment extends ListFragment implements
         }
     }
 
-    /**
-     * Add a new item.
-     */
+    protected abstract LiveData<List<HostListItem>> getData();
+
+    protected boolean isTwoRowsItem() {
+        return false;
+    }
+
     protected abstract void addItem();
 
-    /**
-     * Enable or not a list item.
-     *
-     * @param itemId  The item identifier.
-     * @param enabled The item enable state (<code>true</code> if enabled, <code>false</code> otherwise).
-     */
-    protected abstract void enableItem(long itemId, boolean enabled);
+    protected abstract void editItem(HostListItem item);
 
-    /**
-     * Edit the selected list item.
-     */
-    protected void editItem() {
-        // Check current list item position
-        if (this.mCurrentListItemPosition == -1) {
-            return;
-        }
-        // Get current list item identifier
-        final long itemId = this.mAdapter.getItemId(this.mCurrentListItemPosition);
-        // Get current list item view
-        ListView listView = this.getListView();
-        int firstPosition = listView.getFirstVisiblePosition() - listView.getHeaderViewsCount();
-        int wantedChild = this.mCurrentListItemPosition - firstPosition;
-        if (wantedChild < 0 || wantedChild >= listView.getChildCount()) {
-            Log.w(Constants.TAG, "Unable to get view for desired position, because it's not being displayed on screen.");
-            return;
-        }
-        View itemView = listView.getChildAt(wantedChild);
-        // Edit entry
-        this.editItem(itemId, itemView);
-        // Finish action mode
-        this.mActionMode.finish();
+    protected void deleteItem(HostListItem item) {
+        this.mViewModel.removeListItem(item);
     }
 
-    /**
-     * Edit a list item from its identifier and view.
-     *
-     * @param itemId   The item identifier.
-     * @param itemView The item view.
-     */
-    protected abstract void editItem(long itemId, View itemView);
-
-    /**
-     * Delete the selected list item.
-     */
-    protected void deleteItem() {
-        // Check current list item position
-        if (this.mCurrentListItemPosition == -1) {
-            return;
-        }
-        // Get current list item identifier
-        long itemId = this.mAdapter.getItemId(this.mCurrentListItemPosition);
-        // Delete item
-        this.deleteItem(itemId);
-        // Finish action mode
-        this.mActionMode.finish();
+    @Override
+    public void toggleItemEnabled(HostListItem list) {
+        this.mViewModel.toggleItemEnabled(list);
     }
-
-    /**
-     * Delete a list item from its identifier.
-     *
-     * @param itemId The item identifier.
-     */
-    protected abstract void deleteItem(long itemId);
-
-    /**
-     * Get the cursor adapter for the list view.
-     *
-     * @return The cursor adapter for the list view.
-     */
-    protected abstract CursorAdapter getCursorAdapter();
 }

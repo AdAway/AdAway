@@ -21,67 +21,44 @@
 package org.adaway.ui.lists;
 
 import android.app.AlertDialog;
-import android.database.Cursor;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.ListFragment;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
+import android.arch.lifecycle.LiveData;
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import org.adaway.R;
-import org.adaway.provider.AdAwayContract.RedirectionList;
-import org.adaway.provider.ProviderHelper;
+import org.adaway.db.entity.HostListItem;
+import org.adaway.db.entity.ListType;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
+import java.util.List;
+
 /**
- * This class is a {@link ListFragment} to display and manage redirections.
+ * This class is a {@link AbstractListFragment} to display and manage redirection.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class RedirectionListFragment extends AbstractListFragment {
-    /**
-     * The redirection fields display in this view.
-     */
-    protected static final String[] REDIRECTION_LIST_SUMMARY_PROJECTION = new String[]{
-            RedirectionList._ID,
-            RedirectionList.HOSTNAME,
-            RedirectionList.IP,
-            RedirectionList.ENABLED
-    };
-
-    /*
-     * LoaderCallback.
-     */
+    @Override
+    protected boolean isTwoRowsItem() {
+        return true;
+    }
 
     @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        // Create and return cursor loader
-        return new CursorLoader(
-                this.getActivity(),
-                RedirectionList.CONTENT_URI,                                 // Look for blacklist items
-                RedirectionListFragment.REDIRECTION_LIST_SUMMARY_PROJECTION, // Columns to display
-                null,                                                        // No selection
-                null,                                                        // No selection
-                RedirectionList.DEFAULT_SORT                                 // Sort by hostname ASC
-        );
+    protected LiveData<List<HostListItem>> getData() {
+        return this.mViewModel.getRedirectionListItems();
     }
 
     @Override
     protected void addItem() {
-        FragmentActivity activity = this.getActivity();
         // Create dialog builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
         builder.setCancelable(true);
         builder.setTitle(R.string.list_add_dialog_redirect);
         // Create dialog view
-        LayoutInflater factory = LayoutInflater.from(activity);
+        LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_redirect_dialog, null);
         EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
         EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
@@ -96,7 +73,8 @@ public class RedirectionListFragment extends AbstractListFragment {
                     String hostname = hostnameEditText.getText().toString();
                     String ip = ipEditText.getText().toString();
                     if (RegexUtils.isValidHostname(hostname) && RegexUtils.isValidIP(ip)) {
-                        ProviderHelper.insertRedirectionListItem(activity, hostname, ip);
+                        // Insert host to redirection list
+                        this.mViewModel.addListItem(ListType.REDIRECTION_LIST, hostname, ip);
                     }
                 }
         );
@@ -121,70 +99,21 @@ public class RedirectionListFragment extends AbstractListFragment {
         ipEditText.addTextChangedListener(validator);
     }
 
-    /**
-     * Add a new item.
-     *
-     * @param hostname The redirection hostname.
-     * @param ip       The redirection IP address.
-     */
-    protected void addItem(String hostname, String ip) {
-        // Check parameters
-        if (hostname == null || ip == null) {
-            return;
-        }
-        // Get activity
-        FragmentActivity activity = this.getActivity();
-        // Check if host is valid
-        if (RegexUtils.isValidHostname(hostname)) {
-            // Check if IP is valid
-            if (RegexUtils.isValidIP(ip)) {
-                ProviderHelper.insertRedirectionListItem(activity, hostname, ip);
-            } else {
-                // Notify IP is not valid
-                AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
-                alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                alertDialog.setTitle(R.string.no_ip_title);
-                alertDialog.setMessage(getString(org.adaway.R.string.no_ip));
-                alertDialog.setButton(getString(R.string.button_close), (dlg, sum) -> dlg.dismiss());
-                alertDialog.show();
-            }
-        } else {
-            // Notify host is not valid
-            AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
-            alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-            alertDialog.setTitle(R.string.no_hostname_title);
-            alertDialog.setMessage(getString(org.adaway.R.string.no_hostname));
-            alertDialog.setButton(getString(R.string.button_close), (dlg, sum) -> dlg.dismiss());
-            alertDialog.show();
-        }
-    }
-
     @Override
-    protected void enableItem(long itemId, boolean enabled) {
-        ProviderHelper.updateRedirectionListItemEnabled(this.getActivity(), itemId, enabled);
-    }
-
-    @Override
-    protected void editItem(final long itemId, View itemView) {
-        // Get hostname and IP text
-        TextView hostnameTextView = itemView.findViewWithTag(ListsCursorAdapter.HOSTNAME_TEXTVIEW_TAG);
-        TextView ipTextView = itemView.findViewWithTag(ListsCursorAdapter.IP_TEXTVIEW_TAG);
-        CharSequence hostnameText = hostnameTextView.getText();
-        CharSequence ipText = ipTextView.getText();
+    protected void editItem(HostListItem item) {
         // Create dialog builder
-        FragmentActivity activity = this.getActivity();
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
         builder.setCancelable(true);
         builder.setTitle(getString(R.string.list_edit_dialog_redirect));
         // Create dialog view
-        LayoutInflater factory = LayoutInflater.from(activity);
+        LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_redirect_dialog, null);
         builder.setView(view);
         // Set hostname and IP
         EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
         EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
-        hostnameEditText.setText(hostnameText);
-        ipEditText.setText(ipText);
+        hostnameEditText.setText(item.getHost());
+        ipEditText.setText(item.getRedirection());
         // Move cursor to end of EditText
         Editable hostnameEditContent = hostnameEditText.getText();
         hostnameEditText.setSelection(hostnameEditContent.length());
@@ -197,7 +126,8 @@ public class RedirectionListFragment extends AbstractListFragment {
                     String hostname = hostnameEditText.getText().toString();
                     String ip = ipEditText.getText().toString();
                     if (RegexUtils.isValidHostname(hostname) && RegexUtils.isValidIP(ip)) {
-                        ProviderHelper.updateRedirectionListItemHostnameAndIp(activity, itemId, hostname, ip);
+                        // Update list item
+                        this.mViewModel.updateListItem(item, hostname, ip);
                     }
                 }
         );
@@ -220,16 +150,5 @@ public class RedirectionListFragment extends AbstractListFragment {
         );
         hostnameEditText.addTextChangedListener(validator);
         ipEditText.addTextChangedListener(validator);
-    }
-
-    @Override
-    protected void deleteItem(long itemId) {
-        // Delete related redirection
-        ProviderHelper.deleteRedirectionListItem(this.getActivity(), itemId);
-    }
-
-    @Override
-    protected CursorAdapter getCursorAdapter() {
-        return new ListsCursorAdapter(this.getActivity(), R.layout.checkbox_list_two_entries);
     }
 }

@@ -5,7 +5,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity(tableName = "hosts_lists")
-public class HostList {
+public class HostListItem {
     @PrimaryKey
     @NonNull
     private String host;
@@ -51,5 +51,27 @@ public class HostList {
 
     public void setRedirection(String redirection) {
         this.redirection = redirection;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        HostListItem hostList = (HostListItem) o;
+
+        if (!host.equals(hostList.host)) return false;
+        if (type != hostList.type) return false;
+        if (!enabled.equals(hostList.enabled)) return false;
+        return redirection != null ? redirection.equals(hostList.redirection) : hostList.redirection == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = host.hashCode();
+        result = 31 * result + type.hashCode();
+        result = 31 * result + enabled.hashCode();
+        result = 31 * result + (redirection != null ? redirection.hashCode() : 0);
+        return result;
     }
 }
