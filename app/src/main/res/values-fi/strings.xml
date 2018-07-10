@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Web-palvelin ei ole käynnissä</string>
   <string name="button_webserver_toggle_text">Salli tai estä web-palvelin vastaamasta estettyihin isäntänimiin.</string>
   <string name="button_help">Ohjeet</string>
-  <string name="button_tcpdump_text">Tcpdump on työkalu, jolla voit seurata DNS-pyyntöjä ja tallentaa ne lokitiedostoon. Voit käynnistää sen taustalla, käyttää sovelluksia, jotka näyttävät mainoksia ja sen jälkeen analysoida DNS-pyyntöjä käyttäen lokitiedostoa. Mahdolliset mainospalvelimet voidaan sitten lisätä mustalle listalle.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump on käynnissä!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump ei ole käynnissä!</string>
-  <string name="button_tcpdump_open">Avaa lokitiedosto</string>
-  <string name="button_tcpdump_delete">Poista lokitiedosto</string>
+  <string name="tcpdump_description">Tcpdump on työkalu, jolla voit seurata DNS-pyyntöjä ja tallentaa ne lokitiedostoon. Voit käynnistää sen taustalla, käyttää sovelluksia, jotka näyttävät mainoksia ja sen jälkeen analysoida DNS-pyyntöjä käyttäen lokitiedostoa. Mahdolliset mainospalvelimet voidaan sitten lisätä mustalle listalle.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump on käynnissä!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump ei ole käynnissä!</string>
+  <string name="tcpdump_show_results">Avaa lokitiedosto</string>
+  <string name="tcpdump_clear_results">Poista lokitiedosto</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Lisää</string>
   <string name="checkbox_list_empty">Tyhjä lista</string>

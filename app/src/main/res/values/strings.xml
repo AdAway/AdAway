@@ -18,11 +18,6 @@
     <string name="button_webserver_toggle_unchecked">Webserver is not running</string>
     <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
     <string name="button_help">Help</string>
-    <string name="button_tcpdump_text">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
-    <string name="button_tcpdump_toggle_checked">Tcpdump is running!</string>
-    <string name="button_tcpdump_toggle_unchecked">Tcpdump is not running!</string>
-    <string name="button_tcpdump_open">Open log file</string>
-    <string name="button_tcpdump_delete">Delete log file</string>
 
     <!-- Home -->
     <string name="header_help">Welcome!</string>
@@ -192,6 +187,12 @@
     <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
 
     <!-- Tcpdump -->
+    <string name="tcpdump_header">Tcpdump</string>
+    <string name="tcpdump_description">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
+    <string name="tcpdump_disable_monitoring">Disable monitoring</string>
+    <string name="tcpdump_enable_monitoring">Enable monitoring</string>
+    <string name="tcpdump_show_results">Show results</string>
+    <string name="tcpdump_clear_results">Clear results</string>
     <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
     <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
     <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
@@ -200,6 +201,10 @@
     <string name="tcpdump_log_context_browser">Open in Browser</string>
     <string name="tcpdump_log_empty">Log file is empty!</string>
     <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
+    <string name="tcpdump_menu_search">Search</string>
+    <string name="tcpdump_menu_sort">Sort</string>
+    <string name="tcpdump_menu_refresh">Refresh log</string>
+    <string name="tcpdump_menu_clear">Clear log</string>
 
     <!-- Preferences -->
     <string name="pref_download">General Preferences</string>

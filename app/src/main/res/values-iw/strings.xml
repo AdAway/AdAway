@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">השרת אינו פועל</string>
   <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
   <string name="button_help">עזרה</string>
-  <string name="button_tcpdump_text">Tcpdump הוא כלי לניטור בקשות DNS ושמירה שלהם בקובץ יומן. אתה יכול להפעיל אותו ברקע, ולהפעיל יישומים שמציגים פרסומות, ולאחר מכן להסתכל ביומן בקשות ה DNS על ידי שימוש בקובץ היומן. וכך להוסיף שרתי פרסומות לרשימה השחורה שלך.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump פעיל!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump אינו פעיל!</string>
-  <string name="button_tcpdump_open">פתח קובץ יומן</string>
-  <string name="button_tcpdump_delete">מחק קובץ יומן</string>
+  <string name="tcpdump_description">Tcpdump הוא כלי לניטור בקשות DNS ושמירה שלהם בקובץ יומן. אתה יכול להפעיל אותו ברקע, ולהפעיל יישומים שמציגים פרסומות, ולאחר מכן להסתכל ביומן בקשות ה DNS על ידי שימוש בקובץ היומן. וכך להוסיף שרתי פרסומות לרשימה השחורה שלך.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump פעיל!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump אינו פעיל!</string>
+  <string name="tcpdump_show_results">פתח קובץ יומן</string>
+  <string name="tcpdump_clear_results">מחק קובץ יומן</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">הוסף</string>
   <string name="checkbox_list_empty">רשימה ריקה</string>

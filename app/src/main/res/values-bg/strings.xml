@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Уеб сървърът не работи</string>
   <string name="button_webserver_toggle_text">Стартиране или спиране на уеб сървъра на Localhost да отговаря на заявките към блокираните имена на хостове.</string>
   <string name="button_help">Помощ</string>
-  <string name="button_tcpdump_text">Tcpdump е инструмент за наблюдение на DNS заявките и записването им във файл. Можете да го стартирате във фонов режим, да стартирате приложения, които показват реклами, а след това да анализирате DNS заявките с помощта на този файл. Възможен рекламен сървър може да бъде добавен към вашия черен списък.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump работи!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump не работи!</string>
-  <string name="button_tcpdump_open">Отваряне на файла</string>
-  <string name="button_tcpdump_delete">Изтриване на файла</string>
+  <string name="tcpdump_description">Tcpdump е инструмент за наблюдение на DNS заявките и записването им във файл. Можете да го стартирате във фонов режим, да стартирате приложения, които показват реклами, а след това да анализирате DNS заявките с помощта на този файл. Възможен рекламен сървър може да бъде добавен към вашия черен списък.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump работи!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump не работи!</string>
+  <string name="tcpdump_show_results">Отваряне на файла</string>
+  <string name="tcpdump_clear_results">Изтриване на файла</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Добавяне</string>
   <string name="checkbox_list_empty">Празен списък</string>

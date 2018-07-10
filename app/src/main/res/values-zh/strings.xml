@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Web 服务器没有运行</string>
   <string name="button_webserver_toggle_text">在本机开启和停止 web 服务器来应答发到被屏蔽主机的请求。</string>
   <string name="button_help">帮助</string>
-  <string name="button_tcpdump_text">Tcpdump 是一个用来监视 DNS 请求并保存为日志文件的工具。您可以在后台运行它，在前台运行有广告的程序，然后用目志文件来分析 DNS 请求。把找到了广告服务器添加到您的黑名单中。</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump 正在运行！</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump 没有运行！</string>
-  <string name="button_tcpdump_open">打开日志文件</string>
-  <string name="button_tcpdump_delete">删除日志文件</string>
+  <string name="tcpdump_description">Tcpdump 是一个用来监视 DNS 请求并保存为日志文件的工具。您可以在后台运行它，在前台运行有广告的程序，然后用目志文件来分析 DNS 请求。把找到了广告服务器添加到您的黑名单中。</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump 正在运行！</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump 没有运行！</string>
+  <string name="tcpdump_show_results">打开日志文件</string>
+  <string name="tcpdump_clear_results">删除日志文件</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">添加</string>
   <string name="checkbox_list_empty">空列表</string>

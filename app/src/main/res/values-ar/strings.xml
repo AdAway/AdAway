@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">خادم الويب لا يعمل</string>
   <string name="button_webserver_toggle_text">تشغيل أو إيقاف خادم الويب على المضيف المحلي للرد على طلبات أسماء المضيفين المحظورة.</string>
   <string name="button_help">المساعدة</string>
-  <string name="button_tcpdump_text">Tcpdump هي أداة لمراقبة طلبات DNS وحفظها في ملف سجل. يمكنكم تشغيله في الخلفية، ثم تشغيل التطبيقات التي تعرض الإعلانات على الشاشة، بعد ذلك سيتم تحليل طلبات DNS باستخدام ملف السجل.الأن يمكن إضافة مصدر الإعلانات إلى قائمتك السوداء.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump يعمل!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump موقوف!</string>
-  <string name="button_tcpdump_open">فتح السجل</string>
-  <string name="button_tcpdump_delete">حذف السجل</string>
+  <string name="tcpdump_description">Tcpdump هي أداة لمراقبة طلبات DNS وحفظها في ملف سجل. يمكنكم تشغيله في الخلفية، ثم تشغيل التطبيقات التي تعرض الإعلانات على الشاشة، بعد ذلك سيتم تحليل طلبات DNS باستخدام ملف السجل.الأن يمكن إضافة مصدر الإعلانات إلى قائمتك السوداء.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump يعمل!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump موقوف!</string>
+  <string name="tcpdump_show_results">فتح السجل</string>
+  <string name="tcpdump_clear_results">حذف السجل</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">إضافة</string>
   <string name="checkbox_list_empty">قائمة فارغة</string>

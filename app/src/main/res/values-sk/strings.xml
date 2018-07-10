@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Webserver je zastavený</string>
   <string name="button_webserver_toggle_text">Spustiť alebo zastaviť webserver pre odpovedanie na žiadosti pre blokované adresy.</string>
   <string name="button_help">Pomoc</string>
-  <string name="button_tcpdump_text">Tcpdump je nástroj na monitorovanie DNS žiadostí a ich ukladanie do záznamu. Môžete ho spustiť na pozadí, spustiť aplikáciu, ktorá zobrazuje reklamy a potom analyzovať DNS požiadavky pomocou záznamu. Adresy serverov s reklamami si potom môžete pridať do čiernej listiny.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump je spustený!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump je zastavený!</string>
-  <string name="button_tcpdump_open">Otvoriť záznam</string>
-  <string name="button_tcpdump_delete">Vymazať záznam</string>
+  <string name="tcpdump_description">Tcpdump je nástroj na monitorovanie DNS žiadostí a ich ukladanie do záznamu. Môžete ho spustiť na pozadí, spustiť aplikáciu, ktorá zobrazuje reklamy a potom analyzovať DNS požiadavky pomocou záznamu. Adresy serverov s reklamami si potom môžete pridať do čiernej listiny.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump je spustený!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump je zastavený!</string>
+  <string name="tcpdump_show_results">Otvoriť záznam</string>
+  <string name="tcpdump_clear_results">Vymazať záznam</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Pridať</string>
   <string name="checkbox_list_empty">Prázdny zoznam</string>

@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Webserver ne radi</string>
   <string name="button_webserver_toggle_text">Pokreni ili zaustavi lokalni webserverda odgovoriš na zahteve za blokiranim sajtovima</string>
   <string name="button_help">Pomoć</string>
-  <string name="button_tcpdump_text">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump radi!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump ne radi!</string>
-  <string name="button_tcpdump_open">Otvori log fajl</string>
-  <string name="button_tcpdump_delete">Ukloni log fajl</string>
+  <string name="tcpdump_description">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump radi!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump ne radi!</string>
+  <string name="tcpdump_show_results">Otvori log fajl</string>
+  <string name="tcpdump_clear_results">Ukloni log fajl</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Dodaj</string>
   <string name="checkbox_list_empty">Prazna lista</string>

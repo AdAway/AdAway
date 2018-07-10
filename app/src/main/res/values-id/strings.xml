@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Webserver tidak berjalan</string>
   <string name="button_webserver_toggle_text">Nyalakan atau metikan webserver lokal untuk menjawab permintaan dari hostname yang di blokir.</string>
   <string name="button_help">Bantuan</string>
-  <string name="button_tcpdump_text">Tcpdump adalah alat untuk memonitor permintan DNS dan menyimpannya ke file. Anda bisa membuka aplikasi yang memunculkan iklan, dan selanjutnya menganalisai permintaan DNS. Server iklan bisa tisa di tambahkan ke daftar hitam anda.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump berjalan!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump tidak berjalan!</string>
-  <string name="button_tcpdump_open">Buka file log</string>
-  <string name="button_tcpdump_delete">Hapus file log</string>
+  <string name="tcpdump_description">Tcpdump adalah alat untuk memonitor permintan DNS dan menyimpannya ke file. Anda bisa membuka aplikasi yang memunculkan iklan, dan selanjutnya menganalisai permintaan DNS. Server iklan bisa tisa di tambahkan ke daftar hitam anda.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump berjalan!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump tidak berjalan!</string>
+  <string name="tcpdump_show_results">Buka file log</string>
+  <string name="tcpdump_clear_results">Hapus file log</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Tambah</string>
   <string name="checkbox_list_empty">Daftar kosong</string>

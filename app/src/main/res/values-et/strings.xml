@@ -15,8 +15,8 @@
   <string name="button_webserver_toggle_checked">Veebiserver töötab</string>
   <string name="button_webserver_toggle_unchecked">Veebiserver ei tööta</string>
   <string name="button_help">Abi</string>
-  <string name="button_tcpdump_open">Ava logifail</string>
-  <string name="button_tcpdump_delete">Kustuta logifail</string>
+  <string name="tcpdump_show_results">Ava logifail</string>
+  <string name="tcpdump_clear_results">Kustuta logifail</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Lisa</string>
   <string name="checkbox_list_empty">Loend tühi</string>

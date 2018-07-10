@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Webserver neběží</string>
   <string name="button_webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na blokované hostitele.</string>
   <string name="button_help">Pomoc</string>
-  <string name="button_tcpdump_text">Tcpdump je nástroj pro monitorování DNS požadavků a jejich logování do souboru. Můžete ho spustit na pozadí, spustit aplikace zobrazující reklamy a potom analyzovat jejich DNS požadavky v logu. Adresy možných serverů poskytujících reklamní obsah si pak můžete přidat na svou černou listinu.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump běží!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump neběží!</string>
-  <string name="button_tcpdump_open">Otevřít log</string>
-  <string name="button_tcpdump_delete">Vymazat log</string>
+  <string name="tcpdump_description">Tcpdump je nástroj pro monitorování DNS požadavků a jejich logování do souboru. Můžete ho spustit na pozadí, spustit aplikace zobrazující reklamy a potom analyzovat jejich DNS požadavky v logu. Adresy možných serverů poskytujících reklamní obsah si pak můžete přidat na svou černou listinu.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump běží!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump neběží!</string>
+  <string name="tcpdump_show_results">Otevřít log</string>
+  <string name="tcpdump_clear_results">Vymazat log</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Přidat</string>
   <string name="checkbox_list_empty">Prázdný seznam</string>

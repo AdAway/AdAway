@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Web-zerbitzaria ez dago ekinean</string>
   <string name="button_webserver_toggle_text">Abiarazi edo gelditu web-zerbitzaria tokiko-hostalarian blokeatutako hostalari-izen eskabideak galdetzeko.</string>
   <string name="button_help">Laguntza</string>
-  <string name="button_tcpdump_text">Tcpdump DNS eskabideak monitorizatzeko eta hauek ohar agiri baten gordetzeko tresna bat da. Barrenean hasi dezakezu, iragarkiak erakusten dituzten aplikazioak ekin, eta ondoren DNS eskabideak aztertu ohar agiria erabiliz. Orduan ahalezko iragarki zerbitzaria zerrenda-beltzera gehitu daiteke.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump ekinean dago!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump ez dago ekinean!</string>
-  <string name="button_tcpdump_open">Ireki ohar agiria</string>
-  <string name="button_tcpdump_delete">Ezabatu ohar agiria</string>
+  <string name="tcpdump_description">Tcpdump DNS eskabideak monitorizatzeko eta hauek ohar agiri baten gordetzeko tresna bat da. Barrenean hasi dezakezu, iragarkiak erakusten dituzten aplikazioak ekin, eta ondoren DNS eskabideak aztertu ohar agiria erabiliz. Orduan ahalezko iragarki zerbitzaria zerrenda-beltzera gehitu daiteke.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump ekinean dago!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump ez dago ekinean!</string>
+  <string name="tcpdump_show_results">Ireki ohar agiria</string>
+  <string name="tcpdump_clear_results">Ezabatu ohar agiria</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Gehitu</string>
   <string name="checkbox_list_empty">Zerrenda hutsik</string>

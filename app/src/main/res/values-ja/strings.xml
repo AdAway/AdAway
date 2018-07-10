@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">ウェブサーバーは動作していません</string>
   <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します。</string>
   <string name="button_help">ヘルプ</string>
-  <string name="button_tcpdump_text">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。広告のサーバーだと思われるものはブラックリストに追加出来ます。</string>
-  <string name="button_tcpdump_toggle_checked">TCPダンプは動作中です!</string>
-  <string name="button_tcpdump_toggle_unchecked">TCPダンプは非動作中です!</string>
-  <string name="button_tcpdump_open">ログファイルを開く</string>
-  <string name="button_tcpdump_delete">ログファイルを削除</string>
+  <string name="tcpdump_description">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。広告のサーバーだと思われるものはブラックリストに追加出来ます。</string>
+  <string name="tcpdump_disable_monitoring">TCPダンプは動作中です!</string>
+  <string name="tcpdump_enable_monitoring">TCPダンプは非動作中です!</string>
+  <string name="tcpdump_show_results">ログファイルを開く</string>
+  <string name="tcpdump_clear_results">ログファイルを削除</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">追加</string>
   <string name="checkbox_list_empty">空のリスト</string>

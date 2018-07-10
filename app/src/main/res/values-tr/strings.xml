@@ -18,11 +18,11 @@
     <string name="button_webserver_toggle_unchecked">Websunucu çalışmıyor</string>
     <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat yada durdur.</string>
     <string name="button_help">Yardım</string>
-    <string name="button_tcpdump_text">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arkaplanda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
-    <string name="button_tcpdump_toggle_checked">Tcpdump çalışıyor!</string>
-    <string name="button_tcpdump_toggle_unchecked">Tcpdump çalışmıyor!</string>
-    <string name="button_tcpdump_open">Log dosyasını aç</string>
-    <string name="button_tcpdump_delete">Log dosyasını sil</string>
+    <string name="tcpdump_description">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arkaplanda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
+    <string name="tcpdump_disable_monitoring">Tcpdump çalışıyor!</string>
+    <string name="tcpdump_enable_monitoring">Tcpdump çalışmıyor!</string>
+    <string name="tcpdump_show_results">Log dosyasını aç</string>
+    <string name="tcpdump_clear_results">Log dosyasını sil</string>
 
     <!-- Checkbox List -->
     <string name="checkbox_list_add_dialog_title">Ekle</string>

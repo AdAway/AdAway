@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Ο διακομιστής δικτύου δεν λειτουργεί</string>
   <string name="button_webserver_toggle_text">Εκκίνηση ή διακοπή του διακομιστή ιστοσελίδων στο τοπικό μηχάνημα για απάντηση σε φραγμένα ονόματα.</string>
   <string name="button_help">Βοήθεια</string>
-  <string name="button_tcpdump_text">Το tcpdump είναι ένα εργαλείο για την παρακολούθηση αιτήσεων DNS και την αποθήκευσή τους σε αρχείο καταγραφών. Μπορείτε να το εκκινήσετε στο παρασκήνιο, να εκτελέσετε εφαρμογές που εμφανίζουν διαφημίσεις, και έπειτα να αναλύσετε τις αιτήσεις DNS χρησιμοποιώντας το αρχείο αυτό. Ο πιθανός διακομιστής διαφημίσεων μπορεί μετά να προστεθεί στη μαύρη λίστα σας.</string>
-  <string name="button_tcpdump_toggle_checked">Το tcpdump εκτελείται!</string>
-  <string name="button_tcpdump_toggle_unchecked">Το tcpdump δεν εκτελείται!</string>
-  <string name="button_tcpdump_open">Άνοιγμα αρχείου καταγραφής</string>
-  <string name="button_tcpdump_delete">Διαγραφή αρχείου καταγραφής</string>
+  <string name="tcpdump_description">Το tcpdump είναι ένα εργαλείο για την παρακολούθηση αιτήσεων DNS και την αποθήκευσή τους σε αρχείο καταγραφών. Μπορείτε να το εκκινήσετε στο παρασκήνιο, να εκτελέσετε εφαρμογές που εμφανίζουν διαφημίσεις, και έπειτα να αναλύσετε τις αιτήσεις DNS χρησιμοποιώντας το αρχείο αυτό. Ο πιθανός διακομιστής διαφημίσεων μπορεί μετά να προστεθεί στη μαύρη λίστα σας.</string>
+  <string name="tcpdump_disable_monitoring">Το tcpdump εκτελείται!</string>
+  <string name="tcpdump_enable_monitoring">Το tcpdump δεν εκτελείται!</string>
+  <string name="tcpdump_show_results">Άνοιγμα αρχείου καταγραφής</string>
+  <string name="tcpdump_clear_results">Διαγραφή αρχείου καταγραφής</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Προσθήκη</string>
   <string name="checkbox_list_empty">Άδεια λίστα</string>

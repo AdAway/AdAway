@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Веб-сервер не запущен</string>
   <string name="button_webserver_toggle_text">Запуск или остановка Веб-сервера на локальной системе для ответов на запросы заблокированных хостов.</string>
   <string name="button_help">Справка</string>
-  <string name="button_tcpdump_text">Tcpdump это инструмент для мониторинга запросов DNS и их сохранения в файле журнала. Запустите Tcpdump, он будет работать в фоновом режиме до перезагрузки устройства - запустите приложение, в котором на экране показывается реклама - проанализируйте запросы DNS, используя файл журнала. Найденные в нем подозрительные сервера, возможные как источники рекламы, могут быть внесены в черный список.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump работает!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump не работает!</string>
-  <string name="button_tcpdump_open">Открыть файл журнала</string>
-  <string name="button_tcpdump_delete">Удалить файл журнала</string>
+  <string name="tcpdump_description">Tcpdump это инструмент для мониторинга запросов DNS и их сохранения в файле журнала. Запустите Tcpdump, он будет работать в фоновом режиме до перезагрузки устройства - запустите приложение, в котором на экране показывается реклама - проанализируйте запросы DNS, используя файл журнала. Найденные в нем подозрительные сервера, возможные как источники рекламы, могут быть внесены в черный список.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump работает!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump не работает!</string>
+  <string name="tcpdump_show_results">Открыть файл журнала</string>
+  <string name="tcpdump_clear_results">Удалить файл журнала</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Добавить</string>
   <string name="checkbox_list_empty">Список пустой</string>

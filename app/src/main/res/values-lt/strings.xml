@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Serveris neveikia</string>
   <string name="button_webserver_toggle_text">Įjungti ar stabdyti serverį localhost, blokuotų reklamos siuntėjų atsakymui.</string>
   <string name="button_help">Pagalba</string>
-  <string name="button_tcpdump_text">Tcpdump tai įrankis DNS užklausų stebėjimui ir iįsaugoimui log faile. Galite paleisti fone, įjungti programą, kuri rodo reklamą ir po to analizuoti DNS užklausas log faile. Reklamos serverį galėsite pridėti į juodąjį sąrašą.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump veikia!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump neveikia!</string>
-  <string name="button_tcpdump_open">Atidaryti log failą</string>
-  <string name="button_tcpdump_delete">Ištrinti log failą</string>
+  <string name="tcpdump_description">Tcpdump tai įrankis DNS užklausų stebėjimui ir iįsaugoimui log faile. Galite paleisti fone, įjungti programą, kuri rodo reklamą ir po to analizuoti DNS užklausas log faile. Reklamos serverį galėsite pridėti į juodąjį sąrašą.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump veikia!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump neveikia!</string>
+  <string name="tcpdump_show_results">Atidaryti log failą</string>
+  <string name="tcpdump_clear_results">Ištrinti log failą</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Pridėti</string>
   <string name="checkbox_list_empty">Tuščias sąrašas</string>

@@ -18,11 +18,11 @@
     <string name="button_webserver_toggle_unchecked">Webserver wordt niet uitgevoerd</string>
     <string name="button_webserver_toggle_text">Start of stop de webserver op localhost om verzoeken aan geblokkeerde hostnamen te beantwoorden.</string>
     <string name="button_help">Hulp</string>
-    <string name="button_tcpdump_text">Tcpdump is een hulpmiddel om DNS-verzoeken te bekijken en deze op te slaan in een logbestand. U kunt het in de achtergrond starten, een app met reclames gebruiken, en achteraf de DNS-verzoeken analyseren middels het logbestand. Mogelijke reclameservers kunnen dan aan uw zwarte lijst worden toegevoegd.</string>
-    <string name="button_tcpdump_toggle_checked">Tcpdump wordt uitgevoerd!</string>
-    <string name="button_tcpdump_toggle_unchecked">Tcpdump wordt niet uitgevoerd!</string>
-    <string name="button_tcpdump_open">Open logbestand</string>
-    <string name="button_tcpdump_delete">Verwijder logbestand</string>
+    <string name="tcpdump_description">Tcpdump is een hulpmiddel om DNS-verzoeken te bekijken en deze op te slaan in een logbestand. U kunt het in de achtergrond starten, een app met reclames gebruiken, en achteraf de DNS-verzoeken analyseren middels het logbestand. Mogelijke reclameservers kunnen dan aan uw zwarte lijst worden toegevoegd.</string>
+    <string name="tcpdump_disable_monitoring">Tcpdump wordt uitgevoerd!</string>
+    <string name="tcpdump_enable_monitoring">Tcpdump wordt niet uitgevoerd!</string>
+    <string name="tcpdump_show_results">Open logbestand</string>
+    <string name="tcpdump_clear_results">Verwijder logbestand</string>
 
     <!-- Checkbox List -->
     <string name="checkbox_list_add_dialog_title">Toevoegen</string>

@@ -17,7 +17,7 @@
         android:text="@string/tcpdump_log_footer" />
 
     <fragment
-        android:id="@+id/tcpdump_log_list_fragment"
+        android:id="@+id/tcpdump_log_fragment"
         android:name="org.adaway.ui.tcpdump.TcpdumpLogFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">A webszerver nem fut</string>
   <string name="button_webserver_toggle_text">Webszerver indítása vagy leállítása localhost-on, hogy választ kérjen a blokkolt hostnévtől.</string>
   <string name="button_help">Súgó</string>
-  <string name="button_tcpdump_text">A tcpdump olyan eszköz, amely ellenőrzi a DNS kéréseket és elmenti egy naplófájlba. Megkezdi a háttérben az alkalmazások futtatását hirdetésekkel, és utána elemzi a DNS kéréseket a naplófájlt használva. A lehetséges hirdetési szerver ezután bekerül a feketelistába.</string>
-  <string name="button_tcpdump_toggle_checked">A tcpdump fut!</string>
-  <string name="button_tcpdump_toggle_unchecked">A tcpdump nem fut!</string>
-  <string name="button_tcpdump_open">Naplófájl megnyitása</string>
-  <string name="button_tcpdump_delete">Naplófájl törlése</string>
+  <string name="tcpdump_description">A tcpdump olyan eszköz, amely ellenőrzi a DNS kéréseket és elmenti egy naplófájlba. Megkezdi a háttérben az alkalmazások futtatását hirdetésekkel, és utána elemzi a DNS kéréseket a naplófájlt használva. A lehetséges hirdetési szerver ezután bekerül a feketelistába.</string>
+  <string name="tcpdump_disable_monitoring">A tcpdump fut!</string>
+  <string name="tcpdump_enable_monitoring">A tcpdump nem fut!</string>
+  <string name="tcpdump_show_results">Naplófájl megnyitása</string>
+  <string name="tcpdump_clear_results">Naplófájl törlése</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Hozzáad</string>
   <string name="checkbox_list_empty">Üres lista</string>

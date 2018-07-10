@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">El servidor web no está ejecutándose</string>
   <string name="button_webserver_toggle_text">Inicia o detiene el servidor web en localhost (su dispositivo) para responder solicitudes desde servidores bloqueados.</string>
   <string name="button_help">Ayuda</string>
-  <string name="button_tcpdump_text">Tcpdump es una herramienta para monitorizar peticiones DNS y guardarlas en un fichero de registro (log). Puede iniciarla en segundo plano, ejecutar aplicaciones que muestran publicidad, y después analizar las peticiones DNS de estas usando el fichero log. Los posibles servidores de publicidad utilizados pueden entonces ser añadidos a su lista negra.</string>
-  <string name="button_tcpdump_toggle_checked">¡Tcpdump se está ejecutando!</string>
-  <string name="button_tcpdump_toggle_unchecked">¡Tcpdump no se está ejecutando!</string>
-  <string name="button_tcpdump_open">Abrir archivo de registro (log)</string>
-  <string name="button_tcpdump_delete">Borrar archivo de registro (log)</string>
+  <string name="tcpdump_description">Tcpdump es una herramienta para monitorizar peticiones DNS y guardarlas en un fichero de registro (log). Puede iniciarla en segundo plano, ejecutar aplicaciones que muestran publicidad, y después analizar las peticiones DNS de estas usando el fichero log. Los posibles servidores de publicidad utilizados pueden entonces ser añadidos a su lista negra.</string>
+  <string name="tcpdump_disable_monitoring">¡Tcpdump se está ejecutando!</string>
+  <string name="tcpdump_enable_monitoring">¡Tcpdump no se está ejecutando!</string>
+  <string name="tcpdump_show_results">Abrir archivo de registro (log)</string>
+  <string name="tcpdump_clear_results">Borrar archivo de registro (log)</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Añadir</string>
   <string name="checkbox_list_empty">Lista vacía</string>

@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">ไม่ได้ใช้งานเว็บเซิร์ฟเวอร์</string>
   <string name="button_webserver_toggle_text">เปิดหรือปิดเว็บเซิร์ฟเวอร์บนโลเคิลโฮสต์เพื่อบล็อคตอบรับคำขอไปยังไฟล์โฮสต์</string>
   <string name="button_help">ช่วยเหลือ</string>
-  <string name="button_tcpdump_text">Tcpdump เป็นเครื่องมือตรวจสอบคำขอ DNS และบันทึกการใช้งาน คุณสามารถเริ่มใช้งานในพื้นหลัง ใช้งานแอพลิเคชั่นที่แสดงโฆษณาและวิเคราะห์คำขอ DNS โดยใช้บันทึกการใช้งาน โฆษณาสามารถเพิ่มไปยังบัญชีดำของคุณ</string>
-  <string name="button_tcpdump_toggle_checked">กำลังใช้งาน Tcpdump</string>
-  <string name="button_tcpdump_toggle_unchecked">ไม่ได้ใช้งาน Tcpdump</string>
-  <string name="button_tcpdump_open">เปิดบันทึกการใช้งาน</string>
-  <string name="button_tcpdump_delete">ลบบันทึกการใช้งาน</string>
+  <string name="tcpdump_description">Tcpdump เป็นเครื่องมือตรวจสอบคำขอ DNS และบันทึกการใช้งาน คุณสามารถเริ่มใช้งานในพื้นหลัง ใช้งานแอพลิเคชั่นที่แสดงโฆษณาและวิเคราะห์คำขอ DNS โดยใช้บันทึกการใช้งาน โฆษณาสามารถเพิ่มไปยังบัญชีดำของคุณ</string>
+  <string name="tcpdump_disable_monitoring">กำลังใช้งาน Tcpdump</string>
+  <string name="tcpdump_enable_monitoring">ไม่ได้ใช้งาน Tcpdump</string>
+  <string name="tcpdump_show_results">เปิดบันทึกการใช้งาน</string>
+  <string name="tcpdump_clear_results">ลบบันทึกการใช้งาน</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">เพิ่ม</string>
   <string name="checkbox_list_empty">ว่าง</string>

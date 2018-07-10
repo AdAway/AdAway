@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Serwer www nie działa</string>
   <string name="button_webserver_toggle_text">Start lub stop lokalnego serwera www, aby odpowiadać na zapytania blokowanych hostów.</string>
   <string name="button_help">Pomoc</string>
-  <string name="button_tcpdump_text">Tcpdump jest narzędziem do monitorowania zapytań DNS i zapisywania ich do logu. Możesz go uruchomić w tle, uruchomić aplikację, która wyświetla reklamy, a potem przeanalizować zapisany log zapytań DNS. Serwer reklam będzie mógł być wtedy dodany do twojej Czarnej listy.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump działa!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump nie działa!</string>
-  <string name="button_tcpdump_open">Otwórz plik logu</string>
-  <string name="button_tcpdump_delete">Usuń plik logu</string>
+  <string name="tcpdump_description">Tcpdump jest narzędziem do monitorowania zapytań DNS i zapisywania ich do logu. Możesz go uruchomić w tle, uruchomić aplikację, która wyświetla reklamy, a potem przeanalizować zapisany log zapytań DNS. Serwer reklam będzie mógł być wtedy dodany do twojej Czarnej listy.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump działa!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump nie działa!</string>
+  <string name="tcpdump_show_results">Otwórz plik logu</string>
+  <string name="tcpdump_clear_results">Usuń plik logu</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Dodaj</string>
   <string name="checkbox_list_empty">Brak pozycji</string>

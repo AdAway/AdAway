@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Il webserver non è avviato</string>
   <string name="button_webserver_toggle_text">Avvia o ferma il webserver in localhost per rispondere alle richieste verso hostname bloccati.</string>
   <string name="button_help">Aiuto</string>
-  <string name="button_tcpdump_text">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla tua lista nera.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump è avviato!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump non è avviato!</string>
-  <string name="button_tcpdump_open">Apri file registro</string>
-  <string name="button_tcpdump_delete">Elimina file registro</string>
+  <string name="tcpdump_description">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla tua lista nera.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump è avviato!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump non è avviato!</string>
+  <string name="tcpdump_show_results">Apri file registro</string>
+  <string name="tcpdump_clear_results">Elimina file registro</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Aggiungi</string>
   <string name="checkbox_list_empty">Svuota lista</string>

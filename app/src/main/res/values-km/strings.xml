@@ -12,10 +12,10 @@
   <string name="button_cancel">បោះបង់</string>
   <string name="button_save">រក្សាទុក</string>
   <string name="button_help">ជំនួយ</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump កំពុងដំណើរការ!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump មិនដំណើរការ!</string>
-  <string name="button_tcpdump_open">បើកឯកសារកំណត់ហេតុ</string>
-  <string name="button_tcpdump_delete">លុបឯកសារកំណត់ហេតុ</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump កំពុងដំណើរការ!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump មិនដំណើរការ!</string>
+  <string name="tcpdump_show_results">បើកឯកសារកំណត់ហេតុ</string>
+  <string name="tcpdump_clear_results">លុបឯកសារកំណត់ហេតុ</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">បន្ថែម</string>
   <string name="checkbox_list_empty">បញ្ជីទទេ</string>

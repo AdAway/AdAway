@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">網頁伺服器並未執行</string>
   <string name="button_webserver_toggle_text">啟動或停止本地端的網頁伺服器來回應被封鎖主機的請求。</string>
   <string name="button_help">說明</string>
-  <string name="button_tcpdump_text">Tcpdump 是一個用來監視 DNS 請求並儲存為記錄檔的工具，可以在背景執行。當前景執行有廣告的程式，利用用記錄檔來分析 DNS 請求。把找到的廣告伺服器加入到您的黑名單中。</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump 正在執行中！</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump 並未執行！</string>
-  <string name="button_tcpdump_open">開啟記錄檔</string>
-  <string name="button_tcpdump_delete">刪除記錄檔</string>
+  <string name="tcpdump_description">Tcpdump 是一個用來監視 DNS 請求並儲存為記錄檔的工具，可以在背景執行。當前景執行有廣告的程式，利用用記錄檔來分析 DNS 請求。把找到的廣告伺服器加入到您的黑名單中。</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump 正在執行中！</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump 並未執行！</string>
+  <string name="tcpdump_show_results">開啟記錄檔</string>
+  <string name="tcpdump_clear_results">刪除記錄檔</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">加入</string>
   <string name="checkbox_list_empty">無清單</string>

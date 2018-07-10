@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Le serveur Web est arrêté</string>
   <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur Web sur « localhost » pour répondre aux requêtes pour des noms d\'hôtes bloqués.</string>
   <string name="button_help">Aide</string>
-  <string name="button_tcpdump_text">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités, et analyser ensuite les requêtes DNS d\'après le fichier journal. Le serveur publicitaire potentiel peut alors être ajouté à votre liste noire.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump tourne !</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump est arrêté</string>
-  <string name="button_tcpdump_open">Ouvrir le fichier journal</string>
-  <string name="button_tcpdump_delete">Supprimer le fichier journal</string>
+  <string name="tcpdump_description">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités, et analyser ensuite les requêtes DNS d\'après le fichier journal. Le serveur publicitaire potentiel peut alors être ajouté à votre liste noire.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump tourne !</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump est arrêté</string>
+  <string name="tcpdump_show_results">Ouvrir le fichier journal</string>
+  <string name="tcpdump_clear_results">Supprimer le fichier journal</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Ajouter</string>
   <string name="checkbox_list_empty">Liste vide</string>

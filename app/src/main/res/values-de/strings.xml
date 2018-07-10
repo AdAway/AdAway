@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Webserver läuft nicht</string>
   <string name="button_webserver_toggle_text">Den lokalen Webserver starten oder stoppen, um Anfragen an blockierte Hostnamen zu beantworten.</string>
   <string name="button_help">Hilfe</string>
-  <string name="button_tcpdump_text">Mit TCPDump können DNS-Anfragen aufgezeichnet und in einer Protokolldatei gespeichert werden. TCPDump im Hintergrund starten, dann die Anwendung mit Werbung und danach die Protokolldatei in AdAway analysieren. Mögliche Ad-Server können dann zu Ihrer Negativliste hinzugefügt werden.</string>
-  <string name="button_tcpdump_toggle_checked">TCPDump läuft!</string>
-  <string name="button_tcpdump_toggle_unchecked">TCPDump läuft nicht!</string>
-  <string name="button_tcpdump_open">Protokolldatei öffnen</string>
-  <string name="button_tcpdump_delete">Protokolldatei löschen</string>
+  <string name="tcpdump_description">Mit TCPDump können DNS-Anfragen aufgezeichnet und in einer Protokolldatei gespeichert werden. TCPDump im Hintergrund starten, dann die Anwendung mit Werbung und danach die Protokolldatei in AdAway analysieren. Mögliche Ad-Server können dann zu Ihrer Negativliste hinzugefügt werden.</string>
+  <string name="tcpdump_disable_monitoring">TCPDump läuft!</string>
+  <string name="tcpdump_enable_monitoring">TCPDump läuft nicht!</string>
+  <string name="tcpdump_show_results">Protokolldatei öffnen</string>
+  <string name="tcpdump_clear_results">Protokolldatei löschen</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Hinzufügen</string>
   <string name="checkbox_list_empty">Leere Liste</string>

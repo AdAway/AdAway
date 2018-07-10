@@ -30,7 +30,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import org.adaway.R;
@@ -41,7 +40,7 @@ import org.sufficientlysecure.rootcommands.Shell;
 import java.io.IOException;
 
 /**
- * This class is a fragment to start/stop tcpdump tool and read/delete its log.
+ * This class is a fragment to start/stop tcpdump tool and display its log.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
@@ -54,7 +53,7 @@ public class TcpdumpFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate layout
-        View view = inflater.inflate(R.layout.tcpdump_fragment, container, false);
+        View view = inflater.inflate(R.layout.tcpdump_fragment, container, false); // TODO RENAME LAYOUT
         // Get activity
         final Activity activity = this.getActivity();
         // Create root shell
@@ -67,7 +66,7 @@ public class TcpdumpFragment extends Fragment {
          * Configure view.
          */
         // Get tcpdump toggle button
-        final ToggleButton tcpdumpToggleButton = view.findViewById(R.id.tcpdump_fragment_toggle_button);
+        ToggleButton tcpdumpToggleButton = view.findViewById(R.id.tcpdump_toggle_monitoring);
         // Set tcpdump toggle button checked state according tcpdump running state
         tcpdumpToggleButton.setChecked(TcpdumpUtils.isTcpdumpRunning(this.mRootShell));
         // Set tcpdump toggle button checked listener to start/stop tcpdump
@@ -89,23 +88,24 @@ public class TcpdumpFragment extends Fragment {
             }
         });
         // Get open button
-        Button openButton = view.findViewById(R.id.tcpdump_fragment_open_button);
+        Button openButton = view.findViewById(R.id.tcpdump_show_results);
         // Set open button on click listener to start tcpdump log activity
         openButton.setOnClickListener(
                 clickedView -> this.startActivity(new Intent(activity, TcpdumpLogActivity.class))
         );
-        // Get delete button
-        Button deleteButton = view.findViewById(R.id.tcpdump_fragment_delete_button);
-        // Set delete button on click listener to delete tcpdump log
-        deleteButton.setOnClickListener(clickedView -> {
-            if (TcpdumpUtils.clearLogFile(activity)) {
-                Toast.makeText(
-                        getContext(),
-                        R.string.toast_tcpdump_log_deleted,
-                        Toast.LENGTH_SHORT
-                ).show();
-            }
-        });
+        // TODO TO MOVE TO THE LOG ACTIVITY
+//        // Get delete button
+//        Button deleteButton = view.findViewById(R.id.tcpdump_fragment_delete_button);
+//        // Set delete button on click listener to delete tcpdump log
+//        deleteButton.setOnClickListener(clickedView -> {
+//            if (TcpdumpUtils.clearLogFile(activity)) {
+//                Toast.makeText(
+//                        getContext(),
+//                        R.string.toast_tcpdump_log_deleted,
+//                        Toast.LENGTH_SHORT
+//                ).show();
+//            }
+//        });
         // Return created view
         return view;
     }

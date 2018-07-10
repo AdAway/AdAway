@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Веб-сервер не запущено</string>
   <string name="button_webserver_toggle_text">Запуск або зупинка локального веб-сервера для відповідей на запити заблокованих хостів.</string>
   <string name="button_help">Довідка</string>
-  <string name="button_tcpdump_text">Tcpdump це інструмент для моніторингу запитів DNS і їх збереження в файлі журналу. Ви можете запустити його в фоновому режимі, далі запустити програму, яка показує рекламу на екрані, і проаналізувати збережені в журналі запити DNS. Хост, кваліфікований як джерело реклами, може бути внесений у чорний список.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump працює!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump не запущено!</string>
-  <string name="button_tcpdump_open">Відкрити файл журналу</string>
-  <string name="button_tcpdump_delete">Вилучити файл журналу</string>
+  <string name="tcpdump_description">Tcpdump це інструмент для моніторингу запитів DNS і їх збереження в файлі журналу. Ви можете запустити його в фоновому режимі, далі запустити програму, яка показує рекламу на екрані, і проаналізувати збережені в журналі запити DNS. Хост, кваліфікований як джерело реклами, може бути внесений у чорний список.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump працює!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump не запущено!</string>
+  <string name="tcpdump_show_results">Відкрити файл журналу</string>
+  <string name="tcpdump_clear_results">Вилучити файл журналу</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Додати</string>
   <string name="checkbox_list_empty">Порожній список</string>

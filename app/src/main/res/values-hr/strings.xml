@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Web poslužitelj nije pokrenut</string>
   <string name="button_webserver_toggle_text">Pokreni ili zaustavi web poslužitelj na lokalnom poslužitelju kako bi odgovarao na zahtjeve za blokiranje naziva poslužitelja.</string>
   <string name="button_help">Pomoć</string>
-  <string name="button_tcpdump_text">TCPdump je alat za nadzor DNS zahtjeva i spremanje istih u datoteku zapisa. Možete ga pokrenuti u pozadini, zatim pokretati aplikacije koje prikazuju oglase, a nakon toga analizirati DNS zahtjeve koristeći datoteku zapisa. Zatim mogući  poslužitelj oglasa može biti dodan na popis blokiranih.</string>
-  <string name="button_tcpdump_toggle_checked">TCPdump je pokrenut!</string>
-  <string name="button_tcpdump_toggle_unchecked">TCPdump nije pokrenut!</string>
-  <string name="button_tcpdump_open">Otvori datoteku zapisa</string>
-  <string name="button_tcpdump_delete">Obriši datoteku zapisa</string>
+  <string name="tcpdump_description">TCPdump je alat za nadzor DNS zahtjeva i spremanje istih u datoteku zapisa. Možete ga pokrenuti u pozadini, zatim pokretati aplikacije koje prikazuju oglase, a nakon toga analizirati DNS zahtjeve koristeći datoteku zapisa. Zatim mogući  poslužitelj oglasa može biti dodan na popis blokiranih.</string>
+  <string name="tcpdump_disable_monitoring">TCPdump je pokrenut!</string>
+  <string name="tcpdump_enable_monitoring">TCPdump nije pokrenut!</string>
+  <string name="tcpdump_show_results">Otvori datoteku zapisa</string>
+  <string name="tcpdump_clear_results">Obriši datoteku zapisa</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Dodaj</string>
   <string name="checkbox_list_empty">Popis je prazan</string>

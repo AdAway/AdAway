@@ -15,10 +15,10 @@
   <string name="button_webserver_toggle_checked">El servidor Web se encuentra en Ejecución</string>
   <string name="button_webserver_toggle_unchecked">El servidor Web No se encuentra en Ejecución</string>
   <string name="button_help">Ayuda</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump se encuentra en Ejecución!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump No se encuentra en Ejecución!</string>
-  <string name="button_tcpdump_open">Abrir el archivo log</string>
-  <string name="button_tcpdump_delete">Borrar el archivo log</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump se encuentra en Ejecución!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump No se encuentra en Ejecución!</string>
+  <string name="tcpdump_show_results">Abrir el archivo log</string>
+  <string name="tcpdump_clear_results">Borrar el archivo log</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Agregar</string>
   <string name="checkbox_list_empty">Vaciar lista</string>

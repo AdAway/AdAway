@@ -40,12 +40,15 @@ import org.adaway.provider.ProviderHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
+import java.util.Collections;
 import java.util.List;
 
 public class TcpdumpLogFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<List<String>> {
     private Activity mActivity;
     private ArrayAdapter<String> mAdapter;
+
+    private HostNameSort mSort;
 
     /**
      * Context Menu on Long Click
@@ -113,17 +116,16 @@ public class TcpdumpLogFragment extends ListFragment implements
         // application this would come from a resource.
         setEmptyText(mActivity.getString(R.string.tcpdump_log_empty));
 
+        // Create sort
+        mSort = HostNameSort.TOP_LEVEL_DOMAIN;
+
         // Create an empty adapter we will use to display the loaded data.
         String[] values = new String[]{};
+
         mAdapter = new ArrayAdapter<>(mActivity, android.R.layout.simple_list_item_1, values);
         setListAdapter(mAdapter);
 
-        // Start out with a progress indicator.
-        setListShown(false);
-
-        // Prepare the loader. Either re-connect with an existing one,
-        // or start a new one.
-        getLoaderManager().initLoader(0, null, this);
+        refreshLog();
     }
 
     @NonNull
@@ -134,6 +136,7 @@ public class TcpdumpLogFragment extends ListFragment implements
 
     @Override
     public void onLoadFinished(@NonNull Loader<List<String>> loader, List<String> data) {
+        Collections.sort(data, mSort.comparator());
         // Set the new data in the adapter.
         // for (String item : data) {
         // mAdapter.add(item);
@@ -158,5 +161,23 @@ public class TcpdumpLogFragment extends ListFragment implements
     public void onLoaderReset(@NonNull Loader<List<String>> loader) {
         // Clear the data in the adapter.
         mAdapter.clear();
+    }
+
+    /**
+     * Clear the log content.
+     */
+    void clearLog() {
+        TcpdumpUtils.clearLogFile(this.mActivity);
+        this.refreshLog();
+    }
+
+    /**
+     * Refresh the log content.
+     */
+    void refreshLog() {
+        // Start out with a progress indicator.
+        this.setListShown(false);
+        // Prepare the loader. Either re-connect with an existing one, or start a new one.
+        this.getLoaderManager().initLoader(0, null, this);
     }
 }

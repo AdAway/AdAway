@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Server web inactiv</string>
   <string name="button_webserver_toggle_text">Activeaza sau dezactiveaza serverul in mod local, pentru a raspunde cererilor pentru \"hostname\" blocate.</string>
   <string name="button_help">Ajutor</string>
-  <string name="button_tcpdump_text">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump este activ!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump nu este activ!</string>
-  <string name="button_tcpdump_open">Deschide fisierul \"log\"</string>
-  <string name="button_tcpdump_delete">Sterge fisierul \"log\"</string>
+  <string name="tcpdump_description">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
+  <string name="tcpdump_disable_monitoring">Tcpdump este activ!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump nu este activ!</string>
+  <string name="tcpdump_show_results">Deschide fisierul \"log\"</string>
+  <string name="tcpdump_clear_results">Sterge fisierul \"log\"</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Adauga</string>
   <string name="checkbox_list_empty">Sterge toate datele din lista</string>

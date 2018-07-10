@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Webbserver körs ej</string>
   <string name="button_webserver_toggle_text">Starta eller stoppa den lokala webbservern att besvara begäran till blockerade värdnamn.</string>
   <string name="button_help">Hjälp</string>
-  <string name="button_tcpdump_text">Tcpdump är ett verktyg för att övervaka DNS-förfrågningar och spara dem i en loggfil. Du kan starta det i bakgrunden, köra program som visar annonser, och efteråt analysera DNS-förfrågningarna med hjälp av loggfilen. Möjlig annonsserver kan då läggas till på din svartlista.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump körs!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump körs inte!</string>
-  <string name="button_tcpdump_open">Öppna loggfil</string>
-  <string name="button_tcpdump_delete">Radera loggfil</string>
+  <string name="tcpdump_description">Tcpdump är ett verktyg för att övervaka DNS-förfrågningar och spara dem i en loggfil. Du kan starta det i bakgrunden, köra program som visar annonser, och efteråt analysera DNS-förfrågningarna med hjälp av loggfilen. Möjlig annonsserver kan då läggas till på din svartlista.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump körs!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump körs inte!</string>
+  <string name="tcpdump_show_results">Öppna loggfil</string>
+  <string name="tcpdump_clear_results">Radera loggfil</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Lägg till</string>
   <string name="checkbox_list_empty">Tom lista</string>

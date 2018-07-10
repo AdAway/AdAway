@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Nun ta executándose\'l sirvidor web</string>
   <string name="button_webserver_toggle_text">Anicia o para\'l sirvidor web nel agospiu llocal pa responder les solicitúes a nomes d\'agospiu bloquiaos.</string>
   <string name="button_help">Ayuda</string>
-  <string name="button_tcpdump_text">Tcpdump ye una ferramienta pa monitorizar les solicitúes DNS y guardales nun ficheru de rexistru. Pues anicialu de fondu, executar les aplicaciones qu\'amuesen anuncios y sero analizar les solicitúes DNS usando\'l ficheru de rexistru. Ye posible amestar el sirvidor d\'anuncios a la to llista prieta.</string>
-  <string name="button_tcpdump_toggle_checked">¡Tcpdump ta executándose!</string>
-  <string name="button_tcpdump_toggle_unchecked">¡Tcpdump nun ta executándose!</string>
-  <string name="button_tcpdump_open">Abrir ficheru de rexistru</string>
-  <string name="button_tcpdump_delete">Desaniciar ficheru de rexistru</string>
+  <string name="tcpdump_description">Tcpdump ye una ferramienta pa monitorizar les solicitúes DNS y guardales nun ficheru de rexistru. Pues anicialu de fondu, executar les aplicaciones qu\'amuesen anuncios y sero analizar les solicitúes DNS usando\'l ficheru de rexistru. Ye posible amestar el sirvidor d\'anuncios a la to llista prieta.</string>
+  <string name="tcpdump_disable_monitoring">¡Tcpdump ta executándose!</string>
+  <string name="tcpdump_enable_monitoring">¡Tcpdump nun ta executándose!</string>
+  <string name="tcpdump_show_results">Abrir ficheru de rexistru</string>
+  <string name="tcpdump_clear_results">Desaniciar ficheru de rexistru</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Amestar</string>
   <string name="checkbox_list_empty">Llista balera</string>

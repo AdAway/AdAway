@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Webbediener is af</string>
   <string name="button_webserver_toggle_text">Begin of stop webbediener op plaaslike gasheer om antwoorde te verskaf tov. geblokkeerde gasheer name. </string>
   <string name="button_help">Help</string>
-  <string name="button_tcpdump_text">Tcpdump is \'n hulpmiddel om DNS versoeke te moniteer en in \'n Log lêer te stoor. Jy kan dit in die agtergrond begin, gebruik dan programme wat advertensie vertoon en ontleed die DNS dan na die tyd, deur die log lêer te gebruik. Moontlike advertensie bedieners kan dan na die tyd by jou swartlys gevoeg word.</string>
-  <string name="button_tcpdump_toggle_checked">Tcpdump is aktief!</string>
-  <string name="button_tcpdump_toggle_unchecked">Tcpdump is onaktief!</string>
-  <string name="button_tcpdump_open">Maak log lêer oop</string>
-  <string name="button_tcpdump_delete">Vee log lêer uit</string>
+  <string name="tcpdump_description">Tcpdump is \'n hulpmiddel om DNS versoeke te moniteer en in \'n Log lêer te stoor. Jy kan dit in die agtergrond begin, gebruik dan programme wat advertensie vertoon en ontleed die DNS dan na die tyd, deur die log lêer te gebruik. Moontlike advertensie bedieners kan dan na die tyd by jou swartlys gevoeg word.</string>
+  <string name="tcpdump_disable_monitoring">Tcpdump is aktief!</string>
+  <string name="tcpdump_enable_monitoring">Tcpdump is onaktief!</string>
+  <string name="tcpdump_show_results">Maak log lêer oop</string>
+  <string name="tcpdump_clear_results">Vee log lêer uit</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Voeg by</string>
   <string name="checkbox_list_empty">Le lys</string>

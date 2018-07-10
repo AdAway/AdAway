@@ -16,11 +16,11 @@
   <string name="button_webserver_toggle_unchecked">Chưa chạy webserver</string>
   <string name="button_webserver_toggle_text">Bật hoặc dừng webserver trên miền cục bộ để phản hồi yêu cầu từ các tên miền đã chặn.</string>
   <string name="button_help">Trợ giúp</string>
-  <string name="button_tcpdump_text">Tcpdump là công cụ giám sát các yêu cầu DNS và lưu chúng vào tập tin nhật ký. Bạn có thể khởi động nó trong chế độ nền, chạy các ứng dụng có quảng cáo và sau đó phân tích yêu cầu DNS qua tập tin nhật ký. Máy chủ quảng cáo nhận được sẽ bị đưa vào danh sách đen.</string>
-  <string name="button_tcpdump_toggle_checked">Đang chạy Tcpdump!</string>
-  <string name="button_tcpdump_toggle_unchecked">Chưa chạy Tcpdump!</string>
-  <string name="button_tcpdump_open">Mở tập tin nhật ký</string>
-  <string name="button_tcpdump_delete">Xoá tập tin nhật ký</string>
+  <string name="tcpdump_description">Tcpdump là công cụ giám sát các yêu cầu DNS và lưu chúng vào tập tin nhật ký. Bạn có thể khởi động nó trong chế độ nền, chạy các ứng dụng có quảng cáo và sau đó phân tích yêu cầu DNS qua tập tin nhật ký. Máy chủ quảng cáo nhận được sẽ bị đưa vào danh sách đen.</string>
+  <string name="tcpdump_disable_monitoring">Đang chạy Tcpdump!</string>
+  <string name="tcpdump_enable_monitoring">Chưa chạy Tcpdump!</string>
+  <string name="tcpdump_show_results">Mở tập tin nhật ký</string>
+  <string name="tcpdump_clear_results">Xoá tập tin nhật ký</string>
   <!--Checkbox List-->
   <string name="checkbox_list_add_dialog_title">Thêm</string>
   <string name="checkbox_list_empty">Danh sách rỗng</string>
