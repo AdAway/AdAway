@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  
   <string name="app_name">AdAway</string>
+  
   <!--Buttons-->
   <string name="button_exit">Quitter</string>
   <string name="button_apply">Télécharger les fichiers et appliquer le blocage des publicités</string>
@@ -16,13 +18,22 @@
   <string name="button_webserver_toggle_unchecked">Le serveur Web est arrêté</string>
   <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur Web sur « localhost » pour répondre aux requêtes pour des noms d\'hôtes bloqués.</string>
   <string name="button_help">Aide</string>
-  <string name="tcpdump_description">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités, et analyser ensuite les requêtes DNS d\'après le fichier journal. Le serveur publicitaire potentiel peut alors être ajouté à votre liste noire.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump tourne !</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump est arrêté</string>
-  <string name="tcpdump_show_results">Ouvrir le fichier journal</string>
-  <string name="tcpdump_clear_results">Supprimer le fichier journal</string>
+  
+  <!-- Home -->
+  <string name="header_help">Bienvenue!</string>
+  <string name="text_help">AdAway est un logiciel gratuit et open-source créé pour bloquer les publicités. Il télécharge des réseaux de publicités et configure votre appareil pour ensuite les bloquer.\nVou voulez en savoir plus? Jetez un coup d'oeuil ci-dessous!</string>
+  <string name="button_show_help">Afficher plus d'aide</string>
+  <string name="icon_update_status">Mettre à jour le status</string>
+  <string name="text_update">Tous les fichiers d\'hôtes depuis les osurces définies sont téléchargées, fusionnées avec vos propres listes et installées en un seul fichier d\'hôte sur votre système.</string>
+  <string name="button_check_update_hosts">Vérifier les mises à jours</string>
+  <string name="button_update_hosts">Mettre à jour les hôtes</string>
+  <string name="button_enable_hosts">Activer le bloquage de pub</string>
+  <string name="button_disable_hosts">Désactiver le bloquage de pub</string>
+  <string name="header_webserver">Serveur Web</string>
+  <string name="button_enable_webserver">Activer le serveur web</string>
+  <string name="button_disable_webserver">Désactiver le serveur web</string>
+  
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Ajouter</string>
   <string name="checkbox_list_empty">Liste vide</string>
   <string name="checkbox_list_empty_text">Vous pouvez ajouter des éléments depuis la barre d\'action.</string>
   <string name="checkbox_list_context_delete">Supprimer</string>
@@ -30,17 +41,32 @@
   <string name="checkbox_list_edit_dialog_title">Modifier</string>
   <string name="checkbox_list_context_title">Modifier l\'entrée</string>
   <string name="checkbox_list_context_edit">Modifier</string>
+  
   <!--Your Lists-->
   <string name="lists_tab_whitelist">Liste blanche</string>
   <string name="lists_tab_blacklist">Liste noire</string>
-  <string name="lists_tab_redirection_list">Liste des redirections</string>
-  <string name="list_dialog_url">URL :</string>
-  <string name="list_dialog_hostname">Nom d\'hôte :</string>
-  <string name="list_dialog_whitelist_hostname">Nom d\'hôte :\n(Les métacaractères * et ? sont autorisés)</string>
+  <string name="lists_tab_redirection_list">Redirections</string>
+  <string name="list_add_dialog_black">Ajouter hôte à la liste noire</string>
+  <string name="list_add_dialog_white">Ajouter hôte à la liste blanche</string>
+  <string name="list_add_dialog_redirect">Ajouter redirection d\'hôte</string>
+  <string name="list_edit_dialog_black">Éditer liste noir des hôtes</string>
+  <string name="list_edit_dialog_white">Éditer liste blanche des hôtes</string>
+  <string name="list_edit_dialog_redirect">Éditer redirections</string>
+  <string name="list_dialog_hostname">Nom d\'hôte:</string>
+  <string name="list_dialog_hostname_hint">L\'URL de la source hôte</string>
+  <string name="list_dialog_wildcard">(Les caractères génériques * et ? sont autorisés.)</string>
   <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
   <string name="import_dialog">Importation...</string>
   <string name="export_dialog">Exportation...</string>
   <string name="export_success">Toutes les entrées ont été exportées vers un fichier « adaway-export » sur votre carte SD.</string>
+  <string name="export_failed">Échec de l\'exportation de votre liste sur votre carte SD.</string>
+  
+  <!-- Hosts content -->
+  <string name="hosts_header">Le fichier d\'hôtes</string>
+  <string name="hosts_description">Le fichier d\'hôtes est une fichier système qui dirige les noms d\'hôtes aux adresses IP. Il s'agit d\'un fichier texte dont la configuration est gérée par AdAway. Voici ses quelques premières lignes</string>
+  <string name="hosts_content">Chargement du contenu du fichier d\'hôte…</string>
+  <string name="hosts_open_button">Ouvrir le fichiers des hôtes</string>
+  
   <!--Status Notifications-->
   <string name="status_checking">Vérification de mise à jour...</string>
   <string name="status_reverting">Retour arrière...</string>
@@ -56,6 +82,7 @@
   <string name="status_enabled_subtitle">Fichiers « hosts »  les plus récents activés</string>
   <string name="status_disabled">Désactivé</string>
   <string name="status_disabled_subtitle">Désactivé</string>
+  
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Le lien symbolique de votre cible vers /system/etc/hosts est absent ou incorrect ! AdAway ne fonctionnera pas sans un lien vers le bon fichier.\n\nVoulez-vous essayer de créer un lien symbolique ?</string>
   <string name="apply_symlink_missing_title">Lien symbolique manquant</string>
@@ -83,32 +110,34 @@
   <string name="apply_dialog">Mise en place...</string>
   <string name="apply_dialog_lists">Mise en place des liste noire et blanche</string>
   <string name="apply_dialog_hostnames">Analyse et fusion des fichiers « hosts »</string>
-  <string name="apply_dialog_hosts">Création du fichier « hosts »</string>
-  <string name="apply_dialog_apply">Mise en place du fichier « hosts »</string>
+  <string name="apply_dialog_hosts">Création du fichier des hôtes</string>
+  <string name="apply_dialog_apply">Mise en place du fichier des hôtes</string>
   <string name="apply_fail">Le fichier « hosts » n\'a pas pu être appliqué à votre système !\nEssayez de changer le fichier « hosts » cible dans les préférences par /data/data/hosts.</string>
   <string name="apply_fail_title">Échec lors de la mise en place</string>
-  <string name="revert_successful">Vous êtes revenu au fichier « hosts » par défaut.\nIl pourrait peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d\'éviter la perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
+  <string name="revert_successful">Vous êtes revenu au fichier d\'hôtes par défaut.\nIl pourrait peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d\'éviter la perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
   <string name="revert_successful_title">Retour arrière réussi</string>
   <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
   <string name="revert_problem_title">Échec du retour arrière ! </string>
-  <string name="download_fail_dialog">Aucune de vos sources d\'« hosts » activées n\'est disponible. Êtes-vous correctement connecté à internet ?</string>
+  <string name="download_fail_dialog">Aucune de vos sources d\'hôtes » activées n\'est disponible. Êtes-vous correctement connecté à internet ?</string>
   <string name="download_fail_title">Échec de téléchargement</string>
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de création du fichier privé</string>
+  <string name="enable_systemless_successful">Vous avez activé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\nVoulez-vous redémarrer ?\n(Pour éviter la perte de données, assurez-vous qu'aucune application n\'utilise la carte SD pour le moment!)</string>
+  <string name="enable_systemless_successful_title">Activation réussie</string>
   <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer?\n(Pour prévenir la perte de données, assurez-vous qu\'aucune autre application n’utilise la carte SD en ce moment !)</string>
   <string name="disable_systemless_successful_title">Désactivation réussie</string>
+  
   <!--Other Dialogs-->
   <string name="no_root_description">Soit le fichier binaire « su » est introuvable, soit vous n\'avez pas donné l\'accès root à AdAway.\n\nCela peut arriver quand votre appareil n\'est pas enraciné\nVous trouverez des informations sur comment enraciner votre appareil sur wiki.lineageos.org ou d\'autres sites Web dédiés à Android.</string>
   <string name="no_root_title">Un Android rooté est exigé</string>
-  <string name="no_url">Ce n\'est pas une URL valide !</string>
-  <string name="no_url_title">URL mal formatée</string>
-  <string name="hosts_add_dialog">Ajouter une URL au fichier « hosts » :</string>
+  <string name="hosts_add_dialog">Ajouter une URL au fichier des hôtes » :</string>
   <string name="no_hostname">Ce n\'est pas un nom d\'hôte valide !</string>
   <string name="no_hostname_title">Nom d\'hôte mal formaté</string>
   <string name="no_ip">Ce n\'est pas une IP valide !</string>
   <string name="no_ip_title">IP mal formatéee</string>
   <string name="reboot_never_reboot">Ne jamais redémarrer et ne plus demander à l\'avenir !</string>
   <string name="loading">Chargement...</string>
+  
   <!--Menu entries-->
   <string name="menu_refresh">Rafraîchir</string>
   <string name="menu_add">Ajouter</string>
@@ -116,6 +145,7 @@
   <string name="menu_help">Aide</string>
   <string name="menu_import">Importer toutes les listes</string>
   <string name="menu_export">Exporter toutes les listes</string>
+  
   <!--Help-->
   <string name="help_tab_about">À propos de</string>
   <string name="help_tab_donate">Faire un don</string>
@@ -133,20 +163,36 @@
     <item>8 euros</item>
     <item>13 euros</item>
   </string-array>
-  <!--Scan Adware-->
+  
+  <!--Adware-->
+  <string name="adware_header">Logiciels publicitaires</string>
   <string name="adware_description">Vous pouvez rechercher ici les mauvais pubiciels qui ne peuvent être bloqués par AdAWay. Ces applis utilisent par exemple des notifications intempestives « airpush » qui s\'affichent même si l\'appli ne tourne pas et peuvent aussi changer votre sonnerie. La seule contre-mesure est de désinstaller ces applis en cliquant sur les éléments listés !</string>
+  <string name="adware_scanning">Scan&#8230;</string>
   <string name="adware_empty">Aucun mauvais pubiciel trouvé !</string>
+  
   <!--Hosts Sources-->
   <string name="hosts_last_modified_local">Local :</string>
   <string name="hosts_last_modified_online">En ligne :</string>
   <string name="hosts_not_available">non disponible</string>
+  <string name="hosts_add_dialog_title">Ajouter source</string>
+  <string name="hosts_edit_dialog_title">Éditer source</string>
+  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">URL des sources d\'hôtes</string>
+  
   <!--Other-->
   <string name="app_subtitle">Blocage de publicités</string>
   <string name="no_text_editor_title">Aucun éditeur de texte n\'est installé</string>
   <string name="no_text_editor">Aucun éditeur de texte n\'a été trouvé pour ouvrir le fichier « hosts ». Vous pouvez installer Jota ou d\'autres éditeurs de texte pour ce faire.\n\nVoulez-vous installer Jota ?</string>
   <string name="no_file_manager_title">Aucun gestionnaire de fichiers n\'est installé</string>
   <string name="no_file_manager">Aucun gestionnaire de fichier n\'a trouvé pour ouvrir les fichiers. Vous pouvez installer OI File Manager ou d\'autres gestionnaires de fichiers pour ce faire.\n\nVoulez-vous installer OI File Manager ?</string>
+  
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités, et analyser ensuite les requêtes DNS d\'après le fichier journal. Le serveur publicitaire potentiel peut alors être ajouté à votre liste noire.</string>
+  <string name="tcpdump_disable_monitoring">Désactiver la surveillance !</string>
+  <string name="tcpdump_enable_monitoring">Activer la surveillance</string>
+  <string name="tcpdump_show_results">Ouvrir le fichier journal</string>
+  <string name="tcpdump_clear_results">Supprimer le fichier journal</string>
   <string name="toast_tcpdump_log_deleted">Le fichier journal a été supprimé !</string>
   <string name="toast_tcpdump_added_to_blacklist">Le nom d\'hôte a été ajouté à votre liste noire !</string>
   <string name="toast_tcpdump_added_to_whitelist">Le nom d\'hôte a été ajouté à votre liste blanche !</string>
@@ -155,9 +201,17 @@
   <string name="tcpdump_log_context_browser">Ouvrir dans le navigateur</string>
   <string name="tcpdump_log_empty">Le fichier journal est vide !</string>
   <string name="tcpdump_log_footer">Appuyer longuement sur un nom d\'hôte pour l\'ajouter à votre liste noire ou blanche !</string>
+  <string name="tcpdump_menu_search">Rechercher</string>
+  <string name="tcpdump_menu_sort">Trier</string>
+  <string name="tcpdump_menu_refresh">Rafraichir journal</string>
+  <string name="tcpdump_menu_clear">Éffacer journal</string>
+  
   <!--Preferences-->
   <string name="pref_download">Préférences générales</string>
-  <string name="pref_hosts">Fichier « hosts »</string>
+  <string name="pref_dark_theme">Activer thème sombre</string>
+  <string name="pref_dark_theme_summary">Utiliser le thème sombre à la place de celui à fond clair</string>
+  <string name="pref_dark_theme_notification">Le thème sera appliqué au prochain démarrage de l\'application !</string>
+  <string name="pref_hosts">Fichier d\'hôtes</string>
   <string name="pref_redirection_ip">IP de redirection</string>
   <string name="pref_update_check">Vérifier les mises à jour</string>
   <string name="pref_apply_method">Fichier « hosts » cible</string>
@@ -174,12 +228,14 @@
   <string name="pref_webserver">Serveur Web local</string>
   <string name="pref_custom_target">Cible personnalisée</string>
   <string name="pref_custom_target_summary">Utilisé uniquement si le fichier « hosts » cible est personnalisé</string>
+  
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Cible personnalisée</item>
   </string-array>
+  
   <string name="pref_update_check_summary">Vérifier les mises à jour lors du démarrage d\'AdAway</string>
   <string name="pref_sdcard_problem">Cette fonction ne fonctionnera pas correctement si AdAway est installé sur une carte SD !</string>
   <string name="pref_background">Services d\'arrière-plan</string>
@@ -200,4 +256,29 @@
   <string name="pref_enable_ipv6_summary">Toutes les entrées du fichier host auront une entrée ::1 (IPv6 localhost) correspondante.</string>
   <string name="pref_enable_systemless_summary">Empêcher AdAway de modifier la partition système (SuperSU sans système est exigé pour une installation automatique)</string>
   <string name="pref_enable_systemless">Activer le mode sans système</string>
-</resources>
+  <string name="pref_edit_text_value">Éditer la valeure de préférence du texte</string>
+  <string name="drawer_open">Ouvrir menu</string>
+  <string name="drawer_close">Fermer menu</string>
+
+<!-- Drawer menu items -->
+    <string-array name="drawer_items">
+        <item>Accueil</item>
+        <item>Sources d\'hôtes</item>
+        <item>Vos listes</item>
+        <item>Ouvrir fichier d\'hôtes</item>
+        <item>Journaliser requêtes DNS</item>
+        <item>Rechercher de logiciels publicitaires</item>
+        <item>Réglages</item>
+    </string-array>
+
+    <!-- Shortcuts -->
+    <string name="shortcut_dns_requests">DNS requests</string>
+    <string name="shortcut_your_lists">Your lists</string>
+    <string name="shortcut_preferences">Preferences</string>
+
+    <!-- Hosts source status -->
+    <string name="hosts_source_update_available">Update available</string>
+    <string name="hosts_source_up_to_date">Up-to-date</string>
+    <string name="hosts_source_unknown_status">Unknown update status</string>
+
+  </resources>
