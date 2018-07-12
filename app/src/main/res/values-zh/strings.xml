@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">添加到你的白名单</string>
   <string name="tcpdump_log_context_browser">用浏览器打开</string>
   <string name="tcpdump_log_empty">日志文件为空！</string>
-  <string name="tcpdump_log_footer">长按主机名添加它到你的黑白名单</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">通用设置</string>
   <string name="pref_hosts">Hosts 文件</string>
   <string name="pref_redirection_ip">重定向 IP</string>

@@ -20,35 +20,66 @@
 
 package org.adaway.ui.tcpdump;
 
-import org.adaway.R;
-import org.adaway.helper.ThemeHelper;
-import org.adaway.ui.MainActivity;
-
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.recyclerview.extensions.ListAdapter;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import org.adaway.R;
+import org.adaway.helper.ThemeHelper;
+import org.adaway.ui.MainActivity;
+
+/**
+ * This class is an {@link android.app.Activity} to show tcpdump log entries.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class TcpdumpLogActivity extends AppCompatActivity {
-    private ActionBar mActionBar;
-    private TcpdumpLogFragment mLogFragment;
+    /**
+     * The view model (<code>null</code> if activity is not created).
+     */
+    private TcpdumpLogViewModel mViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*
+         * Create activity.
+         */
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
-
         this.setContentView(R.layout.tcpdump_log_activity);
-        this.mLogFragment = (TcpdumpLogFragment) this.getSupportFragmentManager().findFragmentById(R.id.tcpdump_log_fragment);
-
-        this.mActionBar = getSupportActionBar();
-        if (this.mActionBar != null) {
-            this.mActionBar.setDisplayShowTitleEnabled(true);
-            this.mActionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        /*
+         * Configure recycler view.
+         */
+        // Store recycler view
+        RecyclerView recyclerView = this.findViewById(R.id.tcpdump_log_list);
+        recyclerView.setHasFixedSize(true);
+        // Defile recycler layout
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        // Get view model
+        this.mViewModel = ViewModelProviders.of(this).get(TcpdumpLogViewModel.class);
+        // Create recycler adapter
+        ListAdapter adapter = new TcpdumpLogAdapter(this.mViewModel);
+        recyclerView.setAdapter(adapter);
+        /*
+         * Load data.
+         */
+        // Bind view model to the list view
+        this.mViewModel.getLogEntries().observe(this, adapter::submitList);
+        this.mViewModel.updateDnsRequests();
     }
 
     @Override
@@ -67,11 +98,15 @@ public class TcpdumpLogActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
+            case R.id.sort:
+                this.mViewModel.toggleSort();
+                return true;
             case R.id.refresh:
-                this.mLogFragment.refreshLog();
+                this.mViewModel.updateDnsRequests();
                 return true;
             case R.id.clear:
-                this.mLogFragment.clearLog();
+                TcpdumpUtils.clearLogFile(this);
+                this.mViewModel.updateDnsRequests();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -151,8 +151,7 @@
   <string name="tcpdump_log_context_whitelist">Přidat na bílou listinu</string>
   <string name="tcpdump_log_context_browser">Otevřít v prohlížeči</string>
   <string name="tcpdump_log_empty">Soubor protokolu je prázdný!</string>
-  <string name="tcpdump_log_footer">Dlouze podržte na host jménu pro přidání do vašeho černého nebo bílého seznamu!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Obecné předvolby</string>
   <string name="pref_hosts">Soubor hostitelů</string>
   <string name="pref_redirection_ip">IP pro přesměrování</string>

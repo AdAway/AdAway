@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Ajouter à votre liste blanche</string>
   <string name="tcpdump_log_context_browser">Ouvrir dans le navigateur</string>
   <string name="tcpdump_log_empty">Le fichier journal est vide !</string>
-  <string name="tcpdump_log_footer">Appuyer longuement sur un nom d\'hôte pour l\'ajouter à votre liste noire ou blanche !</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Préférences générales</string>
   <string name="pref_hosts">Fichier « hosts »</string>
   <string name="pref_redirection_ip">IP de redirection</string>

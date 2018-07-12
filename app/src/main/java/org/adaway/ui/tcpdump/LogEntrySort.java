@@ -1,26 +1,25 @@
 package org.adaway.ui.tcpdump;
 
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-
 import java.util.Comparator;
 
 /**
- * This enumerate represents the kind of sort available for host name.
+ * This enumerate represents the kind of sort available for {@link LogEntry}.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public enum HostNameSort {
+enum LogEntrySort {
     ALPHA_NUMERIC {
         @Override
-        Comparator<String> comparator() {
-            return String::compareTo;
+        Comparator<LogEntry> comparator() {
+            return LogEntry::compareTo;
         }
     },
     TOP_LEVEL_DOMAIN {
         @Override
-        Comparator<String> comparator() {
-            return (dns1, dns2) -> {
-                String[] split1 = dns1.split("\\.");
-                String[] split2 = dns2.split("\\.");
+        Comparator<LogEntry> comparator() {
+            return (entry1, entry2) -> {
+                String[] split1 = entry1.getHost().split("\\.");
+                String[] split2 = entry2.getHost().split("\\.");
 
                 int index1 = split1.length - 1;
                 int index2 = split2.length - 1;
@@ -48,5 +47,5 @@ public enum HostNameSort {
      *
      * @return The sort comparator.
      */
-    abstract Comparator<String> comparator();
+    abstract Comparator<LogEntry> comparator();
 }

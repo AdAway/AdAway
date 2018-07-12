@@ -176,8 +176,7 @@
   <string name="tcpdump_log_context_whitelist">Προσθήκη στη Λευκή λίστα</string>
   <string name="tcpdump_log_context_browser">Άνοιγμα με Πλοηγό</string>
   <string name="tcpdump_log_empty">Το αρχείο καταγραφής είναι κενό!</string>
-  <string name="tcpdump_log_footer">Πατήστε παρατεταμένα ένα όνομα διακομιστή για να το προσθέσετε στη μαύρη ή λευκή λίστα σας!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Γενικές προτιμήσεις</string>
   <string name="pref_hosts">Αρχείο hosts</string>
   <string name="pref_redirection_ip">IP Ανακατεύθυνσης</string>

@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Dodaj u belu listu</string>
   <string name="tcpdump_log_context_browser">Otvori u pretraživaču</string>
   <string name="tcpdump_log_empty">Log fajl je prazan!</string>
-  <string name="tcpdump_log_footer">Dugo pritisni host da ga dodaš u crnu ili belu listu!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Opšta Podešavanja</string>
   <string name="pref_hosts">Hosts Fajl</string>
   <string name="pref_redirection_ip">IP adresa za redirekciju</string>

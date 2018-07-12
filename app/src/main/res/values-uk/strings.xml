@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Додати у Білий список</string>
   <string name="tcpdump_log_context_browser">Відкрити у браузері</string>
   <string name="tcpdump_log_empty">Файл журналу порожній!</string>
-  <string name="tcpdump_log_footer">Довге натискання на ім\'я хоста дозволить додати його в Чорний або Білий список!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Основні налаштування</string>
   <string name="pref_hosts">Файл хостів</string>
   <string name="pref_redirection_ip">IP для перенаправлення</string>

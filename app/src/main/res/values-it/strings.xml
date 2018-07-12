@@ -155,8 +155,7 @@ Vuoi installare OI File Manager?</string>
   <string name="tcpdump_log_context_whitelist">Aggiungi alla tua Whitelist</string>
   <string name="tcpdump_log_context_browser">Apri nel Browser</string>
   <string name="tcpdump_log_empty">File registro vuoto!</string>
-  <string name="tcpdump_log_footer">Tieni premuto un hostname per aggiungerlo alla tua Black- o Whitelist!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Preferenze generali</string>
   <string name="pref_hosts">File Hosts</string>
   <string name="pref_redirection_ip">Inoltro IP</string>

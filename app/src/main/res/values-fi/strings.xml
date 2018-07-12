@@ -153,8 +153,7 @@
   <string name="tcpdump_log_context_whitelist">Lisää valkoiselle listalle</string>
   <string name="tcpdump_log_context_browser">Avaa selaimessa</string>
   <string name="tcpdump_log_empty">Lokitiedosto on tyhjä!</string>
-  <string name="tcpdump_log_footer">Voit listä isäntänimen mustalle tai valkoiselle listalle pitkällä painalluksella!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Yleiset asetukset</string>
   <string name="pref_hosts">Hosts-tiedosto</string>
   <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>

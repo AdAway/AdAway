@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Zur Positivliste hinzufügen</string>
   <string name="tcpdump_log_context_browser">Im Browser öffnen</string>
   <string name="tcpdump_log_empty">Protokolldatei ist leer!</string>
-  <string name="tcpdump_log_footer">Einen Eintrag lange gedrückt halten, um ihn zur Negativ- oder Positivliste hinzuzufügen!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Grundeinstellungen</string>
   <string name="pref_hosts">Hosts-Datei</string>
   <string name="pref_redirection_ip">Umleitungs-IP</string>

@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Lägg till på vitlistan</string>
   <string name="tcpdump_log_context_browser">Öppna i webbläsare</string>
   <string name="tcpdump_log_empty">Loggfilen är tom!</string>
-  <string name="tcpdump_log_footer">Långtryck på ett värdnamn för att lägga till det på svart- eller vitlistan!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Allmänna inställningar</string>
   <string name="pref_hosts">Värdfil</string>
   <string name="pref_redirection_ip">Omdirigera IP</string>

@@ -140,10 +140,7 @@
   <string name="tcpdump_log_context_whitelist">Voeg by jou Witlys</string>
   <string name="tcpdump_log_context_browser">Maak oop in Blaaier</string>
   <string name="tcpdump_log_empty">Log leêer is leeg!</string>
-  <string name="tcpdump_log_footer">Lang druk op een gasheer naam om dit by jou Swart- of Witlys te voeg!
-
-</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Algemene Voorkeure</string>
   <string name="pref_hosts">Gasheer Lêer</string>
   <string name="pref_redirection_ip">Herlei IP</string>
