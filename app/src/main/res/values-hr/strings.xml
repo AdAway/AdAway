@@ -156,8 +156,7 @@
   <string name="tcpdump_log_context_whitelist">Dodaj u popis neblokiranih</string>
   <string name="tcpdump_log_context_browser">Otvori u pregledniku</string>
   <string name="tcpdump_log_empty">Datoteka zapisa je prazna!</string>
-  <string name="tcpdump_log_footer">Dugo pritisnite naziv poslužitelja za dodavanje na popis blokiranih ili neblokiranih!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Opće postavke</string>
   <string name="pref_hosts">Datoteka poslužitelja</string>
   <string name="pref_redirection_ip">IP preusmjeravanja</string>

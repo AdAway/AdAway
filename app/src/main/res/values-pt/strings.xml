@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Adicionar à lista branca</string>
   <string name="tcpdump_log_context_browser">Abrir no navegador</string>
   <string name="tcpdump_log_empty">Ficheiro de registo vazio!</string>
-  <string name="tcpdump_log_footer">Toque longo num hostname para o adicionar à lista negra ou branca!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Preferências gerais</string>
   <string name="pref_hosts">Ficheiro de hosts</string>
   <string name="pref_redirection_ip">IP de redirecionamento</string>

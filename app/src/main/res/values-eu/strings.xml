@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Gehitu zure Zerrenda-zurira</string>
   <string name="tcpdump_log_context_browser">Ireki Nabigatzailean</string>
   <string name="tcpdump_log_empty">Ohar agiria hutsik dago!</string>
-  <string name="tcpdump_log_footer">Sakatze luzea hostalari-izen batean zure Zerrenda-Beltzera edo Zurira gehitzeko!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Hobespen Orokorrak</string>
   <string name="pref_hosts">Hostalari Agiria</string>
   <string name="pref_redirection_ip">Berzuzenketa IP-a</string>

@@ -16,6 +16,11 @@ import org.adaway.util.Log;
 
 import java.util.List;
 
+/**
+ * This class is an {@link AndroidViewModel} for the {@link AbstractListFragment} implementations.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class ListsViewModel extends AndroidViewModel {
 
     private final HostListItemDao hostListItemDao;
@@ -52,7 +57,7 @@ public class ListsViewModel extends AndroidViewModel {
             try {
                 this.hostListItemDao.insert(item);
             } catch (SQLiteConstraintException exception) {
-                Log.w(Constants.TAG, "Unable to add duplicate list item: "+item+".", exception);
+                Log.w(Constants.TAG, "Unable to add duplicate list item: " + item + ".", exception);
             }
         });
     }

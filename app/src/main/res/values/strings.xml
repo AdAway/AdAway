@@ -200,7 +200,6 @@
     <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
     <string name="tcpdump_log_context_browser">Open in Browser</string>
     <string name="tcpdump_log_empty">Log file is empty!</string>
-    <string name="tcpdump_log_footer">Long press one hostname to add it to your Black- or Whitelist!</string>
     <string name="tcpdump_menu_search">Search</string>
     <string name="tcpdump_menu_sort">Sort</string>
     <string name="tcpdump_menu_refresh">Refresh log</string>

@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Tambahkan dalam daftar putih ku</string>
   <string name="tcpdump_log_context_browser">Buka dalam peramban</string>
   <string name="tcpdump_log_empty">File log kosong!</string>
-  <string name="tcpdump_log_footer">Tahan lama hostname untuk menambahkan ke daftar hitam/putih.</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Pengaturan umum</string>
   <string name="pref_hosts">Hosts File</string>
   <string name="pref_redirection_ip">redireksi IP</string>

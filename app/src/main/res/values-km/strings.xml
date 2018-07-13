@@ -87,8 +87,7 @@
   <string name="tcpdump_log_context_whitelist">បន្ថែមក្នុងបញ្ជីស</string>
   <string name="tcpdump_log_context_browser">បើកក្នុងកម្មវិធីរុករក</string>
   <string name="tcpdump_log_empty">ឯកសារកំណត់ហេតុគឺទទេ!</string>
-  <string name="tcpdump_log_footer">ចុចអោយយួរលើឈ្មោះម៉ាស៊ីនមួយដើម្បីបន្ថែមវាទៅក្នុងបញ្ជីខ្មៅ ឬ បញ្ជីស!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">ការកំណត់ទូរទៅ</string>
   <string name="pref_hosts">ឯកសារម៉ាស៊ីន</string>
   <string name="pref_redirection_ip">ការប្ដូរទិស IP</string>

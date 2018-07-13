@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">ホワイトリストに追加</string>
   <string name="tcpdump_log_context_browser">ブラウザで開く</string>
   <string name="tcpdump_log_empty">ログファイルが空です</string>
-  <string name="tcpdump_log_footer">ホスト名を長押しするとブラック/ホワイトリストに追加します</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">基本設定</string>
   <string name="pref_hosts">hostsファイル</string>
   <string name="pref_redirection_ip">リダイレクト先IP</string>

@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">Tilføj til din godkendte liste</string>
   <string name="tcpdump_log_context_browser">Åbn i browser</string>
   <string name="tcpdump_log_empty">Logfilen er tom!</string>
-  <string name="tcpdump_log_footer">Tryk i længere tid for at tilføje vært in din godkendte eller ikke godkendte liste!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Generelle Indstillinger</string>
   <string name="pref_hosts">Hosts-fil</string>
   <string name="pref_redirection_ip">Omdirigerings-IP</string>

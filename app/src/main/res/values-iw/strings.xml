@@ -149,8 +149,7 @@
   <string name="tcpdump_log_context_whitelist">הוסף לרשימה הלבנה שלך</string>
   <string name="tcpdump_log_context_browser">פתח בדפדפן</string>
   <string name="tcpdump_log_empty">קובץ היומן ריק</string>
-  <string name="tcpdump_log_footer">לחץ על שם שרת כדי להוסיף אותו לרשימה השחורה או הלבנה שלך!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">העדפות כלליות</string>
   <string name="pref_hosts">קובץ Hosts</string>
   <string name="pref_redirection_ip">העברה לכתובת IP</string>

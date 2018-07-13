@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">Thêm vào Danh sách trắng</string>
   <string name="tcpdump_log_context_browser">Mở trong trình duyệt</string>
   <string name="tcpdump_log_empty">Tập tin nhật ký rỗng!</string>
-  <string name="tcpdump_log_footer">Bấm giữ tên miền để thêm vào Danh sách đen hoặc trắng!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Tuỳ chỉnh tổng quát</string>
   <string name="pref_hosts">Tập tin miền</string>
   <string name="pref_redirection_ip">Chuyển hướng IP</string>

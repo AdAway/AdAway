@@ -200,7 +200,6 @@
   <string name="tcpdump_log_context_whitelist">Ajouter à votre liste blanche</string>
   <string name="tcpdump_log_context_browser">Ouvrir dans le navigateur</string>
   <string name="tcpdump_log_empty">Le fichier journal est vide !</string>
-  <string name="tcpdump_log_footer">Appuyer longuement sur un nom d\'hôte pour l\'ajouter à votre liste noire ou blanche !</string>
   <string name="tcpdump_menu_search">Rechercher</string>
   <string name="tcpdump_menu_sort">Trier</string>
   <string name="tcpdump_menu_refresh">Rafraichir journal</string>

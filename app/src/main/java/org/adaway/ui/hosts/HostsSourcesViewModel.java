@@ -12,6 +12,11 @@ import org.adaway.util.AppExecutors;
 
 import java.util.List;
 
+/**
+ * This class is an {@link AndroidViewModel} for the {@link HostsSourcesFragment}.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class HostsSourcesViewModel extends AndroidViewModel {
 
     private final HostsSourceDao hostsSourceDao;

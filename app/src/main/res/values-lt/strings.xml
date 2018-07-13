@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">Įtrauktas į Baltą sąrašą</string>
   <string name="tcpdump_log_context_browser">Atidaryti Naršyklėje</string>
   <string name="tcpdump_log_empty">Log failas tuščias!</string>
-  <string name="tcpdump_log_footer">Ilgai palaikykite ant host vardo Įtraukimui į Juodą ar Baltą sąrašą!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Pagrindiniai nustatymai</string>
   <string name="pref_hosts">Host Failas</string>
   <string name="pref_redirection_ip">Nukreipimo IP</string>

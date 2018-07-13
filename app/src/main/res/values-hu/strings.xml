@@ -168,8 +168,7 @@ Szeretné telepíteni az OI File Manager-t?</string>
   <string name="tcpdump_log_context_whitelist">Add a fehérlistához</string>
   <string name="tcpdump_log_context_browser">Megnyitás böngészőben</string>
   <string name="tcpdump_log_empty">A naplófájl üres!</string>
-  <string name="tcpdump_log_footer">A tétel hosszú érintéssel hozzáadható a fekete-, vagy fehérlistához!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Általános preferenciák</string>
   <string name="pref_hosts">Host fájl</string>
   <string name="pref_redirection_ip">IP átirányítás</string>

@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">Adauga la lista \"whitelist\"! </string>
   <string name="tcpdump_log_context_browser">Deschide in Browser!</string>
   <string name="tcpdump_log_empty">Fisierul \"log\" nu contine nici o data!</string>
-  <string name="tcpdump_log_footer">Apasa lung pe \"hostname\" pentru a-l adauga la lista \"whitelist\" sau \"blacklist\"</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Preferinte generale</string>
   <string name="pref_hosts">Fisier \"hosts\"</string>
   <string name="pref_redirection_ip">Redirectionare IP</string>

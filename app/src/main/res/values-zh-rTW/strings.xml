@@ -153,8 +153,7 @@
   <string name="tcpdump_log_context_whitelist">加入白名單</string>
   <string name="tcpdump_log_context_browser">用瀏覽器開啟</string>
   <string name="tcpdump_log_empty">記錄檔無內容！</string>
-  <string name="tcpdump_log_footer">長按將主機名稱添加至黑/白名單！</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">基本設定</string>
   <string name="pref_hosts">Hosts 檔案</string>
   <string name="pref_redirection_ip">重新導向 IP</string>

@@ -206,7 +206,6 @@
     <string name="tcpdump_log_context_whitelist">Beyazlisteye ekle</string>
     <string name="tcpdump_log_context_browser">Tarayıcıda aç</string>
     <string name="tcpdump_log_empty">Log dosyası boş!</string>
-    <string name="tcpdump_log_footer">Adresi kara- veya beyazlisteye eklemek için adrese basılı tutun.</string>
 
     <!-- Preferences -->
     <string name="pref_download">Genel Tercihler</string>

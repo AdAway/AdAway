@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">إضافة إلى القائمة البيضاء</string>
   <string name="tcpdump_log_context_browser">فتح في المتصفح</string>
   <string name="tcpdump_log_empty">ملف السجل فارغ!</string>
-  <string name="tcpdump_log_footer">الضغطة الطويلة لإضافة اسم المضيف إلى القائمة السوداء أو البيضاء!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">الخيارات العامة</string>
   <string name="pref_hosts">ملفات المضيف</string>
   <string name="pref_redirection_ip">إعادة توجيه IP</string>

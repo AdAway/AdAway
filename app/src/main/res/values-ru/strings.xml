@@ -179,8 +179,7 @@ AdAway не будет работать в мобильных сетях, так
   <string name="tcpdump_log_context_whitelist">Добавить в Белый список</string>
   <string name="tcpdump_log_context_browser">Открыть в браузере</string>
   <string name="tcpdump_log_empty">Файл журнала пустой!</string>
-  <string name="tcpdump_log_footer">Долгое нажатие на имя хоста позволит добавить его в Черный или Белый список!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Основные настройки</string>
   <string name="pref_hosts">Файл hosts</string>
   <string name="pref_redirection_ip">Адрес IP для переадресации</string>

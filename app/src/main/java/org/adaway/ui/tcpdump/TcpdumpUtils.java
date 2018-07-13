@@ -24,13 +24,22 @@ import android.content.Context;
 
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.adaway.util.RegexUtils;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
 import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 class TcpdumpUtils {
     /**
@@ -41,13 +50,18 @@ class TcpdumpUtils {
     }
 
     /**
-     * Get the tcpdump log file.
+     * Checks if tcpdump is running
      *
-     * @param context The application context.
-     * @return The tcpdump log file.
+     * @return true if tcpdump is running
      */
-    static File getLogFile(Context context) {
-        return new File(context.getCacheDir(), Constants.TCPDUMP_LOG);
+    static boolean isTcpdumpRunning(Shell shell) {
+        try {
+            Toolbox tb = new Toolbox(shell);
+            return tb.isBinaryRunning(Constants.TCPDUMP_EXECUTABLE);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Exception while checking tcpdump", e);
+            return false;
+        }
     }
 
     /**
@@ -92,6 +106,71 @@ class TcpdumpUtils {
     }
 
     /**
+     * Stop tcpdump.
+     */
+    static void stopTcpdump(Shell shell) {
+        try {
+            Toolbox tb = new Toolbox(shell);
+            tb.killAllExecutable(Constants.TCPDUMP_EXECUTABLE);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Exception while killing tcpdump", e);
+        }
+    }
+
+    /**
+     * Get the tcpdump log file.
+     *
+     * @param context The application context.
+     * @return The tcpdump log file.
+     */
+    static File getLogFile(Context context) {
+        return new File(context.getCacheDir(), Constants.TCPDUMP_LOG);
+    }
+
+    /**
+     * Get the tcpdump log content.
+     *
+     * @param context The application context.
+     * @return The tcpdump log file content.
+     */
+    static List<String> getLogs(Context context) {
+        File logFile = TcpdumpUtils.getLogFile(context);
+        // Check if the log file exists
+        if (!logFile.exists()) {
+//            return Collections.emptyList();
+            List<String> data = new ArrayList<>();
+            data.add("ads.google.com");
+            data.add("ads1.google.com");
+            data.add("ads.facebook.com");
+            data.add("google.com");
+            data.add("www.google.com");
+            data.add("www.facebook.com");
+            data.add("ads2.google.com");
+            return data;   // TODO FOR TEST ONLY
+        }
+        // hashset, because every hostname should be contained only once
+        Set<String> set = new HashSet<>();
+        // open the file for reading
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(logFile)))) {
+            // read every line of the file into the line-variable, one line at a time
+            String nextLine;
+            String hostname;
+            while ((nextLine = reader.readLine()) != null) {
+                hostname = RegexUtils.getTcpdumpHostname(nextLine);
+                if (hostname != null) {
+                    set.add(hostname);
+                }
+            }
+        } catch (FileNotFoundException exception) {
+            Log.e(Constants.TAG, "The tcpdump log file is missing.", exception);
+        } catch (IOException exception) {
+            Log.e(Constants.TAG, "Can not get cache directory.", exception);
+        }
+
+        return new ArrayList<>(set);
+    }
+
+    /**
      * Delete log file of tcpdump.
      *
      * @param context The application context.
@@ -114,32 +193,5 @@ class TcpdumpUtils {
         }
         // Return successfully clear the log file
         return true;
-    }
-
-    /**
-     * Stop tcpdump.
-     */
-    static void stopTcpdump(Shell shell) {
-        try {
-            Toolbox tb = new Toolbox(shell);
-            tb.killAllExecutable(Constants.TCPDUMP_EXECUTABLE);
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while killing tcpdump", e);
-        }
-    }
-
-    /**
-     * Checks if tcpdump is running
-     *
-     * @return true if tcpdump is running
-     */
-    static boolean isTcpdumpRunning(Shell shell) {
-        try {
-            Toolbox tb = new Toolbox(shell);
-            return tb.isBinaryRunning(Constants.TCPDUMP_EXECUTABLE);
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while checking tcpdump", e);
-            return false;
-        }
     }
 }

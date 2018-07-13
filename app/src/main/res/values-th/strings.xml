@@ -151,8 +151,7 @@
   <string name="tcpdump_log_context_whitelist">เพิ่มไปยังบัญชีขาว</string>
   <string name="tcpdump_log_context_browser">เปิดในเบราเซอร์</string>
   <string name="tcpdump_log_empty">ไม่มีบันทึกการใช้งาน</string>
-  <string name="tcpdump_log_footer">กดยาวบนชื่อโฮสต์เพื่อเพิ่มไปยังบัญชีดำหรือบัญชีขาว!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">การตั้งค่าทั่วไป</string>
   <string name="pref_hosts">ไฟล์โฮสต์</string>
   <string name="pref_redirection_ip">Redirection IP</string>

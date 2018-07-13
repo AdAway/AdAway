@@ -154,8 +154,7 @@
   <string name="tcpdump_log_context_whitelist">Pridať do bielej listiny</string>
   <string name="tcpdump_log_context_browser">Otvoriť v prehliadači</string>
   <string name="tcpdump_log_empty">Záznam je prázdny!</string>
-  <string name="tcpdump_log_footer">Podržte dlho na adrese pre pridanie do čiernej alebo bielej listiny!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Všeobecné nastavenia</string>
   <string name="pref_hosts">Hosts súbor</string>
   <string name="pref_redirection_ip">IP pre presmerovanie</string>

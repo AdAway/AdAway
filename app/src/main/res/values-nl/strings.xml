@@ -203,7 +203,6 @@
     <string name="tcpdump_log_context_whitelist">Voeg aan uw witte lijst toe</string>
     <string name="tcpdump_log_context_browser">Open in browser</string>
     <string name="tcpdump_log_empty">Logbestand is leeg!</string>
-    <string name="tcpdump_log_footer">Druk lang op een hostnaam om deze aan uw zwarte of witte lijst toe te voegen!</string>
 
     <!-- Preferences -->
     <string name="pref_download">Algemene voorkeuren</string>

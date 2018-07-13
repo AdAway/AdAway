@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">Amestar a la to llista blanca</string>
   <string name="tcpdump_log_context_browser">Abrir nel restolador</string>
   <string name="tcpdump_log_empty">¡Ta baleru\'l ficheru de rexistru!</string>
-  <string name="tcpdump_log_footer">¡Calcu llargu nun nome d\'agospiu p\'amestalu a la to llista prieta o blanca!</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Preferencies xenerales</string>
   <string name="pref_hosts">Ficheru «hosts»</string>
   <string name="pref_redirection_ip">Redireición d\'IP</string>

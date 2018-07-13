@@ -152,8 +152,7 @@
   <string name="tcpdump_log_context_whitelist">Afegiu a la Llista blanca</string>
   <string name="tcpdump_log_context_browser">Obrir en el navegador</string>
   <string name="tcpdump_log_empty">El fitxer de registre està buit!</string>
-  <string name="tcpdump_log_footer">Feu un toc llarg a un nom de màquina per afegir-lo a la vostra llista negra o blanca.</string>
-  <!--Preferences-->
+    <!--Preferences-->
   <string name="pref_download">Preferències generals</string>
   <string name="pref_hosts">Fitxer de servidors</string>
   <string name="pref_redirection_ip">Redirecció d\'IP</string>
