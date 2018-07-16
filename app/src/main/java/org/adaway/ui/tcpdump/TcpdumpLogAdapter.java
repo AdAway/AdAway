@@ -1,5 +1,6 @@
 package org.adaway.ui.tcpdump;
 
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.util.DiffUtil;
@@ -13,6 +14,11 @@ import android.widget.TextView;
 import org.adaway.R;
 import org.adaway.db.entity.ListType;
 
+/**
+ * This class is a the {@link RecyclerView.Adapter} for the tcpdump log view.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHolder> {
     /**
      * This callback is use to compare hosts sources.
@@ -31,13 +37,13 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
             };
 
     /**
-     * The activity view model.
+     * The activity view callback.
      */
-    private final TcpdumpLogViewModel viewModel;    // TODO Create a proper callback interface
+    private final TcpdumpLogViewCallback callback;
 
-    TcpdumpLogAdapter(TcpdumpLogViewModel viewModel) {
+    TcpdumpLogAdapter(TcpdumpLogViewCallback callback) {
         super(DIFF_CALLBACK);
-        this.viewModel = viewModel;
+        this.callback = callback;
     }
 
     @NonNull
@@ -52,39 +58,23 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
     public void onBindViewHolder(@NonNull TcpdumpLogAdapter.ViewHolder holder, int position) {
         // Get log entry
         LogEntry entry = this.getItem(position);
-        String hostName = entry.getHost();
-        ListType hostType = entry.getType();
         // Set host name
-        holder.hostnameTextView.setText(hostName);
+        holder.hostnameTextView.setText(entry.getHost());
         // Set type status
-        if (hostType != null) {
-            switch (hostType) {
-                case BLACK_LIST:
-                    holder.blackImageView.setColorFilter(R.color.primary);
-                    holder.whiteImageView.clearColorFilter();
-                    holder.redirectionImageView.clearColorFilter();
-                    break;
-                case WHITE_LIST:
-                    holder.blackImageView.clearColorFilter();
-                    holder.whiteImageView.setColorFilter(R.color.primary);
-                    holder.redirectionImageView.clearColorFilter();
-                    break;
-                case REDIRECTION_LIST:
-                    holder.blackImageView.clearColorFilter();
-                    holder.whiteImageView.clearColorFilter();
-                    holder.redirectionImageView.setColorFilter(R.color.primary);
-                    break;
-            }
+        bindImageView(holder.blackImageView, ListType.BLACK_LIST, entry);
+        bindImageView(holder.whiteImageView, ListType.WHITE_LIST, entry);
+        bindImageView(holder.redirectionImageView, ListType.REDIRECTION_LIST, entry);
+    }
+
+    private void bindImageView(ImageView imageView, ListType type, LogEntry entry) {
+        if (type == entry.getType()) {
+            int primaryColor = this.callback.getColor(R.color.primary);
+            imageView.setColorFilter(primaryColor, PorterDuff.Mode.MULTIPLY);
+            imageView.setOnClickListener(v -> this.callback.removeListItem(entry.getHost()));
         } else {
-            holder.blackImageView.clearColorFilter();
-            holder.whiteImageView.clearColorFilter();
-            holder.redirectionImageView.clearColorFilter();
+            imageView.clearColorFilter();
+            imageView.setOnClickListener(v -> this.callback.addListItem(entry.getHost(), type));
         }
-        // Bind click listener
-        holder.blackImageView.setOnClickListener(v -> this.viewModel.addListItem(ListType.BLACK_LIST, hostName, null));
-        holder.whiteImageView.setOnClickListener(v -> this.viewModel.addListItem(ListType.WHITE_LIST, hostName, null));
-        // TODO Add dialog here
-        holder.redirectionImageView.setOnClickListener(v -> this.viewModel.addListItem(ListType.REDIRECTION_LIST, hostName, "1.1.1.1"));
     }
 
     /**

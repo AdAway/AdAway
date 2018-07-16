@@ -88,11 +88,11 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
         );
     }
 
-    public void addListItem(@NonNull ListType type, @NonNull String host, String redirection) {
+    public void addListItem(@NonNull String host, @NonNull ListType type, String redirection) {
         // Create new host list item
         HostListItem item = new HostListItem();
-        item.setType(type);
         item.setHost(host);
+        item.setType(type);
         item.setRedirection(redirection);
         item.setEnabled(true);
         // Insert host list item
@@ -110,7 +110,29 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
             for (int i = 0; i < entries.size(); i++) {
                 LogEntry entry = entries.get(i);
                 if (entry.getHost().equals(host)) {
-                    updatedEntries.add(i, new LogEntry(host + "test", type));
+                    updatedEntries.add(i, new LogEntry(host, type));
+                } else {
+                    updatedEntries.add(entry);
+                }
+            }
+            this.logEntries.postValue(updatedEntries);
+        }
+    }
+
+    public void removeListItem(@NonNull String host) {
+        // Create new host list item to delete
+        HostListItem item = new HostListItem();
+        item.setHost(host);
+        // Insert host list item
+        AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.delete(item));
+        // Update log entries
+        List<LogEntry> entries = this.logEntries.getValue();
+        if (entries != null) {
+            List<LogEntry> updatedEntries = new ArrayList<>(entries.size());
+            for (int i = 0; i < entries.size(); i++) {
+                LogEntry entry = entries.get(i);
+                if (entry.getHost().equals(host)) {
+                    updatedEntries.add(i, new LogEntry(host, null));
                 } else {
                     updatedEntries.add(entry);
                 }

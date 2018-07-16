@@ -23,6 +23,7 @@ package org.adaway.ui.tcpdump;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.recyclerview.extensions.ListAdapter;
@@ -33,6 +34,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import org.adaway.R;
+import org.adaway.db.entity.ListType;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.MainActivity;
 
@@ -41,7 +43,7 @@ import org.adaway.ui.MainActivity;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class TcpdumpLogActivity extends AppCompatActivity {
+public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogViewCallback {
     /**
      * The view model (<code>null</code> if activity is not created).
      */
@@ -72,7 +74,7 @@ public class TcpdumpLogActivity extends AppCompatActivity {
         // Get view model
         this.mViewModel = ViewModelProviders.of(this).get(TcpdumpLogViewModel.class);
         // Create recycler adapter
-        ListAdapter adapter = new TcpdumpLogAdapter(this.mViewModel);
+        ListAdapter adapter = new TcpdumpLogAdapter(this);
         recyclerView.setAdapter(adapter);
         /*
          * Load data.
@@ -110,6 +112,21 @@ public class TcpdumpLogActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void addListItem(@NonNull String hostName, @NonNull ListType type) {
+        // TODO Dialog if redirection type
+        if (this.mViewModel != null) {
+            this.mViewModel.addListItem(hostName, type, type == ListType.REDIRECTION_LIST ? "1.1.1.1" : null);
+        }
+    }
+
+    @Override
+    public void removeListItem(@NonNull String hostName) {
+        if (this.mViewModel != null) {
+            this.mViewModel.removeListItem(hostName);
         }
     }
 }
