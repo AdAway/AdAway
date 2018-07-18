@@ -60,6 +60,7 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
         LogEntry entry = this.getItem(position);
         // Set host name
         holder.hostnameTextView.setText(entry.getHost());
+        holder.hostnameTextView.setOnClickListener(v -> this.callback.openHostInBrowser(entry.getHost()));
         // Set type status
         bindImageView(holder.blackImageView, ListType.BLACK_LIST, entry);
         bindImageView(holder.whiteImageView, ListType.WHITE_LIST, entry);

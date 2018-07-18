@@ -22,6 +22,7 @@ package org.adaway.ui.tcpdump;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
@@ -128,5 +129,12 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
         if (this.mViewModel != null) {
             this.mViewModel.removeListItem(hostName);
         }
+    }
+
+    @Override
+    public void openHostInBrowser(@NonNull String hostName) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("http://" + hostName));
+        this.startActivity(intent);
     }
 }

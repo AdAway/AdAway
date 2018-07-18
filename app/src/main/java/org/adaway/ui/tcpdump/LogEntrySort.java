@@ -1,5 +1,7 @@
 package org.adaway.ui.tcpdump;
 
+import org.adaway.R;
+
 import java.util.Comparator;
 
 /**
@@ -8,13 +10,23 @@ import java.util.Comparator;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 enum LogEntrySort {
-    ALPHA_NUMERIC {
+    ALPHABETICAL {
+        @Override
+        int getName() {
+            return R.string.tcpdump_sort_alphabetical;
+        }
+
         @Override
         Comparator<LogEntry> comparator() {
             return LogEntry::compareTo;
         }
     },
     TOP_LEVEL_DOMAIN {
+        @Override
+        int getName() {
+            return R.string.tcpdump_sort_top_level_domain;
+        }
+
         @Override
         Comparator<LogEntry> comparator() {
             return (entry1, entry2) -> {
@@ -41,6 +53,13 @@ enum LogEntrySort {
             };
         }
     };
+
+    /**
+     * Get the sort name.
+     *
+     * @return The sort name resource identifier.
+     */
+    abstract int getName();
 
     /**
      * Get the sort comparator.

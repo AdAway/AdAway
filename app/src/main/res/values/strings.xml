@@ -192,18 +192,15 @@
     <string name="tcpdump_disable_monitoring">Disable monitoring</string>
     <string name="tcpdump_enable_monitoring">Enable monitoring</string>
     <string name="tcpdump_show_results">Show results</string>
-    <string name="tcpdump_clear_results">Clear results</string>
-    <string name="toast_tcpdump_log_deleted">Log file deleted!</string>
-    <string name="toast_tcpdump_added_to_blacklist">Hostname was added to your Blacklist!</string>
-    <string name="toast_tcpdump_added_to_whitelist">Hostname was added to your Whitelist!</string>
-    <string name="tcpdump_log_context_blacklist">Add to your Blacklist</string>
-    <string name="tcpdump_log_context_whitelist">Add to your Whitelist</string>
-    <string name="tcpdump_log_context_browser">Open in Browser</string>
+
     <string name="tcpdump_log_empty">Log file is empty!</string>
+
     <string name="tcpdump_menu_search">Search</string>
     <string name="tcpdump_menu_sort">Sort</string>
     <string name="tcpdump_menu_refresh">Refresh log</string>
     <string name="tcpdump_menu_clear">Clear log</string>
+    <string name="tcpdump_sort_alphabetical">Alphabetical sort</string>
+    <string name="tcpdump_sort_top_level_domain">Top level domain sort</string>
 
     <!-- Preferences -->
     <string name="pref_download">General Preferences</string>

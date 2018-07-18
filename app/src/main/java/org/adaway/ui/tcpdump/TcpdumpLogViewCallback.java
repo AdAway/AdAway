@@ -26,6 +26,13 @@ public interface TcpdumpLogViewCallback {
     void removeListItem(@NonNull String hostName);
 
     /**
+     * Open an host into the user browser.
+     *
+     * @param hostName The host name to open.
+     */
+    void openHostInBrowser(@NonNull String hostName);
+
+    /**
      * Get color value from color identifier.
      *
      * @param colorId The color identifier.

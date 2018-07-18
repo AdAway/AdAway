@@ -4,16 +4,14 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.database.sqlite.SQLiteConstraintException;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,11 +50,10 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
     }
 
     public void toggleSort() {
-        this.sortDnsRequests(this.sort == LogEntrySort.ALPHA_NUMERIC ?
+        this.sortDnsRequests(this.sort == LogEntrySort.ALPHABETICAL ?
                 LogEntrySort.TOP_LEVEL_DOMAIN :
-                LogEntrySort.ALPHA_NUMERIC
+                LogEntrySort.ALPHABETICAL
         );
-        // TODO Display toast?
     }
 
     public void updateDnsRequests() {
@@ -132,12 +129,20 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
     }
 
     private void sortDnsRequests(LogEntrySort sort) {
+        // Save current sort
         this.sort = sort;
+        // Apply sort to values
         List<LogEntry> entries = this.logEntries.getValue();
         if (entries != null) {
             List<LogEntry> sortedEntries = new ArrayList<>(entries);
             Collections.sort(sortedEntries, this.sort.comparator());
             this.logEntries.postValue(sortedEntries);
         }
+        // Notify user
+        Toast.makeText(
+                this.getApplication(),
+                this.sort.getName(),
+                Toast.LENGTH_SHORT
+        ).show();
     }
 }
