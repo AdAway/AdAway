@@ -65,7 +65,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
          * Configure recycler view.
          */
         // Store recycler view
-        RecyclerView recyclerView = view.findViewById(R.id.hosts_sources_list);
+        RecyclerView recyclerView = view.findViewById(R.id.hosts_lists_list);
         recyclerView.setHasFixedSize(true);
         // Defile recycler layout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mActivity);

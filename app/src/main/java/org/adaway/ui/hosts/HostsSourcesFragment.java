@@ -87,7 +87,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
          * Configure recycler view.
          */
         // Store recycler view
-        RecyclerView recyclerView = view.findViewById(R.id.hosts_hosts_list);
+        RecyclerView recyclerView = view.findViewById(R.id.hosts_sources_list);
         recyclerView.setHasFixedSize(true);
         // Defile recycler layout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mActivity);
