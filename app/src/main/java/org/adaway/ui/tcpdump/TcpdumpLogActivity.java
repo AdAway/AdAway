@@ -20,6 +20,7 @@
 
 package org.adaway.ui.tcpdump;
 
+import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.net.Uri;
@@ -30,14 +31,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import org.adaway.R;
 import org.adaway.db.entity.ListType;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.MainActivity;
+import org.adaway.ui.dialog.AlertDialogValidator;
+import org.adaway.util.RegexUtils;
 
 /**
  * This class is an {@link android.app.Activity} to show tcpdump log entries.
@@ -118,9 +124,48 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
 
     @Override
     public void addListItem(@NonNull String hostName, @NonNull ListType type) {
-        // TODO Dialog if redirection type
-        if (this.mViewModel != null) {
-            this.mViewModel.addListItem(hostName, type, type == ListType.REDIRECTION_LIST ? "1.1.1.1" : null);
+        // Check view model
+        if (this.mViewModel == null) {
+            return;
+        }
+        // Check type other than redirection
+        if (type != ListType.REDIRECTION_LIST) {
+            this.mViewModel.addListItem(hostName, type, null);
+        } else {
+            // Create dialog builder
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(true);
+            builder.setTitle(R.string.tcpdump_redirect_dialog_title);
+            // Create dialog view
+            LayoutInflater factory = LayoutInflater.from(this);
+            View view = factory.inflate(R.layout.tcpdump_redirect_dialog, null);
+            EditText ipEditText = view.findViewById(R.id.tcpdump_redirect_ip);
+            builder.setView(view);
+            // Setup buttons
+            builder.setPositiveButton(
+                    R.string.button_add,
+                    (dialog, which) -> {
+                        // Close dialog
+                        dialog.dismiss();
+                        // Check IP is valid
+                        String ip = ipEditText.getText().toString();
+                        if (RegexUtils.isValidIP(ip)) {
+                            // Insert list item
+                            this.mViewModel.addListItem(hostName, type, ip);
+                        }
+                    }
+            );
+            builder.setNegativeButton(
+                    R.string.button_cancel,
+                    (dialog, which) -> dialog.dismiss()
+            );
+            // Show dialog
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+            // Set button validation behavior
+            ipEditText.addTextChangedListener(
+                    new AlertDialogValidator(alertDialog, RegexUtils::isValidIP, false)
+            );
         }
     }
 

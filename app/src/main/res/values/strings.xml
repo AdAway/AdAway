@@ -192,9 +192,7 @@
     <string name="tcpdump_disable_monitoring">Disable monitoring</string>
     <string name="tcpdump_enable_monitoring">Enable monitoring</string>
     <string name="tcpdump_show_results">Show results</string>
-
-    <string name="tcpdump_log_empty">Log file is empty!</string>
-
+    <string name="tcpdump_redirect_dialog_title">Redirect domain</string>
     <string name="tcpdump_menu_search">Search</string>
     <string name="tcpdump_menu_sort">Sort</string>
     <string name="tcpdump_menu_refresh">Refresh log</string>
