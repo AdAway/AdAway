@@ -53,7 +53,7 @@ public class TcpdumpFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate layout
-        View view = inflater.inflate(R.layout.tcpdump_fragment, container, false); // TODO RENAME LAYOUT
+        View view = inflater.inflate(R.layout.tcpdump_fragment, container, false);
         // Get activity
         final Activity activity = this.getActivity();
         // Create root shell
@@ -93,19 +93,6 @@ public class TcpdumpFragment extends Fragment {
         openButton.setOnClickListener(
                 clickedView -> this.startActivity(new Intent(activity, TcpdumpLogActivity.class))
         );
-        // TODO TO MOVE TO THE LOG ACTIVITY
-//        // Get delete button
-//        Button deleteButton = view.findViewById(R.id.tcpdump_fragment_delete_button);
-//        // Set delete button on click listener to delete tcpdump log
-//        deleteButton.setOnClickListener(clickedView -> {
-//            if (TcpdumpUtils.clearLogFile(activity)) {
-//                Toast.makeText(
-//                        getContext(),
-//                        R.string.toast_tcpdump_log_deleted,
-//                        Toast.LENGTH_SHORT
-//                ).show();
-//            }
-//        });
         // Return created view
         return view;
     }
