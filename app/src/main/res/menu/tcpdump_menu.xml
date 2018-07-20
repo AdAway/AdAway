@@ -2,20 +2,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search"
-        android:icon="@drawable/ic_search_black_24dp"
+        android:icon="@drawable/baseline_search_24"
         android:title="@string/tcpdump_menu_search"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/sort"
-        android:icon="@drawable/ic_sort_black_24dp"
+        android:icon="@drawable/baseline_sort_24"
         android:title="@string/tcpdump_menu_sort"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/refresh"
-        android:icon="@drawable/ic_refresh_black_24dp"
+        android:icon="@drawable/baseline_refresh_24"
         android:title="@string/tcpdump_menu_refresh" />
     <item
         android:id="@+id/clear"
-        android:icon="@drawable/ic_clear_all_black_24dp"
+        android:icon="@drawable/baseline_clear_all_24"
         android:title="@string/tcpdump_menu_clear" />
 </menu>

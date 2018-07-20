@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/whiteImageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_block_white_24dp" />
+        app:srcCompat="@drawable/baseline_block_24" />
 
     <ImageView
         android:id="@+id/whiteImageView"
@@ -45,7 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/redirectionImageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_check_white_24dp" />
+        app:srcCompat="@drawable/baseline_check_24" />
 
     <ImageView
         android:id="@+id/redirectionImageView"
@@ -60,6 +60,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_compare_arrows_white_24dp" />
+        app:srcCompat="@drawable/baseline_compare_arrows_24" />
 
 </android.support.constraint.ConstraintLayout>

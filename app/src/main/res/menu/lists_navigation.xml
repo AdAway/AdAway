@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/lists_navigation_blacklist"
-        android:icon="@drawable/ic_block_white_24dp"
+        android:icon="@drawable/baseline_block_24"
         android:title="@string/lists_tab_blacklist" />
 
     <item
         android:id="@+id/lists_navigation_whitelist"
-        android:icon="@drawable/ic_check_white_24dp"
+        android:icon="@drawable/baseline_check_24"
         android:title="@string/lists_tab_whitelist" />
 
     <item
         android:id="@+id/lists_navigation_redirection_list"
-        android:icon="@drawable/ic_compare_arrows_white_24dp"
+        android:icon="@drawable/baseline_compare_arrows_24"
         android:title="@string/lists_tab_redirection_list" />
 </menu>
