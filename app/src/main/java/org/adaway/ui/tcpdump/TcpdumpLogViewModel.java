@@ -7,6 +7,9 @@ import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
+import com.annimon.stream.Collectors;
+import com.annimon.stream.Stream;
+
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
@@ -15,7 +18,6 @@ import org.adaway.util.AppExecutors;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -62,23 +64,20 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
                     // Get tcpdump logs
                     List<String> logs = TcpdumpUtils.getLogs(this.getApplication());
                     // Create lookup table of host list item by host name
-                    List<HostListItem> hostListItems = this.hostListItemDao.getAll();
-                    Map<String, HostListItem> hosts = new HashMap<>();
-                    for (HostListItem hostListItem : hostListItems) {
-                        hosts.put(hostListItem.getHost(), hostListItem);
-                    }
+                    Map<String, HostListItem> hosts = Stream.of(this.hostListItemDao.getAll())
+                            .collect(Collectors.toMap(HostListItem::getHost));
                     // Create log entry collection
-                    List<LogEntry> logItems = new ArrayList<>(logs.size());
-                    for (String log : logs) {
-                        ListType type = null;
-                        HostListItem hostListItem = hosts.get(log);
-                        if (hostListItem != null) {
-                            type = hostListItem.getType();
-                        }
-                        logItems.add(new LogEntry(log, type));
-                    }
-                    // Sort entries
-                    Collections.sort(logItems, this.sort.comparator());
+                    List<LogEntry> logItems = Stream.of(logs)
+                            .map(log -> {
+                                ListType type = null;
+                                HostListItem hostListItem = hosts.get(log);
+                                if (hostListItem != null) {
+                                    type = hostListItem.getType();
+                                }
+                                return new LogEntry(log, type);
+                            })
+                            .sorted(this.sort.comparator())
+                            .collect(Collectors.toList());
                     // Post result
                     this.logEntries.postValue(logItems);
                 }
@@ -115,15 +114,10 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
         if (entries == null) {
             return;
         }
-        // Create new collection
-        List<LogEntry> updatedEntries = new ArrayList<>(entries);
         // Update entry type
-        for (int i = 0; i < entries.size(); i++) {
-            LogEntry entry = entries.get(i);
-            if (entry.getHost().equals(host)) {
-                updatedEntries.set(i, new LogEntry(host, type));
-            }
-        }
+        List<LogEntry> updatedEntries = Stream.of(entries)
+                .map(entry -> entry.getHost().equals(host) ? new LogEntry(host, type) : entry)
+                .collect(Collectors.toList());
         // Post new values
         this.logEntries.postValue(updatedEntries);
     }

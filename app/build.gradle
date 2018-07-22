@@ -24,6 +24,7 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$support_version"
     implementation "com.android.support:support-fragment:$support_version"
 
+    implementation 'com.annimon:stream:1.2.0'
     implementation 'com.evernote:android-job:1.2.4'
     implementation project(':libraries:RootCommands')
     implementation project(':tcpdump')

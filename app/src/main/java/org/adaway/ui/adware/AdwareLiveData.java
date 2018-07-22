@@ -8,12 +8,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.WorkerThread;
 
+import com.annimon.stream.Collectors;
+import com.annimon.stream.Stream;
+
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -56,19 +58,14 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
     @WorkerThread
     private void loadData() {
         // Get the package manager
-        PackageManager pm = context.getPackageManager();
+        PackageManager pm = this.context.getPackageManager();
         // Get the adware packages
         List<PackageInfo> adwarePackages = this.getAdwarePackages(pm);
         // Create related adware installs
-        List<AdwareInstall> adwareInstalls = new ArrayList<>(adwarePackages.size());
-        for (PackageInfo pkg : adwarePackages) {
-            // Retrieve application name
-            String applicationName = pm.getApplicationLabel(pkg.applicationInfo).toString();
-            // Add adware install
-            adwareInstalls.add(new AdwareInstall(applicationName, pkg.packageName));
-        }
-        // Sort adware installs found
-        Collections.sort(adwareInstalls);
+        List<AdwareInstall> adwareInstalls = Stream.of(adwarePackages)
+                .map(this::createInstallFromPackageInfo)
+                .sorted()
+                .collect(Collectors.toList());
         // Post loaded adware installs
         this.postValue(adwareInstalls);
     }
@@ -104,7 +101,7 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
      * Check if application is an adware.
      *
      * @param info The application package information.
-     * @return <code>true</code> if the appliaction is an adware, <code>false</code> otherwise.
+     * @return <code>true</code> if the application is an adware, <code>false</code> otherwise.
      */
     private boolean isAdware(PackageInfo info) {
         // Get package name
@@ -138,5 +135,20 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
             }
         }
         return false;
+    }
+
+    /**
+     * Create {@link AdwareInstall} from {@link PackageInfo}.
+     *
+     * @param packageInfo The package info to convert.
+     * @return The related adware install.
+     */
+    private AdwareInstall createInstallFromPackageInfo(PackageInfo packageInfo) {
+        // Get the package manager
+        PackageManager pm = this.context.getPackageManager();
+        // Retrieve application name
+        String applicationName = pm.getApplicationLabel(packageInfo.applicationInfo).toString();
+        // Add adware install
+        return new AdwareInstall(applicationName, packageInfo.packageName);
     }
 }
