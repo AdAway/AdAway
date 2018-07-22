@@ -40,6 +40,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 public class AdAwayProvider extends ContentProvider {
@@ -86,9 +87,6 @@ public class AdAwayProvider extends ContentProvider {
 
     private AdAwayDatabase mAdAwayDatabase;
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean onCreate() {
         final Context context = getContext();
@@ -96,11 +94,8 @@ public class AdAwayProvider extends ContentProvider {
         return true;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
             case HOSTS_SOURCES:
@@ -124,17 +119,14 @@ public class AdAwayProvider extends ContentProvider {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public Uri insert(Uri uri, ContentValues values) {
+    public Uri insert(@NonNull Uri uri, ContentValues values) {
         Log.d(Constants.TAG, "insert(uri=" + uri + ", values=" + values.toString() + ")");
 
         final SQLiteDatabase db = mAdAwayDatabase.getWritableDatabase();
 
         Uri rowUri = null;
-        long rowId = -1;
+        long rowId;
         try {
             final int match = sUriMatcher.match(uri);
             switch (match) {
@@ -167,12 +159,8 @@ public class AdAwayProvider extends ContentProvider {
         return rowUri;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
-                        String sortOrder) {
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         Log.v(Constants.TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection) + ")");
 
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -202,11 +190,8 @@ public class AdAwayProvider extends ContentProvider {
         return cursor;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+    public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         Log.v(Constants.TAG, "update(uri=" + uri + ", values=" + values.toString() + ")");
 
         final SQLiteDatabase db = mAdAwayDatabase.getWritableDatabase();
@@ -244,11 +229,8 @@ public class AdAwayProvider extends ContentProvider {
         return count;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public int delete(Uri uri, String selection, String[] selectionArgs) {
+    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
         Log.v(Constants.TAG, "delete(uri=" + uri + ")");
 
         final SQLiteDatabase db = mAdAwayDatabase.getWritableDatabase();
