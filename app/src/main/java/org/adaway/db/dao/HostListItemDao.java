@@ -15,13 +15,22 @@ import java.util.List;
 @Dao
 public interface HostListItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(HostListItem item);
+    void insert(HostListItem... item);
 
     @Update
     void update(HostListItem item);
 
     @Delete
     void delete(HostListItem item);
+
+    @Query("SELECT host FROM hosts_lists WHERE type = 0 AND enabled = 1")
+    List<String> getEnabledBlackListHosts();
+
+    @Query("SELECT host FROM hosts_lists WHERE type = 1 AND enabled = 1")
+    List<String> getEnabledWhiteListHosts();
+
+    @Query("SELECT * FROM hosts_lists WHERE type = 2 AND enabled = 1")
+    List<HostListItem> getEnabledRedirectionList();
 
     @Query("SELECT * FROM hosts_lists ORDER BY host ASC")
     List<HostListItem> getAll();

@@ -24,13 +24,18 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.support.v4.app.NotificationCompat;
 
+import com.annimon.stream.Collectors;
+import com.annimon.stream.Stream;
+
 import org.adaway.R;
-import org.adaway.provider.AdAwayContract.HostsSources;
-import org.adaway.provider.ProviderHelper;
+import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostListItemDao;
+import org.adaway.db.dao.HostsSourceDao;
+import org.adaway.db.entity.HostListItem;
+import org.adaway.db.entity.HostsSource;
 import org.adaway.ui.MainActivity;
 import org.adaway.ui.home.HomeFragment;
 import org.adaway.util.ApplyUtils;
@@ -57,15 +62,20 @@ import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 
 public class ApplyHelper {
     private static final int APPLY_NOTIFICATION_ID = 20;
     private final Context mContext;
     private final NotificationManager mNotificationManager;
+    private final HostsSourceDao mHostsSourceDao;
+    private final HostListItemDao mHostListItemDao;
     private int mNumberOfFailedDownloads;
     private int mNumberOfDownloads;
 
@@ -75,9 +85,14 @@ public class ApplyHelper {
      * @param context The application context.
      */
     public ApplyHelper(Context context) {
+        // Store context
         this.mContext = context;
-        this.mNotificationManager = (NotificationManager) mContext.getApplicationContext()
-                .getSystemService(Context.NOTIFICATION_SERVICE);
+        // Get dao
+        AppDatabase database = AppDatabase.getInstance(context);
+        this.mHostsSourceDao = database.hostsSourceDao();
+        this.mHostListItemDao = database.hostsListItemDao();
+        // Get notification manager
+        this.mNotificationManager = (NotificationManager) mContext.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     /**
@@ -103,8 +118,7 @@ public class ApplyHelper {
             result = this.applyHostsFile();
             Log.d(Constants.TAG, "Apply result: " + result);
             // Compute successful downloads
-            successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/"
-                    + mNumberOfDownloads;
+            successfulDownloads = (mNumberOfDownloads - mNumberOfFailedDownloads) + "/" + mNumberOfDownloads;
         }
         // Cancel apply notification
         this.cancelApplyNotification();
@@ -134,13 +148,10 @@ public class ApplyHelper {
                 this.mContext.getString(R.string.download_dialog)
         );
         // Open local private file and get cursor to enabled hosts sources
-        try (FileOutputStream out = this.mContext.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE);
-             Cursor enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(this.mContext)) {
-            // iterate over all hosts sources in db with cursor
-            if (enabledHostsSourcesCursor != null && enabledHostsSourcesCursor.moveToFirst()) {
-                do {
-                    this.downloadHost(enabledHostsSourcesCursor, out);
-                } while (enabledHostsSourcesCursor.moveToNext());
+        try (FileOutputStream out = this.mContext.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE)) {
+            // Download each hosts source
+            for (HostsSource hostsSource : this.mHostsSourceDao.getEnabled()) {
+                this.downloadHost(hostsSource, out);
             }
             // Check if all downloads failed
             if (this.mNumberOfDownloads == mNumberOfFailedDownloads && this.mNumberOfDownloads != 0) {
@@ -158,14 +169,14 @@ public class ApplyHelper {
     /**
      * Download an hosts file and write it to a private file.
      *
-     * @param cursor The cursor to get the hosts file URL.
-     * @param out    The output stream to write the hosts file content to.
+     * @param hostsSource The hosts source to download.
+     * @param out         The output stream to write the hosts file content to.
      */
-    private void downloadHost(Cursor cursor, FileOutputStream out) {
+    private void downloadHost(HostsSource hostsSource, FileOutputStream out) {
         // Increase number downloads
         this.mNumberOfDownloads++;
         // Get hosts file URL
-        String hostsFileUrl = cursor.getString(cursor.getColumnIndex("url"));
+        String hostsFileUrl = hostsSource.getUrl();
         Log.v(Constants.TAG, "Downloading hosts file: " + hostsFileUrl);
         // Notify apply
         this.updateApplyNotification(
@@ -186,11 +197,7 @@ public class ApplyHelper {
             // Increase number of failed downloads
             this.mNumberOfFailedDownloads++;
             // Update last_modified_online of failed download to 0 (not available)
-            ProviderHelper.updateHostsSourceLastModifiedOnline(
-                    this.mContext,
-                    cursor.getInt(cursor.getColumnIndex(HostsSources._ID)),
-                    0
-            );
+            this.mHostsSourceDao.updateOnlineModificationDate(hostsFileUrl, null);
             return;
         }
         // Download hosts file content
@@ -208,11 +215,7 @@ public class ApplyHelper {
             // Save last modified online for later use
             long currentLastModifiedOnline = connection.getLastModified();
             // Update
-            ProviderHelper.updateHostsSourceLastModifiedOnline(
-                    this.mContext,
-                    cursor.getInt(cursor.getColumnIndex(HostsSources._ID)),
-                    currentLastModifiedOnline
-            );
+            this.mHostsSourceDao.updateOnlineModificationDate(hostsFileUrl, new Date(currentLastModifiedOnline));
         } catch (IOException exception) {
             Log.e(
                     Constants.TAG,
@@ -222,11 +225,7 @@ public class ApplyHelper {
             // Increase number of failed downloads
             this.mNumberOfFailedDownloads++;
             // Update last_modified_online of failed download to 0 (not available)
-            ProviderHelper.updateHostsSourceLastModifiedOnline(
-                    this.mContext,
-                    cursor.getInt(cursor.getColumnIndex(HostsSources._ID)),
-                    0
-            );
+            this.mHostsSourceDao.updateOnlineModificationDate(hostsFileUrl, null);
         }
     }
 
@@ -244,7 +243,7 @@ public class ApplyHelper {
         BufferedOutputStream bos = null;
 
         try {
-            /* PARSE: parse hosts files to sets of hostnames and comments */
+            /* PARSE: parse hosts files to sets of host names and comments */
 
             FileInputStream fis = mContext.openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME);
 
@@ -260,16 +259,23 @@ public class ApplyHelper {
 
             /* READ DATABSE CONTENT */
 
+
+            Set<String> blackListHosts = new HashSet<>(this.mHostListItemDao.getEnabledBlackListHosts());
+            Set<String> whiteListHosts = new HashSet<>(this.mHostListItemDao.getEnabledWhiteListHosts());
+            Map<String, String> redirectionListHosts = Stream.of(this.mHostListItemDao.getEnabledRedirectionList())
+                    .collect(Collectors.toMap(HostListItem::getHost, HostListItem::getRedirection));
             // add whitelist from db
-            parser.addWhitelist(ProviderHelper.getEnabledWhitelistHashSet(mContext));
+            parser.addWhitelist(blackListHosts);
             // add blacklist from db
-            parser.addBlacklist(ProviderHelper.getEnabledBlacklistHashSet(mContext));
+            parser.addBlacklist(whiteListHosts);
             // add redirection list from db
-            parser.addRedirectionList(ProviderHelper.getEnabledRedirectionListHashMap(mContext));
+            parser.addRedirectionList(redirectionListHosts);
 
             // get hosts sources list from db
-            ArrayList<String> enabledHostsSources = ProviderHelper
-                    .getEnabledHostsSourcesArrayList(mContext);
+            List<String> enabledHostsSources = Stream.of(this.mHostsSourceDao.getEnabled())
+                    .map(HostsSource::getUrl)
+                    .collect(Collectors.toList());
+
             Log.d(Constants.TAG, "Enabled hosts sources list: " + enabledHostsSources.toString());
 
             // compile lists (removing whitelist entries, etc.)
@@ -417,7 +423,7 @@ public class ApplyHelper {
         /*
          * Set last_modified_local dates in database to last_modified_online, got in download task
          */
-        ProviderHelper.updateAllEnabledHostsSourcesLastModifiedLocalFromOnline(mContext);
+        this.mHostsSourceDao.updateLocalModificationDatesToOnlineDates();
 
         /* check if hosts file is applied with chosen method */
         // check only if everything before was successful

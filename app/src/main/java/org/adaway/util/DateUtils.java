@@ -40,9 +40,25 @@ public class DateUtils {
     public static String longToDateString(Context context, long input) {
         if (input != 0) {
             Date date = new Date(input);
-            DateFormat dataformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+            DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
-            return dataformat.format(date);
+            return dateformat.format(date);
+        } else {
+            return context.getString(R.string.hosts_not_available);
+        }
+    }
+
+    /**
+     * Builds date string out of long value containing unix date
+     *
+     * @param date
+     * @return formatted date string
+     */
+    public static String dateToString(Context context, Date date) {
+        if (date == null) {
+            DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+
+            return dateformat.format(date);
         } else {
             return context.getString(R.string.hosts_not_available);
         }

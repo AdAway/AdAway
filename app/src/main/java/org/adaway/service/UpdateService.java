@@ -24,7 +24,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
@@ -37,11 +36,12 @@ import com.evernote.android.job.JobRequest;
 import com.evernote.android.job.JobRequest.NetworkType;
 
 import org.adaway.R;
+import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostsSourceDao;
+import org.adaway.db.entity.HostsSource;
 import org.adaway.helper.ApplyHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ResultHelper;
-import org.adaway.provider.AdAwayContract.HostsSources;
-import org.adaway.provider.ProviderHelper;
 import org.adaway.ui.MainActivity;
 import org.adaway.ui.home.HomeFragment;
 import org.adaway.util.ApplyUtils;
@@ -54,6 +54,7 @@ import org.adaway.util.Utils;
 import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -120,8 +121,6 @@ public class UpdateService extends DailyJob {
      */
     @NonNull
     private static UpdateResult checkForUpdates(Context context) {
-        long currentLastModifiedLocal;
-        long currentLastModifiedOnline;
         boolean updateAvailable = false;
 
         // Declare update result
@@ -132,84 +131,66 @@ public class UpdateService extends DailyJob {
             return updateResult;
         }
 
-        // Get cursor over all enabled hosts sources
-        Cursor enabledHostsSourcesCursor = ProviderHelper.getEnabledHostsSourcesCursor(context);
-        // Iterate over all hosts sources in db with cursor
-        if (enabledHostsSourcesCursor != null && enabledHostsSourcesCursor.moveToFirst()) {
-            do {
-                // Increase number of downloads
+        // Get enabled sources
+        AppDatabase database = AppDatabase.getInstance(context);
+        HostsSourceDao hostsSourceDao = database.hostsSourceDao();
+        for (HostsSource source : hostsSourceDao.getEnabled()) {
+            // Increase number of downloads
+            updateResult.mNumberOfDownloads++;
 
-                updateResult.mNumberOfDownloads++;
+            // Get URL and lastModified from db
+            String currentUrl = source.getUrl();
+            Date currentLastModifiedLocal = source.getLastLocalModification();
 
-                // Get URL and lastModified from db
-                String currentUrl = enabledHostsSourcesCursor
-                        .getString(enabledHostsSourcesCursor.getColumnIndex("url"));
-                currentLastModifiedLocal = enabledHostsSourcesCursor
-                        .getLong(enabledHostsSourcesCursor
-                                .getColumnIndex("last_modified_local"));
+            try {
+                Log.v(Constants.TAG, "Checking hosts file: " + currentUrl);
 
-                try {
-                    Log.v(Constants.TAG, "Checking hosts file: " + currentUrl);
+                /* build connection */
+                URL mURL = new URL(currentUrl);
+                URLConnection connection = mURL.openConnection();
+                connection.setConnectTimeout(15000);
+                connection.setReadTimeout(30000);
 
-                        /* build connection */
-                    URL mURL = new URL(currentUrl);
-                    URLConnection connection = mURL.openConnection();
-                    connection.setConnectTimeout(15000);
-                    connection.setReadTimeout(30000);
+                Date currentLastModifiedOnline = new Date(connection.getLastModified());
 
-                    currentLastModifiedOnline = connection.getLastModified();
+                Log.d(Constants.TAG,
+                        "mConnectionLastModified: "
+                                + currentLastModifiedOnline
+                                + " ("
+                                + DateUtils.dateToString(context, currentLastModifiedOnline)
+                                + ")"
+                );
 
-                    Log.d(Constants.TAG,
-                            "mConnectionLastModified: "
-                                    + currentLastModifiedOnline
-                                    + " ("
-                                    + DateUtils.longToDateString(context,
-                                    currentLastModifiedOnline) + ")"
-                    );
+                Log.d(Constants.TAG,
+                        "mCurrentLastModified: "
+                                + currentLastModifiedLocal
+                                + " ("
+                                + DateUtils.dateToString(context, currentLastModifiedLocal)
+                                + ")"
+                );
 
-                    Log.d(Constants.TAG,
-                            "mCurrentLastModified: "
-                                    + currentLastModifiedLocal
-                                    + " ("
-                                    + DateUtils.longToDateString(context,
-                                    currentLastModifiedLocal) + ")"
-                    );
+                // Check if file is available
+                connection.connect();
+                connection.getInputStream();
 
-                    // Check if file is available
-                    connection.connect();
-                    connection.getInputStream();
-
-                    // Check if update is available for this hosts file
-                    if (currentLastModifiedOnline > currentLastModifiedLocal) {
-                        updateAvailable = true;
-                    }
-
-                    // Save last modified online for later viewing in list
-                    ProviderHelper.updateHostsSourceLastModifiedOnline(context,
-                            enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
-                                    .getColumnIndex(HostsSources._ID)),
-                            currentLastModifiedOnline
-                    );
-
-                } catch (Exception exception) {
-                    Log.e(Constants.TAG, "Exception while downloading from " + currentUrl, exception);
-
-                    // Increase number of failed download
-                    updateResult.mNumberOfFailedDownloads++;
-
-                    // Set last_modified_online of failed download to 0 (not available)
-                    ProviderHelper.updateHostsSourceLastModifiedOnline(context,
-                            enabledHostsSourcesCursor.getInt(enabledHostsSourcesCursor
-                                    .getColumnIndex(HostsSources._ID)), 0
-                    );
+                // Check if update is available for this hosts file
+                if (currentLastModifiedOnline.after(currentLastModifiedLocal)) {
+                    updateAvailable = true;
                 }
 
-            } while (enabledHostsSourcesCursor.moveToNext());
+                // Save last modified online for later viewing in list
+                hostsSourceDao.updateOnlineModificationDate(currentUrl, currentLastModifiedOnline);
+            } catch (Exception exception) {
+                Log.e(Constants.TAG, "Exception while downloading from " + currentUrl, exception);
+
+                // Increase number of failed download
+                updateResult.mNumberOfFailedDownloads++;
+
+                // Set last_modified_online of failed download to 0 (not available)
+                hostsSourceDao.updateOnlineModificationDate(currentUrl, null);
+            }
         }
-        // Close cursor in the end
-        if (enabledHostsSourcesCursor != null && !enabledHostsSourcesCursor.isClosed()) {
-            enabledHostsSourcesCursor.close();
-        }
+
         // Check if all downloads failed
         if (updateResult.mNumberOfDownloads == updateResult.mNumberOfFailedDownloads &&
                 updateResult.mNumberOfDownloads != 0) {
@@ -248,8 +229,12 @@ public class UpdateService extends DailyJob {
         CharSequence contentText = context.getString(R.string.status_checking_subtitle);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-                .setSmallIcon(icon).setContentTitle(contentTitle).setTicker(tickerText)
-                .setWhen(when).setOngoing(true).setContentText(contentText);
+                .setSmallIcon(icon)
+                .setContentTitle(contentTitle)
+                .setTicker(tickerText)
+                .setWhen(when)
+                .setOngoing(true)
+                .setContentText(contentText);
 
         Intent notificationIntent = new Intent(context, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);

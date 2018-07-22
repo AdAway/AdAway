@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -28,8 +28,14 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.widget.Toast;
 
+import com.annimon.stream.Collectors;
+import com.annimon.stream.Stream;
+
 import org.adaway.R;
-import org.adaway.provider.ProviderHelper;
+import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostListItemDao;
+import org.adaway.db.entity.HostListItem;
+import org.adaway.db.entity.ListType;
 import org.adaway.util.Constants;
 import org.adaway.util.HostsParser;
 import org.adaway.util.Log;
@@ -44,6 +50,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -117,6 +124,8 @@ public class ImportExportHelper {
             if (context == null) {
                 return null;
             }
+            // Get database
+            AppDatabase database = AppDatabase.getInstance(context);
             // Get input stream from user selected URI
             try (InputStream inputStream = context.getContentResolver().openInputStream(result)) {
                 if (inputStream != null) {
@@ -125,9 +134,9 @@ public class ImportExportHelper {
                         // Parse user lists
                         HostsParser parser = new HostsParser(reader, true, true);
                         // Import parsed user lists
-                        ProviderHelper.importBlacklist(context, parser.getBlacklist());
-                        ProviderHelper.importWhitelist(context, parser.getWhitelist());
-                        ProviderHelper.importRedirectionList(context, parser.getRedirectionList());
+                        this.importBlackList(database, parser.getBlacklist());
+                        this.importWhiteList(database, parser.getWhitelist());
+                        this.importRedirectionList(database, parser.getRedirectionList());
                     }
                 }
             } catch (FileNotFoundException exception) {
@@ -162,6 +171,46 @@ public class ImportExportHelper {
             if (this.mProgressDialog != null) {
                 this.mProgressDialog.dismiss();
             }
+        }
+
+        private void importBlackList(AppDatabase database, Set<String> blackListHosts) {
+            HostListItem[] blackListItems = (HostListItem[]) Stream.of(blackListHosts)
+                    .map(host -> {
+                        HostListItem listItem = new HostListItem();
+                        listItem.setHost(host);
+                        listItem.setType(ListType.BLACK_LIST);
+                        listItem.setEnabled(true);
+                        return listItem;
+                    })
+                    .toArray();
+            database.hostsListItemDao().insert(blackListItems);
+        }
+
+        private void importWhiteList(AppDatabase database, Set<String> whiteListHosts) {
+            HostListItem[] whiteListItems = (HostListItem[]) Stream.of(whiteListHosts)
+                    .map(host -> {
+                        HostListItem listItem = new HostListItem();
+                        listItem.setHost(host);
+                        listItem.setType(ListType.WHITE_LIST);
+                        listItem.setEnabled(true);
+                        return listItem;
+                    })
+                    .toArray();
+            database.hostsListItemDao().insert(whiteListItems);
+        }
+
+        private void importRedirectionList(AppDatabase database, Map<String, String> redirections) {
+            HostListItem[] redirectionListItems = (HostListItem[]) Stream.of(redirections)
+                    .map(redirection -> {
+                        HostListItem listItem = new HostListItem();
+                        listItem.setHost(redirection.getKey());
+                        listItem.setType(ListType.WHITE_LIST);
+                        listItem.setEnabled(true);
+                        listItem.setRedirection(redirection.getValue());
+                        return listItem;
+                    })
+                    .toArray();
+            database.hostsListItemDao().insert(redirectionListItems);
         }
     }
 
@@ -198,11 +247,14 @@ public class ImportExportHelper {
                 // Fail to export
                 return false;
             }
+            // Get database
+            AppDatabase database = AppDatabase.getInstance(context);
+            HostListItemDao hostListItemDao = database.hostsListItemDao();
             // Get list values
-            Set<String> whitelist = ProviderHelper.getEnabledWhitelistHashSet(context);
-            Set<String> blacklist = ProviderHelper.getEnabledBlacklistHashSet(context);
-            Map<String, String> redirectionList = ProviderHelper
-                    .getEnabledRedirectionListHashMap(context);
+            List<String> blacklist = hostListItemDao.getEnabledBlackListHosts();
+            List<String> whitelist = hostListItemDao.getEnabledWhiteListHosts();
+            Map<String, String> redirectionList = Stream.of(hostListItemDao.getEnabledRedirectionList())
+                    .collect(Collectors.toMap(HostListItem::getHost, HostListItem::getRedirection));
             // Check if sdcard can be written
             File sdcard = Environment.getExternalStorageDirectory();
             if (!sdcard.canWrite()) {
