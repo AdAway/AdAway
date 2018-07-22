@@ -4,6 +4,11 @@ import android.arch.persistence.room.TypeConverter;
 
 import org.adaway.db.entity.ListType;
 
+/**
+ * This class is a type converter for Room to support {@link ListType} type.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class ListTypeConverter {
     @TypeConverter
     public static ListType fromValue(Integer value) {

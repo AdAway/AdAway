@@ -4,6 +4,11 @@ import android.arch.persistence.room.TypeConverter;
 
 import java.util.Date;
 
+/**
+ * This class is a type converter for Room to support {@link Date} type.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class DateConverter {
     @TypeConverter
     public static Date fromTimestamp(Long value) {

@@ -4,6 +4,11 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+/**
+ * This entity represents a black, white or redirection list item.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 @Entity(tableName = "hosts_lists")
 public class HostListItem {
     @PrimaryKey

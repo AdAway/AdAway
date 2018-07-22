@@ -12,6 +12,11 @@ import org.adaway.db.entity.HostsSource;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * This interface is the DAO for {@link HostsSource} entities.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 @Dao
 public interface HostsSourceDao {
     @Insert

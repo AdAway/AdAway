@@ -7,6 +7,11 @@ import android.support.annotation.NonNull;
 
 import java.util.Date;
 
+/**
+ * This entity represents a source to get hosts list.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 @Entity(tableName = "hosts_sources")
 public class HostsSource {
     @PrimaryKey

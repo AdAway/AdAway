@@ -12,6 +12,11 @@ import org.adaway.db.entity.HostListItem;
 
 import java.util.List;
 
+/**
+ * This interface is the DAO for {@link HostListItem} entities.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 @Dao
 public interface HostListItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)

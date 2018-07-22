@@ -1,5 +1,10 @@
 package org.adaway.db.entity;
 
+/**
+ * This enumerate specifies the type of {@link HostListItem}.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public enum ListType {
     BLACK_LIST(0),
     WHITE_LIST(1),

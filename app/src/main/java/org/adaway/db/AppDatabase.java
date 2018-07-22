@@ -53,8 +53,8 @@ public abstract class AppDatabase extends RoomDatabase {
     /**
      * Initialize the database content.
      */
-    private static void initialize(AppDatabase db) {
-        HostsSourceDao hostsSourceDao = db.hostsSourceDao();
+    private static void initialize(AppDatabase database) {
+        HostsSourceDao hostsSourceDao = database.hostsSourceDao();
         // https://hosts-file.net
         HostsSource source1 = new HostsSource();
         source1.setUrl("https://hosts-file.net/ad_servers.txt");
