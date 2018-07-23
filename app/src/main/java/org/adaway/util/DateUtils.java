@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -38,13 +38,13 @@ public class DateUtils {
      * @return formatted date string
      */
     public static String longToDateString(Context context, long input) {
-        if (input != 0) {
+        if (input == 0) {
+            return context.getString(R.string.hosts_not_available);
+        } else {
             Date date = new Date(input);
             DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
             return dateformat.format(date);
-        } else {
-            return context.getString(R.string.hosts_not_available);
         }
     }
 
@@ -56,11 +56,10 @@ public class DateUtils {
      */
     public static String dateToString(Context context, Date date) {
         if (date == null) {
-            DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-
-            return dateformat.format(date);
-        } else {
             return context.getString(R.string.hosts_not_available);
+        } else {
+            DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+            return dateformat.format(date);
         }
     }
 

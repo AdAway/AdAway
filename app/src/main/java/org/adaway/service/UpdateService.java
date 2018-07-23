@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -163,7 +163,7 @@ public class UpdateService extends DailyJob {
 
                 Log.d(Constants.TAG,
                         "mCurrentLastModified: "
-                                + currentLastModifiedLocal
+                                + (currentLastModifiedLocal == null ? "not defined" : currentLastModifiedLocal)
                                 + " ("
                                 + DateUtils.dateToString(context, currentLastModifiedLocal)
                                 + ")"
@@ -174,7 +174,8 @@ public class UpdateService extends DailyJob {
                 connection.getInputStream();
 
                 // Check if update is available for this hosts file
-                if (currentLastModifiedOnline.after(currentLastModifiedLocal)) {
+                if (currentLastModifiedLocal == null ||
+                        currentLastModifiedOnline.after(currentLastModifiedLocal)) {
                     updateAvailable = true;
                 }
 
