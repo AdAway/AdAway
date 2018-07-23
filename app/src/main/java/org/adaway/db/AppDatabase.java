@@ -14,6 +14,7 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
+import org.adaway.provider.RooomMigrationHelper;
 import org.adaway.util.AppExecutors;
 
 @Database(entities = {HostsSource.class, HostListItem.class}, version = 1)
@@ -41,7 +42,12 @@ public abstract class AppDatabase extends RoomDatabase {
                     ).addCallback(new Callback() {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                            AppExecutors.getInstance().diskIO().execute(() -> AppDatabase.initialize(INSTANCE));
+                            AppExecutors.getInstance().diskIO().execute(
+                                    () -> {
+                                        RooomMigrationHelper.migrateToRoom(context, INSTANCE);
+                                        AppDatabase.initialize(INSTANCE);
+                                    }
+                            );
                         }
                     }).build();
                 }
@@ -54,7 +60,11 @@ public abstract class AppDatabase extends RoomDatabase {
      * Initialize the database content.
      */
     private static void initialize(AppDatabase database) {
+        // Check if there is no hosts source
         HostsSourceDao hostsSourceDao = database.hostsSourceDao();
+        if (!hostsSourceDao.getAll().isEmpty()) {
+            return;
+        }
         // https://hosts-file.net
         HostsSource source1 = new HostsSource();
         source1.setUrl("https://hosts-file.net/ad_servers.txt");
