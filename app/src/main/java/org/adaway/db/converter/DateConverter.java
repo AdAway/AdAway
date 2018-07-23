@@ -9,7 +9,11 @@ import java.util.Date;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class DateConverter {
+public final class DateConverter {
+    private DateConverter() {
+        // Prevent instantiation
+    }
+
     @TypeConverter
     public static Date fromTimestamp(Long value) {
         return value == null ? null : new Date(value);

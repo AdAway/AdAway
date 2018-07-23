@@ -9,7 +9,11 @@ import org.adaway.db.entity.ListType;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class ListTypeConverter {
+public final class ListTypeConverter {
+    private ListTypeConverter() {
+        // Prevent instantiation
+    }
+
     @TypeConverter
     public static ListType fromValue(Integer value) {
         return value == null ? null : ListType.fromValue(value);
