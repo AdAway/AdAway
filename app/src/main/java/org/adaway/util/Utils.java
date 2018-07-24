@@ -33,7 +33,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.os.Build.VERSION;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -45,19 +44,25 @@ import org.sufficientlysecure.rootcommands.RootCommands;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class Utils {
+    /**
+     * Private constructor.
+     */
+    private Utils() {
+
+    }
 
     /**
      * Check if Android is rooted, check for su binary and busybox and display possible solutions if
      * they are not available
      *
-     * @param activity
      * @return true if phone is rooted
      */
-    public static boolean isAndroidRooted(final Activity activity) {
+    public static boolean isAndroidRooted() {
         // root check can be disabled for debugging in emulator
         if (Constants.DEBUG_DISABLE_ROOT_CHECK) {
             return true;
@@ -83,9 +88,8 @@ public class Utils {
 
         builder.setNeutralButton(
                 activity.getResources().getString(R.string.button_exit),
-                (dialog, which) -> {
-                    activity.finish(); // finish current activity, means exiting app
-                }
+                (dialog, which) -> activity.finish() // finish current activity, means exiting app
+
         );
 
         AlertDialog alert = builder.create();
@@ -122,13 +126,22 @@ public class Utils {
                         PreferenceHelper.setNeverReboot(context, true);
                     }
 
+                    Shell rootShell = null;
                     try {
-                        Shell rootShell = Shell.startRootShell();   // TODO Shell not closed
+                        rootShell = Shell.startRootShell();
 
                         Toolbox tb = new Toolbox(rootShell);
                         tb.reboot(Toolbox.REBOOT_REBOOT);
                     } catch (Exception e) {
                         Log.e(Constants.TAG, "Problem with rebooting", e);
+                    } finally {
+                        if (rootShell != null) {
+                            try {
+                                rootShell.close();
+                            } catch (IOException e) {
+                                Log.w(Constants.TAG, "Unable to close shell.", e);
+                            }
+                        }
                     }
                 }
         );
@@ -158,11 +171,11 @@ public class Utils {
     public static boolean isAndroidOnline(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
+        if (cm == null) {
+            return false;
         }
-        return false;
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
     /**
@@ -218,6 +231,9 @@ public class Utils {
             private boolean isAppOnForeground(Context context) {
                 ActivityManager activityManager = (ActivityManager) context
                         .getSystemService(Context.ACTIVITY_SERVICE);
+                if (activityManager == null) {
+                    return false;
+                }
                 List<RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
                 if (appProcesses == null) {
                     return false;

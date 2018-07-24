@@ -14,7 +14,7 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.provider.RooomMigrationHelper;
+import org.adaway.provider.RoomMigrationHelper;
 import org.adaway.util.AppExecutors;
 
 /**
@@ -49,7 +49,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             AppExecutors.getInstance().diskIO().execute(
                                     () -> {
-                                        RooomMigrationHelper.migrateToRoom(context, instance);
+                                        RoomMigrationHelper.migrateToRoom(context, instance);
                                         AppDatabase.initialize(instance);
                                     }
                             );

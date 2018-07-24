@@ -19,7 +19,14 @@ import java.util.Date;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class RooomMigrationHelper {
+public class RoomMigrationHelper {
+    /**
+     * Private constructor.
+     */
+    private RoomMigrationHelper() {
+
+    }
+
     /**
      * Migrate data from {@link AdAwayDatabase} to {@link AppDatabase}.
      *

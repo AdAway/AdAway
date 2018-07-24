@@ -41,7 +41,7 @@ public class UpdateHostsStatusAsyncTask extends AsyncTask<Void, Void, Boolean> {
             return true; // Suppose to be root
         }
         // Check if Android is rooted
-        if (!Utils.isAndroidRooted(activity)) {
+        if (!Utils.isAndroidRooted()) {
             return false;
         }
         // Check if hosts was file installed by AdAway
