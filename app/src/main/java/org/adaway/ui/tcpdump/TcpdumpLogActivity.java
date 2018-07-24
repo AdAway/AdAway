@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.recyclerview.extensions.ListAdapter;
@@ -70,9 +71,14 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         /*
+         * Configure swipe layout.
+         */
+        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(() -> this.mViewModel.updateDnsRequests());
+        /*
          * Configure recycler view.
          */
-        // Store recycler view
+        // Get recycler view
         RecyclerView recyclerView = this.findViewById(R.id.tcpdump_log_list);
         recyclerView.setHasFixedSize(true);
         // Defile recycler layout
@@ -87,7 +93,13 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          * Load data.
          */
         // Bind view model to the list view
-        this.mViewModel.getLogEntries().observe(this, adapter::submitList);
+        this.mViewModel.getLogEntries().observe(this, logEntries -> {
+            adapter.submitList(logEntries);
+            swipeRefreshLayout.setRefreshing(false);
+        });
+        // Mark as loading data
+        swipeRefreshLayout.setRefreshing(true);
+        // Load initial data
         this.mViewModel.updateDnsRequests();
     }
 
