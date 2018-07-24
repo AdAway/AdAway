@@ -1,21 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/baseline_search_24"
-        android:title="@string/tcpdump_menu_search"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/sort"
-        android:icon="@drawable/baseline_sort_24"
+        android:icon="@drawable/baseline_sort_by_alpha_24"
         android:title="@string/tcpdump_menu_sort"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/refresh"
-        android:icon="@drawable/baseline_refresh_24"
-        android:title="@string/tcpdump_menu_refresh" />
-    <item
         android:id="@+id/clear"
         android:icon="@drawable/baseline_clear_all_24"
-        android:title="@string/tcpdump_menu_clear" />
+        android:title="@string/tcpdump_menu_clear"
+        app:showAsAction="ifRoom" />
 </menu>

@@ -122,9 +122,6 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
             case R.id.sort:
                 this.mViewModel.toggleSort();
                 return true;
-            case R.id.refresh:
-                this.mViewModel.updateDnsRequests();
-                return true;
             case R.id.clear:
                 TcpdumpUtils.clearLogFile(this);
                 this.mViewModel.updateDnsRequests();

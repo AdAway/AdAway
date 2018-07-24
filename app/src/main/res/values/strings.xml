@@ -193,9 +193,7 @@
     <string name="tcpdump_enable_monitoring">Enable monitoring</string>
     <string name="tcpdump_show_results">Show results</string>
     <string name="tcpdump_redirect_dialog_title">Redirect domain</string>
-    <string name="tcpdump_menu_search">Search</string>
-    <string name="tcpdump_menu_sort">Sort</string>
-    <string name="tcpdump_menu_refresh">Refresh log</string>
+    <string name="tcpdump_menu_sort">Sort domains</string>
     <string name="tcpdump_menu_clear">Clear log</string>
     <string name="tcpdump_sort_alphabetical">Alphabetical sort</string>
     <string name="tcpdump_sort_top_level_domain">Top level domain sort</string>
