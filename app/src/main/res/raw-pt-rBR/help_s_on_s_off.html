@@ -1,0 +1,27 @@
+<html>
+<head></head>
+<body>
+<h2>Dispositivos HTC</h2>
+<p>AdAway não funciona quando você está usando um dispositivo com então chamado S-ON. Este 'recurso' existe em muitos dispositivos HTC e evita AdAway de escrever o arquivo hosts.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF significa que a partição NAND do dispositivo está desbloqueada e pode ser escrita. A definição padrão para dispositivos HTC é S-ON, que significa que você não pode acessar certas áreas do sistema nem garantir um root permanente. Além disto, a verificação de assinatura para imagens de firmware é também assegurada pela bandeira S-ON.</p>
+
+<h2>Tenho S-ON ou S-OFF?</h2>
+<p>Inicialize dentro do Menu de Inicialização no seu dispositivo pressionando para baixo botão de <i>diminuir volume</i> enquanto pressiona o botão de energia e o texto no topo mostrará o status da bandeira como qualquer um S-OFF ou S-ON. Um root completo geralmente significa S-OFF. <br/><br/>Mais informação pode ser encontrada em <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Métodos S-OFF adicionais além do Irrevogável (no link) podem interessar você, nomeadamente: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+
+<h2>Solução Alternativa</h2>
+<p>Pré-Requisito: Você tem que instalar um Android SDK funcional com ADB shell no seu PC.
+</p>
+<ol>
+<li>Inicialize dentro do Menu de Inicialização no seu dispositivo pressionando botão de <i>diminuir volume</i> enquanto pressiona o botão de energia.</li>
+<li>Use <i>diminuir volume</i> para selecionar a recuperação.</li>
+<li>No mecanismo de recuperação use diminuir volume no "menu de partições" e use o trackpad para selecionar.</li>
+<li>Selecione <i>mount /system</i>, <i>mount /sdcard</i> e <i>mount /data</i>.</li>
+<li>Conecte seu cabo usb e abra uma linha de comando no seu pc.</li>
+<li>Entre adb shell e digite <tt>ln -s /data/hosts /system/etc/hosts</tt> (Isto cria um link simbólico, que permite ao AdAway editar o arquivo hosts armazenado em <tt>/data</tt> enquanto permite ao Sistema Operacional usar o arquivo como se ele estivesse armazenado em <tt>/system</tt>.)</li>
+<li>Reinicie seu dispositivo e defina <i>Arquivo de hosts alvo</i> para <i>/data/hosts</i> nas preferências do AdAway.</li>
+<li>AdAway deve funcionar agora.</li>
+</ol>
+</body>
+</html>
