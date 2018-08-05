@@ -1,23 +1,28 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
 <html>
 <head></head>
 <body>
-<h2>Nedostatek místa v oddílu</h2>
+<h2>Nedostatek místa na oddílu</h2>
 <p>Zkuste v nastavení změnit cílový soubor hostitelů na <tt>/data/data/hosts</tt> (nebo <tt>/data/hosts</tt>) a použít AdAway znovu.</p>
 
 <h2>Nefunguje na Androidu 4.4+</h2>
 <p>Zkuste v nastavení změnit cílový soubor hostitelů z <tt>/data/data/hosts</tt> na <tt>/data/hosts</tt> nebo <tt>/system/etc/hosts</tt> a použít AdAway znovu.</p>
 
 <h2>Reklamy v aplikaci XYZ nejsou blokovány!</h2>
-<p>Některé názvy hostitelů mohou chybět v poskytnutých souborech hostitelů ze <i>Zdrojů hostitelů</i> nebo má aplikace reklamy přímo v sobě a tudíž nepotřebuje k jejich zobrazování připojení k internetu.<br><br>Pomocí AdAway můžete protokolovat DNS požadavky (Menu-&gt;Záznam DNS požadavků) a zjistit tak, které další názvy hostitelů mají být blokovány.<br><br>Přidej podezřelé názvy hostitelů na svou vlastní černou lisitinu dlouhým podržením vybraného názvu hostitele a pokud jste oveřili jejich závadnost, pak je nahlašte na fóru <a href="http://hosts-file.net">hosts-file.net</a> do <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a>.</p>
+<p>Některé názvy hostitelů mohou v poskytnutých souborech hostitelů ze <i>Zdrojů hostitelů</i> chybět nebo má aplikace reklamy přímo v sobě a tudíž nepotřebuje k jejich zobrazování připojení k internetu.<br><br>
+Pomocí AdAway můžete protokolovat DNS požadavky (Menu-&gt;Záznam DNS požadavků) a zjistit tak, které další názvy hostitelů mají být blokovány.
+<br><br>Přidejte podezřelé názvy hostitelů na svou vlastní černou listinu dlouhým podržením vybraného názvu hostitele v záznamu a pokud jste ověřili jejich funkčnost, nahlašte je na fóru <a href="http://hosts-file.net">hosts-file.net</a> do <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a>.</p>
 
 <h2>Reklamy v dočasné paměti</h2>
-<p>Občas si aplikace ukládají stažené reklamy do dočasné paměti. Tím pádem v některých aplikacích reklamy zůstat. Pro obejití tohoto problému můžeš zkusit vymazat dočasnou paměť u těchto aplikací v Seznamu aplikací systému Android.</p>
+<p>Občas si aplikace ukládají stažené reklamy do dočasné paměti. Tím pádem v některých aplikacích reklamy můžou zůstat. Pro obejití tohoto problému můžeš zkusit vymazat dočasnou paměť u těchto aplikací v Seznamu aplikací systému Android.</p>
 
-<h2>Applikace XYZ již nefunguje!</h2>
-<p>Některé aplikace potřebují komunikovat z hostitelem, jenž je blokován pomocí AdAway, nebo dokonce odmítají pracovat, pokud pro ně takový hostitel není dostupný. Podívejte se na <a href="https://github.com/dschuermann/ad-away/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a>, kde naleznete seznam známých aplikací, které to dělají. A nebo si zjistěte, které názvy hostitelů je potřeba přestat blokovat a pak je přidejte na svou <i>Bílou listinu</i> mezi <i>Vaše seznamy</i> a nahlaste na náš issue tracker <a href="https://github.com/dschuermann/ad-away/issues"> .</a></p>
+<h2>Aplikace XYZ již nefunguje!</h2>
+<p>Některé aplikace potřebují komunikovat s hostitelem, jenž je blokován pomocí AdAway, nebo dokonce odmítají pracovat, pokud pro ně takový hostitel není dostupný. Podívejte se na <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a>, kde naleznete seznam známých aplikací, které se takto chovají. Anebo si zjistěte, které názvy hostitelů je potřeba přestat blokovat a pak je přidejte na svou <i>Bílou listinu</i> mezi <i>Vaše seznamy</i> a nahlaste na náš <a href="https://github.com/AdAway/AdAway/issues">issue tracker</a>.</p>
 
 <h2>Tlačítko Zpět ve webovém prohlížeči nefunguje</h2>
-<p>Jako řešení můžete v nastavení povolit AdAway lokální webserver.</p>
+<p>Jako řešení můžete v nastavení povolit lokální webový server AdAway.</p>
 
 </body>
 </html>
