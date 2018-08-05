@@ -2,7 +2,7 @@
 <head></head>
 <body>
 <h2>Reklamlardan gelen gelir</h2>
-<p>Bir kullanıcı hiçbir reklamı zaten tıklamıyor ve reklamları engelliyorsa bunun siteyi ya da uygulamayı zarara sokmayacağı gibi bir yanlış anlaşılma var. Geliştiriciler sadece reklamları göstererek bile para kazanabiliyor. Kişisel olarak ben reklam gösteren uygulamaları kullanmam çünkü çok sinir bozucu olabiliyorlar bu yüzden bir reklam engelleyici olmadan bu programları yüklemem.</p>
+<p>Bir kullanıcı hiçbir reklamı zaten tıklamıyor ve reklamları engelliyorsa bunun siteyi ya da uygulamayı zarara sokmayacağı gibi bir yanlış anlaşılma var. Geliştiriciler sadece reklamları göstererek bile para kazanabiliyor. Kişisel olarak ben reklam gösteren uygulamaları kullanmam çünkü çok sinir bozucu olabiliyorlar. Bu yüzden bir reklam engelleyici olmadan bu programları yüklemem.</p>
 
 
 
@@ -10,25 +10,23 @@
 <p>AdAway reklam içeren host kaynaklarını engellemek için<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts dosyalarını</a> kullanır. Host dosyaları şu konumdadır <tt>/system/etc/hosts</tt> ve host kaynaklarını gereken IP adresine yönlendirir. Bu yöntem IP adreslerini DNS kullanmaksızın yönlendiren bir yöntemdir. Tüm gereksiz host kaynakları <tt>127.0.0.1</tt> adresine yani kendi cihazınıza yönlendirilir.</p>
 
 <h2>Neden günlük güncelleme denetleme özelliği kullanılabilir değil?</h2>
-<p>Yeni güncellemeler için otomatik denetleme sadece AdAway telefonun dahili hafızasına kurulduğunda kullanılabilir. Bu Android platformundaki kısıtlamalar yüzünden.</p>
+<p>Yeni güncellemeler için otomatik denetleme sadece AdAway telefonun dahili hafızasına kurulduğunda kullanılabilir. Bunun nedeni ise Android platformundaki kısıtlamalardır</p>
 
 <h2>Neden değişikliklerin uygulanması için Androidi yeniden başlatmalıyım?</h2>
-<p>Android üzerinde Javanın korumalı kendi iç DNS ön belleği vardır. İşletim sistemi yeni sunucu dosyasını hemen oluşturacaktır (komut satırı üzerinde ping ile doğrulanır) fakat Java DNS önbelleğinin yeniden derlenmesi için Android yeniden başlatılmalıdır.</p>
+<p>Android üzerinde Java'nın korumalı kendi iç DNS ön belleği vardır. İşletim sistemi yeni sunucu dosyasını hemen oluşturacaktır (komut satırı üzerinde ping ile doğrulanır) fakat Java DNS önbelleğinin yeniden derlenmesi için Android yeniden başlatılmalıdır.</p>
 
-<h2>AdAway içindeki web sunucusu nasıl kullanılır?</h2>
+<h2>AdAway içinde web sunucusu nasıl kullanılır?</h2>
 <p><b>AdAway, websunucu olmadan da çalışabilmektedir!</b>
-
-<br/><br/>Yerel IP adresinizden <tt>127.0.0.1</tt> gelen isteklere cevap vermek için AdAway seçeneklerinden yerel websunucu'yu aktifleştirebilirsiniz. Bu,  <tt>127.0.0.1</tt>'e yönlendirilmiş uygulama isteklerini AdAway websunucuları cevaplandıracaktır.
-
+<br/><br/>Yerel IP adresinizden <tt>127.0.0.1</tt> gelen isteklere cevap vermek için AdAway seçeneklerinden yerel websunucu'yu aktifleştirebilirsiniz. Bu, <tt>127.0.0.1</tt>'e yönlendirilmiş uygulama isteklerini AdAway websunucuları cevaplandıracaktır.
 <br/>Bazı uygulamalar, websunucuya ulaşılamazken çalışmamaktadır. Bu yöntemle istek, boş ve reklamsız bir sayfa ile cevaplanır ve böylece websunucular ulaşılabilir durumda olmaktadır.</p>
 
-<h2>Nasıl özel alanadlarını engelleyip/engelini kaldırabilirim?</h2>
-<p> <i>Listeniz</i> menüsü altında karalisteye eklemek istediğiniz hostisimlerini (=Black) ekleyin. Buna ek olarak, karalisteye koyulmasını istemediğiniz hostisimlerini <i>Beyaz Liste</i>ye (=White) ekleyin ve o hostisimleri <i>Yönlendirme Listesi</i>ne (=Redirection) eklenir ve belli bir IP adresine yönlendirilir.</p>
+<h2>Özel alanadlarını nasıl engelleyip/engelini kaldırabilirim?</h2>
+<p> <i>Listeniz</i> menüsü altında Kara Liste'ye (=Black) eklemek istediğiniz host isimlerini ekleyin. Buna ek olarak, karalisteye koyulmasını istemediğiniz host isimlerini <i>Beyaz Liste</i>'ye (=White) ekleyin ve böylece o host isimleri <i>Yönlendirme Listesi</i>'ne (=Redirection) eklenerek ve belli bir IP adresine yönlendirilir.</p>
 
 <h2>Daha fazla sunucu kaynağını nereden bulabilirim?</h2>
-<p>AdAway için <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">Ek Sunucu Kaynağı Listesine</a> bakın.</p>
+<p>Lütfen <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">AdAway için daha fazla kaynak adresi listesine bakınız </a>.</p>
 
-<h2>Çeviri/Hata raporlarına yardım edin</h2>
-<p>Lütfen adrese gidin <a href="http://adaway.org">http://adaway.org</a>.</p>
+<h2>Projenin başka dillere çevrilmesine ve hataların rapor edilmesine yardım et </h2>
+<p>Lütfen adrese gidin <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>
