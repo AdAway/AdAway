@@ -1,20 +1,25 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
 <html>
 <head></head>
 <body>
-<h2>Bölüm üzerinde yeterli alan yok</h2>
-<p>Ayarlardan host kaynak dosya ayarını <tt>/data/data/hosts</tt>'a değiştirin ve AdAway'i tekrar uygulayın.</p>
+<h2>Disk bölümü üzerinde yeterli alan yok</h2>
+<p>Ayarlardan host kaynak dosya ayarını <tt>/data/data/hosts</tt>'a (ya da <tt>/data/hosts</tt>) değiştirin ve AdAway'i tekrar uygulayın.</p>
 
-<h2>Android 4.4+ sürümlerinde çalışmıyor</h2>
-<p>Ayarlardan host kaynak dosya ayarını <tt>/data/data/hosts</tt>'a değiştirin ve AdAway'i tekrar uygulayın.</p>
+<h2>Android 4.4+ sürümlerinde çalışmaz</h2>
+<p>Ayarlardan host kaynak dosya ayarını <tt>/data/data/hosts</tt>'dan  <tt>/data/hosts</tt> ya da <tt>/system/etc/hosts</tt>'a değiştirin ve AdAway'i tekrar uygulayın.</p>
 
-<h2>XYZ! uygulamasındaki reklamları engelleyemez!</h2>
-<p>Bazı host adları <i>Hosts Kaynaklarından</i> edinilen host dosyasında eksik olabilir ya da uygulama reklamları içerisinde barındırarak internete erişim gerektirmeden reklam yayınlayabilir.<br><br>DNS isteklerini günlükleyerek (Menü-&gt; DNS istekleri log dosyasına kaydet) hangi ek host adlarının bloke edilmesi gerektiğini bulabilirsiniz.<br><br>Şüphelendiğiniz sunucu adlarını <a href="http://hosts-file.net">hosts-file.net</a> sitesinin Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Sunucu Gelen Kutusu</a> aracılığıyla doğrulamanızı yaptıktan sonra  günlük kayıtlarından üzerine uzun basarak kişisel kara listenize ekleyebilirsiniz.</p>
+<h2>XYZ! uygulamasındaki reklamları engellemez!</h2>
+<p>Bazı host isimleri<i>Hosts Kaynaklarından</i> edinilen host dosyasında eksik olabilir ya da uygulama reklamları içerisinde barındırarak internete erişim gerektirmeden reklam yayınlayabilir.<br><br>
+DNS isteklerini günlükleyerek (Menü -&gt; DNS istekleri log dosyasına kaydet) hangi ek host adlarının bloke edilmesi gerektiğini bulabilirsiniz.
+<br><br>Şüphelendiğiniz sunucu isimlerini<a href="http://hosts-file.net">hosts-file.net</a> sitesinin Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Sunucu Gelen Kutusu</a> aracılığıyla doğrulamanızı yaptıktan sonra  günlük kayıtlarından üzerine uzun basarak kişisel kara listenize ekleyebilirsiniz.</p>
 
 <h2>Önbelleklenmiş Reklamlar</h2>
-<p>Bazen yüklemeden sonra uygulamalar reklamları önbelleğe ekleyebilir. Bu bazı uygulamalarda reklam kalmasına neden olabilir. Bu uygulamaların önbelleklerini Android'in uygulama listesine giderek temizleyebilir ve bu sorunu çözebilirsiniz.</p>
+<p>Bazen yüklemeden sonra uygulamalar reklamları önbelleğe ekleyebilir. Bu bazı uygulamalarda reklam görülmesine neden olabilir. Bu uygulamaların önbelleklerini Android'in uygulama listesine giderek temizleyebilir ve bu sorunu çözebilirsiniz.</p>
 
 <h2>XYZ uygulaması artık çalışmıyor!</h2>
-<p>Bazı uygulamaların AdAway tarafından engellenmiş sunuculara erişmesi gerekir, aksi takdirde reklam vermek için kullanılan sunucular ulaşılamadığı için uygulama çalışmayı durdurabilir. Bilinen uygulama sorunları için <a href="https://github.com/dschuermann/ad-away/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a> adresindeki listeye bakın. Bu sebepten dolayı çalışmayan sunucu isimlerini <i>Sizin Listeniz</i> içindeki <i>Beyaz Listeye</i> ekleyin ve <a href="https://github.com/dschuermann/ad-away/issues">AdAway hata izleyicisi</a>ne rapor edin.</p>
+<p>Bazı uygulamalar, AdAway tarafından erişimi engellenmiş kaynak adresine (hostname) bağlanmak isteyebilir veya reklam sunan bazı kaynak adreslerine erişemeyebilir. Bu durumda lütfen şu bağlantıdaki sorun yaşadığı bilinen uygulamalara göz atınız <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a>. Aksi takdirde, lütfen gerekli kaynak adreslerini (hostname) tespit edip <i>Benim Listelerim</i> alanındaki <i>İzinliler Listesi'ne</i> ekleyiniz ve <a href="https://github.com/AdAway/AdAway/issues">AdAway'in hata takipçisine</a>rapor ediniz.</p>
 
 <h2>Web tarayıcısında geri tuşu çalışmıyor</h2>
 <p>AdAway'in kendi yerel web sunucusunu geçici çözüm olarak ayarlardan aktif hale getirebilirsiniz.</p>
