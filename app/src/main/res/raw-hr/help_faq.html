@@ -7,7 +7,7 @@
 
 
 <h2>Kako AdAway radi?</h2>
-<p>AdAway koristi <a href="http://en.wikipedia.org/wiki/Hosts_file">datoteku poslužitelja</a> za blokiranje naziva poslužitelja koji dostavljaju oglase. Datoteka poslužitelja može se pronaći u <tt>/system/etc/hosts</tt>, a mapira nazive poslužitelja na IP adrese. To je tradicionalan način za određivanja naziva poslužitelja uparivanjem s parovima IP adresa bez oslanjanja na DNS (Domain Name System). Svi neželjeni nazivi poslužitelja se preusmjeravaju na <tt>127.0.0.1</tt>, što znači da će biti usmjereni na Vaš uređaj.</p>
+<p>AdAway koristi <a href="http://en.wikipedia.org/wiki/Hosts_file">datoteku poslužitelja</a> za blokiranje naziva poslužitelja koji dostavljaju oglase. Datoteka poslužitelja može se pronaći u <tt>/system/etc/hosts</tt>, a mapira nazive poslužitelja na IP adrese. To je tradicionalan način za određivanja naziva poslužitelja uparivanjem s parovima IP adresa bez oslanjanja na DNS (Domain Name System). Svi neželjeni nazivi poslužitelja se preusmjeravaju na <tt>127.0.0.1</tt>, što znači da će biti usmjereni na vaš uređaj.</p>
 
 <h2>Zašto je mogućnost dnevne provjere ažuriranja zasivljena?</h2>
 <p>Automatska provjera ažuriranja dostupna je samo kada je AdAway instaliran na unutarnju memoriju uređaja. Uzrok tome je ograničenost u Android platformi.</p>
@@ -16,16 +16,17 @@
 <p>Java na Androidu ima svoju unutrašnju DNS predmemoriju. Operativni sustav će primijeniti novu datoteku poslužitelja odmah (to možete provjeriti pomoću ping naredbe u naredbenom redku), ali je potrebno ponovno pokrenuti Android kako bi se DNS predmemorija Jave ponovno izgradila.</p>
 
 <h2>Kako koristiti web poslužitelj u AdAwayu?</h2>
-<p><b>AdAway isto može raditi bez web poslužitelja!</b> <br/><br/>Možete omogućiti lokalnog web poslužitelja u postavkama AdAwaya kako bi preusmjerio zahtjeve na lokalnu IP adresu <tt>127.0.0.1</tt>. To znači da zahtjevi aplikacije prema poslužiteljima za oglase su preusmjereni na <tt>127.0.0.1</tt> i odgovaraju AdAway web poslužitelju. <br/>Neke aplikacije odbijaju raditi kada poslužitelji oglašavanja nisu dostupni. Ovim načinom postati će opet dostupni, prikazom prazne stranice bez slika oglasa.</p>
+<p><b>AdAway će isto raditi bez web servera!</b>
+<br/><br/>Možete omogućiti lokalni web server u opcijama AdAwaya kako bi preusmjerio zahtjeve na lokalnu IP adresu <tt>127.0.0.1</tt>. To znači da zahtjevi aplikacije prema serverima za oglase bivaju usmjereni na <tt>127.0.0.1</tt> i odgovara im AdAwayev web server.
+<br/>Neke aplikacije odbijaju izvršavanje kada serveri za oglase nisu dostupni. Ovom metodom postat će opet dostupni, odgovarajući praznom stranicom bez slika.</p>
 
 <h2>Kako mogu blokirati/odblokirati određene nazive poslužitelja?</h2>
 <p>Dodajte nazive poslužitelja koje želite blokirati u Popis blokiranih (=Blokirani) u izborniku <i> Vaši popisi <i>. Dodatno, nazive poslužitelja koje želite isključiti iz blokiranja možete dodati u <i>Popis neblokiranih</i> (=Neblokirani), a nazive poslužitelja koje želite preusmjeriti na određenu IP adresu pripadaju u <i>Popis preusmjerenih</i> (=Preusmjereni).</p>
-
 
 <h2>Gdje mogu naći više izvora poslužitelja?</h2>
 <p>Pogledajte <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Popis dodatnih izvora poslužitelja za AdAway</a>.</p>
 
 <h2>Pomozite u prijevodu/prijavi grešaka.</h2>
-<p>Molimo posjetite <a href="http://adaway.org">http://adaway.org</a>.</p>
+<p>Molimo idite na <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>
