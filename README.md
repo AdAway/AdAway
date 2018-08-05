@@ -53,14 +53,19 @@ Development with Eclipse is currently not possible because I am using the new [p
 
 # Translations
 
-Translations are hosted on Transifex, which is configured by ".tx/config".
+Translations are managed via **Transifex** - and Transifex alone. (Sorry, but this is due to some mayor synchronization issues if not followed.)
+1. Please go to https://www.transifex.com/free-software-for-android/adaway/
+1. Login or create a new account (you can conveniently login via Github as well)
+1. Enroll into the language you want to contribute to or even submit a request for a new language.
+   * Please keep in mind that we want to stick to the basic languages wehere possible (e.g. `sr` for Serbian). Please refrain to request regional localizations (like `sr_RS`).
+1. In your language section, you can browse all available resources and start translating strings right in your browser.
+1. Make sure to have an eye on the "Suggestions", "History" and "Context" tab on every entry.
+1. Some strings contain placeholders - like for HTML tags or numbers. You can click on them to add them or use keyboard shortcuts (see the settings for an overview).
+1. Don't forget to save your work! 
+1. For more information about how to use Transifex, see https://docs.transifex.com/
 
-1. To pull newest translations install transifex client (e.g. ``apt-get install transifex-client``)
-2. Config Transifex client with "~/.transifexrc"
-3. Go into root folder of git repo
-4. execute ``tx pull`` (``tx pull -a`` to get all languages)
-
-see http://docs.transifex.com/client/ for more details.
+We will add all Transifex translations from time to time to the app.  
+Translation managers can use the CLI tool for this to retrieve translated resources from the Transifex server and add them to the Github repo. (See http://docs.transifex.com/client/ for more details about the client tool.)
 
 # Coding Style
 
