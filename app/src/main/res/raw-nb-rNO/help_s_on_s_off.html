@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>HTC-enheter</h2>
+<p>AdAway virker ikke når du bruker en enhet som har en såkalt S-ON. Denne "funksjonen" finnes på mange HTC-enheter og hindrer AdAway fra å skrive til vertsfilen.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF betyr at NAND-området i enheten din er låst opp og at den kan bli skrevet til. Standardinnstillingen for HTC-enheter er S-ON, som betyr at du hverken kan få tilgang til bestemte områder i systemet eller å garantere for en permanent rooting. I tillegg er signatursjekker for systemoppdateringer også avhengige av S-ON-flagget.</p>
+
+<h2>Har jeg S-ON eller S-OFF?</h2>
+<p>Start opp i oppstartsmenyen til enheten din ved å holde inne <i>Volum ned</i>-knappen mens du trykker på Power, og teksten øverst vil vise at flaggstatusen er enten S-ON eller S-OFF. En full rooting betyr vanligvis S-OFF.
+<br/><br/>Mere informasjon kan bli funnet hos <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Ytterligere S-OFF metoder siden Unrevokable (i lenken) kan interessere, det vil si: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+
+<h2>Nødløsning</h2>
+<p>Forhåndskrav: Du må installere en fungerende Android-SDK med et SDB-skall på PCen din.
+</p>
+<ol>
+<li>Start opp i oppstartsmenyen på enheten din ved å holde nede <i>Volum ned</i>-knappen mens du trykker på Power.</li>
+<li>Bruk <i>Volum ned</i> for å velge gjenoppretting (Recovery).</li>
+<li>I Clockwork-gjenopprettingsvolumet, trykk deg ned til partisjonsmenyen ("Partitions menu") og trykk på pekeskjermen for å velge</li>
+<li>Velg <i>mount /system</i>, <i>mount /sdcard</i>, og <i>mount /data</i>.</li>
+<li>Sett inn din USB-kabel og åpne en ledetekst på PCen din.</li>
+<li>Gå inn i ADB-skallet og skriv inn <tt>ln -s /data/hosts /system/etc/hosts</tt> (Dette skaper en symbolsk lenke, som tillater AdAway å redigere vertsfilen som er lagret i <tt>/data</tt>, mens den tillater operativsystemet å bruke filen som om den var lagret i <tt>/system</tt>.)</li>
+<li>Start enheten din på nytt og sett <i>målvertsfilen</i> til <i>/data/hosts</i> i AdAway sine innstillinger.</li>
+<li>AdAway burde virke nå.</li>
+</ol>
+</body>
+</html>
