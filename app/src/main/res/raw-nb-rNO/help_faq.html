@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+<h2>Inntekt gjennom reklamer</h2>
+<p>Det er en ofte sagt misoppfatning at dersom en bruker aldri klikker på reklamer, vil det å blokkere dem ikke skade et nettsted eller app finansielt. Dette er feil, utviklere tjener også penger bare ved å vise reklamer. Det er opp til deg om du vil blokkere reklamer eller ikke. Selv ville jeg ikke brukt reklamer som viser reklamer fordi jeg anser dem for å være veldig irriterende, så uten en reklameblokkerer ville jeg ikke installert de appene.</p>
+
+
+
+<h2>Hvordan virker AdAway?</h2>
+<p>AdAway bruker <a href="http://en.wikipedia.org/wiki/Hosts_file">vertsfilen</a> til å blokkere vertsnavn som leverer reklamer. Vertsfilen er fil som er i <tt>/system/etc/hosts</tt> som kartlegger vertsnavn til IP-adresser. Dette er en tradisjonell måte definere vertsnavn til IP-adresser uten å være avhengige av Domain Name System (DNS). Alle uønskede vertsnavn blir omdirigert til <tt>127.0.0.1</tt>, som betyr at de vil bli henvist til din egen enhet.</p>
+
+<h2>Hvorfor er innstillingen for daglige oppdateringssjekker tonet ut?</h2>
+<p>Å automatisk se etter nye oppdateringer er bare tilgjengelig når AdAway er installert på mobilens interne minne. Dette er på grunn av begrensninger hos Android-plattformen.</p>
+
+<h2>Hvorfor må jeg starte Android på nytt for at endringene skal bli tatt i bruk?</h2>
+<p>Java på Android vedlikeholder sitt eget interne DNS-mellomlager. Operativsystemet vil gjenspeile den nye vertsfilen umiddelbart (Dobbeltsjekk det med ping i ledeteksten), men du vil måtte starte Android på nytt for å bygge opp DNS-mellomlageret til Java på nytt.</p>
+
+<h2>Hvordan bruker man nettjeneren i AdAway?</h2>
+<p><b>AdAway vil også virke uten å bruke nettjeneren!</b>
+<br/><br/>Du kan skru på en lokal nettjener i innstillingene til Adaway for å svare på forespørsler til den lokale IP-adressen <tt>127.0.0.1</tt>. Dette betyr at forespørsler fra apper til reklametjenere som blir omdirigert til <tt>127.0.0.1</tt> blir besvart av AdAway.
+<br/>Noen apper nekter å virke dersom reklametjenerene ikke kan nåes. Med denne metoden vil de kunne bli nådd igjen, og svarer med en blank side og ingen reklamebilder.</p>
+
+<h2>Hvordan kan jeg blokkere/ublokkere spesifikke vertsnavn?</h2>
+<p>Legg til vertsnavnene du vil blokkere i svartelisten (=Svart) i <i>Dine lister</i>. I tillegg kan vartsnavn som du vil ekskludere fra blokkering bli lagt til i <i>Hvitelisten</i> (=Hvit), og vertsnavn som du vil omdirigere til en bestemt IP-adresse hører til i <i>Omdirigeringslisten</i> (=Omdirigering).</p>
+
+<h2>Hvor kan jeg finne flere vertsfilkilder?</h2>
+<p>Se <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Liste over ytterligere vertskilder for AdAway</a>.</p>
+
+<h2>Hjelp til med å oversette og å melde i fra om bugs</h2>
+<p>Vennligst gå til <a href="https://adaway.org">https://adaway.org/</a>.</p>
+</body>
+</html>
