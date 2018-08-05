@@ -199,6 +199,9 @@
     <string name="tcpdump_menu_clear">Clear log</string>
     <string name="tcpdump_sort_alphabetical">Alphabetical sort</string>
     <string name="tcpdump_sort_top_level_domain">Top level domain sort</string>
+    <string name="tcpdump_entry_add_blacklist">Add entry to black list</string>
+    <string name="tcpdump_entry_add_whitelist">Add entry to white list</string>
+    <string name="tcpdump_entry_add_redirection_list">Add entry to redirect list</string>
 
     <!-- Preferences -->
     <string name="pref_download">General Preferences</string>
