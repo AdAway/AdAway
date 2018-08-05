@@ -2,9 +2,9 @@
 <head></head>
 <body>
 <h2>HTC 设备</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<p>AdAway 不能在 S-ON 设备上生效。HTC 此类设备居多，这个‘特性’会阻止 AdAway 写入 hosts 文件。</p>
 
-<h2>S-ON/S-OFF?</h2>
+<h2>什么是 S-ON/S-OFF?</h2>
 <p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
 
 <h2>Do I have S-ON or S-OFF?</h2>
@@ -16,13 +16,13 @@
 </p>
 <ol>
 <li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>使用<i>减小音量</i>来选择恢复模式。</li>
+<li>连续按动音量减少按钮，移动到 “partitions menu”，然后点击触摸屏选中。</li>
+<li>选择<i>mount /system</i>，<i>mount /sdcard</i>和<i>mount /data</i>。</li>
+<li>连接上 USB 数据线，然后在 PC 上打开命令行。</li>
+<li>进入 adb shell 然后输入<tt>ln -s /data/hosts /system/etc/hosts</tt>（创建符号链接，允许 AdAway 编辑保存在<tt>/data</tt>里的 hosts 文件，并且同时 OS 也可以使用该文件，像<tt>/system</tt>下保存的文件一样。）</li>
+<li>重启设备，然后在 AdAway 的偏好设置中将<i>目标 hosts 文件</i> 设置为 <i>/data/hosts</i> </li>
+<li>AdAway 现在应该生效了。</li>
 </ol>
 </body>
 </html>
