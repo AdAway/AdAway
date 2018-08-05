@@ -1,23 +1,28 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
 <html>
 <head></head>
 <body>
-<h2>Not enough space on partition</h2>
-<p>Try changing the target hosts file in preferences to <tt>/data/data/hosts</tt> (or <tt>/data/hosts</tt>) and apply AdAway again.</p>
+<h2>เนื้อที่ไม่พอ</h2>
+<p>เปลี่ยนไฟล์ host โดย เลือกการตั้งค่า <tt>/data/data/hosts</tt> (or <tt>/data/hosts</tt>) เมื่อเปลี่ยนการตั้งค่าเสร็จ ให้กด ยอมรับ AdAway อีกครั้ง.</p>
 
-<h2>Does not work on Android 4.4+</h2>
-<p>Try changing the target hosts file in preferences from <tt>/data/data/hosts</tt> to <tt>/data/hosts</tt> or <tt>/system/etc/hosts</tt> and apply AdAway again.</p>
+<h2>ไม่รองรับระบบปฏิบัติการ แอนดรอยด์ 4.4 ขึ้นไป</h2>
+<p>ลองเปลี่ยนแปลงการตั้งค่านี้โดยเลือก การตั้งค่า <tt>/data/data/hosts</tt> to <tt>/data/hosts</tt> or <tt>/system/etc/hosts</tt> เมื่อเปลี่ยนการตั้งค่าเสร็จ ให้กด ยอมรับ AdAway อีกครั้ง.</p>
 
-<h2>It does not block ads in application XYZ!</h2>
-<p>Some hostnames may be missing in the provided hosts files from the <i>Hosts Sources</i> or the application has bundled the images to provide ads without accessing the internet.<br><br>You can log DNS requests (Menu-&gt;Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.<br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in the Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+<h2>AdAway ไม่รองรับการป้องกันโฆษณาในแอพพลิเคชั่น XYZ</h2>
+<p>ชื่อโฮสต์บางชื่ออาจหายไปในไฟล์โฮสต์ที่จัดเตรียมไว้จากไฟล์ <i>Hosts Sources</i> หรือแอพพลิเคชันได้รวมภาพเพื่อจัดเตรียมโฆษณาโดยไม่ต้องเข้าถึงอินเทอร์เน็ต<br><br>
+คุณสามารถบันทึกคำขอ DNS (เมนู -&gt; คำขอ DNS เข้าสู่ระบบ) จาก AdAway เพื่อค้นหาชื่อโฮสต์เพิ่มเติมที่จะถูกปิดกั้น
+<br><br>เพิ่มชื่อโฮสต์ที่น่าสงสัยลงใน Blacklist ของคุณเองโดยการกดรายการใน Log และรายงานชื่อโฮสต์เหล่านี้เมื่อคุณได้ยืนยันความถูกต้องในฟอรัม<a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>.</p>
 
-<h2>Cached Advertisements</h2>
-<p>Sometimes applications cache advertisements after download. This leads to remaining advertisements in some applications. You can try to delete the cache for these applications in Android's Application list to circumvent this problem.</p>
+<h2>มีการเก็บโฆษณาไว้ในแคช</h2>
+<p>บางครั้งแอพพลิเคชันแคชโฆษณาหลังจากดาวน์โหลด ซึ่งนำไปสู่การโฆษณาที่เหลืออยู่ในบางแอพพลิเคชัน คุณสามารถลองลบแคชสำหรับแอพพลิเคชันเหล่านี้ในรายการแอพพลิเคชันของแอนดรอยด์เพื่อหลีกเลี่ยงปัญหานี้</p>
 
-<h2>Application XYZ is not working anymore!</h2>
-<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuses to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/dschuermann/ad-away/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <i>Whitelist</i> under <i>Your Lists</i> and report them to the <a href="https://github.com/dschuermann/ad-away/issues">bug tracker of AdAway</a>.</p>
+<h2>แอพพลิเคชั่น XYZ ไม่ทำงาน</h2>
+<p>แอพพลิเคชันบางตัวจำเป็นต้องสื่อสารกับชื่อโฮสต์ที่ถูกบล็อกโดย AdAway หรือปฏิเสธที่เมื่อชื่อโฮสต์ที่ใช้แสดงโฆษณาไม่สามารถเข้าถึงได้. กด<a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> เพื่อดูรายการแอปพลิเคชันที่ทราบซึ่งมีปัญหา มิเช่นนั้นให้หาชื่อโฮสต์ที่ต้องการและเพิ่มลงในรายการของคุณ<i>บัญชีที่ละเว้น</i> ใต้<i>รายการของคุณ</i> และรายงานปัญหาเหล่านั้น <a href="https://github.com/AdAway/AdAway/issues">ผู้พัฒนา AdAway</a>.</p>
 
-<h2>The back button in web browsers is not working</h2>
-<p>You can enable AdAway's local webserver in preferences as a workaround.</p>
+<h2>กดปุ่มย้อนกลับหากเบราเซอร์ไม่ทำงาน</h2>
+<p>คุณสามารถเปิดการใช้งาน AdAway ได้จาก เว็บเซิร์ฟเวอร์ท้องถิ่นในการกำหนดลักษณะเป็นการแก้ปัญหา</p>
 
 </body>
 </html>
