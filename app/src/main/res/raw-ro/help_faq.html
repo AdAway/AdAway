@@ -1,32 +1,32 @@
 <html>
 <head></head>
 <body>
-<h2>Income by advertisements</h2>
-<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+<h2>Venitul din reclame</h2>
+<p>Există o confuzie în ceea ce privește venitul unui dezvoltator a unei aplicații obținut din afișarea reclamelor. Se crede că dacă un utilizator nu bagă în seamă reclamele afișate într-o aplicație sau website, blocarea acestora nu rănește financiar aplicația sau website-ul respectiv. Această afirmație este greșită, dezvoltatorii obțin venituri și prin afișarea reclamelor. Este alegerea dvs. dacă vreți să blocați reclamele sau nu. Eu personal nu aș folosi aplicații care afișează reclame fiindca mi se par foarte enervante, si fără un "ad-blocker" nu le-aș fi instalat.</p>
 
 
 
-<h2>How does AdAway work?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<h2>Cum funcționează AdAway?</h2>
+<p>AdAway folosește fișierul <a href="http://en.wikipedia.org/wiki/Hosts_file">host</a> pentru a bloca hostnames care servește reclame. Fișierul hosts se gasește în <tt>/system/etc/hosts</tt> și asociază hostname-ul cu o adresă IP. Este un mod clasic de a asocia hostname-ul cu un IP fără a se baza pe Domain Name System (DNS). Hostname-urile nedorite vor fi redirectate către <tt>127.0.0.1</tt> ceea ce înseamnă că vor fi trimise către dispozitivul dumneavoastră.</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>De ce opțiunea de a verifica zilnic pentru update-uri este dezactivată?</h2>
+<p>Verificarea zilnică de versiuni noi este disponibilă atunci când AdAway este instalat în memoria internă a telefonului. Acesta este din cauza restricțiilor specifice platformei Android.</p>
 
-<h2>Why do I have to restart Android for changes to take effect?</h2>
-<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+<h2>De ce trebuie sa restartez Android pentru ca schimbarile sa aiba efect?</h2>
+<p>Java in Android mentine un cache DNS intern. Sistemul de operare va 'vedea' fisierul hosts nou imediat dupa aplicare (se poate verifica acest lucru printr-o comanda ping in linia de comanda) dar un restart este totusi necesar pentru a reimprospata cache-ul DNS din Java.</p>
 
-<h2>How to use the webserver in AdAway?</h2>
+<h2>Cum se foloseste serverul web in AdAway?</h2>
 <p><b>AdAway will also work without using the webserver!</b>
 <br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
 <br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
-<h2>How can I block/unblock specific hostnames?</h2>
+<h2>Cum pot bloca/debloca hostname-uri specifice?</h2>
 <p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
 
-<h2>Where can I find more hosts sources?</h2>
-<p>See <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
+<h2>Unde pot gasi mai multe surse hosts?</h2>
+<p>See <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
 
-<h2>Help translating/report bugs</h2>
-<p>Please go to <a href="http://adaway.org">http://adaway.org</a>.</p>
+<h2>Ajuta la translatie/Raporteaza erori.</h2>
+<p>Please go to <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>
