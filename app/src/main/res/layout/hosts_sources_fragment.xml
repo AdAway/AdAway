@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_add_black_24px"
         app:layout_anchor="@id/hosts_sources_list"
-        app:layout_anchorGravity="bottom|right|end" />
+        app:layout_anchorGravity="bottom|right|end"
+        app:srcCompat="@drawable/ic_add_black_24px" />
 
 </android.support.design.widget.CoordinatorLayout>
