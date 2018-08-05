@@ -265,9 +265,9 @@ public class ApplyHelper {
             Map<String, String> redirectionListHosts = Stream.of(this.mHostListItemDao.getEnabledRedirectionList())
                     .collect(Collectors.toMap(HostListItem::getHost, HostListItem::getRedirection));
             // add whitelist from db
-            parser.addWhitelist(blackListHosts);
+            parser.addBlacklist(blackListHosts);
             // add blacklist from db
-            parser.addBlacklist(whiteListHosts);
+            parser.addWhitelist(whiteListHosts);
             // add redirection list from db
             parser.addRedirectionList(redirectionListHosts);
 
