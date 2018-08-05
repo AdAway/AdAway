@@ -2,27 +2,25 @@
 <head></head>
 <body>
 <h2>HTC 장치</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<p>AdAway는 S-ON이라 불리는 기능을 탑재한 기기를 사용 시 작동하지 않습니다. 이 '기능'은 다수의 HTC 기기에 존재하며 AdAway가 호스트 파일 쓰기를 차단합니다.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
+<p>S-OFF는 NAND 영역이 잠금 해제되었고 쓰기가 가능함을 의미합니다. 기본 설정은 S-ON이며, 이는 시스템의 특정 영역에 대한 접근이 불가하고 영구적인 루팅을 보장할 수 없다는 의미입니다. 게다가 펌웨어 이미지의 서명 확인 또한 S-ON 플래그에 의해 검증됩니다.</p>
 
-<h2>Do I have S-ON or S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<h2>S-ON 또는 S-OFF 중 어떻게 설정되어 있습니까?</h2>
+<p>Boot into the Boot Menu on your device by holding down 전원을 누른 상태에서 <i>볼륨 다운</i> 버튼을 눌러 부트 메뉴로 부팅하면 상단 텍스트에 플래그 상태를 S-OFF 또는 S-ON로 표시합니다. 전체 루팅은 일반적으로 S-OFF를 의미합니다.<br/><br/><a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>에서 더 많은 정보를 확인할 수 있습니다. Unrevokable (링크) 이외에 흥미로운 추가적인 S-OFF 방법은 다음과 같이 불립니다: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
-<h2>Workaround</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.
-</p>
+<h2>해결 방법</h2>
+<p>전제 조건: PC에 작동하는 안드로이드 SDK 밍 ADB 쉘을 설치하셔야 합니다.</p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>전원을 누른 상태에서 <i>볼륨 다운</i> 버튼을 눌러 기기의 부팅 메뉴로 부팅하십시오.</li>
+<li>리커버리를 선택하려면 <i>볼륨 다운</i>을 사용하십시오.</li>
+<li>ClockWork 리커버리에서 볼륨 다운을 눌러 "파티션 메뉴"로 이동한 뒤 트랙 패드를 터치하여 선택하십시오.</li>
+<li><i>mount /system</i>, <i>mount /sdcard</i> 및 <i>mount /data</i>를 선택하십시오.</li>
+<li>USB 케이블을 꽂은 뒤 PC에서 명령 프롬프트를 실행하십시오.</li>
+<li>ADB 쉘에 진입한 후에 <tt>ln -s /data/hosts /system/etc/hosts</tt>를 입력하십시오.(이 명령어는 OS가 마치 호스트 파일이 <tt>/system</tt>에 저장된 것처럼 사용을 허용하는 동안 AdAway가 <tt>/data</tt>에 저장된 호스트 파일을 편집할 수 있도록 허용하는 상징적인 링크를 생성합니다.)</li>
+<li>기기를 재부팅한 뒤 AdAway의 환경 설정에서 <i>대상 호스트 파일</i>을 <i>/data/hosts</i>로 설정하십시오.</li>
+<li>이제 AdAway가 작동할 것입니다.</li>
 </ol>
 </body>
 </html>
