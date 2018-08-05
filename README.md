@@ -59,6 +59,7 @@ Translations are managed via **Transifex** - and Transifex alone. (Sorry, but th
 1. Enroll into the language you want to contribute to or even submit a request for a new language.
    * Please keep in mind that we want to stick to the basic languages wehere possible (e.g. `sr` for Serbian). Please refrain to request regional localizations (like `sr_RS`).
 1. In your language section, you can browse all available resources and start translating strings right in your browser.
+   * You don't have to donwload anything. Just click "Translate". The downloads are meant only for more advanced use cases.
 1. Make sure to have an eye on the "Suggestions", "History" and "Context" tab on every entry.
 1. Some strings contain placeholders - like for HTML tags or numbers. You can click on them to add them or use keyboard shortcuts (see the settings for an overview).
 1. Don't forget to save your work! 
