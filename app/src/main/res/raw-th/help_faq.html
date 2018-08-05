@@ -1,32 +1,32 @@
 <html>
 <head></head>
 <body>
-<h2>Income by advertisements</h2>
-<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
+<h2>รายได้จากการโฆษณา</h2>
+<p>มีความเข้าใจผิดที่ระบุบ่อยๆว่าหากผู้ใช้ไม่เคยคลิกโฆษณาการปิดกั้นเนื้อหาดังกล่าวจะไม่ส่งผลเสียหายต่อไซต์หรือแอพพลิเคชันทางการเงิน ซึ่งเป็นสิ่งที่ผิดนักพัฒนายังมีรายได้ด้วยการแสดงโฆษณา ทั้งนี้ขึ้นอยู่กับคุณว่าคุณบล็อกโฆษณาหรือไม่ ส่วนตัวฉันจะไม่ใช้แอปพลิเคชันที่แสดงโฆษณาเนื่องจากพบว่าน่ารำคาญมากดังนั้นหากไม่มีตัวบล็อกโฆษณาฉันจะไม่ติดตั้งแอปพลิเคชันเหล่านี้</p>
 
 
 
-<h2>How does AdAway work?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<h2>AdAway นี้ทำงานอย่างไร?</h2>
+<p>AdAway ใช้ <a href="http://en.wikipedia.org/wiki/Hosts_file">โฮสต์ไฟล์</a> เพื่อบล็อก รายชื่อโฮสต์, ที่ให้บริการโฆษณา ไฟล์ hosts คือไฟล์ที่พบใน<tt>/system/etc/hosts</tt> ที่ชื่อโฮสต์กับที่อยู่ IP.เป็นวิธีแบบดั้งเดิมในการกำหนดชื่อโฮสต์ไปยังคู่ IP แอดเดรสโดยไม่ต้องอาศัยระบบ Domain Name System (DNS). ชื่อโฮสต์ที่ไม่ต้องการทั้งหมดถูกเปลี่ยนเส้นทางไปที่ <tt>127.0.0.1</tt> ซึ่งหมายความว่าIP นี้จะใช้ในอุปกรณ์ของคุณเอง</p>
 
-<h2>Why is the daily update check preference grayed out?</h2>
-<p>Automatic checking for new updates is only available when AdAway is installed on the internal phone memory. This is due to restrictions on the Android platform.</p>
+<h2>เหตุใดการตั้งค่าการตรวจสอบการอัปเดตรายวันจึงเป็นสีเทา</h2>
+<p>การตรวจสอบอัตโนมัติสำหรับการอัปเดตใหม่จะใช้ได้เฉพาะเมื่อมีการติดตั้ง AdAway ไว้ในหน่วยความจำภายในเท่านั้น นี่เป็นเพราะข้อ จำกัด ของแพลตฟอร์มแอนดรอยด์</p>
 
-<h2>Why do I have to restart Android for changes to take effect?</h2>
-<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+<h2>ทำไมถึงต้องรีสตาร์ทเพื่อให้มีผลเปลี่ยนแปลง?</h2>
+<p>Java บน Android มีแคช DNS ภายในของตัวเอง ระบบปฏิบัติการจะแสดงแฟ้ม hosts ใหม่ทันที (ตรวจสอบว่ามี ping ในบรรทัดคำสั่ง) แต่คุณจะต้องเริ่มต้นใหม่ Android เพื่อสร้างแคช DNS ของ Java</p>
 
-<h2>How to use the webserver in AdAway?</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<h2>วิธีใช้เว็บเซิร์ฟเวอร์ใน AdAway</h2>
+<p><b>AdAway สามารถทำงานได้โดยปราศจากเว็บเซิร์ฟเวอร์</b>
+<br/><br/>คุณสามารถเปิดใช้งานเว็บเซิร์ฟเวอร์ท้องถิ่นในลักษณะที่ AdAway ต้องการเพื่อตอบรับคำขอไปยังที่อยู่ IP ในเครื่อง <tt>127.0.0.1</tt>. ซึ่งหมายถึงคำขอจากแอปพลิเคชันไปยังเซิร์ฟเวอร์โฆษณาที่ถูกเปลี่ยนเส้นทางไปยัง <tt>127.0.0.1</tt> ได้รับการตอบโดยเว็บเซิร์ฟเวอร์ของ AdAway.
+<br/>แอพพลิเคชันบางตัวจะปฏิเสธการทำงานเมื่อเซิร์ฟเวอร์โฆษณาไม่สามารถเข้าถึงได้ ด้วยวิธีนี้พวกเขาจะสามารถเข้าถึงได้อีกครั้งตอบกลับด้วยหน้าว่าง ๆ และไม่มีภาพโฆษณา</p>
 
-<h2>How can I block/unblock specific hostnames?</h2>
-<p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<h2>ฉันสามารถ บล็อค/ปลดบล็อค โฮสต์เนม ที่เฉพาะเจาะจงได้อย่างไร?</h2>
+<p>เพิ่มชื่อโฮสต์ที่คุณต้องการบล็อกลงในบัญชีดำ ใน<i>รายชื่อของคุณ</i>. นอกจากนี้คุณสามารถเพิ่มชื่อโฮสต์ที่คุณต้องการยกเว้นจากการบล็อกได้ที่ <i>บัญชีที่ละเว้น</i>  และชื่อโฮสต์ที่คุณต้องการเปลี่ยนเส้นทางไปยังที่อยู่ IP ที่ระบุอยู่ใน <i>รายชื่อที่เปลี่ยนเส้นทาง</i> </p>
 
-<h2>Where can I find more hosts sources?</h2>
-<p>ดู <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">รายการแหล่งที่มาโฮสต์สำหรับ AdAway</a>.</p>
+<h2>ฉันสามารถหาแหล่งที่มาของโฮสต์ได้จากที่ไหน?</h2>
+<p>ดู <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">รายชื่อแหล่งโฮสต์เพิ่มเติมจาก AdAway</a>.</p>
 
 <h2>ช่วยแปลภาษา/รายงานบัค</h2>
-<p>กรุณาไปยังเว็บไซต์ <a href="http://adaway.org">http://adaway.org</a>.</p>
+<p>กรุณาไปยังเว็บไซต์ <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>
