@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -116,6 +116,14 @@ public class HomeFragment extends Fragment {
     /*
      * Web server card views.
      */
+    /**
+     * The web server status text(<code>null</code> until view created).
+     */
+    private TextView mWebSeverStatusTextView;
+    /**
+     * The web server status icon(<code>null</code> until view created).
+     */
+    private ImageView mWebServerStatusImageView;
     /**
      * The enable/disable web server button (<code>null</code> until view created).
      */
@@ -277,8 +285,10 @@ public class HomeFragment extends Fragment {
         mStatusTextView = view.findViewById(R.id.home_status_text);
         mUpdateHostsButton = view.findViewById(R.id.home_update_hosts);
         mRevertHostsButton = view.findViewById(R.id.home_revert_hosts);
-        // Get view from web server card
+        // Get views from web server card
         CardView webServerCardView = view.findViewById(R.id.home_webserver_card);
+        mWebSeverStatusTextView = view.findViewById(R.id.home_webserver_status);
+        mWebServerStatusImageView = view.findViewById(R.id.home_webserver_icon);
         mRunningWebServerButton = view.findViewById(R.id.home_webserver_enable);
         /*
          * Register local broadcast receiver.
@@ -457,11 +467,20 @@ public class HomeFragment extends Fragment {
      */
     void notifyWebServerRunning(boolean running) {
         // Check button
-        if (mRunningWebServerButton == null) {
+        if (mWebSeverStatusTextView == null || mWebServerStatusImageView == null || mRunningWebServerButton == null) {
             return;
         }
         // Store web server running status
         mWebServerRunning = running;
+        // Update status text and icon
+        mWebSeverStatusTextView.setText(running ?
+                R.string.webserver_status_running :
+                R.string.webserver_status_stopped
+        );
+        mWebServerStatusImageView.setImageResource(running ?
+                R.drawable.status_enabled :
+                R.drawable.status_disabled
+        );
         // Update button text
         mRunningWebServerButton.setText(running ?
                 R.string.button_disable_webserver :

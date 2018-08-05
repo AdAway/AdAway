@@ -30,6 +30,8 @@
     <string name="button_enable_hosts">Enable ad-blocking</string>
     <string name="button_disable_hosts">Disable ad-blocking</string>
     <string name="header_webserver">Web server</string>
+    <string name="webserver_status_running">Running</string>
+    <string name="webserver_status_stopped">Stopped</string>
     <string name="button_enable_webserver">Enable web server</string>
     <string name="button_disable_webserver">Disable web server</string>
 
