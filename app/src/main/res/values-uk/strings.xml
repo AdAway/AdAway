@@ -3,44 +3,38 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Вихід</string>
-  <string name="button_apply">Завантаження файлів і застосування блокування реклами</string>
+  <string name="button_apply">Завантажити файли та застосувати блокування реклами</string>
   <string name="button_close">Закрити</string>
   <string name="button_yes">Так</string>
   <string name="button_no">Ні</string>
-  <string name="button_revert">Вимкнення блокування реклами</string>
+  <string name="button_revert">Вимкнути блокування реклами</string>
   <string name="button_add">Додати</string>
   <string name="button_cancel">Скасувати</string>
-  <string name="button_revert_text">Відновлення типового файлу у вашій системі.</string>
+  <string name="button_revert_text">Відновити типовий hosts файл у вашій системі.</string>
   <string name="button_save">Зберегти</string>
   <string name="button_webserver_toggle_checked">Веб-сервер запущено</string>
   <string name="button_webserver_toggle_unchecked">Веб-сервер не запущено</string>
   <string name="button_webserver_toggle_text">Запуск або зупинка локального веб-сервера для відповідей на запити заблокованих хостів.</string>
   <string name="button_help">Довідка</string>
-  <string name="tcpdump_description">Tcpdump це інструмент для моніторингу запитів DNS і їх збереження в файлі журналу. Ви можете запустити його в фоновому режимі, далі запустити програму, яка показує рекламу на екрані, і проаналізувати збережені в журналі запити DNS. Хост, кваліфікований як джерело реклами, може бути внесений у чорний список.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump працює!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump не запущено!</string>
-  <string name="tcpdump_show_results">Відкрити файл журналу</string>
-  <string name="tcpdump_clear_results">Вилучити файл журналу</string>
+  <!--Home-->
+  <string name="text_update">Всі списки хостів, що завантажуються з заданих джерел, зливаються з вашим власним списком і встановлюються у вашій системі у вигляді одного файлу hosts.</string>
+  <string name="button_check_update_hosts">Перевірка оновлень</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Додати</string>
   <string name="checkbox_list_empty">Порожній список</string>
-  <string name="checkbox_list_empty_text">Ви можете додавати елементи в список.</string>
   <string name="checkbox_list_context_delete">Вилучити</string>
   <string name="checkbox_list_footer">Після додавання нових пунктів у цьому списку ви повинні знову застосувати AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Редагувати</string>
   <string name="checkbox_list_context_title">Редагувати запис</string>
   <string name="checkbox_list_context_edit">Редагувати</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Білий список</string>
   <string name="lists_tab_blacklist">Чорний список</string>
-  <string name="lists_tab_redirection_list">Список перенаправлень</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Ім\'я хосту</string>
-  <string name="list_dialog_whitelist_hostname">Назва вузлу:\n (допускаються символи  підстановки * та ?)</string>
   <string name="list_dialog_ip">IP (IPv4 або IPv6):</string>
   <string name="import_dialog">Імпорт…</string>
   <string name="export_dialog">Експорт…</string>
   <string name="export_success">Усі записи вивантажені в файл з ім\'ям \'adaway-export\', розташованому на карті пам\'яті.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Перевірка оновлень…</string>
   <string name="status_reverting">Відновлення…</string>
@@ -95,13 +89,13 @@
   <string name="download_fail_title">Завантаження не вдалося</string>
   <string name="no_private_file">Особистий файл не може бути створений.</string>
   <string name="no_private_file_title">Не вдалося створити особистий файл</string>
+  <string name="enable_systemless_successful">Ви вимкнули безсистемний режим.\nМожливо, потрібно перезавантажити Андроїд для набуття змінами чинності.\n\nХочете перезавантаження?\n(Щоб уникнути втрати даних, переконайтеся, що жодна програма не використовує карту пам\'яті SD у цю мить!)</string>
+  <string name="enable_systemless_successful_title">Вмикання - успішне</string>
   <string name="disable_systemless_successful">Ви вимкнули безсистемний режим.\nЦе може бути потрібний для перезавантаження  Android для набуття чинності змін.\n\nХочете перезавантаження?\n(Щоб уникнути втрати даних переконайтеся, що жодна програма не використовує карту пам\'яті SD у цю мить!)</string>
   <string name="disable_systemless_successful_title">Вимкнення - успішне</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Програмний файл su не знайдений, або AdAway не були надані права суперкористувача.\n\n Це може статися, якщо у вас немає прав суперкористувача на пристрої. \nІнформацію про те, як отримати права суперкористувача на вашому пристрої, ви можете знайти на форумі wiki.lineageos.org або інших веб-сайтах, про Андроїд.</string>
+  <string name="no_root_description">Програмний файл su не знайдений, або AdAway не були надані права суперкористувача.\n\n Це може статися, якщо у вас немає прав суперкористувача на пристрої. \nІнформацію про те, як отримати права суперкористувача на вашому пристрої, можна знайти на wiki.lineageos.org або інших веб-сайтах про Андроїд.</string>
   <string name="no_root_title">Необхідна наявність прав суперкористувача</string>
-  <string name="no_url">Це недопустимий URL!</string>
-  <string name="no_url_title">Неправильно відформатоване URL</string>
   <string name="hosts_add_dialog">Вставте URL у файл hosts:</string>
   <string name="no_hostname">Це недопустиме ім\'я хосту!</string>
   <string name="no_hostname_title">Неправильно відформатована назва хосту</string>
@@ -133,13 +127,12 @@
     <item> 8 Євро </item>
     <item> 13 Євро </item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Пошук ПЗ з рекламою AdWare, яку не може заблокувати AdAway. Ці додатки використовують, наприклад, систему повідомлень Airpush, яка показує рекламу навіть тоді, коли додаток не працює, або навіть може змінити мелодію вашого дзвінка. Позбутися від такої реклами можна тільки через видалення програм, показаних в результатах сканування, шляхом натискання на елементи списку.</string>
-  <string name="adware_empty">Програм з Adware не знайдено!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Локальний:</string>
   <string name="hosts_last_modified_online">Інтернет:</string>
   <string name="hosts_not_available">недоступно</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Блокувальник реклами</string>
   <string name="no_text_editor_title">Не встановлено текстовий редактор</string>
@@ -147,14 +140,8 @@
   <string name="no_file_manager_title">Не встановлено менеджер файлів</string>
   <string name="no_file_manager">У системі не знайдено файловий менеджер. Ви можете встановити OI File Manager або будь-який інший файловий менеджер щоб це виправити.\n\n Ви хочете встановити OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Файл журналу видалений!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Ім\'я хосту було додано в Чорний список!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Ім\'я хосту було додано в Білий список!</string>
-  <string name="tcpdump_log_context_blacklist">Додати у Чорний список</string>
-  <string name="tcpdump_log_context_whitelist">Додати у Білий список</string>
-  <string name="tcpdump_log_context_browser">Відкрити у браузері</string>
-  <string name="tcpdump_log_empty">Файл журналу порожній!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump це інструмент для моніторингу запитів DNS і їх збереження в файлі журналу. Ви можете запустити його в фоновому режимі, далі запустити програму, яка показує рекламу на екрані, і проаналізувати збережені в журналі запити DNS. Хост, кваліфікований як джерело реклами, може бути внесений у чорний список.</string>
+  <!--Preferences-->
   <string name="pref_download">Основні налаштування</string>
   <string name="pref_hosts">Файл хостів</string>
   <string name="pref_redirection_ip">IP для перенаправлення</string>
@@ -190,13 +177,17 @@
   <string name="pref_update_only_on_wifi_summary">Автоматично виконувати оновлення тільки при підключенні до мережі WiFi.</string>
   <string name="pref_whitelist_rules">Дозволити білий список</string>
   <string name="pref_whitelist_rules_summary">Дозволити білі списки із джерел хостів.</string>
-  <string name="pref_redirection_rules">Дозволити перенаправлення</string>
   <string name="pref_redirection_rules_summary">СТАНОВИТЬ РИЗИК ДЛЯ БЕЗПЕКИ! Дозволити перенаправлення із джерел хостів.</string>
   <string name="pref_debug">Режим налагодженя</string>
   <string name="pref_enable_debug">Журнал налагодження</string>
   <string name="pref_enable_debug_summary">Необхідно перезапустити AdAway, щоб зміни вступили в силу.</string>
   <string name="pref_enable_ipv6">Увімкнути IPv6</string>
   <string name="pref_enable_ipv6_summary">Усі записи файлу хостів отримають належний елемент ::1 (IPv6 localhost).</string>
-  <string name="pref_enable_systemless_summary">Запобігати зміні системного розділу через AdAway (вимагає несистемного SuperSU для автоматичного встановлення)</string>
+  <string name="pref_enable_systemless_summary">Запобігати зміні системного розділу через AdAway</string>
   <string name="pref_enable_systemless">Увімкнути безсистемний режим</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Налаштування</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Доступне оновлення</string>
 </resources>

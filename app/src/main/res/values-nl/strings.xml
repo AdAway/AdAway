@@ -1,255 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
-    <string name="app_name">AdAway</string>
-
-    <!-- Buttons -->
-    <string name="button_exit">Afsluiten</string>
-    <string name="button_apply">Download bestanden en pas advertentieblokkering toe</string>
-    <string name="button_close">Sluiten</string>
-    <string name="button_yes">Ja</string>
-    <string name="button_no">Nee</string>
-    <string name="button_revert">Schakel advertentieblokkering uit</string>
-    <string name="button_add">Toevoegen</string>
-    <string name="button_cancel">Annuleren</string>
-    <string name="button_revert_text">Zet het standaard hosts-bestand terug op uw systeem.</string>
-    <string name="button_save">Opslaan</string>
-    <string name="button_webserver_toggle_checked">Webserver wordt uitgevoerd</string>
-    <string name="button_webserver_toggle_unchecked">Webserver wordt niet uitgevoerd</string>
-    <string name="button_webserver_toggle_text">Start of stop de webserver op localhost om verzoeken aan geblokkeerde hostnamen te beantwoorden.</string>
-    <string name="button_help">Hulp</string>
-    <string name="tcpdump_description">Tcpdump is een hulpmiddel om DNS-verzoeken te bekijken en deze op te slaan in een logbestand. U kunt het in de achtergrond starten, een app met reclames gebruiken, en achteraf de DNS-verzoeken analyseren middels het logbestand. Mogelijke reclameservers kunnen dan aan uw zwarte lijst worden toegevoegd.</string>
-    <string name="tcpdump_disable_monitoring">Tcpdump wordt uitgevoerd!</string>
-    <string name="tcpdump_enable_monitoring">Tcpdump wordt niet uitgevoerd!</string>
-    <string name="tcpdump_show_results">Open logbestand</string>
-    <string name="tcpdump_clear_results">Verwijder logbestand</string>
-
-    <!-- Checkbox List -->
-    <string name="checkbox_list_add_dialog_title">Toevoegen</string>
-    <string name="checkbox_list_empty">Lege lijst</string>
-    <string name="checkbox_list_empty_text">U kunt hostnamen toevoegen vanuit de actiebalk.</string>
-    <string name="checkbox_list_context_delete">Verwijder</string>
-    <string name="checkbox_list_footer">Na het toevoegen van nieuwe hostnamen aan deze lijst, moet u AdAway opnieuw toepassen!</string>
-    <string name="checkbox_list_edit_dialog_title">Wijzigen</string>
-    <string name="checkbox_list_context_title">Wijzig invoer</string>
-    <string name="checkbox_list_context_edit">Wijzigen</string>
-
-    <!-- Your Lists -->
-    <string name="lists_tab_whitelist">Witte lijst</string>
-    <string name="lists_tab_blacklist">Zwarte lijst</string>
-    <string name="lists_tab_redirection_list">Doorverwijzingslijst</string>
-    <string name="list_dialog_url">URL:</string>
-    <string name="list_dialog_hostname">Hostnaam:</string>
-    <string name="list_dialog_whitelist_hostname">Hostnaam:/n(De wildcard karakters * en ? zijn toegestaan!)</string>
-    <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
-    <string name="import_dialog">Bezig met importeren…</string>
-    <string name="export_dialog">Bezig met exporteren…</string>
-    <string name="export_success">Alle regels zijn geëxporteerd naar een bestand genaamd \'adaway-export\' op uw SD-kaart.</string>
-
-    <!-- Status Notifications -->
-    <string name="status_checking">Bezig met controleren op updates…</string>
-    <string name="status_reverting">Bezig met terugzetten…</string>
-    <string name="status_reverting_subtitle">Standaard hosts-bestand aanmaken</string>
-    <string name="status_checking_subtitle">Bezig met controleren op updates</string>
-    <string name="status_update_available">Er is een update beschikbaar</string>
-    <string name="status_update_available_subtitle">Nieuwere hosts-bestanden beschikbaar</string>
-    <string name="status_no_connection">Geen internetverbinding</string>
-    <string name="status_no_connection_subtitle">Geen internetverbinding beschikbaar</string>
-    <string name="status_download_fail">Bronnen zijn niet beschikbaar</string>
-    <string name="status_download_fail_subtitle_new">Geen bereikbare hosts-bronnen!</string>
-    <string name="status_enabled">Ingeschakeld</string>
-    <string name="status_enabled_subtitle">Nieuwste hosts-bestanden toegepast</string>
-    <string name="status_disabled">Uitgeschakeld</string>
-    <string name="status_disabled_subtitle">Uitgeschakeld</string>
-
-    <!-- Apply and Revert Dialogs -->
-    <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst.\n
-  \n
-  Wilt u proberen een symlink te maken?</string>
-    <string name="apply_symlink_missing_title">Symlink ontbreekt</string>
-    <string name="apply_not_enough_space">Niet genoeg ruimte op de systeempartitie!\n
-  Verander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
-    <string name="apply_not_enough_space_title">Onvoldoende ruimte</string>
-    <string name="apply_private_file_fail">Gedownload bestand kon niet worden gelezen.</string>
-    <string name="apply_private_file_fail_title">Privébestandsfout</string>
-    <string name="apply_remount_fail">Het opnieuw koppelen van de partitie als lezen/schrijven is mislukt!</string>
-    <string name="apply_remount_fail_title">Opnieuw koppelen mislukt</string>
-    <string name="apply_copy_fail">Kopiëren van hosts-bestand is mislukt!</string>
-    <string name="apply_copy_fail_title">Kopiëren mislukt</string>
-    <string name="apply_success_subtitle">Toegepaste hosts-bronnen:</string>
-    <string name="apply_success_title">Toepassen voltooid</string>
-    <string name="apply_success_dialog">Toepassen voltooid.\n
-  Het kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n
-  \n
-  Wilt u nu herstarten?\n
-  (Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
-    <string name="apply_symlink_successful">Symlink succesvol aangemaakt.\n
-  Het kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n
-  \n
-  Wilt u nu herstarten?\n
-  (Om dataverlies te voorkomen moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
-    <string name="apply_symlink_successful_title">Aanmaak symlink voltooid</string>
-    <string name="apply_symlink_fail">De symlink kon niet door Android worden aangemaakt.\n
-  Dit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons!\n
-  \n
-  Een oplossing is uw telefoon in recoverymodus opstarten en hier de symlink aanmaken met \'ln -s /data/data/hosts /system/etc/hosts\'.\n
-  \n
-  Als dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
-    <string name="apply_symlink_fail_title">Aanmaak symlink mislukt</string>
-    <string name="apply_help">Leest u alstublieft de hulp voor meer informatie.</string>
-    <string name="apply_apn_proxy">Een APN-proxy is ingesteld op uw Android!\n
-  AdAway zal niet goed werken als er gebruik wordt gemaakt van mobiele netwerken zoals 3G. U kunt uw proxy uitschakelen door naar je geselecteerde APN te gaan (Op Android 4: Draadloos en netwerken -> Meer… -> Mobiele netwerken -> Namen toegangspunten) en de waarde in het veld genaamd \'Proxy\' te verwijderen.</string>
-    <string name="apply_apn_proxy_title">APN-proxy ingesteld!</string>
-    <string name="no_connection">De internetverbinding werkt niet.</string>
-    <string name="no_connection_title">Geen verbinding</string>
-    <string name="download_dialog">Downloaden…</string>
-    <string name="apply_dialog">Toepassen…</string>
-    <string name="apply_dialog_lists">Zwarte en witte lijst toepassen</string>
-    <string name="apply_dialog_hostnames">Lezen en samenvoegen van hosts-bestanden</string>
-    <string name="apply_dialog_hosts">Hosts-bestand opbouwen</string>
-    <string name="apply_dialog_apply">Hosts-bestand plaatsen</string>
-    <string name="apply_fail">Het plaatsen van het hosts-bestand is mislukt!\n
-  Verander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
-    <string name="apply_fail_title">Hosts-bestand plaatsen mislukt</string>
-    <string name="revert_successful">U hebt het standaard hosts-bestand teruggezet.\n
-  Het kan nodig zijn dat Android opnieuw moet worden opgestart om de wijzigingen effect te laten hebben.\n
-  nWilt u herstarten?\n
-  (Om dataverlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de SD-kaart gebruikt.)</string>
-    <string name="revert_successful_title">Terugzetten voltooid</string>
-    <string name="revert_problem">Terugzetten is wegens onbekende redenen mislukt.</string>
-    <string name="revert_problem_title">Terugzetten mislukt!</string>
-    <string name="download_fail_dialog">Geen van uw geselecteerde hosts-bronnen zijn bereikbaar! Bent u verbonden met het internet?</string>
-    <string name="download_fail_title">Downloaden mislukt</string>
-    <string name="no_private_file">Privébestanden kunnen niet worden aangemaakt.</string>
-    <string name="no_private_file_title">Aanmaak privébestand mislukt</string>
-    <string name="enable_systemless_successful">U heeft de systeemloze modus aangezet, misschien is het nodig om het apparaat te herstarten om deze instelling tot kracht te laten komen.\n
- \n
- Wilt u nu herstarten?\n
- (Zorg ervoor dat geen enkele app de sd kaart gebruikt om data verlies te voorkomen!)</string>
-    <string name="disable_systemless_successful">U heeft systemless mode uitgeschakeld..\n
-  It Het kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n
-  \n
-  Wilt u nu herstarten?\n
-  (Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
-    <string name="disable_systemless_successful_title">Uitschakelen gelukt</string>
-
-    <!-- Other Dialogs -->
-    <string name="no_root_description">De su binary is niet gevonden of je hebt geen roottoegang verleend aan AdAway.\n
-  \n
-  Dit kan gebeuren als je apparaat niet geroot is.\n
-  Informatie over het rooten van je apparaat kun je vinden op www.cyanogenmod.org of op andere Android websites.</string>
-    <string name="no_root_title">Geroote Android vereist</string>
-    <string name="no_url">Dit is geen correcte URL!</string>
-    <string name="no_url_title">URL is verkeerd opgemaakt</string>
-    <string name="hosts_add_dialog">Voer URL naar het hosts-bestand in:</string>
-    <string name="no_hostname">Dit is geen correcte hostnaam!</string>
-    <string name="no_hostname_title">Hostnaam is verkeerd opgemaakt</string>
-    <string name="no_ip">Dit is geen correct IP-adres!</string>
-    <string name="no_ip_title">IP-adres is verkeerd opgemaakt</string>
-    <string name="reboot_never_reboot">Start nooit opnieuw op en laat deze vraag in het vervolg niet meer zien!</string>
-    <string name="loading">Laden…</string>
-
-    <!-- Menu entries -->
-    <string name="menu_refresh">Verversen</string>
-    <string name="menu_add">Voeg toe</string>
-    <string name="menu_hosts_sources">Hosts-bronnen</string>
-    <string name="menu_help">Hulp</string>
-    <string name="menu_import">Importeer alle lijsten</string>
-    <string name="menu_export">Exporteer alle lijsten</string>
-
-    <!-- Help -->
-    <string name="help_tab_about">Over</string>
-    <string name="help_tab_donate">Doneren</string>
-    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">FAQ</string>
-    <string name="help_tab_problems">Problemen</string>
-    <string name="help_tab_changelog">Changelog</string>
-    <string name="help_about_version">Versie:</string>
-    <string name="help_donation_paypal_item">AdAway donatie</string>
-    <string-array name="help_donation_google_catalog_values">
-        <item>1 euro</item>
-        <item>2 euro</item>
-        <item>3 euro</item>
-        <item>5 euro</item>
-        <item>8 euro</item>
-        <item>13 euro</item>
-    </string-array>
-
-    <!-- Scan Adware -->
-    <string name="adware_description">Hier kunt u scannen naar adware-apps die niet door AdAway geblokkeerd kunnen worden. Deze apps gebruiken bijvoorbeeld pushmeldingen die zelfs verschijnen als de applicatie niet draait. Het kan zelfs gebeuren dat deze apps uw beltoon veranderen. De enige beschikbare oplossing is deze apps deïnstalleren door de apps die weergegeven worden in de lijst aan te raken!</string>
-    <string name="adware_empty">Geen adware-apps gevonden!</string>
-
-    <!-- Hosts Sources -->
-    <string name="hosts_last_modified_local">Lokaal:</string>
-    <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">niet beschikbaar</string>
-
-    <!-- Other -->
-    <string name="app_subtitle">Adblocker</string>
-    <string name="no_text_editor_title">Geen tekstverwerker geïnstalleerd</string>
-    <string name="no_text_editor">Geen tekstverwerker gevonden om het hosts-bestand mee te openen. U kunt Jota of een andere tekstverwerker installeren om dit te verhelpen.\n
-  \n
-  Wilt u Jota installeren?</string>
-    <string name="no_file_manager_title">Geen bestandsbeheerder aangetroffen</string>
-    <string name="no_file_manager">Geen bestandsbeheerder gevonden om bestanden te openen. U kunt OI Bestandsbeheer of een andere bestandsbeheerder installeren om dit af te handelen.\n
-  \n
-  Wilt u OI Bestandsbeheer installeren?</string>
-
-    <!-- Tcpdump -->
-    <string name="toast_tcpdump_log_deleted">Logbestand verwijderd!</string>
-    <string name="toast_tcpdump_added_to_blacklist">Hostnaam is aan uw zwarte lijst toegevoegd!</string>
-    <string name="toast_tcpdump_added_to_whitelist">Hostnaam is aan uw witte lijst toegevoegd!</string>
-    <string name="tcpdump_log_context_blacklist">Voeg aan uw zwarte lijst toe</string>
-    <string name="tcpdump_log_context_whitelist">Voeg aan uw witte lijst toe</string>
-    <string name="tcpdump_log_context_browser">Open in browser</string>
-    <string name="tcpdump_log_empty">Logbestand is leeg!</string>
-
-    <!-- Preferences -->
-    <string name="pref_download">Algemene voorkeuren</string>
-    <string name="pref_hosts">Hosts-bestand</string>
-    <string name="pref_redirection_ip">Doorverwijzing-IP</string>
-    <string name="pref_update_check">Controleer op updates</string>
-    <string name="pref_apply_method">Locatie van hosts-bestand</string>
-    <string name="pref_apply_method_summary">Lees de hulp over deze functie voordat u dit aanpast.</string>
-    <string name="pref_redirection_ip_summary">Alle geblokkeerde hostnamen worden doorverwezen naar dit IP-adres.</string>
-    <string name="pref_header_preferences">Voorkeuren</string>
-    <string name="pref_header_preferences_summary">Algemene voorkeuren voor AdAway</string>
-    <string name="pref_never_reboot">Verberg het herstart-dialoogvenster</string>
-    <string name="pref_never_reboot_summary">Verbergt het dialoogvenster dat vraagt om Android opnieuw op te starten na het plaatsen van hosts-bestand</string>
-    <string name="pref_webserver_on_boot">Start webserver tijdens het opstarten van de telefoon</string>
-    <string name="pref_webserver_on_boot_summary">Start webserver bij het opstarten van het apparaat</string>
-    <string name="pref_webserver_enabled">Zet webserver aan</string>
-    <string name="pref_webserver_enabled_summary">Zorgt ervoor dat de webserver lokale IP-adressen afluistert om aanvragen naar geblokkeerde hostnamen te beantwoorden</string>
-    <string name="pref_webserver">Lokale webserver</string>
-    <string name="pref_custom_target">Aangepaste locatie</string>
-    <string name="pref_custom_target_summary">Wordt alleen gebruikt als u een aangepaste locatie voor het hosts-bestand heeft gekozen.</string>
-
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Aangepaste locatie</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">Controleer op updates als AdAway wordt geopend</string>
-    <string name="pref_sdcard_problem">Deze functie zal niet correct werken als AdAway op de SD-kaart is geïnstalleerd!</string>
-    <string name="pref_background">Achtergrondservices</string>
-    <string name="pref_update_check_daily">Controleer dagelijks op updates</string>
-    <string name="pref_update_check_daily_summary">Geef een melding weer als er wordt gecontroleerd op updates</string>
-    <string name="pref_automatic_update_daily">Automatische update</string>
-    <string name="pref_automatic_update_daily_summary">Update automatisch in de achtergrond als er updates beschikbaar zijn</string>
-    <string name="pref_update_only_on_wifi">Alleen updaten via Wi-Fi</string>
-    <string name="pref_update_only_on_wifi_summary">Voer achtergrondupdates alleen uit wanneer verbonden met een Wi-Fi-netwerk.</string>
-    <string name="pref_whitelist_rules">Sta whitelisting toe</string>
-    <string name="pref_whitelist_rules_summary">Sta toe dat hosts-bronnen regels toevoegen aan de witte lijst.</string>
-    <string name="pref_redirection_rules">Sta doorverwijzingen toe</string>
-    <string name="pref_redirection_rules_summary">Potentieel beveiligingsrisico! Sta doorverwijzingsregels van hosts-bronnen toe.</string>
-    <string name="pref_debug">Foutopsporing</string>
-    <string name="pref_enable_debug">Foutopsporing loggen</string>
-    <string name="pref_enable_debug_summary">AdAway moet opnieuw worden gestart om deze aanpassing effect te laten hebben.</string>
-    <string name="pref_enable_ipv6">IPv6 inschakelen</string>
-    <string name="pref_enable_ipv6_summary">Bij alle adressen in het hosts-bestand wordt ::1 (de IPv6-versie van localhost) toegevoegd.</string>
-    <string name="pref_enable_systemless_summary">AdAway voorkomen om de system partitie te bewerken</string>
-    <string name="pref_enable_systemless">Systeemloze modus inschakelen</string>
-
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Afsluiten</string>
+  <string name="button_apply">Bestanden downloaden en advertentieblokkering toepassen</string>
+  <string name="button_close">Sluiten</string>
+  <string name="button_yes">Ja</string>
+  <string name="button_no">Nee</string>
+  <string name="button_revert">Advertentieblokkering uitschakelen</string>
+  <string name="button_add">Toevoegen</string>
+  <string name="button_cancel">Annuleren</string>
+  <string name="button_revert_text">Zet het standaard hosts-bestand terug op uw systeem.</string>
+  <string name="button_save">Opslaan</string>
+  <string name="button_webserver_toggle_checked">Webserver wordt uitgevoerd</string>
+  <string name="button_webserver_toggle_unchecked">Webserver wordt niet uitgevoerd</string>
+  <string name="button_webserver_toggle_text">Start of stop de webserver op localhost om verzoeken aan geblokkeerde hostnamen te beantwoorden.</string>
+  <string name="button_help">Hulp</string>
+  <!--Home-->
+  <string name="text_update">Alle hosts-bestanden van de gekozen bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geplaatst.</string>
+  <string name="button_check_update_hosts">Controleren op updates</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_empty">Lege lijst</string>
+  <string name="checkbox_list_context_delete">Verwijderen</string>
+  <string name="checkbox_list_footer">Na het toevoegen van nieuwe hostnamen aan deze lijst, moet u AdAway opnieuw toepassen!</string>
+  <string name="checkbox_list_edit_dialog_title">Bewerken</string>
+  <string name="checkbox_list_context_title">Invoer bewerken</string>
+  <string name="checkbox_list_context_edit">Bewerken</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">Witte lijst</string>
+  <string name="lists_tab_blacklist">Zwarte lijst</string>
+  <string name="list_dialog_hostname">Hostnaam:</string>
+  <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
+  <string name="import_dialog">Bezig met importeren...</string>
+  <string name="export_dialog">Bezig met exporteren...</string>
+  <string name="export_success">Alle regels zijn geëxporteerd naar een bestand genaamd \'adaway-export\' op uw SD-kaart.</string>
+  <!--Hosts content-->
+  <!--Status Notifications-->
+  <string name="status_checking">Controleren op updates...</string>
+  <string name="status_reverting">Bezig met terugzetten...</string>
+  <string name="status_reverting_subtitle">Standaardhosts-bestand aanmaken</string>
+  <string name="status_checking_subtitle">Bezig met controleren op updates</string>
+  <string name="status_update_available">Er is een update beschikbaar</string>
+  <string name="status_update_available_subtitle">Nieuwere hosts-bestanden beschikbaar</string>
+  <string name="status_no_connection">Geen internetverbinding</string>
+  <string name="status_no_connection_subtitle">Geen internetverbinding beschikbaar</string>
+  <string name="status_download_fail">Bronnen zijn niet beschikbaar</string>
+  <string name="status_download_fail_subtitle_new">Geen bereikbare hosts-bronnen!</string>
+  <string name="status_enabled">Ingeschakeld</string>
+  <string name="status_enabled_subtitle">Nieuwste hosts-bestanden toegepast</string>
+  <string name="status_disabled">Uitgeschakeld</string>
+  <string name="status_disabled_subtitle">Uitgeschakeld</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink te maken?</string>
+  <string name="apply_symlink_missing_title">Symlink ontbreekt</string>
+  <string name="apply_not_enough_space">Onvoldoende ruimte op de systeempartitie!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
+  <string name="apply_not_enough_space_title">Onvoldoende ruimte</string>
+  <string name="apply_private_file_fail">Gedownload bestand kon niet gelezen worden.</string>
+  <string name="apply_private_file_fail_title">Privébestandsfout</string>
+  <string name="apply_remount_fail">Het opnieuw koppelen van de partitie als lezen/schrijven is mislukt!</string>
+  <string name="apply_remount_fail_title">Opnieuw koppelen mislukt</string>
+  <string name="apply_copy_fail">Kopiëren van hosts-bestand is mislukt!</string>
+  <string name="apply_copy_fail_title">Kopiëren mislukt</string>
+  <string name="apply_success_subtitle">Toegepaste hosts-bronnen:</string>
+  <string name="apply_success_title">Toepassen voltooid</string>
+  <string name="apply_success_dialog">Toepassen voltooid.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
+  <string name="apply_symlink_successful">Symlink aangemaakt.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
+  <string name="apply_symlink_successful_title">Symlink aangemaakt</string>
+  <string name="apply_symlink_fail">De symlink kon niet door Android worden aangemaakt.\nDit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons!\n\nEen oplossing is uw telefoon in recoverymodus opstarten en hier de symlink aanmaken met \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAls dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
+  <string name="apply_symlink_fail_title">Symlink aanmaken mislukt</string>
+  <string name="apply_help">Lees de hulp voor meer informatie.</string>
+  <string name="apply_apn_proxy">Een APN-proxy is ingesteld op uw Android!\nAdAway zal niet goed werken als er gebruik gemaakt wordt van mobiele netwerken zoals 3G. U kunt uw proxy uitschakelen door naar uw geselecteerde APN te gaan (Op Android 4: Draadloos en netwerken -&gt; Meer... -&gt; Mobiele netwerken -&gt; Namen toegangspunten) en de waarde in het veld genaamd \'Proxy\' te verwijderen.</string>
+  <string name="apply_apn_proxy_title">APN-proxy ingesteld!</string>
+  <string name="no_connection">De internetverbinding werkt niet.</string>
+  <string name="no_connection_title">Geen verbinding</string>
+  <string name="download_dialog">Downloaden…</string>
+  <string name="apply_dialog">Toepassen…</string>
+  <string name="apply_dialog_lists">Zwarte en witte lijst toepassen</string>
+  <string name="apply_dialog_hostnames">Lezen en samenvoegen van hosts-bestanden</string>
+  <string name="apply_dialog_hosts">Hosts-bestand opbouwen</string>
+  <string name="apply_dialog_apply">Hosts-bestand plaatsen</string>
+  <string name="apply_fail">Het plaatsen van het hosts-bestand is mislukt!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
+  <string name="apply_fail_title">Hosts-bestand plaatsen mislukt</string>
+  <string name="revert_successful">U hebt het standaardhosts-bestand teruggezet.\nHet kan nodig zijn dat Android opnieuw moet worden opgestart om de wijzigingen effect te laten hebben.\nnWilt u herstarten?\n(Om dataverlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de SD-kaart gebruikt.)</string>
+  <string name="revert_successful_title">Terugzetten voltooid</string>
+  <string name="revert_problem">Terugzetten is door onbekende redenen mislukt.</string>
+  <string name="revert_problem_title">Terugzetten mislukt!</string>
+  <string name="download_fail_dialog">Geen van uw geselecteerde hosts-bronnen zijn bereikbaar! Bent u verbonden met het internet?</string>
+  <string name="download_fail_title">Downloaden mislukt</string>
+  <string name="no_private_file">Privébestanden kunnen niet worden aangemaakt.</string>
+  <string name="no_private_file_title">Aanmaken privébestand mislukt</string>
+  <string name="enable_systemless_successful">U heeft de systeemloze modus ingeschakeld.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu opnieuw opstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
+  <string name="enable_systemless_successful_title">Inschakelen gelukt</string>
+  <string name="disable_systemless_successful">U heeft de systeemloze modus uitgeschakeld.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu opnieuw opstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
+  <string name="disable_systemless_successful_title">Uitschakelen gelukt</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">De su-binary is niet gevonden of u heeft geen root-toegang verleend aan AdAway.\n\nDit kan gebeuren als uw apparaat niet geroot is.\nInformatie over het rooten van uw apparaat vindt u op wiki.lineageos.org en andere Android-websites.</string>
+  <string name="no_root_title">Geroote Android vereist</string>
+  <string name="hosts_add_dialog">Voer URL naar het hosts-bestand in:</string>
+  <string name="no_hostname">Dit is geen correcte hostnaam!</string>
+  <string name="no_hostname_title">Hostnaam is verkeerd opgemaakt</string>
+  <string name="no_ip">Dit is geen correct IP-adres!</string>
+  <string name="no_ip_title">IP-adres is verkeerd opgemaakt</string>
+  <string name="reboot_never_reboot">Start nooit opnieuw op en laat deze vraag in het vervolg niet meer zien!</string>
+  <string name="loading">Laden…</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Verversen</string>
+  <string name="menu_add">Toevoegen</string>
+  <string name="menu_hosts_sources">Hosts-bronnen</string>
+  <string name="menu_help">Hulp</string>
+  <string name="menu_import">Alle lijsten importeren</string>
+  <string name="menu_export">Alle lijsten exporteren</string>
+  <!--Help-->
+  <string name="help_tab_about">Over</string>
+  <string name="help_tab_donate">Doneren</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">VGV</string>
+  <string name="help_tab_problems">Problemen</string>
+  <string name="help_tab_changelog">Wijzigingslog</string>
+  <string name="help_about_version">Versie:</string>
+  <string name="help_donation_paypal_item">AdAway-donatie</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 euro</item>
+    <item>2 euro</item>
+    <item>3 euro</item>
+    <item>5 euro</item>
+    <item>8 euro</item>
+    <item>13 euro</item>
+  </string-array>
+  <!--Adware-->
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">Lokaal:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">niet beschikbaar</string>
+  <string name="hosts_dialog_url">URL:</string>
+  <!--Other-->
+  <string name="app_subtitle">Adblocker</string>
+  <string name="no_text_editor_title">Geen tekstverwerker geïnstalleerd</string>
+  <string name="no_text_editor">Geen tekstverwerker gevonden om het hosts-bestand mee te openen. U kunt Jota of een andere tekstverwerker installeren om dit te verhelpen.\n\nWilt u Jota installeren?</string>
+  <string name="no_file_manager_title">Geen bestandsbeheerder aangetroffen</string>
+  <string name="no_file_manager">Geen bestandsbeheerder gevonden om bestanden te openen. U kunt OI Bestandsbeheer of een andere bestandsbeheerder installeren om dit af te handelen.\n\nWilt u OI Bestandsbeheer installeren?</string>
+  <!--Tcpdump-->
+  <string name="tcpdump_description">Tcpdump is een hulpmiddel om DNS-verzoeken te bekijken en deze op te slaan in een logbestand. U kunt het in de achtergrond starten, een app met reclames gebruiken, en achteraf de DNS-verzoeken analyseren middels het logbestand. Mogelijke reclameservers kunnen dan aan uw zwarte lijst worden toegevoegd.</string>
+  <!--Preferences-->
+  <string name="pref_download">Algemene voorkeuren</string>
+  <string name="pref_hosts">Hosts-bestand</string>
+  <string name="pref_redirection_ip">Doorverwijzings-IP</string>
+  <string name="pref_update_check">Controleren op updates</string>
+  <string name="pref_apply_method">Locatie van hosts-bestand</string>
+  <string name="pref_apply_method_summary">Lees de hulp over deze functie voordat u dit aanpast.</string>
+  <string name="pref_redirection_ip_summary">Alle geblokkeerde hostnamen worden doorverwezen naar dit IP-adres.</string>
+  <string name="pref_header_preferences">Voorkeuren</string>
+  <string name="pref_header_preferences_summary">Algemene voorkeuren voor AdAway</string>
+  <string name="pref_never_reboot">Verberg het herstart-dialoogvenster</string>
+  <string name="pref_never_reboot_summary">Verbergt het dialoogvenster dat vraagt om Android opnieuw op te starten na het plaatsen van hosts-bestand</string>
+  <string name="pref_webserver_on_boot">Start webserver tijdens het opstarten van de telefoon</string>
+  <string name="pref_webserver_on_boot_summary">Start webserver bij het opstarten van het apparaat</string>
+  <string name="pref_webserver_enabled">Webserver inschakelen</string>
+  <string name="pref_webserver_enabled_summary">Zorgt ervoor dat de webserver lokale IP-adressen afluistert om aanvragen naar geblokkeerde hostnamen te beantwoorden</string>
+  <string name="pref_webserver">Lokale webserver</string>
+  <string name="pref_custom_target">Aangepaste locatie</string>
+  <string name="pref_custom_target_summary">Wordt alleen gebruikt als u een aangepaste locatie voor het hosts-bestand heeft gekozen.</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Aangepaste locatie</item>
+  </string-array>
+  <string name="pref_update_check_summary">Controleer op updates bij openen van AdAway</string>
+  <string name="pref_sdcard_problem">Deze functie zal niet correct werken als AdAway geïnstalleerd is op de SD-kaart!</string>
+  <string name="pref_background">Achtergronddiensten</string>
+  <string name="pref_update_check_daily">Controleer dagelijks op updates</string>
+  <string name="pref_update_check_daily_summary">Toon een melding als er wordt gecontroleerd op updates</string>
+  <string name="pref_automatic_update_daily">Automatisch bijwerken</string>
+  <string name="pref_automatic_update_daily_summary">Werk automatisch bij in de achtergrond als er updates beschikbaar zijn</string>
+  <string name="pref_update_only_on_wifi">Alleen bijwerken via wifi</string>
+  <string name="pref_update_only_on_wifi_summary">Voer achtergrondupdates alleen uit wanneer verbonden met een wifinetwerk.</string>
+  <string name="pref_whitelist_rules">Sta het gebruik van de witte lijst toe</string>
+  <string name="pref_whitelist_rules_summary">Sta toe dat hosts-bronnen regels toevoegen aan de witte lijst.</string>
+  <string name="pref_redirection_rules_summary">Potentieel beveiligingsrisico! Sta doorverwijzingsregels van hosts-bronnen toe.</string>
+  <string name="pref_debug">Foutopsporing</string>
+  <string name="pref_enable_debug">Foutopsporing loggen</string>
+  <string name="pref_enable_debug_summary">AdAway moet opnieuw gestart worden om deze wijziging door te voeren.</string>
+  <string name="pref_enable_ipv6">IPv6 inschakelen</string>
+  <string name="pref_enable_ipv6_summary">Aan alle adressen in het hosts-bestand wordt ::1 (de IPv6-versie van localhost) toegevoegd.</string>
+  <string name="pref_enable_systemless_summary">Voorkomt dat AdAway de systeempartitie aanpast</string>
+  <string name="pref_enable_systemless">Systeemloze modus inschakelen</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Voorkeuren</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Er is een update beschikbaar</string>
 </resources>

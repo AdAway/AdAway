@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">ไม่ได้ใช้งานเว็บเซิร์ฟเวอร์</string>
   <string name="button_webserver_toggle_text">เปิดหรือปิดเว็บเซิร์ฟเวอร์บนโลเคิลโฮสต์เพื่อบล็อคตอบรับคำขอไปยังไฟล์โฮสต์</string>
   <string name="button_help">ช่วยเหลือ</string>
-  <string name="tcpdump_description">Tcpdump เป็นเครื่องมือตรวจสอบคำขอ DNS และบันทึกการใช้งาน คุณสามารถเริ่มใช้งานในพื้นหลัง ใช้งานแอพลิเคชั่นที่แสดงโฆษณาและวิเคราะห์คำขอ DNS โดยใช้บันทึกการใช้งาน โฆษณาสามารถเพิ่มไปยังบัญชีดำของคุณ</string>
-  <string name="tcpdump_disable_monitoring">กำลังใช้งาน Tcpdump</string>
-  <string name="tcpdump_enable_monitoring">ไม่ได้ใช้งาน Tcpdump</string>
-  <string name="tcpdump_show_results">เปิดบันทึกการใช้งาน</string>
-  <string name="tcpdump_clear_results">ลบบันทึกการใช้งาน</string>
+  <!--Home-->
+  <string name="text_update">ไฟล์โฮสต์ทั้งหมดจากแหล่งที่กำหนดไว้ถูกดาวน์โหลดและติดตั้งเป็นไฟล์โฮสต์บนระบบของคุณแล้ว</string>
+  <string name="button_check_update_hosts">ตรวจสอบอัพเดต</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">เพิ่ม</string>
   <string name="checkbox_list_empty">ว่าง</string>
-  <string name="checkbox_list_empty_text">สามารถเพิ่มรายการจากแถบการทำงาน</string>
   <string name="checkbox_list_context_delete">ลบ</string>
   <string name="checkbox_list_footer">หลังจากเพิ่มรายการใหม่ไปยังรายการ จำเป็นเปิดใช้งาน AdAway อีกครั้ง</string>
   <string name="checkbox_list_edit_dialog_title">แก้ไข</string>
   <string name="checkbox_list_context_title">แก้ไข</string>
   <string name="checkbox_list_context_edit">แก้ไข</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">บัญชีขาว</string>
   <string name="lists_tab_blacklist">บัญชีดำ</string>
-  <string name="lists_tab_redirection_list">รายการ Redirection</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">ชื่อโฮสต์:</string>
-  <string name="list_dialog_whitelist_hostname">ชื่อโฮสต์:\n(สามารถใช้สัญลักษณ์ * และ? ได้!)</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="import_dialog">กำลังนำเข้า…</string>
   <string name="export_dialog">กำลังส่งออก…</string>
   <string name="export_success">ส่งออกข้อมูลทั้งหมดไปยัง \'adaway-export\' บนการ์ดความจำ</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">กำลังตรวจสอบอัพเดต…</string>
   <string name="status_reverting">กำลังคืนค่า…</string>
@@ -95,10 +89,17 @@
   <string name="download_fail_title">ดาวน์โหลดไฟล์ล้มเหลว</string>
   <string name="no_private_file">ไฟล์ส่วนตัวไม่สามารถสร้างได้</string>
   <string name="no_private_file_title">สร้างไฟล์ส่วนตัวล้มเหลว</string>
+  <string name="enable_systemless_successful">คุณได้เปิดใช้งานโหมดไม่เข้าไปแก้ไขไฟล์ของระบบ.
+เริ่มระบบใหม่อีกครั้งเพื่อให้มีการเปลี่ยนแปลง.
+คุณจะเริ่มระบบใหม่อีกครั้งหรือไม่?(เพื่อป้องกันข้อมูลสูญหาย ตรวจสอบให้แน่ใจว่าไม่มีแอพ ที่ใช้งาน sdcard อยู่)</string>
+  <string name="enable_systemless_successful_title">การเปิดใช้งานเสร็จสมบูรณ์</string>
+  <string name="disable_systemless_successful">คุณได้ปิดใช้งานโหมดไม่แก้ไขไฟล์ของระบบ. 
+เริ่มระบบใหม่อีกครั้งเพื่อให้มีการเปลี่ยนแปลง.
+คุณจะเริ่มระบบใหม่อีกครั้งหรือไม่?(เพื่อป้องกันข้อมูลสูญหาย ตรวจสอบให้แน่ใจว่าไม่มีแอพ ที่ใช้งาน sdcard อยู่)</string>
+  <string name="disable_systemless_successful_title">การปิดใช้งานเสร็จสมบูรณ์</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">ไม่พบไบนารี su หรือคุณไม่อนุญาตให้มีสิทธิ์ root สำหรับ AdAway \ n \ n อาจเกิดขึ้นได้เมื่ออุปกรณ์ของคุณไม่ได้รับการรูท \ n คุณสามารถหาข้อมูลเกี่ยวกับวิธีการรูทอุปกรณ์ของคุณบน wiki.lineageos.org หรืออื่น ๆ เว็บไซต์ Android</string>
   <string name="no_root_title">จำเป็นต้องรูท</string>
-  <string name="no_url">URL ไม่ถูกต้อง!</string>
-  <string name="no_url_title">รูปแบบ URL ไม่ถูกต้อง</string>
   <string name="hosts_add_dialog">ใส่ URL ไปยังไฟล์โฮสต์:</string>
   <string name="no_hostname">ชื่อโฮสต์ไม่ถูกต้อง!</string>
   <string name="no_hostname_title">รูปแบบชื่อโฮสต์ไม่ถูกต้อง</string>
@@ -130,13 +131,12 @@
     <item>8 Euros</item>
     <item>13 Euros</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">สามารถสแกนแอพพลิเคชันโฆษณาที่ไม่สามารถบล็อคด้วย AdAway</string>
-  <string name="adware_empty">ไม่พบ Adware</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">เครื่อง:</string>
   <string name="hosts_last_modified_online">ออนไลน์:</string>
   <string name="hosts_not_available">ไม่สามารถใช้งานได้</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">บล็อคโฆษณา</string>
   <string name="no_text_editor_title">ไม่ได้ติดตั้งตัวแก้ไขข้อความ</string>
@@ -144,14 +144,8 @@
   <string name="no_file_manager_title">ไม่ได้ติดตั้งตัวจัดการไฟล์</string>
   <string name="no_file_manager">ไม่มีตัวจัดการไฟล์เพื่อเปิดไฟล์ คุณสามารถติดตั้งตัวจัดการไฟล์ OI หรือตัวจัดการไฟล์อื่นๆ\n\nต้องการติดตั้งตัวจัดการไฟล์ OI?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">ลบไฟล์บันทึกการใช้งานแล้ว!</string>
-  <string name="toast_tcpdump_added_to_blacklist">ชื่อโฮสต์เพิ่มไปยังบัญชีดำแล้ว!</string>
-  <string name="toast_tcpdump_added_to_whitelist">ชื่อโฮสต์เพิ่มไปยังบัญชีขาวแล้ว!</string>
-  <string name="tcpdump_log_context_blacklist">เพิ่มไปยังบัญชีดำ</string>
-  <string name="tcpdump_log_context_whitelist">เพิ่มไปยังบัญชีขาว</string>
-  <string name="tcpdump_log_context_browser">เปิดในเบราเซอร์</string>
-  <string name="tcpdump_log_empty">ไม่มีบันทึกการใช้งาน</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump เป็นเครื่องมือตรวจสอบคำขอ DNS และบันทึกการใช้งาน คุณสามารถเริ่มใช้งานในพื้นหลัง ใช้งานแอพลิเคชั่นที่แสดงโฆษณาและวิเคราะห์คำขอ DNS โดยใช้บันทึกการใช้งาน โฆษณาสามารถเพิ่มไปยังบัญชีดำของคุณ</string>
+  <!--Preferences-->
   <string name="pref_download">การตั้งค่าทั่วไป</string>
   <string name="pref_hosts">ไฟล์โฮสต์</string>
   <string name="pref_redirection_ip">Redirection IP</string>
@@ -187,9 +181,17 @@
   <string name="pref_update_only_on_wifi_summary">อัพเดตพื้นหลังเมื่อเชื่อมต่อเครือข่าย Wi-Fi เท่านั้น</string>
   <string name="pref_whitelist_rules">อนุญาตบัญชีขาว</string>
   <string name="pref_whitelist_rules_summary">อนุญาตบัญชีขาวจากแหล่งที่มาโฮสต์</string>
-  <string name="pref_redirection_rules">อนุญาต Redirections</string>
   <string name="pref_redirection_rules_summary">อนุญาต Redirection จากแหล่งที่มาโฮสต์</string>
   <string name="pref_debug">ดีบัค</string>
   <string name="pref_enable_debug">บันทึกการใช้งานดีบัค</string>
   <string name="pref_enable_debug_summary">จำเป็นต้องรีสตาร์ท AdAway เพื่ออัพเดตการตั้งค่า</string>
+  <string name="pref_enable_ipv6">เปิดใช้งาน IPv6</string>
+  <string name="pref_enable_ipv6_summary">ไฟล์โฮสต์ทั้งหมดจะได้รับตรงกัน ::1 (IPv6 โลคัลโฮสต์)</string>
+  <string name="pref_enable_systemless_summary">ป้งกันไม่ให้ AdAway แก้ไขไฟล์ในระบบ</string>
+  <string name="pref_enable_systemless">เปิดใช้งานโหมดไม่เข้าไปแก้ไขไฟล์ของระบบ</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">การตั้งค่า</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">สามารถอัพเดตได้</string>
 </resources>

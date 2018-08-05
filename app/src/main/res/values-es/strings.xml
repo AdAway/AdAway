@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">El servidor web no está ejecutándose</string>
   <string name="button_webserver_toggle_text">Inicia o detiene el servidor web en localhost (su dispositivo) para responder solicitudes desde servidores bloqueados.</string>
   <string name="button_help">Ayuda</string>
-  <string name="tcpdump_description">Tcpdump es una herramienta para monitorizar peticiones DNS y guardarlas en un fichero de registro (log). Puede iniciarla en segundo plano, ejecutar aplicaciones que muestran publicidad, y después analizar las peticiones DNS de estas usando el fichero log. Los posibles servidores de publicidad utilizados pueden entonces ser añadidos a su lista negra.</string>
-  <string name="tcpdump_disable_monitoring">¡Tcpdump se está ejecutando!</string>
-  <string name="tcpdump_enable_monitoring">¡Tcpdump no se está ejecutando!</string>
-  <string name="tcpdump_show_results">Abrir archivo de registro (log)</string>
-  <string name="tcpdump_clear_results">Borrar archivo de registro (log)</string>
+  <!--Home-->
+  <string name="text_update">Todos los ficheros hosts de las fuentes especificadas se han descargado, fusionado con sus propias listas, e instalado como un único fichero hosts en su sistema.</string>
+  <string name="button_check_update_hosts">Buscar actualizaciones</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Añadir</string>
   <string name="checkbox_list_empty">Lista vacía</string>
-  <string name="checkbox_list_empty_text">Puede añadir elementos desde el menú.</string>
   <string name="checkbox_list_context_delete">Borrar</string>
   <string name="checkbox_list_footer">¡Después de añadir nuevos elementos a esta lista tiene que aplicar AdAway otra vez!</string>
   <string name="checkbox_list_edit_dialog_title">Editar</string>
   <string name="checkbox_list_context_title">Editar entrada</string>
   <string name="checkbox_list_context_edit">Editar</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Lista blanca</string>
   <string name="lists_tab_blacklist">Lista negra</string>
-  <string name="lists_tab_redirection_list">Lista de redireccionamiento</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nombre del servidor:</string>
-  <string name="list_dialog_whitelist_hostname">Nombre del servidor:\n(¡Caracteres comodín * y ? permitidos!)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Exportando...</string>
   <string name="export_success">Exportadas todas las entradas a un fichero llamado \'adaway-export\' en su tarjeta SD</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Buscando actualizaciones...</string>
   <string name="status_reverting">Revirtiendo...</string>
@@ -95,13 +89,13 @@
   <string name="download_fail_title">La descarga falló</string>
   <string name="no_private_file">No se pudo crear el fichero privado.</string>
   <string name="no_private_file_title">La creación del fichero privado falló</string>
+  <string name="enable_systemless_successful">Ha habilitado el modo sin sistema.\nPuede que sea necesario reiniciar Android para que los cambios tengan efecto.\n\n¿Quiere reiniciar?\n(¡Para evitar la pérdida de datos asegúrese de que ninguna aplicación utiliza la tarjeta SD en ese momento!)</string>
+  <string name="enable_systemless_successful_title">Se ha habilitado con éxito</string>
   <string name="disable_systemless_successful">Has desactivado el modo systemless.\nPuede ser necesario reiniciar Android para que los cambios tengan efecto.\n\n¿Quiere reiniciar?\n(¡Para evitar pérdida de datos asegúrese de que ninguna aplicación está accediendo a la tarjeta SD en este momento!)</string>
   <string name="disable_systemless_successful_title">Desactivado con exito</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">No se encuentra el binario su o no se ha otorgado permiso root a AdAway.\n\nEsto puede suceder cuando el dispositivo no está rooteado.\nPuede encontrar información sobre como rootear el dispositivo en wiki.lineageos.org u otras páginas sobre Android.</string>
+  <string name="no_root_description">O bien no se pudo encontrar el binario su o no concedió permisos de root para AdAway.\n\nEsto puede ocurrir cuando su dispositivo no está rooteado.\nPuede encontrar información acerca de cómo rootear su dispositivo en wiki.lineageos.org u otros sitios web de Android.</string>
   <string name="no_root_title">Se requiere un Android rooteado</string>
-  <string name="no_url">¡Esta no es una URL válida!</string>
-  <string name="no_url_title">URL de formato incorrecto</string>
   <string name="hosts_add_dialog">Introducir URL en el fichero hosts:</string>
   <string name="no_hostname">¡Este no es un nombre de servidor (host) válido!</string>
   <string name="no_hostname_title">Nombre de servidor (host) de formato incorrecto</string>
@@ -133,13 +127,12 @@
     <item>8 Euros</item>
     <item>13 Euros</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Aquí puede buscar aplicaciones maliciosas con adware, que no pueden ser bloqueadas por AdAway. Estas aplicaciones usan, por ejemplo, notificaciones Airpush que surgen incluso cuando la aplicación no está ejecutándose o que hasta cambian el tono de llamada. ¡La única contramedida disponible es desinstalar estas aplicaciones pulsando en la lista de elementos!</string>
-  <string name="adware_empty">¡No se encontraron aplicaciones maliciosas con adware!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En línea:</string>
   <string name="hosts_not_available">no disponible</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Bloqueador de publicidad</string>
   <string name="no_text_editor_title">No hay ningún editor de texto instalado</string>
@@ -147,14 +140,8 @@
   <string name="no_file_manager_title">No hay ningún administrador de ficheros instalado</string>
   <string name="no_file_manager">No pudo encontrarse ningún administrador de ficheros para abrir los ficheros. Puede instalar OI File Manager u otros administradores de ficheros para solucionar esto.\n\n¿Desea instalar OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">¡Fichero de registro (log) borrado!</string>
-  <string name="toast_tcpdump_added_to_blacklist">¡El nombre de servidor (host) se añadió a su lista negra!</string>
-  <string name="toast_tcpdump_added_to_whitelist">¡El nombre de servidor (host) se añadió a su lista blanca!</string>
-  <string name="tcpdump_log_context_blacklist">Añadir a su lista negra</string>
-  <string name="tcpdump_log_context_whitelist">Añadir a su lista blanca</string>
-  <string name="tcpdump_log_context_browser">Abrir en el navegador</string>
-  <string name="tcpdump_log_empty">¡El fichero de registro (log) está vacío!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump es una herramienta para monitorizar peticiones DNS y guardarlas en un fichero de registro (log). Puede iniciarla en segundo plano, ejecutar aplicaciones que muestran publicidad, y después analizar las peticiones DNS de estas usando el fichero log. Los posibles servidores de publicidad utilizados pueden entonces ser añadidos a su lista negra.</string>
+  <!--Preferences-->
   <string name="pref_download">Preferencias generales</string>
   <string name="pref_hosts">Fichero hosts</string>
   <string name="pref_redirection_ip">IP de redireccionamiento</string>
@@ -190,13 +177,17 @@
   <string name="pref_update_only_on_wifi_summary">Actualizar en segundo plano sólo cuando esté conectado a una red wifi.</string>
   <string name="pref_whitelist_rules">Permitir lista blanca</string>
   <string name="pref_whitelist_rules_summary">Permite las entradas de lista blanca desde de las fuentes de ficheros hosts.</string>
-  <string name="pref_redirection_rules">Permitir redireccionamientos</string>
   <string name="pref_redirection_rules_summary">¡IMPLICA UN RIESGO DE SEGURIDAD! Permite las entradas de redireccionamiento desde las fuentes de ficheros hosts.</string>
   <string name="pref_debug">Depurar</string>
   <string name="pref_enable_debug">Registro (log) de depuración</string>
   <string name="pref_enable_debug_summary">Tiene que reiniciar AdAway para que esta opción surta efecto.</string>
   <string name="pref_enable_ipv6">Habilitar IPv6</string>
   <string name="pref_enable_ipv6_summary">Todas las entradas del archivo de host obtendrán una entrada correspondiente a ::1 (IPv6 localhost).</string>
-  <string name="pref_enable_systemless_summary">Evitar que AdAway modifique la partición system (requiere rooteado systemless con SuperSU para instalación automática)</string>
+  <string name="pref_enable_systemless_summary">Evitar que AdAway modifique la partición de sistema</string>
   <string name="pref_enable_systemless">Activar modo systemless</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Preferencias</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Actualización disponible</string>
 </resources>

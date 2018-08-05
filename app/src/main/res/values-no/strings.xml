@@ -14,18 +14,23 @@
   <string name="button_save">Lagre</string>
   <string name="button_webserver_toggle_checked">Webserver kjører</string>
   <string name="button_webserver_toggle_unchecked">Webserver kjører ikke</string>
+  <!--Home-->
+  <string name="text_update">Alle vertsfiler fra valgte kilder er nedlastet, legg dem sammen med din egen liste og installer som en vertsfil.</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Legg til</string>
-  <!--Your Lists-->
+  <!--Your lists-->
+  <!--Hosts content-->
   <!--Status Notifications-->
   <!--Apply and Revert Dialogs-->
   <!--Other Dialogs-->
   <!--Menu entries-->
   <string name="menu_add">Legg til</string>
   <!--Help-->
-  <!--Scan Adware-->
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <!--Other-->
   <!--Tcpdump-->
   <!--Preferences-->
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <!--Hosts source status-->
 </resources>

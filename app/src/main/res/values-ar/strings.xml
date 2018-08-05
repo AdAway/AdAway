@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">خادم الويب لا يعمل</string>
   <string name="button_webserver_toggle_text">تشغيل أو إيقاف خادم الويب على المضيف المحلي للرد على طلبات أسماء المضيفين المحظورة.</string>
   <string name="button_help">المساعدة</string>
-  <string name="tcpdump_description">Tcpdump هي أداة لمراقبة طلبات DNS وحفظها في ملف سجل. يمكنكم تشغيله في الخلفية، ثم تشغيل التطبيقات التي تعرض الإعلانات على الشاشة، بعد ذلك سيتم تحليل طلبات DNS باستخدام ملف السجل.الأن يمكن إضافة مصدر الإعلانات إلى قائمتك السوداء.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump يعمل!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump موقوف!</string>
-  <string name="tcpdump_show_results">فتح السجل</string>
-  <string name="tcpdump_clear_results">حذف السجل</string>
+  <!--Home-->
+  <string name="text_update">جميع ملفات المضيف ستحمل و ستدمج مع قوائمك و ستثبت في ملف واحد على نظامك.</string>
+  <string name="button_check_update_hosts">التحقق من وجود تحديثات</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">إضافة</string>
   <string name="checkbox_list_empty">قائمة فارغة</string>
-  <string name="checkbox_list_empty_text">يمكنك إضافة عناصر من شريط الإجراءات.</string>
   <string name="checkbox_list_context_delete">حذف</string>
   <string name="checkbox_list_footer">بعد إضافة البنود الجديدة إلى هذه القائمة يجب التحديث والتنفيذ مرة أخرى!</string>
   <string name="checkbox_list_edit_dialog_title">تحرير</string>
   <string name="checkbox_list_context_title">تحرير المدخلة</string>
   <string name="checkbox_list_context_edit">تحرير</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">القائمة البيضاء</string>
   <string name="lists_tab_blacklist">القائمة السوداء</string>
-  <string name="lists_tab_redirection_list">قائمة إعادة التوجيه</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">اسم المضيف:</string>
-  <string name="list_dialog_whitelist_hostname">اسم المضيف . )wildcard characters * و ؟ غير مدعومين(</string>
   <string name="list_dialog_ip">بروتكول الانترنت (IPv4 أو IPv6):</string>
   <string name="import_dialog">استيراد…</string>
   <string name="export_dialog">تصدير…</string>
   <string name="export_success">تم تصدير جميع المدخلات إلى ملف يسمى\'adaway-export\' في بطاقة الذاكرة.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">جارٍ البحث عن التحديثات…</string>
   <string name="status_reverting">استرجاع…</string>
@@ -95,11 +89,12 @@
   <string name="download_fail_title">فشل التحميل</string>
   <string name="no_private_file">لا يمكن إنشاء ملف خاص.</string>
   <string name="no_private_file_title">فشل إنشاء ملف خاص</string>
+  <string name="enable_systemless_successful">لقد قمت بتعطيل الوضع اللانظامي.\nقد تحتاج لأعادة تشغيل الجهاز لتثبيت التغييرات.\n\nهل تريد إعادة تشغيل الجهاز؟\n(لتجنب فقدان الملفات تأكد من عدم وجود تطبيقات تستخدم الذاكرة الان!)</string>
+  <string name="enable_systemless_successful_title">تم التنفيذ بنجاح</string>
+  <string name="disable_systemless_successful">لقد قمت بتعطيل الوضع اللانظامي.\nقد تحتاج لأعادة تشغيل الجهاز لتثبيت التغييرات.\n\nهل تريد إعادة تشغيل الجهاز؟\n(لتجنب فقدان الملفات تأكد من عدم وجود تطبيقات تستخدم الذاكرة الان!)</string>
+  <string name="disable_systemless_successful_title">تم التعطيل بنجاح</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">فضلا، تاكد هل جهازك يحتوي على root أو السماح  للتطبيق بالوصول لصلاحيات root،  في حال جهازك لا يحتوي على root يمكن الحصول على الادوات والطريقة من خلال wiki.lineageos.org</string>
   <string name="no_root_title">مطلوب روت للهاتف</string>
-  <string name="no_url">عنوان URL معطوب!</string>
-  <string name="no_url_title">صيغة عنوان URL غير صحيحية</string>
   <string name="hosts_add_dialog">أدخل عنوان URL لملفات المضيف:</string>
   <string name="no_hostname">اسم الموقع غير صالح!</string>
   <string name="no_hostname_title">صيغة اسم المضيف غير صحيحية</string>
@@ -131,13 +126,12 @@
     <item>8 يورو</item>
     <item>13 يورو</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">هنا يمكنك البحث عن تطبيقات الإعلانات المتسللة، التي لا تحجب عبر AdAway. هذه التطبيقات تستخدم الاشعارات في كل وقت حتى عند غلق التطبيق وقد تغير نغمة الرنين مثلAirpush. و الحل الوحيد لها هو إلغاء تثبيتها عبر النقر على عنوان التطبيق أمامك.</string>
-  <string name="adware_empty">لم يتم العثور على إعلانات متسللة!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">المثبت:</string>
   <string name="hosts_last_modified_online">الجديد:</string>
   <string name="hosts_not_available">غير متوفر</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">حاجب الإعلانات</string>
   <string name="no_text_editor_title">لا يوجد محرر نصوص مثبت</string>
@@ -145,14 +139,8 @@
   <string name="no_file_manager_title">لا يوجد مدير ملفات مثبت</string>
   <string name="no_file_manager">تعذر العثور على مدير ملفات لفتح الملف. يمكنك تثبيت مدير ملفات OI او أي مدير ملفات اخر لتجاوز هذا. هل تريد تثبيت OI؟</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">ملف السجل تم حذفه!</string>
-  <string name="toast_tcpdump_added_to_blacklist">تم إضافة الموقع للقائمة السوداء!</string>
-  <string name="toast_tcpdump_added_to_whitelist">تم إضافة الموقع للقائمة البيضاء!</string>
-  <string name="tcpdump_log_context_blacklist">إضافة إلى القائمة السوداء</string>
-  <string name="tcpdump_log_context_whitelist">إضافة إلى القائمة البيضاء</string>
-  <string name="tcpdump_log_context_browser">فتح في المتصفح</string>
-  <string name="tcpdump_log_empty">ملف السجل فارغ!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump هي أداة لمراقبة طلبات DNS وحفظها في ملف سجل. يمكنكم تشغيله في الخلفية، ثم تشغيل التطبيقات التي تعرض الإعلانات على الشاشة، بعد ذلك سيتم تحليل طلبات DNS باستخدام ملف السجل.الأن يمكن إضافة مصدر الإعلانات إلى قائمتك السوداء.</string>
+  <!--Preferences-->
   <string name="pref_download">الخيارات العامة</string>
   <string name="pref_hosts">ملفات المضيف</string>
   <string name="pref_redirection_ip">إعادة توجيه IP</string>
@@ -183,11 +171,17 @@
   <string name="pref_update_only_on_wifi_summary">تنفيذ التحديثات في الخلفية فقط عند الاتصال بشبكة Wi-Fi.</string>
   <string name="pref_whitelist_rules">السماح للقائمة البيضاء</string>
   <string name="pref_whitelist_rules_summary">السماح لمداخلات القائمة البيضاء من مصادر المضيف</string>
-  <string name="pref_redirection_rules">إعادة التوجيه</string>
   <string name="pref_redirection_rules_summary">للتقليل من المخاطر الامنية ! قم بالسماح للمداخلات المعاد تحويلها من مصادر المضيف</string>
   <string name="pref_debug">التصحيح</string>
   <string name="pref_enable_debug">تسجيل التصحيحات</string>
   <string name="pref_enable_debug_summary">يجب إعادة تشغيل التطبيق لتكون الإعدادات سارية المفعول.</string>
   <string name="pref_enable_ipv6">الرجاء تفعيل IPv6</string>
   <string name="pref_enable_ipv6_summary">جميع ملفات حجب المواقع سوف يتم تعديلها (  1 IPv6 localhost) </string>
+  <string name="pref_enable_systemless_summary">منع AdAway من تغير تقسيمة النظام </string>
+  <string name="pref_enable_systemless">تفعيل الوضع اللانظامي</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">الخيارات</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">يوجد تحديث متوفر</string>
 </resources>

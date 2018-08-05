@@ -12,23 +12,20 @@
   <string name="button_cancel">បោះបង់</string>
   <string name="button_save">រក្សាទុក</string>
   <string name="button_help">ជំនួយ</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump កំពុងដំណើរការ!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump មិនដំណើរការ!</string>
-  <string name="tcpdump_show_results">បើកឯកសារកំណត់ហេតុ</string>
-  <string name="tcpdump_clear_results">លុបឯកសារកំណត់ហេតុ</string>
+  <!--Home-->
+  <string name="button_check_update_hosts">ពិនិត្យមើលភាពទាន់សម័យ</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">បន្ថែម</string>
   <string name="checkbox_list_empty">បញ្ជីទទេ</string>
-  <string name="checkbox_list_empty_text">អ្នកអាចដាក់បន្ថែមពីរបារសកម្ម</string>
   <string name="checkbox_list_context_delete">លុបចេញ</string>
   <string name="checkbox_list_footer">បន្ទាប់ពីបានបន្ថែមរបស់ថ្មីទៅក្នុងជួរនេះ អ្នកត្រូវតែស្នើរសុំបញ្ចូល AdAway ជាថ្មី!</string>
   <string name="checkbox_list_edit_dialog_title">កែប្រែ</string>
   <string name="checkbox_list_context_edit">កែប្រែ</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">បញ្ជីស</string>
   <string name="lists_tab_blacklist">បញ្ជីខ្មៅ</string>
   <string name="import_dialog">កំពុងនាំចូល...</string>
   <string name="export_dialog">កំពុងនាំចេញ...</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">កំពុងស្វែងរកជំនាន់ថ្មី...</string>
   <string name="status_reverting">កំពុងធ្វើឲ្យដូចដើម...</string>
@@ -62,6 +59,7 @@
   <string name="loading">កំពុងផ្ទុកទិន្ន័យ...</string>
   <!--Menu entries-->
   <string name="menu_add">បន្ថែម</string>
+  <string name="menu_help">ជំនួយ</string>
   <string name="menu_import">នាំចូលគ្រប់បញ្ជី</string>
   <string name="menu_export">នាំចេញគ្រប់បញ្ជី</string>
   <!--Help-->
@@ -69,9 +67,8 @@
   <string name="help_tab_donate">បរិច្ចាគ</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_about_version">កំណែ៖</string>
-  <!--Scan Adware-->
-  <string name="adware_empty">ពុំមានកម្មវិធី Adware អាក្រក់ដែលអាចរកឃើញ!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_online">លើបណ្ដាញ
 
 </string>
@@ -80,14 +77,7 @@
   <string name="app_subtitle">អ្នកបំបិទការឃោសនា</string>
   <string name="no_file_manager_title">ពុំមានកម្មវិធីគ្រប់គ្រងឯកសារត្រូវបានបញ្ចូល</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">បានលុបចេញឯកសារកំណត់ហេតុ!</string>
-  <string name="toast_tcpdump_added_to_blacklist">ឈ្មោះម៉ាស៊ីនបានដាក់បន្ថែមក្នុងបញ្ជីខ្មៅរបស់អ្នក!</string>
-  <string name="toast_tcpdump_added_to_whitelist">ឈ្មោះម៉ាស៊ីនបានដាក់បន្ថែមក្នុងបញ្ជីសរបស់អ្នក!</string>
-  <string name="tcpdump_log_context_blacklist">បន្ថែមក្នុងបញ្ជីខ្មៅ</string>
-  <string name="tcpdump_log_context_whitelist">បន្ថែមក្នុងបញ្ជីស</string>
-  <string name="tcpdump_log_context_browser">បើកក្នុងកម្មវិធីរុករក</string>
-  <string name="tcpdump_log_empty">ឯកសារកំណត់ហេតុគឺទទេ!</string>
-    <!--Preferences-->
+  <!--Preferences-->
   <string name="pref_download">ការកំណត់ទូរទៅ</string>
   <string name="pref_hosts">ឯកសារម៉ាស៊ីន</string>
   <string name="pref_redirection_ip">ការប្ដូរទិស IP</string>
@@ -109,8 +99,12 @@
   <string name="pref_automatic_update_daily_summary">ធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយបើសិនជាមានភាពទាន់សម័យ។</string>
   <string name="pref_update_only_on_wifi">ធ្វើអោយទាន់សម័យតែពេលប្រើ Wifi</string>
   <string name="pref_update_only_on_wifi_summary">ប្រតិបត្តិការធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយតែពេលមានការតភ្ជាប់ទៅនឹងបណ្ដាញ Wifi។</string>
-  <string name="pref_redirection_rules">អនុញ្ញាតការប្ដូរទិស</string>
   <string name="pref_debug">បំបាត់កំហុស</string>
   <string name="pref_enable_debug">កំណត់ហេតុការបំបាត់កំហុស</string>
   <string name="pref_enable_debug_summary">អ្នកគួរតែចាប់ផ្ដើម AdAway ឡើងវិញដើម្បីអោយការកំណត់មានប្រសិទ្ធភាព</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">ការកំណត់</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">រកឃើញមានជំនាន់ថ្មី</string>
 </resources>

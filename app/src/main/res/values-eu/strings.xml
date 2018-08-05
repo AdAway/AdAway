@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Web-zerbitzaria ez dago ekinean</string>
   <string name="button_webserver_toggle_text">Abiarazi edo gelditu web-zerbitzaria tokiko-hostalarian blokeatutako hostalari-izen eskabideak galdetzeko.</string>
   <string name="button_help">Laguntza</string>
-  <string name="tcpdump_description">Tcpdump DNS eskabideak monitorizatzeko eta hauek ohar agiri baten gordetzeko tresna bat da. Barrenean hasi dezakezu, iragarkiak erakusten dituzten aplikazioak ekin, eta ondoren DNS eskabideak aztertu ohar agiria erabiliz. Orduan ahalezko iragarki zerbitzaria zerrenda-beltzera gehitu daiteke.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump ekinean dago!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump ez dago ekinean!</string>
-  <string name="tcpdump_show_results">Ireki ohar agiria</string>
-  <string name="tcpdump_clear_results">Ezabatu ohar agiria</string>
+  <!--Home-->
+  <string name="text_update">Zehaztutako iturburuetako hostalari agiri guztiak jeitsi eta batu dira zeure zerrendarekin eta hostalari agiri bat bezala ezarri dira zure sisteman.</string>
+  <string name="button_check_update_hosts">Egiaztatu eguneraketak</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Gehitu</string>
   <string name="checkbox_list_empty">Zerrenda hutsik</string>
-  <string name="checkbox_list_empty_text">Gaiak gehitu ditzakezu ekintza barratik.</string>
   <string name="checkbox_list_context_delete">Ezabatu</string>
   <string name="checkbox_list_footer">Zerrenda honetara gai berriak gehitu ondoren AdAway ezarri behar duzu berriro!</string>
   <string name="checkbox_list_edit_dialog_title">Editatu</string>
   <string name="checkbox_list_context_title">Editatu Sarrera</string>
   <string name="checkbox_list_context_edit">Editatu</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Zerrenda-zuria</string>
   <string name="lists_tab_blacklist">Zerrenda-beltza</string>
-  <string name="lists_tab_redirection_list">Berzuzenketa Zerrenda</string>
-  <string name="list_dialog_url">URL-a:</string>
   <string name="list_dialog_hostname">Hostalari-izena:</string>
-  <string name="list_dialog_whitelist_hostname">Hostalari-izena:\n(* eta ? ordezhizkiak ahalbidetuta daude!)</string>
   <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
   <string name="import_dialog">Inportatzen…</string>
   <string name="export_dialog">Esportatzen…</string>
   <string name="export_success">Sarrera guztiak zure sd-txarteleko \'adaway-export\' izeneko agirira esportatu dira.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Eguneraketak egiaztatzen…</string>
   <string name="status_reverting">Leheneratzen...</string>
@@ -95,13 +89,13 @@
   <string name="download_fail_title">Jeisketa hutsegitea</string>
   <string name="no_private_file">Agiri pribatua ezin da sortu.</string>
   <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
+  <string name="enable_systemless_successful">Sistemagabe modua gaitu duzu.\nBadaiteke beharrezkoa izatea Androida berrabiaraztea aldaketek eragina izateko.\nBerrabiaraztea nahi duzu?\n(Datuen galera saihesteko zihurtatu ez dagoela aplikazioarik sdtxartela erabiltzen une honetan!)</string>
+  <string name="enable_systemless_successful_title">Ongi gaitu da</string>
   <string name="disable_systemless_successful">Sistemagabe modua ezgaitu duzu.\nBadaiteke beharrezkoa izatea Androida berrabiaraztea aldaketek eragina izateko.\nBerrabiaraztea nahi duzu?\n(Datuen galera saihesteko zihurtatu ez dagoela aplikazioarik sdtxartela erabiltzen une honetan!)</string>
   <string name="disable_systemless_successful_title">Ongi ezgaitu da</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Bietako bat edo su binarioa ezin da aurkitu edo ez diozu erro baimenik eman AdAway-ri.\n\nHau zure gailua errotu gabe dagoenean gertatu daiteke.\nZure gailua nola erroturi buruzko argibideak wiki.lineageos.org edo beste Android webgune batean aurkitu dezakezu.</string>
+  <string name="no_root_description">su binarioa ezin da aurkitu edo ez diozu erro baimenik ahalbidetu AdAway-ri.\n\nHau zure gailua errotu gabea dagoenean geratu daiteke.\nZure gailua nola erroturi buruzko argibideak aurkitu ditzakezu wiki.lineageos.org-en edo beste Android webguentan.</string>
   <string name="no_root_title">Beharrezkoa Android errotua</string>
-  <string name="no_url">Ez da baliozko URL bat!</string>
-  <string name="no_url_title">URL-a ezegoki heuskarrituta</string>
   <string name="hosts_add_dialog">Sartu hostalari agirirako URL-a:</string>
   <string name="no_hostname">Hau ez da baliozko hostalari-izen bat!</string>
   <string name="no_hostname_title">Hostalari-izena ezegoki heuskarrituta</string>
@@ -133,13 +127,12 @@
     <item>8 Euro</item>
     <item>13 Euro</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Hemen AdAway-k blokeatu ezin dezakeen Adware aplikazio maltzurrik dagoen mihatu dezakezu. Aplikazio hauek adibidez aplikazioa ekinean ez dagoela ere oharleihotzen diren Airpush jakinarazpenak erabiltzen dituzte edo zure dei-doinua ere aldatu dezakete. Aurkako-neurri eskuragarri bakarra aplikazio hauek zerrendako gaietan klikatuz kentzea da.</string>
-  <string name="adware_empty">Ez da Adware aplikazio kaltegarririk aurkitu!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Tokikoa:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">ez dago eskuragarri</string>
+  <string name="hosts_dialog_url">URL-a:</string>
   <!--Other-->
   <string name="app_subtitle">Iragarki blokeatzailea</string>
   <string name="no_text_editor_title">Ez dago idazki editatzailerik ezarrita</string>
@@ -147,14 +140,8 @@
   <string name="no_file_manager_title">Ez dago agiri kudeatzailerik ezarrita</string>
   <string name="no_file_manager">Ez da agiri kudeatzailerik aurkitu hostalari agiriak irekitzeko. OI File Manager edo beste agiri kudeatzaile bat ezarri dezakezu hau kudeatzeko.\n\nNahi duzu OI File Manager ezartzea?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Ohar agiria ezabatuta!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Hostalari-izena zure Zerrenda-beltzera gehitu da!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Hostalari-izena zure Zerrenda-zurira gehitu da!</string>
-  <string name="tcpdump_log_context_blacklist">Gehitu zure Zerrenda-beltzera</string>
-  <string name="tcpdump_log_context_whitelist">Gehitu zure Zerrenda-zurira</string>
-  <string name="tcpdump_log_context_browser">Ireki Nabigatzailean</string>
-  <string name="tcpdump_log_empty">Ohar agiria hutsik dago!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump DNS eskabideak monitorizatzeko eta hauek ohar agiri baten gordetzeko tresna bat da. Barrenean hasi dezakezu, iragarkiak erakusten dituzten aplikazioak ekin, eta ondoren DNS eskabideak aztertu ohar agiria erabiliz. Orduan ahalezko iragarki zerbitzaria zerrenda-beltzera gehitu daiteke.</string>
+  <!--Preferences-->
   <string name="pref_download">Hobespen Orokorrak</string>
   <string name="pref_hosts">Hostalari Agiria</string>
   <string name="pref_redirection_ip">Berzuzenketa IP-a</string>
@@ -189,12 +176,17 @@
   <string name="pref_update_only_on_wifi_summary">Exekutatu barreneko eguneraketak wifi sarera elkartutakoan bakarrik.</string>
   <string name="pref_whitelist_rules">Ahalbidetu zerrenda-zuriak</string>
   <string name="pref_whitelist_rules_summary">Ahalbidtu zerrend-zuri sarrerak Hostalari Iturburuetatik.</string>
-  <string name="pref_redirection_rules">Ahalbidetu berzuzentzeak</string>
   <string name="pref_redirection_rules_summary">SEGURTASUN ARRISKU JARRERAK! Ahalbidetu Hostalari Iturburuetatiko sarrerak berzuzentzea.</string>
   <string name="pref_debug">Garbiketa</string>
   <string name="pref_enable_debug">Garbiketa Oharra</string>
   <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>
   <string name="pref_enable_ipv6">Gaitu IPv6</string>
   <string name="pref_enable_ipv6_summary">Hostalari agiri guztiek dagokien ::1 (IPv6 localhost) sarrera lortuko dute.</string>
+  <string name="pref_enable_systemless_summary">Saihestu AdAway-k sistemaren partizioa aldatzea</string>
   <string name="pref_enable_systemless">Gaitu sistemagabe modua</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Hobespenak</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Eguneraketa eskuragarri</string>
 </resources>

@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">השרת אינו פועל</string>
   <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
   <string name="button_help">עזרה</string>
-  <string name="tcpdump_description">Tcpdump הוא כלי לניטור בקשות DNS ושמירה שלהם בקובץ יומן. אתה יכול להפעיל אותו ברקע, ולהפעיל יישומים שמציגים פרסומות, ולאחר מכן להסתכל ביומן בקשות ה DNS על ידי שימוש בקובץ היומן. וכך להוסיף שרתי פרסומות לרשימה השחורה שלך.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump פעיל!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump אינו פעיל!</string>
-  <string name="tcpdump_show_results">פתח קובץ יומן</string>
-  <string name="tcpdump_clear_results">מחק קובץ יומן</string>
+  <!--Home-->
+  <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
+  <string name="button_check_update_hosts">בדוק עידכונים</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">הוסף</string>
   <string name="checkbox_list_empty">רשימה ריקה</string>
-  <string name="checkbox_list_empty_text">אתה יכול להוסיף פריטים מהתפריט.</string>
   <string name="checkbox_list_context_delete">מחק</string>
   <string name="checkbox_list_footer">לאחר שתוסיף פריטים לרשימה זו עליך לאתחל את התוכנה שוב.</string>
   <string name="checkbox_list_edit_dialog_title">ערוך</string>
   <string name="checkbox_list_context_title">ערוך רשומה</string>
   <string name="checkbox_list_context_edit">ערוך</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">רשימה לבנה</string>
   <string name="lists_tab_blacklist">רשימה שחורה</string>
-  <string name="lists_tab_redirection_list">רשימת הפניות</string>
-  <string name="list_dialog_url">כתובת:</string>
   <string name="list_dialog_hostname">שם שרת:</string>
-  <string name="list_dialog_whitelist_hostname">שם שרת:\n(תווים כלליים * ו ? מותרים!)</string>
   <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
   <string name="import_dialog">מייבא...</string>
   <string name="export_dialog">מייצא...</string>
   <string name="export_success">כל הרשומות ייוצאו לקובץ בשם \'adaway-export\' בכרטיס הזיכרון</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">בודק עידכונים...</string>
   <string name="status_reverting">משחזר...</string>
@@ -57,6 +51,7 @@
   <string name="status_disabled">לא פעיל</string>
   <string name="status_disabled_subtitle">לא פעיל</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
   <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
   <string name="apply_not_enough_space">אין מספיק שטח איחסון בדיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">אין מספיק זיכרון</string>
@@ -74,6 +69,7 @@
   <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
   <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
   <string name="apply_help">קרא את העזרה למידע נוסף.</string>
+  <string name="apply_apn_proxy">פרוקסי APN מוגדר ב- Android שלך!\nAdAway לא יפעל באופן אמין ברשת סלולרית כמו 3G. תוכל לבטל את פעולת ה- proxy על ידי מעבר אל APN הנבחר שלך (ב- Android 4: רשתות אלחוטיות ורשתות -&gt; עוד ... -&gt; רשתות לנייד -&gt; שמות נקודות גישה) ולהסיר את הערך בשדה ה- Proxy.</string>
   <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
   <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
   <string name="no_connection_title">אין חיבור</string>
@@ -93,10 +89,12 @@
   <string name="download_fail_title">הורדה נכשלה</string>
   <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
   <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
+  <string name="enable_systemless_successful">הפעלת את מצב ללא מערכת.\nייתכן שיהיה צורך לאתחל את אנדרואיד בכדי שהשינויים יכנסו לתוקף.\n\nהאם ברצונך להפעיל מחדש?\n(בכדי לא לאבד מידע, אנא וודא כי אין אפליקציה המשתמשת כרגע בכרטיס הזיכרון!)</string>
+  <string name="enable_systemless_successful_title">הופעל בהצלחה</string>
+  <string name="disable_systemless_successful">השבתת את מצב ללא מערכת.\nייתכן שיהיה צורך לאתחל את אנדרואיד בכדי שהשינויים יכנסו לתוקף.\n\nהאם ברצונך להפעיל מחדש?\n(בכדי לא לאבד מידע, אנא וודא כי אין אפליקציה המשתמשת כרגע בכרטיס הזיכרון!)</string>
+  <string name="disable_systemless_successful_title">כובה בהצלחה</string>
   <!--Other Dialogs-->
   <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
-  <string name="no_url">זו אינה כתובת חוקית</string>
-  <string name="no_url_title">URL בתבנית לא נכונה</string>
   <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
   <string name="no_hostname">שם השרת אינו חוקי!</string>
   <string name="no_hostname_title">שם השרת בתבנית לא נכונה</string>
@@ -128,13 +126,12 @@
     <item>8 יורו</item>
     <item>13 יורו</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">כאן אתה יכול לסרוק תוכנות מזיקות, שאינן יכולות להיחסם על ידי AdAway. תוכנות אלו משתמשות לדוגמא בהודעות דחיפה שקופצים גם כאשר התוכנה אינה עובדת או לשנות את הצלצול שלך. זה רק אמצעי עזר כדי לתת לך להחליט אם להסיר את התוכנה דרך ניהול היישומים!</string>
-  <string name="adware_empty">לא נמצאו תוכנות רוגלה! </string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">מקומי:</string>
   <string name="hosts_last_modified_online">אונליין:</string>
   <string name="hosts_not_available">לא זמין</string>
+  <string name="hosts_dialog_url">כתובת:</string>
   <!--Other-->
   <string name="app_subtitle">חסום פרסומות</string>
   <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
@@ -142,14 +139,9 @@
   <string name="no_file_manager_title">לא מותקן מנהל קבצים</string>
   <string name="no_file_manager">לא נמצא מנהל קבצים לפתיחת קובץ זה. תוכל להתקין את  OI File Manager או כל מנהל קבצים אחר כדי לפתור זאת.\n\nהאם אתה רוצה להתקין את OI File Manager כעת?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">קובץ יומן נמחק!</string>
-  <string name="toast_tcpdump_added_to_blacklist">כתובת השרת נוספה לרשימה השחורה שלך!</string>
-  <string name="toast_tcpdump_added_to_whitelist">כתובת השרת נוספה לרשימה הלבנה שלך!</string>
-  <string name="tcpdump_log_context_blacklist">הוסף לרשימה השחורה שלך</string>
-  <string name="tcpdump_log_context_whitelist">הוסף לרשימה הלבנה שלך</string>
-  <string name="tcpdump_log_context_browser">פתח בדפדפן</string>
-  <string name="tcpdump_log_empty">קובץ היומן ריק</string>
-    <!--Preferences-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump הוא כלי לניטור בקשות DNS ושמירה שלהם בקובץ יומן. אתה יכול להפעיל אותו ברקע, ולהפעיל יישומים שמציגים פרסומות, ולאחר מכן להסתכל ביומן בקשות ה DNS על ידי שימוש בקובץ היומן. וכך להוסיף שרתי פרסומות לרשימה השחורה שלך.</string>
+  <!--Preferences-->
   <string name="pref_download">העדפות כלליות</string>
   <string name="pref_hosts">קובץ Hosts</string>
   <string name="pref_redirection_ip">העברה לכתובת IP</string>
@@ -168,6 +160,12 @@
   <string name="pref_webserver">שרת מקומי</string>
   <string name="pref_custom_target">יעד מותאם אישית</string>
   <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>יעד מותאם אישית</item>
+  </string-array>
   <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
   <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר AdAway מותקנת על כרטיס זיכרון</string>
   <string name="pref_background">שירותים ברקע</string>
@@ -179,9 +177,17 @@
   <string name="pref_update_only_on_wifi_summary">הפועל עיכובים ברקע רק כאשר המכשיר מחובר לאינטרנט בחיבור Wifi</string>
   <string name="pref_whitelist_rules">אפשר רשימות לבנות</string>
   <string name="pref_whitelist_rules_summary">אפשר רשימות לבנות ממקורות Hosts</string>
-  <string name="pref_redirection_rules">אפשר הפניות</string>
   <string name="pref_redirection_rules_summary">מסוכן!!! אפשר חוקי הפניה ממקורות Hosts.</string>
   <string name="pref_debug">ניפוי שגיאות</string>
   <string name="pref_enable_debug">רשום יומן שגיאות</string>
   <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
+  <string name="pref_enable_ipv6">אפשר IPv6</string>
+  <string name="pref_enable_ipv6_summary">כלל כניסות השרתים יקבלו ערך כניסה אחיד ::1 (IPv6 שרת מקומי).</string>
+  <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
+  <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">העדפות</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">קיים עידכון</string>
 </resources>

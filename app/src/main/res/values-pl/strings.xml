@@ -16,33 +16,27 @@
   <string name="button_webserver_toggle_unchecked">Serwer www nie działa</string>
   <string name="button_webserver_toggle_text">Start lub stop lokalnego serwera www, aby odpowiadać na zapytania blokowanych hostów.</string>
   <string name="button_help">Pomoc</string>
-  <string name="tcpdump_description">Tcpdump jest narzędziem do monitorowania zapytań DNS i zapisywania ich do logu. Możesz go uruchomić w tle, uruchomić aplikację, która wyświetla reklamy, a potem przeanalizować zapisany log zapytań DNS. Serwer reklam będzie mógł być wtedy dodany do twojej Czarnej listy.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump działa!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump nie działa!</string>
-  <string name="tcpdump_show_results">Otwórz plik logu</string>
-  <string name="tcpdump_clear_results">Usuń plik logu</string>
+  <!--Home-->
+  <string name="text_update">Wszystkie pliki ze zdefiniowanych źródeł zostaną pobrane, połączone z twoją listą i dodane do pliku hosts.</string>
+  <string name="button_check_update_hosts">Szukaj aktualizacji</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Dodaj</string>
   <string name="checkbox_list_empty">Brak pozycji</string>
-  <string name="checkbox_list_empty_text">Możesz dodać pozycję używając ActionBar.</string>
   <string name="checkbox_list_context_delete">Usuń</string>
   <string name="checkbox_list_footer">Po dodaniu nowych wpisów do listy musisz ponownie zastosować pobieranie plików hostów!</string>
   <string name="checkbox_list_edit_dialog_title">Edytuj</string>
   <string name="checkbox_list_context_title">Edytuj wpis</string>
   <string name="checkbox_list_context_edit">Edytuj</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Biała lista</string>
   <string name="lists_tab_blacklist">Czarna lista</string>
-  <string name="lists_tab_redirection_list">Lista przekierowań</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nazwa hosta:</string>
-  <string name="list_dialog_whitelist_hostname">Nazwa hosta:\n(Symbole wieloznaczne * i ? są dozwolone!)</string>
   <string name="list_dialog_ip">IP (IPv4 lub IPv6):</string>
   <string name="import_dialog">Importowanie...</string>
   <string name="export_dialog">Eksportowanie...</string>
   <string name="export_success">Wyeksportowano wszystkie wpisy do pliku \'adaway-export\' na karcie SD.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
-  <string name="status_checking">Wyszukiwanie aktualizacji...</string>
+  <string name="status_checking">Sprawdzanie aktualizacji…</string>
   <string name="status_reverting">Przywracanie...</string>
   <string name="status_reverting_subtitle">Tworzenie standardowego pliku hosts</string>
   <string name="status_checking_subtitle">Wyszukiwanie aktualizacji</string>
@@ -87,7 +81,7 @@
   <string name="apply_dialog_apply">Stosowanie pliku hosts</string>
   <string name="apply_fail">Stosowanie pliku hosts zakończone niepowodzeniem!\nSpróbuj zmienić w ustawieniach plik docelowy hosts na /data/data/hosts.</string>
   <string name="apply_fail_title">Zastosowanie nieudane</string>
-  <string name="revert_successful">Przyrócono domyślny plik hosts.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
+  <string name="revert_successful">Przywrócono domyślny plik hosts.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
   <string name="revert_successful_title">Przywracanie wykonane prawidłowo</string>
   <string name="revert_problem">Przywracanie zakończone niepowodzeniem z nieznanych przyczyn.</string>
   <string name="revert_problem_title">Przywracanie nieudane!</string>
@@ -95,13 +89,13 @@
   <string name="download_fail_title">Pobieranie nieudane</string>
   <string name="no_private_file">Plik osobisty nie został utworzony.</string>
   <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
+  <string name="enable_systemless_successful">Włączyłeś tryb systemless.\nMoże być konieczne ponowne uruchomienie systemu, aby zmiany przyniosły efekt.\n\nCzy chcesz uruchomić ponownie?\n(Aby uniknąć utraty danych, upewnij się, że żadna aplikacja nie używa karty sd w tym momencie!)</string>
+  <string name="enable_systemless_successful_title">Pomyślnie włączono</string>
   <string name="disable_systemless_successful">Wyłączyłeś tryb systemless.\nMoże być konieczne uruchomienie ponowne telefonu, aby zmiany przyniosły efekt.\n\nCzy chcesz uruchomić ponownie telefon?\n(Aby uniknąć utraty danych, upewnij się, że żadna aplikacja nie używa karty SD w tym momencie!)</string>
   <string name="disable_systemless_successful_title">Wyłączono poprawnie</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Nie można znaleźć pliku su lub nie zezwoliłeś na nadanie uprawnień root dla programu AdAway.\n\n Tak się dzieje kiedy twoje urządzenie nie jest zrootowane.\nMożesz znaleźć informacje jak zrootować swoje urządzenie na wiki.lineageos.org lub innych stronach o  Androidzie.</string>
+  <string name="no_root_description">Nie można znaleźć su binary lub nie zezwoliłeś AdAway na dostęp roota. To może się zdarzyć, gdy urządzenie nie jest zrootowane. Możesz znaleźć informacje o tym, jak zrootować swoje urządzenie na stronie wiki.lineageos.org lub innej stronie z Androidem.</string>
   <string name="no_root_title">Wymagany jest zrootowany Android</string>
-  <string name="no_url">To nie jest prawidłowy adres URL!</string>
-  <string name="no_url_title">Niepoprawny adres URL</string>
   <string name="hosts_add_dialog">Dopisz adres URL do pliku hosts:</string>
   <string name="no_hostname">To jest nieprawidłowa nazwa hosta!</string>
   <string name="no_hostname_title">Niepoprawna nazwa hosta</string>
@@ -133,13 +127,12 @@
     <item>8 Euro</item>
     <item>13 Euro</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Możesz tutaj przeskanować aplikacje w poszukiwaniu szkodliwych dodatków Adware, które nie mogą być zablokowane przez AdAway. Takie aplikacje używają np. powiadomień Airpush nawet, gdy same nie są uruchomione, a mogą nawet zmienić dźwięk twojego dzwonka. Jedyny środek zaradczy to odinstalowanie takich aplikacji przez kliknięcie na jej pozycję na liście! </string>
-  <string name="adware_empty">Nie znaleziono aplikacji zawierających szkodliwe Adware</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalny:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">niedostępny(e)</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Bloker reklam</string>
   <string name="no_text_editor_title">Brak zainstalowanego edytora tekstu</string>
@@ -147,14 +140,8 @@
   <string name="no_file_manager_title">Brak zainstalowanego menedżera plików</string>
   <string name="no_file_manager">Nie znaleziono menadżera plików aby otworzyć plik. Możesz zainstalować OI File Manager lub inne menadżery plików.\n\nCzy chcesz zainstalować OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Plik logu usunięty!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Nazwa hosta została dodana do twojej Czarnej listy!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Nazwa hosta została dodana do twojej Białej listy!</string>
-  <string name="tcpdump_log_context_blacklist">Dodaj do swojej Czarnej listy</string>
-  <string name="tcpdump_log_context_whitelist">Dodaj do swojej Białej listy</string>
-  <string name="tcpdump_log_context_browser">Otwórz w przeglądarce</string>
-  <string name="tcpdump_log_empty">Plik logu jest pusty!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump jest narzędziem do monitorowania zapytań DNS i zapisywania ich do logu. Możesz go uruchomić w tle, uruchomić aplikację, która wyświetla reklamy, a potem przeanalizować zapisany log zapytań DNS. Serwer reklam będzie mógł być wtedy dodany do twojej Czarnej listy.</string>
+  <!--Preferences-->
   <string name="pref_download">Ustawienia główne</string>
   <string name="pref_hosts">Plik hosts</string>
   <string name="pref_redirection_ip">Przekierowanie do IP</string>
@@ -190,12 +177,17 @@
   <string name="pref_update_only_on_wifi_summary">Wykonuj aktualizacje w tle tylko przy połączeniu WiFi.</string>
   <string name="pref_whitelist_rules">Zezwól na białe listy</string>
   <string name="pref_whitelist_rules_summary">Zezwól na białe listy ze Źródeł Hostów.</string>
-  <string name="pref_redirection_rules">Zezwól na przekierowania</string>
   <string name="pref_redirection_rules_summary">STANOWI ZAGROŻENIE DLA BEZPIECZEŃSTWA! Zezwól na przekierowania ze Źródeł Hostów.</string>
   <string name="pref_debug">Debugowanie</string>
   <string name="pref_enable_debug">Zapisuj log</string>
   <string name="pref_enable_debug_summary">Musisz zrestartować AdAway, aby uaktywnić te ustawienia.</string>
   <string name="pref_enable_ipv6">Włącz IPv6</string>
   <string name="pref_enable_ipv6_summary">Wszystkie wpisy plików hosta są odpowiednie :: 1 (IPv6 localhost).</string>
+  <string name="pref_enable_systemless_summary">Zapobiegaj modyfikowaniu partycji systemowej przez AdAway</string>
   <string name="pref_enable_systemless">Włącz tryb systemless</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Ustawienia</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Aktualizacja jest dostępna</string>
 </resources>

@@ -16,32 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Веб-сервер не запущен</string>
   <string name="button_webserver_toggle_text">Запуск или остановка Веб-сервера на локальной системе для ответов на запросы заблокированных хостов.</string>
   <string name="button_help">Справка</string>
-  <string name="tcpdump_description">Tcpdump это инструмент для мониторинга запросов DNS и их сохранения в файле журнала. Запустите Tcpdump, он будет работать в фоновом режиме до перезагрузки устройства - запустите приложение, в котором на экране показывается реклама - проанализируйте запросы DNS, используя файл журнала. Найденные в нем подозрительные сервера, возможные как источники рекламы, могут быть внесены в черный список.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump работает!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump не работает!</string>
-  <string name="tcpdump_show_results">Открыть файл журнала</string>
-  <string name="tcpdump_clear_results">Удалить файл журнала</string>
+  <!--Home-->
+  <string name="text_update">Все файлы со списками хостов, загружаемые с определенных источников, сливаются с вашим собственным списком и устанавливаются в вашей системе в виде одного файла hosts.</string>
+  <string name="button_check_update_hosts">Проверка обновлений</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Добавить</string>
   <string name="checkbox_list_empty">Список пустой</string>
-  <string name="checkbox_list_empty_text">Вы можете добавлять элементы в список.</string>
   <string name="checkbox_list_context_delete">Удалить</string>
   <string name="checkbox_list_footer">После добавления новых пунктов в этом списке вы должны снова применить AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Редактировать</string>
   <string name="checkbox_list_context_title">Редактировать запись</string>
   <string name="checkbox_list_context_edit">Редактировать</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Белый список</string>
   <string name="lists_tab_blacklist">Черный список</string>
-  <string name="lists_tab_redirection_list">Список переадресаций</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Имя источника:</string>
-  <string name="list_dialog_whitelist_hostname">Имя хоста:
-(Допускаются подстановочные символы * и ?)</string>
   <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
   <string name="import_dialog">Импорт...</string>
   <string name="export_dialog">Экспорт...</string>
   <string name="export_success">Экспорт всех записей на карту памяти в файл с именем \'adaway-export\'.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Проверка обновлений...</string>
   <string name="status_reverting">Восстановление...</string>
@@ -118,11 +111,21 @@ AdAway не будет работать в мобильных сетях, так
   <string name="download_fail_title">Загрузка не удалась</string>
   <string name="no_private_file">Файл не может быть создан.</string>
   <string name="no_private_file_title">Не удалось создать файл</string>
+  <string name="enable_systemless_successful">Вы активировали безсистемный режим.
+Возможно, потребуется перезагрузка, чтобы изменения вступили в силу.
+
+Вы хотите перезагрузить систему?
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
+  <string name="enable_systemless_successful_title">Активация прошла успешно</string>
+  <string name="disable_systemless_successful">Вы отключили безсистемный режим.
+Возможно, потребуется перезагрузка, чтобы изменения вступили в силу.
+
+Вы хотите перезагрузить систему?
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
+  <string name="disable_systemless_successful_title">Успешно отключено</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Или не найден двоичный файл su, либо отсутствуют разрешения для выполнения операций с AdAway от имени администратора.\n\nЭто происходит при отсутствии разрешений администратора на устройстве.\nДополнительные сведения о том как получить административные полномочия на вашем устройстве, вы можете найти на wiki.lineageos.org или других веб-сайтах о Android.</string>
+  <string name="no_root_description">Либо отсутствует бинарный файл su, либо вы не предоставили AdAway права суперпользователя. \ N \ nЭто могло произойти, если на вашем устройстве не получен root-доступ. \ NВы можете найти информацию о том, как получить root-права на вашем устройстве на wiki.lineageos.org или другом сайте посвящённом Android.</string>
   <string name="no_root_title">Для Android требуются права Root</string>
-  <string name="no_url">Это недопустимый URL!</string>
-  <string name="no_url_title">Неправильно отформатированный URL</string>
   <string name="hosts_add_dialog">Вставьте URL в файл hosts:</string>
   <string name="no_hostname">Это недопустимое имя источника!</string>
   <string name="no_hostname_title">Неправильно отформатированное имя хоста</string>
@@ -154,13 +157,12 @@ AdAway не будет работать в мобильных сетях, так
     <item>8 Евро</item>
     <item>13 Евро</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Поиск ПО с рекламой AdWare, которую не может заблокировать AdAway. Эти приложения используют, например, систему Airpush-уведомлений, которые появляются даже тогда, когда приложение не работает или даже могут просто изменить мелодию вашего звонка. Избавиться от такой рекламы можно только удалением приложений, показанных в результатах сканирования, путем нажатия на элементы списка.</string>
-  <string name="adware_empty">Приложений с AdWare не найдено!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Локальный:</string>
   <string name="hosts_last_modified_online">Интернет:</string>
   <string name="hosts_not_available">недоступен</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Блокировщик рекламы</string>
   <string name="no_text_editor_title">Не установлен текстовый редактор</string>
@@ -172,14 +174,9 @@ AdAway не будет работать в мобильных сетях, так
 
 Вы хотите установить OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Файл журнала удален!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Имя хоста было добавлено в Черный список!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Имя хоста было добавлено в Белый список!</string>
-  <string name="tcpdump_log_context_blacklist">Добавить в Черный список</string>
-  <string name="tcpdump_log_context_whitelist">Добавить в Белый список</string>
-  <string name="tcpdump_log_context_browser">Открыть в браузере</string>
-  <string name="tcpdump_log_empty">Файл журнала пустой!</string>
-    <!--Preferences-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump это инструмент для мониторинга запросов DNS и их сохранения в файле журнала. Запустите Tcpdump, он будет работать в фоновом режиме до перезагрузки устройства - запустите приложение, в котором на экране показывается реклама - проанализируйте запросы DNS, используя файл журнала. Найденные в нем подозрительные сервера, возможные как источники рекламы, могут быть внесены в черный список.</string>
+  <!--Preferences-->
   <string name="pref_download">Основные настройки</string>
   <string name="pref_hosts">Файл hosts</string>
   <string name="pref_redirection_ip">Адрес IP для переадресации</string>
@@ -215,11 +212,17 @@ AdAway не будет работать в мобильных сетях, так
   <string name="pref_update_only_on_wifi_summary">Выполнять обновления в фоне только при подключении к сети WiFi.</string>
   <string name="pref_whitelist_rules">Разрешить белые списки</string>
   <string name="pref_whitelist_rules_summary">Разрешить белые списки из источников хостов.</string>
-  <string name="pref_redirection_rules">Разрешить перенаправление</string>
   <string name="pref_redirection_rules_summary">ПРЕДСТАВЛЯЕТ УГРОЗУ БЕЗОПАСНОСТИ! Разрешить перенаправление из источников хостов.</string>
   <string name="pref_debug">Режим отладки</string>
   <string name="pref_enable_debug">Журнал отладки</string>
   <string name="pref_enable_debug_summary">Чтобы изменения вступили в силу, необходимо перезапустить AdAway.</string>
   <string name="pref_enable_ipv6">Использовать IPv6</string>
   <string name="pref_enable_ipv6_summary">Все записи файла host будут получать соответствующую :: 1  запись (localhost IPv6).</string>
+  <string name="pref_enable_systemless_summary">Запретить AdAway редактировать системный раздел</string>
+  <string name="pref_enable_systemless">Включить бессистемный режим</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Настройки</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Доступно обновление</string>
 </resources>

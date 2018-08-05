@@ -16,40 +16,34 @@
   <string name="button_webserver_toggle_unchecked">Chưa chạy webserver</string>
   <string name="button_webserver_toggle_text">Bật hoặc dừng webserver trên miền cục bộ để phản hồi yêu cầu từ các tên miền đã chặn.</string>
   <string name="button_help">Trợ giúp</string>
-  <string name="tcpdump_description">Tcpdump là công cụ giám sát các yêu cầu DNS và lưu chúng vào tập tin nhật ký. Bạn có thể khởi động nó trong chế độ nền, chạy các ứng dụng có quảng cáo và sau đó phân tích yêu cầu DNS qua tập tin nhật ký. Máy chủ quảng cáo nhận được sẽ bị đưa vào danh sách đen.</string>
-  <string name="tcpdump_disable_monitoring">Đang chạy Tcpdump!</string>
-  <string name="tcpdump_enable_monitoring">Chưa chạy Tcpdump!</string>
-  <string name="tcpdump_show_results">Mở tập tin nhật ký</string>
-  <string name="tcpdump_clear_results">Xoá tập tin nhật ký</string>
+  <!--Home-->
+  <string name="text_update">Tất cả các tập tin miền từ nguồn xác định sẽ được tải về, ghép với danh sách của bạn và cài đặt thành một tập tin miền duy nhất trên hệ thống.</string>
+  <string name="button_check_update_hosts">Kiểm tra cập nhật</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Thêm</string>
   <string name="checkbox_list_empty">Danh sách rỗng</string>
-  <string name="checkbox_list_empty_text">Bạn có thể thêm nội dung từ thanh tác vụ.</string>
   <string name="checkbox_list_context_delete">Xoá</string>
   <string name="checkbox_list_footer">Sau khi thêm nội dung mới vào danh sách, hãy áp dụng lại AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Chỉnh sửa</string>
   <string name="checkbox_list_context_title">Chỉnh sửa mục</string>
   <string name="checkbox_list_context_edit">Chỉnh sửa</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Danh sách trắng</string>
   <string name="lists_tab_blacklist">Danh sách đen</string>
-  <string name="lists_tab_redirection_list">Danh sách chuyển hướng</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Tên miền:</string>
-  <string name="list_dialog_whitelist_hostname">Tên miền:\n(Cho phép các ký tự thay thế * và ?)</string>
   <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
   <string name="import_dialog">Đang nhập...</string>
   <string name="export_dialog">Đang xuất...</string>
   <string name="export_success">Đã xuất tất cả các mục vào tập tin \'adaway-export\' trên sdcard.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Đang kiểm tra cập nhật...</string>
   <string name="status_reverting">Đang đổi lại...</string>
   <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
   <string name="status_checking_subtitle">Đang kiểm tra cập nhật nếu có</string>
-  <string name="status_update_available">Đã có cập nhật</string>
+  <string name="status_update_available">Đã có bản cập nhật</string>
   <string name="status_update_available_subtitle">Đã có tập tin miền mới</string>
-  <string name="status_no_connection">Không có mạng</string>
-  <string name="status_no_connection_subtitle">Không có kết nối mạng</string>
+  <string name="status_no_connection">Không có kết nối mạng</string>
+  <string name="status_no_connection_subtitle">Không có sẵn kết nối mạng</string>
   <string name="status_download_fail">Không có nguồn nào</string>
   <string name="status_download_fail_subtitle_new">Không kết nối được tới bất cứ nguồn nào!</string>
   <string name="status_enabled">Đã bật</string>
@@ -95,11 +89,13 @@
   <string name="download_fail_title">Tải về thất bại</string>
   <string name="no_private_file">Không thể tạo tập tin riêng.</string>
   <string name="no_private_file_title">Tạo tập tin riêng thất bại</string>
+  <string name="enable_systemless_successful">Bạn đã kích hoạt chế độ systemless. việc khởi động lại android là cần thiết để thay đổi có hiệu lực. Bạn có muốn khởi động lại ? (Để tránh việc mất dữ liệu, Bảo đảm rằng không có ứng dụng đang sử dụng thẻ nhớ!)</string>
+  <string name="enable_systemless_successful_title">Kích hoạt thành công</string>
+  <string name="disable_systemless_successful">Bạn đã vô hiệu hóa chế độ systemless. việc khởi động lại android là cần thiết để thay đổi có hiệu lực. Bạn có muốn khởi động lại ? (Để tránh việc mất dữ liệu, Bảo đảm rằng không có ứng dụng đang sử dụng thẻ nhớ!)</string>
+  <string name="disable_systemless_successful_title">Vô hiệu hóa thành công</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Không tìm thấy tập tin chạy su hoặc bạn không trao quyền root cho AdAway.\n\nĐiều này có thể xảy ra khi thiết bị chưa được root.\nBạn có thể tìm thông tin về cách root máy tại wiki.lineageos.org hay các web khác cho Android.</string>
+  <string name="no_root_description">Không tìm thấy tập tin su hoặc bạn không trao quyền root cho AdAway.\n\nĐiều này có thể xảy ra khi thiết bị chưa được root.\nBạn có thể tìm thông tin về cách root máy tại wiki.lineageos.org hoặc ở các trang web về Android khác.</string>
   <string name="no_root_title">Yêu cầu Android đã root</string>
-  <string name="no_url">URL không hợp lệ!</string>
-  <string name="no_url_title">Định dạng URL không đúng</string>
   <string name="hosts_add_dialog">Nhập URL vào tập tin miền:</string>
   <string name="no_hostname">Tên miền không hợp lệ!</string>
   <string name="no_hostname_title">Định dạng tên miền không đúng</string>
@@ -131,13 +127,12 @@
     <item>8 Euro</item>
     <item>13 Euro</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Tại đây bạn có thể quét các ứng dụng kèm quảng cáo khó chịu mà AdAway không thể chặn. Chúng sử dụng các phần mềm thông báo như Airpush chẳng hạn để hiển thị quảng cáo ngay cả khi ứng dụng không chạy, hay thậm chí đổi nhạc chuông của máy. Biện pháp duy nhất là gỡ bỏ chúng bằng cách chọn từ danh sách!</string>
-  <string name="adware_empty">Không tìm thấy ứng dụng kèm quảng cáo nào!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Cục bộ:</string>
   <string name="hosts_last_modified_online">Trực tuyến:</string>
   <string name="hosts_not_available">không có sẵn</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Ứng dụng chặn quảng cáo</string>
   <string name="no_text_editor_title">Chưa cài trình sửa văn bản</string>
@@ -145,14 +140,8 @@
   <string name="no_file_manager_title">Chưa cài trình quản lý tập tin</string>
   <string name="no_file_manager">Không tìm thấy trình quản lý để mở tập tin. Bạn có thể cài OI File Manager hoặc các trình quản lý khác.\n\nBạn có muốn cài OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Đã xoá tập tin nhật ký!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Đã thêm tên miền vào Danh sách đen!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Đã thêm tên miền vào Danh sách trắng!</string>
-  <string name="tcpdump_log_context_blacklist">Thêm vào Danh sách đen</string>
-  <string name="tcpdump_log_context_whitelist">Thêm vào Danh sách trắng</string>
-  <string name="tcpdump_log_context_browser">Mở trong trình duyệt</string>
-  <string name="tcpdump_log_empty">Tập tin nhật ký rỗng!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump là công cụ giám sát các yêu cầu DNS và lưu chúng vào tập tin nhật ký. Bạn có thể khởi động nó trong chế độ nền, chạy các ứng dụng có quảng cáo và sau đó phân tích yêu cầu DNS qua tập tin nhật ký. Máy chủ quảng cáo nhận được sẽ bị đưa vào danh sách đen.</string>
+  <!--Preferences-->
   <string name="pref_download">Tuỳ chỉnh tổng quát</string>
   <string name="pref_hosts">Tập tin miền</string>
   <string name="pref_redirection_ip">Chuyển hướng IP</string>
@@ -188,11 +177,17 @@
   <string name="pref_update_only_on_wifi_summary">Chỉ tiến hành cập nhật ở chế độ nền khi có kết nối wifi.</string>
   <string name="pref_whitelist_rules">Cho phép tạo danh sách trắng</string>
   <string name="pref_whitelist_rules_summary">Cho phép các mục trong danh sách trắng từ Các nguồn tên miền.</string>
-  <string name="pref_redirection_rules">Cho phép chuyển hướng</string>
   <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! Cho phép các mục điều hướng từ Các nguồn tên miền.</string>
   <string name="pref_debug">Dò lỗi</string>
   <string name="pref_enable_debug">Nhật ký dò lỗi</string>
   <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
   <string name="pref_enable_ipv6">Bật IPv6</string>
   <string name="pref_enable_ipv6_summary">Tất cả các mục tập tin miền đều sẽ nhận được một mục ::1 (miền cục bộ IPv6) tương ứng.</string>
+  <string name="pref_enable_systemless_summary">Ngăn AdAway khỏi chỉnh sửa phân vùng hệ thống</string>
+  <string name="pref_enable_systemless">kích hoạt chế độ systemless</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Tuỳ chỉnh</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Đã có bản cập nhật</string>
 </resources>

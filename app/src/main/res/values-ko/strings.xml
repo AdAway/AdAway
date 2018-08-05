@@ -1,97 +1,123 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">종료</string>
-  <string name="button_apply">파일 다운로드 및 적용</string>
+  <string name="button_apply">파일 다운로드 및 광고 차단 적용</string>
   <string name="button_close">닫기</string>
   <string name="button_yes">예</string>
   <string name="button_no">아니오</string>
-  <string name="button_revert">광고차단 사용안함</string>
+  <string name="button_revert">광고 차단 비활성화</string>
   <string name="button_add">추가</string>
   <string name="button_cancel">취소</string>
-  <string name="button_revert_text">Restores the default hosts file on your system.</string>
+  <string name="button_revert_text">시스템의 기본 호스트 파일을 복원합니다.</string>
   <string name="button_save">저장</string>
-  <string name="button_webserver_toggle_checked">웹서버 실행중</string>
-  <string name="button_webserver_toggle_unchecked">웹서버 미실행중</string>
-  <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
+  <string name="button_webserver_toggle_checked">웹서버 실행 중</string>
+  <string name="button_webserver_toggle_unchecked">웹서버 미실행 중</string>
+  <string name="button_webserver_toggle_text">로컬호스트의 웹서버를 시작 또는 중지하여 차단된 호스트명의 요청에 응답합니다.</string>
   <string name="button_help">도움말</string>
+  <!--Home-->
+  <string name="text_update">지정한 소스의 모든 호스트 파일이 사용자 목록과 다운로드 및 병합되었고 시스템에 하나의 호스트 파일로 설치되었습니다.</string>
+  <string name="button_check_update_hosts">업데이트 확인</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">추가</string>
-  <string name="checkbox_list_empty">빈 목록</string>
-  <string name="checkbox_list_empty_text">메뉴에 항목을 추가할수 없습니다.</string>
+  <string name="checkbox_list_empty">목록 비우기</string>
   <string name="checkbox_list_context_delete">삭제</string>
   <string name="checkbox_list_footer">AdAway 를 재시작해야 새롭게 추가한 항목이 적용됩니다!</string>
-  <string name="checkbox_list_edit_dialog_title">수정</string>
-  <string name="checkbox_list_context_title">항목수정</string>
-  <string name="checkbox_list_context_edit">수정</string>
-  <!--Your Lists-->
-  <string name="lists_tab_whitelist">허용리스트</string>
-  <string name="lists_tab_blacklist">차단리스트</string>
-  <string name="list_dialog_url">URL:</string>
+  <string name="checkbox_list_edit_dialog_title">편집</string>
+  <string name="checkbox_list_context_title">항목 편집</string>
+  <string name="checkbox_list_context_edit">편집</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">허용 목록</string>
+  <string name="lists_tab_blacklist">차단 목록</string>
   <string name="list_dialog_hostname">호스트명:</string>
-  <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
-  <string name="import_dialog">가져오는중...</string>
-  <string name="export_dialog">내보내는중...</string>
-  <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
+  <string name="list_dialog_ip">IP (IPv4 또는 IPv6):</string>
+  <string name="import_dialog">가져오는 중...</string>
+  <string name="export_dialog">내보내는 중...</string>
+  <string name="export_success">모든 입력 내용을 SD카드의 \'adaway-export\'로 내보냈습니다.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
-  <string name="status_checking">업데이트 확인중...</string>
-  <string name="status_reverting">되돌리는중...</string>
-  <string name="status_reverting_subtitle">표준 호스트파일 생성</string>
-  <string name="status_checking_subtitle">업데이트 가능한지 확인중</string>
+  <string name="status_checking">업데이트 확인 중...</string>
+  <string name="status_reverting">되돌리는 중...</string>
+  <string name="status_reverting_subtitle">표준 호스트 파일 생성 중</string>
+  <string name="status_checking_subtitle">업데이트 가능 여부 확인 중</string>
   <string name="status_update_available">업데이트 가능</string>
-  <string name="status_update_available_subtitle">최신 호스트파일 사용가능</string>
+  <string name="status_update_available_subtitle">최신 호스트 파일 사용 가능</string>
   <string name="status_no_connection">인터넷 연결 안됨</string>
-  <string name="status_no_connection_subtitle">인터넷이 사용가능하지 않습니다</string>
+  <string name="status_no_connection_subtitle">사용 가능한 인터넷 연결이 없음</string>
   <string name="status_download_fail">사용할수없는 소스</string>
-  <string name="status_enabled">광고차단 적용됨</string>
-  <string name="status_enabled_subtitle">최신 호스트파일 적용됨</string>
-  <string name="status_disabled">광고차단 미적용됨</string>
-  <string name="status_disabled_subtitle">광고차단 미적용됨</string>
+  <string name="status_download_fail_subtitle_new">접근 가능한 호스트 소스가 없습니다!</string>
+  <string name="status_enabled">활성화됨</string>
+  <string name="status_enabled_subtitle">최신 호스트 파일이 활성화됨</string>
+  <string name="status_disabled">비활성화됨</string>
+  <string name="status_disabled_subtitle">비활성화됨</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing_title">심링크 없음</string>
-  <string name="apply_not_enough_space_title">남은공간 없음</string>
+  <string name="apply_symlink_missing">대상에서 /system/etc/host으로 연결되는 심링크가 존재하지 않거나 올바르지 않습니다! 올바른 파일을 가르키지 않을 경우 AdAway가 작동하지 않습니다.\n\n심링크 생성을 시도하시겠습니까?</string>
+  <string name="apply_symlink_missing_title">심링크가 누락됨</string>
+  <string name="apply_not_enough_space">파티션에 공간이 부족합니다!\n환경 설정에서 대상 호스트 파일을 /data/data/hosts로 변경해보십시오.</string>
+  <string name="apply_not_enough_space_title">공간 부족</string>
   <string name="apply_private_file_fail">다운로드한 파일을 읽을 수 없습니다.</string>
-  <string name="apply_private_file_fail_title">개인파일 적용실패</string>
-  <string name="apply_remount_fail">Remounting the partition as read/write failed!</string>
+  <string name="apply_private_file_fail_title">개인 파일 적용실패</string>
+  <string name="apply_remount_fail">읽기/쓰기 가능한 파티션으로 재장착에 실패함!</string>
   <string name="apply_remount_fail_title">재장착 실패</string>
-  <string name="apply_copy_fail">호스트파일 복사가 실패 하였습니다!</string>
-  <string name="apply_copy_fail_title">복사 실패</string>
+  <string name="apply_copy_fail">호스트 파일 복사에 실패하였습니다!</string>
+  <string name="apply_copy_fail_title">복사에 실패함</string>
+  <string name="apply_success_subtitle">호스트 소스 적용함:</string>
   <string name="apply_success_title">적용 성공</string>
+  <string name="apply_success_dialog">성공적으로 적용하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
+  <string name="apply_symlink_successful">심링크를 성공적으로 생성하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
   <string name="apply_symlink_successful_title">심링크 생성 성공</string>
-  <string name="apply_symlink_fail_title">심링크 생성실패</string>
-  <string name="apply_help">Please read Help for more information.</string>
+  <string name="apply_symlink_fail">안드로이드가 심링크를 생성하지 못하였습니다.\n이것은 대부분 HTC 전화기의 S-ON이라 불리는 \'기능\'이 원인입니다.\n\n해결을 위해 전화기를 복구 모드로 부팅한 후 \'ln -s /data/data/hosts /system/etc/hosts\'(으)로 심링크를 생성하십시오.\n\n이 방법이 작동하지 않을 경우 인터넷에서 S-OFF 및 전화기 기종을 검색하십시오.</string>
+  <string name="apply_symlink_fail_title">심링크 생성 실패</string>
+  <string name="apply_help">더 많은 정보는 도움말을 참조해주세요.</string>
+  <string name="apply_apn_proxy">안드로이드에 APN 프록시가 설정되어 있습니다!\nAdAway는 3G와 같은 모바일 네트워크 상에서 안정적으로 작동하지 않습니다. 선택한 APN(안드로이드 4: 무선 및 네트워크&gt; 더 보기… -&gt; 모바일 네트워크 -&gt; 액세스 포인트 네임)으로 이동하여 프록시 입력란의 값을 제거함으로 해당 프록시를 비활성화할 수 있습니다.</string>
+  <string name="apply_apn_proxy_title">APN 프록시가 설정됨!</string>
   <string name="no_connection">인터넷에 연결되지않아 작동하지않습니다</string>
-  <string name="no_connection_title">연결되지않음</string>
-  <string name="download_dialog">다운로드중...</string>
-  <string name="apply_dialog">적용중...</string>
-  <string name="apply_dialog_lists">허용리스트 와 차단리스트 적용중</string>
-  <string name="apply_dialog_hostnames">호스트파일 구문분석 및 병합</string>
-  <string name="apply_dialog_hosts">호스트파일 생성중</string>
-  <string name="apply_dialog_apply">호스트파일 적용중</string>
-  <string name="apply_fail_title">적용 실패</string>
+  <string name="no_connection_title">연결 끊김</string>
+  <string name="download_dialog">다운로드 중...</string>
+  <string name="apply_dialog">적용 중...</string>
+  <string name="apply_dialog_lists">허용 목록 및 차단 목록 적용 중</string>
+  <string name="apply_dialog_hostnames">호스트 파일 구문 분석 및 병합 중</string>
+  <string name="apply_dialog_hosts">호스트 파일 생성 중</string>
+  <string name="apply_dialog_apply">호스트 파일 적용 중</string>
+  <string name="apply_fail">시스템에 호스트 파일 적용하는데 실패하였습니다!\n환경 설정에서 대상 호스트 파일을 /data/data/hosts(으)로 변경해보십시오.</string>
+  <string name="apply_fail_title">적용에 실패함</string>
+  <string name="revert_successful">기본 호스트 파일로 되돌렸습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
   <string name="revert_successful_title">되돌리기 성공</string>
-  <string name="revert_problem">알수없는 이유로 되돌리기 실패하였습니다</string>
-  <string name="revert_problem_title">되돌리기 실패</string>
-  <string name="download_fail_title">다운로드 실패</string>
-  <string name="no_private_file">개인파일을 만들수 없습니다.</string>
-  <string name="no_private_file_title">개인파일 생성실패</string>
+  <string name="revert_problem">알 수 없는 이유로 되돌리기에 실패하였습니다</string>
+  <string name="revert_problem_title">되돌리기에 실패함!</string>
+  <string name="download_fail_dialog">활성화된 호스트 소스 중 어느 하나도 연결할 수 없습니다! 인터넷에 제대로 연결되어 있습니까?</string>
+  <string name="download_fail_title">다운로드에 실패함</string>
+  <string name="no_private_file">개인 파일을 생성할 수 없습니다.</string>
+  <string name="no_private_file_title">개인 파일  생성에 실패함</string>
+  <string name="enable_systemless_successful">Systemless 모드를 활성화하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
+  <string name="enable_systemless_successful_title">활성화 성공</string>
+  <string name="disable_systemless_successful">Systemless 모드를 비활성화하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
+  <string name="disable_systemless_successful_title">비활성화 성공</string>
   <!--Other Dialogs-->
-  <string name="no_root_title">루팅필수</string>
-  <string name="no_url">이것은 올바른 URL이 아닙니다!</string>
-  <string name="hosts_add_dialog">호스트파일에 URL 입력:</string>
-  <string name="no_hostname">잘못된 호스트명 입니다!</string>
+  <string name="no_root_title">루팅 필수</string>
+  <string name="hosts_add_dialog">호스트 파일에 URL 입력:</string>
+  <string name="no_hostname">이것은 잘못된 호스트명입니다!</string>
+  <string name="no_hostname_title">부적절한 형식의 호스트명</string>
   <string name="no_ip">이것은 올바른 IP가 아닙니다!</string>
+  <string name="no_ip_title">부적절한 형식의 IP</string>
   <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
+  <string name="loading">불러오는 중...</string>
   <!--Menu entries-->
-  <string name="menu_refresh">새로고침</string>
+  <string name="menu_refresh">새로 고침</string>
   <string name="menu_add">추가</string>
   <string name="menu_hosts_sources">호스트 소스</string>
   <string name="menu_help">도움말</string>
-  <string name="menu_import">전체리스트 가져오기</string>
-  <string name="menu_export">전체리스트 내보내기</string>
+  <string name="menu_import">전체 목록 가져오기</string>
+  <string name="menu_export">전체 목록 내보내기</string>
   <!--Help-->
+  <string name="help_tab_about">앱 정보</string>
+  <string name="help_tab_donate">기부</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">문제</string>
+  <string name="help_tab_changelog">변경사항</string>
+  <string name="help_about_version">버전:</string>
+  <string name="help_donation_paypal_item">AdAway 기부</string>
   <string-array name="help_donation_google_catalog_values">
     <item>1 Euro</item>
     <item>2 Euros</item>
@@ -100,14 +126,67 @@
     <item>8 Euros</item>
     <item>13 Euros</item>
   </string-array>
-  <!--Scan Adware-->
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">로컬:</string>
   <string name="hosts_last_modified_online">온라인:</string>
+  <string name="hosts_not_available">사용 불가</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
-  <string name="app_subtitle">광고차단</string>
+  <string name="app_subtitle">광고 차단 도구</string>
   <string name="no_text_editor_title">No text editor installed</string>
+  <string name="no_text_editor">호스트 파일을 열기 위한 텍스트 편집기를 발견하지 못하였습니다. Jota 또는 기타 텍스트 편집기를 설치하여 이를 처리할 수 있습니다.\n\nJota를 설치하시겠습니까?</string>
   <string name="no_file_manager_title">No file manager installed</string>
+  <string name="no_file_manager">파일을 열기 위한 파일 관리자를 발견하지 못했습니다. OI 파일 관리자 또는 기타 파일 관리자를 설치하여 이를 처리할 수 있습니다.\n\nOI 파일 관리자를 설치하시겠습니까?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_description">Tcpdump는 DNS 요청을 감시하고 로그 파일에 저장하는 도구입니다. 배경에서 시작할 수 있고, 광고를 표시하는 앱을 실행할 수 있으며, 추후 로그 파일을 이용하여 DNS 요청을 분석할 수 있습니다. 그런 다음 의심스러운 광고 서버를 차단 목록에 추가할 수 있습니다.</string>
   <!--Preferences-->
+  <string name="pref_download">일반 환경 설정</string>
+  <string name="pref_hosts">호스트 파일</string>
+  <string name="pref_redirection_ip">리디렉션 IP</string>
+  <string name="pref_update_check">업데이트 확인</string>
+  <string name="pref_apply_method">대상 호스트 파일</string>
+  <string name="pref_apply_method_summary">이 설정을 변경하기 전에, 이 기능에 대한 도움말을 참조하십시오.</string>
+  <string name="pref_redirection_ip_summary">모든 차단된 호스트명은 이 IP 주소로 리디렉션 됩니다.</string>
+  <string name="pref_header_preferences">환경 설정</string>
+  <string name="pref_header_preferences_summary">AdAway의 일반 환경 설정</string>
+  <string name="pref_never_reboot">재부팅 메뉴 숨기기</string>
+  <string name="pref_never_reboot_summary">성공적인 적용 후 안드로이드 재부팅을 요청하는 대화창 숨기기</string>
+  <string name="pref_webserver_on_boot">부팅 시 웹서버 시작</string>
+  <string name="pref_webserver_on_boot_summary">부팅 시 웹서버 시작, 로컬 IP 주소 수신 대기</string>
+  <string name="pref_webserver_enabled">웹서버 활성화</string>
+  <string name="pref_webserver_enabled_summary">로컬 IP 주소에 대한 웹서버 수신 대기를 활성화하여 차단된 호스트명의 요청을 응답함</string>
+  <string name="pref_webserver">로컬 웹서버</string>
+  <string name="pref_custom_target">사용자 지정 대상</string>
+  <string name="pref_custom_target_summary">대상 호스트 파일이 사용자 지정 대상으로 설정되었을 경우에만 사용됨</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>사용자 지정 대상</item>
+  </string-array>
+  <string name="pref_update_check_summary">AdAway 시작 시 업데이트 확인</string>
+  <string name="pref_sdcard_problem">AdAway가 SD카드에 설치된 경우 해당 기능이 올바르게 작동하지 않습니다!</string>
+  <string name="pref_background">배경 서비스</string>
+  <string name="pref_update_check_daily">매일 업데이트 확인</string>
+  <string name="pref_update_check_daily_summary">알림을 포함하여 배경에서 매일 업데이트 확인</string>
+  <string name="pref_automatic_update_daily">자동 업데이트</string>
+  <string name="pref_automatic_update_daily_summary">업데이트가 가능한 경우 배경에서 자동 업데이트</string>
+  <string name="pref_update_only_on_wifi">와이파이 연결 상태에서만 업데이트</string>
+  <string name="pref_update_only_on_wifi_summary">와이파이 네트워크 연결 시에만 배경 업데이트 실행</string>
+  <string name="pref_whitelist_rules">허용 목록 기능 허용</string>
+  <string name="pref_whitelist_rules_summary">호스트 소스에서 허용 목록 입력 허용</string>
+  <string name="pref_redirection_rules_summary">보안 상의 위험을 초래함! 호스트 소스에서 리디렉션 입력 허용하십시오.</string>
+  <string name="pref_debug">디버깅</string>
+  <string name="pref_enable_debug">로그 디버깅</string>
+  <string name="pref_enable_debug_summary">해당 변경 사항을 적용하려면 AdAway를 재시작해야 합니다.</string>
+  <string name="pref_enable_ipv6">IPv6 활성화</string>
+  <string name="pref_enable_ipv6_summary">모든 호스트 파일의 입력 내용은 이에 해당하는 ::1 (IPv6 로컬호스트) 입력 내용을 얻습니다.</string>
+  <string name="pref_enable_systemless_summary">AdAway의 시스템 파티션 수정 방지</string>
+  <string name="pref_enable_systemless">Systemless 모드 활성화</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">환경 설정</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">업데이트 가능</string>
 </resources>

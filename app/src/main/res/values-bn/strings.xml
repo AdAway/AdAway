@@ -1,16 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">অ্যাডঅ্যাওয়ে</string>
   <!--Buttons-->
+  <string name="button_exit">এক্সিট</string>
+  <string name="button_close">বন্ধ</string>
+  <!--Home-->
   <!--Checkbox List-->
-  <!--Your Lists-->
+  <string name="checkbox_list_context_delete">মুছে ফেলুন</string>
+  <!--Your lists-->
+  <!--Hosts content-->
   <!--Status Notifications-->
+  <string name="status_checking">আপডেটের জন্য চেক করা হচ্ছে...</string>
+  <string name="status_reverting">প্রত্যাবর্তন করা হচ্ছে...</string>
+  <string name="status_update_available">আপডেট উপলব্ধ</string>
+  <string name="status_no_connection">ইন্টারনেট সংযোগ নেই</string>
+  <string name="status_no_connection_subtitle">কোন ইন্টারনেট সংযোগ উপলব্ধ নেই</string>
   <!--Apply and Revert Dialogs-->
   <!--Other Dialogs-->
   <!--Menu entries-->
   <!--Help-->
-  <!--Scan Adware-->
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <!--Other-->
   <!--Tcpdump-->
   <!--Preferences-->
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">আপডেট উপলব্ধ</string>
 </resources>

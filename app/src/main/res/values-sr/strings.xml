@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Webserver ne radi</string>
   <string name="button_webserver_toggle_text">Pokreni ili zaustavi lokalni webserverda odgovoriš na zahteve za blokiranim sajtovima</string>
   <string name="button_help">Pomoć</string>
-  <string name="tcpdump_description">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump radi!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump ne radi!</string>
-  <string name="tcpdump_show_results">Otvori log fajl</string>
-  <string name="tcpdump_clear_results">Ukloni log fajl</string>
+  <!--Home-->
+  <string name="text_update">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
+  <string name="button_check_update_hosts">Proveri nove verzije</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Dodaj</string>
   <string name="checkbox_list_empty">Prazna lista</string>
-  <string name="checkbox_list_empty_text">Možete dodati stavke sa action bar-a.</string>
   <string name="checkbox_list_context_delete">Ukloni</string>
   <string name="checkbox_list_footer">Posle dodavanja novih stavki na ovu listu morate da primenite AdAway ponovo!</string>
   <string name="checkbox_list_edit_dialog_title">Uredi</string>
   <string name="checkbox_list_context_title">Uredi ulazak</string>
   <string name="checkbox_list_context_edit">Uredi</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Bela lista</string>
   <string name="lists_tab_blacklist">Crna lista</string>
-  <string name="lists_tab_redirection_list">Lista Redirekcija</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Hostname:</string>
-  <string name="list_dialog_whitelist_hostname">Stranica:\n(Zamenski karakteri * i ? su dozvoljeni)</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="import_dialog">Uvoz…</string>
   <string name="export_dialog">Izvoz...</string>
   <string name="export_success">Svi unosi su izvučeni na sd karticu u fajl koji se zove \'adaway-export\'</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Provera ažuriranja...</string>
   <string name="status_reverting">Vraćanje...</string>
@@ -95,13 +89,13 @@
   <string name="download_fail_title">Preuzimanje neuspešno</string>
   <string name="no_private_file">Privatni falj ne može biti kreiran.</string>
   <string name="no_private_file_title">Neuspešno kreiranje privatnog fajla</string>
+  <string name="enable_systemless_successful">Omogućili ste systemless režim.\nMožda je potrebno ponovo pokrenuti Android da bi se promene izvršile.\nDa li želite ponovo pokrenuti sistem?\n(Da biste sprečili gubitak podataka proverite da nijedna aplikacija ne koristi SD karticu!) </string>
+  <string name="enable_systemless_successful_title">Omogućavanje je uspelo.</string>
   <string name="disable_systemless_successful">Onemogućili ste systemless režim.\nMožda morate ponovno da pokrenete Android da bi promene stupile na snagu.\n\Želite li da ponovo pokrenute Android?\n(Da biste sprečili gubitak podataka uverite se da nijedna aplikacija trenutno ne koristi SD karticu!)</string>
   <string name="disable_systemless_successful_title">Onemogućavanje je uspelo</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Nije moguće pronaći \\"su\\" izvršnu datoteku ili za AdAway niste dozvolili root privilegije.\n\n Ovo se događa kada na vašem telefonu nisu omogućene root privilegije. \n Kako omogućiti root na Vašem telefonu pogledajte na wiki.lineageos.org ili na drugim Android web stranicama.</string>
+  <string name="no_root_description">Nije moguće pronaći \\"su\\" izvršnu datoteku ili niste omogućili root privilegije za AdAway.\n\n Ovo se događa kada vaš uređaj nije rutovan. \n Kako omogućiti root na Vašem uređaju pogledajte na wiki.lineageos.org ili na drugim Android veb stranicama.</string>
   <string name="no_root_title">Neophodan Root-ovan Android</string>
-  <string name="no_url">Ovo nije važeći URL!</string>
-  <string name="no_url_title">Nije dobro formiran URL</string>
   <string name="hosts_add_dialog">Ulazni URL do host-ovih fajlova</string>
   <string name="no_hostname">Ovo nije važeći hostname!</string>
   <string name="no_hostname_title">Nije dobro formirano ime hosta</string>
@@ -133,13 +127,12 @@
     <item>8 Evra</item>
     <item>13 Evra</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Ovdje možete pokrenuti potragu za zloćudnim aplikacaijama koje AdAway ne može blokirati. Te aplikacije koriste, na primer, Airpush obaveštenja koje se pojavljuju i kada aplikacija nije pokrenuta, a čak znaju promeniti i zvuk Vašeg zvona. Jedina protivmera koju možete preduzeti jeste deinstalirati te aplikacije klikom na spisak stavki.</string>
-  <string name="adware_empty">Nisu pronađene aplikacije sa lošim Adware-ima!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalno:</string>
   <string name="hosts_last_modified_online">Sa interneta;</string>
-  <string name="hosts_not_available">nije dostupo</string>
+  <string name="hosts_not_available">nije dostupno</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Ad Blocker</string>
   <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
@@ -147,14 +140,8 @@
   <string name="no_file_manager_title">Nije instaliran fajl menadžer</string>
   <string name="no_file_manager">Nije moguće pronaći menađžer datoteka za otvaranje datoteka. Možete instalirati OI File Manager-a ili drugi menađžer datoteka.\n\n Želite li da instalirate OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Log fajl je obrisan!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Host je dodat u crnu listu!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Host je dodat u belu listu!</string>
-  <string name="tcpdump_log_context_blacklist">Dodaj u crnu listu</string>
-  <string name="tcpdump_log_context_whitelist">Dodaj u belu listu</string>
-  <string name="tcpdump_log_context_browser">Otvori u pretraživaču</string>
-  <string name="tcpdump_log_empty">Log fajl je prazan!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
+  <!--Preferences-->
   <string name="pref_download">Opšta Podešavanja</string>
   <string name="pref_hosts">Hosts Fajl</string>
   <string name="pref_redirection_ip">IP adresa za redirekciju</string>
@@ -190,13 +177,17 @@
   <string name="pref_update_only_on_wifi_summary">Pokreni ažuriranja u pozadini samo kada je povezan na Wi-Fi mrežu.</string>
   <string name="pref_whitelist_rules">Dozvoli belu listu</string>
   <string name="pref_whitelist_rules_summary">Dopušta stavke sa bele liste sa izvora hostova.</string>
-  <string name="pref_redirection_rules">Dozvoli preusmeravanje</string>
   <string name="pref_redirection_rules_summary">PREDSTAVLJA BEZBEDNOSNI RIZIK! Dopušta preusmerene stavke sa izvora hostova.</string>
   <string name="pref_debug">Otklanjanje grešaka</string>
   <string name="pref_enable_debug">Evidencija otklanjanja grešaka</string>
   <string name="pref_enable_debug_summary">Morate ponovno pokrenuti AdAway da bi ovo podešavanje bilo primenjeno.</string>
   <string name="pref_enable_ipv6">Omogući IPv6</string>
   <string name="pref_enable_ipv6_summary">Sve stavke host datoteka će dobiti odgovarajući ::1 (IPv6 localhost) unos.</string>
-  <string name="pref_enable_systemless_summary">Spreči da AdAway modifikuje sistemsku particiju (neophodan je systemless SuperSU za automatsku instalaciju)</string>
+  <string name="pref_enable_systemless_summary">Onemogući AdAway da modifikuje sistemsku particiju.</string>
   <string name="pref_enable_systemless">Omogući systemless režim</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Podešavanja</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Ažuriranje dostupno</string>
 </resources>

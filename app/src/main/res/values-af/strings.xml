@@ -16,30 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Webbediener is af</string>
   <string name="button_webserver_toggle_text">Begin of stop webbediener op plaaslike gasheer om antwoorde te verskaf tov. geblokkeerde gasheer name. </string>
   <string name="button_help">Help</string>
-  <string name="tcpdump_description">Tcpdump is \'n hulpmiddel om DNS versoeke te moniteer en in \'n Log lêer te stoor. Jy kan dit in die agtergrond begin, gebruik dan programme wat advertensie vertoon en ontleed die DNS dan na die tyd, deur die log lêer te gebruik. Moontlike advertensie bedieners kan dan na die tyd by jou swartlys gevoeg word.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump is aktief!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump is onaktief!</string>
-  <string name="tcpdump_show_results">Maak log lêer oop</string>
-  <string name="tcpdump_clear_results">Vee log lêer uit</string>
+  <!--Home-->
+  <string name="text_update">Alle gas lêers van die omskrewe bronne word afgelaai, en geïntegreer met jou eie lys en dan as een lys geinstalleer in jou sisteem. </string>
+  <string name="button_check_update_hosts">Kyk vir opdaterings</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Voeg by</string>
   <string name="checkbox_list_empty">Le lys</string>
-  <string name="checkbox_list_empty_text">Voeg items by vanaf aksie balk.</string>
   <string name="checkbox_list_context_delete">Vee uit</string>
   <string name="checkbox_list_footer">Nadat nuwe items by hierdie lys  gevoeg is moet AdAway weer begin word!</string>
   <string name="checkbox_list_edit_dialog_title">Redigeer</string>
   <string name="checkbox_list_context_title">Redigeer Inskrywing</string>
   <string name="checkbox_list_context_edit">Redigeer</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Witlys</string>
   <string name="lists_tab_blacklist">Swartlys</string>
-  <string name="lists_tab_redirection_list">Aanstuur Lys</string>
-  <string name="list_dialog_url">BA:</string>
   <string name="list_dialog_hostname">Gasheer naam:</string>
   <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
   <string name="import_dialog">Besig met invoering...</string>
   <string name="export_dialog">Besig met Uitvoer...</string>
   <string name="export_success">Alle inskrywings uitgevoer na \'adaway-uitvoer\' op sdkaart</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Soek vir opdatering...</string>
   <string name="status_reverting">Keer terug...</string>
@@ -88,8 +83,6 @@
   <string name="no_private_file_title">Skep van Privaat Lêer het misluk</string>
   <!--Other Dialogs-->
   <string name="no_root_title">Kern beskikbare (rooted) Android benodig</string>
-  <string name="no_url">Hierdie is nie \'n geldige BA nie!</string>
-  <string name="no_url_title">Foutief geformateerde URL </string>
   <string name="hosts_add_dialog">Voeg BA by gas lêer:</string>
   <string name="no_hostname">Hierdie is nie \'n geldige gasheer naam nie!</string>
   <string name="no_hostname_title">Foutief geformateerde gasheernaam</string>
@@ -121,26 +114,19 @@
     <item>8 Euros</item>
     <item>13 Euros</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Hier kan jy vir slegte advertensies skandeer wat nie deur AdAway geblokkeer kan word nie. Hierdie programmes gebruik bv. Airpush kennisgewings wat verskyn al sou die program nie aktief wees nie of self jou luitoon verander. Die enigste oplossing is om daardie programme te verwyder duer op die lys items te klik!</string>
-  <string name="adware_empty">Geen slegte Advertensie programme gevind nie!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokaal:</string>
   <string name="hosts_last_modified_online">Aanlyn:</string>
   <string name="hosts_not_available">nie beskikbaar nie</string>
+  <string name="hosts_dialog_url">BA:</string>
   <!--Other-->
   <string name="app_subtitle">Ad Blokkeerder</string>
   <string name="no_text_editor_title">Geen teks redigeerder geïnstalleer nie </string>
   <string name="no_file_manager_title">Geen lêerbestuurder geinstalleer </string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Log lêer uitgevee!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Gasheer naam by Swartlys bygevoeg!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Gasheer naam by Witlys gevoeg!</string>
-  <string name="tcpdump_log_context_blacklist">Voeg by jou Swarlys</string>
-  <string name="tcpdump_log_context_whitelist">Voeg by jou Witlys</string>
-  <string name="tcpdump_log_context_browser">Maak oop in Blaaier</string>
-  <string name="tcpdump_log_empty">Log leêer is leeg!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump is \'n hulpmiddel om DNS versoeke te moniteer en in \'n Log lêer te stoor. Jy kan dit in die agtergrond begin, gebruik dan programme wat advertensie vertoon en ontleed die DNS dan na die tyd, deur die log lêer te gebruik. Moontlike advertensie bedieners kan dan na die tyd by jou swartlys gevoeg word.</string>
+  <!--Preferences-->
   <string name="pref_download">Algemene Voorkeure</string>
   <string name="pref_hosts">Gasheer Lêer</string>
   <string name="pref_redirection_ip">Herlei IP</string>
@@ -171,4 +157,9 @@
   <string name="pref_debug">Herstel foute</string>
   <string name="pref_enable_debug">Fout Aantekening</string>
   <string name="pref_enable_debug_summary">Jy moet AdAway weer begin om hierdie instellings te implementeer.</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Voorkeure</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Opdatering beskikbaar</string>
 </resources>

@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Webbserver körs ej</string>
   <string name="button_webserver_toggle_text">Starta eller stoppa den lokala webbservern att besvara begäran till blockerade värdnamn.</string>
   <string name="button_help">Hjälp</string>
-  <string name="tcpdump_description">Tcpdump är ett verktyg för att övervaka DNS-förfrågningar och spara dem i en loggfil. Du kan starta det i bakgrunden, köra program som visar annonser, och efteråt analysera DNS-förfrågningarna med hjälp av loggfilen. Möjlig annonsserver kan då läggas till på din svartlista.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump körs!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump körs inte!</string>
-  <string name="tcpdump_show_results">Öppna loggfil</string>
-  <string name="tcpdump_clear_results">Radera loggfil</string>
+  <!--Home-->
+  <string name="text_update">Alla värdfiler från de förinställda källorna är hämtade, ihopslagna med dina egna listor och tillämpade som en värdfil på ditt system.</string>
+  <string name="button_check_update_hosts">Sök efter uppdateringar</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Lägg till</string>
   <string name="checkbox_list_empty">Tom lista</string>
-  <string name="checkbox_list_empty_text">Du kan lägga till saker från åtgärdsfältet.</string>
   <string name="checkbox_list_context_delete">Ta bort</string>
   <string name="checkbox_list_footer">Efter du har lagt till saker till listan måste du tillämpa AdAway igen!</string>
   <string name="checkbox_list_edit_dialog_title">Redigera</string>
   <string name="checkbox_list_context_title">Redigera post</string>
   <string name="checkbox_list_context_edit">Redigera</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Vitlista</string>
   <string name="lists_tab_blacklist">Svartlista</string>
-  <string name="lists_tab_redirection_list">Omdirigeringslista</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Värdnamn:</string>
-  <string name="list_dialog_whitelist_hostname">Värdnamn:\n(Joker-tecken * och ? är tillåtna!)</string>
   <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerar...</string>
   <string name="export_dialog">Exporterar...</string>
   <string name="export_success">Exporterade alla poster till en fil med namnet \"adaway-export\" på ditt SD-kort.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Letar efter uppdateringar...</string>
   <string name="status_reverting">Återställer...</string>
@@ -95,13 +89,13 @@
   <string name="download_fail_title">Hämtning misslyckades</string>
   <string name="no_private_file">Privat fil kan inte skapas</string>
   <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
+  <string name="enable_systemless_successful">Du har aktiverade systemlöst-läge.\nDet kan vara nödvändigt att starta om Android för att ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att förhindra förlust av data, försäkra dig om att ingen app använder SD-kortet just nu!)</string>
+  <string name="enable_systemless_successful_title">Aktivering lyckades</string>
   <string name="disable_systemless_successful">Du inaktiverade systemlöst läge. \nDet kan vara nödvändigt att starta om Android för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra förlust av data se till att ingen app använder sdkortet just nu!)</string>
   <string name="disable_systemless_successful_title">Inaktivering lyckades</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Antingen su binären kunde inte hittas eller så nekade du root åtkomst för AdAway.\n\nDet kan hända när din enhet är inte rootad.\nDu kan hitta information om hur du rootar din enhet i wiki.lineageos.org eller i andra Android hemsidor.</string>
+  <string name="no_root_description">Antingen så kunde binärfilen för su inte hittas eller så tillät du inte root-åtkomst för AdAway.\n\nDetta kan hända när din enhet inte är rootad.\nDu kan hitta mer information om hur du rootar din enhet på wiki.lineageos.org eller andra Android-hemsidor.</string>
   <string name="no_root_title">Rootad Android krävs</string>
-  <string name="no_url">Detta är ingen giltig URL!</string>
-  <string name="no_url_title">Felaktigt utformad URL</string>
   <string name="hosts_add_dialog">Importera URL till värdfil:</string>
   <string name="no_hostname">Detta är inget giltigt värdnamn!</string>
   <string name="no_hostname_title">Felaktigt utformat värdnamn</string>
@@ -133,13 +127,12 @@
     <item>8 Euro</item>
     <item>13 Euro</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Här kan du söka efter Adware-appar som inte AdAway kan blockera. Dessa appar använder till exempel så kallade Airpush-meddelanden som visas även om appen inte körs. Enda sättet att bli av med dem är att avinstallera apparna genom att klicka i listan!</string>
-  <string name="adware_empty">Inga Adware-appar kunde hittas!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">ej tillgänglig</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Annonsblockerare</string>
   <string name="no_text_editor_title">Ingen textredigerare installerad</string>
@@ -147,14 +140,8 @@
   <string name="no_file_manager_title">Ingen filhanterare installerad</string>
   <string name="no_file_manager">Ingen filhanterare kunde hittas för att öppna filer. Du kan installera OI File Manager eller andra filhanterare att hantera detta.\n\nVill du installera OI File Manager nu?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Loggfil raderad!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Värdnamn tillagt på svartlistan!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Värdnamn tillagt på vitlistan!</string>
-  <string name="tcpdump_log_context_blacklist">Lägg till på svartlistan</string>
-  <string name="tcpdump_log_context_whitelist">Lägg till på vitlistan</string>
-  <string name="tcpdump_log_context_browser">Öppna i webbläsare</string>
-  <string name="tcpdump_log_empty">Loggfilen är tom!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump är ett verktyg för att övervaka DNS-förfrågningar och spara dem i en loggfil. Du kan starta det i bakgrunden, köra program som visar annonser, och efteråt analysera DNS-förfrågningarna med hjälp av loggfilen. Möjlig annonsserver kan då läggas till på din svartlista.</string>
+  <!--Preferences-->
   <string name="pref_download">Allmänna inställningar</string>
   <string name="pref_hosts">Värdfil</string>
   <string name="pref_redirection_ip">Omdirigera IP</string>
@@ -190,7 +177,6 @@
   <string name="pref_update_only_on_wifi_summary">Starta endast bakgrundsuppdateringar om du är ansluten till ett WiFi-nätverk.</string>
   <string name="pref_whitelist_rules">Tillåt vitlistning</string>
   <string name="pref_whitelist_rules_summary">Tillåt vitlistningsposter från värdkällor.</string>
-  <string name="pref_redirection_rules">Tillåt omdirigeringar</string>
   <string name="pref_redirection_rules_summary">UTGER EN SÄKERHETSRISK! Tillåt omdirigeringsposter från värdkällor.</string>
   <string name="pref_debug">Felsökning</string>
   <string name="pref_enable_debug">Felsökningsloggning</string>
@@ -198,6 +184,11 @@
   <string name="pref_enable_ipv6">Aktivera ipv6
 </string>
   <string name="pref_enable_ipv6_summary">Alla värdfils poster kommer att få ett motsvarande ::1 (IPv6 localhost) post.</string>
-  <string name="pref_enable_systemless_summary">Förhindra AdAway från att ändra systempartitionen (kräver systemless SuperSU för automatisk installation)</string>
+  <string name="pref_enable_systemless_summary">Förhindra AdAway från att modifiera systempartitionen </string>
   <string name="pref_enable_systemless">Aktivera systemlöst läge</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Inställningar</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Uppdatering tillgänglig</string>
 </resources>

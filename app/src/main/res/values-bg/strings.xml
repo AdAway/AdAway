@@ -3,11 +3,11 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Изход</string>
-  <string name="button_apply">Изтегляне на файловете и прилагане блокирането на реклами</string>
+  <string name="button_apply">Изтегляне на файловете и блокиране на рекламите</string>
   <string name="button_close">Затвори</string>
   <string name="button_yes">Да</string>
   <string name="button_no">Не</string>
-  <string name="button_revert">Забраняване блокирането на реклами</string>
+  <string name="button_revert">Разрешаване на рекламите</string>
   <string name="button_add">Добавяне</string>
   <string name="button_cancel">Отказ</string>
   <string name="button_revert_text">Възстановява Hosts файла по подразбиране на вашата система.</string>
@@ -16,31 +16,50 @@
   <string name="button_webserver_toggle_unchecked">Уеб сървърът не работи</string>
   <string name="button_webserver_toggle_text">Стартиране или спиране на уеб сървъра на Localhost да отговаря на заявките към блокираните имена на хостове.</string>
   <string name="button_help">Помощ</string>
-  <string name="tcpdump_description">Tcpdump е инструмент за наблюдение на DNS заявките и записването им във файл. Можете да го стартирате във фонов режим, да стартирате приложения, които показват реклами, а след това да анализирате DNS заявките с помощта на този файл. Възможен рекламен сървър може да бъде добавен към вашия черен списък.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump работи!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump не работи!</string>
-  <string name="tcpdump_show_results">Отваряне на файла</string>
-  <string name="tcpdump_clear_results">Изтриване на файла</string>
+  <!--Home-->
+  <string name="header_help">Добре дошли!</string>
+  <string name="text_help">AdAway е безплатен софтуер с отворен код, създаден да блокира реклами. AdAway сваля рекламна мрежа и конфигурира устройството Ви да ги блокира.\nИскате да научите повече? Проверете помощта по-долу!</string>
+  <string name="button_show_help">Показване на още помощ</string>
+  <string name="icon_update_status">Актуализиране на състоянието</string>
+  <string name="text_update">Всички Hosts файлове от зададените източници се изтеглят, сливат се с вашите собствени списъци и се инсталират като един Hosts файл във вашата система.</string>
+  <string name="button_check_update_hosts">Проверка за актуализации</string>
+  <string name="button_update_hosts">Актуализиране на хостовете</string>
+  <string name="button_enable_hosts">Включване на блокиране на реклами</string>
+  <string name="button_disable_hosts">Изключване на блокиране на реклами</string>
+  <string name="header_webserver">Уеб сървър</string>
+  <string name="button_enable_webserver">Включване на уеб сървър</string>
+  <string name="button_disable_webserver">Изключване на уеб сървър</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Добавяне</string>
   <string name="checkbox_list_empty">Празен списък</string>
-  <string name="checkbox_list_empty_text">Можете да добавяте елементи от лентата за действия.</string>
+  <string name="checkbox_list_empty_text">Можете да добавяте елементи от бутона \"плюс\".</string>
   <string name="checkbox_list_context_delete">Изтриване</string>
   <string name="checkbox_list_footer">След добавянето на нови елементи в този списък, трябва да приложите AdAway отново!</string>
   <string name="checkbox_list_edit_dialog_title">Редактиране</string>
   <string name="checkbox_list_context_title">Редактиране</string>
   <string name="checkbox_list_context_edit">Редактиране</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Бял списък</string>
   <string name="lists_tab_blacklist">Черен списък</string>
-  <string name="lists_tab_redirection_list"> Списък с пренасочвания</string>
-  <string name="list_dialog_url">URL:</string>
+  <string name="lists_tab_redirection_list">Пренасочвания</string>
+  <string name="list_add_dialog_black">Добавяне на хост в черния списък</string>
+  <string name="list_add_dialog_white">Добавяне на хост в белия списък</string>
+  <string name="list_add_dialog_redirect">Добавяне на пренасочване на хост</string>
+  <string name="list_edit_dialog_black">Редактиране на хост от черния списък</string>
+  <string name="list_edit_dialog_white">Редактиране на хост от белия списък</string>
+  <string name="list_edit_dialog_redirect">Редактиране на пренасочване</string>
   <string name="list_dialog_hostname">Име на хост:</string>
-  <string name="list_dialog_whitelist_hostname">Име на хост:\n(Позволени са заместващи символи * и ?)</string>
+  <string name="list_dialog_hostname_hint">URL адрес на източника на хоста</string>
+  <string name="list_dialog_wildcard">(Двупосочните знаци * и ? са позволени)</string>
   <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
   <string name="import_dialog">Внасяне...</string>
   <string name="export_dialog">Изнасяне...</string>
   <string name="export_success">Изнесени са всички записи във файл, наречен „adaway-export“ на вашата SD-карта.</string>
+  <string name="export_failed">Изнасянето на Вашия списък на картата памет се провали.</string>
+  <!--Hosts content-->
+  <string name="hosts_header">Файлът за хостовете</string>
+  <string name="hosts_description">Хост файлът е системен файл, който съпоставя имена на хостове към IP адреси. Той е обикновен текстови файл, конфигурацията на който се обработва от AdAway. Ето първите няколко реда:</string>
+  <string name="hosts_content">Зареждане на съдържанието на хост файла...</string>
+  <string name="hosts_open_button">Отваряне на хост файл</string>
   <!--Status Notifications-->
   <string name="status_checking">Проверка за актуализация ...</string>
   <string name="status_reverting">Връщане...</string>
@@ -52,10 +71,10 @@
   <string name="status_no_connection_subtitle">Няма налична връзка с интернет</string>
   <string name="status_download_fail">Не са налични източници</string>
   <string name="status_download_fail_subtitle_new">Няма достъпни източници на hosts!</string>
-  <string name="status_enabled">Разрешен</string>
-  <string name="status_enabled_subtitle">Най-новите hosts файлове са разрешени</string>
-  <string name="status_disabled">Забранен</string>
-  <string name="status_disabled_subtitle">Забранен</string>
+  <string name="status_enabled">Активиран</string>
+  <string name="status_enabled_subtitle">Най-новите hosts файлове са активирани</string>
+  <string name="status_disabled">Деактивиран</string>
+  <string name="status_disabled_subtitle">Деактивиран</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Символичната връзка от вашата цел /system/etc/hosts не съществува или е неправилна! AdAway няма да работи, ако не е насочен към правилния файл.\n\nИскате ли да опитате да създадете символична връзка?</string>
   <string name="apply_symlink_missing_title">Липсва символична връзка</string>
@@ -63,13 +82,13 @@
   <string name="apply_not_enough_space_title">Няма достатъчно място</string>
   <string name="apply_private_file_fail">Изтегленият файл не може да бъде прочетен.</string>
   <string name="apply_private_file_fail_title">Неуспех с личен файл</string>
-  <string name="apply_remount_fail">Монтирането на дяловете за четене / запис не успя!</string>
+  <string name="apply_remount_fail">Неуспешно монтиране на дяла за четене / запис!</string>
   <string name="apply_remount_fail_title">Повторното монтиране се провали</string>
   <string name="apply_copy_fail">Копирането на hosts файла e неуспешно!</string>
   <string name="apply_copy_fail_title">Копирането е неуспешно</string>
-  <string name="apply_success_subtitle">Приложени хост източници:</string>
-  <string name="apply_success_title">Прилагането е успешно</string>
-  <string name="apply_success_dialog">Прилагането беше успешно.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате? \n(За да предотвратите загуба на данни, уверете се, че никое приложение в момента не използва SD-картата!)</string>
+  <string name="apply_success_subtitle">Активирани хост източници:</string>
+  <string name="apply_success_title">Активиран успешно</string>
+  <string name="apply_success_dialog">Успешно активиране.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате? \n(За да предотвратите загуба на данни, уверете се, че никое приложение в момента не използва SD-картата!)</string>
   <string name="apply_symlink_successful">Символичната връзка е създадена успешно.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загубата на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
   <string name="apply_symlink_successful_title">Създаването на символична връзка е успешно</string>
   <string name="apply_symlink_fail">Символичната връзка не може да бъде създадена от Android. nТова се дължи най-вече на „функция“, наречена S-ON при телефоните HTC!\n\nЕдно възможно решение е да заредите телефона си в режим на възстановяване и да създадете там символична връзка с „ln -s /data/data/hosts /system/etc/hosts“.\n\nАко това не работи, потърсете в Интернет за S-OFF и вашият телефон.</string>
@@ -82,11 +101,11 @@
   <string name="download_dialog">Изтегляне...</string>
   <string name="apply_dialog">Прилагане...</string>
   <string name="apply_dialog_lists">Прилагане на черния и белия списък</string>
-  <string name="apply_dialog_hostnames">Разбор и обединяване на Hosts файловете</string>
+  <string name="apply_dialog_hostnames">Анализ и обединяване на Hosts файловете</string>
   <string name="apply_dialog_hosts">Изграждане на Hosts файла</string>
   <string name="apply_dialog_apply">Прилагане на Hosts файла</string>
-  <string name="apply_fail">Прилагането на host файлове във вашата система е неуспешно!\nОпитайте да подмените целевия хост файл в /data/data/hosts.</string>
-  <string name="apply_fail_title">Прилагането не е успешно</string>
+  <string name="apply_fail">Активирането на hosts файла във вашата система е неуспешно!\nОпитайте да промените целевия hosts файл в настройките на /data/data/hosts.</string>
+  <string name="apply_fail_title">Неуспешно прилагане</string>
   <string name="revert_successful">Вие върнахте hosts файла по подразбиране.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
   <string name="revert_successful_title">Връщането е успешно</string>
   <string name="revert_problem">Връщането се провали по неизвестни причини.</string>
@@ -95,16 +114,16 @@
   <string name="download_fail_title">Изтеглянето е неуспешно</string>
   <string name="no_private_file">Личен файл не може да бъде създаден.</string>
   <string name="no_private_file_title">Създаването на личен файл не успя</string>
-  <string name="disable_systemless_successful">Вие изключихте неметодичния режим.\nМоже да е нужно рестартиране на Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, първо се уверете, че няма приложение, използващо паметта в момента!)</string>
+  <string name="enable_systemless_successful">Вие активирахте systemless режим.\nМоже да е нужно рестартиране на Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, първо се уверете, че няма приложение, използващо SD картата в момента!)</string>
+  <string name="enable_systemless_successful_title">Успешно включване!</string>
+  <string name="disable_systemless_successful">Вие изключихте systemless режим.\nМоже да е нужно рестартиране на Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, първо се уверете, че няма приложение, използващо SD картата в момента!)</string>
   <string name="disable_systemless_successful_title">Деактивирането е успешно</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Или не може да бъде намерен su binary, или не сте дали root права на AdAway.\n\nТова може да се получи, когато устройството ви няма root достъп.\nМоже да намерите информация как да го root на wiki.lineageos.org или други Android сайтове.</string>
+  <string name="no_root_description">Не може да бъде открит su binary или сте сте дали root права за AdAway.\n\nТова може да се получи, когато устройството Ви няма root достъп.\nМоже да намерите информация за това как да получите root достъп за Вашето устройство на wiki.lineageos.org или други Android уебсайтове.</string>
   <string name="no_root_title">Изисква се Android с root достъп</string>
-  <string name="no_url">Това не е валиден URL!</string>
-  <string name="no_url_title">Неправилно форматиран URL адрес</string>
   <string name="hosts_add_dialog">Въведете URL на hosts файла:</string>
   <string name="no_hostname">Това не е валидно име на хост!</string>
-  <string name="no_hostname_title">Неюправилно форматирано име на хост</string>
+  <string name="no_hostname_title">Неправилно форматирано име на хост</string>
   <string name="no_ip">Това не е валиден IP адрес!</string>
   <string name="no_ip_title">Неправилно форматиран IP адрес</string>
   <string name="reboot_never_reboot">Никога не рестартирай и не показвай този въпрос следващия път!</string>
@@ -133,29 +152,41 @@
     <item>8 евра</item>
     <item>13 евра</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Тук можете да сканирате за лоши рекламни приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват например Airpush известия, които се появяват дори когато приложението не работи или дори променят вашия тон на звънене. Единствената налична мярка за противодействие е да деинсталирате тези приложения, като чукнете върху елементите от списъка!</string>
-  <string name="adware_empty">Не са намерени лоши рекламни приложения!</string>
-  <!--Hosts Sources-->
-  <string name="hosts_last_modified_local">Локален:</string>
+  <!--Adware-->
+  <string name="adware_header">Рекламен софтуер</string>
+  <string name="adware_description">Тук можете на намерите инсталиран рекламен софтуер, лоши приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват като например Airpush уведомления, които се появяват дори когато приложението не работи, могат дори да променят мелодията Ви. Единственото налично противодействие е да инсталирате тези приложения, като натиснете върху елементите в списъка.</string>
+  <string name="adware_scanning">Сканиране...</string>
+  <string name="adware_empty">Не са намерени никакви рекламни приложения!</string>
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">Локална:</string>
   <string name="hosts_last_modified_online">Онлайн:</string>
   <string name="hosts_not_available">не е наличен</string>
+  <string name="hosts_add_dialog_title">Добавяне на източник</string>
+  <string name="hosts_edit_dialog_title">Редактиране на източник</string>
+  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">URL адрес на източника на хоста</string>
   <!--Other-->
   <string name="app_subtitle">Спира рекламите</string>
   <string name="no_text_editor_title">Не е инсталиран текстов редактор</string>
-  <string name="no_text_editor">Не е намерен текстов редактор. Можете да инсталирате Jota или друг текстов редактор. \n\n Искате ли да инсталирате Jota?</string>
+  <string name="no_text_editor">Не е намерен текстов редактор. Можете да инсталирате Jota или друг текстов редактор.\n\nИскате ли да инсталирате Jota?</string>
   <string name="no_file_manager_title">Не е инсталиран файлов мениджър</string>
-  <string name="no_file_manager">Няма намерен файлов мениджър, който да отваря файлове. Може да инсталирате OI File Manager или други файлови мениджъри, който да се справят с това.\n\nИскате ли да инсталирате OI File Manager?</string>
+  <string name="no_file_manager">Не е намерен файлов мениджър, който да отваря файлове. Може да инсталирате OI File Manager или други файлови мениджъри, които да се справят с това.\n\nИскате ли да инсталирате OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Файлът е изтрит!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Добавено беше име на хост към вашия черен списък!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Добавено беше име на хост към вашия бял списък!</string>
-  <string name="tcpdump_log_context_blacklist">Добавяне към вашия черен списък</string>
-  <string name="tcpdump_log_context_whitelist">Добавяне към вашия бял списък</string>
-  <string name="tcpdump_log_context_browser">Отваряне в браузъра</string>
-  <string name="tcpdump_log_empty">Файлът е празен!</string>
-    <!--Preferences-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump е инструмент за наблюдение на DNS заявките и записването им във файл. Можете да го стартирате във фонов режим, да стартирате приложения, които показват реклами, а след това да анализирате DNS заявките с помощта на този файл. Възможен рекламен сървър може да бъде добавен към вашия черен списък.</string>
+  <string name="tcpdump_disable_monitoring">Изключване на мониторинг</string>
+  <string name="tcpdump_enable_monitoring">Включване на мониторинг</string>
+  <string name="tcpdump_show_results">Показване на резултати</string>
+  <string name="tcpdump_redirect_dialog_title">Пренасочване на домейн</string>
+  <string name="tcpdump_menu_sort">Сортиране на домейни</string>
+  <string name="tcpdump_menu_clear">Почистване на дневник</string>
+  <string name="tcpdump_sort_alphabetical">Азбучно сортиране</string>
+  <string name="tcpdump_sort_top_level_domain">Сортиране на домейн от първо ниво</string>
+  <!--Preferences-->
   <string name="pref_download">Общи предпочитания</string>
+  <string name="pref_dark_theme">Включване на тъмна тема</string>
+  <string name="pref_dark_theme_summary">Използване на тъмна тема вместо светла</string>
+  <string name="pref_dark_theme_notification">Темата ще бъде приложена при следващото стартиране на приложението!</string>
   <string name="pref_hosts">Hosts файл</string>
   <string name="pref_redirection_ip">IP за пренасочване</string>
   <string name="pref_update_check">Проверка за актуализации</string>
@@ -177,7 +208,7 @@
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
-    <item>Custom target</item>
+    <item>Цел по избор</item>
   </string-array>
   <string name="pref_update_check_summary">Проверка за актуализации при стартиране на AdAway</string>
   <string name="pref_sdcard_problem">Тази функция няма да работи правилно, когато AdAway е инсталиран на SD-картата!</string>
@@ -190,13 +221,34 @@
   <string name="pref_update_only_on_wifi_summary">Изпълнение на актуализации на заден план само когато е свързан към WiFi мрежа.</string>
   <string name="pref_whitelist_rules">Разреши добавяне в бял списък</string>
   <string name="pref_whitelist_rules_summary">Позволяване на вписвания от белия списък от източниците на hosts файлове.</string>
-  <string name="pref_redirection_rules">Разреши пренасочвания</string>
-  <string name="pref_redirection_rules_summary">ВНИМАНИЕ! Позволяване на пренасочвания от източниците на hosts файлове.</string>
+  <string name="pref_redirection_rules">Позволяване на пренасочвания</string>
+  <string name="pref_redirection_rules_summary">РИСК ЗА СИГУРНОСТТА! Позволяване на пренасочвания от източниците на hosts файлове.</string>
   <string name="pref_debug">Отстраняване на грешки</string>
   <string name="pref_enable_debug">Записи за отстраняване на грешки</string>
   <string name="pref_enable_debug_summary">Трябва да рестартирате AdAway, за да влезе в сила тази настройка.</string>
   <string name="pref_enable_ipv6">Включи  IPv6</string>
-  <string name="pref_enable_ipv6_summary">Всички вписвания от host файла ще кореспондират с ::1 (IPv6 localhost).</string>
-  <string name="pref_enable_systemless_summary">Предотвратяване на AdAway от модифициране на системния партишън (изисква неметодичен SuperSU за автоматично инсталиране)</string>
-  <string name="pref_enable_systemless">Включване на неметодичен режим</string>
+  <string name="pref_enable_ipv6_summary">Всички записи в host файла ще получат съответен запис ::1 (IPv6 localhost).</string>
+  <string name="pref_enable_systemless_summary">Предотвратяване промяната на системния дял от AdAway</string>
+  <string name="pref_enable_systemless">Включване на systemless режим</string>
+  <string name="pref_edit_text_value">Редактиране стойност на предпочитания за текст</string>
+  <string name="drawer_open">Отваряне на меню</string>
+  <string name="drawer_close">Затваряне на меню</string>
+  <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Начало</item>
+    <item>Хост източници</item>
+    <item>Ваши списъци</item>
+    <item>Отваряне на хост файл</item>
+    <item>Записване на DNS заявки</item>
+    <item>Сканиране за рекламен софтуер</item>
+    <item>Предпочитания</item>
+  </string-array>
+  <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNS заявки</string>
+  <string name="shortcut_your_lists">Ваши списъци</string>
+  <string name="shortcut_preferences">Настройки</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Налице е актуализация</string>
+  <string name="hosts_source_up_to_date">Актуална версия</string>
+  <string name="hosts_source_unknown_status">Неизвестен статус на актуализация</string>
 </resources>
