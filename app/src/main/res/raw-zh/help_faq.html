@@ -7,26 +7,26 @@
 
 
 <h2>AdAway是如何工作？</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <tt>/system/etc/hosts</tt> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <tt>127.0.0.1</tt> which means they will point to your own device.</p>
+<p>AdAway 使用 <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts 文件</a> 来阻止广告商的域名。hosts 文件位于 <tt>/system/etc/hosts</tt> ，用于将域名指向访问IP。这是一种不通过域名系统(DNS)将域名指向IP的传统拦截方式，所有不必要的域名重定向至 <tt>127.0.0.1</tt> ，即将其指向设备自身。</p>
 
 <h2>为什么设置中的”每天检查更新“呈灰色无法选择？</h2>
 <p>自动检查更新只限于AdAway安装在内部存储。 这是一个安卓平台限制。</p>
 
 <h2>为什么我需要重启 Android 以使更改生效？</h2>
-<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+<p>Android 上的Java 保留有内部自带的DNS缓存。新的Hosts文件将在操作系统立即生效(可在命令行上用ping验证)，但需要重启 Android 以重建 Java 的DNS缓存。</p>
 
 <h2>如何在AdAway里使用 webserver？</h2>
-<p><b>AdAway will also work without using the webserver!</b>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <tt>127.0.0.1</tt>. This means requests from applications to ad servers which are redirected to <tt>127.0.0.1</tt> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><b>AdAway 也可不依赖Web网络服务器工作!</b>
+<br/><br/>你可以在AdAway的偏好设置中启用本地网络服务器，让本地IP地址 <tt>127.0.0.1</tt> 响应请求。这意味着应用程序向广告商的链接请求将由AdAway的网络服务器重定向至 <tt>127.0.0.1</tt> 。
+<br/>当广告商的服务器无法访问时，某些应用程序无法起作用。使用这种方法，他们将可访问，但只有空白页而没有广告图像。</p>
 
 <h2>如何封锁/解锁hostname?</h2>
-<p>Add the hostnames you want to block to the Blacklist (=Black) under <i>Your Lists</i>. Additionally, hostnames you want to exclude from blocking can be added to the <i>Whitelist</i> (=White) and hostnames you want to redirect to a specific IP address belong to the <i>Redirection List</i> (=Redirection).</p>
+<p>在 <i>你的名单</i> 可添加你想阻止的域名到黑名单(阻止)。此外，可将想排除拦截的域名添加至 <i>白名单</i> (不阻止) ，以及一些你想重定向至指定IP的域名添加至 <i>重定向列表</i> (重定向)。</p>
 
-<h2>在那里可以找到更多host源？</h2>
-<p>请访问 <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources"> 查看 AdAway 的额外 host源。</a>.</p>
+<h2>在哪里可以找到更多hosts源？</h2>
+<p>查看 <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">AdAway 的额外 hosts 源</a></p>
 
 <h2>帮助翻译/报告 bug</h2>
-<p>请访问 <a href="http://adaway.org">http://adaway.org</a>.</p>
+<p>请访问 <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>
