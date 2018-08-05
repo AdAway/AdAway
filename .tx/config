@@ -14,7 +14,7 @@ file_filter = app/src/main/res/raw-<lang>/help_faq.html
 minimum_perc = 0
 source_file = app/src/main/res/raw/help_faq.html
 source_lang = en
-type = HTML_LEGACY
+type = HTML
 
 [adaway.help-problems]
 file_filter = app/src/main/res/raw-<lang>/help_problems.html
@@ -28,7 +28,7 @@ file_filter = app/src/main/res/raw-<lang>/help_s_on_s_off.html
 minimum_perc = 0
 source_file = app/src/main/res/raw/help_s_on_s_off.html
 source_lang = en
-type = HTML_LEGACY
+type = HTML
 
 [adaway.help-about]
 file_filter = app/src/main/res/raw-<lang>/help_about.html
