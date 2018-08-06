@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="pref_dark_theme_def">true</bool>
+    <bool name="pref_update_check_def">true</bool>
+    <bool name="pref_never_reboot_def">false</bool>
+    <bool name="pref_enable_ipv6_def">false</bool>
+    <bool name="pref_update_check_daily_def">false</bool>
+    <bool name="pref_automatic_update_daily_def">false</bool>
+    <bool name="pref_update_only_on_wifi_def">false</bool>
+    <bool name="pref_whitelist_rules_def">true</bool>
+    <bool name="pref_redirection_rules_def">false</bool>
+    <string name="pref_redirection_ip_def">127.0.0.1</string>
+    <string name="pref_apply_method_def">writeToSystem</string>
+    <string name="pref_custom_target_def">/data/etc/hosts</string>
+    <bool name="pref_webserver_enabled_def">false</bool>
+    <bool name="pref_webserver_on_boot_def">false</bool>
+    <bool name="pref_enable_debug_def">false</bool>
+    <bool name="pref_enable_systemless_def">false</bool>
+</resources>
