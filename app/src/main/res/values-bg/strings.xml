@@ -27,6 +27,8 @@
   <string name="button_enable_hosts">Включване на блокиране на реклами</string>
   <string name="button_disable_hosts">Изключване на блокиране на реклами</string>
   <string name="header_webserver">Уеб сървър</string>
+  <string name="webserver_status_running">Включен</string>
+  <string name="webserver_status_stopped">Изключен</string>
   <string name="button_enable_webserver">Включване на уеб сървър</string>
   <string name="button_disable_webserver">Изключване на уеб сървър</string>
   <!--Checkbox List-->
@@ -182,6 +184,9 @@
   <string name="tcpdump_menu_clear">Почистване на дневник</string>
   <string name="tcpdump_sort_alphabetical">Азбучно сортиране</string>
   <string name="tcpdump_sort_top_level_domain">Сортиране на домейн от първо ниво</string>
+  <string name="tcpdump_entry_add_blacklist">Добавяне на запис в черния списък</string>
+  <string name="tcpdump_entry_add_whitelist">Добавяне на запис в белия списък</string>
+  <string name="tcpdump_entry_add_redirection_list">Добавяне на запис в списъка за пренасочване</string>
   <!--Preferences-->
   <string name="pref_download">Общи предпочитания</string>
   <string name="pref_dark_theme">Включване на тъмна тема</string>

@@ -17,10 +17,23 @@
   <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat yada durdur.</string>
   <string name="button_help">Yardım</string>
   <!--Home-->
+  <string name="header_help">Hoşgeldiniz!</string>
+  <string name="text_help">AdAway, reklamları engellemek için ücretsiz ve açık kaynaklı bir yazılım tasarımdır. Reklam ağını indirir ve cihazınızı reklamları engelleyecek şekilde yapılandırır\nDaha fazla bilmek ister misiniz? Aşağıdaki yardımı kontrol edin!</string>
+  <string name="button_show_help">Daha fazla yardım göster</string>
+  <string name="icon_update_status">Güncelleme durumu</string>
   <string name="text_update">Tüm kaynaklardaki host dosyaları indirildi, listenizdekilerle birleştirildi ve sisteminize tek bir host dosyası olarak yüklendi.</string>
   <string name="button_check_update_hosts">Güncellemeleri kontrol et</string>
+  <string name="button_update_hosts">Host\'u güncelle</string>
+  <string name="button_enable_hosts">Reklam engellemeyi etkinleştir</string>
+  <string name="button_disable_hosts">Reklam engellemeyi devre dışı bırak</string>
+  <string name="header_webserver">Web sunucusu</string>
+  <string name="webserver_status_running">Çalışıyor</string>
+  <string name="webserver_status_stopped">Durduruldu</string>
+  <string name="button_enable_webserver">Web sunucusunu etkinleştir</string>
+  <string name="button_disable_webserver">Web sunucusunu devre dışı bırak</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Boş liste</string>
+  <string name="checkbox_list_empty_text">Artı tuşundan öğe ekleyebilirsiniz.</string>
   <string name="checkbox_list_context_delete">Sil</string>
   <string name="checkbox_list_footer">Bu listeye yeni öğe ekledikten sonra AdAway\'i yeniden uygulamalısınız.</string>
   <string name="checkbox_list_edit_dialog_title">Düzenle</string>
@@ -29,12 +42,26 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Beyaz Liste</string>
   <string name="lists_tab_blacklist">Kara Liste</string>
+  <string name="lists_tab_redirection_list">Yönlendirme Listesi</string>
+  <string name="list_add_dialog_black">Kara listeye host ekle</string>
+  <string name="list_add_dialog_white">Beyaz listeye host ekle</string>
+  <string name="list_add_dialog_redirect">Host yönlendirmesi ekle</string>
+  <string name="list_edit_dialog_black">Host kara listesini düzenle</string>
+  <string name="list_edit_dialog_white">Host beyaz listesini düzenle</string>
+  <string name="list_edit_dialog_redirect">Yönlendirmeyi düzenle</string>
   <string name="list_dialog_hostname">Adres:</string>
+  <string name="list_dialog_hostname_hint">Host kaynak URL\'si</string>
+  <string name="list_dialog_wildcard">(Joker karakterler * ve ? izin verilir)</string>
   <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
   <string name="import_dialog">Alınıyor...</string>
   <string name="export_dialog">Veriliyor...</string>
   <string name="export_success">Tüm girdiler, sdcard üzerinde \'adaway-export\' dosyasına kaydedildi.</string>
+  <string name="export_failed">Listeniz sd kartınıza aktarılamadı.</string>
   <!--Hosts content-->
+  <string name="hosts_header">Host dosyası</string>
+  <string name="hosts_description">Host dosyası, host adlarını IP adreslerine eşleyen bir sistem dosyasıdır. Bu yapılandırmanın AdAway tarafından ele alındığı düz bir metin dosyasıdır. İşte ilk birkaç satırı:</string>
+  <string name="hosts_content">Hosts dosyası içeriği yükleniyor…</string>
+  <string name="hosts_open_button">Host dosyasını açın</string>
   <!--Status Notifications-->
   <string name="status_checking">Güncelleme kontrol ediliyor...</string>
   <string name="status_reverting">Geri alınıyor!</string>
@@ -95,7 +122,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="disable_systemless_successful">Sistemsiz modu devre dışı bıraktınız.Değişikliklerin yürürlüğe girmesi için Android\'i yeniden başlatmanız gerekli olabilir. sisteminizi tekrar başlatmak istiyor musunuz? (Veri kaybını önlemek için hiçbir uygulamanın şu anda sdcard\'ı kullanmadığından emin olun!)</string>
   <string name="disable_systemless_successful_title">Başarıyla devre dışı bırakıldı</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Ya su binary dosyası bulunamadı ya da Adaway için root izni vermemişsiniz.\n\nCihazınız root edilmemişse bu olabilir.\nCihazınızın nasıl root edilebileceği hakkında wiki.lineageos.org ya da diğer Android web sitelerinde bilgi bulabilirsiniz.</string>
+  <string name="no_root_description">Su binary dosyası bulunamadı veya AdAway için kök erişimi izni sağlanmadı.\n\nEğer cihazınızda kök erişimi sağlanmadıysa bu yaşanabilir.\nDetaylı bilgi ve cihazınızda nasıl kök erişimi sağlanacağını öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
   <string name="no_root_title">Root izni gereklidir</string>
   <string name="hosts_add_dialog">Host dosyasına URL gir:</string>
   <string name="no_hostname">Geçersiz host adı!</string>
@@ -129,11 +156,18 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
     <item>13 Avro</item>
   </string-array>
   <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_description">Burada AdAway tarafından engellenemeyen Adware (reklam içerikli) kötü uygulamaları bulabilirsiniz. Bu uygulamalar, uygulama çalışmadığında veya hatta zil sesinizi değiştirdiğinde bile ortaya çıkan Airpush bildirimlerini kullanır. Mevcut olan tek önlem, bu listede ki uygulamaları tıklayarak kaldırmaktır.</string>
+  <string name="adware_scanning">Taranıyor...</string>
+  <string name="adware_empty">Hiçbir Adware uygulaması bulunamadı!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Yerel:</string>
   <string name="hosts_last_modified_online">Çevrim içi:</string>
   <string name="hosts_not_available">Uygun değil</string>
+  <string name="hosts_add_dialog_title">Kaynak ekle</string>
+  <string name="hosts_edit_dialog_title">Kaynak düzenle</string>
   <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">Host kaynakHosts kaynak URL URL\'si</string>
   <!--Other-->
   <string name="app_subtitle">Reklam engelleyici</string>
   <string name="no_text_editor_title">Yüklü metin editörü yok</string>
@@ -141,9 +175,24 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="no_file_manager_title">Yüklü dosya yöneticisi yok</string>
   <string name="no_file_manager">Dosyaları açacak bir dosya yöneticisi bulunamadı. OI File Manager veya benzeri bir dosya yöneticisi yüklemeniz gerekebilir.\n\nŞimdi OI File Manager yüklemek ister misiniz?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arkaplanda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
+  <string name="tcpdump_disable_monitoring">İzlemeyi devre dışı bırak</string>
+  <string name="tcpdump_enable_monitoring">İzlemeyi etkinleştir</string>
+  <string name="tcpdump_show_results">Sonuçları göster</string>
+  <string name="tcpdump_redirect_dialog_title">Yönlendirme alanı</string>
+  <string name="tcpdump_menu_sort">Alanları sırala</string>
+  <string name="tcpdump_menu_clear">Günlüğü temizle</string>
+  <string name="tcpdump_sort_alphabetical">Alfabetik sıralama</string>
+  <string name="tcpdump_sort_top_level_domain">Üst düzey alan adı sıralaması</string>
+  <string name="tcpdump_entry_add_blacklist">Kara listeye giriş ekle</string>
+  <string name="tcpdump_entry_add_whitelist">Beyaz listeye giriş ekle</string>
+  <string name="tcpdump_entry_add_redirection_list">Yönlendirme listesine giriş ekle</string>
   <!--Preferences-->
   <string name="pref_download">Genel Tercihler</string>
+  <string name="pref_dark_theme">Karanlık temayı etkinleştir</string>
+  <string name="pref_dark_theme_summary">Aydınlık yerine koyu temayı kullanın</string>
+  <string name="pref_dark_theme_notification">Tema bir sonraki uygulama başlangıcında uygulanacaktır!</string>
   <string name="pref_hosts">Hosts Dosyası</string>
   <string name="pref_redirection_ip">IP Yönlendirme</string>
   <string name="pref_update_check">Güncellemeleri kontrol et</string>
@@ -177,6 +226,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="pref_update_only_on_wifi_summary">Wifi bağlı olduğunda sadece geri plan güncelleştirmeleri yürüt.</string>
   <string name="pref_whitelist_rules">Beyaz Liste\'ye izin ver</string>
   <string name="pref_whitelist_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
+  <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
   <string name="pref_redirection_rules_summary">BÜYÜK RİSK İÇERİR! Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
   <string name="pref_debug">Hata ayıklama</string>
   <string name="pref_enable_debug">Hata ayıklama kaydı</string>
@@ -185,9 +235,25 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="pref_enable_ipv6_summary">Tüm host dosyası kayıtlarına ::1 (IPv6 yerel IP\'si) eklenecektir.</string>
   <string name="pref_enable_systemless_summary">AdAway\'in sistem dosyalarını düzenlemesini engelle</string>
   <string name="pref_enable_systemless">Sistemsiz modu etkinleştir.</string>
+  <string name="pref_edit_text_value">Metin tercih değerini düzenle</string>
+  <string name="drawer_open">Menüyü aç</string>
+  <string name="drawer_close">Menüyü kapat</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Ana ekran</item>
+    <item>Hosts kaynakları</item>
+    <item>Listeleriniz</item>
+    <item>Hosts dosyasını aç</item>
+    <item>DNS isteklerini günlüğü</item>
+    <item>Adware tara</item>
+    <item>Tercihler</item>
+  </string-array>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNS istekleri</string>
+  <string name="shortcut_your_lists">Listeleriniz</string>
   <string name="shortcut_preferences">Tercihler</string>
   <!--Hosts source status-->
   <string name="hosts_source_update_available">Güncelleme mevcut</string>
+  <string name="hosts_source_up_to_date">Güncel</string>
+  <string name="hosts_source_unknown_status">Bilinmeyen güncelleme durumu</string>
 </resources>

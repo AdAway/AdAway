@@ -17,8 +17,12 @@
   <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します。</string>
   <string name="button_help">ヘルプ</string>
   <!--Home-->
+  <string name="header_help">ようこそ！</string>
+  <string name="button_show_help">詳しいヘルプを表示</string>
   <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします。</string>
   <string name="button_check_update_hosts">更新を確認</string>
+  <string name="button_update_hosts">hostsを更新</string>
+  <string name="header_webserver">ウェブサーバー</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">空のリスト</string>
   <string name="checkbox_list_context_delete">削除</string>
@@ -29,12 +33,18 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">ホワイトリスト</string>
   <string name="lists_tab_blacklist">ブラックリスト</string>
+  <string name="lists_tab_redirection_list">リダイレクト</string>
+  <string name="list_edit_dialog_redirect">リダイレクト先を編集</string>
   <string name="list_dialog_hostname">ホスト名:</string>
   <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
   <string name="import_dialog">インポート中...</string>
   <string name="export_dialog">エクスポート中...</string>
   <string name="export_success">エクスポートしたファイルはSDカードに\'adaway-export\'として保存されました。</string>
+  <string name="export_failed">SDカードへのエクスポートに失敗しました。</string>
   <!--Hosts content-->
+  <string name="hosts_header">hostsファイル</string>
+  <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
+  <string name="hosts_open_button">hostsファイルを開く</string>
   <!--Status Notifications-->
   <string name="status_checking">更新を確認中...</string>
   <string name="status_reverting">元に戻しています...</string>
@@ -130,6 +140,9 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
     <item>13 ユーロ</item>
   </string-array>
   <!--Adware-->
+  <string name="adware_header">アドウェア</string>
+  <string name="adware_scanning">スキャン中…</string>
+  <string name="adware_empty">アドウェアは検出されませんでした！</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">ﾛｰｶﾙ:</string>
   <string name="hosts_last_modified_online">ｵﾝﾗｲﾝ:</string>
@@ -142,9 +155,17 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="no_file_manager_title">ファイルマネージャがインストールされていません</string>
   <string name="no_file_manager">ファイルマネージャが見つかりません。OI File ManagerやTetraなどをインストールしてください。\n\nOI File Managerをインストールしますか?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">TCPダンプ</string>
   <string name="tcpdump_description">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。広告のサーバーだと思われるものはブラックリストに追加出来ます。</string>
+  <string name="tcpdump_disable_monitoring">監視を無効にする</string>
+  <string name="tcpdump_enable_monitoring">監視を有効にする</string>
+  <string name="tcpdump_show_results">結果を表示</string>
+  <string name="tcpdump_menu_clear">ログを消去</string>
   <!--Preferences-->
   <string name="pref_download">基本設定</string>
+  <string name="pref_dark_theme">暗いテーマを有効にする</string>
+  <string name="pref_dark_theme_summary">明るいテーマの代わりに暗いテーマを使用</string>
+  <string name="pref_dark_theme_notification">テーマの変更はアプリの次回起動時に適用されます！</string>
   <string name="pref_hosts">hostsファイル</string>
   <string name="pref_redirection_ip">リダイレクト先IP</string>
   <string name="pref_update_check">更新を確認</string>
@@ -179,6 +200,7 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="pref_update_only_on_wifi_summary">Wi-Fi接続されたときのみバックグラウンド更新をします。</string>
   <string name="pref_whitelist_rules">ホワイトリストの許可</string>
   <string name="pref_whitelist_rules_summary">hostsソースからのホワイトリストエントリを許可します。</string>
+  <string name="pref_redirection_rules">リダイレクトを許可</string>
   <string name="pref_redirection_rules_summary">セキュリティリスクあり! hostsソースからのリダイレクトエントリを許可します。</string>
   <string name="pref_debug">デバッグ</string>
   <string name="pref_enable_debug">デバッグ記録をする</string>
@@ -187,9 +209,12 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="pref_enable_ipv6_summary">hostファイルのエントリがすべて::1 (IPv6 localhost) エントリを持つようになります。</string>
   <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
   <string name="pref_enable_systemless">systemlessモードを有効にする</string>
+  <string name="drawer_open">メニューを開く</string>
+  <string name="drawer_close">メニューを閉じる</string>
   <!--Drawer menu items-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">設定</string>
   <!--Hosts source status-->
   <string name="hosts_source_update_available">更新があります</string>
+  <string name="hosts_source_up_to_date">最新の状態です</string>
 </resources>

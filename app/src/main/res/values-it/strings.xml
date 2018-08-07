@@ -17,10 +17,25 @@
   <string name="button_webserver_toggle_text">Avvia o ferma il webserver in localhost per rispondere alle richieste verso hostname bloccati.</string>
   <string name="button_help">Aiuto</string>
   <!--Home-->
+  <string name="header_help">Benvenuto!</string>
+  <string name="text_help">Adaway è un software gratuito sviluppato per bloccare la pubblicià.
+Scarica un elenco di siti indesiderati e configura il tuo dispositivo per bloccarli.
+Vuoi saperne di più? Segui la guida qui sotto!</string>
+  <string name="button_show_help">Mostra più aiuti</string>
+  <string name="icon_update_status">Aggiorna lo status</string>
   <string name="text_update">Tutti i file hosts da sorgenti definite sono scaricati, uniti nelle tue liste e installati come un unico file hosts nel tuo sistema.</string>
   <string name="button_check_update_hosts">Controlla aggiornamenti</string>
+  <string name="button_update_hosts">Aggiorna gli hosts</string>
+  <string name="button_enable_hosts">Abilita il blocco della pubblicità</string>
+  <string name="button_disable_hosts">Disablita il blocco della pubblicità</string>
+  <string name="header_webserver">Web server</string>
+  <string name="webserver_status_running">In funzione</string>
+  <string name="webserver_status_stopped">Fermo</string>
+  <string name="button_enable_webserver">Abilita il web server</string>
+  <string name="button_disable_webserver">Disabilita il web server</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Svuota lista</string>
+  <string name="checkbox_list_empty_text">Puoi aggiungere elementi con il tasto \"più\"</string>
   <string name="checkbox_list_context_delete">Elimina</string>
   <string name="checkbox_list_footer">Dopo aver aggiunto nuove voci alla tua lista devi applicare di nuovo AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Modifica</string>
@@ -29,12 +44,27 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Whitelist</string>
   <string name="lists_tab_blacklist">Blacklist</string>
+  <string name="lists_tab_redirection_list">Inoltra</string>
+  <string name="list_add_dialog_black">Aggiungi gli host alla blacklist</string>
+  <string name="list_add_dialog_white">Aggiungi gli host alla whitelist</string>
+  <string name="list_add_dialog_redirect">Inoltra un host</string>
+  <string name="list_edit_dialog_black">Modifica la blacklist</string>
+  <string name="list_edit_dialog_white">Modifica la whitelist</string>
+  <string name="list_edit_dialog_redirect">Modifica un inoltro</string>
   <string name="list_dialog_hostname">Nome host:</string>
+  <string name="list_dialog_hostname_hint">URL sorgente hosts</string>
+  <string name="list_dialog_wildcard">(I caratteri * e ? sono consentiti)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importo...</string>
   <string name="export_dialog">Esporto...</string>
   <string name="export_success">Tutte le voci sono state esportate in un file chiamato \'adaway-export\' sulla tua sdcard.</string>
+  <string name="export_failed">Esportazione della lista su sdcard fallita.</string>
   <!--Hosts content-->
+  <string name="hosts_header">Il file hosts</string>
+  <string name="hosts_description">Il file hosts è un file di sistema che associa gli hostname ad indirizzi IP.
+E\' un file di testo la cui configurazione viene gestita da AdAway. Ecco le prime linee:</string>
+  <string name="hosts_content">Caricamento contenuto del file hosts...</string>
+  <string name="hosts_open_button">Apri il file hosts</string>
   <!--Status Notifications-->
   <string name="status_checking">Cerco aggiornamenti...</string>
   <string name="status_reverting">Ripristino...</string>
@@ -128,11 +158,19 @@
     <item>13 Euro</item>
   </string-array>
   <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_description">Qui puoi trovare le adware installate, applicazioni malevole che non possono essere bloccate da AdAway. Queste app usano, ad esempio, notifiche di tipo Airpush che vengono visualizzate anche quando l\'app non è in funzione opuure possono addirittura modificare la tua suoneria.
+Tutto ciò che puoi fare è disinstallarle cliccando nella lista.</string>
+  <string name="adware_scanning">Scansione in corso...</string>
+  <string name="adware_empty">Nessuna applicazione con Adware trovata!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Locale:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">non disponibile</string>
+  <string name="hosts_add_dialog_title">Aggiungi sorgente</string>
+  <string name="hosts_edit_dialog_title">Modifica sorgente</string>
   <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">L\'URL della fonte hosts</string>
   <!--Other-->
   <string name="app_subtitle">Blocca pubblicità</string>
   <string name="no_text_editor_title">Nessun editor di testo installato</string>
@@ -141,9 +179,24 @@
   <string name="no_file_manager">Nessun file manager è stato trovato per aprire i file. Puoi installare OI File Manager o altri file manager per rimediare.\n\n
 Vuoi installare OI File Manager?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla tua lista nera.</string>
+  <string name="tcpdump_disable_monitoring">Disabilita monitoraggio</string>
+  <string name="tcpdump_enable_monitoring">Abilita monitoraggio</string>
+  <string name="tcpdump_show_results">Mostra i risultati</string>
+  <string name="tcpdump_redirect_dialog_title">Reindirizza dominio</string>
+  <string name="tcpdump_menu_sort">Ordina i domini</string>
+  <string name="tcpdump_menu_clear">Pulisci i log</string>
+  <string name="tcpdump_sort_alphabetical">Ordinamento alfabetico</string>
+  <string name="tcpdump_sort_top_level_domain">Ordinamento per livello di dominio</string>
+  <string name="tcpdump_entry_add_blacklist">Aggiungi una voce alla blacklist</string>
+  <string name="tcpdump_entry_add_whitelist">Aggiungi una voce alla whitelist</string>
+  <string name="tcpdump_entry_add_redirection_list">Aggiungi voce alla lista inoltri</string>
   <!--Preferences-->
   <string name="pref_download">Preferenze generali</string>
+  <string name="pref_dark_theme">Abilita il tema scuro</string>
+  <string name="pref_dark_theme_summary">Usa il tema scuro al posto di quello chiaro</string>
+  <string name="pref_dark_theme_notification">Il tema verrà applicato al prossimo riavvio!</string>
   <string name="pref_hosts">File Hosts</string>
   <string name="pref_redirection_ip">Inoltro IP</string>
   <string name="pref_update_check">Controlla aggiornamenti</string>
@@ -178,6 +231,7 @@ Vuoi installare OI File Manager?</string>
   <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso a un network wifi</string>
   <string name="pref_whitelist_rules">Consenti whitelisting</string>
   <string name="pref_whitelist_rules_summary">Permetti valori BIANCHI dalle fonti host.</string>
+  <string name="pref_redirection_rules">Abilita inoltro</string>
   <string name="pref_redirection_rules_summary">RISCHIO PER LA SICUREZZA! Permetti valori di inoltro dalle fonti host.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Log di debug</string>
@@ -186,9 +240,25 @@ Vuoi installare OI File Manager?</string>
   <string name="pref_enable_ipv6_summary">Tutte le voci nel file di host avranno una voce  ::1 (IPV6 localhost) corrispondente</string>
   <string name="pref_enable_systemless_summary">Impedisci a AdAway di modificare la partizione di sistema</string>
   <string name="pref_enable_systemless">Attivare modalità Systemless</string>
+  <string name="pref_edit_text_value">Modifica il valore di testo</string>
+  <string name="drawer_open">Apri il menù</string>
+  <string name="drawer_close">Chiudi il menù</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Home</item>
+    <item>Fonti hosts</item>
+    <item>Le tue liste</item>
+    <item>Apri il file hosts</item>
+    <item>Log chiamate DNS</item>
+    <item>Scansiona alla ricerca di adware</item>
+    <item>Impostazioni</item>
+  </string-array>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">Chiamata DNS</string>
+  <string name="shortcut_your_lists">Le tue liste</string>
   <string name="shortcut_preferences">Preferenze</string>
   <!--Hosts source status-->
   <string name="hosts_source_update_available">Aggiornamento disponibile</string>
+  <string name="hosts_source_up_to_date">Aggiornato</string>
+  <string name="hosts_source_unknown_status">Stato aggiornamento sconosciuto</string>
 </resources>
