@@ -1,16 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <!--Buttons-->
+  <!--Home-->
   <!--Checkbox List-->
-  <!--Your Lists-->
+  <!--Your lists-->
+  <!--Hosts content-->
   <!--Status Notifications-->
   <!--Apply and Revert Dialogs-->
   <!--Other Dialogs-->
   <!--Menu entries-->
   <!--Help-->
-  <!--Scan Adware-->
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <!--Other-->
   <!--Tcpdump-->
   <!--Preferences-->
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <!--Hosts source status-->
 </resources>

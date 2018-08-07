@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Ο διακομιστής δικτύου δεν λειτουργεί</string>
   <string name="button_webserver_toggle_text">Εκκίνηση ή διακοπή του διακομιστή ιστοσελίδων στο τοπικό μηχάνημα για απάντηση σε φραγμένα ονόματα.</string>
   <string name="button_help">Βοήθεια</string>
-  <string name="tcpdump_description">Το tcpdump είναι ένα εργαλείο για την παρακολούθηση αιτήσεων DNS και την αποθήκευσή τους σε αρχείο καταγραφών. Μπορείτε να το εκκινήσετε στο παρασκήνιο, να εκτελέσετε εφαρμογές που εμφανίζουν διαφημίσεις, και έπειτα να αναλύσετε τις αιτήσεις DNS χρησιμοποιώντας το αρχείο αυτό. Ο πιθανός διακομιστής διαφημίσεων μπορεί μετά να προστεθεί στη μαύρη λίστα σας.</string>
-  <string name="tcpdump_disable_monitoring">Το tcpdump εκτελείται!</string>
-  <string name="tcpdump_enable_monitoring">Το tcpdump δεν εκτελείται!</string>
-  <string name="tcpdump_show_results">Άνοιγμα αρχείου καταγραφής</string>
-  <string name="tcpdump_clear_results">Διαγραφή αρχείου καταγραφής</string>
+  <!--Home-->
+  <string name="text_update">Όλα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
+  <string name="button_check_update_hosts">Έλεγχος για ενημερώσεις</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Προσθήκη</string>
   <string name="checkbox_list_empty">Άδεια λίστα</string>
-  <string name="checkbox_list_empty_text">Μπορείτε να προσθέσετε αντικείμενα από τη μπάρα εργασιών.</string>
   <string name="checkbox_list_context_delete">Διαγραφή</string>
   <string name="checkbox_list_footer">Μετά την προσθήκη νέων στοιχείων σε αυτήν την λίστα θα πρέπει να \"περάσετε\" το AdAway ξανά!</string>
   <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
   <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
   <string name="checkbox_list_context_edit">Επεξεργασία</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Λευκή λίστα</string>
   <string name="lists_tab_blacklist">Μαύρη λίστα</string>
-  <string name="lists_tab_redirection_list">Λίστα ανακατεύθυνση</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Όνομα:</string>
-  <string name="list_dialog_whitelist_hostname">Όνομα Host:\n(Επιτρέπονται χαρακτήρες * και ? επιτρέπονται!)</string>
   <string name="list_dialog_ip">IP (IPv4 ή IPv6):</string>
   <string name="import_dialog">Εισαγωγή...</string>
   <string name="export_dialog">Εξαγωγή...</string>
   <string name="export_success">Εξαγωγή όλων των εγγραφών σε αρχείο με όνομα \'adaway-export\' στην κάρτα SD σας.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Έλεγχος για ενημέρωση...</string>
   <string name="status_reverting">Επαναφορά...</string>
@@ -114,12 +108,13 @@
   <string name="download_fail_title">Το κατέβασμα απέτυχε</string>
   <string name="no_private_file">Το προσωπικό αρχείο δεν μπορεί να δημιουργηθεί.</string>
   <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
+  <string name="enable_systemless_successful">Έχετε ενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n\n(Για να αποτρέψετε το χάσιμο δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα sd τωρα!) </string>
+  <string name="enable_systemless_successful_title">Ενεργοποίηση επιτυχής</string>
+  <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής για να δουλέψει. \n\n(Για να αποτρέψετε το χάσιμο δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα sd τωρα!) </string>
+  <string name="disable_systemless_successful_title">Απενεργοποίηση επιτυχής</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Είτε το su binary δεν μπορούσε να βρεθεί ή δεν επιτράπηκε άδεια διαχειριστή για το AdAway.\n\nΑυτό μπορεί να συμβεί όταν δεν υπάρχουν πλήρη δικαιώματα διαχειριστή.\nΜπορείτε να βρείτε πληροφορίες για το πώς να αποκτήσετε πλήρη δικαιώματα διαχειριστή για τη συσκευή σας στην ιστοσελίδα wiki.lineageos.org ή σε άλλες Android ιστοσελίδες.</string>
   <string name="no_root_title">Χρειάζεται δικαιώματα διαχειριστή
 </string>
-  <string name="no_url">Αυτή η διεύθυνση URL δεν είναι έγκυρη! </string>
-  <string name="no_url_title">Κακή μορφή διεύθυνσης URL</string>
   <string name="hosts_add_dialog">Εισάγετε διεύθυνση URL για το αρχείο hosts:</string>
   <string name="no_hostname">Μη έγκυρο όνομα!</string>
   <string name="no_hostname_title">Κακή μορφή ονόματος</string>
@@ -151,13 +146,12 @@
     <item>8 Euros</item>
     <item>13 Euros</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Εδώ μπορείτε να σαρώσετε για κακές εφαρμογές Adware, που δεν είναι δυνατό να φραγούν από το AdAway. Αυτές οι εφαρμογές χρησιμοποιούν π.χ. ενημερώσεις Airpush οι οποίες εμφανίζονται ακόμα και όταν δεν εκτελείται η εφαρμογή και μπορούν ακόμα να αλλάξουν και τον ήχο κλήσης σας. Το μόνο αντίμετρο είναι να απεγκαταστήσετε αυτές τις εφαρμογές χρησιμοποιώντας τα αντικείμενα της λίστας!</string>
-  <string name="adware_empty">Δεν βρέθηκαν κακές εφαρμογές Adware!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Τοπικά</string>
   <string name="hosts_last_modified_online">Σε λειτουργία</string>
   <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Φραγή διαφημίσεων</string>
   <string name="no_text_editor_title">Δεν υπάρχει εγκατεστημένος κειμενογράφος</string>
@@ -169,14 +163,8 @@
 
 Θέλετε να εγκαταστήσετε τον OI File Manager;</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Το αρχείο καταγραφής διαγράφηκε!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Το όνομα διακομιστή προστέθηκε στη μαύρη λίστα σας!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Το όνομα διακομιστή προστέθηκε στην λευκή λίστα σας!</string>
-  <string name="tcpdump_log_context_blacklist">Προσθήκη στη Μαύρη λίστα</string>
-  <string name="tcpdump_log_context_whitelist">Προσθήκη στη Λευκή λίστα</string>
-  <string name="tcpdump_log_context_browser">Άνοιγμα με Πλοηγό</string>
-  <string name="tcpdump_log_empty">Το αρχείο καταγραφής είναι κενό!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Το tcpdump είναι ένα εργαλείο για την παρακολούθηση αιτήσεων DNS και την αποθήκευσή τους σε αρχείο καταγραφών. Μπορείτε να το εκκινήσετε στο παρασκήνιο, να εκτελέσετε εφαρμογές που εμφανίζουν διαφημίσεις, και έπειτα να αναλύσετε τις αιτήσεις DNS χρησιμοποιώντας το αρχείο αυτό. Ο πιθανός διακομιστής διαφημίσεων μπορεί μετά να προστεθεί στη μαύρη λίστα σας.</string>
+  <!--Preferences-->
   <string name="pref_download">Γενικές προτιμήσεις</string>
   <string name="pref_hosts">Αρχείο hosts</string>
   <string name="pref_redirection_ip">IP Ανακατεύθυνσης</string>
@@ -211,11 +199,17 @@
   <string name="pref_update_only_on_wifi_summary">Εκτέλεση ενημερώσεων παρασκηνίου μόνο με σύνδεση δικτύου WiFi.</string>
   <string name="pref_whitelist_rules">Να επιτραπει η λευκή λίστα</string>
   <string name="pref_whitelist_rules_summary">Να επιτραπει η λευκή λίστα από τις πηγές hosts.</string>
-  <string name="pref_redirection_rules">Να επιτραπούν ανακατευθύνσεις </string>
   <string name="pref_redirection_rules_summary">Κίνδυνος ασφαλείας! Να επιτραπούν ανακατευθύνσεις από τις πηγές hosts.</string>
   <string name="pref_debug">Αποσφαλμάτωση</string>
   <string name="pref_enable_debug">Καταγραφή αποσφαλμάτωσης</string>
   <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
   <string name="pref_enable_ipv6">Ενεργοποίηση πρωτοκόλλου IPv6.</string>
   <string name="pref_enable_ipv6_summary">Όλες οι καταχωρήσεις του αρχείου host θα αποκτήσουν μια καταχώρηση ::1 (IPv6 localhost) αντίστοιχα.</string>
+  <string name="pref_enable_systemless_summary">Το AdAway δεν θα πειράξει το σύστημα</string>
+  <string name="pref_enable_systemless">Ενεργοποίηση λειτουργίας να μην πειράξει το σύστημα</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Επιλογές</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Υπάρχει διαθέσιμη ενημέρωση</string>
 </resources>

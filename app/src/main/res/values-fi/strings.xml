@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Web-palvelin ei ole käynnissä</string>
   <string name="button_webserver_toggle_text">Salli tai estä web-palvelin vastaamasta estettyihin isäntänimiin.</string>
   <string name="button_help">Ohjeet</string>
-  <string name="tcpdump_description">Tcpdump on työkalu, jolla voit seurata DNS-pyyntöjä ja tallentaa ne lokitiedostoon. Voit käynnistää sen taustalla, käyttää sovelluksia, jotka näyttävät mainoksia ja sen jälkeen analysoida DNS-pyyntöjä käyttäen lokitiedostoa. Mahdolliset mainospalvelimet voidaan sitten lisätä mustalle listalle.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump on käynnissä!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump ei ole käynnissä!</string>
-  <string name="tcpdump_show_results">Avaa lokitiedosto</string>
-  <string name="tcpdump_clear_results">Poista lokitiedosto</string>
+  <!--Home-->
+  <string name="text_update">Kaikki hosts-tiedostot määritellyistä lähteistä ovat ladattu, yhdistyi luetteloihin ja asenettu yhdeksi hosts-tiedostoksi.</string>
+  <string name="button_check_update_hosts">Tarkista päivitykset</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Lisää</string>
   <string name="checkbox_list_empty">Tyhjä lista</string>
-  <string name="checkbox_list_empty_text">Voit lisätä kohteita valikosta.</string>
   <string name="checkbox_list_context_delete">Poista</string>
   <string name="checkbox_list_footer">Uusien kohteiden lisäämisen jälkeen tähän luetteoloon, sinun täytyy hyväksyä taas AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Muokkaa</string>
   <string name="checkbox_list_context_title">Muokka merkintää</string>
   <string name="checkbox_list_context_edit">Muokkaa</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Valkoinen lista</string>
   <string name="lists_tab_blacklist">Musta lista</string>
-  <string name="lists_tab_redirection_list">Luettelon uudelleenohjaus</string>
-  <string name="list_dialog_url">URL-osoite:</string>
   <string name="list_dialog_hostname">host-nimi:</string>
-  <string name="list_dialog_whitelist_hostname">Isäntänimi:\n(*- ja ?-yleismerkit ovat sallittuja)</string>
   <string name="list_dialog_ip">IP (IPv4 tai IPv6):</string>
   <string name="import_dialog">Tuodaan...</string>
   <string name="export_dialog">Viedään...</string>
   <string name="export_success">Kaikki merkinnät viety adaway-export-tiedostoon SD-kortille.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Tarkistetaan päivityksiä...</string>
   <string name="status_reverting">Palautetaan...</string>
@@ -55,8 +49,8 @@
 </string>
   <string name="status_enabled">Käytössä</string>
   <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
-  <string name="status_disabled">Pois käytössä</string>
-  <string name="status_disabled_subtitle">Pois käytössä</string>
+  <string name="status_disabled">Pois käytöstä</string>
+  <string name="status_disabled_subtitle">Pois käytöstä</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symbolista linkkiä kohteeseen /system/etc/hosts ei ole olemassa tai se on virheellinen! AdAway ei toimi, jos se ei osoita oikeaan tiedostoon.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
   <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
@@ -96,11 +90,10 @@
   <string name="download_fail_title">Lataus epäonnistui</string>
   <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
   <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
+  <string name="disable_systemless_successful">Otit systemless -tilan pois käytöstä.\nVoi olla tarpeen käynnistää laite uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko uudelleenkäynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei mikään sovellus käytä SD-korttia tällä hetkellä!)</string>
+  <string name="disable_systemless_successful_title">Kytketty pois päältä</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Joko SU binääripakettia ei löytynyt tai AdAwaylle ei ole annettu root-oikeuksia.\n\nNäin voi käydä, kun laitettasi ei ole rootattu.\nVoit löytää lisätietoja kuinka hankit pääkäyttäjän oikeudet osoitteessa wiki.lineageos.org tai muilta Android-sivustoilta.</string>
   <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
-  <string name="no_url">Tämä ei ole kelvollinen URL-osoite!</string>
-  <string name="no_url_title">Väärin muotoiltu URL</string>
   <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
   <string name="no_hostname">Tämä ei ole kelvollinen host-nimi!</string>
   <string name="no_hostname_title">Väärin muotoiltu host-nimi</string>
@@ -132,13 +125,12 @@
     <item>8 euroa</item>
     <item>13 euroa</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Täällä voit etsiä mainosohjelma-sovelluksia, joita AdAway ei voinut estää. Nämä sovellukset käyttävät esimerkiksi Airpush-ilmoituksia, jotka avautuvat vaikka sovellus ei ole käynnissä tai jopa vaihtaa soittoääntä. Ainut toimiva vastatoimi on poistaa kyseiset sovellukset klikkaamalla luettelokohteessa</string>
-  <string name="adware_empty">Mainosohjelmasovelluksia ei löytynyt!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Paikallinen:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">ei saatavilla</string>
+  <string name="hosts_dialog_url">URL-osoite:</string>
   <!--Other-->
   <string name="app_subtitle">Mainosten esto</string>
   <string name="no_text_editor_title">Ei tekstieditoria asennettuna</string>
@@ -146,14 +138,9 @@
   <string name="no_file_manager_title">Tiedostohallintasovellusta ei ole asennettu</string>
   <string name="no_file_manager">Ei voitu avata tiedostoja, koska tiedostonhallintasovellusta ei löytynyt. Voit asentaa OI File Manager:n tai muun tiedostohallintasovelluksen.\n\nHaluatko asentaa OI File Manager:n?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Lokitiedosto poistettu!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Isäntänimi lisättiin mustalle listalle!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Isäntänimi lisättiin valkoisalle listalle!</string>
-  <string name="tcpdump_log_context_blacklist">Lisää mustalle listalle</string>
-  <string name="tcpdump_log_context_whitelist">Lisää valkoiselle listalle</string>
-  <string name="tcpdump_log_context_browser">Avaa selaimessa</string>
-  <string name="tcpdump_log_empty">Lokitiedosto on tyhjä!</string>
-    <!--Preferences-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump on työkalu, jolla voit seurata DNS-pyyntöjä ja tallentaa ne lokitiedostoon. Voit käynnistää sen taustalla, käyttää sovelluksia, jotka näyttävät mainoksia ja sen jälkeen analysoida DNS-pyyntöjä käyttäen lokitiedostoa. Mahdolliset mainospalvelimet voidaan sitten lisätä mustalle listalle.</string>
+  <!--Preferences-->
   <string name="pref_download">Yleiset asetukset</string>
   <string name="pref_hosts">Hosts-tiedosto</string>
   <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>
@@ -189,11 +176,16 @@
   <string name="pref_update_only_on_wifi_summary">Suorittaa taustapäivityksen vain, kun käytössä on WiFi-yhteys.</string>
   <string name="pref_whitelist_rules">Salli whitelistning</string>
   <string name="pref_whitelist_rules_summary">Salli Hosts-lähteille kohteiden lisääminen valkoiselle listalle.</string>
-  <string name="pref_redirection_rules">Salli uudelleenohjaukset</string>
   <string name="pref_redirection_rules_summary">SISÄLTÄÄ TURVALLISUUSRISKIN! Salli hosts-lähteille uudelleenohjaus.</string>
   <string name="pref_debug">Virheenkorjaus</string>
   <string name="pref_enable_debug">Virheenkorjauslokin kirjaaminen</string>
   <string name="pref_enable_debug_summary">Sinun täytyy käynnistää AdAway uudelleen ottaaksesi asetukset käyttöön.</string>
   <string name="pref_enable_ipv6">Ota käyttöön IPv6</string>
   <string name="pref_enable_ipv6_summary">Kaikki host-tiedoston entryt saavat vastaavan ::1 (IPv6 localhost) entryn.</string>
+  <string name="pref_enable_systemless">Ota käyttöön systemless -tila</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Asetukset</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Päivitys saatavilla</string>
 </resources>

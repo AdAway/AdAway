@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Avslutt</string>
+  <string name="button_apply">Last ned filer og benytt reklameblokkering</string>
+  <string name="button_close">Lukk</string>
+  <string name="button_yes">Ja</string>
+  <string name="button_no">Nei</string>
+  <string name="button_revert">Skru av reklameblokkering</string>
+  <string name="button_add">Legg til</string>
+  <string name="button_cancel">Lukk</string>
+  <string name="button_revert_text">Gjenoppretter standardvertsfilen på systemet ditt.</string>
+  <string name="button_save">Lagre</string>
+  <string name="button_webserver_toggle_checked">Nettjeneren kjører</string>
+  <string name="button_webserver_toggle_unchecked">Nettjeneren kjører ikke</string>
+  <string name="button_webserver_toggle_text">Start eller stopp nettjeneren på lokalverten for å svare på forespørsler om blokkerte vertsnavn.</string>
+  <string name="button_help">Hjelp</string>
+  <!--Home-->
+  <string name="text_update">Alle vertsfiler fra de valgte kildene blir lastet ned, slått sammen med dine egne lister, og installert som én vertsfil på systemet ditt.</string>
+  <string name="button_check_update_hosts">Se etter oppdateringer</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_empty">Tøm listen</string>
+  <string name="checkbox_list_context_delete">Slett</string>
+  <string name="checkbox_list_footer">Etter å ha lagt til nye gjenstander til denne listen, vil du måtte benytte AdAway på nytt!</string>
+  <string name="checkbox_list_edit_dialog_title">Rediger</string>
+  <string name="checkbox_list_context_title">Rediger oppføring</string>
+  <string name="checkbox_list_context_edit">Rediger</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">Hviteliste</string>
+  <string name="lists_tab_blacklist">Svarteliste</string>
+  <string name="list_dialog_hostname">Vertsnavn:</string>
+  <string name="list_dialog_ip">IP (IPv6 eller IPv4):</string>
+  <string name="import_dialog">Importerer …</string>
+  <string name="export_dialog">Eksporterer …</string>
+  <string name="export_success">Eksporterte alle oppføringene til en fil kalt \'adaway-export\' på ditt SD-kort.</string>
+  <!--Hosts content-->
+  <!--Status Notifications-->
+  <string name="status_checking">Ser etter oppdateringer …</string>
+  <string name="status_reverting">Stiller tilbake …</string>
+  <string name="status_reverting_subtitle">Lager standard-vertsfilen</string>
+  <string name="status_checking_subtitle">Ser om en oppdatering er tilgjengelig</string>
+  <string name="status_update_available">Oppdatering tilgjengelig</string>
+  <string name="status_update_available_subtitle">Nyere vertsfiler er tilgjengelig</string>
+  <string name="status_no_connection">Ingen internettilkobling</string>
+  <string name="status_no_connection_subtitle">Ingen internettilkobling er tilgjengelig</string>
+  <string name="status_download_fail">Utilgjengelige kilder</string>
+  <string name="status_download_fail_subtitle_new">Ingen vertsfiler kan bli nådd!</string>
+  <string name="status_enabled">Skrudd på</string>
+  <string name="status_enabled_subtitle">De nyeste vertsfilene er skrudd på</string>
+  <string name="status_disabled">Skrudd av</string>
+  <string name="status_disabled_subtitle">Skrudd av</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlinken fra målet ditt til /system/etc/hosts finnes ikke eller er feil! AdAway vil ikke virke dersom den ikke peker mot den riktige filen.\n\nVil du forsøke å lage en symlink?</string>
+  <string name="apply_symlink_missing_title">Symlinken mangler</string>
+  <string name="apply_not_enough_space">Ikke nok plass på partisjonen!\nPrøv å skifte målvertsfilen i innstillingene til /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">Ikke nok plass</string>
+  <string name="apply_private_file_fail">Den nedlastede filen kunne ikke bli lest inn.</string>
+  <string name="apply_private_file_fail_title">Feil med privat fil</string>
+  <string name="apply_remount_fail">Gjenmontering av partisjonen som les+skriv mislyktes!</string>
+  <string name="apply_remount_fail_title">Gjenmontering mislyktes</string>
+  <string name="apply_copy_fail">Kopiering av vertsfilen mislyktes!</string>
+  <string name="apply_copy_fail_title">Kopiering mislyktes</string>
+  <string name="apply_success_subtitle">Benyttede vertsfilkilder:</string>
+  <string name="apply_success_title">Benyttelsen var vellykket</string>
+  <string name="apply_success_dialog">Benyttelsen var vellykket.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
+  <string name="apply_symlink_successful">Opprettelsen av symlinken var vellykket.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
+  <string name="apply_symlink_successful_title">Symlink-opprettelsen var vellykket</string>
+  <string name="apply_symlink_fail">Symlinken kunne ikke bli opprettet av Android.\nDette mislykkes vanligvis på grunn av en \"egenskap\" som kalles S-ON på HTC-mobiler!\n\nEn løsning er å starte opp telefonen din i gjenopprettingsmodus og lage symlinken der med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nDersom dette ikke virker, søk på nettet etter S-OFF og mobilen din.</string>
+  <string name="apply_symlink_fail_title">Symlink-opprettelsen mislyktes</string>
+  <string name="apply_help">Se i Hjelp for mere informasjon.</string>
+  <string name="apply_apn_proxy">En APN-mellomtjener er valgt på din Android!\nAdAway vil ikke virke pålitelig når den er på mobilnettverker som 3G. Du kan deaktivere den mellomtjeneren ved å gå til din valgte APN og fjerne verdien i mellomtjenerfeltet.</string>
+  <string name="apply_apn_proxy_title">APN-mellomtjeneren ble valgt!</string>
+  <string name="no_connection">TIlkoblingen til internettet virker ikke.</string>
+  <string name="no_connection_title">Ingen tilkobling</string>
+  <string name="download_dialog">Laster ned …</string>
+  <string name="apply_dialog">Benytter …</string>
+  <string name="apply_dialog_lists">Benytter svartelisten og hvitelisten</string>
+  <string name="apply_dialog_hostnames">Parser og slår sammen vertsfilene</string>
+  <string name="apply_dialog_hosts">Bygger vertsfilen</string>
+  <string name="apply_dialog_apply">Benytter vertsfilen</string>
+  <string name="apply_fail">Å få systemet ditt til å benytte vertsfilen mislyktes!\nPrøv å skifte målvertsfilen i innstillingene til /data/data/hosts.</string>
+  <string name="apply_fail_title">Benyttelse mislyktes</string>
+  <string name="revert_successful">Du gikk tilbake til standardvertsfilen.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
+  <string name="revert_successful_title">Tilbakestillingen var vellykket</string>
+  <string name="revert_problem">Tilbakestillingen mislyktes av ukjente grunner.</string>
+  <string name="revert_problem_title">Tilbakestillingen mislyktes!</string>
+  <string name="download_fail_dialog">Ingen av dine vertsfiler kan bli koblet til! Er du riktig tilkoblet til internettet?</string>
+  <string name="download_fail_title">Nedlastningen mislyktes</string>
+  <string name="no_private_file">Privatfilen kan ikke bli opprettet.</string>
+  <string name="no_private_file_title">Privatfil-opprettelsen mislyktes</string>
+  <string name="enable_systemless_successful">Du har skrudd på systemløs modus.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
+  <string name="enable_systemless_successful_title">Påskruingen var vellykket</string>
+  <string name="disable_systemless_successful">Du har skrudd av systemløs modus.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
+  <string name="disable_systemless_successful_title">Avskruingen var vellykket</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">Enten kunne SU-binærfilen ikke bli funnet, eller så ga du ikke root-tillatelse for AdAway.\n\nDette kan skje dersom enheten din ikke er rootet.\nDu kan finne mere informasjon om hvordan man rooter enheten din på wiki.lineageos.org eller på andre Android-nettsteder.</string>
+  <string name="no_root_title">En rootet Android er påkrevd</string>
+  <string name="hosts_add_dialog">Inndata-URLen til vertsfilen:</string>
+  <string name="no_hostname">Dette er ikke et gyldig vertsnavn!</string>
+  <string name="no_hostname_title">Ugyldig formattert vertsnavn</string>
+  <string name="no_ip">Dette er ikke gyldig IP!</string>
+  <string name="no_ip_title">Ugyldig formattert IP</string>
+  <string name="reboot_never_reboot">Aldri start på nytt, og ikke vis dette spørsmålet neste gang!</string>
+  <string name="loading">Laster inn …</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Oppfrisk</string>
+  <string name="menu_add">Legg til</string>
+  <string name="menu_hosts_sources">Vertsfilkilder</string>
+  <string name="menu_help">Hjelp</string>
+  <string name="menu_import">Importer alle listene</string>
+  <string name="menu_export">Eksporter alle listene</string>
+  <!--Help-->
+  <string name="help_tab_about">Om AdAway</string>
+  <string name="help_tab_donate">Doner</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">Problemer</string>
+  <string name="help_tab_changelog">Endringslogg</string>
+  <string name="help_about_version">Versjon:</string>
+  <string name="help_donation_paypal_item">AdAway-donasjon</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Euro</item>
+    <item>2 Euro</item>
+    <item>3 Euro</item>
+    <item>5 Euro</item>
+    <item>8 Euro</item>
+    <item>13 Euro</item>
+  </string-array>
+  <!--Adware-->
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">Lokalt:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">ikke tilgjengelig</string>
+  <string name="hosts_dialog_url">URL:</string>
+  <!--Other-->
+  <string name="app_subtitle">Reklameblokkerer</string>
+  <string name="no_text_editor_title">Ingen tekstredigerere er installert</string>
+  <string name="no_text_editor">Ingen tekstredigerer som kunne åpne vertsfilen kunne bli funnet. Du kan installere Jota eller andre tekstredigerere for å håndtere dette.\n\nVil du installere Jota?</string>
+  <string name="no_file_manager_title">Ingen filbehandlere er installert</string>
+  <string name="no_file_manager">Ingen filbehandler som kunne åpne filer kunne bli funnet. Du kan installere OI File Manager eller andre tekstredigerere for å håndtere dette.\n\nVil du installere OI File Manager?</string>
+  <!--Tcpdump-->
+  <string name="tcpdump_description">Tcpdump er et verktøy for å overvåke DNS-forespørsler og lagre dem i en loggfil. Du kan starte den i bakgrunnen, kjøre apper som viser reklamer, og etterpå analysere DNS-forespørslene ved hjelp av loggfilen. Mulige reklametjenere kan deretter bli lagt til i svartelisten din.</string>
+  <!--Preferences-->
+  <string name="pref_download">Generelle preferanser</string>
+  <string name="pref_hosts">Vertsfil</string>
+  <string name="pref_redirection_ip">Omdirigerings-IP</string>
+  <string name="pref_update_check">Se etter oppdateringer</string>
+  <string name="pref_apply_method">Målpunktsvertsfilen</string>
+  <string name="pref_apply_method_summary">Før du endrer denne innstillingen, les i Hjelp om denne funksjonen.</string>
+  <string name="pref_redirection_ip_summary">Alle blokkerte vertsnavn blir omdirigert til denne IP-adressen.</string>
+  <string name="pref_header_preferences">Preferanser</string>
+  <string name="pref_header_preferences_summary">Generelle preferanser for AdAway</string>
+  <string name="pref_never_reboot">Skjul omstartsdialogen</string>
+  <string name="pref_never_reboot_summary">Skjuler dialogen som spør om å starte Android på nytt etter vellykkede benyttelser</string>
+  <string name="pref_webserver_on_boot">Start opp nettjeneren ved systemoppstart</string>
+  <string name="pref_webserver_on_boot_summary">Start nettjeneren ved oppstart, og lytter på lokale IP-adresser</string>
+  <string name="pref_webserver_enabled">Aktiver nettjeneren</string>
+  <string name="pref_webserver_enabled_summary">Skrur på nettjenerlytting av lokale IP-adresse for å svare på forespørsler til blokkerte vertsnavn</string>
+  <string name="pref_webserver">Lokal nettjener</string>
+  <string name="pref_custom_target">Tilpasset målpunkt</string>
+  <string name="pref_custom_target_summary">Brukes kun dersom målvertsfilen er satt til et tilpasset mål</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Tilpasset mål</item>
+  </string-array>
+  <string name="pref_update_check_summary">Se etter oppdateringer når AdAway starter opp</string>
+  <string name="pref_sdcard_problem">Denne funksjonen vil ikke virke riktig mens AdAway er installert på SD-kortet!</string>
+  <string name="pref_background">Bakgrunnstjenester</string>
+  <string name="pref_update_check_daily">Se etter oppdateringer daglig</string>
+  <string name="pref_update_check_daily_summary">Sjekk etter oppdateringer i bakgrunnen daglig med beskjeder</string>
+  <string name="pref_automatic_update_daily">Automatisk oppdatering</string>
+  <string name="pref_automatic_update_daily_summary">Oppdater automatisk i bakgrunnen dersom oppdateringer er tilgjengelige.</string>
+  <string name="pref_update_only_on_wifi">Bare oppdater på Wi-Fi-nettverk</string>
+  <string name="pref_update_only_on_wifi_summary">Bare iverksett bakgrunnsoppdateringer når enheten er på et WiFi-nettverk.</string>
+  <string name="pref_whitelist_rules">Tillat hvitelisting</string>
+  <string name="pref_whitelist_rules_summary">Tillat hvitelistingsoppføringer fra vertsfilkilder.</string>
+  <string name="pref_redirection_rules_summary">UTGJØR EN SIKKERHETSRISIKO! Tillater omdirigeringsoppføringer fra vertsfilkilder.</string>
+  <string name="pref_debug">Avlusing</string>
+  <string name="pref_enable_debug">Avlusings-loggføring</string>
+  <string name="pref_enable_debug_summary">Du må starte AdAway på nytt for at denne innstillingene skal bli satt i gang.</string>
+  <string name="pref_enable_ipv6">Aktiver IPv6</string>
+  <string name="pref_enable_ipv6_summary">Alle vertsfiloppføringer vil få en samsvarende ::1-oppføring (IPv6-lokalverten).</string>
+  <string name="pref_enable_systemless_summary">Forhindre AdAway fra å modifisere systempartisjonen</string>
+  <string name="pref_enable_systemless">Aktiver systemløs modus</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Preferanser</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Oppdatering tilgjengelig</string>
+</resources>

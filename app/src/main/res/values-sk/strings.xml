@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Webserver je zastavený</string>
   <string name="button_webserver_toggle_text">Spustiť alebo zastaviť webserver pre odpovedanie na žiadosti pre blokované adresy.</string>
   <string name="button_help">Pomoc</string>
-  <string name="tcpdump_description">Tcpdump je nástroj na monitorovanie DNS žiadostí a ich ukladanie do záznamu. Môžete ho spustiť na pozadí, spustiť aplikáciu, ktorá zobrazuje reklamy a potom analyzovať DNS požiadavky pomocou záznamu. Adresy serverov s reklamami si potom môžete pridať do čiernej listiny.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump je spustený!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump je zastavený!</string>
-  <string name="tcpdump_show_results">Otvoriť záznam</string>
-  <string name="tcpdump_clear_results">Vymazať záznam</string>
+  <!--Home-->
+  <string name="text_update">Všetky hosts súbory z vybraných zdrojov budú stiahnuté, zlúčené s vašimi zoznamami a nainštalované ako jeden hosts súbor do vášho systému.</string>
+  <string name="button_check_update_hosts">Skontrolovať aktualizácie</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Pridať</string>
   <string name="checkbox_list_empty">Prázdny zoznam</string>
-  <string name="checkbox_list_empty_text">Položku môžete pridať cez hornú lištu s tlačidlami.</string>
   <string name="checkbox_list_context_delete">Vymazať</string>
   <string name="checkbox_list_footer">Po pridaní novej položky do zoznamu musíte znova povoliť AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Upraviť</string>
   <string name="checkbox_list_context_title">Upraviť položku</string>
   <string name="checkbox_list_context_edit">Upraviť</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Biela listina</string>
   <string name="lists_tab_blacklist">Čierna listina</string>
-  <string name="lists_tab_redirection_list">Presmerovania</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Adresa:</string>
-  <string name="list_dialog_whitelist_hostname">Adresa:\n(Zástupné znaky * a ? sú povolené!)</string>
   <string name="list_dialog_ip">IP (IPv4 alebo IPv6):</string>
   <string name="import_dialog">Importovanie…</string>
   <string name="export_dialog">Exportovanie…</string>
   <string name="export_success">Všetky položky uložené do súboru \'adaway-export\' na SD karte.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Kontrolovanie aktualizácií…</string>
   <string name="status_reverting">Obnovovanie…</string>
@@ -95,13 +89,13 @@
   <string name="download_fail_title">Sťahovanie zlyhalo</string>
   <string name="no_private_file">Súkromný súbor nemožno vytvoriť.</string>
   <string name="no_private_file_title">Vytváranie súboru zlyhalo</string>
+  <string name="enable_systemless_successful">Povolili ste bezsystémový režim.\nBude potrebné reštartovať zariadenie aby sa zmeny prejavili.\n\nChcete reštartovať?\n(Aby sa zabránilo strate dát, uistite sa, že žiadna aplikácia práve nevyužíva kartu SD!)</string>
+  <string name="enable_systemless_successful_title">Úspešne povolené</string>
   <string name="disable_systemless_successful">Zakázali ste bezsystémový režim.\nBude potrebné reštartovať zariadenie aby sa zmeny prejavili.\n\nChcete reštartovať?\n(Aby sa zabránilo strate dát, uistite sa, že žiadna aplikácia práve nevyužíva kartu SD!)</string>
   <string name="disable_systemless_successful_title">Zakázanie úspešné</string>
   <!--Other Dialogs-->
   <string name="no_root_description">SU binárny súbor nebol nájdený alebo ste nepovolili root oprávnenia pre AdAway.\n\nToto sa môže stať, ak vaše zariadenie nie je rootnuté\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke wiki.lineageos.org alebo na inej stránke o zariadeniach s Androidom.</string>
   <string name="no_root_title">Je potrebné rootnuté zariadenie</string>
-  <string name="no_url">Toto nie je platná URL!</string>
-  <string name="no_url_title">Nesprávne formulovaná URL</string>
   <string name="hosts_add_dialog">Zadajte URL k hosts súboru:</string>
   <string name="no_hostname">Toto nie je platná adresa!</string>
   <string name="no_hostname_title">Nesprávne formulovaná adresa</string>
@@ -133,13 +127,12 @@
     <item>8 Eur</item>
     <item>13 Eur</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Tu môžete vyhľadať Adware aplikácie, ktoré AdAway nemôže zablokovať. Tieto aplikácie používajú napríklad Airpush upozornenia, ktoré sa zobrazujú aj keď aplikácia nie je spustená alebo vám môžu zmeniť zvonenie. Jediné dostupné protiopatrenie je odinštalovať tieto aplikácie kliknutím na položku v zozname!</string>
-  <string name="adware_empty">Neboli nájdené žiadne Adware aplikácie!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Použité:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">nie je dostupné</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Blokovanie reklám</string>
   <string name="no_text_editor_title">Nie je nainštalovaný žiadny textový editor</string>
@@ -147,14 +140,8 @@
   <string name="no_file_manager_title">Nie je nainštalovaný žiadny správca súborov</string>
   <string name="no_file_manager">Nebol nájdený žiadny správca súborov na otvorenie súborov. Môžete nainštalovať aplikáciu OI File Manager alebo iného správcu súborov.\n\nChcete nainštalovať aplikáciu OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Záznam vymazaný!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Adresa bola pridaná do vašej čiernej listiny!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Adresa bola pridaná do vašej bielej listiny!</string>
-  <string name="tcpdump_log_context_blacklist">Pridať do čiernej listiny</string>
-  <string name="tcpdump_log_context_whitelist">Pridať do bielej listiny</string>
-  <string name="tcpdump_log_context_browser">Otvoriť v prehliadači</string>
-  <string name="tcpdump_log_empty">Záznam je prázdny!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump je nástroj na monitorovanie DNS žiadostí a ich ukladanie do záznamu. Môžete ho spustiť na pozadí, spustiť aplikáciu, ktorá zobrazuje reklamy a potom analyzovať DNS požiadavky pomocou záznamu. Adresy serverov s reklamami si potom môžete pridať do čiernej listiny.</string>
+  <!--Preferences-->
   <string name="pref_download">Všeobecné nastavenia</string>
   <string name="pref_hosts">Hosts súbor</string>
   <string name="pref_redirection_ip">IP pre presmerovanie</string>
@@ -190,13 +177,17 @@
   <string name="pref_update_only_on_wifi_summary">Spustí aktualizácie na pozadí iba ak je zariadenie pripojené k Wi-Fi sieti</string>
   <string name="pref_whitelist_rules">Povoliť bielu listinu</string>
   <string name="pref_whitelist_rules_summary">Povolí vkladať položky do bielej listiny z hosts zdrojov</string>
-  <string name="pref_redirection_rules">Povoliť presmerovania</string>
   <string name="pref_redirection_rules_summary">PREDSTAVUJE BEZPEČNOSTNÉ RIZIKO! Povolí vkladať položky do presmerovaní z hosts zdrojov</string>
   <string name="pref_debug">Odstraňovanie chýb</string>
   <string name="pref_enable_debug">Zaznamenávanie chýb</string>
   <string name="pref_enable_debug_summary">Je potrebné reštartovať AdAway aby sa zmeny prejavili.</string>
   <string name="pref_enable_ipv6">Povoliť IPv6</string>
   <string name="pref_enable_ipv6_summary">Všetky položky v hosts súbore budú mať zodpovedajúci ::1 (IPv6 localhost) záznam.</string>
-  <string name="pref_enable_systemless_summary">Zabráni AdAway upravovať systémovú partíciu (vyžaduje bezsystémový SuperSU pre automatickú inštaláciu)</string>
+  <string name="pref_enable_systemless_summary">Zabrániť AdAway upravovať systémovú partíciu</string>
   <string name="pref_enable_systemless">Povoliť bezsystémový režim</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Nastavenia</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Aktualizácia dostupná</string>
 </resources>

@@ -15,22 +15,21 @@
   <string name="button_webserver_toggle_checked">Veebiserver töötab</string>
   <string name="button_webserver_toggle_unchecked">Veebiserver ei tööta</string>
   <string name="button_help">Abi</string>
-  <string name="tcpdump_show_results">Ava logifail</string>
-  <string name="tcpdump_clear_results">Kustuta logifail</string>
+  <!--Home-->
+  <string name="text_update">Kõik hosts failid laetakse määratud allikatest, ühendatakse sinu loenditega ning paigaldatakse süsteemi ühe failina.</string>
+  <string name="button_check_update_hosts">Uuenduste kontrollimine</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Lisa</string>
   <string name="checkbox_list_empty">Loend tühi</string>
-  <string name="checkbox_list_empty_text">Ridu saab lisata tegevuste ribalt.</string>
   <string name="checkbox_list_context_delete">Kustuta</string>
   <string name="checkbox_list_footer">Uute allikate lisamisel tuleb AdAway uuesti rakendada!</string>
   <string name="checkbox_list_edit_dialog_title">Redigeeri</string>
   <string name="checkbox_list_context_edit">Redigeeri</string>
-  <!--Your Lists-->
-  <string name="list_dialog_url">URL:</string>
+  <!--Your lists-->
   <string name="list_dialog_hostname">Aadress:</string>
   <string name="list_dialog_ip">IP (IPv4 või IPv6):</string>
   <string name="import_dialog">Importimine...</string>
   <string name="export_dialog">Eksportimine...</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Uuenduste kontrollimine...</string>
   <string name="status_reverting">Taastamine...</string>
@@ -61,7 +60,6 @@
   <string name="download_fail_title">Allalaadimine nurjus</string>
   <!--Other Dialogs-->
   <string name="no_root_title">Vajalik \"rootitud\" Android</string>
-  <string name="no_url">See ei ole kehtiv URL!</string>
   <string name="no_hostname">See ei ole kehtiv aadress!</string>
   <string name="no_ip">See ei ole kehtiv IP!</string>
   <string name="reboot_never_reboot">Keela taaskäivitamine ja järgmine kord seda küsimust ära kuva!</string>
@@ -89,19 +87,15 @@
     <item>8 eurot</item>
     <item>13 eurot</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Siin saad otsida pahasid reklaamvara rakendusi, mida AdAway blokeerida ei suuda. Need rakendused kasutavad näiteks Airpush teavitusi, mis hüppavad ette ka siis, kui rakendus ise ei tööta, või isegi muudavad helinatooni. Ainus vastumeede on nende rakenduste eemaldamine. Selleks klõpsa nimekirjas rakenduse peal.</string>
-  <string name="adware_empty">Reklaamvara rakendusi ei leitud!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Kohalik:</string>
   <string name="hosts_last_modified_online">Onlain:</string>
   <string name="hosts_not_available">pole saadaval</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Reklaamide blokeerija</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Logifail kustutatud!</string>
-  <string name="tcpdump_log_context_browser">Ava veebilehitsejas</string>
-  <string name="tcpdump_log_empty">Logifail on tühi!</string>
   <!--Preferences-->
   <string name="pref_download">Üldised eelistused</string>
   <string name="pref_hosts">Hosts fail</string>
@@ -129,4 +123,9 @@
   <string name="pref_debug">Silumine</string>
   <string name="pref_enable_debug">Silumise logimine</string>
   <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Eelistused</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Uuendus saadaval</string>
 </resources>

@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Web 服务器没有运行</string>
   <string name="button_webserver_toggle_text">在本机开启和停止 web 服务器来应答发到被屏蔽主机的请求。</string>
   <string name="button_help">帮助</string>
-  <string name="tcpdump_description">Tcpdump 是一个用来监视 DNS 请求并保存为日志文件的工具。您可以在后台运行它，在前台运行有广告的程序，然后用目志文件来分析 DNS 请求。把找到了广告服务器添加到您的黑名单中。</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump 正在运行！</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump 没有运行！</string>
-  <string name="tcpdump_show_results">打开日志文件</string>
-  <string name="tcpdump_clear_results">删除日志文件</string>
+  <!--Home-->
+  <string name="text_update">所有 hosts 源的文件下载整合完毕，并已配置到您的系统。</string>
+  <string name="button_check_update_hosts">检查更新</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">添加</string>
   <string name="checkbox_list_empty">空列表</string>
-  <string name="checkbox_list_empty_text">你可以从菜单中添加条目。</string>
   <string name="checkbox_list_context_delete">删除</string>
   <string name="checkbox_list_footer">在添加新条目后，您需要重新启用 AdAway！</string>
   <string name="checkbox_list_edit_dialog_title">编辑</string>
   <string name="checkbox_list_context_title">编辑条目</string>
   <string name="checkbox_list_context_edit">编辑</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">白名单</string>
   <string name="lists_tab_blacklist">黑名单</string>
-  <string name="lists_tab_redirection_list">重定向列表</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主机名：</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(可使用Wildcard字符 * 和 ?)</string>
   <string name="list_dialog_ip">IP 地址(IPv4 或 IPv6)</string>
   <string name="import_dialog">正在导入...</string>
   <string name="export_dialog">正在导出...</string>
   <string name="export_success">导出全部条目为名为“adaway-export”的 SD 卡文件。</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">检查更新...</string>
   <string name="status_reverting">正在还原...</string>
@@ -95,11 +89,12 @@
   <string name="download_fail_title">下载失败</string>
   <string name="no_private_file">不能创建私有文件</string>
   <string name="no_private_file_title">私有文件创建失败</string>
+  <string name="enable_systemless_successful">已启用 Systemless 模式，可能需要重启设备使更改生效。是否重启？(未防止数据丢失，请确保当前无应用正在使用SD存储卡)</string>
+  <string name="enable_systemless_successful_title">启用成功！</string>
+  <string name="disable_systemless_successful">已禁用 Systemless 模式，可能需要重启设备使更改生效。是否重启？(未防止数据丢失，请确保当前无应用正在使用SD存储卡)</string>
+  <string name="disable_systemless_successful_title">关闭成功！</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">未找到su二进制文件，或未许可 AdAway 使用 root 权限。\n\n通常发生于尚未root的设备中。\n请参考 wiki.lineageos.org 或其他安卓网站，了解如何root您的设备。</string>
   <string name="no_root_title">需要 root 了的 Android</string>
-  <string name="no_url">URL 无效！</string>
-  <string name="no_url_title">URL 格式不正确</string>
   <string name="hosts_add_dialog">输入 hosts 文件的 URL：</string>
   <string name="no_hostname">主机名无效！</string>
   <string name="no_hostname_title">主机名格式不正确</string>
@@ -131,13 +126,12 @@
     <item>8 欧元</item>
     <item>13 欧元</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">你可以在这扫描那些不能被广告走开屏蔽的恶意广告应用。这种应用使用了诸如空中推送提醒等技术，可以在程序没有运行时弹出来，甚至改变你的铃声设置。唯一的应对措施就是在这个列表中点击，卸载它们！</string>
-  <string name="adware_empty">未发现恶意广告程序！</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">在线：</string>
   <string name="hosts_not_available">不可用</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">广告屏蔽</string>
   <string name="no_text_editor_title">没有安装文本编辑器</string>
@@ -145,14 +139,8 @@
   <string name="no_file_manager_title">没有安装文件管理器</string>
   <string name="no_file_manager">没有找到文件管理器来打开文件。你可以安装OI File Manager或者其他文件管理器来解决这。\n\n你需要安装OI File Manager吗？</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">日志文件已删除</string>
-  <string name="toast_tcpdump_added_to_blacklist">主机名已添加到你的黑名单</string>
-  <string name="toast_tcpdump_added_to_whitelist">主机名已添加到你的白名单</string>
-  <string name="tcpdump_log_context_blacklist">添加到你的黑名单</string>
-  <string name="tcpdump_log_context_whitelist">添加到你的白名单</string>
-  <string name="tcpdump_log_context_browser">用浏览器打开</string>
-  <string name="tcpdump_log_empty">日志文件为空！</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump 是一个用来监视 DNS 请求并保存为日志文件的工具。您可以在后台运行它，在前台运行有广告的程序，然后用目志文件来分析 DNS 请求。把找到了广告服务器添加到您的黑名单中。</string>
+  <!--Preferences-->
   <string name="pref_download">通用设置</string>
   <string name="pref_hosts">Hosts 文件</string>
   <string name="pref_redirection_ip">重定向 IP</string>
@@ -188,11 +176,17 @@
   <string name="pref_update_only_on_wifi_summary">只在连接到 Wifi 网络时执行后台更新。</string>
   <string name="pref_whitelist_rules">允许白名单</string>
   <string name="pref_whitelist_rules_summary">允许Host源中的白名单条目</string>
-  <string name="pref_redirection_rules">允许重定向</string>
   <string name="pref_redirection_rules_summary">可能会有安全隐患！允许Host源中的重定向条目。</string>
   <string name="pref_debug">调试</string>
   <string name="pref_enable_debug">调试日志记录</string>
   <string name="pref_enable_debug_summary">你需要重新启动广告走开使设置生效</string>
   <string name="pref_enable_ipv6">启用 IPv6</string>
   <string name="pref_enable_ipv6_summary">所有的host项目将取得相同的入口 ::1 (IPv6 localhost) 。</string>
+  <string name="pref_enable_systemless_summary">阻止 AdAway 修改系统分区</string>
+  <string name="pref_enable_systemless">启用 Systemless 模式</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">设置</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">有更新</string>
 </resources>

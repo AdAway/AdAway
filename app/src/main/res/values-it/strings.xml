@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Il webserver non è avviato</string>
   <string name="button_webserver_toggle_text">Avvia o ferma il webserver in localhost per rispondere alle richieste verso hostname bloccati.</string>
   <string name="button_help">Aiuto</string>
-  <string name="tcpdump_description">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla tua lista nera.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump è avviato!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump non è avviato!</string>
-  <string name="tcpdump_show_results">Apri file registro</string>
-  <string name="tcpdump_clear_results">Elimina file registro</string>
+  <!--Home-->
+  <string name="text_update">Tutti i file hosts da sorgenti definite sono scaricati, uniti nelle tue liste e installati come un unico file hosts nel tuo sistema.</string>
+  <string name="button_check_update_hosts">Controlla aggiornamenti</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Aggiungi</string>
   <string name="checkbox_list_empty">Svuota lista</string>
-  <string name="checkbox_list_empty_text">Puoi aggiungere oggetti dalla barra delle azioni</string>
   <string name="checkbox_list_context_delete">Elimina</string>
   <string name="checkbox_list_footer">Dopo aver aggiunto nuove voci alla tua lista devi applicare di nuovo AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Modifica</string>
   <string name="checkbox_list_context_title">Modifica valore</string>
   <string name="checkbox_list_context_edit">Modifica</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Whitelist</string>
   <string name="lists_tab_blacklist">Blacklist</string>
-  <string name="lists_tab_redirection_list">Lista degli inoltri</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Nome host:</string>
-  <string name="list_dialog_whitelist_hostname">Nome host:\n(I metacaratteri * e ? non sono consentiti!)</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importo...</string>
   <string name="export_dialog">Esporto...</string>
   <string name="export_success">Tutte le voci sono state esportate in un file chiamato \'adaway-export\' sulla tua sdcard.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Cerco aggiornamenti...</string>
   <string name="status_reverting">Ripristino...</string>
@@ -95,13 +89,13 @@
   <string name="download_fail_title">Download fallito</string>
   <string name="no_private_file">Il file privato non può essere creato.</string>
   <string name="no_private_file_title">Creazione del file privato fallita</string>
+  <string name="enable_systemless_successful">Hai attivato la modalità systemless. \nPotrebbe essere necessario riavviare Android affinché i cambiamenti abbiano effetto.\n\nVuoi riavviare ora?\n(Per prevenire la perdita di dati assicurati che nessuna app stia usando la sdcard in questo momento!)</string>
+  <string name="enable_systemless_successful_title">Attivazione avvenuta con successo</string>
   <string name="disable_systemless_successful">Hai disabilitato la modalità systemless.\nPotrebbe essere necessario riavviare Android perchè i cambiamenti abbiano effetto.\n\nVuoi riavviare ora?\n(Per prevenire la perdita di dati assicurati che nessuna app stia usando la sdcard in questo momento!)</string>
   <string name="disable_systemless_successful_title">Disattivazione avvenuta con successo</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Non e\' stato possibile trovare il file binario di SU oppure non hai concesso i permessi di root per AdAway. \n\n Questo puo\' succedere se il tuo dispositivo non e\' stato rootato.  \n Puoi trovare informazioni riguardo al rooting del tuo dispositivo su wiki.lineageos.org  oppure altri siti riguardo Android</string>
+  <string name="no_root_description">Non è stato trovato il binario SU o non hai concesso i permessi di root per AdAway.\n\nQuesto può succedere quando il tuo dispositivo non ha il root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android.</string>
   <string name="no_root_title">Richiesto Android con root</string>
-  <string name="no_url">Questo non è un URL valido!</string>
-  <string name="no_url_title">URL non formattato correttamente</string>
   <string name="hosts_add_dialog">Inserisci l\'URL al file hosts:</string>
   <string name="no_hostname">Questo non è un nome host valido!</string>
   <string name="no_hostname_title">Nome host non formattato correttamente</string>
@@ -133,13 +127,12 @@
     <item>8 Euro</item>
     <item>13 Euro</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Qui puoi fare una scansione alla ricerca di applicazioni malevoli con Adware, che non possono essere bloccate da AdAway. Queste applicazioni usano per esempio notifiche Airpush che appaiono anche quando l\'app non è avviata o addirittura ti cambiano la suoneria. L\'unica contromisura disponibile è disinstallare queste applicazioni cliccando nella lista delle voci!</string>
-  <string name="adware_empty">Nessuna cattiva applicazione Adware trovata!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Locale:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">non disponibile</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Blocca pubblicità</string>
   <string name="no_text_editor_title">Nessun editor di testo installato</string>
@@ -148,14 +141,8 @@
   <string name="no_file_manager">Nessun file manager è stato trovato per aprire i file. Puoi installare OI File Manager o altri file manager per rimediare.\n\n
 Vuoi installare OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">File registro eliminato!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Hostname aggiunto alla tua Blacklist!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Hostname aggiunto alla tua Whitelist!</string>
-  <string name="tcpdump_log_context_blacklist">Aggiungi alla tua Blacklist</string>
-  <string name="tcpdump_log_context_whitelist">Aggiungi alla tua Whitelist</string>
-  <string name="tcpdump_log_context_browser">Apri nel Browser</string>
-  <string name="tcpdump_log_empty">File registro vuoto!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla tua lista nera.</string>
+  <!--Preferences-->
   <string name="pref_download">Preferenze generali</string>
   <string name="pref_hosts">File Hosts</string>
   <string name="pref_redirection_ip">Inoltro IP</string>
@@ -191,12 +178,17 @@ Vuoi installare OI File Manager?</string>
   <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso a un network wifi</string>
   <string name="pref_whitelist_rules">Consenti whitelisting</string>
   <string name="pref_whitelist_rules_summary">Permetti valori BIANCHI dalle fonti host.</string>
-  <string name="pref_redirection_rules">Permetti inoltri</string>
   <string name="pref_redirection_rules_summary">RISCHIO PER LA SICUREZZA! Permetti valori di inoltro dalle fonti host.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Log di debug</string>
   <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>
   <string name="pref_enable_ipv6">Abilita IPv6</string>
   <string name="pref_enable_ipv6_summary">Tutte le voci nel file di host avranno una voce  ::1 (IPV6 localhost) corrispondente</string>
+  <string name="pref_enable_systemless_summary">Impedisci a AdAway di modificare la partizione di sistema</string>
   <string name="pref_enable_systemless">Attivare modalità Systemless</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Preferenze</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Aggiornamento disponibile</string>
 </resources>

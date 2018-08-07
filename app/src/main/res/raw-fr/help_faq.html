@@ -2,31 +2,31 @@
 <head></head>
 <body>
 <h2>Revenu publicitaire</h2>
-<p>Une idée fausse courante veut que si un utilisateur ne clique jamais sur les publicités, alors les bloquer est sans contrecoup financier pour le site ou l'application. C'est faux. Les développeurs gagnent de l'argent juste en affichant des publicités. Il n'en tient qu'à vous de bloquer ou non les publicités. Personnellement, je n'utiliserais pas d'applications affichant des publicités parce que je trouve cela très ennuyeux, alors sans blocage de publicité je n'installerais pas ces applications.</p>
+<p>Une idée fausse courante veut que si un utilisateur ne clique jamais sur les publicités, alors les bloquer est sans contrecoup financier pour le site ou l’application. C’est faux. Les développeurs gagnent de l’argent juste en affichant des publicités. Il n’en tient qu’à vous de bloquer ou non les publicités. Personnellement, je n’utiliserais pas d’applications affichant des publicités parce que je trouve cela très ennuyeux, alors sans blocage de publicité je n’installerais pas ces applications.</p>
 
 
 
-<h2>Comment fonctionne AdAway ?</h2>
-<p>AdAway utilise le <a href="http://fr.wikipedia.org/wiki/Hosts">fichier « hosts »</a> pour bloquer les noms d'hôte qui servent des publicités. Le fichier « hosts », qui se trouve dans <tt>/system/etc/hosts</tt>, mappe les noms d'hôte vers des adresses IP. C'est une façon habituelle de définir des paires noms d'hôte-adresse IP sans se fier au système de noms de domaine (DNS). Tous les noms d'hôte non désirés sont redirigés vers <tt>127.0.0.1</tt> qui représente votre propre appareil.</p>
+<h2>Comment AdAway fonctionne-t-il ?</h2>
+<p>AdAway utilise le <a href="http://fr.wikipedia.org/wiki/Hosts">fichier « hosts »</a> pour bloquer les noms d’hôte qui servent des publicités. Le fichier « hosts », qui se trouve dans <tt>/system/etc/hosts</tt>, mappe les noms d’hôte vers des adresses IP. C’est une façon habituelle de définir des paires noms d’hôte-adresse IP sans se fier au système de noms de domaine (DNS). Tous les noms d’hôte non désirés sont redirigés vers <tt>127.0.0.1</tt> qui représente votre propre appareil.</p>
 
-<h2>Pourquoi l'option « Mise à jour automatique » journalière est-elle grisée ?</h2>
-<p>La vérification automatique de nouvelles mises à jour n'est proposée que si AdAway est installé sur la mémoire interne. Ceci est causé par des restrictions de la plate-forme Android.</p>
+<h2>Pourquoi l’option « Mise à jour automatique » journalière est-elle grisée ?</h2>
+<p>La vérification automatique de nouvelles mises à jour n’est proposée que si AdAway est installé sur la mémoire interne. Cela provient de restrictions de la plateforme Android.</p>
 
-<h2>Pourquoi dois-je redémarrer Android pour que jes changements prennent effet ?</h2>
-<p>Java sur Android maintient son propre cache DNS. Le système d'exploitation va immédiatement appliquer le nouveau fichier « hosts » (vérifiez-le avec ping depuis la ligne de commande) mais vous devrez redémarrer Android pour reconstruire le cache DNS de Java.</p>
+<h2>Pourquoi dois-je redémarrer Android pour que jes changements prennent effet ?</h2>
+<p>Java sur Android maintient son propre cache DNS. Le système d’exploitation va immédiatement appliquer le nouveau fichier « hosts » (vérifiez-le avec ping depuis la ligne de commande) mais vous devrez redémarrer Android pour reconstruire le cache DNS de Java.</p>
 
-<h2>Comment utiliser le serveur Web d'AdAway ?</h2>
-<p><b>AdAway fonctionnera aussi sans utiliser le serveur Web !</b>
-<br/><br/>Vous pouvez activer un serveur Web local dans les préférences d'AdAway pour répondre aux requêtes à l'adresse IP locale <tt>127.0.0.1</tt>. Ainsi, le serveur Web d'AdAway répond aux requêtes des applications vers les serveurs de publicités qui sont redirigées vers <tt>127.0.0.1</tt>.
-<br/>Certaines applications refusent de fonctionner si les serveurs de publicités se sont pas joignables. Avec cette méthode, ils le seront à nouveau, répondant par une page blanche et sans image publicitaire.</p>
+<h2>Comment utiliser le serveur Web d’AdAway ?</h2>
+<p><b>AdAway fonctionnera aussi sans utiliser le serveur Web!</b>
+<br/><br/>Vous pouvez activer un serveur Web local dans les préférences d'AdAway pour répondre aux requêtes à l'adresse IP locale <tt>127.0.0.1</tt>. Ainsi, le serveur Web d'AdAway répond aux requêtes des applications vers les serveurs de pub qui sont redirigées vers <tt>127.0.0.1</tt>.
+<br/>Certaines applications refusent de fonctionner si les serveurs de pub se sont pas joignables. Avec cette méthode, ils le seront à nouveau, répondant par une page blanche et sans image publicitaire.</p>
 
-<h2>Comment puis-je bloquer/débloquer certains noms d'hôtes ?</h2>
-<p>Ajouter les noms d'hôtes que vous voulez bloquer à la <i>Liste noire</i> (=Noire) sous <i>Vos listes</i>. De plus, les noms d'hôtes que voulez exclure du blocage peuvent être ajoutés à la <i>Liste blanche</i> (=Blanche) et, pour les noms d'hôtes que vous souhaitez rediriger vers une adresse IP spécifique, la <i>Liste de redirection</i> (=Redirection).</p>
+<h2>Comment puis-je bloquer ou débloquer certains noms d’hôtes ?</h2>
+<p>Ajouter les noms d’hôtes que vous voulez bloquer à la <i>Liste noire</i> (=Noire) sous <i>Vos listes</i>. De plus, les noms d’hôtes que voulez exclure du blocage peuvent être ajoutés à la <i>Liste blanche</i> (=Blanche) et, pour les noms d’hôtes que vous souhaitez rediriger vers une adresse IP spécifique, la <i>Liste de redirection</i> (=Redirection).</p>
 
-<h2>Où puis-je trouver plus de sources d'hôtes ?</h2>
-<p>Voir <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">la liste des sources d'hôtes additionnelles pour AdAway</a>.</p>
+<h2>Où puis-je trouver plus de sources d’hôtes ?</h2>
+<p>Voir <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">la liste des sources d’hôtes supplémentaires pour AdAway</a>.</p>
 
 <h2>Aider à la traduction/rapporter des bogues</h2>
-<p>Veuillez visiter <a href="http://adaway.org">http://adaway.org</a>.</p>
+<p>Veuillez visiter <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>

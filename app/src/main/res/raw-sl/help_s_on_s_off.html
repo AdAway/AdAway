@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<h2>HTC naprave</h2>
+<p>AdAway ne deluje na napravah s takoimenovano funkcijo S-ON. Ta funkcija obstaja na mnogih HTC napravah in preprečuje AdAway-u pisanje v hosts datoteko.</p>
+
+<h2>S-ON/S-OFF?</h2>
+<p>S-OFF pomeni, da je NAND del naprave odklenjen in je pisanje mogoče. Privzeta nastavitev na HTC napravah je S-ON, kar pomeni, da do nekaterih delov sistema ne morete dostopati, prav tako pa ne morate zagotoviti trajnega root dostopa. Preverjanje 'podpisov' slik programske opreme je tudi zagotovljeno z nastavitvijo S-ON.</p>
+
+<h2>Ali imam S-ON ali S-OFF?</h2>
+<p>Zaženite napravo v boot meni tako, da držite hkrati <i>gumb za znižanje glasnosti</i> in <i>gumb za vklop/izklop naprave</i>. Zgornji tekst bo pokazal status kot S-OFF ali S-ON. Popoln root po navadi pomeni S-OFF.
+Več informacij na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Dodatne S-OFF metode po Unrevokable (na naslovu): Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+
+<h2>Rešitev</h2>
+<p>Prerekvizit: Namestiti morate delujoč Android SDK z ADB lupino na vaš računalnik.
+</p>
+<ol>
+<li>Zaženite napravo v boot meni tako, da držite hkrati <i>gumb za znižanje glasnosti</i> in <i>gumb za vklop/izklop naprave</i>.</li>
+<li>Uporabite <i>gumb za znižanje glasnosti</i> za izbiro recovery-ja.</li>
+<li>V clockwork-u recovery pojdite do "partitions menu" in za izbiro pritisnite track pad</li>
+<li>Izberite <i>mount /system</i>, <i>mount /sdcard</i> in <i>mount /data</i>.</li>
+<li>Priklopite vaš USB kabel in odprite ukazno vrstico na vašem računalniku.</li>
+<li>Vnesite adb shell in napišite <tt>ln -s /data/hosts /system/etc/hosts</tt> (to ustvari simbolično povezavo, ki dovoli AdAway-u urejanje hosts datoteke shranjene v <tt>/data</tt>, medtem ko operacijskemu sistemu dovoli uporabo datoteke, kot da bi bila shranjena v <tt>/system</tt>.)</li>
+<li>Ponovno zaženite napravo in nastavite <i>Target hosts file</i> na <i>/data/hosts</i> v nastavitvah.</li>
+<li>AdAway bi moral sedaj delovati.</li>
+</ol>
+</body>
+</html>

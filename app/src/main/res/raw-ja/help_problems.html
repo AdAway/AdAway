@@ -1,3 +1,6 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
 <html>
 <head></head>
 <body>
@@ -8,13 +11,24 @@
 <p>設定でターゲットhostsファイルを<tt>/data/data/hosts</tt>から<tt>/data/hosts</tt>または<tt>/system/etc/hosts</tt>に変更して適用し直してみてください。</p>
 
 <h2>あのアプリの広告をブロックしてくれない!</h2>
-<p>Some hostnames may be missing in the provided hosts files from the <i>Hosts Sources</i> or the application has bundled the images to provide ads without accessing the internet.<br><br>メニュー→DNS問合せのログでブロックするべきホスト名を見つけられます。<br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in the Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+<p>一部のホスト名は<i>Hosts Sources</i>の提供されたhostsファイルに存在しないか\n
+アプリがインターネットにアクセスせずに広告を提供するためイメージファイルを表示しています。<br><br>
+メニュー→DNS問合せのログでブロックするべきホスト名を見つけられます。
+<br><br>ログのエントリをロングタップし疑わしいホストを見つけたら自分のブラックリストに追加して下さい。\n
+<a href="http://forum.hosts-file.net/viewforum.php?f=9">hosts-file.net</a>の<a href="http://hosts-file.net">Forum Hosts Inbox</a>で確認し無い場合はホスト名を報告してください。</p>
 
-<h2>Cached Advertisements</h2>
-<p>Sometimes applications cache advertisements after download. This leads to remaining advertisements in some applications. You can try to delete the cache for these applications in Android's Application list to circumvent this problem.</p>
+<h2>キャッシュされた広告</h2>
+<p>アプリが広告データをキャッシュすることがあります。\n
+この事で一部のアプリでは広告が残ります。\n
+この問題を回避には、Androidのアプリリストでアプリのキャッシュを削除することができます。</p>
 
 <h2>あのアプリが動作しない!</h2>
-<p>一部のアプリではAdAwayでホスト名をブロックすると動作しないようになります。<a href="https://github.com/dschuermann/ad-away/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a>で問題の確認されているアプリをご覧ください。 この問題を回避するには問題を引き起こすホスト名を特定して <i>リスト</i>→<i>ホワイトリスト</i>に追加して、<a href="https://github.com/dschuermann/ad-away/issues">bug tracker of AdAway</a>にご報告ください。</p>
+<p>一部のアプリは、AdAwayによってブロックされたホスト名と通信する必要があります。\n
+広告を配信するホスト名に到達できない場合は動作しません。\n
+既知の問題のあるアプリのリストを入手するには\n
+<a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a>を参照してください。\n
+それ以外の場合は必要なホスト名を見つけて<i>あなたのリスト</i>の<i>ホワイトリスト</i>に追加して\n
+<a href="https://github.com/AdAway/AdAway/issues">AdAwayのバグトラッカー</a>に報告してください。</p>
 
 <h2>ブラウザ内の戻るボタンが動作しない!</h2>
 <p>AdAwayのローカルウェブサーバーを設定で有効にしてください。</p>

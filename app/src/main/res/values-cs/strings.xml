@@ -10,95 +10,92 @@
   <string name="button_revert">Vypnout blokování reklam</string>
   <string name="button_add">Přidat</string>
   <string name="button_cancel">Zrušit</string>
-  <string name="button_revert_text">Obnoví výchozí soubor Hosts ve vašem systému.</string>
+  <string name="button_revert_text">Obnoví výchozí soubor hostitelů ve vašem systému.</string>
   <string name="button_save">Uložit</string>
-  <string name="button_webserver_toggle_checked">Webserver běži</string>
-  <string name="button_webserver_toggle_unchecked">Webserver neběží</string>
+  <string name="button_webserver_toggle_checked">Webový server běží</string>
+  <string name="button_webserver_toggle_unchecked">Webový server neběží</string>
   <string name="button_webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na blokované hostitele.</string>
   <string name="button_help">Pomoc</string>
-  <string name="tcpdump_description">Tcpdump je nástroj pro monitorování DNS požadavků a jejich logování do souboru. Můžete ho spustit na pozadí, spustit aplikace zobrazující reklamy a potom analyzovat jejich DNS požadavky v logu. Adresy možných serverů poskytujících reklamní obsah si pak můžete přidat na svou černou listinu.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump běží!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump neběží!</string>
-  <string name="tcpdump_show_results">Otevřít log</string>
-  <string name="tcpdump_clear_results">Vymazat log</string>
+  <!--Home-->
+  <string name="text_update">Všechny soubory hostitelů z vybraných zdrojů budou staženy, sloučeny s vašimi vlastními seznamy a instalovány do vašeho systému jako jeden soubor hostitelů.</string>
+  <string name="button_check_update_hosts">Zkontrolovat aktualizace</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Přidat</string>
   <string name="checkbox_list_empty">Prázdný seznam</string>
-  <string name="checkbox_list_empty_text">Můžete přidat položky z panelu akcí.</string>
   <string name="checkbox_list_context_delete">Smazat</string>
   <string name="checkbox_list_footer">Po přidání nových položek do tohoto seznamu budete muset AdAway aplikovat znovu!</string>
   <string name="checkbox_list_edit_dialog_title">Upravit</string>
   <string name="checkbox_list_context_title">Upravit položku</string>
   <string name="checkbox_list_context_edit">Upravit</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Bílá listina</string>
   <string name="lists_tab_blacklist">Černá listina</string>
-  <string name="lists_tab_redirection_list">Seznam přesměrování</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Název hostitele:</string>
-  <string name="list_dialog_whitelist_hostname">Název hostitele: (divoké karty * a ? jsou povoleny!)</string>
   <string name="list_dialog_ip">IP (IPv4 nebo IPv6):</string>
   <string name="import_dialog">Importování...</string>
   <string name="export_dialog">Exportování...</string>
-  <string name="export_success">Všechny záznamy byly exportovány do souboru \'adaway-export\' na SD kartě.</string>
+  <string name="export_success">Všechny záznamy byly exportovány do souboru \"adaway-export\" na SD kartě.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Kontrola aktualizací...</string>
-  <string name="status_reverting">Vracení...</string>
-  <string name="status_reverting_subtitle">Vytvářím standartní soubor hostitelů</string>
+  <string name="status_reverting">Obnovování...</string>
+  <string name="status_reverting_subtitle">Vytvářím standardní soubor hostitelů</string>
   <string name="status_checking_subtitle">Kontrola, zda je k dispozici aktualizace</string>
   <string name="status_update_available">Aktualizace je k dispozici</string>
-  <string name="status_update_available_subtitle">Novější soubory hostitelů jsou dostupné</string>
+  <string name="status_update_available_subtitle">Jsou dostupné novější soubory hostitelů</string>
   <string name="status_no_connection">Bez připojení k internetu</string>
   <string name="status_no_connection_subtitle">Bez dostupného připojení na internet</string>
   <string name="status_download_fail">Nedostupné zdroje</string>
-  <string name="status_download_fail_subtitle_new">Nejsou dostupné žádné zdroje souborů hostitelů</string>
+  <string name="status_download_fail_subtitle_new">Nejsou dostupné žádné zdroje souborů hostitelů!</string>
   <string name="status_enabled">Povoleno</string>
   <string name="status_enabled_subtitle">Nejnovější soubory hostitelů povoleny</string>
   <string name="status_disabled">Zakázáno</string>
   <string name="status_disabled_subtitle">Zakázáno</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symbolický odkaz (symlink) z vašeho cíle na /system/etc/hosts buď neexistuje, nebo je špatný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
+  <string name="apply_symlink_missing">Symbolický odkaz (symlink) z vašeho cíle na /system/etc/hosts buď neexistuje nebo je špatný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
   <string name="apply_symlink_missing_title">Chybějící symbolický odkaz</string>
-  <string name="apply_not_enough_space">V oddílu není dostatek volného místa!\nZkuste v nastavení změnit cílový soubor Hosts na /data/data/hosts.</string>
+  <string name="apply_not_enough_space">Na oddílu není dostatek volného místa!\nZkuste v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Nedostatek místa</string>
   <string name="apply_private_file_fail">Stažený soubor nelze přečíst.</string>
   <string name="apply_private_file_fail_title">Soukromý soubor selhal</string>
   <string name="apply_remount_fail">Připojení oddílu pro čtení/zápis selhalo!</string>
   <string name="apply_remount_fail_title">Připojení oddílu selhalo!</string>
-  <string name="apply_copy_fail">Kopírování soboru hostitelů selhalo!</string>
+  <string name="apply_copy_fail">Kopírování souboru hostitelů selhalo!</string>
   <string name="apply_copy_fail_title">Kopírování selhalo</string>
-  <string name="apply_success_subtitle">Použité zdroje soborů hostitelů:</string>
+  <string name="apply_success_subtitle">Použité zdroje souborů hostitelů:</string>
   <string name="apply_success_title">Aplikování úspěšné</string>
-  <string name="apply_success_dialog">Aplikování se podařilo!\nPro aktivaci změn může být nutné restartovat vaše zařízení.\n\nChcete teď zařízení restartovat?\n(Ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu, abyste předešli ztrátě dat!)</string>
-  <string name="apply_symlink_successful">Symbolický odkaz byl úspěšně vytvořen.\nPro aktivaci změn může být nutné restartovat vaše zařízení.\n\nChcete teď zařízení restartovat?\n(Ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu, abyste předešli ztrátě dat!)</string>
+  <string name="apply_success_dialog">Aplikování se podařilo!\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
+  <string name="apply_symlink_successful">Symbolický odkaz byl úspěšně vytvořen.\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
   <string name="apply_symlink_successful_title">Symbolický odkaz úspěšně vytvořen</string>
-  <string name="apply_symlink_fail">Symbolický odkaz nemohl být vytvořen.\nTo se většinou stává na telefonech HTC kvůli \'funkci\' zvané S-ON. Řešením je restartovat telefon do režimu obnovy a vytvořit symbolický odkaz příkazem \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nPokud to nepomůže, pak zkuste na intenetu vyhledat frázi \'S-OFF\' a váš telefon.</string>
+  <string name="apply_symlink_fail">Symbolický odkaz nemohl být vytvořen.\nTo se většinou stává na telefonech HTC kvůli \"vylepšení\" nazývanému S-ON. Řešením je restartovat telefon do režimu obnovy a vytvořit symbolický odkaz příkazem \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nPokud to nepomůže, pak zkuste na internetu vyhledat frázi \"S-OFF\" a název modelu vašeho telefonu.</string>
   <string name="apply_symlink_fail_title">Vytvoření symbolického odkazu selhalo</string>
   <string name="apply_help">Pro více informací si prosím přečtěte nápovědu.</string>
-  <string name="apply_apn_proxy">Na vašem zařízení je nastaven APN proxy!\nAdAway nebude správně fungovat při připojení přes mobilní sítě, jako je 3G. Proxy můžete deaktivovat v nastavení APN (Na Androidu 4: Bezdrátové připojení a sítě -&gt; Další… -&gt; Mobilní sítě -&gt; Názvy přístupových bodů) a smazat záznam v poli proxy.</string>
+  <string name="apply_apn_proxy">Na vašem zařízení je nastaven APN proxy!\nAdAway nebude správně fungovat při připojení přes mobilní sítě, jako je 3G. Proxy můžete deaktivovat otevřením používaného APN (na Androidu 4: Bezdrátové připojení a sítě -&gt; Další… -&gt; Mobilní sítě -&gt; Názvy přístupových bodů) a smazáním záznamu v poli proxy.</string>
   <string name="apply_apn_proxy_title">APN proxy nastaven!</string>
   <string name="no_connection">Připojení k internetu nefunguje.</string>
   <string name="no_connection_title">Žádné připojení</string>
   <string name="download_dialog">Stahování...</string>
   <string name="apply_dialog">Aplikování...</string>
   <string name="apply_dialog_lists">Aplikuji bílou a černou listinu</string>
-  <string name="apply_dialog_hostnames">Parsování a slučování souborů hostitelů</string>
+  <string name="apply_dialog_hostnames">Analýza a slučování souborů hostitelů</string>
   <string name="apply_dialog_hosts">Vytváření souborů hostitelů</string>
   <string name="apply_dialog_apply">Aplikování souboru hostitelů</string>
-  <string name="apply_fail">Při aplikaci souboru Hosts došlo k chybě!\nZkus v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
+  <string name="apply_fail">Při aplikaci souboru hostitelů došlo k chybě!\nZkuste v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
   <string name="apply_fail_title">Aplikování se nezdařilo</string>
-  <string name="revert_successful">Obnovili jste výchozí soubor Hosts.\nPro aktivaci změn může být nutné restartovat vaše zařízení.\n\nChcete teď zařízení restartovat?\n(Ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu, abyste předešli ztrátě dat!)</string>
-  <string name="revert_successful_title">Návrat úspěšný</string>
+  <string name="revert_successful">Obnovili jste výchozí soubor hostitelů.\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
+  <string name="revert_successful_title">Obnova úspěšná</string>
   <string name="revert_problem">Obnova souboru hostitelů z neznámých příčin selhala!</string>
   <string name="revert_problem_title">Obnova souboru hostitelů selhala!</string>
-  <string name="download_fail_dialog">Žádný z povolených zdrojů souborů hostitelů není dostupný! Jsi správně připojený k internetu?</string>
+  <string name="download_fail_dialog">Žádný z povolených zdrojů souborů hostitelů není dostupný! Jste správně připojeni k internetu?</string>
   <string name="download_fail_title">Stahování selhalo</string>
   <string name="no_private_file">Soukromý soubor nelze vytvořit.</string>
   <string name="no_private_file_title">Vytvoření soukromého souboru selhalo</string>
+  <string name="enable_systemless_successful">Povolili jste mód systemless.\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
+  <string name="enable_systemless_successful_title">Povolování úspěšné</string>
+  <string name="disable_systemless_successful">Zakázali jste mód systemless.\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
+  <string name="disable_systemless_successful_title">Deaktivace úspěšná</string>
   <!--Other Dialogs-->
-  <string name="no_root_title">Vyžaduje rootnutý Android</string>
-  <string name="no_url">Toto není platní URL adresa!</string>
-  <string name="no_url_title">Chybný formát URL</string>
+  <string name="no_root_description">Spustitelný soubor su nebyl nalezen nebo jste AdAway neudělili root oprávnění.\n\nToto se může stát, pokud zařízení nemá root přístup.\nInformace jak získat přístup root naleznete na wiki.lineageos.org nebo jiných stránkách o Androidu.</string>
+  <string name="no_root_title">Vyžaduje Android s root přístupem</string>
   <string name="hosts_add_dialog">Zadej URL k souboru hostitelů:</string>
   <string name="no_hostname">Toto není platný název hostitele!</string>
   <string name="no_hostname_title">Chybný formát názvu hostitele</string>
@@ -123,51 +120,44 @@
   <string name="help_about_version">Verze:</string>
   <string name="help_donation_paypal_item">AdAway příspěvek</string>
   <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Eura</item>
-    <item>3 Eura</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
+    <item>1 euro</item>
+    <item>2 eura</item>
+    <item>3 eura</item>
+    <item>5 eur</item>
+    <item>8 eur</item>
+    <item>13 eur</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Zde můžete vyhledat špatné Adware aplikace, které nemohou být blokovány AdAway. Tyto aplikace používají pro oznámení například Airpush, které se objevují i v případě, že aplikace není spuštěna nebo dokonce mění vyzvánění. Protiopatření je pouze odinstalovat ty aplikace klepnutím na položky seznamu!</string>
-  <string name="adware_empty">Špatné Adware aplikace nebyly nalezeny!</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokální:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">není k dispozici</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Blokování reklam</string>
-  <string name="no_text_editor_title">Není nainstalován textový editor</string>
-  <string name="no_text_editor">Nepodařilo se najít žádný textový editor pro otevření soboru Hosts. Můžete si nainstalovat Jota nebo jakýkoliv jiný textový editor, který toto zvládne.\n\nChcete nainstalovat Jota?</string>
-  <string name="no_file_manager_title">Správce souborů není nainstalován</string>
+  <string name="no_text_editor_title">Není nainstalován žádný textový editor</string>
+  <string name="no_text_editor">Nepodařilo se najít žádný textový editor pro otevření souboru hostitelů. Můžete si nainstalovat Jota nebo jakýkoliv jiný textový editor, který toto zvládne.\n\nChcete nainstalovat Jota?</string>
+  <string name="no_file_manager_title">Není nainstalován žádný správce souborů</string>
   <string name="no_file_manager">Nepodařilo se najít žádného správce souborů. Můžete si nainstalovat OI File Manager nebo jakéhokoliv jiného správce souborů, který toto zvládne.\n\nChcete nainstalovat OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Soubor protokolu odstraněn!</string>
-  <string name="toast_tcpdump_added_to_blacklist">Jméno hostitele bylo přidáno na vaši černou listinu!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Jméno hostitele bylo přidáno na vaši bílou listinu!</string>
-  <string name="tcpdump_log_context_blacklist">Přidat na černou listinu</string>
-  <string name="tcpdump_log_context_whitelist">Přidat na bílou listinu</string>
-  <string name="tcpdump_log_context_browser">Otevřít v prohlížeči</string>
-  <string name="tcpdump_log_empty">Soubor protokolu je prázdný!</string>
-    <!--Preferences-->
-  <string name="pref_download">Obecné předvolby</string>
+  <string name="tcpdump_description">Tcpdump je nástroj pro monitorování DNS požadavků a jejich zaznamenávání do souboru. Můžete ho spustit na pozadí, spustit aplikace zobrazující reklamy a potom v záznamu analyzovat jejich DNS požadavky. Adresy možných serverů poskytujících reklamní obsah si pak můžete přidat na svou černou listinu.</string>
+  <!--Preferences-->
+  <string name="pref_download">Obecná nastavení</string>
   <string name="pref_hosts">Soubor hostitelů</string>
   <string name="pref_redirection_ip">IP pro přesměrování</string>
   <string name="pref_update_check">Zkontrolovat aktualizace</string>
   <string name="pref_apply_method">Cílový soubor hostitelů</string>
   <string name="pref_apply_method_summary">Před změnou tohoto nastavení si prosím přečtěte nápovědu pro tuto funkci.</string>
   <string name="pref_redirection_ip_summary">Všechna blokovaná jména hostitelů jsou přesměrována na tuto IP adresu.</string>
-  <string name="pref_header_preferences">Předvolby</string>
-  <string name="pref_header_preferences_summary">Obecné předvolby pro AdAway</string>
+  <string name="pref_header_preferences">Nastavení</string>
+  <string name="pref_header_preferences_summary">Obecná nastavení pro AdAway</string>
   <string name="pref_never_reboot">Skrýt dialogové okno restartu</string>
   <string name="pref_never_reboot_summary">Skryje dialog s dotazem o restartování Androidu po úspěšném použití</string>
   <string name="pref_webserver_on_boot">Spustit webový server při startu</string>
-  <string name="pref_webserver_on_boot_summary">Spustit webserver po startu zařízení, naslouchat na lokálních IP adresách</string>
-  <string name="pref_webserver_enabled">Povolit webserver</string>
-  <string name="pref_webserver_enabled_summary">Povolit webserveru naslouchání na lokální IP adrese pro odpovídání na dotazy na blokovaná host jména</string>
-  <string name="pref_webserver">Lokální webserver</string>
+  <string name="pref_webserver_on_boot_summary">Spustit webový server po startu zařízení, naslouchat na lokálních IP adresách</string>
+  <string name="pref_webserver_enabled">Povolit webový server</string>
+  <string name="pref_webserver_enabled_summary">Povolit webovému serveru naslouchání na lokální IP adrese pro odpovídání na dotazy na blokovaná host jména</string>
+  <string name="pref_webserver">Lokální webový server</string>
   <string name="pref_custom_target">Vlastní cíl</string>
   <string name="pref_custom_target_summary">Použito pouze, pokud je cílový soubor hostitelů nastaven na vlastní cíl</string>
   <string-array name="pref_apply_method_entries">
@@ -183,14 +173,21 @@
   <string name="pref_update_check_daily_summary">Kontrolovat aktualizace denně na pozadí s oznámením</string>
   <string name="pref_automatic_update_daily">Automatická aktualizace</string>
   <string name="pref_automatic_update_daily_summary">Automaticky aktualizovat na pozadí, pokud jsou k dispozici aktualizace.</string>
-  <string name="pref_update_only_on_wifi">Aktualizovat pouze na Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Spustí aktualizaci na pozadí pouze při připojení k wifi síti.</string>
+  <string name="pref_update_only_on_wifi">Aktualizovat pouze na Wi-Fi</string>
+  <string name="pref_update_only_on_wifi_summary">Spustí aktualizaci na pozadí pouze při připojení k síti Wi-Fi.</string>
   <string name="pref_whitelist_rules">Povolit seznam povolených hostitelů</string>
   <string name="pref_whitelist_rules_summary">Povolit položky bílé listiny ze zdrojů souborů hostitelů.</string>
-  <string name="pref_redirection_rules">Povolit přesměrování</string>
   <string name="pref_redirection_rules_summary">BEZPEČNOSTNÍ RIZIKO! Povolit položky přesměrování ze zdrojů souborů hostitelů.</string>
   <string name="pref_debug">Ladění</string>
-  <string name="pref_enable_debug">Povolit ladící log</string>
-  <string name="pref_enable_debug_summary">Musíte restartovat AdAway, aby se toto nastavení projevilo.</string>
-  <string name="pref_enable_ipv6">Zapnout IPv6</string>
+  <string name="pref_enable_debug">Povolit záznam pro ladění</string>
+  <string name="pref_enable_debug_summary">Aby se toto nastavení projevilo, musíte AdAway restartovat.</string>
+  <string name="pref_enable_ipv6">Povolit IPv6</string>
+  <string name="pref_enable_ipv6_summary">Všechny záznamy v souboru hostitelů budou doplněny odpovídajícím ::1 (IPv6 localhost) záznamem.</string>
+  <string name="pref_enable_systemless_summary">Zabrání AdAway provedení změn na systémovém oddílu</string>
+  <string name="pref_enable_systemless">Povolit mód systemless</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Nastavení</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Aktualizace je k dispozici</string>
 </resources>

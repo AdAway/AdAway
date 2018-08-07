@@ -1,3 +1,6 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
 <html>
 <head></head>
 <body>
@@ -8,13 +11,15 @@
 <p>Försök ändra värdfilen i inställningarna från <tt>/data/data/hosts</tt> till <tt>/data/hosts</tt> eller <tt>/system/etc/hosts</tt> och tillämpa AdAway igen.</p>
 
 <h2>Den blockerar inte annonser i applikationen XYZ!</h2>
-<p>Vissa värdnamn kan saknas i de givna värdfilerna från <i>Värdkällor</i> eller så är bilderna inbyggda i applikationen för att kunna visa annonser utan internetanslutning.<br><br>Du kan logga DNS-förfrågningar (Meny-&gt;Logga DNS-förfrågningar) från AdAway för att hitta ytterligare värdnamn att blockera.<br><br>Lägg till suspekta värdnamn till din egna Svarta Listan genom att långtrycka på inlägg i loggen och rapportera dessa värdnamn när du har verifierat dem i Forumet <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> på <a href="http://hosts-file.net">hosts-file.net</a></p>
+<p>Vissa värdnamn kan saknas i de givna värdfilerna från <i>Värdkällor</i> eller så är bilderna inbyggda i applikationen för att kunna visa annonser utan internetanslutning.<br><br>
+Du kan logga DNS förfrågningar (Meny-&gt;Logga DNS Förfrågningar) från AdAway för att hitta ytterligare värdnamn att blockera.
+<br><br>Lägg till suspekta värdnamn till din egna Svarta Listan genom att långtrycka på inlägg i loggen och rapportera dessa värdnamn när du har verifierat dem i Forumet <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> på <a href="http://hosts-file.net">hosts-file.net</a></p>
 
 <h2>Cachade Annonser</h2>
 <p>Ibland cachar applikationer sina annonser efter nedladdning. Detta leder till att annonserna finns kvar i vissa applikationer. Du kan testa att rensa cache för applikationen i Androids Applista för att kringgå detta problem.</p>
 
 <h2>Applikation XYZ fungerar inte längre!</h2>
-<p>Vissa applikationer behöver kommunicera med ett värdnamn som är blockerat av AdAway eller vägrar att fungera när värdnamnet som skulle ge annonser inte kan nås. Se <a href="https://github.com/dschuermann/ad-away/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a> för att få en lista av kända applikationer som har problem. Annars, ta reda på vilka värdnamn som behövs och lägg till dem till din <i>Vitlista</i> under <i>Dina Listor</i> och rapportera dem till <a href="https://github.com/dschuermann/ad-away/issues">bug tracker för AdAway</a>.</p>
+<p>En del applikationer måste kommunicera med ett värdnamn som är blockerad av AdAway eller så vägrar de att fungera när värdnamnet som skickar reklam inte går att nå. Gå till <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> för en lista över kända applikationer som har detta problemet. Annars, ta reda på vilka värdnamn som behövs och lägg till dem till din <i>Vitlista</i> under <i>Dina listor</i> och rapportera dem till <a href="https://github.com/AdAway/AdAway/issues">felsökaren för AdAway</a>.</p>
 
 <h2>Bakåtknappen i webbläsaren fungerar inte</h2>
 <p>Du kan slå på AdAways lokala webbserver i inställningarna för att komma förbi problemet.</p>

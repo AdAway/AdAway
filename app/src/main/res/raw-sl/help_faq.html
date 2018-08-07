@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+<h2>Prihodki od oglaševanja</h2>
+<p>Pogosto mišljenje je, da če uporabnik nikoli ne klikne na oglas, potem blokiranje le-teh ne bo finančno oškodovalo aplikacije. Takšno mišljenje je napačno, saj imajo razvijalci prihodek tudi od prikazovanja oglasov. Ali blokirate oglase ali ne, je vaša odločitev. Osebno, aplikacij ki prikazujejo oglase, ne bi prenašal brez ad blockerja, ker znajo biti zelo nadležne.</p>
+
+
+
+<h2>Kako deluje AdAway?</h2>
+<p>AdAway uporablja <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts datoteko</a> za blokiranje domenskih imen, ki ponujajo oglaševanje. Datoteko lahko najdete v <tt>/system/etc/hosts</tt>. Ta datoteka je tradicionalen način za preslikavo domenskih imen v IP naslove brez uporabe DNS (Domain Name System) strežnika. Vsa neželena domenska imena so preusmerjena na lokalen naslov <tt>127.0.0.1</tt>, kar pomeni, da bodo kazala na vašo napravo.</p>
+
+<h2>Zakaj je možnost za dnevno posodobitev neomogočena?</h2>
+<p>Avtomatsko preverjanje za posodobitve je na voljo le, ko je aplikacija nameščena v notranji spomin telefona, zaradi omejitev na platformi Android.</p>
+
+<h2>Zakaj moram ponovno zagnati napravo, da so spremembe vidne?</h2>
+<p>Java na Androidu vzdržuje lastno notranje DNS pomnjenje. Operacijski sistem bo spremembe zaznal takoj (prepričajte se z uporabo ukaza ping), kljub temu pa morate napravo ponovno zagnati za ponovno izgradnjo DNS spomina Jave.</p>
+
+<h2>Kako uporabljati spletni strežnik v aplikaciji AdAway?</h2>
+<p><b>AdAway bo prav tako deloval brez uporabe spletnega strežnika!</b>
+<br/><br/>Vključite lahko lokalni spletni strežnik v nastavitvah aplikacije, za odgovarjanje na zahteve lokalnemu IP naslovu <tt>127.0.0.1</tt>. To pomeni, zahteve aplikacij oglaševalnim strežnikom, ki so preusmerjeni na <tt>127.0.0.1</tt> odgovori strežnik AdAway.
+<br/>Nekatere aplikacije ne pravilno delujejo, ko oglaševalni strežniki niso dosegljivi. S to metodo bodo ponovno dosegljivi, odgovorili pa bodo s prazno stranjo in brez slik oglasov.</p>
+
+<h2>Kako lahko blokiram/dovolim specifična domenska imena?</h2>
+<p>Dodajte domenska imena, ki jih želite blokirati na črno listo (<i>Blacklist</i>) pod vašimi listami (<i>Your Lists</i>). Tista, ki jih želite dovoliti, pa dodajte na belo listo (<i>Whitelist</i>). Domenska imena, ki jih želite preusmeriti na specifičen IP naslov pa spadajo na preusmeritveno listo (<i>Redirection List</i>).</p>
+
+<h2>Kje lahko najdem več hosts seznamov?</h2>
+<p>Obišči <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lista dodatnih hosts seznamov za AdAway</a>.</p>
+
+<h2>Pomagaj prevajati/prijavi hrošče</h2>
+<p>Obišči <a href="https://adaway.org">https://adaway.org</a>.</p>
+</body>
+</html>

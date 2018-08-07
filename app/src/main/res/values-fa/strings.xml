@@ -1,16 +1,192 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
+  <string name="button_exit">خروج</string>
+  <string name="button_apply">فایل ها را دریافت نموده و برای مسدود کردن تبلیغات آن را اعمال نمایید</string>
+  <string name="button_close">بستن</string>
+  <string name="button_yes">بلی</string>
+  <string name="button_no">خیر</string>
+  <string name="button_revert">غیر فعال کردن برنامه ضد تبلیغات</string>
+  <string name="button_add">اضافه کردن</string>
+  <string name="button_cancel">لغو</string>
+  <string name="button_revert_text">بازنشانی فایلهای hosts پیش فرض در دستگاه شما.</string>
+  <string name="button_save">ذخیره</string>
+  <string name="button_webserver_toggle_checked">وب سرور در حال اجراست</string>
+  <string name="button_webserver_toggle_unchecked">وب سرور در حال اجرا نیست</string>
+  <string name="button_webserver_toggle_text">شروع یا توقف وب سرور در لوکالهاست برای پاسخ گویی به درخواستها به منظور مسدود کردن hostnames ها.</string>
+  <string name="button_help">راهنما</string>
+  <!--Home-->
+  <string name="text_update">تمامی فایلهای hosts جدید از منابع تعریف شده دریافت شدند و با لیستی که از قبل موجود بوده است در یک قالب یک فایل hosts واحد یکی شدند.</string>
+  <string name="button_check_update_hosts">به روز رسانی ها رو بررسی کن</string>
   <!--Checkbox List-->
-  <!--Your Lists-->
+  <string name="checkbox_list_empty">خالی کردن لیست</string>
+  <string name="checkbox_list_context_delete">حذف کردن</string>
+  <string name="checkbox_list_footer">بعد از اضافه نمودن آیتم جدید به لیست باید AdAway را از نو اعمال نمایید!</string>
+  <string name="checkbox_list_edit_dialog_title">ویرایش</string>
+  <string name="checkbox_list_context_title">ویرایش ورودی</string>
+  <string name="checkbox_list_context_edit">ویرایش</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">لیست سفید</string>
+  <string name="lists_tab_blacklist">لیست سیاه</string>
+  <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+  <string name="import_dialog">بارگیری...</string>
+  <string name="export_dialog">بارگذاری...</string>
+  <string name="export_success">بارگذاری تمامی ورودی ها در فایلی به نام \'adaway-export\'  در sdcard دستگاه شما.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
+  <string name="status_checking">چک کردن برای به روز رسانی...</string>
+  <string name="status_reverting">برگشتن...</string>
+  <string name="status_reverting_subtitle">ایجاد فایل hosts استاندارد</string>
+  <string name="status_checking_subtitle">بررسی موجود بودن به روز رسانی</string>
+  <string name="status_update_available">به روز رسانی موجود میباشد</string>
+  <string name="status_update_available_subtitle">فایلهای hosts جدیدتری موجود میباشد</string>
+  <string name="status_no_connection">اتصال اینترنت برقرار نیست</string>
+  <string name="status_no_connection_subtitle">اتصال اینترنت موجود نیست</string>
+  <string name="status_download_fail">منابع موجود نیستند</string>
+  <string name="status_download_fail_subtitle_new">منابع hosts ها در درسترس نیستند!</string>
+  <string name="status_enabled">فعال</string>
+  <string name="status_enabled_subtitle">فایل های hosts جدید فعال شد</string>
+  <string name="status_disabled">غیر فعال</string>
+  <string name="status_disabled_subtitle">غیر فعال</string>
   <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">پیوند نمادین از هدف شما به /system/etc/hosts وجود ندارد و یا درست نمیباشد! اگر مسیر فایل به درستی تنظیم نشده باشد برنامه AdAway به درستی کار نخواهد کرد.\n\nآیا مایلید که یک پیوند نمادین ایجاد نمایید؟</string>
+  <string name="apply_symlink_missing_title">پیوند نمادین موجود نیست</string>
+  <string name="apply_not_enough_space">فضای کافی در پارتیشن موجود نیست!\nسعی نمایید مسیر فایل hosts را در تنظیمات به /data/data/hosts تغییر دهید.</string>
+  <string name="apply_not_enough_space_title">فضای کافی موجود نیست</string>
+  <string name="apply_private_file_fail">فایل دانلود شده قابل خواندن نیست.</string>
+  <string name="apply_private_file_fail_title">فایل خصوصی ایراد دارد</string>
+  <string name="apply_remount_fail">بارگیری پارتیشن برای خواندن/نوشتن ناموفق بود!</string>
+  <string name="apply_remount_fail_title">بارگیری ناموفق</string>
+  <string name="apply_copy_fail">کپی کردن فایل hosts ناموفق!</string>
+  <string name="apply_copy_fail_title">کپی ناموفق</string>
+  <string name="apply_success_subtitle">منابع hosts اعمال شده: </string>
+  <string name="apply_success_title">اعمال موفقیت آمیز</string>
+  <string name="apply_success_dialog">تغییرات با موفقیت اعمال شد.\nبرای موثر واقع شدن تغییرات ممکن است نیاز به شروع مجدد دستگاه شما باشد.\n\nآیا میخواهید دستگاه خود را شروع مجدد نمایید؟\n(برای جلوگیری از از دست دادن اطلاعات مطمئن شوید که هیچ برنامه ای از sdcard در حال حاضر استفاده نمیکند!)</string>
+  <string name="apply_symlink_successful">پیوند نمادین موفق ایجاد شد.\nممکن است برای اعمال تغییرات نیاز به شروع مجدد دستگاه شما باشد.\n\nآیا مایل به ریبوت کردن دستگاه خود هستید؟\n(برای جلوگیری از از دست دادن اطلاعات مطمئن باشید که هیچ برنامه ای از sdcard در حال حاضر استفاده نمیکند!)</string>
+  <string name="apply_symlink_successful_title">ایجاد موفق  پیوند نمادین</string>
+  <string name="apply_symlink_fail">پیوند نمادین را اندروید نتوانست ایجاد نماید.\nاین مشکل به دلیل وجود قابلیتی به نام S-ON در گوشی های HTC است!\n\nیک راه حل آن است که دستگاه شما به حالت ریکاوری بوت شود و پیوند نمادین را با دستور \'ln -s /data/data/hosts /system/etc/hosts\' ایجاد نمایید.\n\nاگر باز موفق به ایجاد آن نشدید میتوانید در اینترنت در رابطه با S-OFF جستجو نمایید.</string>
+  <string name="apply_symlink_fail_title">ایجاد ناموفق  پیوند نمادین</string>
+  <string name="apply_help">لطفا برای اطلاعات بیشتر به راهنما مراجعه نمایید.</string>
+  <string name="apply_apn_proxy">یک پروکسی APN بر روی دستگاه شما تنظیم شده است!در نتیجه ممکن است AdAway در شبکه 3G به درستی کارنکند. برای حل این مشکل شما میتوانید پروکسی تنظیم شده برای APN را غیر فعال نمایید ( در اندروید 4: به Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) رفته و محتوای قسمت پروکسی را پاک نمایید.</string>
+  <string name="apply_apn_proxy_title">تنظیم پروکسی APN!</string>
+  <string name="no_connection">اتصال اینترنت بر قرار نیست</string>
+  <string name="no_connection_title">اتصال برقرار نیست</string>
+  <string name="download_dialog">در حال دریافت...</string>
+  <string name="apply_dialog">در حال اعمال...</string>
+  <string name="apply_dialog_lists">اعمال لیست سیاه و لیست سفید</string>
+  <string name="apply_dialog_hostnames">تجزیه و ادغام فایل های hosts</string>
+  <string name="apply_dialog_hosts">ساختن فایل hosts</string>
+  <string name="apply_dialog_apply">اعمال فایل hosts</string>
+  <string name="apply_fail">اعمال ناموفق فایل hosts بر روی سیستم!\n\nمسیر فایل hosts را در تنظیمات /data/data/hosts تغییر دهید.</string>
+  <string name="apply_fail_title">اعمال ناموفق تغییرات</string>
+  <string name="revert_successful">شما فایل hosts را به حالت پیش فرض برگرداندید.\nممکن است برای اعمال تغییرات نیاز به شروع مجدد دستگاه شما باشد.\n\nآیا مایل به ریبوت کردن دستگاه خود هستید؟\n(برای جلوگیری از از دست دادن اطلاعات مطمئن باشید که هیچ برنامه ای از sdcard در حال حاضر استفاده نمیکند!)</string>
+  <string name="revert_successful_title">بازنشانی موفق آمیز</string>
+  <string name="revert_problem">بازنشانی نا موفق به دلایل ناشناخته.</string>
+  <string name="revert_problem_title">بازنشانی ناموفق</string>
+  <string name="download_fail_dialog">هیچ یک از منابع hosts های انتخابی شما در دسترس نیستند! آیا از اتصال دستگاه خود به اینترنت مطمئن هستید؟</string>
+  <string name="download_fail_title">خطا در دریافت</string>
+  <string name="no_private_file">فایل های خصوصی نمیتواند ایجاد گردد.</string>
+  <string name="no_private_file_title">ایجاد ناموفق فایل خصوصی</string>
+  <string name="enable_systemless_successful">شما حالت systemless را انتخاب کردید.\nممکن است برای اعمال تغییرات نیاز به شروع مجدد دستگاه شما باشد.\n\nآیا مایل به ریبوت کردن دستگاه خود هستید؟\n(برای جلوگیری از از دست دادن اطلاعات مطمئن باشید که هیچ برنامه ای از sdcard در حال حاضر استفاده نمیکند!)</string>
+  <string name="enable_systemless_successful_title">فعال کردن با موفقیت انجام شد</string>
+  <string name="disable_systemless_successful">شما حالت systemless را غیرفعال کردید.\nممکن است برای اعمال تغییرات نیاز به شروع مجدد دستگاه شما باشد.\n\nآیا مایل به ریبوت کردن دستگاه خود هستید؟\n(برای جلوگیری از از دست دادن اطلاعات مطمئن باشید که هیچ برنامه ای از sdcard در حال حاضر استفاده نمیکند!)</string>
+  <string name="disable_systemless_successful_title">غیر فعال کردن با موفقیت انجام شد</string>
   <!--Other Dialogs-->
+  <string name="no_root_title">نیاز به آندروید روت شده میباشد</string>
+  <string name="hosts_add_dialog">تارنما به فایل hosts وارد نمایید</string>
+  <string name="no_hostname">این یک hostname مجاز نیست</string>
+  <string name="no_hostname_title">hostname با فرمت نادرست</string>
+  <string name="no_ip">این یک آی پی مجاز نیست!</string>
+  <string name="no_ip_title">آی پی با فرمت نادرست</string>
+  <string name="reboot_never_reboot">هیچوقت شروع مجدد نکن و این سوال را دفعه بعد نپرس!</string>
+  <string name="loading">در حال بارگیری...</string>
   <!--Menu entries-->
+  <string name="menu_refresh">تازه کردن</string>
+  <string name="menu_add">اضافه کردن</string>
+  <string name="menu_hosts_sources">منابع Hosts</string>
+  <string name="menu_help">راهنما</string>
+  <string name="menu_import">بارگیری همه لیستها</string>
+  <string name="menu_export">بارگذاری همه لیست ها</string>
   <!--Help-->
-  <!--Scan Adware-->
-  <!--Hosts Sources-->
+  <string name="help_tab_about">درباره ما</string>
+  <string name="help_tab_donate">حمایت مالی</string>
+  <string name="help_tab_s_on_s_off">S-روشن/S-خاموش</string>
+  <string name="help_tab_faq">پرسش و پاسخ</string>
+  <string name="help_tab_problems">مشکلات</string>
+  <string name="help_tab_changelog">تغییرات</string>
+  <string name="help_about_version">نسخه:</string>
+  <string name="help_donation_paypal_item">حمایت مالی از AdAway</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 یورو</item>
+    <item>2 یورو</item>
+    <item>3 یورو</item>
+    <item>5 یورو</item>
+    <item>8 یورو</item>
+    <item>13 یورو</item>
+  </string-array>
+  <!--Adware-->
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">لوکال:</string>
+  <string name="hosts_last_modified_online">آنلاین:</string>
+  <string name="hosts_not_available">موجود نیست:</string>
+  <string name="hosts_dialog_url">تارنما:</string>
   <!--Other-->
+  <string name="app_subtitle">مسدودگر تبلیغات</string>
+  <string name="no_text_editor_title">هیچ ویرایشگر متنی نصب نیست</string>
+  <string name="no_text_editor">هیچ برنامه ویرایشگر متنی برای باز کردن این فایل یافت نشد. شما میتوانید از برنامه Jota یا دیگر برنامه های ویرایشگر متن برای حل این مشکل استفاده نمایید.\n\nآیا مایل به نصب برنامه Jota هستید؟</string>
+  <string name="no_file_manager_title">هیچ برنامه مدیریت فایلی نصب نیست</string>
+  <string name="no_file_manager">هیچ برنامه مدیریت فایلی برای باز کردن این فایل یافت نشد. شما میتوانید از برنامه OI File Manager یا برنامه های مشابه برای حل این مشکل استفاده نمایید.\n\nآیا مایل به نصب برنامه   OI File Manager هستید؟</string>
   <!--Tcpdump-->
+  <string name="tcpdump_description">Tcpdump یک ابزاری برای نظارت بر روی درخواست های دی ان اس بوده و آنها در فایل گزارشات ذخیره مینماید. شما میتوانید آن را در پس زمینه اجرا نمایید، برنامه ای که تبلیغات را نشان میدهد را اجرا نموده و بعدا در فایل گزارشات درخواست های دی ان اس را بررسی و آنالیز نمایید. سرور تبلیغات مشکوک را میتوانید در لیست سیاه اضافه نمایید.</string>
   <!--Preferences-->
+  <string name="pref_download">تنظیمات عمومی</string>
+  <string name="pref_hosts">فایل Hosts</string>
+  <string name="pref_redirection_ip">تغییر مسیر آی پی</string>
+  <string name="pref_update_check">به روز رسانی ها رو بررسی کن</string>
+  <string name="pref_apply_method">هدف فایل hosts</string>
+  <string name="pref_apply_method_summary">قبل از تغییر این تنظیمات فایل راهنما را در رابطه با این قابلیت مطالعه نمایید.</string>
+  <string name="pref_redirection_ip_summary">تمامی hostnames های مسدود شده به این آی پی هدایت میشوند.</string>
+  <string name="pref_header_preferences">تنظیمات</string>
+  <string name="pref_header_preferences_summary">تنظیمات عمومی مربوط به AdAway</string>
+  <string name="pref_never_reboot">مخفی کردن پیغام شروع مجدد</string>
+  <string name="pref_never_reboot_summary">مخفی کردن پیغام شروع مجدد دستگاه، پس از اعمال موفقیت آمیز تغییرات.</string>
+  <string name="pref_webserver_on_boot">بعد از بوت دستگاه وب سرور را شروع کن</string>
+  <string name="pref_webserver_on_boot_summary">در هنگام بوت وب سرور با شنود از آی پی های داخلی شروع گردد</string>
+  <string name="pref_webserver_enabled">فعال کردن وب سرور</string>
+  <string name="pref_webserver_enabled_summary">فعال کردن وب سرور برای نظارت بر آی پی های داخلی به منظور پاسخگویی به hostnames های مسدود شده</string>
+  <string name="pref_webserver">وب سرور لوکال</string>
+  <string name="pref_custom_target">هدف سفارشی</string>
+  <string name="pref_custom_target_summary">فقط در صورتی استفاده بکن که فایل hosts به یک مسیر سفارشی تنظیم شده باشد</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>مسیر سفارشی</item>
+  </string-array>
+  <string name="pref_update_check_summary">در آغاز شروع AdAway به روز رسانی ها را چک کن</string>
+  <string name="pref_sdcard_problem">در صورتی که AdAway بر روی sdcard نصب شده باشد این امکان به درستی کار نخواهد کرد!</string>
+  <string name="pref_background">سرویس پس زمینه</string>
+  <string name="pref_update_check_daily">بررسی روزانه برای به روز رسانی</string>
+  <string name="pref_update_check_daily_summary">بررسی روزانه بروز رسانی ها در پس زمینه به همراه هشدار</string>
+  <string name="pref_automatic_update_daily">به روز رسانی خودکار</string>
+  <string name="pref_automatic_update_daily_summary">درصورت موجود بودن به روز رسانی به طور خودکار در پس زمینه انجام شود.</string>
+  <string name="pref_update_only_on_wifi">بروز رسانی فقط توسط وای فای</string>
+  <string name="pref_update_only_on_wifi_summary">فقط وقتی به شبکه وای فای متصل شدید اجازه به روز رسانی را در پس زمینه بده</string>
+  <string name="pref_whitelist_rules">لیست سفید مجاز است</string>
+  <string name="pref_whitelist_rules_summary">ورودی های لیست سفید از منابع Hosts مجاز میباشند.</string>
+  <string name="pref_redirection_rules_summary">تهدید امنیتی! به منابع Hosts برای تغییر مسیر داده ها اجازه دهید.</string>
+  <string name="pref_debug">عیب یابی</string>
+  <string name="pref_enable_debug">ثبت گزارش عیب یابی</string>
+  <string name="pref_enable_debug_summary">برای اثر کردن این تنظیم شما نیاز به شروع مجدد AdAway دارید.</string>
+  <string name="pref_enable_ipv6">فعال کردن IPv6</string>
+  <string name="pref_enable_ipv6_summary">تمامی فایلهای host ورودی جواب::1 (IPv6 localhost) ورودی را دریافت خواهند کرد.</string>
+  <string name="pref_enable_systemless_summary">جلوگیری AdAway از تغییر پارتیشن سیستمی</string>
+  <string name="pref_enable_systemless">فعال کردن حالت systemless</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">تنظیمات</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">به روز رسانی موجود میباشد</string>
 </resources>

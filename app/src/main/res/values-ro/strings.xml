@@ -3,7 +3,7 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Ieșire</string>
-  <string name="button_apply">Descarcă  fișierele și blochează  reclamele!</string>
+  <string name="button_apply">Descarcă fișierele și blochează reclamele!</string>
   <string name="button_close">Închide </string>
   <string name="button_yes">Da</string>
   <string name="button_no">Nu</string>
@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Server web inactiv</string>
   <string name="button_webserver_toggle_text">Activeaza sau dezactiveaza serverul in mod local, pentru a raspunde cererilor pentru \"hostname\" blocate.</string>
   <string name="button_help">Ajutor</string>
-  <string name="tcpdump_description">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
-  <string name="tcpdump_disable_monitoring">Tcpdump este activ!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump nu este activ!</string>
-  <string name="tcpdump_show_results">Deschide fisierul \"log\"</string>
-  <string name="tcpdump_clear_results">Sterge fisierul \"log\"</string>
+  <!--Home-->
+  <string name="text_update">Toate fișierele \"host\" din sursa definită vor fi descărcate, combinate cu lista personală și apoi instalate ca un fișier \"hosts\" unitar.  </string>
+  <string name="button_check_update_hosts">Verifica daca exista o versiune noua</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Adauga</string>
   <string name="checkbox_list_empty">Sterge toate datele din lista</string>
-  <string name="checkbox_list_empty_text">Poti adauga elemente din bara (action bar)</string>
   <string name="checkbox_list_context_delete">Sterge</string>
   <string name="checkbox_list_footer">Apasa \"aplica\" dupa adaugarea noilor fisiere/atribute, </string>
   <string name="checkbox_list_edit_dialog_title">Editeaza</string>
   <string name="checkbox_list_context_title">Editeaza pozitia curenta</string>
   <string name="checkbox_list_context_edit">Editeaza</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Lista cu permisiuni acceptate (white list)</string>
   <string name="lists_tab_blacklist">Lista cu permisiuni blocate (black list)</string>
-  <string name="lists_tab_redirection_list">Lista redirectionare</string>
-  <string name="list_dialog_url">Adresa (URL)</string>
   <string name="list_dialog_hostname">Numele de \'host\"</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(Caractere wildcard * și ? sunt permise!) </string>
   <string name="list_dialog_ip">Adresa IP (IPv4 or IPv6):</string>
   <string name="import_dialog">Importa...</string>
   <string name="export_dialog">Exporta...</string>
   <string name="export_success">Toate datele au fost exportate pe sdcard sub numele \"adaway-export\" </string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Verifica daca exista versiuni noi...</string>
   <string name="status_reverting">Reinstaurare valori anterioare...</string>
@@ -95,11 +89,12 @@
   <string name="download_fail_title">Descarcare nereusita</string>
   <string name="no_private_file">Fisierul cu atribute speciale nu poate fi creat</string>
   <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
+  <string name="enable_systemless_successful">Ai activat modul systemless.\nEste posibil să trebuiască să redemarați Android pentru ca schimbările să fie luate în considerare.\n\nVreți să redemarați?\n(Pentru a preveni pierderea de informații asigurați-vă că nici o aplicație nu folosește în acest moment cartela SD!) </string>
+  <string name="enable_systemless_successful_title">Activarea a fost reușită</string>
+  <string name="disable_systemless_successful">Ai dezactivat modul systemless.\nEste posibil să trebuiască să redemarați Android pentru ca schimbările să fie luate în considerare.\n\nVreți să redemarați?\n(Pentru a preveni pierderea de informații asigurați-vă că nici o aplicație nu folosește în acest moment cartela SD!) </string>
+  <string name="disable_systemless_successful_title">Dezactivarea a fost reușită</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Fie fișierul binar SU nu a putut fi găsit, fie nu ați autorizat permisiunea root pentru AdAway.\n\nAcest lucru se poate întâmpla dacă aparatul dumneavoastră nu vă permite accesul la root.\nPuteți găsi informații despre cum să aveți acces la root pe aparatul dumneavoastră pe wiki.lineageos.org sau alte site-uri despre Android. </string>
   <string name="no_root_title">Android are nevoie de \"root\"</string>
-  <string name="no_url">Adresa (URL) invalida</string>
-  <string name="no_url_title">URL formatat incorect</string>
   <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
   <string name="no_hostname">Nume invalid pentru fisierul \"host\"</string>
   <string name="no_hostname_title">Hostname formatat incorect</string>
@@ -131,13 +126,12 @@
     <item>8 Euro</item>
     <item>13 Euro</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Scaneaza aplicatiile impotriva Adware; AdAway va afisa numai aplicatiile care nu pot fi blocate. Aceste aplicatii folosesc sisteme de notificare intrusive (ex: Airpush) care pot aparea chiar si cand aplicatia nu functioneaza, sau pot chiar modifica melodia telefonului (ringtone). Singura masura eficienta este dezinstalarea acestor aplicatii. Da un click pe fiecare aplicatie pe care doresti sa o dezinstalezi!    </string>
-  <string name="adware_empty">N-au fost gasite aplicatii Adware</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">Indisponibil</string>
+  <string name="hosts_dialog_url">Adresa (URL)</string>
   <!--Other-->
   <string name="app_subtitle">Program care blocheaza reclame</string>
   <string name="no_text_editor_title">Nu exista un editor de text instalat in system.</string>
@@ -145,14 +139,8 @@
   <string name="no_file_manager_title">Nu exista un manager de fisiere instalat in sistem</string>
   <string name="no_file_manager">Nici un manager de fișiere nu a putut fi găsit pentru a deschide fișiere. Puteți sa instalați OI File Manager sau alți manageri de fișiere pentru a face asta.\n\nVreți să instalați OI File Manager? </string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Fisierul \"log\" a fost sters!</string>
-  <string name="toast_tcpdump_added_to_blacklist">\"Hostname\" a fost adaugat la lista \"blacklist\"!</string>
-  <string name="toast_tcpdump_added_to_whitelist">\"Hostname\" a fost adaugat la lista \"whitelist\"!</string>
-  <string name="tcpdump_log_context_blacklist">Adauga la lista \"blacklist\"! </string>
-  <string name="tcpdump_log_context_whitelist">Adauga la lista \"whitelist\"! </string>
-  <string name="tcpdump_log_context_browser">Deschide in Browser!</string>
-  <string name="tcpdump_log_empty">Fisierul \"log\" nu contine nici o data!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
+  <!--Preferences-->
   <string name="pref_download">Preferinte generale</string>
   <string name="pref_hosts">Fisier \"hosts\"</string>
   <string name="pref_redirection_ip">Redirectionare IP</string>
@@ -188,11 +176,17 @@
   <string name="pref_update_only_on_wifi_summary">\"Background updates\" numai cand exista conexiune WiFi. </string>
   <string name="pref_whitelist_rules">Permiteți whitelisting</string>
   <string name="pref_whitelist_rules_summary">Permiteți înscrieri în whitelist din sursele de hosts. </string>
-  <string name="pref_redirection_rules">Permiteți redirecționări</string>
   <string name="pref_redirection_rules_summary">PREZINTĂ RISC DE SECURITATE! Permiteți înregistrări de redirecționare din sursele Hosts. </string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug logging</string>
   <string name="pref_enable_debug_summary">Reporneste AdAway pentru ca modificarile sa fie aplicate!</string>
   <string name="pref_enable_ipv6">Activați IPv6</string>
   <string name="pref_enable_ipv6_summary">Toate înregistrările din fișierul host vor primi o înregistrare ::1 (IPv6 localhost) corespunzătoare. </string>
+  <string name="pref_enable_systemless_summary">Împiedică modificarea partiției de sistem de către AdAway</string>
+  <string name="pref_enable_systemless">Activează modul systemless</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Preferinte</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">O noua versiune este disponibila </string>
 </resources>

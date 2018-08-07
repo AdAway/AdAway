@@ -1,8 +1,8 @@
 <html>
 <head></head>
 <body>
-<h2>HTC Devices</h2>
-<p>AdAway does not work when you are using a device with so called S-ON. This 'feature' exists on many HTC devices and prevents AdAway from writing the hosts file.</p>
+<h2>Mga producto ng HTC</h2>
+<p>Ang AdAway ay hindi gumagana kapag ang ginagamit mo ay may S-ON. Itong feature ay matatapuan sa maraming produkto ng HTC, ito ay nakakapaghintulot ng pagsulat ng hosts file.</p>
 
 <h2>S-ON/S-OFF?</h2>
 <p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
@@ -19,10 +19,10 @@
 <li>Use <i>volume down</i> to select recovery.</li>
 <li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
 <li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
+<li>Isaksak ang inyong USB cord at buksan ang command line sa inyong PC.</li>
 <li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
 <li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
-<li>AdAway should work now.</li>
+<li>Ang AdAway ay gumagana na dapat.</li>
 </ol>
 </body>
 </html>

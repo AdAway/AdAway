@@ -10,109 +10,103 @@
   <string name="button_revert">Désactiver le blocage des publicités</string>
   <string name="button_add">Ajouter</string>
   <string name="button_cancel">Annuler</string>
-  <string name="button_revert_text">Restaure le fichier « hosts » par défaut sur votre système.</string>
+  <string name="button_revert_text">Restaure le fichier « hosts » par défaut sur votre système.</string>
   <string name="button_save">Enregistrer</string>
   <string name="button_webserver_toggle_checked">Le serveur Web tourne</string>
   <string name="button_webserver_toggle_unchecked">Le serveur Web est arrêté</string>
-  <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur Web sur « localhost » pour répondre aux requêtes pour des noms d\'hôtes bloqués.</string>
+  <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur Web sur « localhost » pour répondre aux requêtes pour des noms d’hôtes bloqués.</string>
   <string name="button_help">Aide</string>
-  <string name="tcpdump_description">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités, et analyser ensuite les requêtes DNS d\'après le fichier journal. Le serveur publicitaire potentiel peut alors être ajouté à votre liste noire.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump tourne !</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump est arrêté</string>
-  <string name="tcpdump_show_results">Ouvrir le fichier journal</string>
-  <string name="tcpdump_clear_results">Supprimer le fichier journal</string>
+  <!--Home-->
+  <string name="text_update">Tous les fichiers « hosts » provenant des sources définies sont téléchargés, fusionnés avec vos propres listes et installés en un seul fichier « hosts » sur votre système.</string>
+  <string name="button_check_update_hosts">Vérifier les mises à jour</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Ajouter</string>
   <string name="checkbox_list_empty">Liste vide</string>
-  <string name="checkbox_list_empty_text">Vous pouvez ajouter des éléments depuis la barre d\'action.</string>
   <string name="checkbox_list_context_delete">Supprimer</string>
-  <string name="checkbox_list_footer">Après l\'ajout de nouveaux éléments à cette liste, AdAway doit être appliqué à nouveau.</string>
+  <string name="checkbox_list_footer">Après l’ajout de nouveaux éléments à cette liste, AdAway doit être appliqué à nouveau.</string>
   <string name="checkbox_list_edit_dialog_title">Modifier</string>
-  <string name="checkbox_list_context_title">Modifier l\'entrée</string>
+  <string name="checkbox_list_context_title">Modifier l’entrée</string>
   <string name="checkbox_list_context_edit">Modifier</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Liste blanche</string>
   <string name="lists_tab_blacklist">Liste noire</string>
-  <string name="lists_tab_redirection_list">Liste des redirections</string>
-  <string name="list_dialog_url">URL :</string>
-  <string name="list_dialog_hostname">Nom d\'hôte :</string>
-  <string name="list_dialog_whitelist_hostname">Nom d\'hôte :\n(Les métacaractères * et ? sont autorisés)</string>
+  <string name="list_dialog_hostname">Nom d’hôte :</string>
   <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
   <string name="import_dialog">Importation...</string>
   <string name="export_dialog">Exportation...</string>
-  <string name="export_success">Toutes les entrées ont été exportées vers un fichier « adaway-export » sur votre carte SD.</string>
+  <string name="export_success">Toutes les entrées ont été exportées vers un fichier « adaway-export » sur votre carte SD.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Vérification de mise à jour...</string>
   <string name="status_reverting">Retour arrière...</string>
-  <string name="status_reverting_subtitle">Création d\'un fichier « hosts » standard </string>
+  <string name="status_reverting_subtitle">Création d’un fichier « hosts » standard </string>
   <string name="status_checking_subtitle">Vérifier si une mise à jour est proposée</string>
-  <string name="status_update_available">Mise à jour proposée</string>
-  <string name="status_update_available_subtitle">Nouveaux fichiers « hosts » proposés</string>
-  <string name="status_no_connection">Aucune connexion Internet</string>
+  <string name="status_update_available">Une mise à jour est proposée</string>
+  <string name="status_update_available_subtitle">Nouveaux fichiers « hosts » proposés</string>
+  <string name="status_no_connection">Il n’y a pas de connexion Internet</string>
   <string name="status_no_connection_subtitle">Aucune connexion Internet</string>
-  <string name="status_download_fail">Sources non disponibles</string>
-  <string name="status_download_fail_subtitle_new">Aucune source «hosts » n\'est joignable !</string>
+  <string name="status_download_fail">Les sources ne sont pas accessibles</string>
+  <string name="status_download_fail_subtitle_new">Aucune source « hosts » n’est accessible</string>
   <string name="status_enabled">Activé</string>
-  <string name="status_enabled_subtitle">Fichiers « hosts »  les plus récents activés</string>
+  <string name="status_enabled_subtitle">Fichiers « hosts » les plus récents activés</string>
   <string name="status_disabled">Désactivé</string>
   <string name="status_disabled_subtitle">Désactivé</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Le lien symbolique de votre cible vers /system/etc/hosts est absent ou incorrect ! AdAway ne fonctionnera pas sans un lien vers le bon fichier.\n\nVoulez-vous essayer de créer un lien symbolique ?</string>
+  <string name="apply_symlink_missing">Le lien symbolique de votre cible vers /system/etc/hosts est absent ou incorrect. AdAway ne fonctionnera pas sans un lien vers le bon fichier.\n\nVoulez-vous essayer de créer un lien symbolique ?</string>
   <string name="apply_symlink_missing_title">Lien symbolique manquant</string>
-  <string name="apply_not_enough_space">Manque d\'espace sur la partition !\nEssayez de modifier le fichier « hosts » cible dans les préférences par /data/data/hosts.</string>
-  <string name="apply_not_enough_space_title">Manque d\'espace</string>
+  <string name="apply_not_enough_space">Il manque d’espace sur la partition.\nEssayez de modifier le fichier « hosts » cible dans les préférences par /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">Manque d’espace</string>
   <string name="apply_private_file_fail">Impossible de lire le fichier téléchargé.</string>
   <string name="apply_private_file_fail_title">Échec de fichier privé</string>
-  <string name="apply_remount_fail">Échec de remontage de la partition en lecture/écriture !</string>
+  <string name="apply_remount_fail">Échec de remontage de la partition en lecture/écriture</string>
   <string name="apply_remount_fail_title">Échec de remontage</string>
-  <string name="apply_copy_fail">Échec de copie du fichier « hosts » !</string>
+  <string name="apply_copy_fail">Échec de copie du fichier « hosts »</string>
   <string name="apply_copy_fail_title">Échec de copie</string>
-  <string name="apply_success_subtitle">Sources « hosts » mises en place :</string>
+  <string name="apply_success_subtitle">Sources « hosts » mises en place :</string>
   <string name="apply_success_title">Mise à en place réussie</string>
-  <string name="apply_success_dialog">Mise en place réussie.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu\'aucune appli n\'utilise la carte SD actuellement !)</string>
-  <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ? (Pour éviter toute perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
+  <string name="apply_success_dialog">La mise en place est réussie.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
+  <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ? (Pour éviter toute perte de données, assurez-vous qu’aucune application n’utilise la carte SD actuellement.)</string>
   <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
-  <string name="apply_symlink_fail">Le lien symbolique n\'a pas pu être créé par Android.\nCeci échoue la plupart du temps à cause d\'une fonction appelée S-ON sur les téléphones HTC !\n\nUne solution est de démarrer votre téléphone en mode récupération et d\'y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
+  <string name="apply_symlink_fail">Le lien symbolique n’a pas pu être créé par Android.\nCela échoue la plupart du temps à cause d’une fonction appelée S-ON sur les téléphones HTC.\n\nUne solution possible est de démarrer votre téléphone en mode récupération et d’y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
   <string name="apply_symlink_fail_title">Échec de la création du lien symbolique</string>
-  <string name="apply_help">Veuillez lire l\'aide pour plus d\'informations, .</string>
-  <string name="apply_apn_proxy">Un mandataire APN est configuré sur votre Android !\nAdAway ne fonctionnera pas de manière fiable sur les réseaux mobiles comme le 3G. Vous pouvez désactiver ce mandataire en allant à l\'APN choisi (sur Android 4 : Sans fil et réseaux -&gt; Paramètres supp. -&gt; Réseaux Mobile -&gt; Nom des point d\'accès) et en enlevant la valeur dans le champ « proxy »</string>
-  <string name="apply_apn_proxy_title">Mandataire APN configuré !</string>
+  <string name="apply_help">Veuillez lire l’aide pour plus d’informations, .</string>
+  <string name="apply_apn_proxy">Un mandataire APN est configuré sur votre Android !\nAdAway ne fonctionnera pas de manière fiable sur les réseaux mobiles comme le 3G. Vous pouvez désactiver ce mandataire en allant dans l’APN choisi (sur Android 4 : Sans fil et réseaux -&gt; Paramètres supp. -&gt; Réseaux Mobile -&gt; Nom des points d’accès) et en supprimant la valeur dans le champ mandataire.</string>
+  <string name="apply_apn_proxy_title">Le mandataire APN est configuré</string>
   <string name="no_connection">La connexion à Internet me fonctionne pas.</string>
   <string name="no_connection_title">Aucune connexion</string>
-  <string name="download_dialog">Téléchargement...</string>
+  <string name="download_dialog">Téléchargement…</string>
   <string name="apply_dialog">Mise en place...</string>
   <string name="apply_dialog_lists">Mise en place des liste noire et blanche</string>
-  <string name="apply_dialog_hostnames">Analyse et fusion des fichiers « hosts »</string>
-  <string name="apply_dialog_hosts">Création du fichier « hosts »</string>
-  <string name="apply_dialog_apply">Mise en place du fichier « hosts »</string>
-  <string name="apply_fail">Le fichier « hosts » n\'a pas pu être appliqué à votre système !\nEssayez de changer le fichier « hosts » cible dans les préférences par /data/data/hosts.</string>
+  <string name="apply_dialog_hostnames">Analyse et fusion des fichiers « hosts »</string>
+  <string name="apply_dialog_hosts">Création du fichier « hosts »</string>
+  <string name="apply_dialog_apply">Mise en place du fichier « hosts »</string>
+  <string name="apply_fail">Le fichier « hosts » n’a pas pu être appliqué à votre système.\nEssayez de changer le fichier « hosts » cible dans les préférences par /data/data/hosts.</string>
   <string name="apply_fail_title">Échec lors de la mise en place</string>
-  <string name="revert_successful">Vous êtes revenu au fichier « hosts » par défaut.\nIl pourrait peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d\'éviter la perte de données, assurez-vous qu\'aucune application n\'utilise la carte SD actuellement !)</string>
+  <string name="revert_successful">Vous êtes revenu au fichier « hosts » par défaut.\nIl pourrait peut-être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d’éviter la perte de données, assurez-vous qu’aucune application n’utilise la carte SD actuellement.)</string>
   <string name="revert_successful_title">Retour arrière réussi</string>
   <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
-  <string name="revert_problem_title">Échec du retour arrière ! </string>
-  <string name="download_fail_dialog">Aucune de vos sources d\'« hosts » activées n\'est disponible. Êtes-vous correctement connecté à internet ?</string>
+  <string name="revert_problem_title">Échec du retour en arrière</string>
+  <string name="download_fail_dialog">Aucune de vos sources d’« hosts » activées n’est disponible. Êtes-vous correctement connecté à internet ?</string>
   <string name="download_fail_title">Échec de téléchargement</string>
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de création du fichier privé</string>
-  <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer?\n(Pour prévenir la perte de données, assurez-vous qu\'aucune autre application n’utilise la carte SD en ce moment !)</string>
+  <string name="enable_systemless_successful">Vous avez activé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour prévenir la perte de données, assurez-vous qu’aucune autre application n’utilise la carte SD en ce moment.)</string>
+  <string name="enable_systemless_successful_title">Activation réussie</string>
+  <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer?\n(Pour prévenir la perte de données, assurez-vous qu’aucune autre application n’utilise la carte SD en ce moment.)</string>
   <string name="disable_systemless_successful_title">Désactivation réussie</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Soit le fichier binaire « su » est introuvable, soit vous n\'avez pas donné l\'accès root à AdAway.\n\nCela peut arriver quand votre appareil n\'est pas enraciné\nVous trouverez des informations sur comment enraciner votre appareil sur wiki.lineageos.org ou d\'autres sites Web dédiés à Android.</string>
-  <string name="no_root_title">Un Android rooté est exigé</string>
-  <string name="no_url">Ce n\'est pas une URL valide !</string>
-  <string name="no_url_title">URL mal formatée</string>
-  <string name="hosts_add_dialog">Ajouter une URL au fichier « hosts » :</string>
-  <string name="no_hostname">Ce n\'est pas un nom d\'hôte valide !</string>
-  <string name="no_hostname_title">Nom d\'hôte mal formaté</string>
-  <string name="no_ip">Ce n\'est pas une IP valide !</string>
+  <string name="no_root_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès racine à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé\nVous trouverez des informations sur comment enraciner votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
+  <string name="no_root_title">Un Android débridé est exigé</string>
+  <string name="hosts_add_dialog">Ajouter une URL au fichier « hosts » :</string>
+  <string name="no_hostname">Ce n’est pas un nom d’hôte valide</string>
+  <string name="no_hostname_title">Nom d’hôte mal formaté</string>
+  <string name="no_ip">Ce n’est pas une IP valide</string>
   <string name="no_ip_title">IP mal formatéee</string>
-  <string name="reboot_never_reboot">Ne jamais redémarrer et ne plus demander à l\'avenir !</string>
+  <string name="reboot_never_reboot">Ne jamais redémarrer et ne plus demander à l’avenir</string>
   <string name="loading">Chargement...</string>
   <!--Menu entries-->
-  <string name="menu_refresh">Rafraîchir</string>
+  <string name="menu_refresh">Actualiser</string>
   <string name="menu_add">Ajouter</string>
-  <string name="menu_hosts_sources">Sources d\'hôtes</string>
+  <string name="menu_hosts_sources">Sources d’hôtes</string>
   <string name="menu_help">Aide</string>
   <string name="menu_import">Importer toutes les listes</string>
   <string name="menu_export">Exporter toutes les listes</string>
@@ -133,70 +127,68 @@
     <item>8 euros</item>
     <item>13 euros</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Vous pouvez rechercher ici les mauvais pubiciels qui ne peuvent être bloqués par AdAWay. Ces applis utilisent par exemple des notifications intempestives « airpush » qui s\'affichent même si l\'appli ne tourne pas et peuvent aussi changer votre sonnerie. La seule contre-mesure est de désinstaller ces applis en cliquant sur les éléments listés !</string>
-  <string name="adware_empty">Aucun mauvais pubiciel trouvé !</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Local :</string>
   <string name="hosts_last_modified_online">En ligne :</string>
   <string name="hosts_not_available">non disponible</string>
+  <string name="hosts_dialog_url">URL :</string>
   <!--Other-->
   <string name="app_subtitle">Blocage de publicités</string>
-  <string name="no_text_editor_title">Aucun éditeur de texte n\'est installé</string>
-  <string name="no_text_editor">Aucun éditeur de texte n\'a été trouvé pour ouvrir le fichier « hosts ». Vous pouvez installer Jota ou d\'autres éditeurs de texte pour ce faire.\n\nVoulez-vous installer Jota ?</string>
-  <string name="no_file_manager_title">Aucun gestionnaire de fichiers n\'est installé</string>
-  <string name="no_file_manager">Aucun gestionnaire de fichier n\'a trouvé pour ouvrir les fichiers. Vous pouvez installer OI File Manager ou d\'autres gestionnaires de fichiers pour ce faire.\n\nVoulez-vous installer OI File Manager ?</string>
+  <string name="no_text_editor_title">Aucun éditeur de texte n’est installé</string>
+  <string name="no_text_editor">Aucun éditeur de texte n’a été trouvé pour ouvrir le fichier « hosts ». Vous pouvez installer Jota ou d’autres éditeurs de texte pour ce faire.\n\nVoulez-vous installer Jota ?</string>
+  <string name="no_file_manager_title">Aucun gestionnaire de fichiers n’est installé</string>
+  <string name="no_file_manager">Aucun gestionnaire de fichier n’a trouvé pour ouvrir les fichiers. Vous pouvez installer OI File Manager ou d’autres gestionnaires de fichiers pour ce faire.\n\nVoulez-vous installer OI File Manager ?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Le fichier journal a été supprimé !</string>
-  <string name="toast_tcpdump_added_to_blacklist">Le nom d\'hôte a été ajouté à votre liste noire !</string>
-  <string name="toast_tcpdump_added_to_whitelist">Le nom d\'hôte a été ajouté à votre liste blanche !</string>
-  <string name="tcpdump_log_context_blacklist">Ajouter à votre liste noire</string>
-  <string name="tcpdump_log_context_whitelist">Ajouter à votre liste blanche</string>
-  <string name="tcpdump_log_context_browser">Ouvrir dans le navigateur</string>
-  <string name="tcpdump_log_empty">Le fichier journal est vide !</string>
-    <!--Preferences-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités, et analyser ensuite les requêtes DNS d’après le fichier journal. Le serveur publicitaire potentiel peut alors être ajouté à votre liste noire.</string>
+  <!--Preferences-->
   <string name="pref_download">Préférences générales</string>
-  <string name="pref_hosts">Fichier « hosts »</string>
+  <string name="pref_hosts">Fichier « hosts »</string>
   <string name="pref_redirection_ip">IP de redirection</string>
   <string name="pref_update_check">Vérifier les mises à jour</string>
-  <string name="pref_apply_method">Fichier « hosts » cible</string>
-  <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lire l\'aide concernant cette fonction.</string>
-  <string name="pref_redirection_ip_summary">Tous les noms d\'hôtes bloqués sont redirigés vers cette adresse IP.</string>
+  <string name="pref_apply_method">Fichier « hosts » cible</string>
+  <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lire l’aide concernant cette fonction.</string>
+  <string name="pref_redirection_ip_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IP.</string>
   <string name="pref_header_preferences">Préférences</string>
-  <string name="pref_header_preferences_summary">Préférences générales d\'AdAway</string>
+  <string name="pref_header_preferences_summary">Préférences générales d’AdAway</string>
   <string name="pref_never_reboot">Cacher la fenêtre de redémarrage</string>
-  <string name="pref_never_reboot_summary">Masque la demande de redémarrage d\'Android après une mise à en place réussie</string>
+  <string name="pref_never_reboot_summary">Masque la demande de redémarrage d’Android après une mise à en place réussie</string>
   <string name="pref_webserver_on_boot">Lancer le serveur Web au démarrage</string>
-  <string name="pref_webserver_on_boot_summary">Lance le serveur Web au démarrage, à l\'écoute des adresses IP locales</string>
+  <string name="pref_webserver_on_boot_summary">Lance le serveur Web au démarrage, à l’écoute des adresses IP locales</string>
   <string name="pref_webserver_enabled">Activer le serveur Web</string>
-  <string name="pref_webserver_enabled_summary">Active le serveur Web à l\'écoute d\'adresses IP locales pour répondre aux requêtes vers des noms d\'hôtes bloqués</string>
+  <string name="pref_webserver_enabled_summary">Active le serveur Web à l’écoute d’adresses IP locales pour répondre aux requêtes vers des noms d’hôtes bloqués</string>
   <string name="pref_webserver">Serveur Web local</string>
   <string name="pref_custom_target">Cible personnalisée</string>
-  <string name="pref_custom_target_summary">Utilisé uniquement si le fichier « hosts » cible est personnalisé</string>
+  <string name="pref_custom_target_summary">Utilisé uniquement si le fichier « hosts » cible est personnalisé</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Cible personnalisée</item>
   </string-array>
-  <string name="pref_update_check_summary">Vérifier les mises à jour lors du démarrage d\'AdAway</string>
-  <string name="pref_sdcard_problem">Cette fonction ne fonctionnera pas correctement si AdAway est installé sur une carte SD !</string>
-  <string name="pref_background">Services d\'arrière-plan</string>
+  <string name="pref_update_check_summary">Vérifier les mises à jour lors du démarrage d’AdAway</string>
+  <string name="pref_sdcard_problem">Cette fonction ne fonctionnera pas correctement si AdAway est installé sur une carte SD</string>
+  <string name="pref_background">Services d’arrière-plan</string>
   <string name="pref_update_check_daily">Vérifier les mises à jour quotidiennement</string>
   <string name="pref_update_check_daily_summary">Vérifier les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_automatic_update_daily">Mise à jour automatique</string>
   <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont proposées</string>
   <string name="pref_update_only_on_wifi">Mise à jour Wi-Fi seulement</string>
-  <string name="pref_update_only_on_wifi_summary">N\'exécuter les mises à jour en arrière-plan que si connecté à un réseau Wi-Fi.</string>
+  <string name="pref_update_only_on_wifi_summary">N’exécuter les mises à jour en arrière-plan que si connecté à un réseau Wi-Fi.</string>
   <string name="pref_whitelist_rules">Permettre la mise en liste blanche</string>
-  <string name="pref_whitelist_rules_summary">Permettre les entrées de liste blanche des sources « hosts »</string>
-  <string name="pref_redirection_rules">Permettre les redirections</string>
-  <string name="pref_redirection_rules_summary">CECI POSE UN RISQUE DE SÉCURITÉ ! Permettre les entrées de redirection de sources « hosts ».</string>
+  <string name="pref_whitelist_rules_summary">Permettre les entrées de liste blanche des sources « hosts »</string>
+  <string name="pref_redirection_rules_summary">CELA POSE UN RISQUE DE SÉCURITÉ ! Permettre les entrées de redirection de sources « hosts »</string>
   <string name="pref_debug">Debogage </string>
   <string name="pref_enable_debug">Journalisation du débogage</string>
   <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>
   <string name="pref_enable_ipv6">Activer IPv6</string>
   <string name="pref_enable_ipv6_summary">Toutes les entrées du fichier host auront une entrée ::1 (IPv6 localhost) correspondante.</string>
-  <string name="pref_enable_systemless_summary">Empêcher AdAway de modifier la partition système (SuperSU sans système est exigé pour une installation automatique)</string>
+  <string name="pref_enable_systemless_summary">Empêcher AdAway de modifier la partition système</string>
   <string name="pref_enable_systemless">Activer le mode sans système</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Préférences</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Une mise à jour est proposée</string>
 </resources>

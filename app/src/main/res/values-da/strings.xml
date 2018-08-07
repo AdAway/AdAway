@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">Webserver kører ikke</string>
   <string name="button_webserver_toggle_text">Start eller stop webserver på localhost til at besvare anmodninger til blokerede værtsnavne.</string>
   <string name="button_help">Hjælp</string>
-  <string name="tcpdump_description">Tcpdump er et værktøj til at overvåge DNS-anmodninger og gemme dem i en logfil. Du kan starte den i baggrunden, køre programmer, der viser reklamer, for bagefter at analysere DNS-anmodningerne ved hjælp af logfilen. Mulig reklameværter kan derefter blive tilføjet til din blackliste.</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump kører!</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump kører ikke!</string>
-  <string name="tcpdump_show_results">Åben logfil</string>
-  <string name="tcpdump_clear_results">Slet logfil</string>
+  <!--Home-->
+  <string name="text_update">Alle hosts-filer fra de definerede kilder er hentet, flettet sammen med dine egne lister og installeret som en hosts-fil på dit system.</string>
+  <string name="button_check_update_hosts">Check for opdateringer</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">Tilføj</string>
   <string name="checkbox_list_empty">Tøm listen</string>
-  <string name="checkbox_list_empty_text">Du kan tilføje elementer fra handlingsbaren.</string>
   <string name="checkbox_list_context_delete">Slet</string>
   <string name="checkbox_list_footer">Efter tilføjelse af nye elementer til denne liste, er du nødt til at køre AdAway igen!</string>
   <string name="checkbox_list_edit_dialog_title">Rediger</string>
   <string name="checkbox_list_context_title">Rediger opslag</string>
   <string name="checkbox_list_context_edit">Rediger</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">Tilladte</string>
   <string name="lists_tab_blacklist">Blokerede</string>
-  <string name="lists_tab_redirection_list">Omdirigeringsliste</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">Værtsnavn:</string>
-  <string name="list_dialog_whitelist_hostname">Hostname:\n(Wildcard karakterer * og ? er tilladt!)</string>
   <string name="list_dialog_ip">IP (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerer...</string>
   <string name="export_dialog">Eksporterer...</string>
   <string name="export_success">Eksporterede alle poster til en fil kaldet \'adaway-export\' på dit SD-kort/integreret hukommelse.</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">Tjekker for opdateringer...</string>
   <string name="status_reverting">Gendanner...</string>
@@ -95,11 +89,11 @@
   <string name="download_fail_title">Download mislykkedes</string>
   <string name="no_private_file">Privat fil kan ikke oprettes.</string>
   <string name="no_private_file_title">Oprettelse af privat fil mislykkedes</string>
+  <string name="enable_systemless_successful_title">Aktivering succesfuldt</string>
+  <string name="disable_systemless_successful_title">Deaktivering succesfuldt</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Enten findes SU-binary\'et ikke eller du afviste root-adgang for AdAway.\n\nDette kan ske når din enhed ikke har opnået root-adgang.\nDu kan finde information om hvordan du får root-adgang på din enhed på wiki.lineageos.org eller andre Android-websider.</string>
+  <string name="no_root_description">Enten kunne su binary ikke findes, ellers tillod du ikke root tilladelse til AdAway.\n\nDette kan ske, når enheden ikke er rootet.\nDu kan finde oplysninger om, hvordan du kan root din enhed på wiki.lineageos.org eller andre Android-hjemmesider.</string>
   <string name="no_root_title">En rootet Android kræves</string>
-  <string name="no_url">Dette er ikke en gyldig URL!</string>
-  <string name="no_url_title">Forkert formateret URL</string>
   <string name="hosts_add_dialog">Indsæt URL til hosts fil:</string>
   <string name="no_hostname">Dette er ikke et gyldigt værtsnavn</string>
   <string name="no_hostname_title">Inkorrekt formateret hostnavn</string>
@@ -131,13 +125,12 @@
     <item>8 Euro</item>
     <item>13 Euro</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">Her kan du scanne for dårlige Adware-programmer, som ikke kan blokeres af AdAway. Disse apps bruger for eksempel Airpush meddelelser, der dukker op, selv når app\'en ikke kører og kan endda ændre din ringetone. Den eneste tilgængelige løsning er at afinstallere disse apps ved at klikke på punkterne på listen!</string>
-  <string name="adware_empty">Ingen dårlige Adware apps blev fundet</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalt:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">Ikke tilgængelig</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Reklameblokering</string>
   <string name="no_text_editor_title">Intet tekstredigeringsprogram installeret</string>
@@ -145,14 +138,8 @@
   <string name="no_file_manager_title">Intet filhåndteringsprogram installeret</string>
   <string name="no_file_manager">Intet filhåndteringsprogram blev fundet til at åbne filen. Du kan installere OI File Manager eller andre filhåndteringsprogrammer til at håndtere dette.\n\nVil du installere OI File Manager?</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">Logfil slettet</string>
-  <string name="toast_tcpdump_added_to_blacklist">Værtsnavn blev tilføjet din ikke godkendte liste!</string>
-  <string name="toast_tcpdump_added_to_whitelist">Værtsnavn blev tilføjet din godkendte liste!</string>
-  <string name="tcpdump_log_context_blacklist">Tilføj til din ikke godkendte liste</string>
-  <string name="tcpdump_log_context_whitelist">Tilføj til din godkendte liste</string>
-  <string name="tcpdump_log_context_browser">Åbn i browser</string>
-  <string name="tcpdump_log_empty">Logfilen er tom!</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump er et værktøj til at overvåge DNS-anmodninger og gemme dem i en logfil. Du kan starte den i baggrunden, køre programmer, der viser reklamer, for bagefter at analysere DNS-anmodningerne ved hjælp af logfilen. Mulig reklameværter kan derefter blive tilføjet til din blackliste.</string>
+  <!--Preferences-->
   <string name="pref_download">Generelle Indstillinger</string>
   <string name="pref_hosts">Hosts-fil</string>
   <string name="pref_redirection_ip">Omdirigerings-IP</string>
@@ -188,11 +175,17 @@
   <string name="pref_update_only_on_wifi_summary">Kør kun baggrundsopdateringer når der er forbindelse via et trådløs netværk</string>
   <string name="pref_whitelist_rules">Tillad hvidlister</string>
   <string name="pref_whitelist_rules_summary">Tillad hvidlist indhold fra Hosts kilden.</string>
-  <string name="pref_redirection_rules">Tillad omdirigeringer</string>
   <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug-logning</string>
   <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>
   <string name="pref_enable_ipv6">Aktivér IPv6</string>
   <string name="pref_enable_ipv6_summary">Alle hosts-fils poster vil få en tilsvarende ::1 (IPv6 localhost) post.</string>
+  <string name="pref_enable_systemless_summary">Forhindre AdAway i at ændre systempartitionen</string>
+  <string name="pref_enable_systemless">Aktiver systemløs tilstand</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Indstillinger</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Opdatering fundet</string>
 </resources>

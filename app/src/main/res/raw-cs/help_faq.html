@@ -7,26 +7,26 @@
 
 
 <h2>Jak AdAway funguje?</h2>
-<p>AdAway používá <a href="http://en.wikipedia.org/wiki/Hosts_file">host tabulku</a> pro blokování jmen serverů, které slouží pro zobrazování reklam. Host tabulka je soubor, který naleznete v <tt>/system/etc/hosts</tt> a přiřazuje jména hostitelů IP adresám. Toto je tradiční způsob, jak přiřadit jméno hosta IP adrese bez sploléhání se na Domain Name System (DNS). Všechna nechtěná jměna hostitelů jsou přesměrována na <tt>127.0.0.1</tt>, tzn. na vlastní zařízení.</p>
+<p>AdAway používá <a href="http://en.wikipedia.org/wiki/Hosts_file">soubor hostitelů</a> pro blokování doménových jmen serverů, které slouží pro zobrazování reklam. Soubor hostitelů je soubor, který naleznete v <tt>/system/etc/hosts</tt> a přiřazuje jména hostitelů IP adresám. Toto je tradiční způsob, jak přiřadit jméno hosta IP adrese bez spoléhání se na Domain Name System (DNS). Všechna nechtěná jména hostitelů jsou přesměrována na <tt>127.0.0.1</tt>, tzn. na vlastní zařízení.</p>
 
 <h2>Proč je volba denní kontroly aktualizací zašedlá?</h2>
-<p>AUtomatická kontrola aktualizací je dostupná pouze pokud je AdAway nainstalován ve vnitřní paměti zařizení. Toto je kvůli omezením v systému Android.</p>
+<p>Automatická kontrola aktualizací je dostupná pouze pokud je AdAway nainstalován ve vnitřní paměti zařízení. Toto je kvůli omezením v systému Android.</p>
 
-<h2>Proč je potřeba restartovat zařízení pro aktivaci změn?</h2>
-<p>Java v Androidu si spravuje vlastní interní DNS cache. Změny v host tabulce budou v operačním systému provedeny ihned (zkontrolujte toto pingem v terminálu), ale musíte restartovat zařízení pro znovuvytvoření DNS cache Javy.</p>
+<h2>Proč je pro uplatnění změn potřeba restartovat zařízení?</h2>
+<p>Java v Androidu si spravuje vlastní interní vyrovnávací paměť DNS. Změny v souboru hostitelů budou v operačním systému provedeny ihned (toto můžete zkontrolovat příkazem <tt>ping</tt> v terminálu), pro znovuvytvoření vyrovnávací paměti DNS Javy ale musíte zařízení restartovat.</p>
 
-<h2>Jak používat webserver v AdAway?</h2>
-<p><b>AdAway funguje i bez použití webserveru!</b>⏎
-<br/><br/>V nastaveních AdAway můžete povolit lokální webserver, běžící na lokální IP adrese <tt>127.0.0.1</tt>. V tomto případě budou dotazu aplikací na reklamní servery přesměrovány na <tt>127.0.0.1</tt> a zodpovězeny AdAway webserverem.⏎
+<h2>Jak používat webový server v AdAway?</h2>
+<p><b>AdAway funguje i bez použití webserveru!</b>
+<br/><br/>V nastaveních AdAway můžete povolit lokální webserver, běžící na lokální IP adrese <tt>127.0.0.1</tt>. V tomto případě budou dotazu aplikací na reklamní servery přesměrovány na <tt>127.0.0.1</tt> a zodpovězeny AdAway webserverem.
 <br/>Některé aplikace se odmítnou spustit, pokus jsou reklamní servery nedostupné. Při použití této metody budou znovu dostupné, ale budou odpovídat prázdnou stránkou bez reklamních obrázků.</p>
 
 <h2>Jak můžu zablokovat/odblokovat určitá jména hostů?</h2>
-<p>Přidejte jména hostů, které chcete zablokovat do <i>Černého seznamu</i> (=Černý) pod <i>Vaše seznamy</i>. Dále přidejte jména hostů, které chcete vyjmout z blokování do <i>Bílého seznamu</i> (=Bílý) a jména hostů, které chcete přesměrovat na určitou IP adresu do  <i>Seznamu přesměrování</i> (=Přesměrování).</p>
+<p>Jména hostů, které chcete zablokovat, přidejte do <i>Černého seznamu</i> (=Černý) pod <i>Vaše seznamy</i>. Dále jména hostů, které chcete vyjmout z blokování, přidejte do <i>Bílého seznamu</i> (=Bílý) a jména hostů, které chcete přesměrovat na určitou IP adresu do <i>Seznamu přesměrování</i> (=Přesměrování).</p>
 
 <h2>Kde mohu najít více zdrojů hostů?</h2>
-<p>Jděte na <a href="https://github.com/dschuermann/ad-away/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
+<p>Podívejte se na <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">seznam dalších zdrojů hostitelů pro AdAway</a>.</p>
 
-<h2>Pomozte s překladem/hlášením chyb</h2>
-<p>Prosím přejděte na <a href="http://adaway.org">http://adaway.org</a>.</p>
+<h2>Pomozte s překladem / hlášením chyb</h2>
+<p>Přejděte prosím na <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>

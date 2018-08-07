@@ -1,3 +1,6 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
 <html>
 <head></head>
 <body>
@@ -7,14 +10,16 @@
 <h2>Does not work on Android 4.4+</h2>
 <p>Try changing the target hosts file in preferences from <tt>/data/data/hosts</tt> to <tt>/data/hosts</tt> or <tt>/system/etc/hosts</tt> and apply AdAway again.</p>
 
-<h2>广告走开不能屏蔽 XYZ 应用中的广告！</h2>
-<p>有一些主机名在<i>Hosts 源</i>中提供的 hosts 文件中漏掉了或者应用把广告图片捆绑到应用里面来提供广告而不是访问网络来获取。<br><br>你可以用广告走开中的记录DNS请求(菜单-&gt;记录DNS请求)功能来找出的需要屏蔽的主机名。<br><br>通过在日志条目上长按来添加可疑的主机名到你的“黑名单”，并在 <a href="http://hosts-file.net">hosts-file.net</a> 的 <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> 论坛验证后反馈给我们。</p>
+<h2>无法屏蔽某某应用中的广告！</h2>
+<p>有一些主机名在<i>Hosts 源</i>中提供的 hosts 文件中漏掉了或者应用把广告图片捆绑到应用里面来提供广告而不是访问网络来获取。<br><br>
+你可以用广告走开中的记录DNS请求(菜单-&gt;记录DNS请求)功能来找出的需要屏蔽的主机名。
+<br><br>通过在日志条目上长按来添加可疑的主机名到你的“黑名单”，并在 <a href="http://hosts-file.net">hosts-file.net</a> 的 <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> 论坛验证后反馈给我们。</p>
 
 <h2>缓存的广告</h2>
 <p>一些应用在下载广告后缓存广告。这导致应用中仍然有广告。你可以试着从 Android 的“应用程序”列表中删除这些程序的缓存来解决这一问题。</p>
 
 <h2>屏蔽广告后应用程序 XYZ 不能用了！</h2>
-<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuses to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/dschuermann/ad-away/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <i>Whitelist</i> under <i>Your Lists</i> and report them to the <a href="https://github.com/dschuermann/ad-away/issues">bug tracker of AdAway</a>.</p>
+<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuses to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <i>Whitelist</i> under <i>Your Lists</i> and report them to the <a href="https://github.com/AdAway/AdAway/issues">bug tracker of AdAway</a>.</p>
 
 <h2>Web浏览器的后退按钮无法正常工作</h2>
 <p>你可以在广告走开的设置中启用本地Web服务器作为一种解决方法</p>

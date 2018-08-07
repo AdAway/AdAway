@@ -1,17 +1,54 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="app_name">AdAway</string>
   <!--Buttons-->
+  <string name="button_exit">Lumabas</string>
+  <string name="button_apply">I-download ang files at i-apply ang ad blocking</string>
   <string name="button_close">Isara</string>
+  <string name="button_yes">Oo</string>
+  <string name="button_no">Hindi</string>
+  <string name="button_revert">I-disable ang ad blocking</string>
+  <string name="button_add">Dagdagan</string>
+  <string name="button_cancel">I-cancel</string>
+  <string name="button_revert_text">Ibalik sa dating hosts file ng system.</string>
+  <string name="button_help">Tulong</string>
+  <!--Home-->
   <!--Checkbox List-->
-  <!--Your Lists-->
+  <string name="checkbox_list_context_delete">Ibura</string>
+  <string name="checkbox_list_edit_dialog_title">Palitan</string>
+  <string name="checkbox_list_context_title">Palitan ang entry</string>
+  <string name="checkbox_list_context_edit">Palitan</string>
+  <!--Your lists-->
+  <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+  <string name="import_dialog">Nag-iimport...</string>
+  <string name="export_dialog">Nag-eexport...</string>
+  <!--Hosts content-->
   <!--Status Notifications-->
+  <string name="status_checking">Naghahanap ng update...</string>
+  <string name="status_reverting">Binabalik...</string>
+  <string name="status_reverting_subtitle">Gumagawa ng standard na hosts file</string>
+  <string name="status_update_available">May bagong update</string>
+  <string name="status_no_connection">Walang koneksyong Internet</string>
   <!--Apply and Revert Dialogs-->
+  <string name="no_connection_title">Walang connection</string>
+  <string name="download_dialog">Dinadownload...</string>
+  <string name="apply_dialog_hosts">gumagawa ng hosts file</string>
   <!--Other Dialogs-->
+  <string name="no_root_title">Kailangan ng Android na may root</string>
   <!--Menu entries-->
+  <string name="menu_add">Dagdagan</string>
+  <string name="menu_help">Tulong</string>
   <!--Help-->
-  <!--Scan Adware-->
-  <!--Hosts Sources-->
+  <string name="help_tab_donate">Mag-donate</string>
+  <string name="help_tab_changelog">Mga pagbabago</string>
+  <!--Adware-->
+  <!--Hosts sources-->
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <!--Tcpdump-->
   <!--Preferences-->
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">May bagong update</string>
 </resources>

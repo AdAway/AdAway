@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Izhod</string>
+  <string name="button_apply">Prenesi datoteke in vključi blokiranje oglasov</string>
+  <string name="button_close">Zapri</string>
+  <string name="button_yes">Da</string>
+  <string name="button_no">Ne</string>
+  <string name="button_revert">Izključi blokiranje oglasov</string>
+  <string name="button_add">Dodaj</string>
+  <string name="button_cancel">Prekini</string>
+  <string name="button_revert_text">Obnovi privzeto hosts datoteko na vašem sistemu.</string>
+  <string name="button_save">Shrani</string>
+  <string name="button_webserver_toggle_checked">Spletni strežnik deluje</string>
+  <string name="button_webserver_toggle_unchecked">Spletni strežnik ne deluje</string>
+  <string name="button_webserver_toggle_text">Zaženi ali zaustavi spletni strežnik na lokalnem gostitelju, da bo naprava odgovorila zahtevam od blokiranih domenskih imen.</string>
+  <string name="button_help">Pomoč</string>
+  <!--Home-->
+  <string name="text_update">Vse hosts datoteke danih virov so prenešene, združene z vašimi osebnimi seznami in nameščene kot ena hosts datoteka na vašem sistemu.</string>
+  <string name="button_check_update_hosts">Preveri za posodobitve</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_empty">Prazen seznam</string>
+  <string name="checkbox_list_context_delete">Odstrani</string>
+  <string name="checkbox_list_footer">Po dodajanju elementov na seznam morate ponovno posodobiti AdAway!</string>
+  <string name="checkbox_list_edit_dialog_title">Uredi</string>
+  <string name="checkbox_list_context_title">Uredi vnos</string>
+  <string name="checkbox_list_context_edit">Uredi</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">Dovoljeni viri</string>
+  <string name="lists_tab_blacklist">Blokirani viri</string>
+  <string name="list_dialog_hostname">Domena:</string>
+  <string name="list_dialog_ip">IP (IPv4 ali IPv6):</string>
+  <string name="import_dialog">Uvažanje...</string>
+  <string name="export_dialog">Izvažanje...</string>
+  <string name="export_success">Vsi vnosi so bili izvoženi v datoteko \'adaway-export\' na vašo SD kartico.</string>
+  <!--Hosts content-->
+  <!--Status Notifications-->
+  <string name="status_checking">Preverjanje za posodobitve...</string>
+  <string name="status_reverting">Povrnitev...</string>
+  <string name="status_reverting_subtitle">Ustvarjanje privzete hosts datoteke</string>
+  <string name="status_checking_subtitle">Preverjanje za posoditve</string>
+  <string name="status_update_available">Na voljo je nova posodobitev</string>
+  <string name="status_update_available_subtitle">Na voljo so posodobljene hosts datoteke</string>
+  <string name="status_no_connection">Ni omrežne povezave</string>
+  <string name="status_no_connection_subtitle">Omrežna povezava ni na voljo</string>
+  <string name="status_download_fail">Nedosegljivi viri</string>
+  <string name="status_download_fail_subtitle_new">Noben hosts vir ni dosegljiv!</string>
+  <string name="status_enabled">Omogočeno</string>
+  <string name="status_enabled_subtitle">Uporabljene so najnovejše hosts datoteke</string>
+  <string name="status_disabled">Onemogočeno</string>
+  <string name="status_disabled_subtitle">Onemogočeno</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symlink vaše tarče /system/etc/hosts ne obstaja ali ni pravilen! AdAway ne bo deloval, če ne bo kazal na pravo datoteko.\n\nAli želite poizkusiti ustvariti symlink?</string>
+  <string name="apply_symlink_missing_title">Symlink ne obstaja</string>
+  <string name="apply_not_enough_space">Na particiji ni dovolj prostora!\nPoizkusite spremeniti pot hosts datoteke na /data/data/hosts v nastavitvah.</string>
+  <string name="apply_not_enough_space_title">Ni dovolj prostora</string>
+  <string name="apply_private_file_fail">Prenešene datoteke ni mogoče brati.</string>
+  <string name="apply_private_file_fail_title">Privatna datoteka spodletela</string>
+  <string name="apply_remount_fail">Ponovno montiranje particije z read/write dovoljenjem je spodletelo!</string>
+  <string name="apply_remount_fail_title">Ponovno montiranje spodletelo</string>
+  <string name="apply_copy_fail">Kopiranje hosts datoteke spodletelo!</string>
+  <string name="apply_copy_fail_title">Kopiranje spodletelo</string>
+  <string name="apply_success_subtitle">Uporabljeni hosts viri:</string>
+  <string name="apply_success_title">Uporaba uspešna</string>
+  <string name="apply_success_dialog">Uporaba je bila uspešna.\nMogoče boste morali ponovno zagnati vašo napravo, da bodo spremembe vidne.\n\nAli želite ponoven zagon?\n(Da bi preprečili izgubo podatkov, se prepričajte, da SD kartico trenutno ni v uporabi!)</string>
+  <string name="apply_symlink_successful">Symlink je bil uspešno ustvarjen.\nMogoče boste morali ponovno zagnati vašo napravo, da bodo spremembe vidne.\n\nAli želite ponoven zagon?\n(Da bi preprečili izgubo podatkov, se prepričajte, da SD kartico trenutno ni v uporabi!)</string>
+  <string name="apply_symlink_successful_title">Symlink je bil uspešno ustvarjen</string>
+  <string name="apply_symlink_fail">Symlink-a ni bilo mogoče ustvariti.\nNajpogostejši razlog za to je funkcija S-ON na HTC napravah!\n\nRešitev je, da zaženete vašo napravo v recovery način in tam ustvarite symlink z ukazom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nČe ta način ne deluje, prebrskajte splet za funkcijo S-OFF za vašo napravo.</string>
+  <string name="apply_symlink_fail_title">Ustvarjanje symlink-a je spodletelo</string>
+  <string name="apply_help">Prosimo, preberite pomoč za več informacij.</string>
+  <string name="apply_apn_proxy">Na vaši napravi je nastavljen APN proxy.\nAdAway ne bo zanesljivo deloval, ko ste na mobilnih omrežjih kot je 3G. Proxy lahko deaktivirate tako, da greste do izbranega APN-ja (Android 4: Brezžično in omrežja -&gt; Dodatno… -&gt; Mobilna omrežja -&gt; Imena dostopnih točk) in odstranite vrednost v proxy polju.</string>
+  <string name="apply_apn_proxy_title">APN proxy nastavljen!</string>
+  <string name="no_connection">Omrežna povezava ni vzpostavljena.</string>
+  <string name="no_connection_title">Ni povezave</string>
+  <string name="download_dialog">Prenašanje...</string>
+  <string name="apply_dialog">Uporabljanje...</string>
+  <string name="apply_dialog_lists">Uporabljanje seznama blokiranih in dovoljenih virov</string>
+  <string name="apply_dialog_hostnames">Združevanje hosts datotek</string>
+  <string name="apply_dialog_hosts">Izgradnja hosts datotek</string>
+  <string name="apply_dialog_apply">Uporabljanje hosts datotek</string>
+  <string name="apply_fail">Uporaba hosts datotek na vašem sistemu je spodletela!\nPoizkusite spremeniti pot hosts datoteke na /data/data/hosts v nastavitvah.</string>
+  <string name="apply_fail_title">Uporaba neuspešna</string>
+  <string name="revert_successful">Hosts datoteko ste povrnili na privzeto.\nMogoče boste morali ponovno zagnati vašo napravo, da bodo spremembe vidne.\n\nŽelite ponoven zagon?(Da bi preprečili izgubo podatkov, se prepričajte, da SD kartico trenutno ni v uporabi!)</string>
+  <string name="revert_successful_title">Povrnitev uspešna</string>
+  <string name="revert_problem">Povrnitev spodletela zaradi neznanega razloga.</string>
+  <string name="revert_problem_title">Povrnitev neuspešna!</string>
+  <string name="download_fail_dialog">Noben od vaših uporabljenih hosts virov ni dosegljiv! Ali ste pravilno povezani na omrežje?</string>
+  <string name="download_fail_title">Prenos spodletel</string>
+  <string name="no_private_file">Privatne datoteke ni bilo mogoče ustvariti.</string>
+  <string name="no_private_file_title">Privatne datoteke ni bilo mogoče ustvariti.</string>
+  <string name="enable_systemless_successful">Vključili ste systemless način.\nMogoče boste morali ponovno zagnati vašo napravo, da bodo spremembe vidne.\n\nŽelite ponoven zagon?(Da bi preprečili izgubo podatkov, se prepričajte, da SD kartico trenutno ni v uporabi!)</string>
+  <string name="enable_systemless_successful_title">Uspešno omogočeno</string>
+  <string name="disable_systemless_successful">Izključili ste systemless način.\nMogoče boste morali ponovno zagnati vašo napravo, da bodo spremembe vidne.\n\nŽelite ponoven zagon?(Da bi preprečili izgubo podatkov, se prepričajte, da SD kartico trenutno ni v uporabi!)</string>
+  <string name="disable_systemless_successful_title">Uspešno onemogočeno</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">Potreben je root dostop</string>
+  <string name="hosts_add_dialog">Vnesi URL do hosts datoteke:</string>
+  <string name="no_hostname">Neveljavno domensko ime!</string>
+  <string name="no_hostname_title">Nepravilno oblikovano domensko ime</string>
+  <string name="no_ip">Neveljaven IP!</string>
+  <string name="no_ip_title">Nepravilno oblikovan IP</string>
+  <string name="reboot_never_reboot">Nikoli ne ponovno zaženi in ne vprašaj več!</string>
+  <string name="loading">Nalaganje...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Osveži</string>
+  <string name="menu_add">Dodaj</string>
+  <string name="menu_hosts_sources">Hosts viri</string>
+  <string name="menu_help">Pomoč</string>
+  <string name="menu_import">Uvozi vse sezname</string>
+  <string name="menu_export">Izvozi vse sezname</string>
+  <!--Help-->
+  <string name="help_tab_about">O nas</string>
+  <string name="help_tab_donate">Doniraj</string>
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">Pogosto postavljena vprašanja</string>
+  <string name="help_tab_problems">Težave</string>
+  <string name="help_tab_changelog">Novice</string>
+  <string name="help_about_version">Verzija:</string>
+  <string name="help_donation_paypal_item">AdAway donacija</string>
+  <string-array name="help_donation_google_catalog_values">
+    <item>1 Evro</item>
+    <item>2 Evra</item>
+    <item>3 Evre</item>
+    <item>5 Evrov</item>
+    <item>8 Evrov</item>
+    <item>13 Evrov</item>
+  </string-array>
+  <!--Adware-->
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">Lokalno:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">ni na voljo</string>
+  <string name="hosts_dialog_url">URL:</string>
+  <!--Other-->
+  <string name="app_subtitle">Ad blocker</string>
+  <string name="no_text_editor_title">Nameščen ni noben urejevalec teksta</string>
+  <string name="no_text_editor">Nameščen ni noben urejevalec teksta. Namestite lahko aplikacijo Jota ali katerikoli drug urejevalnik teksta.\n\nAli želite namestiti Jota?</string>
+  <string name="no_file_manager_title">Noben raziskovalec ni nameščen</string>
+  <string name="no_file_manager">Noben raziskovalec ni nameščen. Namestite lahko aplikacijo OI File Manager ali katerikoli drug raziskovalec.\n\nAli želite namestiti OI File Manager?</string>
+  <!--Tcpdump-->
+  <string name="tcpdump_description">Tcpdump je orodje za nadziranje DNS zahtev in njihovo shranjevanje v log datoteko. Zaženete jo lahko v ozadju, zaženete aplikacijo, ki prikazuje oglase, ter analizirate DNS zahteve preko log datoteke. Morebitne oglaševalne strežnike lahko potem dodate na vašo blacklist-o.</string>
+  <!--Preferences-->
+  <string name="pref_download">Splošne nastavitve</string>
+  <string name="pref_hosts">Hosts datoteka</string>
+  <string name="pref_redirection_ip">IP za preusmerjanje</string>
+  <string name="pref_update_check">Preveri za posodobitve</string>
+  <string name="pref_apply_method">Uporabljena hosts datoteka</string>
+  <string name="pref_apply_method_summary">Preden spreminjate to nastavitev, si preberite pomoč o tej funkciji.</string>
+  <string name="pref_redirection_ip_summary">Vsa blokirana domenska imena so preusmerjena na ta IP naslov.</string>
+  <string name="pref_header_preferences">Nastavitve</string>
+  <string name="pref_header_preferences_summary">Splošne nastavitve za AdAway</string>
+  <string name="pref_never_reboot">Skrij dialog za ponovni zagon</string>
+  <string name="pref_never_reboot_summary">Skrije dialog, ki vas vpraša za ponovni zagon po posodobitvi nastavitev</string>
+  <string name="pref_webserver_on_boot">Zaženi spletni strežnik ob zagonu</string>
+  <string name="pref_webserver_on_boot_summary">Zaženi spletni strežnik ob zagonu, ki posluša na lokalnih IP naslovih.</string>
+  <string name="pref_webserver_enabled">Vključi spletni strežnik</string>
+  <string name="pref_webserver_enabled_summary">Vključi spletni strežnik, ki posluša na lokalnih IP naslovih, da odgovori zahteve do blokiranih domen</string>
+  <string name="pref_webserver">Lokalni spletni strežnik</string>
+  <string name="pref_custom_target">Pot do uporabljene hosts datoteke po meri</string>
+  <string name="pref_custom_target_summary">Uporabljeno le v primeru, da je pot do uporabljene hosts datoteke nastavljena po meri</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Pot po meri</item>
+  </string-array>
+  <string name="pref_update_check_summary">Preveri za posodobitve ob zagonu</string>
+  <string name="pref_sdcard_problem">Ta funkcija ne bo delovala pravilno, če je AdAway nameščen na SD kartici!</string>
+  <string name="pref_background">Procesi v ozadju</string>
+  <string name="pref_update_check_daily">Dnevno preveri za posodobitve</string>
+  <string name="pref_update_check_daily_summary">Dnevno preveri za posodobitve v ozadju z obvestili</string>
+  <string name="pref_automatic_update_daily">Avtomatsko posodabljanje</string>
+  <string name="pref_automatic_update_daily_summary">Avtomatsko posodobi v ozadju</string>
+  <string name="pref_update_only_on_wifi">Posodobi samo na Wifi povezavi</string>
+  <string name="pref_update_only_on_wifi_summary">Izvedi posodobitve v ozadju le preko Wifi omrežja.</string>
+  <string name="pref_whitelist_rules">Dovoli whitelist-anje</string>
+  <string name="pref_whitelist_rules_summary">Dovoli whitelist vnose iz hosts virov.</string>
+  <string name="pref_redirection_rules_summary">VARNOSTNO TVEGANJE! Dovoli preusmeritev vnosov iz hosts virov.</string>
+  <string name="pref_debug">Debug</string>
+  <string name="pref_enable_debug">Debug dnevnik</string>
+  <string name="pref_enable_debug_summary">Da bodo spremembe vidne, morate ponovno zagnati AdAway.</string>
+  <string name="pref_enable_ipv6">Omogoči IPv6</string>
+  <string name="pref_enable_ipv6_summary">Vsem vnosom v hosts datoteki bo dodan ::1 (IPv6 localhost) vnos.</string>
+  <string name="pref_enable_systemless_summary">Prepreči aplikaciji spreminjanje sistemske particije</string>
+  <string name="pref_enable_systemless">Vključi systemless način</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Nastavitve</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">Na voljo je nova posodobitev</string>
+</resources>

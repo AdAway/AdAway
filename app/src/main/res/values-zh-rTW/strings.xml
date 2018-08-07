@@ -16,31 +16,25 @@
   <string name="button_webserver_toggle_unchecked">網頁伺服器並未執行</string>
   <string name="button_webserver_toggle_text">啟動或停止本地端的網頁伺服器來回應被封鎖主機的請求。</string>
   <string name="button_help">說明</string>
-  <string name="tcpdump_description">Tcpdump 是一個用來監視 DNS 請求並儲存為記錄檔的工具，可以在背景執行。當前景執行有廣告的程式，利用用記錄檔來分析 DNS 請求。把找到的廣告伺服器加入到您的黑名單中。</string>
-  <string name="tcpdump_disable_monitoring">Tcpdump 正在執行中！</string>
-  <string name="tcpdump_enable_monitoring">Tcpdump 並未執行！</string>
-  <string name="tcpdump_show_results">開啟記錄檔</string>
-  <string name="tcpdump_clear_results">刪除記錄檔</string>
+  <!--Home-->
+  <string name="text_update">所有自訂來源的主機 hosts 檔已下載完成、整合至您的自訂列表中，並安裝至系統中。</string>
+  <string name="button_check_update_hosts">檢查更新</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_add_dialog_title">加入</string>
   <string name="checkbox_list_empty">無清單</string>
-  <string name="checkbox_list_empty_text">從選單中新增項目。</string>
   <string name="checkbox_list_context_delete">刪除</string>
   <string name="checkbox_list_footer">加入新項目至清單中後，需重新啟動 AdAway ！</string>
   <string name="checkbox_list_edit_dialog_title">編輯</string>
   <string name="checkbox_list_context_title">編輯列表</string>
   <string name="checkbox_list_context_edit">編輯</string>
-  <!--Your Lists-->
+  <!--Your lists-->
   <string name="lists_tab_whitelist">白名單</string>
   <string name="lists_tab_blacklist">黑名單</string>
-  <string name="lists_tab_redirection_list">重新導向列表</string>
-  <string name="list_dialog_url">URL:</string>
   <string name="list_dialog_hostname">主機名稱：</string>
-  <string name="list_dialog_whitelist_hostname">主機名稱：\n (可使用萬用字元 * 和 ? )</string>
   <string name="list_dialog_ip">IP位址 ( IPv4 或 IPv6 )</string>
   <string name="import_dialog">匯入中 ...</string>
   <string name="export_dialog">匯出中 ...</string>
   <string name="export_success">匯出全部列表到 SD 卡中的 adaway-export 檔案。 </string>
+  <!--Hosts content-->
   <!--Status Notifications-->
   <string name="status_checking">正在檢查更新 ...</string>
   <string name="status_reverting">還原中 ...</string>
@@ -70,7 +64,7 @@
   <string name="apply_success_subtitle">已加入 hosts 來源:</string>
   <string name="apply_success_title">建立成功</string>
   <string name="apply_success_dialog">建立成功。\n需要重新啟動才能生效 你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
-  <string name="apply_symlink_successful">符號連結建立成功。\n需要重新啟動才能生效 你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有應用正在使用 SD 卡)</string>
+  <string name="apply_symlink_successful">符號連結建立成功。\n需要重新啟動才能生效 你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
   <string name="apply_symlink_successful_title">符號連結建立成功</string>
   <string name="apply_symlink_fail">符號連結建立失敗。 這很有可能是因為 HTC 上一個叫 S-ON 的\'功能\'！\n\n一個辦法可以啟動你的手機到還原模式並使用命令\'ln -s /data/data/hosts /system/etc/hosts來建立符號連結。 如果沒有用，請 google 怎麼 S-OFF 你的手機。</string>
   <string name="apply_symlink_fail_title">符號連結建立失敗</string>
@@ -95,11 +89,13 @@
   <string name="download_fail_title">下載失敗</string>
   <string name="no_private_file">不能建立私人檔案。</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
+  <string name="enable_systemless_successful">你啟用無系統模式。\n也許需要重新啟動 Android 才能生效。\n你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
+  <string name="enable_systemless_successful_title">啟用成功</string>
+  <string name="disable_systemless_successful">取消將所需檔案安裝於系統分割區外。\n需要重新啟動才能生效 你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
+  <string name="disable_systemless_successful_title">取消成功</string>
   <!--Other Dialogs-->
   <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 wiki.lineageos.org 或其他相關的 Android 網站取得相關資訊。</string>
   <string name="no_root_title">需要 root 權限</string>
-  <string name="no_url">URL 無效！</string>
-  <string name="no_url_title">URL 格式錯誤</string>
   <string name="hosts_add_dialog">輸入 hosts 檔案的 URL：</string>
   <string name="no_hostname">主機名稱無效！</string>
   <string name="no_hostname_title">主機名稱格式錯誤</string>
@@ -132,13 +128,12 @@
     <item>8 歐元</item>
     <item>13 歐元</item>
   </string-array>
-  <!--Scan Adware-->
-  <string name="adware_description">你可以掃描是否被安裝了惡意廣告軟體，這些使用推播技術 Airpush notifications 的廣告無法被阻擋，甚至當軟體沒有在執行時也會彈跳出廣告訊息。對付這些惡意軟體最有效的方法就是輕觸清單來移除他們！ </string>
-  <string name="adware_empty">沒有發現任何惡意的廣告軟體！</string>
-  <!--Hosts Sources-->
+  <!--Adware-->
+  <!--Hosts sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">線上：</string>
   <string name="hosts_not_available">無法使用</string>
+  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">廣告阻擋</string>
   <string name="no_text_editor_title">沒有安裝文字編輯器</string>
@@ -146,14 +141,8 @@
   <string name="no_file_manager_title">沒有安裝檔案管理器</string>
   <string name="no_file_manager">沒有找到檔案管理器來打開檔案。你可以安裝 OI File Manager 或者其他檔案管理器來解決。\n\n你需要安裝 OI File Manager 嗎？</string>
   <!--Tcpdump-->
-  <string name="toast_tcpdump_log_deleted">記錄檔已刪除！</string>
-  <string name="toast_tcpdump_added_to_blacklist">主機名稱已加入你的黑名單！</string>
-  <string name="toast_tcpdump_added_to_whitelist">主機名稱已加入你的白名單！</string>
-  <string name="tcpdump_log_context_blacklist">加入黑名單</string>
-  <string name="tcpdump_log_context_whitelist">加入白名單</string>
-  <string name="tcpdump_log_context_browser">用瀏覽器開啟</string>
-  <string name="tcpdump_log_empty">記錄檔無內容！</string>
-    <!--Preferences-->
+  <string name="tcpdump_description">Tcpdump 是一個用來監視 DNS 請求並儲存為記錄檔的工具，可以在背景執行。當前景執行有廣告的程式，利用用記錄檔來分析 DNS 請求。把找到的廣告伺服器加入到您的黑名單中。</string>
+  <!--Preferences-->
   <string name="pref_download">基本設定</string>
   <string name="pref_hosts">Hosts 檔案</string>
   <string name="pref_redirection_ip">重新導向 IP</string>
@@ -189,11 +178,17 @@
   <string name="pref_update_only_on_wifi_summary">只有在連接到 Wi-Fi 時執行背景更新。</string>
   <string name="pref_whitelist_rules">允許白名單</string>
   <string name="pref_whitelist_rules_summary">允許從 Hosts 來源中的白名單項目</string>
-  <string name="pref_redirection_rules">允許重新導向</string>
   <string name="pref_redirection_rules_summary">可能造成安全性風險！允許自 Hosts 來源的所有重新導向。</string>
   <string name="pref_debug">除錯</string>
   <string name="pref_enable_debug">除錯記錄</string>
   <string name="pref_enable_debug_summary">需要重新啟動 AdAway 使設定生效。</string>
   <string name="pref_enable_ipv6">啟用 IPv6</string>
   <string name="pref_enable_ipv6_summary">所有的 host 檔案項目將取得相同的 ::1 (IPv6 本地端) 項目。</string>
+  <string name="pref_enable_systemless_summary">避免Adaway修改系統分區</string>
+  <string name="pref_enable_systemless">將所需檔案安裝於系統分割區外</string>
+  <!--Drawer menu items-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">設定</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_update_available">有更新</string>
 </resources>
