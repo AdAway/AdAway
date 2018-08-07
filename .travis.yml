@@ -31,4 +31,4 @@ before_install:
   - export ANDROID_NDK_HOME=$HOME/android-ndk-r17b
 
 script:
-  - ./gradlew sonarqube
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./gradlew sonarqube; fi
