@@ -2,10 +2,10 @@
 
 AdAway is an open source ad blocker for Android using the hosts file.
 
-For more information visit http://adaway.org
+For more information visit https://adaway.org
 
 ## Preview Build
-For users with bugs, there may be preview builds available from the [AdAway XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753).
+For users with bugs, there may be preview builds available from the [AdAway XDA Thread](https://forum.xda-developers.com/showthread.php?t=2190753).
 It is recommended to try those builds to see if your issue is resolved before creating an issue.
 The preview builds may contain bug fixes or new features for new android versions.
 You can also obtain Preview or Stable builds from the [XDA Labs](https://labs.xda-developers.com/store/app/org.adaway) application.
@@ -57,12 +57,12 @@ You can help us with your translation efforts!
 Translations are managed via the **transifex.com website**! (and Transifex' website alone, that is)
 
 Unfortunately, we cannot merge translations via Github directly. Please follow the steps below instead.  
-Sorry, but this is due to some major synchronization issues if not followed.  We have to consolidate many contributions by translators and sync them up to the latest state. That is just not possible via Github.  
+Sorry, but this causes some major synchronization issues if not followed.  We have to consolidate many contributions by translators and sync them up to the latest state. That is just not possible via Github.  
 
 1. Please go to **https://www.transifex.com/free-software-for-android/adaway/**
 1. Login or create a new account (you can conveniently login via Github as well)
 1. Enroll into the language you want to contribute to or even submit a request for a new language.
-   * Please keep in mind that we want to stick to the basic languages wehere possible (e.g. `sr` for Serbian).  
+   * Please keep in mind that we want to stick to the basic languages where possible (e.g. `sr` for Serbian).  
    Please refrain to request regional localizations (like `sr_RS`).
 1. In your language section, you can browse all available resources and start **translating strings right in your browser**.
    * You don't have to download anything. Just click "Translate". The downloads are meant for more advanced use cases.
@@ -77,12 +77,12 @@ You can click on them to add them or use keyboard shortcuts (see the page settin
 1. You can point out issues to the Translation Organizers via the **"Comments" tab** or just start a discussion.
 1. Don't forget to save your work!
 1. Please don't create any Translation Pull Request here on Github.  
-   * We will integrate your contributions from time to time into the code by exporting from Transifex directly. No need to provide any files from yor side. ;-) 
+   * We will integrate your contributions from time to time into the code by exporting from Transifex directly. No need to provide any files from your side. ;-) 
 1. For more information about how to use Transifex, see https://docs.transifex.com/
 
 
 We will add all Transifex translations from time to time to the app.  
-For our Translation Organizers: You can use the CLI tool for this to retrieve translated resources from the Transifex server and add them to the Github repo. (See http://docs.transifex.com/client/ for more details about the client tool.)
+For our Translation Organizers: You can use the CLI tool for this to retrieve translated resources from the Transifex server and add them to the Github repo. (See https://docs.transifex.com/client/ for more details about the client tool.)
 
 # Coding Style
 
@@ -93,14 +93,14 @@ For our Translation Organizers: You can use the CLI tool for this to retrieve tr
 * Field names: Non-public, non-static fields start with m.
 * Acronyms are words: Treat acronyms as words in names, yielding !XmlHttpRequest, getUrl(), etc.
 
-See http://source.android.com/source/code-style.html
+See https://source.android.com/source/code-style.html
 
 ## XML
 * XML Maximum line width 999
 * XML: Split multiple attributes each on a new line (Eclipse: Properties -> XML -> XML Files -> Editor)
 * XML: Indent using spaces with Indention size 4 (Eclipse: Properties -> XML -> XML Files -> Editor)
 
-See http://www.androidpolice.com/2009/11/04/auto-formatting-android-xml-files-with-eclipse/
+See https://www.androidpolice.com/2009/11/04/auto-formatting-android-xml-files-with-eclipse/
 
 
 # `tcpdump` and `webserver` binary modules
@@ -135,7 +135,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
+along with AdAway.  If not, see <https://www.gnu.org/licenses/>.
 
 ## Libraries
 
@@ -152,7 +152,7 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   GPLv2 License
 
 * Tcpdump/Libpcap  
-  http://www.tcpdump.org/  
+  https://www.tcpdump.org/  
   BSD 3-Clause License
 
 * HtmlTextView  
@@ -160,14 +160,14 @@ along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
   Apache License v2
 
 * Trove  
-  http://trove.starlight-systems.com/  
-  [multiple licenses](http://trove.starlight-systems.com/license)
+  https://trove.starlight-systems.com/  
+  [multiple licenses](https://trove.starlight-systems.com/license)
 
 
 ## Images
 * status_enabled.svg, status_disabled.svg, status_update.svg  
   Dropbox Emblems Tango by Charles A.  
-  http://forums.dropbox.com/topic.php?id=7818&replies=19  
+  https://forums.dropbox.com/topic.php?id=7818&replies=19  
   Creative Commons Attribution 3.0 Unported License
 
 * status_fail.svg  
