@@ -17,10 +17,23 @@
   <string name="button_webserver_toggle_text">Start lub stop lokalnego serwera www, aby odpowiadać na zapytania blokowanych hostów.</string>
   <string name="button_help">Pomoc</string>
   <!--Home-->
+  <string name="header_help">Witamy!</string>
+  <string name="text_help">AdAway to darmowy i otwarty program do blokowania reklam. Pobiera sieć reklamową i konfiguruje urządzenie, aby je zablokować. \n Czy chcesz wiedzieć więcej? Sprawdź pomoc poniżej!</string>
+  <string name="button_show_help">Pokaż więcej pomocy</string>
+  <string name="icon_update_status">Stan aktualizacji</string>
   <string name="text_update">Wszystkie pliki ze zdefiniowanych źródeł zostaną pobrane, połączone z twoją listą i dodane do pliku hosts.</string>
   <string name="button_check_update_hosts">Szukaj aktualizacji</string>
+  <string name="button_update_hosts">Zaktualizuj hosty</string>
+  <string name="button_enable_hosts">Włącz blokowanie reklam</string>
+  <string name="button_disable_hosts">Wyłącz blokowanie reklam</string>
+  <string name="header_webserver">Serwer internetowy</string>
+  <string name="webserver_status_running">Uruchomiony</string>
+  <string name="webserver_status_stopped">Zatrzymany</string>
+  <string name="button_enable_webserver">Włącz serwer www</string>
+  <string name="button_disable_webserver">Wyłącz serwer www</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Brak pozycji</string>
+  <string name="checkbox_list_empty_text">Można dodać elementy przyciskiem ze znakiem plus.</string>
   <string name="checkbox_list_context_delete">Usuń</string>
   <string name="checkbox_list_footer">Po dodaniu nowych wpisów do listy musisz ponownie zastosować pobieranie plików hostów!</string>
   <string name="checkbox_list_edit_dialog_title">Edytuj</string>
@@ -29,12 +42,26 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Biała lista</string>
   <string name="lists_tab_blacklist">Czarna lista</string>
+  <string name="lists_tab_redirection_list">Przeadresowanie</string>
+  <string name="list_add_dialog_black">Dodaj host do czarnej listy</string>
+  <string name="list_add_dialog_white">Dodaj host do białej listy</string>
+  <string name="list_add_dialog_redirect">Dodaj przekierowanie hosta</string>
+  <string name="list_edit_dialog_black">Edycja czarnej listy hostów</string>
+  <string name="list_edit_dialog_white">Edytcja białej listy hostów</string>
+  <string name="list_edit_dialog_redirect">Edytuj przekierowanie</string>
   <string name="list_dialog_hostname">Nazwa hosta:</string>
+  <string name="list_dialog_hostname_hint">Adres URL źródła hostów</string>
+  <string name="list_dialog_wildcard">(Znaki wieloznaczne * i ? są dozwolone)</string>
   <string name="list_dialog_ip">IP (IPv4 lub IPv6):</string>
   <string name="import_dialog">Importowanie...</string>
   <string name="export_dialog">Eksportowanie...</string>
   <string name="export_success">Wyeksportowano wszystkie wpisy do pliku \'adaway-export\' na karcie SD.</string>
+  <string name="export_failed">Nie udało się wyeksportować listy do sdcard.</string>
   <!--Hosts content-->
+  <string name="hosts_header">Plik hosts</string>
+  <string name="hosts_description">Plik hosts jest plikiem systemowym, który mapuje nazwy hostów na adresy IP. Jest to plik tekstowy, którego konfiguracja jest obsługiwana przez AdAway. Oto kilka pierwszych linii:</string>
+  <string name="hosts_content">Ładowanie zawartości pliku hosts...</string>
+  <string name="hosts_open_button">Otwórz plik hosts</string>
   <!--Status Notifications-->
   <string name="status_checking">Sprawdzanie aktualizacji…</string>
   <string name="status_reverting">Przywracanie...</string>
@@ -128,11 +155,18 @@
     <item>13 Euro</item>
   </string-array>
   <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_description">Tutaj możesz znaleźć zainstalowane adware, złe aplikacje, które nie mogą być blokowane przez AdAway. Te aplikacje używają na przykład powiadomień Airpush, które pojawiają się nawet wtedy, gdy aplikacja nie działa lub nawet zmienia dzwonek. Jedynym dostępnym środkiem zaradczym jest odinstalowanie tych aplikacji, klikając elementy listy.</string>
+  <string name="adware_scanning">Skanowanie...</string>
+  <string name="adware_empty">Nie znaleziono aplikacji adware!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalny:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">niedostępny(e)</string>
+  <string name="hosts_add_dialog_title">Dodaj źródło</string>
+  <string name="hosts_edit_dialog_title">Edytuj źródło</string>
   <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">Adres URL źródła hostów</string>
   <!--Other-->
   <string name="app_subtitle">Bloker reklam</string>
   <string name="no_text_editor_title">Brak zainstalowanego edytora tekstu</string>
@@ -140,9 +174,24 @@
   <string name="no_file_manager_title">Brak zainstalowanego menedżera plików</string>
   <string name="no_file_manager">Nie znaleziono menadżera plików aby otworzyć plik. Możesz zainstalować OI File Manager lub inne menadżery plików.\n\nCzy chcesz zainstalować OI File Manager?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump jest narzędziem do monitorowania zapytań DNS i zapisywania ich do logu. Możesz go uruchomić w tle, uruchomić aplikację, która wyświetla reklamy, a potem przeanalizować zapisany log zapytań DNS. Serwer reklam będzie mógł być wtedy dodany do twojej Czarnej listy.</string>
+  <string name="tcpdump_disable_monitoring">Wyłącz monitorowanie</string>
+  <string name="tcpdump_enable_monitoring">Włącz monitorowanie</string>
+  <string name="tcpdump_show_results">Pokaż wyniki</string>
+  <string name="tcpdump_redirect_dialog_title">Przekieruj domenę</string>
+  <string name="tcpdump_menu_sort">Sortuj domeny</string>
+  <string name="tcpdump_menu_clear">Wyczyść log</string>
+  <string name="tcpdump_sort_alphabetical">Sortuj alfabetycznie</string>
+  <string name="tcpdump_sort_top_level_domain">Sortuj rosnąco</string>
+  <string name="tcpdump_entry_add_blacklist">Dodaj wpis do czarnej listy</string>
+  <string name="tcpdump_entry_add_whitelist">Dodaj wpis do białej listy</string>
+  <string name="tcpdump_entry_add_redirection_list">Dodaj wpis do listy przekierowań</string>
   <!--Preferences-->
   <string name="pref_download">Ustawienia główne</string>
+  <string name="pref_dark_theme">Włącz ciemny motyw</string>
+  <string name="pref_dark_theme_summary">Użyj ciemnego motywu zamiast jasnego</string>
+  <string name="pref_dark_theme_notification">Motyw zostanie zastosowany przy następnym uruchomieniu aplikacji!</string>
   <string name="pref_hosts">Plik hosts</string>
   <string name="pref_redirection_ip">Przekierowanie do IP</string>
   <string name="pref_update_check">Szukaj aktualizacji</string>
@@ -177,6 +226,7 @@
   <string name="pref_update_only_on_wifi_summary">Wykonuj aktualizacje w tle tylko przy połączeniu WiFi.</string>
   <string name="pref_whitelist_rules">Zezwól na białe listy</string>
   <string name="pref_whitelist_rules_summary">Zezwól na białe listy ze Źródeł Hostów.</string>
+  <string name="pref_redirection_rules">Zezwalaj na przekierowania</string>
   <string name="pref_redirection_rules_summary">STANOWI ZAGROŻENIE DLA BEZPIECZEŃSTWA! Zezwól na przekierowania ze Źródeł Hostów.</string>
   <string name="pref_debug">Debugowanie</string>
   <string name="pref_enable_debug">Zapisuj log</string>
@@ -185,9 +235,25 @@
   <string name="pref_enable_ipv6_summary">Wszystkie wpisy plików hosta są odpowiednie :: 1 (IPv6 localhost).</string>
   <string name="pref_enable_systemless_summary">Zapobiegaj modyfikowaniu partycji systemowej przez AdAway</string>
   <string name="pref_enable_systemless">Włącz tryb systemless</string>
+  <string name="pref_edit_text_value">Edytuj wartość preferencji tekstu</string>
+  <string name="drawer_open">Otwórz menu</string>
+  <string name="drawer_close">Zamknij menu</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Strona główna</item>
+    <item>Źródła Hosts </item>
+    <item>Twoje listy</item>
+    <item>Otwórz plik hosts</item>
+    <item>Rejestracja żądań DNS</item>
+    <item>Przeskanuj adware</item>
+    <item>Preferencje</item>
+  </string-array>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">Żądania DNS</string>
+  <string name="shortcut_your_lists">Twoje listy</string>
   <string name="shortcut_preferences">Ustawienia</string>
   <!--Hosts source status-->
   <string name="hosts_source_update_available">Aktualizacja jest dostępna</string>
+  <string name="hosts_source_up_to_date">Aktualny</string>
+  <string name="hosts_source_unknown_status">Nieznany status aktualizacji</string>
 </resources>

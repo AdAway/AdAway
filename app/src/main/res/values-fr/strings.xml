@@ -43,6 +43,12 @@
   <string name="lists_tab_whitelist">Liste blanche</string>
   <string name="lists_tab_blacklist">Liste noire</string>
   <string name="lists_tab_redirection_list">Réacheminements</string>
+  <string name="list_add_dialog_black">Ajouter l’hôte à la liste noire</string>
+  <string name="list_add_dialog_white">Ajouter l’hôte à la liste blanche</string>
+  <string name="list_add_dialog_redirect">Ajouter un réacheminement d’hôte</string>
+  <string name="list_edit_dialog_black">Modifier un hôte en liste noire</string>
+  <string name="list_edit_dialog_white">Modifier un hôte en liste blanche</string>
+  <string name="list_edit_dialog_redirect">Modifier un réacheminement</string>
   <string name="list_dialog_hostname">Nom d’hôte :</string>
   <string name="list_dialog_hostname_hint">L’URL source du fichier hosts</string>
   <string name="list_dialog_wildcard">(Les métacaractères * et ? sont permis)</string>
@@ -229,6 +235,7 @@
   <string name="pref_enable_ipv6_summary">Toutes les entrées du fichier host auront une entrée ::1 (IPv6 localhost) correspondante.</string>
   <string name="pref_enable_systemless_summary">Empêcher AdAway de modifier la partition système</string>
   <string name="pref_enable_systemless">Activer le mode sans système</string>
+  <string name="pref_edit_text_value">Modifier la valeur de préférence du texte</string>
   <string name="drawer_open">Ouvrir le menu</string>
   <string name="drawer_close">Fermer le menu</string>
   <!--Drawer menu items-->
