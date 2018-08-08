@@ -37,6 +37,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -137,16 +138,7 @@ class TcpdumpUtils {
         File logFile = TcpdumpUtils.getLogFile(context);
         // Check if the log file exists
         if (!logFile.exists()) {
-//            return Collections.emptyList();
-            List<String> data = new ArrayList<>();
-            data.add("ads.google.com");
-            data.add("ads1.google.com");
-            data.add("ads.facebook.com");
-            data.add("google.com");
-            data.add("www.google.com");
-            data.add("www.facebook.com");
-            data.add("ads2.google.com");
-            return data;   // TODO FOR TEST ONLY
+            return Collections.emptyList();
         }
         // hashset, because every hostname should be contained only once
         Set<String> set = new HashSet<>();
