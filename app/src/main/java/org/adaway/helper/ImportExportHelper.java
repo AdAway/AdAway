@@ -174,7 +174,7 @@ public class ImportExportHelper {
         }
 
         private void importBlackList(AppDatabase database, Set<String> blackListHosts) {
-            HostListItem[] blackListItems = (HostListItem[]) Stream.of(blackListHosts)
+            HostListItem[] blackListItems = Stream.of(blackListHosts)
                     .map(host -> {
                         HostListItem listItem = new HostListItem();
                         listItem.setHost(host);
@@ -182,12 +182,12 @@ public class ImportExportHelper {
                         listItem.setEnabled(true);
                         return listItem;
                     })
-                    .toArray();
+                    .toArray(HostListItem[]::new);
             database.hostsListItemDao().insert(blackListItems);
         }
 
         private void importWhiteList(AppDatabase database, Set<String> whiteListHosts) {
-            HostListItem[] whiteListItems = (HostListItem[]) Stream.of(whiteListHosts)
+            HostListItem[] whiteListItems = Stream.of(whiteListHosts)
                     .map(host -> {
                         HostListItem listItem = new HostListItem();
                         listItem.setHost(host);
@@ -195,12 +195,12 @@ public class ImportExportHelper {
                         listItem.setEnabled(true);
                         return listItem;
                     })
-                    .toArray();
+                    .toArray(HostListItem[]::new);
             database.hostsListItemDao().insert(whiteListItems);
         }
 
         private void importRedirectionList(AppDatabase database, Map<String, String> redirections) {
-            HostListItem[] redirectionListItems = (HostListItem[]) Stream.of(redirections)
+            HostListItem[] redirectionListItems = Stream.of(redirections)
                     .map(redirection -> {
                         HostListItem listItem = new HostListItem();
                         listItem.setHost(redirection.getKey());
@@ -209,7 +209,7 @@ public class ImportExportHelper {
                         listItem.setRedirection(redirection.getValue());
                         return listItem;
                     })
-                    .toArray();
+                    .toArray(HostListItem[]::new);
             database.hostsListItemDao().insert(redirectionListItems);
         }
     }
