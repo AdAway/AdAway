@@ -205,6 +205,8 @@
 
   <!--Preferences-->
   <string name="pref_download">General Preferences</string>
+  <string name="pref_dismiss_welcome">Hide welcome card</string>
+  <string name="pref_dismiss_welcome_summary">Do not show the welcome card on the home screen</string>
   <string name="pref_dark_theme">Enable dark theme</string>
   <string name="pref_dark_theme_summary">Use dark theme instead of light one</string>
   <string name="pref_dark_theme_notification">Theme will be applied on next application start!</string>
@@ -266,6 +268,7 @@
     <item>Log DNS requests</item>
     <item>Scan for adware</item>
     <item>Preferences</item>
+    <item>Help</item>
   </string-array>
 
   <!--Shortcuts-->

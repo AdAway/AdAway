@@ -286,6 +286,7 @@ public class HomeFragment extends Fragment {
         mUpdateHostsButton = view.findViewById(R.id.home_update_hosts);
         mRevertHostsButton = view.findViewById(R.id.home_revert_hosts);
         // Get views from web server card
+        CardView welcomeCardView = view.findViewById(R.id.home_welcome_card);
         CardView webServerCardView = view.findViewById(R.id.home_webserver_card);
         mWebSeverStatusTextView = view.findViewById(R.id.home_webserver_status);
         mWebServerStatusImageView = view.findViewById(R.id.home_webserver_icon);
@@ -328,6 +329,11 @@ public class HomeFragment extends Fragment {
         /*
          * Initialize statuses and behaviors.
          */
+        // Update welcome card visibility
+        boolean welcomeCardVisible = context == null || !PreferenceHelper.getDismissWelcome(context);
+        if (!welcomeCardVisible) {
+            welcomeCardView.setVisibility(View.GONE);
+        }
         // Set show help button click listener
         showHelpButton.setOnClickListener(this::showMoreHelp);
         // Set update hosts button click listener

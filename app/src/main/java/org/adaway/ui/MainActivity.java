@@ -39,6 +39,7 @@ import org.adaway.R;
 import org.adaway.helper.ResultHelper;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.adware.AdwareFragment;
+import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.hosts.HostsSourcesFragment;
 import org.adaway.ui.hostscontent.HostsContentFragment;
@@ -136,9 +137,9 @@ public class MainActivity extends AppCompatActivity {
          * Configure navigation drawer.
          */
         // Configure drawer items
-        String[] mPlanetTitles = getResources().getStringArray(R.array.drawer_items);
+        String[] drawerItems = getResources().getStringArray(R.array.drawer_items);
         this.mDrawerList = this.findViewById(R.id.left_drawer);
-        this.mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, mPlanetTitles));
+        this.mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, drawerItems));
         // Set drawer item listener
         this.mDrawerList.setOnItemClickListener((parent, view, position, id) -> selectDrawerMenuItem(position));
         // Configure drawer toggle
@@ -300,6 +301,13 @@ public class MainActivity extends AppCompatActivity {
             case 6:
                 fragment = new PrefsFragment();
                 break;
+            case 7:
+                // Restore drawer selected item
+                this.mDrawerList.setItemChecked(this.mSelectedMenuItem, true);
+                // Start help activity
+                this.startActivity(new Intent(this, HelpActivity.class));
+                // Do nothing more
+                return;
             default:
                 // Position is not supported. Exit.
                 return;
@@ -326,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void updateSelectedMenuItem() {
         // Get position of selected menu item
-        int position = mSelectedMenuItem;
+        int position = this.mSelectedMenuItem;
         // Set selected item in drawer list
         this.mDrawerList.setItemChecked(position, true);
         // Get item name
