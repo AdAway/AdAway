@@ -54,6 +54,10 @@ Development with Eclipse is currently not possible because I am using the new [p
 ## Translating to your Language
 
 You can help us with your translation efforts!  
+
+Please have a look at AdAway/AdAway#1050 for more detailed information!
+
+here is the gist:
 Translations are managed via the **transifex.com website**! (and Transifex' website alone, that is)
 
 Unfortunately, we cannot merge translations via Github directly. Please follow the steps below instead.  
