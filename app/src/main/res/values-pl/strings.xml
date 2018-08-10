@@ -189,6 +189,8 @@
   <string name="tcpdump_entry_add_redirection_list">Dodaj wpis do listy przekierowań</string>
   <!--Preferences-->
   <string name="pref_download">Ustawienia główne</string>
+  <string name="pref_dismiss_welcome">Ukryj kartę powitalną</string>
+  <string name="pref_dismiss_welcome_summary">Nie wyświetlaj karty powitalnej na ekranie głównym</string>
   <string name="pref_dark_theme">Włącz ciemny motyw</string>
   <string name="pref_dark_theme_summary">Użyj ciemnego motywu zamiast jasnego</string>
   <string name="pref_dark_theme_notification">Motyw zostanie zastosowany przy następnym uruchomieniu aplikacji!</string>
@@ -240,13 +242,14 @@
   <string name="drawer_close">Zamknij menu</string>
   <!--Drawer menu items-->
   <string-array name="drawer_items">
-    <item>Strona główna</item>
-    <item>Źródła Hosts </item>
+    <item>Ekran główny</item>
+    <item>Źródła hostów</item>
     <item>Twoje listy</item>
     <item>Otwórz plik hosts</item>
-    <item>Rejestracja żądań DNS</item>
-    <item>Przeskanuj adware</item>
+    <item>Logowanie zapytań DNS</item>
+    <item>Skanuj w poszukiwaniu adware</item>
     <item>Preferencje</item>
+    <item>Pomoc</item>
   </string-array>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Żądania DNS</string>

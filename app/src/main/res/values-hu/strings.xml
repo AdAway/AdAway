@@ -195,6 +195,8 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
   <string name="tcpdump_entry_add_redirection_list">Elem hozzáadása az átirányítási listához</string>
   <!--Preferences-->
   <string name="pref_download">Általános beállítások</string>
+  <string name="pref_dismiss_welcome">Üdvözlőkártya elrejtése</string>
+  <string name="pref_dismiss_welcome_summary">Ne mutassa az üdvözlőkártyát a kezdőképernyőn</string>
   <string name="pref_dark_theme">Sötét téma engedélyezése</string>
   <string name="pref_dark_theme_summary">Sötét téma használata világos helyett</string>
   <string name="pref_dark_theme_notification">A téma a következő indításkor lesz alkalmazva!</string>
@@ -253,6 +255,7 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <item>DNS kérések naplózása</item>
     <item>Adware keresése</item>
     <item>Beállítások</item>
+    <item>Súgó</item>
   </string-array>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS kérések</string>

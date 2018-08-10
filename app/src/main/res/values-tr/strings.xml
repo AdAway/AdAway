@@ -239,15 +239,6 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="drawer_open">Menüyü aç</string>
   <string name="drawer_close">Menüyü kapat</string>
   <!--Drawer menu items-->
-  <string-array name="drawer_items">
-    <item>Ana ekran</item>
-    <item>Hosts kaynakları</item>
-    <item>Listeleriniz</item>
-    <item>Hosts dosyasını aç</item>
-    <item>DNS isteklerini günlüğü</item>
-    <item>Adware tara</item>
-    <item>Tercihler</item>
-  </string-array>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS istekleri</string>
   <string name="shortcut_your_lists">Listeleriniz</string>

@@ -18,13 +18,22 @@
   <string name="button_help">ヘルプ</string>
   <!--Home-->
   <string name="header_help">ようこそ！</string>
+  <string name="text_help">AdAwayは、広告をブロックするためのフリーでオープンソースのソフトウェアです。広告Hostsソースをダウンロードし、ブロックするようにあなたのデバイスを設定します。\ nもっと知りたいですか？ 以下のヘルプをチェックしてください！</string>
   <string name="button_show_help">詳しいヘルプを表示</string>
+  <string name="icon_update_status">最新状況</string>
   <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします。</string>
   <string name="button_check_update_hosts">更新を確認</string>
   <string name="button_update_hosts">hostsを更新</string>
+  <string name="button_enable_hosts">広告ブロックを有効にする</string>
+  <string name="button_disable_hosts">広告ブロックを無効にする</string>
   <string name="header_webserver">ウェブサーバー</string>
+  <string name="webserver_status_running">起動中</string>
+  <string name="webserver_status_stopped">停止</string>
+  <string name="button_enable_webserver">Webサーバーを有効にする</string>
+  <string name="button_disable_webserver">Webサーバーを無効にする</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">空のリスト</string>
+  <string name="checkbox_list_empty_text">\\"＋\\"ボタンから項目を追加できます</string>
   <string name="checkbox_list_context_delete">削除</string>
   <string name="checkbox_list_footer">リストに追加した後は再度適用してください!</string>
   <string name="checkbox_list_edit_dialog_title">編集</string>
@@ -34,8 +43,15 @@
   <string name="lists_tab_whitelist">ホワイトリスト</string>
   <string name="lists_tab_blacklist">ブラックリスト</string>
   <string name="lists_tab_redirection_list">リダイレクト</string>
+  <string name="list_add_dialog_black">ホストをブラックリストに追加する</string>
+  <string name="list_add_dialog_white">ホストをホワイトリストに追加する</string>
+  <string name="list_add_dialog_redirect">ホストリダイレクトを追加</string>
+  <string name="list_edit_dialog_black">ブラックリストホストを編集する</string>
+  <string name="list_edit_dialog_white">ホワイトリストホストを編集する</string>
   <string name="list_edit_dialog_redirect">リダイレクト先を編集</string>
   <string name="list_dialog_hostname">ホスト名:</string>
+  <string name="list_dialog_hostname_hint">ホストのソースURL</string>
+  <string name="list_dialog_wildcard">（ワイルドカード文字\\"*\\"および\\"?\\"は使用できます）</string>
   <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
   <string name="import_dialog">インポート中...</string>
   <string name="export_dialog">エクスポート中...</string>
@@ -43,6 +59,7 @@
   <string name="export_failed">SDカードへのエクスポートに失敗しました。</string>
   <!--Hosts content-->
   <string name="hosts_header">hostsファイル</string>
+  <string name="hosts_description">hostsファイルはホスト名をIPアドレスにマップするシステムファイルです。 AdAwayによって処理されるプレーンテキストファイルです。 最初の行はいくつかあります：</string>
   <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
   <string name="hosts_open_button">hostsファイルを開く</string>
   <!--Status Notifications-->
@@ -141,13 +158,17 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   </string-array>
   <!--Adware-->
   <string name="adware_header">アドウェア</string>
+  <string name="adware_description">ここにはインストールされたアドウェア、AdAwayによってブロックできないアプリがあります。 これらのアプリは例えば、アプリが実行されていないときにポップアップする、または着信音を変更するなどのAirpush通知を使用します。 利用可能な唯一の対策はリスト項目をクリックしてそれらのアプリをアンインストールすることです</string>
   <string name="adware_scanning">スキャン中…</string>
   <string name="adware_empty">アドウェアは検出されませんでした！</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">ﾛｰｶﾙ:</string>
   <string name="hosts_last_modified_online">ｵﾝﾗｲﾝ:</string>
   <string name="hosts_not_available">日時不明</string>
+  <string name="hosts_add_dialog_title">ソースを追加</string>
+  <string name="hosts_edit_dialog_title">ソースを編集</string>
   <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">ホストのソースURL</string>
   <!--Other-->
   <string name="app_subtitle">広告排除!</string>
   <string name="no_text_editor_title">テキストエディタがありません</string>
@@ -160,9 +181,18 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="tcpdump_disable_monitoring">監視を無効にする</string>
   <string name="tcpdump_enable_monitoring">監視を有効にする</string>
   <string name="tcpdump_show_results">結果を表示</string>
+  <string name="tcpdump_redirect_dialog_title">リダイレクトドメイン</string>
+  <string name="tcpdump_menu_sort">ソートドメイン</string>
   <string name="tcpdump_menu_clear">ログを消去</string>
+  <string name="tcpdump_sort_alphabetical">アルファベット順</string>
+  <string name="tcpdump_sort_top_level_domain">トップレベルドメインソート</string>
+  <string name="tcpdump_entry_add_blacklist">ブラックリストにエントリーを追加する</string>
+  <string name="tcpdump_entry_add_whitelist">ホワイトリストにエントリーを追加する</string>
+  <string name="tcpdump_entry_add_redirection_list">リダイレクトリストにエントリを追加する</string>
   <!--Preferences-->
   <string name="pref_download">基本設定</string>
+  <string name="pref_dismiss_welcome">ウェルカムカードを隠す</string>
+  <string name="pref_dismiss_welcome_summary">ウェルカムカードをホーム画面に表示しない</string>
   <string name="pref_dark_theme">暗いテーマを有効にする</string>
   <string name="pref_dark_theme_summary">明るいテーマの代わりに暗いテーマを使用</string>
   <string name="pref_dark_theme_notification">テーマの変更はアプリの次回起動時に適用されます！</string>
@@ -209,12 +239,26 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="pref_enable_ipv6_summary">hostファイルのエントリがすべて::1 (IPv6 localhost) エントリを持つようになります。</string>
   <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
   <string name="pref_enable_systemless">systemlessモードを有効にする</string>
+  <string name="pref_edit_text_value">テキスト設定値を編集する</string>
   <string name="drawer_open">メニューを開く</string>
   <string name="drawer_close">メニューを閉じる</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>ホーム</item>
+    <item>Hostsソース</item>
+    <item>あなたのリスト</item>
+    <item>オープンホストファイル</item>
+    <item>ログDNS要求</item>
+    <item>アドウェアをスキャンする</item>
+    <item>設定</item>
+    <item>ヘルプ</item>
+  </string-array>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNSリクエスト</string>
+  <string name="shortcut_your_lists">あなたのリスト</string>
   <string name="shortcut_preferences">設定</string>
   <!--Hosts source status-->
   <string name="hosts_source_update_available">更新があります</string>
   <string name="hosts_source_up_to_date">最新の状態です</string>
+  <string name="hosts_source_unknown_status">不明な更新ステータス</string>
 </resources>

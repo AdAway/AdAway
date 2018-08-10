@@ -189,6 +189,8 @@
   <string name="tcpdump_entry_add_redirection_list">Добавяне на запис в списъка за пренасочване</string>
   <!--Preferences-->
   <string name="pref_download">Общи предпочитания</string>
+  <string name="pref_dismiss_welcome">Скриване на поздравителната карта</string>
+  <string name="pref_dismiss_welcome_summary">Да не се показва картата за добре дошли на началния екран</string>
   <string name="pref_dark_theme">Включване на тъмна тема</string>
   <string name="pref_dark_theme_summary">Използване на тъмна тема вместо светла</string>
   <string name="pref_dark_theme_notification">Темата ще бъде приложена при следващото стартиране на приложението!</string>
@@ -246,7 +248,8 @@
     <item>Отваряне на хост файл</item>
     <item>Записване на DNS заявки</item>
     <item>Сканиране за рекламен софтуер</item>
-    <item>Предпочитания</item>
+    <item>Опции</item>
+    <item>Помощ</item>
   </string-array>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS заявки</string>

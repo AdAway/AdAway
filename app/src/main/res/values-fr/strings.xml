@@ -42,13 +42,13 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Liste blanche</string>
   <string name="lists_tab_blacklist">Liste noire</string>
-  <string name="lists_tab_redirection_list">Réacheminements</string>
+  <string name="lists_tab_redirection_list">Redirections</string>
   <string name="list_add_dialog_black">Ajouter l’hôte à la liste noire</string>
   <string name="list_add_dialog_white">Ajouter l’hôte à la liste blanche</string>
-  <string name="list_add_dialog_redirect">Ajouter un réacheminement d’hôte</string>
+  <string name="list_add_dialog_redirect">Ajouter une redirection d’hôte</string>
   <string name="list_edit_dialog_black">Modifier un hôte en liste noire</string>
   <string name="list_edit_dialog_white">Modifier un hôte en liste blanche</string>
-  <string name="list_edit_dialog_redirect">Modifier un réacheminement</string>
+  <string name="list_edit_dialog_redirect">Modifier une redirection</string>
   <string name="list_dialog_hostname">Nom d’hôte :</string>
   <string name="list_dialog_hostname_hint">L’URL source du fichier hosts</string>
   <string name="list_dialog_wildcard">(Les métacaractères * et ? sont permis)</string>
@@ -179,14 +179,14 @@
   <string name="tcpdump_disable_monitoring">Désactiver la surveillance</string>
   <string name="tcpdump_enable_monitoring">Activer la surveillance</string>
   <string name="tcpdump_show_results">Afficher les résultats</string>
-  <string name="tcpdump_redirect_dialog_title">Domaine de réacheminement</string>
+  <string name="tcpdump_redirect_dialog_title">Rediriger un domaine</string>
   <string name="tcpdump_menu_sort">Trier les domaines</string>
   <string name="tcpdump_menu_clear">Effacer le journal</string>
   <string name="tcpdump_sort_alphabetical">Tri alphabétique</string>
   <string name="tcpdump_sort_top_level_domain">Tri par domaines de premier niveau</string>
   <string name="tcpdump_entry_add_blacklist">Ajouter une entrée à la liste noire</string>
   <string name="tcpdump_entry_add_whitelist">Ajouter une entrée à la liste blanche</string>
-  <string name="tcpdump_entry_add_redirection_list">Ajouter une entrée à la liste de réacheminement</string>
+  <string name="tcpdump_entry_add_redirection_list">Ajouter une entrée à la liste de redirection</string>
   <!--Preferences-->
   <string name="pref_download">Préférences générales</string>
   <string name="pref_dark_theme">Activer le thème sombre</string>
@@ -226,7 +226,7 @@
   <string name="pref_update_only_on_wifi_summary">N’exécuter les mises à jour en arrière-plan que si connecté à un réseau Wi-Fi.</string>
   <string name="pref_whitelist_rules">Permettre la mise en liste blanche</string>
   <string name="pref_whitelist_rules_summary">Permettre les entrées de liste blanche des sources hosts</string>
-  <string name="pref_redirection_rules">Permettre les réacheminements</string>
+  <string name="pref_redirection_rules">Permettre les redirections</string>
   <string name="pref_redirection_rules_summary">CELA POSE UN RISQUE DE SÉCURITÉ ! Permettre les entrées de redirection de sources hosts</string>
   <string name="pref_debug">Debogage </string>
   <string name="pref_enable_debug">Journalisation du débogage</string>
@@ -239,15 +239,6 @@
   <string name="drawer_open">Ouvrir le menu</string>
   <string name="drawer_close">Fermer le menu</string>
   <!--Drawer menu items-->
-  <string-array name="drawer_items">
-    <item>Accueil</item>
-    <item>Sources du fichier hosts</item>
-    <item>Vos listes</item>
-    <item>Ouvrir le fichier hosts</item>
-    <item>Journaliser les requêtes DNS</item>
-    <item>Chercher des logiciels publicitaires</item>
-    <item>Préférences</item>
-  </string-array>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Requêtes DNS</string>
   <string name="shortcut_your_lists">Vos listes</string>

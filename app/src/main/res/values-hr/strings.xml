@@ -17,8 +17,16 @@
   <string name="button_webserver_toggle_text">Pokreni ili zaustavi web poslužitelj na lokalnom poslužitelju kako bi odgovarao na zahtjeve za blokiranje naziva poslužitelja.</string>
   <string name="button_help">Pomoć</string>
   <!--Home-->
+  <string name="header_help">Dobrodošli!</string>
+  <string name="button_show_help">Prikaži još pomoći</string>
+  <string name="icon_update_status">Status ažuriranja</string>
   <string name="text_update">Sve datoteke poslužitelja su preuzete sa određenih izvora, spojene s vašim popisima i instalirane kao jedna datoteka na vašem sustavu.</string>
   <string name="button_check_update_hosts">Provjeri ažuriranja</string>
+  <string name="button_enable_hosts">Omogući blokiranje oglasa</string>
+  <string name="button_disable_hosts">Onemogući blokiranje oglasa</string>
+  <string name="header_webserver">Web poslužitelj</string>
+  <string name="webserver_status_running">Pokrenuto</string>
+  <string name="webserver_status_stopped">Zaustavljeno</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Popis je prazan</string>
   <string name="checkbox_list_context_delete">Obriši</string>

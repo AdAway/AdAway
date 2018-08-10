@@ -244,15 +244,6 @@ Vuoi installare OI File Manager?</string>
   <string name="drawer_open">Apri il menù</string>
   <string name="drawer_close">Chiudi il menù</string>
   <!--Drawer menu items-->
-  <string-array name="drawer_items">
-    <item>Home</item>
-    <item>Fonti hosts</item>
-    <item>Le tue liste</item>
-    <item>Apri il file hosts</item>
-    <item>Log chiamate DNS</item>
-    <item>Scansiona alla ricerca di adware</item>
-    <item>Impostazioni</item>
-  </string-array>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Chiamata DNS</string>
   <string name="shortcut_your_lists">Le tue liste</string>
