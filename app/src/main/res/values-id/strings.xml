@@ -17,10 +17,23 @@
   <string name="button_webserver_toggle_text">Nyalakan atau metikan webserver lokal untuk menjawab permintaan dari hostname yang di blokir.</string>
   <string name="button_help">Bantuan</string>
   <!--Home-->
+  <string name="header_help">Selamat Datang</string>
+  <string name="text_help">AdAway adalah perangkat lunak gratis dan bersifat open-source yang dirancang untuk memblokir iklan. AdAway mengunduh daftar alamat pengiklan dan mengatur perangkat agar alamat tersebut terblokir.\nJika ingin tahu lebih, lihat di halaman bantuan di bawah!</string>
+  <string name="button_show_help">Tampilkan semua bantuan</string>
+  <string name="icon_update_status">Keterangan pembaharuan</string>
   <string name="text_update">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
   <string name="button_check_update_hosts">Memeriksa pembaruan</string>
+  <string name="button_update_hosts">Perbaharui daftar</string>
+  <string name="button_enable_hosts">Hidupkan pemblokir iklan</string>
+  <string name="button_disable_hosts">Matikan pemblokir iklan</string>
+  <string name="header_webserver">Layanan perambah</string>
+  <string name="webserver_status_running">Berjalan</string>
+  <string name="webserver_status_stopped">Berhenti</string>
+  <string name="button_enable_webserver">Hidupkan layanan perambah</string>
+  <string name="button_disable_webserver">Matikan layanan perambah</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Daftar kosong</string>
+  <string name="checkbox_list_empty_text">Tambahkan pada daftar dengan menekan tombol plus</string>
   <string name="checkbox_list_context_delete">Hapus</string>
   <string name="checkbox_list_footer">Setelah menambahkan item baru kedalam list anda harus menerapkan AdAway lagi!</string>
   <string name="checkbox_list_edit_dialog_title">Sunting</string>
@@ -29,12 +42,26 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Daftar Putih</string>
   <string name="lists_tab_blacklist">Daftar Hitam</string>
+  <string name="lists_tab_redirection_list">Pengalihan</string>
+  <string name="list_add_dialog_black">Tambahkan pada daftar hitam</string>
+  <string name="list_add_dialog_white">Tambahkan pada daftar putih</string>
+  <string name="list_add_dialog_redirect">Tambahkan pada daftar pengalihan</string>
+  <string name="list_edit_dialog_black">Kelola daftar hitam</string>
+  <string name="list_edit_dialog_white">Kelola daftar putih</string>
+  <string name="list_edit_dialog_redirect">Kelola pengalihan</string>
   <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_hostname_hint">Alamat sumber daftar</string>
+  <string name="list_dialog_wildcard">(Karakter * dan ? diperbolehkan)</string>
   <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
   <string name="import_dialog">Mengimpor ...</string>
   <string name="export_dialog">Mengekspor ...</string>
   <string name="export_success">Berhasil mengekspor semua entri ke file  \'adaway-export\' di sdcard anda.</string>
+  <string name="export_failed">Gagal melakukan keluaran daftar pada memory card.</string>
   <!--Hosts content-->
+  <string name="hosts_header">Daftar hosts</string>
+  <string name="hosts_description">Berkas host adalah berkas sistem yang berisi pemetaan antara nama host dengan alamat IP-nya. Berkas berjenis text biasa ini diatur oleh AdAway. Berikut beberapa baris teratasnya:</string>
+  <string name="hosts_content">Membaca isi file host...</string>
+  <string name="hosts_open_button">Buka file host</string>
   <!--Status Notifications-->
   <string name="status_checking">Memeriksa pembaruan...</string>
   <string name="status_reverting">Mengembalikan...</string>
@@ -94,6 +121,7 @@
   <string name="disable_systemless_successful">Anda mematikan modus systemless.\n Mungkin diperlukan reboot Android untuk menerapkan perubahan. \n \n Apakah Anda ingin reboot? \n (Untuk mencegah kehilangan data pastikan tidak ada aplikasi menggunakan sdcard saat ini!)</string>
   <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Aplikasi su tidak dapat ditemukan atau AdAway tidak diberikan akses root.\n\nIni dapat terjadi jika perangkat anda tidak di-root.\nTemukan informasi tentang cara melakukan root pada wiki.lineageos.org atau situs android lainnya.</string>
   <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
   <string name="hosts_add_dialog">Masukan URL ke file hosts:</string>
   <string name="no_hostname">Ini bukan hostname yang benar!</string>
@@ -127,11 +155,18 @@
     <item>13 Euros</item>
   </string-array>
   <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_description">Daftar berikut berisi adware yang terinstall, aplikasi negatif yang tidak dapat diblokir oleh AdAway. Aplikasi tersebut, sebagai contoh, menggunakan fitur notifikasi Airpush yang dapat muncul ketika aplikasi tidak digunakan atau bahkan mengganti nada dering perangkat anda. Satu-satunya solusi untuk mengamankan perankat anda adalah menghapus aplikasi tersebut dengan memilihnya pada daftar.</string>
+  <string name="adware_scanning">Memindai...</string>
+  <string name="adware_empty">Tidak ada adware yang ditemukan!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">Tidak tersedia</string>
+  <string name="hosts_add_dialog_title">Tambah sumber</string>
+  <string name="hosts_edit_dialog_title">Ubah sumber</string>
   <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">Alamat sumber daftar URL</string>
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
   <string name="no_text_editor_title">Tidak terinstal pengedit teks</string>
@@ -139,9 +174,26 @@
   <string name="no_file_manager_title">Tidak ada manager file yang terpasang</string>
   <string name="no_file_manager">Tidak ada manajer file yang dapat ditemukan untuk membuka file. Anda bisa menginstal OI File Manager atau manajer file lain.\n\nApakah anda ingin menginstal OI File Manager?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump adalah alat untuk memonitor permintan DNS dan menyimpannya ke file. Anda bisa membuka aplikasi yang memunculkan iklan, dan selanjutnya menganalisai permintaan DNS. Server iklan bisa tisa di tambahkan ke daftar hitam anda.</string>
+  <string name="tcpdump_disable_monitoring">Matikan pemantauan</string>
+  <string name="tcpdump_enable_monitoring">Hidupkan pemantauan</string>
+  <string name="tcpdump_show_results">Tampilkan hasil</string>
+  <string name="tcpdump_redirect_dialog_title">Alihkan domain</string>
+  <string name="tcpdump_menu_sort">Sortir domain</string>
+  <string name="tcpdump_menu_clear">Bersihkan catatan</string>
+  <string name="tcpdump_sort_alphabetical">Urutkan sesuai abjad</string>
+  <string name="tcpdump_sort_top_level_domain">Urutkan sesuai TLD</string>
+  <string name="tcpdump_entry_add_blacklist">Tambahkan pada daftar hitam</string>
+  <string name="tcpdump_entry_add_whitelist">Tambahkan pada daftar putih</string>
+  <string name="tcpdump_entry_add_redirection_list">Tambahkan pada daftar pengalihan</string>
   <!--Preferences-->
   <string name="pref_download">Pengaturan umum</string>
+  <string name="pref_dismiss_welcome">Sembunyikan kartu sambutan</string>
+  <string name="pref_dismiss_welcome_summary">Jangan tampilkan kartu sambutan pada halaman utama</string>
+  <string name="pref_dark_theme">Gunakan tema gelap</string>
+  <string name="pref_dark_theme_summary">Gunakan tema gelap, bukan tema cerah</string>
+  <string name="pref_dark_theme_notification">Tema akan berubah pada sesi aplikasi berikutnya!</string>
   <string name="pref_hosts">Hosts File</string>
   <string name="pref_redirection_ip">redireksi IP</string>
   <string name="pref_update_check">Memeriksa pembaruan</string>
@@ -176,6 +228,7 @@
   <string name="pref_update_only_on_wifi_summary">Jalankan pembaruan latar belakang hanya pada saat terhubung ke jaringan wifi.</string>
   <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
   <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
+  <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
   <string name="pref_redirection_rules_summary">BAHAYA KEAMANAN! Perbolehkan pengalihan dari sumber host.</string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug Logging</string>
@@ -184,9 +237,26 @@
   <string name="pref_enable_ipv6_summary">Semua entri file host akan disesuaikan dengan entri :: 1 (IPv6 localhost).</string>
   <string name="pref_enable_systemless_summary">Cegah AdAway me-modifikasi partisi system</string>
   <string name="pref_enable_systemless">Aktifkan Mode Systemless</string>
+  <string name="pref_edit_text_value">Ubah nilai preferensi teks</string>
+  <string name="drawer_open">Buka menu</string>
+  <string name="drawer_close">Tutup menu</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Beranda</item>
+    <item>Sumber host</item>
+    <item>Daftar pribadi</item>
+    <item>Buka file host</item>
+    <item>Catat aktifitas DNS</item>
+    <item>Pindai adware</item>
+    <item>Pengaturan</item>
+    <item>Bantuan</item>
+  </string-array>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">Aktifitas DNS</string>
+  <string name="shortcut_your_lists">Daftar pribadi</string>
   <string name="shortcut_preferences">Pengaturan</string>
   <!--Hosts source status-->
   <string name="hosts_source_update_available">Pembaruan tersedia</string>
+  <string name="hosts_source_up_to_date">Terbaru</string>
+  <string name="hosts_source_unknown_status">Status pembaharuan tidak diketahui</string>
 </resources>

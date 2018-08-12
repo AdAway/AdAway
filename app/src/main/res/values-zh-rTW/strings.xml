@@ -3,7 +3,7 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">離開</string>
-  <string name="button_apply">下載檔案及加入廣告封鎖</string>
+  <string name="button_apply">下載檔案並套用廣告封鎖</string>
   <string name="button_close">關閉</string>
   <string name="button_yes">是</string>
   <string name="button_no">否</string>
@@ -17,33 +17,60 @@
   <string name="button_webserver_toggle_text">啟動或停止本地端的網頁伺服器來回應被封鎖主機的請求。</string>
   <string name="button_help">說明</string>
   <!--Home-->
-  <string name="text_update">所有自訂來源的主機 hosts 檔已下載完成、整合至您的自訂列表中，並安裝至系統中。</string>
+  <string name="header_help">歡迎！</string>
+  <string name="text_help">AdAway 是一個自由及開放原始碼的軟體，設計來阻擋廣告。這個軟體會下載廣告網路清單，配置您的裝置來阻擋它們。\n想要了解更多嗎？看看下面的說明！</string>
+  <string name="button_show_help">顯示更多說明</string>
+  <string name="icon_update_status">更新狀態</string>
+  <string name="text_update">所有來自已定義來源的 hosts 檔案已下載、與您的自訂清單整合，並以一個 hosts 檔案安裝至系統中。</string>
   <string name="button_check_update_hosts">檢查更新</string>
+  <string name="button_update_hosts">更新 hosts</string>
+  <string name="button_enable_hosts">啟用廣告封鎖</string>
+  <string name="button_disable_hosts">停用廣告封鎖</string>
+  <string name="header_webserver">網頁伺服器</string>
+  <string name="webserver_status_running">執行中</string>
+  <string name="webserver_status_stopped">已停止</string>
+  <string name="button_enable_webserver">啟用網頁伺服器</string>
+  <string name="button_disable_webserver">停用網頁伺服器</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">無清單</string>
+  <string name="checkbox_list_empty">空的清單</string>
+  <string name="checkbox_list_empty_text">您可以使用「+」按鈕來加入項目。</string>
   <string name="checkbox_list_context_delete">刪除</string>
-  <string name="checkbox_list_footer">加入新項目至清單中後，需重新啟動 AdAway ！</string>
+  <string name="checkbox_list_footer">加入新項目至清單中後，需重新啟動 AdAway！</string>
   <string name="checkbox_list_edit_dialog_title">編輯</string>
-  <string name="checkbox_list_context_title">編輯列表</string>
+  <string name="checkbox_list_context_title">編輯項目</string>
   <string name="checkbox_list_context_edit">編輯</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">白名單</string>
   <string name="lists_tab_blacklist">黑名單</string>
+  <string name="lists_tab_redirection_list">重新導向</string>
+  <string name="list_add_dialog_black">將主機加入至黑名單</string>
+  <string name="list_add_dialog_white">將主機至白名單</string>
+  <string name="list_add_dialog_redirect">加入主機重新導向</string>
+  <string name="list_edit_dialog_black">編輯黑名單主機</string>
+  <string name="list_edit_dialog_white">編輯白名單主機</string>
+  <string name="list_edit_dialog_redirect">編輯重新導向</string>
   <string name="list_dialog_hostname">主機名稱：</string>
-  <string name="list_dialog_ip">IP位址 ( IPv4 或 IPv6 )</string>
-  <string name="import_dialog">匯入中 ...</string>
-  <string name="export_dialog">匯出中 ...</string>
-  <string name="export_success">匯出全部列表到 SD 卡中的 adaway-export 檔案。 </string>
+  <string name="list_dialog_hostname_hint">Hosts 來源 URL</string>
+  <string name="list_dialog_wildcard">（可使用萬用字元 * 和 ?）</string>
+  <string name="list_dialog_ip">IP 位址 (IPv4 或 IPv6)：</string>
+  <string name="import_dialog">匯入中...</string>
+  <string name="export_dialog">匯出中...</string>
+  <string name="export_success">已匯出所有項目到 SD 卡中的「adaway-export」檔案。</string>
+  <string name="export_failed">無法匯出清單到 SD 卡。</string>
   <!--Hosts content-->
+  <string name="hosts_header">hosts 檔案</string>
+  <string name="hosts_description">hosts 檔案是一個將主機名稱對應到 IP 位置的系統檔案。它是一個由 AdAway 配置的純文字檔案。這是這個檔案的前幾行：</string>
+  <string name="hosts_content">正在載入 hosts 檔案內容...</string>
+  <string name="hosts_open_button">開啟 hosts 檔案</string>
   <!--Status Notifications-->
-  <string name="status_checking">正在檢查更新 ...</string>
-  <string name="status_reverting">還原中 ...</string>
+  <string name="status_checking">正在檢查更新...</string>
+  <string name="status_reverting">還原中...</string>
   <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
   <string name="status_checking_subtitle">檢查是否有更新</string>
   <string name="status_update_available">有更新</string>
   <string name="status_update_available_subtitle">有更新的 hosts 檔案</string>
-  <string name="status_no_connection">沒有網路網路連線</string>
-  <string name="status_no_connection_subtitle">沒有可用的網路網路連線</string>
+  <string name="status_no_connection">沒有網路連線</string>
+  <string name="status_no_connection_subtitle">沒有可用的網路連線</string>
   <string name="status_download_fail">不可用的來源</string>
   <string name="status_download_fail_subtitle_new">無法連接遠端 hosts 來源伺服器！</string>
   <string name="status_enabled">啟用</string>
@@ -52,46 +79,46 @@
   <string name="status_disabled_subtitle">停用</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">你設定的目標不存在或者不是正確的 /system/etc/hosts 符號連結！沒有正確的符號連結AdAway不能執行。 你需要建立符號連結嗎？</string>
-  <string name="apply_symlink_missing_title">符號連接遺失</string>
-  <string name="apply_not_enough_space">分區上沒有足夠的空間 請在設定裡面修改目標hosts檔案到/data/data/hosts。</string>
+  <string name="apply_symlink_missing_title">符號連結遺失</string>
+  <string name="apply_not_enough_space">分割區上沒有足夠的空間！\n請試著在設定裡面將目標 hosts 檔案變更為 /data/data/hosts。</string>
   <string name="apply_not_enough_space_title">空間不足</string>
   <string name="apply_private_file_fail">無法讀取已下載的檔案。</string>
   <string name="apply_private_file_fail_title">私人檔案失敗</string>
-  <string name="apply_remount_fail">重新掛載分區為 read/write 模式失敗！</string>
+  <string name="apply_remount_fail">重新掛載分區為讀寫模式失敗！</string>
   <string name="apply_remount_fail_title">重新掛載失敗</string>
   <string name="apply_copy_fail">複製 hosts 檔案失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
   <string name="apply_success_subtitle">已加入 hosts 來源:</string>
   <string name="apply_success_title">建立成功</string>
-  <string name="apply_success_dialog">建立成功。\n需要重新啟動才能生效 你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
-  <string name="apply_symlink_successful">符號連結建立成功。\n需要重新啟動才能生效 你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
+  <string name="apply_success_dialog">建立成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
+  <string name="apply_symlink_successful">符號連結建立成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="apply_symlink_successful_title">符號連結建立成功</string>
-  <string name="apply_symlink_fail">符號連結建立失敗。 這很有可能是因為 HTC 上一個叫 S-ON 的\'功能\'！\n\n一個辦法可以啟動你的手機到還原模式並使用命令\'ln -s /data/data/hosts /system/etc/hosts來建立符號連結。 如果沒有用，請 google 怎麼 S-OFF 你的手機。</string>
+  <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為 HTC 上一個叫 S-ON 的「功能」！\n\n一個解決方法是啟動你的手機到還原模式並使用命令 \'ln -s /data/data/hosts /system/etc/hosts\' 來建立符號連結。\n\n如果沒有用，請上網搜尋 S-OFF 與你的手機。</string>
   <string name="apply_symlink_fail_title">符號連結建立失敗</string>
   <string name="apply_help">請閱讀說明以獲得更多訊息。</string>
-  <string name="apply_apn_proxy">你的Android設定了APN代理伺服器! AdAway 無法保證在3G下正常的工作. 你可以在APN設定中關閉代理伺服器設定(在 Android 4: 無線與網路 -&gt; 更多... -&gt; 行動網路 -&gt; 存取點名稱) 和移除代理伺服器設定.</string>
-  <string name="apply_apn_proxy_title">APN 代理伺服器設定!</string>
+  <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（在 Android 4: 無線與網路 -&gt; 更多... -&gt; 行動網路 -&gt; 存取點名稱）移除代理伺服器設定。</string>
+  <string name="apply_apn_proxy_title">設定了 APN 代理伺服器！</string>
   <string name="no_connection">網際網路連線無法正常連線</string>
   <string name="no_connection_title">無法連線</string>
-  <string name="download_dialog">下載中 ...</string>
-  <string name="apply_dialog">合併中 ...</string>
-  <string name="apply_dialog_lists">合併白名單和黑名單</string>
+  <string name="download_dialog">下載中...</string>
+  <string name="apply_dialog">套用中...</string>
+  <string name="apply_dialog_lists">套用白名單和黑名單</string>
   <string name="apply_dialog_hostnames">解析及合併 hosts 檔案</string>
   <string name="apply_dialog_hosts">建立 hosts 檔案</string>
   <string name="apply_dialog_apply">合併 hosts 檔案</string>
   <string name="apply_fail">hosts 檔案修改失敗！\n請將設定中的 hosts 檔案目標修改為 /data/data/hosts。</string>
   <string name="apply_fail_title">建立失敗</string>
-  <string name="revert_successful">已經還原為預設的hosts檔案了。\n需要重新啟動才能生效 你是否需要重新啟動？\n\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
+  <string name="revert_successful">已經還原為預設的 hosts 檔案了。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="revert_successful_title">還原成功</string>
   <string name="revert_problem">因未知原因還原失敗。</string>
   <string name="revert_problem_title">還原失敗！</string>
-  <string name="download_fail_dialog">所有遠端伺服器都無法連結！請確認是否正確連上網際網路？</string>
+  <string name="download_fail_dialog">所有啟用的 hosts 來源都無法連結！您是否正確連上網際網路？</string>
   <string name="download_fail_title">下載失敗</string>
   <string name="no_private_file">不能建立私人檔案。</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
-  <string name="enable_systemless_successful">你啟用無系統模式。\n也許需要重新啟動 Android 才能生效。\n你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
+  <string name="enable_systemless_successful">你啟用了 systemless 模式。\n也許需要重新啟動 Android 才能生效。\n你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
   <string name="enable_systemless_successful_title">啟用成功</string>
-  <string name="disable_systemless_successful">取消將所需檔案安裝於系統分割區外。\n需要重新啟動才能生效 你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
+  <string name="disable_systemless_successful">你停用了 systemless 模式。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="disable_systemless_successful_title">取消成功</string>
   <!--Other Dialogs-->
   <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 wiki.lineageos.org 或其他相關的 Android 網站取得相關資訊。</string>
@@ -112,8 +139,7 @@
   <string name="menu_export">匯出所有清單</string>
   <!--Help-->
   <string name="help_tab_about">關於</string>
-  <string name="help_tab_donate">
-資助</string>
+  <string name="help_tab_donate">資助</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">常見問題</string>
   <string name="help_tab_problems">問題</string>
@@ -129,21 +155,45 @@
     <item>13 歐元</item>
   </string-array>
   <!--Adware-->
+  <string name="adware_header">廣告軟體</string>
+  <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單來移除它們！</string>
+  <string name="adware_scanning">掃描中...</string>
+  <string name="adware_empty">沒有發現任何廣告軟體！</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">線上：</string>
   <string name="hosts_not_available">無法使用</string>
+  <string name="hosts_add_dialog_title">加入來源</string>
+  <string name="hosts_edit_dialog_title">編輯來源</string>
   <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">Hosts 來源 URL</string>
   <!--Other-->
-  <string name="app_subtitle">廣告阻擋</string>
+  <string name="app_subtitle">廣告阻擋器</string>
   <string name="no_text_editor_title">沒有安裝文字編輯器</string>
   <string name="no_text_editor">沒有找到文字編輯器來打開 hosts 檔案。你可以安裝 Jota 或者其他文字編輯器來解決。\n\n你需要安裝Jota嗎？</string>
   <string name="no_file_manager_title">沒有安裝檔案管理器</string>
   <string name="no_file_manager">沒有找到檔案管理器來打開檔案。你可以安裝 OI File Manager 或者其他檔案管理器來解決。\n\n你需要安裝 OI File Manager 嗎？</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump 是一個用來監視 DNS 請求並儲存為記錄檔的工具，可以在背景執行。當前景執行有廣告的程式，利用用記錄檔來分析 DNS 請求。把找到的廣告伺服器加入到您的黑名單中。</string>
+  <string name="tcpdump_disable_monitoring">停用監視</string>
+  <string name="tcpdump_enable_monitoring">啟用監視</string>
+  <string name="tcpdump_show_results">顯示結果</string>
+  <string name="tcpdump_redirect_dialog_title">重新導向網域</string>
+  <string name="tcpdump_menu_sort">排序網域</string>
+  <string name="tcpdump_menu_clear">清除記錄</string>
+  <string name="tcpdump_sort_alphabetical">依照字母順序排序</string>
+  <string name="tcpdump_sort_top_level_domain">頂級網域排序</string>
+  <string name="tcpdump_entry_add_blacklist">加入項目至黑名單</string>
+  <string name="tcpdump_entry_add_whitelist">加入項目至白名單</string>
+  <string name="tcpdump_entry_add_redirection_list">加入項目至重新導向清單</string>
   <!--Preferences-->
   <string name="pref_download">基本設定</string>
+  <string name="pref_dismiss_welcome">隱藏歡迎卡片</string>
+  <string name="pref_dismiss_welcome_summary">不在主螢幕上顯示歡迎卡片</string>
+  <string name="pref_dark_theme">啟用暗色主題</string>
+  <string name="pref_dark_theme_summary">使用暗色主題而不是亮色主題</string>
+  <string name="pref_dark_theme_notification">主題會在下次應用程式啟動時套用！</string>
   <string name="pref_hosts">Hosts 檔案</string>
   <string name="pref_redirection_ip">重新導向 IP</string>
   <string name="pref_update_check">檢查更新</string>
@@ -153,9 +203,9 @@
   <string name="pref_header_preferences">設定</string>
   <string name="pref_header_preferences_summary">AdAway 基本設定</string>
   <string name="pref_never_reboot">隱藏重新啟動對話框</string>
-  <string name="pref_never_reboot_summary">隱藏成功應用後詢問重新啟動的對話框</string>
+  <string name="pref_never_reboot_summary">隱藏成功套用後詢問重新啟動的對話框</string>
   <string name="pref_webserver_on_boot">開機時啟動網頁伺服器</string>
-  <string name="pref_webserver_on_boot_summary">開機時啟動網頁伺服器並延遲 5 秒監聽本地 IP 位址</string>
+  <string name="pref_webserver_on_boot_summary">開機時啟動網頁伺服器，監聽本地 IP 位址</string>
   <string name="pref_webserver_enabled">啟用網頁伺服器</string>
   <string name="pref_webserver_enabled_summary">啟用網頁伺服器來監聽本地 IP 位址來回應至被封鎖主機的請求</string>
   <string name="pref_webserver">本地網頁伺服器</string>
@@ -178,17 +228,35 @@
   <string name="pref_update_only_on_wifi_summary">只有在連接到 Wi-Fi 時執行背景更新。</string>
   <string name="pref_whitelist_rules">允許白名單</string>
   <string name="pref_whitelist_rules_summary">允許從 Hosts 來源中的白名單項目</string>
-  <string name="pref_redirection_rules_summary">可能造成安全性風險！允許自 Hosts 來源的所有重新導向。</string>
+  <string name="pref_redirection_rules">允許重新導向</string>
+  <string name="pref_redirection_rules_summary">會有安全性風險！允許來自 Hosts 來源的重新導向項目。</string>
   <string name="pref_debug">除錯</string>
   <string name="pref_enable_debug">除錯記錄</string>
   <string name="pref_enable_debug_summary">需要重新啟動 AdAway 使設定生效。</string>
   <string name="pref_enable_ipv6">啟用 IPv6</string>
   <string name="pref_enable_ipv6_summary">所有的 host 檔案項目將取得相同的 ::1 (IPv6 本地端) 項目。</string>
-  <string name="pref_enable_systemless_summary">避免Adaway修改系統分區</string>
-  <string name="pref_enable_systemless">將所需檔案安裝於系統分割區外</string>
+  <string name="pref_enable_systemless_summary">避免 Adaway 修改系統分割區</string>
+  <string name="pref_enable_systemless">啟用 systemless 模式（將所需檔案安裝於系統分割區外）</string>
+  <string name="pref_edit_text_value">編輯文字設定值</string>
+  <string name="drawer_open">開啟選單</string>
+  <string name="drawer_close">關閉選單</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>首頁</item>
+    <item>Hosts 來源</item>
+    <item>你的清單</item>
+    <item>開啟 hosts 檔案</item>
+    <item>記錄 DNS 請求</item>
+    <item>掃描廣告軟體</item>
+    <item>設定</item>
+    <item>說明</item>
+  </string-array>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNS 請求</string>
+  <string name="shortcut_your_lists">你的清單</string>
   <string name="shortcut_preferences">設定</string>
   <!--Hosts source status-->
   <string name="hosts_source_update_available">有更新</string>
+  <string name="hosts_source_up_to_date">最新</string>
+  <string name="hosts_source_unknown_status">未知更新狀態</string>
 </resources>
