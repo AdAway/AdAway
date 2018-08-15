@@ -20,15 +20,16 @@
 
 package org.adaway.util;
 
+import android.content.Context;
+import android.content.res.Resources;
+
+import org.adaway.R;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
-
-import org.adaway.R;
-
-import android.content.Context;
 
 public class DateUtils {
     /**
@@ -72,5 +73,43 @@ public class DateUtils {
         Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
 
         return cal.getTime().getTime();
+    }
+
+    /**
+     * Get the approximate delay from a date to now.
+     *
+     * @param context The application context.
+     * @param from    The date from which computes the delay.
+     * @return The approximate delay.
+     */
+    public static String getApproximateDelay(Context context, Date from) {
+        // Get resource for plurals
+        Resources resources = context.getResources();
+        // Get current date
+        Date date = new Date();
+        // Get delay between from and now in minutes
+        long delay = (date.getTime() - from.getTime()) / (1000 * 60);
+        // Check if delay is lower than an hour
+        if (delay < 60) {
+            int minutes = (int) delay;
+            return resources.getQuantityString(R.plurals.hosts_source_minutes, minutes, minutes);
+        }
+        // Get delay in hours
+        delay /= 60;
+        // Check if delay is lower than a day
+        if (delay < 24) {
+            int hours = (int) delay;
+            return resources.getQuantityString(R.plurals.hosts_source_hours, hours, hours);
+        }
+        // Get delay in days
+        delay /= 24;
+        // Check if delay is lower than a month
+        if (delay < 30) {
+            int days = (int) delay;
+            return resources.getQuantityString(R.plurals.hosts_source_days, days, days);
+        }
+        // Get delay in months
+        int months = (int) delay / 30;
+        return resources.getQuantityString(R.plurals.hosts_source_months, months, months);
     }
 }

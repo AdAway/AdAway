@@ -1,5 +1,6 @@
 package org.adaway.ui.hosts;
 
+import android.content.Context;
 import android.view.View;
 
 import org.adaway.db.entity.HostsSource;
@@ -10,6 +11,13 @@ import org.adaway.db.entity.HostsSource;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public interface HostsSourcesViewCallback {
+    /**
+     * Get the application context.
+     *
+     * @return The application context.
+     */
+    Context getContext();
+
     /**
      * Toggle host source enable status.
      *

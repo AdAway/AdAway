@@ -1,5 +1,6 @@
 package org.adaway.ui.hosts;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.util.DiffUtil;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
+import org.adaway.util.DateUtils;
 
 /**
  * This class is a the {@link RecyclerView.Adapter} for the hosts sources view.
@@ -67,20 +69,32 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         holder.enabledCheckBox.setChecked(source.isEnabled());
         holder.enabledCheckBox.setOnClickListener(view -> viewCallback.toggleEnabled(source));
         holder.hostnameTextView.setText(source.getUrl());
-        holder.lastModifiedTextView.setText(getModifiedText(source));
+        holder.updateTextView.setText(getUpdateText(source));
         holder.itemView.setOnLongClickListener(view -> viewCallback.startAction(source, holder.itemView));
     }
 
-    private int getModifiedText(HostsSource source) {
-        int modifiedText;
-        if (source.getLastOnlineModification() == null || source.getLastLocalModification() == null) {
-            modifiedText = R.string.hosts_source_unknown_status;
+    private String getUpdateText(HostsSource source) {
+        // Get context
+        Context context = this.viewCallback.getContext();
+        // Check modification dates
+        boolean lastOnlineModificationDefined = source.getLastOnlineModification() != null &&
+                source.getLastOnlineModification().getTime() != 0;
+        boolean lastLocalModificationDefined = source.getLastLocalModification() != null &&
+                source.getLastLocalModification().getTime() != 0;
+        // Get last online modification delay
+        String approximateDelay = lastOnlineModificationDefined ? DateUtils.getApproximateDelay(context, source.getLastOnlineModification()) : "";
+        // Declare update text
+        String updateText;
+        if (!lastOnlineModificationDefined || !lastLocalModificationDefined) {
+            updateText = context.getString(R.string.hosts_source_unknown_status);
+        } else if (!source.isEnabled()) {
+            updateText = context.getString(R.string.hosts_source_last_update, approximateDelay);
         } else if (source.getLastOnlineModification().after(source.getLastLocalModification())) {
-            modifiedText = R.string.hosts_source_up_to_date;
+            updateText = context.getString(R.string.hosts_source_need_update, approximateDelay);
         } else {
-            modifiedText = R.string.hosts_source_up_to_date;
+            updateText = context.getString(R.string.hosts_source_up_to_date, approximateDelay);
         }
-        return modifiedText;
+        return updateText;
     }
 
     /**
@@ -91,7 +105,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
     static class ViewHolder extends RecyclerView.ViewHolder {
         final CheckBox enabledCheckBox;
         final TextView hostnameTextView;
-        final TextView lastModifiedTextView;
+        final TextView updateTextView;
 
         /**
          * Constructor.
@@ -102,7 +116,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
             super(itemView);
             this.enabledCheckBox = itemView.findViewById(R.id.checkbox_list_checkbox);
             this.hostnameTextView = itemView.findViewById(R.id.checkbox_list_text);
-            this.lastModifiedTextView = itemView.findViewById(R.id.checkbox_list_subtext);
+            this.updateTextView = itemView.findViewById(R.id.checkbox_list_subtext);
         }
     }
 }
