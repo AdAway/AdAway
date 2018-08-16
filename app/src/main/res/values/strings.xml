@@ -282,7 +282,6 @@
     <string name="hosts_source_last_update">Last update %1$s ago</string>
     <string name="hosts_source_unknown_status">Unknown update status</string>
     <plurals name="hosts_source_minutes">
-        <item quantity="zero">now</item>
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
     </plurals>
