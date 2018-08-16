@@ -224,5 +224,4 @@ AdAway не будет работать в мобильных сетях, так
   <!--Shortcuts-->
   <string name="shortcut_preferences">Настройки</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Доступно обновление</string>
 </resources>

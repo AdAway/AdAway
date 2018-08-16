@@ -256,7 +256,5 @@
   <string name="shortcut_your_lists">Twoje listy</string>
   <string name="shortcut_preferences">Ustawienia</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Aktualizacja jest dostępna</string>
-  <string name="hosts_source_up_to_date">Aktualny</string>
   <string name="hosts_source_unknown_status">Nieznany status aktualizacji</string>
 </resources>

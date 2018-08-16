@@ -189,5 +189,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">העדפות</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">קיים עידכון</string>
 </resources>

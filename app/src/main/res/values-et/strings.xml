@@ -127,5 +127,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Eelistused</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Uuendus saadaval</string>
 </resources>

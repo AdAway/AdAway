@@ -193,5 +193,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">การตั้งค่า</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">สามารถอัพเดตได้</string>
 </resources>

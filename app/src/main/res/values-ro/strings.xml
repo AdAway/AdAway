@@ -188,5 +188,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferinte</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">O noua versiune este disponibila </string>
 </resources>

@@ -188,5 +188,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Nustatymai</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Pasiekiamas atnaujinimas</string>
 </resources>

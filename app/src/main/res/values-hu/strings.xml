@@ -262,7 +262,5 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
   <string name="shortcut_your_lists">Saját listák</string>
   <string name="shortcut_preferences">Beállítások</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Frissítés érhető el</string>
-  <string name="hosts_source_up_to_date">Legfrissebb verzió</string>
   <string name="hosts_source_unknown_status">Ismeretlen frissítési státusz</string>
 </resources>

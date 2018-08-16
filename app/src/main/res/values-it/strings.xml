@@ -9,7 +9,7 @@
   <string name="button_no">No</string>
   <string name="button_revert">Disabilita il blocco pubblicità</string>
   <string name="button_add">Aggiungi </string>
-  <string name="button_cancel">Cancella</string>
+  <string name="button_cancel">Annulla</string>
   <string name="button_revert_text">Ripristina il file hosts predefinito sul tuo sistema.</string>
   <string name="button_save">Salva</string>
   <string name="button_webserver_toggle_checked">Il webserver è avviato</string>
@@ -194,6 +194,8 @@ Vuoi installare OI File Manager?</string>
   <string name="tcpdump_entry_add_redirection_list">Aggiungi voce alla lista inoltri</string>
   <!--Preferences-->
   <string name="pref_download">Preferenze generali</string>
+  <string name="pref_dismiss_welcome">Nascondi scheda di benvenuto</string>
+  <string name="pref_dismiss_welcome_summary">Non mostrare scheda di benvenuto sulla home screen</string>
   <string name="pref_dark_theme">Abilita il tema scuro</string>
   <string name="pref_dark_theme_summary">Usa il tema scuro al posto di quello chiaro</string>
   <string name="pref_dark_theme_notification">Il tema verrà applicato al prossimo riavvio!</string>
@@ -249,7 +251,5 @@ Vuoi installare OI File Manager?</string>
   <string name="shortcut_your_lists">Le tue liste</string>
   <string name="shortcut_preferences">Preferenze</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Aggiornamento disponibile</string>
-  <string name="hosts_source_up_to_date">Aggiornato</string>
   <string name="hosts_source_unknown_status">Stato aggiornamento sconosciuto</string>
 </resources>

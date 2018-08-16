@@ -197,5 +197,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Postavke</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Ažuriranje je dostupno</string>
 </resources>

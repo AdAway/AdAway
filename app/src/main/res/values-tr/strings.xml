@@ -244,7 +244,5 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="shortcut_your_lists">Listeleriniz</string>
   <string name="shortcut_preferences">Tercihler</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Güncelleme mevcut</string>
-  <string name="hosts_source_up_to_date">Güncel</string>
   <string name="hosts_source_unknown_status">Bilinmeyen güncelleme durumu</string>
 </resources>

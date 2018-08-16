@@ -211,5 +211,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Επιλογές</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Υπάρχει διαθέσιμη ενημέρωση</string>
 </resources>

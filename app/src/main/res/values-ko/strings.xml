@@ -188,5 +188,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">환경 설정</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">업데이트 가능</string>
 </resources>

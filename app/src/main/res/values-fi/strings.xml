@@ -187,5 +187,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Asetukset</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Päivitys saatavilla</string>
 </resources>

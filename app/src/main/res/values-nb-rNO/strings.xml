@@ -189,5 +189,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferanser</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Oppdatering tilgjengelig</string>
 </resources>

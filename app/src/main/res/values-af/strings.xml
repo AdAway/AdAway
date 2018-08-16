@@ -161,5 +161,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Voorkeure</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Opdatering beskikbaar</string>
 </resources>

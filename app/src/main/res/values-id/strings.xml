@@ -256,7 +256,5 @@
   <string name="shortcut_your_lists">Daftar pribadi</string>
   <string name="shortcut_preferences">Pengaturan</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Pembaruan tersedia</string>
-  <string name="hosts_source_up_to_date">Terbaru</string>
   <string name="hosts_source_unknown_status">Status pembaharuan tidak diketahui</string>
 </resources>

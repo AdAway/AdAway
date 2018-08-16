@@ -244,7 +244,5 @@
   <string name="shortcut_your_lists">Vaše zoznamy</string>
   <string name="shortcut_preferences">Nastavenia</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Aktualizácia dostupná</string>
-  <string name="hosts_source_up_to_date">Aktuálne</string>
   <string name="hosts_source_unknown_status">Neznámy stav aktualizácie</string>
 </resources>

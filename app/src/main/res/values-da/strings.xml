@@ -187,5 +187,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Indstillinger</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Opdatering fundet</string>
 </resources>

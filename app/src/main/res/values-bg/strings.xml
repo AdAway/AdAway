@@ -256,7 +256,5 @@
   <string name="shortcut_your_lists">Ваши списъци</string>
   <string name="shortcut_preferences">Настройки</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Налице е актуализация</string>
-  <string name="hosts_source_up_to_date">Актуална версия</string>
   <string name="hosts_source_unknown_status">Неизвестен статус на актуализация</string>
 </resources>

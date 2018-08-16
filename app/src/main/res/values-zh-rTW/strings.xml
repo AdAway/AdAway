@@ -256,7 +256,5 @@
   <string name="shortcut_your_lists">你的清單</string>
   <string name="shortcut_preferences">設定</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">有更新</string>
-  <string name="hosts_source_up_to_date">最新</string>
   <string name="hosts_source_unknown_status">未知更新狀態</string>
 </resources>

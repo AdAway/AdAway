@@ -258,7 +258,5 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="shortcut_your_lists">あなたのリスト</string>
   <string name="shortcut_preferences">設定</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">更新があります</string>
-  <string name="hosts_source_up_to_date">最新の状態です</string>
   <string name="hosts_source_unknown_status">不明な更新ステータス</string>
 </resources>

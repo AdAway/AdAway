@@ -189,5 +189,4 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Nastavení</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">Aktualizace je k dispozici</string>
 </resources>

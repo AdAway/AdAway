@@ -293,7 +293,5 @@ AdAway 无法在 3G 等移动网络上稳定运行。您可以转到所选的 AP
   <string name="shortcut_your_lists">列表</string>
   <string name="shortcut_preferences">首选项</string>
   <!--Hosts source status-->
-  <string name="hosts_source_update_available">有可用的更新</string>
-  <string name="hosts_source_up_to_date">最新</string>
   <string name="hosts_source_unknown_status">未知的更新状态</string>
 </resources>
