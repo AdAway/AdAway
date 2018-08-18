@@ -56,7 +56,7 @@
   <string name="import_dialog">Alınıyor...</string>
   <string name="export_dialog">Veriliyor...</string>
   <string name="export_success">Tüm girdiler, sdcard üzerinde \'adaway-export\' dosyasına kaydedildi.</string>
-  <string name="export_failed">Listeniz sd kartınıza aktarılamadı.</string>
+  <string name="export_failed">Liste sd kartınıza aktarılamadı.</string>
   <!--Hosts content-->
   <string name="hosts_header">Host dosyası</string>
   <string name="hosts_description">Host dosyası, host adlarını IP adreslerine eşleyen bir sistem dosyasıdır. Bu yapılandırmanın AdAway tarafından ele alındığı düz bir metin dosyasıdır. İşte ilk birkaç satırı:</string>
@@ -167,7 +167,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="hosts_add_dialog_title">Kaynak ekle</string>
   <string name="hosts_edit_dialog_title">Kaynak düzenle</string>
   <string name="hosts_dialog_url">URL:</string>
-  <string name="hosts_dialog_url_hint">Host kaynakHosts kaynak URL URL\'si</string>
+  <string name="hosts_dialog_url_hint">Hosts kaynak URL\'si</string>
   <!--Other-->
   <string name="app_subtitle">Reklam engelleyici</string>
   <string name="no_text_editor_title">Yüklü metin editörü yok</string>
@@ -190,6 +190,8 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="tcpdump_entry_add_redirection_list">Yönlendirme listesine giriş ekle</string>
   <!--Preferences-->
   <string name="pref_download">Genel Tercihler</string>
+  <string name="pref_dismiss_welcome">Karşılama yazısını gizle</string>
+  <string name="pref_dismiss_welcome_summary">Ana ekranda karşılama yazısını gösterme</string>
   <string name="pref_dark_theme">Karanlık temayı etkinleştir</string>
   <string name="pref_dark_theme_summary">Aydınlık yerine koyu temayı kullanın</string>
   <string name="pref_dark_theme_notification">Tema bir sonraki uygulama başlangıcında uygulanacaktır!</string>
@@ -239,10 +241,39 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="drawer_open">Menüyü aç</string>
   <string name="drawer_close">Menüyü kapat</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Ana</item>
+    <item>Host kaynakları</item>
+    <item>Listeleriniz</item>
+    <item>Host dosyasını aç</item>
+    <item>DNS istemlerini günlükle</item>
+    <item>Adware için tara</item>
+    <item>Tercihler</item>
+    <item>Yardım</item>
+  </string-array>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS istekleri</string>
   <string name="shortcut_your_lists">Listeleriniz</string>
   <string name="shortcut_preferences">Tercihler</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">%1$s güncel</string>
+  <string name="hosts_source_need_update">%1$s için gücelleme gerekiyor</string>
+  <string name="hosts_source_last_update">Son güncelleme %1$s önce</string>
   <string name="hosts_source_unknown_status">Bilinmeyen güncelleme durumu</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d s</item>
+    <item quantity="other">%d dakika</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d hour</item>
+    <item quantity="other">%d saat</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d gün</item>
+    <item quantity="other">%d gün</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d ay</item>
+    <item quantity="other">%d ay</item>
+  </plurals>
 </resources>

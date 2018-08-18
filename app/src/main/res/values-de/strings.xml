@@ -17,6 +17,7 @@
   <string name="button_webserver_toggle_text">Den lokalen Webserver starten oder stoppen, um Anfragen an blockierte Hostnamen zu beantworten.</string>
   <string name="button_help">Hilfe</string>
   <!--Home-->
+  <string name="header_help">Willkommen!</string>
   <string name="text_update">Alle Hosts-Dateien aus den festgelegten Quellen werden heruntergeladen, mit Ihren eigenen Listen zusammengefügt und als eine Hosts-Datei im System installiert.</string>
   <string name="button_check_update_hosts">Nach Aktualisierungen suchen</string>
   <!--Checkbox List-->
@@ -189,4 +190,20 @@
   <!--Shortcuts-->
   <string name="shortcut_preferences">Einstellungen</string>
   <!--Hosts source status-->
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d Minute</item>
+    <item quantity="other">%d Minuten</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d Stunde</item>
+    <item quantity="other">%d Stunden</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d Tag</item>
+    <item quantity="other">%d Tage</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d Monat</item>
+    <item quantity="other">%d Monate</item>
+  </plurals>
 </resources>

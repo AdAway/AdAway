@@ -17,10 +17,23 @@
   <string name="button_webserver_toggle_text">Starta eller stoppa den lokala webbservern att besvara begäran till blockerade värdnamn.</string>
   <string name="button_help">Hjälp</string>
   <!--Home-->
+  <string name="header_help">Välkommen!</string>
+  <string name="text_help">Appen AdAway är gratis och öppen källkod gjord för att blockera annonser. Den laddar ner annonsnätverk och konfigurerar din enhet att blockera dem.\nVill du veta mer? Ta en titt på hjälper nedan!</string>
+  <string name="button_show_help">Visa mer hjälp</string>
+  <string name="icon_update_status">Uppdateringsstatus</string>
   <string name="text_update">Alla värdfiler från de förinställda källorna är hämtade, ihopslagna med dina egna listor och tillämpade som en värdfil på ditt system.</string>
   <string name="button_check_update_hosts">Sök efter uppdateringar</string>
+  <string name="button_update_hosts">Uppdatera värdar</string>
+  <string name="button_enable_hosts">Aktivera annonsblockering</string>
+  <string name="button_disable_hosts">Inaktivera annonsblockering</string>
+  <string name="header_webserver">Webbserver</string>
+  <string name="webserver_status_running">Körs</string>
+  <string name="webserver_status_stopped">Stoppad</string>
+  <string name="button_enable_webserver">Aktivera webbserver</string>
+  <string name="button_disable_webserver">Inaktivera webbserver</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Tom lista</string>
+  <string name="checkbox_list_empty_text">Du kan lägga till objekt via plusknappen.</string>
   <string name="checkbox_list_context_delete">Ta bort</string>
   <string name="checkbox_list_footer">Efter du har lagt till saker till listan måste du tillämpa AdAway igen!</string>
   <string name="checkbox_list_edit_dialog_title">Redigera</string>
@@ -29,12 +42,26 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Vitlista</string>
   <string name="lists_tab_blacklist">Svartlista</string>
+  <string name="lists_tab_redirection_list">Omdirigeringar</string>
+  <string name="list_add_dialog_black">Lägg till värd till svartlistan</string>
+  <string name="list_add_dialog_white">Lägg till värd till vitlistan</string>
+  <string name="list_add_dialog_redirect">Lägg till värdomdirigering</string>
+  <string name="list_edit_dialog_black">Redigera svartlistvärd</string>
+  <string name="list_edit_dialog_white">Redigera vitlistvärd</string>
+  <string name="list_edit_dialog_redirect">Redigera omdirigering</string>
   <string name="list_dialog_hostname">Värdnamn:</string>
+  <string name="list_dialog_hostname_hint">Värdkällans webbadress</string>
+  <string name="list_dialog_wildcard">(Jokertecknen * och ? är tillåtna)</string>
   <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerar...</string>
   <string name="export_dialog">Exporterar...</string>
   <string name="export_success">Exporterade alla poster till en fil med namnet \"adaway-export\" på ditt SD-kort.</string>
+  <string name="export_failed">Det gick inte att exportera dina listor till SD-kortet.</string>
   <!--Hosts content-->
+  <string name="hosts_header">Värdfilerna</string>
+  <string name="hosts_description">Värdfilen (HOSTS) är en systemfil som mappar om värdnamn till IP-adresser. Det är en vanlig textfil som AdAway kan hantera. Här är några få linjer:</string>
+  <string name="hosts_content">Laddar värdfilens innehåll…</string>
+  <string name="hosts_open_button">Öppna värdfilen</string>
   <!--Status Notifications-->
   <string name="status_checking">Letar efter uppdateringar...</string>
   <string name="status_reverting">Återställer...</string>
@@ -128,11 +155,18 @@
     <item>13 Euro</item>
   </string-array>
   <!--Adware-->
+  <string name="adware_header">Annonsappar</string>
+  <string name="adware_description">Här hittar du installerade annonsappar, stygga applikationer som inte kan blockeras med AdAway. Dessa appar använder till exempel Airpush-aviseringar som kan visa sig även om appen inte körs och den kan även ändra din ringsignal. Den enda tillgängliga lösningen är att avinstallera dessa appar genom att trycka i listan.</string>
+  <string name="adware_scanning">Söker...</string>
+  <string name="adware_empty">Inga annonsappar funna!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">ej tillgänglig</string>
+  <string name="hosts_add_dialog_title">Lägg till källa</string>
+  <string name="hosts_edit_dialog_title">Redigera källa</string>
   <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">Värdkällans webbadress</string>
   <!--Other-->
   <string name="app_subtitle">Annonsblockerare</string>
   <string name="no_text_editor_title">Ingen textredigerare installerad</string>
@@ -140,15 +174,32 @@
   <string name="no_file_manager_title">Ingen filhanterare installerad</string>
   <string name="no_file_manager">Ingen filhanterare kunde hittas för att öppna filer. Du kan installera OI File Manager eller andra filhanterare att hantera detta.\n\nVill du installera OI File Manager nu?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump är ett verktyg för att övervaka DNS-förfrågningar och spara dem i en loggfil. Du kan starta det i bakgrunden, köra program som visar annonser, och efteråt analysera DNS-förfrågningarna med hjälp av loggfilen. Möjlig annonsserver kan då läggas till på din svartlista.</string>
+  <string name="tcpdump_disable_monitoring">Inaktivera övervakning</string>
+  <string name="tcpdump_enable_monitoring">Aktivera övervakning</string>
+  <string name="tcpdump_show_results">Visa resultatet</string>
+  <string name="tcpdump_redirect_dialog_title">Omdirigera domän</string>
+  <string name="tcpdump_menu_sort">Sortera domänerna</string>
+  <string name="tcpdump_menu_clear">Rensa loggen</string>
+  <string name="tcpdump_sort_alphabetical">Alfabetiskt</string>
+  <string name="tcpdump_sort_top_level_domain">Toppleveldomän</string>
+  <string name="tcpdump_entry_add_blacklist">Lägg till post till svartlistan</string>
+  <string name="tcpdump_entry_add_whitelist">Lägg till post till vitlistan</string>
+  <string name="tcpdump_entry_add_redirection_list">Lägg till post till omdirigeringslista</string>
   <!--Preferences-->
   <string name="pref_download">Allmänna inställningar</string>
+  <string name="pref_dismiss_welcome">Dölj välkomstkort</string>
+  <string name="pref_dismiss_welcome_summary">Visa inte välkomstkortet på hemskärmen</string>
+  <string name="pref_dark_theme">Aktivera mörkt tema</string>
+  <string name="pref_dark_theme_summary">Använd mörkt tema i stället för det ljusa</string>
+  <string name="pref_dark_theme_notification">Temat kommer att ändras vid nästa applikationsstart</string>
   <string name="pref_hosts">Värdfil</string>
-  <string name="pref_redirection_ip">Omdirigera IP</string>
+  <string name="pref_redirection_ip">Omdirigerings-IP</string>
   <string name="pref_update_check">Sök efter uppdateringar</string>
   <string name="pref_apply_method">Värdfil</string>
   <string name="pref_apply_method_summary">Innan du ändrar denna inställning läs i hjälpen om funktionen.</string>
-  <string name="pref_redirection_ip_summary">Alla blockerade värdnamn dirigeras om till denna IP-adress.</string>
+  <string name="pref_redirection_ip_summary">Alla blockerade värdnamn omdirigeras till denna IP-adress.</string>
   <string name="pref_header_preferences">Inställningar</string>
   <string name="pref_header_preferences_summary">Allmänna inställningar för AdAway</string>
   <string name="pref_never_reboot">Göm omstartsdialog</string>
@@ -177,7 +228,8 @@
   <string name="pref_update_only_on_wifi_summary">Starta endast bakgrundsuppdateringar om du är ansluten till ett WiFi-nätverk.</string>
   <string name="pref_whitelist_rules">Tillåt vitlistning</string>
   <string name="pref_whitelist_rules_summary">Tillåt vitlistningsposter från värdkällor.</string>
-  <string name="pref_redirection_rules_summary">UTGER EN SÄKERHETSRISK! Tillåt omdirigeringsposter från värdkällor.</string>
+  <string name="pref_redirection_rules">Tillåt omdirigeringar</string>
+  <string name="pref_redirection_rules_summary">UTGÖR EN SÄKERHETSRISK! Tillåt omdirigeringsposter från värdkällor.</string>
   <string name="pref_debug">Felsökning</string>
   <string name="pref_enable_debug">Felsökningsloggning</string>
   <string name="pref_enable_debug_summary">Du måste starta om AdAway för att den här inställningen ska börja gälla.</string>
@@ -186,8 +238,43 @@
   <string name="pref_enable_ipv6_summary">Alla värdfils poster kommer att få ett motsvarande ::1 (IPv6 localhost) post.</string>
   <string name="pref_enable_systemless_summary">Förhindra AdAway från att modifiera systempartitionen </string>
   <string name="pref_enable_systemless">Aktivera systemlöst läge</string>
+  <string name="pref_edit_text_value">Redigera textinställningsvärden</string>
+  <string name="drawer_open">Öppna meny</string>
+  <string name="drawer_close">Stäng meny</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Hem</item>
+    <item>Värdkällor</item>
+    <item>Dina listor</item>
+    <item>Öppna värdfilen</item>
+    <item>Logga DNS-förfrågningar</item>
+    <item>Sök efter annonsappar</item>
+    <item>Inställningar</item>
+    <item>Hjälp</item>
+  </string-array>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNS-förfrågningar</string>
+  <string name="shortcut_your_lists">Dina listor</string>
   <string name="shortcut_preferences">Inställningar</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">%1$s behöver inte uppdateras</string>
+  <string name="hosts_source_need_update">%1$s behöver uppdateras</string>
+  <string name="hosts_source_last_update">Senaste uppdateringen %1$s sedan</string>
+  <string name="hosts_source_unknown_status">Okänd uppdaterigsstatus</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d minut</item>
+    <item quantity="other">%d minuter</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d timme</item>
+    <item quantity="other">%d timmar</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d dag</item>
+    <item quantity="other">%d dagar</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d månad</item>
+    <item quantity="other">%d månader</item>
+  </plurals>
 </resources>

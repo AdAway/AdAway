@@ -262,5 +262,24 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
   <string name="shortcut_your_lists">Saját listák</string>
   <string name="shortcut_preferences">Beállítások</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Friss (frissítve %1$s ezelőtt)</string>
+  <string name="hosts_source_need_update">A %1$s frissítése szükséges</string>
+  <string name="hosts_source_last_update">Utolsó frissítés %1$s ezelőtt</string>
   <string name="hosts_source_unknown_status">Ismeretlen frissítési státusz</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d perccel</item>
+    <item quantity="other">%d perccel</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d órával</item>
+    <item quantity="other">%d órával</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d nappal</item>
+    <item quantity="other">%d nappal</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d hónappal</item>
+    <item quantity="other">%d hónappal</item>
+  </plurals>
 </resources>
