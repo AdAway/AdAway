@@ -1,214 +1,287 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
-  <!--Buttons-->
-  <string name="button_exit">Έξοδος</string>
-  <string name="button_apply">Λήψη αρχείων και εφαρμογή αποκλεισμού διαφημίσεων</string>
-  <string name="button_close">Κλείσιμο</string>
-  <string name="button_yes">Ναι</string>
-  <string name="button_no">Όχι</string>
-  <string name="button_revert">Απενεργοποίηση αποκλεισμού διαφημίσεων</string>
-  <string name="button_add">Προσθήκη</string>
-  <string name="button_cancel">Άκυρο</string>
-  <string name="button_revert_text">Επαναφορά του αρχικού αρχείου hosts στο σύστημά σας.</string>
-  <string name="button_save">Αποθήκευση</string>
-  <string name="button_webserver_toggle_checked">Ο διακομιστής δικτύου λειτουργεί</string>
-  <string name="button_webserver_toggle_unchecked">Ο διακομιστής δικτύου δεν λειτουργεί</string>
-  <string name="button_webserver_toggle_text">Εκκίνηση ή διακοπή του διακομιστή ιστοσελίδων στο τοπικό μηχάνημα για απάντηση σε φραγμένα ονόματα.</string>
-  <string name="button_help">Βοήθεια</string>
-  <!--Home-->
-  <string name="text_update">Όλα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
-  <string name="button_check_update_hosts">Έλεγχος για ενημερώσεις</string>
-  <!--Checkbox List-->
-  <string name="checkbox_list_empty">Άδεια λίστα</string>
-  <string name="checkbox_list_context_delete">Διαγραφή</string>
-  <string name="checkbox_list_footer">Μετά την προσθήκη νέων στοιχείων σε αυτήν την λίστα θα πρέπει να \"περάσετε\" το AdAway ξανά!</string>
-  <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
-  <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
-  <string name="checkbox_list_context_edit">Επεξεργασία</string>
-  <!--Your lists-->
-  <string name="lists_tab_whitelist">Λευκή λίστα</string>
-  <string name="lists_tab_blacklist">Μαύρη λίστα</string>
-  <string name="list_dialog_hostname">Όνομα:</string>
-  <string name="list_dialog_ip">IP (IPv4 ή IPv6):</string>
-  <string name="import_dialog">Εισαγωγή...</string>
-  <string name="export_dialog">Εξαγωγή...</string>
-  <string name="export_success">Εξαγωγή όλων των εγγραφών σε αρχείο με όνομα \'adaway-export\' στην κάρτα SD σας.</string>
-  <!--Hosts content-->
-  <!--Status Notifications-->
-  <string name="status_checking">Έλεγχος για ενημέρωση...</string>
-  <string name="status_reverting">Επαναφορά...</string>
-  <string name="status_reverting_subtitle">Δημιουργία στάνταρ αρχείου hosts</string>
-  <string name="status_checking_subtitle">Έλεγχος για ενημέρωση</string>
-  <string name="status_update_available">Υπάρχει διαθέσιμη ενημέρωση</string>
-  <string name="status_update_available_subtitle">Υπάρχουν διαθέσιμα πιο πρόσφατα αρχεία hosts</string>
-  <string name="status_no_connection">Δεν υπάρχει σύνδεση στο ίντερνετ</string>
-  <string name="status_no_connection_subtitle">Δεν υπάρχει διαθέσιμη σύνδεση στο ίντερνετ</string>
-  <string name="status_download_fail">Μη διαθέσιμες πηγές</string>
-  <string name="status_download_fail_subtitle_new">Δεν υπάρχουν διαθέσιμες πηγές hosts!</string>
-  <string name="status_enabled">Ενεργοποιημένο</string>
-  <string name="status_enabled_subtitle">Ενεργοποιήθηκαν τα πιο πρόσφατα αρχεία hosts</string>
-  <string name="status_disabled">Απενεργοποιημένο</string>
-  <string name="status_disabled_subtitle">Απενεργοποιημένο</string>
-  <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Ο σύνδεσμος από τον προορισμό στο /system/etc/hosts δεν υπάρχει ή είναι λανθασμένος! Το AdAway δεν θα λειτουργήσει αν δεν δείχνει στο σωστό αρχείο.
 
-Θέλετε να προσπαθήσετε να δημιουργήσετε έναν σύνδεσμο;</string>
-  <string name="apply_symlink_missing_title">Η συντόμευση λείπει</string>
-  <string name="apply_not_enough_space">Δεν υπάρχει αρκετός χώρος στο διαμέρισμα αποθηκευτικού χώρου!
-Προσπαθήστε να αλλάξετε το αρχείο προορισμού hosts στις ρυθμίσεις σε /data/data/hosts.</string>
-  <string name="apply_not_enough_space_title">Δεν υπάρχει διαθέσιμος χώρος</string>
-  <string name="apply_private_file_fail">Δεν μπορεί να διαβαστεί το κατεβασμένο αρχείο.</string>
-  <string name="apply_private_file_fail_title">Απέτυχε το προσωπικό αρχείο</string>
-  <string name="apply_remount_fail">Η επανατοποθέτηση του διαμερίσματος με δικαιώματα εγγραφής/ανάγνωσης απέτυχε! </string>
-  <string name="apply_remount_fail_title">Η επανατοποθέτηση απέτυχε</string>
-  <string name="apply_copy_fail">Η αντιγραφή του αρχείου hosts απέτυχε!</string>
-  <string name="apply_copy_fail_title">Η αντιγραφή απέτυχε</string>
-  <string name="apply_success_subtitle">Εφαρμοσμένες πηγές hosts:</string>
-  <string name="apply_success_title">Επιτυχής εφαρμογή</string>
-  <string name="apply_success_dialog">Η εφαρμογή ήταν επιτυχής.
-Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
-Θέλετε να κάνετε επανεκκίνηση;
-(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
-  <string name="apply_symlink_successful">Ο σύνδεσμος δημιουργήθηκε με επιτυχία.
-Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
-Θέλετε να κάνετε επανεκκίνηση;
-(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
-  <string name="apply_symlink_successful_title">Επιτυχής δημιουργία συντόμευσης</string>
-  <string name="apply_symlink_fail">Δεν ήταν δυνατό να δημιουργηθεί ο σύνδεσμος από το Android.
-Η αποτυχία οφείλεται συνήθως σε ένα \'χαρακτηριστικό\' που ονομάζεται S-ON στις συσκευές HTC!
+    <string name="app_name">AdAway</string>
 
-Μια λύση είναι να επανεκκινήσετε την συσκευή σας σε κατάσταση ανάκτησης και να δημιουργήσετε τον σύνδεσμο εκεί με την εντολή \'ln -s /data/data/hosts /system/etc/hosts\'
+    <!--Buttons-->
+    <string name="button_exit">Έξοδος</string>
+    <string name="button_apply">Λήψη αρχείων και εφαρμογή αποκλεισμού διαφημίσεων</string>
+    <string name="button_close">Κλείσιμο</string>
+    <string name="button_yes">Ναι</string>
+    <string name="button_no">Όχι</string>
+    <string name="button_revert">Απενεργοποίηση αποκλεισμού διαφημίσεων</string>
+    <string name="button_add">Προσθήκη</string>
+    <string name="button_cancel">Άκυρο</string>
+    <string name="button_revert_text">Επαναφορά του αρχικού αρχείου hosts στο σύστημά σας.</string>
+    <string name="button_save">Αποθήκευση</string>
+    <string name="button_webserver_toggle_checked">Ο διακομιστής δικτύου λειτουργεί</string>
+    <string name="button_webserver_toggle_unchecked">Ο διακομιστής δικτύου δεν λειτουργεί</string>
+    <string name="button_webserver_toggle_text">Εκκίνηση ή διακοπή του διακομιστή ιστοσελίδων στο τοπικό μηχάνημα για απάντηση σε φραγμένα ονόματα.</string>
+    <string name="button_help">Βοήθεια</string>
 
-Αν αυτό δεν επιτύχει, αναζητήστε στο Internet για S-OFF και το μοντέλο της συσκευής σας.</string>
-  <string name="apply_symlink_fail_title">Η δημιουργία συντόμευσης απέτυχε</string>
-  <string name="apply_help">Παρακαλούμε ανατρέξτε στην Βοήθεια για περισσότερες πληροφορίες</string>
-  <string name="apply_apn_proxy">Υπάρχει διαμεσολαβητής APN ορισμένος στο Android σας!
-Το AdAway δεν λειτουργεί αξιόπιστα σε δίκτυα κινητής τηλεφωνίας όπως 3G. Μπορείτε να απενεργοποιήσετε τον διαμεσολαβητή πηγαίνοντας στο επιλεγμένο APN (Στο Android 4: Ασύρματες συνδέσης και δίκτυα -&gt; Περισσότερα... -&gt; Δίκτυα κινητής -&gt; Ονόματα Σημείων Πρόσβασης) και αφαιρώντας την τιμή στο πεδίο \"διαμεσολαβητής\".</string>
-  <string name="apply_apn_proxy_title">Υπάρχει ορισμένος διαμεσολαβητής APN!</string>
-  <string name="no_connection">Η σύνδεση στο ίντερνετ δεν λειτουργεί</string>
-  <string name="no_connection_title">Αδυναμία συνδεσης</string>
-  <string name="download_dialog">Λήψη...</string>
-  <string name="apply_dialog">Εφαρμογή...</string>
-  <string name="apply_dialog_lists">Εφαρμογή Λευκής και Μαύρης λίστας</string>
-  <string name="apply_dialog_hostnames">Ανάλυση και συγχώνευση αρχείων hosts</string>
-  <string name="apply_dialog_hosts">Δημιουργία αρχείου hosts</string>
-  <string name="apply_dialog_apply">Εφαρμογή αρχείου hosts</string>
-  <string name="apply_fail">Η εφαρμογή του αρχείου hosts στο σύστημά σας απέτυχε!
-Προσπαθήστε να αλλάξετε το αρχείο προορισμού hosts στις ρυθμίσεις σε /data/data/hosts.</string>
-  <string name="apply_fail_title">Εφαρμογή απέτυχε</string>
-  <string name="revert_successful">Επαναφέρατε το αρχικό αρχείο hosts.
-Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
-Θέλετε να κάνετε επανεκκίνηση;
-(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
-  <string name="revert_successful_title">Επιτυχής επαναφορά</string>
-  <string name="revert_problem">Η επαναφορά απέτυχε λόγω μη γνωστής αιτίας</string>
-  <string name="revert_problem_title">Η επαναφορά απέτυχε!</string>
-  <string name="download_fail_dialog">Καμία από τις ενεργοποιημένες πηγές hosts σας δεν είναι διαθέσιμη! Είστε συνδεδεμένοι στο Internet;</string>
-  <string name="download_fail_title">Το κατέβασμα απέτυχε</string>
-  <string name="no_private_file">Το προσωπικό αρχείο δεν μπορεί να δημιουργηθεί.</string>
-  <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
-  <string name="enable_systemless_successful">Έχετε ενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n\n(Για να αποτρέψετε το χάσιμο δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα sd τωρα!) </string>
-  <string name="enable_systemless_successful_title">Ενεργοποίηση επιτυχής</string>
-  <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής για να δουλέψει. \n\n(Για να αποτρέψετε το χάσιμο δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα sd τωρα!) </string>
-  <string name="disable_systemless_successful_title">Απενεργοποίηση επιτυχής</string>
-  <!--Other Dialogs-->
-  <string name="no_root_title">Χρειάζεται δικαιώματα διαχειριστή
-</string>
-  <string name="hosts_add_dialog">Εισάγετε διεύθυνση URL για το αρχείο hosts:</string>
-  <string name="no_hostname">Μη έγκυρο όνομα!</string>
-  <string name="no_hostname_title">Κακή μορφή ονόματος</string>
-  <string name="no_ip">Αυτή η διεύθυνση IP δεν είναι έγκυρη! </string>
-  <string name="no_ip_title">Κακή μορφή διεύθυνσης IP</string>
-  <string name="reboot_never_reboot">Να μην γίνει επανεκκίνηση και να μην εμφανιστεί ξανά αυτή η ερώτηση!</string>
-  <string name="loading">Φόρτωση...</string>
-  <!--Menu entries-->
-  <string name="menu_refresh">Ανανέωση</string>
-  <string name="menu_add">Προσθήκη</string>
-  <string name="menu_hosts_sources">Πηγές Hosts </string>
-  <string name="menu_help">Βοήθεια</string>
-  <string name="menu_import">Εισαγωγή όλων των λιστών</string>
-  <string name="menu_export">Εξαγωγή όλων των λιστών</string>
-  <!--Help-->
-  <string name="help_tab_about">Περί</string>
-  <string name="help_tab_donate">Δωρίστε</string>
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">Συχνές Ερωτήσεις</string>
-  <string name="help_tab_problems">Προβλήματα</string>
-  <string name="help_tab_changelog">Καταγραφή αλλαγών</string>
-  <string name="help_about_version">Έκδοση:</string>
-  <string name="help_donation_paypal_item">Δωρεά AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
-  <!--Adware-->
-  <!--Hosts sources-->
-  <string name="hosts_last_modified_local">Τοπικά</string>
-  <string name="hosts_last_modified_online">Σε λειτουργία</string>
-  <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
-  <string name="hosts_dialog_url">URL:</string>
-  <!--Other-->
-  <string name="app_subtitle">Φραγή διαφημίσεων</string>
-  <string name="no_text_editor_title">Δεν υπάρχει εγκατεστημένος κειμενογράφος</string>
-  <string name="no_text_editor">Δεν ήταν δυνατή η εύρεση επεξεργαστή κειμένου για το άνοιγμα του αρχείου hosts. Μπορείτε να εγκαταστήσετε το Jota ή άλλους επεξεργαστές κειμένου για τον χειρισμό αυτού.
+    <!--Home-->
+    <string name="header_help">Καλώς ήρθατε!</string>
+    <string name="text_help">Το AdAway είναι ένα ελεύθερο και ανοιχτού πηγαίου κώδικα λογισμικό αποκλεισμού διαφημίσεων. Κάνει λήψη μιας λίστας διαφημιστικών δικτύων και ρυθμίζει τη συσκευή σας έτσι ώστε να τα αποκλείει.\n
+   Θέλετε να μάθετε περισσότερα; Διαβάστε τα κείμενα βοήθειας παρακάτω!</string>
+    <string name="button_show_help">Εμφάνιση περισσότερης βοήθειας</string>
+    <string name="icon_update_status">Κατάσταση ενημέρωσης</string>
+    <string name="text_update">Όλα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
+    <string name="button_check_update_hosts">Έλεγχος για ενημερώσεις</string>
+    <string name="button_update_hosts">Ενημέρωση hosts</string>
+    <string name="button_enable_hosts">Απενεργοποίηση αποκλεισμού διαφημίσεων</string>
+    <string name="button_disable_hosts">Απενεργοποίηση αποκλεισμού διαφημίσεων</string>
+    <string name="header_webserver">Διακομιστής διαδικτύου</string>
+    <string name="webserver_status_running">Εκτελείται</string>
+    <string name="webserver_status_stopped">Διακόπηκε</string>
+    <string name="button_enable_webserver">Ενεργοποίηση του διακομιστή δικτύου</string>
+    <string name="button_disable_webserver">Απενεργοποίηση διακομιστή διαδικτύου</string>
 
-Θέλετε να εγκαταστήσετε το Jota;</string>
-  <string name="no_file_manager_title">Δεν υπάρχει εγκατεστημένο πρόγραμμα διαχείρισης αρχείων</string>
-  <string name="no_file_manager">Δεν βρέθηκε διαχειριστής αρχείων για το άνοιγμα αρχείων. Μπορείτε να εγκαταστήσετε τον OI File Manager ή άλλους διαχειριστές αρχείων για τον χειρισμό αυτών.
+    <!--Checkbox List-->
+    <string name="checkbox_list_empty">Άδεια λίστα</string>
+    <string name="checkbox_list_empty_text">Μπορείτε να προσθέσετε καταχωρήσεις πατώντας το κουμπί με το συν.</string>
+    <string name="checkbox_list_context_delete">Διαγραφή</string>
+    <string name="checkbox_list_footer">Μετά την προσθήκη νέων στοιχείων σε αυτήν την λίστα θα πρέπει να εφαρμόσετε το AdAway ξανά!</string>
+    <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
+    <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
+    <string name="checkbox_list_context_edit">Επεξεργασία</string>
 
-Θέλετε να εγκαταστήσετε τον OI File Manager;</string>
-  <!--Tcpdump-->
-  <string name="tcpdump_description">Το tcpdump είναι ένα εργαλείο για την παρακολούθηση αιτήσεων DNS και την αποθήκευσή τους σε αρχείο καταγραφών. Μπορείτε να το εκκινήσετε στο παρασκήνιο, να εκτελέσετε εφαρμογές που εμφανίζουν διαφημίσεις, και έπειτα να αναλύσετε τις αιτήσεις DNS χρησιμοποιώντας το αρχείο αυτό. Ο πιθανός διακομιστής διαφημίσεων μπορεί μετά να προστεθεί στη μαύρη λίστα σας.</string>
-  <!--Preferences-->
-  <string name="pref_download">Γενικές προτιμήσεις</string>
-  <string name="pref_hosts">Αρχείο hosts</string>
-  <string name="pref_redirection_ip">IP Ανακατεύθυνσης</string>
-  <string name="pref_update_check">Έλεγχος για ενημερώσεις</string>
-  <string name="pref_apply_method">Αρχείο hosts προορισμού</string>
-  <string name="pref_apply_method_summary">Πριν μεταβάλετε αυτή την ρύθμιση, διαβάστε την Βοήθεια σχετικά με αυτή την λειτουργικότητα.</string>
-  <string name="pref_redirection_ip_summary">Όλα τα φραγμένα ονόματα διακομιστών επανακατευθύνονται σε αυτή την διεύθυνση IP.</string>
-  <string name="pref_header_preferences">Επιλογές</string>
-  <string name="pref_header_preferences_summary">Γενικές ρυθμίσεις για το AdAway</string>
-  <string name="pref_never_reboot">Απόκρυψη διαλόγου επανεκκίνησης</string>
-  <string name="pref_never_reboot_summary">Κρύβει τον διάλογο που ζητά την επανεκκίνηση του Android μετά από επιτυχή εφαρμογή</string>
-  <string name="pref_webserver_on_boot">Εκτέλεση του διακομιστή ιστοσελίδων κατά την εκκίνηση</string>
-  <string name="pref_webserver_on_boot_summary">Εκτέλεση του διακομιστή ιστοσελίδων κατά την εκκίνηση, με ακρόαση σε τοπικές διευθύνσεις IP</string>
-  <string name="pref_webserver_enabled">Ενεργοποίηση του διακομιστή ιστοσελίδων</string>
-  <string name="pref_webserver_enabled_summary">Ενεργοποίηση του διακομιστή ιστοσελίδων με ακρόαση σε τοπικές διευθύνσεις IP, για την εξυπηρέτηση αιτήσεων για φραγμένα ονόματα διακομιστών.</string>
-  <string name="pref_webserver">Τοπικός διακομιστής ιστοσελίδων</string>
-  <string name="pref_custom_target">Παραμετροποιημένος προορισμός</string>
-  <string name="pref_custom_target_summary">Χρησιμοποιείται μόνο αν το αρχείο προορισμού hosts είναι ορισμένο σε παραμετροποιημένο προορισμό</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Παραμετροποιημένος προορισμός</item>
-  </string-array>
-  <string name="pref_update_check_summary">Έλεγχος για ενημερώσεις κατά την εκκίνηση του AdAway</string>
-  <string name="pref_sdcard_problem">Αυτό το χαρακτηριστικό δεν θα λειτουργήσει σωστά αν το AdAway εγκατασταθεί σε κάρτα SD!</string>
-  <string name="pref_background">Υπηρεσίες παρασκηνίου</string>
-  <string name="pref_update_check_daily">Ημερήσιος έλεγχος για ενημερώσεις</string>
-  <string name="pref_update_check_daily_summary">Ημερήσιος έλεγχος για ενημερώσεις στο παρασκήνιο με ειδοποιήσεις</string>
-  <string name="pref_automatic_update_daily">Αυτόματη ενημέρωση</string>
-  <string name="pref_automatic_update_daily_summary">Αυτόματη ενημέρωση στο παρασκήνιο αν υπάρχουν διαθέσιμες ενημέρωσεις.</string>
-  <string name="pref_update_only_on_wifi">Ενημέρωση μόνο με σύνδεση WiFi</string>
-  <string name="pref_update_only_on_wifi_summary">Εκτέλεση ενημερώσεων παρασκηνίου μόνο με σύνδεση δικτύου WiFi.</string>
-  <string name="pref_whitelist_rules">Να επιτραπει η λευκή λίστα</string>
-  <string name="pref_whitelist_rules_summary">Να επιτραπει η λευκή λίστα από τις πηγές hosts.</string>
-  <string name="pref_redirection_rules_summary">Κίνδυνος ασφαλείας! Να επιτραπούν ανακατευθύνσεις από τις πηγές hosts.</string>
-  <string name="pref_debug">Αποσφαλμάτωση</string>
-  <string name="pref_enable_debug">Καταγραφή αποσφαλμάτωσης</string>
-  <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
-  <string name="pref_enable_ipv6">Ενεργοποίηση πρωτοκόλλου IPv6.</string>
-  <string name="pref_enable_ipv6_summary">Όλες οι καταχωρήσεις του αρχείου host θα αποκτήσουν μια καταχώρηση ::1 (IPv6 localhost) αντίστοιχα.</string>
-  <string name="pref_enable_systemless_summary">Το AdAway δεν θα πειράξει το σύστημα</string>
-  <string name="pref_enable_systemless">Ενεργοποίηση λειτουργίας να μην πειράξει το σύστημα</string>
-  <!--Drawer menu items-->
-  <!--Shortcuts-->
-  <string name="shortcut_preferences">Επιλογές</string>
-  <!--Hosts source status-->
+    <!--Your lists-->
+    <string name="lists_tab_whitelist">Λευκή λίστα</string>
+    <string name="lists_tab_blacklist">Μαύρη λίστα</string>
+    <string name="lists_tab_redirection_list">Ανακατευθύνσεις</string>
+    <string name="list_add_dialog_black">Προσθήκη host σε μαύρη λίστα</string>
+    <string name="list_add_dialog_white">Προσθήκη host σε λευκή λίστα</string>
+    <string name="list_add_dialog_redirect">Προσθήκη host σε ανακατεύθυνση</string>
+    <string name="list_edit_dialog_black">Επεξεργασία της μαύρης λίστας hosts</string>
+    <string name="list_edit_dialog_white">Επεξεργασία της λευκής λίστας hosts</string>
+    <string name="list_edit_dialog_redirect">Επεξεργασία ανακατεύθυνσης</string>
+    <string name="list_dialog_hostname">Όνομα διακομιστή:</string>
+    <string name="list_dialog_hostname_hint">Το πηγαίο URL του host</string>
+    <string name="list_dialog_wildcard">(Η χρήση των χαρακτήρων μπαλαντέρ * και ? επιτρέπεται)</string>
+    <string name="list_dialog_ip">IP (IPv4 ή IPv6):</string>
+    <string name="import_dialog">Εισαγωγή...</string>
+    <string name="export_dialog">Εξαγωγή...</string>
+    <string name="export_success">Εξαγωγή όλων των εγγραφών σε αρχείο με όνομα \'adaway-export\' στην κάρτα SD σας.</string>
+    <string name="export_failed">Αποτυχία εξαγωγής της λίστας σας στην SD κάρτα σας.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">Το αρχείο hosts</string>
+    <string name="hosts_description">Το αρχείο hosts είναι ένα αρχείο συστήματος το οποίο αντιστοιχίζει ονόματα διακομιστών (hostnames) σε διευθύνσεις IP. Είναι ένα αρχείο απλού κειμένου το οποίο διαχειρίζεται το AdAway. Εδώ παρατίθενται οι πρώτες γραμμές του:</string>
+    <string name="hosts_content">Γίνεται φόρτωση των περιεχομένων του αρχείου hosts...</string>
+    <string name="hosts_open_button">Άνοιγμα του αρχείου hosts</string>
+
+    <!--Status Notifications-->
+    <string name="status_checking">Έλεγχος για ενημέρωση...</string>
+    <string name="status_reverting">Επαναφορά...</string>
+    <string name="status_reverting_subtitle">Δημιουργία τυπικού αρχείου hosts</string>
+    <string name="status_checking_subtitle">Έλεγχος για ενημέρωση</string>
+    <string name="status_update_available">Υπάρχει διαθέσιμη ενημέρωση</string>
+    <string name="status_update_available_subtitle">Υπάρχουν διαθέσιμα πιο πρόσφατα αρχεία hosts</string>
+    <string name="status_no_connection">Δεν υπάρχει σύνδεση στο ίντερνετ</string>
+    <string name="status_no_connection_subtitle">Δεν υπάρχει διαθέσιμη σύνδεση στο ίντερνετ</string>
+    <string name="status_download_fail">Μη διαθέσιμες πηγές</string>
+    <string name="status_download_fail_subtitle_new">Δεν υπάρχουν διαθέσιμες πηγές hosts!</string>
+    <string name="status_enabled">Ενεργοποιημένο</string>
+    <string name="status_enabled_subtitle">Ενεργοποιήθηκαν τα πιο πρόσφατα αρχεία hosts</string>
+    <string name="status_disabled">Απενεργοποιημένο</string>
+    <string name="status_disabled_subtitle">Απενεργοποιημένο</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing">Ο σύνδεσμος από τον προορισμό στο /system/etc/hosts δεν υπάρχει ή είναι λανθασμένος! Το AdAway δεν θα λειτουργήσει αν δεν δείχνει στο σωστό αρχείο.  \n
+ \n
+ Θέλετε να προσπαθήσετε να δημιουργήσετε έναν σύνδεσμο;</string>
+    <string name="apply_symlink_missing_title">Η συντόμευση λείπει</string>
+    <string name="apply_not_enough_space">Δεν υπάρχει αρκετός χώρος στο διαμέρισμα αποθηκευτικού χώρου! Προσπαθήστε να αλλάξετε το αρχείο προορισμού hosts στις ρυθμίσεις σε /data/data/hosts.</string>
+    <string name="apply_not_enough_space_title">Δεν υπάρχει διαθέσιμος χώρος</string>
+    <string name="apply_private_file_fail">Δεν μπορεί να διαβαστεί το κατεβασμένο αρχείο.</string>
+    <string name="apply_private_file_fail_title">Απέτυχε το προσωπικό αρχείο</string>
+    <string name="apply_remount_fail">Η επανατοποθέτηση του διαμερίσματος με δικαιώματα εγγραφής/ανάγνωσης απέτυχε!</string>
+    <string name="apply_remount_fail_title">Η επανατοποθέτηση απέτυχε</string>
+    <string name="apply_copy_fail">Η αντιγραφή του αρχείου hosts απέτυχε!</string>
+    <string name="apply_copy_fail_title">Η αντιγραφή απέτυχε</string>
+    <string name="apply_success_subtitle">Εφαρμοσμένες πηγές hosts:</string>
+    <string name="apply_success_title">Επιτυχής εφαρμογή</string>
+    <string name="apply_success_dialog">Η εφαρμογή ήταν επιτυχής. Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές. \n
+ \n
+ Θέλετε να κάνετε επανεκκίνηση; (Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
+    <string name="apply_symlink_successful">Ο σύνδεσμος δημιουργήθηκε με επιτυχία. Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές. \n
+ \n
+ Θέλετε να κάνετε επανεκκίνηση; \n
+ (Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
+    <string name="apply_symlink_successful_title">Επιτυχής δημιουργία συντόμευσης</string>
+    <string name="apply_symlink_fail">Δεν ήταν δυνατό να δημιουργηθεί ο σύνδεσμος από το Android. Η αποτυχία οφείλεται συνήθως σε ένα \'χαρακτηριστικό\' που ονομάζεται S-ON στις συσκευές HTC!\n
+ \n
+  Μια λύση είναι να επανεκκινήσετε την συσκευή σας σε κατάσταση ανάκτησης και να δημιουργήσετε τον σύνδεσμο εκεί με την εντολή \'ln -s /data/data/hosts /system/etc/hosts\'. \n
+ \n
+ Αν αυτό δεν επιτύχει, αναζητήστε στο Internet για S-OFF και το μοντέλο της συσκευής σας.</string>
+    <string name="apply_symlink_fail_title">Η δημιουργία συντόμευσης απέτυχε</string>
+    <string name="apply_help">Παρακαλούμε ανατρέξτε στην Βοήθεια για περισσότερες πληροφορίες</string>
+    <string name="apply_apn_proxy">Υπάρχει διαμεσολαβητής APN ορισμένος στο Android σας! Το AdAway δεν λειτουργεί αξιόπιστα σε δίκτυα κινητής τηλεφωνίας όπως 3G. Μπορείτε να απενεργοποιήσετε τον διαμεσολαβητή πηγαίνοντας στο επιλεγμένο APN (Στο Android 4: Ασύρματες συνδέσης και δίκτυα -> Περισσότερα... -> Δίκτυα κινητής -> Ονόματα Σημείων Πρόσβασης) και αφαιρώντας την τιμή στο πεδίο \"διαμεσολαβητής\".</string>
+    <string name="apply_apn_proxy_title">Υπάρχει ορισμένος διαμεσολαβητής APN!</string>
+    <string name="no_connection">Η σύνδεση στο ίντερνετ δεν λειτουργεί.</string>
+    <string name="no_connection_title">Αδυναμία συνδεσης</string>
+    <string name="download_dialog">Λήψη...</string>
+    <string name="apply_dialog">Εφαρμογή...</string>
+    <string name="apply_dialog_lists">Εφαρμογή Λευκής και Μαύρης λίστας</string>
+    <string name="apply_dialog_hostnames">Ανάλυση και συγχώνευση αρχείων hosts</string>
+    <string name="apply_dialog_hosts">Δημιουργία αρχείου hosts</string>
+    <string name="apply_dialog_apply">Εφαρμογή αρχείου hosts</string>
+    <string name="apply_fail">Η εφαρμογή του αρχείου hosts στο σύστημά σας απέτυχε! Προσπαθήστε να αλλάξετε το αρχείο προορισμού hosts στις ρυθμίσεις σε /data/data/hosts.</string>
+    <string name="apply_fail_title">Η Εφαρμογή απέτυχε</string>
+    <string name="revert_successful">Επαναφέρατε το αρχικό αρχείο hosts. Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές. \n
+ \n
+ Θέλετε να κάνετε επανεκκίνηση; \n
+ (Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
+    <string name="revert_successful_title">Επιτυχής επαναφορά</string>
+    <string name="revert_problem">Η επαναφορά απέτυχε λόγω αγνώστων αιτιών.</string>
+    <string name="revert_problem_title">Η επαναφορά απέτυχε!</string>
+    <string name="download_fail_dialog">Καμία από τις ενεργοποιημένες πηγές hosts σας δεν είναι διαθέσιμη! Είστε συνδεδεμένοι στο Internet;</string>
+    <string name="download_fail_title">Η λήψη απέτυχε</string>
+    <string name="no_private_file">Το προσωπικό αρχείο δεν μπορεί να δημιουργηθεί.</string>
+    <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
+    <string name="enable_systemless_successful">Έχετε ενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \n
+ Μπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n
+         \n
+ Επιθυμείτε να επανεκκινήσετε τη συσκευή τώρα; \n
+ (Για να αποφύγετε την απώλεια δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα SD τωρα!)</string>
+    <string name="enable_systemless_successful_title">Ενεργοποίηση επιτυχής</string>
+    <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \n
+ Μπορεί να χρειαστεί επανεκκίνηση της συσκευής για να δουλέψει. \n
+ \n
+ Επιθυμείτε να επανεκκινήσετε τη συσκευή τώρα;(Για να αποφύγετε την απώλεια δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα SD τωρα!)</string>
+    <string name="disable_systemless_successful_title">Επιτυχής απενεργοποίηση</string>
+
+    <!--Other Dialogs-->
+    <string name="no_root_description">Είτε το su εκτελέσιμο δεν μπόρεσε να βρεθεί ή δεν έχετε παραχωρήσει δικαίωμα υπερχρήστη στο AdAway.\n
+     \n
+     Αυτό μπορεί να συμβεί αν δεν έχετε προσθέσει λογαριασμό υπερχρήστη στη συσκευή σας. Μπορείτε να βρείτε πληροφορίες σχετικά με το πως μπορείτε να προσθέσετε λογαριασμό υπερχρήστη στη συσκευή σας στο wiki.lineageos.org ή σε άλλους ιστότοπους σχετικούς με το Android.</string>
+    <string name="no_root_title">Απαιτείται Android με λογαριασμό υπερχρήστη</string>
+    <string name="hosts_add_dialog">Εισάγετε διεύθυνση URL για το αρχείο hosts:</string>
+    <string name="no_hostname">Μη έγκυρο όνομα διακομιστή!</string>
+    <string name="no_hostname_title">Κακή μορφή ονόματος διακομιστή</string>
+    <string name="no_ip">Αυτή η διεύθυνση IP δεν είναι έγκυρη!</string>
+    <string name="no_ip_title">Κακή μορφή διεύθυνσης IP</string>
+    <string name="reboot_never_reboot">Να μην γίνει επανεκκίνηση και να μην εμφανιστεί ξανά αυτή η ερώτηση!</string>
+    <string name="loading">Φόρτωση...</string>
+
+    <!--Menu entries-->
+    <string name="menu_refresh">Ανανέωση</string>
+    <string name="menu_add">Προσθήκη</string>
+    <string name="menu_hosts_sources">Πηγές Hosts</string>
+    <string name="menu_help">Βοήθεια</string>
+    <string name="menu_import">Εισαγωγή όλων των λιστών</string>
+    <string name="menu_export">Εξαγωγή όλων των λιστών</string>
+
+    <!--Help-->
+    <string name="help_tab_about">Περί</string>
+    <string name="help_tab_donate">Δωρίστε</string>
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <string name="help_tab_faq">Συχνές Ερωτήσεις</string>
+    <string name="help_tab_problems">Προβλήματα</string>
+    <string name="help_tab_changelog">Καταγραφή αλλαγών</string>
+    <string name="help_about_version">Έκδοση:</string>
+    <string name="help_donation_paypal_item">Δωρεά στο AdAway</string>
+
+    <!--Adware-->
+    <string name="adware_header">Λογισμικά ανεπιθύμητων διαφημίσεων</string>
+    <string name="adware_description">Εδώ μπορείτε να βρείτε τα εγκατεστημένα λογισμικά ανεπιθύμητων διαφημίσεων (adware) τα οποία το AdAway δεν μπορεί να μπλοκάρει. Αυτές οι εφαρμογές μπορεί να χρησιμοποιούν, για παράδειγμα, ειδοποιήσεις Airpush οι οποίες εμφανίζονται ακόμα και όταν η εφαρμογή αυτή δεν εκτελείται, ενώ μπορούν ακόμα και να αλλάξουν τον ήχο κλήσης σας. Η μόνη διαθέσιμη μέθοδος προστασίας εναντίον τέτοιων εφαρμογών είναι η απεγκατάστασή τους, κάνοντας κλικ στα αντικείμενα της λίστας.</string>
+    <string name="adware_scanning">Γίνεται σάρωση...</string>
+    <string name="adware_empty">Δεν βρέθηκαν λογισμικά ανεπιθύμητων διαφημίσεων!</string>
+
+    <!--Hosts sources-->
+    <string name="hosts_last_modified_local">Τοπικά:</string>
+    <string name="hosts_last_modified_online">Σε λειτουργία:</string>
+    <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
+    <string name="hosts_add_dialog_title">Προσθήκη πηγής</string>
+    <string name="hosts_edit_dialog_title">Επεξεργασία πηγής</string>
+    <string name="hosts_dialog_url">URL:</string>
+    <string name="hosts_dialog_url_hint">Το URL της πηγής του αρχείου hosts</string>
+
+    <!--Other-->
+    <string name="app_subtitle">Φραγή διαφημίσεων</string>
+    <string name="no_text_editor_title">Δεν υπάρχει εγκατεστημένος κειμενογράφος</string>
+    <string name="no_text_editor">Δεν ήταν δυνατή η εύρεση επεξεργαστή κειμένου για το άνοιγμα του αρχείου hosts. Μπορείτε να εγκαταστήσετε το Jota ή άλλους επεξεργαστές κειμένου για τον χειρισμό αυτού.  \n
+ \n
+ Θέλετε να εγκαταστήσετε το Jota;</string>
+    <string name="no_file_manager_title">Δεν υπάρχει εγκατεστημένο πρόγραμμα διαχείρισης αρχείων</string>
+    <string name="no_file_manager">Δεν βρέθηκε διαχειριστής αρχείων για το άνοιγμα αρχείων. Μπορείτε να εγκαταστήσετε τον OI File Manager ή άλλους διαχειριστές αρχείων για τον χειρισμό αυτών.  Θέλετε να εγκαταστήσετε τον OI File Manager;</string>
+
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
+    <string name="tcpdump_description">Το tcpdump είναι ένα εργαλείο για την παρακολούθηση αιτήσεων DNS και την αποθήκευσή τους σε αρχείο καταγραφών. Μπορείτε να το εκκινήσετε στο παρασκήνιο, να εκτελέσετε εφαρμογές που εμφανίζουν διαφημίσεις, και έπειτα να αναλύσετε τις αιτήσεις DNS χρησιμοποιώντας το αρχείο αυτό. Ο πιθανός διακομιστής διαφημίσεων μπορεί μετά να προστεθεί στη μαύρη λίστα σας.</string>
+    <string name="tcpdump_disable_monitoring">Απενεργοποίηση παρακολούθησης</string>
+    <string name="tcpdump_enable_monitoring">Ενεργοποίηση παρακολούθησης</string>
+    <string name="tcpdump_show_results">Εμφάνιση αποτελεσμάτων</string>
+    <string name="tcpdump_redirect_dialog_title">Τομέας ανακατεύθυνσης</string>
+    <string name="tcpdump_menu_sort">Ταξινόμηση τομέων</string>
+    <string name="tcpdump_menu_clear">Εκκαθάριση αρχείου καταγραφής</string>
+    <string name="tcpdump_sort_alphabetical">Ταξινόμηση αλφαβητικά</string>
+    <string name="tcpdump_sort_top_level_domain">Ταξινόμηση κατά τομέα ανώτατου επιπέδου</string>
+    <string name="tcpdump_entry_add_blacklist">Προσθήκη καταχώρησης στη μαύρη λίστα</string>
+    <string name="tcpdump_entry_add_whitelist">Προσθήκη καταχώρησης στη λευκή λίστα</string>
+    <string name="tcpdump_entry_add_redirection_list">Προσθήκη καταχώρησης στη λίστα ανακατευθύνσεων</string>
+
+    <!--Preferences-->
+    <string name="pref_download">Γενικές προτιμήσεις</string>
+    <string name="pref_dismiss_welcome">Απόκρυψη του μηνύματος υποδοχής</string>
+    <string name="pref_dismiss_welcome_summary">Να μην εμφανίζεται το μήνυμα υποδοχής στην κεντρική οθόνη</string>
+    <string name="pref_dark_theme">Ενεργοποίηση σκοτεινού θέματος</string>
+    <string name="pref_dark_theme_summary">Χρησιμοποιήστε το σκοτεινό θέμα αντί για το φωτεινό</string>
+    <string name="pref_dark_theme_notification">Το θέμα θα εφαρμοστεί στην επόμενη εκκίνηση της εφαρμογής!</string>
+    <string name="pref_hosts">Αρχείο hosts</string>
+    <string name="pref_redirection_ip">IP Ανακατεύθυνσης</string>
+    <string name="pref_update_check">Έλεγχος για ενημερώσεις</string>
+    <string name="pref_apply_method">Αρχείο hosts προορισμού</string>
+    <string name="pref_apply_method_summary">Πριν μεταβάλετε αυτή την ρύθμιση, διαβάστε την Βοήθεια σχετικά με αυτή την λειτουργικότητα.</string>
+    <string name="pref_redirection_ip_summary">Όλα τα φραγμένα ονόματα διακομιστών επανακατευθύνονται σε αυτή την διεύθυνση IP.</string>
+    <string name="pref_header_preferences">Επιλογές</string>
+    <string name="pref_header_preferences_summary">Γενικές ρυθμίσεις για το AdAway</string>
+    <string name="pref_never_reboot">Απόκρυψη διαλόγου επανεκκίνησης</string>
+    <string name="pref_never_reboot_summary">Κρύβει τον διάλογο που ζητά την επανεκκίνηση του Android μετά από επιτυχή εφαρμογή</string>
+    <string name="pref_webserver_on_boot">Εκτέλεση του διακομιστή ιστοσελίδων κατά την εκκίνηση</string>
+    <string name="pref_webserver_on_boot_summary">Εκτέλεση του διακομιστή ιστοσελίδων κατά την εκκίνηση, με ακρόαση σε τοπικές διευθύνσεις IP</string>
+    <string name="pref_webserver_enabled">Ενεργοποίηση του διακομιστή ιστοσελίδων</string>
+    <string name="pref_webserver_enabled_summary">Ενεργοποίηση του διακομιστή ιστοσελίδων με ακρόαση σε τοπικές διευθύνσεις IP, για την εξυπηρέτηση αιτήσεων για φραγμένα ονόματα διακομιστών.</string>
+    <string name="pref_webserver">Τοπικός διακομιστής ιστοσελίδων</string>
+    <string name="pref_custom_target">Παραμετροποιημένος προορισμός</string>
+    <string name="pref_custom_target_summary">Χρησιμοποιείται μόνο αν το αρχείο προορισμού hosts είναι ορισμένο σε παραμετροποιημένο προορισμό</string>
+
+
+    <string name="pref_update_check_summary">Έλεγχος για ενημερώσεις κατά την εκκίνηση του AdAway</string>
+    <string name="pref_sdcard_problem">Αυτό το χαρακτηριστικό δεν θα λειτουργήσει σωστά αν το AdAway εγκατασταθεί σε κάρτα SD!</string>
+    <string name="pref_background">Υπηρεσίες παρασκηνίου</string>
+    <string name="pref_update_check_daily">Ημερήσιος έλεγχος για ενημερώσεις</string>
+    <string name="pref_update_check_daily_summary">Ημερήσιος έλεγχος για ενημερώσεις στο παρασκήνιο με ειδοποιήσεις</string>
+    <string name="pref_automatic_update_daily">Αυτόματη ενημέρωση</string>
+    <string name="pref_automatic_update_daily_summary">Αυτόματη ενημέρωση στο παρασκήνιο αν υπάρχουν διαθέσιμες ενημέρωσεις.</string>
+    <string name="pref_update_only_on_wifi">Ενημέρωση μόνο με σύνδεση WiFi</string>
+    <string name="pref_update_only_on_wifi_summary">Εκτέλεση ενημερώσεων παρασκηνίου μόνο με σύνδεση δικτύου WiFi.</string>
+    <string name="pref_whitelist_rules">Να επιτραπει η λευκή λίστα</string>
+    <string name="pref_whitelist_rules_summary">Να επιτραπει η λευκή λίστα από τις πηγές hosts.</string>
+    <string name="pref_redirection_rules">Να επιτρέπονται οι ανακατευθύνσεις</string>
+    <string name="pref_redirection_rules_summary">Κίνδυνος ασφαλείας! Να επιτραπούν ανακατευθύνσεις από τις πηγές hosts.</string>
+    <string name="pref_debug">Αποσφαλμάτωση</string>
+    <string name="pref_enable_debug">Καταγραφή αποσφαλμάτωσης</string>
+    <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
+    <string name="pref_enable_ipv6">Ενεργοποίηση πρωτοκόλλου IPv6</string>
+    <string name="pref_enable_ipv6_summary">Όλες οι καταχωρήσεις του αρχείου host θα αποκτήσουν μια καταχώρηση ::1 (IPv6 localhost) αντίστοιχα.</string>
+    <string name="pref_enable_systemless_summary">Το AdAway δεν θα πειράξει το σύστημα</string>
+    <string name="pref_enable_systemless">Ενεργοποίηση λειτουργίας να μην πειράξει το σύστημα</string>
+    <string name="pref_edit_text_value">Επεξεργασία τιμής προτιμήσεων κειμένου</string>
+    <string name="drawer_open">Άνοιγμα μενού</string>
+    <string name="drawer_close">Κλείσιμο μενού</string>
+
+    <!--Drawer menu items-->
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">Αιτήσεις DNS</string>
+    <string name="shortcut_your_lists">Οι λίστες σας</string>
+    <string name="shortcut_preferences">Επιλογές</string>
+
+    <!--Hosts source status-->
+    <string name="hosts_source_up_to_date">Ενήμερο εδώ και %1$s</string>
+    <string name="hosts_source_need_update">Αναγκαία ενημέρωση εδώ και %1$s</string>
+    <string name="hosts_source_last_update">Τελευταία ενημέρωση πριν από %1$s</string>
+    <string name="hosts_source_unknown_status">Άγνωστη κατάσταση ενημέρωσης</string>
+
 </resources>
