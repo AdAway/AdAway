@@ -39,10 +39,9 @@ The original author is Dominik Schürmann ([@dschuermann](https://github.com/dsc
 3. Execute `./gradlew build`
 
 # Contribute
+## Development
 
 Fork AdAway and do a Pull Request. I will merge your changes back into the main project.
-
-## Development
 
 I am using the newest [Android Studio](http://developer.android.com/sdk/installing/studio.html) for development.
 Development with Eclipse is currently not possible because I am using the new [project structure](http://developer.android.com/sdk/installing/studio-tips.html).
