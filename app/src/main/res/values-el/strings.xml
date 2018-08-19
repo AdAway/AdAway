@@ -17,24 +17,52 @@
   <string name="button_webserver_toggle_text">Εκκίνηση ή διακοπή του διακομιστή ιστοσελίδων στο τοπικό μηχάνημα για απάντηση σε φραγμένα ονόματα.</string>
   <string name="button_help">Βοήθεια</string>
   <!--Home-->
+  <string name="header_help">Καλώς ήρθατε! </string>
+  <string name="text_help">Το AdAway είναι ένα ελεύθερο και ανοιχτού πηγαίου κώδικα λογισμικό, σχεδιασμένο ώστε να αποκλείει διαφημίσεις. Κάνει λήψη της λίστας του δικτύου διαφημίσεων και ρυθμίζει τη συσκευή σας ώστε να τα αποκλείει.
+Θέλετε να μάθετε περισσότερα; Διαβάστε τα κείμενα βοήθειας παρακάτω!</string>
+  <string name="button_show_help">Εμφάνιση περισσότερης βοήθειας</string>
+  <string name="icon_update_status">Κατάσταση ενημέρωσης</string>
   <string name="text_update">Όλα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
   <string name="button_check_update_hosts">Έλεγχος για ενημερώσεις</string>
+  <string name="button_update_hosts">Ενημέρωση του αρχείου hosts</string>
+  <string name="button_enable_hosts">Ενεργοποίηση του αποκλεισμού διαφημίσεων</string>
+  <string name="button_disable_hosts">Απενεργοποίηση του αποκλεισμού διαφημίσεων</string>
+  <string name="header_webserver">Διακομιστής διαδικτύου</string>
+  <string name="webserver_status_running">Εκτελείται</string>
+  <string name="webserver_status_stopped">Διακόπηκε</string>
+  <string name="button_enable_webserver">Ενεργοποίηση διακομιστή διαδικτύου</string>
+  <string name="button_disable_webserver">Απενεργοποήση διακομιστή διαδικτύου</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Άδεια λίστα</string>
+  <string name="checkbox_list_empty_text">Μπορείτε να προσθέσετε καταχωρήσεις πατώντας το κουμπί με το συν.</string>
   <string name="checkbox_list_context_delete">Διαγραφή</string>
-  <string name="checkbox_list_footer">Μετά την προσθήκη νέων στοιχείων σε αυτήν την λίστα θα πρέπει να \"περάσετε\" το AdAway ξανά!</string>
+  <string name="checkbox_list_footer">Μετά την προσθήκη νέων στοιχείων σε αυτήν την λίστα θα πρέπει να εφαρμόσετε το AdAway ξανά!</string>
   <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
   <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
   <string name="checkbox_list_context_edit">Επεξεργασία</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">Λευκή λίστα</string>
   <string name="lists_tab_blacklist">Μαύρη λίστα</string>
+  <string name="lists_tab_redirection_list">Ανακατευθύνσεις</string>
+  <string name="list_add_dialog_black">Πρόσθεση host στη μαύρη λίστα</string>
+  <string name="list_add_dialog_white">Πρόσθεση host σε λευκή λίστα</string>
+  <string name="list_add_dialog_redirect">Πρόσθεση host σε ανακατεύθυνση</string>
+  <string name="list_edit_dialog_black">Επεξεργασία μαύρης λίστας host</string>
+  <string name="list_edit_dialog_white">Επεξεργασία λευκής λίστας host</string>
+  <string name="list_edit_dialog_redirect">Επεξεργασία ανακατευθύνσεων</string>
   <string name="list_dialog_hostname">Όνομα:</string>
+  <string name="list_dialog_hostname_hint">Το πηγαίο URL του αρχείου hosts</string>
+  <string name="list_dialog_wildcard">(Επιτρέπονται οι χαρακτήρες μπαλαντέρ * και ?)</string>
   <string name="list_dialog_ip">IP (IPv4 ή IPv6):</string>
   <string name="import_dialog">Εισαγωγή...</string>
   <string name="export_dialog">Εξαγωγή...</string>
   <string name="export_success">Εξαγωγή όλων των εγγραφών σε αρχείο με όνομα \'adaway-export\' στην κάρτα SD σας.</string>
+  <string name="export_failed">Αποτυχία εξαγωγής της λίστας σας στην κάρτα SD.</string>
   <!--Hosts content-->
+  <string name="hosts_header">Το αρχείο hosts</string>
+  <string name="hosts_description">Το αρχείο hosts είναι ένα αρχείο συστήματος το οποίο αντιστοιχίζει ονόματα διακομιστών σε διευθύνσεις IP. Είναι ένα αρχείο απλού κειμένου το οποίο ρυθμίζει το AdAway. Εδώ παρατίθενται οι πρώτες του γραμμές:</string>
+  <string name="hosts_content">Γίνεται φόρτωση του περιεχομένου του αρχείου hosts...</string>
+  <string name="hosts_open_button">Άνοιγμα του αρχείου hosts</string>
   <!--Status Notifications-->
   <string name="status_checking">Έλεγχος για ενημέρωση...</string>
   <string name="status_reverting">Επαναφορά...</string>
@@ -113,11 +141,14 @@
   <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής για να δουλέψει. \n\n(Για να αποτρέψετε το χάσιμο δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα sd τωρα!) </string>
   <string name="disable_systemless_successful_title">Απενεργοποίηση επιτυχής</string>
   <!--Other Dialogs-->
-  <string name="no_root_title">Χρειάζεται δικαιώματα διαχειριστή
-</string>
+  <string name="no_root_description">Είτε το εκτελέσιμο su δεν βρέθηκε ή δεν παραχωρήσατε δικαιώματα υπερχρήστη στο AdAway.
+
+Αυτό μπορεί να συμβεί αν δεν έχετε προσθέσει στη συσκευή σας λογαριασμό υπερχρήστη.
+Μπορείτε να βρείτε πληροφορίες σχετικά με το πως μπορείτε να το πραγματοποιήσετε αυτό στο wiki.lineageos.org είτε σε κάποιο άλλο ιστότοπο σχετικό με Android.</string>
+  <string name="no_root_title">Απαιτείται Android με υπερχρήστη</string>
   <string name="hosts_add_dialog">Εισάγετε διεύθυνση URL για το αρχείο hosts:</string>
-  <string name="no_hostname">Μη έγκυρο όνομα!</string>
-  <string name="no_hostname_title">Κακή μορφή ονόματος</string>
+  <string name="no_hostname">Μη έγκυρο όνομα διακομιστή!</string>
+  <string name="no_hostname_title">Κακή μορφή ονόματος διακομιστή</string>
   <string name="no_ip">Αυτή η διεύθυνση IP δεν είναι έγκυρη! </string>
   <string name="no_ip_title">Κακή μορφή διεύθυνσης IP</string>
   <string name="reboot_never_reboot">Να μην γίνει επανεκκίνηση και να μην εμφανιστεί ξανά αυτή η ερώτηση!</string>
@@ -147,11 +178,18 @@
     <item>13 Euros</item>
   </string-array>
   <!--Adware-->
+  <string name="adware_header">Κακόβουλο λογισμικό διαφημίσεων</string>
+  <string name="adware_description">Εδώ μπορείτε να βρείτε τα εγκατεστημένα κακόβουλα λογισμικά διαφημίσεων, εφαρμογές τις οποίες το AdAway δεν μπορεί να αποκλείσει. Αυτές οι εφαρμογές χρησιμοποιούν, για παράδειγμα, ειδοποιήσεις Airpush οι οποίες εμφανίζονται ακόμα και όταν οι κακόβουλες εφαρμογές δεν εκτελούνται, ενώ μπορούν ακόμα να αλλάξουν και τον ήχο κλήσης σας. Η μόνη διαθέσιμη μέθοδος αντιμετώπισής του είναι να τις απεγκαταστήσετε, κάνοντας κλικ στα περιεχόμενα της λίστας.</string>
+  <string name="adware_scanning">Σάρωση...</string>
+  <string name="adware_empty">Δε βρέθηκαν κακόβουλα λογισμικά διαφημίσεων!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Τοπικά</string>
   <string name="hosts_last_modified_online">Σε λειτουργία</string>
   <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
+  <string name="hosts_add_dialog_title">Προσθήκη πηγής</string>
+  <string name="hosts_edit_dialog_title">Επεξεργασία πηγής</string>
   <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url_hint">Το πηγαίο URL του αρχείου hosts</string>
   <!--Other-->
   <string name="app_subtitle">Φραγή διαφημίσεων</string>
   <string name="no_text_editor_title">Δεν υπάρχει εγκατεστημένος κειμενογράφος</string>
@@ -163,9 +201,26 @@
 
 Θέλετε να εγκαταστήσετε τον OI File Manager;</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Το tcpdump είναι ένα εργαλείο για την παρακολούθηση αιτήσεων DNS και την αποθήκευσή τους σε αρχείο καταγραφών. Μπορείτε να το εκκινήσετε στο παρασκήνιο, να εκτελέσετε εφαρμογές που εμφανίζουν διαφημίσεις, και έπειτα να αναλύσετε τις αιτήσεις DNS χρησιμοποιώντας το αρχείο αυτό. Ο πιθανός διακομιστής διαφημίσεων μπορεί μετά να προστεθεί στη μαύρη λίστα σας.</string>
+  <string name="tcpdump_disable_monitoring">Απενεργοποίηση παρακολούθησης</string>
+  <string name="tcpdump_enable_monitoring">Ενεργοποίηση παρακολούθησης</string>
+  <string name="tcpdump_show_results">Εμφάνιση αποτελεσμάτων</string>
+  <string name="tcpdump_redirect_dialog_title">Τομέας ανακατεύθυνσης</string>
+  <string name="tcpdump_menu_sort">Ταξινόμηση τομέω</string>
+  <string name="tcpdump_menu_clear">Εκκαθάριση αρχείου καταγραφής</string>
+  <string name="tcpdump_sort_alphabetical">Ταξινόμηση αλφαβητικά</string>
+  <string name="tcpdump_sort_top_level_domain">Ταξινόμηση κατά τομέα ανώτατου επιπέδου</string>
+  <string name="tcpdump_entry_add_blacklist">Προσθήκη καταχώρησης στη μαύρη λίστα</string>
+  <string name="tcpdump_entry_add_whitelist">Προσθήκη καταχώρησης στη λευκή λίστα</string>
+  <string name="tcpdump_entry_add_redirection_list">Προσθήκη καταχώρησης στη λίστα ανακατεύθυνσης</string>
   <!--Preferences-->
   <string name="pref_download">Γενικές προτιμήσεις</string>
+  <string name="pref_dismiss_welcome">Απόκρυψη μηνύματος υποδοχής</string>
+  <string name="pref_dismiss_welcome_summary">Απόκρυψη μηνύματος υποδοχής στην κεντρική οθόνη</string>
+  <string name="pref_dark_theme">Ενεργοποίηση σκοτεινού θέματος</string>
+  <string name="pref_dark_theme_summary">Χρήση σκοτεινού θέματος αντί του φωτεινού</string>
+  <string name="pref_dark_theme_notification">Η χρήση του θέματος θα εφαρμοστεί στην επόμενη εκκίνηση της εφαρμογής!</string>
   <string name="pref_hosts">Αρχείο hosts</string>
   <string name="pref_redirection_ip">IP Ανακατεύθυνσης</string>
   <string name="pref_update_check">Έλεγχος για ενημερώσεις</string>
@@ -185,6 +240,7 @@
   <string name="pref_custom_target_summary">Χρησιμοποιείται μόνο αν το αρχείο προορισμού hosts είναι ορισμένο σε παραμετροποιημένο προορισμό</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
     <item>/data/data/hosts</item>
     <item>Παραμετροποιημένος προορισμός</item>
   </string-array>
@@ -199,6 +255,7 @@
   <string name="pref_update_only_on_wifi_summary">Εκτέλεση ενημερώσεων παρασκηνίου μόνο με σύνδεση δικτύου WiFi.</string>
   <string name="pref_whitelist_rules">Να επιτραπει η λευκή λίστα</string>
   <string name="pref_whitelist_rules_summary">Να επιτραπει η λευκή λίστα από τις πηγές hosts.</string>
+  <string name="pref_redirection_rules">Να επιτρέπονται οι ανακατευθύνσεις</string>
   <string name="pref_redirection_rules_summary">Κίνδυνος ασφαλείας! Να επιτραπούν ανακατευθύνσεις από τις πηγές hosts.</string>
   <string name="pref_debug">Αποσφαλμάτωση</string>
   <string name="pref_enable_debug">Καταγραφή αποσφαλμάτωσης</string>
@@ -207,8 +264,43 @@
   <string name="pref_enable_ipv6_summary">Όλες οι καταχωρήσεις του αρχείου host θα αποκτήσουν μια καταχώρηση ::1 (IPv6 localhost) αντίστοιχα.</string>
   <string name="pref_enable_systemless_summary">Το AdAway δεν θα πειράξει το σύστημα</string>
   <string name="pref_enable_systemless">Ενεργοποίηση λειτουργίας να μην πειράξει το σύστημα</string>
+  <string name="pref_edit_text_value">Επεξεργασία της τιμής προτιμήσεων κειμένου</string>
+  <string name="drawer_open">Άνοιγμα μενού</string>
+  <string name="drawer_close">Κλείσιμο μενού</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Κεντρικό μενού</item>
+    <item>Πηγές hosts</item>
+    <item>Οι λίστες σας</item>
+    <item>Άνοιγμα του αρχείου hosts</item>
+    <item>Καταγραφή των αιτήσεων DNS</item>
+    <item>Σάρωση για κακόβουλο λογισμικό διαφημίσεων</item>
+    <item>Προτιμήσεις</item>
+    <item>Βοήθεια</item>
+  </string-array>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">Αιτήματα DNS</string>
+  <string name="shortcut_your_lists">Οι λίστες σας</string>
   <string name="shortcut_preferences">Επιλογές</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Ενήμερο εδώ και %1$s </string>
+  <string name="hosts_source_need_update">Απαιτείται ενημέρωηση εδώ και %1$s</string>
+  <string name="hosts_source_last_update">Τελευταία ενημέρωση πρίν από %1$s</string>
+  <string name="hosts_source_unknown_status">Άγνωστη κατάσταση ενημέρωσης</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d λεπτό</item>
+    <item quantity="other">%d λεπτά</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d ώρα</item>
+    <item quantity="other">%d ώρες</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d μέρα</item>
+    <item quantity="other">%d ημέρες</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d μήνα</item>
+    <item quantity="other">%d μήνες</item>
+  </plurals>
 </resources>

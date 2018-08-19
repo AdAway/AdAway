@@ -244,5 +244,8 @@
   <string name="shortcut_your_lists">Vos listes</string>
   <string name="shortcut_preferences">Préférences</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">À jour depuis %1$s .</string>
+  <string name="hosts_source_need_update">Nécessite une mise à jour depuis %1$s .</string>
+  <string name="hosts_source_last_update">Dernière mise à jour effectuée il y a %1$s.</string>
   <string name="hosts_source_unknown_status">L’état de mise à jour est inconnu</string>
 </resources>
