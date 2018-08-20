@@ -46,14 +46,14 @@
             android:name=".ui.help.HelpActivity"
             android:exported="false"
             android:label="@string/menu_help" />
-        <!-- android:configChanges prevents activity from recreating on orientation change -->
 
-        <receiver android:name=".service.BootReceiver">
+        <receiver android:name=".service.webserver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
+        <!-- Could be removed after migration to room -->
         <provider
             android:name=".provider.AdAwayProvider"
             android:authorities="org.adaway"

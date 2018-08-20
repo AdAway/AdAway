@@ -20,16 +20,13 @@
 
 package org.adaway.ui;
 
+import android.app.Application;
+
+import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.service.UpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.sufficientlysecure.rootcommands.RootCommands;
-
-import android.app.Application;
-
-import com.evernote.android.job.JobCreator;
-import com.evernote.android.job.JobManager;
 
 public class AdAwayApplication extends Application {
 
@@ -53,8 +50,8 @@ public class AdAwayApplication extends Application {
             RootCommands.disableDebug();
         }
 
-        // Create job manager an register job creators
-        JobManager.create(this).addJobCreator(new UpdateService.UpdateJobCreator());
+        // Create notification channel
+        NotificationHelper.createNotificationChannel(this);
 
         super.onCreate();
     }

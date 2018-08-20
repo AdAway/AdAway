@@ -36,7 +36,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.adaway.R;
-import org.adaway.helper.ResultHelper;
+import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.adware.AdwareFragment;
 import org.adaway.ui.help.HelpActivity;
@@ -46,8 +46,6 @@ import org.adaway.ui.hostscontent.HostsContentFragment;
 import org.adaway.ui.lists.ListsFragment;
 import org.adaway.ui.prefs.PrefsFragment;
 import org.adaway.ui.tcpdump.TcpdumpFragment;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 
 /**
  * This class is the application main activity.
@@ -93,45 +91,13 @@ public class MainActivity extends AppCompatActivity {
     private int mSelectedMenuItem;
 
     /**
-     * Handle result from applying when clicked on notification
-     * http://stackoverflow.com/questions/1198558
-     * /how-to-send-parameters-from-a-notification-click-to-an-activity MainActivity launchMode is
-     * set to SingleTop for this in AndroidManifest
-     */
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        Log.d(Constants.TAG, "onNewIntent");
-
-        // if a notification is clicked after applying was done, the following is processed
-        Bundle extras = intent.getExtras();
-        if (extras == null) {
-            return;
-        }
-        if (extras.containsKey(HomeFragment.EXTRA_APPLYING_RESULT)) {
-            int result = extras.getInt(HomeFragment.EXTRA_APPLYING_RESULT);
-            Log.d(Constants.TAG, "Result from intent extras: " + result);
-
-            // download failed because of url
-            String numberOfSuccessfulDownloads = null;
-            if (extras.containsKey(HomeFragment.EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS)) {
-                numberOfSuccessfulDownloads = extras
-                        .getString(HomeFragment.EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS);
-                Log.d(Constants.TAG, "Applying information from intent extras: "
-                        + numberOfSuccessfulDownloads);
-            }
-
-            ResultHelper.showDialogBasedOnResult(this, result, numberOfSuccessfulDownloads);
-        }
-    }
-
-    /**
      * Instantiate View and initialize fragments for this Activity
      */
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
+        NotificationHelper.clearUpdateHostsNotification(this);
         setContentView(R.layout.base_activity_drawer);
         /*
          * Configure navigation drawer.

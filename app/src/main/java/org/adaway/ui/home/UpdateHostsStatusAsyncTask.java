@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.service.UpdateService;
+import org.adaway.service.hosts.UpdateChecker;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Utils;
@@ -51,7 +51,7 @@ public class UpdateHostsStatusAsyncTask extends AsyncTask<Void, Void, Boolean> {
             // Check preferences if application must check updates on startup
             if (PreferenceHelper.getUpdateCheck(activity)) {
                 // Check updates
-                UpdateService.checkAsync(activity); // TODO Already in an AsyncTask. Possible improvement?
+                UpdateChecker.check(activity); // TODO Already in an AsyncTask. Possible improvement?
             }
         } else {
             // Otherwise notify AdAway is disabled

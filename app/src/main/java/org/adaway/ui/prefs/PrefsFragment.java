@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.service.UpdateService;
+import org.adaway.service.hosts.UpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.SystemlessUtils;
 import org.adaway.util.Utils;

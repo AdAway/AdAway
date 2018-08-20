@@ -44,7 +44,7 @@ import org.adaway.R;
 import org.adaway.helper.ApplyHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.RevertHelper;
-import org.adaway.service.UpdateService;
+import org.adaway.service.hosts.UpdateChecker;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.util.Constants;
 import org.adaway.util.StatusCodes;
@@ -374,8 +374,6 @@ public class HomeFragment extends Fragment {
             boolean webServerRunning = savedInstanceState.getBoolean("webServerRunning");
             notifyWebServerRunning(webServerRunning);
         }
-
-
         // Return inflated view
         return view;
     }
@@ -428,7 +426,7 @@ public class HomeFragment extends Fragment {
                 ApplyHelper.applyAsync(mActivity);
                 break;
             case ENABLED:
-                UpdateService.checkAsync(mActivity);
+                UpdateChecker.check(mActivity);
                 break;
         }
     }

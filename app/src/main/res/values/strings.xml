@@ -69,7 +69,7 @@
     <string name="hosts_content">Loading the hosts file content…</string>
     <string name="hosts_open_button">Open the hosts file</string>
 
-    <!--Status Notifications-->
+    <!--Status Notification-->
     <string name="status_checking">Checking for update…</string>
     <string name="status_reverting">Reverting…</string>
     <string name="status_reverting_subtitle">Creating standard hosts file</string>
@@ -84,6 +84,8 @@
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
     <string name="status_disabled_subtitle">Disabled</string>
+    <string name="notification_channel_update_name">Updates</string>
+    <string name="notification_channel_update_description">New hosts update notifications</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
@@ -242,8 +244,8 @@
     <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
     <string name="pref_automatic_update_daily">Automatic update</string>
     <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
-    <string name="pref_update_only_on_wifi">Update only on Wifi</string>
-    <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to a wifi network.</string>
+    <string name="pref_update_only_on_wifi">Update when not metered only</string>
+    <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to an unmetered network only.</string>
     <string name="pref_whitelist_rules">Allow whitelisting</string>
     <string name="pref_whitelist_rules_summary">Allow whitelist entries from Hosts Sources.</string>
     <string name="pref_redirection_rules">Allow redirects</string>
