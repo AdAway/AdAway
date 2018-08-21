@@ -17,7 +17,7 @@ import org.adaway.ui.MainActivity;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class NotificationHelper {
+public final class NotificationHelper {
     /**
      * The notification channel for updates.
      */
@@ -26,6 +26,13 @@ public class NotificationHelper {
      * The update hosts notification identifier.
      */
     private static final int UPDATE_HOSTS_NOTIFICATION_ID = 10;
+
+    /**
+     * Private constructor.
+     */
+    private NotificationHelper() {
+
+    }
 
     /**
      * Create the application notification channel.

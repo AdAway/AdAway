@@ -10,7 +10,6 @@ import org.adaway.util.StatusCodes;
 
 import java.lang.ref.WeakReference;
 
-
 // TODO Improve with AppExecutor and LiveData
 public final class UpdateChecker {
     /**
@@ -28,19 +27,6 @@ public final class UpdateChecker {
      */
     public static void check(Context context) {
         new UpdateChecker.CheckAsyncTask(context).execute();
-    }
-
-    /**
-     * Display result notification.
-     *
-     * @param context The application context.
-     * @param result  The update result.
-     */
-    private static void displayResultNotification(Context context, UpdateResult result) {
-        // Display update checked notification
-        String successfulDownloads = (result.mNumberOfDownloads - result.mNumberOfFailedDownloads)
-                + "/" + result.mNumberOfDownloads;
-        ResultHelper.showNotificationBasedOnResult(context, result.mCode, successfulDownloads);
     }
 
     /**
@@ -98,7 +84,9 @@ public final class UpdateChecker {
                 return;
             }
             // Display update checked notification
-            UpdateChecker.displayResultNotification(context, result);
+            String successfulDownloads = (result.mNumberOfDownloads - result.mNumberOfFailedDownloads)
+                    + "/" + result.mNumberOfDownloads;
+            ResultHelper.showNotificationBasedOnResult(context, result.mCode, successfulDownloads);
         }
     }
 }
