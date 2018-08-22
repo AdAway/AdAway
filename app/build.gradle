@@ -51,8 +51,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 40007   // Read 4.xx.yy to match version name
-        versionName '4.0.7'
+        versionCode 40008   // Read 4.xx.yy to match version name
+        versionName '4.0.8'
         versionNameSuffix '-' + getGitSha1()
 
         javaCompileOptions {

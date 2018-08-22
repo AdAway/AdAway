@@ -18,7 +18,7 @@ sonarqube {
         // Root project information
         property 'sonar.projectKey', 'org.adaway'
         property 'sonar.projectName', 'AdAway'
-        property 'sonar.projectVersion', '4.0.7'
+        property 'sonar.projectVersion', '4.0.8'
     }
 }
 
