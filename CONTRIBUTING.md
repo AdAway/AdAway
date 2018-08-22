@@ -54,7 +54,20 @@ Modalirazing the application allow faster build time and simplier maintainance.
 Building the project will require the latest versions of Android SDK (Software Development Kit) and NDK (Native Development kit).
 They can easily be installed or updated using [Android Studio](https://developer.android.com/studio/).
 
+#### Building with Gradle
+1. Ensure you have Android SDK and NDK installed.
+If not:
+    * Option 1: [Install Android Studio](https://developer.android.com/studio/index.html) or,
+    * Option 2: Install command line tools and install build tools and ndk bundle with sdk manager:  
+    `tools/bin/sdkmanager "build-tools;x.y.z" ndk-bundle` where `x.y.z` is the latest version
+2. Export `ANDROID_HOME` environment variable pointing to your Android SDK:  
+`export ANDROID_HOME=/path/to/your/sdk`
+3. Launch a build:  
+`./gradlew build`
+
 The first full build of the apk could take a lot of time, about 20 minutes, whereas an incremental build of the `app` module takes less than a dozen of seconds.
+
+#### Running on emulator
 
 In order to test the application on emulator, disable [the root check in the Constants source file](https://github.com/AdAway/AdAway/blob/c90336cb9b062220540317bc6c7cfedb19927c63/app/src/main/java/org/adaway/util/Constants.java#L28).
 
