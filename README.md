@@ -37,14 +37,6 @@ AdAway is currently maintained by:
 
 The original author is Dominik Schürmann ([@dschuermann](https://github.com/dschuermann)) and it was previously maintained by Dāvis Mošenkovs ([@DavisNT](https://github.com/DavisNT)).
 
-# Build with Gradle
-
-1. Ensure you have Android SDK (Software Development Kit) and NDK (Native Development Kit) installed. If not:
-    * Option 1: [Install Android Studio](https://developer.android.com/studio/index.html) or,
-    * Option 2: Install command line tools and install build tools and ndk bundle with sdk manager (`tools/bin/sdkmanager "build-tools;27.0.3" ndk-bundle`)
-2. Export ANDROID_HOME environment variable pointing to your Android SDK (`export ANDROID_HOME=/path/to/your/sdk`)
-3. Execute `./gradlew build`
-
 # Contribute
 ## Development
 
@@ -94,23 +86,6 @@ You can click on them to add them or use keyboard shortcuts (see the page settin
 
 We will add all Transifex translations from time to time to the app.  
 For our Translation Organizers: You can use the CLI tool for this to retrieve translated resources from the Transifex server and add them to the Github repo. (See https://docs.transifex.com/client/ for more details about the client tool.)
-
-
-# `tcpdump` and `webserver` binary modules
-
-Forked from the following sources and slightly modified to compile!
-
-* dnsmasq: https://github.com/CyanogenMod/android_external_dnsmasq
-* libpcap: https://github.com/the-tcpdump-group/libpcap/tree/libpcap-1.7.4
-* tcpdump: https://github.com/the-tcpdump-group/tcpdump/tree/tcpdump-4.7.4
-
-## Changes
-
-Please review the following commits for the changes made to the sources above in order for them to compile in this project:
-
-* Commit: https://github.com/AdAway/AdAway/commit/1f4ccb3cec3758757341ad90813506fc2a8fdf7b
-* Commit: https://github.com/AdAway/AdAway/commit/289df896c0ac4f96bd862e8a5054f1011ec07cac
-* Commit: https://github.com/AdAway/AdAway/commit/08da0745b0732b94221c0f5746160fef8126fd99
 
 ## Licenses
 AdAway is licensed under the GPLv3+.  
