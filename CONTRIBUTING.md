@@ -26,6 +26,9 @@ The project is open to any kind of contribution so feel free to share your ideas
 * [Java styleguide](#java-styleguide)
 * [XML styleguide](#xml-styleguide)
 
+[Additional notes](#additional-notes)
+* [tcpdump and webserver modules](#tcpdump and webserver modules)
+
 ## I don't want to read this whole thing I just have a question!!!
 
 > **Note:** Please don't file an issue to ask a question. You'll get faster results by using the resources below.
@@ -144,3 +147,23 @@ See https://source.android.com/source/code-style.html
 * No maximum line width
 * Split multiple attributes each on a new line 
 * Indent using spaces with Indention size 4
+
+## Additional notes
+
+### `tcpdump` and `webserver` modules
+
+#### Origin
+
+Forked from the following sources and slightly modified to compile:
+
+* dnsmasq: https://github.com/CyanogenMod/android_external_dnsmasq
+* libpcap: https://github.com/the-tcpdump-group/libpcap/tree/libpcap-1.7.4
+* tcpdump: https://github.com/the-tcpdump-group/tcpdump/tree/tcpdump-4.7.4
+
+#### Changes
+
+Please review the following commits for the changes made to the sources above in order for them to compile in this project:
+
+* Commit: https://github.com/AdAway/AdAway/commit/1f4ccb3cec3758757341ad90813506fc2a8fdf7b
+* Commit: https://github.com/AdAway/AdAway/commit/289df896c0ac4f96bd862e8a5054f1011ec07cac
+* Commit: https://github.com/AdAway/AdAway/commit/08da0745b0732b94221c0f5746160fef8126fd99
