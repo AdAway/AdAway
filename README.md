@@ -12,10 +12,18 @@ This is two kinds of release:
 * The preview builds: on the bleeding edge of development - for testers or adventurous
 * The stable builds: ready for every day usage - for end users
 
+### Requirements
+
+Installing the application requires:
+* Android 4.1 _Jelly Bean_ or above
+* A **rooted device**
+
 ### Preview builds
-For users with bugs, there may be preview builds available from the [XDA development thread](https://forum.xda-developers.com/showthread.php?t=2190753) or the related [Android File Host folder](https://androidfilehost.com/?w=files&flid=249276).  
+For users with bugs, there may be preview builds available from the [XDA development thread](https://forum.xda-developers.com/showthread.php?t=2190753) or the related [Android File Host folder](https://androidfilehost.com/?w=files&flid=249276).
 It is recommended to try those builds to see if your issue is resolved before creating an issue.
 The preview builds may contain bug fixes or new features for new android versions.
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/XDADevelopers.svg/512px-XDADevelopers.svg.png" alt="Get it on XDA forum" height="60">](https://forum.xda-developers.com/showthread.php?t=2190753) [<img src="https://androidfilehost.com/images/afh.png" alt="Get it on Android File Host" height="60">](https://androidfilehost.com/?w=files&flid=249276)
 
 ### Stable builds
 After preview builds have been tested by the more technical or responsive community within the forums, we will then post the stable build to F-Droid.
@@ -24,68 +32,35 @@ After preview builds have been tested by the more technical or responsive commun
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/org.adaway)
 
-## Support
+## Getting help
 
-You can post [Issues](https://github.com/AdAway/AdAway/issues) here or obtain more detailed community support via the [XDA Thread](http://forum.xda-developers.com/showthread.php?t=2190753).
-
-## Authors
-
-AdAway is currently maintained by:
-* [@0-kaladin](https://github.com/0-kaladin)
-* Sanjay Govind ([@sanjay900](https://github.com/sanjay900))
-* Bruce Bujon ([@PerfectSlayer](https://github.com/PerfectSlayer))
-
-The original author is Dominik Schürmann ([@dschuermann](https://github.com/dschuermann)) and it was previously maintained by Dāvis Mošenkovs ([@DavisNT](https://github.com/DavisNT)).
-
-# Contribute
-## Development
-
-Fork AdAway and do a Pull Request. I will merge your changes back into the main project.
-
-I am using the newest [Android Studio](http://developer.android.com/sdk/installing/studio.html) for development.
-Development with Eclipse is currently not possible because I am using the new [project structure](http://developer.android.com/sdk/installing/studio-tips.html).
-
-1. Clone the project from GitHub
-2. From Android Studio: File -> Import Project -> Select the cloned top folder
-3. Import project from external model -> choose Gradle
-
-## Translating to your Language
-
-You can help us with your translation efforts!  
-
-Please have a look at ticket No. [AdAway/AdAway#1050](https://github.com/AdAway/AdAway/issues/1050) for more detailed information!
-We apreciate new contributors and translations are perfect for getting started with contributing at Github in general.
-
-Here is the gist:
-Translations are managed via the **transifex.com website**! (and Transifex' website alone, that is)
-
-Unfortunately, we cannot merge translations via Github directly. Please follow the steps below instead.  
-Sorry, but this causes some major synchronization issues if not followed.  We have to consolidate many contributions by translators and sync them up to the latest state. That is just not possible via Github.  
-
-1. Please go to **https://www.transifex.com/free-software-for-android/adaway/**
-1. Login or create a new account (you can conveniently login via Github as well)
-1. Enroll into the language you want to contribute to or even submit a request for a new language.
-   * Please keep in mind that we want to stick to the basic languages where possible (e.g. `sr` for Serbian).  
-   Please refrain to request regional localizations (like `sr_RS`).
-1. In your language section, you can browse all available resources and start **translating strings right in your browser**.
-   * You don't have to download anything. Just click "Translate". The downloads are meant for more advanced use cases.
-1. Make sure to have an eye on the **"Suggestions", "History", "Context" and "Glossary" tabs** on every entry. 
-   * Mind translation efforts that were already done or suggested.  
-   Basically, »*stand on the shoulders of giants*« where possible.
-   * Sometimes source strings change only marginally, but their translations get cleared anyway.  
-   You can easily **recover their previous translations** by looking at the "Suggestions" tab. Just make sure they really fit the new source text.
-1. Help us validate translations by **reviewing others'**. 
-1. Some strings contain **placeholders** - like for HTML tags or numbers.  
-You can click on them to add them or use keyboard shortcuts (see the page settings for an overview).
-1. You can point out issues to the Translation Organizers via the **"Comments" tab** or just start a discussion.
-1. Don't forget to save your work!
-1. Please don't create any Translation Pull Request here on Github.  
-   * We will integrate your contributions from time to time into the code by exporting from Transifex directly. No need to provide any files from your side. ;-) 
-1. For more information about how to use Transifex, see https://docs.transifex.com/
+You can post [Issues](https://github.com/AdAway/AdAway/issues) here or obtain more detailed community support via the [XDA developer thread](http://forum.xda-developers.com/showthread.php?t=2190753).
 
 
-We will add all Transifex translations from time to time to the app.  
-For our Translation Organizers: You can use the CLI tool for this to retrieve translated resources from the Transifex server and add them to the Github repo. (See https://docs.transifex.com/client/ for more details about the client tool.)
+## Contributing
+
+You want to be involved in the project? Welcome onboard!  
+Check [the contributing guide](CONTRIBUTING.md) to learn how to report bugs, suggest features and make you first code contribution :+1:
+
+If you are looking for translating the application in your language, [the translating guide](TRANSLATING.md) is for you.
+
+
+## Project status
+
+AdAway is actively developed by:
+* Bruce Bujon ([@PerfectSlayer](https://github.com/PerfectSlayer)) - Developer  
+[PayPal](https://paypal.me/BruceBUJON) | BTC: `1Cm1df83VCdpzBCSiqBRZzE5oMuLhkQdFF`
+* Daniel Mönch ([@Vankog](https://github.com/Vankog)) - Translations
+
+We do not forget the past maintainers:
+* Dāvis Mošenkovs ([@DavisNT](https://github.com/DavisNT)) - Developer  
+[Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5GUHNXYE58RZS&lc=US&item_name=AdAway%20Donation&no_note=0&no_shipping=1)
+* [@0-kaladin](https://github.com/0-kaladin) - Developer and XDA OP
+* Sanjay Govind ([@sanjay900](https://github.com/sanjay900)) - Developer
+
+And we thanks a lot the original author:
+* Dominik Schürmann ([@dschuermann](https://github.com/dschuermann)) - Original developer  
+[Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=android%40schuermann.eu&lc=US&item_name=AdAway%20Donation&no_note=0&no_shipping=1&currency_code=EUR) | [Flattr](flattr.com/thing/369138/AdAway-Ad-blocker-for-Android) | BTC: `173kZxbkKuvnF5fa5b7t21kqU5XfEvvwTs`
 
 ## Licenses
 AdAway is licensed under the GPLv3+.  
