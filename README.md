@@ -88,24 +88,6 @@ You can click on them to add them or use keyboard shortcuts (see the page settin
 We will add all Transifex translations from time to time to the app.  
 For our Translation Organizers: You can use the CLI tool for this to retrieve translated resources from the Transifex server and add them to the Github repo. (See https://docs.transifex.com/client/ for more details about the client tool.)
 
-# Coding Style
-
-## Code
-* Indentation: 4 spaces, no tabs
-* Maximum line width for code and comments: 100
-* Opening braces don't go on their own line
-* Field names: Non-public, non-static fields start with m.
-* Acronyms are words: Treat acronyms as words in names, yielding !XmlHttpRequest, getUrl(), etc.
-
-See https://source.android.com/source/code-style.html
-
-## XML
-* XML Maximum line width 999
-* XML: Split multiple attributes each on a new line (Eclipse: Properties -> XML -> XML Files -> Editor)
-* XML: Indent using spaces with Indention size 4 (Eclipse: Properties -> XML -> XML Files -> Editor)
-
-See https://www.androidpolice.com/2009/11/04/auto-formatting-android-xml-files-with-eclipse/
-
 
 # `tcpdump` and `webserver` binary modules
 
