@@ -1,17 +1,24 @@
-# AdAway [![Build Status](https://travis-ci.com/AdAway/AdAway.svg?branch=master)](https://travis-ci.org/AdAway/AdAway) [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=org.adaway&metric=security_rating)](https://sonarcloud.io/dashboard?id=org.adaway) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](blob/master/LICENSE)
+# ![AdAway logo](https://raw.githubusercontent.com/AdAway/AdAway/master/app/src/main/res/mipmap-mdpi/icon.png) AdAway
+
+[![Build Status](https://travis-ci.com/AdAway/AdAway.svg?branch=master)](https://travis-ci.org/AdAway/AdAway) [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=org.adaway&metric=security_rating)](https://sonarcloud.io/dashboard?id=org.adaway) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](blob/master/LICENSE)
 
 AdAway is an open source ad blocker for Android using the hosts file.
 
 For more information visit https://adaway.org
 
-## Preview Build
-For users with bugs, there may be preview builds available from the [AdAway XDA Thread](https://forum.xda-developers.com/showthread.php?t=2190753).
+## Installing
+
+This is two kinds of release:
+* The preview builds: on the bleeding edge of development - for testers or adventurous
+* The stable builds: ready for every day usage - for end users
+
+### Preview builds
+For users with bugs, there may be preview builds available from the [XDA development thread](https://forum.xda-developers.com/showthread.php?t=2190753) or the related [Android File Host folder](https://androidfilehost.com/?w=files&flid=249276).  
 It is recommended to try those builds to see if your issue is resolved before creating an issue.
 The preview builds may contain bug fixes or new features for new android versions.
-You can also obtain Preview or Stable builds from the [XDA Labs](https://labs.xda-developers.com/store/app/org.adaway) application.
 
-## Stable Build
-After preview builds have been tested a bit by the more technical or responsive community within the forums, we will then post the stable build to F-Droid.
+### Stable builds
+After preview builds have been tested by the more technical or responsive community within the forums, we will then post the stable build to F-Droid.
 
 [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
@@ -105,65 +112,7 @@ Please review the following commits for the changes made to the sources above in
 * Commit: https://github.com/AdAway/AdAway/commit/289df896c0ac4f96bd862e8a5054f1011ec07cac
 * Commit: https://github.com/AdAway/AdAway/commit/08da0745b0732b94221c0f5746160fef8126fd99
 
-# Licenses
+## Licenses
 AdAway is licensed under the GPLv3+.  
 The file LICENSE includes the full license text.
-
-## Details
-AdAway is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-AdAway is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with AdAway.  If not, see <https://www.gnu.org/licenses/>.
-
-## Libraries
-
-* Android Donations Lib  
-  https://github.com/dschuermann/android-donations-lib  
-  Apache License v2
-
-* RootCommands  
-  https://github.com/dschuermann/root-commands  
-  Apache License v2
-
-* Mongoose Webserver  
-  https://github.com/cesanta/mongoose  
-  GPLv2 License
-
-* Tcpdump/Libpcap  
-  https://www.tcpdump.org/  
-  BSD 3-Clause License
-
-* HtmlTextView  
-  https://github.com/dschuermann/html-textview  
-  Apache License v2
-
-* Trove  
-  https://trove.starlight-systems.com/  
-  [multiple licenses](https://trove.starlight-systems.com/license)
-
-
-## Images
-* status_enabled.svg, status_disabled.svg, status_update.svg  
-  Dropbox Emblems Tango by Charles A.  
-  https://forums.dropbox.com/topic.php?id=7818&replies=19  
-  Creative Commons Attribution 3.0 Unported License
-
-* status_fail.svg  
-  Faenza Icons  
-  GPLv3
-
-* icon.svg, banner.svg  
-  AdAway by Dominik Schürmann  
-  New version by Alin Ţoţea-Radu  
-  GPLv3
-
-* Menu Icons  
-  Original Android Icons
+For more details, check [the license notes](LICENSE.md).
