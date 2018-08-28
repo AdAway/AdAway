@@ -509,7 +509,7 @@ public class ApplyHelper {
         String contentTitleWithAppName = mContext.getString(R.string.app_name) + ": "
                 + contentTitle;
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext, NotificationHelper.UPDATE_NOTIFICATION_CHANNEL)
                 .setSmallIcon(icon).setContentTitle(contentTitleWithAppName).setTicker(tickerText)
                 .setWhen(when).setOngoing(true).setOnlyAlertOnce(true).setContentText(contentText);
 
@@ -533,7 +533,7 @@ public class ApplyHelper {
         String contentTitleWithAppName = mContext.getString(R.string.app_name) + ": "
                 + contentTitle;
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext, NotificationHelper.UPDATE_NOTIFICATION_CHANNEL)
                 .setSmallIcon(icon).setContentTitle(contentTitleWithAppName)
                 .setContentText(contentText);
 

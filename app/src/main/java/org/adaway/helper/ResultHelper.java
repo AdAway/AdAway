@@ -354,7 +354,7 @@ public class ResultHelper {
         // add app name to title
         contentTitle = context.getString(R.string.app_name) + ": " + contentTitle;
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, NotificationHelper.UPDATE_NOTIFICATION_CHANNEL)
             .setSmallIcon(icon).setWhen(when).setAutoCancel(true).setContentTitle(contentTitle)
                 .setContentText(contentText);
 

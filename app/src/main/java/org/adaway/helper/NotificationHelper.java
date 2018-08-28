@@ -21,7 +21,7 @@ public final class NotificationHelper {
     /**
      * The notification channel for updates.
      */
-    private static final String UPDATE_NOTIFICATION_CHANNEL = "UpdateChannel";
+    public static final String UPDATE_NOTIFICATION_CHANNEL = "UpdateChannel";
     /**
      * The update hosts notification identifier.
      */
