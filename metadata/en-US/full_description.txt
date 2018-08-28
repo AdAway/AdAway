@@ -1,0 +1,15 @@
+An ad blocker that uses the hosts file. The hosts file contains a list
+of mappings between hostnames and IP addresses. When an app requests
+an ad, that request is directed to 127.0.0.1 which does nothing. There
+are options to run a web server to respond to blocked hostnames and to
+direct requests to the IP address of your choosing. You can download
+hosts files from the app but it is possible to use your own and to add
+certain sites to the white- and black-lists.
+
+Features
+
+* AdAway is Open Source and Free Software (GPLv3+)
+* AdAway lets you select your own sources of hosts files
+* You can add exceptions to your Whitelist if an app is not working when specific hosts are blocked
+* You can define extra hostnames in your own Blacklist
+* You can add your own (hostname, IP)-pairs in the Redirection List
