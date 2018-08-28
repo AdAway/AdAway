@@ -10,7 +10,7 @@ dependencies {
     def lifecycle_version = '1.1.1'
     def room_version = '1.1.1'
     def support_version = '27.1.1'
-    def work_version = '1.0.0-alpha06'
+    def work_version = '1.0.0-alpha08'
     // Architecture components
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
