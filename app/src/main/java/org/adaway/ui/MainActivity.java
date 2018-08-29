@@ -21,7 +21,10 @@
 package org.adaway.ui;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -34,6 +37,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.adaway.R;
 import org.adaway.helper.NotificationHelper;
@@ -46,6 +50,8 @@ import org.adaway.ui.hostscontent.HostsContentFragment;
 import org.adaway.ui.lists.ListsFragment;
 import org.adaway.ui.prefs.PrefsFragment;
 import org.adaway.ui.tcpdump.TcpdumpFragment;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 /**
  * This class is the application main activity.
@@ -62,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
      * The selected menu item key for saved instance {@link Bundle}.
      */
     public static final String SELECTED_MENU_ITEM_KEY = "SELECTED_MENU_ITEM";
+    /**
+     * The project link.
+     */
+    private static final String PROJECT_LINK = "https://github.com/AdAway/AdAway";
+    /**
+     * The support link.
+     */
+    private static final String SUPPORT_LINK = "https://paypal.me/BruceBUJON";
     /*
      * Application navigation related.
      */
@@ -73,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
      * The navigation drawer toggle.
      */
     private ActionBarDrawerToggle mDrawerToggle;
+    /**
+     * The navigation drawer.
+     */
+    private View mDrawer;
     /**
      * The navigation drawer list.
      */
@@ -102,9 +120,10 @@ public class MainActivity extends AppCompatActivity {
         /*
          * Configure navigation drawer.
          */
+        this.mDrawer = this.findViewById(R.id.left_drawer);
         // Configure drawer items
         String[] drawerItems = getResources().getStringArray(R.array.drawer_items);
-        this.mDrawerList = this.findViewById(R.id.left_drawer);
+        this.mDrawerList = this.findViewById(R.id.left_drawer_list);
         this.mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, drawerItems));
         // Set drawer item listener
         this.mDrawerList.setOnItemClickListener((parent, view, position, id) -> selectDrawerMenuItem(position));
@@ -141,6 +160,13 @@ public class MainActivity extends AppCompatActivity {
         };
         this.mDrawerLayout.addDrawerListener(this.mDrawerToggle);
         this.updateSelectedMenuItem();
+        // Set version number and click listener
+        TextView versionNumberTextView = this.findViewById(R.id.version_number);
+        versionNumberTextView.setText(this.getApplicationVersion());
+        versionNumberTextView.setOnClickListener(this::showProjectPage);
+        // Set support text view click listener
+        TextView supportTextView = this.findViewById(R.id.support_text);
+        supportTextView.setOnClickListener(this::showSupportPage);
         /*
          * Configure actionbar.
          */
@@ -292,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
         // Highlight the selected item, update the title, and close the drawer
-        this.mDrawerLayout.closeDrawer(this.mDrawerList);
+        this.mDrawerLayout.closeDrawer(this.mDrawer);
     }
 
     /**
@@ -312,5 +338,41 @@ public class MainActivity extends AppCompatActivity {
         }
         // Update title with item name
         this.setTitle(itemName);
+    }
+
+    /**
+     * Get application version.
+     *
+     * @return The application version number.
+     */
+    private String getApplicationVersion() {
+        try {
+            PackageManager manager = this.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
+            return info.versionName;
+        } catch (PackageManager.NameNotFoundException exception) {
+            Log.w(Constants.TAG, "Unable to get application version: " + exception.getMessage());
+            return "";
+        }
+    }
+
+    /**
+     * Show development page.
+     *
+     * @param view The source event view.
+     */
+    private void showProjectPage(@SuppressWarnings("unused") View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(PROJECT_LINK));
+        this.startActivity(browserIntent);
+    }
+
+    /**
+     * Show support page.
+     *
+     * @param view The source event view.
+     */
+    private void showSupportPage(@SuppressWarnings("unused") View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(SUPPORT_LINK));
+        this.startActivity(browserIntent);
     }
 }

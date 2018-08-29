@@ -272,6 +272,8 @@
         <item>Preferences</item>
         <item>Help</item>
     </string-array>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 Support development \u2764</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS requests</string>
