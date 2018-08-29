@@ -151,22 +151,9 @@
     <string name="menu_export">Export All Lists</string>
 
     <!--Help-->
-    <string name="help_tab_about">About</string>
-    <string name="help_tab_donate">Donate</string>
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Problems</string>
-    <string name="help_tab_changelog">Changelog</string>
-    <string name="help_about_version">Version:</string>
-    <string name="help_donation_paypal_item">AdAway Donation</string>
-    <string-array name="help_donation_google_catalog_values">
-        <item>1 Euro</item>
-        <item>2 Euros</item>
-        <item>3 Euros</item>
-        <item>5 Euros</item>
-        <item>8 Euros</item>
-        <item>13 Euros</item>
-    </string-array>
 
     <!--Adware-->
     <string name="adware_header">Adware</string>

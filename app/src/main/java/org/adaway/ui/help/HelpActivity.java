@@ -34,27 +34,10 @@ import android.view.MenuItem;
 import org.adaway.R;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.MainActivity;
-import org.adaway.util.Constants;
-import org.sufficientlysecure.donations.DonationsFragment;
 
 import java.util.ArrayList;
 
 public class HelpActivity extends AppCompatActivity {
-    /**
-     * PayPal
-     */
-    private static final String PAYPAL_USER = "android@schuermann.eu";
-    private static final String PAYPAL_CURRENCY_CODE = "EUR";
-    /**
-     * Flattr
-     */
-    private static final String FLATTR_PROJECT_URL = "http://code.google.com/p/ad-away/";
-    // without http:// !
-    private static final String FLATTR_URL = "flattr.com/thing/369138/AdAway-Ad-blocker-for-Android";
-    /**
-     * Bitcoin
-     */
-    private static final String BITCOIN = "173kZxbkKuvnF5fa5b7t21kqU5XfEvvwTs";
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
 
@@ -105,31 +88,6 @@ public class HelpActivity extends AppCompatActivity {
         sOnSOffBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_s_on_s_off);
         mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_s_on_s_off)),
                 HelpFragmentHtml.class, sOnSOffBundle);
-
-        Bundle donationsArgs = new Bundle();
-        donationsArgs.putBoolean(DonationsFragment.ARG_DEBUG, Constants.isDebugEnabled());
-        donationsArgs.putBoolean(DonationsFragment.ARG_FLATTR_ENABLED, true);
-        donationsArgs.putString(DonationsFragment.ARG_FLATTR_PROJECT_URL, FLATTR_PROJECT_URL);
-        donationsArgs.putString(DonationsFragment.ARG_FLATTR_URL, FLATTR_URL);
-
-        donationsArgs.putBoolean(DonationsFragment.ARG_PAYPAL_ENABLED, true);
-        donationsArgs.putString(DonationsFragment.ARG_PAYPAL_CURRENCY_CODE, PAYPAL_CURRENCY_CODE);
-        donationsArgs.putString(DonationsFragment.ARG_PAYPAL_USER, PAYPAL_USER);
-        donationsArgs.putString(DonationsFragment.ARG_PAYPAL_ITEM_NAME, getString(R.string.help_donation_paypal_item));
-
-        donationsArgs.putBoolean(DonationsFragment.ARG_BITCOIN_ENABLED, true);
-        donationsArgs.putString(DonationsFragment.ARG_BITCOIN_ADDRESS, BITCOIN);
-
-        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_donate)),
-                DonationsFragment.class, donationsArgs);
-
-        Bundle changelogArgs = new Bundle();
-        changelogArgs.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_changelog);
-        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_changelog)),
-                HelpFragmentHtml.class, changelogArgs);
-
-        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_about)),
-                HelpFragmentAbout.class, null);
     }
 
     public static class TabsAdapter extends FragmentPagerAdapter implements ActionBar.TabListener,
