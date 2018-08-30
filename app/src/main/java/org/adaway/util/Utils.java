@@ -32,7 +32,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -46,7 +45,6 @@ import org.sufficientlysecure.rootcommands.Toolbox;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class Utils {
     /**
@@ -220,44 +218,21 @@ public class Utils {
      * @return
      */
     public static boolean isInForeground(Context context) {
-        AsyncTask<Context, Void, Boolean> foregroundCheckTask = new AsyncTask<Context, Void, Boolean>() {
-
-            @Override
-            protected Boolean doInBackground(Context... params) {
-                final Context context = params[0].getApplicationContext();
-                return isAppOnForeground(context);
-            }
-
-            private boolean isAppOnForeground(Context context) {
-                ActivityManager activityManager = (ActivityManager) context
-                        .getSystemService(Context.ACTIVITY_SERVICE);
-                if (activityManager == null) {
-                    return false;
-                }
-                List<RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
-                if (appProcesses == null) {
-                    return false;
-                }
-                final String packageName = context.getPackageName();
-                for (RunningAppProcessInfo appProcess : appProcesses) {
-                    if (appProcess.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND
-                            && appProcess.processName.equals(packageName)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        };
-
-        boolean foreground = false;
-        try {
-            foreground = foregroundCheckTask.execute(context).get();
-        } catch (InterruptedException e) {
-            Log.e(Constants.TAG, "IsInForeground InterruptedException", e);
-        } catch (ExecutionException e) {
-            Log.e(Constants.TAG, "IsInForeground ExecutionException", e);
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (activityManager == null) {
+            return false;
         }
-
-        return foreground;
+        List<RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
+        if (appProcesses == null) {
+            return false;
+        }
+        String packageName = context.getPackageName();
+        for (RunningAppProcessInfo appProcess : appProcesses) {
+            if (appProcess.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND
+                    && appProcess.processName.equals(packageName)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

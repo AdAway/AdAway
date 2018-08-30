@@ -154,7 +154,7 @@ public class ApplyHelper {
                 this.downloadHost(hostsSource, out);
             }
             // Check if all downloads failed
-            if (this.mNumberOfDownloads == mNumberOfFailedDownloads && this.mNumberOfDownloads != 0) {
+            if (this.mNumberOfDownloads == this.mNumberOfFailedDownloads && this.mNumberOfDownloads != 0) {
                 // Mark downloads failed
                 statusCode = StatusCodes.DOWNLOAD_FAIL;
             }
