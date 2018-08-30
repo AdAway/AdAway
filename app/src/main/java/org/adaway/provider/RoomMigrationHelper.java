@@ -51,8 +51,13 @@ public class RoomMigrationHelper {
                 Log.w(Constants.TAG, "Unable to extract hosts sources from old database.");
             } else {
                 while (cursor.moveToNext()) {
+                    // Check hosts source url validity
+                    String url = cursor.getString(0);
+                    if (!HostsSource.isValidUrl(url)) {
+                        continue;
+                    }
                     HostsSource source = new HostsSource();
-                    source.setUrl(cursor.getString(0));
+                    source.setUrl(url);
                     source.setEnabled(cursor.getInt(1) == 1);
                     source.setLastLocalModification(new Date(cursor.getLong(2)));
                     source.setLastOnlineModification(new Date(cursor.getLong(3)));
