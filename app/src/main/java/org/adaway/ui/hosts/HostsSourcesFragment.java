@@ -44,7 +44,6 @@ import android.widget.EditText;
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.ui.dialog.AlertDialogValidator;
-import org.adaway.util.RegexUtils;
 
 /**
  * This class is a {@link Fragment} to display and manage hosts sources.
@@ -212,7 +211,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
                 R.string.button_add,
                 (dialog, which) -> {
                     String url = inputEditText.getText().toString();
-                    if (RegexUtils.isValidUrl(url)) {
+                    if (HostsSource.isValidUrl(url)) {
                         // Insert hosts source into database
                         this.mViewModel.addSourceFromUrl(url);
                     }
@@ -228,7 +227,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         alertDialog.show();
         // Set button validation behavior
         inputEditText.addTextChangedListener(
-                new AlertDialogValidator(alertDialog, RegexUtils::isValidUrl, false)
+                new AlertDialogValidator(alertDialog, HostsSource::isValidUrl, false)
         );
     }
 
@@ -264,7 +263,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
                     HostsSourcesFragment.this.mActionMode.finish();
                     // Check url validity
                     String url = inputEditText.getText().toString();
-                    if (RegexUtils.isValidUrl(url)) {
+                    if (HostsSource.isValidUrl(url)) {
                         // Update hosts source into database
                         this.mViewModel.updateSourceUrl(editedSource, url);
                     }
@@ -282,7 +281,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         alertDialog.show();
         // Set button validation behavior
         inputEditText.addTextChangedListener(
-                new AlertDialogValidator(alertDialog, RegexUtils::isValidUrl, true)
+                new AlertDialogValidator(alertDialog, HostsSource::isValidUrl, true)
         );
     }
 
@@ -299,5 +298,4 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         // Finish action mode
         this.mActionMode.finish();
     }
-
 }

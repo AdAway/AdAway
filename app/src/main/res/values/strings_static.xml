@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="no_root_url" translatable="false">https://wiki.lineageos.org/</string>
-    <string name="hosts_add_dialog_input" translatable="false">http://</string>
+    <string name="hosts_add_dialog_input" translatable="false">https://</string>
 </resources>

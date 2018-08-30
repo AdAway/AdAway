@@ -23,8 +23,6 @@ package org.adaway.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.webkit.URLUtil;
-
 public class RegexUtils {
     /*
      * Allow hostnames like: localserver example.com example.host.org
@@ -72,16 +70,6 @@ public class RegexUtils {
             + WHITELIST_HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
     public static final Pattern HOSTS_PARSER_WHITELIST_IMPORT_PATTERN =
             Pattern.compile(HOSTS_PARSER_WHITELIST_IMPORT, Pattern.CASE_INSENSITIVE);
-
-    /**
-     * Just a wrapper
-     *
-     * @param input
-     * @return
-     */
-    public static boolean isValidUrl(String input) {
-        return URLUtil.isValidUrl(input);
-    }
 
     /**
      * I could not find any android class that provides checking of an hostnames, thus I am using

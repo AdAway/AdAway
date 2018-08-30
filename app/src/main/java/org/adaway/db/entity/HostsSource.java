@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
+import android.webkit.URLUtil;
 
 import java.util.Date;
 
@@ -23,6 +24,17 @@ public class HostsSource {
     private Date lastLocalModification;
     @ColumnInfo(name = "last_modified_online")
     private Date lastOnlineModification;
+
+    /**
+     * Check whether an URL is valid for as host source.<br>
+     * A valid URL is a HTTPS URL or file URL.
+     *
+     * @param url The URL to check.
+     * @return {@code true} if the URL is valid, {@code false} otherwise.
+     */
+    public static boolean isValidUrl(String url) {
+        return URLUtil.isHttpsUrl(url) || URLUtil.isFileUrl(url);
+    }
 
     @NonNull
     public String getUrl() {
