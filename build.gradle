@@ -9,6 +9,17 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        jcenter()
+		google()
+    }
+}
+
+/*task clean(type: Delete) {
+    delete rootProject.buildDir
+}*/
+
 plugins {
     id 'org.sonarqube' version '2.6.2'
 }
@@ -21,15 +32,3 @@ sonarqube {
         property 'sonar.projectVersion', '4.0.8'
     }
 }
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.1'
-}
-

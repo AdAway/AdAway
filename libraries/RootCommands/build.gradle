@@ -1,8 +1,5 @@
 apply plugin: 'com.android.library'
 
-dependencies {
-}
-
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.2'
@@ -11,9 +8,12 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
     }
+
     // Do not abort build if lint finds errors
     lintOptions {
         abortOnError false
     }
 }
 
+dependencies {
+}

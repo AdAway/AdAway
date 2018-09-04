@@ -32,7 +32,7 @@ dependencies {
  * Task to rename executables from hello_world to libhello_world_exec.so
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *
- * http://www.gradle.org/docs/current/userguide/working_with_files.html
+ * https://docs.gradle.org/current/userguide/working_with_files.html
  */
 task renameDebugExecutables(type: Sync) {
     from('build/intermediates/ndkBuild/debug/obj/local') {
