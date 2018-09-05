@@ -1,0 +1,1 @@
+Az AdAway egy nyílt forráskódú hirdetésblokkoló program Android-ra (a host fájlt használja).

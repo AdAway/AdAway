@@ -1,0 +1,7 @@
+Hosts dosyasını kullanan bir reklam engelleyici.
+Hosts dosyası, host adları ve IP adresleri arasındaki eşlemelerin listesini içeren bir sistem dosyasıdır.
+Bir uygulama bu dosyadaki bir host'dan bir reklam istediğinde, bu istek hiçbir şey yapmadan yerel IP 127.0.0.1'e yönlendirilir.
+Önceden tanımlanmış host dosyalarını, uygulamanın içerisinden sistem ana dosyalarına dahil etmek için uygulama içinden indirebilirsiniz. Kendi dosyalarınızı kullanmak ve beyaz ve kara listelere belirli host eklemek de mümkündür.
+Engellenen host adlarına yanıt vermek ve bunun yerine tercih ettiğiniz IP adresine istekleri yönlendirmek için yerel bir web sunucusunu çalıştırma seçenekleri vardır.
+
+Kök erişimi gerektirir: Evet. Hosts dosyası varsayılan olarak salt okunur olan /system de bulunur.

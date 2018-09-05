@@ -1,0 +1,1 @@
+AdAway 是個使用 hosts 檔案的開放原始碼 Android 廣告阻擋程式。
