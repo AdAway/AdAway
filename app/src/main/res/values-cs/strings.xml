@@ -35,7 +35,7 @@
   <string name="export_dialog">Exportování...</string>
   <string name="export_success">Všechny záznamy byly exportovány do souboru \"adaway-export\" na SD kartě.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Kontrola aktualizací...</string>
   <string name="status_reverting">Obnovování...</string>
   <string name="status_reverting_subtitle">Vytvářím standardní soubor hostitelů</string>
@@ -111,28 +111,14 @@
   <string name="menu_import">Importovat všechny seznamy</string>
   <string name="menu_export">Exportovat všechny seznamy</string>
   <!--Help-->
-  <string name="help_tab_about">O programu</string>
-  <string name="help_tab_donate">Přispět</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Časté otázky</string>
   <string name="help_tab_problems">Problémy</string>
-  <string name="help_tab_changelog">Seznam změn</string>
-  <string name="help_about_version">Verze:</string>
-  <string name="help_donation_paypal_item">AdAway příspěvek</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 euro</item>
-    <item>2 eura</item>
-    <item>3 eura</item>
-    <item>5 eur</item>
-    <item>8 eur</item>
-    <item>13 eur</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokální:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">není k dispozici</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Blokování reklam</string>
   <string name="no_text_editor_title">Není nainstalován žádný textový editor</string>
@@ -173,8 +159,6 @@
   <string name="pref_update_check_daily_summary">Kontrolovat aktualizace denně na pozadí s oznámením</string>
   <string name="pref_automatic_update_daily">Automatická aktualizace</string>
   <string name="pref_automatic_update_daily_summary">Automaticky aktualizovat na pozadí, pokud jsou k dispozici aktualizace.</string>
-  <string name="pref_update_only_on_wifi">Aktualizovat pouze na Wi-Fi</string>
-  <string name="pref_update_only_on_wifi_summary">Spustí aktualizaci na pozadí pouze při připojení k síti Wi-Fi.</string>
   <string name="pref_whitelist_rules">Povolit seznam povolených hostitelů</string>
   <string name="pref_whitelist_rules_summary">Povolit položky bílé listiny ze zdrojů souborů hostitelů.</string>
   <string name="pref_redirection_rules_summary">BEZPEČNOSTNÍ RIZIKO! Povolit položky přesměrování ze zdrojů souborů hostitelů.</string>
@@ -186,6 +170,7 @@
   <string name="pref_enable_systemless_summary">Zabrání AdAway provedení změn na systémovém oddílu</string>
   <string name="pref_enable_systemless">Povolit mód systemless</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Nastavení</string>
   <!--Hosts source status-->

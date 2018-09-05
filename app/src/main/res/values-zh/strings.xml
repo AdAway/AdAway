@@ -63,7 +63,7 @@
   <string name="hosts_description">hosts 文件是一个将主机名映射到 IP 地址的系统文件。 它是一个纯文本文件，配置由 AdAway 处理；这是它的第一行：</string>
   <string name="hosts_content">正在加载 hosts 文件内容...</string>
   <string name="hosts_open_button">打开 hosts 文件</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">正在检查更新...</string>
   <string name="status_reverting">正在恢复...</string>
   <string name="status_reverting_subtitle">创建标准 hosts 文件</string>
@@ -78,6 +78,7 @@
   <string name="status_enabled_subtitle">已启用最新的 hosts 文件</string>
   <string name="status_disabled">已禁用</string>
   <string name="status_disabled_subtitle">已禁用</string>
+  <string name="notification_channel_update_name">更新</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">/system/etc/hosts 符号链接不存在或者不正确！AdAway 将无法运行。
 
@@ -172,22 +173,9 @@ AdAway 无法在 3G 等移动网络上稳定运行。您可以转到所选的 AP
   <string name="menu_import">导入列表</string>
   <string name="menu_export">导出列表</string>
   <!--Help-->
-  <string name="help_tab_about">关于</string>
-  <string name="help_tab_donate">捐赠</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">常问问题</string>
   <string name="help_tab_problems">其他问题</string>
-  <string name="help_tab_changelog">更新日志</string>
-  <string name="help_about_version">版本：</string>
-  <string name="help_donation_paypal_item">AdAway 捐赠</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 欧元</item>
-    <item>2 欧元</item>
-    <item>3 欧元</item>
-    <item>5 欧元</item>
-    <item>8 欧元</item>
-    <item>13 欧元</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_description">在这里，您可以找到已安装但无法通过 AdAway 屏蔽的应用。 这些应用使用 空中推送通知技术，即使应用未运行也会弹出广告窗口，甚至会更改您的手机铃声。唯一的应对措施对就是通过列表项中的卸载选项卸载它们。</string>
@@ -199,7 +187,6 @@ AdAway 无法在 3G 等移动网络上稳定运行。您可以转到所选的 AP
   <string name="hosts_not_available">无法使用</string>
   <string name="hosts_add_dialog_title">添加源</string>
   <string name="hosts_edit_dialog_title">编辑源</string>
-  <string name="hosts_dialog_url">网址：</string>
   <string name="hosts_dialog_url_hint">hosts 源网址</string>
   <!--Other-->
   <string name="app_subtitle">广告拦截器</string>
@@ -262,8 +249,6 @@ AdAway 无法在 3G 等移动网络上稳定运行。您可以转到所选的 AP
   <string name="pref_update_check_daily_summary">每天在后台检查更新并显示通知</string>
   <string name="pref_automatic_update_daily">自动更新</string>
   <string name="pref_automatic_update_daily_summary">有可用更新时，在后台自动更新</string>
-  <string name="pref_update_only_on_wifi">仅使用 WiFi 更新</string>
-  <string name="pref_update_only_on_wifi_summary">仅通过 wifi 网络执行后台更新</string>
   <string name="pref_whitelist_rules">允许白名单</string>
   <string name="pref_whitelist_rules_summary">允许 hosts 源中的白名单条目</string>
   <string name="pref_redirection_rules">允许重定向</string>
@@ -288,10 +273,24 @@ AdAway 无法在 3G 等移动网络上稳定运行。您可以转到所选的 AP
     <item>扫描广告软件</item>
     <item>首选项</item>
   </string-array>
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS 请求</string>
   <string name="shortcut_your_lists">列表</string>
   <string name="shortcut_preferences">首选项</string>
   <!--Hosts source status-->
+  <string name="hosts_source_last_update">最后更新于 %1$s 前</string>
   <string name="hosts_source_unknown_status">未知的更新状态</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="other">%d 分钟</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="other">%d 小时</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="other">%d 天</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="other">%d 个月</item>
+  </plurals>
 </resources>

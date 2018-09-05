@@ -62,7 +62,7 @@
   <string name="hosts_description">Хост файлът е системен файл, който съпоставя имена на хостове към IP адреси. Той е обикновен текстови файл, конфигурацията на който се обработва от AdAway. Ето първите няколко реда:</string>
   <string name="hosts_content">Зареждане на съдържанието на хост файла...</string>
   <string name="hosts_open_button">Отваряне на хост файл</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Проверка за актуализация ...</string>
   <string name="status_reverting">Връщане...</string>
   <string name="status_reverting_subtitle">Създаване на стандартен hosts файл</string>
@@ -77,9 +77,11 @@
   <string name="status_enabled_subtitle">Най-новите hosts файлове са активирани</string>
   <string name="status_disabled">Деактивиран</string>
   <string name="status_disabled_subtitle">Деактивиран</string>
+  <string name="notification_channel_update_name">Актуализации</string>
+  <string name="notification_channel_update_description">Уведомления за нови актуализации на хостове</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Символичната връзка от вашата цел /system/etc/hosts не съществува или е неправилна! AdAway няма да работи, ако не е насочен към правилния файл.\n\nИскате ли да опитате да създадете символична връзка?</string>
-  <string name="apply_symlink_missing_title">Липсва символична връзка</string>
+  <string name="apply_symlink_missing_title">Липсва символна връзка</string>
   <string name="apply_not_enough_space">Няма достатъчно място на дяла!\nОпитайте да подмените целевия хост файл в /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Няма достатъчно място</string>
   <string name="apply_private_file_fail">Изтегленият файл не може да бъде прочетен.</string>
@@ -138,22 +140,9 @@
   <string name="menu_import">Внасяне на всички списъци</string>
   <string name="menu_export">Изнасяне на всички списъци</string>
   <!--Help-->
-  <string name="help_tab_about">За приложението</string>
-  <string name="help_tab_donate">Дарение</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">ЧЗВ</string>
   <string name="help_tab_problems">Проблеми</string>
-  <string name="help_tab_changelog">Промени</string>
-  <string name="help_about_version">Версия:</string>
-  <string name="help_donation_paypal_item">AdAway дарение</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 евро</item>
-    <item>2 евра</item>
-    <item>3 евра</item>
-    <item>5 евра</item>
-    <item>8 евра</item>
-    <item>13 евра</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Рекламен софтуер</string>
   <string name="adware_description">Тук можете на намерите инсталиран рекламен софтуер, лоши приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват като например Airpush уведомления, които се появяват дори когато приложението не работи, могат дори да променят мелодията Ви. Единственото налично противодействие е да инсталирате тези приложения, като натиснете върху елементите в списъка.</string>
@@ -165,7 +154,7 @@
   <string name="hosts_not_available">не е наличен</string>
   <string name="hosts_add_dialog_title">Добавяне на източник</string>
   <string name="hosts_edit_dialog_title">Редактиране на източник</string>
-  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url">URL: (https:// или file:// ресурс)</string>
   <string name="hosts_dialog_url_hint">URL адрес на източника на хоста</string>
   <!--Other-->
   <string name="app_subtitle">Спира рекламите</string>
@@ -224,8 +213,8 @@
   <string name="pref_update_check_daily_summary">Проверка за актуализации ежедневно във фонов режим с известия</string>
   <string name="pref_automatic_update_daily">Автоматична актуализация</string>
   <string name="pref_automatic_update_daily_summary">Автоматично актуализиране във фонов режим, ако са налични актуализации.</string>
-  <string name="pref_update_only_on_wifi">Актуализиране само през Wi-Fi</string>
-  <string name="pref_update_only_on_wifi_summary">Изпълнение на актуализации на заден план само когато е свързан към WiFi мрежа.</string>
+  <string name="pref_update_only_on_wifi">Актуализиране само при неизмервателна мрежа</string>
+  <string name="pref_update_only_on_wifi_summary">Изпълнение на актуализации във форум режим само, когато сте свързани към неизмервателна мрежа.</string>
   <string name="pref_whitelist_rules">Разреши добавяне в бял списък</string>
   <string name="pref_whitelist_rules_summary">Позволяване на вписвания от белия списък от източниците на hosts файлове.</string>
   <string name="pref_redirection_rules">Позволяване на пренасочвания</string>
@@ -251,6 +240,8 @@
     <item>Опции</item>
     <item>Помощ</item>
   </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Подкрепа за развитие \u2764</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS заявки</string>
   <string name="shortcut_your_lists">Ваши списъци</string>

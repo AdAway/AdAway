@@ -35,7 +35,7 @@
   <string name="export_dialog">Exporta...</string>
   <string name="export_success">Toate datele au fost exportate pe sdcard sub numele \"adaway-export\" </string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Verifica daca exista versiuni noi...</string>
   <string name="status_reverting">Reinstaurare valori anterioare...</string>
   <string name="status_reverting_subtitle">Sistemul creaza fisiere \"hosts\" standard.</string>
@@ -110,28 +110,14 @@
   <string name="menu_import">Importa toate listele</string>
   <string name="menu_export">Exporta toate listele</string>
   <!--Help-->
-  <string name="help_tab_about">Despre</string>
-  <string name="help_tab_donate">Doneaza</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Lista cu intrebari frecvente</string>
   <string name="help_tab_problems">Probleme</string>
-  <string name="help_tab_changelog">Registrii cu modificari</string>
-  <string name="help_about_version">Versiuni:</string>
-  <string name="help_donation_paypal_item">Donație pentru AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">Indisponibil</string>
-  <string name="hosts_dialog_url">Adresa (URL)</string>
   <!--Other-->
   <string name="app_subtitle">Program care blocheaza reclame</string>
   <string name="no_text_editor_title">Nu exista un editor de text instalat in system.</string>
@@ -172,8 +158,6 @@
   <string name="pref_update_check_daily_summary">Verifica zilnic (in background) daca exista o versiune noua si notifica. </string>
   <string name="pref_automatic_update_daily">Update automat</string>
   <string name="pref_automatic_update_daily_summary">Update automat (in background) daca exista versiune noua.</string>
-  <string name="pref_update_only_on_wifi">\"Update\" numai cand exista conexiune WiFi.</string>
-  <string name="pref_update_only_on_wifi_summary">\"Background updates\" numai cand exista conexiune WiFi. </string>
   <string name="pref_whitelist_rules">Permiteți whitelisting</string>
   <string name="pref_whitelist_rules_summary">Permiteți înscrieri în whitelist din sursele de hosts. </string>
   <string name="pref_redirection_rules_summary">PREZINTĂ RISC DE SECURITATE! Permiteți înregistrări de redirecționare din sursele Hosts. </string>
@@ -185,6 +169,7 @@
   <string name="pref_enable_systemless_summary">Împiedică modificarea partiției de sistem de către AdAway</string>
   <string name="pref_enable_systemless">Activează modul systemless</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferinte</string>
   <!--Hosts source status-->

@@ -35,7 +35,7 @@
   <string name="export_dialog">Besig met Uitvoer...</string>
   <string name="export_success">Alle inskrywings uitgevoer na \'adaway-uitvoer\' op sdkaart</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Soek vir opdatering...</string>
   <string name="status_reverting">Keer terug...</string>
   <string name="status_reverting_subtitle">Skep standaard gasheer lêer</string>
@@ -98,28 +98,14 @@
   <string name="menu_import">Voer Alle Lyste in</string>
   <string name="menu_export">Voer Alle Lyste Uit</string>
   <!--Help-->
-  <string name="help_tab_about">Omtrent</string>
-  <string name="help_tab_donate">Skenk</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Vrae</string>
   <string name="help_tab_problems">Probleme</string>
-  <string name="help_tab_changelog">Veranderings Log</string>
-  <string name="help_about_version">Weergawe:</string>
-  <string name="help_donation_paypal_item">AdAway Donasie</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokaal:</string>
   <string name="hosts_last_modified_online">Aanlyn:</string>
   <string name="hosts_not_available">nie beskikbaar nie</string>
-  <string name="hosts_dialog_url">BA:</string>
   <!--Other-->
   <string name="app_subtitle">Ad Blokkeerder</string>
   <string name="no_text_editor_title">Geen teks redigeerder geïnstalleer nie </string>
@@ -152,12 +138,11 @@
   <string name="pref_update_check_daily_summary">Kyk daagliks vir opdaterings in die agtergrond met kennisgewings</string>
   <string name="pref_automatic_update_daily">Outomatiese Opdatering</string>
   <string name="pref_automatic_update_daily_summary">Dateer outomaties op in die agtergrond indien beskikbaar.</string>
-  <string name="pref_update_only_on_wifi">Dateer op met WiFi</string>
-  <string name="pref_update_only_on_wifi_summary">Voer slegs opdaterings uit indien gekoppel aan \'n WiFi netwerk.</string>
   <string name="pref_debug">Herstel foute</string>
   <string name="pref_enable_debug">Fout Aantekening</string>
   <string name="pref_enable_debug_summary">Jy moet AdAway weer begin om hierdie instellings te implementeer.</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Voorkeure</string>
   <!--Hosts source status-->

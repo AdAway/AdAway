@@ -3,7 +3,7 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Salir</string>
-  <string name="button_apply">Descargar ficheros y aplicar bloqueo de publicidad</string>
+  <string name="button_apply">Descargar archivos y aplicar bloqueo de anuncios</string>
   <string name="button_close">Cerrar</string>
   <string name="button_yes">Sí</string>
   <string name="button_no">No</string>
@@ -17,8 +17,15 @@
   <string name="button_webserver_toggle_text">Inicia o detiene el servidor web en localhost (su dispositivo) para responder solicitudes desde servidores bloqueados.</string>
   <string name="button_help">Ayuda</string>
   <!--Home-->
+  <string name="header_help">¡Bienvenido!</string>
   <string name="text_update">Todos los ficheros hosts de las fuentes especificadas se han descargado, fusionado con sus propias listas, e instalado como un único fichero hosts en su sistema.</string>
   <string name="button_check_update_hosts">Buscar actualizaciones</string>
+  <string name="button_enable_hosts">Habilitar bloqueo de anuncios</string>
+  <string name="button_disable_hosts">Deshabilitar bloqueo de anuncios</string>
+  <string name="webserver_status_running">En marcha</string>
+  <string name="webserver_status_stopped">Parado</string>
+  <string name="button_enable_webserver">Habilitar servidor web</string>
+  <string name="button_disable_webserver">Deshabilitar servidor web</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Lista vacía</string>
   <string name="checkbox_list_context_delete">Borrar</string>
@@ -35,7 +42,7 @@
   <string name="export_dialog">Exportando...</string>
   <string name="export_success">Exportadas todas las entradas a un fichero llamado \'adaway-export\' en su tarjeta SD</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Buscando actualizaciones...</string>
   <string name="status_reverting">Revirtiendo...</string>
   <string name="status_reverting_subtitle">Creando un fichero hosts estándar</string>
@@ -50,6 +57,7 @@
   <string name="status_enabled_subtitle">Habilitados los ficheros hosts más recientes</string>
   <string name="status_disabled">Deshabilitado</string>
   <string name="status_disabled_subtitle">Deshabilitado</string>
+  <string name="notification_channel_update_name">Actualizaciones</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">¡No existe enlace simbólico (symlink), o es incorrecto, desde su ruta a /system/etc/hosts! AdAway no funcionará si no está apuntando al fichero correcto.\n\n¿Quiere intentar crear un enlace simbólico?</string>
   <string name="apply_symlink_missing_title">Falta enlace simbólico</string>
@@ -111,28 +119,16 @@
   <string name="menu_import">Importar todas las listas</string>
   <string name="menu_export">Exportar todas las listas</string>
   <!--Help-->
-  <string name="help_tab_about">Acerca de</string>
-  <string name="help_tab_donate">Donar</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Preguntas frecuentes (FAQ)</string>
   <string name="help_tab_problems">Problemas</string>
-  <string name="help_tab_changelog">Registro de cambios</string>
-  <string name="help_about_version">Versión:</string>
-  <string name="help_donation_paypal_item">Donación a AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <!--Adware-->
+  <string name="adware_scanning">Escaneando...</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En línea:</string>
   <string name="hosts_not_available">no disponible</string>
-  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_add_dialog_title">Añadir fuente</string>
   <!--Other-->
   <string name="app_subtitle">Bloqueador de publicidad</string>
   <string name="no_text_editor_title">No hay ningún editor de texto instalado</string>
@@ -140,9 +136,12 @@
   <string name="no_file_manager_title">No hay ningún administrador de ficheros instalado</string>
   <string name="no_file_manager">No pudo encontrarse ningún administrador de ficheros para abrir los ficheros. Puede instalar OI File Manager u otros administradores de ficheros para solucionar esto.\n\n¿Desea instalar OI File Manager?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump es una herramienta para monitorizar peticiones DNS y guardarlas en un fichero de registro (log). Puede iniciarla en segundo plano, ejecutar aplicaciones que muestran publicidad, y después analizar las peticiones DNS de estas usando el fichero log. Los posibles servidores de publicidad utilizados pueden entonces ser añadidos a su lista negra.</string>
+  <string name="tcpdump_show_results">Mostrar resultados</string>
   <!--Preferences-->
   <string name="pref_download">Preferencias generales</string>
+  <string name="pref_dark_theme">Habilitar tema oscura</string>
   <string name="pref_hosts">Fichero hosts</string>
   <string name="pref_redirection_ip">IP de redireccionamiento</string>
   <string name="pref_update_check">Buscar actualizaciones</string>
@@ -173,10 +172,9 @@
   <string name="pref_update_check_daily_summary">Buscar actualizaciones diarias en segundo plano con notificaciones</string>
   <string name="pref_automatic_update_daily">Actualización automática</string>
   <string name="pref_automatic_update_daily_summary">Actualizar automáticamente en segundo plano si hay actualizaciones disponibles.</string>
-  <string name="pref_update_only_on_wifi">Actualizar sólo sobre wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Actualizar en segundo plano sólo cuando esté conectado a una red wifi.</string>
   <string name="pref_whitelist_rules">Permitir lista blanca</string>
   <string name="pref_whitelist_rules_summary">Permite las entradas de lista blanca desde de las fuentes de ficheros hosts.</string>
+  <string name="pref_redirection_rules">Permitir redirección</string>
   <string name="pref_redirection_rules_summary">¡IMPLICA UN RIESGO DE SEGURIDAD! Permite las entradas de redireccionamiento desde las fuentes de ficheros hosts.</string>
   <string name="pref_debug">Depurar</string>
   <string name="pref_enable_debug">Registro (log) de depuración</string>
@@ -185,8 +183,29 @@
   <string name="pref_enable_ipv6_summary">Todas las entradas del archivo de host obtendrán una entrada correspondiente a ::1 (IPv6 localhost).</string>
   <string name="pref_enable_systemless_summary">Evitar que AdAway modifique la partición de sistema</string>
   <string name="pref_enable_systemless">Activar modo systemless</string>
+  <string name="drawer_open">Abrir menú</string>
+  <string name="drawer_close">Cerrar menú</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferencias</string>
   <!--Hosts source status-->
+  <string name="hosts_source_last_update">Última actualización hace %1$s</string>
+  <string name="hosts_source_unknown_status">Estado de actualización desconocido</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d minuto</item>
+    <item quantity="other">%d minutos</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d hora</item>
+    <item quantity="other">%d horas</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%ddía</item>
+    <item quantity="other">%d días</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d mes</item>
+    <item quantity="other">%d meses</item>
+  </plurals>
 </resources>

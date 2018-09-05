@@ -62,7 +62,7 @@
   <string name="hosts_description">A hosts fájl egy rendszerfájl, amely a hosztneveket IP címekhez rendeli. Ez egy egyszerű szöveges fájl, amelynek konfigurációját az AdAway kezeli. Itt van az első pár sora:</string>
   <string name="hosts_content">Hosts fájl tartalmának betöltése...</string>
   <string name="hosts_open_button">Hosts fájl megnyitása</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Frissítések ellenőrzése...</string>
   <string name="status_reverting">Visszaállítás...</string>
   <string name="status_reverting_subtitle">Alapértelmezett hosts fájl létrehozása</string>
@@ -77,6 +77,8 @@
   <string name="status_enabled_subtitle">A legújabb hosts fájlok vannak engedélyezve</string>
   <string name="status_disabled">Letiltva</string>
   <string name="status_disabled_subtitle">Letiltva</string>
+  <string name="notification_channel_update_name">Frissítések</string>
+  <string name="notification_channel_update_description">Értesítés host frissítések esetén</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">A /system/etc/hosts fájlra mutató szimbolikus link nem létezik vagy hibás! Az AdAway nem fog működni, amíg ez nem mutat a megfelelő fájlra.
 
@@ -140,22 +142,9 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
   <string name="menu_import">Összes lista importálása</string>
   <string name="menu_export">Összes lista exportálása</string>
   <!--Help-->
-  <string name="help_tab_about">Névjegy</string>
-  <string name="help_tab_donate">Adományozás</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">GYIK</string>
   <string name="help_tab_problems">Problémák</string>
-  <string name="help_tab_changelog">Változásnapló</string>
-  <string name="help_about_version">Verzió:</string>
-  <string name="help_donation_paypal_item">Adományozás az AdAway-nek</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_description">Itt megtalálod a telepített adwareket, rossz alkalmazásokat, melyeket nem lehet az AdAway-jel blokkolni. Ezek az alkalmazások például Airpush értesítéseket használnak, melyek akkor is felugranak, ha az alkalmazás épp nem fut, de akár a csengőhangodat is meg tudják változtatni. Az egyetlen hatásos ellenintézkedés ezen alkalmazások törlése a listára való kattintással.</string>
@@ -167,7 +156,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
   <string name="hosts_not_available">nem érhető el</string>
   <string name="hosts_add_dialog_title">Forrás hozzáadása</string>
   <string name="hosts_edit_dialog_title">Forrás szerkesztése</string>
-  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url">URL: (https:// vagy file:// erőforrás)</string>
   <string name="hosts_dialog_url_hint">Hosts fájl forrása (URL)</string>
   <!--Other-->
   <string name="app_subtitle">Hirdetésblokkoló</string>
@@ -230,8 +219,6 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
   <string name="pref_update_check_daily_summary">Frissítések keresése naponta a háttérben, értesítésekkel</string>
   <string name="pref_automatic_update_daily">Automatikus frissítés</string>
   <string name="pref_automatic_update_daily_summary">Automatikus frissítés a háttérben, amennyiben elérhető újabb frissítés.</string>
-  <string name="pref_update_only_on_wifi">Frissítés csak WiFi-n </string>
-  <string name="pref_update_only_on_wifi_summary">Csak Wi-Fi hálózathoz csatlakozva kereshet a háttérben frissítéseket.</string>
   <string name="pref_whitelist_rules">Fehérlistázás engedélyezése</string>
   <string name="pref_whitelist_rules_summary">Fehérlista bejegyzések engedélyezése a hosts forrásokból.</string>
   <string name="pref_redirection_rules">Átirányítások engedélyezése</string>
@@ -257,6 +244,8 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <item>Beállítások</item>
     <item>Súgó</item>
   </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 A fejlesztés támogatása \u2764</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS kérések</string>
   <string name="shortcut_your_lists">Saját listák</string>

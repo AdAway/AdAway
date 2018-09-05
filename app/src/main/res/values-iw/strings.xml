@@ -35,7 +35,7 @@
   <string name="export_dialog">מייצא...</string>
   <string name="export_success">כל הרשומות ייוצאו לקובץ בשם \'adaway-export\' בכרטיס הזיכרון</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">בודק עידכונים...</string>
   <string name="status_reverting">משחזר...</string>
   <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
@@ -110,28 +110,14 @@
   <string name="menu_import">ייבא את כל הרשימות</string>
   <string name="menu_export">ייצא את כל הרשימות</string>
   <!--Help-->
-  <string name="help_tab_about">אודות</string>
-  <string name="help_tab_donate">לתרום</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">שאלות ותשובות</string>
   <string name="help_tab_problems">תקלות</string>
-  <string name="help_tab_changelog">רשימת שינויים</string>
-  <string name="help_about_version">גירסה:</string>
-  <string name="help_donation_paypal_item">תרומה</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>יורו 1</item>
-    <item>2 יורו</item>
-    <item>3 יורו</item>
-    <item>5 יורו</item>
-    <item>8 יורו</item>
-    <item>13 יורו</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">מקומי:</string>
   <string name="hosts_last_modified_online">אונליין:</string>
   <string name="hosts_not_available">לא זמין</string>
-  <string name="hosts_dialog_url">כתובת:</string>
   <!--Other-->
   <string name="app_subtitle">חסום פרסומות</string>
   <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
@@ -173,8 +159,6 @@
   <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>
   <string name="pref_automatic_update_daily">עדכונים אוטומטיים</string>
   <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
-  <string name="pref_update_only_on_wifi">עדכן רק בחיבור Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">הפועל עיכובים ברקע רק כאשר המכשיר מחובר לאינטרנט בחיבור Wifi</string>
   <string name="pref_whitelist_rules">אפשר רשימות לבנות</string>
   <string name="pref_whitelist_rules_summary">אפשר רשימות לבנות ממקורות Hosts</string>
   <string name="pref_redirection_rules_summary">מסוכן!!! אפשר חוקי הפניה ממקורות Hosts.</string>
@@ -186,6 +170,7 @@
   <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
   <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">העדפות</string>
   <!--Hosts source status-->

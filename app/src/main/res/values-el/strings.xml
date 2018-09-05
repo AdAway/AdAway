@@ -63,7 +63,7 @@
   <string name="hosts_description">Το αρχείο hosts είναι ένα αρχείο συστήματος το οποίο αντιστοιχίζει ονόματα διακομιστών σε διευθύνσεις IP. Είναι ένα αρχείο απλού κειμένου το οποίο ρυθμίζει το AdAway. Εδώ παρατίθενται οι πρώτες του γραμμές:</string>
   <string name="hosts_content">Γίνεται φόρτωση του περιεχομένου του αρχείου hosts...</string>
   <string name="hosts_open_button">Άνοιγμα του αρχείου hosts</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Έλεγχος για ενημέρωση...</string>
   <string name="status_reverting">Επαναφορά...</string>
   <string name="status_reverting_subtitle">Δημιουργία στάνταρ αρχείου hosts</string>
@@ -138,7 +138,11 @@
   <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
   <string name="enable_systemless_successful">Έχετε ενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n\n(Για να αποτρέψετε το χάσιμο δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα sd τωρα!) </string>
   <string name="enable_systemless_successful_title">Ενεργοποίηση επιτυχής</string>
-  <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής για να δουλέψει. \n\n(Για να αποτρέψετε το χάσιμο δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα sd τωρα!) </string>
+  <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. 
+Μπορεί να χρειαστεί επανεκκίνηση της συσκευής για να δουλέψει.
+
+Θέλετε να επανεκκινήσετε τη συσκευή σας;
+(Για να αποφύγετε την απώλεια δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα SD τωρα!) </string>
   <string name="disable_systemless_successful_title">Απενεργοποίηση επιτυχής</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Είτε το εκτελέσιμο su δεν βρέθηκε ή δεν παραχωρήσατε δικαιώματα υπερχρήστη στο AdAway.
@@ -161,22 +165,9 @@
   <string name="menu_import">Εισαγωγή όλων των λιστών</string>
   <string name="menu_export">Εξαγωγή όλων των λιστών</string>
   <!--Help-->
-  <string name="help_tab_about">Περί</string>
-  <string name="help_tab_donate">Δωρίστε</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Συχνές Ερωτήσεις</string>
   <string name="help_tab_problems">Προβλήματα</string>
-  <string name="help_tab_changelog">Καταγραφή αλλαγών</string>
-  <string name="help_about_version">Έκδοση:</string>
-  <string name="help_donation_paypal_item">Δωρεά AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Κακόβουλο λογισμικό διαφημίσεων</string>
   <string name="adware_description">Εδώ μπορείτε να βρείτε τα εγκατεστημένα κακόβουλα λογισμικά διαφημίσεων, εφαρμογές τις οποίες το AdAway δεν μπορεί να αποκλείσει. Αυτές οι εφαρμογές χρησιμοποιούν, για παράδειγμα, ειδοποιήσεις Airpush οι οποίες εμφανίζονται ακόμα και όταν οι κακόβουλες εφαρμογές δεν εκτελούνται, ενώ μπορούν ακόμα να αλλάξουν και τον ήχο κλήσης σας. Η μόνη διαθέσιμη μέθοδος αντιμετώπισής του είναι να τις απεγκαταστήσετε, κάνοντας κλικ στα περιεχόμενα της λίστας.</string>
@@ -188,7 +179,6 @@
   <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
   <string name="hosts_add_dialog_title">Προσθήκη πηγής</string>
   <string name="hosts_edit_dialog_title">Επεξεργασία πηγής</string>
-  <string name="hosts_dialog_url">URL:</string>
   <string name="hosts_dialog_url_hint">Το πηγαίο URL του αρχείου hosts</string>
   <!--Other-->
   <string name="app_subtitle">Φραγή διαφημίσεων</string>
@@ -251,8 +241,6 @@
   <string name="pref_update_check_daily_summary">Ημερήσιος έλεγχος για ενημερώσεις στο παρασκήνιο με ειδοποιήσεις</string>
   <string name="pref_automatic_update_daily">Αυτόματη ενημέρωση</string>
   <string name="pref_automatic_update_daily_summary">Αυτόματη ενημέρωση στο παρασκήνιο αν υπάρχουν διαθέσιμες ενημέρωσεις.</string>
-  <string name="pref_update_only_on_wifi">Ενημέρωση μόνο με σύνδεση WiFi</string>
-  <string name="pref_update_only_on_wifi_summary">Εκτέλεση ενημερώσεων παρασκηνίου μόνο με σύνδεση δικτύου WiFi.</string>
   <string name="pref_whitelist_rules">Να επιτραπει η λευκή λίστα</string>
   <string name="pref_whitelist_rules_summary">Να επιτραπει η λευκή λίστα από τις πηγές hosts.</string>
   <string name="pref_redirection_rules">Να επιτρέπονται οι ανακατευθύνσεις</string>
@@ -278,6 +266,7 @@
     <item>Προτιμήσεις</item>
     <item>Βοήθεια</item>
   </string-array>
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Αιτήματα DNS</string>
   <string name="shortcut_your_lists">Οι λίστες σας</string>

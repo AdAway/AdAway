@@ -30,7 +30,7 @@
   <string name="import_dialog">Importimine...</string>
   <string name="export_dialog">Eksportimine...</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Uuenduste kontrollimine...</string>
   <string name="status_reverting">Taastamine...</string>
   <string name="status_checking_subtitle">Uuenduste kontrollimine</string>
@@ -72,27 +72,14 @@
   <string name="menu_import">Impordi kõik loendid</string>
   <string name="menu_export">Expordi kõik loendid</string>
   <!--Help-->
-  <string name="help_tab_about">Programmist</string>
-  <string name="help_tab_donate">Anneta</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">KKK</string>
   <string name="help_tab_problems">Probleemid</string>
-  <string name="help_tab_changelog">Muutuste logi</string>
-  <string name="help_about_version">Versioon:</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 euro</item>
-    <item>2 eurot</item>
-    <item>3 eurot</item>
-    <item>5 eurot</item>
-    <item>8 eurot</item>
-    <item>13 eurot</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Kohalik:</string>
   <string name="hosts_last_modified_online">Onlain:</string>
   <string name="hosts_not_available">pole saadaval</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Reklaamide blokeerija</string>
   <!--Tcpdump-->
@@ -118,12 +105,11 @@
   <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>
   <string name="pref_automatic_update_daily">Automaatne uuendus</string>
   <string name="pref_automatic_update_daily_summary">Uuenduste olemasolul tehakse need taustal automaatselt.</string>
-  <string name="pref_update_only_on_wifi">Uuenda ainult WIFI-ga</string>
-  <string name="pref_update_only_on_wifi_summary">Taustauuendused käivitatakse ainult WIFI võrgus olles.</string>
   <string name="pref_debug">Silumine</string>
   <string name="pref_enable_debug">Silumise logimine</string>
   <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Eelistused</string>
   <!--Hosts source status-->

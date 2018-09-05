@@ -23,7 +23,7 @@
   <string name="import_dialog">Nag-iimport...</string>
   <string name="export_dialog">Nag-eexport...</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Naghahanap ng update...</string>
   <string name="status_reverting">Binabalik...</string>
   <string name="status_reverting_subtitle">Gumagawa ng standard na hosts file</string>
@@ -39,15 +39,13 @@
   <string name="menu_add">Dagdagan</string>
   <string name="menu_help">Tulong</string>
   <!--Help-->
-  <string name="help_tab_donate">Mag-donate</string>
-  <string name="help_tab_changelog">Mga pagbabago</string>
   <!--Adware-->
   <!--Hosts sources-->
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <!--Tcpdump-->
   <!--Preferences-->
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <!--Hosts source status-->
 </resources>

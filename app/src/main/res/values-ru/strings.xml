@@ -35,7 +35,7 @@
   <string name="export_dialog">Экспорт...</string>
   <string name="export_success">Экспорт всех записей на карту памяти в файл с именем \'adaway-export\'.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Проверка обновлений...</string>
   <string name="status_reverting">Восстановление...</string>
   <string name="status_reverting_subtitle">Создание стандартного файла hosts</string>
@@ -141,28 +141,14 @@ AdAway не будет работать в мобильных сетях, так
   <string name="menu_import">Импортировать все списки</string>
   <string name="menu_export">Экспортировать все списки</string>
   <!--Help-->
-  <string name="help_tab_about">О программе</string>
-  <string name="help_tab_donate">Пожертвовать</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Проблемы</string>
-  <string name="help_tab_changelog">Список изменений</string>
-  <string name="help_about_version">Версия:</string>
-  <string name="help_donation_paypal_item">Пожертвование AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Евро</item>
-    <item>2 Евро</item>
-    <item>3 Евро</item>
-    <item>5 Евро</item>
-    <item>8 Евро</item>
-    <item>13 Евро</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Локальный:</string>
   <string name="hosts_last_modified_online">Интернет:</string>
   <string name="hosts_not_available">недоступен</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Блокировщик рекламы</string>
   <string name="no_text_editor_title">Не установлен текстовый редактор</string>
@@ -208,8 +194,6 @@ AdAway не будет работать в мобильных сетях, так
   <string name="pref_update_check_daily_summary">Проверять обновления в фоновом режиме ежедневно с уведомлением</string>
   <string name="pref_automatic_update_daily">Автоматическое обновление</string>
   <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
-  <string name="pref_update_only_on_wifi">Обновление только по WiFi</string>
-  <string name="pref_update_only_on_wifi_summary">Выполнять обновления в фоне только при подключении к сети WiFi.</string>
   <string name="pref_whitelist_rules">Разрешить белые списки</string>
   <string name="pref_whitelist_rules_summary">Разрешить белые списки из источников хостов.</string>
   <string name="pref_redirection_rules_summary">ПРЕДСТАВЛЯЕТ УГРОЗУ БЕЗОПАСНОСТИ! Разрешить перенаправление из источников хостов.</string>
@@ -221,6 +205,7 @@ AdAway не будет работать в мобильных сетях, так
   <string name="pref_enable_systemless_summary">Запретить AdAway редактировать системный раздел</string>
   <string name="pref_enable_systemless">Включить бессистемный режим</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Настройки</string>
   <!--Hosts source status-->

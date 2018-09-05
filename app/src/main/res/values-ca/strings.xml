@@ -35,7 +35,7 @@
   <string name="export_dialog">Exportant...</string>
   <string name="export_success">Totes les entrades han estat exportades a un fitxer anomenat \'adaway-export\' a la vostra targeta sd</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">S\'està comprovant actualitzacions.</string>
   <string name="status_reverting">Revertint...</string>
   <string name="status_reverting_subtitle">Creant fitxer de servidors estàndard</string>
@@ -111,28 +111,14 @@
   <string name="menu_import">Importar totes les llistes</string>
   <string name="menu_export">Exportar totes les llistes</string>
   <!--Help-->
-  <string name="help_tab_about">Quant a</string>
-  <string name="help_tab_donate">Fer un donatiu</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">PMF (FAQ)</string>
   <string name="help_tab_problems">Problemes</string>
-  <string name="help_tab_changelog">Registre de canvis</string>
-  <string name="help_about_version">Versió:</string>
-  <string name="help_donation_paypal_item">Donació a AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En línia:</string>
   <string name="hosts_not_available">no disponible</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Bloquejador d\'anuncis</string>
   <string name="no_text_editor_title">No hi ha cap editor de text instal·lat</string>
@@ -173,8 +159,6 @@
   <string name="pref_update_check_daily_summary">Comprova actualitzacions diàriament en segon pla amb notificacions</string>
   <string name="pref_automatic_update_daily">Actualitza automàticament</string>
   <string name="pref_automatic_update_daily_summary">Actualitza automàticament en segon pla si es troben actualitzacions.</string>
-  <string name="pref_update_only_on_wifi">Actualitzar només dins d\'una xarxa Wi-Fi.</string>
-  <string name="pref_update_only_on_wifi_summary">Executar actualitzacions en segon pla només dins de xarxes Wi-Fi.</string>
   <string name="pref_whitelist_rules">Permet posar a la llista blanca</string>
   <string name="pref_whitelist_rules_summary">Permet entrades a la llista blanca de les fonts d\'amfitrions.</string>
   <string name="pref_redirection_rules_summary">HI HA RISCOS DE SEGURETAT! Permet entrades de redireccions de les fonts d\'amfitrions.</string>
@@ -186,6 +170,7 @@
   <string name="pref_enable_systemless_summary">Evita que l\'AdAway modifiqui la partició del sistema</string>
   <string name="pref_enable_systemless">Habilita el mode «systemless»</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferències</string>
   <!--Hosts source status-->

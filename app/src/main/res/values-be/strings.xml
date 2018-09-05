@@ -48,7 +48,7 @@
   <string name="export_dialog">Экспарт...</string>
   <string name="export_success">Экспарт ўсіх запісаў на карту памяці ў файл з назвай \ \'adaway-export \ \' .</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Праверка абнаўленняў...</string>
   <string name="status_reverting">Аднаўленне...</string>
   <string name="status_reverting_subtitle">Стварэнне стандартнага файла hosts</string>
@@ -110,13 +110,13 @@
   <!--Help-->
   <!--Adware-->
   <!--Hosts sources-->
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <!--Tcpdump-->
   <string name="tcpdump_description">Tcpdump гэта інструмент для маніторынгу запытаў DNS і іх захавання ў файле журнала. Запусціце Tcpdump, ён будзе працаваць у фонавым рэжыме да перазагрузкі прылады - запусціце праграму, у якой на экране паказваецца рэклама - прааналізуйце запыты DNS, выкарыстоўваючы файл журнала. Знойдзеныя ў ім падазроныя сервера, магчымыя як крыніцы рэкламы, могуць быць унесены ў чорны спіс.</string>
   <!--Preferences-->
   <string name="pref_update_check">Праверка абнаўленняў</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <!--Hosts source status-->
 </resources>

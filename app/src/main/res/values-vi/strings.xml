@@ -35,7 +35,7 @@
   <string name="export_dialog">Đang xuất...</string>
   <string name="export_success">Đã xuất tất cả các mục vào tập tin \'adaway-export\' trên sdcard.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Đang kiểm tra cập nhật...</string>
   <string name="status_reverting">Đang đổi lại...</string>
   <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
@@ -111,28 +111,14 @@
   <string name="menu_import">Nhập tất cả các danh sách</string>
   <string name="menu_export">Xuất tất cả các danh sách</string>
   <!--Help-->
-  <string name="help_tab_about">Thông tin về</string>
-  <string name="help_tab_donate">Quyên góp</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Hỏi đáp</string>
   <string name="help_tab_problems">Vấn đề</string>
-  <string name="help_tab_changelog">Nhật ký thay đổi</string>
-  <string name="help_about_version">Phiên bản:</string>
-  <string name="help_donation_paypal_item">Quyên tiền giúp AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Cục bộ:</string>
   <string name="hosts_last_modified_online">Trực tuyến:</string>
   <string name="hosts_not_available">không có sẵn</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Ứng dụng chặn quảng cáo</string>
   <string name="no_text_editor_title">Chưa cài trình sửa văn bản</string>
@@ -173,8 +159,6 @@
   <string name="pref_update_check_daily_summary">Kiểm tra cập nhật mỗi ngày ở chế độ nền có kèm thông báo</string>
   <string name="pref_automatic_update_daily">Tự động cập nhật</string>
   <string name="pref_automatic_update_daily_summary">Tự động cập nhật ở chế độ nền nếu có bản nâng cấp.</string>
-  <string name="pref_update_only_on_wifi">Chỉ cập nhật qua Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Chỉ tiến hành cập nhật ở chế độ nền khi có kết nối wifi.</string>
   <string name="pref_whitelist_rules">Cho phép tạo danh sách trắng</string>
   <string name="pref_whitelist_rules_summary">Cho phép các mục trong danh sách trắng từ Các nguồn tên miền.</string>
   <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! Cho phép các mục điều hướng từ Các nguồn tên miền.</string>
@@ -186,6 +170,7 @@
   <string name="pref_enable_systemless_summary">Ngăn AdAway khỏi chỉnh sửa phân vùng hệ thống</string>
   <string name="pref_enable_systemless">kích hoạt chế độ systemless</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Tuỳ chỉnh</string>
   <!--Hosts source status-->

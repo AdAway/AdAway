@@ -9,7 +9,7 @@
   <string name="checkbox_list_context_delete">মুছে ফেলুন</string>
   <!--Your lists-->
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">আপডেটের জন্য চেক করা হচ্ছে...</string>
   <string name="status_reverting">প্রত্যাবর্তন করা হচ্ছে...</string>
   <string name="status_update_available">আপডেট উপলব্ধ</string>
@@ -25,6 +25,7 @@
   <!--Tcpdump-->
   <!--Preferences-->
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <!--Hosts source status-->
 </resources>

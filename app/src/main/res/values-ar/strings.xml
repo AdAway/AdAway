@@ -35,7 +35,7 @@
   <string name="export_dialog">تصدير…</string>
   <string name="export_success">تم تصدير جميع المدخلات إلى ملف يسمى\'adaway-export\' في بطاقة الذاكرة.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">جارٍ البحث عن التحديثات…</string>
   <string name="status_reverting">استرجاع…</string>
   <string name="status_reverting_subtitle">إنشاء ملفات المضيف الأساسية</string>
@@ -110,28 +110,14 @@
   <string name="menu_import">استيراد جميع القوائم</string>
   <string name="menu_export">تصدير جميع القوائم</string>
   <!--Help-->
-  <string name="help_tab_about">حول التطبيق</string>
-  <string name="help_tab_donate">التبرع</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">الأسئلة الشائعة</string>
   <string name="help_tab_problems">المشاكل</string>
-  <string name="help_tab_changelog">سجل التغييرات</string>
-  <string name="help_about_version">الإصدار:</string>
-  <string name="help_donation_paypal_item">التبرع لـ AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 يورو</item>
-    <item>2 يورو</item>
-    <item>3 يورو</item>
-    <item>5 يورو</item>
-    <item>8 يورو</item>
-    <item>13 يورو</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">المثبت:</string>
   <string name="hosts_last_modified_online">الجديد:</string>
   <string name="hosts_not_available">غير متوفر</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">حاجب الإعلانات</string>
   <string name="no_text_editor_title">لا يوجد محرر نصوص مثبت</string>
@@ -167,8 +153,6 @@
   <string name="pref_update_check_daily_summary">التحقق من التحديثات يومياً في الخلفية مع التنبيه</string>
   <string name="pref_automatic_update_daily">التحديث التلقائي</string>
   <string name="pref_automatic_update_daily_summary">التحديث تلقائياً في الخلفية إذا كانت التحديثات متوفرة.</string>
-  <string name="pref_update_only_on_wifi">التحديث فقط عبر Wi-Fi</string>
-  <string name="pref_update_only_on_wifi_summary">تنفيذ التحديثات في الخلفية فقط عند الاتصال بشبكة Wi-Fi.</string>
   <string name="pref_whitelist_rules">السماح للقائمة البيضاء</string>
   <string name="pref_whitelist_rules_summary">السماح لمداخلات القائمة البيضاء من مصادر المضيف</string>
   <string name="pref_redirection_rules_summary">للتقليل من المخاطر الامنية ! قم بالسماح للمداخلات المعاد تحويلها من مصادر المضيف</string>
@@ -180,6 +164,7 @@
   <string name="pref_enable_systemless_summary">منع AdAway من تغير تقسيمة النظام </string>
   <string name="pref_enable_systemless">تفعيل الوضع اللانظامي</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">الخيارات</string>
   <!--Hosts source status-->

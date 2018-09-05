@@ -35,7 +35,7 @@
   <string name="export_dialog">Eksporterer …</string>
   <string name="export_success">Eksporterte alle oppføringene til en fil kalt \'adaway-export\' på ditt SD-kort.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Ser etter oppdateringer …</string>
   <string name="status_reverting">Stiller tilbake …</string>
   <string name="status_reverting_subtitle">Lager standard-vertsfilen</string>
@@ -111,28 +111,14 @@
   <string name="menu_import">Importer alle listene</string>
   <string name="menu_export">Eksporter alle listene</string>
   <!--Help-->
-  <string name="help_tab_about">Om AdAway</string>
-  <string name="help_tab_donate">Doner</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemer</string>
-  <string name="help_tab_changelog">Endringslogg</string>
-  <string name="help_about_version">Versjon:</string>
-  <string name="help_donation_paypal_item">AdAway-donasjon</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalt:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">ikke tilgjengelig</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Reklameblokkerer</string>
   <string name="no_text_editor_title">Ingen tekstredigerere er installert</string>
@@ -173,8 +159,6 @@
   <string name="pref_update_check_daily_summary">Sjekk etter oppdateringer i bakgrunnen daglig med beskjeder</string>
   <string name="pref_automatic_update_daily">Automatisk oppdatering</string>
   <string name="pref_automatic_update_daily_summary">Oppdater automatisk i bakgrunnen dersom oppdateringer er tilgjengelige.</string>
-  <string name="pref_update_only_on_wifi">Bare oppdater på Wi-Fi-nettverk</string>
-  <string name="pref_update_only_on_wifi_summary">Bare iverksett bakgrunnsoppdateringer når enheten er på et WiFi-nettverk.</string>
   <string name="pref_whitelist_rules">Tillat hvitelisting</string>
   <string name="pref_whitelist_rules_summary">Tillat hvitelistingsoppføringer fra vertsfilkilder.</string>
   <string name="pref_redirection_rules_summary">UTGJØR EN SIKKERHETSRISIKO! Tillater omdirigeringsoppføringer fra vertsfilkilder.</string>
@@ -186,6 +170,7 @@
   <string name="pref_enable_systemless_summary">Forhindre AdAway fra å modifisere systempartisjonen</string>
   <string name="pref_enable_systemless">Aktiver systemløs modus</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferanser</string>
   <!--Hosts source status-->

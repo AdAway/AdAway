@@ -62,7 +62,7 @@
   <string name="hosts_description">Berkas host adalah berkas sistem yang berisi pemetaan antara nama host dengan alamat IP-nya. Berkas berjenis text biasa ini diatur oleh AdAway. Berikut beberapa baris teratasnya:</string>
   <string name="hosts_content">Membaca isi file host...</string>
   <string name="hosts_open_button">Buka file host</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Memeriksa pembaruan...</string>
   <string name="status_reverting">Mengembalikan...</string>
   <string name="status_reverting_subtitle">Membuat host file standar</string>
@@ -138,22 +138,9 @@
   <string name="menu_import">Memasukan semua daftar</string>
   <string name="menu_export">Ekspor Semua Daftar</string>
   <!--Help-->
-  <string name="help_tab_about">Tentang</string>
-  <string name="help_tab_donate">Donasi</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Masalah</string>
-  <string name="help_tab_changelog">Changelog</string>
-  <string name="help_about_version">Versi:</string>
-  <string name="help_donation_paypal_item">Donasi AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_description">Daftar berikut berisi adware yang terinstall, aplikasi negatif yang tidak dapat diblokir oleh AdAway. Aplikasi tersebut, sebagai contoh, menggunakan fitur notifikasi Airpush yang dapat muncul ketika aplikasi tidak digunakan atau bahkan mengganti nada dering perangkat anda. Satu-satunya solusi untuk mengamankan perankat anda adalah menghapus aplikasi tersebut dengan memilihnya pada daftar.</string>
@@ -165,7 +152,6 @@
   <string name="hosts_not_available">Tidak tersedia</string>
   <string name="hosts_add_dialog_title">Tambah sumber</string>
   <string name="hosts_edit_dialog_title">Ubah sumber</string>
-  <string name="hosts_dialog_url">URL:</string>
   <string name="hosts_dialog_url_hint">Alamat sumber daftar URL</string>
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
@@ -224,8 +210,6 @@
   <string name="pref_update_check_daily_summary">Periksa update harian di latar belakang dengan pemberitahuan</string>
   <string name="pref_automatic_update_daily">Pembaruan otomatis</string>
   <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
-  <string name="pref_update_only_on_wifi">Pembaruan hanya jika menggunakan Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Jalankan pembaruan latar belakang hanya pada saat terhubung ke jaringan wifi.</string>
   <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
   <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
   <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
@@ -251,6 +235,7 @@
     <item>Pengaturan</item>
     <item>Bantuan</item>
   </string-array>
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Aktifitas DNS</string>
   <string name="shortcut_your_lists">Daftar pribadi</string>

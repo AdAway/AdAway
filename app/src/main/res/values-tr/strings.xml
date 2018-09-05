@@ -62,7 +62,7 @@
   <string name="hosts_description">Host dosyası, host adlarını IP adreslerine eşleyen bir sistem dosyasıdır. Bu yapılandırmanın AdAway tarafından ele alındığı düz bir metin dosyasıdır. İşte ilk birkaç satırı:</string>
   <string name="hosts_content">Hosts dosyası içeriği yükleniyor…</string>
   <string name="hosts_open_button">Host dosyasını açın</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Güncelleme kontrol ediliyor...</string>
   <string name="status_reverting">Geri alınıyor!</string>
   <string name="status_reverting_subtitle">Varsayılan bir hosts dosyası yapılıyor</string>
@@ -77,6 +77,8 @@
   <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
   <string name="status_disabled">Devre dışı</string>
   <string name="status_disabled_subtitle">Devre dışı</string>
+  <string name="notification_channel_update_name">Güncellemeler</string>
+  <string name="notification_channel_update_description">Yeni hosts güncelleme bildirimleri</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Hedefiniz ile /system/etc/hosts dosyası symlink ile bağlanmamış veya hatalı bağlanmış! Bu bağlanma olmadan AdAway çalışamaz.\n\nŞimdi bir symlink ayarlansın mı?</string>
   <string name="apply_symlink_missing_title">Symlink kayıp</string>
@@ -139,22 +141,9 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="menu_import">Tüm Listeleri Al</string>
   <string name="menu_export">Tüm Listeleri Ver</string>
   <!--Help-->
-  <string name="help_tab_about">Hakkında</string>
-  <string name="help_tab_donate">Bağışta bulunun</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">SSS</string>
   <string name="help_tab_problems">Sorunlar</string>
-  <string name="help_tab_changelog">Değişiklikler</string>
-  <string name="help_about_version">Sürüm:</string>
-  <string name="help_donation_paypal_item">AdAway\'e Bağış</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Avro</item>
-    <item>2 Avro</item>
-    <item>3 Avro</item>
-    <item>5 Avro</item>
-    <item>8 Avro</item>
-    <item>13 Avro</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_description">Burada AdAway tarafından engellenemeyen Adware (reklam içerikli) kötü uygulamaları bulabilirsiniz. Bu uygulamalar, uygulama çalışmadığında veya hatta zil sesinizi değiştirdiğinde bile ortaya çıkan Airpush bildirimlerini kullanır. Mevcut olan tek önlem, bu listede ki uygulamaları tıklayarak kaldırmaktır.</string>
@@ -166,7 +155,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="hosts_not_available">Uygun değil</string>
   <string name="hosts_add_dialog_title">Kaynak ekle</string>
   <string name="hosts_edit_dialog_title">Kaynak düzenle</string>
-  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url">URL: (bir https:// veya file:// kaynak)</string>
   <string name="hosts_dialog_url_hint">Hosts kaynak URL\'si</string>
   <!--Other-->
   <string name="app_subtitle">Reklam engelleyici</string>
@@ -224,8 +213,8 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
   <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
   <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
-  <string name="pref_update_only_on_wifi">Sadece Wifi üzerinden güncelle</string>
-  <string name="pref_update_only_on_wifi_summary">Wifi bağlı olduğunda sadece geri plan güncelleştirmeleri yürüt.</string>
+  <string name="pref_update_only_on_wifi">Sadece tarifeli bağlantı değilse güncelle</string>
+  <string name="pref_update_only_on_wifi_summary">Arka plan güncellemelerini yalnızca veri sınırı olmayan bir ağa bağlıysa çalıştır.</string>
   <string name="pref_whitelist_rules">Beyaz Liste\'ye izin ver</string>
   <string name="pref_whitelist_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
   <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
@@ -251,6 +240,8 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
     <item>Tercihler</item>
     <item>Yardım</item>
   </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Geliştirmeyi destekleyin \u2764</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS istekleri</string>
   <string name="shortcut_your_lists">Listeleriniz</string>

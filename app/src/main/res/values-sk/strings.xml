@@ -62,7 +62,7 @@
   <string name="hosts_description">Hosts súbor je systémový súbor, ktorý mapuje názvy hostiteľov na adresy IP. Jedná sa o textový súbor, ktorého konfiguráciu spravuje AdAway. Tu je niekoľko prvých riadkov:</string>
   <string name="hosts_content">Načítavanie obsahu hosts súboru…</string>
   <string name="hosts_open_button">Otvoriť hosts súbor</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Kontrolovanie aktualizácií…</string>
   <string name="status_reverting">Obnovovanie…</string>
   <string name="status_reverting_subtitle">Vytváranie štandardného hosts súboru</string>
@@ -138,22 +138,9 @@
   <string name="menu_import">Importovať zoznamy</string>
   <string name="menu_export">Exportovať zoznamy</string>
   <!--Help-->
-  <string name="help_tab_about">O aplikácii</string>
-  <string name="help_tab_donate">Podporiť</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problémy</string>
-  <string name="help_tab_changelog">Zoznam zmien</string>
-  <string name="help_about_version">Verzia:</string>
-  <string name="help_donation_paypal_item">Dar pre AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Eurá</item>
-    <item>3 Eurá</item>
-    <item>5 Eur</item>
-    <item>8 Eur</item>
-    <item>13 Eur</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_description">Tu môžete nájsť nainštalované Adware aplikácie, zlé aplikácie, ktoré AdAway nemôže zablokovať. Tieto aplikácie používajú napríklad Airpush upozornenia, ktoré sa zobrazujú aj keď aplikácia nie je spustená alebo vám môžu zmeniť zvonenie. Jediné dostupné protiopatrenie je odinštalovať tieto aplikácie kliknutím na položku v zozname!</string>
@@ -165,7 +152,6 @@
   <string name="hosts_not_available">nie je dostupné</string>
   <string name="hosts_add_dialog_title">Pridať zdroj</string>
   <string name="hosts_edit_dialog_title">Upraviť zdroj</string>
-  <string name="hosts_dialog_url">URL:</string>
   <string name="hosts_dialog_url_hint">URL zdroja hosts súboru</string>
   <!--Other-->
   <string name="app_subtitle">Blokovanie reklám</string>
@@ -222,8 +208,6 @@
   <string name="pref_update_check_daily_summary">Každý deň skontroluje aktualizácie na pozadí s oznámením</string>
   <string name="pref_automatic_update_daily">Automatické aktualizácie</string>
   <string name="pref_automatic_update_daily_summary">Automaticky aplikuje aktualizácie na pozadí, ak sú dostupné</string>
-  <string name="pref_update_only_on_wifi">Aktualizovať iba cez Wi-Fi</string>
-  <string name="pref_update_only_on_wifi_summary">Spustí aktualizácie na pozadí iba ak je zariadenie pripojené k Wi-Fi sieti</string>
   <string name="pref_whitelist_rules">Povoliť bielu listinu</string>
   <string name="pref_whitelist_rules_summary">Povolí vkladať položky do bielej listiny z hosts zdrojov</string>
   <string name="pref_redirection_rules">Povoliť presmerovania</string>
@@ -239,6 +223,7 @@
   <string name="drawer_open">Otvoriť menu</string>
   <string name="drawer_close">Zatvoriť menu</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS žiadosti</string>
   <string name="shortcut_your_lists">Vaše zoznamy</string>

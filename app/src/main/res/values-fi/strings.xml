@@ -35,7 +35,7 @@
   <string name="export_dialog">Viedään...</string>
   <string name="export_success">Kaikki merkinnät viety adaway-export-tiedostoon SD-kortille.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Tarkistetaan päivityksiä...</string>
   <string name="status_reverting">Palautetaan...</string>
   <string name="status_reverting_subtitle">Luodaan vakio-hosts-tiedostoa</string>
@@ -109,28 +109,14 @@
   <string name="menu_import">Tuo kaikki luettelot</string>
   <string name="menu_export">Vie kaikki luettelot</string>
   <!--Help-->
-  <string name="help_tab_about">Tietoja</string>
-  <string name="help_tab_donate">Lahjoita</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Ongelmat</string>
-  <string name="help_tab_changelog">Muutokset</string>
-  <string name="help_about_version">Versio:</string>
-  <string name="help_donation_paypal_item">AdAway Lahjoitukset</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 euro</item>
-    <item>2 euroa</item>
-    <item>3 euroa</item>
-    <item>5 euroa</item>
-    <item>8 euroa</item>
-    <item>13 euroa</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Paikallinen:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">ei saatavilla</string>
-  <string name="hosts_dialog_url">URL-osoite:</string>
   <!--Other-->
   <string name="app_subtitle">Mainosten esto</string>
   <string name="no_text_editor_title">Ei tekstieditoria asennettuna</string>
@@ -172,8 +158,6 @@
   <string name="pref_update_check_daily_summary">Tarkista päivittäin päivitykset taustalla ilmoituksilla</string>
   <string name="pref_automatic_update_daily">Automaattinen päivitys</string>
   <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
-  <string name="pref_update_only_on_wifi">Päivitä vain WiFissä</string>
-  <string name="pref_update_only_on_wifi_summary">Suorittaa taustapäivityksen vain, kun käytössä on WiFi-yhteys.</string>
   <string name="pref_whitelist_rules">Salli whitelistning</string>
   <string name="pref_whitelist_rules_summary">Salli Hosts-lähteille kohteiden lisääminen valkoiselle listalle.</string>
   <string name="pref_redirection_rules_summary">SISÄLTÄÄ TURVALLISUUSRISKIN! Salli hosts-lähteille uudelleenohjaus.</string>
@@ -184,6 +168,7 @@
   <string name="pref_enable_ipv6_summary">Kaikki host-tiedoston entryt saavat vastaavan ::1 (IPv6 localhost) entryn.</string>
   <string name="pref_enable_systemless">Ota käyttöön systemless -tila</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Asetukset</string>
   <!--Hosts source status-->

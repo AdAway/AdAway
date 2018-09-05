@@ -18,7 +18,7 @@
   <string name="button_help">Aide</string>
   <!--Home-->
   <string name="header_help">Bienvenue !</string>
-  <string name="text_help">AdAway est un logiciel libre et gratuit conçu pour bloquer les publicités. Il télécharge une liste de réseaux publicitaires et configure votre appareil pour les bloquer.\n Voulez-vous en savoir davantage ? Consultez l\'aide ci-dessous.</string>
+  <string name="text_help">AdAway est un logiciel gratuit et à code source ouvert conçu pour bloquer les publicités. Il télécharge une liste de réseaux publicitaires et configure votre appareil pour les bloquer.\n Voulez-vous en savoir davantage ? Consultez l’aide ci-dessous.</string>
   <string name="button_show_help">Afficher plus d’aide</string>
   <string name="icon_update_status">Mettre à jour l’état</string>
   <string name="text_update">Tous les fichiers hosts provenant des sources définies sont téléchargés, fusionnés avec vos propres listes et installés en un seul fichier hosts sur votre système.</string>
@@ -32,8 +32,8 @@
   <string name="button_enable_webserver">Activer le serveur Web</string>
   <string name="button_disable_webserver">Désactiver le serveur Web</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Liste vide</string>
-  <string name="checkbox_list_empty_text">Vous pouvez ajouter des éléments avec le bouton plus</string>
+  <string name="checkbox_list_empty">La liste est vide</string>
+  <string name="checkbox_list_empty_text">Vous pouvez ajouter des éléments avec le bouton plus.</string>
   <string name="checkbox_list_context_delete">Supprimer</string>
   <string name="checkbox_list_footer">Après l’ajout de nouveaux éléments à cette liste, AdAway doit être appliqué à nouveau.</string>
   <string name="checkbox_list_edit_dialog_title">Modifier</string>
@@ -49,10 +49,10 @@
   <string name="list_edit_dialog_black">Modifier un hôte en liste noire</string>
   <string name="list_edit_dialog_white">Modifier un hôte en liste blanche</string>
   <string name="list_edit_dialog_redirect">Modifier une redirection</string>
-  <string name="list_dialog_hostname">Nom d’hôte :</string>
-  <string name="list_dialog_hostname_hint">L’URL source du fichier hosts</string>
+  <string name="list_dialog_hostname">Nom d’hôte :</string>
+  <string name="list_dialog_hostname_hint">L’URL de la source du fichier hosts</string>
   <string name="list_dialog_wildcard">(Les métacaractères * et ? sont permis)</string>
-  <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
+  <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
   <string name="import_dialog">Importation...</string>
   <string name="export_dialog">Exportation...</string>
   <string name="export_success">Toutes les entrées ont été exportées vers un fichier « adaway-export » sur votre carte SD.</string>
@@ -62,7 +62,7 @@
   <string name="hosts_description">Le fichier hosts est un fichier système qui mappent les noms d’hôtes à des adresses IP. C’est un fichier texte en clair dont la configuration est gérée par AdAway. Voici ses premières lignes :</string>
   <string name="hosts_content">Chargement du contenu du fichier hosts…</string>
   <string name="hosts_open_button">Ouvrir le fichier hosts</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Vérification de mise à jour...</string>
   <string name="status_reverting">Retour arrière...</string>
   <string name="status_reverting_subtitle">Création d’un fichier hosts standard </string>
@@ -77,6 +77,8 @@
   <string name="status_enabled_subtitle">Les fichiers hosts les plus récents sont activés</string>
   <string name="status_disabled">Désactivé</string>
   <string name="status_disabled_subtitle">Désactivé</string>
+  <string name="notification_channel_update_name">Mises à jour</string>
+  <string name="notification_channel_update_description">Nouvelles notifications de mise à jour des fichiers hosts</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Le lien symbolique de votre cible vers /system/etc/hosts est absent ou incorrect. AdAway ne fonctionnera pas sans un lien vers le bon fichier.\n\nVoulez-vous essayer de créer un lien symbolique ?</string>
   <string name="apply_symlink_missing_title">Lien symbolique manquant</string>
@@ -88,7 +90,7 @@
   <string name="apply_remount_fail_title">Échec de remontage</string>
   <string name="apply_copy_fail">Échec de copie du fichier hosts</string>
   <string name="apply_copy_fail_title">Échec de copie</string>
-  <string name="apply_success_subtitle">Sources hosts mises en place :</string>
+  <string name="apply_success_subtitle">Sources de fichiers hosts mises en place :</string>
   <string name="apply_success_title">Mise à en place réussie</string>
   <string name="apply_success_dialog">La mise en place est réussie.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
   <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ? (Pour éviter toute perte de données, assurez-vous qu’aucune application n’utilise la carte SD actuellement.)</string>
@@ -112,13 +114,13 @@
   <string name="revert_successful_title">Retour arrière réussi</string>
   <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
   <string name="revert_problem_title">Échec du retour en arrière</string>
-  <string name="download_fail_dialog">Aucune de vos sources hosts activées n’est accessible. Êtes-vous correctement connecté à internet ?</string>
+  <string name="download_fail_dialog">Aucune de vos sources de fichiers hosts activées n’est accessible. Êtes-vous correctement connecté à internet ?</string>
   <string name="download_fail_title">Échec de téléchargement</string>
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de création du fichier privé</string>
   <string name="enable_systemless_successful">Vous avez activé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour prévenir la perte de données, assurez-vous qu’aucune autre application n’utilise la carte SD en ce moment.)</string>
   <string name="enable_systemless_successful_title">Activation réussie</string>
-  <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer?\n(Pour prévenir la perte de données, assurez-vous qu’aucune autre application n’utilise la carte SD en ce moment.)</string>
+  <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer l’appareil?\n(Pour prévenir la perte de données, assurez-vous qu’aucune autre application n’utilise la carte SD en ce moment.)</string>
   <string name="disable_systemless_successful_title">Désactivation réussie</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès racine à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé\nVous trouverez des informations sur comment enraciner votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
@@ -133,40 +135,27 @@
   <!--Menu entries-->
   <string name="menu_refresh">Actualiser</string>
   <string name="menu_add">Ajouter</string>
-  <string name="menu_hosts_sources">Sources d’hôtes</string>
+  <string name="menu_hosts_sources">Sources de fichiers hosts</string>
   <string name="menu_help">Aide</string>
   <string name="menu_import">Importer toutes les listes</string>
   <string name="menu_export">Exporter toutes les listes</string>
   <!--Help-->
-  <string name="help_tab_about">À propos de</string>
-  <string name="help_tab_donate">Faire un don</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problèmes</string>
-  <string name="help_tab_changelog">Journal des changements</string>
-  <string name="help_about_version">Version :</string>
-  <string name="help_donation_paypal_item">Faire un don à AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 euro</item>
-    <item>2 euros</item>
-    <item>3 euros</item>
-    <item>5 euros</item>
-    <item>8 euros</item>
-    <item>13 euros</item>
-  </string-array>
   <!--Adware-->
-  <string name="adware_header">Logiciel publicitaires </string>
+  <string name="adware_header">Logiciels publicitaires</string>
   <string name="adware_description">Vous trouverez ici les logiciels publicitaires installés, des applications néfastes qui ne peuvent pas être bloquées par AdAway. Ces applis utilisent par exemple des notifications Airpush qui surgissent même si l’appli n’est pas en cours de fonctionnement. Elles peuvent même changer votre sonnerie. La seule contre-mesure à votre disposition est de désinstaller ces applis en cliquant sur les éléments de la liste.</string>
   <string name="adware_scanning">Analyse…</string>
   <string name="adware_empty">Aucun logiciel publicitaire n’a été trouvé</string>
   <!--Hosts sources-->
-  <string name="hosts_last_modified_local">Local :</string>
-  <string name="hosts_last_modified_online">En ligne :</string>
+  <string name="hosts_last_modified_local">Locale :</string>
+  <string name="hosts_last_modified_online">En ligne :</string>
   <string name="hosts_not_available">non disponible</string>
   <string name="hosts_add_dialog_title">Ajouter une source</string>
   <string name="hosts_edit_dialog_title">Modifier une source</string>
-  <string name="hosts_dialog_url">URL :</string>
-  <string name="hosts_dialog_url_hint">L’URL source du fichier hosts</string>
+  <string name="hosts_dialog_url">URL : (une ressource https:// ou file://)</string>
+  <string name="hosts_dialog_url_hint">L’URL de la source du fichier hosts</string>
   <!--Other-->
   <string name="app_subtitle">Blocage de publicités</string>
   <string name="no_text_editor_title">Aucun éditeur de texte n’est installé</string>
@@ -189,6 +178,8 @@
   <string name="tcpdump_entry_add_redirection_list">Ajouter une entrée à la liste de redirection</string>
   <!--Preferences-->
   <string name="pref_download">Préférences générales</string>
+  <string name="pref_dismiss_welcome">Cacher la carte de bienvenue</string>
+  <string name="pref_dismiss_welcome_summary">Ne pas afficher la carte de bienvenue sur l’écran d’accueil</string>
   <string name="pref_dark_theme">Activer le thème sombre</string>
   <string name="pref_dark_theme_summary">Utiliser le thème sombre à la place du thème clair</string>
   <string name="pref_dark_theme_notification">Le thème sera appliqué lors du prochain démarrage</string>
@@ -201,9 +192,9 @@
   <string name="pref_header_preferences">Préférences</string>
   <string name="pref_header_preferences_summary">Préférences générales d’AdAway</string>
   <string name="pref_never_reboot">Cacher la fenêtre de redémarrage</string>
-  <string name="pref_never_reboot_summary">Masque la demande de redémarrage d’Android après une mise à en place réussie</string>
+  <string name="pref_never_reboot_summary">Cache la demande de redémarrage d’Android après une mise à en place réussie</string>
   <string name="pref_webserver_on_boot">Lancer le serveur Web au démarrage</string>
-  <string name="pref_webserver_on_boot_summary">Lance le serveur Web au démarrage, à l’écoute des adresses IP locales</string>
+  <string name="pref_webserver_on_boot_summary">Lancer le serveur Web au démarrage, à l’écoute des adresses IP locales</string>
   <string name="pref_webserver_enabled">Activer le serveur Web</string>
   <string name="pref_webserver_enabled_summary">Active le serveur Web à l’écoute d’adresses IP locales pour répondre aux requêtes vers des noms d’hôtes bloqués</string>
   <string name="pref_webserver">Serveur Web local</string>
@@ -222,12 +213,12 @@
   <string name="pref_update_check_daily_summary">Vérifier les mises à jour quotidiennement en arrière-plan avec des notifications</string>
   <string name="pref_automatic_update_daily">Mise à jour automatique</string>
   <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont proposées</string>
-  <string name="pref_update_only_on_wifi">Mise à jour Wi-Fi seulement</string>
-  <string name="pref_update_only_on_wifi_summary">N’exécuter les mises à jour en arrière-plan que si connecté à un réseau Wi-Fi.</string>
+  <string name="pref_update_only_on_wifi">Mettre à jour seulement sur les connexions illimitées</string>
+  <string name="pref_update_only_on_wifi_summary">Exécuter les mises à jour en arrière-plan seulement si vous êtes connecté à un réseau dont l’accès est illimité.</string>
   <string name="pref_whitelist_rules">Permettre la mise en liste blanche</string>
-  <string name="pref_whitelist_rules_summary">Permettre les entrées de liste blanche des sources hosts</string>
-  <string name="pref_redirection_rules">Permettre les redirections</string>
-  <string name="pref_redirection_rules_summary">CELA POSE UN RISQUE DE SÉCURITÉ ! Permettre les entrées de redirection de sources hosts</string>
+  <string name="pref_whitelist_rules_summary">Permettre les entrées de liste blanche des sources de fichiers hosts.</string>
+  <string name="pref_redirection_rules">Autoriser les redirections</string>
+  <string name="pref_redirection_rules_summary">PRÉSENTE UN RISQUE DE SÉCURITÉ ! Permettre les entrées de redirection de sources de fichiers hosts</string>
   <string name="pref_debug">Debogage </string>
   <string name="pref_enable_debug">Journalisation du débogage</string>
   <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>
@@ -239,13 +230,41 @@
   <string name="drawer_open">Ouvrir le menu</string>
   <string name="drawer_close">Fermer le menu</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Accueil</item>
+    <item>Sources de fichiers hosts</item>
+    <item>Vos listes</item>
+    <item>Ouvrir le fichier hosts</item>
+    <item>Journaliser les requêtes DNS</item>
+    <item>Détection de logiciels publicitaires</item>
+    <item>Préférences</item>
+    <item>Aide</item>
+  </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Soutenir le développement \u2764</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Requêtes DNS</string>
   <string name="shortcut_your_lists">Vos listes</string>
   <string name="shortcut_preferences">Préférences</string>
   <!--Hosts source status-->
-  <string name="hosts_source_up_to_date">À jour depuis %1$s .</string>
-  <string name="hosts_source_need_update">Nécessite une mise à jour depuis %1$s .</string>
-  <string name="hosts_source_last_update">Dernière mise à jour effectuée il y a %1$s.</string>
+  <string name="hosts_source_up_to_date">À jour pour %1$s</string>
+  <string name="hosts_source_need_update">Mise à jour nécessaire pour %1$s</string>
+  <string name="hosts_source_last_update">Dernière mise à jour il y a %1$s</string>
   <string name="hosts_source_unknown_status">L’état de mise à jour est inconnu</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d minute</item>
+    <item quantity="other">%d minutes</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d heure</item>
+    <item quantity="other">%d heures</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d jour</item>
+    <item quantity="other">%d jours</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d mois</item>
+    <item quantity="other">%d mois</item>
+  </plurals>
 </resources>
