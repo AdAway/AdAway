@@ -18,10 +18,22 @@
   <string name="button_help">Hilfe</string>
   <!--Home-->
   <string name="header_help">Willkommen!</string>
+  <string name="text_help">AdAway ist Free &amp; Open-Source-Software, entwickelt, um Werbung zu blockieren. Sie lädt Netzwerkadressen von Werbeanbietern und konfiguriert Ihr Gerät so, dass diese blockiert werden.\nMöchten Sie mehr darüber wissen? Ziehen Sie die Hilfe weiter unten zu Rate!</string>
+  <string name="button_show_help">Zeige die erweiterte Hilfe an</string>
+  <string name="icon_update_status">Status der Aktualisierung</string>
   <string name="text_update">Alle Hosts-Dateien aus den festgelegten Quellen werden heruntergeladen, mit Ihren eigenen Listen zusammengefügt und als eine Hosts-Datei im System installiert.</string>
   <string name="button_check_update_hosts">Nach Aktualisierungen suchen</string>
+  <string name="button_update_hosts">Aktualisiere Hosts</string>
+  <string name="button_enable_hosts">Aktiviere Werbeblocker</string>
+  <string name="button_disable_hosts">Deaktiviere Werbeblocker</string>
+  <string name="header_webserver">Webserver</string>
+  <string name="webserver_status_running">Arbeitet</string>
+  <string name="webserver_status_stopped">Angehalten</string>
+  <string name="button_enable_webserver">Aktiviere Webserver</string>
+  <string name="button_disable_webserver">Deaktiviere Webserver</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Leere Liste</string>
+  <string name="checkbox_list_empty_text">Du kannst Elemente mit dem Plus-Knopf hinzufügen.</string>
   <string name="checkbox_list_context_delete">Löschen</string>
   <string name="checkbox_list_footer">Wenn Sie die Liste erweitern, müssen Sie AdAway neustarten!</string>
   <string name="checkbox_list_edit_dialog_title">Bearbeiten</string>
@@ -30,13 +42,27 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Positivliste</string>
   <string name="lists_tab_blacklist">Negativliste</string>
+  <string name="lists_tab_redirection_list">Umleitungen</string>
+  <string name="list_add_dialog_black">Füge Host zur Negativliste hinzu</string>
+  <string name="list_add_dialog_white">Füge Host zur Positivliste hinzu</string>
+  <string name="list_add_dialog_redirect">Füge Host-Umleitung hinzu</string>
+  <string name="list_edit_dialog_black">Bearbeite Negativlisten Host</string>
+  <string name="list_edit_dialog_white">Bearbeite Postivlisten Host</string>
+  <string name="list_edit_dialog_redirect">Bearbeite Umleitung</string>
   <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_hostname_hint">Die Quell-URL der Hostsdatei</string>
+  <string name="list_dialog_wildcard">(Wildcardzeichen * und ? sind erlaubt)</string>
   <string name="list_dialog_ip">IP (IPv4 oder IPv6):</string>
   <string name="import_dialog">Importvorgang …</string>
   <string name="export_dialog">Exportvorgang …</string>
   <string name="export_success">Alle Einträge wurden in eine Datei namens »adaway-export« auf Ihrer SD-Karte gespeichert.</string>
+  <string name="export_failed">Es war nicht möglich, die Liste auf deine SD-Karte zu exportieren.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <string name="hosts_header">Das Hostsfile</string>
+  <string name="hosts_description">Die Hostsdatei ist eine Systemdatei, die Hostnamen IP-Adressen zuweist. Es ist eine reine Textdatei, deren Konfiguration von AdAway gehandhabt wird. Hier sind einige ihrer ersten Zeilen:</string>
+  <string name="hosts_content">Lade den Inhalt der Hostsdatei...</string>
+  <string name="hosts_open_button">Öffne die Hostsdatei</string>
+  <!--Status Notification-->
   <string name="status_checking">Aktualisierungsprüfung …</string>
   <string name="status_reverting">Zurücksetzen …</string>
   <string name="status_reverting_subtitle">Standard Hosts-Datei wird generiert</string>
@@ -51,6 +77,8 @@
   <string name="status_enabled_subtitle">Die neuesten Hosts-Dateien sind aktiv</string>
   <string name="status_disabled">Deaktiviert</string>
   <string name="status_disabled_subtitle">Deaktiviert</string>
+  <string name="notification_channel_update_name">Aktualisierungen</string>
+  <string name="notification_channel_update_description">Aktualisierungsbenachrichtigung bei neuer Hostsdatei</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Die symbolische Verknüpfung zwischen Ihrem Ziel und /system/etc/hosts ist nicht vorhanden oder falsch! Ohne diese Verknüpfung wird AdAway nicht funktionieren.\n\nMöchten Sie versuchen eine symbolische Verknüpfung zu erstellen?</string>
   <string name="apply_symlink_missing_title">Symbolische Verknüpfung fehlt</string>
@@ -112,28 +140,22 @@
   <string name="menu_import">Alle Listen importieren</string>
   <string name="menu_export">Alle Listen exportieren</string>
   <!--Help-->
-  <string name="help_tab_about">Über</string>
-  <string name="help_tab_donate">Spenden</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">F&amp;A</string>
   <string name="help_tab_problems">Probleme</string>
-  <string name="help_tab_changelog">Änderungen</string>
-  <string name="help_about_version">Version:</string>
-  <string name="help_donation_paypal_item">AdAway-Spende</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_description">Sie finden hier installierte Adware, üble Anwendungen, die durch AdAway nicht blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen, die selbst dann erscheinen, wenn die App nicht läuft, oder stellen sogar Ihren Klingelton um. Die einzige verfügbare Gegenmaßnahme ist die Deinstallation jener Apps, indem Sie auf die Listeneinträge klicken..</string>
+  <string name="adware_scanning">Durchsuchen ...</string>
+  <string name="adware_empty">Keine Adware Anwendungen gefunden!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">nicht verfügbar</string>
-  <string name="hosts_dialog_url">Adresse:</string>
+  <string name="hosts_add_dialog_title">Quelle hinzufügen</string>
+  <string name="hosts_edit_dialog_title">Quelle bearbeiten</string>
+  <string name="hosts_dialog_url">URL: (eine https:// oder file:// Quelle)</string>
+  <string name="hosts_dialog_url_hint">Die Quell-URL der Hostsdatei</string>
   <!--Other-->
   <string name="app_subtitle">Werbeblocker</string>
   <string name="no_text_editor_title">Keine Textbearbeitung installiert</string>
@@ -141,9 +163,26 @@
   <string name="no_file_manager_title">Keine Dateiverwaltung installiert</string>
   <string name="no_file_manager">Es konnte keine Dateiverwaltung gefunden werden, um Dateien zu öffnen. Sie können »OI File Manager« oder  andere Dateimanager installieren, um das zu beheben.\n\n Möchten Sie »OI File Manager« installieren?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">TCPdump</string>
   <string name="tcpdump_description">Mit TCPDump können DNS-Anfragen aufgezeichnet und in einer Protokolldatei gespeichert werden. TCPDump im Hintergrund starten, dann die Anwendung mit Werbung und danach die Protokolldatei in AdAway analysieren. Mögliche Ad-Server können dann zu Ihrer Negativliste hinzugefügt werden.</string>
+  <string name="tcpdump_disable_monitoring">Deaktiviere Aufzeichnung</string>
+  <string name="tcpdump_enable_monitoring">Aktiviere Aufzeichnung</string>
+  <string name="tcpdump_show_results">Ergebnisse anzeigen</string>
+  <string name="tcpdump_redirect_dialog_title">Leite Domain um</string>
+  <string name="tcpdump_menu_sort">Sortiere Domains</string>
+  <string name="tcpdump_menu_clear">Log leeren</string>
+  <string name="tcpdump_sort_alphabetical">Alphabetische Sortierung</string>
+  <string name="tcpdump_sort_top_level_domain">Sortiere nach Top Level Domain</string>
+  <string name="tcpdump_entry_add_blacklist">Füge Eintrag zur Negativliste hinzu</string>
+  <string name="tcpdump_entry_add_whitelist">Füge Eintrag zur Positivliste hinzu</string>
+  <string name="tcpdump_entry_add_redirection_list">Füge Eintrag zur Umleitungsliste hinzu</string>
   <!--Preferences-->
   <string name="pref_download">Grundeinstellungen</string>
+  <string name="pref_dismiss_welcome">Verstecke die Willkommen Box</string>
+  <string name="pref_dismiss_welcome_summary">Verstecke die Willkommen Box auf dem Startbildschirm</string>
+  <string name="pref_dark_theme">Aktiviere dunkles Thema</string>
+  <string name="pref_dark_theme_summary">Benutze das dunkle Thema anstelle des hellen.</string>
+  <string name="pref_dark_theme_notification">Thema wird beim nächsten Anwendungsstart angewendet!</string>
   <string name="pref_hosts">Hosts-Datei</string>
   <string name="pref_redirection_ip">Umleitungs-IP</string>
   <string name="pref_update_check">Nach Aktualisierungen suchen</string>
@@ -174,10 +213,10 @@
   <string name="pref_update_check_daily_summary">Täglich, mit Benachrichtigung, im Hintergrund nach Aktualisierungen suchen.</string>
   <string name="pref_automatic_update_daily">Automatische Aktualisierungen</string>
   <string name="pref_automatic_update_daily_summary">Wenn Aktualisierungen verfügbar sind, diese automatisch im Hintergrund installieren.</string>
-  <string name="pref_update_only_on_wifi">Aktualisierung nur bei WLAN-Verbindung</string>
-  <string name="pref_update_only_on_wifi_summary">Hintergrundaktualisierungen sollen nur bei WLAN-Verbindung heruntergeladen werden.</string>
+  <string name="pref_update_only_on_wifi_summary">Hintergrundaktualisierungen nur bei einer kostenfreien Internetverbindung ausführen.</string>
   <string name="pref_whitelist_rules">Positivlisten erlauben</string>
   <string name="pref_whitelist_rules_summary">Positivlisteneinträge aus Hosts-Quellen zulassen.</string>
+  <string name="pref_redirection_rules">Erlaube Umleitungen</string>
   <string name="pref_redirection_rules_summary">SICHERHEITSGEFÄHRDEND! Weiterleitungseinträge aus Hosts-Quellen zulassen.</string>
   <string name="pref_debug">Fehlerdiagnose</string>
   <string name="pref_enable_debug">Fehlerdiagnoseprotokollierung</string>
@@ -186,10 +225,30 @@
   <string name="pref_enable_ipv6_summary">Alle Einträge in der Host-Datei werden einen entsprechenden Eintrag ::1 (IPv6 localhost) erhalten.</string>
   <string name="pref_enable_systemless_summary">Verhindern, dass AdAway das System modifiziert</string>
   <string name="pref_enable_systemless">Systemlosen Modus aktivieren</string>
+  <string name="drawer_open">Menü öffnen</string>
+  <string name="drawer_close">Menü schließen</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Startseite</item>
+    <item>Hosts-Quellen</item>
+    <item>Ihre Listen</item>
+    <item>Hosts-Datei öffnen</item>
+    <item>DNS-Anfragen aufzeichnen</item>
+    <item>Nach Adware suchen</item>
+    <item>Einstellungen</item>
+    <item>Hilfe</item>
+  </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Entwicklung fördern \u2764</string>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNS Abfrage</string>
+  <string name="shortcut_your_lists">Deine Listen</string>
   <string name="shortcut_preferences">Einstellungen</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Aktuell für %1$s</string>
+  <string name="hosts_source_need_update">Benötige Aktualisierung für %1$s</string>
+  <string name="hosts_source_last_update">Letzte Aktualisierung vor %1$s</string>
+  <string name="hosts_source_unknown_status">Status der Aktualisierung unbekannt</string>
   <plurals name="hosts_source_minutes">
     <item quantity="one">%d Minute</item>
     <item quantity="other">%d Minuten</item>

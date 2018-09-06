@@ -35,7 +35,7 @@
   <string name="export_dialog">Izvoz...</string>
   <string name="export_success">Svi unosi su izvučeni na sd karticu u fajl koji se zove \'adaway-export\'</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Provera ažuriranja...</string>
   <string name="status_reverting">Vraćanje...</string>
   <string name="status_reverting_subtitle">Kreiranje standardnog hosts fajla</string>
@@ -111,28 +111,14 @@
   <string name="menu_import">Uvezi Sve Liste</string>
   <string name="menu_export">Izvezi Sve Liste</string>
   <!--Help-->
-  <string name="help_tab_about">O...</string>
-  <string name="help_tab_donate">Doniraj</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">Često Postavljena Pitanja</string>
   <string name="help_tab_problems">Problemi</string>
-  <string name="help_tab_changelog">Promene</string>
-  <string name="help_about_version">Verzija:</string>
-  <string name="help_donation_paypal_item">AdAway Donacija</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Evro</item>
-    <item>2 Evra</item>
-    <item>3 Evra</item>
-    <item>5 Evra</item>
-    <item>8 Evra</item>
-    <item>13 Evra</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalno:</string>
   <string name="hosts_last_modified_online">Sa interneta;</string>
   <string name="hosts_not_available">nije dostupno</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Ad Blocker</string>
   <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
@@ -173,8 +159,6 @@
   <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>
   <string name="pref_automatic_update_daily">Automatska ažuriranja</string>
   <string name="pref_automatic_update_daily_summary">Ažuriraj automatski u pozadini ako su ažuriranja dostupna</string>
-  <string name="pref_update_only_on_wifi">Ažuriraj samo preko Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Pokreni ažuriranja u pozadini samo kada je povezan na Wi-Fi mrežu.</string>
   <string name="pref_whitelist_rules">Dozvoli belu listu</string>
   <string name="pref_whitelist_rules_summary">Dopušta stavke sa bele liste sa izvora hostova.</string>
   <string name="pref_redirection_rules_summary">PREDSTAVLJA BEZBEDNOSNI RIZIK! Dopušta preusmerene stavke sa izvora hostova.</string>
@@ -186,6 +170,7 @@
   <string name="pref_enable_systemless_summary">Onemogući AdAway da modifikuje sistemsku particiju.</string>
   <string name="pref_enable_systemless">Omogući systemless režim</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Podešavanja</string>
   <!--Hosts source status-->

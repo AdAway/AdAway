@@ -35,7 +35,7 @@
   <string name="export_dialog">내보내는 중...</string>
   <string name="export_success">모든 입력 내용을 SD카드의 \'adaway-export\'로 내보냈습니다.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">업데이트 확인 중...</string>
   <string name="status_reverting">되돌리는 중...</string>
   <string name="status_reverting_subtitle">표준 호스트 파일 생성 중</string>
@@ -110,28 +110,14 @@
   <string name="menu_import">전체 목록 가져오기</string>
   <string name="menu_export">전체 목록 내보내기</string>
   <!--Help-->
-  <string name="help_tab_about">앱 정보</string>
-  <string name="help_tab_donate">기부</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">문제</string>
-  <string name="help_tab_changelog">변경사항</string>
-  <string name="help_about_version">버전:</string>
-  <string name="help_donation_paypal_item">AdAway 기부</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">로컬:</string>
   <string name="hosts_last_modified_online">온라인:</string>
   <string name="hosts_not_available">사용 불가</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">광고 차단 도구</string>
   <string name="no_text_editor_title">No text editor installed</string>
@@ -172,8 +158,6 @@
   <string name="pref_update_check_daily_summary">알림을 포함하여 배경에서 매일 업데이트 확인</string>
   <string name="pref_automatic_update_daily">자동 업데이트</string>
   <string name="pref_automatic_update_daily_summary">업데이트가 가능한 경우 배경에서 자동 업데이트</string>
-  <string name="pref_update_only_on_wifi">와이파이 연결 상태에서만 업데이트</string>
-  <string name="pref_update_only_on_wifi_summary">와이파이 네트워크 연결 시에만 배경 업데이트 실행</string>
   <string name="pref_whitelist_rules">허용 목록 기능 허용</string>
   <string name="pref_whitelist_rules_summary">호스트 소스에서 허용 목록 입력 허용</string>
   <string name="pref_redirection_rules_summary">보안 상의 위험을 초래함! 호스트 소스에서 리디렉션 입력 허용하십시오.</string>
@@ -185,6 +169,7 @@
   <string name="pref_enable_systemless_summary">AdAway의 시스템 파티션 수정 방지</string>
   <string name="pref_enable_systemless">Systemless 모드 활성화</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">환경 설정</string>
   <!--Hosts source status-->

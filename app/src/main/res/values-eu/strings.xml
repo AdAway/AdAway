@@ -35,7 +35,7 @@
   <string name="export_dialog">Esportatzen…</string>
   <string name="export_success">Sarrera guztiak zure sd-txarteleko \'adaway-export\' izeneko agirira esportatu dira.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Eguneraketak egiaztatzen…</string>
   <string name="status_reverting">Leheneratzen...</string>
   <string name="status_reverting_subtitle">Hostalari agiri estandarra sortzen</string>
@@ -111,28 +111,14 @@
   <string name="menu_import">Inportatu Zerrenda Guztiak</string>
   <string name="menu_export">Esportatu Zerrenda Guztiak</string>
   <!--Help-->
-  <string name="help_tab_about">Honi buruz</string>
-  <string name="help_tab_donate">Dirulaguntza</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">SEG</string>
   <string name="help_tab_problems">Arazoak</string>
-  <string name="help_tab_changelog">Aldaketa-oharra</string>
-  <string name="help_about_version">Bertsioa:</string>
-  <string name="help_donation_paypal_item">AdAway Dirulaguntza</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Tokikoa:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">ez dago eskuragarri</string>
-  <string name="hosts_dialog_url">URL-a:</string>
   <!--Other-->
   <string name="app_subtitle">Iragarki blokeatzailea</string>
   <string name="no_text_editor_title">Ez dago idazki editatzailerik ezarrita</string>
@@ -172,8 +158,6 @@
   <string name="pref_update_check_daily_summary">Egiaztatu eguneraketak egunero barrenean jakinarazpenekin</string>
   <string name="pref_automatic_update_daily">Berezgaitasunezko eguneraketa</string>
   <string name="pref_automatic_update_daily_summary">Eguneratu berezgaitasunez barrenean eguneraketa eskuragarririk badago.</string>
-  <string name="pref_update_only_on_wifi">Eguneratu Wifi bidez bakarrik</string>
-  <string name="pref_update_only_on_wifi_summary">Exekutatu barreneko eguneraketak wifi sarera elkartutakoan bakarrik.</string>
   <string name="pref_whitelist_rules">Ahalbidetu zerrenda-zuriak</string>
   <string name="pref_whitelist_rules_summary">Ahalbidtu zerrend-zuri sarrerak Hostalari Iturburuetatik.</string>
   <string name="pref_redirection_rules_summary">SEGURTASUN ARRISKU JARRERAK! Ahalbidetu Hostalari Iturburuetatiko sarrerak berzuzentzea.</string>
@@ -185,6 +169,7 @@
   <string name="pref_enable_systemless_summary">Saihestu AdAway-k sistemaren partizioa aldatzea</string>
   <string name="pref_enable_systemless">Gaitu sistemagabe modua</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Hobespenak</string>
   <!--Hosts source status-->

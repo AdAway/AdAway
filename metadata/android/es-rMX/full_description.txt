@@ -1,0 +1,7 @@
+Un bloqueador de anuncios que usa el archivo hosts.
+El archivo hosts es un archivo del sistema que contiene una lista de mapeos entre nombres de host y direcciones IP.
+Cuando una app solicita un anuncio de un host que esté en ese archivo, se redirige a la IP local 127.0.0.1, que no hace nada.
+Puedes descargar archivos hosts predefinidos desde la app para incorporarlos al de tu sistema. También es posible usar tus propios archivos y añadir ciertos hosts a las listas blancas y negras.
+Hay, igualmente, opciones para iniciar un servidor web local para responder a los hosts bloqueados, y para dirigir pedidos a la dirección IP que desees.
+
+Requiere root: sí. El archivo hosts está localizado en directorio /system, que por defecto es de sólo-lectura.

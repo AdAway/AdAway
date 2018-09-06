@@ -35,7 +35,7 @@
   <string name="export_dialog">Esportando...</string>
   <string name="export_success">Esportáronse toles entraes al ficheru nomáu «adaway-export» na to tarxeta SD.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Comprobando anovamientos...</string>
   <string name="status_reverting">Desfaciendo...</string>
   <string name="status_reverting_subtitle">Creando ficheru hosts estándar</string>
@@ -106,28 +106,14 @@
   <string name="menu_import">Importar toles llistes</string>
   <string name="menu_export">Esportar toles llistes</string>
   <!--Help-->
-  <string name="help_tab_about">Tocante a</string>
-  <string name="help_tab_donate">Donar</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemes</string>
-  <string name="help_tab_changelog">Rexistru de cambeos</string>
-  <string name="help_about_version">Versión:</string>
-  <string name="help_donation_paypal_item">Donación d\'AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euru</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Llocal:</string>
   <string name="hosts_last_modified_online">En llinia:</string>
   <string name="hosts_not_available">non disponible</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Bloquiador d\'anuncios</string>
   <string name="no_text_editor_title">Nun hai dal editor de testos instaláu</string>
@@ -168,8 +154,6 @@
   <string name="pref_update_check_daily_summary">Comprueba de fondu con avisos anovamientos caldía</string>
   <string name="pref_automatic_update_daily">Anovamientu automáticu</string>
   <string name="pref_automatic_update_daily_summary">Anueva automáticamente de fondu si tán disponibles anovamientos.</string>
-  <string name="pref_update_only_on_wifi">Anovar namái per Wi-Fi</string>
-  <string name="pref_update_only_on_wifi_summary">Executa los anovamientos de fondu namái al tar coneutáu a una rede wifi.</string>
   <string name="pref_whitelist_rules">Permitir llista blanca</string>
   <string name="pref_whitelist_rules_summary">Permite les entraes de la llista blanca de les fontes de «hosts»</string>
   <string name="pref_redirection_rules_summary">¡PLANTEGA RIESGU DE SEGURANZA! Permite la redireición d\'entraes dende les fontes de «hosts»</string>
@@ -179,6 +163,7 @@
   <string name="pref_enable_ipv6">Habilitar IPv6</string>
   <string name="pref_enable_ipv6_summary">Toles entraes del ficheru «hosts» consiguirán una entrada ::1 (localhost d\'IPv6) correspondiente.</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferencies</string>
   <!--Hosts source status-->

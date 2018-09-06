@@ -62,7 +62,7 @@
   <string name="hosts_description">hosts 檔案是一個將主機名稱對應到 IP 位置的系統檔案。它是一個由 AdAway 配置的純文字檔案。這是這個檔案的前幾行：</string>
   <string name="hosts_content">正在載入 hosts 檔案內容...</string>
   <string name="hosts_open_button">開啟 hosts 檔案</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">正在檢查更新...</string>
   <string name="status_reverting">還原中...</string>
   <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
@@ -77,6 +77,8 @@
   <string name="status_enabled_subtitle">已啟用最新的 hosts 檔案</string>
   <string name="status_disabled">停用</string>
   <string name="status_disabled_subtitle">停用</string>
+  <string name="notification_channel_update_name">更新</string>
+  <string name="notification_channel_update_description">新主機更新通知</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">你設定的目標不存在或者不是正確的 /system/etc/hosts 符號連結！沒有正確的符號連結AdAway不能執行。 你需要建立符號連結嗎？</string>
   <string name="apply_symlink_missing_title">符號連結遺失</string>
@@ -138,22 +140,9 @@
   <string name="menu_import">匯入所有清單</string>
   <string name="menu_export">匯出所有清單</string>
   <!--Help-->
-  <string name="help_tab_about">關於</string>
-  <string name="help_tab_donate">資助</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">常見問題</string>
   <string name="help_tab_problems">問題</string>
-  <string name="help_tab_changelog">更新紀錄</string>
-  <string name="help_about_version">版本：</string>
-  <string name="help_donation_paypal_item">AdAway 贊助方式</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1  歐元</item>
-    <item>2 歐元</item>
-    <item>3 歐元</item>
-    <item>5 歐元</item>
-    <item>8 歐元</item>
-    <item>13 歐元</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">廣告軟體</string>
   <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單來移除它們！</string>
@@ -165,7 +154,7 @@
   <string name="hosts_not_available">無法使用</string>
   <string name="hosts_add_dialog_title">加入來源</string>
   <string name="hosts_edit_dialog_title">編輯來源</string>
-  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url">網址：（一個 https:// 或 file:// 資源）</string>
   <string name="hosts_dialog_url_hint">Hosts 來源 URL</string>
   <!--Other-->
   <string name="app_subtitle">廣告阻擋器</string>
@@ -224,8 +213,7 @@
   <string name="pref_update_check_daily_summary">每天背景檢查更新並提示</string>
   <string name="pref_automatic_update_daily">自動更新</string>
   <string name="pref_automatic_update_daily_summary">如果有更新，自動在背景更新。</string>
-  <string name="pref_update_only_on_wifi">只透過 Wi-Fi 更新</string>
-  <string name="pref_update_only_on_wifi_summary">只有在連接到 Wi-Fi 時執行背景更新。</string>
+  <string name="pref_update_only_on_wifi_summary">只有在連接到不限量網路時執行背景更新。 </string>
   <string name="pref_whitelist_rules">允許白名單</string>
   <string name="pref_whitelist_rules_summary">允許從 Hosts 來源中的白名單項目</string>
   <string name="pref_redirection_rules">允許重新導向</string>
@@ -251,10 +239,27 @@
     <item>設定</item>
     <item>說明</item>
   </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 支援開發 \u2764</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS 請求</string>
   <string name="shortcut_your_lists">你的清單</string>
   <string name="shortcut_preferences">設定</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">%1$s 是最新的</string>
+  <string name="hosts_source_need_update">%1$s 需要更新</string>
+  <string name="hosts_source_last_update">上次更新 %1$s 前</string>
   <string name="hosts_source_unknown_status">未知更新狀態</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="other">%d 分鐘</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="other">%d 小時</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="other">%d 天</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="other">%d 個月</item>
+  </plurals>
 </resources>

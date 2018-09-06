@@ -1,0 +1,7 @@
+Ein Werbeblocker, der die Hosts-Datei nutzt.
+Die Hosts-Datei ist eine Systemdatei, die eine Liste von Zuordnungen zwischen Host-Namen und IP-Adressen enthält.
+Wenn eine App Werbung von einem Host aus dieser Datei anfordert, wird diese Anfrage an die lokale IP 127.0.0.1 umgeleitet, wodurch nichts passiert.
+Sie können vordefinierte Hosts-Dateien direkt in der App herunterladen und in die Hosts-Datei des Systems integrieren. Es ist zudem möglich, Ihre eigenen Dateien zu benutzen und bestimmte Hosts White- und Blacklisten zuzuordnen.
+Es gibt die Möglichkeit, einen lokalen Webserver zu betreiben, der auf blockierte Host-Namen reagiert und Anfragen an sie an eine selbstgewählte IP-Adresse weiterleitet.
+
+Benötigt Root: Ja. Die Hosts-Datei liegt unter /system, auf welches normalerweise lediglich lesend zugegriffen werden kann.

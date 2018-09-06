@@ -1,0 +1,7 @@
+Um bloqueador de anúncios que utiliza o ficheiro hosts.
+O ficheiro hosts é um ficheiro do sistema que contém uma lista de mapeamentos entre os nomes de hospedeiro e os endereços de IP.
+Quando uma aplicação solicita um anúncio a partir de um hospedeiro nesse ficheiro, este pedido é redirecionado para o IP local 127.0.0.1, que não faz nada.
+Pode transferir ficheiros hosts predefinidos a partir da aplicação para incorporá-los no ficheiro hosts do sistema. Também é possível utilizar os seus próprios ficheiros e adicionar certos hospedeiros às listas branca e negra.
+Existem opções para executar um servidor da Web local que responda aos nomes de hospedeiro bloqueados e que direcione os pedidos para os endereços de IP que escolher.
+
+Requer root: Sim. O ficheiro hosts está localizado em /system, que é só de leitura por predefinição.

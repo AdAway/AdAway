@@ -35,7 +35,7 @@
   <string name="export_dialog">Експорт…</string>
   <string name="export_success">Усі записи вивантажені в файл з ім\'ям \'adaway-export\', розташованому на карті пам\'яті.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Перевірка оновлень…</string>
   <string name="status_reverting">Відновлення…</string>
   <string name="status_reverting_subtitle">Створення стандартного файлу хостів</string>
@@ -111,28 +111,14 @@
   <string name="menu_import">Імпортувати всі списки</string>
   <string name="menu_export">Експортувати усі списки</string>
   <!--Help-->
-  <string name="help_tab_about">Про програму</string>
-  <string name="help_tab_donate">Пожертвувати</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">ЧаП</string>
   <string name="help_tab_problems">Проблеми</string>
-  <string name="help_tab_changelog">Журанал змін</string>
-  <string name="help_about_version">Версія</string>
-  <string name="help_donation_paypal_item">Пожертва AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item> 1 Євро </item>
-    <item> 2 Євро </item>
-    <item> 3 Євро </item>
-    <item> 5 Євро </item>
-    <item> 8 Євро </item>
-    <item> 13 Євро </item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Локальний:</string>
   <string name="hosts_last_modified_online">Інтернет:</string>
   <string name="hosts_not_available">недоступно</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Блокувальник реклами</string>
   <string name="no_text_editor_title">Не встановлено текстовий редактор</string>
@@ -173,8 +159,6 @@
   <string name="pref_update_check_daily_summary">Перевіряє оновлення у фоновому режимі щодня з сповіщенням</string>
   <string name="pref_automatic_update_daily">Автоматичне оновлення</string>
   <string name="pref_automatic_update_daily_summary">Оновлювати автоматично у фоновому режимі, якщо доступні оновлення.</string>
-  <string name="pref_update_only_on_wifi">Оновлення тільки через WiFi</string>
-  <string name="pref_update_only_on_wifi_summary">Автоматично виконувати оновлення тільки при підключенні до мережі WiFi.</string>
   <string name="pref_whitelist_rules">Дозволити білий список</string>
   <string name="pref_whitelist_rules_summary">Дозволити білі списки із джерел хостів.</string>
   <string name="pref_redirection_rules_summary">СТАНОВИТЬ РИЗИК ДЛЯ БЕЗПЕКИ! Дозволити перенаправлення із джерел хостів.</string>
@@ -186,6 +170,7 @@
   <string name="pref_enable_systemless_summary">Запобігати зміні системного розділу через AdAway</string>
   <string name="pref_enable_systemless">Увімкнути безсистемний режим</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Налаштування</string>
   <!--Hosts source status-->

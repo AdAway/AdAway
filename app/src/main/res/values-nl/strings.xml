@@ -17,8 +17,16 @@
   <string name="button_webserver_toggle_text">Start of stop de webserver op localhost om verzoeken aan geblokkeerde hostnamen te beantwoorden.</string>
   <string name="button_help">Hulp</string>
   <!--Home-->
+  <string name="header_help">Welkom!</string>
+  <string name="text_help">AdAway is vrije software, ontworpen om reclame te blokkeren. Het downloadt een lijst van reclamenetwerken en stelt je apparaat in om deze te blokkeren.\nWil je meer te weten komen? Bekijk dan de hulp hieronder!</string>
+  <string name="button_show_help">Meer hulp tonen</string>
+  <string name="icon_update_status">Status bijwerken</string>
   <string name="text_update">Alle hosts-bestanden van de gekozen bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geplaatst.</string>
   <string name="button_check_update_hosts">Controleren op updates</string>
+  <string name="button_update_hosts">Hosts bijwerken</string>
+  <string name="button_enable_hosts">Advertentieblokkering inschakelen</string>
+  <string name="button_disable_hosts">Advertentieblokkering uitschakelen</string>
+  <string name="header_webserver">Webserver</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Lege lijst</string>
   <string name="checkbox_list_context_delete">Verwijderen</string>
@@ -35,7 +43,7 @@
   <string name="export_dialog">Bezig met exporteren...</string>
   <string name="export_success">Alle regels zijn geëxporteerd naar een bestand genaamd \'adaway-export\' op uw SD-kaart.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Controleren op updates...</string>
   <string name="status_reverting">Bezig met terugzetten...</string>
   <string name="status_reverting_subtitle">Standaardhosts-bestand aanmaken</string>
@@ -111,28 +119,14 @@
   <string name="menu_import">Alle lijsten importeren</string>
   <string name="menu_export">Alle lijsten exporteren</string>
   <!--Help-->
-  <string name="help_tab_about">Over</string>
-  <string name="help_tab_donate">Doneren</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">VGV</string>
   <string name="help_tab_problems">Problemen</string>
-  <string name="help_tab_changelog">Wijzigingslog</string>
-  <string name="help_about_version">Versie:</string>
-  <string name="help_donation_paypal_item">AdAway-donatie</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 euro</item>
-    <item>2 euro</item>
-    <item>3 euro</item>
-    <item>5 euro</item>
-    <item>8 euro</item>
-    <item>13 euro</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokaal:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">niet beschikbaar</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Adblocker</string>
   <string name="no_text_editor_title">Geen tekstverwerker geïnstalleerd</string>
@@ -173,8 +167,6 @@
   <string name="pref_update_check_daily_summary">Toon een melding als er wordt gecontroleerd op updates</string>
   <string name="pref_automatic_update_daily">Automatisch bijwerken</string>
   <string name="pref_automatic_update_daily_summary">Werk automatisch bij in de achtergrond als er updates beschikbaar zijn</string>
-  <string name="pref_update_only_on_wifi">Alleen bijwerken via wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Voer achtergrondupdates alleen uit wanneer verbonden met een wifinetwerk.</string>
   <string name="pref_whitelist_rules">Sta het gebruik van de witte lijst toe</string>
   <string name="pref_whitelist_rules_summary">Sta toe dat hosts-bronnen regels toevoegen aan de witte lijst.</string>
   <string name="pref_redirection_rules_summary">Potentieel beveiligingsrisico! Sta doorverwijzingsregels van hosts-bronnen toe.</string>
@@ -186,6 +178,7 @@
   <string name="pref_enable_systemless_summary">Voorkomt dat AdAway de systeempartitie aanpast</string>
   <string name="pref_enable_systemless">Systeemloze modus inschakelen</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Voorkeuren</string>
   <!--Hosts source status-->

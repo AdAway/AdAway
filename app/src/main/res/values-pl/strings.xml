@@ -62,7 +62,7 @@
   <string name="hosts_description">Plik hosts jest plikiem systemowym, który mapuje nazwy hostów na adresy IP. Jest to plik tekstowy, którego konfiguracja jest obsługiwana przez AdAway. Oto kilka pierwszych linii:</string>
   <string name="hosts_content">Ładowanie zawartości pliku hosts...</string>
   <string name="hosts_open_button">Otwórz plik hosts</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Sprawdzanie aktualizacji…</string>
   <string name="status_reverting">Przywracanie...</string>
   <string name="status_reverting_subtitle">Tworzenie standardowego pliku hosts</string>
@@ -77,6 +77,8 @@
   <string name="status_enabled_subtitle">Najnowsze pliki hostów zostały włączone</string>
   <string name="status_disabled">Wyłączone</string>
   <string name="status_disabled_subtitle">Wyłączone</string>
+  <string name="notification_channel_update_name">Aktualizacje</string>
+  <string name="notification_channel_update_description">Powiadomienia o aktualizacjach nowych hostów</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlink z Twojego celu do /system/etc/hosts nie istnieje lub nie jest poprawny! AdAway nie będzie działać jeśli nie jest wskazany poprawny plik.\n\n Czy chcesz spróbować stworzyć symlink?</string>
   <string name="apply_symlink_missing_title">Brak symlinka</string>
@@ -138,22 +140,9 @@
   <string name="menu_import">Importuj wszystkie Listy</string>
   <string name="menu_export">Eksportuj wszystkie Listy</string>
   <!--Help-->
-  <string name="help_tab_about">O programie</string>
-  <string name="help_tab_donate">Dotacja</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemy</string>
-  <string name="help_tab_changelog">Lista zmian</string>
-  <string name="help_about_version">Wersja</string>
-  <string name="help_donation_paypal_item">Dotacja AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_description">Tutaj możesz znaleźć zainstalowane adware, złe aplikacje, które nie mogą być blokowane przez AdAway. Te aplikacje używają na przykład powiadomień Airpush, które pojawiają się nawet wtedy, gdy aplikacja nie działa lub nawet zmienia dzwonek. Jedynym dostępnym środkiem zaradczym jest odinstalowanie tych aplikacji, klikając elementy listy.</string>
@@ -165,7 +154,7 @@
   <string name="hosts_not_available">niedostępny(e)</string>
   <string name="hosts_add_dialog_title">Dodaj źródło</string>
   <string name="hosts_edit_dialog_title">Edytuj źródło</string>
-  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url">Adres URL: (https:// lub plik:// zasób)</string>
   <string name="hosts_dialog_url_hint">Adres URL źródła hostów</string>
   <!--Other-->
   <string name="app_subtitle">Bloker reklam</string>
@@ -224,8 +213,8 @@
   <string name="pref_update_check_daily_summary">Szukaj codziennie aktualizacji i powiadamiaj o nich</string>
   <string name="pref_automatic_update_daily">Automatyczna aktualizacja</string>
   <string name="pref_automatic_update_daily_summary">Aktualizuj automatycznie w tle jeżeli aktualizacje sa dostępne.</string>
-  <string name="pref_update_only_on_wifi">Aktualizuj tylko przez Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Wykonuj aktualizacje w tle tylko przy połączeniu WiFi.</string>
+  <string name="pref_update_only_on_wifi">Aktualizacji przy połączeniach nietrayfowych</string>
+  <string name="pref_update_only_on_wifi_summary">Wykonuj aktualizacje w tle tylko wtedy, gdy jest podłączony tylko do sieci nietaryfowej.</string>
   <string name="pref_whitelist_rules">Zezwól na białe listy</string>
   <string name="pref_whitelist_rules_summary">Zezwól na białe listy ze Źródeł Hostów.</string>
   <string name="pref_redirection_rules">Zezwalaj na przekierowania</string>
@@ -251,10 +240,39 @@
     <item>Preferencje</item>
     <item>Pomoc</item>
   </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">u2764 Wspieraj rozwój u2764</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Żądania DNS</string>
   <string name="shortcut_your_lists">Twoje listy</string>
   <string name="shortcut_preferences">Ustawienia</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Aktualne dla %1$s</string>
+  <string name="hosts_source_need_update">Potrzebujesz aktualizacji dla %1$s</string>
+  <string name="hosts_source_last_update">Ostatnia aktualizacja %1$s temu</string>
   <string name="hosts_source_unknown_status">Nieznany status aktualizacji</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%dminutę </item>
+    <item quantity="few">%dminuty </item>
+    <item quantity="many">%dminut </item>
+    <item quantity="other">%d minut</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d godzinę</item>
+    <item quantity="few">%d godziny </item>
+    <item quantity="many">%d godzin </item>
+    <item quantity="other">%d godzin </item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d dzień </item>
+    <item quantity="few">%d dni</item>
+    <item quantity="many">%d dni</item>
+    <item quantity="other">%d dni</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%dmiesiąc </item>
+    <item quantity="few">%dmiesiące</item>
+    <item quantity="many">%dmiesięcy </item>
+    <item quantity="other">%d miesiący</item>
+  </plurals>
 </resources>

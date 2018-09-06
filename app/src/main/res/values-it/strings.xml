@@ -18,12 +18,10 @@
   <string name="button_help">Aiuto</string>
   <!--Home-->
   <string name="header_help">Benvenuto!</string>
-  <string name="text_help">Adaway è un software gratuito sviluppato per bloccare la pubblicià.
-Scarica un elenco di siti indesiderati e configura il tuo dispositivo per bloccarli.
-Vuoi saperne di più? Segui la guida qui sotto!</string>
+  <string name="text_help">AdAway è un software gratuito sviluppato per bloccare la pubblicità. AdAway scarica un elenco di siti indesiderati e configura il tuo dispositivo per bloccarli. Vuoi saperne di più? Segui la guida qui sotto!</string>
   <string name="button_show_help">Mostra più aiuti</string>
   <string name="icon_update_status">Aggiorna lo status</string>
-  <string name="text_update">Tutti i file hosts da sorgenti definite sono scaricati, uniti nelle tue liste e installati come un unico file hosts nel tuo sistema.</string>
+  <string name="text_update">Tutti i file hosts dalle sorgenti definite sono scaricati, uniti alle tue liste personali e installati come un unico file hosts nel tuo sistema.</string>
   <string name="button_check_update_hosts">Controlla aggiornamenti</string>
   <string name="button_update_hosts">Aggiorna gli hosts</string>
   <string name="button_enable_hosts">Abilita il blocco della pubblicità</string>
@@ -35,9 +33,9 @@ Vuoi saperne di più? Segui la guida qui sotto!</string>
   <string name="button_disable_webserver">Disabilita il web server</string>
   <!--Checkbox List-->
   <string name="checkbox_list_empty">Svuota lista</string>
-  <string name="checkbox_list_empty_text">Puoi aggiungere elementi con il tasto \"più\"</string>
+  <string name="checkbox_list_empty_text">Puoi aggiungere elementi con il tasto \"più\".</string>
   <string name="checkbox_list_context_delete">Elimina</string>
-  <string name="checkbox_list_footer">Dopo aver aggiunto nuove voci alla tua lista devi applicare di nuovo AdAway!</string>
+  <string name="checkbox_list_footer">Dopo aver aggiunto nuove voci a questa lista devi applicare di nuovo AdAway!</string>
   <string name="checkbox_list_edit_dialog_title">Modifica</string>
   <string name="checkbox_list_context_title">Modifica valore</string>
   <string name="checkbox_list_context_edit">Modifica</string>
@@ -57,15 +55,14 @@ Vuoi saperne di più? Segui la guida qui sotto!</string>
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importo...</string>
   <string name="export_dialog">Esporto...</string>
-  <string name="export_success">Tutte le voci sono state esportate in un file chiamato \'adaway-export\' sulla tua sdcard.</string>
-  <string name="export_failed">Esportazione della lista su sdcard fallita.</string>
+  <string name="export_success">Tutte le voci sono state esportate in un file chiamato \'adaway-export\' sulla tua scheda SD.</string>
+  <string name="export_failed">Esportazione della lista su scheda SD fallita.</string>
   <!--Hosts content-->
   <string name="hosts_header">Il file hosts</string>
-  <string name="hosts_description">Il file hosts è un file di sistema che associa gli hostname ad indirizzi IP.
-E\' un file di testo la cui configurazione viene gestita da AdAway. Ecco le prime linee:</string>
+  <string name="hosts_description">Il file hosts è un file di sistema che associa gli hostname ad indirizzi IP. E\' un file di testo la cui configurazione viene gestita da AdAway. Ecco le prime linee:</string>
   <string name="hosts_content">Caricamento contenuto del file hosts...</string>
   <string name="hosts_open_button">Apri il file hosts</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Cerco aggiornamenti...</string>
   <string name="status_reverting">Ripristino...</string>
   <string name="status_reverting_subtitle">Creo file hosts predefinito</string>
@@ -80,6 +77,8 @@ E\' un file di testo la cui configurazione viene gestita da AdAway. Ecco le prim
   <string name="status_enabled_subtitle">File host più recenti abilitati</string>
   <string name="status_disabled">Disabilitato</string>
   <string name="status_disabled_subtitle">Disabilitato</string>
+  <string name="notification_channel_update_name">Aggiornamenti</string>
+  <string name="notification_channel_update_description">Notifiche aggiornamento nuovi host</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Il collegamento simbolico a /system/etc/hosts non esiste o non è corretto! AdAway  non funzionerà se il collegamento non punta al file giusto.\n\nVuoi provare a creare un collegamento simbolico?</string>
   <string name="apply_symlink_missing_title">Collegamento simbolico mancante</string>
@@ -93,10 +92,10 @@ E\' un file di testo la cui configurazione viene gestita da AdAway. Ecco le prim
   <string name="apply_copy_fail_title">Copia fallita</string>
   <string name="apply_success_subtitle">Sorgenti host applicate:</string>
   <string name="apply_success_title">Modifiche effettuate con successo!</string>
-  <string name="apply_success_dialog">Modifiche effettuate con successo.\n Può essere necessario riavviare Android affinché abbiano effetto.\n Vuoi riavviare?\n (Per prevenire perdite di dati assicurati che nessuna app stia utilizzando la sdcard in questo momento!)</string>
-  <string name="apply_symlink_successful">Collegamento simbolico creato con successo!\n Potrebbe essere necessario riavviare Android affinché i cambiamenti abbiano effetto.\n Vuoi riavviare?\n (Per prevenire perdite di dati assicurati che nessuna app stia utilizzando la sdcard in questo momento!)</string>
+  <string name="apply_success_dialog">Modifiche effettuate con successo.\nPuò essere necessario riavviare Android affinché abbiano effetto.\n\nVuoi riavviare?\n(Per prevenire perdite di dati assicurati che nessuna app stia utilizzando la scheda SD in questo momento!)</string>
+  <string name="apply_symlink_successful">Collegamento simbolico creato con successo!\nPotrebbe essere necessario riavviare Android affinché i cambiamenti abbiano effetto.\n\nVuoi riavviare?\n(Per prevenire perdite di dati assicurati che nessuna app stia utilizzando la scheda SD in questo momento!)</string>
   <string name="apply_symlink_successful_title">Collegamento simbolico creato con successo</string>
-  <string name="apply_symlink_fail">Il collegamento simbolico non può essere creato da Android. Questo problema è dovuto quasi sicuramente a una \"caratteristica\" chiamata S-ON nei telefoni HTC!\n\nUna possibile soluzione è quella di riavviare il telefono in modalità recovery e creare il collegamento simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono.</string>
+  <string name="apply_symlink_fail">Il collegamento simbolico non può essere creato da Android.\nQuesto problema è dovuto quasi sicuramente a una \"caratteristica\" chiamata S-ON nei telefoni HTC!\n\nUna possibile soluzione è quella di avviare il telefono in modalità recovery e creare il collegamento simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono.</string>
   <string name="apply_symlink_fail_title">Creazione del collegamento simbolico fallita</string>
   <string name="apply_help">Per favore leggi l\'Aiuto per ulteriori informazioni.</string>
   <string name="apply_apn_proxy">Un proxy APN è impostato sul tuo Android!\nAdAway non funzionerà bene quando userai reti mobili come 3G. Puoi disattivare il proxy andando nelle impostazioni del tuo APN (In Android 4: Wireless e rete -&gt; Altre impostazioni -&gt; Reti mobili -&gt; Nomi punti d\'accesso) e rimuovendo il contenuto del campo proxy.</string>
@@ -119,9 +118,9 @@ E\' un file di testo la cui configurazione viene gestita da AdAway. Ecco le prim
   <string name="download_fail_title">Download fallito</string>
   <string name="no_private_file">Il file privato non può essere creato.</string>
   <string name="no_private_file_title">Creazione del file privato fallita</string>
-  <string name="enable_systemless_successful">Hai attivato la modalità systemless. \nPotrebbe essere necessario riavviare Android affinché i cambiamenti abbiano effetto.\n\nVuoi riavviare ora?\n(Per prevenire la perdita di dati assicurati che nessuna app stia usando la sdcard in questo momento!)</string>
+  <string name="enable_systemless_successful">Hai attivato la modalità systemless.\nPotrebbe essere necessario riavviare Android affinché i cambiamenti abbiano effetto.\n\nVuoi riavviare ora?\n(Per prevenire la perdita di dati assicurati che nessuna app stia usando la scheda SD in questo momento!)</string>
   <string name="enable_systemless_successful_title">Attivazione avvenuta con successo</string>
-  <string name="disable_systemless_successful">Hai disabilitato la modalità systemless.\nPotrebbe essere necessario riavviare Android perchè i cambiamenti abbiano effetto.\n\nVuoi riavviare ora?\n(Per prevenire la perdita di dati assicurati che nessuna app stia usando la sdcard in questo momento!)</string>
+  <string name="disable_systemless_successful">Hai disabilitato la modalità systemless.\nPotrebbe essere necessario riavviare Android perchè i cambiamenti abbiano effetto.\n\nVuoi riavviare ora?\n(Per prevenire la perdita di dati assicurati che nessuna app stia usando la scheda SD in questo momento!)</string>
   <string name="disable_systemless_successful_title">Disattivazione avvenuta con successo</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Non è stato trovato il binario SU o non hai concesso i permessi di root per AdAway.\n\nQuesto può succedere quando il tuo dispositivo non ha il root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android.</string>
@@ -141,22 +140,9 @@ E\' un file di testo la cui configurazione viene gestita da AdAway. Ecco le prim
   <string name="menu_import">Importa tutte le liste</string>
   <string name="menu_export">Esporta tutte le liste</string>
   <!--Help-->
-  <string name="help_tab_about">Informazioni</string>
-  <string name="help_tab_donate">Fai una donazione</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemi</string>
-  <string name="help_tab_changelog">Changelog</string>
-  <string name="help_about_version">Versione:</string>
-  <string name="help_donation_paypal_item">Donazione AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_description">Qui puoi trovare le adware installate, applicazioni malevole che non possono essere bloccate da AdAway. Queste app usano, ad esempio, notifiche di tipo Airpush che vengono visualizzate anche quando l\'app non è in funzione opuure possono addirittura modificare la tua suoneria.
@@ -169,7 +155,7 @@ Tutto ciò che puoi fare è disinstallarle cliccando nella lista.</string>
   <string name="hosts_not_available">non disponibile</string>
   <string name="hosts_add_dialog_title">Aggiungi sorgente</string>
   <string name="hosts_edit_dialog_title">Modifica sorgente</string>
-  <string name="hosts_dialog_url">URL:</string>
+  <string name="hosts_dialog_url">URL: (una risorsa https:// o file://)</string>
   <string name="hosts_dialog_url_hint">L\'URL della fonte hosts</string>
   <!--Other-->
   <string name="app_subtitle">Blocca pubblicità</string>
@@ -209,7 +195,7 @@ Vuoi installare OI File Manager?</string>
   <string name="pref_header_preferences_summary">Preferenze generali per AdAway</string>
   <string name="pref_never_reboot">Nascondi finestra di dialogo di riavvio.</string>
   <string name="pref_never_reboot_summary">Nascondi la finestra di dialogo che chiede di riavviare Android dopo aver applicato le modifiche.</string>
-  <string name="pref_webserver_on_boot">Avvia webserver al boot</string>
+  <string name="pref_webserver_on_boot">Avvia il webserver all\'avvio del telefono</string>
   <string name="pref_webserver_on_boot_summary">Abilita il webserver in ascolto sull\'indirizzo locale all\'avvio del telefono</string>
   <string name="pref_webserver_enabled">Abilita webserver</string>
   <string name="pref_webserver_enabled_summary">Abilita il webserver in ascolto sull\'indirizzo locale per rispondere alle richieste bloccate</string>
@@ -223,14 +209,14 @@ Vuoi installare OI File Manager?</string>
     <item>Percorso personalizzato</item>
   </string-array>
   <string name="pref_update_check_summary">Controlla aggiornamenti all\'avvio di AdAway</string>
-  <string name="pref_sdcard_problem">Questa funzione non funziona correttamente se AdAway è installato sulla sdcard.</string>
+  <string name="pref_sdcard_problem">Questa caratteristica non funzionerà correttamente se AdAway è installato sulla scheda SD!</string>
   <string name="pref_background">Servizi in background</string>
   <string name="pref_update_check_daily">Controlla aggiornamenti giornalmente</string>
   <string name="pref_update_check_daily_summary">Cerca aggiornamenti giornalmente in background con notifiche</string>
   <string name="pref_automatic_update_daily">Aggiornamento automatico</string>
   <string name="pref_automatic_update_daily_summary">Aggiorna automaticamente in background se sono disponibili aggiornamenti.</string>
-  <string name="pref_update_only_on_wifi">Aggiorna solo via Wifi</string>
-  <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso a un network wifi</string>
+  <string name="pref_update_only_on_wifi">Aggiorna solo con connessioni non a consumo</string>
+  <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso ad una rete non a consumo.</string>
   <string name="pref_whitelist_rules">Consenti whitelisting</string>
   <string name="pref_whitelist_rules_summary">Permetti valori BIANCHI dalle fonti host.</string>
   <string name="pref_redirection_rules">Abilita inoltro</string>
@@ -246,10 +232,41 @@ Vuoi installare OI File Manager?</string>
   <string name="drawer_open">Apri il menù</string>
   <string name="drawer_close">Chiudi il menù</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Home</item>
+    <item>Fonti Hosts</item>
+    <item>Le tue liste</item>
+    <item>Apri file hosts</item>
+    <item>Log chiamateDNS</item>
+    <item>Scansione Adware</item>
+    <item>Impostazioni</item>
+    <item>Aiuto</item>
+  </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Supporta lo sviluppo \u2764</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Chiamata DNS</string>
   <string name="shortcut_your_lists">Le tue liste</string>
   <string name="shortcut_preferences">Preferenze</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Aggiornato per %1$s</string>
+  <string name="hosts_source_need_update">Aggiornamento necessario per %1$s</string>
+  <string name="hosts_source_last_update">Ultimo aggiornamento %1$s fa</string>
   <string name="hosts_source_unknown_status">Stato aggiornamento sconosciuto</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d minuto</item>
+    <item quantity="other">%d minuti</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d ora</item>
+    <item quantity="other">%d ore</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d giorno</item>
+    <item quantity="other">%d giorni</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d mese</item>
+    <item quantity="other">%d mesi</item>
+  </plurals>
 </resources>

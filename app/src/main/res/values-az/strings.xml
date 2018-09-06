@@ -34,7 +34,7 @@
   <string name="export_dialog">Xaric edilir..</string>
   <string name="export_success">Bütün girişlər yaddaş kartındakı \'adaway-çıxış\' faylına çıxarıldı.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Güncəlləmə axtarılır...</string>
   <string name="status_reverting">Geri alınır..</string>
   <string name="status_reverting_subtitle">Standart host faylı yaradılır</string>
@@ -66,23 +66,18 @@
   <string name="menu_hosts_sources">Hosts resursları</string>
   <string name="menu_help">Yardım</string>
   <!--Help-->
-  <string name="help_tab_about">Haqqında</string>
-  <string name="help_tab_donate">İanə ver</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problemlər</string>
-  <string name="help_tab_changelog">Dəyişikliklər</string>
-  <string name="help_about_version">Versiya:</string>
-  <string name="help_donation_paypal_item">AdAway ianə</string>
   <!--Adware-->
   <!--Hosts sources-->
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <!--Tcpdump-->
   <!--Preferences-->
   <string name="pref_header_preferences">Tənzimləmələr</string>
   <string name="pref_never_reboot">Yenidən başlatma dialoqunu gizlət</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Tənzimləmələr</string>
   <!--Hosts source status-->

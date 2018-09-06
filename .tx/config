@@ -33,20 +33,20 @@ type = HTML
 [adaway.f-droid_title-txt]
 file_filter = metadata/android/<lang>/title.txt
 minimum_perc = 0
-source_file = metadata/android/en-US/title.txt
+source_file = metadata/android/en/title.txt
 source_lang = en
 type = TXT
 
 [adaway.f-droid_short_description-txt]
 file_filter = metadata/android/<lang>/short_description.txt
 minimum_perc = 0
-source_file = metadata/android/en-US/short_description.txt
+source_file = metadata/android/en/short_description.txt
 source_lang = en
 type = TXT
 
 [adaway.f-droid_full_description-txt]
 file_filter = metadata/android/<lang>/full_description.txt
 minimum_perc = 0
-source_file = metadata/android/en-US/full_description.txt
+source_file = metadata/android/en/full_description.txt
 source_lang = en
 type = TXT

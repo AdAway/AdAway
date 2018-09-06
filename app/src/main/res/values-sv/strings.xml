@@ -62,7 +62,7 @@
   <string name="hosts_description">Värdfilen (HOSTS) är en systemfil som mappar om värdnamn till IP-adresser. Det är en vanlig textfil som AdAway kan hantera. Här är några få linjer:</string>
   <string name="hosts_content">Laddar värdfilens innehåll…</string>
   <string name="hosts_open_button">Öppna värdfilen</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Letar efter uppdateringar...</string>
   <string name="status_reverting">Återställer...</string>
   <string name="status_reverting_subtitle">Skapar standardvärdfil</string>
@@ -77,6 +77,8 @@
   <string name="status_enabled_subtitle">Nyaste värdfilerna aktiverade</string>
   <string name="status_disabled">Avaktiverad</string>
   <string name="status_disabled_subtitle">Avaktiverad</string>
+  <string name="notification_channel_update_name">Uppdateringar</string>
+  <string name="notification_channel_update_description">Aviseringar om nya värduppdateringar</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlink från ditt mål till /system/etc/hosts existerar ej eller är inkorrekt! AdAway kommer inte fungera om den inte pekar på rätt fil.\n\nVill du försöka skapa en symlink?</string>
   <string name="apply_symlink_missing_title">Symlink saknas</string>
@@ -138,22 +140,9 @@
   <string name="menu_import">Importera alla listor</string>
   <string name="menu_export">Exportera alla listor</string>
   <!--Help-->
-  <string name="help_tab_about">Om</string>
-  <string name="help_tab_donate">Donera</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Problem</string>
-  <string name="help_tab_changelog">Ändringslogg</string>
-  <string name="help_about_version">Version:</string>
-  <string name="help_donation_paypal_item">AdAway Donation</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">Annonsappar</string>
   <string name="adware_description">Här hittar du installerade annonsappar, stygga applikationer som inte kan blockeras med AdAway. Dessa appar använder till exempel Airpush-aviseringar som kan visa sig även om appen inte körs och den kan även ändra din ringsignal. Den enda tillgängliga lösningen är att avinstallera dessa appar genom att trycka i listan.</string>
@@ -165,7 +154,6 @@
   <string name="hosts_not_available">ej tillgänglig</string>
   <string name="hosts_add_dialog_title">Lägg till källa</string>
   <string name="hosts_edit_dialog_title">Redigera källa</string>
-  <string name="hosts_dialog_url">URL:</string>
   <string name="hosts_dialog_url_hint">Värdkällans webbadress</string>
   <!--Other-->
   <string name="app_subtitle">Annonsblockerare</string>
@@ -224,8 +212,6 @@
   <string name="pref_update_check_daily_summary">Sök efter uppdateringar dagligen i bakgrunden, med notifieringar</string>
   <string name="pref_automatic_update_daily">Automatiska uppdateringar</string>
   <string name="pref_automatic_update_daily_summary">Uppdatera automatiskt i bakgrunden om uppdateringar är tillgängliga.</string>
-  <string name="pref_update_only_on_wifi">Uppdatera endast via WiFi</string>
-  <string name="pref_update_only_on_wifi_summary">Starta endast bakgrundsuppdateringar om du är ansluten till ett WiFi-nätverk.</string>
   <string name="pref_whitelist_rules">Tillåt vitlistning</string>
   <string name="pref_whitelist_rules_summary">Tillåt vitlistningsposter från värdkällor.</string>
   <string name="pref_redirection_rules">Tillåt omdirigeringar</string>
@@ -252,6 +238,7 @@
     <item>Inställningar</item>
     <item>Hjälp</item>
   </string-array>
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS-förfrågningar</string>
   <string name="shortcut_your_lists">Dina listor</string>

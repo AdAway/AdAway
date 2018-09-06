@@ -35,7 +35,7 @@
   <string name="export_dialog">กำลังส่งออก…</string>
   <string name="export_success">ส่งออกข้อมูลทั้งหมดไปยัง \'adaway-export\' บนการ์ดความจำ</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">กำลังตรวจสอบอัพเดต…</string>
   <string name="status_reverting">กำลังคืนค่า…</string>
   <string name="status_reverting_subtitle">กำลังสร้างไฟล์โฮสต์มาตรฐาน</string>
@@ -115,28 +115,14 @@
   <string name="menu_import">นำเข้ารายการทั้งหมด</string>
   <string name="menu_export">ส่งออกรายการทั้งหมด</string>
   <!--Help-->
-  <string name="help_tab_about">เกี่ยวกับ</string>
-  <string name="help_tab_donate">บริจาค</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">ถามตอบ</string>
   <string name="help_tab_problems">ปัญหา</string>
-  <string name="help_tab_changelog">การเปลี่ยนแปลง</string>
-  <string name="help_about_version">เวอร์ชั่น:</string>
-  <string name="help_donation_paypal_item">บริจาค AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">เครื่อง:</string>
   <string name="hosts_last_modified_online">ออนไลน์:</string>
   <string name="hosts_not_available">ไม่สามารถใช้งานได้</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">บล็อคโฆษณา</string>
   <string name="no_text_editor_title">ไม่ได้ติดตั้งตัวแก้ไขข้อความ</string>
@@ -177,8 +163,6 @@
   <string name="pref_update_check_daily_summary">ตรวจสอบการอัพเดตในพื้นหลังและแสดงการแจ้งเตือน</string>
   <string name="pref_automatic_update_daily">อัพเดตอัตโนมัติ</string>
   <string name="pref_automatic_update_daily_summary">อัพเดตอัตโนมัติในพื้นหลังหากสามารถอัพเดตได้</string>
-  <string name="pref_update_only_on_wifi">อัพเดตด้วย Wi-Fi เท่านั้น</string>
-  <string name="pref_update_only_on_wifi_summary">อัพเดตพื้นหลังเมื่อเชื่อมต่อเครือข่าย Wi-Fi เท่านั้น</string>
   <string name="pref_whitelist_rules">อนุญาตบัญชีขาว</string>
   <string name="pref_whitelist_rules_summary">อนุญาตบัญชีขาวจากแหล่งที่มาโฮสต์</string>
   <string name="pref_redirection_rules_summary">อนุญาต Redirection จากแหล่งที่มาโฮสต์</string>
@@ -190,6 +174,7 @@
   <string name="pref_enable_systemless_summary">ป้งกันไม่ให้ AdAway แก้ไขไฟล์ในระบบ</string>
   <string name="pref_enable_systemless">เปิดใช้งานโหมดไม่เข้าไปแก้ไขไฟล์ของระบบ</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">การตั้งค่า</string>
   <!--Hosts source status-->

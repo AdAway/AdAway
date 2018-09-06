@@ -35,7 +35,7 @@
   <string name="export_dialog">Eksporterer...</string>
   <string name="export_success">Eksporterede alle poster til en fil kaldet \'adaway-export\' på dit SD-kort/integreret hukommelse.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">Tjekker for opdateringer...</string>
   <string name="status_reverting">Gendanner...</string>
   <string name="status_reverting_subtitle">Opretter en standard hosts-fil</string>
@@ -109,28 +109,14 @@
   <string name="menu_import">Importér alle lister</string>
   <string name="menu_export">Eksportér alle lister</string>
   <!--Help-->
-  <string name="help_tab_about">Om</string>
-  <string name="help_tab_donate">Doner</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">OSS</string>
   <string name="help_tab_problems">Problemer</string>
-  <string name="help_tab_changelog">Ændringslog</string>
-  <string name="help_about_version">Version:</string>
-  <string name="help_donation_paypal_item">AdAway Donation</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalt:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">Ikke tilgængelig</string>
-  <string name="hosts_dialog_url">URL:</string>
   <!--Other-->
   <string name="app_subtitle">Reklameblokering</string>
   <string name="no_text_editor_title">Intet tekstredigeringsprogram installeret</string>
@@ -171,8 +157,6 @@
   <string name="pref_update_check_daily_summary">Kontrollér for opdateringer i baggrunden med notifikationer</string>
   <string name="pref_automatic_update_daily">Automatisk opdatering</string>
   <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
-  <string name="pref_update_only_on_wifi">Opdatér kun via trådløst netværk</string>
-  <string name="pref_update_only_on_wifi_summary">Kør kun baggrundsopdateringer når der er forbindelse via et trådløs netværk</string>
   <string name="pref_whitelist_rules">Tillad hvidlister</string>
   <string name="pref_whitelist_rules_summary">Tillad hvidlist indhold fra Hosts kilden.</string>
   <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
@@ -184,6 +168,7 @@
   <string name="pref_enable_systemless_summary">Forhindre AdAway i at ændre systempartitionen</string>
   <string name="pref_enable_systemless">Aktiver systemløs tilstand</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Indstillinger</string>
   <!--Hosts source status-->

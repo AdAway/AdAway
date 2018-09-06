@@ -10,18 +10,18 @@
   <string name="button_revert">広告ブロックを無効化</string>
   <string name="button_add">追加</string>
   <string name="button_cancel">キャンセル</string>
-  <string name="button_revert_text">システムのhostsファイルをリストアします。</string>
+  <string name="button_revert_text">システムのhostsファイルをリストアします</string>
   <string name="button_save">保存</string>
   <string name="button_webserver_toggle_checked">ウェブサーバーは動作中です</string>
   <string name="button_webserver_toggle_unchecked">ウェブサーバーは動作していません</string>
-  <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します。</string>
+  <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します</string>
   <string name="button_help">ヘルプ</string>
   <!--Home-->
   <string name="header_help">ようこそ！</string>
   <string name="text_help">AdAwayは、広告をブロックするためのフリーでオープンソースのソフトウェアです。広告Hostsソースをダウンロードし、ブロックするようにあなたのデバイスを設定します。\ nもっと知りたいですか？ 以下のヘルプをチェックしてください！</string>
   <string name="button_show_help">詳しいヘルプを表示</string>
   <string name="icon_update_status">最新状況</string>
-  <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします。</string>
+  <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします</string>
   <string name="button_check_update_hosts">更新を確認</string>
   <string name="button_update_hosts">hostsを更新</string>
   <string name="button_enable_hosts">広告ブロックを有効にする</string>
@@ -55,14 +55,14 @@
   <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
   <string name="import_dialog">インポート中...</string>
   <string name="export_dialog">エクスポート中...</string>
-  <string name="export_success">エクスポートしたファイルはSDカードに\'adaway-export\'として保存されました。</string>
-  <string name="export_failed">SDカードへのエクスポートに失敗しました。</string>
+  <string name="export_success">エクスポートしたファイルはSDカードに\'adaway-export\'として保存されました</string>
+  <string name="export_failed">SDカードへのエクスポートに失敗しました</string>
   <!--Hosts content-->
   <string name="hosts_header">hostsファイル</string>
   <string name="hosts_description">hostsファイルはホスト名をIPアドレスにマップするシステムファイルです。 AdAwayによって処理されるプレーンテキストファイルです。 最初の行はいくつかあります：</string>
   <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
   <string name="hosts_open_button">hostsファイルを開く</string>
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">更新を確認中...</string>
   <string name="status_reverting">元に戻しています...</string>
   <string name="status_reverting_subtitle">標準hostsファイルを作成中</string>
@@ -72,33 +72,35 @@
   <string name="status_no_connection">ネット接続なし</string>
   <string name="status_no_connection_subtitle">ネットに接続されていません</string>
   <string name="status_download_fail">ソースが利用できません</string>
-  <string name="status_download_fail_subtitle_new">どのhostsソースにも接続できません!</string>
+  <string name="status_download_fail_subtitle_new">どのhostsソースにも接続できません！</string>
   <string name="status_enabled">有効です</string>
   <string name="status_enabled_subtitle">hostsファイルが有効化されました</string>
   <string name="status_disabled">無効です</string>
   <string name="status_disabled_subtitle">無効になっています</string>
+  <string name="notification_channel_update_name">アップデート</string>
+  <string name="notification_channel_update_description">新しいホストの更新通知</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">/system/etc/hostsへのsymlinkは存在しないか不正です!AdAwayは正しいファイルが指定されていないと動作しません。\n\nsymlinkを作成しますか?</string>
+  <string name="apply_symlink_missing">/system/etc/hostsへのsymlinkは存在しないか不正です!AdAwayは正しいファイルが指定されていないと動作しません。\n\nsymlinkを作成しますか？</string>
   <string name="apply_symlink_missing_title">symlinkが見つかりません</string>
-  <string name="apply_not_enough_space">領域に十分な容量がありません!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください。</string>
+  <string name="apply_not_enough_space">領域に十分な容量がありません!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
   <string name="apply_not_enough_space_title">空き容量不足</string>
-  <string name="apply_private_file_fail">ダウンロードしたファイルが読み込めません。</string>
+  <string name="apply_private_file_fail">ダウンロードしたファイルが読み込めません</string>
   <string name="apply_private_file_fail_title">プライベートファイル失敗</string>
-  <string name="apply_remount_fail">領域のR/W再マウントに失敗しました!</string>
+  <string name="apply_remount_fail">領域のR/W再マウントに失敗しました！</string>
   <string name="apply_remount_fail_title">再マウント失敗</string>
-  <string name="apply_copy_fail">hostsファイルのコピー失敗!</string>
+  <string name="apply_copy_fail">hostsファイルのコピー失敗！</string>
   <string name="apply_copy_fail_title">コピー失敗</string>
   <string name="apply_success_subtitle">適用したhostsのソース:</string>
   <string name="apply_success_title">適用しました</string>
   <string name="apply_success_dialog">適用しました。\n変更の適用には再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
-  <string name="apply_symlink_successful">symlinkを作成しました。\n変更を適用するには再起動が必要です。\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
+  <string name="apply_symlink_successful">symlinkを作成しました。\n変更を適用するには再起動が必要です。\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください！)</string>
   <string name="apply_symlink_successful_title">symlink作成成功</string>
-  <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください。</string>
+  <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください</string>
   <string name="apply_symlink_fail_title">symlink作成失敗</string>
-  <string name="apply_help">詳しくはヘルプをご覧ください。</string>
-  <string name="apply_apn_proxy">APNプロキシが設定されています!\nAdAwayは3G/4Gのようなモバイルデータ通信では正常に動作しない場合があります。プロキシを無効にするには、APN (Android 4.x: 無線とネットワーク -&gt; その他の設定 -&gt; モバイルネットワーク -&gt; アクセスポイント名)で「プロキシ」の項目を空白にしてください。</string>
-  <string name="apply_apn_proxy_title">APNプロキシがセットされています!</string>
-  <string name="no_connection">ネット接続がありません。</string>
+  <string name="apply_help">詳しくはヘルプをご覧ください</string>
+  <string name="apply_apn_proxy">APNプロキシが設定されています!\nAdAwayは3G/4Gのようなモバイルデータ通信では正常に動作しない場合があります。プロキシを無効にするには、APN (Android 4.x: 無線とネットワーク -&gt; その他の設定 -&gt; モバイルネットワーク -&gt; アクセスポイント名)で「プロキシ」の項目を空白にしてください</string>
+  <string name="apply_apn_proxy_title">APNプロキシがセットされています！</string>
+  <string name="no_connection">ネット接続がありません</string>
   <string name="no_connection_title">接続なし</string>
   <string name="download_dialog">ダウンロード中...</string>
   <string name="apply_dialog">適用中...</string>
@@ -106,29 +108,29 @@
   <string name="apply_dialog_hostnames">hostsファイルの解析･統合中...</string>
   <string name="apply_dialog_hosts">hostsファイルを構成中...</string>
   <string name="apply_dialog_apply">hostsファイルを適用中</string>
-  <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください。</string>
+  <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
   <string name="apply_fail_title">適用に失敗</string>
-  <string name="revert_successful">デフォルトのhostsファイルに戻しました。\n変更の適用には再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
+  <string name="revert_successful">デフォルトのhostsファイルに戻しました。\n変更の適用には再起動が必要です。\n\n再起動しますか？\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください！)</string>
   <string name="revert_successful_title">元に戻しました</string>
-  <string name="revert_problem">不明な理由により元に戻せませんでした。</string>
-  <string name="revert_problem_title">元に戻せません!</string>
-  <string name="download_fail_dialog">どのhostsソースにも接続できません!インターネットに接続されていますか?</string>
+  <string name="revert_problem">不明な理由により元に戻せませんでした</string>
+  <string name="revert_problem_title">元に戻せません！</string>
+  <string name="download_fail_dialog">どのhostsソースにも接続できません!インターネットに接続されていますか？</string>
   <string name="download_fail_title">ダウンロード失敗</string>
-  <string name="no_private_file">プライベートファイルが作成できません。</string>
+  <string name="no_private_file">プライベートファイルが作成できません</string>
   <string name="no_private_file_title">プライベートファイルの作成失敗</string>
   <string name="enable_systemless_successful">システムレスモードを有効にしました。\n変更を有効にするには、Android を再起動する必要があります。\n\n再起動しますか？\n(データ損失を防ぐために、現在のところアプリケーションが sdcard を使用していないことを確認してください！)</string>
-  <string name="enable_systemless_successful_title">有効化は成功です。</string>
+  <string name="enable_systemless_successful_title">有効化は成功です</string>
   <string name="disable_systemless_successful">システムレスモードを無効にしました。\n変更を有効にするには、Androidを再起動する必要があります。\n\n再起動しますか？\n(データ損失を防ぐために、現在のところアプリケーションがsdcardを使用していないことを確認してください！)</string>
-  <string name="disable_systemless_successful_title">無効化は成功です。</string>
+  <string name="disable_systemless_successful_title">無効化は成功です</string>
   <!--Other Dialogs-->
   <string name="no_root_description">suバイナリが見つからないか、AdAwayのroot権限を許可していません。\n\n
 これはデバイスがルートされていない場合に発生します。\n
-Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート化する方法についての情報が見つかります。</string>
+Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート化する方法についての情報が見つかります</string>
   <string name="no_root_title">root化されたAndroidが必要です</string>
   <string name="hosts_add_dialog">hostsファイルのURLを入力:</string>
-  <string name="no_hostname">正しいホスト名ではありません!</string>
+  <string name="no_hostname">正しいホスト名ではありません！</string>
   <string name="no_hostname_title">ホスト名が正しくありません</string>
-  <string name="no_ip">不正なIPです!</string>
+  <string name="no_ip">不正なIPです！</string>
   <string name="no_ip_title">IPが正しくありません</string>
   <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
   <string name="loading">読み込み中...</string>
@@ -140,44 +142,30 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="menu_import">リストをインポート</string>
   <string name="menu_export">リストをエクスポート</string>
   <!--Help-->
-  <string name="help_tab_about">情報</string>
-  <string name="help_tab_donate">寄付</string>
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">問題</string>
-  <string name="help_tab_changelog">更新履歴</string>
-  <string name="help_about_version">バージョン:</string>
-  <string name="help_donation_paypal_item">AdAway 寄付</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 ユーロ</item>
-    <item>2 ユーロ</item>
-    <item>3 ユーロ</item>
-    <item>5 ユーロ</item>
-    <item>8 ユーロ</item>
-    <item>13 ユーロ</item>
-  </string-array>
   <!--Adware-->
   <string name="adware_header">アドウェア</string>
   <string name="adware_description">ここにはインストールされたアドウェア、AdAwayによってブロックできないアプリがあります。 これらのアプリは例えば、アプリが実行されていないときにポップアップする、または着信音を変更するなどのAirpush通知を使用します。 利用可能な唯一の対策はリスト項目をクリックしてそれらのアプリをアンインストールすることです</string>
   <string name="adware_scanning">スキャン中…</string>
   <string name="adware_empty">アドウェアは検出されませんでした！</string>
   <!--Hosts sources-->
-  <string name="hosts_last_modified_local">ﾛｰｶﾙ:</string>
-  <string name="hosts_last_modified_online">ｵﾝﾗｲﾝ:</string>
+  <string name="hosts_last_modified_local">ローカル：</string>
+  <string name="hosts_last_modified_online">オンライン：</string>
   <string name="hosts_not_available">日時不明</string>
   <string name="hosts_add_dialog_title">ソースを追加</string>
   <string name="hosts_edit_dialog_title">ソースを編集</string>
-  <string name="hosts_dialog_url">URL:</string>
   <string name="hosts_dialog_url_hint">ホストのソースURL</string>
   <!--Other-->
-  <string name="app_subtitle">広告排除!</string>
+  <string name="app_subtitle">広告排除！</string>
   <string name="no_text_editor_title">テキストエディタがありません</string>
-  <string name="no_text_editor">hostsファイルを開くためのテキストエディタが見つかりません。Jotaなどテキストエディタをインストールしてください。\n\nJotaをインストールしますか?</string>
+  <string name="no_text_editor">hostsファイルを開くためのテキストエディタが見つかりません。Jotaなどテキストエディタをインストールしてください。\n\nJotaをインストールしますか？</string>
   <string name="no_file_manager_title">ファイルマネージャがインストールされていません</string>
-  <string name="no_file_manager">ファイルマネージャが見つかりません。OI File ManagerやTetraなどをインストールしてください。\n\nOI File Managerをインストールしますか?</string>
+  <string name="no_file_manager">ファイルマネージャが見つかりません。OI File ManagerやTetraなどをインストールしてください。\n\nOI File Managerをインストールしますか？</string>
   <!--Tcpdump-->
   <string name="tcpdump_header">TCPダンプ</string>
-  <string name="tcpdump_description">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。広告のサーバーだと思われるものはブラックリストに追加出来ます。</string>
+  <string name="tcpdump_description">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。広告のサーバーだと思われるものはブラックリストに追加出来ます</string>
   <string name="tcpdump_disable_monitoring">監視を無効にする</string>
   <string name="tcpdump_enable_monitoring">監視を有効にする</string>
   <string name="tcpdump_show_results">結果を表示</string>
@@ -201,18 +189,18 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="pref_update_check">更新を確認</string>
   <string name="pref_apply_method">ターゲットhostsファイル</string>
   <string name="pref_apply_method_summary">この設定を変える前にこの機能についてヘルプを読んでください。</string>
-  <string name="pref_redirection_ip_summary">全てのブロックされたホスト名はこのIPアドレスにリダイレクトされます。</string>
+  <string name="pref_redirection_ip_summary">全てのブロックされたホスト名はこのIPアドレスにリダイレクトされます</string>
   <string name="pref_header_preferences">設定</string>
   <string name="pref_header_preferences_summary">AdAwayの基本的な設定</string>
-  <string name="pref_never_reboot">再起動ﾀﾞｲｱﾛｸﾞを非表示</string>
+  <string name="pref_never_reboot">再起動ダイアログを非表示</string>
   <string name="pref_never_reboot_summary">適用後に出る再起動を促すダイアログを非表示にします。</string>
-  <string name="pref_webserver_on_boot">ｳｪﾌﾞｻｰﾊﾞｰを起動時に開始</string>
+  <string name="pref_webserver_on_boot">ウェブサーバーを起動時に開始</string>
   <string name="pref_webserver_on_boot_summary">ローカルIPアドレス待ち受けのため起動時にウェブサーバーを開始します。</string>
-  <string name="pref_webserver_enabled">ｳｪﾌﾞｻｰﾊﾞｰを有効化</string>
+  <string name="pref_webserver_enabled">ウェブサーバーを有効化</string>
   <string name="pref_webserver_enabled_summary">ブロックしたホスト名の問い合わせに返答するためのウェブサーバーを有効にします。</string>
-  <string name="pref_webserver">ﾛｰｶﾙｳｪﾌﾞｻｰﾊﾞｰ</string>
+  <string name="pref_webserver">ローカルウェブサーバー</string>
   <string name="pref_custom_target">カスタムターゲット</string>
-  <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます。</string>
+  <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
     <item>/data/hosts</item>
@@ -220,21 +208,21 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
     <item>カスタムターゲット</item>
   </string-array>
   <string name="pref_update_check_summary">AdAway起動時に更新を確認</string>
-  <string name="pref_sdcard_problem">AdAwayがSDカードにインストールされていると機能しません!</string>
+  <string name="pref_sdcard_problem">AdAwayがSDカードにインストールされていると機能しません！</string>
   <string name="pref_background">バックグラウンドサービス</string>
   <string name="pref_update_check_daily">毎日更新を確認する</string>
-  <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します。</string>
+  <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します</string>
   <string name="pref_automatic_update_daily">自動更新</string>
-  <string name="pref_automatic_update_daily_summary">バックグラウンドで自動更新します。</string>
-  <string name="pref_update_only_on_wifi">Wi-Fiでのみ更新</string>
-  <string name="pref_update_only_on_wifi_summary">Wi-Fi接続されたときのみバックグラウンド更新をします。</string>
+  <string name="pref_automatic_update_daily_summary">バックグラウンドで自動更新します</string>
+  <string name="pref_update_only_on_wifi">モバイルネットワークしていないときにのみ更新</string>
+  <string name="pref_update_only_on_wifi_summary">バックグラウンド更新は、モバイルネットワークに接続されている場合にのみ実行します</string>
   <string name="pref_whitelist_rules">ホワイトリストの許可</string>
-  <string name="pref_whitelist_rules_summary">hostsソースからのホワイトリストエントリを許可します。</string>
+  <string name="pref_whitelist_rules_summary">hostsソースからのホワイトリストエントリを許可します</string>
   <string name="pref_redirection_rules">リダイレクトを許可</string>
-  <string name="pref_redirection_rules_summary">セキュリティリスクあり! hostsソースからのリダイレクトエントリを許可します。</string>
+  <string name="pref_redirection_rules_summary">セキュリティリスクあり！hostsソースからのリダイレクトエントリを許可します</string>
   <string name="pref_debug">デバッグ</string>
   <string name="pref_enable_debug">デバッグ記録をする</string>
-  <string name="pref_enable_debug_summary">変更を適用するにはAdAwayの再起動が必要です。</string>
+  <string name="pref_enable_debug_summary">変更を適用するにはAdAwayの再起動が必要です</string>
   <string name="pref_enable_ipv6">IPv6の有効化</string>
   <string name="pref_enable_ipv6_summary">hostファイルのエントリがすべて::1 (IPv6 localhost) エントリを持つようになります。</string>
   <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
@@ -253,10 +241,26 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
     <item>設定</item>
     <item>ヘルプ</item>
   </string-array>
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNSリクエスト</string>
   <string name="shortcut_your_lists">あなたのリスト</string>
   <string name="shortcut_preferences">設定</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">最新の %1$s</string>
+  <string name="hosts_source_need_update">%1$sの更新が必要</string>
+  <string name="hosts_source_last_update">前回の更新 %1$s</string>
   <string name="hosts_source_unknown_status">不明な更新ステータス</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="other">%d 分</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="other">%d 時</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="other">%d 日</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="other">%d 月</item>
+  </plurals>
 </resources>

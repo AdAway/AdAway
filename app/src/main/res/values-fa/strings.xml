@@ -35,7 +35,7 @@
   <string name="export_dialog">بارگذاری...</string>
   <string name="export_success">بارگذاری تمامی ورودی ها در فایلی به نام \'adaway-export\'  در sdcard دستگاه شما.</string>
   <!--Hosts content-->
-  <!--Status Notifications-->
+  <!--Status Notification-->
   <string name="status_checking">چک کردن برای به روز رسانی...</string>
   <string name="status_reverting">برگشتن...</string>
   <string name="status_reverting_subtitle">ایجاد فایل hosts استاندارد</string>
@@ -110,28 +110,14 @@
   <string name="menu_import">بارگیری همه لیستها</string>
   <string name="menu_export">بارگذاری همه لیست ها</string>
   <!--Help-->
-  <string name="help_tab_about">درباره ما</string>
-  <string name="help_tab_donate">حمایت مالی</string>
   <string name="help_tab_s_on_s_off">S-روشن/S-خاموش</string>
   <string name="help_tab_faq">پرسش و پاسخ</string>
   <string name="help_tab_problems">مشکلات</string>
-  <string name="help_tab_changelog">تغییرات</string>
-  <string name="help_about_version">نسخه:</string>
-  <string name="help_donation_paypal_item">حمایت مالی از AdAway</string>
-  <string-array name="help_donation_google_catalog_values">
-    <item>1 یورو</item>
-    <item>2 یورو</item>
-    <item>3 یورو</item>
-    <item>5 یورو</item>
-    <item>8 یورو</item>
-    <item>13 یورو</item>
-  </string-array>
   <!--Adware-->
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">لوکال:</string>
   <string name="hosts_last_modified_online">آنلاین:</string>
   <string name="hosts_not_available">موجود نیست:</string>
-  <string name="hosts_dialog_url">تارنما:</string>
   <!--Other-->
   <string name="app_subtitle">مسدودگر تبلیغات</string>
   <string name="no_text_editor_title">هیچ ویرایشگر متنی نصب نیست</string>
@@ -172,8 +158,6 @@
   <string name="pref_update_check_daily_summary">بررسی روزانه بروز رسانی ها در پس زمینه به همراه هشدار</string>
   <string name="pref_automatic_update_daily">به روز رسانی خودکار</string>
   <string name="pref_automatic_update_daily_summary">درصورت موجود بودن به روز رسانی به طور خودکار در پس زمینه انجام شود.</string>
-  <string name="pref_update_only_on_wifi">بروز رسانی فقط توسط وای فای</string>
-  <string name="pref_update_only_on_wifi_summary">فقط وقتی به شبکه وای فای متصل شدید اجازه به روز رسانی را در پس زمینه بده</string>
   <string name="pref_whitelist_rules">لیست سفید مجاز است</string>
   <string name="pref_whitelist_rules_summary">ورودی های لیست سفید از منابع Hosts مجاز میباشند.</string>
   <string name="pref_redirection_rules_summary">تهدید امنیتی! به منابع Hosts برای تغییر مسیر داده ها اجازه دهید.</string>
@@ -185,6 +169,7 @@
   <string name="pref_enable_systemless_summary">جلوگیری AdAway از تغییر پارتیشن سیستمی</string>
   <string name="pref_enable_systemless">فعال کردن حالت systemless</string>
   <!--Drawer menu items-->
+  <!--Drawer menu labels-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">تنظیمات</string>
   <!--Hosts source status-->
