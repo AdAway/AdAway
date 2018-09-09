@@ -80,10 +80,12 @@
     <string name="status_no_connection_subtitle">No Internet connection available</string>
     <string name="status_download_fail">Unavailable sources</string>
     <string name="status_download_fail_subtitle_new">No hosts sources are reachable!</string>
+    <string name="status_failure">Something goes wrong</string>
+    <string name="status_failure_subtitle">Check the logcat for more details</string>
     <string name="status_enabled">Enabled</string>
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
-    <string name="status_disabled_subtitle">Disabled</string>
+    <string name="status_disabled_subtitle">Default hosts file installed</string>
     <string name="notification_channel_update_name">Updates</string>
     <string name="notification_channel_update_description">New hosts update notifications</string>
 
@@ -98,7 +100,7 @@
     <string name="apply_remount_fail_title">Remount failed</string>
     <string name="apply_copy_fail">Copying of hosts file failed!</string>
     <string name="apply_copy_fail_title">Copy failed</string>
-    <string name="apply_success_subtitle">Applied hosts sources:</string>
+    <string name="apply_success_subtitle">Applied hosts sources</string>
     <string name="apply_success_title">Applying successful</string>
     <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
     <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>

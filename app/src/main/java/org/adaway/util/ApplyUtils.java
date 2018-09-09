@@ -254,11 +254,7 @@ public class ApplyUtils {
 
         Log.d(Constants.TAG, "symlink: " + symlink + "; target: " + target);
 
-        if (symlink != null && symlink.equals(target)) {
-            return true;
-        } else {
-            return false;
-        }
+        return symlink != null && symlink.equals(target);
     }
 
     /**

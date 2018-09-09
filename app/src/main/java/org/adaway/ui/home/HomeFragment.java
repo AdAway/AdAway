@@ -1,37 +1,14 @@
-/*
- * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
- *
- * This file is part of AdAway.
- *
- * AdAway is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * AdAway is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
-
 package org.adaway.ui.home;
 
-import android.content.BroadcastReceiver;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,47 +18,51 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.adaway.R;
-import org.adaway.helper.ApplyHelper;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.helper.RevertHelper;
-import org.adaway.service.hosts.UpdateChecker;
 import org.adaway.ui.help.HelpActivity;
-import org.adaway.util.Constants;
-import org.adaway.util.StatusCodes;
+import org.adaway.util.hostsinstall.HostsInstallError;
 import org.adaway.util.WebServerUtils;
+import org.adaway.util.hostsinstall.HostsInstallStatus;
 
+import static org.adaway.util.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
+
+/**
+ * This class is a {@link Fragment} to show home cards:
+ * <ul>
+ * <li>welcome card</li>
+ * <li>hosts install/update/revert</li>
+ * <li>web sever</li>
+ * </ul>
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class HomeFragment extends Fragment {
-    // Intent extras to give result of applying process to base activity
-    public static final String EXTRA_APPLYING_RESULT = "org.adaway.APPLYING_RESULT";
-    public static final String EXTRA_NUMBER_OF_SUCCESSFUL_DOWNLOADS = "org.adaway.NUMBER_OF_SUCCESSFUL_DOWNLOADS";
-    public static final String EXTRA_UPDATE_STATUS_TITLE = "org.adaway.UPDATE_STATUS.TITLE";
-    public static final String EXTRA_UPDATE_STATUS_TEXT = "org.adaway.UPDATE_STATUS.TEXT";
-    public static final String EXTRA_UPDATE_STATUS_ICON = "org.adaway.UPDATE_STATUS.ICON";
-    // Intent definitions for LocalBroadcastManager to update status from other threads
-    static final String ACTION_UPDATE_STATUS = "org.adaway.UPDATE_STATUS";
-
-    private FragmentActivity mActivity;
-    private BroadcastReceiver mBroadcastReceiver;
-
+    /*
+     * State save.
+     */
+    /**
+     * The state of the web server ({@code true} if running, {@code false} otherwise).
+     */
+    private static final String STATE_WEB_SERVER_RUNNING = "webServerRunning";
+    /**
+     * The state of the current error code ({@code null} if no error).
+     */
+    private static final String STATE_CURRENT_ERROR = "currentError";
     /*
      * Current statuses.
      */
     /**
-     * The status title text.
+     * The fragment view model ({@code null} until view is created).
      */
-    private String mCurrentStatusTitle;
+    private HostsInstallViewModel mViewModel;
     /**
-     * The status text.
+     * The current hosts file installation status ({@code null} if not initialized).
      */
-    private String mCurrentStatusText;
+    private HostsInstallStatus mCurrentStatus;
     /**
-     * The status icon code.
+     * The current error code ({@code null} if no previous error).
      */
-    private int mCurrentStatusIconStatus;
-    /**
-     * The status of the hosts files buttons.
-     */
-    private HostsStatus mHostsButtonStatus;
+    private HostsInstallError mCurrentError;
     /**
      * The web server running status (<code>true</code> if running, <code>false</code> otherwise).
      */
@@ -129,148 +110,10 @@ public class HomeFragment extends Fragment {
      */
     private Button mRunningWebServerButton;
 
-    /**
-     * Static helper method to send broadcasts to the MainActivity and update status in frontend
-     *
-     * @param context    The application context.
-     * @param title      The status title.
-     * @param text       The status text.
-     * @param iconStatus The status icon ({@link StatusCodes#UPDATE_AVAILABLE},
-     *                   {@link StatusCodes#ENABLED}, {@link StatusCodes#DISABLED},
-     *                   {@link StatusCodes#DOWNLOAD_FAIL} or {@link StatusCodes#CHECKING}.
-     */
-    public static void setStatusBroadcast(Context context, String title, String text, int iconStatus) {
-        // Get local broadcast manager
-        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
-        // Create intent to update status
-        Intent intent = new Intent(HomeFragment.ACTION_UPDATE_STATUS);
-        intent.putExtra(HomeFragment.EXTRA_UPDATE_STATUS_ICON, iconStatus);
-        intent.putExtra(HomeFragment.EXTRA_UPDATE_STATUS_TITLE, title);
-        intent.putExtra(HomeFragment.EXTRA_UPDATE_STATUS_TEXT, text);
-        // Send intent using local broadcast
-        localBroadcastManager.sendBroadcast(intent);
-    }
-
-    /**
-     * Wrapper to set status to enabled.
-     *
-     * @param context The application context.
-     */
-    public static void updateStatusEnabled(Context context) {
-        HomeFragment.setStatusBroadcast(
-                context,
-                context.getString(R.string.status_enabled),
-                context.getString(R.string.status_enabled_subtitle),
-                StatusCodes.ENABLED
-        );
-    }
-
-    /**
-     * Wrapper to set status to disabled.
-     *
-     * @param context The application context.
-     */
-    public static void updateStatusDisabled(Context context) {
-        HomeFragment.setStatusBroadcast(
-                context,
-                context.getString(R.string.status_disabled),
-                context.getString(R.string.status_disabled_subtitle),
-                StatusCodes.DISABLED
-        );
-    }
-
-    /**
-     * Set status in Fragment
-     *
-     * @param title      The status title.
-     * @param text       The status text.
-     * @param iconStatus The status icon ({@link StatusCodes#UPDATE_AVAILABLE},
-     *                   {@link StatusCodes#ENABLED}, {@link StatusCodes#DISABLED},
-     *                   {@link StatusCodes#DOWNLOAD_FAIL} or {@link StatusCodes#CHECKING}.
-     */
-    public void setStatus(String title, String text, int iconStatus) {
-        // Update status title
-        mStatusTitleTextView.setText(title);
-        // Update status text
-        mStatusTextView.setText(text);
-        // Update status icon and progress bar
-        switch (iconStatus) {
-            case StatusCodes.UPDATE_AVAILABLE:
-                mStatusProgressBar.setVisibility(View.GONE);
-                mStatusIconImageView.setVisibility(View.VISIBLE);
-                mStatusIconImageView.setImageResource(R.drawable.status_update);
-                break;
-            case StatusCodes.ENABLED:
-                mStatusProgressBar.setVisibility(View.GONE);
-                mStatusIconImageView.setVisibility(View.VISIBLE);
-                mStatusIconImageView.setImageResource(R.drawable.status_enabled);
-                break;
-            case StatusCodes.DISABLED:
-                mStatusProgressBar.setVisibility(View.GONE);
-                mStatusIconImageView.setVisibility(View.VISIBLE);
-                mStatusIconImageView.setImageResource(R.drawable.status_disabled);
-                break;
-            case StatusCodes.DOWNLOAD_FAIL:
-                mStatusProgressBar.setVisibility(View.GONE);
-                mStatusIconImageView.setImageResource(R.drawable.status_fail);
-                mStatusIconImageView.setVisibility(View.VISIBLE);
-                break;
-            case StatusCodes.CHECKING:
-                mStatusProgressBar.setVisibility(View.VISIBLE);
-                mStatusIconImageView.setVisibility(View.GONE);
-                break;
-            default:
-                break;
-        }
-        // Save statuses for configuration change
-        mCurrentStatusTitle = title;
-        mCurrentStatusText = text;
-        mCurrentStatusIconStatus = iconStatus;
-        // Update update hosts button label
-        switch (iconStatus) {
-            case StatusCodes.SUCCESS:
-            case StatusCodes.ENABLED:
-                setHostsButtonStatus(HostsStatus.ENABLED);
-                break;
-            case StatusCodes.UPDATE_AVAILABLE:
-                setHostsButtonStatus(HostsStatus.UPDATE_AVAILABLE);
-                break;
-            case StatusCodes.DISABLED:
-            case StatusCodes.REVERT_SUCCESS:
-                setHostsButtonStatus(HostsStatus.DISABLED);
-                break;
-            default:
-                break;
-        }
-        // Update button enable state
-        boolean enabledButton = iconStatus != StatusCodes.CHECKING;
-        mUpdateHostsButton.setEnabled(enabledButton);
-        mRevertHostsButton.setEnabled(enabledButton);
-    }
-
-    /**
-     * Save UI state changes to the savedInstanceState. This bundle will be passed to onCreate if
-     * the process is killed and restarted like on orientation change.
-     */
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        // Append current statuses
-        outState.putString("statusTitle", mCurrentStatusTitle);
-        outState.putString("statusText", mCurrentStatusText);
-        outState.putInt("statusIconStatus", mCurrentStatusIconStatus);
-        outState.putSerializable("hostsButtonStatus", mHostsButtonStatus);
-        outState.putBoolean("webServerRunning", mWebServerRunning);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mActivity = this.getActivity();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Get fragment context
+        Context context = this.getContext();
         // Inflate layout
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         /*
@@ -292,39 +135,101 @@ public class HomeFragment extends Fragment {
         mWebServerStatusImageView = view.findViewById(R.id.home_webserver_icon);
         mRunningWebServerButton = view.findViewById(R.id.home_webserver_enable);
         /*
-         * Register local broadcast receiver.
+         * Initialize and bind to view model.
          */
-        // Get fragment context
-        Context context = this.getContext();
-        // Check if broadcast is already initialized
-        if (mBroadcastReceiver == null && context != null) {
-            // We use this to send broadcasts within our local process.
-            LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
-            // We are going to watch for broadcasts with status updates
-            IntentFilter filter = new IntentFilter();
-            filter.addAction(HomeFragment.ACTION_UPDATE_STATUS);
-            mBroadcastReceiver = new BroadcastReceiver() {
-                @Override
-                public void onReceive(Context context, Intent intent) {
-                    Bundle extras = intent.getExtras();
-                    String action = intent.getAction();
-                    if (action == null || extras == null) {
-                        return;
+        // Get the model scope
+        FragmentActivity activity = this.getActivity();
+        if (activity != null) {
+            // Get the model
+            mViewModel = ViewModelProviders.of(activity).get(HostsInstallViewModel.class);
+            // Bind model to views
+            mViewModel.getStatus().observe(this, status -> {
+                if (status == null) {
+                    return;
+                }
+                switch (status) {
+                    case INSTALLED:
+                        mStatusProgressBar.setVisibility(View.GONE);
+                        mStatusIconImageView.setVisibility(View.VISIBLE);
+                        mStatusIconImageView.setImageResource(R.drawable.status_enabled);
+                        mUpdateHostsButton.setText(R.string.button_check_update_hosts);
+                        mRevertHostsButton.setVisibility(View.VISIBLE);
+                        break;
+                    case OUTDATED:
+                        mStatusProgressBar.setVisibility(View.GONE);
+                        mStatusIconImageView.setVisibility(View.VISIBLE);
+                        mStatusIconImageView.setImageResource(R.drawable.status_update);
+                        mUpdateHostsButton.setText(R.string.button_update_hosts);
+                        mRevertHostsButton.setVisibility(View.VISIBLE);
+                        break;
+                    case ORIGINAL:
+                        mStatusProgressBar.setVisibility(View.GONE);
+                        mStatusIconImageView.setVisibility(View.VISIBLE);
+                        mStatusIconImageView.setImageResource(R.drawable.status_disabled);
+                        mUpdateHostsButton.setText(R.string.button_enable_hosts);
+                        mRevertHostsButton.setVisibility(View.GONE);
+                        break;
+                    case WORK_IN_PROGRESS:
+                        mStatusProgressBar.setVisibility(View.VISIBLE);
+                        mStatusIconImageView.setVisibility(View.GONE);
+                }
+                // Update button enable state
+                boolean enabledButton = status != WORK_IN_PROGRESS;
+                mUpdateHostsButton.setEnabled(enabledButton);
+                mRevertHostsButton.setEnabled(enabledButton);
+                // Check status change
+                if (mCurrentStatus != null && mCurrentStatus != status) {
+                    // Show reboot dialog
+                    HostsInstallDialog.showRebootDialog(context, status);
+                }
+                // Save any final status
+                if (status != WORK_IN_PROGRESS) {
+                    mCurrentStatus = status;
+                }
+            });
+            mViewModel.getState().observe(this, state -> {
+                if (state != null) {
+                    mStatusTitleTextView.setText(state);
+                }
+            });
+            mViewModel.getDetails().observe(this, details -> {
+                if (details != null) {
+                    mStatusTextView.setText(details);
+                }
+            });
+            mViewModel.getError().observe(this, error -> {
+                if (error != null) {
+                    mStatusProgressBar.setVisibility(View.GONE);
+                    mStatusIconImageView.setVisibility(View.VISIBLE);
+                    mStatusIconImageView.setImageResource(R.drawable.status_fail);
+                    int state;
+                    int statusText;
+                    switch (error) {
+                        case NO_CONNECTION:
+                            state = R.string.no_connection_title;
+                            statusText = R.string.no_connection;
+                            break;
+                        case DOWNLOAD_FAIL:
+                            state = R.string.status_download_fail;
+                            statusText = R.string.status_download_fail_subtitle_new;
+                            break;
+                        default:
+                            state = R.string.status_failure;
+                            statusText = R.string.status_failure_subtitle;
+                            break;
                     }
-                    if (action.equals(HomeFragment.ACTION_UPDATE_STATUS)
-                            && extras.containsKey(HomeFragment.EXTRA_UPDATE_STATUS_TITLE)
-                            && extras.containsKey(HomeFragment.EXTRA_UPDATE_STATUS_TEXT)
-                            && extras.containsKey(HomeFragment.EXTRA_UPDATE_STATUS_ICON)) {
-                        // Get title, text and status from extras
-                        String title = extras.getString(HomeFragment.EXTRA_UPDATE_STATUS_TITLE);
-                        String text = extras.getString(HomeFragment.EXTRA_UPDATE_STATUS_TEXT);
-                        int status = extras.getInt(HomeFragment.EXTRA_UPDATE_STATUS_ICON);
-                        // Update view
-                        HomeFragment.this.setStatus(title, text, status);
+                    mStatusTitleTextView.setText(state);
+                    mStatusTextView.setText(statusText);
+                    mUpdateHostsButton.setEnabled(true);
+                    mRevertHostsButton.setEnabled(true);
+                    if (mCurrentError != error) {
+                        mCurrentError = error;
+                        HostsInstallDialog.showDialogBasedOnResult(context, error);
                     }
                 }
-            };
-            localBroadcastManager.registerReceiver(mBroadcastReceiver, filter);
+            });
+            // Initialize model state
+            mViewModel.load();
         }
         /*
          * Initialize statuses and behaviors.
@@ -349,69 +254,40 @@ public class HomeFragment extends Fragment {
         mRunningWebServerButton.setOnClickListener(this::toggleWebServer);
         // Check statuses to restore
         if (savedInstanceState == null) {
-            // Check hosts status
-            new UpdateHostsStatusAsyncTask(this).execute();
             // Request to update host status
             if (webServerCardVisible) {
                 // Check web server status
                 new UpdateWebServerStatusAsyncTask(this).execute();
             }
         } else {
-            // get back status state when orientation changes and recreates activity
-
-            Log.d(Constants.TAG, "HomeFragment coming from an orientation change!");
-
-            HostsStatus hostsButtonStatus = (HostsStatus) savedInstanceState.getSerializable("hostsButtonStatus");
-            if (hostsButtonStatus != null) {
-                setHostsButtonStatus(hostsButtonStatus);
+            // Restore states
+            String currentError = savedInstanceState.getString(STATE_CURRENT_ERROR);
+            if (currentError != null) {
+                mCurrentError = HostsInstallError.valueOf(currentError);
             }
-            String title = savedInstanceState.getString("statusTitle");
-            String text = savedInstanceState.getString("statusText");
-            int iconStatus = savedInstanceState.getInt("statusIconStatus");
-            if (title != null && text != null && iconStatus != -1) {
-                setStatus(title, text, iconStatus);
-            }
-            boolean webServerRunning = savedInstanceState.getBoolean("webServerRunning");
-            notifyWebServerRunning(webServerRunning);
+            boolean webServerRunning = savedInstanceState.getBoolean(STATE_WEB_SERVER_RUNNING);
+            this.notifyWebServerRunning(webServerRunning);
         }
         // Return inflated view
         return view;
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        // Get fragment context
-        Context context = this.getContext();
-        // Unregister broadcast receiver
-        if (mBroadcastReceiver != null && context != null) {
-            LocalBroadcastManager.getInstance(context).unregisterReceiver(mBroadcastReceiver);
-            mBroadcastReceiver = null;
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(STATE_WEB_SERVER_RUNNING, mWebServerRunning);
+        if (mCurrentError != null) {
+            outState.putString(STATE_CURRENT_ERROR, mCurrentError.name());
         }
     }
 
-    /**
-     * Set the hosts button statuses.
-     *
-     * @param hostsStatus The hosts file status.
-     */
-    private void setHostsButtonStatus(HostsStatus hostsStatus) {
-        // Store hosts status
-        mHostsButtonStatus = hostsStatus;
-        // Update update hosts button label
-        switch (hostsStatus) {
-            case ENABLED:
-                mUpdateHostsButton.setText(R.string.button_check_update_hosts);
-                mRevertHostsButton.setVisibility(View.VISIBLE);
-                break;
-            case UPDATE_AVAILABLE:
-                mUpdateHostsButton.setText(R.string.button_update_hosts);
-                break;
-            case DISABLED:
-                mUpdateHostsButton.setText(R.string.button_enable_hosts);
-                mRevertHostsButton.setVisibility(View.GONE);
-                break;
-        }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mViewModel.getStatus().removeObservers(this);
+        mViewModel.getState().removeObservers(this);
+        mViewModel.getDetails().removeObservers(this);
+        mViewModel.getError().removeObservers(this);
     }
 
     /**
@@ -419,14 +295,19 @@ public class HomeFragment extends Fragment {
      *
      * @param view The view which trigger the action.
      */
-    private void updateHosts(@Nullable View view) {
-        switch (this.mHostsButtonStatus) {
-            case UPDATE_AVAILABLE:
-            case DISABLED:
-                ApplyHelper.applyAsync(mActivity);
+    private void updateHosts(@SuppressWarnings("unused") @Nullable View view) {
+        if (mCurrentStatus == null) {
+            return;
+        }
+        // Reset error code
+        mCurrentError = null;
+        switch (mCurrentStatus) {
+            case OUTDATED:
+            case ORIGINAL:
+                mViewModel.update();
                 break;
-            case ENABLED:
-                UpdateChecker.check(mActivity);
+            case INSTALLED:
+                mViewModel.checkForUpdate();
                 break;
         }
     }
@@ -436,8 +317,10 @@ public class HomeFragment extends Fragment {
      *
      * @param view The view which trigger the action.
      */
-    private void revertHosts(@Nullable View view) {
-        new RevertHelper(mActivity).revert();
+    private void revertHosts(@SuppressWarnings("unused") @Nullable View view) {
+        // Reset error code
+        mCurrentError = null;
+        mViewModel.revert();
     }
 
     /**
@@ -445,9 +328,9 @@ public class HomeFragment extends Fragment {
      *
      * @param view The view which trigger the action.
      */
-    private void showMoreHelp(@Nullable View view) {
+    private void showMoreHelp(@SuppressWarnings("unused") @Nullable View view) {
         // Start help activity
-        this.startActivity(new Intent(mActivity, HelpActivity.class));
+        this.startActivity(new Intent(this.getActivity(), HelpActivity.class));
     }
 
     /**
@@ -455,11 +338,11 @@ public class HomeFragment extends Fragment {
      *
      * @param view The view which trigger the action.
      */
-    private void toggleWebServer(@Nullable View view) {
+    private void toggleWebServer(@SuppressWarnings("unused") @Nullable View view) {
         if (mWebServerRunning) {
             WebServerUtils.stopWebServer();
         } else {
-            WebServerUtils.startWebServer(mActivity);
+            WebServerUtils.startWebServer(this.getContext());
         }
         this.notifyWebServerRunning(!mWebServerRunning);
     }

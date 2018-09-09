@@ -48,9 +48,11 @@ public class AppExecutors {
     public static AppExecutors getInstance() {
         if (sInstance == null) {
             synchronized (LOCK) {
-                sInstance = new AppExecutors(Executors.newSingleThreadExecutor(),
+                sInstance = new AppExecutors(
+                        Executors.newSingleThreadExecutor(),
                         Executors.newFixedThreadPool(3),
-                        new MainThreadExecutor());
+                        new MainThreadExecutor()
+                );
             }
         }
         return sInstance;
@@ -60,12 +62,12 @@ public class AppExecutors {
         return diskIO;
     }
 
-    public Executor mainThread() {
-        return mainThread;
-    }
-
     public Executor networkIO() {
         return networkIO;
+    }
+
+    public Executor mainThread() {
+        return mainThread;
     }
 
     private static class MainThreadExecutor implements Executor {
