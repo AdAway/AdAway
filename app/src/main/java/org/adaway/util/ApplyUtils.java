@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -35,6 +35,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.concurrent.TimeoutException;
 
 public class ApplyUtils {
     /**
@@ -44,7 +45,7 @@ public class ApplyUtils {
      * @param target path where to put the file
      * @return true if it will fit on partition of target, false if it will not fit.
      */
-    public static boolean hasEnoughSpaceOnPartition(String target, long size) {
+    private static boolean hasEnoughSpaceOnPartition(String target, long size) {
         try {
             // new File(target).getFreeSpace() (API 9) is not working on data partition
             // get directory without file
@@ -72,12 +73,13 @@ public class ApplyUtils {
 
     /**
      * Check if a path is writable.
+     *
      * @param shell The shell used to check if the path is writable.
-     * @param path The path to check.
+     * @param path  The path to check.
      * @return <code>true</code> if the path is writable, <code>false</code> otherwise.
      */
-    public static boolean isWritable(Shell shell, String path) {
-        SimpleCommand touchCommand = new SimpleCommand("touch "+path);
+    private static boolean isWritable(Shell shell, String path) {
+        SimpleCommand touchCommand = new SimpleCommand("touch " + path);
         try {
             shell.add(touchCommand).waitForFinish();
         } catch (Exception e) {
@@ -97,7 +99,7 @@ public class ApplyUtils {
 
         /* Check if first line in hosts file is AdAway comment */
         File file = new File(target);
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))){
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
             String firstLine = reader.readLine();
 
             Log.d(Constants.TAG, "First line of " + target + ": " + firstLine);
@@ -127,9 +129,7 @@ public class ApplyUtils {
 
         // if the target has a trailing slash, it is not a valid target!
         if (target.endsWith("/")) {
-            Log.e(Constants.TAG,
-                    "Custom target ends with trailing slash, it is not a valid target!");
-            throw new CommandException();
+            throw new CommandException("Custom target ends with trailing slash, it is not a valid target!");
         }
 
         if (!target.equals(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
@@ -148,14 +148,14 @@ public class ApplyUtils {
         }
 
         Toolbox tb = new Toolbox(shell);
-        boolean writable = isWritable(shell,target);
+        boolean writable = isWritable(shell, target);
         /* Execute commands */
         try {
             if (!writable) {
                 // remount for write access
                 Log.i(Constants.TAG, "Remounting for RW...");
                 if (!tb.remount(target, "RW")) {
-                    Log.e(Constants.TAG, "Remounting as RW failed! Probably not a problem!");
+                    throw new RemountException("Remounting as RW failed! Probably not a problem!");
                 }
             }
 
@@ -173,10 +173,10 @@ public class ApplyUtils {
             SimpleCommand command = new SimpleCommand(Constants.COMMAND_CHOWN + " " + target,
                     Constants.COMMAND_CHMOD_644 + " " + target);
             shell.add(command).waitForFinish();
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception!", e);
+        } catch (IOException | TimeoutException exception) {
+            Log.e(Constants.TAG, "Exception!", exception);
 
-            throw new CommandException();
+            throw new CommandException("Failed to copy hosts file.", exception);
         } finally {
             if (!writable) {
                 // after all remount target back as read only
@@ -220,8 +220,8 @@ public class ApplyUtils {
             );
 
             rootShell.add(command).waitForFinish();
-        } catch (Exception e) {
-            throw new CommandException();
+        } catch (Exception exception) {
+            throw new CommandException("Failed to create symbolic link.", exception);
         } finally {
             // after all remount system back as read only
             tb.remount(Constants.ANDROID_SYSTEM_ETC_HOSTS, "RO");
@@ -229,15 +229,13 @@ public class ApplyUtils {
             try {
                 rootShell.close();
             } catch (IOException e) {
-                throw new CommandException("Problem closing root shell!");
+                Log.w(Constants.TAG, "Failed to close shell.");
             }
         }
     }
 
     /**
      * Checks whether /system/etc/hosts is a symlink and pointing to the target or not
-     *
-     * @param target
      */
     public static boolean isSymlinkCorrect(String target, Shell shell) {
         Log.i(Constants.TAG, "Checking whether /system/etc/hosts is a symlink and pointing to "
@@ -261,9 +259,9 @@ public class ApplyUtils {
      * Create directories if missing, if /data/etc/hosts is set as target, this creates /data/etc/
      * directories. Needs RW on partition!
      *
-     * @throws CommandException
+     * @throws CommandException If the directories could not be created.
      */
-    public static void createDirectories(String target, Shell shell) throws CommandException {
+    private static void createDirectories(String target, Shell shell) throws CommandException {
         /* Execute commands */
         try {
             // get directory without file
@@ -279,9 +277,7 @@ public class ApplyUtils {
                 Log.e(Constants.TAG, "Mkdir Exception", e);
             }
         } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception!", e);
-
-            throw new CommandException();
+            throw new CommandException("Failed to create directories.", e);
         }
     }
 
@@ -290,7 +286,7 @@ public class ApplyUtils {
      * result hostname blocking does not work reliable because images can come from a different
      * hostname!
      *
-     * @param context
+     * @param context The application context.
      * @return true if proxy is set
      */
     public static boolean isApnProxySet(Context context) {
