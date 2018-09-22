@@ -9,20 +9,20 @@ buildscript {
     }
 }
 
+plugins {
+    id 'org.sonarqube' version '2.6.2'
+}
+
 allprojects {
     repositories {
         jcenter()
-		google()
+        google()
     }
 }
 
 /*task clean(type: Delete) {
     delete rootProject.buildDir
 }*/
-
-plugins {
-    id 'org.sonarqube' version '2.6.2'
-}
 
 sonarqube {
     properties {
