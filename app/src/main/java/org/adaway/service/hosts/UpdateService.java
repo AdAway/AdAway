@@ -17,6 +17,7 @@ import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
+import androidx.work.WorkerParameters;
 
 /**
  * This class is a service to check for hosts sources update.<br/>
@@ -74,6 +75,16 @@ public final class UpdateService {
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
     public static class HostsSourcesUpdateWorker extends Worker {
+        /**
+         * Constructor.
+         *
+         * @param context      The application context.
+         * @param workerParams The parameters to setup this worker.
+         */
+        public HostsSourcesUpdateWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
+            super(context, workerParams);
+        }
+
         @NonNull
         @Override
         public Result doWork() {
