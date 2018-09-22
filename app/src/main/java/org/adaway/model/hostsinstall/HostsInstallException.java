@@ -1,4 +1,4 @@
-package org.adaway.util.hostsinstall;
+package org.adaway.model.hostsinstall;
 
 /**
  * This class in an {@link Exception} thrown on hosts install error.

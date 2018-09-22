@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.service.webserver;
+package org.adaway.broadcast.webserver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

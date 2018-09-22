@@ -47,7 +47,7 @@
             android:exported="false"
             android:label="@string/menu_help" />
 
-        <receiver android:name=".service.webserver.BootReceiver">
+        <receiver android:name=".broadcast.webserver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

@@ -7,8 +7,8 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.hostsinstall.HostsInstallException;
-import org.adaway.util.hostsinstall.HostsInstallModel;
+import org.adaway.model.hostsinstall.HostsInstallException;
+import org.adaway.model.hostsinstall.HostsInstallModel;
 
 import java.util.concurrent.TimeUnit;
 

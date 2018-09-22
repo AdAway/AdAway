@@ -1,4 +1,4 @@
-package org.adaway.util.hostsinstall;
+package org.adaway.model.hostsinstall;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -43,13 +43,13 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
 
-import static org.adaway.util.hostsinstall.HostsInstallError.APPLY_FAIL;
-import static org.adaway.util.hostsinstall.HostsInstallError.DOWNLOAD_FAIL;
-import static org.adaway.util.hostsinstall.HostsInstallError.NOT_ENOUGH_SPACE;
-import static org.adaway.util.hostsinstall.HostsInstallError.NO_CONNECTION;
-import static org.adaway.util.hostsinstall.HostsInstallError.PRIVATE_FILE_FAIL;
-import static org.adaway.util.hostsinstall.HostsInstallError.REVERT_FAIL;
-import static org.adaway.util.hostsinstall.HostsInstallError.SYMLINK_MISSING;
+import static org.adaway.model.hostsinstall.HostsInstallError.APPLY_FAIL;
+import static org.adaway.model.hostsinstall.HostsInstallError.DOWNLOAD_FAIL;
+import static org.adaway.model.hostsinstall.HostsInstallError.NOT_ENOUGH_SPACE;
+import static org.adaway.model.hostsinstall.HostsInstallError.NO_CONNECTION;
+import static org.adaway.model.hostsinstall.HostsInstallError.PRIVATE_FILE_FAIL;
+import static org.adaway.model.hostsinstall.HostsInstallError.REVERT_FAIL;
+import static org.adaway.model.hostsinstall.HostsInstallError.SYMLINK_MISSING;
 
 /**
  * This class is the model to represent hosts file installation.

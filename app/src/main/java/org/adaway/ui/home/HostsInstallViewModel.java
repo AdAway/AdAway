@@ -12,15 +12,15 @@ import org.adaway.util.AppExecutors;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.util.hostsinstall.HostsInstallError;
-import org.adaway.util.hostsinstall.HostsInstallException;
-import org.adaway.util.hostsinstall.HostsInstallModel;
-import org.adaway.util.hostsinstall.HostsInstallStatus;
+import org.adaway.model.hostsinstall.HostsInstallError;
+import org.adaway.model.hostsinstall.HostsInstallException;
+import org.adaway.model.hostsinstall.HostsInstallModel;
+import org.adaway.model.hostsinstall.HostsInstallStatus;
 
-import static org.adaway.util.hostsinstall.HostsInstallStatus.INSTALLED;
-import static org.adaway.util.hostsinstall.HostsInstallStatus.ORIGINAL;
-import static org.adaway.util.hostsinstall.HostsInstallStatus.OUTDATED;
-import static org.adaway.util.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
+import static org.adaway.model.hostsinstall.HostsInstallStatus.INSTALLED;
+import static org.adaway.model.hostsinstall.HostsInstallStatus.ORIGINAL;
+import static org.adaway.model.hostsinstall.HostsInstallStatus.OUTDATED;
+import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
 
 /**
  * This class is a {@link android.arch.lifecycle.ViewModel} for home fragment UI.
