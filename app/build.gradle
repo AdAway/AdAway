@@ -1,40 +1,5 @@
 apply plugin: 'com.android.application'
 
-repositories {
-    jcenter()
-    google()
-}
-
-dependencies {
-    // Define library versions
-    def constraint_layout_version = '1.1.2'
-    def lifecycle_version = '1.1.1'
-    def room_version = '1.1.1'
-    def support_version = '27.1.1'
-    def work_version = '1.0.0-alpha08'
-    // Architecture components
-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
-    implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
-    implementation "android.arch.persistence.room:runtime:$room_version"
-    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
-    implementation "android.arch.work:work-runtime:$work_version"
-    // Support libraries
-    implementation "com.android.support:appcompat-v7:$support_version"
-    implementation "com.android.support:cardview-v7:$support_version"
-    implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
-    implementation "com.android.support:design:$support_version"
-    implementation "com.android.support:preference-v7:$support_version"
-    implementation "com.android.support:recyclerview-v7:$support_version"
-    implementation "com.android.support:support-fragment:$support_version"
-
-    implementation 'com.annimon:stream:1.2.0'
-    implementation project(':libraries:RootCommands')
-    implementation project(':tcpdump')
-    implementation project(':webserver')
-    implementation 'net.sf.trove4j:trove4j:3.0.3'
-    implementation 'org.sufficientlysecure:html-textview:2.0'
-}
-
 def getGitSha1 = { ->
     def stdout = new ByteArrayOutputStream()
     exec {
@@ -47,21 +12,20 @@ def getGitSha1 = { ->
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.2'
-
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 40008   // Read 4.xx.yy to match version name
         versionName '4.0.8'
         versionNameSuffix '-' + getGitSha1()
-
-        javaCompileOptions {
+		
+		vectorDrawables.useSupportLibrary = true
+        
+		javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
-
-        vectorDrawables.useSupportLibrary = true
     }
 
     /*
@@ -92,13 +56,47 @@ android {
         buildTypes.release.signingConfig = null
     }
 
-    // Do not abort build if lint finds errors
-    lintOptions {
-        abortOnError false
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+	// Do not abort build if lint finds errors
+    lintOptions {
+        abortOnError false
+    }
+}
+
+ext {
+	lifecycle = '1.1.1'
+	room = '1.1.1'
+	supportLib = '28.0.0-rc01'
+}
+
+dependencies {
+	implementation project(':libraries:RootCommands')
+    implementation project(':tcpdump')
+    implementation project(':webserver')
+
+    // Architecture components
+    implementation "android.arch.lifecycle:extensions:${lifecycle}"
+    implementation "android.arch.lifecycle:common-java8:${lifecycle}"
+    implementation "android.arch.persistence.room:runtime:${room}"
+    annotationProcessor "android.arch.persistence.room:compiler:${room}"
+    implementation 'android.arch.work:work-runtime:1.0.0-alpha08'
+
+    // Support libraries
+    implementation "com.android.support:design:${supportLib}"
+    implementation "com.android.support:support-v4:${supportLib}"
+    implementation "com.android.support:appcompat-v7:${supportLib}"
+    implementation "com.android.support:cardview-v7:${supportLib}"
+    implementation "com.android.support:preference-v7:${supportLib}"
+    implementation "com.android.support:recyclerview-v7:${supportLib}"
+    implementation "com.android.support:support-fragment:${supportLib}"
+	implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+	// Miscellaneous
+    implementation 'com.annimon:stream:1.2.1'
+	implementation 'net.sf.trove4j:trove4j:3.0.3'
+    implementation 'org.sufficientlysecure:html-textview:3.4'
 }
