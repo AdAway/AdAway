@@ -32,6 +32,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -317,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                     .addToBackStack(STACK_STATE_NAME)
                     .commit();
         }
-        // Highlight the selected item, update the title, and close the drawer
+        // Close the drawer
         this.mDrawerLayout.closeDrawer(this.mDrawer);
     }
 
@@ -362,6 +363,9 @@ public class MainActivity extends AppCompatActivity {
      * @param view The source event view.
      */
     private void showProjectPage(@SuppressWarnings("unused") View view) {
+        // Close the drawer
+        this.mDrawerLayout.closeDrawer(this.mDrawer);
+        // Show development page
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(PROJECT_LINK));
         this.startActivity(browserIntent);
     }
@@ -372,7 +376,19 @@ public class MainActivity extends AppCompatActivity {
      * @param view The source event view.
      */
     private void showSupportPage(@SuppressWarnings("unused") View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(SUPPORT_LINK));
-        this.startActivity(browserIntent);
+        // Close the drawer
+        this.mDrawerLayout.closeDrawer(this.mDrawer);
+        // Show support dialog
+        new AlertDialog.Builder(this)
+                .setIcon(R.drawable.baseline_favorite_24)
+                .setTitle(R.string.drawer_support_dialog_title)
+                .setMessage(R.string.drawer_support_dialog_text)
+                .setPositiveButton(R.string.drawer_support_dialog_button, (d, which) -> {
+                    // Show support page
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(SUPPORT_LINK));
+                    this.startActivity(browserIntent);
+                })
+                .create()
+                .show();
     }
 }
