@@ -18,7 +18,7 @@ import org.adaway.model.hostsinstall.HostsInstallStatus;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public final class HostsInstallDialog {
+final class HostsInstallDialog {
     /**
      * Private constructor.
      */
@@ -32,7 +32,7 @@ public final class HostsInstallDialog {
      * @param context The application context.
      * @param status  The current hosts status.
      */
-    public static void showRebootDialog(Context context, HostsInstallStatus status) {
+    static void showRebootDialog(Context context, HostsInstallStatus status) {
         // Check reboot dialog preference
         if (PreferenceHelper.getNeverReboot(context)) {
             return;
@@ -53,7 +53,7 @@ public final class HostsInstallDialog {
      *
      * @param installError The install error to show dialog.
      */
-    public static void showDialogBasedOnResult(Context context, HostsInstallError installError) {
+    static void showDialogBasedOnResult(Context context, HostsInstallError installError) {
         if (installError == HostsInstallError.SYMLINK_MISSING) {
             showSymlinkDialog(context);
             return;

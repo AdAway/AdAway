@@ -27,7 +27,7 @@ import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class HostsInstallViewModel extends AndroidViewModel {
+class HostsInstallViewModel extends AndroidViewModel {
     private final HostsInstallModel model;
     private final MutableLiveData<HostsInstallStatus> status;
     private final MutableLiveData<String> state;
@@ -40,7 +40,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
      *
      * @param application The application context.
      */
-    public HostsInstallViewModel(@NonNull Application application) {
+    HostsInstallViewModel(@NonNull Application application) {
         super(application);
         // Create model
         this.model = new HostsInstallModel(application);
@@ -58,26 +58,26 @@ public class HostsInstallViewModel extends AndroidViewModel {
         this.loaded = false;
     }
 
-    public MutableLiveData<HostsInstallStatus> getStatus() {
+    MutableLiveData<HostsInstallStatus> getStatus() {
         return this.status;
     }
 
-    public MutableLiveData<String> getState() {
+    MutableLiveData<String> getState() {
         return this.state;
     }
 
-    public MutableLiveData<String> getDetails() {
+    MutableLiveData<String> getDetails() {
         return this.details;
     }
 
-    public MutableLiveData<HostsInstallError> getError() {
+    MutableLiveData<HostsInstallError> getError() {
         return this.error;
     }
 
     /**
      * Initialize the model with its current state.
      */
-    public void load() {
+    void load() {
         // Check if model is already loaded
         if (this.loaded) {
             return;
@@ -102,7 +102,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
     /**
      * Update the hosts file.
      */
-    public void update() {
+    void update() {
         AppExecutors.getInstance().diskIO().execute(() -> {
             HostsInstallStatus previousStatus = this.status.getValue();
             this.status.postValue(WORK_IN_PROGRESS);
@@ -121,7 +121,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
     /**
      * Check if there is update available in hosts source.
      */
-    public void checkForUpdate() {
+    void checkForUpdate() {
         AppExecutors.getInstance().networkIO().execute(() -> {
             // Update status
             this.status.postValue(WORK_IN_PROGRESS);
@@ -143,7 +143,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
     /**
      * Revert to the default hosts file.
      */
-    public void revert() {
+    void revert() {
         AppExecutors.getInstance().mainThread().execute(() -> {
             this.status.postValue(WORK_IN_PROGRESS);
             try {
