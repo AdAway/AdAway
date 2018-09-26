@@ -27,7 +27,7 @@ import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class HostsInstallViewModel extends AndroidViewModel {
+public class HostsInstallViewModel extends AndroidViewModel {
     private final HostsInstallModel model;
     private final MutableLiveData<HostsInstallStatus> status;
     private final MutableLiveData<String> state;
@@ -40,7 +40,7 @@ class HostsInstallViewModel extends AndroidViewModel {
      *
      * @param application The application context.
      */
-    HostsInstallViewModel(@NonNull Application application) {
+    public HostsInstallViewModel(@NonNull Application application) {
         super(application);
         // Create model
         this.model = new HostsInstallModel(application);
