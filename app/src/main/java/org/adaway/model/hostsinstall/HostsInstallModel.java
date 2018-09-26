@@ -32,8 +32,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -197,14 +197,12 @@ public class HostsInstallModel extends Observable {
         try {
             /* build connection */
             URL mURL = new URL(url);
-            URLConnection connection = mURL.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) mURL.openConnection();
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(30000);
-            Date currentLastModifiedOnline = new Date(connection.getLastModified());
-            // Check if file is available
-            connection.connect();
-            connection.getInputStream().close();
-            return currentLastModifiedOnline;
+            long lastModified = connection.getLastModified();
+            connection.disconnect();
+            return new Date(lastModified);
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Exception while downloading from " + url, exception);
             return null;
@@ -262,13 +260,12 @@ public class HostsInstallModel extends Observable {
         // Set state to downloading hosts source
         this.setStateAndDetails(R.string.download_dialog, hostsFileUrl);
         // Create connection
-        URLConnection connection;
+        HttpURLConnection connection;
         try {
             URL mURL = new URL(hostsFileUrl);
-            connection = mURL.openConnection();
+            connection = (HttpURLConnection) mURL.openConnection();
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(30000);
-            connection.connect();
         } catch (IOException exception) {
             Log.e(Constants.TAG, "Unable to connect to " + hostsFileUrl + ".", exception);
             // Update last_modified_online of failed download to 0 (not available)
@@ -301,6 +298,8 @@ public class HostsInstallModel extends Observable {
             hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, null);
             // Return download failed
             return false;
+        } finally {
+            connection.disconnect();
         }
         // Return download successful
         return true;
