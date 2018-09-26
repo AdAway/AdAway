@@ -91,30 +91,44 @@ public final class UpdateService {
             // Create model
             Context context = this.getApplicationContext();
             HostsInstallModel model = new HostsInstallModel(context);
+            // Check for update
+            boolean hasUpdate;
             try {
-                // Check fork update
-                if (model.checkForUpdate()) {
-                    // Check if automatic update are enabled
-                    if (PreferenceHelper.getAutomaticUpdateDaily(context)) {
-                        // Install update
-                        try {
-                            model.applyHostsFile();
-                        } catch (HostsInstallException exception) {
-                            // Installation failed. Worker failed.
-                            Log.e(Constants.TAG, "Failed to apply hosts file during background update.", exception);
-                            return Result.FAILURE;
-                        }
-                    } else {
-                        // Display update notification
-                        NotificationHelper.showUpdateHostsNotification(context);
-                    }
-                }
-                // Return as success
-                return Result.SUCCESS;
+                hasUpdate = model.checkForUpdate();
             } catch (HostsInstallException exception) {
                 // An error occurred, check will be retried
                 Log.e(Constants.TAG, "Failed to check for update. Will retry later.", exception);
                 return Result.RETRY;
+            }
+            if (hasUpdate) {
+                // Do update
+                try {
+                    doUpdate(context, model);
+                } catch (HostsInstallException exception) {
+                    // Installation failed. Worker failed.
+                    Log.e(Constants.TAG, "Failed to apply hosts file during background update.", exception);
+                    return Result.FAILURE;
+                }
+            }
+            // Return as success
+            return Result.SUCCESS;
+        }
+
+        /**
+         * Handle update according user preferences.
+         *
+         * @param context The application context.
+         * @param model   The hosts install model.
+         * @throws HostsInstallException If the update could not be handled.
+         */
+        private void doUpdate(Context context, HostsInstallModel model) throws HostsInstallException {
+            // Check if automatic update are enabled
+            if (PreferenceHelper.getAutomaticUpdateDaily(context)) {
+                // Install update
+                model.applyHostsFile();
+            } else {
+                // Display update notification
+                NotificationHelper.showUpdateHostsNotification(context);
             }
         }
     }
