@@ -44,6 +44,9 @@ final class HostsInstallDialog {
             case ORIGINAL:
                 Utils.rebootQuestion(context, R.string.revert_successful_title, R.string.revert_successful);
                 break;
+            default:
+                // Nothing to do
+                break;
         }
     }
 

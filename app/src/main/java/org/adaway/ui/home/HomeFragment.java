@@ -309,6 +309,9 @@ public class HomeFragment extends Fragment {
             case INSTALLED:
                 mViewModel.checkForUpdate();
                 break;
+            default:
+                // Nothing to do
+                break;
         }
     }
 
