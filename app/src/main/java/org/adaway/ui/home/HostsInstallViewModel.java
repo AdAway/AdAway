@@ -88,15 +88,15 @@ public class HostsInstallViewModel extends AndroidViewModel {
             if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
                 this.status.postValue(INSTALLED);
                 this.setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
+                // Check for update if needed
+                if (PreferenceHelper.getUpdateCheck(this.getApplication())) {
+                    this.checkForUpdate();
+                }
             } else {
                 this.status.postValue(ORIGINAL);
                 this.setStateAndDetails(R.string.status_disabled, R.string.status_disabled_subtitle);
             }
         });
-        // Check for update if needed
-        if (PreferenceHelper.getUpdateCheck(this.getApplication())) {
-            this.checkForUpdate();
-        }
     }
 
     /**
