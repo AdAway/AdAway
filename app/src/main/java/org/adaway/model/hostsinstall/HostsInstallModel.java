@@ -57,6 +57,13 @@ import static org.adaway.model.hostsinstall.HostsInstallError.SYMLINK_MISSING;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HostsInstallModel extends Observable {
+    /*
+     * Apply modes (see pref pref_apply_method_entries_values).
+     */
+    private static final String APPLY_TO_SYSTEM = "writeToSystem";
+    private static final String APPLY_TO_DATA_DATA = "writeToDataData";
+    private static final String APPLY_TO_DATA = "writeToData";
+    private static final String APPLY_TO_CUSTOM_TARGET = "customTarget";
     /**
      * The application context.
      */
@@ -91,13 +98,13 @@ public class HostsInstallModel extends Observable {
             // Check installation according apply method
             String applyMethod = PreferenceHelper.getApplyMethod(this.context);
             switch (applyMethod) {
-                case "writeToDataData":
+                case APPLY_TO_DATA_DATA:
                     ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
                     break;
-                case "writeToData":
+                case APPLY_TO_DATA:
                     ApplyUtils.createSymlink(Constants.ANDROID_DATA_HOSTS);
                     break;
-                case "customTarget":
+                case APPLY_TO_CUSTOM_TARGET:
                     ApplyUtils.createSymlink(PreferenceHelper.getCustomTarget(this.context));
                     break;
                 default:
@@ -363,16 +370,16 @@ public class HostsInstallModel extends Observable {
         // Check installation according apply method
         String applyMethod = PreferenceHelper.getApplyMethod(this.context);
         switch (applyMethod) {
-            case "writeToSystem":
+            case APPLY_TO_SYSTEM:
                 /* /system/etc/hosts */
                 return ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS);
-            case "writeToDataData":
+            case APPLY_TO_DATA_DATA:
                 /* /data/data/hosts */
                 return ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_DATA_HOSTS);
-            case "writeToData":
+            case APPLY_TO_DATA:
                 /* /data/data/hosts */
                 return ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_HOSTS);
-            case "customTarget":
+            case APPLY_TO_CUSTOM_TARGET:
                 /* custom target */
                 String customTarget = PreferenceHelper.getCustomTarget(this.context);
                 return ApplyUtils.isHostsFileCorrect(customTarget);
@@ -391,16 +398,16 @@ public class HostsInstallModel extends Observable {
         // Check installation according apply method
         String applyMethod = PreferenceHelper.getApplyMethod(this.context);
         switch (applyMethod) {
-            case "writeToSystem":
+            case APPLY_TO_SYSTEM:
                 // System hosts file used, no need of symlink
                 return true;
-            case "writeToDataData":
+            case APPLY_TO_DATA_DATA:
                 // /data/data/hosts
                 return ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS, shell);
-            case "writeToData":
+            case APPLY_TO_DATA:
                 // /data/data/hosts
                 return ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_HOSTS, shell);
-            case "customTarget":
+            case APPLY_TO_CUSTOM_TARGET:
                 // custom target
                 String customTarget = PreferenceHelper.getCustomTarget(this.context);
                 return ApplyUtils.isSymlinkCorrect(customTarget, shell);
@@ -414,16 +421,16 @@ public class HostsInstallModel extends Observable {
         try {
             String applyMethod = PreferenceHelper.getApplyMethod(this.context);
             switch (applyMethod) {
-                case "writeToSystem":
+                case APPLY_TO_SYSTEM:
                     ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_SYSTEM_ETC_HOSTS, rootShell);
                     break;
-                case "writeToDataData":
+                case APPLY_TO_DATA_DATA:
                     ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);
                     break;
-                case "writeToData":
+                case APPLY_TO_DATA:
                     ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_DATA_HOSTS, rootShell);
                     break;
-                case "customTarget":
+                case APPLY_TO_CUSTOM_TARGET:
                     String customTarget = PreferenceHelper.getCustomTarget(this.context);
                     ApplyUtils.copyHostsFile(this.context, customTarget, rootShell);
                     break;
@@ -597,21 +604,20 @@ public class HostsInstallModel extends Observable {
                     + Constants.LINE_SEPARATOR + Constants.LOCALHOST_IPv6 + " "
                     + Constants.LOCALHOST_HOSTNAME;
             fos.write(localhost.getBytes());
-            fos.close();
             // Get hosts file target based on preferences
             String applyMethod = PreferenceHelper.getApplyMethod(this.context);
             String target;
             switch (applyMethod) {
-                case "writeToSystem":
+                case APPLY_TO_SYSTEM:
                     target = Constants.ANDROID_SYSTEM_ETC_HOSTS;
                     break;
-                case "writeToDataData":
+                case APPLY_TO_DATA_DATA:
                     target = Constants.ANDROID_DATA_DATA_HOSTS;
                     break;
-                case "writeToData":
+                case APPLY_TO_DATA:
                     target = Constants.ANDROID_DATA_HOSTS;
                     break;
-                case "customTarget":
+                case APPLY_TO_CUSTOM_TARGET:
                     target = PreferenceHelper.getCustomTarget(this.context);
                     break;
                 default:
