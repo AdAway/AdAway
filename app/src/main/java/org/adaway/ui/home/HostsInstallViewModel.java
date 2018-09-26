@@ -158,11 +158,7 @@ class HostsInstallViewModel extends AndroidViewModel {
     }
 
     private void setStateAndDetails(@StringRes int stateResId, @StringRes int detailsResId) {
-        this.setStateAndDetails(stateResId, this.getApplication().getString(detailsResId));
-    }
-
-    private void setStateAndDetails(@StringRes int stateResId, String details) {
         this.state.postValue(this.getApplication().getString(stateResId));
-        this.details.postValue(details);
+        this.details.postValue(this.getApplication().getString(detailsResId));
     }
 }
