@@ -5,17 +5,12 @@
 
     <!--Buttons-->
     <string name="button_exit">Exit</string>
-    <string name="button_apply">Download files and apply ad blocking</string>
     <string name="button_close">Close</string>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
-    <string name="button_revert">Disable ad blocking</string>
     <string name="button_add">Add</string>
     <string name="button_cancel">Cancel</string>
-    <string name="button_revert_text">Restores the default hosts file on your system.</string>
     <string name="button_save">Save</string>
-    <string name="button_webserver_toggle_checked">Webserver is running</string>
-    <string name="button_webserver_toggle_unchecked">Webserver is not running</string>
     <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
     <string name="button_help">Help</string>
 
@@ -36,11 +31,7 @@
     <string name="button_disable_webserver">Disable web server</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_empty">Empty list</string>
-    <string name="checkbox_list_empty_text">You can add items from the plus button.</string>
     <string name="checkbox_list_context_delete">Delete</string>
-    <string name="checkbox_list_footer">After adding new items to this list you have to apply AdAway again!</string>
-    <string name="checkbox_list_edit_dialog_title">Edit</string>
     <string name="checkbox_list_context_title">Edit Entry</string>
     <string name="checkbox_list_context_edit">Edit</string>
 
@@ -73,7 +64,6 @@
     <string name="status_checking">Checking for update…</string>
     <string name="status_reverting">Reverting…</string>
     <string name="status_reverting_subtitle">Creating standard hosts file</string>
-    <string name="status_checking_subtitle">Checking if update is available</string>
     <string name="status_update_available">Update available</string>
     <string name="status_update_available_subtitle">Newer hosts files available</string>
     <string name="status_no_connection">No Internet connection</string>
