@@ -15,6 +15,7 @@
         android:id="@+id/tcpdump_redirect_ip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:importantForAutofill="no"
         android:inputType="textVisiblePassword"
         android:scrollHorizontally="true"
         android:singleLine="true" />

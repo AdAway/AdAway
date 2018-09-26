@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hosts_dialog_url_hint"
+        android:importantForAutofill="no"
         android:inputType="textUri"
         android:scrollHorizontally="true"
         android:singleLine="true"

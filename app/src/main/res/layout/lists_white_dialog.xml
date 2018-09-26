@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/list_dialog_hostname_hint"
+        android:importantForAutofill="no"
         android:inputType="textVisiblePassword"
         android:scrollHorizontally="true"
         android:singleLine="true" />

@@ -2,13 +2,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <EditText
         android:id="@android:id/edit"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
         android:ems="10"
-        android:hint="pref_edit_text_value"
+        android:hint="@string/pref_edit_text_value"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:singleLine="true" />
 </FrameLayout>

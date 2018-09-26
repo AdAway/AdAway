@@ -15,6 +15,7 @@
         android:id="@+id/list_dialog_hostname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:importantForAutofill="no"
         android:inputType="textVisiblePassword"
         android:scrollHorizontally="true"
         android:singleLine="true" />
@@ -29,6 +30,7 @@
         android:id="@+id/list_dialog_ip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:importantForAutofill="no"
         android:inputType="textVisiblePassword"
         android:scrollHorizontally="true"
         android:singleLine="true" />
