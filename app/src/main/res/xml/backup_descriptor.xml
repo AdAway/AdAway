@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Add application database -->
+    <include
+        domain="database"
+        path="app.db" />
+    <!-- Add application preferences -->
+    <include
+        domain="sharedpref"
+        path="preferences.xml" />
+</full-backup-content>
