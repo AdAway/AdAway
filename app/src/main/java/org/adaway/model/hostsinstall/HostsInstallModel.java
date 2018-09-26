@@ -38,6 +38,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Observable;
@@ -147,10 +148,16 @@ public class HostsInstallModel extends Observable {
         // Initialize update status
         boolean updateAvailable = false;
         boolean anyHostsSourceVerified = false;
+        // Get enabled hosts sources
+        List<HostsSource> enabledSources = hostsSourceDao.getEnabled();
+        if (enabledSources.isEmpty()) {
+            // Return no update as no source enabled
+            return false;
+        }
         // Update state
         this.setStateAndDetails(R.string.status_checking, R.string.status_checking);
         // Check each enabled source
-        for (HostsSource source : hostsSourceDao.getEnabled()) {
+        for (HostsSource source : enabledSources) {
             // Get URL and lastModified from db
             String sourceUrl = source.getUrl();
             Date lastModifiedLocal = source.getLastLocalModification();
