@@ -33,6 +33,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -208,6 +209,16 @@ public class HostsInstallModel extends Observable {
     @Nullable
     private Date getHostsSourceLastUpdate(String url) {
         Log.v(Constants.TAG, "Checking hosts file: " + url);
+        // Check GitHub hosting
+        if (GithubHostsSource.isHostedOnGithub(url)) {
+            try {
+                return new GithubHostsSource(url).getLastUpdate();
+            } catch (MalformedURLException exception) {
+                Log.w(Constants.TAG, "Failed to get GitHub last update for url " + url + ".", exception);
+                return null;
+            }
+        }
+        // Default hosting
         try {
             /* build connection */
             URL mURL = new URL(url);
