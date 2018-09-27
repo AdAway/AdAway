@@ -19,7 +19,7 @@ Installing the application requires:
 * A **rooted device**
 
 ### Preview builds
-For users with bugs, there may be preview builds available from the [XDA development thread](https://forum.xda-developers.com/showthread.php?t=2190753) or the related [Android File Host folder](https://androidfilehost.com/?w=files&flid=249276).
+For users with bugs, there may be preview builds available from the [XDA development thread](https://forum.xda-developers.com/showthread.php?t=2190753) or the related [Android File Host folder](https://androidfilehost.com/?w=files&flid=249276&sort_by=date&sort_dir=DESC).
 It is recommended to try those builds to see if your issue is resolved before creating an issue.
 The preview builds may contain bug fixes or new features for new android versions.
 
