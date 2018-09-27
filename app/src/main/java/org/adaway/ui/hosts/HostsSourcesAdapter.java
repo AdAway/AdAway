@@ -85,9 +85,9 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         String approximateDelay = lastOnlineModificationDefined ? DateUtils.getApproximateDelay(context, source.getLastOnlineModification()) : "";
         // Declare update text
         String updateText;
-        if (!lastOnlineModificationDefined || !lastLocalModificationDefined) {
+        if (!lastOnlineModificationDefined) {
             updateText = context.getString(R.string.hosts_source_unknown_status);
-        } else if (!source.isEnabled()) {
+        } else if (!source.isEnabled() || !lastLocalModificationDefined) {
             updateText = context.getString(R.string.hosts_source_last_update, approximateDelay);
         } else if (source.getLastOnlineModification().after(source.getLastLocalModification())) {
             updateText = context.getString(R.string.hosts_source_need_update, approximateDelay);
