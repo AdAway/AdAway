@@ -143,7 +143,7 @@ public class HostsInstallModel extends Observable {
     public boolean checkForUpdate() throws HostsInstallException {
         HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
         // Check current connection
-        if (!Utils.isAndroidOnline(context)) {
+        if (!Utils.isAndroidOnline(this.context)) {
             throw new HostsInstallException(NO_CONNECTION, "Failed to download hosts sources files: not connected.");
         }
         // Initialize update status
@@ -336,8 +336,6 @@ public class HostsInstallModel extends Observable {
      * @throws HostsInstallException If the hosts file could not be applied.
      */
     public void applyHostsFile() throws HostsInstallException {
-        // Get application context and database
-        HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
         // Create root shell
         Shell shell = null;
         try {
@@ -354,7 +352,7 @@ public class HostsInstallModel extends Observable {
             if (!checkInstalledHostsFile()) {
                 throw new HostsInstallException(APPLY_FAIL, "Failed to apply new hosts file.");
             }
-            hostsSourceDao.updateEnabledLocalModificationDates(new Date());
+            this.markHostsSourcesAsInstalled();
             this.setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
         } catch (IOException exception) {
             throw new HostsInstallException(APPLY_FAIL, "Failed to start a root shell.", exception);
@@ -592,6 +590,7 @@ public class HostsInstallModel extends Observable {
             shell = Shell.startRootShell();
             // Revert hosts file
             this.revertHostFile(shell);
+            this.markHostsSourcesAsUninstalled();
             this.setStateAndDetails(R.string.status_disabled, R.string.status_disabled_subtitle);
         } catch (IOException exception) {
             this.setStateAndDetails(R.string.status_enabled, R.string.revert_problem);
@@ -648,6 +647,25 @@ public class HostsInstallModel extends Observable {
         } catch (Exception exception) {
             throw new IOException("Unable to revert hosts file.", exception);
         }
+    }
+
+    /**
+     * Set local modifications date to now for all enabled hosts sources.
+     */
+    private void markHostsSourcesAsInstalled() {
+        // Get application context and database
+        HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
+        Date now = new Date();
+        hostsSourceDao.updateEnabledLocalModificationDates(now);
+    }
+
+    /**
+     * Clear local modification dates for all hosts sources.
+     */
+    private void markHostsSourcesAsUninstalled() {
+        // Get application context and database
+        HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
+        hostsSourceDao.clearLocalModificationDates();
     }
 
     private void setStateAndDetails(@StringRes int stateResId, @StringRes int detailsResId) {

@@ -167,8 +167,7 @@ public class Utils {
      * @return returns true if online
      */
     public static boolean isAndroidOnline(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null) {
             return false;
         }

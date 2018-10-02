@@ -43,4 +43,7 @@ public interface HostsSourceDao {
 
     @Query("UPDATE hosts_sources SET last_modified_local = :date WHERE enabled = 1")
     void updateEnabledLocalModificationDates(Date date);
+
+    @Query("UPDATE hosts_sources SET last_modified_local = NULL")
+    void clearLocalModificationDates();
 }

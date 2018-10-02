@@ -144,7 +144,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
      * Revert to the default hosts file.
      */
     void revert() {
-        AppExecutors.getInstance().mainThread().execute(() -> {
+        AppExecutors.getInstance().diskIO().execute(() -> {
             this.status.postValue(WORK_IN_PROGRESS);
             try {
                 this.model.revert();
