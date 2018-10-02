@@ -125,6 +125,7 @@ public final class UpdateService {
             // Check if automatic update are enabled
             if (PreferenceHelper.getAutomaticUpdateDaily(context)) {
                 // Install update
+                model.downloadHostsSources();
                 model.applyHostsFile();
             } else {
                 // Display update notification
