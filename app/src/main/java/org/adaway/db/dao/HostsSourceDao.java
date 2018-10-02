@@ -41,6 +41,6 @@ public interface HostsSourceDao {
     @Query("UPDATE hosts_sources SET last_modified_online = :date WHERE url = :url")
     void updateOnlineModificationDate(String url, Date date);
 
-    @Query("UPDATE hosts_sources SET last_modified_local = last_modified_online")
-    void updateLocalModificationDatesToOnlineDates();
+    @Query("UPDATE hosts_sources SET last_modified_local = :date WHERE enabled = 1")
+    void updateEnabledLocalModificationDates(Date date);
 }

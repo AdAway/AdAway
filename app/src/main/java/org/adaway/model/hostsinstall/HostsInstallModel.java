@@ -354,7 +354,7 @@ public class HostsInstallModel extends Observable {
             if (!checkInstalledHostsFile()) {
                 throw new HostsInstallException(APPLY_FAIL, "Failed to apply new hosts file.");
             }
-            hostsSourceDao.updateLocalModificationDatesToOnlineDates();
+            hostsSourceDao.updateEnabledLocalModificationDates(new Date());
             this.setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
         } catch (IOException exception) {
             throw new HostsInstallException(APPLY_FAIL, "Failed to start a root shell.", exception);
