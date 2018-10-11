@@ -35,7 +35,7 @@ public interface HostListItemDao {
     List<String> getEnabledWhiteListHosts();
 
     @Query("SELECT * FROM hosts_lists WHERE type = 2 AND enabled = 1")
-    List<HostListItem> getEnabledRedirectionList();
+    List<HostListItem> getEnabledRedirectList();
 
     @Query("SELECT * FROM hosts_lists ORDER BY host ASC")
     List<HostListItem> getAll();

@@ -20,8 +20,8 @@ And don't add newlines before or after p tags because of transifex -->
 </p>
 <ol>
 <li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Use <cite>volume down</cite> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
+<li>Use <cite>volume down</cite> to select recovery then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
 <li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
 <li>Plug in your usb cord and open a command line on your pc.</li>
 <li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>

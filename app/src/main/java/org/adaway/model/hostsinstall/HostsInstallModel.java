@@ -498,14 +498,14 @@ public class HostsInstallModel extends Observable {
         // Get list collections
         Set<String> blackListHosts = new HashSet<>(hostListItemDao.getEnabledBlackListHosts());
         Set<String> whiteListHosts = new HashSet<>(hostListItemDao.getEnabledWhiteListHosts());
-        Map<String, String> redirectionListHosts = Stream.of(hostListItemDao.getEnabledRedirectionList())
+        Map<String, String> redirectListHosts = Stream.of(hostListItemDao.getEnabledRedirectList())
                 .collect(Collectors.toMap(HostListItem::getHost, HostListItem::getRedirection));
         // add whitelist from db
         parser.addBlacklist(blackListHosts);
         // add blacklist from db
         parser.addWhitelist(whiteListHosts);
-        // add redirection list from db
-        parser.addRedirectionList(redirectionListHosts);
+        // add redirect list from db
+        parser.addRedirectList(redirectListHosts);
         // compile lists (removing whitelist entries, etc.)
         parser.compileList();
     }
@@ -529,14 +529,14 @@ public class HostsInstallModel extends Observable {
             }
         }
 
-        /* REDIRECTION LIST: write redirection items */
-        String redirectionItemHostname;
-        String redirectionItemIP;
-        for (HashMap.Entry<String, String> item : parser.getRedirectionList().entrySet()) {
-            redirectionItemHostname = item.getKey();
-            redirectionItemIP = item.getValue();
+        /* REDIRECT LIST: write redirect items */
+        String redirectItemHostname;
+        String redirectItemIP;
+        for (HashMap.Entry<String, String> item : parser.getRedirectList().entrySet()) {
+            redirectItemHostname = item.getKey();
+            redirectItemIP = item.getValue();
 
-            line = Constants.LINE_SEPARATOR + redirectionItemIP + " " + redirectionItemHostname;
+            line = Constants.LINE_SEPARATOR + redirectItemIP + " " + redirectItemHostname;
             outputStream.write(line.getBytes());
         }
 

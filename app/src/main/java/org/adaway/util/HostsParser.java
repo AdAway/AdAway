@@ -58,7 +58,7 @@ public class HostsParser {
         return mWhitelist;
     }
 
-    public Map<String, String> getRedirectionList() {
+    public Map<String, String> getRedirectList() {
         return mRedirectionList;
     }
 
@@ -140,7 +140,7 @@ public class HostsParser {
      *
      * @param redirectionList
      */
-    public void addRedirectionList(Map<String, String> redirectionList) {
+    public void addRedirectList(Map<String, String> redirectionList) {
         mRedirectionList.putAll(redirectionList);
     }
 

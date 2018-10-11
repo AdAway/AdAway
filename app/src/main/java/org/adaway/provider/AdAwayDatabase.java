@@ -111,7 +111,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         Log.w(Constants.TAG, "Upgrading database from version " + oldVersion + " to " + newVersion);
 
         if (oldVersion <= 1) {
-            // introduced whitelist, blacklist and redirection list
+            // introduced whitelist, blacklist and redirect list
             db.execSQL(CREATE_WHITELIST);
             db.execSQL(CREATE_BLACKLIST);
             db.execSQL(CREATE_REDIRECTION_LIST);

@@ -136,7 +136,7 @@ public class ImportExportHelper {
                         // Import parsed user lists
                         this.importBlackList(database, parser.getBlacklist());
                         this.importWhiteList(database, parser.getWhitelist());
-                        this.importRedirectionList(database, parser.getRedirectionList());
+                        this.importRedirectionList(database, parser.getRedirectList());
                     }
                 }
             } catch (FileNotFoundException exception) {
@@ -253,7 +253,7 @@ public class ImportExportHelper {
             // Get list values
             List<String> blacklist = hostListItemDao.getEnabledBlackListHosts();
             List<String> whitelist = hostListItemDao.getEnabledWhiteListHosts();
-            Map<String, String> redirectionList = Stream.of(hostListItemDao.getEnabledRedirectionList())
+            Map<String, String> redirectionList = Stream.of(hostListItemDao.getEnabledRedirectList())
                     .collect(Collectors.toMap(HostListItem::getHost, HostListItem::getRedirection));
             // Check if sdcard can be written
             File sdcard = Environment.getExternalStorageDirectory();
@@ -277,7 +277,7 @@ public class ImportExportHelper {
                     writer.write(Constants.WHITELIST_ENTRY + " " + aWhitelist
                             + Constants.LINE_SEPARATOR);
                 }
-                // Write redirection list items
+                // Write redirect list items
                 for (HashMap.Entry<String, String> item : redirectionList.entrySet()) {
                     writer.write(item.getValue() + " " + item.getKey()
                             + Constants.LINE_SEPARATOR);

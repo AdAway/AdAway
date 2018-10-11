@@ -16,7 +16,7 @@
 
     <!--Home-->
     <string name="header_help">Welcome!</string>
-    <string name="text_help">AdAway is a free and open-source software design to block advertising. It downloads ad network and configure your device to block them.\nWant to know more? Check the help below!</string>
+    <string name="text_help">AdAway is a free and open-source software design to block advertising. It fetches advertising network addresses to block them on your device.\nWant to know more? Check the help below!</string>
     <string name="button_show_help">Show more help</string>
     <string name="icon_update_status">Update status</string>
     <string name="text_update">All hosts files from the defined sources are downloaded, merged with your own lists and installed as one hosts file on your system.</string>
@@ -51,12 +51,12 @@
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">Importing…</string>
     <string name="export_dialog">Exporting…</string>
-    <string name="export_success">Exported all entries to a file called \'adaway-export\' on your sdcard.</string>
-    <string name="export_failed">Failed to export your list to your sdcard.</string>
+    <string name="export_success">Exported all entries to a file called \'adaway-export\' on your SD card.</string>
+    <string name="export_failed">Failed to export your list to your SD card.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">The hosts file</string>
-    <string name="hosts_description">The hosts file is a system file that maps hostnames to IP addresses. It is a plain text file which configuration is handled by AdAway. Here is its few first lines:</string>
+    <string name="hosts_description">The hosts file is a system file that maps hostnames to IP addresses. It is a plain text file which configuration is handled by AdAway. Here are its few first lines:</string>
     <string name="hosts_content">Loading the hosts file content…</string>
     <string name="hosts_open_button">Open the hosts file</string>
 
@@ -92,8 +92,8 @@
     <string name="apply_copy_fail_title">Copy failed</string>
     <string name="apply_success_subtitle">Applied hosts sources</string>
     <string name="apply_success_title">Applying successful</string>
-    <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
-    <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
+    <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
+    <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
     <string name="apply_symlink_successful_title">Symlink creation successful</string>
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
@@ -110,7 +110,7 @@
     <string name="apply_dialog_apply">Applying hosts file</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
-    <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!) </string>
+    <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!) </string>
     <string name="revert_successful_title">Reverting successful</string>
     <string name="revert_problem">Reverting failed due to unknown reasons.</string>
     <string name="revert_problem_title">Reverting failed!</string>
@@ -118,9 +118,9 @@
     <string name="download_fail_title">Download failed</string>
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>
-    <string name="enable_systemless_successful">You enabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
+    <string name="enable_systemless_successful">You enabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
     <string name="enable_systemless_successful_title">Enabling successful</string>
-    <string name="disable_systemless_successful">You disabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the sdcard at the moment!)</string>
+    <string name="disable_systemless_successful">You disabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
     <string name="disable_systemless_successful_title">Disabling successful</string>
 
     <!--Other Dialogs-->
@@ -149,9 +149,9 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_description">Here you can find installed adwares, bad applications which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to uninstall those apps by clicking on the list items.</string>
+    <string name="adware_description">Here you can find installed adware, bad applications which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to uninstall those apps by clicking on the list items.</string>
     <string name="adware_scanning">Scanning&#8230;</string>
-    <string name="adware_empty">No Adware apps were found!</string>
+    <string name="adware_empty">No Adware were found!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Local:</string>
@@ -217,7 +217,7 @@
     </string-array>
 
     <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
-    <string name="pref_sdcard_problem">This feature will not work correctly when AdAway is installed on sdcard!</string>
+    <string name="pref_sdcard_problem">This feature will not work correctly when AdAway is installed on SD card!</string>
     <string name="pref_background">Background Services</string>
     <string name="pref_update_check_daily">Check for updates daily</string>
     <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
