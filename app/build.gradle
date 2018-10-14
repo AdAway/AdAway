@@ -9,6 +9,11 @@ def getGitSha1 = { ->
     return stdout.toString().trim()
 }
 
+def keyStoreDefined = project.hasProperty('signingStoreLocation') &&
+        project.hasProperty('signingStorePassword') &&
+        project.hasProperty('signingKeyAlias') &&
+        project.hasProperty('signingKeyPassword')
+
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
@@ -36,10 +41,7 @@ android {
      * signingKeyAlias=alias
      * signingKeyPassword=xxx
      */
-    if (project.hasProperty('signingStoreLocation') &&
-            project.hasProperty('signingStorePassword') &&
-            project.hasProperty('signingKeyAlias') &&
-            project.hasProperty('signingKeyPassword')) {
+    if (keyStoreDefined) {
         println "Found signature properties in gradle.properties. Build will be signed."
 
         signingConfigs {
