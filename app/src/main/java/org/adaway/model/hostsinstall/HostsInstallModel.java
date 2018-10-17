@@ -149,16 +149,16 @@ public class HostsInstallModel extends Observable {
         // Initialize update status
         boolean updateAvailable = false;
         boolean anyHostsSourceVerified = false;
-        // Get enabled hosts sources
-        List<HostsSource> enabledSources = hostsSourceDao.getEnabled();
-        if (enabledSources.isEmpty()) {
-            // Return no update as no source enabled
+        // Get hosts sources
+        List<HostsSource> sources = hostsSourceDao.getAll();
+        if (sources.isEmpty()) {
+            // Return no update as no source
             return false;
         }
         // Update state
         this.setStateAndDetails(R.string.status_checking, R.string.status_checking);
-        // Check each enabled source
-        for (HostsSource source : enabledSources) {
+        // Check each source
+        for (HostsSource source : sources) {
             // Get URL and lastModified from db
             String sourceUrl = source.getUrl();
             Date lastModifiedLocal = source.getLastLocalModification();
@@ -180,8 +180,8 @@ public class HostsInstallModel extends Observable {
             // Check if last modified online retrieved
             if (lastModifiedOnline != null) {
                 anyHostsSourceVerified = true;
-                // Check if update is available for this hosts file
-                if (lastModifiedLocal == null || lastModifiedOnline.after(lastModifiedLocal)) {
+                // Check if update is available for this source and source enabled
+                if (source.isEnabled() && (lastModifiedLocal == null || lastModifiedOnline.after(lastModifiedLocal))) {
                     updateAvailable = true;
                 }
             }
