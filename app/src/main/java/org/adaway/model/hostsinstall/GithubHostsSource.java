@@ -70,7 +70,6 @@ class GithubHostsSource {
         return url.startsWith("https://raw.githubusercontent.com/");
     }
 
-
     /**
      * Get last update of the hosts file.
      *
@@ -94,13 +93,7 @@ class GithubHostsSource {
         }
         // Read API response
         try (JsonReader reader = new JsonReader(new InputStreamReader(connection.getInputStream()))) {
-            Date date = null;
-            reader.beginArray();
-            if (reader.hasNext()) {
-                date = this.parseCommitStruct(reader);
-            }
-            reader.endArray();
-            return date;
+            return parseCommitArray(reader);
         } catch (IOException exception) {
             Log.w(Constants.TAG, "Failed to read GitHub API response: " + commitApiUrl + ".", exception);
             return null;
@@ -109,6 +102,22 @@ class GithubHostsSource {
         }
     }
 
+    @Nullable
+    private Date parseCommitArray(JsonReader reader) throws IOException {
+        Date date = null;
+        reader.beginArray();
+        while (reader.hasNext()) {
+            if (date == null) {
+                date = this.parseCommitStruct(reader);
+            } else {
+                reader.skipValue();
+            }
+        }
+        reader.endArray();
+        return date;
+    }
+
+    @Nullable
     private Date parseCommitStruct(JsonReader reader) throws IOException {
         Date date = null;
         reader.beginObject();
@@ -124,6 +133,7 @@ class GithubHostsSource {
         return date;
     }
 
+    @Nullable
     private Date parseCommitObject(JsonReader reader) throws IOException {
         Date date = null;
         reader.beginObject();
@@ -139,6 +149,7 @@ class GithubHostsSource {
         return date;
     }
 
+    @Nullable
     private Date parseCommitter(JsonReader reader) throws IOException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
         Date date = null;
