@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">יציאה</string>
-  <string name="button_apply">כל קבצי ה hosts מהמקור שהוגדר ירדו בהצלחה, ואוחדו עם הרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת</string>
   <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
   <string name="button_yes">כן</string>
   <string name="button_no">לא</string>
-  <string name="button_revert">בטל חסימת פרסומות</string>
   <string name="button_add">הוסף</string>
   <string name="button_cancel">ביטול</string>
-  <string name="button_revert_text">שחזר קובץ hosts לברירת מחדל של המערך.</string>
   <string name="button_save">שמור</string>
-  <string name="button_webserver_toggle_checked">השרת פועל</string>
-  <string name="button_webserver_toggle_unchecked">השרת אינו פועל</string>
   <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
   <string name="button_help">עזרה</string>
   <!--Home-->
   <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
   <string name="button_check_update_hosts">בדוק עידכונים</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">רשימה ריקה</string>
   <string name="checkbox_list_context_delete">מחק</string>
-  <string name="checkbox_list_footer">לאחר שתוסיף פריטים לרשימה זו עליך לאתחל את התוכנה שוב.</string>
-  <string name="checkbox_list_edit_dialog_title">ערוך</string>
   <string name="checkbox_list_context_title">ערוך רשומה</string>
   <string name="checkbox_list_context_edit">ערוך</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
   <string name="import_dialog">מייבא...</string>
   <string name="export_dialog">מייצא...</string>
-  <string name="export_success">כל הרשומות ייוצאו לקובץ בשם \'adaway-export\' בכרטיס הזיכרון</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">בודק עידכונים...</string>
   <string name="status_reverting">משחזר...</string>
   <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
-  <string name="status_checking_subtitle">בודק אם קיימים עידכונים</string>
   <string name="status_update_available">קיים עידכון</string>
   <string name="status_update_available_subtitle">קבצי hosts חדשים זמינים להורדה</string>
   <string name="status_no_connection">אין חיבור לאינטרנט</string>
@@ -49,7 +39,6 @@
   <string name="status_enabled">פעיל</string>
   <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
   <string name="status_disabled">לא פעיל</string>
-  <string name="status_disabled_subtitle">לא פעיל</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
   <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
@@ -61,10 +50,7 @@
   <string name="apply_remount_fail_title">הענקת הרשאות נכשלה</string>
   <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
   <string name="apply_copy_fail_title">העתקה נכשלה</string>
-  <string name="apply_success_subtitle">מקורות:</string>
   <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
-  <string name="apply_success_dialog">השינויים הוחלו בהצלחה.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
-  <string name="apply_symlink_successful">קישור סימבולי נוצר בהצלחה.\nיתכן ותידרש לאתחל את המערכת על מנת להכניס לתוקף את השינויים.\n\nאתה רוצה לאתחל כעת?\n(על מנת לא לאבד נתונים וודא שאין תוכנה שמשתמשת כעת בכרטיס!)</string>
   <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
   <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
   <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
@@ -81,7 +67,6 @@
   <string name="apply_dialog_apply">החל קובץ hosts</string>
   <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
   <string name="apply_fail_title">החלת הגדרות נכשלה</string>
-  <string name="revert_successful">שחזרת את הקובץ hosts לברירת המחדל של המערכת.\nיתכן שעל מנת שהשינוי יכנס לתוקף תידרש לאתחל את המערכת.\n\nאתה רוצה לאתחל?\n(על מנת לא לאבד נתונים וודא שאין יישוב שעושה שימוש כעת בכרטיס הדיכרון!) </string>
   <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
   <string name="revert_problem">חזרה נכשלה.</string>
   <string name="revert_problem_title">שחזור נכשל!</string>
@@ -89,9 +74,7 @@
   <string name="download_fail_title">הורדה נכשלה</string>
   <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
   <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
-  <string name="enable_systemless_successful">הפעלת את מצב ללא מערכת.\nייתכן שיהיה צורך לאתחל את אנדרואיד בכדי שהשינויים יכנסו לתוקף.\n\nהאם ברצונך להפעיל מחדש?\n(בכדי לא לאבד מידע, אנא וודא כי אין אפליקציה המשתמשת כרגע בכרטיס הזיכרון!)</string>
   <string name="enable_systemless_successful_title">הופעל בהצלחה</string>
-  <string name="disable_systemless_successful">השבתת את מצב ללא מערכת.\nייתכן שיהיה צורך לאתחל את אנדרואיד בכדי שהשינויים יכנסו לתוקף.\n\nהאם ברצונך להפעיל מחדש?\n(בכדי לא לאבד מידע, אנא וודא כי אין אפליקציה המשתמשת כרגע בכרטיס הזיכרון!)</string>
   <string name="disable_systemless_successful_title">כובה בהצלחה</string>
   <!--Other Dialogs-->
   <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
@@ -153,7 +136,6 @@
     <item>יעד מותאם אישית</item>
   </string-array>
   <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
-  <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר AdAway מותקנת על כרטיס זיכרון</string>
   <string name="pref_background">שירותים ברקע</string>
   <string name="pref_update_check_daily">בדוק עידכונים יומיים</string>
   <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>

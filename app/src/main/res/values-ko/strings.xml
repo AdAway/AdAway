@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">종료</string>
-  <string name="button_apply">파일 다운로드 및 광고 차단 적용</string>
   <string name="button_close">닫기</string>
   <string name="button_yes">예</string>
   <string name="button_no">아니오</string>
-  <string name="button_revert">광고 차단 비활성화</string>
   <string name="button_add">추가</string>
   <string name="button_cancel">취소</string>
-  <string name="button_revert_text">시스템의 기본 호스트 파일을 복원합니다.</string>
   <string name="button_save">저장</string>
-  <string name="button_webserver_toggle_checked">웹서버 실행 중</string>
-  <string name="button_webserver_toggle_unchecked">웹서버 미실행 중</string>
   <string name="button_webserver_toggle_text">로컬호스트의 웹서버를 시작 또는 중지하여 차단된 호스트명의 요청에 응답합니다.</string>
   <string name="button_help">도움말</string>
   <!--Home-->
   <string name="text_update">지정한 소스의 모든 호스트 파일이 사용자 목록과 다운로드 및 병합되었고 시스템에 하나의 호스트 파일로 설치되었습니다.</string>
   <string name="button_check_update_hosts">업데이트 확인</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">목록 비우기</string>
   <string name="checkbox_list_context_delete">삭제</string>
-  <string name="checkbox_list_footer">AdAway 를 재시작해야 새롭게 추가한 항목이 적용됩니다!</string>
-  <string name="checkbox_list_edit_dialog_title">편집</string>
   <string name="checkbox_list_context_title">항목 편집</string>
   <string name="checkbox_list_context_edit">편집</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP (IPv4 또는 IPv6):</string>
   <string name="import_dialog">가져오는 중...</string>
   <string name="export_dialog">내보내는 중...</string>
-  <string name="export_success">모든 입력 내용을 SD카드의 \'adaway-export\'로 내보냈습니다.</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">업데이트 확인 중...</string>
   <string name="status_reverting">되돌리는 중...</string>
   <string name="status_reverting_subtitle">표준 호스트 파일 생성 중</string>
-  <string name="status_checking_subtitle">업데이트 가능 여부 확인 중</string>
   <string name="status_update_available">업데이트 가능</string>
   <string name="status_update_available_subtitle">최신 호스트 파일 사용 가능</string>
   <string name="status_no_connection">인터넷 연결 안됨</string>
@@ -49,7 +39,6 @@
   <string name="status_enabled">활성화됨</string>
   <string name="status_enabled_subtitle">최신 호스트 파일이 활성화됨</string>
   <string name="status_disabled">비활성화됨</string>
-  <string name="status_disabled_subtitle">비활성화됨</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">대상에서 /system/etc/host으로 연결되는 심링크가 존재하지 않거나 올바르지 않습니다! 올바른 파일을 가르키지 않을 경우 AdAway가 작동하지 않습니다.\n\n심링크 생성을 시도하시겠습니까?</string>
   <string name="apply_symlink_missing_title">심링크가 누락됨</string>
@@ -61,10 +50,7 @@
   <string name="apply_remount_fail_title">재장착 실패</string>
   <string name="apply_copy_fail">호스트 파일 복사에 실패하였습니다!</string>
   <string name="apply_copy_fail_title">복사에 실패함</string>
-  <string name="apply_success_subtitle">호스트 소스 적용함:</string>
   <string name="apply_success_title">적용 성공</string>
-  <string name="apply_success_dialog">성공적으로 적용하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
-  <string name="apply_symlink_successful">심링크를 성공적으로 생성하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
   <string name="apply_symlink_successful_title">심링크 생성 성공</string>
   <string name="apply_symlink_fail">안드로이드가 심링크를 생성하지 못하였습니다.\n이것은 대부분 HTC 전화기의 S-ON이라 불리는 \'기능\'이 원인입니다.\n\n해결을 위해 전화기를 복구 모드로 부팅한 후 \'ln -s /data/data/hosts /system/etc/hosts\'(으)로 심링크를 생성하십시오.\n\n이 방법이 작동하지 않을 경우 인터넷에서 S-OFF 및 전화기 기종을 검색하십시오.</string>
   <string name="apply_symlink_fail_title">심링크 생성 실패</string>
@@ -81,7 +67,6 @@
   <string name="apply_dialog_apply">호스트 파일 적용 중</string>
   <string name="apply_fail">시스템에 호스트 파일 적용하는데 실패하였습니다!\n환경 설정에서 대상 호스트 파일을 /data/data/hosts(으)로 변경해보십시오.</string>
   <string name="apply_fail_title">적용에 실패함</string>
-  <string name="revert_successful">기본 호스트 파일로 되돌렸습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
   <string name="revert_successful_title">되돌리기 성공</string>
   <string name="revert_problem">알 수 없는 이유로 되돌리기에 실패하였습니다</string>
   <string name="revert_problem_title">되돌리기에 실패함!</string>
@@ -89,9 +74,7 @@
   <string name="download_fail_title">다운로드에 실패함</string>
   <string name="no_private_file">개인 파일을 생성할 수 없습니다.</string>
   <string name="no_private_file_title">개인 파일  생성에 실패함</string>
-  <string name="enable_systemless_successful">Systemless 모드를 활성화하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
   <string name="enable_systemless_successful_title">활성화 성공</string>
-  <string name="disable_systemless_successful">Systemless 모드를 비활성화하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
   <string name="disable_systemless_successful_title">비활성화 성공</string>
   <!--Other Dialogs-->
   <string name="no_root_title">루팅 필수</string>
@@ -152,7 +135,6 @@
     <item>사용자 지정 대상</item>
   </string-array>
   <string name="pref_update_check_summary">AdAway 시작 시 업데이트 확인</string>
-  <string name="pref_sdcard_problem">AdAway가 SD카드에 설치된 경우 해당 기능이 올바르게 작동하지 않습니다!</string>
   <string name="pref_background">배경 서비스</string>
   <string name="pref_update_check_daily">매일 업데이트 확인</string>
   <string name="pref_update_check_daily_summary">알림을 포함하여 배경에서 매일 업데이트 확인</string>

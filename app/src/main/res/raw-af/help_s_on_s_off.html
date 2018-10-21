@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>S-ON related help</title></head>
 <body>
 <h2>HTC Toestelle</h2>
 <p>AdAway sal nie werk in jou toestel die sogenaamde S-ON stelsel gebruik nie. Hierdie 'eienskap' bestaan gewoonlik op HTC Toestelle en verhoed AdAaway om na die gasheer lêers te skryf.</p>
@@ -8,7 +8,7 @@
 <p>S=OFF beteken dat die NAND deel van die toestel ontsluit is en geredigeer kan word. Die verstek instelling vit HTC is S-ON, wat beteken dat sekere dele ontoeganklik is en nie geredigeer kan word nie. Verder meer , die egtheid van die kern sagteware word verseker deur die S-ON vlag.  </p>
 
 <h2>Het ek S-ON of S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
 <br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Omseil</h2>
@@ -17,11 +17,11 @@
 <ol>
 <li>Begin in Begin Menu op jou toestel deur die <i>volume  af<i> knoppie saam met krag knoppie te druk.</li>
 <li>Gebruik <i>volume af<i> en kies "recovery".</li>
-<li>In "Clockwork recovery" volume af na "partitions menu" en druk die "track pad" om te kies</li>
+<li>In clockwork recovery go to "partitions menu".</li>
 <li>Kies <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
 <li>Prop asb jou usb kabel in en maak 'n opdrag reël oop op jou rekenaar. </li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
+<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
 <li>AdAway behoort nou te werk.</li>
 </ol>
 </body>

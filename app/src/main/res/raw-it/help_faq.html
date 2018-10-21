@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>FAQ</title></head>
 <body>
 <h2>Guadagni dalle pubblicità</h2>
 <p>Esiste un malinteso diffuso sul fatto che se un utente non clicca mai sulle pubblicità, allora bloccarle non danneggia finanziariamente il sito o l'applicazione. Questo è errato: gli sviluppatori guadagnano denaro anche semplicemente mostrando le pubblicità. Spetta a te decidere se bloccare gli annunci o meno. Personalmente non utilizzerei applicazioni che mostrano annunci perché li trovo molto fastidiosi, quindi senza un programma per bloccare le pubblicità non installerei queste applicazioni.</p>
@@ -7,9 +7,7 @@
 
 
 <h2>Come funziona AdAway?</h2>
-<p>AdAway usa il <a href="http://en.wikipedia.org/wiki/Hosts_file">file hosts</a> per bloccare i domini che forniscono annunci. Il file hosts è un file localizzato in <tt>/system/etc/hosts</tt> che mappa nomi di dominio verso indirizzi IP. 
-E' un modo tradizionale per riferire un indirizzo ip al suo nome di dominio senza fare affidamento al Domain Name System (DNS). 
-Tutti i domini non graditi sono inoltrati a <tt>127.0.0.1</tt>, il che significa che punteranno al tuo dispositivo.</p>
+<p>AdAway usa il <a href="http://en.wikipedia.org/wiki/Hosts_file">file hosts</a> per bloccare hostname che forniscono annunci. Il file hosts è un file localizzato in <code>/system/etc/hosts</code> che mappa gli hostname verso indirizzi IP. E' un modo abituale per mettere in relazione un indirizzo IP con il suo hostname senza fare affidamento al Domain Name System (DNS). Tutti gli hostname non desiderati sono inoltrati a <code>127.0.0.1</code>, il che significa che punteranno al tuo dispositivo.</p>
 
 <h2>Perché non è selezionabile la ricerca giornaliera di aggiornamenti?</h2>
 <p>La ricerca automatica di nuovi aggiornamenti è disponibile solo quando AdAway è installato nella memoria interna del telefono. Questo a causa delle restrizioni sulla piattaforma Android.</p>
@@ -18,9 +16,9 @@ Tutti i domini non graditi sono inoltrati a <tt>127.0.0.1</tt>, il che significa
 <p>Java su Android ha la sua propria cache DNS interna. Il sistema operativo rispecchierà il nuovo file hosts immediatamente (verificalo con un ping tramite linea di comando) ma dovrai riavviare Android per ricostruire la cache DNS di Java.</p>
 
 <h2>Come uso il webserver in AdAway?</h2>
-<p><b>AdAway funziona anche senza usare il webserver!</b>
-<br/><br/>Puoi abilitare un webserver locale nelle preferenze di AdAway per rispondere alle richieste verso l'IP locale <tt>127.0.0.1</tt>. Questo significa che le richieste dalle applicazioni ai server pubblicitari che vengono inoltrate su <tt>127.0.0.1</tt> ricevono risposta dal webserver di Adaway.
-<br/>Alcune applicazioni infatti si rifiutano di funzionare quando i server pubblicari non sono raggiungibili. Con questo metodo, ritornano di nuovo raggiungibili, ottenendo come risposta una pagina bianca e nessuna immagine.</p>
+<p><strong>AdAway funziona anche senza usare il webserver!</strong>
+<br/><br/>Puoi abilitare nelle preferenze di AdAway un webserver locale per rispondere alle richieste tramite l'IP locale <code>127.0.0.1</code>. Questo significa che le richieste dalle applicazioni ai server pubblicitari che vengono inoltrate verso <tt>127.0.0.1</tt> ricevono risposta dal webserver di Adaway.
+<br/>Alcune applicazioni infatti si rifiutano di funzionare quando i server pubblicitari non sono raggiungibili. Con questo metodo ritornano di nuovo raggiungibili, fornendo come risposta una pagina bianca e nessuna immagine pubblicitaria.</p>
 
 <h2>Come posso bloccare/sbloccare specifici hostname?</h2>
 <p>Aggiungi i nomi degli host che vuoi bloccare alla Blacklist (=Nera) sotto <i>Le Tue Liste</i>. In aggiunta, i nomi degli host che vuoi escludere dal blocco possono essere aggiunti alla <i>Whitelist</i> (=Bianca) e i nomi degli host che vuoi ridirezionare ad un indirizzo IP specifico alla<i>Redirection List</i> (=Ridirezionamento).</p>

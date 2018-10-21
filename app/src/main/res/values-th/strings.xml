@@ -3,57 +3,74 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">ปิด</string>
-  <string name="button_apply">ดาวน์โหลดไฟล์และใช้งานบล็อคโฆษณา</string>
   <string name="button_close">ปิด</string>
   <string name="button_yes">ใช่</string>
   <string name="button_no">ไม่</string>
-  <string name="button_revert">ปิดใช้งานบล็อคโฆษณา</string>
   <string name="button_add">เพิ่ม</string>
   <string name="button_cancel">ยกเลิก</string>
-  <string name="button_revert_text">คืนค่าไฟล์โฮสต์เริ่มต้นบนระบบของคุณ</string>
   <string name="button_save">บันทึก</string>
-  <string name="button_webserver_toggle_checked">กำลังใช้งานเว็บเซิร์ฟเวอร์</string>
-  <string name="button_webserver_toggle_unchecked">ไม่ได้ใช้งานเว็บเซิร์ฟเวอร์</string>
   <string name="button_webserver_toggle_text">เปิดหรือปิดเว็บเซิร์ฟเวอร์บนโลเคิลโฮสต์เพื่อบล็อคตอบรับคำขอไปยังไฟล์โฮสต์</string>
   <string name="button_help">ช่วยเหลือ</string>
   <!--Home-->
+  <string name="header_help">ยินดีต้อนรับค่ะ!</string>
+  <string name="button_show_help">แสดงความช่วยเหลือเพิ่มเติม</string>
+  <string name="icon_update_status">อัพเดทสถานะ</string>
   <string name="text_update">ไฟล์โฮสต์ทั้งหมดจากแหล่งที่กำหนดไว้ถูกดาวน์โหลดและติดตั้งเป็นไฟล์โฮสต์บนระบบของคุณแล้ว</string>
-  <string name="button_check_update_hosts">ตรวจสอบอัพเดต</string>
+  <string name="button_check_update_hosts">ตรวจสอบอัพเดท</string>
+  <string name="button_update_hosts">อัพเดทโฮสต์</string>
+  <string name="button_enable_hosts">เปิดใช้งานบล็อคโฆษณา</string>
+  <string name="button_disable_hosts">ปิดใช้งานบล็อคโฆษณา</string>
+  <string name="header_webserver">เว็บเซิร์ฟเวอร์</string>
+  <string name="webserver_status_running">กำลังทำงาน</string>
+  <string name="webserver_status_stopped">กำลังหยุด</string>
+  <string name="button_enable_webserver">เปิดใช้งานเว็บเซิร์ฟเวอร์</string>
+  <string name="button_disable_webserver">ปิดใช้งานเว็บเซิร์ฟเวอร์</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">ว่าง</string>
   <string name="checkbox_list_context_delete">ลบ</string>
-  <string name="checkbox_list_footer">หลังจากเพิ่มรายการใหม่ไปยังรายการ จำเป็นเปิดใช้งาน AdAway อีกครั้ง</string>
-  <string name="checkbox_list_edit_dialog_title">แก้ไข</string>
-  <string name="checkbox_list_context_title">แก้ไข</string>
+  <string name="checkbox_list_context_title">แก้ไขรายการ</string>
   <string name="checkbox_list_context_edit">แก้ไข</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">บัญชีขาว</string>
   <string name="lists_tab_blacklist">บัญชีดำ</string>
+  <string name="lists_tab_redirection_list">เปลี่ยนเส้นทาง</string>
+  <string name="list_add_dialog_black">เพิ่มโฮสต์ลงในบัญชีดำ</string>
+  <string name="list_add_dialog_white">เพิ่มโฮสต์ไปยังบัญชีขาว</string>
+  <string name="list_add_dialog_redirect">เพิ่มการเปลี่ยนเส้นทางของโฮสต์</string>
+  <string name="list_edit_dialog_black">แก้ไขโฮสต์ของบัญชีดำ</string>
+  <string name="list_edit_dialog_white">แก้ไขบัญชีขาว</string>
+  <string name="list_edit_dialog_redirect">แก้ไขการเปลี่ยนเส้นทาง</string>
   <string name="list_dialog_hostname">ชื่อโฮสต์:</string>
+  <string name="list_dialog_hostname_hint">URL แหล่งที่มาของโฮสต์</string>
+  <string name="list_dialog_wildcard">(อนุญาตให้ใช้อักขระ * และ ? แล้ว)</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="import_dialog">กำลังนำเข้า…</string>
   <string name="export_dialog">กำลังส่งออก…</string>
-  <string name="export_success">ส่งออกข้อมูลทั้งหมดไปยัง \'adaway-export\' บนการ์ดความจำ</string>
   <!--Hosts content-->
+  <string name="hosts_header">ไฟล์โฮสต์</string>
+  <string name="hosts_content">กำลังโหลดเนื้อหาไฟล์โฮสต์...</string>
+  <string name="hosts_open_button">เปิดไฟล์ hosts</string>
   <!--Status Notification-->
   <string name="status_checking">กำลังตรวจสอบอัพเดต…</string>
   <string name="status_reverting">กำลังคืนค่า…</string>
   <string name="status_reverting_subtitle">กำลังสร้างไฟล์โฮสต์มาตรฐาน</string>
-  <string name="status_checking_subtitle">กำลังตรวจสอบหากสามารถอัพเดตได้</string>
   <string name="status_update_available">สามารถอัพเดตได้</string>
   <string name="status_update_available_subtitle">สามารถอัพเดตไฟล์โฮสต์ได้</string>
   <string name="status_no_connection">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
   <string name="status_no_connection_subtitle">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
   <string name="status_download_fail">ไม่สามารถใช้งานแหล่งที่มาได้</string>
-  <string name="status_download_fail_subtitle_new">ไม่มีแหล่งที่มาโฮสต์ที่สามารถเข้าถึงได้</string>
+  <string name="status_download_fail_subtitle_new">ไม่สามารถเข้าถึงแหล่งที่มาโฮสต์ได้</string>
+  <string name="status_failure">เกิดข้อผิดพลาดบางอย่าง</string>
+  <string name="status_failure_subtitle">ตรวจสอบ logcat สำหรับรายละเอียดเพิ่มเติม</string>
   <string name="status_enabled">เปิดใช้งานแล้ว</string>
   <string name="status_enabled_subtitle">เปิดใช้งานไฟล์โฮสต์แล้ว</string>
   <string name="status_disabled">ปิดใช้งาน</string>
-  <string name="status_disabled_subtitle">ปิดใช้งาน</string>
+  <string name="status_disabled_subtitle">คืนค่าไฟล์โฮสต์เป็นค่าเริ่มต้นแล้ว</string>
+  <string name="notification_channel_update_name">อัพเดท</string>
+  <string name="notification_channel_update_description">แจ้งเตือนการอัพเดทโฮสต์ใหม่</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink จากเป้าหมายของคุณไปยัง /system/etc/hosts ไม่พบหรือไม่ถูกต้อง AdAway จะไม่ทำงานหากไม่เลือกไปยังไฟล์ที่ถูกต้อง\n\nต้องการลองสร้างไฟล์ Symlink?</string>
+  <string name="apply_symlink_missing">Symlink จากเป้าหมายของคุณไปยัง /system/etc/hosts ไม่พบหรือไม่ถูกต้อง AdAway จะไม่ทำงานหากไม่เลือกไปยังไฟล์ที่ถูกต้อง\n\nต้องการสร้างไฟล์ Symlink?</string>
   <string name="apply_symlink_missing_title">ไม่พบ Symlink</string>
-  <string name="apply_not_enough_space">พื้นที่ไม่เพียงพอ\ลองเปลี่ยนไฟล์โฮสต์ในการตั้งค่าไปยัง /data/data/hosts</string>
+  <string name="apply_not_enough_space">พื้นที่ไม่เพียงพอ\nลองเปลี่ยนไฟล์โฮสต์ในการตั้งค่าไปยัง /data/data/hosts</string>
   <string name="apply_not_enough_space_title">พื้นที่ไม่เพียงพอ</string>
   <string name="apply_private_file_fail">ไม่สามารถอ่านไฟล์ดาวน์โหลดได้</string>
   <string name="apply_private_file_fail_title">ไฟล์ส่วนตัวล้มเหลว</string>
@@ -61,17 +78,15 @@
   <string name="apply_remount_fail_title">เม้าท์ล้มเหลว</string>
   <string name="apply_copy_fail">คัดลอกไฟล์โฮสต์ล้มเหลว</string>
   <string name="apply_copy_fail_title">คัดลอกล้มเหลว</string>
-  <string name="apply_success_subtitle">แหล่งที่มาโฮสต์:</string>
+  <string name="apply_success_subtitle">ใช้แหล่งที่มาของโฮสต์แล้ว</string>
   <string name="apply_success_title">กำลังใช้งานเสร็จสิ้น</string>
-  <string name="apply_success_dialog">ใช้งานเสร็จสิ้น\nอาจจะไม่จำเป็นต้องรีบูตเพื่อเปลี่ยนแปลงการตั้งค่า\n\nต้องการรีบูตระบบ?\n(เพื่อป้องกันข้อมูลสูญหายต้องแน่ใจว่าไม่มีแอพพลิเคชันใช้การ์ดความจำ!)</string>
-  <string name="apply_symlink_successful">สร้าง Symlink เสร็จสิ้น\nอาจจะจำเป็นต้องรีบูตระบบเพื่อเปลี่ยนแปลงการตั้งค่า\n\nต้องการรีบูตระบบ?\n(เพื่อป้องกันข้อมูลสูญหายต้องแน่ใจว่าไม่มีแอพพลิเคชันใช้การ์ดความจำ!)</string>
   <string name="apply_symlink_successful_title">สร้าง Symlink เสร็จสิ้น</string>
-  <string name="apply_symlink_fail">Symlink ไม่สามารถสร้างโดยแอนดรอย\nคุณสมบัตินี้อาจจะล้มเหลวเพราะ S-ON บนโทรศัพท์ HTC!\n\nวิธีการแก้ปัญหาคือการรีบูตระบบไปยังโหมดคืนค่าและสร้าง Symlink ใน /data/data/hosts /system/etc/hosts\'\n\nหากไม่สามารถใช้งาน โปรดหาข้อมูลในอินเตอร์เน็ตเกี่ยวกับ S-OFF</string>
+  <string name="apply_symlink_fail">Symlink ไม่สามารถสร้างโดยแอนดรอยด์\nคุณสมบัตินี้อาจจะล้มเหลวเพราะ S-ON บนโทรศัพท์ HTC!\n\nวิธีการแก้ปัญหาคือการรีบูตระบบไปยังโหมดคืนค่าและสร้าง Symlink ใน /data/data/hosts /system/etc/hosts\'\n\nหากไม่สามารถใช้งาน โปรดหาข้อมูลในอินเตอร์เน็ตเกี่ยวกับ S-OFF</string>
   <string name="apply_symlink_fail_title">สร้าง Symlink ล้มเหลว</string>
   <string name="apply_help">กรุณาอ่านช่วยเหลือสำหรับข้อมูลเพิ่มเติม</string>
   <string name="apply_apn_proxy">พร็อกซี่ APN ถูกตั้งบนระบบ!\nAdAway จะไม่ทำงานเมื่อใช้เครือข่ายมือถืออย่างเช่น 3G สามารถปิดใช้งานพร็อกซี่เลือกAPN (บนแอนดรอย 4: ระบบไร้สายและเครือข่าย -&gt; อื่นๆ… -&gt; เครือข่ายมือถือ -&gt; ชื่อจุดเชื่อมต่อ) และลบค่าจากช่องพร็อกซี่</string>
   <string name="apply_apn_proxy_title">ตั้งพร็อกซี่ APN!</string>
-  <string name="no_connection">การเชื่อมต่อไปยังอินเตอร์เน็ตไม่ทำงาน</string>
+  <string name="no_connection">การเชื่อมต่ออินเตอร์เน็ตไม่สำเร็จ</string>
   <string name="no_connection_title">ไม่มีการเชื่อมต่อ</string>
   <string name="download_dialog">กำลังดาวน์โหลด…</string>
   <string name="apply_dialog">กำลังใช้งาน…</string>
@@ -80,8 +95,7 @@
   <string name="apply_dialog_hosts">กำลังสร้างไฟล์โฮสต์</string>
   <string name="apply_dialog_apply">กำลังใช้งานไฟล์โฮสต์</string>
   <string name="apply_fail">ใช้งานไฟล์โฮสต์ไปยังระบบล้มเหลว!\nลองเปลี่ยนไฟล์โฮสต์ในการตั้งค่าไปยัง /data/data/hosts</string>
-  <string name="apply_fail_title">ใช้งานล้มเหลว</string>
-  <string name="revert_successful">คืนค่าไปยังไฟล์โฮสต์เริ่มต้น\nอาจจะจำเป็นต้องรีบูตระบบเพื่อเปลี่ยนแปลงการตั้งค่า\n\nต้องการรีบูตระบบ?\n(เพื่อป้องกันข้อมูลสูญหายต้องแน่ใจว่าไม่มีแอพพลิเคชันใช้การ์ดความจำ!) </string>
+  <string name="apply_fail_title">นำไปใช้ล้มเหลว</string>
   <string name="revert_successful_title">คืนค่าเสร็จสิ้น</string>
   <string name="revert_problem">คืนค่าล้มเหลวไม่ทราบเหตุผล</string>
   <string name="revert_problem_title">คืนค่าล้มเหลว!</string>
@@ -89,16 +103,10 @@
   <string name="download_fail_title">ดาวน์โหลดไฟล์ล้มเหลว</string>
   <string name="no_private_file">ไฟล์ส่วนตัวไม่สามารถสร้างได้</string>
   <string name="no_private_file_title">สร้างไฟล์ส่วนตัวล้มเหลว</string>
-  <string name="enable_systemless_successful">คุณได้เปิดใช้งานโหมดไม่เข้าไปแก้ไขไฟล์ของระบบ.
-เริ่มระบบใหม่อีกครั้งเพื่อให้มีการเปลี่ยนแปลง.
-คุณจะเริ่มระบบใหม่อีกครั้งหรือไม่?(เพื่อป้องกันข้อมูลสูญหาย ตรวจสอบให้แน่ใจว่าไม่มีแอพ ที่ใช้งาน sdcard อยู่)</string>
   <string name="enable_systemless_successful_title">การเปิดใช้งานเสร็จสมบูรณ์</string>
-  <string name="disable_systemless_successful">คุณได้ปิดใช้งานโหมดไม่แก้ไขไฟล์ของระบบ. 
-เริ่มระบบใหม่อีกครั้งเพื่อให้มีการเปลี่ยนแปลง.
-คุณจะเริ่มระบบใหม่อีกครั้งหรือไม่?(เพื่อป้องกันข้อมูลสูญหาย ตรวจสอบให้แน่ใจว่าไม่มีแอพ ที่ใช้งาน sdcard อยู่)</string>
   <string name="disable_systemless_successful_title">การปิดใช้งานเสร็จสมบูรณ์</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">ไม่พบไบนารี su หรือคุณไม่อนุญาตให้มีสิทธิ์ root สำหรับ AdAway \ n \ n อาจเกิดขึ้นได้เมื่ออุปกรณ์ของคุณไม่ได้รับการรูท \ n คุณสามารถหาข้อมูลเกี่ยวกับวิธีการรูทอุปกรณ์ของคุณบน wiki.lineageos.org หรืออื่น ๆ เว็บไซต์ Android</string>
+  <string name="no_root_description">ไม่พบไบนารี su หรือคุณไม่มีสิทธิ์รูทสำหรับ AdAway \n\n คุณสามารถหาข้อมูลเกี่ยวกับวิธีการรูทอุปกรณ์ของคุณด้วย Magisk หรือ SuperSU</string>
   <string name="no_root_title">จำเป็นต้องรูท</string>
   <string name="hosts_add_dialog">ใส่ URL ไปยังไฟล์โฮสต์:</string>
   <string name="no_hostname">ชื่อโฮสต์ไม่ถูกต้อง!</string>
@@ -116,13 +124,19 @@
   <string name="menu_export">ส่งออกรายการทั้งหมด</string>
   <!--Help-->
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">ถามตอบ</string>
+  <string name="help_tab_faq">ถาม-ตอบ</string>
   <string name="help_tab_problems">ปัญหา</string>
   <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_scanning">กำลังสแกน...</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">เครื่อง:</string>
   <string name="hosts_last_modified_online">ออนไลน์:</string>
   <string name="hosts_not_available">ไม่สามารถใช้งานได้</string>
+  <string name="hosts_add_dialog_title">เพิ่มแหล่งที่มา</string>
+  <string name="hosts_edit_dialog_title">แก้ไขแหล่งข้อมูล</string>
+  <string name="hosts_dialog_url">URL: (https:// หรือ file://)</string>
+  <string name="hosts_dialog_url_hint">URL แหล่งที่มาของโฮสต์</string>
   <!--Other-->
   <string name="app_subtitle">บล็อคโฆษณา</string>
   <string name="no_text_editor_title">ไม่ได้ติดตั้งตัวแก้ไขข้อความ</string>
@@ -130,11 +144,28 @@
   <string name="no_file_manager_title">ไม่ได้ติดตั้งตัวจัดการไฟล์</string>
   <string name="no_file_manager">ไม่มีตัวจัดการไฟล์เพื่อเปิดไฟล์ คุณสามารถติดตั้งตัวจัดการไฟล์ OI หรือตัวจัดการไฟล์อื่นๆ\n\nต้องการติดตั้งตัวจัดการไฟล์ OI?</string>
   <!--Tcpdump-->
-  <string name="tcpdump_description">Tcpdump เป็นเครื่องมือตรวจสอบคำขอ DNS และบันทึกการใช้งาน คุณสามารถเริ่มใช้งานในพื้นหลัง ใช้งานแอพลิเคชั่นที่แสดงโฆษณาและวิเคราะห์คำขอ DNS โดยใช้บันทึกการใช้งาน โฆษณาสามารถเพิ่มไปยังบัญชีดำของคุณ</string>
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump เป็นเครื่องมือตรวจสอบคำขอ DNS และบันทึกการใช้งาน คุณสามารถเริ่มใช้งานในพื้นหลัง ใช้งานแอพลิเคชั่นที่แสดงโฆษณาและวิเคราะห์คำขอ DNS โดยใช้บันทึกการใช้งานโฆษณาสามารถเพิ่มไปยังบัญชีดำของคุณ</string>
+  <string name="tcpdump_disable_monitoring">ปิดใช้งานการตรวจสอบ</string>
+  <string name="tcpdump_enable_monitoring">เปิดใช้งานการตรวจสอบ</string>
+  <string name="tcpdump_show_results">แสดงผลลัพธ์</string>
+  <string name="tcpdump_redirect_dialog_title">เปลี่ยนเส้นทางโดเมน</string>
+  <string name="tcpdump_menu_sort">จัดเรียงโดเมน</string>
+  <string name="tcpdump_menu_clear">ล้างบันทึก</string>
+  <string name="tcpdump_sort_alphabetical">จัดเรียงตามตัวอักษร</string>
+  <string name="tcpdump_sort_top_level_domain">จัดเรียงโดเมนยอดนิยม</string>
+  <string name="tcpdump_entry_add_blacklist">เพิ่มรายการลงในบัญชีดำ</string>
+  <string name="tcpdump_entry_add_whitelist">เพิ่มรายการไปยังบัญชีขาว</string>
+  <string name="tcpdump_entry_add_redirection_list">เพิ่มรายการไปยังรายการเปลี่ยนเส้นทาง</string>
   <!--Preferences-->
   <string name="pref_download">การตั้งค่าทั่วไป</string>
+  <string name="pref_dismiss_welcome">ซ่อนหน้าต้อนรับ</string>
+  <string name="pref_dismiss_welcome_summary">อย่าแสดงหน้าต้อนรับบนหน้าจอหลัก</string>
+  <string name="pref_dark_theme">เปิดใช้ธีมสีดำ</string>
+  <string name="pref_dark_theme_summary">ใช้ธีมสีดำเพื่อลดความสว่างของหน้าจอ</string>
+  <string name="pref_dark_theme_notification">ธีมจะถูกใช้เมื่อเริ่มต้นแอพฯครั้งต่อไป!</string>
   <string name="pref_hosts">ไฟล์โฮสต์</string>
-  <string name="pref_redirection_ip">Redirection IP</string>
+  <string name="pref_redirection_ip">เปลี่ยนเส้นทาง IP</string>
   <string name="pref_update_check">ตรวจสอบอัพเดต</string>
   <string name="pref_apply_method">ไฟล์โฮสต์</string>
   <string name="pref_apply_method_summary">ก่อนจะเปลี่ยนการตั้งค่า กรุณาอ่านช่วยเหลือเกี่ยวกับฟังก์ชั่นนี้</string>
@@ -157,25 +188,62 @@
     <item>กำหนดเอง</item>
   </string-array>
   <string name="pref_update_check_summary">ตรวจสอบอัพเดตเมื่อเปิดแอพพลิเคชั่น</string>
-  <string name="pref_sdcard_problem">ฟังก์ชั่นนี้อาจจะไม่ทำงานเมื่อ AdAway ถูกติดตั้งบนการ์ดความจำ</string>
   <string name="pref_background">บริการพื้นหลัง</string>
   <string name="pref_update_check_daily">ตรวจสอบอัพเดตทุกวัน</string>
   <string name="pref_update_check_daily_summary">ตรวจสอบการอัพเดตในพื้นหลังและแสดงการแจ้งเตือน</string>
   <string name="pref_automatic_update_daily">อัพเดตอัตโนมัติ</string>
   <string name="pref_automatic_update_daily_summary">อัพเดตอัตโนมัติในพื้นหลังหากสามารถอัพเดตได้</string>
+  <string name="pref_update_only_on_wifi">อัพเดทเมื่อไม่มีการตรวจสอบเท่านั้น</string>
+  <string name="pref_update_only_on_wifi_summary">ดำเนินการปรับปรุงพื้นหลังเฉพาะเมื่อเชื่อมต่อกับเครือข่ายที่ไม่มีการตรวจสอบเท่านั้น</string>
   <string name="pref_whitelist_rules">อนุญาตบัญชีขาว</string>
   <string name="pref_whitelist_rules_summary">อนุญาตบัญชีขาวจากแหล่งที่มาโฮสต์</string>
-  <string name="pref_redirection_rules_summary">อนุญาต Redirection จากแหล่งที่มาโฮสต์</string>
+  <string name="pref_redirection_rules">อนุญาตให้เปลี่ยนเส้นทาง</string>
+  <string name="pref_redirection_rules_summary">อนุญาตให้เปลี่ยนเส้นทางจากแหล่งที่มาโฮสต์</string>
   <string name="pref_debug">ดีบัค</string>
   <string name="pref_enable_debug">บันทึกการใช้งานดีบัค</string>
   <string name="pref_enable_debug_summary">จำเป็นต้องรีสตาร์ท AdAway เพื่ออัพเดตการตั้งค่า</string>
   <string name="pref_enable_ipv6">เปิดใช้งาน IPv6</string>
   <string name="pref_enable_ipv6_summary">ไฟล์โฮสต์ทั้งหมดจะได้รับตรงกัน ::1 (IPv6 โลคัลโฮสต์)</string>
-  <string name="pref_enable_systemless_summary">ป้งกันไม่ให้ AdAway แก้ไขไฟล์ในระบบ</string>
+  <string name="pref_enable_systemless_summary">ป้องกันไม่ให้ AdAway แก้ไขไฟล์ในระบบ</string>
   <string name="pref_enable_systemless">เปิดใช้งานโหมดไม่เข้าไปแก้ไขไฟล์ของระบบ</string>
+  <string name="pref_edit_text_value">แก้ไขค่ากำหนดของข้อความ</string>
+  <string name="drawer_open">เปิดเมนู</string>
+  <string name="drawer_close">ปิดเมนู</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>หน้าหลัก</item>
+    <item>แหล่งที่มาโฮสต์</item>
+    <item>รายการของคุณ</item>
+    <item>เปิดไฟล์โฮสต์</item>
+    <item>บันทึกคำขอ DNS</item>
+    <item>สแกนหา Adware</item>
+    <item>ตั้งค่า</item>
+    <item>ช่วยเหลือ</item>
+  </string-array>
   <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 สนับสนุนการพัฒนา \u2764</string>
+  <string name="drawer_support_dialog_title">สนับสนุนการพัฒนา</string>
+  <string name="drawer_support_dialog_text">AdAway เป็นซอฟต์แวร์ฟรีและโอเพ่นซอร์สที่พัฒนาและดูแลโดยชุมชนเท่านั้น ใช้เวลาสองปีในการทำโครงการและใช้เวลาว่างในการสร้างแอพฯรุ่นใหม่นี้\n\nหากคุณต้องการดูข้อมูลอัพเดทเพิ่มเติมโปรดอย่าลังเลที่จะสนับสนุนโครงการ</string>
+  <string name="drawer_support_dialog_button">แสดงการสนับสนุนของฉัน</string>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">คำขอ DNS</string>
+  <string name="shortcut_your_lists">รายการของคุณ</string>
   <string name="shortcut_preferences">การตั้งค่า</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">อัพเดทล่าสุดสำหรับ %1$s</string>
+  <string name="hosts_source_need_update">ต้องการอัพเดทสำหรับ %1$s</string>
+  <string name="hosts_source_last_update">ปรับปรุงครั้งล่าสุด %1$s ที่ผ่านมา</string>
+  <string name="hosts_source_unknown_status">สถานะอัพเดทที่ไม่รู้จัก</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="other">%d นาที</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="other">%d ชั่วโมง</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="other">%d วัน</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="other">%d เดือน</item>
+  </plurals>
 </resources>

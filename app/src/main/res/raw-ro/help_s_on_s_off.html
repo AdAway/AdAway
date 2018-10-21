@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>S-ON related help</title></head>
 <body>
 <h2>Dispozitive HTC</h2>
 <p>AdAway nu functioneaza pe dispozitivele cu S-ON. Aceasta 'functie' este intalnita pe multe dispozitive HTC si nu permite AdAway sa scrie in fisierul hosts.</p>
@@ -8,19 +8,19 @@
 <p>S-OFF inseamna ca partitia NAND a dispozitivului este deblocata si poate fi scrisa. Setarea din fabrica a dispozitivelor HTC este S-ON,ceea ce inseamna ca anumite parti ale sistemului nu pot fi accesate si nu exista certitudinea unui root permanent.De asemenea,S-ON face obligatorie verificarea semnaturilor pentru imaginile de sistem.</p>
 
 <h2>Dispozitivul meu este S-ON sau S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
 <br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Solutie</h2>
 <p>Necesar: Instalare Android SDK cu modul ADB pe PC-ul dumneavoastra.</p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <i>volume down</i> button while pressing power.</li>
-<li>Use <i>volume down</i> to select recovery.</li>
-<li>In clockwork recovery volume down to "partitions menu" and hit the track pad to select</li>
-<li>Select <i>mount /system</i>, <i>mount /sdcard</i> and <i>mount /data</i>.</li>
+<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
+<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
+<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
 <li>Conecteaza telefonul la PC prin cablu USB si deschide o linie de comanda.</li>
-<li>Enter adb shell and type <tt>ln -s /data/hosts /system/etc/hosts</tt> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <tt>/data</tt> while allowing the OS to use the file as if it were stored in <tt>/system</tt>.)</li>
-<li>Reboot your device and set <i>Target hosts file</i> to <i>/data/hosts</i> in AdAway's preferences.</li>
+<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
+<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
 <li>AdAway ar trebui sa functioneze acum.</li>
 </ol>
 </body>

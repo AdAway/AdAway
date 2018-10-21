@@ -1,7 +1,7 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+บล็อคโฆษณาโดยใช้ไฟล์โฮสต์
+ไฟล์โฮสต์คือไฟล์ระบบที่เชื่อมระหว่างชื่อโฮสต์และที่อยู่ IP
+เมื่อแอพฯร้องขอโฆษณาจากโฮสต์ในไฟล์นั้นคำขอนี้จะถูกเปลี่ยนเส้นทางไปยัง IP เครื่องคือ 127.0.0.1 ซึ่งไม่มีอะไร
+คุณสามารถดาวน์โหลดไฟล์โฮสต์ที่กำหนดไว้ล่วงหน้าจากภายในแอพฯเพื่อรวมไฟล์โฮสต์ไว้ในไฟล์โฮสต์ของระบบ นอกจากนี้ยังสามารถใช้ไฟล์ของคุณเองและเพิ่มโฮสต์บางแห่งลงในบัญชีดำ
+มีตัวเลือกในการเรียกใช้เว็บเซิร์ฟเวอร์ภายในเพื่อตอบสนองต่อชื่อโฮสต์ที่ถูกบล็อคและส่งคำขอไปยังที่อยู่ IP ที่คุณเลือกแทน
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+ต้องการรูท: ใช่ไฟล์ฮโสต์จะอยู่ใน /system ซึ่งเป็นแบบอ่านอย่างเดียวโดยค่าเริ่มต้น

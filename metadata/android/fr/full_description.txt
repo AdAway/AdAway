@@ -1,7 +1,7 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Un bloqueur de publicité qui utilise le fichier hosts.
+Le fichier hosts est un fichier système qui contient une liste de correspondances entre noms d’hôtes et adresses IP.
+Quand une appli demande une publicité à un hôte se trouvant dans ce fichier, cette requête est redirigée vers l’adresse IP locale 127.0.0.1, ce qui ne retourne rien.
+Vous pouvez télécharger des fichiers hosts prédéfinis à partir de l’appli pour les incorporer au fichier hosts de votre système. Il est aussi possible d’utiliser vos propres fichiers et de mettre certains hôtes en liste blanche ou noire.
+Des options permettent d’exécuter un serveur Web local pour répondre aux noms d’hôtes bloqués et pour plutôt rediriger les requêtes vers l’adresse IP de votre choix.
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+L’accès racine est exigé. Le fichier hosts est situé dans /system qui est en lecture seule par défaut.

@@ -1,6 +1,6 @@
-An ad blocker that uses the hosts file. 
+एक विज्ञापन अवरोधक होस्ट फाइल प्रयोग गर्दछ।
 The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+जब एक फाइलले आवेदन होस्टबाट विज्ञापन अनुरोध गर्दछ, यो अनुरोध स्थानीय IP 127.0.0.1 मा पुनः निर्देशित गरिन्क्ष, जो केहि गर्दैन।
 You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
 There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
 

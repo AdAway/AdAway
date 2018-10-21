@@ -3,22 +3,16 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Afsluiten</string>
-  <string name="button_apply">Bestanden downloaden en advertentieblokkering toepassen</string>
   <string name="button_close">Sluiten</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nee</string>
-  <string name="button_revert">Advertentieblokkering uitschakelen</string>
   <string name="button_add">Toevoegen</string>
   <string name="button_cancel">Annuleren</string>
-  <string name="button_revert_text">Zet het standaard hosts-bestand terug op uw systeem.</string>
   <string name="button_save">Opslaan</string>
-  <string name="button_webserver_toggle_checked">Webserver wordt uitgevoerd</string>
-  <string name="button_webserver_toggle_unchecked">Webserver wordt niet uitgevoerd</string>
   <string name="button_webserver_toggle_text">Start of stop de webserver op localhost om verzoeken aan geblokkeerde hostnamen te beantwoorden.</string>
   <string name="button_help">Hulp</string>
   <!--Home-->
   <string name="header_help">Welkom!</string>
-  <string name="text_help">AdAway is vrije software, ontworpen om reclame te blokkeren. Het downloadt een lijst van reclamenetwerken en stelt je apparaat in om deze te blokkeren.\nWil je meer te weten komen? Bekijk dan de hulp hieronder!</string>
   <string name="button_show_help">Meer hulp tonen</string>
   <string name="icon_update_status">Status bijwerken</string>
   <string name="text_update">Alle hosts-bestanden van de gekozen bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geplaatst.</string>
@@ -28,10 +22,7 @@
   <string name="button_disable_hosts">Advertentieblokkering uitschakelen</string>
   <string name="header_webserver">Webserver</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Lege lijst</string>
   <string name="checkbox_list_context_delete">Verwijderen</string>
-  <string name="checkbox_list_footer">Na het toevoegen van nieuwe hostnamen aan deze lijst, moet u AdAway opnieuw toepassen!</string>
-  <string name="checkbox_list_edit_dialog_title">Bewerken</string>
   <string name="checkbox_list_context_title">Invoer bewerken</string>
   <string name="checkbox_list_context_edit">Bewerken</string>
   <!--Your lists-->
@@ -41,13 +32,11 @@
   <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
   <string name="import_dialog">Bezig met importeren...</string>
   <string name="export_dialog">Bezig met exporteren...</string>
-  <string name="export_success">Alle regels zijn geëxporteerd naar een bestand genaamd \'adaway-export\' op uw SD-kaart.</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Controleren op updates...</string>
   <string name="status_reverting">Bezig met terugzetten...</string>
   <string name="status_reverting_subtitle">Standaardhosts-bestand aanmaken</string>
-  <string name="status_checking_subtitle">Bezig met controleren op updates</string>
   <string name="status_update_available">Er is een update beschikbaar</string>
   <string name="status_update_available_subtitle">Nieuwere hosts-bestanden beschikbaar</string>
   <string name="status_no_connection">Geen internetverbinding</string>
@@ -57,7 +46,6 @@
   <string name="status_enabled">Ingeschakeld</string>
   <string name="status_enabled_subtitle">Nieuwste hosts-bestanden toegepast</string>
   <string name="status_disabled">Uitgeschakeld</string>
-  <string name="status_disabled_subtitle">Uitgeschakeld</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink te maken?</string>
   <string name="apply_symlink_missing_title">Symlink ontbreekt</string>
@@ -69,10 +57,7 @@
   <string name="apply_remount_fail_title">Opnieuw koppelen mislukt</string>
   <string name="apply_copy_fail">Kopiëren van hosts-bestand is mislukt!</string>
   <string name="apply_copy_fail_title">Kopiëren mislukt</string>
-  <string name="apply_success_subtitle">Toegepaste hosts-bronnen:</string>
   <string name="apply_success_title">Toepassen voltooid</string>
-  <string name="apply_success_dialog">Toepassen voltooid.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
-  <string name="apply_symlink_successful">Symlink aangemaakt.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu herstarten?\n(Om dataverlies te voorkomen moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
   <string name="apply_symlink_successful_title">Symlink aangemaakt</string>
   <string name="apply_symlink_fail">De symlink kon niet door Android worden aangemaakt.\nDit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons!\n\nEen oplossing is uw telefoon in recoverymodus opstarten en hier de symlink aanmaken met \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAls dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
   <string name="apply_symlink_fail_title">Symlink aanmaken mislukt</string>
@@ -89,7 +74,6 @@
   <string name="apply_dialog_apply">Hosts-bestand plaatsen</string>
   <string name="apply_fail">Het plaatsen van het hosts-bestand is mislukt!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
   <string name="apply_fail_title">Hosts-bestand plaatsen mislukt</string>
-  <string name="revert_successful">U hebt het standaardhosts-bestand teruggezet.\nHet kan nodig zijn dat Android opnieuw moet worden opgestart om de wijzigingen effect te laten hebben.\nnWilt u herstarten?\n(Om dataverlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de SD-kaart gebruikt.)</string>
   <string name="revert_successful_title">Terugzetten voltooid</string>
   <string name="revert_problem">Terugzetten is door onbekende redenen mislukt.</string>
   <string name="revert_problem_title">Terugzetten mislukt!</string>
@@ -97,9 +81,7 @@
   <string name="download_fail_title">Downloaden mislukt</string>
   <string name="no_private_file">Privébestanden kunnen niet worden aangemaakt.</string>
   <string name="no_private_file_title">Aanmaken privébestand mislukt</string>
-  <string name="enable_systemless_successful">U heeft de systeemloze modus ingeschakeld.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu opnieuw opstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
   <string name="enable_systemless_successful_title">Inschakelen gelukt</string>
-  <string name="disable_systemless_successful">U heeft de systeemloze modus uitgeschakeld.\nHet kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben.\n\nWilt u nu opnieuw opstarten?\n(Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
   <string name="disable_systemless_successful_title">Uitschakelen gelukt</string>
   <!--Other Dialogs-->
   <string name="no_root_description">De su-binary is niet gevonden of u heeft geen root-toegang verleend aan AdAway.\n\nDit kan gebeuren als uw apparaat niet geroot is.\nInformatie over het rooten van uw apparaat vindt u op wiki.lineageos.org en andere Android-websites.</string>
@@ -161,7 +143,6 @@
     <item>Aangepaste locatie</item>
   </string-array>
   <string name="pref_update_check_summary">Controleer op updates bij openen van AdAway</string>
-  <string name="pref_sdcard_problem">Deze functie zal niet correct werken als AdAway geïnstalleerd is op de SD-kaart!</string>
   <string name="pref_background">Achtergronddiensten</string>
   <string name="pref_update_check_daily">Controleer dagelijks op updates</string>
   <string name="pref_update_check_daily_summary">Toon een melding als er wordt gecontroleerd op updates</string>

@@ -3,22 +3,16 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Avsluta</string>
-  <string name="button_apply">Ladda ned filer och tillämpa annonsblockering</string>
   <string name="button_close">Stäng</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nej</string>
-  <string name="button_revert">Avaktivera annonsblockering</string>
   <string name="button_add">Lägg till</string>
   <string name="button_cancel">Avbryt</string>
-  <string name="button_revert_text">Återställer standardvärdfilen på din enhet</string>
   <string name="button_save">Spara</string>
-  <string name="button_webserver_toggle_checked">Webbserver körs</string>
-  <string name="button_webserver_toggle_unchecked">Webbserver körs ej</string>
   <string name="button_webserver_toggle_text">Starta eller stoppa den lokala webbservern att besvara begäran till blockerade värdnamn.</string>
   <string name="button_help">Hjälp</string>
   <!--Home-->
   <string name="header_help">Välkommen!</string>
-  <string name="text_help">Appen AdAway är gratis och öppen källkod gjord för att blockera annonser. Den laddar ner annonsnätverk och konfigurerar din enhet att blockera dem.\nVill du veta mer? Ta en titt på hjälper nedan!</string>
   <string name="button_show_help">Visa mer hjälp</string>
   <string name="icon_update_status">Uppdateringsstatus</string>
   <string name="text_update">Alla värdfiler från de förinställda källorna är hämtade, ihopslagna med dina egna listor och tillämpade som en värdfil på ditt system.</string>
@@ -32,11 +26,7 @@
   <string name="button_enable_webserver">Aktivera webbserver</string>
   <string name="button_disable_webserver">Inaktivera webbserver</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Tom lista</string>
-  <string name="checkbox_list_empty_text">Du kan lägga till objekt via plusknappen.</string>
   <string name="checkbox_list_context_delete">Ta bort</string>
-  <string name="checkbox_list_footer">Efter du har lagt till saker till listan måste du tillämpa AdAway igen!</string>
-  <string name="checkbox_list_edit_dialog_title">Redigera</string>
   <string name="checkbox_list_context_title">Redigera post</string>
   <string name="checkbox_list_context_edit">Redigera</string>
   <!--Your lists-->
@@ -55,18 +45,14 @@
   <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerar...</string>
   <string name="export_dialog">Exporterar...</string>
-  <string name="export_success">Exporterade alla poster till en fil med namnet \"adaway-export\" på ditt SD-kort.</string>
-  <string name="export_failed">Det gick inte att exportera dina listor till SD-kortet.</string>
   <!--Hosts content-->
   <string name="hosts_header">Värdfilerna</string>
-  <string name="hosts_description">Värdfilen (HOSTS) är en systemfil som mappar om värdnamn till IP-adresser. Det är en vanlig textfil som AdAway kan hantera. Här är några få linjer:</string>
   <string name="hosts_content">Laddar värdfilens innehåll…</string>
   <string name="hosts_open_button">Öppna värdfilen</string>
   <!--Status Notification-->
   <string name="status_checking">Letar efter uppdateringar...</string>
   <string name="status_reverting">Återställer...</string>
   <string name="status_reverting_subtitle">Skapar standardvärdfil</string>
-  <string name="status_checking_subtitle">Kollar om uppdatering finns tillgänglig</string>
   <string name="status_update_available">Uppdatering tillgänglig</string>
   <string name="status_update_available_subtitle">Nyare värdfiler är tillgängliga</string>
   <string name="status_no_connection">Ingen internetanslutning</string>
@@ -76,7 +62,6 @@
   <string name="status_enabled">Aktiverad</string>
   <string name="status_enabled_subtitle">Nyaste värdfilerna aktiverade</string>
   <string name="status_disabled">Avaktiverad</string>
-  <string name="status_disabled_subtitle">Avaktiverad</string>
   <string name="notification_channel_update_name">Uppdateringar</string>
   <string name="notification_channel_update_description">Aviseringar om nya värduppdateringar</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +75,7 @@
   <string name="apply_remount_fail_title">Ommontering misslyckades</string>
   <string name="apply_copy_fail">Kopiering av värdfil misslyckades!</string>
   <string name="apply_copy_fail_title">Kopiering misslyckades</string>
-  <string name="apply_success_subtitle">Tillämpade värdkällor:</string>
   <string name="apply_success_title">Tillämpning lyckades</string>
-  <string name="apply_success_dialog">Tillämpning lyckades.\nDet kan vara nödvändigt att starta om Android för att ändringarna ska få effekt.\n\nVill du starta om nu?\n(För att förhindra dataförlust, se till att ingen applikation använder SD-kortet för tillfället!)</string>
-  <string name="apply_symlink_successful">Symlink skapades utan problem.\nDet kan vara nödvändigt att starta om Android för att ändringarna ska få effekt.\n\nVill du starta om nu?\n(För att förhindra dataförlust, se till att ingen applikation använder SD-kortet för tillfället!)</string>
   <string name="apply_symlink_successful_title">Symlink skapad utan problem</string>
   <string name="apply_symlink_fail">Symlink kunde ej skapas av Android.\nDetta fel beror oftast på en \"funktion\" som kallas S-ON på HTC-telefoner!\n\nEn lösning är att boota telefonen i återställningsläge och skapa en symlink därifrån med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nOm detta inte fungerar, sök på internet efter S-OFF och din telefonmodell.</string>
   <string name="apply_symlink_fail_title">Skapande av symlink misslyckades</string>
@@ -110,7 +92,6 @@
   <string name="apply_dialog_apply">TIllämpar värdfil</string>
   <string name="apply_fail">Tillämpning av värdfil på systemet misslyckades!\nFörsök ändra värdfil i inställningarna till /data/data/hosts.</string>
   <string name="apply_fail_title">Tillämpning misslyckades</string>
-  <string name="revert_successful">Du återställde till standardvärdfilen.\nDet kan vara nödvändigt att starta om Android för att ändringarna ska få effekt.\n\nVill du starta om nu?\n(För att förhindra dataförlust, se till att ingen applikation använder SD-kortet för tillfället!)</string>
   <string name="revert_successful_title">Återställning lyckades</string>
   <string name="revert_problem">Återställningen misslyckades av okända skäl.</string>
   <string name="revert_problem_title">Återställning misslyckades!</string>
@@ -118,9 +99,7 @@
   <string name="download_fail_title">Hämtning misslyckades</string>
   <string name="no_private_file">Privat fil kan inte skapas</string>
   <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
-  <string name="enable_systemless_successful">Du har aktiverade systemlöst-läge.\nDet kan vara nödvändigt att starta om Android för att ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att förhindra förlust av data, försäkra dig om att ingen app använder SD-kortet just nu!)</string>
   <string name="enable_systemless_successful_title">Aktivering lyckades</string>
-  <string name="disable_systemless_successful">Du inaktiverade systemlöst läge. \nDet kan vara nödvändigt att starta om Android för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra förlust av data se till att ingen app använder sdkortet just nu!)</string>
   <string name="disable_systemless_successful_title">Inaktivering lyckades</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Antingen så kunde binärfilen för su inte hittas eller så tillät du inte root-åtkomst för AdAway.\n\nDetta kan hända när din enhet inte är rootad.\nDu kan hitta mer information om hur du rootar din enhet på wiki.lineageos.org eller andra Android-hemsidor.</string>
@@ -145,9 +124,7 @@
   <string name="help_tab_problems">Problem</string>
   <!--Adware-->
   <string name="adware_header">Annonsappar</string>
-  <string name="adware_description">Här hittar du installerade annonsappar, stygga applikationer som inte kan blockeras med AdAway. Dessa appar använder till exempel Airpush-aviseringar som kan visa sig även om appen inte körs och den kan även ändra din ringsignal. Den enda tillgängliga lösningen är att avinstallera dessa appar genom att trycka i listan.</string>
   <string name="adware_scanning">Söker...</string>
-  <string name="adware_empty">Inga annonsappar funna!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -206,7 +183,6 @@
     <item>Custom target</item>
   </string-array>
   <string name="pref_update_check_summary">Sök efter uppdateringar när AdAway startas</string>
-  <string name="pref_sdcard_problem">Denna funktion kommer inte fungera korrekt om AdAway är installerat på SD-kortet!</string>
   <string name="pref_background">Bakgrundstjänster</string>
   <string name="pref_update_check_daily">Sök efter uppdateringar dagligen</string>
   <string name="pref_update_check_daily_summary">Sök efter uppdateringar dagligen i bakgrunden, med notifieringar</string>

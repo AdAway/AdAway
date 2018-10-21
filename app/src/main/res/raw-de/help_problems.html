@@ -1,17 +1,18 @@
 <!-- Maintain structure with headings with h2 tags and content with p tags.
 This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
-<head></head>
+<head><title>Häufige Probleme</title></head>
 <body>
 <h2>Auf der Partition ist nicht genügend Speicherplatz vorhanden</h2>
-<p>Versuchen Sie bitte, in den Einstellungen die zu benutzende Hosts-Datei auf <tt>/data/data/hosts</tt> (oder <tt>/data/hosts</tt>) umzustellen, und starten Sie AdAway neu.</p>
+<p>Versuche, die Ziel-Hostsdatei in den Einstellungen auf <code>/data/data/hosts</code> (oder <code>/data/hosts</code>) umzustellen, und wende danach AdAway erneut an.</p>
 
 <h2>Funktioniert nicht auf Android 4.4+</h2>
-<p>Versuchen Sie bitte, in den Einstellungen die zu benutzende Hosts-Datei von <tt>/data/data/hosts</tt> auf <tt>/data/hosts</tt> oder <tt>/system/etc/hosts</tt> umzustellen, und starten Sie AdAway neu.</p>
+<p>Versuche, die Ziel-Hostsdatei in den Einstellungen von <code>/data/data/hosts</code> auf <code>/data/hosts</code> oder <code>/system/etc/hosts</code> umzustellen, und wende danach AdAway erneut an.</p>
 
 <h2>Die Werbung in Anwendung XYZ wird nicht blockiert!</h2>
-<p>Möglicherweise fehlen Hostnamen in den, von den <i>Hosts-Quellen</i> bereitgestellten, Hosts-Dateien, oder die Anwendung bringt Werbebanner mit und bezieht sie nicht aus dem Internet.<br><br>
+<p>Einige Hostnamen sind eventuell nicht in den mitgelieferten Hostsdateien aus den <cite>Hosts-Quellen</cite> enthalten, oder die Anwendung bringt die Bilder schon mit, die sie benötigt um Werbung anzuzeigen, und benötigt deshalb keine Internetverbindung.<br><br>
 Du kannst DNS-Anfragen von AdAway aufzeichnen (Menü -&gt; Logge DNS-Anfragen), um herauszufinden, welche zusätzlichen Hostnamen geblockt werden müssen.
 <br><br>Fügen Sie verdächtige Hostnamen, durch gedrückt Halten  des jeweiligen Protokolleintrags, Ihrer eigenen Negativliste hinzu und melden Sie diese, nach Überprüfung, im Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> von <a href="http://hosts-file.net">hosts-file.net</a>.</p>
 

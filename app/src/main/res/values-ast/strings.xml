@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Colar</string>
-  <string name="button_apply">Baxar ficheros y aplicar bloquéu d\'anuncios</string>
   <string name="button_close">Zarrar</string>
   <string name="button_yes">Sí</string>
   <string name="button_no">Non</string>
-  <string name="button_revert">Deshabilitar bloquéu d\'anuncios</string>
   <string name="button_add">Amestar</string>
   <string name="button_cancel">Encaboxar</string>
-  <string name="button_revert_text">Restaura\'l ficheru «Hosts» orixinal nel sistema.</string>
   <string name="button_save">Guardar</string>
-  <string name="button_webserver_toggle_checked">Ta executándose\'l sirvidor web</string>
-  <string name="button_webserver_toggle_unchecked">Nun ta executándose\'l sirvidor web</string>
   <string name="button_webserver_toggle_text">Anicia o para\'l sirvidor web nel agospiu llocal pa responder les solicitúes a nomes d\'agospiu bloquiaos.</string>
   <string name="button_help">Ayuda</string>
   <!--Home-->
   <string name="text_update">Tolos ficheros «Hosts» de les fontes defeníes báxense, amiéstense coles tos propies llistes ya instálense como un ficheru «Hosts» nel sistema.</string>
   <string name="button_check_update_hosts">Comprobar anovamientos</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Llista balera</string>
   <string name="checkbox_list_context_delete">Desaniciar</string>
-  <string name="checkbox_list_footer">¡Tienes d\'executar AdAway de nueves dempués d\'amestar elementos nuevos a esta llista!</string>
-  <string name="checkbox_list_edit_dialog_title">Editar</string>
   <string name="checkbox_list_context_title">Editar entrada</string>
   <string name="checkbox_list_context_edit">Editar</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Esportando...</string>
-  <string name="export_success">Esportáronse toles entraes al ficheru nomáu «adaway-export» na to tarxeta SD.</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Comprobando anovamientos...</string>
   <string name="status_reverting">Desfaciendo...</string>
   <string name="status_reverting_subtitle">Creando ficheru hosts estándar</string>
-  <string name="status_checking_subtitle">Comprobando si hai anovamientos disponibles</string>
   <string name="status_update_available">Anovamientu disponible</string>
   <string name="status_update_available_subtitle">Hai disponible un ficheru hosts más nuevu</string>
   <string name="status_no_connection">Ensin conexón d\'internet</string>
@@ -49,7 +39,6 @@
   <string name="status_enabled">Habilitáu</string>
   <string name="status_enabled_subtitle">Habilitáronse los ficheros «hosts» más nuevos</string>
   <string name="status_disabled">Deshabilitáu</string>
-  <string name="status_disabled_subtitle">Deshabilitáu</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">¡Nun esiste o ye incorreutu l\'enllaz simbólicu dende\'l to oxetivu a /system/etc/hosts! Adaway nun furrulará si nun ta apuntando al ficheru correutu.\n\n¿Quies crear un enllaz simbólicu?</string>
   <string name="apply_symlink_missing_title">Falta l\'enllaz simbólicu</string>
@@ -61,10 +50,7 @@
   <string name="apply_remount_fail_title">Fallu nel remontaxe</string>
   <string name="apply_copy_fail">¡Fallu copiando\'l ficheru «hosts»!</string>
   <string name="apply_copy_fail_title">Copia fallida</string>
-  <string name="apply_success_subtitle">Fontes d\'agospios aplicaes:</string>
   <string name="apply_success_title">Aplicadura esitosa</string>
-  <string name="apply_success_dialog">L\'aplicadura foi esitosa.\nQuiciabes sía necesario reaniciar Android pa que les camudancies faigan efeutu.\n\n¿Quies reaniciar?\n(¡Pa evitar la perda de datos asegúrate que dal aplicación usa la tarxeta SD nesti momentu!)</string>
-  <string name="apply_symlink_successful">L\'enllaz simbólicu creóse con ésitu.\nQuiciabes sía necesario reaniciar Android pa que les camudancies faigan efeutu.\n\n¿Quies reaniciar?\n(¡Pa evitar la perda de datos asegúrate que dal aplicación usa la tarxeta SD nesti momentu!)</string>
   <string name="apply_symlink_successful_title">Creación esitosa del enllaz simbólicu</string>
   <string name="apply_symlink_fail">Android nun pudo crear l\'enllaz simbólicu.\n¡Esto falla, la mayoría de vegaes, pola mor d\'una «carauterística» nomada S-ON nos teléfonos HTC!\n\nUna igua ye arrancar nel recovery del to teléfonu y crear l\'enllaz simbólicu ende con «ln -s /data/data/hosts /system/etc/hosts».\n\nSi nun furrula, gueta n\'internet S-OFF y el to teléfonu.</string>
   <string name="apply_symlink_fail_title">Fallu na creación d\'enllaz simbólicu</string>
@@ -81,7 +67,6 @@
   <string name="apply_dialog_apply">Aplicando\'l ficheru «hosts»</string>
   <string name="apply_fail">¡Falló l\'aplicadura del ficheru «hosts» nel sistema!\nIntenta camudar nes preferencies el ficheru «hosts» oxetivu a /data/data/hosts.</string>
   <string name="apply_fail_title">Falló l\'aplicadura</string>
-  <string name="revert_successful">Desfixesti\'l ficheru «hosts» predetermináu.\nQuiciabes sía necesario reaniciar Android pa que les camudancies faigan efeutu.\n\n¿Quies reaniciar?\n(¡Pa evitar la perda de datos asegúrate que dal aplicación usa la taxeta SD nesti momentu!)</string>
   <string name="revert_successful_title">Desfechura esitosa</string>
   <string name="revert_problem">Fallu na desfechura pola mor de razones desconocíes.</string>
   <string name="revert_problem_title">¡Fallu na desfechura!</string>
@@ -148,7 +133,6 @@
     <item>Oxetivu personalizáu</item>
   </string-array>
   <string name="pref_update_check_summary">Comprueba anovamientos nel aniciu d\'AdAway</string>
-  <string name="pref_sdcard_problem">¡Esta carauterística nun furrula correutamente entrín AdAway tea instaláu na tarxeta SD!</string>
   <string name="pref_background">Servicios de fondu</string>
   <string name="pref_update_check_daily">Comprobar caldía anovamientos</string>
   <string name="pref_update_check_daily_summary">Comprueba de fondu con avisos anovamientos caldía</string>

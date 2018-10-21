@@ -3,22 +3,17 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Quitter</string>
-  <string name="button_apply">Télécharger les fichiers et appliquer le blocage des publicités</string>
   <string name="button_close">Fermer</string>
   <string name="button_yes">Oui</string>
   <string name="button_no">Non</string>
-  <string name="button_revert">Désactiver le blocage des publicités</string>
   <string name="button_add">Ajouter</string>
   <string name="button_cancel">Annuler</string>
-  <string name="button_revert_text">Restaure le fichier hosts défaut sur votre système.</string>
   <string name="button_save">Enregistrer</string>
-  <string name="button_webserver_toggle_checked">Le serveur Web tourne</string>
-  <string name="button_webserver_toggle_unchecked">Le serveur Web est arrêté</string>
   <string name="button_webserver_toggle_text">Démarrer ou arrêter le serveur Web sur « localhost » pour répondre aux requêtes pour des noms d’hôtes bloqués.</string>
   <string name="button_help">Aide</string>
   <!--Home-->
   <string name="header_help">Bienvenue !</string>
-  <string name="text_help">AdAway est un logiciel gratuit et à code source ouvert conçu pour bloquer les publicités. Il télécharge une liste de réseaux publicitaires et configure votre appareil pour les bloquer.\n Voulez-vous en savoir davantage ? Consultez l’aide ci-dessous.</string>
+  <string name="text_help">AdAway est un programme gratuit et à code source ouvert conçu pour bloquer les publicités. Il obtient les adresses des réseaux publicitaires afin de les bloquer sur votre appareil.\n Voulez-vous en savoir davantage ? Consultez l’aide ci-dessous.</string>
   <string name="button_show_help">Afficher plus d’aide</string>
   <string name="icon_update_status">Mettre à jour l’état</string>
   <string name="text_update">Tous les fichiers hosts provenant des sources définies sont téléchargés, fusionnés avec vos propres listes et installés en un seul fichier hosts sur votre système.</string>
@@ -32,11 +27,7 @@
   <string name="button_enable_webserver">Activer le serveur Web</string>
   <string name="button_disable_webserver">Désactiver le serveur Web</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">La liste est vide</string>
-  <string name="checkbox_list_empty_text">Vous pouvez ajouter des éléments avec le bouton plus.</string>
   <string name="checkbox_list_context_delete">Supprimer</string>
-  <string name="checkbox_list_footer">Après l’ajout de nouveaux éléments à cette liste, AdAway doit être appliqué à nouveau.</string>
-  <string name="checkbox_list_edit_dialog_title">Modifier</string>
   <string name="checkbox_list_context_title">Modifier l’entrée</string>
   <string name="checkbox_list_context_edit">Modifier</string>
   <!--Your lists-->
@@ -55,28 +46,29 @@
   <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
   <string name="import_dialog">Importation...</string>
   <string name="export_dialog">Exportation...</string>
-  <string name="export_success">Toutes les entrées ont été exportées vers un fichier « adaway-export » sur votre carte SD.</string>
+  <string name="export_success">Toutes les entrées ont été exportées vers un fichier nommé « adaway-export » sur votre carte SD.</string>
   <string name="export_failed">Échec d’exportation de votre liste vers votre carte SD</string>
   <!--Hosts content-->
   <string name="hosts_header">Le fichier hosts</string>
-  <string name="hosts_description">Le fichier hosts est un fichier système qui mappent les noms d’hôtes à des adresses IP. C’est un fichier texte en clair dont la configuration est gérée par AdAway. Voici ses premières lignes :</string>
+  <string name="hosts_description">Le fichier hosts est un fichier système qui fait correspondre les noms d’hôtes à des adresses IP. C’est un simple fichier texte dont la configuration est gérée par AdAway. Voici ses premières lignes :</string>
   <string name="hosts_content">Chargement du contenu du fichier hosts…</string>
   <string name="hosts_open_button">Ouvrir le fichier hosts</string>
   <!--Status Notification-->
   <string name="status_checking">Vérification de mise à jour...</string>
   <string name="status_reverting">Retour arrière...</string>
   <string name="status_reverting_subtitle">Création d’un fichier hosts standard </string>
-  <string name="status_checking_subtitle">Vérifier si une mise à jour est proposée</string>
   <string name="status_update_available">Une mise à jour est proposée</string>
   <string name="status_update_available_subtitle">De nouveaux fichiers hosts sont proposés</string>
   <string name="status_no_connection">Il n’y a pas de connexion Internet</string>
   <string name="status_no_connection_subtitle">Aucune connexion Internet</string>
   <string name="status_download_fail">Les sources ne sont pas accessibles</string>
   <string name="status_download_fail_subtitle_new">Aucune source de fichier hosts n’est accessible</string>
+  <string name="status_failure">Quelque chose ne va pas</string>
+  <string name="status_failure_subtitle">Vérifiez « logcat » pour plus de détails</string>
   <string name="status_enabled">Activé</string>
   <string name="status_enabled_subtitle">Les fichiers hosts les plus récents sont activés</string>
   <string name="status_disabled">Désactivé</string>
-  <string name="status_disabled_subtitle">Désactivé</string>
+  <string name="status_disabled_subtitle">Le fichier hosts par défaut a été installé</string>
   <string name="notification_channel_update_name">Mises à jour</string>
   <string name="notification_channel_update_description">Nouvelles notifications de mise à jour des fichiers hosts</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +82,10 @@
   <string name="apply_remount_fail_title">Échec de remontage</string>
   <string name="apply_copy_fail">Échec de copie du fichier hosts</string>
   <string name="apply_copy_fail_title">Échec de copie</string>
-  <string name="apply_success_subtitle">Sources de fichiers hosts mises en place :</string>
+  <string name="apply_success_subtitle">Les sources de fichiers hosts ont été mises en place</string>
   <string name="apply_success_title">Mise à en place réussie</string>
-  <string name="apply_success_dialog">La mise en place est réussie.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
-  <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl pourrait être nécessaire de redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ? (Pour éviter toute perte de données, assurez-vous qu’aucune application n’utilise la carte SD actuellement.)</string>
+  <string name="apply_success_dialog">La mise en place est réussie.\nIl faudra peut-être redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
+  <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl faudra peut-être redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ? (Pour éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
   <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
   <string name="apply_symlink_fail">Le lien symbolique n’a pas pu être créé par Android.\nCela échoue la plupart du temps à cause d’une fonction appelée S-ON sur les téléphones HTC.\n\nUne solution possible est de démarrer votre téléphone en mode récupération et d’y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
   <string name="apply_symlink_fail_title">Échec de la création du lien symbolique</string>
@@ -110,7 +102,7 @@
   <string name="apply_dialog_apply">Mise en place du fichier hosts</string>
   <string name="apply_fail">Le fichier hosts n’a pas pu être mis en place dans votre système.\nEssayez de changer le fichier hosts cible dans les préférences par /data/data/hosts.</string>
   <string name="apply_fail_title">Échec lors de la mise en place</string>
-  <string name="revert_successful">Vous êtes revenu au fichier hosts par défaut.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d’éviter la perte de données, assurez-vous qu’aucune application n’utilise la carte SD actuellement.)</string>
+  <string name="revert_successful">Vous êtes revenu au fichier hosts par défaut.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d’éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
   <string name="revert_successful_title">Retour arrière réussi</string>
   <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
   <string name="revert_problem_title">Échec du retour en arrière</string>
@@ -118,9 +110,9 @@
   <string name="download_fail_title">Échec de téléchargement</string>
   <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
   <string name="no_private_file_title">Échec de création du fichier privé</string>
-  <string name="enable_systemless_successful">Vous avez activé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour prévenir la perte de données, assurez-vous qu’aucune autre application n’utilise la carte SD en ce moment.)</string>
+  <string name="enable_systemless_successful">Vous avez activé le mode sans système.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour prévenir toute perte de données, assurez-vous qu’aucune autre appli n’utilise la carte SD en ce moment.)</string>
   <string name="enable_systemless_successful_title">Activation réussie</string>
-  <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl peut être nécessaire de redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer l’appareil?\n(Pour prévenir la perte de données, assurez-vous qu’aucune autre application n’utilise la carte SD en ce moment.)</string>
+  <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer l’appareil?\n(Pour prévenir toute perte de données, assurez-vous qu’aucune autre appli n’utilise la carte SD en ce moment.)</string>
   <string name="disable_systemless_successful_title">Désactivation réussie</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès racine à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé\nVous trouverez des informations sur comment enraciner votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
@@ -157,7 +149,7 @@
   <string name="hosts_dialog_url">URL : (une ressource https:// ou file://)</string>
   <string name="hosts_dialog_url_hint">L’URL de la source du fichier hosts</string>
   <!--Other-->
-  <string name="app_subtitle">Blocage de publicités</string>
+  <string name="app_subtitle">Bloqueur de publicité</string>
   <string name="no_text_editor_title">Aucun éditeur de texte n’est installé</string>
   <string name="no_text_editor">Aucun éditeur de texte n’a été trouvé pour ouvrir le fichier hosts. Vous pouvez installer Jota ou d’autres éditeurs de texte pour ce faire.\n\nVoulez-vous installer Jota ?</string>
   <string name="no_file_manager_title">Aucun gestionnaire de fichiers n’est installé</string>
@@ -175,14 +167,14 @@
   <string name="tcpdump_sort_top_level_domain">Tri par domaines de premier niveau</string>
   <string name="tcpdump_entry_add_blacklist">Ajouter une entrée à la liste noire</string>
   <string name="tcpdump_entry_add_whitelist">Ajouter une entrée à la liste blanche</string>
-  <string name="tcpdump_entry_add_redirection_list">Ajouter une entrée à la liste de redirection</string>
+  <string name="tcpdump_entry_add_redirection_list">Ajouter une entrée à la liste des redirections</string>
   <!--Preferences-->
   <string name="pref_download">Préférences générales</string>
   <string name="pref_dismiss_welcome">Cacher la carte de bienvenue</string>
   <string name="pref_dismiss_welcome_summary">Ne pas afficher la carte de bienvenue sur l’écran d’accueil</string>
   <string name="pref_dark_theme">Activer le thème sombre</string>
   <string name="pref_dark_theme_summary">Utiliser le thème sombre à la place du thème clair</string>
-  <string name="pref_dark_theme_notification">Le thème sera appliqué lors du prochain démarrage</string>
+  <string name="pref_dark_theme_notification">Le thème sera effectif lors du prochain démarrage</string>
   <string name="pref_hosts">Fichier hosts</string>
   <string name="pref_redirection_ip">IP de redirection</string>
   <string name="pref_update_check">Vérifier les mises à jour</string>
@@ -207,7 +199,7 @@
     <item>Cible personnalisée</item>
   </string-array>
   <string name="pref_update_check_summary">Vérifier les mises à jour lors du démarrage d’AdAway</string>
-  <string name="pref_sdcard_problem">Cette fonction ne fonctionnera pas correctement si AdAway est installé sur une carte SD</string>
+  <string name="pref_sdcard_problem">Cette option ne fonctionnera pas correctement si AdAway est installé sur une carte SD.</string>
   <string name="pref_background">Services d’arrière-plan</string>
   <string name="pref_update_check_daily">Vérifier les mises à jour quotidiennement</string>
   <string name="pref_update_check_daily_summary">Vérifier les mises à jour quotidiennement en arrière-plan avec des notifications</string>
@@ -242,6 +234,9 @@
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Soutenir le développement \u2764</string>
+  <string name="drawer_support_dialog_title">Soutenir le développement</string>
+  <string name="drawer_support_dialog_text">AdAway est un programme gratuit et à code source ouvert conçu et maintenu seulement par la communauté. Il m’a fallu deux ans, dans mon temps libre, pour concevoir cette nouvelle version de l’appli.\n\nSi vous l’aimez et souhaitez voir d’autres mises à jour, n’hésitez pas à soutenir le projet.</string>
+  <string name="drawer_support_dialog_button">Manifester mon soutien</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Requêtes DNS</string>
   <string name="shortcut_your_lists">Vos listes</string>

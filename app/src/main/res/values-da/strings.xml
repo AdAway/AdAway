@@ -3,43 +3,50 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Afslut</string>
-  <string name="button_apply">Hent filer og anvend reklameblokering </string>
   <string name="button_close">Luk</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nej</string>
-  <string name="button_revert">Deaktiver reklameblokering</string>
   <string name="button_add">Tilføj</string>
   <string name="button_cancel">Annuller</string>
-  <string name="button_revert_text">Gendanner standard hosts-filen på dit system.</string>
   <string name="button_save">Gem</string>
-  <string name="button_webserver_toggle_checked">Webserver kører</string>
-  <string name="button_webserver_toggle_unchecked">Webserver kører ikke</string>
   <string name="button_webserver_toggle_text">Start eller stop webserver på localhost til at besvare anmodninger til blokerede værtsnavne.</string>
   <string name="button_help">Hjælp</string>
   <!--Home-->
+  <string name="header_help">Velkommen!</string>
+  <string name="icon_update_status">Opdater status</string>
   <string name="text_update">Alle hosts-filer fra de definerede kilder er hentet, flettet sammen med dine egne lister og installeret som en hosts-fil på dit system.</string>
   <string name="button_check_update_hosts">Check for opdateringer</string>
+  <string name="button_update_hosts">Opdater hosts</string>
+  <string name="button_enable_hosts">Aktiver ad-blocking</string>
+  <string name="button_disable_hosts">Deaktiver ad-blocking</string>
+  <string name="header_webserver">Webserver</string>
+  <string name="webserver_status_running">Kører</string>
+  <string name="webserver_status_stopped">Stoppet</string>
+  <string name="button_enable_webserver">Aktiver webserver</string>
+  <string name="button_disable_webserver">Deaktiver webserver</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Tøm listen</string>
   <string name="checkbox_list_context_delete">Slet</string>
-  <string name="checkbox_list_footer">Efter tilføjelse af nye elementer til denne liste, er du nødt til at køre AdAway igen!</string>
-  <string name="checkbox_list_edit_dialog_title">Rediger</string>
   <string name="checkbox_list_context_title">Rediger opslag</string>
   <string name="checkbox_list_context_edit">Rediger</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">Tilladte</string>
   <string name="lists_tab_blacklist">Blokerede</string>
+  <string name="lists_tab_redirection_list">Viderestillinger</string>
+  <string name="list_add_dialog_black">Tilføj host til sortliste</string>
+  <string name="list_add_dialog_white">Tilføj host til hvidliste</string>
+  <string name="list_edit_dialog_redirect">Rediger viderestilling</string>
   <string name="list_dialog_hostname">Værtsnavn:</string>
   <string name="list_dialog_ip">IP (IPv4 eller IPv6):</string>
   <string name="import_dialog">Importerer...</string>
   <string name="export_dialog">Eksporterer...</string>
-  <string name="export_success">Eksporterede alle poster til en fil kaldet \'adaway-export\' på dit SD-kort/integreret hukommelse.</string>
   <!--Hosts content-->
+  <string name="hosts_header">Hosts filen</string>
+  <string name="hosts_content">Indlæser indholdet af hosts filen...</string>
+  <string name="hosts_open_button">Åbn hosts filen</string>
   <!--Status Notification-->
   <string name="status_checking">Tjekker for opdateringer...</string>
   <string name="status_reverting">Gendanner...</string>
   <string name="status_reverting_subtitle">Opretter en standard hosts-fil</string>
-  <string name="status_checking_subtitle">Kontrollerer om der er opdateringer tilgængelig</string>
   <string name="status_update_available">Opdatering fundet</string>
   <string name="status_update_available_subtitle">En nyere hosts-fil findes</string>
   <string name="status_no_connection">Ingen Internetforbindelse</string>
@@ -49,7 +56,7 @@
   <string name="status_enabled">Aktiveret</string>
   <string name="status_enabled_subtitle">Nyeste hosts-fil aktiveret</string>
   <string name="status_disabled">Deaktiveret</string>
-  <string name="status_disabled_subtitle">Deaktiveret</string>
+  <string name="notification_channel_update_name">Opdateringer</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlink fra dit mål til /system/etc/hosts findes ikke eller er sat forkert! AdAway virker ikke, hvis den ikke peger det rigtige sted hen.\n\nVil du prøve at lave et symlink?</string>
   <string name="apply_symlink_missing_title">Symlink mangler</string>
@@ -61,10 +68,7 @@
   <string name="apply_remount_fail_title">Remontering fejlede</string>
   <string name="apply_copy_fail">Kopiering af hosts filen fejlede</string>
   <string name="apply_copy_fail_title">Kopiering fejlede</string>
-  <string name="apply_success_subtitle">Anvendte hosts kilder:</string>
   <string name="apply_success_title">Anvendt successfuldt</string>
-  <string name="apply_success_dialog">Succesfuldt anvendt.\nlt Måske nødvendig at genstarte Android før ændringerne træder i kraft.\n\nVil du genstarte?\n(For at undgå datatab, vær sikker på at ingen programmer anvender sd kortet!)</string>
-  <string name="apply_symlink_successful">Symlink blev oprettet korrekt.\nDet kan muligvis være nødvendigt at genstarte Android for at reflektere ændringerne.\n\nVil du genstarte?\n(For at undgå data-tab må ingen programmer bruge SD-kortet!)</string>
   <string name="apply_symlink_successful_title">Symlink oprettet successfuldt</string>
   <string name="apply_symlink_fail">Symlink kunne ikke oprettes igennem Android.\nDette sker oftest grundet en \'feature\' S-ON på HTC-telefoner!\n\nEn løsning er at boote ind i recovery-mode og oprette symlinket manuelt med kommandoen \"ln -s /data/data/hosts /system/etc/hosts\".\n\nHvis dette ikke virker, kan du søge efter \"S-OFF\" og din telefons modelnavn.</string>
   <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
@@ -81,7 +85,6 @@
   <string name="apply_dialog_apply">Anvender hosts-filen</string>
   <string name="apply_fail">Hosts-filen kunne ikke påføres dit system!\nPrøv at ændre placeringen af hosts-filen i indstillingerne til \"/data/data/hosts\".</string>
   <string name="apply_fail_title">Anvendelse mislykkedes</string>
-  <string name="revert_successful">Du gendannede standard hosts filen.\nlt Måske nødvendig at genstarte Android før ændringerne træder i kraft.\n\nVil du genstarte?\n(For at undgå datatab, vær sikker på at ingen programmer anvender sd kortet!)</string>
   <string name="revert_successful_title">Gendannelse successfuld</string>
   <string name="revert_problem">Gendannelse mislykkedes af ukendte årsager.</string>
   <string name="revert_problem_title">Gendannelse mislykkedes!</string>
@@ -113,10 +116,15 @@
   <string name="help_tab_faq">OSS</string>
   <string name="help_tab_problems">Problemer</string>
   <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_scanning">Skanner...</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalt:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">Ikke tilgængelig</string>
+  <string name="hosts_add_dialog_title">Tilføj kilde</string>
+  <string name="hosts_edit_dialog_title">Rediger kilde</string>
+  <string name="hosts_dialog_url">URL: (en https:// eller file:// ressource)</string>
   <!--Other-->
   <string name="app_subtitle">Reklameblokering</string>
   <string name="no_text_editor_title">Intet tekstredigeringsprogram installeret</string>
@@ -124,9 +132,20 @@
   <string name="no_file_manager_title">Intet filhåndteringsprogram installeret</string>
   <string name="no_file_manager">Intet filhåndteringsprogram blev fundet til at åbne filen. Du kan installere OI File Manager eller andre filhåndteringsprogrammer til at håndtere dette.\n\nVil du installere OI File Manager?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump er et værktøj til at overvåge DNS-anmodninger og gemme dem i en logfil. Du kan starte den i baggrunden, køre programmer, der viser reklamer, for bagefter at analysere DNS-anmodningerne ved hjælp af logfilen. Mulig reklameværter kan derefter blive tilføjet til din blackliste.</string>
+  <string name="tcpdump_disable_monitoring">Deaktiver overvågning</string>
+  <string name="tcpdump_enable_monitoring">Aktiver overvågning</string>
+  <string name="tcpdump_show_results">Vis resultater</string>
+  <string name="tcpdump_redirect_dialog_title">Viderestil domæne</string>
+  <string name="tcpdump_menu_sort">Sorter domæner</string>
+  <string name="tcpdump_menu_clear">Ryd log</string>
+  <string name="tcpdump_sort_alphabetical">Sorter alfabetisk</string>
   <!--Preferences-->
   <string name="pref_download">Generelle Indstillinger</string>
+  <string name="pref_dark_theme">Aktiver mørkt tema</string>
+  <string name="pref_dark_theme_summary">Brug mørkt tema istedet for lyst</string>
+  <string name="pref_dark_theme_notification">Temaet vil blive anvendt næste gang app\'en åbnes!</string>
   <string name="pref_hosts">Hosts-fil</string>
   <string name="pref_redirection_ip">Omdirigerings-IP</string>
   <string name="pref_update_check">Check for opdateringer</string>
@@ -151,7 +170,6 @@
     <item>Tilpasset mål</item>
   </string-array>
   <string name="pref_update_check_summary">Check for opdateringer ved start af AdAway</string>
-  <string name="pref_sdcard_problem">Denne funktion vil ikke virke korrekt når AdAway er installeret på SD kortet!</string>
   <string name="pref_background">Baggrundsservicer</string>
   <string name="pref_update_check_daily">Check for opdateringer dagligt</string>
   <string name="pref_update_check_daily_summary">Kontrollér for opdateringer i baggrunden med notifikationer</string>
@@ -159,6 +177,7 @@
   <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
   <string name="pref_whitelist_rules">Tillad hvidlister</string>
   <string name="pref_whitelist_rules_summary">Tillad hvidlist indhold fra Hosts kilden.</string>
+  <string name="pref_redirection_rules">Tillad viderestillinger</string>
   <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
   <string name="pref_debug">Debug</string>
   <string name="pref_enable_debug">Debug-logning</string>
@@ -167,9 +186,29 @@
   <string name="pref_enable_ipv6_summary">Alle hosts-fils poster vil få en tilsvarende ::1 (IPv6 localhost) post.</string>
   <string name="pref_enable_systemless_summary">Forhindre AdAway i at ændre systempartitionen</string>
   <string name="pref_enable_systemless">Aktiver systemløs tilstand</string>
+  <string name="drawer_open">Åben menu</string>
+  <string name="drawer_close">Luk menu</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNS forespørgsler</string>
+  <string name="shortcut_your_lists">Dine lister</string>
   <string name="shortcut_preferences">Indstillinger</string>
   <!--Hosts source status-->
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d minut</item>
+    <item quantity="other">%d minutter</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d time</item>
+    <item quantity="other">%d timer</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d dag</item>
+    <item quantity="other">%d dage</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d måned</item>
+    <item quantity="other">%d måneder</item>
+  </plurals>
 </resources>

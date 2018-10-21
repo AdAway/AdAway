@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>Ajuda relacionada com S-ON</title></head>
 <body>
 <h2>Dispositivos HTC</h2>
 <p>O AdAway não funciona quando utiliza um dispositivo com o chamado S-ON. Esta "funcionalidade" existe em muitos dispositivos HTC e impede que o AdAway escreva no ficheiro de hosts.</p>
@@ -8,20 +8,20 @@
 <p>S-OFF significa que a porção NAND do dispositivo está desbloqueada e que pode ser escrita. A definição predefinida para dispositivos HTC é S-ON, o que significa que o utilizador não pode aceder a certas áreas do sistema nem pode garantir root permanente. Além disso, a verificação de assinatura das imagens de firmware também é realizada pela flag S-ON.</p>
 
 <h2>Tenho S-ON ou S-OFF?</h2>
-<p>Arranque no menu de arranque do seu dispositivo premindo os botões de <i>diminuir volume</i> e de ligar/desligar ao mesmo tempo e o texto no topo mostrará o estado da flag como S-OFF ou S-ON. Um root completo geralmente significa S-OFF.
-<br /><br />Mais informações podem ser encontradas em <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Métodos de S-OFF para além do Unrevokable (na ligação) poderão interessar-lhe, nomeadamente: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Inicie no 'Menu de Arranque' do seu dispositivo pressionando o botão de <cite>diminuir o volume</cite> e o de ligar/desligar ao mesmo tempo e o texto no topo mostrará o estado da "flag" como S-OFF ou S-ON. Um "root" completo geralmente significa S-OFF.
+<br/><br/>Pode ser encontrada mais informação em <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Os métodos de S-OFF adicionais desde Unrevokable (na hiperligação) poderão interessar-lhe, nomeadamente: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Solução alternativa</h2>
-<p>Pré-requisito: Deve instalar o SDK Android com shell ADB funcional no seu PC.
+<p>Pré-requisito: deve instalar o SDK Android com shell ADB funcional no seu PC.
 </p>
 <ol>
-<li>Arranque no menu de arranque do seu dispositivo premindo os botões de <i>diminuir volume</i> e de ligar/desligar ao mesmo tempo.</li>
+<li>Inicie no 'Menu de Arranque' do seu dispositivo pressionando o botão de <cite>diminuir o volume</cite> e o de ligar/desligar ao mesmo tempo.</li>
 <li>Utilize o botão de <i>diminuir volume</i> para selecionar "recovery".</li>
 <li>No ClockworkMod Recovery, prima o botão de diminuir volume até ao menu de partições e carregue no trackpad para o selecionar</li>
-<li>Selecione <i>mount /system</i>, <i>mount /sdcard</i> e <i>mount /data</i>.</li>
+<li>Selecione <cite>mount /system</cite>, <cite>mount /sdcard</cite> e <cite>mount /data</cite>.</li>
 <li>Introduza o seu cabo USB e abra uma linha de comandos no seu PC.</li>
-<li>Entre na shell do ADB e introduza <tt>ln -s /data/hosts /system/etc/hosts</tt> (Isto cria uma ligação simbólica, que permite que o AdAway edite o ficheiro de hosts armazenado em <tt>/data</tt> ao mesmo tempo que permite que o SO utilize o ficheiro como se estivesse armazenado em <tt>/system</tt>.)</li>
-<li>Reinicie o seu dispositivo e defina <i>Ficheiro de hosts alvo</i> como <i>/data/hosts</i> nas preferências do AdAway.</li>
+<li>Entre na shell do ADB e introduza <code>ln -s /data/hosts /system/etc/hosts</code> (Isto cria uma hiperligação simbólica, que permite que o AdAway edite o ficheiro hosts guardado em <code>/data</code> ao mesmo tempo que permite que o SO utilize o ficheiro como se estivesse guardado em <code>/system</code>.)</li>
+<li>Reinicie o seu dispositivo e defina <cite>Ficheiro hosts de destino</cite> para <cite>/data/hosts</cite> nas preferências de AdAway.</li>
 <li>O AdAway deverá agora funcionar.</li>
 </ol>
 </body>

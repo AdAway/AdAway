@@ -3,22 +3,17 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Wyjście</string>
-  <string name="button_apply">Pobierz pliki i zastosuj do blokowania reklam</string>
   <string name="button_close">Zamknij</string>
   <string name="button_yes">Tak</string>
   <string name="button_no">Nie</string>
-  <string name="button_revert">Wyłącz blokowanie reklam</string>
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Anuluj</string>
-  <string name="button_revert_text">Przywraca domyślny plik hosts.</string>
   <string name="button_save">Zapisz</string>
-  <string name="button_webserver_toggle_checked">Serwer www działa</string>
-  <string name="button_webserver_toggle_unchecked">Serwer www nie działa</string>
   <string name="button_webserver_toggle_text">Start lub stop lokalnego serwera www, aby odpowiadać na zapytania blokowanych hostów.</string>
   <string name="button_help">Pomoc</string>
   <!--Home-->
   <string name="header_help">Witamy!</string>
-  <string name="text_help">AdAway to darmowy i otwarty program do blokowania reklam. Pobiera sieć reklamową i konfiguruje urządzenie, aby je zablokować. \n Czy chcesz wiedzieć więcej? Sprawdź pomoc poniżej!</string>
+  <string name="text_help">AdAway to darmowy i otwarty program do blokowania reklam. Pobiera adresy sieci reklamowych, aby zablokować je na urządzeniu.\nChcesz wiedzieć więcej? Sprawdź pomoc poniżej!</string>
   <string name="button_show_help">Pokaż więcej pomocy</string>
   <string name="icon_update_status">Stan aktualizacji</string>
   <string name="text_update">Wszystkie pliki ze zdefiniowanych źródeł zostaną pobrane, połączone z twoją listą i dodane do pliku hosts.</string>
@@ -32,11 +27,7 @@
   <string name="button_enable_webserver">Włącz serwer www</string>
   <string name="button_disable_webserver">Wyłącz serwer www</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Brak pozycji</string>
-  <string name="checkbox_list_empty_text">Można dodać elementy przyciskiem ze znakiem plus.</string>
   <string name="checkbox_list_context_delete">Usuń</string>
-  <string name="checkbox_list_footer">Po dodaniu nowych wpisów do listy musisz ponownie zastosować pobieranie plików hostów!</string>
-  <string name="checkbox_list_edit_dialog_title">Edytuj</string>
   <string name="checkbox_list_context_title">Edytuj wpis</string>
   <string name="checkbox_list_context_edit">Edytuj</string>
   <!--Your lists-->
@@ -55,8 +46,8 @@
   <string name="list_dialog_ip">IP (IPv4 lub IPv6):</string>
   <string name="import_dialog">Importowanie...</string>
   <string name="export_dialog">Eksportowanie...</string>
-  <string name="export_success">Wyeksportowano wszystkie wpisy do pliku \'adaway-export\' na karcie SD.</string>
-  <string name="export_failed">Nie udało się wyeksportować listy do sdcard.</string>
+  <string name="export_success">Wyeksportowałem wszystkie wpisy do pliku o nazwie \'adaway-export\' na karcie SD.</string>
+  <string name="export_failed">Nie udało się wyeksportować listy na kartę SD.</string>
   <!--Hosts content-->
   <string name="hosts_header">Plik hosts</string>
   <string name="hosts_description">Plik hosts jest plikiem systemowym, który mapuje nazwy hostów na adresy IP. Jest to plik tekstowy, którego konfiguracja jest obsługiwana przez AdAway. Oto kilka pierwszych linii:</string>
@@ -66,17 +57,18 @@
   <string name="status_checking">Sprawdzanie aktualizacji…</string>
   <string name="status_reverting">Przywracanie...</string>
   <string name="status_reverting_subtitle">Tworzenie standardowego pliku hosts</string>
-  <string name="status_checking_subtitle">Wyszukiwanie aktualizacji</string>
   <string name="status_update_available">Aktualizacja jest dostępna</string>
   <string name="status_update_available_subtitle">Nowe pliki hostów są dostępne</string>
   <string name="status_no_connection">Brak połączenia z Internetem</string>
   <string name="status_no_connection_subtitle">Połączenie z Internetem niedostępne</string>
   <string name="status_download_fail">Źródło niedostępne</string>
   <string name="status_download_fail_subtitle_new">Wszystkie źródła są nieosiągalne!</string>
+  <string name="status_failure">Coś poszło nie tak</string>
+  <string name="status_failure_subtitle">Sprawdź kod logcat, aby uzyskać więcej informacji</string>
   <string name="status_enabled">Włączone</string>
   <string name="status_enabled_subtitle">Najnowsze pliki hostów zostały włączone</string>
   <string name="status_disabled">Wyłączone</string>
-  <string name="status_disabled_subtitle">Wyłączone</string>
+  <string name="status_disabled_subtitle">Domyślny plik hosts został zainstalowany</string>
   <string name="notification_channel_update_name">Aktualizacje</string>
   <string name="notification_channel_update_description">Powiadomienia o aktualizacjach nowych hostów</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +82,10 @@
   <string name="apply_remount_fail_title">Montowanie nieudane</string>
   <string name="apply_copy_fail">Kopiowanie pliku hosts nieudane!</string>
   <string name="apply_copy_fail_title">Nieudane kopiowanie</string>
-  <string name="apply_success_subtitle">Zastosowano źródła:</string>
+  <string name="apply_success_subtitle">Zastosowane źródła hostów</string>
   <string name="apply_success_title">Zastosowano pomyślnie</string>
-  <string name="apply_success_dialog">Zastosowano pomyślnie.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
-  <string name="apply_symlink_successful">Symlink utworzony pomyślnie.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
+  <string name="apply_success_dialog">Zgłoszenie powiodło się.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
+  <string name="apply_symlink_successful">Symlink został utworzony pomyślnie.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
   <string name="apply_symlink_successful_title">Symlink utworzony prawidłowo</string>
   <string name="apply_symlink_fail">Symlink nie mógł być utworzony przez system Android.\nBłąd ten występuje głównie na telefonach HTC z funkcją zwaną S-ON!\n\nRozwiązaniem jest uruchomienie w trybie recovery i ręczne utworzenie symlinka komendą \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJeżeli to nie pomaga poszukaj w Internecie informacji o S-OFF i Twoim telefonie.</string>
   <string name="apply_symlink_fail_title">Symlink nie został utworzony</string>
@@ -110,7 +102,7 @@
   <string name="apply_dialog_apply">Stosowanie pliku hosts</string>
   <string name="apply_fail">Stosowanie pliku hosts zakończone niepowodzeniem!\nSpróbuj zmienić w ustawieniach plik docelowy hosts na /data/data/hosts.</string>
   <string name="apply_fail_title">Zastosowanie nieudane</string>
-  <string name="revert_successful">Przywrócono domyślny plik hosts.\nMoże być wymagany restart Androida aby zmiany przyniosły efekt.\n\nCzy chcesz zrestartować urządzenie?\n(Aby zapobiec utracie danych upewnij się, że żadna aplikacja nie używa teraz karty SD!)</string>
+  <string name="revert_successful">Powróciłeś do domyślnego pliku hosts.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
   <string name="revert_successful_title">Przywracanie wykonane prawidłowo</string>
   <string name="revert_problem">Przywracanie zakończone niepowodzeniem z nieznanych przyczyn.</string>
   <string name="revert_problem_title">Przywracanie nieudane!</string>
@@ -118,9 +110,9 @@
   <string name="download_fail_title">Pobieranie nieudane</string>
   <string name="no_private_file">Plik osobisty nie został utworzony.</string>
   <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
-  <string name="enable_systemless_successful">Włączyłeś tryb systemless.\nMoże być konieczne ponowne uruchomienie systemu, aby zmiany przyniosły efekt.\n\nCzy chcesz uruchomić ponownie?\n(Aby uniknąć utraty danych, upewnij się, że żadna aplikacja nie używa karty sd w tym momencie!)</string>
+  <string name="enable_systemless_successful">Włączyłeś tryb bez systemu.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
   <string name="enable_systemless_successful_title">Pomyślnie włączono</string>
-  <string name="disable_systemless_successful">Wyłączyłeś tryb systemless.\nMoże być konieczne uruchomienie ponowne telefonu, aby zmiany przyniosły efekt.\n\nCzy chcesz uruchomić ponownie telefon?\n(Aby uniknąć utraty danych, upewnij się, że żadna aplikacja nie używa karty SD w tym momencie!)</string>
+  <string name="disable_systemless_successful">Wyłączyłeś tryb bez systemu.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
   <string name="disable_systemless_successful_title">Wyłączono poprawnie</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Nie można znaleźć su binary lub nie zezwoliłeś AdAway na dostęp roota. To może się zdarzyć, gdy urządzenie nie jest zrootowane. Możesz znaleźć informacje o tym, jak zrootować swoje urządzenie na stronie wiki.lineageos.org lub innej stronie z Androidem.</string>
@@ -147,7 +139,7 @@
   <string name="adware_header">Adware</string>
   <string name="adware_description">Tutaj możesz znaleźć zainstalowane adware, złe aplikacje, które nie mogą być blokowane przez AdAway. Te aplikacje używają na przykład powiadomień Airpush, które pojawiają się nawet wtedy, gdy aplikacja nie działa lub nawet zmienia dzwonek. Jedynym dostępnym środkiem zaradczym jest odinstalowanie tych aplikacji, klikając elementy listy.</string>
   <string name="adware_scanning">Skanowanie...</string>
-  <string name="adware_empty">Nie znaleziono aplikacji adware!</string>
+  <string name="adware_empty">Nie znaleziono adware!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokalny:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -207,7 +199,7 @@
     <item>Ścieżka niestandardowa</item>
   </string-array>
   <string name="pref_update_check_summary">Szukaj aktualizacji po uruchomieniu AdAway</string>
-  <string name="pref_sdcard_problem">Ta funkcja nie działa prawidłowo w przypadku, gdy AdAway jest zainstalowany na karcie SD!</string>
+  <string name="pref_sdcard_problem">Ta funkcja nie działa poprawnie, gdy AdAway jest zainstalowany na karcie SD!</string>
   <string name="pref_background">Funkcje w tle</string>
   <string name="pref_update_check_daily">Codzienne wyszukiwanie aktualizacji</string>
   <string name="pref_update_check_daily_summary">Szukaj codziennie aktualizacji i powiadamiaj o nich</string>
@@ -242,6 +234,9 @@
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">u2764 Wspieraj rozwój u2764</string>
+  <string name="drawer_support_dialog_title">Wspieraj rozwój</string>
+  <string name="drawer_support_dialog_text">AdAway to bezpłatne i otwarte oprogramowanie opracowane i obsługiwane wyłącznie przez społeczność. Zbudowanie nowej wersji aplikacji zajęło mi dwa lata. \n\n Jeśli podoba ci się i chcesz zobaczyć więcej aktualizacji, możesz wesprzeć projekt.</string>
+  <string name="drawer_support_dialog_button">Pokaż moje wsparcie</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Żądania DNS</string>
   <string name="shortcut_your_lists">Twoje listy</string>

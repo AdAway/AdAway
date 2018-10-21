@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Avslutt</string>
-  <string name="button_apply">Last ned filer og benytt reklameblokkering</string>
   <string name="button_close">Lukk</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nei</string>
-  <string name="button_revert">Skru av reklameblokkering</string>
   <string name="button_add">Legg til</string>
   <string name="button_cancel">Lukk</string>
-  <string name="button_revert_text">Gjenoppretter standardvertsfilen på systemet ditt.</string>
   <string name="button_save">Lagre</string>
-  <string name="button_webserver_toggle_checked">Nettjeneren kjører</string>
-  <string name="button_webserver_toggle_unchecked">Nettjeneren kjører ikke</string>
   <string name="button_webserver_toggle_text">Start eller stopp nettjeneren på lokalverten for å svare på forespørsler om blokkerte vertsnavn.</string>
   <string name="button_help">Hjelp</string>
   <!--Home-->
   <string name="text_update">Alle vertsfiler fra de valgte kildene blir lastet ned, slått sammen med dine egne lister, og installert som én vertsfil på systemet ditt.</string>
   <string name="button_check_update_hosts">Se etter oppdateringer</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Tøm listen</string>
   <string name="checkbox_list_context_delete">Slett</string>
-  <string name="checkbox_list_footer">Etter å ha lagt til nye gjenstander til denne listen, vil du måtte benytte AdAway på nytt!</string>
-  <string name="checkbox_list_edit_dialog_title">Rediger</string>
   <string name="checkbox_list_context_title">Rediger oppføring</string>
   <string name="checkbox_list_context_edit">Rediger</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP (IPv6 eller IPv4):</string>
   <string name="import_dialog">Importerer …</string>
   <string name="export_dialog">Eksporterer …</string>
-  <string name="export_success">Eksporterte alle oppføringene til en fil kalt \'adaway-export\' på ditt SD-kort.</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Ser etter oppdateringer …</string>
   <string name="status_reverting">Stiller tilbake …</string>
   <string name="status_reverting_subtitle">Lager standard-vertsfilen</string>
-  <string name="status_checking_subtitle">Ser om en oppdatering er tilgjengelig</string>
   <string name="status_update_available">Oppdatering tilgjengelig</string>
   <string name="status_update_available_subtitle">Nyere vertsfiler er tilgjengelig</string>
   <string name="status_no_connection">Ingen internettilkobling</string>
@@ -49,7 +39,6 @@
   <string name="status_enabled">Skrudd på</string>
   <string name="status_enabled_subtitle">De nyeste vertsfilene er skrudd på</string>
   <string name="status_disabled">Skrudd av</string>
-  <string name="status_disabled_subtitle">Skrudd av</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlinken fra målet ditt til /system/etc/hosts finnes ikke eller er feil! AdAway vil ikke virke dersom den ikke peker mot den riktige filen.\n\nVil du forsøke å lage en symlink?</string>
   <string name="apply_symlink_missing_title">Symlinken mangler</string>
@@ -61,10 +50,7 @@
   <string name="apply_remount_fail_title">Gjenmontering mislyktes</string>
   <string name="apply_copy_fail">Kopiering av vertsfilen mislyktes!</string>
   <string name="apply_copy_fail_title">Kopiering mislyktes</string>
-  <string name="apply_success_subtitle">Benyttede vertsfilkilder:</string>
   <string name="apply_success_title">Benyttelsen var vellykket</string>
-  <string name="apply_success_dialog">Benyttelsen var vellykket.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
-  <string name="apply_symlink_successful">Opprettelsen av symlinken var vellykket.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
   <string name="apply_symlink_successful_title">Symlink-opprettelsen var vellykket</string>
   <string name="apply_symlink_fail">Symlinken kunne ikke bli opprettet av Android.\nDette mislykkes vanligvis på grunn av en \"egenskap\" som kalles S-ON på HTC-mobiler!\n\nEn løsning er å starte opp telefonen din i gjenopprettingsmodus og lage symlinken der med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nDersom dette ikke virker, søk på nettet etter S-OFF og mobilen din.</string>
   <string name="apply_symlink_fail_title">Symlink-opprettelsen mislyktes</string>
@@ -81,7 +67,6 @@
   <string name="apply_dialog_apply">Benytter vertsfilen</string>
   <string name="apply_fail">Å få systemet ditt til å benytte vertsfilen mislyktes!\nPrøv å skifte målvertsfilen i innstillingene til /data/data/hosts.</string>
   <string name="apply_fail_title">Benyttelse mislyktes</string>
-  <string name="revert_successful">Du gikk tilbake til standardvertsfilen.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
   <string name="revert_successful_title">Tilbakestillingen var vellykket</string>
   <string name="revert_problem">Tilbakestillingen mislyktes av ukjente grunner.</string>
   <string name="revert_problem_title">Tilbakestillingen mislyktes!</string>
@@ -89,9 +74,7 @@
   <string name="download_fail_title">Nedlastningen mislyktes</string>
   <string name="no_private_file">Privatfilen kan ikke bli opprettet.</string>
   <string name="no_private_file_title">Privatfil-opprettelsen mislyktes</string>
-  <string name="enable_systemless_successful">Du har skrudd på systemløs modus.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
   <string name="enable_systemless_successful_title">Påskruingen var vellykket</string>
-  <string name="disable_systemless_successful">Du har skrudd av systemløs modus.\nDet kan være nødvendig å starte Android på nytt for at endringene skal bli tatt i bruk.\n\nVil du starte på nytt?\n(For å hindre tap av data, sørg for at ingen apper bruker SD-kortet for øyeblikket!)</string>
   <string name="disable_systemless_successful_title">Avskruingen var vellykket</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Enten kunne SU-binærfilen ikke bli funnet, eller så ga du ikke root-tillatelse for AdAway.\n\nDette kan skje dersom enheten din ikke er rootet.\nDu kan finne mere informasjon om hvordan man rooter enheten din på wiki.lineageos.org eller på andre Android-nettsteder.</string>
@@ -153,7 +136,6 @@
     <item>Tilpasset mål</item>
   </string-array>
   <string name="pref_update_check_summary">Se etter oppdateringer når AdAway starter opp</string>
-  <string name="pref_sdcard_problem">Denne funksjonen vil ikke virke riktig mens AdAway er installert på SD-kortet!</string>
   <string name="pref_background">Bakgrunnstjenester</string>
   <string name="pref_update_check_daily">Se etter oppdateringer daglig</string>
   <string name="pref_update_check_daily_summary">Sjekk etter oppdateringer i bakgrunnen daglig med beskjeder</string>

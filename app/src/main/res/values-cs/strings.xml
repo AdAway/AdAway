@@ -3,43 +3,40 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Ukončit</string>
-  <string name="button_apply">Stáhnout a aplikovat</string>
   <string name="button_close">Zavřít</string>
   <string name="button_yes">Ano</string>
   <string name="button_no">Ne</string>
-  <string name="button_revert">Vypnout blokování reklam</string>
   <string name="button_add">Přidat</string>
   <string name="button_cancel">Zrušit</string>
-  <string name="button_revert_text">Obnoví výchozí soubor hostitelů ve vašem systému.</string>
   <string name="button_save">Uložit</string>
-  <string name="button_webserver_toggle_checked">Webový server běží</string>
-  <string name="button_webserver_toggle_unchecked">Webový server neběží</string>
   <string name="button_webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na blokované hostitele.</string>
   <string name="button_help">Pomoc</string>
   <!--Home-->
+  <string name="header_help">Vítejte!</string>
+  <string name="icon_update_status">Aktualizovat status</string>
   <string name="text_update">Všechny soubory hostitelů z vybraných zdrojů budou staženy, sloučeny s vašimi vlastními seznamy a instalovány do vašeho systému jako jeden soubor hostitelů.</string>
   <string name="button_check_update_hosts">Zkontrolovat aktualizace</string>
+  <string name="button_update_hosts">Aktualizovat hostitele</string>
+  <string name="button_enable_hosts">Zapnout blokaci reklamy</string>
+  <string name="button_disable_hosts">Vypnout blokaci reklamy</string>
+  <string name="header_webserver">Webový server</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Prázdný seznam</string>
   <string name="checkbox_list_context_delete">Smazat</string>
-  <string name="checkbox_list_footer">Po přidání nových položek do tohoto seznamu budete muset AdAway aplikovat znovu!</string>
-  <string name="checkbox_list_edit_dialog_title">Upravit</string>
   <string name="checkbox_list_context_title">Upravit položku</string>
   <string name="checkbox_list_context_edit">Upravit</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">Bílá listina</string>
   <string name="lists_tab_blacklist">Černá listina</string>
+  <string name="lists_tab_redirection_list">Přesměrování</string>
   <string name="list_dialog_hostname">Název hostitele:</string>
   <string name="list_dialog_ip">IP (IPv4 nebo IPv6):</string>
   <string name="import_dialog">Importování...</string>
   <string name="export_dialog">Exportování...</string>
-  <string name="export_success">Všechny záznamy byly exportovány do souboru \"adaway-export\" na SD kartě.</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Kontrola aktualizací...</string>
   <string name="status_reverting">Obnovování...</string>
   <string name="status_reverting_subtitle">Vytvářím standardní soubor hostitelů</string>
-  <string name="status_checking_subtitle">Kontrola, zda je k dispozici aktualizace</string>
   <string name="status_update_available">Aktualizace je k dispozici</string>
   <string name="status_update_available_subtitle">Jsou dostupné novější soubory hostitelů</string>
   <string name="status_no_connection">Bez připojení k internetu</string>
@@ -49,7 +46,6 @@
   <string name="status_enabled">Povoleno</string>
   <string name="status_enabled_subtitle">Nejnovější soubory hostitelů povoleny</string>
   <string name="status_disabled">Zakázáno</string>
-  <string name="status_disabled_subtitle">Zakázáno</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symbolický odkaz (symlink) z vašeho cíle na /system/etc/hosts buď neexistuje nebo je špatný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
   <string name="apply_symlink_missing_title">Chybějící symbolický odkaz</string>
@@ -61,10 +57,7 @@
   <string name="apply_remount_fail_title">Připojení oddílu selhalo!</string>
   <string name="apply_copy_fail">Kopírování souboru hostitelů selhalo!</string>
   <string name="apply_copy_fail_title">Kopírování selhalo</string>
-  <string name="apply_success_subtitle">Použité zdroje souborů hostitelů:</string>
   <string name="apply_success_title">Aplikování úspěšné</string>
-  <string name="apply_success_dialog">Aplikování se podařilo!\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
-  <string name="apply_symlink_successful">Symbolický odkaz byl úspěšně vytvořen.\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
   <string name="apply_symlink_successful_title">Symbolický odkaz úspěšně vytvořen</string>
   <string name="apply_symlink_fail">Symbolický odkaz nemohl být vytvořen.\nTo se většinou stává na telefonech HTC kvůli \"vylepšení\" nazývanému S-ON. Řešením je restartovat telefon do režimu obnovy a vytvořit symbolický odkaz příkazem \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nPokud to nepomůže, pak zkuste na internetu vyhledat frázi \"S-OFF\" a název modelu vašeho telefonu.</string>
   <string name="apply_symlink_fail_title">Vytvoření symbolického odkazu selhalo</string>
@@ -81,7 +74,6 @@
   <string name="apply_dialog_apply">Aplikování souboru hostitelů</string>
   <string name="apply_fail">Při aplikaci souboru hostitelů došlo k chybě!\nZkuste v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
   <string name="apply_fail_title">Aplikování se nezdařilo</string>
-  <string name="revert_successful">Obnovili jste výchozí soubor hostitelů.\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
   <string name="revert_successful_title">Obnova úspěšná</string>
   <string name="revert_problem">Obnova souboru hostitelů z neznámých příčin selhala!</string>
   <string name="revert_problem_title">Obnova souboru hostitelů selhala!</string>
@@ -89,9 +81,7 @@
   <string name="download_fail_title">Stahování selhalo</string>
   <string name="no_private_file">Soukromý soubor nelze vytvořit.</string>
   <string name="no_private_file_title">Vytvoření soukromého souboru selhalo</string>
-  <string name="enable_systemless_successful">Povolili jste mód systemless.\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
   <string name="enable_systemless_successful_title">Povolování úspěšné</string>
-  <string name="disable_systemless_successful">Zakázali jste mód systemless.\nPro uplatnění změn může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat nyní?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
   <string name="disable_systemless_successful_title">Deaktivace úspěšná</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Spustitelný soubor su nebyl nalezen nebo jste AdAway neudělili root oprávnění.\n\nToto se může stát, pokud zařízení nemá root přístup.\nInformace jak získat přístup root naleznete na wiki.lineageos.org nebo jiných stránkách o Androidu.</string>
@@ -153,7 +143,6 @@
     <item>Vlastní složka</item>
   </string-array>
   <string name="pref_update_check_summary">Zkontrolovat aktualizace při startu AdAway</string>
-  <string name="pref_sdcard_problem">Tato funkce nebude pracovat správně, pokud je AdAway instalován na SD kartě!</string>
   <string name="pref_background">Služby na pozadí</string>
   <string name="pref_update_check_daily">Kontrolovat aktualizace denně</string>
   <string name="pref_update_check_daily_summary">Kontrolovat aktualizace denně na pozadí s oznámením</string>

@@ -3,66 +3,70 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Выйсці</string>
-  <string name="button_apply">Спампоўка файлаў і прымяненне блакіроўкі рэкламы</string>
   <string name="button_close">Зачыніць</string>
   <string name="button_yes">Так</string>
   <string name="button_no">Не</string>
-  <string name="button_revert">Адключыць блакіроўку рэкламы</string>
   <string name="button_add">Дадаць</string>
   <string name="button_cancel">Скасаваць</string>
-  <string name="button_revert_text">Аднаўленне файла host па змаўчанні ў вашай сістэме</string>
   <string name="button_save">Захаваць</string>
-  <string name="button_webserver_toggle_checked">Вэб-сервер запушчаны</string>
-  <string name="button_webserver_toggle_unchecked">Вэб-сервер не запушчаны</string>
   <string name="button_webserver_toggle_text">Запуск або прыпыненне Вэб-сервера на лакальнай сістэме для адказаў на запыты заблакаваных хастоў.</string>
   <string name="button_help">Дапамога</string>
   <!--Home-->
   <string name="header_help">Сярдэчна запрашаем!</string>
-  <string name="text_help">AdAway - бясплатнае праграмнае забеспячэнне з адкрытымі зыходнымі кодамі дызайну для блакавання рэкламы. Яна загружае рэкламную сетку і наладжвае прыладу, каб блакаваць іх.\nЖадаеце ведаць больш? Праверце дапамогу ніжэй!</string>
   <string name="button_show_help">Паказаць дадатковую дапамогу</string>
   <string name="icon_update_status">Статус абнаўленняў</string>
-  <string name="text_update">Усе спісы хастоў, спампаваных з пэўных крыніц, зліваюцца з вашым уласным спісам і ўсталёўваюцца ў вашай сістэме ў выглядзе аднаго файла host</string>
+  <string name="text_update">Усе файлы hosts, спампаваных з пэўных крыніц, зліваюцца з вашым уласным спісам і ўсталёўваюцца ў вашай сістэме ў выглядзе аднаго файла host</string>
   <string name="button_check_update_hosts">Праверка абнаўленняў</string>
   <string name="button_update_hosts">Абнаўленне hosts</string>
   <string name="button_enable_hosts">Уключыць блакаванне рэкламы</string>
   <string name="button_disable_hosts">Адключыць блакаванне рэкламы</string>
   <string name="header_webserver">Вэб-сервер</string>
+  <string name="webserver_status_running">Працуе</string>
+  <string name="webserver_status_stopped">Прыпынена</string>
   <string name="button_enable_webserver">Уключыць вэб-сервер</string>
   <string name="button_disable_webserver">Адключыць вэб-сервер</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Спіс пусты</string>
-  <string name="checkbox_list_empty_text">Вы можаце дадаваць элементы з дапамогай кнопкі плюс.</string>
   <string name="checkbox_list_context_delete">Выдаліць</string>
-  <string name="checkbox_list_footer">Пасля дадання новых пунктаў у гэтым спісе вы павінны зноў прымяніць AdAway!</string>
-  <string name="checkbox_list_edit_dialog_title">Рэдагаваць</string>
   <string name="checkbox_list_context_title">Рэдагаваць запіс</string>
   <string name="checkbox_list_context_edit">Рэдагаваць</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">Белы спіс</string>
   <string name="lists_tab_blacklist">Чорны спіс</string>
+  <string name="lists_tab_redirection_list">Перанакіраванне</string>
   <string name="list_add_dialog_black">Дадаць host у чорны спіс</string>
   <string name="list_add_dialog_white">Дадаць host у белы спіс</string>
+  <string name="list_add_dialog_redirect">Дадаць перанакіраванне host</string>
+  <string name="list_edit_dialog_black">Змяніць чорны спіс host</string>
+  <string name="list_edit_dialog_white">Змяніць белы спіс host</string>
+  <string name="list_edit_dialog_redirect">Змяніць перанакіраванне</string>
   <string name="list_dialog_hostname">Назва крыніцы:</string>
+  <string name="list_dialog_hostname_hint">URL крыніцы hosts</string>
+  <string name="list_dialog_wildcard">(Дапускаюцца падстаноўныя сімвалы * і ?)</string>
   <string name="list_dialog_ip">IP (IPv4 ці IPv6):</string>
   <string name="import_dialog">Імпарт...</string>
   <string name="export_dialog">Экспарт...</string>
-  <string name="export_success">Экспарт ўсіх запісаў на карту памяці ў файл з назвай \ \'adaway-export \ \' .</string>
   <!--Hosts content-->
+  <string name="hosts_header">Файл hosts</string>
+  <string name="hosts_content">Загрузка змесціва файла hosts</string>
+  <string name="hosts_open_button">Адкрыць файл hosts</string>
   <!--Status Notification-->
   <string name="status_checking">Праверка абнаўленняў...</string>
   <string name="status_reverting">Аднаўленне...</string>
   <string name="status_reverting_subtitle">Стварэнне стандартнага файла hosts</string>
-  <string name="status_checking_subtitle">Праверка даступных абнаўленняў</string>
   <string name="status_update_available">Даступна абнаўленне</string>
   <string name="status_update_available_subtitle">Даступны новыя файлы host</string>
   <string name="status_no_connection">Няма злучэння з інтэрнэтам</string>
   <string name="status_no_connection_subtitle">Няма падлучэння да Інтэрнэту</string>
   <string name="status_download_fail">Недаступныя крыніцы</string>
   <string name="status_download_fail_subtitle_new">Няма даступных крыніц host!</string>
+  <string name="status_failure">Нешта пайшло не так</string>
+  <string name="status_failure_subtitle">Праверце logcat для атрымання больш падрабязнай інфармацыі</string>
   <string name="status_enabled">Уключана</string>
   <string name="status_enabled_subtitle">Выкарыстоўваюцца новыя спісы host</string>
   <string name="status_disabled">Выключана</string>
-  <string name="status_disabled_subtitle">Выключана</string>
+  <string name="status_disabled_subtitle">Усталяваны стандартны файл hosts</string>
+  <string name="notification_channel_update_name">Абнаўленне</string>
+  <string name="notification_channel_update_description">Апавяшчэнні аб абнаўленні новых hosts</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Спасылка на ваш /system/etc/hosts няправільная або не існуе! AdAway не будзе працаваць, калі не паказаць правільны файл. Вы хочаце паспрабаваць стварыць спасылку?</string>
   <string name="apply_symlink_missing_title">Спасылка адсутнічае</string>
@@ -74,10 +78,7 @@
   <string name="apply_remount_fail_title">Перамантаваць не ўдалося</string>
   <string name="apply_copy_fail">Капіяванне файла hosts не ўдалося!</string>
   <string name="apply_copy_fail_title">Капіяванне не ўдалося</string>
-  <string name="apply_success_subtitle">Выкарыстоўваюцца крыніцы hosts:</string>
   <string name="apply_success_title">Прымяненне прайшло паспяхова</string>
-  <string name="apply_success_dialog">Прымяненне прайшло паспяхова. Магчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу. Вы хочаце перагрузіць Android? (Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць sdcard!)</string>
-  <string name="apply_symlink_successful">Спасылка створана паспяхова. Магчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу. Вы хочаце перагрузіць Android? (Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць sdcard!)</string>
   <string name="apply_symlink_successful_title">Спасылка створана паспяхова</string>
   <string name="apply_symlink_fail">Android не змог стварыць спасылку. Магчыма, гэта з-за асаблівасці тэлефонаў HTC,так званай S-ON! Рашэнне складаецца ў загрузцы тэлефона ў рэжыме аднаўлення і стварэння спасылкі пры дапамозе \'ln -s /data/data/hosts /system/etc/hosts\'. Калі гэта не спрацоўвае, то неабходна шукаць інфармацыю ў інтэрнэце па S-OFF і вашаму тэлефону.</string>
   <string name="apply_symlink_fail_title">Памылка стварэння спасылкі</string>
@@ -95,11 +96,6 @@
   <string name="apply_fail">Не атрымалася прымяніць файл Hosts на вашай сістэме! 
 Паспрабуйце змяніць шлях да файла Hosts ў наладах на /data/data/hosts</string>
   <string name="apply_fail_title">Прымяненне не ўдалося</string>
-  <string name="revert_successful">Вы вярнуліся да файла Hosts па змаўчанні.
-Магчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.
-
-Вы хочаце перагрузіць Android? 
-(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць sdcard!)</string>
   <string name="revert_successful_title">Вяртанне адбылося паспяхова</string>
   <string name="revert_problem">Аднаўленне не атрымалася па невядомых прычынах.</string>
   <string name="revert_problem_title">Аднаўленне не атрымалася!</string>
@@ -110,6 +106,7 @@
   <!--Help-->
   <!--Adware-->
   <!--Hosts sources-->
+  <string name="hosts_dialog_url_hint">URL крыніцы hosts</string>
   <!--Other-->
   <!--Tcpdump-->
   <string name="tcpdump_description">Tcpdump гэта інструмент для маніторынгу запытаў DNS і іх захавання ў файле журнала. Запусціце Tcpdump, ён будзе працаваць у фонавым рэжыме да перазагрузкі прылады - запусціце праграму, у якой на экране паказваецца рэклама - прааналізуйце запыты DNS, выкарыстоўваючы файл журнала. Знойдзеныя ў ім падазроныя сервера, магчымыя як крыніцы рэкламы, могуць быць унесены ў чорны спіс.</string>

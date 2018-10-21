@@ -3,22 +3,16 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">終了</string>
-  <string name="button_apply">ファイルをダウンロードして適用</string>
   <string name="button_close">閉じる</string>
   <string name="button_yes">はい</string>
   <string name="button_no">いいえ</string>
-  <string name="button_revert">広告ブロックを無効化</string>
   <string name="button_add">追加</string>
   <string name="button_cancel">キャンセル</string>
-  <string name="button_revert_text">システムのhostsファイルをリストアします</string>
   <string name="button_save">保存</string>
-  <string name="button_webserver_toggle_checked">ウェブサーバーは動作中です</string>
-  <string name="button_webserver_toggle_unchecked">ウェブサーバーは動作していません</string>
   <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します</string>
   <string name="button_help">ヘルプ</string>
   <!--Home-->
   <string name="header_help">ようこそ！</string>
-  <string name="text_help">AdAwayは、広告をブロックするためのフリーでオープンソースのソフトウェアです。広告Hostsソースをダウンロードし、ブロックするようにあなたのデバイスを設定します。\ nもっと知りたいですか？ 以下のヘルプをチェックしてください！</string>
   <string name="button_show_help">詳しいヘルプを表示</string>
   <string name="icon_update_status">最新状況</string>
   <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします</string>
@@ -32,11 +26,7 @@
   <string name="button_enable_webserver">Webサーバーを有効にする</string>
   <string name="button_disable_webserver">Webサーバーを無効にする</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">空のリスト</string>
-  <string name="checkbox_list_empty_text">\\"＋\\"ボタンから項目を追加できます</string>
   <string name="checkbox_list_context_delete">削除</string>
-  <string name="checkbox_list_footer">リストに追加した後は再度適用してください!</string>
-  <string name="checkbox_list_edit_dialog_title">編集</string>
   <string name="checkbox_list_context_title">空のエントリ</string>
   <string name="checkbox_list_context_edit">編集</string>
   <!--Your lists-->
@@ -55,18 +45,14 @@
   <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
   <string name="import_dialog">インポート中...</string>
   <string name="export_dialog">エクスポート中...</string>
-  <string name="export_success">エクスポートしたファイルはSDカードに\'adaway-export\'として保存されました</string>
-  <string name="export_failed">SDカードへのエクスポートに失敗しました</string>
   <!--Hosts content-->
   <string name="hosts_header">hostsファイル</string>
-  <string name="hosts_description">hostsファイルはホスト名をIPアドレスにマップするシステムファイルです。 AdAwayによって処理されるプレーンテキストファイルです。 最初の行はいくつかあります：</string>
   <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
   <string name="hosts_open_button">hostsファイルを開く</string>
   <!--Status Notification-->
   <string name="status_checking">更新を確認中...</string>
   <string name="status_reverting">元に戻しています...</string>
   <string name="status_reverting_subtitle">標準hostsファイルを作成中</string>
-  <string name="status_checking_subtitle">更新がないか確認しています...</string>
   <string name="status_update_available">更新があります</string>
   <string name="status_update_available_subtitle">新しいhostsファイルがあります</string>
   <string name="status_no_connection">ネット接続なし</string>
@@ -76,7 +62,6 @@
   <string name="status_enabled">有効です</string>
   <string name="status_enabled_subtitle">hostsファイルが有効化されました</string>
   <string name="status_disabled">無効です</string>
-  <string name="status_disabled_subtitle">無効になっています</string>
   <string name="notification_channel_update_name">アップデート</string>
   <string name="notification_channel_update_description">新しいホストの更新通知</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +75,7 @@
   <string name="apply_remount_fail_title">再マウント失敗</string>
   <string name="apply_copy_fail">hostsファイルのコピー失敗！</string>
   <string name="apply_copy_fail_title">コピー失敗</string>
-  <string name="apply_success_subtitle">適用したhostsのソース:</string>
   <string name="apply_success_title">適用しました</string>
-  <string name="apply_success_dialog">適用しました。\n変更の適用には再起動が必要です。\n\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください!)</string>
-  <string name="apply_symlink_successful">symlinkを作成しました。\n変更を適用するには再起動が必要です。\n再起動しますか?\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください！)</string>
   <string name="apply_symlink_successful_title">symlink作成成功</string>
   <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください</string>
   <string name="apply_symlink_fail_title">symlink作成失敗</string>
@@ -110,7 +92,6 @@
   <string name="apply_dialog_apply">hostsファイルを適用中</string>
   <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
   <string name="apply_fail_title">適用に失敗</string>
-  <string name="revert_successful">デフォルトのhostsファイルに戻しました。\n変更の適用には再起動が必要です。\n\n再起動しますか？\n(データ消失を防ぐためSDカードを使用しているアプリが動作していないか確認してください！)</string>
   <string name="revert_successful_title">元に戻しました</string>
   <string name="revert_problem">不明な理由により元に戻せませんでした</string>
   <string name="revert_problem_title">元に戻せません！</string>
@@ -118,9 +99,7 @@
   <string name="download_fail_title">ダウンロード失敗</string>
   <string name="no_private_file">プライベートファイルが作成できません</string>
   <string name="no_private_file_title">プライベートファイルの作成失敗</string>
-  <string name="enable_systemless_successful">システムレスモードを有効にしました。\n変更を有効にするには、Android を再起動する必要があります。\n\n再起動しますか？\n(データ損失を防ぐために、現在のところアプリケーションが sdcard を使用していないことを確認してください！)</string>
   <string name="enable_systemless_successful_title">有効化は成功です</string>
-  <string name="disable_systemless_successful">システムレスモードを無効にしました。\n変更を有効にするには、Androidを再起動する必要があります。\n\n再起動しますか？\n(データ損失を防ぐために、現在のところアプリケーションがsdcardを使用していないことを確認してください！)</string>
   <string name="disable_systemless_successful_title">無効化は成功です</string>
   <!--Other Dialogs-->
   <string name="no_root_description">suバイナリが見つからないか、AdAwayのroot権限を許可していません。\n\n
@@ -147,9 +126,7 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="help_tab_problems">問題</string>
   <!--Adware-->
   <string name="adware_header">アドウェア</string>
-  <string name="adware_description">ここにはインストールされたアドウェア、AdAwayによってブロックできないアプリがあります。 これらのアプリは例えば、アプリが実行されていないときにポップアップする、または着信音を変更するなどのAirpush通知を使用します。 利用可能な唯一の対策はリスト項目をクリックしてそれらのアプリをアンインストールすることです</string>
   <string name="adware_scanning">スキャン中…</string>
-  <string name="adware_empty">アドウェアは検出されませんでした！</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">ローカル：</string>
   <string name="hosts_last_modified_online">オンライン：</string>
@@ -208,7 +185,6 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
     <item>カスタムターゲット</item>
   </string-array>
   <string name="pref_update_check_summary">AdAway起動時に更新を確認</string>
-  <string name="pref_sdcard_problem">AdAwayがSDカードにインストールされていると機能しません！</string>
   <string name="pref_background">バックグラウンドサービス</string>
   <string name="pref_update_check_daily">毎日更新を確認する</string>
   <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します</string>

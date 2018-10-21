@@ -3,23 +3,16 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Έξοδος</string>
-  <string name="button_apply">Λήψη αρχείων και εφαρμογή αποκλεισμού διαφημίσεων</string>
   <string name="button_close">Κλείσιμο</string>
   <string name="button_yes">Ναι</string>
   <string name="button_no">Όχι</string>
-  <string name="button_revert">Απενεργοποίηση αποκλεισμού διαφημίσεων</string>
   <string name="button_add">Προσθήκη</string>
   <string name="button_cancel">Άκυρο</string>
-  <string name="button_revert_text">Επαναφορά του αρχικού αρχείου hosts στο σύστημά σας.</string>
   <string name="button_save">Αποθήκευση</string>
-  <string name="button_webserver_toggle_checked">Ο διακομιστής δικτύου λειτουργεί</string>
-  <string name="button_webserver_toggle_unchecked">Ο διακομιστής δικτύου δεν λειτουργεί</string>
   <string name="button_webserver_toggle_text">Εκκίνηση ή διακοπή του διακομιστή ιστοσελίδων στο τοπικό μηχάνημα για απάντηση σε φραγμένα ονόματα.</string>
   <string name="button_help">Βοήθεια</string>
   <!--Home-->
   <string name="header_help">Καλώς ήρθατε! </string>
-  <string name="text_help">Το AdAway είναι ένα ελεύθερο και ανοιχτού πηγαίου κώδικα λογισμικό, σχεδιασμένο ώστε να αποκλείει διαφημίσεις. Κάνει λήψη της λίστας του δικτύου διαφημίσεων και ρυθμίζει τη συσκευή σας ώστε να τα αποκλείει.
-Θέλετε να μάθετε περισσότερα; Διαβάστε τα κείμενα βοήθειας παρακάτω!</string>
   <string name="button_show_help">Εμφάνιση περισσότερης βοήθειας</string>
   <string name="icon_update_status">Κατάσταση ενημέρωσης</string>
   <string name="text_update">Όλα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
@@ -33,11 +26,7 @@
   <string name="button_enable_webserver">Ενεργοποίηση διακομιστή διαδικτύου</string>
   <string name="button_disable_webserver">Απενεργοποήση διακομιστή διαδικτύου</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Άδεια λίστα</string>
-  <string name="checkbox_list_empty_text">Μπορείτε να προσθέσετε καταχωρήσεις πατώντας το κουμπί με το συν.</string>
   <string name="checkbox_list_context_delete">Διαγραφή</string>
-  <string name="checkbox_list_footer">Μετά την προσθήκη νέων στοιχείων σε αυτήν την λίστα θα πρέπει να εφαρμόσετε το AdAway ξανά!</string>
-  <string name="checkbox_list_edit_dialog_title">Επεξεργασία</string>
   <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
   <string name="checkbox_list_context_edit">Επεξεργασία</string>
   <!--Your lists-->
@@ -56,18 +45,14 @@
   <string name="list_dialog_ip">IP (IPv4 ή IPv6):</string>
   <string name="import_dialog">Εισαγωγή...</string>
   <string name="export_dialog">Εξαγωγή...</string>
-  <string name="export_success">Εξαγωγή όλων των εγγραφών σε αρχείο με όνομα \'adaway-export\' στην κάρτα SD σας.</string>
-  <string name="export_failed">Αποτυχία εξαγωγής της λίστας σας στην κάρτα SD.</string>
   <!--Hosts content-->
   <string name="hosts_header">Το αρχείο hosts</string>
-  <string name="hosts_description">Το αρχείο hosts είναι ένα αρχείο συστήματος το οποίο αντιστοιχίζει ονόματα διακομιστών σε διευθύνσεις IP. Είναι ένα αρχείο απλού κειμένου το οποίο ρυθμίζει το AdAway. Εδώ παρατίθενται οι πρώτες του γραμμές:</string>
   <string name="hosts_content">Γίνεται φόρτωση του περιεχομένου του αρχείου hosts...</string>
   <string name="hosts_open_button">Άνοιγμα του αρχείου hosts</string>
   <!--Status Notification-->
   <string name="status_checking">Έλεγχος για ενημέρωση...</string>
   <string name="status_reverting">Επαναφορά...</string>
   <string name="status_reverting_subtitle">Δημιουργία στάνταρ αρχείου hosts</string>
-  <string name="status_checking_subtitle">Έλεγχος για ενημέρωση</string>
   <string name="status_update_available">Υπάρχει διαθέσιμη ενημέρωση</string>
   <string name="status_update_available_subtitle">Υπάρχουν διαθέσιμα πιο πρόσφατα αρχεία hosts</string>
   <string name="status_no_connection">Δεν υπάρχει σύνδεση στο ίντερνετ</string>
@@ -77,7 +62,6 @@
   <string name="status_enabled">Ενεργοποιημένο</string>
   <string name="status_enabled_subtitle">Ενεργοποιήθηκαν τα πιο πρόσφατα αρχεία hosts</string>
   <string name="status_disabled">Απενεργοποιημένο</string>
-  <string name="status_disabled_subtitle">Απενεργοποιημένο</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Ο σύνδεσμος από τον προορισμό στο /system/etc/hosts δεν υπάρχει ή είναι λανθασμένος! Το AdAway δεν θα λειτουργήσει αν δεν δείχνει στο σωστό αρχείο.
 
@@ -92,16 +76,7 @@
   <string name="apply_remount_fail_title">Η επανατοποθέτηση απέτυχε</string>
   <string name="apply_copy_fail">Η αντιγραφή του αρχείου hosts απέτυχε!</string>
   <string name="apply_copy_fail_title">Η αντιγραφή απέτυχε</string>
-  <string name="apply_success_subtitle">Εφαρμοσμένες πηγές hosts:</string>
   <string name="apply_success_title">Επιτυχής εφαρμογή</string>
-  <string name="apply_success_dialog">Η εφαρμογή ήταν επιτυχής.
-Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
-Θέλετε να κάνετε επανεκκίνηση;
-(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
-  <string name="apply_symlink_successful">Ο σύνδεσμος δημιουργήθηκε με επιτυχία.
-Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
-Θέλετε να κάνετε επανεκκίνηση;
-(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
   <string name="apply_symlink_successful_title">Επιτυχής δημιουργία συντόμευσης</string>
   <string name="apply_symlink_fail">Δεν ήταν δυνατό να δημιουργηθεί ο σύνδεσμος από το Android.
 Η αποτυχία οφείλεται συνήθως σε ένα \'χαρακτηριστικό\' που ονομάζεται S-ON στις συσκευές HTC!
@@ -125,10 +100,6 @@
   <string name="apply_fail">Η εφαρμογή του αρχείου hosts στο σύστημά σας απέτυχε!
 Προσπαθήστε να αλλάξετε το αρχείο προορισμού hosts στις ρυθμίσεις σε /data/data/hosts.</string>
   <string name="apply_fail_title">Εφαρμογή απέτυχε</string>
-  <string name="revert_successful">Επαναφέρατε το αρχικό αρχείο hosts.
-Ίσως είναι απαραίτητο να επανεκκινήσετε το Android για να εφαρμοστούν οι αλλαγές.
-Θέλετε να κάνετε επανεκκίνηση;
-(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
   <string name="revert_successful_title">Επιτυχής επαναφορά</string>
   <string name="revert_problem">Η επαναφορά απέτυχε λόγω μη γνωστής αιτίας</string>
   <string name="revert_problem_title">Η επαναφορά απέτυχε!</string>
@@ -136,13 +107,7 @@
   <string name="download_fail_title">Το κατέβασμα απέτυχε</string>
   <string name="no_private_file">Το προσωπικό αρχείο δεν μπορεί να δημιουργηθεί.</string>
   <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
-  <string name="enable_systemless_successful">Έχετε ενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n\n(Για να αποτρέψετε το χάσιμο δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα sd τωρα!) </string>
   <string name="enable_systemless_successful_title">Ενεργοποίηση επιτυχής</string>
-  <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία που δεν πειράζει το σύστημα. 
-Μπορεί να χρειαστεί επανεκκίνηση της συσκευής για να δουλέψει.
-
-Θέλετε να επανεκκινήσετε τη συσκευή σας;
-(Για να αποφύγετε την απώλεια δεδομένων σιγουρευτείτε οτι δεν υπάρχει εφαρμογή που να χρησιμοποιεί την κάρτα SD τωρα!) </string>
   <string name="disable_systemless_successful_title">Απενεργοποίηση επιτυχής</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Είτε το εκτελέσιμο su δεν βρέθηκε ή δεν παραχωρήσατε δικαιώματα υπερχρήστη στο AdAway.
@@ -170,9 +135,7 @@
   <string name="help_tab_problems">Προβλήματα</string>
   <!--Adware-->
   <string name="adware_header">Κακόβουλο λογισμικό διαφημίσεων</string>
-  <string name="adware_description">Εδώ μπορείτε να βρείτε τα εγκατεστημένα κακόβουλα λογισμικά διαφημίσεων, εφαρμογές τις οποίες το AdAway δεν μπορεί να αποκλείσει. Αυτές οι εφαρμογές χρησιμοποιούν, για παράδειγμα, ειδοποιήσεις Airpush οι οποίες εμφανίζονται ακόμα και όταν οι κακόβουλες εφαρμογές δεν εκτελούνται, ενώ μπορούν ακόμα να αλλάξουν και τον ήχο κλήσης σας. Η μόνη διαθέσιμη μέθοδος αντιμετώπισής του είναι να τις απεγκαταστήσετε, κάνοντας κλικ στα περιεχόμενα της λίστας.</string>
   <string name="adware_scanning">Σάρωση...</string>
-  <string name="adware_empty">Δε βρέθηκαν κακόβουλα λογισμικά διαφημίσεων!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Τοπικά</string>
   <string name="hosts_last_modified_online">Σε λειτουργία</string>
@@ -235,7 +198,6 @@
     <item>Παραμετροποιημένος προορισμός</item>
   </string-array>
   <string name="pref_update_check_summary">Έλεγχος για ενημερώσεις κατά την εκκίνηση του AdAway</string>
-  <string name="pref_sdcard_problem">Αυτό το χαρακτηριστικό δεν θα λειτουργήσει σωστά αν το AdAway εγκατασταθεί σε κάρτα SD!</string>
   <string name="pref_background">Υπηρεσίες παρασκηνίου</string>
   <string name="pref_update_check_daily">Ημερήσιος έλεγχος για ενημερώσεις</string>
   <string name="pref_update_check_daily_summary">Ημερήσιος έλεγχος για ενημερώσεις στο παρασκήνιο με ειδοποιήσεις</string>

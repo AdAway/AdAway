@@ -1,17 +1,18 @@
 <!-- Maintain structure with headings with h2 tags and content with p tags.
 This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
-<head></head>
+<head><title>Typowe problemy</title></head>
 <body>
 <h2>Brak wystarczającego miejsca na partycji</h2>
-<p>Spróbuj zmienić w ustawieniach plik docelowy hosts na <tt>/data/data/hosts<tt> (lub <tt>/data/hosts</tt>) i aktywuj ponownie AdAway.</tt></tt></p>
+<p>Spróbuj zmienić docelowy plik hosts w preferencjach na <code>/data/data/hosts</code> (lub <code>/data/hosts</code>) i ponownie zastosuj AdAway.</p>
 
 <h2>Nie działa na Android 4.4+</h2>
-<p>Spróbuj zmienić w ustawieniach plik docelowy hosts z <tt>/data/data/hosts</tt> na <tt>/data/data/hosts<tt> lub <tt>/system/etc/hosts</tt> i aktywuj ponownie AdAway.</tt></tt></p>
+<p>Spróbuj zmienić docelowy plik hosts w preferencjach z <code>/data/data/hosts</code> na <code>/data/hosts</code> lub <code>/system/etc/hosts</code> i ponownie zastosuj AdAway.</p>
 
 <h2>Nie blokuje reklam w aplikacji XYZ!</h2>
-<p>Niektórych adresów może brakować w dostarczanych plikach hosts ze <i>Źródeł hostów</i> lub aplikacja zawiera w sobie obrazy reklam tak, aby zapewnić je bez dostępu do Internetu.<br><br>
+<p>Niektóre nazwy hostów mogą nie być dostępne w dostarczonych plikach ze  <cite>Źródeł Hostów</cite> lub aplikacja zawiera obrazy, aby wyświetlać reklamy bez dostępu do internetu.<br><br>
 W AdAway możesz logować zapytania DNS (Menu-&gt;Loguj zapytania DNS) tak, aby odnaleźć jakie nazwy hostów powinny być zablokowane. 
 <br><br>Dodaj podejrzane hosty do swojej Czarnej listy przez długie przytrzymanie wpisu w logu i zgłoś te hosty do sprawdzenia na Forum <a href="http://hosts-file.net">hosts-file.net</a> w dziale <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a>.</p>
 
@@ -19,7 +20,7 @@ W AdAway możesz logować zapytania DNS (Menu-&gt;Loguj zapytania DNS) tak, aby 
 <p>Zdarza się, że aplikacje cachują reklamy po pobraniu. Prowadzi to do tego, że pomimo blokowania, reklamy nadal są wyświetlane w niektórych aplikacjach. W celu usunięcia problemu możesz spróbować usunąć pamięć podręczną tych aplikacji.</p>
 
 <h2>Aplikacja XYZ nie działa teraz prawidłowo!</h2>
-<p>Niektóre aplikacje wymagają połączenia z blokowanymi przez AdAway hostami lub odmawiają pracy, gdy hosty serwujące reklamy są niedostępne. Zobacz <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a>, aby zobaczyć listę znanych aplikacji sprawiających takie problemy. W przeciwnym razie odnajdź adres powodujący problem i dodaj go do swojej <i>Białej listy</i> w <i>Twoich listach</i> oraz zgłoś to na <a href="https://github.com/AdAway/AdAway/issues">raportowanie błędów AdAway</a>.</p>
+<p>Niektóre aplikacje muszą komunikować się z nazwą hosta zablokowaną przez AdAway lub odmówić pracy, gdy nazwy hostów, które powinny wyświetlać reklamy, są niedostępne. Zobacz <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> aby uzyskać listę znanych aplikacji, które mają problemy. W przeciwnym razie sprawdź, które nazwy hostów są potrzebne i dodaj je do <cite>Białej listy</cite> pod <cite>Twoimi listami</cite> i zgłoś je do <a href="https://github.com/AdAway/AdAway/issues">modułu śledzenia błędów AdAway</a>.</p>
 
 <h2>Nie działa przycisk Wstecz w przeglądarkach internetowych</h2>
 <p>Możesz włączyć w opcjach lokalny serwer www jako tymczasowe rozwiązanie problemu.</p>

@@ -3,11 +3,9 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">ចាកចេញ</string>
-  <string name="button_apply">ទាញយកឯកសារនឹងស្នើរបញ្ចូល Ad Blocking</string>
   <string name="button_close">បិទ</string>
   <string name="button_yes">បាទ</string>
   <string name="button_no">ទេ</string>
-  <string name="button_revert">មិនអនុញ្ញាតការបំបិទការឃោសនា</string>
   <string name="button_add">បន្ថែម</string>
   <string name="button_cancel">បោះបង់</string>
   <string name="button_save">រក្សាទុក</string>
@@ -15,10 +13,7 @@
   <!--Home-->
   <string name="button_check_update_hosts">ពិនិត្យមើលភាពទាន់សម័យ</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">បញ្ជីទទេ</string>
   <string name="checkbox_list_context_delete">លុបចេញ</string>
-  <string name="checkbox_list_footer">បន្ទាប់ពីបានបន្ថែមរបស់ថ្មីទៅក្នុងជួរនេះ អ្នកត្រូវតែស្នើរសុំបញ្ចូល AdAway ជាថ្មី!</string>
-  <string name="checkbox_list_edit_dialog_title">កែប្រែ</string>
   <string name="checkbox_list_context_edit">កែប្រែ</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">បញ្ជីស</string>
@@ -29,14 +24,12 @@
   <!--Status Notification-->
   <string name="status_checking">កំពុងស្វែងរកជំនាន់ថ្មី...</string>
   <string name="status_reverting">កំពុងធ្វើឲ្យដូចដើម...</string>
-  <string name="status_checking_subtitle">កំពុងត្រួតស្វែងរក បើសិនរកឃើញមានជំនាន់ថ្មី</string>
   <string name="status_update_available">រកឃើញមានជំនាន់ថ្មី</string>
   <string name="status_no_connection">ពុំមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
   <string name="status_no_connection_subtitle">ពុំមានឃើញមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
   <string name="status_download_fail_subtitle_new">គ្មានប្រភពឯកសារម៉ាស៊ីនណាអាចទាក់ទងបាន</string>
   <string name="status_enabled">ត្រូវបានបញ្ចូល</string>
   <string name="status_disabled">ត្រូវបានបណ្តាច់</string>
-  <string name="status_disabled_subtitle">ត្រូវបានបណ្តាច់</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_not_enough_space_title">ពុំមានប្រលោះទំនេរគ្រប់គ្រាន់</string>
   <string name="apply_copy_fail_title">ចម្លងបរាជ័យ</string>

@@ -3,26 +3,18 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Välju</string>
-  <string name="button_apply">Laadi failid ja alusta blokeerimist</string>
   <string name="button_close">Sulge</string>
   <string name="button_yes">Jah</string>
   <string name="button_no">Ei</string>
-  <string name="button_revert">Keela blokeerimine</string>
   <string name="button_add">Lisa</string>
   <string name="button_cancel">Tühista</string>
-  <string name="button_revert_text">Taastab süsteemi vaikimisi hosts faili.</string>
   <string name="button_save">Salvesta</string>
-  <string name="button_webserver_toggle_checked">Veebiserver töötab</string>
-  <string name="button_webserver_toggle_unchecked">Veebiserver ei tööta</string>
   <string name="button_help">Abi</string>
   <!--Home-->
   <string name="text_update">Kõik hosts failid laetakse määratud allikatest, ühendatakse sinu loenditega ning paigaldatakse süsteemi ühe failina.</string>
   <string name="button_check_update_hosts">Uuenduste kontrollimine</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Loend tühi</string>
   <string name="checkbox_list_context_delete">Kustuta</string>
-  <string name="checkbox_list_footer">Uute allikate lisamisel tuleb AdAway uuesti rakendada!</string>
-  <string name="checkbox_list_edit_dialog_title">Redigeeri</string>
   <string name="checkbox_list_context_edit">Redigeeri</string>
   <!--Your lists-->
   <string name="list_dialog_hostname">Aadress:</string>
@@ -33,7 +25,6 @@
   <!--Status Notification-->
   <string name="status_checking">Uuenduste kontrollimine...</string>
   <string name="status_reverting">Taastamine...</string>
-  <string name="status_checking_subtitle">Uuenduste kontrollimine</string>
   <string name="status_update_available">Uuendus saadaval</string>
   <string name="status_update_available_subtitle">Uuem hosts fail saadaval</string>
   <string name="status_no_connection">Ühendus puudub</string>
@@ -41,7 +32,6 @@
   <string name="status_enabled">Lubatud</string>
   <string name="status_enabled_subtitle">Uusim hosts fail kasutusel</string>
   <string name="status_disabled">Keelatud</string>
-  <string name="status_disabled_subtitle">Keelatud</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing_title">Sümlink puudub</string>
   <string name="apply_not_enough_space_title">Pole piisavalt ruumi</string>

@@ -1,7 +1,7 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+一款使用hosts文件的广告拦截器。
+hosts文件是一个系统文件，其中包含主机名和IP地址之间的映射列表。
+当一个应用向该文件中的主机请求广告时，请求会被重定向至本地IP 127.0.0.1，从而失效。
+在应用中你可以下载预定义的hosts文件，将它们合并进系统的hosts文件。你也可以使用自己的文件，将特定主机添加到白名单/黑名单中。
+对于被拦截的主机名，可以选择运行一个本地的网络服务器来响应请求，或者将请求定向到指定的IP地址。
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+需要root权限：√。hosts文件位于/system，默认为只读。

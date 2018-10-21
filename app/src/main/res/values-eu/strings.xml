@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Irten</string>
-  <string name="button_apply">Jeitsi agiriak eta ezarri iragarki blokeatzea</string>
   <string name="button_close">Itxi</string>
   <string name="button_yes">Bai</string>
   <string name="button_no">Ez</string>
-  <string name="button_revert">Ezgaitu iragarki blokeatzea</string>
   <string name="button_add">Gehitu</string>
   <string name="button_cancel">Ezeztatu</string>
-  <string name="button_revert_text">Berezko hostalari agiria leheneratzen du zure sisteman.</string>
   <string name="button_save">Gorde</string>
-  <string name="button_webserver_toggle_checked">Web-zerbitzaria ekinean dago</string>
-  <string name="button_webserver_toggle_unchecked">Web-zerbitzaria ez dago ekinean</string>
   <string name="button_webserver_toggle_text">Abiarazi edo gelditu web-zerbitzaria tokiko-hostalarian blokeatutako hostalari-izen eskabideak galdetzeko.</string>
   <string name="button_help">Laguntza</string>
   <!--Home-->
   <string name="text_update">Zehaztutako iturburuetako hostalari agiri guztiak jeitsi eta batu dira zeure zerrendarekin eta hostalari agiri bat bezala ezarri dira zure sisteman.</string>
   <string name="button_check_update_hosts">Egiaztatu eguneraketak</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Zerrenda hutsik</string>
   <string name="checkbox_list_context_delete">Ezabatu</string>
-  <string name="checkbox_list_footer">Zerrenda honetara gai berriak gehitu ondoren AdAway ezarri behar duzu berriro!</string>
-  <string name="checkbox_list_edit_dialog_title">Editatu</string>
   <string name="checkbox_list_context_title">Editatu Sarrera</string>
   <string name="checkbox_list_context_edit">Editatu</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
   <string name="import_dialog">Inportatzen…</string>
   <string name="export_dialog">Esportatzen…</string>
-  <string name="export_success">Sarrera guztiak zure sd-txarteleko \'adaway-export\' izeneko agirira esportatu dira.</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Eguneraketak egiaztatzen…</string>
   <string name="status_reverting">Leheneratzen...</string>
   <string name="status_reverting_subtitle">Hostalari agiri estandarra sortzen</string>
-  <string name="status_checking_subtitle">Eguneraketa eskuragarririk dagoen egiaztatzen</string>
   <string name="status_update_available">Eguneraketa eskuragarri</string>
   <string name="status_update_available_subtitle">Hostalari agiri berrienak eskuragarri</string>
   <string name="status_no_connection">Ez dago Internet elkarketarik</string>
@@ -49,7 +39,6 @@
   <string name="status_enabled">Gaituta</string>
   <string name="status_enabled_subtitle">Hostalari agiri berrienak gaituta</string>
   <string name="status_disabled">Ezgaituta</string>
-  <string name="status_disabled_subtitle">Ezgaituta</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Zure xedetiko Symlotura /system/etc/hosts-ra ez dago edo okerra da! AdAway-k ez du lan egingo ez bada agiri zuzenera zuzentzen.\n\nNahi duzu symlotura bat sortzen saiatzea?</string>
   <string name="apply_symlink_missing_title">Symlotura ez dago</string>
@@ -61,10 +50,7 @@
   <string name="apply_remount_fail_title">Ber-muntatze hutsegitea</string>
   <string name="apply_copy_fail">Hostalari agiri kopiatze hutsegitea!</string>
   <string name="apply_copy_fail_title">Kopiatze hutsegitea</string>
-  <string name="apply_success_subtitle">Ezarritako hostalari iturburuak:</string>
   <string name="apply_success_title">Ongi ezarri dira</string>
-  <string name="apply_success_dialog">Ongi ezarri da.\nBeharrezkoa izan daiteke Android berrabiaraztea aldaketek eragina izateko.\n\nNahi duzu berrabiaraztea?\n(Datuak galtzea saihesteko zihurtatu aplikazioak ez duela sd-txartela erabiltzen unean!)</string>
-  <string name="apply_symlink_successful">Symlotura ongi sortu da.\nBeharrezkoa izan daiteke Android berrabiaraztea aldaketek eragina izateko.\n\nNahi duzu berrabiaraztea?\n(Datuak galtzea saihesteko zihurtatu aplikazioak ez duela sd-txartela erabiltzen unean!)</string>
   <string name="apply_symlink_successful_title">Symlotura ongi sortu da</string>
   <string name="apply_symlink_fail">Android-ek ezin izan du Symlotura sortu.\nHutsegite hau zihurrenik HTC urrutizkinetako S-ON deituriko \'ezaugarri\' baten ondoriozkoa da!\n\nKonponbide bat zure urrutizkina berreskurapen moduan berrabiaraztea eta hortik \'ln -s /data/data/hosts /system/etc/hosts\'-rekin symlotura bat sortzea da.\n\nHonek ez badu jarduten bilatu Interneten S-OFF eta zure urrutizkinari buruz.</string>
   <string name="apply_symlink_fail_title">Symlotura sortze hutsegitea</string>
@@ -81,7 +67,6 @@
   <string name="apply_dialog_apply">Hostalari agiria ezartzen</string>
   <string name="apply_fail">Hutsegitea hostalari agiria zure sisteman ezartzerakoan!\nSaiatu xede hostalari agiria aldatzen hobespenetan: /data/data/hosts.</string>
   <string name="apply_fail_title">Ezartze hutsegitea</string>
-  <string name="revert_successful">Berezko hostalari agirira leheneratu duzu.\nBeharrezkoa izan daiteke Android berrabiaraztea aldaketek eragina izateko.\n\nNahi duzu berrabiaraztea?\n(Datu galera saihesteko zihurtatu aplikazioak ez duela sd-txartela erabiltzen unean!)</string>
   <string name="revert_successful_title">Ongi leheneratu da</string>
   <string name="revert_problem">Leheneratze hutsegitea zergaiti ezezagunengaitik.</string>
   <string name="revert_problem_title">Leheneratze hutsegitea!</string>
@@ -89,9 +74,7 @@
   <string name="download_fail_title">Jeisketa hutsegitea</string>
   <string name="no_private_file">Agiri pribatua ezin da sortu.</string>
   <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
-  <string name="enable_systemless_successful">Sistemagabe modua gaitu duzu.\nBadaiteke beharrezkoa izatea Androida berrabiaraztea aldaketek eragina izateko.\nBerrabiaraztea nahi duzu?\n(Datuen galera saihesteko zihurtatu ez dagoela aplikazioarik sdtxartela erabiltzen une honetan!)</string>
   <string name="enable_systemless_successful_title">Ongi gaitu da</string>
-  <string name="disable_systemless_successful">Sistemagabe modua ezgaitu duzu.\nBadaiteke beharrezkoa izatea Androida berrabiaraztea aldaketek eragina izateko.\nBerrabiaraztea nahi duzu?\n(Datuen galera saihesteko zihurtatu ez dagoela aplikazioarik sdtxartela erabiltzen une honetan!)</string>
   <string name="disable_systemless_successful_title">Ongi ezgaitu da</string>
   <!--Other Dialogs-->
   <string name="no_root_description">su binarioa ezin da aurkitu edo ez diozu erro baimenik ahalbidetu AdAway-ri.\n\nHau zure gailua errotu gabea dagoenean geratu daiteke.\nZure gailua nola erroturi buruzko argibideak aurkitu ditzakezu wiki.lineageos.org-en edo beste Android webguentan.</string>
@@ -152,7 +135,6 @@
     <item>Norbere xedea</item>
   </string-array>
   <string name="pref_update_check_summary">Egiaztatu eguneraketak AdAway abiatzean</string>
-  <string name="pref_sdcard_problem">Ezaugarri honek ez du zuzen lan egiten AdAway sd-txartelean ezarrita dagoenean!</string>
   <string name="pref_background">Barreneko Zerbitzuak</string>
   <string name="pref_update_check_daily">Egiaztatu eguneraketak egunero</string>
   <string name="pref_update_check_daily_summary">Egiaztatu eguneraketak egunero barrenean jakinarazpenekin</string>

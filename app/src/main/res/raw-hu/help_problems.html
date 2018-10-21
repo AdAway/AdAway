@@ -1,17 +1,18 @@
 <!-- Maintain structure with headings with h2 tags and content with p tags.
 This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
-<head></head>
+<head><title>Gyakori problémák</title></head>
 <body>
 <h2>Nincs elég hely a partíción</h2>
-<p>Próbálja meg megváltoztatni a cél host fájlt a preferenciákban <tt>/data/data/hosts </tt>-ra (vagy <tt>/data/hosts</tt> -ra) és alkalmazza az AdAway-t újra.</p>
+<p>Próbáld meg átállítani a cél hosts fájl elérési helyét a beállításokban <code>/data/data/hosts</code>-ra (vagy <code>/data/hosts</code>-ra) és alkalmazd az AdAway-t újra.</p>
 
 <h2>Nem működik Android 4.4+ -on</h2>
-<p>Próbálja meg megváltoztatni a cél host fájlt a preferenciákban <tt>/data/data/hosts</tt> -ról <tt>/data/hosts</tt> -ra vagy <tt>/system/etc/hosts</tt> -ra és alkalmazza az AdAway újra.</p>
+<p>Próbáld meg átállítani a cél hosts fájl elérési helyét a beállításokban <code>/data/data/hosts-ról</code> <code>/data/hosts-ra</code> vagy <code>/system/etc/hosts</code>-ra, majd alkalmazd az AdAway-t újra.</p>
 
 <h2>Nem blokkolja a hirdetéseket XYZ alkalmazásban!</h2>
-<p>Néhány hostnévnév hiányozhat a megadott host fájlból a <i>Hosts Források</i>ban, vagy az alkalmazás tartalmazza a hirdetések képeit, így reklámoz internet elérése nélkül.<br><br>
+<p>Néhány hostnév hiányozhat a megadott hosts fájlból a <cite>Hosts Források</cite>-ban, vagy elképzelhető, hogy az alkalmazáshoz csomagolták a hirdetések képeit, így  internet elérése nélkül is láthatóak reklámok.<br><br>
 Lehet naplózni az AdAway DNS kéréseit (Menü-&gt;DNS kérések naplózása), hogy további blokkolandó host neveket keressünk benne.
 <br><br>Adja a gyanús host neveket a saját Fekete listájához - hosszan nyomva tartva a naplóban -, majd jelentse ezeket a host neveket a <a href="http://hosts-file.net">hosts-file.net</a> fórum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> részében, ha meggyőződött róla, hogy tényleg reklámot szolgáltatnak.</p>
 

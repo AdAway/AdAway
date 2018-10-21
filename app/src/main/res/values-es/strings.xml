@@ -3,17 +3,12 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Salir</string>
-  <string name="button_apply">Descargar archivos y aplicar bloqueo de anuncios</string>
   <string name="button_close">Cerrar</string>
   <string name="button_yes">Sí</string>
   <string name="button_no">No</string>
-  <string name="button_revert">Deshabilitar bloqueo de publicidad</string>
   <string name="button_add">Añadir</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="button_revert_text">Restaura el fichero hosts predeterminado en su sistema.</string>
   <string name="button_save">Guardar</string>
-  <string name="button_webserver_toggle_checked">El servidor web está ejecutándose</string>
-  <string name="button_webserver_toggle_unchecked">El servidor web no está ejecutándose</string>
   <string name="button_webserver_toggle_text">Inicia o detiene el servidor web en localhost (su dispositivo) para responder solicitudes desde servidores bloqueados.</string>
   <string name="button_help">Ayuda</string>
   <!--Home-->
@@ -27,10 +22,7 @@
   <string name="button_enable_webserver">Habilitar servidor web</string>
   <string name="button_disable_webserver">Deshabilitar servidor web</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Lista vacía</string>
   <string name="checkbox_list_context_delete">Borrar</string>
-  <string name="checkbox_list_footer">¡Después de añadir nuevos elementos a esta lista tiene que aplicar AdAway otra vez!</string>
-  <string name="checkbox_list_edit_dialog_title">Editar</string>
   <string name="checkbox_list_context_title">Editar entrada</string>
   <string name="checkbox_list_context_edit">Editar</string>
   <!--Your lists-->
@@ -40,13 +32,11 @@
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Exportando...</string>
-  <string name="export_success">Exportadas todas las entradas a un fichero llamado \'adaway-export\' en su tarjeta SD</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Buscando actualizaciones...</string>
   <string name="status_reverting">Revirtiendo...</string>
   <string name="status_reverting_subtitle">Creando un fichero hosts estándar</string>
-  <string name="status_checking_subtitle">Comprobando si hay actualizaciones disponibles</string>
   <string name="status_update_available">Actualización disponible</string>
   <string name="status_update_available_subtitle">Nuevos ficheros hosts disponibles</string>
   <string name="status_no_connection">No hay conexión a Internet</string>
@@ -56,7 +46,6 @@
   <string name="status_enabled">Habilitado</string>
   <string name="status_enabled_subtitle">Habilitados los ficheros hosts más recientes</string>
   <string name="status_disabled">Deshabilitado</string>
-  <string name="status_disabled_subtitle">Deshabilitado</string>
   <string name="notification_channel_update_name">Actualizaciones</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">¡No existe enlace simbólico (symlink), o es incorrecto, desde su ruta a /system/etc/hosts! AdAway no funcionará si no está apuntando al fichero correcto.\n\n¿Quiere intentar crear un enlace simbólico?</string>
@@ -69,10 +58,7 @@
   <string name="apply_remount_fail_title">Fallo al volver a montar</string>
   <string name="apply_copy_fail">¡Fallo al copiar el fichero hosts!</string>
   <string name="apply_copy_fail_title">Fallo al copiar</string>
-  <string name="apply_success_subtitle">Fuentes de ficheros hosts aplicadas:</string>
   <string name="apply_success_title">Aplicadas con éxito</string>
-  <string name="apply_success_dialog">Los cambios se aplicaron con éxito.\nPuede que sea necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegúrese de que no hay ninguna aplicación utilizando la tarjeta SD en este momento!)</string>
-  <string name="apply_symlink_successful">Enlace simbólico (symlink) creado con éxito.\nPuede que sea necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegúrese de que ninguna aplicación está usando la tarjeta SD en este momento!)</string>
   <string name="apply_symlink_successful_title">El enlace simbólico se creó con éxito</string>
   <string name="apply_symlink_fail">El enlace simbólico (symlink) no pudo ser creado por Android.\n¡Este fallo se debe normalmente a una \'característica\' llamada S-ON de los teléfonos HTC!\n\nUna solución es arrancar su teléfono en recovery mode (modo recuperación) y crear el enlace simbólico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona, busque en Internet por S-OFF y su modelo de teléfono, para deshabilitar la característica.</string>
   <string name="apply_symlink_fail_title">No se pudo crear el enlace simbólico</string>
@@ -89,7 +75,6 @@
   <string name="apply_dialog_apply">Aplicando el fichero hosts</string>
   <string name="apply_fail">¡No se pudo aplicar el fichero hosts en su sistema!\nIntente cambiar la ruta del fichero hosts a /data/data/hosts en las preferencias.</string>
   <string name="apply_fail_title">Fallo al aplicar</string>
-  <string name="revert_successful">Se volvió al fichero hosts predeterminado.\nPuede que sea necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Desea reiniciar?\n(¡Para evitar la pérdida de datos asegúrese de que no hay aplicaciones utilizando la tarjeta SD en este momento!)</string>
   <string name="revert_successful_title">Los cambios se revirtieron con éxito.</string>
   <string name="revert_problem">No pudieron revertirse los cambios por razones desconocidas.</string>
   <string name="revert_problem_title">¡Fallo al revertir!</string>
@@ -97,9 +82,7 @@
   <string name="download_fail_title">La descarga falló</string>
   <string name="no_private_file">No se pudo crear el fichero privado.</string>
   <string name="no_private_file_title">La creación del fichero privado falló</string>
-  <string name="enable_systemless_successful">Ha habilitado el modo sin sistema.\nPuede que sea necesario reiniciar Android para que los cambios tengan efecto.\n\n¿Quiere reiniciar?\n(¡Para evitar la pérdida de datos asegúrese de que ninguna aplicación utiliza la tarjeta SD en ese momento!)</string>
   <string name="enable_systemless_successful_title">Se ha habilitado con éxito</string>
-  <string name="disable_systemless_successful">Has desactivado el modo systemless.\nPuede ser necesario reiniciar Android para que los cambios tengan efecto.\n\n¿Quiere reiniciar?\n(¡Para evitar pérdida de datos asegúrese de que ninguna aplicación está accediendo a la tarjeta SD en este momento!)</string>
   <string name="disable_systemless_successful_title">Desactivado con exito</string>
   <!--Other Dialogs-->
   <string name="no_root_description">O bien no se pudo encontrar el binario su o no concedió permisos de root para AdAway.\n\nEsto puede ocurrir cuando su dispositivo no está rooteado.\nPuede encontrar información acerca de cómo rootear su dispositivo en wiki.lineageos.org u otros sitios web de Android.</string>
@@ -166,7 +149,6 @@
     <item>Ruta personalizada</item>
   </string-array>
   <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
-  <string name="pref_sdcard_problem">¡Esta característica no funcionará correctamente si AdAway está instalado en la tarjeta SD!</string>
   <string name="pref_background">Servicios en segundo plano</string>
   <string name="pref_update_check_daily">Buscar actualizaciones diarias</string>
   <string name="pref_update_check_daily_summary">Buscar actualizaciones diarias en segundo plano con notificaciones</string>

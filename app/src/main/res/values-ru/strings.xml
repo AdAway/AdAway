@@ -3,60 +3,78 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Выход</string>
-  <string name="button_apply">Загрузка файлов и применение блокировки рекламы</string>
   <string name="button_close">Закрыть</string>
   <string name="button_yes">Да</string>
   <string name="button_no">Нет</string>
-  <string name="button_revert">Отключение блокировки рекламы</string>
   <string name="button_add">Добавить</string>
   <string name="button_cancel">Отменить</string>
-  <string name="button_revert_text">Восстановление файла hosts по-умолчанию в вашей системе.</string>
   <string name="button_save">Сохранить</string>
-  <string name="button_webserver_toggle_checked">Веб-сервер запущен</string>
-  <string name="button_webserver_toggle_unchecked">Веб-сервер не запущен</string>
-  <string name="button_webserver_toggle_text">Запуск или остановка Веб-сервера на локальной системе для ответов на запросы заблокированных хостов.</string>
+  <string name="button_webserver_toggle_text">Запуск или остановка веб-сервера в локальной системе для ответов на запросы заблокированных хостов.</string>
   <string name="button_help">Справка</string>
   <!--Home-->
-  <string name="text_update">Все файлы со списками хостов, загружаемые с определенных источников, сливаются с вашим собственным списком и устанавливаются в вашей системе в виде одного файла hosts.</string>
-  <string name="button_check_update_hosts">Проверка обновлений</string>
+  <string name="header_help">Добро пожаловать!</string>
+  <string name="text_help">AdAway — это бесплатное приложение с открытым исходным кодом, созданное для блокировки рекламы. Оно собирает адреса из рекламной сети и блокирует их на вашем устройстве.\nХотите узнать больше? Читайте справку ниже!</string>
+  <string name="button_show_help">Расширенная справка</string>
+  <string name="icon_update_status">Обновить статус</string>
+  <string name="text_update">Все списки хостов загружены с указанных источников, объедены в один список и установлены в вашу систему в виде единого файла hosts.</string>
+  <string name="button_check_update_hosts">Проверить обновления</string>
+  <string name="button_update_hosts">Обновить хосты</string>
+  <string name="button_enable_hosts">Вкл. блокировку рекламы</string>
+  <string name="button_disable_hosts">Откл. блокировку рекламы</string>
+  <string name="header_webserver">Веб-сервер</string>
+  <string name="webserver_status_running">Работает</string>
+  <string name="webserver_status_stopped">Остановлено</string>
+  <string name="button_enable_webserver">Включить веб-сервер</string>
+  <string name="button_disable_webserver">Отключить веб-сервер</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Список пустой</string>
   <string name="checkbox_list_context_delete">Удалить</string>
-  <string name="checkbox_list_footer">После добавления новых пунктов в этом списке вы должны снова применить AdAway!</string>
-  <string name="checkbox_list_edit_dialog_title">Редактировать</string>
   <string name="checkbox_list_context_title">Редактировать запись</string>
   <string name="checkbox_list_context_edit">Редактировать</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">Белый список</string>
-  <string name="lists_tab_blacklist">Черный список</string>
+  <string name="lists_tab_blacklist">Чёрный список</string>
+  <string name="lists_tab_redirection_list">Перенаправления</string>
+  <string name="list_add_dialog_black">Добавить хост в Чёрный список</string>
+  <string name="list_add_dialog_white">Добавить хост в Белый список</string>
+  <string name="list_add_dialog_redirect">Добавить перенаправление хоста</string>
+  <string name="list_edit_dialog_black">Править хост Чёрного списка</string>
+  <string name="list_edit_dialog_white">Править хост Белого списка</string>
+  <string name="list_edit_dialog_redirect">Править перенаправление</string>
   <string name="list_dialog_hostname">Имя источника:</string>
+  <string name="list_dialog_hostname_hint">URL источника хостов</string>
+  <string name="list_dialog_wildcard">(Допускаются подстановочные символы * и ?)</string>
   <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
-  <string name="import_dialog">Импорт...</string>
-  <string name="export_dialog">Экспорт...</string>
-  <string name="export_success">Экспорт всех записей на карту памяти в файл с именем \'adaway-export\'.</string>
+  <string name="import_dialog">Импорт…</string>
+  <string name="export_dialog">Экспорт…</string>
+  <string name="export_success">Все записи выгружены на вашу карту памяти в файл \'adaway-export\'.</string>
+  <string name="export_failed">Экспортирование вашего списка на карту памяти не удалось.</string>
   <!--Hosts content-->
+  <string name="hosts_header">Файл hosts</string>
+  <string name="hosts_description">Файл hosts — это системный файл, который сопоставляет имена узлов с IP-адресами. Это обычный текстовый файл, содержимое которого обрабатывает AdAway. Вот его первые строки:</string>
+  <string name="hosts_content">Загружается содержимое файла hosts…</string>
+  <string name="hosts_open_button">Открыть файл hosts</string>
   <!--Status Notification-->
-  <string name="status_checking">Проверка обновлений...</string>
-  <string name="status_reverting">Восстановление...</string>
+  <string name="status_checking">Проверка обновлений…</string>
+  <string name="status_reverting">Восстановление…</string>
   <string name="status_reverting_subtitle">Создание стандартного файла hosts</string>
-  <string name="status_checking_subtitle">Проверка доступных обновлений...</string>
   <string name="status_update_available">Доступно обновление</string>
-  <string name="status_update_available_subtitle">Имеются обновленные списки хостов</string>
+  <string name="status_update_available_subtitle">Доступны свежие списки хостов</string>
   <string name="status_no_connection">Нет соединения с интернет</string>
   <string name="status_no_connection_subtitle">Нет доступного подключения к интернет</string>
   <string name="status_download_fail">Недоступный источник</string>
   <string name="status_download_fail_subtitle_new">Нет доступных источников хостов!</string>
+  <string name="status_failure">Что-то пошло не так</string>
+  <string name="status_failure_subtitle">Смотрите logcat для подробностей</string>
   <string name="status_enabled">Включено</string>
-  <string name="status_enabled_subtitle">Используются новые списки хостов</string>
+  <string name="status_enabled_subtitle">Используются свежие списки</string>
   <string name="status_disabled">Выключено</string>
-  <string name="status_disabled_subtitle">Выключено</string>
+  <string name="status_disabled_subtitle">Установлен стандартный файл hosts</string>
+  <string name="notification_channel_update_name">Обновления</string>
+  <string name="notification_channel_update_description">Уведомления об обновлении новых хостов</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Ссылка на ваш /system/etc/hosts неправильная или не существует! AdAway не будет работать, если не указать правильный файл.
-
-Вы хотите попробовать создать ссылку?</string>
+  <string name="apply_symlink_missing">Ссылка на ваш /system/etc/hosts неправильная или не существует! AdAway не будет работать, если не указать правильный файл.\n\nВы хотите попробовать создать ссылку?</string>
   <string name="apply_symlink_missing_title">Ссылка отсутствует</string>
-  <string name="apply_not_enough_space">Не хватает места на разделе!
-Попробуйте изменить путь к файлу в настройках на /data/data/hosts.</string>
+  <string name="apply_not_enough_space">Не хватает места на дисковом разделе!\nПопробуйте заменить путь к файлу в настройках на /data/data/hosts.</string>
   <string name="apply_not_enough_space_title">Не хватает места</string>
   <string name="apply_private_file_fail">Загруженный файл не может быть прочитан.</string>
   <string name="apply_private_file_fail_title">Сбой файла</string>
@@ -64,77 +82,70 @@
   <string name="apply_remount_fail_title">Перемонтировать не удалось</string>
   <string name="apply_copy_fail">Копирование файла hosts не удалось!</string>
   <string name="apply_copy_fail_title">Копирование не удалось</string>
-  <string name="apply_success_subtitle">Используемые источники хостов:</string>
+  <string name="apply_success_subtitle">Применены источники хостов</string>
   <string name="apply_success_title">Применение прошло успешно</string>
   <string name="apply_success_dialog">Применение прошло успешно.
 Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
 
 Вы хотите перегрузить Android?
-(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
   <string name="apply_symlink_successful">Ссылка создана успешно.
 Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
 
 Вы хотите перегрузить Android?
-(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
   <string name="apply_symlink_successful_title">Ссылка создана успешно</string>
-  <string name="apply_symlink_fail">Android не смог создать ссылку.
-Возможно, это из-за особенности телефонов HTC, называемой S-ON!
-
-Решение заключается в загрузке телефона в режиме восстановления и создания ссылки при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.
-
-Если это не срабатывает, то необходимо искать информацию в интернете по S-OFF и вашему телефону.</string>
+  <string name="apply_symlink_fail">Android не смог создать ссылку.\nВозможно, это из-за особенности телефонов HTC, называемой S-ON!\n\nРешение заключается в загрузке телефона в режиме восстановления и создания ссылки при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nЕсли это не поможет, то надо искать информацию в интернете по S-OFF и вашему телефону.</string>
   <string name="apply_symlink_fail_title">Ошибка создания ссылки</string>
   <string name="apply_help">Пожалуйста, читайте Справку для получения большей информации.</string>
-  <string name="apply_apn_proxy">В настройках APN указан прокси сервер!
-AdAway не будет работать в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (в Android 4: Беспроводные сети -&gt; Ещё... -&gt; Мобильная сеть -&gt; Точки доступа APN) и удалить значение в поле Прокси.</string>
+  <string name="apply_apn_proxy">В настройках APN указан прокси-сервер!\nAdAway не будет работать в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (в Android 4: Беспроводные сети -&gt; Ещё… -&gt; Мобильная сеть -&gt; Точки доступа APN) и удалить значение в поле Прокси.</string>
   <string name="apply_apn_proxy_title">Используемая точка доступа работает через прокси-сервер!</string>
   <string name="no_connection">Отсутствует подключение к интернет.</string>
   <string name="no_connection_title">Нет соединения</string>
-  <string name="download_dialog">Загрузка...</string>
-  <string name="apply_dialog">Применение...</string>
-  <string name="apply_dialog_lists">Применить черный и белый списки</string>
+  <string name="download_dialog">Загрузка…</string>
+  <string name="apply_dialog">Применение…</string>
+  <string name="apply_dialog_lists">Применить чёрный и белый списки</string>
   <string name="apply_dialog_hostnames">Разбор и объединение файлов со списками хостов</string>
   <string name="apply_dialog_hosts">Построение файла hosts</string>
   <string name="apply_dialog_apply">Применение файла hosts</string>
-  <string name="apply_fail">Не удалось применить файл Hosts на вашей системе!
-Попробуйте изменить путь к файлу Hosts в настройках на /data/data/hosts.</string>
+  <string name="apply_fail">Не удалось применить файл hosts на вашей системе!\nПопробуйте изменить путь к файлу hosts в настройках на /data/data/hosts.</string>
   <string name="apply_fail_title">Применение не удалось</string>
-  <string name="revert_successful">Вы вернулись к файлу Hosts по-умолчанию.
+  <string name="revert_successful">Вы вернулись к файлу hosts по-умолчанию.
 Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
 
 Вы хотите перегрузить Android?
-(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
-  <string name="revert_successful_title">Возврат произошел успешно</string>
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
+  <string name="revert_successful_title">Возврат произошёл успешно</string>
   <string name="revert_problem">Восстановление не удалось по неизвестным причинам.</string>
   <string name="revert_problem_title">Восстановление не удалось!</string>
   <string name="download_fail_dialog">Ни один из ваших активных источников хостов недоступен! Вы правильно подключены к интернету?</string>
   <string name="download_fail_title">Загрузка не удалась</string>
   <string name="no_private_file">Файл не может быть создан.</string>
   <string name="no_private_file_title">Не удалось создать файл</string>
-  <string name="enable_systemless_successful">Вы активировали безсистемный режим.
+  <string name="enable_systemless_successful">Вы активировали бессистемный режим.
 Возможно, потребуется перезагрузка, чтобы изменения вступили в силу.
 
 Вы хотите перезагрузить систему?
-(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
   <string name="enable_systemless_successful_title">Активация прошла успешно</string>
-  <string name="disable_systemless_successful">Вы отключили безсистемный режим.
+  <string name="disable_systemless_successful">Вы отключили бессистемный режим.
 Возможно, потребуется перезагрузка, чтобы изменения вступили в силу.
 
 Вы хотите перезагрузить систему?
-(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют sdcard!)</string>
+(Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
   <string name="disable_systemless_successful_title">Успешно отключено</string>
   <!--Other Dialogs-->
-  <string name="no_root_description">Либо отсутствует бинарный файл su, либо вы не предоставили AdAway права суперпользователя. \ N \ nЭто могло произойти, если на вашем устройстве не получен root-доступ. \ NВы можете найти информацию о том, как получить root-права на вашем устройстве на wiki.lineageos.org или другом сайте посвящённом Android.</string>
+  <string name="no_root_description">Либо отсутствует бинарный файл su, либо вы не предоставили AdAway права суперпользователя.\n\nЭто могло произойти, если на вашем устройстве не получен root-доступ.\nВы можете найти информацию о том, как получить root-права на вашем устройстве на wiki.lineageos.org или другом сайте, посвящённом Android.</string>
   <string name="no_root_title">Для Android требуются права Root</string>
   <string name="hosts_add_dialog">Вставьте URL в файл hosts:</string>
   <string name="no_hostname">Это недопустимое имя источника!</string>
   <string name="no_hostname_title">Неправильно отформатированное имя хоста</string>
-  <string name="no_ip">Это недопустимый IP!</string>
-  <string name="no_ip_title">Неправильно отформатированный IP</string>
+  <string name="no_ip">Это недопустимый IP-адрес!</string>
+  <string name="no_ip_title">Неправильно отформатированный IP-адрес</string>
   <string name="reboot_never_reboot">Никогда не перезагружать и не показывать этот вопрос в следующий раз!</string>
   <string name="loading">Загрузка…</string>
   <!--Menu entries-->
-  <string name="menu_refresh">Обновление</string>
+  <string name="menu_refresh">Обновить</string>
   <string name="menu_add">Добавить</string>
   <string name="menu_hosts_sources">Источники списков хостов</string>
   <string name="menu_help">Справка</string>
@@ -145,28 +156,48 @@ AdAway не будет работать в мобильных сетях, так
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">Проблемы</string>
   <!--Adware-->
+  <string name="adware_header">Приложение с рекламой</string>
+  <string name="adware_description">Поиск приложений с рекламой, называемые Adware, и которые AdAway не может заблокировать. Эти приложения используют, например, систему уведомлений Airpush, которая показывает рекламу даже тогда, когда приложение не работает, или даже может изменить мелодию вашего звонка. Избавиться от такой рекламы можно только удалив приложения, указанные в результатах сканирования, путём нажатия на элементы списка.</string>
+  <string name="adware_scanning">Сканирование…</string>
+  <string name="adware_empty">Приложения с рекламой не найдены!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Локальный:</string>
   <string name="hosts_last_modified_online">Интернет:</string>
   <string name="hosts_not_available">недоступен</string>
+  <string name="hosts_add_dialog_title">Добавить источник</string>
+  <string name="hosts_edit_dialog_title">Править источник</string>
+  <string name="hosts_dialog_url">URL: (ресурс https:// или file://)</string>
+  <string name="hosts_dialog_url_hint">URL источника хостов</string>
   <!--Other-->
   <string name="app_subtitle">Блокировщик рекламы</string>
   <string name="no_text_editor_title">Не установлен текстовый редактор</string>
-  <string name="no_text_editor">Не найден текстовый редактор для открытия файла Hosts. Вы можете установить редактор Jota или другой текстовый редактор чтобы это исправить.
-
-Вы хотите установить редактор Jota?</string>
+  <string name="no_text_editor">Не найден текстовый редактор для открытия файла hosts. Вы можете установить редактор Jota или другой текстовый редактор, чтобы это исправить.\n\nВы хотите установить редактор Jota?</string>
   <string name="no_file_manager_title">Не установлен файловый менеджер</string>
-  <string name="no_file_manager">Нет файлового менеджера для открытия файла. Вы можете установить OI File Manager или другой файловый менеджер чтобы это исправить.
-
-Вы хотите установить OI File Manager?</string>
+  <string name="no_file_manager">Нет файлового менеджера для открытия файла. Вы можете установить OI File Manager или другой файловый менеджер, чтобы это исправить.\n\nВы хотите установить OI File Manager?</string>
   <!--Tcpdump-->
   <string name="tcpdump_header">Tcpdump</string>
-  <string name="tcpdump_description">Tcpdump это инструмент для мониторинга запросов DNS и их сохранения в файле журнала. Запустите Tcpdump, он будет работать в фоновом режиме до перезагрузки устройства - запустите приложение, в котором на экране показывается реклама - проанализируйте запросы DNS, используя файл журнала. Найденные в нем подозрительные сервера, возможные как источники рекламы, могут быть внесены в черный список.</string>
+  <string name="tcpdump_description">Tcpdump — это инструмент для мониторинга запросов DNS и их сохранения в файле журнала. Запустите Tcpdump, он будет работать в фоновом режиме до перезагрузки устройства — запустите приложение, в котором на экране показывается реклама — проанализируйте запросы DNS, используя файл журнала. Найденные в нем подозрительные сервера, возможные как источники рекламы, могут быть внесены в чёрный список.</string>
+  <string name="tcpdump_disable_monitoring">Отключить мониторинг</string>
+  <string name="tcpdump_enable_monitoring">Включить мониторинг</string>
+  <string name="tcpdump_show_results">Показать результаты</string>
+  <string name="tcpdump_redirect_dialog_title">Перенаправить домен</string>
+  <string name="tcpdump_menu_sort">Сортировать домены</string>
+  <string name="tcpdump_menu_clear">Очистить журнал</string>
+  <string name="tcpdump_sort_alphabetical">Сортировка по алфавиту</string>
+  <string name="tcpdump_sort_top_level_domain">Сортировка по наивысшему уровню домена</string>
+  <string name="tcpdump_entry_add_blacklist">Добавить запись в Чёрный список</string>
+  <string name="tcpdump_entry_add_whitelist">Добавить запись в Белый список</string>
+  <string name="tcpdump_entry_add_redirection_list">Добавить запись в Список перенаправлений</string>
   <!--Preferences-->
   <string name="pref_download">Основные настройки</string>
+  <string name="pref_dismiss_welcome">Скрыть приветствие</string>
+  <string name="pref_dismiss_welcome_summary">Не показывать приветствие на главном экране</string>
+  <string name="pref_dark_theme">Включить тёмную тему</string>
+  <string name="pref_dark_theme_summary">Использовать тёмную тему вместо светлой</string>
+  <string name="pref_dark_theme_notification">Тема изменится при следующем запуске приложения!</string>
   <string name="pref_hosts">Файл hosts</string>
   <string name="pref_redirection_ip">Адрес IP для переадресации</string>
-  <string name="pref_update_check">Проверка обновлений</string>
+  <string name="pref_update_check">Проверять обновления</string>
   <string name="pref_apply_method">Путь к файлу hosts</string>
   <string name="pref_apply_method_summary">Перед изменением этого параметра прочитайте об этой функции в Справке.</string>
   <string name="pref_redirection_ip_summary">Все заблокированные хосты переадресовываются на этот адрес IP.</string>
@@ -175,10 +206,10 @@ AdAway не будет работать в мобильных сетях, так
   <string name="pref_never_reboot">Скрыть диалог перезагрузки</string>
   <string name="pref_never_reboot_summary">Скрывает диалог перезагрузки Android после успешного применения</string>
   <string name="pref_webserver_on_boot">Старт веб-сервера при загрузке устройства</string>
-  <string name="pref_webserver_on_boot_summary">Старт Веб-сервера при загрузке системы для прослушивания локальных адресов IP</string>
+  <string name="pref_webserver_on_boot_summary">Старт веб-сервера при загрузке системы для прослушивания локальных адресов IP</string>
   <string name="pref_webserver_enabled">Включить веб-сервер</string>
-  <string name="pref_webserver_enabled_summary">Позволяет веб-серверу прослушивать локальные IP адреса и отвечать на запросы к заблокированным хостам</string>
-  <string name="pref_webserver">Локальный Веб-сервер</string>
+  <string name="pref_webserver_enabled_summary">Позволяет веб-серверу прослушивать локальные IP-адреса и отвечать на запросы к заблокированным хостам</string>
+  <string name="pref_webserver">Локальный веб-сервер</string>
   <string name="pref_custom_target">Пользовательские настройки</string>
   <string name="pref_custom_target_summary">Используется только в случае, когда расположение файла hosts задано пользователем</string>
   <string-array name="pref_apply_method_entries">
@@ -188,25 +219,75 @@ AdAway не будет работать в мобильных сетях, так
     <item>Задано пользователем</item>
   </string-array>
   <string name="pref_update_check_summary">Проверять обновления при старте AdAway</string>
-  <string name="pref_sdcard_problem">Если AdAway установлен на карту памяти, то эта функция будет работать неправильно!</string>
+  <string name="pref_sdcard_problem">Эта функция будет работать неправильно, если AdAway установлен на карту памяти!</string>
   <string name="pref_background">Фоновый режим</string>
-  <string name="pref_update_check_daily">Проверять обновления ежедневно</string>
-  <string name="pref_update_check_daily_summary">Проверять обновления в фоновом режиме ежедневно с уведомлением</string>
-  <string name="pref_automatic_update_daily">Автоматическое обновление</string>
+  <string name="pref_update_check_daily">Проверять ежедневно</string>
+  <string name="pref_update_check_daily_summary">Ежедневно проверять обновления в фоновом режиме с уведомлением</string>
+  <string name="pref_automatic_update_daily">Автообновление</string>
   <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
+  <string name="pref_update_only_on_wifi">Обновлять только по Wi-Fi</string>
+  <string name="pref_update_only_on_wifi_summary">Выполнять фоновые обновления только через нелимитированное подключения.</string>
   <string name="pref_whitelist_rules">Разрешить белые списки</string>
   <string name="pref_whitelist_rules_summary">Разрешить белые списки из источников хостов.</string>
+  <string name="pref_redirection_rules">Разрешить перенаправления</string>
   <string name="pref_redirection_rules_summary">ПРЕДСТАВЛЯЕТ УГРОЗУ БЕЗОПАСНОСТИ! Разрешить перенаправление из источников хостов.</string>
   <string name="pref_debug">Режим отладки</string>
   <string name="pref_enable_debug">Журнал отладки</string>
-  <string name="pref_enable_debug_summary">Чтобы изменения вступили в силу, необходимо перезапустить AdAway.</string>
+  <string name="pref_enable_debug_summary">Необходимо перезапустить AdAway для применения изменений.</string>
   <string name="pref_enable_ipv6">Использовать IPv6</string>
   <string name="pref_enable_ipv6_summary">Все записи файла host будут получать соответствующую :: 1  запись (localhost IPv6).</string>
   <string name="pref_enable_systemless_summary">Запретить AdAway редактировать системный раздел</string>
   <string name="pref_enable_systemless">Включить бессистемный режим</string>
+  <string name="pref_edit_text_value">Править значение текстового предпочтения</string>
+  <string name="drawer_open">Открыть меню</string>
+  <string name="drawer_close">Закрыть меню</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Главная</item>
+    <item>Источники хостов</item>
+    <item>Ваши списки</item>
+    <item>Открыть файл hosts</item>
+    <item>Журнал запросов</item>
+    <item>Сканирование</item>
+    <item>Настройки</item>
+    <item>Справка</item>
+  </string-array>
   <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Поддержать разработку \u2764</string>
+  <string name="drawer_support_dialog_title">Поддержать разработку</string>
+  <string name="drawer_support_dialog_text">AdAway — это бесплатное приложение с открытым исходным кодом, разработкой и поддержкой которого занимается сообщество. Мне потребовалось два года, чтобы в свободное время собрать новую версию приложения.\n\nЕсли вам оно нравится, и вы хотели бы видеть больше обновлений, не стесняйтесь поддерживать проект.</string>
+  <string name="drawer_support_dialog_button">Показать мою поддержку</string>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">Запросы DNS</string>
+  <string name="shortcut_your_lists">Ваши списки</string>
   <string name="shortcut_preferences">Настройки</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Актуально %1$s</string>
+  <string name="hosts_source_need_update">Требуется обновление %1$s</string>
+  <string name="hosts_source_last_update">Последнее обновление %1$s назад</string>
+  <string name="hosts_source_unknown_status">Неизвестный статус обновления</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d минута</item>
+    <item quantity="few">%d минуты</item>
+    <item quantity="many">%d минут</item>
+    <item quantity="other">%d минуты</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d час</item>
+    <item quantity="few">%d часа</item>
+    <item quantity="many">%d часов</item>
+    <item quantity="other">%d часа</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d день</item>
+    <item quantity="few">%d дня</item>
+    <item quantity="many">%d дней</item>
+    <item quantity="other">%d дня</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d месяц</item>
+    <item quantity="few">%d месяца</item>
+    <item quantity="many">%d месяцев</item>
+    <item quantity="other">%d месяца</item>
+  </plurals>
 </resources>

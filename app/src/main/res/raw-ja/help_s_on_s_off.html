@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>S-ON 関連ヘルプ</title></head>
 <body>
 <h2>HTC製デバイス</h2>
 <p>S-ONと呼ばれるデバイスではAdAwayは動作しません。この'機能'は多くのHTC製デバイスにありhostsファイルの書き込みをできなくさせます。</p>
@@ -8,20 +8,20 @@
 <p>S-OFFとはデバイスのNANDをアンロックし書き込めるようにすることです。HTC製デバイスのデフォルト設定はS-ONでシステムのあるエリアにアクセス出来なかったり常時rootにできません。(日本ではシャープ製も同じような状態です)</p>
 
 <h2>私のデバイスにはS-ONやS-OFFがありますか?</h2>
-<p><i>ボリュームマイナス</i>キーを押しながら端末を起動してBoot Menuに入ってください。 一番上にS-OFFかS-ONの状態が書かれています。 完全なroot化はS-OFFにするという意味です。
-<br/><br/>詳しい情報は<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>やGoogleで検索すると見つかります。 </p>
+<p>電源ボタンを押しながら<cite>ボリュームダウン</cite>ボタンを押し続けると、デバイスのブートメニューが表示され、上部のテキストにフラグステータスがS-OFFまたはS-ONのいずれかに表示されます。 フルRootとは、一般にS-OFFを意味します。<br/>
+詳細は<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>をご覧ください。<br/>Unrevokable（リンク先）から、Revolutionary、Revone、Firewater、RumRunner、Moonshine、SunShineなど興味深い追加S-OFFメソッドが有ります</p>
 
 <h2>回避方法</h2>
 <p>初めに: Android SDKとADBシェルをPCにインストールしてください。
 </p>
 <ol>
-<li><i>ボリュームマイナス</i>キーを押しながら端末を起動してBoot Menuに入ってください。</li>
+<li>電源ボタンを押しながら<cite>ボリュームダウン</cite>ボタンを押しながらデバイスのブートメニューを起動します</li>
 <li><i>ボリュームマイナス</i>キーでrecoveryを選んでください。</li>
 <li>clockwork recoveryでボリュームマイナスキーで"partitions menu"を選んでください。</li>
-<li><i>mount /system</i>、<i>mount /sdcard</i>、<i>mount /data</i>を選んでください。</li>
+<li><cite>mount /system</cite>、<cite>mount /sdcard</cite>、<cite>mount /data</cite>を選択します</li>
 <li>Plug in your usb cord and open a command line on your pc.</li>
-<li>adb shellを開き、<tt>ln -s /data/data/hosts /system/etc/hosts</tt>と入力して実行してください。 (AdAwayが<tt>/data</tt>にあるhostsファイルを<tt>/system</tt>にあるhostsファイルの代わりに編集するためのシンボリックリンクを作成します。) </li>
-<li>端末を再起動し、AdAwayの環境設定で<i>ターゲットのホストファイル</i>を<i>/data/hosts</i>に設定します。</li>
+<li>adbシェルを入力し、<code>ln -s /data/hosts /system/etc/hosts</code>と入力します（これによりシンボリックリンクが作成され、AdAwayは<code>/dataに</code>格納し、OSは<code>/system</code>に格納されているかのようにファイルを使用出来ます）</li>
+<li>デバイスを再起動し、AdAwayの設定で<cite>Target hostsファイル</cite>を<cite>/data/hosts</cite>に設定します</li>
 <li>AdAwayが動作するはずです。</li>
 </ol>
 </body>

@@ -3,22 +3,16 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Salir</string>
-  <string name="button_apply">Descargar archivos y aplicar el bloqueo de anuncios</string>
   <string name="button_close">Cerrar</string>
   <string name="button_yes">Sí</string>
   <string name="button_no">No</string>
-  <string name="button_revert">Desactivar bloqueo de anuncios</string>
   <string name="button_add">Agregar</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="button_revert_text">Restaura el archivo hosts predeterminado en tu sistema.</string>
   <string name="button_save">Guardar</string>
-  <string name="button_webserver_toggle_checked">El Servidor Web se encuentra en ejecución</string>
-  <string name="button_webserver_toggle_unchecked">El Servidor Web no se encuentra en ejecución</string>
   <string name="button_webserver_toggle_text">Iniciar o parar el servidor web en localhost para respondes las solicitudes bloqueadas por los sitios de hosts.</string>
   <string name="button_help">Ayuda</string>
   <!--Home-->
   <string name="header_help">¡Bienvenido!</string>
-  <string name="text_help">AdAway es un software gratuito y de código abierto diseñado para el bloqueo de anuncios. Descarga listas de sitios publicitarios y los configura en tu dispositivo para bloquearlos.\n¿Quieres saber más? ¡Consulta la ayuda de abajo!</string>
   <string name="button_show_help">Mostrar más ayuda</string>
   <string name="icon_update_status">Actualizar estado</string>
   <string name="text_update">Todos los archivos hosts de las fuentes definidas son descargados, combinados con tu propia lista e instalados como un solo archivo host en tu sistema.</string>
@@ -32,11 +26,7 @@
   <string name="button_enable_webserver">Activar servidor web</string>
   <string name="button_disable_webserver">Desactivar servidor web</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Vaciar lista</string>
-  <string name="checkbox_list_empty_text">Puedes añadir más listas con el botón \"+\".</string>
   <string name="checkbox_list_context_delete">Eliminar</string>
-  <string name="checkbox_list_footer">¡Después de añadir nuevos elementos a esta lista deberás aplicar AdAway nuevamente!</string>
-  <string name="checkbox_list_edit_dialog_title">Editar</string>
   <string name="checkbox_list_context_title">Editar entrada</string>
   <string name="checkbox_list_context_edit">Editar</string>
   <!--Your lists-->
@@ -55,28 +45,26 @@
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Exportando...</string>
-  <string name="export_success">Se han exportado todas las entradas a un archivo llamado \"adaway-export\" en tu tarjeta SD.</string>
-  <string name="export_failed">No se pudo exportar tu lista a tu tarjeta SD.</string>
   <!--Hosts content-->
   <string name="hosts_header">El archivo hosts</string>
-  <string name="hosts_description">El archivo hosts es un archivo del sistema que mapea nombres de host a direcciones IP. Es un archivo de texto plano cuya configuración es manejada por AdAway. Aquí están sus primeras líneas:</string>
   <string name="hosts_content">Cargando contenido del archivo hosts...</string>
   <string name="hosts_open_button">Abrir el archivo hosts</string>
   <!--Status Notification-->
   <string name="status_checking">Buscando actualizaciones...</string>
   <string name="status_reverting">Revirtiendo...</string>
   <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
-  <string name="status_checking_subtitle">Buscando actualizaciones disponibles</string>
   <string name="status_update_available">Actualización disponible</string>
   <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
   <string name="status_no_connection">No hay conexión a Internet</string>
   <string name="status_no_connection_subtitle">No hay conexión a Internet disponible</string>
   <string name="status_download_fail">Fuentes no disponibles</string>
   <string name="status_download_fail_subtitle_new">¡No hay fuentes de hosts accesibles!</string>
+  <string name="status_failure">Algo funciona mal</string>
+  <string name="status_failure_subtitle">Revise el archivo log para más detalles</string>
   <string name="status_enabled">Activado</string>
   <string name="status_enabled_subtitle">Ya están activados los hosts más nuevos</string>
   <string name="status_disabled">Desactivado</string>
-  <string name="status_disabled_subtitle">Desactivado</string>
+  <string name="status_disabled_subtitle">Instalado el archivo host por defecto</string>
   <string name="notification_channel_update_name">Actualizaciones</string>
   <string name="notification_channel_update_description">Notificaciones de actualizaciones de nuevos hosts</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +78,8 @@
   <string name="apply_remount_fail_title">Remontado fallido</string>
   <string name="apply_copy_fail">¡La copia del archivo hosts ha fallado!</string>
   <string name="apply_copy_fail_title">Fallo en la copia</string>
-  <string name="apply_success_subtitle">Fuentes de hosts aplicadas:</string>
+  <string name="apply_success_subtitle">Aplicada fuente host</string>
   <string name="apply_success_title">Aplicación exitosa</string>
-  <string name="apply_success_dialog">La aplicación fue exitosa.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Deseas reiniciar?\n(Para prevenir la pérdida de datos asegúrate de que ninguna app utilice la tarjeta SD en el momento!)</string>
-  <string name="apply_symlink_successful">Enlace simbólico creado correctamente.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Deseas reiniciar?\n(Para prevenir la pérdida de datos asegúrate de que ninguna app utilice la tarjeta SD en el momento!)</string>
   <string name="apply_symlink_successful_title">Enlace simbólico creado de manera exitosa</string>
   <string name="apply_symlink_fail">El enlace simbólico no ha sido creado por Android.\nEsta falla podría ser originada por una \"característica\" llamada S-ON en teléfonos HTC!\n\nUna solución es reiniciar tu teléfono en modo recovery y crear el enlace simbólico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona busca en Internet acerca de S-OFF y de tu teléfono.</string>
   <string name="apply_symlink_fail_title">Creación del enlace simbólico fallida</string>
@@ -110,7 +96,6 @@
   <string name="apply_dialog_apply">Aplicando archivo hosts</string>
   <string name="apply_fail">¡La aplicación del archivo hosts falló!\nIntenta cambiar el archivo hosts de destino en las preferencias a /data/data/hosts.</string>
   <string name="apply_fail_title">La aplicación ha fallado</string>
-  <string name="revert_successful">Has restaurado los archivos hosts predeterminados.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Deseas reiniciar?\n(Para prevenir la pérdida de datos asegúrate de que ninguna app utilice la tarjeta SD en el momento!)</string>
   <string name="revert_successful_title">Reversión exitosa</string>
   <string name="revert_problem">Falló al revertir debido a razones desconocidas.</string>
   <string name="revert_problem_title">¡Reversión fallida!</string>
@@ -118,9 +103,7 @@
   <string name="download_fail_title">Descarga fallida</string>
   <string name="no_private_file">El archivo privado no pudo ser creado.</string>
   <string name="no_private_file_title">La creación del archivo privado ha fallado</string>
-  <string name="enable_systemless_successful">Activaste el modo systemless.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Deseas reiniciar?\n(Para prevenir la pérdida de datos asegúrate de que ninguna app utilice la tarjeta SD en el momento!)</string>
   <string name="enable_systemless_successful_title">Activado correctamente</string>
-  <string name="disable_systemless_successful">Has desactivado el modo systemless.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Deseas reiniciar?\n(Para prevenir la pérdida de datos asegúrate de que ninguna app utilice la tarjeta SD en el momento!)</string>
   <string name="disable_systemless_successful_title">Desactivado correctamente</string>
   <!--Other Dialogs-->
   <string name="no_root_description">O el binario su no pudo ser encontrado o no le has concedido permisos root a AdAway.\n\ nEsto puede suceder cuando tu dispositivo no está rooteado.\nPuedes encontrar información acerca de cómo rootear el dispositivo en wiki.lineageos.org u otros sitios web sobre Android.</string>
@@ -145,9 +128,7 @@
   <string name="help_tab_problems">Problemas</string>
   <!--Adware-->
   <string name="adware_header">Adware</string>
-  <string name="adware_description">Aquí puedes encontrar adware instalado, aplicaciones dañinas que no pueden ser bloqueadas por AdAway. Estas apps usan por ejemplo notificaciones Airpush que aparecen incluso cuando la app no está ejecutándose, o que incluso cambian tu tono de llamada. La única contramedida disponible es desinstalar esas apps haciendo clic en los items de la lista.</string>
   <string name="adware_scanning">Escaneando...</string>
-  <string name="adware_empty">¡No se encontró adware!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">En linea:</string>
@@ -207,7 +188,6 @@
     <item>Destino personalizado</item>
   </string-array>
   <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
-  <string name="pref_sdcard_problem">¡Esta característica no funciona correctamente cuando AdAway esta instalado en la tarjeta SD!</string>
   <string name="pref_background">Servicios en Segundo Plano</string>
   <string name="pref_update_check_daily">Buscar por actualizaciones diariamente</string>
   <string name="pref_update_check_daily_summary">Buscar actualizaciones diariamente en segundo plano con notificaciones</string>
@@ -242,6 +222,9 @@
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Equipo de desarrollo \u2764</string>
+  <string name="drawer_support_dialog_title">Soporte de desarrollo</string>
+  <string name="drawer_support_dialog_text">AdAway es gratis y un programa de código abierto desarrollado y mantenido solamente por la comunidad. Me tomó dos años como un proyecto en mi tiempo libre para crear esta nueva versión de la aplicación.  Si te gusta y deseas ver más actualizaciones, puedes apoyar este proyecto.</string>
+  <string name="drawer_support_dialog_button">Muestra mi apoyo</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Pedidos DNS</string>
   <string name="shortcut_your_lists">Tus listas</string>

@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Sulje</string>
-  <string name="button_apply">Lataa tiedostot ja ota mainosten esto käyttöön</string>
   <string name="button_close">Sulje</string>
   <string name="button_yes">Kyllä</string>
   <string name="button_no">Ei</string>
-  <string name="button_revert">Poista mainosten esto käytöstä</string>
   <string name="button_add">Lisää</string>
   <string name="button_cancel">Peruuta</string>
-  <string name="button_revert_text">Palauttaa hosts-tiedostot oletusarvoihin.</string>
   <string name="button_save">Tallenna</string>
-  <string name="button_webserver_toggle_checked">Web-palvelin on käynnissä</string>
-  <string name="button_webserver_toggle_unchecked">Web-palvelin ei ole käynnissä</string>
   <string name="button_webserver_toggle_text">Salli tai estä web-palvelin vastaamasta estettyihin isäntänimiin.</string>
   <string name="button_help">Ohjeet</string>
   <!--Home-->
   <string name="text_update">Kaikki hosts-tiedostot määritellyistä lähteistä ovat ladattu, yhdistyi luetteloihin ja asenettu yhdeksi hosts-tiedostoksi.</string>
   <string name="button_check_update_hosts">Tarkista päivitykset</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Tyhjä lista</string>
   <string name="checkbox_list_context_delete">Poista</string>
-  <string name="checkbox_list_footer">Uusien kohteiden lisäämisen jälkeen tähän luetteoloon, sinun täytyy hyväksyä taas AdAway!</string>
-  <string name="checkbox_list_edit_dialog_title">Muokkaa</string>
   <string name="checkbox_list_context_title">Muokka merkintää</string>
   <string name="checkbox_list_context_edit">Muokkaa</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP (IPv4 tai IPv6):</string>
   <string name="import_dialog">Tuodaan...</string>
   <string name="export_dialog">Viedään...</string>
-  <string name="export_success">Kaikki merkinnät viety adaway-export-tiedostoon SD-kortille.</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Tarkistetaan päivityksiä...</string>
   <string name="status_reverting">Palautetaan...</string>
   <string name="status_reverting_subtitle">Luodaan vakio-hosts-tiedostoa</string>
-  <string name="status_checking_subtitle">Tarkistetaan, jos päivitys on saatavilla</string>
   <string name="status_update_available">Päivitys saatavilla</string>
   <string name="status_update_available_subtitle">Uudempia hosts-tiedostoja on saatavilla</string>
   <string name="status_no_connection">Ei verkkoyhteyttä</string>
@@ -50,7 +40,6 @@
   <string name="status_enabled">Käytössä</string>
   <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
   <string name="status_disabled">Pois käytöstä</string>
-  <string name="status_disabled_subtitle">Pois käytöstä</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symbolista linkkiä kohteeseen /system/etc/hosts ei ole olemassa tai se on virheellinen! AdAway ei toimi, jos se ei osoita oikeaan tiedostoon.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
   <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
@@ -62,10 +51,7 @@
   <string name="apply_remount_fail_title">Uudelleenkokoaminen epäonnistui</string>
   <string name="apply_copy_fail">Hosts-tiedoston kopiointi epäonnistui!</string>
   <string name="apply_copy_fail_title">Kopiointi epäonnistui</string>
-  <string name="apply_success_subtitle">Sovelletut hosts-lähteet:</string>
   <string name="apply_success_title">Soveltaminen onnistui</string>
-  <string name="apply_success_dialog">Soveltaminen onnistui.\nVoi olla tarpeen käynnistää laite uudelleen, jotta muutokset tulevat voimaan.\n\n Haluatko uudelleenkäynnistää?\n(Estä tietojen katoaminen varmistamalla, että mikään sovellus ei käytä SD-korttia tällä hetkellä!)</string>
-  <string name="apply_symlink_successful">Symbolinen linkki luotiin onnistuneesti.\nVoi olla tarpeen käynnistää laite uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko uudelleenkäynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei mikään sovellus käytä SD-korttia tällä hetkellä!)</string>
   <string name="apply_symlink_successful_title">Symbolisen linkin luominen onnistui</string>
   <string name="apply_symlink_fail">Symbolista linkkiä ei voitu luoda.\nEpäonnistuminen johtuu useimmiten HTC-puhelimien S-ON \"ominaisuudesta\".\n\nRatkaisuna on käynnistää puhelin recovery-tilaan ja luoda sinne symbolinen linkki \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJos tämä ei toimi, etsi internetistä tietoa S-OFF:sta ja puhelimestasi. </string>
   <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
@@ -82,7 +68,6 @@
   <string name="apply_dialog_apply">Hyväksytään hosts-tiedosto</string>
   <string name="apply_fail">Hosts-tiedoston soveltaminen epäonnistui!\nYritä muuttaa hosts-tiedoston kohde /data/data/hosts -vaihtoehdoksi.</string>
   <string name="apply_fail_title">Soveltaminen epäonnistui</string>
-  <string name="revert_successful">Palautit hosts-tiedoston oletustilaan.\nVoi olla tarpeellista käynnistää laite uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko uudelleenkäynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei mikään sovellus käytä SD-korttia tällä hetkellä!)</string>
   <string name="revert_successful_title">Palauttaminen onnistui</string>
   <string name="revert_problem">Palauttaminen epäonnistui tuntemattomasta syystä.</string>
   <string name="revert_problem_title">Palauttaminen epäonnistui!</string>
@@ -90,7 +75,6 @@
   <string name="download_fail_title">Lataus epäonnistui</string>
   <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
   <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
-  <string name="disable_systemless_successful">Otit systemless -tilan pois käytöstä.\nVoi olla tarpeen käynnistää laite uudelleen, jotta muutokset tulevat voimaan.\n\nHaluatko uudelleenkäynnistää?\n(Estä tietojen katoaminen varmistamalla, ettei mikään sovellus käytä SD-korttia tällä hetkellä!)</string>
   <string name="disable_systemless_successful_title">Kytketty pois päältä</string>
   <!--Other Dialogs-->
   <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
@@ -152,7 +136,6 @@
     <item>Mukautettu kohde</item>
   </string-array>
   <string name="pref_update_check_summary">Tarkista päivitykset AdAwayn käynnistykessä</string>
-  <string name="pref_sdcard_problem">Tämä toiminto ei toimi oikein, kun AdAway on asennettu SD-kortille!</string>
   <string name="pref_background">Taustapalvelut</string>
   <string name="pref_update_check_daily">Tarkista päivitykset päivittäin</string>
   <string name="pref_update_check_daily_summary">Tarkista päivittäin päivitykset taustalla ilmoituksilla</string>

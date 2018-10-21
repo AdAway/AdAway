@@ -3,46 +3,36 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Sair</string>
-  <string name="button_apply">Descarregar ficheiros e bloquear anúncios</string>
   <string name="button_close">Fechar</string>
   <string name="button_yes">Sim</string>
   <string name="button_no">Não</string>
-  <string name="button_revert">Desativar o bloqueio de anúncios</string>
   <string name="button_add">Adicionar</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="button_revert_text">Restaura o ficheiro de hosts original no sistema.</string>
   <string name="button_save">Guardar</string>
-  <string name="button_webserver_toggle_checked">O servidor web está em execução</string>
-  <string name="button_webserver_toggle_unchecked">O servidor web não está em execução</string>
   <string name="button_webserver_toggle_text">Inicie ou pare o servidor web em localhost para responder a pedidos para hostnames bloqueados.</string>
   <string name="button_help">Ajuda</string>
   <!--Home-->
-  <string name="header_help">Bem-vindo!</string>
-  <string name="text_help">AdAway é um projeto de software de código aberto e gratuito para bloquear publicidade. Este transfere da rede de anúncios e configura o seu dispositivo para bloqueá-los.\nQuer saber mais? Consulte a ajuda abaixo!</string>
+  <string name="header_help">Bem-vindo(a)!</string>
   <string name="button_show_help">Mostrar mais ajuda</string>
   <string name="icon_update_status">Estado da atualização</string>
   <string name="text_update">Todos os ficheiros hosts das fontes definidas foram transferidos, unidos com as suas próprias listas e instalados como um único ficheiro hosts no seu sistema.</string>
-  <string name="button_check_update_hosts">Procurar por atualizações</string>
+  <string name="button_check_update_hosts">Procurar atualizações</string>
   <string name="button_update_hosts">Atualizar hosts</string>
   <string name="button_enable_hosts">Ativar bloqueio de anúncios</string>
   <string name="button_disable_hosts">Desativar bloqueio de anúncios</string>
-  <string name="header_webserver">Servidor da Web</string>
+  <string name="header_webserver">Servidor web</string>
   <string name="webserver_status_running">Em execução</string>
   <string name="webserver_status_stopped">Parado</string>
-  <string name="button_enable_webserver">Ativar servidor da Web</string>
-  <string name="button_disable_webserver">Desativar servidor da Web</string>
+  <string name="button_enable_webserver">Ativar servidor web</string>
+  <string name="button_disable_webserver">Desativar servidor web</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Lista vazia</string>
-  <string name="checkbox_list_empty_text">Pode adicionar itens a partir do botão mais.</string>
   <string name="checkbox_list_context_delete">Eliminar</string>
-  <string name="checkbox_list_footer">Depois de adicionar itens novos a esta lista, terá de aplicar de novo o AdAway!</string>
-  <string name="checkbox_list_edit_dialog_title">Editar</string>
   <string name="checkbox_list_context_title">Editar entrada</string>
   <string name="checkbox_list_context_edit">Editar</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">Lista branca</string>
   <string name="lists_tab_blacklist">Lista negra</string>
-  <string name="lists_tab_redirection_list">Redireciona</string>
+  <string name="lists_tab_redirection_list">Redirecionamentos</string>
   <string name="list_add_dialog_black">Adicionar hospedeiro à lista negra</string>
   <string name="list_add_dialog_white">Adicionar hospedeiro à lista branca</string>
   <string name="list_add_dialog_redirect">Adicionar redirecionamento de hospedeiro</string>
@@ -55,18 +45,14 @@
   <string name="list_dialog_ip">IP (IPv4 ou IPv6):</string>
   <string name="import_dialog">A importar…</string>
   <string name="export_dialog">A exportar…</string>
-  <string name="export_success">Todas as entradas foram exportadas para um ficheiro chamado \'adaway-export\' no seu cartão de memória.</string>
-  <string name="export_failed">Falha ao exportar a sua lista para o seu cartão SD.</string>
   <!--Hosts content-->
   <string name="hosts_header">O ficheiro hosts</string>
-  <string name="hosts_description">O ficheiro hosts é um ficheiro do sistema que mapeia os nomes de hospedeiro para endereços de IP. É um ficheiro de texto simples cuja configuração é gerida pela AdAway. Aqui tem as suas poucas primeiras linhas:</string>
   <string name="hosts_content">A carregar o conteúdo do ficheiro hosts…</string>
   <string name="hosts_open_button">Abrir o ficheiro hosts</string>
   <!--Status Notification-->
   <string name="status_checking">A procurar atualizações…</string>
   <string name="status_reverting">A reverter…</string>
   <string name="status_reverting_subtitle">A criar um ficheiro de hosts padrão</string>
-  <string name="status_checking_subtitle">A verificar se há atualizações disponíveis</string>
   <string name="status_update_available">Atualização disponível</string>
   <string name="status_update_available_subtitle">Novos ficheiros de hosts disponíveis</string>
   <string name="status_no_connection">Sem ligação à internet</string>
@@ -76,7 +62,6 @@
   <string name="status_enabled">Ativado</string>
   <string name="status_enabled_subtitle">Os ficheiros de hosts mais recentes estão ativos</string>
   <string name="status_disabled">Desativado</string>
-  <string name="status_disabled_subtitle">Desativado</string>
   <string name="notification_channel_update_name">Atualizações</string>
   <string name="notification_channel_update_description">Notificações de atualização de novos hospedeiros</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +75,7 @@
   <string name="apply_remount_fail_title">Falha ao remontar</string>
   <string name="apply_copy_fail">Falha ao copiar o ficheiro de hosts!</string>
   <string name="apply_copy_fail_title">Falha ao copiar</string>
-  <string name="apply_success_subtitle">Fontes de hosts aplicadas:</string>
   <string name="apply_success_title">Aplicado com sucesso</string>
-  <string name="apply_success_dialog">Aplicado com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
-  <string name="apply_symlink_successful">A ligação simbólica foi criada com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="apply_symlink_successful_title">Ligação simbólica criada com sucesso</string>
   <string name="apply_symlink_fail">A ligação simbólica não pôde ser criada pelo Android.\nGeralmente, isto falha devido a uma \"funcionalidade\" chamada S-ON dos telemóveis HTC!\n\nUma solução é arrancar o telemóvel no modo de recuperação e criar a ligação simbólica lá com \"ln -s /data/data/hosts /system/etc/hosts\".\n\nSe isto não funcionar, pesquise na internet por S-OFF e o seu telemóvel.</string>
   <string name="apply_symlink_fail_title">Falha ao criar a ligação simbólica</string>
@@ -110,7 +92,6 @@
   <string name="apply_dialog_apply">A aplicar o ficheiro de hosts</string>
   <string name="apply_fail">Falha ao aplicar o ficheiro de hosts no sistema!\nExperimente alterar o ficheiro de hosts de destino nas preferências para /data/data/hosts.</string>
   <string name="apply_fail_title">Falha ao aplicar</string>
-  <string name="revert_successful">Reverteu o ficheiro de hosts predefinido.\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="revert_successful_title">Revertido com sucesso</string>
   <string name="revert_problem">Falha ao reverter por motivos desconhecidos.</string>
   <string name="revert_problem_title">Falha ao reverter!</string>
@@ -118,9 +99,7 @@
   <string name="download_fail_title">Falha ao descarregar</string>
   <string name="no_private_file">Impossível criar ficheiro privado.</string>
   <string name="no_private_file_title">Falha ao criar ficheiro privado</string>
-  <string name="enable_systemless_successful">Ativou o modo \"systemless\".\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="enable_systemless_successful_title">Ativação bem-sucedida</string>
-  <string name="disable_systemless_successful">Desativou o modo \"systemless\".\nPoderá ser necessário reiniciar o Android para que as alterações entrem em efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="disable_systemless_successful_title">Desativação bem-sucedida</string>
   <!--Other Dialogs-->
   <string name="no_root_description">O binário su não foi encontrado ou não concedeu permissões de \"root\" ao AdAway.\n\nIsto pode acontecer quando o seu dispositivo não tem \"root\".\nPode encontrar informações sobre como fazer \"root\" ao seu dispositivo em wiki.lineageos.org ou noutros websites sobre Android.</string>
@@ -145,16 +124,14 @@
   <string name="help_tab_problems">Problemas</string>
   <!--Adware-->
   <string name="adware_header">Adware</string>
-  <string name="adware_description">Aqui pode encontrar os adwares instalados, aplicações más que não podem ser bloqueadas pela AdAway. Estas aplicações usam, por exemplo, notificações da Airpush que aparecem mesmo quando a aplicação não está em execução ou até mesmo alteram o toque de chamada. A única contramedida disponível é desinstalar essas aplicações clicando nos itens da lista.</string>
-  <string name="adware_scanning">A pesquisar...</string>
-  <string name="adware_empty">Não foram encontradas aplicações de Adware!</string>
+  <string name="adware_scanning">A pesquisar…</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Locais:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">não disponível</string>
   <string name="hosts_add_dialog_title">Adicionar fonte</string>
   <string name="hosts_edit_dialog_title">Editar fonte</string>
-  <string name="hosts_dialog_url">URL: (um https:// ou recurso file://)</string>
+  <string name="hosts_dialog_url">URL: (um recurso https:// ou file://)</string>
   <string name="hosts_dialog_url_hint">O URL fonte de hosts</string>
   <!--Other-->
   <string name="app_subtitle">Bloqueador de anúncios</string>
@@ -207,7 +184,6 @@
     <item>Destino personalizado</item>
   </string-array>
   <string name="pref_update_check_summary">Procurar atualizações ao iniciar o AdAway</string>
-  <string name="pref_sdcard_problem">Esta funcionalidade não funcionará corretamente quando o AdAway estiver instalado no cartão de memória!</string>
   <string name="pref_background">Serviços em segundo plano</string>
   <string name="pref_update_check_daily">Procurar atualizações diariamente</string>
   <string name="pref_update_check_daily_summary">Procurar atualizações diariamente em segundo plano com notificações</string>

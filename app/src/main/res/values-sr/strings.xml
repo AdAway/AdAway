@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Izlaz</string>
-  <string name="button_apply">Preuzmi fajlove i primeni blokiranje reklama</string>
   <string name="button_close">Zatvori</string>
   <string name="button_yes">Da</string>
   <string name="button_no">Ne</string>
-  <string name="button_revert">Onemogući blokiranje reklama</string>
   <string name="button_add">Dodaj</string>
   <string name="button_cancel">Otkaži</string>
-  <string name="button_revert_text">Vraća podrazumevani hosts fajl na vaš sistem</string>
   <string name="button_save">Sačuvaj</string>
-  <string name="button_webserver_toggle_checked">Webserver radi</string>
-  <string name="button_webserver_toggle_unchecked">Webserver ne radi</string>
   <string name="button_webserver_toggle_text">Pokreni ili zaustavi lokalni webserverda odgovoriš na zahteve za blokiranim sajtovima</string>
   <string name="button_help">Pomoć</string>
   <!--Home-->
   <string name="text_update">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
   <string name="button_check_update_hosts">Proveri nove verzije</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Prazna lista</string>
   <string name="checkbox_list_context_delete">Ukloni</string>
-  <string name="checkbox_list_footer">Posle dodavanja novih stavki na ovu listu morate da primenite AdAway ponovo!</string>
-  <string name="checkbox_list_edit_dialog_title">Uredi</string>
   <string name="checkbox_list_context_title">Uredi ulazak</string>
   <string name="checkbox_list_context_edit">Uredi</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="import_dialog">Uvoz…</string>
   <string name="export_dialog">Izvoz...</string>
-  <string name="export_success">Svi unosi su izvučeni na sd karticu u fajl koji se zove \'adaway-export\'</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Provera ažuriranja...</string>
   <string name="status_reverting">Vraćanje...</string>
   <string name="status_reverting_subtitle">Kreiranje standardnog hosts fajla</string>
-  <string name="status_checking_subtitle">Proveravanje ažuriranja</string>
   <string name="status_update_available">Ažuriranje dostupno</string>
   <string name="status_update_available_subtitle">Noviji host-ovi fajlovi dostupni</string>
   <string name="status_no_connection">Nema internet konekcije</string>
@@ -49,7 +39,6 @@
   <string name="status_enabled">Omogućeno</string>
   <string name="status_enabled_subtitle">Noviji host-ovi fajlovi omogućeni</string>
   <string name="status_disabled">Onemogućeno</string>
-  <string name="status_disabled_subtitle">Onemogućeno</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Simbolički link od tvojeg fajla do /system/etc/hosts ne postoji ili nije dobar. AdAway neće raditi ako ne pokazuje na dobar fajl.\n\nDa li želiš da pokušaš da kreiraš simbolički link?</string>
   <string name="apply_symlink_missing_title">Nedostaje symlink.</string>
@@ -61,10 +50,7 @@
   <string name="apply_remount_fail_title">Remount neuspesan</string>
   <string name="apply_copy_fail">Neuspešno kopiranje host-ovih fajlova!</string>
   <string name="apply_copy_fail_title">Kopiranje neuspešno</string>
-  <string name="apply_success_subtitle">Primenjeni izvori hosts fajla: </string>
   <string name="apply_success_title">Primena uspešna</string>
-  <string name="apply_success_dialog">Primena je bila uspešna.\nMožda je potrebno ponovo pokrenuti Android da izmene stupile na snagu.\n\n Želite li da ponovo pokrenete Android?\n(Da biste izbegli gubitak podataka uverite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
-  <string name="apply_symlink_successful">Simbolička poveznica je uspešno stvorena.\nMožda je potrebno ponovo pokrenuti Android da izmene stupile na snagu.\n\n Želite li da ponovo pokrenete Android?\n(Da biste izbegli gubitak podataka uverite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
   <string name="apply_symlink_successful_title">Kreiranje symlink-a uspesno</string>
   <string name="apply_symlink_fail">Poveznicu nije moguće stvoriti.\n Ovo uglavnom onemogućuje \'opcija\' zvana S-ON na HTC telefonima!\n\n Moguće rešenje: pokrenite telefon u recovery režimu i kreirajte poveznicu komandom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n Ako ovo nije moguće, potražite na internetu da li postoji S-OFF način za vaš model telefona.</string>
   <string name="apply_symlink_fail_title">Kreiranje symlink-a bez uspesno</string>
@@ -81,7 +67,6 @@
   <string name="apply_dialog_apply">Primenjivanje host-ovih fajlova</string>
   <string name="apply_fail">Primena hosts datoteke na vaš sistem nije uspela!\n Pokušajte promeniti ciljanu hosts datoteku u podešavanjima u /data/data/hosts.</string>
   <string name="apply_fail_title">Primena neuspešna</string>
-  <string name="revert_successful">Ponovo koristite izvornu hosts datoteku.\nIt Nekada je potrebno ponovo pokrenuti Android kako bi se promene primenile.\n\n Želite li da ponovo pokrenete Android?\n (Kako biste izbegli gubitak podataka uverite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
   <string name="revert_successful_title">Vraćanje uspešno</string>
   <string name="revert_problem">Vraćanje neusšerno iz nepoznatih razloga.</string>
   <string name="revert_problem_title">Vraćanje neuspešno!</string>
@@ -89,9 +74,7 @@
   <string name="download_fail_title">Preuzimanje neuspešno</string>
   <string name="no_private_file">Privatni falj ne može biti kreiran.</string>
   <string name="no_private_file_title">Neuspešno kreiranje privatnog fajla</string>
-  <string name="enable_systemless_successful">Omogućili ste systemless režim.\nMožda je potrebno ponovo pokrenuti Android da bi se promene izvršile.\nDa li želite ponovo pokrenuti sistem?\n(Da biste sprečili gubitak podataka proverite da nijedna aplikacija ne koristi SD karticu!) </string>
   <string name="enable_systemless_successful_title">Omogućavanje je uspelo.</string>
-  <string name="disable_systemless_successful">Onemogućili ste systemless režim.\nMožda morate ponovno da pokrenete Android da bi promene stupile na snagu.\n\Želite li da ponovo pokrenute Android?\n(Da biste sprečili gubitak podataka uverite se da nijedna aplikacija trenutno ne koristi SD karticu!)</string>
   <string name="disable_systemless_successful_title">Onemogućavanje je uspelo</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Nije moguće pronaći \\"su\\" izvršnu datoteku ili niste omogućili root privilegije za AdAway.\n\n Ovo se događa kada vaš uređaj nije rutovan. \n Kako omogućiti root na Vašem uređaju pogledajte na wiki.lineageos.org ili na drugim Android veb stranicama.</string>
@@ -153,7 +136,6 @@
     <item>Drugi fajl</item>
   </string-array>
   <string name="pref_update_check_summary">Proveri ažuriranja pri pokretanju AdAway-a</string>
-  <string name="pref_sdcard_problem">Ova funkcija neće raditi ispravno kada je AdAway instaliran na SD karticu!</string>
   <string name="pref_background">Pozadinski servisi</string>
   <string name="pref_update_check_daily">Dnevna proveravanje ažuriranja</string>
   <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>

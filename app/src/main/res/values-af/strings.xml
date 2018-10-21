@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Gaan uit</string>
-  <string name="button_apply">Laai lêers af en installeer ad blokkering </string>
   <string name="button_close">Maak toe</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nnn</string>
-  <string name="button_revert">Deaktiveer ad. blokkering</string>
   <string name="button_add">Voeg by</string>
   <string name="button_cancel">Kanselleer</string>
-  <string name="button_revert_text">Herstel die verstek gasheer lêers op jou sisteem.</string>
   <string name="button_save">Stoor</string>
-  <string name="button_webserver_toggle_checked">Webbediener is aktief</string>
-  <string name="button_webserver_toggle_unchecked">Webbediener is af</string>
   <string name="button_webserver_toggle_text">Begin of stop webbediener op plaaslike gasheer om antwoorde te verskaf tov. geblokkeerde gasheer name. </string>
   <string name="button_help">Help</string>
   <!--Home-->
   <string name="text_update">Alle gas lêers van die omskrewe bronne word afgelaai, en geïntegreer met jou eie lys en dan as een lys geinstalleer in jou sisteem. </string>
   <string name="button_check_update_hosts">Kyk vir opdaterings</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Le lys</string>
   <string name="checkbox_list_context_delete">Vee uit</string>
-  <string name="checkbox_list_footer">Nadat nuwe items by hierdie lys  gevoeg is moet AdAway weer begin word!</string>
-  <string name="checkbox_list_edit_dialog_title">Redigeer</string>
   <string name="checkbox_list_context_title">Redigeer Inskrywing</string>
   <string name="checkbox_list_context_edit">Redigeer</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
   <string name="import_dialog">Besig met invoering...</string>
   <string name="export_dialog">Besig met Uitvoer...</string>
-  <string name="export_success">Alle inskrywings uitgevoer na \'adaway-uitvoer\' op sdkaart</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Soek vir opdatering...</string>
   <string name="status_reverting">Keer terug...</string>
   <string name="status_reverting_subtitle">Skep standaard gasheer lêer</string>
-  <string name="status_checking_subtitle">Bepaal of opdatering beskikbaar is</string>
   <string name="status_update_available">Opdatering beskikbaar</string>
   <string name="status_update_available_subtitle">Nuwer Gasheer lêers is beskikbaar</string>
   <string name="status_no_connection">Geen internet konneksie</string>
@@ -49,7 +39,6 @@
   <string name="status_enabled">Geaktiveer</string>
   <string name="status_enabled_subtitle">Nuutste Gasheer lêers geaktiveer</string>
   <string name="status_disabled">Afgeskakel</string>
-  <string name="status_disabled_subtitle">Afgeskakel</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing_title">Simskakel ontbreek</string>
   <string name="apply_not_enough_space_title">Nie genoeg spasie nie</string>
@@ -59,7 +48,6 @@
   <string name="apply_remount_fail_title">Koppeling het misluk</string>
   <string name="apply_copy_fail">Kopieer van gasheer lêers het misluk</string>
   <string name="apply_copy_fail_title">Kopieering het misluk</string>
-  <string name="apply_success_subtitle">Gasheer Bronne toegepas:</string>
   <string name="apply_success_title">Toepassing was suksesvol</string>
   <string name="apply_symlink_successful_title">Skep van Simskakel was suksesvol</string>
   <string name="apply_symlink_fail_title">Simskakel skepping het misluk</string>
@@ -132,7 +120,6 @@
   <string name="pref_custom_target">Doelwit teiken</string>
   <string name="pref_custom_target_summary">Word slegs gebruik indien doelwit gasheer lêers gestel is as pasmaak teikens</string>
   <string name="pref_update_check_summary">Kyk vir opdaterings as AdAway begin</string>
-  <string name="pref_sdcard_problem">Hierdie eienskap sal nie funksioneer indien AdAway op sdkaart geïnstalleer is nie! </string>
   <string name="pref_background">Agtergrond Dienste</string>
   <string name="pref_update_check_daily">Kyk daagliks vir opdaterings</string>
   <string name="pref_update_check_daily_summary">Kyk daagliks vir opdaterings in die agtergrond met kennisgewings</string>

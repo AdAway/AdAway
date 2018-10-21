@@ -3,19 +3,15 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Lumabas</string>
-  <string name="button_apply">I-download ang files at i-apply ang ad blocking</string>
   <string name="button_close">Isara</string>
   <string name="button_yes">Oo</string>
   <string name="button_no">Hindi</string>
-  <string name="button_revert">I-disable ang ad blocking</string>
   <string name="button_add">Dagdagan</string>
   <string name="button_cancel">I-cancel</string>
-  <string name="button_revert_text">Ibalik sa dating hosts file ng system.</string>
   <string name="button_help">Tulong</string>
   <!--Home-->
   <!--Checkbox List-->
   <string name="checkbox_list_context_delete">Ibura</string>
-  <string name="checkbox_list_edit_dialog_title">Palitan</string>
   <string name="checkbox_list_context_title">Palitan ang entry</string>
   <string name="checkbox_list_context_edit">Palitan</string>
   <!--Your lists-->

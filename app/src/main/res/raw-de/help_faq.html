@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>FAQ</title></head>
 <body>
 <h2>Einnahmen durch Werbung</h2>
 <p>Die oft geäußerte Auffassung, dass ein Nutzer, der nie auf Werbung klickt, einer Webseite oder Anwendung finanziell nicht schadet, wenn Werbung blockiert wird, ist falsch. Denn Entwickler erhalten auch durch das bloße Einblenden von Werbung Geld. Es bleibt Ihre Entscheidung, ob Sie Werbung blockieren oder nicht. Ich persönlich würde keine Anwendungen verwenden, die Werbung anzeigen, da ich sie sehr störend finde, d. h. ohne einen Werbeblocker würde ich diese Anwendungen nicht installieren.</p>
@@ -7,7 +7,7 @@
 
 
 <h2>Wie funktioniert AdAway?</h2>
-<p>AdAway verwendet die Hosts-Datei <a href="http://en.wikipedia.org/wiki/Hosts_file"></a>, um Hostnamen zu blockieren, die Werbung ausliefern. Die Hosts-Datei befindet sich in <tt>/system/etc/hosts</tt> und enthält Hostnamen und ihre zugehörigen IP-Adressen. Es ist die klassische Art, Paare aus Hostnamen und IP-Adressen festzulegen, ohne vom Domain Name System (DNS) Gebrauch zu machen. Alle unerwünschten Hostnamen werden an <tt>127.0.0.1</tt> umgeleitet, also auf Ihr eigenes Gerät.</p>
+<p>AdAway benutzt die <a href="http://en.wikipedia.org/wiki/Hosts_file">Hosts-Datei</a>, um Hostnamen zu blockieren, die Werbung ausliefern. Die Hosts-Datei befindet sich unter <code>/system/etc/hosts</code> und weist Hostnamen eine IP-Adresse zu. Traditionell werden über diese Datei Paare aus IP-Adresse und Hostname definiert, ohne auf das Domain Name System (DNS) zurückzugreifen. Alle unerwünschten Hostnamen werden zu <code>127.0.0.1</code> umgeleitet, also auf Ihr eigenes Gerät.</p>
 
 <h2>Warum ist die Einstellung für die tägliche Aktualisierungsprüfung ausgegraut?</h2>
 <p>Aufgrund von systembedingten Beschränkungen, ist die automatische Überprüfung auf Aktualisierungen nur möglich, wenn AdAway auf dem internen Telefonspeicher installiert ist.</p>
@@ -16,12 +16,12 @@
 <p>Java auf Android hat einen eigenen internen DNS-Zwischenspeicher. Zwar übernimmt das Betriebssystem die neue Hosts-Datei sofort (dieses kann man mit einem Ping über die Kommandozeile überprüfen). Jedoch ist es nötig, Android neu zu starten, um auch Javas DNS-Zwischenspeicher zu erneuern.</p>
 
 <h2>Wie verwendet man den Webserver in AdAway?</h2>
-<p><b>AdAway wird auch funktionieren, wenn kein Webserver verwendet wird!</b>
-<br/><br/>Sie können in den Einstellungen von AdAway einen lokalen Webserver aktivieren, damit Anfragen an die lokale IP-Adresse <tt>127.0.0.1</tt> beantwortet werden. Dadurch werden Anfragen von Anwendungen an Werbeserver, die an <tt>127.0.0.1</tt> umgeleitet werden, nun vom AdAway-Webserver beantwortet. 
-<br/>Manche Anwendungen funktionieren nicht, wenn keine Werbeserver erreichbar sind. Mit dieser Methode werden sie (scheinbar) wieder erreichbar, indem der lokale Webserver mit einer leeren Seite, ohne Werbung, antwortet.</p>
+<p><strong>AdAway funktioniert auch ohne den Webserver!</strong>
+<br/><br/>Du kannst einen lokalen Webserver in den Einstellungen von AdAway aktivieren, um Anfragen an die lokale IP-Adresse <code>127.0.0.1</code> zu beantworten. Dadurch werden Anfragen von Anwendungen an Werbeserver, die an <code>127.0.0.1</code> umgeleitet werden, nun vom AdAway-Webserver beantwortet.
+<br/>Einige Anwendungen funktionieren nicht, wenn die von ihnen angesprochenen Werbeserver nicht erreichbar sind. Mit dieser Methode erscheinen sie erreichbar, indem sie eine leere Seite anstelle von Werbebildern zurückgeben.</p>
 
 <h2>Wie kann ich bestimmte Hostnamen sperren/entsperren?</h2>
-<p>Fügen Sie die Hostnamen, die Sie blockieren wollen, zur »Negativliste« (=Negativ) unter »Meine Listen« hinzu. Zusätzlich können Hostnamen, die Sie nicht blockieren wollen, zur »Positivliste« (=Positiv) hinzugefügt bzw. Hostnamen, die Sie an eine spezielle IP-Adresse weiterleiten möchten, in die »Umleitungsliste« (=Umleitung) eingetragen werden.</p>
+<p>Füge den Hostnamen, welchen du blockieren möchtest, zu der <cite>Negativliste</cite> (=Negativ) unter <cite>Deine Listen</cite>. Zusätzlich kannst du Hostnamen, die du nicht umleiten möchtest, zur <cite>Positivliste</cite> (=Positiv) und Hostnamen, die du zu einer bestimmten IP-Adresse umleiten möchtest zur <cite>Umleitungsliste</cite> (=Umleitung) hinzufügen.. </p>
 
 <h2>Wo finde ich weitere Hosts-Quellen?</h2>
 <p>Siehe <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Liste zusätzlicher Hosts-Quellen für AdAway</a>.</p>

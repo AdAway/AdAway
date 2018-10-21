@@ -3,53 +3,70 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">خروج</string>
-  <string name="button_apply">تحميل الملفات وتنفيذ حجب الإعلانات</string>
   <string name="button_close">إغلاق</string>
   <string name="button_yes">نعم</string>
   <string name="button_no">لا</string>
-  <string name="button_revert">إلغاء حجب الإعلانات</string>
   <string name="button_add">إضافة</string>
   <string name="button_cancel">إلغاء</string>
-  <string name="button_revert_text">استعادة ملفات المضيف الافتراضية لنظامك.</string>
   <string name="button_save">حفظ</string>
-  <string name="button_webserver_toggle_checked">خادم الويب يعمل</string>
-  <string name="button_webserver_toggle_unchecked">خادم الويب لا يعمل</string>
   <string name="button_webserver_toggle_text">تشغيل أو إيقاف خادم الويب على المضيف المحلي للرد على طلبات أسماء المضيفين المحظورة.</string>
   <string name="button_help">المساعدة</string>
   <!--Home-->
+  <string name="header_help">أهلاً وسهلاً!</string>
+  <string name="button_show_help">إظهار المزيد من المساعدة</string>
+  <string name="icon_update_status">حالة التحديث</string>
   <string name="text_update">جميع ملفات المضيف ستحمل و ستدمج مع قوائمك و ستثبت في ملف واحد على نظامك.</string>
   <string name="button_check_update_hosts">التحقق من وجود تحديثات</string>
+  <string name="button_update_hosts">تحديث ملفات المضيف</string>
+  <string name="button_enable_hosts">تشغيل حجب الإعلانات</string>
+  <string name="button_disable_hosts">إيقاف حجب الإعلانات</string>
+  <string name="header_webserver">خادم الويب</string>
+  <string name="webserver_status_running">يعمل</string>
+  <string name="webserver_status_stopped">موقوف</string>
+  <string name="button_enable_webserver">تشغيل خادم الويب</string>
+  <string name="button_disable_webserver">إيقاف خادم الويب</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">قائمة فارغة</string>
   <string name="checkbox_list_context_delete">حذف</string>
-  <string name="checkbox_list_footer">بعد إضافة البنود الجديدة إلى هذه القائمة يجب التحديث والتنفيذ مرة أخرى!</string>
-  <string name="checkbox_list_edit_dialog_title">تحرير</string>
   <string name="checkbox_list_context_title">تحرير المدخلة</string>
   <string name="checkbox_list_context_edit">تحرير</string>
   <!--Your lists-->
   <string name="lists_tab_whitelist">القائمة البيضاء</string>
   <string name="lists_tab_blacklist">القائمة السوداء</string>
+  <string name="lists_tab_redirection_list">عمليات إعادة التوجيه</string>
+  <string name="list_add_dialog_black">إضافة المضيف للقائمة السوداء </string>
+  <string name="list_add_dialog_white">إضافة المضيف للقائمة البيضاء</string>
+  <string name="list_add_dialog_redirect">إضافة عملية إعادة توجيه المضيف</string>
+  <string name="list_edit_dialog_black">تحرير المضيف المُدرج في القائمة السوداء</string>
+  <string name="list_edit_dialog_white">تحرير المضيف المُدرج في القائمة البيضاء</string>
+  <string name="list_edit_dialog_redirect">تحرير عملية إعادة التوجيه</string>
   <string name="list_dialog_hostname">اسم المضيف:</string>
+  <string name="list_dialog_hostname_hint">مصدر رابط المضيف</string>
+  <string name="list_dialog_wildcard">(يسمح اسخدام رموز البدل * و ?)</string>
   <string name="list_dialog_ip">بروتكول الانترنت (IPv4 أو IPv6):</string>
   <string name="import_dialog">استيراد…</string>
   <string name="export_dialog">تصدير…</string>
-  <string name="export_success">تم تصدير جميع المدخلات إلى ملف يسمى\'adaway-export\' في بطاقة الذاكرة.</string>
   <!--Hosts content-->
+  <string name="hosts_header">ملف المضيف</string>
+  <string name="hosts_content">جارٍ تحميل محتوى ملف المضيف...</string>
+  <string name="hosts_open_button">فتح ملف المضيف</string>
   <!--Status Notification-->
   <string name="status_checking">جارٍ البحث عن التحديثات…</string>
   <string name="status_reverting">استرجاع…</string>
   <string name="status_reverting_subtitle">إنشاء ملفات المضيف الأساسية</string>
-  <string name="status_checking_subtitle">التحقق من وجود تحديث متوفر</string>
   <string name="status_update_available">يوجد تحديث متوفر</string>
   <string name="status_update_available_subtitle">ملفات المضيف الجديدة متوفرة</string>
   <string name="status_no_connection">غير متصل بالشبكة</string>
   <string name="status_no_connection_subtitle">لا يوجد اتصال بالشبكة متوفر</string>
   <string name="status_download_fail">الملقمات غير متوفرة</string>
   <string name="status_download_fail_subtitle_new">لا يمكن الوصول إلى مصادر المضيف!</string>
+  <string name="status_failure">حدث خطأٌ ما</string>
+  <string name="status_failure_subtitle">للمزيد من المعلومات يرجى التحقّق من الـ logcat</string>
   <string name="status_enabled">مفعل</string>
   <string name="status_enabled_subtitle">ملفات المضيف الحديثة مفعلة</string>
   <string name="status_disabled">معطل</string>
-  <string name="status_disabled_subtitle">معطل</string>
+  <string name="status_disabled_subtitle">ملف المضيف الإفتراضي مُثبّت</string>
+  <string name="notification_channel_update_name">تحديثات</string>
+  <string name="notification_channel_update_description">إشعارات تَوفُّر تحديث لملف المضيف </string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">symlink من مسارك الى /system/etc/hosts غير موجود او غير صحيح . البرنامج لن يعمل اذا لم يتم تحديد الملف الصحيح . هل تريد محاولة انشاء symlink ؟</string>
   <string name="apply_symlink_missing_title">الارتباط الرمزي مفقود</string>
@@ -61,10 +78,8 @@
   <string name="apply_remount_fail_title">فشل التحويل</string>
   <string name="apply_copy_fail">فشل نسخ ملفات المضيف!</string>
   <string name="apply_copy_fail_title">فشل النسخ</string>
-  <string name="apply_success_subtitle">مصادر المضيف المنفذة:</string>
+  <string name="apply_success_subtitle">مصادر المضيف المطبّقة</string>
   <string name="apply_success_title">تم التنفيذ بنجاح</string>
-  <string name="apply_success_dialog">تم التثبيت بنجاح . يستوجب اعاده تشغيل الجهاز الان . هل تريد اعادة تشغيل جهازك؟ (لتجنب حصول فقدان في الملفات تأكد من عدم وجود تطبيقات تستخدم الذاكرة الان)</string>
-  <string name="apply_symlink_successful">تم التثبيت بنجاح . يستوجب اعاده تشغيل الجهاز الان . هل تريد اعادة تشغيل جهازك؟ (لتجنب حصول فقدان في الملفات تأكد من عدم وجود تطبيقات تستخدم الذاكرة الان)</string>
   <string name="apply_symlink_successful_title">الارتباط الرمزي أنشئ بنجاح</string>
   <string name="apply_symlink_fail">لم يتم انشاء symlink هذا يحرث بسبب خاصية S on في اجهزه HTC . الحل هو اعاده تشغيل جهازك في وضع الريكفري و انشاء symlink في -s /data/data/hosts/system/etc/hosts اذا لم يعمل ابحث في الانترنت عن اطفاء s</string>
   <string name="apply_symlink_fail_title">الارتباط الرمزي لم ينشئ</string>
@@ -81,7 +96,6 @@
   <string name="apply_dialog_apply">تنفيذ ملفات المضيف</string>
   <string name="apply_fail">لقد فشلت عملية تثبيت ملفات المضيف! حاول تغيير مسار الملفات من الاعدادات الى /data/data/hosts</string>
   <string name="apply_fail_title">فشل التنفيذ</string>
-  <string name="revert_successful">لقد استعدت الملفات الافتراضية. يستوجب القيام بأعادة تشغيل لجهازك لتثبيت التغييرات. هل تريد اعادة تشغيل الجهاز؟ (لمنع حصول فقدان للبيانات تاكد من عدم وجود تطبيقات تستخدم الذاكرة الان)</string>
   <string name="revert_successful_title">تم الاسترجاع</string>
   <string name="revert_problem">الاسترجاع فشل لأسباب غير معروفة.</string>
   <string name="revert_problem_title">فشل الاسترجاع!</string>
@@ -89,9 +103,7 @@
   <string name="download_fail_title">فشل التحميل</string>
   <string name="no_private_file">لا يمكن إنشاء ملف خاص.</string>
   <string name="no_private_file_title">فشل إنشاء ملف خاص</string>
-  <string name="enable_systemless_successful">لقد قمت بتعطيل الوضع اللانظامي.\nقد تحتاج لأعادة تشغيل الجهاز لتثبيت التغييرات.\n\nهل تريد إعادة تشغيل الجهاز؟\n(لتجنب فقدان الملفات تأكد من عدم وجود تطبيقات تستخدم الذاكرة الان!)</string>
   <string name="enable_systemless_successful_title">تم التنفيذ بنجاح</string>
-  <string name="disable_systemless_successful">لقد قمت بتعطيل الوضع اللانظامي.\nقد تحتاج لأعادة تشغيل الجهاز لتثبيت التغييرات.\n\nهل تريد إعادة تشغيل الجهاز؟\n(لتجنب فقدان الملفات تأكد من عدم وجود تطبيقات تستخدم الذاكرة الان!)</string>
   <string name="disable_systemless_successful_title">تم التعطيل بنجاح</string>
   <!--Other Dialogs-->
   <string name="no_root_title">مطلوب روت للهاتف</string>
@@ -114,10 +126,16 @@
   <string name="help_tab_faq">الأسئلة الشائعة</string>
   <string name="help_tab_problems">المشاكل</string>
   <!--Adware-->
+  <string name="adware_header">الإعلانات المُتسلّلة</string>
+  <string name="adware_scanning">جارٍ الفحص</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">المثبت:</string>
   <string name="hosts_last_modified_online">الجديد:</string>
   <string name="hosts_not_available">غير متوفر</string>
+  <string name="hosts_add_dialog_title">إضافة مصدر</string>
+  <string name="hosts_edit_dialog_title">تحرير مصدر</string>
+  <string name="hosts_dialog_url">الرابط: (إمّا مصدر https:// أو file://)</string>
+  <string name="hosts_dialog_url_hint">مصدر رابط المضيف</string>
   <!--Other-->
   <string name="app_subtitle">حاجب الإعلانات</string>
   <string name="no_text_editor_title">لا يوجد محرر نصوص مثبت</string>
@@ -125,9 +143,25 @@
   <string name="no_file_manager_title">لا يوجد مدير ملفات مثبت</string>
   <string name="no_file_manager">تعذر العثور على مدير ملفات لفتح الملف. يمكنك تثبيت مدير ملفات OI او أي مدير ملفات اخر لتجاوز هذا. هل تريد تثبيت OI؟</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump هي أداة لمراقبة طلبات DNS وحفظها في ملف سجل. يمكنكم تشغيله في الخلفية، ثم تشغيل التطبيقات التي تعرض الإعلانات على الشاشة، بعد ذلك سيتم تحليل طلبات DNS باستخدام ملف السجل.الأن يمكن إضافة مصدر الإعلانات إلى قائمتك السوداء.</string>
+  <string name="tcpdump_disable_monitoring">إيقاف المُراقبة</string>
+  <string name="tcpdump_enable_monitoring">تشغيل المُراقبة</string>
+  <string name="tcpdump_show_results">عرض النتائج</string>
+  <string name="tcpdump_redirect_dialog_title">إعادة توجيه الـ domain</string>
+  <string name="tcpdump_menu_sort">ترتيب الـ domains</string>
+  <string name="tcpdump_menu_clear">محي السّجلّ</string>
+  <string name="tcpdump_sort_alphabetical">ترتيب أبجدي</string>
+  <string name="tcpdump_sort_top_level_domain">ترتيب Top level domain</string>
+  <string name="tcpdump_entry_add_blacklist">إضافة المُدخَل للقائمة السوداء</string>
+  <string name="tcpdump_entry_add_whitelist">إضافة المُدخَل للقائمة البيضاء</string>
+  <string name="tcpdump_entry_add_redirection_list">إضافة المُدخَل إلى قائمة إعادة التوجيه</string>
   <!--Preferences-->
   <string name="pref_download">الخيارات العامة</string>
+  <string name="pref_dismiss_welcome">إخفاء رسالة الترحيب</string>
+  <string name="pref_dismiss_welcome_summary">عدم إظهار رسالة الترحيب على الصفحة الرئيسية</string>
+  <string name="pref_dark_theme">تشغيل الخلفيّة الدّاكنة</string>
+  <string name="pref_dark_theme_summary">إستخدم الخلفيّة الدّاكنة بدلاً عن الخلفيّة الفاتحة</string>
   <string name="pref_hosts">ملفات المضيف</string>
   <string name="pref_redirection_ip">إعادة توجيه IP</string>
   <string name="pref_update_check">التحقق من وجود تحديثات</string>
@@ -147,7 +181,6 @@
   <string name="pref_custom_target_summary">استخدمه فقط إذا حدد مسار مخصص لملفات المضيف</string>
   <string-array name="pref_apply_method_entries"/>
   <string name="pref_update_check_summary">التحقق من وجود تحديثات عند تشغيل التطبيق</string>
-  <string name="pref_sdcard_problem">هذه الميزة لن تعمل بشكل صحيح عندما يتم تثبيت التطبيق في الذاكرة الخارجية!</string>
   <string name="pref_background">الخدمات الخلفية</string>
   <string name="pref_update_check_daily">التحقق من وجود التحديثات يومياً</string>
   <string name="pref_update_check_daily_summary">التحقق من التحديثات يومياً في الخلفية مع التنبيه</string>
@@ -155,6 +188,7 @@
   <string name="pref_automatic_update_daily_summary">التحديث تلقائياً في الخلفية إذا كانت التحديثات متوفرة.</string>
   <string name="pref_whitelist_rules">السماح للقائمة البيضاء</string>
   <string name="pref_whitelist_rules_summary">السماح لمداخلات القائمة البيضاء من مصادر المضيف</string>
+  <string name="pref_redirection_rules">السّماح لعمليات إعادة التوجيه</string>
   <string name="pref_redirection_rules_summary">للتقليل من المخاطر الامنية ! قم بالسماح للمداخلات المعاد تحويلها من مصادر المضيف</string>
   <string name="pref_debug">التصحيح</string>
   <string name="pref_enable_debug">تسجيل التصحيحات</string>
@@ -163,9 +197,53 @@
   <string name="pref_enable_ipv6_summary">جميع ملفات حجب المواقع سوف يتم تعديلها (  1 IPv6 localhost) </string>
   <string name="pref_enable_systemless_summary">منع AdAway من تغير تقسيمة النظام </string>
   <string name="pref_enable_systemless">تفعيل الوضع اللانظامي</string>
+  <string name="pref_edit_text_value">تحرير قيمة إعدادات النص</string>
+  <string name="drawer_open">فتح القائمة</string>
+  <string name="drawer_close">إغلاق القائمة</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 دعم تنمية البرنامج \u2764</string>
+  <string name="drawer_support_dialog_title">دعم المشروع</string>
+  <string name="drawer_support_dialog_button">إظهار دعمي</string>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">طلبات DNS</string>
+  <string name="shortcut_your_lists">قوائمك</string>
   <string name="shortcut_preferences">الخيارات</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">حالي لـ %1$s</string>
+  <string name="hosts_source_need_update">مطلوب تحديث لـ %1$s</string>
+  <string name="hosts_source_last_update">آخر تحديث قبل %1$s</string>
+  <string name="hosts_source_unknown_status">حالة تحديث غير معروفة</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="zero">%d دقيقة </item>
+    <item quantity="one">%d دقيقة</item>
+    <item quantity="two">%d دقيقتان</item>
+    <item quantity="few">%d بضع دقائق</item>
+    <item quantity="many">%d دقيقة</item>
+    <item quantity="other">%d دقائق</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="zero">%d ساعة</item>
+    <item quantity="one">%d ساعة</item>
+    <item quantity="two">%d ساعتان</item>
+    <item quantity="few">%d بضع ساعات</item>
+    <item quantity="many">%d ساعات</item>
+    <item quantity="other">%d ساعات</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="zero">%d يوم</item>
+    <item quantity="one">%d يوم</item>
+    <item quantity="two">%d يومين</item>
+    <item quantity="few">%d بضع أيام</item>
+    <item quantity="many">%d أيام</item>
+    <item quantity="other">%d أيام</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="zero">%d شهر</item>
+    <item quantity="one">%d شهر</item>
+    <item quantity="two">%d شهرين </item>
+    <item quantity="few">%d بضع شهور</item>
+    <item quantity="many">%dشهور </item>
+    <item quantity="other">%dشهور  </item>
+  </plurals>
 </resources>

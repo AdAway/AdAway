@@ -3,22 +3,17 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Beenden</string>
-  <string name="button_apply">Dateien herunterladen und den Werbeblocker aktivieren</string>
   <string name="button_close">Schließen</string>
   <string name="button_yes">Ja</string>
   <string name="button_no">Nein</string>
-  <string name="button_revert">Werbeblocker deaktivieren</string>
   <string name="button_add">Hinzufügen</string>
   <string name="button_cancel">Abbrechen</string>
-  <string name="button_revert_text">Stellt die vorgegebene Hosts-Datei auf Ihrem System wieder her.</string>
   <string name="button_save">Speichern</string>
-  <string name="button_webserver_toggle_checked">Webserver läuft</string>
-  <string name="button_webserver_toggle_unchecked">Webserver läuft nicht</string>
   <string name="button_webserver_toggle_text">Den lokalen Webserver starten oder stoppen, um Anfragen an blockierte Hostnamen zu beantworten.</string>
   <string name="button_help">Hilfe</string>
   <!--Home-->
   <string name="header_help">Willkommen!</string>
-  <string name="text_help">AdAway ist Free &amp; Open-Source-Software, entwickelt, um Werbung zu blockieren. Sie lädt Netzwerkadressen von Werbeanbietern und konfiguriert Ihr Gerät so, dass diese blockiert werden.\nMöchten Sie mehr darüber wissen? Ziehen Sie die Hilfe weiter unten zu Rate!</string>
+  <string name="text_help">AdAway ist eine freier Open-Source-Werbeblocker. AdAway erkennt Netzwerkadressen von Werbeanbietern und blockiert diese auf deinem Gerät.\nDu möchtest mehr darüber wissen? Lies die Hilfe weiter unten!</string>
   <string name="button_show_help">Zeige die erweiterte Hilfe an</string>
   <string name="icon_update_status">Status der Aktualisierung</string>
   <string name="text_update">Alle Hosts-Dateien aus den festgelegten Quellen werden heruntergeladen, mit Ihren eigenen Listen zusammengefügt und als eine Hosts-Datei im System installiert.</string>
@@ -32,11 +27,7 @@
   <string name="button_enable_webserver">Aktiviere Webserver</string>
   <string name="button_disable_webserver">Deaktiviere Webserver</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Leere Liste</string>
-  <string name="checkbox_list_empty_text">Du kannst Elemente mit dem Plus-Knopf hinzufügen.</string>
   <string name="checkbox_list_context_delete">Löschen</string>
-  <string name="checkbox_list_footer">Wenn Sie die Liste erweitern, müssen Sie AdAway neustarten!</string>
-  <string name="checkbox_list_edit_dialog_title">Bearbeiten</string>
   <string name="checkbox_list_context_title">Eintrag bearbeiten</string>
   <string name="checkbox_list_context_edit">Bearbeiten</string>
   <!--Your lists-->
@@ -55,8 +46,8 @@
   <string name="list_dialog_ip">IP (IPv4 oder IPv6):</string>
   <string name="import_dialog">Importvorgang …</string>
   <string name="export_dialog">Exportvorgang …</string>
-  <string name="export_success">Alle Einträge wurden in eine Datei namens »adaway-export« auf Ihrer SD-Karte gespeichert.</string>
-  <string name="export_failed">Es war nicht möglich, die Liste auf deine SD-Karte zu exportieren.</string>
+  <string name="export_success">Alle Einträge wurden in eine Datei namens \'adaway-export\' auf deiner SD-Karte gespeichert.</string>
+  <string name="export_failed">Der Export deiner Liste auf die SD-Karte ist fehlgeschlagen.</string>
   <!--Hosts content-->
   <string name="hosts_header">Das Hostsfile</string>
   <string name="hosts_description">Die Hostsdatei ist eine Systemdatei, die Hostnamen IP-Adressen zuweist. Es ist eine reine Textdatei, deren Konfiguration von AdAway gehandhabt wird. Hier sind einige ihrer ersten Zeilen:</string>
@@ -66,17 +57,18 @@
   <string name="status_checking">Aktualisierungsprüfung …</string>
   <string name="status_reverting">Zurücksetzen …</string>
   <string name="status_reverting_subtitle">Standard Hosts-Datei wird generiert</string>
-  <string name="status_checking_subtitle">Überprüfung auf Aktualisierung läuft</string>
   <string name="status_update_available">Aktualisierung verfügbar</string>
   <string name="status_update_available_subtitle">Neuere Hosts-Dateien verfügbar</string>
   <string name="status_no_connection">Keine Internetverbindung</string>
   <string name="status_no_connection_subtitle">Keine Internetverbindung verfügbar</string>
   <string name="status_download_fail">Nicht verfügbare Quelle</string>
   <string name="status_download_fail_subtitle_new">Keine Hosts-Quellen erreichbar!</string>
+  <string name="status_failure">Etwas läuft schief</string>
+  <string name="status_failure_subtitle">Überprüfe das Logcat für weitere Details</string>
   <string name="status_enabled">Aktiviert</string>
   <string name="status_enabled_subtitle">Die neuesten Hosts-Dateien sind aktiv</string>
   <string name="status_disabled">Deaktiviert</string>
-  <string name="status_disabled_subtitle">Deaktiviert</string>
+  <string name="status_disabled_subtitle">Standard hosts-Datei installiert</string>
   <string name="notification_channel_update_name">Aktualisierungen</string>
   <string name="notification_channel_update_description">Aktualisierungsbenachrichtigung bei neuer Hostsdatei</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +82,10 @@
   <string name="apply_remount_fail_title">Neueinbinden ist fehlgeschlagen</string>
   <string name="apply_copy_fail">Kopieren der Hosts-Datei fehlgeschlagen!</string>
   <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
-  <string name="apply_success_subtitle">Angewandte Hosts-Quellen:</string>
+  <string name="apply_success_subtitle">Hosts-Quellen wurden angewandt</string>
   <string name="apply_success_title">Erfolgreich angewendet</string>
-  <string name="apply_success_dialog">Änderungen waren erfolgreich.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
-  <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="apply_success_dialog">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, stellen Sie bitte sicher, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, bitte feststellen, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
   <string name="apply_symlink_successful_title">Symbolische Verknüpfung erfolgreich erstellt</string>
   <string name="apply_symlink_fail">Android konnte keine symbolische Verknüpfung erstellen.\nDas liegt vermutlich an einer Eigenheit von HTC-Geräten namens S-ON!\n\nEine Lösung ist es, Ihr Gerät im Wiederherstellungsmodus zu starten und dort die Verknüpfung mit »ln -s /data/data/hosts /system/etc/hosts« zu erstellen.\n\nWenn das nicht funktioniert, suchen Sie bitte im Internet nach S-OFF und Ihrem Gerät.</string>
   <string name="apply_symlink_fail_title">Symbolische Verknüpfung konnte nicht erstellt werden</string>
@@ -110,7 +102,7 @@
   <string name="apply_dialog_apply">Neue Hosts-Datei im System aktivieren</string>
   <string name="apply_fail">Das Ändern der Hosts-Datei auf Ihrem System ist fehlgeschlagen!\nVersuchen Sie bitte die Hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
   <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
-  <string name="revert_successful">Die Änderungen wurden rückgängig gemacht.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="revert_successful">Die originale Hosts-Datei wurde wiederhergestellt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, bitte feststellen, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
   <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
   <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
   <string name="revert_problem_title">Die Wiederherstellung ist fehlgeschlagen!</string>
@@ -118,9 +110,9 @@
   <string name="download_fail_title">Herunterladen fehlgeschlagen</string>
   <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
   <string name="no_private_file_title">Erstellen der privaten Datei fehlgeschlagen</string>
-  <string name="enable_systemless_successful">Sie haben den Systemlosen Modus deaktiviert.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="enable_systemless_successful">Sie haben den Systemlosen Modus deaktiviert.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass gerade keine Anwendung die SD-Karte verwendet!)</string>
   <string name="enable_systemless_successful_title">Aktivierung erfolgreich</string>
-  <string name="disable_systemless_successful">Sie haben den Systemlosen Modus deaktiviert.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+  <string name="disable_systemless_successful">Sie haben den Systemlosen Modus deaktiviert.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass gerade keine Anwendung die SD-Karte verwendet!)</string>
   <string name="disable_systemless_successful_title">Deaktivieren erfolgreich</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es exisitiert keine su-Binärdatei.\n\nLetzteres deutet daraufhin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf wiki.lineageos.org oder anderen Android-Internetseiten.</string>
@@ -147,7 +139,7 @@
   <string name="adware_header">Adware</string>
   <string name="adware_description">Sie finden hier installierte Adware, üble Anwendungen, die durch AdAway nicht blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen, die selbst dann erscheinen, wenn die App nicht läuft, oder stellen sogar Ihren Klingelton um. Die einzige verfügbare Gegenmaßnahme ist die Deinstallation jener Apps, indem Sie auf die Listeneinträge klicken..</string>
   <string name="adware_scanning">Durchsuchen ...</string>
-  <string name="adware_empty">Keine Adware Anwendungen gefunden!</string>
+  <string name="adware_empty">Keine Adware gefunden!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -207,12 +199,13 @@
     <item>Benutzerdefiniert</item>
   </string-array>
   <string name="pref_update_check_summary">Beim Starten nach Aktualisierungen suchen</string>
-  <string name="pref_sdcard_problem">Diese Funktion funktioniert nicht richtig, wenn AdAway auf der SD-Karte installiert ist!</string>
+  <string name="pref_sdcard_problem">Dieses Feature funktioniert nur dann korrekt wenn AdAway nicht auf der SD-Karte installiert ist.</string>
   <string name="pref_background">Hintergrunddienste</string>
   <string name="pref_update_check_daily">Täglich nach Aktualisierungen suchen</string>
   <string name="pref_update_check_daily_summary">Täglich, mit Benachrichtigung, im Hintergrund nach Aktualisierungen suchen.</string>
   <string name="pref_automatic_update_daily">Automatische Aktualisierungen</string>
   <string name="pref_automatic_update_daily_summary">Wenn Aktualisierungen verfügbar sind, diese automatisch im Hintergrund installieren.</string>
+  <string name="pref_update_only_on_wifi">Keine gebührenpflichtige Aktualisierung</string>
   <string name="pref_update_only_on_wifi_summary">Hintergrundaktualisierungen nur bei einer kostenfreien Internetverbindung ausführen.</string>
   <string name="pref_whitelist_rules">Positivlisten erlauben</string>
   <string name="pref_whitelist_rules_summary">Positivlisteneinträge aus Hosts-Quellen zulassen.</string>
@@ -225,6 +218,7 @@
   <string name="pref_enable_ipv6_summary">Alle Einträge in der Host-Datei werden einen entsprechenden Eintrag ::1 (IPv6 localhost) erhalten.</string>
   <string name="pref_enable_systemless_summary">Verhindern, dass AdAway das System modifiziert</string>
   <string name="pref_enable_systemless">Systemlosen Modus aktivieren</string>
+  <string name="pref_edit_text_value">Textvorgaben bearbeiten</string>
   <string name="drawer_open">Menü öffnen</string>
   <string name="drawer_close">Menü schließen</string>
   <!--Drawer menu items-->
@@ -240,6 +234,11 @@
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Entwicklung fördern \u2764</string>
+  <string name="drawer_support_dialog_title">Unterstütze die Entwicklung</string>
+  <string name="drawer_support_dialog_text">AdAway ist eine freie und quelloffene Software, welche nur von der Community entwickelt und gepflegt wird. Es hat mich zwei Jahre als Freizeitprojekt gekostet, um diese neue Version der App zu entwickeln.
+
+Wenn es dir gefällt und du häufigere Updates sehen möchtest, fühle dich frei das Projekt zu unterstützen.</string>
+  <string name="drawer_support_dialog_button">Zeige meine Unterstützung</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS Abfrage</string>
   <string name="shortcut_your_lists">Deine Listen</string>

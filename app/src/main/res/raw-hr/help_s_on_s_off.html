@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>S-ON pomoć</title></head>
 <body>
 <h2>HTC uređaji</h2>
 <p>AdAway ne radi kada koristite takozvane S-ON uređaje. Ta "značajka" je prisutna na mnogim HTC uređajima i sprječava AdAway u pisanju datoteke poslužitelja.</p>
@@ -8,20 +8,19 @@
 <p>S-OFF označava da je NAND dio uređaja otključan i može se zapisivati na njega. Zadana postavka za HTC uređaje je S-ON, što znači da ne možete pristupiti određenim dijelovima sustava, niti vam može jamčiti trajni root pristup. Štoviše, provjera potpisa za slike firmvera isto je osigurana S-ON oznakom.</p>
 
 <h2>Imam li S-ON ili S-OFF?</h2>
-<p>Pokrenite u Boot Menu vaš uređaj držeći tipku <i>smanjivanja glasnoće zvuka</i> i istovremeno držeći tipku isključivanja a tekst na vrhu zaslona će prikazati oznaku stanja kao S-OFF ili kao S-ON. Potpuni root uobičajeno znači S-OFF.
+<p>Pokrenite u Boot Menu vaš uređaj držeći tipku <cite>smanjivanja glasnoće zvuka</cite> i istovremeno držeći tipku isključivanja a tekst na vrhu zaslona će prikazati oznaku stanja kao S-OFF ili kao S-ON. Potpuni root uobičajeno znači S-OFF.
 <br/><br/>Više informacija možete pronaći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Dodatni S-OFF načini od Unrevokable (na poveznici) vas mogu zanimati, imenima: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Zaobilaženje</h2>
 <p>Preduvjet: instalirani i funkcionalni Android SDK s ADB ljuskom na vašem PC-u. \n</p>
 <ol>
-<li>Pokrenite u Boot Menu vaš uređaj držeći tipku <i>smanjivanja glasnoće zvuka</i> i istovremeno držeći tipku isključivanja.</li>
+<li>Pokrenite u Boot Menu vaš uređaj držeći tipku <cite>smanjivanja glasnoće zvuka</cite> i istovremeno držeći tipku isključivanja.</li>
 <li>Koristite tipku <i>smanjivanja glasnoće zvuka</i> za odabir stavke "Recovery".</li>
 <li>U Clockwork recoveriju tipkom smanjivnja glasnoće zvuka idite na stavku "Partitions menu" te je odaberite pomoću trackpada.</li>
 <li>Odaberite <i>mount /system</i>, <i>mount /sdcard</i> i <i>mount /data</i>.</li>
 <li>Priključite USB kabel i otvorite naredbeni redak na svom PC-u.</li>
-<li>Pokrenite adb ljusku i upišite <tt>ln -s /data/hosts /system/etc/hosts</tt>
-(Ovo će stvoriti simboličku poveznicu, koja dopušta AdAwayu uređivanje datoteke poslužitelja pohranjene u <tt>/data</tt> dopuštajući operativnom sustavu da koristi tu datoteku kao da je pohranjena u <tt>/system</tt>.)</li>
-<li>Ponovno pokrenite svoj uređaj i postavite <i>Odredišnu datoteku poslužitelja</i> u <i>/data/hosts</i> u postavkama AdAwaya.</li>
+<li>Pokrenite adb ljusku i upišite <code>ln -s /data/hosts /system/etc/hosts</code> (Ovo će stvoriti simboličku poveznicu, koja dopušta AdAwayu uređivanje datoteke poslužitelja pohranjene u <code>/data</code> dopuštajući operativnom sustavu da koristi tu datoteku kao da je pohranjena u <code>/system</code>.)</li>
+<li>Ponovno pokrenite svoj uređaj i postavite <cite>Odredišnu datoteku poslužitelja</cite> u <cite>/data/hosts</cite> u postavkama AdAwaya.</li>
 <li>AdAway bi sada trebao raditi.</li>
 </ol>
 </body>

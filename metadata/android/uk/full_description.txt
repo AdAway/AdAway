@@ -1,7 +1,7 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Блокувальник реклами, який використовує файл hosts.
+Файл hosts – це системний файл, в якому зберігаються імена хостів (у вигляді доменних імен) та відповідні їм IP-адреси.
+Коли додаток робить запит на рекламу до файлу hosts, цей запит перенапрявляється на локальну IP-адресу 127.0.0.1, яка нічого не робить.
+У цьому додатку можна завантажити готові файли з хостами, щоб включити їх в системний файл hosts. Також можливо використовувати власні файли та додавати конкретні хости до білого або чорного списків.
+Можливий варіант запуску локального веб-сервера, щоб він відповідав на заблоковані імена хостів та перенаправляв запити до IP-адрес на ваш вибір.
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+Потребує root: так. Файл hosts розташований у папці /system, яка усталено є тільки для читання.

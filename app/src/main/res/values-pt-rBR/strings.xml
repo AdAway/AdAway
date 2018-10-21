@@ -3,22 +3,17 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Sair</string>
-  <string name="button_apply">Baixar arquivos e ativar bloqueio de anúncios</string>
   <string name="button_close">Fechar</string>
   <string name="button_yes">Sim</string>
   <string name="button_no">Não</string>
-  <string name="button_revert">Desativar bloqueio de anúncios</string>
   <string name="button_add">Adicionar</string>
   <string name="button_cancel">Cancelar</string>
-  <string name="button_revert_text">Restaura o arquivo hosts padrão no seu sistema.</string>
   <string name="button_save">Salvar</string>
-  <string name="button_webserver_toggle_checked">Servidor web em execução</string>
-  <string name="button_webserver_toggle_unchecked">Servidor web parado</string>
   <string name="button_webserver_toggle_text">Iniciar ou interromper servidor web no host local para responder solicitações de nomes de hosts bloqueados.</string>
   <string name="button_help">Ajuda</string>
   <!--Home-->
   <string name="header_help">Bem-vindo!</string>
-  <string name="text_help">O AdAway é um projeto de software livre e Open-Source para bloquear a publicidade. Ele baixa a rede de anúncios e configura o dispositivo para bloqueá-los. nQuer saber mais? Verifique a ajuda abaixo!</string>
+  <string name="text_help">O AdAway é um projeto de software livre e Open-Source para bloquear publicidade. Ele baixa o endereço de rede de anúncios e configura o dispositivo para bloqueá-los.\nQuer saber mais? Verifique a ajuda abaixo!</string>
   <string name="button_show_help">Mostrar mais ajuda</string>
   <string name="icon_update_status">Atualizar status</string>
   <string name="text_update">Todos os arquivos hosts das fontes definidas estão baixados, mesclados com suas próprias listas e instalados como um arquivo hosts no seu sistema.</string>
@@ -32,11 +27,7 @@
   <string name="button_enable_webserver">Ativar servidor web</string>
   <string name="button_disable_webserver">Desativar servidor web</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Esvaziar lista</string>
-  <string name="checkbox_list_empty_text">Você pode adicionar itens com o botão +</string>
   <string name="checkbox_list_context_delete">Excluir</string>
-  <string name="checkbox_list_footer">Após adicionar novos itens nesta lista você deve aplicar o bloqueio novamente!</string>
-  <string name="checkbox_list_edit_dialog_title">Editar</string>
   <string name="checkbox_list_context_title">Editar Entrada</string>
   <string name="checkbox_list_context_edit">Editar</string>
   <!--Your lists-->
@@ -55,28 +46,27 @@
   <string name="list_dialog_ip">IP (IPv4 ou IPv6):</string>
   <string name="import_dialog">Importando...</string>
   <string name="export_dialog">Exportando...</string>
-  <string name="export_success">Exportadas todas as entradas para um arquivo chamado \'adaway-export\' no seu cartão sd.</string>
-  <string name="export_failed">Houve uma falha ao exportar sua lista</string>
+  <string name="export_success">Todos os registros foram exportados para um arquivo chamado \'adaway-export\' no seu cartão SD.</string>
+  <string name="export_failed">Não foi possível exportar sua lista para o cartão SD</string>
   <!--Hosts content-->
   <string name="hosts_header">O arquivo de hosts</string>
-  <string name="hosts_description">O arquivo de hosts é um arquivo de sistema que mapeia nomes de host para endereços IP. É um arquivo de texto simples que a configuração é tratada pelo AdAway. Aqui estão as suas primeiras linhas:</string>
   <string name="hosts_content">Carregando o conteúdo do arquivo de hosts...</string>
   <string name="hosts_open_button">Abrir arquivo de hosts</string>
   <!--Status Notification-->
   <string name="status_checking">Verificando por atualização...</string>
   <string name="status_reverting">Revertendo...</string>
   <string name="status_reverting_subtitle">Criando arquivo hosts padrão</string>
-  <string name="status_checking_subtitle">Verificando se existe atualização</string>
   <string name="status_update_available">Atualização disponível</string>
   <string name="status_update_available_subtitle">Arquivos hosts mais recentes disponíveis</string>
   <string name="status_no_connection">Sem conexão com a Internet</string>
   <string name="status_no_connection_subtitle">Nenhuma conexão com a Internet disponível</string>
   <string name="status_download_fail">Fontes indisponíveis</string>
   <string name="status_download_fail_subtitle_new">Nenhuma fonte de host está acessível!</string>
+  <string name="status_failure_subtitle">Verifique o logcat para mais detalhes</string>
   <string name="status_enabled">Ativado</string>
   <string name="status_enabled_subtitle">Arquivos hosts mais recentes ativados</string>
   <string name="status_disabled">Desativado</string>
-  <string name="status_disabled_subtitle">Desativado</string>
+  <string name="status_disabled_subtitle">Arquivo hosts padrão instalado</string>
   <string name="notification_channel_update_name">Atualizações</string>
   <string name="notification_channel_update_description">Notificação de hosts atualizados</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +80,9 @@
   <string name="apply_remount_fail_title">Falha ao remontar</string>
   <string name="apply_copy_fail">Falha ao copiar arquivo hosts!</string>
   <string name="apply_copy_fail_title">Falha ao copiar</string>
-  <string name="apply_success_subtitle">Fontes de hosts aplicadas:</string>
+  <string name="apply_success_subtitle">Fontes de hosts aplicadas</string>
   <string name="apply_success_title">Sucesso ao aplicar</string>
-  <string name="apply_success_dialog">A aplicação foi bem sucedida.\nPode ser necessário reiniciar o Android para as alterações fazerem efeito.\n\nReiniciar agora?\n(Para evitar perda de dados certifique-se de que nenhum app usa o cartão sd no momento!)</string>
-  <string name="apply_symlink_successful">O link simbólico foi criado com sucesso.\nPode ser necessário reiniciar o Android para as alterações fazerem efeito.\n\nReiniciar agora?\n(Para evitar perda de dados certifique-se de que nenhum app usa o cartão sd no momento!)</string>
+  <string name="apply_success_dialog">A aplicação foi bem sucedida.\nPode ser necessário reiniciar o Android para as alterações fazerem efeito.\n\nDeseja reiniciar agora?\n(Para evitar perda de dados certifique-se de que nenhum app está usando o cartão SD no momento!)</string>
   <string name="apply_symlink_successful_title">Sucesso ao criar link simbólico</string>
   <string name="apply_symlink_fail">O link simbólico não pode ser criado pelo Android.\nEsta falha ocorre principalmente devido a um \'recurso\' chamado S-ON em telefones HTC!\n\nUma solução é inicializar seu telefone dentro do modo de recuperação e criar o link simbólico com \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe isto não funcionar procure na Internet por S-OFF e seu telefone.</string>
   <string name="apply_symlink_fail_title">Falha ao criar link simbólico</string>
@@ -110,7 +99,6 @@
   <string name="apply_dialog_apply">Aplicando arquivo hosts</string>
   <string name="apply_fail">Falha ao aplicar arquivo hosts no seu sistema!\nTente alterar o arquivo hosts alvo nas preferências para /data/data/hosts.</string>
   <string name="apply_fail_title">Falha ao aplicar</string>
-  <string name="revert_successful">Você reverteu ao arquivo hosts padrão.\nPode ser necessário reiniciar o Android para as alterações fazerem efeito.\n\nReiniciar agora?\n(Para evitar perda de dados certifique-se de que nenhum app usa o cartão sd no momento!) </string>
   <string name="revert_successful_title">Revertido com sucesso</string>
   <string name="revert_problem">Falha ao reverter devido a razões desconhecidas.</string>
   <string name="revert_problem_title">Falha ao reverter!</string>
@@ -118,9 +106,7 @@
   <string name="download_fail_title">Falha ao baixar</string>
   <string name="no_private_file">O arquivo privado não pode ser criado.</string>
   <string name="no_private_file_title">Falha ao criar arquivo privado</string>
-  <string name="enable_systemless_successful">Você ativou o modo de systemless.\nPode ser necessário reiniciar o Android para as alterações fazerem efeito.\n\nReiniciar agora?\n(Para evitar perda de dados certifique-se de que nenhum app usa o cartão sd no momento!)</string>
   <string name="enable_systemless_successful_title">Ativado com sucesso</string>
-  <string name="disable_systemless_successful">Você desativou o modo de systemless.\nPode ser necessário reiniciar o Android para as alterações fazerem efeito.\n\nReiniciar agora?\n(Para evitar perda de dados certifique-se de que nenhum app usa o cartão sd no momento!)</string>
   <string name="disable_systemless_successful_title">Desativado com sucesso</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Ou o binário su não pôde ser encontrado ou você não concedeu permissão de root para o AdAway.\n\nIsto pode acontecer quando seu dispositivo não está rooteado.\nVocê pode encontrar informação sobre como rootear seu dispositivo em wiki.lineageos.org ou outros sites sobre Android.</string>
@@ -145,15 +131,15 @@
   <string name="help_tab_problems">Problemas</string>
   <!--Adware-->
   <string name="adware_header">Adware</string>
-  <string name="adware_description">Aqui você pode procurar por apps Adware, que não podem ser bloqueados pelo AdAway. Estes apps usam por exemplo notificações Airpush que aparecem mesmo quando app não estão executando ou até mesmo alteram o seu toque. A única contramedida disponível é desinstalar estes apps clicando nos itens da lista.</string>
   <string name="adware_scanning">Escaneando...</string>
-  <string name="adware_empty">Nenhum app Adware encontrado!</string>
+  <string name="adware_empty">Nenhum Adware foi encontrado!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Local:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">não disponível</string>
   <string name="hosts_add_dialog_title">Adicionar fonte</string>
   <string name="hosts_edit_dialog_title">Editar fonte</string>
+  <string name="hosts_dialog_url">URL: (https:// ou file:// recursos)</string>
   <string name="hosts_dialog_url_hint">A URL da fonte de hosts</string>
   <!--Other-->
   <string name="app_subtitle">Bloqueador de anúncios</string>
@@ -206,7 +192,7 @@
     <item>Alvo personalizado</item>
   </string-array>
   <string name="pref_update_check_summary">Verificar por atualizações na inicialização do AdAway</string>
-  <string name="pref_sdcard_problem">Este recurso não funcionará corretamente enquanto o AdAway estiver instalado no cartão sd!</string>
+  <string name="pref_sdcard_problem">Este recurso não funcionará corretamente enquanto o AdAway estiver instalado no cartão SD!</string>
   <string name="pref_background">Serviços de Segundo Plano</string>
   <string name="pref_update_check_daily">Verificar por atualizações diariamente</string>
   <string name="pref_update_check_daily_summary">Verificar por atualizações diariamente em segundo plano com notificações</string>
@@ -240,6 +226,8 @@
     <item>Ajuda</item>
   </string-array>
   <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Apoiar o desenvolvimento \u2764</string>
+  <string name="drawer_support_dialog_title">Apoiar o desenvolvimento</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Pedidos DNS</string>
   <string name="shortcut_your_lists">Suas listas</string>

@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>S-ON related help</title></head>
 <body>
 <h2>Dispositivos HTC</h2>
 <p>AdAway não funciona quando você está usando um dispositivo com então chamado S-ON. Este 'recurso' existe em muitos dispositivos HTC e evita AdAway de escrever o arquivo hosts.</p>
@@ -18,8 +18,8 @@
 <li>Use <i>diminuir volume</i> para selecionar a recuperação.</li>
 <li>No mecanismo de recuperação use diminuir volume no "menu de partições" e use o trackpad para selecionar.</li>
 <li>Selecione <i>mount /system</i>, <i>mount /sdcard</i> e <i>mount /data</i>.</li>
-<li>Conecte seu cabo usb e abra uma linha de comando no seu pc.</li>
-<li>Entre adb shell e digite <tt>ln -s /data/hosts /system/etc/hosts</tt> (Isto cria um link simbólico, que permite ao AdAway editar o arquivo hosts armazenado em <tt>/data</tt> enquanto permite ao Sistema Operacional usar o arquivo como se ele estivesse armazenado em <tt>/system</tt>.)</li>
+<li>Conecte seu cabo USB e abra uma linha de comando no seu computador.</li>
+<li>Entre no ADB Shell e digite <code>ln -s /data/hosts /system/etc/hosts</code> (Isso cria um link simbólico que permite que o AdAway edite o arquivo hosts que é guardado em <code>/data</code>permitindo que o OS use o arquivo como se ele estivesse guardado em <code>/system</code>.)</li>
 <li>Reinicie seu dispositivo e defina <i>Arquivo de hosts alvo</i> para <i>/data/hosts</i> nas preferências do AdAway.</li>
 <li>AdAway deve funcionar agora.</li>
 </ol>

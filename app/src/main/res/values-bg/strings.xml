@@ -3,22 +3,17 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Изход</string>
-  <string name="button_apply">Изтегляне на файловете и блокиране на рекламите</string>
   <string name="button_close">Затвори</string>
   <string name="button_yes">Да</string>
   <string name="button_no">Не</string>
-  <string name="button_revert">Разрешаване на рекламите</string>
   <string name="button_add">Добавяне</string>
   <string name="button_cancel">Отказ</string>
-  <string name="button_revert_text">Възстановява Hosts файла по подразбиране на вашата система.</string>
   <string name="button_save">Запазване</string>
-  <string name="button_webserver_toggle_checked">Уеб сървърът работи</string>
-  <string name="button_webserver_toggle_unchecked">Уеб сървърът не работи</string>
   <string name="button_webserver_toggle_text">Стартиране или спиране на уеб сървъра на Localhost да отговаря на заявките към блокираните имена на хостове.</string>
   <string name="button_help">Помощ</string>
   <!--Home-->
   <string name="header_help">Добре дошли!</string>
-  <string name="text_help">AdAway е безплатен софтуер с отворен код, създаден да блокира реклами. AdAway сваля рекламна мрежа и конфигурира устройството Ви да ги блокира.\nИскате да научите повече? Проверете помощта по-долу!</string>
+  <string name="text_help">AdAway е безплатен софтуер с отворен код, създаден да блокира реклами. Той извлича адресите на рекламната мрежа, за да ги блокира.\nИскате да научите повече? Проверете файла за помощ по-долу!</string>
   <string name="button_show_help">Показване на още помощ</string>
   <string name="icon_update_status">Актуализиране на състоянието</string>
   <string name="text_update">Всички Hosts файлове от зададените източници се изтеглят, сливат се с вашите собствени списъци и се инсталират като един Hosts файл във вашата система.</string>
@@ -32,11 +27,7 @@
   <string name="button_enable_webserver">Включване на уеб сървър</string>
   <string name="button_disable_webserver">Изключване на уеб сървър</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Празен списък</string>
-  <string name="checkbox_list_empty_text">Можете да добавяте елементи от бутона \"плюс\".</string>
   <string name="checkbox_list_context_delete">Изтриване</string>
-  <string name="checkbox_list_footer">След добавянето на нови елементи в този списък, трябва да приложите AdAway отново!</string>
-  <string name="checkbox_list_edit_dialog_title">Редактиране</string>
   <string name="checkbox_list_context_title">Редактиране</string>
   <string name="checkbox_list_context_edit">Редактиране</string>
   <!--Your lists-->
@@ -55,28 +46,29 @@
   <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
   <string name="import_dialog">Внасяне...</string>
   <string name="export_dialog">Изнасяне...</string>
-  <string name="export_success">Изнесени са всички записи във файл, наречен „adaway-export“ на вашата SD-карта.</string>
-  <string name="export_failed">Изнасянето на Вашия списък на картата памет се провали.</string>
+  <string name="export_success">Изнесени са всички записи във файл, наречен \'adaway-export\', намиращ се на картата с памет. </string>
+  <string name="export_failed"> Изнасянето на списъка на картата памет се провали.</string>
   <!--Hosts content-->
   <string name="hosts_header">Файлът за хостовете</string>
-  <string name="hosts_description">Хост файлът е системен файл, който съпоставя имена на хостове към IP адреси. Той е обикновен текстови файл, конфигурацията на който се обработва от AdAway. Ето първите няколко реда:</string>
+  <string name="hosts_description">Хост файлът е системен файл, който съпоставя имена на хостове към IP адреси. Той е обикновен текстови файл, конфигурацията на който се обработва от AdAway. Ето неговите първи няколко реда:</string>
   <string name="hosts_content">Зареждане на съдържанието на хост файла...</string>
   <string name="hosts_open_button">Отваряне на хост файл</string>
   <!--Status Notification-->
   <string name="status_checking">Проверка за актуализация ...</string>
   <string name="status_reverting">Връщане...</string>
   <string name="status_reverting_subtitle">Създаване на стандартен hosts файл</string>
-  <string name="status_checking_subtitle">Проверка дали е налична актуализация</string>
   <string name="status_update_available">Налице е актуализация</string>
   <string name="status_update_available_subtitle">Налични са нови Hosts файлове</string>
   <string name="status_no_connection">Няма връзка с интернет</string>
   <string name="status_no_connection_subtitle">Няма налична връзка с интернет</string>
   <string name="status_download_fail">Не са налични източници</string>
   <string name="status_download_fail_subtitle_new">Няма достъпни източници на hosts!</string>
+  <string name="status_failure">Нещо не е наред</string>
+  <string name="status_failure_subtitle">Проверете дневника за повече подробности</string>
   <string name="status_enabled">Активиран</string>
   <string name="status_enabled_subtitle">Най-новите hosts файлове са активирани</string>
   <string name="status_disabled">Деактивиран</string>
-  <string name="status_disabled_subtitle">Деактивиран</string>
+  <string name="status_disabled_subtitle">Хост файлът по подразбиране е инсталиран</string>
   <string name="notification_channel_update_name">Актуализации</string>
   <string name="notification_channel_update_description">Уведомления за нови актуализации на хостове</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +82,10 @@
   <string name="apply_remount_fail_title">Повторното монтиране се провали</string>
   <string name="apply_copy_fail">Копирането на hosts файла e неуспешно!</string>
   <string name="apply_copy_fail_title">Копирането е неуспешно</string>
-  <string name="apply_success_subtitle">Активирани хост източници:</string>
+  <string name="apply_success_subtitle">Източниците за хостове са приложени</string>
   <string name="apply_success_title">Активиран успешно</string>
-  <string name="apply_success_dialog">Успешно активиране.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате? \n(За да предотвратите загуба на данни, уверете се, че никое приложение в момента не използва SD-картата!)</string>
-  <string name="apply_symlink_successful">Символичната връзка е създадена успешно.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загубата на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
+  <string name="apply_success_dialog">Прилагането беше успешно.\nМоже да се наложи да рестартирате системата, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че никое приложение не използва картата памет!)</string>
+  <string name="apply_symlink_successful">Символичната връзка беше създадена успешно.\nМоже да се наложи да рестартирате системата, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че никое приложение не използва картата памет!)</string>
   <string name="apply_symlink_successful_title">Създаването на символична връзка е успешно</string>
   <string name="apply_symlink_fail">Символичната връзка не може да бъде създадена от Android. nТова се дължи най-вече на „функция“, наречена S-ON при телефоните HTC!\n\nЕдно възможно решение е да заредите телефона си в режим на възстановяване и да създадете там символична връзка с „ln -s /data/data/hosts /system/etc/hosts“.\n\nАко това не работи, потърсете в Интернет за S-OFF и вашият телефон.</string>
   <string name="apply_symlink_fail_title">Създаването на символична връзка е неуспешно</string>
@@ -110,7 +102,7 @@
   <string name="apply_dialog_apply">Прилагане на Hosts файла</string>
   <string name="apply_fail">Активирането на hosts файла във вашата система е неуспешно!\nОпитайте да промените целевия hosts файл в настройките на /data/data/hosts.</string>
   <string name="apply_fail_title">Неуспешно прилагане</string>
-  <string name="revert_successful">Вие върнахте hosts файла по подразбиране.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, се уверете, че никое приложение не използва SD-картата в момента!)</string>
+  <string name="revert_successful">Върнахте хост файла по подразбиране.\nМоже да се наложи да рестартирате системата, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че никое приложение не използва картата памет!)</string>
   <string name="revert_successful_title">Връщането е успешно</string>
   <string name="revert_problem">Връщането се провали по неизвестни причини.</string>
   <string name="revert_problem_title">Връщането е неуспешно!</string>
@@ -118,9 +110,9 @@
   <string name="download_fail_title">Изтеглянето е неуспешно</string>
   <string name="no_private_file">Личен файл не може да бъде създаден.</string>
   <string name="no_private_file_title">Създаването на личен файл не успя</string>
-  <string name="enable_systemless_successful">Вие активирахте systemless режим.\nМоже да е нужно рестартиране на Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, първо се уверете, че няма приложение, използващо SD картата в момента!)</string>
+  <string name="enable_systemless_successful">Активирахте безсистемен режим.\nМоже да се наложи да рестартирате системата, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че никое приложение не използва картата памет!)</string>
   <string name="enable_systemless_successful_title">Успешно включване!</string>
-  <string name="disable_systemless_successful">Вие изключихте systemless режим.\nМоже да е нужно рестартиране на Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, първо се уверете, че няма приложение, използващо SD картата в момента!)</string>
+  <string name="disable_systemless_successful">Изключихте безсистемния режим.\nМоже да се наложи да рестартирате системата, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че никое приложение не използва картата памет!)</string>
   <string name="disable_systemless_successful_title">Деактивирането е успешно</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Не може да бъде открит su binary или сте сте дали root права за AdAway.\n\nТова може да се получи, когато устройството Ви няма root достъп.\nМоже да намерите информация за това как да получите root достъп за Вашето устройство на wiki.lineageos.org или други Android уебсайтове.</string>
@@ -145,9 +137,9 @@
   <string name="help_tab_problems">Проблеми</string>
   <!--Adware-->
   <string name="adware_header">Рекламен софтуер</string>
-  <string name="adware_description">Тук можете на намерите инсталиран рекламен софтуер, лоши приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват като например Airpush уведомления, които се появяват дори когато приложението не работи, могат дори да променят мелодията Ви. Единственото налично противодействие е да инсталирате тези приложения, като натиснете върху елементите в списъка.</string>
+  <string name="adware_description">Тук може на намерите инсталиран рекламен софтуер, лоши приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват например изскачащи уведомления, които се появяват дори когато приложението не работи. Могат дори да променят мелодията Ви. Единственото налично противодействие е да изтриете тези приложения, като натиснете върху елементите в списъка.</string>
   <string name="adware_scanning">Сканиране...</string>
-  <string name="adware_empty">Не са намерени никакви рекламни приложения!</string>
+  <string name="adware_empty">Не бяха открити рекламни приложения!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Локална:</string>
   <string name="hosts_last_modified_online">Онлайн:</string>
@@ -207,7 +199,7 @@
     <item>Цел по избор</item>
   </string-array>
   <string name="pref_update_check_summary">Проверка за актуализации при стартиране на AdAway</string>
-  <string name="pref_sdcard_problem">Тази функция няма да работи правилно, когато AdAway е инсталиран на SD-картата!</string>
+  <string name="pref_sdcard_problem"> Тази функция няма да работи правилно, когато AdAway е инсталиран на картата памет! </string>
   <string name="pref_background">Услуги на заден план</string>
   <string name="pref_update_check_daily">Ежедневна проверка за актуализации</string>
   <string name="pref_update_check_daily_summary">Проверка за актуализации ежедневно във фонов режим с известия</string>
@@ -242,6 +234,9 @@
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Подкрепа за развитие \u2764</string>
+  <string name="drawer_support_dialog_title">Подкрепа за развитието</string>
+  <string name="drawer_support_dialog_text">AdAway е безплатен софтуер с отворен код, разработен и поддържан от обществеността. Отне ми две години, за да сглобя най-новата версия на приложението\n\nАко Ви харесва и искате още актуализации, чувствайте се свободни да подкрепите проекта.</string>
+  <string name="drawer_support_dialog_button">Показване на моята подкрепа</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS заявки</string>
   <string name="shortcut_your_lists">Ваши списъци</string>

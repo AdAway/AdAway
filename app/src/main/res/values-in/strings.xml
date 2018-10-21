@@ -3,22 +3,16 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Keluar</string>
-  <string name="button_apply">Unduh data yang dibutuhkan dan menyalakan sistem pemblokiran iklan</string>
   <string name="button_close">Tutup</string>
   <string name="button_yes">Ya</string>
   <string name="button_no">Tidak</string>
-  <string name="button_revert">Non-aktifkan pemblokiran iklan</string>
   <string name="button_add">Tambah</string>
   <string name="button_cancel">Batal</string>
-  <string name="button_revert_text">Kembalikan file host anda ke versi awal.</string>
   <string name="button_save">Simpan</string>
-  <string name="button_webserver_toggle_checked">Webserver berjalan</string>
-  <string name="button_webserver_toggle_unchecked">Webserver tidak berjalan</string>
   <string name="button_webserver_toggle_text">Nyalakan atau metikan webserver lokal untuk menjawab permintaan dari hostname yang di blokir.</string>
   <string name="button_help">Bantuan</string>
   <!--Home-->
   <string name="header_help">Selamat Datang</string>
-  <string name="text_help">AdAway adalah perangkat lunak gratis dan bersifat open-source yang dirancang untuk memblokir iklan. AdAway mengunduh daftar alamat pengiklan dan mengatur perangkat agar alamat tersebut terblokir.\nJika ingin tahu lebih, lihat di halaman bantuan di bawah!</string>
   <string name="button_show_help">Tampilkan semua bantuan</string>
   <string name="icon_update_status">Keterangan pembaharuan</string>
   <string name="text_update">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
@@ -32,11 +26,7 @@
   <string name="button_enable_webserver">Hidupkan layanan perambah</string>
   <string name="button_disable_webserver">Matikan layanan perambah</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Daftar kosong</string>
-  <string name="checkbox_list_empty_text">Tambahkan pada daftar dengan menekan tombol plus</string>
   <string name="checkbox_list_context_delete">Hapus</string>
-  <string name="checkbox_list_footer">Setelah menambahkan item baru kedalam list anda harus menerapkan AdAway lagi!</string>
-  <string name="checkbox_list_edit_dialog_title">Sunting</string>
   <string name="checkbox_list_context_title">Ubah Masukan</string>
   <string name="checkbox_list_context_edit">Sunting</string>
   <!--Your lists-->
@@ -55,18 +45,14 @@
   <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
   <string name="import_dialog">Mengimpor ...</string>
   <string name="export_dialog">Mengekspor ...</string>
-  <string name="export_success">Berhasil mengekspor semua entri ke file  \'adaway-export\' di sdcard anda.</string>
-  <string name="export_failed">Gagal melakukan keluaran daftar pada memory card.</string>
   <!--Hosts content-->
   <string name="hosts_header">Daftar hosts</string>
-  <string name="hosts_description">Berkas host adalah berkas sistem yang berisi pemetaan antara nama host dengan alamat IP-nya. Berkas berjenis text biasa ini diatur oleh AdAway. Berikut beberapa baris teratasnya:</string>
   <string name="hosts_content">Membaca isi file host...</string>
   <string name="hosts_open_button">Buka file host</string>
   <!--Status Notification-->
   <string name="status_checking">Memeriksa pembaruan...</string>
   <string name="status_reverting">Mengembalikan...</string>
   <string name="status_reverting_subtitle">Membuat host file standar</string>
-  <string name="status_checking_subtitle">Periksa jika pembaruan tersedia</string>
   <string name="status_update_available">Pembaruan tersedia</string>
   <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
   <string name="status_no_connection">Tidak ada koneksi internet</string>
@@ -76,7 +62,8 @@
   <string name="status_enabled">Dinyalakan</string>
   <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
   <string name="status_disabled">Dimatikan</string>
-  <string name="status_disabled_subtitle">Dimatikan</string>
+  <string name="notification_channel_update_name">Pembaruan</string>
+  <string name="notification_channel_update_description">Notifikasi pembaruan host baru</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlink dari target ke /system/etc/hosts tidak benar atau tidak ada! AdAway tidak akan bekerja jika hal itu tidak dibetulkan.\n\nApa anda ingin mencoba membuat symlink?</string>
   <string name="apply_symlink_missing_title">Symlink tidak ditemukan</string>
@@ -88,10 +75,7 @@
   <string name="apply_remount_fail_title">remount gagal</string>
   <string name="apply_copy_fail">Penyalinan file host gagal!</string>
   <string name="apply_copy_fail_title">Penyalinan gagal</string>
-  <string name="apply_success_subtitle">sumber host yang diterapkan:</string>
   <string name="apply_success_title">Penerapan berhasil</string>
-  <string name="apply_success_dialog">Penerapan berhasil.\nUntuk efek dapat bekerja diperlukan untuk mematikan dan menghidupkan kembali perangkat anda\n\nApa anda ingin melakukannya?\n(Pastikan tidak ada aplikasi yang sedang menggunakan sdcard saat ini untuk mencegah kehilangan data!)</string>
-  <string name="apply_symlink_successful">Link simbolik berhasil dibuat.\nUntuk efek dapat bekerja diperlukan untuk mematikan dan menghidupkan kembali perangkat anda\n\nApa anda ingin melakukannya?\n(Pastikan tidak ada aplikasi yang sedang menggunakan sdcard saat ini untuk mencegah kehilangan data!)</string>
   <string name="apply_symlink_successful_title">Pembuatan symlink berhasil</string>
   <string name="apply_symlink_fail">Symlink tidak dapat dibuat.\nKemungkinan besar sumber masalah ini merupakan S-ON di perangkar HTC!\n\nSolusinya adalah dengan masuk ke mode recovery dan membuat symlink dengan menjalankan \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJika cara tersebut tidak bekerja cari di internet tentang S-OFF dan perangkat anda.</string>
   <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
@@ -108,7 +92,6 @@
   <string name="apply_dialog_apply">Menerapkan file host</string>
   <string name="apply_fail">Penerapan file host ke sistem anda gagal!\nCobalah untuk mengganti target file host di prefrensi ke /data/data/hosts.</string>
   <string name="apply_fail_title">Pemasangan gagal</string>
-  <string name="revert_successful">Anda mengembalikan file host standar.\nMungkin diperlukan untuk mematikan dan menyalakan kembali perangkat anda agar perubahan dapat berhasil. Apakah anda ingin melakukan hal tersebut? (Untuk menghindari kehilangan data, pastikan saat ini tidak ada aplikasi yang sedang menggunakan sdcard)</string>
   <string name="revert_successful_title">Pengembalian berhasil</string>
   <string name="revert_problem">Pengembalian gagal karena alasan yang tidak diketahui.</string>
   <string name="revert_problem_title">Pengembalian gagal</string>
@@ -116,9 +99,7 @@
   <string name="download_fail_title">Download gagal</string>
   <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
   <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
-  <string name="enable_systemless_successful">Anda telah mengaktifkan mode systemless.\nlt mungkin diperlukan untuk menghidupkan ulang Android agar perubahan ini dapat berfungsi.\n\nApakah anda ingin menghidupkan ulang?\n(Untuk mencegah terjadinya kehilangan data pastikan tidak ada aplikasi yang menggunakan sdcard pada saat ini!)</string>
   <string name="enable_systemless_successful_title">Aktivasi berhasil</string>
-  <string name="disable_systemless_successful">Anda mematikan modus systemless.\n Mungkin diperlukan reboot Android untuk menerapkan perubahan. \n \n Apakah Anda ingin reboot? \n (Untuk mencegah kehilangan data pastikan tidak ada aplikasi menggunakan sdcard saat ini!)</string>
   <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Aplikasi su tidak dapat ditemukan atau AdAway tidak diberikan akses root.\n\nIni dapat terjadi jika perangkat anda tidak di-root.\nTemukan informasi tentang cara melakukan root pada wiki.lineageos.org atau situs android lainnya.</string>
@@ -143,15 +124,14 @@
   <string name="help_tab_problems">Masalah</string>
   <!--Adware-->
   <string name="adware_header">Adware</string>
-  <string name="adware_description">Daftar berikut berisi adware yang terinstall, aplikasi negatif yang tidak dapat diblokir oleh AdAway. Aplikasi tersebut, sebagai contoh, menggunakan fitur notifikasi Airpush yang dapat muncul ketika aplikasi tidak digunakan atau bahkan mengganti nada dering perangkat anda. Satu-satunya solusi untuk mengamankan perankat anda adalah menghapus aplikasi tersebut dengan memilihnya pada daftar.</string>
   <string name="adware_scanning">Memindai...</string>
-  <string name="adware_empty">Tidak ada adware yang ditemukan!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
   <string name="hosts_not_available">Tidak tersedia</string>
   <string name="hosts_add_dialog_title">Tambah sumber</string>
   <string name="hosts_edit_dialog_title">Ubah sumber</string>
+  <string name="hosts_dialog_url">URL: (a https:// atau file:// sumber)</string>
   <string name="hosts_dialog_url_hint">Alamat sumber daftar URL</string>
   <!--Other-->
   <string name="app_subtitle">Ad blocker</string>
@@ -204,7 +184,6 @@
     <item>Custom target</item>
   </string-array>
   <string name="pref_update_check_summary">Periksa pembaruan di awal AdAway</string>
-  <string name="pref_sdcard_problem">Fitur ini tidak akan bekerja dengan benar ketika AdAway dipasang di sdcard!</string>
   <string name="pref_background">Layanan latar Belakang</string>
   <string name="pref_update_check_daily">Periksa pembaruan setiap hari</string>
   <string name="pref_update_check_daily_summary">Periksa update harian di latar belakang dengan pemberitahuan</string>

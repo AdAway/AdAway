@@ -3,22 +3,16 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">離開</string>
-  <string name="button_apply">下載檔案並套用廣告封鎖</string>
   <string name="button_close">關閉</string>
   <string name="button_yes">是</string>
   <string name="button_no">否</string>
-  <string name="button_revert">停用廣告封鎖</string>
   <string name="button_add">加入</string>
   <string name="button_cancel">取消</string>
-  <string name="button_revert_text">還原系統預設的 hosts 檔案。</string>
   <string name="button_save">儲存</string>
-  <string name="button_webserver_toggle_checked">網頁伺服器正在執行中</string>
-  <string name="button_webserver_toggle_unchecked">網頁伺服器並未執行</string>
   <string name="button_webserver_toggle_text">啟動或停止本地端的網頁伺服器來回應被封鎖主機的請求。</string>
   <string name="button_help">說明</string>
   <!--Home-->
   <string name="header_help">歡迎！</string>
-  <string name="text_help">AdAway 是一個自由及開放原始碼的軟體，設計來阻擋廣告。這個軟體會下載廣告網路清單，配置您的裝置來阻擋它們。\n想要了解更多嗎？看看下面的說明！</string>
   <string name="button_show_help">顯示更多說明</string>
   <string name="icon_update_status">更新狀態</string>
   <string name="text_update">所有來自已定義來源的 hosts 檔案已下載、與您的自訂清單整合，並以一個 hosts 檔案安裝至系統中。</string>
@@ -32,11 +26,7 @@
   <string name="button_enable_webserver">啟用網頁伺服器</string>
   <string name="button_disable_webserver">停用網頁伺服器</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">空的清單</string>
-  <string name="checkbox_list_empty_text">您可以使用「+」按鈕來加入項目。</string>
   <string name="checkbox_list_context_delete">刪除</string>
-  <string name="checkbox_list_footer">加入新項目至清單中後，需重新啟動 AdAway！</string>
-  <string name="checkbox_list_edit_dialog_title">編輯</string>
   <string name="checkbox_list_context_title">編輯項目</string>
   <string name="checkbox_list_context_edit">編輯</string>
   <!--Your lists-->
@@ -55,18 +45,15 @@
   <string name="list_dialog_ip">IP 位址 (IPv4 或 IPv6)：</string>
   <string name="import_dialog">匯入中...</string>
   <string name="export_dialog">匯出中...</string>
-  <string name="export_success">已匯出所有項目到 SD 卡中的「adaway-export」檔案。</string>
-  <string name="export_failed">無法匯出清單到 SD 卡。</string>
+  <string name="export_failed">匯出清單到 SD 卡失敗。</string>
   <!--Hosts content-->
   <string name="hosts_header">hosts 檔案</string>
-  <string name="hosts_description">hosts 檔案是一個將主機名稱對應到 IP 位置的系統檔案。它是一個由 AdAway 配置的純文字檔案。這是這個檔案的前幾行：</string>
   <string name="hosts_content">正在載入 hosts 檔案內容...</string>
   <string name="hosts_open_button">開啟 hosts 檔案</string>
   <!--Status Notification-->
   <string name="status_checking">正在檢查更新...</string>
   <string name="status_reverting">還原中...</string>
   <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
-  <string name="status_checking_subtitle">檢查是否有更新</string>
   <string name="status_update_available">有更新</string>
   <string name="status_update_available_subtitle">有更新的 hosts 檔案</string>
   <string name="status_no_connection">沒有網路連線</string>
@@ -76,7 +63,6 @@
   <string name="status_enabled">啟用</string>
   <string name="status_enabled_subtitle">已啟用最新的 hosts 檔案</string>
   <string name="status_disabled">停用</string>
-  <string name="status_disabled_subtitle">停用</string>
   <string name="notification_channel_update_name">更新</string>
   <string name="notification_channel_update_description">新主機更新通知</string>
   <!--Apply and Revert Dialogs-->
@@ -90,10 +76,7 @@
   <string name="apply_remount_fail_title">重新掛載失敗</string>
   <string name="apply_copy_fail">複製 hosts 檔案失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
-  <string name="apply_success_subtitle">已加入 hosts 來源:</string>
   <string name="apply_success_title">建立成功</string>
-  <string name="apply_success_dialog">建立成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
-  <string name="apply_symlink_successful">符號連結建立成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="apply_symlink_successful_title">符號連結建立成功</string>
   <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為 HTC 上一個叫 S-ON 的「功能」！\n\n一個解決方法是啟動你的手機到還原模式並使用命令 \'ln -s /data/data/hosts /system/etc/hosts\' 來建立符號連結。\n\n如果沒有用，請上網搜尋 S-OFF 與你的手機。</string>
   <string name="apply_symlink_fail_title">符號連結建立失敗</string>
@@ -110,7 +93,6 @@
   <string name="apply_dialog_apply">合併 hosts 檔案</string>
   <string name="apply_fail">hosts 檔案修改失敗！\n請將設定中的 hosts 檔案目標修改為 /data/data/hosts。</string>
   <string name="apply_fail_title">建立失敗</string>
-  <string name="revert_successful">已經還原為預設的 hosts 檔案了。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="revert_successful_title">還原成功</string>
   <string name="revert_problem">因未知原因還原失敗。</string>
   <string name="revert_problem_title">還原失敗！</string>
@@ -118,9 +100,7 @@
   <string name="download_fail_title">下載失敗</string>
   <string name="no_private_file">不能建立私人檔案。</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
-  <string name="enable_systemless_successful">你啟用了 systemless 模式。\n也許需要重新啟動 Android 才能生效。\n你是否需要重新啟動？\n(為了防止檔案遺失，請確保沒有程式正在使用 SD 卡)</string>
   <string name="enable_systemless_successful_title">啟用成功</string>
-  <string name="disable_systemless_successful">你停用了 systemless 模式。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="disable_systemless_successful_title">取消成功</string>
   <!--Other Dialogs-->
   <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 wiki.lineageos.org 或其他相關的 Android 網站取得相關資訊。</string>
@@ -145,9 +125,7 @@
   <string name="help_tab_problems">問題</string>
   <!--Adware-->
   <string name="adware_header">廣告軟體</string>
-  <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單來移除它們！</string>
   <string name="adware_scanning">掃描中...</string>
-  <string name="adware_empty">沒有發現任何廣告軟體！</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">線上：</string>
@@ -207,7 +185,6 @@
     <item>自訂目標</item>
   </string-array>
   <string name="pref_update_check_summary">在啟動 AdAway 時檢查更新</string>
-  <string name="pref_sdcard_problem">如果 AdAway 被安裝到 SD 卡上，這個功能可能無法正常工作！</string>
   <string name="pref_background">背景服務</string>
   <string name="pref_update_check_daily">每天檢查更新</string>
   <string name="pref_update_check_daily_summary">每天背景檢查更新並提示</string>

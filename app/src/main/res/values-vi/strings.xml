@@ -3,27 +3,19 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Thoát</string>
-  <string name="button_apply">Tải tập tin và áp dụng chặn quảng cáo</string>
   <string name="button_close">Đóng</string>
   <string name="button_yes">Có</string>
   <string name="button_no">Không</string>
-  <string name="button_revert">Tắt chặn quảng cáo</string>
   <string name="button_add">Thêm</string>
   <string name="button_cancel">Huỷ bỏ</string>
-  <string name="button_revert_text">Khôi phục tập tin miền mặc định trên hệ thống.</string>
   <string name="button_save">Lưu</string>
-  <string name="button_webserver_toggle_checked">Webserver đang chạy</string>
-  <string name="button_webserver_toggle_unchecked">Chưa chạy webserver</string>
   <string name="button_webserver_toggle_text">Bật hoặc dừng webserver trên miền cục bộ để phản hồi yêu cầu từ các tên miền đã chặn.</string>
   <string name="button_help">Trợ giúp</string>
   <!--Home-->
   <string name="text_update">Tất cả các tập tin miền từ nguồn xác định sẽ được tải về, ghép với danh sách của bạn và cài đặt thành một tập tin miền duy nhất trên hệ thống.</string>
   <string name="button_check_update_hosts">Kiểm tra cập nhật</string>
   <!--Checkbox List-->
-  <string name="checkbox_list_empty">Danh sách rỗng</string>
   <string name="checkbox_list_context_delete">Xoá</string>
-  <string name="checkbox_list_footer">Sau khi thêm nội dung mới vào danh sách, hãy áp dụng lại AdAway!</string>
-  <string name="checkbox_list_edit_dialog_title">Chỉnh sửa</string>
   <string name="checkbox_list_context_title">Chỉnh sửa mục</string>
   <string name="checkbox_list_context_edit">Chỉnh sửa</string>
   <!--Your lists-->
@@ -33,13 +25,11 @@
   <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
   <string name="import_dialog">Đang nhập...</string>
   <string name="export_dialog">Đang xuất...</string>
-  <string name="export_success">Đã xuất tất cả các mục vào tập tin \'adaway-export\' trên sdcard.</string>
   <!--Hosts content-->
   <!--Status Notification-->
   <string name="status_checking">Đang kiểm tra cập nhật...</string>
   <string name="status_reverting">Đang đổi lại...</string>
   <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
-  <string name="status_checking_subtitle">Đang kiểm tra cập nhật nếu có</string>
   <string name="status_update_available">Đã có bản cập nhật</string>
   <string name="status_update_available_subtitle">Đã có tập tin miền mới</string>
   <string name="status_no_connection">Không có kết nối mạng</string>
@@ -49,7 +39,6 @@
   <string name="status_enabled">Đã bật</string>
   <string name="status_enabled_subtitle">Đã dùng tập tin miền mới</string>
   <string name="status_disabled">Đã tắt</string>
-  <string name="status_disabled_subtitle">Đã tắt</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Liên kết biểu trưng từ mục tiêu đến /system/etc/hosts không tồn tại hoặc không đúng! AdAway sẽ không hoạt động nếu nó không được dẫn đến đúng tập tin.\n\nBạn có muốn thử tạo liên kết mới?</string>
   <string name="apply_symlink_missing_title">Thiếu liên kết biểu trưng</string>
@@ -61,10 +50,7 @@
   <string name="apply_remount_fail_title">Gắn thất bại</string>
   <string name="apply_copy_fail">Thất bại khi sao chép tập tin miền!</string>
   <string name="apply_copy_fail_title">Sao chép thất bại</string>
-  <string name="apply_success_subtitle">Đã áp dụng các nguồn miền:</string>
   <string name="apply_success_title">Áp dụng thành công</string>
-  <string name="apply_success_dialog">Áp dụng thành công.\nCần khởi động lại Android để kích hoạt các thay đổi.\n\nBạn có muốn khởi động lại?\n(Để tránh mất mát dữ liệu, hãy chắc rằng không có ứng dụng nào sử dụng sdcard trong lúc này!)</string>
-  <string name="apply_symlink_successful">Tạo liên kết biểu trưng thành công.\nCần khởi động lại Android để kích hoạt các thay đổi.\n\nBạn có muốn khởi động lại?\n(Để tránh mất mát dữ liệu, hãy chắc rằng không có ứng dụng nào sử dụng sdcard trong lúc này!)</string>
   <string name="apply_symlink_successful_title">Tạo liên kết biểu trưng thành công</string>
   <string name="apply_symlink_fail">Android không thể tạo liên kết biểu trưng.\nThất bại này hầu như là do \'tính năng\' S-ON trên điện thoại HTC!\n\nGiải pháp là khởi động điện thoại ở chế độ khôi phục và tạo liên kết biểu trưng tại đây với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu vẫn không được, hãy tra cứu trên mạng về S-OFF và điện thoại của bạn.</string>
   <string name="apply_symlink_fail_title">Tạo liên kết biểu trưng thất bại</string>
@@ -81,7 +67,6 @@
   <string name="apply_dialog_apply">Đang áp dụng tập tin miền</string>
   <string name="apply_fail">Thất bại khi áp dụng tập tin miền vào hệ thống!\nHãy thử đổi tập tin miền mục tiêu trong tuỳ chỉnh thành /data/data/hosts.</string>
   <string name="apply_fail_title">Áp dụng thất bại</string>
-  <string name="revert_successful">Đã đổi lại thành tập tin miền mặc định.\nCần khởi động lại Android để kích hoạt các thay đổi.\n\nBạn có muốn khởi động lại?\n(Để tránh mất mát dữ liệu, hãy chắc rằng không có ứng dụng nào sử dụng sdcard trong lúc này!)</string>
   <string name="revert_successful_title">Đổi lại thành công</string>
   <string name="revert_problem">Đổi lại bị thất bại mà không rõ nguyên nhân.</string>
   <string name="revert_problem_title">Đổi lại thất bại!</string>
@@ -89,9 +74,7 @@
   <string name="download_fail_title">Tải về thất bại</string>
   <string name="no_private_file">Không thể tạo tập tin riêng.</string>
   <string name="no_private_file_title">Tạo tập tin riêng thất bại</string>
-  <string name="enable_systemless_successful">Bạn đã kích hoạt chế độ systemless. việc khởi động lại android là cần thiết để thay đổi có hiệu lực. Bạn có muốn khởi động lại ? (Để tránh việc mất dữ liệu, Bảo đảm rằng không có ứng dụng đang sử dụng thẻ nhớ!)</string>
   <string name="enable_systemless_successful_title">Kích hoạt thành công</string>
-  <string name="disable_systemless_successful">Bạn đã vô hiệu hóa chế độ systemless. việc khởi động lại android là cần thiết để thay đổi có hiệu lực. Bạn có muốn khởi động lại ? (Để tránh việc mất dữ liệu, Bảo đảm rằng không có ứng dụng đang sử dụng thẻ nhớ!)</string>
   <string name="disable_systemless_successful_title">Vô hiệu hóa thành công</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Không tìm thấy tập tin su hoặc bạn không trao quyền root cho AdAway.\n\nĐiều này có thể xảy ra khi thiết bị chưa được root.\nBạn có thể tìm thông tin về cách root máy tại wiki.lineageos.org hoặc ở các trang web về Android khác.</string>
@@ -153,7 +136,6 @@
     <item>Đích tự chọn</item>
   </string-array>
   <string name="pref_update_check_summary">Kiểm tra cập nhật khi khởi động AdAway</string>
-  <string name="pref_sdcard_problem">Tính năng này sẽ không hoạt động chính xác khi AdAway được cài trên sdcard!</string>
   <string name="pref_background">Dịch vụ chạy nền</string>
   <string name="pref_update_check_daily">Kiểm tra cập nhật mỗi ngày</string>
   <string name="pref_update_check_daily_summary">Kiểm tra cập nhật mỗi ngày ở chế độ nền có kèm thông báo</string>
