@@ -35,6 +35,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -285,10 +286,10 @@ public class HostsInstallModel extends Observable {
         // Set state to downloading hosts source
         this.setStateAndDetails(R.string.download_dialog, hostsFileUrl);
         // Create connection
-        HttpURLConnection connection;
+        URLConnection connection;
         try {
             URL mURL = new URL(hostsFileUrl);
-            connection = (HttpURLConnection) mURL.openConnection();
+            connection = mURL.openConnection();
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(30000);
         } catch (IOException exception) {
@@ -324,7 +325,10 @@ public class HostsInstallModel extends Observable {
             // Return download failed
             return false;
         } finally {
-            connection.disconnect();
+            // Disconnect HTTP connection (does nothing with file:// resources)
+            if (connection instanceof HttpURLConnection) {
+                ((HttpURLConnection) connection).disconnect();
+            }
         }
         // Return download successful
         return true;
