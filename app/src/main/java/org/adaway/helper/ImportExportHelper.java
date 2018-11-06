@@ -204,7 +204,7 @@ public class ImportExportHelper {
                     .map(redirection -> {
                         HostListItem listItem = new HostListItem();
                         listItem.setHost(redirection.getKey());
-                        listItem.setType(ListType.WHITE_LIST);
+                        listItem.setType(ListType.REDIRECTION_LIST);
                         listItem.setEnabled(true);
                         listItem.setRedirection(redirection.getValue());
                         return listItem;
