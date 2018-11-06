@@ -33,7 +33,7 @@ It follows the [Semantic Versioning](https://semver.org/) principle (_once the f
 
 ## 3 - Building release APK
 
-The release apk must be build with release flavor (not debug). Check [contributing guide for building instructions](CONTRIBUTING.md#building-the-project).    
+The release apk must be built with release flavor (not debug). Check [contributing guide for building instructions](CONTRIBUTING.md#building-the-project).    
 **The apk name follows the following format: `AdAway-<version_name>-<yymmdd>.apk`**.
 Example: _AdAway-4.0.8-180822.apk_ for the version 4.0.8 built the 08/22/18.
 
