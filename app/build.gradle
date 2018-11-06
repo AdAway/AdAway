@@ -20,8 +20,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 40010   // Read 4.xx.yy to match version name
-        versionName '4.0.10'
+        versionCode 40011   // Read 4.xx.yy to match version name
+        versionName '4.0.11'
         versionNameSuffix '-' + getGitSha1()
 
         vectorDrawables.useSupportLibrary = true
