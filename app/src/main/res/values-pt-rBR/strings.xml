@@ -50,6 +50,7 @@
   <string name="export_failed">Não foi possível exportar sua lista para o cartão SD</string>
   <!--Hosts content-->
   <string name="hosts_header">O arquivo de hosts</string>
+  <string name="hosts_description">O arquivo hosts é um arquivo de sistema que mapeia nomes de host para endereços IP. É um arquivo de texto simples cuja configuração é gerenciada pela AdAway. Aqui estão suas poucas primeiras linhas:</string>
   <string name="hosts_content">Carregando o conteúdo do arquivo de hosts...</string>
   <string name="hosts_open_button">Abrir arquivo de hosts</string>
   <!--Status Notification-->
@@ -83,6 +84,7 @@
   <string name="apply_success_subtitle">Fontes de hosts aplicadas</string>
   <string name="apply_success_title">Sucesso ao aplicar</string>
   <string name="apply_success_dialog">A aplicação foi bem sucedida.\nPode ser necessário reiniciar o Android para as alterações fazerem efeito.\n\nDeseja reiniciar agora?\n(Para evitar perda de dados certifique-se de que nenhum app está usando o cartão SD no momento!)</string>
+  <string name="apply_symlink_successful">O Symlink foi criado com sucesso. Pode ser necessário reiniciar o Android para que as alterações entrem em vigor. Deseja reiniciar? (para evitar a perda de dados, certifique-se de que nenhum aplicativo usa o cartão SD no momento!)</string>
   <string name="apply_symlink_successful_title">Sucesso ao criar link simbólico</string>
   <string name="apply_symlink_fail">O link simbólico não pode ser criado pelo Android.\nEsta falha ocorre principalmente devido a um \'recurso\' chamado S-ON em telefones HTC!\n\nUma solução é inicializar seu telefone dentro do modo de recuperação e criar o link simbólico com \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe isto não funcionar procure na Internet por S-OFF e seu telefone.</string>
   <string name="apply_symlink_fail_title">Falha ao criar link simbólico</string>
@@ -99,6 +101,7 @@
   <string name="apply_dialog_apply">Aplicando arquivo hosts</string>
   <string name="apply_fail">Falha ao aplicar arquivo hosts no seu sistema!\nTente alterar o arquivo hosts alvo nas preferências para /data/data/hosts.</string>
   <string name="apply_fail_title">Falha ao aplicar</string>
+  <string name="revert_successful">Você reverteu para o arquivo de hosts padrão. Pode ser necessário reinicializar o Android para que as alterações entrem em vigor. Deseja reinicializar? (Para evitar a perda de dados, verifique se nenhum aplicativo usa o cartão SD no momento !)</string>
   <string name="revert_successful_title">Revertido com sucesso</string>
   <string name="revert_problem">Falha ao reverter devido a razões desconhecidas.</string>
   <string name="revert_problem_title">Falha ao reverter!</string>
@@ -106,7 +109,9 @@
   <string name="download_fail_title">Falha ao baixar</string>
   <string name="no_private_file">O arquivo privado não pode ser criado.</string>
   <string name="no_private_file_title">Falha ao criar arquivo privado</string>
+  <string name="enable_systemless_successful">Você ativou o modo sem sistema. Pode ser necessário reinicializar o Android para que as alterações entrem em vigor. Deseja reinicializar? (Para evitar a perda de dados, certifique-se de que nenhum aplicativo use o cartão SD no momento!)</string>
   <string name="enable_systemless_successful_title">Ativado com sucesso</string>
+  <string name="disable_systemless_successful">Você desativou o modo sem sistema. Pode ser necessário reiniciar o Android para que as alterações entrem em vigor. Deseja reiniciar? (Para evitar a perda de dados, certifique-se de que nenhum aplicativo use o cartão SD no momento!)</string>
   <string name="disable_systemless_successful_title">Desativado com sucesso</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Ou o binário su não pôde ser encontrado ou você não concedeu permissão de root para o AdAway.\n\nIsto pode acontecer quando seu dispositivo não está rooteado.\nVocê pode encontrar informação sobre como rootear seu dispositivo em wiki.lineageos.org ou outros sites sobre Android.</string>
@@ -131,6 +136,7 @@
   <string name="help_tab_problems">Problemas</string>
   <!--Adware-->
   <string name="adware_header">Adware</string>
+  <string name="adware_description">Aqui você pode encontrar adware instalado, aplicativos ruins que não podem ser bloqueados pela AdAway. Esses aplicativos usam, por exemplo, notificações do Airpush que aparecem mesmo quando o aplicativo não está em execução ou até mesmo mudam o toque. A única contramedida disponível é desinstalar esses aplicativos clicando nos itens da lista.</string>
   <string name="adware_scanning">Escaneando...</string>
   <string name="adware_empty">Nenhum Adware foi encontrado!</string>
   <!--Hosts sources-->
@@ -228,6 +234,8 @@
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Apoiar o desenvolvimento \u2764</string>
   <string name="drawer_support_dialog_title">Apoiar o desenvolvimento</string>
+  <string name="drawer_support_dialog_text">AdAway é um software gratuito e de código aberto desenvolvido e mantido apenas pela comunidade. Levei dois anos como um projeto de tempo livre para criar esta nova versão do aplicativo. Se você gosta e quer ver mais atualizações, fique à vontade para apoiar o projeto</string>
+  <string name="drawer_support_dialog_button">Mostre meu apoio</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Pedidos DNS</string>
   <string name="shortcut_your_lists">Suas listas</string>

@@ -13,8 +13,9 @@
   <string name="button_help">Aiuto</string>
   <!--Home-->
   <string name="header_help">Benvenuto!</string>
+  <string name="text_help">AdAway è un software gratuito e open-source progettato per bloccare pubblicità. Raccoglie gli indirizzi pubblicitari per bloccarli sul tuo dispositivo..\nVuoi saperne di più? Controlla la sezione di aiuto qui sotto!</string>
   <string name="button_show_help">Mostra più aiuti</string>
-  <string name="icon_update_status">Aggiorna lo status</string>
+  <string name="icon_update_status">Aggiorna stato</string>
   <string name="text_update">Tutti i file hosts dalle sorgenti definite sono scaricati, uniti alle tue liste personali e installati come un unico file hosts nel tuo sistema.</string>
   <string name="button_check_update_hosts">Controlla aggiornamenti</string>
   <string name="button_update_hosts">Aggiorna gli hosts</string>
@@ -45,8 +46,11 @@
   <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
   <string name="import_dialog">Importo...</string>
   <string name="export_dialog">Esporto...</string>
+  <string name="export_success">Esportate tutte le voci in un file chiamato \'adaway-export\' sulla scheda SD.</string>
+  <string name="export_failed">Esportazione fallita della tua lista sulla scheda SD.</string>
   <!--Hosts content-->
   <string name="hosts_header">Il file hosts</string>
+  <string name="hosts_description">Il file hosts è un file di sistema che mappa gli hostnames in indirizzi IP. È un file di testo semplice la cui configurazione è gestita da AdAway. Ecco alcune righe:</string>
   <string name="hosts_content">Caricamento contenuto del file hosts...</string>
   <string name="hosts_open_button">Apri il file hosts</string>
   <!--Status Notification-->
@@ -80,6 +84,8 @@
   <string name="apply_copy_fail_title">Copia fallita</string>
   <string name="apply_success_subtitle">Fonti host applicate</string>
   <string name="apply_success_title">Modifiche effettuate con successo!</string>
+  <string name="apply_success_dialog">Modifiche effettuate con successo.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
+  <string name="apply_symlink_successful">Symlink è stato creato con successo.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
   <string name="apply_symlink_successful_title">Collegamento simbolico creato con successo</string>
   <string name="apply_symlink_fail">Il collegamento simbolico non può essere creato da Android.\nQuesto problema è dovuto quasi sicuramente a una \"caratteristica\" chiamata S-ON nei telefoni HTC!\n\nUna possibile soluzione è quella di avviare il telefono in modalità recovery e creare il collegamento simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono.</string>
   <string name="apply_symlink_fail_title">Creazione del collegamento simbolico fallita</string>
@@ -96,6 +102,7 @@
   <string name="apply_dialog_apply">Applico file hosts</string>
   <string name="apply_fail">L\'applicazione del file hosts al tuo sistema è fallita!\nProva cambiando il percorso del file hosts nelle prefenze in /data/data/hosts.</string>
   <string name="apply_fail_title">Modifiche fallite!</string>
+  <string name="revert_successful">Sei tornato al file hosts predefinito.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
   <string name="revert_successful_title">Ripristino effettuato con successo!</string>
   <string name="revert_problem">Ripristino fallito per ragioni sconosciute.</string>
   <string name="revert_problem_title">Ripristino fallito!</string>
@@ -103,7 +110,9 @@
   <string name="download_fail_title">Download fallito</string>
   <string name="no_private_file">Il file privato non può essere creato.</string>
   <string name="no_private_file_title">Creazione del file privato fallita</string>
+  <string name="enable_systemless_successful">Hai attivato la modalità systemless.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare perdite di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
   <string name="enable_systemless_successful_title">Attivazione avvenuta con successo</string>
+  <string name="disable_systemless_successful">Hai disabilitato la modalità systemless.\nPotrebbe essere necessario riavviare Android per applicare i cambiamenti. .\n\nVuoi riavviare?\n(Per impedire perdita di dati assicurati che nessuna app  al momento sta utilizzando la scheda SD!)</string>
   <string name="disable_systemless_successful_title">Disattivazione avvenuta con successo</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Non è stato trovato il binario SU o non hai concesso i permessi di root per AdAway.\n\nQuesto può succedere quando il tuo dispositivo non ha il root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android.</string>
@@ -129,6 +138,7 @@
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_scanning">Scansione in corso...</string>
+  <string name="adware_empty">Nessun Adware è stato trovato!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Locale:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -189,6 +199,7 @@ Vuoi installare OI File Manager?</string>
     <item>Percorso personalizzato</item>
   </string-array>
   <string name="pref_update_check_summary">Controlla aggiornamenti all\'avvio di AdAway</string>
+  <string name="pref_sdcard_problem">Questa opzione non funzionerà correttamente quando AdAway è installato sulla scheda SD!</string>
   <string name="pref_background">Servizi in background</string>
   <string name="pref_update_check_daily">Controlla aggiornamenti giornalmente</string>
   <string name="pref_update_check_daily_summary">Cerca aggiornamenti giornalmente in background con notifiche</string>
@@ -224,13 +235,14 @@ Vuoi installare OI File Manager?</string>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Supporta lo sviluppo \u2764</string>
   <string name="drawer_support_dialog_title">Supporta lo sviluppo</string>
+  <string name="drawer_support_dialog_text">AdAway è un software Gratuito e Open-Source sviluppato e mantenuto esclusivamente dalla comunità. Ci sono voluti due anni come progetto nel tempo libero per rilasciare questa nuova versione dell\'app. .\n\nSe ti piace e vuoi vedere ulteriori aggiornamenti, per favore considera di supportare il progetto.</string>
   <string name="drawer_support_dialog_button">Mostra il mio supporto</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Chiamata DNS</string>
   <string name="shortcut_your_lists">Le tue liste</string>
   <string name="shortcut_preferences">Preferenze</string>
   <!--Hosts source status-->
-  <string name="hosts_source_up_to_date">Aggiornato per %1$s</string>
+  <string name="hosts_source_up_to_date">Aggiornato %1$s fa</string>
   <string name="hosts_source_need_update">Aggiornamento necessario per %1$s</string>
   <string name="hosts_source_last_update">Ultimo aggiornamento %1$s fa</string>
   <string name="hosts_source_unknown_status">Stato aggiornamento sconosciuto</string>

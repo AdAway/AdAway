@@ -13,6 +13,7 @@
   <string name="button_help">Yardım</string>
   <!--Home-->
   <string name="header_help">Hoşgeldiniz!</string>
+  <string name="text_help">AdAway, reklamları engellemek için ücretsiz ve açık kaynaklı bir yazılım tasarımdır. Cihazınızda bunları engellemek için reklam ağı adresleri getirir.\nDaha fazlasını öğrenmek ister misiniz? Aşağıdaki yardımı kontrol edin!</string>
   <string name="button_show_help">Daha fazla yardım göster</string>
   <string name="icon_update_status">Güncelleme durumu</string>
   <string name="text_update">Tüm kaynaklardaki host dosyaları indirildi, listenizdekilerle birleştirildi ve sisteminize tek bir host dosyası olarak yüklendi.</string>
@@ -45,8 +46,11 @@
   <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
   <string name="import_dialog">Alınıyor...</string>
   <string name="export_dialog">Veriliyor...</string>
+  <string name="export_success">Tüm kayıtları SD kartınızda \'adaway-export\' adlı bir dosyaya aktarıldı.</string>
+  <string name="export_failed">Listeniz SD kartınıza aktarılamadı.</string>
   <!--Hosts content-->
   <string name="hosts_header">Host dosyası</string>
+  <string name="hosts_description">Hosts dosyası, host adlarını IP adreslerine eşleyen bir sistem dosyasıdır. Bu yapılandırmanın AdAway tarafından ele alındığı düz bir metin dosyasıdır. İşte ilk birkaç satırı:</string>
   <string name="hosts_content">Hosts dosyası içeriği yükleniyor…</string>
   <string name="hosts_open_button">Host dosyasını açın</string>
   <!--Status Notification-->
@@ -59,9 +63,12 @@
   <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
   <string name="status_download_fail">Kullanılamayan kaynaklar</string>
   <string name="status_download_fail_subtitle_new">Hiçbir host kaynağına ulaşılamadı.</string>
+  <string name="status_failure">Birşeyler yanlış gidiyor</string>
+  <string name="status_failure_subtitle">Daha fazla bilgi için logcat\'i kontrol edin</string>
   <string name="status_enabled">Etkin</string>
   <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
   <string name="status_disabled">Devre dışı</string>
+  <string name="status_disabled_subtitle">Varsayılan hosts dosyası yüklendi</string>
   <string name="notification_channel_update_name">Güncellemeler</string>
   <string name="notification_channel_update_description">Yeni hosts güncelleme bildirimleri</string>
   <!--Apply and Revert Dialogs-->
@@ -75,7 +82,10 @@
   <string name="apply_remount_fail_title">Remount başarısız oldu</string>
   <string name="apply_copy_fail">Host dosyası kopyalama başarısız!</string>
   <string name="apply_copy_fail_title">Kopyalama başarısız</string>
+  <string name="apply_success_subtitle">Hosts kaynakları uygulandı</string>
   <string name="apply_success_title">Uygulama başarılı</string>
+  <string name="apply_success_dialog">Uygulama başarılı oldu.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz?\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
+  <string name="apply_symlink_successful">Symlink başarılı bir şekilde oluşturuldu.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz?\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
   <string name="apply_symlink_successful_title">Symlink oluşturma başarılı</string>
   <string name="apply_symlink_fail">Symlink oluşturulamadı.\nBu hata genelde HTC telefonlardaki S-ON denilen özellik yüzünden olmaktadır!\n\nSorunu elle çözmek isterseniz recovery mode ile açıp \'ln -s /data/data/hosts /system/etc/hosts\' komutuyla symlink yapmanız gereklidir.\n\nEğer ki bu olmuyorsa çözüm için internette S-OFF ve telefonunuzun adı ile bir arama yapın.</string>
   <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
@@ -93,6 +103,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
   <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
   <string name="apply_fail_title">Uygulama başarısız</string>
+  <string name="revert_successful">Varsayılan host dosyasına geri döndünüz.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz??\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
   <string name="revert_successful_title">Geri alma başarılı!</string>
   <string name="revert_problem">Geri alma işlemi bilinmeyen nedenlerden dolayı başarısız oldu.</string>
   <string name="revert_problem_title">Geri alma başarısız!</string>
@@ -100,7 +111,9 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="download_fail_title">İndirme işlemi başarısız.</string>
   <string name="no_private_file">Özel dosya oluşturulamadı.</string>
   <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu.</string>
+  <string name="enable_systemless_successful">Sistemsiz modu etkinleştirdiniz.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz?\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
   <string name="enable_systemless_successful_title">Etkinleştirme başarılı</string>
+  <string name="disable_systemless_successful">Sistemsiz modu devre dışı bıraktınız.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz?\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
   <string name="disable_systemless_successful_title">Başarıyla devre dışı bırakıldı</string>
   <!--Other Dialogs-->
   <string name="no_root_description">Su binary dosyası bulunamadı veya AdAway için kök erişimi izni sağlanmadı.\n\nEğer cihazınızda kök erişimi sağlanmadıysa bu yaşanabilir.\nDetaylı bilgi ve cihazınızda nasıl kök erişimi sağlanacağını öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
@@ -125,7 +138,9 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="help_tab_problems">Sorunlar</string>
   <!--Adware-->
   <string name="adware_header">Adware</string>
+  <string name="adware_description">Burada AdAway tarafından engellenemeyen adware yüklü kötü uygulamaları bulabilirsiniz. Bu uygulamalar, uygulama çalışmadığında veya hatta zil sesinizi değiştirdiğinde bile ortaya çıkan Airpush bildirimlerini kullanır. Mevcut tek karşı önlem, bu uygulamaları liste öğelerine tıklayarak kaldırmaktır.</string>
   <string name="adware_scanning">Taranıyor...</string>
+  <string name="adware_empty">Adware bulunamadı!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Yerel:</string>
   <string name="hosts_last_modified_online">Çevrim içi:</string>
@@ -184,6 +199,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
     <item>Özel hedef</item>
   </string-array>
   <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>
+  <string name="pref_sdcard_problem">AdAway SD karta yüklendiğinde bu özellik düzgün çalışmayacak!</string>
   <string name="pref_background">Arka Plan Hizmetleri</string>
   <string name="pref_update_check_daily">Güncellemeleri günlük denetle</string>
   <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
@@ -218,6 +234,9 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Geliştirmeyi destekleyin \u2764</string>
+  <string name="drawer_support_dialog_title">Geliştirmeyi destekleyin</string>
+  <string name="drawer_support_dialog_text">AdAway, yalnızca topluluk tarafından geliştirilmiş ve sürdürülen bir Serbest ve Açık Kaynak yazılımdır. Uygulamanın bu yeni sürümünü oluşturmak bir boş zaman projesi olarak 2 yılımı aldı.\n\nBeğendiyseniz ve daha fazla güncelleme görmek istiyorsanız, projeyi desteklemekten çekinmeyin.</string>
+  <string name="drawer_support_dialog_button">Bana desteğinizi gösterin</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS istekleri</string>
   <string name="shortcut_your_lists">Listeleriniz</string>

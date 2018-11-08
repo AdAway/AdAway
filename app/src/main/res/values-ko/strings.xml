@@ -12,8 +12,19 @@
   <string name="button_webserver_toggle_text">로컬호스트의 웹서버를 시작 또는 중지하여 차단된 호스트명의 요청에 응답합니다.</string>
   <string name="button_help">도움말</string>
   <!--Home-->
+  <string name="header_help">환영합니다!</string>
+  <string name="button_show_help">도움말 더보기</string>
+  <string name="icon_update_status">업데이트 상태</string>
   <string name="text_update">지정한 소스의 모든 호스트 파일이 사용자 목록과 다운로드 및 병합되었고 시스템에 하나의 호스트 파일로 설치되었습니다.</string>
   <string name="button_check_update_hosts">업데이트 확인</string>
+  <string name="button_update_hosts">호스트 업데이트</string>
+  <string name="button_enable_hosts">광고차단 활성화</string>
+  <string name="button_disable_hosts">광고차단 비활성화</string>
+  <string name="header_webserver">웹 서버</string>
+  <string name="webserver_status_running">실행중</string>
+  <string name="webserver_status_stopped">중지됨</string>
+  <string name="button_enable_webserver">웹 서버 활성화</string>
+  <string name="button_disable_webserver">웹 서버 비활성화</string>
   <!--Checkbox List-->
   <string name="checkbox_list_context_delete">삭제</string>
   <string name="checkbox_list_context_title">항목 편집</string>
@@ -21,7 +32,15 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">허용 목록</string>
   <string name="lists_tab_blacklist">차단 목록</string>
+  <string name="lists_tab_redirection_list">리디렉션</string>
+  <string name="list_add_dialog_black">블랙리스트에 호스트 추가</string>
+  <string name="list_add_dialog_white">화이트리스트에 호스트 추가</string>
+  <string name="list_add_dialog_redirect">리디렉션에 호스트 추가</string>
+  <string name="list_edit_dialog_black">블랙리스트 호스트 수정</string>
+  <string name="list_edit_dialog_white">화이트리스트 호스트 수정</string>
+  <string name="list_edit_dialog_redirect">리디렉션 수정</string>
   <string name="list_dialog_hostname">호스트명:</string>
+  <string name="list_dialog_hostname_hint">호스트 소스 URL</string>
   <string name="list_dialog_ip">IP (IPv4 또는 IPv6):</string>
   <string name="import_dialog">가져오는 중...</string>
   <string name="export_dialog">내보내는 중...</string>
@@ -39,6 +58,7 @@
   <string name="status_enabled">활성화됨</string>
   <string name="status_enabled_subtitle">최신 호스트 파일이 활성화됨</string>
   <string name="status_disabled">비활성화됨</string>
+  <string name="notification_channel_update_name">업데이트</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">대상에서 /system/etc/host으로 연결되는 심링크가 존재하지 않거나 올바르지 않습니다! 올바른 파일을 가르키지 않을 경우 AdAway가 작동하지 않습니다.\n\n심링크 생성을 시도하시겠습니까?</string>
   <string name="apply_symlink_missing_title">심링크가 누락됨</string>
@@ -97,10 +117,15 @@
   <string name="help_tab_faq">FAQ</string>
   <string name="help_tab_problems">문제</string>
   <!--Adware-->
+  <string name="adware_scanning">스캔중...</string>
+  <string name="adware_empty">애드웨어가 없습니다!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">로컬:</string>
   <string name="hosts_last_modified_online">온라인:</string>
   <string name="hosts_not_available">사용 불가</string>
+  <string name="hosts_add_dialog_title">소스 추가</string>
+  <string name="hosts_edit_dialog_title">소스 수정</string>
+  <string name="hosts_dialog_url_hint">호스트 소스 URL</string>
   <!--Other-->
   <string name="app_subtitle">광고 차단 도구</string>
   <string name="no_text_editor_title">No text editor installed</string>
@@ -109,6 +134,7 @@
   <string name="no_file_manager">파일을 열기 위한 파일 관리자를 발견하지 못했습니다. OI 파일 관리자 또는 기타 파일 관리자를 설치하여 이를 처리할 수 있습니다.\n\nOI 파일 관리자를 설치하시겠습니까?</string>
   <!--Tcpdump-->
   <string name="tcpdump_description">Tcpdump는 DNS 요청을 감시하고 로그 파일에 저장하는 도구입니다. 배경에서 시작할 수 있고, 광고를 표시하는 앱을 실행할 수 있으며, 추후 로그 파일을 이용하여 DNS 요청을 분석할 수 있습니다. 그런 다음 의심스러운 광고 서버를 차단 목록에 추가할 수 있습니다.</string>
+  <string name="tcpdump_menu_clear">로그 지우기</string>
   <!--Preferences-->
   <string name="pref_download">일반 환경 설정</string>
   <string name="pref_hosts">호스트 파일</string>
@@ -150,9 +176,24 @@
   <string name="pref_enable_ipv6_summary">모든 호스트 파일의 입력 내용은 이에 해당하는 ::1 (IPv6 로컬호스트) 입력 내용을 얻습니다.</string>
   <string name="pref_enable_systemless_summary">AdAway의 시스템 파티션 수정 방지</string>
   <string name="pref_enable_systemless">Systemless 모드 활성화</string>
+  <string name="drawer_open">메뉴 열기</string>
+  <string name="drawer_close">메뉴 닫기</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <string name="drawer_support_dialog_title">도와준 사람들</string>
   <!--Shortcuts-->
   <string name="shortcut_preferences">환경 설정</string>
   <!--Hosts source status-->
+  <plurals name="hosts_source_minutes">
+    <item quantity="other">%d 분</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="other">%d 시간</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="other">%d 일</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="other">%d 달</item>
+  </plurals>
 </resources>

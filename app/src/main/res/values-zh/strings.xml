@@ -45,6 +45,7 @@
   <string name="list_dialog_ip">IP（IPv4 或 IPv6）：</string>
   <string name="import_dialog">正在导入...</string>
   <string name="export_dialog">正在导出...</string>
+  <string name="export_failed">导出列表到SD卡失败。</string>
   <!--Hosts content-->
   <string name="hosts_header">hosts 文件</string>
   <string name="hosts_content">正在加载 hosts 文件内容...</string>
@@ -59,6 +60,7 @@
   <string name="status_no_connection_subtitle">没有可用的网络连接</string>
   <string name="status_download_fail">不可用的源</string>
   <string name="status_download_fail_subtitle_new">没有可以访问的 hosts 源！</string>
+  <string name="status_failure">出错了</string>
   <string name="status_enabled">已启用</string>
   <string name="status_enabled_subtitle">已启用最新的 hosts 文件</string>
   <string name="status_disabled">已禁用</string>

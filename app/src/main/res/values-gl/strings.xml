@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Saír</string>
+  <string name="button_close">Pechar</string>
+  <string name="button_yes">Si</string>
+  <string name="button_no">Non</string>
+  <string name="button_add">Engadir</string>
+  <string name="button_cancel">Desbotar</string>
+  <string name="button_save">Gardar</string>
+  <string name="button_help">Axuda</string>
+  <!--Home-->
+  <string name="header_help">Benvido!</string>
+  <string name="button_show_help">Amosar máis axuda</string>
+  <string name="icon_update_status">Estado da actualización</string>
+  <string name="webserver_status_stopped">Detido</string>
+  <!--Checkbox List-->
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">Listaxe branca</string>
+  <string name="lists_tab_blacklist">Listaxe negra</string>
+  <string name="import_dialog">Estase a importar...</string>
+  <string name="export_dialog">Estase a exportar...</string>
+  <!--Hosts content-->
+  <!--Status Notification-->
+  <string name="status_reverting">Estase a reverter...</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="download_dialog">Estase a descarregar...</string>
+  <string name="apply_dialog">Estase a aplicar...</string>
+  <!--Other Dialogs-->
+  <!--Menu entries-->
+  <string name="menu_add">Engadir</string>
+  <string name="menu_help">Axuda</string>
+  <!--Help-->
+  <!--Adware-->
+  <!--Hosts sources-->
+  <!--Other-->
+  <!--Tcpdump-->
+  <!--Preferences-->
+  <!--Drawer menu items-->
+  <!--Drawer menu labels-->
+  <!--Shortcuts-->
+  <!--Hosts source status-->
+</resources>

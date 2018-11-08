@@ -21,6 +21,8 @@
   <string name="button_enable_hosts">Advertentieblokkering inschakelen</string>
   <string name="button_disable_hosts">Advertentieblokkering uitschakelen</string>
   <string name="header_webserver">Webserver</string>
+  <string name="webserver_status_running">Aan het werk</string>
+  <string name="webserver_status_stopped">Gestopt</string>
   <!--Checkbox List-->
   <string name="checkbox_list_context_delete">Verwijderen</string>
   <string name="checkbox_list_context_title">Invoer bewerken</string>
@@ -28,15 +30,21 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Witte lijst</string>
   <string name="lists_tab_blacklist">Zwarte lijst</string>
+  <string name="list_add_dialog_black">Voeg host toe aan blacklist</string>
+  <string name="list_add_dialog_white">Voeg host toe aan whitelist</string>
+  <string name="list_edit_dialog_black">Host in blacklist bewerken</string>
+  <string name="list_edit_dialog_white">Host in whitelist bewerken</string>
   <string name="list_dialog_hostname">Hostnaam:</string>
   <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
   <string name="import_dialog">Bezig met importeren...</string>
   <string name="export_dialog">Bezig met exporteren...</string>
   <!--Hosts content-->
+  <string name="hosts_header">Het hosts-bestand</string>
+  <string name="hosts_open_button">Het hosts bestand-openen</string>
   <!--Status Notification-->
   <string name="status_checking">Controleren op updates...</string>
   <string name="status_reverting">Bezig met terugzetten...</string>
-  <string name="status_reverting_subtitle">Standaardhosts-bestand aanmaken</string>
+  <string name="status_reverting_subtitle">Standaard hosts bestand aanmaken</string>
   <string name="status_update_available">Er is een update beschikbaar</string>
   <string name="status_update_available_subtitle">Nieuwere hosts-bestanden beschikbaar</string>
   <string name="status_no_connection">Geen internetverbinding</string>
@@ -46,6 +54,8 @@
   <string name="status_enabled">Ingeschakeld</string>
   <string name="status_enabled_subtitle">Nieuwste hosts-bestanden toegepast</string>
   <string name="status_disabled">Uitgeschakeld</string>
+  <string name="status_disabled_subtitle">Standaard hosts-bestand geïnstalleerd</string>
+  <string name="notification_channel_update_name">Updates</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink te maken?</string>
   <string name="apply_symlink_missing_title">Symlink ontbreekt</string>
@@ -57,6 +67,7 @@
   <string name="apply_remount_fail_title">Opnieuw koppelen mislukt</string>
   <string name="apply_copy_fail">Kopiëren van hosts-bestand is mislukt!</string>
   <string name="apply_copy_fail_title">Kopiëren mislukt</string>
+  <string name="apply_success_subtitle">Toegepaste hosts bronnen</string>
   <string name="apply_success_title">Toepassen voltooid</string>
   <string name="apply_symlink_successful_title">Symlink aangemaakt</string>
   <string name="apply_symlink_fail">De symlink kon niet door Android worden aangemaakt.\nDit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons!\n\nEen oplossing is uw telefoon in recoverymodus opstarten en hier de symlink aanmaken met \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAls dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>

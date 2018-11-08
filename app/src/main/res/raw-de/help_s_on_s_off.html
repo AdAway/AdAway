@@ -1,5 +1,5 @@
 <html>
-<head><title>S-ON spezifische Hilfe</title></head>
+<head><title>S-ON-spezifische Hilfe</title></head>
 <body>
 <h2>HTC-Geräte</h2>
 <p>AdAway funktioniert nicht, wenn Sie ein Gerät mit einem sogenannten S-ON verwenden. Viele HTC-Geräte besitzen diese »Funktion«, welche unterbindet, dass AdAway die Hosts-Datei beschreiben kann.</p>
@@ -16,10 +16,10 @@
 </p>
 <ol>
 <li>Starten Sie in das Boot-Menü, indem Sie bei gedrückter <cite>Lautstärke verringern</cite>-Taste Ihr Gerät einschalten.</li>
-<li>Verwenden Sie die <i>Lautstärke verringern</i>-Taste, um zur Recovery zu navigieren.</li>
+<li>Betätige die <cite>Leiser-Taste</cite>, um zum Menüpunkt "Recovery" zu navigieren. Drücke anschließend den <cite>An-/Aus-Schalter</cite>, um in den Recovery-Modus zu booten.</li>
 <li>Gehe im Clockwork Recovery auf "Partitions Menu".</li>
 <li>Wähle <cite>mount /system</cite>, <cite>mount /sdcard</cite> und <cite>mount /data</cite> aus.</li>
-<li>Das Gerät per USB mit dem PC verbinden und eine Befehlszeile öffnen.</li>
+<li>Das Gerät per USB mit dem PC verbinden und ein Kommandozeilenfenster öffnen.</li>
 <li>ADB-Shell starten und <code>ln -s /data/hosts /system/etc/hosts</code> eingeben (Es wird ein symbolischer Verweis erstellt, der es AdAway erlaubt, die Hosts-Datei unter <code>/data</code> zu verändern, während es für das Betriebssystem so aussieht, als wäre sie unter <code>/system</code> vorhanden.)</li>
 <li>Starte dein Gerät neu und setze die <cite>Ziel-Hostsdatei</cite> auf <cite>/data/hosts</cite> in den Einstellungen von AdAway.</li>
 <li>AdAway sollte nun funktionieren.</li>

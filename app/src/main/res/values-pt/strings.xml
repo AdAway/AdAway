@@ -13,6 +13,7 @@
   <string name="button_help">Ajuda</string>
   <!--Home-->
   <string name="header_help">Bem-vindo(a)!</string>
+  <string name="text_help">O AdAway é um projeto de software gratuito e de código aberto que bloqueia publicidade. Procura endereços de redes de anúncios para os bloquear no seu dispositivo.\nQuer saber mais? Consulte a ajuda abaixo!</string>
   <string name="button_show_help">Mostrar mais ajuda</string>
   <string name="icon_update_status">Estado da atualização</string>
   <string name="text_update">Todos os ficheiros hosts das fontes definidas foram transferidos, unidos com as suas próprias listas e instalados como um único ficheiro hosts no seu sistema.</string>
@@ -45,8 +46,11 @@
   <string name="list_dialog_ip">IP (IPv4 ou IPv6):</string>
   <string name="import_dialog">A importar…</string>
   <string name="export_dialog">A exportar…</string>
+  <string name="export_success">Exportadas todas as entradas para o cartão de memória num ficheiro chamado \'adaway-export\' no cartão SD.</string>
+  <string name="export_failed">Falha ao exportar a sua lista para o cartão SD.</string>
   <!--Hosts content-->
   <string name="hosts_header">O ficheiro hosts</string>
+  <string name="hosts_description">O ficheiro hosts é um ficheiro do sistema que mapeia os nomes de hospedeiro para endereços de IP. É um ficheiro de texto simples cuja configuração é gerida pela AdAway. Aqui tem as suas poucas primeiras linhas:</string>
   <string name="hosts_content">A carregar o conteúdo do ficheiro hosts…</string>
   <string name="hosts_open_button">Abrir o ficheiro hosts</string>
   <!--Status Notification-->
@@ -59,9 +63,12 @@
   <string name="status_no_connection_subtitle">Sem ligação à internet disponível</string>
   <string name="status_download_fail">Fontes indisponíveis</string>
   <string name="status_download_fail_subtitle_new">Impossível aceder às fontes de hosts!</string>
+  <string name="status_failure">Algo correu mal</string>
+  <string name="status_failure_subtitle">Verifique logcat para mais detalhes</string>
   <string name="status_enabled">Ativado</string>
   <string name="status_enabled_subtitle">Os ficheiros de hosts mais recentes estão ativos</string>
   <string name="status_disabled">Desativado</string>
+  <string name="status_disabled_subtitle">Instalado o ficheiro de hosts padrão.</string>
   <string name="notification_channel_update_name">Atualizações</string>
   <string name="notification_channel_update_description">Notificações de atualização de novos hospedeiros</string>
   <!--Apply and Revert Dialogs-->
@@ -75,7 +82,10 @@
   <string name="apply_remount_fail_title">Falha ao remontar</string>
   <string name="apply_copy_fail">Falha ao copiar o ficheiro de hosts!</string>
   <string name="apply_copy_fail_title">Falha ao copiar</string>
+  <string name="apply_success_subtitle">As fontes de hosts foram aplicadas</string>
   <string name="apply_success_title">Aplicado com sucesso</string>
+  <string name="apply_success_dialog">Aplicado com sucesso.\nPoderá ser necessário reiniciar o Android para as alterações surtirem efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão SD neste momento!)</string>
+  <string name="apply_symlink_successful">A ligação simbólica foi criada com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações surtem efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão SD neste momento!)</string>
   <string name="apply_symlink_successful_title">Ligação simbólica criada com sucesso</string>
   <string name="apply_symlink_fail">A ligação simbólica não pôde ser criada pelo Android.\nGeralmente, isto falha devido a uma \"funcionalidade\" chamada S-ON dos telemóveis HTC!\n\nUma solução é arrancar o telemóvel no modo de recuperação e criar a ligação simbólica lá com \"ln -s /data/data/hosts /system/etc/hosts\".\n\nSe isto não funcionar, pesquise na internet por S-OFF e o seu telemóvel.</string>
   <string name="apply_symlink_fail_title">Falha ao criar a ligação simbólica</string>
@@ -92,6 +102,7 @@
   <string name="apply_dialog_apply">A aplicar o ficheiro de hosts</string>
   <string name="apply_fail">Falha ao aplicar o ficheiro de hosts no sistema!\nExperimente alterar o ficheiro de hosts de destino nas preferências para /data/data/hosts.</string>
   <string name="apply_fail_title">Falha ao aplicar</string>
+  <string name="revert_successful">Reverteu o ficheiro de hosts predefinido.\nPoderá ser necessário reiniciar o Android para que as alterações surtem efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão SD neste momento!)</string>
   <string name="revert_successful_title">Revertido com sucesso</string>
   <string name="revert_problem">Falha ao reverter por motivos desconhecidos.</string>
   <string name="revert_problem_title">Falha ao reverter!</string>
@@ -99,7 +110,9 @@
   <string name="download_fail_title">Falha ao descarregar</string>
   <string name="no_private_file">Impossível criar ficheiro privado.</string>
   <string name="no_private_file_title">Falha ao criar ficheiro privado</string>
+  <string name="enable_systemless_successful">Ativou o modo \"systemless\".\nPoderá ser necessário reiniciar o Android para que as alterações surtemefeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão SD neste momento!)</string>
   <string name="enable_systemless_successful_title">Ativação bem-sucedida</string>
+  <string name="disable_systemless_successful">Desativou o modo \"systemless\".\nPoderá ser necessário reiniciar o Android para que as alterações surtam efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
   <string name="disable_systemless_successful_title">Desativação bem-sucedida</string>
   <!--Other Dialogs-->
   <string name="no_root_description">O binário su não foi encontrado ou não concedeu permissões de \"root\" ao AdAway.\n\nIsto pode acontecer quando o seu dispositivo não tem \"root\".\nPode encontrar informações sobre como fazer \"root\" ao seu dispositivo em wiki.lineageos.org ou noutros websites sobre Android.</string>
@@ -124,7 +137,9 @@
   <string name="help_tab_problems">Problemas</string>
   <!--Adware-->
   <string name="adware_header">Adware</string>
+  <string name="adware_description">Aqui pode encontrar os adware instalados, aplicações más que não podem ser bloqueadas pela AdAway. Estas aplicações usam, por exemplo, notificações da Airpush que aparecem mesmo quando a aplicação não está em execução ou até mesmo alteram o toque de chamada. A única contra-medida disponível é desinstalar essas aplicações clicando nos itens da lista.</string>
   <string name="adware_scanning">A pesquisar…</string>
+  <string name="adware_empty">Não foi encontrado o Adware!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Locais:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -184,6 +199,7 @@
     <item>Destino personalizado</item>
   </string-array>
   <string name="pref_update_check_summary">Procurar atualizações ao iniciar o AdAway</string>
+  <string name="pref_sdcard_problem">Esta funcionalidade não funcionará corretamente enquanto o AdAway estiver instalado no cartão SD!</string>
   <string name="pref_background">Serviços em segundo plano</string>
   <string name="pref_update_check_daily">Procurar atualizações diariamente</string>
   <string name="pref_update_check_daily_summary">Procurar atualizações diariamente em segundo plano com notificações</string>
@@ -218,6 +234,9 @@
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Apoie o desenvolvimento \u2764</string>
+  <string name="drawer_support_dialog_title">Apoie o desenvolvimento</string>
+  <string name="drawer_support_dialog_text">O AdAway é um programa livre e com código-fonte aberto desenvolvido e gerido apenas pela comunidade. Levou-me 2 anos como projeto de tempos livres para criar esta nova versão da app.\n\nSe gosta do programa e gostaria de ver mais atualizações, sinta-se livre para apoiar o projeto.</string>
+  <string name="drawer_support_dialog_button">Mostrar o meu apoio</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Pedidos de DNS</string>
   <string name="shortcut_your_lists">As suas listas</string>

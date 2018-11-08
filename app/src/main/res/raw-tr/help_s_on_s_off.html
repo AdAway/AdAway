@@ -15,10 +15,10 @@
 <p>Önkoşul: Bilgisayarınıza ADB shell ile çalışan Android SDK yüklemelisiniz. \n</p>
 <ol>
 <li>Güç düğmesine basarken <cite>ses kısma</cite> düğmesini basılı tutarak cihazınızdaki Önyükleme Menüsüne önyükleme yapın.</li>
-<li>Kurtarma (recovery) menüsünü seçmek için <i>ses kısma</i> tuşunu kullanın.</li>
-<li>Clockwork Kurtarma Modu'nda ses azaltma tuşuyla "partitions menu" satırına inin ve seçin</li>
+<li><cite>Kurtarma</cite> moduna geçmek için <cite>sesi kısma</cite> ve <cite>güç tuşuna</cite> basarak cihazınızı başlatın.</li>
+<li>Clockwork kurtarma modunda "bölümler menüsü" ne gidin.</li>
 <li><cite>mount /system</cite>, <cite>mount /sdcard</cite> ve <cite>mount /data</cite>seçin.</li>
-<li>Cihazınıza USB kablonuzu takın ve bilgisayarınızda komut satırını açın. Başlat&gt;Çalıştır&gt;CMD </li>
+<li>USB kablonuzu takın ve pc'nizde bir komut satırı açın.</li>
 <li>Adb kabuğunu girin ve <code>ln -s /data /hosts/system/etc/hosts</code> yazın (Bu, AdAway'in <code>/data</code>'da saklanan host dosyasını düzenlerken, İşletim Sistemi'nin dosyayı <code>/system</code>'da depolanmış gibi kullanmasına izin veren sembolik bir bağlantı oluşturur.)</li>
 <li>Cihazınızı yeniden başlatın ve AdAway'in tercihlerinde <cite>Hedef host dosyasını</cite> <cite>/data/hosts</cite> olarak ayarlayın.</li>
 <li>AdAway şimdi çalışmalı.</li>
