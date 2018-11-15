@@ -8,14 +8,14 @@ import android.support.annotation.StringRes;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.AppExecutors;
-import org.adaway.util.ApplyUtils;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 import org.adaway.model.hostsinstall.HostsInstallError;
 import org.adaway.model.hostsinstall.HostsInstallException;
 import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.model.hostsinstall.HostsInstallStatus;
+import org.adaway.util.AppExecutors;
+import org.adaway.util.ApplyUtils;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 import static org.adaway.model.hostsinstall.HostsInstallStatus.INSTALLED;
 import static org.adaway.model.hostsinstall.HostsInstallStatus.ORIGINAL;

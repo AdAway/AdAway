@@ -19,10 +19,10 @@ import android.widget.TextView;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.ui.help.HelpActivity;
 import org.adaway.model.hostsinstall.HostsInstallError;
-import org.adaway.util.WebServerUtils;
 import org.adaway.model.hostsinstall.HostsInstallStatus;
+import org.adaway.ui.help.HelpActivity;
+import org.adaway.util.WebServerUtils;
 
 import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
 

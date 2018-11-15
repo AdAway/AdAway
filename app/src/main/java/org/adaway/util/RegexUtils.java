@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -28,7 +28,7 @@ public class RegexUtils {
      * Allow hostnames like: localserver example.com example.host.org
      */
     private static final String HOSTNAME_LEVEL_REGEX = "[a-zA-Z]([a-zA-Z0-9\\-_]{0,61}[a-zA-Z0-9])?";
-    private static final String HOSTNAME_REGEX = HOSTNAME_LEVEL_REGEX +"(\\."+ HOSTNAME_LEVEL_REGEX +"){0,126}";
+    private static final String HOSTNAME_REGEX = HOSTNAME_LEVEL_REGEX + "(\\." + HOSTNAME_LEVEL_REGEX + "){0,126}";
     private static final Pattern HOSTNAME_PATTERN = Pattern.compile(HOSTNAME_REGEX);
 
     /*
@@ -181,7 +181,7 @@ public class RegexUtils {
      * "^example.*\\..*$", from http://www.rgagnon.com/javadetails/java-0515.html
      */
     public static String wildcardToRegex(String wildcard) {
-        StringBuffer s = new StringBuffer(wildcard.length());
+        StringBuilder s = new StringBuilder(wildcard.length());
         s.append('^');
         for (int i = 0, is = wildcard.length(); i < is; i++) {
             char c = wildcard.charAt(i);

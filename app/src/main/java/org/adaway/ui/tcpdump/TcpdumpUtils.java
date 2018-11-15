@@ -177,7 +177,7 @@ class TcpdumpUtils {
         // Truncate the file content
         try (FileOutputStream outputStream = new FileOutputStream(file, false)) {
             // Only truncate the file
-            outputStream.close();   // Useless but help lint
+            // Useless but help lint
         } catch (IOException exception) {
             Log.e(Constants.TAG, "Error while truncating the tcpdump file!", exception);
             // Return failed to clear the log file

@@ -6,12 +6,12 @@ import android.content.Intent;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.ui.help.HelpActivity;
 import org.adaway.model.hostsinstall.HostsInstallError;
-import org.adaway.util.Utils;
 import org.adaway.model.hostsinstall.HostsInstallException;
 import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.model.hostsinstall.HostsInstallStatus;
+import org.adaway.ui.help.HelpActivity;
+import org.adaway.util.Utils;
 
 /**
  * This class is an helper class to show hosts install error related dialogs.

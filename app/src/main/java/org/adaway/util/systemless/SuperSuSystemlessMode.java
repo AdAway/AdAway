@@ -61,7 +61,7 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
         Shell shell = null;
         try {
             // Start root shell with "mount master" feature (to apply 'publicly' the mount)
-            shell = Shell.startCustomShell(Utils.getSuPath()+" -mm");
+            shell = Shell.startCustomShell(Utils.getSuPath() + " -mm");
             Toolbox toolbox = new Toolbox(shell);
             // Ensure mounted hosts file exists
             if (!toolbox.fileExists(this.mode.hostsFileLocation)) {

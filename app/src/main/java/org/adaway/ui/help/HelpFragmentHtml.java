@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,8 +20,6 @@
 
 package org.adaway.ui.help;
 
-import org.sufficientlysecure.htmltextview.HtmlTextView;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,10 +29,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 
-public class HelpFragmentHtml extends Fragment {
-    private Activity mActivity;
+import org.sufficientlysecure.htmltextview.HtmlTextView;
 
-    private int htmlFile;
+public class HelpFragmentHtml extends Fragment {
 
     public static final String ARG_HTML_FILE = "htmlFile";
 
@@ -65,9 +62,9 @@ public class HelpFragmentHtml extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        htmlFile = getArguments().getInt(ARG_HTML_FILE);
+        int htmlFile = getArguments().getInt(ARG_HTML_FILE);
 
-        mActivity = getActivity();
+        Activity mActivity = getActivity();
 
         ScrollView scroller = new ScrollView(mActivity);
         HtmlTextView text = new HtmlTextView(mActivity);

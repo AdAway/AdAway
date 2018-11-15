@@ -30,7 +30,6 @@ import android.widget.EditText;
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
-import org.adaway.provider.ProviderHelper;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 

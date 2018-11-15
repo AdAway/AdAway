@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,11 +20,11 @@
 
 package org.adaway.helper;
 
-import org.adaway.R;
-import org.adaway.util.Constants;
-
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import org.adaway.R;
+import org.adaway.util.Constants;
 
 public class PreferenceHelper {
     public static boolean getDismissWelcome(Context context) {

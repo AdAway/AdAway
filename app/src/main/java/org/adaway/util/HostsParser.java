@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -159,7 +159,7 @@ public class HostsParser {
             whitelistPattern.add(Pattern.compile(regexItem));
         }
 
-        if(whitelistPattern.size()>0) {
+        if (whitelistPattern.size() > 0) {
             Log.d(Constants.TAG, "Starting whitelist regex");
             Matcher whitelistMatcher;
             String blacklistHostname;

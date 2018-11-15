@@ -5,10 +5,10 @@ import android.support.annotation.NonNull;
 
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 import org.adaway.model.hostsinstall.HostsInstallException;
 import org.adaway.model.hostsinstall.HostsInstallModel;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 import java.util.concurrent.TimeUnit;
 

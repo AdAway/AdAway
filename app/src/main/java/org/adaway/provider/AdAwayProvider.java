@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,16 +20,6 @@
 
 package org.adaway.provider;
 
-import java.util.Arrays;
-
-import org.adaway.provider.AdAwayContract.Blacklist;
-import org.adaway.provider.AdAwayContract.HostsSources;
-import org.adaway.provider.AdAwayContract.RedirectionList;
-import org.adaway.provider.AdAwayContract.Whitelist;
-import org.adaway.provider.AdAwayDatabase.Tables;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
@@ -42,6 +32,16 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import org.adaway.provider.AdAwayContract.Blacklist;
+import org.adaway.provider.AdAwayContract.HostsSources;
+import org.adaway.provider.AdAwayContract.RedirectionList;
+import org.adaway.provider.AdAwayContract.Whitelist;
+import org.adaway.provider.AdAwayDatabase.Tables;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
+
+import java.util.Arrays;
 
 public class AdAwayProvider extends ContentProvider {
     private static final UriMatcher sUriMatcher = buildUriMatcher();
