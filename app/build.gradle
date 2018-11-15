@@ -17,11 +17,12 @@ def keyStoreDefined = project.hasProperty('signingStoreLocation') &&
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
+
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 40011   // Read 4.xx.yy to match version name
-        versionName '4.0.11'
+        versionName "4.0.11"
         versionNameSuffix '-' + getGitSha1()
 
         vectorDrawables.useSupportLibrary = true
@@ -41,6 +42,7 @@ android {
      * signingKeyAlias=alias
      * signingKeyPassword=xxx
      */
+
     if (keyStoreDefined) {
         println "Found signature properties in gradle.properties. Build will be signed."
 
@@ -59,6 +61,7 @@ android {
     }
 
     compileOptions {
+        encoding = 'UTF-8'
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -70,11 +73,9 @@ android {
 }
 
 ext {
-    constraint_layout = '1.1.3'
     lifecycle = '1.1.1'
     room = '1.1.1'
     support = '28.0.0'
-    work = '1.0.0-alpha10'
 }
 
 dependencies {
@@ -87,20 +88,20 @@ dependencies {
     implementation "android.arch.lifecycle:common-java8:${lifecycle}"
     implementation "android.arch.persistence.room:runtime:${room}"
     annotationProcessor "android.arch.persistence.room:compiler:${room}"
-    implementation "android.arch.work:work-runtime:${work}"
+    implementation 'android.arch.work:work-runtime:1.0.0-alpha10'
 
     // Support libraries
+    implementation "com.android.support:design:${support}"
     implementation "com.android.support:appcompat-v7:${support}"
     implementation "com.android.support:cardview-v7:${support}"
-    implementation "com.android.support.constraint:constraint-layout:${constraint_layout}"
-    implementation "com.android.support:design:${support}"
     implementation "com.android.support:preference-v7:${support}"
     implementation "com.android.support:recyclerview-v7:${support}"
     implementation "com.android.support:support-fragment:${support}"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
     // Miscellaneous
     implementation 'com.annimon:stream:1.2.1'
     implementation 'net.sf.trove4j:trove4j:3.0.3'
-    implementation 'org.sufficientlysecure:html-textview:3.4'
+    implementation 'org.sufficientlysecure:html-textview:3.6'
     testImplementation 'junit:junit:4.12'
 }
