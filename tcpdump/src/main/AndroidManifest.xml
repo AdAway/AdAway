@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.adaway.libpcap" />
+<manifest package="org.adaway.libpcap" />
