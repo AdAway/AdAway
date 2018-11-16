@@ -1,12 +1,6 @@
 apply plugin: 'com.android.library'
 
 android {
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
-
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
@@ -17,10 +11,22 @@ android {
         versionName "1.0"
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     externalNativeBuild {
         ndkBuild {
             path 'jni/Android.mk'
         }
+    }
+
+    compileOptions {
+        encoding = 'UTF-8'
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 

@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.adaway.webserver" />
+<manifest package="org.adaway.webserver" />
