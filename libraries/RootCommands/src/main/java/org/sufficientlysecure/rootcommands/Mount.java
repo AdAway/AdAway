@@ -32,7 +32,7 @@ public class Mount {
         mDevice = device;
         mMountPoint = path;
         mType = type;
-        mFlags = new HashSet<String>(Arrays.asList(flagsStr.split(",")));
+        mFlags = new HashSet<>(Arrays.asList(flagsStr.split(",")));
     }
 
     public File getDevice() {

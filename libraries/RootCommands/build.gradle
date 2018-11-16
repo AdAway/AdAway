@@ -7,13 +7,18 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
+        versionCode 3
+        versionName "1.2"
     }
 
     // Do not abort build if lint finds errors
     lintOptions {
         abortOnError false
     }
-}
 
-dependencies {
+    compileOptions {
+        encoding = 'UTF-8'
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }

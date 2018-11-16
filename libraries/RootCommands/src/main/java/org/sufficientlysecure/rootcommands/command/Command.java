@@ -17,14 +17,14 @@
 
 package org.sufficientlysecure.rootcommands.command;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.concurrent.TimeoutException;
-
 import org.sufficientlysecure.rootcommands.RootCommands;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.util.BrokenBusyboxException;
 import org.sufficientlysecure.rootcommands.util.Log;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.concurrent.TimeoutException;
 
 public abstract class Command {
     final String command[];
@@ -46,7 +46,7 @@ public abstract class Command {
 
     /**
      * This is called from Shell after adding it
-     * 
+     *
      * @param shell
      * @param id
      */
@@ -57,14 +57,14 @@ public abstract class Command {
 
     /**
      * Gets command string executed on the shell
-     * 
+     *
      * @return
      */
     public String getCommand() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < command.length; i++) {
+        for (String aCommand : command) {
             // redirect stderr to stdout
-            sb.append(command[i] + " 2>&1");
+            sb.append(aCommand).append(" 2>&1");
             sb.append('\n');
         }
         Log.d(RootCommands.TAG, "Sending command(s): " + sb.toString());
@@ -81,7 +81,7 @@ public abstract class Command {
         /*
          * Try to detect broken toolbox/busybox binaries (see
          * https://code.google.com/p/busybox-android/issues/detail?id=1)
-         * 
+         *
          * It is giving "Value too large for defined data type" on certain file operations (e.g. ls
          * and chown) in certain directories (e.g. /data/data)
          */
@@ -119,7 +119,7 @@ public abstract class Command {
 
     /**
      * Close the shell
-     * 
+     *
      * @param reason
      */
     public void terminate(String reason) {

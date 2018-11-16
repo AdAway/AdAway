@@ -41,8 +41,8 @@ public class Shell implements Closeable {
 
     /**
      * Start root shell
-     * 
-     * @param customEnv Custom environment variables to pass through to the shell
+     *
+     * @param customEnv     Custom environment variables to pass through to the shell
      * @param baseDirectory Base directory for the shell
      * @return A Shell that can then be used to run commands as root
      * @throws IOException
@@ -65,8 +65,8 @@ public class Shell implements Closeable {
 
     /**
      * Start default sh shell
-     * 
-     * @param customEnv Custom environment variables to pass through to the shell
+     *
+     * @param customEnv     Custom environment variables to pass through to the shell
      * @param baseDirectory Base directory for the shell
      * @return A Shell that can then be used to run commands
      * @throws IOException
@@ -79,7 +79,7 @@ public class Shell implements Closeable {
 
     /**
      * Start default sh shell without custom environment and base directory
-     * 
+     *
      * @return
      * @throws IOException
      */
@@ -89,7 +89,7 @@ public class Shell implements Closeable {
 
     /**
      * Start custom shell defined by shellPath
-     * 
+     *
      * @param shellPath
      * @param customEnv
      * @param baseDirectory
@@ -97,7 +97,7 @@ public class Shell implements Closeable {
      * @throws IOException
      */
     public static Shell startCustomShell(String shellPath, ArrayList<String> customEnv,
-            String baseDirectory) throws IOException {
+                                         String baseDirectory) throws IOException {
         Log.d(RootCommands.TAG, "Starting Custom Shell!");
 
         return new Shell(shellPath, customEnv, baseDirectory);
@@ -105,7 +105,7 @@ public class Shell implements Closeable {
 
     /**
      * Start custom shell without custom environment and base directory
-     * 
+     *
      * @param shellPath
      * @return
      * @throws IOException
@@ -132,7 +132,7 @@ public class Shell implements Closeable {
             String line = stdOutErr.readLine();
             if (line == null)
                 throw new RootAccessDeniedException(
-                        "stdout line is null! Access was denied or this executeable is not a shell!");
+                        "stdout line is null! Access was denied or this executable is not a shell!");
             if ("".equals(line))
                 continue;
             if ("Started".equals(line))
@@ -142,22 +142,15 @@ public class Shell implements Closeable {
             throw new IOException("Unable to start shell, unexpected output \"" + line + "\"");
         }
 
-        new Thread(inputRunnable, "Shell Input").start();
-        new Thread(outputRunnable, "Shell Output").start();
-    }
-
-    private Runnable inputRunnable = new Runnable() {
-        public void run() {
+        Runnable inputRunnable = () -> {
             try {
                 writeCommands();
             } catch (IOException e) {
                 Log.e(RootCommands.TAG, "IO Exception", e);
             }
-        }
-    };
-
-    private Runnable outputRunnable = new Runnable() {
-        public void run() {
+        };
+        new Thread(inputRunnable, "Shell Input").start();
+        Runnable outputRunnable = () -> {
             try {
                 readOutput();
             } catch (IOException e) {
@@ -165,8 +158,9 @@ public class Shell implements Closeable {
             } catch (InterruptedException e) {
                 Log.e(RootCommands.TAG, "InterruptedException", e);
             }
-        }
-    };
+        };
+        new Thread(outputRunnable, "Shell Output").start();
+    }
 
     /**
      * Destroy shell process considering that the process could already be terminated
@@ -191,7 +185,7 @@ public class Shell implements Closeable {
     /**
      * Writes queued commands one after another into the opened shell. After an execution a token is
      * written to separate command output on read
-     * 
+     *
      * @throws IOException
      */
     private void writeCommands() throws IOException {
@@ -230,7 +224,7 @@ public class Shell implements Closeable {
 
     /**
      * Reads output line by line, separated by token written after every command
-     * 
+     *
      * @throws IOException
      * @throws InterruptedException
      */
@@ -295,7 +289,7 @@ public class Shell implements Closeable {
 
     /**
      * Add command to shell queue
-     * 
+     *
      * @param command
      * @return
      * @throws IOException
@@ -315,7 +309,7 @@ public class Shell implements Closeable {
 
     /**
      * Close shell
-     * 
+     *
      * @throws IOException
      */
     public void close() throws IOException {
@@ -327,7 +321,7 @@ public class Shell implements Closeable {
 
     /**
      * Returns number of queued commands
-     * 
+     *
      * @return
      */
     public int getCommandsSize() {

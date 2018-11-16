@@ -20,7 +20,6 @@ import org.sufficientlysecure.rootcommands.RootCommands;
 
 /**
  * Wraps Android Logging to enable or disable debug output using Constants
- * 
  */
 public final class Log {
 

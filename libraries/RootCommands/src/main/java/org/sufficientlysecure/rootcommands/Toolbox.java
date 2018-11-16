@@ -17,6 +17,15 @@
 
 package org.sufficientlysecure.rootcommands;
 
+import android.os.StatFs;
+import android.os.SystemClock;
+
+import org.sufficientlysecure.rootcommands.command.Command;
+import org.sufficientlysecure.rootcommands.command.ExecutableCommand;
+import org.sufficientlysecure.rootcommands.command.SimpleCommand;
+import org.sufficientlysecure.rootcommands.util.BrokenBusyboxException;
+import org.sufficientlysecure.rootcommands.util.Log;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,23 +34,13 @@ import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.sufficientlysecure.rootcommands.command.ExecutableCommand;
-import org.sufficientlysecure.rootcommands.command.Command;
-import org.sufficientlysecure.rootcommands.command.SimpleCommand;
-import org.sufficientlysecure.rootcommands.util.BrokenBusyboxException;
-import org.sufficientlysecure.rootcommands.util.Log;
-
-import android.os.StatFs;
-import android.os.SystemClock;
-
 /**
  * All methods in this class are working with Androids toolbox. Toolbox is similar to busybox, but
  * normally shipped on every Android OS. You can find toolbox commands on
  * https://github.com/CyanogenMod/android_system_core/tree/ics/toolbox
- * 
+ * <p>
  * This means that these commands are designed to work on every Android OS, with a _working_ toolbox
  * binary on it. They don't require busybox!
- * 
  */
 public class Toolbox {
     private Shell shell;
@@ -49,9 +48,8 @@ public class Toolbox {
     /**
      * All methods in this class are working with Androids toolbox. Toolbox is similar to busybox,
      * but normally shipped on every Android OS.
-     * 
-     * @param shell
-     *            where to execute commands on
+     *
+     * @param shell where to execute commands on
      */
     public Toolbox(Shell shell) {
         super();
@@ -60,9 +58,9 @@ public class Toolbox {
 
     /**
      * Checks if user accepted root access
-     * 
+     * <p>
      * (commands: id)
-     * 
+     *
      * @return true if user has given root access
      * @throws IOException
      * @throws TimeoutException
@@ -91,7 +89,7 @@ public class Toolbox {
 
             /*
              * regex to get pid out of ps line, example:
-             * 
+             *
              * <pre>
              *  root    24736    1   12140  584   ffffffff 40010d14 S /data/data/org.adaway/files/blank_webserver
              * ^\\S \\s ([0-9]+)                          .*                                      processName    $
@@ -145,11 +143,10 @@ public class Toolbox {
 
     /**
      * This method can be used to kill a running process
-     * 
+     * <p>
      * (commands: ps, kill)
-     * 
-     * @param processName
-     *            name of process to kill
+     *
+     * @param processName name of process to kill
      * @return <code>true</code> if process was found and killed successfully
      * @throws TimeoutException
      * @throws BrokenBusyboxException
@@ -177,9 +174,9 @@ public class Toolbox {
 
     /**
      * Kill a running executable
-     * 
+     * <p>
      * See README for more information how to use your own executables!
-     * 
+     *
      * @param executableName
      * @return
      * @throws BrokenBusyboxException
@@ -188,19 +185,19 @@ public class Toolbox {
      */
     public boolean killAllExecutable(String executableName) throws
             TimeoutException, IOException {
-        return killAll(ExecutableCommand.EXECUTABLE_PREFIX + executableName + ExecutableCommand.EXECUTABLE_SUFFIX);
+        return killAll(ExecutableCommand.EXECUTABLE_PREFIX
+                + executableName
+                + ExecutableCommand.EXECUTABLE_SUFFIX);
     }
 
     /**
      * This method can be used to to check if a process is running
-     * 
-     * @param processName
-     *            name of process to check
+     *
+     * @param processName name of process to check
      * @return <code>true</code> if process was found
      * @throws IOException
      * @throws BrokenBusyboxException
-     * @throws TimeoutException
-     *             (Could not determine if the process is running)
+     * @throws TimeoutException       (Could not determine if the process is running)
      */
     public boolean isProcessRunning(String processName) throws
             TimeoutException, IOException {
@@ -213,7 +210,7 @@ public class Toolbox {
 
     /**
      * Checks if binary is running
-     * 
+     *
      * @param binaryName
      * @return
      * @throws BrokenBusyboxException
@@ -256,14 +253,14 @@ public class Toolbox {
 
             /*
              * regex to get pid out of ps line, example:
-             * 
+             *
              * <pre>
              * with busybox:
              *     lrwxrwxrwx     1 root root            15 Aug 13 12:14 dev/stdin -> /proc/self/fd/0
-             *     
+             *
              * with toolbox:
              *     lrwxrwxrwx root root            15 Aug 13 12:14 stdin -> /proc/self/fd/0
-             * 
+             *
              * Regex:
              * ^.*?(\\S{10})                     .*                                                  $
              * </pre>
@@ -273,7 +270,7 @@ public class Toolbox {
 
             /*
              * regex to get symlink
-             * 
+             *
              * <pre>
              *     ->           /proc/self/fd/0
              * ^.*?\\-\\> \\s+  (.*)           $
@@ -286,7 +283,7 @@ public class Toolbox {
         /**
          * Converts permission string from ls command to numerical value. Example: -rwxrwxrwx gets
          * to 777
-         * 
+         *
          * @param permissions
          * @return
          */
@@ -300,7 +297,7 @@ public class Toolbox {
 
         /**
          * Calculates permission for one group
-         * 
+         *
          * @param permission
          * @return value of permission string
          */
@@ -361,13 +358,11 @@ public class Toolbox {
     }
 
     /**
-     * @param file
-     *            String that represent the file, including the full path to the file and its name.
+     * @param file String that represent the file, including the full path to the file and its name.
      * @return File permissions as String, for example: 777, returns null on error
      * @throws IOException
      * @throws TimeoutException
      * @throws BrokenBusyboxException
-     * 
      */
     public String getFilePermissions(String file) throws TimeoutException,
             IOException {
@@ -389,11 +384,9 @@ public class Toolbox {
 
     /**
      * Sets permission of file
-     * 
-     * @param file
-     *            absolute path to file
-     * @param permissions
-     *            String like 777
+     *
+     * @param file        absolute path to file
+     * @param permissions String like 777
      * @return true if command worked
      * @throws BrokenBusyboxException
      * @throws TimeoutException
@@ -411,12 +404,10 @@ public class Toolbox {
 
     /**
      * This will return a String that represent the symlink for a specified file.
-     * 
-     * @param file
-     *            The path to the file to get the Symlink for. (must have absolute path)
-     * 
+     *
+     * @param file The path to the file to get the Symlink for. (must have absolute path)
      * @return A String that represent the symlink for a specified file or null if no symlink
-     *         exists.
+     * exists.
      * @throws IOException
      * @throws TimeoutException
      * @throws BrokenBusyboxException
@@ -434,23 +425,19 @@ public class Toolbox {
     /**
      * Copys a file to a destination. Because cp is not available on all android devices, we use dd
      * or cat.
-     * 
-     * @param source
-     *            example: /data/data/org.adaway/files/hosts
-     * @param destination
-     *            example: /system/etc/hosts
-     * @param remountAsRw
-     *            remounts the destination as read/write before writing to it
-     * @param preservePermissions
-     *            tries to copy file attributes from source to destination, if only cat is available
-     *            only permissions are preserved
+     *
+     * @param source              example: /data/data/org.adaway/files/hosts
+     * @param destination         example: /system/etc/hosts
+     * @param remountAsRw         remounts the destination as read/write before writing to it
+     * @param preservePermissions tries to copy file attributes from source to destination, if only cat is available
+     *                            only permissions are preserved
      * @return true if it was successfully copied
      * @throws BrokenBusyboxException
      * @throws IOException
      * @throws TimeoutException
      */
     public boolean copyFile(String source, String destination, boolean remountAsRw,
-            boolean preservePermissions) throws IOException,
+                            boolean preservePermissions) throws IOException,
             TimeoutException {
 
         /*
@@ -464,7 +451,7 @@ public class Toolbox {
 
         // remount destination as read/write before copying to it
         if (remountAsRw) {
-            if (!remount(source,"RW")) {
+            if (!remount(source, "RW")) {
                 Log.d(RootCommands.TAG,
                         "Remounting failed! There is probably no need to remount this partition!");
             }
@@ -501,7 +488,7 @@ public class Toolbox {
 
         // remount destination back to read only
         if (remountAsRw) {
-            if (!remount(source,"RO")) {
+            if (!remount(source, "RO")) {
                 Log.d(RootCommands.TAG,
                         "Remounting failed! There is probably no need to remount this partition!");
             }
@@ -518,7 +505,7 @@ public class Toolbox {
     /**
      * Shutdown or reboot device. Possible actions are REBOOT_HOTREBOOT, REBOOT_REBOOT,
      * REBOOT_SHUTDOWN, REBOOT_RECOVERY
-     * 
+     *
      * @param action
      * @throws IOException
      * @throws TimeoutException
@@ -531,18 +518,18 @@ public class Toolbox {
         } else {
             String command;
             switch (action) {
-            case REBOOT_REBOOT:
-                command = "reboot";
-                break;
-            case REBOOT_SHUTDOWN:
-                command = "reboot -p";
-                break;
-            case REBOOT_RECOVERY:
-                command = "reboot recovery";
-                break;
-            default:
-                command = "reboot";
-                break;
+                case REBOOT_REBOOT:
+                    command = "reboot";
+                    break;
+                case REBOOT_SHUTDOWN:
+                    command = "reboot -p";
+                    break;
+                case REBOOT_RECOVERY:
+                    command = "reboot recovery";
+                    break;
+                default:
+                    command = "reboot";
+                    break;
             }
 
             SimpleCommand rebootCommand = new SimpleCommand(command);
@@ -585,15 +572,12 @@ public class Toolbox {
 
     /**
      * Use this to check whether or not a file exists on the filesystem.
-     * 
-     * @param file
-     *            String that represent the file, including the full path to the file and its name.
-     * 
+     *
+     * @param file String that represent the file, including the full path to the file and its name.
      * @return a boolean that will indicate whether or not the file exists.
      * @throws IOException
      * @throws TimeoutException
      * @throws BrokenBusyboxException
-     * 
      */
     public boolean fileExists(String file) throws TimeoutException,
             IOException {
@@ -609,7 +593,7 @@ public class Toolbox {
 
     /**
      * Execute user defined Java code while having temporary permissions on a file
-     * 
+     *
      * @param file
      * @param withPermissions
      * @throws BrokenBusyboxException
@@ -633,7 +617,7 @@ public class Toolbox {
     /**
      * Execute user defined Java code while having temporary write permissions on a file using chmod
      * 666
-     * 
+     *
      * @param file
      * @param withWritePermissions
      * @throws BrokenBusyboxException
@@ -647,7 +631,7 @@ public class Toolbox {
 
     /**
      * Sets system clock using /dev/alarm
-     * 
+     *
      * @param millis
      * @throws BrokenBusyboxException
      * @throws TimeoutException
@@ -666,7 +650,7 @@ public class Toolbox {
 
     /**
      * Adjust system clock by offset using /dev/alarm
-     * 
+     *
      * @param offset
      * @throws BrokenBusyboxException
      * @throws TimeoutException
@@ -686,16 +670,15 @@ public class Toolbox {
     /**
      * This will take a path, which can contain the file name as well, and attempt to remount the
      * underlying partition.
-     * 
+     * <p>
      * For example, passing in the following string:
      * "/system/bin/some/directory/that/really/would/never/exist" will result in /system ultimately
      * being remounted. However, keep in mind that the longer the path you supply, the more work
      * this has to do, and the slower it will run.
      *
-     * @param mountType
-     *            mount type: pass in RO (Read only) or RW (Read Write)
+     * @param mountType mount type: pass in RO (Read only) or RW (Read Write)
      * @return a <code>boolean</code> which indicates whether or not the partition has been
-     *         remounted as specified.
+     * remounted as specified.
      */
     public boolean remount(String path, String mountType) {
         // Received a request, get an instance of Remounter
@@ -706,12 +689,9 @@ public class Toolbox {
 
     /**
      * Check if there is enough space on partition where target is located
-     * 
-     * @param size
-     *            size of file to put on partition
-     * @param target
-     *            path where to put the file
-     * 
+     *
+     * @param size   size of file to put on partition
+     * @param target path where to put the file
      * @return true if it will fit on partition of target, false if it will not fit.
      */
     public boolean hasEnoughSpaceOnPartition(String target, long size) {
@@ -737,7 +717,7 @@ public class Toolbox {
                 return false;
             }
         } catch (Exception e) {
-            // if new StatFs(directory) fails catch IllegalArgumentException and just return true as
+            // if new StatFs(directory) fails, catch IllegalArgumentException and just return true as
             // workaround
             Log.e(RootCommands.TAG, "Problem while getting available space on partition!", e);
             return true;
@@ -746,7 +726,7 @@ public class Toolbox {
 
     /**
      * TODO: Not tested!
-     * 
+     *
      * @param toggle
      * @throws IOException
      * @throws TimeoutException

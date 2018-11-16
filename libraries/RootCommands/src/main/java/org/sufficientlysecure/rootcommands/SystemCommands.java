@@ -36,7 +36,7 @@ public class SystemCommands {
 
     /**
      * Get GPS status
-     * 
+     *
      * @return
      */
     public boolean getGPS() {
@@ -46,7 +46,7 @@ public class SystemCommands {
 
     /**
      * Enable/Disable GPS
-     * 
+     *
      * @param value
      */
     @TargetApi(8)
@@ -72,51 +72,55 @@ public class SystemCommands {
     /**
      * Reboot the device immediately, passing 'reason' (may be null) to the underlying __reboot
      * system call. Should not return.
-     * 
+     * <p>
      * Taken from com.android.server.PowerManagerService.reboot
      */
-    // public void reboot(String reason) {
-    //
-    // // final String finalReason = reason;
-    // Runnable runnable = new Runnable() {
-    // public void run() {
-    // synchronized (this) {
-    // // ShutdownThread.reboot(mContext, finalReason, false);
-    // try {
-    // Class<?> clazz = Class.forName("com.android.internal.app.ShutdownThread");
-    //
-    // // if (mReboot) {
-    // Method method = clazz.getMethod("reboot", Context.class, String.class,
-    // Boolean.TYPE);
-    // method.invoke(null, context, null, false);
-    //
-    // // if (mReboot) {
-    // // Method method = clazz.getMethod("reboot", Context.class, String.class,
-    // // Boolean.TYPE);
-    // // method.invoke(null, mContext, mReason, mConfirm);
-    // // } else {
-    // // Method method = clazz.getMethod("shutdown", Context.class, Boolean.TYPE);
-    // // method.invoke(null, mContext, mConfirm);
-    // // }
-    // } catch (Exception e) {
-    // e.printStackTrace();
-    // }
-    // }
-    //
-    // }
-    // };
-    // // ShutdownThread must run on a looper capable of displaying the UI.
-    // mHandler.post(runnable);
-    //
-    // // PowerManager.reboot() is documented not to return so just wait for the inevitable.
-    // // synchronized (runnable) {
-    // // while (true) {
-    // // try {
-    // // runnable.wait();
-    // // } catch (InterruptedException e) {
-    // // }
-    // // }
-    // // }
-    // }
+/*
+    public void reboot(String reason) {
 
-}
+        final String finalReason = reason;
+        Runnable runnable = new Runnable() {
+            public void run() {
+                synchronized (this) {
+                    ShutdownThread.reboot(mContext, finalReason, false);
+                    try {
+                        Class<?> clazz = Class.forName("com.android.internal.app.ShutdownThread");
+
+                        if (mReboot) {
+                            Method method = clazz.getMethod("reboot", Context.class, String.class,
+                                    Boolean.TYPE);
+                            method.invoke(null, context, null, false);
+
+                            if (mReboot) {
+                                Method method = clazz.getMethod("reboot", Context.class, String.class,
+                                        Boolean.TYPE);
+                                method.invoke(null, mContext, mReason, mConfirm);
+                            } else {
+                                Method method = clazz.getMethod("shutdown", Context.class, Boolean.TYPE);
+                                method.invoke(null, mContext, mConfirm);
+                            }
+                        } catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+            }
+
+            // ShutdownThread must run on a looper capable of displaying the UI.
+    mHandler.post(runnable)
+
+            // PowerManager.reboot() is documented not to return so just wait for the inevitable.
+            synchronized (runnable)
+
+            {
+                while (true) {
+                    try {
+                        runnable.wait();
+                    } catch (InterruptedException e) {
+                    }
+                }
+            }
+        }
+*/
+    }

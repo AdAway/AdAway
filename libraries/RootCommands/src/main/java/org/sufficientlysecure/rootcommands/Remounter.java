@@ -45,12 +45,10 @@ class Remounter {
      * being remounted. However, keep in mind that the longer the path you supply, the more work
      * this has to do, and the slower it will run.
      *
-     * @param file
-     *            file path
-     * @param mountType
-     *            mount type: pass in RO (Read only) or RW (Read Write)
+     * @param file      file path
+     * @param mountType mount type: pass in RO (Read only) or RW (Read Write)
      * @return a <code>boolean</code> which indicates whether or not the partition has been
-     *         remounted as specified.
+     * remounted as specified.
      */
     protected boolean remount(String file, String mountType) {
 
@@ -104,7 +102,7 @@ class Remounter {
                         "/system/bin/toolbox mount -o remount," + mountType.toLowerCase(Locale.US) + " "
                                 + mountPoint.getDevice().getAbsolutePath() + " "
                                 + mountPoint.getMountPoint().getAbsolutePath(),
-                        "toybox mount -o "+mountType.toLowerCase(Locale.US)+",remount" + " "
+                        "toybox mount -o " + mountType.toLowerCase(Locale.US) + ",remount" + " "
                                 + mountPoint.getDevice().getAbsolutePath() + " "
                                 + mountPoint.getMountPoint().getAbsolutePath());
 
@@ -156,8 +154,7 @@ class Remounter {
      * These will provide you with any information you need to work with the mount points.
      *
      * @return <code>ArrayList<Mount></code> an ArrayList of the class Mount.
-     * @throws Exception
-     *             if we cannot return the mount points.
+     * @throws Exception if we cannot return the mount points.
      */
     protected static ArrayList<Mount> getMounts() throws Exception {
         Shell shell = Shell.startRootShell();
@@ -165,11 +162,14 @@ class Remounter {
         shell.add(command).waitForFinish();
         return command.mounts;
     }
+
     private static class FindMountCommand extends Command {
         ArrayList<Mount> mounts = new ArrayList<>();
+
         FindMountCommand() {
             super("cat /proc/mounts");
         }
+
         @Override
         public void output(int id, String line) {
             String[] fields = line.split(" ");
