@@ -46,9 +46,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:paddingBottom="16dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
+                    android:paddingBottom="16dp"
                     android:text="@string/hosts_content"
                     android:textAppearance="@android:style/TextAppearance.Small"
                     android:textSize="12sp" />
@@ -68,7 +68,7 @@
                     <Button
                         android:id="@+id/hosts_open_file"
                         style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:padding="16dp"

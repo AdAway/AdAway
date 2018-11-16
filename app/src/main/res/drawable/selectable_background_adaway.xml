@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- File created by the Android Action Bar Style Generator
+<?xml version="1.0" encoding="utf-8"?><!-- File created by the Android Action Bar Style Generator
 
      Copyright (C) 2012 readyState Software Ltd
 
@@ -16,9 +15,8 @@
      limitations under the License.
 -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:exitFadeDuration="@android:integer/config_mediumAnimTime" >
-    <item android:state_pressed="false" android:state_focused="true" android:drawable="@drawable/list_focused_adaway" />
-    <item android:state_pressed="true" android:drawable="@drawable/pressed_background_adaway" />
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="@android:integer/config_mediumAnimTime">
+    <item android:drawable="@drawable/list_focused_adaway" android:state_focused="true" android:state_pressed="false" />
+    <item android:drawable="@drawable/pressed_background_adaway" android:state_pressed="true" />
     <item android:drawable="@android:color/transparent" />
 </selector>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+
     <style name="Theme.AdAway.Dark" parent="Theme.AppCompat">
         <item name="actionBarItemBackground">@drawable/selectable_background_adaway</item>
         <item name="android:selectableItemBackground">@drawable/selectable_background_adaway</item>
@@ -10,6 +11,7 @@
         <item name="colorAccent">@color/accent</item>
         <item name="preferenceTheme">@style/ThemeOverlay.AppCompat.Dark</item>
     </style>
+
     <style name="Theme.AdAway.Light" parent="Theme.AppCompat.Light">
         <item name="actionBarItemBackground">@drawable/selectable_background_adaway</item>
         <item name="android:selectableItemBackground">@drawable/selectable_background_adaway</item>

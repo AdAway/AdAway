@@ -1,73 +1,73 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
-  <!--Buttons-->
-  <string name="button_exit">Çıxış</string>
-  <string name="button_close">Bağla</string>
-  <string name="button_yes">Bəli</string>
-  <string name="button_no">Xeyr</string>
-  <string name="button_add">Əlavə Et</string>
-  <string name="button_cancel">Ləğv Et</string>
-  <string name="button_save">Yadda saxla</string>
-  <string name="button_webserver_toggle_text">Bloklanmış host adlarını cavablamaq üçün yerli vebserveri dayandır ya da başlat.</string>
-  <string name="button_help">Kömək</string>
-  <!--Home-->
-  <string name="text_update">Bütün mənbə faylları yüklənmişdir, şəxsi siyahın ilə birləşdirildi və sistemindəki hər bir host faylı kimi yükləndi.</string>
-  <!--Checkbox List-->
-  <string name="checkbox_list_context_delete">Sil</string>
-  <string name="checkbox_list_context_title">Girişi Redaktə Et</string>
-  <string name="checkbox_list_context_edit">Redaktə Et</string>
-  <!--Your lists-->
-  <string name="lists_tab_whitelist">Ağ Siyahı</string>
-  <string name="lists_tab_blacklist">Qara siyahı</string>
-  <string name="list_dialog_hostname">HostAdı:</string>
-  <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
-  <string name="import_dialog">Daxil edilir...</string>
-  <string name="export_dialog">Xaric edilir..</string>
-  <!--Hosts content-->
-  <!--Status Notification-->
-  <string name="status_checking">Güncəlləmə axtarılır...</string>
-  <string name="status_reverting">Geri alınır..</string>
-  <string name="status_reverting_subtitle">Standart host faylı yaradılır</string>
-  <string name="status_update_available">Güncəlləmə mövcuddur</string>
-  <string name="status_update_available_subtitle">Yeni hosts faylları mövcuddur</string>
-  <string name="status_no_connection">İnternet bağlantısı yoxdur</string>
-  <string name="status_no_connection_subtitle">İnternet bağlantısı mövcud deyil</string>
-  <string name="status_download_fail">Əlçatmaz resurslar</string>
-  <string name="status_download_fail_subtitle_new">Heçbir hosts resursları əlçatan deyil! </string>
-  <string name="status_enabled">Aktivdir</string>
-  <string name="status_enabled_subtitle">Ən yeni hosts faylları aktiv edildi</string>
-  <string name="status_disabled">Qeyri-aktivdir</string>
-  <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing_title">Symlink tapılmır</string>
-  <string name="apply_not_enough_space_title">Yaddaşda kifayət qədər yer yoxdur</string>
-  <string name="apply_private_file_fail">Yüklənmiş fayl oxunmur</string>
-  <string name="apply_private_file_fail_title">Fərdi fayl xətası</string>
-  <string name="apply_success_title">Tətbiq uğurla başa çatdı</string>
-  <string name="download_fail_title">Yükləmə alınmadı</string>
-  <!--Other Dialogs-->
-  <string name="no_root_title">Root lu android tələb olunur</string>
-  <string name="reboot_never_reboot">Yenidən başlatma və bu sualı bir daha göstərmə! </string>
-  <string name="loading">Yüklənir...</string>
-  <!--Menu entries-->
-  <string name="menu_refresh">Yenilə</string>
-  <string name="menu_add">Əlavə Et</string>
-  <string name="menu_hosts_sources">Hosts resursları</string>
-  <string name="menu_help">Yardım</string>
-  <!--Help-->
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">FAQ</string>
-  <string name="help_tab_problems">Problemlər</string>
-  <!--Adware-->
-  <!--Hosts sources-->
-  <!--Other-->
-  <!--Tcpdump-->
-  <!--Preferences-->
-  <string name="pref_header_preferences">Tənzimləmələr</string>
-  <string name="pref_never_reboot">Yenidən başlatma dialoqunu gizlət</string>
-  <!--Drawer menu items-->
-  <!--Drawer menu labels-->
-  <!--Shortcuts-->
-  <string name="shortcut_preferences">Tənzimləmələr</string>
-  <!--Hosts source status-->
+    <string name="app_name">AdAway</string>
+    <!--Buttons-->
+    <string name="button_exit">Çıxış</string>
+    <string name="button_close">Bağla</string>
+    <string name="button_yes">Bəli</string>
+    <string name="button_no">Xeyr</string>
+    <string name="button_add">Əlavə Et</string>
+    <string name="button_cancel">Ləğv Et</string>
+    <string name="button_save">Yadda saxla</string>
+    <string name="button_webserver_toggle_text">Bloklanmış host adlarını cavablamaq üçün yerli vebserveri dayandır ya da başlat.</string>
+    <string name="button_help">Kömək</string>
+    <!--Home-->
+    <string name="text_update">Bütün mənbə faylları yüklənmişdir, şəxsi siyahın ilə birləşdirildi və sistemindəki hər bir host faylı kimi yükləndi.</string>
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_delete">Sil</string>
+    <string name="checkbox_list_context_title">Girişi Redaktə Et</string>
+    <string name="checkbox_list_context_edit">Redaktə Et</string>
+    <!--Your lists-->
+    <string name="lists_tab_whitelist">Ağ Siyahı</string>
+    <string name="lists_tab_blacklist">Qara siyahı</string>
+    <string name="list_dialog_hostname">HostAdı:</string>
+    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+    <string name="import_dialog">Daxil edilir…</string>
+    <string name="export_dialog">Xaric edilir…</string>
+    <!--Hosts content-->
+    <!--Status Notification-->
+    <string name="status_checking">Güncəlləmə axtarılır…</string>
+    <string name="status_reverting">Geri alınır…</string>
+    <string name="status_reverting_subtitle">Standart host faylı yaradılır</string>
+    <string name="status_update_available">Güncəlləmə mövcuddur</string>
+    <string name="status_update_available_subtitle">Yeni hosts faylları mövcuddur</string>
+    <string name="status_no_connection">İnternet bağlantısı yoxdur</string>
+    <string name="status_no_connection_subtitle">İnternet bağlantısı mövcud deyil</string>
+    <string name="status_download_fail">Əlçatmaz resurslar</string>
+    <string name="status_download_fail_subtitle_new">Heçbir hosts resursları əlçatan deyil! </string>
+    <string name="status_enabled">Aktivdir</string>
+    <string name="status_enabled_subtitle">Ən yeni hosts faylları aktiv edildi</string>
+    <string name="status_disabled">Qeyri-aktivdir</string>
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_title">Symlink tapılmır</string>
+    <string name="apply_not_enough_space_title">Yaddaşda kifayət qədər yer yoxdur</string>
+    <string name="apply_private_file_fail">Yüklənmiş fayl oxunmur</string>
+    <string name="apply_private_file_fail_title">Fərdi fayl xətası</string>
+    <string name="apply_success_title">Tətbiq uğurla başa çatdı</string>
+    <string name="download_fail_title">Yükləmə alınmadı</string>
+    <!--Other Dialogs-->
+    <string name="no_root_title">Root lu android tələb olunur</string>
+    <string name="reboot_never_reboot">Yenidən başlatma və bu sualı bir daha göstərmə! </string>
+    <string name="loading">Yüklənir…</string>
+    <!--Menu entries-->
+    <string name="menu_refresh">Yenilə</string>
+    <string name="menu_add">Əlavə Et</string>
+    <string name="menu_hosts_sources">Hosts resursları</string>
+    <string name="menu_help">Yardım</string>
+    <!--Help-->
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <string name="help_tab_faq">FAQ</string>
+    <string name="help_tab_problems">Problemlər</string>
+    <!--Adware-->
+    <!--Hosts sources-->
+    <!--Other-->
+    <!--Tcpdump-->
+    <!--Preferences-->
+    <string name="pref_header_preferences">Tənzimləmələr</string>
+    <string name="pref_never_reboot">Yenidən başlatma dialoqunu gizlət</string>
+    <!--Drawer menu items-->
+    <!--Drawer menu labels-->
+    <!--Shortcuts-->
+    <string name="shortcut_preferences">Tənzimləmələr</string>
+    <!--Hosts source status-->
 </resources>

@@ -1,98 +1,98 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
-  <!--Buttons-->
-  <string name="button_exit">ចាកចេញ</string>
-  <string name="button_close">បិទ</string>
-  <string name="button_yes">បាទ</string>
-  <string name="button_no">ទេ</string>
-  <string name="button_add">បន្ថែម</string>
-  <string name="button_cancel">បោះបង់</string>
-  <string name="button_save">រក្សាទុក</string>
-  <string name="button_help">ជំនួយ</string>
-  <!--Home-->
-  <string name="button_check_update_hosts">ពិនិត្យមើលភាពទាន់សម័យ</string>
-  <!--Checkbox List-->
-  <string name="checkbox_list_context_delete">លុបចេញ</string>
-  <string name="checkbox_list_context_edit">កែប្រែ</string>
-  <!--Your lists-->
-  <string name="lists_tab_whitelist">បញ្ជីស</string>
-  <string name="lists_tab_blacklist">បញ្ជីខ្មៅ</string>
-  <string name="import_dialog">កំពុងនាំចូល...</string>
-  <string name="export_dialog">កំពុងនាំចេញ...</string>
-  <!--Hosts content-->
-  <!--Status Notification-->
-  <string name="status_checking">កំពុងស្វែងរកជំនាន់ថ្មី...</string>
-  <string name="status_reverting">កំពុងធ្វើឲ្យដូចដើម...</string>
-  <string name="status_update_available">រកឃើញមានជំនាន់ថ្មី</string>
-  <string name="status_no_connection">ពុំមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
-  <string name="status_no_connection_subtitle">ពុំមានឃើញមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
-  <string name="status_download_fail_subtitle_new">គ្មានប្រភពឯកសារម៉ាស៊ីនណាអាចទាក់ទងបាន</string>
-  <string name="status_enabled">ត្រូវបានបញ្ចូល</string>
-  <string name="status_disabled">ត្រូវបានបណ្តាច់</string>
-  <!--Apply and Revert Dialogs-->
-  <string name="apply_not_enough_space_title">ពុំមានប្រលោះទំនេរគ្រប់គ្រាន់</string>
-  <string name="apply_copy_fail_title">ចម្លងបរាជ័យ</string>
-  <string name="apply_success_title">ស្នើរសុំជោគជ័យ</string>
-  <string name="apply_help">សូមអាន \"ជំនួយ\" សម្រាប់ព័តមានបន្ថែម</string>
-  <string name="apply_apn_proxy_title">បានកំណត់ APN ប្រូកស៊ី!</string>
-  <string name="no_connection">ការភ្ជាប់អ៊ិនធឺណែតគឺមិនដំនើរការ</string>
-  <string name="no_connection_title">គ្មានការតភ្ជាប់</string>
-  <string name="download_dialog">កំពុងទាញយក</string>
-  <string name="apply_dialog">កំពុងអនុវត្ត</string>
-  <string name="apply_dialog_lists">កំពុងអនុវត្តបញ្ជីខ្មៅ និង បញ្ជីស</string>
-  <string name="apply_dialog_hosts">កំពុងបង្កើតឯកសារ</string>
-  <string name="apply_dialog_apply">កំពុងអនុវត្តឯកសារ</string>
-  <string name="apply_fail_title">ការអនុវត្តបានបរាជ័យ</string>
-  <string name="revert_successful_title">ត្រឡប់ដូចដើមជោគជ័យ</string>
-  <string name="revert_problem_title">ធ្វើឲ្យដូចដើមបរាជ័យ</string>
-  <string name="download_fail_title">ទាញយកបរាជ័យ</string>
-  <!--Other Dialogs-->
-  <string name="no_root_title">តម្រូវការ Root ទូរស័ព្ធ</string>
-  <string name="loading">កំពុងផ្ទុកទិន្ន័យ...</string>
-  <!--Menu entries-->
-  <string name="menu_add">បន្ថែម</string>
-  <string name="menu_help">ជំនួយ</string>
-  <string name="menu_import">នាំចូលគ្រប់បញ្ជី</string>
-  <string name="menu_export">នាំចេញគ្រប់បញ្ជី</string>
-  <!--Help-->
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <!--Adware-->
-  <!--Hosts sources-->
-  <string name="hosts_last_modified_online">លើបណ្ដាញ
+    <string name="app_name">AdAway</string>
+    <!--Buttons-->
+    <string name="button_exit">ចាកចេញ</string>
+    <string name="button_close">បិទ</string>
+    <string name="button_yes">បាទ</string>
+    <string name="button_no">ទេ</string>
+    <string name="button_add">បន្ថែម</string>
+    <string name="button_cancel">បោះបង់</string>
+    <string name="button_save">រក្សាទុក</string>
+    <string name="button_help">ជំនួយ</string>
+    <!--Home-->
+    <string name="button_check_update_hosts">ពិនិត្យមើលភាពទាន់សម័យ</string>
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_delete">លុបចេញ</string>
+    <string name="checkbox_list_context_edit">កែប្រែ</string>
+    <!--Your lists-->
+    <string name="lists_tab_whitelist">បញ្ជីស</string>
+    <string name="lists_tab_blacklist">បញ្ជីខ្មៅ</string>
+    <string name="import_dialog">កំពុងនាំចូល…</string>
+    <string name="export_dialog">កំពុងនាំចេញ…</string>
+    <!--Hosts content-->
+    <!--Status Notification-->
+    <string name="status_checking">កំពុងស្វែងរកជំនាន់ថ្មី…</string>
+    <string name="status_reverting">កំពុងធ្វើឲ្យដូចដើម…</string>
+    <string name="status_update_available">រកឃើញមានជំនាន់ថ្មី</string>
+    <string name="status_no_connection">ពុំមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
+    <string name="status_no_connection_subtitle">ពុំមានឃើញមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
+    <string name="status_download_fail_subtitle_new">គ្មានប្រភពឯកសារម៉ាស៊ីនណាអាចទាក់ទងបាន</string>
+    <string name="status_enabled">ត្រូវបានបញ្ចូល</string>
+    <string name="status_disabled">ត្រូវបានបណ្តាច់</string>
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_not_enough_space_title">ពុំមានប្រលោះទំនេរគ្រប់គ្រាន់</string>
+    <string name="apply_copy_fail_title">ចម្លងបរាជ័យ</string>
+    <string name="apply_success_title">ស្នើរសុំជោគជ័យ</string>
+    <string name="apply_help">សូមអាន \"ជំនួយ\" សម្រាប់ព័តមានបន្ថែម</string>
+    <string name="apply_apn_proxy_title">បានកំណត់ APN ប្រូកស៊ី!</string>
+    <string name="no_connection">ការភ្ជាប់អ៊ិនធឺណែតគឺមិនដំនើរការ</string>
+    <string name="no_connection_title">គ្មានការតភ្ជាប់</string>
+    <string name="download_dialog">កំពុងទាញយក</string>
+    <string name="apply_dialog">កំពុងអនុវត្ត</string>
+    <string name="apply_dialog_lists">កំពុងអនុវត្តបញ្ជីខ្មៅ និង បញ្ជីស</string>
+    <string name="apply_dialog_hosts">កំពុងបង្កើតឯកសារ</string>
+    <string name="apply_dialog_apply">កំពុងអនុវត្តឯកសារ</string>
+    <string name="apply_fail_title">ការអនុវត្តបានបរាជ័យ</string>
+    <string name="revert_successful_title">ត្រឡប់ដូចដើមជោគជ័យ</string>
+    <string name="revert_problem_title">ធ្វើឲ្យដូចដើមបរាជ័យ</string>
+    <string name="download_fail_title">ទាញយកបរាជ័យ</string>
+    <!--Other Dialogs-->
+    <string name="no_root_title">តម្រូវការ Root ទូរស័ព្ធ</string>
+    <string name="loading">កំពុងផ្ទុកទិន្ន័យ…</string>
+    <!--Menu entries-->
+    <string name="menu_add">បន្ថែម</string>
+    <string name="menu_help">ជំនួយ</string>
+    <string name="menu_import">នាំចូលគ្រប់បញ្ជី</string>
+    <string name="menu_export">នាំចេញគ្រប់បញ្ជី</string>
+    <!--Help-->
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <!--Adware-->
+    <!--Hosts sources-->
+    <string name="hosts_last_modified_online">លើបណ្ដាញ
 
 </string>
-  <string name="hosts_not_available">មិនមានរកឃើញ</string>
-  <!--Other-->
-  <string name="app_subtitle">អ្នកបំបិទការឃោសនា</string>
-  <string name="no_file_manager_title">ពុំមានកម្មវិធីគ្រប់គ្រងឯកសារត្រូវបានបញ្ចូល</string>
-  <!--Tcpdump-->
-  <!--Preferences-->
-  <string name="pref_download">ការកំណត់ទូរទៅ</string>
-  <string name="pref_hosts">ឯកសារម៉ាស៊ីន</string>
-  <string name="pref_redirection_ip">ការប្ដូរទិស IP</string>
-  <string name="pref_update_check">ពិនិត្យមើលភាពទាន់សម័យ</string>
-  <string name="pref_apply_method">គោលដៅឯកសារម៉ាស៊ីន</string>
-  <string name="pref_apply_method_summary">មុនពេលផ្លាស់ប្ដូរការកំណត់នេះ សូមអាន ជំនួយ អំពីលក្ខណៈពិសេសរបស់វា។</string>
-  <string name="pref_redirection_ip_summary">គ្រប់ឈ្មោះម៉ាស៊ីនដែលបានទប់ស្កាត់បានប្ដូរទិសទៅកានអាស័យដ្ឋាន IP នេះហើយ។</string>
-  <string name="pref_header_preferences">ការកំណត់</string>
-  <string name="pref_header_preferences_summary">ការកំណត់ទូរទៅសម្រាប់ AdAway</string>
-  <string name="pref_never_reboot">លាក់ប្រអប់ចាប់ផ្ដើមឡើងវិញ</string>
-  <string name="pref_never_reboot_summary">លាក់ប្រអប់ដែលសួរពីការចាប់ផ្ដើមឡើងវិញបន្ទាប់ពីបានអនុវត្តជោគជ័យ</string>
-  <string name="pref_webserver_on_boot">ចាប់ផ្ដើម</string>
-  <string name="pref_webserver_enabled">បញ្ចូល Websever</string>
-  <string name="pref_webserver">តំបន់ Websever</string>
-  <string name="pref_update_check_summary">ស្វែងរកជំនាន់ថ្មី ពេលចាប់ផ្ដើម AdAway</string>
-  <string name="pref_update_check_daily">ស្វែងរកជំនាន់ថ្មីរាល់ថ្ងៃ</string>
-  <string name="pref_update_check_daily_summary">ពិនិត្យមើលភាពទាន់សម័យរាល់ថ្ងៃក្នុងផ្ទាំងខាងក្រោយជាមួយការជូនដំណឹង</string>
-  <string name="pref_automatic_update_daily">ធ្វើអោយទាន់សម័យដោយស្វ័យប្រវត្តិ</string>
-  <string name="pref_automatic_update_daily_summary">ធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយបើសិនជាមានភាពទាន់សម័យ។</string>
-  <string name="pref_debug">បំបាត់កំហុស</string>
-  <string name="pref_enable_debug">កំណត់ហេតុការបំបាត់កំហុស</string>
-  <string name="pref_enable_debug_summary">អ្នកគួរតែចាប់ផ្ដើម AdAway ឡើងវិញដើម្បីអោយការកំណត់មានប្រសិទ្ធភាព</string>
-  <!--Drawer menu items-->
-  <!--Drawer menu labels-->
-  <!--Shortcuts-->
-  <string name="shortcut_preferences">ការកំណត់</string>
-  <!--Hosts source status-->
+    <string name="hosts_not_available">មិនមានរកឃើញ</string>
+    <!--Other-->
+    <string name="app_subtitle">អ្នកបំបិទការឃោសនា</string>
+    <string name="no_file_manager_title">ពុំមានកម្មវិធីគ្រប់គ្រងឯកសារត្រូវបានបញ្ចូល</string>
+    <!--Tcpdump-->
+    <!--Preferences-->
+    <string name="pref_download">ការកំណត់ទូរទៅ</string>
+    <string name="pref_hosts">ឯកសារម៉ាស៊ីន</string>
+    <string name="pref_redirection_ip">ការប្ដូរទិស IP</string>
+    <string name="pref_update_check">ពិនិត្យមើលភាពទាន់សម័យ</string>
+    <string name="pref_apply_method">គោលដៅឯកសារម៉ាស៊ីន</string>
+    <string name="pref_apply_method_summary">មុនពេលផ្លាស់ប្ដូរការកំណត់នេះ សូមអាន ជំនួយ អំពីលក្ខណៈពិសេសរបស់វា។</string>
+    <string name="pref_redirection_ip_summary">គ្រប់ឈ្មោះម៉ាស៊ីនដែលបានទប់ស្កាត់បានប្ដូរទិសទៅកានអាស័យដ្ឋាន IP នេះហើយ។</string>
+    <string name="pref_header_preferences">ការកំណត់</string>
+    <string name="pref_header_preferences_summary">ការកំណត់ទូរទៅសម្រាប់ AdAway</string>
+    <string name="pref_never_reboot">លាក់ប្រអប់ចាប់ផ្ដើមឡើងវិញ</string>
+    <string name="pref_never_reboot_summary">លាក់ប្រអប់ដែលសួរពីការចាប់ផ្ដើមឡើងវិញបន្ទាប់ពីបានអនុវត្តជោគជ័យ</string>
+    <string name="pref_webserver_on_boot">ចាប់ផ្ដើម</string>
+    <string name="pref_webserver_enabled">បញ្ចូល Websever</string>
+    <string name="pref_webserver">តំបន់ Websever</string>
+    <string name="pref_update_check_summary">ស្វែងរកជំនាន់ថ្មី ពេលចាប់ផ្ដើម AdAway</string>
+    <string name="pref_update_check_daily">ស្វែងរកជំនាន់ថ្មីរាល់ថ្ងៃ</string>
+    <string name="pref_update_check_daily_summary">ពិនិត្យមើលភាពទាន់សម័យរាល់ថ្ងៃក្នុងផ្ទាំងខាងក្រោយជាមួយការជូនដំណឹង</string>
+    <string name="pref_automatic_update_daily">ធ្វើអោយទាន់សម័យដោយស្វ័យប្រវត្តិ</string>
+    <string name="pref_automatic_update_daily_summary">ធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយបើសិនជាមានភាពទាន់សម័យ។</string>
+    <string name="pref_debug">បំបាត់កំហុស</string>
+    <string name="pref_enable_debug">កំណត់ហេតុការបំបាត់កំហុស</string>
+    <string name="pref_enable_debug_summary">អ្នកគួរតែចាប់ផ្ដើម AdAway ឡើងវិញដើម្បីអោយការកំណត់មានប្រសិទ្ធភាព</string>
+    <!--Drawer menu items-->
+    <!--Drawer menu labels-->
+    <!--Shortcuts-->
+    <string name="shortcut_preferences">ការកំណត់</string>
+    <!--Hosts source status-->
 </resources>

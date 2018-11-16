@@ -1,224 +1,224 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
-  <!--Buttons-->
-  <string name="button_exit">Keluar</string>
-  <string name="button_close">Tutup</string>
-  <string name="button_yes">Ya</string>
-  <string name="button_no">Tidak</string>
-  <string name="button_add">Tambah</string>
-  <string name="button_cancel">Batal</string>
-  <string name="button_save">Simpan</string>
-  <string name="button_webserver_toggle_text">Nyalakan atau metikan webserver lokal untuk menjawab permintaan dari hostname yang di blokir.</string>
-  <string name="button_help">Bantuan</string>
-  <!--Home-->
-  <string name="header_help">Selamat Datang</string>
-  <string name="button_show_help">Tampilkan semua bantuan</string>
-  <string name="icon_update_status">Keterangan pembaharuan</string>
-  <string name="text_update">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
-  <string name="button_check_update_hosts">Memeriksa pembaruan</string>
-  <string name="button_update_hosts">Perbaharui daftar</string>
-  <string name="button_enable_hosts">Hidupkan pemblokir iklan</string>
-  <string name="button_disable_hosts">Matikan pemblokir iklan</string>
-  <string name="header_webserver">Layanan perambah</string>
-  <string name="webserver_status_running">Berjalan</string>
-  <string name="webserver_status_stopped">Berhenti</string>
-  <string name="button_enable_webserver">Hidupkan layanan perambah</string>
-  <string name="button_disable_webserver">Matikan layanan perambah</string>
-  <!--Checkbox List-->
-  <string name="checkbox_list_context_delete">Hapus</string>
-  <string name="checkbox_list_context_title">Ubah Masukan</string>
-  <string name="checkbox_list_context_edit">Sunting</string>
-  <!--Your lists-->
-  <string name="lists_tab_whitelist">Daftar Putih</string>
-  <string name="lists_tab_blacklist">Daftar Hitam</string>
-  <string name="lists_tab_redirection_list">Pengalihan</string>
-  <string name="list_add_dialog_black">Tambahkan pada daftar hitam</string>
-  <string name="list_add_dialog_white">Tambahkan pada daftar putih</string>
-  <string name="list_add_dialog_redirect">Tambahkan pada daftar pengalihan</string>
-  <string name="list_edit_dialog_black">Kelola daftar hitam</string>
-  <string name="list_edit_dialog_white">Kelola daftar putih</string>
-  <string name="list_edit_dialog_redirect">Kelola pengalihan</string>
-  <string name="list_dialog_hostname">Hostname:</string>
-  <string name="list_dialog_hostname_hint">Alamat sumber daftar</string>
-  <string name="list_dialog_wildcard">(Karakter * dan ? diperbolehkan)</string>
-  <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
-  <string name="import_dialog">Mengimpor ...</string>
-  <string name="export_dialog">Mengekspor ...</string>
-  <!--Hosts content-->
-  <string name="hosts_header">Daftar hosts</string>
-  <string name="hosts_content">Membaca isi file host...</string>
-  <string name="hosts_open_button">Buka file host</string>
-  <!--Status Notification-->
-  <string name="status_checking">Memeriksa pembaruan...</string>
-  <string name="status_reverting">Mengembalikan...</string>
-  <string name="status_reverting_subtitle">Membuat host file standar</string>
-  <string name="status_update_available">Pembaruan tersedia</string>
-  <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
-  <string name="status_no_connection">Tidak ada koneksi internet</string>
-  <string name="status_no_connection_subtitle">Tidak ada koneksi internet yang tersedia</string>
-  <string name="status_download_fail">Sumber tidak tersedia</string>
-  <string name="status_download_fail_subtitle_new">Tidak ada sumber host yang terjangkau!</string>
-  <string name="status_enabled">Dinyalakan</string>
-  <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
-  <string name="status_disabled">Dimatikan</string>
-  <string name="notification_channel_update_name">Pembaruan</string>
-  <string name="notification_channel_update_description">Notifikasi pembaruan host baru</string>
-  <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Symlink dari target ke /system/etc/hosts tidak benar atau tidak ada! AdAway tidak akan bekerja jika hal itu tidak dibetulkan.\n\nApa anda ingin mencoba membuat symlink?</string>
-  <string name="apply_symlink_missing_title">Symlink tidak ditemukan</string>
-  <string name="apply_not_enough_space">Tidak ada cukup ruang di partisi!\nCobalah mengganti target file host di prefrensi menjadi /data/data/hosts.</string>
-  <string name="apply_not_enough_space_title">Tidak cukup ruang</string>
-  <string name="apply_private_file_fail">Berkas terunduh tidak dapat dibaca.</string>
-  <string name="apply_private_file_fail_title">Berkas pribadi gagal</string>
-  <string name="apply_remount_fail">Mount ulang partisi sebagai read/write gagal!</string>
-  <string name="apply_remount_fail_title">remount gagal</string>
-  <string name="apply_copy_fail">Penyalinan file host gagal!</string>
-  <string name="apply_copy_fail_title">Penyalinan gagal</string>
-  <string name="apply_success_title">Penerapan berhasil</string>
-  <string name="apply_symlink_successful_title">Pembuatan symlink berhasil</string>
-  <string name="apply_symlink_fail">Symlink tidak dapat dibuat.\nKemungkinan besar sumber masalah ini merupakan S-ON di perangkar HTC!\n\nSolusinya adalah dengan masuk ke mode recovery dan membuat symlink dengan menjalankan \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJika cara tersebut tidak bekerja cari di internet tentang S-OFF dan perangkat anda.</string>
-  <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
-  <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
-  <string name="apply_apn_proxy">Proxy APN ditetapkan di perangkat anda!\nAdAway tidak akan bekerja dengan baik di koneksi seluler seperti 3G. Anda bisa mematikan proxy tersebut dengan membuka pengaturan APN anda (Di android 4+ : Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) dan kosongkan bagian proxy.</string>
-  <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
-  <string name="no_connection">Koneksi internet tidak berfungsi.</string>
-  <string name="no_connection_title">Tidak ada koneksi</string>
-  <string name="download_dialog">Sedang mendownload...</string>
-  <string name="apply_dialog">Menerapkan perubahan...</string>
-  <string name="apply_dialog_lists">Menerapkan daftar hitam dan putih</string>
-  <string name="apply_dialog_hostnames">Mengakses dan menggabungkan file host</string>
-  <string name="apply_dialog_hosts">Menyusun file hosts</string>
-  <string name="apply_dialog_apply">Menerapkan file host</string>
-  <string name="apply_fail">Penerapan file host ke sistem anda gagal!\nCobalah untuk mengganti target file host di prefrensi ke /data/data/hosts.</string>
-  <string name="apply_fail_title">Pemasangan gagal</string>
-  <string name="revert_successful_title">Pengembalian berhasil</string>
-  <string name="revert_problem">Pengembalian gagal karena alasan yang tidak diketahui.</string>
-  <string name="revert_problem_title">Pengembalian gagal</string>
-  <string name="download_fail_dialog">Tak satu pun dari sumber host yang Anda aktifkan bisa dijangkau! Apakah Anda terhubung dengan benar dengan internet?</string>
-  <string name="download_fail_title">Download gagal</string>
-  <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
-  <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
-  <string name="enable_systemless_successful_title">Aktivasi berhasil</string>
-  <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
-  <!--Other Dialogs-->
-  <string name="no_root_description">Aplikasi su tidak dapat ditemukan atau AdAway tidak diberikan akses root.\n\nIni dapat terjadi jika perangkat anda tidak di-root.\nTemukan informasi tentang cara melakukan root pada wiki.lineageos.org atau situs android lainnya.</string>
-  <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
-  <string name="hosts_add_dialog">Masukan URL ke file hosts:</string>
-  <string name="no_hostname">Ini bukan hostname yang benar!</string>
-  <string name="no_hostname_title">Hostname tidak diformat dengan benar</string>
-  <string name="no_ip">Ini bukan IP yang benar!</string>
-  <string name="no_ip_title">IP tidak diformat dengan benar</string>
-  <string name="reboot_never_reboot">Jangan menyalakan ulang ponsel dan jangan tanyakan ini lagi!</string>
-  <string name="loading">Memuat...</string>
-  <!--Menu entries-->
-  <string name="menu_refresh">Segarkan</string>
-  <string name="menu_add">Tambah</string>
-  <string name="menu_hosts_sources">Sumber host</string>
-  <string name="menu_help">Bantuan</string>
-  <string name="menu_import">Memasukan semua daftar</string>
-  <string name="menu_export">Ekspor Semua Daftar</string>
-  <!--Help-->
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">FAQ</string>
-  <string name="help_tab_problems">Masalah</string>
-  <!--Adware-->
-  <string name="adware_header">Adware</string>
-  <string name="adware_scanning">Memindai...</string>
-  <!--Hosts sources-->
-  <string name="hosts_last_modified_local">Lokal:</string>
-  <string name="hosts_last_modified_online">Online:</string>
-  <string name="hosts_not_available">Tidak tersedia</string>
-  <string name="hosts_add_dialog_title">Tambah sumber</string>
-  <string name="hosts_edit_dialog_title">Ubah sumber</string>
-  <string name="hosts_dialog_url">URL: (a https:// atau file:// sumber)</string>
-  <string name="hosts_dialog_url_hint">Alamat sumber daftar URL</string>
-  <!--Other-->
-  <string name="app_subtitle">Ad blocker</string>
-  <string name="no_text_editor_title">Tidak terinstal pengedit teks</string>
-  <string name="no_text_editor">Tidak ada editor teks yang dapat ditemukan untuk membuka file host. Anda bisa menginstal Jota atau teks editor lain.\n\nApakah anda ingin menginstal Jota?</string>
-  <string name="no_file_manager_title">Tidak ada manager file yang terpasang</string>
-  <string name="no_file_manager">Tidak ada manajer file yang dapat ditemukan untuk membuka file. Anda bisa menginstal OI File Manager atau manajer file lain.\n\nApakah anda ingin menginstal OI File Manager?</string>
-  <!--Tcpdump-->
-  <string name="tcpdump_header">Tcpdump</string>
-  <string name="tcpdump_description">Tcpdump adalah alat untuk memonitor permintan DNS dan menyimpannya ke file. Anda bisa membuka aplikasi yang memunculkan iklan, dan selanjutnya menganalisai permintaan DNS. Server iklan bisa tisa di tambahkan ke daftar hitam anda.</string>
-  <string name="tcpdump_disable_monitoring">Matikan pemantauan</string>
-  <string name="tcpdump_enable_monitoring">Hidupkan pemantauan</string>
-  <string name="tcpdump_show_results">Tampilkan hasil</string>
-  <string name="tcpdump_redirect_dialog_title">Alihkan domain</string>
-  <string name="tcpdump_menu_sort">Sortir domain</string>
-  <string name="tcpdump_menu_clear">Bersihkan catatan</string>
-  <string name="tcpdump_sort_alphabetical">Urutkan sesuai abjad</string>
-  <string name="tcpdump_sort_top_level_domain">Urutkan sesuai TLD</string>
-  <string name="tcpdump_entry_add_blacklist">Tambahkan pada daftar hitam</string>
-  <string name="tcpdump_entry_add_whitelist">Tambahkan pada daftar putih</string>
-  <string name="tcpdump_entry_add_redirection_list">Tambahkan pada daftar pengalihan</string>
-  <!--Preferences-->
-  <string name="pref_download">Pengaturan umum</string>
-  <string name="pref_dismiss_welcome">Sembunyikan kartu sambutan</string>
-  <string name="pref_dismiss_welcome_summary">Jangan tampilkan kartu sambutan pada halaman utama</string>
-  <string name="pref_dark_theme">Gunakan tema gelap</string>
-  <string name="pref_dark_theme_summary">Gunakan tema gelap, bukan tema cerah</string>
-  <string name="pref_dark_theme_notification">Tema akan berubah pada sesi aplikasi berikutnya!</string>
-  <string name="pref_hosts">Hosts File</string>
-  <string name="pref_redirection_ip">redireksi IP</string>
-  <string name="pref_update_check">Memeriksa pembaruan</string>
-  <string name="pref_apply_method">Target file host</string>
-  <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
-  <string name="pref_redirection_ip_summary">Semua hostname terblokir akan dialihkan ke ipmini</string>
-  <string name="pref_header_preferences">Preferensi</string>
-  <string name="pref_header_preferences_summary">Pengaturan normal Adaway</string>
-  <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
-  <string name="pref_never_reboot_summary">Menyembunyikan dialog yang menanyakan untuk reboot Android setelah sukses menerapkan</string>
-  <string name="pref_webserver_on_boot">Mulai server web saat boot</string>
-  <string name="pref_webserver_on_boot_summary">Memulai server web pada saat boot, mendengarkan alamat IP lokal</string>
-  <string name="pref_webserver_enabled">Aktifkan peladen web</string>
-  <string name="pref_webserver_enabled_summary">Aktifkan server web yang mendengarkan alamat IP lokal untuk menjawab permintaan ke nama host diblokir</string>
-  <string name="pref_webserver">Peladen Web lokal</string>
-  <string name="pref_custom_target">Custom target</string>
-  <string name="pref_custom_target_summary">Hanya digunakan bila target berkas hosts diatur untuk custom target</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Custom target</item>
-  </string-array>
-  <string name="pref_update_check_summary">Periksa pembaruan di awal AdAway</string>
-  <string name="pref_background">Layanan latar Belakang</string>
-  <string name="pref_update_check_daily">Periksa pembaruan setiap hari</string>
-  <string name="pref_update_check_daily_summary">Periksa update harian di latar belakang dengan pemberitahuan</string>
-  <string name="pref_automatic_update_daily">Pembaruan otomatis</string>
-  <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
-  <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
-  <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
-  <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
-  <string name="pref_redirection_rules_summary">BAHAYA KEAMANAN! Perbolehkan pengalihan dari sumber host.</string>
-  <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug Logging</string>
-  <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>
-  <string name="pref_enable_ipv6">Aktifkan IPv6</string>
-  <string name="pref_enable_ipv6_summary">Semua entri file host akan disesuaikan dengan entri :: 1 (IPv6 localhost).</string>
-  <string name="pref_enable_systemless_summary">Cegah AdAway me-modifikasi partisi system</string>
-  <string name="pref_enable_systemless">Aktifkan Mode Systemless</string>
-  <string name="pref_edit_text_value">Ubah nilai preferensi teks</string>
-  <string name="drawer_open">Buka menu</string>
-  <string name="drawer_close">Tutup menu</string>
-  <!--Drawer menu items-->
-  <string-array name="drawer_items">
-    <item>Beranda</item>
-    <item>Sumber host</item>
-    <item>Daftar pribadi</item>
-    <item>Buka file host</item>
-    <item>Catat aktifitas DNS</item>
-    <item>Pindai adware</item>
-    <item>Pengaturan</item>
-    <item>Bantuan</item>
-  </string-array>
-  <!--Drawer menu labels-->
-  <!--Shortcuts-->
-  <string name="shortcut_dns_requests">Aktifitas DNS</string>
-  <string name="shortcut_your_lists">Daftar pribadi</string>
-  <string name="shortcut_preferences">Pengaturan</string>
-  <!--Hosts source status-->
-  <string name="hosts_source_unknown_status">Status pembaharuan tidak diketahui</string>
+    <string name="app_name">AdAway</string>
+    <!--Buttons-->
+    <string name="button_exit">Keluar</string>
+    <string name="button_close">Tutup</string>
+    <string name="button_yes">Ya</string>
+    <string name="button_no">Tidak</string>
+    <string name="button_add">Tambah</string>
+    <string name="button_cancel">Batal</string>
+    <string name="button_save">Simpan</string>
+    <string name="button_webserver_toggle_text">Nyalakan atau metikan webserver lokal untuk menjawab permintaan dari hostname yang di blokir.</string>
+    <string name="button_help">Bantuan</string>
+    <!--Home-->
+    <string name="header_help">Selamat Datang</string>
+    <string name="button_show_help">Tampilkan semua bantuan</string>
+    <string name="icon_update_status">Keterangan pembaharuan</string>
+    <string name="text_update">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
+    <string name="button_check_update_hosts">Memeriksa pembaruan</string>
+    <string name="button_update_hosts">Perbaharui daftar</string>
+    <string name="button_enable_hosts">Hidupkan pemblokir iklan</string>
+    <string name="button_disable_hosts">Matikan pemblokir iklan</string>
+    <string name="header_webserver">Layanan perambah</string>
+    <string name="webserver_status_running">Berjalan</string>
+    <string name="webserver_status_stopped">Berhenti</string>
+    <string name="button_enable_webserver">Hidupkan layanan perambah</string>
+    <string name="button_disable_webserver">Matikan layanan perambah</string>
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_delete">Hapus</string>
+    <string name="checkbox_list_context_title">Ubah Masukan</string>
+    <string name="checkbox_list_context_edit">Sunting</string>
+    <!--Your lists-->
+    <string name="lists_tab_whitelist">Daftar Putih</string>
+    <string name="lists_tab_blacklist">Daftar Hitam</string>
+    <string name="lists_tab_redirection_list">Pengalihan</string>
+    <string name="list_add_dialog_black">Tambahkan pada daftar hitam</string>
+    <string name="list_add_dialog_white">Tambahkan pada daftar putih</string>
+    <string name="list_add_dialog_redirect">Tambahkan pada daftar pengalihan</string>
+    <string name="list_edit_dialog_black">Kelola daftar hitam</string>
+    <string name="list_edit_dialog_white">Kelola daftar putih</string>
+    <string name="list_edit_dialog_redirect">Kelola pengalihan</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_hostname_hint">Alamat sumber daftar</string>
+    <string name="list_dialog_wildcard">(Karakter * dan ? diperbolehkan)</string>
+    <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
+    <string name="import_dialog">Mengimpor…</string>
+    <string name="export_dialog">Mengekspor…</string>
+    <!--Hosts content-->
+    <string name="hosts_header">Daftar hosts</string>
+    <string name="hosts_content">Membaca isi file host…</string>
+    <string name="hosts_open_button">Buka file host</string>
+    <!--Status Notification-->
+    <string name="status_checking">Memeriksa pembaruan…</string>
+    <string name="status_reverting">Mengembalikan…</string>
+    <string name="status_reverting_subtitle">Membuat host file standar</string>
+    <string name="status_update_available">Pembaruan tersedia</string>
+    <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
+    <string name="status_no_connection">Tidak ada koneksi internet</string>
+    <string name="status_no_connection_subtitle">Tidak ada koneksi internet yang tersedia</string>
+    <string name="status_download_fail">Sumber tidak tersedia</string>
+    <string name="status_download_fail_subtitle_new">Tidak ada sumber host yang terjangkau!</string>
+    <string name="status_enabled">Dinyalakan</string>
+    <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
+    <string name="status_disabled">Dimatikan</string>
+    <string name="notification_channel_update_name">Pembaruan</string>
+    <string name="notification_channel_update_description">Notifikasi pembaruan host baru</string>
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing">Symlink dari target ke /system/etc/hosts tidak benar atau tidak ada! AdAway tidak akan bekerja jika hal itu tidak dibetulkan.\n\nApa anda ingin mencoba membuat symlink?</string>
+    <string name="apply_symlink_missing_title">Symlink tidak ditemukan</string>
+    <string name="apply_not_enough_space">Tidak ada cukup ruang di partisi!\nCobalah mengganti target file host di prefrensi menjadi /data/data/hosts.</string>
+    <string name="apply_not_enough_space_title">Tidak cukup ruang</string>
+    <string name="apply_private_file_fail">Berkas terunduh tidak dapat dibaca.</string>
+    <string name="apply_private_file_fail_title">Berkas pribadi gagal</string>
+    <string name="apply_remount_fail">Mount ulang partisi sebagai read/write gagal!</string>
+    <string name="apply_remount_fail_title">remount gagal</string>
+    <string name="apply_copy_fail">Penyalinan file host gagal!</string>
+    <string name="apply_copy_fail_title">Penyalinan gagal</string>
+    <string name="apply_success_title">Penerapan berhasil</string>
+    <string name="apply_symlink_successful_title">Pembuatan symlink berhasil</string>
+    <string name="apply_symlink_fail">Symlink tidak dapat dibuat.\nKemungkinan besar sumber masalah ini merupakan S-ON di perangkar HTC!\n\nSolusinya adalah dengan masuk ke mode recovery dan membuat symlink dengan menjalankan \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJika cara tersebut tidak bekerja cari di internet tentang S-OFF dan perangkat anda.</string>
+    <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
+    <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
+    <string name="apply_apn_proxy">Proxy APN ditetapkan di perangkat anda!\nAdAway tidak akan bekerja dengan baik di koneksi seluler seperti 3G. Anda bisa mematikan proxy tersebut dengan membuka pengaturan APN anda (Di android 4+ : Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) dan kosongkan bagian proxy.</string>
+    <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
+    <string name="no_connection">Koneksi internet tidak berfungsi.</string>
+    <string name="no_connection_title">Tidak ada koneksi</string>
+    <string name="download_dialog">Sedang mendownload…</string>
+    <string name="apply_dialog">Menerapkan perubahan…</string>
+    <string name="apply_dialog_lists">Menerapkan daftar hitam dan putih</string>
+    <string name="apply_dialog_hostnames">Mengakses dan menggabungkan file host</string>
+    <string name="apply_dialog_hosts">Menyusun file hosts</string>
+    <string name="apply_dialog_apply">Menerapkan file host</string>
+    <string name="apply_fail">Penerapan file host ke sistem anda gagal!\nCobalah untuk mengganti target file host di prefrensi ke /data/data/hosts.</string>
+    <string name="apply_fail_title">Pemasangan gagal</string>
+    <string name="revert_successful_title">Pengembalian berhasil</string>
+    <string name="revert_problem">Pengembalian gagal karena alasan yang tidak diketahui.</string>
+    <string name="revert_problem_title">Pengembalian gagal</string>
+    <string name="download_fail_dialog">Tak satu pun dari sumber host yang Anda aktifkan bisa dijangkau! Apakah Anda terhubung dengan benar dengan internet?</string>
+    <string name="download_fail_title">Download gagal</string>
+    <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
+    <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
+    <string name="enable_systemless_successful_title">Aktivasi berhasil</string>
+    <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
+    <!--Other Dialogs-->
+    <string name="no_root_description">Aplikasi su tidak dapat ditemukan atau AdAway tidak diberikan akses root.\n\nIni dapat terjadi jika perangkat anda tidak di-root.\nTemukan informasi tentang cara melakukan root pada wiki.lineageos.org atau situs android lainnya.</string>
+    <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
+    <string name="hosts_add_dialog">Masukan URL ke file hosts:</string>
+    <string name="no_hostname">Ini bukan hostname yang benar!</string>
+    <string name="no_hostname_title">Hostname tidak diformat dengan benar</string>
+    <string name="no_ip">Ini bukan IP yang benar!</string>
+    <string name="no_ip_title">IP tidak diformat dengan benar</string>
+    <string name="reboot_never_reboot">Jangan menyalakan ulang ponsel dan jangan tanyakan ini lagi!</string>
+    <string name="loading">Memuat…</string>
+    <!--Menu entries-->
+    <string name="menu_refresh">Segarkan</string>
+    <string name="menu_add">Tambah</string>
+    <string name="menu_hosts_sources">Sumber host</string>
+    <string name="menu_help">Bantuan</string>
+    <string name="menu_import">Memasukan semua daftar</string>
+    <string name="menu_export">Ekspor Semua Daftar</string>
+    <!--Help-->
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <string name="help_tab_faq">FAQ</string>
+    <string name="help_tab_problems">Masalah</string>
+    <!--Adware-->
+    <string name="adware_header">Adware</string>
+    <string name="adware_scanning">Memindai…</string>
+    <!--Hosts sources-->
+    <string name="hosts_last_modified_local">Lokal:</string>
+    <string name="hosts_last_modified_online">Online:</string>
+    <string name="hosts_not_available">Tidak tersedia</string>
+    <string name="hosts_add_dialog_title">Tambah sumber</string>
+    <string name="hosts_edit_dialog_title">Ubah sumber</string>
+    <string name="hosts_dialog_url">URL: (a https:// atau file:// sumber)</string>
+    <string name="hosts_dialog_url_hint">Alamat sumber daftar URL</string>
+    <!--Other-->
+    <string name="app_subtitle">Ad blocker</string>
+    <string name="no_text_editor_title">Tidak terinstal pengedit teks</string>
+    <string name="no_text_editor">Tidak ada editor teks yang dapat ditemukan untuk membuka file host. Anda bisa menginstal Jota atau teks editor lain.\n\nApakah anda ingin menginstal Jota?</string>
+    <string name="no_file_manager_title">Tidak ada manager file yang terpasang</string>
+    <string name="no_file_manager">Tidak ada manajer file yang dapat ditemukan untuk membuka file. Anda bisa menginstal OI File Manager atau manajer file lain.\n\nApakah anda ingin menginstal OI File Manager?</string>
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
+    <string name="tcpdump_description">Tcpdump adalah alat untuk memonitor permintan DNS dan menyimpannya ke file. Anda bisa membuka aplikasi yang memunculkan iklan, dan selanjutnya menganalisai permintaan DNS. Server iklan bisa tisa di tambahkan ke daftar hitam anda.</string>
+    <string name="tcpdump_disable_monitoring">Matikan pemantauan</string>
+    <string name="tcpdump_enable_monitoring">Hidupkan pemantauan</string>
+    <string name="tcpdump_show_results">Tampilkan hasil</string>
+    <string name="tcpdump_redirect_dialog_title">Alihkan domain</string>
+    <string name="tcpdump_menu_sort">Sortir domain</string>
+    <string name="tcpdump_menu_clear">Bersihkan catatan</string>
+    <string name="tcpdump_sort_alphabetical">Urutkan sesuai abjad</string>
+    <string name="tcpdump_sort_top_level_domain">Urutkan sesuai TLD</string>
+    <string name="tcpdump_entry_add_blacklist">Tambahkan pada daftar hitam</string>
+    <string name="tcpdump_entry_add_whitelist">Tambahkan pada daftar putih</string>
+    <string name="tcpdump_entry_add_redirection_list">Tambahkan pada daftar pengalihan</string>
+    <!--Preferences-->
+    <string name="pref_download">Pengaturan umum</string>
+    <string name="pref_dismiss_welcome">Sembunyikan kartu sambutan</string>
+    <string name="pref_dismiss_welcome_summary">Jangan tampilkan kartu sambutan pada halaman utama</string>
+    <string name="pref_dark_theme">Gunakan tema gelap</string>
+    <string name="pref_dark_theme_summary">Gunakan tema gelap, bukan tema cerah</string>
+    <string name="pref_dark_theme_notification">Tema akan berubah pada sesi aplikasi berikutnya!</string>
+    <string name="pref_hosts">Hosts File</string>
+    <string name="pref_redirection_ip">redireksi IP</string>
+    <string name="pref_update_check">Memeriksa pembaruan</string>
+    <string name="pref_apply_method">Target file host</string>
+    <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
+    <string name="pref_redirection_ip_summary">Semua hostname terblokir akan dialihkan ke ipmini</string>
+    <string name="pref_header_preferences">Preferensi</string>
+    <string name="pref_header_preferences_summary">Pengaturan normal Adaway</string>
+    <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
+    <string name="pref_never_reboot_summary">Menyembunyikan dialog yang menanyakan untuk reboot Android setelah sukses menerapkan</string>
+    <string name="pref_webserver_on_boot">Mulai server web saat boot</string>
+    <string name="pref_webserver_on_boot_summary">Memulai server web pada saat boot, mendengarkan alamat IP lokal</string>
+    <string name="pref_webserver_enabled">Aktifkan peladen web</string>
+    <string name="pref_webserver_enabled_summary">Aktifkan server web yang mendengarkan alamat IP lokal untuk menjawab permintaan ke nama host diblokir</string>
+    <string name="pref_webserver">Peladen Web lokal</string>
+    <string name="pref_custom_target">Custom target</string>
+    <string name="pref_custom_target_summary">Hanya digunakan bila target berkas hosts diatur untuk custom target</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+    <string name="pref_update_check_summary">Periksa pembaruan di awal AdAway</string>
+    <string name="pref_background">Layanan latar Belakang</string>
+    <string name="pref_update_check_daily">Periksa pembaruan setiap hari</string>
+    <string name="pref_update_check_daily_summary">Periksa update harian di latar belakang dengan pemberitahuan</string>
+    <string name="pref_automatic_update_daily">Pembaruan otomatis</string>
+    <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
+    <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
+    <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
+    <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
+    <string name="pref_redirection_rules_summary">BAHAYA KEAMANAN! Perbolehkan pengalihan dari sumber host.</string>
+    <string name="pref_debug">Debug</string>
+    <string name="pref_enable_debug">Debug Logging</string>
+    <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>
+    <string name="pref_enable_ipv6">Aktifkan IPv6</string>
+    <string name="pref_enable_ipv6_summary">Semua entri file host akan disesuaikan dengan entri :: 1 (IPv6 localhost).</string>
+    <string name="pref_enable_systemless_summary">Cegah AdAway me-modifikasi partisi system</string>
+    <string name="pref_enable_systemless">Aktifkan Mode Systemless</string>
+    <string name="pref_edit_text_value">Ubah nilai preferensi teks</string>
+    <string name="drawer_open">Buka menu</string>
+    <string name="drawer_close">Tutup menu</string>
+    <!--Drawer menu items-->
+    <string-array name="drawer_items">
+        <item>Beranda</item>
+        <item>Sumber host</item>
+        <item>Daftar pribadi</item>
+        <item>Buka file host</item>
+        <item>Catat aktifitas DNS</item>
+        <item>Pindai adware</item>
+        <item>Pengaturan</item>
+        <item>Bantuan</item>
+    </string-array>
+    <!--Drawer menu labels-->
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">Aktifitas DNS</string>
+    <string name="shortcut_your_lists">Daftar pribadi</string>
+    <string name="shortcut_preferences">Pengaturan</string>
+    <!--Hosts source status-->
+    <string name="hosts_source_unknown_status">Status pembaharuan tidak diketahui</string>
 </resources>
