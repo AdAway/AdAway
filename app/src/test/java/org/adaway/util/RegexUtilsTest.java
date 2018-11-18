@@ -51,7 +51,7 @@ public class RegexUtilsTest {
         INVALID_NAME.add("...");
         INVALID_NAME.add("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com");
         INVALID_NAME.add(ALMOST_TOO_MANY_LEVELS + ".com");
-        INVALID_NAME.add(ALMOST_TOO_LONG + ".c");
+        INVALID_NAME.add(ALMOST_TOO_LONG + ".d");
     }
 
     @Test
@@ -60,6 +60,10 @@ public class RegexUtilsTest {
             assertTrue(
                     "The hostname '" + validName + "' should be valid.",
                     RegexUtils.isValidHostname(validName)
+            );
+            assertTrue(
+                    "The hostname '" + validName + "' should be valid.",
+                    RegexUtils.isValidWhitelistHostname(validName)
             );
         }
     }
@@ -70,6 +74,10 @@ public class RegexUtilsTest {
             assertFalse(
                     "The hostname '" + invalidName + "' should not be valid.",
                     RegexUtils.isValidHostname(invalidName)
+            );
+            assertFalse(
+                    "The hostname '" + invalidName + "' should not be valid.",
+                    RegexUtils.isValidWhitelistHostname(invalidName)
             );
         }
     }

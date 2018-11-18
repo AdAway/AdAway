@@ -67,6 +67,19 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 ext {
@@ -99,6 +112,7 @@ dependencies {
     implementation "com.android.support:support-fragment:${support}"
 
     // Miscellaneous
+    api 'com.google.guava:guava:27.0-android'
     implementation 'com.annimon:stream:1.2.1'
     implementation 'net.sf.trove4j:trove4j:3.0.3'
     implementation 'org.sufficientlysecure:html-textview:3.4'
