@@ -220,18 +220,22 @@ public class HostsInstallModel extends Observable {
             }
         }
         // Default hosting
+        URLConnection connection = null;
         try {
             /* build connection */
             URL mURL = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) mURL.openConnection();
+            connection = mURL.openConnection();
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(30000);
             long lastModified = connection.getLastModified();
-            connection.disconnect();
             return new Date(lastModified);
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Exception while downloading from " + url, exception);
             return null;
+        } finally {
+            if (connection instanceof HttpURLConnection) {
+                ((HttpURLConnection) connection).disconnect();
+            }
         }
     }
 
