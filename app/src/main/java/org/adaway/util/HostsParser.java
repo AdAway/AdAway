@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -48,6 +48,10 @@ public class HostsParser {
 
     public HostsParser(BufferedReader input, boolean parseWhitelist, boolean parseRedirections)
             throws IOException {
+        mBlacklist = new THashSet<>();
+        mWhitelist = new THashSet<>();
+        mRedirectionList = new THashMap<>();
+
         mParseWhitelist = parseWhitelist;
         mParseRedirections = parseRedirections;
         parse(input);
@@ -63,55 +67,6 @@ public class HostsParser {
 
     public Map<String, String> getRedirectList() {
         return mRedirectionList;
-    }
-
-    /**
-     * Parse hosts file from BufferedReader
-     *
-     * @param reader
-     * @throws IOException
-     */
-    private void parse(BufferedReader reader) throws IOException {
-        String nextLine;
-        mBlacklist = new THashSet<>();
-        mWhitelist = new THashSet<>();
-        mRedirectionList = new THashMap<>();
-
-        // use whitelist import pattern
-        while ((nextLine = reader.readLine()) != null) {
-            Matcher mHostsParserMatcher = HOSTS_PARSER_PATTERN.matcher(nextLine);
-            if (mHostsParserMatcher.matches()) {
-                // Check IP address validity or while list entry (if allowed)
-                String ip = mHostsParserMatcher.group(1);
-                if (!RegexUtils.isValidIP(ip) && (!WHITELIST_ENTRY.equals(ip) || !mParseWhitelist)) {
-                    Log.d(Constants.TAG, "IP address is not valid: " + ip);
-                    continue;
-                }
-                // Check hostname
-                String hostname = mHostsParserMatcher.group(2);
-                if (!RegexUtils.isValidWhitelistHostname(hostname)) {
-                    Log.d(Constants.TAG, "hostname is not valid: " + hostname);
-                    continue;
-                }
-
-                // check if ip is 127.0.0.1 or 0.0.0.0
-                if (ip.equals(Constants.LOCALHOST_IPv4)
-                        || ip.equals(Constants.BOGUS_IPv4)
-                        || ip.equals(Constants.LOCALHOST_IPv6)) {
-                    mBlacklist.add(hostname);
-                } else if (ip.equals(WHITELIST_ENTRY)) {
-                    mWhitelist.add(hostname);
-                } else if (mParseRedirections) {
-                    mRedirectionList.put(hostname, ip);
-                }
-            } else {
-                Log.d(Constants.TAG, "Does not match: " + nextLine);
-            }
-        }
-
-        // strip localhost entry from blacklist and redirection list
-        mBlacklist.remove(Constants.LOCALHOST_HOSTNAME);
-        mRedirectionList.remove(Constants.LOCALHOST_HOSTNAME);
     }
 
     /**
@@ -159,7 +114,7 @@ public class HostsParser {
             whitelistPattern.add(Pattern.compile(regexItem));
         }
 
-        if(whitelistPattern.size()>0) {
+        if (whitelistPattern.size() > 0) {
             Log.d(Constants.TAG, "Starting whitelist regex");
             Matcher whitelistMatcher;
             String blacklistHostname;
@@ -192,5 +147,54 @@ public class HostsParser {
         // remove hostnames that are in redirection list
         Set<String> redirectionRemove = new THashSet<>(mRedirectionList.keySet());
         mBlacklist.removeAll(redirectionRemove);
+    }
+
+    /**
+     * Parse hosts file from BufferedReader
+     *
+     * @param reader
+     * @throws IOException
+     */
+    private void parse(BufferedReader reader) throws IOException {
+        String nextLine;
+        // use whitelist import pattern
+        while ((nextLine = reader.readLine()) != null) {
+            Matcher mHostsParserMatcher = HOSTS_PARSER_PATTERN.matcher(nextLine);
+            if (!mHostsParserMatcher.matches()) {
+                Log.d(Constants.TAG, "Does not match: " + nextLine);
+                continue;
+            }
+            // Check IP address validity or while list entry (if allowed)
+            String ip = mHostsParserMatcher.group(1);
+            if (!RegexUtils.isValidIP(ip) && (!WHITELIST_ENTRY.equals(ip) || !mParseWhitelist)) {
+                Log.d(Constants.TAG, "IP address is not valid: " + ip);
+                continue;
+            }
+            // Check hostname
+            String hostname = mHostsParserMatcher.group(2);
+            if (!RegexUtils.isValidWhitelistHostname(hostname)) {
+                Log.d(Constants.TAG, "hostname is not valid: " + hostname);
+                continue;
+            }
+            // Add valid ip and hostname to the right list
+            addToList(ip, hostname);
+        }
+
+        // strip localhost entry from blacklist and redirection list
+        mBlacklist.remove(Constants.LOCALHOST_HOSTNAME);
+        mRedirectionList.remove(Constants.LOCALHOST_HOSTNAME);
+    }
+
+    private void addToList(String ip, String hostname) {
+        // check if ip is 127.0.0.1 or 0.0.0.0
+        if (ip.equals(Constants.LOCALHOST_IPv4)
+                || ip.equals(Constants.BOGUS_IPv4)
+                || ip.equals(Constants.LOCALHOST_IPv6)) {
+            mBlacklist.add(hostname);
+        } else if (ip.equals(WHITELIST_ENTRY)) {
+            mWhitelist.add(hostname);
+        } else if (mParseRedirections) {
+            mRedirectionList.put(hostname, ip);
+        }
     }
 }
