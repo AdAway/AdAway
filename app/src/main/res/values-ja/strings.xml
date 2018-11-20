@@ -1,242 +1,242 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="app_name">AdAway</string>
-    <!--Buttons-->
-    <string name="button_exit">終了</string>
-    <string name="button_close">閉じる</string>
-    <string name="button_yes">はい</string>
-    <string name="button_no">いいえ</string>
-    <string name="button_add">追加</string>
-    <string name="button_cancel">キャンセル</string>
-    <string name="button_save">保存</string>
-    <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します</string>
-    <string name="button_help">ヘルプ</string>
-    <!--Home-->
-    <string name="header_help">ようこそ！</string>
-    <string name="button_show_help">詳しいヘルプを表示</string>
-    <string name="icon_update_status">最新状況</string>
-    <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします</string>
-    <string name="button_check_update_hosts">更新を確認</string>
-    <string name="button_update_hosts">hostsを更新</string>
-    <string name="button_enable_hosts">広告ブロックを有効にする</string>
-    <string name="button_disable_hosts">広告ブロックを無効にする</string>
-    <string name="header_webserver">ウェブサーバー</string>
-    <string name="webserver_status_running">起動中</string>
-    <string name="webserver_status_stopped">停止</string>
-    <string name="button_enable_webserver">Webサーバーを有効にする</string>
-    <string name="button_disable_webserver">Webサーバーを無効にする</string>
-    <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">削除</string>
-    <string name="checkbox_list_context_title">空のエントリ</string>
-    <string name="checkbox_list_context_edit">編集</string>
-    <!--Your lists-->
-    <string name="lists_tab_whitelist">ホワイトリスト</string>
-    <string name="lists_tab_blacklist">ブラックリスト</string>
-    <string name="lists_tab_redirection_list">リダイレクト</string>
-    <string name="list_add_dialog_black">ホストをブラックリストに追加する</string>
-    <string name="list_add_dialog_white">ホストをホワイトリストに追加する</string>
-    <string name="list_add_dialog_redirect">ホストリダイレクトを追加</string>
-    <string name="list_edit_dialog_black">ブラックリストホストを編集する</string>
-    <string name="list_edit_dialog_white">ホワイトリストホストを編集する</string>
-    <string name="list_edit_dialog_redirect">リダイレクト先を編集</string>
-    <string name="list_dialog_hostname">ホスト名:</string>
-    <string name="list_dialog_hostname_hint">ホストのソースURL</string>
-    <string name="list_dialog_wildcard">（ワイルドカード文字\\"*\\"および\\"?\\"は使用できます）</string>
-    <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
-    <string name="import_dialog">インポート中…</string>
-    <string name="export_dialog">エクスポート中…</string>
-    <!--Hosts content-->
-    <string name="hosts_header">hostsファイル</string>
-    <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
-    <string name="hosts_open_button">hostsファイルを開く</string>
-    <!--Status Notification-->
-    <string name="status_checking">更新を確認中…</string>
-    <string name="status_reverting">元に戻しています…</string>
-    <string name="status_reverting_subtitle">標準hostsファイルを作成中</string>
-    <string name="status_update_available">更新があります</string>
-    <string name="status_update_available_subtitle">新しいhostsファイルがあります</string>
-    <string name="status_no_connection">ネット接続なし</string>
-    <string name="status_no_connection_subtitle">ネットに接続されていません</string>
-    <string name="status_download_fail">ソースが利用できません</string>
-    <string name="status_download_fail_subtitle_new">どのhostsソースにも接続できません！</string>
-    <string name="status_enabled">有効です</string>
-    <string name="status_enabled_subtitle">hostsファイルが有効化されました</string>
-    <string name="status_disabled">無効です</string>
-    <string name="notification_channel_update_name">アップデート</string>
-    <string name="notification_channel_update_description">新しいホストの更新通知</string>
-    <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing">/system/etc/hostsへのsymlinkは存在しないか不正です!AdAwayは正しいファイルが指定されていないと動作しません。\n\nsymlinkを作成しますか？</string>
-    <string name="apply_symlink_missing_title">symlinkが見つかりません</string>
-    <string name="apply_not_enough_space">領域に十分な容量がありません!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
-    <string name="apply_not_enough_space_title">空き容量不足</string>
-    <string name="apply_private_file_fail">ダウンロードしたファイルが読み込めません</string>
-    <string name="apply_private_file_fail_title">プライベートファイル失敗</string>
-    <string name="apply_remount_fail">領域のR/W再マウントに失敗しました！</string>
-    <string name="apply_remount_fail_title">再マウント失敗</string>
-    <string name="apply_copy_fail">hostsファイルのコピー失敗！</string>
-    <string name="apply_copy_fail_title">コピー失敗</string>
-    <string name="apply_success_title">適用しました</string>
-    <string name="apply_symlink_successful_title">symlink作成成功</string>
-    <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください</string>
-    <string name="apply_symlink_fail_title">symlink作成失敗</string>
-    <string name="apply_help">詳しくはヘルプをご覧ください</string>
-    <string name="apply_apn_proxy">APNプロキシが設定されています!\nAdAwayは3G/4Gのようなモバイルデータ通信では正常に動作しない場合があります。プロキシを無効にするには、APN (Android 4.x: 無線とネットワーク -&gt; その他の設定 -&gt; モバイルネットワーク -&gt; アクセスポイント名)で「プロキシ」の項目を空白にしてください</string>
-    <string name="apply_apn_proxy_title">APNプロキシがセットされています！</string>
-    <string name="no_connection">ネット接続がありません</string>
-    <string name="no_connection_title">接続なし</string>
-    <string name="download_dialog">ダウンロード中…</string>
-    <string name="apply_dialog">適用中…</string>
-    <string name="apply_dialog_lists">ブラック/ホワイトリストを適用中</string>
-    <string name="apply_dialog_hostnames">hostsファイルの解析･統合中…</string>
-    <string name="apply_dialog_hosts">hostsファイルを構成中…</string>
-    <string name="apply_dialog_apply">hostsファイルを適用中</string>
-    <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
-    <string name="apply_fail_title">適用に失敗</string>
-    <string name="revert_successful_title">元に戻しました</string>
-    <string name="revert_problem">不明な理由により元に戻せませんでした</string>
-    <string name="revert_problem_title">元に戻せません！</string>
-    <string name="download_fail_dialog">どのhostsソースにも接続できません!インターネットに接続されていますか？</string>
-    <string name="download_fail_title">ダウンロード失敗</string>
-    <string name="no_private_file">プライベートファイルが作成できません</string>
-    <string name="no_private_file_title">プライベートファイルの作成失敗</string>
-    <string name="enable_systemless_successful_title">有効化は成功です</string>
-    <string name="disable_systemless_successful_title">無効化は成功です</string>
-    <!--Other Dialogs-->
-    <string name="no_root_description">suバイナリが見つからないか、AdAwayのroot権限を許可していません。\n\n
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">終了</string>
+  <string name="button_close">閉じる</string>
+  <string name="button_yes">はい</string>
+  <string name="button_no">いいえ</string>
+  <string name="button_add">追加</string>
+  <string name="button_cancel">キャンセル</string>
+  <string name="button_save">保存</string>
+  <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します</string>
+  <string name="button_help">ヘルプ</string>
+  <!--Home-->
+  <string name="header_help">ようこそ！</string>
+  <string name="button_show_help">詳しいヘルプを表示</string>
+  <string name="icon_update_status">最新状況</string>
+  <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします</string>
+  <string name="button_check_update_hosts">更新を確認</string>
+  <string name="button_update_hosts">hostsを更新</string>
+  <string name="button_enable_hosts">広告ブロックを有効にする</string>
+  <string name="button_disable_hosts">広告ブロックを無効にする</string>
+  <string name="header_webserver">ウェブサーバー</string>
+  <string name="webserver_status_running">起動中</string>
+  <string name="webserver_status_stopped">停止</string>
+  <string name="button_enable_webserver">Webサーバーを有効にする</string>
+  <string name="button_disable_webserver">Webサーバーを無効にする</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_context_delete">削除</string>
+  <string name="checkbox_list_context_title">空のエントリ</string>
+  <string name="checkbox_list_context_edit">編集</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">ホワイトリスト</string>
+  <string name="lists_tab_blacklist">ブラックリスト</string>
+  <string name="lists_tab_redirection_list">リダイレクト</string>
+  <string name="list_add_dialog_black">ホストをブラックリストに追加する</string>
+  <string name="list_add_dialog_white">ホストをホワイトリストに追加する</string>
+  <string name="list_add_dialog_redirect">ホストリダイレクトを追加</string>
+  <string name="list_edit_dialog_black">ブラックリストホストを編集する</string>
+  <string name="list_edit_dialog_white">ホワイトリストホストを編集する</string>
+  <string name="list_edit_dialog_redirect">リダイレクト先を編集</string>
+  <string name="list_dialog_hostname">ホスト名:</string>
+  <string name="list_dialog_hostname_hint">ホストのソースURL</string>
+  <string name="list_dialog_wildcard">（ワイルドカード文字\\"*\\"および\\"?\\"は使用できます）</string>
+  <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
+  <string name="import_dialog">インポート中...</string>
+  <string name="export_dialog">エクスポート中...</string>
+  <!--Hosts content-->
+  <string name="hosts_header">hostsファイル</string>
+  <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
+  <string name="hosts_open_button">hostsファイルを開く</string>
+  <!--Status Notification-->
+  <string name="status_checking">更新を確認中...</string>
+  <string name="status_reverting">元に戻しています...</string>
+  <string name="status_reverting_subtitle">標準hostsファイルを作成中</string>
+  <string name="status_update_available">更新があります</string>
+  <string name="status_update_available_subtitle">新しいhostsファイルがあります</string>
+  <string name="status_no_connection">ネット接続なし</string>
+  <string name="status_no_connection_subtitle">ネットに接続されていません</string>
+  <string name="status_download_fail">ソースが利用できません</string>
+  <string name="status_download_fail_subtitle_new">どのhostsソースにも接続できません！</string>
+  <string name="status_enabled">有効です</string>
+  <string name="status_enabled_subtitle">hostsファイルが有効化されました</string>
+  <string name="status_disabled">無効です</string>
+  <string name="notification_channel_update_name">アップデート</string>
+  <string name="notification_channel_update_description">新しいホストの更新通知</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">/system/etc/hostsへのsymlinkは存在しないか不正です!AdAwayは正しいファイルが指定されていないと動作しません。\n\nsymlinkを作成しますか？</string>
+  <string name="apply_symlink_missing_title">symlinkが見つかりません</string>
+  <string name="apply_not_enough_space">領域に十分な容量がありません!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
+  <string name="apply_not_enough_space_title">空き容量不足</string>
+  <string name="apply_private_file_fail">ダウンロードしたファイルが読み込めません</string>
+  <string name="apply_private_file_fail_title">プライベートファイル失敗</string>
+  <string name="apply_remount_fail">領域のR/W再マウントに失敗しました！</string>
+  <string name="apply_remount_fail_title">再マウント失敗</string>
+  <string name="apply_copy_fail">hostsファイルのコピー失敗！</string>
+  <string name="apply_copy_fail_title">コピー失敗</string>
+  <string name="apply_success_title">適用しました</string>
+  <string name="apply_symlink_successful_title">symlink作成成功</string>
+  <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください</string>
+  <string name="apply_symlink_fail_title">symlink作成失敗</string>
+  <string name="apply_help">詳しくはヘルプをご覧ください</string>
+  <string name="apply_apn_proxy">APNプロキシが設定されています!\nAdAwayは3G/4Gのようなモバイルデータ通信では正常に動作しない場合があります。プロキシを無効にするには、APN (Android 4.x: 無線とネットワーク -&gt; その他の設定 -&gt; モバイルネットワーク -&gt; アクセスポイント名)で「プロキシ」の項目を空白にしてください</string>
+  <string name="apply_apn_proxy_title">APNプロキシがセットされています！</string>
+  <string name="no_connection">ネット接続がありません</string>
+  <string name="no_connection_title">接続なし</string>
+  <string name="download_dialog">ダウンロード中...</string>
+  <string name="apply_dialog">適用中...</string>
+  <string name="apply_dialog_lists">ブラック/ホワイトリストを適用中</string>
+  <string name="apply_dialog_hostnames">hostsファイルの解析･統合中...</string>
+  <string name="apply_dialog_hosts">hostsファイルを構成中...</string>
+  <string name="apply_dialog_apply">hostsファイルを適用中</string>
+  <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
+  <string name="apply_fail_title">適用に失敗</string>
+  <string name="revert_successful_title">元に戻しました</string>
+  <string name="revert_problem">不明な理由により元に戻せませんでした</string>
+  <string name="revert_problem_title">元に戻せません！</string>
+  <string name="download_fail_dialog">どのhostsソースにも接続できません!インターネットに接続されていますか？</string>
+  <string name="download_fail_title">ダウンロード失敗</string>
+  <string name="no_private_file">プライベートファイルが作成できません</string>
+  <string name="no_private_file_title">プライベートファイルの作成失敗</string>
+  <string name="enable_systemless_successful_title">有効化は成功です</string>
+  <string name="disable_systemless_successful_title">無効化は成功です</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">suバイナリが見つからないか、AdAwayのroot権限を許可していません。\n\n
 これはデバイスがルートされていない場合に発生します。\n
 Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート化する方法についての情報が見つかります</string>
-    <string name="no_root_title">root化されたAndroidが必要です</string>
-    <string name="hosts_add_dialog">hostsファイルのURLを入力:</string>
-    <string name="no_hostname">正しいホスト名ではありません！</string>
-    <string name="no_hostname_title">ホスト名が正しくありません</string>
-    <string name="no_ip">不正なIPです！</string>
-    <string name="no_ip_title">IPが正しくありません</string>
-    <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
-    <string name="loading">読み込み中…</string>
-    <!--Menu entries-->
-    <string name="menu_refresh">更新</string>
-    <string name="menu_add">追加</string>
-    <string name="menu_hosts_sources">hostsのソース</string>
-    <string name="menu_help">ヘルプ</string>
-    <string name="menu_import">リストをインポート</string>
-    <string name="menu_export">リストをエクスポート</string>
-    <!--Help-->
-    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">FAQ</string>
-    <string name="help_tab_problems">問題</string>
-    <!--Adware-->
-    <string name="adware_header">アドウェア</string>
-    <string name="adware_scanning">スキャン中…</string>
-    <!--Hosts sources-->
-    <string name="hosts_last_modified_local">ローカル：</string>
-    <string name="hosts_last_modified_online">オンライン：</string>
-    <string name="hosts_not_available">日時不明</string>
-    <string name="hosts_add_dialog_title">ソースを追加</string>
-    <string name="hosts_edit_dialog_title">ソースを編集</string>
-    <string name="hosts_dialog_url_hint">ホストのソースURL</string>
-    <!--Other-->
-    <string name="app_subtitle">広告排除！</string>
-    <string name="no_text_editor_title">テキストエディタがありません</string>
-    <string name="no_text_editor">hostsファイルを開くためのテキストエディタが見つかりません。Jotaなどテキストエディタをインストールしてください。\n\nJotaをインストールしますか？</string>
-    <string name="no_file_manager_title">ファイルマネージャがインストールされていません</string>
-    <string name="no_file_manager">ファイルマネージャが見つかりません。OI File ManagerやTetraなどをインストールしてください。\n\nOI File Managerをインストールしますか？</string>
-    <!--Tcpdump-->
-    <string name="tcpdump_header">TCPダンプ</string>
-    <string name="tcpdump_description">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。広告のサーバーだと思われるものはブラックリストに追加出来ます</string>
-    <string name="tcpdump_disable_monitoring">監視を無効にする</string>
-    <string name="tcpdump_enable_monitoring">監視を有効にする</string>
-    <string name="tcpdump_show_results">結果を表示</string>
-    <string name="tcpdump_redirect_dialog_title">リダイレクトドメイン</string>
-    <string name="tcpdump_menu_sort">ソートドメイン</string>
-    <string name="tcpdump_menu_clear">ログを消去</string>
-    <string name="tcpdump_sort_alphabetical">アルファベット順</string>
-    <string name="tcpdump_sort_top_level_domain">トップレベルドメインソート</string>
-    <string name="tcpdump_entry_add_blacklist">ブラックリストにエントリーを追加する</string>
-    <string name="tcpdump_entry_add_whitelist">ホワイトリストにエントリーを追加する</string>
-    <string name="tcpdump_entry_add_redirection_list">リダイレクトリストにエントリを追加する</string>
-    <!--Preferences-->
-    <string name="pref_download">基本設定</string>
-    <string name="pref_dismiss_welcome">ウェルカムカードを隠す</string>
-    <string name="pref_dismiss_welcome_summary">ウェルカムカードをホーム画面に表示しない</string>
-    <string name="pref_dark_theme">暗いテーマを有効にする</string>
-    <string name="pref_dark_theme_summary">明るいテーマの代わりに暗いテーマを使用</string>
-    <string name="pref_dark_theme_notification">テーマの変更はアプリの次回起動時に適用されます！</string>
-    <string name="pref_hosts">hostsファイル</string>
-    <string name="pref_redirection_ip">リダイレクト先IP</string>
-    <string name="pref_update_check">更新を確認</string>
-    <string name="pref_apply_method">ターゲットhostsファイル</string>
-    <string name="pref_apply_method_summary">この設定を変える前にこの機能についてヘルプを読んでください。</string>
-    <string name="pref_redirection_ip_summary">全てのブロックされたホスト名はこのIPアドレスにリダイレクトされます</string>
-    <string name="pref_header_preferences">設定</string>
-    <string name="pref_header_preferences_summary">AdAwayの基本的な設定</string>
-    <string name="pref_never_reboot">再起動ダイアログを非表示</string>
-    <string name="pref_never_reboot_summary">適用後に出る再起動を促すダイアログを非表示にします。</string>
-    <string name="pref_webserver_on_boot">ウェブサーバーを起動時に開始</string>
-    <string name="pref_webserver_on_boot_summary">ローカルIPアドレス待ち受けのため起動時にウェブサーバーを開始します。</string>
-    <string name="pref_webserver_enabled">ウェブサーバーを有効化</string>
-    <string name="pref_webserver_enabled_summary">ブロックしたホスト名の問い合わせに返答するためのウェブサーバーを有効にします。</string>
-    <string name="pref_webserver">ローカルウェブサーバー</string>
-    <string name="pref_custom_target">カスタムターゲット</string>
-    <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます</string>
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>カスタムターゲット</item>
-    </string-array>
-    <string name="pref_update_check_summary">AdAway起動時に更新を確認</string>
-    <string name="pref_background">バックグラウンドサービス</string>
-    <string name="pref_update_check_daily">毎日更新を確認する</string>
-    <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します</string>
-    <string name="pref_automatic_update_daily">自動更新</string>
-    <string name="pref_automatic_update_daily_summary">バックグラウンドで自動更新します</string>
-    <string name="pref_update_only_on_wifi">モバイルネットワークしていないときにのみ更新</string>
-    <string name="pref_update_only_on_wifi_summary">バックグラウンド更新は、モバイルネットワークに接続されている場合にのみ実行します</string>
-    <string name="pref_whitelist_rules">ホワイトリストの許可</string>
-    <string name="pref_whitelist_rules_summary">hostsソースからのホワイトリストエントリを許可します</string>
-    <string name="pref_redirection_rules">リダイレクトを許可</string>
-    <string name="pref_redirection_rules_summary">セキュリティリスクあり！hostsソースからのリダイレクトエントリを許可します</string>
-    <string name="pref_debug">デバッグ</string>
-    <string name="pref_enable_debug">デバッグ記録をする</string>
-    <string name="pref_enable_debug_summary">変更を適用するにはAdAwayの再起動が必要です</string>
-    <string name="pref_enable_ipv6">IPv6の有効化</string>
-    <string name="pref_enable_ipv6_summary">hostファイルのエントリがすべて::1 (IPv6 localhost) エントリを持つようになります。</string>
-    <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
-    <string name="pref_enable_systemless">systemlessモードを有効にする</string>
-    <string name="pref_edit_text_value">テキスト設定値を編集する</string>
-    <string name="drawer_open">メニューを開く</string>
-    <string name="drawer_close">メニューを閉じる</string>
-    <!--Drawer menu items-->
-    <string-array name="drawer_items">
-        <item>ホーム</item>
-        <item>Hostsソース</item>
-        <item>あなたのリスト</item>
-        <item>オープンホストファイル</item>
-        <item>ログDNS要求</item>
-        <item>アドウェアをスキャンする</item>
-        <item>設定</item>
-        <item>ヘルプ</item>
-    </string-array>
-    <!--Drawer menu labels-->
-    <!--Shortcuts-->
-    <string name="shortcut_dns_requests">DNSリクエスト</string>
-    <string name="shortcut_your_lists">あなたのリスト</string>
-    <string name="shortcut_preferences">設定</string>
-    <!--Hosts source status-->
-    <string name="hosts_source_up_to_date">最新の %1$s</string>
-    <string name="hosts_source_need_update">%1$sの更新が必要</string>
-    <string name="hosts_source_last_update">前回の更新 %1$s</string>
-    <string name="hosts_source_unknown_status">不明な更新ステータス</string>
-    <plurals name="hosts_source_minutes">
-        <item quantity="other">%d 分</item>
-    </plurals>
-    <plurals name="hosts_source_hours">
-        <item quantity="other">%d 時</item>
-    </plurals>
-    <plurals name="hosts_source_days">
-        <item quantity="other">%d 日</item>
-    </plurals>
-    <plurals name="hosts_source_months">
-        <item quantity="other">%d 月</item>
-    </plurals>
+  <string name="no_root_title">root化されたAndroidが必要です</string>
+  <string name="hosts_add_dialog">hostsファイルのURLを入力:</string>
+  <string name="no_hostname">正しいホスト名ではありません！</string>
+  <string name="no_hostname_title">ホスト名が正しくありません</string>
+  <string name="no_ip">不正なIPです！</string>
+  <string name="no_ip_title">IPが正しくありません</string>
+  <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
+  <string name="loading">読み込み中...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">更新</string>
+  <string name="menu_add">追加</string>
+  <string name="menu_hosts_sources">hostsのソース</string>
+  <string name="menu_help">ヘルプ</string>
+  <string name="menu_import">リストをインポート</string>
+  <string name="menu_export">リストをエクスポート</string>
+  <!--Help-->
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">問題</string>
+  <!--Adware-->
+  <string name="adware_header">アドウェア</string>
+  <string name="adware_scanning">スキャン中…</string>
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">ローカル：</string>
+  <string name="hosts_last_modified_online">オンライン：</string>
+  <string name="hosts_not_available">日時不明</string>
+  <string name="hosts_add_dialog_title">ソースを追加</string>
+  <string name="hosts_edit_dialog_title">ソースを編集</string>
+  <string name="hosts_dialog_url_hint">ホストのソースURL</string>
+  <!--Other-->
+  <string name="app_subtitle">広告排除！</string>
+  <string name="no_text_editor_title">テキストエディタがありません</string>
+  <string name="no_text_editor">hostsファイルを開くためのテキストエディタが見つかりません。Jotaなどテキストエディタをインストールしてください。\n\nJotaをインストールしますか？</string>
+  <string name="no_file_manager_title">ファイルマネージャがインストールされていません</string>
+  <string name="no_file_manager">ファイルマネージャが見つかりません。OI File ManagerやTetraなどをインストールしてください。\n\nOI File Managerをインストールしますか？</string>
+  <!--Tcpdump-->
+  <string name="tcpdump_header">TCPダンプ</string>
+  <string name="tcpdump_description">TCPダンプはDNS要求を監視してログファイルに保存する機能です。 バックグラウンドで開始して、広告を表示するアプリを起動するとログファイルでDNS要求を調べられます。広告のサーバーだと思われるものはブラックリストに追加出来ます</string>
+  <string name="tcpdump_disable_monitoring">監視を無効にする</string>
+  <string name="tcpdump_enable_monitoring">監視を有効にする</string>
+  <string name="tcpdump_show_results">結果を表示</string>
+  <string name="tcpdump_redirect_dialog_title">リダイレクトドメイン</string>
+  <string name="tcpdump_menu_sort">ソートドメイン</string>
+  <string name="tcpdump_menu_clear">ログを消去</string>
+  <string name="tcpdump_sort_alphabetical">アルファベット順</string>
+  <string name="tcpdump_sort_top_level_domain">トップレベルドメインソート</string>
+  <string name="tcpdump_entry_add_blacklist">ブラックリストにエントリーを追加する</string>
+  <string name="tcpdump_entry_add_whitelist">ホワイトリストにエントリーを追加する</string>
+  <string name="tcpdump_entry_add_redirection_list">リダイレクトリストにエントリを追加する</string>
+  <!--Preferences-->
+  <string name="pref_download">基本設定</string>
+  <string name="pref_dismiss_welcome">ウェルカムカードを隠す</string>
+  <string name="pref_dismiss_welcome_summary">ウェルカムカードをホーム画面に表示しない</string>
+  <string name="pref_dark_theme">暗いテーマを有効にする</string>
+  <string name="pref_dark_theme_summary">明るいテーマの代わりに暗いテーマを使用</string>
+  <string name="pref_dark_theme_notification">テーマの変更はアプリの次回起動時に適用されます！</string>
+  <string name="pref_hosts">hostsファイル</string>
+  <string name="pref_redirection_ip">リダイレクト先IP</string>
+  <string name="pref_update_check">更新を確認</string>
+  <string name="pref_apply_method">ターゲットhostsファイル</string>
+  <string name="pref_apply_method_summary">この設定を変える前にこの機能についてヘルプを読んでください。</string>
+  <string name="pref_redirection_ip_summary">全てのブロックされたホスト名はこのIPアドレスにリダイレクトされます</string>
+  <string name="pref_header_preferences">設定</string>
+  <string name="pref_header_preferences_summary">AdAwayの基本的な設定</string>
+  <string name="pref_never_reboot">再起動ダイアログを非表示</string>
+  <string name="pref_never_reboot_summary">適用後に出る再起動を促すダイアログを非表示にします。</string>
+  <string name="pref_webserver_on_boot">ウェブサーバーを起動時に開始</string>
+  <string name="pref_webserver_on_boot_summary">ローカルIPアドレス待ち受けのため起動時にウェブサーバーを開始します。</string>
+  <string name="pref_webserver_enabled">ウェブサーバーを有効化</string>
+  <string name="pref_webserver_enabled_summary">ブロックしたホスト名の問い合わせに返答するためのウェブサーバーを有効にします。</string>
+  <string name="pref_webserver">ローカルウェブサーバー</string>
+  <string name="pref_custom_target">カスタムターゲット</string>
+  <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>カスタムターゲット</item>
+  </string-array>
+  <string name="pref_update_check_summary">AdAway起動時に更新を確認</string>
+  <string name="pref_background">バックグラウンドサービス</string>
+  <string name="pref_update_check_daily">毎日更新を確認する</string>
+  <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します</string>
+  <string name="pref_automatic_update_daily">自動更新</string>
+  <string name="pref_automatic_update_daily_summary">バックグラウンドで自動更新します</string>
+  <string name="pref_update_only_on_wifi">モバイルネットワークしていないときにのみ更新</string>
+  <string name="pref_update_only_on_wifi_summary">バックグラウンド更新は、モバイルネットワークに接続されている場合にのみ実行します</string>
+  <string name="pref_whitelist_rules">ホワイトリストの許可</string>
+  <string name="pref_whitelist_rules_summary">hostsソースからのホワイトリストエントリを許可します</string>
+  <string name="pref_redirection_rules">リダイレクトを許可</string>
+  <string name="pref_redirection_rules_summary">セキュリティリスクあり！hostsソースからのリダイレクトエントリを許可します</string>
+  <string name="pref_debug">デバッグ</string>
+  <string name="pref_enable_debug">デバッグ記録をする</string>
+  <string name="pref_enable_debug_summary">変更を適用するにはAdAwayの再起動が必要です</string>
+  <string name="pref_enable_ipv6">IPv6の有効化</string>
+  <string name="pref_enable_ipv6_summary">hostファイルのエントリがすべて::1 (IPv6 localhost) エントリを持つようになります。</string>
+  <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
+  <string name="pref_enable_systemless">systemlessモードを有効にする</string>
+  <string name="pref_edit_text_value">テキスト設定値を編集する</string>
+  <string name="drawer_open">メニューを開く</string>
+  <string name="drawer_close">メニューを閉じる</string>
+  <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>ホーム</item>
+    <item>Hostsソース</item>
+    <item>あなたのリスト</item>
+    <item>オープンホストファイル</item>
+    <item>ログDNS要求</item>
+    <item>アドウェアをスキャンする</item>
+    <item>設定</item>
+    <item>ヘルプ</item>
+  </string-array>
+  <!--Drawer menu labels-->
+  <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNSリクエスト</string>
+  <string name="shortcut_your_lists">あなたのリスト</string>
+  <string name="shortcut_preferences">設定</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">最新の %1$s</string>
+  <string name="hosts_source_need_update">%1$sの更新が必要</string>
+  <string name="hosts_source_last_update">前回の更新 %1$s</string>
+  <string name="hosts_source_unknown_status">不明な更新ステータス</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="other">%d 分</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="other">%d 時</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="other">%d 日</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="other">%d 月</item>
+  </plurals>
 </resources>

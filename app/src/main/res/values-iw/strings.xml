@@ -1,159 +1,159 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="app_name">AdAway</string>
-    <!--Buttons-->
-    <string name="button_exit">יציאה</string>
-    <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
-    <string name="button_yes">כן</string>
-    <string name="button_no">לא</string>
-    <string name="button_add">הוסף</string>
-    <string name="button_cancel">ביטול</string>
-    <string name="button_save">שמור</string>
-    <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
-    <string name="button_help">עזרה</string>
-    <!--Home-->
-    <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
-    <string name="button_check_update_hosts">בדוק עידכונים</string>
-    <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">מחק</string>
-    <string name="checkbox_list_context_title">ערוך רשומה</string>
-    <string name="checkbox_list_context_edit">ערוך</string>
-    <!--Your lists-->
-    <string name="lists_tab_whitelist">רשימה לבנה</string>
-    <string name="lists_tab_blacklist">רשימה שחורה</string>
-    <string name="list_dialog_hostname">שם שרת:</string>
-    <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
-    <string name="import_dialog">מייבא…</string>
-    <string name="export_dialog">מייצא…</string>
-    <!--Hosts content-->
-    <!--Status Notification-->
-    <string name="status_checking">בודק עידכונים…</string>
-    <string name="status_reverting">משחזר…</string>
-    <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
-    <string name="status_update_available">קיים עידכון</string>
-    <string name="status_update_available_subtitle">קבצי hosts חדשים זמינים להורדה</string>
-    <string name="status_no_connection">אין חיבור לאינטרנט</string>
-    <string name="status_no_connection_subtitle">אין חיבור זמין לאינטרנט</string>
-    <string name="status_download_fail">מקור אינו זמין</string>
-    <string name="status_download_fail_subtitle_new">אין מקורות זמינים!</string>
-    <string name="status_enabled">פעיל</string>
-    <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
-    <string name="status_disabled">לא פעיל</string>
-    <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
-    <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
-    <string name="apply_not_enough_space">אין מספיק שטח איחסון בדיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
-    <string name="apply_not_enough_space_title">אין מספיק זיכרון</string>
-    <string name="apply_private_file_fail">לא ניתן לקרוא מהקובץ שהתקבל</string>
-    <string name="apply_private_file_fail_title">החלת קובץ פרטי נכשל</string>
-    <string name="apply_remount_fail">הענקת הרשאות קריאה/כתיבה נכשלו!</string>
-    <string name="apply_remount_fail_title">הענקת הרשאות נכשלה</string>
-    <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
-    <string name="apply_copy_fail_title">העתקה נכשלה</string>
-    <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
-    <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
-    <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
-    <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
-    <string name="apply_help">קרא את העזרה למידע נוסף.</string>
-    <string name="apply_apn_proxy"><![CDATA[פרוקסי APN מוגדר ב- Android שלך!\nAdAway לא יפעל באופן אמין ברשת סלולרית כמו 3G. תוכל לבטל את פעולת ה- proxy על ידי מעבר אל APN הנבחר שלך (ב- Android 4: רשתות אלחוטיות ורשתות -> עוד … -> רשתות לנייד -> שמות נקודות גישה) ולהסיר את הערך בשדה ה- Proxy.]]></string>
-    <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
-    <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
-    <string name="no_connection_title">אין חיבור</string>
-    <string name="download_dialog">מוריד…</string>
-    <string name="apply_dialog">החל</string>
-    <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
-    <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
-    <string name="apply_dialog_hosts">בנה קובץ hosts</string>
-    <string name="apply_dialog_apply">החל קובץ hosts</string>
-    <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
-    <string name="apply_fail_title">החלת הגדרות נכשלה</string>
-    <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
-    <string name="revert_problem">חזרה נכשלה.</string>
-    <string name="revert_problem_title">שחזור נכשל!</string>
-    <string name="download_fail_dialog">אף אחד מהמקורות שלך זמינים בדוק שאתה מחובר לאינטרנט ונסה שוב</string>
-    <string name="download_fail_title">הורדה נכשלה</string>
-    <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
-    <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
-    <string name="enable_systemless_successful_title">הופעל בהצלחה</string>
-    <string name="disable_systemless_successful_title">כובה בהצלחה</string>
-    <!--Other Dialogs-->
-    <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
-    <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
-    <string name="no_hostname">שם השרת אינו חוקי!</string>
-    <string name="no_hostname_title">שם השרת בתבנית לא נכונה</string>
-    <string name="no_ip">כתובת ה IP אינה חוקית!</string>
-    <string name="no_ip_title">כתובת IP בתבנית לא נכונה</string>
-    <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב!</string>
-    <string name="loading">טוען…</string>
-    <!--Menu entries-->
-    <string name="menu_refresh">רענן</string>
-    <string name="menu_add">הוסף</string>
-    <string name="menu_hosts_sources">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
-    <string name="menu_help">עזרה</string>
-    <string name="menu_import">ייבא את כל הרשימות</string>
-    <string name="menu_export">ייצא את כל הרשימות</string>
-    <!--Help-->
-    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">שאלות ותשובות</string>
-    <string name="help_tab_problems">תקלות</string>
-    <!--Adware-->
-    <!--Hosts sources-->
-    <string name="hosts_last_modified_local">מקומי:</string>
-    <string name="hosts_last_modified_online">אונליין:</string>
-    <string name="hosts_not_available">לא זמין</string>
-    <!--Other-->
-    <string name="app_subtitle">חסום פרסומות</string>
-    <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
-    <string name="no_text_editor">לא נמצא עורך טקסט כל שהוא מותקן עבור פתיחת קובץ hosts. אתה יכול להתקין את העורך Jota או כל עורך טקסט אחר כדי לפתוח את הקובץ.\n\nאתה רוצה להתקין את Jota כעת?</string>
-    <string name="no_file_manager_title">לא מותקן מנהל קבצים</string>
-    <string name="no_file_manager">לא נמצא מנהל קבצים לפתיחת קובץ זה. תוכל להתקין את  OI File Manager או כל מנהל קבצים אחר כדי לפתור זאת.\n\nהאם אתה רוצה להתקין את OI File Manager כעת?</string>
-    <!--Tcpdump-->
-    <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump הוא כלי לניטור בקשות DNS ושמירה שלהם בקובץ יומן. אתה יכול להפעיל אותו ברקע, ולהפעיל יישומים שמציגים פרסומות, ולאחר מכן להסתכל ביומן בקשות ה DNS על ידי שימוש בקובץ היומן. וכך להוסיף שרתי פרסומות לרשימה השחורה שלך.</string>
-    <!--Preferences-->
-    <string name="pref_download">העדפות כלליות</string>
-    <string name="pref_hosts">קובץ Hosts</string>
-    <string name="pref_redirection_ip">העברה לכתובת IP</string>
-    <string name="pref_update_check">בדוק עידכונים</string>
-    <string name="pref_apply_method">יעד קובץ Hosts</string>
-    <string name="pref_apply_method_summary">לפני שתשנה הגדרה זו, קרא אודות פונקציה זו בעזרה</string>
-    <string name="pref_redirection_ip_summary">כל השרתים החסומים יופנו לכתובת IP זו.</string>
-    <string name="pref_header_preferences">העדפות</string>
-    <string name="pref_header_preferences_summary">העדפות כלליות של AdAway</string>
-    <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>
-    <string name="pref_never_reboot_summary">מסתיר את תיבת הדו שיח ששואלת אם להפעיל את מערכת אנדרואיד מחדש לאחר עדכון מוצלח</string>
-    <string name="pref_webserver_on_boot">הפעל את השירות בעת הפעלת המערכת</string>
-    <string name="pref_webserver_on_boot_summary">הפעל שרת מקומי בהפעלת המערכת עם האזנה של 5 שניות לכתובת IP מקומית</string>
-    <string name="pref_webserver_enabled">הפעל שירות</string>
-    <string name="pref_webserver_enabled_summary">הפעל את השרת להקשיב לכתובת IP מקומית ולענות לבקשות של כתובות חסומות</string>
-    <string name="pref_webserver">שרת מקומי</string>
-    <string name="pref_custom_target">יעד מותאם אישית</string>
-    <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>יעד מותאם אישית</item>
-    </string-array>
-    <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
-    <string name="pref_background">שירותים ברקע</string>
-    <string name="pref_update_check_daily">בדוק עידכונים יומיים</string>
-    <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>
-    <string name="pref_automatic_update_daily">עדכונים אוטומטיים</string>
-    <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
-    <string name="pref_whitelist_rules">אפשר רשימות לבנות</string>
-    <string name="pref_whitelist_rules_summary">אפשר רשימות לבנות ממקורות Hosts</string>
-    <string name="pref_redirection_rules_summary">מסוכן!!! אפשר חוקי הפניה ממקורות Hosts.</string>
-    <string name="pref_debug">ניפוי שגיאות</string>
-    <string name="pref_enable_debug">רשום יומן שגיאות</string>
-    <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
-    <string name="pref_enable_ipv6">אפשר IPv6</string>
-    <string name="pref_enable_ipv6_summary">כלל כניסות השרתים יקבלו ערך כניסה אחיד ::1 (IPv6 שרת מקומי).</string>
-    <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
-    <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
-    <!--Drawer menu items-->
-    <!--Drawer menu labels-->
-    <!--Shortcuts-->
-    <string name="shortcut_preferences">העדפות</string>
-    <!--Hosts source status-->
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">יציאה</string>
+  <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
+  <string name="button_yes">כן</string>
+  <string name="button_no">לא</string>
+  <string name="button_add">הוסף</string>
+  <string name="button_cancel">ביטול</string>
+  <string name="button_save">שמור</string>
+  <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
+  <string name="button_help">עזרה</string>
+  <!--Home-->
+  <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
+  <string name="button_check_update_hosts">בדוק עידכונים</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_context_delete">מחק</string>
+  <string name="checkbox_list_context_title">ערוך רשומה</string>
+  <string name="checkbox_list_context_edit">ערוך</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">רשימה לבנה</string>
+  <string name="lists_tab_blacklist">רשימה שחורה</string>
+  <string name="list_dialog_hostname">שם שרת:</string>
+  <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
+  <string name="import_dialog">מייבא...</string>
+  <string name="export_dialog">מייצא...</string>
+  <!--Hosts content-->
+  <!--Status Notification-->
+  <string name="status_checking">בודק עידכונים...</string>
+  <string name="status_reverting">משחזר...</string>
+  <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
+  <string name="status_update_available">קיים עידכון</string>
+  <string name="status_update_available_subtitle">קבצי hosts חדשים זמינים להורדה</string>
+  <string name="status_no_connection">אין חיבור לאינטרנט</string>
+  <string name="status_no_connection_subtitle">אין חיבור זמין לאינטרנט</string>
+  <string name="status_download_fail">מקור אינו זמין</string>
+  <string name="status_download_fail_subtitle_new">אין מקורות זמינים!</string>
+  <string name="status_enabled">פעיל</string>
+  <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
+  <string name="status_disabled">לא פעיל</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
+  <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
+  <string name="apply_not_enough_space">אין מספיק שטח איחסון בדיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
+  <string name="apply_not_enough_space_title">אין מספיק זיכרון</string>
+  <string name="apply_private_file_fail">לא ניתן לקרוא מהקובץ שהתקבל</string>
+  <string name="apply_private_file_fail_title">החלת קובץ פרטי נכשל</string>
+  <string name="apply_remount_fail">הענקת הרשאות קריאה/כתיבה נכשלו!</string>
+  <string name="apply_remount_fail_title">הענקת הרשאות נכשלה</string>
+  <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
+  <string name="apply_copy_fail_title">העתקה נכשלה</string>
+  <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
+  <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
+  <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
+  <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
+  <string name="apply_help">קרא את העזרה למידע נוסף.</string>
+  <string name="apply_apn_proxy">פרוקסי APN מוגדר ב- Android שלך!\nAdAway לא יפעל באופן אמין ברשת סלולרית כמו 3G. תוכל לבטל את פעולת ה- proxy על ידי מעבר אל APN הנבחר שלך (ב- Android 4: רשתות אלחוטיות ורשתות -&gt; עוד ... -&gt; רשתות לנייד -&gt; שמות נקודות גישה) ולהסיר את הערך בשדה ה- Proxy.</string>
+  <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
+  <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
+  <string name="no_connection_title">אין חיבור</string>
+  <string name="download_dialog">מוריד...</string>
+  <string name="apply_dialog">החל</string>
+  <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
+  <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
+  <string name="apply_dialog_hosts">בנה קובץ hosts</string>
+  <string name="apply_dialog_apply">החל קובץ hosts</string>
+  <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
+  <string name="apply_fail_title">החלת הגדרות נכשלה</string>
+  <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
+  <string name="revert_problem">חזרה נכשלה.</string>
+  <string name="revert_problem_title">שחזור נכשל!</string>
+  <string name="download_fail_dialog">אף אחד מהמקורות שלך זמינים בדוק שאתה מחובר לאינטרנט ונסה שוב</string>
+  <string name="download_fail_title">הורדה נכשלה</string>
+  <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
+  <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
+  <string name="enable_systemless_successful_title">הופעל בהצלחה</string>
+  <string name="disable_systemless_successful_title">כובה בהצלחה</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
+  <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
+  <string name="no_hostname">שם השרת אינו חוקי!</string>
+  <string name="no_hostname_title">שם השרת בתבנית לא נכונה</string>
+  <string name="no_ip">כתובת ה IP אינה חוקית!</string>
+  <string name="no_ip_title">כתובת IP בתבנית לא נכונה</string>
+  <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב!</string>
+  <string name="loading">טוען...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">רענן</string>
+  <string name="menu_add">הוסף</string>
+  <string name="menu_hosts_sources">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
+  <string name="menu_help">עזרה</string>
+  <string name="menu_import">ייבא את כל הרשימות</string>
+  <string name="menu_export">ייצא את כל הרשימות</string>
+  <!--Help-->
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">שאלות ותשובות</string>
+  <string name="help_tab_problems">תקלות</string>
+  <!--Adware-->
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">מקומי:</string>
+  <string name="hosts_last_modified_online">אונליין:</string>
+  <string name="hosts_not_available">לא זמין</string>
+  <!--Other-->
+  <string name="app_subtitle">חסום פרסומות</string>
+  <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
+  <string name="no_text_editor">לא נמצא עורך טקסט כל שהוא מותקן עבור פתיחת קובץ hosts. אתה יכול להתקין את העורך Jota או כל עורך טקסט אחר כדי לפתוח את הקובץ.\n\nאתה רוצה להתקין את Jota כעת?</string>
+  <string name="no_file_manager_title">לא מותקן מנהל קבצים</string>
+  <string name="no_file_manager">לא נמצא מנהל קבצים לפתיחת קובץ זה. תוכל להתקין את  OI File Manager או כל מנהל קבצים אחר כדי לפתור זאת.\n\nהאם אתה רוצה להתקין את OI File Manager כעת?</string>
+  <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump הוא כלי לניטור בקשות DNS ושמירה שלהם בקובץ יומן. אתה יכול להפעיל אותו ברקע, ולהפעיל יישומים שמציגים פרסומות, ולאחר מכן להסתכל ביומן בקשות ה DNS על ידי שימוש בקובץ היומן. וכך להוסיף שרתי פרסומות לרשימה השחורה שלך.</string>
+  <!--Preferences-->
+  <string name="pref_download">העדפות כלליות</string>
+  <string name="pref_hosts">קובץ Hosts</string>
+  <string name="pref_redirection_ip">העברה לכתובת IP</string>
+  <string name="pref_update_check">בדוק עידכונים</string>
+  <string name="pref_apply_method">יעד קובץ Hosts</string>
+  <string name="pref_apply_method_summary">לפני שתשנה הגדרה זו, קרא אודות פונקציה זו בעזרה</string>
+  <string name="pref_redirection_ip_summary">כל השרתים החסומים יופנו לכתובת IP זו.</string>
+  <string name="pref_header_preferences">העדפות</string>
+  <string name="pref_header_preferences_summary">העדפות כלליות של AdAway</string>
+  <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>
+  <string name="pref_never_reboot_summary">מסתיר את תיבת הדו שיח ששואלת אם להפעיל את מערכת אנדרואיד מחדש לאחר עדכון מוצלח</string>
+  <string name="pref_webserver_on_boot">הפעל את השירות בעת הפעלת המערכת</string>
+  <string name="pref_webserver_on_boot_summary">הפעל שרת מקומי בהפעלת המערכת עם האזנה של 5 שניות לכתובת IP מקומית</string>
+  <string name="pref_webserver_enabled">הפעל שירות</string>
+  <string name="pref_webserver_enabled_summary">הפעל את השרת להקשיב לכתובת IP מקומית ולענות לבקשות של כתובות חסומות</string>
+  <string name="pref_webserver">שרת מקומי</string>
+  <string name="pref_custom_target">יעד מותאם אישית</string>
+  <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>יעד מותאם אישית</item>
+  </string-array>
+  <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
+  <string name="pref_background">שירותים ברקע</string>
+  <string name="pref_update_check_daily">בדוק עידכונים יומיים</string>
+  <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>
+  <string name="pref_automatic_update_daily">עדכונים אוטומטיים</string>
+  <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
+  <string name="pref_whitelist_rules">אפשר רשימות לבנות</string>
+  <string name="pref_whitelist_rules_summary">אפשר רשימות לבנות ממקורות Hosts</string>
+  <string name="pref_redirection_rules_summary">מסוכן!!! אפשר חוקי הפניה ממקורות Hosts.</string>
+  <string name="pref_debug">ניפוי שגיאות</string>
+  <string name="pref_enable_debug">רשום יומן שגיאות</string>
+  <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
+  <string name="pref_enable_ipv6">אפשר IPv6</string>
+  <string name="pref_enable_ipv6_summary">כלל כניסות השרתים יקבלו ערך כניסה אחיד ::1 (IPv6 שרת מקומי).</string>
+  <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
+  <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
+  <!--Drawer menu items-->
+  <!--Drawer menu labels-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">העדפות</string>
+  <!--Hosts source status-->
 </resources>

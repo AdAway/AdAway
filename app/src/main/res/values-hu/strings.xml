@@ -1,259 +1,259 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="app_name">AdAway</string>
-    <!--Buttons-->
-    <string name="button_exit">Kilépés</string>
-    <string name="button_close">Bezárás</string>
-    <string name="button_yes">Igen</string>
-    <string name="button_no">Nem</string>
-    <string name="button_add">Új</string>
-    <string name="button_cancel">Mégse</string>
-    <string name="button_save">Mentés</string>
-    <string name="button_webserver_toggle_text">Webszerver indítása vagy leállítása a localhost-on, amely válaszol a letiltott hostoknak küldött lekérésekre.</string>
-    <string name="button_help">Súgó</string>
-    <!--Home-->
-    <string name="header_help">Üdv!</string>
-    <string name="button_show_help">További információ megjelenítése</string>
-    <string name="icon_update_status">Státusz frissítése</string>
-    <string name="text_update">A kijelölt hosts fájlok letöltése, összefűzése a saját listákkal, majd aktiválás a rendszeren közös hosts fájlként.</string>
-    <string name="button_check_update_hosts">Frissítések ellenőrzése</string>
-    <string name="button_update_hosts">Hosztok frissítése</string>
-    <string name="button_enable_hosts">Hirdetésblokkolás engedélyezése</string>
-    <string name="button_disable_hosts">Hirdetésblokkolás letiltása</string>
-    <string name="header_webserver">Webszerver</string>
-    <string name="webserver_status_running">Fut</string>
-    <string name="webserver_status_stopped">Megállítva</string>
-    <string name="button_enable_webserver">Webszerver engedélyezése</string>
-    <string name="button_disable_webserver">Webszerver letiltása</string>
-    <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Törlés</string>
-    <string name="checkbox_list_context_title">Bejegyzés szerkesztése</string>
-    <string name="checkbox_list_context_edit">Szerkesztés</string>
-    <!--Your lists-->
-    <string name="lists_tab_whitelist">Fehérlista</string>
-    <string name="lists_tab_blacklist">Feketelista</string>
-    <string name="lists_tab_redirection_list">Átirányítások</string>
-    <string name="list_add_dialog_black">Hoszt hozzáadása a feketelistához</string>
-    <string name="list_add_dialog_white">Hoszt hozzáadása a fehérlistához</string>
-    <string name="list_add_dialog_redirect">Hoszt átirányítás hozzáadása</string>
-    <string name="list_edit_dialog_black">Feketelista szerkesztése</string>
-    <string name="list_edit_dialog_white">Fehérlista szerkesztése</string>
-    <string name="list_edit_dialog_redirect">Átirányítás szerkesztése</string>
-    <string name="list_dialog_hostname">Hosztnév:</string>
-    <string name="list_dialog_hostname_hint">Hosts fájl forrása (URL)</string>
-    <string name="list_dialog_wildcard">(Helyettesítő karakterek * és ? használata is engedélyezett!)</string>
-    <string name="list_dialog_ip">IP (IPv4 vagy IPv6):</string>
-    <string name="import_dialog">Importálás…</string>
-    <string name="export_dialog">Exportálás…</string>
-    <!--Hosts content-->
-    <string name="hosts_header">A hosts fájl</string>
-    <string name="hosts_content">Hosts fájl tartalmának betöltése…</string>
-    <string name="hosts_open_button">Hosts fájl megnyitása</string>
-    <!--Status Notification-->
-    <string name="status_checking">Frissítések ellenőrzése…</string>
-    <string name="status_reverting">Visszaállítás…</string>
-    <string name="status_reverting_subtitle">Alapértelmezett hosts fájl létrehozása</string>
-    <string name="status_update_available">Frissítés érhető el</string>
-    <string name="status_update_available_subtitle">Újabb hosts fájlok érhetők el</string>
-    <string name="status_no_connection">Nincs internetkapcsolat</string>
-    <string name="status_no_connection_subtitle">Nincs elérhető internetkapcsolat</string>
-    <string name="status_download_fail">Elérhetetlen források</string>
-    <string name="status_download_fail_subtitle_new">Nincs elérhető hosts-fájl forrás!</string>
-    <string name="status_failure">Hiba történt</string>
-    <string name="status_failure_subtitle">Ellenőrizd a logcatet további részletekért</string>
-    <string name="status_enabled">Engedélyezett</string>
-    <string name="status_enabled_subtitle">A legújabb hosts fájlok vannak engedélyezve</string>
-    <string name="status_disabled">Letiltva</string>
-    <string name="status_disabled_subtitle">Az alapértelmezett hosts fájl van telepítve</string>
-    <string name="notification_channel_update_name">Frissítések</string>
-    <string name="notification_channel_update_description">Értesítés host frissítések esetén</string>
-    <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing">A /system/etc/hosts fájlra mutató szimbolikus link nem létezik vagy hibás! Az AdAway nem fog működni, amíg ez nem mutat a megfelelő fájlra.
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Kilépés</string>
+  <string name="button_close">Bezárás</string>
+  <string name="button_yes">Igen</string>
+  <string name="button_no">Nem</string>
+  <string name="button_add">Új</string>
+  <string name="button_cancel">Mégse</string>
+  <string name="button_save">Mentés</string>
+  <string name="button_webserver_toggle_text">Webszerver indítása vagy leállítása a localhost-on, amely válaszol a letiltott hostoknak küldött lekérésekre.</string>
+  <string name="button_help">Súgó</string>
+  <!--Home-->
+  <string name="header_help">Üdv!</string>
+  <string name="button_show_help">További információ megjelenítése</string>
+  <string name="icon_update_status">Státusz frissítése</string>
+  <string name="text_update">A kijelölt hosts fájlok letöltése, összefűzése a saját listákkal, majd aktiválás a rendszeren közös hosts fájlként.</string>
+  <string name="button_check_update_hosts">Frissítések ellenőrzése</string>
+  <string name="button_update_hosts">Hosztok frissítése</string>
+  <string name="button_enable_hosts">Hirdetésblokkolás engedélyezése</string>
+  <string name="button_disable_hosts">Hirdetésblokkolás letiltása</string>
+  <string name="header_webserver">Webszerver</string>
+  <string name="webserver_status_running">Fut</string>
+  <string name="webserver_status_stopped">Megállítva</string>
+  <string name="button_enable_webserver">Webszerver engedélyezése</string>
+  <string name="button_disable_webserver">Webszerver letiltása</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_context_delete">Törlés</string>
+  <string name="checkbox_list_context_title">Bejegyzés szerkesztése</string>
+  <string name="checkbox_list_context_edit">Szerkesztés</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">Fehérlista</string>
+  <string name="lists_tab_blacklist">Feketelista</string>
+  <string name="lists_tab_redirection_list">Átirányítások</string>
+  <string name="list_add_dialog_black">Hoszt hozzáadása a feketelistához</string>
+  <string name="list_add_dialog_white">Hoszt hozzáadása a fehérlistához</string>
+  <string name="list_add_dialog_redirect">Hoszt átirányítás hozzáadása</string>
+  <string name="list_edit_dialog_black">Feketelista szerkesztése</string>
+  <string name="list_edit_dialog_white">Fehérlista szerkesztése</string>
+  <string name="list_edit_dialog_redirect">Átirányítás szerkesztése</string>
+  <string name="list_dialog_hostname">Hosztnév:</string>
+  <string name="list_dialog_hostname_hint">Hosts fájl forrása (URL)</string>
+  <string name="list_dialog_wildcard">(Helyettesítő karakterek * és ? használata is engedélyezett!)</string>
+  <string name="list_dialog_ip">IP (IPv4 vagy IPv6):</string>
+  <string name="import_dialog">Importálás...</string>
+  <string name="export_dialog">Exportálás...</string>
+  <!--Hosts content-->
+  <string name="hosts_header">A hosts fájl</string>
+  <string name="hosts_content">Hosts fájl tartalmának betöltése...</string>
+  <string name="hosts_open_button">Hosts fájl megnyitása</string>
+  <!--Status Notification-->
+  <string name="status_checking">Frissítések ellenőrzése...</string>
+  <string name="status_reverting">Visszaállítás...</string>
+  <string name="status_reverting_subtitle">Alapértelmezett hosts fájl létrehozása</string>
+  <string name="status_update_available">Frissítés érhető el</string>
+  <string name="status_update_available_subtitle">Újabb hosts fájlok érhetők el</string>
+  <string name="status_no_connection">Nincs internetkapcsolat</string>
+  <string name="status_no_connection_subtitle">Nincs elérhető internetkapcsolat</string>
+  <string name="status_download_fail">Elérhetetlen források</string>
+  <string name="status_download_fail_subtitle_new">Nincs elérhető hosts-fájl forrás!</string>
+  <string name="status_failure">Hiba történt</string>
+  <string name="status_failure_subtitle">Ellenőrizd a logcatet további részletekért</string>
+  <string name="status_enabled">Engedélyezett</string>
+  <string name="status_enabled_subtitle">A legújabb hosts fájlok vannak engedélyezve</string>
+  <string name="status_disabled">Letiltva</string>
+  <string name="status_disabled_subtitle">Az alapértelmezett hosts fájl van telepítve</string>
+  <string name="notification_channel_update_name">Frissítések</string>
+  <string name="notification_channel_update_description">Értesítés host frissítések esetén</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">A /system/etc/hosts fájlra mutató szimbolikus link nem létezik vagy hibás! Az AdAway nem fog működni, amíg ez nem mutat a megfelelő fájlra.
 
 Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
-    <string name="apply_symlink_missing_title">Hiányzó szimbolikus link</string>
-    <string name="apply_not_enough_space">Nincs elég hely a partíción!\nPróbáld meg módosítani a cél hosts fájlt /data/data/hosts -ra a beállításokban !</string>
-    <string name="apply_not_enough_space_title">Nincs elég hely</string>
-    <string name="apply_private_file_fail">A letöltött fájlt nem lehet beolvasni.</string>
-    <string name="apply_private_file_fail_title">Privát fájl hiba</string>
-    <string name="apply_remount_fail">Nem sikerült a partíciót írhatóként újracsatolni!</string>
-    <string name="apply_remount_fail_title">Sikertelen újracsatolás</string>
-    <string name="apply_copy_fail">Nem sikerült a hosts fájlok másolása!</string>
-    <string name="apply_copy_fail_title">Sikertelen másolás</string>
-    <string name="apply_success_subtitle">A hosts források beállítása sikerült</string>
-    <string name="apply_success_title">Sikeres alkalmazás</string>
-    <string name="apply_symlink_successful_title">A szimbolikus link létrehozása sikeres</string>
-    <string name="apply_symlink_fail">Az Android nem tudta létrehozni a szimbolikus linket .\nA sikertelenség oka legtöbbször egy S-ON nevű \"funkció\" az HTC telefonokon.\n\nEgy megoldás lehet, ha recovery módban indítod újra az eszközödet, majd ott hozod létre a szimbolikus linket az \'ln -s /data/data/hosts /system/etc/hosts\' parancs segítségével.\n\nHa ez nem működik, akkor keress rá az interneten az S-OFF kifejezésre!</string>
-    <string name="apply_symlink_fail_title">Szimbolikus link létrehozása sikertelen</string>
-    <string name="apply_help">Kérlek olvasd el a Súgót további információkért!</string>
-    <string name="apply_apn_proxy">Az Androidodon be van állítva egy APN proxy!\nAz AdAway nem fog megbízhatóan működni mobilhálózatokon (mint amilyen a 3G). Kikapcsolhatod ezt a proxy-t, ha az aktív APN-hez navigálsz (Android 4-en: Vezeték nélküli és hálózatok -&gt; Továbbiak… -&gt; Mobilhálózatok -&gt; Hozzáférési pontok neve), majd eltávolítod az ott szereplő értéket a proxy mezőből.</string>
-    <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
-    <string name="no_connection">Az internetkapcsolat nem működik.</string>
-    <string name="no_connection_title">Nincs kapcsolat</string>
-    <string name="download_dialog">Letöltés…</string>
-    <string name="apply_dialog">Alkalmazás…</string>
-    <string name="apply_dialog_lists">Fekete- és fehérlista alkalmazása</string>
-    <string name="apply_dialog_hostnames">Hosts fájlok feldolgozása és összefésülése</string>
-    <string name="apply_dialog_hosts">Hosts fájlok felépítése</string>
-    <string name="apply_dialog_apply">Hosts fájlok alkalmazása</string>
-    <string name="apply_fail">Nem sikerült a hosts fájl alkalmazása rendszereden!\nPróbáld meg /data/data/hosts-ra módosítani a cél hosts fájlt a beállításokban.</string>
-    <string name="apply_fail_title">Az alkalmazás nem sikerült</string>
-    <string name="revert_successful_title">Sikeres visszaállítás</string>
-    <string name="revert_problem">A visszaállítás ismeretlen ok miatt nem sikerült.</string>
-    <string name="revert_problem_title">Sikertelen visszaállítás!</string>
-    <string name="download_fail_dialog">Egyik engedélyezett hosts fájl sem érhető el! Megfelelően csatlakozol az internethez?</string>
-    <string name="download_fail_title">Sikertelen letöltés</string>
-    <string name="no_private_file">Privát fájl nem hozható létre.</string>
-    <string name="no_private_file_title">Privát fájl létrehozása sikertelen.</string>
-    <string name="enable_systemless_successful_title">Engedélyezés sikeres</string>
-    <string name="disable_systemless_successful_title">Sikerült a letiltás</string>
-    <!--Other Dialogs-->
-    <string name="no_root_description">Vagy nem érhető el a su alkalmazás kódja, vagy nem adtál root jogosultságot az AdAway-nek.\n\nEz olyan esetekben fordulhat elő, ha az eszközöd nincs rootolva.\nAz eszközöd rootolásának folyamatáról a wiki.lineageos.org és egyéb Androidos weboldalak adnak bővebb információt.</string>
-    <string name="no_root_title">Rootolt Android szükséges</string>
-    <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
-    <string name="no_hostname">Ez nem érvényes hosztnév!</string>
-    <string name="no_hostname_title">Helytelenül formázott hosztnév</string>
-    <string name="no_ip">Ez nem érvényes IP!</string>
-    <string name="no_ip_title">Helytelenül formázott IP cím</string>
-    <string name="reboot_never_reboot">Soha ne indítsa újra és ne jelenjen meg ez a kérdés legközelebb!</string>
-    <string name="loading">Betöltés…</string>
-    <!--Menu entries-->
-    <string name="menu_refresh">Frissítés</string>
-    <string name="menu_add">Hozzáadás</string>
-    <string name="menu_hosts_sources">Hosts források</string>
-    <string name="menu_help">Súgó</string>
-    <string name="menu_import">Összes lista importálása</string>
-    <string name="menu_export">Összes lista exportálása</string>
-    <!--Help-->
-    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">GYIK</string>
-    <string name="help_tab_problems">Problémák</string>
-    <!--Adware-->
-    <string name="adware_header">Adware</string>
-    <string name="adware_scanning">Keresés…</string>
-    <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Helyi:</string>
-    <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">nem érhető el</string>
-    <string name="hosts_add_dialog_title">Forrás hozzáadása</string>
-    <string name="hosts_edit_dialog_title">Forrás szerkesztése</string>
-    <string name="hosts_dialog_url">URL: (https:// vagy file:// erőforrás)</string>
-    <string name="hosts_dialog_url_hint">Hosts fájl forrása (URL)</string>
-    <!--Other-->
-    <string name="app_subtitle">Hirdetésblokkoló</string>
-    <string name="no_text_editor_title">Nincs telepítve szövegszerkesztő</string>
-    <string name="no_text_editor">Nem találni olyan szövegszerkesztőt, amely megnyitná a host fájlt. A fájl kezeléséhez feltelepítheted a Jota-t vagy más szövegszerkesztőt.
+  <string name="apply_symlink_missing_title">Hiányzó szimbolikus link</string>
+  <string name="apply_not_enough_space">Nincs elég hely a partíción!\nPróbáld meg módosítani a cél hosts fájlt /data/data/hosts -ra a beállításokban !</string>
+  <string name="apply_not_enough_space_title">Nincs elég hely</string>
+  <string name="apply_private_file_fail">A letöltött fájlt nem lehet beolvasni.</string>
+  <string name="apply_private_file_fail_title">Privát fájl hiba</string>
+  <string name="apply_remount_fail">Nem sikerült a partíciót írhatóként újracsatolni!</string>
+  <string name="apply_remount_fail_title">Sikertelen újracsatolás</string>
+  <string name="apply_copy_fail">Nem sikerült a hosts fájlok másolása!</string>
+  <string name="apply_copy_fail_title">Sikertelen másolás</string>
+  <string name="apply_success_subtitle">A hosts források beállítása sikerült</string>
+  <string name="apply_success_title">Sikeres alkalmazás</string>
+  <string name="apply_symlink_successful_title">A szimbolikus link létrehozása sikeres</string>
+  <string name="apply_symlink_fail">Az Android nem tudta létrehozni a szimbolikus linket .\nA sikertelenség oka legtöbbször egy S-ON nevű \"funkció\" az HTC telefonokon.\n\nEgy megoldás lehet, ha recovery módban indítod újra az eszközödet, majd ott hozod létre a szimbolikus linket az \'ln -s /data/data/hosts /system/etc/hosts\' parancs segítségével.\n\nHa ez nem működik, akkor keress rá az interneten az S-OFF kifejezésre!</string>
+  <string name="apply_symlink_fail_title">Szimbolikus link létrehozása sikertelen</string>
+  <string name="apply_help">Kérlek olvasd el a Súgót további információkért!</string>
+  <string name="apply_apn_proxy">Az Androidodon be van állítva egy APN proxy!\nAz AdAway nem fog megbízhatóan működni mobilhálózatokon (mint amilyen a 3G). Kikapcsolhatod ezt a proxy-t, ha az aktív APN-hez navigálsz (Android 4-en: Vezeték nélküli és hálózatok -&gt; Továbbiak… -&gt; Mobilhálózatok -&gt; Hozzáférési pontok neve), majd eltávolítod az ott szereplő értéket a proxy mezőből.</string>
+  <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
+  <string name="no_connection">Az internetkapcsolat nem működik.</string>
+  <string name="no_connection_title">Nincs kapcsolat</string>
+  <string name="download_dialog">Letöltés...</string>
+  <string name="apply_dialog">Alkalmazás...</string>
+  <string name="apply_dialog_lists">Fekete- és fehérlista alkalmazása</string>
+  <string name="apply_dialog_hostnames">Hosts fájlok feldolgozása és összefésülése</string>
+  <string name="apply_dialog_hosts">Hosts fájlok felépítése</string>
+  <string name="apply_dialog_apply">Hosts fájlok alkalmazása</string>
+  <string name="apply_fail">Nem sikerült a hosts fájl alkalmazása rendszereden!\nPróbáld meg /data/data/hosts-ra módosítani a cél hosts fájlt a beállításokban.</string>
+  <string name="apply_fail_title">Az alkalmazás nem sikerült</string>
+  <string name="revert_successful_title">Sikeres visszaállítás</string>
+  <string name="revert_problem">A visszaállítás ismeretlen ok miatt nem sikerült.</string>
+  <string name="revert_problem_title">Sikertelen visszaállítás!</string>
+  <string name="download_fail_dialog">Egyik engedélyezett hosts fájl sem érhető el! Megfelelően csatlakozol az internethez?</string>
+  <string name="download_fail_title">Sikertelen letöltés</string>
+  <string name="no_private_file">Privát fájl nem hozható létre.</string>
+  <string name="no_private_file_title">Privát fájl létrehozása sikertelen.</string>
+  <string name="enable_systemless_successful_title">Engedélyezés sikeres</string>
+  <string name="disable_systemless_successful_title">Sikerült a letiltás</string>
+  <!--Other Dialogs-->
+  <string name="no_root_description">Vagy nem érhető el a su alkalmazás kódja, vagy nem adtál root jogosultságot az AdAway-nek.\n\nEz olyan esetekben fordulhat elő, ha az eszközöd nincs rootolva.\nAz eszközöd rootolásának folyamatáról a wiki.lineageos.org és egyéb Androidos weboldalak adnak bővebb információt.</string>
+  <string name="no_root_title">Rootolt Android szükséges</string>
+  <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
+  <string name="no_hostname">Ez nem érvényes hosztnév!</string>
+  <string name="no_hostname_title">Helytelenül formázott hosztnév</string>
+  <string name="no_ip">Ez nem érvényes IP!</string>
+  <string name="no_ip_title">Helytelenül formázott IP cím</string>
+  <string name="reboot_never_reboot">Soha ne indítsa újra és ne jelenjen meg ez a kérdés legközelebb!</string>
+  <string name="loading">Betöltés...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Frissítés</string>
+  <string name="menu_add">Hozzáadás</string>
+  <string name="menu_hosts_sources">Hosts források</string>
+  <string name="menu_help">Súgó</string>
+  <string name="menu_import">Összes lista importálása</string>
+  <string name="menu_export">Összes lista exportálása</string>
+  <!--Help-->
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">GYIK</string>
+  <string name="help_tab_problems">Problémák</string>
+  <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_scanning">Keresés...</string>
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">Helyi:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">nem érhető el</string>
+  <string name="hosts_add_dialog_title">Forrás hozzáadása</string>
+  <string name="hosts_edit_dialog_title">Forrás szerkesztése</string>
+  <string name="hosts_dialog_url">URL: (https:// vagy file:// erőforrás)</string>
+  <string name="hosts_dialog_url_hint">Hosts fájl forrása (URL)</string>
+  <!--Other-->
+  <string name="app_subtitle">Hirdetésblokkoló</string>
+  <string name="no_text_editor_title">Nincs telepítve szövegszerkesztő</string>
+  <string name="no_text_editor">Nem találni olyan szövegszerkesztőt, amely megnyitná a host fájlt. A fájl kezeléséhez feltelepítheted a Jota-t vagy más szövegszerkesztőt.
 
 Szeretnéd telepíteni a Jota-t?</string>
-    <string name="no_file_manager_title">Nincs telepítve fájlkezelő</string>
-    <string name="no_file_manager">Nincs olyan fájlkezelő telepítve, amely megnyithatná a fájlt. A fájl kezeléséhez telepíthető az OI File Manager-t, vagy bármilyen más fájlkezelőt.
+  <string name="no_file_manager_title">Nincs telepítve fájlkezelő</string>
+  <string name="no_file_manager">Nincs olyan fájlkezelő telepítve, amely megnyithatná a fájlt. A fájl kezeléséhez telepíthető az OI File Manager-t, vagy bármilyen más fájlkezelőt.
 
 Szeretnéd telepíteni az OI File Manager-t?</string>
-    <!--Tcpdump-->
-    <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">A tcpdump olyan eszköz, amely monitorozza és elmenti egy naplófájlba a DNS kéréseket. Futtasd a háttérben, majd a reklámokat megjelenítő alkalmazások elindítását követően után elemezd a DNS kérések a napló alapján. A lehetséges reklámkiszolgáló-szerverek ezután hozzáadhatóak a feketelistához.</string>
-    <string name="tcpdump_disable_monitoring">Monitorozás tiltása</string>
-    <string name="tcpdump_enable_monitoring">Monitorozás engedélyezése</string>
-    <string name="tcpdump_show_results">Eredmények megjelenítése</string>
-    <string name="tcpdump_redirect_dialog_title">Domain átirányítása</string>
-    <string name="tcpdump_menu_sort">Domainek rendezése</string>
-    <string name="tcpdump_menu_clear">Napló törlése</string>
-    <string name="tcpdump_sort_alphabetical">Rendezés ABC sorrendben</string>
-    <string name="tcpdump_sort_top_level_domain">Rendezés TLD szerint</string>
-    <string name="tcpdump_entry_add_blacklist">Elem hozzáadása feketelistához</string>
-    <string name="tcpdump_entry_add_whitelist">Elem hozzáadása fehérlistához</string>
-    <string name="tcpdump_entry_add_redirection_list">Elem hozzáadása az átirányítási listához</string>
-    <!--Preferences-->
-    <string name="pref_download">Általános beállítások</string>
-    <string name="pref_dismiss_welcome">Üdvözlőkártya elrejtése</string>
-    <string name="pref_dismiss_welcome_summary">Ne mutassa az üdvözlőkártyát a kezdőképernyőn</string>
-    <string name="pref_dark_theme">Sötét téma engedélyezése</string>
-    <string name="pref_dark_theme_summary">Sötét téma használata világos helyett</string>
-    <string name="pref_dark_theme_notification">A téma a következő indításkor lesz alkalmazva!</string>
-    <string name="pref_hosts">Hosts fájl</string>
-    <string name="pref_redirection_ip">Átirányítás célja</string>
-    <string name="pref_update_check">Frissítések ellenőrzése</string>
-    <string name="pref_apply_method">Cél hosts fájl</string>
-    <string name="pref_apply_method_summary">Ezen beállítás módosítása előtt olvasd el a Súgó vonatkozó fejezetét!</string>
-    <string name="pref_redirection_ip_summary">Minden blokkolt hostnév átirányítása erre az IP címre</string>
-    <string name="pref_header_preferences">Beállítások</string>
-    <string name="pref_header_preferences_summary">Az AdAway általános beállításai</string>
-    <string name="pref_never_reboot">Újraindítási ablak elrejtése</string>
-    <string name="pref_never_reboot_summary">Elrejti azt az üzenetet, amely az Android újraindítását javasolja sikeres alkalmazás után</string>
-    <string name="pref_webserver_on_boot">Webszerver indítása bootoláskor</string>
-    <string name="pref_webserver_on_boot_summary">A helyi IP címeket monitorozó webszerver indítása a rendszer indításakor</string>
-    <string name="pref_webserver_enabled">Webszerver engedélyezése</string>
-    <string name="pref_webserver_enabled_summary">Engedélyezi a webszervert, amely helyi címeken figyelve válaszol a blokkolt hosztnevekre érkező kérésekre</string>
-    <string name="pref_webserver">Helyi webszerver</string>
-    <string name="pref_custom_target">Egyéni cél</string>
-    <string name="pref_custom_target_summary">Csak akkor legyen aktív, ha a cél hosts-fájl egyéni célra mutat</string>
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Egyéni cél</item>
-    </string-array>
-    <string name="pref_update_check_summary">Az AdAway induláskor keressen frissítéseket</string>
-    <string name="pref_background">Háttérszolgáltatások</string>
-    <string name="pref_update_check_daily">Frissítések keresése naponta</string>
-    <string name="pref_update_check_daily_summary">Frissítések keresése naponta a háttérben, értesítésekkel</string>
-    <string name="pref_automatic_update_daily">Automatikus frissítés</string>
-    <string name="pref_automatic_update_daily_summary">Automatikus frissítés a háttérben, amennyiben elérhető újabb frissítés.</string>
-    <string name="pref_update_only_on_wifi">Frissítés csak mérés nélküli hálózaton</string>
-    <string name="pref_update_only_on_wifi_summary">Csak akkor fusson a háttérben frissítés, ha mérés nélküli hálózathoz van csatlakozva.</string>
-    <string name="pref_whitelist_rules">Fehérlistázás engedélyezése</string>
-    <string name="pref_whitelist_rules_summary">Fehérlista bejegyzések engedélyezése a hosts forrásokból.</string>
-    <string name="pref_redirection_rules">Átirányítások engedélyezése</string>
-    <string name="pref_redirection_rules_summary">BIZTONSÁGI KOCKÁZATOT JELENT! Átirányított bejegyzések engedélyezése a hosts forrásokból.</string>
-    <string name="pref_debug">Hibakeresés</string>
-    <string name="pref_enable_debug">Naplózás hibakereséshez</string>
-    <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>
-    <string name="pref_enable_ipv6">IPv6 engedélyezése</string>
-    <string name="pref_enable_ipv6_summary">Minden host fájl bejegyzés kap egy megfelelő ::1 (IPv6 localhost) bejegyzést.</string>
-    <string name="pref_enable_systemless_summary">Megakadályozza az AdAway-t, hogy módosítsa a rendszerpartíciót</string>
-    <string name="pref_enable_systemless">Systemless mód engedélyezése</string>
-    <string name="pref_edit_text_value">Szöveges beállítási érték szerkesztése</string>
-    <string name="drawer_open">Menü megnyitása</string>
-    <string name="drawer_close">Menü bezárása</string>
-    <!--Drawer menu items-->
-    <string-array name="drawer_items">
-        <item>Főoldal</item>
-        <item>Hosts források</item>
-        <item>Saját listáid</item>
-        <item>Hosts fájl megnyitása</item>
-        <item>DNS kérések naplózása</item>
-        <item>Adware keresése</item>
-        <item>Beállítások</item>
-        <item>Súgó</item>
-    </string-array>
-    <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 A fejlesztés támogatása \u2764</string>
-    <string name="drawer_support_dialog_title">Fejlesztés támogatása</string>
-    <string name="drawer_support_dialog_text">Az AdAway ingyenes és nyílt forráskodú szoftver, melyet kizárólag a közösség fejleszt és tart karban. Két évnyi szabadidőmbe került az app új verziójának fejlesztése.\n\nHa tetszik, és szívesen vennéd az újabb frissítések érkezését, kérlek támogasd a projektet!</string>
-    <string name="drawer_support_dialog_button">Támogatás</string>
-    <!--Shortcuts-->
-    <string name="shortcut_dns_requests">DNS kérések</string>
-    <string name="shortcut_your_lists">Saját listák</string>
-    <string name="shortcut_preferences">Beállítások</string>
-    <!--Hosts source status-->
-    <string name="hosts_source_up_to_date">Friss (frissítve %1$s ezelőtt)</string>
-    <string name="hosts_source_need_update">A %1$s frissítése szükséges</string>
-    <string name="hosts_source_last_update">Utolsó frissítés %1$s ezelőtt</string>
-    <string name="hosts_source_unknown_status">Ismeretlen frissítési státusz</string>
-    <plurals name="hosts_source_minutes">
-        <item quantity="one">%d perccel</item>
-        <item quantity="other">%d perccel</item>
-    </plurals>
-    <plurals name="hosts_source_hours">
-        <item quantity="one">%d órával</item>
-        <item quantity="other">%d órával</item>
-    </plurals>
-    <plurals name="hosts_source_days">
-        <item quantity="one">%d nappal</item>
-        <item quantity="other">%d nappal</item>
-    </plurals>
-    <plurals name="hosts_source_months">
-        <item quantity="one">%d hónappal</item>
-        <item quantity="other">%d hónappal</item>
-    </plurals>
+  <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">A tcpdump olyan eszköz, amely monitorozza és elmenti egy naplófájlba a DNS kéréseket. Futtasd a háttérben, majd a reklámokat megjelenítő alkalmazások elindítását követően után elemezd a DNS kérések a napló alapján. A lehetséges reklámkiszolgáló-szerverek ezután hozzáadhatóak a feketelistához.</string>
+  <string name="tcpdump_disable_monitoring">Monitorozás tiltása</string>
+  <string name="tcpdump_enable_monitoring">Monitorozás engedélyezése</string>
+  <string name="tcpdump_show_results">Eredmények megjelenítése</string>
+  <string name="tcpdump_redirect_dialog_title">Domain átirányítása</string>
+  <string name="tcpdump_menu_sort">Domainek rendezése</string>
+  <string name="tcpdump_menu_clear">Napló törlése</string>
+  <string name="tcpdump_sort_alphabetical">Rendezés ABC sorrendben</string>
+  <string name="tcpdump_sort_top_level_domain">Rendezés TLD szerint</string>
+  <string name="tcpdump_entry_add_blacklist">Elem hozzáadása feketelistához</string>
+  <string name="tcpdump_entry_add_whitelist">Elem hozzáadása fehérlistához</string>
+  <string name="tcpdump_entry_add_redirection_list">Elem hozzáadása az átirányítási listához</string>
+  <!--Preferences-->
+  <string name="pref_download">Általános beállítások</string>
+  <string name="pref_dismiss_welcome">Üdvözlőkártya elrejtése</string>
+  <string name="pref_dismiss_welcome_summary">Ne mutassa az üdvözlőkártyát a kezdőképernyőn</string>
+  <string name="pref_dark_theme">Sötét téma engedélyezése</string>
+  <string name="pref_dark_theme_summary">Sötét téma használata világos helyett</string>
+  <string name="pref_dark_theme_notification">A téma a következő indításkor lesz alkalmazva!</string>
+  <string name="pref_hosts">Hosts fájl</string>
+  <string name="pref_redirection_ip">Átirányítás célja</string>
+  <string name="pref_update_check">Frissítések ellenőrzése</string>
+  <string name="pref_apply_method">Cél hosts fájl</string>
+  <string name="pref_apply_method_summary">Ezen beállítás módosítása előtt olvasd el a Súgó vonatkozó fejezetét!</string>
+  <string name="pref_redirection_ip_summary">Minden blokkolt hostnév átirányítása erre az IP címre</string>
+  <string name="pref_header_preferences">Beállítások</string>
+  <string name="pref_header_preferences_summary">Az AdAway általános beállításai</string>
+  <string name="pref_never_reboot">Újraindítási ablak elrejtése</string>
+  <string name="pref_never_reboot_summary">Elrejti azt az üzenetet, amely az Android újraindítását javasolja sikeres alkalmazás után</string>
+  <string name="pref_webserver_on_boot">Webszerver indítása bootoláskor</string>
+  <string name="pref_webserver_on_boot_summary">A helyi IP címeket monitorozó webszerver indítása a rendszer indításakor</string>
+  <string name="pref_webserver_enabled">Webszerver engedélyezése</string>
+  <string name="pref_webserver_enabled_summary">Engedélyezi a webszervert, amely helyi címeken figyelve válaszol a blokkolt hosztnevekre érkező kérésekre</string>
+  <string name="pref_webserver">Helyi webszerver</string>
+  <string name="pref_custom_target">Egyéni cél</string>
+  <string name="pref_custom_target_summary">Csak akkor legyen aktív, ha a cél hosts-fájl egyéni célra mutat</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Egyéni cél</item>
+  </string-array>
+  <string name="pref_update_check_summary">Az AdAway induláskor keressen frissítéseket</string>
+  <string name="pref_background">Háttérszolgáltatások</string>
+  <string name="pref_update_check_daily">Frissítések keresése naponta</string>
+  <string name="pref_update_check_daily_summary">Frissítések keresése naponta a háttérben, értesítésekkel</string>
+  <string name="pref_automatic_update_daily">Automatikus frissítés</string>
+  <string name="pref_automatic_update_daily_summary">Automatikus frissítés a háttérben, amennyiben elérhető újabb frissítés.</string>
+  <string name="pref_update_only_on_wifi">Frissítés csak mérés nélküli hálózaton</string>
+  <string name="pref_update_only_on_wifi_summary">Csak akkor fusson a háttérben frissítés, ha mérés nélküli hálózathoz van csatlakozva.</string>
+  <string name="pref_whitelist_rules">Fehérlistázás engedélyezése</string>
+  <string name="pref_whitelist_rules_summary">Fehérlista bejegyzések engedélyezése a hosts forrásokból.</string>
+  <string name="pref_redirection_rules">Átirányítások engedélyezése</string>
+  <string name="pref_redirection_rules_summary">BIZTONSÁGI KOCKÁZATOT JELENT! Átirányított bejegyzések engedélyezése a hosts forrásokból.</string>
+  <string name="pref_debug">Hibakeresés</string>
+  <string name="pref_enable_debug">Naplózás hibakereséshez</string>
+  <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>
+  <string name="pref_enable_ipv6">IPv6 engedélyezése</string>
+  <string name="pref_enable_ipv6_summary">Minden host fájl bejegyzés kap egy megfelelő ::1 (IPv6 localhost) bejegyzést.</string>
+  <string name="pref_enable_systemless_summary">Megakadályozza az AdAway-t, hogy módosítsa a rendszerpartíciót</string>
+  <string name="pref_enable_systemless">Systemless mód engedélyezése</string>
+  <string name="pref_edit_text_value">Szöveges beállítási érték szerkesztése</string>
+  <string name="drawer_open">Menü megnyitása</string>
+  <string name="drawer_close">Menü bezárása</string>
+  <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Főoldal</item>
+    <item>Hosts források</item>
+    <item>Saját listáid</item>
+    <item>Hosts fájl megnyitása</item>
+    <item>DNS kérések naplózása</item>
+    <item>Adware keresése</item>
+    <item>Beállítások</item>
+    <item>Súgó</item>
+  </string-array>
+  <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 A fejlesztés támogatása \u2764</string>
+  <string name="drawer_support_dialog_title">Fejlesztés támogatása</string>
+  <string name="drawer_support_dialog_text">Az AdAway ingyenes és nyílt forráskodú szoftver, melyet kizárólag a közösség fejleszt és tart karban. Két évnyi szabadidőmbe került az app új verziójának fejlesztése.\n\nHa tetszik, és szívesen vennéd az újabb frissítések érkezését, kérlek támogasd a projektet!</string>
+  <string name="drawer_support_dialog_button">Támogatás</string>
+  <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNS kérések</string>
+  <string name="shortcut_your_lists">Saját listák</string>
+  <string name="shortcut_preferences">Beállítások</string>
+  <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Friss (frissítve %1$s ezelőtt)</string>
+  <string name="hosts_source_need_update">A %1$s frissítése szükséges</string>
+  <string name="hosts_source_last_update">Utolsó frissítés %1$s ezelőtt</string>
+  <string name="hosts_source_unknown_status">Ismeretlen frissítési státusz</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d perccel</item>
+    <item quantity="other">%d perccel</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d órával</item>
+    <item quantity="other">%d órával</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d nappal</item>
+    <item quantity="other">%d nappal</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d hónappal</item>
+    <item quantity="other">%d hónappal</item>
+  </plurals>
 </resources>

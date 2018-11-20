@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="app_name">ஆட்அவே</string>
-    <!--Buttons-->
-    <!--Home-->
-    <!--Checkbox List-->
-    <!--Your lists-->
-    <!--Hosts content-->
-    <!--Status Notification-->
-    <!--Apply and Revert Dialogs-->
-    <!--Other Dialogs-->
-    <!--Menu entries-->
-    <!--Help-->
-    <!--Adware-->
-    <!--Hosts sources-->
-    <!--Other-->
-    <!--Tcpdump-->
-    <!--Preferences-->
-    <!--Drawer menu items-->
-    <!--Drawer menu labels-->
-    <!--Shortcuts-->
-    <!--Hosts source status-->
+  <string name="app_name">ஆட்அவே</string>
+  <!--Buttons-->
+  <!--Home-->
+  <!--Checkbox List-->
+  <!--Your lists-->
+  <!--Hosts content-->
+  <!--Status Notification-->
+  <!--Apply and Revert Dialogs-->
+  <!--Other Dialogs-->
+  <!--Menu entries-->
+  <!--Help-->
+  <!--Adware-->
+  <!--Hosts sources-->
+  <!--Other-->
+  <!--Tcpdump-->
+  <!--Preferences-->
+  <!--Drawer menu items-->
+  <!--Drawer menu labels-->
+  <!--Shortcuts-->
+  <!--Hosts source status-->
 </resources>

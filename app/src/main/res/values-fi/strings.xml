@@ -1,158 +1,158 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="app_name">AdAway</string>
-    <!--Buttons-->
-    <string name="button_exit">Sulje</string>
-    <string name="button_close">Sulje</string>
-    <string name="button_yes">Kyllä</string>
-    <string name="button_no">Ei</string>
-    <string name="button_add">Lisää</string>
-    <string name="button_cancel">Peruuta</string>
-    <string name="button_save">Tallenna</string>
-    <string name="button_webserver_toggle_text">Salli tai estä web-palvelin vastaamasta estettyihin isäntänimiin.</string>
-    <string name="button_help">Ohjeet</string>
-    <!--Home-->
-    <string name="text_update">Kaikki hosts-tiedostot määritellyistä lähteistä ovat ladattu, yhdistyi luetteloihin ja asenettu yhdeksi hosts-tiedostoksi.</string>
-    <string name="button_check_update_hosts">Tarkista päivitykset</string>
-    <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Poista</string>
-    <string name="checkbox_list_context_title">Muokka merkintää</string>
-    <string name="checkbox_list_context_edit">Muokkaa</string>
-    <!--Your lists-->
-    <string name="lists_tab_whitelist">Valkoinen lista</string>
-    <string name="lists_tab_blacklist">Musta lista</string>
-    <string name="list_dialog_hostname">host-nimi:</string>
-    <string name="list_dialog_ip">IP (IPv4 tai IPv6):</string>
-    <string name="import_dialog">Tuodaan…</string>
-    <string name="export_dialog">Viedään…</string>
-    <!--Hosts content-->
-    <!--Status Notification-->
-    <string name="status_checking">Tarkistetaan päivityksiä…</string>
-    <string name="status_reverting">Palautetaan…</string>
-    <string name="status_reverting_subtitle">Luodaan vakio-hosts-tiedostoa</string>
-    <string name="status_update_available">Päivitys saatavilla</string>
-    <string name="status_update_available_subtitle">Uudempia hosts-tiedostoja on saatavilla</string>
-    <string name="status_no_connection">Ei verkkoyhteyttä</string>
-    <string name="status_no_connection_subtitle">Verkkoyhtyettä ei ole saatavilla</string>
-    <string name="status_download_fail">Lähde ei ole käytettävissä</string>
-    <string name="status_download_fail_subtitle_new">Hosts-lähteet eivät ole tavoitettavissa!
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Sulje</string>
+  <string name="button_close">Sulje</string>
+  <string name="button_yes">Kyllä</string>
+  <string name="button_no">Ei</string>
+  <string name="button_add">Lisää</string>
+  <string name="button_cancel">Peruuta</string>
+  <string name="button_save">Tallenna</string>
+  <string name="button_webserver_toggle_text">Salli tai estä web-palvelin vastaamasta estettyihin isäntänimiin.</string>
+  <string name="button_help">Ohjeet</string>
+  <!--Home-->
+  <string name="text_update">Kaikki hosts-tiedostot määritellyistä lähteistä ovat ladattu, yhdistyi luetteloihin ja asenettu yhdeksi hosts-tiedostoksi.</string>
+  <string name="button_check_update_hosts">Tarkista päivitykset</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_context_delete">Poista</string>
+  <string name="checkbox_list_context_title">Muokka merkintää</string>
+  <string name="checkbox_list_context_edit">Muokkaa</string>
+  <!--Your lists-->
+  <string name="lists_tab_whitelist">Valkoinen lista</string>
+  <string name="lists_tab_blacklist">Musta lista</string>
+  <string name="list_dialog_hostname">host-nimi:</string>
+  <string name="list_dialog_ip">IP (IPv4 tai IPv6):</string>
+  <string name="import_dialog">Tuodaan...</string>
+  <string name="export_dialog">Viedään...</string>
+  <!--Hosts content-->
+  <!--Status Notification-->
+  <string name="status_checking">Tarkistetaan päivityksiä...</string>
+  <string name="status_reverting">Palautetaan...</string>
+  <string name="status_reverting_subtitle">Luodaan vakio-hosts-tiedostoa</string>
+  <string name="status_update_available">Päivitys saatavilla</string>
+  <string name="status_update_available_subtitle">Uudempia hosts-tiedostoja on saatavilla</string>
+  <string name="status_no_connection">Ei verkkoyhteyttä</string>
+  <string name="status_no_connection_subtitle">Verkkoyhtyettä ei ole saatavilla</string>
+  <string name="status_download_fail">Lähde ei ole käytettävissä</string>
+  <string name="status_download_fail_subtitle_new">Hosts-lähteet eivät ole tavoitettavissa!
 </string>
-    <string name="status_enabled">Käytössä</string>
-    <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
-    <string name="status_disabled">Pois käytöstä</string>
-    <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing">Symbolista linkkiä kohteeseen /system/etc/hosts ei ole olemassa tai se on virheellinen! AdAway ei toimi, jos se ei osoita oikeaan tiedostoon.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
-    <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
-    <string name="apply_not_enough_space">Ei tarpeeksi tilaa osiossa!\nYritä muuttaa asetuksissa hosts-tiedoston kohde /data/data/hosts -vaihtoehdoksi.</string>
-    <string name="apply_not_enough_space_title">Ei tarpeeksi tilaa</string>
-    <string name="apply_private_file_fail">Ladattua tiedostoa ei voitu lukea.</string>
-    <string name="apply_private_file_fail_title">Yksityinen tiedosto hylätty</string>
-    <string name="apply_remount_fail">Osion kokoaminen luku/kirjoitus-tilaksi epäonnistui!</string>
-    <string name="apply_remount_fail_title">Uudelleenkokoaminen epäonnistui</string>
-    <string name="apply_copy_fail">Hosts-tiedoston kopiointi epäonnistui!</string>
-    <string name="apply_copy_fail_title">Kopiointi epäonnistui</string>
-    <string name="apply_success_title">Soveltaminen onnistui</string>
-    <string name="apply_symlink_successful_title">Symbolisen linkin luominen onnistui</string>
-    <string name="apply_symlink_fail">Symbolista linkkiä ei voitu luoda.\nEpäonnistuminen johtuu useimmiten HTC-puhelimien S-ON \"ominaisuudesta\".\n\nRatkaisuna on käynnistää puhelin recovery-tilaan ja luoda sinne symbolinen linkki \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJos tämä ei toimi, etsi internetistä tietoa S-OFF:sta ja puhelimestasi. </string>
-    <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
-    <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
-    <string name="apply_apn_proxy"><![CDATA[APN-välityspalvelin on määritetty puhelimeesi!\nAdAway ei toimi luotettavasti matkapuhelinverkossa, kuten 3G. Voit poistaa kyseisen välityspalvelimen menemällä valitsemaasi APN:ään (Android4.0: Langattomat yhteydet ja verkot -&gt; Lisää… -&gt; Mobiiliverkot -&gt Tukiasemien nimet) ja poistaa arvo välityspalvelimen kentästä.]]></string>
-    <string name="apply_apn_proxy_title">APN-välityspalvelin on asetettu!</string>
-    <string name="no_connection">Verkkoyhteys ei toimi.</string>
-    <string name="no_connection_title">Ei yhteyttä</string>
-    <string name="download_dialog">Ladataan…</string>
-    <string name="apply_dialog">Hyväksytään…</string>
-    <string name="apply_dialog_lists">Mustan listan ja valkoisen listan soveltaminen</string>
-    <string name="apply_dialog_hostnames">Hosts-tiedostojen jäsentäminen ja yhdistäminen</string>
-    <string name="apply_dialog_hosts">Luodaan hosts-tiedostoa</string>
-    <string name="apply_dialog_apply">Hyväksytään hosts-tiedosto</string>
-    <string name="apply_fail">Hosts-tiedoston soveltaminen epäonnistui!\nYritä muuttaa hosts-tiedoston kohde /data/data/hosts -vaihtoehdoksi.</string>
-    <string name="apply_fail_title">Soveltaminen epäonnistui</string>
-    <string name="revert_successful_title">Palauttaminen onnistui</string>
-    <string name="revert_problem">Palauttaminen epäonnistui tuntemattomasta syystä.</string>
-    <string name="revert_problem_title">Palauttaminen epäonnistui!</string>
-    <string name="download_fail_dialog">Mikään käytössä olevista hosts-lähteistä ei ole tavoitettavissa! Onko sinulla verkkoyhteys?</string>
-    <string name="download_fail_title">Lataus epäonnistui</string>
-    <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
-    <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
-    <string name="disable_systemless_successful_title">Kytketty pois päältä</string>
-    <!--Other Dialogs-->
-    <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
-    <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
-    <string name="no_hostname">Tämä ei ole kelvollinen host-nimi!</string>
-    <string name="no_hostname_title">Väärin muotoiltu host-nimi</string>
-    <string name="no_ip">Tämä ei ole kelvollinen IP-osoite!</string>
-    <string name="no_ip_title">Väärin muotoiltu iP</string>
-    <string name="reboot_never_reboot">Älä koskaan käynnistä uudelleen ja älä näytä tätä kysymystä ensi kerralla!</string>
-    <string name="loading">Ladataan…</string>
-    <!--Menu entries-->
-    <string name="menu_refresh">Päivitä</string>
-    <string name="menu_add">Lisää</string>
-    <string name="menu_hosts_sources">Hosts-lähteet</string>
-    <string name="menu_help">Ohjeet</string>
-    <string name="menu_import">Tuo kaikki luettelot</string>
-    <string name="menu_export">Vie kaikki luettelot</string>
-    <!--Help-->
-    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">FAQ</string>
-    <string name="help_tab_problems">Ongelmat</string>
-    <!--Adware-->
-    <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Paikallinen:</string>
-    <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">ei saatavilla</string>
-    <!--Other-->
-    <string name="app_subtitle">Mainosten esto</string>
-    <string name="no_text_editor_title">Ei tekstieditoria asennettuna</string>
-    <string name="no_text_editor">Ei voitu avata hosts-tiedostoa, koska tekstieditoria ei löytynyt. Voit asentaa Jota tai toisen tekstieditorin.\n\nHaluatko asentaa Jota-sovelluksen?</string>
-    <string name="no_file_manager_title">Tiedostohallintasovellusta ei ole asennettu</string>
-    <string name="no_file_manager">Ei voitu avata tiedostoja, koska tiedostonhallintasovellusta ei löytynyt. Voit asentaa OI File Manager:n tai muun tiedostohallintasovelluksen.\n\nHaluatko asentaa OI File Manager:n?</string>
-    <!--Tcpdump-->
-    <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump on työkalu, jolla voit seurata DNS-pyyntöjä ja tallentaa ne lokitiedostoon. Voit käynnistää sen taustalla, käyttää sovelluksia, jotka näyttävät mainoksia ja sen jälkeen analysoida DNS-pyyntöjä käyttäen lokitiedostoa. Mahdolliset mainospalvelimet voidaan sitten lisätä mustalle listalle.</string>
-    <!--Preferences-->
-    <string name="pref_download">Yleiset asetukset</string>
-    <string name="pref_hosts">Hosts-tiedosto</string>
-    <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>
-    <string name="pref_update_check">Tarkista päivitykset</string>
-    <string name="pref_apply_method">Hosts-tiedoston kohde</string>
-    <string name="pref_apply_method_summary">Ennen tämän asetuksen muuttamista, lue ohjeet tästä toimminnosta.</string>
-    <string name="pref_redirection_ip_summary">Kaikki estetyt hosts-nimet ohjataan tähän IP-osoitteeseen.</string>
-    <string name="pref_header_preferences">Asetukset</string>
-    <string name="pref_header_preferences_summary">AdAwayn yleiset asetukset</string>
-    <string name="pref_never_reboot">Piilota uudelleenkäynnistyksen valintaikkuna</string>
-    <string name="pref_never_reboot_summary">Piilottaa valintaikkunan, joka kysyy uudelleenkäynnistyksestä onnistuneen soveltamisen jälkeen</string>
-    <string name="pref_webserver_on_boot">Käynnistä web-palvelin käynnistyksessä</string>
-    <string name="pref_webserver_on_boot_summary">Käynnistä web-palvelin käynnistyksen yhteydessä, jolloin tarkastellaan paikallisia IP-osoitteita.</string>
-    <string name="pref_webserver_enabled">Ota web-palvelin käyttön</string>
-    <string name="pref_webserver_enabled_summary">Otetaan käyttöön web-palvelin kuuntelu paikallisissa IP-osoitteissa, jolla vastataan estettyjen isäntänimien pyyntöihin.</string>
-    <string name="pref_webserver">Paikallinen web-palvelin</string>
-    <string name="pref_custom_target">Mukautettu kohde</string>
-    <string name="pref_custom_target_summary">Käytetään vain, jos hosts-tiedosto on määritetty mukautetuksi kohteeksi</string>
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Mukautettu kohde</item>
-    </string-array>
-    <string name="pref_update_check_summary">Tarkista päivitykset AdAwayn käynnistykessä</string>
-    <string name="pref_background">Taustapalvelut</string>
-    <string name="pref_update_check_daily">Tarkista päivitykset päivittäin</string>
-    <string name="pref_update_check_daily_summary">Tarkista päivittäin päivitykset taustalla ilmoituksilla</string>
-    <string name="pref_automatic_update_daily">Automaattinen päivitys</string>
-    <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
-    <string name="pref_whitelist_rules">Salli whitelistning</string>
-    <string name="pref_whitelist_rules_summary">Salli Hosts-lähteille kohteiden lisääminen valkoiselle listalle.</string>
-    <string name="pref_redirection_rules_summary">SISÄLTÄÄ TURVALLISUUSRISKIN! Salli hosts-lähteille uudelleenohjaus.</string>
-    <string name="pref_debug">Virheenkorjaus</string>
-    <string name="pref_enable_debug">Virheenkorjauslokin kirjaaminen</string>
-    <string name="pref_enable_debug_summary">Sinun täytyy käynnistää AdAway uudelleen ottaaksesi asetukset käyttöön.</string>
-    <string name="pref_enable_ipv6">Ota käyttöön IPv6</string>
-    <string name="pref_enable_ipv6_summary">Kaikki host-tiedoston entryt saavat vastaavan ::1 (IPv6 localhost) entryn.</string>
-    <string name="pref_enable_systemless">Ota käyttöön systemless -tila</string>
-    <!--Drawer menu items-->
-    <!--Drawer menu labels-->
-    <!--Shortcuts-->
-    <string name="shortcut_preferences">Asetukset</string>
-    <!--Hosts source status-->
+  <string name="status_enabled">Käytössä</string>
+  <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
+  <string name="status_disabled">Pois käytöstä</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing">Symbolista linkkiä kohteeseen /system/etc/hosts ei ole olemassa tai se on virheellinen! AdAway ei toimi, jos se ei osoita oikeaan tiedostoon.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
+  <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
+  <string name="apply_not_enough_space">Ei tarpeeksi tilaa osiossa!\nYritä muuttaa asetuksissa hosts-tiedoston kohde /data/data/hosts -vaihtoehdoksi.</string>
+  <string name="apply_not_enough_space_title">Ei tarpeeksi tilaa</string>
+  <string name="apply_private_file_fail">Ladattua tiedostoa ei voitu lukea.</string>
+  <string name="apply_private_file_fail_title">Yksityinen tiedosto hylätty</string>
+  <string name="apply_remount_fail">Osion kokoaminen luku/kirjoitus-tilaksi epäonnistui!</string>
+  <string name="apply_remount_fail_title">Uudelleenkokoaminen epäonnistui</string>
+  <string name="apply_copy_fail">Hosts-tiedoston kopiointi epäonnistui!</string>
+  <string name="apply_copy_fail_title">Kopiointi epäonnistui</string>
+  <string name="apply_success_title">Soveltaminen onnistui</string>
+  <string name="apply_symlink_successful_title">Symbolisen linkin luominen onnistui</string>
+  <string name="apply_symlink_fail">Symbolista linkkiä ei voitu luoda.\nEpäonnistuminen johtuu useimmiten HTC-puhelimien S-ON \"ominaisuudesta\".\n\nRatkaisuna on käynnistää puhelin recovery-tilaan ja luoda sinne symbolinen linkki \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJos tämä ei toimi, etsi internetistä tietoa S-OFF:sta ja puhelimestasi. </string>
+  <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
+  <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
+  <string name="apply_apn_proxy">APN-välityspalvelin on määritetty puhelimeesi!\nAdAway ei toimi luotettavasti matkapuhelinverkossa, kuten 3G. Voit poistaa kyseisen välityspalvelimen menemällä valitsemaasi APN:ään (Android4.0: Langattomat yhteydet ja verkot -&amp;gt; Lisää... -&amp;gt; Mobiiliverkot -&amp;gt Tukiasemien nimet) ja poistaa arvo välityspalvelimen kentästä.</string>
+  <string name="apply_apn_proxy_title">APN-välityspalvelin on asetettu!</string>
+  <string name="no_connection">Verkkoyhteys ei toimi.</string>
+  <string name="no_connection_title">Ei yhteyttä</string>
+  <string name="download_dialog">Ladataan...</string>
+  <string name="apply_dialog">Hyväksytään...</string>
+  <string name="apply_dialog_lists">Mustan listan ja valkoisen listan soveltaminen</string>
+  <string name="apply_dialog_hostnames">Hosts-tiedostojen jäsentäminen ja yhdistäminen</string>
+  <string name="apply_dialog_hosts">Luodaan hosts-tiedostoa</string>
+  <string name="apply_dialog_apply">Hyväksytään hosts-tiedosto</string>
+  <string name="apply_fail">Hosts-tiedoston soveltaminen epäonnistui!\nYritä muuttaa hosts-tiedoston kohde /data/data/hosts -vaihtoehdoksi.</string>
+  <string name="apply_fail_title">Soveltaminen epäonnistui</string>
+  <string name="revert_successful_title">Palauttaminen onnistui</string>
+  <string name="revert_problem">Palauttaminen epäonnistui tuntemattomasta syystä.</string>
+  <string name="revert_problem_title">Palauttaminen epäonnistui!</string>
+  <string name="download_fail_dialog">Mikään käytössä olevista hosts-lähteistä ei ole tavoitettavissa! Onko sinulla verkkoyhteys?</string>
+  <string name="download_fail_title">Lataus epäonnistui</string>
+  <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
+  <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
+  <string name="disable_systemless_successful_title">Kytketty pois päältä</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
+  <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
+  <string name="no_hostname">Tämä ei ole kelvollinen host-nimi!</string>
+  <string name="no_hostname_title">Väärin muotoiltu host-nimi</string>
+  <string name="no_ip">Tämä ei ole kelvollinen IP-osoite!</string>
+  <string name="no_ip_title">Väärin muotoiltu iP</string>
+  <string name="reboot_never_reboot">Älä koskaan käynnistä uudelleen ja älä näytä tätä kysymystä ensi kerralla!</string>
+  <string name="loading">Ladataan...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Päivitä</string>
+  <string name="menu_add">Lisää</string>
+  <string name="menu_hosts_sources">Hosts-lähteet</string>
+  <string name="menu_help">Ohjeet</string>
+  <string name="menu_import">Tuo kaikki luettelot</string>
+  <string name="menu_export">Vie kaikki luettelot</string>
+  <!--Help-->
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">Ongelmat</string>
+  <!--Adware-->
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">Paikallinen:</string>
+  <string name="hosts_last_modified_online">Online:</string>
+  <string name="hosts_not_available">ei saatavilla</string>
+  <!--Other-->
+  <string name="app_subtitle">Mainosten esto</string>
+  <string name="no_text_editor_title">Ei tekstieditoria asennettuna</string>
+  <string name="no_text_editor">Ei voitu avata hosts-tiedostoa, koska tekstieditoria ei löytynyt. Voit asentaa Jota tai toisen tekstieditorin.\n\nHaluatko asentaa Jota-sovelluksen?</string>
+  <string name="no_file_manager_title">Tiedostohallintasovellusta ei ole asennettu</string>
+  <string name="no_file_manager">Ei voitu avata tiedostoja, koska tiedostonhallintasovellusta ei löytynyt. Voit asentaa OI File Manager:n tai muun tiedostohallintasovelluksen.\n\nHaluatko asentaa OI File Manager:n?</string>
+  <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
+  <string name="tcpdump_description">Tcpdump on työkalu, jolla voit seurata DNS-pyyntöjä ja tallentaa ne lokitiedostoon. Voit käynnistää sen taustalla, käyttää sovelluksia, jotka näyttävät mainoksia ja sen jälkeen analysoida DNS-pyyntöjä käyttäen lokitiedostoa. Mahdolliset mainospalvelimet voidaan sitten lisätä mustalle listalle.</string>
+  <!--Preferences-->
+  <string name="pref_download">Yleiset asetukset</string>
+  <string name="pref_hosts">Hosts-tiedosto</string>
+  <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>
+  <string name="pref_update_check">Tarkista päivitykset</string>
+  <string name="pref_apply_method">Hosts-tiedoston kohde</string>
+  <string name="pref_apply_method_summary">Ennen tämän asetuksen muuttamista, lue ohjeet tästä toimminnosta.</string>
+  <string name="pref_redirection_ip_summary">Kaikki estetyt hosts-nimet ohjataan tähän IP-osoitteeseen.</string>
+  <string name="pref_header_preferences">Asetukset</string>
+  <string name="pref_header_preferences_summary">AdAwayn yleiset asetukset</string>
+  <string name="pref_never_reboot">Piilota uudelleenkäynnistyksen valintaikkuna</string>
+  <string name="pref_never_reboot_summary">Piilottaa valintaikkunan, joka kysyy uudelleenkäynnistyksestä onnistuneen soveltamisen jälkeen</string>
+  <string name="pref_webserver_on_boot">Käynnistä web-palvelin käynnistyksessä</string>
+  <string name="pref_webserver_on_boot_summary">Käynnistä web-palvelin käynnistyksen yhteydessä, jolloin tarkastellaan paikallisia IP-osoitteita.</string>
+  <string name="pref_webserver_enabled">Ota web-palvelin käyttön</string>
+  <string name="pref_webserver_enabled_summary">Otetaan käyttöön web-palvelin kuuntelu paikallisissa IP-osoitteissa, jolla vastataan estettyjen isäntänimien pyyntöihin.</string>
+  <string name="pref_webserver">Paikallinen web-palvelin</string>
+  <string name="pref_custom_target">Mukautettu kohde</string>
+  <string name="pref_custom_target_summary">Käytetään vain, jos hosts-tiedosto on määritetty mukautetuksi kohteeksi</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Mukautettu kohde</item>
+  </string-array>
+  <string name="pref_update_check_summary">Tarkista päivitykset AdAwayn käynnistykessä</string>
+  <string name="pref_background">Taustapalvelut</string>
+  <string name="pref_update_check_daily">Tarkista päivitykset päivittäin</string>
+  <string name="pref_update_check_daily_summary">Tarkista päivittäin päivitykset taustalla ilmoituksilla</string>
+  <string name="pref_automatic_update_daily">Automaattinen päivitys</string>
+  <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
+  <string name="pref_whitelist_rules">Salli whitelistning</string>
+  <string name="pref_whitelist_rules_summary">Salli Hosts-lähteille kohteiden lisääminen valkoiselle listalle.</string>
+  <string name="pref_redirection_rules_summary">SISÄLTÄÄ TURVALLISUUSRISKIN! Salli hosts-lähteille uudelleenohjaus.</string>
+  <string name="pref_debug">Virheenkorjaus</string>
+  <string name="pref_enable_debug">Virheenkorjauslokin kirjaaminen</string>
+  <string name="pref_enable_debug_summary">Sinun täytyy käynnistää AdAway uudelleen ottaaksesi asetukset käyttöön.</string>
+  <string name="pref_enable_ipv6">Ota käyttöön IPv6</string>
+  <string name="pref_enable_ipv6_summary">Kaikki host-tiedoston entryt saavat vastaavan ::1 (IPv6 localhost) entryn.</string>
+  <string name="pref_enable_systemless">Ota käyttöön systemless -tila</string>
+  <!--Drawer menu items-->
+  <!--Drawer menu labels-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Asetukset</string>
+  <!--Hosts source status-->
 </resources>

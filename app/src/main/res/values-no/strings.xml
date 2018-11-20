@@ -1,32 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="app_name">AdAway</string>
-    <!--Buttons-->
-    <string name="button_exit">Lukk</string>
-    <string name="button_close">Lukk</string>
-    <string name="button_yes">Ja</string>
-    <string name="button_no">Nei</string>
-    <string name="button_add">Legg til</string>
-    <string name="button_cancel">Avbryt</string>
-    <string name="button_save">Lagre</string>
-    <!--Home-->
-    <string name="text_update">Alle vertsfiler fra valgte kilder er nedlastet, legg dem sammen med din egen liste og installer som en vertsfil.</string>
-    <!--Checkbox List-->
-    <!--Your lists-->
-    <!--Hosts content-->
-    <!--Status Notification-->
-    <!--Apply and Revert Dialogs-->
-    <!--Other Dialogs-->
-    <!--Menu entries-->
-    <string name="menu_add">Legg til</string>
-    <!--Help-->
-    <!--Adware-->
-    <!--Hosts sources-->
-    <!--Other-->
-    <!--Tcpdump-->
-    <!--Preferences-->
-    <!--Drawer menu items-->
-    <!--Drawer menu labels-->
-    <!--Shortcuts-->
-    <!--Hosts source status-->
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Lukk</string>
+  <string name="button_close">Lukk</string>
+  <string name="button_yes">Ja</string>
+  <string name="button_no">Nei</string>
+  <string name="button_add">Legg til</string>
+  <string name="button_cancel">Avbryt</string>
+  <string name="button_save">Lagre</string>
+  <!--Home-->
+  <string name="text_update">Alle vertsfiler fra valgte kilder er nedlastet, legg dem sammen med din egen liste og installer som en vertsfil.</string>
+  <!--Checkbox List-->
+  <!--Your lists-->
+  <!--Hosts content-->
+  <!--Status Notification-->
+  <!--Apply and Revert Dialogs-->
+  <!--Other Dialogs-->
+  <!--Menu entries-->
+  <string name="menu_add">Legg til</string>
+  <!--Help-->
+  <!--Adware-->
+  <!--Hosts sources-->
+  <!--Other-->
+  <!--Tcpdump-->
+  <!--Preferences-->
+  <!--Drawer menu items-->
+  <!--Drawer menu labels-->
+  <!--Shortcuts-->
+  <!--Hosts source status-->
 </resources>

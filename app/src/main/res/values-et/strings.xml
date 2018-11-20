@@ -1,106 +1,106 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="app_name">AdAway</string>
-    <!--Buttons-->
-    <string name="button_exit">Välju</string>
-    <string name="button_close">Sulge</string>
-    <string name="button_yes">Jah</string>
-    <string name="button_no">Ei</string>
-    <string name="button_add">Lisa</string>
-    <string name="button_cancel">Tühista</string>
-    <string name="button_save">Salvesta</string>
-    <string name="button_help">Abi</string>
-    <!--Home-->
-    <string name="text_update">Kõik hosts failid laetakse määratud allikatest, ühendatakse sinu loenditega ning paigaldatakse süsteemi ühe failina.</string>
-    <string name="button_check_update_hosts">Uuenduste kontrollimine</string>
-    <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Kustuta</string>
-    <string name="checkbox_list_context_edit">Redigeeri</string>
-    <!--Your lists-->
-    <string name="list_dialog_hostname">Aadress:</string>
-    <string name="list_dialog_ip">IP (IPv4 või IPv6):</string>
-    <string name="import_dialog">Importimine…</string>
-    <string name="export_dialog">Eksportimine…</string>
-    <!--Hosts content-->
-    <!--Status Notification-->
-    <string name="status_checking">Uuenduste kontrollimine…</string>
-    <string name="status_reverting">Taastamine…</string>
-    <string name="status_update_available">Uuendus saadaval</string>
-    <string name="status_update_available_subtitle">Uuem hosts fail saadaval</string>
-    <string name="status_no_connection">Ühendus puudub</string>
-    <string name="status_no_connection_subtitle">Internetiühendus ei ole saadaval</string>
-    <string name="status_enabled">Lubatud</string>
-    <string name="status_enabled_subtitle">Uusim hosts fail kasutusel</string>
-    <string name="status_disabled">Keelatud</string>
-    <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_title">Sümlink puudub</string>
-    <string name="apply_not_enough_space_title">Pole piisavalt ruumi</string>
-    <string name="apply_copy_fail">Hosts faili kopeerimine ebaõnnestus!</string>
-    <string name="apply_copy_fail_title">Kopeerimine nurjus</string>
-    <string name="apply_success_title">Rakendamine edukas</string>
-    <string name="apply_symlink_successful_title">Sümlingi loomine edukas</string>
-    <string name="apply_symlink_fail_title">Sümlingi loomine nurjus</string>
-    <string name="no_connection_title">Ühendus puudub</string>
-    <string name="download_dialog">Allalaadimine…</string>
-    <string name="apply_dialog">Rakendamine…</string>
-    <string name="apply_dialog_hostnames">Hosts failide parsimine ja ühendamine</string>
-    <string name="apply_dialog_hosts">Hosts faili koostamine</string>
-    <string name="apply_dialog_apply">Hosts faili rakendamine</string>
-    <string name="apply_fail_title">Rakendamine nurjus</string>
-    <string name="download_fail_title">Allalaadimine nurjus</string>
-    <!--Other Dialogs-->
-    <string name="no_root_title">Vajalik \"rootitud\" Android</string>
-    <string name="no_hostname">See ei ole kehtiv aadress!</string>
-    <string name="no_ip">See ei ole kehtiv IP!</string>
-    <string name="reboot_never_reboot">Keela taaskäivitamine ja järgmine kord seda küsimust ära kuva!</string>
-    <string name="loading">Laadimine…</string>
-    <!--Menu entries-->
-    <string name="menu_refresh">Värskenda</string>
-    <string name="menu_add">Lisa</string>
-    <string name="menu_hosts_sources">Allikad</string>
-    <string name="menu_help">Abi</string>
-    <string name="menu_import">Impordi kõik loendid</string>
-    <string name="menu_export">Expordi kõik loendid</string>
-    <!--Help-->
-    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">KKK</string>
-    <string name="help_tab_problems">Probleemid</string>
-    <!--Adware-->
-    <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Kohalik:</string>
-    <string name="hosts_last_modified_online">Onlain:</string>
-    <string name="hosts_not_available">pole saadaval</string>
-    <!--Other-->
-    <string name="app_subtitle">Reklaamide blokeerija</string>
-    <!--Tcpdump-->
-    <!--Preferences-->
-    <string name="pref_download">Üldised eelistused</string>
-    <string name="pref_hosts">Hosts fail</string>
-    <string name="pref_redirection_ip">Ümbersuunamise IP</string>
-    <string name="pref_update_check">Uuenduste kontrollimine</string>
-    <string name="pref_apply_method">Hosts faili asukoht</string>
-    <string name="pref_apply_method_summary">Enne muutmist loe abist selle funktsiooni kohta.</string>
-    <string name="pref_header_preferences">Eelistused</string>
-    <string name="pref_never_reboot">Taaskäivitamise dialoog peidetud</string>
-    <string name="pref_never_reboot_summary">Peidetakse dialoog, mis palub Androidi taaskäivitamist pärast edukat paigaldamist</string>
-    <string name="pref_webserver_on_boot">Veebiserver käivitatakse alglaadimisel</string>
-    <string name="pref_webserver_on_boot_summary">Veebiserver käivitatakse Androidi laadimisel. Kuulatakse vaid kohalikke IP aadresse.</string>
-    <string name="pref_webserver_enabled">Luba veebiserver</string>
-    <string name="pref_webserver_enabled_summary">Lubab veebiserveri, mis kuulab kohalikke IP aadresse ning vastab blokeeritud aadressitele.</string>
-    <string name="pref_webserver">Kohalik veebiserver</string>
-    <string name="pref_custom_target">Muu asukoht</string>
-    <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts faili asukohaks on muu asukoht.</string>
-    <string name="pref_update_check_summary">Uuendusi kontrollitakse AdAway käivitamisel</string>
-    <string name="pref_update_check_daily">Uuenduste kontroll iga päev</string>
-    <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>
-    <string name="pref_automatic_update_daily">Automaatne uuendus</string>
-    <string name="pref_automatic_update_daily_summary">Uuenduste olemasolul tehakse need taustal automaatselt.</string>
-    <string name="pref_debug">Silumine</string>
-    <string name="pref_enable_debug">Silumise logimine</string>
-    <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>
-    <!--Drawer menu items-->
-    <!--Drawer menu labels-->
-    <!--Shortcuts-->
-    <string name="shortcut_preferences">Eelistused</string>
-    <!--Hosts source status-->
+  <string name="app_name">AdAway</string>
+  <!--Buttons-->
+  <string name="button_exit">Välju</string>
+  <string name="button_close">Sulge</string>
+  <string name="button_yes">Jah</string>
+  <string name="button_no">Ei</string>
+  <string name="button_add">Lisa</string>
+  <string name="button_cancel">Tühista</string>
+  <string name="button_save">Salvesta</string>
+  <string name="button_help">Abi</string>
+  <!--Home-->
+  <string name="text_update">Kõik hosts failid laetakse määratud allikatest, ühendatakse sinu loenditega ning paigaldatakse süsteemi ühe failina.</string>
+  <string name="button_check_update_hosts">Uuenduste kontrollimine</string>
+  <!--Checkbox List-->
+  <string name="checkbox_list_context_delete">Kustuta</string>
+  <string name="checkbox_list_context_edit">Redigeeri</string>
+  <!--Your lists-->
+  <string name="list_dialog_hostname">Aadress:</string>
+  <string name="list_dialog_ip">IP (IPv4 või IPv6):</string>
+  <string name="import_dialog">Importimine...</string>
+  <string name="export_dialog">Eksportimine...</string>
+  <!--Hosts content-->
+  <!--Status Notification-->
+  <string name="status_checking">Uuenduste kontrollimine...</string>
+  <string name="status_reverting">Taastamine...</string>
+  <string name="status_update_available">Uuendus saadaval</string>
+  <string name="status_update_available_subtitle">Uuem hosts fail saadaval</string>
+  <string name="status_no_connection">Ühendus puudub</string>
+  <string name="status_no_connection_subtitle">Internetiühendus ei ole saadaval</string>
+  <string name="status_enabled">Lubatud</string>
+  <string name="status_enabled_subtitle">Uusim hosts fail kasutusel</string>
+  <string name="status_disabled">Keelatud</string>
+  <!--Apply and Revert Dialogs-->
+  <string name="apply_symlink_missing_title">Sümlink puudub</string>
+  <string name="apply_not_enough_space_title">Pole piisavalt ruumi</string>
+  <string name="apply_copy_fail">Hosts faili kopeerimine ebaõnnestus!</string>
+  <string name="apply_copy_fail_title">Kopeerimine nurjus</string>
+  <string name="apply_success_title">Rakendamine edukas</string>
+  <string name="apply_symlink_successful_title">Sümlingi loomine edukas</string>
+  <string name="apply_symlink_fail_title">Sümlingi loomine nurjus</string>
+  <string name="no_connection_title">Ühendus puudub</string>
+  <string name="download_dialog">Allalaadimine...</string>
+  <string name="apply_dialog">Rakendamine...</string>
+  <string name="apply_dialog_hostnames">Hosts failide parsimine ja ühendamine</string>
+  <string name="apply_dialog_hosts">Hosts faili koostamine</string>
+  <string name="apply_dialog_apply">Hosts faili rakendamine</string>
+  <string name="apply_fail_title">Rakendamine nurjus</string>
+  <string name="download_fail_title">Allalaadimine nurjus</string>
+  <!--Other Dialogs-->
+  <string name="no_root_title">Vajalik \"rootitud\" Android</string>
+  <string name="no_hostname">See ei ole kehtiv aadress!</string>
+  <string name="no_ip">See ei ole kehtiv IP!</string>
+  <string name="reboot_never_reboot">Keela taaskäivitamine ja järgmine kord seda küsimust ära kuva!</string>
+  <string name="loading">Laadimine...</string>
+  <!--Menu entries-->
+  <string name="menu_refresh">Värskenda</string>
+  <string name="menu_add">Lisa</string>
+  <string name="menu_hosts_sources">Allikad</string>
+  <string name="menu_help">Abi</string>
+  <string name="menu_import">Impordi kõik loendid</string>
+  <string name="menu_export">Expordi kõik loendid</string>
+  <!--Help-->
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">KKK</string>
+  <string name="help_tab_problems">Probleemid</string>
+  <!--Adware-->
+  <!--Hosts sources-->
+  <string name="hosts_last_modified_local">Kohalik:</string>
+  <string name="hosts_last_modified_online">Onlain:</string>
+  <string name="hosts_not_available">pole saadaval</string>
+  <!--Other-->
+  <string name="app_subtitle">Reklaamide blokeerija</string>
+  <!--Tcpdump-->
+  <!--Preferences-->
+  <string name="pref_download">Üldised eelistused</string>
+  <string name="pref_hosts">Hosts fail</string>
+  <string name="pref_redirection_ip">Ümbersuunamise IP</string>
+  <string name="pref_update_check">Uuenduste kontrollimine</string>
+  <string name="pref_apply_method">Hosts faili asukoht</string>
+  <string name="pref_apply_method_summary">Enne muutmist loe abist selle funktsiooni kohta.</string>
+  <string name="pref_header_preferences">Eelistused</string>
+  <string name="pref_never_reboot">Taaskäivitamise dialoog peidetud</string>
+  <string name="pref_never_reboot_summary">Peidetakse dialoog, mis palub Androidi taaskäivitamist pärast edukat paigaldamist</string>
+  <string name="pref_webserver_on_boot">Veebiserver käivitatakse alglaadimisel</string>
+  <string name="pref_webserver_on_boot_summary">Veebiserver käivitatakse Androidi laadimisel. Kuulatakse vaid kohalikke IP aadresse.</string>
+  <string name="pref_webserver_enabled">Luba veebiserver</string>
+  <string name="pref_webserver_enabled_summary">Lubab veebiserveri, mis kuulab kohalikke IP aadresse ning vastab blokeeritud aadressitele.</string>
+  <string name="pref_webserver">Kohalik veebiserver</string>
+  <string name="pref_custom_target">Muu asukoht</string>
+  <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts faili asukohaks on muu asukoht.</string>
+  <string name="pref_update_check_summary">Uuendusi kontrollitakse AdAway käivitamisel</string>
+  <string name="pref_update_check_daily">Uuenduste kontroll iga päev</string>
+  <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>
+  <string name="pref_automatic_update_daily">Automaatne uuendus</string>
+  <string name="pref_automatic_update_daily_summary">Uuenduste olemasolul tehakse need taustal automaatselt.</string>
+  <string name="pref_debug">Silumine</string>
+  <string name="pref_enable_debug">Silumise logimine</string>
+  <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>
+  <!--Drawer menu items-->
+  <!--Drawer menu labels-->
+  <!--Shortcuts-->
+  <string name="shortcut_preferences">Eelistused</string>
+  <!--Hosts source status-->
 </resources>
