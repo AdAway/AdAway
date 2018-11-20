@@ -220,18 +220,22 @@ public class HostsInstallModel extends Observable {
             }
         }
         // Default hosting
+        URLConnection connection = null;
         try {
             /* build connection */
             URL mURL = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) mURL.openConnection();
+            connection = mURL.openConnection();
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(30000);
             long lastModified = connection.getLastModified();
-            connection.disconnect();
             return new Date(lastModified);
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Exception while downloading from " + url, exception);
             return null;
+        } finally {
+            if (connection instanceof HttpURLConnection) {
+                ((HttpURLConnection) connection).disconnect();
+            }
         }
     }
 
@@ -518,17 +522,12 @@ public class HostsInstallModel extends Observable {
         String redirectionIP = PreferenceHelper.getRedirectionIP(this.context);
         // write hostnames
         String line;
-        String linev6;
-        if (PreferenceHelper.getEnableIpv6(this.context)) {
-            for (String hostname : parser.getBlacklist()) {
-                line = Constants.LINE_SEPARATOR + redirectionIP + " " + hostname;
-                linev6 = Constants.LINE_SEPARATOR + "::1" + " " + hostname;
-                outputStream.write(line.getBytes());
-                outputStream.write(linev6.getBytes());
-            }
-        } else {
-            for (String hostname : parser.getBlacklist()) {
-                line = Constants.LINE_SEPARATOR + redirectionIP + " " + hostname;
+        boolean enableIpv6 = PreferenceHelper.getEnableIpv6(this.context);
+        for (String hostname : parser.getBlacklist()) {
+            line = Constants.LINE_SEPARATOR + redirectionIP + " " + hostname;
+            outputStream.write(line.getBytes());
+            if (enableIpv6) {
+                line = Constants.LINE_SEPARATOR + "::1" + " " + hostname;
                 outputStream.write(line.getBytes());
             }
         }

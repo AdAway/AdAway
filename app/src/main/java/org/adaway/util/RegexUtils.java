@@ -20,57 +20,23 @@
 
 package org.adaway.util;
 
+import com.google.common.net.InetAddresses;
+import com.google.common.net.InternetDomainName;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexUtils {
-    /*
-     * Allow hostnames like: localserver example.com example.host.org
-     */
-    private static final String HOSTNAME_LEVEL_REGEX = "[a-zA-Z]([a-zA-Z0-9\\-_]{0,61}[a-zA-Z0-9])?";
-    private static final String HOSTNAME_REGEX = HOSTNAME_LEVEL_REGEX + "(\\." + HOSTNAME_LEVEL_REGEX + "){0,126}";
-    private static final Pattern HOSTNAME_PATTERN = Pattern.compile(HOSTNAME_REGEX);
-
-    /*
-     * Allow also hostnames like: localse?ver example*.com exam?le*.host.org
-     */
-    private static final String WHITELIST_HOSTNAME_REGEX = "[a-zA-Z0-9\\*\\?]|[a-zA-Z0-9\\*\\?][a-zA-Z0-9\\-\\_\\.\\*\\?]{0,61}[a-zA-Z0-9\\*\\?]";
-    private static final Pattern WHITELIST_HOSTNAME_PATTERN = Pattern.compile(WHITELIST_HOSTNAME_REGEX);
-
-    /*
-     * http://stackoverflow.com/questions/46146/what-are-the-java-regular-expressions-for-matching-ipv4
-     * -and-ipv6-strings
-     */
-    private static final String IPV4_REGEX = "(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}";
-    private static final Pattern IPV4_PATTERN = Pattern.compile(IPV4_REGEX);
-
-    /*
-     * http://forums.dartware.com/viewtopic.php?t=452
-     */
-    private static final String IPV6_REGEX = "(((?=(?>.*?::)(?!.*::)))(::)?([0-9A-F]{1,4}::?){0,5}|([0-9A-F]{1,4}:){6})(\2([0-9A-F]{1,4}(::?|$)){0,2}|((25[0-5]|(2[0-4]|1\\d|[1-9])?\\d)(\\.|$)){4}|[0-9A-F]{1,4}:[0-9A-F]{1,4})(?<![^:]:|\\.)";
-    private static final Pattern IPV6_PATTERN = Pattern.compile(IPV6_REGEX, Pattern.CASE_INSENSITIVE);
-
     /*
      * To find hostname in DNS log
      */
     private static final String TCPDUMP_HOSTNAME_REGEX = "(A\\?|AAAA\\?)\\s(\\S+)\\.\\s";
     private static final Pattern TCPDUMP_HOSTNAME_PATTERN = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
 
-    /*
-     * Simplified expression to parse lines in hosts files from hosts sources
-     */
-    private static final String SIMPLE_IPV6_REGEX = "[0-9A-F\\:\\.]+";
 
-    private static final String HOSTS_PARSER = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
-            + SIMPLE_IPV6_REGEX + "))\\s+(" + HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
-    public static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER, Pattern.CASE_INSENSITIVE);
+    private static final String HOSTS_PARSER = "^\\s*([^\\s]+)\\s+([^\\s]+)\\s*(?:\\#.*\\s)*$";
+    public static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
-    // with whitelist entries for import function
-    private static final String HOSTS_PARSER_WHITELIST_IMPORT = "^\\s*((?:" + IPV4_REGEX + ")|(?:"
-            + SIMPLE_IPV6_REGEX + ")|(?:" + Constants.WHITELIST_ENTRY + "))\\s+("
-            + WHITELIST_HOSTNAME_REGEX + ")\\s*(?:\\#.*)*\\s*$";
-    public static final Pattern HOSTS_PARSER_WHITELIST_IMPORT_PATTERN =
-            Pattern.compile(HOSTS_PARSER_WHITELIST_IMPORT, Pattern.CASE_INSENSITIVE);
 
     /**
      * I could not find any android class that provides checking of an hostnames, thus I am using
@@ -80,77 +46,40 @@ public class RegexUtils {
      * @return return true if input is valid hostname
      */
     public static boolean isValidHostname(String input) {
-        if (input.length() > 253) {
-            return false;
-        }
-        Matcher hostnameMatcher = HOSTNAME_PATTERN.matcher(input);
-
-        try {
-            return hostnameMatcher.matches();
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in isValidHostname", e);
-            // workaround for some devices that throws jni exceptions: just accept everything
-            return true;
-        }
+        return InternetDomainName.isValid(input);
     }
 
     /**
-     * Same as above but also allow * and ?
+     * Same as {@link RegexUtils#isValidHostname(String)} but also allows * and ? as wildcard.
+     * <p/>
+     * Wildcard validation is quite tricky, because wildcards can be placed anywhere and can match with
+     * anything. To make sure we don't dismiss certain valid wildcarded host names, we replace the * and ? characters
+     * with an alphanumeric character for further validation. <br/>
+     * We only reject whitelist host names which cannot match against valid host names under any circumstances.
      *
-     * @param input
+     * @param hostname
      * @return
      */
-    public static boolean isValidWhitelistHostname(String input) {
-        Matcher whitelistHostnameMatcher = WHITELIST_HOSTNAME_PATTERN.matcher(input);
-
-        try {
-            return whitelistHostnameMatcher.matches();
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in isValidHostname", e);
-            // workaround for some devices that throws jni exceptions: just accept everything
-            return true;
-        }
+    public static boolean isValidWhitelistHostname(String hostname) {
+        // Clear wildcards from host name by replacing it with an alphanumeric character, then validate it
+        String clearedHostname = hostname.replaceAll("\\*", "a").replaceAll("\\?", "a");
+        return isValidHostname(clearedHostname);
     }
 
     /**
-     * Check if input is a valid IPv4 address
+     * Check if the given ip is a valid IP address.
+     *
+     * @param ip The IP to validate.
+     * @return {@code true} if the IP is valid, {@code false} otherwise.
      */
-    public static boolean isValidIPv4(String input) {
-        Matcher iPv4Matcher = IPV4_PATTERN.matcher(input);
-
+    public static boolean isValidIP(String ip) {
         try {
-            return iPv4Matcher.matches();
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in isValidIPv4", e);
-            // workaround for some devices that throws jni exceptions: just accept everything
+            InetAddresses.forString(ip);
             return true;
+        } catch (IllegalArgumentException exception) {
+            Log.d(Constants.TAG, "Invalid IP address: " + ip, exception);
+            return false;
         }
-    }
-
-    /**
-     * Check if input is a valid IPv6 address
-     */
-    public static boolean isValidIPv6(String input) {
-        Matcher iPv6Matcher = IPV6_PATTERN.matcher(input);
-
-        try {
-            return iPv6Matcher.matches();
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in isValidIPv6", e);
-            // workaround for some devices that throws jni exceptions: just accept everything
-            return true;
-        }
-    }
-
-    /**
-     * Check if input is a valid IP address
-     */
-    public static boolean isValidIP(String input) {
-        Log.d(Constants.TAG, "input: " + input);
-        Log.d(Constants.TAG, "isvalidipv4: " + isValidIPv4(input));
-        Log.d(Constants.TAG, "isvalidipv6: " + isValidIPv6(input));
-
-        return (isValidIPv4(input) || isValidIPv6(input));
     }
 
     /**
@@ -215,5 +144,4 @@ public class RegexUtils {
         s.append('$');
         return (s.toString());
     }
-
 }
