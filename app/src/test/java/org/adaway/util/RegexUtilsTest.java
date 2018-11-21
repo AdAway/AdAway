@@ -77,7 +77,7 @@ public class RegexUtilsTest {
         VALID_WILDCARD_NAMES.add("*");
         VALID_WILDCARD_NAMES.add("?");
 
-        // The follwing cannot be valid in any circumstance, because they can never match against a valid host name.
+        // The following cannot be valid in any circumstance, because they can never match against a valid host name.
         INVALID_WILDCARD_NAMES.add("abc.12*");
         INVALID_WILDCARD_NAMES.add("abc.12?");
         INVALID_WILDCARD_NAMES.add("foo*-.com");
@@ -120,8 +120,7 @@ public class RegexUtilsTest {
         }
         for (String wildcardName : VALID_WILDCARD_NAMES) {
             assertTrue(
-                    "The wildcard hostname '" + wildcardName + "' should be valid, because it can match alphanumeric " +
-                            "characters, forming a valid host name.",
+                    "The wildcard hostname '" + wildcardName + "' should be valid.",
                     RegexUtils.isValidWhitelistHostname(wildcardName)
             );
         }
@@ -149,27 +148,6 @@ public class RegexUtilsTest {
             assertFalse(
                     "The wildcard hostname '" + invalidWildcardName + "' should not be valid.",
                     RegexUtils.isValidWhitelistHostname(invalidWildcardName)
-            );
-        }
-        // edge cases:
-        for (String wildcardName : VALID_WILDCARD_NAMES) {
-            assertFalse(
-                    "The wildcard hostname '" + wildcardName + "' should not be valid if wildcard is replaced by " +
-                            "non-alphanumeric character, e.g. '.'.",
-                    String replacedHostname = wildcardName.replaceAll("\\*", ".").replaceAll("\\?", ".");
-                    RegexUtils.isValidHostname(replacedHostname);
-            );
-            assertFalse(
-                    "The wildcard hostname '" + wildcardName + "' should not be valid if wildcard is replaced by " +
-                            "non-alphanumeric character, e.g. '-'.",
-                    String replacedHostname = wildcardName.replaceAll("\\*", "-").replaceAll("\\?", "-");
-                    RegexUtils.isValidHostname(replacedHostname);
-            );
-            assertFalse(
-                    "The wildcard hostname '" + wildcardName + "' should not be valid if wildcard is replaced by " +
-                            "an empty string.",
-                    String replacedHostname = wildcardName.replaceAll("\\*", "").replaceAll("\\?", "");
-                    RegexUtils.isValidHostname(replacedHostname);
             );
         }
     }

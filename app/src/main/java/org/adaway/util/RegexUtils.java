@@ -53,17 +53,20 @@ public class RegexUtils {
      * Same as {@link RegexUtils#isValidHostname(String)} but also allows * and ? as wildcard.
      * <p/>
      * Wildcard validation is quite tricky, because wildcards can be placed anywhere and can match with
-     * anything. To make sure we don't dismiss certain valid wildcarded host names, we replace the * and ? characters
-     * with an alphanumeric character for further validation. <br/>
+     * anything. To make sure we don't dismiss certain valid wildcard host names, we trim wildcards
+     * or replace them with an alphanumeric character for further validation.<br/>
      * We only reject whitelist host names which cannot match against valid host names under any circumstances.
      *
      * @param hostname
      * @return
      */
     public static boolean isValidWhitelistHostname(String hostname) {
-        // Clear wildcards from host name by replacing it with an alphanumeric character, then validate it
-        String clearedHostname = hostname.replaceAll("\\*", "a").replaceAll("\\?", "a");
-        return isValidHostname(clearedHostname);
+        // Clear wildcards from host name then validate it
+        String clearedHostname = hostname.replaceAll("\\*", "").replaceAll("\\?", "");
+        // Replace wildcards from host name by an alphanumeric character
+        String replacedHostname = hostname.replaceAll("\\*", "a").replaceAll("\\?", "a");
+        // Check if any hostname is valid
+        return isValidHostname(clearedHostname) || isValidHostname(replacedHostname);
     }
 
     /**
