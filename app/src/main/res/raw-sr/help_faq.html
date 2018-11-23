@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>Često Postavljena Pitanja</title></head>
 <body>
@@ -8,7 +7,7 @@
 
 
 <h2>Kako AdAway radi?</h2>
-<p>AdAway koristi <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts fajlove</a> da blokira host-name, koje server reklamira. Host-ovi fajlovi nađeni u <code>/system/etc/hosts</code> koji mapiraju host-name do IP adrese. To je tradicionalni način da se definiše host-name u IP adresu parova bez oslanjanja na Domain Name System (DNS). Svi nepoželjni host-name su prebačeni na <code>127.0.0.1</code> što znači da će ukazati na vaš uređaj.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
 
 <h2>Zašto je dnevna provera ažuriranja nedostupna?</h2>
 <p>Automatska provera ažuriranja dostupna je samo kada je AdAway instaliran na internu memoriju uređaja. Radi se o ograničenosti Android platforme.</p>
@@ -17,12 +16,12 @@
 <p>Java na Androidu održava svoju sopstvenu DNS keš. Operativni Sistem će reflektovati nove hosts fajlove odmah (verifikovati sa pingom na komandnoj liniji) ali ćete morati da restartujete Android da bi obnovili DNS keš Jave.</p>
 
 <h2>Kako koristiti webserver u AdAway?</h2>
-<p><strong>AdAway će takođe raditi bez korišćenja webservera!</strong>
-<br/><br/>Možete omogućiti lokalni webserver u opcijama AdAway-a kako bi preusmerio zahteve na lokalnu IP adresu <code>127.0.0.1</code>. To znači da se zahtevi aplikacija prema serverima za oglase usmeravaju na <code>127.0.0.1</code> i odgovara im webserver AdAway-a.
-<br/>Neke aplikacije odbijaju da rade kada serveri za oglase nisu dostupni. Ovom metodom postaće opet dostupni, odgovarajući praznom stranicom bez slika.</p>
+<p><strong>AdAway will also work without using the webserver!</strong>
+<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Kako mogu da blokiram/odblokiram posebna imena domena</h2>
-<p>Dodajte imena hostova koje želite blokirati u Crnu listu (=Black) pod <cite>Your Lists</cite>. Uz to, imena hostova koje želite isključiti iz blokiranja možete dodati u  <cite>Whitelist</cite> (=White), a imena hostova koje želite preusmeriti na specifičnu IP adresu spadaju u <cite>Redirection List</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
 
 <h2>Gde mogu pronaći još host izvora?</h2>
 <p>Pogledajte <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Listu dodatnih izvora hostova za AdAway</a>.</p>

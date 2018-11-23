@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>FAQ</title></head>
 <body>
@@ -8,7 +7,7 @@
 
 
 <h2>¿Cómo furrula AdAway?</h2>
-<p>Adaway usa'l <a href="http://en.wikipedia.org/wiki/Hosts_file">ficheru «hosts»</a> pa bloquiar nomes d'agospiu que sirven anuncios. El ficheru «hosts» alcuéntrase en <code>/system/etc/hosts</code> y encárgase de redirixir los nome d'agospiu a una direición IP. Ye'l mou tradicional pa definir nomes d'agospiu a pares de direiciones IP ensin confiar nun sirvidor DNS. Redirixiriránse a <code>127.0.0.1</code>, (el to preséu), tolos nomes d'agospiu indeseayos.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
 
 <h2>¿Por qué ta abuxáu'l caxellu d'anovamientu diariu?</h2>
 <p>La comprobación automática p'anovamientos nuevos ta namái disponible cuando Adaway ta instaláu na memoria interna del teléfonu. Esto ye pola mor de restricciones na plataforma Android.</p>
@@ -17,12 +16,12 @@
 <p>Java n'Andorid caltién la so caché DNS interna. El sistema operativu reflexará'l ficheru Hosts nuevu nel intre (verifícalo con «ping» na llinia comandos) pero necesitarás reaniciar Android pa reconstruyir la cahé DNS Java.</p>
 
 <h2>¿Cómo usar el sirvidor web n'AdAway?</h2>
-<p><strong>¡AdAway tamién furrula ensin usar un sirvidor web!</strong>
-<br/><br/>Pues habilitar un sirvidor web nes preferencies d'AdAway pa responder solicitúes a la direición local <code>127.0.0.1</code>. Esto quier dicir que les solicitúes d'aplicaciones haza sirvidores d'anuncios redixiriránse a <code>127.0.0.1</code> pa que'l sirvidor web d'AdAway les respuenda.
-<br/>Quiciabes nun furrulen delles aplicaciones cuando nun puen algamase los sirvidores d'anuncios. Con esti métodu podrán algamase de nueves respondiendo con una páxina balera y ensin imáxenes.</p>
+<p><strong>AdAway will also work without using the webserver!</strong>
+<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>¿Cómo pueo bloquiar/desbloquiar nomes d'agospiu específicos?</h2>
-<p>Amiesta los nomes d'agospiu que quieras bloquiar na llista prieta (=prieta) so <cite>Les tos llistes</cite>. Amás, los nomes d'agospiu que quieras escluyir del bloquéu puen amestase a la <cite>llista blanca</cite> (=blanca) y los nomes d'agospiu que quieras redireicionar a una IP específica pertenecerán a la <cite>llista de redireiciones</cite> (=Redireición).</p>
+<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
 
 <h2>¿Ú pueo alcontrar más fontes d'agospios?</h2>
 <p>Mira la <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">llista de fontes d'agospios p'AdAway</a>.</p>

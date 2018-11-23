@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -9,20 +8,20 @@
 <p>S-OFF có nghĩa là bộ phận NAND của thiết bị được mở khoá và có thể được ghi đè. Cài đặt mặc định cho các thiết bị HTC là S-ON, nghĩa là bạn không thể truy cập một số khu vực cụ thể của hệ thống lẫn khả năng root máy vĩnh viễn. Hơn nữa, việc kiểm tra chữ ký cho các ảnh phần cứng cũng bị hạn chế bởi cờ S-ON.</p>
 
 <h2>Thiết bị của tôi là S-ON hay S-OFF?</h2>
-<p>Khởi động Chế độ boot trên thiết bị bằng cách bấm giữ nút <cite>giảm âm lượng</cite> khi đang giữ nút nguồn và dòng chữ trên cùng sẽ hiển thị trạng thái cờ là S-OFF hoặc S-ON. Một bản root đầy đủ thường là S-OFF.
-<br/><br/>Xem thêm thông tin tại <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Bạn có thể tham khảo các phương pháp chuyển thành S-OFF khác kể từ sau Unrevokable (trong liên kết) như là: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Giải pháp</h2>
 <p>Yêu cầu: Bạn phải cài đặt một SDK đang hoạt động cho Android với vỏ ADB trên PC của bạn.
 </p>
 <ol>
-<li>Khởi động Chế độ boot trên thiết bị bằng cách bấm giữ nút <cite>giảm âm lượng</cite> khi đang giữ nút nguồn.</li>
-<li>Dùng nút <cite>giảm âm lượng</cite> để chọn bản khôi phục.</li>
-<li>Trong clockwork recovery, chọn nút giảm âm lượng đến "trình đơn phân vùng" và chạm vào bảng dò để chọn</li>
-<li>Chọn <cite>mount /system</cite>, <cite>mount /sdcard</cite> và <cite>mount /data</cite>.</li>
-<li>Cắm dây USB và mở một dòng lệnh trên PC.</li>
-<li>Truy cập vỏ adb và gõ <code>ln -s /data/hosts /system/etc/hosts</code> (Thao tác này sẽ tạo một liên kết biểu trưng và cho phép AdAway chỉnh sửa tập tin miền được lưu trữ trong <code>/data</code> trong khi cho phép HĐH sử dụng tập tin này như thể nó được lưu trong <code>/system</code>.)</li>
-<li>Khởi động lại thiết bị và đổi <cite>Tập tin miền mục tiêu</cite> thành <cite>/data/hosts</cite> trong tuỳ chỉnh AdAway.</li>
+<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
+<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
+<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
+<li>Plug in your USB cord and open a command line on your pc.</li>
+<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
+<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
 <li>AdAway sẽ hoạt động bình thường.</li>
 </ol>
 </body>

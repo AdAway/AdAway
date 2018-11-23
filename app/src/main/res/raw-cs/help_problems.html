@@ -6,13 +6,13 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>Common problems</title></head>
 <body>
 <h2>Nedostatek místa na oddílu</h2>
-<p>Zkuste v nastavení změnit cílový soubor hostitelů na <code>/data/data/hosts</code> (nebo <code>/data/hosts</code>) a použít AdAway znovu.</p>
+<p>Try changing the target hosts file in preferences to <code>/data/data/hosts</code> (or <code>/data/hosts</code>) and apply AdAway again.</p>
 
 <h2>Nefunguje na Androidu 4.4+</h2>
-<p>Zkuste v nastavení změnit cílový soubor hostitelů z <code>/data/data/hosts</code> na <code>/data/hosts</code> nebo <code>/system/etc/hosts</code> a použít AdAway znovu.</p>
+<p>Try changing the target hosts file in preferences from <code>/data/data/hosts</code> to <code>/data/hosts</code> or <code>/system/etc/hosts</code> and apply AdAway again.</p>
 
 <h2>Reklamy v aplikaci XYZ nejsou blokovány!</h2>
-<p>Některé názvy hostitelů mohou v poskytnutých souborech hostitelů ze <cite>Zdrojů hostitelů</cite> chybět nebo má aplikace reklamy přímo v sobě a tudíž nepotřebuje k jejich zobrazování připojení k internetu.<br><br>
+<p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
 Pomocí AdAway můžete protokolovat DNS požadavky (Menu-&gt;Záznam DNS požadavků) a zjistit tak, které další názvy hostitelů mají být blokovány.
 <br><br>Přidejte podezřelé názvy hostitelů na svou vlastní černou listinu dlouhým podržením vybraného názvu hostitele v záznamu a pokud jste ověřili jejich funkčnost, nahlašte je na fóru <a href="http://hosts-file.net">hosts-file.net</a> do <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a>.</p>
 
@@ -20,7 +20,7 @@ Pomocí AdAway můžete protokolovat DNS požadavky (Menu-&gt;Záznam DNS požad
 <p>Občas si aplikace ukládají stažené reklamy do dočasné paměti. Tím pádem v některých aplikacích reklamy můžou zůstat. Pro obejití tohoto problému můžeš zkusit vymazat dočasnou paměť u těchto aplikací v Seznamu aplikací systému Android.</p>
 
 <h2>Aplikace XYZ již nefunguje!</h2>
-<p>Některé aplikace potřebují komunikovat s hostitelem, jenž je blokován pomocí AdAway, nebo dokonce odmítají pracovat, pokud pro ně takový hostitel není dostupný. Podívejte se na <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a>, kde naleznete seznam známých aplikací, které se takto chovají. Anebo si zjistěte, které názvy hostitelů je potřeba přestat blokovat a pak je přidejte na svou <cite>Bílou listinu</cite> mezi <cite>Vaše seznamy</cite> a nahlaste na náš <a href="https://github.com/AdAway/AdAway/issues">issue tracker</a>.</p>
+<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuse to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <cite>Whitelist</cite> under <cite>Your Lists</cite> and report them to the <a href="https://github.com/AdAway/AdAway/issues">bug tracker of AdAway</a>.</p>
 
 <h2>Tlačítko Zpět ve webovém prohlížeči nefunguje</h2>
 <p>Jako řešení můžete v nastavení povolit lokální webový server AdAway.</p>

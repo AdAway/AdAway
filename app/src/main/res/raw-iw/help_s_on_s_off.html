@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -15,13 +14,13 @@
 <h2>לעקיפת הבעיה</h2>
 <p>אתה צריך להתקין קודם Android SDK עם ADB במחשב שלך</p>
 <ol>
-<li>הכנס לתפריט הבוט על ידי לחיצה על כפתורי הווליום למעלה + למטה ולחץ באותו הזמן על כפתור הכיבוי וההדלקה</li>
-<li>השתמש בחצי הווליום למעלה  למטה על מנת לנווט בריקבורי</li>
-<li>בריקבורי השתמש בכפתור הווליום למעלה ולחץ על partitions menu ולחץ על track בשביל לבחור</li>
-<li>בחר <cite>mount /system</cite>, <cite>mount /sdcard</cite> ו <cite>mount /data</cite></li>
-<li>חבר את המכשיר למחשב עם usb ופתח את הפקודות במחשב</li>
+<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
+<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
+<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
+<li>Plug in your USB cord and open a command line on your pc.</li>
 <li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>הפעל מחדש את המכשיר שלך והגדר <cite>יעד קובץ שרתים</cite> אל <cite>/data/hosts</cite> בהעדפות AdAway.</li>
+<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
 <li>AdAway  אמור לעבוד עכשיו</li>
 </ol>
 </body>

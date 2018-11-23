@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>Vrae</title></head>
 <body>
@@ -9,7 +8,7 @@
 
 <h2>Hoe werk AdAway?
 </h2>
-<p>AdAway gebruik die <a href="http://en.wikipedia.org/wiki/Hosts_file">gasheer lêer</a> om gasheer name te blokkeer, wat advertensies diens. Die gasheer lêer is 'n lêer wat gevind word in <code>/system/etc/hosts</code> wat gasheer name aan IP adresse koppel. Dit is 'n tradisionele manier om gasheer name aan IP adresse te koppel sonder om op die Domein Naam Sisteem te vertrou (DNS). Alle ongewenste gasheer name word verwys na <code>127.0.0.1</code> wat beteken dit wys na jou eie toestel.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
 
 <h2>Hoekom is die daaglikse opdaterings blokkie grys?</h2>
 <p>Outomatiese nagaan vir opdaterings is slegs moontlik indien AdAway op die interne foon geheue geïnstalleer is. Dit is agv. beperkinge op die Android platvorm. </p>
@@ -18,12 +17,12 @@
 <p>Java en Android onderhou hulle eie interne DNS geheue. Die bedryfstelsel sal dadelik nuwe gasheer lêers vertoon (verifieer dit met ping op die "command line") jy sal egter Android weer moet begin om die DNS geheue en Java te herbou.</p>
 
 <h2>Hoe om die webbediener in AdAway te gebruik?</h2>
-<p><strong>AdAway sal ook werk sonder'n webbediener!</strong>
-<br/><br/>Jy kan 'n plaaslike webbediener aktiveer in AdAway  voorkeure om versoeke vir 'n plaaslike IP adres te beantwoord <code>127.0.0.1</code>. Dit beteken versoeke van programme aan advertensie bedieners wat herlei word na <code>127.0.0.1</code> word beantwoord deur AdAway se webbediener.
-<br/>Sommige programme weier om te werk indien advertensie bedieners nie bereik kan word nie. Met hierdie metode is hulle weer bereikbaar en antwoord met 'n blanko bladsy en geen advertensies nie.</p>
+<p><strong>AdAway will also work without using the webserver!</strong>
+<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Hoe kan ek spesifieke gasheername blokkeer/toelaat?</h2>
-<p>Voeg die gasheer name wat jy wil blokkeer by jou Swartlys (=Black) onder <cite>Your Lists</cite>. Addisioneel kan jy gasheername wat jy wil uitsluit van uitsluiting byvoeg by jou <cite>Witlys</cite> (=White) en gasheer name wat jy wil herlei na 'n spesifieke IP adres by jou <cite>Herlei Lys</cite> (=Redirection). </p>
+<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
 
 <h2>Waar kan ek meer gasheer bronne vind?</h2>
 <p>Sien <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lys van addisionele gasheer bronne vir AdAway</a>.</p>

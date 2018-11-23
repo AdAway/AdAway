@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>S-ON 関連ヘルプ</title></head>
 <body>
@@ -17,10 +16,10 @@
 </p>
 <ol>
 <li>電源ボタンを押しながら<cite>ボリュームダウン</cite>ボタンを押しながらデバイスのブートメニューを起動します</li>
-<li><cite>ボリュームマイナス</cite>キーでrecoveryを選んでください。</li>
-<li>clockwork recoveryでボリュームマイナスキーで"partitions menu"を選んでください。</li>
+<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
 <li><cite>mount /system</cite>、<cite>mount /sdcard</cite>、<cite>mount /data</cite>を選択します</li>
-<li>Plug in your usb cord and open a command line on your pc.</li>
+<li>Plug in your USB cord and open a command line on your pc.</li>
 <li>adbシェルを入力し、<code>ln -s /data/hosts /system/etc/hosts</code>と入力します（これによりシンボリックリンクが作成され、AdAwayは<code>/dataに</code>格納し、OSは<code>/system</code>に格納されているかのようにファイルを使用出来ます）</li>
 <li>デバイスを再起動し、AdAwayの設定で<cite>Target hostsファイル</cite>を<cite>/data/hosts</cite>に設定します</li>
 <li>AdAwayが動作するはずです。</li>

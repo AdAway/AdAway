@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -9,20 +8,20 @@
 <p>S-OFF znači da je NAND deo uređaja je otključan i da na njega može biti pisano. Fabrički je podešen S-On na HTC uređajima, što znači da ne možete da pristupite pojedinim oblastima sistema niti možete da garantujete trajni "Root". Štaviše, provera potpisa za sistemske nadogradnje je takođe osiguran S-ON-om.</p>
 
 <h2>Da li ja imam S-ON ili S-OFF?</h2>
-<p>Pokrenite Boot Menu na vašem uređaju držanjem dugmeta <cite>volume down</cite> dok pritiskate dugme Power i tekst na vrhu će prikazati status S-OFF ili S-ON. Potpun "Root" obučno znači S-OFF.
-<br/><br/>Više informacija možete pronaći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Mogu vas zanimati dodatne S-OFF metode od Unrevokable (na linku), imenom: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Rešenje</h2>
 <p>Preduslov: Morate da instalirate Android SDK sa ADB na vaš PC
 </p>
 <ol>
-<li>Pokrenuti "Boot Menu" na vašem uređaju držanjem <cite>volume down</cite> dugme dok pritiskate "power" dugme.</li>
-<li>Koristite <cite>volume down</cite> da izaberete recovery.</li>
-<li>U "clockwork recovery" <cite>volume down</cite> i stisnite "track pad" da izaberete</li>
-<li>Izaberire <cite>mount /system</cite>, <cite>mount /sdcard</cite> I <cite>mount /data</cite>.</li>
-<li>Uključite USB kabl i otvoritr komandnu liniju na vašem PC-u.</li>
-<li>Pokrenite adb shell i upišite <code>ln -s /data/hosts /system/etc/hosts</code> (Ovo će stvoriti simbolički link, koji dopušta AdAway-u da uređuje hosts datoteku sačuvanu u <code>/data</code> dopuštajući sistemu da koristi tu datoteku kao da je sačuvana u <code>/system</code>.)</li>
-<li>Ponovo pokrenite vaš uređaj i postavite <cite>Target hosts file</cite> u <cite>/data/hosts</cite> u postavkama AdAway-a.</li>
+<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
+<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
+<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
+<li>Plug in your USB cord and open a command line on your pc.</li>
+<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
+<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
 <li>AdAway bi trebalo da radi sada.</li>
 </ol>
 </body>

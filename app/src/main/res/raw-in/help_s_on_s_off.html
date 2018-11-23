@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -9,20 +8,20 @@
 <p>S-OFF berarti bahwa bagian NAND pada perangkat tidak terkunci dan dapat ditulis. Pengaturan standar untuk perangkat HTC adalah S-ON, yang berarti bahwa tidak dapat mengakses area tertentu dari sistem juga tidak bisa menjamin root permanen. Selanjutnya, memeriksa tanda tangan untuk gambar firmware juga dijamin oleh S-ON flag.</p>
 
 <h2>Apakah saya harus S-ON atau S-OFF?</h2>
-    <p>Boot ke Menu Boot pada perangkat Anda dengan menekan <cite> tombol volume bawah </cite> sambil menekan tombol power dan keterangan di atas layar akan menampilkan status mungkin S-OFF atau S-ON. Sebuah root penuh umumnya bertanda S-OFF.
-<br/> <br/> Informasi lebih lanjut dapat ditemukan di <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Metode S-OFF tambahan pada Unrevokable (di link) mungkin menarik bagi Anda, yaitu : Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boot ke Menu Boot pada perangkat Anda dengan menekan <cite> tombol volume bawah </cite> sambil menekan tombol power dan keterangan di atas layar akan menampilkan status mungkin S-OFF atau S-ON. Sebuah root penuh umumnya bertanda S-OFF.
+<br/><br/>Informasi lebih lanjut dapat ditemukan di <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Metode S-OFF tambahan pada Unrevokable (di link) mungkin menarik bagi Anda, yaitu : Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Solusi</h2>
 <p>Prasyarat: Anda harus menginstal SDK Android dengan ADB shell pada PC Anda.
 </p>
 <ol>
 <li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Gunakan tombol <cite>volume down</cite> untuk memilih recovery.</li>
-<li>Pada volume pemulihan jarum jam ke "partisi menu" dan tekan trackpad untuk memilih</li>
-<li>Pilih <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Tancapkan USB mu dan buka terminal dalam PC mu.</li>
-<li>Masukkan kode berikut ke ADB shell <code>ln -s /data/hosts /system/etc/hosts</code> (Ini dilakukan untuk membuat link simbolik, yang memungkinkan AdAway untuk mengubah file hosts di <code>/data</code> dan tetap memungkinkan OS untuk menggunkan file tersebut seperti terletak di <code>/system</code>.)</li>
-<li>Matikan dan hidupkan kembali perangkat anda dan atur <cite>Target file host</cite> di prefrensi menjadi <cite>/data/hosts</cite>.</li>
+<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
+<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
+<li>Plug in your USB cord and open a command line on your pc.</li>
+<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
+<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
 <li>AdAway seharusnya bekerja sekarang.</li>
 </ol>
 </body>

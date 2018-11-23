@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>پرسش و پاسخ</title></head>
 <body>
@@ -8,7 +7,7 @@
 
 
 <h2>برنامه AdAway چگونه کار میکند؟</h2>
-<p>برنامه AdAway از <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> برای مسدود نمودن آدرسهای که به منظور تبلیغاتی هستند استفاده مینماید. فایل hosts یک فایلی است که در مسیر <code>/system/etc/hosts</code> میباشد و مسیر hostnames را به آدرس های آی پی تبدیل مینماید. این یک راه و روش سنتی برای تعریف hostnames به آی پی بدون وابسته بودن به دی ان اس (DNS) میباشد. تمامی hostnames مسدود شده به آدرس  <code>127.0.0.1</code> که همان مسیر داخلی دستگاه شما است هدایت میشوند.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
 
 <h2>چرا تنظیمات به روزرسانی روزانه از کار افتاده است؟</h2>
 <p>بررسی بروزرسانی ها فقط زمانی امکانپذیر است که برنامه AdAway در حافظه داخلی دستگاه نصب شده باشد. این امر به دلیل محدودیت های پلتفرم اندروید میباشد.</p>
@@ -17,14 +16,12 @@
 <p>جاوا در اندروید از کش دی ان اس درونی خود استفاده مینماید. سیستم عامل مستقیما تغییرات فایل hosts را منعکس مینماید (آن را با پینگ در خط فرمان بررسی نمایید) اما شما میبایستی دستگاه اندروید خود را برای از نو ساختن دی ان اس کش  جاوا شروع مجدد نمایید.</p>
 
 <h2>چگونه از وب سرور AdAway استفاده نمایید؟</h2>
-<p><strong>AdAway همچنان بدون استفاده از وب سرور نیز کار میکند</strong>
-
-<br/><br/>برای پاسخ به درخواست آدرسهای آی پی داخلی می توانید در تنظیماتAdAway وب سرور محلی را فعال نمایید <code>127.0.0.1</code>. به این معنی که درخواست برنامه ها به سرورهای تبلیغاتی به مسیر داخلی هدایت میگردند <code>127.0.0.1</code> و توسط وب سرور AdAway جواب داده میشوند.
-
-<br/>بعضی از برنامه ها وقتی سرور تبلیغات آنها مسدود باشد کار نمیکنند. با این روش آنها با گرفتن یک صفحه خالی به جای تبلیغات کار میکنند و هیچ تبلیغی هم نمایش داده نمیشود.</p>
+<p><strong>AdAway will also work without using the webserver!</strong>
+<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>چگونه میتوانم یک hostnames خاص را مسدود و یا آزاد نمایم؟</h2>
-<p>hostnames هایی را که میخواهید مسدود نمایید به لیست سیاه (=Black) در <cite>لیست شما</cite> اضافه نمایید. همچنین hostnames هایی که میخواهید در دسترس باشند میتوانید در بخش <cite>لیست سفید</cite> (=White) اضافه نمایید و hostnames هایی که میخواهید به یک آی پی خاص هدایت شوند را در <cite>لیست هدایت شونده ها</cite> (=Redirection) اضافه نمایید.</p>
+<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
 
 <h2>از کجا میتوانید منابع بیشتری از hosts بیابم؟</h2>
 <p>مراجعه نمایید به <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">لیست منابع اضافی hosts برای AdAway</a>.</p>
