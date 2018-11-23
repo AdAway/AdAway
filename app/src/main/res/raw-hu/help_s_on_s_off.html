@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -8,20 +9,20 @@
 <p>Az S-OFF azt jelenti, hogy az eszköz NAND rész nem zárolt, és írható. A HTC eszközök alapértéke S-ON, ami azt jelenti, hogy a rendszer bizonyos részeit nem érheti el és nem lehet állandó root jogot adni. Továbbá a firmware képek lenyomatának ellenőrzése is be van kapcsolva az S-ON jelző miatt.</p>
 
 <h2>Nálam S-ON vagy S-OFF van?</h2>
-<p>Boot-oljon a Boot Menu-be a készülékén a <i>hangerő le</i> gomb nyomva tartásával, amíg bekapcsoló gombot megnyomja és megjelenik felül a zászló vagy S-OFF, vagy S-ON szöveggel. Egy teljes root általában S-OFF -ot jelent.
+<p>Boot-oljon a Boot Menu-be a készülékén a <cite>hangerő le</cite> gomb nyomva tartásával, amíg bekapcsoló gombot megnyomja és megjelenik felül a zászló vagy S-OFF, vagy S-ON szöveggel. Egy teljes root általában S-OFF -ot jelent.
 <br/><br/>További információ található a <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a> -on. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Kerülő megoldás</h2>
 <p>Feltételek: telepíteni kell egy működő Android SDK-t a gépre egy ADB parancssorral együtt.
 </p>
 <ol>
-<li>Lépjen be az eszköze Boot menüjébe úgy, hogy a bekapcsoló gomb mellett a <i>hangerő le</i> gombot is nyomva tartja.</li>
-<li>Használja a <i>Hangerő le</i> gombot a visszaállítás mód választásához.</li>
+<li>Lépjen be az eszköze Boot menüjébe úgy, hogy a bekapcsoló gomb mellett a <cite>hangerő le</cite> gombot is nyomva tartja.</li>
+<li>Használja a <cite>Hangerő le</cite> gombot a visszaállítás mód választásához.</li>
 <li>A clockwork recoveryben mozogjon le a hangerő le gombbal a "partitions" menüre és érintse meg a kijelzőt a kiválasztáshoz.</li>
-<li>Válassza a <i>mount/system</i>, <i>mount/sdcard</i> és a <i>mount/data</i> lehetőségeket.</li>
+<li>Válassza a <cite>mount/system</cite>, <cite>mount/sdcard</cite> és a <cite>mount/data</cite> lehetőségeket.</li>
 <li>Csatlakoztassa az USB összekötő vezetéket és nyisson meg egy parancssort a gépén.</li>
-<li>Lépjen be az adb héjba és írja be a <tt>ln -s /data/hosts /system/etc/hosts</tt>-t (Ez készít egy szimbolikus hivatkozást, ami engedélyezi az AdAway-nek, hogy szerkessze a <tt>/data</tt>-ban tárolt hosts fájlt, miközben engedélyezi az OS-nek, hogy úgy használja a fájlt, mintha a <tt>/system</tt>-ben lenne tárolva.)</li>
-<li>Indítsa újra a készülékét és állítsa be a <i>Cél host fájl</i>-t <i>/data/hosts</i>-ra az AdAway beállításokban.</li>
+<li>Lépjen be az adb héjba és írja be a <code>ln -s /data/hosts /system/etc/hosts</code>-t (Ez készít egy szimbolikus hivatkozást, ami engedélyezi az AdAway-nek, hogy szerkessze a <code>/data</code>-ban tárolt hosts fájlt, miközben engedélyezi az OS-nek, hogy úgy használja a fájlt, mintha a <code>/system</code>-ben lenne tárolva.)</li>
+<li>Indítsa újra a készülékét és állítsa be a <cite>Cél host fájl</cite>-t <cite>/data/hosts</cite>-ra az AdAway beállításokban.</li>
 <li>Az AdAway alkalmazásnak így már működnie kell.</li>
 </ol>
 </body>

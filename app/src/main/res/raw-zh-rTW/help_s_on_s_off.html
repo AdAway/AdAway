@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON 相關的說明</title></head>
 <body>
@@ -16,8 +17,8 @@
 </p>
 <ol>
 <li>按住<cite>降低音量</cite>按鍵不放並開啟手機電源，手機會進入開機選單。</li>
-<li>透過 <i>降低音量</i> 按鍵，選擇 Recovery 。</li>
-<li>在 clockwork recovery 中按下 <i>降低音量</i> 選擇 "partitions menu" ，按下按鍵選擇此項目。</li>
+<li>透過 <cite>降低音量</cite> 按鍵，選擇 Recovery 。</li>
+<li>在 clockwork recovery 中按下 <cite>降低音量</cite> 選擇 "partitions menu" ，按下按鍵選擇此項目。</li>
 <li>選擇 <cite>mount /system</cite>，<cite>mount /sdcard</cite> 以及 <cite>mount /data</cite>。</li>
 <li>將你的手機連結到電腦，並且進入 ADB 指令介面。</li>
 <li>進入 adb 介面，輸入 <code>ln -s /data/data/hosts /system/etc/hosts</code> （這會建立一個符號連結，讓 AdAway 可以修改存放在 <code>/data</code> 中的 hosts 檔案，同時允許作業系統使用檔案，如同存放在 <code>/system</code> 一樣）。</li>

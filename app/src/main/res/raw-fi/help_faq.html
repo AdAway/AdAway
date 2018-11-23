@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>FAQ</title></head>
 <body>
@@ -7,7 +8,7 @@
 
 
 <h2>Kuinka AdAway toimii?</h2>
-<p>AdAway käyttää <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> estääkseen palvelinten nimet, jotka mahdollistavat mainokset. Hosts-tiedosto löytyy osiosta <tt>/system/etc/hosts</tt> ja se kartoittaa palvelinten nimet IP-osoitteisiin. Se on perinteinen tapa määritellä palvelinnimi - IP-osoite parit tukeutumatta nimipalvelujärjestelmään (DNS). Kaikki ei-toivotut palvelinnimet ohjataan <tt>127.0.0.1</tt>, mikä tarkoittaa että ne viittaavat omaan laitteeseesi.</p>
+<p>AdAway käyttää <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> estääkseen palvelinten nimet, jotka mahdollistavat mainokset. Hosts-tiedosto löytyy osiosta <code>/system/etc/hosts</code> ja se kartoittaa palvelinten nimet IP-osoitteisiin. Se on perinteinen tapa määritellä palvelinnimi - IP-osoite parit tukeutumatta nimipalvelujärjestelmään (DNS). Kaikki ei-toivotut palvelinnimet ohjataan <code>127.0.0.1</code>, mikä tarkoittaa että ne viittaavat omaan laitteeseesi.</p>
 
 <h2>Miksi päivittäinen päivitysten tarkistus vaihtoehto on harmaa?</h2>
 <p>Päivitysten automaattinen tarkistus on mahdollista vain, mikäli AdAway on asennettu puhelimen sisäiselle muistille. Tämä johtuu Android-käyttöjärjestelmän rajoituksista.</p>
@@ -16,12 +17,12 @@
 <p>Androidin Java ylläpitää omaa sisäistä DNS-välimuistia. Käyttöjärjestelmä kuvastaa uuttaa hosts-tiedostoa heti (varmista se pingillä komentorivillä), mutta sinun täytyy käynnistää Android uudelleen jälleenrakentaaksesi Javan DNS-välimuisti.</p>
 
 <h2>Kuinka AdAwayn web-palvelinta käytetään?</h2>
-<p><b>AdAway toimii myös ilman web-palvelinta!</b>
-<br/><br/>Voit ottaa käyttöön paikallisen web-palvelimen AdAwayn asetuksista vastataksesi paikalliseen IP-osoitteeseen <tt>127.0.0.1</tt> tulleisiin pyyntöihin. Tämä tarkoittaa sitä, että AdAwayn web-palvelin vastaa pyyntöihin sovelluksilta mainospalvelimille, jotka on ohjattu <tt>127.0.0.1</tt>.
+<p><strong>AdAway toimii myös ilman web-palvelinta!</strong>
+<br/><br/>Voit ottaa käyttöön paikallisen web-palvelimen AdAwayn asetuksista vastataksesi paikalliseen IP-osoitteeseen <code>127.0.0.1</code> tulleisiin pyyntöihin. Tämä tarkoittaa sitä, että AdAwayn web-palvelin vastaa pyyntöihin sovelluksilta mainospalvelimille, jotka on ohjattu <code>127.0.0.1</code>.
 <br/>Jotkut ohjelmat eivät toimi, jos mainospalvelin ei ole tavoitettavissa. Tällä metodilla ne ovat taas tavoitettavissa ja ne vastaavat tyhjällä sivulla ilman mainoskuvia.</p>
 
 <h2>Kuinka voin estää/sallia tiettyjen palvelinten nimet?</h2>
-<p>Voit lisätä host-nimen, jonka haluat estää, mustalle listalle (=Musta) kohdassa <i>Luettelosi</i>. Vaihtoehtoisesti voit lisätä host-nimen, jota et halua estää, <i>valkoiselle listalle</i> (=Valkoinen) ja host-nimet, joista haluat uudelleenohjauksen tiettyyn IP-osoitteeseen, <i>Uudelleenohjaus listalle</i> (=Uudelleenohjaus).</p>
+<p>Voit lisätä host-nimen, jonka haluat estää, mustalle listalle (=Musta) kohdassa <cite>Luettelosi</cite>. Vaihtoehtoisesti voit lisätä host-nimen, jota et halua estää, <cite>valkoiselle listalle</cite> (=Valkoinen) ja host-nimet, joista haluat uudelleenohjauksen tiettyyn IP-osoitteeseen, <cite>Uudelleenohjaus listalle</cite> (=Uudelleenohjaus).</p>
 
 <h2>Mistä löydän lisää hosts-lähteitä?</h2>
 <p>Katso <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Luettelo hosts-lähteistä</a>.</p>

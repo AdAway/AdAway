@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -16,12 +17,12 @@
 </p>
 <ol>
 <li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>使用<i>减小音量</i>来选择恢复模式。</li>
+<li>使用<cite>减小音量</cite>来选择恢复模式。</li>
 <li>连续按动音量减少按钮，移动到 “partitions menu”，然后点击触摸屏选中。</li>
-<li>选择<i>mount /system</i>，<i>mount /sdcard</i>和<i>mount /data</i>。</li>
+<li>选择<cite>mount /system</cite>，<cite>mount /sdcard</cite>和<cite>mount /data</cite>。</li>
 <li>连接上 USB 数据线，然后在 PC 上打开命令行。</li>
-<li>进入 adb shell 然后输入<tt>ln -s /data/hosts /system/etc/hosts</tt>（创建符号链接，允许 AdAway 编辑保存在<tt>/data</tt>里的 hosts 文件，并且同时 OS 也可以使用该文件，像<tt>/system</tt>下保存的文件一样。）</li>
-<li>重启设备，然后在 AdAway 的偏好设置中将<i>目标 hosts 文件</i> 设置为 <i>/data/hosts</i> </li>
+<li>进入 adb shell 然后输入<code>ln -s /data/hosts /system/etc/hosts</code>（创建符号链接，允许 AdAway 编辑保存在<code>/data</code>里的 hosts 文件，并且同时 OS 也可以使用该文件，像<code>/system</code>下保存的文件一样。）</li>
+<li>重启设备，然后在 AdAway 的偏好设置中将<cite>目标 hosts 文件</cite> 设置为 <cite>/data/hosts</cite> </li>
 <li>AdAway 现在应该生效了。</li>
 </ol>
 </body>

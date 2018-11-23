@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON relaterad hjälp</title></head>
 <body>
@@ -8,20 +9,20 @@
 <p>S-OFF betyder att NAND-delen av enheten är upplåst och kan skrivas till. Standardvärdet för HTC-enheter är S-ON, vilket betyder att du inte har tillgång till vissa delar av systemet inte heller kan permanent root garanteras. Vidare är signaturkontroll av mjukvaruavbilder garanterad av S-ON-flaggan.</p>
 
 <h2>Har jag S-ON eller S-OFF?</h2>
-<p>Boota till boot-menyn på enheten genom att hålla nere <i>volym ned</i>-knappen samtidigt med på/av-knappen och texten längst upp på skärmen kommer att visa flaggans status som antingen S-OFF eller S-ON. En total rootning innebär generellt sett S-OFF.
+<p>Boota till boot-menyn på enheten genom att hålla nere <cite>volym ned</cite>-knappen samtidigt med på/av-knappen och texten längst upp på skärmen kommer att visa flaggans status som antingen S-OFF eller S-ON. En total rootning innebär generellt sett S-OFF.
 <br/><br/>Mer information kan hittas på <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Fler S-OFF-metoder sedan "Unrevokable" (i länk) kanske intresserar dig, närmare: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Lösning</h2>
 <p>Förutsättning: Du måste installera en fungerade Android SDK med ADB på din PC.
 </p>
 <ol>
-<li>Boota till boot-menyn på din enhet genom att hålla nere <i>volym ned</i>-knappen samtidigt med på/av-knappen.</li>
-<li>Använd <i>volym ned</i> för att välja "recovery".</li>
+<li>Boota till boot-menyn på din enhet genom att hålla nere <cite>volym ned</cite>-knappen samtidigt med på/av-knappen.</li>
+<li>Använd <cite>volym ned</cite> för att välja "recovery".</li>
 <li>I clockwork recovery, tryck volym ned till "partitions menu" och tryck på mittenknappen på telefonen för att välja</li>
-<li>Välj <i>mount /system</i>, <i>mount /sdcard</i> och <i>mount /data</i>.</li>
+<li>Välj <cite>mount /system</cite>, <cite>mount /sdcard</cite> och <cite>mount /data</cite>.</li>
 <li>Koppla in USB-sladden och öppna en kommandoprompt på din pc.</li>
-<li>Öppna "adb shell" och skriv <tt>ln -s /data/hosts /system/etc/hosts</tt> (Detta skapar en symbolisk länk, vilket tillåter AdAway att redigera hosts-filen i <tt>/data</tt> medan operativsystemet tillåts använda filen som om den ligger i <tt>/system</tt>.)</li>
-<li>Starta om enheten och ställ in <i>Värdfil</i> till <i>/data/hosts</i> i AdAways inställningar.</li>
+<li>Öppna "adb shell" och skriv <code>ln -s /data/hosts /system/etc/hosts</code> (Detta skapar en symbolisk länk, vilket tillåter AdAway att redigera hosts-filen i <code>/data</code> medan operativsystemet tillåts använda filen som om den ligger i <code>/system</code>.)</li>
+<li>Starta om enheten och ställ in <cite>Värdfil</cite> till <cite>/data/hosts</cite> i AdAways inställningar.</li>
 <li>AdAway borde nu fungera.</li>
 </ol>
 </body>

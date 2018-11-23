@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>FAQ</title></head>
 <body>
@@ -7,7 +8,7 @@
 
 
 <h2>Ako funguje AdAway?</h2>
-<p>AdAway používa <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts súbor</a> na blokovanie adries, ktoré poskytujú reklamy. Hosts súbor je súbor, ktorý môžete nájsť v <tt>/system/etc/hosts</tt>, ktorý mapuje adresy na IP adresy. Je to typický spôsob ako definovať párovanie adries a IP bez spoliehania sa na Domain Name System (DNS). Všetky nechcené adresy sú presmerované na <tt>127.0.0.1</tt>, čo znamená, že smerujú na vaše zariadenie.</p>
+<p>AdAway používa <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts súbor</a> na blokovanie adries, ktoré poskytujú reklamy. Hosts súbor je súbor, ktorý môžete nájsť v <code>/system/etc/hosts</code>, ktorý mapuje adresy na IP adresy. Je to typický spôsob ako definovať párovanie adries a IP bez spoliehania sa na Domain Name System (DNS). Všetky nechcené adresy sú presmerované na <code>127.0.0.1</code>, čo znamená, že smerujú na vaše zariadenie.</p>
 
 <h2>Prečo je nastavenie pre dennú kontrolu aktualizácií nedostupné?</h2>
 <p>Automatická kontrola aktualizácií je dostupná len ak je AdAway nainštalovaný na internom uložisku v zariadení. Je to kvôli obmedzeniam Android platformy.</p>
@@ -16,12 +17,12 @@
 <p>Java na Androide udržiava svoju vlastnú internú DNS cache. Operačný systém bude pracovať s novým hosts súborom okamžite (overiť si to môžete cez ping v príkazovom riadku), ale zariadenie musíte reštartovať kvôli obnoveniu DNS cache Javy.</p>
 
 <h2>Ako používať webserver v AdAway?</h2>
-<p><b>AdAway funguje aj bez použitia webservera!</b>
-<br/><br/>Môžete povoliť miestny webserver v nastaveniach AdAway pre odpovedanie na žiadosti do miestnej IP adresy<tt>127.0.0.1</tt>. To znamená, že žiadosti od aplikácií na servery s reklamami, ktoré sú presmerované do <tt>127.0.0.1</tt> dostanú odpoveď z AdAway webservera.
+<p><strong>AdAway funguje aj bez použitia webservera!</strong>
+<br/><br/>Môžete povoliť miestny webserver v nastaveniach AdAway pre odpovedanie na žiadosti do miestnej IP adresy<code>127.0.0.1</code>. To znamená, že žiadosti od aplikácií na servery s reklamami, ktoré sú presmerované do <code>127.0.0.1</code> dostanú odpoveď z AdAway webservera.
 <br/>Niektoré aplikácie nefungujú, keď servery s reklamami nie sú dostupné. Pomocou tejto metódy budú znovu dostupné, odpovedajú prázdnou stránkou a žiadnymi reklamnými obrázkami.</p>
 
 <h2>Ako môžem blokovať/povoliť špecifické adresy?</h2>
-<p>Pridajte adresy, ktoré chcete blokovať do <i>Čierna listina</i> (= Čierna) pod <i>Vaše zoznami</i>. Adresy, ktoré chcete vylúčiť z blokovania môžete pridať do <i>Biela listina</i> (= Biela) a adresy, ktoré chcete presmerovať na špecifické IP patria do <i>Presmerovania</i>.</p>
+<p>Pridajte adresy, ktoré chcete blokovať do <cite>Čierna listina</cite> (= Čierna) pod <cite>Vaše zoznami</cite>. Adresy, ktoré chcete vylúčiť z blokovania môžete pridať do <cite>Biela listina</cite> (= Biela) a adresy, ktoré chcete presmerovať na špecifické IP patria do <cite>Presmerovania</cite>.</p>
 
 <h2>Kde môžem nájsť ďalšie hosts zdroje?</h2>
 <p>Pozrite <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Zoznam ďalších hosts zdrojov pre AdAway</a>.</p>

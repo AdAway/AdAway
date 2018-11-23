@@ -21,8 +21,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 40011   // Read 4.xx.yy to match version name
-        versionName "4.0.11"
+        versionCode 40012   // Read 4.xx.yy to match version name
+        versionName '4.0.12'
         versionNameSuffix '-' + getGitSha1()
 
         vectorDrawables.useSupportLibrary = true
@@ -55,8 +55,10 @@ android {
             }
         }
 
+        buildTypes.debug.signingConfig = signingConfigs.release
         buildTypes.release.signingConfig = signingConfigs.release
     } else {
+        buildTypes.debug.signingConfig = null
         buildTypes.release.signingConfig = null
     }
 
@@ -101,7 +103,7 @@ dependencies {
     implementation "android.arch.lifecycle:common-java8:${lifecycle}"
     implementation "android.arch.persistence.room:runtime:${room}"
     annotationProcessor "android.arch.persistence.room:compiler:${room}"
-    implementation 'android.arch.work:work-runtime:1.0.0-alpha10'
+    implementation 'android.arch.work:work-runtime:1.0.0-alpha11'
 
     // Support libraries
     implementation "com.android.support:design:${support}"

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -8,20 +9,20 @@
 <p>S-OFF znamená, že NAND paměť vašeho zařízení je otevřená a lze do ní zapisovat. Výchozí nastavení u HTC zařízení je S-ON, tzn. že nemůžete zapisovat do určitých částí paměti a získat úplný root zařízení. Dále S-ON příznak zajišťuje kontrolu podpisu obrazů firmware.</p>
 
 <h2>Mám S-ON, nebo S-OFF?</h2>
-<p>Zapněte zařízení do tzv. Boot Menu současným držením tlačítek <i>Hlasitost −</i> a <i>Zapnutí/Vypnutí</i>. Nahoře obrazovky poté uvidíte stav S-OFF nebo S-ON. Úplný root přístup obvykle znamená S-OFF.
+<p>Zapněte zařízení do tzv. Boot Menu současným držením tlačítek <cite>Hlasitost −</cite> a <cite>Zapnutí/Vypnutí</cite>. Nahoře obrazovky poté uvidíte stav S-OFF nebo S-ON. Úplný root přístup obvykle znamená S-OFF.
 <br/><br/>Pro více informací navštivte stránku <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Mohly by vás zajímat i jiné metody získání S-OFF než Unrevokable (viz odkaz), a to např. Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Řešení</h2>
 <p>Předpoklad: Musíte na vašem počítači nainstalovat funkční Android SDK s ADB shellem.
 </p>
 <ol>
-<li>Zapněte zařízení do tzv. Boot Menu současným držením tlačítek <i>Hlasitost −</i> a <i>Zapnutí/Vypnutí</i>.</li>
-<li>Použijte <i>Hlasitost −</i> pro zvolení recovery.</li>
+<li>Zapněte zařízení do tzv. Boot Menu současným držením tlačítek <cite>Hlasitost −</cite> a <cite>Zapnutí/Vypnutí</cite>.</li>
+<li>Použijte <cite>Hlasitost −</cite> pro zvolení recovery.</li>
 <li>V clockwork recovery najeďte pomocí tlačítka Hlasitost − do "partitions menu" a potrvrďte trackpadem</li>
-<li>Zvolte <i>mount /system</i>, <i>mount /sdcard</i> a <i>mount /data</i>.</li>
+<li>Zvolte <cite>mount /system</cite>, <cite>mount /sdcard</cite> a <cite>mount /data</cite>.</li>
 <li>Zapoj svůj USB kabel do počítač a otevři si na něm příkazovou řádku.</li>
-<li>Spusťte adb shell a napište příkaz <tt>ln -s /data/hosts /system/etc/hosts</tt> (Toto vytvoří symbolický odkaz, který AdAway umožní upravovat soubor hostitelů uložený v <tt>/data</tt>, zatímco OS bude soubor používat jako by byl uložen v <tt>/system</tt>.)</li>
-<li>Restartujte vaše zařízení a v nastavení AdAway nastavte <i>Cílový soubor hostitelů</i> na <i>/data/hosts</i>.</li>
+<li>Spusťte adb shell a napište příkaz <code>ln -s /data/hosts /system/etc/hosts</code> (Toto vytvoří symbolický odkaz, který AdAway umožní upravovat soubor hostitelů uložený v <code>/data</code>, zatímco OS bude soubor používat jako by byl uložen v <code>/system</code>.)</li>
+<li>Restartujte vaše zařízení a v nastavení AdAway nastavte <cite>Cílový soubor hostitelů</cite> na <cite>/data/hosts</cite>.</li>
 <li>AdAway by měl nyní fungovat.</li>
 </ol>
 </body>

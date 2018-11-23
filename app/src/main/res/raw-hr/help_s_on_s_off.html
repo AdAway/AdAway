@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON pomoć</title></head>
 <body>
@@ -15,9 +16,9 @@
 <p>Preduvjet: instalirani i funkcionalni Android SDK s ADB ljuskom na vašem PC-u. \n</p>
 <ol>
 <li>Pokrenite u Boot Menu vaš uređaj držeći tipku <cite>smanjivanja glasnoće zvuka</cite> i istovremeno držeći tipku isključivanja.</li>
-<li>Koristite tipku <i>smanjivanja glasnoće zvuka</i> za odabir stavke "Recovery".</li>
+<li>Koristite tipku <cite>smanjivanja glasnoće zvuka</cite> za odabir stavke "Recovery".</li>
 <li>U Clockwork recoveriju tipkom smanjivnja glasnoće zvuka idite na stavku "Partitions menu" te je odaberite pomoću trackpada.</li>
-<li>Odaberite <i>mount /system</i>, <i>mount /sdcard</i> i <i>mount /data</i>.</li>
+<li>Odaberite <cite>mount /system</cite>, <cite>mount /sdcard</cite> i <cite>mount /data</cite>.</li>
 <li>Priključite USB kabel i otvorite naredbeni redak na svom PC-u.</li>
 <li>Pokrenite adb ljusku i upišite <code>ln -s /data/hosts /system/etc/hosts</code> (Ovo će stvoriti simboličku poveznicu, koja dopušta AdAwayu uređivanje datoteke poslužitelja pohranjene u <code>/data</code> dopuštajući operativnom sustavu da koristi tu datoteku kao da je pohranjena u <code>/system</code>.)</li>
 <li>Ponovno pokrenite svoj uređaj i postavite <cite>Odredišnu datoteku poslužitelja</cite> u <cite>/data/hosts</cite> u postavkama AdAwaya.</li>

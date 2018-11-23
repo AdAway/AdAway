@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -8,19 +9,19 @@
 <p>S-OFF betyder at NAND-delen af din enhed er ulåst og kan skrives til. Standard-indstillingen for HTC-enheder er S-ON, hvilket betyder at du hverken kan tilgå bestemte områder af filsystemet eller sikre dig en permanent root-adgang. Ydermere, signatur-tjek for dine firmware-images er også påvirket af S-ON.</p>
 
 <h2>Har jeg S-ON eller S-OFF?</h2>
-<p>Boot in i bootloader'en på din enhed ved at holde <i>volume ned</i> nede imens du trykker på tænd-knappen og teksten i toppen vil vise flag-status som enten S-OFF eller S-ON. En fuld root-adgang vil oftest repræsenteres med S-OFF.
+<p>Boot in i bootloader'en på din enhed ved at holde <cite>volume ned</cite> nede imens du trykker på tænd-knappen og teksten i toppen vil vise flag-status som enten S-OFF eller S-ON. En fuld root-adgang vil oftest repræsenteres med S-OFF.
 Mere information kan findes på <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Måske kan du bruge disse S-OFF-metoder; Unrevokable (i link), Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine.</p>
 
 <h2>Mulig omvej</h2>
 <p>Nødvendigt: Du skal have sat en virkende installation af Android SDK med en ADB-shell på din computer.</p>
 <ol>
-<li>Boot ind i bootloader'en på din enhed ved at holde <i>volume ned</i> knappen nede imens du tænder på tænd-knappen.</li>
-<li>Brug <i>volume ned</i> til at vælge recovery.</li>
+<li>Boot ind i bootloader'en på din enhed ved at holde <cite>volume ned</cite> knappen nede imens du tænder på tænd-knappen.</li>
+<li>Brug <cite>volume ned</cite> til at vælge recovery.</li>
 <li>I Clockwork-recovery, brug volume ned til at vælge "partitions menu" og tryk på track-pad'en for at vælge.</li>
-<li>Vælg <i>mount /system</i>,<i>mount /sdcard</i> og <i>mount /data</i>.</li>
+<li>Vælg <cite>mount /system</cite>,<cite>mount /sdcard</cite> og <cite>mount /data</cite>.</li>
 <li>Sæt et USB-kabel i og åben en kommandoprompt på din computer.</li>
-<li>Find din ADB-shell og skriv <tt>ln -s /data/hosts /system/etc/hosts</tt> (Dette opretter et symbolsk link, hvilket tillader AdAway at konstruere hosts-filen i en anden placering end hosts-filens almindelige placering "/etc/hosts".)</li>
-<li>Genstart din enhed og sæt <i>Target hosts file</i> til <i>/data/hosts</i> i AdAways indstillinger.</li>
+<li>Find din ADB-shell og skriv <code>ln -s /data/hosts /system/etc/hosts</code> (Dette opretter et symbolsk link, hvilket tillader AdAway at konstruere hosts-filen i en anden placering end hosts-filens almindelige placering "/etc/hosts".)</li>
+<li>Genstart din enhed og sæt <cite>Target hosts file</cite> til <cite>/data/hosts</cite> i AdAways indstillinger.</li>
 <li>AdAway skulle virke nu.</li>
 </ol>
 </body>

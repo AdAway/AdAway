@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>FAQ</title></head>
 <body>
@@ -7,7 +8,7 @@
 
 
 <h2>Bagaimana cara kerja AdAway?</h2>
-<p>AdAway menggunakan <a href="http://en.wikipedia.org/wiki/Hosts_file"> berkas hosts </a> untuk memblokir nama host, yang melayani iklan. Berkas host adalah berkas yang ditemukan di <tt>/system/etc/hosts</tt> yang memetakan nama host menjadi alamat IP. Ini adalah cara tradisional untuk menentukan nama host ke IP address pasangan tanpa bergantung pada Domain Name System (DNS). Semua nama host yang tidak diinginkan diarahkan ke <tt>127.0.0.1</tt> yang berarti mereka akan mengarah ke perangkat Anda sendiri.</p>
+<p>AdAway menggunakan <a href="http://en.wikipedia.org/wiki/Hosts_file"> berkas hosts </a> untuk memblokir nama host, yang melayani iklan. Berkas host adalah berkas yang ditemukan di <code>/system/etc/hosts</code> yang memetakan nama host menjadi alamat IP. Ini adalah cara tradisional untuk menentukan nama host ke IP address pasangan tanpa bergantung pada Domain Name System (DNS). Semua nama host yang tidak diinginkan diarahkan ke <code>127.0.0.1</code> yang berarti mereka akan mengarah ke perangkat Anda sendiri.</p>
 
 <h2>Mengapa preferensi pengecekan pembaruan harian berwarna abu-abu?</h2>
 <p>Pemeriksaan otomatis pembaruan yang baru hanya tersedia bila AdAway diinstal pada memori telepon internal. Hal ini disebabkan oleh pembatasan pada platform Android.</p>
@@ -16,12 +17,12 @@
 <p>Java pada Android mengelola DNS cache internalnya sendiri. Sistem operasi akan merefleksikan berkas host yang baru segera (memverifikasi dengan ping pada command line), tetapi Anda harus memulai kembali Android untuk membangun kembali cache DNS dari Java.</p>
 
 <h2>Bagaimana menggunakan webserver di AdAway?</h2>
-<p><b>AdAway juga akan bekerja tanpa memakai webserver!</b>
-<br/>Anda dapat mengaktifkan webserver lokal dalam preferensi AdAway untuk menjawab permintaan ke alamat IP lokal <tt>127.0.0.1</tt>. Ini berarti permintaan dari aplikasi ke server iklan yang diarahkan ke <tt>127.0.0.1</tt> dijawab oleh webserver AdAway itu.
+<p><strong>AdAway juga akan bekerja tanpa memakai webserver!</strong>
+<br/>Anda dapat mengaktifkan webserver lokal dalam preferensi AdAway untuk menjawab permintaan ke alamat IP lokal <code>127.0.0.1</code>. Ini berarti permintaan dari aplikasi ke server iklan yang diarahkan ke <code>127.0.0.1</code> dijawab oleh webserver AdAway itu.
 <br/>Beberapa aplikasi menolak bekerja, ketika server iklan tidak terjangkau. Dengan metode ini mereka akan dapat dijangkau lagi, menjawab dengan halaman kosong dan tidak ada gambar iklan.</p>
 
 <h2>Bagaimana saya memblokir/membuka blokir hostname tertentu?</h2>
-<p>Tambahkan nama host yang akan diblokir ke Daftar Hitam (= Hitam) di bawah <i>Daftar Anda</i>. Sebagai tambahan, nama host yang ingin Anda kecualikan dari pemblokiran dapat ditambahkan ke <i>Daftar Putih</i> (= Putih) dan nama host yang ingin Anda arahkan ulang ke alamat IP tertentu milik <i> Daftar Pengalihan &lt;/ i&gt; (= Pengalihan).</p>
+<p>Tambahkan nama host yang akan diblokir ke Daftar Hitam (= Hitam) di bawah <cite>Daftar Anda</cite>. Sebagai tambahan, nama host yang ingin Anda kecualikan dari pemblokiran dapat ditambahkan ke <cite>Daftar Putih</cite> (= Putih) dan nama host yang ingin Anda arahkan ulang ke alamat IP tertentu milik <cite> Daftar Pengalihan </cite> (= Pengalihan).</p>
 
 <h2>Di mana saya dapat menemukan lebih banyak sumber host?</h2>
 <p>Lihat <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Daftar sumber host tambahan untuk AdAway List of additional hosts sources for AdAway</a>.</p>

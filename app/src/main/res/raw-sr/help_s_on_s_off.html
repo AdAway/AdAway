@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -8,20 +9,20 @@
 <p>S-OFF znači da je NAND deo uređaja je otključan i da na njega može biti pisano. Fabrički je podešen S-On na HTC uređajima, što znači da ne možete da pristupite pojedinim oblastima sistema niti možete da garantujete trajni "Root". Štaviše, provera potpisa za sistemske nadogradnje je takođe osiguran S-ON-om.</p>
 
 <h2>Da li ja imam S-ON ili S-OFF?</h2>
-<p>Pokrenite Boot Menu na vašem uređaju držanjem dugmeta <i>volume down</i> dok pritiskate dugme Power i tekst na vrhu će prikazati status S-OFF ili S-ON. Potpun "Root" obučno znači S-OFF.
+<p>Pokrenite Boot Menu na vašem uređaju držanjem dugmeta <cite>volume down</cite> dok pritiskate dugme Power i tekst na vrhu će prikazati status S-OFF ili S-ON. Potpun "Root" obučno znači S-OFF.
 <br/><br/>Više informacija možete pronaći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Mogu vas zanimati dodatne S-OFF metode od Unrevokable (na linku), imenom: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Rešenje</h2>
 <p>Preduslov: Morate da instalirate Android SDK sa ADB na vaš PC
 </p>
 <ol>
-<li>Pokrenuti "Boot Menu" na vašem uređaju držanjem <i>volume down</i> dugme dok pritiskate "power" dugme.</li>
-<li>Koristite <i>volume down</i> da izaberete recovery.</li>
-<li>U "clockwork recovery" <i>volume down</i> i stisnite "track pad" da izaberete</li>
-<li>Izaberire <i>mount /system</i>, <i>mount /sdcard</i> I <i>mount /data</i>.</li>
+<li>Pokrenuti "Boot Menu" na vašem uređaju držanjem <cite>volume down</cite> dugme dok pritiskate "power" dugme.</li>
+<li>Koristite <cite>volume down</cite> da izaberete recovery.</li>
+<li>U "clockwork recovery" <cite>volume down</cite> i stisnite "track pad" da izaberete</li>
+<li>Izaberire <cite>mount /system</cite>, <cite>mount /sdcard</cite> I <cite>mount /data</cite>.</li>
 <li>Uključite USB kabl i otvoritr komandnu liniju na vašem PC-u.</li>
-<li>Pokrenite adb shell i upišite <tt>ln -s /data/hosts /system/etc/hosts</tt> (Ovo će stvoriti simbolički link, koji dopušta AdAway-u da uređuje hosts datoteku sačuvanu u <tt>/data</tt> dopuštajući sistemu da koristi tu datoteku kao da je sačuvana u <tt>/system</tt>.)</li>
-<li>Ponovo pokrenite vaš uređaj i postavite <i>Target hosts file</i> u <i>/data/hosts</i> u postavkama AdAway-a.</li>
+<li>Pokrenite adb shell i upišite <code>ln -s /data/hosts /system/etc/hosts</code> (Ovo će stvoriti simbolički link, koji dopušta AdAway-u da uređuje hosts datoteku sačuvanu u <code>/data</code> dopuštajući sistemu da koristi tu datoteku kao da je sačuvana u <code>/system</code>.)</li>
+<li>Ponovo pokrenite vaš uređaj i postavite <cite>Target hosts file</cite> u <cite>/data/hosts</cite> u postavkama AdAway-a.</li>
 <li>AdAway bi trebalo da radi sada.</li>
 </ol>
 </body>

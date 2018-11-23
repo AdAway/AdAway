@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -8,18 +9,18 @@
 <p>S-OFF는 NAND 영역이 잠금 해제되었고 쓰기가 가능함을 의미합니다. 기본 설정은 S-ON이며, 이는 시스템의 특정 영역에 대한 접근이 불가하고 영구적인 루팅을 보장할 수 없다는 의미입니다. 게다가 펌웨어 이미지의 서명 확인 또한 S-ON 플래그에 의해 검증됩니다.</p>
 
 <h2>S-ON 또는 S-OFF 중 어떻게 설정되어 있습니까?</h2>
-<p>Boot into the Boot Menu on your device by holding down 전원을 누른 상태에서 <i>볼륨 다운</i> 버튼을 눌러 부트 메뉴로 부팅하면 상단 텍스트에 플래그 상태를 S-OFF 또는 S-ON로 표시합니다. 전체 루팅은 일반적으로 S-OFF를 의미합니다.<br/><br/><a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>에서 더 많은 정보를 확인할 수 있습니다. Unrevokable (링크) 이외에 흥미로운 추가적인 S-OFF 방법은 다음과 같이 불립니다: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boot into the Boot Menu on your device by holding down 전원을 누른 상태에서 <cite>볼륨 다운</cite> 버튼을 눌러 부트 메뉴로 부팅하면 상단 텍스트에 플래그 상태를 S-OFF 또는 S-ON로 표시합니다. 전체 루팅은 일반적으로 S-OFF를 의미합니다.<br/><br/><a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>에서 더 많은 정보를 확인할 수 있습니다. Unrevokable (링크) 이외에 흥미로운 추가적인 S-OFF 방법은 다음과 같이 불립니다: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>해결 방법</h2>
 <p>전제 조건: PC에 작동하는 안드로이드 SDK 밍 ADB 쉘을 설치하셔야 합니다.</p>
 <ol>
-<li>전원을 누른 상태에서 <i>볼륨 다운</i> 버튼을 눌러 기기의 부팅 메뉴로 부팅하십시오.</li>
-<li>리커버리를 선택하려면 <i>볼륨 다운</i>을 사용하십시오.</li>
+<li>전원을 누른 상태에서 <cite>볼륨 다운</cite> 버튼을 눌러 기기의 부팅 메뉴로 부팅하십시오.</li>
+<li>리커버리를 선택하려면 <cite>볼륨 다운</cite>을 사용하십시오.</li>
 <li>ClockWork 리커버리에서 볼륨 다운을 눌러 "파티션 메뉴"로 이동한 뒤 트랙 패드를 터치하여 선택하십시오.</li>
-<li><i>mount /system</i>, <i>mount /sdcard</i> 및 <i>mount /data</i>를 선택하십시오.</li>
+<li><cite>mount /system</cite>, <cite>mount /sdcard</cite> 및 <cite>mount /data</cite>를 선택하십시오.</li>
 <li>USB 케이블을 꽂은 뒤 PC에서 명령 프롬프트를 실행하십시오.</li>
-<li>ADB 쉘에 진입한 후에 <tt>ln -s /data/hosts /system/etc/hosts</tt>를 입력하십시오.(이 명령어는 OS가 마치 호스트 파일이 <tt>/system</tt>에 저장된 것처럼 사용을 허용하는 동안 AdAway가 <tt>/data</tt>에 저장된 호스트 파일을 편집할 수 있도록 허용하는 상징적인 링크를 생성합니다.)</li>
-<li>기기를 재부팅한 뒤 AdAway의 환경 설정에서 <i>대상 호스트 파일</i>을 <i>/data/hosts</i>로 설정하십시오.</li>
+<li>ADB 쉘에 진입한 후에 <code>ln -s /data/hosts /system/etc/hosts</code>를 입력하십시오.(이 명령어는 OS가 마치 호스트 파일이 <code>/system</code>에 저장된 것처럼 사용을 허용하는 동안 AdAway가 <code>/data</code>에 저장된 호스트 파일을 편집할 수 있도록 허용하는 상징적인 링크를 생성합니다.)</li>
+<li>기기를 재부팅한 뒤 AdAway의 환경 설정에서 <cite>대상 호스트 파일</cite>을 <cite>/data/hosts</cite>로 설정하십시오.</li>
 <li>이제 AdAway가 작동할 것입니다.</li>
 </ol>
 </body>

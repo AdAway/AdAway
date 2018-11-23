@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -8,20 +9,20 @@
 <p>S-OFF tarkoittaa, että laitteen NAND-osio on lukitsematon ja siihen voidaan kirjoittaa. HTC-laitteissa oletuksena on S-ON, mikä tarkoittaa, että myöskään sinä et voi käyttää tiettyjä järjestelmän alueita, eikä ole myöskään mahdollista varmistaa pysyvää pääkäyttäjäoikeutta. Tämän lisäksi S-ON -lipulla varmistetaan allekirjoituksen tarkistaminen laiteohjelmiston otoksista .</p>
 
 <h2>Onko minulla S-ON tai S-OFF?</h2>
-<p>Käynnistä laite käynnistysvalikkoon painamalla <i>äänenvoimakkuuden pienennys</i> -nappia samalla painaen virtapainiketta. Ylös ilmestyvä teksti näyttää lipun tilaksi joko S-OFF tai S-ON. Täysin onnistunut roottaus tarkoittaa yllensä S-OFF.
+<p>Käynnistä laite käynnistysvalikkoon painamalla <cite>äänenvoimakkuuden pienennys</cite> -nappia samalla painaen virtapainiketta. Ylös ilmestyvä teksti näyttää lipun tilaksi joko S-OFF tai S-ON. Täysin onnistunut roottaus tarkoittaa yllensä S-OFF.
 <br/><br/>Lisää infoa löytyy osoitteesta <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Lisää S-OFF metodeja "Unrevokable" (linkissä) jälkeen, jotka saattavat kiinnostaa sinua: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Kiertotapa</h2>
 <p>Edellytys: Tietokoneellasi täytyy olla asennettuna toimiva Android SDK ADB-komentorivi.
 </p>
 <ol>
-<li>Käynnistä laitteesi käynnistysvalikkoon painamalla <i>äänenvoimakkuuden pienennys</i> -nappia samalla painaen virtapainiketta.</li>
-<li>Käytä <i>äänenvoimakkuuden pienennys</i> -nappia valitaksesi palautuksen.</li>
+<li>Käynnistä laitteesi käynnistysvalikkoon painamalla <cite>äänenvoimakkuuden pienennys</cite> -nappia samalla painaen virtapainiketta.</li>
+<li>Käytä <cite>äänenvoimakkuuden pienennys</cite> -nappia valitaksesi palautuksen.</li>
 <li>Clockwork -recoveryssa valitse "partitions menu".</li>
-<li>Valitse <i>mount /system</i>, <i>mount /sdcard</i> ja <i>mount /data</i></li>
+<li>Valitse <cite>mount /system</cite>, <cite>mount /sdcard</cite> ja <cite>mount /data</cite></li>
 <li>Kytke usb-johto ja avaa komentorivi tietokoneeltasi.</li>
-<li>Avaa ADB komentorivi ja kirjoita <tt>ln -s /data/hosts /system/etc/hosts</tt> (Tämä luo symbolisen linkin, joka mahdollistaa AdAwayn muokata hosts-tiedostoa, joka on tallennettu osioon <tt>/data</tt>, samalla antaen käyttöjärjestelmän käsitellä tiedostoa kuin se olisi tallennettu osioon <tt>/system</tt>.)</li>
-<li>Käynnistä laite uudelleen ja valitse <i>Hosts-tiedoston kohde</i> -asetuksista <i>/data/hosts</i>. </li>
+<li>Avaa ADB komentorivi ja kirjoita <code>ln -s /data/hosts /system/etc/hosts</code> (Tämä luo symbolisen linkin, joka mahdollistaa AdAwayn muokata hosts-tiedostoa, joka on tallennettu osioon <code>/data</code>, samalla antaen käyttöjärjestelmän käsitellä tiedostoa kuin se olisi tallennettu osioon <code>/system</code>.)</li>
+<li>Käynnistä laite uudelleen ja valitse <cite>Hosts-tiedoston kohde</cite> -asetuksista <cite>/data/hosts</cite>. </li>
 <li>AdAway:n pitäisi toimia nyt.</li>
 </ol>
 </body>

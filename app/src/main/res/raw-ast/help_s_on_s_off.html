@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -8,20 +9,20 @@
 <p>S-OFF significa que'l cachu de NAND del preséu ta desbloquiáu y pue escribise nelli. L'axuste predetermináu pa los preseos HTC ye S-ON que quier dicir que nin pues acceder a ciertes arees del sistema, nin pues garantizar un rootéu permanente. Amás, tamién s'asegura la comprobación de comprobación de la robla pa les imáxenes del firmware pola bandera S-ON.</p>
 
 <h2>¿Teo S-ON o S-OFF?</h2>
-<p>Arranca nel menú d'arranque del to preséu teniendo primíu'l botón <i>volume -</i> entrín primes la tecla de prendíu, el testu d'enriba amosará l'estáu del indicador como S-OFF o S-ON. Un rootéu completu xeneralmente significa S-OFF.
+<p>Arranca nel menú d'arranque del to preséu teniendo primíu'l botón <cite>volume -</cite> entrín primes la tecla de prendíu, el testu d'enriba amosará l'estáu del indicador como S-OFF o S-ON. Un rootéu completu xeneralmente significa S-OFF.
 <br/><br/>Pue alcontrase más información en<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Quiciabes t'interesen métodos S-OFF adicionales dende Unrevokable (nel enllaz) fasta Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Igua alternativa</h2>
 <p>Pre-requirimientu: Has instalar un SDK d'Android que furrule col shell d'ADB nel to PC.
 </p>
 <ol>
-<li>Arranca nel menú d'arranque del to preséu primiendo'l botón <i>baxar volume</i> entrín lo faes col de prendíu.</li>
-<li>Usa <i>baxar volume</i> pa esbillar el recovery.</li>
+<li>Arranca nel menú d'arranque del to preséu primiendo'l botón <cite>baxar volume</cite> entrín lo faes col de prendíu.</li>
+<li>Usa <cite>baxar volume</cite> pa esbillar el recovery.</li>
 <li>Nel recovery de Clockwork aperta'l botón de baxar volume pa dir fasta «partitions menu» y calca'l trackpad pa esbillalu</li>
-<li>Esbilla <i>mount /system</i>, <i>mount /sdcard</i> y <i>mount /data</i>.</li>
+<li>Esbilla <cite>mount /system</cite>, <cite>mount /sdcard</cite> y <cite>mount /data</cite>.</li>
 <li>Enchufa'l to cable USB y abri una terminal nel to PC.</li>
-<li>Introduz <tt>adb shell</tt> y teclexa <tt>ln -s /data/hosts /system/etc/hosts</tt> (Esto crea un enllaz simbólicu que permite a AdAway editar el ficheru «hosts» atroxáu en <tt>/data</tt> entrín permite al SO usalu como si s'atroxare en <tt>/system/</tt>).</li>
-<li>Reanicia'l to preséu y afita'l <i>ficheru «hosts» oxetivu<i> a <i>/data/hosts</i> nes preferencies d'AdAway.</li>
+<li>Introduz <code>adb shell</code> y teclexa <code>ln -s /data/hosts /system/etc/hosts</code> (Esto crea un enllaz simbólicu que permite a AdAway editar el ficheru «hosts» atroxáu en <code>/data</code> entrín permite al SO usalu como si s'atroxare en <code>/system/</code>).</li>
+<li>Reanicia'l to preséu y afita'l <cite>ficheru «hosts» oxetivu</cite> a <cite>/data/hosts</cite> nes preferencies d'AdAway.</li>
 <li>Agora AdAway debería furrular.</li>
 </ol>
 </body>
