@@ -20,11 +20,11 @@
 
 package org.adaway.helper;
 
-import org.adaway.R;
-import org.adaway.util.Constants;
-
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import org.adaway.R;
+import org.adaway.util.Constants;
 
 public class PreferenceHelper {
     public static boolean getDismissWelcome(Context context) {
@@ -224,6 +224,17 @@ public class PreferenceHelper {
         return prefs.getBoolean(
                 context.getString(R.string.pref_enable_debug_key),
                 context.getResources().getBoolean(R.bool.pref_enable_debug_def)
+        );
+    }
+
+    public static boolean getTelemetryEnabled(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getBoolean(
+                context.getString(R.string.pref_enable_telemetry_key),
+                context.getResources().getBoolean(R.bool.pref_enable_telemetry_def)
         );
     }
 }

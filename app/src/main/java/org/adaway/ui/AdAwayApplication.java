@@ -26,6 +26,7 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.adaway.util.SentryLog;
 import org.sufficientlysecure.rootcommands.RootCommands;
 
 public class AdAwayApplication extends Application {
@@ -39,6 +40,9 @@ public class AdAwayApplication extends Application {
             Class.forName("android.os.AsyncTask");
         } catch (Exception e) { // silently catch all
         }
+
+        // Initialize sentry
+        SentryLog.init(this);
 
         // Set Debug level based on preference
         if (PreferenceHelper.getDebugEnabled(this)) {

@@ -118,5 +118,7 @@ dependencies {
     implementation 'com.annimon:stream:1.2.1'
     implementation 'net.sf.trove4j:trove4j:3.0.3'
     implementation 'org.sufficientlysecure:html-textview:3.4'
+    implementation 'io.sentry:sentry-android:1.7.14'
+    implementation 'org.slf4j:slf4j-nop:1.7.25'
     testImplementation 'junit:junit:4.12'
 }

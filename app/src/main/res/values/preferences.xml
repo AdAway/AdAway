@@ -40,4 +40,6 @@
     <bool name="pref_enable_debug_def">false</bool>
     <string name="pref_enable_systemless_key" translatable="false">enableSystemless</string>
     <bool name="pref_enable_systemless_def">false</bool>
+    <string name="pref_enable_telemetry_key" translatable="false">enableTelemetry</string>
+    <bool name="pref_enable_telemetry_def">false</bool>
 </resources>

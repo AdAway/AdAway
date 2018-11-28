@@ -14,6 +14,7 @@ import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.service.hosts.UpdateService;
 import org.adaway.util.Constants;
+import org.adaway.util.SentryLog;
 import org.adaway.util.SystemlessUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.WebServerUtils;
@@ -252,6 +253,12 @@ public class PrefsFragment extends PreferenceFragmentCompat {
             } else {
                 mCustomTarget.setEnabled(false);
             }
+            return true;
+        });
+
+        Preference enableTelemetryPref = findPreference(getString(R.string.pref_enable_telemetry_key));
+        enableTelemetryPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            SentryLog.setEnabled(this.getContext(), (boolean) newValue);
             return true;
         });
 

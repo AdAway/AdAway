@@ -103,5 +103,10 @@
             android:key="@string/pref_enable_debug_key"
             android:summary="@string/pref_enable_debug_summary"
             android:title="@string/pref_enable_debug" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_enable_telemetry_def"
+            android:key="@string/pref_enable_telemetry_key"
+            android:summary="@string/pref_enable_telemetry_summary"
+            android:title="@string/pref_enable_telemetry" />
     </PreferenceCategory>
 </PreferenceScreen>
