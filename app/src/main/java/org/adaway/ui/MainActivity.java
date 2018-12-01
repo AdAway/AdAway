@@ -53,6 +53,7 @@ import org.adaway.ui.prefs.PrefsFragment;
 import org.adaway.ui.tcpdump.TcpdumpFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.adaway.util.SentryLog;
 
 /**
  * This class is the application main activity.
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
         NotificationHelper.clearUpdateHostsNotification(this);
+        Log.i(Constants.TAG, "Starting main activity");
         setContentView(R.layout.base_activity_drawer);
         /*
          * Configure navigation drawer.
@@ -339,6 +341,8 @@ public class MainActivity extends AppCompatActivity {
         }
         // Update title with item name
         this.setTitle(itemName);
+        // Record breadcrumb
+        SentryLog.recordBreadcrumb("Using \""+itemName+"\" feature");
     }
 
     /**

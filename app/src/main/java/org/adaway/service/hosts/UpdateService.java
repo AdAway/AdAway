@@ -88,6 +88,7 @@ public final class UpdateService {
         @NonNull
         @Override
         public Result doWork() {
+            Log.i(Constants.TAG, "Starting update worker");
             // Create model
             Context context = this.getApplicationContext();
             HostsInstallModel model = new HostsInstallModel(context);

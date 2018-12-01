@@ -6,6 +6,8 @@ import org.adaway.helper.PreferenceHelper;
 
 import io.sentry.Sentry;
 import io.sentry.android.AndroidSentryClientFactory;
+import io.sentry.event.Breadcrumb;
+import io.sentry.event.BreadcrumbBuilder;
 
 
 /**
@@ -47,5 +49,15 @@ public final class SentryLog {
         // Initialize sentry client
         Sentry.init(dsn, new AndroidSentryClientFactory(context));
         Sentry.capture("Starting sentry");
+    }
+
+    /**
+     * Record a breadcrumb.
+     *
+     * @param message The breadcrumb message.
+     */
+    public static void recordBreadcrumb(String message) {
+        Breadcrumb breadcrumb = new BreadcrumbBuilder().setMessage(message).build();
+        Sentry.getContext().recordBreadcrumb(breadcrumb);
     }
 }
