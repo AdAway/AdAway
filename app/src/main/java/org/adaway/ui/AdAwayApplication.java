@@ -24,6 +24,7 @@ import android.app.Application;
 
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.SentryLog;
@@ -35,6 +36,11 @@ import org.sufficientlysecure.rootcommands.RootCommands;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class AdAwayApplication extends Application {
+    /**
+     * The common hosts install model for the whole application.
+     */
+    private HostsInstallModel mHostsInstallModel;
+
     @Override
     public void onCreate() {
         // Delegate application creation
@@ -52,5 +58,16 @@ public class AdAwayApplication extends Application {
         }
         // Create notification channel
         NotificationHelper.createNotificationChannel(this);
+        // Create hosts install model
+        this.mHostsInstallModel = new HostsInstallModel(this);
+    }
+
+    /**
+     * Get the hosts install model.
+     *
+     * @return The common hosts install model for the whole application.
+     */
+    public HostsInstallModel getHostsInstallModel() {
+        return this.mHostsInstallModel;
     }
 }

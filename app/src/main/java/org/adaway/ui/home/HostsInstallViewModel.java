@@ -8,6 +8,7 @@ import android.support.annotation.StringRes;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.ui.AdAwayApplication;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
@@ -16,6 +17,8 @@ import org.adaway.model.hostsinstall.HostsInstallError;
 import org.adaway.model.hostsinstall.HostsInstallException;
 import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.model.hostsinstall.HostsInstallStatus;
+
+import java.util.Observer;
 
 import static org.adaway.model.hostsinstall.HostsInstallStatus.INSTALLED;
 import static org.adaway.model.hostsinstall.HostsInstallStatus.ORIGINAL;
@@ -33,6 +36,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
     private final MutableLiveData<String> state;
     private final MutableLiveData<String> details;
     private final MutableLiveData<HostsInstallError> error;
+    private final Observer modelObserver;
     private boolean loaded;
 
     /**
@@ -43,19 +47,27 @@ public class HostsInstallViewModel extends AndroidViewModel {
     public HostsInstallViewModel(@NonNull Application application) {
         super(application);
         // Create model
-        this.model = new HostsInstallModel(application);
+        this.model = ((AdAwayApplication) application).getHostsInstallModel();
         // Initialize live data
         this.status = new MutableLiveData<>();
         this.state = new MutableLiveData<>();
         this.details = new MutableLiveData<>();
         this.error = new MutableLiveData<>();
         // Bind model to live data
-        this.model.addObserver((o, a) -> {
+        this.modelObserver = (o, a) -> {
             this.state.postValue(this.model.getState());
             this.details.postValue(this.model.getDetailedState());
-        });
+        };
+        this.model.addObserver(this.modelObserver);
         // Initialize model as not loaded
         this.loaded = false;
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        // Unbind model to live data
+        this.model.deleteObserver(this.modelObserver);
     }
 
     MutableLiveData<HostsInstallStatus> getStatus() {
