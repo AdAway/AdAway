@@ -14,6 +14,8 @@ import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.ui.AdAwayApplication;
 import org.adaway.util.AppExecutors;
 
+import java.util.Collection;
+
 import static android.support.design.widget.Snackbar.LENGTH_INDEFINITE;
 import static android.support.design.widget.Snackbar.LENGTH_LONG;
 
@@ -62,6 +64,11 @@ public class HostsInstallSnackbar {
 
             @Override
             public void onChanged(@Nullable T t) {
+                // Check new data
+                if (t == null || (t instanceof Collection && ((Collection) t).isEmpty())) {
+                    return;
+                }
+                // First update
                 if (this.firstUpdate) {
                     this.firstUpdate = false;
                     return;
@@ -83,9 +90,9 @@ public class HostsInstallSnackbar {
             return;
         }
         // Show notify snackbar
-        this.waitSnackbar = Snackbar.make(this.mView, R.string.notification_configuration_changed, LENGTH_INDEFINITE)
+        this.notifySnackbar = Snackbar.make(this.mView, R.string.notification_configuration_changed, LENGTH_INDEFINITE)
                 .setAction(R.string.notification_configuration_changed_action, v -> install());
-        this.waitSnackbar.show();
+        this.notifySnackbar.show();
         // Mark update as notified
         this.update = false;
     }
@@ -99,7 +106,7 @@ public class HostsInstallSnackbar {
                 model.downloadHostsSources();
                 model.applyHostsFile();
             } catch (HostsInstallException exception) {
-                Snackbar.make(this.mView, "install failed", LENGTH_LONG).show();
+                Snackbar.make(this.mView, "install failed", LENGTH_LONG).show();    // TODO Improve
             } finally {
                 this.endLoading();
             }
