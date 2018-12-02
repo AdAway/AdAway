@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -22,6 +22,7 @@ package org.adaway.ui.lists;
 
 import android.Manifest;
 import android.app.Activity;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -47,6 +49,7 @@ import android.view.ViewGroup;
 import org.adaway.R;
 import org.adaway.helper.ImportExportHelper;
 import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
+import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -64,6 +67,10 @@ public class ListsFragment extends Fragment {
      * The fragment activity (<code>null</code> if view not created).
      */
     private FragmentActivity mActivity;
+    /**
+     * The snackbar to notify hosts update.
+     */
+    private HostsInstallSnackbar mInstallSnackbar;
 
     /**
      * Ensure a permission is granted.<br>
@@ -101,6 +108,18 @@ public class ListsFragment extends Fragment {
         this.setHasOptionsMenu(true);
         // Create fragment view
         View view = inflater.inflate(R.layout.lists_fragment, container, false);
+        /*
+         * Configure snackbar.
+         */
+        // Get lists layout to attached snackbar to
+        CoordinatorLayout listsLayout = view.findViewById(R.id.lists);
+        // Create install snackbar
+        this.mInstallSnackbar = new HostsInstallSnackbar(listsLayout);
+        // Bind snakbar to view models
+        ListsViewModel listsViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
+        listsViewModel.getBlackListItems().observe(this, this.mInstallSnackbar.createObserver());
+        listsViewModel.getWhiteListItems().observe(this, this.mInstallSnackbar.createObserver());
+        listsViewModel.getRedirectionListItems().observe(this, this.mInstallSnackbar.createObserver());
         /*
          * Configure tabs.
          */
