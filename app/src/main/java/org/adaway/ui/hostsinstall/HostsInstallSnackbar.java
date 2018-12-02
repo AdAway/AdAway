@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import org.adaway.R;
@@ -105,10 +106,9 @@ public class HostsInstallSnackbar {
             try {
                 model.downloadHostsSources();
                 model.applyHostsFile();
+                this.endLoading(true);
             } catch (HostsInstallException exception) {
-                Snackbar.make(this.mView, "install failed", LENGTH_LONG).show();    // TODO Improve
-            } finally {
-                this.endLoading();
+                this.endLoading(false);
             }
         });
     }
@@ -121,21 +121,32 @@ public class HostsInstallSnackbar {
         }
         // Create and show wait snackbar
         this.waitSnackbar = Snackbar.make(this.mView, R.string.notification_configuration_installing, LENGTH_INDEFINITE);
-        ViewGroup contentLay = (ViewGroup) this.waitSnackbar.getView().findViewById(android.support.design.R.id.snackbar_text).getParent();
-        ProgressBar item = new ProgressBar(this.mView.getContext());
-        contentLay.addView(item);
+        appendViewToSnackbar(this.waitSnackbar, new ProgressBar(this.mView.getContext()));
         this.waitSnackbar.show();
     }
 
-    private void endLoading() {
+    private void endLoading(boolean successfulInstall) {
         // Clear wait snackbar
         if (this.waitSnackbar != null) {
             this.waitSnackbar.dismiss();
             this.waitSnackbar = null;
         }
+        // Check install failure
+        if (!successfulInstall) {
+            Snackbar failureSnackbar = Snackbar.make(this.mView, R.string.notification_configuration_failed, LENGTH_LONG);
+            ImageView view = new ImageView(this.mView.getContext());
+            view.setImageResource(R.drawable.status_fail);
+            appendViewToSnackbar(failureSnackbar, view);
+            failureSnackbar.show();
+        }
         // Check pending update notification
-        if (this.update) {
+        else if (this.update) {
             this.notifyUpdateAvailable();
         }
+    }
+
+    private static void appendViewToSnackbar(Snackbar snackbar, View view) {
+        ViewGroup viewGroup = (ViewGroup) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text).getParent();
+        viewGroup.addView(view);
     }
 }

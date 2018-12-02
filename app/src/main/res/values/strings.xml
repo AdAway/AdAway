@@ -81,6 +81,7 @@
     <string name="notification_configuration_changed">Your configuration changed. You need to install hosts file to apply it.</string>
     <string name="notification_configuration_changed_action">Apply</string>
     <string name="notification_configuration_installing">Installing hosts file…</string>
+    <string name="notification_configuration_failed">Failed to install hosts file.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
