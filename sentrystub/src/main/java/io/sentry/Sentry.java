@@ -4,6 +4,8 @@ import io.sentry.android.AndroidSentryClientFactory;
 import io.sentry.context.Context;
 
 public class Sentry {
+    public static boolean STUB = true;
+
     private static Context context = new Context();
 
     public static void init(String dsn, AndroidSentryClientFactory clientFactory) {

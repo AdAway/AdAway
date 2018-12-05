@@ -225,6 +225,8 @@ public class MainActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         this.mDrawerToggle.syncState();
+        // Check user telemetry consent
+        SentryLog.requestUserConsent(this);
     }
 
     @Override

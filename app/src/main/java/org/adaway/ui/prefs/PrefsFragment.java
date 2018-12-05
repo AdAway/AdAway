@@ -257,6 +257,7 @@ public class PrefsFragment extends PreferenceFragmentCompat {
         });
 
         Preference enableTelemetryPref = findPreference(getString(R.string.pref_enable_telemetry_key));
+        enableTelemetryPref.setEnabled(!SentryLog.isStub());
         enableTelemetryPref.setOnPreferenceChangeListener((preference, newValue) -> {
             SentryLog.setEnabled(this.getContext(), (boolean) newValue);
             return true;

@@ -42,4 +42,6 @@
     <bool name="pref_enable_systemless_def">false</bool>
     <string name="pref_enable_telemetry_key" translatable="false">enableTelemetry</string>
     <bool name="pref_enable_telemetry_def">false</bool>
+    <string name="pref_display_telemetry_consent_key" translatable="false">displayTelemetryConsent</string>
+    <bool name="pref_display_telemetry_consent_def">true</bool>
 </resources>
