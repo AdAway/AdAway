@@ -265,7 +265,7 @@
 
     <!--Telemetry-->
     <string name="dialog_telemetry_title">Telemetry</string>
-    <string name="dialog_telemetry_message">Hello dear user,\n\nYou could now participate to the development of AdAway by sharing your crash reports and basic usage information. All data are anonymous and telemetry will only be enabled if you agree to.\n\nYou could find more details on <a href="https://github.com/AdAway/AdAway/wiki/telemetry.md">GitHub</a>.</string>
+    <string name="dialog_telemetry_message">Hello dear user,\n\nYou could now participate to the development of AdAway by sharing your crash reports and basic usage information. All data are anonymous and telemetry will only be enabled if you agree to.\n\nYou can find more details on <a href="https://github.com/AdAway/AdAway/wiki/telemetry.md">GitHub</a>.</string>
     <string name="dialog_telemetry_enable">Sure, I\'m glad to help!</string>
     <string name="dialog_telemetry_disable">No thanks</string>
 
