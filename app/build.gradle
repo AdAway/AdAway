@@ -89,7 +89,7 @@ ext {
     lifecycle = '1.1.1'
     room = '1.1.1'
     support = '28.0.0'
-    work = '1.0.0-alpha11'
+    work = '1.0.0-alpha13'
 }
 
 dependencies {

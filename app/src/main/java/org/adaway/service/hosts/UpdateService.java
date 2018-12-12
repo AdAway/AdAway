@@ -20,6 +20,10 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import static androidx.work.ListenableWorker.Result.failure;
+import static androidx.work.ListenableWorker.Result.retry;
+import static androidx.work.ListenableWorker.Result.success;
+
 /**
  * This class is a service to check for hosts sources update.<br/>
  * It could be {@link #enable(boolean)} or {@link #disable()} for periodic check.<br>
@@ -100,7 +104,7 @@ public final class UpdateService {
             } catch (HostsInstallException exception) {
                 // An error occurred, check will be retried
                 Log.e(Constants.TAG, "Failed to check for update. Will retry later.", exception);
-                return Result.RETRY;
+                return retry();
             }
             if (hasUpdate) {
                 // Do update
@@ -109,11 +113,11 @@ public final class UpdateService {
                 } catch (HostsInstallException exception) {
                     // Installation failed. Worker failed.
                     Log.e(Constants.TAG, "Failed to apply hosts file during background update.", exception);
-                    return Result.FAILURE;
+                    return failure();
                 }
             }
             // Return as success
-            return Result.SUCCESS;
+            return success();
         }
 
         /**
