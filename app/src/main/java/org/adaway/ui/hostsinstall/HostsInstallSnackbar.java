@@ -35,6 +35,14 @@ public class HostsInstallSnackbar {
      */
     private boolean update;
     /**
+     * Whether or not ignore the next update event ({@code true} to ignore, {@code false} otherwise).
+     */
+    private boolean skipUpdate;
+    /**
+     * Whether or not ignore update events during the install ({@code true} to ignore, {@code false} otherwise).
+     */
+    private boolean ignoreEventDuringInstall;
+    /**
      * The notify snackbar when hosts update available ({@code null} if no hosts update).
      */
     private Snackbar notifySnackbar;
@@ -51,6 +59,17 @@ public class HostsInstallSnackbar {
     public HostsInstallSnackbar(@NonNull View view) {
         this.mView = view;
         this.update = false;
+        this.skipUpdate = false;
+        this.ignoreEventDuringInstall = false;
+    }
+
+    /**
+     * Set whether or not ignore update events during the install.
+     *
+     * @param ignore {@code true} to ignore events, {@code false} otherwise.
+     */
+    public void setIgnoreEventDuringInstall(boolean ignore) {
+        this.ignoreEventDuringInstall = ignore;
     }
 
     /**
@@ -88,6 +107,11 @@ public class HostsInstallSnackbar {
         if (this.waitSnackbar != null) {
             // Mark update available
             this.update = true;
+            return;
+        }
+        // Check if update event should be skipped
+        if (this.skipUpdate) {
+            this.skipUpdate = false;
             return;
         }
         // Show notify snackbar
@@ -141,11 +165,17 @@ public class HostsInstallSnackbar {
         }
         // Check pending update notification
         else if (this.update) {
-            this.notifyUpdateAvailable();
+            // Ignore next update event if events should be ignored
+            if (this.ignoreEventDuringInstall) {
+                this.skipUpdate = true;
+            } else {
+                // Otherwise display update notification
+                this.notifyUpdateAvailable();
+            }
         }
     }
 
-    private static void appendViewToSnackbar(Snackbar snackbar, View view) {
+    private void appendViewToSnackbar(Snackbar snackbar, View view) {
         ViewGroup viewGroup = (ViewGroup) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text).getParent();
         viewGroup.addView(view);
     }

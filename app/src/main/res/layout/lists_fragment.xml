@@ -18,7 +18,7 @@
 
 
     <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/lists"
+        android:id="@+id/coordinator"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/navigation"

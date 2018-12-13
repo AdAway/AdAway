@@ -67,10 +67,6 @@ public class ListsFragment extends Fragment {
      * The fragment activity (<code>null</code> if view not created).
      */
     private FragmentActivity mActivity;
-    /**
-     * The snackbar to notify hosts update.
-     */
-    private HostsInstallSnackbar mInstallSnackbar;
 
     /**
      * Ensure a permission is granted.<br>
@@ -112,14 +108,14 @@ public class ListsFragment extends Fragment {
          * Configure snackbar.
          */
         // Get lists layout to attached snackbar to
-        CoordinatorLayout listsLayout = view.findViewById(R.id.lists);
+        CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
         // Create install snackbar
-        this.mInstallSnackbar = new HostsInstallSnackbar(listsLayout);
+        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout);
         // Bind snakbar to view models
         ListsViewModel listsViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
-        listsViewModel.getBlackListItems().observe(this, this.mInstallSnackbar.createObserver());
-        listsViewModel.getWhiteListItems().observe(this, this.mInstallSnackbar.createObserver());
-        listsViewModel.getRedirectionListItems().observe(this, this.mInstallSnackbar.createObserver());
+        listsViewModel.getBlackListItems().observe(this, installSnackbar.createObserver());
+        listsViewModel.getWhiteListItems().observe(this, installSnackbar.createObserver());
+        listsViewModel.getRedirectionListItems().observe(this, installSnackbar.createObserver());
         /*
          * Configure tabs.
          */
