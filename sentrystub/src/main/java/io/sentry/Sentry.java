@@ -4,7 +4,7 @@ import io.sentry.android.AndroidSentryClientFactory;
 import io.sentry.context.Context;
 
 public class Sentry {
-    public static boolean STUB = true;
+    public static final boolean STUB = true;
 
     private static Context context = new Context();
 
