@@ -42,8 +42,8 @@
     <string name="list_add_dialog_black">Add host to blacklist</string>
     <string name="list_add_dialog_white">Add host to whitelist</string>
     <string name="list_add_dialog_redirect">Add host redirect</string>
-    <string name="list_edit_dialog_black">Edit blacklist host</string>
-    <string name="list_edit_dialog_white">Edit whitelist host</string>
+    <string name="list_edit_dialog_black">Edit blacklisted host</string>
+    <string name="list_edit_dialog_white">Edit whitelisted host</string>
     <string name="list_edit_dialog_redirect">Edit redirect</string>
     <string name="list_dialog_hostname">Hostname:</string>
     <string name="list_dialog_hostname_hint">The hosts source URL</string>
@@ -102,7 +102,7 @@
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More… -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More… -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
     <string name="apply_apn_proxy_title">APN proxy set!</string>
     <string name="no_connection">The connection to the Internet is not working.</string>
     <string name="no_connection_title">No Connection</string>
