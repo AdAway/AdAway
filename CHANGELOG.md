@@ -1,6 +1,12 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/AdAway/AdAway/issues
 
+## [4.1.0] - 2018-12-13
+
+- Add [telemetry feature](https://github.com/AdAway/AdAway/wiki/Telemetry)
+- Add snackbar notification to update host when editing hosts sources or lists
+- Update translations and fix english locale issues
+
 ## [4.0.12] - 2018-11-21
 
 - Fix issue when getting last modified date on file:// hosts source
