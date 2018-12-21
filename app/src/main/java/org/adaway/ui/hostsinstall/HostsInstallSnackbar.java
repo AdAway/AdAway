@@ -128,7 +128,7 @@ public class HostsInstallSnackbar {
             AdAwayApplication application = (AdAwayApplication) this.mView.getContext().getApplicationContext();
             HostsInstallModel model = application.getHostsInstallModel();
             try {
-                model.downloadHostsSources();
+                model.retrieveHostsSources();
                 model.applyHostsFile();
                 this.endLoading(true);
             } catch (HostsInstallException exception) {

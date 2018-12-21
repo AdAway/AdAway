@@ -119,7 +119,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
             HostsInstallStatus previousStatus = this.status.getValue();
             this.status.postValue(WORK_IN_PROGRESS);
             try {
-                this.model.downloadHostsSources();
+                this.model.retrieveHostsSources();
                 this.model.applyHostsFile();
                 this.status.postValue(INSTALLED);
             } catch (HostsInstallException exception) {

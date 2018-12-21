@@ -25,17 +25,21 @@ import org.adaway.util.RemountException;
 import org.adaway.util.Utils;
 import org.sufficientlysecure.rootcommands.Shell;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,6 +49,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
+
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import static org.adaway.model.hostsinstall.HostsInstallError.APPLY_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.DOWNLOAD_FAIL;
@@ -240,11 +249,11 @@ public class HostsInstallModel extends Observable {
     }
 
     /**
-     * Download all hosts sources files to a private local file.
+     * Retrieve all hosts sources files to copy into a private local file.
      *
      * @throws HostsInstallException If the hosts sources could not be downloaded.
      */
-    public void downloadHostsSources() throws HostsInstallException {
+    public void retrieveHostsSources() throws HostsInstallException {
         HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
         // Check connection status
         if (!Utils.isAndroidOnline(this.context)) {
@@ -252,26 +261,44 @@ public class HostsInstallModel extends Observable {
         }
         // Update state to downloading
         this.setStateAndDetails(R.string.download_dialog, "");
-        // Initialize download counters
-        int numberOfDownloads = 0;
-        int numberOfFailedDownloads = 0;
+        // Initialize copy counters
+        int numberOfCopies = 0;
+        int numberOfFailedCopies = 0;
         // Open local private file and get cursor to enabled hosts sources
         try (FileOutputStream out = this.context.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE)) {
-            // Download each hosts source
+            // Create HTTP client with cache
+            OkHttpClient httpClient = new OkHttpClient.Builder()
+                    .cache(new Cache(context.getCacheDir(), 100 * 1024 * 1024))
+                    .build();
+            // Get each hosts source
             for (HostsSource hostsSource : hostsSourceDao.getEnabled()) {
-                // Increment number of download
-                numberOfDownloads++;
-                if (!this.downloadHostSource(hostsSource, out)) {
-                    // Increment failed download
-                    numberOfFailedDownloads++;
+                // Increment number of copy
+                numberOfCopies++;
+                boolean copySuccess = false;
+                // Check hosts source protocol
+                String url = hostsSource.getUrl();
+                String protocol = new URL(url).getProtocol();
+                switch (protocol) {
+                    case "https:":
+                        copySuccess = this.downloadHostSource(hostsSource, httpClient, out);
+                        break;
+                    case "file":
+                        copySuccess = this.copyHostSourceFile(hostsSource, out);
+                        break;
+                    default:
+                        Log.w(Constants.TAG, "Hosts source protocol " + protocol + " is not supported.");
+                }
+                if (!copySuccess) {
+                    // Increment number of failed copy
+                    numberOfFailedCopies++;
                 }
             }
-            // Check if all downloads failed
-            if (numberOfDownloads == numberOfFailedDownloads && numberOfDownloads != 0) {
-                throw new HostsInstallException(DOWNLOAD_FAIL, "No hosts sources files was downloaded: all downloads failed.");
+            // Check if all copies failed
+            if (numberOfCopies == numberOfFailedCopies && numberOfCopies != 0) {
+                throw new HostsInstallException(DOWNLOAD_FAIL, "No hosts sources files was copied: all copies failed.");
             }
         } catch (IOException exception) {
-            throw new HostsInstallException(PRIVATE_FILE_FAIL, "An error happened with private file while downloading hosts sources files.", exception);
+            throw new HostsInstallException(PRIVATE_FILE_FAIL, "An error happened with private file while copying hosts sources files.", exception);
         }
     }
 
@@ -279,63 +306,102 @@ public class HostsInstallModel extends Observable {
      * Download an hosts source file and append it to a private file.
      *
      * @param hostsSource The hosts source to download.
+     * @param httpClient  The HTTP client use to download.
      * @param out         The output stream to append the hosts file content to.
      * @return {@code true} if the hosts was successfully downloaded, {@code false} otherwise.
      */
-    private boolean downloadHostSource(HostsSource hostsSource, FileOutputStream out) {
+    private boolean downloadHostSource(HostsSource hostsSource, OkHttpClient httpClient, FileOutputStream out) {
         HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
         // Get hosts file URL
         String hostsFileUrl = hostsSource.getUrl();
         Log.v(Constants.TAG, "Downloading hosts file: " + hostsFileUrl);
         // Set state to downloading hosts source
         this.setStateAndDetails(R.string.download_dialog, hostsFileUrl);
-        // Create connection
-        URLConnection connection;
-        try {
-            URL mURL = new URL(hostsFileUrl);
-            connection = mURL.openConnection();
-            connection.setConnectTimeout(15000);
-            connection.setReadTimeout(30000);
-        } catch (IOException exception) {
-            Log.e(Constants.TAG, "Unable to connect to " + hostsFileUrl + ".", exception);
-            // Update last_modified_online of failed download to 0 (not available)
-            hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, null);
-            // Return download failed
-            return false;
-        }
-        // Download hosts file content
-        try (BufferedInputStream inputStream = new BufferedInputStream(connection.getInputStream())) {
-            // Read all content into output stream
-            byte[] data = new byte[1024];
-            int count;
-            // run while only when thread is not cancelled
-            while ((count = inputStream.read(data)) != -1) {
-                out.write(data, 0, count);
-            }
-            // add line separator to add files together in one file
-            out.write(Constants.LINE_SEPARATOR.getBytes());
+        // Create request
+        Request request = new Request.Builder()
+                .url(hostsFileUrl)
+                .build();
+        // Declare last modified date
+        Date lastModified = null;
+        // Request hosts file and open byte stream
+        try (Response response = httpClient.newCall(request).execute();
+             InputStream inputStream = response.body().byteStream()) {
+            // Copy hosts content to private file
+            this.copyHostsContent(inputStream, out);
             // Save last modified online for later use
-            long currentLastModifiedOnline = connection.getLastModified();
-            // Update
-            hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, new Date(currentLastModifiedOnline));
+            String lastModifiedHeader = response.header("Last-Modified");
+            SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
+            try {
+                lastModified = format.parse(lastModifiedHeader);
+            } catch (ParseException exception) {
+                Log.w(Constants.TAG, "Failed to parse Last-Modified header from " + hostsFileUrl + ": " + lastModifiedHeader + ".", exception);
+            }
         } catch (IOException exception) {
-            Log.e(
-                    Constants.TAG,
-                    "Exception while downloading hosts file from " + hostsFileUrl + ".",
-                    exception
-            );
-            // Update last_modified_online of failed download to 0 (not available)
-            hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, null);
+            Log.e(Constants.TAG, "Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
             // Return download failed
             return false;
         } finally {
-            // Disconnect HTTP connection (does nothing with file:// resources)
-            if (connection instanceof HttpURLConnection) {
-                ((HttpURLConnection) connection).disconnect();
-            }
+            // Update last_modified_online (null if not available or error happened)
+            hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, lastModified);
         }
         // Return download successful
         return true;
+    }
+
+    /**
+     * Copy a hosts source file and append it to a private file.
+     *
+     * @param hostsSource The hosts source to download.
+     * @param out         The output stream to append the hosts file content to.
+     * @return {@code true} if the hosts was successfully downloaded, {@code false} otherwise.
+     */
+    private boolean copyHostSourceFile(HostsSource hostsSource, FileOutputStream out) {
+        HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
+        // Get hosts file URL
+        String hostsFileUrl = hostsSource.getUrl();
+        Log.v(Constants.TAG, "Copying hosts source file: " + hostsFileUrl);
+        // Set state to downloading hosts source
+        this.setStateAndDetails(R.string.download_dialog, hostsFileUrl);
+        // Declare last modification date
+        Date lastModified = null;
+        try {
+            // Get file from URL
+            File hostsSourceFile = new File(new URL(hostsFileUrl).toURI());
+            // Copy hosts file source to private file
+            try (InputStream inputStream = new FileInputStream(hostsSourceFile)) {
+                copyHostsContent(inputStream, out);
+            }
+            // Get last modified date
+            lastModified = new Date(hostsSourceFile.lastModified());
+        } catch (IOException | URISyntaxException exception) {
+            Log.e(Constants.TAG, "Error while copying hosts file from " + hostsFileUrl + ".", exception);
+            // Return copy failed
+            return false;
+        } finally {
+            // Update last_modified_online (null if not available or error happened)
+            hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, lastModified);
+        }
+        // Return copy successful
+        return true;
+    }
+
+    /**
+     * Copy an {@link InputStream} hosts content to an {@link java.io.OutputStream}.
+     *
+     * @param inputStream  The input stream to copy from.
+     * @param outputStream The output stream to copy to.
+     * @throws IOException If the input stream could not be read or output stream could not be written.
+     */
+    private void copyHostsContent(InputStream inputStream, FileOutputStream outputStream) throws IOException {
+        // Read all content into output stream
+        byte[] data = new byte[1024];
+        int count;
+        // run while only when thread is not cancelled
+        while ((count = inputStream.read(data)) != -1) {
+            outputStream.write(data, 0, count);
+        }
+        // add line separator to add files together in one file
+        outputStream.write(Constants.LINE_SEPARATOR.getBytes());
     }
 
     /**
