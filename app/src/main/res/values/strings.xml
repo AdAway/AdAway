@@ -70,7 +70,7 @@
     <string name="status_no_connection_subtitle">No Internet connection available</string>
     <string name="status_download_fail">Unavailable sources</string>
     <string name="status_download_fail_subtitle_new">No hosts sources are reachable!</string>
-    <string name="status_failure">Something goes wrong</string>
+    <string name="status_failure">Something went wrong</string>
     <string name="status_failure_subtitle">Check the logcat for more details</string>
     <string name="status_enabled">Enabled</string>
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
