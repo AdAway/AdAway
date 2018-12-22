@@ -1,6 +1,7 @@
 package org.adaway.model.hostsinstall;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
@@ -88,6 +89,10 @@ public class HostsInstallModel extends Observable {
      * The model detailed state.
      */
     private String detailedState;
+    /**
+     * The HTTP client to download hosts sources ({@code null} until initialized by {@link #getHttpClient()}).
+     */
+    private OkHttpClient httpClient;
 
     /**
      * Constructor.
@@ -266,10 +271,6 @@ public class HostsInstallModel extends Observable {
         int numberOfFailedCopies = 0;
         // Open local private file and get cursor to enabled hosts sources
         try (FileOutputStream out = this.context.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE)) {
-            // Create HTTP client with cache
-            OkHttpClient httpClient = new OkHttpClient.Builder()
-                    .cache(new Cache(context.getCacheDir(), 100 * 1024 * 1024))
-                    .build();
             // Get each hosts source
             for (HostsSource hostsSource : hostsSourceDao.getEnabled()) {
                 // Increment number of copy
@@ -280,7 +281,7 @@ public class HostsInstallModel extends Observable {
                 String protocol = new URL(url).getProtocol();
                 switch (protocol) {
                     case "https:":
-                        copySuccess = this.downloadHostSource(hostsSource, httpClient, out);
+                        copySuccess = this.downloadHostSource(hostsSource, out);
                         break;
                     case "file":
                         copySuccess = this.copyHostSourceFile(hostsSource, out);
@@ -303,20 +304,36 @@ public class HostsInstallModel extends Observable {
     }
 
     /**
+     * Get the HTTP client to download hosts sources.
+     *
+     * @return The HTTP client to download hosts sources.
+     */
+    @NonNull
+    private OkHttpClient getHttpClient() {
+        if (this.httpClient == null) {
+            this.httpClient = new OkHttpClient.Builder()
+                    .cache(new Cache(context.getCacheDir(), 100 * 1024 * 1024))
+                    .build();
+        }
+        return this.httpClient;
+    }
+
+    /**
      * Download an hosts source file and append it to a private file.
      *
      * @param hostsSource The hosts source to download.
-     * @param httpClient  The HTTP client use to download.
      * @param out         The output stream to append the hosts file content to.
      * @return {@code true} if the hosts was successfully downloaded, {@code false} otherwise.
      */
-    private boolean downloadHostSource(HostsSource hostsSource, OkHttpClient httpClient, FileOutputStream out) {
+    private boolean downloadHostSource(HostsSource hostsSource, FileOutputStream out) {
         HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
         // Get hosts file URL
         String hostsFileUrl = hostsSource.getUrl();
         Log.v(Constants.TAG, "Downloading hosts file: " + hostsFileUrl);
         // Set state to downloading hosts source
         this.setStateAndDetails(R.string.download_dialog, hostsFileUrl);
+        // Get HTTP client
+        OkHttpClient httpClient = this.getHttpClient();
         // Create request
         Request request = new Request.Builder()
                 .url(hostsFileUrl)
