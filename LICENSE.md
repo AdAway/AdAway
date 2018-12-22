@@ -1,6 +1,6 @@
 # Licenses
 AdAway is licensed under the GPLv3+.  
-The file [LICENSE](license) includes the full license text.
+The file [LICENSE](LICENSE) includes the full license text.
 
 ## Details
 AdAway is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -17,21 +17,45 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/dschuermann/android-donations-lib  
   Apache License v2
 
-* RootCommands  
-  https://github.com/dschuermann/root-commands  
+* Android Jetpack  
+  https://developer.android.com/jetpack/  
+  Apache License v2
+
+* Guava  
+  https://github.com/google/guava  
+  Apache License v2
+
+* HtmlTextView  
+  https://github.com/dschuermann/html-textview  
+  Apache License v2
+
+* Lightweight-Stream-API  
+  https://github.com/aNNiMON/Lightweight-Stream-API  
   Apache License v2
 
 * Mongoose Webserver  
   https://github.com/cesanta/mongoose  
   GPLv2 License
 
+* OkHttp  
+  https://github.com/square/okhttp  
+  Apache License v2
+
+* RootCommands  
+  https://github.com/dschuermann/root-commands  
+  Apache License v2
+
+* Sentry Java  
+  https://github.com/getsentry/sentry-java  
+  BSD 3-Clause License
+
+* SLF4J  
+  https://www.slf4j.org/
+  MIT License
+
 * Tcpdump/Libpcap  
   https://www.tcpdump.org/  
   BSD 3-Clause License
-
-* HtmlTextView  
-  https://github.com/dschuermann/html-textview  
-  Apache License v2
 
 * Trove  
   https://trove.starlight-systems.com/  
