@@ -13,10 +13,6 @@ If not, see <https://www.gnu.org/licenses/>.
 
 ## Libraries
 
-* Android Donations Lib  
-  https://github.com/dschuermann/android-donations-lib  
-  Apache License v2
-
 * Android Jetpack  
   https://developer.android.com/jetpack/  
   Apache License v2
