@@ -98,7 +98,10 @@ public class HostsInstallSnackbar {
         };
     }
 
-    private void notifyUpdateAvailable() {
+    /**
+     * Notify update available.
+     */
+    public void notifyUpdateAvailable() {
         // Check if notify snackbar is already displayed
         if (this.notifySnackbar != null) {
             return;
