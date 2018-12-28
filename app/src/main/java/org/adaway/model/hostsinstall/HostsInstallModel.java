@@ -280,7 +280,7 @@ public class HostsInstallModel extends Observable {
                 String url = hostsSource.getUrl();
                 String protocol = new URL(url).getProtocol();
                 switch (protocol) {
-                    case "https:":
+                    case "https":
                         copySuccess = this.downloadHostSource(hostsSource, out);
                         break;
                     case "file":
