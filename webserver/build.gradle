@@ -1,12 +1,6 @@
 apply plugin: 'com.android.library'
 
 android {
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
-
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
@@ -14,7 +8,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
     }
 
     externalNativeBuild {
@@ -31,32 +25,30 @@ dependencies {
  * Task to rename executables from hello_world to libhello_world_exec.so
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *
- * https://docs.gradle.org/current/userguide/working_with_files.html
+ * Help with files: https://docs.gradle.org/current/userguide/working_with_files.html
+ * Implementation from: https://gitlab.com/fengshaun/syncopoli/blob/master/app/build.gradle
  */
-task renameDebugExecutables(type: Sync) {
-    from('build/intermediates/ndkBuild/debug/obj/local') {
-        rename(/(.+)/, 'lib$1_exec.so')
-    }
-    into 'libs'
+gradle.taskGraph.afterTask { task ->
+	if (task.name == "externalNativeBuildRelease" || task.name == "externalNativeBuildDebug") {
+		def mode = task.name == "externalNativeBuildDebug" ? "debug" : "release"
+		def buildFolder = file("build/intermediates/ndkBuild/${mode}/obj/local/")
 
-    exclude '*/objs*'
-    exclude '*/*.a'
-}
-task renameReleaseExecutables(type: Sync) {
-    from('build/intermediates/ndkBuild/release/obj/local') {
-        rename(/(.+)/, 'lib$1_exec.so')
-    }
-    into 'libs'
+		copy {
+			from(buildFolder) {
+				exclude "**/objs"
+				exclude "**/objs-debug"
+				exclude "**/*.o"
+				exclude "**/*.d"
+				exclude "**/*.so"
+			}
 
-    exclude '*/objs'
-    exclude '*/*.a'
-}
+			into buildFolder
 
-gradle.projectsEvaluated {
-    if (project.hasProperty('assembleDebug')) {
-        assembleDebug.dependsOn renameDebugExecutables
-    }
-    if (project.hasProperty('assembleRelease')) {
-        assembleRelease.dependsOn renameReleaseExecutables
-    }
+            rename '(.+)', 'lib$1_exec.so'
+
+			eachFile {
+				println "Replacing " + it.getPath() + " from ndkBuild directory"
+			}
+		}
+	}
 }
