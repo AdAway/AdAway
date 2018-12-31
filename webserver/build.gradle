@@ -31,14 +31,15 @@ dependencies {
 gradle.taskGraph.afterTask { task ->
 	if (task.name == "externalNativeBuildRelease" || task.name == "externalNativeBuildDebug") {
 		def mode = task.name == "externalNativeBuildDebug" ? "debug" : "release"
-		def buildFolder = file("build/intermediates/ndkBuild/${mode}/obj/local/")
+		def buildFolder = file("${buildDir}/intermediates/ndkBuild/${mode}/obj/local/")
 
 		copy {
 			from(buildFolder) {
 				exclude "**/objs"
 				exclude "**/objs-debug"
-				exclude "**/*.o"
+				exclude "**/*.a"
 				exclude "**/*.d"
+				exclude "**/*.o"
 				exclude "**/*.so"
 			}
 
