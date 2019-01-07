@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -9,21 +8,20 @@
 <p>S-OFF esanahi du gailuaren NAND zatia desblokeatuta dagoela eta bertan idatzi daitekeela. HTC gailuen berezko ezarpena S-ON da, honek esanahi du ezin duzula sistemako zenbait eremutara sarbiderik izan ezta errotze egonkor bat bermatu. Gainera, firmware irudien sinadura egiaztapena ere segurtaturik dago S-ON ikurrarekin.</p>
 
 <h2>Nik S-ON edo S-OFF dut?</h2>
-<p>Abiarazi Abiarazpen Menuan zure gailuan <cite>bolumena jeitsi</cite> botoiari beherantz heutsiz indar botoia sakatzen duzun bitartean eta goiko idazkiak egoera ikurra S-OFF edo S-ON bezala erakutsiko du. Errotze osoak arrunt S-OFF esanahi du.
-<br/><br/>Argibide gehiago hemen aurkitu daiteke:  <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. 
-S-OFF metodo gehigarriak (loturan) interesgarriak izan ditzakezu, izenak: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Konponbidea</h2>
 <p>Aurrebaldintza: Lan egiten duen Android SDK bat ADB shell-arekin ezarri behar duzu zure PC-an.
 </p>
 <ol>
-<li>Abiarazi Abirazpen Menuan zure gailuan <cite>bolumena jeitsi</cite> botoiari beherantz heutsiz indar botoia sakatzen duzu bitartean.</li>
-<li>Erabili <cite>bolumena jeitsi</cite> berreskurapena hautatzeko.</li>
-<li>Berreskurapenean bolumena jeitsi "partizio menua"-ra eta jo bidea hautatzeko.</li>
-<li>Hautatu <cite>mount /system</cite>, <cite>mount /sdcard</cite> eta <cite>mount /data</cite>.</li>
-<li>Sartu zure usb kablea eta ireki agindu lerro bat zure pc-an.</li>
-<li>Sartu adb shell eta idatzi <code>ln -s /data/hosts /system/etc/hosts</code> (Honek lotura sinboliko bat sortzen du, AdAway-ri <code>/data</code>-n biltegiratutako hostalari izenak editatzea ahalbidetuz SE-ri agiria <code>/system</code>-en biltegiratua egongo balitz bezala erabiltzea ahalbidetzen dion bitartean.)</li>
-<li>Berrabiarazi zure gailua eta ezarri <cite>Xede hostalari agiria</cite> <cite>/data/hosts</cite>-en AdAway-ren hobespenetan.</li>
+<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
+<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
+<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
+<li>Plug in your USB cord and open a command line on your pc.</li>
+<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
+<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
 <li>AdAway-ek lan egin behar du orain.</li>
 </ol>
 </body>

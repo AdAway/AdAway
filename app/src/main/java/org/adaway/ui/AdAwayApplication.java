@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -24,36 +24,50 @@ import android.app.Application;
 
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.adaway.util.SentryLog;
 import org.sufficientlysecure.rootcommands.RootCommands;
 
+/**
+ * This class is a custom {@link Application} for AdAway app.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class AdAwayApplication extends Application {
+    /**
+     * The common hosts install model for the whole application.
+     */
+    private HostsInstallModel mHostsInstallModel;
 
     @Override
     public void onCreate() {
-
-        // workaround for http://code.google.com/p/android/issues/detail?id=20915
-        try {
-            Log.d(Constants.TAG, "Setting workaround for AsyncTask...");
-            Class.forName("android.os.AsyncTask");
-        } catch (Exception e) { // silently catch all
-        }
-
+        // Delegate application creation
+        super.onCreate();
+        // Initialize sentry
+        SentryLog.init(this);
         // Set Debug level based on preference
         if (PreferenceHelper.getDebugEnabled(this)) {
-            Constants.enableDebug();
             Log.d(Constants.TAG, "Debug set to true by preference!");
+            Constants.enableDebug();
             RootCommands.enableDebug();
         } else {
             Constants.disableDebug();
             RootCommands.disableDebug();
         }
-
         // Create notification channel
         NotificationHelper.createNotificationChannel(this);
-
-        super.onCreate();
+        // Create hosts install model
+        this.mHostsInstallModel = new HostsInstallModel(this);
     }
 
+    /**
+     * Get the hosts install model.
+     *
+     * @return The common hosts install model for the whole application.
+     */
+    public HostsInstallModel getHostsInstallModel() {
+        return this.mHostsInstallModel;
+    }
 }

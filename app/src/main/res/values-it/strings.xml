@@ -137,6 +137,7 @@
   <string name="help_tab_problems">Problemi</string>
   <!--Adware-->
   <string name="adware_header">Adware</string>
+  <string name="adware_description">Qui troverai l\'adware installato, applicazioni malevole che non possono essere bloccate da AdAway. Queste app usano, ad esempio, notifiche push che vengono mostrate anche quando l\'app non è aperta o anche cambiare la tua suoneria. Puoi disinstallarle cliccando nella lista.</string>
   <string name="adware_scanning">Scansione in corso...</string>
   <string name="adware_empty">Nessun Adware è stato trovato!</string>
   <!--Hosts sources-->

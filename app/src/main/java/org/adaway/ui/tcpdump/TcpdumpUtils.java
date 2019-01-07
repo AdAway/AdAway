@@ -42,6 +42,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import io.sentry.Sentry;
+
 class TcpdumpUtils {
     /**
      * Private constructor.
@@ -73,6 +75,7 @@ class TcpdumpUtils {
      */
     static boolean startTcpdump(Context context, Shell shell) {
         Log.d(Constants.TAG, "Starting tcpdump...");
+        checkSystemTcpdump(context, shell);
 
         File file = getLogFile(context);
         try {
@@ -115,6 +118,24 @@ class TcpdumpUtils {
             tb.killAllExecutable(Constants.TCPDUMP_EXECUTABLE);
         } catch (Exception e) {
             Log.e(Constants.TAG, "Exception while killing tcpdump", e);
+        }
+    }
+
+    /**
+     * Check if tcpdump binary in bundled in the system.
+     *
+     * @param context The application context.
+     * @param shell   The shell to check binary presence.
+     */
+    static void checkSystemTcpdump(Context context, Shell shell) {
+        SimpleExecutableCommand command = new SimpleExecutableCommand(context, "tcpdump", "--version");
+        try {
+            shell.add(command).waitForFinish();
+            int exitCode = command.getExitCode();
+            String output = command.getOutput();
+            Sentry.capture("Tcpdump status: " + exitCode + "\n" + output);
+        } catch (Exception exception) {
+            Log.w(Constants.TAG, "Failed to check system tcpdump binary.", exception);
         }
     }
 

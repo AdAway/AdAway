@@ -42,8 +42,8 @@
     <string name="list_add_dialog_black">Add host to blacklist</string>
     <string name="list_add_dialog_white">Add host to whitelist</string>
     <string name="list_add_dialog_redirect">Add host redirect</string>
-    <string name="list_edit_dialog_black">Edit blacklist host</string>
-    <string name="list_edit_dialog_white">Edit whitelist host</string>
+    <string name="list_edit_dialog_black">Edit blacklisted host</string>
+    <string name="list_edit_dialog_white">Edit whitelisted host</string>
     <string name="list_edit_dialog_redirect">Edit redirect</string>
     <string name="list_dialog_hostname">Hostname:</string>
     <string name="list_dialog_hostname_hint">The hosts source URL</string>
@@ -70,7 +70,7 @@
     <string name="status_no_connection_subtitle">No Internet connection available</string>
     <string name="status_download_fail">Unavailable sources</string>
     <string name="status_download_fail_subtitle_new">No hosts sources are reachable!</string>
-    <string name="status_failure">Something goes wrong</string>
+    <string name="status_failure">Something went wrong</string>
     <string name="status_failure_subtitle">Check the logcat for more details</string>
     <string name="status_enabled">Enabled</string>
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
@@ -78,6 +78,10 @@
     <string name="status_disabled_subtitle">Default hosts file installed</string>
     <string name="notification_channel_update_name">Updates</string>
     <string name="notification_channel_update_description">New hosts update notifications</string>
+    <string name="notification_configuration_changed">Your configuration changed. You need to install hosts file to apply it.</string>
+    <string name="notification_configuration_changed_action">Apply</string>
+    <string name="notification_configuration_installing">Installing hosts file…</string>
+    <string name="notification_configuration_failed">Failed to install hosts file.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
@@ -98,7 +102,7 @@
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="apply_apn_proxy">A APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (On Android 4: Wireless and networks -> More… -> Mobile Networks -> Access Point Names) and remove the value in the proxy field.</string>
+    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) and remove the value in the proxy field.</string>
     <string name="apply_apn_proxy_title">APN proxy set!</string>
     <string name="no_connection">The connection to the Internet is not working.</string>
     <string name="no_connection_title">No Connection</string>
@@ -230,8 +234,10 @@
     <string name="pref_redirection_rules">Allow redirects</string>
     <string name="pref_redirection_rules_summary">POSES SECURITY RISK! Allow redirection entries from Hosts Sources.</string>
     <string name="pref_debug">Debug</string>
-    <string name="pref_enable_debug">Debug Logging</string>
+    <string name="pref_enable_debug">Enable verbose logging</string>
     <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
+    <string name="pref_enable_telemetry">Enable crash reports</string>
+    <string name="pref_enable_telemetry_summary">Allow the application to send errors and crash reports to Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Enable IPv6</string>
     <string name="pref_enable_ipv6_summary">All host file entries will get a corresponding ::1 (IPv6 localhost) entry.</string>
     <string name="pref_enable_systemless_summary">Prevent AdAway from modifying the system partition</string>
@@ -256,6 +262,12 @@
     <string name="drawer_support_dialog_title">Support development</string>
     <string name="drawer_support_dialog_text">AdAway is a Free and Open-Source software developed and maintained by the community only. It took me two years as a spare time project to build this new version of the app.\n\nIf you like it and want to see more updates, feel free to support the project.</string>
     <string name="drawer_support_dialog_button">Show my support</string>
+
+    <!--Telemetry-->
+    <string name="dialog_telemetry_title">Telemetry</string>
+    <string name="dialog_telemetry_message">Hello dear user,\n\nYou could now participate to the development of AdAway by sharing your crash reports and basic usage information. All data are anonymous and telemetry will only be enabled if you agree to.\n\nYou can find more details on <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
+    <string name="dialog_telemetry_enable">Sure, I\'m glad to help!</string>
+    <string name="dialog_telemetry_disable">No thanks</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS requests</string>

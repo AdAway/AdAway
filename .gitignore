@@ -1,31 +1,12 @@
-#Android specific
-bin
-gen
-obj
-libs/armeabi
+# Android specific
 lint.xml
 local.properties
-release.properties
-ant.properties
-*.class
-*.apk
 
-#Gradle
+# Gradle
+.externalNativeBuild
 .gradle
 build
-gradle-app.setting
 
-#Maven
-target
-pom.xml.*
-
-#Eclipse
-.project
-.classpath
-.settings
-.metadata
-
-#IntelliJ IDEA
+# IntelliJ IDEA
 .idea
 *.iml
-

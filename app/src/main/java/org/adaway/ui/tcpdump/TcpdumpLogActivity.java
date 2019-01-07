@@ -44,6 +44,7 @@ import org.adaway.db.entity.ListType;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.MainActivity;
 import org.adaway.ui.dialog.AlertDialogValidator;
+import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
 import org.adaway.util.RegexUtils;
 
 /**
@@ -56,6 +57,10 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
      * The view model (<code>null</code> if activity is not created).
      */
     private TcpdumpLogViewModel mViewModel;
+    /**
+     * The snackbar notification (<code>null</code> if activity is not created).
+     */
+    private HostsInstallSnackbar mInstallSnackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +94,11 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
         // Create recycler adapter
         ListAdapter adapter = new TcpdumpLogAdapter(this);
         recyclerView.setAdapter(adapter);
+        /*
+         * Configure snackbar.
+         */
+        // Create install snackbar
+        this.mInstallSnackbar = new HostsInstallSnackbar(swipeRefreshLayout);
         /*
          * Load data.
          */
@@ -133,13 +143,16 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
 
     @Override
     public void addListItem(@NonNull String hostName, @NonNull ListType type) {
-        // Check view model
-        if (this.mViewModel == null) {
+        // Check view model and snackbar notification
+        if (this.mViewModel == null || this.mInstallSnackbar == null) {
             return;
         }
         // Check type other than redirection
         if (type != ListType.REDIRECTION_LIST) {
+            // Insert list item
             this.mViewModel.addListItem(hostName, type, null);
+            // Display snackbar notification
+            this.mInstallSnackbar.notifyUpdateAvailable();
         } else {
             // Create dialog builder
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -161,6 +174,8 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
                         if (RegexUtils.isValidIP(ip)) {
                             // Insert list item
                             this.mViewModel.addListItem(hostName, type, ip);
+                            // Display snackbar notification
+                            this.mInstallSnackbar.notifyUpdateAvailable();
                         }
                     }
             );
@@ -180,8 +195,9 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
 
     @Override
     public void removeListItem(@NonNull String hostName) {
-        if (this.mViewModel != null) {
+        if (this.mViewModel != null && this.mInstallSnackbar != null) {
             this.mViewModel.removeListItem(hostName);
+            this.mInstallSnackbar.notifyUpdateAvailable();
         }
     }
 

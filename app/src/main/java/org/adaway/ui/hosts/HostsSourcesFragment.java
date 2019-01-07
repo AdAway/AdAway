@@ -26,6 +26,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.recyclerview.extensions.ListAdapter;
@@ -44,6 +45,7 @@ import android.widget.EditText;
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.ui.dialog.AlertDialogValidator;
+import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
 
 /**
  * This class is a {@link Fragment} to display and manage hosts sources.
@@ -80,8 +82,20 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Store activity
         this.mActivity = this.getActivity();
+        // Initialize view model
+        this.mViewModel = ViewModelProviders.of(this).get(HostsSourcesViewModel.class);
         // Create fragment view
         View view = inflater.inflate(R.layout.hosts_sources_fragment, container, false);
+        /*
+         * Configure snackbar.
+         */
+        // Get lists layout to attached snackbar to
+        CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
+        // Create install snackbar
+        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout);
+        installSnackbar.setIgnoreEventDuringInstall(true);
+        // Bind snakbar to view models
+        this.mViewModel.getHostsSources().observe(this, installSnackbar.createObserver());
         /*
          * Configure recycler view.
          */
@@ -94,6 +108,8 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         // Create recycler adapter
         ListAdapter adapter = new HostsSourcesAdapter(this);
         recyclerView.setAdapter(adapter);
+        // Bind adapter to view model
+        this.mViewModel.getHostsSources().observe(this, adapter::submitList);
         /*
          * Create action mode.
          */
@@ -155,12 +171,6 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
             // Display menu add entry
             HostsSourcesFragment.this.addSource();
         });
-        /*
-         * Load data.
-         */
-        // Get view model and bind it to the list view
-        this.mViewModel = ViewModelProviders.of(this).get(HostsSourcesViewModel.class);
-        this.mViewModel.getHostsSources().observe(this, adapter::submitList);
         // Return fragment view
         return view;
     }

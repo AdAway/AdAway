@@ -20,6 +20,8 @@
 
 package org.adaway.util;
 
+import io.sentry.Sentry;
+
 /**
  * Wraps Android Logging to enable or disable debug output using Constants
  */
@@ -53,33 +55,43 @@ public final class Log {
     public static void i(String tag, String msg) {
         if (Constants.isDebugEnabled()) {
             android.util.Log.i(tag, msg);
+            Sentry.capture(msg);
         }
     }
 
     public static void i(String tag, String msg, Throwable tr) {
         if (Constants.isDebugEnabled()) {
             android.util.Log.i(tag, msg, tr);
+            Sentry.capture(msg);
+            Sentry.capture(tr);
         }
     }
 
     public static void w(String tag, String msg) {
         android.util.Log.w(tag, msg);
+        Sentry.capture(msg);
     }
 
     public static void w(String tag, String msg, Throwable tr) {
         android.util.Log.w(tag, msg, tr);
+        Sentry.capture(msg);
+        Sentry.capture(tr);
     }
 
     public static void w(String tag, Throwable tr) {
         android.util.Log.w(tag, tr);
+        Sentry.capture(tr);
     }
 
     public static void e(String tag, String msg) {
         android.util.Log.e(tag, msg);
+        Sentry.capture(msg);
     }
 
     public static void e(String tag, String msg, Throwable tr) {
         android.util.Log.e(tag, msg, tr);
+        Sentry.capture(msg);
+        Sentry.capture(tr);
     }
 
 }

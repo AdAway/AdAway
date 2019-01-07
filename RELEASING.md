@@ -31,13 +31,18 @@ It follows the [Semantic Versioning](https://semver.org/) principle (_once the f
 * The version code `android.defaultConfig.versionCode` in `src/app/build.gradle`: 41020, 51203
 * The version name for SonarCloud `sonarqube.properties.property.sonar.projectVersion` in `src/build.gradle`: same as version name
 
-## 3 - Building release APK
+## 3 - Updating the changelog
+
+The AdAway project provides [a global changelog](CHANGELOG.md).  
+Before releasing any new version, be sure to update the changelog to let users know what is inside each new version.
+
+## 4 - Building release APK
 
 The release apk must be built with release flavor (not debug). Check [contributing guide for building instructions](CONTRIBUTING.md#building-the-project).    
 **The apk name follows the following format: `AdAway-<version_name>-<yymmdd>.apk`**.
 Example: _AdAway-4.0.8-180822.apk_ for the version 4.0.8 built the 08/22/18.
 
-## 4 - Distributing release
+## 5 - Distributing release
 
 Before sharing the any release, remember to test it.
 Release variant apk does not behave like debug variant.

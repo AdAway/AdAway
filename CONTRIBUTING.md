@@ -66,7 +66,7 @@ If not:
 2. Export `ANDROID_HOME` environment variable pointing to your Android SDK:  
 `export ANDROID_HOME=/path/to/your/sdk`
 3. Launch a build:  
-`./gradlew build`
+`./gradlew assembleRelease`
 
 The first full build of the apk could take a lot of time, about 20 minutes, whereas an incremental build of the `app` module takes less than a dozen of seconds.
 

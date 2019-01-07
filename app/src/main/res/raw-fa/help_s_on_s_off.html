@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>S-ON related help</title></head>
 <body>
@@ -9,20 +8,20 @@
 <p>قابلیت S-OFF این معنی را میدهد که NAND portion دستگاه آنلاک شده و قابل ویرایش میباشد. در دستگاه های HTC حالت پیش فرض S-ON میباشد، به این معنی که نه به شما اجازه دسترسی به قسمت هایی از سیستم را میدهد و نه گارانتی روت دائمی میباشد. علاوه بر این بررسی اصالت امضای ایمیج فرمویر توسط S-ON مراقبت میشود.</p>
 
 <h2>من کدامیک از حالت های S-ON یا S-OFF را دارم؟</h2>
-<p>با نگاه داشتن هم زمان دکمه پاور و <cite>volume down</cite> به  به بوت منوی دستگاه خود بروید، متن بالای منو نشان میدهد که دستگاه در کدام وضعیت S-OFF یا S-ON میباشد. یک روت کامل به معنی S-OFF میباشد.
-<br/><br/>برای اطلاعات بیشتر به اینجا مراجعه نمایید <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
+<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>راه حل</h2>
 <p>پیش نیاز: شما بایستی یک Android SDK منطبق با دستگاه خود را از طریق کامپیوتر و ADB shell نصب نمایید.
 </p>
 <ol>
-<li>با نگاه داشتن هم زمان دکمه <cite>volume down</cite> و پاور دستگاه خود به منوی بوت بروید.</li>
-<li>از دکمه <cite>volume down</cite> برای رفتن به ریکاوری استفاده نمایید.</li>
-<li>در ریکاوری clockwork با زدند دکمه volume down به "partitions menu"  رفته و track pad را انتخاب نمایید</li>
-<li>گزینه های <cite>mount /system</cite>, <cite>mount /sdcard</cite> و <cite>mount /data</cite> را انتخاب نمایید. </li>
-<li>کابل خود را متصل نمایید و در کامپیوتر خود خط فرمان را باز نمایید.</li>
-<li>به adb shell رفته و دستور مقابل را وارد نمایید <code>ln -s /data/hosts /system/etc/hosts</code> (با این کار یک لینک سمبولیکی ایجاد میگردد که به AdAway اجازه ویرایش فایل hosts ذخیره شده در مسیر <code>/data</code> را میدهد در حالی که به سیستم عامل اجازه استفاده از این فایل را جوری میدهد که انگار در <code>/system</code> ذخیره شده است.)</li>
-<li>دستگاه خود را ریبوت نمایید و در تنظیمات AdAway مسیر <cite>Target hosts file</cite> را به <cite>/data/hosts</cite> تغییر دهید.</li>
+<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
+<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
+<li>In clockwork recovery go to "partitions menu".</li>
+<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
+<li>Plug in your USB cord and open a command line on your pc.</li>
+<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
+<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
 <li>برنامه AdAway میبایستی الان کار کند.</li>
 </ol>
 </body>

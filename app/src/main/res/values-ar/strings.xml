@@ -106,6 +106,8 @@
   <string name="enable_systemless_successful_title">تم التنفيذ بنجاح</string>
   <string name="disable_systemless_successful_title">تم التعطيل بنجاح</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">إما تطبيق سو بيناري غير موجود أو لم يسمح بالوصول إلى صلاحيات root   لتطبيق AdAway . هذا يمكن أن يحدث عندما يكون جهازك لا يعطي صلاحية ل root  ،
+يمكنك أن تجد معلومات عن طريقة و صلاحية root  على wiki.lineageos.org ، أو مواقع اندرويد الأخرى.</string>
   <string name="no_root_title">مطلوب روت للهاتف</string>
   <string name="hosts_add_dialog">أدخل عنوان URL لملفات المضيف:</string>
   <string name="no_hostname">اسم الموقع غير صالح!</string>

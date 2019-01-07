@@ -6,13 +6,13 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>Problemas comunes</title></head>
 <body>
 <h2>No hay suficiente espacio en la partición</h2>
-<p>Trate de cambiar el fichero hosts objetivo en las preferencias a <code>/data/data/hosts</code> (o <code>/data/hosts</code>) y aplique AdAway de nuevo.
+<p>Try changing the target hosts file in preferences to <code>/data/data/hosts</code> (or <code>/data/hosts</code>) and apply AdAway again.</p>
 
 <h2>No funciona sobre Android 4.4+</h2>
-<p>Trata de cambiar el fichero hosts objetivo en las preferencias desde <code>/data/data/hosts</code> a <code>/data/hosts</code> o <code>/system/etc/hosts</code> y aplique AdAway de nuevo.</p>
+<p>Try changing the target hosts file in preferences from <code>/data/data/hosts</code> to <code>/data/hosts</code> or <code>/system/etc/hosts</code> and apply AdAway again.</p>
 
 <h2>¡No bloquea anuncios en la aplicación XYZ!</h2>
-<p>Algunos nombres de servidores pueden no figurar en los ficheros hosts proporcionados desde las <cite>Fuentes de hosts</cite> o la aplicación puede haber incorporado las imágenes para mostrar anuncios sin acceder a Internet.<br><br>
+<p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
 Puedes monitorizar peticiones DNS (Menú-&gt;Monitorizar peticiones DNS) desde AdAway para saber que nombres de hosts adicionales deben ser bloqueados.
 <br><br>Añada los nombres de servidores sospechosos a su propia lista negra manteniendo pulsadas las entradas en el registro (log), y cuando los haya verificado informe de estos nombres de servidor en el foro <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> de <a href="http://hosts-file.net">hosts-file.net</a>.</p>
 
@@ -20,7 +20,7 @@ Puedes monitorizar peticiones DNS (Menú-&gt;Monitorizar peticiones DNS) desde A
 <p>A veces las aplicaciones guardan en caché la publicidad una vez descargada. Esto esto lleva a que permanezca cierta publicidad residual en alguna aplicaciones. Puede intentar borrar la caché para que estas aplicaciones en la lista de aplicaciones de Android eviten este problema.</p>
 
 <h2>¡La aplicación XYZ ya no funciona!</h2>
-<p>Algunas aplicaciones necesitan comunicarse con un servidor que está bloqueado por AdAway o rehusan funcionar cuando los servidores de anuncios no son alcanzables. Vea <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a> para obtener una lista de aplicaciones conocidas que tienen problemas. De otro modo, averigüe que servidores son los necesarios y añádalos a su <cite>Lista blanca</cite> en <cite>Sus listas</cite> y comuníquelo al <a href="https://github.com/AdAway/AdAway/issues">rastreador de fallos de AdAway</a>.</p>
+<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuse to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <cite>Whitelist</cite> under <cite>Your Lists</cite> and report them to the <a href="https://github.com/AdAway/AdAway/issues">bug tracker of AdAway</a>.</p>
 
 <h2>El botón "Atrás" en los navegadores web no está funcionando</h2>
 <p>Puede habilitar el servidor local de AdAway en las preferencias como solución provisional.</p>

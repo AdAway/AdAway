@@ -10,6 +10,7 @@ import org.adaway.model.hostsinstall.HostsInstallError;
 import org.adaway.model.hostsinstall.HostsInstallException;
 import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.model.hostsinstall.HostsInstallStatus;
+import org.adaway.ui.AdAwayApplication;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.util.Utils;
 
@@ -162,7 +163,7 @@ final class HostsInstallDialog {
      */
     private static void tryToCreateSymlink(Context context) {
         try {
-            HostsInstallModel model = new HostsInstallModel(context);
+            HostsInstallModel model = ((AdAwayApplication) context.getApplicationContext()).getHostsInstallModel();
             model.createSymlink();
             if (!PreferenceHelper.getNeverReboot(context)) {
                 Utils.rebootQuestion(context, R.string.apply_symlink_successful_title, R.string.apply_symlink_successful);

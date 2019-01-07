@@ -1,2 +1,2 @@
-include ':app', ':tcpdump', ':webserver'
+include ':app', ':sentrystub', ':tcpdump', ':webserver'
 include ':libraries:RootCommands'

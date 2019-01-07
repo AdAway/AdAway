@@ -6,13 +6,13 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>Common problems</title></head>
 <body>
 <h2>Nema dovoljno memorije na particiji</h2>
-<p>Pokušajte da promenite odredište hosts datoteke u postavkama u <code>/data/data/hosts</code> (ili <code>/data/hosts</code>) pa ponovno primenite AdAway .</p>
+<p>Try changing the target hosts file in preferences to <code>/data/data/hosts</code> (or <code>/data/hosts</code>) and apply AdAway again.</p>
 
 <h2>Ne radi na Androidu 4.4+</h2>
-<p>Pokušajte da promenite odredište hosts datoteke u postavkama iz <code>/data/data/hosts</code> u <code>/data/hosts</code> ili <code>/system/etc/hosts</code> i ponovno primenite AdAway.</p>
+<p>Try changing the target hosts file in preferences from <code>/data/data/hosts</code> to <code>/data/hosts</code> or <code>/system/etc/hosts</code> and apply AdAway again.</p>
 
 <h2>Ne blokira reklame na aplikaciji XYZ!</h2>
-<p>Neki hostname možda fali u predviđenon host fajlu od <cite>Hosts Sources</cite> ili je aplikacija spakovala slike da obezbedi reklame bez pristupa internetu.<br><br>
+<p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
 Možete log-ovati DNS zahteve (Menu-&gt;Log DNS zahtevi) iz AdAway da nađete koji dodatni hostname-ovi treba da se blokiraju.
 <br><br>Dodaj sumnjive hostname u svoju Brnu listu dugim pritiskom ulaza u Log i prijavi ove hostname kada ste ih verifikovali na Forumu <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> od <a href="http://hosts-file.net">hosts-file.net</a>.</p>
 
@@ -20,7 +20,7 @@ Možete log-ovati DNS zahteve (Menu-&gt;Log DNS zahtevi) iz AdAway da nađete ko
 <p>Neke aplikacije keširaju reklame posle preuzimanja. Ovo dovodi do ostajanja reklama u nekim aplikacijama. Možete pokušati da uklonite keš ovih aplikacija u Androidovoj Application listi kako bi zaobišli ovaj problem</p>
 
 <h2>Aplikacija XYZ ne više ne radi!</h2>
-<p>Neke aplikacije moraju da komuniciraju sa imenom hosta koje je blokirao AdAway ili odbijaju da rade kada su imena hostova koji bi trebalo da pruže reklame nedostupni. Pogledajte <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> da biste dobili listu poznatih aplikacija koje imaju probleme. U suprotnom, pronađite koja imena hostova su potrebna i dodajte ih na vašu <cite>Belu listu</cite> pod <cite>Vaše liste</cite> i prijavite ih na <a href="https://github.com/AdAway/AdAway/issues">praćenje grešaka za AdAway</a></p>
+<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuse to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <cite>Whitelist</cite> under <cite>Your Lists</cite> and report them to the <a href="https://github.com/AdAway/AdAway/issues">bug tracker of AdAway</a>.</p>
 
 <h2>"Back" dugme u web browser-u ne radi</h2>
 <p>Možete omogućiti lokalni webserver u podešavanjima kao rešenje.</p>

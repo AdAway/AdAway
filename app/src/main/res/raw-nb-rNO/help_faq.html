@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head><title>FAQ</title></head>
 <body>
@@ -8,7 +7,7 @@
 
 
 <h2>Hvordan virker AdAway?</h2>
-<p>AdAway bruker <a href="http://en.wikipedia.org/wiki/Hosts_file">vertsfilen</a> til å blokkere vertsnavn som leverer reklamer. Vertsfilen er fil som er i <code>/system/etc/hosts</code> som kartlegger vertsnavn til IP-adresser. Dette er en tradisjonell måte definere vertsnavn til IP-adresser uten å være avhengige av Domain Name System (DNS). Alle uønskede vertsnavn blir omdirigert til <code>127.0.0.1</code>, som betyr at de vil bli henvist til din egen enhet.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
 
 <h2>Hvorfor er innstillingen for daglige oppdateringssjekker tonet ut?</h2>
 <p>Å automatisk se etter nye oppdateringer er bare tilgjengelig når AdAway er installert på mobilens interne minne. Dette er på grunn av begrensninger hos Android-plattformen.</p>
@@ -17,12 +16,12 @@
 <p>Java på Android vedlikeholder sitt eget interne DNS-mellomlager. Operativsystemet vil gjenspeile den nye vertsfilen umiddelbart (Dobbeltsjekk det med ping i ledeteksten), men du vil måtte starte Android på nytt for å bygge opp DNS-mellomlageret til Java på nytt.</p>
 
 <h2>Hvordan bruker man nettjeneren i AdAway?</h2>
-<p><strong>AdAway vil også virke uten å bruke nettjeneren!</strong>
-<br/><br/>Du kan skru på en lokal nettjener i innstillingene til Adaway for å svare på forespørsler til den lokale IP-adressen <code>127.0.0.1</code>. Dette betyr at forespørsler fra apper til reklametjenere som blir omdirigert til <code>127.0.0.1</code> blir besvart av AdAway.
-<br/>Noen apper nekter å virke dersom reklametjenerene ikke kan nåes. Med denne metoden vil de kunne bli nådd igjen, og svarer med en blank side og ingen reklamebilder.</p>
+<p><strong>AdAway will also work without using the webserver!</strong>
+<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
+<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Hvordan kan jeg blokkere/ublokkere spesifikke vertsnavn?</h2>
-<p>Legg til vertsnavnene du vil blokkere i svartelisten (=Svart) i <cite>Dine lister</cite>. I tillegg kan vartsnavn som du vil ekskludere fra blokkering bli lagt til i <cite>Hvitelisten</cite> (=Hvit), og vertsnavn som du vil omdirigere til en bestemt IP-adresse hører til i <cite>Omdirigeringslisten</cite> (=Omdirigering).</p>
+<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
 
 <h2>Hvor kan jeg finne flere vertsfilkilder?</h2>
 <p>Se <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Liste over ytterligere vertskilder for AdAway</a>.</p>

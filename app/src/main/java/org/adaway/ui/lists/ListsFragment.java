@@ -22,6 +22,7 @@ package org.adaway.ui.lists;
 
 import android.Manifest;
 import android.app.Activity;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -47,6 +49,7 @@ import android.view.ViewGroup;
 import org.adaway.R;
 import org.adaway.helper.ImportExportHelper;
 import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
+import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -101,6 +104,18 @@ public class ListsFragment extends Fragment {
         this.setHasOptionsMenu(true);
         // Create fragment view
         View view = inflater.inflate(R.layout.lists_fragment, container, false);
+        /*
+         * Configure snackbar.
+         */
+        // Get lists layout to attached snackbar to
+        CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
+        // Create install snackbar
+        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout);
+        // Bind snakbar to view models
+        ListsViewModel listsViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
+        listsViewModel.getBlackListItems().observe(this, installSnackbar.createObserver());
+        listsViewModel.getWhiteListItems().observe(this, installSnackbar.createObserver());
+        listsViewModel.getRedirectionListItems().observe(this, installSnackbar.createObserver());
         /*
          * Configure tabs.
          */

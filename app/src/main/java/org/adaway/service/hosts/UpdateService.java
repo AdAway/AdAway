@@ -7,6 +7,7 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.hostsinstall.HostsInstallException;
 import org.adaway.model.hostsinstall.HostsInstallModel;
+import org.adaway.ui.AdAwayApplication;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -18,6 +19,10 @@ import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
+
+import static androidx.work.ListenableWorker.Result.failure;
+import static androidx.work.ListenableWorker.Result.retry;
+import static androidx.work.ListenableWorker.Result.success;
 
 /**
  * This class is a service to check for hosts sources update.<br/>
@@ -88,9 +93,10 @@ public final class UpdateService {
         @NonNull
         @Override
         public Result doWork() {
+            Log.i(Constants.TAG, "Starting update worker");
             // Create model
-            Context context = this.getApplicationContext();
-            HostsInstallModel model = new HostsInstallModel(context);
+            AdAwayApplication application = (AdAwayApplication) this.getApplicationContext();
+            HostsInstallModel model = application.getHostsInstallModel();
             // Check for update
             boolean hasUpdate;
             try {
@@ -98,20 +104,20 @@ public final class UpdateService {
             } catch (HostsInstallException exception) {
                 // An error occurred, check will be retried
                 Log.e(Constants.TAG, "Failed to check for update. Will retry later.", exception);
-                return Result.RETRY;
+                return retry();
             }
             if (hasUpdate) {
                 // Do update
                 try {
-                    doUpdate(context, model);
+                    doUpdate(application, model);
                 } catch (HostsInstallException exception) {
                     // Installation failed. Worker failed.
                     Log.e(Constants.TAG, "Failed to apply hosts file during background update.", exception);
-                    return Result.FAILURE;
+                    return failure();
                 }
             }
             // Return as success
-            return Result.SUCCESS;
+            return success();
         }
 
         /**
@@ -125,7 +131,7 @@ public final class UpdateService {
             // Check if automatic update are enabled
             if (PreferenceHelper.getAutomaticUpdateDaily(context)) {
                 // Install update
-                model.downloadHostsSources();
+                model.retrieveHostsSources();
                 model.applyHostsFile();
             } else {
                 // Display update notification
