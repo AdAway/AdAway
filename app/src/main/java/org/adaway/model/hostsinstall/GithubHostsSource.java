@@ -1,6 +1,7 @@
 package org.adaway.model.hostsinstall;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 import android.util.JsonReader;
 
 import com.annimon.stream.Collectors;

@@ -1,11 +1,12 @@
 package org.adaway.ui.adware;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.support.annotation.NonNull;
+
+import androidx.lifecycle.AndroidViewModel;
+import androidx.annotation.NonNull;
 
 /**
- * This class is a {@link android.arch.lifecycle.ViewModel} for adware UI.
+ * This class is a {@link androidx.lifecycle.ViewModel} for adware UI.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */

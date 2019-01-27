@@ -1,9 +1,11 @@
 package org.adaway.ui.hostsinstall;
 
-import android.arch.lifecycle.Observer;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
+import androidx.lifecycle.Observer;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,8 +19,8 @@ import org.adaway.util.AppExecutors;
 
 import java.util.Collection;
 
-import static android.support.design.widget.Snackbar.LENGTH_INDEFINITE;
-import static android.support.design.widget.Snackbar.LENGTH_LONG;
+import static com.google.android.material.snackbar.Snackbar.LENGTH_INDEFINITE;
+import static com.google.android.material.snackbar.Snackbar.LENGTH_LONG;
 
 /**
  * This class is a {@link Snackbar} to notify about hosts install need.
@@ -179,7 +181,7 @@ public class HostsInstallSnackbar {
     }
 
     private void appendViewToSnackbar(Snackbar snackbar, View view) {
-        ViewGroup viewGroup = (ViewGroup) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text).getParent();
+        ViewGroup viewGroup = (ViewGroup) snackbar.getView().findViewById(com.google.android.material.R.id.snackbar_text).getParent();
         viewGroup.addView(view);
     }
 }

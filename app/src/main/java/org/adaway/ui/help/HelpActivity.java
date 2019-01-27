@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -23,12 +23,14 @@ package org.adaway.ui.help;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.MenuItem;
 
 import org.adaway.R;
@@ -64,7 +66,7 @@ public class HelpActivity extends AppCompatActivity {
         ThemeHelper.applyTheme(this);
 
         mViewPager = new ViewPager(this);
-        mViewPager.setId(R.id.all); // TODO Set proper id
+        mViewPager.setId(R.id.content_frame);
 
         setContentView(mViewPager);
         ActionBar bar = getSupportActionBar();

@@ -1,12 +1,14 @@
 package org.adaway.ui.adware;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
+
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.ComponentInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.support.annotation.WorkerThread;
+
+import androidx.annotation.WorkerThread;
 
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;

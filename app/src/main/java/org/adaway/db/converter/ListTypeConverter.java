@@ -1,6 +1,6 @@
 package org.adaway.db.converter;
 
-import android.arch.persistence.room.TypeConverter;
+import androidx.room.TypeConverter;
 
 import org.adaway.db.entity.ListType;
 

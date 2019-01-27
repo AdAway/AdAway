@@ -22,23 +22,31 @@ package org.adaway.ui.lists;
 
 import android.Manifest;
 import android.app.Activity;
-import android.arch.lifecycle.ViewModelProviders;
+
+import androidx.lifecycle.ViewModelProviders;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -60,7 +68,7 @@ import org.adaway.util.Log;
  */
 public class ListsFragment extends Fragment {
     /**
-     * The request code to identify the write external storage permission in {@link android.support.v4.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
+     * The request code to identify the write external storage permission in {@link androidx.fragment.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
      */
     private final static int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 10;
     /**

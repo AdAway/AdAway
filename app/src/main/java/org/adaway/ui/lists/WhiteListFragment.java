@@ -21,7 +21,9 @@
 package org.adaway.ui.lists;
 
 import android.app.AlertDialog;
-import android.arch.lifecycle.LiveData;
+
+import androidx.lifecycle.LiveData;
+
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -17,7 +17,7 @@
         app:menu="@menu/lists_navigation" />
 
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -26,14 +26,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.v4.view.ViewPager
+        <androidx.fragment.view.ViewPager
             android:id="@+id/lists_view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:longClickable="true" />
 
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/lists_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             app:layout_anchor="@id/lists_view_pager"
             app:layout_anchorGravity="bottom|right|end"
             app:srcCompat="@drawable/ic_add_black_24px" />
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <View
         android:layout_width="0dp"
@@ -53,4 +53,4 @@
         app:layout_constraintRight_toRightOf="parent">
 
     </View>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

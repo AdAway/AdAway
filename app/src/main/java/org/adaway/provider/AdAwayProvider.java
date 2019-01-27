@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -40,23 +40,22 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.provider.BaseColumns;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
 import android.text.TextUtils;
 
 public class AdAwayProvider extends ContentProvider {
-    private static final UriMatcher sUriMatcher = buildUriMatcher();
-
     private static final int HOSTS_SOURCES = 100;
     private static final int HOSTS_SOURCES_ID = 101;
-
     private static final int WHITELIST = 200;
     private static final int WHITELIST_ID = 201;
-
     private static final int BLACKLIST = 300;
     private static final int BLACKLIST_ID = 301;
-
     private static final int REDIRECTION_LIST = 400;
     private static final int REDIRECTION_LIST_ID = 401;
+    private static final UriMatcher sUriMatcher = buildUriMatcher();
+    private AdAwayDatabase mAdAwayDatabase;
 
     /**
      * Build and return a {@link UriMatcher} that catches all {@link Uri} variations supported by
@@ -84,8 +83,6 @@ public class AdAwayProvider extends ContentProvider {
 
         return matcher;
     }
-
-    private AdAwayDatabase mAdAwayDatabase;
 
     @Override
     public boolean onCreate() {

@@ -1,6 +1,6 @@
 package org.adaway.helper;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.adaway.R;
 

@@ -1,7 +1,10 @@
 package org.adaway.service.hosts;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
+import com.google.common.util.concurrent.ListenableFuture;
 
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
@@ -11,11 +14,16 @@ import org.adaway.util.Log;
 import org.adaway.model.hostsinstall.HostsInstallException;
 import org.adaway.model.hostsinstall.HostsInstallModel;
 
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 import androidx.work.Constraints;
 import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
@@ -54,7 +62,7 @@ public final class UpdateService {
         WorkManager.getInstance().cancelAllWorkByTag(WORKER_TAG);
         // Create worker constraints
         Constraints constraints = new Constraints.Builder()
-                .setRequiredNetworkType(unmeteredNetworkOnly ? androidx.work.NetworkType.UNMETERED : NetworkType.NOT_REQUIRED)
+                .setRequiredNetworkType(unmeteredNetworkOnly ? NetworkType.UNMETERED : NetworkType.NOT_REQUIRED)
                 .setRequiresStorageNotLow(true)
                 .build();
         // Create work request

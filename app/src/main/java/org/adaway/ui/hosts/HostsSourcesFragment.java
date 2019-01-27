@@ -22,16 +22,23 @@ package org.adaway.ui.hosts;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.arch.lifecycle.ViewModelProviders;
+
+import androidx.lifecycle.ViewModelProviders;
+
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v7.recyclerview.extensions.ListAdapter;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.Editable;
 import android.view.ActionMode;
 import android.view.LayoutInflater;

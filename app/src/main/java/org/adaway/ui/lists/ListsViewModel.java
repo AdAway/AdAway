@@ -1,10 +1,13 @@
 package org.adaway.ui.lists;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
+
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+
 import android.database.sqlite.SQLiteConstraintException;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;

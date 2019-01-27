@@ -22,7 +22,8 @@ package org.adaway.provider;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import org.adaway.provider.AdAwayContract.Blacklist;
 import org.adaway.provider.AdAwayContract.HostsSources;

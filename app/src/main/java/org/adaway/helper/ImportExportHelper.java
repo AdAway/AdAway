@@ -61,7 +61,7 @@ import java.util.Set;
  */
 public class ImportExportHelper {
     /**
-     * The request code to identify the selection of a file in {@link android.support.v4.app.Fragment#onActivityResult(int, int, Intent)}.
+     * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
      */
     public final static int REQUEST_CODE_IMPORT = 42;
 

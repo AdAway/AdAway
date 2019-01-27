@@ -1,10 +1,11 @@
 package org.adaway.ui.home;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
@@ -26,7 +27,7 @@ import static org.adaway.model.hostsinstall.HostsInstallStatus.OUTDATED;
 import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
 
 /**
- * This class is a {@link android.arch.lifecycle.ViewModel} for home fragment UI.
+ * This class is a {@link androidx.lifecycle.ViewModel} for home fragment UI.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */

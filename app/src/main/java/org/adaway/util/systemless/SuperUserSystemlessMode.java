@@ -2,7 +2,8 @@ package org.adaway.util.systemless;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;

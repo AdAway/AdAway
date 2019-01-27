@@ -1,6 +1,6 @@
 package org.adaway.ui.tcpdump;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.adaway.db.entity.ListType;
 

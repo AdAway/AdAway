@@ -1,7 +1,9 @@
 package org.adaway.ui.dialog;
 
 import android.app.AlertDialog;
-import android.arch.core.util.Function;
+
+import androidx.arch.core.util.Function;
+
 import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextWatcher;
