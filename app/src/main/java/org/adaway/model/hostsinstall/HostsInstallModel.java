@@ -339,8 +339,6 @@ public class HostsInstallModel extends Observable {
         Request request = new Request.Builder()
                 .url(hostsFileUrl)
                 .build();
-        // Declare last modified date
-        Date lastModified = null;
         // Request hosts file and open byte stream
         try (Response response = httpClient.newCall(request).execute();
              InputStream inputStream = response.body().byteStream()) {
@@ -348,19 +346,21 @@ public class HostsInstallModel extends Observable {
             this.copyHostsContent(inputStream, out);
             // Save last modified online for later use
             String lastModifiedHeader = response.header("Last-Modified");
-            SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
-            try {
-                lastModified = format.parse(lastModifiedHeader);
-            } catch (ParseException exception) {
-                Log.w(Constants.TAG, "Failed to parse Last-Modified header from " + hostsFileUrl + ": " + lastModifiedHeader + ".", exception);
+            if (lastModifiedHeader != null) {
+                try {
+                    // Parse last modified date
+                    SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
+                    Date lastModified = format.parse(lastModifiedHeader);
+                    // Update last_modified_online (null if not available or error happened)
+                    hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, lastModified);
+                } catch (ParseException exception) {
+                    Log.w(Constants.TAG, "Failed to parse Last-Modified header from " + hostsFileUrl + ": " + lastModifiedHeader + ".", exception);
+                }
             }
         } catch (IOException exception) {
             Log.e(Constants.TAG, "Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
             // Return download failed
             return false;
-        } finally {
-            // Update last_modified_online (null if not available or error happened)
-            hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, lastModified);
         }
         // Return download successful
         return true;
