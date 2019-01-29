@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_spacing">8dp</dimen>
+    <dimen name="card_inner_padding">16dp</dimen>
+</resources>

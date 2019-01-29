@@ -9,13 +9,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/home_welcome_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp">
+            android:layout_marginLeft="@dimen/card_spacing"
+            android:layout_marginTop="@dimen/card_spacing"
+            android:layout_marginRight="@dimen/card_spacing">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -26,30 +26,26 @@
                     android:id="@+id/home_help_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="@dimen/card_inner_padding"
                     android:text="@string/header_help"
                     android:textAppearance="@android:style/TextAppearance.Medium" />
 
                 <View
                     android:id="@+id/view"
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/card_inner_padding"
+                    android:layout_marginRight="@dimen/card_inner_padding"
                     android:background="#3F000000" />
 
                 <TextView
                     android:id="@+id/home_help_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/card_inner_padding"
                     android:justificationMode="inter_word"
-                    android:padding="16dp"
                     android:text="@string/text_help"
                     android:textAppearance="@android:style/TextAppearance.Small" />
-
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#3F000000" />
 
                 <LinearLayout
                     style="?android:attr/buttonBarStyle"
@@ -57,25 +53,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/home_show_help"
-                        style="?android:attr/buttonBarButtonStyle"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:padding="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
                         android:text="@string/button_show_help" />
                 </LinearLayout>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp">
+            android:layout_margin="@dimen/card_spacing"
+            android:layout_marginStart="@dimen/card_spacing"
+            android:layout_marginEnd="@dimen/card_spacing">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,9 +89,9 @@
                         android:id="@+id/home_status_title"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
                         android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/status_disabled"
@@ -144,7 +142,9 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/card_inner_padding"
+                    android:layout_marginRight="@dimen/card_inner_padding"
                     android:background="#3F000000" />
 
                 <TextView
@@ -152,14 +152,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
-                    android:padding="16dp"
+                    android:padding="@dimen/card_inner_padding"
                     android:text="@string/text_update"
                     android:textAppearance="@android:style/TextAppearance.Small" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#3F000000" />
 
                 <LinearLayout
                     style="?android:attr/buttonBarStyle"
@@ -167,37 +162,43 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/home_update_hosts"
-                        style="?android:attr/buttonBarButtonStyle"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:padding="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
                         android:text="@string/button_check_update_hosts" />
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/home_revert_hosts"
-                        style="?android:attr/buttonBarButtonStyle"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:padding="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
                         android:text="@string/button_disable_hosts" />
                 </LinearLayout>
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/home_webserver_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp">
+            android:layout_marginStart="@dimen/card_spacing"
+            android:layout_marginLeft="@dimen/card_spacing"
+            android:layout_marginEnd="@dimen/card_spacing"
+            android:layout_marginRight="@dimen/card_spacing"
+            android:layout_marginBottom="@dimen/card_spacing">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -213,9 +214,9 @@
                         android:id="@+id/home_webserver_header"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
                         android:text="@string/header_webserver"
                         android:textAppearance="@android:style/TextAppearance.Medium"
                         app:layout_constraintBottom_toTopOf="@+id/home_webserver_status"
@@ -248,7 +249,9 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/card_inner_padding"
+                    android:layout_marginRight="@dimen/card_inner_padding"
                     android:background="#3F000000" />
 
                 <TextView
@@ -256,33 +259,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
-                    android:padding="16dp"
+                    android:padding="@dimen/card_inner_padding"
                     android:text="@string/button_webserver_toggle_text"
                     android:textAppearance="@android:style/TextAppearance.Small" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#3F000000" />
-
                 <LinearLayout
                     style="?android:attr/buttonBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/home_webserver_enable"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="0dp"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
                         android:text="@string/button_enable_webserver" />
                 </LinearLayout>
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
