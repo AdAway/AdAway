@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <style name="Theme.AdAway.Dark" parent="Theme.AppCompat">
+    <style name="Theme.AdAway.Dark" parent="Theme.MaterialComponents">
         <item name="actionBarItemBackground">@drawable/selectable_background_adaway</item>
         <item name="android:selectableItemBackground">@drawable/selectable_background_adaway</item>
         <item name="android:panelBackground">@drawable/menu_hardkey_panel_adaway</item>
