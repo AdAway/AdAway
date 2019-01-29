@@ -4,6 +4,8 @@
     public static final boolean STUB;
 }
 
+-dontobfuscate
+
 ### Android Jetpack ###
 -dontwarn com.google.**
 
