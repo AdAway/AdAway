@@ -36,7 +36,7 @@
                     android:layout_height="1dp"
                     android:layout_marginLeft="@dimen/card_inner_padding"
                     android:layout_marginRight="@dimen/card_inner_padding"
-                    android:background="#3F000000" />
+                    android:background="@color/card_spacer" />
 
                 <TextView
                     android:id="@+id/home_help_text"
@@ -146,7 +146,7 @@
                     android:layout_height="1dp"
                     android:layout_marginLeft="@dimen/card_inner_padding"
                     android:layout_marginRight="@dimen/card_inner_padding"
-                    android:background="#3F000000" />
+                    android:background="@color/card_spacer" />
 
                 <TextView
                     android:id="@+id/textView5"
@@ -254,7 +254,7 @@
                     android:layout_height="1dp"
                     android:layout_marginLeft="@dimen/card_inner_padding"
                     android:layout_marginRight="@dimen/card_inner_padding"
-                    android:background="#3F000000" />
+                    android:background="@color/card_spacer" />
 
                 <TextView
                     android:id="@+id/home_webserver_text"

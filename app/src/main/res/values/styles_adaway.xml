@@ -10,7 +10,7 @@
         <item name="colorAccent">@color/accent</item>
         <item name="preferenceTheme">@style/ThemeOverlay.AppCompat.Dark</item>
     </style>
-    <style name="Theme.AdAway.Light" parent="Theme.AppCompat.Light">
+    <style name="Theme.AdAway.Light" parent="Theme.MaterialComponents.Light">
         <item name="actionBarItemBackground">@drawable/selectable_background_adaway</item>
         <item name="android:selectableItemBackground">@drawable/selectable_background_adaway</item>
         <item name="android:panelBackground">@drawable/menu_hardkey_panel_adaway</item>

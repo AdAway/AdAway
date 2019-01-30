@@ -8,10 +8,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp">
+            android:layout_margin="@dimen/card_spacing">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -22,42 +22,37 @@
                     android:id="@+id/hosts_content_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="@dimen/card_inner_padding"
                     android:text="@string/hosts_header"
-                    android:textAppearance="@android:style/TextAppearance.Medium" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
                 <View
                     android:id="@+id/separator_header"
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#3F000000" />
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/card_inner_padding"
+                    android:layout_marginRight="@dimen/card_inner_padding"
+                    android:background="@color/card_spacer" />
 
                 <TextView
                     android:id="@+id/hosts_description_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
-                    android:padding="16dp"
+                    android:padding="@dimen/card_inner_padding"
                     android:text="@string/hosts_description"
-                    android:textAppearance="@android:style/TextAppearance.Small" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
                 <TextView
                     android:id="@+id/hosts_content_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:paddingBottom="16dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
+                    android:paddingBottom="16dp"
                     android:text="@string/hosts_content"
-                    android:textAppearance="@android:style/TextAppearance.Small"
-                    android:textSize="12sp" />
-
-                <View
-                    android:id="@+id/separator_bottom"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#3F000000" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
 
                 <LinearLayout
                     style="?android:attr/buttonBarStyle"
@@ -65,18 +60,20 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/hosts_open_file"
-                        style="?android:attr/buttonBarButtonStyle"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:padding="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
                         android:text="@string/hosts_open_button" />
                 </LinearLayout>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
