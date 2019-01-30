@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/card_inner_padding"
                     android:text="@string/header_help"
-                    android:textAppearance="@android:style/TextAppearance.Medium" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
                 <View
                     android:id="@+id/view"
@@ -45,7 +45,7 @@
                     android:layout_margin="@dimen/card_inner_padding"
                     android:justificationMode="inter_word"
                     android:text="@string/text_help"
-                    android:textAppearance="@android:style/TextAppearance.Small" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
                 <LinearLayout
                     style="?android:attr/buttonBarStyle"
@@ -95,7 +95,7 @@
                         android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/status_disabled"
-                        android:textAppearance="@android:style/TextAppearance.Medium"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                         app:layout_constraintBottom_toTopOf="@+id/home_status_text"
                         app:layout_constraintEnd_toStartOf="@+id/home_status_layout"
                         app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +110,7 @@
                         android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/status_disabled_subtitle"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/home_status_layout"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -154,7 +155,7 @@
                     android:justificationMode="inter_word"
                     android:padding="@dimen/card_inner_padding"
                     android:text="@string/text_update"
-                    android:textAppearance="@android:style/TextAppearance.Small" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
                 <LinearLayout
                     style="?android:attr/buttonBarStyle"
@@ -167,9 +168,9 @@
                         style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
+                        android:layout_weight="1"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
                         android:text="@string/button_check_update_hosts" />
@@ -179,9 +180,9 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
+                        android:layout_weight="1"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
                         android:text="@string/button_disable_hosts" />
@@ -218,7 +219,7 @@
                         android:layout_marginRight="8dp"
                         android:layout_marginBottom="8dp"
                         android:text="@string/header_webserver"
-                        android:textAppearance="@android:style/TextAppearance.Medium"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                         app:layout_constraintBottom_toTopOf="@+id/home_webserver_status"
                         app:layout_constraintEnd_toStartOf="@+id/home_webserver_icon"
                         app:layout_constraintStart_toStartOf="parent"
@@ -231,6 +232,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
                         android:text="@string/webserver_status_stopped"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/home_webserver_icon"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -261,7 +263,7 @@
                     android:justificationMode="inter_word"
                     android:padding="@dimen/card_inner_padding"
                     android:text="@string/button_webserver_toggle_text"
-                    android:textAppearance="@android:style/TextAppearance.Small" />
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
                 <LinearLayout
                     style="?android:attr/buttonBarStyle"
