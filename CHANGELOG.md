@@ -1,6 +1,16 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/AdAway/AdAway/issues
 
+## [4.2.0] - 2019-02-02
+
+- Add hosts source download cache
+- Add snackbar notification to update host from DNS request listing
+- Update UI from Material Design to Material Theming
+- Update gradle, plugins and dependencies
+- Fix crash parsing not defined host source last modified date
+- Fix native modules build script (required for F-Droid build server)
+- Fix Transifex issues
+
 ## [4.1.0] - 2018-12-13
 
 - Add [telemetry feature](https://github.com/AdAway/AdAway/wiki/Telemetry)

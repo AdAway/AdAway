@@ -1,14 +1,5 @@
 apply plugin: 'com.android.application'
 
-def getGitSha1 = { ->
-    def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'rev-parse', '--short', 'HEAD'
-        standardOutput = stdout
-    }
-    return stdout.toString().trim()
-}
-
 def keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingStorePassword') &&
         project.hasProperty('signingKeyAlias') &&
@@ -20,9 +11,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 40100   // Read 4.xx.yy to match version name
-        versionName '4.1.0'
-        versionNameSuffix '-' + getGitSha1()
+        versionCode 40200   // Read 4.xx.yy to match version name
+        versionName '4.2.0'
 
         vectorDrawables.useSupportLibrary = true
 
