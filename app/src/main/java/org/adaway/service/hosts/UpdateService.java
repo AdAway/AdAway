@@ -2,28 +2,20 @@ package org.adaway.service.hosts;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
-
-import com.google.common.util.concurrent.ListenableFuture;
-
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.hostsinstall.HostsInstallException;
+import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.ui.AdAwayApplication;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.model.hostsinstall.HostsInstallException;
-import org.adaway.model.hostsinstall.HostsInstallModel;
 
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
 
+import androidx.annotation.NonNull;
 import androidx.work.Constraints;
 import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
-import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
