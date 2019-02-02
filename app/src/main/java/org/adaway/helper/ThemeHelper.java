@@ -1,6 +1,6 @@
 package org.adaway.helper;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 
 import org.adaway.R;
 
@@ -23,7 +23,7 @@ public final class ThemeHelper {
      *
      * @param activity The activity to apply theme.
      */
-    public static void applyTheme(AppCompatActivity activity) {
+    public static void applyTheme(Activity activity) {
         if (!PreferenceHelper.getDarkTheme(activity.getApplicationContext())) {
             activity.setTheme(R.style.Theme_AdAway_Light);
         }
