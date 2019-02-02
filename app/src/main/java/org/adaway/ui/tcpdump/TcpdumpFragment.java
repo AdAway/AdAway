@@ -32,7 +32,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ToggleButton;
 
 import org.adaway.R;
 import org.adaway.util.Constants;
@@ -51,6 +50,10 @@ public class TcpdumpFragment extends Fragment {
      * The root shell to start and stop tcpdump.
      */
     private Shell mRootShell;
+    /**
+     * The tcpdump running status ({@code true} if running, {@code false} if not, {@code null} if not defined).
+     */
+    private Boolean mTcpdumpRunning;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -64,29 +67,34 @@ public class TcpdumpFragment extends Fragment {
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Unable to create root shell for tcpdump.", exception);
         }
+        // Check if tcpdump if running
+        this.mTcpdumpRunning = TcpdumpUtils.isTcpdumpRunning(this.mRootShell);
         /*
          * Configure view.
          */
-        // Get tcpdump toggle button
-        ToggleButton tcpdumpToggleButton = view.findViewById(R.id.tcpdump_toggle_monitoring);
-        // Set tcpdump toggle button checked state according tcpdump running state
-        tcpdumpToggleButton.setChecked(TcpdumpUtils.isTcpdumpRunning(this.mRootShell));
-        // Set tcpdump toggle button checked listener to start/stop tcpdump
-        tcpdumpToggleButton.setOnCheckedChangeListener((buttonView, checked) -> {
+        // Get tcpdump enable button
+        Button tcpdumpEnableButton = view.findViewById(R.id.tcpdump_enable_monitoring);
+        // Set tcpdump enable button text according tcpdump running state
+        tcpdumpEnableButton.setText(this.mTcpdumpRunning ? R.string.tcpdump_disable_monitoring : R.string.tcpdump_enable_monitoring);
+        // Bind tcpdump enable button action listener to start/stop tcpdump
+        tcpdumpEnableButton.setOnClickListener(buttonView -> {
             // Check shell
             if (this.mRootShell == null) {
                 return;
             }
             // Check button checked state
-            if (checked) {
-                // Start tcpdump
-                if (!TcpdumpUtils.startTcpdump(activity, this.mRootShell)) {
-                    // If tcpdump start failed, uncheck button
-                    tcpdumpToggleButton.setChecked(false);
-                }
-            } else {
+            if (this.mTcpdumpRunning) {
                 // Stop tcpdump
                 TcpdumpUtils.stopTcpdump(this.mRootShell);
+                // Update tcp running status
+                this.mTcpdumpRunning = false;
+                // Update button text
+                tcpdumpEnableButton.setText(R.string.tcpdump_enable_monitoring);
+            } else if (TcpdumpUtils.startTcpdump(activity, this.mRootShell)) {
+                // Update tcp running status
+                this.mTcpdumpRunning = true;
+                // Update button text
+                tcpdumpEnableButton.setText(R.string.tcpdump_disable_monitoring);
             }
         });
         // Get open button
