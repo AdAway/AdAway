@@ -169,7 +169,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:layout_weight="1"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
                         android:text="@string/button_check_update_hosts" />
@@ -181,7 +180,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:layout_weight="1"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
                         android:text="@string/button_disable_hosts" />
