@@ -31,7 +31,6 @@
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
                 <View
-                    android:id="@+id/view"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginLeft="@dimen/card_inner_padding"
