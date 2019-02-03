@@ -35,7 +35,7 @@
                 android:text="@string/tcpdump_description"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
-            <LinearLayout
+            <com.google.android.flexbox.FlexboxLayout
                 style="?android:attr/buttonBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -46,10 +46,10 @@
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
+                    android:layout_marginLeft="@dimen/button_spacing"
+                    android:layout_marginRight="@dimen/button_spacing"
+                    android:paddingLeft="@dimen/button_spacing"
+                    android:paddingRight="@dimen/button_spacing"
                     android:text="@string/tcpdump_show_results" />
 
                 <com.google.android.material.button.MaterialButton
@@ -57,12 +57,12 @@
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
+                    android:layout_marginLeft="@dimen/button_spacing"
+                    android:layout_marginRight="@dimen/button_spacing"
+                    android:paddingLeft="@dimen/button_spacing"
+                    android:paddingRight="@dimen/button_spacing"
                     android:text="@string/tcpdump_enable_monitoring" />
-            </LinearLayout>
+            </com.google.android.flexbox.FlexboxLayout>
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

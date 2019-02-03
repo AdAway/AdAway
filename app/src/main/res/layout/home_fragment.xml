@@ -57,10 +57,10 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
+                        android:layout_marginLeft="@dimen/button_spacing"
+                        android:layout_marginRight="@dimen/button_spacing"
+                        android:paddingLeft="@dimen/button_spacing"
+                        android:paddingRight="@dimen/button_spacing"
                         android:text="@string/button_show_help" />
                 </LinearLayout>
 
@@ -156,21 +156,19 @@
                     android:text="@string/text_update"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
-                <LinearLayout
+                <com.google.android.flexbox.FlexboxLayout
                     style="?android:attr/buttonBarStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    app:flexWrap="wrap">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/home_update_hosts"
                         style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
+                        android:layout_marginStart="@dimen/button_spacing"
+                        android:layout_marginLeft="@dimen/button_spacing"
                         android:text="@string/button_check_update_hosts" />
 
                     <com.google.android.material.button.MaterialButton
@@ -178,12 +176,14 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
+                        android:layout_marginStart="@dimen/button_spacing"
+                        android:layout_marginLeft="@dimen/button_spacing"
+                        android:layout_marginEnd="@dimen/button_spacing"
+                        android:layout_marginRight="@dimen/button_spacing"
+                        android:paddingLeft="@dimen/button_spacing"
+                        android:paddingRight="@dimen/button_spacing"
                         android:text="@string/button_disable_hosts" />
-                </LinearLayout>
+                </com.google.android.flexbox.FlexboxLayout>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -273,10 +273,10 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
+                        android:layout_marginLeft="@dimen/button_spacing"
+                        android:layout_marginRight="@dimen/button_spacing"
+                        android:paddingLeft="@dimen/button_spacing"
+                        android:paddingRight="@dimen/button_spacing"
                         android:text="@string/button_enable_webserver" />
                 </LinearLayout>
             </LinearLayout>
