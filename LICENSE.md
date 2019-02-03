@@ -17,6 +17,10 @@ If not, see <https://www.gnu.org/licenses/>.
   https://developer.android.com/jetpack/  
   Apache License v2
 
+* FlexboxLayout
+  https://github.com/google/flexbox-layout
+  Apache License v2
+
 * Guava  
   https://github.com/google/guava  
   Apache License v2

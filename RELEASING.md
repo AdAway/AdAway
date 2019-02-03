@@ -68,6 +68,7 @@ Hi all,
 Special thanks to <contributors> for theirs contributions and <bug reporters> for theirs helpful bug reports.
 
 [U][SIZE="4"]Download:[/SIZE][/U]
+
 [URL="https://www.androidfilehost.com/?fid=<version file id>"]AdAway <application version> on AndroidFileHost[/URL] (md5: <apk file md5>)
 ```
 
