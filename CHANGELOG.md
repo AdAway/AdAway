@@ -1,6 +1,16 @@
 Please report bugs on the following website instead of writing bad reviews:
 https://github.com/AdAway/AdAway/issues
 
+
+## [4.2.2] - 2019-02-16
+
+- Improve Material Theming
+- Update build tools
+
+## [4.2.1] - 2019-02-03
+
+- Fix two buttons line when text too long
+
 ## [4.2.0] - 2019-02-02
 
 - Add hosts source download cache
