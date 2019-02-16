@@ -21,24 +21,8 @@
 package org.adaway.ui.hosts;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-
-import androidx.lifecycle.ViewModelProviders;
-
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.text.Editable;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -49,10 +33,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * This class is a {@link Fragment} to display and manage hosts sources.
@@ -211,36 +207,36 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
      * Add a hosts source.
      */
     private void addSource() {
-        // Create dialog builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-        builder.setTitle(R.string.hosts_add_dialog_title);
-        builder.setCancelable(true);
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(mActivity);
         View view = factory.inflate(R.layout.hosts_sources_dialog, null);
-        builder.setView(view);
         // Move cursor to end of EditText
         EditText inputEditText = view.findViewById(R.id.hosts_add_dialog_url);
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
-        // Setup buttons
-        builder.setPositiveButton(
-                R.string.button_add,
-                (dialog, which) -> {
-                    String url = inputEditText.getText().toString();
-                    if (HostsSource.isValidUrl(url)) {
-                        // Insert hosts source into database
-                        this.mViewModel.addSourceFromUrl(url);
-                    }
-                    dialog.dismiss();
-                }
-        );
-        builder.setNegativeButton(
-                R.string.button_cancel,
-                (dialog, which) -> dialog.dismiss()
-        );
+        // Create dialog
+        AlertDialog alertDialog = new MaterialAlertDialogBuilder(this.mActivity)
+                .setTitle(R.string.hosts_add_dialog_title)
+                .setCancelable(true)
+                .setView(view)
+                // Setup buttons
+                .setPositiveButton(
+                        R.string.button_add,
+                        (dialog, which) -> {
+                            String url = inputEditText.getText().toString();
+                            if (HostsSource.isValidUrl(url)) {
+                                // Insert hosts source into database
+                                this.mViewModel.addSourceFromUrl(url);
+                            }
+                            dialog.dismiss();
+                        }
+                )
+                .setNegativeButton(
+                        R.string.button_cancel,
+                        (dialog, which) -> dialog.dismiss()
+                )
+                .create();
         // Display dialog
-        AlertDialog alertDialog = builder.create();
         alertDialog.show();
         // Set button validation behavior
         inputEditText.addTextChangedListener(
@@ -257,44 +253,45 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
             return;
         }
         HostsSource editedSource = this.mActionSource;
-        // Create dialog builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-        builder.setTitle(R.string.hosts_edit_dialog_title);
-        builder.setCancelable(true);
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(mActivity);
         View view = factory.inflate(R.layout.hosts_sources_dialog, null);
-        builder.setView(view);
         // Set source URL
         EditText inputEditText = view.findViewById(R.id.hosts_add_dialog_url);
         inputEditText.setText(editedSource.getUrl());
         // Move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
-        // Setup buttons
-        builder.setPositiveButton(getResources().getString(R.string.button_save),
-                (dialog, which) -> {
-                    // Close dialog
-                    dialog.dismiss();
-                    // Finish action mode
-                    HostsSourcesFragment.this.mActionMode.finish();
-                    // Check url validity
-                    String url = inputEditText.getText().toString();
-                    if (HostsSource.isValidUrl(url)) {
-                        // Update hosts source into database
-                        this.mViewModel.updateSourceUrl(editedSource, url);
-                    }
-                }
-        );
-        builder.setNegativeButton(getResources().getString(R.string.button_cancel),
-                (dialog, which) -> {
-                    // Close dialog
-                    dialog.dismiss();
-                    // Finish action mode
-                    HostsSourcesFragment.this.mActionMode.finish();
-                }
-        );
-        AlertDialog alertDialog = builder.create();
+        // Create dialog builder
+        AlertDialog alertDialog = new MaterialAlertDialogBuilder(this.mActivity)
+                .setTitle(R.string.hosts_edit_dialog_title)
+                .setCancelable(true)
+                .setView(view)
+                // Setup buttons
+                .setPositiveButton(getResources().getString(R.string.button_save),
+                        (dialog, which) -> {
+                            // Close dialog
+                            dialog.dismiss();
+                            // Finish action mode
+                            HostsSourcesFragment.this.mActionMode.finish();
+                            // Check url validity
+                            String url = inputEditText.getText().toString();
+                            if (HostsSource.isValidUrl(url)) {
+                                // Update hosts source into database
+                                this.mViewModel.updateSourceUrl(editedSource, url);
+                            }
+                        }
+                )
+                .setNegativeButton(getResources().getString(R.string.button_cancel),
+                        (dialog, which) -> {
+                            // Close dialog
+                            dialog.dismiss();
+                            // Finish action mode
+                            HostsSourcesFragment.this.mActionMode.finish();
+                        }
+                )
+                .create();
+        // Display dialog
         alertDialog.show();
         // Set button validation behavior
         inputEditText.addTextChangedListener(

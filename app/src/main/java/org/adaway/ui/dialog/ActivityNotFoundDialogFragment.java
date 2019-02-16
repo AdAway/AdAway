@@ -20,19 +20,19 @@
 
 package org.adaway.ui.dialog;
 
-import org.adaway.R;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import org.adaway.R;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
@@ -74,40 +74,32 @@ public class ActivityNotFoundDialogFragment extends DialogFragment {
         final int title = getArguments().getInt(ARG_TITLE);
         final int message = getArguments().getInt(ARG_MESSAGE);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setPositiveButton(R.string.button_yes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                Intent intentGooglePlay = new Intent(Intent.ACTION_VIEW);
-                intentGooglePlay.setData(Uri.parse(appGooglePlayUri));
-
-                try {
-                    activity.startActivity(intentGooglePlay);
-                } catch (ActivityNotFoundException e) {
-                    Log.e(Constants.TAG, "No Google Play Store installed!, Trying FDroid...", e);
-
-                    Intent intentFDroid = new Intent(Intent.ACTION_SEARCH);
-                    intentFDroid.setComponent(new ComponentName("org.fdroid.fdroid",
-                            "org.fdroid.fdroid.SearchResults"));
-                    intentFDroid.putExtra(SearchManager.QUERY, appFDroidQuery);
+        return new MaterialAlertDialogBuilder(activity)
+                .setTitle(title)
+                .setMessage(message)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(R.string.button_yes, (dialog, id) -> {
+                    Intent intentGooglePlay = new Intent(Intent.ACTION_VIEW);
+                    intentGooglePlay.setData(Uri.parse(appGooglePlayUri));
 
                     try {
-                        activity.startActivity(intentFDroid);
-                    } catch (ActivityNotFoundException e2) {
-                        Log.e(Constants.TAG, "No FDroid installed!", e2);
+                        activity.startActivity(intentGooglePlay);
+                    } catch (ActivityNotFoundException e) {
+                        Log.e(Constants.TAG, "No Google Play Store installed!, Trying FDroid...", e);
+
+                        Intent intentFDroid = new Intent(Intent.ACTION_SEARCH);
+                        intentFDroid.setComponent(new ComponentName("org.fdroid.fdroid",
+                                "org.fdroid.fdroid.SearchResults"));
+                        intentFDroid.putExtra(SearchManager.QUERY, appFDroidQuery);
+
+                        try {
+                            activity.startActivity(intentFDroid);
+                        } catch (ActivityNotFoundException e2) {
+                            Log.e(Constants.TAG, "No FDroid installed!", e2);
+                        }
                     }
-                }
-            }
-        });
-        builder.setNegativeButton(R.string.button_no, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.dismiss();
-            }
-        });
-
-        builder.setTitle(title);
-        builder.setMessage(message);
-
-        return builder.create();
+                })
+                .setNegativeButton(R.string.button_no, (dialog, id) -> dialog.dismiss())
+                .create();
     }
 }

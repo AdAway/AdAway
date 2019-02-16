@@ -24,7 +24,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -36,6 +35,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
@@ -74,24 +75,17 @@ public class Utils {
      * @param activity The current activity.
      */
     public static void displayNoRootDialog(Activity activity) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setCancelable(false);
-        builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setTitle(activity.getString(R.string.no_root_title));
-
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(activity);
         View dialogView = factory.inflate(R.layout.no_root_dialog, null);
-        builder.setView(dialogView);
 
-        builder.setNeutralButton(
-                activity.getResources().getString(R.string.button_exit),
-                (dialog, which) -> activity.finish() // finish current activity, means exiting app
-
-        );
-
-        AlertDialog alert = builder.create();
-        alert.show();
+        new MaterialAlertDialogBuilder(activity)
+                .setTitle(R.string.no_root_title)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setCancelable(false)
+                .setView(dialogView)
+                .setNeutralButton(R.string.button_exit, (dialog, which) -> activity.finish())
+                .show();
     }
 
     /**
@@ -101,63 +95,57 @@ public class Utils {
      * @param messageR resource id of message string
      */
     public static void rebootQuestion(final Context context, int titleR, int messageR) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(titleR);
-        builder.setIcon(android.R.drawable.ic_dialog_info);
-
         // build view from layout
         LayoutInflater factory = LayoutInflater.from(context);
         final View dialogView = factory.inflate(R.layout.reboot_dialog, null);
-
         // set text in view based on given resource id
         TextView text = dialogView.findViewById(R.id.reboot_dialog_text);
         text.setText(context.getString(messageR));
 
-        builder.setView(dialogView);
+        Runnable updatePreferences = () -> {
+            // set preference to never show reboot dialog again if checkbox is checked
+            CheckBox checkBox = dialogView.findViewById(R.id.reboot_dialog_checkbox);
+            if (checkBox.isChecked()) {
+                PreferenceHelper.setNeverReboot(context, true);
+            }
+        };
 
-        builder.setPositiveButton(context.getString(R.string.button_yes),
-                (dialog, id) -> {
-
-                    // set preference to never show reboot dialog again if checkbox is checked
-                    CheckBox checkBox = dialogView.findViewById(R.id.reboot_dialog_checkbox);
-                    if (checkBox.isChecked()) {
-                        PreferenceHelper.setNeverReboot(context, true);
-                    }
-
-                    Shell rootShell = null;
-                    try {
-                        rootShell = Shell.startRootShell();
-
-                        Toolbox tb = new Toolbox(rootShell);
-                        tb.reboot(Toolbox.REBOOT_REBOOT);
-                    } catch (Exception e) {
-                        Log.e(Constants.TAG, "Problem with rebooting", e);
-                    } finally {
-                        if (rootShell != null) {
-                            try {
-                                rootShell.close();
-                            } catch (IOException e) {
-                                Log.w(Constants.TAG, "Unable to close shell.", e);
-                            }
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(titleR)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setView(dialogView)
+                .setPositiveButton(context.getString(R.string.button_yes),
+                        (dialog, id) -> {
+                            updatePreferences.run();
+                            reboot();
                         }
-                    }
+                )
+                .setNegativeButton(context.getString(R.string.button_no),
+                        (dialog, id) -> {
+                            updatePreferences.run();
+                            dialog.dismiss();
+                        }
+                )
+                .show();
+    }
+
+    private static void reboot() {
+        Shell rootShell = null;
+        try {
+            rootShell = Shell.startRootShell();
+            Toolbox tb = new Toolbox(rootShell);
+            tb.reboot(Toolbox.REBOOT_REBOOT);
+        } catch (Exception e) {
+            Log.e(Constants.TAG, "Problem with rebooting", e);
+        } finally {
+            if (rootShell != null) {
+                try {
+                    rootShell.close();
+                } catch (IOException e) {
+                    Log.w(Constants.TAG, "Unable to close shell.", e);
                 }
-        );
-        builder.setNegativeButton(context.getString(R.string.button_no),
-                (dialog, id) -> {
-
-                    // set preference to never show reboot dialog again if checkbox is checked
-                    CheckBox checkBox = dialogView.findViewById(R.id.reboot_dialog_checkbox);
-                    if (checkBox.isChecked()) {
-                        PreferenceHelper.setNeverReboot(context, true);
-                    }
-
-                    dialog.dismiss();
-                }
-        );
-        AlertDialog question = builder.create();
-
-        question.show();
+            }
+        }
     }
 
     /**

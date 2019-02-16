@@ -26,21 +26,13 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
 import org.adaway.helper.NotificationHelper;
@@ -56,6 +48,14 @@ import org.adaway.ui.tcpdump.TcpdumpFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.SentryLog;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 /**
  * This class is the application main activity.
@@ -387,7 +387,7 @@ public class MainActivity extends AppCompatActivity {
         // Close the drawer
         this.mDrawerLayout.closeDrawer(this.mDrawer);
         // Show support dialog
-        new AlertDialog.Builder(this)
+        new MaterialAlertDialogBuilder(this)
                 .setIcon(R.drawable.baseline_favorite_24)
                 .setTitle(R.string.drawer_support_dialog_title)
                 .setMessage(R.string.drawer_support_dialog_text)

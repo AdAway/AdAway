@@ -1,18 +1,19 @@
 package org.adaway.ui.home;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.ui.AdAwayApplication;
-import org.adaway.ui.help.HelpActivity;
 import org.adaway.model.hostsinstall.HostsInstallError;
-import org.adaway.util.Utils;
 import org.adaway.model.hostsinstall.HostsInstallException;
 import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.model.hostsinstall.HostsInstallStatus;
+import org.adaway.ui.AdAwayApplication;
+import org.adaway.ui.help.HelpActivity;
+import org.adaway.util.Utils;
 
 /**
  * This class is an helper class to show hosts install error related dialogs.
@@ -62,20 +63,15 @@ final class HostsInstallDialog {
             showSymlinkDialog(context);
             return;
         }
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setPositiveButton(
-                context.getString(R.string.button_close),
-                (dialog, id) -> dialog.dismiss()
-        );
-        builder.setNegativeButton(
-                context.getString(R.string.button_help),
-                (dialog, id) -> {
+
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(R.string.button_close, (dialog, id) -> dialog.dismiss())
+                .setNegativeButton(R.string.button_help, (dialog, id) -> {
                     dialog.dismiss();
                     // go to help
                     context.startActivity(new Intent(context, HelpActivity.class));
-                }
-        );
+                });
 
         int title;
         int text;
@@ -126,9 +122,7 @@ final class HostsInstallDialog {
         }
         builder.setTitle(title);
         builder.setMessage(context.getString(text) + "\n\n" + context.getString(R.string.apply_help));
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        builder.show();
     }
 
     /**
@@ -137,23 +131,21 @@ final class HostsInstallDialog {
      * @param context The application context.
      */
     private static void showSymlinkDialog(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(R.string.apply_symlink_missing_title);
-        builder.setMessage(R.string.apply_symlink_missing);
-        builder.setIcon(android.R.drawable.ic_dialog_info);
-        builder.setPositiveButton(
-                context.getString(R.string.button_yes),
-                (dialog, id) -> {
-                    dialog.dismiss();
-                    HostsInstallDialog.tryToCreateSymlink(context);
-                }
-        );
-        builder.setNegativeButton(
-                context.getString(R.string.button_no),
-                (dialog, id) -> dialog.dismiss()
-        );
-        AlertDialog question = builder.create();
-        question.show();
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.apply_symlink_missing_title)
+                .setMessage(R.string.apply_symlink_missing)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setPositiveButton(
+                        context.getString(R.string.button_yes),
+                        (dialog, id) -> {
+                            dialog.dismiss();
+                            HostsInstallDialog.tryToCreateSymlink(context);
+                        }
+                )
+                .setNegativeButton(
+                        context.getString(R.string.button_no),
+                        (dialog, id) -> dialog.dismiss()
+                ).show();
     }
 
     /**

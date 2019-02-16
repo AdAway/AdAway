@@ -7,11 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
-
 import org.adaway.R;
 import org.adaway.ui.MainActivity;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 
 /**
  * This class is an helper class to deals with notifications.
@@ -88,7 +88,7 @@ public final class NotificationHelper {
         builder.setContentIntent(pendingIntent).setAutoCancel(true);
         // Set color if supported
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            builder.setColorized(true).setColor(context.getColor(R.color.accent));
+            builder.setColorized(true).setColor(context.getColor(R.color.notification));
         }
         // Notify the built notification
         notificationManager.notify(UPDATE_HOSTS_NOTIFICATION_ID, builder.build());

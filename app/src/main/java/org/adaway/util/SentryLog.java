@@ -1,13 +1,12 @@
 package org.adaway.util;
 
 import android.content.Context;
-
-import androidx.appcompat.app.AlertDialog;
-
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
@@ -86,25 +85,23 @@ public final class SentryLog {
             return;
         }
         // Display user request dialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(R.string.dialog_telemetry_title);
-        builder.setIcon(R.drawable.outline_cloud_upload_24);
         LayoutInflater inflater = LayoutInflater.from(context);
         View messageView = inflater.inflate(R.layout.dialog_telemetry, null);
         TextView textView = messageView.findViewById(R.id.telemetry_message);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
-        builder.setView(messageView);
-        builder.setCancelable(false);
-        builder.setPositiveButton(R.string.dialog_telemetry_enable, (dialog, which) -> {
-            PreferenceHelper.setDisplayTelemetryConsent(context, false);
-            PreferenceHelper.setTelemetryEnabled(context, true);
-            SentryLog.setEnabled(context, true);
-        });
-        builder.setNegativeButton(R.string.dialog_telemetry_disable, (dialog, which) ->
-                PreferenceHelper.setDisplayTelemetryConsent(context, false)
-        );
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.dialog_telemetry_title)
+                .setIcon(R.drawable.outline_cloud_upload_24)
+                .setView(messageView)
+                .setCancelable(false)
+                .setPositiveButton(R.string.dialog_telemetry_enable, (dialog, which) -> {
+                    PreferenceHelper.setDisplayTelemetryConsent(context, false);
+                    PreferenceHelper.setTelemetryEnabled(context, true);
+                    SentryLog.setEnabled(context, true);
+                })
+                .setNegativeButton(R.string.dialog_telemetry_disable, (dialog, which) ->
+                        PreferenceHelper.setDisplayTelemetryConsent(context, false)
+                ).show();
     }
 
     /**

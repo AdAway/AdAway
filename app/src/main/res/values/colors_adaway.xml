@@ -1,32 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- File created by the Android Action Bar Style Generator
-
-     Copyright (C) 2012 readyState Software Ltd
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-  
-          http://www.apache.org/licenses/LICENSE-2.0
-  
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
 <resources>
-    <color name="pressed_adaway">#ccaa0000</color>
+    <!-- Material theming black theme -->
     <color name="primary">#b71c1c</color>
-    <color name="primary_dark">#ccb71c1c</color>
-    <color name="accent">#b71c1c</color>
+    <color name="primaryVariant">#e53935</color>
+    <color name="onPrimary">#ffffff</color>
+    <!-- Material theming Light theme -->
+    <color name="lightPrimary">#ef5350</color>
+    <color name="lightPrimaryVariant">#e53935</color>
+    <color name="lightOnPrimary">#000000</color>
+    <!-- Common UI elements -->
     <color name="selected_background">#78b71c1c</color>
     <color name="shortcut_background">#f5f5f5</color>
     <color name="card_spacer">#3F000000</color>
-
-    <!-- Light theme -->
-    <color name="light_primary">#ff6060</color>
-    <color name="light_primary_dark">#ccb71c1c</color>
-    <color name="light_accent">#ec2626</color>
+    <!-- Notifications -->
+    <color name="notification">#b71c1c</color>
 </resources>
