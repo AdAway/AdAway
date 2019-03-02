@@ -166,7 +166,7 @@ public class HostsInstallModel extends Observable {
         boolean updateAvailable = false;
         boolean anyHostsSourceVerified = false;
         // Get hosts sources
-        List<HostsSource> sources = hostsSourceDao.getAll();
+        List<HostsSource> sources = hostsSourceDao.getEnabled();
         if (sources.isEmpty()) {
             // Return no update as no source
             return false;
