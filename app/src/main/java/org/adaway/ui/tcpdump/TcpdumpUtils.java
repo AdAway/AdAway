@@ -27,6 +27,7 @@ import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
+import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
 
 import java.io.BufferedReader;
@@ -75,7 +76,7 @@ class TcpdumpUtils {
      */
     static boolean startTcpdump(Context context, Shell shell) {
         Log.d(Constants.TAG, "Starting tcpdump...");
-        checkSystemTcpdump(context, shell);
+        checkSystemTcpdump(shell);
 
         File file = getLogFile(context);
         try {
@@ -124,16 +125,18 @@ class TcpdumpUtils {
     /**
      * Check if tcpdump binary in bundled in the system.
      *
-     * @param context The application context.
-     * @param shell   The shell to check binary presence.
+     * @param shell The shell to check binary presence.
      */
-    static void checkSystemTcpdump(Context context, Shell shell) {
-        SimpleExecutableCommand command = new SimpleExecutableCommand(context, "tcpdump", "--version");
+    static void checkSystemTcpdump(Shell shell) {
         try {
+            SimpleCommand command = new SimpleCommand("tcpdump --version");
             shell.add(command).waitForFinish();
             int exitCode = command.getExitCode();
             String output = command.getOutput();
-            Sentry.capture("Tcpdump status: " + exitCode + "\n" + output);
+            Sentry.capture(
+                    "Tcpdump " + (exitCode == 0 ? "present" : "missing (" + exitCode + ")") + "\n"
+                            + output
+            );
         } catch (Exception exception) {
             Log.w(Constants.TAG, "Failed to check system tcpdump binary.", exception);
         }
