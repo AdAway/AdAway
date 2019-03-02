@@ -2,6 +2,13 @@ Please report bugs on the following website instead of writing bad reviews:
 https://github.com/AdAway/AdAway/issues
 
 
+## [4.2.3] - 2019-03-02
+
+- Fix update check on disabled sources
+- Fix cropped label on home screen
+- Prevent app installation on external storage (can't launch tcpdump or web server binary)
+- Update work manager and material dependencies
+
 ## [4.2.2] - 2019-02-16
 
 - Improve Material Theming
