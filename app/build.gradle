@@ -45,9 +45,6 @@ android {
 
         buildTypes.debug.signingConfig = signingConfigs.release
         buildTypes.release.signingConfig = signingConfigs.release
-    } else {
-        buildTypes.debug.signingConfig = null
-        buildTypes.release.signingConfig = null
     }
 
     compileOptions {
