@@ -216,6 +216,10 @@ public class HomeFragment extends Fragment {
                             state = R.string.status_download_fail;
                             statusText = R.string.status_download_fail_subtitle_new;
                             break;
+                        case ROOT_ACCESS_DENIED:
+                            state = R.string.status_root_access_denied;
+                            statusText = R.string.status_root_access_denied_subtitle;
+                            break;
                         default:
                             state = R.string.status_failure;
                             statusText = R.string.status_failure_subtitle;

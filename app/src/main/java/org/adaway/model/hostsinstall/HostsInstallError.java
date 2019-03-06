@@ -17,4 +17,5 @@ public enum HostsInstallError {
     REVERT_FAIL,
     APN_PROXY,
     SYMLINK_FAILED,
+    ROOT_ACCESS_DENIED,
 }
