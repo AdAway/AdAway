@@ -57,12 +57,15 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
+
 import static org.adaway.model.hostsinstall.HostsInstallError.APPLY_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.DOWNLOAD_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.NOT_ENOUGH_SPACE;
 import static org.adaway.model.hostsinstall.HostsInstallError.NO_CONNECTION;
 import static org.adaway.model.hostsinstall.HostsInstallError.PRIVATE_FILE_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.REVERT_FAIL;
+import static org.adaway.model.hostsinstall.HostsInstallError.ROOT_ACCESS_DENIED;
 import static org.adaway.model.hostsinstall.HostsInstallError.SYMLINK_MISSING;
 
 /**
@@ -446,6 +449,8 @@ public class HostsInstallModel extends Observable {
             }
             this.markHostsSourcesAsInstalled();
             this.setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
+        } catch (RootAccessDeniedException exception) {
+            throw new HostsInstallException(ROOT_ACCESS_DENIED, "Root access denied", exception);
         } catch (IOException exception) {
             throw new HostsInstallException(APPLY_FAIL, "Failed to start a root shell.", exception);
         } finally {

@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">No Internet connection available</string>
     <string name="status_download_fail">Unavailable sources</string>
     <string name="status_download_fail_subtitle_new">No hosts sources are reachable!</string>
+    <string name="status_root_access_denied">Root access denied</string>
+    <string name="status_root_access_denied_subtitle">Root access could not be obtained! Please check your root management app to ensure root access has been granted.</string>
     <string name="status_failure">Something went wrong</string>
     <string name="status_failure_subtitle">Check the logcat for more details</string>
     <string name="status_enabled">Enabled</string>
