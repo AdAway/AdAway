@@ -83,7 +83,7 @@ ext {
     material = '1.1.0-alpha04'
     room = '2.0.0'
     support = '1.0.0'
-    work = '1.0.0-rc02'
+    work = '1.0.0'
 }
 
 dependencies {
