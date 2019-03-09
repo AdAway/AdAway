@@ -61,14 +61,15 @@ public class TcpdumpFragment extends Fragment {
         View view = inflater.inflate(R.layout.tcpdump_fragment, container, false);
         // Get activity
         final Activity activity = this.getActivity();
-        // Create root shell
         try {
+            // Create root shell
             this.mRootShell = Shell.startRootShell();
+            // Check if tcpdump if running
+            this.mTcpdumpRunning = TcpdumpUtils.isTcpdumpRunning(this.mRootShell);
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Unable to create root shell for tcpdump.", exception);
+            this.mTcpdumpRunning = false;
         }
-        // Check if tcpdump if running
-        this.mTcpdumpRunning = TcpdumpUtils.isTcpdumpRunning(this.mRootShell);
         /*
          * Configure view.
          */
