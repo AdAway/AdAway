@@ -118,7 +118,7 @@ final class HostsInstallDialog {
                 break;
             case ROOT_ACCESS_DENIED:
                 title = R.string.status_root_access_denied;
-                text = R.string.status_root_access_denied_subtitle;
+                text = R.string.root_access_fail;
                 break;
 
             default:
