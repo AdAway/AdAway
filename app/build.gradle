@@ -96,11 +96,11 @@ dependencies {
     implementation "android.arch.work:work-runtime:${work}"
 
     // Support libraries
-    implementation "androidx.appcompat:appcompat:1.1.0-alpha02"
+    implementation "androidx.appcompat:appcompat:1.1.0-alpha03"
     implementation "androidx.cardview:cardview:${support}"
     implementation "androidx.constraintlayout:constraintlayout:${constraint_layout}"
     implementation "androidx.preference:preference:${support}"
-    implementation "androidx.recyclerview:recyclerview:1.1.0-alpha02"
+    implementation "androidx.recyclerview:recyclerview:1.1.0-alpha03"
     implementation "androidx.fragment:fragment:1.1.0-alpha4"
     implementation "com.google.android.material:material:${material}"
 
