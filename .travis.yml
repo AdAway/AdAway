@@ -25,10 +25,10 @@ addons:
 
 before_install:
   - rm -rf $HOME/android-ndk-r18b
-  - curl -L https://dl.google.com/android/repository/android-ndk-r19b-linux-x86_64.zip -O
-  - unzip -oq -d $HOME android-ndk-r19b-linux-x86_64.zip
-  - rm android-ndk-r19b-linux-x86_64.zip
-  - export ANDROID_NDK_HOME=$HOME/android-ndk-r19b
+  - curl -L https://dl.google.com/android/repository/android-ndk-r19c-linux-x86_64.zip -O
+  - unzip -oq -d $HOME android-ndk-r19c-linux-x86_64.zip
+  - rm android-ndk-r19c-linux-x86_64.zip
+  - export ANDROID_NDK_HOME=$HOME/android-ndk-r19c
 
 script:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./gradlew sonarqube; fi
