@@ -71,7 +71,7 @@
     <string name="status_download_fail">Unavailable sources</string>
     <string name="status_download_fail_subtitle_new">No hosts sources are reachable!</string>
     <string name="status_root_access_denied">Root access denied</string>
-    <string name="status_root_access_denied_subtitle">Allow root access from you root app</string>
+    <string name="status_root_access_denied_subtitle">Allow root access from your root app</string>
     <string name="status_failure">Something went wrong</string>
     <string name="status_failure_subtitle">Check the logcat for more details</string>
     <string name="status_enabled">Enabled</string>
