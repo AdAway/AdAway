@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -28,7 +28,6 @@ import io.sentry.Sentry;
 public final class Log {
 
     public static void v(String tag, String msg) {
-
         if (Constants.isDebugEnabled()) {
             android.util.Log.v(tag, msg);
         }
@@ -62,8 +61,7 @@ public final class Log {
     public static void i(String tag, String msg, Throwable tr) {
         if (Constants.isDebugEnabled()) {
             android.util.Log.i(tag, msg, tr);
-            Sentry.capture(msg);
-            Sentry.capture(tr);
+            Sentry.capture(new Exception(msg, tr));
         }
     }
 
@@ -75,12 +73,7 @@ public final class Log {
     public static void w(String tag, String msg, Throwable tr) {
         android.util.Log.w(tag, msg, tr);
         Sentry.capture(msg);
-        Sentry.capture(tr);
-    }
-
-    public static void w(String tag, Throwable tr) {
-        android.util.Log.w(tag, tr);
-        Sentry.capture(tr);
+        Sentry.capture(new Exception(msg, tr));
     }
 
     public static void e(String tag, String msg) {
@@ -90,8 +83,6 @@ public final class Log {
 
     public static void e(String tag, String msg, Throwable tr) {
         android.util.Log.e(tag, msg, tr);
-        Sentry.capture(msg);
-        Sentry.capture(tr);
+        Sentry.capture(new Exception(msg, tr));
     }
-
 }
