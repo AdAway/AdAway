@@ -2,6 +2,16 @@ Please report bugs on the following website instead of writing bad reviews:
 https://github.com/AdAway/AdAway/issues
 
 
+## [4.2.4] - 2019-03-23
+- Add dedicated no root error message 
+- Fix connection requirement for automatic update
+- Fix crash on TCP dump views when root access is denied
+- Fix icon resources and colors
+- Improve exception reporting
+- Update translations
+- Update Android X dependencies
+- Update Android Gradle plugin and NDK versions 
+
 ## [4.2.3] - 2019-03-02
 
 - Fix update check on disabled sources
