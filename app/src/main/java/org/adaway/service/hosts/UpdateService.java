@@ -27,7 +27,7 @@ import static androidx.work.ListenableWorker.Result.success;
 /**
  * This class is a service to check for hosts sources update.<br/>
  * It could be {@link #enable(boolean)} or {@link #disable()} for periodic check.<br>
- * The implementation is based on WorkManager from Android Jetpack.
+ * The implementation is based on WorkManager from Android X.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
@@ -54,7 +54,7 @@ public final class UpdateService {
         WorkManager.getInstance().cancelAllWorkByTag(WORKER_TAG);
         // Create worker constraints
         Constraints constraints = new Constraints.Builder()
-                .setRequiredNetworkType(unmeteredNetworkOnly ? NetworkType.UNMETERED : NetworkType.NOT_REQUIRED)
+                .setRequiredNetworkType(unmeteredNetworkOnly ? NetworkType.UNMETERED : NetworkType.CONNECTED)
                 .setRequiresStorageNotLow(true)
                 .build();
         // Create work request
