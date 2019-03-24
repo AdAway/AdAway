@@ -16,6 +16,7 @@ import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.github.GithubHostsSource;
 import org.adaway.util.ApplyUtils;
 import org.adaway.util.CommandException;
 import org.adaway.util.Constants;
@@ -231,7 +232,7 @@ public class HostsInstallModel extends Observable {
         // Check GitHub hosting
         if (GithubHostsSource.isHostedOnGithub(url)) {
             try {
-                return new GithubHostsSource(url).getLastUpdate();
+                return GithubHostsSource.getSource(url).getLastUpdate();
             } catch (MalformedURLException exception) {
                 Log.w(Constants.TAG, "Failed to get GitHub last update for url " + url + ".", exception);
                 return null;
