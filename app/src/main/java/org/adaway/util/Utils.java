@@ -42,9 +42,8 @@ import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.sufficientlysecure.rootcommands.RootCommands;
 import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.Toolbox;
+import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
-import java.io.IOException;
 import java.util.List;
 
 public class Utils {
@@ -130,21 +129,10 @@ public class Utils {
     }
 
     private static void reboot() {
-        Shell rootShell = null;
-        try {
-            rootShell = Shell.startRootShell();
-            Toolbox tb = new Toolbox(rootShell);
-            tb.reboot(Toolbox.REBOOT_REBOOT);
+        try (Shell rootShell = Shell.startRootShell()) {
+            rootShell.add(new SimpleCommand("svc power reboot"));
         } catch (Exception e) {
             Log.e(Constants.TAG, "Problem with rebooting", e);
-        } finally {
-            if (rootShell != null) {
-                try {
-                    rootShell.close();
-                } catch (IOException e) {
-                    Log.w(Constants.TAG, "Unable to close shell.", e);
-                }
-            }
         }
     }
 
