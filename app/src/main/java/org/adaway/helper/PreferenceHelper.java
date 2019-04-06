@@ -172,6 +172,17 @@ public class PreferenceHelper {
         );
     }
 
+    public static String getRedirectionIPv6(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getString(
+                context.getString(R.string.pref_redirection_ipv6_key),
+                context.getString(R.string.pref_redirection_ipv6_def)
+        );
+    }
+
     public static String getApplyMethod(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
