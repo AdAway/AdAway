@@ -69,7 +69,14 @@
             android:key="@string/pref_redirection_ip_key"
             android:summary="@string/pref_redirection_ip_summary"
             android:title="@string/pref_redirection_ip" />
-        <ListPreference
+    	<EditTextPreference
+            android:defaultValue="@string/pref_redirection_ipv6_def"
+            android:dependency="@string/pref_enable_ipv6_key"
+            android:dialogLayout="@layout/pref_edittext_dialog"
+            android:key="@string/pref_redirection_ipv6_key"
+            android:summary="@string/pref_redirection_ipv6_summary"
+            android:title="@string/pref_redirection_ipv6" />
+    	<ListPreference
             android:defaultValue="@string/pref_apply_method_def"
             android:entries="@array/pref_apply_method_entries"
             android:entryValues="@array/pref_apply_method_entries_values"
