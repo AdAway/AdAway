@@ -56,8 +56,8 @@ public class AdAwayApplication extends Application {
             Constants.disableDebug();
             RootCommands.disableDebug();
         }
-        // Create notification channel
-        NotificationHelper.createNotificationChannel(this);
+        // Create notification channels
+        NotificationHelper.createNotificationChannels(this);
         // Create hosts install model
         this.mHostsInstallModel = new HostsInstallModel(this);
     }

@@ -24,9 +24,17 @@ public final class NotificationHelper {
      */
     public static final String UPDATE_NOTIFICATION_CHANNEL = "UpdateChannel";
     /**
+     * The notification channel for VPN service.
+     */
+    public static final String VPN_SERVICE_NOTIFICATION_CHANNEL = "VpnServiceChannel";
+    /**
      * The update hosts notification identifier.
      */
     private static final int UPDATE_HOSTS_NOTIFICATION_ID = 10;
+    /**
+     * The VPN service notification identifier.
+     */
+    public static final int VPN_SERVICE_NOTIFICATION_ID = 20;
 
     /**
      * Private constructor.
@@ -40,22 +48,28 @@ public final class NotificationHelper {
      *
      * @param context The application context.
      */
-    public static void createNotificationChannel(@NonNull Context context) {
+    public static void createNotificationChannels(@NonNull Context context) {
         // Create the NotificationChannel, but only on API 26+ because the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = context.getString(R.string.notification_channel_update_name);
-            String description = context.getString(R.string.notification_channel_update_description);
-            // Create description channel
-            NotificationChannel channel = new NotificationChannel(
+            // Create update notification channel
+            NotificationChannel updateChannel = new NotificationChannel(
                     UPDATE_NOTIFICATION_CHANNEL,
-                    name,
+                    context.getString(R.string.notification_channel_update_name),
                     NotificationManager.IMPORTANCE_LOW
             );
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance or other notification behaviors after this
+            updateChannel.setDescription(context.getString(R.string.notification_channel_update_description));
+            // Create VPN service notification channel
+            NotificationChannel vpnServiceChannel = new NotificationChannel(
+                    VPN_SERVICE_NOTIFICATION_CHANNEL,
+                    context.getString(R.string.notification_channel_vpn_sevice_name),
+                    NotificationManager.IMPORTANCE_LOW
+            );
+            updateChannel.setDescription(context.getString(R.string.notification_channel_vpn_service_description));
+            // Register the channels with the system; you can't change the importance or other notification behaviors after this
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
             if (notificationManager != null) {
-                notificationManager.createNotificationChannel(channel);
+                notificationManager.createNotificationChannel(updateChannel);
+                notificationManager.createNotificationChannel(vpnServiceChannel);
             }
         }
     }

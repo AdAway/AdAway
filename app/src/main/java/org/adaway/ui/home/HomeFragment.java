@@ -26,8 +26,11 @@ import org.adaway.model.hostsinstall.HostsInstallError;
 import org.adaway.model.hostsinstall.HostsInstallStatus;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.util.WebServerUtils;
+import org.adaway.vpn.VpnService;
 
+import static android.app.Activity.RESULT_OK;
 import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
+import static org.adaway.vpn.VpnService.VPN_START_REQUEST_CODE;
 
 /**
  * This class is a {@link Fragment} to show home cards:
@@ -67,6 +70,10 @@ public class HomeFragment extends Fragment {
      */
     private HostsInstallError mCurrentError;
     /**
+     * The VPN service running status (<code>true</code> if running, <code>false</code> otherwise).
+     */
+    private boolean mVpnServiceRunning = false;
+    /**
      * The web server running status (<code>true</code> if running, <code>false</code> otherwise).
      */
     private boolean mWebServerRunning = false;
@@ -98,12 +105,27 @@ public class HomeFragment extends Fragment {
      */
     private Button mRevertHostsButton;
     /*
+     * VPN service card views.
+     */
+    /**
+     * The VPN service status text(<code>null</code> until view created).
+     */
+    private TextView mVpnServiceStatusTextView;
+    /**
+     * The VPN service status icon(<code>null</code> until view created).
+     */
+    private ImageView mVpnServiceStatusImageView;
+    /**
+     * The enable/disable VPN service button (<code>null</code> until view created).
+     */
+    private Button mRunningVpnServiceButton;
+    /*
      * Web server card views.
      */
     /**
      * The web server status text(<code>null</code> until view created).
      */
-    private TextView mWebSeverStatusTextView;
+    private TextView mWebServerStatusTextView;
     /**
      * The web server status icon(<code>null</code> until view created).
      */
@@ -123,6 +145,7 @@ public class HomeFragment extends Fragment {
          * Retrieve view elements.
          */
         // Get view from help card
+        CardView welcomeCardView = view.findViewById(R.id.home_welcome_card);
         Button showHelpButton = view.findViewById(R.id.home_show_help);
         // Get views from status card
         mStatusProgressBar = view.findViewById(R.id.home_status_progress);
@@ -131,10 +154,13 @@ public class HomeFragment extends Fragment {
         mStatusTextView = view.findViewById(R.id.home_status_text);
         mUpdateHostsButton = view.findViewById(R.id.home_update_hosts);
         mRevertHostsButton = view.findViewById(R.id.home_revert_hosts);
+        // Get view from VNP card
+        mVpnServiceStatusTextView = view.findViewById(R.id.home_vpn_status);
+        mVpnServiceStatusImageView = view.findViewById(R.id.home_vpn_icon);
+        mRunningVpnServiceButton = view.findViewById(R.id.home_vpn_enable);
         // Get views from web server card
-        CardView welcomeCardView = view.findViewById(R.id.home_welcome_card);
         CardView webServerCardView = view.findViewById(R.id.home_webserver_card);
-        mWebSeverStatusTextView = view.findViewById(R.id.home_webserver_status);
+        mWebServerStatusTextView = view.findViewById(R.id.home_webserver_status);
         mWebServerStatusImageView = view.findViewById(R.id.home_webserver_icon);
         mRunningWebServerButton = view.findViewById(R.id.home_webserver_enable);
         /*
@@ -252,6 +278,8 @@ public class HomeFragment extends Fragment {
         mUpdateHostsButton.setOnClickListener(this::updateHosts);
         // Set revert hosts button click listener
         mRevertHostsButton.setOnClickListener(this::revertHosts);
+        // Set VPN button click listener
+        mRunningVpnServiceButton.setOnClickListener(this::toggleVpnService);
         // Update web server card visibility
         boolean webServerCardVisible = context != null && PreferenceHelper.getWebServerEnabled(context);
         if (!webServerCardVisible) {
@@ -259,11 +287,12 @@ public class HomeFragment extends Fragment {
         }
         // Set running web server button click listener
         mRunningWebServerButton.setOnClickListener(this::toggleWebServer);
+        // Update VPN service status
+        this.notifyVpnServiceRunning(PreferenceHelper.getVpnServiceEnabled(context));
         // Check statuses to restore
         if (savedInstanceState == null) {
-            // Request to update host status
+            // Check web server status
             if (webServerCardVisible) {
-                // Check web server status
                 new UpdateWebServerStatusAsyncTask(this).execute();
             }
         } else {
@@ -295,6 +324,15 @@ public class HomeFragment extends Fragment {
         mViewModel.getState().removeObservers(this);
         mViewModel.getDetails().removeObservers(this);
         mViewModel.getError().removeObservers(this);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Check VPN activation request
+        if (requestCode == VPN_START_REQUEST_CODE && resultCode == RESULT_OK) {
+            VpnService.start(this.getContext());
+        } // TODO Add toast if user cancels
     }
 
     /**
@@ -344,6 +382,21 @@ public class HomeFragment extends Fragment {
     }
 
     /**
+     * Toggle VPN service running.
+     *
+     * @param view The view which trigger the action.
+     */
+    private void toggleVpnService(@SuppressWarnings("unused") @Nullable View view) {
+        FragmentActivity activity = this.getActivity();
+        if (PreferenceHelper.getVpnServiceEnabled(activity)) {
+            VpnService.stop(activity);
+        } else {
+            VpnService.start(activity);
+        }
+        this.notifyVpnServiceRunning(!mVpnServiceRunning);
+    }
+
+    /**
      * Toggle web server running.
      *
      * @param view The view which trigger the action.
@@ -358,19 +411,47 @@ public class HomeFragment extends Fragment {
     }
 
     /**
+     * Notify the VPN service is running.
+     *
+     * @param running <code>true</code> if the VPN service is running, <code>false</code> otherwise.
+     */
+    void notifyVpnServiceRunning(boolean running) {
+        // Check button
+        if (mVpnServiceStatusTextView == null || mWebServerStatusImageView == null || mRunningWebServerButton == null) {
+            return;
+        }
+        // Store web server running status
+        mVpnServiceRunning = running;
+        // Update status text and icon
+        mVpnServiceStatusTextView.setText(running ?
+                R.string.vpn_status_running :
+                R.string.vpn_status_stopped
+        );
+        mVpnServiceStatusImageView.setImageResource(running ?
+                R.drawable.status_enabled :
+                R.drawable.status_disabled
+        );
+        // Update button text
+        mRunningVpnServiceButton.setText(running ?
+                R.string.button_disable_vpn :
+                R.string.button_enable_vpn
+        );
+    }
+
+    /**
      * Notify the web server is running.
      *
      * @param running <code>true</code> if the web server is running, <code>false</code> otherwise.
      */
     void notifyWebServerRunning(boolean running) {
         // Check button
-        if (mWebSeverStatusTextView == null || mWebServerStatusImageView == null || mRunningWebServerButton == null) {
+        if (mWebServerStatusTextView == null || mWebServerStatusImageView == null || mRunningWebServerButton == null) {
             return;
         }
         // Store web server running status
         mWebServerRunning = running;
         // Update status text and icon
-        mWebSeverStatusTextView.setText(running ?
+        mWebServerStatusTextView.setText(running ?
                 R.string.webserver_status_running :
                 R.string.webserver_status_stopped
         );

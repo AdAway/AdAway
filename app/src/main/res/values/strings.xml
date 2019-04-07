@@ -11,7 +11,6 @@
     <string name="button_add">Add</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>
-    <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
     <string name="button_help">Help</string>
 
     <!--Home-->
@@ -27,8 +26,15 @@
     <string name="header_webserver">Web server</string>
     <string name="webserver_status_running">Running</string>
     <string name="webserver_status_stopped">Stopped</string>
+    <string name="webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
     <string name="button_enable_webserver">Enable web server</string>
     <string name="button_disable_webserver">Disable web server</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Running</string>
+    <string name="vpn_status_stopped">Stopped</string>
+    <string name="vpn_toggle_text">Start or stop VPN to filter requests.</string>
+    <string name="button_enable_vpn">Enable VPN</string>
+    <string name="button_disable_vpn">Disable VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Delete</string>
@@ -82,6 +88,8 @@
     <string name="status_disabled_subtitle">Default hosts file installed</string>
     <string name="notification_channel_update_name">Updates</string>
     <string name="notification_channel_update_description">New hosts update notifications</string>
+    <string name="notification_channel_vpn_sevice_name">VPN</string>
+    <string name="notification_channel_vpn_service_description">VPN running status</string>
     <string name="notification_configuration_changed">Your configuration changed. You need to install hosts file to apply it.</string>
     <string name="notification_configuration_changed_action">Apply</string>
     <string name="notification_configuration_installing">Installing hosts file…</string>
@@ -302,5 +310,18 @@
         <item quantity="one">%d month</item>
         <item quantity="other">%d months</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="notification_starting">Starting</string>
+    <string name="notification_running">Active</string>
+    <string name="notification_stopping">Stopping</string>
+    <string name="notification_waiting_for_net">Waiting for network</string>
+    <string name="notification_reconnecting">Reconnecting</string>
+    <string name="notification_reconnecting_error">Reconnecting error</string>
+    <string name="notification_stopped">Stopped</string>
+    <string name="notification_title">DNS66</string>
+    <string name="notification_action_pause">Pause</string>
+    <string name="notification_paused_title">DNS66 paused</string>
+    <string name="notification_paused_text">Tap to resume.</string>
 
 </resources>

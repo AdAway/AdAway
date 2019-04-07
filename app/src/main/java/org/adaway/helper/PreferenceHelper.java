@@ -227,6 +227,49 @@ public class PreferenceHelper {
         );
     }
 
+    public static boolean getVpnServiceEnabled(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getBoolean(
+                context.getString(R.string.pref_vpn_service_enabled_key),
+                context.getResources().getBoolean(R.bool.pref_vpn_service_enabled_def)
+        );
+    }
+
+    public static void setVpnServiceEnabled(Context context, boolean enabled) {
+        SharedPreferences prefs = context.getApplicationContext().getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(context.getString(R.string.pref_vpn_service_enabled_key), enabled);
+        editor.apply();
+    }
+
+    public static boolean getVpnServiceOnBoot(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getBoolean(
+                context.getString(R.string.pref_vpn_service_on_boot_key),
+                context.getResources().getBoolean(R.bool.pref_vpn_service_on_boot_def)
+        );
+    }
+
+    public static boolean getVpnWatchdogEnabled(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getBoolean(
+                context.getString(R.string.pref_vpn_watchdog_enabled_key),
+                context.getResources().getBoolean(R.bool.pref_vpn_watchdog_enabled_def)
+        );
+    }
+
     public static boolean getDebugEnabled(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
