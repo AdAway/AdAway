@@ -9,10 +9,10 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
-        versionCode 40209   // Read 4.xx.yy to match version name
-        versionName '4.2.9'
+        versionCode 50000   // Read x.yy.zz to match version name
+        versionName '5.0.0'
 
         vectorDrawables.useSupportLibrary = true
 
@@ -72,10 +72,12 @@ android {
 }
 
 ext {
-    appcompat = '1.1.0-alpha2'
+    appcompat = '1.1.0-alpha4'
     constraint_layout = '1.1.3'
+    fragment = '1.1.0-alpha4'
     lifecycle = '2.0.0'
-    material = '1.1.0-alpha04'
+    material = '1.1.0-alpha05'
+    recyclerview = '1.1.0-alpha04'
     room = '2.0.0'
     support = '1.0.0'
     work = '1.0.0'
@@ -94,12 +96,12 @@ dependencies {
     implementation "android.arch.work:work-runtime:${work}"
 
     // Support libraries
-    implementation "androidx.appcompat:appcompat:1.1.0-alpha03"
+    implementation "androidx.appcompat:appcompat:${appcompat}"
     implementation "androidx.cardview:cardview:${support}"
     implementation "androidx.constraintlayout:constraintlayout:${constraint_layout}"
     implementation "androidx.preference:preference:${support}"
-    implementation "androidx.recyclerview:recyclerview:1.1.0-alpha03"
-    implementation "androidx.fragment:fragment:1.1.0-alpha4"
+    implementation "androidx.recyclerview:recyclerview:${recyclerview}"
+    implementation "androidx.fragment:fragment:${fragment}"
     implementation "com.google.android.material:material:${material}"
 
     // Miscellaneous
@@ -115,6 +117,13 @@ dependencies {
         implementation 'io.sentry:sentry-android:1.7.14'
     }
     implementation 'org.slf4j:slf4j-nop:1.7.25'
+
+    // VPN related
+    implementation 'org.pcap4j:pcap4j-core:1.7.5'
+    implementation 'org.pcap4j:pcap4j-packetfactory-static:1.7.5'
+    implementation 'dnsjava:dnsjava:2.1.8'
+
+    // Test related
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.json:json:20180130'
 }
