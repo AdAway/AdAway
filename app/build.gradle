@@ -54,7 +54,7 @@ android {
 
     // Do not abort build if lint finds errors
     lintOptions {
-        abortOnError false
+        disable 'MissingTranslation'
     }
 
     buildTypes {
