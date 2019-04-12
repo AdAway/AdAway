@@ -99,8 +99,10 @@
     <string name="apply_success_dialog">套用成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="apply_symlink_successful">符號連結建立成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="apply_symlink_successful_title">符號連結建立成功</string>
+    <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為 HTC 上一個叫 S-ON 的「功能」！\n\n一個解決方法是啟動你的手機到還原模式並使用命令 \'ln -s /data/data/hosts /system/etc/hosts\' 來建立符號連結。\n\n如果沒有用，請上網搜尋 S-OFF 與你的手機。</string>
     <string name="apply_symlink_fail_title">符號連結建立失敗</string>
     <string name="apply_help">請閱讀說明以獲得更多訊息。</string>
+    <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（從設定程式：在無線與網路 -> 行動網路 -> 進階 -> 存取點名稱）移除代理伺服器設定。</string>
     <string name="apply_apn_proxy_title">設定了 APN 代理伺服器！</string>
     <string name="no_connection">網際網路連線無法正常連線</string>
     <string name="no_connection_title">無法連線</string>
@@ -151,6 +153,7 @@
 
     <!--Adware-->
     <string name="adware_header">廣告軟體</string>
+    <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單項目來移除它們。</string>
     <string name="adware_scanning">掃描中&#8230;</string>
     <string name="adware_empty">沒有發現任何廣告軟體！</string>
 
