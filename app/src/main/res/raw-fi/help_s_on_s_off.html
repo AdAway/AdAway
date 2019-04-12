@@ -1,5 +1,5 @@
 <html>
-<head><title>S-ON related help</title></head>
+<head><title>S-ON liittyvä apu.</title></head>
 <body>
 <h2>HTC-laitteet</h2>
 <p>AdAway ei toimi, kun käytät niin sanottua S-ON-laitetta. tämä 'ominaisuus' on monissa HTC-laitteissa ja estää AdAwayn kirjoittamasta hosts-tiedoston.</p>
@@ -15,13 +15,13 @@
 <p>Edellytys: Tietokoneellasi täytyy olla asennettuna toimiva Android SDK ADB-komentorivi.
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
-<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
+<li>Käynnistä laitteesi laitteen käynnistys menuun pitämällä painiketta <cite>volume alas pohjassa</cite> painaen samalla virta painiketta pohjaan.</li>
+<li>Käytä <cite> äänenvoimakkuus alas painiketta</cite> valitaksesi <cite>recoveryn</cite> sen  jälkeen <cite>virtapainiketta</cite> käynnistääksesi laitteen.</li>
+<li>Clockwork recoveryssä valitse "partitions menu".</li>
+<li>Valitse<cite>mount/ system</cite>, <cite>mount /sdcard</cite> ja <cite>mount /data</cite>.</li>
+<li>Kytke USB johto ja avaa komentokehote tietokoneessasi.</li>
+<li>Avaa adb komentorivi ja kirjoita <code>In -s /data/hosts /system/etc/hosts</code> (Tämä luo symbolisen linkin, joka sallii AdAwayn muokata hosts tiedostoa joka on osiossa <code>/data</code> sallien käyttöjärjestelmän käyttää tiedostoa aivan kuin se tallennettu osioon <code>/system</code>.)</li>
+<li>Käynnistä laite uudelleen ja aseta <cite>Target hosts tiedosto&lt;/<cite> <cite>/data/hosts</cite> osioon AdAwayn asetuksissa.</li>
 <li>AdAway:n pitäisi toimia nyt.</li>
 </ol>
 </body>

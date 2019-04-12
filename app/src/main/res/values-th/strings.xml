@@ -36,8 +36,6 @@
   <string name="list_add_dialog_black">เพิ่มโฮสต์ลงในบัญชีดำ</string>
   <string name="list_add_dialog_white">เพิ่มโฮสต์ไปยังบัญชีขาว</string>
   <string name="list_add_dialog_redirect">เพิ่มการเปลี่ยนเส้นทางของโฮสต์</string>
-  <string name="list_edit_dialog_black">แก้ไขโฮสต์ของบัญชีดำ</string>
-  <string name="list_edit_dialog_white">แก้ไขบัญชีขาว</string>
   <string name="list_edit_dialog_redirect">แก้ไขการเปลี่ยนเส้นทาง</string>
   <string name="list_dialog_hostname">ชื่อโฮสต์:</string>
   <string name="list_dialog_hostname_hint">URL แหล่งที่มาของโฮสต์</string>
@@ -59,7 +57,6 @@
   <string name="status_no_connection_subtitle">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
   <string name="status_download_fail">ไม่สามารถใช้งานแหล่งที่มาได้</string>
   <string name="status_download_fail_subtitle_new">ไม่สามารถเข้าถึงแหล่งที่มาโฮสต์ได้</string>
-  <string name="status_failure">เกิดข้อผิดพลาดบางอย่าง</string>
   <string name="status_failure_subtitle">ตรวจสอบ logcat สำหรับรายละเอียดเพิ่มเติม</string>
   <string name="status_enabled">เปิดใช้งานแล้ว</string>
   <string name="status_enabled_subtitle">เปิดใช้งานไฟล์โฮสต์แล้ว</string>
@@ -84,7 +81,6 @@
   <string name="apply_symlink_fail">Symlink ไม่สามารถสร้างโดยแอนดรอยด์\nคุณสมบัตินี้อาจจะล้มเหลวเพราะ S-ON บนโทรศัพท์ HTC!\n\nวิธีการแก้ปัญหาคือการรีบูตระบบไปยังโหมดคืนค่าและสร้าง Symlink ใน /data/data/hosts /system/etc/hosts\'\n\nหากไม่สามารถใช้งาน โปรดหาข้อมูลในอินเตอร์เน็ตเกี่ยวกับ S-OFF</string>
   <string name="apply_symlink_fail_title">สร้าง Symlink ล้มเหลว</string>
   <string name="apply_help">กรุณาอ่านช่วยเหลือสำหรับข้อมูลเพิ่มเติม</string>
-  <string name="apply_apn_proxy">พร็อกซี่ APN ถูกตั้งบนระบบ!\nAdAway จะไม่ทำงานเมื่อใช้เครือข่ายมือถืออย่างเช่น 3G สามารถปิดใช้งานพร็อกซี่เลือกAPN (บนแอนดรอย 4: ระบบไร้สายและเครือข่าย -&gt; อื่นๆ… -&gt; เครือข่ายมือถือ -&gt; ชื่อจุดเชื่อมต่อ) และลบค่าจากช่องพร็อกซี่</string>
   <string name="apply_apn_proxy_title">ตั้งพร็อกซี่ APN!</string>
   <string name="no_connection">การเชื่อมต่ออินเตอร์เน็ตไม่สำเร็จ</string>
   <string name="no_connection_title">ไม่มีการเชื่อมต่อ</string>
@@ -200,7 +196,6 @@
   <string name="pref_redirection_rules">อนุญาตให้เปลี่ยนเส้นทาง</string>
   <string name="pref_redirection_rules_summary">อนุญาตให้เปลี่ยนเส้นทางจากแหล่งที่มาโฮสต์</string>
   <string name="pref_debug">ดีบัค</string>
-  <string name="pref_enable_debug">บันทึกการใช้งานดีบัค</string>
   <string name="pref_enable_debug_summary">จำเป็นต้องรีสตาร์ท AdAway เพื่ออัพเดตการตั้งค่า</string>
   <string name="pref_enable_ipv6">เปิดใช้งาน IPv6</string>
   <string name="pref_enable_ipv6_summary">ไฟล์โฮสต์ทั้งหมดจะได้รับตรงกัน ::1 (IPv6 โลคัลโฮสต์)</string>
@@ -225,6 +220,7 @@
   <string name="drawer_support_dialog_title">สนับสนุนการพัฒนา</string>
   <string name="drawer_support_dialog_text">AdAway เป็นซอฟต์แวร์ฟรีและโอเพ่นซอร์สที่พัฒนาและดูแลโดยชุมชนเท่านั้น ใช้เวลาสองปีในการทำโครงการและใช้เวลาว่างในการสร้างแอพฯรุ่นใหม่นี้\n\nหากคุณต้องการดูข้อมูลอัพเดทเพิ่มเติมโปรดอย่าลังเลที่จะสนับสนุนโครงการ</string>
   <string name="drawer_support_dialog_button">แสดงการสนับสนุนของฉัน</string>
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">คำขอ DNS</string>
   <string name="shortcut_your_lists">รายการของคุณ</string>

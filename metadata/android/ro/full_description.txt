@@ -1,7 +1,7 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Un ad blocker care foloseste fisierul 'hosts'
+Fisierul 'hosts' este un fisier de sistem ce contine legaturi intre numele de domenii si adresele ip
+Cand o aplicatie solicita o reclama dintr-un domeniu aflat in fisierul 'hosts' va fi redirectionata la adresa locala 127.0.0.1 care nu face nimic.
+Puteti descarca fisiere predefinite cu nume de domenii direct din aplicatie pentru a le incorpora direct in fisierul de system 'hosts. De asemenea este posibil sa folositi fisiere si surse proprii pentru a permite sau bloca anumite  domenii.
+Exista optiuni pentru a rula un server web local ce va raspunde domeniilor blocate cu redirectionari la adresa ip aleasa de dumneavoastra.
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+Necesita permisiuni 'ROOT'. fisierul 'hosts' se afla in partitia /system care din start vine cu drepturi doar de citire.

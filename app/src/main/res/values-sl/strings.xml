@@ -55,7 +55,6 @@
   <string name="apply_symlink_fail">Symlink-a ni bilo mogoče ustvariti.\nNajpogostejši razlog za to je funkcija S-ON na HTC napravah!\n\nRešitev je, da zaženete vašo napravo v recovery način in tam ustvarite symlink z ukazom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nČe ta način ne deluje, prebrskajte splet za funkcijo S-OFF za vašo napravo.</string>
   <string name="apply_symlink_fail_title">Ustvarjanje symlink-a je spodletelo</string>
   <string name="apply_help">Prosimo, preberite pomoč za več informacij.</string>
-  <string name="apply_apn_proxy">Na vaši napravi je nastavljen APN proxy.\nAdAway ne bo zanesljivo deloval, ko ste na mobilnih omrežjih kot je 3G. Proxy lahko deaktivirate tako, da greste do izbranega APN-ja (Android 4: Brezžično in omrežja -&gt; Dodatno… -&gt; Mobilna omrežja -&gt; Imena dostopnih točk) in odstranite vrednost v proxy polju.</string>
   <string name="apply_apn_proxy_title">APN proxy nastavljen!</string>
   <string name="no_connection">Omrežna povezava ni vzpostavljena.</string>
   <string name="no_connection_title">Ni povezave</string>
@@ -144,7 +143,6 @@
   <string name="pref_whitelist_rules_summary">Dovoli whitelist vnose iz hosts virov.</string>
   <string name="pref_redirection_rules_summary">VARNOSTNO TVEGANJE! Dovoli preusmeritev vnosov iz hosts virov.</string>
   <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug dnevnik</string>
   <string name="pref_enable_debug_summary">Da bodo spremembe vidne, morate ponovno zagnati AdAway.</string>
   <string name="pref_enable_ipv6">Omogoči IPv6</string>
   <string name="pref_enable_ipv6_summary">Vsem vnosom v hosts datoteki bo dodan ::1 (IPv6 localhost) vnos.</string>
@@ -152,6 +150,7 @@
   <string name="pref_enable_systemless">Vključi systemless način</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Nastavitve</string>
   <!--Hosts source status-->

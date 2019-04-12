@@ -12,8 +12,20 @@
   <string name="button_webserver_toggle_text">شروع یا توقف وب سرور در لوکالهاست برای پاسخ گویی به درخواستها به منظور مسدود کردن hostnames ها.</string>
   <string name="button_help">راهنما</string>
   <!--Home-->
+  <string name="header_help">خوش آمدید!</string>
+  <string name="text_help">AdAway یک نرم افزار مجانی و اوپن سورس است که به منظور بلاک کردن تبلیغات طراحی شده است.این برنامه آدرس های شبکه تبلیغات را واکشی میکند تا آنها را بر روی دستگاه شما بلاک کند./میخواهید بیشتر بدانید؟راهنمای زیر را بخوانید!</string>
+  <string name="button_show_help">راهنمایی بیشتر</string>
+  <string name="icon_update_status">وضعیت به روزرسانی</string>
   <string name="text_update">تمامی فایلهای hosts جدید از منابع تعریف شده دریافت شدند و با لیستی که از قبل موجود بوده است در یک قالب یک فایل hosts واحد یکی شدند.</string>
   <string name="button_check_update_hosts">به روز رسانی ها رو بررسی کن</string>
+  <string name="button_update_hosts">هاست های به روزرسانی</string>
+  <string name="button_enable_hosts">فعالسازی توقف تبلیغات</string>
+  <string name="button_disable_hosts">غیر فعال کردن برنامه ضد تبلیغات</string>
+  <string name="header_webserver">وب سرور</string>
+  <string name="webserver_status_running">در حال اجرا</string>
+  <string name="webserver_status_stopped">متوقف شده</string>
+  <string name="button_enable_webserver">فعالسازی وب سرور</string>
+  <string name="button_disable_webserver">غیرفعالسازی وب سرور</string>
   <!--Checkbox List-->
   <string name="checkbox_list_context_delete">حذف کردن</string>
   <string name="checkbox_list_context_title">ویرایش ورودی</string>
@@ -21,11 +33,22 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">لیست سفید</string>
   <string name="lists_tab_blacklist">لیست سیاه</string>
+  <string name="lists_tab_redirection_list">هدایت مجدد</string>
+  <string name="list_add_dialog_black">اضافه کردن هاست به لیست سیاه</string>
+  <string name="list_add_dialog_white">اضافه کردن هاست به لیست سفید</string>
+  <string name="list_add_dialog_redirect">اضافه کردن هدایت مجدد هاست</string>
+  <string name="list_edit_dialog_redirect">ویرایش هدایت مجدد</string>
   <string name="list_dialog_hostname">Hostname:</string>
+  <string name="list_dialog_hostname_hint">لینک منبع هاست ها</string>
+  <string name="list_dialog_wildcard">(کاراکترهای جامع * و ؟ مجاز میباشند)</string>
   <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
   <string name="import_dialog">بارگیری...</string>
   <string name="export_dialog">بارگذاری...</string>
+  <string name="export_success">تمام ورودی ها به یک فایل در کارت  SD شما به نام \'adaway-export\' بارگذاری شده</string>
+  <string name="export_failed">بارگذاری لیست به SD کارت شما ناموفق بود</string>
   <!--Hosts content-->
+  <string name="hosts_header">فایل هاست ها</string>
+  <string name="hosts_description">فایل هاست ها یک فایل سیستمی است که نام هاست ها را به آی پی آدرس ها مرتبط میکند.این یک فایل متنی ساده است که توسط  AdAway تنظیم شده است.در اینجا چند خط ابتدایی آن را داریم:</string>
   <!--Status Notification-->
   <string name="status_checking">چک کردن برای به روز رسانی...</string>
   <string name="status_reverting">برگشتن...</string>
@@ -55,7 +78,6 @@
   <string name="apply_symlink_fail">پیوند نمادین را اندروید نتوانست ایجاد نماید.\nاین مشکل به دلیل وجود قابلیتی به نام S-ON در گوشی های HTC است!\n\nیک راه حل آن است که دستگاه شما به حالت ریکاوری بوت شود و پیوند نمادین را با دستور \'ln -s /data/data/hosts /system/etc/hosts\' ایجاد نمایید.\n\nاگر باز موفق به ایجاد آن نشدید میتوانید در اینترنت در رابطه با S-OFF جستجو نمایید.</string>
   <string name="apply_symlink_fail_title">ایجاد ناموفق  پیوند نمادین</string>
   <string name="apply_help">لطفا برای اطلاعات بیشتر به راهنما مراجعه نمایید.</string>
-  <string name="apply_apn_proxy">یک پروکسی APN بر روی دستگاه شما تنظیم شده است!در نتیجه ممکن است AdAway در شبکه 3G به درستی کارنکند. برای حل این مشکل شما میتوانید پروکسی تنظیم شده برای APN را غیر فعال نمایید ( در اندروید 4: به Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) رفته و محتوای قسمت پروکسی را پاک نمایید.</string>
   <string name="apply_apn_proxy_title">تنظیم پروکسی APN!</string>
   <string name="no_connection">اتصال اینترنت بر قرار نیست</string>
   <string name="no_connection_title">اتصال برقرار نیست</string>
@@ -101,6 +123,7 @@
   <string name="hosts_last_modified_local">لوکال:</string>
   <string name="hosts_last_modified_online">آنلاین:</string>
   <string name="hosts_not_available">موجود نیست:</string>
+  <string name="hosts_dialog_url_hint">لینک منبع هاست ها</string>
   <!--Other-->
   <string name="app_subtitle">مسدودگر تبلیغات</string>
   <string name="no_text_editor_title">هیچ ویرایشگر متنی نصب نیست</string>
@@ -144,7 +167,6 @@
   <string name="pref_whitelist_rules_summary">ورودی های لیست سفید از منابع Hosts مجاز میباشند.</string>
   <string name="pref_redirection_rules_summary">تهدید امنیتی! به منابع Hosts برای تغییر مسیر داده ها اجازه دهید.</string>
   <string name="pref_debug">عیب یابی</string>
-  <string name="pref_enable_debug">ثبت گزارش عیب یابی</string>
   <string name="pref_enable_debug_summary">برای اثر کردن این تنظیم شما نیاز به شروع مجدد AdAway دارید.</string>
   <string name="pref_enable_ipv6">فعال کردن IPv6</string>
   <string name="pref_enable_ipv6_summary">تمامی فایلهای host ورودی جواب::1 (IPv6 localhost) ورودی را دریافت خواهند کرد.</string>
@@ -152,6 +174,7 @@
   <string name="pref_enable_systemless">فعال کردن حالت systemless</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">تنظیمات</string>
   <!--Hosts source status-->

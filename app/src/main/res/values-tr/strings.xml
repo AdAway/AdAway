@@ -37,8 +37,8 @@
   <string name="list_add_dialog_black">Kara listeye host ekle</string>
   <string name="list_add_dialog_white">Beyaz listeye host ekle</string>
   <string name="list_add_dialog_redirect">Host yönlendirmesi ekle</string>
-  <string name="list_edit_dialog_black">Host kara listesini düzenle</string>
-  <string name="list_edit_dialog_white">Host beyaz listesini düzenle</string>
+  <string name="list_edit_dialog_black">Kara listeye alınan sunucuyu düzenle</string>
+  <string name="list_edit_dialog_white">Beyaz listeye alınan sunucuyu düzenle</string>
   <string name="list_edit_dialog_redirect">Yönlendirmeyi düzenle</string>
   <string name="list_dialog_hostname">Adres:</string>
   <string name="list_dialog_hostname_hint">Host kaynak URL\'si</string>
@@ -50,7 +50,7 @@
   <string name="export_failed">Listeniz SD kartınıza aktarılamadı.</string>
   <!--Hosts content-->
   <string name="hosts_header">Host dosyası</string>
-  <string name="hosts_description">Hosts dosyası, host adlarını IP adreslerine eşleyen bir sistem dosyasıdır. Bu yapılandırmanın AdAway tarafından ele alındığı düz bir metin dosyasıdır. İşte ilk birkaç satırı:</string>
+  <string name="hosts_description">Sunucu dosyası, sunucu adlarını IP adreslerine eşleyen bir sistem dosyasıdır. Bu yapılandırmanın AdAway tarafından ele alındığı düz bir metin dosyasıdır. İşte ilk birkaç satırı:</string>
   <string name="hosts_content">Hosts dosyası içeriği yükleniyor…</string>
   <string name="hosts_open_button">Host dosyasını açın</string>
   <!--Status Notification-->
@@ -63,7 +63,9 @@
   <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
   <string name="status_download_fail">Kullanılamayan kaynaklar</string>
   <string name="status_download_fail_subtitle_new">Hiçbir host kaynağına ulaşılamadı.</string>
-  <string name="status_failure">Birşeyler yanlış gidiyor</string>
+  <string name="status_root_access_denied">Kök erişimi reddedildi</string>
+  <string name="status_root_access_denied_subtitle">Kök yönetim uygulaması üstünden kök erişimine izin verin</string>
+  <string name="status_failure">Bir şeyler yanlış gitti</string>
   <string name="status_failure_subtitle">Daha fazla bilgi için logcat\'i kontrol edin</string>
   <string name="status_enabled">Etkin</string>
   <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
@@ -71,6 +73,10 @@
   <string name="status_disabled_subtitle">Varsayılan hosts dosyası yüklendi</string>
   <string name="notification_channel_update_name">Güncellemeler</string>
   <string name="notification_channel_update_description">Yeni hosts güncelleme bildirimleri</string>
+  <string name="notification_configuration_changed">Yapılandırmanız değişti. Uygulamak için sunucu dosyasını yüklemeniz gerekir.</string>
+  <string name="notification_configuration_changed_action">Uygula</string>
+  <string name="notification_configuration_installing">Sunucu dosyası yükleniyor…</string>
+  <string name="notification_configuration_failed">Hosts dosyası yüklenemedi.</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Hedefiniz ile /system/etc/hosts dosyası symlink ile bağlanmamış veya hatalı bağlanmış! Bu bağlanma olmadan AdAway çalışamaz.\n\nŞimdi bir symlink ayarlansın mı?</string>
   <string name="apply_symlink_missing_title">Symlink kayıp</string>
@@ -90,8 +96,7 @@
   <string name="apply_symlink_fail">Symlink oluşturulamadı.\nBu hata genelde HTC telefonlardaki S-ON denilen özellik yüzünden olmaktadır!\n\nSorunu elle çözmek isterseniz recovery mode ile açıp \'ln -s /data/data/hosts /system/etc/hosts\' komutuyla symlink yapmanız gereklidir.\n\nEğer ki bu olmuyorsa çözüm için internette S-OFF ve telefonunuzun adı ile bir arama yapın.</string>
   <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
   <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
-  <string name="apply_apn_proxy">APN vekil sunucusu ayarlanmış!
-Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçili APN ayarlarında (Android 4 için: Ayarlar -&gt; Diğer... -&gt; Mobil Ağlar -&gt; Erişim Noktası Adları) Proxy alanındaki değeri silerek devre dışı bırakabilirsiniz.</string>
+  <string name="apply_apn_proxy">Android cihazınızda bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz. Seçtiğiniz APN\'ye giderek (Ayarlar uygulamasından: Ağ ve İnternet -&gt; Mobil ağ -&gt; Gelişmiş -&gt; Erişim Noktası Adları) bu proxy\'yi devre dışı bırakabilir ve proxy alanındaki değeri kaldırabilirsiniz.</string>
   <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
   <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
   <string name="no_connection_title">Bağlantı Yok</string>
@@ -103,6 +108,7 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
   <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
   <string name="apply_fail_title">Uygulama başarısız</string>
+  <string name="root_access_fail">Kök erişiminin verildiğinden emin olmak için lütfen kök yönetim uygulamanızı kontrol edin.</string>
   <string name="revert_successful">Varsayılan host dosyasına geri döndünüz.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz??\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
   <string name="revert_successful_title">Geri alma başarılı!</string>
   <string name="revert_problem">Geri alma işlemi bilinmeyen nedenlerden dolayı başarısız oldu.</string>
@@ -212,8 +218,10 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
   <string name="pref_redirection_rules_summary">BÜYÜK RİSK İÇERİR! Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
   <string name="pref_debug">Hata ayıklama</string>
-  <string name="pref_enable_debug">Hata ayıklama kaydı</string>
+  <string name="pref_enable_debug">Ayrıntılı günlük kaydını etkinleştir</string>
   <string name="pref_enable_debug_summary">Ayarların etkinleştirmek için AdAway\'ı yeniden başlatın.</string>
+  <string name="pref_enable_telemetry">Kilitlenme raporlarını etkinleştir</string>
+  <string name="pref_enable_telemetry_summary">Uygulamanın Sentry\'ye (sentry.io) hata ve kilitlenme raporları göndermesine izin verin.</string>
   <string name="pref_enable_ipv6">IPv6 etkinleştir</string>
   <string name="pref_enable_ipv6_summary">Tüm host dosyası kayıtlarına ::1 (IPv6 yerel IP\'si) eklenecektir.</string>
   <string name="pref_enable_systemless_summary">AdAway\'in sistem dosyalarını düzenlemesini engelle</string>
@@ -237,6 +245,11 @@ Adaway, 3G gibi mobil ağlarda düzgün çalışmayabilir. Vekil sunucuyu, seçi
   <string name="drawer_support_dialog_title">Geliştirmeyi destekleyin</string>
   <string name="drawer_support_dialog_text">AdAway, yalnızca topluluk tarafından geliştirilmiş ve sürdürülen bir Serbest ve Açık Kaynak yazılımdır. Uygulamanın bu yeni sürümünü oluşturmak bir boş zaman projesi olarak 2 yılımı aldı.\n\nBeğendiyseniz ve daha fazla güncelleme görmek istiyorsanız, projeyi desteklemekten çekinmeyin.</string>
   <string name="drawer_support_dialog_button">Bana desteğinizi gösterin</string>
+  <!--Telemetry-->
+  <string name="dialog_telemetry_title">Telemetry</string>
+  <string name="dialog_telemetry_message">Merhaba sevgili kullanıcı,\n\nArtık çökme raporlarınızı ve temel kullanım bilgilerinizi paylaşarak AdAway\'in geliştirilmesine katkıda bulunabilirsiniz. Tüm veriler anonimdir ve telemetri yalnızca kabul ederseniz etkinleştirilir.\n\nDaha detaylı bilgileri <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">Github</a>\'da bulabilirsiniz.</string>
+  <string name="dialog_telemetry_enable">Elbette yardım etmekten mutluluk duyarım!</string>
+  <string name="dialog_telemetry_disable">Hayır teşekkürler</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS istekleri</string>
   <string name="shortcut_your_lists">Listeleriniz</string>

@@ -88,10 +88,10 @@
   <string name="pref_automatic_update_daily">ធ្វើអោយទាន់សម័យដោយស្វ័យប្រវត្តិ</string>
   <string name="pref_automatic_update_daily_summary">ធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយបើសិនជាមានភាពទាន់សម័យ។</string>
   <string name="pref_debug">បំបាត់កំហុស</string>
-  <string name="pref_enable_debug">កំណត់ហេតុការបំបាត់កំហុស</string>
   <string name="pref_enable_debug_summary">អ្នកគួរតែចាប់ផ្ដើម AdAway ឡើងវិញដើម្បីអោយការកំណត់មានប្រសិទ្ធភាព</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">ការកំណត់</string>
   <!--Hosts source status-->

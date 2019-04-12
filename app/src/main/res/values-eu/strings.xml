@@ -12,8 +12,13 @@
   <string name="button_webserver_toggle_text">Abiarazi edo gelditu web-zerbitzaria tokiko-hostalarian blokeatutako hostalari-izen eskabideak galdetzeko.</string>
   <string name="button_help">Laguntza</string>
   <!--Home-->
+  <string name="header_help">Ongi etorri!</string>
+  <string name="button_show_help">Erakutsi laguntza gehiago</string>
   <string name="text_update">Zehaztutako iturburuetako hostalari agiri guztiak jeitsi eta batu dira zeure zerrendarekin eta hostalari agiri bat bezala ezarri dira zure sisteman.</string>
   <string name="button_check_update_hosts">Egiaztatu eguneraketak</string>
+  <string name="header_webserver">Web zerbitzaria</string>
+  <string name="button_enable_webserver">Gaitu web zerbitzaria</string>
+  <string name="button_disable_webserver">Desgaitu web zerbitzaria</string>
   <!--Checkbox List-->
   <string name="checkbox_list_context_delete">Ezabatu</string>
   <string name="checkbox_list_context_title">Editatu Sarrera</string>
@@ -39,6 +44,8 @@
   <string name="status_enabled">Gaituta</string>
   <string name="status_enabled_subtitle">Hostalari agiri berrienak gaituta</string>
   <string name="status_disabled">Ezgaituta</string>
+  <string name="notification_configuration_changed_action">Aplikatu</string>
+  <string name="notification_configuration_installing">Hostalari fitxategia instalatzen...</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Zure xedetiko Symlotura /system/etc/hosts-ra ez dago edo okerra da! AdAway-k ez du lan egingo ez bada agiri zuzenera zuzentzen.\n\nNahi duzu symlotura bat sortzen saiatzea?</string>
   <string name="apply_symlink_missing_title">Symlotura ez dago</string>
@@ -55,7 +62,6 @@
   <string name="apply_symlink_fail">Android-ek ezin izan du Symlotura sortu.\nHutsegite hau zihurrenik HTC urrutizkinetako S-ON deituriko \'ezaugarri\' baten ondoriozkoa da!\n\nKonponbide bat zure urrutizkina berreskurapen moduan berrabiaraztea eta hortik \'ln -s /data/data/hosts /system/etc/hosts\'-rekin symlotura bat sortzea da.\n\nHonek ez badu jarduten bilatu Interneten S-OFF eta zure urrutizkinari buruz.</string>
   <string name="apply_symlink_fail_title">Symlotura sortze hutsegitea</string>
   <string name="apply_help">Mesedez irakurri Laguntza argibide gehiagorako.</string>
-  <string name="apply_apn_proxy">APN proxy bat dago ezarrita zure Android-en!\nAdAway-k ez du ongi lan egingo 3G bezalako Mugikor Sareetan. Proxya ezgaitu dezakezu zure hautaturiko APN-ra joanez (Android 4-an: Harigabea eta sareak -&gt; Gehiago... -&gt; Mugikor Sareak -&gt; Sarbide Puntu Izenak) eta proxy eremuko balioa kenduz.</string>
   <string name="apply_apn_proxy_title">APN proxya ezarrita!</string>
   <string name="no_connection">Interneteko elkarketa ez dabil.</string>
   <string name="no_connection_title">Ez dago Elkarketarik</string>
@@ -98,6 +104,8 @@
   <string name="help_tab_faq">SEG</string>
   <string name="help_tab_problems">Arazoak</string>
   <!--Adware-->
+  <string name="adware_header">Adware</string>
+  <string name="adware_scanning">Eskaneatzen...</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Tokikoa:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -144,15 +152,24 @@
   <string name="pref_whitelist_rules_summary">Ahalbidtu zerrend-zuri sarrerak Hostalari Iturburuetatik.</string>
   <string name="pref_redirection_rules_summary">SEGURTASUN ARRISKU JARRERAK! Ahalbidetu Hostalari Iturburuetatiko sarrerak berzuzentzea.</string>
   <string name="pref_debug">Garbiketa</string>
-  <string name="pref_enable_debug">Garbiketa Oharra</string>
   <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>
   <string name="pref_enable_ipv6">Gaitu IPv6</string>
   <string name="pref_enable_ipv6_summary">Hostalari agiri guztiek dagokien ::1 (IPv6 localhost) sarrera lortuko dute.</string>
   <string name="pref_enable_systemless_summary">Saihestu AdAway-k sistemaren partizioa aldatzea</string>
   <string name="pref_enable_systemless">Gaitu sistemagabe modua</string>
+  <string name="drawer_open">Ireki menua</string>
+  <string name="drawer_close">Itxi menua</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
+  <string name="dialog_telemetry_title">Telemetria</string>
+  <string name="dialog_telemetry_disable">Ez eskerrik asko</string>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">DNS eskaerak</string>
   <string name="shortcut_preferences">Hobespenak</string>
   <!--Hosts source status-->
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">minutu %d</item>
+    <item quantity="other">%d minutu</item>
+  </plurals>
 </resources>

@@ -39,6 +39,8 @@
   <string name="status_enabled">פעיל</string>
   <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
   <string name="status_disabled">לא פעיל</string>
+  <string name="status_disabled_subtitle">קובץ hosts ברירת המחדל הותקן</string>
+  <string name="notification_configuration_changed_action">החל</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
   <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
@@ -51,11 +53,11 @@
   <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
   <string name="apply_copy_fail_title">העתקה נכשלה</string>
   <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
+  <string name="apply_symlink_successful">הקישור הסימבולי נוצר בהצלחה.\nכדי להחיל את השינויים ייתכן שיש צורך בהפעלה מחדש.\n\nלהפעיל מחדש עכשיו?\n(כדאי להמנע מאיבוד מידע יש לוודא שאף אפליקציה לא משתמשת בכרטיס הזיכרון!)</string>
   <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
   <string name="apply_symlink_fail">לא ניתן ליצור קישור סימבולי על ידי מערכת אנדרואיד.\nכשל זה מתרחש בשל תכונה בשם S-ON במכשירי HTC!\n\nהפתרון הוא לאתחל את המכשיר במצב Recovery וליצור שם קישור סימבולי עם הערך \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nאם זה לא עוזר חפש באינטרנט מידע אודות התכונה S-OFF בטלפון שלך.</string>
   <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
   <string name="apply_help">קרא את העזרה למידע נוסף.</string>
-  <string name="apply_apn_proxy">פרוקסי APN מוגדר ב- Android שלך!\nAdAway לא יפעל באופן אמין ברשת סלולרית כמו 3G. תוכל לבטל את פעולת ה- proxy על ידי מעבר אל APN הנבחר שלך (ב- Android 4: רשתות אלחוטיות ורשתות -&gt; עוד ... -&gt; רשתות לנייד -&gt; שמות נקודות גישה) ולהסיר את הערך בשדה ה- Proxy.</string>
   <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
   <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
   <string name="no_connection_title">אין חיבור</string>
@@ -136,6 +138,7 @@
     <item>יעד מותאם אישית</item>
   </string-array>
   <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
+  <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר אפליקציית AdAway מותקנת בכרטיס הזיכרון!</string>
   <string name="pref_background">שירותים ברקע</string>
   <string name="pref_update_check_daily">בדוק עידכונים יומיים</string>
   <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>
@@ -145,7 +148,6 @@
   <string name="pref_whitelist_rules_summary">אפשר רשימות לבנות ממקורות Hosts</string>
   <string name="pref_redirection_rules_summary">מסוכן!!! אפשר חוקי הפניה ממקורות Hosts.</string>
   <string name="pref_debug">ניפוי שגיאות</string>
-  <string name="pref_enable_debug">רשום יומן שגיאות</string>
   <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
   <string name="pref_enable_ipv6">אפשר IPv6</string>
   <string name="pref_enable_ipv6_summary">כלל כניסות השרתים יקבלו ערך כניסה אחיד ::1 (IPv6 שרת מקומי).</string>
@@ -153,6 +155,7 @@
   <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">העדפות</string>
   <!--Hosts source status-->

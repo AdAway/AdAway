@@ -36,8 +36,6 @@
   <string name="list_add_dialog_black">Dodaj poslužitelj na popis blokiranih</string>
   <string name="list_add_dialog_white">Dodaj poslužitelj u popis neblokiranih</string>
   <string name="list_add_dialog_redirect">Dodaj poslužitelj na popis preusmjernih</string>
-  <string name="list_edit_dialog_black">Uredi popis blokiranih poslužitelja</string>
-  <string name="list_edit_dialog_white">Uredi popis neblokiranih poslužitelja</string>
   <string name="list_edit_dialog_redirect">Uredi preusmjeravanje</string>
   <string name="list_dialog_hostname">Naziv poslužitelja:</string>
   <string name="list_dialog_hostname_hint">URL izvora poslužitelja:</string>
@@ -59,7 +57,6 @@
   <string name="status_no_connection_subtitle">Nema dostupnog pristupa internetu</string>
   <string name="status_download_fail">Nedostupni izvori</string>
   <string name="status_download_fail_subtitle_new">Nema dostupnih izvora poslužitelja!</string>
-  <string name="status_failure">Nešto je pošlo po krivu</string>
   <string name="status_failure_subtitle">Provjeri logcat zapis za više pojedinosti</string>
   <string name="status_enabled">Omogućeno</string>
   <string name="status_enabled_subtitle">Najnovija datoteka poslužitelja je omogućena</string>
@@ -84,7 +81,6 @@
   <string name="apply_symlink_fail">Simboličku poveznicu Android ne može stvoriti.\n Uzrok tome je \'značajka\' zvana S-ON na HTC telefonima!\n\n Rješenje je pokretanje vašeg telefona u recovery modu i stvaranje poveznice naredbom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n Ako ovo ne radi, potražite na internetu postoji li S-OFF način za vaš model telefona.</string>
   <string name="apply_symlink_fail_title">Stvaranje simboličke poveznice je neuspješno</string>
   <string name="apply_help">Pročitajte pomoć za više informacija.</string>
-  <string name="apply_apn_proxy">APN proxy je omogućen na vašem Androidu!\n AdAway neće pozdano raditi na nekim 3G mrežama. Proxy možete onemogućiti odlaskom na vaše APN podešavanje (Za Android 4: Bežično i mreže -&gt; Više… -&gt; Mobilne mreže -&gt; Pristupne točke) i uklonite vrijednost u proxy polju.</string>
   <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
   <string name="no_connection">Internet pristup ne radi.</string>
   <string name="no_connection_title">Neme pristupa internetu</string>
@@ -200,7 +196,6 @@
   <string name="pref_redirection_rules">Dopusti dodavanja na popis preusmjernih</string>
   <string name="pref_redirection_rules_summary">PREDSTAVLJA SIGURNOSNI RIZIK! Omogućuje stavke preusmjeravanja sa izvora poslužitelja.</string>
   <string name="pref_debug">Otklanjanje grešaka</string>
-  <string name="pref_enable_debug">Zapisivanje otklanjanja grešaka</string>
   <string name="pref_enable_debug_summary">Ponovno pokrenite AdAway kako bi ova postavka bila primijenjena.</string>
   <string name="pref_enable_ipv6">Omogući IPv6</string>
   <string name="pref_enable_ipv6_summary">Svi unosi datoteke poslužitelja će dobiti odgovarajući ::1 (IPv6 localhost) unos.</string>
@@ -225,6 +220,7 @@
   <string name="drawer_support_dialog_title">Podržite razvoj</string>
   <string name="drawer_support_dialog_text">AdAway je slobodan softver otvorenog kôda razvijan i održavan samo od strane zajednice. Trebale su mi dvije godine slobodnog vremena za izgradnju nove inačice ove aplikacije.\n\nAko vam se sviđa ova aplikacija i želite li vidjeti više ažuriranja slobodno podržite ovaj projekt.</string>
   <string name="drawer_support_dialog_button">Prikaži moju podršku</string>
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS zahtjevi</string>
   <string name="shortcut_your_lists">Vaši popisi</string>

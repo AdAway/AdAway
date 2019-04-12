@@ -13,6 +13,7 @@
   <string name="button_help">帮助</string>
   <!--Home-->
   <string name="header_help">欢迎！</string>
+  <string name="text_help">AdAway 是一款开源软件的广告拦截器，您可以通过 Hosts 源下载并配置您的设备。想了解更多信息？请点击“查看更多帮助”！</string>
   <string name="button_show_help">显示更多帮助</string>
   <string name="icon_update_status">更新状态</string>
   <string name="text_update">从定义源下载 hosts 文件，合并、生成新的 hosts 文件安装到您的系统中。</string>
@@ -45,9 +46,11 @@
   <string name="list_dialog_ip">IP（IPv4 或 IPv6）：</string>
   <string name="import_dialog">正在导入...</string>
   <string name="export_dialog">正在导出...</string>
+  <string name="export_success">所有条目导出到SD卡上的“adaway-export”文件中。</string>
   <string name="export_failed">导出列表到SD卡失败。</string>
   <!--Hosts content-->
   <string name="hosts_header">hosts 文件</string>
+  <string name="hosts_description">hosts 文件是一个将主机名映射到 IP 地址的系统文件。 它是一个纯文本文件，配置由 AdAway 处理；这是它的第一行：</string>
   <string name="hosts_content">正在加载 hosts 文件内容...</string>
   <string name="hosts_open_button">打开 hosts 文件</string>
   <!--Status Notification-->
@@ -60,11 +63,22 @@
   <string name="status_no_connection_subtitle">没有可用的网络连接</string>
   <string name="status_download_fail">不可用的源</string>
   <string name="status_download_fail_subtitle_new">没有可以访问的 hosts 源！</string>
-  <string name="status_failure">出错了</string>
+  <string name="status_failure_subtitle">
+检查logcat以获取更多详细信息</string>
   <string name="status_enabled">已启用</string>
   <string name="status_enabled_subtitle">已启用最新的 hosts 文件</string>
   <string name="status_disabled">已禁用</string>
+  <string name="status_disabled_subtitle">
+已安装默认hosts文件</string>
   <string name="notification_channel_update_name">更新</string>
+  <string name="notification_channel_update_description">
+新hosts更新通知</string>
+  <string name="notification_configuration_changed">
+您的配置已更改.您需要安装hosts文件才能使用它</string>
+  <string name="notification_configuration_changed_action">应用</string>
+  <string name="notification_configuration_installing">
+安装hosts文件...</string>
+  <string name="notification_configuration_failed">无法安装hosts文件</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">/system/etc/hosts 符号链接不存在或者不正确！AdAway 将无法运行。
 
@@ -79,7 +93,11 @@
   <string name="apply_remount_fail_title">重新挂载失败</string>
   <string name="apply_copy_fail">复制 hosts 文件失败！</string>
   <string name="apply_copy_fail_title">复制失败</string>
+  <string name="apply_success_subtitle">
+选择hosts来源</string>
   <string name="apply_success_title">启用成功</string>
+  <string name="apply_success_dialog">
+应用成功.\可能需要重新启动Android才能使更改生效\n\n是否要重新启动?\n（为防止数据丢失,请确保目前没有应用程序使用SD卡!）</string>
   <string name="apply_symlink_successful_title">符号链接创建成功</string>
   <string name="apply_symlink_fail">Android 设备无法创建符号链接。
 这主要是HTC手机上S-ON的“功能”而导致失败的！
@@ -89,8 +107,6 @@
 如果不起作用，请在网上搜索如何 S-OFF 您的手机。</string>
   <string name="apply_symlink_fail_title">符号链接创建失败</string>
   <string name="apply_help">请阅读帮助以获取更多信息。</string>
-  <string name="apply_apn_proxy">您的 Android 设备已设置 APN 代理！
-AdAway 无法在 3G 等移动网络上稳定运行。您可以转到所选的 APN 中禁用该代理（在 Android 4 上：无线和网络 - &gt;更多...  - &gt;移动网络 - &gt;接入点名称）并删除代理字段中的值。</string>
   <string name="apply_apn_proxy_title">APN 代理已设置！</string>
   <string name="no_connection">网络连接缓慢。</string>
   <string name="no_connection_title">没有连接</string>
@@ -211,8 +227,8 @@ AdAway 无法在 3G 等移动网络上稳定运行。您可以转到所选的 AP
   <string name="pref_redirection_rules">允许重定向</string>
   <string name="pref_redirection_rules_summary">允许 hosts 源中的重定向条目可能会带来安全隐患！</string>
   <string name="pref_debug">调试</string>
-  <string name="pref_enable_debug">调试日志</string>
   <string name="pref_enable_debug_summary">需要重启 AdAway 才能使设置生效</string>
+  <string name="pref_enable_telemetry">启用崩溃报告</string>
   <string name="pref_enable_ipv6">启用 IPv6</string>
   <string name="pref_enable_ipv6_summary">所有 hosts 文件都会获得相应的条目 ::1 (IPv6 localhost)</string>
   <string name="pref_enable_systemless_summary">防止 AdAway 修改系统分区</string>
@@ -231,6 +247,7 @@ AdAway 无法在 3G 等移动网络上稳定运行。您可以转到所选的 AP
     <item>首选项</item>
   </string-array>
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS 请求</string>
   <string name="shortcut_your_lists">列表</string>

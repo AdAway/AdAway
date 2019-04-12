@@ -2,6 +2,6 @@
 hosts 檔案是個包含在 host 及 IP 位址對應清單的系統檔案。
 當 app 要求從清單中的 host 取得廣告時，此要求將會被轉址至本機 127.0.0.1 並不做任何事。
 您可以在應用程式中下載預先定義的 hosts 檔案，以將它們合併到系統的 hosts 檔案中。您也可以使用自己的檔案，並將某些主機加入到白名單和黑名單中。
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+可經由選項建立本機網頁伺服器以針對被阻擋的主機名稱連線請求做出回應並重新導向至您自訂的IP 位址。
 
 需要 root 權限：是。hosts 檔案位於預設為唯讀的 /system 目錄。

@@ -36,8 +36,6 @@
   <string name="list_add_dialog_black">Afegeix el host a la llista negra</string>
   <string name="list_add_dialog_white">Afegeix el host a la llista blanca</string>
   <string name="list_add_dialog_redirect">Afegeix redirecció de host</string>
-  <string name="list_edit_dialog_black">Edita el host de la llista negra</string>
-  <string name="list_edit_dialog_white">Edita el host de la llista blanca</string>
   <string name="list_edit_dialog_redirect">Editar la redirecció</string>
   <string name="list_dialog_hostname">Servidor:</string>
   <string name="list_dialog_hostname_hint">URL de la font hosts</string>
@@ -80,7 +78,6 @@
   <string name="apply_symlink_fail">L\'Android no ha pogut crear l\'enllaç simbòlic.\nAixò falla normalment per una característica anomenada S-ON als telèfons HTC.\n\nUna solució és iniciar el telèfon en mode recuperació i crear l\'enllaç simbòlic allà amb \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi no funciona cerqueu a Internet S-OFF i el vostre telèfon.</string>
   <string name="apply_symlink_fail_title">S\'ha produït un error en la creació de l\'enllaç simbòlic</string>
   <string name="apply_help">Si us plau, llegir l\'Ajuda per a més informació</string>
-  <string name="apply_apn_proxy">S\'ha establert un servidor intermediari APN al vostre Android!\nL\'AdAway no funcionarà de manera fiable en xarxes mòbils de tipus 3G. Podeu desactivar el servidor intermediari a l\'APN seleccionat (en Android 4: Connexions sense fils i xarxes -gt; Més... -&gt; Xarxes Mòbils -&gt; APN) i suprimiu el valor del camp del servidor.</string>
   <string name="apply_apn_proxy_title">S\'ha desat el servidor intermediari d\'APN</string>
   <string name="no_connection">La connexió a Internet no funciona.</string>
   <string name="no_connection_title">Sense connexió</string>
@@ -196,7 +193,6 @@
   <string name="pref_redirection_rules">Permet les redireccions</string>
   <string name="pref_redirection_rules_summary">HI HA RISCOS DE SEGURETAT! Permet entrades de redireccions de les fonts d\'amfitrions.</string>
   <string name="pref_debug">Depuració</string>
-  <string name="pref_enable_debug">Registre de depuració</string>
   <string name="pref_enable_debug_summary">Necessiteu reiniciar AdAway per tal que aquest ajustament faci a efecte.</string>
   <string name="pref_enable_ipv6">Habilita IPv6</string>
   <string name="pref_enable_ipv6_summary">Totes les entrades al fitxer host rebran la corresponent ::1(IPv6 localhost) entrada.</string>
@@ -218,6 +214,7 @@
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 Desenvolupament de suport \u2764</string>
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Sol·licituds DNS</string>
   <string name="shortcut_your_lists">Les vostre llistes</string>

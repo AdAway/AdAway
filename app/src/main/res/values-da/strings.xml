@@ -73,7 +73,6 @@
   <string name="apply_symlink_fail">Symlink kunne ikke oprettes igennem Android.\nDette sker oftest grundet en \'feature\' S-ON på HTC-telefoner!\n\nEn løsning er at boote ind i recovery-mode og oprette symlinket manuelt med kommandoen \"ln -s /data/data/hosts /system/etc/hosts\".\n\nHvis dette ikke virker, kan du søge efter \"S-OFF\" og din telefons modelnavn.</string>
   <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
   <string name="apply_help">Venligst læs Hjælp for mere information.</string>
-  <string name="apply_apn_proxy">En APN-proxy er sat til på din Android!\nAdAway vil ikke virke pålideligt når du er på mobile netværker som 3G/4G. Du kan deaktivere denne proxy ved at gå til din valgte APN (På Android 4+: WiFi og netværker -&gt; Mere... -&gt; Mobile netværker -&gt; Access Point Names) og fjerne værdien i proxy-feltet.</string>
   <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
   <string name="no_connection">Internetforbindelsen virker ikke.</string>
   <string name="no_connection_title">Ingen forbindelse</string>
@@ -180,7 +179,6 @@
   <string name="pref_redirection_rules">Tillad viderestillinger</string>
   <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
   <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug-logning</string>
   <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>
   <string name="pref_enable_ipv6">Aktivér IPv6</string>
   <string name="pref_enable_ipv6_summary">Alle hosts-fils poster vil få en tilsvarende ::1 (IPv6 localhost) post.</string>
@@ -190,6 +188,7 @@
   <string name="drawer_close">Luk menu</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS forespørgsler</string>
   <string name="shortcut_your_lists">Dine lister</string>

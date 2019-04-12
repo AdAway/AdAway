@@ -12,8 +12,13 @@
   <string name="button_webserver_toggle_text">Start eller stopp nettjeneren på lokalverten for å svare på forespørsler om blokkerte vertsnavn.</string>
   <string name="button_help">Hjelp</string>
   <!--Home-->
+  <string name="header_help">Velkommen!</string>
+  <string name="button_show_help">Vis mere hjelp</string>
+  <string name="icon_update_status">Oppdater statusen</string>
   <string name="text_update">Alle vertsfiler fra de valgte kildene blir lastet ned, slått sammen med dine egne lister, og installert som én vertsfil på systemet ditt.</string>
   <string name="button_check_update_hosts">Se etter oppdateringer</string>
+  <string name="webserver_status_running">Kjører</string>
+  <string name="webserver_status_stopped">Stoppet</string>
   <!--Checkbox List-->
   <string name="checkbox_list_context_delete">Slett</string>
   <string name="checkbox_list_context_title">Rediger oppføring</string>
@@ -21,6 +26,7 @@
   <!--Your lists-->
   <string name="lists_tab_whitelist">Hviteliste</string>
   <string name="lists_tab_blacklist">Svarteliste</string>
+  <string name="lists_tab_redirection_list">Omdirigeringer</string>
   <string name="list_dialog_hostname">Vertsnavn:</string>
   <string name="list_dialog_ip">IP (IPv6 eller IPv4):</string>
   <string name="import_dialog">Importerer …</string>
@@ -55,7 +61,6 @@
   <string name="apply_symlink_fail">Symlinken kunne ikke bli opprettet av Android.\nDette mislykkes vanligvis på grunn av en \"egenskap\" som kalles S-ON på HTC-mobiler!\n\nEn løsning er å starte opp telefonen din i gjenopprettingsmodus og lage symlinken der med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nDersom dette ikke virker, søk på nettet etter S-OFF og mobilen din.</string>
   <string name="apply_symlink_fail_title">Symlink-opprettelsen mislyktes</string>
   <string name="apply_help">Se i Hjelp for mere informasjon.</string>
-  <string name="apply_apn_proxy">En APN-mellomtjener er valgt på din Android!\nAdAway vil ikke virke pålitelig når den er på mobilnettverker som 3G. Du kan deaktivere den mellomtjeneren ved å gå til din valgte APN og fjerne verdien i mellomtjenerfeltet.</string>
   <string name="apply_apn_proxy_title">APN-mellomtjeneren ble valgt!</string>
   <string name="no_connection">TIlkoblingen til internettet virker ikke.</string>
   <string name="no_connection_title">Ingen tilkobling</string>
@@ -145,7 +150,6 @@
   <string name="pref_whitelist_rules_summary">Tillat hvitelistingsoppføringer fra vertsfilkilder.</string>
   <string name="pref_redirection_rules_summary">UTGJØR EN SIKKERHETSRISIKO! Tillater omdirigeringsoppføringer fra vertsfilkilder.</string>
   <string name="pref_debug">Avlusing</string>
-  <string name="pref_enable_debug">Avlusings-loggføring</string>
   <string name="pref_enable_debug_summary">Du må starte AdAway på nytt for at denne innstillingene skal bli satt i gang.</string>
   <string name="pref_enable_ipv6">Aktiver IPv6</string>
   <string name="pref_enable_ipv6_summary">Alle vertsfiloppføringer vil få en samsvarende ::1-oppføring (IPv6-lokalverten).</string>
@@ -153,6 +157,7 @@
   <string name="pref_enable_systemless">Aktiver systemløs modus</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferanser</string>
   <!--Hosts source status-->

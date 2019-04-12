@@ -126,10 +126,10 @@
   <string name="pref_automatic_update_daily">Outomatiese Opdatering</string>
   <string name="pref_automatic_update_daily_summary">Dateer outomaties op in die agtergrond indien beskikbaar.</string>
   <string name="pref_debug">Herstel foute</string>
-  <string name="pref_enable_debug">Fout Aantekening</string>
   <string name="pref_enable_debug_summary">Jy moet AdAway weer begin om hierdie instellings te implementeer.</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Voorkeure</string>
   <!--Hosts source status-->

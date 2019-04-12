@@ -36,8 +36,6 @@
   <string name="list_add_dialog_black">Tambahkan pada daftar hitam</string>
   <string name="list_add_dialog_white">Tambahkan pada daftar putih</string>
   <string name="list_add_dialog_redirect">Tambahkan pada daftar pengalihan</string>
-  <string name="list_edit_dialog_black">Kelola daftar hitam</string>
-  <string name="list_edit_dialog_white">Kelola daftar putih</string>
   <string name="list_edit_dialog_redirect">Kelola pengalihan</string>
   <string name="list_dialog_hostname">Hostname:</string>
   <string name="list_dialog_hostname_hint">Alamat sumber daftar</string>
@@ -59,11 +57,18 @@
   <string name="status_no_connection_subtitle">Tidak ada koneksi internet yang tersedia</string>
   <string name="status_download_fail">Sumber tidak tersedia</string>
   <string name="status_download_fail_subtitle_new">Tidak ada sumber host yang terjangkau!</string>
+  <string name="status_failure">Terjadi kesalahan</string>
+  <string name="status_failure_subtitle">Periksa logcat untuk lebih jelasnya</string>
   <string name="status_enabled">Dinyalakan</string>
   <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
   <string name="status_disabled">Dimatikan</string>
+  <string name="status_disabled_subtitle">File host bawaan dipasang</string>
   <string name="notification_channel_update_name">Pembaruan</string>
   <string name="notification_channel_update_description">Notifikasi pembaruan host baru</string>
+  <string name="notification_configuration_changed">Konfigurasi anda berubah. Anda perlu memasang file hosts untuk menerapkannya.</string>
+  <string name="notification_configuration_changed_action">Terapkan</string>
+  <string name="notification_configuration_installing">Memasang file host..</string>
+  <string name="notification_configuration_failed">Gagal memasang file host.</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symlink dari target ke /system/etc/hosts tidak benar atau tidak ada! AdAway tidak akan bekerja jika hal itu tidak dibetulkan.\n\nApa anda ingin mencoba membuat symlink?</string>
   <string name="apply_symlink_missing_title">Symlink tidak ditemukan</string>
@@ -75,12 +80,13 @@
   <string name="apply_remount_fail_title">remount gagal</string>
   <string name="apply_copy_fail">Penyalinan file host gagal!</string>
   <string name="apply_copy_fail_title">Penyalinan gagal</string>
+  <string name="apply_success_subtitle">Sumber host diterapan</string>
   <string name="apply_success_title">Penerapan berhasil</string>
+  <string name="apply_symlink_successful">Symlink telah berhasil dibuat.\nIni mungkin membutuhkan memuat ulang Android untuk mendapatkan hasil dari perubahan.\n\nApakah anda ingin memuat ulang?\n(Untuk mencegah adanya kehilangan data, pastikan tidak ada aplikasi yang menggunakan kartu SD pada saat ini!)</string>
   <string name="apply_symlink_successful_title">Pembuatan symlink berhasil</string>
   <string name="apply_symlink_fail">Symlink tidak dapat dibuat.\nKemungkinan besar sumber masalah ini merupakan S-ON di perangkar HTC!\n\nSolusinya adalah dengan masuk ke mode recovery dan membuat symlink dengan menjalankan \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJika cara tersebut tidak bekerja cari di internet tentang S-OFF dan perangkat anda.</string>
   <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
   <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
-  <string name="apply_apn_proxy">Proxy APN ditetapkan di perangkat anda!\nAdAway tidak akan bekerja dengan baik di koneksi seluler seperti 3G. Anda bisa mematikan proxy tersebut dengan membuka pengaturan APN anda (Di android 4+ : Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) dan kosongkan bagian proxy.</string>
   <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
   <string name="no_connection">Koneksi internet tidak berfungsi.</string>
   <string name="no_connection_title">Tidak ada koneksi</string>
@@ -92,6 +98,7 @@
   <string name="apply_dialog_apply">Menerapkan file host</string>
   <string name="apply_fail">Penerapan file host ke sistem anda gagal!\nCobalah untuk mengganti target file host di prefrensi ke /data/data/hosts.</string>
   <string name="apply_fail_title">Pemasangan gagal</string>
+  <string name="revert_successful">Anda mengembalikan ke file host bawaan.\nIni mungkin membutuhkan memuat ulang Android untuk mendapatkan hasil dari perubahan.\n\nApakah anda ingin memuat ulang?\n(Untuk mencegah adanya kehilangan data, pastikan tidak ada aplikasi yang menggunakan kartu SD pada saat ini!)</string>
   <string name="revert_successful_title">Pengembalian berhasil</string>
   <string name="revert_problem">Pengembalian gagal karena alasan yang tidak diketahui.</string>
   <string name="revert_problem_title">Pengembalian gagal</string>
@@ -125,6 +132,7 @@
   <!--Adware-->
   <string name="adware_header">Adware</string>
   <string name="adware_scanning">Memindai...</string>
+  <string name="adware_empty">Adware tidak ditemukan!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">Lokal:</string>
   <string name="hosts_last_modified_online">Online:</string>
@@ -161,7 +169,7 @@
   <string name="pref_dark_theme_summary">Gunakan tema gelap, bukan tema cerah</string>
   <string name="pref_dark_theme_notification">Tema akan berubah pada sesi aplikasi berikutnya!</string>
   <string name="pref_hosts">Hosts File</string>
-  <string name="pref_redirection_ip">redireksi IP</string>
+  <string name="pref_redirection_ip">Pengalihan IP</string>
   <string name="pref_update_check">Memeriksa pembaruan</string>
   <string name="pref_apply_method">Target file host</string>
   <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
@@ -175,7 +183,7 @@
   <string name="pref_webserver_enabled">Aktifkan peladen web</string>
   <string name="pref_webserver_enabled_summary">Aktifkan server web yang mendengarkan alamat IP lokal untuk menjawab permintaan ke nama host diblokir</string>
   <string name="pref_webserver">Peladen Web lokal</string>
-  <string name="pref_custom_target">Custom target</string>
+  <string name="pref_custom_target">Kustom target</string>
   <string name="pref_custom_target_summary">Hanya digunakan bila target berkas hosts diatur untuk custom target</string>
   <string-array name="pref_apply_method_entries">
     <item>/system/etc/hosts</item>
@@ -184,18 +192,22 @@
     <item>Custom target</item>
   </string-array>
   <string name="pref_update_check_summary">Periksa pembaruan di awal AdAway</string>
+  <string name="pref_sdcard_problem">Fitur ini tidak akan berfungsi dengan baik saat AdAway terpasang di Kartu SD!</string>
   <string name="pref_background">Layanan latar Belakang</string>
   <string name="pref_update_check_daily">Periksa pembaruan setiap hari</string>
   <string name="pref_update_check_daily_summary">Periksa update harian di latar belakang dengan pemberitahuan</string>
   <string name="pref_automatic_update_daily">Pembaruan otomatis</string>
   <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
+  <string name="pref_update_only_on_wifi">Hanya perbarui saat tidak dibatasi</string>
   <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
   <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
   <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
   <string name="pref_redirection_rules_summary">BAHAYA KEAMANAN! Perbolehkan pengalihan dari sumber host.</string>
   <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Debug Logging</string>
+  <string name="pref_enable_debug">Nyalakan verbose logging</string>
   <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>
+  <string name="pref_enable_telemetry">Nyalakan laporan crash</string>
+  <string name="pref_enable_telemetry_summary">Ijinkan aplikasi untuk mengirim laporan error dan crash ke Sentry (sentry.io)</string>
   <string name="pref_enable_ipv6">Aktifkan IPv6</string>
   <string name="pref_enable_ipv6_summary">Semua entri file host akan disesuaikan dengan entri :: 1 (IPv6 localhost).</string>
   <string name="pref_enable_systemless_summary">Cegah AdAway me-modifikasi partisi system</string>
@@ -215,10 +227,32 @@
     <item>Bantuan</item>
   </string-array>
   <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Dukung pengembangan \u2764</string>
+  <string name="drawer_support_dialog_title">Dukung pengembangan</string>
+  <string name="drawer_support_dialog_button">Tunjukkan dukungan saya</string>
+  <!--Telemetry-->
+  <string name="dialog_telemetry_title">Telemetri</string>
+  <string name="dialog_telemetry_enable">Tentu, saya senang bisa membantu!</string>
+  <string name="dialog_telemetry_disable">Tidak, Terima kasih</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Aktifitas DNS</string>
   <string name="shortcut_your_lists">Daftar pribadi</string>
   <string name="shortcut_preferences">Pengaturan</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Pembaruan untuk %1$s</string>
+  <string name="hosts_source_need_update">Pembaruan dibutuhkan untuk %1$s</string>
+  <string name="hosts_source_last_update">Pembaruan terakhir %1$s yang lalu</string>
   <string name="hosts_source_unknown_status">Status pembaharuan tidak diketahui</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="other">%d menit</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="other">%d jam</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="other">%d hari</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="other">%d bulan</item>
+  </plurals>
 </resources>

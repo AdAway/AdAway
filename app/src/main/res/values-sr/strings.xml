@@ -55,7 +55,6 @@
   <string name="apply_symlink_fail">Poveznicu nije moguće stvoriti.\n Ovo uglavnom onemogućuje \'opcija\' zvana S-ON na HTC telefonima!\n\n Moguće rešenje: pokrenite telefon u recovery režimu i kreirajte poveznicu komandom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n Ako ovo nije moguće, potražite na internetu da li postoji S-OFF način za vaš model telefona.</string>
   <string name="apply_symlink_fail_title">Kreiranje symlink-a bez uspesno</string>
   <string name="apply_help">Molimo da pročitate Pomoć za više informacija.</string>
-  <string name="apply_apn_proxy">APN proxy je omogućen na vašem telefonu!\nAdAway neće pouzdano raditi na nekim 3G mrežama. Proxy možete onemogućiti odlaskom na podešavanje vašeg APN-a (Za Android 4: Bežična veza i mreže -&gt; Mobilne mreže -&gt; Nazivi pristupnih tačaka) i obrišite podatak u polju proxy.</string>
   <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
   <string name="no_connection">Konekcija sa internetom ne radi.</string>
   <string name="no_connection_title">Nema konekcije</string>
@@ -145,7 +144,6 @@
   <string name="pref_whitelist_rules_summary">Dopušta stavke sa bele liste sa izvora hostova.</string>
   <string name="pref_redirection_rules_summary">PREDSTAVLJA BEZBEDNOSNI RIZIK! Dopušta preusmerene stavke sa izvora hostova.</string>
   <string name="pref_debug">Otklanjanje grešaka</string>
-  <string name="pref_enable_debug">Evidencija otklanjanja grešaka</string>
   <string name="pref_enable_debug_summary">Morate ponovno pokrenuti AdAway da bi ovo podešavanje bilo primenjeno.</string>
   <string name="pref_enable_ipv6">Omogući IPv6</string>
   <string name="pref_enable_ipv6_summary">Sve stavke host datoteka će dobiti odgovarajući ::1 (IPv6 localhost) unos.</string>
@@ -153,6 +151,7 @@
   <string name="pref_enable_systemless">Omogući systemless režim</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Podešavanja</string>
   <!--Hosts source status-->

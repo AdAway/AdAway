@@ -3,7 +3,7 @@
   <string name="app_name">AdAway</string>
   <!--Buttons-->
   <string name="button_exit">Выйсці</string>
-  <string name="button_close">Зачыніць</string>
+  <string name="button_close">Закрыць</string>
   <string name="button_yes">Так</string>
   <string name="button_no">Не</string>
   <string name="button_add">Дадаць</string>
@@ -13,6 +13,7 @@
   <string name="button_help">Дапамога</string>
   <!--Home-->
   <string name="header_help">Сярдэчна запрашаем!</string>
+  <string name="text_help">AdAway - гэта бясплатная праграма з адкрытым зыходным кодам для блакіроўкі рэкламы. Яна збірае адрасы з рэкламнай сеткі і блакуе іх на вашай прыладзе.\nХочаце даведацца больш? Чытайце даведку!</string>
   <string name="button_show_help">Паказаць дадатковую дапамогу</string>
   <string name="icon_update_status">Статус абнаўленняў</string>
   <string name="text_update">Усе файлы hosts, спампаваных з пэўных крыніц, зліваюцца з вашым уласным спісам і ўсталёўваюцца ў вашай сістэме ў выглядзе аднаго файла host</string>
@@ -36,8 +37,8 @@
   <string name="list_add_dialog_black">Дадаць host у чорны спіс</string>
   <string name="list_add_dialog_white">Дадаць host у белы спіс</string>
   <string name="list_add_dialog_redirect">Дадаць перанакіраванне host</string>
-  <string name="list_edit_dialog_black">Змяніць чорны спіс host</string>
-  <string name="list_edit_dialog_white">Змяніць белы спіс host</string>
+  <string name="list_edit_dialog_black">Рэдагаваць чорны спіс host</string>
+  <string name="list_edit_dialog_white">Рэдагаваць белы спіс host</string>
   <string name="list_edit_dialog_redirect">Змяніць перанакіраванне</string>
   <string name="list_dialog_hostname">Назва крыніцы:</string>
   <string name="list_dialog_hostname_hint">URL крыніцы hosts</string>
@@ -45,8 +46,11 @@
   <string name="list_dialog_ip">IP (IPv4 ці IPv6):</string>
   <string name="import_dialog">Імпарт...</string>
   <string name="export_dialog">Экспарт...</string>
+  <string name="export_success">Усе запісы выгружаны на вашу карту памяці ў файл \'adaway-export\'.</string>
+  <string name="export_failed">Экспартаванне вашага спісу на карту памяці не ўдалося.</string>
   <!--Hosts content-->
   <string name="hosts_header">Файл hosts</string>
+  <string name="hosts_description">Файл hosts - гэта сістэмны файл, супастаўляючы імёны вузлоў з IP-адрасамі. Гэта звычайны тэкставы файл, змесціва якога апрацоўвае AdAway. Вось яго першыя радкі:</string>
   <string name="hosts_content">Загрузка змесціва файла hosts</string>
   <string name="hosts_open_button">Адкрыць файл hosts</string>
   <!--Status Notification-->
@@ -67,6 +71,10 @@
   <string name="status_disabled_subtitle">Усталяваны стандартны файл hosts</string>
   <string name="notification_channel_update_name">Абнаўленне</string>
   <string name="notification_channel_update_description">Апавяшчэнні аб абнаўленні новых hosts</string>
+  <string name="notification_configuration_changed">Налады зменены. Вам трэба ўсталяваць файл hosts для іх прымянення.</string>
+  <string name="notification_configuration_changed_action">Прымяніць</string>
+  <string name="notification_configuration_installing">Усталёўка файла hosts...</string>
+  <string name="notification_configuration_failed">Не атрымалася ўсталяваць файл hosts.</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Спасылка на ваш /system/etc/hosts няправільная або не існуе! AdAway не будзе працаваць, калі не паказаць правільны файл. Вы хочаце паспрабаваць стварыць спасылку?</string>
   <string name="apply_symlink_missing_title">Спасылка адсутнічае</string>
@@ -78,12 +86,15 @@
   <string name="apply_remount_fail_title">Перамантаваць не ўдалося</string>
   <string name="apply_copy_fail">Капіяванне файла hosts не ўдалося!</string>
   <string name="apply_copy_fail_title">Капіяванне не ўдалося</string>
+  <string name="apply_success_subtitle">Выкарыстоўваюцца крыніцы hosts</string>
   <string name="apply_success_title">Прымяненне прайшло паспяхова</string>
+  <string name="apply_success_dialog">Прымяненне прайшло паспяхова.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
+  <string name="apply_symlink_successful">Спасылка створана паспяхова.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
   <string name="apply_symlink_successful_title">Спасылка створана паспяхова</string>
   <string name="apply_symlink_fail">Android не змог стварыць спасылку. Магчыма, гэта з-за асаблівасці тэлефонаў HTC,так званай S-ON! Рашэнне складаецца ў загрузцы тэлефона ў рэжыме аднаўлення і стварэння спасылкі пры дапамозе \'ln -s /data/data/hosts /system/etc/hosts\'. Калі гэта не спрацоўвае, то неабходна шукаць інфармацыю ў інтэрнэце па S-OFF і вашаму тэлефону.</string>
   <string name="apply_symlink_fail_title">Памылка стварэння спасылкі</string>
   <string name="apply_help">Калі ласка, чытайце Даведку для атрымання большай інфармацыі.</string>
-  <string name="apply_apn_proxy">У наладах APN паказаны проксі сервер! AdAway не будзе працаваць у мабільных сетках, такіх як 3G. Вы можаце адключыць гэты сервер проксі у наладах выкарыстоўванай APN (у Android 4: Бесправадныя сеткі -&gt; Яшчэ ... -&gt; Мабільная сетка -&gt; Кропкі доступу APN) і выдаліць значэнне ў полі Проксі.</string>
+  <string name="apply_apn_proxy">У наладах APN паказаны проксі сервер! AdAway не будзе працаваць у мабільных сетках, такіх як 3G. Вы можаце адключыць гэты сервер проксі у наладах выкарыстоўванай APN (з праграмы Налад: Сетка і Інтэрнэт -&gt; Мабільная сетка -&gt; Дадаткова -&gt; Пункты доступу APN) і выдаліць значэнне ў полі Проксі.</string>
   <string name="apply_apn_proxy_title">Выкарыстоўваная кропка доступу працуе праз проксі-сервер!</string>
   <string name="no_connection">Адсутнічае падключэнне да інтэрнэту.</string>
   <string name="no_connection_title">Няма злучэння</string>
@@ -96,24 +107,179 @@
   <string name="apply_fail">Не атрымалася прымяніць файл Hosts на вашай сістэме! 
 Паспрабуйце змяніць шлях да файла Hosts ў наладах на /data/data/hosts</string>
   <string name="apply_fail_title">Прымяненне не ўдалося</string>
+  <string name="revert_successful">Вы вярнуліся да файла Hosts па змаўчанні.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
   <string name="revert_successful_title">Вяртанне адбылося паспяхова</string>
   <string name="revert_problem">Аднаўленне не атрымалася па невядомых прычынах.</string>
   <string name="revert_problem_title">Аднаўленне не атрымалася!</string>
+  <string name="download_fail_dialog">Ніводная з вашых актыўных крыніц host недаступная! Вы правільна падлучаныя да інтэрнэту?</string>
+  <string name="download_fail_title">Памылка спампоўкі</string>
+  <string name="no_private_file">Файл не можа быць створаны.</string>
+  <string name="no_private_file_title">Не атрымалася стварыць файл</string>
+  <string name="enable_systemless_successful">Вы актывавалі бессістэмны рэжым.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
+  <string name="enable_systemless_successful_title">Актывацыя прайшла паспяхова</string>
+  <string name="disable_systemless_successful">Вы адключылі бессістэмны рэжым.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
+  <string name="disable_systemless_successful_title">Паспяхова адключана</string>
   <!--Other Dialogs-->
+  <string name="no_root_description">Альбо адсутнічае бінарны файл su, альбо вы не далі AdAway правы суперкарыстальніка.\n\nГэта магло адбыцца, калі на вашай прыладзе не атрыманы root-доступ.\nВы можаце знайсці інфармацыю аб тым, як атрымаць root-права на вашай прыладзе на wiki.lineageos.org або іншым сайце, прысвечаным Android.</string>
+  <string name="no_root_title">Для Android патрабуюцца правы Root</string>
+  <string name="hosts_add_dialog">Устаўце URL у файл hosts:</string>
+  <string name="no_hostname">Гэта недапушчальнае імя крыніцы!</string>
+  <string name="no_hostname_title">Няправільна адфарматаванае імя host</string>
+  <string name="no_ip">Гэта недапушчальны IP-адрас!</string>
+  <string name="no_ip_title">Няправільна адфарматаваны IP-адрас</string>
+  <string name="reboot_never_reboot">Ніколі не перазагружаць і не паказваць гэтае пытанне ў наступны раз!</string>
+  <string name="loading">Загрузка...</string>
   <!--Menu entries-->
+  <string name="menu_refresh">Абнавіць</string>
   <string name="menu_add">Дадаць</string>
+  <string name="menu_hosts_sources">Крыніцы hosts</string>
   <string name="menu_help">Дапамога</string>
+  <string name="menu_import">Імпартаваць усе спісы</string>
+  <string name="menu_export">Экспартаваць усе спісы</string>
   <!--Help-->
+  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+  <string name="help_tab_faq">FAQ</string>
+  <string name="help_tab_problems">Праблемы</string>
   <!--Adware-->
+  <string name="adware_header">Праграмы з рэкламай</string>
+  <string name="adware_description">Пошук праграм з рэкламай, званыя Adware, і якія AdAway не можа заблакаваць. Гэтыя праграмы выкарыстоўваюць, напрыклад, сістэму апавяшчэнняў Airpush, якая паказвае рэкламу нават тады, калі праграма не працуе, ці нават можа змяніць мелодыю вашага званка. Пазбавіцца ад такой рэкламы можна толькі выдаліўшы праграмы, названыя ў выніках сканавання, шляхам націску на элементы спісу.</string>
+  <string name="adware_scanning">Сканаванне...</string>
+  <string name="adware_empty">Праграм з рэкламай не знойдзена!</string>
   <!--Hosts sources-->
+  <string name="hosts_last_modified_local">Лакальны:</string>
+  <string name="hosts_last_modified_online">Інтэрнэт:</string>
+  <string name="hosts_not_available">недаступны</string>
+  <string name="hosts_add_dialog_title">Дадаць крыніцу</string>
+  <string name="hosts_edit_dialog_title">Рэдагаваць крыніцу</string>
+  <string name="hosts_dialog_url">URL: (рэсурс https:// ці file://)</string>
   <string name="hosts_dialog_url_hint">URL крыніцы hosts</string>
   <!--Other-->
+  <string name="app_subtitle">Блакавальнік рэкламы</string>
+  <string name="no_text_editor_title">Не ўсталяваны тэкставы рэдактар</string>
+  <string name="no_text_editor">Не знойдзены тэкставы рэдактар ​​для адкрыцця файла hosts. Вы можаце ўсталяваць рэдактар ​​Jota ці іншай тэкставы рэдактар, каб гэта выправіць.\n\nВы жадаеце ўсталяваць рэдактар ​​Jota?</string>
+  <string name="no_file_manager_title">Не ўсталяваны файлавы менеджэр</string>
+  <string name="no_file_manager">Няма файлавага мэнэджара для адкрыцця файла. Вы можаце ўсталяваць OI File Manager ці іншы файлавы менеджэр, каб гэта выправіць.\n\nВы жадаеце ўсталяваць OI File Manager?</string>
   <!--Tcpdump-->
+  <string name="tcpdump_header">Tcpdump</string>
   <string name="tcpdump_description">Tcpdump гэта інструмент для маніторынгу запытаў DNS і іх захавання ў файле журнала. Запусціце Tcpdump, ён будзе працаваць у фонавым рэжыме да перазагрузкі прылады - запусціце праграму, у якой на экране паказваецца рэклама - прааналізуйце запыты DNS, выкарыстоўваючы файл журнала. Знойдзеныя ў ім падазроныя сервера, магчымыя як крыніцы рэкламы, могуць быць унесены ў чорны спіс.</string>
+  <string name="tcpdump_disable_monitoring">Адключыць маніторынг</string>
+  <string name="tcpdump_enable_monitoring">Уключыць маніторынг</string>
+  <string name="tcpdump_show_results">Паказаць вынікі</string>
+  <string name="tcpdump_redirect_dialog_title">Перанакіраваць дамен</string>
+  <string name="tcpdump_menu_sort">Сартаваць дамены</string>
+  <string name="tcpdump_menu_clear">Ачысціць журнал</string>
+  <string name="tcpdump_sort_alphabetical">Сартаваць па алфавіту</string>
+  <string name="tcpdump_sort_top_level_domain">Сартаванне па найвышэйшаму ўзроўню дамена</string>
+  <string name="tcpdump_entry_add_blacklist">Дадаць запіс у Чорны спіс</string>
+  <string name="tcpdump_entry_add_whitelist">Дадаць запіс у Белы спіс</string>
+  <string name="tcpdump_entry_add_redirection_list">Дадаць запіс у спіс перанакіраванняў</string>
   <!--Preferences-->
+  <string name="pref_download">Асноўныя налады</string>
+  <string name="pref_dismiss_welcome">Схаваць прывітанне</string>
+  <string name="pref_dismiss_welcome_summary">Не паказваць прывітанне на галоўным экране</string>
+  <string name="pref_dark_theme">Уключыць цёмную тэму</string>
+  <string name="pref_dark_theme_summary">Выкарыстоўваць цёмную тэму замест светлай</string>
+  <string name="pref_dark_theme_notification">Тэма зменіцца пры наступным запуску праграмы!</string>
+  <string name="pref_hosts">Файл hosts</string>
+  <string name="pref_redirection_ip">Адрас IP для перанакіравання</string>
   <string name="pref_update_check">Праверка абнаўленняў</string>
+  <string name="pref_apply_method">Шлях да файла hosts</string>
+  <string name="pref_apply_method_summary">Перад змяненнем гэтага параметру прачытайце аб гэтай функцыі ў Даведцы.</string>
+  <string name="pref_redirection_ip_summary">Усе заблакаваныя hosts пераадрасоўваюцца на гэты адрас IP.</string>
+  <string name="pref_header_preferences">Налады</string>
+  <string name="pref_header_preferences_summary">Асноўныя налады AdAway</string>
+  <string name="pref_never_reboot">Схаваць акно перазагрузкі</string>
+  <string name="pref_never_reboot_summary">Хавае акно перазагрузкі Android пасля паспяховага прымянення</string>
+  <string name="pref_webserver_on_boot">Старт вэб-сервера пры загрузцы прылады</string>
+  <string name="pref_webserver_on_boot_summary">Старт вэб-сервера пры загрузцы сістэмы для праслухоўвання лакальных адрасоў IP</string>
+  <string name="pref_webserver_enabled">Адключыць вэб-сервер</string>
+  <string name="pref_webserver_enabled_summary">Дазваляе вэб-серверу праслухоўваць лакальныя IP-адрасы і адказваць на запыты да заблакаваных host</string>
+  <string name="pref_webserver">Лакальны вэб-сервер</string>
+  <string name="pref_custom_target">Карыстацкія налады</string>
+  <string name="pref_custom_target_summary">Выкарыстоўваецца толькі ў выпадку, калі размяшчэнне файла hosts зададзена карыстальнікам</string>
+  <string-array name="pref_apply_method_entries">
+    <item>/system/etc/hosts</item>
+    <item>/data/hosts</item>
+    <item>/data/data/hosts</item>
+    <item>Зададзена карыстальнікам</item>
+  </string-array>
+  <string name="pref_update_check_summary">Правяраць абнаўленні пры запуску AdAway</string>
+  <string name="pref_sdcard_problem">Гэтая функцыя будзе працаваць няправільна, калі AdAway усталяваны на карту памяці!</string>
+  <string name="pref_background">Фонавы рэжым</string>
+  <string name="pref_update_check_daily">Правяраць штодня</string>
+  <string name="pref_update_check_daily_summary">Правярайце штодня абнаўленні ў фонавым рэжыме з апавяшчэннямі</string>
+  <string name="pref_automatic_update_daily">Аўтаабнаўленне</string>
+  <string name="pref_automatic_update_daily_summary">Абнаўляць аўтаматычна ў фонавым рэжыме, калі даступны абнаўленні.</string>
+  <string name="pref_update_only_on_wifi">Абнаўляць толькі па Wi-Fi</string>
+  <string name="pref_update_only_on_wifi_summary">Выконваць фонавыя абнаўленні толькі праз і нелімітаванае падключэнне.</string>
+  <string name="pref_whitelist_rules">Дазволіць белыя спісы</string>
+  <string name="pref_whitelist_rules_summary">Дазволіць белыя спісы з крыніц host</string>
+  <string name="pref_redirection_rules">Дазволіць перанакіраванне</string>
+  <string name="pref_redirection_rules_summary">ПРАДСТАЎЛЯЕ ПАГРОЗУ БЯСПЕКІ! Дазволіць перанакіраванне з крыніц host.</string>
+  <string name="pref_debug">Рэжым адладкі</string>
+  <string name="pref_enable_debug">Уключыць журнал адладкі</string>
+  <string name="pref_enable_debug_summary">Неабходна перазапусціць AdAway для прымянення змен.</string>
+  <string name="pref_enable_telemetry">Адпраўляць справаздачы аб памылках</string>
+  <string name="pref_enable_telemetry_summary">Адпраўляць справаздачы аб памылках і збоях у Sentry (sentry.io).</string>
+  <string name="pref_enable_ipv6">Уключыць IPv6</string>
+  <string name="pref_enable_ipv6_summary">Усе запісы файла host будуць атрымліваць адпаведны ::1 запіс (localhost IPv6).</string>
+  <string name="pref_enable_systemless_summary">Забараніць AdAway рэдагаваць сістэмны раздзел</string>
+  <string name="pref_enable_systemless">Уключыць бессістэмны рэжым</string>
+  <string name="pref_edit_text_value">Рэдагаваць значэнне тэкставай перавагі</string>
+  <string name="drawer_open">Адкрыць меню</string>
+  <string name="drawer_close">Закрыць меню</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>Галоўная</item>
+    <item>Крыніцы host</item>
+    <item>Вашы спісы</item>
+    <item>Адкрыць файл hosts</item>
+    <item>Журнал запытаў</item>
+    <item>Сканаванне</item>
+    <item>Налады</item>
+    <item>Даведка</item>
+  </string-array>
   <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 Падтрымаць распрацоўку \u2764</string>
+  <string name="drawer_support_dialog_title">Падтрымаць распрацоўку</string>
+  <string name="drawer_support_dialog_text">AdAway - гэта бясплатная праграма з адкрытым зыходным кодам, распрацоўкай і падтрымкай якога займаецца супольнасць. Мне спатрэбілася два гады, каб у вольны час сабраць новую версію праграмы.\n\nКалі вам яна падабаецца, і вы хацелі б бачыць больш абнаўленняў, не саромейцеся падтрымліваць праект.</string>
+  <string name="drawer_support_dialog_button">Паказаць маю падтрымку</string>
+  <!--Telemetry-->
+  <string name="dialog_telemetry_title">Тэлеметрыя</string>
+  <string name="dialog_telemetry_message">Прывітанне, дарагі карыстальнік,\n\nЗараз ты можаш удзельнічаць у распрацоўцы AdAway з дапамогай адпраўкі справаздач з памылкамі і базавай інфармацыі аб выкарыстанні. Усе дадзеныя ананімныя, тэлеметрыя будзе ўключана толькі пасля вашай згоды.\n\nПадрабязнасці можна даведацца ў <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
+  <string name="dialog_telemetry_enable">Вядома, я рады дапамагчы!</string>
+  <string name="dialog_telemetry_disable">Не, дзякуй</string>
   <!--Shortcuts-->
+  <string name="shortcut_dns_requests">Запыты DNS</string>
+  <string name="shortcut_your_lists">Вашы спісы</string>
+  <string name="shortcut_preferences">Налады</string>
   <!--Hosts source status-->
+  <string name="hosts_source_up_to_date">Актуальна %1$s</string>
+  <string name="hosts_source_need_update">Патрабуецца абнаўленне %1$s</string>
+  <string name="hosts_source_last_update">Апошняе абнаўленне %1$s таму</string>
+  <string name="hosts_source_unknown_status">Невядомы статус абнаўлення</string>
+  <plurals name="hosts_source_minutes">
+    <item quantity="one">%d хвіліна</item>
+    <item quantity="few">%d хвіліны</item>
+    <item quantity="many">%d хвілін</item>
+    <item quantity="other">%d хвілін</item>
+  </plurals>
+  <plurals name="hosts_source_hours">
+    <item quantity="one">%d гадзіна</item>
+    <item quantity="few">%d гадзіны</item>
+    <item quantity="many">%d гадзін</item>
+    <item quantity="other">%d гадзін</item>
+  </plurals>
+  <plurals name="hosts_source_days">
+    <item quantity="one">%d дзень</item>
+    <item quantity="few">%d дні</item>
+    <item quantity="many">%d дзён</item>
+    <item quantity="other">%d дзён</item>
+  </plurals>
+  <plurals name="hosts_source_months">
+    <item quantity="one">%d месяц</item>
+    <item quantity="few">%d месяцы</item>
+    <item quantity="many">%d месяцаў</item>
+    <item quantity="other">%d месяцаў</item>
+  </plurals>
 </resources>

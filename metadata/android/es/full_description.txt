@@ -2,6 +2,6 @@ Una aplicación para bloquear anuncios que utiliza el archivo hosts.
 El archivo hosts es un archivo del sistema que contiene una lista de conexiones entre nombres de dominio y direcciones IP.
 Cuando una aplicación solicita un anuncio procedente de un nombre de dominio dentro de ese archivo, esta solicitud se redirige a la dirección IP local 127.0.0.1, que no lleva ninguna acción a cabo.
 Puede descargar archivos hosts desde la aplicación para incorporarlos en el archivo hosts de su equipo. Puede utilizar también sus propios archivos y añadir determinados dominios a la lista de aprobación o a la lista negra.
-O también existe la posibilidad de hacer que un servidor web local responda a los nombres de dominio bloqueados y que presente solicitudes a direcciones IP de tu elección.
+O también existe la posibilidad de hacer que un servidor web local responda a los nombres de dominio bloqueados y que presente peticiones a direcciones IP de tu elección.
 
 Se requieren permisos de root: Sí. El archivo hosts se encuentra en la carpeta /system y está en estado de solo lectura por defecto.

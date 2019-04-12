@@ -16,7 +16,7 @@
   <string name="text_help">AdAway è un software gratuito e open-source progettato per bloccare pubblicità. Raccoglie gli indirizzi pubblicitari per bloccarli sul tuo dispositivo..\nVuoi saperne di più? Controlla la sezione di aiuto qui sotto!</string>
   <string name="button_show_help">Mostra più aiuti</string>
   <string name="icon_update_status">Aggiorna stato</string>
-  <string name="text_update">Tutti i file hosts dalle sorgenti definite sono scaricati, uniti alle tue liste personali e installati come un unico file hosts nel tuo sistema.</string>
+  <string name="text_update">Tutti i file hosts dalle sorgenti definite vengono scaricati, uniti alle tue liste personali e installati come un unico file hosts nel sistema.</string>
   <string name="button_check_update_hosts">Controlla aggiornamenti</string>
   <string name="button_update_hosts">Aggiorna gli hosts</string>
   <string name="button_enable_hosts">Abilita il blocco della pubblicità</string>
@@ -37,8 +37,8 @@
   <string name="list_add_dialog_black">Aggiungi gli host alla blacklist</string>
   <string name="list_add_dialog_white">Aggiungi gli host alla whitelist</string>
   <string name="list_add_dialog_redirect">Inoltra un host</string>
-  <string name="list_edit_dialog_black">Modifica la blacklist</string>
-  <string name="list_edit_dialog_white">Modifica la whitelist</string>
+  <string name="list_edit_dialog_black">Modifica host in blacklist</string>
+  <string name="list_edit_dialog_white">Modifica host in whitelist</string>
   <string name="list_edit_dialog_redirect">Modifica un inoltro</string>
   <string name="list_dialog_hostname">Nome host:</string>
   <string name="list_dialog_hostname_hint">URL sorgente hosts</string>
@@ -63,7 +63,9 @@
   <string name="status_no_connection_subtitle">Nessuna connessione internet disponibile</string>
   <string name="status_download_fail">Sorgente non disponibile</string>
   <string name="status_download_fail_subtitle_new">Nessuna fonte hosts raggiungibile!</string>
-  <string name="status_failure">Qualcosa non va</string>
+  <string name="status_root_access_denied">Permessi di root negati</string>
+  <string name="status_root_access_denied_subtitle">Concedi i permessi di root nel root manager che utilizzi</string>
+  <string name="status_failure">Qualcosa è andato storto</string>
   <string name="status_failure_subtitle">Controlla logcat per maggiori dettagli</string>
   <string name="status_enabled">Abilitato</string>
   <string name="status_enabled_subtitle">File host più recenti abilitati</string>
@@ -71,6 +73,10 @@
   <string name="status_disabled_subtitle">Host predefiniti installati</string>
   <string name="notification_channel_update_name">Aggiornamenti</string>
   <string name="notification_channel_update_description">Notifiche aggiornamento nuovi host</string>
+  <string name="notification_configuration_changed">La configurazione è stata cambiata. Devi installare i file host per applicarla.</string>
+  <string name="notification_configuration_changed_action">Applica</string>
+  <string name="notification_configuration_installing">Installazione host file...</string>
+  <string name="notification_configuration_failed">Installazione hosts file fallita.</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Il collegamento simbolico a /system/etc/hosts non esiste o non è corretto! AdAway  non funzionerà se il collegamento non punta al file giusto.\n\nVuoi provare a creare un collegamento simbolico?</string>
   <string name="apply_symlink_missing_title">Collegamento simbolico mancante</string>
@@ -90,7 +96,7 @@
   <string name="apply_symlink_fail">Il collegamento simbolico non può essere creato da Android.\nQuesto problema è dovuto quasi sicuramente a una \"caratteristica\" chiamata S-ON nei telefoni HTC!\n\nUna possibile soluzione è quella di avviare il telefono in modalità recovery e creare il collegamento simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono.</string>
   <string name="apply_symlink_fail_title">Creazione del collegamento simbolico fallita</string>
   <string name="apply_help">Per favore leggi l\'Aiuto per ulteriori informazioni.</string>
-  <string name="apply_apn_proxy">Un proxy APN è impostato sul tuo Android!\nAdAway non funzionerà bene quando userai reti mobili come 3G. Puoi disattivare il proxy andando nelle impostazioni del tuo APN (In Android 4: Wireless e rete -&gt; Altre impostazioni -&gt; Reti mobili -&gt; Nomi punti d\'accesso) e rimuovendo il contenuto del campo proxy.</string>
+  <string name="apply_apn_proxy">Un proxy APN è impostato sul tuo Android!\nAdAway non funzionerà in modo affidabile quando connesso ad una rete Mobile 3G. Puoi disattivare il proxy andando nelle impostazioni del tuo APN (In Impostazioni: Wireless e rete -&gt; Altre impostazioni -&gt; Reti mobili -&gt; Nomi punti d\'accesso) e rimuovendo il contenuto del campo proxy. </string>
   <string name="apply_apn_proxy_title">Proxy APN impostato!</string>
   <string name="no_connection">La connesione a internet non funziona</string>
   <string name="no_connection_title">Nessuna connessione</string>
@@ -102,6 +108,7 @@
   <string name="apply_dialog_apply">Applico file hosts</string>
   <string name="apply_fail">L\'applicazione del file hosts al tuo sistema è fallita!\nProva cambiando il percorso del file hosts nelle prefenze in /data/data/hosts.</string>
   <string name="apply_fail_title">Modifiche fallite!</string>
+  <string name="root_access_fail">Controlla il tuo root manager per assicurarti che i permessi di root siano stati concessi.</string>
   <string name="revert_successful">Sei tornato al file hosts predefinito.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
   <string name="revert_successful_title">Ripristino effettuato con successo!</string>
   <string name="revert_problem">Ripristino fallito per ragioni sconosciute.</string>
@@ -213,8 +220,10 @@ Vuoi installare OI File Manager?</string>
   <string name="pref_redirection_rules">Abilita inoltro</string>
   <string name="pref_redirection_rules_summary">RISCHIO PER LA SICUREZZA! Permetti valori di inoltro dalle fonti host.</string>
   <string name="pref_debug">Debug</string>
-  <string name="pref_enable_debug">Log di debug</string>
+  <string name="pref_enable_debug">Abilita log dettagliati</string>
   <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>
+  <string name="pref_enable_telemetry">Abilita segnalazione errori</string>
+  <string name="pref_enable_telemetry_summary">Permette all\'applicazione di mandare errori e crash report a Sentry (sentry.io).</string>
   <string name="pref_enable_ipv6">Abilita IPv6</string>
   <string name="pref_enable_ipv6_summary">Tutte le voci nel file di host avranno una voce  ::1 (IPV6 localhost) corrispondente</string>
   <string name="pref_enable_systemless_summary">Impedisci a AdAway di modificare la partizione di sistema</string>
@@ -238,6 +247,11 @@ Vuoi installare OI File Manager?</string>
   <string name="drawer_support_dialog_title">Supporta lo sviluppo</string>
   <string name="drawer_support_dialog_text">AdAway è un software Gratuito e Open-Source sviluppato e mantenuto esclusivamente dalla comunità. Ci sono voluti due anni come progetto nel tempo libero per rilasciare questa nuova versione dell\'app. .\n\nSe ti piace e vuoi vedere ulteriori aggiornamenti, per favore considera di supportare il progetto.</string>
   <string name="drawer_support_dialog_button">Mostra il mio supporto</string>
+  <!--Telemetry-->
+  <string name="dialog_telemetry_title">Telemetria</string>
+  <string name="dialog_telemetry_message">Caro utente,/n/nHai la possibilità di contribuire allo sviluppo di AdAway condividendo i tuoi rapporti di arresto anomalo e informazioni base sull\'utilizzo dell\'app. Tutti i dati vengono inviati in forma anonima e l\'invio sarà abilitato solo se accetti./n/Puoi trovare maggiori informazioni su <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a></string>
+  <string name="dialog_telemetry_enable">Certo, voglio aiutare!</string>
+  <string name="dialog_telemetry_disable">No grazie</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Chiamata DNS</string>
   <string name="shortcut_your_lists">Le tue liste</string>

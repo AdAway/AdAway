@@ -1,7 +1,7 @@
 En annonsblockerare som använder värdfilen.
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Värdfilen är en systemfil som innehåller en lista över mappningar mellan värdnamn och IP-adresser.
+När en app begär en annons från en värd i den filen, kommer begäran att omdirigeras till den lokala IP-adressen 127.0.0.1, som gör ingenting.
+Du kan hämta fördefinierade värdfiler från appen för att integrera dem i systemets värdfil. Det är också möjligt att använda egna filer och lägga till vissa värdar till vit- och svartlistan.
+Det finns alternativ att köra en lokal webbserver för att svara på blockerade värdnamn och att rikta förfrågningar till den IP-adress du själv önskar.
 
 Kräver root: Ja. Värdfilen finns i /system som är skrivskyddad som standard.

@@ -36,8 +36,6 @@
   <string name="list_add_dialog_black">Πρόσθεση host στη μαύρη λίστα</string>
   <string name="list_add_dialog_white">Πρόσθεση host σε λευκή λίστα</string>
   <string name="list_add_dialog_redirect">Πρόσθεση host σε ανακατεύθυνση</string>
-  <string name="list_edit_dialog_black">Επεξεργασία μαύρης λίστας host</string>
-  <string name="list_edit_dialog_white">Επεξεργασία λευκής λίστας host</string>
   <string name="list_edit_dialog_redirect">Επεξεργασία ανακατευθύνσεων</string>
   <string name="list_dialog_hostname">Όνομα:</string>
   <string name="list_dialog_hostname_hint">Το πηγαίο URL του αρχείου hosts</string>
@@ -86,8 +84,6 @@
 Αν αυτό δεν επιτύχει, αναζητήστε στο Internet για S-OFF και το μοντέλο της συσκευής σας.</string>
   <string name="apply_symlink_fail_title">Η δημιουργία συντόμευσης απέτυχε</string>
   <string name="apply_help">Παρακαλούμε ανατρέξτε στην Βοήθεια για περισσότερες πληροφορίες</string>
-  <string name="apply_apn_proxy">Υπάρχει διαμεσολαβητής APN ορισμένος στο Android σας!
-Το AdAway δεν λειτουργεί αξιόπιστα σε δίκτυα κινητής τηλεφωνίας όπως 3G. Μπορείτε να απενεργοποιήσετε τον διαμεσολαβητή πηγαίνοντας στο επιλεγμένο APN (Στο Android 4: Ασύρματες συνδέσης και δίκτυα -&gt; Περισσότερα... -&gt; Δίκτυα κινητής -&gt; Ονόματα Σημείων Πρόσβασης) και αφαιρώντας την τιμή στο πεδίο \"διαμεσολαβητής\".</string>
   <string name="apply_apn_proxy_title">Υπάρχει ορισμένος διαμεσολαβητής APN!</string>
   <string name="no_connection">Η σύνδεση στο ίντερνετ δεν λειτουργεί</string>
   <string name="no_connection_title">Αδυναμία συνδεσης</string>
@@ -208,7 +204,6 @@
   <string name="pref_redirection_rules">Να επιτρέπονται οι ανακατευθύνσεις</string>
   <string name="pref_redirection_rules_summary">Κίνδυνος ασφαλείας! Να επιτραπούν ανακατευθύνσεις από τις πηγές hosts.</string>
   <string name="pref_debug">Αποσφαλμάτωση</string>
-  <string name="pref_enable_debug">Καταγραφή αποσφαλμάτωσης</string>
   <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
   <string name="pref_enable_ipv6">Ενεργοποίηση πρωτοκόλλου IPv6.</string>
   <string name="pref_enable_ipv6_summary">Όλες οι καταχωρήσεις του αρχείου host θα αποκτήσουν μια καταχώρηση ::1 (IPv6 localhost) αντίστοιχα.</string>
@@ -229,6 +224,7 @@
     <item>Βοήθεια</item>
   </string-array>
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">Αιτήματα DNS</string>
   <string name="shortcut_your_lists">Οι λίστες σας</string>

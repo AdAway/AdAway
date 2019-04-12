@@ -1,7 +1,7 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+hosts ファイルによる広告ブロッカー
+hosts ファイルとは、ホスト名とそのIPアドレスの対応表が書かれたシステムファイルです。
+あるアプリがそのファイル内にあるホストへ広告を要求すると、その要求はローカル IPアドレスの 127.0.0.1 へ転送されます。これにより何も起こりません。
+アプリ内から定義済み hosts ファイルをダウンロードして、これをシステム側の hosts ファイルに統合することができます。自作ファイルを使うことも、特定のホストをホワイトリストやブラックリストに入れることもできます。
+ローカルにWebサーバーを建てて遮断されたホスト名に応答することや、代わりに要求を自分で決めたIPアドレスに転送するオプションもあります。
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+root 必要か： はい。 hosts ファイルは本来読み込み専用である /system に置かれています。

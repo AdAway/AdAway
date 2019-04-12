@@ -1,7 +1,7 @@
 Ad blocker, ktorý využíva hosts file.
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Súbor hosts je systémový súbor, ktorý obsahuje zoznam názvov hostiteľov a ich IP adresy.
+Keď aplikácia požiada o reklamu od hostiteľa, ktorý sa nachádza v súbore, táto požiadavka je presmerovaná na lokálnu IP 127.0.0.1, ktorá nič neurobí.
+Môžete si stiahnuť pripravené súbory hosts z aplikácie a zahrnúť ich do systémového súboru hosts. Môžete použiť aj vlastné súbory a pridať nejakých hostiteľov na bielu alebo čiernu listinu.
+Je tu aj možnosť spustiť lokálny webový server, ktorý bude reagovať na blokované hostiteľské názvy a ich požiadavky posielať na vami zvolenú IP adresu.
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+Vyžaduje root: Áno. Súbor hosts sa nachádza v /system, ktorý je predvolene iba na čítanie.

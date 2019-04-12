@@ -13,6 +13,7 @@
   <string name="button_help">ヘルプ</string>
   <!--Home-->
   <string name="header_help">ようこそ！</string>
+  <string name="text_help">AdAwayは、広告をブロックするためのフリーでオープンソースのソフトウェアです。広告用ネットワークアドレスを取ってきて、あなたのデバイス上で遮断します。\ nもっと知りたいですか？ 以下のヘルプをチェックしてください！</string>
   <string name="button_show_help">詳しいヘルプを表示</string>
   <string name="icon_update_status">最新状況</string>
   <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします</string>
@@ -45,8 +46,11 @@
   <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
   <string name="import_dialog">インポート中...</string>
   <string name="export_dialog">エクスポート中...</string>
+  <string name="export_success">全項目がSDカードの \'adaway-export\' という名前のファイルにエクスポートされました。</string>
+  <string name="export_failed">SDカードへのエクスポートに失敗しました。</string>
   <!--Hosts content-->
   <string name="hosts_header">hostsファイル</string>
+  <string name="hosts_description">hostsファイルはホスト名をIPアドレスに対応させるシステムファイルです。 AdAwayによって処理されるプレーンテキストファイルです。 最初の数行はこんな感じです：</string>
   <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
   <string name="hosts_open_button">hostsファイルを開く</string>
   <!--Status Notification-->
@@ -59,14 +63,21 @@
   <string name="status_no_connection_subtitle">ネットに接続されていません</string>
   <string name="status_download_fail">ソースが利用できません</string>
   <string name="status_download_fail_subtitle_new">どのhostsソースにも接続できません！</string>
+  <string name="status_failure">何らかの不具合が起きました</string>
+  <string name="status_failure_subtitle">詳細は logcat をチェックしてください</string>
   <string name="status_enabled">有効です</string>
-  <string name="status_enabled_subtitle">hostsファイルが有効化されました</string>
+  <string name="status_enabled_subtitle">最新の hosts ファイルが有効になりました</string>
   <string name="status_disabled">無効です</string>
+  <string name="status_disabled_subtitle">デフォルトの hosts ファイルがインストールされました</string>
   <string name="notification_channel_update_name">アップデート</string>
   <string name="notification_channel_update_description">新しいホストの更新通知</string>
+  <string name="notification_configuration_changed">設定が変更されました。適用するには hosts ファイルをインストールする必要があります。</string>
+  <string name="notification_configuration_changed_action">適用する</string>
+  <string name="notification_configuration_installing">hostsファイルを適用中…</string>
+  <string name="notification_configuration_failed">hosts ファイルのインストールに失敗しました。</string>
   <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">/system/etc/hostsへのsymlinkは存在しないか不正です!AdAwayは正しいファイルが指定されていないと動作しません。\n\nsymlinkを作成しますか？</string>
-  <string name="apply_symlink_missing_title">symlinkが見つかりません</string>
+  <string name="apply_symlink_missing">/system/etc/hostsへのシンボリックリンクは存在しないか不正です! AdAwayは正しいファイルが指定されていないと動作しません。\n\nシンボリックリンクを作成しますか？</string>
+  <string name="apply_symlink_missing_title">シンボリックリンクが見つかりません</string>
   <string name="apply_not_enough_space">領域に十分な容量がありません!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
   <string name="apply_not_enough_space_title">空き容量不足</string>
   <string name="apply_private_file_fail">ダウンロードしたファイルが読み込めません</string>
@@ -75,12 +86,15 @@
   <string name="apply_remount_fail_title">再マウント失敗</string>
   <string name="apply_copy_fail">hostsファイルのコピー失敗！</string>
   <string name="apply_copy_fail_title">コピー失敗</string>
+  <string name="apply_success_subtitle">hosts のソースを適用しました</string>
   <string name="apply_success_title">適用しました</string>
-  <string name="apply_symlink_successful_title">symlink作成成功</string>
+  <string name="apply_success_dialog">適用に成功しました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
+  <string name="apply_symlink_successful">シンボリックリンク作成に成功しました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
+  <string name="apply_symlink_successful_title">シンボリックリンク作成成功</string>
   <string name="apply_symlink_fail">symlinkをAndroidが作成できません。\nHTC製のS-ONと呼ばれる\'機能\'が原因です。\n\n解決するにはリカバリモードで\'ln -s /data/data/hosts /system/etc/hosts\'のsymlinkを作成してください。\n\nそれでも動作しない場合S-OFFについて検索してください</string>
-  <string name="apply_symlink_fail_title">symlink作成失敗</string>
+  <string name="apply_symlink_fail_title">シンボリックリンク作成失敗</string>
   <string name="apply_help">詳しくはヘルプをご覧ください</string>
-  <string name="apply_apn_proxy">APNプロキシが設定されています!\nAdAwayは3G/4Gのようなモバイルデータ通信では正常に動作しない場合があります。プロキシを無効にするには、APN (Android 4.x: 無線とネットワーク -&gt; その他の設定 -&gt; モバイルネットワーク -&gt; アクセスポイント名)で「プロキシ」の項目を空白にしてください</string>
+  <string name="apply_apn_proxy">ご使用の端末に APNプロキシが設定されています! 3G等のモバイルネットワークでAdAwayがうまく動作しない場合があります。プロキシを無効にするには、選択されている APN (設定アプリから: ネットワーク → インターネット → モバイルネットワーク → 詳細設定 → アクセスポイント名) を選択して、「プロキシ」の欄を空白にしてください。</string>
   <string name="apply_apn_proxy_title">APNプロキシがセットされています！</string>
   <string name="no_connection">ネット接続がありません</string>
   <string name="no_connection_title">接続なし</string>
@@ -92,14 +106,17 @@
   <string name="apply_dialog_apply">hostsファイルを適用中</string>
   <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定でターゲットhostsファイルを/data/data/hostsに変更してください</string>
   <string name="apply_fail_title">適用に失敗</string>
+  <string name="revert_successful">デフォルトの hosts ファイルに差し戻しました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
   <string name="revert_successful_title">元に戻しました</string>
-  <string name="revert_problem">不明な理由により元に戻せませんでした</string>
+  <string name="revert_problem">何らかの理由により元に戻せませんでした</string>
   <string name="revert_problem_title">元に戻せません！</string>
   <string name="download_fail_dialog">どのhostsソースにも接続できません!インターネットに接続されていますか？</string>
   <string name="download_fail_title">ダウンロード失敗</string>
   <string name="no_private_file">プライベートファイルが作成できません</string>
   <string name="no_private_file_title">プライベートファイルの作成失敗</string>
+  <string name="enable_systemless_successful">システムレスモードを有効にしました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
   <string name="enable_systemless_successful_title">有効化は成功です</string>
+  <string name="disable_systemless_successful">システムレスモードを無効にしました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
   <string name="disable_systemless_successful_title">無効化は成功です</string>
   <!--Other Dialogs-->
   <string name="no_root_description">suバイナリが見つからないか、AdAwayのroot権限を許可していません。\n\n
@@ -126,13 +143,16 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="help_tab_problems">問題</string>
   <!--Adware-->
   <string name="adware_header">アドウェア</string>
+  <string name="adware_description">ここにはインストールされているアドウェア、AdAwayによってブロックできない有害アプリがあります。 これらのアプリは例えば、Airpush通知を使用して、アプリが実行されていないときにもポップアップしたり、その上着信音を変更するなどもします。 取りうる唯一の対策はリスト項目をクリックしてそれらのアプリをアンインストールすることです。</string>
   <string name="adware_scanning">スキャン中…</string>
+  <string name="adware_empty">アドウェアは検出されませんでした！</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">ローカル：</string>
   <string name="hosts_last_modified_online">オンライン：</string>
   <string name="hosts_not_available">日時不明</string>
   <string name="hosts_add_dialog_title">ソースを追加</string>
   <string name="hosts_edit_dialog_title">ソースを編集</string>
+  <string name="hosts_dialog_url">URL: (https:// または file:// の情報源)</string>
   <string name="hosts_dialog_url_hint">ホストのソースURL</string>
   <!--Other-->
   <string name="app_subtitle">広告排除！</string>
@@ -146,11 +166,11 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="tcpdump_disable_monitoring">監視を無効にする</string>
   <string name="tcpdump_enable_monitoring">監視を有効にする</string>
   <string name="tcpdump_show_results">結果を表示</string>
-  <string name="tcpdump_redirect_dialog_title">リダイレクトドメイン</string>
-  <string name="tcpdump_menu_sort">ソートドメイン</string>
+  <string name="tcpdump_redirect_dialog_title">ドメインをリダイレクトする</string>
+  <string name="tcpdump_menu_sort">ドメインを並べ替える</string>
   <string name="tcpdump_menu_clear">ログを消去</string>
   <string name="tcpdump_sort_alphabetical">アルファベット順</string>
-  <string name="tcpdump_sort_top_level_domain">トップレベルドメインソート</string>
+  <string name="tcpdump_sort_top_level_domain">トップレベルドメインで並べ替える</string>
   <string name="tcpdump_entry_add_blacklist">ブラックリストにエントリーを追加する</string>
   <string name="tcpdump_entry_add_whitelist">ホワイトリストにエントリーを追加する</string>
   <string name="tcpdump_entry_add_redirection_list">リダイレクトリストにエントリを追加する</string>
@@ -185,6 +205,7 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
     <item>カスタムターゲット</item>
   </string-array>
   <string name="pref_update_check_summary">AdAway起動時に更新を確認</string>
+  <string name="pref_sdcard_problem">この機能は AdAway がSDカードにインストールされているとうまく機能しないことがあります！</string>
   <string name="pref_background">バックグラウンドサービス</string>
   <string name="pref_update_check_daily">毎日更新を確認する</string>
   <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します</string>
@@ -197,8 +218,10 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
   <string name="pref_redirection_rules">リダイレクトを許可</string>
   <string name="pref_redirection_rules_summary">セキュリティリスクあり！hostsソースからのリダイレクトエントリを許可します</string>
   <string name="pref_debug">デバッグ</string>
-  <string name="pref_enable_debug">デバッグ記録をする</string>
+  <string name="pref_enable_debug">冗長なログ書き出しを有効にする</string>
   <string name="pref_enable_debug_summary">変更を適用するにはAdAwayの再起動が必要です</string>
+  <string name="pref_enable_telemetry">動作停止の報告を有効にする</string>
+  <string name="pref_enable_telemetry_summary">このアプリがエラーや動作停止の報告を Sentry (sentry.io) に送信するのを許可します。</string>
   <string name="pref_enable_ipv6">IPv6の有効化</string>
   <string name="pref_enable_ipv6_summary">hostファイルのエントリがすべて::1 (IPv6 localhost) エントリを持つようになります。</string>
   <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
@@ -218,6 +241,15 @@ Androidウェブサイトやwiki.lineageos.orgなどでデバイスをルート�
     <item>ヘルプ</item>
   </string-array>
   <!--Drawer menu labels-->
+  <string name="drawer_support_text">\u2764 開発の支援 \u2764</string>
+  <string name="drawer_support_dialog_title">開発の支援</string>
+  <string name="drawer_support_dialog_text">AdAway はフリーソフトかつオープンソースソフトウェアであり、コミュニティーによってのみ開発と維持がされています。私が余暇時間のプロジェクトとしてこのアプリの新バージョンを作り上げるのに２年を要しました。\n\n気に入っていただけて、さらなる更新を期待していただけるなら、ぜひこのプロジェクトを支援してください。</string>
+  <string name="drawer_support_dialog_button">自分のサポートを表示する</string>
+  <!--Telemetry-->
+  <string name="dialog_telemetry_title">データ収集</string>
+  <string name="dialog_telemetry_message">利用者さま、こんにちは\n\n動作停止報告や基本的な使用状況情報を共有していただくことで、AdAway の開発に参加できますよ。データは全て匿名で、データ収集はあなたが同意した場合にのみ有効になります。\n\n詳細は <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>でご覧ください。</string>
+  <string name="dialog_telemetry_enable">いいね、喜んで手伝うよ！</string>
+  <string name="dialog_telemetry_disable">結構です</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNSリクエスト</string>
   <string name="shortcut_your_lists">あなたのリスト</string>

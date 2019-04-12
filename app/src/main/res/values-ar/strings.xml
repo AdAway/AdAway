@@ -13,6 +13,7 @@
   <string name="button_help">المساعدة</string>
   <!--Home-->
   <string name="header_help">أهلاً وسهلاً!</string>
+  <string name="text_help">AdAway هو تصميم برامج مجاني ومفتوح المصدر لمنع الإعلانات. إنه يجلب عناوين الشبكات الإعلانية لمنعها من الظهور على جهازك. \nهل تود معرفة المزيد؟ يرجى رؤية المساعدة أدناه!</string>
   <string name="button_show_help">إظهار المزيد من المساعدة</string>
   <string name="icon_update_status">حالة التحديث</string>
   <string name="text_update">جميع ملفات المضيف ستحمل و ستدمج مع قوائمك و ستثبت في ملف واحد على نظامك.</string>
@@ -45,8 +46,11 @@
   <string name="list_dialog_ip">بروتكول الانترنت (IPv4 أو IPv6):</string>
   <string name="import_dialog">استيراد…</string>
   <string name="export_dialog">تصدير…</string>
+  <string name="export_success">تمّ تصدير جميع المُدخلات إلى ملف يُسمّى \'adaway-export\' على بطافة الذاكرة</string>
+  <string name="export_failed">فشلت عملية تصدير القائمة إلى بطاقة الذاكرة.</string>
   <!--Hosts content-->
   <string name="hosts_header">ملف المضيف</string>
+  <string name="hosts_description">ملف المضيف هو ملف نظام يقوم بربط أسماء المضيف مع عناوين الإنترنت بروتوكول .إنه عبارة عن ملف نصّي ويهتم AdAway به ويقوم بإعداده. تبدو بعض الخطوط الأولى فيه كما يلي:</string>
   <string name="hosts_content">جارٍ تحميل محتوى ملف المضيف...</string>
   <string name="hosts_open_button">فتح ملف المضيف</string>
   <!--Status Notification-->
@@ -67,6 +71,10 @@
   <string name="status_disabled_subtitle">ملف المضيف الإفتراضي مُثبّت</string>
   <string name="notification_channel_update_name">تحديثات</string>
   <string name="notification_channel_update_description">إشعارات تَوفُّر تحديث لملف المضيف </string>
+  <string name="notification_configuration_changed">لقد تغيرت التّهيِئَة. يرجى تثبيت ملف المضيف لتطبيق التغييرات.</string>
+  <string name="notification_configuration_changed_action">تنفيذ</string>
+  <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف...</string>
+  <string name="notification_configuration_failed">فشل في تثبيت ملف المضيفات</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">symlink من مسارك الى /system/etc/hosts غير موجود او غير صحيح . البرنامج لن يعمل اذا لم يتم تحديد الملف الصحيح . هل تريد محاولة انشاء symlink ؟</string>
   <string name="apply_symlink_missing_title">الارتباط الرمزي مفقود</string>
@@ -80,11 +88,14 @@
   <string name="apply_copy_fail_title">فشل النسخ</string>
   <string name="apply_success_subtitle">مصادر المضيف المطبّقة</string>
   <string name="apply_success_title">تم التنفيذ بنجاح</string>
+  <string name="apply_success_dialog">تم التثبيت بنجاح. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
+  <string name="apply_symlink_successful">تم إنشاء الرابط الرمزي بنجاح. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
   <string name="apply_symlink_successful_title">الارتباط الرمزي أنشئ بنجاح</string>
   <string name="apply_symlink_fail">لم يتم انشاء symlink هذا يحرث بسبب خاصية S on في اجهزه HTC . الحل هو اعاده تشغيل جهازك في وضع الريكفري و انشاء symlink في -s /data/data/hosts/system/etc/hosts اذا لم يعمل ابحث في الانترنت عن اطفاء s</string>
   <string name="apply_symlink_fail_title">الارتباط الرمزي لم ينشئ</string>
   <string name="apply_help">يرجى قراءة التعليمات للمزيد من المعلومات.</string>
-  <string name="apply_apn_proxy">adaway لن يعمل اذا كنت تستخدم شبكات اتصال الجيل الثالث 3G. يمكنك الغاء تفعيل الشبكات من اعدادات الهاتف و المحاولة مرة اخرى</string>
+  <string name="apply_apn_proxy">تم تعيين وكيل APN على اندرويدك!
+AdAway لن يعمل بشكل صحيح عند تشغيل شبكات الهواتف مثل 3g. يمكنك إلغاء تنشيط هذا الوكيل عن طريق الذهاب إلى APN المحدد الخاص بك (On Android 4: Wireless and networks -&gt; More… -&gt; Mobile Networks -&gt; Access Point Names) وإزالة القيمة في الحقل الوكيل.</string>
   <string name="apply_apn_proxy_title">تعيين وكيل APN!</string>
   <string name="no_connection">الاتصال بالشبكة لا يعمل</string>
   <string name="no_connection_title">غير متصل</string>
@@ -96,6 +107,7 @@
   <string name="apply_dialog_apply">تنفيذ ملفات المضيف</string>
   <string name="apply_fail">لقد فشلت عملية تثبيت ملفات المضيف! حاول تغيير مسار الملفات من الاعدادات الى /data/data/hosts</string>
   <string name="apply_fail_title">فشل التنفيذ</string>
+  <string name="revert_successful">تم استرجاع ملف المضيف الإفتراضي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
   <string name="revert_successful_title">تم الاسترجاع</string>
   <string name="revert_problem">الاسترجاع فشل لأسباب غير معروفة.</string>
   <string name="revert_problem_title">فشل الاسترجاع!</string>
@@ -103,7 +115,9 @@
   <string name="download_fail_title">فشل التحميل</string>
   <string name="no_private_file">لا يمكن إنشاء ملف خاص.</string>
   <string name="no_private_file_title">فشل إنشاء ملف خاص</string>
+  <string name="enable_systemless_successful">تم تفعيل الوضع اللّانظامي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
   <string name="enable_systemless_successful_title">تم التنفيذ بنجاح</string>
+  <string name="disable_systemless_successful">تم تعطيل الوضع اللّانظامي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
   <string name="disable_systemless_successful_title">تم التعطيل بنجاح</string>
   <!--Other Dialogs-->
   <string name="no_root_description">إما تطبيق سو بيناري غير موجود أو لم يسمح بالوصول إلى صلاحيات root   لتطبيق AdAway . هذا يمكن أن يحدث عندما يكون جهازك لا يعطي صلاحية ل root  ،
@@ -129,7 +143,9 @@
   <string name="help_tab_problems">المشاكل</string>
   <!--Adware-->
   <string name="adware_header">الإعلانات المُتسلّلة</string>
+  <string name="adware_description">هنا يمكنك العثور على تطبيقات Adware مثبّتة ، وهي تطبيقات سيئة لا يمكن منعها من قِبَل AdAway . على سبيل المثال تستخدم هذه التطبيقات إشعارات Airpush التي تظهر حتى عند عدم تشغيل التطبيق وتستطيع حتى تغيير نغمة الرنين لجهازك . الحل الوحيد هو حذف هذه التطبيقات التي عُثِرَ عليها من خلال النقر على أسماء التطبيقات في الأسفل .</string>
   <string name="adware_scanning">جارٍ الفحص</string>
+  <string name="adware_empty">لم يتم العثور على إعلانات مُتسلّلة!</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">المثبت:</string>
   <string name="hosts_last_modified_online">الجديد:</string>
@@ -164,6 +180,7 @@
   <string name="pref_dismiss_welcome_summary">عدم إظهار رسالة الترحيب على الصفحة الرئيسية</string>
   <string name="pref_dark_theme">تشغيل الخلفيّة الدّاكنة</string>
   <string name="pref_dark_theme_summary">إستخدم الخلفيّة الدّاكنة بدلاً عن الخلفيّة الفاتحة</string>
+  <string name="pref_dark_theme_notification">سوف يتم تثبيت \"الثيم\" عند إعادة تشغيل التطبيق!</string>
   <string name="pref_hosts">ملفات المضيف</string>
   <string name="pref_redirection_ip">إعادة توجيه IP</string>
   <string name="pref_update_check">التحقق من وجود تحديثات</string>
@@ -183,18 +200,23 @@
   <string name="pref_custom_target_summary">استخدمه فقط إذا حدد مسار مخصص لملفات المضيف</string>
   <string-array name="pref_apply_method_entries"/>
   <string name="pref_update_check_summary">التحقق من وجود تحديثات عند تشغيل التطبيق</string>
+  <string name="pref_sdcard_problem">هذه الخاصية لن تعمل بشكل صحيح عندما يكون AdAway مثبتاً على بطاقة الذاكرة</string>
   <string name="pref_background">الخدمات الخلفية</string>
   <string name="pref_update_check_daily">التحقق من وجود التحديثات يومياً</string>
   <string name="pref_update_check_daily_summary">التحقق من التحديثات يومياً في الخلفية مع التنبيه</string>
   <string name="pref_automatic_update_daily">التحديث التلقائي</string>
   <string name="pref_automatic_update_daily_summary">التحديث تلقائياً في الخلفية إذا كانت التحديثات متوفرة.</string>
+  <string name="pref_update_only_on_wifi">قم بالتحديث فقط عبر الـ Wi-Fi</string>
+  <string name="pref_update_only_on_wifi_summary">قم بتنفيذ التحديثات في الخلفية فقط عند الإتصال بالـ Wi-Fi.</string>
   <string name="pref_whitelist_rules">السماح للقائمة البيضاء</string>
   <string name="pref_whitelist_rules_summary">السماح لمداخلات القائمة البيضاء من مصادر المضيف</string>
   <string name="pref_redirection_rules">السّماح لعمليات إعادة التوجيه</string>
   <string name="pref_redirection_rules_summary">للتقليل من المخاطر الامنية ! قم بالسماح للمداخلات المعاد تحويلها من مصادر المضيف</string>
   <string name="pref_debug">التصحيح</string>
-  <string name="pref_enable_debug">تسجيل التصحيحات</string>
+  <string name="pref_enable_debug">تفعيل السّجلّ المُطوّل</string>
   <string name="pref_enable_debug_summary">يجب إعادة تشغيل التطبيق لتكون الإعدادات سارية المفعول.</string>
+  <string name="pref_enable_telemetry">تفعيل تقرير الأعطال</string>
+  <string name="pref_enable_telemetry_summary">منح السماح للتطبيق لإرسال تقريرات الأعطال والأخطاء إلى Sentry (sentry.io).</string>
   <string name="pref_enable_ipv6">الرجاء تفعيل IPv6</string>
   <string name="pref_enable_ipv6_summary">جميع ملفات حجب المواقع سوف يتم تعديلها (  1 IPv6 localhost) </string>
   <string name="pref_enable_systemless_summary">منع AdAway من تغير تقسيمة النظام </string>
@@ -203,10 +225,26 @@
   <string name="drawer_open">فتح القائمة</string>
   <string name="drawer_close">إغلاق القائمة</string>
   <!--Drawer menu items-->
+  <string-array name="drawer_items">
+    <item>الرئيسي</item>
+    <item>مصادر المضيفين</item>
+    <item>قوائمك</item>
+    <item>فتح ملف المضيف</item>
+    <item>تسجيل طلبات DNS</item>
+    <item>البحث عن إعلانات متسلّلة</item>
+    <item>الإعدادت</item>
+    <item>مساعدة</item>
+  </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 دعم تنمية البرنامج \u2764</string>
   <string name="drawer_support_dialog_title">دعم المشروع</string>
+  <string name="drawer_support_dialog_text">AdAway هو برنامج مجاني ومفتوح المصدر تم تطويره وصيانته من قِبَل المجتمع فقط . إستغرق الأمر منّي عامين لإنشاء هذا الإصدار الجديد من التطبيق كمشروع في وقت الفراغ . \n\nإذا أعجبك البرنامج وترغب في رؤية المزيد من التحديثات ، فلا تتردّد في دعم المشروع .</string>
   <string name="drawer_support_dialog_button">إظهار دعمي</string>
+  <!--Telemetry-->
+  <string name="dialog_telemetry_title">قياس المعلومات البُعدي</string>
+  <string name="dialog_telemetry_message">مرحبا عزيزي المستخدم,\AdAway\ المطورون, يمكنك الان المشاركة بتطوير برنامج مانع الإعلانات وذلك عن طريق مشاركة تقارير الاعطال ومعلومات الاستخدام الاساسية. كل البيانات ستكون مجهولة الهوية وسيتم تفعيل  قياس المعلومات البُعدي فقط في حالة وافقت على ذلك. \برنامج مانع الإعلانات\ المطورون يمكنك الحصول على المزيد من المعلومات على<a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
+  <string name="dialog_telemetry_enable">بالطبع, انا سعيد لتقديم المساعدة!</string>
+  <string name="dialog_telemetry_disable">لا شكر على واجب</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">طلبات DNS</string>
   <string name="shortcut_your_lists">قوائمك</string>

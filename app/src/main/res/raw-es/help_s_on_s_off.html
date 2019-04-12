@@ -1,5 +1,5 @@
 <html>
-<head><title>S-ON related help</title></head>
+<head><title>Ayuda relacionada con S-ON</title></head>
 <body>
 <h2>Dispositivos HTC</h2>
 <p>AdAway no funciona cuando está usando un dispositivo con el llamado S-ON. Esta 'característica' existe en muchos dispositivos HTC e impide que AdAway escriba en el fichero hosts.</p>
@@ -8,20 +8,20 @@
 <p>S-OFF significa que la parte de la (memoria) NAND del dispositivo está desbloqueada y se puede escribir sobre ella. La configuración predeterminada para los dispositivos HTC es S-ON, lo que significa que usted ni puede acceder a ciertas áreas del sistema, ni puede garantizarse un rooteado permanente. Más aún, la comprobación de firmas para imágenes de firmware está asegurada por el indicativo S-ON.</p>
 
 <h2>¿Tengo S-ON o S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Arranque en el menú de arranque de su dispositivo manteniendo <cite>pulsado el botón</cite> de volumen mientras presiona el botón de encendido y el texto de la parte superior mostrará el estado de la bandera como S-OFF o S-ON. Una root completo generalmente significa S-OFF.
+<br/><br/>Puede encontrar más información en <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Métodos adicionales de S-OFF ya que Unrevokable (en enlace) puede ser de su interés, es decir: Revolucionario, Revone, Aguardiente, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Solución indirecta</h2>
 <p>Prerrequisito: Tiene que instalar un Android SDK con shell ADB funcional en su PC.
 </p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
-<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
+<li>Arranque en el menú de arranque de su dispositivo manteniendo <cite>pulsado el botón</cite> de volumen mientras presiona el botón de encendido.</li>
+<li>Utilice el <cite>volumen hacia abajo</cite> para seleccionar la <cite>recuperación</cite> y luego <cite>enciéndala</cite> para arrancarla.</li>
+<li>En la recuperación del sistema de reloj vaya a "menú de particiones".</li>
+<li>Seleccione <cite>mount /system</cite>, <cite>mount /sdcard</cite> y <cite>mount /data</cite>.</li>
+<li>Conecte su cable USB y abra una línea de comandos en su PC.</li>
+<li>Introduzca adb shell y escriba <code>ln -s /data/hosts /system/etc/hosts</code> (Esto crea un enlace simbólico que permite a AdAway editar el archivo de hosts almacenado en <code>/data</code> mientras que permite al sistema operativo utilizar el archivo como si estuviera almacenado en <code>/system</code>).</li>
+<li>Reinicie su dispositivo y <cite>establezca el archivo de hosts</cite> de destino en <cite>/data/hosts</cite> en las preferencias de AdAway.</li>
 <li>AdAway ahora debe funcionar.</li>
 </ol>
 </body>

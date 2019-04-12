@@ -7,7 +7,7 @@
 
 
 <h2>Como AdAway funciona?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
+<p>AdAway usa o <a href="http://en.wikipedia.org/wiki/Hosts_file">arquivo hosts</a> para bloquear nomes de host, que veiculam anúncios. O arquivo hosts é um arquivo encontrado em <code>/system/etc/hosts</code> que mapeia nomes de host para endereços IP. É uma maneira tradicional de definir nomes de host para pares de endereços IP sem depender do DNS (Domain Name System). Todos os nomes de host indesejados são redirecionados para <code>127.0.0.1</code>, o que significa que eles apontarão para seu próprio dispositivo.</p>
 
 <h2>Por que a preferência de verificação de atualização diária está acinzentada?</h2>
 <p>A verificação automática de novas atualizações está apenas disponível quando AdAway está instalado na memória interna do telefone. Isto é devido a restrições na plataforma Android.</p>
@@ -16,12 +16,12 @@
 <p>Java no Android mantém seu próprio cache DNS interno. O sistema operacional refletirá o novo arquivo hosts imediatamente (verifique isto com uma solicitação na linha de comando), mas você precisará reiniciar o Android para reconstruir o cache DNS de Java.</p>
 
 <h2>Como usar o servidor web no AdAway?</h2>
-<p><strong>AdAway will also work without using the webserver!</strong>
-<br/><br/>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
-<br/>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><strong>AdAway também funcionará sem usar o servidor da web!</strong>
+<br/> <br/> Você pode ativar um servidor local nas preferências da AdAway para responder a solicitações para o endereço IP local <code>127.0.0.1</code>. Isso significa que as solicitações de aplicativos para servidores de anúncios redirecionados para <code>127.0.0.1</code> são respondidas pelo servidor da AdAway.
+<br/> Alguns aplicativos se recusam a funcionar, quando os servidores de anúncios não estão acessíveis. Com esse método, eles poderão ser acessados novamente, respondendo com uma página em branco e sem imagens de anúncios.</p>
 
 <h2>Como posso bloquear/desbloquear nomes de hosts específicos?</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>Adicione os nomes de host que você deseja bloquear à <cite>Lista Negra</cite> (=Black) em <cite>Suas listas</cite>. Além disso, os nomes de host que você deseja excluir do bloqueio podem ser adicionados à <cite>Lista Branca</cite> (=White) e os nomes de host que você deseja redirecionar para um endereço IP específico pertencem à <cite>lista Redirecionamento</cite> (=Redirection).</p>
 
 <h2>Onde posso encontrar mais fontes de hosts?</h2>
 <p>Consulte <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lista de fontes de hosts adicionais para AdAway</a>.</p>

@@ -13,6 +13,7 @@
   <string name="button_help">說明</string>
   <!--Home-->
   <string name="header_help">歡迎！</string>
+  <string name="text_help">AdAway 是一個自由及開放原始碼的軟體，設計來阻擋廣告。這個軟體會在您的裝置上獲取廣告網路位置來阻擋它們。\n想要了解更多嗎？看看下面的說明！</string>
   <string name="button_show_help">顯示更多說明</string>
   <string name="icon_update_status">更新狀態</string>
   <string name="text_update">所有來自已定義來源的 hosts 檔案已下載、與您的自訂清單整合，並以一個 hosts 檔案安裝至系統中。</string>
@@ -45,9 +46,11 @@
   <string name="list_dialog_ip">IP 位址 (IPv4 或 IPv6)：</string>
   <string name="import_dialog">匯入中...</string>
   <string name="export_dialog">匯出中...</string>
+  <string name="export_success">已匯出所有項目到 SD 卡中的「adaway-export」檔案。</string>
   <string name="export_failed">匯出清單到 SD 卡失敗。</string>
   <!--Hosts content-->
   <string name="hosts_header">hosts 檔案</string>
+  <string name="hosts_description">hosts 檔案是一個將主機名稱對應到 IP 位置的系統檔案。它是一個由 AdAway 配置的純文字檔案。這是這個檔案的前幾行：</string>
   <string name="hosts_content">正在載入 hosts 檔案內容...</string>
   <string name="hosts_open_button">開啟 hosts 檔案</string>
   <!--Status Notification-->
@@ -60,11 +63,18 @@
   <string name="status_no_connection_subtitle">沒有可用的網路連線</string>
   <string name="status_download_fail">不可用的來源</string>
   <string name="status_download_fail_subtitle_new">無法連接遠端 hosts 來源伺服器！</string>
+  <string name="status_failure">發生一些錯誤</string>
+  <string name="status_failure_subtitle">檢視 logcat 以獲得更多詳細資料</string>
   <string name="status_enabled">啟用</string>
   <string name="status_enabled_subtitle">已啟用最新的 hosts 檔案</string>
   <string name="status_disabled">停用</string>
+  <string name="status_disabled_subtitle">預設 hosts 檔案已安裝</string>
   <string name="notification_channel_update_name">更新</string>
   <string name="notification_channel_update_description">新主機更新通知</string>
+  <string name="notification_configuration_changed">您的配置已變更。您需要安裝 hosts 檔案來套用它。</string>
+  <string name="notification_configuration_changed_action">套用</string>
+  <string name="notification_configuration_installing">正在安裝 hosts 檔案...</string>
+  <string name="notification_configuration_failed">無法安裝 hosts 檔案。</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">你設定的目標不存在或者不是正確的 /system/etc/hosts 符號連結！沒有正確的符號連結AdAway不能執行。 你需要建立符號連結嗎？</string>
   <string name="apply_symlink_missing_title">符號連結遺失</string>
@@ -76,12 +86,15 @@
   <string name="apply_remount_fail_title">重新掛載失敗</string>
   <string name="apply_copy_fail">複製 hosts 檔案失敗！</string>
   <string name="apply_copy_fail_title">複製失敗</string>
+  <string name="apply_success_subtitle">已套用 hosts 來源</string>
   <string name="apply_success_title">建立成功</string>
+  <string name="apply_success_dialog">套用成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
+  <string name="apply_symlink_successful">符號連結建立成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="apply_symlink_successful_title">符號連結建立成功</string>
   <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為 HTC 上一個叫 S-ON 的「功能」！\n\n一個解決方法是啟動你的手機到還原模式並使用命令 \'ln -s /data/data/hosts /system/etc/hosts\' 來建立符號連結。\n\n如果沒有用，請上網搜尋 S-OFF 與你的手機。</string>
   <string name="apply_symlink_fail_title">符號連結建立失敗</string>
   <string name="apply_help">請閱讀說明以獲得更多訊息。</string>
-  <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（在 Android 4: 無線與網路 -&gt; 更多... -&gt; 行動網路 -&gt; 存取點名稱）移除代理伺服器設定。</string>
+  <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（在無線與網路 -&gt; 行動網路 -&gt; 進階 -&gt; 存取點名稱）移除代理伺服器設定。</string>
   <string name="apply_apn_proxy_title">設定了 APN 代理伺服器！</string>
   <string name="no_connection">網際網路連線無法正常連線</string>
   <string name="no_connection_title">無法連線</string>
@@ -93,6 +106,7 @@
   <string name="apply_dialog_apply">合併 hosts 檔案</string>
   <string name="apply_fail">hosts 檔案修改失敗！\n請將設定中的 hosts 檔案目標修改為 /data/data/hosts。</string>
   <string name="apply_fail_title">建立失敗</string>
+  <string name="revert_successful">已經還原為預設的 hosts 檔案了。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="revert_successful_title">還原成功</string>
   <string name="revert_problem">因未知原因還原失敗。</string>
   <string name="revert_problem_title">還原失敗！</string>
@@ -100,7 +114,9 @@
   <string name="download_fail_title">下載失敗</string>
   <string name="no_private_file">不能建立私人檔案。</string>
   <string name="no_private_file_title">私人檔案建立失敗</string>
+  <string name="enable_systemless_successful">您啟用了 systemless 模式。\n變更需要重新啟動才能生效。\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="enable_systemless_successful_title">啟用成功</string>
+  <string name="disable_systemless_successful">您停用了 systemless 模式。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
   <string name="disable_systemless_successful_title">取消成功</string>
   <!--Other Dialogs-->
   <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 wiki.lineageos.org 或其他相關的 Android 網站取得相關資訊。</string>
@@ -125,7 +141,9 @@
   <string name="help_tab_problems">問題</string>
   <!--Adware-->
   <string name="adware_header">廣告軟體</string>
+  <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單來移除它們！</string>
   <string name="adware_scanning">掃描中...</string>
+  <string name="adware_empty">沒有發現任何廣告軟體！</string>
   <!--Hosts sources-->
   <string name="hosts_last_modified_local">本地：</string>
   <string name="hosts_last_modified_online">線上：</string>
@@ -185,19 +203,23 @@
     <item>自訂目標</item>
   </string-array>
   <string name="pref_update_check_summary">在啟動 AdAway 時檢查更新</string>
+  <string name="pref_sdcard_problem">如果 AdAway 被安裝到 SD 卡上，這個功能可能無法正常運作！</string>
   <string name="pref_background">背景服務</string>
   <string name="pref_update_check_daily">每天檢查更新</string>
   <string name="pref_update_check_daily_summary">每天背景檢查更新並提示</string>
   <string name="pref_automatic_update_daily">自動更新</string>
   <string name="pref_automatic_update_daily_summary">如果有更新，自動在背景更新。</string>
+  <string name="pref_update_only_on_wifi">只在未計量網路更新</string>
   <string name="pref_update_only_on_wifi_summary">只有在連接到不限量網路時執行背景更新。 </string>
   <string name="pref_whitelist_rules">允許白名單</string>
   <string name="pref_whitelist_rules_summary">允許從 Hosts 來源中的白名單項目</string>
   <string name="pref_redirection_rules">允許重新導向</string>
   <string name="pref_redirection_rules_summary">會有安全性風險！允許來自 Hosts 來源的重新導向項目。</string>
   <string name="pref_debug">除錯</string>
-  <string name="pref_enable_debug">除錯記錄</string>
+  <string name="pref_enable_debug">啟用詳細記錄</string>
   <string name="pref_enable_debug_summary">需要重新啟動 AdAway 使設定生效。</string>
+  <string name="pref_enable_telemetry">啟用當機回報</string>
+  <string name="pref_enable_telemetry_summary">允許應用程式傳送錯誤和當機回報到 Sentry (sentry.io)。</string>
   <string name="pref_enable_ipv6">啟用 IPv6</string>
   <string name="pref_enable_ipv6_summary">所有的 host 檔案項目將取得相同的 ::1 (IPv6 本地端) 項目。</string>
   <string name="pref_enable_systemless_summary">避免 Adaway 修改系統分割區</string>
@@ -218,6 +240,14 @@
   </string-array>
   <!--Drawer menu labels-->
   <string name="drawer_support_text">\u2764 支援開發 \u2764</string>
+  <string name="drawer_support_dialog_title">支援開發</string>
+  <string name="drawer_support_dialog_text">AdAway 是一個由社群大眾開發的免費開源軟體。 作者利用了兩年的空閒時間才完成這個專案的新版本app \n\n 如果您喜歡它並希望未來有更多的更新，請不要吝於支持這個專案。</string>
+  <string name="drawer_support_dialog_button">顯示我的支援</string>
+  <!--Telemetry-->
+  <string name="dialog_telemetry_title">遙測</string>
+  <string name="dialog_telemetry_message">親愛的使用者，\n\n你可以藉由與 AdAway 分享當機報告和基本使用資訊，來參與 AdAway 的 開發。所有的資料都會是匿名狀態，而只有在你同意下才會分享遙測資料。\n\n你可以在 <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>上找到更多詳情。</string>
+  <string name="dialog_telemetry_enable">當然，我很樂意幫忙！</string>
+  <string name="dialog_telemetry_disable">不，謝謝</string>
   <!--Shortcuts-->
   <string name="shortcut_dns_requests">DNS 請求</string>
   <string name="shortcut_your_lists">你的清單</string>

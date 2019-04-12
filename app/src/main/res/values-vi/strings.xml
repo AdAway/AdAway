@@ -55,7 +55,6 @@
   <string name="apply_symlink_fail">Android không thể tạo liên kết biểu trưng.\nThất bại này hầu như là do \'tính năng\' S-ON trên điện thoại HTC!\n\nGiải pháp là khởi động điện thoại ở chế độ khôi phục và tạo liên kết biểu trưng tại đây với \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu vẫn không được, hãy tra cứu trên mạng về S-OFF và điện thoại của bạn.</string>
   <string name="apply_symlink_fail_title">Tạo liên kết biểu trưng thất bại</string>
   <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
-  <string name="apply_apn_proxy">Đã tạo một proxy APN trên thiết bị Android!\nAdAway sẽ không hoạt động hiệu quả trên các mạng di động như là 3G. Bạn có thể tắt proxy đó bằng cách đi đến APN đã chọn (Trên Android 4: Mạng và kết nối không dây -&gt; Xem thêm... -&gt; Mạng di động -&gt; Tên điểm truy cập) và xoá đi giá trị trong trường proxy. </string>
   <string name="apply_apn_proxy_title">Đã tạo proxy APN!</string>
   <string name="no_connection">Kết nối mạng không hoạt động.</string>
   <string name="no_connection_title">Không có kết nối</string>
@@ -145,7 +144,6 @@
   <string name="pref_whitelist_rules_summary">Cho phép các mục trong danh sách trắng từ Các nguồn tên miền.</string>
   <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! Cho phép các mục điều hướng từ Các nguồn tên miền.</string>
   <string name="pref_debug">Dò lỗi</string>
-  <string name="pref_enable_debug">Nhật ký dò lỗi</string>
   <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
   <string name="pref_enable_ipv6">Bật IPv6</string>
   <string name="pref_enable_ipv6_summary">Tất cả các mục tập tin miền đều sẽ nhận được một mục ::1 (miền cục bộ IPv6) tương ứng.</string>
@@ -153,6 +151,7 @@
   <string name="pref_enable_systemless">kích hoạt chế độ systemless</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Tuỳ chỉnh</string>
   <!--Hosts source status-->

@@ -13,6 +13,7 @@
   <string name="button_help">Kömək</string>
   <!--Home-->
   <string name="text_update">Bütün mənbə faylları yüklənmişdir, şəxsi siyahın ilə birləşdirildi və sistemindəki hər bir host faylı kimi yükləndi.</string>
+  <string name="button_enable_webserver">Web serveri aktiv et</string>
   <!--Checkbox List-->
   <string name="checkbox_list_context_delete">Sil</string>
   <string name="checkbox_list_context_title">Girişi Redaktə Et</string>
@@ -44,9 +45,17 @@
   <string name="apply_private_file_fail">Yüklənmiş fayl oxunmur</string>
   <string name="apply_private_file_fail_title">Fərdi fayl xətası</string>
   <string name="apply_success_title">Tətbiq uğurla başa çatdı</string>
+  <string name="no_connection">İnternet bağlantısı qurula bilmədi. </string>
+  <string name="no_connection_title">Əlaqə qurulmadı</string>
+  <string name="download_dialog">Yüklənir... </string>
+  <string name="apply_dialog">Tətbiq edilir... </string>
+  <string name="apply_dialog_apply">Hosts faylını tətbiq et</string>
+  <string name="apply_fail_title">Tətbiq edilə bilmədi</string>
   <string name="download_fail_title">Yükləmə alınmadı</string>
   <!--Other Dialogs-->
   <string name="no_root_title">Root lu android tələb olunur</string>
+  <string name="hosts_add_dialog">Hosts faylı ın adres çubuğunu əlavə et</string>
+  <string name="no_hostname">Bu keçərli host adı deyildir</string>
   <string name="reboot_never_reboot">Yenidən başlatma və bu sualı bir daha göstərmə! </string>
   <string name="loading">Yüklənir...</string>
   <!--Menu entries-->
@@ -54,6 +63,7 @@
   <string name="menu_add">Əlavə Et</string>
   <string name="menu_hosts_sources">Hosts resursları</string>
   <string name="menu_help">Yardım</string>
+  <string name="menu_import">Bütün siyahıları idxal edin</string>
   <!--Help-->
   <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
   <string name="help_tab_faq">FAQ</string>
@@ -67,6 +77,7 @@
   <string name="pref_never_reboot">Yenidən başlatma dialoqunu gizlət</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Tənzimləmələr</string>
   <!--Hosts source status-->

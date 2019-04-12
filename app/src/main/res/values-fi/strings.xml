@@ -40,6 +40,7 @@
   <string name="status_enabled">Käytössä</string>
   <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
   <string name="status_disabled">Pois käytöstä</string>
+  <string name="notification_configuration_changed_action">Hyväksy</string>
   <!--Apply and Revert Dialogs-->
   <string name="apply_symlink_missing">Symbolista linkkiä kohteeseen /system/etc/hosts ei ole olemassa tai se on virheellinen! AdAway ei toimi, jos se ei osoita oikeaan tiedostoon.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
   <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
@@ -56,7 +57,6 @@
   <string name="apply_symlink_fail">Symbolista linkkiä ei voitu luoda.\nEpäonnistuminen johtuu useimmiten HTC-puhelimien S-ON \"ominaisuudesta\".\n\nRatkaisuna on käynnistää puhelin recovery-tilaan ja luoda sinne symbolinen linkki \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJos tämä ei toimi, etsi internetistä tietoa S-OFF:sta ja puhelimestasi. </string>
   <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
   <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
-  <string name="apply_apn_proxy">APN-välityspalvelin on määritetty puhelimeesi!\nAdAway ei toimi luotettavasti matkapuhelinverkossa, kuten 3G. Voit poistaa kyseisen välityspalvelimen menemällä valitsemaasi APN:ään (Android4.0: Langattomat yhteydet ja verkot -&amp;gt; Lisää... -&amp;gt; Mobiiliverkot -&amp;gt Tukiasemien nimet) ja poistaa arvo välityspalvelimen kentästä.</string>
   <string name="apply_apn_proxy_title">APN-välityspalvelin on asetettu!</string>
   <string name="no_connection">Verkkoyhteys ei toimi.</string>
   <string name="no_connection_title">Ei yhteyttä</string>
@@ -145,13 +145,13 @@
   <string name="pref_whitelist_rules_summary">Salli Hosts-lähteille kohteiden lisääminen valkoiselle listalle.</string>
   <string name="pref_redirection_rules_summary">SISÄLTÄÄ TURVALLISUUSRISKIN! Salli hosts-lähteille uudelleenohjaus.</string>
   <string name="pref_debug">Virheenkorjaus</string>
-  <string name="pref_enable_debug">Virheenkorjauslokin kirjaaminen</string>
   <string name="pref_enable_debug_summary">Sinun täytyy käynnistää AdAway uudelleen ottaaksesi asetukset käyttöön.</string>
   <string name="pref_enable_ipv6">Ota käyttöön IPv6</string>
   <string name="pref_enable_ipv6_summary">Kaikki host-tiedoston entryt saavat vastaavan ::1 (IPv6 localhost) entryn.</string>
   <string name="pref_enable_systemless">Ota käyttöön systemless -tila</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Asetukset</string>
   <!--Hosts source status-->

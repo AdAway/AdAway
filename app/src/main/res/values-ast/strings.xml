@@ -55,7 +55,6 @@
   <string name="apply_symlink_fail">Android nun pudo crear l\'enllaz simbólicu.\n¡Esto falla, la mayoría de vegaes, pola mor d\'una «carauterística» nomada S-ON nos teléfonos HTC!\n\nUna igua ye arrancar nel recovery del to teléfonu y crear l\'enllaz simbólicu ende con «ln -s /data/data/hosts /system/etc/hosts».\n\nSi nun furrula, gueta n\'internet S-OFF y el to teléfonu.</string>
   <string name="apply_symlink_fail_title">Fallu na creación d\'enllaz simbólicu</string>
   <string name="apply_help">Por favor, llei l\'ayuda pa más información.</string>
-  <string name="apply_apn_proxy">¡Afitóse un proxy d\'APN nel to Android!\nAdAway nun furrulará de mou fiable tando en redes móviles como 3G. Pues desactivar esi proxy diendo a la to APN esbillada (n\'Android 4: Conexones inalámbriques y redes -&gt; Más… -&gt; Redes móviles -&gt; APN) y desaniciar el valor nel campu\'l proxy.</string>
   <string name="apply_apn_proxy_title">¡Afitóse\'l proxy APN!</string>
   <string name="no_connection">La conexón d\'internet nun ta furrulando.</string>
   <string name="no_connection_title">Ensin conexón</string>
@@ -142,12 +141,12 @@
   <string name="pref_whitelist_rules_summary">Permite les entraes de la llista blanca de les fontes de «hosts»</string>
   <string name="pref_redirection_rules_summary">¡PLANTEGA RIESGU DE SEGURANZA! Permite la redireición d\'entraes dende les fontes de «hosts»</string>
   <string name="pref_debug">Depuración</string>
-  <string name="pref_enable_debug">Rexistru de depuración</string>
   <string name="pref_enable_debug_summary">Necesites reaniciar AdAway pa qu\'esti axuste faiga efeutu.</string>
   <string name="pref_enable_ipv6">Habilitar IPv6</string>
   <string name="pref_enable_ipv6_summary">Toles entraes del ficheru «hosts» consiguirán una entrada ::1 (localhost d\'IPv6) correspondiente.</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Preferencies</string>
   <!--Hosts source status-->

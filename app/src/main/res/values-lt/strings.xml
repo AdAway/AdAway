@@ -62,7 +62,6 @@
   <string name="apply_symlink_fail">Symlink Android negali sukurti.\nDažniausia problema, tai vadinama S-ON HTC įrenginiuose!\n\nSprendimas: įjunkite įrenginį atkurimo (recovery) režime ir sukurkite symlink ten su \'In -s /data/data/hosts /system/etc/hosts\'.\n\nJei nesuveiks, ieškokite internete kaip atlikti S-OFF Jūsų įrenginiui.</string>
   <string name="apply_symlink_fail_title">Nepavyko sukurti symlink</string>
   <string name="apply_help">Detalesnę informaciją rasite skiltyje Pagalba</string>
-  <string name="apply_apn_proxy">APN proxy įjungtas Jūsų įrenginyje!\nAdAway gali neveikti su 3G internetu. Pabandykite išjungti APN proxy savo įrenginyje.</string>
   <string name="apply_apn_proxy_title">APN proxy nustatytas!</string>
   <string name="no_connection">Prisijungti pire interneto nepavyko.</string>
   <string name="no_connection_title">Nėra Interneto</string>
@@ -151,7 +150,6 @@
   <string name="pref_whitelist_rules_summary">Leisti elementus įtrauktus į Baltą sąrašą iš Host šaltinių.</string>
   <string name="pref_redirection_rules_summary">GALIMA APSAUGOS RIZIKA! Leisti nukreipimus iš Host šaltinių.</string>
   <string name="pref_debug">Derinti</string>
-  <string name="pref_enable_debug">Derinimo įrašymas į Log failą</string>
   <string name="pref_enable_debug_summary">Reikia paleisti iš naujo AdAway, kad veiktų nustatymai.</string>
   <string name="pref_enable_ipv6">Įjungti IPv6</string>
   <string name="pref_enable_ipv6_summary">Visi host failo įrašai bus pažymėti ::1 (IPv6 localhost) įrašu.</string>
@@ -159,6 +157,7 @@
   <string name="pref_enable_systemless">Įjungti nesisteminį režimą</string>
   <!--Drawer menu items-->
   <!--Drawer menu labels-->
+  <!--Telemetry-->
   <!--Shortcuts-->
   <string name="shortcut_preferences">Nustatymai</string>
   <!--Hosts source status-->
