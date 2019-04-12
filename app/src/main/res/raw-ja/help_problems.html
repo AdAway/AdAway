@@ -12,15 +12,11 @@ And don't add newlines before or after p tags because of transifex -->
 <p>環境設定のターゲットホストファイルを<code>/data/data/hosts</code>から<code>/data/hosts</code>または<code>/system/etc/hosts</code>に変更し、再度AdAwayを適用してみてください</p>
 
 <h2>あのアプリの広告をブロックしてくれない!</h2>
-<p>一部のホスト名は、<cite>Hosts ソースサイト</cite>で提供されたhostsファイルに存在しないか、アプリがインターネットにアクセスせずに広告を提供するためにイメージをバンドルしています<br><br>
-メニュー→DNS問合せのログでブロックするべきホスト名を見つけられます。
-<br><br>ログのエントリをロングタップし疑わしいホストを見つけたら自分のブラックリストに追加して下さい。\n
-<a href="http://forum.hosts-file.net/viewforum.php?f=9">hosts-file.net</a>の<a href="http://hosts-file.net">Forum Hosts Inbox</a>で確認し無い場合はホスト名を報告してください。</p>
+<p>一部のホスト名は、提供された <cite>hostsソース</cite>から漏れていたり、画像を同梱していてネット接続なしに広告を表示する場合があるでしょう。<br><br>DNS要求をログに記録する(メニュー→DNS要求を記録する)ことで、ブロックすべきホスト名がわかります。
+<br><br>怪しげなホスト名は、ログ項目上で長押しするとブラックリストに追加出来ます。確認が取れたら<a href="http://hosts-file.net">hosts-file.net</a>の<a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a>フォーラムに報告してください。</p>
 
 <h2>キャッシュされた広告</h2>
-<p>アプリが広告データをキャッシュすることがあります。\n
-この事で一部のアプリでは広告が残ります。\n
-この問題を回避には、Androidのアプリリストでアプリのキャッシュを削除することができます。</p>
+<p>アプリにはダウンロードした広告データをキャッシュするものがあります。これにより一部のアプリでは広告が残ります。この問題を回避するには、Androidのアプリ一覧でアプリのキャッシュを削除してみてください。</p>
 
 <h2>あのアプリが動作しない!</h2>
 <p>一部のアプリは、AdAwayによってブロックされているホスト名と通信する必要があるものの、広告を配信するはずのホスト名に到達できない場合は、動作をやめてしまいます。 既知の問題のあるアプリのリストを入手するには、<a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a>を参照してください。 それ以外の場合は、必要なホスト名を見つけて、<cite>あなたのリスト</cite>の<cite>ホワイトリスト</cite>に追加して、<a href="https://github.com/AdAway/AdAway/issues">AdAwayのバグトラッカー</a>に報告してください。</p>

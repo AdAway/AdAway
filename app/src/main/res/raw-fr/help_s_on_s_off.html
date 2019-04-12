@@ -1,3 +1,7 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
 <head><title>Aide sur S-ON</title></head>
 <body>
@@ -9,11 +13,10 @@
 
 <h2>Ai-je S-ON ou S-OFF ?</h2>
 <p>Lancez le menu d’amorçage de votre appareil en appuyant sur le bouton <cite>volume bas</cite> en même temps que sur le bouton de mise en marche. Le texte en haut affichera l’état du drapeau, soit S-ON soit S-OFF. Un débridage racine complet de l’appareil entraîne généralement S-OFF.
-<br/><br/>Plus d’informations se trouvent sur <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. D’autres méthodes S-OFF depuis Unrevokable (dans le lien) pourraient vous intéresser : Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
+<br><br>Plus d’informations se trouvent sur <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. D’autres méthodes S-OFF depuis Unrevokable (dans le lien) pourraient vous intéresser : Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
 
 <h2>Palliatif</h2>
-<p>Prérequis : vous devez installer une trousse SDK Android fonctionnelle avec « ADB  shell » sur votre ordinateur.
-</p>
+<p>Prérequis : vous devez installer une trousse SDK Android fonctionnelle avec « ADB  shell » sur votre ordinateur.</p>
 <ol>
 <li>Lancez le menu d’amorçage de votre appareil en appuyant sur le bouton <cite>volume bas</cite> en même temps que sur le bouton de mise en marche.</li>
 <li>Utilisez <cite>volume bas</cite> pour sélectionner <cite>recovery</cite>, puis appuyez sur le bouton de <cite>mise en marche</cite> pour redémarrer en mode récupération.</li>
@@ -22,7 +25,7 @@
 <li>Branchez votre câble USB et ouvrez une ligne de commande sur votre ordinateur.</li>
 <li>Saisissez « adb shell » et tapez <code>ln -s /data/hosts /system/etc/hosts</code> (cela crée un lien symbolique qui permet à AdAway de modifier le fichier hosts enregistré dans <code>/data</code> tout en permettant au SE d’utiliser le fichier comme s’il était enregistré dans <code>/system</code>).</li>
 <li>Redémarrez votre appareil, puis définissez <cite>Fichier hosts cible</cite> à <cite>data/hosts</cite> dans les préférences d’AdAway.</li>
-<li>AdAway devrait maintenant fonctionner.</li>
+<li>AdAway devrait fonctionner maintenant.</li>
 </ol>
 </body>
 </html>

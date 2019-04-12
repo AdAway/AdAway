@@ -1,158 +1,163 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
-  <!--Buttons-->
-  <string name="button_exit">Izlaz</string>
-  <string name="button_close">Zatvori</string>
-  <string name="button_yes">Da</string>
-  <string name="button_no">Ne</string>
-  <string name="button_add">Dodaj</string>
-  <string name="button_cancel">Otkaži</string>
-  <string name="button_save">Sačuvaj</string>
-  <string name="button_webserver_toggle_text">Pokreni ili zaustavi lokalni webserverda odgovoriš na zahteve za blokiranim sajtovima</string>
-  <string name="button_help">Pomoć</string>
-  <!--Home-->
-  <string name="text_update">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
-  <string name="button_check_update_hosts">Proveri nove verzije</string>
-  <!--Checkbox List-->
-  <string name="checkbox_list_context_delete">Ukloni</string>
-  <string name="checkbox_list_context_title">Uredi ulazak</string>
-  <string name="checkbox_list_context_edit">Uredi</string>
-  <!--Your lists-->
-  <string name="lists_tab_whitelist">Bela lista</string>
-  <string name="lists_tab_blacklist">Crna lista</string>
-  <string name="list_dialog_hostname">Hostname:</string>
-  <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
-  <string name="import_dialog">Uvoz…</string>
-  <string name="export_dialog">Izvoz...</string>
-  <!--Hosts content-->
-  <!--Status Notification-->
-  <string name="status_checking">Provera ažuriranja...</string>
-  <string name="status_reverting">Vraćanje...</string>
-  <string name="status_reverting_subtitle">Kreiranje standardnog hosts fajla</string>
-  <string name="status_update_available">Ažuriranje dostupno</string>
-  <string name="status_update_available_subtitle">Noviji host-ovi fajlovi dostupni</string>
-  <string name="status_no_connection">Nema internet konekcije</string>
-  <string name="status_no_connection_subtitle">Nema dostupne internet konekcije</string>
-  <string name="status_download_fail">Nedostupni izvori</string>
-  <string name="status_download_fail_subtitle_new">Ne mogu da pristupim ni jednom izvoru hosts fajlova!</string>
-  <string name="status_enabled">Omogućeno</string>
-  <string name="status_enabled_subtitle">Noviji host-ovi fajlovi omogućeni</string>
-  <string name="status_disabled">Onemogućeno</string>
-  <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">Simbolički link od tvojeg fajla do /system/etc/hosts ne postoji ili nije dobar. AdAway neće raditi ako ne pokazuje na dobar fajl.\n\nDa li želiš da pokušaš da kreiraš simbolički link?</string>
-  <string name="apply_symlink_missing_title">Nedostaje symlink.</string>
-  <string name="apply_not_enough_space">Na particiji nema dovoljno mesta!\nProbaj da promeniš lokaciju hosts fajla u podešavanjima na /data/data/hosts.</string>
-  <string name="apply_not_enough_space_title">Nema dovoljno memorije</string>
-  <string name="apply_private_file_fail">Preuzeti fajl nije moguće pročitati.</string>
-  <string name="apply_private_file_fail_title">Neuspešno kreiranje privatnog fajla</string>
-  <string name="apply_remount_fail">Remount particije za čitanje/pisanje nije uspelo!</string>
-  <string name="apply_remount_fail_title">Remount neuspesan</string>
-  <string name="apply_copy_fail">Neuspešno kopiranje host-ovih fajlova!</string>
-  <string name="apply_copy_fail_title">Kopiranje neuspešno</string>
-  <string name="apply_success_title">Primena uspešna</string>
-  <string name="apply_symlink_successful_title">Kreiranje symlink-a uspesno</string>
-  <string name="apply_symlink_fail">Poveznicu nije moguće stvoriti.\n Ovo uglavnom onemogućuje \'opcija\' zvana S-ON na HTC telefonima!\n\n Moguće rešenje: pokrenite telefon u recovery režimu i kreirajte poveznicu komandom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n Ako ovo nije moguće, potražite na internetu da li postoji S-OFF način za vaš model telefona.</string>
-  <string name="apply_symlink_fail_title">Kreiranje symlink-a bez uspesno</string>
-  <string name="apply_help">Molimo da pročitate Pomoć za više informacija.</string>
-  <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
-  <string name="no_connection">Konekcija sa internetom ne radi.</string>
-  <string name="no_connection_title">Nema konekcije</string>
-  <string name="download_dialog">Preuzimanje...</string>
-  <string name="apply_dialog">Primenjivanje...</string>
-  <string name="apply_dialog_lists">Primenjivanje Crne i Bele liste</string>
-  <string name="apply_dialog_hostnames">Raščlanjivanje i spajanje host-ovih fajlova</string>
-  <string name="apply_dialog_hosts">Izgradnja host-ovih fajlova</string>
-  <string name="apply_dialog_apply">Primenjivanje host-ovih fajlova</string>
-  <string name="apply_fail">Primena hosts datoteke na vaš sistem nije uspela!\n Pokušajte promeniti ciljanu hosts datoteku u podešavanjima u /data/data/hosts.</string>
-  <string name="apply_fail_title">Primena neuspešna</string>
-  <string name="revert_successful_title">Vraćanje uspešno</string>
-  <string name="revert_problem">Vraćanje neusšerno iz nepoznatih razloga.</string>
-  <string name="revert_problem_title">Vraćanje neuspešno!</string>
-  <string name="download_fail_dialog">Nijedan od vaših omogućenih izvora hostova nije dostupan! Da li ste ispravno povezani na internet?</string>
-  <string name="download_fail_title">Preuzimanje neuspešno</string>
-  <string name="no_private_file">Privatni falj ne može biti kreiran.</string>
-  <string name="no_private_file_title">Neuspešno kreiranje privatnog fajla</string>
-  <string name="enable_systemless_successful_title">Omogućavanje je uspelo.</string>
-  <string name="disable_systemless_successful_title">Onemogućavanje je uspelo</string>
-  <!--Other Dialogs-->
-  <string name="no_root_description">Nije moguće pronaći \\"su\\" izvršnu datoteku ili niste omogućili root privilegije za AdAway.\n\n Ovo se događa kada vaš uređaj nije rutovan. \n Kako omogućiti root na Vašem uređaju pogledajte na wiki.lineageos.org ili na drugim Android veb stranicama.</string>
-  <string name="no_root_title">Neophodan Root-ovan Android</string>
-  <string name="hosts_add_dialog">Ulazni URL do host-ovih fajlova</string>
-  <string name="no_hostname">Ovo nije važeći hostname!</string>
-  <string name="no_hostname_title">Nije dobro formirano ime hosta</string>
-  <string name="no_ip">Ovo nije validan IP!</string>
-  <string name="no_ip_title">Nije dobro formiran IP</string>
-  <string name="reboot_never_reboot">Nikada ne pokreći ponovo i ne pokazuj ovo pitanje sledeći put!</string>
-  <string name="loading">Učitavanje...</string>
-  <!--Menu entries-->
-  <string name="menu_refresh">Osveži</string>
-  <string name="menu_add">Dodaj</string>
-  <string name="menu_hosts_sources">Host-ovi resursi</string>
-  <string name="menu_help">Pomoć</string>
-  <string name="menu_import">Uvezi Sve Liste</string>
-  <string name="menu_export">Izvezi Sve Liste</string>
-  <!--Help-->
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">Često Postavljena Pitanja</string>
-  <string name="help_tab_problems">Problemi</string>
-  <!--Adware-->
-  <!--Hosts sources-->
-  <string name="hosts_last_modified_local">Lokalno:</string>
-  <string name="hosts_last_modified_online">Sa interneta;</string>
-  <string name="hosts_not_available">nije dostupno</string>
-  <!--Other-->
-  <string name="app_subtitle">Ad Blocker</string>
-  <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
-  <string name="no_text_editor">Nema instaliranog uređivača teksta za otvaranje hosts datoteke. Možete instalirati Jotu ili slični uređivač teksta.\n\n Želite li da instalirate Jotu?</string>
-  <string name="no_file_manager_title">Nije instaliran fajl menadžer</string>
-  <string name="no_file_manager">Nije moguće pronaći menađžer datoteka za otvaranje datoteka. Možete instalirati OI File Manager-a ili drugi menađžer datoteka.\n\n Želite li da instalirate OI File Manager?</string>
-  <!--Tcpdump-->
-  <string name="tcpdump_description">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
-  <!--Preferences-->
-  <string name="pref_download">Opšta Podešavanja</string>
-  <string name="pref_hosts">Hosts Fajl</string>
-  <string name="pref_redirection_ip">IP adresa za redirekciju</string>
-  <string name="pref_update_check">Proveri nove verzije</string>
-  <string name="pref_apply_method">Odredišni hosts fajl</string>
-  <string name="pref_apply_method_summary">Pre promene ovog podešavanja, pročitaj pomoć o ovoj funkcionalnosti.</string>
-  <string name="pref_redirection_ip_summary">Svi blokirani hostovi su preusmereni na ovu IP adresu.</string>
-  <string name="pref_header_preferences">Podešavanja</string>
-  <string name="pref_header_preferences_summary">Opšta podešavanja za AdAway</string>
-  <string name="pref_never_reboot">Sakrij dijalog ponovnog pokretanja (reboot)</string>
-  <string name="pref_never_reboot_summary">Krije dijalog o ponovnom pokretanju Androida nakon uspešne primene</string>
-  <string name="pref_webserver_on_boot">Pokreni webserver pri pokretanju sistema</string>
-  <string name="pref_webserver_on_boot_summary">Pokreni web server pri pokretanju sistema, osluškujući lokalne IP adrese</string>
-  <string name="pref_webserver_enabled">Omogući webserver</string>
-  <string name="pref_webserver_enabled_summary">Omogućuje web server koji osluškuje lokalne IP adrese u svrhu odgovora na blokirane nazive hostova</string>
-  <string name="pref_webserver">Lokalni Webserver</string>
-  <string name="pref_custom_target">Prilagođeno odredište</string>
-  <string name="pref_custom_target_summary">Koristi se samo ako je ciljna hosts datoteka postavljena na prilagođeno odredište</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Drugi fajl</item>
-  </string-array>
-  <string name="pref_update_check_summary">Proveri ažuriranja pri pokretanju AdAway-a</string>
-  <string name="pref_background">Pozadinski servisi</string>
-  <string name="pref_update_check_daily">Dnevna proveravanje ažuriranja</string>
-  <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>
-  <string name="pref_automatic_update_daily">Automatska ažuriranja</string>
-  <string name="pref_automatic_update_daily_summary">Ažuriraj automatski u pozadini ako su ažuriranja dostupna</string>
-  <string name="pref_whitelist_rules">Dozvoli belu listu</string>
-  <string name="pref_whitelist_rules_summary">Dopušta stavke sa bele liste sa izvora hostova.</string>
-  <string name="pref_redirection_rules_summary">PREDSTAVLJA BEZBEDNOSNI RIZIK! Dopušta preusmerene stavke sa izvora hostova.</string>
-  <string name="pref_debug">Otklanjanje grešaka</string>
-  <string name="pref_enable_debug_summary">Morate ponovno pokrenuti AdAway da bi ovo podešavanje bilo primenjeno.</string>
-  <string name="pref_enable_ipv6">Omogući IPv6</string>
-  <string name="pref_enable_ipv6_summary">Sve stavke host datoteka će dobiti odgovarajući ::1 (IPv6 localhost) unos.</string>
-  <string name="pref_enable_systemless_summary">Onemogući AdAway da modifikuje sistemsku particiju.</string>
-  <string name="pref_enable_systemless">Omogući systemless režim</string>
-  <!--Drawer menu items-->
-  <!--Drawer menu labels-->
-  <!--Telemetry-->
-  <!--Shortcuts-->
-  <string name="shortcut_preferences">Podešavanja</string>
-  <!--Hosts source status-->
-</resources>
+
+    <string name="app_name">AdAway</string>
+
+    <!--Buttons-->
+    <string name="button_exit">Izlaz</string>
+    <string name="button_close">Zatvori</string>
+    <string name="button_yes">Da</string>
+    <string name="button_no">Ne</string>
+    <string name="button_add">Dodaj</string>
+    <string name="button_cancel">Otkaži</string>
+    <string name="button_save">Sačuvaj</string>
+    <string name="button_webserver_toggle_text">Pokreni ili zaustavi lokalni webserverda odgovoriš na zahteve za blokiranim sajtovima</string>
+    <string name="button_help">Pomoć</string>
+
+    <string name="text_update">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
+    <string name="button_check_update_hosts">Proveri nove verzije</string>
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_delete">Ukloni</string>
+    <string name="checkbox_list_context_title">Uredi ulazak</string>
+    <string name="checkbox_list_context_edit">Uredi</string>
+
+    <!--Your lists-->
+    <string name="lists_tab_whitelist">Bela lista</string>
+    <string name="lists_tab_blacklist">Crna lista</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+    <string name="import_dialog">Uvoz…</string>
+    <string name="export_dialog">Izvoz...</string>
+    <!--Status Notification-->
+    <string name="status_checking">Provera ažuriranja...</string>
+    <string name="status_reverting">Vraćanje...</string>
+    <string name="status_reverting_subtitle">Kreiranje standardnog hosts fajla</string>
+    <string name="status_update_available">Ažuriranje dostupno</string>
+    <string name="status_update_available_subtitle">Noviji host-ovi fajlovi dostupni</string>
+    <string name="status_no_connection">Nema internet konekcije</string>
+    <string name="status_no_connection_subtitle">Nema dostupne internet konekcije</string>
+    <string name="status_download_fail">Nedostupni izvori</string>
+    <string name="status_download_fail_subtitle_new">Ne mogu da pristupim ni jednom izvoru hosts fajlova!</string>
+    <string name="status_enabled">Omogućeno</string>
+    <string name="status_enabled_subtitle">Noviji host-ovi fajlovi omogućeni</string>
+    <string name="status_disabled">Onemogućeno</string>
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing">Simbolički link od tvojeg fajla do /system/etc/hosts ne postoji ili nije dobar. AdAway neće raditi ako ne pokazuje na dobar fajl.\n\nDa li želiš da pokušaš da kreiraš simbolički link?</string>
+    <string name="apply_symlink_missing_title">Nedostaje symlink.</string>
+    <string name="apply_not_enough_space">Na particiji nema dovoljno mesta!\nProbaj da promeniš lokaciju hosts fajla u podešavanjima na /data/data/hosts.</string>
+    <string name="apply_not_enough_space_title">Nema dovoljno memorije</string>
+    <string name="apply_private_file_fail">Preuzeti fajl nije moguće pročitati.</string>
+    <string name="apply_private_file_fail_title">Neuspešno kreiranje privatnog fajla</string>
+    <string name="apply_remount_fail">Remount particije za čitanje/pisanje nije uspelo!</string>
+    <string name="apply_remount_fail_title">Remount neuspesan</string>
+    <string name="apply_copy_fail">Neuspešno kopiranje host-ovih fajlova!</string>
+    <string name="apply_copy_fail_title">Kopiranje neuspešno</string>
+    <string name="apply_success_title">Primena uspešna</string>
+    <string name="apply_symlink_successful_title">Kreiranje symlink-a uspesno</string>
+    <string name="apply_symlink_fail_title">Kreiranje symlink-a bez uspesno</string>
+    <string name="apply_help">Molimo da pročitate Pomoć za više informacija.</string>
+    <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
+    <string name="no_connection">Konekcija sa internetom ne radi.</string>
+    <string name="no_connection_title">Nema konekcije</string>
+    <string name="download_dialog">Preuzimanje...</string>
+    <string name="apply_dialog">Primenjivanje...</string>
+    <string name="apply_dialog_lists">Primenjivanje Crne i Bele liste</string>
+    <string name="apply_dialog_hostnames">Raščlanjivanje i spajanje host-ovih fajlova</string>
+    <string name="apply_dialog_hosts">Izgradnja host-ovih fajlova</string>
+    <string name="apply_dialog_apply">Primenjivanje host-ovih fajlova</string>
+    <string name="apply_fail">Primena hosts datoteke na vaš sistem nije uspela!\n Pokušajte promeniti ciljanu hosts datoteku u podešavanjima u /data/data/hosts.</string>
+    <string name="apply_fail_title">Primena neuspešna</string>
+    <string name="revert_successful_title">Vraćanje uspešno</string>
+    <string name="revert_problem">Vraćanje neusšerno iz nepoznatih razloga.</string>
+    <string name="revert_problem_title">Vraćanje neuspešno!</string>
+    <string name="download_fail_dialog">Nijedan od vaših omogućenih izvora hostova nije dostupan! Da li ste ispravno povezani na internet?</string>
+    <string name="download_fail_title">Preuzimanje neuspešno</string>
+    <string name="no_private_file">Privatni falj ne može biti kreiran.</string>
+    <string name="no_private_file_title">Neuspešno kreiranje privatnog fajla</string>
+    <string name="enable_systemless_successful_title">Omogućavanje je uspelo.</string>
+    <string name="disable_systemless_successful_title">Onemogućavanje je uspelo</string>
+
+    <!--Other Dialogs-->
+    <string name="no_root_description">Nije moguće pronaći \"su\" izvršnu datoteku ili niste omogućili root privilegije za AdAway.\n\n Ovo se događa kada vaš uređaj nije rutovan. \n Kako omogućiti root na Vašem uređaju pogledajte na wiki.lineageos.org ili na drugim Android veb stranicama.</string>
+    <string name="no_root_title">Neophodan Root-ovan Android</string>
+    <string name="hosts_add_dialog">Ulazni URL do host-ovih fajlova</string>
+    <string name="no_hostname">Ovo nije važeći hostname!</string>
+    <string name="no_hostname_title">Nije dobro formirano ime hosta</string>
+    <string name="no_ip">Ovo nije validan IP!</string>
+    <string name="no_ip_title">Nije dobro formiran IP</string>
+    <string name="loading">Učitavanje...</string>
+
+    <!--Menu entries-->
+    <string name="menu_refresh">Osveži</string>
+    <string name="menu_add">Dodaj</string>
+    <string name="menu_hosts_sources">Host-ovi resursi</string>
+    <string name="menu_help">Pomoć</string>
+    <string name="menu_import">Uvezi Sve Liste</string>
+    <string name="menu_export">Izvezi Sve Liste</string>
+
+    <!--Help-->
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <string name="help_tab_faq">Često Postavljena Pitanja</string>
+    <string name="help_tab_problems">Problemi</string>
+
+    <!--Hosts sources-->
+    <string name="hosts_last_modified_local">Lokalno:</string>
+    <string name="hosts_last_modified_online">Sa interneta;</string>
+    <string name="hosts_not_available">nije dostupno</string>
+    <!--Other-->
+    <string name="app_subtitle">Ad Blocker</string>
+    <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
+    <string name="no_text_editor">Nema instaliranog uređivača teksta za otvaranje hosts datoteke. Možete instalirati Jotu ili slični uređivač teksta.\n\n Želite li da instalirate Jotu?</string>
+    <string name="no_file_manager_title">Nije instaliran fajl menadžer</string>
+    <string name="no_file_manager">Nije moguće pronaći menađžer datoteka za otvaranje datoteka. Možete instalirati OI File Manager-a ili drugi menađžer datoteka.\n\n Želite li da instalirate OI File Manager?</string>
+
+    <string name="tcpdump_description">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
+    <!--Preferences-->
+    <string name="pref_download">Opšta Podešavanja</string>
+    <string name="pref_hosts">Hosts Fajl</string>
+    <string name="pref_redirection_ip">IP adresa za redirekciju</string>
+    <string name="pref_update_check">Proveri nove verzije</string>
+    <string name="pref_apply_method">Odredišni hosts fajl</string>
+    <string name="pref_apply_method_summary">Pre promene ovog podešavanja, pročitaj pomoć o ovoj funkcionalnosti.</string>
+    <string name="pref_redirection_ip_summary">Svi blokirani hostovi su preusmereni na ovu IP adresu.</string>
+    <string name="pref_header_preferences">Podešavanja</string>
+    <string name="pref_header_preferences_summary">Opšta podešavanja za AdAway</string>
+    <string name="pref_never_reboot">Sakrij dijalog ponovnog pokretanja (reboot)</string>
+    <string name="pref_never_reboot_summary">Krije dijalog o ponovnom pokretanju Androida nakon uspešne primene</string>
+    <string name="pref_webserver_on_boot">Pokreni webserver pri pokretanju sistema</string>
+    <string name="pref_webserver_on_boot_summary">Pokreni web server pri pokretanju sistema, osluškujući lokalne IP adrese</string>
+    <string name="pref_webserver_enabled">Omogući webserver</string>
+    <string name="pref_webserver_enabled_summary">Omogućuje web server koji osluškuje lokalne IP adrese u svrhu odgovora na blokirane nazive hostova</string>
+    <string name="pref_webserver">Lokalni Webserver</string>
+    <string name="pref_custom_target">Prilagođeno odredište</string>
+    <string name="pref_custom_target_summary">Koristi se samo ako je ciljna hosts datoteka postavljena na prilagođeno odredište</string>
+
+    <string-array name="pref_apply_method_entries">
+        <item>Prilagođeno odredište</item>
+    </string-array>
+
+    <string name="pref_update_check_summary">Proveri ažuriranja pri pokretanju AdAway-a</string>
+    <string name="pref_background">Pozadinski servisi</string>
+    <string name="pref_update_check_daily">Dnevna proveravanje ažuriranja</string>
+    <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>
+    <string name="pref_automatic_update_daily">Automatska ažuriranja</string>
+    <string name="pref_automatic_update_daily_summary">Ažuriraj automatski u pozadini ako su ažuriranja dostupna</string>
+    <string name="pref_whitelist_rules">Dozvoli belu listu</string>
+    <string name="pref_whitelist_rules_summary">Dopušta stavke sa bele liste sa izvora hostova.</string>
+    <string name="pref_redirection_rules_summary">PREDSTAVLJA BEZBEDNOSNI RIZIK! Dopušta preusmerene stavke sa izvora hostova.</string>
+    <string name="pref_debug">Otklanjanje grešaka</string>
+    <string name="pref_enable_debug_summary">Morate ponovno pokrenuti AdAway da bi ovo podešavanje bilo primenjeno.</string>
+    <string name="pref_enable_ipv6">Omogući IPv6</string>
+    <string name="pref_enable_ipv6_summary">Sve stavke host datoteka će dobiti odgovarajući ::1 (IPv6 localhost) unos.</string>
+    <string name="pref_enable_systemless_summary">Onemogući AdAway da modifikuje sistemsku particiju.</string>
+    <string name="pref_enable_systemless">Omogući systemless režim</string>
+    <!--Drawer menu items-->
+    <string-array name="drawer_items">
+        <item>Host-ovi resursi</item>
+        <item>Otvori host-ove fajlove</item>
+        <item>Podešavanja</item>
+        <item>Pomoć</item>
+    </string-array>
+    <string name="shortcut_preferences">Podešavanja</string>
+
+    </resources>

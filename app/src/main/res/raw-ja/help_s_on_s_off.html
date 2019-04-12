@@ -1,3 +1,7 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
 <head><title>S-ON 関連ヘルプ</title></head>
 <body>
@@ -8,17 +12,18 @@
 <p>S-OFFとはデバイスのNANDをアンロックし書き込めるようにすることです。HTC製デバイスのデフォルト設定はS-ONでシステムのあるエリアにアクセス出来なかったり常時rootにできません。(日本ではシャープ製も同じような状態です)</p>
 
 <h2>私のデバイスにはS-ONやS-OFFがありますか?</h2>
-<p>電源ボタンを押しながら<cite>ボリュームダウン</cite>ボタンを押し続けると、デバイスのブートメニューが表示され、上部のテキストにフラグステータスがS-OFFまたはS-ONのいずれかに表示されます。 フルRootとは、一般にS-OFFを意味します。<br/>
-詳細は<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>をご覧ください。<br/>Unrevokable（リンク先）から、Revolutionary、Revone、Firewater、RumRunner、Moonshine、SunShineなど興味深い追加S-OFFメソッドが有ります</p>
+<p>電源ボタンを押しながら<cite>ボリュームダウン</cite>ボタンを押し続けると、デバイスのブートメニューが表示され、上部のテキストにフラグステータスがS-OFFまたはS-ONのいずれかに表示されます。 フルRootとは、一般にS-OFFを意味します。<br>
+詳細は<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>をご覧ください。<br>Unrevokable（リンク先）から、Revolutionary、Revone、Firewater、RumRunner、Moonshine、SunShineなど興味深い追加S-OFFメソッドが有ります</p>
 
 <h2>回避方法</h2>
-<p>初めに: Android SDKとADBシェルをPCにインストールしてください。
-</p>
+<p>前提： PCに ADB シェルが付属する Android SDK をインストールしておく必要があります。</p>
 <ol>
-<li>電源ボタンを押しながら<cite>ボリュームダウン</cite>ボタンを押しながらデバイスのブートメニューを起動します</li>
-<li><cite>音量低下ボタン</cite> を使用して <cite>recovery</cite> を選び <cite>電源ボタン</cite> で起動します。</li>
+<li>電源ボタンを押しながら<cite>音量低下</cite>ボタンを押して、デバイスのブートメニューを起動します。</li>
+<li>
+<cite>音量低下ボタン</cite> を使用して <cite>recovery</cite> を選び <cite>電源ボタン</cite> で起動します。</li>
 <li>Clockwork リカバリーでは "partitions menu" に進んでください。</li>
-<li><cite>mount /system</cite>、<cite>mount /sdcard</cite>、<cite>mount /data</cite>を選択します</li>
+<li>
+<cite>mount /system</cite>、<cite>mount /sdcard</cite>、<cite>mount /data</cite>を選択します</li>
 <li>USBケーブルを差し込んで PC でコマンドラインを立ち上げてください。</li>
 <li>adbシェルを入力し、<code>ln -s /data/hosts /system/etc/hosts</code>と入力します（これによりシンボリックリンクが作成され、AdAwayは<code>/dataに</code>格納し、OSは<code>/system</code>に格納されているかのようにファイルを使用出来ます）</li>
 <li>デバイスを再起動し、AdAwayの設定で<cite>Target hostsファイル</cite>を<cite>/data/hosts</cite>に設定します</li>

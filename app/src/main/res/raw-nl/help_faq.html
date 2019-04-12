@@ -1,13 +1,17 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
 <head><title>VGV</title></head>
 <body>
 <h2>Inkomsten via reclames</h2>
-<p>Het is een misvatting dat als een gebruiker op reclames klikt, het blokkeren van deze reclames een site of app financieel schaadt. Ontwikkelaars verdienen ook geld verdienen door het alleen tonen van reclames. Het is aan u of u deze wel of niet blokkeert. Persoonlijk zou ik applicaties die reclames tonen niet gebruiken, omdat ik deze hinderlijk vind, dus zonder adblocker zou ik deze applicaties niet eens installeren.</p>
+<p>Er is een vaak voorkomende misvatting dat als een gebruiker nooit op reclames klikt, het blokkeren van deze reclames een site of app financieel niet schaad. Dit klopt niet, aangezien ontwikkelaars ook geld verdienen door het alleen tonen van reclames. Het is aan u of u deze wel of niet blokkeert. Persoonlijk zou ik applicaties die reclames tonen niet gebruiken, omdat ik deze hinderlijk vind, dus zonder adblocker zou ik deze applicaties niet eens installeren.</p>
 
 
 
 <h2>Hoe werkt AdAway?</h2>
-<p>AdAway gebruikt het  <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts-bestand</a> om hostnamen te blokkeren die reclames aanbieden. Het hosts-bestand is een bestand in  <code>/system/etc/hosts</code>. Het zet hostnamen om naar IP-adressen. Het is een veelgebruikte manier om hostnamen naar IP-adressen om te leiden zonder het Domain Name System (DNS) te gebruiken. Alle ongewenste hostnamen worden doorverwezen naar <code>127.0.0.1</code>. Dit betekent dat ze naar uw eigen apparaat verwijzen.</p>
+<p>dAway gebruikt het hosts-bestand om hostnamen te blokkeren die reclames aanbieden. Het hosts-bestand is een bestand in  <code>/system/etc/hosts</code>. Het zet hostnamen om naar IP-adressen. Het is een veelgebruikte manier om hostnamen naar IP-adressen om te leiden zonder het Domain Name System (DNS) te gebruiken. Alle ongewenste hostnamen worden doorverwezen naar <code>127.0.0.1</code>. Dit betekent dat ze naar uw eigen apparaat verwijzen.</p>
 
 <h2>Waarom is de mogelijkheid om dagelijks op updates te controleren niet beschikbaar?</h2>
 <p>Automatisch controleren op updates is alleen beschikbaar als AdAway is geïnstalleerd op het interne telefoongeheugen. Dit komt door beperkingen van het Android-platform.</p>
@@ -17,14 +21,14 @@
 
 <h2>Hoe gebruik ik de webserver in AdAway?</h2>
 <p><strong>AdAway zal ook werken zonder het gebruik van de webserver!</strong>
-<br/><br/>U kunt een lokale webserver inschakelen vanuit de voorkeuren van AdAway om verzoeken te om te leiden naar het lokale IP-adres <code>127.0.0.1</code>. Dit betekent dat verzoeken van applicaties aan reclameservers die doorverwezen worden naar <code>127.0.0.1</code> beantwoord worden door de webserver van AdAway.
-<br/>Sommige applicaties weigeren te werken als reclameservers niet bereikbaar zijn. Met deze methode zullen de servers weer 'bereikbaar' zijn, alleen wordt er geen reclame maar een witte pagina weergegeven.</p>
+<br><br>U kunt een lokale webserver inschakelen vanuit de voorkeuren van AdAway om verzoeken te om te leiden naar het lokale IP-adres <code>127.0.0.1</code>. Dit betekent dat verzoeken van applicaties aan reclameservers die doorverwezen worden naar <code>127.0.0.1</code> beantwoord worden door de webserver van AdAway.
+<br>Sommige applicaties weigeren te werken als reclameservers niet bereikbaar zijn. Met deze methode zullen de servers weer 'bereikbaar' zijn, alleen wordt er geen reclame maar een witte pagina weergegeven.</p>
 
 <h2>Hoe kan ik specifieke hostnamen (de)blokkeren?</h2>
 <p>Voeg de hostnamen die u wilt blokkeren toe aan de <cite>Blacklist</cite> (=Zwart) onder <cite>Uw lijsten</cite>. U kunt ook hostnamen die u niet wilt blokkeren toevoegen aan de  <cite>Whitelist</cite> (=Wit) en hostnamen die u wilt doorverwijzen naar een specifiek IP-adres toevoegen aan de<cite>Doorverwijzingslijst</cite> (=Doorverwijzing).</p>
 
 <h2>Waar kan ik meer hosts-bronnen vinden?</h2>
-<p>Zie <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">deze lijst van andere hosts bronnen voor AdAway</a>.</p>
+<p>Zie <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">deze lijst van andere hosts-bronnen voor AdAway</a>.</p>
 
 <h2>Help vertalen of meld een fout</h2>
 <p>Ga naar <a href="https://adaway.org">https://adaway.org</a>.</p>

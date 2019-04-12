@@ -1,268 +1,260 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">AdAway</string>
-  <!--Buttons-->
-  <string name="button_exit">Salir</string>
-  <string name="button_close">Cerrar</string>
-  <string name="button_yes">Sí</string>
-  <string name="button_no">No</string>
-  <string name="button_add">Agregar</string>
-  <string name="button_cancel">Cancelar</string>
-  <string name="button_save">Guardar</string>
-  <string name="button_webserver_toggle_text">Iniciar o parar el servidor web en localhost para respondes las solicitudes bloqueadas por los sitios de hosts.</string>
-  <string name="button_help">Ayuda</string>
-  <!--Home-->
-  <string name="header_help">Te damos la bienvenida</string>
-  <string name="text_help">AdAway es un software gratuito y de código abierto diseñado para bloquear los anuncios. Para ello, recuepera las direcciones de red de los anuncios y los bloquea en tu dispositivo.\nPara obtener más información, consulta la ayuda a continuación.</string>
-  <string name="button_show_help">Mostrar más ayuda</string>
-  <string name="icon_update_status">Actualizar estado</string>
-  <string name="text_update">Se descargarán todos los archivos hosts de las fuentes definidas, se combinarán con las listas propias y se instalarán como un solo archivo hosts en el sistema.</string>
-  <string name="button_check_update_hosts">Comprobar actualizaciones</string>
-  <string name="button_update_hosts">Actualizar hosts</string>
-  <string name="button_enable_hosts">Habilitar bloqueo de anuncios</string>
-  <string name="button_disable_hosts">Inhabilitar bloqueo de anuncios</string>
-  <string name="header_webserver">Servidor web</string>
-  <string name="webserver_status_running">En funcionamiento</string>
-  <string name="webserver_status_stopped">Detenido</string>
-  <string name="button_enable_webserver">Habilitar servidor web</string>
-  <string name="button_disable_webserver">Inhabilitar servidor web</string>
-  <!--Checkbox List-->
-  <string name="checkbox_list_context_delete">Borrar</string>
-  <string name="checkbox_list_context_title">Editar entrada</string>
-  <string name="checkbox_list_context_edit">Editar</string>
-  <!--Your lists-->
-  <string name="lists_tab_whitelist">Lista blanca</string>
-  <string name="lists_tab_blacklist">Lista negra</string>
-  <string name="lists_tab_redirection_list">Redireccionamientos</string>
-  <string name="list_add_dialog_black">Agregar host a la lista negra</string>
-  <string name="list_add_dialog_white">Agregar host a la lista blanca</string>
-  <string name="list_add_dialog_redirect">Agregar redireccionamiento de host</string>
-  <string name="list_edit_dialog_black">Editar host de la lista negra</string>
-  <string name="list_edit_dialog_white">Editar host de la lista blanca</string>
-  <string name="list_edit_dialog_redirect">Editar redireccionamiento</string>
-  <string name="list_dialog_hostname">Nombre de host:</string>
-  <string name="list_dialog_hostname_hint">URL fuente del archivo hosts</string>
-  <string name="list_dialog_wildcard">(Se admiten comodines * y ?)</string>
-  <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
-  <string name="import_dialog">Importando…</string>
-  <string name="export_dialog">Exportando…</string>
-  <string name="export_success">Se exportaron todas las entradas a un archivo llamado “adaway-export” en la tarjeta SD.</string>
-  <string name="export_failed">No se pudo exportar la lista a la tarjeta SD.</string>
-  <!--Hosts content-->
-  <string name="hosts_header">El archivo hosts</string>
-  <string name="hosts_description">El archivo hosts es un archivo del sistema que permite asignar los nombres de hosts a las direcciones IP. Es un archivo de texto sin formato cuya configuración administra AdAway. Estas son sus primeras líneas:</string>
-  <string name="hosts_content">Cargando el contenido del archivo hosts…</string>
-  <string name="hosts_open_button">Abrir el archivo hosts</string>
-  <!--Status Notification-->
-  <string name="status_checking">Buscando actualizaciones…</string>
-  <string name="status_reverting">Revirtiendo…</string>
-  <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
-  <string name="status_update_available">Actualización disponible</string>
-  <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
-  <string name="status_no_connection">No hay conexión a Internet</string>
-  <string name="status_no_connection_subtitle">La conexión a Internet no está disponible</string>
-  <string name="status_download_fail">Fuentes no disponibles</string>
-  <string name="status_download_fail_subtitle_new">No se puede acceder a las fuentes de hosts</string>
-  <string name="status_failure">Hubo un problema</string>
-  <string name="status_failure_subtitle">Revisa el registro logcat para obtener información detallada</string>
-  <string name="status_enabled">Habilitado</string>
-  <string name="status_enabled_subtitle">Los archivos hosts más recientes están habilitados</string>
-  <string name="status_disabled">Inhabilitado</string>
-  <string name="status_disabled_subtitle">El archivo hosts predeterminado está instalado</string>
-  <string name="notification_channel_update_name">Actualizaciones</string>
-  <string name="notification_channel_update_description">Notificaciones de actualizaciones de hosts nuevos</string>
-  <string name="notification_configuration_changed">La configuración cambió. Debes instalar el archivo hosts para aplicarla.</string>
-  <string name="notification_configuration_changed_action">Aplicar</string>
-  <string name="notification_configuration_installing">Instalando el archivo hosts…</string>
-  <string name="notification_configuration_failed">No se pudo instalar el archivo hosts.</string>
-  <!--Apply and Revert Dialogs-->
-  <string name="apply_symlink_missing">El vínculo simbólico del objetivo a /system/etc/hosts no existe o es incorrecto. AdAway no funcionará si este vínculo no apunta al archivo correcto.\n\n¿Quieres intentar crear un vínculo simbólico?</string>
-  <string name="apply_symlink_missing_title">Falta el vínculo simbólico</string>
-  <string name="apply_not_enough_space">No queda espacio suficiente en la partición.\nIntenta cambiar el archivo hosts objetivo en la configuración a /data/data/hosts.</string>
-  <string name="apply_not_enough_space_title">No queda espacio suficiente</string>
-  <string name="apply_private_file_fail">No se pudo leer el archivo descargado.</string>
-  <string name="apply_private_file_fail_title">Error de archivo privado</string>
-  <string name="apply_remount_fail">No se pudo reactivar la partición con permisos de lectura y escritura.</string>
-  <string name="apply_remount_fail_title">Error de reactivación</string>
-  <string name="apply_copy_fail">No se pudo copiar el archivo hosts.</string>
-  <string name="apply_copy_fail_title">Error de copia</string>
-  <string name="apply_success_subtitle">Se aplicaron las fuentes de hosts</string>
-  <string name="apply_success_title">Aplicación correcta</string>
-  <string name="apply_success_dialog">Se aplicó el archivo hosts correctamente.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
-  <string name="apply_symlink_successful">Se creó el vínculo simbólico correctamente.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
-  <string name="apply_symlink_successful_title">Creación correcta del vínculo simbólico</string>
-  <string name="apply_symlink_fail">Android no pudo crear el vínculo simbólico.\nEs probable que se deba a una función llamada S-ON de los teléfonos HTC.\n\nPara solucionar este problema, puedes iniciar el teléfono en modo de recuperación y crear el vínculo simbólico desde allí con el comando “ln -s /data/data/hosts /system/etc/hosts”.\n\nSi esta solución no funciona, busca en Internet cómo inhabilitar S-ON en el teléfono.</string>
-  <string name="apply_symlink_fail_title">No se pudo crear el vínculo simbólico</string>
-  <string name="apply_help">Para obtener más información, consulta la ayuda.</string>
-  <string name="apply_apn_proxy">El dispositivo Android tiene configurado un proxy de APN.\nAdAway no funcionará de manera confiable en redes móviles, como 3G. Puedes desactivar el proxy desde el APN seleccionado (en la app de Configuración -&gt; Internet y red -&gt; Red móvil -&gt; Avanzada -&gt; Nombres de puntos de acceso) y quitar el valor del campo Proxy.</string>
-  <string name="apply_apn_proxy_title">Se detectó un proxy de APN</string>
-  <string name="no_connection">La conexión a Internet no funciona.</string>
-  <string name="no_connection_title">No hay conexión</string>
-  <string name="download_dialog">Descargando…</string>
-  <string name="apply_dialog">Aplicando…</string>
-  <string name="apply_dialog_lists">Aplicando listas negra y blanca</string>
-  <string name="apply_dialog_hostnames">Analizando y uniendo archivos hosts</string>
-  <string name="apply_dialog_hosts">Compilando archivo hosts</string>
-  <string name="apply_dialog_apply">Aplicando archivo hosts</string>
-  <string name="apply_fail">No se pudo aplicar el archivo hosts en el sistema.\nIntenta cambiar el archivo hosts de destino en la configuración a /data/data/hosts.</string>
-  <string name="apply_fail_title">Error de aplicación</string>
-  <string name="revert_successful">Restableciste el archivo hosts predeterminado.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
-  <string name="revert_successful_title">Reversión correcta</string>
-  <string name="revert_problem">No se pudo revertir el archivo hosts por razones desconocidas.</string>
-  <string name="revert_problem_title">Error de reversión</string>
-  <string name="download_fail_dialog">No se puede acceder a ninguna de las fuentes de hosts habilitadas. Comprueba la conexión a Internet.</string>
-  <string name="download_fail_title">Error de descarga</string>
-  <string name="no_private_file">No se pudo crear el archivo privado.</string>
-  <string name="no_private_file_title">Error de creación de archivo privado</string>
-  <string name="enable_systemless_successful">Habilitaste el modo sin modificaciones a la partición del sistema.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
-  <string name="enable_systemless_successful_title">Habilitación correcta</string>
-  <string name="disable_systemless_successful">Inhabilitaste el modo sin modificaciones a la partición del sistema.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
-  <string name="disable_systemless_successful_title">Inhabilitación correcta</string>
-  <!--Other Dialogs-->
-  <string name="no_root_description">No se pudo encontrar el objeto binario su o no otorgaste permisos de superusuario a AdAway.\n\nEsto puede deberse a que no tienes acceso raíz al dispositivo.\nPara obtener más información sobre cómo obtener acceso raíz, consulta wiki.lineageos.org (en inglés) u otros sitios web sobre Android.</string>
-  <string name="no_root_title">Se necesita un dispositivo con acceso raíz</string>
-  <string name="hosts_add_dialog">Ingresa la URL del archivo hosts:</string>
-  <string name="no_hostname">El nombre de host no es válido.</string>
-  <string name="no_hostname_title">El nombre de host tiene un formato incorrecto</string>
-  <string name="no_ip">La dirección IP no es válida</string>
-  <string name="no_ip_title">La dirección IP tiene un formato incorrecto</string>
-  <string name="reboot_never_reboot">No reiniciar ni volver a preguntar</string>
-  <string name="loading">Cargando…</string>
-  <!--Menu entries-->
-  <string name="menu_refresh">Actualizar</string>
-  <string name="menu_add">Agregar</string>
-  <string name="menu_hosts_sources">Fuentes de hosts</string>
-  <string name="menu_help">Ayuda</string>
-  <string name="menu_import">Importar todas las listas</string>
-  <string name="menu_export">Exportar todas las listas</string>
-  <!--Help-->
-  <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-  <string name="help_tab_faq">Preguntas frecuentes</string>
-  <string name="help_tab_problems">Problemas</string>
-  <!--Adware-->
-  <string name="adware_header">Adware</string>
-  <string name="adware_description">En esta sección, puedes encontrar el adware y las aplicaciones maliciosa que AdAway no puede bloquear. Por ejemplo, algunas de estas apps pueden usar notificaciones push que aparecen cuando la app no está en ejecución o incluso cambiar el tono de llamada. La única forma de solucionar estos problemas es desinstalar esas apps. Para ello, selecciónalas en esta lista.</string>
-  <string name="adware_scanning">Analizando…</string>
-  <string name="adware_empty">No se encontró adware.</string>
-  <!--Hosts sources-->
-  <string name="hosts_last_modified_local">Local:</string>
-  <string name="hosts_last_modified_online">En línea:</string>
-  <string name="hosts_not_available">no disponible</string>
-  <string name="hosts_add_dialog_title">Agregar fuente</string>
-  <string name="hosts_edit_dialog_title">Editar fuente</string>
-  <string name="hosts_dialog_url">URL (recurso https:// o file://):</string>
-  <string name="hosts_dialog_url_hint">La URL fuente del archivo hosts</string>
-  <!--Other-->
-  <string name="app_subtitle">Bloqueador de anuncios</string>
-  <string name="no_text_editor_title">No tienes instalado ningún editor de texto</string>
-  <string name="no_text_editor">No se encontró ningún editor de texto para abrir el archivo hosts. Puedes instalar Jota u otro editor de texto para encargarte de esto.\n\n¿Quieres instalar Jota?</string>
-  <string name="no_file_manager_title">No tienes instalado ningún administrador de archivos</string>
-  <string name="no_file_manager">No se encontró ningún gestor para abrir los archivos. Puedes instalar OI File Manager u otros gestores de archivos para encargarte de esto.\n\n¿Quieres instalar OI File Manager?</string>
-  <!--Tcpdump-->
-  <string name="tcpdump_header">Tcpdump</string>
-  <string name="tcpdump_description">Tcpdump es una herramienta para monitorear las solicitudes DNS y guardarlas en un archivo de registro. Puedes iniciarlo en segundo plano, ejecutar aplicaciones que muestran anuncios, y después analizar las peticiones DNS utilizando el archivo de registro. El posible servidor de anuncios puede ser añadido a su lista negra.</string>
-  <string name="tcpdump_disable_monitoring">Desactivar monitoreo</string>
-  <string name="tcpdump_enable_monitoring">Activar monitoreo</string>
-  <string name="tcpdump_show_results">Mostrar resultados</string>
-  <string name="tcpdump_redirect_dialog_title">Redirigir dominio</string>
-  <string name="tcpdump_menu_sort">Ordenar dominios</string>
-  <string name="tcpdump_menu_clear">Limpiar registro</string>
-  <string name="tcpdump_sort_alphabetical">Orden alfabético</string>
-  <string name="tcpdump_sort_top_level_domain">Orden de top-level domain</string>
-  <string name="tcpdump_entry_add_blacklist">Añadir entrada a la Lista Negra</string>
-  <string name="tcpdump_entry_add_whitelist">Añadir entrada a la Lista Blanca</string>
-  <string name="tcpdump_entry_add_redirection_list">Añadir entrada a la Lista de Redirección</string>
-  <!--Preferences-->
-  <string name="pref_download">Preferencias Generales</string>
-  <string name="pref_dismiss_welcome">Ocultar tarjeta de bienvenida</string>
-  <string name="pref_dismiss_welcome_summary">No mostrar la tarjeta de bienvenida en la pantalla principal</string>
-  <string name="pref_dark_theme">Activar tema oscuro</string>
-  <string name="pref_dark_theme_summary">Usar el tema oscuro en lugar del claro</string>
-  <string name="pref_dark_theme_notification">¡El tema se aplicará en el siguiente inicio de la aplicación!</string>
-  <string name="pref_hosts">Archivo Hosts</string>
-  <string name="pref_redirection_ip">Redireccionar IP</string>
-  <string name="pref_update_check">Revisar actualizaciones</string>
-  <string name="pref_apply_method">Archivo hosts de destino</string>
-  <string name="pref_apply_method_summary">Antes de cambiar este ajuste, lee la sección de Ayuda sobre esta funcionalidad.</string>
-  <string name="pref_redirection_ip_summary">Todos los servidores bloqueados son redirigidos a esta dirección IP.</string>
-  <string name="pref_header_preferences">Preferencias</string>
-  <string name="pref_header_preferences_summary">Preferencias Generales para AdAway</string>
-  <string name="pref_never_reboot">Ocultar diálogo de reinicio</string>
-  <string name="pref_never_reboot_summary">Oculta el cuadro de diálogo que pide reiniciar Android después de una aplicación exitosa</string>
-  <string name="pref_webserver_on_boot">Iniciar servidor web al reiniciar</string>
-  <string name="pref_webserver_on_boot_summary">Iniciar servidor web al reiniciar, revisando en las direcciones IP locales</string>
-  <string name="pref_webserver_enabled">Activar servidor web</string>
-  <string name="pref_webserver_enabled_summary">Activa el servidor web revisando las direcciones IP locales para responder a las solicitudes de los servidores bloqueados</string>
-  <string name="pref_webserver">Servidor Web Local</string>
-  <string name="pref_custom_target">Destino personalizado</string>
-  <string name="pref_custom_target_summary">Solo se usa si el archivo hosts de destino está configurado como Destino personalizado</string>
-  <string-array name="pref_apply_method_entries">
-    <item>/system/etc/hosts</item>
-    <item>/data/hosts</item>
-    <item>/data/data/hosts</item>
-    <item>Destino personalizado</item>
-  </string-array>
-  <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
-  <string name="pref_background">Servicios en Segundo Plano</string>
-  <string name="pref_update_check_daily">Buscar por actualizaciones diariamente</string>
-  <string name="pref_update_check_daily_summary">Buscar actualizaciones diariamente en segundo plano con notificaciones</string>
-  <string name="pref_automatic_update_daily">Actualización automática</string>
-  <string name="pref_automatic_update_daily_summary">Actualizar automáticamente en segundo plano si hay actualizaciones disponibles</string>
-  <string name="pref_update_only_on_wifi">Actualizar sólo sin redes medidas</string>
-  <string name="pref_update_only_on_wifi_summary">Ejecutar actualizaciones en segundo plano solo cuando se está conectado a una red no medida.</string>
-  <string name="pref_whitelist_rules">Permitir la revisión de la Lista Blanca</string>
-  <string name="pref_whitelist_rules_summary">Permite la lista blanca de entradas de las Fuentes de Hosts.</string>
-  <string name="pref_redirection_rules">Permitir redirecciones</string>
-  <string name="pref_redirection_rules_summary">¡SUPONE UN RIEGO DE SEGURIDAD! Permitir la redirección de entradas desde las Fuentes de Hosts.</string>
-  <string name="pref_debug">Depurar</string>
-  <string name="pref_enable_debug_summary">Necesitas reiniciar AdAway para que esta opción tenga efecto.</string>
-  <string name="pref_enable_ipv6">Activar IPv6</string>
-  <string name="pref_enable_ipv6_summary">Todas las entradas del archivo host llevarán una inscripción ::1 (IPv6 localhost) correspondiente.</string>
-  <string name="pref_enable_systemless_summary">Prevenir que AdAway modifique la partición del sistema</string>
-  <string name="pref_enable_systemless">Activar el modo systemless</string>
-  <string name="pref_edit_text_value">Editar valor de texto de la preferencia</string>
-  <string name="drawer_open">Abrir menú</string>
-  <string name="drawer_close">Cerrar menú</string>
-  <!--Drawer menu items-->
-  <string-array name="drawer_items">
-    <item>Inicio</item>
-    <item>Fuentes hosts</item>
-    <item>Tus listas</item>
-    <item>Abrir archivo hosts</item>
-    <item>Registrar pedidos DNS</item>
-    <item>Escanear adware</item>
-    <item>Preferencias</item>
-    <item>Ayuda</item>
-  </string-array>
-  <!--Drawer menu labels-->
-  <string name="drawer_support_text">\u2764 Equipo de desarrollo \u2764</string>
-  <string name="drawer_support_dialog_title">Soporte de desarrollo</string>
-  <string name="drawer_support_dialog_text">AdAway es gratis y un programa de código abierto desarrollado y mantenido solamente por la comunidad. Me tomó dos años como un proyecto en mi tiempo libre para crear esta nueva versión de la aplicación.  Si te gusta y deseas ver más actualizaciones, puedes apoyar este proyecto.</string>
-  <string name="drawer_support_dialog_button">Muestra mi apoyo</string>
-  <!--Telemetry-->
-  <!--Shortcuts-->
-  <string name="shortcut_dns_requests">Pedidos DNS</string>
-  <string name="shortcut_your_lists">Tus listas</string>
-  <string name="shortcut_preferences">Preferencias</string>
-  <!--Hosts source status-->
-  <string name="hosts_source_up_to_date">%1$s actualizado</string>
-  <string name="hosts_source_need_update">%1$s necesita una actualización</string>
-  <string name="hosts_source_last_update">Última actualización hace %1$s</string>
-  <string name="hosts_source_unknown_status">Estado de actualización desconocido</string>
-  <plurals name="hosts_source_minutes">
-    <item quantity="one">%d minuto</item>
-    <item quantity="other">%d minutos</item>
-  </plurals>
-  <plurals name="hosts_source_hours">
-    <item quantity="one">%d hora</item>
-    <item quantity="other">%d horas</item>
-  </plurals>
-  <plurals name="hosts_source_days">
-    <item quantity="one">%d día</item>
-    <item quantity="other">%d días</item>
-  </plurals>
-  <plurals name="hosts_source_months">
-    <item quantity="one">%d mes</item>
-    <item quantity="other">%d meses</item>
-  </plurals>
-</resources>
+
+    <string name="app_name">AdAway</string>
+
+    <!--Buttons-->
+    <string name="button_exit">Salir</string>
+    <string name="button_close">Cerrar</string>
+    <string name="button_yes">Sí</string>
+    <string name="button_no">No</string>
+    <string name="button_add">Agregar</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="button_save">Guardar</string>
+    <string name="button_webserver_toggle_text">Iniciar o parar el servidor web en localhost para respondes las solicitudes bloqueadas por los sitios de hosts.</string>
+    <string name="button_help">Ayuda</string>
+
+    <!--Home-->
+    <string name="header_help">Te damos la bienvenida</string>
+    <string name="text_help">AdAway es un software gratuito y de código abierto diseñado para bloquear los anuncios. Para ello, recuepera las direcciones de red de los anuncios y los bloquea en tu dispositivo.\nPara obtener más información, consulta la ayuda a continuación.</string>
+    <string name="button_show_help">Mostrar más ayuda</string>
+    <string name="icon_update_status">Actualizar estado</string>
+    <string name="text_update">Se descargarán todos los archivos hosts de las fuentes definidas, se combinarán con las listas propias y se instalarán como un solo archivo hosts en el sistema.</string>
+    <string name="button_check_update_hosts">Comprobar actualizaciones</string>
+    <string name="button_update_hosts">Actualizar hosts</string>
+    <string name="button_enable_hosts">Habilitar bloqueo de anuncios</string>
+    <string name="button_disable_hosts">Inhabilitar bloqueo de anuncios</string>
+    <string name="header_webserver">Servidor web</string>
+    <string name="webserver_status_running">En funcionamiento</string>
+    <string name="webserver_status_stopped">Detenido</string>
+    <string name="button_enable_webserver">Habilitar servidor web</string>
+    <string name="button_disable_webserver">Inhabilitar servidor web</string>
+
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_delete">Borrar</string>
+    <string name="checkbox_list_context_title">Editar entrada</string>
+    <string name="checkbox_list_context_edit">Editar</string>
+
+    <!--Your lists-->
+    <string name="lists_tab_whitelist">Lista blanca</string>
+    <string name="lists_tab_blacklist">Lista negra</string>
+    <string name="lists_tab_redirection_list">Redireccionamientos</string>
+    <string name="list_add_dialog_black">Agregar host a la lista negra</string>
+    <string name="list_add_dialog_white">Agregar host a la lista blanca</string>
+    <string name="list_add_dialog_redirect">Agregar redireccionamiento de host</string>
+    <string name="list_edit_dialog_black">Editar host de la lista negra</string>
+    <string name="list_edit_dialog_white">Editar host de la lista blanca</string>
+    <string name="list_edit_dialog_redirect">Editar redireccionamiento</string>
+    <string name="list_dialog_hostname">Nombre de host:</string>
+    <string name="list_dialog_hostname_hint">La URL fuente del archivo hosts</string>
+    <string name="list_dialog_wildcard">(Se admiten comodines * y ?)</string>
+    <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
+    <string name="import_dialog">Importando…</string>
+    <string name="export_dialog">Exportando…</string>
+    <string name="export_failed">No se pudo exportar la lista a la tarjeta SD.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">El archivo hosts</string>
+    <string name="hosts_description">El archivo hosts es un archivo del sistema que permite asignar los nombres de hosts a las direcciones IP. Es un archivo de texto sin formato cuya configuración administra AdAway. Estas son sus primeras líneas:</string>
+    <string name="hosts_content">Cargando el contenido del archivo hosts…</string>
+    <string name="hosts_open_button">Abrir el archivo hosts</string>
+
+    <!--Status Notification-->
+    <string name="status_checking">Buscando actualizaciones…</string>
+    <string name="status_reverting">Revirtiendo…</string>
+    <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
+    <string name="status_update_available">Actualización disponible</string>
+    <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
+    <string name="status_no_connection">No hay conexión a Internet</string>
+    <string name="status_no_connection_subtitle">La conexión a Internet no está disponible</string>
+    <string name="status_download_fail">Fuentes no disponibles</string>
+    <string name="status_download_fail_subtitle_new">No se puede acceder a las fuentes de hosts</string>
+    <string name="status_failure">Hubo un problema</string>
+    <string name="status_failure_subtitle">Revisa el registro logcat para obtener información detallada</string>
+    <string name="status_enabled">Habilitado</string>
+    <string name="status_enabled_subtitle">Los archivos hosts más recientes están habilitados</string>
+    <string name="status_disabled">Inhabilitado</string>
+    <string name="status_disabled_subtitle">El archivo hosts predeterminado está instalado</string>
+    <string name="notification_channel_update_name">Actualizaciones</string>
+    <string name="notification_channel_update_description">Notificaciones de actualizaciones de hosts nuevos</string>
+    <string name="notification_configuration_changed">La configuración cambió. Debes instalar el archivo hosts para aplicarla.</string>
+    <string name="notification_configuration_changed_action">Aplicar</string>
+    <string name="notification_configuration_installing">Instalando el archivo hosts…</string>
+    <string name="notification_configuration_failed">No se pudo instalar el archivo hosts.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing">El vínculo simbólico del objetivo a /system/etc/hosts no existe o es incorrecto. AdAway no funcionará si este vínculo no apunta al archivo correcto.\n\n¿Quieres intentar crear un vínculo simbólico?</string>
+    <string name="apply_symlink_missing_title">Falta el vínculo simbólico</string>
+    <string name="apply_not_enough_space">No queda espacio suficiente en la partición.\nIntenta cambiar el archivo hosts objetivo en la configuración a /data/data/hosts.</string>
+    <string name="apply_not_enough_space_title">No queda espacio suficiente</string>
+    <string name="apply_private_file_fail">No se pudo leer el archivo descargado.</string>
+    <string name="apply_private_file_fail_title">Error de archivo privado</string>
+    <string name="apply_remount_fail">No se pudo reactivar la partición con permisos de lectura y escritura.</string>
+    <string name="apply_remount_fail_title">Error de reactivación</string>
+    <string name="apply_copy_fail">No se pudo copiar el archivo hosts.</string>
+    <string name="apply_copy_fail_title">Error de copia</string>
+    <string name="apply_success_subtitle">Se aplicaron las fuentes de hosts</string>
+    <string name="apply_success_title">Aplicación correcta</string>
+    <string name="apply_success_dialog">Se aplicó el archivo hosts correctamente.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
+    <string name="apply_symlink_successful">Se creó el vínculo simbólico correctamente.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
+    <string name="apply_symlink_successful_title">Creación correcta del vínculo simbólico</string>
+    <string name="apply_symlink_fail_title">No se pudo crear el vínculo simbólico</string>
+    <string name="apply_help">Para obtener más información, consulta la ayuda.</string>
+    <string name="apply_apn_proxy_title">Se detectó un proxy de APN</string>
+    <string name="no_connection">La conexión a Internet no funciona.</string>
+    <string name="no_connection_title">No hay conexión</string>
+    <string name="download_dialog">Descargando…</string>
+    <string name="apply_dialog">Aplicando…</string>
+    <string name="apply_dialog_lists">Aplicando listas negra y blanca</string>
+    <string name="apply_dialog_hostnames">Analizando y uniendo archivos hosts</string>
+    <string name="apply_dialog_hosts">Compilando archivo hosts</string>
+    <string name="apply_dialog_apply">Aplicando archivo hosts</string>
+    <string name="apply_fail">No se pudo aplicar el archivo hosts en el sistema.\nIntenta cambiar el archivo hosts de destino en la configuración a /data/data/hosts.</string>
+    <string name="apply_fail_title">Error de aplicación</string>
+    <string name="revert_successful">Restableciste el archivo hosts predeterminado.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
+    <string name="revert_successful_title">Reversión correcta</string>
+    <string name="revert_problem">No se pudo revertir el archivo hosts por razones desconocidas.</string>
+    <string name="revert_problem_title">Error de reversión</string>
+    <string name="download_fail_dialog">No se puede acceder a ninguna de las fuentes de hosts habilitadas. Comprueba la conexión a Internet.</string>
+    <string name="download_fail_title">Error de descarga</string>
+    <string name="no_private_file">No se pudo crear el archivo privado.</string>
+    <string name="no_private_file_title">Error de creación de archivo privado</string>
+    <string name="enable_systemless_successful">Habilitaste el modo sin modificaciones a la partición del sistema.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
+    <string name="enable_systemless_successful_title">Habilitación correcta</string>
+    <string name="disable_systemless_successful">Inhabilitaste el modo sin modificaciones a la partición del sistema.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
+    <string name="disable_systemless_successful_title">Inhabilitación correcta</string>
+
+    <!--Other Dialogs-->
+    <string name="no_root_description">No se pudo encontrar el objeto binario su o no otorgaste permisos de superusuario a AdAway.\n\nEsto puede deberse a que no tienes acceso raíz al dispositivo.\nPara obtener más información sobre cómo obtener acceso raíz, consulta wiki.lineageos.org (en inglés) u otros sitios web sobre Android.</string>
+    <string name="no_root_title">Se necesita un dispositivo con acceso raíz</string>
+    <string name="hosts_add_dialog">Ingresa la URL del archivo hosts:</string>
+    <string name="no_hostname">El nombre de host no es válido.</string>
+    <string name="no_hostname_title">El nombre de host tiene un formato incorrecto</string>
+    <string name="no_ip">La dirección IP no es válida</string>
+    <string name="no_ip_title">La dirección IP tiene un formato incorrecto</string>
+    <string name="loading">Cargando…</string>
+
+    <!--Menu entries-->
+    <string name="menu_refresh">Actualizar</string>
+    <string name="menu_add">Agregar</string>
+    <string name="menu_hosts_sources">Fuentes de hosts</string>
+    <string name="menu_help">Ayuda</string>
+    <string name="menu_import">Importar todas las listas</string>
+    <string name="menu_export">Exportar todas las listas</string>
+
+    <!--Help-->
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <string name="help_tab_faq">Preguntas frecuentes</string>
+    <string name="help_tab_problems">Problemas</string>
+
+    <!--Adware-->
+    <string name="adware_header">Adware</string>
+    <string name="adware_empty">No se encontró adware.</string>
+
+    <!--Hosts sources-->
+    <string name="hosts_last_modified_local">Local:</string>
+    <string name="hosts_last_modified_online">En línea:</string>
+    <string name="hosts_not_available">no disponible</string>
+    <string name="hosts_add_dialog_title">Agregar fuente</string>
+    <string name="hosts_edit_dialog_title">Editar fuente</string>
+    <string name="hosts_dialog_url">URL (recurso https:// o file://):</string>
+    <string name="hosts_dialog_url_hint">La URL fuente del archivo hosts</string>
+
+    <!--Other-->
+    <string name="app_subtitle">Bloqueador de anuncios</string>
+    <string name="no_text_editor_title">No tienes instalado ningún editor de texto</string>
+    <string name="no_text_editor">No se encontró ningún editor de texto para abrir el archivo hosts. Puedes instalar Jota u otro editor de texto para encargarte de esto.\n\n¿Quieres instalar Jota?</string>
+    <string name="no_file_manager_title">No tienes instalado ningún administrador de archivos</string>
+    <string name="no_file_manager">No se encontró ningún gestor para abrir los archivos. Puedes instalar OI File Manager u otros gestores de archivos para encargarte de esto.\n\n¿Quieres instalar OI File Manager?</string>
+
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
+    <string name="tcpdump_description">Tcpdump es una herramienta para monitorear las solicitudes DNS y guardarlas en un archivo de registro. Puedes iniciarlo en segundo plano, ejecutar aplicaciones que muestran anuncios, y después analizar las peticiones DNS utilizando el archivo de registro. El posible servidor de anuncios puede ser añadido a su lista negra.</string>
+    <string name="tcpdump_disable_monitoring">Desactivar monitoreo</string>
+    <string name="tcpdump_enable_monitoring">Activar monitoreo</string>
+    <string name="tcpdump_show_results">Mostrar resultados</string>
+    <string name="tcpdump_redirect_dialog_title">Redirigir dominio</string>
+    <string name="tcpdump_menu_sort">Ordenar dominios</string>
+    <string name="tcpdump_menu_clear">Limpiar registro</string>
+    <string name="tcpdump_sort_alphabetical">Orden alfabético</string>
+    <string name="tcpdump_sort_top_level_domain">Orden de top-level domain</string>
+    <string name="tcpdump_entry_add_blacklist">Añadir entrada a la Lista Negra</string>
+    <string name="tcpdump_entry_add_whitelist">Añadir entrada a la Lista Blanca</string>
+    <string name="tcpdump_entry_add_redirection_list">Añadir entrada a la Lista de Redirección</string>
+
+    <!--Preferences-->
+    <string name="pref_download">Preferencias Generales</string>
+    <string name="pref_dismiss_welcome">Ocultar tarjeta de bienvenida</string>
+    <string name="pref_dismiss_welcome_summary">No mostrar la tarjeta de bienvenida en la pantalla principal</string>
+    <string name="pref_dark_theme">Activar tema oscuro</string>
+    <string name="pref_dark_theme_summary">Usar el tema oscuro en lugar del claro</string>
+    <string name="pref_dark_theme_notification">¡El tema se aplicará en el siguiente inicio de la aplicación!</string>
+    <string name="pref_hosts">Archivo Hosts</string>
+    <string name="pref_redirection_ip">Redireccionar IP</string>
+    <string name="pref_update_check">Comprobar actualizaciones</string>
+    <string name="pref_apply_method">Archivo hosts de destino</string>
+    <string name="pref_apply_method_summary">Antes de cambiar este ajuste, lee la sección de Ayuda sobre esta funcionalidad.</string>
+    <string name="pref_redirection_ip_summary">Todos los servidores bloqueados son redirigidos a esta dirección IP.</string>
+    <string name="pref_header_preferences">Preferencias</string>
+    <string name="pref_header_preferences_summary">Preferencias Generales para AdAway</string>
+    <string name="pref_never_reboot">Ocultar diálogo de reinicio</string>
+    <string name="pref_never_reboot_summary">Oculta el cuadro de diálogo que pide reiniciar Android después de una aplicación exitosa</string>
+    <string name="pref_webserver_on_boot">Iniciar servidor web al reiniciar</string>
+    <string name="pref_webserver_on_boot_summary">Iniciar servidor web al reiniciar, revisando en las direcciones IP locales</string>
+    <string name="pref_webserver_enabled">Activar servidor web</string>
+    <string name="pref_webserver_enabled_summary">Activa el servidor web revisando las direcciones IP locales para responder a las solicitudes de los servidores bloqueados</string>
+    <string name="pref_webserver">Servidor Web Local</string>
+    <string name="pref_custom_target">Destino personalizado</string>
+    <string name="pref_custom_target_summary">Solo se usa si el archivo hosts de destino está configurado como Destino personalizado</string>
+
+    <string-array name="pref_apply_method_entries">
+        <item>Destino personalizado</item>
+    </string-array>
+
+    <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
+    <string name="pref_background">Servicios en Segundo Plano</string>
+    <string name="pref_update_check_daily">Buscar por actualizaciones diariamente</string>
+    <string name="pref_update_check_daily_summary">Buscar actualizaciones diariamente en segundo plano con notificaciones</string>
+    <string name="pref_automatic_update_daily">Actualización automática</string>
+    <string name="pref_automatic_update_daily_summary">Actualizar automáticamente en segundo plano si hay actualizaciones disponibles</string>
+    <string name="pref_update_only_on_wifi">Actualizar sólo sin redes medidas</string>
+    <string name="pref_update_only_on_wifi_summary">Ejecutar actualizaciones en segundo plano solo cuando se está conectado a una red no medida.</string>
+    <string name="pref_whitelist_rules">Permitir la revisión de la Lista Blanca</string>
+    <string name="pref_whitelist_rules_summary">Permite la lista blanca de entradas de las Fuentes de Hosts.</string>
+    <string name="pref_redirection_rules">Permitir redirecciones</string>
+    <string name="pref_redirection_rules_summary">¡SUPONE UN RIEGO DE SEGURIDAD! Permitir la redirección de entradas desde las Fuentes de Hosts.</string>
+    <string name="pref_debug">Depurar</string>
+    <string name="pref_enable_debug_summary">Necesitas reiniciar AdAway para que esta opción tenga efecto.</string>
+    <string name="pref_enable_ipv6">Activar IPv6</string>
+    <string name="pref_enable_ipv6_summary">Todas las entradas del archivo host llevarán una inscripción ::1 (IPv6 localhost) correspondiente.</string>
+    <string name="pref_enable_systemless_summary">Prevenir que AdAway modifique la partición del sistema</string>
+    <string name="pref_enable_systemless">Activar el modo systemless</string>
+    <string name="pref_edit_text_value">Editar valor de texto de la preferencia</string>
+    <string name="drawer_open">Abrir menú</string>
+    <string name="drawer_close">Cerrar menú</string>
+
+    <!--Drawer menu items-->
+    <string-array name="drawer_items">
+        <item>Fuentes de hosts</item>
+        <item>Tus listas</item>
+        <item>Abrir archivo hosts</item>
+        <item>Preferencias</item>
+        <item>Ayuda</item>
+    </string-array>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 Equipo de desarrollo \u2764</string>
+    <string name="drawer_support_dialog_title">Soporte de desarrollo</string>
+    <string name="drawer_support_dialog_text">AdAway es gratis y un programa de código abierto desarrollado y mantenido solamente por la comunidad. Me tomó dos años como un proyecto en mi tiempo libre para crear esta nueva versión de la aplicación.  Si te gusta y deseas ver más actualizaciones, puedes apoyar este proyecto.</string>
+    <string name="drawer_support_dialog_button">Muestra mi apoyo</string>
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">Pedidos DNS</string>
+    <string name="shortcut_your_lists">Tus listas</string>
+    <string name="shortcut_preferences">Preferencias</string>
+
+    <!--Hosts source status-->
+    <string name="hosts_source_up_to_date">%1$s actualizado</string>
+    <string name="hosts_source_need_update">%1$s necesita una actualización</string>
+    <string name="hosts_source_last_update">Última actualización hace %1$s</string>
+    <string name="hosts_source_unknown_status">Estado de actualización desconocido</string>
+    </resources>

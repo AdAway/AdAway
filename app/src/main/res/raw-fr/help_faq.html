@@ -1,30 +1,34 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
 <head><title>FAQ</title></head>
 <body>
 <h2>Recettes publicitaires</h2>
-<p>Une idée fausse courante veut que si un utilisateur ne clique jamais sur les publicités, alors les bloquer est sans contrecoup financier pour le site ou l’application. C’est faux. Les développeurs gagnent de l’argent juste en affichant des publicités. Il n’en tient qu’à vous de bloquer ou non les publicités. Personnellement, je n’utiliserais pas d’applications affichant des publicités parce que je trouve cela très ennuyeux, alors sans blocage de publicité je n’installerais pas ces applications.</p>
+<p>Une idée fausse courante veut que si un utilisateur ne clique jamais sur les publicités, alors les bloquer soit sans contrecoup financier pour le site ou l’application. C’est faux. Les développeurs gagnent de l’argent juste en affichant des publicités. Il ne tient qu’à vous de bloquer ou non les publicités. Personnellement, je n’utiliserai pas d’applications qui affichent des publicités, car je trouve cela très ennuyeux, alors sans blocage de publicité je n’installerai pas ces applications.</p>
 
 
 
 <h2>Comment AdAway fonctionne-t-il ?</h2>
 <p>AdAway utilise le <a href="http://en.wikipedia.org/wiki/Hosts_file">fichier hosts</a> pour bloquer les noms d’hôtes qui servent des publicités. Le fichier hosts se situe dans <code>/system/etc/hosts</code> et mappe les noms d’hôtes à des adresses IP. C’est une façon habituelle de définir des paires noms des serveurs/adresses IP sans avoir recours au système de noms de domaine (DNS). Tous les noms d’hôtes indésirables sont redirigés vers <code>127.0.0.1</code>, c’est-à-dire votre propre appareil.</p>
 
-<h2>Pourquoi l’option de mise à jour quotidienne est-elle grisée ?</h2>
-<p>La vérification automatique de nouvelles mises à jour n’est proposée que si AdAway est installé sur la mémoire interne. Cela provient de restrictions de la plateforme Android.</p>
+<h2>Pourquoi l’option de mise à jour quotidienne est-elle estompée ?</h2>
+<p>La vérification automatique de nouvelles mises à jour n’est proposée que si AdAway est installé sur la mémoire interne, en raison de restrictions de la plateforme Android.</p>
 
-<h2>Pourquoi dois-je redémarrer Android pour que jes changements prennent effet ?</h2>
+<h2>Pourquoi dois-je redémarrer Android pour que les changements prennent effet ?</h2>
 <p>Java sur Android maintient son propre cache DNS interne. Le système d’exploitation appliquera immédiatement le nouveau fichier hosts (vérifiez-le avec ping en ligne de commande), mais vous devrez redémarrer Android pour reconstruire le cache DNS de Java.</p>
 
 <h2>Comment utiliser le serveur Web d’AdAway ?</h2>
 <p><strong>AdAway fonctionnera aussi sans utiliser le serveur Web.</strong>
-<br/><br/>Vous pouvez activer un serveur Web local dans les préférences d’AdAway pour répondre aux requêtes à l’adresse IP locale <code>127.0.0.1</code>. Ainsi, le serveur Web d’AdAway répond aux requêtes des applications vers les serveurs de publicités qui sont redirigées vers <code>127.0.0.1</code>.
-<br/>Certaines applications refusent de fonctionner si les serveurs de publicités ne sont pas accessibles. Avec cette méthode, ils le seront de nouveau, répondant par une page blanche et sans images publicitaires.</p>
+<br><br>Vous pouvez activer un serveur Web local dans les préférences d’AdAway pour répondre aux requêtes à l’adresse IP locale <code>127.0.0.1</code>. Ainsi, le serveur Web d’AdAway répond aux requêtes des applications vers les serveurs de publicités qui sont redirigées vers <code>127.0.0.1</code>.
+<br>Certaines applications refusent de fonctionner si les serveurs de publicités ne sont pas accessibles. Avec cette méthode, ils le seront de nouveau, répondant par une page blanche et sans images publicitaires.</p>
 
 <h2>Comment puis-je bloquer/débloquer certains noms d’hôtes ?</h2>
 <p>Ajoutez à la <cite>liste noire</cite> (=Noire) dans <cite>Vos listes</cite> les noms d’hôtes que vous voulez bloquer. De plus, les noms d’hôtes que voulez exclure du blocage peuvent être ajoutés à la <cite>liste blanche</cite> (=Blanche), et les noms d’hôtes que vous voulez rediriger vers une adresse IP précise peuvent être ajoutés à la <cite>liste des redirections</cite> (=Redirection).</p>
 
 <h2>Où puis-je trouver d’autres sources de fichiers hosts ?</h2>
-<p>Voir <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">la liste des sources de fichiers hosts supplémentaires pour AdAway</a>.</p>
+<p>Consultez <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">la liste des sources de fichiers hosts supplémentaires pour AdAway</a>.</p>
 
 <h2>Aider à la traduction/signaler des bogues</h2>
 <p>Veuillez visiter <a href="https://adaway.org">https://adaway.org</a>.</p>

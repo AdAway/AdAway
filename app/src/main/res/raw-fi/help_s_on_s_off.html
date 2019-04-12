@@ -1,3 +1,7 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
 <head><title>S-ON liittyvä apu.</title></head>
 <body>
@@ -9,11 +13,10 @@
 
 <h2>Onko minulla S-ON tai S-OFF?</h2>
 <p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br/><br/>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<br><br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Kiertotapa</h2>
-<p>Edellytys: Tietokoneellasi täytyy olla asennettuna toimiva Android SDK ADB-komentorivi.
-</p>
+<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
 <ol>
 <li>Käynnistä laitteesi laitteen käynnistys menuun pitämällä painiketta <cite>volume alas pohjassa</cite> painaen samalla virta painiketta pohjaan.</li>
 <li>Käytä <cite> äänenvoimakkuus alas painiketta</cite> valitaksesi <cite>recoveryn</cite> sen  jälkeen <cite>virtapainiketta</cite> käynnistääksesi laitteen.</li>
@@ -21,7 +24,8 @@
 <li>Valitse<cite>mount/ system</cite>, <cite>mount /sdcard</cite> ja <cite>mount /data</cite>.</li>
 <li>Kytke USB johto ja avaa komentokehote tietokoneessasi.</li>
 <li>Avaa adb komentorivi ja kirjoita <code>In -s /data/hosts /system/etc/hosts</code> (Tämä luo symbolisen linkin, joka sallii AdAwayn muokata hosts tiedostoa joka on osiossa <code>/data</code> sallien käyttöjärjestelmän käyttää tiedostoa aivan kuin se tallennettu osioon <code>/system</code>.)</li>
-<li>Käynnistä laite uudelleen ja aseta <cite>Target hosts tiedosto&lt;/<cite> <cite>/data/hosts</cite> osioon AdAwayn asetuksissa.</li>
+<li>Käynnistä laite uudelleen ja aseta <cite>Target hosts tiedosto&lt;/<cite> <cite>/data/hosts</cite> osioon AdAwayn asetuksissa.</cite></cite>
+</li>
 <li>AdAway:n pitäisi toimia nyt.</li>
 </ol>
 </body>

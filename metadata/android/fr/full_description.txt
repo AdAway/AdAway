@@ -1,6 +1,6 @@
 Un bloqueur de publicité qui utilise le fichier hosts.
 Le fichier hosts est un fichier système qui contient une liste de correspondances entre noms d’hôtes et adresses IP.
-Quand une appli demande une publicité à un hôte se trouvant dans ce fichier, cette requête est redirigée vers l’adresse IP locale 127.0.0.1, ce qui ne retourne rien.
+Quand une appli demande une publicité à un hôte qui se trouve dans ce fichier, cette requête est redirigée vers l’adresse IP locale 127.0.0.1, ce qui ne retourne rien.
 Vous pouvez télécharger des fichiers hosts prédéfinis à partir de l’appli pour les incorporer au fichier hosts de votre système. Il est aussi possible d’utiliser vos propres fichiers et de mettre certains hôtes en liste blanche ou noire.
 Des options permettent d’exécuter un serveur Web local pour répondre aux noms d’hôtes bloqués et pour plutôt rediriger les requêtes vers l’adresse IP de votre choix.
 

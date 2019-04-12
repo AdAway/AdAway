@@ -1,3 +1,7 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
 <html>
 <head><title>ความช่วยเหลือเกี่ยวกับ S-ON</title></head>
 <body>
@@ -8,17 +12,19 @@
 <p>"S-OFF" หมายถึง หน่วยความหลักจำในอุปกรณ์ที่สามารถเข้าถึงและแก้ไขข้อมูลได้. ค่ามาตรฐานของ HTC จะเป็น "S-ON" นั่นคืออุปกรณ์นั้นไม่สามารถเข้าถึงหน่วยความจำหลักได้ และได้รับการรับรองเรื่องการ รูท นอกจากนี้ยังใช้เฟิร์มแวร์เพื่อตรวจสอบลายเซนต์ว่าเป็น "S-ON" หรือไม่</p>
 
 <h2>ฉันมี S-ON หรือ S-OFF?</h2>
-<p>เริ่มต้นที่หน้าบูตในอุปกรณ์ของคุณโดยการกด <cite>ปุ่มลดเสียง</cite> ค้างเอาไว้ ขณะที่กำลังกดปุ่มและข้อความด้านบนจะแสดงสถานะรูทเป็น S-OFF หรือ S-ON รูทแบบเต็มหมายถึง S-OFF<br/><br/>สามารถดูข้อมูลเพิ่มเติมได้ที่<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a></p>
+<p>เริ่มต้นที่หน้าบูตในอุปกรณ์ของคุณโดยการกด <cite>ปุ่มลดเสียง</cite> ค้างเอาไว้ ขณะที่กำลังกดปุ่มและข้อความด้านบนจะแสดงสถานะรูทเป็น S-OFF หรือ S-ON รูทแบบเต็มหมายถึง S-OFF<br><br>สามารถดูข้อมูลเพิ่มเติมได้ที่<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a></p>
 
 <h2>วิธีแก้ปัญหา</h2>
-<p>สิ่งที่ต้องมี คุณต้องติดตั้ง Android SDK และสามารถใช้คำสั่ง ADB ในเครื่องคอมพิวเตอร์ของคุณได้</p>
+<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
 <ol>
 <li>เริ่มต้นที่หน้าบูตในอุปกรณ์ของคุณโดยการกด <cite>ปุ่มลดเสียง</cite> ค้างไว้แล้วกดปุ่มพาวเวอร์</li>
 <li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
 <li>In clockwork recovery go to "partitions menu".</li>
-<li>เลือก <cite>mount /system</cite>,<cite>mount /sdcard</cite> และ <cite>mount /data</cite></li>
+<li>เลือก <cite>mount /system</cite>,<cite>mount /sdcard</cite> และ <cite>mount /data</cite>
+</li>
 <li>Plug in your USB cord and open a command line on your pc.</li>
-<li>ป้อน adb shell แล้วตามด้วย <code>ln -s /data/hosts /system/etc/hosts</code> (ซึ่งจะสร้างลิงก์เสมือนซึ่งช่วยให้ AdAway สามารถแก้ไขไฟล์โฮสต์ที่เก็บไว้ใน <code>/data</code> ได้ในขณะที่อนุญาตให้ระบบปฏิบัติการใช้ไฟล์เสมือนกับที่ถูกเก็บไว้ใน <code>/system</code></li>
+<li>ป้อน adb shell แล้วตามด้วย <code>ln -s /data/hosts /system/etc/hosts</code> (ซึ่งจะสร้างลิงก์เสมือนซึ่งช่วยให้ AdAway สามารถแก้ไขไฟล์โฮสต์ที่เก็บไว้ใน <code>/data</code> ได้ในขณะที่อนุญาตให้ระบบปฏิบัติการใช้ไฟล์เสมือนกับที่ถูกเก็บไว้ใน <code>/system</code>
+</li>
 <li>รีบูตอุปกรณ์และตั้ง <cite>กำหนดเป้าหมายไฟล์ hosts</cite> ไปยัง <cite>/data/hosts2</cite> ในตั้งค่าของแอพฯ AdAway</li>
 <li>AdAway ควรทำงานได้แล้ว</li>
 </ol>
