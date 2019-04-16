@@ -16,6 +16,7 @@
 
     <!--Home-->
     <string name="header_help">Dobrodošli!</string>
+    <string name="text_help">AdAway je slobodan softver otvorenog kôda dizajniran za blokiranje oglašavanja. Preuzima popis adresa oglasa i podešava vaš uređaj kako bi ih mogao blokirati.\nŽelite li saznati više? Pogledajte pomoć ispod!</string>
     <string name="button_show_help">Prikaži više pomoći</string>
     <string name="icon_update_status">Stanje ažuriranja</string>
     <string name="text_update">Sve datoteke poslužitelja su preuzete sa određenih izvora, spojene s vašim popisima i instalirane kao jedna datoteka na vašem sustavu.</string>
@@ -41,6 +42,8 @@
     <string name="list_add_dialog_black">Dodaj poslužitelj na popis blokiranih</string>
     <string name="list_add_dialog_white">Dodaj poslužitelj u popis neblokiranih</string>
     <string name="list_add_dialog_redirect">Dodaj poslužitelj na popis preusmjernih</string>
+    <string name="list_edit_dialog_black">Uredi popis blokiranih poslužitelja</string>
+    <string name="list_edit_dialog_white">Uredi popis neblokiranih poslužitelja</string>
     <string name="list_edit_dialog_redirect">Uredi preusmjeravanje</string>
     <string name="list_dialog_hostname">Naziv poslužitelja:</string>
     <string name="list_dialog_hostname_hint">URL izvora poslužitelja</string>
@@ -48,8 +51,12 @@
     <string name="list_dialog_ip">IP (IPv4 ili IPv6):</string>
     <string name="import_dialog">Uvažanje...</string>
     <string name="export_dialog">Izvažanje...</string>
+    <string name="export_success">Svi unosi su izvezeni u datoteku naziva \"adaway-export\" na vašu memorijsku karticu.</string>
+    <string name="export_failed">Neuspjeli izvoz vašeg popisa na memorijsku karticu.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Datoteka poslužitelja</string>
+    <string name="hosts_description">Datoteka poslužitelja je datoteka sustava koja mapira nazive poslužitelja prema IP adresama. To je obična tekstna datoteka čije se podešavanje rukuje putem AdAwaya. Ovdje je prvih nekoliko redaka:</string>
     <string name="hosts_content">Učitavanje sadržaja datoteke poslužitelja...</string>
     <string name="hosts_open_button">Otvori datoteku poslužitelja</string>
 
@@ -63,6 +70,7 @@
     <string name="status_no_connection_subtitle">Nema dostupnog pristupa internetu</string>
     <string name="status_download_fail">Nedostupni izvori</string>
     <string name="status_download_fail_subtitle_new">Nema dostupnih izvora poslužitelja!</string>
+    <string name="status_failure">Nešto je pošlo po krivu</string>
     <string name="status_failure_subtitle">Provjeri logcat zapis za više pojedinosti</string>
     <string name="status_enabled">Omogućeno</string>
     <string name="status_enabled_subtitle">Najnovija datoteka poslužitelja je omogućena</string>
@@ -70,11 +78,16 @@
     <string name="status_disabled_subtitle">Zadana datoteka poslužitelja je instalirana</string>
     <string name="notification_channel_update_name">Ažuriranja</string>
     <string name="notification_channel_update_description">Obavijest ažuriranja novog poslužitelja</string>
+    <string name="notification_configuration_changed">Vaše podešavanje je promijenjeno. Morate instalirati datoteku poslužitelja kako bi ju primijenili.</string>
+    <string name="notification_configuration_changed_action">Primijeni</string>
+    <string name="notification_configuration_installing">Instalacija datoteke poslužitelja…</string>
+    <string name="notification_configuration_failed">Neuspjela instalacija datoteke poslužitelja.</string>
+
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Simbolička poveznica s vašeg odredišta /system/etc/hosts ne postoji ili je neispravna! AdAway neće raditi ako nije usmjeren na ispravnu datoteku.\n\nŽelite li pokušati stvoriti simboličku poveznicu?</string>
     <string name="apply_symlink_missing_title">Simbolička poveznica nedostaje</string>
     <string name="apply_not_enough_space">Nema dovoljno prostora na particiji!\nPokušajte promijeniti odredišnu datoteku poslužitelja u postavkama u /data/data/hosts.</string>
-    <string name="apply_not_enough_space_title">Nema dovoljno prostora</string>
+    <string name="apply_not_enough_space_title">Nedovoljno prostora</string>
     <string name="apply_private_file_fail">Preuzeta datoteka se ne može pročitati.</string>
     <string name="apply_private_file_fail_title">Neuspjela privatna datoteka</string>
     <string name="apply_remount_fail">Ponovno montiranje particije uslijed neuspjelog čitanja/pisanja!</string>
@@ -83,12 +96,16 @@
     <string name="apply_copy_fail_title">Neuspjelo kopiranje</string>
     <string name="apply_success_subtitle">Primijenjeni izvori poslužitelja</string>
     <string name="apply_success_title">Uspješno primijenjivanje</string>
+    <string name="apply_success_dialog">Primjena je bila uspješna.\nPonekada je potrebno ponovo pokrenuti Android za primijenjivanje promjena.\n\n Želite li ponovno pokrenuti Android?\n (Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
+    <string name="apply_symlink_successful">Simbolička poveznica je uspješno stvorena.\nPonekada je potrebno ponovo pokrenuti Android za primijenjivanje promjena.\n\n Želite li ponovo pokrenuti Android?\n (Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="apply_symlink_successful_title">Simbolička poveznica je uspješno stvorena</string>
+    <string name="apply_symlink_fail">Simbolička poveznica se ne može stvoriti na Androidu.\nOvo uobičajeno ne uspijeva zbog \'značajke\' zvane S-ON na HTC telefonima!\n\nRješenje je u ponovnom pokretanju vašeg telefona u način oporavka i stvaranju simboličke poveznice sa naredbom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAko ovo ne radi potražite na internetu za S-OFF za vaš telefon.</string>
     <string name="apply_symlink_fail_title">Stvaranje simboličke poveznice je neuspješno</string>
     <string name="apply_help">Pročitajte pomoć za više informacija.</string>
+    <string name="apply_apn_proxy">APN proxy je postavljen na vašem Androidu!\nAdAway neće pouzdano raditi na mobilnim 3G mrežama. Taj proxy možete deaktivirati odlaskom na vaš odabrani APN (Iz aplikacije Postavke: Sim kartice -&gt; Sim postavke -&gt; Pristupne točke) i obrišite podatak u proxy polju.</string>
     <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
-    <string name="no_connection">Internet pristup ne radi.</string>
-    <string name="no_connection_title">Neme pristupa internetu</string>
+    <string name="no_connection">Pristup internetu ne radi.</string>
+    <string name="no_connection_title">Nema pristupa internetu</string>
     <string name="download_dialog">Preuzimanje...</string>
     <string name="apply_dialog">Primijenjivanje...</string>
     <string name="apply_dialog_lists">Primijenjivanje vaših blokiranih i neblokiranih popisa</string>
@@ -97,6 +114,7 @@
     <string name="apply_dialog_apply">Primijenjivanje datoteke poslužitelja</string>
     <string name="apply_fail">Primijenjivanje datoteke poslužitelja na vašem sustavu nije uspjelo!\n Pokušajte promijeniti odredišnu datoteku poslužitelja u postavkama u /data/data/hosts.</string>
     <string name="apply_fail_title">Primijenjivanje nije uspjelo</string>
+    <string name="revert_successful">Ponovno koristite izvornu datoteku poslužitelja.\nPonekada je potrebno ponovo pokrenuti Android za primijenjivanje promjena.\n\n Želite li ponovo pokrenuti Android?\n (Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="revert_successful_title">Uspješno vraćanje na izvorno</string>
     <string name="revert_problem">Neuspješno vraćanje na izvorno uslijed nepoznatih razloga.</string>
     <string name="revert_problem_title">Neuspješno vraćanje na izvorno!</string>
@@ -104,7 +122,9 @@
     <string name="download_fail_title">Preuzimanje nije uspjelo</string>
     <string name="no_private_file">Privatna datoteka se ne može stvoriti.</string>
     <string name="no_private_file_title">Neuspjelo stvaranje privatne datoteke</string>
+    <string name="enable_systemless_successful">Omogućili ste bezsustavski način rada.\nPonekada je potrebno ponovno pokrenuti Android za primijenjivanje promjena.\n\nŽelite li ponovno pokrenuti Android?\n(Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="enable_systemless_successful_title">Uspješno omogućeno</string>
+    <string name="disable_systemless_successful">Onemogućili ste bezsustavski način rada.\nPonekada je potrebno ponovno pokrenuti Android za primijenjivanje promjena.\n\nŽelite li ponovno pokrenuti Android?\n(Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="disable_systemless_successful_title">Uspješno onemogućeno</string>
 
     <!--Other Dialogs-->
@@ -115,6 +135,7 @@
     <string name="no_hostname_title">Nepravilno oblikovan naziv poslužitelja</string>
     <string name="no_ip">Ovo nije valjani IP!</string>
     <string name="no_ip_title">Nepravilno oblikovan IP</string>
+    <string name="reboot_never_reboot">Nikada ne pokreći ponovno i ne prikazuj više ovo pitanje!</string>
     <string name="loading">Učitavanje...</string>
 
     <!--Menu entries-->
@@ -132,9 +153,13 @@
 
     <!--Adware-->
     <string name="adware_header">Zlonamjerne aplikacije</string>
+    <string name="adware_description">Ovdje možete potražiti zlonamjerne aplikacije, loše aplikacije koje AdAway ne može blokirati. Te aplikacije koriste, na primjer, Airpush obavijesti koje se pojavljuju čak i ako aplikacija nije pokrenuta, a mogu čak promijeniti i melodiju vašeg zvona. Jedina moguća mjera koju možete poduzeti protiv takvih aplikacija je uklanjanje klikom na stavke popisa.</string>
+    <string name="adware_scanning">Pretraživanje&#8230;</string>
+    <string name="adware_empty">Nema pronađenih zlonamjernih aplikacija!</string>
+
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Lokalni:</string>
-    <string name="hosts_last_modified_online">Na mreži:</string>
+    <string name="hosts_last_modified_online">Mrežni:</string>
     <string name="hosts_not_available">nedostupno</string>
     <string name="hosts_add_dialog_title">Dodaj izvor</string>
     <string name="hosts_edit_dialog_title">Uredi izvor</string>
@@ -168,7 +193,7 @@
     <string name="pref_dismiss_welcome">Sakrij karticu dobrodošlice</string>
     <string name="pref_dismiss_welcome_summary">Ne prikazuj karticu dobrodošlice na početnom zaslonu</string>
     <string name="pref_dark_theme">Omogući tamnu temu</string>
-    <string name="pref_dark_theme_summary">Koristi tamnu temu umjesto svijetle</string>
+    <string name="pref_dark_theme_summary">Koristi tamnu temu umjesto svjetle</string>
     <string name="pref_dark_theme_notification">Tema će se primijeniti pri sljedećem pokretanju aplikacije</string>
     <string name="pref_hosts">Datoteka poslužitelja</string>
     <string name="pref_redirection_ip">IP preusmjeravanja</string>
@@ -179,7 +204,7 @@
     <string name="pref_header_preferences">Postavke</string>
     <string name="pref_header_preferences_summary">Opće postavke za AdAway</string>
     <string name="pref_never_reboot">Sakrij dijalog ponovnog pokretanja</string>
-    <string name="pref_never_reboot_summary">Sakriva upit o ponovnom pokretanju Androida nakon uspješne primjene</string>
+    <string name="pref_never_reboot_summary">Sakriva dijalog upita ponovnog pokretanja Androida nakon uspješnog primijenjivanja</string>
     <string name="pref_webserver_on_boot">Pokreni web poslužitelja pri pokretanju sustava</string>
     <string name="pref_webserver_on_boot_summary">Pokreni web poslužitelja pri pokretanju sustava, osluškujući lokalne IP adrese</string>
     <string name="pref_webserver_enabled">Omogući web poslužitelj</string>
@@ -189,10 +214,14 @@
     <string name="pref_custom_target_summary">Koristi se samo ako je odredišna datoteka poslužitelja postavljena na prilagođenu lokaciju</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Prilagođena lokacija</item>
     </string-array>
 
     <string name="pref_update_check_summary">Provjeri ažuriranja pri pokretanju AdAwaya</string>
+    <string name="pref_sdcard_problem">Ova značajka neće raditi ispravno ako je AdAway instaliran na memorijsku karticu!</string>
     <string name="pref_background">Pozadinske usluge</string>
     <string name="pref_update_check_daily">Provjeri ažuriranja dnevno</string>
     <string name="pref_update_check_daily_summary">Provjeri ažuriranja dnevno u pozadini s obavijestima</string>
@@ -205,20 +234,26 @@
     <string name="pref_redirection_rules">Dopusti dodavanja na popis preusmjernih</string>
     <string name="pref_redirection_rules_summary">PREDSTAVLJA SIGURNOSNI RIZIK! Omogućuje stavke preusmjeravanja sa izvora poslužitelja.</string>
     <string name="pref_debug">Otklanjanje grešaka</string>
-    <string name="pref_enable_debug_summary">Ponovno pokrenite AdAway kako bi ova postavka bila primijenjena.</string>
+    <string name="pref_enable_debug">Omogući opširnije zapisivanje</string>
+    <string name="pref_enable_debug_summary">Morate ponovno pokrenuti AdAway kako bi se ova postavka primijenila.</string>
+    <string name="pref_enable_telemetry">Omogući izvještaj rušenja</string>
+    <string name="pref_enable_telemetry_summary">Dopusti aplikaciji slanje izvještaja grešaka i rušenja na Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Omogući IPv6</string>
     <string name="pref_enable_ipv6_summary">Svi unosi datoteke poslužitelja će dobiti odgovarajući ::1 (IPv6 localhost) unos.</string>
     <string name="pref_enable_systemless_summary">Spriječi AdAway da mijenja particiju sustava</string>
     <string name="pref_enable_systemless">Omogući način rada bez sustava</string>
-    <string name="pref_edit_text_value">Uredi tekstovnu vrijednost osobitosti </string>
+    <string name="pref_edit_text_value">Uredi tekstnu vrijednost postavke </string>
     <string name="drawer_open">Otvori izbornik</string>
     <string name="drawer_close">Zatvori izbornik</string>
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Naslovnica</item>
         <item>Izvori poslužitelja</item>
         <item>Vaši popisi</item>
         <item>Otvori datoteku poslužitelja</item>
+        <item>Zapisuj DNS zahtjeve</item>
+        <item>Pretraži zlonamjerne aplikacije</item>
         <item>Postavke</item>
         <item>Pomoć</item>
     </string-array>
@@ -227,6 +262,12 @@
     <string name="drawer_support_dialog_title">Podržite razvoj</string>
     <string name="drawer_support_dialog_text">AdAway je slobodan softver otvorenog kôda razvijan i održavan samo od strane zajednice. Trebale su mi dvije godine slobodnog vremena za izgradnju nove inačice ove aplikacije.\n\nAko vam se sviđa ova aplikacija i želite li vidjeti više ažuriranja slobodno podržite ovaj projekt.</string>
     <string name="drawer_support_dialog_button">Prikaži moju podršku</string>
+
+    <!--Telemetry-->
+    <string name="dialog_telemetry_title">Telemetrija</string>
+    <string name="dialog_telemetry_message">Pozdrav dragi korisniče,\n\nSada možeš sudjelovati u razvoju AdAwaya dijeljenjem svojih izvještaja rušenja i osnovnih informacija korištenja. Svi podaci su anonimni a telemetrija će biti omogućena samo ako se vi složite s time.\n\nViše pojedinosti možete pronaći na <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHubu</a>.</string>
+    <string name="dialog_telemetry_enable">Naravno, drago mi je što mogu pomoći!</string>
+    <string name="dialog_telemetry_disable">Ne hvala</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS zahtjevi</string>
@@ -238,4 +279,25 @@
     <string name="hosts_source_need_update">Potrebno je ažuriranje za %1$s</string>
     <string name="hosts_source_last_update">Posljednje ažuriranje prije %1$s</string>
     <string name="hosts_source_unknown_status">Nepoznato stanje ažuriranja</string>
-    </resources>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d minuta</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d sata</item>
+        <item quantity="few">%d sata</item>
+        <item quantity="other">%d sati</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d dana</item>
+        <item quantity="few">%d dana</item>
+        <item quantity="other">%d dana</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d mjeseca</item>
+        <item quantity="few">%d mjeseca</item>
+        <item quantity="other">%d mjeseca</item>
+    </plurals>
+
+</resources>
