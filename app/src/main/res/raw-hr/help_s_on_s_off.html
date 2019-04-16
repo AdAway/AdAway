@@ -16,13 +16,13 @@ And don't add newlines before or after p tags because of transifex -->
 <br><br>Više informacija možete pronaći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Dodatni S-OFF načini od Unrevokable (na poveznici) vas mogu zanimati, imenima: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Zaobilaženje</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
+<p>Preduvjet: instalirani i funkcionalni Android SDK s ADB ljuskom na vašem PC-u.</p>
 <ol>
 <li>Pokrenite u Boot Menu vaš uređaj držeći tipku <cite>smanjivanja glasnoće zvuka</cite> i istovremeno držeći tipku isključivanja.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
+<li>Koristite tipku <cite>smanjivanja glasnoće zvuka</cite> za odabir <cite>izbornika oporavka</cite> zatim tipku <cite>isključivanja</cite> pokretanje u način oporavka.</li>
+<li>U Clockwork recoveriju idite na stavku "Partitions menu".</li>
 <li>Odaberite <cite>mount /system</cite>, <cite>mount /sdcard</cite> i <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
+<li>Priključite USB kabel i otvorite naredbeni redak na svom PC-u.</li>
 <li>Pokrenite adb ljusku i upišite <code>ln -s /data/hosts /system/etc/hosts</code> (Ovo će stvoriti simboličku poveznicu, koja dopušta AdAwayu uređivanje datoteke poslužitelja pohranjene u <code>/data</code> dopuštajući operativnom sustavu da koristi tu datoteku kao da je pohranjena u <code>/system</code>.)</li>
 <li>Ponovno pokrenite svoj uređaj i postavite <cite>Odredišnu datoteku poslužitelja</cite> u <cite>/data/hosts</cite> u postavkama AdAwaya.</li>
 <li>AdAway bi sada trebao raditi.</li>
