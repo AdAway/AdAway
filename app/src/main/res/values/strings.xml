@@ -312,16 +312,16 @@
     </plurals>
 
     <!--VPN notification-->
-    <string name="notification_starting">Starting</string>
-    <string name="notification_running">Active</string>
-    <string name="notification_stopping">Stopping</string>
-    <string name="notification_waiting_for_net">Waiting for network</string>
-    <string name="notification_reconnecting">Reconnecting</string>
-    <string name="notification_reconnecting_error">Reconnecting error</string>
-    <string name="notification_stopped">Stopped</string>
-    <string name="notification_title">DNS66</string>
-    <string name="notification_action_pause">Pause</string>
-    <string name="notification_paused_title">DNS66 paused</string>
-    <string name="notification_paused_text">Tap to resume.</string>
+    <string name="vpn_notification_starting">Starting</string>
+    <string name="vpn_notification_running">Active</string>
+    <string name="vpn_notification_stopping">Stopping</string>
+    <string name="vpn_notification_waiting_for_net">Waiting for network</string>
+    <string name="vpn_notification_reconnecting">Reconnecting</string>
+    <string name="vpn_notification_reconnecting_error">Reconnecting error</string>
+    <string name="vpn_notification_stopped">Stopped</string>
+    <string name="vpn_notification_title">Ad-blocker VPN active</string>
+    <string name="vpn_notification_action_pause">Pause</string>
+    <string name="vpn_notification_paused_title">DNS66 paused</string>
+    <string name="vpn_notification_paused_text">Tap to resume.</string>
 
 </resources>

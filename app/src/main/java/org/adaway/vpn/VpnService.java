@@ -13,7 +13,6 @@
 package org.adaway.vpn;
 
 import android.app.Activity;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -22,6 +21,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -38,6 +39,9 @@ import org.adaway.ui.MainActivity;
 
 import java.lang.ref.WeakReference;
 
+import static android.app.NotificationManager.IMPORTANCE_LOW;
+import static android.app.NotificationManager.IMPORTANCE_MIN;
+import static android.net.NetworkCapabilities.TRANSPORT_VPN;
 import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL;
 import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_ID;
 import static org.adaway.vpn.VpnCommand.PAUSE;
@@ -89,49 +93,36 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
             }
         };
         this.notificationBuilder = new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
-//            .setSmallIcon(R.drawable.ic_state_deny) // TODO: Notification icon
-                .setPriority(Notification.PRIORITY_MIN);
+                .setSmallIcon(R.drawable.status_bar_icon) // TODO: Notification icon
+                .setPriority(IMPORTANCE_MIN);
         VpnWorker.Notify notify = value -> handler.sendMessage(handler.obtainMessage(VPN_MSG_STATUS_UPDATE, value, 0));
         this.vpnWorker = new VpnWorker(this, notify);
     }
 
-    public static int vpnStatusToTextId(int status) {
-        switch (status) {
-            case VPN_STATUS_STARTING:
-                return R.string.notification_starting;
-            case VPN_STATUS_RUNNING:
-                return R.string.notification_running;
-            case VPN_STATUS_STOPPING:
-                return R.string.notification_stopping;
-            case VPN_STATUS_WAITING_FOR_NETWORK:
-                return R.string.notification_waiting_for_net;
-            case VPN_STATUS_RECONNECTING:
-                return R.string.notification_reconnecting;
-            case VPN_STATUS_RECONNECTING_NETWORK_ERROR:
-                return R.string.notification_reconnecting_error;
-            case VPN_STATUS_STOPPED:
-                return R.string.notification_stopped;
-            default:
-                throw new IllegalArgumentException("Invalid vpnStatus value (" + status + ")");
+    /**
+     * Check if the VPN service is started.
+     *
+     * @param context The application context.
+     * @return {@code true} if the VPN service is started, {@code false} otherwise.
+     */
+    public static boolean isStarted(Context context) {
+        boolean networkVpnCapability = checkAnyNetworkVpnCapability(context);
+        boolean enabled = PreferenceHelper.getVpnServiceEnabled(context);
+        if (enabled && !networkVpnCapability) {
+            PreferenceHelper.setVpnServiceEnabled(context, false);
+            enabled = false;
         }
+        return enabled;
     }
 
     /**
      * Start the VPN service.
      *
-     * @param context The application context (or activity if available).
+     * @param context The application context.
      */
     public static void start(Context context) {
         // Check if VPN is already started
         if (PreferenceHelper.getVpnServiceEnabled(context)) {
-            return;
-        }
-        // Check user authorization
-        Intent prepareIntent = android.net.VpnService.prepare(context);
-        if (prepareIntent != null) {
-            if (context instanceof Activity) {
-                ((Activity) context).startActivityForResult(prepareIntent, VPN_START_REQUEST_CODE);
-            }
             return;
         }
         // Start the VPN service
@@ -150,6 +141,21 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
      */
     public static void stop(Activity activity) {
         activity.startService(getStopIntent(activity));
+    }
+
+    private static boolean checkAnyNetworkVpnCapability(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager == null) {
+            return false;
+        }
+        Network[] networks = connectivityManager.getAllNetworks();
+        for (Network network : networks) {
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
+            if (networkCapabilities != null && networkCapabilities.hasTransport(TRANSPORT_VPN)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @NonNull
@@ -179,13 +185,34 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         return intent;
     }
 
+    private static int vpnStatusToTextId(int status) {
+        switch (status) {
+            case VPN_STATUS_STARTING:
+                return R.string.vpn_notification_starting;
+            case VPN_STATUS_RUNNING:
+                return R.string.vpn_notification_running;
+            case VPN_STATUS_STOPPING:
+                return R.string.vpn_notification_stopping;
+            case VPN_STATUS_WAITING_FOR_NETWORK:
+                return R.string.vpn_notification_waiting_for_net;
+            case VPN_STATUS_RECONNECTING:
+                return R.string.vpn_notification_reconnecting;
+            case VPN_STATUS_RECONNECTING_NETWORK_ERROR:
+                return R.string.vpn_notification_reconnecting_error;
+            case VPN_STATUS_STOPPED:
+                return R.string.vpn_notification_stopped;
+            default:
+                throw new IllegalArgumentException("Invalid vpnStatus value (" + status + ")");
+        }
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         // NotificationChannels.onCreate(this); TODO Useful?
         notificationBuilder.addAction(
                 R.drawable.ic_pause_black_24dp,
-                getString(R.string.notification_action_pause),
+                getString(R.string.vpn_notification_action_pause),
                 PendingIntent.getService(
                         this,
                         REQUEST_CODE_PAUSE,
@@ -209,7 +236,9 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         switch (command) {
             case RESUME:
                 NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                notificationManager.cancelAll();
+                if (notificationManager != null) {
+                    notificationManager.cancelAll();
+                }
                 // fallthrough
             case START:
                 PreferenceHelper.setVpnServiceEnabled(this, true);
@@ -229,13 +258,15 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private void pauseVpn() {
         stopVpn();
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(VPN_SERVICE_NOTIFICATION_ID, new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
-                .setSmallIcon(R.drawable.ic_state_deny) // TODO: Notification icon
-                .setPriority(Notification.PRIORITY_LOW)
-                .setContentTitle(getString(R.string.notification_paused_title))
-                .setContentText(getString(R.string.notification_paused_text))
-                .setContentIntent(PendingIntent.getService(this, REQUEST_CODE_START, getResumeIntent(this), PendingIntent.FLAG_ONE_SHOT))
-                .build());
+        if (notificationManager != null) {
+            notificationManager.notify(VPN_SERVICE_NOTIFICATION_ID, new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
+                    .setSmallIcon(R.drawable.ic_state_deny) // TODO: Notification icon
+                    .setPriority(IMPORTANCE_LOW)
+                    .setContentTitle(getString(R.string.vpn_notification_paused_title))
+                    .setContentText(getString(R.string.vpn_notification_paused_text))
+                    .setContentIntent(PendingIntent.getService(this, REQUEST_CODE_START, getResumeIntent(this), PendingIntent.FLAG_ONE_SHOT))
+                    .build());
+        }
     }
 
     private void updateVpnStatus(int status) {
@@ -253,9 +284,9 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     }
 
     private void startVpn(PendingIntent notificationIntent) {
-        notificationBuilder.setContentTitle(getString(R.string.notification_title));
+        this.notificationBuilder.setContentTitle(getString(R.string.vpn_notification_title));
         if (notificationIntent != null)
-            notificationBuilder.setContentIntent(notificationIntent);
+            this.notificationBuilder.setContentIntent(notificationIntent);
         updateVpnStatus(VPN_STATUS_STARTING);
 
         registerReceiver(connectivityChangedReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
@@ -343,7 +374,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private static class MyHandler extends Handler {
         private final WeakReference<Callback> callback;
 
-        public MyHandler(Callback callback) {
+        MyHandler(Callback callback) {
             this.callback = new WeakReference<>(callback);
         }
 
