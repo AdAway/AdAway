@@ -9,12 +9,10 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 28
         versionCode 50000   // Read x.yy.zz to match version name
         versionName '5.0.0'
-
-        vectorDrawables.useSupportLibrary = true
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -48,8 +46,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     // Do not abort build if lint finds errors

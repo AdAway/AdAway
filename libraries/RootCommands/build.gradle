@@ -5,8 +5,13 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 28
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     // Do not abort build if lint finds errors
