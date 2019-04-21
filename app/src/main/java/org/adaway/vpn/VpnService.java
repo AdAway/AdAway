@@ -321,9 +321,8 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                 );
                 break;
             case VPN_STATUS_STOPPED:
-                builder.addAction(
-                        R.drawable.ic_add_black_24px,
-                        getString(R.string.vpn_notification_action_resume),
+                builder.setContentText(this.getString(R.string.vpn_notification_paused_text));
+                builder.setContentIntent(
                         PendingIntent.getService(
                                 this,
                                 REQUEST_CODE_START,

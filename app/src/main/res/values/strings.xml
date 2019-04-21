@@ -318,9 +318,9 @@
     <string name="vpn_notification_waiting_for_net">wait for network</string>
     <string name="vpn_notification_reconnecting">reconnecting</string>
     <string name="vpn_notification_reconnecting_error">reconnecting error</string>
-    <string name="vpn_notification_stopped">stopped</string>
+    <string name="vpn_notification_stopped">paused</string>
     <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pause</string>
-    <string name="vpn_notification_action_resume">Resume</string>
+    <string name="vpn_notification_paused_text">Tap to resume</string>
 
 </resources>
