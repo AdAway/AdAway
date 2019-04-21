@@ -1,0 +1,6 @@
+# General rule for all code base
+* @PerfectSlayer
+
+# Translation related files
+app/src/main/res/values-*/strings.xml @Vankog
+metadata/android/ @Vankog
