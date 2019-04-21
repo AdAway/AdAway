@@ -1,61 +1,48 @@
 package org.adaway.vpn;
 
-import android.content.Context;
-import android.net.Uri;
 import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
 import android.system.StructPollfd;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.Closeable;
-import java.io.File;
 import java.io.FileDescriptor;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
 
 /**
  * Utility class for working with files.
  */
 
-public final class FileHelper {
+final class FileHelper {
 
-    /**
-     * Try open the file with {@link Context#openFileInput(String)}, falling back to a file of
-     * the same name in the assets.
-     */
-    public static InputStream openRead(Context context, String filename) throws IOException {
-        try {
-            return context.openFileInput(filename);
-        } catch (FileNotFoundException e) {
-            return context.getAssets().open(filename);
-        }
-    }
+//    /**
+//     * Try open the file with {@link Context#openFileInput(String)}, falling back to a file of
+//     * the same name in the assets.
+//     */
+//    public static InputStream openRead(Context context, String filename) throws IOException {
+//        try {
+//            return context.openFileInput(filename);
+//        } catch (FileNotFoundException e) {
+//            return context.getAssets().open(filename);
+//        }
+//    }
 
-    /**
-     * Write to the given file in the private files dir, first renaming an old one to .bak
-     *
-     * @param context  A context
-     * @param filename A filename as for @{link {@link Context#openFileOutput(String, int)}}
-     * @return See @{link {@link Context#openFileOutput(String, int)}}
-     * @throws IOException See @{link {@link Context#openFileOutput(String, int)}}
-     */
-    public static OutputStream openWrite(Context context, String filename) throws IOException {
-        File out = context.getFileStreamPath(filename);
-
-        // Create backup
-        out.renameTo(context.getFileStreamPath(filename + ".bak"));
-
-        return context.openFileOutput(filename, Context.MODE_PRIVATE);
-    }
+//    /**
+//     * Write to the given file in the private files dir, first renaming an old one to .bak
+//     *
+//     * @param context  A context
+//     * @param filename A filename as for @{link {@link Context#openFileOutput(String, int)}}
+//     * @return See @{link {@link Context#openFileOutput(String, int)}}
+//     * @throws IOException See @{link {@link Context#openFileOutput(String, int)}}
+//     */
+//    public static OutputStream openWrite(Context context, String filename) throws IOException {
+//        File out = context.getFileStreamPath(filename);
+//
+//        // Create backup
+//        out.renameTo(context.getFileStreamPath(filename + ".bak"));
+//
+//        return context.openFileOutput(filename, Context.MODE_PRIVATE);
+//    }
 
 //    private static Configuration readConfigFile(Context context, String name, boolean defaultsOnly) throws IOException {
 //        InputStream stream;
@@ -153,7 +140,7 @@ public final class FileHelper {
      * @return The number of fds that have events
      * @throws ErrnoException See {@link Os#poll(StructPollfd[], int)}
      */
-    public static int poll(StructPollfd[] fds, int timeout) throws ErrnoException, InterruptedException {
+    static int poll(StructPollfd[] fds, int timeout) throws ErrnoException, InterruptedException {
         while (true) {
             if (Thread.interrupted())
                 throw new InterruptedException();
@@ -167,25 +154,23 @@ public final class FileHelper {
         }
     }
 
-    public static FileDescriptor closeOrWarn(FileDescriptor fd, String tag, String message) {
+    static FileDescriptor closeOrWarn(FileDescriptor fd, String tag, String message) {
         try {
             if (fd != null)
                 Os.close(fd);
         } catch (ErrnoException e) {
             Log.e(tag, "closeOrWarn: " + message, e);
-        } finally {
-            return null;
         }
+        return null;
     }
 
-    public static <T extends Closeable> T closeOrWarn(T fd, String tag, String message) {
+    static <T extends Closeable> T closeOrWarn(T fd, String tag, String message) {
         try {
             if (fd != null)
                 fd.close();
         } catch (Exception e) {
             Log.e(tag, "closeOrWarn: " + message, e);
-        } finally {
-            return null;
         }
+        return null;
     }
 }
