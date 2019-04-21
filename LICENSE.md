@@ -16,6 +16,10 @@ If not, see <https://www.gnu.org/licenses/>.
 * Android Jetpack  
   https://developer.android.com/jetpack/  
   Apache License v2
+  
+* DNS66  
+  https://github.com/julian-klode/dns66  
+  GPLv3
 
 * FlexboxLayout
   https://github.com/google/flexbox-layout

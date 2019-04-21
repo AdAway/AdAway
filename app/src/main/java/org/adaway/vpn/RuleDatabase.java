@@ -1,4 +1,6 @@
-/* Copyright (C) 2016 - 2017 Julian Andres Klode <jak@jak-linux.org>
+/*
+ * Derived from dns66:
+ * Copyright (C) 2016-2019 Julian Andres Klode <jak@jak-linux.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
