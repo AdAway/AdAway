@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Aucune connexion Internet</string>
     <string name="status_download_fail">Les sources ne sont pas accessibles</string>
     <string name="status_download_fail_subtitle_new">Aucune source de fichier hosts n’est accessible</string>
+    <string name="status_root_access_denied">L’accès racine a été refusé</string>
+    <string name="status_root_access_denied_subtitle">Autorisez l’accès racine à partir de votre appli de débridage</string>
     <string name="status_failure">Une erreur s’est produite</string>
     <string name="status_failure_subtitle">Vérifiez « logcat » pour plus de détails</string>
     <string name="status_enabled">Activé</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Mise en place du fichier hosts</string>
     <string name="apply_fail">Le fichier hosts n’a pas pu être mis en place dans votre système.\nEssayez de changer le fichier hosts cible dans les préférences par /data/data/hosts.</string>
     <string name="apply_fail_title">Échec lors de la mise en place</string>
+    <string name="root_access_fail">Veuillez vérifier votre appli de gestion de la racine pour vous assurer que l’accès racine a été autorisé.</string>
     <string name="revert_successful">Vous êtes revenu au fichier hosts par défaut.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d’éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
     <string name="revert_successful_title">Retour arrière réussi</string>
     <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">Utiliser le thème sombre à la place du thème clair</string>
     <string name="pref_dark_theme_notification">Le thème sera effectif lors du prochain démarrage</string>
     <string name="pref_hosts">Fichier hosts</string>
-    <string name="pref_redirection_ip">IP de redirection</string>
     <string name="pref_update_check">Vérifier les mises à jour</string>
     <string name="pref_apply_method">Fichier hosts cible</string>
     <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lire l’aide concernant cette fonction.</string>
-    <string name="pref_redirection_ip_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IP.</string>
+    <string name="pref_redirection_ipv4">Redirection IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IPv4.</string>
+    <string name="pref_redirection_ipv6">Redirection IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IPv6.</string>
     <string name="pref_header_preferences">Préférences</string>
     <string name="pref_header_preferences_summary">Préférences générales d’AdAway</string>
     <string name="pref_never_reboot">Cacher la fenêtre de redémarrage</string>
@@ -239,7 +244,7 @@
     <string name="pref_enable_telemetry">Activer les relevés de plantage</string>
     <string name="pref_enable_telemetry_summary">Permettre à l’application d’envoyer des relevés d’erreur et de plantage à Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Activer IPv6</string>
-    <string name="pref_enable_ipv6_summary">Toutes les entrées du fichier host auront une entrée ::1 (IPv6 localhost) correspondante.</string>
+    <string name="pref_enable_ipv6_summary">Toutes les entrées du fichier host auront une entrée de redirection correspondante.</string>
     <string name="pref_enable_systemless_summary">Empêcher AdAway de modifier la partition système</string>
     <string name="pref_enable_systemless">Activer le mode sans système</string>
     <string name="pref_edit_text_value">Modifier la valeur de préférence du texte</string>
