@@ -196,7 +196,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-//        android.os.Debug.waitForDebugger(); // TODO DEBUG
         Log.i(TAG, "onStartCommand" + intent);
         // Get command
         VpnCommand command = START;
@@ -206,11 +205,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         // Apply command
         switch (command) {
             case RESUME:
-                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                if (notificationManager != null) {
-                    notificationManager.cancel(VPN_SERVICE_NOTIFICATION_ID);
-                }
-                startVpn();
+                resumeVpn();
                 break;
             case START:
                 PreferenceHelper.setVpnServiceEnabled(this, true);
@@ -225,6 +220,80 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                 break;
         }
         return Service.START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i(TAG, "Destroyed, shutting down");
+        stopVpn();
+    }
+
+    @Override
+    public boolean handleMessage(Message message) {
+        if (message == null) {
+            return true;
+        }
+
+        switch (message.what) {
+            case VPN_MSG_STATUS_UPDATE:
+                updateVpnStatus(message.arg1);
+                break;
+            case VPN_MSG_NETWORK_CHANGED:
+                connectivityChanged((Intent) message.obj);
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid message with what = " + message.what);
+        }
+        return true;
+    }
+
+    private void startVpn() {
+        updateVpnStatus(VPN_STATUS_STARTING);
+        registerReceiver(connectivityChangedReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        restartWorker();
+    }
+
+    private void stopVpn() {
+        Log.i(TAG, "Stopping Service");
+//        if (vpnWorker != null)
+        stopVpnWorker();
+//        vpnWorker = null;
+        try {
+            unregisterReceiver(connectivityChangedReceiver);
+        } catch (IllegalArgumentException e) {
+            Log.i(TAG, "Ignoring exception on unregistering receiver");
+        }
+        updateVpnStatus(VPN_STATUS_STOPPED);
+        stopSelf();
+    }
+
+    private void resumeVpn() {
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (notificationManager != null) {
+            notificationManager.cancel(VPN_SERVICE_NOTIFICATION_ID);
+        }
+        startVpn();
+    }
+
+    private void pauseVpn() {
+        stopVpn();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (notificationManager != null) {
+            notificationManager.notify(VPN_SERVICE_NOTIFICATION_ID, this.getNotification(VPN_STATUS_STOPPED));
+        }
+    }
+
+    private void updateVpnStatus(int status) {
+        vpnStatus = status;
+
+
+//        if (FileHelper.loadCurrentSettings(getApplicationContext()).showNotification) { // TODO
+        startForeground(VPN_SERVICE_NOTIFICATION_ID, this.getNotification(status));
+//        }
+
+        Intent intent = new Intent(VPN_UPDATE_STATUS_INTENT);
+        intent.putExtra(VPN_UPDATE_STATUS_EXTRA, status);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     private Notification getNotification(int status) {
@@ -268,33 +337,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         return builder.build();
     }
 
-    private void pauseVpn() {
-        stopVpn();
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        if (notificationManager != null) {
-            notificationManager.notify(VPN_SERVICE_NOTIFICATION_ID, this.getNotification(VPN_STATUS_STOPPED));
-        }
-    }
-
-    private void updateVpnStatus(int status) {
-        vpnStatus = status;
-
-
-//        if (FileHelper.loadCurrentSettings(getApplicationContext()).showNotification) { // TODO
-        startForeground(VPN_SERVICE_NOTIFICATION_ID, this.getNotification(status));
-//        }
-
-        Intent intent = new Intent(VPN_UPDATE_STATUS_INTENT);
-        intent.putExtra(VPN_UPDATE_STATUS_EXTRA, status);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-    }
-
-    private void startVpn() {
-        updateVpnStatus(VPN_STATUS_STARTING);
-        registerReceiver(connectivityChangedReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-        restartWorker();
-    }
-
     private void restartWorker() {
         vpnWorker.stop();
         vpnWorker.start();
@@ -312,45 +354,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private void reconnect() {
         updateVpnStatus(VPN_STATUS_RECONNECTING);
         restartWorker();
-    }
-
-    private void stopVpn() {
-        Log.i(TAG, "Stopping Service");
-//        if (vpnWorker != null)
-        stopVpnWorker();
-//        vpnWorker = null;
-        try {
-            unregisterReceiver(connectivityChangedReceiver);
-        } catch (IllegalArgumentException e) {
-            Log.i(TAG, "Ignoring exception on unregistering receiver");
-        }
-        updateVpnStatus(VPN_STATUS_STOPPED);
-        stopSelf();
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.i(TAG, "Destroyed, shutting down");
-        stopVpn();
-    }
-
-    @Override
-    public boolean handleMessage(Message message) {
-        if (message == null) {
-            return true;
-        }
-
-        switch (message.what) {
-            case VPN_MSG_STATUS_UPDATE:
-                updateVpnStatus(message.arg1);
-                break;
-            case VPN_MSG_NETWORK_CHANGED:
-                connectivityChanged((Intent) message.obj);
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid message with what = " + message.what);
-        }
-        return true;
     }
 
     private void connectivityChanged(Intent intent) {
