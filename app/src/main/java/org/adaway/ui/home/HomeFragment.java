@@ -28,7 +28,6 @@ import org.adaway.vpn.VpnService;
 
 import static android.app.Activity.RESULT_OK;
 import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
-import static org.adaway.vpn.VpnService.VPN_START_REQUEST_CODE;
 
 /**
  * This class is a {@link Fragment} to show home cards:
@@ -42,6 +41,13 @@ import static org.adaway.vpn.VpnService.VPN_START_REQUEST_CODE;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HomeFragment extends Fragment {
+    /*
+     * Activity action.
+     */
+    /**
+     * The activity request/result code for starting VPN service.
+     */
+    private static final int VPN_START_REQUEST_CODE = 10;
     /*
      * State save.
      */

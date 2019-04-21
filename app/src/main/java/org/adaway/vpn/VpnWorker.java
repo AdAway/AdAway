@@ -526,6 +526,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 //        return false;
 //    }
 
+    @FunctionalInterface
     public interface Notify {
         void run(int value);
     }
