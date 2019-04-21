@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Нет доступного подключения к интернет</string>
     <string name="status_download_fail">Недоступный источник</string>
     <string name="status_download_fail_subtitle_new">Нет доступных источников хостов!</string>
+    <string name="status_root_access_denied">Доступ root был отклонён</string>
+    <string name="status_root_access_denied_subtitle">Разрешите root-доступ из вашего приложения для root</string>
     <string name="status_failure">Что-то пошло не так</string>
     <string name="status_failure_subtitle">Смотрите logcat для подробностей</string>
     <string name="status_enabled">Включено</string>
@@ -122,6 +124,7 @@
     <string name="apply_dialog_apply">Применение файла hosts</string>
     <string name="apply_fail">Не удалось применить файл hosts на вашей системе!\nПопробуйте изменить путь к файлу hosts в настройках на /data/data/hosts.</string>
     <string name="apply_fail_title">Применение не удалось</string>
+    <string name="root_access_fail">Пожалуйста, проверьте, ваше приложение, предоставляющее root-доступ.</string>
     <string name="revert_successful">Вы вернулись к файлу hosts по-умолчанию.
 Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
 
@@ -216,11 +219,13 @@
     <string name="pref_dark_theme_summary">Использовать тёмную тему вместо светлой</string>
     <string name="pref_dark_theme_notification">Тема изменится при следующем запуске приложения!</string>
     <string name="pref_hosts">Файл hosts</string>
-    <string name="pref_redirection_ip">Адрес IP для перенаправления</string>
     <string name="pref_update_check">Проверять обновления</string>
     <string name="pref_apply_method">Путь к файлу hosts</string>
     <string name="pref_apply_method_summary">Перед изменением этого параметра прочитайте об этой функции в Справке.</string>
-    <string name="pref_redirection_ip_summary">Все заблокированные хосты переадресовываются на этот адрес IP.</string>
+    <string name="pref_redirection_ipv4">Перенаправление IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Все заблокированные хосты переадресовываются на этот адрес IPv4.</string>
+    <string name="pref_redirection_ipv6">Перенаправление IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Все заблокированные хосты переадресовываются на этот адрес IPv6.</string>
     <string name="pref_header_preferences">Настройки</string>
     <string name="pref_header_preferences_summary">Основные настройки AdAway</string>
     <string name="pref_never_reboot">Скрыть окно перезагрузки</string>
@@ -259,7 +264,7 @@
     <string name="pref_enable_telemetry">Отправлять отчёты об ошибках</string>
     <string name="pref_enable_telemetry_summary">Отправлять отчёты об ошибках и сбоях в Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Использовать IPv6</string>
-    <string name="pref_enable_ipv6_summary">Все записи файла host будут получать соответствующую :: 1  запись (localhost IPv6).</string>
+    <string name="pref_enable_ipv6_summary">Все записи файла host будут получать соответствующую  запись перенаправления.</string>
     <string name="pref_enable_systemless_summary">Запретить AdAway редактировать системный раздел</string>
     <string name="pref_enable_systemless">Включить бессистемный режим</string>
     <string name="pref_edit_text_value">Править значение текстового предпочтения</string>
