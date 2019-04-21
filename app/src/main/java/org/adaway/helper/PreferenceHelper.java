@@ -161,18 +161,18 @@ public class PreferenceHelper {
         );
     }
 
-    public static String getRedirectionIP(Context context) {
+    public static String getRedirectionIpv4(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
                 Context.MODE_PRIVATE
         );
         return prefs.getString(
-                context.getString(R.string.pref_redirection_ip_key),
-                context.getString(R.string.pref_redirection_ip_def)
+                context.getString(R.string.pref_redirection_ipv4_key),
+                context.getString(R.string.pref_redirection_ipv4_def)
         );
     }
 
-    public static String getRedirectionIPv6(Context context) {
+    public static String getRedirectionIpv6(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
                 Context.MODE_PRIVATE

@@ -199,12 +199,12 @@
     <string name="pref_dark_theme_summary">Use dark theme instead of light one</string>
     <string name="pref_dark_theme_notification">Theme will be applied on next application start!</string>
     <string name="pref_hosts">Hosts File</string>
-    <string name="pref_redirection_ip">Redirection IP</string>
-    <string name="pref_redirection_ipv6">Redirection IPv6</string>
     <string name="pref_update_check">Check for updates</string>
     <string name="pref_apply_method">Target hosts file</string>
     <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
-    <string name="pref_redirection_ip_summary">All blocked hostnames are redirected to this IP address.</string>
+    <string name="pref_redirection_ipv4">Redirection IPv4</string>
+    <string name="pref_redirection_ipv4_summary">All blocked hostnames are redirected to this IPv4 address.</string>
+    <string name="pref_redirection_ipv6">Redirection IPv6</string>
     <string name="pref_redirection_ipv6_summary">All blocked hostnames are redirected to this IPv6 address.</string>
     <string name="pref_header_preferences">Preferences</string>
     <string name="pref_header_preferences_summary">General preferences for AdAway</string>

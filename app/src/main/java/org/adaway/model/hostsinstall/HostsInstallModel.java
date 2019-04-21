@@ -609,16 +609,16 @@ public class HostsInstallModel extends Observable {
     }
 
     private void writeHosts(BufferedOutputStream outputStream, HostsParser parser) throws IOException {
-        String redirectionIP = PreferenceHelper.getRedirectionIP(this.context);
-        String redirectionIPv6 = PreferenceHelper.getRedirectionIPv6(this.context);
+        String redirectionIpv4 = PreferenceHelper.getRedirectionIpv4(this.context);
+        String redirectionIpv6 = PreferenceHelper.getRedirectionIpv6(this.context);
         // write hostnames
         String line;
         boolean enableIpv6 = PreferenceHelper.getEnableIpv6(this.context);
         for (String hostname : parser.getBlacklist()) {
-            line = Constants.LINE_SEPARATOR + redirectionIP + " " + hostname;
+            line = Constants.LINE_SEPARATOR + redirectionIpv4 + " " + hostname;
             outputStream.write(line.getBytes());
             if (enableIpv6) {
-                line = Constants.LINE_SEPARATOR + redirectionIPv6 + " " + hostname;
+                line = Constants.LINE_SEPARATOR + redirectionIpv6 + " " + hostname;
                 outputStream.write(line.getBytes());
             }
         }

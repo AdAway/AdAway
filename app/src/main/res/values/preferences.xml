@@ -20,8 +20,8 @@
     <bool name="pref_whitelist_rules_def">true</bool>
     <string name="pref_redirection_rules_key" translatable="false">redirectionRules</string>
     <bool name="pref_redirection_rules_def">false</bool>
-    <string name="pref_redirection_ip_key" translatable="false">redirectionIP</string>
-    <string name="pref_redirection_ip_def" translatable="false">127.0.0.1</string>
+    <string name="pref_redirection_ipv4_key" translatable="false">redirectionIP</string>
+    <string name="pref_redirection_ipv4_def" translatable="false">127.0.0.1</string>
     <string name="pref_redirection_ipv6_key" translatable="false">redirectionIPv6</string>
     <string name="pref_redirection_ipv6_def" translatable="false">::1</string>
     <string name="pref_apply_method_key" translatable="false">applyMethod</string>
