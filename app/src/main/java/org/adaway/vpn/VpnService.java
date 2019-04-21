@@ -95,7 +95,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
             }
         };
         this.notificationBuilder = new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
-                .setSmallIcon(R.drawable.status_bar_icon) // TODO: Notification icon
+                .setSmallIcon(R.drawable.icon) // TODO: Notification icon
                 .setPriority(IMPORTANCE_MIN);
         VpnWorker.Notify notify = value -> handler.sendMessage(handler.obtainMessage(VPN_MSG_STATUS_UPDATE, value, 0));
         this.vpnWorker = new VpnWorker(this, notify);
@@ -262,7 +262,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (notificationManager != null) {
             notificationManager.notify(VPN_SERVICE_NOTIFICATION_ID, new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
-                    .setSmallIcon(R.drawable.ic_state_deny) // TODO: Notification icon
+                    .setSmallIcon(R.drawable.icon) // TODO: Notification icon
                     .setPriority(IMPORTANCE_LOW)
                     .setContentTitle(getString(R.string.vpn_notification_paused_title))
                     .setContentText(getString(R.string.vpn_notification_paused_text))

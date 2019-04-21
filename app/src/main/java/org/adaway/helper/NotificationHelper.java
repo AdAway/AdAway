@@ -7,11 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
-import org.adaway.R;
-import org.adaway.ui.MainActivity;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+
+import org.adaway.R;
+import org.adaway.ui.MainActivity;
 
 /**
  * This class is an helper class to deals with notifications.
@@ -89,7 +89,7 @@ public final class NotificationHelper {
         String title = context.getString(R.string.status_update_available);
         String text = context.getString(R.string.status_update_available_subtitle);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NotificationHelper.UPDATE_NOTIFICATION_CHANNEL)
-                .setSmallIcon(R.drawable.status_bar_icon)
+                .setSmallIcon(R.drawable.icon)
                 .setShowWhen(false)
                 .setContentTitle(title)
                 .setContentText(text)
