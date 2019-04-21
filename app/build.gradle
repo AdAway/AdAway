@@ -71,14 +71,15 @@ android {
 
 dependencies {
     def appcompat_version = '1.1.0-alpha4'
+    def card_view_version = '1.0.0'
     def constraint_layout_version = '1.1.3'
-    def fragment_version = '1.1.0-alpha6'
+    def fragment_version = '1.1.0-alpha4'
     def lifecycle_version = '2.0.0'
     def material_version = '1.1.0-alpha05'
-    def recyclerview_version = '1.1.0-alpha04'
+    def recycler_view_version = '1.1.0-alpha04'
     def room_version = '2.0.0'
     def support_version = '1.0.0'
-    def work_version = '2.0.1'
+    def work_version = '1.0.0'
 
     implementation project(':libraries:RootCommands')
     implementation project(':tcpdump')
@@ -89,14 +90,14 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycle_version}"
     implementation "androidx.room:room-runtime:${room_version}"
     annotationProcessor "androidx.room:room-compiler:${room_version}"
-    implementation "androidx.work:work-runtime:${work_version}"
+    implementation "android.arch.work:work-runtime:${work_version}"
 
     // Support libraries
     implementation "androidx.appcompat:appcompat:${appcompat_version}"
-    implementation "androidx.cardview:cardview:${support_version}"
+    implementation "androidx.cardview:cardview:${card_view_version}"
     implementation "androidx.constraintlayout:constraintlayout:${constraint_layout_version}"
     implementation "androidx.preference:preference:${support_version}"
-    implementation "androidx.recyclerview:recyclerview:${recyclerview_version}"
+    implementation "androidx.recyclerview:recyclerview:${recycler_view_version}"
     implementation "androidx.fragment:fragment:${fragment_version}"
     implementation "com.google.android.material:material:${material_version}"
 
@@ -104,7 +105,7 @@ dependencies {
     api 'com.google.guava:guava:27.0.1-android'
     implementation 'com.annimon:stream:1.2.1'
     implementation 'com.google.android:flexbox:1.1.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.1'
     implementation 'net.sf.trove4j:trove4j:3.0.3'
     implementation 'org.sufficientlysecure:html-textview:3.4'
     if (keyStoreDefined) {
