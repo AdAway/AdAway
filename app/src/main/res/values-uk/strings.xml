@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Немає доступного підключення до інтернету</string>
     <string name="status_download_fail">Недоступні джерела</string>
     <string name="status_download_fail_subtitle_new">Немає доступних джерел хостів!</string>
+    <string name="status_root_access_denied">Доступ суперкористувача відхилено</string>
+    <string name="status_root_access_denied_subtitle">Надати права суперкористувача для вашого додатку суперкористувача</string>
     <string name="status_failure">Щось пішло не так</string>
     <string name="status_failure_subtitle">Перегляньте logcat для подробиць</string>
     <string name="status_enabled">Увімкнено</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Застосування файлу hosts</string>
     <string name="apply_fail">Не вдалося застосувати файл hosts на вашій системі!\n Спробуйте змінити в налаштуваннях шлях до файлу hosts на /data/data/hosts.</string>
     <string name="apply_fail_title">Не вдалося застосувати</string>
+    <string name="root_access_fail">Будь ласка, перевірте ваш додаток, який керує правами суперкористувача, щоб переконатися, що права суперкористувача було надано.</string>
     <string name="revert_successful">Ви повернулися до усталеного файлу hosts.\nМожливо, знадобиться перезавантажити Android, щоб зміни набули чинності.\n\nХочете перезавантажити?\n(Щоб уникнути втрати даних, переконайтеся, що жоден додаток не використовуює карту пам\'яті цієї миті!)</string>
     <string name="revert_successful_title">Успішно повернуто</string>
     <string name="revert_problem">Відновлення не вдалося з невідомих причин.</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">Використовувати темне оформлення замість світлого</string>
     <string name="pref_dark_theme_notification">Тема набуде чинності при наступному запуску!</string>
     <string name="pref_hosts">Файл hosts</string>
-    <string name="pref_redirection_ip">IP для перенаправлення</string>
     <string name="pref_update_check">Перевіряти оновлення</string>
     <string name="pref_apply_method">Шлях до файлу hosts</string>
     <string name="pref_apply_method_summary">Перед зміною цього параметра прочитайте про цю функцію в Довідці.</string>
-    <string name="pref_redirection_ip_summary">Всі заблоковані хости перенаправляються на цю IP-адресу</string>
+    <string name="pref_redirection_ipv4">Перенаправлення IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Всі заблоковані хости перенаправляються на цю адресу IPv4.</string>
+    <string name="pref_redirection_ipv6">Перенаправлення IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Всі заблоковані хости перенаправляються на цю адресу IPv6.</string>
     <string name="pref_header_preferences">Налаштування</string>
     <string name="pref_header_preferences_summary">Основні налаштування AdAway</string>
     <string name="pref_never_reboot">Приховати діалог перезавантаження</string>
@@ -239,7 +244,7 @@
     <string name="pref_enable_telemetry">Відправляти звіти про помилки</string>
     <string name="pref_enable_telemetry_summary">Дозволити додаткові відправляти звіти про помилки і падіння до Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Увімкнути IPv6</string>
-    <string name="pref_enable_ipv6_summary">Усі записи в файлі hosts отримуватимуть відповідний ::1 (IPv6 localhost) запис.</string>
+    <string name="pref_enable_ipv6_summary">Усі записи в файлі hosts отримуватимуть відповідний запис перенаправлення.</string>
     <string name="pref_enable_systemless_summary">Заборонити AdAway змінювати системний розділ</string>
     <string name="pref_enable_systemless">Увімкнути безсистемний режим</string>
     <string name="pref_edit_text_value">Змінити значення текстової переваги</string>
