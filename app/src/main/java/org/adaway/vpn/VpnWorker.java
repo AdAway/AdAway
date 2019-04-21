@@ -50,6 +50,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
+import java.util.function.Consumer;
+
+import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
+import static org.adaway.vpn.VpnStatus.RUNNING;
+import static org.adaway.vpn.VpnStatus.STARTING;
+import static org.adaway.vpn.VpnStatus.STOPPED;
+import static org.adaway.vpn.VpnStatus.STOPPING;
 
 
 class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
@@ -64,7 +71,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     /* Upstream DNS servers, indexed by our IP */
     final ArrayList<InetAddress> upstreamDnsServers = new ArrayList<>();
     private final android.net.VpnService vpnService;
-    private final Notify notify;
+    private final Notifier notifier;
     /* Data to be written to the device */
     private final Queue<byte[]> deviceWrites = new LinkedList<>();
     // HashMap that keeps an upper limit of packets
@@ -82,9 +89,9 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
      */
     private int pcap4jFactoryClearCacheCounter = 0;
 
-    public VpnWorker(android.net.VpnService vpnService, Notify notify) {
+    public VpnWorker(android.net.VpnService vpnService, Notifier notifier) {
         this.vpnService = vpnService;
-        this.notify = notify;
+        this.notifier = notifier;
     }
 
     private static Set<InetAddress> getDnsServers(Context context) throws VpnNetworkException {
@@ -140,8 +147,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         // Initialize the watchdog
         vpnWatchDog.initialize(PreferenceHelper.getVpnWatchdogEnabled(vpnService));
 
-        if (notify != null) {
-            notify.run(VpnService.VPN_STATUS_STARTING);
+        if (notifier != null) {
+            notifier.accept(STARTING);
         }
 
         int retryTimeout = MIN_RETRY_TIME;
@@ -154,8 +161,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 runVpn();
 
                 Log.i(TAG, "Told to stop");
-                if (notify != null) {
-                    notify.run(VpnService.VPN_STATUS_STOPPING);
+                if (notifier != null) {
+                    notifier.accept(STOPPING);
                 }
                 break;
             } catch (InterruptedException e) {
@@ -165,13 +172,13 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 // are exceptions that we expect to happen from network errors
                 Log.w(TAG, "Network exception in vpn thread, ignoring and reconnecting", e);
                 // If an exception was thrown, show to the user and try again
-                if (notify != null)
-                    notify.run(VpnService.VPN_STATUS_RECONNECTING_NETWORK_ERROR);
+                if (notifier != null)
+                    notifier.accept(RECONNECTING_NETWORK_ERROR);
             } catch (Exception e) {
                 Log.e(TAG, "Network exception in vpn thread, reconnecting", e);
                 //ExceptionHandler.saveException(e, Thread.currentThread(), null);
-                if (notify != null)
-                    notify.run(VpnService.VPN_STATUS_RECONNECTING_NETWORK_ERROR);
+                if (notifier != null)
+                    notifier.accept(RECONNECTING_NETWORK_ERROR);
             }
 
             if (System.currentTimeMillis() - connectTimeMillis >= RETRY_RESET_SEC * 1000) {
@@ -191,8 +198,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 retryTimeout *= 2;
         }
 
-        if (notify != null)
-            notify.run(VpnService.VPN_STATUS_STOPPED);
+        if (notifier != null)
+            notifier.accept(STOPPED);
         Log.i(TAG, "Exiting");
     }
 
@@ -212,8 +219,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             FileOutputStream outFd = new FileOutputStream(pfd.getFileDescriptor());
 
             // Now we are connected. Set the flag and show the message.
-            if (notify != null)
-                notify.run(VpnService.VPN_STATUS_RUNNING);
+            if (notifier != null)
+                notifier.accept(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
             while (doOne(inputStream, outFd, packet))
@@ -453,7 +460,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 //                ipv6Template = null;
 //            }
 //        } else {
-            ipv6Template = null;
+        ipv6Template = null;
 //        }
 
         if (format == null) {
@@ -527,8 +534,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 //    }
 
     @FunctionalInterface
-    public interface Notify {
-        void run(int value);
+    interface Notifier extends Consumer<VpnStatus> {
     }
 
     static class VpnNetworkException extends Exception {

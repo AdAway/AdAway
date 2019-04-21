@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 
 import org.adaway.R;
 import org.adaway.util.Constants;
+import org.adaway.vpn.VpnStatus;
 
 public class PreferenceHelper {
     public static boolean getDismissWelcome(Context context) {
@@ -227,24 +228,24 @@ public class PreferenceHelper {
         );
     }
 
-    public static boolean getVpnServiceEnabled(Context context) {
+    public static VpnStatus getVpnServiceStatus(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
                 Context.MODE_PRIVATE
         );
-        return prefs.getBoolean(
-                context.getString(R.string.pref_vpn_service_enabled_key),
-                context.getResources().getBoolean(R.bool.pref_vpn_service_enabled_def)
-        );
+        return VpnStatus.fromCode(prefs.getInt(
+                context.getString(R.string.pref_vpn_service_status_key),
+                context.getResources().getInteger(R.integer.pref_vpn_service_status_def)
+        ));
     }
 
-    public static void setVpnServiceEnabled(Context context, boolean enabled) {
+    public static void setVpnServiceStatus(Context context, VpnStatus status) {
         SharedPreferences prefs = context.getApplicationContext().getSharedPreferences(
                 Constants.PREFS_NAME,
                 Context.MODE_PRIVATE
         );
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean(context.getString(R.string.pref_vpn_service_enabled_key), enabled);
+        editor.putInt(context.getString(R.string.pref_vpn_service_status_key), status.toCode());
         editor.apply();
     }
 
