@@ -66,6 +66,9 @@ import static org.adaway.model.hostsinstall.HostsInstallError.PRIVATE_FILE_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.REMOUNT_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.REVERT_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.SYMLINK_MISSING;
+import static org.adaway.util.Constants.DEFAULT_HOSTS_FILENAME;
+import static org.adaway.util.Constants.DOWNLOADED_HOSTS_FILENAME;
+import static org.adaway.util.Constants.HOSTS_FILENAME;
 
 /**
  * This class is the model to represent hosts file installation.
@@ -252,7 +255,7 @@ public class HostsInstallModel extends Observable {
         int numberOfCopies = 0;
         int numberOfFailedCopies = 0;
         // Open local private file and get cursor to enabled hosts sources
-        try (FileOutputStream out = this.context.openFileOutput(Constants.DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE)) {
+        try (FileOutputStream out = this.context.openFileOutput(DOWNLOADED_HOSTS_FILENAME, Context.MODE_PRIVATE)) {
             // Get each hosts source
             for (HostsSource hostsSource : hostsSourceDao.getEnabled()) {
                 // Increment number of copy
@@ -431,12 +434,12 @@ public class HostsInstallModel extends Observable {
 
     private void deleteNewHostsFile() {
         // delete generated hosts file from private storage
-        this.context.deleteFile(Constants.HOSTS_FILENAME);
+        this.context.deleteFile(HOSTS_FILENAME);
     }
 
     private void deleteHostsSources() {
         // delete downloaded hosts file from private storage
-        this.context.deleteFile(Constants.DOWNLOADED_HOSTS_FILENAME);
+        this.context.deleteFile(DOWNLOADED_HOSTS_FILENAME);
     }
 
     /**
@@ -479,8 +482,7 @@ public class HostsInstallModel extends Observable {
      */
     private void createNewHostsFile() throws HostsInstallException {
         this.deleteNewHostsFile();
-        try (BufferedOutputStream outputStream = new BufferedOutputStream(this.context.openFileOutput(Constants.HOSTS_FILENAME,
-                Context.MODE_PRIVATE))) {
+        try (BufferedOutputStream outputStream = new BufferedOutputStream(this.context.openFileOutput(HOSTS_FILENAME, Context.MODE_PRIVATE))) {
             HostsParser parser = this.parseDownloadedHosts();
             this.writeHostsHeader(outputStream);
             this.writeLoopbackToHosts(outputStream);
@@ -494,7 +496,7 @@ public class HostsInstallModel extends Observable {
 
     private HostsParser parseDownloadedHosts() throws IOException {
         // Get application context
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(this.context.openFileInput(Constants.DOWNLOADED_HOSTS_FILENAME)))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(this.context.openFileInput(DOWNLOADED_HOSTS_FILENAME)))) {
             /* PARSE: parse hosts files to sets of host names and comments */
             // Use whitelist and/or redirection rules from hosts sources only if enabled in preferences
             HostsParser hostsParser = new HostsParser(reader, PreferenceHelper.getWhitelistRules(this.context), PreferenceHelper.getRedirectionRules(this.context));
@@ -509,7 +511,7 @@ public class HostsInstallModel extends Observable {
      * @param parser The parser to which apply user-defined lists.
      */
     private void applyUserList(HostsParser parser) {
-        HostListItemDao hostListItemDao = AppDatabase.getInstance(context).hostsListItemDao();
+        HostListItemDao hostListItemDao = AppDatabase.getInstance(this.context).hostsListItemDao();
         // Get list collections
         Set<String> blackListHosts = new HashSet<>(hostListItemDao.getEnabledBlackListHosts());
         Set<String> whiteListHosts = new HashSet<>(hostListItemDao.getEnabledWhiteListHosts());
@@ -613,7 +615,7 @@ public class HostsInstallModel extends Observable {
      */
     private void revertHostFile() throws IOException {
         // Create private file
-        try (FileOutputStream fos = context.openFileOutput(Constants.HOSTS_FILENAME, Context.MODE_PRIVATE)) {
+        try (FileOutputStream fos = this.context.openFileOutput(DEFAULT_HOSTS_FILENAME, Context.MODE_PRIVATE)) {
             // Write default localhost as hosts file
             String localhost = Constants.LOCALHOST_IPv4 + " " + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPARATOR +
                     Constants.LOCALHOST_IPv6 + " " + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPARATOR;
@@ -624,7 +626,7 @@ public class HostsInstallModel extends Observable {
             // Copy generated hosts file to target location
             ApplyUtils.copyHostsFile(this.context, target);
             // Delete generated hosts file after applying it
-            this.context.deleteFile(Constants.HOSTS_FILENAME);
+            this.context.deleteFile(DEFAULT_HOSTS_FILENAME);
         } catch (Exception exception) {
             throw new IOException("Unable to revert hosts file.", exception);
         }

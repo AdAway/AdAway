@@ -37,8 +37,9 @@ public class Constants {
     public static final String BOGUS_IPv4 = "0.0.0.0";
     public static final String LOCALHOST_HOSTNAME = "localhost";
 
-    public static final String DOWNLOADED_HOSTS_FILENAME = "hosts_downloaded";
+    public static final String DOWNLOADED_HOSTS_FILENAME = "downloaded_hosts";
     public static final String HOSTS_FILENAME = "hosts";
+    public static final String DEFAULT_HOSTS_FILENAME = "default_hosts";
     public static final String LINE_SEPARATOR = System.getProperty("line.separator", "\n");
     public static final String FILE_SEPARATOR = System.getProperty("file.separator", "/");
 

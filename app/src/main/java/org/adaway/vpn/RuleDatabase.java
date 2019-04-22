@@ -11,6 +11,19 @@ package org.adaway.vpn;
 
 import android.content.Context;
 
+import org.adaway.util.HostsParser;
+import org.adaway.util.Log;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.adaway.util.Constants.DOWNLOADED_HOSTS_FILENAME;
+import static org.adaway.util.Constants.TAG;
+
 /**
  * Represents hosts that are blocked.
  * <p>
@@ -21,11 +34,13 @@ import android.content.Context;
 public class RuleDatabase {
     private static final RuleDatabase instance = new RuleDatabase();
 
+    private Set<String> blacklist;
+
     /**
      * Package-private constructor for instance and unit tests.
      */
     RuleDatabase() {
-
+        this.blacklist = new HashSet<>();
     }
 
 
@@ -43,17 +58,23 @@ public class RuleDatabase {
      * @return true if the host is blocked, false otherwise.
      */
     public boolean isBlocked(String host) {
-        return host.contains("facebook.com");
+        return this.blacklist.contains(host);
     }
 
     /**
      * Load the hosts according to the configuration
      *
      * @param context A context used for opening files.
-     * @throws InterruptedException Thrown if the thread was interrupted, so we don't waste time
-     *                              reading more host files than needed.
      */
     public synchronized void initialize(Context context) {
-
+        this.blacklist.clear();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(context.openFileInput(DOWNLOADED_HOSTS_FILENAME)))) {
+            HostsParser hostsParser = new HostsParser(reader, false, false);
+            this.blacklist.addAll(hostsParser.getBlacklist());
+        } catch (FileNotFoundException exception) {
+            Log.i(TAG, "No private hosts file.");
+        } catch (IOException exception) {
+            Log.e(TAG, "Failed to parse private host file to load VPN blacklist.");
+        }
     }
 }
