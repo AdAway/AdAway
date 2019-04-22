@@ -88,7 +88,7 @@ public class PrefsFragment extends PreferenceFragmentCompat {
                 getString(R.string.pref_custom_target_key));
 
         // enable custom target pref on create if enabled in apply method
-        if (PreferenceHelper.getApplyMethod(context).equals("customTarget")) {
+        if (PreferenceHelper.getInstallLocation(context).equals("customTarget")) {
             mCustomTarget.setEnabled(true);
         } else {
             mCustomTarget.setEnabled(false);

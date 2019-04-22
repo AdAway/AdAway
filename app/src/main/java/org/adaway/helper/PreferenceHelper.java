@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import org.adaway.R;
+import org.adaway.model.hostsinstall.HostsInstallLocation;
 import org.adaway.util.Constants;
 import org.adaway.vpn.VpnStatus;
 
@@ -170,15 +171,15 @@ public class PreferenceHelper {
         );
     }
 
-    public static String getApplyMethod(Context context) {
+    public static HostsInstallLocation getInstallLocation(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
                 Context.MODE_PRIVATE
         );
-        return prefs.getString(
+        return HostsInstallLocation.fromPreferenceKey(prefs.getString(
                 context.getString(R.string.pref_apply_method_key),
                 context.getString(R.string.pref_apply_method_def)
-        );
+        ));
     }
 
     public static String getCustomTarget(Context context) {

@@ -73,13 +73,6 @@ import static org.adaway.model.hostsinstall.HostsInstallError.SYMLINK_MISSING;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HostsInstallModel extends Observable {
-    /*
-     * Apply modes (see pref pref_apply_method_entries_values).
-     */
-    private static final String APPLY_TO_SYSTEM = "writeToSystem";
-    private static final String APPLY_TO_DATA_DATA = "writeToDataData";
-    private static final String APPLY_TO_DATA = "writeToData";
-    private static final String APPLY_TO_CUSTOM_TARGET = "customTarget";
     /**
      * The application context.
      */
@@ -114,22 +107,8 @@ public class HostsInstallModel extends Observable {
      * @throws HostsInstallException If the symlink could not be created.
      */
     public void createSymlink() throws HostsInstallException {
-        boolean success;
-        // Check installation according apply method
-        String applyMethod = PreferenceHelper.getApplyMethod(this.context);
-        switch (applyMethod) {
-            case APPLY_TO_DATA_DATA:
-                success = ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
-                break;
-            case APPLY_TO_DATA:
-                success = ApplyUtils.createSymlink(Constants.ANDROID_DATA_HOSTS);
-                break;
-            case APPLY_TO_CUSTOM_TARGET:
-                success = ApplyUtils.createSymlink(PreferenceHelper.getCustomTarget(this.context));
-                break;
-            default:
-                throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
-        }
+        HostsInstallLocation installLocation = PreferenceHelper.getInstallLocation(this.context);
+        boolean success = ApplyUtils.createSymlink(installLocation.getTarget(this.context));
         if (!success) {
             throw new HostsInstallException(SYMLINK_MISSING, "Failed to create symlink.");
         }
@@ -438,7 +417,6 @@ public class HostsInstallModel extends Observable {
         this.createNewHostsFile();
         this.deleteHostsSources();
         this.copyNewHostsFile();
-        this.deleteNewHostsFile();
         this.setStateAndDetails(R.string.apply_dialog, R.string.apply_dialog_apply);
         if (!checkInstalledHostsFile()) {
             throw new HostsInstallException(APPLY_FAIL, "Failed to apply new hosts file.");
@@ -467,25 +445,8 @@ public class HostsInstallModel extends Observable {
      * @return {@code true} if the hosts file was well installed, {@code false} otherwise.
      */
     private boolean checkInstalledHostsFile() {
-        // Check installation according apply method
-        String applyMethod = PreferenceHelper.getApplyMethod(this.context);
-        switch (applyMethod) {
-            case APPLY_TO_SYSTEM:
-                /* /system/etc/hosts */
-                return ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS);
-            case APPLY_TO_DATA_DATA:
-                /* /data/data/hosts */
-                return ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_DATA_HOSTS);
-            case APPLY_TO_DATA:
-                /* /data/data/hosts */
-                return ApplyUtils.isHostsFileCorrect(Constants.ANDROID_DATA_HOSTS);
-            case APPLY_TO_CUSTOM_TARGET:
-                /* custom target */
-                String customTarget = PreferenceHelper.getCustomTarget(this.context);
-                return ApplyUtils.isHostsFileCorrect(customTarget);
-            default:
-                throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
-        }
+        HostsInstallLocation installLocation = PreferenceHelper.getInstallLocation(this.context);
+        return ApplyUtils.isSymlinkCorrect(installLocation.getTarget(this.context));
     }
 
     /**
@@ -494,48 +455,14 @@ public class HostsInstallModel extends Observable {
      * @return {@code true} if the hosts file target is the system one or symlink to target is installed, {@code false} otherwise.
      */
     private boolean checkHostsFileSymlink() {
-        // Check installation according apply method
-        String applyMethod = PreferenceHelper.getApplyMethod(this.context);
-        switch (applyMethod) {
-            case APPLY_TO_SYSTEM:
-                // System hosts file used, no need of symlink
-                return true;
-            case APPLY_TO_DATA_DATA:
-                // /data/data/hosts
-                return ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS);
-            case APPLY_TO_DATA:
-                // /data/data/hosts
-                return ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_HOSTS);
-            case APPLY_TO_CUSTOM_TARGET:
-                // custom target
-                String customTarget = PreferenceHelper.getCustomTarget(this.context);
-                return ApplyUtils.isSymlinkCorrect(customTarget);
-            default:
-                throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
-        }
+        HostsInstallLocation installLocation = PreferenceHelper.getInstallLocation(this.context);
+        return !installLocation.requireSymlink(this.context);
     }
 
     private void copyNewHostsFile() throws HostsInstallException {
-        // copy build hosts file with RootTools, based on target from preferences
         try {
-            String applyMethod = PreferenceHelper.getApplyMethod(this.context);
-            switch (applyMethod) {
-                case APPLY_TO_SYSTEM:
-                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_SYSTEM_ETC_HOSTS);
-                    break;
-                case APPLY_TO_DATA_DATA:
-                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_DATA_DATA_HOSTS);
-                    break;
-                case APPLY_TO_DATA:
-                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_DATA_HOSTS);
-                    break;
-                case APPLY_TO_CUSTOM_TARGET:
-                    String customTarget = PreferenceHelper.getCustomTarget(this.context);
-                    ApplyUtils.copyHostsFile(this.context, customTarget);
-                    break;
-                default:
-                    throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
-            }
+            HostsInstallLocation installLocation = PreferenceHelper.getInstallLocation(this.context);
+            ApplyUtils.copyHostsFile(this.context, installLocation.getTarget(this.context));
         } catch (NotEnoughSpaceException exception) {
             throw new HostsInstallException(NOT_ENOUGH_SPACE, "Missing free space to copy new private hosts file to target hosts file.", exception);
         } catch (RemountException exception) {
@@ -551,6 +478,7 @@ public class HostsInstallModel extends Observable {
      * @throws HostsInstallException If the new hosts file could not be created.
      */
     private void createNewHostsFile() throws HostsInstallException {
+        this.deleteNewHostsFile();
         try (BufferedOutputStream outputStream = new BufferedOutputStream(this.context.openFileOutput(Constants.HOSTS_FILENAME,
                 Context.MODE_PRIVATE))) {
             HostsParser parser = this.parseDownloadedHosts();
@@ -687,29 +615,12 @@ public class HostsInstallModel extends Observable {
         // Create private file
         try (FileOutputStream fos = context.openFileOutput(Constants.HOSTS_FILENAME, Context.MODE_PRIVATE)) {
             // Write default localhost as hosts file
-            String localhost = Constants.LOCALHOST_IPv4 + " " + Constants.LOCALHOST_HOSTNAME
-                    + Constants.LINE_SEPARATOR + Constants.LOCALHOST_IPv6 + " "
-                    + Constants.LOCALHOST_HOSTNAME;
+            String localhost = Constants.LOCALHOST_IPv4 + " " + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPARATOR +
+                    Constants.LOCALHOST_IPv6 + " " + Constants.LOCALHOST_HOSTNAME + Constants.LINE_SEPARATOR;
             fos.write(localhost.getBytes());
             // Get hosts file target based on preferences
-            String applyMethod = PreferenceHelper.getApplyMethod(this.context);
-            String target;
-            switch (applyMethod) {
-                case APPLY_TO_SYSTEM:
-                    target = Constants.ANDROID_SYSTEM_ETC_HOSTS;
-                    break;
-                case APPLY_TO_DATA_DATA:
-                    target = Constants.ANDROID_DATA_DATA_HOSTS;
-                    break;
-                case APPLY_TO_DATA:
-                    target = Constants.ANDROID_DATA_HOSTS;
-                    break;
-                case APPLY_TO_CUSTOM_TARGET:
-                    target = PreferenceHelper.getCustomTarget(this.context);
-                    break;
-                default:
-                    throw new IllegalStateException("The apply method does not match any settings: " + applyMethod + ".");
-            }
+            HostsInstallLocation installLocation = PreferenceHelper.getInstallLocation(this.context);
+            String target = installLocation.getTarget(this.context);
             // Copy generated hosts file to target location
             ApplyUtils.copyHostsFile(this.context, target);
             // Delete generated hosts file after applying it
