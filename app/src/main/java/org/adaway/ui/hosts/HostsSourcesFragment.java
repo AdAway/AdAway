@@ -66,8 +66,8 @@ import static android.app.Activity.RESULT_OK;
 import static android.content.Intent.ACTION_GET_CONTENT;
 import static android.content.Intent.CATEGORY_OPENABLE;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_IMPORT;
-import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_WRITE_STORAGE_PERMISSION;
+import static org.adaway.helper.ImportExportHelper.IMPORT_REQUEST_CODE;
+import static org.adaway.helper.ImportExportHelper.WRITE_STORAGE_PERMISSION_REQUEST_CODE;
 
 /**
  * This class is a {@link Fragment} to display and manage hosts sources.
@@ -119,7 +119,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
             // Request write external storage permission
             this.requestPermissions(
                     new String[]{permission},
-                    REQUEST_CODE_WRITE_STORAGE_PERMISSION
+                    WRITE_STORAGE_PERMISSION_REQUEST_CODE
             );
             // Return permission not granted yes
             return false;
@@ -133,7 +133,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         // Check permission request code
-        if (requestCode != REQUEST_CODE_WRITE_STORAGE_PERMISSION) {
+        if (requestCode != WRITE_STORAGE_PERMISSION_REQUEST_CODE) {
             return;
         }
         // Check results
@@ -307,7 +307,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // Check request code
-        if (requestCode != REQUEST_CODE_IMPORT) {
+        if (requestCode != IMPORT_REQUEST_CODE) {
             return;
         }
         // Check result
@@ -333,7 +333,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         intent.addCategory(CATEGORY_OPENABLE);
         // Start file picker activity
         try {
-            startActivityForResult(intent, REQUEST_CODE_IMPORT);
+            startActivityForResult(intent, IMPORT_REQUEST_CODE);
         } catch (ActivityNotFoundException exception) {
             // Show dialog to install file picker
             FragmentManager fragmentManager = getFragmentManager();

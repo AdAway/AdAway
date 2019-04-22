@@ -22,13 +22,11 @@ package org.adaway.ui.tcpdump;
 
 import android.content.Context;
 
+import com.topjohnwu.superuser.Shell;
+
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
-import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.Toolbox;
-import org.sufficientlysecure.rootcommands.command.SimpleCommand;
-import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -45,6 +43,12 @@ import java.util.Set;
 
 import io.sentry.Sentry;
 
+import static org.adaway.util.Constants.TCPDUMP_EXECUTABLE;
+import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
+import static org.adaway.util.ShellUtils.killBundledExecutable;
+import static org.adaway.util.ShellUtils.mergeAllLines;
+import static org.adaway.util.ShellUtils.runBundledExecutable;
+
 class TcpdumpUtils {
     /**
      * Private constructor.
@@ -58,14 +62,8 @@ class TcpdumpUtils {
      *
      * @return true if tcpdump is running
      */
-    static boolean isTcpdumpRunning(Shell shell) {
-        try {
-            Toolbox tb = new Toolbox(shell);
-            return tb.isBinaryRunning(Constants.TCPDUMP_EXECUTABLE);
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while checking tcpdump", e);
-            return false;
-        }
+    static boolean isTcpdumpRunning() {
+        return isBundledExecutableRunning(TCPDUMP_EXECUTABLE);
     }
 
     /**
@@ -74,9 +72,9 @@ class TcpdumpUtils {
      * @param context The application context.
      * @return returns true if starting worked
      */
-    static boolean startTcpdump(Context context, Shell shell) {
+    static boolean startTcpdump(Context context) {
         Log.d(Constants.TAG, "Starting tcpdump...");
-        checkSystemTcpdump(shell);
+        checkSystemTcpdump();
 
         File file = getLogFile(context);
         try {
@@ -96,43 +94,26 @@ class TcpdumpUtils {
         // "-v": verbose
         // "-t": don't print a timestamp
         // "-s 0": capture first 512 bit of packet to get DNS content
-        String parameters = "-i any -p -l -v -t -s 512 'udp dst port 53' >> " + file.toString() + " 2>&1 &";
+        String parameters = "-i any -p -l -v -t -s 512 'udp dst port 53' >> " + file.toString() + " 2>&1";
 
-        SimpleExecutableCommand tcpdumpCommand = new SimpleExecutableCommand(context,
-                Constants.TCPDUMP_EXECUTABLE, parameters);
-
-        try {
-            shell.add(tcpdumpCommand).waitForFinish();
-        } catch (Exception exception) {
-            Log.e(Constants.TAG, "Exception while starting tcpdump", exception);
-            return false;
-        }
-        return true;
+        return runBundledExecutable(context, TCPDUMP_EXECUTABLE, parameters);
     }
 
     /**
      * Stop tcpdump.
      */
-    static void stopTcpdump(Shell shell) {
-        try {
-            Toolbox tb = new Toolbox(shell);
-            tb.killAllExecutable(Constants.TCPDUMP_EXECUTABLE);
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while killing tcpdump", e);
-        }
+    static void stopTcpdump() {
+        killBundledExecutable(TCPDUMP_EXECUTABLE);
     }
 
     /**
      * Check if tcpdump binary in bundled in the system.
-     *
-     * @param shell The shell to check binary presence.
      */
-    static void checkSystemTcpdump(Shell shell) {
+    static void checkSystemTcpdump() {
         try {
-            SimpleCommand command = new SimpleCommand("tcpdump --version");
-            shell.add(command).waitForFinish();
-            int exitCode = command.getExitCode();
-            String output = command.getOutput();
+            Shell.Result result = Shell.su("tcpdump --version").exec();
+            int exitCode = result.getCode();
+            String output = mergeAllLines(result.getOut());
             Sentry.capture(
                     "Tcpdump " + (exitCode == 0 ? "present" : "missing (" + exitCode + ")") + "\n"
                             + output

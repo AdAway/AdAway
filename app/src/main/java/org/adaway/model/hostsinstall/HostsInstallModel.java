@@ -26,8 +26,6 @@ import org.adaway.util.Log;
 import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
 import org.adaway.util.Utils;
-import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -67,7 +65,6 @@ import static org.adaway.model.hostsinstall.HostsInstallError.NO_CONNECTION;
 import static org.adaway.model.hostsinstall.HostsInstallError.PRIVATE_FILE_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.REMOUNT_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.REVERT_FAIL;
-import static org.adaway.model.hostsinstall.HostsInstallError.ROOT_ACCESS_DENIED;
 import static org.adaway.model.hostsinstall.HostsInstallError.SYMLINK_MISSING;
 
 /**
@@ -117,24 +114,24 @@ public class HostsInstallModel extends Observable {
      * @throws HostsInstallException If the symlink could not be created.
      */
     public void createSymlink() throws HostsInstallException {
-        try {
-            // Check installation according apply method
-            String applyMethod = PreferenceHelper.getApplyMethod(this.context);
-            switch (applyMethod) {
-                case APPLY_TO_DATA_DATA:
-                    ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
-                    break;
-                case APPLY_TO_DATA:
-                    ApplyUtils.createSymlink(Constants.ANDROID_DATA_HOSTS);
-                    break;
-                case APPLY_TO_CUSTOM_TARGET:
-                    ApplyUtils.createSymlink(PreferenceHelper.getCustomTarget(this.context));
-                    break;
-                default:
-                    throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
-            }
-        } catch (CommandException | RemountException exception) {
-            throw new HostsInstallException(SYMLINK_MISSING, "Failed to create symlink.", exception);
+        boolean success;
+        // Check installation according apply method
+        String applyMethod = PreferenceHelper.getApplyMethod(this.context);
+        switch (applyMethod) {
+            case APPLY_TO_DATA_DATA:
+                success = ApplyUtils.createSymlink(Constants.ANDROID_DATA_DATA_HOSTS);
+                break;
+            case APPLY_TO_DATA:
+                success = ApplyUtils.createSymlink(Constants.ANDROID_DATA_HOSTS);
+                break;
+            case APPLY_TO_CUSTOM_TARGET:
+                success = ApplyUtils.createSymlink(PreferenceHelper.getCustomTarget(this.context));
+                break;
+            default:
+                throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
+        }
+        if (!success) {
+            throw new HostsInstallException(SYMLINK_MISSING, "Failed to create symlink.");
         }
     }
 
@@ -433,37 +430,25 @@ public class HostsInstallModel extends Observable {
      * @throws HostsInstallException If the hosts file could not be applied.
      */
     public void applyHostsFile() throws HostsInstallException {
-        // Create root shell
-        Shell shell = null;
-        try {
-            shell = Shell.startRootShell();
-            this.setStateAndDetails(R.string.apply_dialog, R.string.apply_dialog_hosts);
-            if (!this.checkHostsFileSymlink(shell)) {
-                throw new HostsInstallException(SYMLINK_MISSING, "The symlink to the hosts file target is missing.");
-            }
-            this.createNewHostsFile();
-            this.deleteHostsSources();
-            this.copyNewHostsFile(shell);
-            this.deleteNewHostsFile();
-            this.setStateAndDetails(R.string.apply_dialog, R.string.apply_dialog_apply);
-            if (!checkInstalledHostsFile()) {
-                throw new HostsInstallException(APPLY_FAIL, "Failed to apply new hosts file.");
-            }
-            this.markHostsSourcesAsInstalled();
-            this.setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
-        } catch (RootAccessDeniedException exception) {
-            throw new HostsInstallException(ROOT_ACCESS_DENIED, "Root access denied", exception);
-        } catch (IOException exception) {
-            throw new HostsInstallException(APPLY_FAIL, "Failed to start a root shell.", exception);
-        } finally {
-            if (shell != null) {
-                try {
-                    shell.close();
-                } catch (Exception exception) {
-                    Log.e(Constants.TAG, "Problem closing the root shell!", exception);
-                }
-            }
+//        try {
+        this.setStateAndDetails(R.string.apply_dialog, R.string.apply_dialog_hosts);
+        if (!this.checkHostsFileSymlink()) {
+            throw new HostsInstallException(SYMLINK_MISSING, "The symlink to the hosts file target is missing.");
         }
+        this.createNewHostsFile();
+        this.deleteHostsSources();
+        this.copyNewHostsFile();
+        this.deleteNewHostsFile();
+        this.setStateAndDetails(R.string.apply_dialog, R.string.apply_dialog_apply);
+        if (!checkInstalledHostsFile()) {
+            throw new HostsInstallException(APPLY_FAIL, "Failed to apply new hosts file.");
+        }
+        this.markHostsSourcesAsInstalled();
+        this.setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
+        // TODO Clean up
+//        } catch (IOException exception) {
+//            throw new HostsInstallException(APPLY_FAIL, "Failed to start a root shell.", exception);
+//        }
     }
 
     private void deleteNewHostsFile() {
@@ -506,10 +491,9 @@ public class HostsInstallModel extends Observable {
     /**
      * Check if the hosts file target symlink is needed and installed.
      *
-     * @param shell The root shell to use.
      * @return {@code true} if the hosts file target is the system one or symlink to target is installed, {@code false} otherwise.
      */
-    private boolean checkHostsFileSymlink(Shell shell) {
+    private boolean checkHostsFileSymlink() {
         // Check installation according apply method
         String applyMethod = PreferenceHelper.getApplyMethod(this.context);
         switch (applyMethod) {
@@ -518,36 +502,36 @@ public class HostsInstallModel extends Observable {
                 return true;
             case APPLY_TO_DATA_DATA:
                 // /data/data/hosts
-                return ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS, shell);
+                return ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_DATA_HOSTS);
             case APPLY_TO_DATA:
                 // /data/data/hosts
-                return ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_HOSTS, shell);
+                return ApplyUtils.isSymlinkCorrect(Constants.ANDROID_DATA_HOSTS);
             case APPLY_TO_CUSTOM_TARGET:
                 // custom target
                 String customTarget = PreferenceHelper.getCustomTarget(this.context);
-                return ApplyUtils.isSymlinkCorrect(customTarget, shell);
+                return ApplyUtils.isSymlinkCorrect(customTarget);
             default:
                 throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
         }
     }
 
-    private void copyNewHostsFile(Shell rootShell) throws HostsInstallException {
+    private void copyNewHostsFile() throws HostsInstallException {
         // copy build hosts file with RootTools, based on target from preferences
         try {
             String applyMethod = PreferenceHelper.getApplyMethod(this.context);
             switch (applyMethod) {
                 case APPLY_TO_SYSTEM:
-                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_SYSTEM_ETC_HOSTS, rootShell);
+                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_SYSTEM_ETC_HOSTS);
                     break;
                 case APPLY_TO_DATA_DATA:
-                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_DATA_DATA_HOSTS, rootShell);
+                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_DATA_DATA_HOSTS);
                     break;
                 case APPLY_TO_DATA:
-                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_DATA_HOSTS, rootShell);
+                    ApplyUtils.copyHostsFile(this.context, Constants.ANDROID_DATA_HOSTS);
                     break;
                 case APPLY_TO_CUSTOM_TARGET:
                     String customTarget = PreferenceHelper.getCustomTarget(this.context);
-                    ApplyUtils.copyHostsFile(this.context, customTarget, rootShell);
+                    ApplyUtils.copyHostsFile(this.context, customTarget);
                     break;
                 default:
                     throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
@@ -683,36 +667,23 @@ public class HostsInstallModel extends Observable {
     public void revert() throws HostsInstallException {
         // Update status
         this.setStateAndDetails(R.string.status_reverting, R.string.status_reverting_subtitle);
-        // Create root shell
-        Shell shell = null;
         try {
-            shell = Shell.startRootShell();
             // Revert hosts file
-            this.revertHostFile(shell);
+            this.revertHostFile();
             this.markHostsSourcesAsUninstalled();
             this.setStateAndDetails(R.string.status_disabled, R.string.status_disabled_subtitle);
         } catch (IOException exception) {
             this.setStateAndDetails(R.string.status_enabled, R.string.revert_problem);
             throw new HostsInstallException(REVERT_FAIL, "Unable to revert hosts file.", exception);
-        } finally {
-            // Close shell
-            if (shell != null) {
-                try {
-                    shell.close();
-                } catch (IOException exception) {
-                    Log.d(Constants.TAG, "Error while closing shell.", exception);
-                }
-            }
         }
     }
 
     /**
      * Revert to default hosts file.
      *
-     * @param shell The root shell to use.
      * @throws IOException If the hosts file could not be reverted.
      */
-    private void revertHostFile(Shell shell) throws IOException {
+    private void revertHostFile() throws IOException {
         // Create private file
         try (FileOutputStream fos = context.openFileOutput(Constants.HOSTS_FILENAME, Context.MODE_PRIVATE)) {
             // Write default localhost as hosts file
@@ -740,7 +711,7 @@ public class HostsInstallModel extends Observable {
                     throw new IllegalStateException("The apply method does not match any settings: " + applyMethod + ".");
             }
             // Copy generated hosts file to target location
-            ApplyUtils.copyHostsFile(this.context, target, shell);
+            ApplyUtils.copyHostsFile(this.context, target);
             // Delete generated hosts file after applying it
             this.context.deleteFile(Constants.HOSTS_FILENAME);
         } catch (Exception exception) {

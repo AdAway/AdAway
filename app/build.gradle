@@ -5,6 +5,12 @@ def keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingKeyAlias') &&
         project.hasProperty('signingKeyPassword')
 
+repositories {
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
@@ -74,6 +80,7 @@ dependencies {
     def card_view_version = '1.0.0'
     def constraint_layout_version = '1.1.3'
     def fragment_version = '1.1.0-alpha4'
+    def libsu_version = '2.5.0'
     def lifecycle_version = '2.0.0'
     def material_version = '1.1.0-alpha05'
     def recycler_view_version = '1.1.0-alpha04'
@@ -81,7 +88,6 @@ dependencies {
     def support_version = '1.0.0'
     def work_version = '1.0.0'
 
-    implementation project(':libraries:RootCommands')
     implementation project(':tcpdump')
     implementation project(':webserver')
 
@@ -114,6 +120,10 @@ dependencies {
         implementation 'io.sentry:sentry-android:1.7.14'
     }
     implementation 'org.slf4j:slf4j-nop:1.7.25'
+
+    // Root related
+    implementation "com.github.topjohnwu.libsu:core:${libsu_version}"
+    implementation "com.github.topjohnwu.libsu:io:${libsu_version}"
 
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.7.5'

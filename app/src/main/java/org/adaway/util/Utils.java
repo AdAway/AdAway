@@ -37,12 +37,10 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.topjohnwu.superuser.Shell;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.sufficientlysecure.rootcommands.RootCommands;
-import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.command.SimpleCommand;
 
 import java.util.List;
 
@@ -65,7 +63,7 @@ public class Utils {
         if (Constants.DEBUG_DISABLE_ROOT_CHECK) {
             return true;
         }
-        return RootCommands.rootAccessGiven();
+        return Shell.rootAccess();
     }
 
     /**
@@ -129,11 +127,7 @@ public class Utils {
     }
 
     private static void reboot() {
-        try (Shell rootShell = Shell.startRootShell()) {
-            rootShell.add(new SimpleCommand("svc power reboot"));
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Problem with rebooting", e);
-        }
+        Shell.su("svc power reboot").submit();
     }
 
     /**

@@ -116,11 +116,6 @@ final class HostsInstallDialog {
                 title = R.string.apply_symlink_fail_title;
                 text = R.string.apply_symlink_fail;
                 break;
-            case ROOT_ACCESS_DENIED:
-                title = R.string.status_root_access_denied;
-                text = R.string.root_access_fail;
-                break;
-
             default:
                 throw new IllegalStateException("Error code " + installError + " not supported.");
         }

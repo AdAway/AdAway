@@ -82,20 +82,6 @@ public class PreferenceHelper {
         editor.apply();
     }
 
-    /*
-     * Not used. Defined by AbstractSystemlessMode.isEnabled().
-     */
-    public static boolean getSystemlessMode(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(
-                Constants.PREFS_NAME,
-                Context.MODE_PRIVATE
-        );
-        return prefs.getBoolean(
-                context.getString(R.string.pref_enable_systemless_key),
-                context.getResources().getBoolean(R.bool.pref_enable_systemless_def)
-        );
-    }
-
     public static boolean getEnableIpv6(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,

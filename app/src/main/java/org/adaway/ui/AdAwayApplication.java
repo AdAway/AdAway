@@ -22,13 +22,14 @@ package org.adaway.ui;
 
 import android.app.Application;
 
+import com.topjohnwu.superuser.Shell;
+
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.SentryLog;
-import org.sufficientlysecure.rootcommands.RootCommands;
 
 /**
  * This class is a custom {@link Application} for AdAway app.
@@ -51,10 +52,10 @@ public class AdAwayApplication extends Application {
         if (PreferenceHelper.getDebugEnabled(this)) {
             Log.d(Constants.TAG, "Debug set to true by preference!");
             Constants.enableDebug();
-            RootCommands.enableDebug();
+            Shell.Config.verboseLogging(true);
         } else {
             Constants.disableDebug();
-            RootCommands.disableDebug();
+            Shell.Config.verboseLogging(false);
         }
         // Create notification channels
         NotificationHelper.createNotificationChannels(this);

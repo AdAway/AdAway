@@ -1,24 +1,21 @@
 package org.adaway.ui.prefs;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.EditTextPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.service.hosts.UpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.SentryLog;
-import org.adaway.util.SystemlessUtils;
 import org.adaway.util.Utils;
 import org.adaway.util.WebServerUtils;
-import org.adaway.util.systemless.AbstractSystemlessMode;
-
-import androidx.preference.CheckBoxPreference;
-import androidx.preference.EditTextPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
 
 /**
  * This fragment is the preferences fragment.
@@ -30,10 +27,6 @@ public class PrefsFragment extends PreferenceFragmentCompat {
      * The custom target preferences (<code>null</code> if fragment is not created).
      */
     private EditTextPreference mCustomTarget;
-    /**
-     * The systemless preferences (<code>null</code> if fragment is not created).
-     */
-    private CheckBoxPreference mSystemless;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -56,41 +49,6 @@ public class PrefsFragment extends PreferenceFragmentCompat {
             ).show();
             // Allow preference change
             return true;
-        });
-
-        /*
-         * Enable systemless mode systemless mode if supported.
-         */
-        Preference SystemlessPref = this.findPreference(getString(R.string.pref_enable_systemless_key));
-        SystemlessPref.setOnPreferenceChangeListener((preference, newValue) -> {
-            // Get device systemless mode
-            AbstractSystemlessMode systemlessMode = SystemlessUtils.getSystemlessMode();
-            // Check if systemless is supported
-            if (!systemlessMode.isSupported()) {
-                return false;
-            }
-            // Declare successful action status
-            boolean successful;
-            // Check action to apply
-            if (newValue.equals(true)) {
-                // Enable systemless mode
-                successful = systemlessMode.enable(context);
-                // Check if reboot is needed
-                if (successful && systemlessMode.isRebootNeededAfterActivation()) {
-                    Utils.rebootQuestion(context, R.string.enable_systemless_successful_title,
-                            R.string.enable_systemless_successful);
-                }
-            } else {
-                // Disable systemless mode
-                successful = systemlessMode.disable(context);
-                // Check if reboot is needed
-                if (successful && systemlessMode.isRebootNeededAfterDeactivation()) {
-                    Utils.rebootQuestion(context, R.string.disable_systemless_successful_title,
-                            R.string.disable_systemless_successful);
-                }
-            }
-            // Return successful action status
-            return successful;
         });
 
         /*
@@ -124,9 +82,6 @@ public class PrefsFragment extends PreferenceFragmentCompat {
             }
             return true;
         });
-
-        // Find systemless mode preferences
-        mSystemless = (CheckBoxPreference) getPreferenceScreen().findPreference(getString(R.string.pref_enable_systemless_key));
 
         // find custom target edit
         mCustomTarget = (EditTextPreference) getPreferenceScreen().findPreference(
@@ -176,37 +131,6 @@ public class PrefsFragment extends PreferenceFragmentCompat {
             webServerOnBoot.setEnabled(true);
             updateCheckDaily.setSummary(R.string.pref_update_check_daily_summary);
             webServerOnBoot.setSummary(R.string.pref_webserver_on_boot_summary);
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        // Check preference if systemless mode is enabled
-        new SystemlessCheckTask().execute();
-    }
-
-    /**
-     * This class is an async task to check systemless mode status.
-     *
-     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
-     */
-    private class SystemlessCheckTask extends AsyncTask<Void, Void, AbstractSystemlessMode> {
-        @Override
-        protected AbstractSystemlessMode doInBackground(Void... params) {
-            // Retrieve the systemless mode
-            return SystemlessUtils.getSystemlessMode();
-        }
-
-        @Override
-        protected void onPostExecute(AbstractSystemlessMode systemlessMode) {
-            // Ensure reference exists
-            if (mSystemless == null) {
-                return;
-            }
-            // Enable setting and set initial value
-            mSystemless.setEnabled(systemlessMode.isSupported());
-            mSystemless.setChecked(systemlessMode.isEnabled(PrefsFragment.this.getActivity()));
         }
     }
 }

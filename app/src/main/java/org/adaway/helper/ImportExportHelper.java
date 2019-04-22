@@ -67,11 +67,11 @@ public class ImportExportHelper {
     /**
      * The request code to identify the write external storage permission in {@link androidx.fragment.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
      */
-    public static final int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 10;
+    public static final int WRITE_STORAGE_PERMISSION_REQUEST_CODE = 10;
     /**
      * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
      */
-    public static final int REQUEST_CODE_IMPORT = 42;
+    public static final int IMPORT_REQUEST_CODE = 42;
     /**
      * The default backup file name.
      */

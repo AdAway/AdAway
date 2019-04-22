@@ -33,6 +33,10 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/dschuermann/html-textview  
   Apache License v2
 
+* libsu 
+  https://github.com/topjohnwu/libsu  
+  Apache License v2
+
 * Lightweight-Stream-API  
   https://github.com/aNNiMON/Lightweight-Stream-API  
   Apache License v2
@@ -43,10 +47,6 @@ If not, see <https://www.gnu.org/licenses/>.
 
 * OkHttp  
   https://github.com/square/okhttp  
-  Apache License v2
-
-* RootCommands  
-  https://github.com/dschuermann/root-commands  
   Apache License v2
 
 * Sentry Java  

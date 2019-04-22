@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -22,12 +22,16 @@ package org.adaway.util;
 
 import android.content.Context;
 
-import org.sufficientlysecure.rootcommands.Shell;
-import org.sufficientlysecure.rootcommands.Toolbox;
-import org.sufficientlysecure.rootcommands.command.SimpleExecutableCommand;
+import static org.adaway.util.Constants.WEBSERVER_EXECUTABLE;
+import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
+import static org.adaway.util.ShellUtils.killBundledExecutable;
+import static org.adaway.util.ShellUtils.runBundledExecutable;
 
-import java.io.IOException;
-
+/**
+ * This class is an utility class to control web server execution.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class WebServerUtils {
     /**
      * Start the web server in new thread with RootTools
@@ -37,48 +41,15 @@ public class WebServerUtils {
     public static void startWebServer(Context context) {
         Log.d(Constants.TAG, "Starting web server...");
 
-        Shell shell = null;
-        try {
-            shell = Shell.startRootShell();
-            SimpleExecutableCommand webServerCommand = new SimpleExecutableCommand(
-                    context,
-                    Constants.WEBSERVER_EXECUTABLE,
-                    " > /dev/null 2>&1 &"
-            );
-            shell.add(webServerCommand).waitForFinish();
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while starting web server", e);
-        } finally {
-            if (shell != null) {
-                try {
-                    shell.close();
-                } catch (IOException exception) {
-                    Log.d(Constants.TAG, "Error while closing root shell.", exception);
-                }
-            }
-        }
+        String parameters = " > /dev/null 2>&1";
+        runBundledExecutable(context, WEBSERVER_EXECUTABLE, parameters);
     }
 
     /**
      * Stop the web server.
      */
     public static void stopWebServer() {
-        Shell shell = null;
-        try {
-            shell = Shell.startRootShell();
-            Toolbox tb = new Toolbox(shell);
-            tb.killAllExecutable(Constants.WEBSERVER_EXECUTABLE);
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while killing web server", e);
-        } finally {
-            if (shell != null) {
-                try {
-                    shell.close();
-                } catch (IOException exception) {
-                    Log.d(Constants.TAG, "Error while closing root shell.", exception);
-                }
-            }
-        }
+        killBundledExecutable(WEBSERVER_EXECUTABLE);
     }
 
     /**
@@ -87,26 +58,6 @@ public class WebServerUtils {
      * @return <code>true</code> if webs server is running, <code>false</code> otherwise.
      */
     public static boolean isWebServerRunning() {
-        boolean running = false;
-        Shell shell = null;
-        try {
-            shell = Shell.startRootShell();
-            Toolbox tb = new Toolbox(shell);
-
-            if (tb.isBinaryRunning(Constants.WEBSERVER_EXECUTABLE)) {
-                running = true;
-            }
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Exception while checking web server process", e);
-        } finally {
-            if (shell != null) {
-                try {
-                    shell.close();
-                } catch (IOException exception) {
-                    Log.d(Constants.TAG, "Error while closing root shell.", exception);
-                }
-            }
-        }
-        return running;
+        return isBundledExecutableRunning(WEBSERVER_EXECUTABLE);
     }
 }
