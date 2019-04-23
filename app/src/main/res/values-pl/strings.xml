@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Połączenie z Internetem niedostępne</string>
     <string name="status_download_fail">Źródła niedostępne</string>
     <string name="status_download_fail_subtitle_new">Wszystkie źródła są nieosiągalne!</string>
+    <string name="status_root_access_denied">Odmowa dostępu do root</string>
+    <string name="status_root_access_denied_subtitle">Zezwól na dostęp root z aplikacji root</string>
     <string name="status_failure">Coś poszło nie tak</string>
     <string name="status_failure_subtitle">Sprawdź kod logcat, aby uzyskać więcej informacji</string>
     <string name="status_enabled">Włączone</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Stosowanie pliku hosts</string>
     <string name="apply_fail">Stosowanie pliku hosts zakończone niepowodzeniem!\nSpróbuj zmienić w ustawieniach plik docelowy hosts na /data/data/hosts.</string>
     <string name="apply_fail_title">Zastosowanie nieudane</string>
+    <string name="root_access_fail">Sprawdź aplikację zarządzania rootem, aby upewnić się, że przyznano dostęp root.</string>
     <string name="revert_successful">Powróciłeś do domyślnego pliku hosts.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
     <string name="revert_successful_title">Przywracanie wykonane prawidłowo</string>
     <string name="revert_problem">Przywracanie zakończone niepowodzeniem z nieznanych przyczyn.</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">Użyj ciemnego motywu zamiast jasnego</string>
     <string name="pref_dark_theme_notification">Motyw zostanie zastosowany przy następnym uruchomieniu aplikacji!</string>
     <string name="pref_hosts">Plik hosts</string>
-    <string name="pref_redirection_ip">Przekierowanie do IP</string>
     <string name="pref_update_check">Szukaj aktualizacji</string>
     <string name="pref_apply_method">Docelowy plik hosts</string>
     <string name="pref_apply_method_summary">Zanim zmienisz to ustawienie, przeczytaj pomoc dotyczącą tej funkcjonalności.</string>
-    <string name="pref_redirection_ip_summary">Wszystkie blokowane nazwy hostów będą przekierowywane na ten adres IP.</string>
+    <string name="pref_redirection_ipv4">Przekierowanie IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Wszystkie zablokowane nazwy hostów są przekierowywane na ten adres IPv4.</string>
+    <string name="pref_redirection_ipv6">Przekierowanie IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Wszystkie zablokowane nazwy hostów są przekierowywane na ten adres IPv6.</string>
     <string name="pref_header_preferences">Ustawienia</string>
     <string name="pref_header_preferences_summary">Ustawienia główne AdAway</string>
     <string name="pref_never_reboot">Ukryj komunikat o restarcie</string>
@@ -239,7 +244,7 @@
     <string name="pref_enable_telemetry">Włącz raporty o awariach</string>
     <string name="pref_enable_telemetry_summary">Pozwól aplikacji wysyłać błędy i raporty o awariach do Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Włącz IPv6</string>
-    <string name="pref_enable_ipv6_summary">Wszystkie wpisy plików hosta są odpowiednie :: 1 (IPv6 localhost).</string>
+    <string name="pref_enable_ipv6_summary">Wszystkie wpisy pliku hosta otrzymają odpowiedni wpis przekierowania.</string>
     <string name="pref_enable_systemless_summary">Zapobiegaj modyfikowaniu partycji systemowej przez AdAway</string>
     <string name="pref_enable_systemless">Włącz tryb systemless</string>
     <string name="pref_edit_text_value">Edytuj wartość preferencji tekstu</string>
