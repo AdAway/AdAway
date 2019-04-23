@@ -21,7 +21,7 @@ import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.adaway.util.Constants.DOWNLOADED_HOSTS_FILENAME;
+import static org.adaway.util.Constants.HOSTS_FILENAME;
 import static org.adaway.util.Constants.TAG;
 
 /**
@@ -39,7 +39,7 @@ public class RuleDatabase {
     /**
      * Package-private constructor for instance and unit tests.
      */
-    RuleDatabase() {
+    private RuleDatabase() {
         this.blacklist = new HashSet<>();
     }
 
@@ -68,7 +68,7 @@ public class RuleDatabase {
      */
     public synchronized void initialize(Context context) {
         this.blacklist.clear();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(context.openFileInput(DOWNLOADED_HOSTS_FILENAME)))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(context.openFileInput(HOSTS_FILENAME)))) {
             HostsParser hostsParser = new HostsParser(reader, false, false);
             this.blacklist.addAll(hostsParser.getBlacklist());
         } catch (FileNotFoundException exception) {
