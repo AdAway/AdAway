@@ -3,7 +3,6 @@ package org.adaway.util;
 import android.content.Context;
 
 import com.topjohnwu.superuser.Shell;
-import com.topjohnwu.superuser.io.SuFile;
 
 import java.io.File;
 import java.util.List;
@@ -47,17 +46,6 @@ public final class ShellUtils {
 
     public static void killBundledExecutable(String executable) {
         Shell.su("killall " + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX).exec();
-    }
-
-    public static SuFile resolveSymlink(SuFile file) {
-        if (!file.isSymlink()) {
-            return file;
-        }
-        Shell.Result result = Shell.su("readlink -e " + file.getAbsolutePath()).exec();
-        if (!result.isSuccess()) {
-            return file;
-        }
-        return new SuFile(getFirstLine(result.getOut()));
     }
 
     public static boolean remountPartition(File file, MountType type) {

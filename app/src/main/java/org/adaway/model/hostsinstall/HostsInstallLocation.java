@@ -12,7 +12,6 @@ import java.util.Objects;
 import static org.adaway.util.Constants.ANDROID_DATA_DATA_HOSTS;
 import static org.adaway.util.Constants.ANDROID_DATA_HOSTS;
 import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
-import static org.adaway.util.ShellUtils.resolveSymlink;
 
 /**
  * This class is the model to represent hosts file installation location.
@@ -63,7 +62,8 @@ public enum HostsInstallLocation {
 
     public boolean requireSymlink(Context context) {
         String target = this.getTarget(context);
-        SuFile file = resolveSymlink(new SuFile(target));
-        return !file.getAbsolutePath().equals(ANDROID_SYSTEM_ETC_HOSTS);
+        // Resolve symlink
+        target = new SuFile(target).getCanonicalPath();
+        return !target.equals(ANDROID_SYSTEM_ETC_HOSTS);
     }
 }

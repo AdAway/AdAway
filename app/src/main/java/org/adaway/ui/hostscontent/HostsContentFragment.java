@@ -33,7 +33,6 @@ import java.lang.ref.WeakReference;
 import java.util.function.Consumer;
 
 import static org.adaway.util.ShellUtils.remountPartition;
-import static org.adaway.util.ShellUtils.resolveSymlink;
 
 /**
  * This class is a {@link Fragment} to explains and display the hosts files.
@@ -80,13 +79,13 @@ public class HostsContentFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == EDIT_HOSTS_AND_REMOUNT_REQUEST_CODE) {
-            SuFile hostFile = resolveSymlink(new SuFile(Constants.ANDROID_SYSTEM_ETC_HOSTS));
+            SuFile hostFile = new SuFile(Constants.ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
             remountPartition(hostFile, MountType.READ_ONLY);
         }
     }
 
     private void openHostsFile() {
-        SuFile hostFile = resolveSymlink(new SuFile(Constants.ANDROID_SYSTEM_ETC_HOSTS));
+        SuFile hostFile = new SuFile(Constants.ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
         boolean remount = !hostFile.canWrite() && remountPartition(hostFile, MountType.READ_WRITE);
         try {
             Intent intent = new Intent()

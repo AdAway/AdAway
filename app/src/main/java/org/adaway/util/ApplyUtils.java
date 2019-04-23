@@ -117,7 +117,10 @@ public class ApplyUtils {
              * If custom target like /data/etc/hosts is set, create missing directories for writing
              * this file
              */
-            createDirectories(targetFile);
+            SuFile parentFile = targetFile.getParentFile();
+            if (!parentFile.isDirectory() && !parentFile.mkdirs()) {
+                throw new CommandException("Failed to create directories: " + parentFile);
+            }
         }
 
         /* check for space on partition */
@@ -204,23 +207,6 @@ public class ApplyUtils {
         String read = out.get(0);
         Log.d(TAG, "symlink: " + read + "; target: " + target);
         return read.equals(target);
-    }
-
-    /**
-     * Create directories if missing, if /data/etc/hosts is set as target, this creates /data/etc/
-     * directories. Needs RW on partition!
-     *
-     * @throws CommandException If the directories could not be created.
-     */
-    private static void createDirectories(SuFile file) throws CommandException {
-        SuFile parent = file.getParentFile();
-        if (!parent.isDirectory()) {
-            String path = parent.getAbsolutePath();
-            Shell.Result exec = Shell.su("mkdir -p " + path).exec();
-            if (!exec.isSuccess()) {
-                throw new CommandException("Failed to create directories: " + path);
-            }
-        }
     }
 
     /**
