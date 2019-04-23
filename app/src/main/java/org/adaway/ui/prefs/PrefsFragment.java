@@ -11,6 +11,7 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.hostsinstall.HostsInstallLocation;
 import org.adaway.service.hosts.UpdateService;
 import org.adaway.util.Constants;
 import org.adaway.util.SentryLog;
@@ -34,7 +35,7 @@ public class PrefsFragment extends PreferenceFragmentCompat {
         this.getPreferenceManager().setSharedPreferencesName(Constants.PREFS_NAME);
         this.addPreferencesFromResource(R.xml.preferences);
         // Get current context
-        Context context = this.getActivity();
+        Context context = this.getContext();
 
         /*
          * Display notification on theme change to tell user to restart application.
@@ -88,7 +89,7 @@ public class PrefsFragment extends PreferenceFragmentCompat {
                 getString(R.string.pref_custom_target_key));
 
         // enable custom target pref on create if enabled in apply method
-        if (PreferenceHelper.getInstallLocation(context).equals("customTarget")) {
+        if (PreferenceHelper.getInstallLocation(context).equals(HostsInstallLocation.CUSTOM_TARGET)) {
             mCustomTarget.setEnabled(true);
         } else {
             mCustomTarget.setEnabled(false);
