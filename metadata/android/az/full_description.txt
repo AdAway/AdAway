@@ -1,7 +1,7 @@
 Bloklayıcı hosts faylı dan istifadə edir
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Hosts faylı IP ünvanları və host adlarının yönləndirilmələrinin siyahısını ehtiva edən sistem faylıdır.
+Hər hansı tətbiq həmin host faylından reklam çağırarkən həmin çağırış heç bir şey etməyən yerli IP 127.0.0.1 ünvanına ötürülür.
+Əvvəlcədən hazırlanmış hosts fayllarını yükləyə yaxud öz hosts fayllarınızı ağ və qara siyahılara atıb sistem faylına tətbiq edə bilərsiniz.
+Yerli server açıb bloklanmış host adlarına cavab vermə və öz seçiminzə görə olan IP ünvanlarına yönlədirmə imkanlarınız da var.
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+Root vacibdir: Bəli. Hosts faylı standart halda yalnız oxuna bilən /system'də yerləşir.
