@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Няма налична връзка с интернет</string>
     <string name="status_download_fail">Не са налични източници</string>
     <string name="status_download_fail_subtitle_new">Няма достъпни източници на Hosts!</string>
+    <string name="status_root_access_denied">Root правата са отказани</string>
+    <string name="status_root_access_denied_subtitle">Позволяване на root права от Вашето root приложение</string>
     <string name="status_failure">Нещо се обърка</string>
     <string name="status_failure_subtitle">Проверете дневника за повече подробности</string>
     <string name="status_enabled">Активиран</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Прилагане на Hosts файла</string>
     <string name="apply_fail">Прилагането на Hosts файла във вашата система е неуспешно!\nОпитайте да промените целевия Hosts файл в настройките на /data/data/hosts.</string>
     <string name="apply_fail_title">Неуспешно прилагане</string>
+    <string name="root_access_fail">Моля проверете Вашето root приложение за управление, за да сте сигурни, че root правата са дадени.</string>
     <string name="revert_successful">Върнахте Hosts файла по подразбиране.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че в момента никое приложение не използва SD картата!)</string>
     <string name="revert_successful_title">Връщането е успешно</string>
     <string name="revert_problem">Връщането се провали по неизвестни причини.</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">Използване на тъмна тема вместо светла</string>
     <string name="pref_dark_theme_notification">Темата ще бъде приложена при следващото стартиране на приложението!</string>
     <string name="pref_hosts">Hosts файл</string>
-    <string name="pref_redirection_ip">IP за пренасочване</string>
     <string name="pref_update_check">Проверка за актуализации</string>
     <string name="pref_apply_method">Целеви Hosts файл</string>
     <string name="pref_apply_method_summary">Преди да промените тази настройка, прочетете в Помощ за тази функционалност.</string>
-    <string name="pref_redirection_ip_summary">Всички блокирани имена на хостове се пренасочват към този IP адрес.</string>
+    <string name="pref_redirection_ipv4">Пренасочващ IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Всички блокирани имена на хостове се пренасочват към този IPv4 адрес.</string>
+    <string name="pref_redirection_ipv6">Пренасочващ IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Всички блокирани имена на хостове се пренасочват към този IPv6 адрес.</string>
     <string name="pref_header_preferences">Настройки</string>
     <string name="pref_header_preferences_summary">Общи предпочитания за AdAway</string>
     <string name="pref_never_reboot">Скриване на предложението за рестартиране</string>
@@ -239,7 +244,7 @@
     <string name="pref_enable_telemetry">Включване на доклади за сривове</string>
     <string name="pref_enable_telemetry_summary">Позволете на приложението да изпраща доклади за грешки и сривове на Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Включване на IPv6</string>
-    <string name="pref_enable_ipv6_summary">Всички записи в Host файла ще получат съответен запис ::1 (IPv6 localhost).</string>
+    <string name="pref_enable_ipv6_summary">Всички записи във файла с хостове ще получат съответен пренасочващ запис.</string>
     <string name="pref_enable_systemless_summary">Предотвратяване промяната на системния дял от AdAway</string>
     <string name="pref_enable_systemless">Включване на режим systemless</string>
     <string name="pref_edit_text_value">Редактиране стойност на предпочитания за текст</string>
