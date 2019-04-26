@@ -11,11 +11,11 @@
     <string name="button_add">Ekle</string>
     <string name="button_cancel">İptal</string>
     <string name="button_save">Kaydet</string>
-    <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat yada durdur.</string>
+    <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat ya da durdur.</string>
     <string name="button_help">Yardım</string>
 
     <!--Home-->
-    <string name="header_help">Hoşgeldiniz!</string>
+    <string name="header_help">Hoş geldiniz!</string>
     <string name="text_help">AdAway, reklamları engellemek için ücretsiz ve açık kaynaklı bir yazılım tasarımdır. Cihazınızda bunları engellemek için reklam ağı adresleri getirir.\nDaha fazlasını öğrenmek ister misiniz? Aşağıdaki yardımı kontrol edin!</string>
     <string name="button_show_help">Daha fazla yardım göster</string>
     <string name="icon_update_status">Güncelleme durumu</string>
@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
     <string name="status_download_fail">Kullanılamayan kaynaklar</string>
     <string name="status_download_fail_subtitle_new">Hiçbir host kaynağına ulaşılamadı.</string>
+	<string name="status_root_access_denied">Kök erişimi reddedildi</string>
+    <string name="status_root_access_denied_subtitle">Kök uygulamanızdan Adaway\'ın kök erişimine izin verin</string>
     <string name="status_failure">Bir şeyler yanlış gitti</string>
     <string name="status_failure_subtitle">Daha fazla bilgi için logcat\'i kontrol edin</string>
     <string name="status_enabled">Etkin</string>
@@ -102,7 +104,7 @@
     <string name="apply_symlink_fail">Symlink Android tarafından oluşturulamadı.\nBu HTC telefonlarında S-ON adlı bir \'özellik\' nedeniyle başarısız oluyor!\n\nBunun bir çözümü, telefonunuzu kurtarma moduna geçirmek ve orada \'ln -s /data/data/hosts /system/etc/hosts\'\' ile sembolik bağlantı oluşturmaktır.\n\nBu işe yaramazsa, internette cihazınız ve S-OFF ile ilgili araştırma yapınız.</string>
     <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
     <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
-    <string name="apply_apn_proxy">Androidinizde bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz.Seçtiğiniz APN\'ye giderek bu proxy\'yi devre dışı bırakabilirsiniz (Ayarlar uygulamasından: Ağ ve İnternet -> Mobil şebeke -> Gelişmiş -> Erişim Noktası İsimleri) ve proxy alanındaki değeri kaldırın.</string>
+    <string name="apply_apn_proxy">Androidinizde bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz. Seçtiğiniz APN\'ye giderek bu proxy\'yi devre dışı bırakabilirsiniz (Ayarlar uygulamasından: Ağ ve İnternet -> Mobil şebeke -> Gelişmiş -> Erişim Noktası İsimleri) ve proxy alanındaki değeri kaldırın.</string>
     <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
     <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
     <string name="no_connection_title">Bağlantı Yok</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
     <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
     <string name="apply_fail_title">Uygulama başarısız</string>
+	<string name="root_access_fail">Kök erişiminin verilmiş olduğundan emin olmak için lütfen kök yönetim uygulamanızı kontrol edin.</string>
     <string name="revert_successful">Varsayılan host dosyasına geri döndünüz.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz??\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
     <string name="revert_successful_title">Geri alma başarılı!</string>
     <string name="revert_problem">Geri alma işlemi bilinmeyen nedenlerden dolayı başarısız oldu.</string>
@@ -129,13 +132,13 @@
 
     <!--Other Dialogs-->
     <string name="no_root_description">Su binary dosyası bulunamadı veya AdAway için kök erişimi izni sağlanmadı.\n\nEğer cihazınızda kök erişimi sağlanmadıysa bu yaşanabilir.\nDetaylı bilgi ve cihazınızda nasıl kök erişimi sağlanacağını öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
-    <string name="no_root_title">Root izni gereklidir</string>
+    <string name="no_root_title">Kök izni gereklidir</string>
     <string name="hosts_add_dialog">Host dosyasına URL gir:</string>
     <string name="no_hostname">Geçersiz host adı!</string>
     <string name="no_hostname_title">Hatalı host adı!</string>
     <string name="no_ip">Bu geçerli bir IP değildir!</string>
     <string name="no_ip_title">Uygunsuz biçimlendirilmiş IP</string>
-    <string name="reboot_never_reboot">Asla yeniden başlatma ve bir daha ki sefere bu soruyu gösterme!</string>
+    <string name="reboot_never_reboot">Asla yeniden başlatma ve bir dahaki sefere bu soruyu gösterme!</string>
     <string name="loading">Yükleniyor...</string>
 
     <!--Menu entries-->
@@ -159,7 +162,7 @@
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Yerel:</string>
-    <string name="hosts_last_modified_online">Çevrim içi:</string>
+    <string name="hosts_last_modified_online">Çevrimiçi:</string>
     <string name="hosts_not_available">Uygun değil</string>
     <string name="hosts_add_dialog_title">Kaynak ekle</string>
     <string name="hosts_edit_dialog_title">Kaynak düzenle</string>
@@ -175,7 +178,7 @@
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arkaplanda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
+    <string name="tcpdump_description">Tcpdump, DNS isteklerini izleyip bir log dosyasına kaydeden bir araçtır. Aracı arka planda bırakıp reklam gösteren programı çalıştırdıktan sonra log dosyasından programın DNS isteklerini inceleyebilirsiniz. Böylece olası reklam sunucularını karalisteye ekleyebilirsiniz.</string>
     <string name="tcpdump_disable_monitoring">İzlemeyi devre dışı bırak</string>
     <string name="tcpdump_enable_monitoring">İzlemeyi etkinleştir</string>
     <string name="tcpdump_show_results">Sonuçları göster</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">Aydınlık yerine koyu temayı kullanın</string>
     <string name="pref_dark_theme_notification">Tema bir sonraki uygulama başlangıcında uygulanacaktır!</string>
     <string name="pref_hosts">Hosts Dosyası</string>
-    <string name="pref_redirection_ip">IP Yönlendirme</string>
-    <string name="pref_update_check">Güncellemeleri kontrol et</string>
-    <string name="pref_apply_method">Hedef Hosts dosyası</string>
+	<string name="pref_update_check">Güncellemeleri kontrol</string>
+	<string name="pref_apply_method">Hedef Hosts dosyası</string>
     <string name="pref_apply_method_summary">Bu ayarı değiştirmeden önce, bu işlevsellik hakkındaki yardımı okuyun.</string>
-    <string name="pref_redirection_ip_summary">Tüm engellenmiş adresler bu IP adresine yönlendirilir.</string>
+	<string name="pref_redirection_ipv4">IPv4 yönlendirmesi</string>
+    <string name="pref_redirection_ipv4_summary">Engellenen tüm ana bilgisayar adları bu IPv4 adresine yönlendirilir.</string>
+	<string name="pref_redirection_ipv6">IPv6 yönlendirmesi</string>
+    <string name="pref_redirection_ipv6_summary">Engellenen tüm ana bilgisayar adları bu IPv6 adresine yönlendirilir.</string>
     <string name="pref_header_preferences">Tercihler</string>
     <string name="pref_header_preferences_summary">AdAway için genel tercihler</string>
     <string name="pref_never_reboot">Yeniden başlatma diyaloğunu gizle</string>
@@ -226,7 +231,7 @@
     <string name="pref_update_check_daily">Güncellemeleri günlük denetle</string>
     <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
     <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
-    <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
+    <string name="pref_automatic_update_daily_summary">Güncelleme varsa arka planda otomatik güncelleme yap.</string>
     <string name="pref_update_only_on_wifi">Sadece tarifeli bağlantı değilse güncelle</string>
     <string name="pref_update_only_on_wifi_summary">Arka plan güncellemelerini yalnızca veri sınırı olmayan bir ağa bağlıysa çalıştır.</string>
     <string name="pref_whitelist_rules">Beyaz Liste\'ye izin ver</string>
@@ -264,10 +269,10 @@
     <string name="drawer_support_dialog_button">Bana desteğinizi gösterin</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetry</string>
+    <string name="dialog_telemetry_title">Telemetri</string>
     <string name="dialog_telemetry_message">Merhaba sevgili kullanıcı,\n\nArtık çökme raporlarınızı ve temel kullanım bilgilerinizi paylaşarak AdAway\'in geliştirilmesine katkıda bulunabilirsiniz. Tüm veriler anonimdir ve telemetri yalnızca kabul ederseniz etkinleştirilir.\n\nDaha detaylı bilgileri <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">Github</a>\'da bulabilirsiniz.</string>
     <string name="dialog_telemetry_enable">Elbette, yardımcı olduğum için mutluyum!</string>
-    <string name="dialog_telemetry_disable">Hayır teşekkürler</string>
+    <string name="dialog_telemetry_disable">Hayır, teşekkürler.</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS istekleri</string>
