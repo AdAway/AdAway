@@ -1,1 +1,1 @@
-AdAway, host dosyasını kullanarak Android için açık kaynaklı bir reklam engelleyicisidir
+AdAway, Androidlerde host dosyasını kullanarak reklam engelleyen, açık kaynaklı bir uygulamadır.
