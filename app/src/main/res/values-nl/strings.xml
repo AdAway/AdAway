@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Geen internetverbinding beschikbaar</string>
     <string name="status_download_fail">Bronnen zijn niet beschikbaar</string>
     <string name="status_download_fail_subtitle_new">Geen bereikbare hosts-bronnen!</string>
+    <string name="status_root_access_denied">Root toegang geweigerd</string>
+    <string name="status_root_access_denied_subtitle">Root toegang toestaan</string>
     <string name="status_failure">Er ging iets mis</string>
     <string name="status_failure_subtitle">Bekijk de logcat voor details</string>
     <string name="status_enabled">Ingeschakeld</string>
@@ -122,6 +124,7 @@ Wilt u herstarten?
     <string name="apply_dialog_apply">Hosts-bestand plaatsen</string>
     <string name="apply_fail">Het plaatsen van het hosts-bestand is mislukt!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
     <string name="apply_fail_title">Hosts-bestand plaatsen mislukt</string>
+    <string name="root_access_fail">Controleer uw Root app om zeker te zijn dat Root toegang is toegestaan.</string>
     <string name="revert_successful">U hebt het standaard hosts bestand teruggezet. Het kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben. Wilt u herstarten? (Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
     <string name="revert_successful_title">Terugzetten voltooid</string>
     <string name="revert_problem">Terugzetten is door onbekende redenen mislukt.</string>
@@ -205,11 +208,13 @@ Wilt u herstarten?
     <string name="pref_dark_theme_summary">Gebruik donker thema in plaats van het lichte thema</string>
     <string name="pref_dark_theme_notification">Thema zal toegepast worden na het opnieuw starten van Adaway!</string>
     <string name="pref_hosts">Hosts-bestand</string>
-    <string name="pref_redirection_ip">Doorverwijzings-IP</string>
     <string name="pref_update_check">Controleren op updates</string>
     <string name="pref_apply_method">Locatie van hosts-bestand</string>
     <string name="pref_apply_method_summary">Lees de hulp over deze functie voordat u dit aanpast.</string>
-    <string name="pref_redirection_ip_summary">Alle geblokkeerde hostnamen worden doorverwezen naar dit IP-adres.</string>
+    <string name="pref_redirection_ipv4">Redirection IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Alle geblokkeerde hostnamen worden doorgestuurd naar dit IPv4 adres.</string>
+    <string name="pref_redirection_ipv6">Redirect IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Alle geblokkeerde hostnamen worden doorgestuurd naar dit IPv6 adres.</string>
     <string name="pref_header_preferences">Voorkeuren</string>
     <string name="pref_header_preferences_summary">Algemene voorkeuren voor AdAway</string>
     <string name="pref_never_reboot">Verberg het herstart-dialoogvenster</string>
@@ -248,7 +253,7 @@ Wilt u herstarten?
     <string name="pref_enable_telemetry">Crash rapporten inschakelen</string>
     <string name="pref_enable_telemetry_summary">Toestaan dat de applicatie fouten en crash verslagen naar Sentry (sentry.io) zendt</string>
     <string name="pref_enable_ipv6">IPv6 inschakelen</string>
-    <string name="pref_enable_ipv6_summary">Aan alle adressen in het hosts-bestand wordt ::1 (de IPv6-versie van localhost) toegevoegd.</string>
+    <string name="pref_enable_ipv6_summary">Alle host file items zullen een corresponderend doorstuur adres krijgen.</string>
     <string name="pref_enable_systemless_summary">Voorkomt dat AdAway de systeempartitie aanpast</string>
     <string name="pref_enable_systemless">Systeemloze modus inschakelen</string>
     <string name="pref_edit_text_value">Wijzig tekst voorkeurswaarde</string>
