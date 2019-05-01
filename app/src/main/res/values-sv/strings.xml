@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Ingen internetanslutning tillgänglig</string>
     <string name="status_download_fail">Otillgängliga källor</string>
     <string name="status_download_fail_subtitle_new">Inga värdkällor är nåbara!</string>
+    <string name="status_root_access_denied">Root-åtkomst nekad</string>
+    <string name="status_root_access_denied_subtitle">Tillåt root-åtkomst från din root-app</string>
     <string name="status_failure">Något gick fel</string>
     <string name="status_failure_subtitle">Titta i logcat för fler detaljer</string>
     <string name="status_enabled">Aktiverad</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">TIllämpar värdfil</string>
     <string name="apply_fail">Tillämpning av värdfil på systemet misslyckades!\nFörsök ändra målvärdfil i inställningarna till /data/data/hosts.</string>
     <string name="apply_fail_title">Tillämpning misslyckades</string>
+    <string name="root_access_fail">Kontrollera din root-hanteringsapp för att säkerställa att root-åtkomst har beviljats.</string>
     <string name="revert_successful">Du har återgått till standard värdfil.\nDet kan vara nödvändigt att starta om Android för ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att förhindra förlust av data, se till att SD-kortet inte används av en app!) </string>
     <string name="revert_successful_title">Återställning lyckades</string>
     <string name="revert_problem">Återställningen misslyckades av okända skäl.</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">Använd mörkt tema i stället för det ljusa</string>
     <string name="pref_dark_theme_notification">Temat kommer att ändras vid nästa applikationsstart</string>
     <string name="pref_hosts">Värdfil</string>
-    <string name="pref_redirection_ip">Omdirigerings-IP</string>
     <string name="pref_update_check">Sök efter uppdateringar</string>
     <string name="pref_apply_method">Målvärdfil</string>
     <string name="pref_apply_method_summary">Innan du ändrar denna inställning läs i hjälpen om funktionen.</string>
-    <string name="pref_redirection_ip_summary">Alla blockerade värdnamn omdirigeras till denna IP-adress.</string>
+    <string name="pref_redirection_ipv4">Omdirigering IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Alla blockerade värdnamn omdirigeras till denna IPv4-adress.</string>
+    <string name="pref_redirection_ipv6">Omdirigering IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Alla blockerade värdnamn omdirigeras till denna IPv6-adress.</string>
     <string name="pref_header_preferences">Inställningar</string>
     <string name="pref_header_preferences_summary">Allmänna inställningar för AdAway</string>
     <string name="pref_never_reboot">Göm omstartsdialog</string>
@@ -240,7 +245,7 @@
     <string name="pref_enable_telemetry_summary">Tillåt att applikationen skickar fel- och kraschrapporter till Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Aktivera ipv6
 </string>
-    <string name="pref_enable_ipv6_summary">Alla värdfils poster kommer att få ett motsvarande ::1 (IPv6 localhost) post.</string>
+    <string name="pref_enable_ipv6_summary">Alla värdfilposter kommer att få en motsvarande omdirigeringspost.</string>
     <string name="pref_enable_systemless_summary">Förhindra AdAway från att modifiera systempartitionen </string>
     <string name="pref_enable_systemless">Aktivera systemlöst läge</string>
     <string name="pref_edit_text_value">Redigera textinställningsvärden</string>
