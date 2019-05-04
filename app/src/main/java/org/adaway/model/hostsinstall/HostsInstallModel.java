@@ -77,6 +77,10 @@ import static org.adaway.util.Constants.HOSTS_FILENAME;
  */
 public class HostsInstallModel extends Observable {
     /**
+     * The HTTP client cache size.
+     */
+    private static final long CACHE_SIZE = 100L * 1024L * 1024L;
+    /**
      * The application context.
      */
     private final Context context;
@@ -297,7 +301,7 @@ public class HostsInstallModel extends Observable {
     private OkHttpClient getHttpClient() {
         if (this.httpClient == null) {
             this.httpClient = new OkHttpClient.Builder()
-                    .cache(new Cache(context.getCacheDir(), 100 * 1024 * 1024))
+                    .cache(new Cache(this.context.getCacheDir(), CACHE_SIZE))
                     .build();
         }
         return this.httpClient;
