@@ -26,6 +26,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.LiveData;
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
@@ -35,9 +38,6 @@ import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
 import java.util.List;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.LiveData;
 
 /**
  * This class is a {@link AbstractListFragment} to display and manage white-listed hosts.
@@ -69,7 +69,7 @@ public class WhiteListFragment extends AbstractListFragment {
                             dialog.dismiss();
                             // Check hostname validity
                             String hostname = inputEditText.getText().toString();
-                            if (RegexUtils.isValidWhitelistHostname(hostname)) {
+                            if (RegexUtils.isValidWildcardHostname(hostname)) {
                                 // Insert host to whitelist
                                 this.mViewModel.addListItem(ListType.WHITE_LIST, hostname, null);
                             }
@@ -84,7 +84,7 @@ public class WhiteListFragment extends AbstractListFragment {
         alertDialog.show();
         // Set button validation behavior
         inputEditText.addTextChangedListener(
-                new AlertDialogValidator(alertDialog, RegexUtils::isValidWhitelistHostname, false)
+                new AlertDialogValidator(alertDialog, RegexUtils::isValidWildcardHostname, false)
         );
     }
 
@@ -112,7 +112,7 @@ public class WhiteListFragment extends AbstractListFragment {
                             dialog.dismiss();
                             // Check hostname validity
                             String hostname = inputEditText.getText().toString();
-                            if (RegexUtils.isValidWhitelistHostname(hostname)) {
+                            if (RegexUtils.isValidWildcardHostname(hostname)) {
                                 // Update list item
                                 this.mViewModel.updateListItem(item, hostname, null);
                             }
@@ -127,7 +127,7 @@ public class WhiteListFragment extends AbstractListFragment {
         alertDialog.show();
         // Set button validation behavior
         inputEditText.addTextChangedListener(
-                new AlertDialogValidator(alertDialog, RegexUtils::isValidWhitelistHostname, true)
+                new AlertDialogValidator(alertDialog, RegexUtils::isValidWildcardHostname, true)
         );
     }
 }

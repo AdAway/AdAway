@@ -172,7 +172,7 @@ public class HostsParser {
             }
             // Check hostname
             String hostname = mHostsParserMatcher.group(2);
-            if (!RegexUtils.isValidWhitelistHostname(hostname)) {
+            if (!RegexUtils.isValidWildcardHostname(hostname)) {
                 Log.d(Constants.TAG, "hostname is not valid: " + hostname);
                 continue;
             }
