@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">沒有可用的網路連線</string>
     <string name="status_download_fail">不可用的來源</string>
     <string name="status_download_fail_subtitle_new">無法連接遠端 hosts 來源伺服器！</string>
+    <string name="status_root_access_denied">Root 權限被拒絕</string>
+    <string name="status_root_access_denied_subtitle">從 root 應用程式允許 root 權限</string>
     <string name="status_failure">發生一些錯誤</string>
     <string name="status_failure_subtitle">檢視 logcat 以獲得更多詳細資料</string>
     <string name="status_enabled">啟用</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">合併 hosts 檔案</string>
     <string name="apply_fail">hosts 檔案修改失敗！\n請將設定中的 hosts 檔案目標修改為 /data/data/hosts。</string>
     <string name="apply_fail_title">建立失敗</string>
+    <string name="root_access_fail">請檢查您的 root 管理應用程式以確保已授予 root 權限。</string>
     <string name="revert_successful">已經還原為預設的 hosts 檔案了。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="revert_successful_title">還原成功</string>
     <string name="revert_problem">因未知原因還原失敗。</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">使用暗色主題而不是亮色主題</string>
     <string name="pref_dark_theme_notification">主題會在下次應用程式啟動時套用！</string>
     <string name="pref_hosts">Hosts 檔案</string>
-    <string name="pref_redirection_ip">重新導向 IP</string>
     <string name="pref_update_check">檢查更新</string>
     <string name="pref_apply_method">目標 hosts 檔案</string>
     <string name="pref_apply_method_summary">在修改設定前請閱讀說明來了解這項功能。</string>
-    <string name="pref_redirection_ip_summary">所有的封鎖主機名稱會被重新導向到這個IP位址。</string>
+    <string name="pref_redirection_ipv4">重新導向 IPv4</string>
+    <string name="pref_redirection_ipv4_summary">所有的封鎖主機名稱會被重新導向到這個 IPv4 位址。</string>
+    <string name="pref_redirection_ipv6">重新導向 IPv6</string>
+    <string name="pref_redirection_ipv6_summary">所有的封鎖主機名稱會被重新導向到這個 IPv6 位址。</string>
     <string name="pref_header_preferences">設定</string>
     <string name="pref_header_preferences_summary">AdAway 基本設定</string>
     <string name="pref_never_reboot">隱藏重新啟動對話框</string>
@@ -239,7 +244,7 @@
     <string name="pref_enable_telemetry">啟用當機回報</string>
     <string name="pref_enable_telemetry_summary">允許應用程式傳送錯誤和當機回報到 Sentry (sentry.io)。</string>
     <string name="pref_enable_ipv6">啟用 IPv6</string>
-    <string name="pref_enable_ipv6_summary">所有的 host 檔案項目將取得相同的 ::1 (IPv6 本地端) 項目。</string>
+    <string name="pref_enable_ipv6_summary">所有的 host 檔案項目將取得相應的重新導向項目。</string>
     <string name="pref_enable_systemless_summary">避免 Adaway 修改系統分割區</string>
     <string name="pref_enable_systemless">啟用 systemless 模式（將所需檔案安裝於系統分割區外）</string>
     <string name="pref_edit_text_value">編輯文字設定值</string>
