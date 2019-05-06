@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Keine Internetverbindung verfügbar</string>
     <string name="status_download_fail">Nicht verfügbare Quelle</string>
     <string name="status_download_fail_subtitle_new">Keine Hosts-Quellen erreichbar!</string>
+    <string name="status_root_access_denied">Root Zugriff verweigert</string>
+    <string name="status_root_access_denied_subtitle">Erlauben sie Root Zugriff aus ihrer Root App heraus.</string>
     <string name="status_failure">Ein Fehler ist aufgetreten</string>
     <string name="status_failure_subtitle">Logcat nach weiteren Details durchsuchen</string>
     <string name="status_enabled">Aktiviert</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Neue Hosts-Datei im System aktivieren</string>
     <string name="apply_fail">Das Ändern der Hosts-Datei auf Ihrem System ist fehlgeschlagen!\nVersuchen Sie bitte die Hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
     <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
+    <string name="root_access_fail">Bitte stellen sie in ihrer Root-Verwaltungssoftware sicher, dass dieser App Root Zugriff gewährt wurde.</string>
     <string name="revert_successful">Die originale Hosts-Datei wurde wiederhergestellt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, bitte feststellen, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
     <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
     <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">Dunkles Design anstelle des hellen verwenden.</string>
     <string name="pref_dark_theme_notification">Thema wird beim nächsten Anwendungsstart angewendet!</string>
     <string name="pref_hosts">Hosts-Datei</string>
-    <string name="pref_redirection_ip">Umleitungs-IP</string>
     <string name="pref_update_check">Nach Aktualisierungen suchen</string>
     <string name="pref_apply_method">Zu benutzende Hosts-Datei</string>
     <string name="pref_apply_method_summary">Bevor Sie diese Einstellung ändern, bitte die Hilfe zu dem Thema lesen.</string>
-    <string name="pref_redirection_ip_summary">Alle geblockten Hostnamen werden auf diese IP-Adresse umgeleitet.</string>
+    <string name="pref_redirection_ipv4">Umleitungs-IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Alle geblockten Hostnamen werden auf diese IPv4-Adresse umgeleitet. </string>
+    <string name="pref_redirection_ipv6">Umleitungs-IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Alle geblockten Hostnamen werden auf diese IPv6-Adresse umgeleitet. </string>
     <string name="pref_header_preferences">Einstellungen</string>
     <string name="pref_header_preferences_summary">Generelle AdAway-Einstellungen</string>
     <string name="pref_never_reboot">Neustartdialog verstecken</string>
@@ -239,7 +244,7 @@
     <string name="pref_enable_telemetry">Absturzberichte aktivieren</string>
     <string name="pref_enable_telemetry_summary">Der Anwendung erlauben, Fehler und Absturzberichte an Sentry (sentry.io) zu senden.</string>
     <string name="pref_enable_ipv6">IPv6 aktivieren</string>
-    <string name="pref_enable_ipv6_summary">Alle Einträge in der Host-Datei werden einen entsprechenden Eintrag ::1 (IPv6 localhost) erhalten.</string>
+    <string name="pref_enable_ipv6_summary">Alle Einträge in der Host-Datei werden einen entsprechenden Umleitungseintrag erhalten.</string>
     <string name="pref_enable_systemless_summary">Verhindern, dass AdAway das System modifiziert</string>
     <string name="pref_enable_systemless">Systemlosen Modus aktivieren</string>
     <string name="pref_edit_text_value">Textvorgaben bearbeiten</string>
