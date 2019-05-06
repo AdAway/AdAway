@@ -23,14 +23,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
+        android:backgroundTintMode="src_over"
+        android:tint="#000"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:srcCompat="@drawable/icon"
-        android:tint="#000"
-        android:backgroundTintMode="src_over"/>
+        app:srcCompat="@drawable/icon" />
 
     <TextView
         android:id="@+id/textView"
@@ -45,82 +45,101 @@
         app:layout_constraintStart_toEndOf="@+id/logoImageView"
         app:layout_constraintTop_toTopOf="@+id/frameLayout" />
 
-    <TextView
-        android:id="@+id/blockedHostTextView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/blockedHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:background="@drawable/host_badge"
         android:elevation="10dp"
-        android:padding="8dp"
-        android:text="X 250\nBlocked "
+        app:contentPadding="8dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toStartOf="@+id/badge1Space"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X 250\nBlocked " />
+
+    </androidx.cardview.widget.CardView>
 
     <Space
         android:id="@+id/badge1Space"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
-        app:layout_constraintEnd_toStartOf="@id/allowedHostTextView"
+        app:layout_constraintEnd_toStartOf="@id/allowedHostCardView"
         app:layout_constraintHorizontal_weight="0.2"
-        app:layout_constraintStart_toEndOf="@id/blockedHostTextView"
+        app:layout_constraintStart_toEndOf="@id/blockedHostCardView"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-    <TextView
-        android:id="@+id/allowedHostTextView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/allowedHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/host_badge"
         android:elevation="10dp"
-        android:padding="8dp"
-        android:text="V 12\nAllowed"
+        app:contentPadding="8dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toStartOf="@+id/badge2Space"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/badge1Space"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="V 12\nAllowed"/>
+    </androidx.cardview.widget.CardView>
 
     <Space
         android:id="@+id/badge2Space"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
-        app:layout_constraintEnd_toStartOf="@id/redirectHostTextView"
+        app:layout_constraintEnd_toStartOf="@id/redirectHostCardView"
         app:layout_constraintHorizontal_weight="0.2"
-        app:layout_constraintStart_toEndOf="@id/allowedHostTextView"
+        app:layout_constraintStart_toEndOf="@id/allowedHostCardView"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-    <TextView
-        android:id="@+id/redirectHostTextView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/redirectHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@drawable/host_badge"
         android:elevation="10dp"
-        android:padding="8dp"
-        android:text="> 2\nRedirected"
+        app:contentPadding="8dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/badge2Space"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="> 2\nRedirected" />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:cardCornerRadius="10dp"
         app:contentPadding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allowedHostTextView">
+        app:layout_constraintTop_toBottomOf="@+id/allowedHostCardView">
 
         <TextView
             android:id="@+id/textView2"
