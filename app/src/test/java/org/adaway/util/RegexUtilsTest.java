@@ -127,13 +127,13 @@ public class RegexUtilsTest {
         for (String validName : VALID_NAMES) {
             assertTrue(
                     "The hostname '" + validName + "' should be a valid white list host name.",
-                    RegexUtils.isValidWhitelistHostname(validName)
+                    RegexUtils.isValidWildcardHostname(validName)
             );
         }
         for (String wildcardName : VALID_WILDCARD_NAMES) {
             assertTrue(
                     "The wildcard hostname '" + wildcardName + "' should be valid.",
-                    RegexUtils.isValidWhitelistHostname(wildcardName)
+                    RegexUtils.isValidWildcardHostname(wildcardName)
             );
         }
     }
@@ -153,13 +153,13 @@ public class RegexUtilsTest {
         for (String invalidName : INVALID_NAMES) {
             assertFalse(
                     "The hostname '" + invalidName + "' should not be valid.",
-                    RegexUtils.isValidWhitelistHostname(invalidName)
+                    RegexUtils.isValidWildcardHostname(invalidName)
             );
         }
         for (String invalidWildcardName : INVALID_WILDCARD_NAMES) {
             assertFalse(
                     "The wildcard hostname '" + invalidWildcardName + "' should not be valid.",
-                    RegexUtils.isValidWhitelistHostname(invalidWildcardName)
+                    RegexUtils.isValidWildcardHostname(invalidWildcardName)
             );
         }
     }
