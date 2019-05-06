@@ -23,24 +23,23 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        android:backgroundTintMode="src_over"
-        android:tint="#000"
-        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@mipmap/icon" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/app_name"
-        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@id/allowedHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toEndOf="@+id/logoImageView"
         app:layout_constraintTop_toTopOf="@+id/frameLayout" />
