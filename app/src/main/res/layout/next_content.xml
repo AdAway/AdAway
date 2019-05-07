@@ -285,7 +285,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/helpCardView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:elevation="10dp"
@@ -293,14 +293,15 @@
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
+
+
         app:contentPaddingTop="16dp"
-
-
+        app:layout_constraintBottom_toBottomOf="@+id/projectCardView"
         app:layout_constraintEnd_toStartOf="@+id/badge1Space"
+
+
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
-
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
 
@@ -343,12 +344,13 @@
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toStartOf="@+id/badge2Space"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/badge1Space"
-        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
+        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -381,7 +383,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/supportCardView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:elevation="10dp"
@@ -390,6 +392,7 @@
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/projectCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
@@ -423,5 +426,20 @@
         app:layout_constraintStart_toStartOf="@+id/supportCardView"
         app:layout_constraintTop_toTopOf="@+id/supportCardView"
         app:srcCompat="@drawable/baseline_favorite_24" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:layout_constraintTop_toBottomOf="@id/projectCardView"
+        tools:layout_editor_absoluteX="411dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="32dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
