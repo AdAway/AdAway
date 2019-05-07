@@ -2,16 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/drawer_hosts_sources"
-        android:icon="@drawable/status_update"
-        android:title="@string/hosts_sources_drawer_item"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/drawer_your_lists"
-        android:icon="@drawable/status_update"
-        android:title="@string/your_lists_drawer_item"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/drawer_open_hosts_file"
         android:icon="@drawable/status_update"
         android:title="@string/open_hosts_file_drawer_item"

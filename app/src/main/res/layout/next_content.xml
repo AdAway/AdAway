@@ -246,7 +246,9 @@
         android:id="@+id/sourcesCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
         app:cardCornerRadius="8dp"
         app:contentPadding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -287,38 +289,26 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
-
-
         app:contentPaddingTop="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/projectCardView"
         app:layout_constraintEnd_toStartOf="@+id/badge1Space"
-
-
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <TextView
+            android:id="@+id/helpTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/helpTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Show help"
-                android:textAlignment="center" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            android:gravity="center"
+            android:text="Show help" />
 
     </androidx.cardview.widget.CardView>
 
@@ -337,7 +327,7 @@
         android:id="@+id/projectCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
         app:contentPaddingBottom="16dp"
@@ -352,20 +342,12 @@
         app:layout_constraintTop_toBottomOf="@+id/sourcesCardView"
         app:layout_constraintVertical_bias="0.0">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <TextView
+            android:id="@+id/projectTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/projectTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Open GitHub page"
-                android:textAlignment="center" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            android:gravity="center"
+            android:text="Open GitHub page" />
 
     </androidx.cardview.widget.CardView>
 
@@ -384,7 +366,7 @@
         android:id="@+id/supportCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
@@ -399,20 +381,12 @@
         app:layout_constraintStart_toEndOf="@+id/badge2Space"
         app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <TextView
+            android:id="@+id/supportTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/supportTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Support project"
-                android:textAlignment="center" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            android:gravity="center"
+            android:text="Support project" />
 
     </androidx.cardview.widget.CardView>
 

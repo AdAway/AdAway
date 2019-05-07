@@ -21,44 +21,23 @@
 package org.adaway.ui.help;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.MenuItem;
 
 import org.adaway.R;
 import org.adaway.helper.ThemeHelper;
-import org.adaway.ui.MainActivity;
 
 import java.util.ArrayList;
 
 public class HelpActivity extends AppCompatActivity {
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
-
-    /**
-     * Menu Items
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // app icon in Action Bar clicked; go home
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

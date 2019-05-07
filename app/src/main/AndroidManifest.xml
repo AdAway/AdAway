@@ -59,12 +59,19 @@
         <activity
             android:name=".ui.help.HelpActivity"
             android:exported="false"
-            android:label="@string/menu_help" />
+            android:label="@string/menu_help"
+            android:parentActivityName=".ui.NextActivity" />
+        <activity
+            android:name=".ui.prefs.PrefsActivity"
+            android:exported="false"
+            android:label="@string/preferences_drawer_item"
+            android:parentActivityName=".ui.NextActivity" />
 
-        <service android:name=".vpn.VpnService"
+        <service
+            android:name=".vpn.VpnService"
             android:permission="android.permission.BIND_VPN_SERVICE">
             <intent-filter>
-                <action android:name="android.net.VpnService"/>
+                <action android:name="android.net.VpnService" />
             </intent-filter>
         </service>
         <receiver android:name=".broadcast.BootReceiver">
