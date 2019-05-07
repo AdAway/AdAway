@@ -88,16 +88,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="2250"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="2250" />
 
             <TextView
                 android:id="@+id/blockedHostTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Blocked" />
+                tools:text="Blocked" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -151,16 +151,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="12"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="25" />
 
             <TextView
                 android:id="@+id/allowedHostTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Allowed" />
+                tools:text="Allowed" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -216,16 +216,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="2" />
 
             <TextView
                 android:id="@+id/redirectHostTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Redirects" />
+                tools:text="Redirected" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -308,7 +308,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Show help" />
+            android:text="@string/help_label" />
 
     </androidx.cardview.widget.CardView>
 
@@ -347,7 +347,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Open GitHub page" />
+            android:text="@string/project_label" />
 
     </androidx.cardview.widget.CardView>
 
@@ -386,7 +386,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Support project" />
+            android:text="@string/support_label" />
 
     </androidx.cardview.widget.CardView>
 

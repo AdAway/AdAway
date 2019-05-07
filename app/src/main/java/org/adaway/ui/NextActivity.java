@@ -1,6 +1,7 @@
 package org.adaway.ui;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -103,16 +104,32 @@ public class NextActivity extends AppCompatActivity {
 
     private void bindHostCounter() {
         ListsViewModel listsViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
+        Resources resources = getResources();
         Function<Integer, CharSequence> stringMapper = count -> Integer.toString(count);
+
         TextView blockedHostCountTextView = findViewById(R.id.blockedHostCounterTextView);
-        LiveData<CharSequence> blockedHostCounter = Transformations.map(listsViewModel.getBlockedHostCount(), stringMapper);
-        blockedHostCounter.observe(this, blockedHostCountTextView::setText);
+        TextView blockedHostTextView = findViewById(R.id.blockedHostTextView);
+        LiveData<Integer> blockedHostCounter = listsViewModel.getBlockedHostCount();
+        Transformations.map(blockedHostCounter, stringMapper).observe(this, blockedHostCountTextView::setText);
+        blockedHostCounter.observe(this, count ->
+                blockedHostTextView.setText(resources.getQuantityText(R.plurals.blocked_hosts_label, count))
+        );
+
         TextView allowedHostCountTextView = findViewById(R.id.allowedHostCounterTextView);
-        LiveData<CharSequence> allowedHostCounter = Transformations.map(listsViewModel.getAllowedHostCount(), stringMapper);
-        allowedHostCounter.observe(this, allowedHostCountTextView::setText);
+        TextView allowedHostTextView = findViewById(R.id.allowedHostTextView);
+        LiveData<Integer> allowedHostCounter = listsViewModel.getAllowedHostCount();
+        Transformations.map(allowedHostCounter, stringMapper).observe(this, allowedHostCountTextView::setText);
+        allowedHostCounter.observe(this, count ->
+                allowedHostTextView.setText(resources.getQuantityText(R.plurals.allowed_hosts_label, count))
+        );
+
         TextView redirectHostCountTextView = findViewById(R.id.redirectHostCounterTextView);
-        LiveData<CharSequence> redirectHostCounter = Transformations.map(listsViewModel.getRedirectHostCount(), stringMapper);
-        redirectHostCounter.observe(this, redirectHostCountTextView::setText);
+        TextView redirectHostTextView = findViewById(R.id.redirectHostTextView);
+        LiveData<Integer> redirectHostCounter = listsViewModel.getRedirectHostCount();
+        Transformations.map(redirectHostCounter, stringMapper).observe(this, redirectHostCountTextView::setText);
+        redirectHostCounter.observe(this, count ->
+                redirectHostTextView.setText(resources.getQuantityText(R.plurals.redirect_hosts_label, count))
+        );
     }
 
     private void bindClickListeners() {

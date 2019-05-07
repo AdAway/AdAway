@@ -1,11 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
-
+    <!-- Hosts card -->
+    <plurals name="blocked_hosts_label">
+        <item quantity="other">Blocked</item>
+    </plurals>
+    <plurals name="allowed_hosts_label">
+        <item quantity="other">Allowed</item>
+    </plurals>
+    <plurals name="redirect_hosts_label">
+        <item quantity="one">Redirect</item>
+        <item quantity="other">Redirects</item>
+    </plurals>
+    <string name="help_label">Show help</string>
+    <string name="project_label">Open GitHub page</string>
+    <string name="support_label">Support project</string>
 
     <!-- App bar drawer -->
     <string name="open_hosts_file_drawer_item">Open hosts file</string>
     <string name="preferences_drawer_item">Preferences</string>
+
     <!-- App bar buttons -->
     <string name="open_drawer_button_description">Open navigation drawer</string>
     <string name="adblock_pause_button_description">Pause/resume ad blocking</string>
