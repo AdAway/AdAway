@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:background="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintHeight_percent="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -66,8 +66,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:elevation="10dp"
-        app:cardCornerRadius="10dp"
-        app:contentPadding="8dp"
+        app:cardCornerRadius="8dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="8dp"
+        app:contentPaddingRight="8dp"
+        app:contentPaddingTop="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toStartOf="@+id/badge1Space"
         app:layout_constraintHorizontal_bias="0.5"
@@ -75,50 +78,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/blockedHostImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1"
-                app:layout_constraintHeight_percent="0.1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_block_24" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/blockedHostCounterTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_gravity="center_horizontal"
                 android:text="2250"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/blockedHostImageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/blockedHostTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Blocked"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/blockedHostImageView"
-                app:layout_constraintTop_toBottomOf="@id/blockedHostCounterTextView" />
+                android:layout_gravity="center_horizontal"
+                android:text="Blocked" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/blockedHostImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/blockedHostCardView"
+        app:layout_constraintEnd_toEndOf="@+id/blockedHostCardView"
+        app:layout_constraintStart_toStartOf="@+id/blockedHostCardView"
+        app:layout_constraintTop_toTopOf="@+id/blockedHostCardView"
+        app:srcCompat="@drawable/baseline_block_24" />
 
     <Space
         android:id="@+id/badge1Space"
@@ -134,10 +128,12 @@
         android:id="@+id/allowedHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/host_badge"
         android:elevation="10dp"
-        app:cardCornerRadius="10dp"
-        app:contentPadding="8dp"
+        app:cardCornerRadius="8dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="8dp"
+        app:contentPaddingRight="8dp"
+        app:contentPaddingTop="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toStartOf="@+id/badge2Space"
         app:layout_constraintHorizontal_bias="0.5"
@@ -145,48 +141,42 @@
         app:layout_constraintStart_toEndOf="@+id/badge1Space"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/allowedHostImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1"
-                app:layout_constraintHeight_percent="0.1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_check_24" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/allowedHostCounterTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_gravity="center_horizontal"
                 android:text="12"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/allowedHostImageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/allowedHostTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Allowed"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/allowedHostImageView"
-                app:layout_constraintTop_toBottomOf="@id/allowedHostCounterTextView" />
+                android:layout_gravity="center_horizontal"
+                android:text="Allowed" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.cardview.widget.CardView>
+
+
+    <ImageView
+        android:id="@+id/allowedHostImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
+        app:layout_constraintEnd_toEndOf="@+id/allowedHostCardView"
+        app:layout_constraintStart_toStartOf="@+id/allowedHostCardView"
+        app:layout_constraintTop_toTopOf="@+id/allowedHostCardView"
+        app:srcCompat="@drawable/baseline_check_24" />
 
     <Space
         android:id="@+id/badge2Space"
@@ -203,10 +193,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/host_badge"
         android:elevation="10dp"
-        app:cardCornerRadius="10dp"
-        app:contentPadding="8dp"
+        app:cardCornerRadius="8dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="8dp"
+        app:contentPaddingRight="8dp"
+        app:contentPaddingTop="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -214,56 +206,48 @@
         app:layout_constraintStart_toEndOf="@+id/badge2Space"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/redirectHostImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1"
-                app:layout_constraintHeight_percent="0.1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_compare_arrows_24" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/redirectHostCounterTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_gravity="center_horizontal"
                 android:text="2"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/redirectHostImageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/redirectHostTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Redirects"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/redirectHostImageView"
-                app:layout_constraintTop_toBottomOf="@id/redirectHostCounterTextView" />
+                android:layout_gravity="center_horizontal"
+                android:text="Redirects" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/redirectHostImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/redirectHostCardView"
+        app:layout_constraintEnd_toEndOf="@+id/redirectHostCardView"
+        app:layout_constraintStart_toStartOf="@+id/redirectHostCardView"
+        app:layout_constraintTop_toTopOf="@+id/redirectHostCardView"
+        app:srcCompat="@drawable/baseline_compare_arrows_24" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/sourcesCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="8dp"
         app:contentPadding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -303,78 +287,82 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardCornerRadius="10dp"
-        app:contentPadding="8dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="8dp"
+        app:contentPaddingRight="8dp"
+        app:contentPaddingTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/helpImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1"
-                app:layout_constraintHeight_percent="0.1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_compare_arrows_24" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/helpTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Show help"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/helpImageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_gravity="center_horizontal"
+                android:text="Show help" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/helpImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/helpCardView"
+        app:layout_constraintEnd_toEndOf="@+id/helpCardView"
+        app:layout_constraintStart_toStartOf="@+id/helpCardView"
+        app:layout_constraintTop_toTopOf="@+id/helpCardView"
+        app:srcCompat="@drawable/ic_help_24dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/supportCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardCornerRadius="10dp"
-        app:contentPadding="8dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="8dp"
+        app:contentPaddingRight="8dp"
+        app:contentPaddingTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/helpCardView"
         app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/supportImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1"
-                app:layout_constraintHeight_percent="0.1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_compare_arrows_24" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/supportTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Support project"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/supportImageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_gravity="center_horizontal"
+                android:text="Support project" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/supportImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/supportCardView"
+        app:layout_constraintEnd_toEndOf="@+id/supportCardView"
+        app:layout_constraintStart_toStartOf="@+id/supportCardView"
+        app:layout_constraintTop_toTopOf="@+id/supportCardView"
+        app:srcCompat="@drawable/baseline_favorite_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
