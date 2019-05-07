@@ -48,4 +48,13 @@ public interface HostListItemDao {
 
     @Query("SELECT * FROM hosts_lists WHERE type = 2 ORDER BY host ASC")
     LiveData<List<HostListItem>> loadRedirectionList();
+
+    @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 0 AND enabled = 1")
+    LiveData<Integer> getBlockedHostCount();
+
+    @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 1 AND enabled = 1")
+    LiveData<Integer> getAllowedHostCount();
+
+    @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 2 AND enabled = 1")
+    LiveData<Integer> getRedirectHostCount();
 }

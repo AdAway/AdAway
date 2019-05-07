@@ -6,12 +6,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.arch.core.util.Function;
 import androidx.cardview.widget.CardView;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -22,6 +27,7 @@ import org.adaway.R;
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.help.HelpActivity;
+import org.adaway.ui.home.ListsViewModel;
 import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -46,7 +52,7 @@ public class NextActivity extends AppCompatActivity {
 
 //    protected CoordinatorLayout coordinatorLayout;
 
-    protected BottomAppBar appBar;
+    private BottomAppBar appBar;
     private BottomSheetBehavior<View> drawerBehavior;
 
     @Override
@@ -57,17 +63,10 @@ public class NextActivity extends AppCompatActivity {
         Log.i(Constants.TAG, "Starting main activity");
         setContentView(R.layout.next_activity);
 
-        hideActionBar();
         this.appBar = findViewById(R.id.bar);
-
-
-        CardView helpCardView = findViewById(R.id.helpCardView);
-        helpCardView.setOnClickListener(this::startHelpActivity);
-        CardView projectCardView = findViewById(R.id.projectCardView);
-        projectCardView.setOnClickListener(this::showProjectPage);
-        CardView supportCardView = findViewById(R.id.supportCardView);
-        supportCardView.setOnClickListener(this::showSupportPage);
-
+        hideActionBar();
+        bindHostCounter();
+        bindClickListeners();
         notifyUpdating(false);
         setUpBottomDrawer();
 
@@ -100,6 +99,29 @@ public class NextActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+    }
+
+    private void bindHostCounter() {
+        ListsViewModel listsViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
+        Function<Integer, CharSequence> stringMapper = count -> Integer.toString(count);
+        TextView blockedHostCountTextView = findViewById(R.id.blockedHostCounterTextView);
+        LiveData<CharSequence> blockedHostCounter = Transformations.map(listsViewModel.getBlockedHostCount(), stringMapper);
+        blockedHostCounter.observe(this, blockedHostCountTextView::setText);
+        TextView allowedHostCountTextView = findViewById(R.id.allowedHostCounterTextView);
+        LiveData<CharSequence> allowedHostCounter = Transformations.map(listsViewModel.getAllowedHostCount(), stringMapper);
+        allowedHostCounter.observe(this, allowedHostCountTextView::setText);
+        TextView redirectHostCountTextView = findViewById(R.id.redirectHostCounterTextView);
+        LiveData<CharSequence> redirectHostCounter = Transformations.map(listsViewModel.getRedirectHostCount(), stringMapper);
+        redirectHostCounter.observe(this, redirectHostCountTextView::setText);
+    }
+
+    private void bindClickListeners() {
+        CardView helpCardView = findViewById(R.id.helpCardView);
+        helpCardView.setOnClickListener(this::startHelpActivity);
+        CardView projectCardView = findViewById(R.id.projectCardView);
+        projectCardView.setOnClickListener(this::showProjectPage);
+        CardView supportCardView = findViewById(R.id.supportCardView);
+        supportCardView.setOnClickListener(this::showSupportPage);
     }
 
     private void setUpBottomDrawer() {
