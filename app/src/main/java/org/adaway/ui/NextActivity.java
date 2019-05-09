@@ -29,12 +29,17 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.home.ListsViewModel;
+import org.adaway.ui.lists.ListsActivity;
 import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN;
+import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
+import static org.adaway.ui.lists.ListsFragment.REDIRECTION_TAB;
+import static org.adaway.ui.lists.ListsFragment.TAB;
+import static org.adaway.ui.lists.ListsFragment.WHITELIST_TAB;
 
 /**
  * This class is the application main activity.
@@ -133,6 +138,12 @@ public class NextActivity extends AppCompatActivity {
     }
 
     private void bindClickListeners() {
+        CardView blockedHostCardView = findViewById(R.id.blockedHostCardView);
+        blockedHostCardView.setOnClickListener(v -> startHostListActivity(BLACKLIST_TAB));
+        CardView allowedHostCardView = findViewById(R.id.allowedHostCardView);
+        allowedHostCardView.setOnClickListener(v -> startHostListActivity(WHITELIST_TAB));
+        CardView redirectHostHostCardView = findViewById(R.id.redirectHostCardView);
+        redirectHostHostCardView.setOnClickListener(v -> startHostListActivity(REDIRECTION_TAB));
         CardView helpCardView = findViewById(R.id.helpCardView);
         helpCardView.setOnClickListener(this::startHelpActivity);
         CardView projectCardView = findViewById(R.id.projectCardView);
@@ -180,6 +191,17 @@ public class NextActivity extends AppCompatActivity {
     }
 
     /**
+     * Start hosts lists activity.
+     *
+     * @param tab The tab to show.
+     */
+    private void startHostListActivity(int tab) {
+        Intent intent = new Intent(this, ListsActivity.class);
+        intent.putExtra(TAB, tab);
+        startActivity(intent);
+    }
+
+    /**
      * Start preferences activity.
      */
     private void startPrefsActivity() {
@@ -192,7 +214,7 @@ public class NextActivity extends AppCompatActivity {
      * @param view The source event view.
      */
     private void startHelpActivity(@SuppressWarnings("unused") View view) {
-        this.startActivity(new Intent(this, HelpActivity.class));
+        startActivity(new Intent(this, HelpActivity.class));
     }
 
     /**
@@ -203,7 +225,7 @@ public class NextActivity extends AppCompatActivity {
     private void showProjectPage(@SuppressWarnings("unused") View view) {
         // Show development page
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(PROJECT_LINK));
-        this.startActivity(browserIntent);
+        startActivity(browserIntent);
     }
 
     /**
@@ -220,7 +242,7 @@ public class NextActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.drawer_support_dialog_button, (d, which) -> {
                     // Show support page
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(SUPPORT_LINK));
-                    this.startActivity(browserIntent);
+                    startActivity(browserIntent);
                 })
                 .create()
                 .show();

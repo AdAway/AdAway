@@ -57,6 +57,11 @@
             android:name=".ui.tcpdump.TcpdumpLogActivity"
             android:label="@string/shortcut_dns_requests" />
         <activity
+            android:name=".ui.lists.ListsActivity"
+            android:exported="false"
+            android:label="@string/lists_title"
+            android:parentActivityName=".ui.NextActivity" />
+        <activity
             android:name=".ui.help.HelpActivity"
             android:exported="false"
             android:label="@string/menu_help"

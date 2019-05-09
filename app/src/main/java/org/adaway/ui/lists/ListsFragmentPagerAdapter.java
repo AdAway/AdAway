@@ -13,6 +13,10 @@ import android.view.ViewGroup;
 
 import org.adaway.R;
 
+import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
+import static org.adaway.ui.lists.ListsFragment.REDIRECTION_TAB;
+import static org.adaway.ui.lists.ListsFragment.WHITELIST_TAB;
+
 /**
  * This class is a {@link PagerAdapter} to store lists tab fragments.
  *
@@ -23,18 +27,6 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
      * The number of fragment.
      */
     private static final int FRAGMENT_COUNT = 3;
-    /**
-     * The blacklist fragment index.
-     */
-    private static final int BLACKLIST_FRAGMENT_INDEX = 0;
-    /**
-     * The whitelist fragment index.
-     */
-    private static final int WHITELIST_FRAGMENT_INDEX = 1;
-    /**
-     * The redirection fragment index.
-     */
-    private static final int REDIRECTION_FRAGMENT_INDEX = 2;
     /**
      * The context activity.
      */
@@ -59,7 +51,7 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
      * @param fragmentManager The fragment manager.
      */
     ListsFragmentPagerAdapter(Activity activity, FragmentManager fragmentManager) {
-        super(fragmentManager);
+        super(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.activity = activity;
     }
 
@@ -85,17 +77,17 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
      */
     void addItem(int position) {
         switch (position) {
-            case BLACKLIST_FRAGMENT_INDEX:
+            case BLACKLIST_TAB:
                 if (this.blacklistFragment != null) {
                     this.blacklistFragment.addItem();
                 }
                 break;
-            case WHITELIST_FRAGMENT_INDEX:
+            case WHITELIST_TAB:
                 if (this.whitelistFragment != null) {
                     this.whitelistFragment.addItem();
                 }
                 break;
-            case REDIRECTION_FRAGMENT_INDEX:
+            case REDIRECTION_TAB:
                 if (this.redirectionListFragment != null) {
                     this.redirectionListFragment.addItem();
                 }
@@ -103,18 +95,18 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
         }
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         // Check fragment position
         switch (position) {
-            case BLACKLIST_FRAGMENT_INDEX:
-                return new BlackListFragment();
-            case WHITELIST_FRAGMENT_INDEX:
+            case WHITELIST_TAB:
                 return new WhiteListFragment();
-            case REDIRECTION_FRAGMENT_INDEX:
+            case REDIRECTION_TAB:
                 return new RedirectionListFragment();
             default:
-                return null;
+            case BLACKLIST_TAB:
+                return new BlackListFragment();
         }
     }
 
@@ -122,12 +114,12 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         // Check fragment position
         switch (position) {
-            case BLACKLIST_FRAGMENT_INDEX:
-                return this.activity.getString(R.string.lists_tab_blacklist);
-            case WHITELIST_FRAGMENT_INDEX:
-                return this.activity.getString(R.string.lists_tab_whitelist);
-            case REDIRECTION_FRAGMENT_INDEX:
-                return this.activity.getString(R.string.lists_tab_redirection_list);
+            case BLACKLIST_TAB:
+                return this.activity.getString(R.string.lists_tab_blocked);
+            case WHITELIST_TAB:
+                return this.activity.getString(R.string.lists_tab_allowed);
+            case REDIRECTION_TAB:
+                return this.activity.getString(R.string.lists_tab_redirected);
             default:
                 return null;
         }
@@ -136,16 +128,16 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
     // More explanation here: https://stackoverflow.com/a/29288093/1538096
     @Override
     @NonNull
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
         AbstractListFragment fragment = (AbstractListFragment) super.instantiateItem(container, position);
         switch (position) {
-            case BLACKLIST_FRAGMENT_INDEX:
+            case BLACKLIST_TAB:
                 this.blacklistFragment = fragment;
                 break;
-            case WHITELIST_FRAGMENT_INDEX:
+            case WHITELIST_TAB:
                 this.whitelistFragment = fragment;
                 break;
-            case REDIRECTION_FRAGMENT_INDEX:
+            case REDIRECTION_TAB:
                 this.redirectionListFragment = fragment;
                 break;
         }

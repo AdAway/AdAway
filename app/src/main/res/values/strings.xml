@@ -39,19 +39,6 @@
     <string name="checkbox_list_context_edit">Edit</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Whitelist</string>
-    <string name="lists_tab_blacklist">Blacklist</string>
-    <string name="lists_tab_redirection_list">Redirects</string>
-    <string name="list_add_dialog_black">Add host to blacklist</string>
-    <string name="list_add_dialog_white">Add host to whitelist</string>
-    <string name="list_add_dialog_redirect">Add host redirect</string>
-    <string name="list_edit_dialog_black">Edit blacklisted host</string>
-    <string name="list_edit_dialog_white">Edit whitelisted host</string>
-    <string name="list_edit_dialog_redirect">Edit redirect</string>
-    <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_hostname_hint">The hosts source URL</string>
-    <string name="list_dialog_wildcard">(Wildcard characters * and ? are allowed)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">Importing…</string>
     <string name="import_success">Backup successfully imported from your external storage.</string>
     <string name="import_failed">Failed to import backup. Is its format correct? Check logcat for more details.</string>

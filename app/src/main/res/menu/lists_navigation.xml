@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/lists_navigation_blacklist"
+        android:id="@+id/lists_navigation_blocked"
         android:icon="@drawable/baseline_block_24"
-        android:title="@string/lists_tab_blacklist" />
+        android:title="@string/lists_tab_blocked" />
 
     <item
-        android:id="@+id/lists_navigation_whitelist"
+        android:id="@+id/lists_navigation_allowed"
         android:icon="@drawable/baseline_check_24"
-        android:title="@string/lists_tab_whitelist" />
+        android:title="@string/lists_tab_allowed" />
 
     <item
-        android:id="@+id/lists_navigation_redirection_list"
+        android:id="@+id/lists_navigation_redirected"
         android:icon="@drawable/baseline_compare_arrows_24"
-        android:title="@string/lists_tab_redirection_list" />
+        android:title="@string/lists_tab_redirected" />
 </menu>

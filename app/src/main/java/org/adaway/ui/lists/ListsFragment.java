@@ -68,6 +68,22 @@ import static org.adaway.helper.ImportExportHelper.WRITE_STORAGE_PERMISSION_REQU
  */
 public class ListsFragment extends Fragment {
     /**
+     * The tab to display argument.
+     */
+    public static final String TAB = "org.adaway.lists.tab";
+    /**
+     * The blacklist tab index.
+     */
+    public static final int BLACKLIST_TAB = 0;
+    /**
+     * The whitelist tab index.
+     */
+    public static final int WHITELIST_TAB = 1;
+    /**
+     * The redirection tab index.
+     */
+    public static final int REDIRECTION_TAB = 2;
+    /**
      * The fragment activity (<code>null</code> if view not created).
      */
     private FragmentActivity mActivity;
@@ -142,18 +158,23 @@ public class ListsFragment extends Fragment {
         // Add navigation view item selected listener to change view pager current item
         navigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.lists_navigation_blacklist:
+                case R.id.lists_navigation_blocked:
                     viewPager.setCurrentItem(0);
                     return true;
-                case R.id.lists_navigation_whitelist:
+                case R.id.lists_navigation_allowed:
                     viewPager.setCurrentItem(1);
                     return true;
-                case R.id.lists_navigation_redirection_list:
+                case R.id.lists_navigation_redirected:
                     viewPager.setCurrentItem(2);
                     return true;
             }
             return false;
         });
+        // Display requested tab
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            viewPager.setCurrentItem(arguments.getInt(TAB, BLACKLIST_TAB));
+        }
         /*
          * Configure add action button.
          */
