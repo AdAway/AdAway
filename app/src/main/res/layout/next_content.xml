@@ -360,7 +360,7 @@
         app:layout_constraintEnd_toEndOf="@+id/projectCardView"
         app:layout_constraintStart_toStartOf="@+id/projectCardView"
         app:layout_constraintTop_toTopOf="@+id/projectCardView"
-        app:srcCompat="@drawable/ic_code_24dp" />
+        app:srcCompat="@drawable/ic_github_24dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/supportCardView"
