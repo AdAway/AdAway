@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
     <string name="status_download_fail">Kullanılamayan kaynaklar</string>
     <string name="status_download_fail_subtitle_new">Hiçbir host kaynağına ulaşılamadı.</string>
+    <string name="status_root_access_denied">Kök erişimi reddedildi</string>
+    <string name="status_root_access_denied_subtitle">Kök yönetim uygulaması üstünden kök erişimine izin verin</string>
     <string name="status_failure">Bir şeyler yanlış gitti</string>
     <string name="status_failure_subtitle">Daha fazla bilgi için logcat\'i kontrol edin</string>
     <string name="status_enabled">Etkin</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
     <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
     <string name="apply_fail_title">Uygulama başarısız</string>
+    <string name="root_access_fail">Kök erişiminin verildiğinden emin olmak için lütfen kök yönetim uygulamanızı kontrol edin.</string>
     <string name="revert_successful">Varsayılan host dosyasına geri döndünüz.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz??\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
     <string name="revert_successful_title">Geri alma başarılı!</string>
     <string name="revert_problem">Geri alma işlemi bilinmeyen nedenlerden dolayı başarısız oldu.</string>
@@ -196,11 +199,13 @@
     <string name="pref_dark_theme_summary">Aydınlık yerine koyu temayı kullanın</string>
     <string name="pref_dark_theme_notification">Tema bir sonraki uygulama başlangıcında uygulanacaktır!</string>
     <string name="pref_hosts">Hosts Dosyası</string>
-    <string name="pref_redirection_ip">IP Yönlendirme</string>
     <string name="pref_update_check">Güncellemeleri kontrol et</string>
     <string name="pref_apply_method">Hedef Hosts dosyası</string>
     <string name="pref_apply_method_summary">Bu ayarı değiştirmeden önce, bu işlevsellik hakkındaki yardımı okuyun.</string>
-    <string name="pref_redirection_ip_summary">Tüm engellenmiş adresler bu IP adresine yönlendirilir.</string>
+    <string name="pref_redirection_ipv4">IPv4 Yönlendirme</string>
+    <string name="pref_redirection_ipv4_summary">Engellenen tüm ana bilgisayar adları bu IPv4 adresine yönlendirilir.</string>
+    <string name="pref_redirection_ipv6">IPv6 Yönlendirme</string>
+    <string name="pref_redirection_ipv6_summary">Engellenen tüm ana bilgisayar adları bu IPv6 adresine yönlendirilir.</string>
     <string name="pref_header_preferences">Tercihler</string>
     <string name="pref_header_preferences_summary">AdAway için genel tercihler</string>
     <string name="pref_never_reboot">Yeniden başlatma diyaloğunu gizle</string>
@@ -239,7 +244,7 @@
     <string name="pref_enable_telemetry">Kilitlenme raporlarını etkinleştir</string>
     <string name="pref_enable_telemetry_summary">Uygulamanın Sentry\'ye (sentry.io) hata ve kilitlenme raporları göndermesine izin verin.</string>
     <string name="pref_enable_ipv6">IPv6 etkinleştir</string>
-    <string name="pref_enable_ipv6_summary">Tüm host dosyası kayıtlarına ::1 (IPv6 yerel IP\'si) eklenecektir.</string>
+    <string name="pref_enable_ipv6_summary">Tüm ana dosya girişleri karşılık gelen bir yeniden yönlendirme girişi elde eder.</string>
     <string name="pref_enable_systemless_summary">AdAway\'in sistem dosyalarını düzenlemesini engelle</string>
     <string name="pref_enable_systemless">Sistemsiz modu etkinleştir.</string>
     <string name="pref_edit_text_value">Metin tercih değerini düzenle</string>
