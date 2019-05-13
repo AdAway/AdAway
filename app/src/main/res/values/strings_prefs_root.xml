@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_root_title">Root based ad blocker</string>
+    <!-- Configuration category -->
+    <string name="pref_hosts_configuration">Configuration</string>
+    <string name="pref_enable_ipv6">Enable IPv6</string>
+    <string name="pref_enable_ipv6_summary">All host file entries will get a corresponding redirection entry.</string>
+    <string name="pref_redirection_ipv4">Redirection IPv4</string>
+    <string name="pref_redirection_ipv4_summary">All blocked hostnames are redirected to this IPv4 address.</string>
+    <string name="pref_redirection_ipv6">Redirection IPv6</string>
+    <string name="pref_redirection_ipv6_summary">All blocked hostnames are redirected to this IPv6 address.</string>
+    <!-- Install category -->
+    <string name="pref_hosts_installation">Install</string>
+    <string name="pref_apply_method">Target hosts file</string>
+    <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+    <string name="pref_custom_target">Custom target</string>
+    <string name="pref_custom_target_summary">Only used if target hosts file is set to custom target</string>
+    <string name="pref_never_reboot">Hide reboot dialog</string>
+    <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Local web server</string>
+    <string name="pref_webserver_on_boot">Start web server on boot</string>
+    <string name="pref_webserver_on_boot_summary">Start web server on boot, listening on local IP addresses</string>
+    <string name="pref_webserver_enabled">Enable web server</string>
+    <string name="pref_webserver_enabled_summary">Enables web server listening on local IP addresses to answer requests to blocked hostnames</string>
+</resources>

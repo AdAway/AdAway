@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_update_title">Updates</string>
+    <string name="pref_update_check">Check for updates at startup</string>
+    <string name="pref_update_check_daily">Check for updates daily</string>
+    <string name="pref_sync_on_update">Sync if update</string>
+    <string name="pref_sync_unmetered_only">Sync on unmetered network only</string>
+</resources>

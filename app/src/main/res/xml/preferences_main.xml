@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/pref_main_title">
+
+    <PreferenceCategory android:title="@string/pref_general_category">
+<!--        <CheckBoxPreference
+            android:defaultValue="@bool/pref_dismiss_welcome_def"
+            android:key="@string/pref_dismiss_welcome_key"
+            android:summary="@string/pref_dismiss_welcome_summary"
+            android:title="@string/pref_dismiss_welcome" />-->
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_dark_theme_def"
+            android:icon="@drawable/ic_brightness_medium_24dp"
+            android:key="@string/pref_dark_theme_key"
+            android:title="@string/pref_dark_theme" />
+        <Preference
+            android:icon="@drawable/ic_sync_24dp"
+            android:title="@string/pref_update_configuration"
+            app:fragment="org.adaway.ui.prefs.PrefsUpdateFragment" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_ad_block_category">
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_whitelist_rules_def"
+            android:icon="@drawable/baseline_check_24"
+            android:key="@string/pref_whitelist_rules_key"
+            android:title="@string/pref_whitelist_rules" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_redirection_rules_def"
+            android:icon="@drawable/baseline_compare_arrows_24"
+            android:key="@string/pref_redirection_rules_key"
+            android:summary="@string/pref_redirection_rules_summary"
+            android:title="@string/pref_redirection_rules" />
+        <Preference
+            android:title="@string/pref_root_ad_blocker_configuration"
+            app:fragment="org.adaway.ui.prefs.PrefsRootFragment"
+            android:icon="@drawable/ic_superuser_24dp"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_debug_category">
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_enable_telemetry_def"
+            android:icon="@drawable/outline_cloud_upload_24"
+            android:key="@string/pref_enable_telemetry_key"
+            android:summary="@string/pref_enable_telemetry_summary"
+            android:title="@string/pref_enable_telemetry" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_enable_debug_def"
+            android:icon="@drawable/ic_bug_report_24dp"
+            android:key="@string/pref_enable_debug_key"
+            android:summary="@string/pref_enable_debug_summary"
+            android:title="@string/pref_enable_debug" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

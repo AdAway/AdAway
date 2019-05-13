@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/pref_update_title">
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_update_check_def"
+        android:key="@string/pref_update_check_key"
+        android:title="@string/pref_update_check" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_update_check_daily_def"
+        android:key="@string/pref_update_check_daily_key"
+        android:title="@string/pref_update_check_daily" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_automatic_update_daily_def"
+        android:dependency="@string/pref_update_check_daily_key"
+        android:key="@string/pref_automatic_update_daily_key"
+        android:title="@string/pref_sync_on_update" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_update_only_on_wifi_def"
+        android:dependency="@string/pref_update_check_daily_key"
+        android:key="@string/pref_update_only_on_wifi_key"
+        android:title="@string/pref_sync_unmetered_only" />
+</PreferenceScreen>

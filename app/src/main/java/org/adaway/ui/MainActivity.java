@@ -52,7 +52,7 @@ import org.adaway.ui.home.HomeFragment;
 import org.adaway.ui.hosts.HostsSourcesFragment;
 import org.adaway.ui.hostscontent.HostsContentFragment;
 import org.adaway.ui.lists.ListsFragment;
-import org.adaway.ui.prefs.PrefsFragment;
+import org.adaway.ui.prefs.PrefsMainFragment;
 import org.adaway.ui.tcpdump.TcpdumpFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -299,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new AdwareFragment();
                 break;
             case 6:
-                fragment = new PrefsFragment();
+                fragment = new PrefsMainFragment();
                 break;
             case 7:
                 // Restore drawer selected item
