@@ -69,6 +69,7 @@
     <string name="status_no_connection_subtitle">La conexión a Internet no está disponible</string>
     <string name="status_download_fail">Fuentes no disponibles</string>
     <string name="status_download_fail_subtitle_new">No se puede acceder a las fuentes de hosts</string>
+    <string name="status_root_access_denied">Acceso root denegado</string>
     <string name="status_failure">Hubo un problema</string>
     <string name="status_failure_subtitle">Revisa el registro logcat para obtener información detallada</string>
     <string name="status_enabled">Habilitado</string>
@@ -111,6 +112,7 @@
     <string name="apply_dialog_apply">Aplicando archivo hosts</string>
     <string name="apply_fail">No se pudo aplicar el archivo hosts en el sistema.\nIntenta cambiar el archivo hosts de destino en la configuración a /data/data/hosts.</string>
     <string name="apply_fail_title">Error de aplicación</string>
+    <string name="root_access_fail">Compruebe su aplicación de administración de root para asegurarse de que se haya concedido el acceso root.</string>
     <string name="revert_successful">Restableciste el archivo hosts predeterminado.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
     <string name="revert_successful_title">Reversión correcta</string>
     <string name="revert_problem">No se pudo revertir el archivo hosts por razones desconocidas.</string>
@@ -190,11 +192,9 @@
     <string name="pref_dark_theme_summary">Usar el tema oscuro en lugar del claro</string>
     <string name="pref_dark_theme_notification">¡El tema se aplicará en el siguiente inicio de la aplicación!</string>
     <string name="pref_hosts">Archivo Hosts</string>
-    <string name="pref_redirection_ip">Redireccionar IP</string>
     <string name="pref_update_check">Comprobar actualizaciones</string>
     <string name="pref_apply_method">Archivo hosts de destino</string>
     <string name="pref_apply_method_summary">Antes de cambiar este ajuste, lee la sección de Ayuda sobre esta funcionalidad.</string>
-    <string name="pref_redirection_ip_summary">Todos los servidores bloqueados son redirigidos a esta dirección IP.</string>
     <string name="pref_header_preferences">Preferencias</string>
     <string name="pref_header_preferences_summary">Preferencias Generales para AdAway</string>
     <string name="pref_never_reboot">Ocultar diálogo de reinicio</string>
@@ -212,6 +212,7 @@
     </string-array>
 
     <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
+    <string name="pref_sdcard_problem">¡Esta función no funcionará correctamente si AdAway está instalado en la tarjeta SD!</string>
     <string name="pref_background">Servicios en Segundo Plano</string>
     <string name="pref_update_check_daily">Buscar por actualizaciones diariamente</string>
     <string name="pref_update_check_daily_summary">Buscar actualizaciones diariamente en segundo plano con notificaciones</string>
@@ -224,9 +225,10 @@
     <string name="pref_redirection_rules">Permitir redirecciones</string>
     <string name="pref_redirection_rules_summary">¡SUPONE UN RIEGO DE SEGURIDAD! Permitir la redirección de entradas desde las Fuentes de Hosts.</string>
     <string name="pref_debug">Depurar</string>
+    <string name="pref_enable_debug">Habilitar registro detallado</string>
     <string name="pref_enable_debug_summary">Necesitas reiniciar AdAway para que esta opción tenga efecto.</string>
+    <string name="pref_enable_telemetry">Habilitar informes de errores</string>
     <string name="pref_enable_ipv6">Activar IPv6</string>
-    <string name="pref_enable_ipv6_summary">Todas las entradas del archivo host llevarán una inscripción ::1 (IPv6 localhost) correspondiente.</string>
     <string name="pref_enable_systemless_summary">Prevenir que AdAway modifique la partición del sistema</string>
     <string name="pref_enable_systemless">Activar el modo systemless</string>
     <string name="pref_edit_text_value">Editar valor de texto de la preferencia</string>

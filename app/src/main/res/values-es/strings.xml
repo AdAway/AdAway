@@ -192,11 +192,9 @@
     <string name="pref_dark_theme_summary">Usar un tema oscuro en lugar de uno claro</string>
     <string name="pref_dark_theme_notification">¡El tema se aplicará en el próximo inicio de la aplicación!</string>
     <string name="pref_hosts">Archivo hosts</string>
-    <string name="pref_redirection_ip">IP de redireccionamiento</string>
     <string name="pref_update_check">Buscar actualizaciones</string>
     <string name="pref_apply_method">Ruta del archivo hosts</string>
     <string name="pref_apply_method_summary">Antes de cambiar esta configuración, lea la Ayuda sobre esta funcionalidad.</string>
-    <string name="pref_redirection_ip_summary">Todos los nombres de servidor (host) bloqueados son redirigidos a esta dirección IP.</string>
     <string name="pref_header_preferences">Preferencias</string>
     <string name="pref_header_preferences_summary">Preferencias generales para AdAway</string>
     <string name="pref_never_reboot">Ocultar cuadro de diálogo de reinicio</string>
@@ -235,7 +233,6 @@
     <string name="pref_enable_telemetry">Habilitar informe de fallos</string>
     <string name="pref_enable_telemetry_summary">Permitir que la aplicación envíe informes de fallos y cuelgues a Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Habilitar IPv6</string>
-    <string name="pref_enable_ipv6_summary">Todas las entradas del archivo de host obtendrán una entrada correspondiente a ::1 (IPv6 localhost).</string>
     <string name="pref_enable_systemless_summary">Evitar que AdAway modifique la partición de sistema</string>
     <string name="pref_enable_systemless">Activar modo systemless</string>
     <string name="pref_edit_text_value">Editar valor de preferencia de texto</string>

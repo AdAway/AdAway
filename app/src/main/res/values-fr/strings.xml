@@ -116,7 +116,7 @@
     <string name="apply_dialog_apply">Mise en place du fichier hosts</string>
     <string name="apply_fail">Le fichier hosts n’a pas pu être mis en place dans votre système.\nEssayez de changer le fichier hosts cible dans les préférences par /data/data/hosts.</string>
     <string name="apply_fail_title">Échec lors de la mise en place</string>
-    <string name="root_access_fail">Veuillez vérifier votre appli de gestion de la racine pour vous assurer que l’accès racine a été autorisé.</string>
+    <string name="root_access_fail">Veuillez vérifier votre appli de débridage pour vous assurer que l’accès racine a été autorisé.</string>
     <string name="revert_successful">Vous êtes revenu au fichier hosts par défaut.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d’éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
     <string name="revert_successful_title">Retour arrière réussi</string>
     <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
@@ -131,7 +131,7 @@
     <string name="disable_systemless_successful_title">Désactivation réussie</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès racine à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé\nVous trouverez des informations sur comment enraciner votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
+    <string name="no_root_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès root à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé.\nVous trouverez des informations sur comment débrider votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
     <string name="no_root_title">Un Android débridé est exigé</string>
     <string name="hosts_add_dialog">Ajouter une URL au fichier hosts :</string>
     <string name="no_hostname">Ce n’est pas un nom d’hôte valide</string>
@@ -202,10 +202,10 @@
     <string name="pref_update_check">Vérifier les mises à jour</string>
     <string name="pref_apply_method">Fichier hosts cible</string>
     <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lire l’aide concernant cette fonction.</string>
-    <string name="pref_redirection_ipv4">Redirection IPv4</string>
-    <string name="pref_redirection_ipv4_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IPv4.</string>
-    <string name="pref_redirection_ipv6">Redirection IPv6</string>
-    <string name="pref_redirection_ipv6_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IPv6.</string>
+    <string name="pref_redirection_ipv4">Redirection IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IPv4.</string>
+    <string name="pref_redirection_ipv6">Redirection IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IPv6.</string>
     <string name="pref_header_preferences">Préférences</string>
     <string name="pref_header_preferences_summary">Préférences générales d’AdAway</string>
     <string name="pref_never_reboot">Cacher la fenêtre de redémarrage</string>
@@ -243,7 +243,7 @@
     <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>
     <string name="pref_enable_telemetry">Activer les relevés de plantage</string>
     <string name="pref_enable_telemetry_summary">Permettre à l’application d’envoyer des relevés d’erreur et de plantage à Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Activer IPv6</string>
+    <string name="pref_enable_ipv6">Activer l’IPv6</string>
     <string name="pref_enable_ipv6_summary">Toutes les entrées du fichier host auront une entrée de redirection correspondante.</string>
     <string name="pref_enable_systemless_summary">Empêcher AdAway de modifier la partition système</string>
     <string name="pref_enable_systemless">Activer le mode sans système</string>

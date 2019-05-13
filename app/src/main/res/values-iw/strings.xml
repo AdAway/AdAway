@@ -107,11 +107,9 @@
     <!--Preferences-->
     <string name="pref_download">העדפות כלליות</string>
     <string name="pref_hosts">קובץ Hosts</string>
-    <string name="pref_redirection_ip">העברה לכתובת IP</string>
     <string name="pref_update_check">בדוק עידכונים</string>
     <string name="pref_apply_method">יעד קובץ Hosts</string>
     <string name="pref_apply_method_summary">לפני שתשנה הגדרה זו, קרא אודות פונקציה זו בעזרה</string>
-    <string name="pref_redirection_ip_summary">כל השרתים החסומים יופנו לכתובת IP זו.</string>
     <string name="pref_header_preferences">העדפות</string>
     <string name="pref_header_preferences_summary">העדפות כלליות של AdAway</string>
     <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>
@@ -140,7 +138,6 @@
     <string name="pref_debug">ניפוי שגיאות</string>
     <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
     <string name="pref_enable_ipv6">אפשר IPv6</string>
-    <string name="pref_enable_ipv6_summary">כלל כניסות השרתים יקבלו ערך כניסה אחיד ::1 (IPv6 שרת מקומי).</string>
     <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
     <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
     <!--Drawer menu items-->

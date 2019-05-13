@@ -181,11 +181,9 @@
     <string name="pref_dark_theme_summary">Gunakan tema gelap, bukan tema cerah</string>
     <string name="pref_dark_theme_notification">Tema akan berubah pada sesi aplikasi berikutnya!</string>
     <string name="pref_hosts">Hosts File</string>
-    <string name="pref_redirection_ip">Pengalihan IP</string>
     <string name="pref_update_check">Memeriksa pembaruan</string>
     <string name="pref_apply_method">Target file host</string>
     <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
-    <string name="pref_redirection_ip_summary">Semua hostname terblokir akan dialihkan ke ipmini</string>
     <string name="pref_header_preferences">Pengaturan</string>
     <string name="pref_header_preferences_summary">Pengaturan normal Adaway</string>
     <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
@@ -220,7 +218,6 @@
     <string name="pref_enable_telemetry">Nyalakan laporan crash</string>
     <string name="pref_enable_telemetry_summary">Ijinkan aplikasi untuk mengirim laporan error dan crash ke Sentry (sentry.io)</string>
     <string name="pref_enable_ipv6">Aktifkan IPv6</string>
-    <string name="pref_enable_ipv6_summary">Semua entri file host akan disesuaikan dengan entri :: 1 (IPv6 localhost).</string>
     <string name="pref_enable_systemless_summary">Cegah AdAway me-modifikasi partisi system</string>
     <string name="pref_enable_systemless">Aktifkan Mode Systemless</string>
     <string name="pref_edit_text_value">Ubah nilai preferensi teks</string>

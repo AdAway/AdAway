@@ -113,11 +113,9 @@
     <!--Preferences-->
     <string name="pref_download">Splošne nastavitve</string>
     <string name="pref_hosts">Hosts datoteka</string>
-    <string name="pref_redirection_ip">IP za preusmerjanje</string>
     <string name="pref_update_check">Preveri za posodobitve</string>
     <string name="pref_apply_method">Uporabljena hosts datoteka</string>
     <string name="pref_apply_method_summary">Preden spreminjate to nastavitev, si preberite pomoč o tej funkciji.</string>
-    <string name="pref_redirection_ip_summary">Vsa blokirana domenska imena so preusmerjena na ta IP naslov.</string>
     <string name="pref_header_preferences">Nastavitve</string>
     <string name="pref_header_preferences_summary">Splošne nastavitve za AdAway</string>
     <string name="pref_never_reboot">Skrij dialog za ponovni zagon</string>
@@ -146,7 +144,6 @@
     <string name="pref_debug">Debug</string>
     <string name="pref_enable_debug_summary">Da bodo spremembe vidne, morate ponovno zagnati AdAway.</string>
     <string name="pref_enable_ipv6">Omogoči IPv6</string>
-    <string name="pref_enable_ipv6_summary">Vsem vnosom v hosts datoteki bo dodan ::1 (IPv6 localhost) vnos.</string>
     <string name="pref_enable_systemless_summary">Prepreči aplikaciji spreminjanje sistemske particije</string>
     <string name="pref_enable_systemless">Vključi systemless način</string>
     <!--Drawer menu items-->

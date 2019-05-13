@@ -6,23 +6,23 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>常问问题</title></head>
 <body>
 <h2>广告收入</h2>
-<p>通常有一种误解认为如果用户从来不点击广告，那么屏蔽广告并不会给网站或者开发人员带来财务上的损失。然而，事实是仅仅展示广告也可以使开发人员获得收入。是否屏蔽广告取决于你。就我个人来说，我不会使用展示广告的应用，因为那让我很烦，所以没有一个屏蔽软件的话我是不会安装那些应用的</p>
+<p>通常有一种误解认为，如果用户从来不点击广告，那么屏蔽广告并不会给网站或开发人员带来财务上的损失。然而，事实是，仅展示广告也可以使开发人员获得收入。是否屏蔽广告取决于你。就我个人来说，我很讨厌那些展示广告的应用，所以，如果没有广告屏蔽器的话，我是不会安装那些应用的。</p>
 
 
 
-<h2>AdAway是如何工作？</h2>
-<p>AdAway使用<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts文件</a>来拦截广告服务的主机名。hosts文件位于<code>/system/etc/hosts</code>，将主机名映射到IP地址。它是一种传统的不依赖于域名系统（DNS）的映射方案。所有不期望的主机名会被重定向至<code>127.0.0.1</code>，即你的设备本身. </p>
+<h2>AdAway 是如何运作的？</h2>
+<p>AdAway 使用<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts 文件</a>来拦截广告服务的主机名。hosts 文件位于<code>/system/etc/hosts</code>，它负责将主机名映射到 IP 地址。它是一种传统的、不依赖于域名系统（DNS）的映射方案。AdAway 和其他基于 hosts 的广告屏蔽器会借助它将所有需屏蔽的主机名重定向至<code>127.0.0.1</code>，即你的设备的本地地址。</p>
 
-<h2>为什么设置中的”每天检查更新“呈灰色无法选择？</h2>
-<p>自动检查更新只限于AdAway安装在内部存储。 这是一个安卓平台限制。</p>
+<h2>为什么设置中的“每天检查更新”呈灰色，无法选择？</h2>
+<p>只有 AdAway 被安装在内部存储时，才能自动检查更新。这是 Android 平台方面的限制。</p>
 
 <h2>为什么我需要重启 Android 以使更改生效？</h2>
-<p>Android 上的Java 保留有内部自带的DNS缓存。新的Hosts文件将在操作系统立即生效(可在命令行上用ping验证)，但需要重启 Android 以重建 Java 的DNS缓存。</p>
+<p>Android 上的 Java 运行时会维护一份内部 DNS 缓存。新增的 hosts 文件内容将会立即生效（可在命令行中使用 ping 验证），但（若要使对已有 hosts 条目的修改生效）需要重启 Android 系统以重建 Java 的 DNS 缓存。</p>
 
-<h2>如何在AdAway里使用 webserver？</h2>
-<p><strong>AdAway 也可以在没有Web服务器的时候使用！</strong>
-<br><br>你可以在AdAway的参数里面开启一个本地的Web服务器以响应本地IP地址<code>127.0.0.1</code>。这意思是从应用中请求被重定向到<code>127.0.0.1</code>的广告服务器被AdAway的Web服务器响应。
-<br>当广告服务器不能可获得的时候，一些应用拒绝工作。他们会在这个情况下被再一次变可获得，并反应一个没有广告图文的空白页面</p>
+<h2>如何在 AdAway 里使用 Web 服务器？</h2>
+<p><strong>即使不使用 Web 服务器功能，AdAway 也能正常工作！</strong>
+<br><br>你可以在 AdAway 的设置里启用一个本地的 Web 服务器以响应对本地 IP 地址<code>127.0.0.1</code>的请求。对于那些 IP 地址被重定向到<code>127.0.0.2</code>的广告服务器，这意味着 AdAway 的 Web 服务器会代广告服务器响应对它们的请求。
+<br>当不能访问广告服务器的时候，一些应用会拒绝正常运行。借助这个功能，广告服务器就又可以被这些应用“访问”了——但它们没有访问到真正的广告服务器，依旧没法获取到广告图片之类的东西，而是只能收到一个空白页面。</p>
 
 <h2>如何封锁/解锁hostname?</h2>
 <p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>

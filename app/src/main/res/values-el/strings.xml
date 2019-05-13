@@ -176,11 +176,9 @@
     <string name="pref_dark_theme_summary">Χρήση σκοτεινού θέματος αντί του φωτεινού</string>
     <string name="pref_dark_theme_notification">Η χρήση του θέματος θα εφαρμοστεί στην επόμενη εκκίνηση της εφαρμογής!</string>
     <string name="pref_hosts">Αρχείο hosts</string>
-    <string name="pref_redirection_ip">IP Ανακατεύθυνσης</string>
     <string name="pref_update_check">Έλεγχος για ενημερώσεις</string>
     <string name="pref_apply_method">Αρχείο hosts προορισμού</string>
     <string name="pref_apply_method_summary">Πριν μεταβάλετε αυτή την ρύθμιση, διαβάστε την Βοήθεια σχετικά με αυτή την λειτουργικότητα.</string>
-    <string name="pref_redirection_ip_summary">Όλα τα φραγμένα ονόματα διακομιστών επανακατευθύνονται σε αυτή την διεύθυνση IP.</string>
     <string name="pref_header_preferences">Επιλογές</string>
     <string name="pref_header_preferences_summary">Γενικές ρυθμίσεις για το AdAway</string>
     <string name="pref_never_reboot">Απόκρυψη διαλόγου επανεκκίνησης</string>
@@ -210,7 +208,6 @@
     <string name="pref_debug">Αποσφαλμάτωση</string>
     <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
     <string name="pref_enable_ipv6">Ενεργοποίηση πρωτοκόλλου IPv6.</string>
-    <string name="pref_enable_ipv6_summary">Όλες οι καταχωρήσεις του αρχείου host θα αποκτήσουν μια καταχώρηση ::1 (IPv6 localhost) αντίστοιχα.</string>
     <string name="pref_enable_systemless_summary">Το AdAway δεν θα πειράξει το σύστημα</string>
     <string name="pref_enable_systemless">Ενεργοποίηση λειτουργίας να μην πειράξει το σύστημα</string>
     <string name="pref_edit_text_value">Επεξεργασία της τιμής προτιμήσεων κειμένου</string>

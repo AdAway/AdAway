@@ -142,11 +142,9 @@
     <!--Preferences-->
     <string name="pref_download">Preferinte generale</string>
     <string name="pref_hosts">Fisier \"hosts\"</string>
-    <string name="pref_redirection_ip">Redirectionare IP</string>
     <string name="pref_update_check">Verifica daca exista o versiune noua</string>
     <string name="pref_apply_method">Locatie fisier \"hosts\" </string>
     <string name="pref_apply_method_summary">Citeste sectiunea \"Ajutor\" inainte de a modifica aceste setari!</string>
-    <string name="pref_redirection_ip_summary">Toate \"hostnames\" vor fi redirectionate la aceasta adresa IP</string>
     <string name="pref_header_preferences">Preferinte</string>
     <string name="pref_header_preferences_summary">Preferinte generale pentru AdAway</string>
     <string name="pref_never_reboot">Ascunde dialogul pentru repornire (reboot)</string>
@@ -175,7 +173,6 @@
     <string name="pref_debug">Debug</string>
     <string name="pref_enable_debug_summary">Reporneste AdAway pentru ca modificarile sa fie aplicate!</string>
     <string name="pref_enable_ipv6">Activați IPv6</string>
-    <string name="pref_enable_ipv6_summary">Toate înregistrările din fișierul host vor primi o înregistrare ::1 (IPv6 localhost) corespunzătoare. </string>
     <string name="pref_enable_systemless_summary">Împiedică modificarea partiției de sistem de către AdAway</string>
     <string name="pref_enable_systemless">Activează modul systemless</string>
     <string name="drawer_open">Deschideți meniul</string>

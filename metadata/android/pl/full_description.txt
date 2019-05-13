@@ -1,4 +1,4 @@
-Blokowanie reklam korzystające z pliku hosts.
+Bloker reklam wykorzystujący plik hosts.
 Plik hosts jest plikiem systemowym, który zawiera listę odwzorowań między nazwami hostów i adresami IP.
 Gdy aplikacja żąda reklamy od hosta w tym pliku, żądanie to jest przekierowywane do lokalnego adresu IP 127.0.0.1, który nie robi nic.
 Możesz pobrać predefiniowane pliki hostów z poziomu aplikacji, aby włączyć je do pliku hosta systemu. Możliwe jest również użycie własnych plików i dodanie określonych hostów do białych i czarnych list.

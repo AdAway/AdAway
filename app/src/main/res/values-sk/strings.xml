@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Internetové pripojenie nie je dostupné</string>
     <string name="status_download_fail">Nedostupné zdroje</string>
     <string name="status_download_fail_subtitle_new">Nie sú dostupné žiadne hosts zdroje!</string>
+    <string name="status_root_access_denied">Prístup ROOT bol odmietnutý</string>
+    <string name="status_root_access_denied_subtitle">Povoľte prístup ROOT z aplikácie určenej na správu prístupu ROOT</string>
     <string name="status_failure">Niečo sa pokazilo</string>
     <string name="status_failure_subtitle">Pre viac informácií skontrolujte logcat</string>
     <string name="status_enabled">Povolené</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Aplikovanie hosts súboru</string>
     <string name="apply_fail">Aplikovanie hosts súboru do vašeho systému zlyhalo!\nSkúste zmeniť umiestnenie hosts súboru v nastaveniach na /data/data/hosts.</string>
     <string name="apply_fail_title">Aplikovanie zlyhalo</string>
+    <string name="root_access_fail">Prosím, skontrolujte aplikáciu pre správu prístupu ROOT, aby ste sa uistili, že ste získali ROOT prístup</string>
     <string name="revert_successful">Obnovili ste súbor hosts na pôvodný.\nPre aplikovanie zmien budete musieť reštartovať zariadenie.\n\nChcete reštartovať?\n(Aby ste predišli strate dát, uistite sa, že žiadna aplikácie práve teraz nepoužíva SD kartu!)</string>
     <string name="revert_successful_title">Obnovenie úspešné</string>
     <string name="revert_problem">Obnovenie zlyhalo z neznámeho dôvodu.</string>
@@ -196,11 +199,9 @@
     <string name="pref_dark_theme_summary">Použije tmavú tému namiesto svetlej</string>
     <string name="pref_dark_theme_notification">Téma bude aplikovaná pri ďalšom spustení aplikácie!</string>
     <string name="pref_hosts">Hosts súbor</string>
-    <string name="pref_redirection_ip">IP pre presmerovanie</string>
     <string name="pref_update_check">Skontrolovať aktualizácie</string>
     <string name="pref_apply_method">Umiestnenie hosts súboru</string>
     <string name="pref_apply_method_summary">Skôr než zmeníte toto nastavenie, prečítajte si Pomoc o tejto funkcii.</string>
-    <string name="pref_redirection_ip_summary">Všetky blokované adresy sú presmerované na túto IP adresu.</string>
     <string name="pref_header_preferences">Nastavenia</string>
     <string name="pref_header_preferences_summary">Všeobecné nastavenia pre AdAway</string>
     <string name="pref_never_reboot">Skryť otázku na reštart</string>
@@ -239,7 +240,6 @@
     <string name="pref_enable_telemetry">Povoliť hlásenia o zlyhaní</string>
     <string name="pref_enable_telemetry_summary">Povoliť aplikácii zasielať chyby a hlásenia o zlyhaní na Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Povoliť IPv6</string>
-    <string name="pref_enable_ipv6_summary">Všetky položky v hosts súbore budú mať zodpovedajúci ::1 (IPv6 localhost) záznam.</string>
     <string name="pref_enable_systemless_summary">Zabrániť AdAway upravovať systémovú partíciu</string>
     <string name="pref_enable_systemless">Povoliť bezsystémový režim</string>
     <string name="pref_edit_text_value">Upraviť hodnotu predvoľby textu</string>

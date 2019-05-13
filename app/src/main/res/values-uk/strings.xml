@@ -15,7 +15,7 @@
     <string name="button_help">Довідка</string>
 
     <!--Home-->
-    <string name="header_help">Вітання!</string>
+    <string name="header_help">Вітаємо!</string>
     <string name="text_help">AdAway — це безкоштовний додаток з відкритим вихідним кодом, створений для блокування реклами. Він збирає адреси з рекламної мережі і блокує їх на вашому пристрої.\nХочете дізнатися більше? Прочитайте довідку нижче.</string>
     <string name="button_show_help">Розширена довідка</string>
     <string name="icon_update_status">Оновити статус</string>
@@ -179,8 +179,8 @@
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
     <string name="tcpdump_description">Tcpdump — це інструмент для моніторингу запитів DNS і їх збереження в файлі журналу. Ви можете запустити його в фоновому режимі, далі запустити програму, яка показує рекламу на екрані, і проаналізувати збережені в журналі запити DNS. Хост, кваліфікований як джерело реклами, може бути внесений у чорний список.</string>
-    <string name="tcpdump_disable_monitoring">Вимкнути моніторинг</string>
-    <string name="tcpdump_enable_monitoring">Увімкнути моніторинг</string>
+    <string name="tcpdump_disable_monitoring">Вимк. моніторинг</string>
+    <string name="tcpdump_enable_monitoring">Увімк. моніторинг</string>
     <string name="tcpdump_show_results">Показати результати</string>
     <string name="tcpdump_redirect_dialog_title">Перенаправити домен</string>
     <string name="tcpdump_menu_sort">Сортувати домени</string>

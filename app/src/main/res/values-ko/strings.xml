@@ -140,11 +140,9 @@
     <!--Preferences-->
     <string name="pref_download">일반 환경 설정</string>
     <string name="pref_hosts">호스트 파일</string>
-    <string name="pref_redirection_ip">리디렉션 IP</string>
     <string name="pref_update_check">업데이트 확인</string>
     <string name="pref_apply_method">대상 호스트 파일</string>
     <string name="pref_apply_method_summary">이 설정을 변경하기 전에, 이 기능에 대한 도움말을 참조하십시오.</string>
-    <string name="pref_redirection_ip_summary">모든 차단된 호스트명은 이 IP 주소로 리디렉션 됩니다.</string>
     <string name="pref_header_preferences">환경 설정</string>
     <string name="pref_header_preferences_summary">AdAway의 일반 환경 설정</string>
     <string name="pref_never_reboot">재부팅 메뉴 숨기기</string>
@@ -173,7 +171,6 @@
     <string name="pref_debug">디버깅</string>
     <string name="pref_enable_debug_summary">해당 변경 사항을 적용하려면 AdAway를 재시작해야 합니다.</string>
     <string name="pref_enable_ipv6">IPv6 활성화</string>
-    <string name="pref_enable_ipv6_summary">모든 호스트 파일의 입력 내용은 이에 해당하는 ::1 (IPv6 로컬호스트) 입력 내용을 얻습니다.</string>
     <string name="pref_enable_systemless_summary">AdAway의 시스템 파티션 수정 방지</string>
     <string name="pref_enable_systemless">Systemless 모드 활성화</string>
     <string name="drawer_open">메뉴 열기</string>

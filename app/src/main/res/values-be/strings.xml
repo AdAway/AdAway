@@ -197,11 +197,9 @@
     <string name="pref_dark_theme_summary">Выкарыстоўваць цёмную тэму замест светлай</string>
     <string name="pref_dark_theme_notification">Тэма зменіцца пры наступным запуску праграмы!</string>
     <string name="pref_hosts">Файл hosts</string>
-    <string name="pref_redirection_ip">Адрас IP для перанакіравання</string>
     <string name="pref_update_check">Праверка абнаўленняў</string>
     <string name="pref_apply_method">Шлях да файла hosts</string>
     <string name="pref_apply_method_summary">Перад змяненнем гэтага параметру прачытайце аб гэтай функцыі ў Даведцы.</string>
-    <string name="pref_redirection_ip_summary">Усе заблакаваныя hosts пераадрасоўваюцца на гэты адрас IP.</string>
     <string name="pref_header_preferences">Налады</string>
     <string name="pref_header_preferences_summary">Асноўныя налады AdAway</string>
     <string name="pref_never_reboot">Схаваць акно перазагрузкі</string>
@@ -240,7 +238,6 @@
     <string name="pref_enable_telemetry">Адпраўляць справаздачы аб памылках</string>
     <string name="pref_enable_telemetry_summary">Адпраўляць справаздачы аб памылках і збоях у Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Уключыць IPv6</string>
-    <string name="pref_enable_ipv6_summary">Усе запісы файла host будуць атрымліваць адпаведны ::1 запіс (localhost IPv6).</string>
     <string name="pref_enable_systemless_summary">Забараніць AdAway рэдагаваць сістэмны раздзел</string>
     <string name="pref_enable_systemless">Уключыць бессістэмны рэжым</string>
     <string name="pref_edit_text_value">Рэдагаваць значэнне тэкставай перавагі</string>

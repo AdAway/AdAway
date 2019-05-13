@@ -110,11 +110,9 @@
     <!--Preferences-->
     <string name="pref_download">Preferencies xenerales</string>
     <string name="pref_hosts">Ficheru «hosts»</string>
-    <string name="pref_redirection_ip">Redireición d\'IP</string>
     <string name="pref_update_check">Comprobar anovamientos</string>
     <string name="pref_apply_method">Ficheru «hosts» oxetivu</string>
     <string name="pref_apply_method_summary">Enantes de camudar esti axuste, llei l\'ayuda tocante a esta funcionalidá.</string>
-    <string name="pref_redirection_ip_summary">Redireicionaránse a esta direición IP tolos nomes d\'agospiu.</string>
     <string name="pref_header_preferences">Preferencies</string>
     <string name="pref_header_preferences_summary">Preferencies xenerales p\'AdAway</string>
     <string name="pref_never_reboot">Anubrir dialogu de reaniciu</string>
@@ -143,7 +141,6 @@
     <string name="pref_debug">Depuración</string>
     <string name="pref_enable_debug_summary">Necesites reaniciar AdAway pa qu\'esti axuste faiga efeutu.</string>
     <string name="pref_enable_ipv6">Habilitar IPv6</string>
-    <string name="pref_enable_ipv6_summary">Toles entraes del ficheru «hosts» consiguirán una entrada ::1 (localhost d\'IPv6) correspondiente.</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
         <item>Fontes de hosts</item>

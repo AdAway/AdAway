@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Bez dostupného připojení na internet</string>
     <string name="status_download_fail">Nedostupné zdroje</string>
     <string name="status_download_fail_subtitle_new">Nejsou dostupné žádné zdroje souborů hostitelů!</string>
+    <string name="status_root_access_denied">ROOT přístup odepřen</string>
+    <string name="status_root_access_denied_subtitle">Povolte ROOT přístup v aplikaci pro správu ROOT přístupů</string>
     <string name="status_failure">Něco se pokazilo</string>
     <string name="status_failure_subtitle">Pro více detailů zkontrolujte systémový protokol událostí</string>
     <string name="status_enabled">Povoleno</string>
@@ -114,6 +116,7 @@
     <string name="apply_dialog_apply">Aplikování souboru hostitelů</string>
     <string name="apply_fail">Při aplikaci souboru hostitelů došlo k chybě!\nZkuste v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
     <string name="apply_fail_title">Aplikování se nezdařilo</string>
+    <string name="root_access_fail">Ujistěte se, prosím, že jste v aplikaci pro správu ROOT přístupů udělili oprávnění pro ROOT přístup.</string>
     <string name="revert_successful">Obnovili jste výchozí soubor hostitelů.\nAby se změny projevily, může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
     <string name="revert_successful_title">Obnova úspěšná</string>
     <string name="revert_problem">Obnova souboru hostitelů z neznámých příčin selhala!</string>
@@ -196,11 +199,9 @@
     <string name="pref_dark_theme_summary">Použít černé téma místo bílého</string>
     <string name="pref_dark_theme_notification">Téma bude použito při příštím spuštění aplikace!</string>
     <string name="pref_hosts">Soubor hostitelů</string>
-    <string name="pref_redirection_ip">IP pro přesměrování</string>
     <string name="pref_update_check">Zkontrolovat aktualizace</string>
     <string name="pref_apply_method">Cílový soubor hostitelů</string>
     <string name="pref_apply_method_summary">Před změnou tohoto nastavení si prosím přečtěte nápovědu pro tuto funkci.</string>
-    <string name="pref_redirection_ip_summary">Všechna blokovaná jména hostitelů jsou přesměrována na tuto IP adresu.</string>
     <string name="pref_header_preferences">Nastavení</string>
     <string name="pref_header_preferences_summary">Obecná nastavení pro AdAway</string>
     <string name="pref_never_reboot">Skrýt dialogové okno restartu</string>
@@ -239,7 +240,6 @@
     <string name="pref_enable_telemetry">Povolit zprávy o selhání</string>
     <string name="pref_enable_telemetry_summary">Povolit aplikaci posílat chyby a zprávy o selhání na Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Povolit IPv6</string>
-    <string name="pref_enable_ipv6_summary">Všechny záznamy v souboru hostitelů budou doplněny odpovídajícím ::1 (IPv6 localhost) záznamem.</string>
     <string name="pref_enable_systemless_summary">Zabrání AdAway provedení změn na systémovém oddílu</string>
     <string name="pref_enable_systemless">Povolit mód systemless</string>
     <string name="pref_edit_text_value">Upravit textovou hodnotu předvolby</string>

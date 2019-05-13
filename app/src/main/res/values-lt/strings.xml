@@ -121,11 +121,9 @@
     <!--Preferences-->
     <string name="pref_download">Pagrindiniai nustatymai</string>
     <string name="pref_hosts">Host Failas</string>
-    <string name="pref_redirection_ip">Nukreipimo IP</string>
     <string name="pref_update_check">Ieškoti atnaujinimų</string>
     <string name="pref_apply_method">Nukreipti host failą</string>
     <string name="pref_apply_method_summary">Prieš keičiant šį nustatymą, perskaitykite Pagalbą apie funkcionalumą.</string>
-    <string name="pref_redirection_ip_summary">Visi blokuojami host vardai nekreipiami į šį IP adresą.</string>
     <string name="pref_header_preferences">Nustatymai</string>
     <string name="pref_header_preferences_summary">Pagrindiniai AdAway nustatymai</string>
     <string name="pref_never_reboot">Slepti perkrovimo užklausą</string>
@@ -154,7 +152,6 @@
     <string name="pref_debug">Derinti</string>
     <string name="pref_enable_debug_summary">Reikia paleisti iš naujo AdAway, kad veiktų nustatymai.</string>
     <string name="pref_enable_ipv6">Įjungti IPv6</string>
-    <string name="pref_enable_ipv6_summary">Visi host failo įrašai bus pažymėti ::1 (IPv6 localhost) įrašu.</string>
     <string name="pref_enable_systemless_summary">Neleisti AdAway keisti sisteminio skirsnio</string>
     <string name="pref_enable_systemless">Įjungti nesisteminį režimą</string>
     <!--Drawer menu items-->

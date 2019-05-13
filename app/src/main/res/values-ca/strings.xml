@@ -168,11 +168,9 @@
     <string name="pref_dark_theme_summary">Utilitza el tema fosc enlloc del clar</string>
     <string name="pref_dark_theme_notification">El tema s\'aplicarà en el proper inici de l\'aplicació!</string>
     <string name="pref_hosts">Fitxer de servidors</string>
-    <string name="pref_redirection_ip">Redirecció d\'IP</string>
     <string name="pref_update_check">Comprova actualitzacions</string>
     <string name="pref_apply_method">Fitxer hosts objectiu</string>
     <string name="pref_apply_method_summary">Abans de canviar aquests paràmetres, llegiu l\'ajuda sobre aquesta funció.</string>
-    <string name="pref_redirection_ip_summary">Tots els noms de màquines es redirigeixen a aquesta adreça IP.</string>
     <string name="pref_header_preferences">Preferències</string>
     <string name="pref_header_preferences_summary">Preferències generals d\'AdAway</string>
     <string name="pref_never_reboot">Amaga el missatge de reinici</string>
@@ -204,7 +202,6 @@
     <string name="pref_debug">Depuració</string>
     <string name="pref_enable_debug_summary">Necessiteu reiniciar AdAway per tal que aquest ajustament faci a efecte.</string>
     <string name="pref_enable_ipv6">Habilita IPv6</string>
-    <string name="pref_enable_ipv6_summary">Totes les entrades al fitxer host rebran la corresponent ::1(IPv6 localhost) entrada.</string>
     <string name="pref_enable_systemless_summary">Evita que l\'AdAway modifiqui la partició del sistema</string>
     <string name="pref_enable_systemless">Habilita el mode «systemless»</string>
     <string name="pref_edit_text_value">Edita el valor de preferència del text</string>

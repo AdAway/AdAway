@@ -196,11 +196,9 @@
     <string name="pref_dark_theme_summary">明るいテーマの代わりに暗いテーマを使用</string>
     <string name="pref_dark_theme_notification">テーマの変更はアプリの次回起動時に適用されます！</string>
     <string name="pref_hosts">hostsファイル</string>
-    <string name="pref_redirection_ip">リダイレクト先IP</string>
     <string name="pref_update_check">更新を確認</string>
     <string name="pref_apply_method">ターゲットhostsファイル</string>
     <string name="pref_apply_method_summary">この設定を変える前にこの機能についてヘルプを読んでください。</string>
-    <string name="pref_redirection_ip_summary">全てのブロックされたホスト名はこのIPアドレスにリダイレクトされます</string>
     <string name="pref_header_preferences">設定</string>
     <string name="pref_header_preferences_summary">AdAwayの基本的な設定</string>
     <string name="pref_never_reboot">再起動ダイアログを非表示</string>
@@ -239,7 +237,6 @@
     <string name="pref_enable_telemetry">動作停止の報告を有効にする</string>
     <string name="pref_enable_telemetry_summary">このアプリがエラーや動作停止の報告を Sentry (sentry.io) に送信するのを許可します。</string>
     <string name="pref_enable_ipv6">IPv6の有効化</string>
-    <string name="pref_enable_ipv6_summary">hostファイルのエントリがすべて::1 (IPv6 localhost) エントリを持つようになります。</string>
     <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
     <string name="pref_enable_systemless">systemlessモードを有効にする</string>
     <string name="pref_edit_text_value">テキスト設定値を編集する</string>

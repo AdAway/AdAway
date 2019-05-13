@@ -122,11 +122,9 @@
     <!--Preferences-->
     <string name="pref_download">Generelle preferanser</string>
     <string name="pref_hosts">Vertsfil</string>
-    <string name="pref_redirection_ip">Omdirigerings-IP</string>
     <string name="pref_update_check">Se etter oppdateringer</string>
     <string name="pref_apply_method">Målpunktsvertsfilen</string>
     <string name="pref_apply_method_summary">Før du endrer denne innstillingen, les i Hjelp om denne funksjonen.</string>
-    <string name="pref_redirection_ip_summary">Alle blokkerte vertsnavn blir omdirigert til denne IP-adressen.</string>
     <string name="pref_header_preferences">Preferanser</string>
     <string name="pref_header_preferences_summary">Generelle preferanser for AdAway</string>
     <string name="pref_never_reboot">Skjul omstartsdialogen</string>
@@ -155,7 +153,6 @@
     <string name="pref_debug">Avlusing</string>
     <string name="pref_enable_debug_summary">Du må starte AdAway på nytt for at denne innstillingene skal bli satt i gang.</string>
     <string name="pref_enable_ipv6">Aktiver IPv6</string>
-    <string name="pref_enable_ipv6_summary">Alle vertsfiloppføringer vil få en samsvarende ::1-oppføring (IPv6-lokalverten).</string>
     <string name="pref_enable_systemless_summary">Forhindre AdAway fra å modifisere systempartisjonen</string>
     <string name="pref_enable_systemless">Aktiver systemløs modus</string>
     <!--Drawer menu items-->

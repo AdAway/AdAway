@@ -171,11 +171,9 @@
     <string name="pref_dark_theme_summary">ใช้ธีมสีดำเพื่อลดความสว่างของหน้าจอ</string>
     <string name="pref_dark_theme_notification">ธีมจะถูกใช้เมื่อเริ่มต้นแอพฯครั้งต่อไป!</string>
     <string name="pref_hosts">ไฟล์โฮสต์</string>
-    <string name="pref_redirection_ip">เปลี่ยนเส้นทาง IP</string>
     <string name="pref_update_check">ตรวจสอบอัพเดท</string>
     <string name="pref_apply_method">ไฟล์โฮสต์</string>
     <string name="pref_apply_method_summary">ก่อนจะเปลี่ยนการตั้งค่า กรุณาอ่านช่วยเหลือเกี่ยวกับฟังก์ชั่นนี้</string>
-    <string name="pref_redirection_ip_summary">บล็อคโฮสต์ทั้งหมดหาก Redirections ไปยังที่อยู่ IP นี้</string>
     <string name="pref_header_preferences">การตั้งค่า</string>
     <string name="pref_header_preferences_summary">การตั้งค่าทั่วไป AdAway</string>
     <string name="pref_never_reboot">ซ่อนกล่องรีบูต</string>
@@ -207,7 +205,6 @@
     <string name="pref_debug">ดีบัค</string>
     <string name="pref_enable_debug_summary">จำเป็นต้องรีสตาร์ท AdAway เพื่ออัพเดตการตั้งค่า</string>
     <string name="pref_enable_ipv6">เปิดใช้งาน IPv6</string>
-    <string name="pref_enable_ipv6_summary">ไฟล์โฮสต์ทั้งหมดจะได้รับตรงกัน ::1 (IPv6 โลคัลโฮสต์)</string>
     <string name="pref_enable_systemless_summary">ป้องกันไม่ให้ AdAway แก้ไขไฟล์ในระบบ</string>
     <string name="pref_enable_systemless">เปิดใช้งานโหมดไม่เข้าไปแก้ไขไฟล์ของระบบ</string>
     <string name="pref_edit_text_value">แก้ไขค่ากำหนดของข้อความ</string>

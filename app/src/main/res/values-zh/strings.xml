@@ -11,21 +11,21 @@
     <string name="button_add">添加</string>
     <string name="button_cancel">取消</string>
     <string name="button_save">保存</string>
-    <string name="button_webserver_toggle_text">在本地主机上启用或禁用网络服务器以应答已屏蔽的主机名的请求。</string>
+    <string name="button_webserver_toggle_text">运行或停止本地主机上的 Web 服务器，以响应对被屏蔽的主机名的请求。</string>
     <string name="button_help">帮助</string>
 
     <!--Home-->
     <string name="header_help">欢迎！</string>
-    <string name="text_help">AdAway 是一款开源软件的广告拦截器，您可以通过 Hosts 源下载并配置您的设备。想了解更多信息？请点击“查看更多帮助”！</string>
+    <string name="text_help">AdAway 是一款开源广告拦截器，您可以通过 hosts 源下载并配置拦截。\n想了解更多信息？请查看更多帮助！</string>
     <string name="button_show_help">显示更多帮助</string>
     <string name="icon_update_status">更新状态</string>
-    <string name="text_update">从定义源下载 hosts 文件，合并、生成新的 hosts 文件安装到您的系统中。</string>
+    <string name="text_update">从预定义的 hosts 源下载 hosts 文件，合并、生成新的 hosts 文件，并安装到您的系统中。</string>
     <string name="button_check_update_hosts">检查更新</string>
     <string name="button_update_hosts">更新 hosts</string>
     <string name="button_enable_hosts">启用广告拦截</string>
     <string name="button_disable_hosts">禁用广告拦截</string>
     <string name="header_webserver">网络服务器</string>
-    <string name="webserver_status_running">运行中</string>
+    <string name="webserver_status_running">正在运行</string>
     <string name="webserver_status_stopped">已停止</string>
     <string name="button_enable_webserver">启用网络服务器</string>
     <string name="button_disable_webserver">禁用网络服务器</string>
@@ -42,20 +42,21 @@
     <string name="list_add_dialog_black">将 hosts 添加到黑名单</string>
     <string name="list_add_dialog_white">将 hosts 添加到白名单</string>
     <string name="list_add_dialog_redirect">将 hosts 添加到重定向</string>
-    <string name="list_edit_dialog_black">编辑黑名单 hosts</string>
-    <string name="list_edit_dialog_white">编辑白名单 hosts</string>
+    <string name="list_edit_dialog_black">编辑黑名单主机</string>
+    <string name="list_edit_dialog_white">编辑白名单主机</string>
     <string name="list_edit_dialog_redirect">编辑重定向</string>
     <string name="list_dialog_hostname">主机名：</string>
     <string name="list_dialog_hostname_hint">hosts 源网址</string>
     <string name="list_dialog_wildcard">（允许使用通配符 * 和 ? ）</string>
-    <string name="list_dialog_ip">IP（IPv4 或 IPv6）：</string>
+    <string name="list_dialog_ip">IP 地址（IPv4 或 IPv6）：</string>
     <string name="import_dialog">正在导入...</string>
     <string name="export_dialog">正在导出...</string>
-    <string name="export_failed">导出列表到SD卡失败。</string>
+    <string name="export_success">将所有条目导出至 SD 卡目录下一个文件名为“adaway-export”的文件中。</string>
+    <string name="export_failed">导出列表至 SD 卡失败。</string>
 
     <!--Hosts content-->
     <string name="hosts_header">hosts 文件</string>
-    <string name="hosts_description">hosts 文件是一个将主机名映射到 IP 地址的系统文件。 它是一个纯文本文件，配置由 AdAway 处理；这是它的第一行：</string>
+    <string name="hosts_description">hosts 文件是一个将主机名映射到 IP 地址的系统文件。它是一个纯文本文件，由 AdAway 处理、配置。这是它的前几行：</string>
     <string name="hosts_content">正在加载 hosts 文件内容...</string>
     <string name="hosts_open_button">打开 hosts 文件</string>
 
@@ -63,33 +64,27 @@
     <string name="status_checking">正在检查更新...</string>
     <string name="status_reverting">正在恢复...</string>
     <string name="status_reverting_subtitle">创建标准 hosts 文件</string>
-    <string name="status_update_available">更新可用</string>
+    <string name="status_update_available">有更新可用</string>
     <string name="status_update_available_subtitle">有新的 hosts 文件可用</string>
     <string name="status_no_connection">没有网络连接</string>
     <string name="status_no_connection_subtitle">没有可用的网络连接</string>
     <string name="status_download_fail">不可用的源</string>
     <string name="status_download_fail_subtitle_new">没有可以访问的 hosts 源！</string>
-    <string name="status_failure_subtitle">
-检查logcat以获取更多详细信息</string>
+    <string name="status_failure">发生了一些错误</string>
+    <string name="status_failure_subtitle">检查 logcat 以获取更多详细信息</string>
     <string name="status_enabled">已启用</string>
     <string name="status_enabled_subtitle">已启用最新的 hosts 文件</string>
     <string name="status_disabled">已禁用</string>
-    <string name="status_disabled_subtitle">
-已安装默认hosts文件</string>
+    <string name="status_disabled_subtitle">已安装默认 hosts 文件</string>
     <string name="notification_channel_update_name">更新</string>
-    <string name="notification_channel_update_description">
-新hosts更新通知</string>
-    <string name="notification_configuration_changed">
-您的配置已更改.您需要安装hosts文件才能使用它</string>
+    <string name="notification_channel_update_description">新 hosts 文件更新通知</string>
+    <string name="notification_configuration_changed">您的配置已更改。需要重新安装 hosts 文件才能应用至系统。</string>
     <string name="notification_configuration_changed_action">应用</string>
-    <string name="notification_configuration_installing">
-安装hosts文件...</string>
-    <string name="notification_configuration_failed">无法安装hosts文件</string>
+    <string name="notification_configuration_installing">正在安装 hosts 文件...</string>
+    <string name="notification_configuration_failed">hosts 文件安装失败。</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing">/system/etc/hosts 符号链接不存在或者不正确！AdAway 将无法运行。
-
-是否尝试创建符号链接？</string>
+    <string name="apply_symlink_missing">/system/etc/hosts 的符号链接（symlink）不存在或者不正确！AdAway 将无法运行。\n\n是否尝试创建符号链接？</string>
     <string name="apply_symlink_missing_title">符号链接丢失</string>
     <string name="apply_not_enough_space">分区上没有足够的空间！
 请尝试将首选项中的目标 hosts 文件更改为 /data/data/hosts。</string>
@@ -100,11 +95,9 @@
     <string name="apply_remount_fail_title">重新挂载失败</string>
     <string name="apply_copy_fail">复制 hosts 文件失败！</string>
     <string name="apply_copy_fail_title">复制失败</string>
-    <string name="apply_success_subtitle">
-选择hosts来源</string>
-    <string name="apply_success_title">启用成功</string>
-    <string name="apply_success_dialog">
-应用成功.\可能需要重新启动Android才能使更改生效\n\n是否要重新启动?\n（为防止数据丢失,请确保目前没有应用程序使用SD卡!）</string>
+    <string name="apply_success_subtitle">已应用 hosts 来源</string>
+    <string name="apply_success_title">应用成功</string>
+    <string name="apply_success_dialog">应用成功。\可能需要重新启动 Android 才能使更改生效。\n\n是否要重新启动？\n（为防止数据丢失，请确保目前没有应用程序正在使用SD卡！）</string>
     <string name="apply_symlink_successful_title">符号链接创建成功</string>
     <string name="apply_symlink_fail_title">符号链接创建失败</string>
     <string name="apply_help">请阅读帮助以获取更多信息。</string>
@@ -117,8 +110,7 @@
     <string name="apply_dialog_hostnames">解析、合并 hosts 文件</string>
     <string name="apply_dialog_hosts">构建 hosts 文件</string>
     <string name="apply_dialog_apply">应用 hosts 文件</string>
-    <string name="apply_fail">将 hosts 文件应用于您的系统失败！
-请尝试将首选项中的目标 hosts 文件更改为 /data/data/hosts。</string>
+    <string name="apply_fail">将 hosts 文件应用于您的系统失败！\n请尝试将首选项中的目标 hosts 文件更改为 /data/data/hosts。</string>
     <string name="apply_fail_title">应用失败</string>
     <string name="revert_successful_title">恢复成功</string>
     <string name="revert_problem">由于未知原因，恢复失败。</string>
@@ -141,12 +133,13 @@
     <string name="no_hostname_title">主机名格式不正确</string>
     <string name="no_ip">不是有效的 IP！</string>
     <string name="no_ip_title">IP 格式不正确</string>
+    <string name="reboot_never_reboot">永远不重启且不再询问！</string>
     <string name="loading">正在加载...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">刷新</string>
     <string name="menu_add">添加</string>
-    <string name="menu_hosts_sources">Hosts 源</string>
+    <string name="menu_hosts_sources">hosts 源</string>
     <string name="menu_help">帮助</string>
     <string name="menu_import">导入列表</string>
     <string name="menu_export">导出列表</string>
@@ -157,13 +150,17 @@
     <string name="help_tab_problems">其他问题</string>
 
     <!--Adware-->
-    <string name="adware_header">Adware</string>
+    <string name="adware_header">广告软件</string>
+    <string name="adware_scanning">正在扫描&#8230;</string>
+    <string name="adware_empty">没有已知的广告软件！</string>
+
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">本地：</string>
     <string name="hosts_last_modified_online">在线：</string>
     <string name="hosts_not_available">无法使用</string>
     <string name="hosts_add_dialog_title">添加源</string>
     <string name="hosts_edit_dialog_title">编辑源</string>
+    <string name="hosts_dialog_url">URL：（以 https:// 或 file:// 开头）</string>
     <string name="hosts_dialog_url_hint">hosts 源网址</string>
 
     <!--Other-->
@@ -187,24 +184,22 @@
     <string name="tcpdump_menu_sort">域名排序</string>
     <string name="tcpdump_menu_clear">清除日志</string>
     <string name="tcpdump_sort_alphabetical">按字母排序</string>
-    <string name="tcpdump_sort_top_level_domain">顶级域名排序</string>
+    <string name="tcpdump_sort_top_level_domain">按顶级域名排序</string>
     <string name="tcpdump_entry_add_blacklist">添加条目到黑名单</string>
     <string name="tcpdump_entry_add_whitelist">添加条目到白名单</string>
     <string name="tcpdump_entry_add_redirection_list">添加条目到重定向</string>
 
     <!--Preferences-->
     <string name="pref_download">常规首选项</string>
-    <string name="pref_dismiss_welcome">隐藏欢迎卡</string>
-    <string name="pref_dismiss_welcome_summary">不在主屏幕上显示欢迎卡</string>
+    <string name="pref_dismiss_welcome">隐藏欢迎卡片</string>
+    <string name="pref_dismiss_welcome_summary">不在主屏幕上显示欢迎卡片</string>
     <string name="pref_dark_theme">启用黑色主题</string>
     <string name="pref_dark_theme_summary">使用深色主题而不是浅色主题</string>
     <string name="pref_dark_theme_notification">更改主题需要重启应用后才能生效！</string>
-    <string name="pref_hosts">Hosts 文件</string>
-    <string name="pref_redirection_ip">重定向 IP</string>
+    <string name="pref_hosts">hosts 文件</string>
     <string name="pref_update_check">检查更新</string>
     <string name="pref_apply_method">目标 hosts 文件</string>
     <string name="pref_apply_method_summary">在更改此设置之前，请阅读有关此功能的帮助。</string>
-    <string name="pref_redirection_ip_summary">所有已屏蔽的主机名都将重定向到此 IP 地址</string>
     <string name="pref_header_preferences">首选项</string>
     <string name="pref_header_preferences_summary">AdAway 的常规设置</string>
     <string name="pref_never_reboot">隐藏重启对话框</string>
@@ -218,7 +213,10 @@
     <string name="pref_custom_target_summary">请将目标 hosts 文件设置为自定义</string>
 
     <string-array name="pref_apply_method_entries">
-        <item>自定义</item>
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>自定义路径</item>
     </string-array>
 
     <string name="pref_update_check_summary">启动时检查更新 AdAway</string>
@@ -227,15 +225,18 @@
     <string name="pref_update_check_daily_summary">每天在后台检查更新并显示通知</string>
     <string name="pref_automatic_update_daily">自动更新</string>
     <string name="pref_automatic_update_daily_summary">有可用更新时，在后台自动更新</string>
+    <string name="pref_update_only_on_wifi">仅在使用非计费网络时更新</string>
+    <string name="pref_update_only_on_wifi_summary">仅在连接至非计费网络时进行后台更新。</string>
     <string name="pref_whitelist_rules">允许白名单</string>
     <string name="pref_whitelist_rules_summary">允许 hosts 源中的白名单条目</string>
     <string name="pref_redirection_rules">允许重定向</string>
-    <string name="pref_redirection_rules_summary">允许 hosts 源中的重定向条目可能会带来安全隐患！</string>
+    <string name="pref_redirection_rules_summary">可能会带来安全隐患！允许在线 hosts 源中的重定向条目。</string>
     <string name="pref_debug">调试</string>
-    <string name="pref_enable_debug_summary">需要重启 AdAway 才能使设置生效</string>
+    <string name="pref_enable_debug">启用详细级别为 verbose 的日志</string>
+    <string name="pref_enable_debug_summary">需要重启 AdAway 才能使此设置生效。</string>
     <string name="pref_enable_telemetry">启用崩溃报告</string>
+    <string name="pref_enable_telemetry_summary">允许本应用程序向 Sentry（sentry.io）发送错误与崩溃报告。</string>
     <string name="pref_enable_ipv6">启用 IPv6</string>
-    <string name="pref_enable_ipv6_summary">所有 hosts 文件都会获得相应的条目 ::1 (IPv6 localhost)</string>
     <string name="pref_enable_systemless_summary">防止 AdAway 修改系统分区</string>
     <string name="pref_enable_systemless">启用 systemless 模式</string>
     <string name="pref_edit_text_value">编辑文本首选项值</string>
@@ -244,17 +245,46 @@
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>主页</item>
         <item>Hosts 源</item>
         <item>列表</item>
         <item>打开 hosts 文件</item>
+        <item>记录 DNS 请求</item>
+        <item>扫描广告软件</item>
         <item>首选项</item>
         <item>帮助</item>
     </string-array>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 支持开发 \u2764</string>
+    <string name="drawer_support_dialog_title">支持开发</string>
+    <string name="drawer_support_dialog_button">资瓷一个</string>
+
+    <!--Telemetry-->
+    <string name="dialog_telemetry_title">遥测</string>
+    <string name="dialog_telemetry_enable">吼哇，当然资瓷啦！</string>
+    <string name="dialog_telemetry_disable">没有，没有这个意思</string>
+
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 请求</string>
     <string name="shortcut_your_lists">列表</string>
     <string name="shortcut_preferences">首选项</string>
 
-    <string name="hosts_source_last_update">最后更新于 %1$s 前</string>
-    <string name="hosts_source_unknown_status">未知的更新状态</string>
-    </resources>
+    <!--Hosts source status-->
+    <string name="hosts_source_up_to_date">无需更新，最后更新于 %1$s前</string>
+    <string name="hosts_source_need_update">需要更新，最后更新于 %1$s前</string>
+    <string name="hosts_source_last_update">最后更新于 %1$s前</string>
+    <string name="hosts_source_unknown_status">更新状态未知</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="other">%d 分钟</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="other">%d 小时</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="other">%d 天</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="other">%d 个月</item>
+    </plurals>
+
+</resources>

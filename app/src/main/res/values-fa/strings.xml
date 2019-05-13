@@ -141,11 +141,9 @@
     <!--Preferences-->
     <string name="pref_download">تنظیمات عمومی</string>
     <string name="pref_hosts">فایل Hosts</string>
-    <string name="pref_redirection_ip">تغییر مسیر آی پی</string>
     <string name="pref_update_check">به روز رسانی ها رو بررسی کن</string>
     <string name="pref_apply_method">هدف فایل hosts</string>
     <string name="pref_apply_method_summary">قبل از تغییر این تنظیمات فایل راهنما را در رابطه با این قابلیت مطالعه نمایید.</string>
-    <string name="pref_redirection_ip_summary">تمامی hostnames های مسدود شده به این آی پی هدایت میشوند.</string>
     <string name="pref_header_preferences">تنظیمات</string>
     <string name="pref_header_preferences_summary">تنظیمات عمومی مربوط به AdAway</string>
     <string name="pref_never_reboot">مخفی کردن پیغام شروع مجدد</string>
@@ -174,7 +172,6 @@
     <string name="pref_debug">عیب یابی</string>
     <string name="pref_enable_debug_summary">برای اثر کردن این تنظیم شما نیاز به شروع مجدد AdAway دارید.</string>
     <string name="pref_enable_ipv6">فعال کردن IPv6</string>
-    <string name="pref_enable_ipv6_summary">تمامی فایلهای host ورودی جواب::1 (IPv6 localhost) ورودی را دریافت خواهند کرد.</string>
     <string name="pref_enable_systemless_summary">جلوگیری AdAway از تغییر پارتیشن سیستمی</string>
     <string name="pref_enable_systemless">فعال کردن حالت systemless</string>
     <!--Drawer menu items-->

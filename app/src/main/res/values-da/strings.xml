@@ -154,11 +154,9 @@
     <string name="pref_dark_theme_summary">Brug mørkt tema istedet for lyst</string>
     <string name="pref_dark_theme_notification">Temaet vil blive anvendt næste gang app\'en åbnes!</string>
     <string name="pref_hosts">Hosts-fil</string>
-    <string name="pref_redirection_ip">Omdirigerings-IP</string>
     <string name="pref_update_check">Check for opdateringer</string>
     <string name="pref_apply_method">Destinations-hostsfil</string>
     <string name="pref_apply_method_summary">Inden du ændrer denne indstilling, skal du læse Hjælp om denne funktionalitet.</string>
-    <string name="pref_redirection_ip_summary">Alle blokerede værtsnavne sendes til denne IP-adresse</string>
     <string name="pref_header_preferences">Indstillinger</string>
     <string name="pref_header_preferences_summary">Generelle indstillinger for AdAway</string>
     <string name="pref_never_reboot">Gem genstarts-dialogboksen</string>
@@ -188,7 +186,6 @@
     <string name="pref_debug">Debug</string>
     <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>
     <string name="pref_enable_ipv6">Aktivér IPv6</string>
-    <string name="pref_enable_ipv6_summary">Alle hosts-fils poster vil få en tilsvarende ::1 (IPv6 localhost) post.</string>
     <string name="pref_enable_systemless_summary">Forhindre AdAway i at ændre systempartitionen</string>
     <string name="pref_enable_systemless">Aktiver systemløs tilstand</string>
     <string name="drawer_open">Åben menu</string>

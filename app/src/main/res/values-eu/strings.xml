@@ -16,10 +16,17 @@
 
     <!--Home-->
     <string name="header_help">Ongi etorri!</string>
+    <string name="text_help">AdAway iragarkiak blokeatzeko diseinatuta dagoen librea eta kode irekikoa den softwarea da. Iragarkien sareko helbideak lortzen ditu zure gailuan blokeatzeko.\nGehiago jakin nahi duzu? Begiratu beheko laguntza.</string>
     <string name="button_show_help">Erakutsi laguntza gehiago</string>
+    <string name="icon_update_status">Eguneratu egoera</string>
     <string name="text_update">Zehaztutako iturburuetako hostalari agiri guztiak jeitsi eta batu dira zeure zerrendarekin eta hostalari agiri bat bezala ezarri dira zure sisteman.</string>
     <string name="button_check_update_hosts">Egiaztatu eguneraketak</string>
+    <string name="button_update_hosts">Eguneratu hostalariak</string>
+    <string name="button_enable_hosts">Gaitu iragarki-blokeatzailea</string>
+    <string name="button_disable_hosts">Ezgaitu iragarki-blokeatzailea</string>
     <string name="header_webserver">Web zerbitzaria</string>
+    <string name="webserver_status_running">Exekutatzen</string>
+    <string name="webserver_status_stopped">Geldituta</string>
     <string name="button_enable_webserver">Gaitu web zerbitzaria</string>
     <string name="button_disable_webserver">Desgaitu web zerbitzaria</string>
 
@@ -31,10 +38,27 @@
     <!--Your lists-->
     <string name="lists_tab_whitelist">Zerrenda-zuria</string>
     <string name="lists_tab_blacklist">Zerrenda-beltza</string>
+    <string name="lists_tab_redirection_list">Birbideratzeak</string>
+    <string name="list_add_dialog_black">Gehitu hostalaria zerrenda-beltzara</string>
+    <string name="list_add_dialog_white">Gehitu hostalaria zerrenda-zurira</string>
+    <string name="list_add_dialog_redirect">Gehitu birbideratze hostalaria</string>
+    <string name="list_edit_dialog_black">Editatu zerrenda-beltzeko hostalaria</string>
+    <string name="list_edit_dialog_white">Editatu zerrenda-zuriko hostalaria</string>
+    <string name="list_edit_dialog_redirect">Editatu birbideratzea</string>
     <string name="list_dialog_hostname">Hostalari-izena:</string>
+    <string name="list_dialog_hostname_hint">Hostalari iturriaren URLa</string>
+    <string name="list_dialog_wildcard">(* eta ? bezalako komodin karaktereak onartzen dira)</string>
     <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
     <string name="import_dialog">Inportatzen…</string>
     <string name="export_dialog">Esportatzen…</string>
+    <string name="export_success">\'adaway-export\' izena duen fitxategira esportatu dira sarrera guztiak, SD txartelera.</string>
+    <string name="export_failed">Ezin izan da zure zerrenda SD txartelara esportatu.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">Hostalari fitxategia</string>
+    <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen...</string>
+    <string name="hosts_open_button">Ireki hostalari fitxategia</string>
+
     <!--Status Notification-->
     <string name="status_checking">Eguneraketak egiaztatzen…</string>
     <string name="status_reverting">Leheneratzen...</string>
@@ -45,11 +69,21 @@
     <string name="status_no_connection_subtitle">Ez dago Internet elkarketa eskuragarririk</string>
     <string name="status_download_fail">Ez dago iturburu eskuragarririk</string>
     <string name="status_download_fail_subtitle_new">Ez dago hostalari ituruburu erdietsigarririk!</string>
+    <string name="status_root_access_denied">Root atzipena ukatua</string>
+    <string name="status_root_access_denied_subtitle">Onartu root atzipena root aplikaziotik</string>
+    <string name="status_failure">Arazo bat izan da</string>
+    <string name="status_failure_subtitle">Begiratu logcat xehetasun gehiagorako</string>
     <string name="status_enabled">Gaituta</string>
     <string name="status_enabled_subtitle">Hostalari agiri berrienak gaituta</string>
     <string name="status_disabled">Ezgaituta</string>
+    <string name="status_disabled_subtitle">Hostalari fitxategi lehenetsia instalatuta</string>
+    <string name="notification_channel_update_name">Eguneraketak</string>
+    <string name="notification_channel_update_description">Hostalari berrien eguneraketaren jakinarazpena</string>
+    <string name="notification_configuration_changed">Zure konfigurazioa aldatu da. Hostalari fitxategia instalatu behar duzu aldaketak aplikatzeko.</string>
     <string name="notification_configuration_changed_action">Aplikatu</string>
     <string name="notification_configuration_installing">Hostalari fitxategia instalatzen...</string>
+    <string name="notification_configuration_failed">Hostalari fitxategiaren instalazioak huts egin du.</string>
+
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Zure xedetiko Symlotura /system/etc/hosts-ra ez dago edo okerra da! AdAway-k ez du lan egingo ez bada agiri zuzenera zuzentzen.\n\nNahi duzu symlotura bat sortzen saiatzea?</string>
     <string name="apply_symlink_missing_title">Symlotura ez dago</string>
@@ -61,6 +95,7 @@
     <string name="apply_remount_fail_title">Ber-muntatze hutsegitea</string>
     <string name="apply_copy_fail">Hostalari agiri kopiatze hutsegitea!</string>
     <string name="apply_copy_fail_title">Kopiatze hutsegitea</string>
+    <string name="apply_success_subtitle">Hostalari iturriak aplikatu dira</string>
     <string name="apply_success_title">Ongi ezarri dira</string>
     <string name="apply_symlink_successful_title">Symlotura ongi sortu da</string>
     <string name="apply_symlink_fail_title">Symlotura sortze hutsegitea</string>
@@ -76,6 +111,7 @@
     <string name="apply_dialog_apply">Hostalari agiria ezartzen</string>
     <string name="apply_fail">Hutsegitea hostalari agiria zure sisteman ezartzerakoan!\nSaiatu xede hostalari agiria aldatzen hobespenetan: /data/data/hosts.</string>
     <string name="apply_fail_title">Ezartze hutsegitea</string>
+    <string name="root_access_fail">Egiaztatu zure root kudeaketa aplikazioa root sarbidea eman dela ziurtatzeko.</string>
     <string name="revert_successful_title">Ongi leheneratu da</string>
     <string name="revert_problem">Leheneratze hutsegitea zergaiti ezezagunengaitik.</string>
     <string name="revert_problem_title">Leheneratze hutsegitea!</string>
@@ -94,6 +130,7 @@
     <string name="no_hostname_title">Hostalari-izena ezegoki heuskarrituta</string>
     <string name="no_ip">Hau ez da baliozko IP bat!</string>
     <string name="no_ip_title">IP-a ezegoki heuskarrituta</string>
+    <string name="reboot_never_reboot">Inoiz eguneratu eta ez erakutsi galdera hau hurrengoan!</string>
     <string name="loading">Gertatzen…</string>
 
     <!--Menu entries-->
@@ -111,10 +148,18 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
+    <string name="adware_scanning">Eskaneatzen&#8230;</string>
+    <string name="adware_empty">Ez da Adwarerik topatu!</string>
+
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Tokikoa:</string>
     <string name="hosts_last_modified_online">Online:</string>
     <string name="hosts_not_available">ez dago eskuragarri</string>
+    <string name="hosts_add_dialog_title">Gehitu iturria</string>
+    <string name="hosts_edit_dialog_title">Editatu iturria</string>
+    <string name="hosts_dialog_url">URL: (https:// edo file:// baliabidea)</string>
+    <string name="hosts_dialog_url_hint">Hostalari iturriaren URLa</string>
+
     <!--Other-->
     <string name="app_subtitle">Iragarki blokeatzailea</string>
     <string name="no_text_editor_title">Ez dago idazki editatzailerik ezarrita</string>
@@ -122,15 +167,36 @@
     <string name="no_file_manager_title">Ez dago agiri kudeatzailerik ezarrita</string>
     <string name="no_file_manager">Ez da agiri kudeatzailerik aurkitu hostalari agiriak irekitzeko. OI File Manager edo beste agiri kudeatzaile bat ezarri dezakezu hau kudeatzeko.\n\nNahi duzu OI File Manager ezartzea?</string>
 
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
     <string name="tcpdump_description">Tcpdump DNS eskabideak monitorizatzeko eta hauek ohar agiri baten gordetzeko tresna bat da. Barrenean hasi dezakezu, iragarkiak erakusten dituzten aplikazioak ekin, eta ondoren DNS eskabideak aztertu ohar agiria erabiliz. Orduan ahalezko iragarki zerbitzaria zerrenda-beltzera gehitu daiteke.</string>
+    <string name="tcpdump_disable_monitoring">Ezgaitu kontrola</string>
+    <string name="tcpdump_enable_monitoring">Gaitu kontrola</string>
+    <string name="tcpdump_show_results">Erakutsi emaitzak</string>
+    <string name="tcpdump_redirect_dialog_title">Birbideratu domeinua</string>
+    <string name="tcpdump_menu_sort">Ordenatu domeinuak</string>
+    <string name="tcpdump_menu_clear">Garbitu egunkaria</string>
+    <string name="tcpdump_sort_alphabetical">Ordenatu alfabetikoki</string>
+    <string name="tcpdump_sort_top_level_domain">Ordenatu gai-mailako domeinukoki</string>
+    <string name="tcpdump_entry_add_blacklist">Gehitu sarrera zerrenda-beltzara</string>
+    <string name="tcpdump_entry_add_whitelist">Gehitu sarrera zerrenda-zurira</string>
+    <string name="tcpdump_entry_add_redirection_list">Gehitu sarrera birbidalketa zerrendara</string>
+
     <!--Preferences-->
     <string name="pref_download">Hobespen Orokorrak</string>
+    <string name="pref_dismiss_welcome">Ezkutatu ongi etorri mezua</string>
+    <string name="pref_dismiss_welcome_summary">Ez erakutsi ongi etorri mezua hasierako pantailan</string>
+    <string name="pref_dark_theme">Gaitu gai iluna</string>
+    <string name="pref_dark_theme_summary">Gai argia ordez, erabili gai iluna</string>
+    <string name="pref_dark_theme_notification">Gaia hurrengo abioan aplikatuko da!</string>
     <string name="pref_hosts">Hostalari Agiria</string>
-    <string name="pref_redirection_ip">Berzuzenketa IP-a</string>
     <string name="pref_update_check">Egiaztatu eguneraketak</string>
     <string name="pref_apply_method">Xede hostalari agiria</string>
     <string name="pref_apply_method_summary">Ezarpen hau aldatu aurretik, irakurri bere eginkizunari buruz Laguntza.</string>
-    <string name="pref_redirection_ip_summary">Blokeatutako hostalari-izen guztiak IP helbide honetara berzuzentzen dira.</string>
+    <string name="pref_redirection_ipv4">IPv4 birbideratzea</string>
+    <string name="pref_redirection_ipv4_summary">Blokeatutako hostalari-izen guztiak IPv4 helbide honetara birbideratuko dira.</string>
+    <string name="pref_redirection_ipv6">IPv6 birbideratzea</string>
+    <string name="pref_redirection_ipv6_summary">Blokeatutako hostalari-izen guztiak IPv6 helbide honetara birbideratuko dira.</string>
     <string name="pref_header_preferences">Hobespenak</string>
     <string name="pref_header_preferences_summary">AdAway hobespen orokorrak</string>
     <string name="pref_never_reboot">Ezkutatu berrabiarazte elkarrizketa</string>
@@ -144,10 +210,14 @@
     <string name="pref_custom_target_summary">Bakarrik erabiltzen da xede hostalari agiria norbere xede bezala ezartzen bada</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Norbere xedea</item>
     </string-array>
 
     <string name="pref_update_check_summary">Egiaztatu eguneraketak AdAway abiatzean</string>
+    <string name="pref_sdcard_problem">Ezaugarri hau ez du ongi funtzionatuko AdAway SD txartelan instalatuta dagoenean!</string>
     <string name="pref_background">Barreneko Zerbitzuak</string>
     <string name="pref_update_check_daily">Egiaztatu eguneraketak egunero</string>
     <string name="pref_update_check_daily_summary">Egiaztatu eguneraketak egunero barrenean jakinarazpenekin</string>
@@ -155,11 +225,11 @@
     <string name="pref_automatic_update_daily_summary">Eguneratu berezgaitasunez barrenean eguneraketa eskuragarririk badago.</string>
     <string name="pref_whitelist_rules">Ahalbidetu zerrenda-zuriak</string>
     <string name="pref_whitelist_rules_summary">Ahalbidtu zerrend-zuri sarrerak Hostalari Iturburuetatik.</string>
+    <string name="pref_redirection_rules">Gaitu Birbideratzeak</string>
     <string name="pref_redirection_rules_summary">SEGURTASUN ARRISKU JARRERAK! Ahalbidetu Hostalari Iturburuetatiko sarrerak berzuzentzea.</string>
     <string name="pref_debug">Garbiketa</string>
     <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>
     <string name="pref_enable_ipv6">Gaitu IPv6</string>
-    <string name="pref_enable_ipv6_summary">Hostalari agiri guztiek dagokien ::1 (IPv6 localhost) sarrera lortuko dute.</string>
     <string name="pref_enable_systemless_summary">Saihestu AdAway-k sistemaren partizioa aldatzea</string>
     <string name="pref_enable_systemless">Gaitu sistemagabe modua</string>
     <string name="drawer_open">Ireki menua</string>
@@ -167,17 +237,47 @@
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Hasiera</item>
         <item>Hostalari iturburuak</item>
+        <item>Zure zerrendak</item>
         <item>Ireki hostalari agiria</item>
+        <item>Erregistratu DNS eskaerak</item>
+        <item>Bilatu adware</item>
         <item>Hobespenak</item>
         <item>Laguntza</item>
     </string-array>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 Lagundu garapena \u2764</string>
+    <string name="drawer_support_dialog_title">Lagundu garapena</string>
+    <string name="drawer_support_dialog_button">Nire laguntza ikustarazi</string>
+
     <!--Telemetry-->
     <string name="dialog_telemetry_title">Telemetria</string>
+    <string name="dialog_telemetry_enable">Noski, lagundu izanaz pozten naiz!</string>
     <string name="dialog_telemetry_disable">Ez eskerrik asko</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS eskaerak</string>
+    <string name="shortcut_your_lists">Zure zerrendak</string>
     <string name="shortcut_preferences">Hobespenak</string>
 
-    </resources>
+    <string name="hosts_source_last_update">Azken eguneraketa duela %1$s</string>
+    <string name="hosts_source_unknown_status">Eguneratze egoera ezezaguna</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">minutu %d</item>
+        <item quantity="other">%d minutu</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">ordu %d</item>
+        <item quantity="other">%d ordu</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">egun %d</item>
+        <item quantity="other">%d egun</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">hilabete %d</item>
+        <item quantity="other">%d hilabete</item>
+    </plurals>
+
+</resources>

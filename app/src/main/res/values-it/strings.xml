@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Nessuna connessione internet disponibile</string>
     <string name="status_download_fail">Sorgenti non disponibili.</string>
     <string name="status_download_fail_subtitle_new">Nessuna fonte hosts raggiungibile!</string>
+    <string name="status_root_access_denied">Permessi di root negati</string>
+    <string name="status_root_access_denied_subtitle">Concedi i permessi di root nel root manager che utilizzi</string>
     <string name="status_failure">Qualcosa è andato storto</string>
     <string name="status_failure_subtitle">Controlla logcat per maggiori dettagli</string>
     <string name="status_enabled">Abilitato</string>
@@ -112,6 +114,7 @@
     <string name="apply_dialog_apply">Applico file hosts</string>
     <string name="apply_fail">L\'applicazione del file hosts al tuo sistema è fallita!\nProva cambiando il percorso del file hosts nelle prefenze in /data/data/hosts.</string>
     <string name="apply_fail_title">Modifiche fallite!</string>
+    <string name="root_access_fail">Controlla il tuo root manager per assicurarti che i permessi di root siano stati concessi.</string>
     <string name="revert_successful">Sei tornato al file hosts predefinito.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
     <string name="revert_successful_title">Ripristino effettuato con successo!</string>
     <string name="revert_problem">Ripristino fallito per ragioni sconosciute.</string>
@@ -194,11 +197,9 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_dark_theme_summary">Usa il tema scuro al posto di quello chiaro</string>
     <string name="pref_dark_theme_notification">Il tema verrà applicato al prossimo riavvio!</string>
     <string name="pref_hosts">File Hosts</string>
-    <string name="pref_redirection_ip">Inoltro IP</string>
     <string name="pref_update_check">Controlla aggiornamenti</string>
     <string name="pref_apply_method">Percorso file hosts</string>
     <string name="pref_apply_method_summary">Prima di cambiare questa impostazione, leggi l\'Aiuto su questa funzione.</string>
-    <string name="pref_redirection_ip_summary">Tutti gli hostname bloccati vengono reindirizzati a questo indirizzo IP.</string>
     <string name="pref_header_preferences">Preferenze</string>
     <string name="pref_header_preferences_summary">Preferenze generali per AdAway</string>
     <string name="pref_never_reboot">Nascondi finestra di dialogo di riavvio.</string>
@@ -234,7 +235,6 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_enable_telemetry">Abilita segnalazione errori</string>
     <string name="pref_enable_telemetry_summary">Permette all\'applicazione di mandare errori e crash report a Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Abilita IPv6</string>
-    <string name="pref_enable_ipv6_summary">Tutte le voci nel file di host avranno una voce  ::1 (IPV6 localhost) corrispondente</string>
     <string name="pref_enable_systemless_summary">Impedisci a AdAway di modificare la partizione di sistema</string>
     <string name="pref_enable_systemless">Attivare modalità Systemless</string>
     <string name="pref_edit_text_value">Modifica il valore di testo</string>

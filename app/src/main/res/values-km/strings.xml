@@ -64,11 +64,9 @@
     <!--Preferences-->
     <string name="pref_download">ការកំណត់ទូរទៅ</string>
     <string name="pref_hosts">ឯកសារម៉ាស៊ីន</string>
-    <string name="pref_redirection_ip">ការប្ដូរទិស IP</string>
     <string name="pref_update_check">ពិនិត្យមើលភាពទាន់សម័យ</string>
     <string name="pref_apply_method">គោលដៅឯកសារម៉ាស៊ីន</string>
     <string name="pref_apply_method_summary">មុនពេលផ្លាស់ប្ដូរការកំណត់នេះ សូមអាន ជំនួយ អំពីលក្ខណៈពិសេសរបស់វា។</string>
-    <string name="pref_redirection_ip_summary">គ្រប់ឈ្មោះម៉ាស៊ីនដែលបានទប់ស្កាត់បានប្ដូរទិសទៅកានអាស័យដ្ឋាន IP នេះហើយ។</string>
     <string name="pref_header_preferences">ការកំណត់</string>
     <string name="pref_header_preferences_summary">ការកំណត់ទូរទៅសម្រាប់ AdAway</string>
     <string name="pref_never_reboot">លាក់ប្រអប់ចាប់ផ្ដើមឡើងវិញ</string>

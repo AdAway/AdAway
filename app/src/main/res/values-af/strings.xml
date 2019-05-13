@@ -103,11 +103,9 @@
     <!--Preferences-->
     <string name="pref_download">Algemene Voorkeure</string>
     <string name="pref_hosts">Gasheer Lêer</string>
-    <string name="pref_redirection_ip">Herlei IP</string>
     <string name="pref_update_check">Kyk vir opdaterings</string>
     <string name="pref_apply_method">Teiken Gasheer lêers</string>
     <string name="pref_apply_method_summary">Voordat jy hierdie instelling verander lees Hulp aangaande die funksie. </string>
-    <string name="pref_redirection_ip_summary">Alle geblokkeerde gasheer name word herlei na hierdie IP adres. </string>
     <string name="pref_header_preferences">Voorkeure</string>
     <string name="pref_header_preferences_summary">Algemene voorkeure vir AdAway</string>
     <string name="pref_never_reboot">Versteek her-aansit dialoog</string>

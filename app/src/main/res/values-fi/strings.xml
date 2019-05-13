@@ -14,8 +14,14 @@
     <string name="button_webserver_toggle_text">Salli tai estä web-palvelin vastaamasta estettyihin isäntänimiin.</string>
     <string name="button_help">Ohjeet</string>
 
+    <!--Home-->
+    <string name="header_help">Tervetuloa!</string>
+    <string name="button_show_help">Näytä enemmän ohjeita</string>
     <string name="text_update">Kaikki hosts-tiedostot määritellyistä lähteistä ovat ladattu, yhdistyi luetteloihin ja asenettu yhdeksi hosts-tiedostoksi.</string>
     <string name="button_check_update_hosts">Tarkista päivitykset</string>
+    <string name="button_update_hosts">Päivitä hosts-tiedosto</string>
+    <string name="webserver_status_running">Käynnissä</string>
+    <string name="webserver_status_stopped">Pysäytetty</string>
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Poista</string>
     <string name="checkbox_list_context_title">Muokka merkintää</string>
@@ -26,14 +32,28 @@
     <string name="lists_tab_blacklist">Musta lista</string>
     <string name="list_dialog_hostname">host-nimi:</string>
     <string name="list_dialog_ip">IP (IPv4 tai IPv6):</string>
+    <string name="import_dialog">Tuodaan...</string>
+    <string name="export_dialog">Viedään...</string>
+    <!--Hosts content-->
+    <string name="hosts_header">Hosts-tiedosto</string>
+    <string name="hosts_open_button">Avaa hosts-tiedosto</string>
+
+    <!--Status Notification-->
+    <string name="status_checking">Tarkistetaan päivityksiä...</string>
+    <string name="status_reverting">Palautetaan...</string>
     <string name="status_reverting_subtitle">Luodaan vakio-hosts-tiedostoa</string>
     <string name="status_update_available">Päivitys saatavilla</string>
     <string name="status_update_available_subtitle">Uudempia hosts-tiedostoja on saatavilla</string>
+    <string name="status_no_connection">Ei verkkoyhteyttä</string>
+    <string name="status_no_connection_subtitle">Verkkoyhtyettä ei ole saatavilla</string>
+    <string name="status_download_fail">Lähteet eivät ole käytettävissä</string>
     <string name="status_download_fail_subtitle_new">Hosts-lähteet eivät ole tavoitettavissa!
 </string>
+    <string name="status_failure">Jokin meni pieleen</string>
     <string name="status_enabled">Käytössä</string>
     <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
     <string name="status_disabled">Pois käytöstä</string>
+    <string name="notification_channel_update_name">Päivityksiä</string>
     <string name="notification_configuration_changed_action">Hyväksy</string>
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symbolista linkkiä kohteeseen /system/etc/hosts ei ole olemassa tai se on virheellinen! AdAway ei toimi, jos se ei osoita oikeaan tiedostoon.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
@@ -51,6 +71,7 @@
     <string name="apply_symlink_fail_title">Symbolisen linkin luominen epäonnistui</string>
     <string name="apply_help">Lue ohjeet, jos haluat lisätietoja.</string>
     <string name="apply_apn_proxy_title">APN-välityspalvelin on asetettu!</string>
+    <string name="no_connection">Yhteys internettiin ei toimi.</string>
     <string name="no_connection_title">Ei yhteyttä</string>
     <string name="download_dialog">Ladataan...</string>
     <string name="apply_dialog">Hyväksytään...</string>
@@ -90,10 +111,16 @@
     <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Ongelmat</string>
 
+    <!--Adware-->
+    <string name="adware_header">Mainosohjelma</string>
+    <string name="adware_scanning">Tarkistetaan&#8230;</string>
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Paikallinen:</string>
     <string name="hosts_last_modified_online">Online:</string>
     <string name="hosts_not_available">ei saatavilla</string>
+    <string name="hosts_add_dialog_title">Lisää lähde</string>
+    <string name="hosts_edit_dialog_title">Muokkaa lähdettä</string>
+    <string name="hosts_dialog_url">Osoite: (https:// tai file:// -resurssi)</string>
     <!--Other-->
     <string name="app_subtitle">Mainosten esto</string>
     <string name="no_text_editor_title">Ei tekstieditoria asennettuna</string>
@@ -104,14 +131,16 @@
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
     <string name="tcpdump_description">Tcpdump on työkalu, jolla voit seurata DNS-pyyntöjä ja tallentaa ne lokitiedostoon. Voit käynnistää sen taustalla, käyttää sovelluksia, jotka näyttävät mainoksia ja sen jälkeen analysoida DNS-pyyntöjä käyttäen lokitiedostoa. Mahdolliset mainospalvelimet voidaan sitten lisätä mustalle listalle.</string>
+    <string name="tcpdump_enable_monitoring">Salli tarkkailu</string>
+    <string name="tcpdump_show_results">Näytä tulokset</string>
+    <string name="tcpdump_menu_clear">Tyhjennä loki</string>
     <!--Preferences-->
     <string name="pref_download">Yleiset asetukset</string>
+    <string name="pref_dismiss_welcome">Piilota tervetuloa-kortti</string>
     <string name="pref_hosts">Hosts-tiedosto</string>
-    <string name="pref_redirection_ip">IP-osoitteen uudelleenohjaus</string>
     <string name="pref_update_check">Tarkista päivitykset</string>
     <string name="pref_apply_method">Hosts-tiedoston kohde</string>
     <string name="pref_apply_method_summary">Ennen tämän asetuksen muuttamista, lue ohjeet tästä toimminnosta.</string>
-    <string name="pref_redirection_ip_summary">Kaikki estetyt hosts-nimet ohjataan tähän IP-osoitteeseen.</string>
     <string name="pref_header_preferences">Asetukset</string>
     <string name="pref_header_preferences_summary">AdAwayn yleiset asetukset</string>
     <string name="pref_never_reboot">Piilota uudelleenkäynnistyksen valintaikkuna</string>
@@ -125,6 +154,9 @@
     <string name="pref_custom_target_summary">Käytetään vain, jos hosts-tiedosto on määritetty mukautetuksi kohteeksi</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Mukautettu kohde</item>
     </string-array>
 
@@ -140,15 +172,47 @@
     <string name="pref_debug">Virheenkorjaus</string>
     <string name="pref_enable_debug_summary">Sinun täytyy käynnistää AdAway uudelleen ottaaksesi asetukset käyttöön.</string>
     <string name="pref_enable_ipv6">Ota käyttöön IPv6</string>
-    <string name="pref_enable_ipv6_summary">Kaikki host-tiedoston entryt saavat vastaavan ::1 (IPv6 localhost) entryn.</string>
     <string name="pref_enable_systemless">Ota käyttöön systemless -tila</string>
+    <string name="drawer_open">Avaa valikko</string>
+    <string name="drawer_close">Sulje valikko</string>
+
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Koti</item>
         <item>Hosts-lähteet</item>
+        <item>Luettelosi</item>
         <item>Avaa hosts-tiedosto</item>
         <item>Asetukset</item>
         <item>Ohjeet</item>
     </string-array>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 Tue kehitystä \u2764</string>
+    <string name="drawer_support_dialog_title">Tue kehitystä</string>
+    <string name="drawer_support_dialog_button">Näytä tukeni</string>
+
+    <string name="dialog_telemetry_enable">Tietysti, ilomielin autan!</string>
+    <string name="dialog_telemetry_disable">Ei kiitos</string>
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">DNS-pyynnöt</string>
+    <string name="shortcut_your_lists">Luettelosi</string>
     <string name="shortcut_preferences">Asetukset</string>
 
-    </resources>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%d minuutti</item>
+        <item quantity="other">%d minuuttia</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d tunti</item>
+        <item quantity="other">%d tuntia</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d päivä</item>
+        <item quantity="other">%d päivää</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d kuukausi</item>
+        <item quantity="other">%d kuukautta</item>
+    </plurals>
+
+</resources>

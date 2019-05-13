@@ -197,11 +197,9 @@
     <string name="pref_dark_theme_summary">إستخدم الخلفيّة الدّاكنة بدلاً عن الخلفيّة الفاتحة</string>
     <string name="pref_dark_theme_notification">سوف يتم تثبيت \"الثيم\" عند إعادة تشغيل التطبيق!</string>
     <string name="pref_hosts">ملفات المضيف</string>
-    <string name="pref_redirection_ip">إعادة توجيه IP</string>
     <string name="pref_update_check">التحقق من وجود تحديثات</string>
     <string name="pref_apply_method">مسار ملفات المضيف</string>
     <string name="pref_apply_method_summary">قبل تغيير هذا الإعداد، يجب قراءة التعليمات حول هذه الوظيفة.</string>
-    <string name="pref_redirection_ip_summary">سيتم إعادة توجيه كل أسماء المضيفين الذين منعوا إلى عنوانIP هذا.</string>
     <string name="pref_header_preferences">الخيارات</string>
     <string name="pref_header_preferences_summary">الخيارات العامة لـ AdAway</string>
     <string name="pref_never_reboot">إخفاء مُحاور إعادة التشغيل</string>
@@ -240,7 +238,6 @@
     <string name="pref_enable_telemetry">تفعيل تقرير الأعطال</string>
     <string name="pref_enable_telemetry_summary">منح السماح للتطبيق لإرسال تقريرات الأعطال والأخطاء إلى Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">الرجاء تفعيل IPv6</string>
-    <string name="pref_enable_ipv6_summary">جميع ملفات حجب المواقع سوف يتم تعديلها (  1 IPv6 localhost) </string>
     <string name="pref_enable_systemless_summary">منع AdAway من تغير تقسيمة النظام </string>
     <string name="pref_enable_systemless">تفعيل الوضع اللانظامي</string>
     <string name="pref_edit_text_value">تحرير قيمة إعدادات النص</string>

@@ -115,11 +115,9 @@
     <!--Preferences-->
     <string name="pref_download">Tuỳ chỉnh tổng quát</string>
     <string name="pref_hosts">Tập tin miền</string>
-    <string name="pref_redirection_ip">Chuyển hướng IP</string>
     <string name="pref_update_check">Kiểm tra cập nhật</string>
     <string name="pref_apply_method">Tập tin miền mục tiêu</string>
     <string name="pref_apply_method_summary">Trước khi thay đổi cài đặt, hãy đọc Trợ giúp về tính năng này.</string>
-    <string name="pref_redirection_ip_summary">Tất cả tên miền đã chặn sẽ được chuyển hướng tới địa chỉ IP này.</string>
     <string name="pref_header_preferences">Tuỳ chỉnh</string>
     <string name="pref_header_preferences_summary">Tuỳ chỉnh tổng quát cho AdAway</string>
     <string name="pref_never_reboot">Ẩn hộp thoại khởi động lại</string>
@@ -148,7 +146,6 @@
     <string name="pref_debug">Dò lỗi</string>
     <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
     <string name="pref_enable_ipv6">Bật IPv6</string>
-    <string name="pref_enable_ipv6_summary">Tất cả các mục tập tin miền đều sẽ nhận được một mục ::1 (miền cục bộ IPv6) tương ứng.</string>
     <string name="pref_enable_systemless_summary">Ngăn AdAway khỏi chỉnh sửa phân vùng hệ thống</string>
     <string name="pref_enable_systemless">kích hoạt chế độ systemless</string>
     <!--Drawer menu items-->
