@@ -71,7 +71,6 @@
             android:exported="false"
             android:label="@string/preferences_drawer_item"
             android:parentActivityName=".ui.NextActivity" />
-
         <service
             android:name=".vpn.VpnService"
             android:permission="android.permission.BIND_VPN_SERVICE">
@@ -89,12 +88,6 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
-
-        <!-- Could be removed after migration to room -->
-        <provider
-            android:name=".provider.AdAwayProvider"
-            android:authorities="org.adaway"
-            android:exported="false" />
     </application>
 
 </manifest>

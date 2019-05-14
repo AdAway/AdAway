@@ -50,10 +50,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             AppExecutors.getInstance().diskIO().execute(
-                                    () -> {
-                                        RoomMigrationHelper.migrateToRoom(context, instance);
-                                        AppDatabase.initialize(instance);
-                                    }
+                                    () -> AppDatabase.initialize(instance)
                             );
                         }
                     }).build();
