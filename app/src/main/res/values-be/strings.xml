@@ -70,6 +70,8 @@
     <string name="status_no_connection_subtitle">Няма падлучэння да Інтэрнэту</string>
     <string name="status_download_fail">Недаступныя крыніцы</string>
     <string name="status_download_fail_subtitle_new">Няма даступных крыніц host!</string>
+    <string name="status_root_access_denied">Доступ root быў адхілены</string>
+    <string name="status_root_access_denied_subtitle">Дазвольце root-доступ з вашай праграмы для root</string>
     <string name="status_failure">Нешта пайшло не так</string>
     <string name="status_failure_subtitle">Праверце logcat для атрымання больш падрабязнай інфармацыі</string>
     <string name="status_enabled">Уключана</string>
@@ -115,6 +117,7 @@
     <string name="apply_fail">Не атрымалася прымяніць файл Hosts на вашай сістэме! 
 Паспрабуйце змяніць шлях да файла Hosts ў наладах на /data/data/hosts</string>
     <string name="apply_fail_title">Прымяненне не ўдалося</string>
+    <string name="root_access_fail">Калі ласка, праверце, вашу праграму, якая прадастаўляе root-доступ.</string>
     <string name="revert_successful">Вы вярнуліся да файла Hosts па змаўчанні.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
     <string name="revert_successful_title">Вяртанне адбылося паспяхова</string>
     <string name="revert_problem">Аднаўленне не атрымалася па невядомых прычынах.</string>
@@ -200,6 +203,10 @@
     <string name="pref_update_check">Праверка абнаўленняў</string>
     <string name="pref_apply_method">Шлях да файла hosts</string>
     <string name="pref_apply_method_summary">Перад змяненнем гэтага параметру прачытайце аб гэтай функцыі ў Даведцы.</string>
+    <string name="pref_redirection_ipv4">Перанакіраванне IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Усе заблакаваныя host пераадрасоўваюцца на гэты адрас IPv4.</string>
+    <string name="pref_redirection_ipv6">Перанакіраванне IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Усе заблакаваныя host пераадрасоўваюцца на гэты адрас IPv6.</string>
     <string name="pref_header_preferences">Налады</string>
     <string name="pref_header_preferences_summary">Асноўныя налады AdAway</string>
     <string name="pref_never_reboot">Схаваць акно перазагрузкі</string>
@@ -238,6 +245,7 @@
     <string name="pref_enable_telemetry">Адпраўляць справаздачы аб памылках</string>
     <string name="pref_enable_telemetry_summary">Адпраўляць справаздачы аб памылках і збоях у Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Уключыць IPv6</string>
+    <string name="pref_enable_ipv6_summary">Усе запісы файла host будуць атрымліваць адпаведны запіс перанакіравання.</string>
     <string name="pref_enable_systemless_summary">Забараніць AdAway рэдагаваць сістэмны раздзел</string>
     <string name="pref_enable_systemless">Уключыць бессістэмны рэжым</string>
     <string name="pref_edit_text_value">Рэдагаваць значэнне тэкставай перавагі</string>
