@@ -21,7 +21,9 @@ public enum HostError {
     COPY_FAIL(R.string.apply_copy_fail_status),
     REVERT_FAIL(R.string.revert_failed_status),
     APPLY_FAIL(R.string.apply_fail_status),
-
+    // VPN model error
+    ENABLE_VPN_FAIL(R.string.enable_vpn_fail),
+    DISABLE_VPN_FAIL(R.string.disable_vpn_fail),
     // TODO Check if used?
     APN_PROXY(0),
     REMOUNT_FAIL(0);

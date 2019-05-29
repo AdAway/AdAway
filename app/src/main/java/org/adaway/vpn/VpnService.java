@@ -14,7 +14,6 @@
  */
 package org.adaway.vpn;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -134,10 +133,10 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     /**
      * Stop the VPN service.
      *
-     * @param activity The application activity.
+     * @param context The application context.
      */
-    public static void stop(Activity activity) {
-        activity.startService(getStopIntent(activity));
+    public static void stop(Context context) {
+        context.startService(getStopIntent(context));
     }
 
     private static boolean checkAnyNetworkVpnCapability(Context context) {

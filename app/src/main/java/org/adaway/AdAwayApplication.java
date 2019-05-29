@@ -29,6 +29,7 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.hostlist.HostListModel;
 import org.adaway.model.hostsinstall.HostsInstallModel;
 import org.adaway.model.source.SourceModel;
+import org.adaway.model.vpn.VpnModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.SentryLog;
@@ -43,6 +44,10 @@ public class AdAwayApplication extends Application {
      * The common source model for the whole application.
      */
     private SourceModel sourceModel;
+    /**
+     * The common VPN model for the whole application.
+     */
+    private VpnModel vpnModel;
     /**
      * The common hosts install model for the whole application.
      */
@@ -67,6 +72,7 @@ public class AdAwayApplication extends Application {
         NotificationHelper.createNotificationChannels(this);
         // Create models
         this.sourceModel = new SourceModel(this);
+        this.vpnModel = new VpnModel(this);
         this.hostsInstallModel = new HostsInstallModel(this);
     }
 
@@ -88,11 +94,21 @@ public class AdAwayApplication extends Application {
     }
 
     /**
+     * Get the hosts install model.
+     *
+     * @return The common hosts install model for the whole application.
+     */
+    public VpnModel getVpnModel() {
+        return this.vpnModel;
+    }
+
+    /**
      * Get the hosts list model.
      *
      * @return The common hosts list model for the whole application.
      */
     public HostListModel getHostsListModel() {
+        // TODO Check VPN or hosts install
         return this.hostsInstallModel;
     }
 }
