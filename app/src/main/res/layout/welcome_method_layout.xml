@@ -4,28 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary">
+    android:background="@color/primary"
+    android:padding="16dp">
 
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/icon" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/headerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/welcome_method_header"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,46 +28,32 @@
         app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/summaryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
         android:text="@string/welcome_method_summary"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/rootCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         app:cardCornerRadius="32dp"
         app:contentPadding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/vpnCardView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4">
-
-        <!--
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/vpnCardView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-       -->
+        app:layout_constraintTop_toBottomOf="@id/summaryTextView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -167,15 +148,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         app:cardCornerRadius="32dp"
         app:contentPadding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/rootCardView"
-        app:layout_constraintTop_toBottomOf="@id/textView4">
+        app:layout_constraintTop_toBottomOf="@id/summaryTextView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -261,5 +241,7 @@
                 app:layout_constraintStart_toEndOf="@+id/vpnListImageView3"
                 app:layout_constraintTop_toTopOf="@+id/vpnListImageView3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

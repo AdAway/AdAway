@@ -132,8 +132,6 @@
     <string name="disable_vpn_fail">Failed to disable VPN ad blocking.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on wiki.lineageos.org or other Android websites.</string>
-    <string name="no_root_title">Rooted Android required</string>
     <string name="hosts_add_dialog">Input URL to hosts file:</string>
     <string name="no_hostname">This is not a valid hostname!</string>
     <string name="no_hostname_title">Improperly formatted hostname</string>

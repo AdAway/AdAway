@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primary">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/slideViewPager"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/dotsLayout"
@@ -14,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.viewpager.widget.ViewPager>
+    </androidx.viewpager2.widget.ViewPager2>
 
     <LinearLayout
         android:id="@+id/dotsLayout"
@@ -31,23 +32,27 @@
             android:text="aaa" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/backButton"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_button"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
         android:text="@string/welcome_back_button"
+        android:textColor="?attr/colorControlNormal"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/nextButton"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next_button"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:text="@string/welcome_next_button"
+        android:textColor="?attr/colorControlNormal"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

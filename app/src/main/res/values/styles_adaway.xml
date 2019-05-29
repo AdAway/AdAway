@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-    <style name="Theme.AdAway.Dark" parent="Theme.MaterialComponents">
+    <style name="Theme.AdAway.Dark" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primaryVariant</item>
         <item name="colorOnPrimary">@color/onPrimary</item>

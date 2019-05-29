@@ -77,7 +77,7 @@ public class Utils {
         View dialogView = factory.inflate(R.layout.no_root_dialog, null);
 
         new MaterialAlertDialogBuilder(activity)
-                .setTitle(R.string.no_root_title)
+                .setTitle(R.string.welcome_root_missing_title)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setCancelable(false)
                 .setView(dialogView)

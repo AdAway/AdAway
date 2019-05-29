@@ -2,6 +2,7 @@
 <resources>
     <string name="welcome_title">Welcome</string>
 
+    <!-- Method UI -->
     <string name="welcome_method_header">Welcome to AdAway!</string>
     <string name="welcome_method_summary">AdAway provides two ad blocking methods.\nPick the one you like!</string>
 
@@ -12,9 +13,11 @@
 
     <string name="welcome_vpn_method_title">VPN based\nad blocking</string>
     <string name="welcome_vpn_method_text1">Slower</string>
-    <string name="welcome_vpn_method_text2">Use background service</string>
-    <string name="welcome_vpn_method_text3">Device compatible</string>
+    <string name="welcome_vpn_method_text2">Run in background</string>
+    <string name="welcome_vpn_method_text3">Compatibility</string>
 
+    <string name="welcome_root_missing_title">Rooted Android required</string>
+    <string name="welcome_root_missile_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted. You can find information about how to root your device on wiki.lineageos.org or other Android websites.</string>
 
     <!-- Navigation buttons -->
     <string name="welcome_back_button">Back</string>

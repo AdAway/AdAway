@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/no_root_description"
+        android:text="@string/welcome_root_missile_description"
         android:textAppearance="@android:style/TextAppearance.Medium" />
 
     <TextView
