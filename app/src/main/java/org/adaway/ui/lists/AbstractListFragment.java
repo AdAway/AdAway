@@ -1,21 +1,8 @@
 package org.adaway.ui.lists;
 
 import android.app.Activity;
-
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,6 +10,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
@@ -63,7 +59,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Store activity
-        this.mActivity = this.getActivity();
+        this.mActivity = getActivity();
         // Create fragment view
         View view = inflater.inflate(R.layout.hosts_lists_fragment, container, false);
         /*
@@ -76,7 +72,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mActivity);
         recyclerView.setLayoutManager(linearLayoutManager);
         // Create recycler adapter
-        ListAdapter adapter = new ListsAdapter(this, this.isTwoRowsItem());
+        ListAdapter adapter = new ListsAdapter(this, isTwoRowsItem());
         recyclerView.setAdapter(adapter);
         /*
          * Create action mode.
@@ -104,22 +100,22 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
             @Override
             public boolean onActionItemClicked(ActionMode actionMode, MenuItem item) {
                 // Check action item
-                if (AbstractListFragment.this.mActionItem == null) {
+                if (mActionItem == null) {
                     return false;
                 }
                 // Check item identifier
                 switch (item.getItemId()) {
                     case R.id.checkbox_list_context_edit:
                         // Edit action item
-                        AbstractListFragment.this.editItem(AbstractListFragment.this.mActionItem);
+                        editItem(mActionItem);
                         // Finish action mode
-                        AbstractListFragment.this.mActionMode.finish();
+                        mActionMode.finish();
                         return true;
                     case R.id.checkbox_list_context_delete:
                         // Delete action item
-                        AbstractListFragment.this.deleteItem(AbstractListFragment.this.mActionItem);
+                        deleteItem(mActionItem);
                         // Finish action mode
-                        AbstractListFragment.this.mActionMode.finish();
+                        mActionMode.finish();
                         return true;
                     default:
                         return false;
@@ -129,14 +125,14 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
             @Override
             public void onDestroyActionMode(ActionMode actionMode) {
                 // Clear view background color
-                if (AbstractListFragment.this.mActionSourceView != null) {
-                    AbstractListFragment.this.mActionSourceView.setBackgroundColor(Color.TRANSPARENT);
+                if (mActionSourceView != null) {
+                    mActionSourceView.setBackgroundColor(Color.TRANSPARENT);
                 }
                 // Clear current source and its view
-                AbstractListFragment.this.mActionItem = null;
-                AbstractListFragment.this.mActionSourceView = null;
+                mActionItem = null;
+                mActionSourceView = null;
                 // Clear action mode
-                AbstractListFragment.this.mActionMode = null;
+                mActionMode = null;
             }
         };
         /*
@@ -144,7 +140,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
          */
         // Get view model and bind it to the list view
         this.mViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
-        this.getData().observe(this, adapter::submitList);
+        getData().observe(this, adapter::submitList);
         // Return created view
         return view;
     }
@@ -159,7 +155,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         this.mActionItem = item;
         this.mActionSourceView = sourceView;
         // Get current item background color
-        int currentItemBackgroundColor = this.getResources().getColor(R.color.selected_background);
+        int currentItemBackgroundColor = getResources().getColor(R.color.selected_background);
         // Apply background color to view
         this.mActionSourceView.setBackgroundColor(currentItemBackgroundColor);
         // Start action mode and store it

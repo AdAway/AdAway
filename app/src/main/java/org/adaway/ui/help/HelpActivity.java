@@ -49,9 +49,11 @@ public class HelpActivity extends AppCompatActivity {
 
         setContentView(mViewPager);
         ActionBar bar = getSupportActionBar();
-        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        bar.setDisplayShowTitleEnabled(true);
-        bar.setDisplayHomeAsUpEnabled(true);
+        if (bar != null) {
+            bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+            bar.setDisplayShowTitleEnabled(true);
+            bar.setDisplayHomeAsUpEnabled(true);
+        }
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
 

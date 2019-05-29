@@ -71,7 +71,7 @@ public class WhiteListFragment extends AbstractListFragment {
                             String hostname = inputEditText.getText().toString();
                             if (RegexUtils.isValidWildcardHostname(hostname)) {
                                 // Insert host to whitelist
-                                this.mViewModel.addListItem(ListType.WHITE_LIST, hostname, null);
+                                this.mViewModel.addListItem(ListType.ALLOWED, hostname, null);
                             }
                         }
                 )

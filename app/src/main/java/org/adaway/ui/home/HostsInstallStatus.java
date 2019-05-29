@@ -1,4 +1,4 @@
-package org.adaway.model.hostsinstall;
+package org.adaway.ui.home;
 
 /**
  * This enumeration represents the hosts installation status.

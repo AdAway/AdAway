@@ -53,9 +53,9 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import static org.adaway.db.entity.ListType.BLACK_LIST;
-import static org.adaway.db.entity.ListType.REDIRECTION_LIST;
-import static org.adaway.db.entity.ListType.WHITE_LIST;
+import static org.adaway.db.entity.ListType.ALLOWED;
+import static org.adaway.db.entity.ListType.BLOCKED;
+import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.util.Constants.TAG;
 
 /**
@@ -115,13 +115,13 @@ public class ImportExportHelper {
 
         List<HostListItem> allHosts = hostListItemDao.getAll();
         List<HostListItem> blockedHosts = Stream.of(allHosts)
-                .filter(value -> value.getType() == BLACK_LIST)
+                .filter(value -> value.getType() == BLOCKED)
                 .toList();
         List<HostListItem> allowedHosts = Stream.of(allHosts)
-                .filter(value -> value.getType() == WHITE_LIST)
+                .filter(value -> value.getType() == ALLOWED)
                 .toList();
         List<HostListItem> redirectedHosts = Stream.of(allHosts)
-                .filter(value -> value.getType() == REDIRECTION_LIST)
+                .filter(value -> value.getType() == REDIRECTED)
                 .toList();
 
         JSONObject backupObject = new JSONObject();
@@ -139,9 +139,9 @@ public class ImportExportHelper {
         HostListItemDao hostListItemDao = database.hostsListItemDao();
 
         importSourceBackup(hostsSourceDao, backupObject.getJSONArray(SOURCES_KEY));
-        importListBackup(hostListItemDao, BLACK_LIST, backupObject.getJSONArray(BLOCKED_KEY));
-        importListBackup(hostListItemDao, WHITE_LIST, backupObject.getJSONArray(ALLOWED_KEY));
-        importListBackup(hostListItemDao, REDIRECTION_LIST, backupObject.getJSONArray(REDIRECTED_KEY));
+        importListBackup(hostListItemDao, BLOCKED, backupObject.getJSONArray(BLOCKED_KEY));
+        importListBackup(hostListItemDao, ALLOWED, backupObject.getJSONArray(ALLOWED_KEY));
+        importListBackup(hostListItemDao, REDIRECTED, backupObject.getJSONArray(REDIRECTED_KEY));
     }
 
     private static JSONArray buildSourcesBackup(List<HostsSource> sources) throws JSONException {
@@ -396,12 +396,11 @@ public class ImportExportHelper {
                 return;
             }
             // Display user toast notification
-            Toast toast = Toast.makeText(
+            Toast.makeText(
                     context,
                     context.getString(exported ? R.string.export_success : R.string.export_failed),
                     Toast.LENGTH_LONG
-            );
-            toast.show();
+            ).show();
         }
     }
 }

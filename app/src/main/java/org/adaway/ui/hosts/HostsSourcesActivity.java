@@ -1,6 +1,5 @@
-package org.adaway.ui.lists;
+package org.adaway.ui.hosts;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
@@ -9,15 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.adaway.R;
 import org.adaway.helper.ThemeHelper;
 
-import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
-import static org.adaway.ui.lists.ListsFragment.TAB;
-
 /**
  * This activity display hosts list items.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class ListsActivity extends AppCompatActivity {
+public class HostsSourcesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,19 +21,14 @@ public class ListsActivity extends AppCompatActivity {
         /*
          * Create fragment
          */
-        Intent intent = getIntent();
-        int tab = intent.getIntExtra(TAB, BLACKLIST_TAB);
-        ListsFragment fragment = new ListsFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(TAB, tab);
-        fragment.setArguments(bundle);
+        HostsSourcesFragment fragment = new HostsSourcesFragment();
         /*
          * Set view content.
          */
-        setContentView(R.layout.lists_activity);
+        setContentView(R.layout.hosts_sources_activity);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.lists_containers, fragment)
+                .replace(R.id.hosts_sources_container, fragment)
                 .commit();
         /*
          * Configure actionbar.

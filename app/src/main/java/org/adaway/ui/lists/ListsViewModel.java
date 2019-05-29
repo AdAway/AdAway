@@ -19,6 +19,8 @@ import org.adaway.util.Log;
 
 import java.util.List;
 
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
+
 /**
  * This class is an {@link AndroidViewModel} for the {@link AbstractListFragment} implementations.
  *
@@ -30,7 +32,7 @@ public class ListsViewModel extends AndroidViewModel {
 
     public ListsViewModel(@NonNull Application application) {
         super(application);
-        this.hostListItemDao = AppDatabase.getInstance(this.getApplication()).hostsListItemDao();
+        this.hostListItemDao = AppDatabase.getInstance(getApplication()).hostsListItemDao();
     }
 
     public LiveData<List<HostListItem>> getBlackListItems() {
@@ -56,6 +58,7 @@ public class ListsViewModel extends AndroidViewModel {
         item.setHost(host);
         item.setRedirection(redirection);
         item.setEnabled(true);
+        item.setSourceId(USER_SOURCE_ID);
         AppExecutors.getInstance().diskIO().execute(() -> {
             try {
                 this.hostListItemDao.insert(item);
@@ -71,6 +74,7 @@ public class ListsViewModel extends AndroidViewModel {
         newItem.setHost(host);
         newItem.setRedirection(redirection);
         newItem.setEnabled(item.isEnabled());
+        newItem.setSourceId(USER_SOURCE_ID);
         AppExecutors.getInstance().diskIO().execute(() -> {
             this.hostListItemDao.delete(item);
             this.hostListItemDao.insert(newItem);

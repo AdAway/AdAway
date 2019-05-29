@@ -20,13 +20,13 @@
 
 package org.adaway.ui.lists;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.LiveData;
-
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.LiveData;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -77,7 +77,7 @@ public class RedirectionListFragment extends AbstractListFragment {
                             String ip = ipEditText.getText().toString();
                             if (RegexUtils.isValidHostname(hostname) && RegexUtils.isValidIP(ip)) {
                                 // Insert host to redirection list
-                                this.mViewModel.addListItem(ListType.REDIRECTION_LIST, hostname, ip);
+                                this.mViewModel.addListItem(ListType.REDIRECTED, hostname, ip);
                             }
                         }
                 )

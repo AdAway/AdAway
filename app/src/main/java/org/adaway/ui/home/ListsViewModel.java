@@ -8,9 +8,10 @@ import androidx.lifecycle.LiveData;
 
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
+import org.adaway.ui.next.NextActivity;
 
 /**
- * This class is an {@link AndroidViewModel} for the {@link org.adaway.ui.NextActivity} cards.
+ * This class is an {@link AndroidViewModel} for the {@link NextActivity} cards.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */

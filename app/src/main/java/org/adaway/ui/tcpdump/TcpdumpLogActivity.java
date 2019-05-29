@@ -20,28 +20,25 @@
 
 package org.adaway.ui.tcpdump;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -154,7 +151,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
             return;
         }
         // Check type other than redirection
-        if (type != ListType.REDIRECTION_LIST) {
+        if (type != ListType.REDIRECTED) {
             // Insert list item
             this.mViewModel.addListItem(hostName, type, null);
             // Display snackbar notification

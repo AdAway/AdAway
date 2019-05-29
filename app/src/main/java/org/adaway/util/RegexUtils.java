@@ -34,7 +34,7 @@ public class RegexUtils {
     private static final Pattern TCPDUMP_HOSTNAME_PATTERN = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
 
     private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)\\s*(?:#.*)*$";
-    static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
+    public static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
     /**
      * Check whether a hostname is valid.
@@ -114,7 +114,7 @@ public class RegexUtils {
      * Transforms String with * and ? characters to regex String, convert "example*.*" to regex
      * "^example.*\\..*$", from http://www.rgagnon.com/javadetails/java-0515.html
      */
-    static String wildcardToRegex(String wildcard) {
+    public static String wildcardToRegex(String wildcard) {
         StringBuilder regex = new StringBuilder(wildcard.length());
         regex.append('^');
         for (int i = 0, is = wildcard.length(); i < is; i++) {

@@ -80,6 +80,7 @@
     <string name="notification_configuration_failed">Failed to install hosts file.</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">The symlink to the hosts file target is missing</string>
     <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
@@ -88,6 +89,7 @@
     <string name="apply_private_file_fail_title">Private file fail</string>
     <string name="apply_remount_fail">Remounting the partition as read/write failed!</string>
     <string name="apply_remount_fail_title">Remount failed</string>
+    <string name="apply_copy_fail_status">Failed to copy hosts file</string>
     <string name="apply_copy_fail">Copying of hosts file failed!</string>
     <string name="apply_copy_fail_title">Copy failed</string>
     <string name="apply_success_subtitle">Applied hosts sources</string>
@@ -108,15 +110,18 @@
     <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
     <string name="apply_dialog_hosts">Building hosts file</string>
     <string name="apply_dialog_apply">Applying hosts file</string>
+    <string name="apply_fail_status">Failed to apply new hosts file.</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="root_access_fail">Please check your root management app to ensure root access has been granted.</string>
     <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!) </string>
     <string name="revert_successful_title">Reverting successful</string>
+    <string name="revert_failed_status">Unable to revert hosts file</string>
     <string name="revert_problem">Reverting failed due to unknown reasons.</string>
     <string name="revert_problem_title">Reverting failed!</string>
     <string name="download_fail_dialog">None of your enabled hosts sources are reachable! Are you properly connected to the Internet?</string>
     <string name="download_fail_title">Download failed</string>
+    <string name="no_private_file_status">Failed to write new private hosts file</string>
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>
     <string name="enable_systemless_successful">You enabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>

@@ -75,7 +75,7 @@ class ListsAdapter extends ListAdapter<HostListItem, ListsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        HostListItem item = this.getItem(position);
+        HostListItem item = getItem(position);
         holder.enabledCheckBox.setChecked(item.isEnabled());
         holder.enabledCheckBox.setOnClickListener(view -> viewCallback.toggleItemEnabled(item));
         holder.hostTextView.setText(item.getHost());

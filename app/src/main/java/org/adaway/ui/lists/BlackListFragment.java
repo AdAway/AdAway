@@ -30,7 +30,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
-import org.adaway.db.entity.ListType;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
@@ -38,6 +37,8 @@ import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
+
+import static org.adaway.db.entity.ListType.BLOCKED;
 
 /**
  * This class is a {@link AbstractListFragment} to display and manage black-listed hosts.
@@ -71,7 +72,7 @@ public class BlackListFragment extends AbstractListFragment {
                             String hostname = inputEditText.getText().toString();
                             if (RegexUtils.isValidHostname(hostname)) {
                                 // Insert host to black list
-                                this.mViewModel.addListItem(ListType.BLACK_LIST, hostname, null);
+                                this.mViewModel.addListItem(BLOCKED, hostname, null);
                             }
                         })
                 .setNegativeButton(

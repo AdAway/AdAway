@@ -208,7 +208,7 @@ public class ListsFragment extends Fragment {
             Uri backupUri = data.getData();
             Log.d(Constants.TAG, "Backup URI: " + backupUri.toString());
             // Import from backup
-            ImportExportHelper.importFromBackup(this.getContext(), backupUri);
+            ImportExportHelper.importFromBackup(getContext(), backupUri);
         }
     }
 

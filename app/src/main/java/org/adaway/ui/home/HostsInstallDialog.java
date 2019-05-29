@@ -7,11 +7,10 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.model.hostsinstall.HostsInstallError;
-import org.adaway.model.hostsinstall.HostsInstallException;
+import org.adaway.model.error.HostErrorException;
+import org.adaway.model.error.HostError;
 import org.adaway.model.hostsinstall.HostsInstallModel;
-import org.adaway.model.hostsinstall.HostsInstallStatus;
-import org.adaway.ui.AdAwayApplication;
+import org.adaway.AdAwayApplication;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.util.Utils;
 
@@ -58,8 +57,8 @@ final class HostsInstallDialog {
      *
      * @param installError The install error to show dialog.
      */
-    static void showDialogBasedOnResult(Context context, HostsInstallError installError) {
-        if (installError == HostsInstallError.SYMLINK_MISSING) {
+    static void showDialogBasedOnResult(Context context, HostError installError) {
+        if (installError == HostError.SYMLINK_MISSING) {
             showSymlinkDialog(context);
             return;
         }
@@ -159,8 +158,8 @@ final class HostsInstallDialog {
             if (!PreferenceHelper.getNeverReboot(context)) {
                 Utils.rebootQuestion(context, R.string.apply_symlink_successful_title, R.string.apply_symlink_successful);
             }
-        } catch (HostsInstallException exception) {
-            HostsInstallDialog.showDialogBasedOnResult(context, HostsInstallError.SYMLINK_FAILED);
+        } catch (HostErrorException exception) {
+            HostsInstallDialog.showDialogBasedOnResult(context, HostError.SYMLINK_FAILED);
         }
     }
 }

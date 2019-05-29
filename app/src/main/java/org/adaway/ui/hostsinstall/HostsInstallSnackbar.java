@@ -1,20 +1,21 @@
 package org.adaway.ui.hostsinstall;
 
-import androidx.lifecycle.Observer;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.google.android.material.snackbar.Snackbar;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import org.adaway.AdAwayApplication;
 import org.adaway.R;
-import org.adaway.model.hostsinstall.HostsInstallException;
-import org.adaway.model.hostsinstall.HostsInstallModel;
-import org.adaway.ui.AdAwayApplication;
+import org.adaway.model.error.HostErrorException;
+import org.adaway.model.hostlist.HostListModel;
+import org.adaway.model.source.SourceModel;
 import org.adaway.util.AppExecutors;
 
 import java.util.Collection;
@@ -131,12 +132,13 @@ public class HostsInstallSnackbar {
         this.showLoading();
         AppExecutors.getInstance().diskIO().execute(() -> {
             AdAwayApplication application = (AdAwayApplication) this.mView.getContext().getApplicationContext();
-            HostsInstallModel model = application.getHostsInstallModel();
+            SourceModel sourceModel = application.getSourceModel();
+            HostListModel hostsInstallModel = application.getHostsListModel();
             try {
-                model.retrieveHostsSources();
-                model.applyHostsFile();
+                sourceModel.retrieveHostsSources();
+                hostsInstallModel.apply();
                 this.endLoading(true);
-            } catch (HostsInstallException exception) {
+            } catch (HostErrorException exception) {
                 this.endLoading(false);
             }
         });

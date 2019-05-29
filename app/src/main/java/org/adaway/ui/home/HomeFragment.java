@@ -20,14 +20,13 @@ import androidx.lifecycle.ViewModelProviders;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.model.hostsinstall.HostsInstallError;
-import org.adaway.model.hostsinstall.HostsInstallStatus;
+import org.adaway.model.error.HostError;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.util.WebServerUtils;
 import org.adaway.vpn.VpnService;
 
 import static android.app.Activity.RESULT_OK;
-import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
+import static org.adaway.ui.home.HostsInstallStatus.WORK_IN_PROGRESS;
 
 /**
  * This class is a {@link Fragment} to show home cards:
@@ -73,7 +72,7 @@ public class HomeFragment extends Fragment {
     /**
      * The current error code ({@code null} if no previous error).
      */
-    private HostsInstallError mCurrentError;
+    private HostError mCurrentError;
     /**
      * The web server running status (<code>true</code> if running, <code>false</code> otherwise).
      */
@@ -300,7 +299,7 @@ public class HomeFragment extends Fragment {
             // Restore states
             String currentError = savedInstanceState.getString(STATE_CURRENT_ERROR);
             if (currentError != null) {
-                mCurrentError = HostsInstallError.valueOf(currentError);
+                mCurrentError = HostError.valueOf(currentError);
             }
             boolean webServerRunning = savedInstanceState.getBoolean(STATE_WEB_SERVER_RUNNING);
             this.notifyWebServerRunning(webServerRunning);

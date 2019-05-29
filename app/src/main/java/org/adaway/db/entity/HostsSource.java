@@ -2,25 +2,39 @@ package org.adaway.db.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import androidx.annotation.NonNull;
 
 import android.webkit.URLUtil;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * This entity represents a source to get hosts list.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-@Entity(tableName = "hosts_sources")
+@Entity(
+        tableName = "hosts_sources",
+        indices = {@Index(value = "url", unique = true)}
+)
 public class HostsSource {
-    @PrimaryKey
+    /**
+     * The user source ID.
+     */
+    public static int USER_SOURCE_ID = 1;
+    /**
+     * The user source URL.
+     */
+    public static String USER_SOURCE_URL = "https://localhost/user";
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     @NonNull
     private String url;
-    @NonNull
-    private Boolean enabled;
+    private boolean enabled;
     @ColumnInfo(name = "last_modified_local")
     private Date lastLocalModification;
     @ColumnInfo(name = "last_modified_online")
@@ -37,6 +51,14 @@ public class HostsSource {
         return URLUtil.isHttpsUrl(url) || URLUtil.isFileUrl(url);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @NonNull
     public String getUrl() {
         return url;
@@ -46,12 +68,11 @@ public class HostsSource {
         this.url = url;
     }
 
-    @NonNull
-    public Boolean isEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@NonNull Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -76,19 +97,22 @@ public class HostsSource {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        HostsSource source = (HostsSource) o;
+        HostsSource that = (HostsSource) o;
 
-        if (!url.equals(source.url)) return false;
-        if (!enabled.equals(source.enabled)) return false;
-        if (lastLocalModification != null ? !lastLocalModification.equals(source.lastLocalModification) : source.lastLocalModification != null)
+        if (id != that.id) return false;
+        if (enabled != that.enabled) return false;
+        if (!url.equals(that.url)) return false;
+        if (!Objects.equals(lastLocalModification, that.lastLocalModification))
             return false;
-        return lastOnlineModification != null ? lastOnlineModification.equals(source.lastOnlineModification) : source.lastOnlineModification == null;
+        return Objects.equals(lastOnlineModification, that.lastOnlineModification);
+
     }
 
     @Override
     public int hashCode() {
-        int result = url.hashCode();
-        result = 31 * result + enabled.hashCode();
+        int result = id;
+        result = 31 * result + url.hashCode();
+        result = 31 * result + (enabled ? 1 : 0);
         result = 31 * result + (lastLocalModification != null ? lastLocalModification.hashCode() : 0);
         result = 31 * result + (lastOnlineModification != null ? lastOnlineModification.hashCode() : 0);
         return result;

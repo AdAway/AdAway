@@ -16,7 +16,6 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.provider.RoomMigrationHelper;
 import org.adaway.util.AppExecutors;
 
 /**
@@ -24,7 +23,7 @@ import org.adaway.util.AppExecutors;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-@Database(entities = {HostsSource.class, HostListItem.class}, version = 1)
+@Database(entities = {HostsSource.class, HostListItem.class}, version = 2)
 @TypeConverters({DateConverter.class, ListTypeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     /**
@@ -69,6 +68,12 @@ public abstract class AppDatabase extends RoomDatabase {
         if (!hostsSourceDao.getAll().isEmpty()) {
             return;
         }
+        // User source
+        HostsSource userSource = new HostsSource();
+        userSource.setId(HostsSource.USER_SOURCE_ID);
+        userSource.setUrl(HostsSource.USER_SOURCE_URL);
+        userSource.setEnabled(true);
+        hostsSourceDao.insert(userSource);
         // https://hosts-file.net
         HostsSource source1 = new HostsSource();
         source1.setUrl("https://hosts-file.net/ad_servers.txt");

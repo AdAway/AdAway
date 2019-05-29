@@ -2,29 +2,27 @@ package org.adaway.ui.home;
 
 import android.app.Application;
 
-import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.MutableLiveData;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
+import org.adaway.AdAwayApplication;
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.ui.AdAwayApplication;
+import org.adaway.model.error.HostError;
+import org.adaway.model.error.HostErrorException;
+import org.adaway.model.hostlist.HostListModel;
+import org.adaway.model.source.SourceModel;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.ApplyUtils;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-import org.adaway.model.hostsinstall.HostsInstallError;
-import org.adaway.model.hostsinstall.HostsInstallException;
-import org.adaway.model.hostsinstall.HostsInstallModel;
-import org.adaway.model.hostsinstall.HostsInstallStatus;
 
-import java.util.Observer;
-
-import static org.adaway.model.hostsinstall.HostsInstallStatus.INSTALLED;
-import static org.adaway.model.hostsinstall.HostsInstallStatus.ORIGINAL;
-import static org.adaway.model.hostsinstall.HostsInstallStatus.OUTDATED;
-import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
+import static org.adaway.ui.home.HostsInstallStatus.INSTALLED;
+import static org.adaway.ui.home.HostsInstallStatus.ORIGINAL;
+import static org.adaway.ui.home.HostsInstallStatus.OUTDATED;
+import static org.adaway.ui.home.HostsInstallStatus.WORK_IN_PROGRESS;
 
 /**
  * This class is a {@link androidx.lifecycle.ViewModel} for home fragment UI.
@@ -32,12 +30,12 @@ import static org.adaway.model.hostsinstall.HostsInstallStatus.WORK_IN_PROGRESS;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HostsInstallViewModel extends AndroidViewModel {
-    private final HostsInstallModel model;
+    private final SourceModel sourceModel;
+    private final HostListModel hostListModel;
     private final MutableLiveData<HostsInstallStatus> status;
-    private final MutableLiveData<String> state;
+//    private final MutableLiveData<String> state;
     private final MutableLiveData<String> details;
-    private final MutableLiveData<HostsInstallError> error;
-    private final Observer modelObserver;
+    private final MutableLiveData<HostError> error;
     private boolean loaded;
 
     /**
@@ -47,19 +45,14 @@ public class HostsInstallViewModel extends AndroidViewModel {
      */
     public HostsInstallViewModel(@NonNull Application application) {
         super(application);
-        // Create model
-        this.model = ((AdAwayApplication) application).getHostsInstallModel();
+        // Retrieve models
+        this.sourceModel = ((AdAwayApplication) application).getSourceModel();
+        this.hostListModel = ((AdAwayApplication) application).getHostsListModel();
         // Initialize live data
         this.status = new MutableLiveData<>();
-        this.state = new MutableLiveData<>();
+//        this.state = new MutableLiveData<>();
         this.details = new MutableLiveData<>();
         this.error = new MutableLiveData<>();
-        // Bind model to live data
-        this.modelObserver = (o, a) -> {
-            this.state.postValue(this.model.getState());
-            this.details.postValue(this.model.getDetailedState());
-        };
-        this.model.addObserver(this.modelObserver);
         // Initialize model as not loaded
         this.loaded = false;
     }
@@ -67,23 +60,21 @@ public class HostsInstallViewModel extends AndroidViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        // Unbind model to live data
-        this.model.deleteObserver(this.modelObserver);
     }
 
-    MutableLiveData<HostsInstallStatus> getStatus() {
+    LiveData<HostsInstallStatus> getStatus() {
         return this.status;
     }
 
-    MutableLiveData<String> getState() {
-        return this.state;
+    LiveData<String> getState() {
+        return this.hostListModel.getState();
     }
 
-    MutableLiveData<String> getDetails() {
+    LiveData<String> getDetails() {
         return this.details;
     }
 
-    MutableLiveData<HostsInstallError> getError() {
+    LiveData<HostError> getError() {
         return this.error;
     }
 
@@ -98,7 +89,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
         this.loaded = true;
         // Check if hosts file is installed
         AppExecutors.getInstance().diskIO().execute(() -> {
-            if (ApplyUtils.isHostsFileCorrect(Constants.ANDROID_SYSTEM_ETC_HOSTS)) {
+            if (Boolean.TRUE == this.hostListModel.isApplied().getValue()) {
                 this.status.postValue(INSTALLED);
                 this.setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
                 // Check for update if needed
@@ -120,13 +111,13 @@ public class HostsInstallViewModel extends AndroidViewModel {
             HostsInstallStatus previousStatus = this.status.getValue();
             this.status.postValue(WORK_IN_PROGRESS);
             try {
-                this.model.retrieveHostsSources();
-                this.model.applyHostsFile();
+                this.sourceModel.retrieveHostsSources();
+                this.hostListModel.apply();
                 this.status.postValue(INSTALLED);
-            } catch (HostsInstallException exception) {
+            } catch (HostErrorException exception) {
                 Log.e(Constants.TAG, "Failed to update hosts file.", exception);
                 this.status.postValue(previousStatus);
-                this.error.postValue(exception.getInstallError());
+                this.error.postValue(exception.getError());
             }
         });
     }
@@ -140,15 +131,15 @@ public class HostsInstallViewModel extends AndroidViewModel {
             this.status.postValue(WORK_IN_PROGRESS);
             try {
                 // Check if update is available
-                if (this.model.checkForUpdate()) {
+                if (this.sourceModel.checkForUpdate()) {
                     this.status.postValue(OUTDATED);
                 } else {
                     this.status.postValue(INSTALLED);
                 }
-            } catch (HostsInstallException exception) {
+            } catch (HostErrorException exception) {
                 Log.e(Constants.TAG, "Failed to check for update.", exception);
                 this.status.postValue(INSTALLED);
-                this.error.postValue(exception.getInstallError());
+                this.error.postValue(exception.getError());
             }
         });
     }
@@ -160,18 +151,18 @@ public class HostsInstallViewModel extends AndroidViewModel {
         AppExecutors.getInstance().diskIO().execute(() -> {
             this.status.postValue(WORK_IN_PROGRESS);
             try {
-                this.model.revert();
+                this.hostListModel.revert();
                 this.status.postValue(ORIGINAL);
-            } catch (HostsInstallException exception) {
+            } catch (HostErrorException exception) {
                 Log.e(Constants.TAG, "Failed to revert hosts file.", exception);
                 this.status.postValue(INSTALLED);
-                this.error.postValue(exception.getInstallError());
+                this.error.postValue(exception.getError());
             }
         });
     }
 
     private void setStateAndDetails(@StringRes int stateResId, @StringRes int detailsResId) {
-        this.state.postValue(this.getApplication().getString(stateResId));
-        this.details.postValue(this.getApplication().getString(detailsResId));
+//        this.state.postValue(this.getApplication().getString(stateResId));
+//        this.details.postValue(this.getApplication().getString(detailsResId));
     }
 }

@@ -1,12 +1,14 @@
-package org.adaway.ui;
+package org.adaway.ui.next;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.IdRes;
@@ -22,6 +24,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import org.adaway.R;
@@ -29,9 +32,9 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.home.ListsViewModel;
+import org.adaway.ui.hosts.HostsSourcesActivity;
 import org.adaway.ui.lists.ListsActivity;
 import org.adaway.ui.prefs.PrefsActivity;
-import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED;
@@ -40,6 +43,7 @@ import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
 import static org.adaway.ui.lists.ListsFragment.REDIRECTION_TAB;
 import static org.adaway.ui.lists.ListsFragment.TAB;
 import static org.adaway.ui.lists.ListsFragment.WHITELIST_TAB;
+import static org.adaway.util.Constants.TAG;
 
 /**
  * This class is the application main activity.
@@ -59,22 +63,39 @@ public class NextActivity extends AppCompatActivity {
 //    protected CoordinatorLayout coordinatorLayout;
 
     private BottomAppBar appBar;
+    private FloatingActionButton fab;
     private BottomSheetBehavior<View> drawerBehavior;
+    private NextViewModel nextViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
         NotificationHelper.clearUpdateHostsNotification(this);
-        Log.i(Constants.TAG, "Starting main activity");
+        Log.i(TAG, "Starting main activity");
         setContentView(R.layout.next_activity);
 
+        this.nextViewModel = ViewModelProviders.of(this).get(NextViewModel.class);
+        this.nextViewModel.isAdBlocked().observe(this, this::notifyAdBlocked);
+        this.nextViewModel.getError().observe(this, hostError -> {
+            if (hostError != null) { // TODO Save last error
+                TextView textView = new TextView(this);
+                textView.setText(hostError.getMessageKey());
+                new MaterialAlertDialogBuilder(this) // TODO Create proper dialog
+                        .setTitle("An error occurred")
+                        .setView(textView)
+                        .create()
+                        .show();
+            }
+        });
+
         this.appBar = findViewById(R.id.bar);
-        hideActionBar();
+        applyActionBar();
         bindHostCounter();
         bindClickListeners();
-        notifyUpdating(false);
         setUpBottomDrawer();
+        bindFab();
+        notifyUpdating(false);
 
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(item -> {
@@ -100,11 +121,12 @@ public class NextActivity extends AppCompatActivity {
         return this.showFragment(item.getItemId());
     }
 
-    private void hideActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
+    private void applyActionBar() {
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.hide();
+//        }
+        setSupportActionBar(this.appBar);
     }
 
     private void bindHostCounter() {
@@ -144,6 +166,8 @@ public class NextActivity extends AppCompatActivity {
         allowedHostCardView.setOnClickListener(v -> startHostListActivity(WHITELIST_TAB));
         CardView redirectHostHostCardView = findViewById(R.id.redirectHostCardView);
         redirectHostHostCardView.setOnClickListener(v -> startHostListActivity(REDIRECTION_TAB));
+        CardView sourcesCardView = findViewById(R.id.sourcesCardView);
+        sourcesCardView.setOnClickListener(this::startHostsSourcesActivity);
         CardView helpCardView = findViewById(R.id.helpCardView);
         helpCardView.setOnClickListener(this::startHelpActivity);
         CardView projectCardView = findViewById(R.id.projectCardView);
@@ -162,6 +186,11 @@ public class NextActivity extends AppCompatActivity {
 //        bar.replaceMenu(R.menu.next_actions);
     }
 
+    private void bindFab() {
+        this.fab = findViewById(R.id.fab);
+        this.fab.setOnClickListener(v -> this.nextViewModel.toggleAdBlocking());
+    }
+
     private boolean showFragment(@IdRes int actionId) {
         switch (actionId) {
             case R.id.drawer_open_hosts_file:
@@ -173,8 +202,8 @@ public class NextActivity extends AppCompatActivity {
                 return true;
 //                break;
             case R.id.action_update:
-                // TODO
-                break;
+                this.syncHostsList();
+                return true;
             case R.id.action_show_log:
                 // TODO
                 break;
@@ -202,10 +231,11 @@ public class NextActivity extends AppCompatActivity {
     }
 
     /**
-     * Start preferences activity.
+     * Start hosts source activity.
+     * @param view The source view event.
      */
-    private void startPrefsActivity() {
-        this.startActivity(new Intent(this, PrefsActivity.class));
+    private void startHostsSourcesActivity(@SuppressWarnings("unused") View view) {
+        startActivity(new Intent(this, HostsSourcesActivity.class));
     }
 
     /**
@@ -246,5 +276,28 @@ public class NextActivity extends AppCompatActivity {
                 })
                 .create()
                 .show();
+    }
+
+    /**
+     * Start preferences activity.
+     */
+    private void startPrefsActivity() {
+        startActivity(new Intent(this, PrefsActivity.class));
+    }
+
+    /**
+     * Synchronize the hosts list.
+     */
+    private void syncHostsList() {
+        this.notifyUpdating(true);
+        this.nextViewModel.sync();
+        this.notifyUpdating(false);
+    }
+
+    private void notifyAdBlocked(boolean adBlocked) {
+        FrameLayout layout = findViewById(R.id.headerFrameLayout);
+        int color = adBlocked ? getResources().getColor(R.color.primary, null) : Color.GRAY;
+        layout.setBackgroundColor(color);
+        this.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.ic_playlist_add_24dp);
     }
 }

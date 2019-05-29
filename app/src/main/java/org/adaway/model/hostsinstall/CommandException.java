@@ -18,16 +18,13 @@
  *
  */
 
-package org.adaway.util;
+package org.adaway.model.hostsinstall;
 
-public class NotEnoughSpaceException extends Exception {
+class CommandException extends Exception {
 
-    private static final long serialVersionUID = -1813052808134720258L;
+    private static final long serialVersionUID = -4014185620880841310L;
 
-    public NotEnoughSpaceException() {
-    }
-
-    public NotEnoughSpaceException(String msg) {
+    CommandException(String msg) {
         super(msg);
     }
 }

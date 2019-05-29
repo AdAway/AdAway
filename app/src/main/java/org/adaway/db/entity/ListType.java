@@ -6,9 +6,9 @@ package org.adaway.db.entity;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public enum ListType {
-    BLACK_LIST(0),
-    WHITE_LIST(1),
-    REDIRECTION_LIST(2);
+    BLOCKED(0),
+    ALLOWED(1),
+    REDIRECTED(2);
 
     private int value;
 

@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui;
+package org.adaway;
 
 import android.app.Application;
 
@@ -26,7 +26,9 @@ import com.topjohnwu.superuser.Shell;
 
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.hostlist.HostListModel;
 import org.adaway.model.hostsinstall.HostsInstallModel;
+import org.adaway.model.source.SourceModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.SentryLog;
@@ -38,9 +40,13 @@ import org.adaway.util.SentryLog;
  */
 public class AdAwayApplication extends Application {
     /**
+     * The common source model for the whole application.
+     */
+    private SourceModel sourceModel;
+    /**
      * The common hosts install model for the whole application.
      */
-    private HostsInstallModel mHostsInstallModel;
+    private HostsInstallModel hostsInstallModel;
 
     @Override
     public void onCreate() {
@@ -59,8 +65,17 @@ public class AdAwayApplication extends Application {
         }
         // Create notification channels
         NotificationHelper.createNotificationChannels(this);
-        // Create hosts install model
-        this.mHostsInstallModel = new HostsInstallModel(this);
+        // Create models
+        this.sourceModel = new SourceModel(this);
+        this.hostsInstallModel = new HostsInstallModel(this);
+    }
+
+    /**
+     * Get the source model.
+     * @return The common source model for the whole application.
+     */
+    public SourceModel getSourceModel() {
+        return this.sourceModel;
     }
 
     /**
@@ -69,6 +84,15 @@ public class AdAwayApplication extends Application {
      * @return The common hosts install model for the whole application.
      */
     public HostsInstallModel getHostsInstallModel() {
-        return this.mHostsInstallModel;
+        return this.hostsInstallModel;
+    }
+
+    /**
+     * Get the hosts list model.
+     *
+     * @return The common hosts list model for the whole application.
+     */
+    public HostListModel getHostsListModel() {
+        return this.hostsInstallModel;
     }
 }
