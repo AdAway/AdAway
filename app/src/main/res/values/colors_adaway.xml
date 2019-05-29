@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Material theming black theme -->
-    <color name="primary">#b71c1c</color>
+    <color name="primary">#B71C1C</color>
     <color name="primaryVariant">#e53935</color>
     <color name="onPrimary">#ffffff</color>
     <!-- Material theming Light theme -->
