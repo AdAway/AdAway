@@ -95,9 +95,9 @@ public class WelcomeMethodFragment extends Fragment {
     private void notifyRootDisabled(boolean showDialog) {
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-        this.getNavigable().blockNext();
         Context context = this.getContext();
         if (context != null && showDialog) {
+            this.getNavigable().blockNext();
             new MaterialAlertDialogBuilder(context)
                     .setTitle(R.string.welcome_root_missing_title)
                     .setMessage(R.string.welcome_root_missile_description)
@@ -116,9 +116,9 @@ public class WelcomeMethodFragment extends Fragment {
     private void notifyVpnDisabled(boolean showDialog) {
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-        this.getNavigable().blockNext();
         Context context = this.getContext();
         if (context != null && showDialog) {
+            this.getNavigable().blockNext();
             new MaterialAlertDialogBuilder(context)
                     .setTitle("allow VPN")
                     .setMessage("Please allow VPN")
