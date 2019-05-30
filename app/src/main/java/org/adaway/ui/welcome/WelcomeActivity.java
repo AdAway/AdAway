@@ -78,20 +78,25 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
                 findViewById(R.id.dot2ImageView),
                 findViewById(R.id.dot3ImageView)
         };
+        highlightDot(this.viewPager.getCurrentItem());
         this.viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
-                for (int index = 0; index < dotImageViews.length; index++) {
-                    if (index == position) {
-                        dotImageViews[index].setImageResource(R.drawable.dot);
-                        dotImageViews[index].animate().alpha(0.7F).scaleX(1.2F).scaleY(1.2F);
-                    } else {
-                        dotImageViews[index].setImageResource(R.drawable.dot_outline);
-                        dotImageViews[index].animate().alpha(0.5F).scaleX(1F).scaleY(1F);
-                    }
-                }
+                highlightDot(position);
             }
         });
+    }
+
+    private void highlightDot(int position) {
+        for (int index = 0; index < dotImageViews.length; index++) {
+            if (index == position) {
+                dotImageViews[index].setImageResource(R.drawable.dot);
+                dotImageViews[index].animate().alpha(0.7F).scaleX(1.2F).scaleY(1.2F);
+            } else {
+                dotImageViews[index].setImageResource(R.drawable.dot_outline);
+                dotImageViews[index].animate().alpha(0.5F).scaleX(1F).scaleY(1F);
+            }
+        }
     }
 
     @Override
