@@ -27,7 +27,6 @@ import static android.app.Activity.RESULT_OK;
  */
 public class WelcomeMethodFragment extends Fragment {
     private static final int VPN_START_REQUEST_CODE = 10;
-    private WelcomeNavigable navigable;
     private CardView rootCardView;
     private CardView vpnCardView;
     @ColorInt
@@ -63,10 +62,6 @@ public class WelcomeMethodFragment extends Fragment {
         }
     }
 
-    void setNavigable(WelcomeNavigable navigable) {
-        this.navigable = navigable;
-    }
-
     private void checkRoot(@SuppressWarnings("unused") @Nullable View view) {
         notifyVpnDisabled(false);
         if (Shell.rootAccess()) {
@@ -77,6 +72,7 @@ public class WelcomeMethodFragment extends Fragment {
     }
 
     private void enableVpnService(@SuppressWarnings("unused") @Nullable View view) {
+        notifyRootDisabled(false);
         Context context = this.getContext();
         if (context == null) {
             return;
@@ -93,13 +89,13 @@ public class WelcomeMethodFragment extends Fragment {
     private void notifyRootEnabled() {
         this.rootCardView.setCardBackgroundColor(this.cardEnabledColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-        this.navigable.allowNext();
+        this.getNavigable().allowNext();
     }
 
     private void notifyRootDisabled(boolean showDialog) {
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-        this.navigable.blockNext();
+        this.getNavigable().blockNext();
         Context context = this.getContext();
         if (context != null && showDialog) {
             new MaterialAlertDialogBuilder(context)
@@ -114,15 +110,26 @@ public class WelcomeMethodFragment extends Fragment {
     private void notifyVpnEnabled() {
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardEnabledColor);
-        this.navigable.allowNext();
+        this.getNavigable().allowNext();
     }
 
     private void notifyVpnDisabled(boolean showDialog) {
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-        this.navigable.blockNext();
-        if (showDialog) {
+        this.getNavigable().blockNext();
+        Context context = this.getContext();
+        if (context != null && showDialog) {
+            new MaterialAlertDialogBuilder(context)
+                    .setTitle("allow VPN")
+                    .setMessage("Please allow VPN")
+                    .setPositiveButton(R.string.button_close, null)
+                    .create()
+                    .show();
             // TODO Add toast if user cancels
         }
+    }
+    
+    private WelcomeNavigable getNavigable() {
+        return (WelcomeNavigable) this.getActivity();
     }
 }

@@ -2,14 +2,13 @@ package org.adaway.ui.welcome;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class WelcomePagerAdapter extends FragmentStateAdapter {
-    private final WelcomeNavigable navigable;
 
-    WelcomePagerAdapter(WelcomeActivity activity) {
-        super(activity.getSupportFragmentManager());
-        this.navigable = activity;
+    WelcomePagerAdapter(@NonNull FragmentManager fragmentManager) {
+        super(fragmentManager);
     }
 
     @NonNull
@@ -17,9 +16,7 @@ public class WelcomePagerAdapter extends FragmentStateAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                WelcomeMethodFragment fragment = new WelcomeMethodFragment();
-                fragment.setNavigable(this.navigable);
-                return fragment;
+                return new WelcomeMethodFragment();
         }
         return new WelcomeMethodFragment();
     }
