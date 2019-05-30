@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary">
@@ -21,15 +20,41 @@
         android:id="@+id/dotsLayout"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="aaa" />
+        <ImageView
+            android:id="@+id/dot1ImageView"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:alpha="0.5"
+            app:srcCompat="@drawable/dot_outline" />
+
+        <ImageView
+            android:id="@+id/dot2ImageView"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:alpha="0.5"
+            app:srcCompat="@drawable/dot_outline" />
+
+        <ImageView
+            android:id="@+id/dot3ImageView"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:alpha="0.5"
+            app:srcCompat="@drawable/dot_outline" />
+
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton

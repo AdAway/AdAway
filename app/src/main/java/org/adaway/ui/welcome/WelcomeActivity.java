@@ -3,6 +3,7 @@ package org.adaway.ui.welcome;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
     private ViewPager2 viewPager;
     private MaterialButton backButton;
     private MaterialButton nextButton;
+    private ImageView[] dotImageViews;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
         buildPager();
         bindBackButton();
         bindNextButton();
+        bindDots();
     }
 
     private void buildPager() {
@@ -65,6 +68,28 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
                     blockBack();
                 }
                 allowNext();
+            }
+        });
+    }
+
+    private void bindDots() {
+        this.dotImageViews = new ImageView[]{
+                findViewById(R.id.dot1ImageView),
+                findViewById(R.id.dot2ImageView),
+                findViewById(R.id.dot3ImageView)
+        };
+        this.viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                for (int index = 0; index < dotImageViews.length; index++) {
+                    if (index == position) {
+                        dotImageViews[index].setImageResource(R.drawable.dot);
+                        dotImageViews[index].animate().alpha(0.7F).scaleX(1.2F).scaleY(1.2F);
+                    } else {
+                        dotImageViews[index].setImageResource(R.drawable.dot_outline);
+                        dotImageViews[index].animate().alpha(0.5F).scaleX(1F).scaleY(1F);
+                    }
+                }
             }
         });
     }
