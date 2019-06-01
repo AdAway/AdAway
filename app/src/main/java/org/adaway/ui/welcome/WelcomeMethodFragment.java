@@ -57,13 +57,13 @@ public class WelcomeMethodFragment extends Fragment {
             if (resultCode == RESULT_OK) {
                 notifyVpnEnabled();
             } else {
-                notifyVpnDisabled(true);
+                notifyVpnDisabled();
             }
         }
     }
 
     private void checkRoot(@SuppressWarnings("unused") @Nullable View view) {
-        notifyVpnDisabled(false);
+        notifyVpnDisabled();
         if (Shell.rootAccess()) {
             notifyRootEnabled();
         } else {
@@ -113,20 +113,9 @@ public class WelcomeMethodFragment extends Fragment {
         this.getNavigable().allowNext();
     }
 
-    private void notifyVpnDisabled(boolean showDialog) {
+    private void notifyVpnDisabled() {
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-        Context context = this.getContext();
-        if (context != null && showDialog) {
-            this.getNavigable().blockNext();
-            new MaterialAlertDialogBuilder(context)
-                    .setTitle("allow VPN")
-                    .setMessage("Please allow VPN")
-                    .setPositiveButton(R.string.button_close, null)
-                    .create()
-                    .show();
-            // TODO Add toast if user cancels
-        }
     }
     
     private WelcomeNavigable getNavigable() {
