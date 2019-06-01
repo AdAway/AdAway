@@ -13,7 +13,7 @@ import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.error.HostError;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.model.hostlist.HostListModel;
+import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.source.SourceModel;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Constants;
@@ -31,7 +31,7 @@ import static org.adaway.ui.home.HostsInstallStatus.WORK_IN_PROGRESS;
  */
 public class HostsInstallViewModel extends AndroidViewModel {
     private final SourceModel sourceModel;
-    private final HostListModel hostListModel;
+    private final AdBlockModel adBlockModel;
     private final MutableLiveData<HostsInstallStatus> status;
 //    private final MutableLiveData<String> state;
     private final MutableLiveData<String> details;
@@ -47,7 +47,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
         super(application);
         // Retrieve models
         this.sourceModel = ((AdAwayApplication) application).getSourceModel();
-        this.hostListModel = ((AdAwayApplication) application).getHostsListModel();
+        this.adBlockModel = ((AdAwayApplication) application).getAdBlockModel();
         // Initialize live data
         this.status = new MutableLiveData<>();
 //        this.state = new MutableLiveData<>();
@@ -67,7 +67,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
     }
 
     LiveData<String> getState() {
-        return this.hostListModel.getState();
+        return this.adBlockModel.getState();
     }
 
     LiveData<String> getDetails() {
@@ -89,7 +89,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
         this.loaded = true;
         // Check if hosts file is installed
         AppExecutors.getInstance().diskIO().execute(() -> {
-            if (Boolean.TRUE == this.hostListModel.isApplied().getValue()) {
+            if (Boolean.TRUE == this.adBlockModel.isApplied().getValue()) {
                 this.status.postValue(INSTALLED);
                 this.setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
                 // Check for update if needed
@@ -112,7 +112,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
             this.status.postValue(WORK_IN_PROGRESS);
             try {
                 this.sourceModel.retrieveHostsSources();
-                this.hostListModel.apply();
+                this.adBlockModel.apply();
                 this.status.postValue(INSTALLED);
             } catch (HostErrorException exception) {
                 Log.e(Constants.TAG, "Failed to update hosts file.", exception);
@@ -151,7 +151,7 @@ public class HostsInstallViewModel extends AndroidViewModel {
         AppExecutors.getInstance().diskIO().execute(() -> {
             this.status.postValue(WORK_IN_PROGRESS);
             try {
-                this.hostListModel.revert();
+                this.adBlockModel.revert();
                 this.status.postValue(ORIGINAL);
             } catch (HostErrorException exception) {
                 Log.e(Constants.TAG, "Failed to revert hosts file.", exception);

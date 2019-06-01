@@ -17,8 +17,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.topjohnwu.superuser.Shell;
 
 import org.adaway.R;
+import org.adaway.helper.PreferenceHelper;
 
 import static android.app.Activity.RESULT_OK;
+import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
+import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 
 /**
  * This class is a fragment to setup the ad blocking method.
@@ -87,6 +90,10 @@ public class WelcomeMethodFragment extends Fragment {
     }
 
     private void notifyRootEnabled() {
+        Context context = this.getContext();
+        if (context != null) {
+            PreferenceHelper.setAbBlockMethod(context, ROOT);
+        }
         this.rootCardView.setCardBackgroundColor(this.cardEnabledColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
         this.getNavigable().allowNext();
@@ -108,6 +115,10 @@ public class WelcomeMethodFragment extends Fragment {
     }
 
     private void notifyVpnEnabled() {
+        Context context = this.getContext();
+        if (context != null) {
+            PreferenceHelper.setAbBlockMethod(context, VPN);
+        }
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardEnabledColor);
         this.getNavigable().allowNext();

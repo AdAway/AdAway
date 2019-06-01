@@ -14,7 +14,7 @@ import org.adaway.AdAwayApplication;
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.model.hostlist.HostListModel;
+import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.source.SourceModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -131,8 +131,8 @@ public final class UpdateService {
             // Check if automatic update are enabled
             if (PreferenceHelper.getAutomaticUpdateDaily(application)) {
                 // Install update
-                HostListModel hostListModel = application.getHostsListModel();
-                hostListModel.apply();
+                AdBlockModel adBlockModel = application.getAdBlockModel();
+                adBlockModel.apply();
             } else {
                 // Display update notification
                 NotificationHelper.showUpdateHostsNotification(application);

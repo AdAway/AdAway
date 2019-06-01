@@ -1,23 +1,3 @@
-/*
- * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
- *
- * This file is part of AdAway.
- *
- * AdAway is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * AdAway is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with AdAway.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
-
 package org.adaway;
 
 import android.app.Application;
@@ -26,10 +6,9 @@ import com.topjohnwu.superuser.Shell;
 
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.model.hostlist.HostListModel;
-import org.adaway.model.hostsinstall.HostsInstallModel;
+import org.adaway.model.adblocking.AdBlockMethod;
+import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.source.SourceModel;
-import org.adaway.model.vpn.VpnModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.SentryLog;
@@ -45,13 +24,9 @@ public class AdAwayApplication extends Application {
      */
     private SourceModel sourceModel;
     /**
-     * The common VPN model for the whole application.
+     * The common ad block model for the whole application.
      */
-    private VpnModel vpnModel;
-    /**
-     * The common hosts install model for the whole application.
-     */
-    private HostsInstallModel hostsInstallModel;
+    private AdBlockModel adBlockModel;
 
     @Override
     public void onCreate() {
@@ -72,12 +47,11 @@ public class AdAwayApplication extends Application {
         NotificationHelper.createNotificationChannels(this);
         // Create models
         this.sourceModel = new SourceModel(this);
-        this.vpnModel = new VpnModel(this);
-        this.hostsInstallModel = new HostsInstallModel(this);
     }
 
     /**
      * Get the source model.
+     *
      * @return The common source model for the whole application.
      */
     public SourceModel getSourceModel() {
@@ -85,30 +59,16 @@ public class AdAwayApplication extends Application {
     }
 
     /**
-     * Get the hosts install model.
+     * Get the ad block model.
      *
-     * @return The common hosts install model for the whole application.
+     * @return The common ad block model for the whole application.
      */
-    public HostsInstallModel getHostsInstallModel() {
-        return this.hostsInstallModel;
-    }
-
-    /**
-     * Get the hosts install model.
-     *
-     * @return The common hosts install model for the whole application.
-     */
-    public VpnModel getVpnModel() {
-        return this.vpnModel;
-    }
-
-    /**
-     * Get the hosts list model.
-     *
-     * @return The common hosts list model for the whole application.
-     */
-    public HostListModel getHostsListModel() {
-        // TODO Check VPN or hosts install
-        return this.hostsInstallModel;
+    public AdBlockModel getAdBlockModel() {
+        // Check cached model
+        AdBlockMethod method = PreferenceHelper.getAdBlockMethod(this);
+        if (this.adBlockModel == null || this.adBlockModel.getMethod() != method) {
+            this.adBlockModel = AdBlockModel.build(this, method);
+        }
+        return this.adBlockModel;
     }
 }

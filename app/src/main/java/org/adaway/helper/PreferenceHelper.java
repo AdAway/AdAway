@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import org.adaway.R;
+import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.hostsinstall.HostsInstallLocation;
 import org.adaway.util.Constants;
 import org.adaway.vpn.VpnStatus;
@@ -213,6 +214,27 @@ public class PreferenceHelper {
                 context.getString(R.string.pref_webserver_on_boot_key),
                 context.getResources().getBoolean(R.bool.pref_webserver_on_boot_def)
         );
+    }
+
+    public static AdBlockMethod getAdBlockMethod(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return AdBlockMethod.fromCode(prefs.getInt(
+                context.getString(R.string.pref_adblock_method_key),
+                context.getResources().getInteger(R.integer.pref_adblock_method_key_def)
+        ));
+    }
+
+    public static void setAbBlockMethod(Context context, AdBlockMethod method) {
+        SharedPreferences prefs = context.getApplicationContext().getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(context.getString(R.string.pref_adblock_method_key), method.toCode());
+        editor.apply();
     }
 
     public static VpnStatus getVpnServiceStatus(Context context) {

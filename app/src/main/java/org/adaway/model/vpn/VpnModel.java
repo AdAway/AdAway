@@ -2,10 +2,12 @@ package org.adaway.model.vpn;
 
 import android.content.Context;
 
+import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.model.hostlist.HostListModel;
+import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.vpn.VpnService;
 
+import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.model.error.HostError.DISABLE_VPN_FAIL;
 import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
 
@@ -14,7 +16,7 @@ import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class VpnModel extends HostListModel {
+public class VpnModel extends AdBlockModel {
     /**
      * Constructor.
      *
@@ -22,6 +24,11 @@ public class VpnModel extends HostListModel {
      */
     public VpnModel(Context context) {
         super(context);
+    }
+
+    @Override
+    public AdBlockMethod getMethod() {
+        return VPN;
     }
 
     @Override

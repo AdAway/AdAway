@@ -14,7 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.adaway.AdAwayApplication;
 import org.adaway.R;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.model.hostlist.HostListModel;
+import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.source.SourceModel;
 import org.adaway.util.AppExecutors;
 
@@ -133,7 +133,7 @@ public class HostsInstallSnackbar {
         AppExecutors.getInstance().diskIO().execute(() -> {
             AdAwayApplication application = (AdAwayApplication) this.mView.getContext().getApplicationContext();
             SourceModel sourceModel = application.getSourceModel();
-            HostListModel hostsInstallModel = application.getHostsListModel();
+            AdBlockModel hostsInstallModel = application.getAdBlockModel();
             try {
                 sourceModel.retrieveHostsSources();
                 hostsInstallModel.apply();

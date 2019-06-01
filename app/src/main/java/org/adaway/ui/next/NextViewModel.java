@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 import org.adaway.AdAwayApplication;
 import org.adaway.model.error.HostError;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.model.hostlist.HostListModel;
+import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.source.SourceModel;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Log;
@@ -19,21 +19,21 @@ public class NextViewModel extends AndroidViewModel {
     private static final String TAG = "NextViewModel";
 
     private SourceModel sourceModel;
-    private HostListModel hostListModel;
+    private AdBlockModel adBlockModel;
 
     private MutableLiveData<HostError> error;
 
     public NextViewModel(@NonNull Application application) {
         super(application);
         this.sourceModel = ((AdAwayApplication) application).getSourceModel();
-        this.hostListModel = ((AdAwayApplication) application).getHostsListModel();
+        this.adBlockModel = ((AdAwayApplication) application).getAdBlockModel();
 
 
         this.error = new MutableLiveData<>();
     }
 
     public LiveData<Boolean> isAdBlocked() {
-        return this.hostListModel.isApplied();
+        return this.adBlockModel.isApplied();
     }
 
     public LiveData<Boolean> isUpdateAvailable() {
@@ -47,10 +47,10 @@ public class NextViewModel extends AndroidViewModel {
     public void toggleAdBlocking() {
         AppExecutors.getInstance().diskIO().execute(() -> {
             try {
-                if (Boolean.TRUE == this.hostListModel.isApplied().getValue()) {
-                    this.hostListModel.revert();
+                if (Boolean.TRUE == this.adBlockModel.isApplied().getValue()) {
+                    this.adBlockModel.revert();
                 } else {
-                    this.hostListModel.apply();
+                    this.adBlockModel.apply();
                 }
             } catch (HostErrorException exception) {
                 Log.w(TAG, "Failed to toggle ad blocking.", exception);
@@ -63,7 +63,7 @@ public class NextViewModel extends AndroidViewModel {
         AppExecutors.getInstance().networkIO().execute(() -> {
             try {
                 this.sourceModel.retrieveHostsSources();
-                this.hostListModel.apply();
+                this.adBlockModel.apply();
             } catch (HostErrorException exception) {
                 Log.w(TAG, "Failed to sync.", exception);
                 this.error.postValue(exception.getError());

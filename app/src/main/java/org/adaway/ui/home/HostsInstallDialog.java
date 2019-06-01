@@ -153,7 +153,8 @@ final class HostsInstallDialog {
      */
     private static void tryToCreateSymlink(Context context) {
         try {
-            HostsInstallModel model = ((AdAwayApplication) context.getApplicationContext()).getHostsInstallModel();
+            AdAwayApplication applicationContext = (AdAwayApplication) context.getApplicationContext();
+            HostsInstallModel model = (HostsInstallModel) applicationContext.getAdBlockModel();
             model.createSymlink();
             if (!PreferenceHelper.getNeverReboot(context)) {
                 Utils.rebootQuestion(context, R.string.apply_symlink_successful_title, R.string.apply_symlink_successful);
