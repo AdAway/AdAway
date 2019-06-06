@@ -1,4 +1,4 @@
-package org.adaway.model.github;
+package org.adaway.model.git;
 
 import androidx.annotation.Nullable;
 
@@ -23,7 +23,7 @@ import okhttp3.ResponseBody;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class GistHostsSource extends GithubHostsSource {
+class GistHostsSource extends GitHostsSource {
     /**
      * The gist identifier.
      */
