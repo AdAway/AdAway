@@ -1,8 +1,15 @@
-Please report bugs on the following website instead of writing bad reviews:
-https://github.com/AdAway/AdAway/issues
+## [4.2.5] - 2019-06-06
 
+- Add Gist and GitLab hosting support for hosts file
+- Add option to set default IPv6 redirection
+- Improve reboot command
+- Improve UI for overlays
+- Update translations
+
+Special thanks to MSF-Jarvis and Ralayax for their contributions
 
 ## [4.2.4] - 2019-03-23
+
 - Add dedicated no root error message 
 - Fix connection requirement for automatic update
 - Fix crash on TCP dump views when root access is denied
