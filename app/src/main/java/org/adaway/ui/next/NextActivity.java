@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.arch.core.util.Function;
 import androidx.cardview.widget.CardView;
@@ -29,16 +28,20 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.adaway.R;
 import org.adaway.helper.NotificationHelper;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ThemeHelper;
+import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.home.ListsViewModel;
 import org.adaway.ui.hosts.HostsSourcesActivity;
 import org.adaway.ui.lists.ListsActivity;
 import org.adaway.ui.prefs.PrefsActivity;
+import org.adaway.ui.welcome.WelcomeActivity;
 import org.adaway.util.Log;
 
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN;
+import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
 import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
 import static org.adaway.ui.lists.ListsFragment.REDIRECTION_TAB;
 import static org.adaway.ui.lists.ListsFragment.TAB;
@@ -70,6 +73,7 @@ public class NextActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkFirstStep();
         ThemeHelper.applyTheme(this);
         NotificationHelper.clearUpdateHostsNotification(this);
         Log.i(TAG, "Starting main activity");
@@ -119,6 +123,14 @@ public class NextActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return this.showFragment(item.getItemId());
+    }
+
+    private void checkFirstStep() {
+        AdBlockMethod adBlockMethod = PreferenceHelper.getAdBlockMethod(this);
+        if (adBlockMethod == UNDEFINED) {
+            this.startActivity(new Intent(this, WelcomeActivity.class));
+            this.finish();
+        }
     }
 
     private void applyActionBar() {
@@ -232,6 +244,7 @@ public class NextActivity extends AppCompatActivity {
 
     /**
      * Start hosts source activity.
+     *
      * @param view The source view event.
      */
     private void startHostsSourcesActivity(@SuppressWarnings("unused") View view) {
