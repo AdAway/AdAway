@@ -61,13 +61,11 @@ android {
         debug {
             shrinkResources true
             minifyEnabled true
-            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
             shrinkResources true
             minifyEnabled true
-            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -118,4 +116,5 @@ dependencies {
     }
     implementation 'org.slf4j:slf4j-nop:1.7.25'
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.json:json:20180130'
 }
