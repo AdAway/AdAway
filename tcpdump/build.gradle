@@ -8,13 +8,13 @@ android {
     }
 
     compileSdkVersion 28
-    buildToolsVersion '29.0.0-rc3'
+    buildToolsVersion '29.0.0'
 
     defaultConfig {
         minSdkVersion 26
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
     }
 
     externalNativeBuild {

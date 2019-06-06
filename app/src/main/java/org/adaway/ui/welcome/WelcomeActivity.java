@@ -39,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
     }
 
     private void buildPager() {
-        this.pagerAdapter = new WelcomePagerAdapter(this.getSupportFragmentManager());
+        this.pagerAdapter = new WelcomePagerAdapter(this);
         this.viewPager = findViewById(R.id.view_pager);
         this.viewPager.setAdapter(this.pagerAdapter);
         this.viewPager.setUserInputEnabled(false);

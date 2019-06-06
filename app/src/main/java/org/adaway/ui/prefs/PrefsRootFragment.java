@@ -56,7 +56,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat {
     private void bindCustomTargetPrefAction() {
         Context context = getContext();
         // find custom target edit
-        EditTextPreference mCustomTarget = (EditTextPreference) findPreference(getString(R.string.pref_custom_target_key));
+        EditTextPreference mCustomTarget = findPreference(getString(R.string.pref_custom_target_key));
         // enable custom target pref on create if enabled in apply method
         if (PreferenceHelper.getInstallLocation(context).equals(CUSTOM_TARGET)) {
             mCustomTarget.setEnabled(true);

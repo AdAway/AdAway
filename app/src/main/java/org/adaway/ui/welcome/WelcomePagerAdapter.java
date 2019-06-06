@@ -2,12 +2,12 @@ package org.adaway.ui.welcome;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class WelcomePagerAdapter extends FragmentStateAdapter {
 
-    WelcomePagerAdapter(@NonNull FragmentManager fragmentManager) {
+    WelcomePagerAdapter(@NonNull FragmentActivity fragmentManager) {
         super(fragmentManager);
     }
 
