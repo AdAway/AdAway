@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
@@ -11,6 +10,7 @@
         android:id="@+id/logoImageView"
         android:layout_width="128dp"
         android:layout_height="128dp"
+        android:contentDescription="@string/welcome_method_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -63,6 +63,7 @@
                 android:id="@+id/rootMethodImageView"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
+                android:contentDescription="@string/welcome_root_method_logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -84,6 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_pro_logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rootMethodTextView"
                 app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
@@ -104,6 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_pro_logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rootListimageView1"
                 app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
@@ -124,6 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_con_logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rootListImageView2"
                 app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
@@ -165,6 +169,7 @@
                 android:id="@+id/vpnMethodImageView"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
+                android:contentDescription="@string/welcome_vpn_method_logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -186,6 +191,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_con_logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vpnMethodTextView"
                 app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
@@ -206,6 +212,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_con_logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vpnListimageView1"
                 app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
@@ -226,6 +233,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_pro_logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vpnListImageView2"
                 app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
