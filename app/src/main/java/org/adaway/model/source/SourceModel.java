@@ -44,6 +44,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAIL;
@@ -173,6 +174,10 @@ public class SourceModel extends Observable {
         setStateAndDetails(R.string.status_checking, R.string.status_checking);
         // Check each source
         for (HostsSource source : sources) {
+            // Skip user source
+            if (source.getId() == USER_SOURCE_ID) {
+                continue;
+            }
             // Get URL and lastModified from db
             String sourceUrl = source.getUrl();
             Date lastModifiedLocal = source.getLastLocalModification();
@@ -270,6 +275,10 @@ public class SourceModel extends Observable {
         int numberOfFailedCopies = 0;
         // Get each hosts source
         for (HostsSource hostsSource : this.hostsSourceDao.getEnabled()) {
+            // Skip user source
+            if (hostsSource.getId() == USER_SOURCE_ID) {
+                continue;
+            }
             // Increment number of copy
             numberOfCopies++;
             boolean copySuccess = false;

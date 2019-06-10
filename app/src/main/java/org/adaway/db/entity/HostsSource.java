@@ -28,7 +28,7 @@ public class HostsSource {
     /**
      * The user source URL.
      */
-    public static String USER_SOURCE_URL = "https://localhost/user";
+    public static String USER_SOURCE_URL = "file://app/user/hosts";
 
     @PrimaryKey(autoGenerate = true)
     private int id;
