@@ -47,29 +47,12 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
 
     private void bindNextButton() {
         this.nextButton = findViewById(R.id.next_button);
-        this.nextButton.setOnClickListener(v -> {
-            int currentItem = this.viewPager.getCurrentItem();
-            int count = this.pagerAdapter.getItemCount();
-            if (currentItem < count - 1) {
-                this.viewPager.setCurrentItem(currentItem + 1);
-                allowBack();
-                blockNext();
-            }
-        });
+        this.nextButton.setOnClickListener(view -> this.goNext());
     }
 
     private void bindBackButton() {
         this.backButton = findViewById(R.id.back_button);
-        this.backButton.setOnClickListener(v -> {
-            int currentItem = this.viewPager.getCurrentItem();
-            if (currentItem > 0) {
-                this.viewPager.setCurrentItem(currentItem - 1);
-                if (currentItem <= 1) {
-                    blockBack();
-                }
-                allowNext();
-            }
-        });
+        this.backButton.setOnClickListener(view -> this.goBack());
     }
 
     private void bindDots() {
@@ -105,24 +88,18 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
         if (currentItem == 0) {
             super.onBackPressed();
         } else {
-            this.viewPager.setCurrentItem(currentItem - 1);
+            goBack();
         }
     }
 
     @Override
-    public void allowBack() {
-        showButton(this.backButton);
-    }
-
-    @Override
-    public void blockBack() {
-        hideButton(this.backButton);
-    }
-
-    @Override
     public void allowNext() {
+        if (this.viewPager.getCurrentItem() == this.pagerAdapter.getItemCount() - 1) {
+            this.nextButton.setText(R.string.welcome_finish_button);
+        } else {
+            this.nextButton.setText(R.string.welcome_next_button);
+        }
         showButton(this.nextButton);
-        this.nextButton.setText(R.string.welcome_next_button);
     }
 
     @Override
@@ -130,10 +107,40 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
         hideButton(this.nextButton);
     }
 
-    @Override
-    public void allowFinish() {
-        showButton(this.nextButton);
-        this.nextButton.setText(R.string.welcome_finish_button);
+    private void allowBack() {
+        showButton(this.backButton);
+    }
+
+    private void blockBack() {
+        hideButton(this.backButton);
+    }
+
+    private void goNext() {
+        int currentItem = this.viewPager.getCurrentItem();
+        int count = this.pagerAdapter.getItemCount();
+        if (currentItem >= count - 1) {
+            return;
+        }
+        currentItem++;
+        this.viewPager.setCurrentItem(currentItem);
+        allowBack();
+        if (this.pagerAdapter.getItem(currentItem).canGoNext()) {
+            allowNext();
+        } else {
+            blockNext();
+        }
+    }
+
+    private void goBack() {
+        int currentItem = this.viewPager.getCurrentItem();
+        if (currentItem == 0) {
+            return;
+        }
+        this.viewPager.setCurrentItem(currentItem - 1);
+        if (currentItem <= 1) {
+            blockBack();
+        }
+        allowNext();
     }
 
     private void showButton(MaterialButton button) {

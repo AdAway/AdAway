@@ -26,6 +26,8 @@
     <string name="welcome_method_con_logo">Con</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_logo">Sync done</string>
+
     <string name="welcome_sync_header">Syncing</string>
     <string name="welcome_sync_summary">AdAway downloads ad networks to block from online sources. You can customize them later in the settings.</string>
 

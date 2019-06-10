@@ -11,7 +11,6 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.topjohnwu.superuser.Shell;
@@ -28,7 +27,7 @@ import static org.adaway.model.adblocking.AdBlockMethod.VPN;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class WelcomeMethodFragment extends Fragment {
+public class WelcomeMethodFragment extends WelcomeFragment {
     private static final int VPN_START_REQUEST_CODE = 10;
     private CardView rootCardView;
     private CardView vpnCardView;
@@ -96,7 +95,7 @@ public class WelcomeMethodFragment extends Fragment {
         }
         this.rootCardView.setCardBackgroundColor(this.cardEnabledColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-        this.getNavigable().allowNext();
+        allowNext();
     }
 
     private void notifyRootDisabled(boolean showDialog) {
@@ -104,7 +103,7 @@ public class WelcomeMethodFragment extends Fragment {
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
         Context context = this.getContext();
         if (context != null && showDialog) {
-            this.getNavigable().blockNext();
+            blockNext();
             new MaterialAlertDialogBuilder(context)
                     .setTitle(R.string.welcome_root_missing_title)
                     .setMessage(R.string.welcome_root_missile_description)
@@ -121,15 +120,12 @@ public class WelcomeMethodFragment extends Fragment {
         }
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardEnabledColor);
-        this.getNavigable().allowNext();
+        allowNext();
     }
 
     private void notifyVpnDisabled() {
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-    }
-    
-    private WelcomeNavigable getNavigable() {
-        return (WelcomeNavigable) this.getActivity();
+        blockNext();
     }
 }

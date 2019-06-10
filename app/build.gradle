@@ -89,8 +89,8 @@ dependencies {
     def work_version = '2.0.1'
 
     // Native modules
-    implementation project(':tcpdump')
-    implementation project(':webserver')
+//    implementation project(':tcpdump')
+//    implementation project(':webserver')
 
     // AndroidX components
     implementation "androidx.appcompat:appcompat:${appcompat_version}"
