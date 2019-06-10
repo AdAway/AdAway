@@ -114,19 +114,20 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
      * Start the VPN service.
      *
      * @param context The application context.
+     * @return {@code true} if the service is started, {@code false} otherwise.
      */
-    public static void start(Context context) {
+    public static boolean start(Context context) {
         // Check if VPN is already running
         VpnStatus status = PreferenceHelper.getVpnServiceStatus(context);
         if (status.isStarted() && !status.isPaused()) {
-            return;
+            return true;
         }
         // Start the VPN service
         Intent intent = getStartIntent(context);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { // TODO && config.showNotification
-            context.startForegroundService(intent);
+            return context.startForegroundService(intent) != null;
         } else {
-            context.startService(intent);
+            return context.startService(intent) != null;
         }
     }
 

@@ -24,6 +24,7 @@ public class VpnModel extends AdBlockModel {
      */
     public VpnModel(Context context) {
         super(context);
+        this.applied.postValue(VpnService.isStarted(context));
     }
 
     @Override
@@ -36,8 +37,7 @@ public class VpnModel extends AdBlockModel {
         // TODO Clear VPN rule cache
         boolean started = VpnService.isStarted(context);
         if (!started) {
-            VpnService.start(context);
-            started = VpnService.isStarted(context);
+            started = VpnService.start(context);
         }
         this.applied.postValue(started);
         if (!started) {
