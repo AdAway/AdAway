@@ -2,7 +2,9 @@ package org.adaway.ui.welcome;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -27,6 +29,30 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
     private MaterialButton backButton;
     private MaterialButton nextButton;
     private ImageView[] dotImageViews;
+
+    public static void showView(View view) {
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, View.ALPHA, 1F);
+        objectAnimator.setAutoCancel(true);
+        objectAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                view.setVisibility(VISIBLE);
+            }
+        });
+        objectAnimator.start();
+    }
+
+    public static void hideView(View view) {
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, View.ALPHA, 0F);
+        objectAnimator.setAutoCancel(true);
+        objectAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(INVISIBLE);
+            }
+        });
+        objectAnimator.start();
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -99,20 +125,20 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
         } else {
             this.nextButton.setText(R.string.welcome_next_button);
         }
-        showButton(this.nextButton);
+        showView(this.nextButton);
     }
 
     @Override
     public void blockNext() {
-        hideButton(this.nextButton);
+        hideView(this.nextButton);
     }
 
     private void allowBack() {
-        showButton(this.backButton);
+        showView(this.backButton);
     }
 
     private void blockBack() {
-        hideButton(this.backButton);
+        hideView(this.backButton);
     }
 
     private void goNext() {
@@ -141,30 +167,5 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
             blockBack();
         }
         allowNext();
-    }
-
-    private void showButton(MaterialButton button) {
-        if (button.getVisibility() == VISIBLE) {
-            return;
-        }
-        button.setAlpha(0F);
-        button.setVisibility(VISIBLE);
-        button.animate()
-                .alpha(1F)
-                .setListener(null);
-    }
-
-    private void hideButton(MaterialButton button) {
-        if (button.getVisibility() != VISIBLE) {
-            return;
-        }
-        button.animate()
-                .alpha(0F)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        button.setVisibility(INVISIBLE);
-                    }
-                });
     }
 }

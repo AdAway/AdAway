@@ -25,7 +25,7 @@
             android:id="@+id/syncedImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/welcome_sync_logo"
+            android:contentDescription="@string/welcome_sync_done_logo"
             android:tint="?android:attr/colorControlNormal"
             android:visibility="invisible"
             app:srcCompat="@drawable/baseline_check_24" />

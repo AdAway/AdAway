@@ -26,10 +26,14 @@
     <string name="welcome_method_con_logo">Con</string>
 
     <!-- Sync UI -->
-    <string name="welcome_sync_logo">Sync done</string>
+    <string name="welcome_sync_done_logo">Sync done</string>
+    <string name="welcome_sync_error_logo">Error during sync</string>
 
     <string name="welcome_sync_header">Syncing</string>
+    <string name="welcome_synced_header">Synced!</string>
     <string name="welcome_sync_summary">AdAway downloads ad networks to block from online sources. You can customize them later in the settings.</string>
+    <string name="welcome_sync_retry_logo">Retry sync</string>
+    <string name="welcome_sync_error">Failed to sync:\n%s.\nRetry now?</string>
 
     <!-- Navigation buttons -->
     <string name="welcome_back_button">Back</string>

@@ -17,8 +17,6 @@ public class WelcomeSupportFragment extends WelcomeFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.welcome_support_layout, container, false);
 
-        allowNext();
-
         return view;
     }
 }
