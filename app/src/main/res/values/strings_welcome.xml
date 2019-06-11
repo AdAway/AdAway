@@ -5,7 +5,7 @@
     <!-- Method UI -->
     <string name="welcome_method_logo">Welcome logo</string>
     <string name="welcome_method_header">Welcome to AdAway!</string>
-    <string name="welcome_method_summary">AdAway provides two ad blocking methods.\nPick the one you like!</string>
+    <string name="welcome_method_summary">AdAway provides two ad blocking methods. Pick the one you like:</string>
 
     <string name="welcome_root_method_logo">Root logo</string>
     <string name="welcome_root_method_title">Root based\nad blocking</string>
