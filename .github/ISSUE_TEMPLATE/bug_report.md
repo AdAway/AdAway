@@ -23,8 +23,8 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Smartphone (please complete the following information):**
- - AdAway version [e.g. 4.0.4]
+**Device**
+ - AdAway version: [e.g. 4.0.4]
  - Device: [e.g. iPhone6]
  - Android version: [e.g. iOS8.1]
  - Root version [e.g. Magisk 18.1, SuperSU 2.82]
