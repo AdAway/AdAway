@@ -7,7 +7,7 @@
     android:padding="16dp">
 
     <ImageView
-        android:id="@+id/loadingFrameLayout"
+        android:id="@+id/headerImageView"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:contentDescription="@string/welcome_method_logo"
@@ -26,7 +26,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loadingFrameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/headerImageView" />
 
     <TextView
         android:id="@+id/summaryTextView"

@@ -35,6 +35,14 @@
     <string name="welcome_sync_retry_logo">Retry sync</string>
     <string name="welcome_sync_error">Failed to sync:\n%s.\nRetry now?</string>
 
+    <!-- Support -->
+    <string name="welcome_support_logo">Support</string>
+    <string name="welcome_support_header">Support me!</string>
+    <string name="welcome_support_summary">It\'s a free and open-source app. I develop it on my free time. So if you enjoy it, feel free to show your support:</string>
+    <string name="welcome_support_button">Donate on PayPal</string>
+    <string name="welcome_support_telemetry_summary">Do you like bugs? Me neither.</string>
+    <string name="welcome_support_telemetry_button">Enable telemetry to send me crash reports</string>
+
     <!-- Navigation buttons -->
     <string name="welcome_back_button">Back</string>
     <string name="welcome_next_button">Next</string>

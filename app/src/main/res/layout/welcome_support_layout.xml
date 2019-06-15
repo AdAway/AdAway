@@ -6,54 +6,92 @@
     android:background="@color/primary"
     android:padding="16dp">
 
-    <FrameLayout
-        android:id="@+id/loadingFrameLayout"
+    <ImageView
+        android:id="@+id/headerImageView"
         android:layout_width="128dp"
         android:layout_height="128dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/welcome_support_logo"
+        android:tint="?android:attr/colorControlNormal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_favorite_24">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:indeterminate="true"
-            android:indeterminateTint="?android:attr/colorControlNormal" />
-
-        <ImageView
-            android:id="@+id/syncedImageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/welcome_sync_done_logo"
-            android:tint="?android:attr/colorControlNormal"
-            android:visibility="invisible"
-            app:srcCompat="@drawable/baseline_check_24" />
-
-    </FrameLayout>
+    </ImageView>
 
     <TextView
         android:id="@+id/headerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/welcome_sync_header"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:text="@string/welcome_support_header"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loadingFrameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/headerImageView" />
 
     <TextView
         android:id="@+id/summaryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/welcome_sync_summary"
+        android:justificationMode="inter_word"
+        android:text="@string/welcome_support_summary"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/support_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="32dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="24dp"
+        app:contentPaddingRight="24dp"
+        app:contentPaddingTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summaryTextView">
+
+
+        <TextView
+            android:id="@+id/support_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/paypal"
+            android:drawablePadding="8dp"
+            android:text="@string/welcome_support_button"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/telemetryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:justificationMode="inter_word"
+        android:text="@string/welcome_support_telemetry_summary"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/welcome_support_telemetry_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

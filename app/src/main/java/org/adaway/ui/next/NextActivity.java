@@ -55,16 +55,15 @@ import static org.adaway.util.Constants.TAG;
  */
 public class NextActivity extends AppCompatActivity {
     /**
+     * The support link.
+     */
+    public static final String SUPPORT_LINK = "https://paypal.me/BruceBUJON";
+    /**
      * The project link.
      */
     private static final String PROJECT_LINK = "https://github.com/AdAway/AdAway";
-    /**
-     * The support link.
-     */
-    private static final String SUPPORT_LINK = "https://paypal.me/BruceBUJON";
 
 //    protected CoordinatorLayout coordinatorLayout;
-
     private BottomAppBar appBar;
     private FloatingActionButton fab;
     private BottomSheetBehavior<View> drawerBehavior;
