@@ -3,6 +3,7 @@ package org.adaway.ui.welcome;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.button.MaterialButton;
 
 import org.adaway.R;
+import org.adaway.ui.next.NextActivity;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
@@ -73,12 +75,12 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
 
     private void bindNextButton() {
         this.nextButton = findViewById(R.id.next_button);
-        this.nextButton.setOnClickListener(view -> this.goNext());
+        this.nextButton.setOnClickListener(view -> goNext());
     }
 
     private void bindBackButton() {
         this.backButton = findViewById(R.id.back_button);
-        this.backButton.setOnClickListener(view -> this.goBack());
+        this.backButton.setOnClickListener(view -> goBack());
     }
 
     private void bindDots() {
@@ -145,6 +147,7 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
         int currentItem = this.viewPager.getCurrentItem();
         int count = this.pagerAdapter.getItemCount();
         if (currentItem >= count - 1) {
+            startHomeActivity();
             return;
         }
         currentItem++;
@@ -167,5 +170,10 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
             blockBack();
         }
         allowNext();
+    }
+
+    private void startHomeActivity() {
+        startActivity(new Intent(this, NextActivity.class));
+        finish();
     }
 }
