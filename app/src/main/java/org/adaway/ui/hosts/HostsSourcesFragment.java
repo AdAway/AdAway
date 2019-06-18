@@ -20,8 +20,14 @@
 
 package org.adaway.ui.hosts;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.ActionMode;
@@ -38,13 +44,22 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
+import org.adaway.helper.ImportExportHelper;
+import org.adaway.helper.ImportExportHostsHelper;
+import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
+import org.adaway.ui.lists.ListsFragment;
+import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
@@ -81,10 +96,67 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
      */
     private View mActionSourceView;
 
+    /**
+     * The request code to identify the write external storage permission in {@link androidx.fragment.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
+     */
+    private final static int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 154;
+    /**
+     * Ensure a permission is granted.<br>
+     * If the permission is not granted, a request is shown to user.
+     *
+     * @param permission The permission to check
+     * @return <code>true</code> if the permission is granted, <code>false</code> otherwise.
+     */
+    private boolean checkPermission(String permission) {
+        // Get application context
+        Context context = this.getContext();
+        if (context == null) {
+            // Return permission failed as no context to check
+            return false;
+        }
+        int permissionCheck = ContextCompat.checkSelfPermission(context, permission);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            // Request write external storage permission
+            this.requestPermissions(
+                    new String[]{permission},
+                    HostsSourcesFragment.REQUEST_CODE_WRITE_STORAGE_PERMISSION
+            );
+            // Return permission not granted yes
+            return false;
+        }
+        // Return permission granted
+        return true;
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Check permission request code
+        if (requestCode != HostsSourcesFragment.REQUEST_CODE_WRITE_STORAGE_PERMISSION) {
+            return;
+        }
+        // Check results
+        if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        // Restart action according granted permission
+        switch (permissions[0]) {
+            case Manifest.permission.READ_EXTERNAL_STORAGE:
+                this.importHostsLists();
+                break;
+            case Manifest.permission.WRITE_EXTERNAL_STORAGE:
+                this.exportHostsList();
+                break;
+        }
+    }
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Store activity
         this.mActivity = this.getActivity();
+        this.setHasOptionsMenu(true);
         // Initialize view model
         this.mViewModel = ViewModelProviders.of(this).get(HostsSourcesViewModel.class);
         // Create fragment view
@@ -201,6 +273,88 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         this.mActionMode = this.mActivity.startActionMode(this.mActionCallback);
         // Return event consumed
         return true;
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.hosts_fragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Check item identifier
+        switch (item.getItemId()) {
+            case R.id.menu_import:
+                // Check read storage permission
+                if (this.checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    // Import user lists
+                    this.importHostsLists();
+                }
+                return true;
+            case R.id.menu_export:
+                // Check write storage permission
+                if (this.checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    // Export user lists
+                    this.exportHostsList();
+                }
+                return true;
+            default:
+                // Delegate item selection
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Check request code
+        if (requestCode != ImportExportHostsHelper.REQUEST_CODE_IMPORT) {
+            return;
+        }
+        // Check result
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+        // Check data
+        if (data != null && data.getData() != null) {
+            // Get selected file URI
+            Uri userListsUri = data.getData();
+            Log.d(Constants.TAG, "User lists URI: " + userListsUri.toString());
+            // Import user lists
+            ImportExportHostsHelper.importLists(this.getContext(), userListsUri);
+        }
+    }
+
+    /**
+     * Imports a list of hosts from a user backup
+     */
+    private void importHostsLists() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        // Start file picker activity
+        try {
+            this.startActivityForResult(intent, ImportExportHostsHelper.REQUEST_CODE_IMPORT);
+        } catch (ActivityNotFoundException exception) {
+            // Show dialog to install file picker
+            FragmentManager fragmentManager = this.getFragmentManager();
+            if (fragmentManager != null) {
+                ActivityNotFoundDialogFragment.newInstance(
+                        R.string.no_file_manager_title,
+                        R.string.no_file_manager,
+                        "market://details?id=org.openintents.filemanager",
+                        "OI File Manager"
+                ).show(fragmentManager, "notFoundDialog");
+            }
+        }
+    }
+
+    /**
+     * Exports the saved list of hosts to a user backup
+     */
+    private void exportHostsList() {
+        ImportExportHostsHelper.exportLists(this.mActivity);
     }
 
     /**
