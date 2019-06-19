@@ -138,13 +138,11 @@ public class ImportExportHostsHelper {
                     // Create reader from input stream
                     try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
                         Set<String> newHosts = new HashSet<>();
-                        String line = reader.readLine();
-                        while (line != null) {
+                        String line;
+                        while ((line = reader.readLine()) != null) {
                             if (HostsSource.isValidUrl(line)) {
                                 newHosts.add(line);
                             }
-                            // read next line
-                            line = reader.readLine();
                         }
                         this.importHosts(database, newHosts);
                     }
@@ -242,10 +240,12 @@ public class ImportExportHostsHelper {
             File exportFile = new File(sdcard, "adaway-hosts-export");
             // Open writer on the export file
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(exportFile))) {
-                writer.write(Constants.HEADER_EXPORT + Constants.LINE_SEPARATOR);
+                writer.write(Constants.HEADER_EXPORT);
+                writer.newLine();
                 // Write blacklist items
                 for (HostsSource host : hosts) {
-                    writer.write( host.getUrl() + Constants.LINE_SEPARATOR);
+                    writer.write(host.getUrl());
+                    writer.newLine();
                 }
             } catch (IOException exception) {
                 Log.e(Constants.TAG, "Could not write file.", exception);
