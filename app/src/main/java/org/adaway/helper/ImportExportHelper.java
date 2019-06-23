@@ -67,15 +67,26 @@ public class ImportExportHelper {
     /**
      * The request code to identify the write external storage permission in {@link androidx.fragment.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
      */
-    public final static int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 10;
+    public static final int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 10;
     /**
      * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
      */
-    public final static int REQUEST_CODE_IMPORT = 42;
+    public static final int REQUEST_CODE_IMPORT = 42;
     /**
      * The default backup file name.
      */
     private static final String BACKUP_FILE_NAME = "adaway-backup.json";
+    /*
+     * Backup format.
+     */
+    private static final String SOURCES_KEY = "sources";
+    private static final String BLOCKED_KEY = "blocked";
+    private static final String ALLOWED_KEY = "allowed";
+    private static final String REDIRECTED_KEY = "redirected";
+    private static final String ENABLED_ATTRIBUTE = "enabled";
+    private static final String HOST_ATTRIBUTE = "host";
+    private static final String REDIRECT_ATTRIBUTE = "redirect";
+    private static final String URL_ATTRIBUTE = "url";
 
     /**
      * Import a backup file.
@@ -114,10 +125,10 @@ public class ImportExportHelper {
                 .toList();
 
         JSONObject backupObject = new JSONObject();
-        backupObject.put("sources", buildSourcesBackup(hostsSourceDao.getAll()));
-        backupObject.put("blocked", buildListBackup(blockedHosts));
-        backupObject.put("allowed", buildListBackup(allowedHosts));
-        backupObject.put("redirected", buildListBackup(redirectedHosts));
+        backupObject.put(SOURCES_KEY, buildSourcesBackup(hostsSourceDao.getAll()));
+        backupObject.put(BLOCKED_KEY, buildListBackup(blockedHosts));
+        backupObject.put(ALLOWED_KEY, buildListBackup(allowedHosts));
+        backupObject.put(REDIRECTED_KEY, buildListBackup(redirectedHosts));
 
         return backupObject;
     }
@@ -127,10 +138,10 @@ public class ImportExportHelper {
         HostsSourceDao hostsSourceDao = database.hostsSourceDao();
         HostListItemDao hostListItemDao = database.hostsListItemDao();
 
-        importSourceBackup(hostsSourceDao, backupObject.getJSONArray("sources"));
-        importListBackup(hostListItemDao, BLACK_LIST, backupObject.getJSONArray("blocked"));
-        importListBackup(hostListItemDao, WHITE_LIST, backupObject.getJSONArray("allowed"));
-        importListBackup(hostListItemDao, REDIRECTION_LIST, backupObject.getJSONArray("redirected"));
+        importSourceBackup(hostsSourceDao, backupObject.getJSONArray(SOURCES_KEY));
+        importListBackup(hostListItemDao, BLACK_LIST, backupObject.getJSONArray(BLOCKED_KEY));
+        importListBackup(hostListItemDao, WHITE_LIST, backupObject.getJSONArray(ALLOWED_KEY));
+        importListBackup(hostListItemDao, REDIRECTION_LIST, backupObject.getJSONArray(REDIRECTED_KEY));
     }
 
     private static JSONArray buildSourcesBackup(List<HostsSource> sources) throws JSONException {
@@ -167,36 +178,36 @@ public class ImportExportHelper {
 
     private static JSONObject sourceToJson(HostsSource source) throws JSONException {
         JSONObject sourceObject = new JSONObject();
-        sourceObject.put("url", source.getUrl());
-        sourceObject.put("enabled", source.isEnabled());
+        sourceObject.put(URL_ATTRIBUTE, source.getUrl());
+        sourceObject.put(ENABLED_ATTRIBUTE, source.isEnabled());
         return sourceObject;
     }
 
     private static HostsSource sourceFromJson(JSONObject sourceObject) throws JSONException {
         HostsSource source = new HostsSource();
-        source.setUrl(sourceObject.getString("url"));
-        source.setEnabled(sourceObject.getBoolean("enabled"));
+        source.setUrl(sourceObject.getString(URL_ATTRIBUTE));
+        source.setEnabled(sourceObject.getBoolean(ENABLED_ATTRIBUTE));
         return source;
     }
 
     private static JSONObject hostToJson(HostListItem host) throws JSONException {
         JSONObject hostObject = new JSONObject();
-        hostObject.put("host", host.getHost());
+        hostObject.put(HOST_ATTRIBUTE, host.getHost());
         String redirection = host.getRedirection();
         if (redirection != null && !redirection.isEmpty()) {
-            hostObject.put("redirect", redirection);
+            hostObject.put(REDIRECT_ATTRIBUTE, redirection);
         }
-        hostObject.put("enabled", host.isEnabled());
+        hostObject.put(ENABLED_ATTRIBUTE, host.isEnabled());
         return hostObject;
     }
 
     private static HostListItem hostFromJson(JSONObject hostObject) throws JSONException {
         HostListItem host = new HostListItem();
-        host.setHost(hostObject.getString("host"));
-        if (hostObject.has("redirect")) {
-            host.setRedirection(hostObject.getString("redirect"));
+        host.setHost(hostObject.getString(HOST_ATTRIBUTE));
+        if (hostObject.has(REDIRECT_ATTRIBUTE)) {
+            host.setRedirection(hostObject.getString(REDIRECT_ATTRIBUTE));
         }
-        host.setEnabled(hostObject.getBoolean("enabled"));
+        host.setEnabled(hostObject.getBoolean(ENABLED_ATTRIBUTE));
         return host;
     }
 
