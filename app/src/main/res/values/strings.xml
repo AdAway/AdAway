@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Wildcard characters * and ? are allowed)</string>
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">Importing…</string>
+    <string name="import_success">Backup successfully imported from your external storage.</string>
+    <string name="import_failed">Failed to import backup. Is its format correct? Check logcat for more details.</string>
     <string name="export_dialog">Exporting…</string>
-    <string name="export_success">Exported all entries to a file called \'adaway-export\' on your SD card.</string>
-    <string name="export_failed">Failed to export your list to your SD card.</string>
+    <string name="export_success">Backup successfully exported to \'adaway-backup.json\' file on your external storage.</string>
+    <string name="export_failed">Failed to export backup.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">The hosts file</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">Add</string>
     <string name="menu_hosts_sources">Hosts sources</string>
     <string name="menu_help">Help</string>
-    <string name="menu_import">Import All Lists</string>
-    <string name="menu_export">Export All Lists</string>
+    <string name="menu_import">Import backup</string>
+    <string name="menu_export">Export backup</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>

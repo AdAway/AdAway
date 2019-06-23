@@ -24,7 +24,6 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -66,7 +65,9 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Intent.ACTION_GET_CONTENT;
 import static android.content.Intent.CATEGORY_OPENABLE;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_IMPORT;
+import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_WRITE_STORAGE_PERMISSION;
 
 /**
  * This class is a {@link Fragment} to display and manage hosts sources.
@@ -100,10 +101,6 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     private View mActionSourceView;
 
     /**
-     * The request code to identify the write external storage permission in {@link androidx.fragment.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
-     */
-    private final static int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 154;
-    /**
      * Ensure a permission is granted.<br>
      * If the permission is not granted, a request is shown to user.
      *
@@ -118,11 +115,11 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
             return false;
         }
         int permissionCheck = ContextCompat.checkSelfPermission(context, permission);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+        if (permissionCheck != PERMISSION_GRANTED) {
             // Request write external storage permission
             this.requestPermissions(
                     new String[]{permission},
-                    HostsSourcesFragment.REQUEST_CODE_WRITE_STORAGE_PERMISSION
+                    REQUEST_CODE_WRITE_STORAGE_PERMISSION
             );
             // Return permission not granted yes
             return false;
@@ -136,20 +133,20 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         // Check permission request code
-        if (requestCode != HostsSourcesFragment.REQUEST_CODE_WRITE_STORAGE_PERMISSION) {
+        if (requestCode != REQUEST_CODE_WRITE_STORAGE_PERMISSION) {
             return;
         }
         // Check results
-        if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+        if (grantResults.length == 0 || grantResults[0] != PERMISSION_GRANTED) {
             return;
         }
         // Restart action according granted permission
         switch (permissions[0]) {
             case READ_EXTERNAL_STORAGE:
-                this.importHostsSources();
+                importFromBackup();
                 break;
             case WRITE_EXTERNAL_STORAGE:
-                this.exportHostsSources();
+                exportToBackup();
                 break;
         }
     }
@@ -281,7 +278,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.hosts_fragment, menu);
+        inflater.inflate(R.menu.backup_menu, menu);
     }
 
     @Override
@@ -290,16 +287,14 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         switch (item.getItemId()) {
             case R.id.menu_import:
                 // Check read storage permission
-                if (this.checkPermission(READ_EXTERNAL_STORAGE)) {
-                    // Import user lists
-                    this.importHostsSources();
+                if (checkPermission(READ_EXTERNAL_STORAGE)) {
+                    importFromBackup();
                 }
                 return true;
             case R.id.menu_export:
                 // Check write storage permission
-                if (this.checkPermission(WRITE_EXTERNAL_STORAGE)) {
-                    // Export user lists
-                    this.exportHostsSources();
+                if (checkPermission(WRITE_EXTERNAL_STORAGE)) {
+                    exportToBackup();
                 }
                 return true;
             default:
@@ -322,26 +317,26 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         // Check data
         if (data != null && data.getData() != null) {
             // Get selected file URI
-            Uri userListsUri = data.getData();
-            Log.d(Constants.TAG, "Hosts Sources URI: " + userListsUri.toString());
-            // Import user lists
-            ImportExportHelper.importHosts(this.getContext(), userListsUri);
+            Uri backupUri = data.getData();
+            Log.d(Constants.TAG, "Backup URI: " + backupUri.toString());
+            // Import user backup
+            ImportExportHelper.importFromBackup(this.getContext(), backupUri);
         }
     }
 
     /**
-     * Imports a list of hosts from a user backup
+     * Import from a user backup.
      */
-    private void importHostsSources() {
+    private void importFromBackup() {
         Intent intent = new Intent(ACTION_GET_CONTENT);
         intent.setType("*/*");
         intent.addCategory(CATEGORY_OPENABLE);
         // Start file picker activity
         try {
-            this.startActivityForResult(intent, REQUEST_CODE_IMPORT);
+            startActivityForResult(intent, REQUEST_CODE_IMPORT);
         } catch (ActivityNotFoundException exception) {
             // Show dialog to install file picker
-            FragmentManager fragmentManager = this.getFragmentManager();
+            FragmentManager fragmentManager = getFragmentManager();
             if (fragmentManager != null) {
                 ActivityNotFoundDialogFragment.newInstance(
                         R.string.no_file_manager_title,
@@ -354,10 +349,10 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     }
 
     /**
-     * Exports the enabled hosts sources to a user backup.
+     * Exports to a user backup.
      */
-    private void exportHostsSources() {
-        ImportExportHelper.exportHosts(this.mActivity);
+    private void exportToBackup() {
+        ImportExportHelper.exportToBackup(this.mActivity);
     }
 
     /**

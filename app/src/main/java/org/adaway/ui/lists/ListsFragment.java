@@ -20,39 +20,30 @@
 
 package org.adaway.ui.lists;
 
-import android.Manifest;
-import android.app.Activity;
-
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
 import org.adaway.helper.ImportExportHelper;
@@ -61,16 +52,21 @@ import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.app.Activity.RESULT_OK;
+import static android.content.Intent.ACTION_GET_CONTENT;
+import static android.content.Intent.CATEGORY_OPENABLE;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_IMPORT;
+import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_WRITE_STORAGE_PERMISSION;
+
 /**
  * This class is a fragment to display black list, white list and redirect list fragments.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class ListsFragment extends Fragment {
-    /**
-     * The request code to identify the write external storage permission in {@link androidx.fragment.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
-     */
-    private final static int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 10;
     /**
      * The fragment activity (<code>null</code> if view not created).
      */
@@ -91,11 +87,11 @@ public class ListsFragment extends Fragment {
             return false;
         }
         int permissionCheck = ContextCompat.checkSelfPermission(context, permission);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+        if (permissionCheck != PERMISSION_GRANTED) {
             // Request write external storage permission
             this.requestPermissions(
                     new String[]{permission},
-                    ListsFragment.REQUEST_CODE_WRITE_STORAGE_PERMISSION
+                    REQUEST_CODE_WRITE_STORAGE_PERMISSION
             );
             // Return permission not granted yes
             return false;
@@ -178,20 +174,20 @@ public class ListsFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // Check request code
-        if (requestCode != ImportExportHelper.REQUEST_CODE_IMPORT) {
+        if (requestCode != REQUEST_CODE_IMPORT) {
             return;
         }
         // Check result
-        if (resultCode != Activity.RESULT_OK) {
+        if (resultCode != RESULT_OK) {
             return;
         }
         // Check data
         if (data != null && data.getData() != null) {
             // Get selected file URI
-            Uri userListsUri = data.getData();
-            Log.d(Constants.TAG, "User lists URI: " + userListsUri.toString());
-            // Import user lists
-            ImportExportHelper.importLists(this.getContext(), userListsUri);
+            Uri backupUri = data.getData();
+            Log.d(Constants.TAG, "Backup URI: " + backupUri.toString());
+            // Import from backup
+            ImportExportHelper.importFromBackup(this.getContext(), backupUri);
         }
     }
 
@@ -199,20 +195,20 @@ public class ListsFragment extends Fragment {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         // Check permission request code
-        if (requestCode != ListsFragment.REQUEST_CODE_WRITE_STORAGE_PERMISSION) {
+        if (requestCode != REQUEST_CODE_WRITE_STORAGE_PERMISSION) {
             return;
         }
         // Check results
-        if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+        if (grantResults.length == 0 || grantResults[0] != PERMISSION_GRANTED) {
             return;
         }
         // Restart action according granted permission
         switch (permissions[0]) {
-            case Manifest.permission.READ_EXTERNAL_STORAGE:
-                this.importLists();
+            case READ_EXTERNAL_STORAGE:
+                importFromBackup();
                 break;
-            case Manifest.permission.WRITE_EXTERNAL_STORAGE:
-                ImportExportHelper.exportLists(this.getContext());
+            case WRITE_EXTERNAL_STORAGE:
+                exportToBackup();
                 break;
         }
     }
@@ -223,7 +219,7 @@ public class ListsFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.lists_fragment, menu);
+        inflater.inflate(R.menu.backup_menu, menu);
     }
 
     @Override
@@ -232,16 +228,14 @@ public class ListsFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_import:
                 // Check read storage permission
-                if (this.checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    // Import user lists
-                    this.importLists();
+                if (checkPermission(READ_EXTERNAL_STORAGE)) {
+                    importFromBackup();
                 }
                 return true;
             case R.id.menu_export:
                 // Check write storage permission
-                if (this.checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    // Export user lists
-                    ImportExportHelper.exportLists(this.mActivity);
+                if (checkPermission(WRITE_EXTERNAL_STORAGE)) {
+                    exportToBackup();
                 }
                 return true;
             default:
@@ -251,18 +245,18 @@ public class ListsFragment extends Fragment {
     }
 
     /**
-     * Import user lists backup file by showing a file picker.
+     * Import from a user backup.
      */
-    private void importLists() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+    private void importFromBackup() {
+        Intent intent = new Intent(ACTION_GET_CONTENT);
         intent.setType("*/*");
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.addCategory(CATEGORY_OPENABLE);
         // Start file picker activity
         try {
-            this.startActivityForResult(intent, ImportExportHelper.REQUEST_CODE_IMPORT);
+            startActivityForResult(intent, REQUEST_CODE_IMPORT);
         } catch (ActivityNotFoundException exception) {
             // Show dialog to install file picker
-            FragmentManager fragmentManager = this.getFragmentManager();
+            FragmentManager fragmentManager = getFragmentManager();
             if (fragmentManager != null) {
                 ActivityNotFoundDialogFragment.newInstance(
                         R.string.no_file_manager_title,
@@ -272,5 +266,12 @@ public class ListsFragment extends Fragment {
                 ).show(fragmentManager, "notFoundDialog");
             }
         }
+    }
+
+    /**
+     * Exports to a user backup.
+     */
+    private void exportToBackup() {
+        ImportExportHelper.exportToBackup(this.mActivity);
     }
 }
