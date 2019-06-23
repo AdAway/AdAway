@@ -1,3 +1,11 @@
+## [4.2.6] - 2019-06-23
+
+- Improve backup feature (user lists and hosts source using JSON format)
+- Fix F-Droid build issue
+- Update translations
+
+Special thanks to RichyHBM its contribution and andy356 for its bug report.
+
 ## [4.2.5] - 2019-06-06
 
 - Add Gist and GitLab hosting support for hosts file
