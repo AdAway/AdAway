@@ -41,6 +41,7 @@ gradle.taskGraph.afterTask { task ->
 				exclude "**/*.d"
 				exclude "**/*.o"
 				exclude "**/*.so"
+				exclude "**/*.txt"
 			}
 
 			into buildFolder
