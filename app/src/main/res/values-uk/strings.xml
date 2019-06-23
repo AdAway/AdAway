@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Допускають символи підстановки * та ?)</string>
     <string name="list_dialog_ip">IP (IPv4 або IPv6):</string>
     <string name="import_dialog">Імпортування…</string>
+    <string name="import_success">Резервну копію успішно імпортовано із зовнішнього сховища.</string>
+    <string name="import_failed">Не вдалося імпортувати резервну копію. Можливо формат не вірний. Перевірте logcat для з\'ясування подробиць.</string>
     <string name="export_dialog">Експортування…</string>
-    <string name="export_success">Усі записи експортовані на карту пам\'яті в файл з назвою \'adaway-export\'.</string>
-    <string name="export_failed">Не вдалося експортувати ваш список на карту пам\'яті.</string>
+    <string name="export_success">Резервну копію успішно експортовано в файл \'adaway-backup.json\' на зовнішнє сховище.</string>
+    <string name="export_failed">Не вдалося експортувати резервну копію.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">Додати</string>
     <string name="menu_hosts_sources">Джерела списків хостів</string>
     <string name="menu_help">Довідка</string>
-    <string name="menu_import">Імпортувати всі списки</string>
-    <string name="menu_export">Експортувати всі списки</string>
+    <string name="menu_import">Імпортувати резервну копію</string>
+    <string name="menu_export">Експортувати резервну копію</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
