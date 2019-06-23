@@ -20,7 +20,6 @@
 
 package org.adaway.ui.hosts;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -45,11 +44,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.helper.ImportExportHelper;
-import org.adaway.helper.ImportExportHostsHelper;
 import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
-import org.adaway.ui.lists.ListsFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -58,12 +55,18 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.app.Activity.RESULT_OK;
+import static android.content.Intent.ACTION_GET_CONTENT;
+import static android.content.Intent.CATEGORY_OPENABLE;
+import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_IMPORT;
 
 /**
  * This class is a {@link Fragment} to display and manage hosts sources.
@@ -142,11 +145,11 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         }
         // Restart action according granted permission
         switch (permissions[0]) {
-            case Manifest.permission.READ_EXTERNAL_STORAGE:
-                this.importHostsLists();
+            case READ_EXTERNAL_STORAGE:
+                this.importHostsSources();
                 break;
-            case Manifest.permission.WRITE_EXTERNAL_STORAGE:
-                this.exportHostsList();
+            case WRITE_EXTERNAL_STORAGE:
+                this.exportHostsSources();
                 break;
         }
     }
@@ -287,16 +290,16 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         switch (item.getItemId()) {
             case R.id.menu_import:
                 // Check read storage permission
-                if (this.checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                if (this.checkPermission(READ_EXTERNAL_STORAGE)) {
                     // Import user lists
-                    this.importHostsLists();
+                    this.importHostsSources();
                 }
                 return true;
             case R.id.menu_export:
                 // Check write storage permission
-                if (this.checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                if (this.checkPermission(WRITE_EXTERNAL_STORAGE)) {
                     // Export user lists
-                    this.exportHostsList();
+                    this.exportHostsSources();
                 }
                 return true;
             default:
@@ -309,33 +312,33 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // Check request code
-        if (requestCode != ImportExportHostsHelper.REQUEST_CODE_IMPORT) {
+        if (requestCode != REQUEST_CODE_IMPORT) {
             return;
         }
         // Check result
-        if (resultCode != Activity.RESULT_OK) {
+        if (resultCode != RESULT_OK) {
             return;
         }
         // Check data
         if (data != null && data.getData() != null) {
             // Get selected file URI
             Uri userListsUri = data.getData();
-            Log.d(Constants.TAG, "User lists URI: " + userListsUri.toString());
+            Log.d(Constants.TAG, "Hosts Sources URI: " + userListsUri.toString());
             // Import user lists
-            ImportExportHostsHelper.importLists(this.getContext(), userListsUri);
+            ImportExportHelper.importHosts(this.getContext(), userListsUri);
         }
     }
 
     /**
      * Imports a list of hosts from a user backup
      */
-    private void importHostsLists() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+    private void importHostsSources() {
+        Intent intent = new Intent(ACTION_GET_CONTENT);
         intent.setType("*/*");
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.addCategory(CATEGORY_OPENABLE);
         // Start file picker activity
         try {
-            this.startActivityForResult(intent, ImportExportHostsHelper.REQUEST_CODE_IMPORT);
+            this.startActivityForResult(intent, REQUEST_CODE_IMPORT);
         } catch (ActivityNotFoundException exception) {
             // Show dialog to install file picker
             FragmentManager fragmentManager = this.getFragmentManager();
@@ -351,10 +354,10 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     }
 
     /**
-     * Exports the saved list of hosts to a user backup
+     * Exports the enabled hosts sources to a user backup.
      */
-    private void exportHostsList() {
-        ImportExportHostsHelper.exportLists(this.mActivity);
+    private void exportHostsSources() {
+        ImportExportHelper.exportHosts(this.mActivity);
     }
 
     /**
