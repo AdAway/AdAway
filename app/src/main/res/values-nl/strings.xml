@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Jokertekens * en ? zijn toegelaten)</string>
     <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
     <string name="import_dialog">Bezig met importeren...</string>
+    <string name="import_success">Backup succesvol geïmporteerd vanuit je externe opslag.</string>
+    <string name="import_failed">Import van backup is mislukt. Is het format juist ? Check de logcat voor meer details.</string>
     <string name="export_dialog">Bezig met exporteren...</string>
-    <string name="export_success">Alle regels zijn geëxporteerd naar een bestand genaamd \'adaway-export\' op uw sdkaart.</string>
-    <string name="export_failed">Lijst exporteren naar de SD-kaart is mislukt</string>
+    <string name="export_success">Backup succesvol geexporteerd naar \'adaway-backup.json\' bestand op je externe opslag.</string>
+    <string name="export_failed">Export van backup is mislukt.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Het hosts-bestand</string>
@@ -155,8 +157,8 @@ Wilt u herstarten?
     <string name="menu_add">Toevoegen</string>
     <string name="menu_hosts_sources">Hosts-bronnen</string>
     <string name="menu_help">Hulp</string>
-    <string name="menu_import">Alle lijsten importeren</string>
-    <string name="menu_export">Alle lijsten exporteren</string>
+    <string name="menu_import">Importeer backup</string>
+    <string name="menu_export">Exporteer backup</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
