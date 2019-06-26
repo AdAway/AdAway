@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Zamjenski znakovi * i ? su dopušteni!)</string>
     <string name="list_dialog_ip">IP (IPv4 ili IPv6):</string>
     <string name="import_dialog">Uvažanje...</string>
+    <string name="import_success">Sigurnosna kopija je uspješno uvezena iz vašeg uređaja vanjske pohrane.</string>
+    <string name="import_failed">Neuspjeli uvoz sigurnosne kopije. Je li format ispravan? Provjerite logcat za više pojedinosti.</string>
     <string name="export_dialog">Izvažanje...</string>
-    <string name="export_success">Svi unosi su izvezeni u datoteku naziva \"adaway-export\" na vašu memorijsku karticu.</string>
-    <string name="export_failed">Neuspjeli izvoz vašeg popisa na memorijsku karticu.</string>
+    <string name="export_success">Sigurnosna kopija je uspješno izvezena u \'adaway-backup.json\' datoteku na vašem uređaju vanjske pohrane.</string>
+    <string name="export_failed">Neuspjeli izvoz sigurnosne kopije.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Datoteka poslužitelja</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">Dodaj</string>
     <string name="menu_hosts_sources">Izvori poslužitelja</string>
     <string name="menu_help">Pomoć</string>
-    <string name="menu_import">Uvezi sve popise</string>
-    <string name="menu_export">Izvezi sve popise</string>
+    <string name="menu_import">Uvezi sigurnosnu kopiju</string>
+    <string name="menu_export">Izvezi sigurnosnu kopiju</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
