@@ -1,7 +1,7 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Μια εφαρμογή αποκλεισμού διαφημίσεων που χρησιμοποιεί το αρχείο hosts.
+Το αρχείο hosts είναι ένα αρχείο συστήματος που περιέχει μια λίστα αντιστοίχισης μεταξύ host names και διευθύνσεων IP.
+Όταν μια εφαρμογή ζητά μια διαφήμιση από host σε αυτό το αρχείο, το αίτημα αυτό ανακατευθύνεται στην τοπική διεύθυνση IP 127.0.0.1, η οποία δεν κάνει τίποτα.
+Μπορείτε να κατεβάσετε τα προκαθορισμένα αρχεία hosts μέσα από την εφαρμογή για να τα ενσωματώσετε στο αρχείο hosts του συστήματος. Είναι επίσης δυνατή η χρήση των δικών σας αρχείων και η προσθήκη ορισμένων hosts σε λευκές και μαύρες λίστες.
+Υπάρχουν επιλογές για να εκτελέσετε έναν τοπικό διακομιστή ιστού για να απαντήσετε σε αποκλεισμένα host names και να κατευθύνετε αιτήματα προς την διεύθυνση IP της επιλογής σας.
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+Απαιτεί Root: Ναι. Το αρχείο hosts βρίσκεται στο / system που είναι μόνο για ανάγνωση από προεπιλογή.
