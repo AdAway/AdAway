@@ -3,7 +3,7 @@ This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
 <!DOCTYPE html>
 <html>
-<head><title>S-ON related help</title></head>
+<head><title>S-ON σχετική βοήθεια.</title></head>
 <body>
 <h2>Συσκευές HTC</h2>
 <p>Το AdAway δε λειτουργεί όταν χρησιμοποίεται σε συσκευή με τη ρύθμιση S-ON. Αυτή η λειτουργία υπάρχει σε πολλές συσκευές HTC και αποτρέπει το AdAway απ' το να γράψει στο αρχείο hosts.</p>
@@ -12,19 +12,20 @@ And don't add newlines before or after p tags because of transifex -->
 <p>Το S-OFF σημαίνει ότι η περιοχή NAND της συσκευής είναι ξεκλειδωμένη και μπορεί να γραφτεί. Η προεπιλεγμένη ρύθμιση για τις συσκευές HTC είναι S-ON, που σημαίνει ότι ούτε έχετε πρόσβαση ούτε μπορείτε να εγγυηθείτε μόνιμα δικαιώματα υπερχρήστη. Επιπλέον, έλεγχος υπογραφών για τις εικόνες του firmware διασφαλίζεται από το S-ON.</p>
 
 <h2>Έχω S-ON ή S-OFF;</h2>
-<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br><br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
+<p>Boot στο Boot Menu της συσκευή σας, κρατώντας πατημένο το πληκτρο <i>volume down<i>, ενώ πατάτε το πλήκτρο Power Button ταυτόχρονα και το κείμενο στην κορυφή θα εμφανίσει το flag status είτε ως S-OFF ή S-ON. Ένα πλήρης Root σημαίνει γενικά S-OFF.
+<br><br>Περισσότερες πληροφορίες μπορούν να βρεθούν στην <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Πρόσθετες μέθοδοι S-OFF από Unrevokable (in link) που μπορεί να σας ενδιαφέρουν συγκεκριμένα: Revolutionary, Revone, Firewater, RumRunner, Moonshine, Sunshine...</i></i></p>
 
 <h2>Παράκαμψη</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
+<p>Προαπαιτούμενο: Χρειάζεται εγκατάσταση του Android SDK με ADB shell στον υπολογιστή σας.
+</p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
-<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
+<li>Boot στο Boot Menu της συσκευής σας πατώντας κρατημένο το <i>volume down</i> κουμπί καθώς πατάτε το κουμπί ενεργοποίησης της συσκευής.</li>
+<li>Χρησιμοποιήστε το <cite>volume down</cite> για να επιλέξετε <cite>recovery</cite>έπειτα <cite>power</cite> για να το εκκινήσετε.</li>
+<li>Στο clockwork recovery πηγαίνετε  στο "partions menu".</li>
+<li>Επιλέξτε <cite>mount /system</cite>, <cite>mount /sdcard</cite> και <cite>mount /data</cite>.</li>
+<li>Συνδέστε το καλώδιο USB σας και ανοίξτε μια γραμμή εντολών στον υπολογιστή σας.</li>
+<li>Μπείτε στο adb shell και πληκτρολογήστε <code>In -s /data/hosts /system/etc/hosts</code> (Αυτό δημιουργεί έναν συμβολικό σύνδεσμο, που επιτρέπει στο AdAway να επεξεργαστεί το αρχείο hosts που είναι αποθηκευμένο στο <code>/data</code> ενώ επιτρέπει στο Λειτουργικό να χρησιμοποιεί το αρχείο σαν να ήταν αποθηκευμένο στο <code>/system</code>.) </li>
+<li>Επανεκκινήστε την συσκευή σας και ορίστε <cite>Αρχείο προορισμού hosts</cite> σε <cite>/data/hosts</cite> στις ρυθμίσεις του AdAway.</li>
 <li>Το AdAway πρέπει να λειτουργεί τώρα.</li>
 </ol>
 </body>
