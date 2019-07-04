@@ -1,3 +1,7 @@
+## [4.2.7] - 2019-07-04
+
+- Revert Android gradle plugin to fix F-Droid build issue
+
 ## [4.2.6] - 2019-06-23
 
 - Improve backup feature (user lists and hosts source using JSON format)
