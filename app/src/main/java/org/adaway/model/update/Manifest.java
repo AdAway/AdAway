@@ -3,6 +3,11 @@ package org.adaway.model.update;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * This class is represent an application manifest.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class Manifest {
     public final String version;
     public final long versionCode;

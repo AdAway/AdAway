@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="update_title">A new update is available</string>
+    <!-- Home screen -->
     <string name="update_available">Update available!</string>
-    <string name="update_update_button">Update now</string>
 
+    <!-- Changelog dialog -->
     <string name="update_changelog">Changelog</string>
+    <string name="update_update_button">Update now</string>
 </resources>
