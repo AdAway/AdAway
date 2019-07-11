@@ -9,6 +9,7 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.source.SourceModel;
+import org.adaway.model.update.UpdateModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.SentryLog;
@@ -27,6 +28,10 @@ public class AdAwayApplication extends Application {
      * The common ad block model for the whole application.
      */
     private AdBlockModel adBlockModel;
+    /**
+     * The common update model for the whole application.
+     */
+    private UpdateModel updateModel;
 
     @Override
     public void onCreate() {
@@ -47,6 +52,7 @@ public class AdAwayApplication extends Application {
         NotificationHelper.createNotificationChannels(this);
         // Create models
         this.sourceModel = new SourceModel(this);
+        this.updateModel = new UpdateModel(this);
     }
 
     /**
@@ -70,5 +76,14 @@ public class AdAwayApplication extends Application {
             this.adBlockModel = AdBlockModel.build(this, method);
         }
         return this.adBlockModel;
+    }
+
+    /**
+     * Get the update model.
+     *
+     * @return Teh common update model for the whole application.
+     */
+    public UpdateModel getUpdateModel() {
+        return this.updateModel;
     }
 }

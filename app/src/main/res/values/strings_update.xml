@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_title">A new update is available</string>
+    <string name="update_available">Update available!</string>
+    <string name="update_update_button">Update now</string>
+
+    <string name="update_changelog">Changelog</string>
+</resources>

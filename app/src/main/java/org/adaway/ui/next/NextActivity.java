@@ -26,11 +26,13 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import org.adaway.AdAwayApplication;
 import org.adaway.R;
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
+import org.adaway.model.update.Manifest;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.home.ListsViewModel;
 import org.adaway.ui.hosts.HostsSourcesActivity;
@@ -63,7 +65,7 @@ public class NextActivity extends AppCompatActivity {
      */
     private static final String PROJECT_LINK = "https://github.com/AdAway/AdAway";
 
-//    protected CoordinatorLayout coordinatorLayout;
+    //    protected CoordinatorLayout coordinatorLayout;
     private BottomAppBar appBar;
     private FloatingActionButton fab;
     private BottomSheetBehavior<View> drawerBehavior;
@@ -94,6 +96,7 @@ public class NextActivity extends AppCompatActivity {
 
         this.appBar = findViewById(R.id.bar);
         applyActionBar();
+        bindAppVersion();
         bindHostCounter();
         bindClickListeners();
         setUpBottomDrawer();
@@ -138,6 +141,17 @@ public class NextActivity extends AppCompatActivity {
 //            actionBar.hide();
 //        }
         setSupportActionBar(this.appBar);
+    }
+
+    private void bindAppVersion() {
+        TextView versionTextView = findViewById(R.id.versionTextView);
+        versionTextView.setText(this.nextViewModel.getVersionName());
+        versionTextView.setOnClickListener(this::showChangelog);
+
+        this.nextViewModel.getAppManifest().observe(
+                this,
+                manifest -> versionTextView.setText(R.string.update_available)
+        );
     }
 
     private void bindHostCounter() {
@@ -311,5 +325,23 @@ public class NextActivity extends AppCompatActivity {
         int color = adBlocked ? getResources().getColor(R.color.primary, null) : Color.GRAY;
         layout.setBackgroundColor(color);
         this.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.ic_playlist_add_24dp);
+    }
+
+    private void showChangelog(@SuppressWarnings("unused") View view) {
+        Manifest manifest = this.nextViewModel.getAppManifest().getValue();
+        if (manifest == null) {
+            return;
+        }
+        MaterialAlertDialogBuilder dialogBuilder = new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.update_changelog)
+                .setMessage(manifest.changelog)
+                .setNeutralButton(R.string.button_close, (dialog, which) -> dialog.dismiss());
+        if (manifest.updateAvailable) {
+            dialogBuilder.setPositiveButton(R.string.update_update_button, (dialog, which) -> {
+                ((AdAwayApplication) this.getApplication()).getUpdateModel().update();
+                dialog.dismiss();
+            });
+        }
+        dialogBuilder.create().show();
     }
 }
