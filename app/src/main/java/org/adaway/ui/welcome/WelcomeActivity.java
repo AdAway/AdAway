@@ -153,7 +153,7 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
         currentItem++;
         this.viewPager.setCurrentItem(currentItem);
         allowBack();
-        if (this.pagerAdapter.getItem(currentItem).canGoNext()) {
+        if (this.pagerAdapter.createFragment(currentItem).canGoNext()) {
             allowNext();
         } else {
             blockNext();

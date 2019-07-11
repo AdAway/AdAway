@@ -19,7 +19,7 @@ public class WelcomePagerAdapter extends FragmentStateAdapter {
 
     @NonNull
     @Override
-    public WelcomeFragment getItem(int position) {
+    public WelcomeFragment createFragment(int position) {
         switch (position) {
             case 0:
                 return this.welcomeMethodFragment;
