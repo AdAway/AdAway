@@ -75,7 +75,7 @@ public class NextActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         checkFirstStep();
-        ThemeHelper.applyTheme(this);
+        ThemeHelper.applyTheme(this, false);
         NotificationHelper.clearUpdateHostsNotification(this);
         Log.i(TAG, "Starting main activity");
         setContentView(R.layout.next_activity);

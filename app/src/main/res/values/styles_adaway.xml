@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-    <style name="Theme.AdAway.Dark" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="Theme.AdAway.Dark" parent="Theme.MaterialComponents.Bridge">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primaryVariant</item>
         <item name="colorOnPrimary">@color/onPrimary</item>
         <item name="colorSecondary">@color/primary</item>
         <item name="colorSecondaryVariant">@color/primaryVariant</item>
         <item name="colorOnSecondary">@color/onPrimary</item>
-        <item name="android:statusBarColor" ns1:targetApi="21">@color/primary</item>
+
+        <!-- Legacy attributes for bridge theme -->
+        <item name="colorPrimaryDark">?colorPrimary</item>
+        <item name="colorAccent">?colorSecondary</item>
+    </style>
+    <style name="Theme.AdAway.Dark.NoActionBar" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primaryVariant</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorSecondaryVariant">@color/primaryVariant</item>
+        <item name="colorOnSecondary">@color/onPrimary</item>
         <!--<item name="preferenceTheme">@style/ThemeOverlay.AppCompat.Dark</item>-->
     </style>
     <style name="Theme.AdAway.Light" parent="Theme.MaterialComponents.Light">
@@ -18,6 +29,15 @@
         <item name="colorSecondaryVariant">@color/lightPrimaryVariant</item>
         <item name="colorOnSecondary">@color/lightOnPrimary</item>
         <item name="android:statusBarColor" ns1:targetApi="21">@color/lightPrimary</item>
+        <!--<item name="preferenceTheme">@style/ThemeOverlay.AppCompat.Light</item>-->
+    </style>
+    <style name="Theme.AdAway.Light.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/lightPrimary</item>
+        <item name="colorPrimaryVariant">@color/lightPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/lightOnPrimary</item>
+        <item name="colorSecondary">@color/lightPrimary</item>
+        <item name="colorSecondaryVariant">@color/lightPrimaryVariant</item>
+        <item name="colorOnSecondary">@color/lightOnPrimary</item>
         <!--<item name="preferenceTheme">@style/ThemeOverlay.AppCompat.Light</item>-->
     </style>
 </resources>

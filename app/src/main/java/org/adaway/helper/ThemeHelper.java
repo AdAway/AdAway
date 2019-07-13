@@ -1,6 +1,6 @@
 package org.adaway.helper;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.adaway.R;
 
@@ -23,9 +23,25 @@ public final class ThemeHelper {
      *
      * @param activity The activity to apply theme.
      */
-    public static void applyTheme(Activity activity) {
+    public static void applyTheme(AppCompatActivity activity) {
+        applyTheme(activity, true);
+    }
+
+    /**
+     * Apply the user selected theme.
+     *
+     * @param activity  The activity to apply theme.
+     * @param actionBar {@code true} to enable action bar, {@code false} to disable it.
+     */
+    public static void applyTheme(AppCompatActivity activity, boolean actionBar) {
         if (!PreferenceHelper.getDarkTheme(activity.getApplicationContext())) {
-            activity.setTheme(R.style.Theme_AdAway_Light);
+            if (actionBar) {
+                activity.setTheme(R.style.Theme_AdAway_Light);
+            } else {
+                activity.setTheme(R.style.Theme_AdAway_Light_NoActionBar);
+            }
+        } else if (!actionBar) {
+            activity.setTheme(R.style.Theme_AdAway_Dark_NoActionBar);
         }
     }
 }
