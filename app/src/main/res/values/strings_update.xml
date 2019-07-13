@@ -4,6 +4,10 @@
     <string name="update_available">Update available!</string>
 
     <!-- Changelog dialog -->
+    <string name="update_update_title">A new version is available</string>
+    <string name="update_update_message">The new version brings the following changes:\n\n</string>
+    <string name="update_up_to_date_title">You are up-to-date</string>
+    <string name="update_up_to_date_message">This latest version brings the following changes:\n\n</string>
     <string name="update_changelog">Changelog</string>
     <string name="update_update_button">Update now</string>
 </resources>

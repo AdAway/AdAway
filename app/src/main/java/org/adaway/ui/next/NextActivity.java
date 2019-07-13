@@ -328,19 +328,29 @@ public class NextActivity extends AppCompatActivity {
     }
 
     private void showChangelog(@SuppressWarnings("unused") View view) {
+        // Check manifest
         Manifest manifest = this.nextViewModel.getAppManifest().getValue();
         if (manifest == null) {
             return;
         }
-        MaterialAlertDialogBuilder dialogBuilder = new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.update_changelog)
-                .setMessage(manifest.changelog)
-                .setNeutralButton(R.string.button_close, (dialog, which) -> dialog.dismiss());
+        // Format changelog
+        String message = " • " + String.join("\n • ", manifest.changelog.split("\n"));
+        // Create dialog
+        MaterialAlertDialogBuilder dialogBuilder = new MaterialAlertDialogBuilder(this);
         if (manifest.updateAvailable) {
-            dialogBuilder.setPositiveButton(R.string.update_update_button, (dialog, which) -> {
-                ((AdAwayApplication) this.getApplication()).getUpdateModel().update();
-                dialog.dismiss();
-            });
+            message = getString(R.string.update_update_message) + message;
+            dialogBuilder
+                    .setMessage(message)
+                    .setPositiveButton(R.string.update_update_button, (dialog, which) -> {
+                        ((AdAwayApplication) this.getApplication()).getUpdateModel().update();
+                        dialog.dismiss();
+                    })
+                    .setNeutralButton(R.string.button_close, (dialog, which) -> dialog.dismiss());
+        } else {
+            message = getString(R.string.update_up_to_date_message) + message;
+            dialogBuilder.setTitle(R.string.update_up_to_date_title)
+                    .setMessage(message)
+                    .setPositiveButton(R.string.button_close, (dialog, which) -> dialog.dismiss());
         }
         dialogBuilder.create().show();
     }
