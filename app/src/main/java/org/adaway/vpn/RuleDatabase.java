@@ -25,11 +25,11 @@ import java.util.Set;
  * having to take a lock.
  */
 public class RuleDatabase {
-    private final Set<String> blacklist;
+//    private final Set<String> blacklist;
     private HostListItemDao hostListItemDao;
 
     public RuleDatabase() {
-        this.blacklist = new HashSet<>();
+//        this.blacklist = new HashSet<>();
     }
 
     /**
@@ -39,24 +39,24 @@ public class RuleDatabase {
      * @return true if the host is blocked, false otherwise.
      */
     public boolean isBlocked(String host) {
-        // Check cache
-        boolean cached = this.blacklist.contains(host);
-        if (cached) {
-            return true;
-        }
+//        // Check cache
+//        boolean cached = this.blacklist.contains(host);
+//        if (cached) {
+//            return true;
+//        }
         // Check database
         if (this.hostListItemDao == null) {
             return false;
         }
         boolean blocked = this.hostListItemDao.isHostBlocked(host);
-        // Update cache
-        if (blocked) {
-            // TODO Improve cache invalidation
-            if (this.blacklist.size() > 1024) {
-                this.blacklist.clear();
-            }
-            this.blacklist.add(host);
-        }
+//        // Update cache
+//        if (blocked) {
+//            // TODO Improve cache invalidation
+//            if (this.blacklist.size() > 1024) {
+//                this.blacklist.clear();
+//            }
+//            this.blacklist.add(host);
+//        }
         return blocked;
     }
 
