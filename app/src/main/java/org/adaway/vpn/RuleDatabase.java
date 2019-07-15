@@ -11,18 +11,11 @@ package org.adaway.vpn;
 
 import android.content.Context;
 
-import org.adaway.util.HostsParser;
-import org.adaway.util.Log;
+import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostListItemDao;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
-
-import static org.adaway.util.Constants.HOSTS_FILENAME;
-import static org.adaway.util.Constants.TAG;
 
 /**
  * Represents hosts that are blocked.
@@ -32,23 +25,11 @@ import static org.adaway.util.Constants.TAG;
  * having to take a lock.
  */
 public class RuleDatabase {
-    private static final RuleDatabase instance = new RuleDatabase();
+    private final Set<String> blacklist;
+    private HostListItemDao hostListItemDao;
 
-    private Set<String> blacklist;
-
-    /**
-     * Package-private constructor for instance and unit tests.
-     */
-    private RuleDatabase() {
+    public RuleDatabase() {
         this.blacklist = new HashSet<>();
-    }
-
-
-    /**
-     * Returns the instance of the rule database.
-     */
-    public static RuleDatabase getInstance() {
-        return instance;
     }
 
     /**
@@ -58,7 +39,25 @@ public class RuleDatabase {
      * @return true if the host is blocked, false otherwise.
      */
     public boolean isBlocked(String host) {
-        return this.blacklist.contains(host);
+        // Check cache
+        boolean cached = this.blacklist.contains(host);
+        if (cached) {
+            return true;
+        }
+        // Check database
+        if (this.hostListItemDao == null) {
+            return false;
+        }
+        boolean blocked = this.hostListItemDao.isHostBlocked(host);
+        // Update cache
+        if (blocked) {
+            // TODO Improve cache invalidation
+            if (this.blacklist.size() > 1024) {
+                this.blacklist.clear();
+            }
+            this.blacklist.add(host);
+        }
+        return blocked;
     }
 
     /**
@@ -66,15 +65,8 @@ public class RuleDatabase {
      *
      * @param context A context used for opening files.
      */
-    public synchronized void initialize(Context context) {
-        this.blacklist.clear();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(context.openFileInput(HOSTS_FILENAME)))) {
-            HostsParser hostsParser = new HostsParser(reader, false, false);
-            this.blacklist.addAll(hostsParser.getBlacklist());
-        } catch (FileNotFoundException exception) {
-            Log.i(TAG, "No private hosts file.");
-        } catch (IOException exception) {
-            Log.e(TAG, "Failed to parse private host file to load VPN blacklist.");
-        }
+    public void initialize(Context context) {
+        AppDatabase database = AppDatabase.getInstance(context);
+        this.hostListItemDao = database.hostsListItemDao();
     }
 }

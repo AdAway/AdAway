@@ -38,6 +38,7 @@ import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -63,18 +64,14 @@ public class DnsPacketProxy {
         }
     }
 
-    final RuleDatabase ruleDatabase;
     private final EventLoop eventLoop;
-    ArrayList<InetAddress> upstreamDnsServers = new ArrayList<>();
-
-    public DnsPacketProxy(EventLoop eventLoop, RuleDatabase database) {
-        this.eventLoop = eventLoop;
-        this.ruleDatabase = database;
-    }
+    private RuleDatabase ruleDatabase;
+    private List<InetAddress> upstreamDnsServers;
 
     public DnsPacketProxy(EventLoop eventLoop) {
+        this.ruleDatabase = new RuleDatabase();
         this.eventLoop = eventLoop;
-        this.ruleDatabase = RuleDatabase.getInstance();
+        this.upstreamDnsServers = new ArrayList<>();
     }
 
     /**
@@ -83,10 +80,9 @@ public class DnsPacketProxy {
      * @param context            The context we are operating in (for the database)
      * @param upstreamDnsServers The upstream DNS servers to use; or an empty list if no
      *                           rewriting of ip addresses takes place
-     * @throws InterruptedException If the database initialization was interrupted
      */
-    void initialize(Context context, ArrayList<InetAddress> upstreamDnsServers) {
-        ruleDatabase.initialize(context);
+    void initialize(Context context, List<InetAddress> upstreamDnsServers) {
+        this.ruleDatabase.initialize(context);
         this.upstreamDnsServers = upstreamDnsServers;
     }
 
@@ -110,7 +106,6 @@ public class DnsPacketProxy {
                                 .rawData(responsePayload)
                 );
 
-
         IpPacket ipOutPacket;
         if (requestPacket instanceof IpV4Packet) {
             ipOutPacket = new IpV4Packet.Builder((IpV4Packet) requestPacket)
@@ -130,7 +125,7 @@ public class DnsPacketProxy {
                     .build();
         }
 
-        eventLoop.queueDeviceWrite(ipOutPacket);
+        this.eventLoop.queueDeviceWrite(ipOutPacket);
     }
 
     /**

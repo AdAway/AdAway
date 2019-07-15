@@ -48,6 +48,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -69,7 +70,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     private static final int DNS_MAXIMUM_WAITING = 1024;
     private static final long DNS_TIMEOUT_SEC = 10;
     /* Upstream DNS servers, indexed by our IP */
-    final ArrayList<InetAddress> upstreamDnsServers = new ArrayList<>();
+    private final List<InetAddress> upstreamDnsServers = new ArrayList<>();
     private final android.net.VpnService vpnService;
     private final Notifier notifier;
     /* Data to be written to the device */
@@ -77,7 +78,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     // HashMap that keeps an upper limit of packets
     private final WospList dnsIn = new WospList();
     // The object where we actually handle packets.
-    private final DnsPacketProxy dnsPacketProxy = new DnsPacketProxy(this);
+    private final DnsPacketProxy dnsPacketProxy;
     // Watch dog that checks our connection is alive.
     private final VpnWatchdog vpnWatchDog = new VpnWatchdog();
 
@@ -92,6 +93,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     public VpnWorker(android.net.VpnService vpnService, Notifier notifier) {
         this.vpnService = vpnService;
         this.notifier = notifier;
+        this.dnsPacketProxy = new DnsPacketProxy(this);
     }
 
     private static Set<InetAddress> getDnsServers(Context context) throws VpnNetworkException {
@@ -107,8 +109,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             if (ni == null || !ni.isConnected() || ni.getType() != activeInfo.getType()
                     || ni.getSubtype() != activeInfo.getSubtype())
                 continue;
-            for (InetAddress address : cm.getLinkProperties(nw).getDnsServers())
-                out.add(address);
+            out.addAll(cm.getLinkProperties(nw).getDnsServers());
         }
         return out;
     }

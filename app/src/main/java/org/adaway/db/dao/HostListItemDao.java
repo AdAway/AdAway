@@ -57,4 +57,7 @@ public interface HostListItemDao {
 
     @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 2 AND enabled = 1")
     LiveData<Integer> getRedirectHostCount();
+
+    @Query("SELECT COUNT(host)>0 FROM hosts_lists WHERE type = 0 AND enabled = 1 AND host = :host")
+    boolean isHostBlocked(String host);
 }
