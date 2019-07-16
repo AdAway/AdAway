@@ -44,7 +44,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAIL;
@@ -409,6 +408,7 @@ public class SourceModel extends Observable {
         int hostsSourceId = hostsSource.getId();
         boolean parseRedirectedHosts = PreferenceHelper.getRedirectionRules(this.context);
         SourceParser sourceParser = new SourceParser(inputStream, parseRedirectedHosts);
+        this.hostListItemDao.clearSourceHosts(hostsSource.getId());
         sourceParser.getBlockedHosts().stream()
                 .map(host -> {
                     HostListItem item = new HostListItem();
