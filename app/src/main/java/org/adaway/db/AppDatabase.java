@@ -77,12 +77,12 @@ public abstract class AppDatabase extends RoomDatabase {
         // https://hosts-file.net
         HostsSource source1 = new HostsSource();
         source1.setUrl("https://hosts-file.net/ad_servers.txt");
-        source1.setEnabled(true);
+        source1.setEnabled(false);
         hostsSourceDao.insert(source1);
         // https://pgl.yoyo.org/adservers/
         HostsSource source2 = new HostsSource();
         source2.setUrl("https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
-        source2.setEnabled(true);
+        source2.setEnabled(false);
         hostsSourceDao.insert(source2);
         // AdAway's own mobile hosts
         HostsSource source3 = new HostsSource();

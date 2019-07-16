@@ -61,6 +61,7 @@ public class WelcomeSyncFragment extends WelcomeFragment {
     }
 
     private void notifySynced() {
+        this.nextViewModel.enableAllSources();
         this.headerTextView.setText(R.string.welcome_synced_header);
         hideView(this.progressBar);
         showView(this.syncedImageView);

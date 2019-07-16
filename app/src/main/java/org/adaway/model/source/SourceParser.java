@@ -32,10 +32,7 @@ class SourceParser {
     private final Map<String, String> redirectedHosts;
     private final boolean parseRedirectedHosts;
 
-    SourceParser(
-            InputStream inputStream,
-            boolean parseRedirectedHosts
-    ) throws IOException {
+    SourceParser(InputStream inputStream, boolean parseRedirectedHosts) throws IOException {
         this.blockedHosts = new THashSet<>();
         this.redirectedHosts = new THashMap<>();
         this.parseRedirectedHosts = parseRedirectedHosts;
@@ -58,23 +55,22 @@ class SourceParser {
      */
     private void parse(InputStream inputStream) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-
             String nextLine;
             // use whitelist import pattern
             while ((nextLine = reader.readLine()) != null) {
-                Matcher mHostsParserMatcher = HOSTS_PARSER_PATTERN.matcher(nextLine);
-                if (!mHostsParserMatcher.matches()) {
+                Matcher matcher = HOSTS_PARSER_PATTERN.matcher(nextLine);
+                if (!matcher.matches()) {
                     Log.d(TAG, "Does not match: " + nextLine);
                     continue;
                 }
                 // Check IP address validity or while list entry (if allowed)
-                String ip = mHostsParserMatcher.group(1);
+                String ip = matcher.group(1);
                 if (!RegexUtils.isValidIP(ip)) {
                     Log.d(TAG, "IP address is not valid: " + ip);
                     continue;
                 }
                 // Check hostname
-                String hostname = mHostsParserMatcher.group(2);
+                String hostname = matcher.group(2);
                 if (!RegexUtils.isValidWildcardHostname(hostname)) {
                     Log.d(TAG, "hostname is not valid: " + hostname);
                     continue;
@@ -83,7 +79,6 @@ class SourceParser {
                 addToList(ip, hostname);
             }
         }
-
         // strip localhost entry from blacklist and redirection list
         this.blockedHosts.remove(LOCALHOST_HOSTNAME);
         this.redirectedHosts.remove(LOCALHOST_HOSTNAME);

@@ -83,4 +83,12 @@ public class NextViewModel extends AndroidViewModel {
             }
         });
     }
+
+    public void enableAllSources() {
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            if (this.sourceModel.enableAllSources()) {
+                this.sync();
+            }
+        });
+    }
 }

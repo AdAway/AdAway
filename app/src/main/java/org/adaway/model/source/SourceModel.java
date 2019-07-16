@@ -439,6 +439,23 @@ public class SourceModel extends Observable {
     }
 
     /**
+     * Enable all hosts sources.
+     *
+     * @return {@code true} if at least one source was updated, {@code false} otherwise.
+     */
+    public boolean enableAllSources() {
+        boolean updated = false;
+        for (HostsSource source : this.hostsSourceDao.getAll()) {
+            if (!source.isEnabled()) {
+                updated = true;
+                source.setEnabled(true);
+                this.hostsSourceDao.update(source);
+            }
+        }
+        return updated;
+    }
+
+    /**
      * Set local modifications date to now for all enabled hosts sources.
      */
     public void markHostsSourcesAsInstalled() {
