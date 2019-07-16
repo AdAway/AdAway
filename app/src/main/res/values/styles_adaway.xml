@@ -40,4 +40,12 @@
         <item name="colorOnSecondary">@color/lightOnPrimary</item>
         <!--<item name="preferenceTheme">@style/ThemeOverlay.AppCompat.Light</item>-->
     </style>
+    <style name="Theme.AdAway.Red.NoActionBar" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/onPrimary</item>
+        <item name="colorPrimaryVariant">@color/primaryVariant</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <item name="colorSecondary">@color/onPrimary</item>
+        <item name="colorSecondaryVariant">@color/primaryVariant</item>
+        <item name="colorOnSecondary">@color/primary</item>
+    </style>
 </resources>

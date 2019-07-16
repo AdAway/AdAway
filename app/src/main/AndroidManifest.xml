@@ -59,7 +59,8 @@
             android:name=".ui.welcome.WelcomeActivity"
             android:exported="false"
             android:label="@string/welcome_title"
-            android:parentActivityName=".ui.next.NextActivity" />
+            android:parentActivityName=".ui.next.NextActivity"
+            android:theme="@style/Theme.AdAway.Red.NoActionBar" />
         <activity
             android:name=".ui.hosts.HostsSourcesActivity"
             android:exported="false"
