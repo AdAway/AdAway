@@ -44,8 +44,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static org.adaway.db.entity.ListType.BLOCKED;
-import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAIL;
 import static org.adaway.model.error.HostError.NO_CONNECTION;
 
@@ -405,29 +403,10 @@ public class SourceModel extends Observable {
      * @throws IOException If the source could not be read.
      */
     private void parseSourceInputStream(HostsSource hostsSource, InputStream inputStream) throws IOException {
-        int hostsSourceId = hostsSource.getId();
         boolean parseRedirectedHosts = PreferenceHelper.getRedirectionRules(this.context);
         SourceParser sourceParser = new SourceParser(inputStream, parseRedirectedHosts);
-        this.hostListItemDao.clearSourceHosts(hostsSource.getId());
-        sourceParser.getBlockedHosts().stream()
-                .map(host -> {
-                    HostListItem item = new HostListItem();
-                    item.setHost(host);
-                    item.setType(BLOCKED);
-                    item.setEnabled(true);
-                    item.setSourceId(hostsSourceId);
-                    return item;
-                })
-                .forEach(this.hostListItemDao::insert);
-        sourceParser.getRedirectedHosts().forEach((host, redirection) -> {
-            HostListItem item = new HostListItem();
-            item.setHost(host);
-            item.setType(REDIRECTED);
-            item.setEnabled(true);
-            item.setRedirection(redirection);
-            item.setSourceId(hostsSourceId);
-            this.hostListItemDao.insert(item);
-        });
+        SourceBatchUpdater updater = new SourceBatchUpdater(this.hostListItemDao);
+        updater.updateSource(hostsSource, sourceParser);
     }
 
     /**
