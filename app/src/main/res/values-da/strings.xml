@@ -16,6 +16,8 @@
 
     <!--Home-->
     <string name="header_help">Velkommen!</string>
+    <string name="text_help">AdAway er et gratis og open source software design til blokering af reklamer. Det henter netværksadresser af reklame for at blokere dem på din enhed.\nVil du vide mere? Se hjælp nedenfor!</string>
+    <string name="button_show_help">Se mere hjælp</string>
     <string name="icon_update_status">Opdater status</string>
     <string name="text_update">Alle hosts-filer fra de definerede kilder er hentet, flettet sammen med dine egne lister og installeret som en hosts-fil på dit system.</string>
     <string name="button_check_update_hosts">Check for opdateringer</string>
@@ -39,13 +41,24 @@
     <string name="lists_tab_redirection_list">Viderestillinger</string>
     <string name="list_add_dialog_black">Tilføj host til sortliste</string>
     <string name="list_add_dialog_white">Tilføj host til hvidliste</string>
+    <string name="list_add_dialog_redirect">Tilføj host omdirigering</string>
+    <string name="list_edit_dialog_black">Rediger sortlistet host</string>
+    <string name="list_edit_dialog_white">Rediger hvidlistet host</string>
     <string name="list_edit_dialog_redirect">Rediger viderestilling</string>
     <string name="list_dialog_hostname">Værtsnavn:</string>
+    <string name="list_dialog_hostname_hint">Værts kilde URL</string>
+    <string name="list_dialog_wildcard">(Wildcard tegn * og ? er tilladt)</string>
     <string name="list_dialog_ip">IP (IPv4 eller IPv6):</string>
     <string name="import_dialog">Importerer...</string>
+    <string name="import_success">Sikkerhedskopi importeret med succes fra dit eksterne lager.</string>
+    <string name="import_failed">Kunne ikke importere backup. Er dets format korrekt? Tjek logcat for flere detaljer.</string>
     <string name="export_dialog">Eksporterer...</string>
+    <string name="export_success">Backup med succes eksporteres til \'adaway-backup.json\' -filen på dit eksterne lager.</string>
+    <string name="export_failed">Kunne ikke eksportere en sikkerhedskopi</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Hosts filen</string>
+    <string name="hosts_description">Hosts filen er en systemfil, der kortlægger værtsnavne til IP-adresser. Det er en almindelig tekstfil, hvilken konfiguration håndteres af AdAway. Her er de få første linjer:</string>
     <string name="hosts_content">Indlæser indholdet af hosts filen...</string>
     <string name="hosts_open_button">Åbn hosts filen</string>
 
@@ -59,10 +72,21 @@
     <string name="status_no_connection_subtitle">Ingen Internetforbindelse tilgængelig</string>
     <string name="status_download_fail">Utilgængelige kilder</string>
     <string name="status_download_fail_subtitle_new">Ingen hostskilder kan nås!</string>
+    <string name="status_root_access_denied">Root adgang nægtet</string>
+    <string name="status_root_access_denied_subtitle">Tillad rootadgang fra din root-app</string>
+    <string name="status_failure">Noget gik galt</string>
+    <string name="status_failure_subtitle">Tjek logcat for flere detaljer</string>
     <string name="status_enabled">Aktiveret</string>
     <string name="status_enabled_subtitle">Nyeste hosts-fil aktiveret</string>
     <string name="status_disabled">Deaktiveret</string>
+    <string name="status_disabled_subtitle">Standard hostsfil installeret</string>
     <string name="notification_channel_update_name">Opdateringer</string>
+    <string name="notification_channel_update_description">Nye værtsopdateringsmeddelelser</string>
+    <string name="notification_configuration_changed">Din konfiguration er ændret. Du skal installere hostsfil for at anvende den.</string>
+    <string name="notification_configuration_changed_action">Anvend</string>
+    <string name="notification_configuration_installing">Installere hostsfil....</string>
+    <string name="notification_configuration_failed">Kunne ikke installere hostsfilen.</string>
+
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink fra dit mål til /system/etc/hosts findes ikke eller er sat forkert! AdAway virker ikke, hvis den ikke peger det rigtige sted hen.\n\nVil du prøve at lave et symlink?</string>
     <string name="apply_symlink_missing_title">Symlink mangler</string>
@@ -74,10 +98,15 @@
     <string name="apply_remount_fail_title">Remontering fejlede</string>
     <string name="apply_copy_fail">Kopiering af hosts filen fejlede</string>
     <string name="apply_copy_fail_title">Kopiering fejlede</string>
+    <string name="apply_success_subtitle">Anvendte værts kilder</string>
     <string name="apply_success_title">Anvendt successfuldt</string>
+    <string name="apply_success_dialog">Anvend var succesfuldt.\nDer er muligvis nødvendigt at genstarte Android for ændringerne træder i kraft.\n\nVil du genstarte?\n(For at forhindre tab af data skal du sørge for, at ingen app bruger SD-kortet i øjeblikket!)</string>
+    <string name="apply_symlink_successful">Symlink blev oprettet succesfuldt.\nDer er muligvis nødvendigt at genstarte Android for ændringerne træder i kraft.\n\nVil du genstarte?\n (For at forhindre tab af data skal du sørge for, at ingen app bruger SD-kortet i øjeblikket!)</string>
     <string name="apply_symlink_successful_title">Symlink oprettet successfuldt</string>
+    <string name="apply_symlink_fail">Symlink kunne ikke oprettes af Android.\nDet mislykkes hovedsageligt på grund af en \"funktion\", der hedder S-ON på HTC-telefoner!\n\nDen løsning er at starte din telefon i gendannelsesmodus og oprette symlink der med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nHvis dette ikke virker, søg på internettet for S-OFF og din telefon.</string>
     <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
     <string name="apply_help">Venligst læs Hjælp for mere information.</string>
+    <string name="apply_apn_proxy">En APN-proxy er indstillet på din Android!\nAdAway fungerer ikke pålideligt, når du er på mobilnetværk som 3G. Du kan deaktivere den pågældende proxy ved at gå til din valgte APN (Fra indstillingsappen: Netværk og internet -> Mobilnetværk -> Avanceret -> Adgangspunktnavn) og fjerne værdien i proxy-feltet.</string>
     <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
     <string name="no_connection">Internetforbindelsen virker ikke.</string>
     <string name="no_connection_title">Ingen forbindelse</string>
@@ -89,6 +118,8 @@
     <string name="apply_dialog_apply">Anvender hosts-filen</string>
     <string name="apply_fail">Hosts-filen kunne ikke påføres dit system!\nPrøv at ændre placeringen af hosts-filen i indstillingerne til \"/data/data/hosts\".</string>
     <string name="apply_fail_title">Anvendelse mislykkedes</string>
+    <string name="root_access_fail">Kontroller din root management-app for at sikre, at rootadgang er blevet tildelt.</string>
+    <string name="revert_successful">Du vendte tilbage til standardværtsfilen.\nDu er muligvis nødt til at genstarte Android, for ændringerne træder i kraft.\n\nVil du genstarte?\n(For at forhindre tab af data skal du sørge for, at ingen app bruger SD-kortet i øjeblikket !)</string>
     <string name="revert_successful_title">Gendannelse successfuld</string>
     <string name="revert_problem">Gendannelse mislykkedes af ukendte årsager.</string>
     <string name="revert_problem_title">Gendannelse mislykkedes!</string>
@@ -96,7 +127,9 @@
     <string name="download_fail_title">Download mislykkedes</string>
     <string name="no_private_file">Privat fil kan ikke oprettes.</string>
     <string name="no_private_file_title">Oprettelse af privat fil mislykkedes</string>
+    <string name="enable_systemless_successful">Du har aktiveret systemløs tilstand.\nDet kan være nødvendigt at genstarte Android for at ændringerne skal træde i kraft.\n\nVil du genstarte?\n(For at forhindre tab af data skal du sørge for, at ingen apps bruger SD-kortet i øjeblikket!)</string>
     <string name="enable_systemless_successful_title">Aktivering succesfuldt</string>
+    <string name="disable_systemless_successful">Du har deaktiveret systemløs tilstand.\nDet kan være nødvendigt at genstarte Android for at ændringerne skal træde i kraft.\n\nVil du genstarte?\n(For at forhindre tab af data skal du sørge for, at ingen apps bruger SD-kortet i øjeblikket!)</string>
     <string name="disable_systemless_successful_title">Deaktivering succesfuldt</string>
 
     <!--Other Dialogs-->
@@ -107,6 +140,7 @@
     <string name="no_hostname_title">Inkorrekt formateret hostnavn</string>
     <string name="no_ip">Dette er ikke en gyldig IP!</string>
     <string name="no_ip_title">Forkert formateret IP</string>
+    <string name="reboot_never_reboot">Genstart aldrig og vis ikke dette spørgsmål næste gang!</string>
     <string name="loading">Indlæser...</string>
 
     <!--Menu entries-->
@@ -114,8 +148,8 @@
     <string name="menu_add">Tilføj</string>
     <string name="menu_hosts_sources">Hosts kilder</string>
     <string name="menu_help">Hjælp</string>
-    <string name="menu_import">Importér alle lister</string>
-    <string name="menu_export">Eksportér alle lister</string>
+    <string name="menu_import">Importer sikkerhedskopieren</string>
+    <string name="menu_export">Eksporter sikkerhedskopieren</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -124,6 +158,10 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
+    <string name="adware_description">Her kan du finde installerede adware, dårlige applikationer, som ikke kan blokeres af AdAway. Disse apps bruger f.eks. Airpush-underretninger, der dukker op, selvom appen ikke kører eller endda ændrer din ringetone. Den eneste tilgængelige modforanstaltning er at afinstallere disse apps ved at klikke på listeposterne.</string>
+    <string name="adware_scanning">Scanning&#8230;</string>
+    <string name="adware_empty">Ingen Adware blev fundet!</string>
+
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Lokalt:</string>
     <string name="hosts_last_modified_online">Online:</string>
@@ -131,6 +169,8 @@
     <string name="hosts_add_dialog_title">Tilføj kilde</string>
     <string name="hosts_edit_dialog_title">Rediger kilde</string>
     <string name="hosts_dialog_url">URL: (en https:// eller file:// ressource)</string>
+    <string name="hosts_dialog_url_hint">Værts kilde URL</string>
+
     <!--Other-->
     <string name="app_subtitle">Reklameblokering</string>
     <string name="no_text_editor_title">Intet tekstredigeringsprogram installeret</string>
@@ -148,8 +188,15 @@
     <string name="tcpdump_menu_sort">Sorter domæner</string>
     <string name="tcpdump_menu_clear">Ryd log</string>
     <string name="tcpdump_sort_alphabetical">Sorter alfabetisk</string>
+    <string name="tcpdump_sort_top_level_domain">Sorter topniveau domæne</string>
+    <string name="tcpdump_entry_add_blacklist">Tilføj adgang til sort liste</string>
+    <string name="tcpdump_entry_add_whitelist">Tilføj adgang til hvide liste</string>
+    <string name="tcpdump_entry_add_redirection_list">Tilføj adgang til omdirigeringsliste</string>
+
     <!--Preferences-->
     <string name="pref_download">Generelle Indstillinger</string>
+    <string name="pref_dismiss_welcome">Skjul velkomstkort</string>
+    <string name="pref_dismiss_welcome_summary">Vis ikke velkomstkortet på startskærmen</string>
     <string name="pref_dark_theme">Aktiver mørkt tema</string>
     <string name="pref_dark_theme_summary">Brug mørkt tema istedet for lyst</string>
     <string name="pref_dark_theme_notification">Temaet vil blive anvendt næste gang app\'en åbnes!</string>
@@ -157,6 +204,10 @@
     <string name="pref_update_check">Check for opdateringer</string>
     <string name="pref_apply_method">Destinations-hostsfil</string>
     <string name="pref_apply_method_summary">Inden du ændrer denne indstilling, skal du læse Hjælp om denne funktionalitet.</string>
+    <string name="pref_redirection_ipv4">IPv4 Omdirigering</string>
+    <string name="pref_redirection_ipv4_summary">Alle blokerede værtsnavne omdirigeres til denne IPv4-adresse.</string>
+    <string name="pref_redirection_ipv6">IPv6 Omdirigering</string>
+    <string name="pref_redirection_ipv6_summary">Alle blokerede værtsnavne omdirigeres til denne IPv6-adresse.</string>
     <string name="pref_header_preferences">Indstillinger</string>
     <string name="pref_header_preferences_summary">Generelle indstillinger for AdAway</string>
     <string name="pref_never_reboot">Gem genstarts-dialogboksen</string>
@@ -165,43 +216,91 @@
     <string name="pref_webserver_on_boot_summary">Start webserver ved opstart og lyt på lokale IP adresser</string>
     <string name="pref_webserver_enabled">Aktivér webserver</string>
     <string name="pref_webserver_enabled_summary">Aktiverer webserveren til at lytte på lokale IP adresser for at svare på blokerede værtsnavne</string>
-    <string name="pref_webserver">Lokal Webserver</string>
+    <string name="pref_webserver">Lokal webserver</string>
     <string name="pref_custom_target">Brugerdefineret destination</string>
     <string name="pref_custom_target_summary">Bruges kun, hvis destinations-hostsfilen er indstillet til brugerdefineret destination</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Brugerdefineret destination</item>
     </string-array>
 
     <string name="pref_update_check_summary">Check for opdateringer ved start af AdAway</string>
+    <string name="pref_sdcard_problem">Denne funktion virker ikke korrekt, når AdAway er installeret på SD-kort!</string>
     <string name="pref_background">Baggrundsservicer</string>
     <string name="pref_update_check_daily">Check for opdateringer dagligt</string>
     <string name="pref_update_check_daily_summary">Kontrollér for opdateringer i baggrunden med notifikationer</string>
     <string name="pref_automatic_update_daily">Automatisk opdatering</string>
     <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
+    <string name="pref_update_only_on_wifi">Opdater kun på Wi-Fi</string>
+    <string name="pref_update_only_on_wifi_summary">Udfør kun baggrundsopdateringer, når tilsluttet til et Wi-Fi netværk.</string>
     <string name="pref_whitelist_rules">Tillad hvidlister</string>
     <string name="pref_whitelist_rules_summary">Tillad hvidlist indhold fra Hosts kilden.</string>
     <string name="pref_redirection_rules">Tillad viderestillinger</string>
     <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
     <string name="pref_debug">Debug</string>
+    <string name="pref_enable_debug">Aktivér verbose logging</string>
     <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>
+    <string name="pref_enable_telemetry">Aktivér nedbrudrapporter</string>
+    <string name="pref_enable_telemetry_summary">Tillad, at applikationen sender fejl og nedbrudrapporter til Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Aktivér IPv6</string>
+    <string name="pref_enable_ipv6_summary">Alle hostsfil indgange får en tilsvarende omdirigering.</string>
     <string name="pref_enable_systemless_summary">Forhindre AdAway i at ændre systempartitionen</string>
     <string name="pref_enable_systemless">Aktiver systemløs tilstand</string>
+    <string name="pref_edit_text_value">Rediger tekst præference værdi</string>
     <string name="drawer_open">Åben menu</string>
     <string name="drawer_close">Luk menu</string>
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Hjem</item>
         <item>Hosts kilder</item>
         <item>Dine lister</item>
         <item>Åben hosts-filen</item>
+        <item>Log DNS-anmodninger</item>
+        <item>Søg efter adware</item>
         <item>Indstillinger</item>
         <item>Hjælp</item>
     </string-array>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 Støtte til udvikling af app \u2764</string>
+    <string name="drawer_support_dialog_title">Støtte til udvikling af app</string>
+    <string name="drawer_support_dialog_text">AdAway er en gratis og open source-software, der kun udvikles og vedligeholdes af samfundet. Det tog mig to år som et fritidsprojekt at opbygge denne nye version af appen. \n\nHvis du kan lide det og ønsker at se flere opdateringer, er du velkommen til at støtte projektet.</string>
+    <string name="drawer_support_dialog_button">Vis min støtte</string>
+
+    <!--Telemetry-->
+    <string name="dialog_telemetry_title">Telemetri</string>
+    <string name="dialog_telemetry_message">Hej kære bruger,\n\nDu kunne nu deltage i udviklingen af AdAway ved at dele dine nedbrudrapporter og grundlæggende brugsoplysninger. Alle data er anonyme, og telemetri vil kun blive aktiveret, hvis du accepterer.\n\nDu kan finde flere detaljer om <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
+    <string name="dialog_telemetry_enable">Selvfølgelig, jeg er glad for at hjælpe!</string>
+    <string name="dialog_telemetry_disable">Nej tak</string>
+
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS forespørgsler</string>
     <string name="shortcut_your_lists">Dine lister</string>
     <string name="shortcut_preferences">Indstillinger</string>
 
-    </resources>
+    <!--Hosts source status-->
+    <string name="hosts_source_up_to_date">Aktuelt for %1$s</string>
+    <string name="hosts_source_need_update">Brug for opdatering til %1$s</string>
+    <string name="hosts_source_last_update">Sidste opdatering %1$s siden</string>
+    <string name="hosts_source_unknown_status">Ukendt opdateringsstatus</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minutter</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d time</item>
+        <item quantity="other">%d timer</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dage</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d måned</item>
+        <item quantity="other">%d måneder</item>
+    </plurals>
+
+</resources>
