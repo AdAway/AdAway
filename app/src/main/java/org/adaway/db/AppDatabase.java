@@ -1,14 +1,13 @@
 package org.adaway.db;
 
-import androidx.sqlite.db.SupportSQLiteDatabase;
+import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
-
-import android.content.Context;
-
-import androidx.annotation.NonNull;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.adaway.db.converter.DateConverter;
 import org.adaway.db.converter.ListTypeConverter;
@@ -17,6 +16,10 @@ import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.util.AppExecutors;
+
+import static org.adaway.db.Migrations.MIGRATION_1_2;
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
 
 /**
  * This class is the application database based on Room.
@@ -52,7 +55,9 @@ public abstract class AppDatabase extends RoomDatabase {
                                     () -> AppDatabase.initialize(instance)
                             );
                         }
-                    }).build();
+                    }).addMigrations(
+                            MIGRATION_1_2
+                    ).build();
                 }
             }
         }
@@ -70,8 +75,8 @@ public abstract class AppDatabase extends RoomDatabase {
         }
         // User source
         HostsSource userSource = new HostsSource();
-        userSource.setId(HostsSource.USER_SOURCE_ID);
-        userSource.setUrl(HostsSource.USER_SOURCE_URL);
+        userSource.setId(USER_SOURCE_ID);
+        userSource.setUrl(USER_SOURCE_URL);
         userSource.setEnabled(true);
         hostsSourceDao.insert(userSource);
         // https://hosts-file.net
