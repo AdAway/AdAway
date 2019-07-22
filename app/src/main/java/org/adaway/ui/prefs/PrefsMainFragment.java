@@ -35,6 +35,12 @@ public class PrefsMainFragment extends PreferenceFragmentCompat {
         PrefsActivity.setAppBarTitle(this, R.string.pref_main_title);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        PrefsActivity.setAppBarTitle(this, R.string.pref_main_title);
+    }
+
     private void bindThemePrefAction() {
         Context context = getContext();
         Preference darkThemePref = findPreference(getString(R.string.pref_dark_theme_key));
