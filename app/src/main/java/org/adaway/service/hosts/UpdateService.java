@@ -13,17 +13,16 @@ import androidx.work.WorkerParameters;
 import org.adaway.AdAwayApplication;
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.model.error.HostErrorException;
 import org.adaway.model.adblocking.AdBlockModel;
+import org.adaway.model.error.HostErrorException;
 import org.adaway.model.source.SourceModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
-import java.util.concurrent.TimeUnit;
-
 import static androidx.work.ListenableWorker.Result.failure;
 import static androidx.work.ListenableWorker.Result.retry;
 import static androidx.work.ListenableWorker.Result.success;
+import static java.util.concurrent.TimeUnit.DAYS;
 
 /**
  * This class is a service to check for hosts sources update.<br/>
@@ -59,9 +58,10 @@ public final class UpdateService {
                 .setRequiresStorageNotLow(true)
                 .build();
         // Create work request
-        PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(HostsSourcesUpdateWorker.class, 24, TimeUnit.HOURS)
+        PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(HostsSourcesUpdateWorker.class, 1, DAYS)
                 .addTag(WORKER_TAG)
                 .setConstraints(constraints)
+                .setInitialDelay(1, DAYS)
                 .build();
         // Enqueue work request
         WorkManager.getInstance().enqueue(workRequest);
