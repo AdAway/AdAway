@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Znaki wieloznaczne * i ? są dozwolone)</string>
     <string name="list_dialog_ip">IP (IPv4 lub IPv6):</string>
     <string name="import_dialog">Importowanie…</string>
+    <string name="import_success">Kopia zapasowa została pomyślnie zaimportowana z pamięci zewnętrznej.</string>
+    <string name="import_failed">Nie udało się zaimportować kopii zapasowej. Czy jego format jest poprawny? Sprawdź logat, aby uzyskać więcej szczegółów.</string>
     <string name="export_dialog">Eksportowanie…</string>
-    <string name="export_success">Wyeksportowano wszystkie wpisy do pliku o nazwie \'adaway-export\' na karcie SD.</string>
-    <string name="export_failed">Nie udało się wyeksportować listy na kartę SD.</string>
+    <string name="export_success">Kopia zapasowa została pomyślnie wyeksportowana do pliku „adaway-backup.json” na zewnętrzną pamięć masową.</string>
+    <string name="export_failed">Nie udało się wyeksportować kopii zapasowej.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Plik hosts</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">Dodaj</string>
     <string name="menu_hosts_sources">Źródła hostów</string>
     <string name="menu_help">Pomoc</string>
-    <string name="menu_import">Importuj wszystkie Listy</string>
-    <string name="menu_export">Eksportuj wszystkie Listy</string>
+    <string name="menu_import">Importuj kopię zapasową</string>
+    <string name="menu_export">Eksportuj kopię zapasową</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -157,7 +159,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Tutaj możesz znaleźć zainstalowane adware, złe aplikacje, które nie mogą być blokowane przez AdAway. Te aplikacje używają na przykład powiadomień Airpush, które pojawiają się nawet wtedy, gdy aplikacja nie działa lub nawet zmienia dzwonek. Jedynym dostępnym środkiem zaradczym jest odinstalowanie tych aplikacji, klikając elementy listy.</string>
-    <string name="adware_scanning">Skanowanie...</string>
+    <string name="adware_scanning">Skanowanie&#8230;</string>
     <string name="adware_empty">Nie znaleziono adware!</string>
 
     <!--Hosts sources-->
@@ -263,7 +265,7 @@
         <item>Pomoc</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">u2764 Wspieraj rozwój u2764</string>
+    <string name="drawer_support_text">\u2764 Wspieraj rozwój \u2764</string>
     <string name="drawer_support_dialog_title">Wspieraj rozwój</string>
     <string name="drawer_support_dialog_text">AdAway to bezpłatne i otwarte oprogramowanie opracowane i obsługiwane wyłącznie przez społeczność. Zbudowanie nowej wersji aplikacji zajęło mi dwa lata. \n\n Jeśli podoba ci się i chcesz zobaczyć więcej aktualizacji, możesz wesprzeć projekt.</string>
     <string name="drawer_support_dialog_button">Pokaż moje wsparcie</string>
