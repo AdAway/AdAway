@@ -10,7 +10,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.sonarqube' version '2.6.2'
+    id 'org.sonarqube' version '2.7.1'
 }
 
 allprojects {
