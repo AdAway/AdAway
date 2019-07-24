@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Joker karakterler * ve ? izin verilir)</string>
     <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
     <string name="import_dialog">İçe Aktarılıyor...</string>
+    <string name="import_success">Yedekleme, harici depolama alanınızdan başarıyla içe aktarıldı.</string>
+    <string name="import_failed">Yedekleme içe alınamadı. Dosya biçimi doğru mu? Daha fazla ayrıntı için logcat\'i kontrol edin.</string>
     <string name="export_dialog">Dışa Aktarılıyor...</string>
-    <string name="export_success">Tüm girişleri, SD kartınızdaki \'adaway-export\' adlı bir dosyaya aktarıldı.</string>
-    <string name="export_failed">Listeniz SD kartınıza aktarılamadı.</string>
+    <string name="export_success">Yedekleme, harici depolama alanınıza \'adaway-backup.json\' dosya ismiyle başarılı olarak aktarıldı.</string>
+    <string name="export_failed">Yedekleme dışa aktarılamadı.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Host dosyası</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">Ekle</string>
     <string name="menu_hosts_sources">Host kaynakları</string>
     <string name="menu_help">Yardım</string>
-    <string name="menu_import">Tüm Listeleri Al</string>
-    <string name="menu_export">Tüm Listeleri Ver</string>
+    <string name="menu_import">Yedeklemeyi içe aktar</string>
+    <string name="menu_export">Yedeklemeyi dışa aktar</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
