@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Jsou povoleny zástupné znaky * a ?)</string>
     <string name="list_dialog_ip">IP (IPv4 nebo IPv6):</string>
     <string name="import_dialog">Importování...</string>
+    <string name="import_success">Záloha z vašeho externího úložiště úspěšně importována.</string>
+    <string name="import_failed">Importování zálohy se nezdařilo. Je ve správném formátu? Pro více detailů zkontrolujte systémový protokol událostí.</string>
     <string name="export_dialog">Exportování...</string>
-    <string name="export_success">Všechny záznamy byly exportovány do souboru \"adaway-export\" na SD kartě.</string>
-    <string name="export_failed">Exportování vašeho seznamu na SD kartu se nezdařilo.</string>
+    <string name="export_success">Záloha úspěšně exportována do souboru \"adaway-backup.json\" na vašem externím úložišti.</string>
+    <string name="export_failed">Exportování zálohy se nezdařilo.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Soubor hostitelů</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">Přidat</string>
     <string name="menu_hosts_sources">Zdroje hostitelů</string>
     <string name="menu_help">Nápověda</string>
-    <string name="menu_import">Importovat všechny seznamy</string>
-    <string name="menu_export">Exportovat všechny seznamy</string>
+    <string name="menu_import">Importovat zálohu</string>
+    <string name="menu_export">Exportovat zálohu</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -202,6 +204,10 @@
     <string name="pref_update_check">Zkontrolovat aktualizace</string>
     <string name="pref_apply_method">Cílový soubor hostitelů</string>
     <string name="pref_apply_method_summary">Před změnou tohoto nastavení si prosím přečtěte nápovědu pro tuto funkci.</string>
+    <string name="pref_redirection_ipv4">Přesměrování IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Všechna blokovaná jména hostitelů jsou přesměrována na tuto IPv4 adresu.</string>
+    <string name="pref_redirection_ipv6">Přesměrování IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Všechna blokovaná jména hostitelů jsou přesměrována na tuto IPv6 adresu.</string>
     <string name="pref_header_preferences">Nastavení</string>
     <string name="pref_header_preferences_summary">Obecná nastavení pro AdAway</string>
     <string name="pref_never_reboot">Skrýt dialogové okno restartu</string>
@@ -240,6 +246,7 @@
     <string name="pref_enable_telemetry">Povolit zprávy o selhání</string>
     <string name="pref_enable_telemetry_summary">Povolit aplikaci posílat chyby a zprávy o selhání na Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Povolit IPv6</string>
+    <string name="pref_enable_ipv6_summary">Všechny záznamy v souboru hostitelů budou doplněny odpovídajícím záznamem o přesměrování.</string>
     <string name="pref_enable_systemless_summary">Zabrání AdAway provedení změn na systémovém oddílu</string>
     <string name="pref_enable_systemless">Povolit mód systemless</string>
     <string name="pref_edit_text_value">Upravit textovou hodnotu předvolby</string>
