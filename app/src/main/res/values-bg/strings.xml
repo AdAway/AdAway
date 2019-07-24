@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Позволени са заместващи символи * и ?)</string>
     <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
     <string name="import_dialog">Импортиране...</string>
+    <string name="import_success">Архивът беше успешно внесен от Вашата карта памет.</string>
+    <string name="import_failed">Внасянето на архива се провали. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
     <string name="export_dialog">Експортиране...</string>
-    <string name="export_success">Експортирани са всички записи във файл, наречен „adaway-export“ на вашата SD карта.</string>
-    <string name="export_failed">Неуспешно експортиране на списъка ви в SD картата.</string>
+    <string name="export_success">Архивът беше успешно изнесен в картата памет във файл с име \'adaway-backup.json\'.</string>
+    <string name="export_failed">Изнасянето на архива се провали.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Файлът Hosts</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">Добавяне</string>
     <string name="menu_hosts_sources">Източници за Hosts файла</string>
     <string name="menu_help">Помощ</string>
-    <string name="menu_import">Импортиране на всички списъци</string>
-    <string name="menu_export">Експортиране на всички списъци</string>
+    <string name="menu_import">Внасяне на архив</string>
+    <string name="menu_export">Изнасяне на архив</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
