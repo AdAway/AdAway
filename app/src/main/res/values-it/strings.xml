@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(I caratteri * e ? sono consentiti)</string>
     <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
     <string name="import_dialog">Importo...</string>
+    <string name="import_success">Backup correttamente importato dalla memoria esterna.</string>
+    <string name="import_failed">Impossibile importare il backup. Il suo formato è corretto? Controlla il logcat per maggiori dettagli.</string>
     <string name="export_dialog">Esporto...</string>
-    <string name="export_success">Tutte le voci sono state esportate in un file chiamato \'adaway-export\' nella tua SD card.</string>
-    <string name="export_failed">Esportazione fallita della tua lista sulla scheda SD.</string>
+    <string name="export_success">Backup correttamente esportato nel file \'adaway-backup.json\' nella memoria esterna.</string>
+    <string name="export_failed">Esportazione del backup non riuscita.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Il file hosts</string>
@@ -101,8 +103,10 @@
     <string name="apply_success_dialog">Modifiche effettuate con successo.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
     <string name="apply_symlink_successful">Symlink è stato creato con successo.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
     <string name="apply_symlink_successful_title">Collegamento simbolico creato con successo</string>
+    <string name="apply_symlink_fail">Il collegamento simbolico non può essere creato da Android.\nQuesto problema è dovuto quasi sicuramente a una \"caratteristica\" chiamata S-ON nei telefoni HTC!\n\nUna possibile soluzione è quella di avviare il telefono in modalità recovery e creare il collegamento simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono.</string>
     <string name="apply_symlink_fail_title">Creazione del collegamento simbolico fallita</string>
     <string name="apply_help">Per favore leggi l\'Aiuto per ulteriori informazioni.</string>
+    <string name="apply_apn_proxy">Un proxy APN è impostato sul tuo Android!\nAdAway non funzionerà in modo affidabile quando connesso a reti mobili come il 3G. Puoi disattivare il proxy andando nelle impostazioni del tuo APN (Nell\'app Impostazioni: Rete e Internet -> Rete mobile -> Avanzate -> Nomi punti di accesso) e rimuovendo il contenuto del campo proxy.</string>
     <string name="apply_apn_proxy_title">Proxy APN impostato!</string>
     <string name="no_connection">La connesione a internet non funziona</string>
     <string name="no_connection_title">Nessuna connessione</string>
@@ -144,8 +148,8 @@
     <string name="menu_add">Aggiungi </string>
     <string name="menu_hosts_sources">Fonti host</string>
     <string name="menu_help">Aiuto</string>
-    <string name="menu_import">Importa tutte le liste</string>
-    <string name="menu_export">Esporta tutte le liste</string>
+    <string name="menu_import">Importa backup</string>
+    <string name="menu_export">Esporta backup</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -154,6 +158,7 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
+    <string name="adware_description">Qui puoi troverai l\'adware installato, applicazioni malevole che non possono essere bloccate da AdAway. Queste applicazioni utilizzano, ad esempio, notifiche Airpush che appaiono anche quando l\'app non è in esecuzione o che modificano la tua suoneria. L\'unica contromisura disponibile è quella di disinstallare queste applicazioni cliccando sugli elementi dell\'elenco.</string>
     <string name="adware_scanning">Scansione in corso&#8230;</string>
     <string name="adware_empty">Nessun Adware è stato trovato!</string>
 
@@ -200,6 +205,10 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_update_check">Controlla aggiornamenti</string>
     <string name="pref_apply_method">Percorso file hosts</string>
     <string name="pref_apply_method_summary">Prima di cambiare questa impostazione, leggi l\'Aiuto su questa funzione.</string>
+    <string name="pref_redirection_ipv4">Inoltro IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Tutti gli hostname bloccati vengono reindirizzati a questo indirizzo IPv4.</string>
+    <string name="pref_redirection_ipv6">Inoltro IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Tutti gli hostname bloccati vengono reindirizzati a questo indirizzo IPv6.</string>
     <string name="pref_header_preferences">Preferenze</string>
     <string name="pref_header_preferences_summary">Preferenze generali per AdAway</string>
     <string name="pref_never_reboot">Nascondi finestra di dialogo di riavvio.</string>
@@ -213,6 +222,9 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_custom_target_summary">In uso solo se si usa un file hosts personalizzato</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Percorso personalizzato</item>
     </string-array>
 
@@ -226,7 +238,7 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_update_only_on_wifi">Aggiorna solo con connessioni non a consumo</string>
     <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso ad una rete non a consumo.</string>
     <string name="pref_whitelist_rules">Consenti whitelisting</string>
-    <string name="pref_whitelist_rules_summary">Permetti valori BIANCHI dalle fonti host.</string>
+    <string name="pref_whitelist_rules_summary">Consenti le voci della whitelist dalle fonti host</string>
     <string name="pref_redirection_rules">Abilita inoltro</string>
     <string name="pref_redirection_rules_summary">RISCHIO PER LA SICUREZZA! Permetti valori di inoltro dalle fonti host.</string>
     <string name="pref_debug">Debug</string>
@@ -235,6 +247,7 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_enable_telemetry">Abilita segnalazione errori</string>
     <string name="pref_enable_telemetry_summary">Permette all\'applicazione di mandare errori e crash report a Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Abilita IPv6</string>
+    <string name="pref_enable_ipv6_summary">Tutte le voci del file di host avranno una voce di inoltro corrispondente.</string>
     <string name="pref_enable_systemless_summary">Impedisci a AdAway di modificare la partizione di sistema</string>
     <string name="pref_enable_systemless">Attivare modalità Systemless</string>
     <string name="pref_edit_text_value">Modifica il valore di testo</string>
@@ -247,6 +260,7 @@ Vuoi installare OI File Manager?</string>
         <item>Fonti host</item>
         <item>Le tue liste</item>
         <item>Apri file hosts</item>
+        <item>Log richieste DNS</item>
         <item>Scansione Adware</item>
         <item>Preferenze</item>
         <item>Aiuto</item>
