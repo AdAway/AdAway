@@ -20,7 +20,7 @@
     <string name="button_show_help">Расширенная справка</string>
     <string name="icon_update_status">Обновить статус</string>
     <string name="text_update">Все списки хостов загружаются с указанных источников, объединяются и устанавливаются в вашу систему в виде файла hosts.</string>
-    <string name="button_check_update_hosts">Проверять обновления</string>
+    <string name="button_check_update_hosts">Проверить обновления</string>
     <string name="button_update_hosts">Обновить хосты</string>
     <string name="button_enable_hosts">Вкл. блокировку рекламы</string>
     <string name="button_disable_hosts">Откл. блокировку рекламы</string>
@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Допускаются подстановочные символы * и ?)</string>
     <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
     <string name="import_dialog">Импорт…</string>
+    <string name="import_success">Резервная копия успешно импортирована с вашего внешнего хранилища.</string>
+    <string name="import_failed">Не удалось импортировать резервную копию. Возможно её формат не верен? Проверьте logcat для подробностей.</string>
     <string name="export_dialog">Экспорт…</string>
-    <string name="export_success">Все записи выгружены на вашу карту памяти в файл \'adaway-export\'.</string>
-    <string name="export_failed">Экспортирование вашего списка на карту памяти не удалось.</string>
+    <string name="export_success">Резервная копия успешно импортирована в файл \'adaway-backup.json\' на ваше внешнее хранилище.</string>
+    <string name="export_failed">Не удалось эскортировать резервную копию.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
@@ -166,8 +168,8 @@
     <string name="menu_add">Добавить</string>
     <string name="menu_hosts_sources">Источники списков хостов</string>
     <string name="menu_help">Справка</string>
-    <string name="menu_import">Импортировать все списки</string>
-    <string name="menu_export">Экспортировать все списки</string>
+    <string name="menu_import">Импортировать резервную копию</string>
+    <string name="menu_export">Экспортировать резервную копию</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
