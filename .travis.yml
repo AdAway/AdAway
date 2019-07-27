@@ -1,5 +1,6 @@
 sudo: true
 language: android
+dist: trusty
 jdk: openjdk8
 android:
   components:
