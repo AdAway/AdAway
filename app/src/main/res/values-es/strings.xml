@@ -106,7 +106,7 @@
     <string name="apply_symlink_fail">Symlink no pudo ser creado por Android.\nEsto falla principalmente debido a una \'característica\' llamada S-ON en los teléfonos HTC!\n\nUna solución es arrancar el teléfono en modo de recuperación y crear el symlink allí en -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona buscar en Internet para S-OFF y su teléfono.</string>
     <string name="apply_symlink_fail_title">No se pudo crear el enlace simbólico</string>
     <string name="apply_help">Por favor lea la Ayuda para más información.</string>
-    <string name="apply_apn_proxy">¡Un proxy APN está configurado en su Android!\nAdAway no funcionará de manera confiable cuando se encuentre en redes móviles como 3G. Puede desactivar ese proxy al ir a su APN seleccionado (en la aplicación Configuración: Red e Internet - & gt; Red móvil - & gt; Avanzado - & gt; Nombres de puntos de acceso) y borre el valor en el campo proxy.</string>
+    <string name="apply_apn_proxy">¡Un proxy APN está configurado en su Android!\nAdAway no funcionará de manera confiable cuando se encuentre en redes móviles como 3G. Puede desactivar ese proxy al ir a su APN seleccionado (en la aplicación Configuración: Red e Internet - &gt; Red móvil - &gt; Avanzado - &gt; Nombres de puntos de acceso) y borre el valor en el campo proxy.</string>
     <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
     <string name="no_connection">La conexión a Internet no está funcionando.</string>
     <string name="no_connection_title">Sin conexión</string>
