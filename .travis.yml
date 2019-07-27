@@ -1,6 +1,6 @@
 sudo: true
 language: android
-jdk: oraclejdk8
+jdk: openjdk8
 android:
   components:
     # Uncomment the lines below if you want to use the latest revision of Android SDK Tools
