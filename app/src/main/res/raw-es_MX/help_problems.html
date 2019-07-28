@@ -1,0 +1,29 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
+<html>
+<head><title>Problemas comunes</title></head>
+<body>
+<h2>No hay suficiente espacio en la partición</h2>
+<p>Intenta cambiar en las preferencias el archivo hosts de destino a <code>/data/data/hosts</code> (o <code>/data/hosts</code>) y aplica AdAway otra vez.</p>
+
+<h2>No funciona en Andrioid 4.4+</h2>
+<p>Intenta cambiar en las preferencias el archivo hosts de destino de <code>/data/data/hosts</code> a <code>/data/hosts</code> o <code>/system/etc/hosts</code> y aplica AdAway otra vez.</p>
+
+<h2>¡No bloquea anuncios en aplicación XYZ!</h2>
+<p>Algunos nombres de hosts pueden faltar en los archivos de hosts proporcionados de las <cite>Fuentes de Hosts</cite> o la aplicación ha agrupado las imágenes para proporcionar anuncios sin acceder a Internet.<br><br>
+Puede registrar las peticiones DNS (Menu-&gt;Log DNS Requests) desde AdAway para averiguar qué nombres de hosts adicionales tienen que ser bloqueados.
+<br><br>Añada los nombres de hosts sospechosos a su propia Lista negra pulsando las entradas en el Log e informe de estos nombres de hosts cuando los haya verificado en <a href="http://forum.hosts-file.net/viewforum.php?f=9">la bandeja de entrada</a> de <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+
+<h2>Anuncios en Caché</h2>
+<p>A veces las aplicaciones almacenan anuncios en caché después de su descarga. Esto lleva a que queden anuncios en algunas aplicaciones. Puedes tratar de borrar la memoria caché de éstas en la lista de aplicaciones Android para esquivar este problema.</p>
+
+<h2>¡La aplicación XYZ no funciona más!</h2>
+<p>Algunas aplicaciones necesitan comunicarse con un hostname que está bloqueado por AdAway o negarse a trabajar cuando los hostnames que deberían servir anuncios no son accesibles. Ver <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> para obtener una lista de aplicaciones conocidas que tienen problemas. De lo contrario, averigüe qué nombres de hosts se necesitan y añádelos a su <cite>Lista blanca</cite> en <cite>sus Listas</cite> y repórtelos al <a href="https://github.com/AdAway/AdAway/issues">rastreador de errores de AdAway.</a>.</p>
+
+<h2>El botón de volver no funciona en navegadores web</h2>
+<p>Puedes activar el servidor web local de AdAway en las preferencias como solución.</p>
+
+</body>
+</html>
