@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">(Caracteres curinga * e ? são permitidos)</string>
     <string name="list_dialog_ip">IP (IPv4 ou IPv6):</string>
     <string name="import_dialog">Importando...</string>
+    <string name="import_success">Backup importado com sucesso do seu armazenamento externo.</string>
+    <string name="import_failed">Falha ao importar backup. Seu formato está correto? Verifique o logcat para mais detalhes.</string>
     <string name="export_dialog">Exportando...</string>
-    <string name="export_success">Exportou todas as entradas para um arquivo chamado \'adaway-export\' no seu cartão SD.</string>
-    <string name="export_failed">Não foi possível exportar sua lista para o cartão SD</string>
+    <string name="export_success">Backup exportado com sucesso para o arquivo \'adaway-backup.json\' em seu armazenamento externo.</string>
+    <string name="export_failed">Falha ao exportar o backup.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">O arquivo de hosts</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">Adicionar</string>
     <string name="menu_hosts_sources">Fontes de hosts</string>
     <string name="menu_help">Ajuda</string>
-    <string name="menu_import">Importar Todas as Listas</string>
-    <string name="menu_export">Exportar Todas as Listas</string>
+    <string name="menu_import">Importar backup</string>
+    <string name="menu_export">Exportar backup</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
