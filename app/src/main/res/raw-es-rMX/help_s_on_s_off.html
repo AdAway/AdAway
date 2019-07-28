@@ -11,18 +11,18 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>¿S-ON o S-OFF?</h2>
 <p>S-OFF significa que la porción NAND del dispositivo está desbloqueada y se puede escribir en ella. La configuración predeterminada para dispositivos HTC es S-ON, lo que significa que no se puede acceder a ciertas áreas del sistema ni tampoco se puede garantizar el root permanente. Además, la comprobación de la firma para las imágenes de firmware también está garantizada por el indicador S-ON.</p>
 
-<h2>¿Tengo S-ON or S-OFF?</h2>
+<h2>¿Tengo S-ON o S-OFF?</h2>
 <p>Reinicia al Boot Menu en tu dispositivo manteniendo presionando el botón de <cite>bajar volumen</cite> mientras presionas el botón de encendido y el texto en la parte superior mostrará el estado del indicador como S-OFF o S-ON. Un dispositivo completamente rooteado se mostrará como S-OFF.
 <br><br>Puedes encontrar más información en <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Métodos S-OFF adicionales con Unrevoked (en el link) pueden interesarte, es decir: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Solución</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
+<p>Prerequisito: Usted tiene que instalar un SDK de Android que funciona con el shell de ADB en su PC.</p>
 <ol>
 <li>Ingresa al Menú de Arranque en tu dispositivo presionando el <cite>botón de bajar volumen</cite> y el botón de encendido a la vez.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
+<li>Utilice el <cite>volume abajo</cite> para seleccionar el <cite>modo recovery</cite> y luego presione <cite>el botón de encendido</cite> para iniciar.</li>
+<li>En clockwork recovery vaya a "menu de particiones".</li>
 <li>Seleccione <cite>mount /system</cite>, <cite>mount /sdcard</cite> y <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
+<li>Conecte su cable USB y abra una línea de comandos en su PC.</li>
 <li>Ingrese al adb shell y escriba <code>ln -s /data/hosts /system/etc/hosts</code> (Esto crea un enlace simbólico, que le permite a AdAway editar el archivo hosts almacenado en <code>/data</code> mientras permite al SO usarlo como si estuviera guardado en <code>/system</code>.)</li>
 <li>Reinicie su dispositivo y establezca <cite>Archivo hosts de destino</cite> a <cite>/data/hosts</cite> en las preferencias de AdAway.</li>
 <li>AdAway debería funcionar ahora.</li>
