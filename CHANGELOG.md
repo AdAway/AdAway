@@ -1,3 +1,8 @@
+## [4.2.8] - 2019-07-28
+
+- Fix TravisCI build issues
+- Update translations
+
 ## [4.2.7] - 2019-07-04
 
 - Revert Android gradle plugin to fix F-Droid build issue
