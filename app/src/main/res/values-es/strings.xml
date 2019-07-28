@@ -50,8 +50,11 @@
     <string name="list_dialog_wildcard">(se permiten los caracteres comodín * y ?)</string>
     <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
     <string name="import_dialog">Importando...</string>
+    <string name="import_success">Copia de seguridad importada correctamente desde el almacenamiento externo. </string>
+    <string name="import_failed">No se pudo importar la copia de seguridad. ¿Es correcto el formato? Consulte logcat para obtener más detalles. </string>
     <string name="export_dialog">Exportando...</string>
-    <string name="export_failed">No se pudo exportar su lista a su memoria SD.</string>
+    <string name="export_success">Copia de seguridad exportada correctamente al archivo \'adaway-backup.json\' en el almacenamiento externo. </string>
+    <string name="export_failed">Error al exportar la copia de seguridad. </string>
 
     <!--Hosts content-->
     <string name="hosts_header">Archivo hosts</string>
@@ -69,6 +72,8 @@
     <string name="status_no_connection_subtitle">No hay ninguna conexión a Internet disponible</string>
     <string name="status_download_fail">Fuentes no disponibles</string>
     <string name="status_download_fail_subtitle_new">¡No se pueden alcanzar las fuentes de ficheros hosts!</string>
+    <string name="status_root_access_denied">Acceso root denegado</string>
+    <string name="status_root_access_denied_subtitle">Permitir el acceso root desde la aplicación root</string>
     <string name="status_failure">Algo salió mal</string>
     <string name="status_failure_subtitle">Compruebe el logcat para más detalles</string>
     <string name="status_enabled">Habilitado</string>
@@ -98,8 +103,10 @@
     <string name="apply_success_dialog">Aplicación correctamente.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(Para evitar la pérdida de datos, asegúrese de que ninguna aplicación use la memoria SD en este momento.)</string>
     <string name="apply_symlink_successful">Symlink fue creado correctamente.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(Para evitar la pérdida de datos, asegúrese de que ninguna aplicación utiliza la memoria SD en este momento!)</string>
     <string name="apply_symlink_successful_title">El enlace simbólico se creó con éxito</string>
+    <string name="apply_symlink_fail">Symlink no pudo ser creado por Android.\nEsto falla principalmente debido a una \'característica\' llamada S-ON en los teléfonos HTC!\n\nUna solución es arrancar el teléfono en modo de recuperación y crear el symlink allí en -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona buscar en Internet para S-OFF y su teléfono.</string>
     <string name="apply_symlink_fail_title">No se pudo crear el enlace simbólico</string>
     <string name="apply_help">Por favor lea la Ayuda para más información.</string>
+    <string name="apply_apn_proxy">¡Un proxy APN está configurado en su Android!\nAdAway no funcionará de manera confiable cuando se encuentre en redes móviles como 3G. Puede desactivar ese proxy al ir a su APN seleccionado (en la aplicación Configuración: Red e Internet - &gt; Red móvil - &gt; Avanzado - &gt; Nombres de puntos de acceso) y borre el valor en el campo proxy.</string>
     <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
     <string name="no_connection">La conexión a Internet no está funcionando.</string>
     <string name="no_connection_title">Sin conexión</string>
@@ -111,6 +118,7 @@
     <string name="apply_dialog_apply">Aplicando el archivo hosts</string>
     <string name="apply_fail">¡No se pudo aplicar el archivo hosts en su sistema!\nIntente cambiar la ruta del archivo hosts a /data/data/hosts en las preferencias.</string>
     <string name="apply_fail_title">Fallo al aplicar</string>
+    <string name="root_access_fail">Verifique su aplicación de root para asegurarse de que se haya otorgado acceso root</string>
     <string name="revert_successful">Ha vuelto al archivo de hosts predeterminado.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(Para evitar la pérdida de datos, asegúrese de que ninguna aplicación utiliza la memoria SD en este momento!)</string>
     <string name="revert_successful_title">Los cambios se revirtieron con éxito.</string>
     <string name="revert_problem">No pudieron revertirse los cambios por razones desconocidas.</string>
@@ -140,8 +148,8 @@
     <string name="menu_add">Añadir</string>
     <string name="menu_hosts_sources">Fuentes de ficheros hosts </string>
     <string name="menu_help">Ayuda</string>
-    <string name="menu_import">Importar todas las listas</string>
-    <string name="menu_export">Exportar todas las listas</string>
+    <string name="menu_import">Importar copia de seguridad</string>
+    <string name="menu_export">Exportar copia de seguridad</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -151,6 +159,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aquí se puede encontrar adware instalado, aplicaciones defectuosas que no pueden ser bloqueados por AdAway. Estas aplicaciones utilizan, por ejemplo, notificaciones Airpush que aparecen incluso cuando la aplicación no se está ejecutando o incluso cambiar el tono de llamada. La única contramedida disponible es desinstalar esas aplicaciones haciendo clic en los elementos de la lista.</string>
+    <string name="adware_scanning">Escaneando&#8230;</string>
     <string name="adware_empty">¡No se ha encontrado Adware!</string>
 
     <!--Hosts sources-->
@@ -195,6 +204,10 @@
     <string name="pref_update_check">Buscar actualizaciones</string>
     <string name="pref_apply_method">Ruta del archivo hosts</string>
     <string name="pref_apply_method_summary">Antes de cambiar esta configuración, lea la Ayuda sobre esta funcionalidad.</string>
+    <string name="pref_redirection_ipv4">Redireccionamiento IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Todos los nombres de host bloqueados se redirigen a esta dirección IPv4.</string>
+    <string name="pref_redirection_ipv6">Redireccionamiento IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Todos los nombres de host bloqueados se redirigen a esta dirección IPv6</string>
     <string name="pref_header_preferences">Preferencias</string>
     <string name="pref_header_preferences_summary">Preferencias generales para AdAway</string>
     <string name="pref_never_reboot">Ocultar cuadro de diálogo de reinicio</string>
@@ -233,6 +246,7 @@
     <string name="pref_enable_telemetry">Habilitar informe de fallos</string>
     <string name="pref_enable_telemetry_summary">Permitir que la aplicación envíe informes de fallos y cuelgues a Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Habilitar IPv6</string>
+    <string name="pref_enable_ipv6_summary">Todas las entradas del archivo host recibirán una entrada de redirección correspondiente.</string>
     <string name="pref_enable_systemless_summary">Evitar que AdAway modifique la partición de sistema</string>
     <string name="pref_enable_systemless">Activar modo systemless</string>
     <string name="pref_edit_text_value">Editar valor de preferencia de texto</string>
@@ -241,6 +255,7 @@
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Inicio</item>
         <item>Fuentes de ficheros hosts </item>
         <item>Sus listas</item>
         <item>Abrir el fichero hosts</item>
