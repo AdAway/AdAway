@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">（可使用萬用字元 * 和 ?）</string>
     <string name="list_dialog_ip">IP 位址 (IPv4 或 IPv6)：</string>
     <string name="import_dialog">匯入中...</string>
+    <string name="import_success">備份成功從您的外部儲存空間匯入。</string>
+    <string name="import_failed">無法匯入備份。它的格式正確嗎？檢查 logcat 以獲得更多詳細資訊。</string>
     <string name="export_dialog">匯出中...</string>
-    <string name="export_success">已匯出所有項目到 SD 卡中的「adaway-export」檔案。</string>
-    <string name="export_failed">匯出清單到 SD 卡失敗。</string>
+    <string name="export_success">備份成功匯出到外部儲存空間的「adaway-backup.json」檔案</string>
+    <string name="export_failed">無法匯出備份。</string>
 
     <!--Hosts content-->
     <string name="hosts_header">hosts 檔案</string>
@@ -146,8 +148,8 @@
     <string name="menu_add">加入</string>
     <string name="menu_hosts_sources">Hosts 來源</string>
     <string name="menu_help">說明</string>
-    <string name="menu_import">匯入所有清單</string>
-    <string name="menu_export">匯出所有清單</string>
+    <string name="menu_import">匯入備份</string>
+    <string name="menu_export">匯出備份</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
