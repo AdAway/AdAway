@@ -4,11 +4,11 @@
     android:title="@string/pref_main_title">
 
     <PreferenceCategory android:title="@string/pref_general_category">
-<!--        <CheckBoxPreference
-            android:defaultValue="@bool/pref_dismiss_welcome_def"
-            android:key="@string/pref_dismiss_welcome_key"
-            android:summary="@string/pref_dismiss_welcome_summary"
-            android:title="@string/pref_dismiss_welcome" />-->
+        <!--        <CheckBoxPreference
+                    android:defaultValue="@bool/pref_dismiss_welcome_def"
+                    android:key="@string/pref_dismiss_welcome_key"
+                    android:summary="@string/pref_dismiss_welcome_summary"
+                    android:title="@string/pref_dismiss_welcome" />-->
         <CheckBoxPreference
             android:defaultValue="@bool/pref_dark_theme_def"
             android:icon="@drawable/ic_brightness_medium_24dp"
@@ -21,6 +21,14 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_ad_block_category">
+        <Preference
+            android:icon="@drawable/ic_superuser_24dp"
+            android:title="@string/pref_root_ad_blocker_configuration"
+            app:fragment="org.adaway.ui.prefs.PrefsRootFragment" />
+        <Preference
+            android:icon="@drawable/ic_vpn_key_24dp"
+            android:title="@string/pref_vpn_ad_blocker_configuration"
+            app:fragment="org.adaway.ui.prefs.PrefsVpnFragment" />
         <CheckBoxPreference
             android:defaultValue="@bool/pref_whitelist_rules_def"
             android:icon="@drawable/baseline_check_24"
@@ -32,10 +40,11 @@
             android:key="@string/pref_redirection_rules_key"
             android:summary="@string/pref_redirection_rules_summary"
             android:title="@string/pref_redirection_rules" />
-        <Preference
-            android:title="@string/pref_root_ad_blocker_configuration"
-            app:fragment="org.adaway.ui.prefs.PrefsRootFragment"
-            android:icon="@drawable/ic_superuser_24dp"/>
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_enable_ipv6_def"
+            android:icon="@drawable/ic_ipv6_24dp"
+            android:key="@string/pref_enable_ipv6_key"
+            android:title="@string/pref_enable_ipv6" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_debug_category">

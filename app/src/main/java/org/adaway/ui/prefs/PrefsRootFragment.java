@@ -27,30 +27,15 @@ public class PrefsRootFragment extends PreferenceFragmentCompat {
         getPreferenceManager().setSharedPreferencesName(PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences_root);
         // Bind pref actions
-        bindWebServerPrefAction();
         bindCustomTargetPrefAction();
+        bindRedirection();
+        bindWebServerPrefAction();
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         PrefsActivity.setAppBarTitle(this, R.string.pref_root_title);
-    }
-
-    private void bindWebServerPrefAction() {
-        Context context = getContext();
-        // Start web server when preference is enabled
-        Preference WebServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
-        WebServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
-            if (newValue.equals(true)) {
-                // Start web server
-                WebServerUtils.startWebServer(context);
-            } else {
-                // Stop web server
-                WebServerUtils.stopWebServer();
-            }
-            return true;
-        });
     }
 
     private void bindCustomTargetPrefAction() {
@@ -70,6 +55,29 @@ public class PrefsRootFragment extends PreferenceFragmentCompat {
                 mCustomTarget.setEnabled(true);
             } else {
                 mCustomTarget.setEnabled(false);
+            }
+            return true;
+        });
+    }
+
+    private void bindRedirection() {
+        Context context = getContext();
+        boolean ipv6Enabled = PreferenceHelper.getEnableIpv6(context);
+        Preference ipv6RedirectionPreference = findPreference(getString(R.string.pref_redirection_ipv6_key));
+        ipv6RedirectionPreference.setEnabled(ipv6Enabled);
+    }
+
+    private void bindWebServerPrefAction() {
+        Context context = getContext();
+        // Start web server when preference is enabled
+        Preference WebServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
+        WebServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if (newValue.equals(true)) {
+                // Start web server
+                WebServerUtils.startWebServer(context);
+            } else {
+                // Stop web server
+                WebServerUtils.stopWebServer();
             }
             return true;
         });

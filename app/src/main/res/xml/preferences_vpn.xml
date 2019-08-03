@@ -2,6 +2,24 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/pref_root_title">
 
+    <PreferenceCategory android:title="@string/pref_hosts_redirection">
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_enable_ipv6_def"
+            android:key="@string/pref_enable_ipv6_key"
+            android:title="@string/pref_enable_ipv6" />
+        <EditTextPreference
+            android:defaultValue="@string/pref_redirection_ipv4_def"
+            android:dialogLayout="@layout/pref_edittext_dialog"
+            android:key="@string/pref_redirection_ipv4_key"
+            android:title="@string/pref_redirection_ipv4" />
+        <EditTextPreference
+            android:defaultValue="@string/pref_redirection_ipv6_def"
+            android:dependency="@string/pref_enable_ipv6_key"
+            android:dialogLayout="@layout/pref_edittext_dialog"
+            android:key="@string/pref_redirection_ipv6_key"
+            android:title="@string/pref_redirection_ipv6" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/pref_hosts_installation">
         <ListPreference
             android:defaultValue="@string/pref_apply_method_def"
@@ -25,27 +43,7 @@
             android:title="@string/pref_never_reboot" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:summary="@string/pref_hosts_redirection_summary"
-        android:title="@string/pref_hosts_redirection">
-        <EditTextPreference
-            android:defaultValue="@string/pref_redirection_ipv4_def"
-            android:dialogLayout="@layout/pref_edittext_dialog"
-            android:key="@string/pref_redirection_ipv4_key"
-            android:title="@string/pref_redirection_ipv4" />
-        <EditTextPreference
-            android:defaultValue="@string/pref_redirection_ipv6_def"
-            android:dialogLayout="@layout/pref_edittext_dialog"
-            android:enabled="false"
-            android:key="@string/pref_redirection_ipv6_key"
-            android:title="@string/pref_redirection_ipv6" />
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/pref_webserver">
-        <Preference
-            android:persistent="false"
-            android:selectable="false"
-            android:summary="@string/pref_webserver_summary" />
         <CheckBoxPreference
             android:defaultValue="@bool/pref_webserver_enabled_def"
             android:key="@string/pref_webserver_enabled_key"
