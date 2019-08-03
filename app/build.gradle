@@ -82,10 +82,11 @@ dependencies {
     def fragment_version = '1.1.0-rc01'
     def libsu_version = '2.5.0'
     def lifecycle_version = '2.0.0'
-    def material_version = '1.1.0-alpha08'
+    def material_version = '1.1.0-alpha09'
     def preference_version = '1.1.0-rc01'
     def recycler_view_version = '1.1.0-beta01'
     def room_version = '2.1.0'
+    def swipe_refresh_layout_version = '1.0.0'
     def work_version = '2.1.0'
 
     // Native modules
@@ -103,6 +104,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:${recycler_view_version}"
     implementation "androidx.room:room-runtime:${room_version}"
     annotationProcessor "androidx.room:room-compiler:${room_version}"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:${swipe_refresh_layout_version}"
     implementation "androidx.work:work-runtime:${work_version}"
     implementation "com.google.android.material:material:${material_version}"
 
