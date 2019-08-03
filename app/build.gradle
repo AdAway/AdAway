@@ -76,37 +76,25 @@ android {
 }
 
 dependencies {
-    def appcompat_version = '1.1.0-rc01'
-    def card_view_version = '1.0.0'
-    def constraint_layout_version = '1.1.3'
-    def fragment_version = '1.1.0-rc01'
-    def libsu_version = '2.5.0'
-    def lifecycle_version = '2.0.0'
-    def material_version = '1.1.0-alpha09'
-    def preference_version = '1.1.0-rc01'
-    def recycler_view_version = '1.1.0-beta01'
-    def room_version = '2.1.0'
-    def swipe_refresh_layout_version = '1.0.0'
-    def work_version = '2.1.0'
-
     // Native modules
 //    implementation project(':tcpdump')
 //    implementation project(':webserver')
 
     // AndroidX components
-    implementation "androidx.appcompat:appcompat:${appcompat_version}"
-    implementation "androidx.cardview:cardview:${card_view_version}"
-    implementation "androidx.constraintlayout:constraintlayout:${constraint_layout_version}"
-    implementation "androidx.fragment:fragment:${fragment_version}"
-    implementation "androidx.lifecycle:lifecycle-extensions:${lifecycle_version}"
-    implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycle_version}"
-    implementation "androidx.preference:preference:${preference_version}"
-    implementation "androidx.recyclerview:recyclerview:${recycler_view_version}"
-    implementation "androidx.room:room-runtime:${room_version}"
-    annotationProcessor "androidx.room:room-compiler:${room_version}"
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:${swipe_refresh_layout_version}"
-    implementation "androidx.work:work-runtime:${work_version}"
-    implementation "com.google.android.material:material:${material_version}"
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.fragment:fragment:1.1.0-rc01'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.0.0'
+    implementation 'androidx.preference:preference:1.1.0-rc01'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+    implementation 'androidx.room:room-runtime:2.1.0'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation 'androidx.work:work-runtime:2.1.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
 
     // Miscellaneous
     api 'com.google.guava:guava:27.0.1-android' // TODO Check if still used?
@@ -123,8 +111,8 @@ dependencies {
     implementation 'org.slf4j:slf4j-nop:1.7.25' // TODO Check if still used?
 
     // Root related
-    implementation "com.github.topjohnwu.libsu:core:${libsu_version}"
-    implementation "com.github.topjohnwu.libsu:io:${libsu_version}"
+    implementation 'com.github.topjohnwu.libsu:core:2.5.0'
+    implementation 'com.github.topjohnwu.libsu:io:2.5.0'
 
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.7.5'
