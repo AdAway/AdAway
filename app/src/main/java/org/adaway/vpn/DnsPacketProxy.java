@@ -17,6 +17,8 @@ package org.adaway.vpn;
 import android.content.Context;
 import android.util.Log;
 
+import org.adaway.AdAwayApplication;
+import org.adaway.model.vpn.VpnModel;
 import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.IpSelector;
 import org.pcap4j.packet.IpV4Packet;
@@ -65,11 +67,10 @@ public class DnsPacketProxy {
     }
 
     private final EventLoop eventLoop;
-    private RuleDatabase ruleDatabase;
+    private VpnModel vpnModel;
     private List<InetAddress> upstreamDnsServers;
 
     public DnsPacketProxy(EventLoop eventLoop) {
-        this.ruleDatabase = new RuleDatabase();
         this.eventLoop = eventLoop;
         this.upstreamDnsServers = new ArrayList<>();
     }
@@ -82,7 +83,7 @@ public class DnsPacketProxy {
      *                           rewriting of ip addresses takes place
      */
     void initialize(Context context, List<InetAddress> upstreamDnsServers) {
-        this.ruleDatabase.initialize(context);
+        this.vpnModel = (VpnModel) ((AdAwayApplication)context.getApplicationContext()).getAdBlockModel();
         this.upstreamDnsServers = upstreamDnsServers;
     }
 
@@ -180,7 +181,9 @@ public class DnsPacketProxy {
             return;
         }
         String dnsQueryName = dnsMsg.getQuestion().getName().toString(true);
-        if (!ruleDatabase.isBlocked(dnsQueryName.toLowerCase(Locale.ENGLISH))) {
+        String hostname = dnsQueryName.toLowerCase(Locale.ENGLISH);
+        boolean isBlocked = this.vpnModel != null && this.vpnModel.isBlocked(hostname);
+        if (!isBlocked) {
             Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + destAddr);
             DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, destAddr, parsedUdp.getHeader().getDstPort().valueAsInt());
             eventLoop.forwardPacket(outPacket, parsedPacket);
