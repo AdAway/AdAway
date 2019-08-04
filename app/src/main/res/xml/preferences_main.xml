@@ -45,6 +45,10 @@
             android:icon="@drawable/ic_ipv6_24dp"
             android:key="@string/pref_enable_ipv6_key"
             android:title="@string/pref_enable_ipv6" />
+        <Preference
+            android:icon="@drawable/ic_sd_storage_24dp"
+            android:title="@string/pref_backup_restore"
+            app:fragment="org.adaway.ui.prefs.PrefsBackupRestoreFragment" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_debug_category">

@@ -52,4 +52,6 @@
     <bool name="pref_enable_telemetry_def">false</bool>
     <string name="pref_display_telemetry_consent_key" translatable="false">displayTelemetryConsent</string>
     <bool name="pref_display_telemetry_consent_def">true</bool>
+    <string name="pref_backup_key" translatable="false">backup</string>
+    <string name="pref_restore_key" translatable="false">restore</string>
 </resources>
