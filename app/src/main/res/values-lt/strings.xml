@@ -98,9 +98,6 @@
     <string name="menu_add">Pridėti</string>
     <string name="menu_hosts_sources">Host šaltiniai</string>
     <string name="menu_help">Pagalba</string>
-    <string name="menu_import">Importuoti Visą Sąrašą</string>
-    <string name="menu_export">Eksportuoti visą sąrašą</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">DUK</string>

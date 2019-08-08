@@ -51,9 +51,6 @@
     <string name="list_dialog_ip">بروتكول الانترنت (IPv4 أو IPv6):</string>
     <string name="import_dialog">استيراد…</string>
     <string name="export_dialog">تصدير…</string>
-    <string name="export_success">تمّ تصدير جميع المُدخلات إلى ملف يُسمّى \'adaway-export\' على بطافة الذاكرة الخاصة بك.</string>
-    <string name="export_failed">فشلت عملية تصدير القائمة إلى بطاقة الذاكرة.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">ملف المضيف</string>
     <string name="hosts_description">ملف المضيف هو ملف نظام يقوم بربط أسماء المضيف مع عناوين الإنترنت بروتوكول .إنه عبارة عن ملف نصّي ويهتم AdAway به ويقوم بإعداده. تبدو بعض الخطوط الأولى فيه كما يلي:</string>
@@ -144,9 +141,6 @@
     <string name="menu_add">إضافة</string>
     <string name="menu_hosts_sources">مصادر المضيف</string>
     <string name="menu_help">المساعدة</string>
-    <string name="menu_import">استيراد جميع القوائم</string>
-    <string name="menu_export">تصدير جميع القوائم</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">الأسئلة الشائعة</string>

@@ -58,9 +58,6 @@
     <string name="menu_add">Lisa</string>
     <string name="menu_hosts_sources">Allikad</string>
     <string name="menu_help">Abi</string>
-    <string name="menu_import">Impordi kõik loendid</string>
-    <string name="menu_export">Expordi kõik loendid</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">KKK</string>

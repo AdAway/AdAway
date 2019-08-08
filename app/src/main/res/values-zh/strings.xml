@@ -50,9 +50,11 @@
     <string name="list_dialog_wildcard">（允许使用通配符 * 和 ? ）</string>
     <string name="list_dialog_ip">IP 地址（IPv4 或 IPv6）：</string>
     <string name="import_dialog">正在导入...</string>
+    <string name="import_success">已成功从外置存储中导入备份。</string>
+    <string name="import_failed">导入备份失败，请检查格式是否正确。查看日志文件以获取更多信息。</string>
     <string name="export_dialog">正在导出...</string>
-    <string name="export_success">将所有条目导出至 SD 卡目录下一个文件名为“adaway-export”的文件中。</string>
-    <string name="export_failed">导出列表至 SD 卡失败。</string>
+    <string name="export_success">已成功导出备份至外置存储中的“adaway-backup.json”文件。</string>
+    <string name="export_failed">导出备份失败。</string>
 
     <!--Hosts content-->
     <string name="hosts_header">hosts 文件</string>
@@ -70,6 +72,8 @@
     <string name="status_no_connection_subtitle">没有可用的网络连接</string>
     <string name="status_download_fail">不可用的源</string>
     <string name="status_download_fail_subtitle_new">没有可以访问的 hosts 源！</string>
+    <string name="status_root_access_denied">Root 权限被拒</string>
+    <string name="status_root_access_denied_subtitle">从你的 root 权限管理器授权 root 权限访问</string>
     <string name="status_failure">发生了一些错误</string>
     <string name="status_failure_subtitle">检查 logcat 以获取更多详细信息</string>
     <string name="status_enabled">已启用</string>
@@ -112,6 +116,7 @@
     <string name="apply_dialog_apply">应用 hosts 文件</string>
     <string name="apply_fail">将 hosts 文件应用于您的系统失败！\n请尝试将首选项中的目标 hosts 文件更改为 /data/data/hosts。</string>
     <string name="apply_fail_title">应用失败</string>
+    <string name="root_access_fail">请检查您的 root 权限管理器以确保已授予 root 访问权限。</string>
     <string name="revert_successful_title">恢复成功</string>
     <string name="revert_problem">由于未知原因，恢复失败。</string>
     <string name="revert_problem_title">恢复失败！</string>
@@ -141,8 +146,8 @@
     <string name="menu_add">添加</string>
     <string name="menu_hosts_sources">hosts 源</string>
     <string name="menu_help">帮助</string>
-    <string name="menu_import">导入列表</string>
-    <string name="menu_export">导出列表</string>
+    <string name="menu_import">导入备份</string>
+    <string name="menu_export">导出备份</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -200,6 +205,8 @@
     <string name="pref_update_check">检查更新</string>
     <string name="pref_apply_method">目标 hosts 文件</string>
     <string name="pref_apply_method_summary">在更改此设置之前，请阅读有关此功能的帮助。</string>
+    <string name="pref_redirection_ipv4">IPv4 重定向</string>
+    <string name="pref_redirection_ipv6">IPv6 重定向</string>
     <string name="pref_header_preferences">首选项</string>
     <string name="pref_header_preferences_summary">AdAway 的常规设置</string>
     <string name="pref_never_reboot">隐藏重启对话框</string>

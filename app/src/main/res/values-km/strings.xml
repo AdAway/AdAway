@@ -49,9 +49,6 @@
 
     <string name="menu_add">បន្ថែម</string>
     <string name="menu_help">ជំនួយ</string>
-    <string name="menu_import">នាំចូលគ្រប់បញ្ជី</string>
-    <string name="menu_export">នាំចេញគ្រប់បញ្ជី</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="hosts_last_modified_online">លើបណ្ដាញ

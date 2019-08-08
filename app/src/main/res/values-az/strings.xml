@@ -51,9 +51,6 @@
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">Daxil edilir...</string>
     <string name="export_dialog">Çıxarılır..</string>
-    <string name="export_success">Bütün girişlər SD kartınızdakı \'adaway-export\' adlı fayla çıxarıldı.</string>
-    <string name="export_failed">Siyahınızı SD karta çıxarmaq alınmadı.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Hosts faylı</string>
     <string name="hosts_description">Hosts faylı host adlarını IP adreslərinə yönləndirən sistem faylıdır. Bu idarəsi AdAway tərəfindən aparılan sadə bir mətn faylıdır. Bu da ilk bir neçə sətir:</string>
@@ -126,9 +123,6 @@
     <string name="menu_add">Əlavə Et</string>
     <string name="menu_hosts_sources">Hosts resursları</string>
     <string name="menu_help">Kömək</string>
-    <string name="menu_import">Bütün siyahıları idxal edin</string>
-    <string name="menu_export">Bütün Siyahıları Çıxar</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>

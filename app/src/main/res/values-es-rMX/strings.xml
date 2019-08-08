@@ -51,8 +51,6 @@
     <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
     <string name="import_dialog">Importando…</string>
     <string name="export_dialog">Exportando…</string>
-    <string name="export_failed">No se pudo exportar la lista a la tarjeta SD.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">El archivo hosts</string>
     <string name="hosts_description">El archivo hosts es un archivo del sistema que permite asignar los nombres de hosts a las direcciones IP. Es un archivo de texto sin formato cuya configuración administra AdAway. Estas son sus primeras líneas:</string>
@@ -141,9 +139,6 @@
     <string name="menu_add">Agregar</string>
     <string name="menu_hosts_sources">Fuentes de hosts</string>
     <string name="menu_help">Ayuda</string>
-    <string name="menu_import">Importar todas las listas</string>
-    <string name="menu_export">Exportar todas las listas</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">Preguntas frecuentes</string>

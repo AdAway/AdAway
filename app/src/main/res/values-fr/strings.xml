@@ -50,8 +50,8 @@
     <string name="list_dialog_wildcard">(Les métacaractères * et ? sont permis)</string>
     <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
     <string name="import_dialog">Importation...</string>
-    <string name="import_success">La sauvegarde a été importé avec succès de votre mémoire externe.</string>
-    <string name="import_failed">Échec d’importation de la sauvegarde. Le format est-il correct ? Consultez logcat pour plus de précisions.</string>
+    <string name="import_success">La sauvegarde a été importée avec succès de votre mémoire externe.</string>
+    <string name="import_failed">Échec d’importation de la sauvegarde. Le format est-il correct ? Consultez logcat pour plus de précisions.</string>
     <string name="export_dialog">Exportation...</string>
     <string name="export_success">La sauvegarde a été exportée avec succès dans le fichier « adaway-backup.json » sur votre mémoire externe.</string>
     <string name="export_failed">Échec d’exportation de la sauvegarde.</string>
@@ -75,7 +75,7 @@
     <string name="status_root_access_denied">L’accès racine a été refusé</string>
     <string name="status_root_access_denied_subtitle">Autorisez l’accès racine à partir de votre appli de débridage</string>
     <string name="status_failure">Une erreur s’est produite</string>
-    <string name="status_failure_subtitle">Vérifiez « logcat » pour plus de détails</string>
+    <string name="status_failure_subtitle">Vérifiez « logcat » pour plus de précisions.</string>
     <string name="status_enabled">Activé</string>
     <string name="status_enabled_subtitle">Les fichiers hosts les plus récents sont activés</string>
     <string name="status_disabled">Désactivé</string>
@@ -105,7 +105,7 @@
     <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
     <string name="apply_symlink_fail">Le lien symbolique n’a pas pu être créé par Android.\nCela échoue la plupart du temps à cause d’une \'fonction\' appelée S-ON sur les téléphones HTC.\n\nUne solution possible est de démarrer votre téléphone en mode récupération et d’y créer un lien symbolique avec \'ln-s /data/data/hosts/system/etc/hosts\'.\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
     <string name="apply_symlink_fail_title">Échec de la création du lien symbolique</string>
-    <string name="apply_help">Veuillez lire l’aide pour plus d’informations.</string>
+    <string name="apply_help">Veuillez lire l’aide pour plus de précisions.</string>
     <string name="apply_apn_proxy">Un mandataire APN est configuré sur votre Android !\nAdAway ne fonctionnera pas de manière fiable sur les réseaux mobiles tels que le 3G. Vous pouvez désactiver ce mandataire en allant à l’APN choisi (dans l’appli Paramètres : Réseau et Internet -&gt; Réseau cellulaire -&gt; Avancés -&gt; Nom des points d’accès) et en supprimant la valeur dans le champ « Serveur mandataire »</string>
     <string name="apply_apn_proxy_title">Le mandataire APN est configuré</string>
     <string name="no_connection">La connexion à Internet me fonctionne pas.</string>

@@ -82,9 +82,6 @@
     <string name="menu_add">הוסף</string>
     <string name="menu_hosts_sources">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
     <string name="menu_help">עזרה</string>
-    <string name="menu_import">ייבא את כל הרשימות</string>
-    <string name="menu_export">ייצא את כל הרשימות</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">שאלות ותשובות</string>

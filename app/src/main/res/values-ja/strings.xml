@@ -51,9 +51,6 @@
     <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
     <string name="import_dialog">インポート中...</string>
     <string name="export_dialog">エクスポート中...</string>
-    <string name="export_success">全項目を SD カードの \'adaway-export\' という名前のファイルにエクスポートしました。</string>
-    <string name="export_failed">SDカードへのエクスポートに失敗しました。</string>
-
     <!--Hosts content-->
     <string name="hosts_header">hostsファイル</string>
     <string name="hosts_description">hostsファイルはホスト名をIPアドレスに対応させるシステムファイルです。 AdAwayが処理する設定が書かれたただのテキストファイルです。 最初の数行はこんな感じです：</string>
@@ -143,9 +140,6 @@
     <string name="menu_add">追加</string>
     <string name="menu_hosts_sources">hosts 取得先</string>
     <string name="menu_help">ヘルプ</string>
-    <string name="menu_import">リストをインポート</string>
-    <string name="menu_export">リストをエクスポート</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>

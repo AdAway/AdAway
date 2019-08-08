@@ -51,9 +51,6 @@
     <string name="list_dialog_ip">IP (IPv4 ці IPv6):</string>
     <string name="import_dialog">Імпарт...</string>
     <string name="export_dialog">Экспарт...</string>
-    <string name="export_success">Усе запісы выгружаны на вашу карту памяці ў файл \'adaway-export</string>
-    <string name="export_failed">Экспартаванне вашага спісу на карту памяці не ўдалося.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
     <string name="hosts_description">Файл hosts - гэта сістэмны файл, супастаўляючы імёны вузлоў з IP-адрасамі. Гэта звычайны тэкставы файл, змесціва якога апрацоўвае AdAway. Вось яго першыя радкі:</string>
@@ -147,9 +144,6 @@
     <string name="menu_add">Дадаць</string>
     <string name="menu_hosts_sources">Крыніцы hosts</string>
     <string name="menu_help">Дапамога</string>
-    <string name="menu_import">Імпартаваць усе спісы</string>
-    <string name="menu_export">Экспартаваць усе спісы</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>

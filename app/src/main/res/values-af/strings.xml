@@ -83,9 +83,6 @@
     <string name="menu_add">Voeg by</string>
     <string name="menu_hosts_sources">Gaste bronne</string>
     <string name="menu_help">Help</string>
-    <string name="menu_import">Voer Alle Lyste in</string>
-    <string name="menu_export">Voer Alle Lyste Uit</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">Vrae</string>

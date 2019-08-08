@@ -51,9 +51,6 @@
     <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
     <string name="import_dialog">Inportatzen…</string>
     <string name="export_dialog">Esportatzen…</string>
-    <string name="export_success">\'adaway-export\' izena duen fitxategira esportatu dira sarrera guztiak, SD txartelera.</string>
-    <string name="export_failed">Ezin izan da zure zerrenda SD txartelara esportatu.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Hostalari fitxategia</string>
     <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen...</string>
@@ -138,9 +135,6 @@
     <string name="menu_add">Gehitu</string>
     <string name="menu_hosts_sources">Hostalari iturburuak</string>
     <string name="menu_help">Laguntza</string>
-    <string name="menu_import">Inportatu Zerrenda Guztiak</string>
-    <string name="menu_export">Esportatu Zerrenda Guztiak</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">SEG</string>

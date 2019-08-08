@@ -19,7 +19,7 @@
     <string name="text_help">AdAway — это бесплатное приложение с открытым исходным кодом для блокировки рекламы. Оно собирает адреса из рекламной сети и блокирует их на вашем устройстве.\nХотите узнать больше? Читайте справку!</string>
     <string name="button_show_help">Расширенная справка</string>
     <string name="icon_update_status">Обновить статус</string>
-    <string name="text_update">Все списки хостов загружаются с указанных источников, объединяются и устанавливаются в вашу систему в виде файла hosts.</string>
+    <string name="text_update">Все списки хостов загружаются с указанных источников, объединяются с вашими списками и устанавливаются в вашу систему в виде единого файла hosts.</string>
     <string name="button_check_update_hosts">Проверить обновления</string>
     <string name="button_update_hosts">Обновить хосты</string>
     <string name="button_enable_hosts">Вкл. блокировку рекламы</string>
@@ -166,7 +166,7 @@
     <!--Menu entries-->
     <string name="menu_refresh">Обновить</string>
     <string name="menu_add">Добавить</string>
-    <string name="menu_hosts_sources">Источники списков хостов</string>
+    <string name="menu_hosts_sources">Источники хостов</string>
     <string name="menu_help">Справка</string>
     <string name="menu_import">Импортировать резервную копию</string>
     <string name="menu_export">Экспортировать резервную копию</string>
@@ -200,10 +200,10 @@
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump — это инструмент для мониторинга запросов DNS и их сохранения в файле журнала. Запустите Tcpdump, он будет работать в фоновом режиме до перезагрузки устройства — запустите приложение, в котором на экране показывается реклама — проанализируйте запросы DNS, используя файл журнала. Найденные в нем подозрительные сервера, возможные источники рекламы, могут быть внесены в Чёрный список.</string>
-    <string name="tcpdump_disable_monitoring">Отключить мониторинг</string>
-    <string name="tcpdump_enable_monitoring">Включить мониторинг</string>
-    <string name="tcpdump_show_results">Показать результаты</string>
+    <string name="tcpdump_description">Tcpdump — это инструмент для мониторинга запросов DNS и их сохранения в файле журнала. Запустите Tcpdump, он будет работать в фоновом режиме до перезагрузки устройства — запустите приложение, в котором на экране показывается реклама — проанализируйте запросы DNS, используя файл журнала. Найденные в нём подозрительные серверы, возможные источники рекламы, могут быть внесены в чёрный список.</string>
+    <string name="tcpdump_disable_monitoring">Откл. мониторинг</string>
+    <string name="tcpdump_enable_monitoring">Вкл. мониторинг</string>
+    <string name="tcpdump_show_results">Результаты</string>
     <string name="tcpdump_redirect_dialog_title">Перенаправить домен</string>
     <string name="tcpdump_menu_sort">Сортировать домены</string>
     <string name="tcpdump_menu_clear">Очистить журнал</string>
@@ -276,10 +276,10 @@
     <!--Drawer menu items-->
     <string-array name="drawer_items">
         <item>Главная</item>
-        <item>Источники списков хостов</item>
+        <item>Источники хостов</item>
         <item>Ваши списки</item>
         <item>Открыть файл hosts</item>
-        <item>Логирование запросов DNS</item>
+        <item>Журнал запросов DNS</item>
         <item>Сканирование Adware</item>
         <item>Настройки</item>
         <item>Справка</item>

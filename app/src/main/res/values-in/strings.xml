@@ -16,6 +16,7 @@
 
     <!--Home-->
     <string name="header_help">Selamat Datang</string>
+    <string name="text_help">AdAway adalah perangkat lunak gratis dengan desain kode terbuka untuk memblokir iklan. AdAway menangkap alamat-alamat jaringan iklan untuk memblokirnya di perangkatmu.Ingin tahu lebih? Lihat bantuan di bawah!</string>
     <string name="button_show_help">Tampilkan semua bantuan</string>
     <string name="icon_update_status">Keterangan pembaharuan</string>
     <string name="text_update">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
@@ -41,15 +42,23 @@
     <string name="list_add_dialog_black">Tambahkan pada daftar hitam</string>
     <string name="list_add_dialog_white">Tambahkan pada daftar putih</string>
     <string name="list_add_dialog_redirect">Tambahkan pada daftar pengalihan</string>
+    <string name="list_edit_dialog_black">Sunting host daftar hitam</string>
+    <string name="list_edit_dialog_white">Sunting host daftar putih host</string>
     <string name="list_edit_dialog_redirect">Kelola pengalihan</string>
     <string name="list_dialog_hostname">Hostname:</string>
     <string name="list_dialog_hostname_hint">Alamat sumber daftar</string>
     <string name="list_dialog_wildcard">(Karakter * dan ? diperbolehkan)</string>
     <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
     <string name="import_dialog">Mengimpor ...</string>
+    <string name="import_success">Cadangan sukses diimpor dari penyimpanan eksternal anda</string>
+    <string name="import_failed">Cadangan gagal diimpor. Apakah formatnya benar? Lihat logcat untuk detail lebih.</string>
     <string name="export_dialog">Mengekspor ...</string>
+    <string name="export_success">Cadangan sukses diekspor ke file \'adaway-backup.json\' pada penyimpanan eksternal anda.</string>
+    <string name="export_failed">Gagal untuk mengekspor cadangan.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Daftar hosts</string>
+    <string name="hosts_description">File host adalah File sistem yang memetakan antara nama host dengan alamat IP. Itu adalah file teks biasa yang konfigurasinya ditangani oleh Adaway. Berikut beberapa baris pertamanya:</string>
     <string name="hosts_content">Membaca isi file host...</string>
     <string name="hosts_open_button">Buka file host</string>
 
@@ -63,6 +72,8 @@
     <string name="status_no_connection_subtitle">Tidak ada koneksi internet yang tersedia</string>
     <string name="status_download_fail">Sumber tidak tersedia</string>
     <string name="status_download_fail_subtitle_new">Tidak ada sumber host yang terjangkau!</string>
+    <string name="status_root_access_denied">Akses root ditolak</string>
+    <string name="status_root_access_denied_subtitle">Ijinkan akses root dari aplikasi root anda</string>
     <string name="status_failure">Terjadi kesalahan</string>
     <string name="status_failure_subtitle">Periksa logcat untuk lebih jelasnya</string>
     <string name="status_enabled">Dinyalakan</string>
@@ -89,6 +100,7 @@
     <string name="apply_copy_fail_title">Penyalinan gagal</string>
     <string name="apply_success_subtitle">Sumber host diterapan</string>
     <string name="apply_success_title">Penerapan berhasil</string>
+    <string name="apply_success_dialog">Penerapan telah berhasil. Anda mungkin perlu melakukan reboot Android untuk perubahan berefek. Apakah Anda ingin reboot? (Untuk mencegah kehilangan data pastikan tidak ada aplikasi menggunakan sdcard saat ini!)</string>
     <string name="apply_symlink_successful">Symlink telah berhasil dibuat.\nIni mungkin membutuhkan memuat ulang Android untuk mendapatkan hasil dari perubahan.\n\nApakah anda ingin memuat ulang?\n(Untuk mencegah adanya kehilangan data, pastikan tidak ada aplikasi yang menggunakan kartu SD pada saat ini!)</string>
     <string name="apply_symlink_successful_title">Pembuatan symlink berhasil</string>
     <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
@@ -123,6 +135,7 @@
     <string name="no_hostname_title">Hostname tidak diformat dengan benar</string>
     <string name="no_ip">Ini bukan IP yang benar!</string>
     <string name="no_ip_title">IP tidak diformat dengan benar</string>
+    <string name="reboot_never_reboot">Jangan pernah nyalakan ulang dan jangan tampilkan pertanyaan ini lain kali</string>
     <string name="loading">Memuat...</string>
 
     <!--Menu entries-->
@@ -130,8 +143,8 @@
     <string name="menu_add">Tambah</string>
     <string name="menu_hosts_sources">Sumber host</string>
     <string name="menu_help">Bantuan</string>
-    <string name="menu_import">Memasukan semua daftar</string>
-    <string name="menu_export">Ekspor Semua Daftar</string>
+    <string name="menu_import">Impor cadangan</string>
+    <string name="menu_export">Ekspor cadangan</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -184,6 +197,8 @@
     <string name="pref_update_check">Memeriksa pembaruan</string>
     <string name="pref_apply_method">Target file host</string>
     <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
+    <string name="pref_redirection_ipv4">Redireksi IPv4</string>
+    <string name="pref_redirection_ipv6">Redireksi IPv6</string>
     <string name="pref_header_preferences">Pengaturan</string>
     <string name="pref_header_preferences_summary">Pengaturan normal Adaway</string>
     <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
@@ -229,6 +244,7 @@
         <item>Sumber host</item>
         <item>Daftar pribadi</item>
         <item>Buka berkas hosts</item>
+        <item>Pindai terhadap adware</item>
         <item>Pengaturan</item>
         <item>Bantuan</item>
     </string-array>
@@ -239,6 +255,7 @@
 
     <!--Telemetry-->
     <string name="dialog_telemetry_title">Telemetri</string>
+    <string name="dialog_telemetry_enable">Tentu, Saya senang untuk membantu!</string>
     <string name="dialog_telemetry_disable">Tidak, Terima kasih</string>
 
     <!--Shortcuts-->

@@ -92,9 +92,6 @@
     <string name="menu_add">Thêm</string>
     <string name="menu_hosts_sources">Các nguồn miền</string>
     <string name="menu_help">Trợ giúp</string>
-    <string name="menu_import">Nhập tất cả các danh sách</string>
-    <string name="menu_export">Xuất tất cả các danh sách</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">Hỏi đáp</string>

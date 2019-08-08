@@ -4,4 +4,4 @@ Quando uma aplicação solicita um anúncio a partir de um hospedeiro nesse fich
 Pode transferir ficheiros hosts predefinidos a partir da aplicação para incorporá-los no ficheiro hosts do sistema. Também é possível utilizar os seus próprios ficheiros e adicionar certos hospedeiros às listas branca e negra.
 Existem opções para executar um servidor da Web local que responda aos nomes de hospedeiro bloqueados e que direcione os pedidos para os endereços de IP que escolher.
 
-Requer root: Sim. O ficheiro hosts está localizado em /system, que é só de leitura por predefinição.
+Requer root: sim. O ficheiro hosts está localizado em /system, que é só de leitura por predefinição.

@@ -119,7 +119,7 @@
     <string name="apply_fail">Hosts-filen kunne ikke påføres dit system!\nPrøv at ændre placeringen af hosts-filen i indstillingerne til \"/data/data/hosts\".</string>
     <string name="apply_fail_title">Anvendelse mislykkedes</string>
     <string name="root_access_fail">Kontroller din root management-app for at sikre, at rootadgang er blevet tildelt.</string>
-    <string name="revert_successful">Du vendte tilbage til standardværtsfilen.\nDu er muligvis nødt til at genstarte Android, for ændringerne træder i kraft.\n\nVil du genstarte?\n(For at forhindre tab af data skal du sørge for, at ingen app bruger SD-kortet i øjeblikket !)</string>
+    <string name="revert_successful">Du vendte tilbage til standardværtsfilen.\nDu er muligvis nødt til at genstarte Android, for ændringerne træder i kraft.\n\nVil du genstarte?\n(For at forhindre tab af data skal du sørge for, at ingen app bruger SD-kortet i øjeblikket!)</string>
     <string name="revert_successful_title">Gendannelse successfuld</string>
     <string name="revert_problem">Gendannelse mislykkedes af ukendte årsager.</string>
     <string name="revert_problem_title">Gendannelse mislykkedes!</string>

@@ -51,9 +51,6 @@
     <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
     <string name="import_dialog">Importerar...</string>
     <string name="export_dialog">Exporterar...</string>
-    <string name="export_success">Exporterade alla poster till en fil som heter \'adaway-export\' på ditt SD-kort.</string>
-    <string name="export_failed">Det gick inte att exportera din lista till ditt SD-kort.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Värdfilen</string>
     <string name="hosts_description">Värdfilen (HOSTS) är en systemfil som mappar om värdnamn till IP-adresser. Det är en vanlig textfil som AdAway kan hantera. Här är några rader från början av filen:</string>
@@ -146,9 +143,6 @@
     <string name="menu_add">Lägg till</string>
     <string name="menu_hosts_sources">Värdkällor</string>
     <string name="menu_help">Hjälp</string>
-    <string name="menu_import">Importera alla listor</string>
-    <string name="menu_export">Exportera alla listor</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>

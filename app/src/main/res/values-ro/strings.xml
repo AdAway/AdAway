@@ -50,8 +50,6 @@
     <string name="list_dialog_ip">Adresa IP (IPv4 or IPv6):</string>
     <string name="import_dialog">Importa...</string>
     <string name="export_dialog">Exporta...</string>
-    <string name="export_failed">Eroare la exportarea listei pe cardul SD</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Fisierul \'host\'</string>
     <!--Status Notification-->
@@ -117,9 +115,6 @@
     <string name="menu_add">Adaugă</string>
     <string name="menu_hosts_sources">Sursele (hosts)</string>
     <string name="menu_help">Ajutor</string>
-    <string name="menu_import">Importa toate listele</string>
-    <string name="menu_export">Exporta toate listele</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">Lista cu intrebari frecvente</string>

@@ -92,9 +92,6 @@
     <string name="menu_add">Dodaj</string>
     <string name="menu_hosts_sources">Host-ovi resursi</string>
     <string name="menu_help">Pomoć</string>
-    <string name="menu_import">Uvezi Sve Liste</string>
-    <string name="menu_export">Izvezi Sve Liste</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">Često Postavljena Pitanja</string>

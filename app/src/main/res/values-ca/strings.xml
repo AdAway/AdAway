@@ -119,9 +119,6 @@
     <string name="menu_add">Afegiu</string>
     <string name="menu_hosts_sources">Servidors de fitxers hosts</string>
     <string name="menu_help">Ajuda</string>
-    <string name="menu_import">Importar totes les llistes</string>
-    <string name="menu_export">Exportar totes les llistes</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">PMF (FAQ)</string>

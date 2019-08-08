@@ -51,7 +51,7 @@
     <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
     <string name="import_dialog">Importo...</string>
     <string name="import_success">Backup correttamente importato dalla memoria esterna.</string>
-    <string name="import_failed">Impossibile importare il backup. Il suo formato è corretto? Controlla il logcat per maggiori dettagli.</string>
+    <string name="import_failed">Importazione del backup non riuscita. Il suo formato è corretto? Controlla il logcat per maggiori dettagli.</string>
     <string name="export_dialog">Esporto...</string>
     <string name="export_success">Backup correttamente esportato nel file \'adaway-backup.json\' nella memoria esterna.</string>
     <string name="export_failed">Esportazione del backup non riuscita.</string>

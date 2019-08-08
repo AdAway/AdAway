@@ -51,9 +51,6 @@
     <string name="list_dialog_ip">IP (IPv4 alebo IPv6):</string>
     <string name="import_dialog">Importovanie…</string>
     <string name="export_dialog">Exportovanie…</string>
-    <string name="export_success">Všetky položky boli exportované na SD kartu do súboru s názvom \'adaway-export\'.</string>
-    <string name="export_failed">Export vášho zoznamu na SD kartu zlyhal.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Hosts súbor</string>
     <string name="hosts_description">Súbor hosts je systémový súbor, ktorý mapuje názvy hostiteľov k IP adresám. Je to jednoduchý textový súbor, ktorého konfiguráciu spracováva AdAway. Tu je zopár jeho prvých riadkov:</string>
@@ -146,9 +143,6 @@
     <string name="menu_add">Pridať</string>
     <string name="menu_hosts_sources">Hosts zdroje</string>
     <string name="menu_help">Pomoc</string>
-    <string name="menu_import">Importovať zoznamy</string>
-    <string name="menu_export">Exportovať zoznamy</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>

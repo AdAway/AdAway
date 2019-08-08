@@ -49,8 +49,6 @@
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">بارگیری...</string>
     <string name="export_dialog">بارگذاری...</string>
-    <string name="export_failed">بارگذاری لیست به SD کارت شما ناموفق بود</string>
-
     <!--Hosts content-->
     <string name="hosts_header">فایل هاست ها</string>
     <string name="hosts_description">فایل هاست ها یک فایل سیستمی است که نام هاست ها را به آی پی آدرس ها مرتبط میکند.این یک فایل متنی ساده است که توسط  AdAway تنظیم شده است.در اینجا چند خط ابتدایی آن را داریم:</string>
@@ -116,9 +114,6 @@
     <string name="menu_add">اضافه کردن</string>
     <string name="menu_hosts_sources">منابع Hosts</string>
     <string name="menu_help">راهنما</string>
-    <string name="menu_import">بارگیری همه لیستها</string>
-    <string name="menu_export">بارگذاری همه لیست ها</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-روشن/S-خاموش</string>
     <string name="help_tab_faq">پرسش و پاسخ</string>

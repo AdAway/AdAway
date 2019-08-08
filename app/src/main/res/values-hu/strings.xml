@@ -51,9 +51,6 @@
     <string name="list_dialog_ip">IP (IPv4 vagy IPv6):</string>
     <string name="import_dialog">Importálás...</string>
     <string name="export_dialog">Exportálás...</string>
-    <string name="export_success">Az összes bejegyzés exportálva az SD kártyán az \'adaway-export\' nevű fájlba.</string>
-    <string name="export_failed">Nem sikerült a lista exportálása az SD kártyára.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">A hosts fájl</string>
     <string name="hosts_description">A hosts fájl egy olyan rendszerfájl, amely a hosztneveket IP címekhez társítja. Ez egy egyszerű szöveges fájl, melyet az AdAway kezeli. Íme a néhány első sora:</string>
@@ -70,6 +67,7 @@
     <string name="status_no_connection_subtitle">Nincs elérhető internetkapcsolat</string>
     <string name="status_download_fail">Elérhetetlen források</string>
     <string name="status_download_fail_subtitle_new">Nincs elérhető hosts-fájl forrás!</string>
+    <string name="status_root_access_denied">Root hozzáférés megtagadva</string>
     <string name="status_failure">Valami nem stimmel</string>
     <string name="status_failure_subtitle">Ellenőrizd a logcatet további részletekért</string>
     <string name="status_enabled">Engedélyezett</string>
@@ -145,9 +143,6 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="menu_add">Hozzáadás</string>
     <string name="menu_hosts_sources">Hosts források</string>
     <string name="menu_help">Súgó</string>
-    <string name="menu_import">Összes lista importálása</string>
-    <string name="menu_export">Összes lista exportálása</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">GYIK</string>
@@ -282,4 +277,21 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="hosts_source_need_update">A %1$s frissítése szükséges</string>
     <string name="hosts_source_last_update">Utolsó frissítés %1$s ezelőtt</string>
     <string name="hosts_source_unknown_status">Ismeretlen frissítési státusz</string>
-    </resources>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%d perc</item>
+        <item quantity="other">%d perc</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d óra</item>
+        <item quantity="other">%d óra</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d nap</item>
+        <item quantity="other">%d nap</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d hónap</item>
+        <item quantity="other">%d hónap</item>
+    </plurals>
+
+</resources>

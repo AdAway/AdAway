@@ -58,7 +58,7 @@
 
     <!--Hosts content-->
     <string name="hosts_header">Datoteka poslužitelja</string>
-    <string name="hosts_description">Datoteka poslužitelja je datoteka sustava koja mapira nazive poslužitelja prema IP adresama. To je obična tekstna datoteka čije se podešavanje rukuje putem AdAwaya. Ovdje je prvih nekoliko redaka:</string>
+    <string name="hosts_description">Datoteka poslužitelja je datoteka sustava koja mapira nazive poslužitelja prema IP adresama. To je obična tekstna datoteka čijim se podešavanjem rukuje putem AdAwaya. Ovdje je prvih nekoliko redaka:</string>
     <string name="hosts_content">Učitavanje sadržaja datoteke poslužitelja...</string>
     <string name="hosts_open_button">Otvori datoteku poslužitelja</string>
 

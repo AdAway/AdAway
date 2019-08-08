@@ -103,9 +103,6 @@
     <string name="menu_add">Lisää</string>
     <string name="menu_hosts_sources">Hosts-lähteet</string>
     <string name="menu_help">Ohjeet</string>
-    <string name="menu_import">Tuo kaikki luettelot</string>
-    <string name="menu_export">Vie kaikki luettelot</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>

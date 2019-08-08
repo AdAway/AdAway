@@ -99,9 +99,6 @@
     <string name="menu_add">Legg til</string>
     <string name="menu_hosts_sources">Vertsfilkilder</string>
     <string name="menu_help">Hjelp</string>
-    <string name="menu_import">Importer alle listene</string>
-    <string name="menu_export">Eksporter alle listene</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>

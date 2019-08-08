@@ -122,9 +122,6 @@
     <string name="menu_add">เพิ่ม</string>
     <string name="menu_hosts_sources">แหล่งที่มาโฮสต์</string>
     <string name="menu_help">ช่วยเหลือ</string>
-    <string name="menu_import">นำเข้ารายการทั้งหมด</string>
-    <string name="menu_export">ส่งออกรายการทั้งหมด</string>
-
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">ถาม-ตอบ</string>

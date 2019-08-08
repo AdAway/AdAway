@@ -20,7 +20,7 @@
     <string name="button_show_help">Hilfe anzeigen</string>
     <string name="icon_update_status">Status der Aktualisierung</string>
     <string name="text_update">Alle Hosts-Dateien aus den festgelegten Quellen werden heruntergeladen, mit Ihren eigenen Listen zusammengefügt und als eine Hosts-Datei im System installiert.</string>
-    <string name="button_check_update_hosts">Nach Aktualisierungen suchen</string>
+    <string name="button_check_update_hosts">Aktualisierungen suchen</string>
     <string name="button_update_hosts">Hosts aktualisieren</string>
     <string name="button_enable_hosts">Werbeblocker aktivieren</string>
     <string name="button_disable_hosts">Werbeblocker deaktivieren</string>
@@ -73,7 +73,7 @@
     <string name="status_download_fail">Nicht verfügbare Quelle</string>
     <string name="status_download_fail_subtitle_new">Keine Hosts-Quellen erreichbar!</string>
     <string name="status_root_access_denied">Root Zugriff verweigert</string>
-    <string name="status_root_access_denied_subtitle">Erlauben sie Root Zugriff aus ihrer Root App heraus.</string>
+    <string name="status_root_access_denied_subtitle">Root-Zugriff aus der Root-App heraus zulassen.</string>
     <string name="status_failure">Ein Fehler ist aufgetreten</string>
     <string name="status_failure_subtitle">Logcat nach weiteren Details durchsuchen</string>
     <string name="status_enabled">Aktiviert</string>
@@ -101,7 +101,7 @@
     <string name="apply_success_subtitle">Hosts-Quellen wurden angewandt</string>
     <string name="apply_success_title">Erfolgreich angewendet</string>
     <string name="apply_success_dialog">Änderungen waren erfolgreich.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, stellen Sie bitte sicher, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
-    <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, bitte feststellen, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+    <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\nAndroid muss eventuell neu gestartet werden, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverluste zu vermeiden, dafür sorgen, dass momentan keine Anwendung die SD-Karte verwendet!)</string>
     <string name="apply_symlink_successful_title">Symbolische Verknüpfung erfolgreich erstellt</string>
     <string name="apply_symlink_fail">Symbolische Verknüpfung konnte nicht, von Android, erstellt werden.\nDas liegt wahrscheinlich an einer \'Funktion\' namens S-ON auf HTC-Geräten!\n\nEine Lösung ist es, Ihr Gerät im Wiederherstellungsmodus zu starten und die Verknüpfung von dort mit »ln -s /data/data/hosts /system/etc/hosts« zu erstellen.\n\nWenn das nicht funktioniert, suchen Sie bitte im Internet nach S-OFF und Ihrem Gerät.</string>
     <string name="apply_symlink_fail_title">Symbolische Verknüpfung konnte nicht erstellt werden</string>
@@ -118,11 +118,11 @@
     <string name="apply_dialog_apply">Neue Hosts-Datei im System aktivieren</string>
     <string name="apply_fail">Das Ändern der Hosts-Datei auf Ihrem System ist fehlgeschlagen!\nVersuchen Sie bitte die Hosts-Datei in den Einstellungen auf /data/data/hosts zu ändern.</string>
     <string name="apply_fail_title">Anwendung fehlgeschlagen</string>
-    <string name="root_access_fail">Bitte stellen sie in ihrer Root-Verwaltungssoftware sicher, dass dieser App Root Zugriff gewährt wurde.</string>
-    <string name="revert_successful">Die originale Hosts-Datei wurde wiederhergestellt.\nEs kann nötig sein Android neu zu starten, damit alle Änderungen wirksam werden.\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, bitte feststellen, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+    <string name="root_access_fail">Bitte in der Root-Verwaltungssoftware überprüfen, ob dieser App Root-Zugriff gewährt wurde.</string>
+    <string name="revert_successful">Die originale Hosts-Datei wurde wiederhergestellt.\nAndroid muss eventuell neu gestartet werden, damit alle Änderungen wirksam werden.\nMöchten Sie neu starten?\n(Um Datenverluste zu vermeiden, dafür sorgen, dass momentan keine Anwendung die SD-Karte verwendet!)</string>
     <string name="revert_successful_title">Erfolgreich zurückgesetzt</string>
-    <string name="revert_problem">Wiederherstellen fehlgeschlagen.</string>
-    <string name="revert_problem_title">Die Wiederherstellung ist fehlgeschlagen!</string>
+    <string name="revert_problem">Zurücksetzen aus unbekannten Gründen fehlgeschlagen.</string>
+    <string name="revert_problem_title">Zurücksetzen fehlgeschlagen!</string>
     <string name="download_fail_dialog">Keine der aktivierten Hosts-Quellen ist erreichbar! Funktioniert Ihre Internetverbindung richtig?</string>
     <string name="download_fail_title">Herunterladen fehlgeschlagen</string>
     <string name="no_private_file">Private Datei konnte nicht erstellt werden.</string>
@@ -140,7 +140,7 @@
     <string name="no_hostname_title">Falsch formatierter Hostname</string>
     <string name="no_ip">Das ist keine gültige IP!</string>
     <string name="no_ip_title">Falsch formatierte IP</string>
-    <string name="reboot_never_reboot">Nie neu starten und diese Frage nicht beim nächsten Mal zeigen!</string>
+    <string name="reboot_never_reboot">Nie neu starten und diese Frage nicht mehr stellen!</string>
     <string name="loading">Wird geladen …</string>
 
     <!--Menu entries-->
@@ -159,7 +159,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Sie finden hier installierte Adware, üble Anwendungen, die durch AdAway nicht blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen, die selbst dann erscheinen, wenn die App nicht läuft, oder stellen sogar Ihren Klingelton um. Die einzige verfügbare Gegenmaßnahme ist die Deinstallation jener Apps, indem Sie auf die Listeneinträge klicken..</string>
-    <string name="adware_scanning">Durchsuchen...</string>
+    <string name="adware_scanning">Durchsuchen &#8230;</string>
     <string name="adware_empty">Keine Adware gefunden!</string>
 
     <!--Hosts sources-->
@@ -267,9 +267,9 @@
     <!--Drawer menu labels-->
     <string name="drawer_support_text">\u2764 Entwicklung fördern \u2764</string>
     <string name="drawer_support_dialog_title">Weiterentwicklung fördern</string>
-    <string name="drawer_support_dialog_text">AdAway ist eine freie und quelloffene Software, welche nur von der Community entwickelt und gepflegt wird. Als ein Freizeitprojekt hat es mich zwei Jahre gekostet, um diese neue Version der App zu entwickeln.
+    <string name="drawer_support_dialog_text">AdAway ist eine freie und quelloffene Software, die nur von der Community entwickelt und gepflegt wird. Als ein Freizeitprojekt hat es mich zwei Jahre gekostet, um diese neue Version der App zu entwickeln.
 
-Wenn sie Ihnen gefällt und Sie sich weitere Updates wünschen, können Sie gerne das Projekt unterstützen.</string>
+Wenn Sie Ihnen gefällt und Sie sich weitere Updates wünschen, können Sie gerne das Projekt unterstützen.</string>
     <string name="drawer_support_dialog_button">Meine Unterstützung anzeigen</string>
 
     <!--Telemetry-->
@@ -284,8 +284,8 @@ Wenn sie Ihnen gefällt und Sie sich weitere Updates wünschen, können Sie gern
     <string name="shortcut_preferences">Einstellungen</string>
 
     <!--Hosts source status-->
-    <string name="hosts_source_up_to_date">Aktuell für %1$s</string>
-    <string name="hosts_source_need_update">Aktualisierung für %1$s nötig</string>
+    <string name="hosts_source_up_to_date">Seit %1$s aktuell</string>
+    <string name="hosts_source_need_update">Seit %1$s Aktualisierung nötig</string>
     <string name="hosts_source_last_update">Letzte Aktualisierung vor %1$s</string>
     <string name="hosts_source_unknown_status">Status der Aktualisierung unbekannt</string>
     <plurals name="hosts_source_minutes">
@@ -298,11 +298,11 @@ Wenn sie Ihnen gefällt und Sie sich weitere Updates wünschen, können Sie gern
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d Tag</item>
-        <item quantity="other">%d Tage</item>
+        <item quantity="other">%d Tagen</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d Monat</item>
-        <item quantity="other">%d Monate</item>
+        <item quantity="other">%d Monaten</item>
     </plurals>
 
 </resources>
