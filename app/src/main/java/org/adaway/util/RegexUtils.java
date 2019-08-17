@@ -34,7 +34,7 @@ public class RegexUtils {
     private static final Pattern TCPDUMP_HOSTNAME_PATTERN = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
 
 
-    private static final String HOSTS_PARSER = "^\\s*([^\\s]+)\\s+([^\\s]+)\\s*(?:\\#.*\\s)*$";
+    private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)\\s*(?:#.*)*$";
     public static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
 

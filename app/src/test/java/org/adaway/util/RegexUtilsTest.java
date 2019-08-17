@@ -4,7 +4,9 @@ import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
 
+import static org.adaway.util.RegexUtils.HOSTS_PARSER_PATTERN;
 import static org.junit.Assert.*;
 
 public class RegexUtilsTest {
@@ -98,6 +100,16 @@ public class RegexUtilsTest {
         INVALID_WILDCARD_NAMES.add("fleeb.com?..");
         INVALID_WILDCARD_NAMES.add("fleeb.com..*");
         INVALID_WILDCARD_NAMES.add("fleeb.com..?");
+    }
+
+    @Test
+    public void testHostParser() {
+        Matcher matcher = HOSTS_PARSER_PATTERN.matcher("# [mocean.mobi]");
+        assertFalse(matcher.matches());
+        matcher = HOSTS_PARSER_PATTERN.matcher("127.0.0.1 api.airpush.com ## hope this is all #");
+        assertTrue(matcher.matches());
+        matcher = HOSTS_PARSER_PATTERN.matcher("127.0.0.1 ad.leadboltapps.net ## another airpush style ad");
+        assertTrue(matcher.matches());
     }
 
     @Test
