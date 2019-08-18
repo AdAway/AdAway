@@ -27,6 +27,7 @@ import org.adaway.util.NotEnoughSpaceException;
 import org.adaway.util.RemountException;
 import org.adaway.util.Utils;
 import org.sufficientlysecure.rootcommands.Shell;
+import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -58,13 +59,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
-
 import static org.adaway.model.hostsinstall.HostsInstallError.APPLY_FAIL;
+import static org.adaway.model.hostsinstall.HostsInstallError.COPY_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.DOWNLOAD_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.NOT_ENOUGH_SPACE;
 import static org.adaway.model.hostsinstall.HostsInstallError.NO_CONNECTION;
 import static org.adaway.model.hostsinstall.HostsInstallError.PRIVATE_FILE_FAIL;
+import static org.adaway.model.hostsinstall.HostsInstallError.REMOUNT_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.REVERT_FAIL;
 import static org.adaway.model.hostsinstall.HostsInstallError.ROOT_ACCESS_DENIED;
 import static org.adaway.model.hostsinstall.HostsInstallError.SYMLINK_MISSING;
@@ -551,8 +552,12 @@ public class HostsInstallModel extends Observable {
                 default:
                     throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
             }
-        } catch (NotEnoughSpaceException | RemountException | CommandException exception) {
-            throw new HostsInstallException(NOT_ENOUGH_SPACE, "Unable to copy new private hosts file to target hosts file.", exception);
+        } catch (NotEnoughSpaceException exception) {
+            throw new HostsInstallException(NOT_ENOUGH_SPACE, "Missing free space to copy new private hosts file to target hosts file.", exception);
+        } catch (RemountException exception) {
+            throw new HostsInstallException(REMOUNT_FAIL, "Failed to remount target to copy new private hosts to.", exception);
+        } catch (CommandException exception) {
+            throw new HostsInstallException(COPY_FAIL, "Unable to copy new private hosts file to target hosts file.", exception);
         }
     }
 
