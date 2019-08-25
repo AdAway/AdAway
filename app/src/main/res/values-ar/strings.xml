@@ -50,7 +50,13 @@
     <string name="list_dialog_wildcard">(يسمح اسخدام رموز البدل * و ?)</string>
     <string name="list_dialog_ip">بروتكول الانترنت (IPv4 أو IPv6):</string>
     <string name="import_dialog">استيراد…</string>
+    <string name="import_success">تم ادخال النسخة الاحتياطية من الذاكرة الخارجية بنجاح.</string>
+    <string name="import_failed">فشل ادخال النسخة الاحتياطية,هل هي بالصيغة الصحيحة؟
+تفقد السجل لمزيد من المعلومات.</string>
     <string name="export_dialog">تصدير…</string>
+    <string name="export_success">تم استخراج النسخة الاحتياطية للملف \'adaway-backup.json\' على ذاكرى التخزين.</string>
+    <string name="export_failed">فشل استخراج النسخة الاحتياطية.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">ملف المضيف</string>
     <string name="hosts_description">ملف المضيف هو ملف نظام يقوم بربط أسماء المضيف مع عناوين الإنترنت بروتوكول .إنه عبارة عن ملف نصّي ويهتم AdAway به ويقوم بإعداده. تبدو بعض الخطوط الأولى فيه كما يلي:</string>
@@ -67,6 +73,8 @@
     <string name="status_no_connection_subtitle">لا يوجد اتصال بالشبكة متوفر</string>
     <string name="status_download_fail">الملقمات غير متوفرة</string>
     <string name="status_download_fail_subtitle_new">لا يمكن الوصول إلى مصادر المضيف!</string>
+    <string name="status_root_access_denied">صلاحيات الرووت مرفوضة.</string>
+    <string name="status_root_access_denied_subtitle">اسمح لصلاحيات الرووت من البرنامج المسؤول عن الرووت؟</string>
     <string name="status_failure">حدث خطأٌ ما</string>
     <string name="status_failure_subtitle">للمزيد من المعلومات يرجى التحقّق من الـ logcat</string>
     <string name="status_enabled">مفعل</string>
@@ -111,6 +119,7 @@
     <string name="apply_dialog_apply">تنفيذ ملفات المضيف</string>
     <string name="apply_fail">لقد فشلت عملية تثبيت ملفات المضيف! حاول تغيير مسار الملفات من الاعدادات الى /data/data/hosts</string>
     <string name="apply_fail_title">فشل التنفيذ</string>
+    <string name="root_access_fail">الرجاء تفقد برنامج ادارة الرووت للتأكد من أن صلاحيات الرووت مسموحة.</string>
     <string name="revert_successful">تم استرجاع ملف المضيف الإفتراضي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
     <string name="revert_successful_title">تم الاسترجاع</string>
     <string name="revert_problem">الاسترجاع فشل لأسباب غير معروفة.</string>
@@ -141,6 +150,9 @@
     <string name="menu_add">إضافة</string>
     <string name="menu_hosts_sources">مصادر المضيف</string>
     <string name="menu_help">المساعدة</string>
+    <string name="menu_import">استرجاع النسخة الاحتياطية.</string>
+    <string name="menu_export">استخراج نسخة احتياطية.</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">الأسئلة الشائعة</string>
@@ -194,6 +206,10 @@
     <string name="pref_update_check">التحقق من وجود تحديثات</string>
     <string name="pref_apply_method">مسار ملفات المضيف</string>
     <string name="pref_apply_method_summary">قبل تغيير هذا الإعداد، يجب قراءة التعليمات حول هذه الوظيفة.</string>
+    <string name="pref_redirection_ipv4">عنوان إعادة التوجيه IPv4</string>
+    <string name="pref_redirection_ipv4_summary">جميع الروابط المحجومة سيتم إعادة توجيهها الى عنوان IPv4 هذا.</string>
+    <string name="pref_redirection_ipv6">عنوان إعادة التوجيه IPv6</string>
+    <string name="pref_redirection_ipv6_summary">جميع الروابط المحجومة سيتم إعادة توجيهها الى عنوان IPv6 هذا.</string>
     <string name="pref_header_preferences">الخيارات</string>
     <string name="pref_header_preferences_summary">الخيارات العامة لـ AdAway</string>
     <string name="pref_never_reboot">إخفاء مُحاور إعادة التشغيل</string>
@@ -232,6 +248,7 @@
     <string name="pref_enable_telemetry">تفعيل تقرير الأعطال</string>
     <string name="pref_enable_telemetry_summary">منح السماح للتطبيق لإرسال تقريرات الأعطال والأخطاء إلى Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">الرجاء تفعيل IPv6</string>
+    <string name="pref_enable_ipv6_summary">جميع مدخلات ملف host سوف تحصل على عنوان اعادة توجيه مقابل.</string>
     <string name="pref_enable_systemless_summary">منع AdAway من تغير تقسيمة النظام </string>
     <string name="pref_enable_systemless">تفعيل الوضع اللانظامي</string>
     <string name="pref_edit_text_value">تحرير قيمة إعدادات النص</string>
