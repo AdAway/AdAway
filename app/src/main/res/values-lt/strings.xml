@@ -134,6 +134,9 @@
     <string name="pref_custom_target_summary">Naudojamas kai nukreiptas host failas</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Pasirinktinis nukreipimas</item>
     </string-array>
 
@@ -153,8 +156,12 @@
     <string name="pref_enable_systemless">Įjungti nesisteminį režimą</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Host šaltiniai</item>
+        <item>Your lists</item>
         <item>Atidaryti host faila</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Nustatymai</item>
         <item>Pagalba</item>
     </string-array>

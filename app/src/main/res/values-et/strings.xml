@@ -87,6 +87,9 @@
     <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts faili asukohaks on muu asukoht.</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Muu asukoht</item>
     </string-array>
 
@@ -100,7 +103,11 @@
     <!--Drawer menu items-->
     <string-array name="drawer_items">
         <item>Allikad</item>
+        <item>Hosts sources</item>
+        <item>Your lists</item>
         <item>Ava hosts fail</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Eelistused</item>
         <item>Abi</item>
     </string-array>

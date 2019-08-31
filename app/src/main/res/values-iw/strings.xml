@@ -119,6 +119,9 @@
     <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>יעד מותאם אישית</item>
     </string-array>
 
@@ -141,6 +144,10 @@
     <string-array name="drawer_items">
         <item>לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</item>
         <item>פתח קובץ hosts</item>
+        <item>Your lists</item>
+        <item>Open hosts file</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>העדפות</item>
         <item>עזרה</item>
     </string-array>

@@ -153,6 +153,9 @@
     <string name="pref_custom_target_summary">Folosit numai daca locatia fisierul \"hosts\" este setat ca \"locatie aleasa de utilizator\" </string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Locatie aleasa de utilizator</item>
     </string-array>
 
@@ -175,8 +178,12 @@
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Sursele (hosts)</item>
+        <item>Your lists</item>
         <item>Deschide fisierele \"hosts\"</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Preferinte</item>
         <item>Ajutor</item>
     </string-array>

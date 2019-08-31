@@ -181,6 +181,9 @@
     <string name="pref_custom_target_summary">Només s\'utilitza si el fitxer hosts objectiu s\'ha ajustat a un objectiu personalitzat</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Objectiu personalitzt</item>
     </string-array>
 
@@ -207,9 +210,12 @@
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Servidors de fitxers hosts</item>
         <item>Les vostre llistes</item>
         <item>Obriu el fitxer de hosts</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Preferències</item>
         <item>Ajuda</item>
     </string-array>

@@ -34,6 +34,13 @@
     <string name="menu_help">Tulong</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
-        <item>Tulong</item>
+        <item>Home</item>
+        <item>Hosts sources</item>
+        <item>Your lists</item>
+        <item>Open hosts file</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
+        <item>Preferences</item>
+        <item>Help</item>
     </string-array>
     </resources>

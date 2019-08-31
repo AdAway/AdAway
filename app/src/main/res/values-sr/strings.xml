@@ -128,6 +128,9 @@
     <string name="pref_custom_target_summary">Koristi se samo ako je ciljna hosts datoteka postavljena na prilagođeno odredište</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Prilagođeno odredište</item>
     </string-array>
 
@@ -147,8 +150,12 @@
     <string name="pref_enable_systemless">Omogući systemless režim</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Host-ovi resursi</item>
+        <item>Your lists</item>
         <item>Otvori host-ove fajlove</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Podešavanja</item>
         <item>Pomoć</item>
     </string-array>

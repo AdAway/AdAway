@@ -203,6 +203,9 @@
     <string name="pref_custom_target_summary">Solo se usa si el archivo hosts de destino está configurado como Destino personalizado</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Destino personalizado</item>
     </string-array>
 
@@ -232,9 +235,12 @@
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Fuentes de hosts</item>
         <item>Tus listas</item>
         <item>Abrir archivo hosts</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Preferencias</item>
         <item>Ayuda</item>
     </string-array>

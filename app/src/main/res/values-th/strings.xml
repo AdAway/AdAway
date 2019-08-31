@@ -184,6 +184,9 @@
     <string name="pref_custom_target_summary">ใช้งานเท่านั้นหากไฟล์โฮสต์ถูกตั้งเป็นกำหนดเอง</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>กำหนดเอง</item>
     </string-array>
 
@@ -211,8 +214,11 @@
     <!--Drawer menu items-->
     <string-array name="drawer_items">
         <item>แหล่งที่มาโฮสต์</item>
+        <item>Your lists</item>
         <item>รายการของคุณ</item>
         <item>เปิดไฟล์โฮสต์</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>การตั้งค่า</item>
         <item>ช่วยเหลือ</item>
     </string-array>

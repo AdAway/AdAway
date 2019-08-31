@@ -152,6 +152,9 @@
     <string name="pref_custom_target_summary">فقط در صورتی استفاده بکن که فایل hosts به یک مسیر سفارشی تنظیم شده باشد</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>هدف سفارشی</item>
     </string-array>
 
@@ -171,8 +174,12 @@
     <string name="pref_enable_systemless">فعال کردن حالت systemless</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>منابع Hosts</item>
+        <item>Your lists</item>
         <item>باز کردن فایل hosts</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>تنظیمات</item>
         <item>راهنما</item>
     </string-array>

@@ -126,6 +126,9 @@
     <string name="pref_custom_target_summary">Uporabljeno le v primeru, da je pot do uporabljene hosts datoteke nastavljena po meri</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Pot do uporabljene hosts datoteke po meri</item>
     </string-array>
 
@@ -145,8 +148,12 @@
     <string name="pref_enable_systemless">Vključi systemless način</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Hosts viri</item>
+        <item>Your lists</item>
         <item>Odpri hosts datoteko</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Nastavitve</item>
         <item>Pomoč</item>
     </string-array>

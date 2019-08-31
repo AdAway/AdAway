@@ -179,6 +179,8 @@
         <item>Hosts-lähteet</item>
         <item>Luettelosi</item>
         <item>Avaa hosts-tiedosto</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Asetukset</item>
         <item>Ohjeet</item>
     </string-array>

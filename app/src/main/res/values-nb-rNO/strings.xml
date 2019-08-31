@@ -135,6 +135,9 @@
     <string name="pref_custom_target_summary">Brukes kun dersom målvertsfilen er satt til et tilpasset mål</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Tilpasset målpunkt</item>
     </string-array>
 
@@ -156,6 +159,10 @@
     <string-array name="drawer_items">
         <item>Vertsfilkilder</item>
         <item>Åpne vertsfilen</item>
+        <item>Your lists</item>
+        <item>Open hosts file</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Preferanser</item>
         <item>Hjelp</item>
     </string-array>

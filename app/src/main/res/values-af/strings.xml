@@ -116,6 +116,9 @@
     <string name="pref_custom_target_summary">Word slegs gebruik indien doelwit gasheer lêers gestel is as pasmaak teikens</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Doelwit teiken</item>
     </string-array>
 
@@ -132,6 +135,10 @@
         <item>Gaste bronne</item>
         <item>Maak Gasheer lêer oop</item>
         <item>Voorkeure</item>
+        <item>Open hosts file</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
+        <item>Preferences</item>
         <item>Help</item>
     </string-array>
     <string name="shortcut_preferences">Voorkeure</string>

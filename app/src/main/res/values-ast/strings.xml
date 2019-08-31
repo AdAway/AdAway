@@ -123,6 +123,9 @@
     <string name="pref_custom_target_summary">Úsase namái si\'l ficheru «hosts» oxetivu ta afitáu como oxetivu personalizáu</string>
 
     <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
         <item>Oxetivu personalizáu</item>
     </string-array>
 
@@ -140,8 +143,12 @@
     <string name="pref_enable_ipv6">Habilitar IPv6</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Fontes de hosts</item>
+        <item>Your lists</item>
         <item>Abrir ficheru «hosts»</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
         <item>Preferencies</item>
         <item>Ayuda</item>
     </string-array>

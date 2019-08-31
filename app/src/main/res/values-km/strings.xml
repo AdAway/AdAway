@@ -82,6 +82,12 @@
     <string-array name="drawer_items">
         <item>ការកំណត់</item>
         <item>ជំនួយ</item>
+        <item>Your lists</item>
+        <item>Open hosts file</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
+        <item>Preferences</item>
+        <item>Help</item>
     </string-array>
     <string name="shortcut_preferences">ការកំណត់</string>
 
