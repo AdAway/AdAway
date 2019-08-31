@@ -48,9 +48,14 @@
             android:exported="false"
             android:label="@string/menu_help" />
 
-        <receiver android:name=".broadcast.webserver.BootReceiver">
+        <receiver android:name=".broadcast.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.UpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
 

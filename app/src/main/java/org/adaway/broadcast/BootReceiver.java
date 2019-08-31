@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -18,16 +18,18 @@
  *
  */
 
-package org.adaway.broadcast.webserver;
+package org.adaway.broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.WebServerUtils;
+
+import static android.content.Intent.ACTION_BOOT_COMPLETED;
+import static org.adaway.util.Constants.TAG;
 
 /**
  * This broadcast receiver is executed after boot
@@ -35,8 +37,8 @@ import org.adaway.util.WebServerUtils;
 public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-            Log.i(Constants.TAG, "BootReceiver invoked");
+        if (ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+            Log.i(TAG, "BootReceiver invoked");
             // Start web server on boot if enabled in preferences
             if (PreferenceHelper.getWebServerOnBoot(context)) {
                 WebServerUtils.startWebServer(context);

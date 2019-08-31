@@ -55,7 +55,6 @@ public final class SentryLog {
         String dsn = enabled ? SENTRY_DSN : null;
         // Initialize sentry client
         Sentry.init(dsn, new AndroidSentryClientFactory(context));
-        Sentry.capture("Starting sentry");
     }
 
     /**
