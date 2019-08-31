@@ -3,8 +3,6 @@ package org.adaway.model.update;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.IntentFilter;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
@@ -22,8 +20,8 @@ import okhttp3.ResponseBody;
 
 import static android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE;
 import static android.content.Context.DOWNLOAD_SERVICE;
-import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.P;
+import static org.adaway.BuildConfig.VERSION_CODE;
+import static org.adaway.BuildConfig.VERSION_NAME;
 
 /**
  * This class is the model in charge of updating the application.
@@ -37,33 +35,30 @@ public class UpdateModel {
     private final Context context;
     private final OkHttpClient client;
     private final MutableLiveData<Manifest> manifest;
-    private long versionCode;
-    private String versionName;
     private UpdateDownloadReceiver receiver;
 
     public UpdateModel(Context context) {
         this.context = context;
         this.manifest = new MutableLiveData<>();
-        loadCurrentVersion();
         this.client = buildHttpClient();
     }
 
     /**
      * Get the current version code.
      *
-     * @return The current version code, {@code -1} if could not be retrieve.
+     * @return The current version code.
      */
-    public long getVersionCode() {
-        return this.versionCode;
+    public int getVersionCode() {
+        return VERSION_CODE;
     }
 
     /**
      * Get the current version name.
      *
-     * @return The current version name, empty string if could not be retrieved.
+     * @return The current version name.
      */
     public String getVersionName() {
-        return this.versionName;
+        return VERSION_NAME;
     }
 
     // TODO Comment
@@ -86,24 +81,6 @@ public class UpdateModel {
         return new OkHttpClient.Builder().build();
     }
 
-    private void loadCurrentVersion() {
-        try {
-            PackageManager packageManager = this.context.getPackageManager();
-            String packageName = this.context.getPackageName();
-            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
-            if (SDK_INT >= P) {
-                this.versionCode = packageInfo.getLongVersionCode();
-            } else {
-                this.versionCode = packageInfo.versionCode;
-            }
-            this.versionName = packageInfo.versionName;
-        } catch (PackageManager.NameNotFoundException exception) {
-            Log.w(TAG, "Failed to get application version code.", exception);
-            this.versionCode = -1;
-            this.versionName = "";
-        }
-    }
-
     private Manifest downloadManifest() {
         Request request = new Request.Builder()
                 .header("User-Agent", USER_AGENT)
@@ -111,7 +88,7 @@ public class UpdateModel {
                 .build();
         try (Response execute = this.client.newCall(request).execute();
              ResponseBody body = execute.body()) {
-            return new Manifest(body.string(), this.versionCode);
+            return new Manifest(body.string(), (long) VERSION_CODE);
         } catch (IOException | JSONException exception) {
             Log.e(TAG, "Unable to download manifest.", exception);
             // Return failed
