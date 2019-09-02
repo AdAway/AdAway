@@ -1,3 +1,11 @@
+## [4.2.9] - 2019-08-31
+
+- Improve hosts file parsing
+- Improve hosts file install error message (add more details than _not enough space_)
+- Fix menu drawer translation issue
+- Update translations
+- Remove the start (opt-in only) telemetry messages
+
 ## [4.2.8] - 2019-07-28
 
 - Fix TravisCI build issues
