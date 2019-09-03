@@ -64,7 +64,7 @@
         <activity
             android:name=".ui.hosts.HostsSourcesActivity"
             android:exported="false"
-            android:label="@string/lists_title"
+            android:label="@string/hosts_title"
             android:parentActivityName=".ui.next.NextActivity" />
         <activity
             android:name=".ui.tcpdump.TcpdumpLogActivity"
