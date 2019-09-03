@@ -28,6 +28,6 @@ public class PrefsVpnFragment extends PreferenceFragmentCompat {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        PrefsActivity.setAppBarTitle(this, R.string.pref_root_title);   // TODO FIXME
+        PrefsActivity.setAppBarTitle(this, R.string.pref_vpn_title);
     }
 }
