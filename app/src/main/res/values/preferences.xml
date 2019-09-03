@@ -43,7 +43,7 @@
     <string name="pref_vpn_service_status_key" translatable="false">vpnPaused</string>
     <integer name="pref_vpn_service_status_def">0</integer>
     <string name="pref_vpn_service_on_boot_key" translatable="false">vpnOnBoot</string>
-    <bool name="pref_vpn_service_on_boot_def">false</bool>
+    <bool name="pref_vpn_service_on_boot_def">true</bool>
     <string name="pref_vpn_watchdog_enabled_key" translatable="false">vpnEnabled</string>
     <bool name="pref_vpn_watchdog_enabled_def">false</bool>
     <string name="pref_enable_debug_key" translatable="false">debugEnabled</string>
