@@ -20,10 +20,6 @@
 
 package org.adaway.ui.lists;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,10 +31,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
@@ -46,20 +39,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
-import org.adaway.helper.ImportExportHelper;
-import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
 import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.app.Activity.RESULT_OK;
-import static android.content.Intent.ACTION_GET_CONTENT;
-import static android.content.Intent.CATEGORY_OPENABLE;
-import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static org.adaway.helper.ImportExportHelper.IMPORT_REQUEST_CODE;
-import static org.adaway.helper.ImportExportHelper.WRITE_STORAGE_PERMISSION_REQUEST_CODE;
 
 /**
  * This class is a fragment to display black list, white list and redirect list fragments.
@@ -83,43 +63,9 @@ public class ListsFragment extends Fragment {
      * The redirection tab index.
      */
     public static final int REDIRECTION_TAB = 2;
-    /**
-     * The fragment activity (<code>null</code> if view not created).
-     */
-    private FragmentActivity mActivity;
-
-    /**
-     * Ensure a permission is granted.<br>
-     * If the permission is not granted, a request is shown to user.
-     *
-     * @param permission The permission to check
-     * @return <code>true</code> if the permission is granted, <code>false</code> otherwise.
-     */
-    private boolean checkPermission(String permission) {
-        // Get application context
-        Context context = this.getContext();
-        if (context == null) {
-            // Return permission failed as no context to check
-            return false;
-        }
-        int permissionCheck = ContextCompat.checkSelfPermission(context, permission);
-        if (permissionCheck != PERMISSION_GRANTED) {
-            // Request write external storage permission
-            this.requestPermissions(
-                    new String[]{permission},
-                    WRITE_STORAGE_PERMISSION_REQUEST_CODE
-            );
-            // Return permission not granted yes
-            return false;
-        }
-        // Return permission granted
-        return true;
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Store activity
-        this.mActivity = this.getActivity();
         // Enable option menu
         this.setHasOptionsMenu(true);
         // Create fragment view
@@ -191,49 +137,6 @@ public class ListsFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Check request code
-        if (requestCode != IMPORT_REQUEST_CODE) {
-            return;
-        }
-        // Check result
-        if (resultCode != RESULT_OK) {
-            return;
-        }
-        // Check data
-        if (data != null && data.getData() != null) {
-            // Get selected file URI
-            Uri backupUri = data.getData();
-            Log.d(Constants.TAG, "Backup URI: " + backupUri.toString());
-            // Import from backup
-            ImportExportHelper.importFromBackup(getContext(), backupUri);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // Check permission request code
-        if (requestCode != WRITE_STORAGE_PERMISSION_REQUEST_CODE) {
-            return;
-        }
-        // Check results
-        if (grantResults.length == 0 || grantResults[0] != PERMISSION_GRANTED) {
-            return;
-        }
-        // Restart action according granted permission
-        switch (permissions[0]) {
-            case READ_EXTERNAL_STORAGE:
-                importFromBackup();
-                break;
-            case WRITE_EXTERNAL_STORAGE:
-                exportToBackup();
-                break;
-        }
-    }
-
     /*
      * Menu related.
      */
@@ -249,50 +152,19 @@ public class ListsFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_import:
                 // Check read storage permission
-                if (checkPermission(READ_EXTERNAL_STORAGE)) {
-                    importFromBackup();
-                }
+//                if (checkPermission(READ_EXTERNAL_STORAGE)) {
+//                    importFromBackup();
+//                }
                 return true;
             case R.id.menu_export:
                 // Check write storage permission
-                if (checkPermission(WRITE_EXTERNAL_STORAGE)) {
-                    exportToBackup();
-                }
+//                if (checkPermission(WRITE_EXTERNAL_STORAGE)) {
+//                    exportToBackup();
+//                }
                 return true;
             default:
                 // Delegate item selection
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    /**
-     * Import from a user backup.
-     */
-    private void importFromBackup() {
-        Intent intent = new Intent(ACTION_GET_CONTENT);
-        intent.setType("*/*");
-        intent.addCategory(CATEGORY_OPENABLE);
-        // Start file picker activity
-        try {
-            startActivityForResult(intent, IMPORT_REQUEST_CODE);
-        } catch (ActivityNotFoundException exception) {
-            // Show dialog to install file picker
-            FragmentManager fragmentManager = getFragmentManager();
-            if (fragmentManager != null) {
-                ActivityNotFoundDialogFragment.newInstance(
-                        R.string.no_file_manager_title,
-                        R.string.no_file_manager,
-                        "market://details?id=org.openintents.filemanager",
-                        "OI File Manager"
-                ).show(fragmentManager, "notFoundDialog");
-            }
-        }
-    }
-
-    /**
-     * Exports to a user backup.
-     */
-    private void exportToBackup() {
-        ImportExportHelper.exportToBackup(this.mActivity);
     }
 }
