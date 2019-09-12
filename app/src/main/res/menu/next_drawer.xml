@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/drawer_open_hosts_file"
-        android:icon="@drawable/status_update"
-        android:title="@string/open_hosts_file_drawer_item"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/drawer_preferences"
         android:icon="@drawable/ic_settings_24dp"
         android:title="@string/preferences_drawer_item"

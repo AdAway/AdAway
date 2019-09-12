@@ -16,7 +16,6 @@
     <string name="support_label">Support project</string>
 
     <!-- App bar drawer -->
-    <string name="open_hosts_file_drawer_item">Open hosts file</string>
     <string name="preferences_drawer_item">Preferences</string>
 
     <!-- App bar buttons -->

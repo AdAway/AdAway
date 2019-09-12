@@ -3,6 +3,10 @@
     android:title="@string/pref_root_title">
 
     <PreferenceCategory android:title="@string/pref_hosts_installation">
+        <Preference
+            android:key="@string/pref_open_hosts_key"
+            android:persistent="false"
+            android:title="@string/pref_root_open_hosts" />
         <ListPreference
             android:defaultValue="@string/pref_apply_method_def"
             android:entries="@array/pref_apply_method_entries"
@@ -16,12 +20,10 @@
             android:enabled="false"
             android:key="@string/pref_custom_target_key"
             android:shouldDisableView="true"
-            android:summary="@string/pref_custom_target_summary"
             android:title="@string/pref_custom_target" />
         <CheckBoxPreference
             android:defaultValue="@bool/pref_never_reboot_def"
             android:key="@string/pref_never_reboot_key"
-            android:summary="@string/pref_never_reboot_summary"
             android:title="@string/pref_never_reboot" />
     </PreferenceCategory>
 

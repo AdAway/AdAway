@@ -14,12 +14,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.topjohnwu.superuser.io.SuFile;
 
 import org.adaway.R;
-import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
+import org.adaway.ui.dialog.MissingAppDialog;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.adaway.util.MountType;
@@ -93,15 +92,7 @@ public class HostsContentFragment extends Fragment {
                     .setDataAndType(Uri.parse("file://" + hostFile.getAbsolutePath()), "text/plain");
             startActivityForResult(intent, remount ? EDIT_HOSTS_AND_REMOUNT_REQUEST_CODE : EDIT_HOSTS_REQUEST_CODE);
         } catch (ActivityNotFoundException exception) {
-            FragmentManager fragmentManager = this.getFragmentManager();
-            if (fragmentManager != null) {
-                ActivityNotFoundDialogFragment notFoundDialog = ActivityNotFoundDialogFragment.newInstance(
-                        R.string.no_text_editor_title,
-                        R.string.no_text_editor,
-                        "market://details?id=jp.sblo.pandora.jota", "Text Edit"
-                );
-                notFoundDialog.show(fragmentManager, "notFoundDialog");
-            }
+            MissingAppDialog.showTextEditorMissingDialog(getContext());
         }
     }
 

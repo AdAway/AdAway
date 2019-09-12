@@ -24,6 +24,7 @@
     <string name="pref_redirection_ipv4_def" translatable="false">127.0.0.1</string>
     <string name="pref_redirection_ipv6_key" translatable="false">redirectionIPv6</string>
     <string name="pref_redirection_ipv6_def" translatable="false">::1</string>
+    <string name="pref_open_hosts_key" translatable="false">openHosts</string>
     <string name="pref_apply_method_key" translatable="false">applyMethod</string>
     <string-array name="pref_apply_method_entries_values" translatable="false">
         <item>writeToSystem</item>

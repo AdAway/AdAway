@@ -20,13 +20,14 @@
 
 package org.adaway.ui.dialog;
 
-import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
+
+import androidx.annotation.StringRes;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -34,47 +35,50 @@ import org.adaway.R;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentActivity;
-
-public class ActivityNotFoundDialogFragment extends DialogFragment {
-
-    private static final String ARG_TITLE = "title";
-    private static final String ARG_MESSAGE = "message";
-    private static final String ARG_APP_GOOGLE_PLAY_URI = "app_google_play_uri";
-    private static final String ARG_APP_FDROID_QUERY = "app_fdroid_query";
-
+/**
+ * This class is an utility class to help install missing applications.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
+public class MissingAppDialog {
     /**
-     * Creates new instance of this delete file dialog fragment
+     * Show a dialog to install a text editor.
+     *
+     * @param context The application context.
      */
-    public static ActivityNotFoundDialogFragment newInstance(int title, int message,
-                                                             String appGooglePlayUri, String appFDroidQuery) {
-        ActivityNotFoundDialogFragment frag = new ActivityNotFoundDialogFragment();
-        Bundle args = new Bundle();
-
-        args.putInt(ARG_TITLE, title);
-        args.putInt(ARG_MESSAGE, message);
-        args.putString(ARG_APP_GOOGLE_PLAY_URI, appGooglePlayUri);
-        args.putString(ARG_APP_FDROID_QUERY, appFDroidQuery);
-
-        frag.setArguments(args);
-
-        return frag;
+    public static void showTextEditorMissingDialog(Context context) {
+        showMissingAppDialog(
+                context,
+                R.string.no_text_editor_title,
+                R.string.no_text_editor,
+                "market://details?id=jp.sblo.pandora.jota",
+                "Text Edit"
+        );
     }
 
     /**
-     * Creates dialog
+     * Show a dialog to install a file manager.
+     *
+     * @param context The application context.
      */
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final FragmentActivity activity = getActivity();
+    public static void showFileManagerMissingDialog(Context context) {
+        showMissingAppDialog(
+                context,
+                R.string.no_file_manager_title,
+                R.string.no_file_manager,
+                "market://details?id=org.openintents.filemanager",
+                "OI File Manager"
+        );
+    }
 
-        final String appGooglePlayUri = getArguments().getString(ARG_APP_GOOGLE_PLAY_URI);
-        final String appFDroidQuery = getArguments().getString(ARG_APP_FDROID_QUERY);
-        final int title = getArguments().getInt(ARG_TITLE);
-        final int message = getArguments().getInt(ARG_MESSAGE);
-
-        return new MaterialAlertDialogBuilder(activity)
+    private static void showMissingAppDialog(
+            Context context,
+            @StringRes int title,
+            @StringRes int message,
+            String appGooglePlayUri,
+            String appFdroidQuery
+    ) {
+        new MaterialAlertDialogBuilder(context)
                 .setTitle(title)
                 .setMessage(message)
                 .setIcon(android.R.drawable.ic_dialog_alert)
@@ -83,23 +87,24 @@ public class ActivityNotFoundDialogFragment extends DialogFragment {
                     intentGooglePlay.setData(Uri.parse(appGooglePlayUri));
 
                     try {
-                        activity.startActivity(intentGooglePlay);
+                        context.startActivity(intentGooglePlay);
                     } catch (ActivityNotFoundException e) {
                         Log.e(Constants.TAG, "No Google Play Store installed!, Trying FDroid...", e);
 
                         Intent intentFDroid = new Intent(Intent.ACTION_SEARCH);
                         intentFDroid.setComponent(new ComponentName("org.fdroid.fdroid",
                                 "org.fdroid.fdroid.SearchResults"));
-                        intentFDroid.putExtra(SearchManager.QUERY, appFDroidQuery);
+                        intentFDroid.putExtra(SearchManager.QUERY, appFdroidQuery);
 
                         try {
-                            activity.startActivity(intentFDroid);
+                            context.startActivity(intentFDroid);
                         } catch (ActivityNotFoundException e2) {
                             Log.e(Constants.TAG, "No FDroid installed!", e2);
                         }
                     }
                 })
                 .setNegativeButton(R.string.button_no, (dialog, id) -> dialog.dismiss())
-                .create();
+                .create()
+                .show();
     }
 }

@@ -3,18 +3,17 @@
     <string name="pref_root_title">Root based ad blocker</string>
     <!-- Hosts install category -->
     <string name="pref_hosts_installation">Hosts install</string>
+    <string name="pref_root_open_hosts">Open hosts file</string>
     <string name="pref_apply_method">Target hosts file</string>
-    <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
+    <string name="pref_apply_method_summary">Read Help before using this feature</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Custom target</item>
     </string-array>
-    <string name="pref_custom_target">Custom target</string>
-    <string name="pref_custom_target_summary">Only used if target hosts file is set to custom target</string>
-    <string name="pref_never_reboot">Hide reboot dialog</string>
-    <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
+    <string name="pref_custom_target">Custom target location</string>
+    <string name="pref_never_reboot">Hide reboot dialog after apply</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Redirection</string>
     <string name="pref_hosts_redirection_summary">Define where to redirect blocked hosts</string>

@@ -8,13 +8,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.adaway.R;
 import org.adaway.helper.ImportExportHelper;
-import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
+import org.adaway.ui.dialog.MissingAppDialog;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -154,16 +153,7 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
         try {
             startActivityForResult(intent, IMPORT_REQUEST_CODE);
         } catch (ActivityNotFoundException exception) {
-            // Show dialog to install file picker
-            FragmentManager fragmentManager = getFragmentManager();
-            if (fragmentManager != null) {
-                ActivityNotFoundDialogFragment.newInstance(
-                        R.string.no_file_manager_title,
-                        R.string.no_file_manager,
-                        "market://details?id=org.openintents.filemanager",
-                        "OI File Manager"
-                ).show(fragmentManager, "notFoundDialog");
-            }
+            MissingAppDialog.showFileManagerMissingDialog(getContext());
         }
     }
 

@@ -218,9 +218,6 @@ public class NextActivity extends AppCompatActivity {
 
     private boolean showFragment(@IdRes int actionId) {
         switch (actionId) {
-            case R.id.drawer_open_hosts_file:
-                // TODO
-                break;
             case R.id.drawer_preferences:
                 this.startPrefsActivity();
                 this.drawerBehavior.setState(STATE_HIDDEN);
