@@ -74,9 +74,7 @@ public final class ShellUtils {
                     return Optional.of(mount);
                 }
             }
-            // TODO https://github.com/topjohnwu/libsu/pull/35
-//            file = file.getParentFile();
-            file = file.getParent() == null ? null : file.getParentFile();
+            file = file.getParentFile();
         }
         return Optional.empty();
     }

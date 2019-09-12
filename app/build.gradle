@@ -81,26 +81,26 @@ dependencies {
 //    implementation project(':webserver')
 
     // AndroidX components
-    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.fragment:fragment:1.1.0-rc01'
+    implementation 'androidx.fragment:fragment:1.1.0'
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-common-java8:2.0.0'
-    implementation 'androidx.preference:preference:1.1.0-rc01'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.1.0'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
     implementation 'androidx.room:room-runtime:2.1.0'
     annotationProcessor 'androidx.room:room-compiler:2.1.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
-    implementation 'androidx.work:work-runtime:2.1.0'
-    implementation 'com.google.android.material:material:1.1.0-alpha09'
+    implementation 'androidx.work:work-runtime:2.2.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha10'
 
     // Miscellaneous
     api 'com.google.guava:guava:27.0.1-android' // TODO Check if still used?
     implementation 'com.annimon:stream:1.2.1'
     implementation 'com.google.android:flexbox:1.1.0'   // TODO To remove with the old home screen
-    implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.3'
     implementation 'net.sf.trove4j:trove4j:3.0.3'
     implementation 'org.sufficientlysecure:html-textview:3.4'
     if (keyStoreDefined) {
@@ -111,8 +111,8 @@ dependencies {
     implementation 'org.slf4j:slf4j-nop:1.7.25' // TODO Check if still used?
 
     // Root related
-    implementation 'com.github.topjohnwu.libsu:core:2.5.0'
-    implementation 'com.github.topjohnwu.libsu:io:2.5.0'
+    implementation 'com.github.topjohnwu.libsu:core:2.5.1'
+    implementation 'com.github.topjohnwu.libsu:io:2.5.1'
 
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.7.5'
