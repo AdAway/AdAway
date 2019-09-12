@@ -8,8 +8,8 @@ android:
     - tools
     - platform-tools
 
-    # The BuildTools version used by your project
-    - build-tools-29.0.1
+    # The Build Tools version used by your project
+    - build-tools-29.0.2
 
     # The SDK version used to compile your project
     - android-28
