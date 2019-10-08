@@ -50,7 +50,12 @@
     <string name="list_dialog_wildcard">(Zástupné znaky * a ? sú povolené!)</string>
     <string name="list_dialog_ip">IP (IPv4 alebo IPv6):</string>
     <string name="import_dialog">Importovanie…</string>
+    <string name="import_success">Záloha úspešne importovaná z vášho externého úložiska.</string>
+    <string name="import_failed">Nepodarilo sa importovať zálohu. Je jeho formát správny? Ďalšie podrobnosti nájdete v protokole logcat.</string>
     <string name="export_dialog">Exportovanie…</string>
+    <string name="export_success">Záloha bola úspešne exportovaná do súboru „adaway-backup.json“ na vašom externom úložisku.</string>
+    <string name="export_failed">Exportovanie zálohy zlyhalo.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Hosts súbor</string>
     <string name="hosts_description">Súbor hosts je systémový súbor, ktorý mapuje názvy hostiteľov k IP adresám. Je to jednoduchý textový súbor, ktorého konfiguráciu spracováva AdAway. Tu je zopár jeho prvých riadkov:</string>
@@ -143,6 +148,9 @@
     <string name="menu_add">Pridať</string>
     <string name="menu_hosts_sources">Hosts zdroje</string>
     <string name="menu_help">Pomoc</string>
+    <string name="menu_import">Importovať zálohu</string>
+    <string name="menu_export">Exportovať zálohu</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>
@@ -196,6 +204,10 @@
     <string name="pref_update_check">Skontrolovať aktualizácie</string>
     <string name="pref_apply_method">Umiestnenie hosts súboru</string>
     <string name="pref_apply_method_summary">Skôr než zmeníte toto nastavenie, prečítajte si Pomoc o tejto funkcii.</string>
+    <string name="pref_redirection_ipv4">Presmerovanie IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Všetky blokované adresy sú presmerované na túto IPv4 adresu.</string>
+    <string name="pref_redirection_ipv6">Presmerovanie IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Všetky blokované adresy sú presmerované na túto IPv6 adresu.</string>
     <string name="pref_header_preferences">Nastavenia</string>
     <string name="pref_header_preferences_summary">Všeobecné nastavenia pre AdAway</string>
     <string name="pref_never_reboot">Skryť otázku na reštart</string>
@@ -208,6 +220,7 @@
     <string name="pref_custom_target">Vlastné umiestnenie</string>
     <string name="pref_custom_target_summary">Použité iba ak je umiestnenie hosts súboru nastavené na vlastné umiestnenie</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -234,13 +247,14 @@
     <string name="pref_enable_telemetry">Povoliť hlásenia o zlyhaní</string>
     <string name="pref_enable_telemetry_summary">Povoliť aplikácii zasielať chyby a hlásenia o zlyhaní na Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">Povoliť IPv6</string>
+    <string name="pref_enable_ipv6_summary">Všetky položky súbor host získajú zodpovedajúcu položku presmerovania.</string>
     <string name="pref_enable_systemless_summary">Zabrániť AdAway upravovať systémovú partíciu</string>
     <string name="pref_enable_systemless">Povoliť bezsystémový režim</string>
     <string name="pref_edit_text_value">Upraviť hodnotu predvoľby textu</string>
     <string name="drawer_open">Otvoriť menu</string>
     <string name="drawer_close">Zatvoriť menu</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Domov</item>
         <item>Hosts zdroje</item>
