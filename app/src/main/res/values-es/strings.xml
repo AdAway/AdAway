@@ -106,7 +106,7 @@
     <string name="apply_symlink_fail">El enlace simbólico (symlink) no pudo ser creado por Android.\nEsto fallo principalmente se debe a una \'característica\' llamada S-ON en los teléfonos HTC!\n\nUna solución es arrancar el teléfono en modo de recuperación y crear el enlace simbólico allí con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi esto no funciona busque en Internet S-OFF y su modelo de teléfono.</string>
     <string name="apply_symlink_fail_title">No se pudo crear el enlace simbólico</string>
     <string name="apply_help">Por favor lea la Ayuda para más información.</string>
-    <string name="apply_apn_proxy">¡Un proxy APN está configurado en su Android!\nAdAway no funcionará de manera fiable cuando se encuentre en redes móviles como 3G. Puede desactivar ese proxy al ir a su APN seleccionado (en la aplicación Configuración: Red e Internet - & gt; Red móvil - & gt; Avanzado - & gt; Nombres de puntos de acceso) y borre el valor existente en el campo proxy.</string>
+    <string name="apply_apn_proxy">¡Un proxy APN está configurado en su Android!\nAdAway no funcionará de manera fiable cuando se encuentre en redes móviles como 3G. Puede desactivar ese proxy al ir a su APN seleccionado (en la aplicación Configuración: Red e Internet -&gt; Red móvil -&gt; Avanzado -&gt; Nombres de puntos de acceso) y borre el valor existente en el campo proxy.</string>
     <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
     <string name="no_connection">La conexión a Internet no funciona.</string>
     <string name="no_connection_title">Sin conexión</string>
@@ -220,6 +220,7 @@
     <string name="pref_custom_target">Ruta personalizada</string>
     <string name="pref_custom_target_summary">Solo se utiliza si la ruta al archivo hosts se configura como ruta personalizada</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +254,7 @@
     <string name="drawer_open">Abrir menú</string>
     <string name="drawer_close">Cerrar menú</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Inicio</item>
         <item>Fuentes de ficheros hosts </item>
