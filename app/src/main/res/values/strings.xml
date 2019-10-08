@@ -220,6 +220,7 @@
     <string name="pref_custom_target">Custom target</string>
     <string name="pref_custom_target_summary">Only used if target hosts file is set to custom target</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +254,7 @@
     <string name="drawer_open">Open menu</string>
     <string name="drawer_close">Close menu</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Hosts sources</item>
