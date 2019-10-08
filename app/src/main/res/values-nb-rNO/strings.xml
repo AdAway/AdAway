@@ -157,10 +157,10 @@
     <string name="pref_enable_systemless">Aktiver systemløs modus</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Vertsfilkilder</item>
-        <item>Åpne vertsfilen</item>
         <item>Your lists</item>
-        <item>Open hosts file</item>
+        <item>Åpne vertsfilen</item>
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
         <item>Preferanser</item>

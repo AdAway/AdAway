@@ -42,7 +42,7 @@
     <string name="list_add_dialog_black">将 hosts 添加到黑名单</string>
     <string name="list_add_dialog_white">将 hosts 添加到白名单</string>
     <string name="list_add_dialog_redirect">将 hosts 添加到重定向</string>
-    <string name="list_edit_dialog_black">编辑黑名单主机</string>
+    <string name="list_edit_dialog_black">编辑黑名单 host</string>
     <string name="list_edit_dialog_white">编辑白名单主机</string>
     <string name="list_edit_dialog_redirect">编辑重定向</string>
     <string name="list_dialog_hostname">主机名：</string>
@@ -102,6 +102,7 @@
     <string name="apply_success_subtitle">已应用 hosts 来源</string>
     <string name="apply_success_title">应用成功</string>
     <string name="apply_success_dialog">应用成功。\可能需要重新启动 Android 才能使更改生效。\n\n是否要重新启动？\n（为防止数据丢失，请确保目前没有应用程序正在使用SD卡！）</string>
+    <string name="apply_symlink_successful">符号链接创建成功。\n这可能需要重新启动你的Android才能生效\n\n你是否需要重启？\n（为了防止数据丢失，请确保没有应用正在使用sd卡）</string>
     <string name="apply_symlink_successful_title">符号链接创建成功</string>
     <string name="apply_symlink_fail_title">符号链接创建失败</string>
     <string name="apply_help">请阅读帮助以获取更多信息。</string>
@@ -117,6 +118,7 @@
     <string name="apply_fail">将 hosts 文件应用于您的系统失败！\n请尝试将首选项中的目标 hosts 文件更改为 /data/data/hosts。</string>
     <string name="apply_fail_title">应用失败</string>
     <string name="root_access_fail">请检查您的 root 权限管理器以确保已授予 root 访问权限。</string>
+    <string name="revert_successful">您已还原为默认 hosts 文件。\n 可能需要重新启动Android才能使更改生效。\n\n 你想重启吗？\n （为防止数据丢失，请确保目前没有应用程序使用SD卡！）</string>
     <string name="revert_successful_title">恢复成功</string>
     <string name="revert_problem">由于未知原因，恢复失败。</string>
     <string name="revert_problem_title">恢复失败！</string>
@@ -138,7 +140,7 @@
     <string name="no_hostname_title">主机名格式不正确</string>
     <string name="no_ip">不是有效的 IP！</string>
     <string name="no_ip_title">IP 格式不正确</string>
-    <string name="reboot_never_reboot">永远不重启且不再询问！</string>
+    <string name="reboot_never_reboot">从不重启，不再显示此信息！</string>
     <string name="loading">正在加载...</string>
 
     <!--Menu entries-->
@@ -227,6 +229,7 @@
     </string-array>
 
     <string name="pref_update_check_summary">启动时检查更新 AdAway</string>
+    <string name="pref_sdcard_problem">如果 AdAway 被安装到 SD 卡上，这个功能可能不能正常工作！</string>
     <string name="pref_background">后台服务</string>
     <string name="pref_update_check_daily">每日检查更新</string>
     <string name="pref_update_check_daily_summary">每天在后台检查更新并显示通知</string>
@@ -264,12 +267,12 @@
     <!--Drawer menu labels-->
     <string name="drawer_support_text">\u2764 支持开发 \u2764</string>
     <string name="drawer_support_dialog_title">支持开发</string>
-    <string name="drawer_support_dialog_button">资瓷一个</string>
+    <string name="drawer_support_dialog_button">显示我的支持</string>
 
     <!--Telemetry-->
     <string name="dialog_telemetry_title">遥测</string>
-    <string name="dialog_telemetry_enable">吼哇，当然资瓷啦！</string>
-    <string name="dialog_telemetry_disable">没有，没有这个意思</string>
+    <string name="dialog_telemetry_enable">当然，我很乐意帮忙！</string>
+    <string name="dialog_telemetry_disable">不用了，谢谢</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 请求</string>

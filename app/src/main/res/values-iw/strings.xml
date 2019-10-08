@@ -142,10 +142,10 @@
     <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</item>
-        <item>פתח קובץ hosts</item>
         <item>Your lists</item>
-        <item>Open hosts file</item>
+        <item>פתח קובץ hosts</item>
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
         <item>העדפות</item>

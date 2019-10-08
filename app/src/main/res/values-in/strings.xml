@@ -116,6 +116,7 @@
     <string name="apply_dialog_apply">Menerapkan file host</string>
     <string name="apply_fail">Penerapan file host ke sistem anda gagal!\nCobalah untuk mengganti target file host di prefrensi ke /data/data/hosts.</string>
     <string name="apply_fail_title">Pemasangan gagal</string>
+    <string name="root_access_fail">Mohon cek aplikasi manajemen root Anda untuk memastikan akses root telah diberikan.</string>
     <string name="revert_successful">Anda mengembalikan ke file host bawaan.\nIni mungkin membutuhkan memuat ulang Android untuk mendapatkan hasil dari perubahan.\n\nApakah anda ingin memuat ulang?\n(Untuk mencegah adanya kehilangan data, pastikan tidak ada aplikasi yang menggunakan kartu SD pada saat ini!)</string>
     <string name="revert_successful_title">Pengembalian berhasil</string>
     <string name="revert_problem">Pengembalian gagal karena alasan yang tidak diketahui.</string>
@@ -153,6 +154,8 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
+    <string name="adware_description">Disini Anda dapat menemukan adware yang terpasang, aplikasi jelek yang tidak dapat diblok oleh AdAway. Aplikasi ini digunakan sebagai contoh, notifikasi Airpush yang muncul ketika aplikasi tidak berjalan ataupun mengganti ringtonemu. Satu-satunya penanggulangan yang tersedia adalah melepas aplikasi-aplikasi tersebut dengan mengklik pada daftar item.</string>
+    <string name="adware_scanning">Memindai&#8230;</string>
     <string name="adware_empty">Adware tidak ditemukan!</string>
 
     <!--Hosts sources-->
@@ -198,7 +201,9 @@
     <string name="pref_apply_method">Target file host</string>
     <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
     <string name="pref_redirection_ipv4">Redireksi IPv4</string>
+    <string name="pref_redirection_ipv4_summary">Semua nama host yang diblok akan dialihkan ke alamat IPV4 ini.</string>
     <string name="pref_redirection_ipv6">Redireksi IPv6</string>
+    <string name="pref_redirection_ipv6_summary">Semua nama host yang diblok akan dialihkan ke alamat IPV6 ini.</string>
     <string name="pref_header_preferences">Pengaturan</string>
     <string name="pref_header_preferences_summary">Pengaturan normal Adaway</string>
     <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
@@ -226,6 +231,7 @@
     <string name="pref_automatic_update_daily">Pembaruan otomatis</string>
     <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
     <string name="pref_update_only_on_wifi">Hanya perbarui saat tidak dibatasi</string>
+    <string name="pref_update_only_on_wifi_summary">Menjalankan pembaruan latar belakang hanya ketika terhubung ke jaringan yang tidak dibatasi saja.</string>
     <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
     <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
     <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
@@ -236,6 +242,7 @@
     <string name="pref_enable_telemetry">Nyalakan laporan crash</string>
     <string name="pref_enable_telemetry_summary">Ijinkan aplikasi untuk mengirim laporan error dan crash ke Sentry (sentry.io)</string>
     <string name="pref_enable_ipv6">Aktifkan IPv6</string>
+    <string name="pref_enable_ipv6_summary">Semua entri berkas host akan mendapatkan entri pengalihan yang sesuai.</string>
     <string name="pref_enable_systemless_summary">Cegah AdAway me-modifikasi partisi system</string>
     <string name="pref_enable_systemless">Aktifkan Mode Systemless</string>
     <string name="pref_edit_text_value">Ubah nilai preferensi teks</string>
@@ -244,11 +251,11 @@
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
-        <item>Home</item>
+        <item>Beranda</item>
         <item>Sumber host</item>
         <item>Daftar pribadi</item>
         <item>Buka berkas hosts</item>
-        <item>Log DNS requests</item>
+        <item>Catatan permintaan DNS</item>
         <item>Pindai terhadap adware</item>
         <item>Pengaturan</item>
         <item>Bantuan</item>
@@ -256,10 +263,12 @@
     <!--Drawer menu labels-->
     <string name="drawer_support_text">\u2764 Dukung pengembangan \u2764</string>
     <string name="drawer_support_dialog_title">Dukung pengembangan</string>
+    <string name="drawer_support_dialog_text">AdAway adalah sebuah perangkat lunak gratis dan sumber terbuka yang dikembangkan dan dikelolan oleh komunitas saja. Saya membutuhkan waktu dua tahun sebagai proyek waktu luang untuk membangun versi baru dari aplikasi ini.\n\nJika Anda menyukai itu dan menginginkan untuk melihat pembaruan lagi, jangan ragu untuk mendukung proyek ini.</string>
     <string name="drawer_support_dialog_button">Tunjukkan dukungan saya</string>
 
     <!--Telemetry-->
     <string name="dialog_telemetry_title">Telemetri</string>
+    <string name="dialog_telemetry_message">Hai pengguna terkasih,\n\nAnda sekarang dapat berpartisipasi untuk perkembangan dalam AdAway dengan membagikan laporan kerusakan dan informasi penggunaan dasar. Semua data adalah anonim dan telemetri hanya akan diaktifkan jikalau Anda menyetujui.\n\nAnda dapat menemukan lebih banyak di <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
     <string name="dialog_telemetry_enable">Tentu, Saya senang untuk membantu!</string>
     <string name="dialog_telemetry_disable">Tidak, Terima kasih</string>
 
@@ -273,4 +282,17 @@
     <string name="hosts_source_need_update">Pembaruan dibutuhkan untuk %1$s</string>
     <string name="hosts_source_last_update">Pembaruan terakhir %1$s yang lalu</string>
     <string name="hosts_source_unknown_status">Status pembaharuan tidak diketahui</string>
-    </resources>
+    <plurals name="hosts_source_minutes">
+        <item quantity="other">%d menit</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="other">%d jam</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="other">%d hari</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="other">%d bulan</item>
+    </plurals>
+
+</resources>

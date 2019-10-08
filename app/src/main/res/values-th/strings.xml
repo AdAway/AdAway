@@ -213,8 +213,8 @@
 
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>แหล่งที่มาโฮสต์</item>
-        <item>Your lists</item>
         <item>รายการของคุณ</item>
         <item>เปิดไฟล์โฮสต์</item>
         <item>Log DNS requests</item>

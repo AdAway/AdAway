@@ -132,13 +132,13 @@
     <string name="pref_enable_debug_summary">Jy moet AdAway weer begin om hierdie instellings te implementeer.</string>
     <!--Drawer menu items-->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>Gaste bronne</item>
+        <item>Your lists</item>
         <item>Maak Gasheer lêer oop</item>
-        <item>Voorkeure</item>
-        <item>Open hosts file</item>
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
-        <item>Preferences</item>
+        <item>Voorkeure</item>
         <item>Help</item>
     </string-array>
     <string name="shortcut_preferences">Voorkeure</string>

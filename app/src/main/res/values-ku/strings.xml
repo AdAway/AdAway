@@ -8,4 +8,22 @@
     <string name="button_cancel">ھەڵوەشاندن</string>
     <string name="checkbox_list_context_edit">دەستکاری</string>
 
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+
+    <!--Drawer menu items-->
+    <string-array name="drawer_items">
+        <item>Home</item>
+        <item>Hosts sources</item>
+        <item>Your lists</item>
+        <item>Open hosts file</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
+        <item>Preferences</item>
+        <item>Help</item>
+    </string-array>
     </resources>

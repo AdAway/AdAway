@@ -32,6 +32,13 @@
     <string name="no_root_title">Kailangan ng Android na may root</string>
     <string name="menu_add">Dagdagan</string>
     <string name="menu_help">Tulong</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+
     <!--Drawer menu items-->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -41,6 +48,6 @@
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
         <item>Preferences</item>
-        <item>Help</item>
+        <item>Tulong</item>
     </string-array>
     </resources>
