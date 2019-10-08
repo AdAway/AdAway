@@ -50,7 +50,12 @@
     <string name="list_dialog_wildcard">(Helyettesítő karakterek * és ? használata is engedélyezett!)</string>
     <string name="list_dialog_ip">IP (IPv4 vagy IPv6):</string>
     <string name="import_dialog">Importálás...</string>
+    <string name="import_success">A biztonsági mentés importja a külső tárolóból sikeres.</string>
+    <string name="import_failed">A biztonsági másolat importálás nem sikerült. Megfelelő a formátuma? További részletekért ellenőrizd a logcat-et.</string>
     <string name="export_dialog">Exportálás...</string>
+    <string name="export_success">A biztonsági mentés sikeresen exportálva \'adaway-backup.json\' néven a külső tárhelyen.</string>
+    <string name="export_failed">A biztonsági másolat exportálása nem sikerült.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">A hosts fájl</string>
     <string name="hosts_description">A hosts fájl egy olyan rendszerfájl, amely a hosztneveket IP címekhez társítja. Ez egy egyszerű szöveges fájl, melyet az AdAway kezeli. Íme a néhány első sora:</string>
@@ -68,6 +73,7 @@
     <string name="status_download_fail">Elérhetetlen források</string>
     <string name="status_download_fail_subtitle_new">Nincs elérhető hosts-fájl forrás!</string>
     <string name="status_root_access_denied">Root hozzáférés megtagadva</string>
+    <string name="status_root_access_denied_subtitle">Engedélyezd a root hozzáférést a root alkalmazásból</string>
     <string name="status_failure">Valami nem stimmel</string>
     <string name="status_failure_subtitle">Ellenőrizd a logcatet további részletekért</string>
     <string name="status_enabled">Engedélyezett</string>
@@ -114,6 +120,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_dialog_apply">Hosts fájlok alkalmazása</string>
     <string name="apply_fail">Nem sikerült a hosts fájl alkalmazása rendszereden!\nPróbáld meg /data/data/hosts-ra módosítani a cél hosts fájlt a beállításokban.</string>
     <string name="apply_fail_title">Az alkalmazás nem sikerült</string>
+    <string name="root_access_fail">Ellenőrizd a root kezelő alkalmazásban a root hozzáférés megadását.</string>
     <string name="revert_successful">Visszaállítottad az alapértelmezett hosts fájlt.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződjön meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!) </string>
     <string name="revert_successful_title">Sikeres visszaállítás</string>
     <string name="revert_problem">A visszaállítás ismeretlen ok miatt nem sikerült.</string>
@@ -143,6 +150,9 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="menu_add">Hozzáadás</string>
     <string name="menu_hosts_sources">Hosts források</string>
     <string name="menu_help">Súgó</string>
+    <string name="menu_import">Bizt.mentés import</string>
+    <string name="menu_export">Bizt.mentés export</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">GYIK</string>
@@ -200,6 +210,10 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="pref_update_check">Frissítések ellenőrzése</string>
     <string name="pref_apply_method">Cél hosts fájl</string>
     <string name="pref_apply_method_summary">Ezen beállítás módosítása előtt olvasd el a Súgó vonatkozó fejezetét!</string>
+    <string name="pref_redirection_ipv4">IPv4 átirányítás</string>
+    <string name="pref_redirection_ipv4_summary">Az összes blokkolt hostnevet átirányítja erre az IPv4 címre.</string>
+    <string name="pref_redirection_ipv6">IPv6 átirányítás</string>
+    <string name="pref_redirection_ipv6_summary">Az összes blokkolt hostnevet átirányítják erre az IPv6 címre.</string>
     <string name="pref_header_preferences">Beállítások</string>
     <string name="pref_header_preferences_summary">Az AdAway általános beállításai</string>
     <string name="pref_never_reboot">Újraindítási ablak elrejtése</string>
@@ -212,6 +226,7 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="pref_custom_target">Egyéni cél</string>
     <string name="pref_custom_target_summary">Csak akkor legyen aktív, ha a cél hosts-fájl egyéni célra mutat</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -238,13 +253,14 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="pref_enable_telemetry">Összeomlási jelentések BE</string>
     <string name="pref_enable_telemetry_summary">Az alkalmazás hibaüzenet- és összeomlási jelentést küld a Sentry-nek (sentry.io).</string>
     <string name="pref_enable_ipv6">IPv6 engedélyezése</string>
+    <string name="pref_enable_ipv6_summary">Minden host fájl bejegyzés megkapja a megfelelő átirányítási bejegyzést.</string>
     <string name="pref_enable_systemless_summary">Megakadályozza az AdAway-t, hogy módosítsa a rendszerpartíciót</string>
     <string name="pref_enable_systemless">Systemless mód engedélyezése</string>
     <string name="pref_edit_text_value">Szöveges beállítási érték szerkesztése</string>
     <string name="drawer_open">Menü megnyitása</string>
     <string name="drawer_close">Menü bezárása</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Kezdőlap</item>
         <item>Hosts források</item>
