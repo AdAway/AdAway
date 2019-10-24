@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Enabling successful</string>
     <string name="disable_systemless_successful">You disabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
     <string name="disable_systemless_successful_title">Disabling successful</string>
+    <string name="enable_systemless_magisk_title">Enabling hosts Magisk module</string>
+    <string name="enable_systemless_magisk">Enable systemless hosts feature from Magisk manager. From its settings, enable the <cite>Systemless hosts</cite> option then reboot your device.</string>
+    <string name="disable_systemless_magisk_title">Disabling hosts Magisk module</string>
+    <string name="disable_systemless_magisk">Disable systemless hosts feature from Magisk manager. From the module list, uninstall the <cite>Systemless hosts</cite> module then reboot your device.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on wiki.lineageos.org or other Android websites.</string>
