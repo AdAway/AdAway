@@ -151,6 +151,10 @@
 Вы хотите перезагрузить систему?
 (Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
     <string name="disable_systemless_successful_title">Успешно отключено</string>
+    <string name="enable_systemless_magisk_title">Включить модуль хостов Magisk</string>
+    <string name="enable_systemless_magisk">Включить бессистемную функцию хостов из менеджера Magisk. Среди его настроек включите параметр <cite>Бессистемный hosts</cite>, затем перезапустите ваше устройство.</string>
+    <string name="disable_systemless_magisk_title">Отключить модуль хостов Magisk</string>
+    <string name="disable_systemless_magisk">Выключить бессистемную функцию хостов из менеджера Magisk. Среди его настроек удалите модуль <cite>Бессистемный hosts</cite>, затем перезапустите ваше устройство.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Либо отсутствует бинарный файл su, либо вы не предоставили AdAway права суперпользователя.\n\nЭто могло произойти, если на вашем устройстве не получен root-доступ.\nВы можете найти информацию о том, как получить root-права на вашем устройстве на wiki.lineageos.org или другом сайте, посвящённом Android.</string>
@@ -240,6 +244,7 @@
     <string name="pref_custom_target">Пользовательские настройки</string>
     <string name="pref_custom_target_summary">Используется только в случае, когда расположение файла hosts задано пользователем</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -273,7 +278,7 @@
     <string name="drawer_open">Открыть меню</string>
     <string name="drawer_close">Закрыть меню</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Главная</item>
         <item>Источники хостов</item>
