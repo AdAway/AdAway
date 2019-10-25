@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Успішно увімкнено</string>
     <string name="disable_systemless_successful">Ви вимкнули безсистемний режим.\nЩоб зміни набули чинності, необхідно перезавантажити Android.\n\nПерезавантажити зараз?\n(Щоб уникнути втрати даних, переконайтеся, що жоден додаток не використовуює карту пам\'яті цієї миті!)</string>
     <string name="disable_systemless_successful_title">Успішно вимкнено</string>
+    <string name="enable_systemless_magisk_title">Вмикання модуля хостів Magisk</string>
+    <string name="enable_systemless_magisk">Увімкнути позасистемні хости в Magisk Manager. Для цього потрібно вибрати опцію <cite>Позасистемні хости</cite> і перезавантажити пристрій.</string>
+    <string name="disable_systemless_magisk_title">Вимикання модуля хостів Magisk</string>
+    <string name="disable_systemless_magisk">Вимкнути позасистемні хости в Magisk Manager. Для цього потрібно зі списку модулів видалити модуль <cite>Systemless Hosts</cite> і перезавантажити пристрій.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Програмний файл su не знайдено, або AdAway не були надані права суперкористувача.\n\nЦе могло статися, якщо у вас на пристрої немає прав суперкористувача.\nІнформацію про те, як отримати права суперкористувача на вашому пристрої, можна знайти на wiki.lineageos.org або інших веб-сайтах про Android.</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">Користувацькі налаштування</string>
     <string name="pref_custom_target_summary">Використовується тільки в тому випадку, коли розташування файлу hosts задано користувачем</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">Відкрити меню</string>
     <string name="drawer_close">Закрити меню</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Домашня</item>
         <item>Джерела списків хостів</item>
