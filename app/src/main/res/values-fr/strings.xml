@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Activation réussie</string>
     <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer l’appareil?\n(Pour prévenir toute perte de données, assurez-vous qu’aucune autre appli n’utilise la carte SD en ce moment.)</string>
     <string name="disable_systemless_successful_title">Désactivation réussie</string>
+    <string name="enable_systemless_magisk_title">Action du module hosts de Magisk</string>
+    <string name="enable_systemless_magisk">Activer la fonction Fichier hosts sans système du gestionnaire Magisk. Dans ses paramètres, activez l’option <cite>Fichier hosts sans système</cite>, puis redémarrez votre appareil.</string>
+    <string name="disable_systemless_magisk_title">Désactivation du module hosts de Magisk</string>
+    <string name="disable_systemless_magisk">Désactiver la fonction Fichier hosts sans système du gestionnaire Magisk. Dans la liste des modules, désinstallez le module <cite>Systemless hosts</cite>, puis redémarrez votre appareil.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès root à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé.\nVous trouverez des informations sur comment débrider votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">Cible personnalisée</string>
     <string name="pref_custom_target_summary">Utilisé seulement si le fichier hosts cible est défini pour une cible personnalisée</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">Ouvrir le menu</string>
     <string name="drawer_close">Fermer le menu</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Accueil</item>
         <item>Sources de fichiers hosts</item>
