@@ -50,7 +50,12 @@
     <string name="list_dialog_wildcard">(Дапускаюцца падстаноўныя сімвалы * і ?)</string>
     <string name="list_dialog_ip">IP (IPv4 ці IPv6):</string>
     <string name="import_dialog">Імпарт...</string>
+    <string name="import_success">Рэзервовая копія паспяхова імпартавана з вашага знешняга сховішча.</string>
+    <string name="import_failed">Не ўдалося імпартаваць рэзервовую копію. Магчыма яе фармат не дакладны? Праверце logcat для падрабязнасцяў.</string>
     <string name="export_dialog">Экспарт...</string>
+    <string name="export_success">Рэзервовая копія паспяхова імпартавана ў файл \'adaway-backup.json\' на ваша знешняе сховішча.</string>
+    <string name="export_failed">Не ўдалося экспартаваць рэзервовую копію.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
     <string name="hosts_description">Файл hosts - гэта сістэмны файл, супастаўляючы імёны вузлоў з IP-адрасамі. Гэта звычайны тэкставы файл, змесціва якога апрацоўвае AdAway. Вось яго першыя радкі:</string>
@@ -127,6 +132,10 @@
     <string name="enable_systemless_successful_title">Актывацыя прайшла паспяхова</string>
     <string name="disable_systemless_successful">Вы адключылі бессістэмны рэжым.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
     <string name="disable_systemless_successful_title">Паспяхова адключана</string>
+    <string name="enable_systemless_magisk_title">Уключыць модуль hosts Magisk</string>
+    <string name="enable_systemless_magisk">Уключыць бессістэмную функцыю hosts з мэнэджара Magisk. Сярод яго налад уключыце параметр <cite>Бессістемны hosts</cite>, затым перазагрузіце вашу прыладу.</string>
+    <string name="disable_systemless_magisk_title">Адключыць модуль Magisk hosts</string>
+    <string name="disable_systemless_magisk">Адключыць бессістэмную функцыю hosts з мэнэджара Magisk. Сярод яго налад выдаліце ​​модуль <cite>Бессістемны hosts</cite>, затым перазагрузіце вашу прыладу.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Альбо адсутнічае бінарны файл su, альбо вы не далі AdAway правы суперкарыстальніка.\n\nГэта магло адбыцца, калі на вашай прыладзе не атрыманы root-доступ.\nВы можаце знайсці інфармацыю аб тым, як атрымаць root-права на вашай прыладзе на wiki.lineageos.org або іншым сайце, прысвечаным Android.</string>
@@ -144,6 +153,9 @@
     <string name="menu_add">Дадаць</string>
     <string name="menu_hosts_sources">Крыніцы hosts</string>
     <string name="menu_help">Дапамога</string>
+    <string name="menu_import">Імпартаваць рэзервовую копію</string>
+    <string name="menu_export">Экспарт рэзервовай копіі</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>
@@ -213,6 +225,7 @@
     <string name="pref_custom_target">Карыстацкія налады</string>
     <string name="pref_custom_target_summary">Выкарыстоўваецца толькі ў выпадку, калі размяшчэнне файла hosts зададзена карыстальнікам</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -246,7 +259,7 @@
     <string name="drawer_open">Адкрыць меню</string>
     <string name="drawer_close">Закрыць меню</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Галоўная</item>
         <item>Крыніцы hosts</item>
