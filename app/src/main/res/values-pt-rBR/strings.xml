@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Ativado com sucesso</string>
     <string name="disable_systemless_successful">Você desativou o modo sem sistema. Pode ser necessário reiniciar o Android para que as alterações entrem em vigor. Deseja reiniciar? (Para evitar a perda de dados, certifique-se de que nenhum aplicativo use o cartão SD no momento!)</string>
     <string name="disable_systemless_successful_title">Desativado com sucesso</string>
+    <string name="enable_systemless_magisk_title">Ativando hosts Módulo Magisk</string>
+    <string name="enable_systemless_magisk">Habilite o recurso hosts sem sistema do gerenciador Magisk. Nas configurações, ative a opção <cite>Hosts sem sistema</cite> e reinicie o dispositivo.</string>
+    <string name="disable_systemless_magisk_title">Desativando hosts Módulo Magisk</string>
+    <string name="disable_systemless_magisk">Desative o recurso de hosts sem sistema do gerenciador Magisk. Na lista de módulos, desinstale o módulo <cite>Hosts sem sistema</cite> e reinicie o dispositivo.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Ou o binário su não pôde ser encontrado ou você não concedeu permissão de root para o AdAway.\n\nIsto pode acontecer quando seu dispositivo não está rooteado.\nVocê pode encontrar informação sobre como rootear seu dispositivo em wiki.lineageos.org ou outros sites sobre Android.</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">Destino personalizado</string>
     <string name="pref_custom_target_summary">Apenas usado se o destino do arquivo hosts estiver definido como personalizado</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">Abrir menu</string>
     <string name="drawer_close">Fechar menu</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Início</item>
         <item>Fontes de hosts</item>
