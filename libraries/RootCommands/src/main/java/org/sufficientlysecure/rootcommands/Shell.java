@@ -51,7 +51,7 @@ public class Shell implements Closeable {
             throws IOException {
         Log.d(RootCommands.TAG, "Starting Root Shell!");
 
-        return new Shell(Utils.getSuPath(), customEnv, baseDirectory);
+        return new Shell("su", customEnv, baseDirectory);
     }
 
     /**
