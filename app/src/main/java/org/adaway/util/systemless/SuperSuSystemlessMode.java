@@ -7,7 +7,6 @@ import org.adaway.util.Log;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
-import org.sufficientlysecure.rootcommands.util.Utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -61,7 +60,7 @@ public class SuperSuSystemlessMode extends AbstractSystemlessMode {
         Shell shell = null;
         try {
             // Start root shell with "mount master" feature (to apply 'publicly' the mount)
-            shell = Shell.startCustomShell(Utils.getSuPath()+" -mm");
+            shell = Shell.startCustomShell("su -mm");
             Toolbox toolbox = new Toolbox(shell);
             // Ensure mounted hosts file exists
             if (!toolbox.fileExists(this.mode.hostsFileLocation)) {
