@@ -23,42 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import org.sufficientlysecure.rootcommands.RootCommands;
-
 public class Utils {
-    /*
-     * The emulator and ADP1 device both have a su binary in /system/xbin/su, but it doesn't allow
-     * apps to use it (su app_29 $ su su: uid 10029 not allowed to su).
-     * 
-     * Cyanogen used to have su in /system/bin/su, in newer versions it's a symlink to
-     * /system/xbin/su.
-     * 
-     * The Archos tablet has it in /data/bin/su, since they don't have write access to /system yet.
-     */
-    static final String[] BinaryPlaces = { "/data/bin/", "/system/bin/", "/system/xbin/", "/sbin/",
-            "/data/local/xbin/", "/data/local/bin/", "/system/sd/xbin/", "/system/bin/failsafe/",
-            "/data/local/", "/su/bin/" };
-
-    /**
-     * Determine the path of the su executable.
-     * 
-     * Code from https://github.com/miracle2k/android-autostarts, use under Apache License was
-     * agreed by Michael Elsdörfer
-     */
-    public static String getSuPath() {
-        for (String p : BinaryPlaces) {
-            File su = new File(p + "su");
-            if (su.exists()) {
-                Log.d(RootCommands.TAG, "su found at: " + p);
-                return su.getAbsolutePath();
-            } else {
-                Log.v(RootCommands.TAG, "No su in: " + p);
-            }
-        }
-        Log.d(RootCommands.TAG, "No su found in a well-known location, " + "will just use \"su\".");
-        return "su";
-    }
-
     /**
      * This code is adapted from java.lang.ProcessBuilder.start().
      * 
