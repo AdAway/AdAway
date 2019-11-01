@@ -22,7 +22,10 @@ public class MagiskSuSystemlessMode extends AbstractSystemlessMode {
     @Override
     boolean isEnabled(Context context, Shell shell) throws Exception {
         // Look for mount point of system hosts file
-        SimpleCommand command = new SimpleCommand("su -c test -d " + HOSTS_MODULE_PATH);
+        SimpleCommand command = new SimpleCommand(
+                "su -c test -d " + HOSTS_MODULE_PATH,
+                "mount | grep /system/etc/hosts"
+        );
         shell.add(command).waitForFinish();
         return command.getExitCode() == 0;
     }
