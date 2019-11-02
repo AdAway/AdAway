@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Aktivierung erfolgreich</string>
     <string name="disable_systemless_successful">Sie haben den Systemlosen Modus deaktiviert.\nDamit alle Änderungen wirksam werden, muss das System eventuell neu gestartet werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, vergewissern Sie sich, dass gerade keine Anwendung die SD-Karte verwendet!)</string>
     <string name="disable_systemless_successful_title">Deaktivieren erfolgreich</string>
+    <string name="enable_systemless_magisk_title">Aktivierung des Hosts-Moduls von Magisk</string>
+    <string name="enable_systemless_magisk">Systemunabhängige Hosts-Funktion im Magisk Manager aktivieren. Dort in den Einstellungen die Option <cite>Systemless hosts</cite> wählen, dann das Gerät neustarten.</string>
+    <string name="disable_systemless_magisk_title">Deaktivierung des Hosts-Moduls von Magisk</string>
+    <string name="disable_systemless_magisk">Systemunabhängige Hosts-Funktion im Magisk Manager deaktivieren. In der Modulliste das Modul <cite>Systemless hosts</cite> deinstallieren, dann das Gerät neustarten.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es exisitiert keine su-Binärdatei.\n\nLetzteres deutet daraufhin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf wiki.lineageos.org oder anderen Android-Internetseiten.</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">Benutzerdefiniertes Ziel</string>
     <string name="pref_custom_target_summary">Wird nur benutzt, wenn die Hosts-Datei auf benutzerdefiniert gestellt wurde</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">Menü öffnen</string>
     <string name="drawer_close">Menü schließen</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Hosts-Quellen</item>
