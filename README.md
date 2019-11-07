@@ -8,7 +8,7 @@ For more information visit https://adaway.org
 
 ## Installing
 
-This is two kinds of release:
+There are two kinds of release:
 * The preview builds: on the bleeding edge of development - for testers or adventurous
 * The stable builds: ready for every day usage - for end users
 
@@ -31,6 +31,11 @@ After preview builds have been tested by the more technical or responsive commun
 [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/org.adaway)
+
+## Get Host File Sources
+
+See the [Wiki](https://github.com/AdAway/AdAway/wiki), in particular the page [HostsSources](https://github.com/AdAway/AdAway/wiki/HostsSources) for an assorted list of sources you can use in AdAway.
+Add the ones you like to the AdAway "Hosts sources" section.
 
 ## Getting help
 
