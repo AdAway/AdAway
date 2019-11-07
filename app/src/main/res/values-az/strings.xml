@@ -109,7 +109,6 @@
     <string name="no_private_file_title">Fərdi fayl yaratmaq alınmadı</string>
     <string name="enable_systemless_successful_title">Uğurla açıldı</string>
     <string name="disable_systemless_successful_title">Uğurla qapadıldı</string>
-
     <string name="no_root_title">Rootlu Android tələb olunur</string>
     <string name="hosts_add_dialog">URL\'ni hosts faylına daxil et:</string>
     <string name="no_hostname">Bu host adı etibarsızdır!</string>
@@ -149,6 +148,7 @@
     <string name="pref_webserver_enabled">Webserveri aç</string>
     <string name="pref_webserver">Yerli Webserver</string>
     <string name="pref_custom_target">Fərdi hədəf</string>
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -168,7 +168,7 @@
     <string name="drawer_open">Menyunu aç</string>
     <string name="drawer_close">Menyunu qapat</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Ev</item>
         <item>Hosts resursları</item>

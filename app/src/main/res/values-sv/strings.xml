@@ -131,7 +131,6 @@
     <string name="enable_systemless_successful_title">Aktivering lyckades</string>
     <string name="disable_systemless_successful">Du inaktiverade systemlöst läge.\nDet kan bli nödvändigt att starta om enheten för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra dataförlust se till att ingen app använder SD-kortet för tillfället!)</string>
     <string name="disable_systemless_successful_title">Inaktivering lyckades</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Antingen så kunde binärfilen för su inte hittas eller så tillät du inte root-åtkomst för AdAway.\n\nDetta kan hända när din enhet inte är rootad.\nDu kan hitta mer information om hur du rootar din enhet på wiki.lineageos.org eller andra Android-hemsidor.</string>
     <string name="no_root_title">Rootad Android krävs</string>
@@ -220,6 +219,7 @@
     <string name="pref_custom_target">Anpassat mål</string>
     <string name="pref_custom_target_summary">Används bara om vald målvärdfil är satt till ett anpassat mål</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -254,7 +254,7 @@
     <string name="drawer_open">Öppna meny</string>
     <string name="drawer_close">Stäng meny</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Hem</item>
         <item>Värdkällor</item>

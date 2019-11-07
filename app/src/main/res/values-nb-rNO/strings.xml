@@ -83,7 +83,6 @@
     <string name="no_private_file_title">Privatfil-opprettelsen mislyktes</string>
     <string name="enable_systemless_successful_title">Påskruingen var vellykket</string>
     <string name="disable_systemless_successful_title">Avskruingen var vellykket</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Enten kunne SU-binærfilen ikke bli funnet, eller så ga du ikke root-tillatelse for AdAway.\n\nDette kan skje dersom enheten din ikke er rootet.\nDu kan finne mere informasjon om hvordan man rooter enheten din på wiki.lineageos.org eller på andre Android-nettsteder.</string>
     <string name="no_root_title">En rootet Android er påkrevd</string>
@@ -134,6 +133,7 @@
     <string name="pref_custom_target">Tilpasset målpunkt</string>
     <string name="pref_custom_target_summary">Brukes kun dersom målvertsfilen er satt til et tilpasset mål</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -155,7 +155,7 @@
     <string name="pref_enable_ipv6">Aktiver IPv6</string>
     <string name="pref_enable_systemless_summary">Forhindre AdAway fra å modifisere systempartisjonen</string>
     <string name="pref_enable_systemless">Aktiver systemløs modus</string>
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Vertsfilkilder</item>

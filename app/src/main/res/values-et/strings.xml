@@ -79,6 +79,7 @@
     <string name="apply_symlink_missing_title">Sümlink puudub</string>
     <string name="apply_not_enough_space_title">Pole piisavalt ruumi</string>
     <string name="apply_private_file_fail_title">Privaatse faili ebaõnnestumine</string>
+    <string name="apply_remount_fail_title">Taashaakimine ebaõnnestus</string>
     <string name="apply_copy_fail">Hosts-faili kopeerimine ebaõnnestus!</string>
     <string name="apply_copy_fail_title">Kopeerimine nurjus</string>
     <string name="apply_success_subtitle">Hosts-allikad rakendatud</string>
@@ -101,7 +102,6 @@
     <string name="download_fail_title">Allalaadimine nurjus</string>
     <string name="enable_systemless_successful_title">Lubamine edukas</string>
     <string name="disable_systemless_successful_title">Keelamine edukas</string>
-
     <string name="no_root_title">Vajalik juurkasutaja toega Android</string>
     <string name="hosts_add_dialog">Sisesta URL hosts-faili:</string>
     <string name="no_hostname">See ei ole kehtiv aadress!</string>
@@ -139,6 +139,7 @@
     <!--Other-->
     <string name="app_subtitle">Reklaamide blokeerija</string>
     <string name="no_text_editor_title">Tekstitöötlejaid pole paigaldatud</string>
+    <string name="no_file_manager_title">Ühtegi failihaldurit pole installitud</string>
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
     <string name="tcpdump_disable_monitoring">Keela monitoorimine</string>
@@ -178,6 +179,7 @@
     <string name="pref_custom_target">Muu asukoht</string>
     <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts-faili asukohaks on muu asukoht.</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -191,6 +193,7 @@
     <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>
     <string name="pref_automatic_update_daily">Automaatne uuendus</string>
     <string name="pref_automatic_update_daily_summary">Uuenduste olemasolul tehakse need taustal automaatselt.</string>
+    <string name="pref_update_only_on_wifi">Uuenda ainult mittemahupõhiste ühenduste korral</string>
     <string name="pref_whitelist_rules">Luba valge loend</string>
     <string name="pref_redirection_rules">Luba suunamised</string>
     <string name="pref_debug">Silumine</string>
@@ -202,7 +205,7 @@
     <string name="drawer_open">Ava menüü</string>
     <string name="drawer_close">Sulge menüü</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Kodu</item>
         <item>Hosts-allikad</item>

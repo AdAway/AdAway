@@ -118,7 +118,6 @@
     <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
     <string name="enable_systemless_successful_title">Ongi gaitu da</string>
     <string name="disable_systemless_successful_title">Ongi ezgaitu da</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">su binarioa ezin da aurkitu edo ez diozu erro baimenik ahalbidetu AdAway-ri.\n\nHau zure gailua errotu gabea dagoenean geratu daiteke.\nZure gailua nola erroturi buruzko argibideak aurkitu ditzakezu wiki.lineageos.org-en edo beste Android webguentan.</string>
     <string name="no_root_title">Beharrezkoa Android errotua</string>
@@ -203,6 +202,7 @@
     <string name="pref_custom_target">Norbere xedea</string>
     <string name="pref_custom_target_summary">Bakarrik erabiltzen da xede hostalari agiria norbere xede bezala ezartzen bada</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -229,7 +229,7 @@
     <string name="drawer_open">Ireki menua</string>
     <string name="drawer_close">Itxi menua</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Hasiera</item>
         <item>Hostalari iturburuak</item>

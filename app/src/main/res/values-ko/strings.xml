@@ -131,7 +131,6 @@
     <string name="enable_systemless_successful_title">활성화 성공</string>
     <string name="disable_systemless_successful">Systemless 모드를 비활성화하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
     <string name="disable_systemless_successful_title">비활성화 성공</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">su 바이너리를 발견하지 못했거나 AdAway에 대한 루트 권한을 허용하지 않았습니다.\n\n이것은 사용자의 기기가 루팅되지 않았을 때 발생할 수 있습니다.\n사용자의 기기를 루팅하는 방법을 www.cyanogenmod.org 또는 기타 안드로이드 웹사이트에서 찾을 수 있습니다.</string>
     <string name="no_root_title">루팅 필수</string>
@@ -220,6 +219,7 @@
     <string name="pref_custom_target">사용자 지정 대상</string>
     <string name="pref_custom_target_summary">대상 호스트 파일이 사용자 지정 대상으로 설정되었을 경우에만 사용됨</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +253,7 @@
     <string name="drawer_open">메뉴 열기</string>
     <string name="drawer_close">메뉴 닫기</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>홈</item>
         <item>호스트 소스</item>

@@ -128,7 +128,6 @@
     <string name="no_private_file_title">私有文件创建失败</string>
     <string name="enable_systemless_successful_title">启用成功</string>
     <string name="disable_systemless_successful_title">禁用成功</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">未找到 su 二进制文件，或未授予 Root 权限。
 
@@ -221,6 +220,7 @@
     <string name="pref_custom_target">自定义</string>
     <string name="pref_custom_target_summary">请将目标 hosts 文件设置为自定义</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +253,7 @@
     <string name="drawer_open">打开菜单</string>
     <string name="drawer_close">关闭菜单</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>主页</item>
         <item>Hosts 源</item>

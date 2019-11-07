@@ -131,7 +131,6 @@
     <string name="enable_systemless_successful_title">Attivazione avvenuta con successo</string>
     <string name="disable_systemless_successful">Hai disabilitato la modalità systemless.\nPotrebbe essere necessario riavviare Android per applicare i cambiamenti. .\n\nVuoi riavviare?\n(Per impedire perdita di dati assicurati che nessuna app  al momento sta utilizzando la scheda SD!)</string>
     <string name="disable_systemless_successful_title">Disattivazione avvenuta con successo</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Non è stato trovato il binario SU o non hai concesso i permessi di root per AdAway.\n\nQuesto può succedere quando il tuo dispositivo non ha il root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android.</string>
     <string name="no_root_title">Richiesto Android con root</string>
@@ -221,6 +220,7 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_custom_target">Percorso personalizzato</string>
     <string name="pref_custom_target_summary">In uso solo se si usa un file hosts personalizzato</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -254,7 +254,7 @@ Vuoi installare OI File Manager?</string>
     <string name="drawer_open">Apri il menù</string>
     <string name="drawer_close">Chiudi il menù</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Fonti host</item>

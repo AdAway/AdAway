@@ -106,7 +106,6 @@
     <string name="no_private_file_title">สร้างไฟล์ส่วนตัวล้มเหลว</string>
     <string name="enable_systemless_successful_title">การเปิดใช้งานเสร็จสมบูรณ์</string>
     <string name="disable_systemless_successful_title">การปิดใช้งานเสร็จสมบูรณ์</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">ไม่พบไบนารี su หรือคุณไม่มีสิทธิ์รูทสำหรับ AdAway \n\n คุณสามารถหาข้อมูลเกี่ยวกับวิธีการรูทอุปกรณ์ของคุณด้วย Magisk หรือ SuperSU</string>
     <string name="no_root_title">จำเป็นต้องรูท</string>
@@ -183,6 +182,7 @@
     <string name="pref_custom_target">กำหนดเอง</string>
     <string name="pref_custom_target_summary">ใช้งานเท่านั้นหากไฟล์โฮสต์ถูกตั้งเป็นกำหนดเอง</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -211,7 +211,7 @@
     <string name="drawer_open">เปิดเมนู</string>
     <string name="drawer_close">ปิดเมนู</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>แหล่งที่มาโฮสต์</item>

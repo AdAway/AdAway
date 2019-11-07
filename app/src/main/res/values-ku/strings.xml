@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <string name="app_name">AdAway</string>
+
     <!--Buttons-->
     <string name="button_exit">دەرچوون</string>
     <string name="button_yes">بە</string>
@@ -8,6 +10,8 @@
     <string name="button_cancel">ھەڵوەشاندن</string>
     <string name="checkbox_list_context_edit">دەستکاری</string>
 
+    <string name="help_tab_faq">FAQ</string>
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -15,7 +19,7 @@
         <item>Custom target</item>
     </string-array>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Hosts sources</item>

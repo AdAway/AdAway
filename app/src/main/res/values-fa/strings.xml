@@ -6,7 +6,7 @@
     <!--Buttons-->
     <string name="button_exit">خروج</string>
     <string name="button_close">بستن</string>
-    <string name="button_yes">بلی</string>
+    <string name="button_yes">بله</string>
     <string name="button_no">خیر</string>
     <string name="button_add">اضافه کردن</string>
     <string name="button_cancel">لغو</string>
@@ -21,7 +21,7 @@
     <string name="icon_update_status">وضعیت به روزرسانی</string>
     <string name="text_update">تمامی فایلهای hosts جدید از منابع تعریف شده دریافت شدند و با لیستی که از قبل موجود بوده است در یک قالب یک فایل hosts واحد یکی شدند.</string>
     <string name="button_check_update_hosts">به روز رسانی ها رو بررسی کن</string>
-    <string name="button_update_hosts">هاست های به روزرسانی</string>
+    <string name="button_update_hosts">بروزرسانی هاست ها</string>
     <string name="button_enable_hosts">فعالسازی توقف تبلیغات</string>
     <string name="button_disable_hosts">غیر فعال کردن برنامه ضد تبلیغات</string>
     <string name="header_webserver">وب سرور</string>
@@ -42,16 +42,26 @@
     <string name="list_add_dialog_black">اضافه کردن هاست به لیست سیاه</string>
     <string name="list_add_dialog_white">اضافه کردن هاست به لیست سفید</string>
     <string name="list_add_dialog_redirect">اضافه کردن هدایت مجدد هاست</string>
+    <string name="list_edit_dialog_black">ویرایش هاست‌های لیست سیاه</string>
+    <string name="list_edit_dialog_white">ویرایش هاست‌های لیست سفید</string>
     <string name="list_edit_dialog_redirect">ویرایش هدایت مجدد</string>
     <string name="list_dialog_hostname">Hostname:</string>
     <string name="list_dialog_hostname_hint">لینک منبع هاست ها</string>
     <string name="list_dialog_wildcard">(کاراکترهای جامع * و ؟ مجاز میباشند)</string>
     <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">بارگیری...</string>
-    <string name="export_dialog">بارگذاری...</string>
+    <string name="import_success">فایل پشتیبانی با موفقیت از کارت حافظه شما بارگذاری شد.</string>
+    <string name="import_failed">بارگذاری فایل پشتبانی با شکست مواجه شد. فرمت فایل درست است؟ فایل ثبت رویدادها رو چک کنید.</string>
+    <string name="export_dialog">در حال خروجی گرفتن...</string>
+    <string name="export_success">فایل بکاپ با موفقیت در حافظه جانبی شما به اسم \'adaway-backup.json\' ساخته شد.</string>
+    <string name="export_failed">عملیات ساخت بکاپ با شکست مواجه شد.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">فایل هاست ها</string>
     <string name="hosts_description">فایل هاست ها یک فایل سیستمی است که نام هاست ها را به آی پی آدرس ها مرتبط میکند.این یک فایل متنی ساده است که توسط  AdAway تنظیم شده است.در اینجا چند خط ابتدایی آن را داریم:</string>
+    <string name="hosts_content">بارگذاری محتوای فایل هاست...</string>
+    <string name="hosts_open_button">بازکردن هاست فایل</string>
+
     <!--Status Notification-->
     <string name="status_checking">چک کردن برای به روز رسانی...</string>
     <string name="status_reverting">برگشتن...</string>
@@ -62,9 +72,21 @@
     <string name="status_no_connection_subtitle">اتصال اینترنت موجود نیست</string>
     <string name="status_download_fail">منابع موجود نیستند</string>
     <string name="status_download_fail_subtitle_new">منابع hosts ها در درسترس نیستند!</string>
+    <string name="status_root_access_denied">دسترسی روت رد شد</string>
+    <string name="status_root_access_denied_subtitle">از طریق برنامه روت خود به این برنامه دسترسی روت دهید</string>
+    <string name="status_failure">مشکلی پیش آمد</string>
+    <string name="status_failure_subtitle">فایل ثبت رویدادها رو چک کنید</string>
     <string name="status_enabled">فعال</string>
     <string name="status_enabled_subtitle">فایل های hosts جدید فعال شد</string>
     <string name="status_disabled">غیر فعال</string>
+    <string name="status_disabled_subtitle">هاست فایل‌های پیشفرض نصب شدند</string>
+    <string name="notification_channel_update_name">بروزرسانی‌ها</string>
+    <string name="notification_channel_update_description">اطلاعیه هاست‌های جدید</string>
+    <string name="notification_configuration_changed">تنظیمات شما تغییر کرد. برای اعمال تغییرات باید هاست فایل رو نصب کنید.</string>
+    <string name="notification_configuration_changed_action">اعمال تغییرات</string>
+    <string name="notification_configuration_installing">در حال نصب هاست فایل...</string>
+    <string name="notification_configuration_failed">نصب هاست فایل با شکست مواجه شد.</string>
+
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">پیوند نمادین از هدف شما به /system/etc/hosts وجود ندارد و یا درست نمیباشد! اگر مسیر فایل به درستی تنظیم نشده باشد برنامه AdAway به درستی کار نخواهد کرد.\n\nآیا مایلید که یک پیوند نمادین ایجاد نمایید؟</string>
     <string name="apply_symlink_missing_title">پیوند نمادین موجود نیست</string>
@@ -91,6 +113,7 @@
     <string name="apply_dialog_apply">اعمال فایل hosts</string>
     <string name="apply_fail">اعمال ناموفق فایل hosts بر روی سیستم!\n\nمسیر فایل hosts را در تنظیمات /data/data/hosts تغییر دهید.</string>
     <string name="apply_fail_title">اعمال ناموفق تغییرات</string>
+    <string name="root_access_fail">لطفا برنامه مدیریت روت خود رو بررسی کنیدتا از دسترسی داشتن این برنامه به روت مطمئن شید.</string>
     <string name="revert_successful_title">بازنشانی موفق آمیز</string>
     <string name="revert_problem">بازنشانی نا موفق به دلایل ناشناخته.</string>
     <string name="revert_problem_title">بازنشانی ناموفق</string>
@@ -100,7 +123,6 @@
     <string name="no_private_file_title">ایجاد ناموفق فایل خصوصی</string>
     <string name="enable_systemless_successful_title">فعال کردن با موفقیت انجام شد</string>
     <string name="disable_systemless_successful_title">غیر فعال کردن با موفقیت انجام شد</string>
-
     <string name="no_root_title">نیاز به آندروید روت شده میباشد</string>
     <string name="hosts_add_dialog">تارنما به فایل hosts وارد نمایید</string>
     <string name="no_hostname">این یک hostname مجاز نیست</string>
@@ -114,11 +136,16 @@
     <string name="menu_add">اضافه کردن</string>
     <string name="menu_hosts_sources">منابع Hosts</string>
     <string name="menu_help">راهنما</string>
+    <string name="menu_import">بارگذاری فایل پشتیبان</string>
+    <string name="menu_export">خروجی گرفتن فایل پشتیبانی</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-روشن/S-خاموش</string>
     <string name="help_tab_faq">پرسش و پاسخ</string>
     <string name="help_tab_problems">مشکلات</string>
 
+    <!--Adware-->
+    <string name="adware_header">Adware</string>
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">لوکال:</string>
     <string name="hosts_last_modified_online">آنلاین:</string>
@@ -133,8 +160,14 @@
     <string name="no_file_manager">هیچ برنامه مدیریت فایلی برای باز کردن این فایل یافت نشد. شما میتوانید از برنامه OI File Manager یا برنامه های مشابه برای حل این مشکل استفاده نمایید.\n\nآیا مایل به نصب برنامه   OI File Manager هستید؟</string>
 
     <string name="tcpdump_description">Tcpdump یک ابزاری برای نظارت بر روی درخواست های دی ان اس بوده و آنها در فایل گزارشات ذخیره مینماید. شما میتوانید آن را در پس زمینه اجرا نمایید، برنامه ای که تبلیغات را نشان میدهد را اجرا نموده و بعدا در فایل گزارشات درخواست های دی ان اس را بررسی و آنالیز نمایید. سرور تبلیغات مشکوک را میتوانید در لیست سیاه اضافه نمایید.</string>
+    <string name="tcpdump_show_results">نمایش نتایج</string>
+    <string name="tcpdump_menu_clear">پاک کردن رویدادها</string>
+    <string name="tcpdump_sort_alphabetical">مرتب‌سازی بر اساس حروف الفبا</string>
     <!--Preferences-->
     <string name="pref_download">تنظیمات عمومی</string>
+    <string name="pref_dismiss_welcome">پنهان کردن پیغام خوش‌آمدگویی</string>
+    <string name="pref_dismiss_welcome_summary">پیغام خوش‌آمد گویی رو نمایش نده</string>
+    <string name="pref_dark_theme">فعال سازی تم تاریک</string>
     <string name="pref_hosts">فایل Hosts</string>
     <string name="pref_update_check">به روز رسانی ها رو بررسی کن</string>
     <string name="pref_apply_method">هدف فایل hosts</string>
@@ -151,6 +184,7 @@
     <string name="pref_custom_target">هدف سفارشی</string>
     <string name="pref_custom_target_summary">فقط در صورتی استفاده بکن که فایل hosts به یک مسیر سفارشی تنظیم شده باشد</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -172,7 +206,7 @@
     <string name="pref_enable_ipv6">فعال کردن IPv6</string>
     <string name="pref_enable_systemless_summary">جلوگیری AdAway از تغییر پارتیشن سیستمی</string>
     <string name="pref_enable_systemless">فعال کردن حالت systemless</string>
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>منابع Hosts</item>

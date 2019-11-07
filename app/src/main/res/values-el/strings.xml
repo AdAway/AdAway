@@ -149,7 +149,6 @@
     <string name="enable_systemless_successful_title">Ενεργοποίηση επιτυχής</string>
     <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία systemless. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n\n(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!) </string>
     <string name="disable_systemless_successful_title">Απενεργοποίηση επιτυχής</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Είτε το εκτελέσιμο su δεν βρέθηκε ή δεν παραχωρήσατε δικαιώματα υπερχρήστη στο AdAway.
 
@@ -245,6 +244,7 @@
     <string name="pref_custom_target">Παραμετροποιημένος προορισμός</string>
     <string name="pref_custom_target_summary">Χρησιμοποιείται μόνο αν το αρχείο προορισμού hosts είναι ορισμένο σε παραμετροποιημένο προορισμό</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -278,7 +278,7 @@
     <string name="drawer_open">Άνοιγμα μενού</string>
     <string name="drawer_close">Κλείσιμο μενού</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Αρχική</item>
         <item>Πηγές Hosts </item>

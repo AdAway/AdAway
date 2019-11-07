@@ -76,7 +76,6 @@
     <string name="no_private_file_title">Neuspešno kreiranje privatnog fajla</string>
     <string name="enable_systemless_successful_title">Omogućavanje je uspelo.</string>
     <string name="disable_systemless_successful_title">Onemogućavanje je uspelo</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Nije moguće pronaći \"su\" izvršnu datoteku ili niste omogućili root privilegije za AdAway.\n\n Ovo se događa kada vaš uređaj nije rutovan. \n Kako omogućiti root na Vašem uređaju pogledajte na wiki.lineageos.org ili na drugim Android veb stranicama.</string>
     <string name="no_root_title">Neophodan Root-ovan Android</string>
@@ -127,6 +126,7 @@
     <string name="pref_custom_target">Prilagođeno odredište</string>
     <string name="pref_custom_target_summary">Koristi se samo ako je ciljna hosts datoteka postavljena na prilagođeno odredište</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -148,7 +148,7 @@
     <string name="pref_enable_ipv6">Omogući IPv6</string>
     <string name="pref_enable_systemless_summary">Onemogući AdAway da modifikuje sistemsku particiju.</string>
     <string name="pref_enable_systemless">Omogući systemless režim</string>
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Host-ovi resursi</item>

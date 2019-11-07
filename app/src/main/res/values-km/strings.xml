@@ -51,6 +51,7 @@
     <string name="menu_help">ជំនួយ</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <string name="help_tab_faq">FAQ</string>
     <string name="hosts_last_modified_online">លើបណ្ដាញ
 
 </string>
@@ -71,6 +72,7 @@
     <string name="pref_webserver_on_boot">ចាប់ផ្ដើម</string>
     <string name="pref_webserver_enabled">បញ្ចូល Websever</string>
     <string name="pref_webserver">តំបន់ Websever</string>
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -85,7 +87,7 @@
     <string name="pref_automatic_update_daily_summary">ធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយបើសិនជាមានភាពទាន់សម័យ។</string>
     <string name="pref_debug">បំបាត់កំហុស</string>
     <string name="pref_enable_debug_summary">អ្នកគួរតែចាប់ផ្ដើម AdAway ឡើងវិញដើម្បីអោយការកំណត់មានប្រសិទ្ធភាព</string>
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Hosts sources</item>

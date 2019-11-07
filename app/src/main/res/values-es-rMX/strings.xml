@@ -131,7 +131,6 @@
     <string name="enable_systemless_successful_title">Habilitación correcta</string>
     <string name="disable_systemless_successful">Inhabilitaste el modo sin modificaciones a la partición del sistema.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
     <string name="disable_systemless_successful_title">Inhabilitación correcta</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">No se pudo encontrar el objeto binario su o no otorgaste permisos de superusuario a AdAway.\n\nEsto puede deberse a que no tienes acceso raíz al dispositivo.\nPara obtener más información sobre cómo obtener acceso raíz, consulta wiki.lineageos.org (en inglés) u otros sitios web sobre Android.</string>
     <string name="no_root_title">Se necesita un dispositivo con acceso raíz</string>

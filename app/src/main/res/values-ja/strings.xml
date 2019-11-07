@@ -123,7 +123,6 @@
     <string name="enable_systemless_successful_title">有効化は成功です</string>
     <string name="disable_systemless_successful">システムレスモードを無効にしました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
     <string name="disable_systemless_successful_title">無効化は成功です</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">suバイナリが見つからないか、AdAwayのroot権限を許可していません。\n\nこれはデバイスがルート化されていない場合に発生します。\nデバイスをルート化する方法については Android 関連のウェブサイトや wiki.lineageos.org などで見つかります。</string>
     <string name="no_root_title">root化されたAndroidが必要です</string>
@@ -205,6 +204,7 @@
     <string name="pref_custom_target">カスタムターゲット</string>
     <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -237,7 +237,7 @@
     <string name="drawer_open">メニューを開く</string>
     <string name="drawer_close">メニューを閉じる</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>ホーム</item>
         <item>hostsのソース</item>

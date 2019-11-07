@@ -131,7 +131,6 @@
     <string name="enable_systemless_successful_title">Úspešne povolené</string>
     <string name="disable_systemless_successful">Zakázali ste bezsystémový režim.\nPre aplikovanie zmien budete musieť reštartovať zariadenie.\n\nChcete reštartovať?\n(Aby ste predišli strate dát, uistite sa, že žiadna aplikácie práve teraz nepoužíva SD kartu!)</string>
     <string name="disable_systemless_successful_title">Zakázanie úspešné</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">SU binárny súbor nebol nájdený alebo ste nepovolili root oprávnenia pre AdAway.\n\nToto sa môže stať, ak vaše zariadenie nie je rootnuté\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke wiki.lineageos.org alebo na inej stránke o zariadeniach s Androidom.</string>
     <string name="no_root_title">Je potrebné rootnuté zariadenie</string>

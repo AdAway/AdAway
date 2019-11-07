@@ -131,7 +131,6 @@
     <string name="enable_systemless_successful_title">Aktivering succesfuldt</string>
     <string name="disable_systemless_successful">Du har deaktiveret systemløs tilstand.\nDet kan være nødvendigt at genstarte Android for at ændringerne skal træde i kraft.\n\nVil du genstarte?\n(For at forhindre tab af data skal du sørge for, at ingen apps bruger SD-kortet i øjeblikket!)</string>
     <string name="disable_systemless_successful_title">Deaktivering succesfuldt</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Enten kunne su binary ikke findes, ellers tillod du ikke root tilladelse til AdAway.\n\nDette kan ske, når enheden ikke er rootet.\nDu kan finde oplysninger om, hvordan du kan root din enhed på wiki.lineageos.org eller andre Android-hjemmesider.</string>
     <string name="no_root_title">En rootet Android kræves</string>
@@ -220,6 +219,7 @@
     <string name="pref_custom_target">Brugerdefineret destination</string>
     <string name="pref_custom_target_summary">Bruges kun, hvis destinations-hostsfilen er indstillet til brugerdefineret destination</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +253,7 @@
     <string name="drawer_open">Åben menu</string>
     <string name="drawer_close">Luk menu</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Hjem</item>
         <item>Hosts kilder</item>

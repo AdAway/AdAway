@@ -103,7 +103,6 @@
     <string name="no_private_file_title">Error en la creació del fixer privat</string>
     <string name="enable_systemless_successful_title">S\'ha habilitat correctament</string>
     <string name="disable_systemless_successful_title">S\'ha inhabilitat correctament</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">El binari su no s\'ha trobat o no s\'ha permès el root a l\'dAway.\n\n Això succeeix quan el terminal no esta rootejat.\n Podeu trobar informació de com rootejar el vostre terminal a wiki.lineageos.org o en altres webs d\'Android.</string>
     <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
@@ -180,6 +179,7 @@
     <string name="pref_custom_target">Objectiu personalitzt</string>
     <string name="pref_custom_target_summary">Només s\'utilitza si el fitxer hosts objectiu s\'ha ajustat a un objectiu personalitzat</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -208,7 +208,7 @@
     <string name="drawer_open">Obre el menú</string>
     <string name="drawer_close">Tanca el menú</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Servidors de fitxers hosts</item>

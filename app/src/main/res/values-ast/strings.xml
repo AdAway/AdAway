@@ -122,6 +122,7 @@
     <string name="pref_custom_target">Oxetivu personalizáu</string>
     <string name="pref_custom_target_summary">Úsase namái si\'l ficheru «hosts» oxetivu ta afitáu como oxetivu personalizáu</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -141,7 +142,7 @@
     <string name="pref_debug">Depuración</string>
     <string name="pref_enable_debug_summary">Necesites reaniciar AdAway pa qu\'esti axuste faiga efeutu.</string>
     <string name="pref_enable_ipv6">Habilitar IPv6</string>
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Fontes de hosts</item>

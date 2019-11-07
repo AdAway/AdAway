@@ -115,6 +115,7 @@
     <string name="pref_custom_target">Doelwit teiken</string>
     <string name="pref_custom_target_summary">Word slegs gebruik indien doelwit gasheer lêers gestel is as pasmaak teikens</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -130,7 +131,7 @@
     <string name="pref_automatic_update_daily_summary">Dateer outomaties op in die agtergrond indien beskikbaar.</string>
     <string name="pref_debug">Herstel foute</string>
     <string name="pref_enable_debug_summary">Jy moet AdAway weer begin om hierdie instellings te implementeer.</string>
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Gaste bronne</item>

@@ -84,7 +84,6 @@
     <string name="no_private_file_title">Nepavyko sukurti asmeninio failo</string>
     <string name="enable_systemless_successful_title">Pavyko įjungti</string>
     <string name="disable_systemless_successful_title">Pavyko išjungti</string>
-
     <string name="no_root_title">Rooted Android būtinas!</string>
     <string name="hosts_add_dialog">Įterpti URL į hosts failą:</string>
     <string name="no_hostname">Neteisingas host vardas!</string>
@@ -133,6 +132,7 @@
     <string name="pref_custom_target">Pasirinktinis nukreipimas</string>
     <string name="pref_custom_target_summary">Naudojamas kai nukreiptas host failas</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -154,7 +154,7 @@
     <string name="pref_enable_ipv6">Įjungti IPv6</string>
     <string name="pref_enable_systemless_summary">Neleisti AdAway keisti sisteminio skirsnio</string>
     <string name="pref_enable_systemless">Įjungti nesisteminį režimą</string>
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Host šaltiniai</item>
