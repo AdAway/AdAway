@@ -133,6 +133,11 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="enable_systemless_successful_title">Engedélyezés sikeres</string>
     <string name="disable_systemless_successful">Kikapcsoltad a systemless módot.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
     <string name="disable_systemless_successful_title">Sikerült a letiltás</string>
+    <string name="enable_systemless_magisk_title">A Magisk  hosts module bekapcsolása</string>
+    <string name="enable_systemless_magisk">Systemless hosts funkció bekapcsolása a Magisk managerben. A beállításokban kapcsold be a <cite>Systemless hosts</cite> lehetőséget, majd indítsd újra a készüléket.</string>
+    <string name="disable_systemless_magisk_title">A Magisk hosts module kikapcsolása</string>
+    <string name="disable_systemless_magisk">Systemless hosts funkció kikapcsolása a Magisk managerben. A modul listából távolítsd el a <cite>Systemless hosts</cite> modult majd indítsd újra az eszközt.</string>
+
     <!--Other Dialogs-->
     <string name="no_root_description">Vagy nem érhető el a su alkalmazás kódja, vagy nem adtál root jogosultságot az AdAway-nek.\n\nEz olyan esetekben fordulhat elő, ha az eszközöd nincs rootolva.\nAz eszközöd rootolásának folyamatáról a wiki.lineageos.org és egyéb Androidos weboldalak adnak bővebb információt.</string>
     <string name="no_root_title">Rootolt Android szükséges</string>
