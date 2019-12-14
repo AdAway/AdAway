@@ -1,16 +1,15 @@
 package org.adaway.ui.lists;
 
-import androidx.annotation.NonNull;
-
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
@@ -76,6 +75,9 @@ class ListsAdapter extends ListAdapter<HostListItem, ListsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HostListItem item = getItem(position);
+        if (item == null) { // Data might be null if not loaded yet
+            return;
+        }
         holder.enabledCheckBox.setChecked(item.isEnabled());
         holder.enabledCheckBox.setOnClickListener(view -> viewCallback.toggleItemEnabled(item));
         holder.hostTextView.setText(item.getHost());

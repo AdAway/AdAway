@@ -1,6 +1,7 @@
 package org.adaway.db.dao;
 
 import androidx.lifecycle.LiveData;
+import androidx.paging.DataSource;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -41,13 +42,13 @@ public interface HostListItemDao {
     List<HostListItem> getAll();
 
     @Query("SELECT * FROM hosts_lists WHERE type = 0 ORDER BY host ASC")
-    LiveData<List<HostListItem>> loadBlackList();
+    DataSource.Factory<Integer, HostListItem> loadBlackList();
 
     @Query("SELECT * FROM hosts_lists WHERE type = 1 ORDER BY host ASC")
-    LiveData<List<HostListItem>> loadWhiteList();
+    DataSource.Factory<Integer, HostListItem> loadWhiteList();
 
     @Query("SELECT * FROM hosts_lists WHERE type = 2 ORDER BY host ASC")
-    LiveData<List<HostListItem>> loadRedirectionList();
+    DataSource.Factory<Integer, HostListItem> loadRedirectionList();
 
     @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 0 AND enabled = 1")
     LiveData<Integer> getBlockedHostCount();

@@ -28,6 +28,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
+import androidx.paging.PagedList;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -37,8 +38,6 @@ import org.adaway.db.entity.ListType;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
-import java.util.List;
-
 /**
  * This class is a {@link AbstractListFragment} to display and manage white-listed hosts.
  *
@@ -46,7 +45,7 @@ import java.util.List;
  */
 public class WhiteListFragment extends AbstractListFragment {
     @Override
-    protected LiveData<List<HostListItem>> getData() {
+    protected LiveData<PagedList<HostListItem>> getData() {
         return this.mViewModel.getWhiteListItems();
     }
 

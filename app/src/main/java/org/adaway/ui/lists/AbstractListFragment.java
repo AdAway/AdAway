@@ -16,14 +16,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
-
-import java.util.List;
 
 /**
  * This class is a {@link Fragment} to display and manage lists of {@link ListsFragment}.
@@ -173,7 +172,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         }
     }
 
-    protected abstract LiveData<List<HostListItem>> getData();
+    protected abstract LiveData<PagedList<HostListItem>> getData();
 
     protected boolean isTwoRowsItem() {
         return false;

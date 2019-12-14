@@ -1,13 +1,13 @@
 package org.adaway.ui.lists;
 
 import android.app.Application;
-
-import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
-
 import android.database.sqlite.SQLiteConstraintException;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.paging.LivePagedListBuilder;
+import androidx.paging.PagedList;
 
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
@@ -16,8 +16,6 @@ import org.adaway.db.entity.ListType;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
-
-import java.util.List;
 
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 
@@ -29,22 +27,33 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 public class ListsViewModel extends AndroidViewModel {
 
     private final HostListItemDao hostListItemDao;
+    private final LiveData<PagedList<HostListItem>> blackListItems;
+    private final LiveData<PagedList<HostListItem>> whiteListItems;
+    private final LiveData<PagedList<HostListItem>> redirectionListItems;
 
     public ListsViewModel(@NonNull Application application) {
         super(application);
         this.hostListItemDao = AppDatabase.getInstance(getApplication()).hostsListItemDao();
+        PagedList.Config pagingConfig = new PagedList.Config.Builder()
+                .setPageSize(50)
+                .setPrefetchDistance(150)
+                .setEnablePlaceholders(true)
+                .build();
+        this.blackListItems = new LivePagedListBuilder<>(this.hostListItemDao.loadBlackList(), pagingConfig).build();
+        this.whiteListItems = new LivePagedListBuilder<>(this.hostListItemDao.loadWhiteList(), pagingConfig).build();
+        this.redirectionListItems = new LivePagedListBuilder<>(this.hostListItemDao.loadWhiteList(), pagingConfig).build();
     }
 
-    public LiveData<List<HostListItem>> getBlackListItems() {
-        return this.hostListItemDao.loadBlackList();
+    public LiveData<PagedList<HostListItem>> getBlackListItems() {
+        return this.blackListItems;
     }
 
-    public LiveData<List<HostListItem>> getWhiteListItems() {
-        return this.hostListItemDao.loadWhiteList();
+    public LiveData<PagedList<HostListItem>> getWhiteListItems() {
+        return this.whiteListItems;
     }
 
-    public LiveData<List<HostListItem>> getRedirectionListItems() {
-        return this.hostListItemDao.loadRedirectionList();
+    public LiveData<PagedList<HostListItem>> getRedirectionListItems() {
+        return this.redirectionListItems;
     }
 
     public void toggleItemEnabled(HostListItem item) {

@@ -26,17 +26,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.LiveData;
+import androidx.paging.PagedList;
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
-
-import java.util.List;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.LiveData;
 
 import static org.adaway.db.entity.ListType.BLOCKED;
 
@@ -47,7 +46,7 @@ import static org.adaway.db.entity.ListType.BLOCKED;
  */
 public class BlackListFragment extends AbstractListFragment {
     @Override
-    protected LiveData<List<HostListItem>> getData() {
+    protected LiveData<PagedList<HostListItem>> getData() {
         return this.mViewModel.getBlackListItems();
     }
 
