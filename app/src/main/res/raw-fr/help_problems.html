@@ -5,18 +5,22 @@ And don't add newlines before or after p tags because of transifex -->
 <html>
 <head><title>Problèmes courants</title></head>
 <body>
-<h2>Pas assez d’espace sur la partition</h2>
+<h2>Échec de la copie du fichier hosts sur Android 9 et plus</h2>
+<p>Les dernières version d'Android utilisent une partition <code>/system</code> en lecture seule.<br>
+Si vous utilisez Magisk comme solution de root, assurez-vous d'avoir activé le module hosts systemless puis redémarrez votre téléphone.</p>
+
+<h2>Il n’y a pas assez d’espace sur la partition</h2>
 <p>Essayez de changer le fichier hosts cible dans les préférences pour <code>/data/data/hosts</code> (ou <code>/data/hosts</code>) et appliquez AdAway de nouveau.</p>
 
 <h2>Ne fonctionne pas avec Android 4.4+</h2>
 <p>Essayez de changer le fichier hosts cible dans les préférences de <code>/data/data/hosts</code> à <code>/data/hosts</code> ou <code>/system/etc/hosts</code>, et appliquez AdAway de nouveau.</p>
 
 <h2>Les publicités ne sont pas bloquées dans l’application XYZ.</h2>
-<p>Il pourrait manquer certains noms d’hôtes dans les fichiers hosts qui proviennent des <cite>sources de fichiers hosts</cite>, ou les images sont comprises dans l’application afin d’afficher des publicités sans accès à Internet.<br><br>
-Vous pouvez journaliser les requêtes DNS (Menu-&gt;Journaliser les requêtes DNS) dans AdAway pour découvrir quels noms d’hôtes supplémentaires doivent être bloqués.
-<br><br>Ajoutez les noms d’hôte suspects à votre propre liste noire en appuyant longuement sur les entrées du journal et signalez-les après vérification sur le forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> de <a href="http://hosts-file.net">hosts-file.net</a> (site en anglais).</p>
+<p>Il pourrait manquer certains noms d’hôtes dans les fichiers hosts des <cite>sources de fichiers hosts</cite> ou l’application a intégré les images afin de servir des publicités sans accéder à Internet.<br><br>
+Vous pouvez utiliser AdAway pour journaliser les requêtes DNS (Menu-&gt;Journaliser les requêtes DNS) et pour découvrir quels noms d’hôtes supplémentaires doivent être bloqués.
+<br><br>Ajoutez les noms d’hôte suspects à votre propre liste noire en appuyant longuement sur les entrées du journal et signalez ces noms d’hôte après les avoir vérifié sur le forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> de <a href="http://hosts-file.net">hosts-file.net</a> (site en anglais).</p>
 
-<h2>Publicités dans le cache</h2>
+<h2>Publicités mis en cache</h2>
 <p>Parfois, les applications mettent dans le cache les publicités après téléchargement. C’est pourquoi, il reste des publicités dans certaines applications. Vous pouvez essayer de supprimer le cache de ces applications dans le gestionnaire d’applications d’Android pour contourner ce problème.</p>
 
 <h2>L’application XYZ ne fonctionne plus.</h2>
