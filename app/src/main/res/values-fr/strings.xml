@@ -108,7 +108,7 @@
     <string name="apply_help">Veuillez lire l’aide pour plus de précisions.</string>
     <string name="apply_apn_proxy">Un mandataire APN est configuré sur votre Android !\nAdAway ne fonctionnera pas de manière fiable sur les réseaux mobiles tels que le 3G. Vous pouvez désactiver ce mandataire en allant à l’APN choisi (dans l’appli Paramètres : Réseau et Internet -&gt; Réseau cellulaire -&gt; Avancés -&gt; Nom des points d’accès) et en supprimant la valeur dans le champ « Serveur mandataire »</string>
     <string name="apply_apn_proxy_title">Le mandataire APN est configuré</string>
-    <string name="no_connection">La connexion à Internet me fonctionne pas.</string>
+    <string name="no_connection">La connexion à Internet ne fonctionne pas.</string>
     <string name="no_connection_title">Aucune connexion</string>
     <string name="download_dialog">Téléchargement…</string>
     <string name="apply_dialog">Mise en place...</string>
@@ -137,7 +137,7 @@
     <string name="disable_systemless_magisk">Désactiver la fonction Fichier hosts sans système du gestionnaire Magisk. Dans la liste des modules, désinstallez le module <cite>Systemless hosts</cite>, puis redémarrez votre appareil.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès root à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé.\nVous trouverez des informations sur comment débrider votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
+    <string name="no_root_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès root à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé.\nVous trouverez des renseignements sur comment débrider votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
     <string name="no_root_title">Un Android débridé est exigé</string>
     <string name="hosts_add_dialog">Ajouter une URL au fichier hosts :</string>
     <string name="no_hostname">Ce n’est pas un nom d’hôte valide</string>
@@ -277,7 +277,7 @@
 
     <!--Telemetry-->
     <string name="dialog_telemetry_title">Télémétrie</string>
-    <string name="dialog_telemetry_message">Bonjour chère utilisatrice, cher utilisateur,\n\nVous pourriez participer maintenant au développement d’AdAway en partageant vos relevés de plantage ainsi que des informations de base sur l’utilisation. Toutes les données sont anonymes et la télémétrie ne sera activée que si vous y consentez.\n\nVous trouverez plus de détails sur <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
+    <string name="dialog_telemetry_message">Bonjour chère utilisatrice, cher utilisateur,\n\nVous pourriez participer maintenant au développement d’AdAway en partageant vos relevés de plantage ainsi que des renseignements de base sur l’utilisation. Toutes les données sont anonymes et la télémétrie ne sera activée que si vous y consentez.\n\nVous trouverez plus de précisions sur <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
     <string name="dialog_telemetry_enable">Bien sûr, c’est avec plaisir que je vous aide !</string>
     <string name="dialog_telemetry_disable">Non merci</string>
 

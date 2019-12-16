@@ -23,7 +23,7 @@
     <string name="button_check_update_hosts">Controlla aggiornamenti</string>
     <string name="button_update_hosts">Aggiorna gli hosts</string>
     <string name="button_enable_hosts">Abilita il blocco della pubblicità</string>
-    <string name="button_disable_hosts">Disablita il blocco della pubblicità</string>
+    <string name="button_disable_hosts">Disabilita il blocco della pubblicità</string>
     <string name="header_webserver">Web server</string>
     <string name="webserver_status_running">In funzione</string>
     <string name="webserver_status_stopped">Fermo</string>
@@ -215,7 +215,7 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_redirection_ipv6_summary">Tutti gli hostname bloccati vengono reindirizzati a questo indirizzo IPv6.</string>
     <string name="pref_header_preferences">Preferenze</string>
     <string name="pref_header_preferences_summary">Preferenze generali per AdAway</string>
-    <string name="pref_never_reboot">Nascondi finestra di dialogo di riavvio.</string>
+    <string name="pref_never_reboot">Nascondi la richiesta di riavvio</string>
     <string name="pref_never_reboot_summary">Nascondi la finestra di dialogo che chiede di riavviare Android dopo aver applicato le modifiche.</string>
     <string name="pref_webserver_on_boot">Avvia il webserver all\'avvio del telefono</string>
     <string name="pref_webserver_on_boot_summary">Abilita il webserver in ascolto sull\'indirizzo locale all\'avvio del telefono</string>

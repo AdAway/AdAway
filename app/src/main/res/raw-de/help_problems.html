@@ -5,6 +5,10 @@ And don't add newlines before or after p tags because of transifex -->
 <html>
 <head><title>Häufige Probleme</title></head>
 <body>
+<h2>Copy of hosts file failed on Android 9+</h2>
+<p>Latest versions of Android use read-only <code>/system</code> partition.<br>
+If you are using Magisk as root solution, ensure you enable the systemless hosts module then reboot.</p>
+
 <h2>Auf der Partition ist nicht genügend Speicherplatz vorhanden</h2>
 <p>Versuchen Sie, das Zielverzeichnis der Hosts-Datei in den Einstellungen auf <code>/data/data/hosts</code> (oder <code>/data/hosts</code>) zu ändern, und wenden Sie AdAway erneut an.</p>
 

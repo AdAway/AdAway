@@ -11,12 +11,12 @@
     <string name="button_add">Tambah</string>
     <string name="button_cancel">Batal</string>
     <string name="button_save">Simpan</string>
-    <string name="button_webserver_toggle_text">Nyalakan atau metikan webserver lokal untuk menjawab permintaan dari hostname yang di blokir.</string>
+    <string name="button_webserver_toggle_text">Nyalakan atau matikan webserver lokal untuk menjawab permintaan dari hostname yang di blokir.</string>
     <string name="button_help">Bantuan</string>
 
     <!--Home-->
     <string name="header_help">Selamat Datang</string>
-    <string name="text_help">AdAway adalah perangkat lunak gratis dengan desain kode terbuka untuk memblokir iklan. AdAway menangkap alamat-alamat jaringan iklan untuk memblokirnya di perangkatmu.Ingin tahu lebih? Lihat bantuan di bawah!</string>
+    <string name="text_help">AdAway adalah perangkat lunak gratis dengan desain kode terbuka untuk memblokir iklan. AdAway menangkap alamat-alamat jaringan iklan untuk memblokirnya di perangkatmu.\nIngin tahu lebih? Lihat bantuan di bawah!</string>
     <string name="button_show_help">Tampilkan semua bantuan</string>
     <string name="icon_update_status">Keterangan pembaharuan</string>
     <string name="text_update">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
@@ -127,6 +127,8 @@
     <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
     <string name="enable_systemless_successful_title">Aktivasi berhasil</string>
     <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
+    <string name="enable_systemless_magisk_title">Mengaktifkan modul hosts Magisk</string>
+    <string name="disable_systemless_magisk_title">Menonaktifkan modul hosts Magisk</string>
     <!--Other Dialogs-->
     <string name="no_root_description">Aplikasi su tidak dapat ditemukan atau AdAway tidak diberikan akses root.\n\nIni dapat terjadi jika perangkat anda tidak di-root.\nTemukan informasi tentang cara melakukan root pada wiki.lineageos.org atau situs android lainnya.</string>
     <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>

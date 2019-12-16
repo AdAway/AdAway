@@ -20,8 +20,12 @@
     <string name="text_update">Kaikki hosts-tiedostot määritellyistä lähteistä ovat ladattu, yhdistyi luetteloihin ja asenettu yhdeksi hosts-tiedostoksi.</string>
     <string name="button_check_update_hosts">Tarkista päivitykset</string>
     <string name="button_update_hosts">Päivitä hosts-tiedosto</string>
+    <string name="header_webserver">Web-palvelin</string>
     <string name="webserver_status_running">Käynnissä</string>
     <string name="webserver_status_stopped">Pysäytetty</string>
+    <string name="button_enable_webserver">Ota web-palvelin käyttöön</string>
+    <string name="button_disable_webserver">Ota web-palvelin pois käytöstä</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Poista</string>
     <string name="checkbox_list_context_title">Muokka merkintää</string>
