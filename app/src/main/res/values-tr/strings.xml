@@ -131,6 +131,11 @@
     <string name="enable_systemless_successful_title">Etkinleştirme başarılı</string>
     <string name="disable_systemless_successful">Sistemsiz modu devre dışı bıraktınız.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz?\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
     <string name="disable_systemless_successful_title">Başarıyla devre dışı bırakıldı</string>
+    <string name="enable_systemless_magisk_title">Hosts Magisk Modülü\'nü etkinleştiriliyor</string>
+    <string name="enable_systemless_magisk">Magisk yöneticisinden sistemsiz hosts özelliğini etkinleştirin. Magisk ayarlarından, <cite>Sistemsiz hosts</cite> seçeneğini etkinleştirin ve ardından cihazınızı yeniden başlatın.</string>
+    <string name="disable_systemless_magisk_title">Hosts Magisk Modülü\'nü devre dışı bırakılıyor</string>
+    <string name="disable_systemless_magisk">Magisk yöneticisinden sistemsiz hosts özelliğini devre dışı bırakın. Modül listesinden, <cite>sistemsiz hosts</cite> modülünü kaldırın ve cihazınızı yeniden başlatın.</string>
+
     <!--Other Dialogs-->
     <string name="no_root_description">Su binary dosyası bulunamadı veya AdAway için kök erişimi izni sağlanmadı.\n\nEğer cihazınızda kök erişimi sağlanmadıysa bu yaşanabilir.\nDetaylı bilgi ve cihazınızda nasıl kök erişimi sağlanacağını öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
     <string name="no_root_title">Root izni gereklidir</string>
