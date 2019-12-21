@@ -1,3 +1,8 @@
+## [4.3.1] - 2019-12-21
+
+- Update help to include Magisk systemless module for read-only system partition
+- Update translations
+
 ## [4.3.0] - 2019-11-01
 
 - Fix root not requested
