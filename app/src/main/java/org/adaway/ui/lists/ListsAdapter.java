@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
 
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
+
 /**
  * This class is a the {@link RecyclerView.Adapter} for the hosts list view.
  *
@@ -78,13 +80,15 @@ class ListsAdapter extends ListAdapter<HostListItem, ListsAdapter.ViewHolder> {
         if (item == null) { // Data might be null if not loaded yet
             return;
         }
+        boolean editable = item.getSourceId() == USER_SOURCE_ID;
+        holder.enabledCheckBox.setEnabled(editable);
         holder.enabledCheckBox.setChecked(item.isEnabled());
-        holder.enabledCheckBox.setOnClickListener(view -> viewCallback.toggleItemEnabled(item));
+        holder.enabledCheckBox.setOnClickListener(editable ? view -> viewCallback.toggleItemEnabled(item) : null);
         holder.hostTextView.setText(item.getHost());
         if (this.twoRows) {
             holder.redirectionTextView.setText(item.getRedirection());
         }
-        holder.itemView.setOnLongClickListener(view -> viewCallback.startAction(item, holder.itemView));
+        holder.itemView.setOnLongClickListener(editable ? view -> viewCallback.startAction(item, holder.itemView) : null);
     }
 
     /**

@@ -38,17 +38,14 @@ public interface HostListItemDao {
     @Query("SELECT * FROM hosts_lists WHERE type = 2 AND enabled = 1")
     List<HostListItem> getEnabledRedirectList();
 
+    @Query("SELECT * FROM hosts_lists WHERE type = :type AND host LIKE :query AND source_id IN(:sourceIds) ORDER BY host ASC")
+    DataSource.Factory<Integer, HostListItem> loadList(int type, int[] sourceIds, String query);
+
     @Query("SELECT * FROM hosts_lists ORDER BY host ASC")
     List<HostListItem> getAll();
 
-    @Query("SELECT * FROM hosts_lists WHERE type = 0 ORDER BY host ASC")
-    DataSource.Factory<Integer, HostListItem> loadBlackList();
-
-    @Query("SELECT * FROM hosts_lists WHERE type = 1 ORDER BY host ASC")
-    DataSource.Factory<Integer, HostListItem> loadWhiteList();
-
-    @Query("SELECT * FROM hosts_lists WHERE type = 2 ORDER BY host ASC")
-    DataSource.Factory<Integer, HostListItem> loadRedirectionList();
+    @Query("SELECT * FROM hosts_lists WHERE source_id = 1")
+    LiveData<List<HostListItem>> loadUserList();
 
     @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 0 AND enabled = 1")
     LiveData<Integer> getBlockedHostCount();

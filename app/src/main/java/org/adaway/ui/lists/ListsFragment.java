@@ -20,6 +20,7 @@
 
 package org.adaway.ui.lists;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,6 +33,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
@@ -63,13 +65,22 @@ public class ListsFragment extends Fragment {
      * The redirection tab index.
      */
     public static final int REDIRECTION_TAB = 2;
+    /**
+     * The view model.
+     */
+    private ListsViewModel listsViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Enable option menu
-        this.setHasOptionsMenu(true);
+        setHasOptionsMenu(true);
         // Create fragment view
         View view = inflater.inflate(R.layout.lists_fragment, container, false);
+        // Get activity
+        FragmentActivity activity = getActivity();
+        if (activity == null) {
+            return view;
+        }
         /*
          * Configure snackbar.
          */
@@ -77,18 +88,16 @@ public class ListsFragment extends Fragment {
         CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
         // Create install snackbar
         HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout);
-        // Bind snakbar to view models
-        ListsViewModel listsViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
-        listsViewModel.getBlackListItems().observe(this, installSnackbar.createObserver());
-        listsViewModel.getWhiteListItems().observe(this, installSnackbar.createObserver());
-        listsViewModel.getRedirectionListItems().observe(this, installSnackbar.createObserver());
+        // Bind snackbar to view models
+        this.listsViewModel = ViewModelProviders.of(activity).get(ListsViewModel.class);
+        this.listsViewModel.getUserListItems().observe(this, installSnackbar.createObserver());
         /*
          * Configure tabs.
          */
         // Get view pager
-        final ViewPager viewPager = view.findViewById(R.id.lists_view_pager);
+        ViewPager viewPager = view.findViewById(R.id.lists_view_pager);
         // Create pager adapter
-        final ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(this.getActivity(), this.getFragmentManager());
+        ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(activity, getFragmentManager());
         // Set view pager adapter
         viewPager.setAdapter(pagerAdapter);
         // Get navigation view
@@ -143,28 +152,25 @@ public class ListsFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.backup_menu, menu);
+        inflater.inflate(R.menu.list_menu, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Check item identifier
-        switch (item.getItemId()) {
-            case R.id.menu_import:
-                // Check read storage permission
-//                if (checkPermission(READ_EXTERNAL_STORAGE)) {
-//                    importFromBackup();
-//                }
-                return true;
-            case R.id.menu_export:
-                // Check write storage permission
-//                if (checkPermission(WRITE_EXTERNAL_STORAGE)) {
-//                    exportToBackup();
-//                }
-                return true;
-            default:
-                // Delegate item selection
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_filter) {
+            openFilterDialog();
+            return true;
         }
+        // Delegate item selection
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void openFilterDialog() {
+        Context context = getContext();
+        if (context == null || this.listsViewModel == null) {
+            return;
+        }
+        ListsFilterDialog.show(context, this.listsViewModel.getFilter(), this.listsViewModel::applyFilter);
     }
 }

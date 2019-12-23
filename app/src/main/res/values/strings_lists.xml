@@ -5,6 +5,13 @@
     <string name="lists_tab_blocked">Blocked</string>
     <string name="lists_tab_allowed">Allowed</string>
     <string name="lists_tab_redirected">Redirected</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Filter hosts</string>
+    <!-- Filter dialog -->
+    <string name="lists_filter_host_title">Filter host name:</string>
+    <string name="lists_filter_include_sources">Include hosts from sources</string>
+    <string name="lists_filter_apply">Apply</string>
+    <string name="lists_filter_reset">Reset</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Add host to blacklist</string>
     <string name="list_add_dialog_white">Add host to whitelist</string>

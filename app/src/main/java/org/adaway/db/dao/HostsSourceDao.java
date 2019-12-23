@@ -35,6 +35,9 @@ public interface HostsSourceDao {
     @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
     List<HostsSource> getAll();
 
+    @Query("SELECT id FROM hosts_sources")
+    int[] getAllIds();
+
     @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
     LiveData<List<HostsSource>> loadAll();
 

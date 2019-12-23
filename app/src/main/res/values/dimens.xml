@@ -5,6 +5,6 @@
     <dimen name="card_spacing">8dp</dimen>
     <dimen name="card_inner_padding">16dp</dimen>
     <!-- Dialog -->
-    <dimen name="dialog_spacing">8dp</dimen>
+    <dimen name="dialog_spacing">16dp</dimen>
     <dimen name="dialog_inner_padding">16dp</dimen>
 </resources>

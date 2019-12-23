@@ -1,6 +1,5 @@
 package org.adaway.ui.lists;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ActionMode;
@@ -14,6 +13,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.paging.PagedList;
@@ -37,7 +37,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
     /**
      * The current activity (<code>null</code> if view is not created).
      */
-    protected Activity mActivity;
+    protected FragmentActivity mActivity;
     /**
      * The current action mode when item is selection (<code>null</code> if no action started).
      */
@@ -138,7 +138,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
          * Load data.
          */
         // Get view model and bind it to the list view
-        this.mViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
+        this.mViewModel = ViewModelProviders.of(this.mActivity).get(ListsViewModel.class);
         getData().observe(this, adapter::submitList);
         // Return created view
         return view;
