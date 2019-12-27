@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.IdRes;
@@ -34,7 +35,6 @@ import org.adaway.helper.ThemeHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.update.Manifest;
 import org.adaway.ui.help.HelpActivity;
-import org.adaway.ui.home.ListsViewModel;
 import org.adaway.ui.hosts.HostsSourcesActivity;
 import org.adaway.ui.lists.ListsActivity;
 import org.adaway.ui.prefs.PrefsActivity;
@@ -98,6 +98,7 @@ public class NextActivity extends AppCompatActivity {
         applyActionBar();
         bindAppVersion();
         bindHostCounter();
+        bindSourceCounter();
         bindClickListeners();
         setUpBottomDrawer();
         bindFab();
@@ -155,32 +156,47 @@ public class NextActivity extends AppCompatActivity {
     }
 
     private void bindHostCounter() {
-        ListsViewModel listsViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
         Resources resources = getResources();
         Function<Integer, CharSequence> stringMapper = count -> Integer.toString(count);
 
         TextView blockedHostCountTextView = findViewById(R.id.blockedHostCounterTextView);
         TextView blockedHostTextView = findViewById(R.id.blockedHostTextView);
-        LiveData<Integer> blockedHostCounter = listsViewModel.getBlockedHostCount();
-        Transformations.map(blockedHostCounter, stringMapper).observe(this, blockedHostCountTextView::setText);
-        blockedHostCounter.observe(this, count ->
+        LiveData<Integer> blockedHostCount = this.nextViewModel.getBlockedHostCount();
+        Transformations.map(blockedHostCount, stringMapper).observe(this, blockedHostCountTextView::setText);
+        blockedHostCount.observe(this, count ->
                 blockedHostTextView.setText(resources.getQuantityText(R.plurals.blocked_hosts_label, count))
         );
 
         TextView allowedHostCountTextView = findViewById(R.id.allowedHostCounterTextView);
         TextView allowedHostTextView = findViewById(R.id.allowedHostTextView);
-        LiveData<Integer> allowedHostCounter = listsViewModel.getAllowedHostCount();
-        Transformations.map(allowedHostCounter, stringMapper).observe(this, allowedHostCountTextView::setText);
-        allowedHostCounter.observe(this, count ->
+        LiveData<Integer> allowedHostCount = this.nextViewModel.getAllowedHostCount();
+        Transformations.map(allowedHostCount, stringMapper).observe(this, allowedHostCountTextView::setText);
+        allowedHostCount.observe(this, count ->
                 allowedHostTextView.setText(resources.getQuantityText(R.plurals.allowed_hosts_label, count))
         );
 
         TextView redirectHostCountTextView = findViewById(R.id.redirectHostCounterTextView);
         TextView redirectHostTextView = findViewById(R.id.redirectHostTextView);
-        LiveData<Integer> redirectHostCounter = listsViewModel.getRedirectHostCount();
-        Transformations.map(redirectHostCounter, stringMapper).observe(this, redirectHostCountTextView::setText);
-        redirectHostCounter.observe(this, count ->
+        LiveData<Integer> redirectHostCount = this.nextViewModel.getRedirectHostCount();
+        Transformations.map(redirectHostCount, stringMapper).observe(this, redirectHostCountTextView::setText);
+        redirectHostCount.observe(this, count ->
                 redirectHostTextView.setText(resources.getQuantityText(R.plurals.redirect_hosts_label, count))
+        );
+    }
+
+    private void bindSourceCounter() {
+        Resources resources = getResources();
+
+        TextView upToDateSourcesTextView = findViewById(R.id.upToDateSourcesTextView);
+        LiveData<Integer> upToDateSourceCount = this.nextViewModel.getUpToDateSourceCount();
+        upToDateSourceCount.observe(this, count ->
+                upToDateSourcesTextView.setText(resources.getQuantityString(R.plurals.up_to_date_source_label, count, count))
+        );
+
+        TextView outdatedSourcesTextView = findViewById(R.id.outdatedSourcesTextView);
+        LiveData<Integer> outdatedSourceCount = this.nextViewModel.getOutdatedSourceCount();
+        outdatedSourceCount.observe(this, count ->
+                outdatedSourcesTextView.setText(resources.getQuantityString(R.plurals.outdated_source_label, count, count))
         );
     }
 
@@ -193,6 +209,10 @@ public class NextActivity extends AppCompatActivity {
         redirectHostHostCardView.setOnClickListener(v -> startHostListActivity(REDIRECTION_TAB));
         CardView sourcesCardView = findViewById(R.id.sourcesCardView);
         sourcesCardView.setOnClickListener(this::startHostsSourcesActivity);
+        ImageView checkForUpdateImageView = findViewById(R.id.checkForUpdateImageView);
+        checkForUpdateImageView.setOnClickListener(this::updateHostsList);
+        ImageView updateImageView = findViewById(R.id.updateImageView);
+        updateImageView.setOnClickListener(this::syncHostsList);
         CardView helpCardView = findViewById(R.id.helpCardView);
         helpCardView.setOnClickListener(this::startHelpActivity);
         CardView projectCardView = findViewById(R.id.projectCardView);
@@ -224,7 +244,7 @@ public class NextActivity extends AppCompatActivity {
                 return true;
 //                break;
             case R.id.action_update:
-                this.syncHostsList();
+                syncHostsList(null); // TODO
                 return true;
             case R.id.action_show_log:
                 // TODO
@@ -255,11 +275,34 @@ public class NextActivity extends AppCompatActivity {
     /**
      * Start hosts source activity.
      *
-     * @param view The source view event.
+     * @param view The event source view.
      */
     private void startHostsSourcesActivity(@SuppressWarnings("unused") View view) {
         startActivity(new Intent(this, HostsSourcesActivity.class));
     }
+
+    /**
+     * Update the hosts list status.
+     *
+     * @param view The event source view.
+     */
+    private void updateHostsList(@SuppressWarnings("unused") View view) {
+        notifyUpdating(true);
+        this.nextViewModel.update();
+        notifyUpdating(false);
+    }
+
+    /**
+     * Synchronize the hosts list.
+     *
+     * @param view The event source view.
+     */
+    private void syncHostsList(@SuppressWarnings("unused") View view) {
+        notifyUpdating(true);
+        this.nextViewModel.sync();
+        notifyUpdating(false);
+    }
+
 
     /**
      * Start help activity.
@@ -308,14 +351,6 @@ public class NextActivity extends AppCompatActivity {
         startActivity(new Intent(this, PrefsActivity.class));
     }
 
-    /**
-     * Synchronize the hosts list.
-     */
-    private void syncHostsList() {
-        this.notifyUpdating(true);
-        this.nextViewModel.sync();
-        this.notifyUpdating(false);
-    }
 
     private void notifyAdBlocked(boolean adBlocked) {
         FrameLayout layout = findViewById(R.id.headerFrameLayout);

@@ -49,4 +49,10 @@ public interface HostsSourceDao {
 
     @Query("UPDATE hosts_sources SET last_modified_local = NULL")
     void clearLocalModificationDates();
+
+    @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online > last_modified_local + 24 * 60 * 60 * 1000")
+    LiveData<Integer> countOutdated();
+
+    @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online <= last_modified_local + 24 * 60 * 60 * 1000")
+    LiveData<Integer> countUpToDate();
 }
