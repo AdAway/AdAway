@@ -47,16 +47,16 @@ public interface HostListItemDao {
     @Query("SELECT * FROM hosts_lists WHERE source_id = 1")
     LiveData<List<HostListItem>> loadUserList();
 
-    @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 0 AND enabled = 1")
+    @Query("SELECT COUNT(id) FROM hosts_lists WHERE type = 0 AND enabled = 1")
     LiveData<Integer> getBlockedHostCount();
 
-    @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 1 AND enabled = 1")
+    @Query("SELECT COUNT(id) FROM hosts_lists WHERE type = 1 AND enabled = 1")
     LiveData<Integer> getAllowedHostCount();
 
-    @Query("SELECT COUNT(host) FROM hosts_lists WHERE type = 2 AND enabled = 1")
+    @Query("SELECT COUNT(id) FROM hosts_lists WHERE type = 2 AND enabled = 1")
     LiveData<Integer> getRedirectHostCount();
 
-    @Query("SELECT COUNT(host)>0 FROM hosts_lists WHERE type = 0 AND enabled = 1 AND host = :host")
+    @Query("SELECT COUNT(id)>0 FROM hosts_lists WHERE type = 0 AND enabled = 1 AND host = :host")
     boolean isHostBlocked(String host);
 
     @Query("DELETE FROM hosts_lists WHERE source_id = :sourceId")
