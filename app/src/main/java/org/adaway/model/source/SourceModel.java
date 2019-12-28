@@ -37,7 +37,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Observable;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -52,7 +51,7 @@ import static org.adaway.model.error.HostError.NO_CONNECTION;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class SourceModel extends Observable {
+public class SourceModel {
     /**
      * The log tag.
      */
@@ -450,7 +449,7 @@ public class SourceModel extends Observable {
     private void setStateAndDetails(@StringRes int stateResId, String details) {
         this.state = this.context.getString(stateResId);
 //        this.detailedState = details;
-        setChanged();
-        notifyObservers();
+//        setChanged();
+//        notifyObservers();
     }
 }
