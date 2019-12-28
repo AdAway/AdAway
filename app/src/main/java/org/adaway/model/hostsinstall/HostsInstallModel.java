@@ -103,7 +103,7 @@ public class HostsInstallModel extends AdBlockModel {
     @Override
     public void apply() throws HostErrorException {
         setStateAndDetails(R.string.apply_dialog, R.string.apply_dialog_hosts);
-        if (!this.checkHostsFileSymlink()) {
+        if (!checkHostsFileSymlink()) {
             throw new HostErrorException(SYMLINK_MISSING);
         }
         createNewHostsFile();
@@ -124,14 +124,14 @@ public class HostsInstallModel extends AdBlockModel {
     @Override
     public void revert() throws HostErrorException {
         // Update status
-        this.setStateAndDetails(R.string.status_reverting, R.string.status_reverting_subtitle);
+        setStateAndDetails(R.string.status_reverting, R.string.status_reverting_subtitle);
         try {
             // Revert hosts file
-            this.revertHostFile();
-            this.markHostsSourcesAsUninstalled();
-            this.setStateAndDetails(R.string.status_disabled, R.string.status_disabled_subtitle);
+            revertHostFile();
+            markHostsSourcesAsUninstalled();
+            setStateAndDetails(R.string.status_disabled, R.string.status_disabled_subtitle);
         } catch (IOException exception) {
-            this.setStateAndDetails(R.string.status_enabled, R.string.revert_problem);
+            setStateAndDetails(R.string.status_enabled, R.string.revert_problem);
             throw new HostErrorException(REVERT_FAIL, exception);
         }
     }
@@ -213,11 +213,11 @@ public class HostsInstallModel extends AdBlockModel {
      * @throws HostErrorException If the new hosts file could not be created.
      */
     private void createNewHostsFile() throws HostErrorException {
-        this.deleteNewHostsFile();
+        deleteNewHostsFile();
         try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(this.context.openFileOutput(HOSTS_FILENAME, MODE_PRIVATE)))) {
-            this.writeHostsHeader(writer);
-            this.writeLoopbackToHosts(writer);
-            this.writeHosts(writer);
+            writeHostsHeader(writer);
+            writeLoopbackToHosts(writer);
+            writeHosts(writer);
         } catch (IOException exception) {
             throw new HostErrorException(PRIVATE_FILE_FAIL, exception);
         }
