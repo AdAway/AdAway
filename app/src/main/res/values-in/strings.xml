@@ -103,8 +103,10 @@
     <string name="apply_success_dialog">Penerapan telah berhasil. Anda mungkin perlu melakukan reboot Android untuk perubahan berefek. Apakah Anda ingin reboot? (Untuk mencegah kehilangan data pastikan tidak ada aplikasi menggunakan sdcard saat ini!)</string>
     <string name="apply_symlink_successful">Symlink telah berhasil dibuat.\nIni mungkin membutuhkan memuat ulang Android untuk mendapatkan hasil dari perubahan.\n\nApakah anda ingin memuat ulang?\n(Untuk mencegah adanya kehilangan data, pastikan tidak ada aplikasi yang menggunakan kartu SD pada saat ini!)</string>
     <string name="apply_symlink_successful_title">Pembuatan symlink berhasil</string>
+    <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
     <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
+    <string name="apply_apn_proxy">Sebuah proksi APN terkonfigurasi pada Android mu!\nAdAway mungkin tidak berdungsi semestinya pada jaringan seperti 3G. Kamu bisa mematikan proksi pada APN terkonfigurasi (Pengaturan aplikasi: Jaringan &amp; Internet -> Jaringan Mobile -> Lanjutan -> Nama Akses Poin) dan hapus nilai pada kolom proksi.</string>
     <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
     <string name="no_connection">Koneksi internet tidak berfungsi.</string>
     <string name="no_connection_title">Tidak ada koneksi</string>
@@ -125,10 +127,15 @@
     <string name="download_fail_title">Download gagal</string>
     <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
     <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
+    <string name="enable_systemless_successful">Kamu mengaktifkan mode systemless.\nlt perlu sekiranya untuk memulai ulang Android agar perubahan efektif.\n\nIngin memulai ulang?\n(Untuk mencegah kehilangan data pastikan tidak ada aplikasi yang menggunakan kartu SD saat ini!)</string>
     <string name="enable_systemless_successful_title">Aktivasi berhasil</string>
+    <string name="disable_systemless_successful">Kamu mematikan mode systemless.\nlt perlu sekiranya untuk memulai ulang Android agar perubahan efektif.\n\nIngin memulai ulang?\n(Untuk mencegah kehilangan data pastikan tidak ada aplikasi yang menggunakan kartu SD saat ini!)</string>
     <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
     <string name="enable_systemless_magisk_title">Mengaktifkan modul hosts Magisk</string>
+    <string name="enable_systemless_magisk">Aktifkan fitur systemless host dari Magisk Manager. Melalui pengaturan, aktifkan pilihan <cite>Systemless hosts</cite> lalu mulai ulang perangkatmu.</string>
     <string name="disable_systemless_magisk_title">Menonaktifkan modul hosts Magisk</string>
+    <string name="disable_systemless_magisk">Matikan fitur systemless host dari Magisk Manager. Dari daftar modul, uninstall modul <cite>Systemless hosts</cite> lalu mulai ulang perangkatmu.</string>
+
     <!--Other Dialogs-->
     <string name="no_root_description">Aplikasi su tidak dapat ditemukan atau AdAway tidak diberikan akses root.\n\nIni dapat terjadi jika perangkat anda tidak di-root.\nTemukan informasi tentang cara melakukan root pada wiki.lineageos.org atau situs android lainnya.</string>
     <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
