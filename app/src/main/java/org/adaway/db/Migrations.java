@@ -26,7 +26,7 @@ class Migrations {
             database.execSQL("DROP TABLE `hosts_sources`");
             database.execSQL("ALTER TABLE `hosts_sources_new` RENAME TO `hosts_sources`");
             // Add hosts list source id and migrate data
-            database.execSQL("CREATE TABLE `hosts_lists_new` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `host` TEXT NOT NULL, `type` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `redirection` TEXT, `source_id` INTEGER NOT NULL, FOREIGN KEY(`source_id`) REFERENCES `hosts_sources`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )");
+            database.execSQL("CREATE TABLE `hosts_lists_new` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `host` TEXT NOT NULL, `type` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `redirection` TEXT, `source_id` INTEGER NOT NULL, FOREIGN KEY(`source_id`) REFERENCES `hosts_sources`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )");
             database.execSQL("INSERT INTO `hosts_lists_new` (`host`, `type`, `enabled`, `redirection`, `source_id`) SELECT `host`, `type`, `enabled`, `redirection`, " + USER_SOURCE_ID + " FROM `hosts_lists`");
             database.execSQL("DROP TABLE `hosts_lists`");
             database.execSQL("ALTER TABLE `hosts_lists_new` RENAME TO `hosts_lists`");

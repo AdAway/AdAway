@@ -9,6 +9,8 @@ import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
+import static androidx.room.ForeignKey.CASCADE;
+
 /**
  * This entity represents a black, white or redirect list item.
  *
@@ -23,7 +25,9 @@ import java.util.Objects;
         foreignKeys = @ForeignKey(
                 entity = HostsSource.class,
                 parentColumns = "id",
-                childColumns = "source_id"
+                childColumns = "source_id",
+                onUpdate = CASCADE,
+                onDelete = CASCADE
         )
 )
 public class HostListItem {

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "131f3d1754657b625e05fcea723a234b",
+    "identityHash": "e9b86296a34de1d881f8530fdf2c535d",
     "entities": [
       {
         "tableName": "hosts_sources",
@@ -52,14 +52,14 @@
             "columnNames": [
               "url"
             ],
-            "createSql": "CREATE UNIQUE INDEX `index_hosts_sources_url` ON `${TABLE_NAME}` (`url`)"
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_hosts_sources_url` ON `${TABLE_NAME}` (`url`)"
           }
         ],
         "foreignKeys": []
       },
       {
         "tableName": "hosts_lists",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `host` TEXT NOT NULL, `type` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `redirection` TEXT, `source_id` INTEGER NOT NULL, FOREIGN KEY(`source_id`) REFERENCES `hosts_sources`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `host` TEXT NOT NULL, `type` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `redirection` TEXT, `source_id` INTEGER NOT NULL, FOREIGN KEY(`source_id`) REFERENCES `hosts_sources`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -111,7 +111,7 @@
             "columnNames": [
               "host"
             ],
-            "createSql": "CREATE UNIQUE INDEX `index_hosts_lists_host` ON `${TABLE_NAME}` (`host`)"
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_hosts_lists_host` ON `${TABLE_NAME}` (`host`)"
           },
           {
             "name": "index_hosts_lists_source_id",
@@ -119,14 +119,14 @@
             "columnNames": [
               "source_id"
             ],
-            "createSql": "CREATE  INDEX `index_hosts_lists_source_id` ON `${TABLE_NAME}` (`source_id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_hosts_lists_source_id` ON `${TABLE_NAME}` (`source_id`)"
           }
         ],
         "foreignKeys": [
           {
             "table": "hosts_sources",
-            "onDelete": "NO ACTION",
-            "onUpdate": "NO ACTION",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
             "columns": [
               "source_id"
             ],
@@ -137,9 +137,10 @@
         ]
       }
     ],
+    "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"131f3d1754657b625e05fcea723a234b\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e9b86296a34de1d881f8530fdf2c535d')"
     ]
   }
 }
