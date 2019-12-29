@@ -1,3 +1,8 @@
+## [4.3.2] - 2019-12-29
+
+- Fix GitLab source hosting
+- Update translations
+
 ## [4.3.1] - 2019-12-21
 
 - Update help to include Magisk systemless module for read-only system partition
