@@ -50,7 +50,7 @@ public class GitLabHostsSource extends GitHostsSource {
 
     GitLabHostsSource(String url) throws MalformedURLException {
         // Use custom date format
-        this.dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", US);
+        this.dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", US);
         // Check URL path
         URL parsedUrl = new URL(url);
         String path = parsedUrl.getPath();
