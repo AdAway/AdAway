@@ -61,7 +61,7 @@ public enum HostsInstallLocation {
     public abstract String getTarget(Context context);
 
     public boolean requireSymlink(Context context) {
-        String target = this.getTarget(context);
+        String target = getTarget(context);
         // Resolve symlink
         String hosts = new SuFile(ANDROID_SYSTEM_ETC_HOSTS).getCanonicalPath();
         return !target.equals(hosts);
