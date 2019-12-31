@@ -131,6 +131,11 @@
     <string name="enable_systemless_successful_title">Aktivering lyckades</string>
     <string name="disable_systemless_successful">Du inaktiverade systemlöst läge.\nDet kan bli nödvändigt att starta om enheten för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra dataförlust se till att ingen app använder SD-kortet för tillfället!)</string>
     <string name="disable_systemless_successful_title">Inaktivering lyckades</string>
+    <string name="enable_systemless_magisk_title">Aktiverar värdfil Magisk-modul</string>
+    <string name="enable_systemless_magisk">Aktivera systemlöst läge i Magisk manager. I inställningarna, aktivera alternativet <cite>Systemless hosts</cite> och starta sedan om enheten.</string>
+    <string name="disable_systemless_magisk_title">Inaktiverar värdfil Magisk-modul</string>
+    <string name="disable_systemless_magisk">Inaktivera systemlöst läge i Magisk manager. I modullistan, avinstallera modulen <cite>Systemless hosts</cite> och starta sedan om enheten.</string>
+
     <!--Other Dialogs-->
     <string name="no_root_description">Antingen så kunde binärfilen för su inte hittas eller så tillät du inte root-åtkomst för AdAway.\n\nDetta kan hända när din enhet inte är rootad.\nDu kan hitta mer information om hur du rootar din enhet på wiki.lineageos.org eller andra Android-hemsidor.</string>
     <string name="no_root_title">Rootad Android krävs</string>
