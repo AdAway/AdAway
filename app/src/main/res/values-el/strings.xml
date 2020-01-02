@@ -149,6 +149,11 @@
     <string name="enable_systemless_successful_title">Ενεργοποίηση επιτυχής</string>
     <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία systemless. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n\n(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!) </string>
     <string name="disable_systemless_successful_title">Απενεργοποίηση επιτυχής</string>
+    <string name="enable_systemless_magisk_title">Ενεργοποίηση hosts Magisk module </string>
+    <string name="enable_systemless_magisk">Ενεργοποίηση δυνατότητας systemless hosts από το Magisk manager. Από τις ρυθμίσεις του, ενεργοποιήστε την επιλογή <cite>Systemless hosts</cite> και στη συνέχεια επανεκκινήστε τη συσκευή σας.</string>
+    <string name="disable_systemless_magisk_title">Απενεργοποίηση hosts Magisk module</string>
+    <string name="disable_systemless_magisk">Απενεργοποίηση δυνατότητας systemless hosts από το Magisk manager. Από την λίστα στοιχείων, απεγκαταστήστε to <cite>Systemless hosts</cite> στοιχείο και στη συνέχεια επανεκκινήστε τη συσκευή σας.</string>
+
     <!--Other Dialogs-->
     <string name="no_root_description">Είτε το εκτελέσιμο su δεν βρέθηκε ή δεν παραχωρήσατε δικαιώματα υπερχρήστη στο AdAway.
 
