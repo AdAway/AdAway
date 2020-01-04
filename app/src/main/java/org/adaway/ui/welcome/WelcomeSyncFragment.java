@@ -19,8 +19,12 @@ import org.adaway.ui.next.NextViewModel;
 import static org.adaway.ui.welcome.WelcomeActivity.hideView;
 import static org.adaway.ui.welcome.WelcomeActivity.showView;
 
+/**
+ * This class is a fragment to first sync the main hosts source.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class WelcomeSyncFragment extends WelcomeFragment {
-
     private TextView headerTextView;
     private ProgressBar progressBar;
     private ImageView syncedImageView;
@@ -70,7 +74,8 @@ public class WelcomeSyncFragment extends WelcomeFragment {
 
     private void notifyError(HostError error) {
         String errorMessage = getResources().getText(error.getMessageKey()).toString();
-        String retryMessage = String.format(getResources().getText(R.string.welcome_sync_error).toString(), errorMessage);
+        String syncError = getResources().getText(R.string.welcome_sync_error).toString();
+        String retryMessage = String.format(syncError, errorMessage);
         this.errorTextView.setText(retryMessage);
         hideView(this.progressBar);
         showView(this.errorImageView);

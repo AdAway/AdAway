@@ -22,8 +22,12 @@ import org.adaway.R;
 
 import static org.adaway.ui.next.NextActivity.SUPPORT_LINK;
 
+/**
+ * This class is a fragment to inform user how to support the application development.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class WelcomeSupportFragment extends WelcomeFragment {
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

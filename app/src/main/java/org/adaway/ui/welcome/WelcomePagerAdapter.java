@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+/**
+ * This class is a pager adapter to create setup step fragments.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class WelcomePagerAdapter extends FragmentStateAdapter {
-
     private final WelcomeMethodFragment welcomeMethodFragment;
     private final WelcomeSyncFragment welcomeSyncFragment;
     private final WelcomeSupportFragment welcomeSupportFragment;
